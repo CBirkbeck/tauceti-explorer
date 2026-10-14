@@ -167046,8 +167046,8 @@
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
    "citation": "Shinichi Mochizuki, The Local Pro-p Anabelian Geometry of Curves, Author copy of Inventiones Mathematicae 138 (1999), 319–423; locators below use the author copy’s printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
-   "reviewReason": "Read the argument on author-copy p. 76: finiteness uses negative tangent degree and Hurwitz for dominant maps; the full Hom locus includes the family of constants. This is a qualification of notation, not a false endpoint theorem."
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
+   "reviewReason": "Reread author-copy p. 76: H_M=Hom_M(X_M,Y_M) is called finite and unramified by the vanishing of sections of the pulled-back tangent bundle and the Hurwitz degree bound, and both arguments apply only to nonconstant maps; the constant maps form a family isomorphic to Y_M. Nonconstant maps form an open and closed subscheme because the degree is locally constant, so restricting to it repairs the argument. Agrees with the earlier review."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E2",
@@ -167066,8 +167066,8 @@
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
    "citation": "Shinichi Mochizuki, The Profinite Grothendieck Conjecture for Closed Hyperbolic Curves over Number Fields, Journal of Mathematical Sciences, University of Tokyo 3 (1996), 571–627; publisher PDF",
    "status": "confirmed",
-   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
-   "reviewReason": "Read published pp. 593–594 and the author’s December 2012 correction (1): the argument and correction identify the image λ(L_r) with K_Y."
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
+   "reviewReason": "Reread published pp. 593–594: the argument of λ in the equation with K_Y is garbled in the printed text, and the author’s December 2012 comments, correction (1), state λ(L_r)=K_Y; the injectivity count that follows needs exactly this. Agrees with the earlier review."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E3",
@@ -167087,8 +167087,28 @@
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
    "citation": "Shinichi Mochizuki, The Geometry of the Compactification of the Hurwitz Scheme, Author copy of Publications of RIMS 31 (1995), 355–441; locators use the author copy’s printed pages",
    "status": "confirmed",
-   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
-   "reviewReason": "Read §3.9 p. 22 and §3.10 p. 24 of the author copy: the strict bound conflicts with the identity nodal cover, while the proof uses the weak bound. The three August 2017 comments address other items."
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
+   "reviewReason": "Reread author-copy §3.9, p. 22 (the parenthetical says e is necessarily less than d) against §3.10, p. 24, which uses e≤d to verify condition (1); the identity covering of a nodal curve has d=e=1 and is admissible. None of the three August 2017 comments concerns this bound. Agrees with the earlier review."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E4",
+   "kind": "gap",
+   "locator": "§5, Proposition 5.4, author-copy p. 34, applying Definition 4.3 and Proposition 4.4 of §4, whose standing hypothesis is that the curve has a K-rational point, author-copy pp. 28–31",
+   "printed": "Section 4 assumes that the proper curve has a K-rational point and uses a degree-one Picard point over K to define the canonical weight-zero section with which Definition 4.3 compares. Proposition 5.4 asserts that the image section of the target curve Y is J-geometric in the sense of Definition 4.3, but §5 assumes no K-point on Y and no K-point of its degree-one Picard scheme.",
+   "correction": "Apply the test for Y after a finite extension K′ over which Y has a point. Restriction to Γ_K′ is injective on H¹ of the weight-zero quotient, so the condition does not depend on K′ and agrees with Definition 4.3 whenever Y has a K-point. Proposition 5.4 holds in this reading, and its use in the proof of Proposition 7.4 compares only with constant sections defined over finite extensions.",
+   "reason": "The proof of Proposition 4.4 uses a section β of the same curve coming from a K-rational point, and the canonical section of Definition 4.3 is built from a Pic¹(K) point; neither exists in general for the target curve of §5. Over K′ both exist, and corestriction after restriction is multiplication by [K′:K], which is invertible on these Q_p-vector spaces, so restriction loses nothing.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Author papers page https://www.kurims.kyoto-u.ac.jp/~motizuki/papers-english.html, checked 2026-10-14: the only listed comments on this paper are those of 2019-06-28 (M99C)",
+    "Author June 2019 comments (M99C), both entries read 2026-10-14; they concern the appendix"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
+   "citation": "Shinichi Mochizuki, The Local Pro-p Anabelian Geometry of Curves, Author copy of Inventiones Mathematicae 138 (1999), 319–423; locators below use the author copy’s printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1~2",
+   "reviewReason": "Added by this review after reading author-copy pp. 28–34: §4 states the point hypothesis before Definition 4.3, and §5 applies the definition to the target curve without it. The j-geometric-section node now defines the test after a finite extension and asserts the Pic¹(K) characterization only when Pic¹(K) is nonempty."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC2-1",
@@ -167604,6 +167624,190 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for Modular Curves: Algorithms and Examples, arXiv:2101.01862v4; retained only for the version comparison",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-conjugation-eigenspaces",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §3, proof of Proposition 2, p.123 (published version).",
+   "printed": "For n odd, the right-hand side of the Euler characteristic formula, the dimension of the (−1)-eigenspace of complex conjugation on the graded piece Z_{n+1}\\Z_n, is asserted to be d_n/2, by comparison with complex Hodge theory.",
+   "correction": "The value d_n/2 holds when the graded piece is pure of odd weight, which is the compact case. In general the (−1)-eigenspace has dimension (d_n − τ_n)/2, where τ_n is the trace of complex conjugation on the graded piece, computed from its trace t on H₁ by τ_n = (1/n)Σ_{e|n} μ(e) t_e^{n/e} (t_e = t for odd e, t_e = m for even e). Either |t| < m and τ_n = o(d_n), or t = −m and conjugation acts by (−1)^n; in both cases the sum of the (+1)-eigenspace dimensions still grows like λ^n/n with λ > g, so Proposition 2 survives with this replacement.",
+   "reason": "For X = P¹ ∖ {0, 1, ∞} over Q, each graded piece is Q_p(n)^{d_n} and complex conjugation acts on Q_p(n) by (−1)^n, so for odd n the (−1)-eigenspace is the whole piece, of dimension d_n, not d_n/2. In the affine case the graded pieces are mixed (the boundary contributes Tate twists of even weight), and the Hodge-symmetry argument applies only to pure odd weight.",
+   "affects": "the proof",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.120–126",
+    "arXiv:math/0510441 (preprint of the same paper), §3",
+    "research/errata/REGISTER.md and the sourceIssues of the NC.0–NC.5 packets"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-h1-notation",
+   "kind": "misprint",
+   "locator": "Publ. RIMS 45 (2009), §3, proof of Lemma 6 (p.124) and proof of Observation 3 (p.125).",
+   "printed": "The coefficient module surjecting onto the graded piece in H², and the module in the exact sequence with Q_p(1)^{s−1} in the proof of Observation 3, are written as tensor powers of H¹(X̄, Q_p).",
+   "correction": "Read H₁ = H¹(X̄, Q_p)^∨ in both places: the graded pieces are quotients of H₁^{⊗n}, local duality turns H²(G_w, H₁^{⊗n}) into H⁰(G_w, H¹^{⊗n}(1)), and the extension 0 → Q_p(1)^{s−1} → H₁(X) → H₁(X′) → 0 holds for homology (for cohomology the boundary term is a quotient Q_p(−1)^{s−1}).",
+   "reason": "The lower central quotients of the unipotent fundamental group are generated by its abelianisation H₁, and the subsequent local estimate on p.124 uses the invariants of H¹^{⊗n}(1), which is the local dual of H₁^{⊗n}, not of H¹^{⊗n}.",
+   "affects": "nothing",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.122–126",
+    "arXiv:math/0510441, §3",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-purity-open",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §3, argument after Observation 2, p.122.",
+   "printed": "V_n is said to be pure of weight n − 2.",
+   "correction": "This holds when X is proper. For an affine curve, H¹(X̄) is mixed of weights 1 and 2 and V_n has weights in [n − 2, 2n − 2]; the argument still works because all weights are at least n − 2 ≥ 1 for n ≥ 3, so W_0E ∩ V_n = 0.",
+   "reason": "Conjecture 2 is stated for any smooth curve; for X = P¹ ∖ {0, 1, ∞}, V_n = Q_p(1 − n)^{2^n} is pure of weight 2n − 2, not n − 2.",
+   "affects": "the proof",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.121–122",
+    "arXiv:math/0510441, §3",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-rank-one",
+   "kind": "gap",
+   "locator": "Publ. RIMS 45 (2009), §4, pp.127 and 129.",
+   "printed": "Finiteness of integral points is claimed for CM elliptic curves over Q of rank 1 independently of any conjecture, and the dimension of the refined Selmer group of H¹(Ē, Q_p) is said to be 1 by the rank one hypothesis.",
+   "correction": "The computation needs the Bloch–Kato Selmer group of V_pE to have dimension one. Rank one of E(Q) gives this only together with finiteness of Ш(E)[p^∞], which is known for instance when the analytic rank is one (Gross–Zagier and Kolyvagin). State the hypothesis as Selmer rank one.",
+   "reason": "The Selmer group H¹_f(G_Q, V_pE) has dimension rank E(Q) + corank Ш(E)[p^∞]; without finiteness of the p-part of Ш the dimension can exceed the rank, and then the depth-two dimension count 1 < 2 is not established.",
+   "affects": "a stated result",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.127–130",
+    "arXiv:math/0510441, §4",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-prime-list",
+   "kind": "misprint",
+   "locator": "arXiv:1209.0640v4, §1.16, p.8.",
+   "printed": "The S-integral conjecture for the thrice-punctured line with S = {2} is said to hold in depth 2 for p = 3, 5, 6.",
+   "correction": "p = 3, 5, 7, as in §8.2 (p.49).",
+   "reason": "6 is not prime, and §8.2 reports the numerical check for p = 3, 5, 7 and failure from p = 11.",
+   "affects": "nothing",
+   "known": "new for v4; the published version (Math. Ann. 372 (2018)) was not read.",
+   "searched": [
+    "arXiv:1209.0640v4, pp.8 and 48–49",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers, A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves, arXiv:1209.0640v4; all locators use preprint pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-congruence-or",
+   "kind": "misprint",
+   "locator": "arXiv:1209.0640v4, §7.6, p.48.",
+   "printed": "The check is reported for d = 2 and all 3 ≤ p ≤ 53 with p ≡ 3 mod 8 and p ≡ 5 mod 8.",
+   "correction": "p ≡ 3 mod 8 or p ≡ 5 mod 8, the odd primes for which 2 is not a square in Q_p.",
+   "reason": "No prime satisfies both congruences; the construction needs d = 2 to be a nonsquare in Q_p, which holds exactly for p ≡ ±3 mod 8.",
+   "affects": "nothing",
+   "known": "new for v4; the published version was not read.",
+   "searched": [
+    "arXiv:1209.0640v4, pp.47–48",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers, A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves, arXiv:1209.0640v4; all locators use preprint pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-selmer-index",
+   "kind": "misprint",
+   "locator": "arXiv:1209.0640v4, §6.2, p.44.",
+   "printed": "In the case p ≡ 1 mod 3 the text says that Sel_1(X) still vanishes because H¹(G_T, Q_p(2)) = 0.",
+   "correction": "Sel_2(X) = 0: the vanishing of H¹(G_T, Q_p(2)) is what extends Sel_1(X) = 0 to depth two, as the next display (X(Z_p)_2 cut out by log z, log(1 − z), Li_2) requires.",
+   "reason": "Sel_1(X) = 0 was already shown in §6.1 from Q_p(1); the new graded piece at depth two is Q_p(2).",
+   "affects": "nothing",
+   "known": "new for v4; the published version was not read.",
+   "searched": [
+    "arXiv:1209.0640v4, pp.43–44",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers, A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves, arXiv:1209.0640v4; all locators use preprint pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-stix-theorem-reference",
+   "kind": "misprint",
+   "locator": "arXiv:0809.0017v1, Appendix B, Remark 46, p.22.",
+   "printed": "The remark refers to the assumptions of Theorem B.",
+   "correction": "Theorem 45, the only theorem of Appendix B.",
+   "reason": "No Theorem B exists in the paper; the remark follows Theorem 45 and discusses its divisibility hypothesis.",
+   "affects": "nothing",
+   "known": "new for v1; the published version (Adv. Stud. Pure Math. 63) was not read.",
+   "searched": [
+    "arXiv:0809.0017v1, pp.21–22",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Jakob Stix, On cuspidal sections of algebraic fundamental groups, arXiv:0809.0017v1 (2008); published in Galois–Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math. 63 (2012), 519–563. Locators use the arXiv v1 pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim2005-soule-range",
+   "kind": "misprint",
+   "locator": "arXiv:math/0409456v1, §3, end of the proof of the main theorem, p.18.",
+   "printed": "H¹(G_T, Q_p(2n+1)) is said to have dimension 1 for n ≥ 3, and the resulting bound ends with the term r_{2⌊n/2⌋}.",
+   "correction": "Dimension 1 for n ≥ 1 (all odd twists at least 3), and the bound runs over the odd indices 3, 5, …, up to the largest odd integer at most n.",
+   "reason": "Soulé's theorem gives dimension one for every odd twist m ≥ 3, and the bound already uses the terms r_3 and r_5 (twists 3 and 5); the graded pieces with nonzero H¹ are those of odd degree, while 2⌊n/2⌋ is even.",
+   "affects": "nothing",
+   "known": "new for v1; the published version (Invent. Math. 161 (2005)) was not read.",
+   "searched": [
+    "arXiv:math/0409456v1, pp.17–18",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel, arXiv:math/0409456v1 (2004); published in Invent. Math. 161 (2005), 629–656. Locators use the arXiv v1 pagination; the published version was not read.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -169638,9 +169842,9 @@
    "owner": "ArakelovGeometryAndAbelianHeights",
    "file": "research/blueprint/packets/ArakelovGeometryAndAbelianHeights.json",
    "citation": "Gerd Faltings, Endlichkeitssätze für abelsche Varietäten über Zahlkörpern, Invent. Math. 73 (1983), 349–366 (GDZ scan)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ArakelovGeometryAndAbelianHeights",
+   "reviewReason": "Read on the GDZ scan at p. 351 (§2, Bemerkung d)) and p. 354 (§3): the product is printed as (i/2)^g ∫ α ∧ β̄. In linear coordinates α ∧ ᾱ = (−1)^{g(g−1)/2}(−2i)^g dx_1 ∧ dy_1 ∧ ⋯ ∧ dx_g ∧ dy_g for α = dz_1 ∧ ⋯ ∧ dz_g, so the printed form is (−1)^{g(g−1)/2} times the volume, negative for g ≡ 2, 3 mod 4, while i^{g²}/2^g gives the volume. Deligne (Bourbaki 616, p. 26) records Faltings' choice as 2^{−g}|α ∧ ᾱ|, with an absolute value."
   },
   {
    "id": "ArakelovGeometryAndAbelianHeights/E2",
@@ -169658,9 +169862,9 @@
    "owner": "ArakelovGeometryAndAbelianHeights",
    "file": "research/blueprint/packets/ArakelovGeometryAndAbelianHeights.json",
    "citation": "Xinyi Yuan and Shou-Wu Zhang, On the averaged Colmez conjecture, Ann. of Math. 187 (2018), 533–638; arXiv:1507.06903v3 (with the November 2021 erratum appended)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ArakelovGeometryAndAbelianHeights",
+   "reviewReason": "Read at p. 12 of arXiv v3: the text says that a field E acting on A through an order is totally real or CM. A simpler counterexample than the packet's: for an elliptic curve B without CM, End⁰(B³) = M_3(ℚ) contains every cubic field, and ℤ[∛2] acts on B³ through its regular representation, although ℚ(∛2) is neither totally real nor CM. The paper only uses CM fields, so nothing downstream is affected."
   },
   {
    "id": "ArakelovGeometryAndAbelianHeights/E3",
@@ -169678,9 +169882,30 @@
    "owner": "ArakelovGeometryAndAbelianHeights",
    "file": "research/blueprint/packets/ArakelovGeometryAndAbelianHeights.json",
    "citation": "Xinyi Yuan and Shou-Wu Zhang, On the averaged Colmez conjecture, Ann. of Math. 187 (2018), 533–638; arXiv:1507.06903v3 (with the November 2021 erratum appended)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ArakelovGeometryAndAbelianHeights",
+   "reviewReason": "Read at p. 15 of arXiv v3 (proof of Theorem 2.3): O_{E,p} is asserted to be generated by one element over ℤ_p. If 2 splits completely in a quartic field E, O_E ⊗ ℤ_2 ≅ ℤ_2^4 has no single generator (a generator needs four distinct residues mod 2). After enlarging K so that the residue field of O_σ is large, O_E ⊗ O_σ is monogenic (each O_{E_𝔭} is monogenic over ℤ_p and the factors are combined by the Chinese remainder theorem), which is the form cm-hodge-filtration-local states."
+  },
+  {
+   "id": "ArakelovGeometryAndAbelianHeights/E4",
+   "kind": "misprint",
+   "locator": "§7.6, proof of Lemme 7.9, p. 33 (arXiv v1, the only arXiv version; the Comment. Math. Helv. text was not read)",
+   "printed": "After quoting Silverman's formula h_F(E) = (1/12[k:ℚ])·(log|N Δ_{E/k}| − Σ_σ log(|Δ(τ_σ)| y_σ^6)), the proof bounds |Δ(τ_σ)| below by e^{−1/9−2πy_σ} times (2π)^{−12}, and its constant B, hence the final 2.95, carries the corresponding factor (2π)^{12}.",
+   "correction": "In the normalisation in which the quoted formula holds, Δ(τ) is the lattice discriminant (2π)^{12} q∏(1 − qⁿ)^{24}, so the lower bound is e^{−1/9−2πy}·(2π)^{12}. The printed inequality is true but loses a factor (2π)^{24}; with the factor (2π)^{12} the same argument gives h(E) ≤ h(j)/12 − 0.72 in Deligne's normalisation instead of + 2.95, and the optimal constant is ≈ −0.7486, attained at j = −1.",
+   "reason": "With Δ = q∏(1 − qⁿ)^{24} the quoted formula, which has no −log 2π term, gives h_F(11.a2) ≈ 1.53, while the Faltings height of 11.a2 is −0.30801 (LMFDB, reproduced by R35.2/elliptic-period-comparison); the formula gives −0.30801 exactly when Δ(τ) = (2π)^{12}η(τ)^{24}. Recomputing B = 1194(2π/log 1194)^6 e^{1/9}(2π)^{12} reproduces ½ log π + (1/12) log B ≈ 2.950; with (2π)^{−12} in place of (2π)^{12} in B it is ≈ −0.726.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1105.1230 (only v1 exists)",
+    "web search for an erratum or corrigendum to Comment. Math. Helv. 89 (2014), 343–403 (none found)",
+    "Bilu–Parent–Rebolledo 2013, Proposition 4.4(ii), which quotes the constant 3 without comment"
+   ],
+   "owner": "ArakelovGeometryAndAbelianHeights",
+   "file": "research/blueprint/packets/ArakelovGeometryAndAbelianHeights.json",
+   "citation": "Éric Gaudron and Gaël Rémond, Théorème des périodes et degrés minimaux d'isogénies, Comment. Math. Helv. 89 (2014), 343–403; arXiv:1105.1230v1",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArakelovGeometryAndAbelianHeights",
+   "reviewReason": "Added by this review; both numerical checks recomputed in double precision from the q-products."
   },
   {
    "id": "ArithmeticDynamics/E801",
@@ -181157,9 +181382,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
    "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.4",
+   "reviewReason": "Read at §2, p. 10 (page image checked): the source says the orbit of (0, 1, 1) is infinite. The 16 points listed are closed under V₁, V₂, V₃, permutations and double sign changes, the descent inequality (valid for every k ≥ 1 at x₁ ≥ 3) reduces every point to one with a coordinate in {0, ±1, ±2}, and a coordinate ±2 is impossible at k = 2; an independent search over |x_i| ≤ 40 found exactly these 16 points (and the six points ±e_i at k = 1)."
   },
   {
    "id": "ClassicalArithmeticCompletion/E552",
@@ -181176,16 +181401,16 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
    "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.4",
+   "reviewReason": "Read at §5.1, p. 16: the printed second root and product are as stated. As a quadratic in x₃ the roots of M* − k sum to ε(x₁x₂ − α₃ − β₁x₂ − β₂x₁) and multiply to ε(x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k); for M itself the product is x₁² + x₂² − k. The degree count of Lemma 5.1 uses only the degree of the product and is unaffected."
   },
   {
    "id": "ClassicalArithmeticCompletion/E554",
    "kind": "error",
    "locator": "§1, the paragraph after Theorem 1.1 and the caption of Figures 1–2, p. 4 (arXiv v3)",
    "printed": "Theorem 1.1, stated for generic k, is illustrated with k = 3685, for which the source gives h_M(3685) = 6.",
-   "correction": "3685 is exceptional, since (1, 32, 70) ∈ V₃₆₈₅(ℤ) (4·3684 = 108² + 3·32²), so Theorem 1.1 (i) does not apply. The six points are F⁺₃₆₈₅(ℤ), and by the corrected comparison of ClassicalArithmeticCompletion/E507, h_M(3685) ≥ h⁺_M(3685) + 1 = 7.",
+   "correction": "3685 is exceptional, since (1, 32, 70) ∈ V₃₆₈₅(ℤ) (4·3684 = 108² + 3·32²), so Theorem 1.1 (i) does not apply. The six points are F⁺₃₆₈₅(ℤ), and h_M(3685) = 7: besides the six orbits of the points (−u₁, u₂, u₃), u ∈ F⁺₃₆₈₅(ℤ), there is exactly one orbit through points with a small coordinate (3685 is not a sum of two squares and 3681 is not a square, so these are the points with a coordinate ±1, and they form one orbit). The bound h_M(3685) ≥ h⁺_M(3685) + 1 = 7 of ClassicalArithmeticCompletion/E507 is therefore an equality here.",
    "reason": "M(1, 32, 70) = 1 + 1024 + 4900 − 2240 = 3685, a point with a coordinate 1; the orbit of a point with a small coordinate does not contain any (−u₁, u₂, u₃) with u ∈ F⁺ (CA.4/markoff-positive-root-orbits). The negative illustration k = −3691 is unaffected: all negative levels are generic and h_M(−3691) = |F⁻₋₃₆₉₁(ℤ)| = 9.",
    "affects": "nothing",
    "known": "new",
@@ -181195,17 +181420,17 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
    "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.4",
+   "reviewReason": "Read at §1, p. 4 (with Figures 1–2, pp. 4–5): the source illustrates Theorem 1.1 at k = 3685 with h_M(3685) = 6. Recomputed: M(1, 32, 70) = 3685, F⁺₃₆₈₅(ℤ) = {(3, 6, 52), (4, 10, 43), (6, 18, 25), (7, 8, 38), (7, 10, 34), (8, 14, 25)}. By (4.1) a point with all coordinates of absolute value ≥ 3 has exactly one Δ-smaller neighbour and Δ-larger neighbours with all coordinates ≥ 3, so the orbit of a negative root contains no small-coordinate point and a shortest path between two small-coordinate points never leaves them; the small-coordinate points of V₃₆₈₅(ℤ) (coordinate ±1 only) form one component, so h_M(3685) = 7 exactly (correction sharpened accordingly)."
   },
   {
    "id": "ClassicalArithmeticCompletion/E553",
-   "kind": "gap",
+   "kind": "error",
    "locator": "§1, consequence (c) of Theorem 1.1, p. 4 (arXiv v3)",
    "printed": "The source states h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, as a consequence of Theorem 1.1.",
-   "correction": "The argument, through the fundamental sets of Theorem 1.1, covers only levels that are not exceptional (generic k ≥ 5 and all k < 0). At exceptional levels the orbits through small-coordinate points are not controlled, and on the family k = 4 + w² the points (2, t, t + w) appear to lie in ⌊w/2⌋ + 1 distinct orbits, which would contradict the bound for large w.",
-   "reason": "Theorem 1.1 identifies h_M(k) with |F^±_k(ℤ)| only for generic k. On the line (2, t, t + w) ⊂ V_{4+w²} the move V₂ followed by a transposition shifts t by w and a double sign change sends t to −t − w, so the line splits into at most ⌊w/2⌋ + 1 classes; a search of the orbits up to coordinates 10⁵ finds exactly ⌊w/2⌋ + 1 orbits through the line for w = 3, 5, 10, 20, consistent with the Δ-tree structure (every large point has a unique Δ-smaller neighbour, so trees hanging from different line classes cannot join).",
+   "correction": "The bound fails on the exceptional levels k = 4 + w²: for every w ≥ 1 the points (2, t, t + w) of V_{4+w²}(ℤ) form exactly ⌊w/2⌋ + 1 Γ-orbits, so h_M(4 + w²) ≥ ⌊w/2⌋ + 1 > √(k − 4)/2, which is not ≪_ε |k|^{1/3+ε}. The source's argument, through the fundamental sets of Theorem 1.1, proves the bound only at levels that are not exceptional (generic k ≥ 5 and all k < 0).",
+   "reason": "On the line the move V₂ followed by a transposition shifts t by w, and a double sign change followed by a transposition sends t to −t − w, so the line points fall into at most ⌊w/2⌋ + 1 classes (t modulo w, up to sign). These classes lie in different orbits. By (4.1) a point with all coordinates of absolute value at least 3 has exactly one Δ-smaller neighbour, and its Δ-larger neighbours again have all coordinates at least 3 in absolute value; so a shortest path between two points with a coordinate in {0, ±1, ±2} passes only through such points. Besides the line, the small-coordinate points of V_{4+w²}(ℤ) are the finitely many points with a coordinate 0 (a² + b² = 4 + w²) or ±1 (a² ∓ ab + b² = 3 + w²); the moves join the coordinate-0 point (0, 2, w) only to the class t ≡ 0, join the coordinate-±1 points to the line only in the class t ≡ ±1, and join the other line points only to points of their own class (for w ≥ 9 by this case analysis, and for every w ≤ 300 by an exact computation of the small-coordinate graph). The plan's orbit search (coordinates up to 10⁵ for w = 3, 5, 10, 20) found the same count.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -181214,9 +181439,29 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
    "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.4",
+   "reviewReason": "Read at §1, consequence (c), p. 4: the bound is asserted for k → ±∞ without excluding exceptional levels. The plan recorded a gap with an apparent failure; this review proved the line count ⌊w/2⌋ + 1 for every w (argument in the reason field; exact small-coordinate-graph computation for w ≤ 300, and a union-find over all points with coordinates up to 900 for w = 3, 5, 10 agreeing), so the entry is upgraded from gap to error: the stated bound is false along k = 4 + w²."
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E555",
+   "kind": "error",
+   "locator": "§8, (8.1) and the paragraph after (8.2), pp. 22–23 (arXiv v3)",
+   "printed": "For k = 4 + d with n ↦ (4d/n) a primitive character modulo 4d, every x ∈ V_k(ℤ) is said to satisfy x_j² − 4 ∈ S_d = {n : (4d/n) ∈ {0, 1}} for j = 1, 2, 3; the proof factors x_j² − 4 into primes and does not consider its sign.",
+   "correction": "The conclusion holds for every j with |x_j| ≥ 3 (then x_j² − 4 > 0), and for every j when d > 0. For d < 0 it fails at a coordinate x_j = ±1 when 3 ∤ d: then x_j² − 4 = −3, and since the character of the negative discriminant 4d is odd, its value at −3 is −(d/3), which is −1 because 3 divides x_j² − 4 and so d is a square modulo 3. The only level where this happens is k = 2.",
+   "reason": "k = 2, d = −2, x = (1, 1, 1) ∈ V₂(ℤ): (−8/·) is primitive modulo 8, x₁² − 4 = −3 ≡ 5 (mod 8) and (−8/5) = (−2/5) = −1, so x₁² − 4 ∉ S_{−2}. A coordinate ±1 needs k − 1 = a² ∓ ab + b² ≥ 0, so d < 0 leaves k ∈ {1, 2, 3}; V₃(ℤ) = ∅ and 3 ∣ d = −3 at k = 1. The prime-factor form (every odd prime q ∤ d dividing x_j² − 4 has (d/q) = 1) still holds, and Proposition 8.1 uses the obstruction only through prime factors, so nothing downstream is affected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1706.06712 v3 (the version read); the accepted extraction PAPER-GHOSH-SARNAK-22 and its source issues E1–E24",
+    "the source issues E551–E554 of this packet"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+   "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.4",
+   "reviewReason": "Added by this review; the counterexample was checked by hand and by computing the Kronecker symbol (−8/·) on the residues modulo 8."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1501",
@@ -229681,9 +229926,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on p. 41 (Numdam PDF page 38): the source gives the rank of Λ_𝒪 over Λ′_𝒪 as r = Σr_j. Each variable 1 + X ↦ u(1 + T)^{p^r}, u ∈ 1 + pℤ_p, gives a distinguished polynomial of degree p^r after a unit, so the rank is p^{Σr_j}; only finiteness and freeness are used."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E2",
@@ -229700,9 +229945,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on p. 35 (Numdam PDF page 32): the displayed definition has H⁺_∞(U_a) on the left of a direct limit over a; the limit depends only on U."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E3",
@@ -229719,9 +229964,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on the page image of p. 42: both displayed formulas multiply by (β_i − α_i) instead of dividing. With ρ upper triangular on D_i, β_i tr ρ(σ) − tr ρ(g_iσ) = (β_i − α_i)ψ₂(σ), so the printed expression is (β_i − α_i)²T_y; membership in T^S is unaffected because β_i − α_i is a unit."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E4",
@@ -229738,9 +229983,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on p. 45 (Numdam PDF page 42): (3.7) multiplies T₀(𝔭_i) by Ψ_P(λ)^{−1} but T_y by Ψ_P(y). Both double cosets are twisted by Ψ_P of the determinant of the coset representative, so the inverse is a misprint; the proof only needs some τ_P attached to π ⊗ Ψ_P."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E5",
@@ -229757,9 +230002,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked: the proof on p. 64 (Numdam PDF page 61) refers to a Proposition 2.12, and pp. 67, 69 and 70 refer to a Lemma or Proposition 2.12; §2.4 has only Proposition 2.11 and Corollary 2.12, and the inequality used is Corollary 2.12."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E6",
@@ -229776,9 +230021,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on p. 66 (Numdam PDF page 63): the proof of Proposition 4.2 cites Proposition 3.14 for the existence of a permissible maximal ideal, which is Proposition 3.18 (p. 46)."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E7",
@@ -229795,9 +230040,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on p. 78 (Numdam PDF page 75): the list reads (i), (ii), (iii), (vi); the Main Theorem’s conditions are (i)–(iv) (p. 73)."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E8",
@@ -229814,9 +230059,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on p. 119 (Numdam PDF page 116): the freeness of M₀ over T₀ and the isomorphism ψ(𝒟_c, 𝔭) are attributed to Proposition 7.2, which is a Remark; the statement is Proposition 7.3 (p. 111)."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E9",
@@ -229834,9 +230079,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2, 3 May 2022. Locators give the arXiv version's page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked in arXiv v2, Theorem 1.7, p. 4: the second hypothesis is printed as a condition on ρ|_{D₃} itself, which holds for every ρ with a nonzero Hodge–Tate weight; the intended condition is Skinner–Wiles’ χ|_{D_p} ≠ 1, automatic for χ̄₃. The theorem as printed remains true."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E10",
@@ -229854,9 +230099,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "Laurent Berger, Hanfeng Li and Hui June Zhu, Construction of some families of 2-dimensional crystalline representations, arXiv:math/0310275v1 (17 October 2003), the preprint of Math. Ann. 329 (2004), 365–377. Locators give the arXiv page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked in arXiv v1: Proposition 3.4 and its proof use Γ_K, and K is not defined; every other statement uses Γ_{ℚ_p}."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E11",
@@ -229877,9 +230122,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and Andrew J. Wiles, Nearly ordinary deformations of irreducible residual representations, Annales de la Faculté des Sciences de Toulouse (6) 10 (2001), no. 1, 185–215; Numdam open-access scan (32 pages, OCR text layer; printed page = PDF page + 183). The OCR renders ρ as 'p' and garbles most formulas; every formula used was read on the page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on the page image of p. 191: the sentence before Lemma 2.2 asserts δ⁻_{F′} ≤ d/2 by [Wal] with no condition on F′, and Lemma 2.2 concludes dim R_𝒟/q ≤ δ⁻_{F′} ≤ d/2. For F′ CM the unit ranks of F′ and F are both d − 1, so the minus part of the global units is finite while the minus part of the units at p has ℤ_p-rank d; class field theory gives δ⁻_{F′} = d. When the places above p split in F′ and ℳ = ∅, the induced deformation Ind(ψ̃₀ψ⁻) over k[[Γ⁻]] is of type 𝒟 with finite-order determinant and trace ring of dimension d, so the printed bound fails. The three uses in the proof of Proposition 4.1 (pp. 200, 202) were confirmed on the page images. Whether Theorems 5.1–5.2 fail was not examined, as the finding says."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E12",
@@ -229897,9 +230142,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and Andrew J. Wiles, Nearly ordinary deformations of irreducible residual representations, Annales de la Faculté des Sciences de Toulouse (6) 10 (2001), no. 1, 185–215; Numdam open-access scan (32 pages, OCR text layer; printed page = PDF page + 183). The OCR renders ρ as 'p' and garbles most formulas; every formula used was read on the page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked: the bibliography on pp. 214–215 has no [Wal]."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E13",
@@ -229917,9 +230162,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and Andrew J. Wiles, Nearly ordinary deformations of irreducible residual representations, Annales de la Faculté des Sciences de Toulouse (6) 10 (2001), no. 1, 185–215; Numdam open-access scan (32 pages, OCR text layer; printed page = PDF page + 183). The OCR renders ρ as 'p' and garbles most formulas; every formula used was read on the page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on the page image of p. 200: step three writes #ℳ_c and ρ_{𝒟_c}, while the step concerns 𝒟₀ and the previous sentence uses #ℳ₀."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E14",
@@ -229937,9 +230182,9 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and Andrew J. Wiles, Nearly ordinary deformations of irreducible residual representations, Annales de la Faculté des Sciences de Toulouse (6) 10 (2001), no. 1, 185–215; Numdam open-access scan (32 pages, OCR text layer; printed page = PDF page + 183). The OCR renders ρ as 'p' and garbles most formulas; every formula used was read on the page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on the page images of pp. 198 and 202: (4.1) bounds d/2 only in terms of t and #ℳ₀, while the general step needs dim Q₂ ≥ d/2 + 1 from dim Q₂ ≥ d − 7·#Σ − 1. The counterexample d = 40, t = 1, ℳ₀ = ∅, #Σ = 4 is valid; Theorem 5.1 chooses L with d_L/2 > 2 + 7·#Σ_L, so its proof is unaffected."
   },
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E15",
@@ -229957,9 +230202,28 @@
    "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
    "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
    "citation": "C. M. Skinner and Andrew J. Wiles, Nearly ordinary deformations of irreducible residual representations, Annales de la Faculté des Sciences de Toulouse (6) 10 (2001), no. 1, 185–215; Numdam open-access scan (32 pages, OCR text layer; printed page = PDF page + 183). The OCR renders ρ as 'p' and garbles most formulas; every formula used was read on the page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Checked on the page image of p. 202: the sentence right after the display of (5.1) appeals to (4.1)(i)–(ii) for the integral basis; continuity and finite ramification are (5.1)(i)–(ii)."
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E16",
+   "kind": "misprint",
+   "locator": "§2, the sentence before Proposition 2.1, p. 189 (Numdam PDF page 6)",
+   "printed": "The source defines δ_F as the ℤ_p-rank of the Galois group of the maximal abelian pro-p extension of F, with no restriction on ramification.",
+   "correction": "δ_F is the ℤ_p-rank of the Galois group of the maximal abelian pro-p extension of F unramified away from the places above p, as in Skinner–Wiles 1999 Proposition 2.4 (p. 13).",
+   "reason": "Without a ramification condition the maximal abelian pro-p extension has a Galois group of infinite ℤ_p-rank (every prime ℓ ≡ 1 mod p contributes), so the bound of Proposition 2.1 would be meaningless. The paper itself uses the restricted rank: on p. 191, L₀ is the maximal abelian pro-p extension unramified away from 𝒫 and I₀ ⊆ Gal(L₀/F) is said to have rank δ_F; and Proposition 2.1 is said to be proved as Skinner–Wiles 1999 Proposition 2.4, whose δ_F carries the condition.",
+   "affects": "nothing",
+   "known": "new: no erratum or corrigendum found (Numdam item page for AFST 2001, tome 10, no. 1)",
+   "searched": [
+    "the Numdam item page for AFST 2001, tome 10, no. 1, 185–215 (14 October 2026): no erratum or corrigendum listed"
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and Andrew J. Wiles, Nearly ordinary deformations of irreducible residual representations, Annales de la Faculté des Sciences de Toulouse (6) 10 (2001), no. 1, 185–215; Numdam open-access scan (32 pages, OCR text layer; printed page = PDF page + 183). The OCR renders ρ as 'p' and garbles most formulas; every formula used was read on the page images.",
+   "status": "confirmed",
+   "reviewedBy": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
+   "reviewReason": "Found by this review on the OCR text of p. 189 (Numdam PDF page 6) and checked against p. 191; recorded with its own verdict as PROTOCOL section 18 asks."
   },
   {
    "id": "OverconvergentAutomorphicForms/E1",
@@ -257821,7 +258085,7 @@
   {
    "id": "TorsionCohomologyInfrastructure/E1",
    "kind": "misprint",
-   "locator": "Lemma 2.1.1 proof, p.953",
+   "locator": "Alleged localization product in Lemma 2.1.1 proof; published proof is on pp.953–954",
    "printed": "The localization product includes already present indices.",
    "correction": "For J⊂J′ invert the product of ratios indexed by J′\\J.",
    "reason": "For J′=J the restriction must be identity, not a new localization.",
@@ -257834,10 +258098,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "rejected",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Rejected: the published proof on p.954 contains no displayed localization product with the alleged wrong indices. Inverting ratios already units would not change the localization anyway. The actual minor reference slip on that page is recorded as E17."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E2",
@@ -257855,19 +258119,19 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed with corrected scope: Prisms Theorem 7.4/Remark 7.5 give surjectivity for the closed quotient, contrary to the 2015 caution; diamonds Definition 5.7(ii)/Theorem 5.8 explicitly fix the plus-ring integral-closure condition. These later statements, not the obsolete caution, are used."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E3",
    "kind": "error",
-   "locator": "Coordinate-chart cover in Theorems 3.3.18/4.1.1, pp.1013–1019; §4.3 p.1030",
-   "printed": "The coordinate indexing is stated as if all g-element subsets were admissible.",
+   "locator": "Chart-orbit assertion, p.1008; Theorem 3.3.18(i), pp.1012–1014; Theorem 4.1.1(i), pp.1019–1020; use on p.1030",
+   "printed": "The source treats the bounded Plücker charts for all g-element coordinate subsets as a single GSp_2g(Z_p) orbit and exports affinoid-perfectoid preimages for that indexing.",
    "correction": "Use only Lagrangian coordinate subsets, one of each paired symplectic basis coordinate.",
-   "reason": "The g=2 coordinate plane spanning a symplectic pair is not Lagrangian; the 2^g valid charts still cover because some admissible Plücker coordinate is nonzero.",
-   "affects": "the proof",
+   "reason": "The g=2 nonadmissible chart p₁₃≠0 is nonempty but its reduction cell has p³−p points, whereas an admissible graph cell has p³. An integral symplectic coordinate change would preserve those counts. Thus nonisotropy of the coordinate plane alone is not an emptiness proof.",
+   "affects": "a stated result",
    "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
    "searched": [
     "Published Annals passage at this locator",
@@ -257876,10 +258140,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed, with a replacement witness: arbitrary coordinate g-subsets are not one GSp_2g(Z_p) orbit. For g=2 over F_p, the ordinary Lagrangian graph cell has p³ points, while the cell p₁₃≠0 has p³−p points. That cell is nonempty; use the admissible 2^g charts rather than claiming it empty."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E4",
@@ -257897,10 +258161,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the nonzero spectral-sequence term must have minimal, not maximal, codimension among the violations to isolate the first surviving term."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E5",
@@ -257918,10 +258182,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the Hodge-type equal-rank case has l₀=0, q₀=d; the printed values are exchanged."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E6",
@@ -257930,7 +258194,7 @@
    "printed": "The last segment exponent has an incorrect index.",
    "correction": "The final exponent is (ℓ_i−1)/2 and the constituent is a representation of GL_n_i.",
    "reason": "A segment of length ℓ_i runs from (1−ℓ_i)/2 to (ℓ_i−1)/2 in unit steps.",
-   "affects": "the proof",
+   "affects": "a stated result",
    "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
    "searched": [
     "Published Annals passage at this locator",
@@ -257939,10 +258203,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: a length-ℓ_i segment has endpoints (1−ℓ_i)/2 and (ℓ_i−1)/2; its underlying cuspidal constituent is on GL_{n_i}."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E7",
@@ -257960,15 +258224,15 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: taking k=1 in the claimed progression without restricting a can violate Proposition 5.1.1. Choose a>n in the symplectic case and a≥n in the unitary case."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E8",
    "kind": "misprint",
-   "locator": "Unitary ambient polynomial, p.1043",
+   "locator": "Unitary ambient polynomial displays (ii) and (iii), pp.1042–1043",
    "printed": "The displayed top-degree sign is negative in the CM case.",
    "correction": "The coefficient of X^(2n) has positive sign; use P_v(X)Q_vc(q_vX).",
    "reason": "The two degree-n top coefficients have product sign (−1)^(2n)=1.",
@@ -257981,10 +258245,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed in both unitary displays on pp.1042–1043: multiplying the degree-n leading signs gives (−1)^(2n)=+1."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E9",
@@ -258002,10 +258266,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the subsequent character comparison uses the previously stabilized ideal; selecting ℓ only by largeness and the degree exclusion does not ensure that equality."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E10",
@@ -258023,10 +258287,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the two determinants are available over quotients by different ideals; their common comparison quotient must kill their sum Ĩ_χ."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E11",
@@ -258044,10 +258308,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: if the first difference has X-order r, reduction modulo X^(r+1) isolates it. The printed X^(r+1) start with reduction at that same order cannot do so."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E12",
@@ -258065,10 +258329,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: expanding in X only gives formal X-series coefficients. Expanding in T after the least-weight shift supplies polynomial X-coefficients for the induction."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E13",
@@ -258086,10 +258350,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the inverse of the product of the two noncommuting factors reverses their order. The printed order does not specialize to the identity needed by the kernel argument."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E14",
@@ -258098,7 +258362,7 @@
    "printed": "The characteristic identity uses the earlier field-valued representation symbol.",
    "correction": "Use σ_m and the local Hecke coefficient map.",
    "reason": "Its right-hand side is in the local integral Hecke quotient, not the residual field.",
-   "affects": "the proof",
+   "affects": "a stated result",
    "known": "Reviewed PAPER-SCHOLZE-15 sourceIssues catalogue; independently checked against the published passage in this run.",
    "searched": [
     "Published Annals passage at this locator",
@@ -258107,10 +258371,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the characteristic formula for σ_m must use that representation and its local quotient coefficient map; the printed σ_ψ belongs to the residual field."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E15",
@@ -258128,10 +258392,10 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: UCT injects H^i(M)/p^m into H^i(M/p^m), so simultaneous finite-coefficient annihilation implies integral annihilation. The Tor term gives no reverse implication."
   },
   {
    "id": "TorsionCohomologyInfrastructure/E16",
@@ -258149,10 +258413,52 @@
    ],
    "owner": "TorsionCohomologyInfrastructure",
    "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
-   "citation": "Sources of the blueprint of TorsionCohomologyInfrastructure",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Confirmed: the unital simultaneous action has an identity component at every exponent, which is not in the direct sum. A product followed by its closed action image has the required topology."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E17",
+   "kind": "misprint",
+   "locator": "Lemma 2.1.1 proof, p.954, gluing the reductions of the sections",
+   "printed": "The proof attributes agreement of the reduced sections to condition (i) alone.",
+   "correction": "Condition (ii) gives the overlap congruence; condition (i) supplies the unit frame used to divide by it.",
+   "reason": "Condition (i) says only that a distinguished section frames the line. The inequality in (ii) is what makes differences vanish modulo ϖ on overlaps.",
+   "affects": "nothing",
+   "known": "PAPER-SCHOLZE-15/E13 in the reviewed extraction",
+   "searched": [
+    "Published Annals proof, p.954",
+    "Reviewed PAPER-SCHOLZE-15.result.json, E13"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Annals of Mathematics 182 (2015), 945–1066; published theorem numbers and printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "Read the published page: the reference names (i), but agreement modulo ϖ uses the displayed bound in (ii). The four hypotheses already give the intended result."
+  },
+  {
+   "id": "TorsionCohomologyInfrastructure/E18",
+   "kind": "error",
+   "locator": "Author PDF, §3 Remark 3.1, p.8 (finding scoped to this author version)",
+   "printed": "At the stated neat level the nilmanifold-fibre sheaf R^jπ_*F̄_p is identified with the exterior jth power of the unipotent adjoint representation.",
+   "correction": "Use the actual integral/mod-p nilmanifold cochain complex and its Levi/Hecke action. An exterior-power identification needs additional hypotheses and a comparison theorem; it does not follow from neatness.",
+   "reason": "Take GL₃/Q, the full upper unipotent U, principal level 3 and p=5. Its lattice has coordinates a,b,c in 3Z and commutators in the central 9Z. Its abelianization is Z²⊕Z/3, so H¹(U-lattice,F₅) has dimension 2. The displayed exterior first power of Lie(U) has dimension 3. Principal level 3 is neat, hence meets the level hypothesis.",
+   "affects": "a stated result",
+   "known": "No correction found in the searched author/arXiv records; scoped to the readable author PDF, not collated with the inaccessible journal text.",
+   "searched": [
+    "Author Imperial PDF, §3 Remark 3.1, p.8",
+    "Caraiani Bonn author PDF link and paper listing",
+    "arXiv:1409.2158 version record",
+    "Cambridge Compositio article record and corrigendum search (journal text unavailable)"
+   ],
+   "owner": "TorsionCohomologyInfrastructure",
+   "file": "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
+   "citation": "Ana Caraiani and Bao V. Le Hung, On the image of complex conjugation in certain Galois representations, Author PDF linked below; §3, printed author pages 6–9 (published in Compositio Mathematica 152 (2016))",
+   "status": "confirmed",
+   "reviewedBy": "REV-TorsionCohomologyInfrastructure",
+   "reviewReason": "The Heisenberg lattice computation supplies a neat-level counterexample at p=5: two, rather than three, degree-one classes. The target already requests actual nilmanifold complexes; no conclusion here relies on the false exterior-power formula."
   },
   {
    "id": "TropicalAndBerkovichArithmetic/E1",
