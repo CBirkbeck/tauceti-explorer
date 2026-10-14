@@ -1,3 +1,46 @@
+# Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
+
+Codex, session `codex-aSYQ00`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Branch `codex-aSYQ00-review-6219`; input explorer `7e36af9c8`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6159085410).
+No second job was claimed. This continuation did none of the fixes.
+
+The preceding pending records below still match their exact input and
+candidate hashes. They were reconstructed in scratch and validated without
+editing the two omitted packets. Fresh focused source checks support both
+bounded accepted verdicts; they do not repeat the full packet reviews.
+Current-library checks retain PMIA's `needs_changes` verdict. All four
+packets and Suggested files remain unchanged. Only the review report and
+this handoff were updated.
+
+Fresh validation: all four queue packets have zero checker errors at the
+programme index (L3 has its 26 inherited API-outline warnings). L3-2 and LAD
+compile via sequential `lean-check`, respectively with 111 and 489 `sorry`
+warnings and no other diagnostics. Prepared metadata candidates pass intake
+checks through a read-only overlay. Stock completion remains false on the
+permitted tree and becomes true with exactly those two records. Earlier
+L3/PMIA Lean receipts below remain attributed to the preceding session.
+
+The blocking condition is unchanged: the live issue allows only L3/PMIA
+packet edits but the queue requires this job's identity on L3-2/LAD as well.
+The manager was asked to authorize exactly those two metadata-only updates;
+no answer has arrived. No omitted packet, queue, prompt, issue, label or
+promotion data was changed. This checkpoint is required by the issue's
+scope restriction, not by the eight-hour time limit.
+
+Resume when the live issue names the two omitted paths or the manager
+explicitly authorizes those updates. Check the input hashes, preserve every
+old review, and apply the exact records below. They remain attributed to the
+session that performed the preceding bounded assessment. Rerun completion,
+intake and whitespace checks, update the report/handoff to record the scope
+authority, then submit the completed one-job PR. No source rereading or
+mathematical rewriting is needed merely to resolve this metadata scope gate.
+No scratch file is required to resume; all concrete candidates and source
+locators are preserved below.
+
+---
+
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-3K3sKj`, 14 October 2026. Refs

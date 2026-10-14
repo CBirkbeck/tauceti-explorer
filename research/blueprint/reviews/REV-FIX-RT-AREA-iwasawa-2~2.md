@@ -1,3 +1,91 @@
+# Continuation review: REV-FIX-RT-AREA-iwasawa-2~2
+
+Codex, session `codex-aSYQ00`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Input explorer `7e36af9c8`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6159085410).
+This session did none of the fixes under review and claimed no second job.
+
+The existing correction decisions stand: L3 is accepted; PMIA needs changes
+because its generic Fitting and stable-transpose targets must reuse current
+Tau Ceti. The two pending L3-2 and LAD metadata updates are ready and retain
+all mathematical content and earlier review history. Completion is blocked
+by the live issue's edit scope, rather than by a remaining source check.
+
+## What this continuation established
+
+The preceding handoff's input and candidate SHA256 values were checked. Both
+pending candidates were reconstructed byte for byte in scratch; neither
+omitted packet was edited. Parsed comparisons confirm that each candidate
+changes only `review` and `reviewHistory`, appending the entire old review
+without changing it. Their records accurately attribute the earlier bounded
+assessment to `codex-3K3sKj`; this continuation does not claim that research
+as its own.
+
+Fresh public copies of Zhao, BCGP21 v3 and BCGP25 v1 match the handoff's
+SHA256 fingerprints. I checked Zhao's §1.2, p.461; §4, equations (4.1)–(4.6)
+and Theorem 4.1, pp.470–473; and Appendices A–B, pp.473–474. The L3-2 formula
+uses the even branch chi-omega and direct chi(a) weights and retains the
+conductor correction. Its exceptional simplification assumes chi(p)=1;
+nonvanishing remains a separate obligation. The count and permutation
+interfaces keep the positive residue and strict endpoint conventions.
+
+For LAD I read the cleared Pilloni manuscript directly at §§13.1.1–13.1.3,
+pp.84–85, without copying the file or its passages. I also checked BCGP21
+§6.1.1, p.139, and BCGP25 Definition 2.2.17, p.21, and §4.6.46/Remarks
+4.6.47–4.6.49, pp.93–95. Banach projectivity is distinct from algebraic finite
+projectivity; compactness requires some degreewise compact representative.
+The nonalternating determinant product depends on the representative.
+Finite-window cohomology and its support provide the invariant contract.
+The packet retains the inclusive slope endpoint, distinguishes dense
+quasi-Stein restrictions from Stein relative compactness, and requests the
+full solid localization comparison. These checks support the pending
+bounded verdict; they do not close the recorded supplier gaps.
+
+The current read-only library remains at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+I reread `TauCeti.fittingIdeal`, `TauCeti.fittingIdeal_eq_minorsIdeal_ker`,
+`TauCeti.fittingIdeal_baseChange`, and
+`TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`. Their
+hypotheses support the preceding PMIA reuse objection. Its negative verdict
+is preserved. The current OperatorTheory and ProfiniteArithmetic ownership
+sections were read; no upstream roadmap or library was edited.
+
+## Validation
+
+- The stock blueprint checker, with a declaration index built from the
+  existing shared source tree, reports zero errors on all four queue packets.
+  L3 retains 26 inherited API-outline warnings; the other three have none.
+  Mathlib identifies the exact programme pin; the affected Tau Ceti
+  transpose and Teichmuller source blobs match its recorded pin.
+- Fresh sequential `lean-check` runs exit zero for the unchanged L3-2 and LAD
+  Suggested files, with respectively 111 and 489 `sorry` warnings and no
+  other diagnostics. Available memory was 106 GB before each run. No Lake
+  build, update, cache download or language server was used.
+- The prepared candidates pass intake's JSON/path/private-path checks at
+  their canonical paths through a read-only overlay: two files, zero problems.
+- Stock `issues.deliverables_complete` is false on the permitted tree and
+  true with exactly the two pending records overlaid. PMIA's negative verdict
+  does not obstruct completion of the review.
+- All four packets and all four Suggested files remain byte-identical to
+  this session's input. Only this report and the handoff are changed.
+
+## Scope condition
+
+The live issue was reread after the confirmed claim. Its deliverables and
+full instructions permit L3 and PMIA packet edits, while `queue.json` also
+requires this review identity on L3-2 and LAD. `WORKERS.md`, Doing the work,
+requires edits to stay within the issue-named files. A request to authorize
+exactly the two prepared metadata updates is pending in this worker session.
+No answer has been received; elapsed time is not authorization.
+
+Until the manager authorizes those updates or the live issue names the two
+paths, this is a checkpoint. The handoff retains both exact candidate
+records and their fingerprints. No queue, prompt, issue, label, mathematical
+field, source issue or promotion data was changed. The earlier report below
+retains its attribution and supporting source account.
+
+---
+
 # Independent correction review: FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-3K3sKj`, 14 October 2026. Refs
