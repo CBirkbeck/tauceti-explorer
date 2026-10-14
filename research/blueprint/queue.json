@@ -24578,10 +24578,11 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9412"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems",
@@ -25075,7 +25076,8 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.6",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9386"
   },
   {
    "id": "BP-GL2ModularityLifting--R22.1",
@@ -25816,7 +25818,9 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.8c",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.8c.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9390",
+   "finishedAt": "2026-10-14T02:49:39Z"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
@@ -25951,9 +25955,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9423"
+   "note": "deliverables arrived from an external worker on issue #9423",
+   "finishedAt": "2026-10-14T02:49:42Z"
   },
   {
    "id": "REV-HodgeTateAndCanonicalSubgroups",
@@ -35530,8 +35535,9 @@
    ],
    "followUpOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.8b.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9418"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9418",
+   "finishedAt": "2026-10-14T02:49:44Z"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.8b",
@@ -35886,8 +35892,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.2",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9266"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9266",
+   "finishedAt": "2026-10-14T02:49:45Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.2-graded-map",
@@ -40544,8 +40551,9 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9302"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9302",
+   "finishedAt": "2026-10-14T02:49:49Z"
   },
   {
    "priority": 2,
@@ -49125,7 +49133,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9170"
   },
   {
    "id": "REV-PKG-FaltingsFinitenessAndIsogenyTheorems",
@@ -49548,7 +49557,8 @@
    ],
    "revisionOf": "PKG-GlobalGaloisDeformations",
    "prompt": "research/blueprint/prompts/PKG-GlobalGaloisDeformations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9172"
   },
   {
    "id": "REV-PKG-GlobalGaloisDeformations~2",
