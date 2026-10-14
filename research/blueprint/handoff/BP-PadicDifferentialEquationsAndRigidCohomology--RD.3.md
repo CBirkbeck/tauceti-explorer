@@ -99,7 +99,15 @@ page is at
   `direct-summands-of-overconvergent-f-isocrystals`, `etale-descent-of-overconvergent-f-isocrystals`
   and `f-crystal-to-convergent-f-isocrystal`; Zarhin's trick to be planned at tier ≤ 12
   (AbelianSchemesAndArithmeticModuli or RD.5 itself). Siegel moduli with level: AlgebraicModuli R09.4.
-- RD.7 follow-up (#9749): the cohomological Ogus–Shiho comparison, as above.
+- RD.7: the cohomological Ogus comparison with coefficients is already planned in the merged RD.7 part
+  (`RD.7/crystalline-rigid-comparison-with-coefficients`, `RD.7/tube-to-envelope-comparison-map`); at
+  assembly these should cite `RD.3/f-crystal-to-convergent-f-isocrystal` and
+  `RD.3/convergent-f-isocrystals-are-crystalline` for "the convergent isocrystal of an F-crystal",
+  which they now take from `RD.3/restriction-to-convergent`.
+- RD.1 (merged part): `RD.1/common-vertex-global-subobject` and `RD.1/dense-open-global-slopes` cite
+  `RD.3/restriction-to-convergent`, an upward dependency (RD.1 before RD.3). At assembly either those two
+  targets move to RD.3 or RD.5, or they cite the convergent category `RD.3/convergent-f-isocrystal`
+  after the layer order is adjusted; this part does not change RD.1's files.
 - Main gap `review-quillen-suslin-proof-inputs` (RD.3/rigid-quillen-suslin) is untouched.
 - Assembly: planets — main has 5 for RD.3 (Frame, Tube, Berthelot's j† functor, Independence of the
   frame, Overconvergent F-isocrystal); this part adds one (Convergent F-isocrystal), total 6.
