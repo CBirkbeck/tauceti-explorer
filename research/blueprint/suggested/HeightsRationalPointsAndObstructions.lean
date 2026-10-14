@@ -41,9 +41,10 @@ an opaque data placeholder. Those targets and all their hypotheses/API/tests rem
 packet and reader document. The closing register identifies every target and the missing
 carrier or proof input when a signature cannot yet be given honestly.
 
-REV-HeightsRationalPointsAndObstructions corrected the packet on 2026-10-13. Its verdict is
-needs_changes: the corrected statement is not a claim that its recorded source/supplier gaps
-are filled. Before packaging, synchronize the reader document with the packet and review.
+The reader document specifies bounded metric families, canonical point metrics by contraction,
+and multivariate formal logarithms with their source locators, strict convergence radius and
+exact supplier contracts. These require carriers or interfaces beyond the pins and stay there.
+Recorded proof and supplier obligations are not claims of completed formalization.
 
 Conventions: HeightClass is the native quotient by uniformly bounded functions; Pts is the
 native scheme hom-set; Pic uses native line-bundle classes. Abelian-variety points carry their
@@ -680,6 +681,10 @@ HeightsRationalPointsAndObstructions:RP.0/neron-tate-kernel-number-field
   Positivity and kernel of the Néron–Tate height; theorem.
 HeightsRationalPointsAndObstructions:RP.0/neron-tate-bilinear-form
   The Néron–Tate bilinear form of a symmetric bundle; construction.
+HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics
+  Bounded metric families for point heights; definition.
+HeightsRationalPointsAndObstructions:RP.0/canonical-point-metrics
+  Canonical point metrics by contraction; construction.
 HeightsRationalPointsAndObstructions:RP.0/local-weil-functions
   Local Weil functions and Néron functions; definition.
 HeightsRationalPointsAndObstructions:RP.0/duplication-by-quartics
@@ -734,6 +739,8 @@ HeightsRationalPointsAndObstructions:RP.1/selmer-set-two-covering
   The 2-Selmer set Sel₂(J¹) and the 2-Selmer set of order k; definition.
 HeightsRationalPointsAndObstructions:RP.1/elliptic-two-descent-example
   A complete elliptic 2-descent; application.
+HeightsRationalPointsAndObstructions:RP.1/formal-logarithm-small-ball
+  Formal logarithms on a sufficiently small ideal; theorem.
 HeightsRationalPointsAndObstructions:RP.1/local-division-index
   Local indices of multiplication by two; lemma.
 HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective
@@ -863,7 +870,7 @@ HeightsRationalPointsAndObstructions:RP.4/kodaira-parshin-construction
 HeightsRationalPointsAndObstructions:RP.4/parshin-implication
   Parshin: Shafarevich finiteness implies Mordell; theorem.
 HeightsRationalPointsAndObstructions:RP.4/mordell-faltings
-  The Mordell conjecture (Faltings' theorem) by the Parshin route; theorem.
+  The Mordell conjecture (Faltings' theorem); theorem.
 HeightsRationalPointsAndObstructions:RP.4/integral-points
   S-integral points on affine curves; definition.
 HeightsRationalPointsAndObstructions:RP.4/siegel-theorem

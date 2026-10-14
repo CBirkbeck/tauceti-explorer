@@ -12,7 +12,7 @@
   "HeightsRationalPointsAndObstructions:RP.6"
  ],
  "status": "complete",
- "summary": "Independently reviewed all 144 targets and 100 pinned baseline declarations. The corrected plan retains the height, descent, Brauer–Manin, curve and subvariety targets, with real source locators and explicit APIs/tests. The review repairs normalization, trace, two-covering, adelic topology, twisting, Parshin and effectivity errors. Missing SchemeAndStackFoundations targets are stage requests rather than fictitious supplied nodes; scheme Brauer remains owned by key/scheme-brauer. Upward Faltings/Lawrence–Venkatesh dependencies are removed and the independent Bombieri route is owned here. This is a completed target-level planning pass under PROTOCOL §0: all seven stages are planned through named library inputs, supplier requests or recorded gaps, and none is closed. The independent review is complete; acceptance is withheld for the three unverifiable targets below.",
+ "summary": "Revision 2 retains the 144 reviewed target IDs and their in-place corrections, and synchronizes the full reader document. The three formerly unverifiable targets now have read primary sources: Gubler’s 2002 contraction proof for local canonical metrics, Mattuck Theorem 7 for the additive open subgroup, and Katz’s Appendix Lemma′ for torsion-free reduction kernels. Three target-level inputs are added: bounded point-metric families, canonical point metrics by contraction, and the multivariate formal logarithm on a strict small ideal. Local index normalization, summable metric bounds, exact global constants and supplier interfaces are explicit. All seven stages are planned under PROTOCOL §0, with precise outstanding proof/supplier gaps; none is closed or claimed formalized. The prior review register remains unchanged for independent re-review.",
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -716,6 +716,27 @@
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
     "provides": "The elliptic Néron–Tate pairing, the halved polar form of the canonical height. The native elliptic pairing is half the unhalved polarization ĥ(P+Q)−ĥ(P)−ĥ(Q) used here; the compatibility multiplies the native pairing by two.",
     "checked": "Independently read the complete declaration, hypotheses and surrounding normalization at the stated pinned Git commit on 2026-10-13 (REV-HeightsRationalPointsAndObstructions)."
+   },
+   {
+    "ref": "mathlib:ContractingWith.exists_fixedPoint",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/MetricSpace/Contracting.lean",
+    "provides": "On a complete emetric space a map with contraction factor K<1 and a starting point of finite distance from its image has a fixed point, convergence of its iterates and the geometric error bound.",
+    "checked": "Complete declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14, BP-HeightsRationalPointsAndObstructions~2."
+   },
+   {
+    "ref": "mathlib:FormalGroup",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
+    "provides": "Native one-dimensional formal group law over a commutative ring, with its formal two-variable series and associativity. Its Point API is power-series-valued, not the missing local-field evaluation/logarithm or a g-dimensional smooth-group completion.",
+    "checked": "Complete declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14, BP-HeightsRationalPointsAndObstructions~2."
+   },
+   {
+    "ref": "mathlib:MvPowerSeries",
+    "kind": "definition",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "Native multivariate formal power series with monomials indexed by finitely supported natural exponents. The coefficient-function carrier is reused for g-dimensional formal laws, not replaced.",
+    "checked": "Complete declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-14, BP-HeightsRationalPointsAndObstructions~2."
    }
   ]
  },
@@ -1011,27 +1032,32 @@
    "authors": "A. Mattuck",
    "edition": "Ann. of Math. 62 (1955), 92–119",
    "readSections": [
-    "Not independently read in this review. No other copy was obtained. The unavailable proof remains an explicit gap; this source entry is bibliographic, not a verification claim."
-   ]
+    "§13, Theorem 7 and its full proof, printed pp.114–117; §14 observations 1–3, p.118, in the university-hosted scan read 2026-10-14."
+   ],
+   "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
+   "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94"
   },
   {
    "id": "katz-1981-appendix",
    "title": "Galois properties of torsion points on abelian varieties (Appendix by N. Katz)",
-   "authors": "N. Katz",
+   "authors": "S. Lang (article); N. Katz (Appendix)",
    "edition": "Invent. Math. 62 (1981), 481–502",
    "readSections": [
-    "Not independently read in this review. No other copy was obtained. The unavailable proof remains an explicit gap; this source entry is bibliographic, not a verification claim."
-   ]
+    "Appendix by N. Katz: setup on printed p.501, Lemma, Lemma′ and full proof on p.502; visually read in the author-hosted scan on 2026-10-14."
+   ],
+   "url": "https://web.math.princeton.edu/~nmk/old/galoisprop.pdf",
+   "sha256": "eb651da43d98104bde5f86ed6f2b792b564a73cd7680742746c04ae6d3efeecc"
   },
   {
    "id": "mueller-stoll-2016",
    "title": "Computing canonical heights on elliptic curves in quasi-linear time",
    "authors": "Jan Steffen Müller and Michael Stoll",
-   "edition": "Author manuscript, Dec.15, 2015, 14 pages; published LMS J. Comput. Math. 19 (2016)",
+   "edition": "Author manuscript, Dec.15, 2015, 15 pages; published LMS J. Comput. Math. 19 (2016)",
    "url": "https://www.mathe2.uni-bayreuth.de/stoll/papers/ellheights-arXiv-v2.pdf",
    "sha256": "778d14c7197ecef334aa5fd7b3ce96aad8d40f4fd20e85d4fa8fc56072c2018f",
    "readSections": [
-    "Read §2–3, author-copy pp.2–4 on 2026-10-13, including Remark 3.1 and Proposition 3.2. The reviewer translated its x-height local normalization to the (O)-normalization."
+    "Read §2–3, author-copy pp.2–4 on 2026-10-13, including Remark 3.1 and Proposition 3.2. The reviewer translated its x-height local normalization to the (O)-normalization.",
+    "Re-read §2–3, printed pp.2–4, on 2026-10-14 from the same author PDF/hash, including the full proof construction of the local telescoping height, Remark 3.1 and Proposition 3.2. Distinguished the half Müller–Stoll function from the Silverman local normalization; their discriminant shift sums to zero but changes the local duplication equation."
    ]
   },
   {
@@ -1054,6 +1080,17 @@
    "sha256": "47c6e80efebd44678d5133bbf1dfbe47621409331cdaa2ec06cdbb3f05fc460b",
    "readSections": [
     "Read introduction, Conjecture 1.1 and Theorem 1.2, printed pp.787–788, on 2026-10-13. Proper varieties identify the full local product with adelic points, and their Brauer group with the unramified group. No claim to have read the rest of this paper."
+   ]
+  },
+  {
+   "id": "gubler-heights-2002",
+   "title": "Basic Properties of Heights of Subvarieties",
+   "authors": "W. Gubler",
+   "edition": "Habilitationsschrift, 5 July 2002, author-hosted 125-page PDF, accessed 2026-10-14",
+   "url": "https://gubler.app.uni-regensburg.de/Publikationen/habi%2B.pdf",
+   "sha256": "75bbf9b41b163482e3789af0a88cacd92e53913d63cc34d19d25fc25b8538835",
+   "readSections": [
+    "§5.1.2, pp.96–97; §5.1.12–16 and the proof of Theorem 5.1.13, pp.100–101; §5.2.1–4 and §5.2.15–18, pp.106,108–109; Theorem 5.3.13 and Remark 5.3.14, p.114; §5.3.20–24 and their proofs, pp.117–119. Only metrics and point-height consequences are planned here; higher-dimensional arithmetic intersections remain the recorded Part II input."
    ]
   }
  ],
@@ -2761,6 +2798,230 @@
    }
   },
   {
+   "id": "HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics",
+   "parentStageId": "HeightsRationalPointsAndObstructions:RP.0",
+   "realises": [
+    "HeightsRationalPointsAndObstructions:RP.0"
+   ],
+   "title": "Bounded metric families for point heights",
+   "kind": "definition",
+   "statement": "Let X be a projective variety over a generalized global field K and L a line bundle. Choose a presentation L=M⊗N⁻¹ with M,N generated by finitely many K-sections. Give each generated bundle the pullback sup metric from O(1), so in a local frame e its norm is 1/max_i|s_i/e|_v; tensor and dual give a reference metric m⁰_v on L. A bounded point-metric family consists of continuous fibre norms m_v with m_v(aℓ)=|a|_v m_v(ℓ), m_v(ℓ)>0 for ℓ≠0, and bounds c_v≥0 for d_v(m_v,m⁰_v)=sup_x|log(m_v/m⁰_v)(x)|≤c_v, where Σ_v n_v c_v<∞. The ratio is independent of a nonzero local frame. Bounds range over geometric local points, hence are uniform under finite extensions, with the extension weights of normalized-height. Changing the finite generating presentation gives an equivalent class of families. Tensor product, dual and pullback preserve this class. Each single-place space is complete for d_v. This is a point-height metric interface; it does not define arithmetic intersections or semipositivity of higher-dimensional cycles.",
+   "hypotheses": [
+    "Use nontrivial genuine absolute values and the product-formula weights of generalized-global-field; at a complex place take the usual complex norm with its weight, rather than treating its square as a norm satisfying the usual triangle inequality.",
+    "Continuity is in local trivializations. A metric extending continuously to the proper analytification may be used with its bounded-ratio certificate; bare continuity on X(K̄_v) is not a substitute for that certificate. For the nonarchimedean case all norms are interpreted over the completed algebraic closure.",
+    "X is projective and nonempty; the empty-space case is the unique metric datum with distance zero. Algebraic point-height sums are evaluated over a finite field of definition, not as an unweighted sum over all extensions of a place.",
+    "Metrics on geometric local fibres are equivariant under continuous K_v-automorphisms of the completed algebraic closure (including complex conjugation over a real place). Finite-extension metrics are obtained by base change, with norms and log-ratio bounds raised or scaled when the chosen normalized absolute value is a power of the restricted one. Thus the value at an algebraic point is independent of local embeddings and the weighted sum is compatible with extension-invariance."
+   ],
+   "proofSteps": [
+    "Use the globally generated difference presentation from the scheme line-bundle supplier. The quotient sup norm is independent of a local frame by homogeneity, since the generating sections have no common zero. The tensor quotient gives a reference metric for an arbitrary L.",
+    "On each patch where a generating section is largest, the remaining normalized coordinates have norm at most one. Comparing two generating presentations by polynomial identities and the no-common-zero relations gives local bounds in terms of finitely many K-coefficients. They vanish outside a finite set of nonarchimedean places; the archimedean constants have finite total weight. Thus the weighted bounds are summable and independent of the point or its finite field of definition. This is the point case of Gubler §5.2.17–18, made explicit rather than appealing to bare algebraic-point continuity.",
+    "For a fixed reference metric, another metric is exp(u) times it for a bounded continuous real function u. The sup distance is the norm of u−u′. A uniformly Cauchy sequence has a uniform limit since ℝ is complete; this limit is bounded and continuous and its exponential is a positive metric. This proves completeness without assuming the algebraic local point set compact. The subspace of equivariant functions is closed under uniform limits, so it is complete as well.",
+    "Tensor and dual add or negate log ratios, and pullback cannot increase their sup bound. Extend weights and norms to a finite field by extension-invariance; the total mass above each place recovers its original mass."
+   ],
+   "acceptance": [
+    "For a nonzero rational section s and P outside its divisor, Σ_v n_v(−log m_v(s(P))) converges absolutely and gives a representative of h_{K,L}. Compare first with the sup-metric reference and then with the summable bounds."
+   ],
+   "prerequisites": [
+    "HeightsRationalPointsAndObstructions:RP.0/normalized-height",
+    "HeightsRationalPointsAndObstructions:RP.0/extension-invariance",
+    "HeightsRationalPointsAndObstructions:RP.0/morphism-height-comparison",
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "sources": [
+    {
+     "sourceId": "gubler-heights-2002",
+     "locator": "§5.1.2 and Theorem 5.1.13, pp.96,100–101; §5.2.15–18, pp.108–109; Example 5.3.20, p.117",
+     "match": "Sup distance on bounded metrics, completeness, M-metric bounds and generated-bundle presentations; only the point-height specialization is used."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "RP.0/canonical-point-metrics",
+     "how": "Complete local metric spaces and summable global defect bounds are the input to contraction."
+    },
+    {
+     "where": "RP.0/local-weil-functions",
+     "how": "The metric on O(D) defines the local function and its bounded ambiguity."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PointHeightMetricFamily",
+     "role": "structure",
+     "statement": "Galois-equivariant fibre norms, continuity, the generating reference, finite-extension compatibility and summable uniform log-ratio certificates."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.dist",
+     "role": "data",
+     "statement": "d_v is the sup of the absolute log ratio and is finite; it is invariant under changing a frame."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.complete",
+     "role": "instance",
+     "statement": "At one place the space of bounded continuous metrics is complete for d_v."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.tensor",
+     "role": "constructor",
+     "statement": "Tensor adds logarithmic norms and d_v(m⊗n,m′⊗n′)≤d_v(m,m′)+d_v(n,n′)."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.dual",
+     "role": "constructor",
+     "statement": "Dual negates logarithmic norms and preserves d_v."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.pullback",
+     "role": "functoriality",
+     "statement": "Pullback along a morphism of projective varieties is a metric family, with d_v(f*m,f*m′)≤d_v(m,m′)."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.height",
+     "role": "relation",
+     "statement": "The sum of −log norms at a rational point represents the Weil height; changing metrics changes it by at most Σ_v n_v d_v."
+    }
+   ],
+   "tests": [
+    {
+     "name": "PointHeightMetricFamily.test_sup",
+     "kind": "computation",
+     "statement": "For O(1) on ℙⁿ the norm of x₀ at [x] is |x₀|_v/max_i|x_i|_v; multiplying all coordinates by a nonzero scalar leaves it unchanged."
+    },
+    {
+     "name": "PointHeightMetricFamily.test_trivial",
+     "kind": "degenerate",
+     "statement": "On O_X the norm of 1 equal to 1 at every place gives height zero."
+    },
+    {
+     "name": "PointHeightMetricFamily.test_height",
+     "kind": "compatibility",
+     "statement": "At [1:2] over ℚ, the reference O(1) metric gives height log 2, agreeing with normalized-height and the native absolute projective height."
+    },
+    {
+     "name": "PointHeightMetricFamily.test_constants",
+     "kind": "non-example",
+     "statement": "Rescale the trivial norm at the real place of ℚ by exp(1) and leave the finite places fixed: the family is admissible but its point height is −1, not zero. Rescaling by exp(1) at every prime fails summability and is not admissible."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Height/Local",
+    "namespace": "TauCeti"
+   }
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions:RP.0/canonical-point-metrics",
+   "parentStageId": "HeightsRationalPointsAndObstructions:RP.0",
+   "realises": [
+    "HeightsRationalPointsAndObstructions:RP.0"
+   ],
+   "title": "Canonical point metrics by contraction",
+   "kind": "construction",
+   "statement": "For a projective X/K, a morphism f:X→X and a K-isomorphism θ:f*L≃L^q with integer q>1, there is a unique bounded continuous metric m̂_v at each place making θ an isometry. These metrics form a bounded point-metric family. With Φ_v(m)=(θ_*f*m)^(1/q), d_v(Φ_v(m),Φ_v(m′))≤d_v(m,m′)/q. If c_v=d_v(m⁰_v,Φ_v(m⁰_v)), then d_v(Φ_v^j(m⁰_v),m̂_v)≤q^(−j)c_v/(1−1/q). For an abelian variety take f=[2], q=4 for a symmetric rigidified L and q=2 for an antisymmetric rigidified L, using the cube isomorphism. For arbitrary rigidified L, canonical metrics on L⁺=L⊗[-1]*L and L⁻=L⊗([-1]*L)⁻¹ induce the metric on L by the square root of their tensor product under L²≃L⁺⊗L⁻. No K-rational even/odd square-root decomposition is assumed.",
+   "hypotheses": [
+    "Use bounded-point-metrics and the same K-isomorphism θ at all places. For the abelian case the rigidification fixes the cube isomorphisms, and L⁺ is symmetric while L⁻ is antisymmetric.",
+    "The geometric contraction applies to q>1, not q=1. For a general dynamical system this constructs a canonical point height; only the abelian specialization is a Néron–Tate height."
+   ],
+   "proofSteps": [
+    "The starting reference family and its transform by algebraic f and θ have a summable distance bound, by the finite-presentation coefficient estimates in bounded-point-metrics. Identify the one-place metric space with bounded continuous real functions relative to its reference metric.",
+    "Apply native ContractingWith.exists_fixedPoint to Φ_v with contraction factor 1/q. Finite distance and completeness give a fixed point, uniform convergence of iterates, and the geometric error bound. Uniqueness follows by d≤d/q. Uniform limits preserve continuity. The reference metrics and Φ_v are Galois equivariant; uniqueness also preserves the finite-extension compatibility.",
+    "Sum the geometric error bounds over places; the limit remains an admissible family and exchanging the sum with the limit is justified by Σ_v n_v c_v/(1−1/q)<∞. This is Gubler Theorems 5.1.13 and 5.3.13 in the point case.",
+    "Tensor products, duals and homomorphism pullbacks of abelian canonical metrics satisfy the same cube equations, so uniqueness supplies their compatibility. Apply the symmetric and antisymmetric constructions to L⁺,L⁻ and the genuine isomorphism L²≃L⁺⊗L⁻; positive norms have a unique square root.",
+    "If θ is replaced by αθ, with α∈K×, the new norm is |α|_v^(−1/(q−1)) times the old one, so its local height changes by log|α|_v/(q−1). The product formula cancels these particular global changes. Independent place constants need not cancel. Summing the isometry equation gives ĥ(fP)=q ĥ(P), and bounded comparison with a Weil height identifies the sum uniquely with the Tate limit."
+   ],
+   "acceptance": [
+    "For abelian varieties the global sum at P is the existing RP.0/neron-tate-height, for each symmetric and antisymmetric component and hence every line bundle."
+   ],
+   "prerequisites": [
+    "HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics",
+    "HeightsRationalPointsAndObstructions:RP.0/tate-limit",
+    "HeightsRationalPointsAndObstructions:RP.0/neron-tate-height",
+    "AbelianSchemesAndArithmeticModuli:A1/relative-cube-and-power",
+    "mathlib:ContractingWith.exists_fixedPoint"
+   ],
+   "sources": [
+    {
+     "sourceId": "gubler-heights-2002",
+     "locator": "Theorem 5.1.13 and Examples 5.1.14–15, pp.100–101; Theorem 5.3.13 and Remark 5.3.14, p.114; Example 5.3.20 and Theorem 5.3.24, pp.117–119",
+     "match": "The primary contraction proof, summably dominated convergence and abelian canonical metric normalization."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "RP.0/local-weil-functions",
+     "how": "The norm of the canonical section of O(D) defines local Néron functions with an exact multiplication equation."
+    },
+    {
+     "where": "RP.5/szpiro-ullmo-zhang-equidistribution",
+     "how": "Provides the canonical point metric; the curvature measure and arithmetic intersections remain separate Arakelov proof inputs."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.canonicalPointMetric",
+     "role": "constructor",
+     "statement": "The unique metric for (f,L,θ,q) at each place, with q>1."
+    },
+    {
+     "name": "TauCeti.canonicalPointMetric_isometry",
+     "role": "characterisation",
+     "statement": "θ:f*L≃L^q is an isometry."
+    },
+    {
+     "name": "TauCeti.canonicalPointMetric_error",
+     "role": "relation",
+     "statement": "d_v(Φ_v^j(m⁰_v),m̂_v)≤q^(−j)c_v/(1−1/q)."
+    },
+    {
+     "name": "TauCeti.canonicalPointMetric_change_isomorphism",
+     "role": "compatibility",
+     "statement": "Changing θ to αθ scales the metric by |α|_v^(−1/(q−1))."
+    },
+    {
+     "name": "TauCeti.canonicalPointMetric_abelian_tensor",
+     "role": "functoriality",
+     "statement": "Rigidified abelian canonical metrics commute with tensor, dual and homomorphism pullback."
+    },
+    {
+     "name": "TauCeti.canonicalPointMetric_sum",
+     "role": "compatibility",
+     "statement": "With global cube isomorphisms their sum is ĥ_{K,L}, including the half-sum for L⁺,L⁻."
+    }
+   ],
+   "tests": [
+    {
+     "name": "canonicalPointMetric.test_power",
+     "kind": "computation",
+     "statement": "For [x_i]↦[x_i^q] on ℙⁿ and its standard O(1) isomorphism the sup metric is fixed exactly."
+    },
+    {
+     "name": "canonicalPointMetric.test_trivial",
+     "kind": "degenerate",
+     "statement": "The trivial rigidified bundle on an abelian variety has canonical norm 1 and height zero."
+    },
+    {
+     "name": "canonicalPointMetric.test_rescaling",
+     "kind": "computation",
+     "statement": "For q=4, changing θ to αθ changes λ̂_v by +(1/3)log|α|_v; the global weighted change is zero."
+    },
+    {
+     "name": "canonicalPointMetric.test_q_one",
+     "kind": "non-example",
+     "statement": "For f=id,L=O_X,q=1 and θ=id, every constant positive norm is fixed, so the uniqueness theorem cannot include q=1."
+    },
+    {
+     "name": "canonicalPointMetric.test_elliptic",
+     "kind": "compatibility",
+     "statement": "For O(O) on an elliptic curve, the globally normalized canonical metric sum is native canonicalHeight, not twice it."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Height/Local",
+    "namespace": "TauCeti"
+   }
+  },
+  {
    "id": "HeightsRationalPointsAndObstructions:RP.0/local-weil-functions",
    "parentStageId": "HeightsRationalPointsAndObstructions:RP.0",
    "realises": [
@@ -2768,33 +3029,33 @@
    ],
    "title": "Local Weil functions and Néron functions",
    "kind": "definition",
-   "statement": "For a Cartier divisor D on a projective variety X over a generalized global field, define λ_{D,v} on the complement of D from a continuous admissible metric on O(D) over the proper analytification: a local equation f gives λ_{D,v} = −log|f|_v plus the continuous metric term. For two such metrics their ratio is globally bounded on the proper analytic space. Admissible placewise families have the finite-support/uniform boundedness conditions needed for their weighted sums to represent the Weil height class. Additivity and pullback hold modulo bounded functions. For symmetric or antisymmetric divisors on an abelian variety the canonical metrized line bundle gives local Néron functions and the [2] functional equation, with compatible constants; the sum represents the canonical height. Continuity on X(K̄_v) alone is insufficient to justify the boundedness assertion. The product formula cancels principal logarithms, while arbitrary changes of constants cancel only if their weighted sum is zero.",
+   "statement": "For a Cartier divisor D on a projective variety X/K and a bounded point-metric family m on O(D), put λ_{D,v}(P)=−log m_v(s_D(P)) on X(K̄_v)∖|D|, where s_D is its canonical rational section. If s_D=f e in a local nonvanishing frame, then λ=−log|f|_v−log m_v(e). Two admissible metrics give a bounded difference at each place and a summable uniform bound on the global difference. Tensor and pullback give local additivity and functoriality exactly for the transported metrics, and modulo bounded functions for independently chosen metrics. Canonical-point-metrics on an abelian variety give local Néron functions. If θ:[2]*O(D)≃O(D)^q is the chosen global isomorphism and θ([2]*s_D)=a_D s_D^q, then λ̂_{D,v}(2P)=qλ̂_{D,v}(P)−log|a_D(P)|_v where both sides are defined; q=4 for symmetric and q=2 for antisymmetric rigidified bundles. The normalized weighted global sum is ĥ_{K,O(D)}. Product-formula cancellation applies to principal logarithms and rescalings from a global K-isomorphism; arbitrary summable place constants have a global sum which need not vanish.",
    "hypotheses": [
-    "D a Cartier divisor; v a place of K; normalisations follow the M_K-field normalisation of generalized-global-field."
+    "K and n_v follow generalized-global-field and normalized-height. Evaluate the global sum over a finite field of definition with its normalized weights; D is a Cartier divisor and P avoids its support.",
+    "Local metrics carry the bounded and summable certificates of bounded-point-metrics. Continuity on algebraic local points alone implies neither certificate.",
+    "Canonical metrics use rigidifications and global cube isomorphisms; a change of arbitrary local constants preserves the global canonical normalization only when their weighted sum is zero."
    ],
    "proofSteps": [
-    "Existence via presentations of D as a difference of base-point-free divisors (Bombieri–Gubler Chapter 2, as cited by Gubler 2007 §2).",
-    "Néron functions: Tate's limit applied to λ_{D,v} along [2] with correction log|g|_v (Bombieri–Gubler Theorems 9.5.4 and 9.5.7, cited in Gubler 2007 §2.10).",
-    "The product formula annihilates the weighted logarithms of a principal rational function. Constant changes are harmless only with zero weighted sum or after recording the resulting global bounded change; arbitrary placewise constants do not vanish by the product formula."
+    "Use bounded-point-metrics to build the metric of O(D) from generated-bundle presentations and summable bounded changes. Homogeneity shows the frame formula independent of trivialization; dividing two norms removes the divisor singularity and bounds the difference.",
+    "At a rational point the sup-metric reference sums to the projective height of the generating presentation, hence to h_{K,O(D)}. The summable uniform perturbation bound proves absolute convergence and the same height class. Changing s_D by f changes the sum by −Σ_v n_v log|f(P)|_v=0.",
+    "Canonical-point-metrics gives the local exact [2] isometry. Apply it to the section identity θ([2]*s_D)=a_D s_D^q to obtain the displayed logarithmic equation. Its correction sums to zero by the product formula, so the global sum is homogeneous and differs boundedly from a Weil height; Tate-limit uniqueness identifies it with ĥ. The half-sum of the symmetric and antisymmetric metrics handles arbitrary L.",
+    "For an elliptic Weierstrass equation W, distinguish the cube-metric function ν_v from the equation-independent Silverman normalization λ^Sil_v. Müller–Stoll Remark 3.1 and Proposition 3.2 pp.4 give ν_v=(1/2)λ^MS_v and λ^Sil_v=ν_v−(1/12)log|Δ(W)|_v. In the parameter t=−x/y, ν_v+log|t|_v tends to zero; ν_v(2P)=4ν_v(P)−log|ψ₂(P)|_v. The Silverman function has the additional +(1/4)log|Δ| term. The discriminant shift has weighted sum zero by the product formula, so both sum to the native (O)-canonical height. This local constant shift changes the fixed-isomorphism equation; it is not equality of the two local functions."
    ],
    "acceptance": [
-    "For A = E an elliptic curve and D = (O), λ̂_{(O),v} is the classical Néron local height."
+    "For E and D=(O), the local metric function agrees with the classical Néron local height after the stated normalization by a place constant. Its global normalized sum is native canonicalHeight."
    ],
    "prerequisites": [
     "HeightsRationalPointsAndObstructions:RP.0/weil-height-machine",
     "HeightsRationalPointsAndObstructions:RP.0/tate-limit",
-    "HeightsRationalPointsAndObstructions:RP.0/neron-tate-height"
+    "HeightsRationalPointsAndObstructions:RP.0/neron-tate-height",
+    "HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics",
+    "HeightsRationalPointsAndObstructions:RP.0/canonical-point-metrics"
    ],
    "sources": [
     {
-     "sourceId": "gubler-2007",
-     "locator": "§2.1–2.10, pp. 3–6 (arXiv v2)",
-     "match": "Local heights of subvarieties with formally metrized line bundles over a non-archimedean field; §2.10 canonical metrics on symmetric ample line bundles of abelian varieties via homomorphic pullback, citing Bombieri–Gubler Theorem 9.5.7."
-    },
-    {
-     "sourceId": "bombieri-gubler",
-     "locator": "§2.2 (local heights) and §9.5 (Néron functions), as cited by Gubler 2007 §2.10",
-     "match": "Local Weil functions and canonical local heights on abelian varieties."
+     "sourceId": "gubler-heights-2002",
+     "locator": "§5.1.2, Theorem 5.1.13 and Example 5.1.15, pp.96,100–101; §5.2.15–18, pp.108–109; Theorem 5.3.13 and §5.3.20–24, pp.114,117–119",
+     "match": "Primary metric contraction and point-height specialization, avoiding the unread Bombieri–Gubler citation."
     },
     {
      "sourceId": "mueller-stoll-2016",
@@ -2821,7 +3082,7 @@
     {
      "name": "TauCeti.LocalWeilFunction",
      "role": "structure",
-     "statement": "Admissible continuous-metric local Weil functions for (X,D,v) on the proper analytification, modulo bounded metric ratios; global families include finite-support and boundedness conditions."
+     "statement": "The norm-derived local function for (X,D,v) and a bounded point-metric family, with frame-independent logarithmic formula and summable uniform ambiguity."
     },
     {
      "name": "TauCeti.LocalWeilFunction.add",
@@ -2836,12 +3097,12 @@
     {
      "name": "TauCeti.neronFunction",
      "role": "constructor",
-     "statement": "Local functions obtained from the canonical metric of a symmetric divisor, after the metrized-line-bundle construction and compatible normalization; not a construction from bare continuity alone."
+     "statement": "Local functions from the rigidified canonical metric, with q=4 or q=2 multiplication equation, and general bundles through the half-sum construction."
     },
     {
      "name": "TauCeti.neronTateHeight_eq_sum_neronFunction",
      "role": "relation",
-     "statement": "ĥ_{K,O(D)}(x) = Σ_v n_v λ̂_{D,v}(x) for x ∉ |D|, with the constants chosen to sum to zero."
+     "statement": "ĥ_{K,O(D)}(P)=Σ_v n_v λ̂_{D,v}(P) off D for globally normalized cube isomorphisms. Further independent constant changes preserve equality exactly when their weighted sum vanishes."
     },
     {
      "name": "TauCeti.neronFunction_principal",
@@ -2868,12 +3129,17 @@
     {
      "name": "LocalWeilFunction.test_elliptic_normalisation",
      "kind": "compatibility",
-     "statement": "For P and 2P both different from O, the (O)-normalized elliptic local function satisfies λ̂_v(2P)=4λ̂_v(P)−log|ψ₂(P)|_v+(1/4)log|Δ|_v, and differs boundedly from (1/2)log⁺|x(P)|_v. Müller–Stoll §3, pp.3–4 gives twice this local function plus (1/6)log|Δ|; divide by two and cancel the discriminant sum globally to compare with native canonicalHeight."
+     "statement": "For P and 2P both different from O, ν_v=(1/2)λ^MS_v satisfies ν_v(2P)=4ν_v(P)−log|ψ₂(P)|_v. The equation-independent normalization λ^Sil_v=ν_v−(1/12)log|Δ|_v satisfies λ^Sil_v(2P)=4λ^Sil_v(P)−log|ψ₂(P)|_v+(1/4)log|Δ|_v. Both differ boundedly from (1/2)log⁺|x(P)|_v and have the same global sum, native canonicalHeight; they need not be the same local function."
     },
     {
      "name": "LocalWeilFunction.test_not_bounded",
      "kind": "non-example",
-     "statement": "λ_{D,v} is unbounded near |D|; a bounded function is never a local Weil function for D ≠ 0 effective."
+     "statement": "For D≠0 effective and an analytic path approaching a smooth geometric point of its support from the complement, the norm-derived function is unbounded above; for example λ_{(0),v}(t)=−log|t|_v+O(1). A bounded function cannot satisfy this local equation. The condition includes a point approachable from the complement."
+    },
+    {
+     "name": "LocalWeilFunction.test_constant_change",
+     "kind": "non-example",
+     "statement": "For D=0 on a projective variety over ℚ, choose λ_∞=1 and λ_p=0. This is an admissible local Weil family whose global sum is 1; the product formula does not turn it into the zero canonical height."
     }
    ],
    "library": {
@@ -4391,6 +4657,53 @@
    }
   },
   {
+   "id": "HeightsRationalPointsAndObstructions:RP.1/formal-logarithm-small-ball",
+   "parentStageId": "HeightsRationalPointsAndObstructions:RP.1",
+   "realises": [
+    "HeightsRationalPointsAndObstructions:RP.1"
+   ],
+   "title": "Formal logarithms on a sufficiently small ideal",
+   "kind": "theorem",
+   "statement": "Let F/ℚ_p be finite, O its integers, 𝔪 its maximal ideal, and e=ord_F(p). For a g-dimensional commutative formal group law over O, represented by g native multivariate power series with zero constant term, linear term X+Y, associativity, identity and inverses, there is a unique formal logarithm log_FG over F with derivative the identity. For every integer r>e/(p−1), it converges on (𝔪^r)^g and gives an analytic group isomorphism FG((𝔪^r)^g)≃((𝔪^r)^g,+), with analytic inverse and the same tangent map. In particular the whole maximal-ideal group is torsion-free when e<p−1. This is a multivariate logarithm theorem extending native one-dimensional FormalGroup; native FormalGroup.Point is a power-series-valued point type and does not already give points in a complete local field.",
+   "hypotheses": [
+    "The formal law has integral coefficients and is commutative; F has characteristic zero; use ord_F(π)=1 and r∈ℕ with r>e/(p−1).",
+    "A smooth group model at the identity supplies its formal law and comparison with the kernel of reduction; that comparison is a separate NeronModels supplier contract. For an abelian variety without good reduction one still uses the smooth Néron model near the identity."
+   ],
+   "proofSteps": [
+    "The inverse Jacobian in the second variables at Y=0 gives the g invariant differential forms with integral coefficients and identity constant matrix. Commutativity makes them closed. Integrate their homogeneous degree-(n−1) parts over F to obtain the degree-n part of log, whose denominators divide n. Translation invariance gives log(FG(X,Y))=log(X)+log(Y); derivative identity determines uniqueness in characteristic zero.",
+    "A homogeneous degree-n coefficient has valuation at least −e·ord_p(n). Since ord_p(n)≤(n−1)/(p−1), on 𝔪^r the nonlinear term has valuation at least nr−e·ord_p(n)>r and tends to infinity with n. The same estimates on differences show log−id is strictly contracting on (𝔪^r)^g. Solve log(x)=y by iterating x↦y−(log(x)−x); completeness gives its inverse on the whole ball. The power-series inverse is analytic by the same estimates. Log is a homomorphism, hence the inverse is too.",
+    "Katz Appendix Lemma′ proves the r=1 range by topologically nilpotent divided powers on 𝔪, followed by inverse logarithm and exponential; the coefficient proof gives the explicit small-ball refinement used here. The target is the logarithm, not a redevelopment of general Lie groups or an elliptic formal-group carrier."
+   ],
+   "acceptance": [
+    "For the additive g-dimensional law log is the identity on every ideal.",
+    "For the multiplicative law in one variable log(1+T)=Σ_{n≥1}(−1)^{n+1}T^n/n and its inverse exp(T)−1 satisfy the stated strict-radius condition.",
+    "At F=ℚ_p(ζ_p), e=p−1 and ζ_p−1∈𝔪 is nonzero p-torsion for the multiplicative law. At p=2 the witness is −2 over ℚ₂. Thus the strict inequality for r=1 cannot be replaced by e≤p−1."
+   ],
+   "prerequisites": [
+    "mathlib:MvPowerSeries",
+    "mathlib:FormalGroup",
+    "mathlib:ContractingWith.exists_fixedPoint"
+   ],
+   "sources": [
+    {
+     "sourceId": "katz-1981-appendix",
+     "locator": "Appendix, Lemma′ and its proof, printed p.502 (the Appendix begins on p.501)",
+     "match": "Primary proof of logarithm/exponential isomorphism and torsion-freeness for e<p−1; the explicit r bound is the stated coefficient-estimate refinement."
+    },
+    {
+     "sourceId": "mattuck-1955",
+     "locator": "§13, Theorem 7 and proof, pp.114–117; §14(2), p.118",
+     "match": "Analytic additive coordinates near the identity, with identity tangent normalization and linear change between charts."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Height/LocalDescent",
+    "namespace": "TauCeti",
+    "name": "TauCeti.formalLogarithm_smallIdeal_equiv"
+   }
+  },
+  {
    "id": "HeightsRationalPointsAndObstructions:RP.1/local-division-index",
    "parentStageId": "HeightsRationalPointsAndObstructions:RP.1",
    "realises": [
@@ -4398,31 +4711,33 @@
    ],
    "title": "Local indices of multiplication by two",
    "kind": "lemma",
-   "statement": "Let A be an abelian variety of dimension g over a local field. If the field is a finite extension F of ℚ_p, A(F) has an open subgroup of finite index isomorphic to O_F^g, so #A(F)/2A(F) = |2|_F^{-g}·#A(F)[2] (normalised absolute value; for F = ℚ_p this is 2^{g} ·#A(ℚ_p)[2] when p = 2 and #A(ℚ_p)[2] otherwise). Over ℝ, #A(ℝ)/2A(ℝ) = #A(ℝ)[2]/2^g; over ℂ the quotient is trivial.",
+   "statement": "Let A be an abelian variety of dimension g over F/ℚ_p finite. Mattuck gives an open finite-index subgroup U≃(O_F^g,+) of A(F). With the module absolute value |a|_F=q_F^(−ord_F(a)), #A(F)/2A(F)=|2|_F^(−g)·#A(F)[2]. Thus the factor is 2^(g[F:ℚ₂]) at p=2 and 1 otherwise; for F=ℚ₂ and full two-torsion it gives 2^(3g). This module absolute value is not the extension of the normalized ℚ_p norm without its [F:ℚ_p] power. Over ℝ the quotient has order #A(ℝ)[2]/2^g; over ℂ it is trivial.",
    "hypotheses": [
     "A abelian of dimension g over a local field of characteristic 0."
    ],
    "proofSteps": [
-    "p-adic: A(F) is a compact commutative p-adic Lie group of dimension g[F:ℚ_p]; the formal group gives an open subgroup ≅ O_F^g (Mattuck); index count for [2] on a group with finite torsion and the open subgroup.",
-    "Real: A(ℝ) ≅ (ℝ/ℤ)^g × (ℤ/2)^r as a compact Lie group; count."
+    "Read Mattuck Theorem 7, pp.114–117: its additive local uniformization sends an abelian subgroup into a linear subspace; projective compactness over a locally compact F makes the open subgroup finite index. An alternative implementation uses a smooth Néron identity chart, shrinks and rescales it until its formal law is integral, and applies formal-logarithm-small-ball. The model/chart comparison is an explicit supplier request, not an existing abelian-variety logarithm at the pins.",
+    "Let G=A(F), C=G/U. Since U is torsion-free, multiplication by two in 0→U→G→C→0 gives 0→G[2]→C[2]→U/2U→G/2G→C/2C→0. Both C groups are finite with equal order. Taking alternating cardinalities gives #G/2G=#G[2]·#U/2U, without assuming this group extension splits. For U≃O_F^g the last factor is q_F^(g ord_F(2))=|2|_F^(−g).",
+    "Over ℂ import complex-lattice-realization: A(ℂ)≃ℂ^g/Λ, where multiplication by two is surjective. Over ℝ take conjugation invariants in that uniformization. The identity component is a real g-torus; the component group embeds in H¹(⟨conjugation⟩,Λ), hence is killed by two. In 0→G⁰→G→π₀G→0, [2] is onto on G⁰ and G⁰[2] has order 2^g. The snake lemma gives G[2]↠π₀G and G/2G≃π₀G, proving the stated real count. No splitting hypothesis is needed."
    ],
    "acceptance": [
-    "For E/ℚ₂ with E(ℚ₂)[2] = ℤ/2 × ℤ/2, #E(ℚ₂)/2E(ℚ₂) = 8."
+    "For E/ℚ₂ with E(ℚ₂)[2] = ℤ/2 × ℤ/2, #E(ℚ₂)/2E(ℚ₂) = 8.",
+    "If F/ℚ₂ is unramified quadratic and g=1 with all four two-torsion points rational, the quotient has order 4·4=16, not 8.",
+    "At p odd the additive lattice contributes no two-quotient. For g=0 both sides equal 1.",
+    "A real elliptic curve with one component has #E(ℝ)[2]=2 and quotient order 1; with two components these orders are 4 and 2. A complex abelian variety has quotient order 1."
    ],
    "prerequisites": [
     "HeightsRationalPointsAndObstructions:RP.1/kummer-map",
-    "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density"
+    "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density",
+    "HeightsRationalPointsAndObstructions:RP.1/formal-logarithm-small-ball",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "AbelianSchemesAndArithmeticModuli:A5/complex-lattice-realization"
    ],
    "sources": [
     {
-     "sourceId": "poonen-rational-points",
-     "locator": "§5.7, abelian varieties over local fields (orientation), p. 138",
-     "match": "Abelian varieties and their groups of points; the index formula is proved here from the Lie group structure."
-    },
-    {
      "sourceId": "mattuck-1955",
-     "locator": "Theorem 7 (Ann. of Math. 62 (1955))",
-     "match": "A(F) contains an open subgroup isomorphic to O_F^g for an abelian variety over a p-adic field."
+     "locator": "§13, Theorem 7 and proof, printed pp.114–117; §14(2), p.118",
+     "match": "Primary proof of an additive open subgroup, finite index for locally compact fields. The index is then obtained by the displayed finite-group exact sequence."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4445,20 +4760,28 @@
     "Good reduction at v; e_v < p − 1 for the p-part."
    ],
    "proofSteps": [
-    "The kernel of reduction is the group of O_v-points of the formal group of 𝒜, which is torsion-free in the stated range (formal logarithm converges); the prime-to-p part injects since [n] is étale on 𝒜 (Néron model, NeronModels R11.1/abelian-scheme-model)."
+    "Properness identifies A(F) with 𝒜(O_F) at a good-reduction place. The smooth formal completion of 𝒜 at zero identifies ker(red) with its g-dimensional integral commutative formal law on 𝔪_F; this comparison is requested explicitly from NeronModels R11.1.",
+    "For n prime to p, [n](T)=nT+higher-degree terms on the formal completion. On 𝔪_F the linear term is a unit and the nonlinear terms strictly contract, so [n] is bijective there by successive approximation; in particular the kernel has no prime-to-p torsion. Étaleness alone is not asserted to make all global n-torsion trivial.",
+    "If e_v<p−1, formal-logarithm-small-ball applies with r=1 and identifies the full reduction kernel with the torsion-free additive group 𝔪_F^g. This is precisely Katz Appendix Lemma′ and its logarithm/exponential proof on printed p.502. Consequently all torsion injects under the strict ramification bound.",
+    "Base change of the Jacobian and its Abel–Jacobi map to the good-reduction model gives compatibility with points and divisor classes; restrict the local statement to J(ℚ). At q≥3 one has e=1<q−1."
    ],
    "acceptance": [
-    "E : y² = x³ − x has good reduction at 3 and E(ℚ)_tors = ℤ/2 × ℤ/2 injects into Ẽ(𝔽₃), of order 4."
+    "E : y² = x³ − x has good reduction at 3 and E(ℚ)_tors = ℤ/2 × ℤ/2 injects into Ẽ(𝔽₃), of order 4.",
+    "On the multiplicative formal group over ℚ_p(ζ_p), e=p−1 and ζ_p−1 is nonzero p-torsion in the reduction kernel: the strict boundary cannot be weakened, nor can the restriction to prime-to-p torsion be dropped without a ramification hypothesis.",
+    "For a dimension-zero abelian variety both torsion and reduction groups are trivial."
    ],
    "prerequisites": [
     "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model",
-    "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density"
+    "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density",
+    "HeightsRationalPointsAndObstructions:RP.1/formal-logarithm-small-ball",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
    ],
    "sources": [
     {
      "sourceId": "katz-1981-appendix",
-     "locator": "Appendix (Invent. Math. 62 (1981), 481–502)",
-     "match": "Injectivity of reduction on torsion for abelian schemes over unramified-enough bases."
+     "locator": "Appendix, Lemma and Lemma′, printed p.502; setup on p.501",
+     "match": "Katz proves the local kernel torsion-free using logarithm and exponential when e<p−1, and derives the global torsion reduction injection."
     },
     {
      "sourceId": "poonen-rational-points",
@@ -8632,7 +8955,7 @@
    "realises": [
     "HeightsRationalPointsAndObstructions:RP.4"
    ],
-   "title": "The Mordell conjecture (Faltings' theorem) by the Parshin route",
+   "title": "The Mordell conjecture (Faltings' theorem)",
    "kind": "theorem",
    "statement": "For a smooth projective geometrically connected curve C of genus≥2 over a number field K, C(K) is finite. This roadmap owns one proposed declaration, with the independent Vojta–Bombieri route at RP.5/vojta-bombieri-mordell. The Parshin route at RP.4/parshin-implication remains a conditional comparison requiring finiteness of curves of fixed genus with good reduction outside S; that hypothesis is not imported from the higher-tier Faltings roadmap. FaltingsFinitenessAndIsogenyTheorems and MordellLawrenceVenkatesh may import the present rational-point theorem and Parshin construction when their later plans are synchronized.",
    "hypotheses": [
@@ -10776,11 +11099,13 @@
   },
   {
    "supplier": "SchemeAndStackFoundations:SF.5",
-   "need": "Missing target SchemeAndStackFoundations:SF.5/very-ample. Define very ample line bundles via closed immersions into projective space, the complete-linear-system embedding when applicable, pullback of O(1), and powers of an ample bundle becoming very ample. Prove projective-normality implies surjectivity of polynomial sections in the specified degree; keep this extra hypothesis in quartic duplication. Supply degree/Bézout control for intersections and morphism-coordinate height comparisons. This is a requested contract, not an existing supplier theorem.",
+   "need": "Missing target SchemeAndStackFoundations:SF.5/very-ample. Define very ample line bundles via closed immersions into projective space, the complete-linear-system embedding when applicable, pullback of O(1), and powers of an ample bundle becoming very ample. Prove projective-normality implies surjectivity of polynomial sections in the specified degree; keep this extra hypothesis in quartic duplication. Supply degree/Bézout control for intersections and morphism-coordinate height comparisons. This is a requested contract, not an existing supplier theorem. For any line bundle L on a projective variety supply L=M⊗N⁻¹ with M,N globally generated, and finite generating families. Compare two presentations on patches where a generating section has maximal norm, by no-common-zero polynomial relations with finitely many ground-field coefficients. These local estimates supply bounded-point-metrics and summable bounds for algebraically transported metric families; global height comparison alone is not the local bound.",
    "neededBy": [
     "HeightsRationalPointsAndObstructions:RP.0/morphism-height-comparison",
     "HeightsRationalPointsAndObstructions:RP.0/weil-height-machine",
-    "HeightsRationalPointsAndObstructions:RP.5/stabilizer"
+    "HeightsRationalPointsAndObstructions:RP.5/stabilizer",
+    "HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics",
+    "HeightsRationalPointsAndObstructions:RP.0/canonical-point-metrics"
    ]
   },
   {
@@ -10853,6 +11178,14 @@
     "HeightsRationalPointsAndObstructions:RP.1/lang-neron",
     "HeightsRationalPointsAndObstructions:RP.3/selmer-set-of-torsor"
    ]
+  },
+  {
+   "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "need": "For a smooth commutative finite-type group over a complete DVR, identify the formal completion at its identity with a g-dimensional integral formal law and identify its maximal-ideal points with the reduction kernel, topologically and functorially. For an abelian variety over a p-adic field, provide the identity chart from its smooth Néron model (including bad reduction); sufficiently deep balls are open in A(F). For good-reduction Jacobians give divisor/Abel–Jacobi specialization compatible with this reduction. The elliptic equation-filtration comparison in R11.2 is only a specialization and does not supply this general contract.",
+   "neededBy": [
+    "HeightsRationalPointsAndObstructions:RP.1/local-division-index",
+    "HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective"
+   ]
   }
  ],
  "coverage": [
@@ -10860,18 +11193,17 @@
    "stageId": "HeightsRationalPointsAndObstructions:RP.0",
    "status": "planned",
    "remaining": [
-    "Unplanned scheme, curve and line-bundle supplier contracts",
-    "General local Néron functions and admissible analytic metrics"
+    "Unplanned scheme, curve and line-bundle supplier contracts"
    ]
   },
   {
    "stageId": "HeightsRationalPointsAndObstructions:RP.1",
    "status": "planned",
    "remaining": [
-    "Unread standard sources for local facts on abelian varieties",
     "Unplanned scheme, curve and line-bundle supplier contracts",
     "Lang–Néron proof contracts",
-    "Global-function-field adelic and cohomology extension"
+    "Global-function-field adelic and cohomology extension",
+    "Smooth-group formal-completion and local-chart interfaces"
    ]
   },
   {
@@ -10967,14 +11299,6 @@
    "detail": "The identification of the Cassels–Tate pairing with the algebraic Brauer–Manin pairing on torsors under abelian varieties (Manin 1971; Skorobogatov, Torsors and rational points §6.2, not freely available) is used as a cited key theorem; the Cassels–Tate pairing itself is not planned by this roadmap."
   },
   {
-   "title": "Unread standard sources for local facts on abelian varieties",
-   "neededBy": [
-    "HeightsRationalPointsAndObstructions:RP.1/local-division-index",
-    "HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective"
-   ],
-   "detail": "Mattuck 1955 (open subgroup O_F^g of A(F)) and Katz's 1981 appendix (injectivity of reduction on torsion) are standard results cited without reading; a free source (e.g. Silverman-style formal-group notes for abelian varieties) should be located."
-  },
-  {
    "title": "Compactness of the integers of a nonarchimedean completion of a number field",
    "neededBy": [
     "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
@@ -11016,16 +11340,11 @@
     "HeightsRationalPointsAndObstructions:RP.5/generated-abelian-subvariety",
     "HeightsRationalPointsAndObstructions:RP.5/coset-free-hypersurface-sections",
     "HeightsRationalPointsAndObstructions:RP.6/curve-in-jacobian",
-    "HeightsRationalPointsAndObstructions:RP.6/genus-zero-classification"
+    "HeightsRationalPointsAndObstructions:RP.6/genus-zero-classification",
+    "HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics",
+    "HeightsRationalPointsAndObstructions:RP.0/canonical-point-metrics"
    ],
-   "detail": "The exact SchemeAndStackFoundations target references listed in requests do not exist in its current packet. SF.3–SF.5 have no target decomposition yet. The replacements are stage requests, not satisfied prerequisites. Required contracts include torsors/twists, regular Brauer comparison, Picard/curve geometry, Riemann–Roch/Riemann–Hurwitz, arbitrary-dimensional resolution, ample/very ample comparisons and intersection projection formulas. See the independently checked request list; scheme Brauer remains owned by key/scheme-brauer."
-  },
-  {
-   "title": "General local Néron functions and admissible analytic metrics",
-   "neededBy": [
-    "HeightsRationalPointsAndObstructions:RP.0/local-weil-functions"
-   ],
-   "detail": "The general construction was attributed to Bombieri–Gubler, which is not cleared in the maintainer’s library and was not read. Proper analytic metric compactness, admissible placewise families and canonical metric normalization need a readable primary proof and decomposition. Müller–Stoll verifies the elliptic equation only; Gubler’s metrized intersection definitions do not fill the general local-functions proof."
+   "detail": "The exact SchemeAndStackFoundations target references listed in requests do not exist in its current packet. SF.3–SF.5 have no target decomposition yet. The replacements are stage requests, not satisfied prerequisites. Required contracts include torsors/twists, regular Brauer comparison, Picard/curve geometry, Riemann–Roch/Riemann–Hurwitz, arbitrary-dimensional resolution, ample/very ample comparisons and intersection projection formulas. See the independently checked request list; scheme Brauer remains owned by key/scheme-brauer. The very-ample request also specifies generated-bundle difference presentations and their local coefficient bounds for the point-metric construction."
   },
   {
    "title": "Lang–Néron proof contracts",
@@ -11093,6 +11412,14 @@
     "HeightsRationalPointsAndObstructions:RP.3/open-torus-torsor-descent"
    ],
    "detail": "HW20 uses the Colliot-Thélène–Skorobogatov formal lemma for finite A/(A∩Br X). Its statement and downstream use were read; the primary auxiliary-place proof is not decomposed here. Ramification, residue control and the existence of compensating local points are explicit proof obligations, not consequences of fixed-class local constancy alone."
+  },
+  {
+   "title": "Smooth-group formal-completion and local-chart interfaces",
+   "neededBy": [
+    "HeightsRationalPointsAndObstructions:RP.1/local-division-index",
+    "HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective"
+   ],
+   "detail": "The primary Mattuck and Katz statements and proofs have been read. The remaining implementation input is the exact general smooth formal-completion/kernel and p-adic identity-chart comparison requested from NeronModels R11.1. Its current elliptic formal-group comparison does not supply arbitrary dimension. The logarithm theorem, convergence radius and finite-group index count are planned here; this gap records the supplier interface, not an unread-source limitation."
   }
  ],
  "sourceIssues": [
@@ -11450,7 +11777,7 @@
   {
    "kind": "author-copy",
    "url": "https://www.mathe2.uni-bayreuth.de/stoll/papers/ellheights-arXiv-v2.pdf",
-   "citation": "Computing canonical heights on elliptic curves in quasi-linear time; Author manuscript, Dec.15, 2015, 14 pages; published LMS J. Comput. Math. 19 (2016)",
+   "citation": "Computing canonical heights on elliptic curves in quasi-linear time; Author manuscript, Dec.15, 2015, 15 pages; published LMS J. Comput. Math. 19 (2016)",
    "read": "2026-10-13",
    "sha256": "778d14c7197ecef334aa5fd7b3ce96aad8d40f4fd20e85d4fa8fc56072c2018f"
   },
@@ -11460,6 +11787,27 @@
    "citation": "Diophantine Approximation and Nevanlinna Theory; Author-hosted CIME chapter, printed pp.111–224; independently accessed 2026-10-13",
    "read": "2026-10-13",
    "sha256": "7a81764bb598f59c8205da04e1bd0c548ba1560750bd3da8f7ac42f24e45b1db"
+  },
+  {
+   "kind": "published",
+   "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
+   "citation": "A. Mattuck, Abelian varieties over p-adic ground fields, Ann. of Math. 62 (1955), 92–119",
+   "read": "2026-10-14",
+   "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94"
+  },
+  {
+   "kind": "published",
+   "url": "https://web.math.princeton.edu/~nmk/old/galoisprop.pdf",
+   "citation": "S. Lang (article); N. Katz (Appendix), Galois properties of torsion points on abelian varieties (Appendix by N. Katz), Invent. Math. 62 (1981), 481–502",
+   "read": "2026-10-14",
+   "sha256": "eb651da43d98104bde5f86ed6f2b792b564a73cd7680742746c04ae6d3efeecc"
+  },
+  {
+   "kind": "author manuscript",
+   "url": "https://gubler.app.uni-regensburg.de/Publikationen/habi%2B.pdf",
+   "citation": "W. Gubler, Basic Properties of Heights of Subvarieties, Habilitationsschrift, 5 July 2002, author-hosted 125-page PDF, accessed 2026-10-14",
+   "read": "2026-10-14",
+   "sha256": "75bbf9b41b163482e3789af0a88cacd92e53913d63cc34d19d25fc25b8538835"
   }
  ],
  "restructure": [
