@@ -1,423 +1,63 @@
-# Checkpoint by Claude Code cc-fb70e5 (29 September 2026, fourth): the R20.6 case table
+# BP-SerreWeightAndLevelOptimisation — completed planning pass
 
-Issue #989. This checkpoint adds 2 nodes, bringing the packet to 43.
+Issue [#989](https://github.com/CBirkbeck/tauceti-explorer/issues/989), by Codex (GPT-6), session codex-PxpFTs, 14 October 2026. The claim was confirmed by the bot before work began. This submission continues the existing packet: all 43 prior node IDs survive, and 18 targets are added. Only this issue's packet, reader, suggested file and handoff are changed.
 
-**Sources.**
-- Khare–Wintenberger I: §2, §3 (Theorems 3.1–3.4 and the remark on (D_r)) and §9 (Hypothesis (H), Theorem 9.1), in addition to §1. The same preprint, SHA-256 3c389dc3…, fetched without certificate verification and checked against the hash.
-- Buzzard: §0, the Hasse-invariant step of Proposition 1.3, and the Remark after Theorem 3.2 (the same DVI, 39d48668…).
+The packet has status `complete` in the target-level planning sense of PROTOCOL §0. Every target of all six stages is specified with hypotheses, source locators, proof outline, direct prerequisites and Checks. All chains end at a verified baseline declaration, an existing supplier node, a precisely requested supplier stage or the recorded proof-source gap. Every implementation status remains `unchecked`. No theorem is represented as formalised.
 
-**Nodes:**
-- `R20.6/scalar-dyadic-restriction-is-unramified`: if ρ̄(D₂) is scalar, then ρ̄|_{D₂} = χ·Id with χ of odd order. By local class field theory χ is unramified (ℤ₂^× is {±1} times a pro-2 group), so ρ̄ is unramified at 2 and k(ρ̄) = 2. This is why KW I Theorem 1.2(2) covers the whole scalar dyadic case.
-- `R20.6/strong-form-case-table` (comparison): seven rows, by residue characteristic and dyadic local type, each with its supplier of Serre's weight and level. It is also rendered as a table in the readme.
-  - R20 covers p ≥ 5, most of p = 3, and the non-scalar and ℚ(i)-induced dyadic cases (Buzzard, with the Hasse invariant for weight 4).
-  - R27 supplies the scalar non-dihedral dyadic case (KW I 1.2(2)) and odd conductor at p = 3 (KW I 1.2(1)).
-  - It is a manifest, not an edge: the R27 rows are not prerequisites, so R20 → R27 stays acyclic.
-  - It is tested on E[2] for X₀(11).
+## Inventory and stage status
 
-This closes the R20.6 remaining item "the case table".
+There are 61 nodes: 41 theorems, 7 lemmas, 4 definitions, 2 constructions, 5 comparisons and 2 applications. The six definitions/constructions have 25 API items and 21 discriminating unit tests. There are 26 planets, 11 baseline declarations, 32 supplier requests and one proof-source gap.
 
-**Two rows rest on unread inputs:**
-- (2), the ℓ = 3 character step for even N(ρ̄) (Diamond);
-- (6), Wiese's dihedral scalar dyadic case.
+| Stage | Status | What it delivers | Precise remaining work |
+| --- | --- | --- | --- |
+| R20.1 | planned | Integral degeneracy quotient, level-change gluing, the IHG congruence application, residual Hecke support and eigenvalue descent | Deliver IHG.1's generic congruence extension and verify the specialized integral pairing comparison. |
+| R20.2 | planned | Full conductor interface, joint auxiliary prime, geometric raising/lowering, monodromy and local exponent-defect dispatch | Read the primary full general-character lowering proof recorded below; check its nonsquarefree and characteristic-three cases. |
+| R20.3 | planned | Ordinary/supersingular local forms, extension-sensitive weight endpoint, companions, minimum-weight realisation, full-Hecke multiplicity inputs and localized Hasse injection | Match supplied coherent and torsion-coefficient interfaces to the nilpotence, Picard and coefficient conventions. |
+| R20.4 | planned | Congruent-character replacement, four coefficient-prime removal milestones, weight-two passage and finite-flat optimisation | Verify delivery of the finite-flat recipe and the separately requested characteristic-three elliptic coefficient-prime branch. |
+| R20.5 | planned | Universal dyadic multiplicity, its nonscalar theorem, corrected Buzzard lowering, Q(i) branch, dihedral application and scalar boundary | Deliver the geometric dyadic multiplicity inputs and integral congruent-character quaternionic transfer used for the supercuspidal defect; retain the downstream scalar non-dihedral completion at R27.4. |
+| R20.6 | planned | Reduced elliptic level and traces, residual-only large-good-prime export, case manifest and all assigned KWII §8 optimisation targets | Match delivered determinant, coefficient, neatness and local-type inputs to every KW case; retain R27.4/.6 as downstream manifest suppliers. |
 
-Both are listed as R20.6 remaining work.
+No stage is closed. This is a complete planning pass with explicit source and supplier boundaries, rather than a checkpoint with unenumerated stages.
 
-**Checks.**
-- `check_blueprint --index`: 0 errors, 0 warnings.
-- `check-files`: 0 problems.
-- Every new excerpt was checked by script against its page's text (PDF pages of KW I, DVI pages of Buzzard).
-- One new Lean check, that |𝔽_{2^n}^×| is odd; it compiled with exit code 0 as a separate Mathlib-only file. The suggested file imports Tau Ceti modules and is not compiled here.
+## Ownership and the confirmed finding
 
-**Still open:**
-- R20.6: the conditional cases for R22, R26, R27 and R33; M₀ against the Artin conductor; rows (2) and (6).
-- R20.5: Wiese's weight-one theorem, and Gross's Proposition 8.18.
-- R20.3: Gross 1990 and Coleman–Voloch.
-- R20.2: the §7 proof of Ribet's Theorem 1.5.
+RT-AREA-langlands-1/27 is handled by requesting the codimension-zero augmented-algebra congruence functor and ideal once at `IntegralHeckeAndGaloisDeterminants:IHG.1`. The request and rescope proposal name all four consumers: `AutomorphicCongruences:L0`, `SerreWeightAndLevelOptimisation:R20.1`, `PadicFamilies:L1` and `IntegralIwasawaTheory:I.5`. The generic functor uses the annihilator-to-torsion-free-quotient map of IKM24 §2.2/§3.8, with a specified augmentation. The old R20 congruence-definition ID is kept as its Hecke application. R20 defines only the distinct level-change quotient H/(P+Q), and does not assert an unconditional identification of the two objects. A torsion coherent weight-one Hecke algebra is not assumed finite flat or generically étale.
 
----
+The accepted RS-06 scope is followed. R01 owns the full conductor; R15 owns the weight recipe and operations; R11 owns character groups and monodromy; R14 owns integral Jacobian/cohomology comparisons. Their former specialized R20 definition IDs remain as comparisons or applications where appropriate. Wiese's dihedral Katz construction is imported from the existing R17.6/unramified-katz and R17.5/q-weight-one targets. The current upstream ModularForms layer 8W supplies weight-one lattices and coefficient fields; that work is not planned again.
 
-# Checkpoint by Claude Code cc-fb70e5 (29 September 2026, third): Ribet §3 and Buzzard §2
+The totally real targets added in R20.6 are KWII Theorem 8.2, Lemma 8.3, Theorem 8.4, the application of Kisin Corollary 3.1.11 and the tower method of Kisin **Lemma** 3.5.3. These consume R18/R17.4, determinant and global-character suppliers; no R22 modularity-lifting theorem enters their prerequisites. The reader gives the determinant table, p-local cases, simultaneous A/B/C restriction, support/Gram hypotheses, and final removal of unramified quadratic twists. This addresses the cycle identified in the paper routing.
 
-Issue #989. This checkpoint adds 5 nodes, bringing the packet to 41.
+The large-good-prime elliptic theorem assumes modularity of E[ℓ], rather than characteristic-zero modularity of E. The conditional Bennett–Siksek reduced-level result separately takes a weight-two modularity witness for E. Neither uses R29's final all-elliptic-curves result. R27.4 and R27.6 occur only in the case manifest, with no early proof edge.
 
-**R20.3 (Ribet §3; the author's PDF, SHA-256 cb7bc437…, now recorded):**
-- `ribet-twist-to-small-weight`: Corollary 3.2. A cyclotomic twist arises in weight at most ℓ + 1.
-- `ribet-four-level-sets` (planet): Theorem 3.3. For ℓ ≥ 5 the four level sets N₁–N₄ coincide, which reduces the
-  refined conjecture to the level question (4.1).
-  - The chain of inclusions uses Edixhoven (3.1), Ribet (2.1) and (2.2), and Atkin–Li's twisting of level, which is
-    cited, not planned.
+## Source gap and correction
 
-This closes the R20.3 remaining item on Ribet §3.
+The one gap is the full proof of Diamond, *The refined conjecture of Serre*, Hong Kong proceedings (1995), Theorem 1.1, pp. 22–37. Wiese04 Theorem 10(a), pp. 131–132 gives the exact full odd-characteristic result and points to that proof. Ribet94 proves the trivial-character weight-two core and explicitly leaves the general-character extension open. Public author and publisher searches did not yield the full proof, and that proceedings volume is not cleared in the maintainer's library index. A follow-up must read a cleared primary full proof or a complete primary replacement, then verify general nebentypus, higher conductor exponents, characteristic three, and coefficient/character transport. The dependent nodes and stage remaining fields identify the uses; the reader does not attribute the full theorem's proof to the narrower Ribet result.
 
-**R20.5 (Buzzard §2, the same DVI, SHA-256 39d48668…):**
-- `buzzard-multiplicity-one` (definition, planet): Definitions 2.1–2.2, Lemma 2.3 and Proposition 2.4. It has 4 API
-  items and 3 tests.
-- `buzzard-auxiliary-prime`: Lemma 2.5, with its two-case proof, and Corollary 2.6.
-- `buzzard-carayol-lemma-mod-two`: Corollary 2.7, the ℓ = 2 counterpart of R20.4's Carayol node.
+The packet's source issue E1 records a missing hypothesis in the published statement of Buzzard Theorem 2.8, p. 103: unramifiedness at the removed odd prime q. Its proof uses that condition on p. 105. The corrected node includes it, and Ribet–Stein Theorem 3.19, author pp. 49–51 gives the explicitly unramified formulation. The published PDF, author DVI dated 1 October 1999 and later Ribet–Stein draft are recorded with hashes and reading dates. Author/publisher and exact-title erratum searches found no separate publisher correction. `printed` in the source-issue record is a paraphrase under the standing prohibition on source passages.
 
-Theorem 2.8's node now cites the multiplicity-one and auxiliary-prime nodes, and Theorem 3.2's node cites Corollary 2.7.
-This closes the R20.5 remaining item on Corollary 2.7 and Proposition 2.4. Mazur–Ribet, Ling–Oesterlé and Diamond's
-Lemma 2.2 are cited, not planned, and are listed as remaining.
+## Source reading and verification
 
-**Checks.**
-- `check_blueprint --index`: 0 errors, 0 warnings.
-- `check-files`: 0 problems.
-- Every new excerpt was checked by script against its page's text.
-- Three new Lean checks: symmetric matrices with symmetric product commute; (q − 1)/2 is odd for q ≡ 3 mod 4; the
-  N₄ level. They import Mathlib only and compiled as a separate file with exit code 0. The suggested file imports Tau
-  Ceti modules and is not compiled here.
-
-**Still open:**
-- R20.6: the case table.
-- R20.5: Wiese's weight-one theorem, and Gross's Proposition 8.18.
-- R20.3: Gross 1990 and Coleman–Voloch.
-- R20.2: the §7 proof of Ribet's Theorem 1.5.
-
----
-
-# Checkpoint by Claude Code cc-fb70e5 (29 September 2026, second): R20.5 from Buzzard §1 and §3
-
-Issue #989. This checkpoint adds three R20.5 nodes from Buzzard's DVI, whose SHA-256 (39d48668…) is now recorded:
-
-- `buzzard-removing-two-from-the-level`: Proposition 1.1 with its four-step proof, Lemma 1.2 (weight 2 and level 2N ⇔ weight 3 and level N), and Proposition 1.3.
-- `buzzard-level-lowering-to-the-conductor`: Theorem 3.1, through Carayol's four local cases. Case (ii) is Theorem 2.8, and case (iv) goes through Jacquet–Langlands.
-- `buzzard-weight-and-level-mod-two` (planet): Theorem 3.2, with the **ℚ(i)-induced branch**. The character is lifted to odd order, giving a weight-1 theta series of level 4N, and Proposition 1.3 finishes. This closes the R20.5 remaining item on Buzzard's §3.
-
-Requests: GL2AutomorphicRepresentationsAndTransfer R17.3 (Jacquet–Langlands) and R17.5 (weight-one theta series).
-
-Checks: `check_blueprint --index` gives 0 errors and 0 warnings, and every new excerpt lies on its stated DVI page. The Lean checks import Mathlib only and compiled as a separate file, exit code 0.
-
-Still open in R20.5: Wiese's weight-one theorem; Buzzard's Corollary 2.7 and Proposition 2.4 as nodes; Gross's Proposition 8.18, on which Lemma 1.2 rests.
-
----
-
-# Checkpoint by Claude Code cc-fb70e5 (29 September 2026): R20.3 planned from Edixhoven's DVI
-
-Issue #989, claimed by Claude Code, session cc-fb70e5. This checkpoint adds R20.3 and closes three source gaps. The earlier handoff follows unchanged below.
-
-- **R20.3 (6 nodes, previously `not_read`).** Edixhoven's paper is public as the author's DVI (Leiden page, SHA-256 ff106eeb…), and AlgebraicModularFormsAndSerreWeights uses the same file. The nodes are:
-  - Deligne's ordinary local form (2.5), proved here through p-adic Hodge theory;
-  - Fontaine's supersingular form (2.6), with Edixhoven's §6 proof;
-  - Mazur's weight-p + 1 theorem (2.8), with finiteness;
-  - weight-one unramifiedness (2.7);
-  - Gross's companion forms (2.9);
-  - Theorem 4.5 with its whole proof (planet "Edixhoven's weight theorem").
-
-  The Coleman–Voloch note is recorded: for p > 2 it removes both the "not exceptional" hypothesis and the dependence on Gross's unverified compatibilities. The recipe, θ, θ-cycles and weight reduction are imported from AlgebraicModularFormsAndSerreWeights R15.3–R15.4.
-- **Gaps closed or narrowed.**
-  - Edixhoven: read. Gross (Duke 1990), Mazur's §6 and Coleman–Voloch remain unread.
-  - KW I §1's exception: read from the public preprint. It is ρ̄|_{D₂} scalar with non-dihedral projective image, and `R20.5/dyadic-scalar-multiplicity-one-obstruction` now cites it.
-  - Serre 1987: read from the Collège de France PDF. `R20.2/serre-level` now cites (1.2.1)–(1.2.3).
-- **Request:** ModularCurvesPartII R13.5 (the stable model of X₁(pN) and its Igusa curves).
-- **Checks:**
-  - `check_blueprint --index`: 0 errors, 0 warnings.
-  - Every new excerpt lies on its stated page.
-  - The Lean checks import Mathlib only and compiled as a separate file, exit code 0. The suggested file as a whole imports Tau Ceti modules and was not compiled, because no Tau Ceti build is allowed on the shared machine.
-- **Next for R20.3:** read Gross 1990 and Coleman–Voloch; add a node for Ribet's §3.
-
----
-
-# Handoff — BP-SerreWeightAndLevelOptimisation
-
-Worker: Claude Code, session `cc-fb70e5`, 24 September 2026. Issue #989.
-Deliverables: `research/blueprint/packets/SerreWeightAndLevelOptimisation.json`,
-`research/blueprint/readmes/SerreWeightAndLevelOptimisation.md`,
-`research/blueprint/suggested/SerreWeightAndLevelOptimisation.lean`, this note.
-
-`check_blueprint`: **0 errors, 0 warnings**, run with the pinned declaration index. 15 nodes
-(3 definitions, 12 theorems), 17 API items, 10 unit tests, 9 planets, 8 baseline declarations,
-25 prerequisite edges inside the packet, 16 on other roadmaps' stages, 11 requests, 5 gaps, 1
-restructure proposal. Packet status `partial`; no layer is closed.
-
-## What is closed, and what is not
-
-Nothing is `closed` in the coverage sense: no stage has every target realised. This was a
-deliberate choice of depth over breadth, following the job's own instruction.
-
-| layer | status | planned here |
-|---|---|---|
-| R20.1 | `partial` | integral old/new exact sequence, congruence module, saturation and controlled-level passage |
-| R20.2 | `partial` | Serre level as a full Artin conductor, Mazur's Principle, Ribet Theorem 1.5, the twisting step, iterated descent to `N(ρ̄)` |
-| R20.3 | `not_read` | nothing — see the source problem below |
-| R20.4 | `partial` | Ribet Theorem 2.1 (stripping `ℓ`-power level), Carayol's nebentypus theorem |
-| R20.5 | `partial` | Buzzard Theorem 2.8, and the register of the dyadic scalar obstruction |
-| R20.6 | `partial` | reduced level `M₀`, Bennett–Siksek Theorem 3, Bennett–Siksek Lemma 2.1 |
-
-Each layer's `remaining` list in the packet is precise about what a continuation must add; the
-document repeats them per layer. The largest single items are Diamond's theorem and the
-character-group/component-group machinery of Ribet §6 (both R20.2), the §3 `ℚ(i)`-induced branch
-(R20.5), and the case-table manifest (R20.6).
-
-## RS-06 is binding, and was followed
-
-`REV-RS-06` accepts the proposal with no corrections, so `RS-06.result.json` governs. The
-roadmap's own action is `keep`, so the title and base are unchanged. R20.2 and R20.5 are `keep`
-and are planned whole as far as they are planned; R20.1, R20.3, R20.4 and R20.6 are `narrow` and
-each node respects its `keeps` sentence. No layer is dropped, so no layer is closed by
-supersession.
-
-Three places where RS-06's specific instructions shaped the result rather than being nodded at:
-
-- **"Iteration must reach the prime-to-`p` Artin conductor rather than merely its radical."**
-  This is why the Serre level is defined with exponents and why `R20.2/descend-to-serre-level`
-  makes *termination at* `N(ρ̄)` its content. The unit test `serreLevel.test_not_radical` fails
-  an implementation that returns the radical.
-- **"The p=2 scalar local gap is registered here but completed only by R27.4; do not make this
-  early theorem depend on R27.4."** `R20.5/dyadic-scalar-multiplicity-one-obstruction` is a
-  prerequisite of no node in the packet, and one of its acceptance tests asserts exactly that.
-  The completion is named in prose, not wired as an edge.
-- **"Analytic characteristic-zero old/new decomposition does not imply this integral
-  saturation."** Verified against the library rather than taken on trust: see below.
-
-## One correction to RS-06, filed as a restructure proposal
-
-RS-06's `suppliedBy` list for R20.1 names ModularForms layers 3 and 4 as the suppliers of what
-R20.1 imports. Those are the characteristic-zero analytic layers — the library realises them as
-`Submodule ℂ` via the Petersson inner product. The **integral** Hecke module that R20.1 actually
-consumes is planned in ModularForms **layer 8**, "modular symbols, the integral Hecke algebra,
-and coefficient fields", which builds the finitely generated integral Hecke module of modular
-symbols and proves the integrality and commutativity of the Hecke action on it. Layer 8 is
-absent from RS-06's list.
-
-The packet records the import as a request and files a `rescope` proposal asking that layer 8 be
-added to that supplier list. Layers 3 and 4 remain correct suppliers of the analytic newform
-theory they do provide.
-
-Layer 8 also carries a design constraint this roadmap had to respect: it states that **no
-lattice inside the space of forms is ever constructed**, the lattice living on the modular-symbol
-side. Every integral module in this packet is therefore stated as a symbol or homology lattice.
-
-## The library baseline was read at the pins, not near them
-
-Both pinned commits turned out to be present in the local clones, so they were extracted and
-indexed directly rather than approximated by a nearby `HEAD`:
-
-- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` — 8482 `.lean` files, 246008 indexed
-  declarations.
-- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` — 5477 `.lean` files, 70802 indexed
-  declarations, matching the job's "about 70,000".
-
-This mattered: the local Tau Ceti `HEAD` (`787733ab`) has **5268** `.lean` files, *fewer* than
-the pin, so `HEAD` is not simply a later commit and using it would have given a wrong baseline.
-Every one of the 8 baseline references validates against the index built from the pins.
-
-The index was built with `research/blueprint/index_declarations.py`, which expects
-`<baseline>/TauCeti/TauCeti` and `<baseline>/mathlib/Mathlib`; it reports `tauceti 0` if the
-Tau Ceti source directory is placed one level too high, silently and without error.
-
-## The plan/import boundary, and three false cleans
-
-**No layer of this roadmap has an entry in `data/library-coverage.json`** (which covers 1316 of
-the atlas's stages), so there was no reviewed verdict to plan against and the boundary was
-established by search.
-
-The determination: Tau Ceti has the characteristic-zero newform theory and nothing integral.
-`TauCeti.cuspFormsOld` and `TauCeti.cuspFormsNew` are `Submodule ℂ`, the new subspace being the
-Petersson-orthogonal complement of the old, and `TauCeti.isCompl_cuspFormsOld_cuspFormsNew`
-proves complementarity. Statements read in source at the pin. Nothing there constrains
-`ℓ`-torsion or saturation, which is exactly RS-06's point for R20.1.
-
-Three searches gave a clean result that was wrong, and a reviewer repeating this work will meet
-them:
-
-1. `HeckeAlgebra` and `HeckeOperator` both return **0** — but `Hecke` returns **1186**. The
-   Hecke theory is substantial and lives under other names.
-2. `newSpace` and `oldSpace` both return **0** — but the subspaces exist, as `cuspFormsNew` and
-   `cuspFormsOld`.
-3. `characterGroup` returns **47** hits, which look like exactly what Ribet's argument needs.
-   They are all the character group of a **split torus** (`Algebra/AlgebraicGroup/SplitTorus`,
-   `DiagonalizableGroup`), not the character group of the toric part of a Jacobian's bad fibre.
-   `componentGroup`'s 32 hits are likewise the general π₀ of an algebraic group, not the Néron
-   component group. Same-name collisions, useful as underlying API and useless as the thing
-   itself.
-
-## Sources read, and sources missing
-
-Read in full and quoted, with URLs, hashes and read dates in the packet's `sources`:
-
-- Ribet, "Report on mod ℓ representations of Gal(Q̄/Q)", PSPM 55.2 (1994) — the principal source.
-  Its sections map onto this roadmap almost exactly: §2 stripping powers of `ℓ` from the level
-  (R20.4), §3 adjustment of the weight (R20.3), §4 the levels including Mazur's Principle (4.7),
-  §5 Diamond's theorem, §6 character and component groups, §7 the proof of Theorem 1.5, §8
-  Mazur's Principle. Public on the author's page.
-- Buzzard, "On level-lowering for mod 2 representations", MRL 7 (2000) — R20.5.
-- Bennett–Siksek, Annals 191 (2020) — the maintainer-added source, for R20.4/R20.6. Its sha256
-  equals the hash recorded independently in `PAPER-BENNETT-SIKSEK-20.result.json`, so these are
-  the same bytes the accepted extraction read.
-
-Also downloaded and extracted, but not cited because no specific passage was used: Ribet–Stein,
-"Lectures on Serre's conjectures" (wstein.org), Darmon's "Serre's Conjectures" survey (McGill),
-Khare's "Remarks on Serre's modularity conjecture" (arXiv:math/0603439). These are the right
-public starting points for a continuation.
-
-**Missing, and the gaps turn on them:**
-
-- **Edixhoven, "The weight in Serre's conjectures on modular forms", Invent. Math. 109 (1992)
-  563–594.** Springer serves an HTML landing page rather than the PDF, and the paper is absent
-  from the author's own publication listing (`pub.math.leidenuniv.nl/~edix/publications/`, whose
-  by-year directories skip 1992). RS-06 binds R20.3 to "Edixhoven Theorem 4.5" by number, and
-  Buzzard separately cites "Theorem 2.8 of [E1]" for a weight-two-and-level statement, so more
-  than one numbered Edixhoven result is in circulation here. Planning R20.3 from secondary
-  accounts under a numbering that could not be checked would have been guesswork, so the layer
-  is `not_read`. Ribet §3 is the public substitute and is already read.
-- **Khare–Wintenberger, "Serre's modularity conjecture (I)", Invent. Math. 178 (2009) 485–504.**
-  Springer paywall. RS-06 asks R20.5 to enumerate "the remaining p=2 scalar local case
-  identified by KW I §1" and to compare with "KW I's precise exceptions". The obstruction is
-  instead cited from Buzzard's own words — that multiplicity one there "does not appear to be
-  known, and indeed it is not clear whether one should expect it to be true" — which is a weaker
-  citation than KW I §1 and is flagged as such.
-- **Serre, Duke Math. J. 54 (1987) 179–230.** Not obtained. The level formula is cited to
-  Ribet §2, which states it explicitly and attributes it to Serre, so the formula itself has a
-  primary citation; the attribution to Serre's numbering rests on Ribet's word.
-
-## Did the suggested Lean file compile?
-
-**Not at the pinned baseline, and not in full.** Precisely what was and was not checked:
-
-- The explorer repository is not a Lake project — no `lakefile`, no `lean-toolchain`, no `.lake`
-  — so the file cannot be built in place.
-- Tau Ceti has **no local build** (no `.olean` files), so the four `import TauCeti.*` lines and
-  the one example that discharges `IsCompl (cuspFormsOld N k) (cuspFormsNew N k)` by
-  `TauCeti.isCompl_cuspFormsOld_cuspFormsNew` were **not** checked.
-- Everything else **was** elaborated. A variant with the Tau Ceti imports and that one example
-  removed was run through `lake env lean` against a built Mathlib, and reports **0 errors** with
-  `declaration uses 'sorry'` as its only warnings. That Mathlib is at `045acef0`, a neighbour of
-  the pin `082e2d37`, not the pin itself.
-
-The check earned its keep: it caught three real errors. `abbrev ResRep (F : Type*)` fails because
-`GQ` lives in `Type`, so `Matrix.GeneralLinearGroup (Fin 2) F` needs `F : Type`; and doc comments
-are not permitted on `variable`, which silently broke five declarations after them. A
-continuation with a Tau Ceti build should re-run the whole file.
-
-`implementationStatus` is `"unchecked"` in the packet, and no node claims an implementation.
-
-## A tool note a reviewer will need
-
-The ModularForms layer-8 import is a `request` and **not** a node prerequisite, although
-PROTOCOL §3 asks for both. It cannot be both: `check_blueprint` resolves a prerequisite by testing
-`BASE_REF = ^(mathlib|tauceti):(\S+)$` *before* testing membership in the atlas stage set, so the
-anchor stage id `tauceti:TauCetiRoadmap/ModularForms#layer-8-...` matches the baseline pattern and
-is rejected as a missing baseline declaration. Every packet importing from a Tau Ceti anchor layer
-will hit this. Read the requests list alongside the node prerequisites; the dependency is real but
-absent from the prerequisite graph. Recorded as a gap in the packet.
-
-## What a continuation should do first
-
-1. Add Diamond's theorem (Ribet §5) and the character-group/component-group nodes (Ribet §6) to
-   R20.2. Both sources are public and already extracted; §6 is the machinery the Mazur and
-   Ribet proof steps currently refer to inside their step lists rather than depending on.
-2. Decompose Ribet §2's proof into nodes for R20.4; only its statement (Theorem 2.1) is planned.
-3. Get Edixhoven 1992 and plan R20.3. This is the single largest hole, and it is a library-access
-   problem rather than a mathematical one.
-4. Write R20.6's case-table manifest, as per-case hypotheses and not as a dependency edge.
-5. Re-run the suggested Lean file with a Tau Ceti build present.
-
----
-
-# Second pass — 28 September 2026 (cc-fb70e5)
-
-The first pass was merged as a checkpoint (PR #2773) and the job released for continuation. This
-pass takes step 1 of the list above: **Diamond's theorem (Ribet §5) and the character-group and
-component-group machinery (Ribet §6) are now nodes of R20.2**, so the Mazur and Ribet proof steps
-depend on them instead of merely mentioning them.
-
-`check_blueprint`: **0 errors, 0 warnings**. 22 nodes (6 definitions, 16 theorems), 33 API items,
-19 unit tests, 11 planets, 8 baseline declarations, 14 requests, 5 gaps. Status stays `partial`.
-
-## What this pass added
-
-Seven nodes on R20.2, which now holds twelve and sits at the six-planet maximum:
-
-| node | source |
-|---|---|
-| `R20.2/q-new-subspace` | Ribet §5, the trace-map definition of `S^{q-new}` |
-| `R20.2/auxiliary-prime` | Ribet §5, σ = ρ̄ × χ, giving `q ≡ −1 (mod ℓ)` and Čebotarev |
-| `R20.2/level-raising-diamond` | Ribet Theorem 5.1 (Diamond), `2 ≤ k ≤ ℓ+1` |
-| `R20.2/degeneracy-map-and-eta` | Ribet Theorem 6.1, unique T-equivariant σ with σ∘δ = η = U²−1 |
-| `R20.2/character-group-of-bad-fibre` | Ribet §6, the Néron fibre, `L_p`, `X_p`, `Θ_p`, δ surjective |
-| `R20.2/ribet-exact-sequence` | Ribet (6.2)/(6.3), the Shimura-curve sequence, Čerednik–Drinfeld |
-| `R20.2/monodromy-pairing-component-group` | Ribet §6, the pairing whose cokernel is `Θ_p` |
-
-Two requests added for suppliers the new nodes consume:
-`GL2AutomorphicRepresentationsAndTransfer:R17.6` (Langlands local-global at a special prime, the
-easy direction of Diamond's criterion) and `NeronModelsAndSemistableAbelianVarieties:R11.3` (the
-Néron fibre structure that R11.4's character groups and pairing sit on top of). A third,
-`HilbertModularVarietiesAndShimuraCurves:R18.6`, supplies the Shimura curve of discriminant `pq`.
-
-**One trap pinned into a unit test.** The operator `U` acts on `J₀(N) × J₀(N)` as `[[T_q, q], [−1, 0]]`
-but on the character group `X_p` as `[[T_q, −1], [q, 0]]`. The character group is contravariant, so
-the matrix is not the one from the abelian-variety side, and copying it across is an easy and
-invisible error. `characterGroup.test_U_matrix` fails an implementation that does.
-
-## Working under the shared-machine rules
-
-These rules took effect on 28 September and changed how this job is done; a continuation should
-know what they cost.
-
-- **The declaration index is gone and was not rebuilt.** The first pass validated all 8 baseline
-  references against an index built from the pinned trees. Building that index means unpacking a
-  snapshot of two libraries, which the rules now forbid, so this pass ran `check_blueprint` without
-  `--index` and its baseline references are checked for form only. This is safe here because the
-  new nodes add no new baseline declarations — they reuse `cuspFormsOld`, `cuspFormsNew` and
-  `levelRaise`, all verified in the first pass and recorded in PR #2773. **Any continuation that
-  adds a baseline reference must verify it individually**, which can be done without unpacking
-  anything: `git -C <clone> show <pin>:<path>` and `git -C <clone> grep -n <pattern> <pin> -- '<glob>'`
-  both read straight from an existing clone's object store.
-- **The suggested Lean file was not recompiled, and should not be.** The rules allow elaboration only
-  against a build at the pinned commits that already exists on the machine. There is none: Tau Ceti
-  has no local build at all, and the available Mathlib build is at `045acef0`, not the pinned
-  `082e2d37`. The first pass's note on what was and was not checked still stands and is unchanged.
-- **Source texts go in the job's scratch on disk**, not `/tmp`, which is memory here and was wiped —
-  taking the first pass's sources and notes with it. `pdftotext` turns out to be available already in
-  the swarm's shared tools environment, which removes the need for a hand-written PDF extractor;
-  a continuation should look for it there before building one. Its Computer Modern quirks must be normalised before quoting: it renders `ℓ` as a
-  backtick (315 of 315 occurrences in Ribet), `ε` as `²` (56 of 56), `≠` as `6=` and `≢` as `6≡`.
-  Each substitution was checked over every occurrence before being applied, and the result
-  reproduces, character for character, the statement of Mazur's Principle that the first pass had
-  extracted independently with different tooling — which is the cross-validation that the cleaned
-  text is faithful.
-
-## What a continuation should do next
-
-1. **Decompose Ribet §2's proof for R20.4.** Only Theorem 2.1's statement is planned. The proof runs
-   in independent steps after the normalisation of eigenforms, and the section is public and already
-   extracted.
-2. **Decompose Ribet §7**, the proof of Theorem 1.5. Its inputs are now nodes — the auxiliary prime,
-   the character groups, the exact sequence and the monodromy pairing — but its argument, the
-   localisation at the maximal ideal and the dimension count, is not. This is the largest remaining
-   piece of R20.2 and needs no new sources.
-3. **Get Edixhoven 1992 and plan R20.3.** Still the single largest hole, and still a library-access
-   problem rather than a mathematical one. Ribet §3 is the public substitute if access does not come.
-4. **Write R20.6's case-table manifest**, as per-case hypotheses and not as a dependency edge.
-5. **Re-run the suggested Lean file** if and only if a build at the pinned commits appears.
-
----
-
-# Third pass — 28 September 2026 (cc-fb70e5)
-
-Step 1 of the second pass's list: **Ribet §2 is decomposed.** Theorem 2.1 (stripping the ℓ-power part
-of the level) was planned only as a statement; its proof is now four nodes of R20.4, and Theorem 2.2 is
-added.
-
-| node | source |
-|---|---|
-| `R20.4/strip-ell-step1` | Step 1, p. 5 — twist away the ℓ-power character (η = ξ⁻², possible as ℓ is odd) |
-| `R20.4/strip-ell-step2` | Step 2, p. 5 — multiply by an Eisenstein series E ≡ 1 mod v, then lift |
-| `R20.4/strip-ell-step3` | Step 3, p. 5 — g := (σ⁻¹f)^ℓ \| U lowers the ℓ-power of the level |
-| `R20.4/strip-ell-step4` | Step 4, p. 6 — Serre's trace Tr(F) := F + ε⁻¹(ℓ)ℓ^{1−w/2} F\|W\|U |
-| `R20.4/weight-two-at-level-n-ell` | Theorem 2.2, p. 6 — back to weight two at level Nℓ (planet) |
-
-The Theorem 2.1 node now depends on the four steps; step 1 on Carayol's nebentypus node (the source's
-own shortcut for ℓ ≥ 5), and step 2 and Theorem 2.2 on the eigenvalue-lifting layer
-`AlgebraicModularFormsAndSerreWeights:R15.5` already requested. Every step's acceptance tests record that
-it trades ℓ-power level for weight without controlling the weight, which is why weight control stays
-R20.3's business.
-
-Excerpts are verbatim spans of the text layer cut between exact start and end phrases, after the
-Computer Modern normalisation recorded in the second pass (ℓ, ε, ≠, ≢), with the source's sha256
-checked again (`cb7bc437…`). `check_blueprint`: 0 errors, 0 warnings; 27 nodes. The Lean file gains the
-five named results; nothing compiled.
-
-**Next**: Ribet §7, the argument of Theorem 1.5 (localisation at the maximal ideal and the dimension
-count), whose inputs are now all nodes; R20.6's case-table manifest; and R20.3, still blocked on access
-to Edixhoven 1992.
+Sixteen primary sources are recorded with permanent URLs, SHA-256 hashes, versions and exact locators in the packet. The reader's bibliography gives the same versions. Read the relevant statements and connected proof chains in:
+
+- Ribet94 §§1–8, particularly the coefficient-prime proof, Theorem 5.1, the §6 monodromy and §7 two-prime contradiction, and §8 Mazur principle.
+- Buzzard00 published §§1–3 and the author DVI; Edixhoven's rendered 1998 author DVI §§2,4,6,8,9 and the imported-operation portions of §§3,7.
+- Gross90 Propositions 8.18, 9.3, 12.9–12.10, 13.8 and Theorem 13.10; Coleman–Voloch92 introduction, Theorem 1.1 and §6 proof. The unchecked Gross reverse-compatibility input is not asserted as a general proved theorem. The two-sided companion statement uses Coleman–Voloch's range 2<k≤p, while the one-way splitting criterion permits 2≤k<p.
+- Wiese04 Theorems 9–10 and their proof inputs; Wiese07 Situation 1.1, Picard normalization and §4 multiplicity proof chain.
+- Bennett–Siksek20 §2, equation (3), Theorem 3 and Lemma 2.1; CG18 §3.4 and §4.1/Theorem 4.8 proof; CG20 Lemma 8.14 and its torsion/socle argument.
+- Boxer–Calegari–Gee25 §2.3/proof of Theorem 2.4, printed p. 515: the weight-26 form at 107 and its weight-82 companion. The higher-rank theorem is not attributed to R20.
+- KWII §7.6.2 and §§8.1–8.4; Kisin09 §3.1 and Lemma 3.5.3's proof; KWI §1 and Lemma 6.2(i); Ribet–Stein's corrected dyadic formulation; IKM24's generic congruence functor and Proposition 2.10.
+
+Only own-word statements, formulas and source locators are in the repository. No source file, extracted passage or private library text is included. The bibliography distinguishes Edixhoven's author-copy Coleman–Voloch update from the 1992 printing.
+
+The existing reviewed audit has no direct R20 stage entry. Library and ownership checks therefore read actual pinned statements, the accepted RS-06 proposal/review and relevant supplier nodes rather than presenting a negative name search as an audit. Current ModularForms, ModularCurves and LocalGaloisGroups roadmaps and the current Tau Ceti tree were inspected. The baseline's levelRaise description explicitly distinguishes the target subgroup's HasDetOne condition from the determinant d of the scaling matrix.
+
+## Checks and handoff
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/SerreWeightAndLevelOptimisation.json`: 0 errors, 0 warnings, using the provided declaration index at the recorded pins.
+- `python3 research/blueprint/intake.py check-files` on the four deliverables: 0 problems.
+- The suggested file elaborated through the shared `lean-check` build at Mathlib 082e2d3, exit 0, with only the expected `sorry` warnings. It has 154 lines, two real-bodied light definitions, seven theorem signatures and eight examples. Memory availability was checked before compilation; no build or language server was started.
+- Packet/reader cross-check: all 61 target statements, source locators, hypotheses, proof outlines, API items and 21 definition tests appear in the reader; all 43 previous IDs are preserved; all six coverage records are planned; all nodes remain unchecked; all six layers stay within the six-planet limit.
+- The adversarial pass checks quotient zero/index/noncomplement cases, valuation and coefficient-prime inclusion, wild conductor exponents, companion endpoint and extension classes, scalar versus Jordan Frobenius, full versus anemic ideals, characteristic-three exceptions, simultaneous KW local types, nonzero source support, residue-degree-two coefficient dimensions, Gram sign and final quadratic-twist removal. The eight Lean examples are representative statements, not proofs of these mathematical targets.
+- `git diff --check` passes. The branch contains only the four authorized deliverables.
+
+Next work is independent review of this complete pass. Review should concentrate on the proof-source boundary for the full general-character lowering theorem and on whether each requested supplier delivers the exact coefficient, saturation and local-type hypothesis. Supplier refinement is recorded per stage above; it must not recreate the generic congruence object, the current weight-one lattice work, R17's dihedral construction, or the final R27/R29 results inside R20.
