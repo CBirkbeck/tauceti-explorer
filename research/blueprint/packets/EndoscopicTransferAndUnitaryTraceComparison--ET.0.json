@@ -13,7 +13,7 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.3"
   ],
   "status": "complete",
-  "summary": "Part 1 of the blueprint of Endoscopic transfer and unitary trace comparison: the local and global theory of stable conjugacy and endoscopy (ET.0), transfer factors and the harmonic analysis of orbital integrals (ET.1), the geometry of the Hitchin fibration behind Ngô's proof (ET.2b), and the fundamental lemma with the existence of transfer (ET.3). ET.0 plans crossed-module and abelianized Galois cohomology, Kneser and Hasse principles, Tate–Nakayama for tori and complexes, Kottwitz's map and sign, rational classes in stable classes, the global obstruction, endoscopic and twisted endoscopic data with z-pairs and norms, the elliptic endoscopic data of the unitary similitude groups of Shin and Caraiani–Scholze, and Leslie's unitary Hermitian computations. ET.1 plans invariant, κ- and stable orbital integrals (single owner, imported by AutomorphicSpectralTheory AS.6), a-data and χ-data, the Langlands–Shelstad factors with the corrected Kottwitz–Shelstad conventions, twisted and Lie-algebra factors, matching functions, Shalika germs and Fourier transforms, the unitary factor, real characters, real transfer, pseudo-coefficients and their transfer. ET.2b plans the Chevalley quotient, Kostant section and regular centralizer, the Hitchin stack (importing Bun_G from GlobalShtukas GS.0), Schiffmann's boundedness, cameral covers, the Picard action, the anisotropic locus, affine Springer fibres (in the affine Grassmannian of GS.1), the product formula, δ-stratification, weak abelian fibrations, the κ-decomposition, Ngô's support theorem, the geometric stabilization and the point count. ET.3 plans Ngô's Lie-algebra fundamental lemma, Laumon–Ngô's unitary case, the non-standard fundamental lemma, Waldspurger's change of characteristic, the group fundamental lemma, local transfer, inner-form transfer for GL_n, stable base change, the twisted fundamental lemma and transfer, and the global almost-all-places statement. ET.2, ET.2a and its two sub-layers are dropped by the accepted restructuring RS-19 and recorded as closed with their suppliers.",
+  "summary": "Part 1 of the blueprint of Endoscopic transfer and unitary trace comparison: the local and global theory of stable conjugacy and endoscopy (ET.0), transfer factors and the harmonic analysis of orbital integrals (ET.1), the geometry of the Hitchin fibration behind Ngô's proof (ET.2b), and the fundamental lemma with the existence of transfer (ET.3). ET.0 plans crossed-module and abelianized Galois cohomology, Kneser and Hasse principles, Tate–Nakayama for tori and complexes, Kottwitz's map and sign, rational classes in stable classes, the global obstruction, endoscopic and twisted endoscopic data with z-pairs and norms, the elliptic endoscopic data of the unitary similitude groups of Shin and Caraiani–Scholze, and Leslie's unitary Hermitian computations. ET.1 plans the conventions, Lie-algebra version and descent of orbital integrals (the group orbital integral and the real pseudo-coefficients are imported from AutomorphicSpectralTheory AS.6), κ- and stable orbital integrals, a-data and χ-data, the Langlands–Shelstad factors with the corrected Kottwitz–Shelstad conventions, twisted and Lie-algebra factors, matching functions, Shalika germs and Fourier transforms, the unitary factor, real characters, real transfer, Euler–Poincaré packet averages and their transfer. ET.2b plans the Chevalley quotient, Kostant section and regular centralizer, the Hitchin stack (importing Bun_G from GlobalShtukas GS.0), Schiffmann's boundedness, cameral covers, the Picard action, the anisotropic locus, affine Springer fibres (in the affine Grassmannian of GS.1), the product formula, δ-stratification, weak abelian fibrations, the κ-decomposition, Ngô's support theorem, the geometric stabilization and the point count. ET.3 plans Ngô's Lie-algebra fundamental lemma, Laumon–Ngô's unitary case, the non-standard fundamental lemma, Waldspurger's change of characteristic, the group fundamental lemma, local transfer, inner-form transfer for GL_n, stable base change, the twisted fundamental lemma and transfer, and the global almost-all-places statement. ET.2, ET.2a and its two sub-layers are dropped by the accepted restructuring RS-19 and recorded as closed with their suppliers.",
   "agent": "Claude Code (Claude Opus 5.5)",
   "session": "claude-ilrWNW",
   "job": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
@@ -207,8 +207,8 @@
       "sha256": "17e707c396eeab61417f72e2b936ec7ab91a572c03284937c11a558c759d695b",
       "readSections": [
         "Introduction pp. 1–5",
-        "§7.2–7.3 pp. 67–68",
-        "§9.1–9.3 pp. 69–70"
+        "§7.1–7.3 pp. 62–64",
+        "§9.1–9.3 pp. 69–71"
       ]
     },
     {
@@ -398,7 +398,7 @@
       "id": "ltxzz-2022",
       "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
       "authors": "Y. Liu, Y. Tian, L. Xiao, W. Zhang and X. Zhu",
-      "edition": "Invent. Math. 228 (2022), 107–375, the NSF Public Access Repository copy (printed page = PDF page − 106); read 2026-10-14",
+      "edition": "Invent. Math. 228 (2022), 107–375, the NSF Public Access Repository copy (printed page = PDF page + 106); read 2026-10-14",
       "url": "https://par.nsf.gov/servlets/purl/10323568",
       "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
       "readSections": [
@@ -415,7 +415,7 @@
       ],
       "title": "Galois cohomology with coefficients in a crossed module",
       "kind": "construction",
-      "statement": "Let Γ be a profinite group and ∂ : H̃ → H a crossed module of discrete groups (H acting on H̃ by automorphisms, ∂(h·x) = h ∂(x) h⁻¹ and ∂(x)·y = x y x⁻¹) on which Γ acts continuously and compatibly (σ(h·x) = σ(h)·σ(x), ∂∘σ = σ∘∂). Define pointed sets H^{-1}(Γ, H̃→H) = ker(∂)^Γ, H^0(Γ, H̃→H) and H^1(Γ, H̃→H) as the cohomology of the crossed module in the sense of Borovoi (equivalently of the two-term complex with H̃ in degree −1 and H in degree 0): a 0-cocycle is a pair (h, u) with h ∈ H and u : Γ → H̃ continuous with ∂(u_σ) = h⁻¹σ(h) and u_{στ} = u_σ·σ(u_τ) twisted by h; a 1-cocycle is a pair (u, h) with u : Γ×Γ → H̃ and h : Γ → H continuous satisfying the crossed-module cocycle identities; coboundaries are given by the actions of H and of maps Γ → H̃. For a crossed module 𝓗̃ → 𝓗 of smooth affine group schemes over a field F of characteristic 0, H^i(F, 𝓗̃→𝓗) := H^i(Γ_F, 𝓗̃(F̄) → 𝓗(F̄)) for i = −1, 0, 1. The case H̃ = 1 is nonabelian Galois cohomology, planned here: H^0(Γ, H) = H^Γ and H^1(Γ, H) the pointed set of continuous 1-cocycles a (a_{στ} = a_σ σ(a_τ)) modulo a ~ b iff b_σ = c⁻¹ a_σ σ(c), functorial in Γ (inflation, restriction) and in H, with twisting (for a cocycle a, the twisted group _aH and the bijection H^1(Γ, _aH) → H^1(Γ, H), b ↦ ba) and, for a normal subgroup H′ ⊆ H, the exact sequence of pointed sets up to H^1(H/H′) whose fibres over H^1(H/H′) are orbits of (H/H′)^Γ. They satisfy: (1) H^i(Γ, 1→H) = H^i(Γ, H) for i = 0, 1; (2) a morphism of crossed modules inducing isomorphisms on ker ∂ and on coker ∂ induces bijections on H^{-1}, H^0, H^1 (quasi-isomorphism invariance); (3) for H̃ ⊆ H a normal subgroup with ∂ the inclusion, H^i(Γ, H̃→H) = H^i(Γ, H/H̃) for i = 0, 1; (4) there is an exact sequence of pointed sets H^{-1}(H̃→H) → H^0(H̃) → H^0(H) → H^0(H̃→H) → H^1(H̃) → H^1(H) → H^1(H̃→H), with the usual meaning of exactness at the nonabelian terms; (5) if ker ∂ is central and coker ∂ is abelian (as for [G_sc → G] with G connected reductive), the pointed sets H^0 and H^1 carry a canonical abelian group structure, functorial in the crossed module.",
+      "statement": "Let Γ be a profinite group and ∂ : H̃ → H a crossed module of discrete groups (H acting on H̃ by automorphisms, ∂(h·x) = h ∂(x) h⁻¹ and ∂(x)·y = x y x⁻¹) on which Γ acts continuously and compatibly (σ(h·x) = σ(h)·σ(x), ∂∘σ = σ∘∂). Define pointed sets H^{-1}(Γ, H̃→H) = ker(∂)^Γ, H^0(Γ, H̃→H) and H^1(Γ, H̃→H) as the cohomology of the crossed module in the sense of Borovoi (equivalently of the two-term complex with H̃ in degree −1 and H in degree 0): a 0-cocycle is a pair (h, u) with h ∈ H and u : Γ → H̃ continuous with ∂(u_σ) = h⁻¹σ(h) and u_{στ} = u_σ·σ(u_τ) twisted by h; a 1-cocycle is a pair (u, h) with u : Γ×Γ → H̃ and h : Γ → H continuous satisfying the crossed-module cocycle identities; coboundaries are given by the actions of H and of maps Γ → H̃. For a crossed module 𝓗̃ → 𝓗 of smooth affine group schemes over a field F of characteristic 0, H^i(F, 𝓗̃→𝓗) := H^i(Γ_F, 𝓗̃(F̄) → 𝓗(F̄)) for i = −1, 0, 1. The case H̃ = 1 is nonabelian Galois cohomology, planned here: H^0(Γ, H) = H^Γ and H^1(Γ, H) the pointed set of continuous 1-cocycles a (a_{στ} = a_σ σ(a_τ)) modulo a ~ b iff b_σ = c⁻¹ a_σ σ(c), functorial in Γ (inflation, restriction) and in H, with twisting (for a cocycle a, the twisted group _aH and the bijection H^1(Γ, _aH) → H^1(Γ, H), b ↦ ba) and, for a normal subgroup H′ ⊆ H, the exact sequence of pointed sets up to H^1(H/H′) whose fibres over H^1(H/H′) are orbits of (H/H′)^Γ. They satisfy: (1) H^i(Γ, 1→H) = H^i(Γ, H) for i = 0, 1; (2) a morphism of crossed modules inducing isomorphisms on ker ∂ and on coker ∂ induces bijections on H^{-1}, H^0, H^1 (quasi-isomorphism invariance); (3) for H̃ ⊆ H a normal subgroup with ∂ the inclusion, H^i(Γ, H̃→H) = H^i(Γ, H/H̃) for i = 0, 1; (4) there is an exact sequence of pointed sets H^{-1}(H̃→H) → H^0(H̃) → H^0(H) → H^0(H̃→H) → H^1(H̃) → H^1(H) → H^1(H̃→H), with the usual meaning of exactness at the nonabelian terms; (5) if the crossed module is braided, for instance quasi-isomorphic compatibly with Γ to a two-term complex of commutative groups (as [G_sc → G] and [Z(G_sc) → Z(G)] are for G connected reductive, by Borovoi), the pointed sets H^0 and H^1 carry a canonical abelian group structure, functorial for morphisms of such crossed modules. The kernel of a crossed module is always central in H̃, and an abelian cokernel does not suffice: for ∂ = 1 : ℤ/3 → ℤ/2 with ℤ/2 acting by inversion and Γ = ℤ/3 acting trivially, H^0 ≅ ℤ/3 ⋊ ℤ/2 is nonabelian.",
       "hypotheses": [
         "Γ profinite acting continuously on discrete groups",
         "the action is compatible with the crossed-module structure"
@@ -425,7 +425,7 @@
         "Item (1) and nonabelian H^1: with H̃ = 1 the definitions collapse to Γ-invariants and to nonabelian H^1 (Labesse §1.3; Serre's twisting argument). AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1 plans the same object for topological groups, but NC.3 is in a higher upstream tier and lies downstream of this stage in the atlas, so the notion moves down: it is planned here and the restructure proposal has NC.3 import it.",
         "Item (2): a quasi-isomorphism of crossed modules induces a bijection on cohomology (Labesse Proposition 1.2.2), by comparing cocycles through the long exact sequence and the five lemma for pointed sets with group actions.",
         "Item (4): the connecting maps are constructed exactly as for a short exact sequence of groups; exactness is checked on cocycles (Kisin (3.2.7)(3), Borovoi Corollary 3.4.3).",
-        "Item (5): when ker ∂ is central and coker ∂ is abelian, the braiding of the crossed module gives a symmetric product on cocycles; Borovoi's construction of the group law is transported through the quasi-isomorphism to the two-term complex of tori (ET.0/abelianized-cohomology). Kisin's (3.2.7)(4) asserts an abelian structure whenever the cokernel is abelian; the centrality of the kernel is also used (recorded in sourceIssues)."
+        "Item (5): the braiding gives a symmetric product on cocycles; for [G_sc → G], Borovoi's group law is transported through the quasi-isomorphism to the two-term complex of tori (ET.0/abelianized-cohomology). Kisin's (3.2.7)(4) asserts an abelian structure whenever the cokernel is abelian; the confirmed erratum PAPER-KISIN-17/E41 corrects it to braided crossed modules, and every crossed module this roadmap uses is braided."
       ],
       "acceptance": [
         "With H̃ = 1 the construction reproduces the nonabelian H^0 and H^1 of AnabelianGeometryAndNonabelianChabauty:NC.3.",
@@ -450,8 +450,8 @@
         },
         {
           "sourceId": "kaletha-2016",
-          "locator": "arXiv v5, §3.4 (pp. 12–13): abelianized H¹ as crossed-module cohomology of G_sc → G",
-          "match": "Kaletha uses the crossed-module cohomology of G_sc → G as the ordinary abelianized H¹ (extraction item PAPER-KALETHA-16/P13)."
+          "locator": "arXiv v5, §3.4 (pp. 15–16): H¹_sc(Γ, G) ≅ H¹(Γ, G_sc → G)",
+          "match": "Kaletha identifies the quotient H¹_sc(Γ, G) of H¹(Γ, G), formed with the equivalence coming from G_sc, with the cohomology of the crossed module G_sc → G in degrees −1 and 0 (extraction item PAPER-KALETHA-16/P13)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -489,6 +489,11 @@
           "name": "CrossedModuleCohomology.not_kernel_only",
           "kind": "non-example",
           "statement": "For the crossed module [μ_2 → 1] over ℝ (kernel μ_2 in degree −1), H^0 = H^1(ℝ, μ_2) = ℤ/2, so H^0 of a crossed module is not the H^0 of its cokernel when the kernel is nontrivial."
+        },
+        {
+          "name": "CrossedModuleCohomology.not_abelian_without_braiding",
+          "kind": "non-example",
+          "statement": "For ∂ = 1 : ℤ/3 → ℤ/2 with ℤ/2 acting on ℤ/3 by inversion and Γ = ℤ/3 acting trivially, ker ∂ is central and coker ∂ is abelian, yet H^0(Γ, ℤ/3 → ℤ/2) ≅ ℤ/3 ⋊ ℤ/2 ≅ S_3 is nonabelian (PAPER-KISIN-17/E41): item (5) needs the braiding."
         }
       ],
       "api": [
@@ -535,7 +540,7 @@
         {
           "name": "TauCeti.CrossedModuleCohomology.instCommGroup",
           "role": "instance",
-          "statement": "When ker ∂ is central and coker ∂ abelian, H^0 and H^1 are abelian groups and the maps of the exact sequence from H^0(H) onwards are compatible with these structures where both sides are groups."
+          "statement": "For a braided crossed module (in particular [G_sc → G] with G connected reductive), H^0 and H^1 are abelian groups and the maps of the exact sequence from H^0(H) onwards are compatible with these structures where both sides are groups."
         },
         {
           "name": "TauCeti.CrossedModuleCohomology.inflation",
@@ -552,17 +557,17 @@
       ],
       "title": "Abelianized Galois cohomology of a connected reductive group",
       "kind": "construction",
-      "statement": "Let F be a field of characteristic 0 and G a connected reductive group over F, ρ : G_sc → G_der ⊆ G the simply connected cover of its derived group, T ⊆ G a maximal torus, T_sc = ρ⁻¹(T), Z = Z(G) and Z_sc = Z(G_sc). The crossed module [G_sc → G] (G acting on G_sc by conjugation through the isogeny) is quasi-isomorphic to the complexes of tori and groups of multiplicative type [T_sc → T] and [Z_sc → Z] (in degrees −1 and 0). Define H^i_ab(F, G) := H^i(F, G_sc → G) for i = 0, 1, an abelian group by ET.0/crossed-module-galois-cohomology (5), canonically isomorphic to the hypercohomology H^i(F, T_sc → T) and to H^i(F, Z_sc → Z); these identifications are independent of T and functorial in G for normal homomorphisms. The abelianization maps are ab^0 : G(F) = H^0(F, G) → H^0_ab(F, G) and ab^1 : H^1(F, G) → H^1_ab(F, G), induced by [1 → G] → [G_sc → G]; they fit into the exact sequence G_sc(F) → G(F) → H^0_ab(F, G) → H^1(F, G_sc) → H^1(F, G) → H^1_ab(F, G). For an inner form G′ of G, H^i_ab(F, G′) = H^i_ab(F, G) canonically (the centre complex does not change). For a global field F, the adelic groups H^i_ab(𝔸_F, G) are the restricted products of the local ones, and H^1_ab(𝔸_F/F, G) is the cokernel of the localization H^1_ab(F, G) → H^1_ab(𝔸_F, G) in the sense of Labesse §1.6 (the cohomology of the crossed module G_sc(𝔸_K) → G(𝔸_K) modulo the rational one, in the limit over finite Galois K).",
+      "statement": "Let F be a field of characteristic 0 and G a connected reductive group over F, ρ : G_sc → G_der ⊆ G the simply connected cover of its derived group, T ⊆ G a maximal torus, T_sc = ρ⁻¹(T), Z = Z(G) and Z_sc = Z(G_sc). The crossed module [G_sc → G] (G acting on G_sc by conjugation through the isogeny) is quasi-isomorphic to the complexes of tori and groups of multiplicative type [T_sc → T] and [Z_sc → Z] (in degrees −1 and 0). Define H^i_ab(F, G) := H^i(F, G_sc → G) for i = 0, 1, an abelian group by ET.0/crossed-module-galois-cohomology (5), canonically isomorphic to the hypercohomology H^i(F, T_sc → T) and to H^i(F, Z_sc → Z); these identifications are independent of T and functorial in G for normal homomorphisms. The abelianization maps are ab^0 : G(F) = H^0(F, G) → H^0_ab(F, G) and ab^1 : H^1(F, G) → H^1_ab(F, G), induced by [1 → G] → [G_sc → G]; they fit into the exact sequence G_sc(F) → G(F) → H^0_ab(F, G) → H^1(F, G_sc) → H^1(F, G) → H^1_ab(F, G). For an inner form G′ of G, H^i_ab(F, G′) = H^i_ab(F, G) canonically (the centre complex does not change). For a global field F, the adelic groups H^i_ab(𝔸_F, G) are the restricted products of the local ones, and H^1_ab(𝔸_F/F, G) is the global-mod-local abelianized cohomology of Labesse §1.6, defined through the quasi-toric crossed set attached to [G_sc → G] with adelic-modulo-rational coefficients (for a torus T it is Kottwitz's H^1(𝔸_F/F, T) of ET.0/tate-nakayama-tori (b)); the sequence ker^1(F, G) → H^1(F, G) → H^1(𝔸_F, G) → H^1_ab(𝔸_F/F, G) is exact (Labesse Proposition 1.6.12). It receives the cokernel of the localization H^1_ab(F, G) → H^1_ab(𝔸_F, G) but differs from it in general (for a torus T by ker^2(F, T)).",
       "hypotheses": [
         "F of characteristic 0",
         "G connected reductive (Labesse also allows quasi-connected groups: kernels of a surjection from a connected reductive group onto a torus)"
       ],
       "proofSteps": [
-        "Quasi-isomorphism: T_sc → T and Z_sc → Z map to G_sc → G with the same kernel (the finite group Z_sc ∩ ker ρ) and the same cokernel G/ρ(G_sc) = G_ab; apply ET.0/crossed-module-galois-cohomology (2) (Borovoi 3.8.1–3.8.2, recalled as Kisin item H05; Labesse Lemme 1.6.1–1.6.3).",
+        "Quasi-isomorphism: T_sc → T and Z_sc → Z map to G_sc → G with the same kernel (the finite group Z_sc ∩ ker ρ) and the same cokernel G/ρ(G_sc) = G_ab; apply ET.0/crossed-module-galois-cohomology (2) (Labesse Lemme 1.6.1, which proves that [Z_sc → Z] → [T_sc → T] → [G_sc → G] are quasi-isomorphisms, and Lemmes 1.6.2–1.6.3; Borovoi's comparison, extraction item PAPER-KISIN-17/H05).",
         "Independence of T: two maximal tori are conjugate over F̄ and the induced isomorphisms of hypercohomology are canonical (inner automorphisms act trivially on the centre complex).",
         "Exact sequence: specialise the seven-term sequence of the crossed module (ET.0/crossed-module-galois-cohomology (4)) to [G_sc → G].",
         "Inner forms: an inner twist does not change [Z_sc → Z] with its Galois action (Labesse Lemme 1.6.2).",
-        "Adelic and global-mod-local groups: restricted products of the local hypercohomology groups, using that for almost all places the torus complexes are unramified and the local groups are trivial on integral classes (Labesse §1.4, §1.6, Proposition 1.6.8)."
+        "Adelic and global-mod-local groups: restricted products of the local hypercohomology groups, using that for almost all places the torus complexes are unramified and the local groups are trivial on integral classes (Labesse §1.4, §1.6, Proposition 1.6.8; the global-mod-local group after Corollaire 1.6.11, p. 34, and its exact sequence, Proposition 1.6.12, p. 35)."
       ],
       "acceptance": [
         "For a torus T, H^i_ab(F, T) = H^i(F, T); for simply connected semisimple G, H^i_ab(F, G) = 0.",
@@ -580,13 +585,13 @@
       "sources": [
         {
           "sourceId": "labesse-1999",
-          "locator": "§1.6, Lemmes 1.6.1–1.6.3 and Proposition 1.6.8, pp. 28–33",
-          "match": "Labesse defines the abelianized cohomology of a (quasi-)connected reductive group through the crossed module G_sc → G, proves its invariance under inner forms and the quasi-isomorphism with torus complexes, including the adelic version."
+          "locator": "§1.6, Lemmes 1.6.1–1.6.3 and Proposition 1.6.8, pp. 28–33; the definition of H^i_ab(𝔸_F/F, G) after Corollaire 1.6.11 (p. 34) and Proposition 1.6.12 (p. 35)",
+          "match": "Labesse defines the abelianized cohomology of a (quasi-)connected reductive group through the crossed module G_sc → G, proves its invariance under inner forms and the quasi-isomorphism with torus complexes, including the adelic version, and the exact sequence ker^1(F, G) → H^1(F, G) → H^1(𝔸_F, G) → H^1_ab(𝔸_F/F, G) (Proposition 1.6.12)."
         },
         {
           "sourceId": "kisin-2017",
-          "locator": "§3.2.7, pp. 41–42, and Borovoi 3.8.1–3.8.2 as recalled there",
-          "match": "Reductive abelianized cohomology through the quasi-isomorphisms of [G_sc → G] with [T_sc → T] and [Z_sc → Z] (extraction item PAPER-KISIN-17/H05)."
+          "locator": "§3.2.7, items (1)–(4), pp. 41–42",
+          "match": "Borovoi's cohomology of crossed modules, which Kisin applies to [G̃ → G] for reductive G (extraction item PAPER-KISIN-17/H05); the quasi-isomorphisms with [T_sc → T] and [Z_sc → Z] are Borovoi's and Labesse's, not restated in Kisin §3.2.7."
         },
         {
           "sourceId": "vanhoften-2024",
@@ -694,19 +699,19 @@
       ],
       "title": "Kneser, Hasse principle and the abelianization comparisons",
       "kind": "theorem",
-      "statement": "Let G be connected reductive over a field F of characteristic 0. (a) (Kneser) If F is nonarchimedean local and G is semisimple simply connected, H^1(F, G) = 1. (b) If F is nonarchimedean local, ab^1 : H^1(F, G) → H^1_ab(F, G) is bijective and ab^0 : G(F) → H^0_ab(F, G) is surjective; if F is archimedean or global, ab^1 is surjective. (c) (Kneser–Harder–Chernousov) If F is a number field and G is semisimple simply connected, H^1(F, G) → ∏_{v real} H^1(F_v, G) is bijective. (d) For F a number field, the square formed by H^1(F, G) → H^1_ab(F, G) and the localization to the archimedean places, H^1(F, G) → H^1(F_∞, G) → H^1_ab(F_∞, G), is cartesian and all four arrows are surjective; consequently ker^1(F, G) := ker(H^1(F, G) → ∏_v H^1(F_v, G)) maps bijectively to its abelianized analogue ker^1_ab(F, G), and for an inner form G′ of G the natural map ker^1(F, G′) → ker^1(F, G) is a bijection. (e) For F a number field and a finite subset of H^1(F, G), there is a maximal F-torus T ⊆ G such that the subset lies in the image of H^1(F, T) → H^1(F, G). (f) For F a number field and G adjoint, H^1(F, G) → ∏_v H^1(F_v, G) is injective; hence an inner form of a connected reductive group over F is determined up to isomorphism by its localizations. (g) (Serre) If F = ℝ and G(ℝ) is compact, H^1(ℝ, G) is in bijection with the G(ℝ)-conjugacy classes of elements of order dividing 2 in G(ℝ), functorially in G; and for a connected reductive subgroup H′ ⊆ H over ℝ with H_ad(ℝ) compact and H′ containing the maximal ℝ-split central torus of H, ker(H^1(ℝ, H′) → H^1(ℝ, H)) is trivial.",
+      "statement": "Let G be connected reductive over a field F of characteristic 0. (a) (Kneser; imported from AdelicAlgebraicGroups:AA.4/kneser-local-torsor) If F is nonarchimedean local and G is semisimple simply connected, H^1(F, G) = 1. (b) If F is nonarchimedean local, ab^1 : H^1(F, G) → H^1_ab(F, G) is bijective and ab^0 : G(F) → H^0_ab(F, G) is surjective; if F is archimedean or global, ab^1 is surjective. (c) (Kneser–Harder–Chernousov) If F is a number field and G is semisimple simply connected, H^1(F, G) → ∏_{v real} H^1(F_v, G) is bijective. (d) For F a number field, the square formed by H^1(F, G) → H^1_ab(F, G) and the localization to the archimedean places, H^1(F, G) → H^1(F_∞, G) → H^1_ab(F_∞, G), is cartesian and all four arrows are surjective; consequently ker^1(F, G) := ker(H^1(F, G) → ∏_v H^1(F_v, G)) maps bijectively to its abelianized analogue ker^1_ab(F, G), and for an inner form G′ of G the natural map ker^1_ab(F, G′) → ker^1_ab(F, G) is an isomorphism, so that ker^1(F, G′) and ker^1(F, G) are in canonical bijection. (e) For F a number field and a finite subset of H^1(F, G), there is a maximal F-torus T ⊆ G such that the subset lies in the image of H^1(F, T) → H^1(F, G). (f) For F a number field and G adjoint, H^1(F, G) → ∏_v H^1(F_v, G) is injective; hence an inner form of a connected reductive group over F is determined up to isomorphism by its localizations. (g) (Serre) If F = ℝ and G(ℝ) is compact, H^1(ℝ, G) is in bijection with the G(ℝ)-conjugacy classes of elements of order dividing 2 in G(ℝ), functorially in G; and for a connected reductive subgroup H′ ⊆ H over ℝ with H_ad(ℝ) compact and H′ containing the maximal ℝ-split central torus of H, ker(H^1(ℝ, H′) → H^1(ℝ, H)) is trivial.",
       "hypotheses": [
         "F of characteristic 0",
         "G connected reductive",
         "for (a): F nonarchimedean local and G simply connected; for (c): G simply connected; for (f): G adjoint"
       ],
       "proofSteps": [
-        "(a) Kneser's theorem (Labesse Théorème 1.6.6, citing Kneser); it is also a consequence of Bruhat–Tits theory. ReductiveGroupsPartII supplies only the vanishing over the completed maximal unramified extension (RG2.1/steinberg-quasi-split); Kneser's theorem over F itself is planned here.",
+        "(a) Kneser's theorem is imported from AdelicAlgebraicGroups:AA.4/kneser-local-torsor, which states it for torsors (every torsor under a semisimple simply connected group over a nonarchimedean local field of characteristic 0 is trivial); for smooth affine groups over a field of characteristic 0, torsors are classified by Galois H^1. Labesse Théorème 1.6.6 states the same, citing Kneser. ReductiveGroupsPartII supplies the vanishing over the completed maximal unramified extension (RG2.1/steinberg-quasi-split), the starting point of the Bruhat–Tits proof.",
         "(b) Use the exact sequence of ET.0/abelianized-cohomology: by (a) the term H^1(F, G_sc) vanishes, giving injectivity of ab^1 and surjectivity of ab^0; surjectivity of ab^1 uses a fundamental (elliptic) maximal torus T, for which H^1(F, T) → H^1_ab(F, G) is onto (Labesse Lemme 1.6.5, Proposition 1.6.7; Borovoi Proposition 5.1, Theorems 5.4 and 5.7). Over a number field the surjectivity is Borovoi's Theorem 5.7.",
         "(c) The Hasse principle for simply connected groups is imported (AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected) in the form: an F-torsor under G is trivial iff it is trivial at every place; with (a) at the finite places this gives the bijectivity onto the real places (Labesse Théorème 1.6.9).",
-        "(d) Combine (b) and (c) with the density of the image of H^0_ab(F, G) in H^0_ab(F_∞, G), proved by dévissage to a complex of tori [T_2 → T_1] with T_1 induced (Labesse Théorème 1.6.10 and Corollaire 1.6.11; Borovoi Theorem 5.11, recalled by Kisin, Theorem 3.4.6).",
+        "(d) Combine (b) and (c) with the density of the image of H^0_ab(F, G) in H^0_ab(F_∞, G), proved by dévissage to a complex of tori [T_2 → T_1] with T_1 induced (Labesse Théorème 1.6.10, which states the cartesian square with H^1(𝔸_F, G) and reduces to F_∞ by (b) at the finite places, and Corollaire 1.6.11; Borovoi's theorem, recalled by Kisin as Theorem (3.4.6), who cites it as [Bo, Thm. 5.12]).",
         "(e) Borovoi Theorem 5.11 as used in Kisin §4.4.7 (item PAPER-KISIN-17/H10): choose a maximal torus meeting each class at every place of a finite set and use (d).",
-        "(f) The Hasse principle for adjoint groups is used by Kisin (§4.3.1, proof of Corollary 4.6.5) as a known result; through ET.0/kottwitz-duality (b) it is equivalent to ker^1(F, Z(Ĝ)) = 0 for the finite Galois module Z(Ĝ) when Ĝ is simply connected. Its proof (Platonov–Rapinchuk, Chapter 6) was not read for this plan and is recorded as a gap; inner forms of a reductive group are classified by H^1(F, G_ad) (ET.0/inner-twist), which gives the consequence.",
+        "(f) The Hasse principle for adjoint groups is used by Kisin (§4.3.1, proof of Corollary 4.6.5) as a known result; by Kottwitz's duality (ET.0/kottwitz-duality (b), whose proof does not use (f)) it amounts to ker^1(F, Z(Ĝ)) = 0 for the finite Galois module Z(Ĝ) when Ĝ is simply connected. Its proof (Platonov–Rapinchuk, Chapter 6) was not read for this plan and is recorded as a gap; inner forms of a reductive group are classified by H^1(F, G_ad) (ET.0/inner-twist), which gives the consequence.",
         "(g) Serre, Galois Cohomology III §4.5, Theorem 6 (recalled by Kisin, proof of Lemma 4.4.5) for compact G(ℝ); the injectivity statement is Kisin Lemma 4.4.5 (item PAPER-KISIN-17/H09)."
       ],
       "acceptance": [
@@ -716,11 +721,11 @@
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianized-cohomology",
+        "AdelicAlgebraicGroups:AA.4/kneser-local-torsor",
         "AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected",
         "ReductiveGroupsPartII:RG2.1/steinberg-quasi-split",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality"
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
       ],
       "sources": [
         {
@@ -730,7 +735,7 @@
         },
         {
           "sourceId": "kisin-2017",
-          "locator": "Theorem (3.4.6), p. 46; the remark after (4.3.1)(iv), p. 75; §§4.4.1–4.4.9 with Lemma (4.4.5) and its proof, p. 81; proof of Proposition (3.4.11), p. 48",
+          "locator": "Theorem (3.4.6), p. 46; the remark after (4.3.1)(iv), p. 75; §§4.4.1–4.4.9 with Lemma (4.4.5) and its proof, p. 81; proof of Proposition (3.4.11), pp. 47–48",
           "match": "The global–real abelianization square (item H06), Borovoi's lifting through a torus (H10), the adjoint Hasse principle (§4.3.1), Serre's description of real H¹ of compact groups and the injectivity lemma (H09), and Kneser's vanishing as used in Kisin's proofs."
         },
         {
@@ -749,7 +754,7 @@
       ],
       "title": "Degree-zero abelianization and positive rational images",
       "kind": "theorem",
-      "statement": "Let G be a connected reductive group over ℚ with ρ : G_sc → G. (a) H^0_ab(ℚ, G) = H^0(ℚ, Z(G_sc) → Z(G)) and the sequence G_sc(ℚ) → G(ℚ) → H^0_ab(ℚ, G) → H^1(ℚ, G_sc) is exact, so the kernel of ab^0 on G(ℚ) is ρ(G_sc(ℚ)); the same holds over ℝ and over every ℚ_ℓ. (b) Assume the Hasse principle for G_sc, i.e. ker(H^1(ℚ, G_sc) → H^1(ℝ, G_sc)) = 1 (true by ET.0/abelianization-theorems (c)). Let G(ℚ)_+ be the inverse image in G(ℚ) of the identity component G(ℝ)_+ (for the real topology) — equivalently of the image of G_sc(ℝ)·Z(G)(ℝ) — then G(ℚ)_+/ρ(G_sc(ℚ)) is identified by ab^0 with the inverse image of ab^0(Z(G)(ℝ)) under H^0_ab(ℚ, G) → H^0_ab(ℝ, G). (c) If G and H are inner forms over ℚ, with identifications away from p, G(𝔸_f^p) ≅ H(𝔸_f^p), compatible with a fixed global inner twisting on the centre complex [Z(G_sc) → Z(G)], then their positive rational images agree in G(𝔸_f^p)/ρ(G_sc(𝔸_f^p)) × (π_1(G)_I)^σ, the second factor being the Frobenius-invariant part of the inertia coinvariants of the algebraic fundamental group at p.",
+      "statement": "Let G be a connected reductive group over ℚ with ρ : G_sc → G. (a) H^0_ab(ℚ, G) = H^0(ℚ, Z(G_sc) → Z(G)) and the sequence G_sc(ℚ) → G(ℚ) → H^0_ab(ℚ, G) → H^1(ℚ, G_sc) is exact, so the kernel of ab^0 on G(ℚ) is ρ(G_sc(ℚ)); the same holds over ℝ and over every ℚ_ℓ. (b) Assume the Hasse principle for G_sc, i.e. ker(H^1(ℚ, G_sc) → H^1(ℝ, G_sc)) = 1 (true by ET.0/abelianization-theorems (c)). Let G(ℝ)_+ be the inverse image in G(ℝ) of the identity component (for the real topology) of G_ad(ℝ), so that G(ℝ)_+ = Z(G)(ℝ)·ρ(G_sc(ℝ)), and G(ℚ)_+ = G(ℚ) ∩ G(ℝ)_+ (van Hoften's convention, §3.4; it is not the identity component of G(ℝ), which Kisin (3.4.7) uses: for G = G_m it is ℝ^×, not ℝ_{>0}). Then G(ℚ)_+/ρ(G_sc(ℚ)) is identified by ab^0 with the inverse image of ab^0(Z(G)(ℝ)) under H^0_ab(ℚ, G) → H^0_ab(ℝ, G). (c) If G and H are inner forms over ℚ, with identifications away from p, G(𝔸_f^p) ≅ H(𝔸_f^p), compatible with a fixed global inner twisting on the centre complex [Z(G_sc) → Z(G)], then their positive rational images agree in G(𝔸_f^p)/ρ(G_sc(𝔸_f^p)) × (π_1(G)_I)^σ, the second factor being the Frobenius-invariant part of the inertia coinvariants of the algebraic fundamental group at p.",
       "hypotheses": [
         "G connected reductive over ℚ",
         "for (b): the Hasse principle for G_sc (a theorem by ET.0/abelianization-theorems (c))",
@@ -762,7 +767,8 @@
       ],
       "acceptance": [
         "For G = GL_2 over ℚ: H^0_ab(ℚ, GL_2) = ℚ^× via det, G(ℚ)_+ is the set of rational matrices of positive determinant, and (b) identifies G(ℚ)_+/SL_2(ℚ) with ℚ_{>0}.",
-        "For G = SL_2 (simply connected) both sides of (b) are trivial."
+        "For G = SL_2 (simply connected) both sides of (b) are trivial.",
+        "For G = G_m: G(ℝ)_+ = ℝ^× and G(ℚ)_+ = ℚ^×, and (b) holds since ab^0(Z(G)(ℝ)) = ℝ^×; with the identity component ℝ_{>0} of G(ℝ) in place of G(ℝ)_+ the identification in (b) would fail."
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianized-cohomology",
@@ -773,7 +779,7 @@
       "sources": [
         {
           "sourceId": "vanhoften-2024",
-          "locator": "arXiv v4: §4.3.12 (pp. 56–57), Proposition 4.3.13 (p. 57, proof p. 58), Lemma 4.3.14 and Corollary 4.3.15 (p. 57)",
+          "locator": "arXiv v4: §4.3.12 (pp. 56–57), Proposition 4.3.13 (p. 57, proof p. 58), Lemma 4.3.14 and Corollary 4.3.15 (p. 57); §3.4 (p. 40) for G(ℝ)_+ and G(ℚ)_+",
           "match": "Degree-zero abelianized cohomology through the centre complex, its exact sequence with kernel ρ(G_sc(ℚ)), the real-positive criterion and the comparison of positive images of inner forms (extraction items E01–E04)."
         }
       ],
@@ -787,7 +793,7 @@
       ],
       "title": "Tate–Nakayama isomorphisms for tori",
       "kind": "theorem",
-      "statement": "Let S be a torus over a field F of characteristic 0, split by a finite Galois extension E/F with group Γ_{E/F}, and X_*(S) its cocharacter module. (a) (Local) If F is local and u_{E/F} ∈ H^2(Γ_{E/F}, E^×) is the local fundamental class, cup product with u_{E/F} gives isomorphisms Ĥ^i(Γ_{E/F}, X_*(S)) → Ĥ^{i+2}(Γ_{E/F}, S(E)) of Tate cohomology groups for every integer i, using S(E) = X_*(S) ⊗ E^×. In particular H^1(F, S) ≅ Ĥ^{-1}(Γ_{E/F}, X_*(S)) = (X_*(S)_Γ)_tors (the inflation H^1(Γ_{E/F}, S(E)) → H^1(F, S) being an isomorphism by Hilbert 90 for split tori), and H^2(Γ_{E/F}, S(E)) ≅ X_*(S)^Γ/N X_*(S), with inflation H^2(Γ_{E/F}, S(E)) → H^2(F, S) injective; if S is anisotropic then H^2(F, S) = 0. The isomorphisms are compatible with restriction and corestriction, and with inflation in a tower E ⊆ E′ only after multiplying by the degree [E′ : E]. (b) (Global) If F is a number field and C_E the idele class group, cup product with the global fundamental class gives Ĥ^i(Γ_{E/F}, X_*(S)) ≅ Ĥ^{i+2}(Γ_{E/F}, X_*(S) ⊗ C_E); in degree −1 this identifies H^1(𝔸_F/F, S) := coker(H^1(F, S) → H^1(𝔸_F, S)) with (X_*(S)_Γ)_tors and, dually, gives ker^1(F, S) ≅ ker^1(F, Ŝ)^D. (c) The same holds for two-term complexes of tori [S_1 → S_2] with finite kernel (hypercohomology in place of cohomology and the cone of X_*(S_1) → X_*(S_2)), compatibly with the long exact sequences, with norm and restriction maps and with central isogenies. The sign convention: some authors (e.g. Kaletha in the proof of Theorem 4.8) use λ ↦ λ ∪ c^{-1}, the negative of the isomorphism above; each consumer records which one it uses.",
+      "statement": "Let S be a torus over a field F of characteristic 0, split by a finite Galois extension E/F with group Γ_{E/F}, and X_*(S) its cocharacter module. (a) (Local) If F is local and u_{E/F} ∈ H^2(Γ_{E/F}, E^×) is the local fundamental class, cup product with u_{E/F} gives isomorphisms Ĥ^i(Γ_{E/F}, X_*(S)) → Ĥ^{i+2}(Γ_{E/F}, S(E)) of Tate cohomology groups for every integer i, using S(E) = X_*(S) ⊗ E^×. In particular H^1(F, S) ≅ Ĥ^{-1}(Γ_{E/F}, X_*(S)) = (X_*(S)_Γ)_tors (the inflation H^1(Γ_{E/F}, S(E)) → H^1(F, S) being an isomorphism by Hilbert 90 for split tori), and H^2(Γ_{E/F}, S(E)) ≅ X_*(S)^Γ/N X_*(S), with inflation H^2(Γ_{E/F}, S(E)) → H^2(F, S) injective; if S is anisotropic then H^2(F, S) = 0. The isomorphisms are compatible with restriction and corestriction, and with inflation in a tower E ⊆ E′ only after multiplying by the degree [E′ : E]. (b) (Global) If F is a number field and C_E the idele class group, cup product with the global fundamental class gives Ĥ^i(Γ_{E/F}, X_*(S)) ≅ Ĥ^{i+2}(Γ_{E/F}, X_*(S) ⊗ C_E); in degree −1 this identifies Kottwitz's global-mod-local group H^1(𝔸_F/F, S) := H^1(Γ_F, S(𝔸_F̄)/S(F̄)) = H^1(Γ_{E/F}, X_*(S) ⊗ C_E) with (X_*(S)_Γ)_tors (it contains the cokernel of H^1(F, S) → H^1(𝔸_F, S), with quotient ker^2(F, S)) and, dually, gives ker^1(F, S) ≅ ker^1(F, Ŝ)^D. (c) The same holds for two-term complexes of tori [S_1 → S_2] with finite kernel (hypercohomology in place of cohomology and the cone of X_*(S_1) → X_*(S_2)), compatibly with the long exact sequences, with norm and restriction maps and with central isogenies. The sign convention: some authors (e.g. Kaletha in the proof of Theorem 4.8) use λ ↦ λ ∪ c^{-1}, the negative of the isomorphism above; each consumer records which one it uses.",
       "hypotheses": [
         "F of characteristic 0 local (finite extension of ℚ_p, or ℝ, or ℂ) for (a), a number field for (b)",
         "S a torus split by the finite Galois extension E/F"
@@ -843,7 +849,7 @@
       ],
       "title": "Kottwitz's map and the duality for reductive groups",
       "kind": "theorem",
-      "statement": "Let F be a field of characteristic 0 and G connected reductive over F, with dual group Ĝ (complex), its centre Z(Ĝ) with the Galois action of ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group, and A(G) := π_0(Z(Ĝ)^Γ)^D (Pontryagin dual). (a) (Local) If F is local there is a unique extension of the Tate–Nakayama isomorphisms for tori to a morphism of functors α_G : H^1(F, G) → A(G) on the category of connected reductive groups and normal homomorphisms (Kottwitz 1986, Theorem 1.2). It factors through ab^1 and an injective homomorphism H^1_ab(F, G) → A(G). If F is nonarchimedean, α_G is a bijection; the group structure it induces on H^1(F, G) is Kottwitz's. If F = ℝ, the fibre of α_G over 0 is the image of H^1(ℝ, G_sc), and the image of α_G is the annihilator of the image of the norm N_{ℂ/ℝ} on Z(Ĝ); α_G is not bijective in general and H^1(ℝ, G) is not a group. For a maximal torus S ⊆ G, α_G restricted along H^1(F, S) → H^1(F, G) is α_S followed by the restriction A(S) → A(G) dual to π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ); a class of H^1(F, S) comes from H^1(F, G_sc) exactly when α_S of it annihilates the image of π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ). Equivalently, via ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group, for F nonarchimedean H^1(F, G) ≅ (π_1(G)_Γ)_tors. (b) (Global) If F is a number field, H^1_ab(𝔸_F/F, G) ≅ A(G) canonically; ker^1(F, G) = ker^1_ab(F, G) ≅ ker^1(F, Z(Ĝ))^D;. Kottwitz's Tamagawa-number formula τ(G) = #π_0(Z(Ĝ)^Γ)/#ker^1(F, Z(Ĝ)) is not part of this node.",
+      "statement": "Let F be a field of characteristic 0 and G connected reductive over F, with dual group Ĝ (complex), its centre Z(Ĝ) with the Galois action of ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group, and A(G) := π_0(Z(Ĝ)^Γ)^D (Pontryagin dual). (a) (Local) If F is local there is a unique extension of the Tate–Nakayama isomorphisms for tori to a morphism of functors α_G : H^1(F, G) → A(G) on the category of connected reductive groups and normal homomorphisms (Kottwitz 1986, Theorem 1.2). It factors through ab^1 and an injective homomorphism H^1_ab(F, G) → A(G). If F is nonarchimedean, α_G is a bijection; the group structure it induces on H^1(F, G) is Kottwitz's. If F = ℝ, the fibre of α_G over 0 is the image of H^1(ℝ, G_sc), and the image of α_G is the annihilator of the image of the norm N_{ℂ/ℝ} on Z(Ĝ); α_G is not bijective in general and H^1(ℝ, G) is not a group. For a maximal torus S ⊆ G, α_G restricted along H^1(F, S) → H^1(F, G) is α_S followed by the restriction A(S) → A(G) dual to π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ); a class of H^1(F, S) comes from H^1(F, G_sc) exactly when α_S of it annihilates the image of π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ). Equivalently, via ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group, for F nonarchimedean H^1(F, G) ≅ (π_1(G)_Γ)_tors. (b) (Global) If F is a number field, H^1_ab(𝔸_F/F, G) ≅ A(G) canonically; ker^1(F, G) = ker^1_ab(F, G) ≅ ker^1(F, Z(Ĝ))^D. Kottwitz's Tamagawa-number formula τ(G) = #π_0(Z(Ĝ)^Γ)/#ker^1(F, Z(Ĝ)) is not part of this node.",
       "hypotheses": [
         "F of characteristic 0, local for (a), a number field for (b)",
         "G connected reductive"
@@ -863,6 +869,7 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/tate-nakayama-tori",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianized-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianization-theorems",
         "ReductiveGroupsPartII:RG2.1/z-extension-existence",
         "ReductiveGroupsPartII:RG2.1/z-extension",
         "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
@@ -1051,7 +1058,7 @@
         },
         {
           "sourceId": "kaletha-2016",
-          "locator": "arXiv v5, §§2, 3.4 (extraction item P13)",
+          "locator": "arXiv v5, §5.1 (p. 28) (extraction item P13)",
           "match": "An inner twist ψ : G_F̄ → G′_F̄ has ψ⁻¹σ(ψ) inner for all σ."
         },
         {
@@ -1176,7 +1183,7 @@
         },
         {
           "sourceId": "kottwitz-1986",
-          "locator": "Introduction (p. 366) and §3 (pp. 377–378)",
+          "locator": "Introduction (p. 367) and §4.1 (p. 378)",
           "match": "Stable conjugacy of semisimple elements and the parametrization of the rational classes in a stable class by ker[H^1(F, I) → H^1(F, G)]."
         },
         {
@@ -1287,14 +1294,14 @@
       ],
       "title": "Rational classes inside a stable class",
       "kind": "theorem",
-      "statement": "Let F be a field of characteristic 0, G connected reductive over F, δ ∈ G(F) semisimple and I = I_δ its stable centralizer. (a) Sending δ′ = x⁻¹δx (stably conjugate) to the class of σ ↦ x σ(x)⁻¹ gives a bijection between the G(F)-conjugacy classes in the stable class of δ and the image of D(I, G; F) := ker[H^1(F, I) → H^1(F, G)] in ker[H^1(F, G_δ) → H^1(F, G)]; when I = G_δ (e.g. δ strongly regular, or G_der simply connected and G_δ connected) the conjugacy classes are in bijection with D(I, G; F), and the class of (δ, δ′) is denoted inv(δ, δ′). (b) If F is local, D(I, G; F) is finite, and when I = T is a torus it is a finite abelian group; then D(T, G; F) ⊆ E(T, G; F) := ker[H^1(F, T) → H^1_ab(F, G)], with equality if F is nonarchimedean; and for nonarchimedean F, via ET.0/tate-nakayama-tori and ET.0/kottwitz-duality, E(T, G; F) is Pontryagin dual to Kottwitz's 𝔎(T/F) = π_0((T̂/Z(Ĝ))^Γ), so that characters κ of E(T, G; F) are given by Γ-invariant elements of T̂/Z(Ĝ) up to the identity component. (c) (Steinberg's relatedness lemma) If F is a p-adic field and δ, δ′ are strongly regular and stably conjugate, they are conjugate over the completed maximal unramified extension F̆, because H^1(F̆, T) = 0. (d) (Rationality) If G is quasi-split and G_der is simply connected, every stable (= geometric) semisimple class of G(F̄) that is stable under Γ_F contains an element of G(F). (e) For a proper Levi subgroup M of G, the rational classes in a stable class of M may differ from those of G: inv is compatible with M ⊆ G through H^1(F, I^M) → H^1(F, I^G).",
+      "statement": "Let F be a field of characteristic 0, G connected reductive over F, δ ∈ G(F) semisimple and I = I_δ its stable centralizer. (a) Sending δ′ = x⁻¹δx (stably conjugate) to the class of σ ↦ x σ(x)⁻¹ gives a bijection between the G(F)-conjugacy classes in the stable class of δ and the image of D(I, G; F) := ker[H^1(F, I) → H^1(F, G)] in ker[H^1(F, G_δ) → H^1(F, G)]; when I = G_δ (e.g. δ strongly regular, or G_der simply connected and G_δ connected) the conjugacy classes are in bijection with D(I, G; F), and the class of (δ, δ′) is denoted inv(δ, δ′). (b) If F is local, D(I, G; F) is finite, and when I = T is a torus it is a finite abelian group; then D(T, G; F) ⊆ E(T, G; F) := ker[H^1(F, T) → H^1_ab(F, G)] = ker[A(T) → A(G)] (Kottwitz's 𝔈(T/F)), with equality if F is nonarchimedean; and via ET.0/tate-nakayama-tori and ET.0/kottwitz-duality, E(T, G; F) is Pontryagin dual to Kottwitz's 𝔎(T/F), the subgroup of π_0((T̂/Z(Ĝ))^Γ) of classes whose image in H^1(F, Z(Ĝ)) is trivial (equivalently the cokernel of π_0(Z(Ĝ)^Γ) → π_0(T̂^Γ)), so that characters κ of E(T, G; F) are given by Γ-invariant elements of T̂/Z(Ĝ) that lift to T̂^Γ, up to the identity component. (c) (Steinberg's relatedness lemma) If F is a p-adic field and δ, δ′ are strongly regular and stably conjugate, they are conjugate over the completed maximal unramified extension F̆, because H^1(F̆, T) = 0. (d) (Rationality) If G is quasi-split and G_der is simply connected, every stable (= geometric) semisimple class of G(F̄) that is stable under Γ_F contains an element of G(F). (e) For a proper Levi subgroup M of G, the rational classes in a stable class of M may differ from those of G: inv is compatible with M ⊆ G through H^1(F, I^M) → H^1(F, I^G).",
       "hypotheses": [
         "F of characteristic 0 (local for (b), p-adic for (c))",
         "G connected reductive; for (d): G quasi-split with simply connected derived group"
       ],
       "proofSteps": [
         "(a) Labesse §2.3 after Définition 2.3.4: the pair (x, a) gives a class in H^0(F, I\\G), whose image in H^1(F, I) lies in D(I, G; F); the fibres of H^0(F, I\\G) → G(F) are the kernels displayed there, giving the parametrization through the image in ker[H^1(F, G_δ) → H^1(F, G)] (also Kottwitz 1986 Introduction and §4.1).",
-        "(b) Finiteness: local H^1 of linear algebraic groups is finite (Kaletha Lemma 3.4, extraction item P10); E(T, G; F) is the abelianized kernel and the comparison with D uses ET.0/abelianization-theorems (b); the duality with K(T, G; F) is ET.0/tate-nakayama-tori (a) and ET.0/kottwitz-duality (a) (Kottwitz 1986 §4).",
+        "(b) Finiteness: local H^1 of linear algebraic groups is finite (Kaletha Fact 3.4, citing Platonov–Rapinchuk Theorem 6.14; extraction item P10); E(T, G; F) is the abelianized kernel and the comparison with D uses ET.0/abelianization-theorems (b); the duality with K(T, G; F) is ET.0/tate-nakayama-tori (a) and ET.0/kottwitz-duality (a) (Kottwitz 1986 §§4.4–4.6).",
         "(c) Steinberg: H^1(F̆, T) = 0 for every torus over F̆ (ReductiveGroupsPartII:RG2.1/steinberg-quasi-split, which states that H^1(L, H) = 1 for connected reductive H over the completed maximal unramified extension); conjugacy over F̄ by x with xσ(x)⁻¹ ∈ T and vanishing of the class over F̆ give conjugacy over F̆ (Hansen–Kaletha–Weinstein Lemma 3.2.1).",
         "(d) Kottwitz 1982 Theorem 4.4 as cited by Labesse in the proof of Théorème 2.4.2; the transfer of tori in ET.0/inner-twist (ii) is the same argument.",
         "(e) Functoriality of H^1 for M ⊆ G; example in the acceptance tests."
@@ -1325,7 +1332,7 @@
         {
           "sourceId": "kottwitz-1986",
           "locator": "Introduction (p. 366); §4.1–4.6, definitions of 𝔇, 𝔈, 𝔎 (pp. 378–379)",
-          "match": "The conjugacy classes within a stable class correspond to ker[H^1(F, I) → H^1(F, G)]; 𝔇(I/F) ⊆ 𝔈(I/F) and the dual group 𝔎(I/F)."
+          "match": "The conjugacy classes within a stable class correspond to ker[H^1(F, I) → H^1(F, G)]; 𝔇(I/F) ⊆ 𝔈(I/F) and the dual group 𝔎(I/F) (𝔎(I/F): the classes in π_0([Z(Î)/Z(Ĝ)]^Γ) with trivial, resp. locally trivial, image in H^1(F, Z(Ĝ)), §4.6)."
         },
         {
           "sourceId": "hkw-2022",
@@ -1351,15 +1358,15 @@
       ],
       "title": "The global obstruction for adelic stable classes",
       "kind": "theorem",
-      "statement": "Let F be a number field, G connected reductive over F, γ_0 ∈ G(F) semisimple with stable centralizer I_0 (a connected reductive group when G_der is simply connected), and γ = (γ_v)_v ∈ G(𝔸_F) an adelic element with γ_v stably conjugate to γ_0 in G(F_v) for every v and conjugate to γ_0 in G(𝒪_v) for almost all v. Let inv_v(γ_0, γ_v) ∈ D(I_0, G; F_v) be the local invariants (ET.0/rational-classes-in-stable-class) and α_v their images in A(I_0/F_v) := π_0(Ẑ(Î_0)^{Γ_v})^D. (a) Let 𝔎(I_0/F) be the group of κ ∈ π_0((Z(Î_0)/Z(Ĝ))^Γ) whose image in H^1(F, Z(Ĝ)) is locally trivial; almost all α_v vanish, and obs(γ) ∈ 𝔎(I_0/F)^D is the character κ ↦ ∏_v α_v(κ_v) of the localizations κ_v. (b) If G_sc has no E_8 factor, γ is G(𝔸_F)-conjugate to an element of G(F) stably conjugate to γ_0 if and only if obs(γ) is trivial (Kottwitz 1986, Theorem 6.6; the E_8 restriction comes from the Hasse principle, which is now known for E_8 by Chernousov, so it can be removed). (c) For κ ∈ 𝔎(I_0/F), ⟨obs(γ), κ⟩ = ∏_v ⟨inv_v(γ_0, γ_v), κ_v⟩, the product formula used to stabilize the elliptic terms; the number of G(F)-classes in G(F) ∩ (stable class of γ_0) adelically conjugate to γ is |ker^1(F, I_0)|-weighted as in Kottwitz 1986 §9.",
+      "statement": "Let F be a number field and G connected reductive over F with G_der simply connected (the standing assumption of Kottwitz 1986 §6), γ_0 ∈ G(F) semisimple with centralizer I_0 (connected reductive, as G_der is simply connected), and γ = (γ_v)_v ∈ G(𝔸_F) conjugate to γ_0 under G(𝔸_F ⊗_F F̄), so that each γ_v is stably conjugate to γ_0. (Kottwitz allows γ_0 in a quasi-split inner form G_0 of G, transported by an inner twisting ψ : G_0 → G; the case stated here is G_0 = G, the one the product formula (c) uses.) Let inv_v(γ_0, γ_v) ∈ D(I_0, G; F_v) be the local invariants (ET.0/rational-classes-in-stable-class) and α_v their images in A(I_0/F_v) := π_0(Z(Î_0)^{Γ_v})^D. (a) Let 𝔎(I_0/F) be the group of κ ∈ π_0((Z(Î_0)/Z(Ĝ))^Γ) whose image in H^1(F, Z(Ĝ)) is locally trivial; almost all α_v vanish, and obs(γ) ∈ 𝔎(I_0/F)^D is the character κ ↦ ∏_v α_v(κ_v) of the localizations κ_v. (b) If G_sc has no E_8 factor, γ is G(𝔸_F)-conjugate to an element of G(F) stably conjugate to γ_0 if and only if obs(γ) is trivial (Kottwitz 1986, Theorem 6.6; the E_8 restriction comes from the Hasse principle, which is now known for E_8 by Chernousov, so it can be removed). (c) For κ ∈ 𝔎(I_0/F), ⟨obs(γ), κ⟩ = ∏_v ⟨inv_v(γ_0, γ_v), κ_v⟩, the product formula used to stabilize the elliptic terms; the number of G(F)-classes in G(F) ∩ (stable class of γ_0) adelically conjugate to γ is |ker^1(F, I_0)|-weighted as in Kottwitz 1986 §9.",
       "hypotheses": [
         "F a number field",
-        "G connected reductive; for (b) G_sc without E_8 factors (removable by Chernousov's Hasse principle for E_8)"
+        "G connected reductive with G_der simply connected; for (b) G_sc without E_8 factors (removable by Chernousov's Hasse principle for E_8)"
       ],
       "proofSteps": [
         "Construct obs_1(γ) first using G_sc(𝔸)-conjugacy and the Hasse principle for G_sc (Kottwitz 1986 §6.1–6.3, Lemma 6.3), then pass to obs(γ) using the global duality ker^1(F, I_0) ≅ ker^1(F, Z(Î_0))^D of ET.0/kottwitz-duality (b) and Tate–Nakayama for the global-mod-local cohomology (ET.0/tate-nakayama-tori (b)).",
         "The criterion (b) is Kottwitz 1986 Theorem 6.6; the Hasse principle input is ET.0/abelianization-theorems (c), which includes E_8 (Labesse Théorème 1.6.9).",
-        "The product formula (c) is the definition of the pairing in §6.10.1 of Kottwitz 1986 combined with the local duality of ET.0/kottwitz-duality (a)."
+        "The product formula (c): Kottwitz 1986 §6.7 gives obs(γ′) = obs(γ)·inv(γ, γ′) for adelic elements of one geometric class; apply it with γ_0, whose obstruction is trivial, and use the local duality of ET.0/kottwitz-duality (a). Kottwitz's conjecture (6.10.1), which identifies the adelic transfer factor with ⟨obs(γ), κ⟩, is the theorem of Langlands–Shelstad recorded in ET.1/transfer-factor-properties (f)."
       ],
       "acceptance": [
         "For G = GL_n every adelic element stably conjugate everywhere to γ_0 ∈ GL_n(F) is G(𝔸)-conjugate to γ_0 (obs is trivial because 𝔎(I_0/F) = 1 for centralizers that are products of restrictions of scalars of GL's).",
@@ -1375,8 +1382,8 @@
       "sources": [
         {
           "sourceId": "kottwitz-1986",
-          "locator": "§6.1–6.6 (pp. 381–382), Lemma 6.3 and Theorem 6.6 (p. 382); §6.10.1 (p. 384); §9 (pp. 391–396)",
-          "match": "The obstructions obs_1(γ) and obs(γ) ∈ 𝔎(I_0/F)^D; γ is G(𝔸)-conjugate to a rational element iff obs(γ) is trivial (assuming no E_8 factors); the pairing ⟨obs(γ), κ⟩ used in the stabilization of the elliptic terms."
+          "locator": "§6 (standing assumptions) and §§6.1–6.6 (pp. 381–383), Lemma 6.3 and Theorem 6.6 (p. 382); §§6.7–6.10 with (6.10.1) (p. 384); §9 (pp. 391–396)",
+          "match": "With G_der simply connected and γ_0 in a quasi-split inner form, the obstructions obs_1(γ) and obs(γ) ∈ 𝔎(I_0/F)^D; γ is G(𝔸)-conjugate to a rational element iff obs(γ) is trivial (assuming no E_8 factors); obs(γ′) = obs(γ)·inv(γ, γ′) (§6.7); the conjectural identity (6.10.1) of the adelic transfer factor with ⟨obs(γ), κ⟩."
         },
         {
           "sourceId": "shin-2010",
@@ -1424,7 +1431,7 @@
       "sources": [
         {
           "sourceId": "kisin-2017",
-          "locator": "footnote 20 (p. 54); Proposition (3.6.7) (p. 56) and its proof (p. 57); Proposition (3.6.10) and its proof (p. 58); Lemma (3.6.2) (p. 53) and the Cartan-decomposition step of its proof (p. 54); (3.6.8)–(3.6.9) (p. 58)",
+          "locator": "footnote 20 (p. 54); Proposition (3.6.7) and its proof (p. 56); Proposition (3.6.10) and its proof (p. 58); Lemma (3.6.2) (p. 53) and the Cartan-decomposition step of its proof (p. 54); (3.6.8) (p. 57) and (3.6.9) (p. 58)",
           "match": "Lang's lemma for smooth connected integral groups; integral z-extensions; the kernel of κ̃_G on unramified and rational points (extraction items lang-lemma-integral, z-extension-integral, kappa-kernel-unramified-points)."
         },
         {
@@ -1484,7 +1491,7 @@
         },
         {
           "sourceId": "kottwitz-1986",
-          "locator": "§3 (p. 377); §7 (pp. 385–390)",
+          "locator": "§5.4 (p. 380); §7 (pp. 385–390)",
           "match": "Endoscopic triples (H, s, η) as in Kottwitz's earlier paper, and the local finiteness results."
         }
       ],
@@ -1837,7 +1844,7 @@
       ],
       "title": "Elliptic endoscopic data of unitary similitude groups",
       "kind": "theorem",
-      "statement": "Let F = F^+F_0 be a CM field with F^+ totally real and F_0 imaginary quadratic, and for a vector n⃗ = (n_1, …, n_s) of positive integers let G_{n⃗} be the quasi-split group over ℚ of [Shin 2011 §3.1]: G_{n⃗}(R) = {(λ, g) ∈ R^× × GL_{n⃗}(F ⊗_ℚ R) : g Φ_{n⃗} ᵗg^c = λ Φ_{n⃗}} with Φ_{n⃗} the block antidiagonal matrix built from Φ_m = ((−1)^{i+1}δ_{i, m+1−j}). Its dual group is Ĝ_{n⃗} = ℂ^× × ∏_{σ ∈ Φ^+} GL_{n⃗}(ℂ) (Φ^+ the embeddings F → ℂ above a fixed τ_0 : F_0 → ℂ), with W_ℚ acting through W_ℚ/W_{F_0} by (λ, (g_σ)) ↦ (λ ∏_σ det g_σ, (Φ_{n⃗} ᵗg^{-1}_{c w⁻¹σ} Φ^{-1}_{n⃗})_σ) for w ∉ W_{F_0}. For G = G_N (N = n in Shin's notation, N = 2n for Caraiani–Scholze) a set of representatives of E_ell(G_N) is {(G_N, 1, id)} ∪ {(G_{n_1,n_2}, s_{n_1,n_2}, η_{n_1,n_2}) : n_1 + n_2 = N, n_1 ≥ n_2 ≥ 1}, where s_{n_1,n_2} = (1, (I_{n_1}, −I_{n_2})) and η_{n_1,n_2} is induced by GL_{n_1} × GL_{n_2} ⊂ GL_N, where, following Caraiani–Scholze, the pair (n_1, n_2) may be omitted when n_1, n_2 and [F^+ : ℚ] are all odd (Kottwitz 1984, condition 7.4.3). Fixing a character ϖ : 𝔸_{F_0}^×/F_0^× → ℂ^× whose restriction to 𝔸^×/ℚ^× is the quadratic character of F_0 (viewed as a character of W_{F_0} by class field theory), the L-morphism η̃_{n_1,n_2} : ^LG_{n_1,n_2} → ^LG_N is w ↦ (ϖ(w)^{−N(n_1,n_2)}, (diag(ϖ(w)^{ε(N−n_1)} I_{n_1}, ϖ(w)^{ε(N−n_2)} I_{n_2}))_σ) ⋊ w for w ∈ W_{F_0} and w* ↦ (a_{n_1,n_2}, (Φ_{n_1,n_2}Φ_N^{-1})_σ) ⋊ w* for a fixed w* ∈ W_ℚ \\ W_{F_0}, where ε(m) ∈ {0, 1} is m mod 2, N(n_1,n_2) = [F^+ : ℚ](n_1 ε(N − n_1) + n_2 ε(N − n_2))/2 and a_{n_1,n_2}² = (−1)^{N(n_1,n_2)}. Each such datum is elliptic, the listed data are pairwise non-isomorphic, and Out(G_{n_1,n_2}, s, η) is trivial unless n_1 = n_2, when it has order 2.",
+      "statement": "Let F = F^+F_0 be a CM field with F^+ totally real and F_0 imaginary quadratic, and for a vector n⃗ = (n_1, …, n_s) of positive integers let G_{n⃗} be the quasi-split group over ℚ of [Shin 2011 §3.1]: G_{n⃗}(R) = {(λ, g) ∈ R^× × GL_{n⃗}(F ⊗_ℚ R) : g Φ_{n⃗} ᵗg^c = λ Φ_{n⃗}} with Φ_{n⃗} = diag(Φ_{n_1}, …, Φ_{n_s}) the block-diagonal matrix built from Φ_m = ((−1)^{i+1}δ_{i, m+1−j}). Its dual group is Ĝ_{n⃗} = ℂ^× × ∏_{σ ∈ Φ^+} GL_{n⃗}(ℂ) (Φ^+ the embeddings F → ℂ above a fixed τ_0 : F_0 → ℂ), with W_ℚ acting through W_ℚ/W_{F_0} by (λ, (g_σ)) ↦ (λ ∏_σ det g_σ, (Φ_{n⃗} ᵗg^{-1}_{c w⁻¹σ} Φ^{-1}_{n⃗})_σ) for w ∉ W_{F_0}. For G = G_N (N = n in Shin's notation, N = 2n for Caraiani–Scholze) a set of representatives of E_ell(G_N) is {(G_N, 1, id)} ∪ {(G_{n_1,n_2}, s_{n_1,n_2}, η_{n_1,n_2}) : n_1 + n_2 = N, n_1 ≥ n_2 ≥ 1}, where s_{n_1,n_2} = (1, (I_{n_1}, −I_{n_2})) and η_{n_1,n_2} is induced by GL_{n_1} × GL_{n_2} ⊂ GL_N, where, following Caraiani–Scholze, the pair (n_1, n_2) may be omitted when n_1, n_2 and [F^+ : ℚ] are all odd (Kottwitz 1984, condition 7.4.3). Fixing a character ϖ : 𝔸_{F_0}^×/F_0^× → ℂ^× whose restriction to 𝔸^×/ℚ^× is the quadratic character of F_0 (viewed as a character of W_{F_0} by class field theory), the L-morphism η̃_{n_1,n_2} : ^LG_{n_1,n_2} → ^LG_N is w ↦ (ϖ(w)^{−N(n_1,n_2)}, (diag(ϖ(w)^{ε(N−n_1)} I_{n_1}, ϖ(w)^{ε(N−n_2)} I_{n_2}))_σ) ⋊ w for w ∈ W_{F_0} and w* ↦ (a_{n_1,n_2}, (Φ_{n_1,n_2}Φ_N^{-1})_σ) ⋊ w* for a fixed w* ∈ W_ℚ \\ W_{F_0}, where ε(m) ∈ {0, 1} is m mod 2, N(n_1,n_2) = [F^+ : ℚ](n_1 ε(N − n_1) + n_2 ε(N − n_2))/2 and a_{n_1,n_2}² = (−1)^{N(n_1,n_2)} (Shin writes (−1)^{−N(n_1,n_2)} det(Φ_{n_1,n_2}Φ_N), which is the same number since det Φ_m = 1). Each such datum is elliptic, the listed data are pairwise non-isomorphic, and Out(G_{n_1,n_2}, s, η) is trivial unless n_1 = n_2, when it has order 2.",
       "hypotheses": [
         "F = F^+F_0 CM with F^+ ≠ ℚ allowed (Caraiani–Scholze assume [F^+ : ℚ] > 1 for the trace formula, not for this list)",
         "the character ϖ fixed as above"
@@ -1965,23 +1972,24 @@
       ],
       "title": "Invariant orbital integrals and their normalizations",
       "kind": "definition",
-      "statement": "Let F be a local field of characteristic 0 and G connected reductive over F, with a fixed Haar measure dg on G(F). For a semisimple γ ∈ G(F) let G_γ be its centralizer and G_γ^0 the identity component, with a Haar measure dt on G_γ^0(F); G_γ^0(F) is unimodular, so G_γ^0(F)\\G(F) carries the quotient measure dg/dt (AdelicAlgebraicGroups:AA.2/quotient-measure). For f ∈ C_c^∞(G(F)) (locally constant compactly supported if F is p-adic, smooth compactly supported if F is archimedean) the orbital integral is O_γ(f) = ∫_{G_γ^0(F)\\G(F)} f(g⁻¹γg) dg/dt; following Waldspurger one also uses O_γ^{G}(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), which depends only on the G(F)-class of γ. The integral converges absolutely for every semisimple γ (the orbit of γ is closed and the orbit map identifies G_γ^0(F)\\G(F) with a finite cover of a closed subset of G(F)). The normalized orbital integral is J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f) with D^G(γ) = det(1 − Ad(γ))|_{𝔤/𝔤_γ} the Weyl discriminant. The same definitions apply to the Lie algebra 𝔤(F), f ∈ C_c^∞(𝔤(F)), X ∈ 𝔤(F) semisimple, D(X) = det(ad X)|_{𝔤/𝔤_X}. For F p-adic, orbital integrals of nilpotent (unipotent) orbits are defined by the invariant measure on the orbit (Deligne–Ranga Rao) and are needed for germ expansions; for regular semisimple γ, J_G(γ, f) is a bounded locally constant (p-adic) or smooth (real) function of γ on G_reg(F) for fixed f (Harish-Chandra). Measures on centralizers of stably conjugate (or matching) elements are transported by the inner twist between their identity components (ET.0/semisimple-conjugacy).",
+      "statement": "Let F be a local field of characteristic 0 and G connected reductive over F, with a fixed Haar measure dg on G(F). The orbital integral of a semisimple γ ∈ G(F) is owned by AutomorphicSpectralTheory AS.6 (target AS.6.8a of its package, which moved it below this roadmap in the upstream order) and is imported here: for f ∈ C_c^∞(G(F)) (locally constant compactly supported if F is p-adic, smooth compactly supported if F is archimedean), O_γ(f) = ∫_{G_γ^0(F)\\G(F)} f(g⁻¹γg) dg/dt, with dt a Haar measure on the identity component G_γ^0(F) of the centralizer and the quotient measure (AdelicAlgebraicGroups:AA.2/quotient-measure); it converges for every semisimple γ, and J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f) with D^G(γ) = det(1 − Ad(γ))|_{𝔤/𝔤_γ}. This node fixes the conventions under which ET uses it and plans its extensions: (i) following Waldspurger, O^G_γ(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), which depends only on the G(F)-class of γ; (ii) measures on centralizers of stably conjugate (or matching) elements are transported by the inner twist between their identity components (ET.0/semisimple-conjugacy); (iii) for regular semisimple γ, J_G(γ, f) is a bounded locally constant (p-adic) or smooth (real) function of γ on G_reg(F) for fixed f (Harish-Chandra), and the Weyl integration formula expresses ∫_{G(F)} f through the integrals of |D^G(t)| O_t(f) over maximal tori; (iv) the Lie-algebra version: for f ∈ C_c^∞(𝔤(F)) and X ∈ 𝔤(F) semisimple, O_X(f) = ∫_{G_X^0(F)\\G(F)} f(Ad(g)⁻¹X) dg/dt and D(X) = det(ad X)|_{𝔤/𝔤_X}; for F p-adic, the orbital integrals of nilpotent orbits are defined by the invariant measure on the orbit (Deligne–Ranga Rao) and are needed for germ expansions; (v) semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F).",
       "hypotheses": [
         "F local of characteristic 0",
         "G connected reductive with fixed Haar measures on G(F) and on the centralizers"
       ],
       "proofSteps": [
-        "Quotient measure: AdelicAlgebraicGroups:AA.2/quotient-measure applies since reductive groups are unimodular; Weil's integration formula AA.2/quotient-integral-integrable gives the integral as an iterated integral (Kottwitz, Clay notes §2).",
-        "Convergence for semisimple γ: the orbit O_γ is closed, and G_γ^0(F)\\G(F) → O_γ(F) is proper with finite fibres over its image (Kottwitz, Clay notes §3).",
+        "The group orbital integral, its quotient measure and its convergence are imported from AutomorphicSpectralTheory AS.6 (requested; AS.6.8a of its package, after Arthur's introduction §18). Quotient measure: AdelicAlgebraicGroups:AA.2/quotient-measure applies since reductive groups are unimodular; Weil's integration formula AA.2/quotient-integral-integrable gives the integral as an iterated integral (Kottwitz, Clay notes §2).",
+        "Convergence for semisimple γ (the argument behind AS.6.8a, used here for the Lie-algebra version): the orbit O_γ is closed, and G_γ^0(F)\\G(F) → O_γ(F) is proper with finite fibres over its image (Kottwitz, Clay notes §3).",
         "Boundedness and local constancy of normalized orbital integrals near regular elements: Harish-Chandra; the p-adic statements are in Kottwitz's Clay notes §§3, 15–16 (Harish-Chandra's compactness lemma and semisimple descent).",
         "Nilpotent orbital integrals: the invariant measure on a nilpotent orbit extends to a Radon measure on 𝔤(F) (Deligne–Ranga Rao), recalled in Kottwitz's Clay notes §17; the original papers were not read (sourceVersions)."
       ],
       "acceptance": [
-        "O_γ(f) = f(γ) for central γ and for tori.",
-        "For GL_2 over a p-adic field and a split regular γ with |a − b| = 1, the orbital integral of 1_{GL_2(𝒪)} is 1 with the standard measures.",
+        "O_X(f) = f(X) for central X ∈ 𝔤(F) and for tori (the group statement is AS.6.8a's test).",
+        "For GL_2 over a p-adic field and γ = diag(a, b) with a, b ∈ 𝒪^× and |a − b| = 1, the orbital integral of 1_{GL_2(𝒪)} is 1 with the standard measures.",
         "Orbital integrals are invariant under conjugation of γ and of f."
       ],
       "prerequisites": [
+        "AutomorphicSpectralTheory:AS.6",
         "AdelicAlgebraicGroups:AA.2/quotient-measure",
         "AdelicAlgebraicGroups:AA.2/quotient-integral-integrable",
         "AdelicAlgebraicGroups:AA.2/quotient-measure-transitivity",
@@ -2012,7 +2020,7 @@
       "uses": [
         {
           "where": "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
-          "how": "the weighted orbital integral is the unweighted one with the weight v_M; AS.6 imports the convergence and conventions here (owner fixed by RT-AREA-automorphic-1/24)"
+          "how": "AS.6 owns the unweighted group orbital integral (AS.6.8a of its package, moved below this roadmap in the upstream order, which supersedes the single ownership by ET.1 that RT-AREA-automorphic-1/24 had fixed) and adds the weight v_M; ET.1 imports it and owns the conventions and extensions listed here"
         },
         {
           "where": "ET.1/kappa-and-stable-orbital-integrals",
@@ -2029,24 +2037,24 @@
       ],
       "tests": [
         {
-          "name": "orbitalIntegral_central",
+          "name": "orbitalIntegralLie_central",
           "kind": "degenerate",
-          "statement": "For γ central, O_γ(f) = f(γ) (with dt = dg)."
+          "statement": "For X central in 𝔤(F) (for instance X = 0), O_X(f) = f(X) with dt = dg."
         },
         {
-          "name": "orbitalIntegral_torus",
+          "name": "orbitalIntegralLie_torus",
           "kind": "degenerate",
-          "statement": "For G = T a torus, O_γ(f) = f(γ)."
+          "statement": "For G = T a torus, O_X(f) = f(X) for every X ∈ 𝔱(F)."
         },
         {
           "name": "orbitalIntegral_gl2_split",
           "kind": "computation",
-          "statement": "For G = GL_2(F), F p-adic with q residue elements, γ = diag(a, b) with |a − b| = 1 and f = 1_{GL_2(𝒪)}, measures giving GL_2(𝒪) and the diagonal units volume 1: O_γ(f) = 1 (Kottwitz, Clay notes §5)."
+          "statement": "For G = GL_2(F), F p-adic with q residue elements, γ = diag(a, b) with a, b ∈ 𝒪^× and |a − b| = 1 and f = 1_{GL_2(𝒪)}, measures giving GL_2(𝒪) and the diagonal units volume 1: O_γ(f) = 1 (Kottwitz, Clay notes §5)."
         },
         {
-          "name": "orbitalIntegral_invariant",
+          "name": "orbitalIntegralWaldspurger_invariant",
           "kind": "characterisation",
-          "statement": "O_{xγx⁻¹}(f) = O_γ(f) for x ∈ G(F), and O_γ(f^x) = O_γ(f) for f^x(g) = f(xgx⁻¹)."
+          "statement": "O^G_{xγx⁻¹}(f) = O^G_γ(f) for x ∈ G(F), with the transported centralizer measure, and O^G_γ(f^x) = O^G_γ(f) for f^x(g) = f(xgx⁻¹)."
         },
         {
           "name": "orbitalIntegral_not_regular_only",
@@ -2057,28 +2065,23 @@
       "api": [
         {
           "name": "TauCeti.orbitalIntegral",
-          "role": "data",
-          "statement": "O_γ(f) for semisimple γ and f ∈ C_c^∞(G(F))."
+          "role": "compatibility",
+          "statement": "The group orbital integral O_γ(f) for semisimple γ and f ∈ C_c^∞(G(F)) is AutomorphicSpectralTheory's AS.6.8a `orbital_integral`, imported and not redefined; its invariance, linearity and measure-scaling lemmas are AS.6.8a's."
         },
         {
           "name": "TauCeti.normalizedOrbitalIntegral",
+          "role": "compatibility",
+          "statement": "J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f), as in AS.6.8a."
+        },
+        {
+          "name": "TauCeti.orbitalIntegralWaldspurger",
           "role": "data",
-          "statement": "J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f)."
+          "statement": "O^G_γ(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), a function of the G(F)-class of γ (Waldspurger's normalization)."
         },
         {
-          "name": "TauCeti.orbitalIntegral_conj",
-          "role": "simp",
-          "statement": "Invariance under conjugation of γ and of f."
-        },
-        {
-          "name": "TauCeti.orbitalIntegral_linear",
-          "role": "structure",
-          "statement": "f ↦ O_γ(f) is a linear functional, an invariant distribution on G(F)."
-        },
-        {
-          "name": "TauCeti.orbitalIntegral_measure_scale",
-          "role": "relation",
-          "statement": "Scaling dg or dt by c scales O_γ by c or c⁻¹."
+          "name": "TauCeti.orbitalIntegral_transport",
+          "role": "compatibility",
+          "statement": "For γ′ stably conjugate to γ, or matching it across an inner twist, the Haar measure on G_γ′^0(F) is the transport of that on G_γ^0(F), and O_γ′ is formed with it."
         },
         {
           "name": "TauCeti.normalizedOrbitalIntegral_bounded",
@@ -2099,6 +2102,11 @@
           "name": "TauCeti.orbitalIntegral_descent",
           "role": "compatibility",
           "statement": "Semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F)."
+        },
+        {
+          "name": "TauCeti.orbitalIntegralLie_conj",
+          "role": "simp",
+          "statement": "O_{Ad(x)X}(f) = O_X(f) and O_X(f ∘ Ad(x)⁻¹) = O_X(f) for x ∈ G(F) on 𝔤(F)."
         }
       ],
       "planet": {
@@ -2342,7 +2350,7 @@
       ],
       "title": "The Langlands–Shelstad transfer factor",
       "kind": "construction",
-      "statement": "Let F be local of characteristic 0, G connected reductive with quasi-split inner form G* and inner twist ψ : G → G*, (H, ℋ, s, ξ) an endoscopic datum with a z-pair (H_1, ξ_1) (ET.0/z-pair). For a strongly G-regular γ_1 ∈ H_1(F) with image γ_H ∈ H(F) and a strongly regular δ ∈ G(F) matching it (ET.0/norm-correspondence), choose an admissible embedding T_H → T* of the centralizer of γ_H into G*, a-data and χ-data for T* (ET.1/a-data-chi-data). Define: Δ_I(γ_1, δ) = ⟨λ(T_sc), s_T⟩ (the splitting invariant λ(T_sc) ∈ H^1(F, T_sc) built from a-data paired by Tate–Nakayama with the image s_T of s); Δ_II(γ_1, δ) = ∏_α χ_α((α(γ) − 1)/a_α) over Γ-orbit representatives of roots of T outside H; Δ_III1(γ_1, δ; γ̄_1, δ̄) = ⟨inv(γ, δ; γ̄, δ̄), κ⟩, the pairing of the relative invariant in H^1(F, U) (U = T × T̄/Z(G)) with the endoscopic character; Δ_III2(γ_1, δ) = ⟨a, γ⟩ for a ∈ H^1(W_F, T̂) measuring the difference of the L-embeddings ^LT → ^LG given by χ-data and by ξ through ℋ (with the z-pair); Δ_IV(γ_1, δ) = |D_G(δ)|^{1/2}|D_H(γ_H)|^{-1/2}. The relative transfer factor Δ(γ_1, δ; γ̄_1, δ̄) = Δ_I Δ_II Δ_III1 Δ_III2 Δ_IV (ratios) is independent of all choices (Langlands–Shelstad Theorem 3.7.A). An absolute transfer factor is a function Δ(γ_1, δ) on matching pairs with Δ(γ_1, δ)Δ(γ̄_1, δ̄)⁻¹ = Δ(γ_1, δ; γ̄_1, δ̄); it is determined up to a nonzero constant. Normalizations: (i) for G quasi-split, the Langlands–Shelstad absolute factor Δ_0 = Δ_I Δ_II Δ_III2 Δ_IV (Δ_III1 trivial with base point δ̄ = δ for G = G*); (ii) Kottwitz–Shelstad 2012 correct the sign conventions: with Langlands' normalization of local class field theory (uniformizers ↔ Frobenius) the factor compatible with the classical correspondence is Δ′ = (Δ_I^new Δ_III)⁻¹ Δ_II Δ_IV, and with Deligne's normalization (uniformizers ↔ inverse Frobenius) it is Δ_D = Δ_I^new Δ_II⁻¹ Δ_III Δ_IV; Δ′ and Δ_D for (H, s, ξ) are the factors of the datum (H, s⁻¹, ξ) in the other convention; (iii) the Whittaker normalization Δ_λ fixes the constant by a Whittaker datum λ of G* through the root number ε_L(V, ψ) of the virtual representation V = X^*(T*) ⊗ ℂ − X^*(T_H) ⊗ ℂ: Δ_{λ,D} = ε_L(V, ψ) Δ_I^new Δ_II Δ_III^new Δ_IV and similarly for Δ′_λ. Every consumer records which of Δ′, Δ_D and which normalization (base point or Whittaker) it uses, and which normalization of local class field theory (CFT Layer 7) is in force; the product formula (ET.1/transfer-factor-properties) does not identify two conventions without this record.",
+      "statement": "Let F be local of characteristic 0, G connected reductive with quasi-split inner form G* and inner twist ψ : G → G*, (H, ℋ, s, ξ) an endoscopic datum with a z-pair (H_1, ξ_1) (ET.0/z-pair). For a strongly G-regular γ_1 ∈ H_1(F) with image γ_H ∈ H(F) and a strongly regular δ ∈ G(F) matching it (ET.0/norm-correspondence), choose an admissible embedding T_H → T* of the centralizer of γ_H into G*, a-data and χ-data for T* (ET.1/a-data-chi-data). Define: Δ_I(γ_1, δ) = ⟨λ(T_sc), s_T⟩ (the splitting invariant λ(T_sc) ∈ H^1(F, T_sc) built from a-data paired by Tate–Nakayama with the image s_T of s); Δ_II(γ_1, δ) = ∏_α χ_α((α(γ) − 1)/a_α) over Γ-orbit representatives of roots of T outside H; Δ_III1(γ_1, δ; γ̄_1, δ̄) = ⟨inv(γ, δ; γ̄, δ̄), κ⟩, the pairing of the relative invariant in H^1(F, U) (U = T × T̄/Z(G)) with the endoscopic character; Δ_III2(γ_1, δ) = ⟨a, γ⟩ for a ∈ H^1(W_F, T̂) measuring the difference of the L-embeddings ^LT → ^LG given by χ-data and by ξ through ℋ (with the z-pair); Δ_IV(γ_1, δ) = |D_G(δ)|^{1/2}|D_H(γ_H)|^{-1/2}. The relative transfer factor Δ(γ_1, δ; γ̄_1, δ̄) = Δ_I Δ_II Δ_III1 Δ_III2 Δ_IV (ratios) is independent of all choices (Langlands–Shelstad Theorem 3.7.A). An absolute transfer factor is a function Δ(γ_1, δ) on matching pairs with Δ(γ_1, δ)Δ(γ̄_1, δ̄)⁻¹ = Δ(γ_1, δ; γ̄_1, δ̄); it is determined up to a nonzero constant. Normalizations: (i) for G quasi-split, the Langlands–Shelstad absolute factor Δ_0 = Δ_I Δ_II Δ_III2 Δ_IV (Δ_III1 trivial with base point δ̄ = δ for G = G*); (ii) Kottwitz–Shelstad 2012 (§5.1) record four variants for (H, s, ξ): the Langlands–Shelstad factor Δ, adapted to the classical local Langlands correspondence (Langlands' normalization of local class field theory, uniformizers ↔ Frobenius); its renormalization Δ_D = Δ_I Δ_II Δ_III1 Δ_III2,D Δ_IV with Δ_III2,D = ⟨γ, a(χ⁻¹)⟩⁻¹, adapted to Deligne's normalization (uniformizers ↔ inverse Frobenius); and Δ′, Δ′_D, the factors Δ, Δ_D of the datum (H, s⁻¹, ξ) regarded as factors for (H, s, ξ). The corrected twisted factors Δ_D = Δ_I^new Δ_II⁻¹ Δ_III Δ_IV and Δ′ = (Δ_I^new Δ_III)⁻¹ Δ_II Δ_IV of ET.1/twisted-transfer-factor reduce to these Δ_D and Δ′ in standard endoscopy (§§5.3–5.4); (iii) the Whittaker normalization Δ_λ fixes the constant by a Whittaker datum λ of G* through the root number ε_L(V, ψ) of the virtual representation V = X^*(T*) ⊗ ℂ − X^*(T_H) ⊗ ℂ: Δ_{λ,D} = ε_L(V, ψ) Δ_I^new Δ_II Δ_III^new Δ_IV = ε_L(V, ψ) Δ_I^new Δ_II⁻¹ Δ_III Δ_IV and Δ′_λ = ε_L(V, ψ)(Δ_I^new Δ_III)⁻¹ Δ_II Δ_IV (Kottwitz–Shelstad (5.5.1)–(5.5.2), for quasi-split G with an F-splitting preserved by θ). Every consumer records which of Δ, Δ′, Δ_D, Δ′_D and which normalization (base point or Whittaker) it uses, and which normalization of local class field theory (CFT Layer 7) is in force; the product formula (ET.1/transfer-factor-properties) does not identify two conventions without this record.",
       "hypotheses": [
         "F local of characteristic 0",
         "(H, ℋ, s, ξ) an endoscopic datum of G with a z-pair",
@@ -2352,13 +2360,13 @@
         "Δ_I: Langlands–Shelstad §3.2 (p. 241), λ(T_sc) from the a-data splitting (§2.3) and Tate–Nakayama pairing (ET.0/tate-nakayama-tori).",
         "Δ_II: §3.3 (p. 243); Δ_III1: §3.4 (p. 245), a relative term pairing an invariant with κ; Δ_III2: §3.5 (p. 246), built from χ-data through the L-embedding of §2.6; Δ_IV: §3.6 (p. 248), the quotient of Weyl discriminants.",
         "Independence of the product of choices: Theorem 3.7.A (p. 248), proved by computing how each term changes with the admissible embedding, a-data and χ-data (Lemmas of §§3.2–3.5).",
-        "Sign corrections: Kottwitz–Shelstad 2012 show the 1999 twisted factor is not independent of χ-data unless Δ_II or Δ_III enters with exponent −1 (introduction, PDF p. 2), define Δ_D and Δ′ ((1.0.3), (1.0.4); §§5.3–5.4) and their Whittaker-normalized versions ((5.5.1)–(5.5.2), §5.5).",
+        "Sign corrections: Kottwitz–Shelstad 2012 show the 1999 twisted factor is not independent of χ-data unless Δ_II or Δ_III enters with exponent −1 (introduction, PDF p. 2), define Δ_D and Δ′ ((1.0.3), (1.0.4); §§5.3–5.4) and their Whittaker-normalized versions ((5.5.1)–(5.5.2), §5.5); for standard endoscopy they list the four variants Δ, Δ_D, Δ′, Δ′_D (§5.1, (5.1.1)–(5.1.2)).",
         "Conventions on local class field theory and Frobenius: KS 2012 §4.1 (Deligne's vs Langlands' reciprocity), with the upstream ClassFieldTheory Layer 7 normalizations recorded as the ones in force."
       ],
       "acceptance": [
         "For H = G = G* and s = 1 the relative factor is 1.",
         "The relative factor satisfies the cocycle identity for three matching pairs.",
-        "For SL_2 and the elliptic torus datum, |Δ_IV(u, δ)| = |u − ū|_F and the factor changes by the nontrivial character between the two rational classes."
+        "For SL_2 and the elliptic torus datum, |Δ_IV(u, δ)| = |(u − ū)²|_F^{1/2} and the factor changes by the nontrivial character between the two rational classes."
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/endoscopic-datum",
@@ -2435,7 +2443,7 @@
         {
           "name": "transferFactor_sl2_torus",
           "kind": "computation",
-          "statement": "For G = SL_2, H = R^1_{E/F} G_m and a matching pair (u, δ) with u ∈ E^1 regular, D_H(u) = 1 and D_G(δ) = −(u − ū)²/(uū), so |Δ_IV(u, δ)| = |u − ū|_F; between the two rational classes in the stable class of δ the factor changes by the nontrivial character of D(T, SL_2; F) = ℤ/2."
+          "statement": "For G = SL_2, H = R^1_{E/F} G_m and a matching pair (u, δ) with u ∈ E^1 regular, D_H(u) = 1 and D_G(δ) = −(u − ū)²/(uū), so |Δ_IV(u, δ)| = |(u − ū)²|_F^{1/2}; between the two rational classes in the stable class of δ the factor changes by the nontrivial character of D(T, SL_2; F) = ℤ/2."
         },
         {
           "name": "transferFactor_D_vs_prime",
@@ -2472,12 +2480,12 @@
         {
           "name": "TauCeti.TransferFactor.convention",
           "role": "other",
-          "statement": "The tag (Δ′ or Δ_D, base point or Whittaker, local CFT normalization) carried with every factor."
+          "statement": "The tag (Δ, Δ′, Δ_D or Δ′_D; base point or Whittaker; local CFT normalization) carried with every factor."
         },
         {
           "name": "TauCeti.TransferFactor.inv_s",
           "role": "relation",
-          "statement": "Δ′ for (H, s, ξ) equals Δ_D for (H, s⁻¹, ξ)."
+          "statement": "Δ′ and Δ′_D for (H, s, ξ) are the factors Δ and Δ_D of (H, s⁻¹, ξ)."
         },
         {
           "name": "TauCeti.TransferFactor.stablyConj",
@@ -2552,7 +2560,7 @@
       ],
       "title": "Twisted transfer factors and the Kottwitz–Shelstad corrections",
       "kind": "construction",
-      "statement": "Let F be local of characteristic 0, (G, θ, ω) a twisted triple with θ quasi-semisimple, (H, ℋ, s, ξ) a twisted endoscopic datum (ET.0/endoscopic-datum) with z-pair (H_1, ξ_1, ξ̂_1), and 𝒟_1 the set of matching pairs (γ_1, δ) of strongly G-regular γ_1 ∈ H_{1,z}(F) and strongly θ-regular δ ∈ G(F) (ET.0/norm-correspondence). The twisted transfer factor is built from twisted a-data and χ-data for the restricted roots of (T, θ), the twisted splitting invariant (Kottwitz–Shelstad 2012 §2.2, Lemma 2.2.1, Proposition 2.2.3) and the analogues of Δ_II, Δ_III, Δ_IV: (1) the corrected factors Δ_D = Δ_I^new Δ_II⁻¹ Δ_III Δ_IV (compatible with Deligne's normalization of local class field theory) and Δ′ = (Δ_I^new Δ_III)⁻¹ Δ_II Δ_IV (compatible with Langlands' classical normalization), where the 1999 product Δ_I Δ_II Δ_III Δ_IV is not independent of χ-data; (2) the new term Δ_I^new = ⟨λ_{a}(T, θ), s_{T,θ}⟩ uses the twisted splitting invariant; it agrees with Δ_I for cyclic base change but not in general, the first case where it differs being θ = transpose-inverse (up to inner automorphisms) on GL(2n + 1); (3) the Whittaker-normalized twisted factors Δ_{λ,D} and Δ′_λ. The relative factor Δ(γ_1, δ; γ̄_1, δ̄) is independent of all auxiliary choices and transforms under Z_1(F) by λ_1; an absolute factor is fixed by a base point or a Whittaker datum. For cyclic base change (G = R_{E/F} G_0, θ a generator of Gal(E/F), ω = 1) with H the quasi-split inner form of G_0 and s = 1, the transfer factor of the norm correspondence is 1 on pairs (γ, δ) with γ a norm of δ (Labesse's normalization of association, §3.2).",
+      "statement": "Let F be local of characteristic 0, (G, θ, ω) a twisted triple with θ quasi-semisimple, (H, ℋ, s, ξ) a twisted endoscopic datum (ET.0/endoscopic-datum) with z-pair (H_1, ξ_1, ξ̂_1), and 𝒟_1 the set of matching pairs (γ_1, δ) of strongly G-regular γ_1 ∈ H_{1,z}(F) and strongly θ-regular δ ∈ G(F) (ET.0/norm-correspondence). The twisted transfer factor is built from twisted a-data and χ-data for the restricted roots of (T, θ), the twisted splitting invariant (Kottwitz–Shelstad 2012 §2.2, Lemma 2.2.1, Proposition 2.2.3) and the analogues of Δ_II, Δ_III, Δ_IV: (1) the corrected factors Δ_D = Δ_I^new Δ_II⁻¹ Δ_III Δ_IV (compatible with Deligne's normalization of local class field theory) and Δ′ = (Δ_I^new Δ_III)⁻¹ Δ_II Δ_IV (compatible with Langlands' classical normalization), where the 1999 product Δ_I Δ_II Δ_III Δ_IV is not independent of χ-data; (2) the new term Δ_I^new = ⟨λ_{a}(T, θ), s_{T,θ}⟩ uses the twisted splitting invariant; it agrees with Δ_I unless the restricted root system is non-reduced (some power θ^i preserves an irreducible component of type A_{2n} and acts on it by a nontrivial diagram automorphism), for instance θ = transpose-inverse (up to inner automorphisms) on GL(2n + 1), and never differs for cyclic base change; (3) the Whittaker-normalized twisted factors Δ_{λ,D} and Δ′_λ. The relative factor Δ(γ_1, δ; γ̄_1, δ̄) is independent of all auxiliary choices and transforms under Z_1(F) by λ_1; an absolute factor is fixed by a base point or a Whittaker datum. For cyclic base change (G = R_{E/F} G_0, θ a generator of Gal(E/F), ω = 1) with H the quasi-split inner form of G_0 and s = 1, the transfer factor of the norm correspondence is 1 on pairs (γ, δ) with γ a norm of δ (Labesse's normalization of association, §3.2).",
       "hypotheses": [
         "F local of characteristic 0",
         "(G, θ, ω) twisted triple and (H, ℋ, s, ξ) a twisted endoscopic datum with z-pair"
@@ -2579,7 +2587,7 @@
       "sources": [
         {
           "sourceId": "ks-2012",
-          "locator": "Introduction (PDF pp. 1–2); §2.2, Lemma 2.2.1, Proposition 2.2.3 (PDF p. 4); §§3.3–3.5, Proposition 3.5.2 (PDF pp. 7–9); §§5.3–5.6, (5.3.1), (5.4.1), (5.5.1)–(5.5.2) (PDF pp. 13–16)",
+          "locator": "Introduction (PDF pp. 1–2); §2.2, Lemma 2.2.1 (PDF p. 4), Proposition 2.2.3 (PDF p. 5); §§3.3–3.5, Proposition 3.5.2 (PDF pp. 7–9); §§5.3–5.6, (5.3.1), (5.4.1), (5.5.1)–(5.5.2) (PDF pp. 13–16)",
           "match": "The twisted splitting invariant, the new term Δ_I^new and its comparison with Δ_I, the corrected twisted factors Δ_D and Δ′ and their Whittaker-normalized forms; the GL(2n+1) transpose-inverse case and the equality Δ_I^new = Δ_I for cyclic base change."
         },
         {
@@ -2671,7 +2679,7 @@
       ],
       "title": "Transfer factors for Lie algebras",
       "kind": "construction",
-      "statement": "Let F be local of characteristic 0 (or a local field of characteristic p not dividing |W| in the equal-characteristic setting of Ngô), G quasi-split connected reductive and (H, s, ξ) an endoscopic datum (no z-pair is needed on the Lie algebra). Matching of regular semisimple elements of 𝔥(F) and 𝔤(F) is the Lie-algebra version of ET.0/norm-correspondence (stable classes on both sides, ET.0/semisimple-conjugacy). The Lie-algebra transfer factor Δ(X_H, X) on matching regular semisimple pairs is defined as in Langlands–Shelstad with Δ_II, Δ_III2 replaced by their infinitesimal versions; it is a function of the form Δ(X_H, X) = κ(inv(X_0, X))·Δ_IV(X_H, X)·c for a base point X_0 in the stable class of X, with Δ_IV(X_H, X) = |D_G(X)|^{1/2}|D_H(X_H)|^{-1/2}, inv the invariant of ET.0/rational-classes-in-stable-class and c a constant fixed by the choice of base point. The relative factor is independent of choices; for quasi-split G the base point can be chosen uniformly in the stable class (the Kostant-section normalization of Kottwitz, used to state Ngô's theorem, is recorded with ET.3/lie-algebra-fundamental-lemma). The relative discriminant r_{G,H}(X_H) = val(D_G(X))/2 − val(D_H(X_H))/2 measures |Δ_IV|. Near the identity the group transfer factor of ET.1/local-transfer-factor descends to this Lie-algebra factor up to a constant (ET.1/transfer-factor-properties (e)). For unitary groups the factor takes the explicit form of ET.1/unitary-transfer-factor.",
+      "statement": "Let F be local of characteristic 0 (or a local field of characteristic p not dividing |W| in the equal-characteristic setting of Ngô), G quasi-split connected reductive and (H, s, ξ) an endoscopic datum (no z-pair is needed on the Lie algebra). Matching of regular semisimple elements of 𝔥(F) and 𝔤(F) is the Lie-algebra version of ET.0/norm-correspondence (stable classes on both sides, ET.0/semisimple-conjugacy). The Lie-algebra transfer factor Δ(X_H, X) on matching regular semisimple pairs is defined as in Langlands–Shelstad with Δ_II, Δ_III2 replaced by their infinitesimal versions; on the stable class matching a given X_H it has the form Δ(X_H, X) = κ(inv(X_0, X))·Δ_IV(X_H, X)·c(X_H) for a base point X_0 = X_0(X_H) in that stable class, with Δ_IV(X_H, X) = |D_G(X)|^{1/2}|D_H(X_H)|^{-1/2}, inv the invariant of ET.0/rational-classes-in-stable-class and c(X_H) a nonzero number that depends on X_H and on the choice of base point. The relative factor is independent of choices; for quasi-split G the base point can be chosen uniformly in the stable class (the Kostant-section normalization of Kottwitz, used to state Ngô's theorem, is recorded with ET.3/lie-algebra-fundamental-lemma). The relative discriminant r_{G,H}(X_H) = val(D_G(X))/2 − val(D_H(X_H))/2 measures |Δ_IV|. Near the identity the group transfer factor of ET.1/local-transfer-factor descends to this Lie-algebra factor up to a constant (ET.1/transfer-factor-properties (e)). For unitary groups the factor takes the explicit form of ET.1/unitary-transfer-factor.",
       "hypotheses": [
         "F local; G quasi-split for the Kostant normalization; in equal characteristic, p ∤ |W|"
       ],
@@ -2861,7 +2869,7 @@
         {
           "name": "transfer_not_function",
           "kind": "non-example",
-          "statement": "The transfer is not a well-defined function on H(F): adding any function with vanishing regular stable orbital integrals (e.g. f − f^w for a Weyl-twisted torus function with κ-sign) gives another transfer."
+          "statement": "The transfer is not a well-defined function on H_1(F): adding any nonzero function whose strongly regular stable orbital integrals all vanish gives another transfer; for H_1 = SL_2 over a p-adic field, such a function is φ_1 − φ_2 with φ_1, φ_2 supported near the two rational classes of a regular elliptic stable class and having equal orbital integrals there."
         }
       ],
       "api": [
@@ -2913,7 +2921,7 @@
       ],
       "title": "Shalika germs on p-adic Lie algebras",
       "kind": "theorem",
-      "statement": "Let F be a p-adic field and G connected reductive over F with Lie algebra 𝔤. (a) The set of nilpotent G(F)-orbits in 𝔤(F) is finite, and each nilpotent orbit 𝒪 carries an invariant Radon measure μ_𝒪 extending to 𝔤(F) (nilpotent orbital integrals). (b) (Germ expansion) There are functions Γ_𝒪 on 𝔤_rs(F) (Shalika germs), one for each nilpotent orbit, such that for every f ∈ C_c^∞(𝔤(F)) there is a neighbourhood U_f of 0 with O_X(f) = Σ_𝒪 Γ_𝒪(X) μ_𝒪(f) for all X ∈ U_f ∩ 𝔤_rs(F); the germs are uniquely determined as germs at 0. (c) (Homogeneity) For t ∈ F^×, Γ_𝒪(t²X) = |t|^{−dim 𝒪} Γ_𝒪(X) (after normalizing measures compatibly), and the germ Γ_{0} of the zero orbit and the regular germ are explicitly known (the regular germ is constant on each Cartan subalgebra up to the measure normalization). (d) (Descent) Near a semisimple element, orbital integrals have an expansion in terms of the germs of the centralizer (semisimple descent).",
+      "statement": "Let F be a p-adic field and G connected reductive over F with Lie algebra 𝔤. (a) The set of nilpotent G(F)-orbits in 𝔤(F) is finite, and each nilpotent orbit 𝒪 carries an invariant Radon measure μ_𝒪 extending to 𝔤(F) (nilpotent orbital integrals). (b) (Germ expansion) There are functions Γ_𝒪 on 𝔤_rs(F) (Shalika germs), one for each nilpotent orbit, such that for every f ∈ C_c^∞(𝔤(F)) there is a neighbourhood U_f of 0 with O_X(f) = Σ_𝒪 Γ_𝒪(X) μ_𝒪(f) for all X ∈ U_f ∩ 𝔤_rs(F); the germs are uniquely determined as germs at 0. (c) (Homogeneity) For t ∈ F^×, Γ_𝒪(t²X) = |t|^{−dim 𝒪} Γ_𝒪(X) (after normalizing measures compatibly); equivalently the normalized germs Γ̄_𝒪 = |D|^{1/2} Γ_𝒪 satisfy Γ̄_𝒪(t²X) = |t|^{dim G^{X_𝒪} − rank G} Γ̄_𝒪(X) for X_𝒪 ∈ 𝒪 (Kottwitz (17.11.2)). In particular the germ Γ_0 of the zero orbit is homogeneous of degree 0, and the normalized regular germ Γ̄_reg is homogeneous of degree 0 and constant on each Cartan subalgebra (Shalika), so the regular germ Γ_reg is a constant multiple of |D|^{−1/2} there. (d) (Descent) Near a semisimple element, orbital integrals have an expansion in terms of the germs of the centralizer (semisimple descent).",
       "hypotheses": [
         "F p-adic of characteristic 0 (the germ expansion also holds in large positive characteristic as used by Waldspurger 2006)"
       ],
@@ -2924,7 +2932,7 @@
         "(d) Semisimple descent (Kottwitz, Clay notes §16)."
       ],
       "acceptance": [
-        "For 𝔤 = 𝔤𝔩_2, the nilpotent orbits are {0} and the regular one; the germ of {0} on an elliptic Cartan is a constant multiple of |D(X)|^{−1/2}, and the regular germ is constant.",
+        "For 𝔤 = 𝔤𝔩_2, the nilpotent orbits are {0} and the regular one; on an elliptic Cartan subalgebra the germ Γ_0 of {0} is constant and the regular germ is a constant multiple of |D(X)|^{−1/2} (Kottwitz's GL_2 computation, §5.9: for elliptic γ ∈ GL_2(𝒪) the coefficient of the identity orbit is −2/(q − 1), independent of γ, while that of the regular unipotent orbit grows like q^{d_γ}).",
         "For 𝔤 = 𝔱 a torus there is one nilpotent orbit {0} and Γ_0 = 1."
       ],
       "prerequisites": [
@@ -2934,12 +2942,12 @@
       "sources": [
         {
           "sourceId": "kottwitz-clay",
-          "locator": "§6 'Shalika germs' (p. 418); §15 'Harish-Chandra's compactness lemma' (p. 457); §16 'Semisimple descent' (p. 458); §17 'Basic results on Shalika germs on 𝔤' (p. 459); §27 'Deeper results on Shalika germs' (p. 512)",
+          "locator": "§5.9 (pp. 417–418); §6 'Shalika germs' (p. 418); §15 'Harish-Chandra's compactness lemma' (p. 457); §16 'Semisimple descent' (p. 458); §17 'Basic results on Shalika germs on 𝔤' (p. 459); §27 'Deeper results on Shalika germs' (p. 512); (17.11.2) (p. 465)",
           "match": "The germ expansion of orbital integrals near 0 in terms of nilpotent orbital integrals, its uniqueness and homogeneity, and semisimple descent."
         },
         {
           "sourceId": "waldspurger-2006",
-          "locator": "Introduction and §7 (Théorème 7.2, p. 67)",
+          "locator": "Introduction and §7 (Théorème 7.2, p. 62)",
           "match": "Orbital integrals of functions attached to Moy–Prasad lattices depend on F only through its residue field; their germ behaviour is the input of the change of characteristic."
         }
       ],
@@ -3126,22 +3134,23 @@
       ],
       "title": "Pseudo-coefficients and Euler–Poincaré functions at the real place",
       "kind": "construction",
-      "statement": "Let G be connected reductive over ℝ with A_G the split component of the centre, ξ an irreducible finite-dimensional algebraic representation of G_ℂ with central character χ on A_G(ℝ)^0, and q(G) = ½ dim(G(ℝ)/K_∞A_G(ℝ)^0). Assume G(ℝ) has discrete series modulo A_G(ℝ)^0 (equivalently a maximal ℝ-torus anisotropic modulo A_G). (a) (Clozel–Delorme) For each discrete series π (modulo the centre) there is a pseudo-coefficient φ_π ∈ C_c^∞(G(ℝ), χ⁻¹), K-finite, with tr π′(φ_π) = 1 if π′ ≅ π and 0 for every other irreducible tempered π′ with the same central character, and tr π′(φ_π) given by the Euler–Poincaré pairing for non-tempered π′. (b) For the L-packet Π(ξ^∨) of discrete series with the infinitesimal character of ξ^∨, the Euler–Poincaré function φ_ξ = |Π(ξ^∨)|⁻¹ Σ_{π ∈ Π(ξ^∨)} φ_π satisfies tr π′(φ_ξ) = (−1)^{q(G)} |Π(ξ^∨)|⁻¹ Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every irreducible admissible π′ with the given central character. Put f_ξ = (−1)^{q(G)} |Π(ξ^∨)| φ_ξ (Kottwitz's Euler–Poincaré function, tr π′(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ)). The orbital integrals of f_ξ vanish at regular semisimple elements that are not elliptic, and at an elliptic semisimple γ, SO_γ(f_ξ) = (−1)^{q(G)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ), with Ḡ_γ the inner form of G_γ that is compact modulo A_G. (c) The construction applies to every inner form of a quasi-split group of arbitrary signature at ∞ (needed for the unitary groups of Caraiani–Scholze), and to a twisted space (Labesse's Lefschetz functions for base change).",
+      "statement": "Let G be connected reductive over ℝ with A_G the split component of the centre, ξ an irreducible finite-dimensional algebraic representation of G_ℂ with central character χ on A_G(ℝ)^0, and q(G) = ½ dim(G(ℝ)/K_∞A_G(ℝ)^0). Assume G(ℝ) has discrete series modulo A_G(ℝ)^0 (equivalently a maximal ℝ-torus anisotropic modulo A_G). (a) (Clozel–Delorme; imported from AutomorphicSpectralTheory AS.6, targets AS.6.16a–AS.6.17 of its package, which moved them below this roadmap in the upstream order) For each discrete series π (modulo the centre) there is a pseudo-coefficient φ_π ∈ C_c^∞(G(ℝ), χ⁻¹), K-finite, with tr π′(φ_π) = 1 if π′ ≅ π and 0 for every other irreducible tempered π′ with the same central character, and tr π′(φ_π) given by the Euler–Poincaré pairing for non-tempered π′; AS.6 also supplies a test function with tr π′ = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every finite-length π′. (b) For the L-packet Π(ξ^∨) of discrete series with the infinitesimal character of ξ^∨, the Euler–Poincaré function φ_ξ = |Π(ξ^∨)|⁻¹ Σ_{π ∈ Π(ξ^∨)} φ_π satisfies tr π′(φ_ξ) = (−1)^{q(G)} |Π(ξ^∨)|⁻¹ Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every irreducible admissible π′ with the given central character. Put f_ξ = (−1)^{q(G)} |Π(ξ^∨)| φ_ξ (Kottwitz's Euler–Poincaré function, tr π′(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ)). The orbital integrals of f_ξ vanish at regular semisimple elements that are not elliptic, and at an elliptic semisimple γ, O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ), with Ḡ_γ the inner form of G_γ that is compact modulo A_G, its Haar measure transported from that of G_γ(ℝ), and q(G_γ) defined like q(G); for regular elliptic γ the sign is 1, and SO_γ(f_ξ) is the sum of these values over the rational classes in the stable class of γ, with the signs of ET.1/kappa-and-stable-orbital-integrals. (c) The construction applies to every inner form of a quasi-split group of arbitrary signature at ∞ (needed for the unitary groups of Caraiani–Scholze), and to a twisted space (Labesse's Lefschetz functions for base change).",
       "hypotheses": [
         "G connected reductive over ℝ with discrete series modulo the centre",
         "ξ irreducible algebraic"
       ],
       "proofSteps": [
-        "(a) Clozel–Delorme's invariant Paley–Wiener theorem (Invent. Math. 77 (1984); Ann. Sci. ÉNS 1990) gives functions with prescribed tempered traces; not read, recalled by Shin (p. 18–19: credits Clozel–Delorme for existence) and Arthur (§24).",
-        "(b) The Euler–Poincaré property follows from Wigner's lemma (AutomorphicFormsOnReductiveGroups:AF.4/wigner-lemma) and Vogan–Zuckerman (AF.4/vogan-zuckerman), with q(G) as in AF.4/l0-q0-invariants. The formula for stable orbital integrals at elliptic elements uses Harish-Chandra's character formula on the compact Cartan and the vanishing of the discrete series characters on non-elliptic tori after summing over the packet (Arthur §24 (24.2)–(24.4); Shin (3.12), (3.14)).",
+        "(a) is imported from AutomorphicSpectralTheory AS.6 (requested; AS.6.16a–AS.6.17 of its package, after Clozel–Delorme 1990 §5.2). Clozel–Delorme's invariant Paley–Wiener theorem (Invent. Math. 77 (1984); Ann. Sci. ÉNS 1990) gives functions with prescribed tempered traces; not read, recalled by Shin (p. 18–19: credits Clozel–Delorme for existence) and Arthur (§24).",
+        "(b) The Euler–Poincaré property follows from Wigner's lemma (AutomorphicFormsOnReductiveGroups:AF.4/wigner-lemma) and Vogan–Zuckerman (AF.4/vogan-zuckerman), with q(G) as in AF.4/l0-q0-invariants. Orbital integrals at elliptic elements: for regular elliptic γ with centralizer T, O_γ(φ_π) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ Θ_π(γ⁻¹) (Weyl integration formula and the orthogonality of discrete series characters), and Σ_{π ∈ Π(ξ^∨)} Θ_π(γ⁻¹) = (−1)^{q(G)} tr ξ(γ) on the compact Cartan, so O_γ(f_ξ) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ); at a singular elliptic γ the sign (−1)^{q(G_γ)} of Arthur's global term (24.4) appears, which for central γ is (−1)^{q(G)}, the sign of f_ξ(1) = (−1)^{q(G)} Σ_π d(π) with d(π) the formal degrees; the discrete series characters vanish on non-elliptic tori after summing over the packet (Arthur §24 (24.2)–(24.4); Shin (3.12), (3.14)).",
         "(c) The construction does not use quasi-splitness; the arbitrary-signature case is required by Caraiani–Scholze (compact paper, §5.2, p. 735; extraction item PAPER-CARAIANI-SCHOLZE-17/149)."
       ],
       "acceptance": [
         "For SL_2(ℝ) and ξ trivial, tr 1(φ_ξ) = −1 and tr D_2^±(φ_ξ) = 1/2.",
-        "For compact G(ℝ), f_ξ = vol(G(ℝ))⁻¹ tr ξ and SO_γ(f_ξ) = vol(G_γ(ℝ))⁻¹ tr ξ(γ).",
+        "For compact G(ℝ), f_ξ = vol(G(ℝ))⁻¹ tr ξ and O_γ(f_ξ) = vol(G_γ(ℝ))⁻¹ tr ξ(γ).",
         "Orbital integrals of f_ξ vanish at regular non-elliptic elements."
       ],
       "prerequisites": [
+        "AutomorphicSpectralTheory:AS.6",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.1/real-character-theory",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-sign",
@@ -3175,7 +3184,7 @@
         },
         {
           "where": "AutomorphicSpectralTheory:AS.6/general-euler-poincare",
-          "how": "AS.6 imports these carriers and adds the full finite-length Euler–Poincaré trace identity"
+          "how": "AS.6 owns pseudo-coefficients and the Euler–Poincaré trace identity (AS.6.16a–AS.6.17 of its package, moved below this roadmap in the upstream order); this node imports them and adds the packet averages, their orbital integrals and the inner-form and twisted versions that endoscopic transfer uses"
         },
         {
           "where": "ET.4 (part 2)",
@@ -3191,12 +3200,17 @@
         {
           "name": "pseudocoefficient_trace",
           "kind": "characterisation",
-          "statement": "tr π(φ_π) = 1 and tr π′(φ_π) = 0 for tempered π′ ≇ π with the same central character."
+          "statement": "tr π(φ_π) = 1 and tr π′(φ_π) = 0 for tempered π′ ≇ π with the same central character (the property of AS.6.16a, checked on the imported functions)."
         },
         {
           "name": "eulerPoincare_compact",
           "kind": "degenerate",
-          "statement": "If G(ℝ) is compact (A_G trivial), q(G) = 0, Π(ξ^∨) = {ξ^∨} and f_ξ = vol(G(ℝ))⁻¹ tr ξ, so SO_γ(f_ξ) = vol(G_γ(ℝ))⁻¹ tr ξ(γ) by Schur orthogonality."
+          "statement": "If G(ℝ) is compact (A_G trivial), q(G) = 0, Π(ξ^∨) = {ξ^∨} and f_ξ = vol(G(ℝ))⁻¹ tr ξ, so O_γ(f_ξ) = vol(G_γ(ℝ))⁻¹ tr ξ(γ) by Schur orthogonality."
+        },
+        {
+          "name": "eulerPoincare_sl2_elliptic",
+          "kind": "computation",
+          "statement": "For G = SL_2(ℝ), ξ trivial and γ regular elliptic with centralizer T = SO(2): O_γ(f_ξ) = vol(T(ℝ))⁻¹ > 0, and SO_γ(f_ξ) = 2 vol(T(ℝ))⁻¹ (two rational classes); the sign (−1)^{q(G)} = −1 appears only at central γ, where f_ξ(±1) = −(d(D_2^+) + d(D_2^−))."
         },
         {
           "name": "eulerPoincare_nonelliptic_vanish",
@@ -3207,8 +3221,8 @@
       "api": [
         {
           "name": "TauCeti.pseudoCoefficient",
-          "role": "constructor",
-          "statement": "A pseudo-coefficient φ_π of a discrete series π (chosen; only its traces and orbital integrals are canonical)."
+          "role": "compatibility",
+          "statement": "A pseudo-coefficient φ_π of a discrete series π, as constructed in AutomorphicSpectralTheory AS.6 (AS.6.16a), imported; only its traces and orbital integrals are canonical."
         },
         {
           "name": "TauCeti.eulerPoincareFunction",
@@ -3218,7 +3232,7 @@
         {
           "name": "TauCeti.trace_pseudoCoefficient",
           "role": "characterisation",
-          "statement": "Trace identities of φ_π on tempered representations."
+          "statement": "Trace identities of φ_π on tempered representations (AS.6.16a, imported)."
         },
         {
           "name": "TauCeti.trace_eulerPoincare",
@@ -3226,9 +3240,9 @@
           "statement": "tr π′(φ_ξ) = EP(π′ ⊗ ξ)/|Π(ξ^∨)|."
         },
         {
-          "name": "TauCeti.stableOrbitalIntegral_eulerPoincare",
+          "name": "TauCeti.orbitalIntegral_eulerPoincare",
           "role": "relation",
-          "statement": "SO_γ(f_ξ) = (−1)^{q(G)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ) for elliptic semisimple γ, and O_γ(f_ξ) = 0 for regular non-elliptic γ."
+          "statement": "O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ) for elliptic semisimple γ, and O_γ(f_ξ) = 0 for regular non-elliptic γ."
         },
         {
           "name": "TauCeti.eulerPoincare_innerForm",
@@ -3292,7 +3306,7 @@
       ],
       "title": "The Chevalley quotient and the characteristic map",
       "kind": "construction",
-      "statement": "Let k be a field and G a connected reductive group over k, split over k̄ with maximal torus T, Lie algebras 𝔤 ⊇ 𝔱 and Weyl group W, and assume char(k) does not divide |W|. (a) (Chevalley restriction) Restriction of functions gives an isomorphism k[𝔤]^G ≅ k[𝔱]^W, and k[𝔱]^W is a polynomial algebra on homogeneous generators a_1, …, a_r of degrees e_1, …, e_r (the exponents plus one); put 𝔠 = Spec k[𝔱]^W ≅ 𝔸^r, with the G_m-action of weights e_i, and χ : 𝔤 → 𝔠 the characteristic map. (b) χ is smooth exactly on the open subset 𝔤^reg of regular elements, and 𝔤^reg → 𝔠 is surjective; the discriminant divisor 𝔇 ⊂ 𝔠 is the image of the root hyperplanes and 𝔠^rs = 𝔠 \\ 𝔇 parametrizes regular semisimple stable classes: for any field extension K/k, χ induces a bijection between stable conjugacy classes of regular semisimple elements of 𝔤(K) and 𝔠^rs(K) (for G quasi-split). (c) (Outer twists) If G is the quasi-split form over a scheme X attached to an Out(G_0)-torsor ρ_G (for a split pinned G_0), the quotient 𝔠 and χ descend to X as 𝔠 = ρ_G ∧^{Out} 𝔠_0, and the G_m-action twisted by a line bundle D gives the vector bundle (or cone) 𝔠_D = 𝔠 ∧^{G_m} D^× over X. For G = GL_n, 𝔠 = 𝔸^n with χ the coefficients of the characteristic polynomial.",
+      "statement": "Let k be a field and G a connected reductive group over k, split over k̄ with maximal torus T, Lie algebras 𝔤 ⊇ 𝔱 and Weyl group W, and assume char(k) does not divide |W|. (a) (Chevalley restriction) Restriction of functions gives an isomorphism k[𝔤]^G ≅ k[𝔱]^W, and k[𝔱]^W is a polynomial algebra on homogeneous generators a_1, …, a_r of degrees e_1, …, e_r (the exponents plus one); put 𝔠 = Spec k[𝔱]^W ≅ 𝔸^r, with the G_m-action of weights e_i, and χ : 𝔤 → 𝔠 the characteristic map. (b) χ is smooth exactly on the open subset 𝔤^reg of regular elements, and 𝔤^reg → 𝔠 is surjective; the discriminant divisor 𝔇 ⊂ 𝔠 is the image of the root hyperplanes and 𝔠^rs = 𝔠 \\ 𝔇 parametrizes regular semisimple stable classes: for any field extension K/k, χ induces a bijection between stable conjugacy classes of regular semisimple elements of 𝔤(K) and 𝔠^rs(K) (for G quasi-split). (c) (Outer twists) If G is the quasi-split form over a scheme X attached to an Out(G_0)-torsor ρ_G (for a split pinned G_0), the quotient 𝔠 and χ descend to X as 𝔠 = ρ_G ∧^{Out} 𝔠_0, and the G_m-action twisted by a line bundle D gives the vector bundle (or cone) 𝔠_D = 𝔠 ∧^{G_m} D^× over X. For G = GL_n, 𝔠 = 𝔸^n with χ the non-leading coefficients of the (monic, degree n) characteristic polynomial, and 𝔇 is the zero locus of the discriminant of the characteristic polynomial.",
       "hypotheses": [
         "k a field with char(k) ∤ |W| (Ngô's standing hypothesis)",
         "G connected reductive over k, quasi-split over X for (c)"
@@ -3406,7 +3420,7 @@
       ],
       "title": "The Kostant section",
       "kind": "construction",
-      "statement": "In the setting of ET.2b/chevalley-quotient (char(k) ∤ |W|, G split with a pinning, regular nilpotent e = Σ_{α simple} X_α and an 𝔰𝔩_2-triple (e, h, f)), the affine subspace e + 𝔤^f maps isomorphically to 𝔠 under χ, giving a section ε : 𝔠 → 𝔤^reg of χ with image in the regular locus (Kostant). It is equivariant for the G_m-action on 𝔠 with weights e_i and the action of G_m on 𝔤 combining homotheties with the adjoint action of the cocharacter 2ρ^∨ (equivalently of ρ^∨ after passing to the double cover of G_m); this is why, over a curve, ε globalizes only after choosing a square root D′ of D (D′^{⊗2} ≅ D), giving the Kostant–Hitchin section ε_D : 𝔠_D → 𝔤_D^reg. Every regular element of 𝔤(K) is G(K̄)-conjugate to ε(χ(X)); for K a field and G quasi-split, the regular elements of 𝔤(K) with given characteristic value a form a single stable class whose rational classes are a torsor under H^1(K, J_a) (ET.2b/regular-centralizer). For G = GL_n, ε(a) is the companion matrix of the polynomial with coefficients a.",
+      "statement": "In the setting of ET.2b/chevalley-quotient (char(k) ∤ |W|, G split with a pinning, regular nilpotent e = Σ_{α simple} X_α and an 𝔰𝔩_2-triple (e, h, f)), the affine subspace e + 𝔤^f maps isomorphically to 𝔠 under χ, giving a section ε : 𝔠 → 𝔤^reg of χ with image in the regular locus (Kostant). It is equivariant for the G_m-action on 𝔠 with weights e_i and the action of G_m on 𝔤 combining homotheties with the adjoint action of the cocharacter 2ρ^∨ (equivalently of ρ^∨ after passing to the double cover of G_m); this is why, over a curve, ε globalizes only after choosing a square root D′ of D (D′^{⊗2} ≅ D), giving the Kostant–Hitchin section ε_D : 𝔠_D → 𝔤_D^reg. Every regular element X of 𝔤(K) is G(K̄)-conjugate to ε(χ(X)). For K a field, G quasi-split and a ∈ 𝔠^rs(K), sending γ = Ad(g)ε(a) ∈ χ^{-1}(a)(K) to the class of σ ↦ g⁻¹σ(g) is a bijection from the G(K)-conjugacy classes in χ^{-1}(a)(K) onto ker[H^1(K, J_a) → H^1(K, G)], and the isomorphism classes of pairs (E, φ) (E a G-torsor over K, φ ∈ ad(E) with χ(φ) = a) are in bijection with H^1(K, J_a) (Ngô §§1.5.1–1.5.2; ET.2b/regular-centralizer). For G = GL_n, ε(a) is the companion matrix of the polynomial with coefficients a.",
       "hypotheses": [
         "char(k) ∤ |W| (Ngô's standing assumption)",
         "G split with a pinning (descends to quasi-split G with the Out-torsor)"
@@ -3414,7 +3428,7 @@
       "proofSteps": [
         "Kostant's theorem: χ restricted to e + 𝔤^f is an isomorphism onto 𝔠 (Ngô Lemme 1.2.1, p. 10; section (1.2.2), p. 11).",
         "Equivariance and the square root: Ngô §4.2.4 (p. 63) and Lemme 2.2.5 (p. 34).",
-        "Torsor statement: the regular centralizer J acts simply transitively on the fibres of [𝔤^reg/G] → 𝔠 (ET.2b/regular-centralizer)."
+        "Classes in a stable class: Ngô §§1.5.1–1.5.2 (pp. 14–15), using that [𝔤^reg/G] → 𝔠 is a gerbe banded by J and neutralized by ε (ET.2b/regular-centralizer (b))."
       ],
       "acceptance": [
         "For GL_n, ε(a) is the companion matrix, with characteristic polynomial a.",
@@ -3430,8 +3444,8 @@
       "sources": [
         {
           "sourceId": "ngo-2010",
-          "locator": "§1.2, Lemme 1.2.1 (p. 10) and (1.2.2) (p. 11); §4.2.4 (p. 63); Lemme 2.2.5 (p. 34)",
-          "match": "Kostant's section of χ, its equivariance, and the Kostant–Hitchin section over the curve after choosing a square root D′ of D."
+          "locator": "§1.2, Lemme 1.2.1 (p. 10) and (1.2.2) (p. 11); §4.2.4 (p. 63); Lemme 2.2.5 (p. 34); §1.5, 1.5.1–1.5.2 (pp. 14–15)",
+          "match": "Kostant's section of χ, its equivariance, and the Kostant–Hitchin section over the curve after choosing a square root D′ of D; the rational classes in a regular semisimple stable class and the classification of pairs (E, φ) by H^1(F, I_{ε(a)})."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3508,7 +3522,7 @@
       ],
       "title": "The regular centralizer group scheme",
       "kind": "construction",
-      "statement": "In the setting of ET.2b/chevalley-quotient (char(k) ∤ |W|), let I → 𝔤 be the group scheme of centralizers. (a) There is a unique smooth commutative group scheme J → 𝔠 with a G-equivariant isomorphism χ^*J|_{𝔤^reg} ≅ I|_{𝔤^reg}, and it extends to a homomorphism χ^*J → I over all of 𝔤 (Ngô Lemme 2.1.1). (b) The morphism [𝔤^reg/G] → 𝔠 is a gerbe banded by J, neutralized by the Kostant section (Proposition 2.2.1). (c) If the centre of G is connected the fibres of J are connected. (d) (Galois description, after Donagi–Gaitsgory) With π : 𝔱 → 𝔠 the finite flat W-cover, there is a canonical homomorphism J → J^1 := (π_*(T × 𝔱))^W, an isomorphism over 𝔠^rs and identifying J with an open subgroup scheme J′ of J^1 whose fibres have the same identity component (Propositions 2.4.2, 2.4.7, Corollaire 2.4.8). (e) For an endoscopic datum with map ν : 𝔠_H → 𝔠 there is a homomorphism μ : ν^*J → J_H (Proposition 2.5.1). (f) For a ∈ 𝔠(X) the pullback J_a is a smooth commutative group scheme over X, and J_a = (π_{a,*}(T × X̃_a))^W-description via the cameral cover (Lemme 1.4.3, (1.4.2)).",
+      "statement": "In the setting of ET.2b/chevalley-quotient (char(k) ∤ |W|), let I → 𝔤 be the group scheme of centralizers. (a) There is a unique smooth commutative group scheme J → 𝔠 with a G-equivariant isomorphism χ^*J|_{𝔤^reg} ≅ I|_{𝔤^reg}, and it extends to a homomorphism χ^*J → I over all of 𝔤 (Ngô Lemme 2.1.1). (b) The morphism [𝔤^reg/G] → 𝔠 is a gerbe banded by J, neutralized by the Kostant section (Proposition 2.2.1). (c) If the centre of G is connected the fibres of J are connected. (d) (Galois description, after Donagi–Gaitsgory) With π : 𝔱 → 𝔠 the finite flat W-cover, there is a canonical homomorphism J → J^1 := (π_*(T × 𝔱))^W, an isomorphism over 𝔠^rs and identifying J with an open subgroup scheme J′ of J^1 whose fibres have the same identity component (Propositions 2.4.2, 2.4.7, Corollaire 2.4.8). (e) For an endoscopic datum with map ν : 𝔠_H → 𝔠 there is a homomorphism μ : ν^*J → J_H (Proposition 2.5.1). (f) For a ∈ 𝔠(X) the pullback J_a is a smooth commutative group scheme over X; over the open where a is regular semisimple, J_a = π_a ∧^W T for the cameral W-torsor π_a (Lemme 1.4.3, (1.4.2)), and over all of X, J_a is an open subgroup of (π_{a,*}(T × X̃_a))^W with the same identity component, by (d).",
       "hypotheses": [
         "char(k) ∤ |W|"
       ],
@@ -3618,7 +3632,7 @@
       ],
       "title": "The Hitchin moduli stack, base and fibration",
       "kind": "construction",
-      "statement": "Let k = 𝔽_q, X a smooth projective geometrically connected curve over k of genus g, G a quasi-split reductive group scheme over X attached to an Out-torsor ρ_G (ET.2b/chevalley-quotient (c)), with char(k) ∤ |W|, and D a line bundle on X (in Ngô's applications D = D′^{⊗2} with deg D > 2g; the carrier is defined for every D, including the canonical bundle ω_X and D = O_X, which Yu's counting needs). The Hitchin moduli stack M = M_{G,D} assigns to a k-scheme S the groupoid of pairs (E, φ) with E a G-torsor on X × S (an S-point of Bun_G, GlobalShtukasAndFunctionFieldLanglands:GS.0) and φ ∈ H^0(X × S, ad(E) ⊗ D). The Hitchin base A = A_{G,D} = H^0(X, 𝔠_D) is a finite-dimensional affine space over k, and f : M → A sends (E, φ) to χ(φ). Properties: (a) M is an algebraic stack locally of finite type over k: over Bun_G it is the stack of sections of the coherent sheaf ad(E) ⊗ D, and the restriction of f to the anisotropic locus is of finite type (ET.2b/anisotropic-locus); (b) if deg D > 2g − 2 and G is split, A = ⊕_i H^0(X, D^{⊗e_i}) has dimension Σ_i (e_i deg D + 1 − g) = (#Φ^+ + r) deg D + r(1 − g) by Riemann–Roch (Ngô Lemme 4.4.1, which also covers the quasi-split case), and the open A^♥ of a whose image meets 𝔠^rs generically is non-empty when deg D > 2g; (c) M is smooth at (E, φ) whenever deg D > 2g − 2, or deg D = 2g − 2 and χ(φ) ∈ A^ani (Ngô Théorème 4.12.1); (d) the Kostant–Hitchin section A → M (after choosing D′ with D′^{⊗2} = D) lands in the regular locus M^reg.",
+      "statement": "Let k = 𝔽_q, X a smooth projective geometrically connected curve over k of genus g, G a quasi-split reductive group scheme over X attached to an Out-torsor ρ_G (ET.2b/chevalley-quotient (c)), with char(k) ∤ |W|, and D a line bundle on X (in Ngô's applications D = D′^{⊗2} with deg D > 2g; the carrier is defined for every D, including the canonical bundle ω_X and D = O_X, which Yu's counting needs). The Hitchin moduli stack M = M_{G,D} assigns to a k-scheme S the groupoid of pairs (E, φ) with E a G-torsor on X × S (an S-point of Bun_G, GlobalShtukasAndFunctionFieldLanglands:GS.0) and φ ∈ H^0(X × S, ad(E) ⊗ D). The Hitchin base A = A_{G,D} = H^0(X, 𝔠_D) is a finite-dimensional affine space over k, and f : M → A sends (E, φ) to χ(φ). Properties: (a) M is an algebraic stack locally of finite type over k: over Bun_G it is the stack of sections of the coherent sheaf ad(E) ⊗ D, and the restriction of f to the anisotropic locus is of finite type (ET.2b/anisotropic-locus); (b) if deg D > 2g − 2 and G is split, A = ⊕_i H^0(X, D^{⊗e_i}) has dimension Σ_i (e_i deg D + 1 − g) = (#Φ^+ + r) deg D + r(1 − g) by Riemann–Roch (Ngô Lemme 4.4.1, which also covers the quasi-split case), and the open A^♥ of a whose image meets 𝔠^rs generically is non-empty when deg D > 2g; (c) M is smooth at every point (E, φ) with χ(φ) ∈ A^♥ when deg D > 2g − 2, and at every point with χ(φ) ∈ A^ani when deg D = 2g − 2 (Ngô Théorème 4.12.1: the obstruction group H^1(X, ad(E, φ)) vanishes there); (d) the Kostant–Hitchin section A → M (after choosing D′ with D′^{⊗2} = D) lands in the regular locus M^reg.",
       "hypotheses": [
         "k = 𝔽_q, X smooth projective geometrically connected of genus g",
         "G quasi-split over X with char(k) ∤ |W|",
@@ -3627,7 +3641,7 @@
       "proofSteps": [
         "Algebraicity: M → Bun_G is the stack of sections of the coherent sheaf ad(E) ⊗ D, representable by an abelian cone (AlgebraicModuliForArithmeticGeometry R09.4 linear stacks and the Artin criterion of A0-extension); Bun_G is algebraic and locally of finite type (GS.0/bun-g-of-the-global-curve).",
         "Dimension and non-emptiness: Riemann–Roch on X for the line bundles of weights e_i (upstream AlgebraicCurves Layer 4; Ngô Lemme 4.4.1, p. 64; §4.5, p. 67; Proposition 4.6.1, p. 69).",
-        "Smoothness: deformation theory of Higgs pairs and the vanishing of the obstruction H^1 under the degree hypothesis (Ngô Théorème 4.12.1, p. 84).",
+        "Smoothness: deformation theory of Higgs pairs and the vanishing of the obstruction H^1 under the degree hypothesis, at points over A^♥ (Ngô Théorème 4.12.1, p. 84).",
         "The Kostant–Hitchin section: ET.2b/kostant-section globalized with D′ (Ngô §4.2.4, p. 63)."
       ],
       "acceptance": [
@@ -3731,7 +3745,7 @@
         {
           "name": "TauCeti.HitchinStack.smooth",
           "role": "other",
-          "statement": "Smoothness under the stated degree hypotheses."
+          "statement": "Smoothness at points over A^♥ when deg D > 2g − 2, and over A^ani when deg D = 2g − 2."
         },
         {
           "name": "TauCeti.kostantHitchinSection_hitchin",
@@ -4511,7 +4525,7 @@
         "Globalize: choose a smooth projective curve X over k, a point v with completion F, a line bundle D = D′^{⊗2} of large degree, and a global a_H ∈ A_H^ani(k) whose germ at v is the given local element and which is regular semisimple and unramified at the other points where needed (Ngô §8.6.1–8.6.4, pp. 182–183; the choice uses deg D > rN + 2g).",
         "Count points: the κ-weighted count of the G-Hitchin fibre and the stable count of the H-Hitchin fibre are products of local counts (ET.2b/hitchin-point-count), and each local count is a volume times a κ-orbital (resp. stable) integral of the unit function (ET.3/orbital-integrals-as-point-counts).",
         "Compare cohomologies: the geometric stabilization (ET.2b/endoscopic-comparison) identifies the κ-part of the G-cohomology over Ã_H with the stable part of the H-cohomology, shifted and twisted by r_{G,H}(D); taking traces of Frobenius gives a global identity of products of local terms.",
-        "Isolate the local factor at v: at the other singular points the local identity holds by induction or by the transverse-locus identity (ET.2b/hitchin-point-count (d)), so the local identity at v follows (Ngô §8.6, proof of Théorème 1.11.1, p. 182 ff.)."
+        "Isolate the local factor at v: at the other singular points the local identity holds by induction or by the transverse-locus identity (ET.2b/hitchin-point-count (c)), so the local identity at v follows (Ngô §8.6, proof of Théorème 1.11.1, p. 182 ff.)."
       ],
       "acceptance": [
         "For H = G (κ = 1) both sides are equal by definition (r = 0).",
@@ -4681,7 +4695,7 @@
       ],
       "proofSteps": [
         "Translate stable classes, Moy–Prasad lattices and the tame Galois group into F-independent data (Waldspurger 2006, Introduction and §§1–6), using DeBacker's parametrization of nilpotent orbits and homogeneity of germs (ET.1/shalika-germs).",
-        "(a) Théorème 7.2 (p. 67); (b) Corollaire 9.2 (p. 70); (c) Corollaire 9.3 (p. 70), applying (b) to the unit functions of the hyperspecial lattices.",
+        "(a) Théorème 7.2 (p. 62); (b) Corollaire 9.2 (p. 70); (c) Corollaire 9.3 (p. 71), applying (b) to the unit functions of the hyperspecial lattices.",
         "Close local fields (Deligne, Kazhdan) are the classical form of the same principle; the source's route is the F-independent description above."
       ],
       "acceptance": [
@@ -4699,7 +4713,7 @@
       "sources": [
         {
           "sourceId": "waldspurger-2006",
-          "locator": "Introduction (pp. 1–5); §7, Théorème 7.2 (p. 67); §9, Corollaires 9.2 and 9.3 (p. 70)",
+          "locator": "Introduction (pp. 1–5); §7, Théorème 7.2 (p. 62); §9, Corollaire 9.2 (p. 70) and Corollaire 9.3 (p. 71)",
           "match": "Under the hypothesis that the residue characteristic is large relative to the rank, orbital integrals of Moy–Prasad lattice functions are independent of the local field with given residue field; transfer and the Lie-algebra fundamental lemma transfer between fields of characteristic 0 and p with the same residue field."
         },
         {
@@ -4731,7 +4745,7 @@
       "acceptance": [
         "For H = G (s = 1), b is the identity and (a)–(b) are tautologies.",
         "For G = GL_n there is no proper elliptic datum and the statement reduces to (a) for H = G.",
-        "The residue-characteristic bound cannot be replaced by p ∤ |W| alone: Waldspurger's descent and change of characteristic need p large relative to G."
+        "The proof uses Waldspurger's bound on the residue characteristic (2008 §4.4, (H1), and the change of characteristic); the hypothesis p ∤ |W| of the equal-characteristic theorem does not by itself give the statement over p-adic fields."
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.3/lie-algebra-fundamental-lemma",
@@ -4751,7 +4765,7 @@
         },
         {
           "sourceId": "hales-2003",
-          "locator": "Conjecture 6.1 (PDF p. 10) and Remark 9.3 (PDF p. 17)",
+          "locator": "Conjecture 6.1 (PDF p. 10) and Remark 9.3 (PDF p. 16)",
           "match": "The statement for unit elements of hyperspecial Hecke algebras and the known passage from the unit element to the whole spherical Hecke algebra."
         },
         {
@@ -4826,7 +4840,7 @@
         {
           "sourceId": "arthur-clay",
           "locator": "§27 (pp. 192–204)",
-          "match": "Statement of the Langlands–Shelstad transfer conjecture and its reduction to the fundamental lemma by Waldspurger."
+          "match": "Statement of the Langlands–Shelstad transfer conjecture and its reduction to the fundamental lemma by Waldspurger; written in 2005, it records the nonarchimedean conjecture as open and reduces its unramified case to the fundamental lemma (p. 203)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5035,7 +5049,7 @@
       "sources": [
         {
           "sourceId": "shin-2011",
-          "locator": "§3.4 (p. 15)",
+          "locator": "§3.4 (pp. 15–16), the unramified case (3.8)",
           "match": "In the global setting the transfer and the fundamental lemma for unit elements are used at all finite places outside a finite set."
         },
         {
@@ -5082,8 +5096,16 @@
       ]
     },
     {
+      "supplier": "AutomorphicSpectralTheory:AS.6",
+      "need": "The unweighted invariant orbital integral of a semisimple element of a connected reductive group over a local field of characteristic 0 (or a finite product of such): the quotient measure on G_γ^0\\G, convergence, invariance, linearity in the measures and the full-centralizer factor [G_γ : G_γ^0] (target AS.6.8a of the AutomorphicSpectralTheory package); and, for real groups, the Clozel–Delorme pseudo-coefficients of discrete series and the Euler–Poincaré test functions with tr π(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K; π ⊗ ξ) for every finite-length π (targets AS.6.16a–AS.6.17). These moved below this roadmap in the upstream order (handoff of PKG-AutomorphicSpectralTheory); ET.1 imports them and keeps the Lie-algebra, descent, packet-average, inner-form and twisted statements.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1/pseudocoefficients"
+      ]
+    },
+    {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
-      "need": "The Lie algebra 𝔤 of a reductive group scheme with its adjoint action, centralizers of elements, and the regular locus; used for orbital integrals on 𝔤(F), Shalika germs, the Chevalley quotient and the Kostant section.",
+      "need": "The Lie algebra 𝔤 of a reductive group scheme with its adjoint representation; used for orbital integrals on 𝔤(F), Shalika germs, the Chevalley quotient and the Kostant section. Centralizers and the regular and regular semisimple loci are not in this layer; they are defined in ET.0/semisimple-conjugacy and ET.2b/chevalley-quotient.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
@@ -5138,7 +5160,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
-      "need": "Long exact sequences of continuous cohomology of profinite groups; used for crossed-module cohomology.",
+      "need": "Long exact sequences of continuous cohomology of profinite groups; used for crossed-module cohomology (abelian coefficients; the nonabelian and crossed-module statements are planned in ET.0/crossed-module-galois-cohomology).",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/crossed-module-galois-cohomology"
       ]
@@ -5154,7 +5176,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "need": "Continuous cohomology of profinite groups in all degrees with discrete coefficients; used for Galois cohomology of tori and crossed modules.",
+      "need": "Continuous cohomology of profinite groups in all degrees with discrete coefficients; used for Galois cohomology of tori and crossed modules (abelian coefficients; the nonabelian and crossed-module statements are planned in ET.0/crossed-module-galois-cohomology).",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/crossed-module-galois-cohomology",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianized-cohomology"
@@ -5248,7 +5270,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-      "need": "Chebotarev density (Dirichlet density); used to choose auxiliary split places and, in its function-field form, to compare Frobenius traces in the geometric stabilization.",
+      "need": "Chebotarev density for number fields (Dirichlet density); used to choose auxiliary split places (Waldspurger's global argument and the global applications of the fundamental lemma) and in ET.0/abelianization-theorems. The layer is stated for number fields only; the comparison of Frobenius traces in the geometric stabilization is a function-field statement, requested from EtaleDualityAndPerverseSheaves:EDC.7.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianization-theorems",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence",
@@ -5275,7 +5297,7 @@
         "Lemma level: the individual terms Δ_I–Δ_IV as nodes, Langlands–Shelstad descent (1990) as its own node once read, and the deeper Shalika-germ results of Kottwitz's notes §27.",
         "Several primary sources are cited through secondary statements (gap 'Primary sources cited through secondary statements'): Kottwitz's 1999 Lie-algebra transfer factors, Waldspurger 1997, Shelstad's real transfer, Harish-Chandra's regularity theorem, Clozel–Delorme."
       ],
-      "note": "Orbital integrals (single owner, RT-AREA-automorphic-1/24), κ- and stable orbital integrals, a-data and χ-data, the Langlands–Shelstad factors with the Kottwitz–Shelstad 2012 conventions, twisted factors, Lie-algebra factors, matching functions, germs, Fourier transforms, the unitary factor, real characters, real transfer, pseudo-coefficients and their transfer are planned."
+      "note": "The conventions of orbital integrals with their Lie-algebra and nilpotent versions and descent (the group orbital integral and the real pseudo-coefficients are imported from AutomorphicSpectralTheory AS.6, where the upstream order moved them, superseding the single ownership of RT-AREA-automorphic-1/24), κ- and stable orbital integrals, a-data and χ-data, the Langlands–Shelstad factors with the Kottwitz–Shelstad 2012 conventions, twisted factors, Lie-algebra factors, matching functions, germs, Fourier transforms, the unitary factor, real characters, real transfer, Euler–Poincaré packet averages of the imported pseudo-coefficients and their transfer are planned."
     },
     {
       "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2",
@@ -5354,7 +5376,7 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/support-theorem",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/hitchin-point-count"
       ],
-      "detail": "Ngô applies the Grothendieck–Lefschetz trace formula and the decomposition theorem to the smooth Deligne–Mumford stack M^ani (Proposition 8.1.13, §6.2, Remarque 7.5.1). The atlas suppliers state them for schemes; requests to SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.7 are recorded. Until they are planned, these two inputs are open."
+      "detail": "Ngô applies the Grothendieck–Lefschetz trace formula and the decomposition theorem to the smooth Deligne–Mumford stack M^ani (Proposition 8.1.13, §6.2, Remarque 7.5.1). The atlas suppliers state them for schemes; requests to SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.7 are recorded. Until they are planned, these two inputs are open. The purity of proper direct images used in ET.2b/kappa-decomposition (a) is also applied to the Deligne–Mumford stack M^ani, while DeligneWeightsAndPurity:DWP.8/proper-direct-image-preserves-purity-6-2-6 is stated for schemes; it belongs to the same open input."
     },
     {
       "title": "Kottwitz's Tamagawa number formula is planned nowhere",
@@ -5386,7 +5408,12 @@
       "searched": [
         "arXiv:1909.01898 abstract page (version v2 read)",
         "the sourceIssues of PAPER-CARAIANI-SCHOLZE-24 and PAPER-CARAIANI-SCHOLZE-17 in this atlas"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at arXiv:1909.01898v2, §5.2, p. 67: the representatives are listed with n_1 ≥ n_2 ≥ 0, while G_{n_1,n_2} is defined for positive integers and n_2 = 0 repeats the principal datum; Shin 2011 §3.2 (p. 14) has n_1 ≥ n_2 > 0. A misprint with no effect on the results.",
+        "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0"
+      }
     }
   ],
   "sourceVersions": [
@@ -5433,12 +5460,21 @@
       ],
       "detail": "Corrections to the roadmap text that this plan cannot make itself: (1) ET.3 states that Ngô's published Lie-algebra theorem needs p > 2h, while the version read assumes p ∤ |W|; (2) ET.5 (part 2) calls the general twisted fundamental lemma unproved, while Waldspurger (Théorèmes 1.8, 4.11) with Ngô's non-standard fundamental lemma proves it for unit elements and Lemaire–Mœglin–Waldspurger for the spherical Hecke algebra (red-team finding RT-AREA-langlands-1/13).",
       "proposal": "In ET.3 state the hypotheses as 'p ∤ |W| for the equal-characteristic Lie-algebra theorem (as in the version read; confirm against the published version), and p large relative to G for Waldspurger's change of characteristic and descent'. In ET.5 replace the sentence by 'the route does not need the twisted fundamental lemma; it is proved (ET.3/twisted-fundamental-lemma-and-transfer)'."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EndoscopicTransferAndUnitaryTraceComparison",
+        "AutomorphicSpectralTheory"
+      ],
+      "detail": "RT-AREA-automorphic-1/24 made ET.1 the single owner of unweighted orbital integrals and AS.6 their consumer. The upstream order puts AutomorphicSpectralTheory in tier 13 and this roadmap in tier 14, so the AutomorphicSpectralTheory package planned the invariant orbital integral (AS.6.8a), the discrete functionals and pseudo-coefficients (AS.6.16a) and the real Euler–Poincaré test functions (AS.6.17) itself and asked this roadmap to import them (PKG-AutomorphicSpectralTheory handoff, \"Upward citations\"). The promoted AutomorphicSpectralTheory packet still requests them from ET.1.",
+      "proposal": "Owners: the group orbital integral, its quotient measure and convergence, pseudo-coefficients and the Euler–Poincaré trace identity → AutomorphicSpectralTheory:AS.6 (formerly ET.1); Waldspurger's normalization, transport of centralizer measures, Lie-algebra and nilpotent orbital integrals, semisimple descent, packet averages of pseudo-coefficients with their orbital integrals, and the inner-form and twisted versions → ET.1. Retarget the AutomorphicSpectralTheory packet's requests 12 and 13 (to ET.1) as self-supplied when its package corrections are carried into the packet, and draw the edge AS.6 → ET.1."
     }
   ],
   "redTeamFindings": [
     {
       "finding": "RT-AREA-automorphic-1/24",
-      "handling": "ET.1/orbital-integral is the single owner of invariant (unweighted) orbital integrals: quotient measures from AdelicAlgebraicGroups:AA.2, convergence for every semisimple element, normalization by the Weyl discriminant, nilpotent orbital integrals and descent; AutomorphicSpectralTheory:AS.6/weighted-orbital-integral already requests it from ET.1 (its request matches), so the edge ET.1 → AS.6 is the recorded dependency. AS.6 keeps the weighted v_M-integrals and (G,M)-families."
+      "handling": "ET.1/orbital-integral was planned as the single owner of invariant (unweighted) orbital integrals, as the finding asked. Under the upstream tier order (research/blueprint/upstream/CaraianiNewton.md: AutomorphicSpectralTheory tier 13, this roadmap tier 14) the AutomorphicSpectralTheory package then moved the group orbital integral and the real pseudo-coefficients below this roadmap (its targets AS.6.8a and AS.6.16a–AS.6.17; PKG-AutomorphicSpectralTheory handoff). ET.1 now imports them from AS.6 (request recorded) and keeps the conventions, the Lie-algebra and nilpotent orbital integrals, semisimple descent, the packet averages and the inner-form and twisted versions. Each piece still has a single owner. The promoted AS packet still requests the unweighted integral and the Euler–Poincaré carriers from ET.1 (AS.6/weighted-orbital-integral, AS.6/general-euler-poincare); those requests lapse when the AS package's plan corrections are carried into the AS packet (restructure proposal)."
     },
     {
       "finding": "RT-AREA-langlands-1/12",
@@ -5636,5 +5672,318 @@
       "note": "The other items of this route belong to ET.4 and ET.7a (part 2)."
     }
   ],
-  "suggestedPolicy": "The suggested Lean file research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.0.lean has the compact shape of PACKAGE_REVIEW.md ('Shape of a roadmap'): real-bodied light definitions over carriers that exist at the pinned Mathlib (nonabelian H^1 of a group acting on a group, crossed modules, kappa-weighted sums over finite abelian groups, the Kottwitz sign, the GL_n Chevalley map and Kostant section, the GL_n regular centralizer, lattices and affine Springer fibres for GL_n) with statable milestones and examples. Reductive groups over local fields, their Galois cohomology, endoscopic data, transfer factors, orbital integrals, the Hitchin fibration and the fundamental lemma have no carriers at the pins and are targets of the document only; the API names of those nodes are recorded in the packet and the reader. Elaborated with lean-check (Mathlib 082e2d3): no errors; the only warnings mark statements left unproved."
+  "suggestedPolicy": "The suggested Lean file research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.0.lean has the compact shape of PACKAGE_REVIEW.md ('Shape of a roadmap'): real-bodied light definitions over carriers that exist at the pinned Mathlib (nonabelian H^1 of a group acting on a group, crossed modules, kappa-weighted sums over finite abelian groups, the Kottwitz sign, the GL_n Chevalley map and Kostant section, the GL_n regular centralizer, lattices and affine Springer fibres for GL_n) with statable milestones and examples. Reductive groups over local fields, their Galois cohomology, endoscopic data, transfer factors, orbital integrals, the Hitchin fibration and the fundamental lemma have no carriers at the pins and are targets of the document only; the API names of those nodes are recorded in the packet and the reader. Elaborated with lean-check (Mathlib 082e2d3): no errors; the only warnings mark statements left unproved.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
+    "date": "2026-10-14",
+    "notes": "Independent review of the complete pass over ET.0–ET.3 (61 nodes; ET.2, ET.2a and its sub-layers closed by RS-19). All 24 sources were fetched at the URLs given (every SHA-256 matches the packet) and every node locator was read; the two Math. Ann. scans (Langlands–Shelstad 1987, Kottwitz 1986) were read through GDZ OCR and page images. All 7 Mathlib baseline declarations were confirmed at 082e2d3 (name, module, kind, statement). External node prerequisites (46 ids in 12 roadmaps) exist and say what the citing nodes use; requests reconcile with prerequisites in both directions; the packet induces no new stage cycle. 29 nodes were corrected in place, among them five false or misstated results: crossed-module cohomology item (5) (false as stated: the counterexample of the confirmed erratum PAPER-KISIN-17/E41 satisfies \"ker ∂ central, coker ∂ abelian\"; restated for braided crossed modules); Kottwitz's 𝔎(T/F) (only the classes with trivial image in H^1(F, Z(Ĝ)), §4.6); the Euler–Poincaré orbital integrals (sign (−1)^{q(G_γ)}, not (−1)^{q(G)}, and O_γ rather than SO_γ); the standard-endoscopy conventions of Kottwitz–Shelstad 2012 §5.1 (the twisted formulas had been transplanted); the smoothness of the Hitchin stack (only over A^♥, Ngô Théorème 4.12.1). Further corrections: H^1(𝔸_F/F, ·) is Kottwitz's and Labesse's quotient cohomology, not a cokernel; van Hoften's G(ℝ)_+; Kottwitz §6's standing hypothesis G_der simply connected; the classes in a regular stable class (ker[H^1(K, J_a) → H^1(K, G)]); J_a by the cameral cover only over 𝔠^rs; Shalika germs (Γ_0 constant, Γ_reg ∝ |D|^{−1/2} on elliptic Cartans of 𝔤𝔩_2); Shin's block-diagonal Φ_{n⃗}; the Lie-algebra transfer factor's base-point constant; twelve locators and the LTXZZ page offset. Duplication: Kneser's theorem is AdelicAlgebraicGroups:AA.4/kneser-local-torsor and is now imported; under the upstream tier order the AutomorphicSpectralTheory package (tier 13) moved the group orbital integral and the real pseudo-coefficients below this roadmap (AS.6.8a, AS.6.16a–AS.6.17), so ET.1 now imports them from AS.6 (request and restructure proposal added; RT-AREA-automorphic-1/24 handling updated). A circular dependency (ET.0/kottwitz-duality ↔ ET.0/abelianization-theorems) was removed. The handed red-team findings RT-AREA-automorphic-1/24, RT-AREA-langlands-1/12, /13, /14 and RT-AREA-geomlanglands/10 are handled in the packet and the document. Source issue E1 confirmed. Unit tests added for crossed modules without braiding, the Euler–Poincaré sign on SL_2(ℝ) and the convention for G(ℝ)_+. The suggested file elaborates with lean-check (Mathlib 082e2d3) with no errors, its only warnings marking unproved statements; one side-condition proof now has a real proof. The reader document was brought in line with every correction. Open for the package: GlobalShtukas (GS.0, GS.1) and FunctionFieldArithmetic (FA.2) are outside the 94 roadmaps of the upstream order and must be moved down or replaced when this roadmap is packaged; the promoted AutomorphicSpectralTheory packet still requests from ET.1 what its package now plans.",
+    "checked": [
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/crossed-module-galois-cohomology",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kaletha, Kisin, Labesse. Prerequisites, supplier statements, API and unit tests checked. Corrections: Item (5) was false as stated (hypotheses \"ker ∂ central, coker ∂ abelian\"; counterexample ℤ/3 → ℤ/2 of the confirmed erratum PAPER-KISIN-17/E41); restated for braided crossed modules, which covers every use. Added the unit test not_abelian_without_braiding (the E41 counterexample), which the earlier hypothesis of (5) would fail. Kaletha locator: §3.4 is on pp. 15–16 (pp. 12–13 hold §§3.2–3.3); match restated to what p. 16 says."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianized-cohomology",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kisin, Labesse, van Hoften. Prerequisites, supplier statements, API and unit tests checked. Corrections: H^1_ab(𝔸_F/F, G) is not the cokernel of the localization map; restated as Labesse's global-mod-local group with his exact sequence (Proposition 1.6.12, p. 35). Kisin locator: §3.2.7 does not recall Borovoi 3.8.1–3.8.2 (Kisin's own (3.8.1)–(3.8.2) on pp. 62–63 are unrelated); locators and proof step 1 now cite Labesse Lemme 1.6.1 for the quasi-isomorphisms."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/abelianization-theorems",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kaletha, Kisin, Labesse. Prerequisites, supplier statements and acceptance tests checked. Corrections: Kneser's theorem (a) is AdelicAlgebraicGroups:AA.4/kneser-local-torsor (accepted, promoted, and on TauCetiRoadmap main as AA §4.1 \"Local H¹ vanishing\"); it is now imported, not planned again. There is no natural map ker^1(F, G′) → ker^1(F, G) for an inner form; Labesse Corollaire 1.6.11 is about ker^1_ab. Restated. Prerequisites: added AdelicAlgebraicGroups:AA.4/kneser-local-torsor; removed ET.0/kottwitz-duality, which itself uses (a) and (d) of this node (circular reasoning); only the remark in (f) mentioned it. Kisin locator: the proof of (3.4.11) starts on p. 47."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/degree-zero-abelianization",
+        "verdict": "corrected",
+        "note": "Read at every locator: van Hoften. Prerequisites, supplier statements and acceptance tests checked. Corrections: G(ℝ)_+ was defined as the identity component of G(ℝ) \"equivalently\" Z(G)(ℝ)·ρ(G_sc(ℝ)); these differ (G_m). Van Hoften §3.4 (p. 40) uses the preimage of G_ad(ℝ)^+, which is what (b) needs. Added an acceptance test (G = G_m) that separates the two conventions for G(ℝ)_+."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/tate-nakayama-tori",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kaletha, Kottwitz 1986, Labesse. Prerequisites, supplier statements and acceptance tests checked. Corrections: H^1(𝔸_F/F, S) is the cohomology of S(𝔸_F̄)/S(F̄), not the cokernel of localization (they differ by ker^2(F, S)); the Tate–Nakayama identification holds for the former."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kaletha, Kottwitz 1986, Labesse. Prerequisites, supplier statements and acceptance tests checked. Corrections: Typographical: stray \";.\" removed. Prerequisites: added ET.0/abelianization-theorems, whose (a) (Kneser) and (d) (ker^1 = ker^1_ab) proof steps 1 and 4 use."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-sign",
+        "verdict": "verified",
+        "note": "Read at every locator: Hansen–Kaletha–Weinstein, Kottwitz 1986, Labesse. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/inner-twist",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kaletha, Labesse, Leslie. Prerequisites, supplier statements, API and unit tests checked. Corrections: Kaletha locator: the definition of an inner twist is recalled in §5.1 (p. 28)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/semisimple-conjugacy",
+        "verdict": "corrected",
+        "note": "Read at every locator: Hales, Kottwitz 1986, Labesse, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: Kottwitz locator: the parametrization by ker[H^1(F, I) → H^1(F, G)] is §4.1 (p. 378); the introduction's wording is on p. 367."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class",
+        "verdict": "corrected",
+        "note": "Read at every locator: Hansen–Kaletha–Weinstein, Kaletha, Kottwitz 1986, Labesse. Prerequisites, supplier statements and acceptance tests checked. Corrections: 𝔎(T/F) is not all of π_0((T̂/Z(Ĝ))^Γ): Kottwitz 1986 §4.6 (p. 379) takes the classes with trivial image in H^1(F, Z(Ĝ)); corrected, with 𝔈(T/F) = ker[A(T) → A(G)] (§4.4)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/global-kottwitz-obstruction",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kottwitz 1986, Labesse, Shin 2010. Prerequisites, supplier statements and acceptance tests checked. Corrections: Kottwitz 1986 §6 assumes G_der simply connected and takes γ ∈ G(𝔸) conjugate to ψ(γ_0) over 𝔸 ⊗ F̄; the hypotheses are restored and the case G_0 = G marked. Typographical: Ẑ(Î_0) → Z(Î_0). Proof step 3: (6.10.1) is Kottwitz's conjecture, not a definition; the product formula follows from §6.7 (p. 384)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unramified-local-cohomology",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kisin. Prerequisites, supplier statements and acceptance tests checked. Corrections: Kisin locators: the proof of (3.6.7) is on p. 56 and (3.6.8) on p. 57. Kisin locator for (3.6.8)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/endoscopic-datum",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kottwitz 1986, Kottwitz–Shelstad 2012, Langlands–Shelstad, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: Kottwitz locator: endoscopic triples (H, s, η) appear in §5.4 (p. 380), not §3."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/z-pair",
+        "verdict": "verified",
+        "note": "Read at every locator: Kaletha, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/norm-correspondence",
+        "verdict": "verified",
+        "note": "Read at every locator: Labesse, Langlands–Shelstad, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data",
+        "verdict": "corrected",
+        "note": "Read at every locator: Caraiani–Scholze (non-compact), Laumon–Ngô, Shin 2011. Prerequisites, supplier statements and acceptance tests checked. Corrections: Shin (p. 12) defines Φ_{n⃗} = i_{n⃗}(Φ_{n_1}, …, Φ_{n_r}) through the block-diagonal embedding i_{n⃗}; the node said block antidiagonal. The constant a_{n_1,n_2}: Shin's form (p. 14) is recorded and shown equal to the stated one (det Φ_m = 1)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-hermitian-matching",
+        "verdict": "verified",
+        "note": "Read at every locator: Leslie. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0/acceptance-examples",
+        "verdict": "verified",
+        "note": "Read at every locator: Labesse, Leslie. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kottwitz's Clay notes, Langlands–Shelstad, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: Ownership: the group orbital integral moved down to AutomorphicSpectralTheory AS.6 (AS package target AS.6.8a; PKG-AutomorphicSpectralTheory handoff asks ET to import it; tier 13 < 14). The node now imports it (AS.6 prerequisite and request) and keeps the conventions, the Lie-algebra and nilpotent versions, boundedness, the Weyl integration formula and descent. Statement reorganized accordingly; no mathematical content dropped. API: the group-level items conj/linear/measure_scale are AS.6.8a's (removed here); added orbitalIntegralWaldspurger, orbitalIntegral_transport and orbitalIntegralLie_conj for what ET owns. Tests: the central/torus checks are restated for the Lie-algebra version (the group ones are AS.6.8a's tests `central`, `torus`); gl2_split now requires a, b ∈ 𝒪^× (otherwise the integral is 0); the invariance check is for O^G."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/kappa-and-stable-orbital-integrals",
+        "verdict": "verified",
+        "note": "Read at every locator: Hales, Kottwitz 1986, Leslie, Ngô. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/a-data-chi-data",
+        "verdict": "verified",
+        "note": "Read at every locator: Kottwitz–Shelstad 2012, Langlands–Shelstad. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/local-transfer-factor",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kaletha, Kottwitz–Shelstad 2012, Langlands–Shelstad, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: Standard endoscopy (KS 2012 §5.1): the Langlands–Shelstad Δ is the classical factor and needs no correction; Δ_D changes only Δ_III2; Δ′, Δ′_D come from (H, s⁻¹, ξ). The node had transplanted the twisted formulas (1.0.3)–(1.0.4) and the wrong relation \"Δ′ and Δ_D are the factors of (H, s⁻¹, ξ)\". Whittaker normalization: both formulas of KS (5.5.1)–(5.5.2) written out (Δ_III^new was undefined in the node). Convention tag lists the four variants. Test transferFactor_sl2_torus and acceptance: u − ū is not in F; |Δ_IV| = |(u − ū)²|_F^{1/2}."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/transfer-factor-properties",
+        "verdict": "verified",
+        "note": "Read at every locator: Kottwitz's Clay notes, Langlands–Shelstad, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/twisted-transfer-factor",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kottwitz–Shelstad 2012, Labesse, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: KS 2012 (introduction, p. 1) state the exact condition (non-reduced restricted root system); \"the first case\" was not theirs. KS locator: Proposition 2.2.3 is on p. 5."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/lie-algebra-transfer-factor",
+        "verdict": "corrected",
+        "note": "Read at every locator: Laumon–Ngô, Ngô, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: c is not one constant: a change of base point multiplies the factor on a stable class by κ(inv(X_0, X_0′)), which varies with X_H; only a uniform choice (the Kostant section, Kottwitz) fixes it."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/matching-functions",
+        "verdict": "corrected",
+        "note": "Read at every locator: Labesse, Leslie, Waldspurger 2008. Prerequisites, supplier statements, API and unit tests checked. Corrections: Test transfer_not_function: the example \"f − f^w for a Weyl-twisted torus function with κ-sign\" was not a precise statement; replaced by an explicit SL_2 example."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/shalika-germs",
+        "verdict": "corrected",
+        "note": "Read at every locator: Kottwitz's Clay notes, Waldspurger 2006. Prerequisites, supplier statements and acceptance tests checked. Corrections: (c) said the regular germ Γ_reg is constant; with the unnormalized orbital integrals of (b) it is c·|D|^{−1/2} (only the normalized germ |D|^{1/2}Γ_reg is constant), as the homogeneity in (c) itself forces. Acceptance for 𝔤𝔩_2 had the two germs swapped (Γ_0 constant, Γ_reg ∝ |D|^{−1/2}); corrected against Kottwitz's Clay notes §5.9 (pp. 417–418). Waldspurger 2006 locator: Théorème 7.2 is on p. 62."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/fourier-transform-orbital-integrals",
+        "verdict": "verified",
+        "note": "Read at every locator: Kottwitz's Clay notes, Labesse, Shin 2011. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/unitary-transfer-factor",
+        "verdict": "verified",
+        "note": "Read at every locator: Laumon–Ngô, Leslie. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/real-character-theory",
+        "verdict": "verified",
+        "note": "Read at every locator: Arthur's Clay introduction, Kaletha. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/real-transfer",
+        "verdict": "verified",
+        "note": "Read at every locator: Arthur's Clay introduction, Labesse. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/pseudocoefficients",
+        "verdict": "corrected",
+        "note": "Read at every locator: Arthur's Clay introduction, Caraiani–Scholze (compact), Shin 2011. Prerequisites, supplier statements, API and unit tests checked. Corrections: Ownership: pseudo-coefficients and the Euler–Poincaré trace identity moved down to AutomorphicSpectralTheory AS.6 (AS package targets AS.6.16a–AS.6.17); (a) is imported; the packet averages, their orbital integrals and the inner-form and twisted versions stay here. The orbital integral of f_ξ at an elliptic γ carries the sign (−1)^{q(G_γ)} (Arthur's global term (24.4)), not (−1)^{q(G)}, and the formula is for O_γ, not SO_γ: for SL_2(ℝ), ξ trivial, the regular elliptic orbital integrals of f_ξ are positive (Weyl integration formula with tr 1(f_ξ) = 2), and SO_γ sums two equal classes. Added the unit test eulerPoincare_sl2_elliptic, which the sign (−1)^{q(G)} at every elliptic element would fail."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.1/archimedean-pseudocoefficient-transfer",
+        "verdict": "verified",
+        "note": "Read at every locator: Caraiani–Scholze (compact), Shin 2010, Shin 2011. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/chevalley-quotient",
+        "verdict": "corrected",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked. Corrections: GL_n sentence now states what the cited baseline declarations Matrix.charpoly_monic and Polynomial.discr provide."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/kostant-section",
+        "verdict": "corrected",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked. Corrections: The rational classes in a stable class are in bijection with ker[H^1(K, J_a) → H^1(K, G)], not a torsor under H^1(K, J_a); the full H^1 classifies pairs (E, φ) with E a torsor (Ngô §§1.5.1–1.5.2, pp. 14–15)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/regular-centralizer",
+        "verdict": "corrected",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked. Corrections: (f): Ngô (1.4.2) and Lemme 1.4.3 describe J_a by the cameral cover only over 𝔠^rs; over the whole curve J_a is an open subgroup of the Galois description with the same identity component (d)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/hitchin-moduli-stack",
+        "verdict": "corrected",
+        "note": "Read at every locator: Ngô, Yu. Prerequisites, supplier statements, API and unit tests checked. Corrections: Smoothness (c) omitted the hypothesis χ(φ) ∈ A^♥ of Ngô Théorème 4.12.1 (p. 84); M is not smooth at all points (e.g. over a = 0)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/schiffmann-boundedness",
+        "verdict": "verified",
+        "note": "Read at every locator: Schiffmann. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/cameral-cover",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/picard-stack-action",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/anisotropic-locus",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/affine-springer-fibre",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/product-formula",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/delta-stratification",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/weak-abelian-fibration",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements, API and unit tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/kappa-decomposition",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/support-theorem",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/endoscopic-comparison",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/hitchin-point-count",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/acceptance-examples",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/lie-algebra-fundamental-lemma",
+        "verdict": "corrected",
+        "note": "Read at every locator: Hales, Ngô. Prerequisites, supplier statements and acceptance tests checked. Corrections: Proof step 4 cited a nonexistent item (d) of ET.2b/hitchin-point-count; it is (c)."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/orbital-integrals-as-point-counts",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/unitary-fundamental-lemma",
+        "verdict": "verified",
+        "note": "Read at every locator: Laumon–Ngô, Liu–Tian–Xiao–Zhang–Zhu. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/nonstandard-fundamental-lemma",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/change-of-characteristic",
+        "verdict": "corrected",
+        "note": "Read at every locator: Ngô, Waldspurger 2006. Prerequisites, supplier statements and acceptance tests checked. Corrections: Waldspurger 2006 locators: Théorème 7.2 is on p. 62 (p. 67 is §8.3) and Corollaire 9.3 on p. 71."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/group-fundamental-lemma",
+        "verdict": "corrected",
+        "note": "Read at every locator: Hales, Shin 2011, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked. Corrections: Acceptance: \"cannot be replaced\" asserted an impossibility that no source proves; restated as what the proof uses. Hales locator: Remark 9.3 is on PDF p. 16."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence",
+        "verdict": "corrected",
+        "note": "Read at every locator: Arthur's Clay introduction, Labesse, Shin 2011, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked. Corrections: Locator or wording refined."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/inner-form-transfer",
+        "verdict": "verified",
+        "note": "Read at every locator: Arthur's Clay introduction. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer",
+        "verdict": "verified",
+        "note": "Read at every locator: Kottwitz 1986 (base change), Labesse, Liu–Tian–Xiao–Zhang–Zhu, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer",
+        "verdict": "verified",
+        "note": "Read at every locator: Ngô, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.3/fundamental-lemma-almost-all-places",
+        "verdict": "corrected",
+        "note": "Read at every locator: Shin 2011, Waldspurger 2008. Prerequisites, supplier statements and acceptance tests checked. Corrections: Shin locator: the unramified-place transfer is on p. 16, (3.8)."
+      }
+    ]
+  }
 }
