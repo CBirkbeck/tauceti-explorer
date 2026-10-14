@@ -9834,7 +9834,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FGFO.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9801"
   },
   {
    "id": "REV-DESIGN-FGFO",
@@ -21623,8 +21624,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9373"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9373",
+   "finishedAt": "2026-10-14T16:21:41Z"
   },
   {
    "id": "BP-FoundationsAndLibraryIntegration",
