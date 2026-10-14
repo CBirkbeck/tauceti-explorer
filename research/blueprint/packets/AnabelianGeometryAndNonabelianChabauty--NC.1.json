@@ -1584,7 +1584,7 @@
       "sources": [
         {
           "sourceId": "M99",
-          "locator": "§4, Lemma 4.1 and Definition 4.3, author-copy pp. 27–31; Proposition 5.4, p. 34, applies Definition 4.3 to a target curve without the §4 point hypothesis (see E4)",
+          "locator": "§4, Lemma 4.1 and Definition 4.3, author-copy pp. 27–31; Proposition 5.4, p. 34, applies Definition 4.3 to a target curve without the §4 point hypothesis (see E104)",
           "match": "Over any finite extension K′ of K with Pic¹(K′)≠∅ (for instance one over which X has a point), the degree-one Picard arithmetic extension has a canonical weight-zero geometric section, independent of the chosen Pic¹(K′) point up to conjugation by the weight-zero quotient. A section of the curve or generic-point arithmetic group over Γ_K is J-geometric when, after restriction to Γ_K′, its induced weight-zero Pic¹ section equals that canonical section. Restriction is injective on H¹ of the weight-zero quotient, so the condition does not depend on K′ and, when Pic¹(K)≠∅, agrees with the test over K itself. For K/Q_p finite with Pic¹(K)≠∅ it means that the abelianized section comes from a Pic¹(K) point, not necessarily an X(K) point."
         }
       ],
@@ -3201,11 +3201,18 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-outer-comparison"
       ],
       "detail": "Cofinal hyperbolic Artin-neighborhood models and their exact sequences, exact dominant Hom/Isom representability and finite-étale spreading, fine universal-family base-change compatibility, generalized-Jacobian integral comparison and the surface-group centre theorem are supplier requests, not blanket conclusions of generic moduli/Picard/profinite stages. ProfiniteProPGroups centre extension is proposed as Part II. The function-field reciprocity supplier is outside the 94-roadmap Caraiani–Newton tier list; the maintainer must place that existing supplier below this packet before upstream packaging. The IG.5 extension distinguishes invertible local node indices from invertible total group order. The NC.2 two-step Malcev foundation is requested independently of reconstruction and must be split before assembly to keep stage-level dependencies acyclic. Current StableReduction Layer 4 does not state the geometrically regular disk-completion comparison, and smooth Jacobian Layer D does not state the point-pinched generalized-Jacobian extension; both requests are extensions, not existing contracts. Current ProfiniteArithmetic §§2.1–2.3 supply continuous inner/outer automorphisms and the outer action of an extension, but do not state centre-free extension reconstruction as a pullback. Request that additional generic theorem, including a continuous inverse and the restriction bijection for isomorphisms over the fixed base, from ProfiniteArithmetic, Part II. T97 §7A, Lemma 7.1, p. 188 supplies the mathematical pullback argument. Reuse the existing Out and outer-action interfaces; no second generic Out theory belongs in NC.1. The supplier is absent from the atlas stage index, so assembly must index the existing roadmap and its extension before adding the exact edge."
+    },
+    {
+      "title": "G5: the two-step Malcev quotient is not yet a target of NC.2",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient"
+      ],
+      "detail": "NC.1/weight-zero-quotient cites the layer NC.2 for the two-step Q_p Malcev quotient of the geometric pro-p fundamental group, its Lie bracket and its interpretation through unipotent representations (request to NC.2). The accepted NC.2 targets construct the unipotent completion of the étale fundamental group of a curve and its lower central quotients (NC.2/tannakian-groups, NC.2/central-quotients), not the Malcev quotient of the abstract geometric pro-p group, and none states this comparison. The target must be added to NC.2 using no input from NC.1 (restructure proposal 2 of this packet), so that the layer order NC.2 before NC.1 has no cycle. Until then the weight-zero quotient rests on this open input."
     }
   ],
   "sourceIssues": [
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E1",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E101",
       "source": "M99",
       "kind": "misprint",
       "locator": "§15 discussion before Corollary 15.3, author-copy p. 76",
@@ -3227,7 +3234,7 @@
       }
     },
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E2",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E102",
       "source": "M96",
       "kind": "misprint",
       "locator": "§5, discussion of λ:L_r→D′_Y across pp. 593–594",
@@ -3247,7 +3254,7 @@
       }
     },
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E3",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E103",
       "source": "M95",
       "kind": "misprint",
       "locator": "§3.9 node condition, author-copy p. 22",
@@ -3268,7 +3275,7 @@
       }
     },
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E4",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E104",
       "source": "M99",
       "kind": "gap",
       "locator": "§5, Proposition 5.4, author-copy p. 34, applying Definition 4.3 and Proposition 4.4 of §4, whose standing hypothesis is that the curve has a K-rational point, author-copy pp. 28–31",
@@ -3794,5 +3801,17 @@
         "note": "Hyperbolicity from the puncture; the compactification and high-ramification argument is that of M99 Corollary 14.2 (p. 73) over finitely generated fields, and Lemma 15.8 (p. 80) is its use."
       }
     ]
-  }
+  },
+  "assemblyEdits": [
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "Source issues E1–E4 renumbered E101–E104, because the NC.4 packet and the root packet also used E1, E2 and the NC.3 packet E4 for different findings, so the same identifier named different findings in the register. The one node reference (NC.1/j-geometric-section, source locator) now reads E104. The review object keeps its historical numbers: read its E1–E4 as E101–E104."
+    },
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "Added gap G5 for the request to NC.2 (two-step Malcev quotient), which no NC.2 target supplies; the assembly records the gap in the consuming part."
+    }
+  ]
 }

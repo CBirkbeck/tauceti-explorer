@@ -1531,7 +1531,7 @@
   ],
   "sourceIssues": [
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E1",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E401",
       "source": "kim2009-published",
       "kind": "misprint",
       "locator": "Published version, introduction p.92, choice of v over p",
@@ -1553,7 +1553,7 @@
       }
     },
     {
-      "id": "AnabelianGeometryAndNonabelianChabauty/E2",
+      "id": "AnabelianGeometryAndNonabelianChabauty/E402",
       "source": "kim2009-published",
       "kind": "misprint",
       "locator": "Published version, §3 p.121, regular annihilator in the dimension argument",
@@ -1780,5 +1780,12 @@
         "note": "Linear image closure and the pinned annihilator identities give the common-annihilator locus. W_MW⊆W_S and their equality are separate hypotheses; a Mordell–Weil rank bound alone does not bound the full Selmer locus."
       }
     ]
-  }
+  },
+  "assemblyEdits": [
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "Source issues E1 and E2 renumbered E401 and E402 (E1 and E2 also named different findings of the root and NC.1 packets). No node text referred to them. The review object keeps its historical numbers: read its E1, E2 as E401, E402."
+    }
+  ]
 }

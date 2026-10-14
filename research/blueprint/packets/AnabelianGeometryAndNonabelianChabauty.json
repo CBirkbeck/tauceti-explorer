@@ -2034,9 +2034,6 @@
         "name": "TauCeti.NonabelianCohomology.connectingCocycle"
       },
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Nonabelian connecting cocycle"
-      },
       "uses": [
         {
           "where": "Kim 2005 §1, printed p. 9; Kim 2009 §3 crystalline kernel",
@@ -2291,10 +2288,7 @@
         "namespace": "TauCeti.NonabelianCohomology",
         "name": "TauCeti.NonabelianCohomology.exact_H1_of_normal"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Normal nonabelian exactness"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
@@ -2430,9 +2424,6 @@
         "name": "TauCeti.NonabelianCohomology.H1.map_eq_map_iff_central"
       },
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Central extensions and the connecting map to H²"
-      },
       "tests": [
         {
           "name": "TauCeti.NonabelianCohomology.tests.central_defect_sign_C3_C9",
@@ -27900,6 +27891,13 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Finding /8 retains the precise NC.5 requests to AbelianSchemes A2 for NS(A)=Pic(A)/Pic⁰(A), the injection into symmetric Hom, finite generation and Picard rank. A6 supplies the finite-rank Hom input without replacing the quotient/injection construction. No duplicate owner or mathematical repair is introduced. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+    }
+  ],
+  "assemblyEdits": [
+    {
+      "job": "ASM-AnabelianGeometryAndNonabelianChabauty",
+      "date": "2026-10-14",
+      "edit": "Planets: the joined layer NC.3 had twelve planets (six here, six in the NC.3 part packet). Kept six for the layer: nonabelian-h1, exact-sequence and torsor-classification here, and finite-level-representability, selmer-functor and central-selmer-dimension in the NC.3 part packet. Removed the planet field from NC.3/connecting-cocycle (Nonabelian connecting cocycle); NC.3/normal-h1-kernel (Normal nonabelian exactness); NC.3/central-extension (Central extensions and the connecting map to H²). No statement, proof, API, test or prerequisite changed."
     }
   ]
 }
