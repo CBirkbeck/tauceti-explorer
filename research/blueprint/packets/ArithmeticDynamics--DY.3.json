@@ -57,7 +57,7 @@
         "ref": "mathlib:Height.logHeight₁_eq_logHeight",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Height/Basic.lean",
-        "provides": "Under the ambient admissible absolute-value/height assumptions, scalar logarithmic height equals tuple height of[x,1].",
+        "provides": "Under the ambient admissible absolute-value/height assumptions, scalar logarithmic height equals tuple height of [x,1].",
         "checked": "Statement read at pinned commit on 2026-10-14; Mathlib/NumberTheory/Height/Basic.lean:562"
       },
       {
@@ -65,7 +65,39 @@
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Height/NumberField.lean",
         "provides": "For a number field, native multiplicative height equals the product of max(|x|,1) over infinite places with multiplicities and finite places; no division by field degree.",
-        "checked": "Statement read at pinned commit on 2026-10-14; Mathlib/NumberTheory/Height/NumberField.lean:111"
+        "checked": "Statement read at pinned commit on 2026-10-14; Mathlib/NumberTheory/Height/NumberField.lean:112"
+      },
+      {
+        "ref": "mathlib:RatFunc.finrank_eq_max_natDegree",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/RatFunc/IntermediateField.lean",
+        "provides": "For f in K(X), [K(X):K(f)] = max(deg num f, deg denom f); for a nonconstant polynomial f this is deg f, so ℂ(z) is a finite extension of ℂ(f(z)).",
+        "checked": "Statement read at pinned commit 082e2d3 on 2026-10-14 (REV-ArithmeticDynamics--DY.3); Mathlib/FieldTheory/RatFunc/IntermediateField.lean:162",
+        "addedBy": "REV-ArithmeticDynamics--DY.3"
+      },
+      {
+        "ref": "mathlib:Algebra.trace",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "provides": "The trace of an element of an R-algebra S, as an R-linear map S → R (trace of left multiplication).",
+        "checked": "Statement read at pinned commit 082e2d3 on 2026-10-14 (REV-ArithmeticDynamics--DY.3); Mathlib/RingTheory/Trace/Defs.lean:71",
+        "addedBy": "REV-ArithmeticDynamics--DY.3"
+      },
+      {
+        "ref": "mathlib:trace_eq_sum_embeddings",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Trace/Basic.lean",
+        "provides": "For a finite separable field extension L/K and an algebraically closed K-algebra field E, the image of Tr_{L/K}(x) in E is the sum of σ(x) over the K-embeddings σ : L → E (root namespace).",
+        "checked": "Statement read at pinned commit 082e2d3 on 2026-10-14 (REV-ArithmeticDynamics--DY.3); Mathlib/RingTheory/Trace/Basic.lean:252",
+        "addedBy": "REV-ArithmeticDynamics--DY.3"
+      },
+      {
+        "ref": "mathlib:Algebra.trace_trace",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "provides": "Transitivity of the trace in a tower R ⊆ S ⊆ T of free finite extensions: Tr_{S/R}(Tr_{T/S} x) = Tr_{T/R} x.",
+        "checked": "Statement read at pinned commit 082e2d3 on 2026-10-14 (REV-ArithmeticDynamics--DY.3); Mathlib/RingTheory/Trace/Defs.lean:138",
+        "addedBy": "REV-ArithmeticDynamics--DY.3"
       }
     ]
   },
@@ -86,7 +118,7 @@
       "id": "gao-ou",
       "title": "The dynatomic periodic curves for polynomial z↦z^d+c are smooth and irreducible",
       "authors": "Y. Gao, Y. Ou",
-      "edition": "arXiv:1304.4751v1, exact downloaded PDF",
+      "edition": "arXiv:1304.4751v1, exact downloaded PDF; v1 is the only version, listed by arXiv under the title 'The dynatomic curves for unimodel polynomials are smooth and irreducible' (HAL hal-00814484 is the same preprint)",
       "url": "https://arxiv.org/pdf/1304.4751v1",
       "sha256": "a2c363d622ba6d6dee71cb803eca1f4a4bf411a110e5c783c7737a0ba0e6ee69",
       "accessed": "2026-10-14",
@@ -110,19 +142,19 @@
       "id": "morton92",
       "title": "Arithmetic properties of periodic points of quadratic maps",
       "authors": "P. Morton",
-      "edition": "Acta Arithmetica62 (1992),343–372",
+      "edition": "Acta Arithmetica 62 (1992), 343–372",
       "url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa62/aa6243.pdf",
       "sha256": "ae8322fcbd7d8e1faa98163c5587d8884d527b233803c2f809fd8ee821c0b7af",
       "accessed": "2026-10-14",
       "readSections": [
-        "§§1–3, pp.343–364: Theorems3–4, parametrization, symmetric curve and elliptic quotient"
+        "§§1–3, pp.343–364: Theorems 3–4, parametrization, symmetric curve and elliptic quotient"
       ]
     },
     {
       "id": "morton96",
       "title": "On certain algebraic curves related to polynomial maps",
       "authors": "P. Morton",
-      "edition": "Compositio Mathematica103 (1996),319–350",
+      "edition": "Compositio Mathematica 103 (1996), 319–350",
       "url": "https://www.numdam.org/article/CM_1996__103_3_319_0.pdf",
       "sha256": "9d821a7eb4453dd5864f8aa9b46907f5c3ea70b2eb53d381eabf6a899e91cda7",
       "accessed": "2026-10-14",
@@ -134,7 +166,7 @@
       "id": "morton96-corr",
       "title": "Corrigendum: On certain algebraic curves related to polynomial maps",
       "authors": "P. Morton",
-      "edition": "Compositio Mathematica147 (2011),332–334",
+      "edition": "Compositio Mathematica 147 (2011), 332–334",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/86C226AF3E2053463B6871D90108413F/S0010437X1000480Xa.pdf/corrigendum_on_certain_algebraic_curves_related_to_polynomial_maps_compositio_math_103_1996_319350.pdf",
       "sha256": "5eec9fba8946071061522eba81de2b6559e5720e62796ad054b2930c3b9ee6bd",
       "accessed": "2026-10-14",
@@ -151,7 +183,7 @@
       "sha256": "8dc2ca7f92654510e4cb20c7198abd345b603972959774def58173defa36fab8",
       "accessed": "2026-10-14",
       "readSections": [
-        "§1 p.1; §2 p.2; §4.3 Algorithm4 p.11 and §4.4 p.13: relative height and two-list guarantee"
+        "§1 p.1; §2 p.2; §4.3 Algorithm 4 p.11 and §4.4 p.13: relative height and two-list guarantee"
       ]
     }
   ],
@@ -196,8 +228,8 @@
         }
       ],
       "acceptance": [
-        "For d=2,n=1, X₁ is ℙ¹ with c=x−x² and π₁ degree2.",
-        "At n=5, genus is14, not the arithmetic genus of its degree30 plane closure."
+        "For d=2,n=1, X₁ is ℙ¹ with c=x−x² and π₁ degree 2.",
+        "At n=5, genus is 14, not the arithmetic genus of its degree 30 plane closure."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -250,7 +282,7 @@
         {
           "name": "projective_dynatomic_model_3",
           "kind": "non-example",
-          "statement": "n=4,d=2: the regular model has genus2; a claim that every monic plane model normalizes to ℙ¹ fails."
+          "statement": "n=4,d=2: the regular model has genus 2; a claim that every monic plane model normalizes to ℙ¹ fails."
         }
       ],
       "uses": [
@@ -272,14 +304,14 @@
       ],
       "title": "Projective quotient by cycle rotation",
       "kind": "construction",
-      "statement": "Extend the inherited rotation σ(x)=x^d+c, σ(c)=c to F and its smooth projective model. Its order is exactly n (including order1 at n=1), since a generic marked point has exact period n. Set F₀=F^{⟨σ⟩}; X₀,d(n) is the regular projective model of F₀. The inclusion F₀⊂F gives q:X₁→X₀ of degree n, and π₁ factors uniquely through π₀:X₀→ℙ¹ of degree ν_d(n)/n. On the open subset of exact-period points away from ramification, geometric fibres of q are the n cyclic markings of one cycle. A k-point of X₀ there represents a Galois-stable cycle, which need not have any k-rational marked point.",
+      "statement": "Extend the inherited rotation σ(x)=x^d+c, σ(c)=c to F and its smooth projective model. Its order is exactly n (including order 1 at n=1), since a generic marked point has exact period n. Set F₀=F^{⟨σ⟩}; X₀,d(n) is the regular projective model of F₀. The inclusion F₀⊂F gives q:X₁→X₀ of degree n, and π₁ factors uniquely through π₀:X₀→ℙ¹ of degree ν_d(n)/n. On the open subset of exact-period points away from ramification, geometric fibres of q are the n cyclic markings of one cycle. A k-point of X₀ there represents a Galois-stable cycle, which need not have any k-rational marked point.",
       "hypotheses": [
         "Characteristic zero field k; d≥2,n≥1.",
         "Use the open exact-period locus for the cycle interpretation; boundary and lower-period points remain in the projective quotient."
       ],
       "proofSteps": [
         "The ring automorphism extends to the fraction field; its n-th power is identity. Generic exact period gives order exactly n.",
-        "Import AlgebraicCurves Layer11 fixed-field degree theorem and Layer12 dictionary to define the quotient model and finite maps.",
+        "Import AlgebraicCurves Layer 11 fixed-field degree theorem and Layer 12 dictionary to define the quotient model and finite maps.",
         "Over an algebraic closure, q identifies precisely the rotation orbits; descent of that orbit is Galois stability. A rational lift requires trivial Galois action on the marked points, an additional condition."
       ],
       "prerequisites": [
@@ -292,7 +324,7 @@
       "sources": [
         {
           "sourceId": "fps",
-          "locator": "§2, pp.3–5; Theorem2 p.6",
+          "locator": "§2, pp.3–5; Theorem 2 p.6",
           "match": "Quotient by rotation, field degree and Galois-stable cycles."
         },
         {
@@ -356,7 +388,7 @@
         {
           "name": "dynatomic_cycle_quotient_2",
           "kind": "computation",
-          "statement": "d=2,n=2: q has degree2; the lower-period point (x,c)=(−1/2,−3/4) is fixed by σ and is ramified."
+          "statement": "d=2,n=2: q has degree 2; the lower-period point (x,c)=(−1/2,−3/4) is fixed by σ and is ramified."
         },
         {
           "name": "dynatomic_cycle_quotient_3",
@@ -366,7 +398,7 @@
       ],
       "uses": [
         {
-          "where": "FPS Theorem1",
+          "where": "FPS Theorem 1",
           "how": "Projects a putative rational marked 5-cycle to the quotient curve."
         },
         {
@@ -383,7 +415,7 @@
       ],
       "title": "Primitive binary necklaces at infinity",
       "kind": "definition",
-      "statement": "For n≥1, a binary word is w:Fin n→Fin2. It is primitive when no nonidentity rotation fixes it. Let Bₙ be primitive words modulo cyclic rotation. Complement w↦1−w induces an involution on Bₙ; let Iₙ be its orbit set. The separate ramification theorem identifies these finite quotients with the geometric places over c=∞ in X₀,2(n). Write ν(n)=ν₂(n)/2 and eₙ=|Iₙ|. Then |Bₙ|=2ν(n)/n and eₙ=ν(n)/n for odd n; for even n, eₙ=ν(n)/n+(1/(2n))Σ_{r|n,2|r,n/r odd} μ(n/r)2^{r/2}. All divisions in these formulas are rational equalities, followed by integrality theorems.",
+      "statement": "For n≥1, a binary word is w:Fin n→Fin 2. It is primitive when no nonidentity rotation fixes it. Let Bₙ be primitive words modulo cyclic rotation. Complement w↦1−w induces an involution on Bₙ; let Iₙ be its orbit set. The separate ramification theorem identifies these finite quotients with the geometric places over c=∞ in X₀,2(n). Write ν(n)=ν₂(n)/2 and eₙ=|Iₙ|. Then |Bₙ|=2ν(n)/n and eₙ=ν(n)/n for odd n; for even n, eₙ=ν(n)/n+(1/(2n))Σ_{r|n,2|r,n/r odd} μ(n/r)2^{r/2}. All divisions in these formulas are rational equalities, followed by integrality theorems.",
       "hypotheses": [
         "n≥1; binary words have labelled positions before quotienting.",
         "Primitivity excludes all proper cyclic periods, not only constant words."
@@ -391,7 +423,7 @@
       "proofSteps": [
         "Use finite cyclic group rotation on Fin n and its action on functions; define primitive words by stabilizer triviality. Complement commutes with rotation.",
         "Möbius inversion counts primitive words. Burnside on rotations and complement counts Iₙ; rotations paired with complement contribute only in the even case with the displayed parity restriction.",
-        "Morton Lemma12 identifies these complement-orbits with places at infinity after adjoining u with c=u²; the sign change u↦−u exchanges binary symbols."
+        "Morton Lemma 12 identifies these complement-orbits with places at infinity after adjoining u with c=u²; the sign change u↦−u exchanges binary symbols."
       ],
       "prerequisites": [
         "mathlib:MulAction.orbitRel",
@@ -401,7 +433,7 @@
       "sources": [
         {
           "sourceId": "morton96",
-          "locator": "§3, Lemma12, pp.340–341; Theorem13 proof, p.342",
+          "locator": "§3, Lemma 12, pp.340–341; Theorem 13 proof, p.342",
           "match": "Primitive necklace count and its infinity-place interpretation."
         },
         {
@@ -465,12 +497,12 @@
         {
           "name": "quadratic_infinity_necklaces_2",
           "kind": "computation",
-          "statement": "n=2: 01 and10 are primitive, one necklace fixed by complement, one infinity-place."
+          "statement": "n=2: 01 and 10 are primitive, one necklace fixed by complement, one infinity-place."
         },
         {
           "name": "quadratic_infinity_necklaces_3",
           "kind": "non-example",
-          "statement": "At n=4 word0101 is excluded; word0011 is primitive and its complement is a rotation, whereas0001 and1110 give two necklaces in one complement-orbit."
+          "statement": "At n=4 word 0101 is excluded; word 0011 is primitive and its complement is a rotation, whereas 0001 and 1110 give two necklaces in one complement-orbit."
         }
       ],
       "uses": [
@@ -492,16 +524,16 @@
       ],
       "title": "Ramification of the quadratic parameter maps",
       "kind": "theorem",
-      "statement": "Over an algebraically closed characteristic-zero field, put ν(n)=½Σ_{e|n}μ(n/e)2^e. For X₁(n)→ℙ¹_c the degree is2ν(n); above∞ there are ν(n) places each of index2. The finite branch parameters partition into primitive period-n parabolic parameters (bₙ of them) and satellite parameters of exact cycle period e<n with multiplier of order n/e (b_{n,e} of them). Here b_{n,e}=ν(e)φ(n/e) and bₙ=ν(n)−Σ_{e|n,e<n}b_{n,e}. Each primitive parameter has n ramified places of index2; each satellite parameter has e places of index n/e; all other places above those parameters are unramified. Consequently deg Diff(F/k(c))=nν(n)−Σ_{e|n,e<n}eν(e)φ(n/e)+ν(n). For F₀/k(c), finite different degree is bₙ and infinity different degree is 2ν(n)/n−eₙ.",
+      "statement": "Over an algebraically closed characteristic-zero field, put ν(n)=½Σ_{e|n}μ(n/e)2^e. For X₁(n)→ℙ¹_c the degree is 2ν(n); above ∞ there are ν(n) places each of index 2. The finite branch parameters partition into primitive period-n parabolic parameters (bₙ of them) and satellite parameters of exact cycle period e<n with multiplier of order n/e (b_{n,e} of them). Here b_{n,e}=ν(e)φ(n/e) and bₙ=ν(n)−Σ_{e|n,e<n}b_{n,e}. Each primitive parameter has n ramified places of index 2; each satellite parameter has e places of index n/e; all other places above those parameters are unramified. Consequently deg Diff(F/k(c))=nν(n)−Σ_{e|n,e<n}eν(e)φ(n/e)+ν(n). For F₀/k(c), finite different degree is bₙ and infinity different degree is 2ν(n)/n−eₙ.",
       "hypotheses": [
-        "k algebraically closed, char0; n≥1.",
+        "k algebraically closed, char 0; n≥1.",
         "Ramification of the normalized curve is used; the discriminant of a possibly nonnormal multiplier plane equation is not its field different."
       ],
       "proofSteps": [
         "Use parabolic-parameter-transversality and the local branch descriptions to count primitive and satellite branch parameters via multiplier/cyclotomic factors.",
-        "Morton Proposition9 proves the affine coordinate ring is the integral closure and computes finite different exponents, including the satellite contribution n−e.",
-        "At infinity use c=u² and the distinct Laurent expansions of periodic roots (Morton Proposition10); for F₀ use primitive binary necklaces and their complement stabilizers.",
-        "Characteristic zero is tame, so import different exponent e−1 from AlgebraicCurves Layer7; sum contributions with residue degree1. The quotient is unramified at satellite parameters, not at primitive ones."
+        "Morton Proposition 9 proves the affine coordinate ring is the integral closure and computes finite different exponents, including the satellite contribution n−e.",
+        "At infinity use c=u² and the distinct Laurent expansions of periodic roots (Morton Proposition 10); for F₀ use primitive binary necklaces and their complement stabilizers.",
+        "Characteristic zero is tame, so import different exponent e−1 from AlgebraicCurves Layer 7; sum contributions with residue degree 1. The quotient is unramified at satellite parameters, not at primitive ones."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.3/dynatomic-cycle-quotient",
@@ -513,7 +545,7 @@
       "sources": [
         {
           "sourceId": "morton96",
-          "locator": "§3, Propositions9–10, pp.337–339; Theorems11,13, pp.339–343",
+          "locator": "§3, Propositions 9–10, pp.337–339; Theorems 11,13, pp.339–343",
           "match": "Finite different and infinity contributions."
         },
         {
@@ -523,8 +555,8 @@
         }
       ],
       "acceptance": [
-        "n=2: X₁ degree2, one satellite branch at c=−3/4 and one place above∞, both index2; quotient degree1 has zero different.",
-        "n=6: quotient degree9, b₆=20 and e₆=5, giving different degree24 and genus4."
+        "n=2: X₁ degree 2, one satellite branch at c=−3/4 and one place above ∞, both index 2; quotient degree 1 has zero different.",
+        "n=6: quotient degree 9, b₆=20 and e₆=5, giving different degree 24 and genus 4."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -542,11 +574,11 @@
       "kind": "theorem",
       "statement": "For every n≥1 over any characteristic-zero field, the smooth projective models of z²+c have genera g₁(n)=1+(n−3)ν(n)/2−½Σ_{e|n,e<n}eν(e)φ(n/e), and g₀(n)=1+(½−3/(2n))ν(n)−½Σ_{e|n,e<n}ν(e)φ(n/e)−ε(n), where ν(n)=½Σ_{e|n}μ(n/e)2^e, ε(n)=0 for odd n, and ε(n)=(1/(4n))Σ_{r|n,2|r,n/r odd}μ(n/r)2^{r/2} for even n. These are equalities in ℚ with the natural-number genus cast into ℚ. For n=1,…,10, the pairs (g₀,g₁) are (0,0),(0,0),(0,0),(0,2),(2,14),(4,34),(16,124),(32,285),(79,745),(162,1690).",
       "hypotheses": [
-        "n≥1; char0; smooth projective models, not affine curves or singular plane closures."
+        "n≥1; char 0; smooth projective models, not affine curves or singular plane closures."
       ],
       "proofSteps": [
-        "Base change to an algebraic closure preserves genus by AlgebraicCurves Layer8.",
-        "Apply the Hurwitz genus formula to both finite separable parameter maps using quadratic-parameter-ramification and genus0 of ℙ¹.",
+        "Base change to an algebraic closure preserves genus by AlgebraicCurves Layer 8.",
+        "Apply the Hurwitz genus formula to both finite separable parameter maps using quadratic-parameter-ramification and genus 0 of ℙ¹.",
         "Insert the necklace formula for eₙ and simplify over ℚ. This also proves integrality and nonnegativity; no truncated natural subtraction is used."
       ],
       "prerequisites": [
@@ -559,18 +591,18 @@
       "sources": [
         {
           "sourceId": "fps",
-          "locator": "§2, p.5, formulas and Table1",
+          "locator": "§2, p.5, formulas and Table 1",
           "match": "Both formulas and numerical checks."
         },
         {
           "sourceId": "morton96",
-          "locator": "§3, Theorems11,13, pp.339–343",
+          "locator": "§3, Theorems 11,13, pp.339–343",
           "match": "Hurwitz proof supplying the formulas."
         }
       ],
       "acceptance": [
-        "In particular X₁(4) has genus2, X₀(5) genus2, and X₀(6) genus4, matching the arithmetic supplier models.",
-        "The even correction cannot be omitted: at n=2 omitting it gives genus1/4, not0."
+        "In particular X₁(4) has genus 2, X₀(5) genus 2, and X₀(6) genus 4, matching the arithmetic supplier models.",
+        "The even correction cannot be omitted: at n=2 omitting it gives genus 1/4, not 0."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -586,7 +618,7 @@
       ],
       "title": "Rational quadratic differentials on the complex plane",
       "kind": "definition",
-      "statement": "A rational quadratic differential is q(z)dz² with q∈RatFunc ℂ. Its pole orders are those of q on the affine plane; at∞ use w=1/z, giving coefficient q(1/w)/w⁴. For a bounded measurable U⊂ℂ and q with at most simple affine poles, define its local mass ∫_U |q(z)| dA, using Lebesgue area on ℂ≃ℝ² and ignoring finitely many poles. It is finite on bounded sets. The double-pole differentials used for multiplier variation are the same rational carrier but are not assigned a finite mass on sets containing their poles.",
+      "statement": "A rational quadratic differential is q(z)dz² with q∈RatFunc ℂ. Its pole orders are those of q on the affine plane; at ∞ use w=1/z, giving coefficient q(1/w)/w⁴. For a bounded measurable U⊂ℂ and q with at most simple affine poles, define its local mass ∫_U |q(z)| dA, using Lebesgue area on ℂ≃ℝ² and ignoring finitely many poles. It is finite on bounded sets. The double-pole differentials used for multiplier variation are the same rational carrier but are not assigned a finite mass on sets containing their poles.",
       "hypotheses": [
         "q rational; local mass assertions require at most simple affine poles.",
         "Affine local integrability does not imply integrability on the sphere."
@@ -603,7 +635,7 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§2.1, pp.2–3; §2.3, pp.8–10",
+          "locator": "§2.1, pp.2–3; §2.3, pp.9–10",
           "match": "Local mass for simple poles and separate double-pole coefficients."
         }
       ],
@@ -630,7 +662,7 @@
         {
           "name": "quadraticDifferentialPoleOrder",
           "role": "projection",
-          "statement": "At a finite point use denominator minus numerator order; at∞ use q(1/w)/w⁴."
+          "statement": "At a finite point use denominator minus numerator order; at ∞ use q(1/w)/w⁴."
         },
         {
           "name": "quadraticDifferentialMass",
@@ -640,7 +672,7 @@
         {
           "name": "quadraticDifferentialMass_zero",
           "role": "simp",
-          "statement": "The zero differential has mass0 on every set."
+          "statement": "The zero differential has mass 0 on every set."
         },
         {
           "name": "quadraticDifferentialMass_smul",
@@ -662,26 +694,26 @@
         {
           "name": "rational_quadratic_differentials_1",
           "kind": "computation",
-          "statement": "q=1/z has simple pole at0 and mass2πR on disc radiusR."
+          "statement": "q=1/z has simple pole at 0 and mass 2πR on disc radius R."
         },
         {
           "name": "rational_quadratic_differentials_2",
           "kind": "non-example",
-          "statement": "q=1/z² has double pole at0 and infinite mass on every disc about0."
+          "statement": "q=1/z² has double pole at 0 and infinite mass on every disc about 0."
         },
         {
           "name": "rational_quadratic_differentials_3",
           "kind": "compatibility",
-          "statement": "q=1 has no affine poles but a fourth-order pole at∞; treating it as a holomorphic differential on the sphere fails."
+          "statement": "q=1 has no affine poles but a fourth-order pole at ∞; treating it as a holomorphic differential on the sphere fails."
         }
       ],
       "uses": [
         {
-          "where": "Gao–Ou Lemma2.2",
+          "where": "Gao–Ou Lemma 2.2",
           "how": "Supplies the local norm on which pushforward contracts."
         },
         {
-          "where": "Gao–Ou Lemmas2.8–2.9",
+          "where": "Gao–Ou Lemmas 2.8–2.9",
           "how": "Carries explicit double-pole multiplier differentials without a false integrability assertion."
         }
       ]
@@ -694,25 +726,28 @@
       ],
       "title": "Pushforward of rational quadratic differentials",
       "kind": "construction",
-      "statement": "For a nonconstant polynomial f over ℂ, define f_*q at regular values z by Σ_{f(w)=z}q(w)/f′(w)², summing distinct preimages; extend this rational function across the finite exceptional set. This gives a ℂ-linear operator RatFunc ℂ→RatFunc ℂ, functorial as (f∘g)_*=f_*∘g_*, with identity pushforward the identity. Simple affine poles stay at most simple; double poles can stay double. For f(z)=z^d+c, d≥2, f_*(1/z)=0 and, for a≠0, f_*(1/(z−a))=(1/f′(a))(1/(z−f(a))−1/(z−c)).",
+      "statement": "For a nonconstant polynomial f over ℂ, define f_*q at regular values z by Σ_{f(w)=z}q(w)/f′(w)², summing distinct preimages; extend this rational function across the finite exceptional set. This gives a ℂ-linear operator RatFunc ℂ→RatFunc ℂ, functorial as (f∘g)_*=f_*∘g_*, with identity pushforward the identity. Simple affine poles stay at most simple; double poles can stay double. For f(z)=z^d+c, d≥2: f_*(1/z)=0; for a≠0, f_*(1/(z−a))=(1/f′(a))(1/(z−f(a))−1/(z−c)) and f_*(1/(z−a)²)=1/(z−f(a))²−((d−1)/(a·f′(a)))(1/(z−f(a))−1/(z−c)).",
       "hypotheses": [
         "f nonconstant; formulas on regular values first, rational extension second.",
-        "The second displayed formula requires a≠0 for the unicritical map."
+        "The second and third displayed formulas require a≠0 for the unicritical map."
       ],
       "proofSteps": [
-        "Form the finite separable extension ℂ(f(z))⊂ℂ(z) and use its trace on q/f′²; identify the target rational coefficient with variable z.",
-        "On regular fibres trace equals the displayed finite sum. Extension, linearity and composition follow from rational-function equality and trace transitivity.",
-        "At poles use local expansions to bound the pushed pole order. For z^d+c sum over d-th roots to obtain Levin’s formulas."
+        "Form the finite separable extension ℂ(f(z))⊂ℂ(z), of degree deg f by RatFunc.finrank_eq_max_natDegree, and apply Mathlib's Algebra.trace to q/f′²; identify the target rational coefficient with variable z.",
+        "On regular fibres the trace equals the displayed finite sum (trace_eq_sum_embeddings). Extension, linearity and composition follow from rational-function equality and trace transitivity (Algebra.trace_trace).",
+        "At poles use local expansions to bound the pushed pole order. For z^d+c sum over d-th roots to obtain Levin’s three formulas (Gao–Ou Lemma 2.4)."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.3/rational-quadratic-differentials",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields"
+        "mathlib:RatFunc.finrank_eq_max_natDegree",
+        "mathlib:Algebra.trace",
+        "mathlib:trace_eq_sum_embeddings",
+        "mathlib:Algebra.trace_trace"
       ],
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§2.1, p.3; Lemma2.4, pp.3–4",
-          "match": "Pushforward definition, preservation of simple poles and unicritical formulas."
+          "locator": "§2.1, p.3; Lemma 2.4, pp.3–4",
+          "match": "Pushforward definition, preservation of simple poles and Levin's three unicritical formulas, including the double-pole one."
         }
       ],
       "acceptance": [
@@ -738,7 +773,7 @@
         {
           "name": "quadraticPushforward_zero",
           "role": "simp",
-          "statement": "Pushforward0=0."
+          "statement": "Pushforward 0=0."
         },
         {
           "name": "quadraticPushforward_id",
@@ -759,13 +794,19 @@
           "name": "unicriticalPushforward_simple",
           "role": "compatibility",
           "statement": "The two explicit formulas in the statement, including a≠0 for the second."
+        },
+        {
+          "name": "unicriticalPushforward_double",
+          "role": "relation",
+          "statement": "For a≠0, f_*(1/(z−a)²)=1/(z−f(a))²−((d−1)/(a·f′(a)))(1/(z−f(a))−1/(z−c)); summed along a cycle it gives the multiplier-variation identity of Gao–Ou Lemma 2.8.",
+          "addedBy": "REV-ArithmeticDynamics--DY.3"
         }
       ],
       "tests": [
         {
           "name": "polynomial_quadratic_pushforward_1",
           "kind": "computation",
-          "statement": "For f=z², the coefficient1/z pushes to0 by cancellation of the two preimages."
+          "statement": "For f=z², the coefficient 1/z pushes to 0 by cancellation of the two preimages."
         },
         {
           "name": "polynomial_quadratic_pushforward_2",
@@ -803,7 +844,7 @@
       ],
       "proofSteps": [
         "Polynomial growth of degree≥2 gives a sufficiently large disc with relatively compact preimage.",
-        "Away from critical points the complex Jacobian is |f′|²; partition regular fibres and apply area change of variables and the triangle inequality. Exceptional finite sets have measure0.",
+        "Away from critical points the complex Jacobian is |f′|²; partition regular fibres and apply area change of variables and the triangle inequality. Exceptional finite sets have measure 0.",
         "The annular complement contains a nonempty open set; a nonzero rational coefficient cannot vanish there, giving strict mass loss."
       ],
       "prerequisites": [
@@ -812,12 +853,12 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§2.1 Lemma2.2 and Corollary2.3, p.3",
+          "locator": "§2.1 Lemma 2.2 and Corollary 2.3, p.3",
           "match": "Corrected local contraction with the necessary nonzero and degree hypotheses; see E9301."
         }
       ],
       "acceptance": [
-        "For q=0 both masses are0; strict inequality fails.",
+        "For q=0 both masses are 0; strict inequality fails.",
         "For f=id a nonzero q is fixed, demonstrating the degree hypothesis."
       ],
       "library": {
@@ -834,31 +875,32 @@
       ],
       "title": "Transversality at unicritical parabolic parameters",
       "kind": "theorem",
-      "statement": "For f_c(z)=z^d+c,d≥2, at an exact m-cycle with multiplierρ=1 the derivative ∂_c(f_c^m(z)−z) is nonzero and the cycle has one attracting petal. At an exact m-cycle with primitive r-th-root multiplierρ≠1 (r>1), the implicit continuation ζ(c) exists and its multiplierρ(c) has ρ′(c₀)≠0. For P(c,z)=(f_c^{mr}(z)−z)/(f_c^m(z)−z), polynomial division gives ∂_cP(c₀,z₀)=rρ′(c₀)/(ρ(ρ−1))≠0. Locally the relevant dynatomic branch is a graph c=c(z), with ramification index2 in the first case and r in the second.",
+      "statement": "For f_c(z)=z^d+c,d≥2, at an exact m-cycle with multiplier ρ=1 the derivative ∂_c(f_c^m(z)−z) is nonzero and the cycle has one attracting petal. At an exact m-cycle with primitive r-th-root multiplier ρ≠1 (r>1), the implicit continuation ζ(c) exists and its multiplier ρ(c) has ρ′(c₀)≠0. For P(c,z)=(f_c^{mr}(z)−z)/(f_c^m(z)−z), polynomial division gives ∂_cP(c₀,z₀)=rρ′(c₀)/(ρ(ρ−1))≠0. Locally the relevant dynatomic branch is a graph c=c(z), with ramification index 2 in the first case and r in the second.",
       "hypotheses": [
         "d≥2; m≥1; exact m-cycle and specified primitive multiplier.",
         "The one-petal and exact local ramification assertions use the unicritical ray/attracting-basin input recorded separately, not the simple-pole contraction alone."
       ],
       "proofSteps": [
-        "At multiplier1, form the rational simple-pole differential whose coefficients solve the orbit recurrence; its pushforward difference has the parameter derivative as its sole critical-value coefficient. Local-quadratic-contraction forces that coefficient nonzero.",
+        "At multiplier 1, form the rational simple-pole differential whose coefficients solve the orbit recurrence; its pushforward difference has the parameter derivative as its sole critical-value coefficient. Local-quadratic-contraction forces that coefficient nonzero.",
         "At ρ≠1, use the implicit function theorem for the m-period equation and differentiate the divided equation to obtain the displayed identity.",
-        "For multiplier variation use Q=Σ_k(1/(z−z_k)²+μ_k/(z−z_k)), with μ_{k+1}=μ_k/f′(z_k)−(d−1)/(d z_k^d). Lemma2.8 gives f_*Q−Q=−(ρ′/ρ)/(z−c₀). Lemma2.9 excludes equality by puncturing discs about the cycle and comparing annular masses; double poles cannot use the simple-pole integral theorem.",
+        "For multiplier variation use Q=Σ_k(1/(z−z_k)²+μ_k/(z−z_k)), with μ_{k+1}=μ_k/f′(z_k)−(d−1)/(d z_k^d). Levin's double-pole formula (pushforward API unicriticalPushforward_double) and this recurrence give, as in Lemma 2.8, f_*Q−Q=−(ρ′/ρ)/(z−c₀). Lemma 2.9 excludes equality by puncturing discs about the cycle and comparing annular masses; double poles cannot use the simple-pole integral theorem.",
         "Use the local parabolic normal form and the unique critical basin to give one petal for primitive parameters and r petals for a multiplier of exact order r; this is the named ray/basin gap G1."
       ],
       "prerequisites": [
+        "ArithmeticDynamics:DY.3/polynomial-quadratic-pushforward",
         "ArithmeticDynamics:DY.3/local-quadratic-contraction",
         "ArithmeticDynamics:DY.3/unicritical-ray-landing"
       ],
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§2.2 Cases2–3, pp.4–8; Lemmas2.6,2.8,2.9, pp.7,9–10; Lemma3.9 p.15",
+          "locator": "§2.2 Cases 2–3, pp.4–8; Lemmas 2.6,2.8,2.9, pp.7,9–10; Lemma 3.9 p.15",
           "match": "Derivative calculation and the distinct double-pole argument."
         }
       ],
       "acceptance": [
-        "For z²+c at(c,z)=(1/4,1/2), ∂_c(f−z)=1 and local projection is quadratic.",
-        "At(c,z)=(−3/4,−1/2), m=1,r=2, the Φ₂ branch has local projection of index2."
+        "For z²+c at (c,z)=(1/4,1/2), ∂_c(f−z)=1 and local projection is quadratic.",
+        "At (c,z)=(−3/4,−1/2), m=1,r=2, the Φ₂ branch has local projection of index 2."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -874,13 +916,13 @@
       ],
       "title": "Kneading sequences with a boundary symbol",
       "kind": "definition",
-      "statement": "Fix d≥2. On T=ℝ/ℤ use τ(θ)=dθ. For θ represented in[0,1), let b_j=(θ+j)/d for0≤j<d. For k≥1, ν_θ(k) is ⋆ if τ^{k−1}(θ)=b_j for some j; it is j+1 if it lies strictly between b_j and b_{j+1} for0≤j<d−1; it is0 on the remaining open circular arc from b_{d−1} to b₀. The value ⋆ belongs to Option(Fin d), distinct from every digit. For θ of exact τ-period n, the first ⋆ is at k=n and the kneading sequence is periodic of length n. A word of length n ending in⋆ is cyclic if it is w^{s−1}w⋆ for a word w of length t<n with n=ts; w⋆ replaces only the final digit by⋆. Its cyclic expression uses the unique primitive such w.",
+      "statement": "Fix d≥2. On T=ℝ/ℤ use τ(θ)=dθ. For θ represented in [0,1), let b_j=(θ+j)/d for 0≤j<d. For k≥1, ν_θ(k) is ⋆ if τ^{k−1}(θ)=b_j for some j; it is j+1 if it lies strictly between b_j and b_{j+1} for 0≤j<d−1; it is 0 on the remaining open circular arc from b_{d−1} to b₀. The value ⋆ belongs to Option(Fin d), distinct from every digit. For θ of exact τ-period n, the first ⋆ is at k=n and the kneading sequence is periodic of length n. A word of length n ending in ⋆ is cyclic if it is w^{s−1}w⋆ for a word w of length t<n with n=ts; w⋆ replaces only the final digit by ⋆. Its cyclic expression uses the unique primitive such w.",
       "hypotheses": [
-        "d≥2; normalized representative of θ in[0,1); indices k begin at1.",
-        "Circular wrap interval has label0, not d; endpoints have label⋆."
+        "d≥2; normalized representative of θ in [0,1); indices k begin at 1.",
+        "Circular wrap interval has label 0, not d; endpoints have label ⋆."
       ],
       "proofSteps": [
-        "Use AddCircle1 for ℝ/ℤ and its normalized representative; make endpoint tests before open-arc tests.",
+        "Use AddCircle 1 for ℝ/ℤ and its normalized representative; make endpoint tests before open-arc tests.",
         "The nth iterate criterion gives the first boundary visit and period of the sequence.",
         "Primitive word means trivial cyclic-rotation stabilizer; the word-combinatorics node proves uniqueness of the primitive cyclic expression."
       ],
@@ -890,13 +932,13 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§3.1 pp.11–13; Definitions3.3,3.6–3.7 pp.13–14",
+          "locator": "§3.1 pp.11–13; Definitions 3.3,3.6–3.7 pp.13–14",
           "match": "Circle partition, boundary symbol, primitive and cyclic words."
         }
       ],
       "acceptance": [
-        "For d=3,θ=1/7 the length6 block is12102⋆.",
-        "The endpoint symbol must not be collapsed to digit0."
+        "For d=3,θ=1/7 the length 6 block is 12102⋆.",
+        "The endpoint symbol must not be collapsed to digit 0."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -917,12 +959,12 @@
         {
           "name": "kneading_digit_iff",
           "role": "characterisation",
-          "statement": "Digit j iff in the explicitly labelled open arc; the arc for0 wraps around1."
+          "statement": "Digit j iff in the explicitly labelled open arc; the arc for 0 wraps around 1."
         },
         {
           "name": "kneading_period",
           "role": "relation",
-          "statement": "Exact period n of θ gives first⋆ at n and n-periodic sequence."
+          "statement": "Exact period n of θ gives first ⋆ at n and n-periodic sequence."
         },
         {
           "name": "cyclicKneadingExpression",
@@ -944,22 +986,22 @@
         {
           "name": "unicritical_kneading_sequence_1",
           "kind": "computation",
-          "statement": "d=3,θ=1/7:12102⋆ repeats, with first⋆ at6."
+          "statement": "d=3,θ=1/7:12102⋆ repeats, with first ⋆ at 6."
         },
         {
           "name": "unicritical_kneading_sequence_2",
           "kind": "computation",
-          "statement": "d=4,θ=28/31: maximal angle with expansion .32130 and kneading block3213⋆."
+          "statement": "d=4,θ=28/31: maximal angle with expansion .32130 and kneading block 3213⋆."
         },
         {
           "name": "unicritical_kneading_sequence_3",
           "kind": "degenerate",
-          "statement": "θ=0 for every d: every symbol is⋆; no digit is assigned to the boundary."
+          "statement": "θ=0 for every d: every symbol is ⋆; no digit is assigned to the boundary."
         }
       ],
       "uses": [
         {
-          "where": "Gao–Ou Lemmas3.11–3.12",
+          "where": "Gao–Ou Lemmas 3.11–3.12",
           "how": "Distinguishes primitive from satellite parabolic parameters."
         },
         {
@@ -976,13 +1018,13 @@
       ],
       "title": "Primitive-word facts for kneading monodromy",
       "kind": "theorem",
-      "statement": "Every nonempty finite word has a unique primitive root under concatenation. If a nonprimitive word is changed at exactly its last digit, the resulting word is primitive. A cyclic starred kneading block has a unique primitive cyclic expression. For a τ-periodic angle maximal in its orbit, its kneading block is its periodic base-d expansion with the last digit replaced by⋆.",
+      "statement": "Every nonempty finite word has a unique primitive root under concatenation. If a nonprimitive word is changed at exactly its last digit, the resulting word is primitive. A cyclic starred kneading block has a unique primitive cyclic expression. For a τ-periodic angle maximal in its orbit, its kneading block is its periodic base-d expansion with the last digit replaced by ⋆.",
       "hypotheses": [
         "Nonempty words over Fin d; d≥2 for angle statements; maximality uses normalized representatives."
       ],
       "proofSteps": [
         "Prove primitive-root uniqueness using the common-period/commuting-word argument.",
-        "If two words differing only in the last position were both powers, compare their distinct primitive-root lengths and repeat the cancellation argument of Gao–Ou Lemma3.5.",
+        "If two words differing only in the last position were both powers, compare their distinct primitive-root lengths and repeat the cancellation argument of Gao–Ou Lemma 3.5.",
         "Two starred cyclic expressions either agree at the missing digit, so have the same primitive root, or give the forbidden one-digit change between powers.",
         "For the maximal-angle assertion compare the moving partition with the fixed d-adic partition; the orbit avoids the intervening arcs."
       ],
@@ -992,13 +1034,13 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§3.1 Lemma3.2 pp.12–13; §3.2 Lemmas3.4–3.5, Proposition3.8 pp.13–14",
+          "locator": "§3.1 Lemma 3.2 pp.12–13; §3.2 Lemmas 3.4–3.5, Proposition 3.8 pp.13–14",
           "match": "Combinatorial inputs without an internal-address theory."
         }
       ],
       "acceptance": [
-        "0101 is nonprimitive, whereas0100 is primitive.",
-        "The cyclic expression of111⋆ is w=1,s=4; w=11,s=2 is not primitive."
+        "0101 is nonprimitive, whereas 0100 is primitive.",
+        "The cyclic expression of 111⋆ is w=1,s=4; w=11,s=2 is not primitive."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -1014,18 +1056,18 @@
       ],
       "title": "Böttcher coordinates and unicritical external rays",
       "kind": "construction",
-      "statement": "For d≥2 let K_c={z: the forward orbit under f_c=z^d+c is bounded}, using the inherited escape-rate/bounded-orbit comparison and M_d={c:0∈K_c}. Construct the normalized Böttcher coordinate near∞, φ_c(f_c(z))=φ_c(z)^d and φ_c(z)/z→1. For c∈M_d extend it to ℂ∖K_c≅ℂ∖closedDisc(0,1). Define dynamical rays as inverse radial half-lines, with landing a radial limit as radius decreases to1; for c∉M_d extend the rays maximally, stopping at a critical preimage if continuation breaks. Construct the parameter coordinate Φ_d(c)=φ_c(c), a biholomorphism ℂ∖M_d→ℂ∖closedDisc(0,1); parameter rays are its inverse radial half-lines. These are actual curves, not names for arbitrary choices of landing functions.",
+      "statement": "For d≥2 let K_c={z: the forward orbit under f_c=z^d+c is bounded}, using the inherited escape-rate/bounded-orbit comparison and M_d={c:0∈K_c}. Construct the normalized Böttcher coordinate near ∞, φ_c(f_c(z))=φ_c(z)^d and φ_c(z)/z→1. For c∈M_d extend it to ℂ∖K_c≅ℂ∖closedDisc(0,1). Define dynamical rays as inverse radial half-lines, with landing a radial limit as radius decreases to 1; for c∉M_d extend the rays maximally, stopping at a critical preimage if continuation breaks. Construct the parameter coordinate Φ_d(c)=φ_c(c), a biholomorphism ℂ∖M_d→ℂ∖closedDisc(0,1); parameter rays are its inverse radial half-lines. These are actual curves, not names for arbitrary choices of landing functions.",
       "hypotheses": [
-        "d≥2; normalization at∞ fixes the d−1 root-of-unity ambiguity.",
+        "d≥2; normalization at ∞ fixes the d−1 root-of-unity ambiguity.",
         "For disconnected K_c do not assert a global Böttcher isomorphism ℂ∖K_c; use maximal rays and their critical obstructions."
       ],
       "proofSteps": [
-        "Construct the near∞ Böttcher coordinate from iterated d-th roots and uniform convergence, normalized by its asymptotic expansion.",
+        "Construct the near ∞ Böttcher coordinate from iterated d-th roots and uniform convergence, normalized by its asymptotic expansion.",
         "Extend on the escaping basin when K_c is connected; prove parameter uniformization and connectivity of M_d using the critical-value coordinate.",
         "Analytic continuation along rays defines the maximal external ray; continuation ends at a precritical point or lands on K_c. The foundational source-to-baseline proof of these dynamical inputs is gap G1; the general conformal/monodromy theory is imported, not replanned."
       ],
       "prerequisites": [
-        "ArithmeticDynamics:DY.3/unicritical-kneading-sequence",
+        "mathlib:AddCircle",
         "tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle",
         "ArithmeticDynamics:DY.2/escape-rate-nonpos-iff-bounded-orbit"
       ],
@@ -1049,7 +1091,7 @@
         {
           "name": "unicriticalBottcher",
           "role": "constructor",
-          "statement": "Normalized conformal conjugacy near∞ with φ_c(z)/z→1."
+          "statement": "Normalized conformal conjugacy near ∞ with φ_c(z)/z→1."
         },
         {
           "name": "bottcher_unique",
@@ -1074,12 +1116,12 @@
         {
           "name": "externalRay_landing",
           "role": "projection",
-          "statement": "Landing is the limit of the actual ray as its radial parameter tends down to1, when it exists."
+          "statement": "Landing is the limit of the actual ray as its radial parameter tends down to 1, when it exists."
         },
         {
           "name": "externalRay_dynamics",
           "role": "compatibility",
-          "statement": "f_c sends an unobstructed ray of angleθ to angle dθ and sends their landing points accordingly."
+          "statement": "f_c sends an unobstructed ray of angle θ to angle dθ and sends their landing points accordingly."
         },
         {
           "name": "parameterCoordinate_unique",
@@ -1091,12 +1133,12 @@
         {
           "name": "unicritical_external_ray_system_1",
           "kind": "computation",
-          "statement": "c=0: dynamic rayθ lands at exp(2πiθ), and f_c carries that endpoint to exp(2πidθ)."
+          "statement": "c=0: dynamic ray θ lands at exp(2πiθ), and f_c carries that endpoint to exp(2πidθ)."
         },
         {
           "name": "unicritical_external_ray_system_2",
           "kind": "degenerate",
-          "statement": "θ=0,c=0: the ray is the positive real half-line (1,∞), with endpoint1."
+          "statement": "θ=0,c=0: the ray is the positive real half-line (1,∞), with endpoint 1."
         },
         {
           "name": "unicritical_external_ray_system_3",
@@ -1123,7 +1165,7 @@
       ],
       "title": "Periodic ray landing and unicritical parabolic structure",
       "kind": "theorem",
-      "statement": "For d≥2, every periodic parameter ray of exact angle period n lands at a parabolic parameter c₀. Its dynamic ray lands at an exact m-period point with m|n and multiplier a primitive (n/m)-th root of unity. Each period-n hyperbolic component has one root at which two period-n parameter rays land and d−2 co-roots at which one such ray lands; the root is primitive when the two ray orbits are distinct. An exact m-cycle with primitive r-th-root multiplier has the local splitting into one m-cycle and one mr-cycle described in Gao–Ou Lemma3.9; at primitive multiplier1 a single parabolic cycle splits into two m-cycles. Unicriticality gives the one critical attracting basin and the exact petal count used in transversality. For approaching parameters along a landing ray, For the compactified critical-value ray R, any Hausdorff subsequential limit meets ∂K only at the corresponding parabolic point, agrees outside K with its landing ray, and meets int K only inside that point’s immediate basin. The limit S of the precritical pullbacks is f⁻¹(R), so its boundary intersection lies in the preimages of that point. These are the primitive and distinguished-satellite configurations used by the two monodromy propositions.",
+      "statement": "For d≥2, every periodic parameter ray of exact angle period n lands at a parabolic parameter c₀. Its dynamic ray lands at an exact m-period point with m|n and multiplier a primitive (n/m)-th root of unity. Each period-n hyperbolic component has one root at which two period-n parameter rays land and d−2 co-roots at which one such ray lands; the root is primitive exactly when the two landing angles have distinct τ-orbits. An exact m-cycle with primitive r-th-root multiplier has the local splitting into one m-cycle and one mr-cycle described in Gao–Ou Lemma 3.9; at primitive multiplier 1 a single parabolic cycle splits into two m-cycles. Unicriticality gives the one critical attracting basin and the exact petal count used in transversality. Let c_m→c₀ along the parameter ray of angle θ, and put R(c)=R_c(θ)∪{c,∞} (the compactified dynamic ray through the critical value) and S(c)=f_c⁻¹(R(c)) (the d precritical dynamic rays together with 0 and ∞). After passing to a subsequence, R(c_m)→R and S(c_m)→S in the Hausdorff topology on compact subsets of the Riemann sphere, with S=f_{c₀}⁻¹(R); R meets ℂ∖K_{c₀} exactly in the dynamic ray R_{c₀}(θ), meets ∂K_{c₀} only at the parabolic point γ_{c₀}(θ), and meets the interior of K_{c₀} only inside that point’s immediate basin, so S meets ∂K_{c₀} only in preimages of that point. These are the primitive and distinguished-satellite configurations used by the two monodromy propositions.",
       "hypotheses": [
         "d≥2; periodic angles; hyperbolic-component root/co-root assertion for n>1 as used in §3.3.",
         "This target uses gap G1: Gao–Ou recall deep ray and basin inputs rather than proving them; no existing ConformalMapping layer supplies polynomial dynamics."
@@ -1140,13 +1182,13 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "§3.3 pp.14–18, Lemma3.9 p.15; §3.4 proof of Proposition3.13 pp.24–25 and Proposition3.15 pp.26–28",
+          "locator": "§3.3 pp.14–18, Lemma 3.9 p.15; §3.4 proof of Proposition 3.13 pp.24–25 and Proposition 3.15 pp.26–28",
           "match": "Exact invoked ray/basin and Hausdorff-limit contracts, with their unexpanded suppliers identified."
         }
       ],
       "acceptance": [
-        "For d=2,n=2 the period2 root c=−3/4 has fixed point−1/2, multiplier−1, and angle period2, not exact point period2.",
-        "The co-root count is0 for d=2 and1 for d=3; copying the quadratic two-ray statement to every root/co-root fails."
+        "For d=2,n=2 the period 2 root c=−3/4 has fixed point −1/2, multiplier −1, and angle period 2, not exact point period 2.",
+        "The co-root count is 0 for d=2 and 1 for d=3; copying the quadratic two-ray statement to every root/co-root fails."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -1162,7 +1204,7 @@
       ],
       "title": "Symbolic coding outside the Multibrot set",
       "kind": "theorem",
-      "statement": "For c∉M_d lying on a nonzero-angle parameter ray, the d precritical dynamic rays cut the plane into sectors U₀,…,U_{d−1}, with U₀ containing ray0 and the others numbered counterclockwise. Itinerary gives a bijection ι_c:K_c→(Fin d)^ℕ conjugating f_c to the left shift. Thus exact point period equals exact sequence period. On X=ℂ∖(M_d∪R_{M_d}(0)), the inverse x(ι,c) for a fixed sequence is continuous in c, and for a periodic sequence is holomorphic. This supplies the consistent labels for periodic roots in the monodromy calculation.",
+      "statement": "For c∉M_d lying on a nonzero-angle parameter ray, the d precritical dynamic rays cut the plane into sectors U₀,…,U_{d−1}, with U₀ containing ray 0 and the others numbered counterclockwise. Itinerary gives a bijection ι_c:K_c→(Fin d)^ℕ conjugating f_c to the left shift. Thus exact point period equals exact sequence period. On X=ℂ∖(M_d∪R_{M_d}(0)), the inverse x(ι,c) for a fixed sequence is continuous in c, and for a periodic sequence is holomorphic. This supplies the consistent labels for periodic roots in the monodromy calculation.",
       "hypotheses": [
         "d≥2; c∈X; the cut label convention is part of the statement.",
         "Holomorphic periodic-root continuation is asserted on X, not across parabolic landing parameters."
@@ -1170,7 +1212,7 @@
       "proofSteps": [
         "Each sector maps conformally to the slit critical-value complement; inverse branches form nested compact sets with unique intersection.",
         "Recover the unique itinerary point; show conjugacy and exact period preservation. For periodic itineraries apply the implicit function theorem since their cycles are repelling outside M_d.",
-        "Parameter uniformization slit at ray0 makes X simply connected and fixes the labels."
+        "Parameter uniformization slit at ray 0 makes X simply connected and fixes the labels."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.3/unicritical-external-ray-system",
@@ -1208,8 +1250,8 @@
       ],
       "proofSteps": [
         "At a primitive point the local projection is c=c₀+δ²; a turn exchanges its two branches. Ray-limit control identifies the two symbolic labels and their rotations.",
-        "At the distinguished satellite point the local projection is c=c₀+δ^n, so the branches cycle. Identify its fixed parabolic point with the maximal-angle orbit using Lemma3.14 and the ray-limit exclusion in Proposition3.15.",
-        "Lemma3.11 gives the satellite cyclic-expression constraint; Lemma3.12 constructs primitive landing angles when its digit constraint fails."
+        "At the distinguished satellite point the local projection is c=c₀+δ^n, so the branches cycle. Identify its fixed parabolic point with the maximal-angle orbit using Lemma 3.14 and the ray-limit exclusion in Proposition 3.15.",
+        "Lemma 3.11 gives the satellite cyclic-expression constraint; Lemma 3.12 constructs primitive landing angles when its digit constraint fails."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.3/parabolic-parameter-transversality",
@@ -1219,7 +1261,7 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "Lemmas3.11–3.12 pp.20–23; Proposition3.13 pp.23–25; Lemma3.14 and Proposition3.15 pp.25–28",
+          "locator": "Lemmas 3.11–3.12 pp.20–23; Proposition 3.13 pp.23–25; Lemma 3.14 and Proposition 3.15 pp.25–28",
           "match": "Labelled primitive transpositions and terminal satellite cycle."
         }
       ],
@@ -1247,7 +1289,7 @@
       ],
       "proofSteps": [
         "For n>1 rotate a primitive periodic word to its maximal lexicographic marking. If its maximal angle fails the satellite condition, primitive monodromy raises the last digit.",
-        "If it satisfies the satellite condition, use the primitive angles of Lemma3.12 successively to reach a word whose total digit sum increases. The sum is bounded by n(d−1)−1, so the process reaches the distinguished orbit with word(d−1)…(d−1)(d−2).",
+        "If it satisfies the satellite condition, use the primitive angles of Lemma 3.12 successively to reach a word whose total digit sum increases. The sum is bounded by n(d−1)−1, so the process reaches the distinguished orbit with word (d−1)…(d−1)(d−2).",
         "Use the distinguished satellite loop to connect every marking in that orbit; concatenate and reverse loops to connect any two initial roots.",
         "For a smooth affine plane curve, transitivity gives connectedness and hence irreducibility; use analytic/algebraic comparison gap G2 for this final bridge."
       ],
@@ -1260,7 +1302,7 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "Theorem3.1, pp.10–11; §3.5 pp.28–29",
+          "locator": "Theorem 3.1, p.11; §3.5 pp.28–29",
           "match": "Terminating digit-sum ascent and final orbit rotation."
         }
       ],
@@ -1282,7 +1324,7 @@
       ],
       "title": "From analytic branches to the algebraic dynatomic curve",
       "kind": "comparison",
-      "statement": "For d≥2,n≥1, the complex zero scheme of the inherited Φ*ₙ,d is reduced, smooth and geometrically integral; its complex points are the closure in ℂ² of exact n-period pairs with multiplier≠1. At a pair of exact period m dividing n with multiplier of order r>1, it belongs to that closure exactly when n=mr; multiplier1 points of exact n-period also belong. The complex smoothness/irreducibility descends to any characteristic-zero field by the integral-coefficient model and faithful field extension. This refines the inherited smooth-irreducible endpoint with the missing closure-to-equation and descent contracts.",
+      "statement": "For d≥2,n≥1, the complex zero scheme of the inherited Φ*ₙ,d is reduced, smooth and geometrically integral; its complex points are the closure in ℂ² of exact n-period pairs with multiplier≠1. At a pair of exact period m dividing n with multiplier of order r>1, it belongs to that closure exactly when n=mr; multiplier 1 points of exact n-period also belong. The complex smoothness/irreducibility descends to any characteristic-zero field by the integral-coefficient model and faithful field extension. This refines the inherited smooth-irreducible endpoint with the missing closure-to-equation and descent contracts.",
       "hypotheses": [
         "d≥2,n≥1; do not identify every root of f_c^n(z)−z with a dynatomic point.",
         "Formal/exact-period classification is the inherited one; boundary means closure minus the open exact-period, multiplier≠1 locus, not the topological boundary of a curve in ℂ²."
@@ -1302,18 +1344,18 @@
       "sources": [
         {
           "sourceId": "gao-ou",
-          "locator": "Theorems1.1–1.2 p.1, Theorem2.1 p.2; §2.2 pp.4–9 and §3.5 pp.28–29",
+          "locator": "Theorems 1.1–1.2 p.1, Theorem 2.1 p.2; §2.2 pp.4–9 and §3.5 pp.28–29",
           "match": "Analytic closure and local branch description."
         },
         {
           "sourceId": "fps",
           "locator": "§2, pp.3–4",
-          "match": "Algebraic dynatomic curve and geometric irreducibility overℚ."
+          "match": "Algebraic dynatomic curve and geometric irreducibility over ℚ."
         }
       ],
       "acceptance": [
-        "(c,z)=(−3/4,−1/2) belongs to the period2 curve but is exact period1, with multiplicity2 in the specialized Φ₂.",
-        "(c,z)=(1/4,1/2) is on the period1 closure although removed from its multiplier≠1 open subset."
+        "(c,z)=(−3/4,−1/2) belongs to the period 2 curve but is exact period 1, with multiplicity 2 in the specialized Φ₂.",
+        "(c,z)=(1/4,1/2) is on the period 1 closure although removed from its multiplier≠1 open subset."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -1329,15 +1371,15 @@
       ],
       "title": "The symmetric curve for two marked 3-cycles",
       "kind": "definition",
-      "statement": "Define H(t,u)=(t²−1)u³+(t³−2t²−9t+2)u²−9(t²−1)u−(t³−2t²−9t+2) overℚ, and let the affine Morton curve be H=0. It is symmetric in t,u. With ζ=t+u,υ=tu, its equation is υ²(ζ−2)−υ(6ζ+4)−(ζ³−2ζ²−9ζ+2)=0. Define t(c,x)=1+2c+2x+2x² on a marked period3 point. For t²≠1, its inverse is x=(t³+t²−t+7)/(4(t²−1)), c=−(t⁶−2t⁵+11t⁴+20t³+23t²−18t+29)/(16(t²−1)²). The rotation sends t to(t+3)/(1−t), and η(t)=(t³−9t)/(t²−1) is constant on the cycle, with c=−(η²−2η+29)/16.",
+      "statement": "Define H(t,u)=(t²−1)u³+(t³−2t²−9t+2)u²−9(t²−1)u−(t³−2t²−9t+2) over ℚ, and let the affine Morton curve be H=0. It is symmetric in t,u. With ζ=t+u,υ=tu, its equation is υ²(ζ−2)−υ(6ζ+4)−(ζ³−2ζ²−9ζ+2)=0. Define t(c,x)=1+2c+2x+2x² on a marked period 3 point. For t²≠1, its inverse is x=(t³+t²−t+7)/(4(t²−1)), c=−(t⁶−2t⁵+11t⁴+20t³+23t²−18t+29)/(16(t²−1)²). The rotation sends t to (t+3)/(1−t), and η(t)=(t³−9t)/(t²−1) is constant on the cycle, with c=−(η²−2η+29)/16.",
       "hypotheses": [
-        "All explicit coordinates overℚ; inverses and rotation formulas have their displayed nonzero denominators.",
-        "Two different cycles at the same c have η values adding to2; repeating the same cycle does not supply the required symmetric-curve point."
+        "All explicit coordinates over ℚ; inverses and rotation formulas have their displayed nonzero denominators.",
+        "Two different cycles at the same c have η values adding to 2; repeating the same cycle does not supply the required symmetric-curve point."
       ],
       "proofSteps": [
         "Use the explicit Φ₃ polynomial of Morton §1 and eliminate c after introducing t; polynomial division gives the inverse formulas.",
         "Substitute f_c(x) into t to find the fractional-linear rotation; sum its three orbit values to obtain η and its quadratic parameter relation.",
-        "For two distinct cycles the two roots η and2−η of that quadratic give H(t,u)=0. Expand in symmetric functions to obtain the displayed equation."
+        "For two distinct cycles the two roots η and 2−η of that quadratic give H(t,u)=0. Expand in symmetric functions to obtain the displayed equation."
       ],
       "prerequisites": [
         "ArithmeticDynamics:DY.3/quadratic-rational-cycles-of-length-at-most-three",
@@ -1346,13 +1388,13 @@
       "sources": [
         {
           "sourceId": "morton92",
-          "locator": "Theorem4 and equations(7)–(9), pp.347–348; §2 equations(17)–(24), pp.354–355; Lemma6 equation(35), p.363",
+          "locator": "Theorem 4 and equations (7)–(9), pp.347–348; §2 equations (17)–(24), pp.354–355; Lemma 6 equation (35), p.363",
           "match": "Parametrization, two-cycle relation and symmetric form."
         }
       ],
       "acceptance": [
         "The excluded t=±1 are poles/cusps of the parameter map; never substitute them into its rational inverse without a guard.",
-        "The affine H-equation has the four rational solutions(t,u)=(±1,±1) after the arithmetic supplier theorem."
+        "The affine H-equation has the four rational solutions (t,u)=(±1,±1) after the arithmetic supplier theorem."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -1383,7 +1425,7 @@
         {
           "name": "mortonThreeCycleRotation_compatibility",
           "role": "compatibility",
-          "statement": "t(c,f_c(x))=(t+3)/(1−t) on exact period3 points; three applications give identity."
+          "statement": "t(c,f_c(x))=(t+3)/(1−t) on exact period 3 points; three applications give identity."
         },
         {
           "name": "mortonCycleTrace_relation",
@@ -1393,24 +1435,24 @@
         {
           "name": "distinctCycles_mortonEquation",
           "role": "relation",
-          "statement": "Distinct rational exact3 cycles supply rational t,u with H=0 and t,u≠±1."
+          "statement": "Distinct rational exact 3 cycles supply rational t,u with H=0 and t,u≠±1."
         }
       ],
       "tests": [
         {
           "name": "morton_symmetric_three_cycle_curve_1",
           "kind": "computation",
-          "statement": "All four sign pairs(t,u)=(±1,±1) satisfy H=0."
+          "statement": "All four sign pairs (t,u)=(±1,±1) satisfy H=0."
         },
         {
           "name": "morton_symmetric_three_cycle_curve_2",
           "kind": "non-example",
-          "statement": "H(0,0)=−2; the equation is not identically0."
+          "statement": "H(0,0)=−2; the equation is not identically 0."
         },
         {
           "name": "morton_symmetric_three_cycle_curve_3",
           "kind": "compatibility",
-          "statement": "For c=−29/16 the cycle(5/4,−1/4,−7/4) has t-coordinates3,−3,0 respectively, all sharing η=0."
+          "statement": "For c=−29/16 the cycle (5/4,−1/4,−7/4) has t-coordinates3,−3,0 respectively, all sharing η=0."
         }
       ],
       "uses": [
@@ -1432,7 +1474,7 @@
       ],
       "title": "Explicit map from Morton’s curve to an elliptic curve",
       "kind": "construction",
-      "statement": "For H(t,u)=0 and ζ=t+u≠0, set υ=tu, X=(ζ+2)/ζ, Y=(υ(ζ−2)−(3ζ+2))/ζ². Then Y²=4X³−11X²+8X. On ζ≠0,2 this defines the quotient by t↔u; the inverse symmetric coordinates are ζ=2/(X−1), υ=(ζ²Y+3ζ+2)/(ζ−2), with t,u the roots of T²−ζT+υ. On the regular projective models this is the degree2 fixed-field quotient, but the affine point-exclusion proof uses only the guarded formulas. At ζ=0 the H-equation forces υ=−1, and at ζ=2 it forces υ=1; hence these cases have(t,u)=(1,−1),(−1,1), or(1,1).",
+      "statement": "For H(t,u)=0 and ζ=t+u≠0, set υ=tu, X=(ζ+2)/ζ, Y=(υ(ζ−2)−(3ζ+2))/ζ². Then Y²=4X³−11X²+8X. On ζ≠0,2 this defines the quotient by t↔u; the inverse symmetric coordinates are ζ=2/(X−1), υ=(ζ²Y+3ζ+2)/(ζ−2), with t,u the roots of T²−ζT+υ. On the regular projective models this is the degree 2 fixed-field quotient, but the affine point-exclusion proof uses only the guarded formulas. At ζ=0 the H-equation forces υ=−1, and at ζ=2 it forces υ=1; hence these cases have (t,u)=(1,−1),(−1,1), or (1,1).",
       "hypotheses": [
         "Rational coordinates; affine map requires ζ≠0; inverse requires ζ≠2, equivalently X≠2, and X≠1.",
         "Use the actual elliptic equation. Arithmetic rank-zero completeness belongs to ED.3, not this map."
@@ -1450,7 +1492,7 @@
       "sources": [
         {
           "sourceId": "morton92",
-          "locator": "§3 Lemma6, equations(33)–(36), p.363",
+          "locator": "§3 Lemma 6, equations (33)–(36), p.363",
           "match": "Map, inverse coordinates and exceptional points."
         }
       ],
@@ -1482,7 +1524,7 @@
         {
           "name": "mortonElliptic_inverse",
           "role": "relation",
-          "statement": "Recover ζ andυ by the displayed inverses when ζ≠0,2."
+          "statement": "Recover ζ and υ by the displayed inverses when ζ≠0,2."
         },
         {
           "name": "mortonElliptic_fibre",
@@ -1492,7 +1534,7 @@
         {
           "name": "mortonExceptionalCoordinates",
           "role": "relation",
-          "statement": "ζ=0 or2 implies the listed sign pairs, proved without rational division."
+          "statement": "ζ=0 or 2 implies the listed sign pairs, proved without rational division."
         },
         {
           "name": "mortonElliptic_baseChange",
@@ -1504,7 +1546,7 @@
         {
           "name": "morton_elliptic_quotient_map_1",
           "kind": "computation",
-          "statement": "(t,u)=(−1,−1) has ζ=−2 and maps to(X,Y)=(0,0)."
+          "statement": "(t,u)=(−1,−1) has ζ=−2 and maps to (X,Y)=(0,0)."
         },
         {
           "name": "morton_elliptic_quotient_map_2",
@@ -1514,7 +1556,7 @@
         {
           "name": "morton_elliptic_quotient_map_3",
           "kind": "non-example",
-          "statement": "(0,0) gives(X,Y) undefined by ζ=0 and is not on H=0; denominator guards cannot replace the curve hypothesis."
+          "statement": "(0,0) gives (X,Y) undefined by ζ=0 and is not on H=0; denominator guards cannot replace the curve hypothesis."
         }
       ],
       "uses": [
@@ -1523,7 +1565,7 @@
           "how": "Uses ED.3’s exact affine elliptic point list to exclude noncuspidal rational H-points."
         },
         {
-          "where": "Morton Lemma6",
+          "where": "Morton Lemma 6",
           "how": "Identifies the involution fixed field on regular projective models."
         }
       ]
@@ -1536,15 +1578,15 @@
       ],
       "title": "Reduction excluding two rational 3-cycles",
       "kind": "theorem",
-      "statement": "Using the certified ED.3 point list for E:Y²=4X³−11X²+8X, every rational solution of H(t,u)=0 has t∈{−1,1} and u∈{−1,1}. Consequently for f_c=z²+c overℚ there is at most one exact rational 3-cycle. The dynamical-to-H step requires two distinct cycles, and produces t,u≠±1, so contradicts the affine point statement. No general genus-four rational point enumeration is required.",
+      "statement": "Using the certified ED.3 point list for E:Y²=4X³−11X²+8X, every rational solution of H(t,u)=0 has t∈{−1,1} and u∈{−1,1}. Consequently for f_c=z²+c over ℚ there is at most one exact rational 3-cycle. The dynamical-to-H step requires two distinct cycles, and produces t,u≠±1, so contradicts the affine point statement. No general genus-four rational point enumeration is required.",
       "hypotheses": [
-        "The arithmetic input is the ED.3 theorem for this actual elliptic curve: affine rational points exactly(0,0),(1,±1),(2,±2).",
+        "The arithmetic input is the ED.3 theorem for this actual elliptic curve: affine rational points exactly (0,0),(1,±1),(2,±2).",
         "It is a requested implementation theorem, not a test asserting the number of points or an arbitrary certificate parameter."
       ],
       "proofSteps": [
-        "If ζ=0 or2 use the exceptional-coordinate identities. Otherwise form the elliptic X,Y from the guarded map.",
-        "The point list forces X=0,1,2. X=1 is impossible from X=1+2/ζ; X=2 implies ζ=2, already excluded. At X=0 the list forces Y=0, hence ζ=−2 andυ=1, giving t=u=−1.",
-        "For two exact rational3 cycles, the inherited parametrization plus Morton t-coordinate gives distinct η roots and an H-point away from t,u=±1. The exceptional c=−7/4 has Φ₃=(x³+x²/2−9x/4−1/8)², whose cubic has no rational root by the rational root theorem, so contributes no rational3 cycle.",
+        "If ζ=0 or 2 use the exceptional-coordinate identities. Otherwise form the elliptic X,Y from the guarded map.",
+        "The point list forces X=0,1,2. X=1 is impossible from X=1+2/ζ; X=2 implies ζ=2, already excluded. At X=0 the list forces Y=0, hence ζ=−2 and υ=1, giving t=u=−1.",
+        "For two exact rational 3 cycles, the inherited parametrization plus Morton t-coordinate gives distinct η roots and an H-point away from t,u=±1. The exceptional c=−7/4 has Φ₃=(x³+x²/2−9x/4−1/8)², whose cubic has no rational root by the rational root theorem, so contributes no rational 3 cycle.",
         "Import ED.3/rank-zero-curves only for the Morton model; its separate E11 rank gap does not affect this argument. This supplies the missing reduction behind the inherited at-most-one-cycle claim."
       ],
       "prerequisites": [
@@ -1554,12 +1596,12 @@
       "sources": [
         {
           "sourceId": "morton92",
-          "locator": "Theorem3 p.346; §3(iii), Lemma6 and its following argument pp.362–364",
+          "locator": "Theorem 3 p.346; §3(iii), Lemma 6 and its following argument pp.362–364",
           "match": "At-most-one-cycle theorem and elliptic reduction; the affine elimination is an equivalent shorter adapter."
         }
       ],
       "acceptance": [
-        "For c=−29/16 the cycle(5/4,−1/4,−7/4) exists; the theorem permits it and excludes a disjoint second cycle.",
+        "For c=−29/16 the cycle (5/4,−1/4,−7/4) exists; the theorem permits it and excludes a disjoint second cycle.",
         "The argument proves an exact affine list for H; it does not identify four affine points with the nine rational places on its normalization."
       ],
       "library": {
@@ -1576,15 +1618,15 @@
       ],
       "title": "Relative height bounds for certified dynamical candidates",
       "kind": "comparison",
-      "statement": "Let K be a number field of degree s=[K:ℚ]>0. For P∈ℙ¹(K), use the inherited absolute logarithmic height h_abs(P)=Height.logHeight(P.rep)/s. Suppose the DY.3 preperiodic bound gives h_abs(P)≤B for every preperiodic P. Given the ED.0 certified enumeration with rational D≥1,0<τ≤1 and D≥exp(sB), its projective union T of both output lists plus∞ contains every preperiodic point. Filtering T by the inherited orbit-repetition check of fuel |T|+1 yields exactly PrePer(f,ℙ¹(K)); equality tests at the height boundary are unnecessary. This adapter supplies a sufficient finite superset, and does not advertise T as an exact height-cutoff list.",
+      "statement": "Let K be a number field of degree s=[K:ℚ]>0 and f a rational map of degree at least 2 over K. Mathlib's Height.logHeight of a representative of a point of ℙ¹(K) is relative to K (no division by s); the absolute height of DY.1/weil-height-eq-log-height-div-finrank is h_abs(P)=Height.logHeight(P.rep)/s. The inherited bound DY.3/height-bound-for-preperiodic-points is already native: every preperiodic P satisfies Height.logHeight(P.rep)≤B_nat=C/(d−1). Take rationals D≥1 and 0<τ≤1 with D≥exp(B_nat); when the available bound is instead an absolute one, h_abs(P)≤B, take D≥exp(sB). Then the projective union T of both ED.0 output lists plus ∞ contains every preperiodic point, and filtering T by the inherited orbit-repetition check with fuel |T|+1 yields exactly PrePer(f,ℙ¹(K)); equality tests at the height boundary are unnecessary. This adapter supplies a sufficient finite superset, and does not advertise T as an exact height-cutoff list.",
       "hypotheses": [
         "Degree f≥2; the rational map is defined over K and has no projective base point.",
-        "An explicit valid B, integral power basis and complete embedding certificates are supplied; D≥exp(sB), with s present.",
+        "An explicit valid bound is supplied together with its normalization: native B_nat with D≥exp(B_nat), or absolute B with D≥exp(sB); an integral power basis and complete embedding certificates are supplied as ED.0 requires.",
         "Exact field/projective evaluation and equality are supplied by the runtime adapter."
       ],
       "proofSteps": [
-        "Multiply the absolute-height inequality by positive s; exponentiate to get native multiplicative height≤D. The affine/projective height dictionary identifies Height.logHeight₁(x)=Height.logHeight![x,1].",
-        "ED.0 completeness applies to both lists together, including every boundary point; add∞ of height0 as in its projective contract.",
+        "For the native bound exponentiate directly: Height.logHeight(P.rep)≤B_nat≤log D. For an absolute bound first multiply by the positive degree s (DY.1/weil-height-eq-log-height-div-finrank), then exponentiate. The affine/projective height dictionary identifies Height.logHeight₁(x)=Height.logHeight![x,1], and NumberField.mulHeight₁_eq identifies the native height with the place product used by ED.0 and by Doyle–Krumm.",
+        "ED.0 completeness applies to both lists together, including every boundary point; add ∞ of height 0 as in its projective contract.",
         "Forward iterates of a preperiodic point remain preperiodic and hence stay in T. The inherited filter correctness theorem supplies both soundness and completeness with finite fuel. No uniform-in-map bound is used."
       ],
       "prerequisites": [
@@ -1594,17 +1636,18 @@
         "EffectiveDiophantineMethods:ED.0/bounded-height-enumeration",
         "ArithmeticDynamics:DY.3/exact-dynamical-runtime-adapter",
         "mathlib:Height.logHeight₁_eq_logHeight",
-        "mathlib:NumberField.mulHeight₁_eq"
+        "mathlib:NumberField.mulHeight₁_eq",
+        "ArithmeticDynamics:DY.1/weil-height-eq-log-height-div-finrank"
       ],
       "sources": [
         {
           "sourceId": "doylekrumm",
-          "locator": "§2 p.2; Algorithm4 output, §4.3 p.11",
-          "match": "Relative height and complete two-list contract; the factor s converts DY’s absolute height convention."
+          "locator": "§2 p.2; Algorithm 4 output, §4.3 p.11",
+          "match": "Relative height H_K and the complete two-list contract; H_K is Mathlib's native mulHeight₁, so the factor s enters only when the bound is absolute."
         }
       ],
       "acceptance": [
-        "K=ℚ,s=1: D≥exp(B) is sufficient. For a quadratic field and rational point[2:1], h_abs=log2 but native multiplicative height=4; D=2 would use the wrong normalization.",
+        "K=ℚ, s=1: the two normalizations agree and D≥exp(B) suffices. Over a quadratic field the rational point [2:1] has h_abs=log 2 but native multiplicative height 4: an absolute bound B=log 2 needs D≥exp(2B)=4, while the inherited native bound is used with D≥exp(B_nat); dividing a native bound by s, or omitting s from an absolute bound, gives a wrong radius.",
         "An additional near-boundary wandering candidate is rejected by the orbit check; preperiodic points on the boundary are retained."
       ],
       "library": {
@@ -1621,14 +1664,14 @@
       ],
       "title": "Exact evaluation and equality on computational projective points",
       "kind": "comparison",
-      "statement": "Transport CN.0’s exact number-field representation and operations through its certified realization into K, then use the two-chart representation K⊔{∞} of ℙ¹(K). Evaluate the inherited coprime homogeneous forms F₀,F₁ on a representative; if F₁=0 return∞, otherwise return F₀/F₁ in the affine chart. Equality is infinity-vs-affine discrimination plus exact equality in K. Prove realization commutes with evaluation, equality and every iterate. This is the bridge needed to execute the inherited finite orbit filter; a classical DecidableEq on K or a floating-point approximation is not the runtime contract.",
+      "statement": "Transport CN.0’s exact number-field representation and operations through its certified realization into K, then use the two-chart representation K⊔{∞} of ℙ¹(K). Evaluate the inherited coprime homogeneous forms F₀,F₁ on a representative; if F₁=0 return ∞, otherwise return F₀/F₁ in the affine chart. Equality is infinity-vs-affine discrimination plus exact equality in K. Prove realization commutes with evaluation, equality and every iterate. This is the bridge needed to execute the inherited finite orbit filter; a classical DecidableEq on K or a floating-point approximation is not the runtime contract.",
       "hypotheses": [
         "K a number field given by an irreducible rational defining polynomial and certified realization; exact coefficients of F₀,F₁.",
         "No common projective zero; CN.0 must supply exact terminating arithmetic/equality with semantic realization, not only isolated-number certificates unconnected to K."
       ],
       "proofSteps": [
         "Request the carrier/realization and operation correctness from CN.0; its existing algebraic-equality-check node alone does not give a computable realization of the whole number field.",
-        "Use the inherited projective chart equivalence and rational-map action. The base-point-free hypothesis excludes(F₀,F₁)=(0,0), including at∞.",
+        "Use the inherited projective chart equivalence and rational-map action. The base-point-free hypothesis excludes (F₀,F₁)=(0,0), including at ∞.",
         "Induct over the finite orbit trace to transport every exact comparison and iterate; the repeated state is a genuine projective equality."
       ],
       "prerequisites": [
@@ -1645,7 +1688,7 @@
         }
       ],
       "acceptance": [
-        "For f=z²−1,∞ evaluates to∞ and0↦−1↦0 is detected exactly.",
+        "For f=z²−1,∞ evaluates to ∞ and 0↦−1↦0 is detected exactly.",
         "For f=1/z²,∞↦0↦∞ must be represented, not dropped by an affine-only evaluator.",
         "Conjugate roots of one minimal polynomial are not equal unless the selected exact field representations realize the same element."
       ],
@@ -1689,13 +1732,13 @@
       "sources": [
         {
           "sourceId": "fps",
-          "locator": "Theorems1–3, pp.1–2,6–8",
+          "locator": "Theorems 1–3, pp.1–2,6–8",
           "match": "Genus-two quotient model and distinction between Galois-stable and rational marked cycles."
         }
       ],
       "acceptance": [
-        "At x=2 on the Poonen model the sextic equals73, while at x=−2 it equals33; the supplier’s corrected rank gap cannot be silently removed.",
-        "An all-point theorem under rank≤3 remains conditional even when its ten known points and subgroup rank3 are certified."
+        "At x=2 on the Poonen model the sextic equals 73, while at x=−2 it equals 33; the supplier’s corrected rank gap cannot be silently removed.",
+        "An all-point theorem under rank≤3 remains conditional even when its ten known points and subgroup rank 3 are certified."
       ],
       "library": {
         "module": "TauCeti/Dynamics/Arithmetic/DynatomicGeometry",
@@ -1714,7 +1757,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-1-the-rational-function-field",
-      "need": "Genus0 of the rational function field, rational differential coefficient and places.",
+      "need": "Genus 0 of the rational function field, rational differential coefficient and places.",
       "neededBy": [
         "ArithmeticDynamics:DY.3/quadratic-dynatomic-genera",
         "ArithmeticDynamics:DY.3/rational-quadratic-differentials"
@@ -1736,10 +1779,9 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
-      "need": "Finite separable extension degree and rational-function trace.",
+      "need": "Degree of a finite extension of function fields, the places above a given place and the fundamental identity Σe·f=[F′:F], for the rotation quotient.",
       "neededBy": [
-        "ArithmeticDynamics:DY.3/dynatomic-cycle-quotient",
-        "ArithmeticDynamics:DY.3/polynomial-quadratic-pushforward"
+        "ArithmeticDynamics:DY.3/dynatomic-cycle-quotient"
       ]
     },
     {
@@ -1800,7 +1842,8 @@
         "Close G1/G2 by extracting the exact analytic supplier and comparison statements; the dyadic word/transversality/monodromy route is planned here.",
         "Obtain CN.0’s exact carrier/realization operations contract; ED.0’s existing two-list theorem is consumed with the relative-height factor.",
         "Keep G3 and the genus-four rank hypothesis attached to arithmetic all-point consumers until ED closes/certifies them.",
-        "Discharge the AlgebraicCurves and ConformalMapping imports from their owning roadmaps; no general curve/conformal theory is duplicated."
+        "Discharge the AlgebraicCurves and ConformalMapping imports from their owning roadmaps; no general curve/conformal theory is duplicated.",
+        "Assembly: apply the five restructure entries, which re-point accepted parent declarations at this packet's nodes (smooth/irreducible endpoint, named X₁/X₀, the at-most-one rational 3-cycle clause, the enumeration's ED.0/CN.0 anchors, and the rank gates of the Poonen type-(3,2) chain)."
       ]
     }
   ],
@@ -1813,7 +1856,7 @@
         "ArithmeticDynamics:DY.3/parabolic-parameter-transversality",
         "ArithmeticDynamics:DY.3/unicritical-parabolic-monodromy"
       ],
-      "detail": "Gao–Ou §3.3 and proofs of Propositions3.13,3.15 recall rather than derive Böttcher/parameter uniformization, periodic parameter-ray landing for every d≥2, root/co-root and petal structure, and the precise Hausdorff R,S limit contracts. These are now named targets with exact output statements, but their source-to-pinned-library extraction is missing. General ConformalMapping continuation does not supply polynomial dynamics. Resume with the cited Douady–Hubbard/Eberlein/Petersen–Ryd primary proofs, keeping the d≥2 scope. No claim of closed analytic chains."
+      "detail": "Gao–Ou §3.3 and proofs of Propositions 3.13,3.15 recall rather than derive Böttcher/parameter uniformization, periodic parameter-ray landing for every d≥2, root/co-root and petal structure, and the precise Hausdorff R,S limit contracts. These are now named targets with exact output statements, but their source-to-pinned-library extraction is missing. General ConformalMapping continuation does not supply polynomial dynamics. Resume with the cited Douady–Hubbard/Eberlein/Petersen–Ryd primary proofs, keeping the d≥2 scope. No claim of closed analytic chains."
     },
     {
       "title": "G2: analytic-to-algebraic dynatomic comparison",
@@ -1834,46 +1877,64 @@
   "sourceIssues": [
     {
       "id": "ArithmeticDynamics/E9301",
+      "source": "gao-ou",
       "kind": "error",
-      "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma2.2 and Corollary2.3, p.3 (downloaded PDF hash in sources).",
+      "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma 2.2 and Corollary 2.3, p.3 (downloaded PDF hash in sources).",
       "printed": "The strict local-mass inequality and absence of fixed quadratic differentials are stated without excluding the zero differential; the corollary also does not state the polynomial degree restriction. This is a paraphrase, not a source quotation.",
       "correction": "Require q≠0 and degree(f)≥2. Keep the non-strict pushforward mass estimate for q=0.",
-      "reason": "q=0 has equal zero masses and is fixed; identity f has degree1 and fixes every differential. The proof requires a disc whose preimage is relatively compact in itself, provided by degree≥2. All f=z^d+c consumers already have d≥2.",
+      "reason": "q=0 has equal zero masses and is fixed; identity f has degree 1 and fixes every differential. The proof requires a disc whose preimage is relatively compact in itself, provided by degree≥2. All f=z^d+c consumers already have d≥2.",
       "affects": "a stated result",
       "known": "No correction located in the primary arXiv record or the correction searches on 2026-10-14; recorded for independent checking, not asserted to be a new discovery.",
       "searched": [
         "arXiv:1304.4751 abstract/version record",
         "Gao Ou dynatomic contraction principle erratum search",
-        "Authors/title with Lemma2.2 and quadratic differential correction search"
-      ]
+        "Authors/title with Lemma 2.2 and quadratic differential correction search"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rendered p.3 of the only arXiv version: Lemma 2.2 asserts the strict inequality for every Q in Q(ℂ), and Corollary 2.3 asserts f_*Q≠Q for every polynomial f and every such Q. Both fail for Q=0, and the corollary fails for f the identity (no disc V with f⁻¹(V) relatively compact in V exists then). With Q≠0 and deg f≥2 both hold by the printed argument; every use in the paper has Q≠0 and d≥2, so the theorems are unaffected. arXiv lists only v1 and the HAL record hal-00814484 is the same preprint.",
+        "by": "REV-ArithmeticDynamics--DY.3"
+      }
     },
     {
       "id": "ArithmeticDynamics/E9302",
+      "source": "gao-ou",
       "kind": "misprint",
-      "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma2.9 proof, p.10.",
-      "printed": "The coefficient near the cycle point is described with a first-order pole although Q was defined with coefficient1 on its double pole; the ensuing radial integral uses inverse-square growth. The printed annular set labels also interchange the two differences. This records the content in own words.",
-      "correction": "Use q(z)~1/(z−z₀)². Bound the relevant annular difference near each cycle point by an annulus with inner/outer radii ratio tending to1; its double-pole mass is asymptotically2π log of that ratio. State the inclusions for the annular difference actually being bounded.",
-      "reason": "The explicit Q in Lemma2.8 has a double pole at each cycle point. A first-order asymptotic contradicts that definition. The displayed disc containment cannot literally hold for a difference excluding the disc. The logarithmic annular estimate is the intended calculation.",
+      "locator": "Gao–Ou, arXiv:1304.4751v1, Lemma 2.9 proof, p.10.",
+      "printed": "The coefficient near the cycle point is described with a first-order pole although Q was defined with coefficient 1 on its double pole; the ensuing radial integral uses inverse-square growth. The printed annular set labels also interchange the two differences. This records the content in own words.",
+      "correction": "Use q(z)~1/(z−z₀)². Bound the relevant annular difference near each cycle point by an annulus with inner/outer radii ratio tending to 1; its double-pole mass is asymptotically 2π log of that ratio. State the inclusions for the annular difference actually being bounded.",
+      "reason": "The explicit Q in Lemma 2.8 has a double pole at each cycle point. A first-order asymptotic contradicts that definition. The displayed disc containment cannot literally hold for a difference excluding the disc. The logarithmic annular estimate is the intended calculation.",
       "affects": "the proof",
       "known": "No published correction located by the same primary-record and author/title searches on 2026-10-14.",
       "searched": [
         "arXiv:1304.4751 abstract/version record",
-        "Gao Ou Epstein Lemma2.9 quadratic differential erratum search"
-      ]
+        "Gao Ou Epstein Lemma 2.9 quadratic differential erratum search"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rendered p.10: the proof of Lemma 2.9 says that q behaves like 1/(z−z₀) near z₀, but Q has the double pole 1/(z−z₀)² there, and the displayed integral (integrand (1+o(1))/r² against r dr dθ) uses the square. The printed chain D(z₀,ε)⊂U_ε−V_ε⊂D(z₀,ε′) cannot hold, since z₀=f^m(z₀) lies in V_ε; the estimate needs the set difference V_ε−U_ε, which near each cycle point lies in an annulus with radii ratio ε′/ε→1. The intended argument is clear and the lemma stands.",
+        "by": "REV-ArithmeticDynamics--DY.3"
+      }
     },
     {
       "id": "ArithmeticDynamics/E9303",
+      "source": "morton96",
       "kind": "gap",
-      "locator": "Morton 1996 Theorem15 Case2 and Proposition17 p.346, as identified by Morton’s 2011 corrigendum pp.332–333 (the correction was read in full).",
+      "locator": "Morton 1996 Theorem 15 Case 2 and Proposition 17 p.346, as identified by Morton’s 2011 corrigendum pp.332–333 (the correction was read in full).",
       "printed": "The original characteristic-p argument passes from a factorization after reduction to polynomial factors over the lifted p-adic coefficient field using Hensel lifting alone. Own-word account of the gap identified by the author.",
-      "correction": "Hensel lifting first gives power-series coefficients. Use the distinct Laurent expansions of dynatomic roots to obtain degree bounds independent of the lifting precision, forcing the limit coefficients to be polynomials, as in the2011 corrigendum.",
+      "correction": "Hensel lifting first gives power-series coefficients. Use the distinct Laurent expansions of dynatomic roots to obtain degree bounds independent of the lifting precision, forcing the limit coefficients to be polynomials, as in the 2011 corrigendum.",
       "reason": "Hensel lifting without the degree bound yields R[[c]], not R[c]. The characteristic-zero genus results used by this packet are in §3 and do not rely on this characteristic-p lifting step.",
       "affects": "the proof",
-      "known": "Published correction: Morton, Compositio Mathematica 147 (2011),332–334, DOI10.1112/S0010437X1000480X. The corrigendum also gives bibliography renumbering17–20 to16–19.",
+      "known": "Published correction: Morton, Compositio Mathematica 147 (2011), 332–334, DOI 10.1112/S0010437X1000480X. The corrigendum also gives bibliography renumbering 17–20 to 16–19.",
       "searched": [
         "Numdam record for Morton 1996, including corrections",
-        "Cambridge/DOI primary2011 corrigendum, all pp.332–334"
-      ]
+        "Cambridge/DOI primary 2011 corrigendum, all pp.332–334"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read in the 2011 corrigendum (pp.332–333): Morton states that Hensel's lemma alone gives factors with coefficients in R[[c]] in Theorem 15, Case 2 (p.346), supplies the degree bound from the Laurent expansions of the roots, says the same argument completes Proposition 17, and renumbers references [17–20] as [16–19]. The characteristic-zero results of §3 used here (Propositions 9–10, Theorems 11 and 13) do not use this step.",
+        "by": "REV-ArithmeticDynamics--DY.3"
+      }
     }
   ],
   "upstreamNotes": [
@@ -1980,5 +2041,205 @@
       }
     ],
     "note": "All accepted parent nodes remain authoritative and unchanged. New refinement nodes use fresh ids. Six inherited planets are retained; none is added."
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticDynamics"
+      ],
+      "detail": "The accepted parent node ArithmeticDynamics:DY.3/unicritical-dynatomic-curve-smooth-irreducible states the Gao–Ou endpoint with prerequisites that do not reach the complex-dynamics inputs, which the parent coverage records as a gap. This continuation plans those inputs, ending in DY.3/analytic-dynatomic-identification, with the remaining extraction recorded as its gaps G1 and G2. This job may not edit the parent packet.",
+      "proposal": "At assembly, add ArithmeticDynamics:DY.3/analytic-dynatomic-identification to the prerequisites of DY.3/unicritical-dynatomic-curve-smooth-irreducible and replace the parent's complex-dynamics gap by G1 and G2 of this packet. No node of this packet depends on the parent node, so no cycle arises.",
+      "addedBy": "REV-ArithmeticDynamics--DY.3"
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticDynamics"
+      ],
+      "detail": "The parent node DY.3/dynatomic-curve only names the projective curves X₁(n) and X₀(n), and the parent coverage leaves their construction and the genus formulas unplanned. This packet plans them.",
+      "proposal": "At assembly, the sentence of DY.3/dynatomic-curve that names X₁(n) and X₀(n) points to DY.3/projective-dynatomic-model and DY.3/dynatomic-cycle-quotient, and the parent coverage item on the genus formulas and smooth projective models is discharged by DY.3/quadratic-dynatomic-genera.",
+      "addedBy": "REV-ArithmeticDynamics--DY.3"
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticDynamics",
+        "EffectiveDiophantineMethods"
+      ],
+      "detail": "The parent node DY.3/quadratic-rational-cycles-of-length-at-most-three ends with the clause that z²+c has at most one rational 3-cycle, supported only by a request to the stage EffectiveDiophantineMethods:ED.3. DY.3/morton-rational-three-cycle-reduction proves that clause from the node ED.3/rank-zero-curves, but its chain starts at DY.3/morton-symmetric-three-cycle-curve, which cites the parent node for the period-3 parametrization, so making the parent node depend on the reduction would close a cycle.",
+      "proposal": "At assembly, move the clause and its proof step out of DY.3/quadratic-rational-cycles-of-length-at-most-three into DY.3/morton-rational-three-cycle-reduction, which states it; drop that node's stage prerequisite EffectiveDiophantineMethods:ED.3, which serves only the clause; and add DY.3/morton-rational-three-cycle-reduction to the prerequisites of DY.3/poonen-preperiodic-bound, whose count of the points of period at most 3 uses the clause.",
+      "addedBy": "REV-ArithmeticDynamics--DY.3"
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticDynamics",
+        "EffectiveDiophantineMethods",
+        "ComputationalNumberTheory"
+      ],
+      "detail": "The parent node DY.3/rational-preperiodic-enumeration-over-a-number-field cites the stages EffectiveDiophantineMethods:ED.0 and ComputationalNumberTheory:CN.0. ED.0 now has the node ED.0/bounded-height-enumeration, whose projective contract uses Mathlib's native height exactly as the parent's height bound does (radius D≥exp(B) for the native bound B), and this packet's DY.3/exact-dynamical-runtime-adapter carries the CN.0 request.",
+      "proposal": "At assembly, replace the prerequisite EffectiveDiophantineMethods:ED.0 of DY.3/rational-preperiodic-enumeration-over-a-number-field by EffectiveDiophantineMethods:ED.0/bounded-height-enumeration and the prerequisite ComputationalNumberTheory:CN.0 by ArithmeticDynamics:DY.3/exact-dynamical-runtime-adapter, and close the parent's ED.0 request. The adapter does not depend on the parent node, so no cycle arises.",
+      "addedBy": "REV-ArithmeticDynamics--DY.3"
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticDynamics",
+        "EffectiveDiophantineMethods"
+      ],
+      "detail": "DY.3/arithmetic-point-list-contracts finds that the parent's unconditional statement DY.3/poonen-type-three-two rests on the rank bound rank J(C₁(3₂))(ℚ)≤1, which ED.3/poonen-genus-two-mordell-weil records as a gap (G3 here), while the parent nodes cite only the stages ED.3 and ED.4.",
+      "proposal": "At assembly, replace the stage prerequisites of DY.3/poonen-type-three-two by ED.3/poonen-genus-two-mordell-weil and ED.4/poonen-type-three-two-curve and add the hypothesis rank J(C₁(3₂))(ℚ)≤1 to it and to its consumers DY.3/poonen-type-exclusions, DY.3/poonen-no-long-tails and DY.3/poonen-preperiodic-bound until ED.3 supplies the corrected descent; replace the stage prerequisites of DY.3/flynn-poonen-schaefer-no-rational-five-cycles by ED.3/fps-genus-two-mordell-weil and ED.4/fps-quintic-cycle-curve, and those of DY.3/stoll-conditional-no-rational-six-cycles by ED.3/stoll-genus-four-subgroup and ED.4/stoll-six-cycle-curve (its rank hypothesis is already explicit).",
+      "addedBy": "REV-ArithmeticDynamics--DY.3"
+    }
+  ],
+  "sourceVersions": [
+    {
+      "source": "gao-ou",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1304.4751v1",
+      "citation": "Y. Gao, Y. Ou, arXiv:1304.4751v1 (the only version; no journal version located).",
+      "read": "2026-10-14",
+      "sha256": "a2c363d622ba6d6dee71cb803eca1f4a4bf411a110e5c783c7737a0ba0e6ee69"
+    },
+    {
+      "source": "morton96",
+      "kind": "published",
+      "url": "https://www.numdam.org/article/CM_1996__103_3_319_0.pdf",
+      "citation": "P. Morton, Compositio Math. 103 (1996), 319–350.",
+      "read": "2026-10-14",
+      "sha256": "9d821a7eb4453dd5864f8aa9b46907f5c3ea70b2eb53d381eabf6a899e91cda7"
+    },
+    {
+      "source": "morton96-corr",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/86C226AF3E2053463B6871D90108413F/S0010437X1000480Xa.pdf/corrigendum_on_certain_algebraic_curves_related_to_polynomial_maps_compositio_math_103_1996_319350.pdf",
+      "citation": "P. Morton, Corrigendum, Compositio Math. 147 (2011), 332–334.",
+      "read": "2026-10-14",
+      "sha256": "5eec9fba8946071061522eba81de2b6559e5720e62796ad054b2930c3b9ee6bd"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticDynamics--DY.3",
+    "date": "2026-10-14",
+    "notes": "Independent review of the 23-node DY.3 continuation (written by Codex, session codex-bJ9jrz; reviewed by Claude, session claude-XUtvk7, which did none of the work). Sources: all seven PDFs downloaded again, SHA-256 equal to the recorded values; every locator checked, and the formulas behind E9301 and E9302 read on the rendered pages. arXiv lists only v1 of Gao–Ou (under a different listing title), recorded in sources and sourceVersions. Every genus, ramification, necklace, kneading and Morton identity was recomputed with exact arithmetic, and Levin's formulas and Lemma 2.8 numerically. Baseline: the 8 cited declarations confirmed at Mathlib 082e2d3 (one line number fixed); 4 added (field trace and [K(X):K(f)]). Corrections: the garbled Hausdorff-limit clause of unicritical-ray-landing; the height normalization of relative-height-candidate-adapter (the inherited bound is native, so the field-degree factor applies only to absolute bounds); the pushforward now cites Mathlib's trace and states the double-pole formula transversality uses; a spurious kneading prerequisite of the ray system; two locators; source ids on the findings; dropped spaces before numerals and symbols throughout the prose. Five restructure entries record how the assembly re-points accepted parent declarations (checked acyclic together with the parent, ED and CN graphs). E9301–E9303 confirmed; no further source mistake found. The suggested file elaborates with lean-check at Tau Ceti f790474 and Mathlib 082e2d3 with only admitted-proof warnings; the Morton tests are now named theorems proved by norm_num, a native-height milestone is added, and the packet names without carriers at the pins are listed. Coverage planned is right: every DY.3 remaining item of the parent is planned here, with G1–G3 and eleven precise requests recorded.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/projective-dynatomic-model",
+        "verdict": "verified",
+        "note": "FPS §2 p.4 (C₁(N) is the normalization of the projective closure, singular at infinity for N>2) and Doyle–Poonen §1 p.2 read; degree ν_d(n) from the inherited degree node; tests n=1 (c=x−x²), n=2 (Φ₂*=x²+x+c+1) and n=4 (genus 2, FPS Table 1) and the n=5 genus 14 versus degree 30 acceptance (FPS p.6) checked. AlgebraicCurves Layers 0, 2, 8 and 12 read at TauCetiRoadmap 0d144d0 (headings identical to the atlas snapshot); they supply the cited contracts."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/dynatomic-cycle-quotient",
+        "verdict": "verified",
+        "note": "FPS p.4 (σ of order N, C₀(N) and Galois-stable cycles) and Theorem 2 p.6 (z² and primitive cube roots) read; (−1/2,−3/4) fixed by σ checked. Layer 11 gives F/F^G Galois with group G; Layers 6 and 12 give degree, fibres and models."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/quadratic-infinity-necklaces",
+        "verdict": "verified",
+        "note": "Morton 1996 Lemma 12 p.341 and the proof of Theorem 13 p.342 read (necklaces coloured by the roots ±i of x²+1; multiplication by −1 is the complement). Brute force for n≤8: ν₂(n) primitive words, ν₂(n)/n necklaces and 1,1,1,2,3,5,9,16 complement orbits, matching the formula; the three tests checked."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/quadratic-parameter-ramification",
+        "verdict": "verified",
+        "note": "Morton 1996 Propositions 9–10 pp.337–339 and Theorems 11, 13 pp.339–343 read (integral closure, finite exponent n−e at satellite parameters, index 2 at infinity). b_n, the satellite counts ν(e)φ(n/e), deg Diff and the n=2 and n=6 acceptance recomputed; Hurwitz with these data reproduces FPS Table 1 for n≤10."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/quadratic-dynatomic-genera",
+        "verdict": "verified",
+        "note": "FPS p.5 formulas and Table 1 recomputed exactly in ℚ for n=1,…,10; the n=2 value 1/4 without the even correction confirmed."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/rational-quadratic-differentials",
+        "verdict": "corrected",
+        "note": "Gao–Ou p.3 norm and the 2πR example checked; the source's Q(ℂ) is meromorphic with simple poles and the rational specialization covers every use. Corrected the locator of §2.3 to pp.9–10."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/polynomial-quadratic-pushforward",
+        "verdict": "corrected",
+        "note": "Mathlib at the pin has the field trace: the AlgebraicCurves Layer 6 prerequisite is replaced by RatFunc.finrank_eq_max_natDegree, Algebra.trace, trace_eq_sum_embeddings and Algebra.trace_trace (read at 082e2d3), and the Layer 6 request narrowed. Added Levin's double-pole formula (Gao–Ou Lemma 2.4, third line), which transversality needs, to the statement and as API unicriticalPushforward_double. All three formulas checked numerically for d=2,3,4; tests 1–2 recomputed exactly."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/local-quadratic-contraction",
+        "verdict": "verified",
+        "note": "Lemma 2.2 and Corollary 2.3 read on the rendered p.3; with q≠0 and deg f≥2 the printed argument proves the node (E9301)."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/parabolic-parameter-transversality",
+        "verdict": "corrected",
+        "note": "Case 2 claim p.5, Lemma 2.6 p.7 (∂_cP=sρ̇/(ρ(ρ−1)), re-derived from P(c,ζ(c))=(ρ^s−1)/(ρ−1) and ∂_zP=0), Lemma 2.8 p.9 (sign checked numerically, d=3, m=2) and Lemma 2.9 p.10 read; acceptance points checked. Added the direct prerequisite on the pushforward node and the double-pole formula to step 3."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/unicritical-kneading-sequence",
+        "verdict": "verified",
+        "note": "Definition checked against p.11 (boundary symbol on τ⁻¹(θ), digit 0 on the wrap arc); ν(1/7)=12102⋆ (d=3) and ν(28/31)=3213⋆ with expansion .32130 (d=4) recomputed exactly; θ=0 gives only ⋆."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/kneading-primitive-word-lemmas",
+        "verdict": "verified",
+        "note": "Lemma 3.2 p.12 checked by brute force over all maximal periodic angles for d≤4, n≤6; Lemmas 3.4–3.5 and Proposition 3.8 pp.13–14 read; acceptance words checked."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/unicritical-external-ray-system",
+        "verdict": "corrected",
+        "note": "§3.3 pp.14–15 read (Böttcher coordinates, rays bifurcating at iterated preimages of 0 outside M_d, φ_{M_d}); ConformalMapping L4 read. The construction uses no kneading data: its prerequisite unicritical-kneading-sequence is replaced by mathlib:AddCircle for the angles."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/unicritical-ray-landing",
+        "verdict": "corrected",
+        "note": "§3.3 pp.15–18, Lemma 3.9 p.15 and the proofs of Propositions 3.13 (p.25) and 3.15 (p.27) read. Rewrote the garbled Hausdorff-limit sentence as the exact contract those proofs take from Petersen–Ryd (R(c), S(c)=f_c⁻¹R(c), limits R and S=f_{c₀}⁻¹R), and 'primitive when' as 'primitive exactly when' (p.18). G1 scope is honest."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/escaping-itinerary-conjugacy",
+        "verdict": "verified",
+        "note": "§3.4 p.23 read; the source asserts holomorphic dependence for every itinerary, and the node's periodic case is weaker and suffices."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/unicritical-parabolic-monodromy",
+        "verdict": "verified",
+        "note": "Lemmas 3.11–3.12 pp.20–23, Proposition 3.13 pp.23–25, Lemma 3.14 p.25 and Proposition 3.15 pp.26–28 read; the d=2, n=2 acceptance checked (θ=2/3=.10)."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/transitive-marked-monodromy",
+        "verdict": "corrected",
+        "note": "§3.5 pp.28–29 read: the ascent algorithm, the digit-sum bound (d−1)n−1 and the final satellite loop match. Theorem 3.1 is on p.11; locator corrected."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/analytic-dynatomic-identification",
+        "verdict": "verified",
+        "note": "Theorems 1.1–1.2 p.1, Theorem 2.1 p.2 and Cases 1–3 pp.4–9 read; the boundary description (period m dividing n, multiplier of order n/m) and both acceptance points checked; G2 states the remaining comparison honestly."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/morton-symmetric-three-cycle-curve",
+        "verdict": "verified",
+        "note": "Morton 1992 Theorem 4 p.347, (10) p.348, (17)–(19′) p.354, (21)–(24) p.355 and (35) p.363 read. Every identity re-verified by exact rational evaluation at 300 random points: the parametrization lies on Φ₃ and is 3-periodic, the inverse, the rotation (t+3)/(1−t), η-invariance, c=−(η²−2η+29)/16 and the symmetric form; the three tests checked."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/morton-elliptic-quotient-map",
+        "verdict": "verified",
+        "note": "Lemma 6, (33)–(36) p.363 read; ζ⁴(Y²−4X³+11X²−8X)=(ζ−2)·H(t,u) verified as a polynomial identity, the inverse formulas and the exceptional values υ=−1 at ζ=0 and υ=1 at ζ=2 checked; tests checked."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/morton-rational-three-cycle-reduction",
+        "verdict": "verified",
+        "note": "The case analysis re-derived; Φ₃(x,−7/4)=(x³+x²/2−9x/4−1/8)² verified and the cubic has no rational root; agrees with Theorem 3 p.346 and §3(iii) pp.362–364. ED.3/rank-zero-curves lists exactly ∞,(0,0),(1,±1),(2,±2) on Morton's curve."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/relative-height-candidate-adapter",
+        "verdict": "corrected",
+        "note": "The node called the inherited height absolute, but DY.3/height-bound-for-preperiodic-points bounds Mathlib's native Height.logHeight relative to L, the normalization of ED.0/bounded-height-enumeration; so the native bound needs D≥exp(B_nat) and the factor s enters only for an absolute bound (DY.1/weil-height-eq-log-height-div-finrank, added). Statement, hypothesis, step 1, acceptance and source match corrected. Doyle–Krumm §2 p.2 and Algorithm 4 p.11 read; NumberField.mulHeight₁_eq identifies H_K with mulHeight₁."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/exact-dynamical-runtime-adapter",
+        "verdict": "verified",
+        "note": "The accepted CN.0 packet (data/blueprints) has no number-field carrier node, so the CN.0 request is needed and precise; ED.0/certified-nonvanishing (a) gives coordinate equality only semantically. DY.0/rational-map-action-on-points read; acceptance examples checked."
+      },
+      {
+        "nodeId": "ArithmeticDynamics:DY.3/arithmetic-point-list-contracts",
+        "verdict": "verified",
+        "note": "Checked against the statements of ED.3/rank-zero-curves, ED.3/poonen-genus-two-mordell-weil, ED.3/stoll-genus-four-subgroup, ED.4/fps-quintic-cycle-curve, ED.4/poonen-type-three-two-curve and ED.4/stoll-six-cycle-curve; g(2)=73 and g(−2)=33 recomputed. The parent rank gates are recorded in restructure for the assembly."
+      }
+    ]
   }
 }
