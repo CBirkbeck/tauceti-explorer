@@ -206237,6 +206237,27 @@
    "reviewReason": "Found and checked at the locator by this review: the Hecke eigenvalue computation gives a_{ℓ₀} − ℓ₀ − 1, consistent with JSW §4.3 and Skinner §2.4."
   },
   {
+   "id": "GrossZagierAndArithmeticHeights/E101",
+   "kind": "misprint",
+   "locator": "Proposition 2.5, definition of γ_v, arXiv:1408.1733v2 p.18",
+   "printed": "Proposition 2.5 defines the finite-place factor γ_v as the volume of U₀(N)_v divided by the volume of U_v.",
+   "correction": "γ_v is the volume of U_v divided by the volume of U₀(N)_v, as in Proposition 2.4 and in the definition before Lemma 3.5.",
+   "reason": "Formula (2.5) is derived exactly as (2.3): converting ⟨f₁,f₂⟩_U and ⟨φ,φ⟩_{U₀(N)} into Petersson norms introduces Vol(X_{U₀(N)})/Vol(X_U), which is the product of Vol(U_v)/Vol(U₀(N)_v). Proposition 2.4 states this ratio, and the proof of Theorem 1.5 applies (2.5) together with Lemma 3.13, whose γ is Lemma 3.5’s Vol(U)/Vol(U₀(n)) = L(1,1_F)(1−e(R)q⁻¹) (pp.23 and 30). With the printed reciprocal, Theorem 1.5 would acquire the factor γ_v⁻² at every v dividing N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1408.1733 abstract page, 2026-10-14: v2 is the latest version; journal reference Algebra Number Theory 8 (2014) 2523–2572",
+    "MSP article page for Algebra Number Theory 8(10), 2014: the published text is not openly served, so the published Proposition 2.5 was not compared",
+    "The accepted GZ.0 and GZ.8 packets’ sourceIssues: no entry for this proposition"
+   ],
+   "owner": "GrossZagierAndArithmeticHeights",
+   "file": "research/blueprint/packets/GrossZagierAndArithmeticHeights.json",
+   "citation": "L. Cai, J. Shu and Y. Tian, Explicit Gross–Zagier and Waldspurger formulae, arXiv:1408.1733v2",
+   "status": "confirmed",
+   "reviewedBy": "REV-GrossZagierAndArithmeticHeights",
+   "reviewReason": "Found and checked in this review on the rendered arXiv v2 pages 18, 23 and 30; the consumers use Lemma 3.5’s γ."
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",

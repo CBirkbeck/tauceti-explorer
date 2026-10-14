@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-8623 new mistakes confirmed · 1227 awaiting review · 2748 already corrected in print · 164 rejected on review · 1 extractions and packets not yet checked.
+8624 new mistakes confirmed · 1227 awaiting review · 2748 already corrected in print · 164 rejected on review · 1 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -2134,6 +2134,10 @@ Collected by `scripts/errata.py` from the paper extractions and blueprint packet
 ### Benedict H. Gross and Don B. Zagier, Heegner points and derivatives of L-series, Inventiones mathematicae 84 (1986), 225–320; Zagier author scan with text layer, read 2026-10-08. (`GrossZagierAndArithmeticHeights`)
 
 - **Gap** at Chapter V §1, Corollary (1.3) and the paragraph proving it, p. 309 (Inventiones 84, published version, author scan) (it affects a stated result). The source says `The corollary lists four Galois-invariance statements for the order of L(f, s) at s = 1, the last being that the order is at least 3 for f exactly when it is for every conjugate f^α; the proof reduces all four to the order-zero and order-one cases plus equal parity.`; it should be `The '≥ 3' statement follows only when the root number of f is −1 (odd orders, where it is equivalent to 'not 1'). For root number +1 it amounts to Galois invariance of order exactly 2, which the argument does not give; the other three statements are proved.`. With even orders e = 2 for f and e' = 4 for f^α, the order-zero, order-one and '≥ 2' statements all hold, equal parity holds, and the '≥ 3' statement fails, so the stated reduction does not imply the fourth line in that case. Confirmed by `REV-GrossZagierAndArithmeticHeights--GZ.8~2`. Recorded as `GrossZagierAndArithmeticHeights/E91`; looked for an existing correction in: Gross–Zagier, Invent. Math. 84 (1986), author scan, Chapter V §1 pp.308–309 (rendered page images); the 1984 announcement cited in the paper was not reread; Springer article page for doi:10.1007/BF01388809 requested 2026-10-08: the publisher served a short non-article page, so no erratum listing could be read there; none is known to this review.
+
+### L. Cai, J. Shu and Y. Tian, Explicit Gross–Zagier and Waldspurger formulae, arXiv:1408.1733v2 (`GrossZagierAndArithmeticHeights`)
+
+- **Misprint** at Proposition 2.5, definition of γ_v, arXiv:1408.1733v2 p.18. The source says `Proposition 2.5 defines the finite-place factor γ_v as the volume of U₀(N)_v divided by the volume of U_v.`; it should be `γ_v is the volume of U_v divided by the volume of U₀(N)_v, as in Proposition 2.4 and in the definition before Lemma 3.5.`. Formula (2.5) is derived exactly as (2.3): converting ⟨f₁,f₂⟩_U and ⟨φ,φ⟩_{U₀(N)} into Petersson norms introduces Vol(X_{U₀(N)})/Vol(X_U), which is the product of Vol(U_v)/Vol(U₀(N)_v). Proposition 2.4 states this ratio, and the proof of Theorem 1.5 applies (2.5) together with Lemma 3.13, whose γ is Lemma 3.5’s Vol(U)/Vol(U₀(n)) = L(1,1_F)(1−e(R)q⁻¹) (pp.23 and 30). With the printed reciprocal, Theorem 1.5 would acquire the factor γ_v⁻² at every v dividing N. Confirmed by `REV-GrossZagierAndArithmeticHeights`. Recorded as `GrossZagierAndArithmeticHeights/E101`; looked for an existing correction in: arXiv:1408.1733 abstract page, 2026-10-14: v2 is the latest version; journal reference Algebra Number Theory 8 (2014) 2523–2572; MSP article page for Algebra Number Theory 8(10), 2014: the published text is not openly served, so the published Proposition 2.5 was not compared; The accepted GZ.0 and GZ.8 packets’ sourceIssues: no entry for this proposition.
 
 ### Sources of the blueprint of HabiroCohomologyFoundations (`HabiroCohomologyFoundations`)
 
