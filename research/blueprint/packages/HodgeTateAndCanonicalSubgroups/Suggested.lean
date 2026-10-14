@@ -6,8 +6,8 @@ import Mathlib
 The roadmap is README.md. This file records light definitions and theorem signatures
 statable against the pinned APIs and is not exhaustive. It fixes the compact-open
 level order, distinguishes the weak, strong and geometric canonical-subgroup ranges,
-and records the left coordinate action and its automorphy factor. The ring-level
-log condition tests the unit fibre; geometric log structures remain sheaf targets.
+and records the left coordinate action and its automorphy factor. Log structures on
+adic spaces are PrismaticCohomology's and the logarithmic layers are README targets.
 Quantitative guards below use rational heights for exact numerical examples; the
 geometric statements use real rank-one valuations with v(p) = 1 and positive levels.
 -/
@@ -55,9 +55,10 @@ end CompactOpenSubgroup
 
 With v(p) = 1, the Hasse height of a point is w = min(v(Ha), 1). The weak and strong
 canonical conditions at level n are S_n·w < 1/2 and p^n·w < 1/2, with
-S_n = (p^n − 1)/(p − 1); the BHW position range is w ≤ 1/(c_p p^{n−1}) with
-c_p = 2, 3, 4 for p ≥ 5, p = 3, p = 2. These are the ranges on which the Layers 3 and 4 theorems are
-stated; they are kept distinct. -/
+S_n = (p^n − 1)/(p − 1); the BHW position range is w < 1/(c_p p^{n−1}) with
+c_p = 2 for p ≥ 5 and c_p = 3 for p = 3 (strict, as in Fargues's theorem), and
+w ≤ 1/(4·2^{n−1}) for p = 2 (inclusive, the all-prime range). These are the ranges on
+which the Layers 3 and 4 theorems are stated; they are kept distinct. -/
 
 /-- The truncated Hasse valuation min(v(Ha), 1) (Layer 3). -/
 def hasseValuation {O : Type u} [CommRing O] (v : AddValuation O (WithTop ℝ)) (Ha : O) : ℝ :=
@@ -81,9 +82,11 @@ def StrongCanonicalRange (p n : ℕ) (w : ℚ) : Prop := (p : ℚ) ^ n * w < 1 /
 /-- The BHW constant c_p: 4 for p = 2, 3 for p = 3, 2 for p ≥ 5. -/
 def bhwConstant (p : ℕ) : ℕ := if p = 2 then 4 else if p = 3 then 3 else 2
 
-/-- The BHW geometric position range w ≤ 1/(c_p p^{n−1}) (Layer 4). -/
+/-- The BHW geometric position range of Layer 4: w ≤ 1/(4·2^{n−1}) for p = 2, and the strict
+range w < 1/(c_p p^{n−1}) for p ≥ 3. -/
 def BHWPositionRange (p n : ℕ) (w : ℚ) : Prop :=
-  w ≤ 1 / ((bhwConstant p : ℚ) * (p : ℚ) ^ (n - 1))
+  if p = 2 then w ≤ 1 / ((bhwConstant p : ℚ) * (p : ℚ) ^ (n - 1))
+  else w < 1 / ((bhwConstant p : ℚ) * (p : ℚ) ^ (n - 1))
 
 example : bhwConstant 2 = 4 ∧ bhwConstant 3 = 3 := ⟨rfl, rfl⟩
 example : bhwConstant 7 = 2 := rfl
@@ -98,6 +101,10 @@ example : ¬ StrongCanonicalRange 2 2 (1 / 8) := by
   norm_num [StrongCanonicalRange]
 
 example : BHWPositionRange 2 1 (1 / 4) ∧ ¬ BHWPositionRange 2 1 (1 / 3) := by
+  norm_num [BHWPositionRange, bhwConstant]
+
+/-- For p ≥ 3 the endpoint is excluded: at p = 5, n = 1 the bound is 1/2. -/
+example : BHWPositionRange 5 1 (1 / 3) ∧ ¬ BHWPositionRange 5 1 (1 / 2) := by
   norm_num [BHWPositionRange, bhwConstant]
 
 /-- The strong condition implies the weak one for nonnegative heights, since S_n ≤ p^n. -/
@@ -178,49 +185,6 @@ example : aipExponent 3 1 (1 / 9) = 5 / 6 := by norm_num [aipExponent]
 
 end HodgeTate
 
-namespace LogAdic
-
-/-! ## Layer 6: Logarithmic adic sites before period sheaves
-
-The log structures of Layer 6 are sheaves of monoids on an étale
-site; on a single ring the same conditions define prelog and log rings. -/
-
-/-- A prelog structure on a commutative ring R: a commutative monoid M with a monoid map
-α : M → (R, ·). -/
-structure PrelogRing (R : Type u) [CommRing R] where
-  /-- The monoid. -/
-  M : Type u
-  [commMonoid : CommMonoid M]
-  /-- The structure map to the multiplicative monoid of R. -/
-  α : M →* R
-
-attribute [instance] PrelogRing.commMonoid
-
-variable {R : Type u} [CommRing R]
-
-/-- A prelog structure is a log structure when α identifies α⁻¹(R^×) with R^×: every unit has
-exactly one preimage. -/
-def PrelogRing.IsLog (P : PrelogRing R) : Prop :=
-  ∀ u : Rˣ, ∃! m : P.M, P.α m = u
-
-/-- The trivial log structure R^× → R. -/
-def trivialLog (R : Type u) [CommRing R] : PrelogRing R :=
-  ⟨Rˣ, Units.coeHom R⟩
-
-/-- The units inclusion is a log structure on every commutative ring. -/
-theorem trivialLog_isLog : (trivialLog R).IsLog := by
-  sorry
-
-example : (trivialLog ℚ).α (Units.mk0 2 two_ne_zero) = 2 := rfl
-
-/-- The one-element monoid mapping to 1 is not a log structure on ℚ, whose unit group is
-not trivial (the unit-fibre negative control). -/
-example : ¬ (⟨PUnit, 1⟩ : PrelogRing ℚ).IsLog := by
-  intro h
-  obtain ⟨_, hm, -⟩ := h (Units.mk0 2 two_ne_zero)
-  norm_num at hm
-
-end LogAdic
 
 
 /-! The definitions and constructions of the README that need group schemes, sheaves of
@@ -231,7 +195,8 @@ Layer 0: `TauCeti.HodgeTate.conormal`, `TauCeti.HodgeTate.hodgeTateMap`,
 `TauCeti.HodgeTate.pDivisibleHodgeTateMap`, `TauCeti.HodgeTate.farguesDegree`,
 `TauCeti.HodgeTate.farguesDivisor`, `TauCeti.HodgeTate.isogenyDivisor`,
 `TauCeti.HodgeTate.semiAbelianTorsion`, `TauCeti.HodgeTate.semiAbelianHasse`,
-`TauCeti.HodgeTate.harderNarasimhanFiltration`.
+`TauCeti.HodgeTate.harderNarasimhanFiltration`, `TauCeti.HodgeTate.torsionDegree`,
+`TauCeti.HodgeTate.coLieComplex`, `TauCeti.HodgeTate.abelianVerschiebung`.
 Layer 2: `ShimuraTower.pLevel`, `ShimuraTower.translate`, `ShimuraTower.infiniteLevel`,
 `TauCeti.HodgeTate.hodgeTateFlagPoint`, `TauCeti.HodgeTate.hodgeTateParabolicReduction`,
 `TauCeti.HodgeTate.ExactTensorFiltration`, `TauCeti.HodgeTate.openTowerHodgeTateMap`.
@@ -241,12 +206,11 @@ Layer 4: `TauCeti.HodgeTate.canonicalLocus`, `TauCeti.HodgeTate.hodgeTateCoordin
 Layer 5: `TauCeti.HodgeTate.igusaTorsor`, `TauCeti.HodgeTate.integralDifferentialLattice`,
 `TauCeti.HodgeTate.modifiedHodgeBundle`, `TauCeti.HodgeTate.modifiedMinimalModel`,
 `TauCeti.HodgeTate.modifiedPlusSheaf`, `TauCeti.HodgeTate.aipTorsor`.
-Layer 6: `TauCeti.LogAdic.LogAdicData`, `TauCeti.LogAdic.MonoidAlgebraLog`,
-`TauCeti.LogAdic.IntegralChart`, `TauCeti.LogAdic.DivisorialLog`,
+Layer 6 (over the log adic spaces and Kummer étale sites of PrismaticCohomology §8.60):
+`TauCeti.LogAdic.MonoidAlgebraLog`, `TauCeti.LogAdic.DivisorialLog`,
 `TauCeti.LogAdic.FsAdicPullback`, `TauCeti.LogAdic.ContinuousLogDerivation`,
 `TauCeti.LogAdic.ContinuousLogDifferentials`, `TauCeti.LogAdic.AnalyticLogDR`,
-`TauCeti.LogAdic.KummerEtale`, `TauCeti.LogAdic.RootCover`,
-`TauCeti.LogAdic.RamificationIndex`, `TauCeti.LogAdic.KummerEtaleSite`,
+`TauCeti.LogAdic.RootCover`, `TauCeti.LogAdic.RamificationIndex`,
 `TauCeti.LogAdic.ProKummerPresentation`, `TauCeti.LogAdic.CorrectedProKummerCover`,
 `TauCeti.LogAdic.ProKummerEtaleSite`, `TauCeti.LogAdic.AllRootTower`,
 `TauCeti.LogAdic.LogAffinoidPerfectoid`, `TauCeti.LogAdic.CompletedLogStructure`,
