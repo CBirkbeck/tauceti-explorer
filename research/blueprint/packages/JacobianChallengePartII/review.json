@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-JacobianChallengePartII",
+    "date": "2026-10-14",
+    "notes": "Independent review of all 48 targets, upstream form, public locators (all nine formerly unread-book targets plus 15 sampled others), dependency closure, current-library duplication, definition tests and adversarial instances. Corrected relative polarization descent via family autoduality, both-fibre Picard lifting and d-squared bound, relative Lie comparison, current-library boundaries and negative controls. Final lean-check exits 0 with 78 sorry warnings only; no sorry-defined data. Packet and intake checks pass. Ready for an upstream draft after the cited supplier roadmaps in dependency order; no formalisation claimed."
+  }
+}

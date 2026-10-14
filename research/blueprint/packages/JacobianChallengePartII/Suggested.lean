@@ -1,10 +1,4 @@
-import Mathlib.AlgebraicGeometry.Limits
-import Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation
-import Mathlib.AlgebraicGeometry.Morphisms.Flat
-import Mathlib.AlgebraicGeometry.Morphisms.Proper
-import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products
-import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
-import Mathlib.CategoryTheory.Monoidal.Cartesian.Over
+import Mathlib
 
 /-!
 # JacobianChallengePartII: representative target signatures
