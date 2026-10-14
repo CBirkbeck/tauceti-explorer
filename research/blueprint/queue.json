@@ -24346,8 +24346,9 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #394"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #394",
+   "finishedAt": "2026-10-14T08:41:48Z"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
@@ -24396,7 +24397,8 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9379"
   },
   {
    "id": "BP-EnhancedDerivedSheaves",
@@ -29664,7 +29666,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -29672,7 +29674,8 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #9433"
+   "note": "deliverables arrived from an external worker on issue #9433",
+   "finishedAt": "2026-10-14T08:41:52Z"
   },
   {
    "id": "REV-AnalyticNumberTheory",
@@ -31643,8 +31646,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--RS.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8916"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8916",
+   "finishedAt": "2026-10-14T08:41:54Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--RS.0",
@@ -31732,8 +31736,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--RS.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8918"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8918",
+   "finishedAt": "2026-10-14T08:41:55Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--RS.2",
@@ -31997,7 +32002,8 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8914"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.5",
@@ -37749,8 +37755,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics--DY.2",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics--DY.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9274"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9274",
+   "finishedAt": "2026-10-14T08:41:57Z"
   },
   {
    "id": "BP-ArithmeticDynamics--DY.3",
@@ -37844,7 +37851,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics--DY.6",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics--DY.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9276"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.1",
@@ -39825,7 +39833,8 @@
    ],
    "revisionOf": "DESIGN-AnalyticToricGeometryPartII",
    "prompt": "research/blueprint/prompts/DESIGN-AnalyticToricGeometryPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8920"
   },
   {
    "priority": 2,
@@ -50691,8 +50700,9 @@
     "PKG-JacobianChallengePartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7607"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7607",
+   "finishedAt": "2026-10-14T08:42:00Z"
   },
   {
    "id": "PKG-KatoEulerSystems",
@@ -102593,7 +102603,8 @@
     "BP-DrinfeldModulesAndTModules--DM.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DrinfeldModulesAndTModules--DM.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9272"
   },
   {
    "kind": "blueprint",
