@@ -15,7 +15,7 @@
     "ref": "mathlib:Algebra.FormallyEtale",
     "kind": "class",
     "module": "Mathlib/RingTheory/Etale/Basic.lean",
-    "provides": "Formally étale algebras: unique lifting along square-zero (hence nilpotent) thickenings; used to see that an étale map which is an isomorphism modulo a nilpotent ideal is an isomorphism.",
+    "provides": "Formally étale algebras, defined by the vanishing of Ω[A⁄R] and H¹ of the naive cotangent complex; Algebra.FormallyEtale.iff_comp_bijective gives the unique lifting along square-zero (hence nilpotent) thickenings, from which an étale map that is an isomorphism modulo a nilpotent ideal is an isomorphism.",
     "checked": "Declaration and its hypotheses read at the pinned commit 082e2d3 (local build of the atlas pins), 2026-10-14"
    },
    {
@@ -29,7 +29,7 @@
     "ref": "mathlib:AlgebraicGeometry.Etale",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
-    "provides": "Étale morphisms of schemes, the morphism class of étale coverings and descent.",
+    "provides": "Étale morphisms of schemes (the class AlgebraicGeometry.Etale) and the category X.Etale of schemes étale over X; descent statements are not part of this file.",
     "checked": "Declaration and its hypotheses read at the pinned commit 082e2d3 (local build of the atlas pins), 2026-10-14"
    },
    {
@@ -81,7 +81,7 @@
    "id": "berthelot-9603",
    "title": "Cohomologie rigide et cohomologie rigide à supports propres. Première partie (version provisoire 1991)",
    "authors": "Pierre Berthelot",
-   "edition": "Prépublication IRMAR 96-03, Université de Rennes 1, January 1996 (author's copy, archived copy of the author's Rennes page)",
+   "edition": "Prépublication IRMAR 96-03, Université de Rennes 1, January 1996 (author's copy, archived copy of the author's Rennes page); page numbers are the global page numbers printed at the foot of each page, which equal the PDF page numbers (the running heads number pages by chapter, so p. 39 is 1.15)",
    "url": "https://web.archive.org/web/20130515094802/http://perso.univ-rennes1.fr/pierre.berthelot/publis/Cohomologie_Rigide_I.pdf",
    "sha256": "0630136eca195bed8208783d4931540220342fb95c883159f4fe3ec6bc8e0907",
    "readSections": [
@@ -145,7 +145,7 @@
     "§§2–4 (Propositions 3–9′), pp. 583–590",
     "§5 (5.1–5.2, Propositions 10–10′), pp. 590–592",
     "Part II, Théorèmes 1–6, pp. 592–598",
-    "Part III, Théorème 7 and its proof, pp. 598–600"
+    "Part III, Théorème 7 and its proof, pp. 599–600"
    ]
   },
   {
@@ -233,7 +233,8 @@
    "url": "http://www.numdam.org/item/ASENS_1973_4_6_4_553_0/",
    "sha256": "74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5",
    "readSections": [
-    "§III.1, Théorème 3 with its proof, Corollaire 1, Lemme and Corollaire, pp. 568–574"
+    "§III.1, Théorème 3 with its proof, Corollaire 1, Lemme and Corollaire, pp. 568–574",
+    "§4, Théorème 6 and the beginning of its proof, p. 580"
    ]
   }
  ],
@@ -546,7 +547,7 @@
     "Sufficiency: for a sequence λ_i → 1 and corresponding η_i, define θ(e) = Σ_k ∂^{[k]} e ⊗ τ^k on V_{λ_i η_i}; it is semilinear, so gives a linear map p_2^*𝓮 → p_1^*𝓮 inducing the Taylor isomorphisms, with inverse Σ_k (−1)^{|k|} τ^k ⊗ ∂^{[k]} e; these glue by the uniqueness argument of overconvergence-is-a-property (c) to an isomorphism on the standard strict neighbourhood V_{λ,η} ((2.2.13)(ii), p. 66). The case Z = ∅ is (2.2.14)."
    ],
    "acceptance": [
-    "Dwork: for ∇(1) = −π dt on A^1, ∂^{[k]}1 = (−π)^k/k!, of absolute value p^{−s_p(k)/(p−1)} ≤ 1 (s_p the digit sum), so ‖∂^{[k]}1‖ λ^k → 0 for every λ < 1: overconvergent.",
+    "Dwork: for ∇(1) = −π dt on A^1 ⊂ P^1 (K = ℚ_p(π), π^{p−1} = −p), on the chart Spf O⟨t⟩, where Z is empty, ∂^{[k]}1 = (−π)^k/k! has absolute value p^{−s_p(k)/(p−1)} ≤ 1 (s_p the digit sum), so the connection is convergent there. Overconvergence along ∞ is checked on the chart Spf O⟨s⟩, s = 1/t, with g = s and U_η ∩ [Y]_λ = {η ≤ |s| ≤ 1}: there ∇(1) = π s^{−2} ds, the Taylor series of 1 is exp(π τ/(s(s + τ))) with τ = s′ − s, and expanding π τ/(s(s + τ)) = (π/s²) Σ_{j≥0} (−1)^j τ^{j+1}/s^j and using |π^n/n!| ≤ 1 gives ‖∂_s^{[k]}1‖ ≤ η^{−2k} on that annulus; so ‖∂_s^{[k]}1‖ λ^k → 0 once η² > λ, and the connection is overconvergent. Computing only on the chart at 0, where Z is empty, would test convergence and not overconvergence.",
     "Kummer: for ∇(1) = a dt/t on G_m ⊂ P^1 with a ∈ ℤ_p, ∂^{[k]}1 = binom(a, k) t^{−k} with |binom(a, k)| ≤ 1, so on {η ≤ |t| ≤ 1/η} the norms are ≤ η^{−k} and λ^k η^{−k} → 0 for η > λ: overconvergent.",
     "Non-examples: for ∇(1) = −dt, ‖∂^{[k]}1‖ = |1/k!| = p^{v_p(k!)} and λ^k p^{v_p(k!)} → ∞ for λ > p^{−1/(p−1)}; for a = 1/p in the Kummer example |binom(1/p, k)| = p^{k + v_p(k!)} is unbounded, so neither is even convergent."
    ],
@@ -678,7 +679,7 @@
     {
      "name": "IsocDagger.gluing_single",
      "kind": "degenerate",
-     "statement": "For the covering of Y by Y itself with one embedding P, the gluing category is Isoc(X, Y, P/S) on the nose."
+     "statement": "For the covering of Y by Y itself with one embedding P, the forgetful functor (E, φ) ↦ E is an isomorphism of categories onto Isoc(X, Y, P/S): the cocycle condition forces φ to restrict to the identity on the diagonal, and a horizontal isomorphism with that restriction is the Taylor isomorphism ε (overconvergence-is-a-property (c)); a datum with φ ≠ ε does not exist."
     },
     {
      "name": "IsocDagger.realisation_product",
@@ -924,8 +925,8 @@
     },
     {
      "sourceId": "kedlaya-finiteness",
-     "locator": "Definition 3.4.2 and Proposition 3.4.5, pp. 23–24",
-     "match": "Defines pushforward of (σ,∇)-modules along finite étale maps of dagger algebras as restriction of scalars, and gives the canonical isomorphism S ⊗_R Ω^i_R ≅ Ω^i_S for a finite étale extension of dagger algebras."
+     "locator": "Definition 3.4.2, p. 23, and the proof of Proposition 3.4.5, p. 24",
+     "match": "Defines pushforward of (σ,∇)-modules along finite étale maps of dagger algebras as restriction of scalars (Definition 3.4.2), and, in the proof of Proposition 3.4.5, uses the canonical isomorphism S ⊗_R Ω^i_R ≅ Ω^i_S for a finite étale extension of dagger algebras."
     },
     {
      "sourceId": "etesse-padova-2002",
@@ -973,7 +974,7 @@
     },
     {
      "sourceId": "guo-reinecke-arxiv-v3",
-     "locator": "Construction 2.11, Definition 2.12, Remark 2.13, pp. 14–15",
+     "locator": "Construction 2.11, Definition 2.12, Remark 2.13, p. 15",
      "match": "Describes isocrystals on an affine smooth formal lift as modules with connection over R[1/p] and defines convergent connections by the decay condition on θ^α(e)/α! for every η < 1."
     },
     {
@@ -1268,7 +1269,7 @@
    ],
    "acceptance": [
     "The unit crystal O_{X/O} with Φ = id gives the unit object (O_{]X[}, d, id).",
-    "Point: X = Spec k (k perfect, O = W(k)): an F-crystal is a Dieudonné-type module (W(k)^r, Φ) and M^an is (K^r, Φ ⊗ K); for (W(k), p^m σ) one gets Mathlib's StandardOneDimIsocrystal of slope m."
+    "Point: X = Spec k (k perfect, O = W(k)): an F-crystal is a Dieudonné-type module (W(k)^r, Φ) and M^an is (K^r, Φ ⊗ K); for (W(k), p^m σ) with m ≥ 0 one gets Mathlib's StandardOneDimIsocrystal of slope m."
    ],
    "prerequisites": [
     "CrystallineCohomology:CR.1/isocrystal",
@@ -1347,7 +1348,7 @@
     {
      "name": "FCrystal.toConvergent_point_slope",
      "kind": "computation",
-     "statement": "For X = Spec k, O = W(k): (W(k), p^m σ) goes to the one-dimensional isocrystal with Φ = p^m σ, of slope m (Mathlib StandardOneDimIsocrystal p k m)."
+     "statement": "For X = Spec k, O = W(k) and m ≥ 0: (W(k), p^m σ) goes to the one-dimensional isocrystal with Φ = p^m σ, of slope m (Mathlib StandardOneDimIsocrystal p k m). For m < 0 the map p^m σ does not preserve W(k), so negative slopes arise only as Tate twists M^an(n)."
     },
     {
      "name": "FCrystal.toConvergent_degenerate_excluded",
@@ -1376,7 +1377,8 @@
    "statement": "Let O be a complete discrete valuation ring of mixed characteristic with e ≤ p − 1 and Frobenius lift σ, and X a k-scheme of finite type. (a) The functor M ↦ M^an of f-crystal-to-convergent-f-isocrystal is fully faithful on non-degenerate F-crystals up to isogeny: Hom(M, N) ⊗ ℚ ≅ Hom(M^an, N^an). (b) If X is smooth over k, every convergent F-isocrystal N is isomorphic to M^an(n) for a non-degenerate F-crystal M (which may be taken p-torsion free) and an integer n ≥ 0. (c) Hence, for k perfect, O = W(k) and X smooth, the category F^a-Isoc(X/K) is equivalent to the category of pairs (E, Φ) with E an object of Isoc(X/W) = Crys(X/W) ⊗ ℚ (crystals of finite type up to isogeny) and Φ: (F^a)^*E ≅ E. (d) Locally, for 𝔛 = Spf R affine smooth over W(k) with special fibre 𝔛_s and a Frobenius lift F, the functor E ↦ E(𝔛)[1/p] = lim_r E(𝔛_s, 𝔛 ⊗ W_r)[1/p] is an equivalence from F-isocrystals on 𝔛_s/W(k) (crystalline) to vector bundles on 𝔛_η with flat convergent connection and horizontal Frobenius F^*E ≅ E. (e) The F-isocrystals on 𝔛_s for the crystalline site, on the crystalline site of 𝔛 ⊗ O_K/p, and on Ogus's convergent site of 𝔛 ⊗ O_K/p over W(k) are equivalent for a smooth formal O_K-scheme 𝔛 (any ramification), the inverses being restrictions.",
    "hypotheses": [
     "(b) needs X smooth; the twist n is needed (the Tate object O(1) is not of the form M^an).",
-    "(c)–(e) use the unramified base W(k); the ramified case is reached through (e) and underlying-bundle-of-convergent-isocrystal."
+    "(c)–(e) use the unramified base W(k); the ramified case is reached through (e) and underlying-bundle-of-convergent-isocrystal.",
+    "Kedlaya states Theorem 2.2 for the absolute Frobenius (a = 1, k perfect, K = W(k)[1/p], X smooth); D’Addezio (§2.2) uses the equivalence for F^n-structures. Berthelot's argument in (2.4.1)–(2.4.2) applies with F replaced by F^a: the radii |π|^{q^{−n}}, q = p^a, still tend to 1, and Ogus's input in (b) does not involve the Frobenius."
    ],
    "proofSteps": [
     "(a): by internal Hom, compare Frobenius-invariant horizontal sections; locally with a Frobenius lift, sections of M^an on ]X[ are compatible families over the tubes [X]_{λ_n}, and the map B_1 → D̂ ⊗ ℚ sending T_i to (π^{−1} p!) f_i^{[p]} produces an inverse to the natural map from (M ⊗ ℚ)^{∇=0, Φ=1} (Berthelot 96-03 (2.4.2), first part, pp. 79–81).",
@@ -1434,7 +1436,8 @@
    "statement": "Let 𝔛 be a smooth formal scheme over Spf O_K, O_K possibly ramified over W(k), with special fibre 𝔛_s and rigid generic fibre 𝔛_η, and let E be a convergent isocrystal on 𝔛_s/K_0, K_0 = W(k)[1/p]. (i) E has an underlying vector bundle with flat connection (E, ∇) on 𝔛_η: the realisation of E on the (not necessarily W(k)-smooth) formal scheme 𝔛, in which 𝔛_s is defined by an ideal of definition (isocrystals-glued-from-local-frames (b)); the connection is relative to K_0, equivalently to K. (ii) If E underlies a crystalline F-isocrystal on 𝔛_s/W(k), then for every W(k)-model Ũ of an affine open U ⊆ 𝔛 (Ũ ⊗_{W(k)} O_K ≅ U; such models exist for framed affines), (E, ∇)|_{U_η} ≅ (E(Ũ), ∇_Ũ) ⊗_{K_0} K, the right side being given by convergent-f-isocrystals-are-crystalline (d). The construction is exact, compatible with ⊗, duals and pullback along morphisms of smooth formal O_K-schemes.",
    "hypotheses": [
     "Over a ramified base 𝔛 has no Frobenius lift compatible with a lift of Frobenius on O_K in general; Frobenius structures are carried by E on the special fibre, not by the bundle.",
-    "Framings (étale maps to Spf O_K⟨x_1^{±1}, …, x_d^{±1}⟩) exist on a basis of affine opens (Guo–Reinecke, Lemma 2.10)."
+    "Framings (étale maps to Spf O_K⟨x_1^{±1}, …, x_d^{±1}⟩) exist on a basis of affine opens (Guo–Reinecke, Lemma 2.10).",
+    "Guo–Reinecke state (i) for convergent isocrystals on Ogus's convergent site of 𝔛_{p=0}; by Berthelot (2.3.4) these are the convergent isocrystals defined by tubes, and tubes depend only on the reduced subscheme, so a convergent isocrystal on 𝔛_s is the same datum."
    ],
    "proofSteps": [
     "Realisation: for an affine open U with a closed immersion of U_s into a smooth formal W(k)-scheme P, lift U_s → P to u: U → P by formal smoothness along the ideal of definition, and put E_U = u_K^* E_P on U_η = ]U_s[_U; independence and gluing are isocrystals-glued-from-local-frames (b) (Berthelot 96-03 (2.3.2)(ii), last paragraph, pp. 70–71).",
@@ -1550,7 +1553,7 @@
     "Stability under subquotients and extensions and the vanishing of Hom between distinct slopes are Kedlaya, Notes, Definition 3.3 and the remark after it (slopes are additive in exact sequences); the lattice characterisation at a point follows from Dieudonné–Manin."
    ],
    "acceptance": [
-    "The Dwork F-isocrystal L_π (∇(1) = −π dt, Φ = exp π(t − t^p)) is unit-root: at a point with Teichmüller coordinate t̂ (t̂^p = t̂) its Frobenius is exp π(t̂ − t̂^p) = 1.",
+    "The Dwork F-isocrystal L_π (∇(1) = −π dt, Φ = θ(t) := exp π(t − t^p), σ = id) is unit-root: it has rank one, hence is isoclinic (Kedlaya, Notes, Remark 3.5), and at the point 0 its Frobenius is θ(0) = 1. At the other F_p-points the Frobenius is not 1: by Dwork's theorem θ(1) = ζ_p is a primitive p-th root of unity (ζ_p ≡ 1 + π mod π²) and θ(x̂) = ζ_p^x for the Teichmüller lift x̂ of x ∈ F_p, a unit, consistently with slope 0. The tempting substitution x̂^p = x̂ inside exp π(t − t^p) is not legitimate: exp(πt) and exp(−πt^p) diverge on |t| = 1, and only their product θ converges there.",
     "The Tate object O(1) is isoclinic of slope −1, hence not unit-root."
    ],
    "prerequisites": [
@@ -1652,7 +1655,7 @@
     {
      "name": "FIsoc.dwork_isUnitRoot",
      "kind": "computation",
-     "statement": "The Dwork F-isocrystal on A^1 is unit-root: at Teichmüller points its Frobenius is 1."
+     "statement": "The Dwork F-isocrystal on A^1 is unit-root: it has rank one and its Frobenius at the point 0 is θ(0) = 1. At the point 1 its Frobenius is θ(1) = ζ_p, a primitive p-th root of unity and so a unit but not 1; a test asserting Φ = 1 at every Teichmüller point would be wrong."
     },
     {
      "name": "FIsoc.tate_not_unitRoot",
@@ -1703,7 +1706,7 @@
    "sources": [
     {
      "sourceId": "kedlaya-isocrystals",
-     "locator": "Theorem 3.7 and Remark 3.10, p. 6",
+     "locator": "Theorem 3.7, p. 6, and Remark 3.10, p. 7",
      "match": "States that unit-root objects of F-Isoc(X) are equivalent to étale ℚ_p-local systems, hence to continuous representations of the étale fundamental group for connected X, with the local model over k((t)), citing Crew 1987, Theorem 2.1."
     },
     {
@@ -1713,7 +1716,7 @@
     },
     {
      "sourceId": "kedlaya-isocrystals",
-     "locator": "Remark 2.3, pp. 2–3",
+     "locator": "Remark 2.3, p. 3",
      "match": "Notes that unit-root convergent F-isocrystals, unlike general ones, come from crystals of locally free modules."
     }
    ],
@@ -1818,7 +1821,7 @@
    ],
    "proofSteps": [
     "(1): A† is Noetherian with π in its radical and A† → Â is faithfully flat (Monsky–Washnitzer); A†/π^n = Â/π^n gives formal étaleness; for a finite A†-algebra B, idempotents of B/πB lift to B because they lift to B̂ and B → B̂ is faithfully flat with B weakly complete (Monsky–Washnitzer, Theorem 3.8), which is the henselian property (Étesse, Padova 2002, Proposition 2 and Théorème 3, pp. 113–115).",
-    "(2): Elkik's lifting theorem for smooth algebras over henselian pairs, and the étale and finite étale refinements (Étesse, Padova 2002, Théorème 4, pp. 116–117).",
+    "(2): Elkik, Théorème 6, p. 580: over a noetherian henselian pair (A, J) every smooth A/J-algebra lifts to a smooth A-algebra; the proof reduces to relative complete intersections through the symmetric algebra of the conormal module and lifts sections over the henselian pair (SchemeAndStackFoundations:SF.0/henselian-smooth-lifting). Applied to (A†, πA†), which is noetherian and henselian by (1), it gives the smooth case; the étale and finite étale refinements and the lifting of sections are Étesse, Padova 2002, Théorème 4, pp. 116–117, whose proof cites Elkik's Théorème 6 (finite étale algebras also follow from SchemeAndStackFoundations:SF.0/henselian-finite-etale-equivalence).",
     "(3): Elkik's Théorème 3 (p. 569): over a henselian pair (A, J), a finitely generated Â-module locally free outside V(J) comes from a finitely generated A-module locally free outside V(J); Corollaire 1 and the following Lemme (p. 573) give the statement for locally free modules on Spec Â ∖ V(J) and uniqueness of isomorphism classes. With J = πA† this is (3) (Étesse 2002, Proposition 6 and Corollaire 1, p. 586)."
    ],
    "acceptance": [
@@ -1842,8 +1845,8 @@
     },
     {
      "sourceId": "elkik-1973",
-     "locator": "Théorème 3, p. 569; Corollaire 1 and Lemme, p. 573",
-     "match": "Descends finitely generated modules over the completion of a henselian pair, locally free outside the closed subset, to the pair itself, and shows uniqueness of locally free modules on the complement."
+     "locator": "Théorème 3, p. 569; Corollaire 1 and Lemme, p. 573; Théorème 6, p. 580",
+     "match": "Descends finitely generated modules over the completion of a henselian pair, locally free outside the closed subset, to the pair itself, and shows uniqueness of locally free modules on the complement. Théorème 6 lifts smooth algebras over the reduction of a noetherian henselian pair to smooth algebras over the pair."
     },
     {
      "sourceId": "etesse-2002",
@@ -1980,18 +1983,18 @@
    ],
    "title": "A p-adic Liouville-type exponent: p^n/(n + λ) tends to 0 but not geometrically",
    "kind": "lemma",
-   "statement": "There is λ ∈ ℤ_p ∖ ℤ such that the sequence f_n = p^n/(n + λ), n ≥ 1, satisfies |f_n| → 0 while for no ρ > 1 does |f_n| ρ^n → 0 (equivalently limsup |f_n|^{1/n} = 1). Explicitly one may take λ = −Σ_{k≥1} p^{m_k} with m_1 = 2, N_k = Σ_{j≤k} p^{m_j} and m_{k+1} = N_k − k. Consequently the power series Σ_{n≥1} f_n t^n lies in the Tate algebra K⟨t⟩ of the closed unit disc but not in its overconvergent subring K⟨t⟩† (nor in K⟨t, t^{−1}⟩†).",
+   "statement": "There is λ ∈ ℤ_p ∖ ℤ such that the sequence f_n = p^n/(n + λ), n ≥ 1, satisfies |f_n| → 0 while for no ρ > 1 does |f_n| ρ^n → 0 (equivalently limsup |f_n|^{1/n} = 1). Explicitly one may take λ = −Σ_{k≥1} p^{m_k} with m_1 = 2, N_k = Σ_{j≤k} p^{m_j} and m_{k+1} = N_k − k; this λ is not rational. Consequently the power series Σ_{n≥1} f_n t^n lies in the Tate algebra K⟨t⟩ of the closed unit disc but not in its overconvergent subring K⟨t⟩† (nor in K⟨t, t^{−1}⟩†).",
    "hypotheses": [
     "Any p ≥ 2; the choice of m_k only needs v_p(N_k + λ) − N_k → −∞ slowly enough that N_k ↦ v_p(N_k + λ)/N_k tends to 1."
    ],
    "proofSteps": [
-    "The m_k increase strictly (m_2 = p² − 1 ≥ 3 and m_{k+1} ≥ p^{m_k} − k), and −λ has infinitely many non-zero and infinitely many zero p-adic digits, so λ ∉ ℤ and n + λ ≠ 0 for all n.",
+    "The m_k increase strictly (m_2 = p² − 1 ≥ 3 and m_{k+1} ≥ p^{m_k} − k), and −λ has infinitely many non-zero and infinitely many zero p-adic digits, so λ ∉ ℤ and n + λ ≠ 0 for all n; since the gaps m_{k+1} − m_k tend to infinity, the digit expansion of −λ is not eventually periodic, so λ ∉ ℚ.",
     "For n = N_k: N_k + λ = −Σ_{j>k} p^{m_j} has valuation m_{k+1} = N_k − k, so |f_{N_k}| = p^{−k} → 0 but |f_{N_k}| ρ^{N_k} = p^{−k} ρ^{N_k} → ∞ for every ρ > 1.",
     "For N_k < n < N_{k+1} (with N_0 = 0): n + λ = (n − N_k) + (N_k + λ) with 0 < n − N_k < p^{m_{k+1}} ≤ p^{v_p(N_k+λ)}, so v_p(n + λ) = v_p(n − N_k) ≤ log_p n and |f_n| ≤ n p^{−n} → 0. This construction is supplied here; it realises the p-adic Liouville phenomenon referred to by Kedlaya (Notes, Remark 5.6)."
    ],
    "acceptance": [
     "For p = 2: m_1 = 2, N_1 = 4, m_2 = 3, N_2 = 12, m_3 = 10: |f_4| = 2^{−1}, |f_{12}| = 2^{−2}, while 4 + λ ≡ 0 mod 2^3 and 12 + λ ≡ 0 mod 2^{10}.",
-    "Contrast: for λ = −1/2 (p odd) the numbers n + λ are units for all n, |f_n| = p^{−n}, and Σ f_n t^n is overconvergent; the Liouville behaviour needs exponents very well approximated by integers.",
+    "Contrast: for λ = −1/2 (p odd), v_p(n − 1/2) = v_p(2n − 1) ≤ log_p(2n), so |f_n| ≤ 2n p^{−n} and Σ f_n t^n converges for |t| < p: it is overconvergent. The numbers n − 1/2 are not all units (p divides 2n − 1 for n = (p + 1)/2); what matters is that v_p(n + λ) grows only logarithmically. In general Σ f_n t^n is overconvergent if and only if limsup_n v_p(n + λ)/n < 1, and no λ ∈ ℤ_p ∖ ℤ has |n + λ| bounded below, because ℕ is dense in ℤ_p.",
     "Contrast: for λ ∈ ℤ the sequence is undefined at n = −λ, which is why λ ∉ ℤ is required."
    ],
    "prerequisites": [
@@ -2029,11 +2032,11 @@
     "Overconvergence of M: on the chart at 0, ∂^{[k]}e_2 = binom(λ, k) t^{−k} e_2 and ∂^{[k]}e_1 = a_k e_2 with a_k = (1/k) Σ_{n≥1} p^n binom(n + λ − 1, k − 1) t^{n−k}, whose sup norm on {η ≤ |t| ≤ 1} is ≤ k η^{−k} because binom(n + λ − 1, k − 1) ∈ ℤ_p; so ‖∂^{[k]}e‖ λ_0^k → 0 for η > λ_0 and taylor-series-convergence-criterion applies; the chart at ∞ (s = 1/t, where h(1/s) = Σ p^n s^{−n} is bounded by 1 on |s| ≥ 1/p) is the same, and overconvergence is local on P (overconvergence-is-a-property (d)). The connection is defined on the strict neighbourhood {1/p < |t| < p}.",
     "Horizontal sections: s = c e_1 + g e_2 is horizontal iff c is constant and t g′ + λ g = −c h, i.e. (n + λ) g_n = −c h_n for all n ∈ ℤ; as λ ∉ ℤ this forces g = c f.",
     "Over the tube {|t| = 1} sections are Laurent series with coefficients tending to 0, and f qualifies (liouville-exponent-sequence), so Hom_{Isoc}(O, M) = K(e_1 + f e_2); over strict neighbourhoods sections are overconvergent Laurent series and f does not qualify, so c = 0 and Hom_{Isoc†}(O, M) = 0. Faithfulness of restriction is coherent-j-dagger-modules (c).",
-    "A Frobenius structure on M would induce one on the sub-object K_λ, which needs (p − 1)λ ∈ ℤ (kummer-isocrystal), impossible for λ ∉ ℚ; the counterexample is constructed here, Abe's published counterexample (IMRN 2011) not being publicly accessible."
+    "A Frobenius structure on M would induce one on the sub-object K_λ, which needs (p − 1)λ ∈ ℤ (kummer-isocrystal), impossible since λ ∉ ℚ (liouville-exponent-sequence); the counterexample is constructed here, Abe's published counterexample (IMRN 2011) not being publicly accessible."
    ],
    "acceptance": [
     "The map Hom_{Isoc†}(O, M) = 0 → Hom_{Isoc}(O, M) = K is injective (faithfulness) but not surjective.",
-    "Replacing λ by an exponent with |n + λ| bounded below by a constant (e.g. λ = −1/2, p odd) makes f overconvergent and the two Hom-spaces agree: the failure is a Liouville phenomenon.",
+    "Replacing λ by an exponent with v_p(n + λ) = O(log n) (for instance λ = −1/2 with p odd, or any λ ∈ (ℚ ∩ ℤ_p) ∖ ℤ) makes f overconvergent and the two Hom-spaces agree; here limsup_n v_p(n + λ)/n = 1, so the failure is a Liouville phenomenon. No λ ∈ ℤ_p ∖ ℤ keeps |n + λ| bounded below, so the relevant condition is the growth of v_p(n + λ), not a lower bound.",
     "In the convergent category M ≅ O ⊕ K_λ, while in the overconvergent category the extension class of M is non-zero."
    ],
    "prerequisites": [
@@ -2116,7 +2119,7 @@
   {
    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/strong-fibration-theorem",
    "obligation": "Proof unpublished (main gap); hypothesis on v to be made precise.",
-   "detail": "Proved in Berthelot 96-03, Théorème (1.3.7) with (1.3.4)–(1.3.5), pp. 41–45. The properness hypothesis is that v restricted to the closure X̄ of X in P′ ×_P Y is proper (for instance v proper); the local hypothesis is that sections t_1, …, t_d of the ideal of Y′ in P′ give a basis of the conormal sheaf over X̄, which holds locally by (1.3.8)(i) when P, P′ are affine, Z = Y ∩ V(g) and the conormal sheaf is free. Then the P-morphism ψ: P′ → P × Â^d defined by the t_i is étale near X, and etale-strict-neighbourhood-isomorphism applied to ψ gives the isomorphism of strict neighbourhoods; (1.3.8)(ii) identifies standard strict neighbourhoods upstairs with products V_{λ,η} × D(0, λ_n^+)^d.",
+   "detail": "Proved in Berthelot 96-03, Théorème (1.3.7) with (1.3.4)–(1.3.5), pp. 41–45. The properness hypothesis is that v restricted to the closure X̄ of X in P′ ×_P Y is proper (for instance v proper); the local hypothesis is that sections t_1, …, t_d of the ideal of Y′ in P′ induce a basis, over X, of the conormal sheaf of Y′ in P′ ×_P Y (Berthelot asks for the basis over X only; the properness condition is the one on X̄), which holds locally by (1.3.8)(i) when P, P′ are affine, Z = Y ∩ V(g) and the conormal sheaf is free. Then the P-morphism ψ: P′ → P × Â^d defined by the t_i is étale near X, and etale-strict-neighbourhood-isomorphism applied to ψ gives the isomorphism of strict neighbourhoods; (1.3.8)(ii) identifies a strict neighbourhood upstairs with ⋃_n ([Y]_{λ_n} ∩ U_{η_n}) × D(0, λ_n^+)^d over the standard neighbourhood V_{λ,η} = ⋃_n ([Y]_{λ_n} ∩ U_{η_n}): a union of products whose polydisc radius λ_n tends to 1. Over a point of the tube ]X[_P the fibre is the open polydisc D(0, 1^−)^d, but over a point of V_{λ,η} outside the tube it is a closed polydisc of radius < 1; the main node's isomorphism \"V′ ≅ V × D(0,1^−)^n over V\" is to be read in this sense, which is what Berthelot proves and what its consequences (sections over strict neighbourhoods, the cohomology and isocrystal comparisons) use.",
    "additionalPrerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-strict-neighbourhood-isomorphism",
     "PadicDifferentialEquationsAndRigidCohomology:RD.3/standard-strict-neighbourhoods"
@@ -2315,7 +2318,12 @@
     "Berthelot's publication list (archived Rennes page)",
     "Kedlaya, Notes on isocrystals v6, §2",
     "Chiarellotto–Tsuzuki 2003, §§2–3"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At (2.3.2)(iii), p. 71, Berthelot leaves to the reader the independence of the glued category from the covering and the local embeddings; the argument written out in isocrystals-glued-from-local-frames (common refinement in the products P_α ×_S P′_β, the frame-independence equivalences and the uniqueness and transitivity of the Taylor comparison isomorphisms) is correct. The step is routine but it is not proved in the source, so \"gap\" with effect on the proof is the right classification.",
+    "by": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3"
+   }
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E302",
@@ -2330,7 +2338,12 @@
    "searched": [
     "The preprint itself (no erratum list)",
     "Kedlaya, Notes on isocrystals v6, Lemma 2.6 and its references"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The proof of (2.3.5), p. 73, appeals to the local nature in X of overconvergent isocrystals with the cross-reference (cf. (2.2.17)); in the text read, (2.2.17) (pp. 67–68) compares pullbacks along two morphisms agreeing on Y′, while locality in X is the remark after (2.2.11) (p. 64) and (2.3.3)(i) (p. 72). A wrong cross-reference whose intended target is clear: a misprint that affects nothing.",
+    "by": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3"
+   }
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E303",
@@ -2346,7 +2359,12 @@
     "Tsuzuki 2003 (Documenta, Kato volume)",
     "Shiho, arXiv:0707.1742v2, Introduction",
     "Étesse 2002, bibliography"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Mém. SMF 23, Théorème 5, p. 30, states the overconvergence of R^i f_* for a proper smooth family with a suitable proper formal lift without proof; Tsuzuki 2003 introduces Theorems 4.1.1 and 4.1.4 as due to Berthelot [4, Théorème 5] and proves Theorem 4.1.1 on pp. 906–908, and Shiho (arXiv:0707.1742v2, Introduction) records the liftable case as known. A survey announcement without proof, later proved: the classification as a gap with a known correction is right.",
+    "by": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3"
+   }
   }
  ],
  "sourceVersions": [
@@ -2452,5 +2470,178 @@
    "read": "2026-10-14",
    "sha256": "74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5"
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-PadicDifferentialEquationsAndRigidCohomology--RD.3",
+  "date": "2026-10-14",
+  "notes": "Independent review (Claude, session claude-yWBZQT). Every source was fetched at the recorded URL and its SHA-256 matched the packet. Berthelot IRMAR 96-03 chapters 1.2–2.5 (pp. 32–89) were read in full against the 27 nodes and the 19 continuations; the Kedlaya, Étesse, Elkik, Guo–Reinecke, D’Addezio, Chiarellotto–Tsuzuki, Tsuzuki, Shiho and Mém. SMF 23 locators were located and checked at the cited statements. All 9 baseline declarations were read at Mathlib 082e2d3. All prerequisites outside this packet exist: 31 nodes of five other roadmaps, all of lower tier than RD (tier 12), and 2 RD.0 nodes. The combined RD graph with continuations is acyclic, with no RD.3 → RD.4+ edge. Library audit: RD.3 is not built; current Tau Ceti (a91d3aaf) and TauCetiRoadmap have no isocrystal, tube or weak-completion material. Errors corrected: the Dwork unit-root test (θ(1) = ζ_p, not 1); the λ = −1/2 contrast tests in the Liouville nodes (n − 1/2 is not always a unit; no λ ∈ ℤ_p ∖ ℤ has |n + λ| bounded below); the Dwork overconvergence test now checks the chart at ∞; the strong-fibration continuation (conormal basis over X; union of products in (1.3.8)(ii)); the missing Elkik Théorème 6 input for lifting smooth algebras over (A†, π); the m ≥ 0 scope of the point test; the \"on the nose\" gluing test. Locators fixed: Kedlaya Remarks 2.3 (p. 3) and 3.10 (p. 7), Kedlaya Finiteness Proposition 3.4.5 (proof), Guo–Reinecke Construction 2.11 (p. 15), Étesse Théorème 7 (pp. 599–600); Berthelot’s page numbering explained; two baseline \"provides\" texts sharpened. Source issues E301–E303 confirmed. The reader document is brought in line with every change; the suggested file elaborates with lean-check (exit 0; the only warnings are the nine admitted-proof warnings), one false docstring corrected. Open gaps (Ogus, Crew/Katz, Abe) are recorded honestly; three cited suppliers sit in packets whose reviews returned needs_changes (SchemeAndStackFoundations SF.0, SF.4; PerfectoidSpaces P3), and their statements as written supply what RD.3 uses.",
+  "checked": [
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-tube-isomorphism",
+    "verdict": "verified",
+    "note": "Berthelot 96-03 (1.3.1), pp. 39–40, read: statement, hypotheses (étale near X only) and the reduction to A[T]/(a^m, f_i^n − aT_i) match; square-root and smooth-projection acceptance tests checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/standard-strict-neighbourhoods",
+    "verdict": "verified",
+    "note": "(1.2.1)–(1.2.4), (1.2.7), (1.2.9)–(1.2.11), pp. 32–38, read; (a)–(d) match, including U′_η of (1.2.3)(iii), the closed balls of radius 1/η in (1.2.4)(iii) and the non-admissible covering of the remark after (1.2.1)."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-strict-neighbourhood-isomorphism",
+    "verdict": "verified",
+    "note": "(1.3.4)–(1.3.5), pp. 41–44, and Chiarellotto–Tsuzuki 2.10.2, p. 85, read; properness is on the closure X̄ of X in P′ ×_P Y as stated; the G_m ⊂ A^1 non-example checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/j-dagger-exactness-and-functoriality",
+    "verdict": "verified",
+    "note": "(2.1.1)–(2.1.8), pp. 47–56, read; (a)–(d) match (2.1.3), (2.1.4) with X′ = v^{-1}(X), (2.1.5), (2.1.7)–(2.1.8); the affine-space acceptance is (2.1.2.3)."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/coherent-j-dagger-modules",
+    "verdict": "verified",
+    "note": "(2.1.9)–(2.1.11), pp. 56–57, and Chiarellotto–Tsuzuki 2.9.1, p. 84, read; the series Σ p^{⌊√n⌋} t^n lies in K⟨t⟩ and not in K⟨t⟩†."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/coherent-j-dagger-gluing",
+    "verdict": "verified",
+    "note": "(2.1.12), p. 58, read; statement and proof outline match."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergence-is-a-property",
+    "verdict": "verified",
+    "note": "(2.2.1)–(2.2.11) with the remark after (2.2.11), pp. 58–64, read; (a)–(e) match (2.2.3), (2.2.6), (2.2.7), (2.2.8), (2.2.9)–(2.2.11); Dwork and exp(−τ) tests recomputed."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/taylor-series-convergence-criterion",
+    "verdict": "corrected",
+    "note": "(2.2.12)–(2.2.15), pp. 64–67, and Guo–Reinecke Definition 2.12 / Remark 2.13, p. 15, read. The Dwork acceptance test only computed on the chart at 0, where Z is empty (a convergence test), although P^1 is not affine; the overconvergence check on the chart at ∞ (s = 1/t, Taylor series exp(πτ/(s(s+τ))), norms ≤ η^{−2k}, so η² > λ suffices) is now supplied. Kummer and non-examples recomputed (|binom(1/p, k)| = p^{k+v_p(k!)})."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/isocrystals-glued-from-local-frames",
+    "verdict": "corrected",
+    "note": "(2.3.1)–(2.3.2)(iv) and (2.2.17), pp. 67–72, read; the supplied independence-of-covering argument (left to the reader at (2.3.2)(iii)) is correct. The degenerate test claimed equality \"on the nose\"; it now says that forgetting φ is an isomorphism of categories, φ being forced to equal the Taylor isomorphism."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/zariski-stack-of-overconvergent-isocrystals",
+    "verdict": "verified",
+    "note": "Remark after (2.2.11), p. 64, and (2.3.3)(i), p. 72, read; Étesse p. 592 (start of II) cites Berthelot [5, 2.1.12, 2.2.11, 2.3.7] for Zariski locality, as the match says."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/affine-frame-global-sections-equivalence",
+    "verdict": "verified",
+    "note": "(2.1.2)–(2.1.2.4), pp. 49–50, and (2.5.1)–(2.5.2) with the remark after it, pp. 81–83, read; Kedlaya, Finiteness, Remark 4.2.5, p. 26, read."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/mw-pullback-realises-frame-pullback",
+    "verdict": "verified",
+    "note": "(2.5.3)–(2.5.6), pp. 83–86, read; the lift ψ exists by van der Put 2.4.4 as cited there; translation acceptance checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/frobenius-structure-forces-overconvergence",
+    "verdict": "verified",
+    "note": "(2.5.7)–(2.5.8), pp. 86–89, and (2.3.8)(ii)–(iii), pp. 76–77, read; the q-power version follows the same proof (λ_{n+1} = min(λ_n^{1/q}, λ_n/ϱ)); Dwork radius p^{(p−1)/p²} and the Kummer criterion a = m/(p−1) match."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-lifting-of-mw-algebras",
+    "verdict": "corrected",
+    "note": "Étesse 2002 (1.2.1)–(1.2.2) and Proposition 1, pp. 578–580, and Étesse Padova Théorème 4, pp. 116–117, located and checked; Kedlaya, Finiteness, Proposition 3.4.5 is about cohomology and the differential isomorphism S ⊗_R Ω^i_R ≅ Ω^i_S is in its proof: locator and match corrected. Kummer, Artin–Schreier and ramified non-example checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/convergent-isocrystal",
+    "verdict": "corrected",
+    "note": "(2.2.5), (2.2.14), (2.3.2), (2.3.4), (2.3.9) read; Guo–Reinecke Construction 2.11 is on p. 15, not pp. 14–15 (locator corrected); Kedlaya Definition 2.1 and Remarks 2.3, 2.12 checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/convergent-f-isocrystal",
+    "verdict": "verified",
+    "note": "(2.3.7)–(2.3.8), pp. 75–77, read; Kedlaya Definition 2.1, Remarks 2.10 (p. 4) and 2.12 (p. 5) and D’Addezio §2.2, p. 6, checked; Tate-twist convention (Φ multiplied by p^{−n}) and the slope −1 test agree with Mathlib StandardOneDimIsocrystal."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/f-crystal-to-convergent-f-isocrystal",
+    "verdict": "corrected",
+    "note": "(2.4) and (2.4.1), pp. 78–79, read (e ≤ p − 1, non-degenerate F-crystals); Guo–Reinecke footnote 3, p. 15, checked. The point test with (W(k), p^m σ) is restricted to m ≥ 0 (for m < 0 it is not an F-crystal)."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/convergent-f-isocrystals-are-crystalline",
+    "verdict": "corrected",
+    "note": "(2.4.2), pp. 79–81, read; Kedlaya Theorem 2.2 (p. 2; Ogus for full faithfulness, Berthelot (2.4.2) for essential surjectivity), Guo–Reinecke Theorem 2.14 and Remarks 2.15–2.16, D’Addezio §2.2 checked. Added the hypothesis that Kedlaya states a = 1 and D’Addezio uses F^n-structures, with the reason Berthelot’s proof applies to F^a."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/underlying-bundle-of-convergent-isocrystal",
+    "verdict": "corrected",
+    "note": "Guo–Reinecke Lemmas 2.9–2.10 and Proposition 2.17, pp. 14 and 16, read; Berthelot (2.3.2)(ii), pp. 70–71, read. Added the hypothesis relating Ogus’s convergent site of 𝔛_{p=0} (used by Guo–Reinecke) to convergent isocrystals on 𝔛_s."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/unit-root-f-isocrystal",
+    "verdict": "corrected",
+    "note": "Étesse §5.1, p. 590, Kedlaya Definition 3.3 and the paragraph after it, p. 6, D’Addezio Definition 3.3.3, p. 11, checked. Error fixed: the acceptance test and FIsoc.dwork_isUnitRoot claimed that the Dwork Frobenius exp π(t − t^p) equals 1 at Teichmüller points; in fact θ(1) = ζ_p (Dwork), since exp(πt) and exp(−πt^p) diverge on |t| = 1. The object is still unit-root (rank one, Frobenius θ(0) = 1 at the point 0, roots of unity elsewhere)."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/crew-unit-root-correspondence",
+    "verdict": "corrected",
+    "note": "Kedlaya Theorem 3.7 (p. 6) and D’Addezio Proposition 3.3.4 with its proof (p. 11) read; Remark 3.10 is on p. 7 and Remark 2.3 on p. 3 (locators corrected). Point acceptance (character sending arithmetic Frobenius to u^{−1}) recomputed. Crew 1987 / Katz unread: gap kept."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/direct-summands-of-overconvergent-f-isocrystals",
+    "verdict": "verified",
+    "note": "Étesse Théorème 6, p. 598, Proposition 6 with Corollaires 1–2, p. 586, Propositions 9′ (p. 590) and 10′ (p. 592) located and checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-descent-of-overconvergent-f-isocrystals",
+    "verdict": "verified",
+    "note": "Étesse Théorèmes 1, 2, 2′, 2″, 3, pp. 593–596, and Proposition 10, pp. 591–592, checked: Théorèmes 1 and 3 use Ogus [35, théo. 4.5, 4.6] as the gap records; Kummer descent along s ↦ s^{p−1} recomputed (s^j spans K_{j/(p−1)} with Frobenius t^j)."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/weak-completion-henselian-descent",
+    "verdict": "corrected",
+    "note": "Étesse Padova Proposition 2, Théorèmes 3–4 and Elkik Théorème 3, Corollaire 1 and Lemme (pp. 569, 573) checked. Closure fixed: the lifting of smooth algebras in (2) rests on Elkik’s Théorème 6 (p. 580, read), which the node did not cite; added as source and in the proof (no cited supplier states it). Square-root acceptance checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/kummer-isocrystal",
+    "verdict": "verified",
+    "note": "(2.2.15)(ii)(b), p. 67, and (2.3.8)(iii), p. 76, read; iso criterion a − b ∈ ℤ, horizontal sections, pullback t ↦ t^N and the Frobenius criterion (p − 1)a ∈ ℤ recomputed."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/liouville-exponent-sequence",
+    "verdict": "corrected",
+    "note": "Construction checked: v_p(N_k + λ) = N_k − k, |f_{N_k}| = p^{−k}, v_p(n + λ) ≤ log_p n between the N_k; p = 2 values recomputed. Error fixed: the contrast with λ = −1/2 claimed n − 1/2 is a unit for all n (false: p | 2n − 1 for n = (p+1)/2); restated with v_p(n − 1/2) ≤ log_p(2n). Added that λ ∉ ℚ (needed by the counterexample’s Frobenius argument). Kedlaya Remark 5.6, p. 13, checked."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/liouville-extension-counterexample",
+    "verdict": "corrected",
+    "note": "Recomputed: h ∈ K⟨t⟩† on 1/p < |t| < p; ∂^{[k]}e_1 = (1/k)Σ p^n binom(n+λ−1, k−1) t^{n−k} e_2 with norm ≤ kη^{−k} on both charts; horizontal sections over the tube are K(e_1 + f e_2) and over strict neighbourhoods 0; a Frobenius structure would force K_{pλ} ≅ K_λ. Error fixed: the contrast acceptance asked for |n + λ| bounded below, which no λ ∈ ℤ_p ∖ ℤ satisfies; restated with v_p(n + λ) = O(log n)."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/strong-fibration-theorem",
+    "verdict": "corrected",
+    "note": "Continuation: Berthelot (1.3.7) asks for the conormal basis over X, not over X̄ (corrected); (1.3.8)(ii) gives a union of products ⋃_n([Y]_{λ_n} ∩ U_{η_n}) × D(0, λ_n^+)^d, not a single product, and the continuation now says how the main node’s product formula is to be read."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/weak-fibration-theorem",
+    "verdict": "verified",
+    "note": "Continuation: (1.3.2), p. 40, and the remark after it read."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/independence-of-frame",
+    "verdict": "verified",
+    "note": "Continuation: (2.3.1), pp. 68–69, read; reduction through (1.3.7) to the zero section and (2.2.17) as stated."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/independence-of-compactification",
+    "verdict": "verified",
+    "note": "Continuation: (2.3.5), pp. 73–74, read; the replacement of Raynaud–Gruson 5.7.14 by SF.4/modification-domination applied twice with two-out-of-six is a correct argument."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-pushforward-of-isocrystals",
+    "verdict": "verified",
+    "note": "Continuation: Construction from public sources checked against Kedlaya, Finiteness, Definition 3.4.2 and Proposition 3.4.5."
+   },
+   {
+    "nodeId": "PadicDifferentialEquationsAndRigidCohomology:RD.3/punctured-curve-boundary-acceptance",
+    "verdict": "verified",
+    "note": "Continuation: (2.3.9)(iii), pp. 77–78, read."
+   }
+  ]
+ }
 }
