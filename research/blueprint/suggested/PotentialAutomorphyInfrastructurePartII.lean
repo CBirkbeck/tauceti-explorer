@@ -9,7 +9,8 @@ signatures. Every proof is `sorry`, and so is every piece of data whose construc
 this roadmap or of the roadmap that owns it. Nothing here claims to be formalised.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The file imports Mathlib only. Owner theorem exports are represented by the explicitly
+`f790474821cf4256814db967cb154e7af3d0c369`. The file imports Mathlib and one Tau Ceti module, `TauCeti.NumberTheory.NumberField.SplitsCompletely`
+(the complete-splitting criterion used by good extensions). Owner theorem exports are represented by the explicitly
 requested interfaces below; this does not claim that all their elementary ingredients are absent
 from Tau Ceti at the pin.
 
@@ -43,15 +44,24 @@ from Tau Ceti at the pin.
   `-- test: <name>`. The theorem signatures use the arithmetic objects of their nodes, with one declaration per
   part where appropriate. Exact supplier requests and source-version gaps delimit the claims;
   the strong-primitive lifting routes are explicitly narrower than the published weak-primitive claims.
+* The continuation sections "PL.6 continuation" and "PL.7 continuation" hold the targets planned
+  after the first pass. Their theorem signatures display the algebraic conclusion, and each
+  docstring names the arithmetic hypotheses the signature leaves out; the roadmap document states
+  them in full. Such a signature is not the theorem, and a contributor states the full hypotheses.
+  `IsWeaklyPrimitive` is the actual-induction predicate on Mathlib's `Rep`, for finite-index
+  subgroups of a discrete group; it is the condition `IsPrimitive` imposes, without topology.
 
 **Scope and interfaces.** Both component conditions of PL.1 are stated, using geometric
 components and finite coefficient descents certified by R08.3. NT21 deformation data and part (d)
 of ordinary freeness have their own signatures. PL.8 states the O + epsilon E/O comparison as an
-IHG.1 input and owns its integral polarized trace equivariance. PL.7 targets that pass through the
-strong-primitive generic R=T theorem retain that hypothesis in general rank. For character-sum
-applications with rank smaller than the residual characteristic, the explicit normal-core averaging
-bridge derives strong primitivity from the source hypotheses; good extensions with p not dividing
-the rank use the kernel-orbit image-invariance bridge.
+IHG.1 input and owns its integral polarized trace equivariance. The main PL.6 and PL.7 sections
+state generic restriction, generic R=T and the lifting and finiteness theorems with strong
+primitivity. The two continuation sections that follow them state the source forms with weak
+primitivity, which the PL.6 continuation proves by its selfdual-lattice reduction argument. Both
+forms need their primitivity hypothesis over the residue field of each normalization (the
+roadmap's gap on the coefficient field). For character-sum applications with rank smaller than
+the residual characteristic, the explicit normal-core averaging bridge derives strong primitivity
+from the source hypotheses; good extensions use the image-invariance bridges.
 PL.9 counts the odd-multiplier local tangent defect and extra generators before its parity
 conclusion. LLHLM source weights label the coefficients and polynomial; sourceToCommon translates
 the Hodge–Tate and HasWeight signatures. The separate change-of-weight route retains the §9.1
@@ -103,6 +113,20 @@ import Mathlib.RingTheory.AdicCompletion.Algebra
 import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.Topology.Instances.TrivSqZeroExt
 import Mathlib.Algebra.DualNumber
+import Mathlib.RepresentationTheory.Semisimple
+import Mathlib.RepresentationTheory.Rep.Res
+import Mathlib.FieldTheory.Normal.Closure
+import Mathlib.FieldTheory.LinearDisjoint
+import Mathlib.GroupTheory.Solvable
+import Mathlib.RingTheory.Ideal.Over
+import Mathlib.RingTheory.Spectrum.Prime.Defs
+import Mathlib.RingTheory.Noetherian.Defs
+import Mathlib.Data.ZMod.Basic
+import Mathlib.RingTheory.Localization.FractionRing
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.RingTheory.Finiteness.NilpotentKer
+import Mathlib.RingTheory.Ideal.MinimalPrime.Noetherian
+import TauCeti.NumberTheory.NumberField.SplitsCompletely
 
 set_option autoImplicit false
 
@@ -9667,7 +9691,191 @@ theorem generic_prime_r_equals_t_scalar (D : HeckeDatum E) (Sa : Set (Place D.L)
 end GenericRT
 
 end TauCeti.Automorphy
+
 namespace TauCeti.Automorphy
+
+/-! ### PL.6 continuation: weak primitivity, cotangent control and the generic Hecke-kernel theorem
+
+These are the PL.6 targets planned after the first pass: polarized imprimitivity detected in
+reduction, weak-primitive generic restriction, the two weak-primitivity bridges (image-preserving
+restriction and splitting coefficient fields), relative cotangent control for any number of Schur
+constituents, Taylor–Wiles cotangent control with weak primitivity, the block-sign equivariant
+patched comparison, and the weak-primitive generic Hecke-kernel theorem. The finite-image
+invariance and splitting-field theorems are fully stated. The other signatures display the
+algebraic conclusion; each docstring lists the arithmetic inputs it leaves out (integral
+polarized representations, Schur reduction, the ordinary deformation problem, normalized
+coefficients, the patching diagrams), and the roadmap document states them. The sources use `q`
+both for a prime and for the number of auxiliary primes; here the number is `auxCount`. All ring
+maps are ring homomorphisms, and no map from the universal deformation ring to a Hecke algebra
+is introduced. -/
+
+section PL6Continuation
+
+open CategoryTheory
+open scoped TensorProduct
+
+section PL6Representations
+
+variable {k : Type} [Field k] {Γ : Type} [Group Γ]
+
+/-- Concrete spelling of the imported parent predicate: induction is actual,
+with a proper finite-index subgroup; semisimplification does not occur. The
+finite-image theorem below needs no topology. On profinite groups the parent's
+continuous carrier additionally restricts to open subgroups and continuous U. -/
+abbrev IsWeaklyPrimitive (ρ : Rep k Γ) : Prop :=
+  ∀ (H : Subgroup Γ), H.FiniteIndex → H ≠ ⊤ →
+    ∀ U : Rep k H, ¬ Nonempty (ρ ≅ Rep.ind H.subtype U)
+
+/-- Target: polarized-imprimitivity-detected-in-reduction.
+
+Missing inputs: A=k[[T]], E=k((T)), integral continuous odd-polarized r with
+Schur reduction, an open Γ-normal N, distinct absolutely E-simple N-blocks
+permuted transitively with block count greater than one, and their stabilizer.
+The conclusion includes actual induction over the unchanged residue field k.
+The construction uses T=u² and a block-adapted selfdual midpoint lattice.
+`ρbar` denotes the actual residual representation, not its arbitrary substitute.
+-/
+theorem polarized_imprimitivity_detected_in_reduction (ρbar : Rep k Γ) :
+    ∃ (H : Subgroup Γ), H.FiniteIndex ∧ H ≠ ⊤ ∧
+      ∃ U : Rep k H, Nonempty (ρbar ≅ Rep.ind H.subtype U) := by
+  sorry
+
+/-- Target: weak-primitivity-image-invariance.
+
+This finite-image form is fully expressible. Any proper induction of the
+inflated representation has ker f inside its block stabilizer, so descends to G.
+Apply this to the two surjections onto the common residual image to obtain the
+open image-preserving restriction theorem in the README. No semisimplification,
+characteristic restriction or dimension bound is used in the equivalence.
+-/
+theorem weak_primitivity_image_invariance {G : Type} [Group G] [Finite G]
+    (f : Γ →* G) (hf : Function.Surjective f) (ρ : Rep k G)
+    [FiniteDimensional k ρ.V] [Nontrivial ρ.V] :
+    IsWeaklyPrimitive (Rep.res f ρ) ↔ IsWeaklyPrimitive ρ := by
+  sorry
+
+/-- Target: weak-primitivity-splitting-field-base-change.
+
+Missing input: every simple module of every subgroup of G is absolutely
+irreducible over k. The finite coefficient field, semisimplicity, embedding and
+actual scalar-extension identification are included below. The README proves
+that an inducing module is semisimple by restricting an induced retraction to
+the identity coset, so its simple summands descend over the splitting field.
+The claim is false without that coefficient hypothesis (S₃ over 𝔽₅/𝔽₂₅).
+-/
+theorem weak_primitivity_splitting_field_base_change {G : Type} [Group G] [Finite G]
+    {K : Type} [Field K] [Algebra k K] [Finite k]
+    (ρ : Rep k G) (ρK : Rep K G) [FiniteDimensional k ρ.V]
+    [Nontrivial ρ.V] [ρ.ρ.IsSemisimpleRepresentation]
+    (e : (K ⊗[k] ρ.V) ≃ₗ[K] ρK.V)
+    (he : ∀ (g : G) (a : K) (v : ρ.V),
+      e (a ⊗ₜ[k] (ρ.ρ g v)) = ρK.ρ g (e (a ⊗ₜ[k] v))) :
+    IsWeaklyPrimitive ρ ↔ IsWeaklyPrimitive ρK := by
+  sorry
+
+/-- Target: weak-primitive-generic-restriction.
+
+Missing inputs: the integral polarized model over k[[T]], Schur cyclotomic
+reduction, weak primitivity and the split multiplicatively independent σ₀.
+The README gives absolute irreducibility; this signature displays the underlying
+irreducibility conclusion over E. Absolute irreducibility adds the same statement
+after every coefficient extension. The proof descends the Ē-blocks using the
+E-defined σ₀ eigenlines, then applies the selfdual-lattice target above.
+-/
+theorem weak_primitive_generic_restriction {E : Type} [Field E]
+    {V : Type} [AddCommGroup V] [Module E V] [FiniteDimensional E V]
+    (ρ : Representation E Γ V) (N : Subgroup Γ) [N.FiniteIndex] :
+    Representation.IsIrreducible (ρ.comp N.subtype) := by
+  sorry
+
+end PL6Representations
+
+section PL6Cotangent
+
+variable {A : Type} [CommRing A]
+
+/-- Target: general-schur-relative-cotangent, its uniform torsion output.
+
+Missing inputs: the actual relative cotangent family
+C_N=p̃_N/(q̃_N+p̃_N²), its A=k[[T]] module structure, the absolutely irreducible
+generic lifting, fixed Taylor–Wiles order and normalized coefficient change.
+The conclusion below gives finiteness, a uniform cardinality bound and a common
+annihilating T-power for positive auxiliary levels; its completed-map
+isomorphism conclusion is displayed separately below. T is the uniformizer.
+-/
+theorem general_schur_relative_cotangent (T : A)
+    (C : ℕ → Type) [∀ N, AddCommGroup (C N)] [∀ N, Module A (C N)] :
+    ∃ s bound : ℕ, ∀ N, 1 ≤ N →
+      Finite (C N) ∧ Nat.card (C N) ≤ bound ∧ ∀ x : C N, T ^ s • x = 0 := by
+  sorry
+
+/-- Second output of general-schur-relative-cotangent.
+Pcomplete and Rcomplete are the specified localized completions after coefficient
+change. Missing inputs: their construction, generic étaleness, block-sign fibre
+transitivity and equality of fraction residue fields. Equal fields are arranged
+by the imported twist before this map is used. -/
+theorem general_schur_completed_comparison {Pcomplete Rcomplete : Type}
+    [CommRing Pcomplete] [CommRing Rcomplete]
+    (f : Pcomplete →+* Rcomplete) : Function.Bijective f := by
+  sorry
+
+/-- Target: weak-primitive-taylor-wiles-cotangent, the resulting cotangent family.
+
+Missing inputs: A a complete DVR with finite residue, T its uniformizer,
+a=n(n−1)[F⁺:ℚ]/2, the six Galois hypotheses (or the scalar Frobenius variant),
+and C_N=p̃_N/(P̃^loc+p̃_N²) for the chosen data. The free part has rank
+auxCount-a and the finite torsion part has uniformly bounded cardinality. This
+signature uses a finite submodule and its free quotient, which splits over A.
+The dual Selmer bounds and the E/A decomposition are specified in the README.
+-/
+theorem weak_primitive_taylor_wiles_cotangent (a auxCount : ℕ)
+    (C : ℕ → Type) [∀ N, AddCommGroup (C N)] [∀ N, Module A (C N)] :
+    ∃ bound : ℕ, a ≤ auxCount ∧ ∀ N, 1 ≤ N →
+      ∃ W : Submodule A (C N), Finite W ∧ Nat.card W ≤ bound ∧
+        Nonempty ((C N ⧸ W) ≃ₗ[A] (Fin (auxCount - a) → A)) := by
+  sorry
+
+end PL6Cotangent
+
+section PL6Patching
+
+/-- Target: block-sign-equivariant-patched-comparison.
+
+Acomplete and Bcomplete denote the chosen completed generic patched factors.
+Missing inputs: the actual finite-level diagrams, fixed H=μ₂^d-equivariance,
+bounded presentations and faithfulness, B∞/q∞≅R̃/q̃, relative cotangent torsion,
+equal fraction fields, local component geometry and the ordinary free module.
+The nilpotent-kernel output is displayed elementwise. In the Noetherian rings
+of the README this implies a common exponent for the entire kernel ideal.
+-/
+theorem block_sign_equivariant_patched_comparison {Acomplete Bcomplete : Type}
+    [CommRing Acomplete] [CommRing Bcomplete]
+    (f : Acomplete →+* Bcomplete) :
+    Function.Surjective f ∧ ∀ x, f x = 0 → IsNilpotent x := by
+  sorry
+
+/-- Target: weak-primitive-generic-hecke-kernel.
+
+Missing inputs: the complete arithmetic setup in ANT §§4.1–4.2, the actual
+ordinary global problem, Schur reduction, weak primitivity, generic p, the
+trivial/scalar auxiliary restrictions and the scalar Frobenius at S_a.
+Weak primitivity is required over the residue field of the normalization;
+the literal arbitrary finite-k coefficient descent remains a README gap.
+P is the characteristic-polynomial subring, R the universal polarized ring,
+and H the ordinary Hecke algebra. The map hecke has domain P. There is no
+invented map R→H. The dimension is dim(R/p)=1, not height p=1.
+-/
+theorem weak_primitive_generic_hecke_kernel {P R H : Type}
+    [CommRing P] [CommRing R] [CommRing H]
+    (inclusion : P →+* R) (hecke : P →+* H) (p : Ideal R) [p.IsPrime]
+    (hdim : ringKrullDim (R ⧸ p) = 1)
+    (hJ : (RingHom.ker hecke).map inclusion ≤ p) :
+    ∀ Q : Ideal R, Q.IsPrime → Q ≤ p → (RingHom.ker hecke).map inclusion ≤ Q := by
+  sorry
+
+end PL6Patching
+
+end PL6Continuation
 
 end TauCeti.Automorphy
 
@@ -10586,6 +10794,315 @@ theorem prescribed_type_lifts {F₀ : Type} [Field F₀] [NumberField F₀] [IsC
   sorry
 
 end PL7c
+
+end TauCeti.Automorphy
+
+namespace TauCeti.Automorphy
+
+/-! ### PL.7 continuation: good extensions, propagation and the source-primitivity theorems
+
+These are the PL.7 targets planned after the first pass: good CM extensions and potentially
+pro-automorphic primes (both definitions with their API and tests), the residual invariants of
+good extensions, propagation below a generic prime, the connectedness and ring-finiteness
+arguments, and the lifting and finiteness theorems with the source (weak) primitivity hypothesis.
+The prime predicate is stated for an arbitrary index of permitted extensions; its arithmetic
+specialisation indexes exactly the good extensions, with `J_M` the Hecke kernel in `P_M`. The
+diagram is `R ← P → T`: no homomorphism `R → T` is used. The theorem docstrings name the
+arithmetic hypotheses the signatures leave out, and weak primitivity is never silently
+strengthened. -/
+
+section PL7Continuation
+
+/-! #### Good extensions -/
+
+section PL7Good
+variable {L Ω : Type*} [Field L] [NumberField L] [Field Ω] [CharZero Ω]
+  [Algebra L Ω] [IsAlgClosed Ω]
+variable (M E : IntermediateField L Ω) [FiniteDimensional L M]
+
+/-- PL.7/good-cm-extension. Finiteness is an instance on M; Ω is an algebraic closure
+or an algebraically closed ambient field. X is a set of nonzero finite primes in uses. -/
+def IsGoodExtension (X : Set (Ideal (𝓞 L))) : Prop :=
+  letI : NumberField M := NumberField.of_module_finite L M
+  NumberField.IsCMField M ∧
+  Group.IsSolvable ((IntermediateField.normalClosure L M Ω) ≃ₐ[L]
+    (IntermediateField.normalClosure L M Ω)) ∧
+  M.LinearDisjoint E ∧
+  ∀ P ∈ X, (Ideal.primesOver P (𝓞 M)).ncard = Module.finrank L M
+
+namespace IsGoodExtension
+
+theorem iff_conditions (X : Set (Ideal (𝓞 L))) :
+    IsGoodExtension M E X ↔
+    (letI : NumberField M := NumberField.of_module_finite L M
+     NumberField.IsCMField M ∧
+     Group.IsSolvable ((IntermediateField.normalClosure L M Ω) ≃ₐ[L]
+       (IntermediateField.normalClosure L M Ω)) ∧
+     M.LinearDisjoint E ∧
+     ∀ P ∈ X, (Ideal.primesOver P (𝓞 M)).ncard = Module.finrank L M) := by
+  sorry
+
+theorem self [NumberField.IsCMField L] (X : Set (Ideal (𝓞 L)))
+    (hX : ∀ P ∈ X, P.IsPrime ∧ P ≠ ⊥) :
+    IsGoodExtension (⊥ : IntermediateField L Ω) E X := by
+  sorry
+
+theorem linearDisjoint {X : Set (Ideal (𝓞 L))} (h : IsGoodExtension M E X) :
+    M.LinearDisjoint E := by
+  sorry
+
+theorem splits {X : Set (Ideal (𝓞 L))} (h : IsGoodExtension M E X)
+    (P : Ideal (𝓞 L)) (hP : P ∈ X) :
+    letI : NumberField M := NumberField.of_module_finite L M
+    (Ideal.primesOver P (𝓞 M)).ncard = Module.finrank L M := by
+  sorry
+
+theorem mono_split_set {X X' : Set (Ideal (𝓞 L))} (h : IsGoodExtension M E X)
+    (hX : X' ⊆ X) : IsGoodExtension M E X' := by
+  sorry
+
+/-- Goodness composes through the compositum avoidance field E M. -/
+theorem tower [NumberField.IsCMField L] (N : IntermediateField M Ω)
+    [FiniteDimensional M N] [FiniteDimensional L (N.restrictScalars L)]
+    (X : Set (Ideal (𝓞 L))) (hX : ∀ P ∈ X, P.IsPrime ∧ P ≠ ⊥)
+    (hM : IsGoodExtension M E X) :
+    letI : NumberField M := NumberField.of_module_finite L M
+    letI : NumberField.IsCMField M := hM.1
+    IsGoodExtension N (IntermediateField.adjoin M (E : Set Ω))
+      {Q | ∃ P ∈ X, Q ∈ Ideal.primesOver P (𝓞 M)} →
+    IsGoodExtension (N.restrictScalars L) E X := by
+  sorry
+
+end IsGoodExtension
+
+-- test: good_self
+example [NumberField.IsCMField L] (X : Set (Ideal (𝓞 L)))
+    (hX : ∀ P ∈ X, P.IsPrime ∧ P ≠ ⊥) :
+    IsGoodExtension (⊥ : IntermediateField L Ω) E X := by
+  sorry
+
+-- test: not_good_meets_avoid
+example (hdegree : 1 < Module.finrank L M) (X : Set (Ideal (𝓞 L))) :
+    ¬ IsGoodExtension M M X := by
+  sorry
+
+-- test: not_good_bad_split
+example (X : Set (Ideal (𝓞 L))) (P : Ideal (𝓞 L)) (hP : P ∈ X) :
+    letI : NumberField M := NumberField.of_module_finite L M
+    (Ideal.primesOver P (𝓞 M)).ncard ≠ Module.finrank L M →
+    ¬ IsGoodExtension M E X := by
+  sorry
+
+-- test: good_empty_split_set
+example : IsGoodExtension M E ∅ ↔
+    (NumberField.IsCMField M ∧
+     Group.IsSolvable ((IntermediateField.normalClosure L M Ω) ≃ₐ[L]
+       (IntermediateField.normalClosure L M Ω)) ∧ M.LinearDisjoint E) := by
+  sorry
+
+-- test: good_galois_splitting
+example [IsGalois L M] (X : Set (Ideal (𝓞 L))) (P : Ideal (𝓞 L)) [P.IsMaximal]
+    (hP : P ∈ X) (h : IsGoodExtension M E X) :
+    letI : NumberField M := NumberField.of_module_finite L M
+    P.ramificationIdxIn (𝓞 M) = 1 ∧ P.inertiaDegIn (𝓞 M) = 1 := by
+  sorry
+
+end PL7Good
+
+/-! #### Potential pro-automorphy -/
+
+section PL7Potential
+variable {P R : Type*} [CommRing P] [CommRing R] {I : Type*}
+variable (θ : P →+* R) (J : I → Ideal P)
+
+/-- PL.7/potentially-pro-automorphic-prime. In arithmetic I consists of good extensions. -/
+def IsPotentiallyProAutomorphic (p : PrimeSpectrum R) : Prop :=
+  ∃ i, Ideal.map θ (J i) ≤ p.asIdeal
+
+namespace IsPotentiallyProAutomorphic
+
+theorem iff_comap (p : PrimeSpectrum R) :
+    IsPotentiallyProAutomorphic θ J p ↔ ∃ i, J i ≤ Ideal.comap θ p.asIdeal := by
+  sorry
+
+theorem of_witness (p : PrimeSpectrum R) (i : I)
+    (hi : Ideal.map θ (J i) ≤ p.asIdeal) : IsPotentiallyProAutomorphic θ J p := by
+  sorry
+
+theorem mono_prime (p q : PrimeSpectrum R) (h : IsPotentiallyProAutomorphic θ J p)
+    (hpq : p.asIdeal ≤ q.asIdeal) : IsPotentiallyProAutomorphic θ J q := by
+  sorry
+
+theorem mono_ideals (J' : I → Ideal P) (hJ : ∀ i, J' i ≤ J i)
+    (p : PrimeSpectrum R) (h : IsPotentiallyProAutomorphic θ J p) :
+    IsPotentiallyProAutomorphic θ J' p := by
+  sorry
+
+theorem of_tower (p : PrimeSpectrum R) (i j : I)
+    (hi : Ideal.map θ (J i) ≤ p.asIdeal) (hji : J j ≤ J i) :
+    Ideal.map θ (J j) ≤ p.asIdeal := by
+  sorry
+
+theorem ext (J' : I → Ideal P) (hJ : ∀ i, Ideal.map θ (J i) = Ideal.map θ (J' i)) :
+    IsPotentiallyProAutomorphic θ J = IsPotentiallyProAutomorphic θ J' := by
+  sorry
+
+-- test: potential_empty_index
+example (J₀ : Empty → Ideal P) (p : PrimeSpectrum R) :
+    ¬ IsPotentiallyProAutomorphic θ J₀ p := by
+  sorry
+
+-- test: potential_zero_ideal
+example (p : PrimeSpectrum R) :
+    IsPotentiallyProAutomorphic θ (fun _ : Unit => (⊥ : Ideal P)) p := by
+  sorry
+
+-- test: potential_unit_ideal
+example (p : PrimeSpectrum R) :
+    ¬ IsPotentiallyProAutomorphic θ (fun _ : I => (⊤ : Ideal P)) p := by
+  sorry
+
+-- test: potential_quotient_kernel
+example (p : PrimeSpectrum (ZMod 2)) (hp : p.asIdeal = ⊥) :
+    IsPotentiallyProAutomorphic (Int.castRingHom (ZMod 2))
+      (fun _ : Unit => Ideal.span ({(2 : ℤ)} : Set ℤ)) p := by
+  sorry
+
+end IsPotentiallyProAutomorphic
+end PL7Potential
+
+/-- PL.0/automorphic-polarized-representation and PL.2/unitary-base-change-and-descent:
+RACSDC representations with a chosen finite-K realization of their associated l-adic
+representation. The ordinary weight condition is omitted, not encoded in this type. -/
+def RACSDCModel (F K : Type*) [Field F] [NumberField F] [Field K] (n : ℕ) : Type := sorry
+
+/-- The associated representation of the chosen realization, from the same parent owner. -/
+def RACSDCModel.associated {F K : Type*} [Field F] [NumberField F] [Field K] {n : ℕ}
+    (π : RACSDCModel F K n) : Gal F →* Matrix.GeneralLinearGroup (Fin n) K := sorry
+
+
+/-! #### Residual invariants -/
+
+/-- PL.7/good-extension-residual-invariants, residual-image/weak-primitivity clauses.
+The avoidance extension is identified with ker ρbar through the explicit image condition.
+Omitted: its cyclotomic enlargement, CM quadratic independence, Schur and the strong
+primitivity clause; those clauses use the parent PL.6 interfaces. -/
+theorem good_extension_residual_invariants
+    {L M k : Type*} [Field L] [NumberField L] [Field M] [NumberField M]
+    [Algebra L M] [Field k] {n : ℕ}
+    (ρbar : Gal L →* Matrix.GeneralLinearGroup (Fin n) k)
+    (hcontinuous : IsOpen (ρbar.ker : Set (Gal L)))
+    (himage : (ρbar.comp (Field.absoluteGaloisGroup.map (algebraMap L M)).toMonoidHom).range =
+      ρbar.range) (hprimitive : IsPrimitive ρbar) :
+    IsPrimitive (ρbar.comp (Field.absoluteGaloisGroup.map (algebraMap L M)).toMonoidHom) := by
+  sorry
+
+/-! #### Prime propagation, connectedness and ring finiteness
+
+Here R, P and T are the imported arithmetic rings, and I indexes the good extensions.
+The precise unitary datum, generic representation and local conditions are specified in
+the reader. They are omitted here rather than represented by unspecified Prop fields.
+-/
+
+section PL7Rings
+variable {Λ P R T : Type*} [CommRing Λ] [CommRing P] [CommRing R] [CommRing T]
+  [Algebra Λ R] {I : Type*}
+
+/-- PL.7/generic-potential-propagation.
+D is [L+:Q] and r is |R|; the twist-degree bound is retained.
+Omitted: genericity, residual invariants, triviality at R, q_v bounds and unitary setup. -/
+theorem generic_potential_propagation (θ : P →+* R) (J : I → Ideal P)
+    (D r : ℕ) (hdegree : r < D)
+    (ϖ : R) (p : PrimeSpectrum R) (hchar : ϖ ∈ p.asIdeal)
+    (hdim : ringKrullDim (R ⧸ p.asIdeal) = 1)
+    (hauto : IsPotentiallyProAutomorphic θ J p)
+    (Q : PrimeSpectrum R) (hQ : Q.asIdeal ∈ (⊥ : Ideal R).minimalPrimes)
+    (hQp : Q.asIdeal ≤ p.asIdeal) : IsPotentiallyProAutomorphic θ J Q := by
+  sorry
+
+/-- PL.7/connectedness-ordinary-lifting, the all-component conclusion.
+Omitted: unitary setup, generic-prime/connectedness hypotheses and the O-point classicality
+conclusion and the q_v congruence bound at R. D is [L+:Q], r is the cardinality of R; the sufficient +3 bound is retained. -/
+theorem connectedness_ordinary_lifting (θ : P →+* R) (J : I → Ideal P)
+    (D n r d₀ d_l : ℕ) (hn : 2 ≤ n) (hd₀ : r * n * (n + 1) + 3 < d₀)
+    (hdl : max (r * n * (n + 1) + 3) (n * (n - 1) / 2 + 1) < d_l)
+    (Q : PrimeSpectrum R) (hQ : Q.asIdeal ∈ (⊥ : Ideal R).minimalPrimes) :
+    IsPotentiallyProAutomorphic θ J Q := by
+  sorry
+
+/-- PL.7/connectedness-ring-finiteness, its general algebraic final step.
+The arithmetic application obtains hcomponents from witnesses and finite restriction maps.
+The nilradical lifting step already exists as
+Module.finite_of_surjective_of_ker_le_nilradical; it is not a new roadmap target. -/
+theorem connectedness_ring_finiteness [IsNoetherianRing Λ] [IsNoetherianRing R]
+    (hcomponents : ∀ Q ∈ (⊥ : Ideal R).minimalPrimes, Module.Finite Λ (R ⧸ Q)) :
+    Module.Finite Λ R := by
+  sorry
+
+/-- PL.7/source-primitive-ant-finiteness.
+Omitted: the identity of R as the ordinary deformation ring, polarized seed, weak
+primitivity, residual/local/global conditions and coefficient realization. -/
+theorem source_primitive_ant_finiteness (l n : ℕ) [Fact l.Prime]
+    (hl : 3 < l) (hn : 2 ≤ n) (hprime : ¬ l ∣ n) : Module.Finite Λ R := by
+  sorry
+
+/-- PL.7/auxiliary-place-ant-finiteness. A is the residual arithmetic Frobenius,
+q its residue cardinality. Invertibility here expresses H^0(ad ρbar(1))=0.
+Omitted: the original ordinary deformation/seed/residual hypotheses, local unramifiedness,
+and the requested comparison between nonscalar auxiliary levels and deformation rings. -/
+theorem auxiliary_place_ant_finiteness
+    {k : Type*} [Field k] (l n q : ℕ) [Fact l.Prime] [CharP k l]
+    (hl : 3 < l) (hn : 2 ≤ n) (hprime : ¬ l ∣ n)
+    (A : Matrix.GeneralLinearGroup (Fin n) k)
+    (hunobstructed : Function.Bijective (fun X : Matrix (Fin n) (Fin n) k =>
+      (q : k) • ((A : Matrix (Fin n) (Fin n) k) * X *
+        ((A⁻¹ : Matrix.GeneralLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k)) - X)) :
+    Module.Finite Λ R := by
+  sorry
+
+end PL7Rings
+
+/-! #### Source-primitive automorphy conclusions
+
+The integral representation has a residual map O -> k and a coefficient map O -> K.
+The imported RACSDC realization is a mathematical type, not an unavailable predicate.
+Ordinarity, ramification, polarization, local Steinberg and residual constituent conditions
+are omitted from these signatures; their complete statements are in the reader.
+-/
+
+section PL7Automorphy
+variable {F O K k : Type*} [Field F] [NumberField F] [NumberField.IsCMField F]
+  [CommRing O] [Field K] [CharZero K] [Field k]
+
+/-- PL.7/source-primitive-ant-lifting. Weak primitivity is stated; the remainder of
+ANT Theorem 6.1's arithmetic hypotheses are omitted as described above. The source
+uses a polarized lattice with semisimple reduction; existence of that lattice is omitted. -/
+theorem source_primitive_ant_lifting (l n : ℕ) [Fact l.Prime] [CharP k l]
+    (hl : 3 < l) (hn : 2 ≤ n) (hprime : ¬ l ∣ n)
+    (toK : O →+* K) (tok : O →+* k)
+    (ρ : Gal F →* Matrix.GeneralLinearGroup (Fin n) O)
+    (hprimitive : IsPrimitive ((Matrix.GeneralLinearGroup.map tok).comp ρ)) :
+    ∃ π : RACSDCModel F K n,
+      Nonempty ((stdRep (RACSDCModel.associated π)).Equiv
+        (stdRep ((Matrix.GeneralLinearGroup.map toK).comp ρ))) := by
+  sorry
+
+/-- PL.7/source-primitive-two-constituent-lifting. Omitted: both adequate cyclotomic
+constituents and their separate potential automorphy, as well as the ordinary/Steinberg
+seed and polarization clauses. No F not-contained-in F+(ζ_l) clause is inserted. -/
+theorem source_primitive_two_constituent_lifting (l n₁ n₂ : ℕ) [Fact l.Prime] [CharP k l]
+    (hl : 3 < l) (hn₁ : 0 < n₁) (hn₂ : 0 < n₂) (hprime : ¬ l ∣ (n₁ + n₂))
+    (toK : O →+* K) (tok : O →+* k)
+    (ρ : Gal F →* Matrix.GeneralLinearGroup (Fin (n₁ + n₂)) O)
+    (hprimitive : IsPrimitive ((Matrix.GeneralLinearGroup.map tok).comp ρ)) :
+    ∃ π : RACSDCModel F K (n₁ + n₂),
+      Nonempty ((stdRep (RACSDCModel.associated π)).Equiv
+        (stdRep ((Matrix.GeneralLinearGroup.map toK).comp ρ))) := by
+  sorry
+
+end PL7Automorphy
+
+end PL7Continuation
 
 end TauCeti.Automorphy
 
