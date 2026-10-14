@@ -84,7 +84,7 @@
       "doi": "10.1007/s10240-012-0042-x",
       "url": "https://www.numdam.org/article/PMIHES_2012__116__245_0.pdf",
       "sha256": "7e7f7a3b6309ead9d8ee376106c92c644f25b22d75ffa6d7382508a36cf7814a",
-      "accessDate": "2026-10-11",
+      "accessDate": "2026-10-14",
       "readSections": [
         "§1, Theorems 1.5, 1.13 and Lemma 1.16, pp. 247, 249–251",
         "§5, Proposition 5.20, p. 280",
@@ -100,7 +100,7 @@
       "edition": "Author version 0.27, dated 2025-07-12",
       "url": "https://www.math.kyoto-u.ac.jp/~fujino/toric-projectivity11.pdf",
       "sha256": "b5a280ea395c76ff32f7aae0a2c3857d3b73c94c61f924d2a638e05050014d4b",
-      "accessDate": "2026-10-11",
+      "accessDate": "2026-10-14",
       "readSections": [
         "Example 4.1, pp. 7–8"
       ]
@@ -112,7 +112,7 @@
       "edition": "arXiv:alg-geom/9403002v1, 1 March 1994; preprint pagination",
       "url": "https://arxiv.org/pdf/alg-geom/9403002v1",
       "sha256": "24e90e348d8b9353b593b696eddf11798f64b3642cfd3472da1b4808b746f9d9",
-      "accessDate": "2026-10-11",
+      "accessDate": "2026-10-14",
       "readSections": [
         "Proposition 1.1, p. 4; complete degree map, p. 5",
         "Proposition 1.4 and Theorem 2.1, p. 6; Corollary 2.4, p. 7",
@@ -123,9 +123,9 @@
       "id": "STACKS",
       "title": "The Stacks Project: geometrically reduced schemes",
       "authors": "The Stacks Project authors",
-      "edition": "Online Varieties chapter, accessed 2026-10-11",
+      "edition": "Online Varieties chapter, accessed 2026-10-14",
       "url": "https://stacks.math.columbia.edu/tag/035U",
-      "accessDate": "2026-10-11",
+      "accessDate": "2026-10-14",
       "readSections": [
         "§33.6, Lemmas 33.6.3 and 33.6.4 (tags 020I and 035X)"
       ]
@@ -2179,7 +2179,7 @@
       "status": "planned",
       "remaining": [
         "Discharge the parent Layer 0 import and SF.0 Laurent-UFD/effective-Cartier contract; use C0 toric schemes in the invariant-representative signature.",
-        "Replace character-frame prototypes by the C0/R2 invertible sheaf and integral completion; state the full native-sheaf comparison, tensor base change and monomial-basis tests."
+        "Use the C0/R2 invertible sheaf and integral completion to state the full native-sheaf comparison, tensor base change and monomial-basis tests. The Lean file records only the coefficient submodule and its light operations; the invariant representative, class relations and Cartier sheaf remain reader targets."
       ]
     },
     {
@@ -2187,7 +2187,7 @@
       "status": "planned",
       "remaining": [
         "Discharge the C0 smooth/proper arbitrary-base property export, including K°; import the R2 generic-fibre diagram.",
-        "Replace TopCat chart-gluing shapes by toric objects in current main’s TauCeti.AdicSpace, with completed field base change and named disc/torus/P¹ fixture identifications. Import the generic carrier and restrictions; do not re-plan them."
+        "State the toric objects in current main’s TauCeti.AdicSpace, with completed field base change and named disc/torus/P¹ fixture identifications. Import the generic carrier and restrictions; do not re-plan them. Until these geometric inputs exist at the pins, unitToricSpace and toricAnalytificationComparison are reader targets; the coefficient-linear power map is already statable."
       ]
     },
     {
@@ -2195,7 +2195,7 @@
       "status": "planned",
       "remaining": [
         "Discharge the P2 cone-algebra contract with lineality, its plus subring, tilt and homogeneous grading.",
-        "Identify the discrete c₀ carrier with the chartwise divisorial sheaf and the convolution algebra; strengthen coordinate-only degree-zero and descent signatures to their general-fan forms."
+        "Identify the discrete c₀ coefficient carrier with the chartwise divisorial sheaf and its convolution algebra. The Lean file keeps this coefficient carrier and the real divisor cone; the perfected space, completed convolution, grading and tilt stay in the reader, with their full APIs and tests."
       ]
     },
     {
@@ -2203,7 +2203,7 @@
       "status": "planned",
       "remaining": [
         "Instantiate the P2/P3/P7 and A1 supplier spaces, sites and finite-stage colimit-site construction.",
-        "State the full ringed perfectoid tilt, chart-density tilde-limit and geometric-morphism adjunction, and tie the sharp/stratum/P¹-minus-infinity signatures to their named toric objects."
+        "State the full ringed perfectoid tilt, chart-density tilde-limit and geometric-morphism adjunction, and tie sharp/strata/P¹-minus-infinity to their toric objects. The Lean file gives only the actual topological tower projection from a supplied homeomorphism and the coordinate negative controls; unavailable geometric comparisons remain reader targets."
       ]
     },
     {
@@ -2211,7 +2211,7 @@
       "status": "planned",
       "remaining": [
         "Discharge SF.2 smooth proper valuation-ring base change and universal-homeomorphism invariance, H5 proper comparison, and H0 ordinary-cohomology functoriality.",
-        "Replace abstract torsion modules and pullback maps by the identified étale cohomology groups and add the P¹ top-degree action signature."
+        "Use the identified étale cohomology groups and geometric pullbacks for both comparison theorems. They remain reader targets at the pins; arbitrary linear maps do not supply these signatures. The P¹ top-degree action is an acceptance check, not an identity claim."
       ]
     },
     {
@@ -2219,7 +2219,7 @@
       "status": "planned",
       "remaining": [
         "Discharge P2 homogeneous sharp approximation on C_D, with its stated ε,c,ϖ hypotheses.",
-        "Replace the coefficient-truncation prototype by the full homogeneous estimate and section-domain comparison; tie the nonzero algebraic equation to O(p^N D), its zero scheme and the specified dense subfield."
+        "State the full homogeneous estimate and section-domain comparison using the supplied perfectoid and sheaf carriers; tie the nonzero algebraic equation to O(p^N D), its zero scheme and the specified dense subfield. The Lean file keeps only the nonzero finite-support dense-field coefficient step and the compactness lemma."
       ]
     },
     {
@@ -2227,7 +2227,7 @@
       "status": "planned",
       "remaining": [
         "Discharge SF.5 operational Chow/refined-support/ample-positivity and SF.0 dimension/Cohen–Macaulay contracts.",
-        "Extract the balancing matrix and displacement indices from the native fan, identify them with the Chow operations, and replace the degree/subvariety shapes by the full positive-class and dimension conclusions.",
+        "Extract the balancing matrix and displacement indices from the native fan and identify them with the Chow operations. Only the finite integral balancing kernel is kept in Lean; the product, positive-degree and field-of-definition endpoint remain reader targets until the geometric carriers exist at the pins.",
         "Retain the closed k₀-model in the endpoint. Treat its geometric reduction as a separate support object; reduced base-change descent is promised only for perfect k₀."
       ]
     }
@@ -2314,7 +2314,7 @@
     }
   ],
   "currentLibraryCheck": {
-    "roadmapCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
     "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "read": [
       "AnalyticToricGeometry/README.md and Suggested.lean",
@@ -2324,7 +2324,8 @@
       "Reviewed library coverage for parent and C0; accepted RS-32 ownership; C0 arbitrary-ring-toric-charts and relative-face-open",
       "PerfectoidSpaces P1–P3/P7 supplier descriptions and exact relevant packet nodes",
       "AdicSpacesPartII R1/R2, AdicEtaleGeometry A1, ClassicalAdicEtaleCohomology H0/H5, SchemeAndStackFoundations SF.0/SF.2/SF.5 descriptions",
-      "Current TauCeti PreAdicSpace/Adic.lean: isAdic, isAdic_restrict, AdicSpace; checked that this module is absent at f790474."
+      "Current TauCeti PreAdicSpace/Adic.lean: isAdic, isAdic_restrict, AdicSpace; checked that this module is absent at f790474.",
+      "Revision duplication search of the nine roadmaps newer than the atlas snapshot and the current TauCeti library; none supplies the nonarchimedean toric targets. OperatorTheory has no Suggested.lean in this checkout."
     ],
     "currentMainDeclarations": [
       {
@@ -2333,7 +2334,8 @@
         "provides": "The full subcategory of sheafy locally affinoid PreAdicSpace objects, with native open restriction. Reuse when upgrading the toric signatures; do not plan a new generic carrier.",
         "checked": "Statement read at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; module absent from the pinned f790474 tree."
       }
-    ]
+    ],
+    "accessDate": "2026-10-14"
   },
   "sourceIssues": [],
   "review": {
