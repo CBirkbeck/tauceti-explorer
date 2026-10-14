@@ -61,19 +61,36 @@ theorem fromHomology_add (z w : Additive s.ker) :
       fromHomology s x κ ρ z + fromHomology s x κ ρ w := by
   sorry
 
+/-- The fibre description: if `ρ` is the connecting map `δ` followed by the kernel equivalence
+`κF` of the fibre extension, and `a` is a kernel map with `κF ∘ a = κ` (in the roadmap, the
+restriction of the unique isomorphism of universal central extensions over `E`), then `δ` carries
+the comparison to `a`. -/
+theorem fromHomology_fibre {U : Type*} [Group U] (ε : U →* E)
+    (δ : Additive (HomotopyGroup (Fin 2) X x) ≃+ Additive ε.ker)
+    (κF : Additive ε.ker ≃+ groupHomology.H2 (Rep.trivial ℤ E ℤ))
+    (a : Additive s.ker →+ Additive ε.ker) (ha : ∀ z, κF (a z) = κ z) (z : Additive s.ker) :
+    δ (fromHomology s x κ (δ.trans κF) z) = a z := by
+  sorry
+
 -- Representative tests on the actual kernel, homology and homotopy-group carriers.
+-- `normalisation_test`
 example (z : Additive s.ker) : ρ (fromHomology s x κ ρ z) = κ z := by
   sorry
 
+-- `inverse_test`
 example (v : Additive (HomotopyGroup (Fin 2) X x)) :
     fromHomology s x κ ρ (κ.symm (ρ v)) = v := by
   sorry
 
+-- The additive structure (`fromHomology_add`) at zero.
 example : fromHomology s x κ ρ 0 = 0 := by
   sorry
 
--- The sign control is arithmetic, not a claim that K₂(ℤ) is ℤ.
-example : (1 : ℤ) ≠ -1 := by decide
+-- `negative_comparison_test`: negating the comparison breaks the normalisation wherever
+-- `κ z ≠ -κ z`, so identity and naturality checks alone cannot hide a uniform sign change.
+example (z : Additive s.ker) (hz : κ z ≠ -κ z) :
+    ρ (-fromHomology s x κ ρ z) ≠ κ z := by
+  sorry
 
 section Naturality
 
@@ -126,6 +143,7 @@ theorem toQuillen_symm
       c.symm ((HomotopyGroup.mulEquivOfHomotopyEquiv (N := Fin 2) η x).toAdditive.symm v) := by
   sorry
 
+-- `quillen_formula_test`, inverse half: the displayed inverse recovers the kernel element.
 example (c : Additive s.ker ≃+ Additive (HomotopyGroup (Fin 2) X x))
     (η : X ≃ₕ Y) (z : Additive s.ker) :
     (toQuillen s x c η).symm (toQuillen s x c η z) = z := by
@@ -135,8 +153,10 @@ end Transport
 
 /-!
 Omitted ring-level targets, because their carriers or comparison maps are absent at the pins:
-* the specialised χ_A, ρ_A, δ_A, κ_F,A and unique Steinberg/fibre UCE map;
-* fromHomology_fibre and the zero-ring/nonzero-class comparison tests;
+* the specialised χ_A, ρ_A (H.3's `pi2Equiv`), δ_A, κ_F,A and unique Steinberg/fibre UCE map;
+  `fromHomology_fibre` above states only the algebraic step, with those maps as inputs, and
+  `fromHomology_pi2Equiv` (ρ_A is H.3's `pi2Equiv` for GL(A) ⊇ E(A)) needs the plus construction;
+* the zero-ring/nonzero-class comparison tests;
 * ring naturality (the theorem above records only its composition step), basepoint-track
   independence and comparison-model-independence;
 * Ξ_A for ΩBQ(Proj_fg(A)), its zero-component inclusion, inverse, naturality and compatible
