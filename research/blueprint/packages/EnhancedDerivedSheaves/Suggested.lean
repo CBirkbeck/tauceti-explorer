@@ -14,10 +14,13 @@ live on carriers the pinned libraries already have, with the conventions they fi
   `SSet.QCat.bicategory` (not equivalences of homotopy categories);
 * K-flatness of complexes of modules, and existence of K-injective replacements in a
   Grothendieck abelian category;
+* the global dimension of regular rings and Kunz's theorem, on Mathlib's `IsRegularRing`;
 * Frobenius-root ideals and Tor independence of perfect `𝔽_p`-algebras;
 * `𝔪`-saturation of modules over a valuation ring;
 * pro-zero towers, which are a condition on transition maps and not on the limit;
-* sequential repleteness, weak contractibility, and exactness of countable products;
+* the repleteness predicate of `TauCetiRoadmap.SchemeAndStackFoundations` §2.17, restated so that
+  the statements here typecheck, with its slice and countable-product consequences, and weak
+  contractibility;
 * derived completeness of a module, through the elementary criterion that
   `(x_n) ↦ (x_n - f • x_{n+1})` is bijective on `ℕ → M` for every `f ∈ I`, and its comparison
   with Mathlib's classical `IsAdicComplete`.
@@ -51,7 +54,7 @@ theorem categoricalEquivalence_comp {C D E : SSet.QCat.{u}} {f : C ⟶ D} {g : D
     IsCategoricalEquivalence (f ≫ g) := by
   sorry
 
-/-- Two-out-of-three for categorical equivalences (`categoricalEquivalence_comp`). -/
+/-- Two-out-of-three for categorical equivalences (`categoricalEquivalence_of_comp_left`). -/
 theorem categoricalEquivalence_of_comp_left {C D E : SSet.QCat.{u}} {f : C ⟶ D}
     {g : D ⟶ E} (hf : IsCategoricalEquivalence f) (hfg : IsCategoricalEquivalence (f ≫ g)) :
     IsCategoricalEquivalence g := by
@@ -95,6 +98,39 @@ theorem kInjectiveReplacement_exists (A : Type u) [Category.{v} A] [Abelian A]
     ∃ (L : CochainComplex A ℤ) (f : K ⟶ L), L.IsKInjective ∧ QuasiIso f := by
   sorry
 
+section RegularRings
+
+open IsLocalRing
+
+/-- **Global dimension of regular rings** (`isRegularRing_projectiveDimension_le`, Section E1.6;
+Stacks 00OE and 065T): over a regular ring of Krull dimension at most `d`, every module, finitely
+generated or not, has projective dimension at most `d`. -/
+theorem isRegularRing_projectiveDimension_le (R : Type u) [CommRing R] [IsRegularRing R] (d : ℕ)
+    (hd : ringKrullDim R ≤ d) (M : ModuleCat.{u} R) : HasProjectiveDimensionLE M d := by
+  sorry
+
+/-- **The homological criterion for regularity** (Section E1.6; Stacks 00OC): a Noetherian local
+ring whose residue field has finite projective dimension is a regular local ring. -/
+theorem isRegularLocalRing_of_projectiveDimension_residueField (R : Type u) [CommRing R]
+    [IsLocalRing R] [IsNoetherianRing R] (n : ℕ)
+    (h : HasProjectiveDimensionLE (ModuleCat.of R (ResidueField R)) n) :
+    IsRegularLocalRing R := by
+  sorry
+
+/-- **Kunz's theorem, forward direction** (`frobenius_flat_of_isRegular`, Section E1.6; Stacks
+0EC0): the absolute Frobenius of a regular ring of characteristic `p` is flat. -/
+theorem frobenius_flat_of_isRegular (R : Type u) [CommRing R] (p : ℕ) [Fact p.Prime]
+    [CharP R p] [IsRegularRing R] : (frobenius R p).Flat := by
+  sorry
+
+/-- **Kunz's theorem, converse** (`isRegular_of_frobenius_flat`, Section E1.6; BS17 Corollary
+11.35): a Noetherian ring of characteristic `p` with flat Frobenius is regular. -/
+theorem isRegular_of_frobenius_flat (R : Type u) [CommRing R] (p : ℕ) [Fact p.Prime]
+    [CharP R p] [IsNoetherianRing R] (h : (frobenius R p).Flat) : IsRegularRing R := by
+  sorry
+
+end RegularRings
+
 section PerfectRings
 
 /-- **Frobenius-root ideals** (`frobeniusRootIdeal`, Section E1.6). In a perfect `𝔽_p`-algebra
@@ -111,7 +147,7 @@ example (R : Type u) [CommRing R] (p : ℕ) [Fact p.Prime] [CharP R p] [PerfectR
     frobeniusRootIdeal R 0 = ⊥ := by
   sorry
 
-/-- The `p^n`-th roots of `f` lie in `J_f` (`frobeniusRootIdeal_colimit`). -/
+/-- The `p^n`-th roots of `f` lie in `J_f` (`frobeniusRootIdeal_root_mem`). -/
 theorem frobeniusRootIdeal_root_mem (R : Type u) [CommRing R] (p : ℕ)
     [Fact p.Prime] [CharP R p] [PerfectRing R p] (f : R) (n : ℕ) :
     (iterateFrobeniusEquiv R p n).symm f ∈ frobeniusRootIdeal R f := by
@@ -204,26 +240,18 @@ end ProTowers
 
 section Replete
 
-/-- **Replete categories** (`IsReplete`, Section E2.1, BS-proet Definition 3.1.1): for every
-inverse sequence with epimorphic transitions, every limit projection is an epimorphism. All
-limit cones are used, so no choice of limit object enters. Only sequences are involved, not
-arbitrary cofiltered limits. -/
+/-- **Replete categories** (BS-proet Definition 3.1.1): for every inverse sequence with epimorphic
+transitions, every limit projection is an epimorphism. This is the predicate `IsReplete` of
+`TauCetiRoadmap.SchemeAndStackFoundations` §2.17, restated with the same binders so that the
+statements below typecheck; an implementation uses that declaration. All limit cones are used,
+so no choice of limit object enters, and only sequences are involved. -/
 def IsReplete (C : Type u) [Category.{v} C] : Prop :=
-  ∀ (F : ℕᵒᵖ ⥤ C) (c : Cone F), IsLimit c →
-    (∀ n : ℕ, Epi (F.map (homOfLE (Nat.le_succ n)).op)) →
-    ∀ n : ℕ, Epi (c.π.app (op n))
+  ∀ (F : ℕᵒᵖ ⥤ C) (_ : ∀ n : ℕ, Epi (F.map (homOfLE (Nat.le_succ n)).op))
+    (c : Cone F) (_ : IsLimit c) (m : ℕ), Epi (c.π.app (op m))
 
-/-- The category of sets is replete (`IsReplete.types`). -/
-theorem IsReplete.types : IsReplete (Type u) := by
-  sorry
-
-/-- Repleteness is invariant under equivalence (`IsReplete.of_equivalence`). -/
+/-- Repleteness is invariant under equivalence (`IsReplete.of_equivalence`, Section E2.1). -/
 theorem IsReplete.of_equivalence {C : Type u} [Category.{v} C]
     {D : Type w} [Category.{z} D] (e : C ≌ D) (hC : IsReplete C) : IsReplete D := by
-  sorry
-
-/-- Presheaves of sets on a small category are replete. -/
-example (A : Type u) [SmallCategory A] : IsReplete (Aᵒᵖ ⥤ Type u) := by
   sorry
 
 /-- **Countable products in a replete topos** (`IsReplete.countableProduct_epi`,
