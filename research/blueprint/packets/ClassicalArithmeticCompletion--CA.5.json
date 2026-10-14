@@ -1,0 +1,955 @@
+{
+  "roadmapId": "ClassicalArithmeticCompletion",
+  "protocol": "blueprint-v1",
+  "part": "CA.5",
+  "status": "complete",
+  "scope": [
+    "ClassicalArithmeticCompletion:CA.5"
+  ],
+  "summary": "Completes the CA.5 planning frontier by importing its nineteen accepted parent targets, supplying explicit proof and interface resolutions for all sixteen reviewed obligations, and adding eight targets for negative Pell comparisons and rigorous interval certification. Existing number-field structures and higher-tier algorithms keep their owners.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Algebra.discr",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Discriminant.lean",
+        "provides": "The discriminant of a family, det of the trace matrix.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Algebra.discr_of_matrix_mulVec",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Discriminant.lean",
+        "provides": "Change of family by a matrix multiplies the discriminant by the square of its determinant.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.IsMaxRank",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+        "provides": "A family of rank-many units whose logarithmic embeddings are linearly independent.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.regOfFamily_div_regulator",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+        "provides": "regOfFamily u / regulator K = [𝓞_K^× : ⟨u⟩ ⊔ torsion], the index formula for a family of units.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.regulator_pos",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+        "provides": "The regulator is positive.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.torsion",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "The torsion subgroup μ_K of the units.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.discr_eq_discr",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+        "provides": "The discriminant of any ℤ-basis of 𝓞_K is discr K.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.exists_ideal_in_class_of_norm_le",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+        "provides": "Every ideal class contains a nonzero integral ideal of absolute norm at most the Minkowski bound M K.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Pell.IsFundamental.eq_zpow_or_neg_zpow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Pell.lean",
+        "provides": "Every solution of x² − dy² = 1 is ± a power of the fundamental one: CA.4's Pell classification target is built, and the negative Pell classification extends it.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Basic.lean",
+        "provides": "The first isomorphism theorem for surjective group homomorphisms.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:RingOfIntegers.exponent_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean",
+        "provides": "exponent θ = 1 iff ℤ[θ] = 𝓞 K.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Subgroup.relIndex_mul_index",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Multiplicativity of the index in a chain H ≤ K.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Zsqrtd.lift",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Zsqrtd/Basic.lean",
+        "provides": "Ring homomorphisms ℤ√d → R correspond to square roots of d in R.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Zsqrtd.norm_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Zsqrtd/Basic.lean",
+        "provides": "An element of ℤ√d is a unit iff its norm is ±1.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "For an integral generator theta with minimal polynomial X²−d, generating K over Q, and d>0, the narrow-to-ordinary class-group map is injective iff a ring-of-integers unit has rational field norm −1. The real-field hypothesis and quadratic presentation are explicit; conversion to the integer norm and to Z[sqrt(d)] remains the CA.5 comparison.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Submodule.natAbs_det_basis_change",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/CardQuotient.lean",
+        "provides": "Determinant equals cardinality of integral module quotient for equal-index bases.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:AddSubgroup.index_eq_natAbs_det",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/CardQuotient.lean",
+        "provides": "Integral determinant computes subgroup index.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:AddSubgroup.relIndex_eq_natAbs_det",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/CardQuotient.lean",
+        "provides": "Integral determinant computes relative index.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Matrix.range_mulVecLin",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Range of matrix map equals span of its columns.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Algebra.leftMulMatrix",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Multiplication matrix in an existing algebra basis.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Algebra.leftMulMatrix_mulVec_repr",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "provides": "Matrix multiplication gives coordinates of a ring product.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Ideal.natAbs_det_basis_change",
+        "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+        "provides": "Ideal absolute norm is integral lattice determinant.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.discr_ne_zero",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+        "provides": "Number field discriminant is nonzero.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:NumberField.classNumber_pos",
+        "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+        "provides": "Class number is a positive integer.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Subgroup.index_eq_one",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Index one characterizes top.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Subgroup.relIndex_eq_one",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Relative index one characterizes reverse containment.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Subgroup.finiteIndex_iff",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "Finite index is equivalent to a nonzero natural index.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:CommGroup.primaryComponent",
+        "module": "Mathlib/GroupTheory/Torsion.lean",
+        "provides": "Canonical subgroup of elements killed by a power of a specified natural number.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:CommGroup.mem_primaryComponent",
+        "module": "Mathlib/GroupTheory/Torsion.lean",
+        "provides": "Membership is existence of a prime-power annihilator.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Matrix.det_apply",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Leibniz sum over permutations.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:Matrix.det_isEmpty",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Empty determinant is one.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.unitsMulEquivTorsionProdMultiplicative",
+        "module": "TauCeti/NumberTheory/NumberField/Units/Dirichlet.lean",
+        "provides": "Dirichlet decomposition of all units, including torsion.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup_surjective",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Canonical forgetful map is onto.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.mkPrincipal_eq_one_iff",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Trivial narrow principal class iff a unit multiple is totally positive.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.sq_eq_one_of_mem_ker_toClassGroup",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "The forgetful kernel is killed by two.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.mkPrincipal_eq_one_or_eq_mkPrincipal_gen",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean",
+        "provides": "In a real quadratic presentation every narrow principal class is one or the class of the generator.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.exists_unit_isTotallyPositive_smul_of_norm_pos",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/InfinitePlace.lean",
+        "provides": "An element of positive quadratic norm has a totally positive unit multiple.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Norm/Basic.lean",
+        "provides": "A unit times its conjugate is one or minus one.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.norm_gen_eq_neg_radicand",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Norm.lean",
+        "provides": "Quadratic generator has norm minus its radicand.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.norm_add_mul_gen",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Norm.lean",
+        "provides": "Norm is the quadratic norm form.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "tauceti:NumberField.ringOfIntegersQuadraticConj",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Basic.lean",
+        "provides": "Conjugation automorphism of the full ring of integers.",
+        "checked": "2026-10-14: actual statement read in shared pinned source; source file matched Git object at the recorded commit."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "module": "Mathlib/Data/ZMod/Defs.lean",
+        "provides": "The existing integers-modulo-n carrier; at n=2 the torsion coordinate.",
+        "checked": "2026-10-14: definition read; source file matched its pinned Git object."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.regOfFamily_pos",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+        "provides": "A maximal-rank family has positive regulator.",
+        "checked": "2026-10-14: actual statement read; this source file matched the pinned Git object."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.regOfFamily_eq_det",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+        "provides": "Family regulator is the absolute determinant of weighted logs after deleting one infinite place.",
+        "checked": "2026-10-14: actual statement read; this source file matched the pinned Git object."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "STEIN.ANT",
+      "title": "Algebraic Number Theory, a Computational Approach",
+      "authors": "William Stein",
+      "edition": "Author PDF dated 14 November 2012; read through public web PDF viewer; no byte checksum claimed.",
+      "url": "https://wstein.org/books/ant/ant.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "Section 6.2, Proposition 6.2.6 and Example 6.2.8, printed pp. 73–74: discriminant, index and the quadratic example."
+      ]
+    },
+    {
+      "id": "belabas-computational-2004",
+      "title": "Topics in computational algebraic number theory",
+      "authors": "Karim Belabas",
+      "edition": "Journal de Théorie des Nombres de Bordeaux 16 (2004), 19–63; Numdam scan, read 2026-09-24",
+      "url": "https://www.numdam.org/item/JTNB_2004__16_1_19_0.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "Definition 1.1, printed p. 20; Sections 5.3.1–5.3.2, printed p. 36."
+      ],
+      "sha256": "89321b7da03692e731248a1d571c85b0b79953f424c7b36af1f0992d18140041"
+    },
+    {
+      "id": "biasse-fieker-classgroup-2014",
+      "title": "Subexponential class group and unit group computation in large degree number fields",
+      "authors": "Jean-François Biasse and Claus Fieker",
+      "edition": "LMS Journal of Computation and Mathematics 17 (Special issue A) (2014), 385–403, doi:10.1112/S1461157014000345; checksum is of this run’s publisher download.",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4387ACB036E3358143A563F196E386CB/S1461157014000345a.pdf/div-class-title-subexponential-class-group-and-unit-group-computation-in-large-degree-number-fields-div.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "Section 2, printed p. 386; Section 4.3, printed pp. 398–400, particularly Lemma 4.4 and Proposition 4.5."
+      ],
+      "sha256": "d747aad470df993bb183b0a97037569d9f21b13ae92eee0333ca9b59ba9a43c0"
+    },
+    {
+      "id": "conrad-classgroups-2026",
+      "title": "Class group calculations by Minkowski bound",
+      "authors": "Keith Conrad",
+      "edition": "Expository handout, PDF dated 17 September 2026, read 2026-09-24",
+      "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/classgpex.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "Section 1 and Examples 2.1–2.4, pp. 1–3."
+      ],
+      "sha256": "338324223566eb187c1326af2516e876a32b56bcc9499681a3676290e8892b7c"
+    },
+    {
+      "id": "koymans-pagano-v1",
+      "title": "On Stevenhagen’s conjecture",
+      "authors": "Peter Koymans and Carlo Pagano",
+      "edition": "arXiv:2201.13424v1, 31 January 2022; this version alone is the cited edition.",
+      "url": "https://arxiv.org/pdf/2201.13424v1",
+      "sha256": "c7a93ffea06491d824d900fe067f6768246e84555fa8da8282833caac7850cbd",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "Introduction, pp. 2–4: canonical two-primary comparison, unit Galois action and the narrow class of (√d)."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/quadratic-unit-action-model",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "Quadratic unit action in additive coordinates",
+      "kind": "definition",
+      "statement": "For s in Z/2, define τ_s on the existing additive group Z × Z/2 by τ_s(a,b)=(-a,b+s·(a mod 2)). This is the action of the nonidentity element of C₂; τ_s is additive and τ_s²=id.",
+      "hypotheses": [
+        "No field or chosen fundamental unit is part of this definition."
+      ],
+      "proofSteps": [
+        "Use the ordinary integer-to-ZMod cast for a mod 2.",
+        "Additivity follows from distributivity and cast additivity. Applying τ_s twice cancels the two shear terms.",
+        "Its values on (1,0) and (0,1) determine the action and its parameter."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod"
+      ],
+      "sources": [
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 3, paragraph giving the unit Galois module",
+          "match": "The paper identifies the shear-one unit action when negative Pell is solvable. The shear-zero alternative and the existential coordinate interface are derived here from Dirichlet and the norm identity."
+        }
+      ],
+      "acceptance": [
+        "The model fixes the torsion generator and reverses the free quotient."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ClassicalArithmeticCompletion:CA.5/quadratic-units-action-normal-form",
+          "how": "Read the norm sign of a rank-one unit generator as the shear parameter."
+        },
+        {
+          "where": "Koymans–Pagano v1, Introduction p. 3 (source-route item 9)",
+          "how": "Express the stated Galois module on a library carrier with the ordered free/torsion generators fixed."
+        }
+      ],
+      "api": [
+        {
+          "name": "quadraticUnitAction_add",
+          "role": "structure",
+          "statement": "τ_s(x+y)=τ_s(x)+τ_s(y)."
+        },
+        {
+          "name": "quadraticUnitAction_involutive",
+          "role": "characterisation",
+          "statement": "τ_s(τ_s(x))=x for every x."
+        },
+        {
+          "name": "quadraticUnitAction_free_generator",
+          "role": "simp",
+          "statement": "τ_s(1,0)=(-1,s)."
+        },
+        {
+          "name": "quadraticUnitAction_torsion_generator",
+          "role": "simp",
+          "statement": "τ_s(0,1)=(0,1)."
+        },
+        {
+          "name": "quadraticUnitAction_parameter",
+          "role": "extensionality",
+          "statement": "τ_s=τ_t iff s=t."
+        },
+        {
+          "name": "quadraticUnitAction_norm",
+          "role": "compatibility",
+          "statement": "x+τ_s(x)=(0,s·(x.1 mod 2)), the conjugation norm in additive coordinates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quadraticUnitAction_normMinusOne",
+          "kind": "value",
+          "statement": "τ_1(1,0)=(-1,1)."
+        },
+        {
+          "name": "quadraticUnitAction_normPlusOne",
+          "kind": "non-example",
+          "statement": "τ_0(1,0)=(-1,0)."
+        },
+        {
+          "name": "quadraticUnitAction_torsion",
+          "kind": "compatibility",
+          "statement": "τ_1(0,1)=(0,1), agreeing with quadratic conjugation on the unit -1."
+        },
+        {
+          "name": "quadraticUnitAction_evenExponent",
+          "kind": "value",
+          "statement": "τ_1(2,1)=(-2,1), so the shear uses parity rather than the integer exponent itself."
+        }
+      ],
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.quadraticUnitAction"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/two-primary-detects-bijectivity",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "A square-killed kernel is detected on the two-primary subgroup",
+      "kind": "theorem",
+      "statement": "Let q:G→H be a surjective homomorphism of commutative groups, and assume x²=1 for every x in ker q. Then q is bijective iff its restriction is bijective from G[2∞] to H[2∞], using the canonical subgroups CommGroup.primaryComponent. No finiteness assumption is required.",
+      "hypotheses": [
+        "G,H commutative groups; q surjective; its kernel killed by two."
+      ],
+      "proofSteps": [
+        "Every homomorphism preserves membership in the canonical primary subgroup by mapping the annihilating power.",
+        "If q is bijective and y^(2^k)=1, its unique preimage x has q(x^(2^k))=1; injectivity gives x^(2^k)=1, proving surjectivity of the restriction.",
+        "Conversely every kernel element is in G[2∞], with exponent witness k=1. Injectivity of the restricted map compares that element to one and makes the whole kernel trivial.",
+        "A homomorphism with trivial kernel is injective; combine with the assumed surjectivity."
+      ],
+      "prerequisites": [
+        "mathlib:CommGroup.primaryComponent",
+        "mathlib:CommGroup.mem_primaryComponent"
+      ],
+      "sources": [
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 2, paragraph following the definition of D",
+          "match": "The stated comparison is for the natural map between two-primary narrow and ordinary class groups; the local proof here uses the pinned forgetful map and its square-killed kernel."
+        }
+      ],
+      "acceptance": [
+        "The identity map is accepted, including trivial groups.",
+        "The quotient Z/4→Z/2 has a square-killed nontrivial kernel and fails the restricted injectivity test.",
+        "Without the kernel condition, Z/3→1 has bijective two-primary restriction but is not injective."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.bijective_iff_bijOn_twoPrimary"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "Negative Pell and norm-minus-one units for every squarefree radicand",
+      "kind": "theorem",
+      "statement": "Under the quadratic presentation hypotheses, there exist integers x,y with x²-dy²=-1 iff there is a unit u of the full ring O_K with N_K/Q(u)=-1. This interface removes the mod-four condition by joining the two existing parent targets.",
+      "hypotheses": [
+        "d>1 is a squarefree integer; K is a number field with θ in O_K.",
+        "minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation."
+      ],
+      "proofSteps": [
+        "Use the parent order-to-unit embedding for the forward implication.",
+        "If d is not 1 modulo 4, O_K=Z[θ], and read the inverse coordinates and norm from the parent comparison.",
+        "If d is 1 modulo 4, invoke the reviewed half-coordinate parent target: d=1 modulo 8 puts any unit in Z[θ]; d=5 modulo 8 puts its cube there. The odd power preserves norm minus one.",
+        "The condition d>1 excludes the degree-one radicand, where quadratic norm transport would be false."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one",
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four"
+      ],
+      "sources": [
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 2, paragraph following the definition of D",
+          "match": "The stated comparison is for the natural map between two-primary narrow and ordinary class groups; the local proof here uses the pinned forgetful map and its square-killed kernel."
+        },
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 3, paragraph giving the unit Galois module",
+          "match": "The paper identifies the shear-one unit action when negative Pell is solvable. The shear-zero alternative and the existential coordinate interface are derived here from Dirichlet and the norm identity."
+        }
+      ],
+      "acceptance": [
+        "d=2 gives (1,1); d=3 is obstructed modulo 3.",
+        "For d=5, ((1+θ)/2)³=2+θ; for d=13, ((3+θ)/2)³=18+5θ.",
+        "For d=17, the negative unit 4+θ is already in Z[θ]; d=1 is excluded."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_norm_neg_one"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-narrow-principal-comparison",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "Negative Pell and the narrow principal square-root class",
+      "kind": "theorem",
+      "statement": "Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff mkPrincipal(θ)=1 in Cl⁺(K). Here θ is read as a unit of the field K, not as an integral unit; θ≠0 follows from its minimal polynomial.",
+      "hypotheses": [
+        "d>1 is a squarefree integer; K is a number field with θ in O_K.",
+        "minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation."
+      ],
+      "proofSteps": [
+        "The parent norm bridge turns Pell solubility into an integral unit of norm -1. Since N(θ)=-d, N(θu)=d>0. The pinned quadratic sign lemma makes θu or -θu totally positive, and the pinned mkPrincipal criterion proves triviality.",
+        "Conversely mkPrincipal(θ)=1 supplies a unit w with wθ totally positive. The two real embeddings send θ to opposite roots of d; therefore w has opposite signs at these embeddings. Its norm is negative and, being an integral unit norm, equals -1.",
+        "Return through the all-radicand comparison. Changing θ to -θ does not change its principal ideal or the result."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison",
+        "tauceti:NumberField.NarrowClassGroup.mkPrincipal_eq_one_iff",
+        "tauceti:NumberField.norm_gen_eq_neg_radicand",
+        "tauceti:NumberField.exists_unit_isTotallyPositive_smul_of_norm_pos",
+        "tauceti:NumberField.mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 4, paragraph introducing the class of (√d)",
+          "match": "Negative Pell solubility is identified with triviality of the narrow principal class of the square root. The proof is supplied here using the pinned positivity criterion and the parent order bridge."
+        }
+      ],
+      "acceptance": [
+        "The narrow class is trivial for d=2,5,13,17.",
+        "For d=3 it is nontrivial despite (θ) being principal in the ordinary class group.",
+        "The same assertion holds for -θ; ordinary principality alone would incorrectly certify every d."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_narrowPrincipal"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-two-primary-comparison",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "Negative Pell and the canonical two-primary forgetful map",
+      "kind": "theorem",
+      "statement": "Under the quadratic presentation hypotheses, x²-dy²=-1 has an integral solution iff the natural map q:Cl⁺(K)→Cl(K) restricts bijectively from Cl⁺(K)[2∞] to Cl(K)[2∞]. This is a statement about q, not merely about abstract isomorphism types.",
+      "hypotheses": [
+        "d>1 is a squarefree integer; K is a number field with θ in O_K.",
+        "minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation."
+      ],
+      "proofSteps": [
+        "The pinned quadratic narrow-class theorem identifies injectivity of q with existence of a norm-minus-one unit; combine it with the parent order bridge.",
+        "The pinned forgetful map is surjective and its kernel is killed by two. Apply two-primary-detects-bijectivity.",
+        "The squarefree and d>1 hypotheses enter the order bridge; the group-theoretic detection step itself uses neither number fields nor finiteness."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison",
+        "ClassicalArithmeticCompletion:CA.5/two-primary-detects-bijectivity",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one",
+        "tauceti:NumberField.NarrowClassGroup.toClassGroup_surjective",
+        "tauceti:NumberField.NarrowClassGroup.sq_eq_one_of_mem_ker_toClassGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 2, paragraph following the definition of D",
+          "match": "The stated comparison is for the natural map between two-primary narrow and ordinary class groups; the local proof here uses the pinned forgetful map and its square-killed kernel."
+        }
+      ],
+      "acceptance": [
+        "For d=2 the canonical map is an isomorphism.",
+        "For d=3 the nontrivial class of (θ) is a square-killed kernel element, so the two-primary restriction is not injective.",
+        "Replacing the canonical map by an unspecified isomorphism is rejected."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_twoPrimary"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/quadratic-units-action-normal-form",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "The Galois action on the full quadratic unit group",
+      "kind": "theorem",
+      "statement": "Under the quadratic presentation hypotheses, there exist s in Z/2 and an additive equivalence F:Additive(O_Kˣ)→Z×Z/2 with F(-1)=(0,1), F(σu)=τ_s(F(u)) for every unit u, and s=1 iff negative Pell is integrally soluble. Here σ is the pinned ring-of-integers quadratic conjugation. Consequently the soluble case has the Galois module in Koymans–Pagano item 9, while the insoluble case has τ_0. Equivalently, negative Pell is soluble iff an additive equivalence carrying -1 to (0,1) intertwines conjugation with τ_1.",
+      "hypotheses": [
+        "d>1 is a squarefree integer; K is a number field with θ in O_K.",
+        "minpoly_Z(θ)=X²-d and Q[θ]=K; these hypotheses specify the quadratic presentation."
+      ],
+      "proofSteps": [
+        "The real quadratic presentation gives two real places, no complex places, and unit rank one. Evaluate a torsion unit at a real embedding: a real root of unity is ±1, and the embedding is injective; hence the torsion is exactly {±1}.",
+        "Apply the pinned Dirichlet product equivalence, reindex its single free coordinate and identify the torsion coordinate with Z/2. This gives a generator ε and unique expressions ε^a(-1)^b.",
+        "The pinned norm identity yields εσε=(-1)^s for exactly one s. Thus σε=ε^(-1)(-1)^s, while σ(-1)=-1; multiplying these formulas gives τ_s on all coordinates.",
+        "Since N(-1)=1 in degree two, a norm-minus-one unit exists exactly when s=1. Use the all-radicand negative Pell comparison.",
+        "For the converse characterization by τ_1, take the inverse image of (1,0). Its sum with its conjugate is the inverse image of (0,1), namely -1. The conjugation norm formula then gives a unit of norm -1, and the order bridge gives negative Pell. Thus an abstract action comparison is not inferred merely from one choice of normal form.",
+        "Changing ε to its inverse or to -ε leaves its norm sign unchanged; the coordinate equivalence is existential and requires no canonical choice."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.5/quadratic-unit-action-model",
+        "ClassicalArithmeticCompletion:CA.5/negative-pell-full-unit-comparison",
+        "tauceti:NumberField.unitsMulEquivTorsionProdMultiplicative",
+        "tauceti:NumberField.ringOfIntegersQuadraticConj",
+        "tauceti:NumberField.mul_ringOfIntegersQuadraticConj_unit_eq_one_or_neg_one",
+        "mathlib:NumberField.Units.torsion"
+      ],
+      "sources": [
+        {
+          "sourceId": "koymans-pagano-v1",
+          "locator": "Introduction, p. 3, paragraph giving the unit Galois module",
+          "match": "The paper identifies the shear-one unit action when negative Pell is solvable. The shear-zero alternative and the existential coordinate interface are derived here from Dirichlet and the norm identity."
+        }
+      ],
+      "acceptance": [
+        "For d=2, ε=1+θ has norm -1 and σ sends the free generator to (-1,1).",
+        "For d=3, ε=2+θ has norm +1 and the parameter is zero.",
+        "For d=5 use ε=(1+θ)/2 in the full ring; choosing only the Pell order generator would miss this full-unit coordinate.",
+        "The torsion coordinate is fixed for every d."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.quadratic_units_action_normal_form",
+      "endpoints": [
+        "TauCeti.ClassicalArithmetic.CA5.negativePell_iff_quadraticUnitAction_one"
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/determinant-entrywise-enclosure",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "A rigorous determinant enclosure from entrywise errors",
+      "kind": "theorem",
+      "statement": "Let E,Ê be real r×r matrices and B,δ nonnegative reals. If |E_ij|≤B and |Ê_ij-E_ij|≤δ for every i,j, then |det Ê-det E|≤r!·r·δ·(B+δ)^(r-1), with natural subtraction in the exponent. The same bound controls ||det Ê|-|det E||. At r=0 both determinants are one and the error is zero.",
+      "hypotheses": [
+        "Uniform bound is on the exact entries E, not only on approximate entries; δ and B nonnegative."
+      ],
+      "proofSteps": [
+        "Bound every approximate entry by B+δ using the triangle inequality.",
+        "For r≥1 and each permutation, telescope the difference of the two products into r terms. Each contains one entry difference bounded by δ and r-1 entries bounded by B+δ.",
+        "Use the Leibniz determinant formula, the triangle inequality and the r! permutations to sum these bounds.",
+        "For r=0 use Matrix.det_isEmpty separately. Apply the reverse triangle inequality to the absolute determinants.",
+        "For a log table use weights 1 at real places and 2 at complex places before applying the bound; errors must refer to the weighted entries."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det_apply",
+        "mathlib:Matrix.det_isEmpty",
+        "mathlib:NumberField.Units.regOfFamily_eq_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "biasse-fieker-classgroup-2014",
+          "locator": "Section 4.3, printed p. 400, Lemma 4.4 and Proposition 4.5",
+          "match": "The paper certifies tentative class number and regulator through rigorous approximations and an index bound below two. The entrywise error estimate and two-sided interval interface below are explicit local refinements, not a quotation of its numerical constants or an analytic bound producer."
+        }
+      ],
+      "acceptance": [
+        "The empty regulator matrix has exact absolute determinant one.",
+        "For r=1 the error bound is δ.",
+        "For r=2, B=2 and δ=1/100, the bound is 4·(1/100)·(201/100)=201/2500.",
+        "A nonrigorous floating-point determinant supplies no δ and does not meet the hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.determinant_entrywise_error"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.5/interval-class-number-regulator-certificate",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "Class-number and regulator certification from rigorous intervals",
+      "kind": "theorem",
+      "statement": "Let φ:Z^N→Additive Cl(K) be surjective; let A be a square integer matrix with nonzero determinant and φ(A_col_j)=0 for all j. Let u be a unit family of size rank K satisfying IsMaxRank. Write h=classNumber K, R=regulator K and R_u=regOfFamily u. Suppose ε,η≥0, |Rhat-R_u|≤ε, |a-hR|≤η, and |det A|·(Rhat+ε)<2(a-η). Then range A=ker φ, the subgroup generated by u and torsion is all units, |det A|=h, and R_u=R. No GRH assumption occurs in this soundness theorem; a producer must justify the stated intervals.",
+      "hypotheses": [
+        "φ surjective; nonzero determinant; every column is a genuine relation.",
+        "Maximal-rank units; rigorously valid error intervals; strict inequality."
+      ],
+      "proofSteps": [
+        "The parent determinant contract gives |det A|=h·i, where i=[ker φ:range A] is a positive integer.",
+        "Pinned regulator positivity and regOfFamily_div_regulator give R_u=R·j, where j is the positive index of the subgroup generated by units and torsion.",
+        "The interval hypotheses imply R_u≤Rhat+ε and a-η≤hR. Hence hR·ij=|det A|R_u<2hR. Positivity of hR implies ij<2.",
+        "Positive integers i,j therefore both equal one. Apply relative-index-one and index-one to obtain completeness, and substitute back for the numerical equalities.",
+        "determinant-entrywise-enclosure supplies ε when Rhat is an absolute determinant of a rigorous weighted log table. An analytic or enumerative producer supplies η independently."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.5/class-number-divides-relation-determinant",
+        "ClassicalArithmeticCompletion:CA.5/class-number-regulator-certificate",
+        "ClassicalArithmeticCompletion:CA.5/determinant-entrywise-enclosure",
+        "mathlib:NumberField.classNumber_pos",
+        "mathlib:NumberField.Units.regulator_pos",
+        "mathlib:NumberField.Units.regOfFamily_pos",
+        "mathlib:NumberField.Units.regOfFamily_div_regulator",
+        "mathlib:Subgroup.relIndex_eq_one",
+        "mathlib:Subgroup.index_eq_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "biasse-fieker-classgroup-2014",
+          "locator": "Section 4.3, printed p. 400, Lemma 4.4 and Proposition 4.5",
+          "match": "The paper certifies tentative class number and regulator through rigorous approximations and an index bound below two. The entrywise error estimate and two-sided interval interface below are explicit local refinements, not a quotation of its numerical constants or an analytic bound producer."
+        }
+      ],
+      "acceptance": [
+        "Exact intervals ε=η=0 recover the parent joint certificate.",
+        "An index-two relation lattice or an index-two unit family makes the left product at least 2hR and cannot pass.",
+        "Equality at the threshold two is rejected; rounding below two without a rigorous ε is rejected.",
+        "Rank zero uses the empty determinant one and the torsion subgroup as the full unit group; N=0 is allowed only when φ is surjective onto the trivial class group."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/ClassicalComparisons",
+        "namespace": "TauCeti.ClassicalArithmetic.CA5"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.ClassicalArithmetic.CA5.relations_units_complete_of_intervals"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.5",
+      "status": "closed",
+      "note": "Closed mathematical planning in this follow-up, using the accepted parent targets and the resolution ledger. All Lean theorem proofs remain admitted and all implementation statuses unchecked. Koymans–Pagano route 7 has no positional acceptance verdict; this external queue boundary is recorded separately and no source-route approval is asserted.",
+      "remaining": []
+    }
+  ],
+  "gaps": [],
+  "requests": [],
+  "restructure": [],
+  "sourceIssues": [],
+  "parentPacket": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+  "importedTargets": [
+    "ClassicalArithmeticCompletion:CA.5/class-group-generated-by-small-primes",
+    "ClassicalArithmeticCompletion:CA.5/class-group-presentation",
+    "ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix",
+    "ClassicalArithmeticCompletion:CA.5/class-number-divides-relation-determinant",
+    "ClassicalArithmeticCompletion:CA.5/fundamental-units-from-regulator-bound",
+    "ClassicalArithmeticCompletion:CA.5/class-number-regulator-certificate",
+    "ClassicalArithmeticCompletion:CA.5/ideal-hermite-matrix",
+    "ClassicalArithmeticCompletion:CA.5/ideal-norm-eq-prod-hermite-diagonal",
+    "ClassicalArithmeticCompletion:CA.5/hermite-matrix-of-an-ideal-criterion",
+    "ClassicalArithmeticCompletion:CA.5/discriminant-of-a-sublattice-basis",
+    "ClassicalArithmeticCompletion:CA.5/index-of-the-order-z-sqrt-d",
+    "ClassicalArithmeticCompletion:CA.5/kummer-dedekind-for-a-monogenic-presentation",
+    "ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers",
+    "ClassicalArithmeticCompletion:CA.5/pell-solutions-are-norm-one-units",
+    "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one",
+    "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four",
+    "ClassicalArithmeticCompletion:CA.5/class-group-of-q-sqrt-minus-14",
+    "ClassicalArithmeticCompletion:CA.5/class-group-of-q-sqrt-minus-30",
+    "ClassicalArithmeticCompletion:CA.5/certified-number-field-output-interpretation"
+  ],
+  "frontierResolution": [
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-group-presentation",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Use the finite product of powers of ideal classes as the homomorphism; its additive kernel is a Z-submodule. The image equals the generated subgroup, and the quotient-kernel equivalence plus finiteness gives index h. The nonnegative-principality API refers to ideal classes, not ideal equality."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Import CA.3/cokernel-of-an-integer-matrix. If the Smith rank were below the row count, projection onto one free Z coordinate would give a surjection from the finite class group to infinite Z, a contradiction. Thus there is no free factor; the complete relation lattice is essential."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-number-divides-relation-determinant",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Nonzero det gives a full-rank column lattice of index |det A| by AddSubgroup.index_eq_natAbs_det. Index multiplication with the kernel of a surjective presentation gives |det A|=h·i. Since this index is nonzero, i is positive; relative-index-one gives determinant equality iff completeness."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-number-regulator-certificate",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "The relation and unit indices are positive; the product is hR·ij. A certified h*≤hR and a strict product below 2h* force ij=1. Both group equalities and both numerical equalities follow. The interval refinement records the error budget explicitly."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/ideal-hermite-matrix",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "For 0≠a in I, multiplication by a embeds O_K in I. Its rational extension is invertible, so I has full rank; alternatively the integral characteristic polynomial gives a nonzero integer in (a)⊆I. Apply the imported CA.3 Hermite existence and uniqueness to any integral basis of I, obtaining a square H and equality of the column lattice with I."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/ideal-norm-eq-prod-hermite-diagonal",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Transport the column basis through the integral basis equivalence, then apply Ideal.natAbs_det_basis_change. Positive triangular pivots make |det H| equal their product; the top and integer principal-ideal cases check the dimension power."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/hermite-matrix-of-an-ideal-criterion",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Use the existing Algebra.leftMulMatrix, not an undefined multiplier. Stable columns give integer coefficients X_k with M_kH=HX_k. Conversely these equations preserve the lattice under multiplication by every basis element; linearity preserves it under all of O_K, defining a unique ideal. Nonzero det makes it nonzero. The suggested endpoint states this without an HNF carrier."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/discriminant-of-a-sublattice-basis",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Read integer coordinates C in an existing integral basis. The change-of-family formula gives discr b=(det C)^2d_K even for dependent b. Since d_K≠0, discr equality is equivalent to det C=±1, and the adjugate gives an integral inverse and a basis. If discr b is squarefree it is nonzero and a nonunit det would introduce a prime square divisor. Finite-index transport uses the range basis and the pinned determinant-cardinality theorem."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/kummer-dedekind-for-a-monogenic-presentation",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Monogenicity discharges exponent θ=1 by RingOfIntegers.exponent_eq_one_iff, hence p does not divide that exponent for any prime p. Apply the existing primesOverSpanEquivMonicFactorsMod, its span formula, inertia degree and multiplicity ramification theorems. Do not exclude primes dividing the field discriminant."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Use Zsqrtd.lift at θ²=d. Its value is x+yθ and its image is the integral adjoin. A vanishing image would give a rational square root unless both coefficients vanish. The quadratic integral-basis result determines surjectivity; norm_add_mul_gen proves norm transport. The degree-one counterexample is excluded."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/pell-solutions-are-norm-one-units",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "In the maximal order case, use the order isomorphism and Zsqrtd norm-unitary comparison. The unit norm lands in {±1}, so its kernel has index one or two by the quotient-kernel equivalence. Pell.IsFundamental.eq_zpow_or_neg_zpow supplies generation up to sign. This norm-one generator need not generate every full-ring unit."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "In d≠1 mod 4, the ring isomorphism carries norm -1 elements to units by Zsqrtd.norm_eq_one_iff, which uses absolute norm one. Surjectivity onto the norm sign -1 gives index two for its norm-one kernel. CA.4/negative-pell-classification supplies the least-negative-solution generator up to sign."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Use O_K=Z[(1+θ)/2] and write units (a+bθ)/2 with equal parity and a²-db²=4ν, ν=±1. At d=1 mod 8 odd a,b are impossible, so the unit lies in Z[θ]. At d=5 mod 8 the cube has coefficients a(a²-3ν)/2 and b(a²-ν)/2, both integral, and norm ν. The cases d=5,13,17 and excluded d=1 are checked."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-group-of-q-sqrt-minus-14",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "The Minkowski bound is below five; primes over two and three generate. Dedekind–Kummer gives P₂²=(2); choose P₃ over three containing 2+θ, so (2+θ)=P₂P₃², checked by valuations and norm 18. No element has norm two, so P₂ is nonprincipal of order two. Thus P₃ has order four, the relation determinant is four and the cyclic group is complete."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-group-of-q-sqrt-minus-30",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "The bound is below seven; ramified P₂,P₃,P₅ generate. The relations 2e₂,2e₃,2e₅ and (1,1,1) come from (2),(3),(5),(θ), giving a quotient of order four. No element a+bθ has norm two, three or six: b≠0 has norm at least thirty. Hence the classes of P₂,P₃,P₂P₃ are three distinct nontrivial classes and the quotient is complete; Smith factors are 1,2,2."
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/certified-number-field-output-interpretation",
+      "disposition": "Planning obligation supplied; not an implementation claim.",
+      "resolution": "Expose four independent endpoint interfaces, all owned in CA.5: integralBasis_iff_discr_eq, multiplication_witnesses_iff_ideal, relationDet_eq_classNumber_iff and relations_units_complete_of_intervals. The first three refine imported targets; only the interval/error contracts add new targets. A producer supplies their hypotheses and never just a termination flag."
+    }
+  ],
+  "planetSelection": [
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-group-generated-by-small-primes",
+      "name": "Class group generated by small primes"
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-group-of-a-relation-matrix",
+      "name": "Class group from a relation matrix"
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/class-number-regulator-certificate",
+      "name": "Class number and regulator certificate"
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/ideal-hermite-matrix",
+      "name": "Hermite matrix of an ideal"
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/discriminant-of-a-sublattice-basis",
+      "name": "Discriminant and index of a sublattice"
+    },
+    {
+      "nodeId": "ClassicalArithmeticCompletion:CA.5/pell-solutions-are-norm-one-units",
+      "name": "Pell solutions as norm-one units"
+    }
+  ],
+  "processBoundaries": [
+    {
+      "id": "PAPER-KOYMANS-PAGANO/route-7",
+      "status": "positional verdict absent",
+      "detail": "Items 5,9,12 are independently read and connected here. This mathematical planning does not edit the paper result or manufacture route acceptance."
+    }
+  ],
+  "ownership": {
+    "intrinsicCriteria": "ClassicalArithmeticCompletion:CA.5",
+    "certificateProducers": "ComputationalNumberTheory:CN.2 imports these criteria; no upward prerequisite is introduced.",
+    "existingRoadmaps": [
+      "NumberFieldArithmetic Layers 2–4 and 7; particularly 7.2 quadratic bases and 7.4 rank-one/prime-degree unit certificates.",
+      "GlobalNumberFields Layer 11: intrinsic narrow/wide groups and ray/order functoriality."
+    ],
+    "currentReadOnlyAudit": {
+      "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "note": "Current main and current library read as an overlap check; the suggested file still targets the prescribed pins. No builds run in the roadmap checkout."
+    }
+  },
+  "checks": {
+    "blueprint": "check_blueprint.py with pinned declaration index: zero errors and warnings.",
+    "lean": "Elaborated by lean-check at the pinned shared build; exit 0, only admitted-proof warnings.",
+    "sourceIntegrity": "All 23 cited shared-build source files matched the Git objects at the specified pins; 44 declaration statements were read."
+  },
+  "provenance": {
+    "agent": "Codex",
+    "session": "codex-SSHEsg",
+    "issue": 9669,
+    "date": "2026-10-14"
+  }
+}
