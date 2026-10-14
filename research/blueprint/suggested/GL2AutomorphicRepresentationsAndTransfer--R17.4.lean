@@ -101,6 +101,14 @@ end TauCeti.GL2Transfer
 /-!
 ## Statements not typed at the pins
 
+Review conventions: R16.3 uses unitary parameters with geometric Artin reciprocity.
+Genericity preservation is asserted for unitary infinite-dimensional GL₂ inputs; arbitrary
+nonunitary inputs can become one-dimensional. The cubic pair identity uses character
+families that are a common real norm twist of unitary data. Arbitrary split families use
+Langlands quotients and can be nongeneric. JPSS (14.2) is a global theorem, and its local
+characterization uses both the original and contragredient twisted L-functions. The
+Steinberg root-number target uses the WD correction checked in source issue E19.
+
 Each block names a packet node, its proposed declaration, the carriers it needs and the API
 items and unit tests it owns. The statements are in the packet and in the roadmap document
 (section "R17.4 — Local base change and non-normal cubic base change at every place"). None of
@@ -115,10 +123,11 @@ them is declared here over placeholder types, `Prop`-valued fields or arbitrary 
   `localBaseChange_twist`, `localBaseChange_central`, `localBaseChange_contragredient`,
   `localBaseChange_unramified`, `localBaseChange_principalSeries`,
   `localBaseChange_steinberg`, `localBaseChange_dihedral`, `localBaseChange_cyclic`,
-  `localBaseChange_generic`.
+  `localBaseChange_generic`, `localBaseChange_parameter`.
   Tests: `localBaseChange_self_test`, `localBaseChange_steinberg_inert_test`,
   `localBaseChange_steinberg_ramified_test`, `localBaseChange_monodromy_test`,
-  `localBaseChange_dihedral_split_test`, `localBaseChange_s3_test`.
+  `localBaseChange_dihedral_split_test`, `localBaseChange_s3_test`,
+  `localBaseChange_nonunitary_test`.
 
 * `GL2AutomorphicRepresentationsAndTransfer:R17.4/gl2-local-converse`: The GL₂ local converse theorem.
   Declaration `TauCeti.GL2Transfer.gl2_local_converse` (theorem).
@@ -128,7 +137,8 @@ them is declared here over placeholder types, `Prop`-valued fields or arbitrary 
 * `GL2AutomorphicRepresentationsAndTransfer:R17.4/lambda-square-product`: Langlands λ-constants: inductivity, square and global product.
   Declaration `TauCeti.GL2Transfer.lambda_square_product` (theorem).
   Needs: Deligne–Langlands ε-factors of Weil and Weil–Deligne representations (R01.2),
-  induction along finite extensions, global reciprocity for the Weil group of a number field.
+  induction along finite extensions, global reciprocity for the finite permutation
+  determinant (no infinite global Weil group is needed for the λ-square product).
 
 * `GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-induction`: Local automorphic induction to GL₃ from a cubic étale algebra.
   Declaration `TauCeti.GL2Transfer.localCubicInduction` (definition).
@@ -136,9 +146,11 @@ them is declared here over placeholder types, `Prop`-valued fields or arbitrary 
   Weil groups, cubic étale algebras over a local field.
   API: `localCubicInduction_split`, `localCubicInduction_oneTwo`,
   `localCubicInduction_factors`, `localCubicInduction_central`, `localCubicInduction_twist`,
-  `localCubicInduction_supercuspidal_iff`, `localCubicInduction_unramified`.
+  `localCubicInduction_supercuspidal_iff`, `localCubicInduction_unramified`,
+  `localCubicInduction_contragredient`, `localCubicInduction_parameter`.
   Tests: `localCubicInduction_split_test`, `localCubicInduction_unramified_test`,
-  `localCubicInduction_central_test`, `localCubicInduction_reducible_test`.
+  `localCubicInduction_central_test`, `localCubicInduction_reducible_test`,
+  `localCubicInduction_nonunitary_test`.
 
 * `GL2AutomorphicRepresentationsAndTransfer:R17.4/local-cubic-factor-identity`: Twisted factors of the cubic local lift.
   Declaration `TauCeti.GL2Transfer.local_cubic_factor_identity` (theorem).
@@ -158,7 +170,8 @@ them is declared here over placeholder types, `Prop`-valued fields or arbitrary 
 * `GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-gl3-induction`: GL₃ automorphic induction from a non-normal cubic field.
   Declaration `TauCeti.GL2Transfer.nonnormal_cubic_gl3_induction` (theorem).
   Needs: cuspidal automorphic representations of GL₃(A_F), Hecke characters of a number field,
-  global Weil groups, Jacquet–Piatetski-Shapiro–Shalika Theorem (14.2).
+  global Weil groups and their all-place induction/Artin functional equation
+  (an explicit supplier gap), Jacquet–Piatetski-Shapiro–Shalika Theorem (14.2).
 
 * `GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-twisted-l-functions`: Twisted L-functions of the non-normal cubic lift.
   Declaration `TauCeti.GL2Transfer.nonnormal_cubic_twisted_l_functions` (theorem).
