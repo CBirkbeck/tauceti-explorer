@@ -129,6 +129,11 @@ input cells, has absolute value at most `A·(n + length)^b + C`. -/
 def PolynomialRAMMagnitude {P : List RAMInstruction} (e : RAMExecution P) (n A b C : ℕ) : Prop :=
   ∀ i j, ((e.config i).2 j).natAbs ≤ A * (n + e.length) ^ b + C
 
+/-- A halt trace with a stored `7` fails the uniform bound `6`, even in an unused cell. -/
+example : ∃ e : RAMExecution [.halt], e.length = 1 ∧
+    ¬ PolynomialRAMMagnitude e 0 0 0 6 := by
+  sorry
+
 end RAM
 
 section Algebraic
@@ -243,6 +248,12 @@ example : RabinCertificate (X ^ 2 + X + 1 : (ZMod 2)[X]) := by
 example [Fact (Nat.Prime 5)] : ¬ RabinCertificate (X ^ 2 + 1 : (ZMod 5)[X]) := fun h => by
   sorry
 
+/-- The linear Rabin test compares two reduced remainders, both equal to `2`. -/
+example [Fact (Nat.Prime 5)] :
+    (X ^ 5 %ₘ (X - C 2) : (ZMod 5)[X]) = C 2 ∧
+      (X %ₘ (X - C 2) : (ZMod 5)[X]) = C 2 := by
+  sorry
+
 /-- **Certified presentation of a finite field** (README 0.16). -/
 structure FiniteFieldPresentation (F K : Type*) [Field F] [Fintype F] [Field K] [Algebra F K] where
   poly : F[X]
@@ -272,6 +283,11 @@ theorem FiniteFieldPresentation.equiv_root {K : Type*} [Field K] [Algebra F K]
 
 theorem FiniteFieldPresentation.exists (K : Type*) [Field K] [Algebra F K] [FiniteDimensional F K] :
     Nonempty (FiniteFieldPresentation F K) := by
+  sorry
+
+/-- The degree-one presentation over the prime field has the prescribed polynomial and root. -/
+example [Fact (Nat.Prime 5)] : ∃ P : FiniteFieldPresentation (ZMod 5) (ZMod 5),
+    P.poly = X - C 2 ∧ P.root = 2 := by
   sorry
 
 /-- **Change of presentation with an explicit inverse** (README 0.17). -/
@@ -410,6 +426,10 @@ def AKSIdentities (n r ℓ : ℕ) : Prop :=
   ∀ j : ℕ, 1 ≤ j → j ≤ ℓ →
     (X + C (j : ZMod n)) ^ n %ₘ (X ^ r - 1) = (X ^ n + C (j : ZMod n)) %ₘ (X ^ r - 1)
 
+/-- Characteristic five gives the prime identity; an empty range also passes at composite nine. -/
+example : AKSIdentities 5 2 3 ∧ AKSIdentities 9 2 0 := by
+  sorry
+
 /-- **Shoup's AKS test** (README 1.13), as the proposition its Boolean algorithm decides: reject
 `n ≤ 1` and perfect powers, accept when the parameter is `n`, reject a common factor, and
 otherwise run the identities up to `2·len(n)·⌊√r⌋ + 1`. -/
@@ -417,6 +437,10 @@ def AKSAccepts (n : ℕ) : Prop :=
   1 < n ∧ (¬ ∃ a b : ℕ, 1 < a ∧ 1 < b ∧ a ^ b = n) ∧
     (aksParameter n = n ∨ (Nat.gcd n (aksParameter n) = 1 ∧
       AKSIdentities n (aksParameter n) (2 * aksLen n * Nat.sqrt (aksParameter n) + 1)))
+
+/-- The primality wrapper accepts `2` and rejects the perfect power `9`. -/
+example : AKSAccepts 2 ∧ ¬ AKSAccepts 9 := by
+  sorry
 
 /-- **Correctness of AKS** (README 1.14). -/
 theorem aks_correct (n : ℕ) : AKSAccepts n ↔ n.Prime := by
@@ -510,6 +534,12 @@ structure FiniteFieldFactorCertificate (f : F[X]) where
   nodup : (factors.map Prod.fst).Nodup
   eq_prod : f = C lead * (factors.map fun g => g.1 ^ g.2).prod
 
+/-- Multiplicity two is stored as an exponent on the single distinct linear factor. -/
+example [Fact (Nat.Prime 3)] :
+    ∃ c : FiniteFieldFactorCertificate ((X - 1) ^ 2 : (ZMod 3)[X]),
+      c.factors = [(X - 1, 2)] ∧ c.lead = 1 := by
+  sorry
+
 /-- **Soundness** (README 1.23): the certified factors are Mathlib's normalized factors. -/
 theorem FiniteFieldFactorCertificate.sound {f : F[X]} (c : FiniteFieldFactorCertificate f) :
     f ≠ 0 ∧ f.leadingCoeff = c.lead ∧
@@ -591,12 +621,7 @@ theorem OrderBasisCertificate.mul_mem {n : ℕ} (b : OrderBasisCertificate K n) 
     (hx : x ∈ b.lattice) (hy : y ∈ b.lattice) : x * y ∈ b.lattice := by
   sorry
 
-/-- **Order coordinates imply integrality** (README 2.2). -/
-theorem OrderBasisCertificate.isIntegral {n : ℕ} (b : OrderBasisCertificate K n) {x : K}
-    (hx : x ∈ b.lattice) : IsIntegral ℤ x := by
-  sorry
-
-/-- **Multiplier ring of a lattice** (README 2.3): `{x ∈ K | x·I ⊆ I}` for any `ℤ`-submodule `I`;
+/-- **Multiplier ring of a lattice** (README 2.2): `{x ∈ K | x·I ⊆ I}` for any `ℤ`-submodule `I`;
 the zero lattice has the whole field as multiplier ring. -/
 def multiplierRing {L : Type*} [Field L] [CharZero L] (I : Submodule ℤ L) : Subalgebra ℤ L where
   carrier := {x | ∀ y ∈ I, x * y ∈ I}
@@ -616,7 +641,12 @@ example : multiplierRing (⊥ : Submodule ℤ ℚ) = ⊤ := by
 example : (1 / 2 : ℚ) ∉ multiplierRing (Submodule.span ℤ {(1 : ℚ)}) := by
   sorry
 
-/-- **Local maximality of an order** (README 2.4): every integral element has a multiple prime to
+/-- The order certificate for `ℚ` has basis `[1]`, and its integer span excludes `1/2`. -/
+example : ∃ b : OrderBasisCertificate ℚ 1,
+    b.basis = (fun _ => 1) ∧ (1 / 2 : ℚ) ∉ b.lattice := by
+  sorry
+
+/-- **Local maximality of an order** (README 2.3): every integral element has a multiple prime to
 `p` in `R`. -/
 def IsPMaximal (R : Subalgebra ℤ K) (p : ℕ) : Prop :=
   ∀ x : K, IsIntegral ℤ x → ∃ a : ℤ, ¬ (p : ℤ) ∣ a ∧ (a : K) * x ∈ R
@@ -627,13 +657,13 @@ example : ¬ IsPMaximal (⊥ : Subalgebra ℤ ℚ) 1 := by
   obtain ⟨a, ha, -⟩ := h 1 isIntegral_one
   simp at ha
 
-/-- **Nilradical from a Frobenius kernel** (README 2.5). -/
+/-- **Nilradical from a Frobenius kernel** (README 2.4). -/
 theorem nilpotent_iff_frobenius_zero (p : ℕ) [Fact p.Prime] {A : Type*} [CommRing A]
     [Algebra (ZMod p) A] [FiniteDimensional (ZMod p) A] (k : ℕ)
     (hk : Module.finrank (ZMod p) A ≤ p ^ k) (x : A) : IsNilpotent x ↔ x ^ (p ^ k) = 0 := by
   sorry
 
-/-- **The `p`-radical in field coordinates** (README 2.6): the radical of `pR` in `R`, viewed as
+/-- **The `p`-radical in field coordinates** (README 2.5): the radical of `pR` in `R`, viewed as
 a lattice in `K`. For a prime `p` and an order `R` it is the set of `x ∈ R` with a positive power
 in `pR`. -/
 def pRadicalLattice (R : Subalgebra ℤ K) (p : ℕ) : Submodule ℤ K :=
@@ -644,7 +674,12 @@ theorem mem_pRadicalLattice (R : Subalgebra ℤ K) (p : ℕ) (hp : p.Prime)
     x ∈ pRadicalLattice R p ↔ x ∈ R ∧ ∃ k ≥ 1, ∃ y ∈ R, x ^ k = (p : K) * y := by
   sorry
 
-/-- **Multiplier criterion for `p`-maximality** (README 2.7), for an order `R` (finitely generated,
+/-- In the usual integer order of `ℚ`, the `3`-radical contains `3` and excludes `1`. -/
+example : (3 : ℚ) ∈ pRadicalLattice (⊥ : Subalgebra ℤ ℚ) 3 ∧
+    (1 : ℚ) ∉ pRadicalLattice (⊥ : Subalgebra ℤ ℚ) 3 := by
+  sorry
+
+/-- **Multiplier criterion for `p`-maximality** (README 2.6), for an order `R` (finitely generated,
 spanning `K` over `ℚ`). -/
 theorem pRadical_multiplier_eq_iff (R : Subalgebra ℤ K)
     (hfg : (Subalgebra.toSubmodule R).FG) (hspan : Submodule.span ℚ (R : Set K) = ⊤)
@@ -652,18 +687,22 @@ theorem pRadical_multiplier_eq_iff (R : Subalgebra ℤ K)
     multiplierRing (pRadicalLattice R p) = R ↔ IsPMaximal R p := by
   sorry
 
-/-- **Integral basis certificate** (README 2.8): an order basis whose lattice is the ring of
+/-- **Integral basis certificate** (README 2.7): an order basis whose lattice is the ring of
 integers. -/
 structure IntegralBasisCertificate (K : Type*) [Field K] [NumberField K] (n : ℕ)
     extends OrderBasisCertificate K n where
   maximal : ∀ x : K, IsIntegral ℤ x ↔ x ∈ toOrderBasisCertificate.lattice
 
-/-- **The integral-basis algorithm terminates with a certificate** (README 2.9). -/
+/-- The maximal order of `ℚ` is certified by the singleton basis `[1]`. -/
+example : ∃ b : IntegralBasisCertificate ℚ 1, b.basis = (fun _ => 1) := by
+  sorry
+
+/-- **The integral-basis algorithm terminates with a certificate** (README 2.8). -/
 theorem integralBasisAlgorithm {n : ℕ} (b : OrderBasisCertificate K n) :
     ∃ c : IntegralBasisCertificate K n, b.lattice ≤ c.lattice := by
   sorry
 
-/-- **Prime-ideal decomposition certificate** (README 2.10). -/
+/-- **Prime-ideal decomposition certificate** (README 2.9). -/
 structure PrimeIdealFactorCertificate (K : Type*) [Field K] [NumberField K] (p : ℕ) where
   factors : List (Ideal (𝓞 K) × ℕ)
   distinct : (factors.map Prod.fst).Nodup
@@ -674,7 +713,12 @@ theorem PrimeIdealFactorCertificate.nonempty {p : ℕ} (hp : p.Prime)
     (c : PrimeIdealFactorCertificate K p) : c.factors ≠ [] := by
   sorry
 
-/-- **Checked class-group relation lattice** (README 2.11). -/
+/-- The rational prime `2` has exactly one prime ideal factor, with exponent one, in `ℚ`. -/
+example : ∃ c : PrimeIdealFactorCertificate ℚ 2,
+    c.factors = [(Ideal.span {(2 : 𝓞 ℚ)}, 1)] := by
+  sorry
+
+/-- **Checked class-group relation lattice** (README 2.10). -/
 def classRelationLattice {n : ℕ} (I : Fin n → (Ideal (𝓞 K))⁰) : AddSubgroup (Fin n → ℤ) where
   carrier := {a | ∏ i, ClassGroup.mk0 (I i) ^ a i = 1}
   zero_mem' := by simp
@@ -685,14 +729,18 @@ def classRelationLattice {n : ℕ} (I : Fin n → (Ideal (𝓞 K))⁰) : AddSubg
     simp only [Set.mem_ofPred_eq, Pi.neg_apply, zpow_neg, Finset.prod_inv_distrib] at *
     rw [ha, inv_one]
 
-/-- **Relation quotient covers the class group** (README 2.12). -/
+/-- A factor base containing only the unit ideal has every exponent as a checked relation. -/
+example : classRelationLattice (K := K) (n := 1) (fun _ => 1) = ⊤ := by
+  sorry
+
+/-- **Relation quotient covers the class group** (README 2.11). -/
 theorem classNumber_dvd_relation_index {n : ℕ} (I : Fin n → (Ideal (𝓞 K))⁰)
     (L : AddSubgroup (Fin n → ℤ)) (hL : L ≤ classRelationLattice I)
     (hgen : Subgroup.closure (Set.range fun i => ClassGroup.mk0 (I i)) = ⊤) (hfin : L.FiniteIndex) :
     classNumber K ∣ L.index := by
   sorry
 
-/-- **Minkowski factor bases generate** (README 2.13). -/
+/-- **Minkowski factor bases generate** (README 2.12). -/
 theorem minkowski_factorBase_generates {n : ℕ} (I : Fin n → (Ideal (𝓞 K))⁰) (B : ℝ)
     (hB : (4 / Real.pi) ^ InfinitePlace.nrComplexPlaces K *
       ((Module.finrank ℚ K).factorial / (Module.finrank ℚ K : ℝ) ^ (Module.finrank ℚ K) *
@@ -702,21 +750,25 @@ theorem minkowski_factorBase_generates {n : ℕ} (I : Fin n → (Ideal (𝓞 K))
     Subgroup.closure (Set.range fun i => ClassGroup.mk0 (I i)) = ⊤ := by
   sorry
 
-/-- **Unit stopping bound** (README 2.14): the regulator quotient is the unit index, so a value
+/-- **Unit stopping bound** (README 2.13): the regulator quotient is the unit index, so a value
 below `2` proves generation together with the torsion. -/
 theorem units_complete_of_regulator_bound (u : Fin (Units.rank K) → (𝓞 K)ˣ)
     (hu : Units.IsMaxRank u) (h : Units.regOfFamily u < 2 * Units.regulator K) :
     Subgroup.closure (Set.range u) ⊔ Units.torsion K = ⊤ := by
   sorry
 
-/-- **Joint class and unit stopping bound** (README 2.15). -/
+/-- **Joint class and unit stopping bound** (README 2.14). -/
 theorem joint_class_unit_bound (u : Fin (Units.rank K) → (𝓞 K)ˣ) (hu : Units.IsMaxRank u)
-    (h h' : ℕ) (hh : 0 < h) (hd : h ∣ h')
+    (h h' : ℕ) (hh : 0 < h) (hh' : 0 < h') (hd : h ∣ h')
     (hb : (h' : ℝ) * Units.regOfFamily u < 2 * h * Units.regulator K) :
     h' = h ∧ Subgroup.closure (Set.range u) ⊔ Units.torsion K = ⊤ := by
   sorry
 
-/-- **Certified completion of class and unit computations** (README 2.16). -/
+/-- A zero purported relation quotient passes the scalar inequality but cannot have order one. -/
+example : (1 : ℕ) ∣ 0 ∧ (0 : ℝ) < 2 * 1 ∧ (0 : ℕ) ≠ 1 := by
+  norm_num
+
+/-- **Certified completion of class and unit computations** (README 2.15). -/
 theorem certified_class_unit_complete {n : ℕ} (I : Fin n → (Ideal (𝓞 K))⁰)
     (L : AddSubgroup (Fin n → ℤ)) (hL : L ≤ classRelationLattice I)
     (hgen : Subgroup.closure (Set.range fun i => ClassGroup.mk0 (I i)) = ⊤) (hfin : L.FiniteIndex)
@@ -729,7 +781,7 @@ end NumberFields
 
 section Newton
 
-/-- **Exact `φ`-adic expansion** (README 2.17): the `i`-th coefficient of `f` in base `φ` is
+/-- **Exact `φ`-adic expansion** (README 2.16): the `i`-th coefficient of `f` in base `φ` is
 `(f /ₘ φ^i) %ₘ φ`. -/
 def phiExpansion {R : Type*} [CommRing R] (φ f : R[X]) (i : ℕ) : R[X] :=
   (f /ₘ φ ^ i) %ₘ φ
@@ -742,13 +794,13 @@ theorem phiExpansion_reconstruct {R : Type*} [CommRing R] (φ f : R[X]) (hφ : �
 example (f : ℤ[X]) (i : ℕ) : phiExpansion X f i = C (f.coeff i) := by
   sorry
 
-/-- **Gauss valuation of a coefficient** (README 2.18): `⊤` for the zero polynomial. -/
+/-- **Gauss valuation of a coefficient** (README 2.17): `⊤` for the zero polynomial. -/
 def coefficientValuation (p : ℕ) (a : ℤ[X]) : WithTop ℕ :=
   a.support.inf fun i => ((padicValInt p (a.coeff i) : ℕ) : WithTop ℕ)
 
 example (p : ℕ) : coefficientValuation p 0 = ⊤ := by simp [coefficientValuation]
 
-/-- **A finite negative `φ`-Newton side** (README 2.19): from `(s, u)` to `(s + e·d, u − h·d)`,
+/-- **A finite negative `φ`-Newton side** (README 2.18): from `(s, u)` to `(s + e·d, u − h·d)`,
 slope `−h/e`, `gcd(e, h) = 1`, endpoints on the line and every point on or above it. The theorems
 that use it assume `p` prime and `φ` monic of positive degree. -/
 def IsPhiNewtonSide (p : ℕ) (φ f : ℤ[X]) (s u e h d : ℕ) : Prop :=
@@ -758,7 +810,12 @@ def IsPhiNewtonSide (p : ℕ) (φ f : ℤ[X]) (s u e h d : ℕ) : Prop :=
     ∀ i, ∀ v : ℕ, coefficientValuation p (phiExpansion φ f i) = v →
       e * u + h * s ≤ e * v + h * i ∧ (e * v + h * i = e * u + h * s → s ≤ i ∧ i ≤ s + e * d)
 
-/-- **Squares of units in `ℚ_p`** (README 2.23, the case `L = ℚ_p`): a unit is a square exactly
+/-- `X² − 3` has slope `−1/2`; assigning slope `−1` fails the endpoint data. -/
+example : IsPhiNewtonSide 3 X (X ^ 2 - 3) 0 1 2 1 1 ∧
+    ¬ IsPhiNewtonSide 3 X (X ^ 2 - 3) 0 1 1 1 2 := by
+  sorry
+
+/-- **Squares of units in `ℚ_p`** (README 2.22, the case `L = ℚ_p`): a unit is a square exactly
 when it is a square modulo `4p`. -/
 theorem isSquare_iff_isSquare_mod (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
     IsSquare (u : ℚ_[p]) ↔ ∃ w : ℤ_[p], (u : ℤ_[p]) - w ^ 2 ∈ Ideal.span {(4 * p : ℤ_[p])} := by
@@ -766,7 +823,7 @@ theorem isSquare_iff_isSquare_mod (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
 
 end Newton
 
-/-- **Finite local expansion certificate** (README 2.22). -/
+/-- **Finite local expansion certificate** (README 2.21). -/
 structure LocalExpansionCertificate (L : Type*) [NormedField L] (π x : L) (N : ℕ) where
   pi_ne_zero : π ≠ 0
   norm_pi_lt_one : ‖π‖ < 1
@@ -774,6 +831,10 @@ structure LocalExpansionCertificate (L : Type*) [NormedField L] (π x : L) (N : 
   digits : Fin N → L
   digits_le : ∀ i, ‖digits i‖ ≤ 1
   error_le : ‖x - π ^ valuation * ∑ i, digits i * π ^ (i : ℕ)‖ ≤ ‖π‖ ^ (valuation + N)
+
+/-- Zero has an empty expansion at precision zero with the `3`-adic uniformizer. -/
+example : Nonempty (LocalExpansionCertificate ℚ_[3] 3 0 0) := by
+  sorry
 
 /-! ## Layer CN.3: Exact modular and elliptic arithmetic data -/
 
@@ -876,6 +937,10 @@ certificate uses the images of rational abscissae. -/
 def localImageSpan (xs : List K) : Subgroup W.M :=
   Subgroup.closure ((fun x => W.μX x) '' {x | x ∈ xs})
 
+/-- An empty abscissa list generates the trivial local-image subgroup. -/
+example : localImageSpan W [] = ⊥ := by
+  sorry
+
 /-- Each abscissa with `f(x)` a nonzero square is the class of an actual point. -/
 theorem localImageSpan_le_range (xs : List K)
     (hxs : ∀ x ∈ xs, W.f.eval x ≠ 0 ∧ IsSquare (W.f.eval x)) :
@@ -927,6 +992,27 @@ theorem isPSaturated_iff_forall_not_dvd {A : Type*} [AddCommGroup A] (p : ℕ) (
     (IsPSaturated (AddSubgroup.closure (Set.range g)) p ∧
       ∀ b : Fin m → ℤ, (∃ y ∈ AddSubgroup.closure (Set.range g), ∑ i, b i • g i = p • y) →
         ∀ i, (p : ℤ) ∣ b i) := by
+  sorry
+
+/-- **The quotient-generating saturation criterion** (README 3.23): the listed elements need
+only generate `G / pG`, allowing prime-to-`p` torsion to be omitted. -/
+theorem isPSaturated_iff_forall_not_dvd_of_span_quotient {A : Type*} [AddCommGroup A]
+    (G : AddSubgroup A) (p : ℕ) (hp : p.Prime) {m : ℕ} (g : Fin m → A)
+    (hg : ∀ i, g i ∈ G)
+    (hgen : ∀ x ∈ G, ∃ b : Fin m → ℤ, ∃ y ∈ G, x = ∑ i, b i • g i + p • y) :
+    ((∀ b : Fin m → ℤ, (∃ y : A, ∑ i, b i • g i = p • y) → ∀ i, (p : ℤ) ∣ b i) ∧
+      ∀ a : A, p • a = 0 → a ∈ G) ↔
+    (IsPSaturated G p ∧
+      ∀ b : Fin m → ℤ, (∃ y ∈ G, ∑ i, b i • g i = p • y) → ∀ i, (p : ℤ) ∣ b i) := by
+  sorry
+
+/-- Prime-to-`2` torsion needs no generator in the quotient criterion. -/
+example : IsPSaturated (⊤ : AddSubgroup (ZMod 3)) 2 ∧
+    AddSubgroup.closure (Set.range (Fin.elim0 : Fin 0 → ZMod 3)) ≠ ⊤ := by
+  sorry
+
+/-- An empty candidate space cannot compensate for omitted ambient `2`-torsion. -/
+example : ¬ IsPSaturated (⊥ : AddSubgroup (ZMod 2)) 2 := by
   sorry
 
 /-- **Exact divisibility test** (README 3.24): `P = (x, y)` is divisible by `p` in `W(ℚ)` exactly
@@ -994,6 +1080,11 @@ def dyadicHull (p : ℕ) (I : NonemptyInterval ℚ) : NonemptyInterval ℚ :=
     exact (Int.floor_le _).trans
       ((mul_le_mul_of_nonneg_left I.fst_le_snd (by positivity)).trans (Int.le_ceil _))⟩
 
+/-- Outward rounding at precision zero sends `−1/3` to `[−1,0]`. -/
+example : (dyadicHull 0 (NonemptyInterval.pure (-1 / 3))).fst = -1 ∧
+    (dyadicHull 0 (NonemptyInterval.pure (-1 / 3))).snd = 0 := by
+  norm_num [dyadicHull]
+
 /-- **Width added by rounding** (README 4.6). -/
 theorem dyadicHull_width (p : ℕ) (I : NonemptyInterval ℚ) :
     (dyadicHull p I).snd - (dyadicHull p I).fst < I.snd - I.fst + 2 / 2 ^ p := by
@@ -1002,6 +1093,11 @@ theorem dyadicHull_width (p : ℕ) (I : NonemptyInterval ℚ) :
 /-- **Rational complex boxes** (README 4.7). -/
 def complexBoxSet (R I : NonemptyInterval ℚ) : Set ℂ :=
   {z | ((R.fst : ℝ) ≤ z.re ∧ z.re ≤ R.snd) ∧ ((I.fst : ℝ) ≤ z.im ∧ z.im ≤ I.snd)}
+
+/-- The singleton imaginary box contains `i` and excludes zero. -/
+example : Complex.I ∈ complexBoxSet (NonemptyInterval.pure 0) (NonemptyInterval.pure 1) ∧
+    0 ∉ complexBoxSet (NonemptyInterval.pure 0) (NonemptyInterval.pure 1) := by
+  sorry
 
 /-- **Unique integer extraction** (README 4.8). -/
 def uniqueInteger (I : NonemptyInterval ℚ) : Option ℤ :=
@@ -1023,6 +1119,10 @@ open Real
 /-- **The Odlyzko tail kernel** (README 4.14): `r(x) = 2π² e^(−x)/(x² + π²)²`. -/
 def ctTailKernel (x : ℝ) : ℝ :=
   2 * π ^ 2 * exp (-x) / (x ^ 2 + π ^ 2) ^ 2
+
+/-- The kernel's normalization at zero is `2/π²`. -/
+example : ctTailKernel 0 = 2 / Real.pi ^ 2 := by
+  sorry
 
 theorem ctTailKernel_pos (x : ℝ) : 0 < ctTailKernel x := by
   unfold ctTailKernel; positivity
@@ -1087,6 +1187,11 @@ structure NegativeGramCertificate (I : Matrix (Fin n) (Fin n) (NonemptyInterval 
   ne_zero : vector ≠ 0
   upper_neg : ∑ i, ∑ j, (I i j).snd * vector i * vector j < 0
 
+/-- In dimension zero no nonzero negative Gram witness exists. -/
+example (I : Matrix (Fin 0) (Fin 0) (NonemptyInterval ℚ)) :
+    ¬ Nonempty (NegativeGramCertificate I) := by
+  sorry
+
 /-- **Soundness** (README 4.30): every real matrix inside the intervals is negative on the
 witness. -/
 theorem NegativeGramCertificate.sound (I : Matrix (Fin n) (Fin n) (NonemptyInterval ℚ))
@@ -1118,6 +1223,12 @@ def checkGramDataset
 
 example : checkGramDataset [] = true := rfl
 
+/-- Appending a zero-vector row makes the entire dataset fail. -/
+example : checkGramDataset
+    [⟨1, (fun _ _ => ⟨(-2, -1), by norm_num⟩), (fun _ => 1)⟩,
+     ⟨1, (fun _ _ => ⟨(-2, -1), by norm_num⟩), (fun _ => 0)⟩] = false := by
+  sorry
+
 /-- **The multiplicity lift** (README 4.34): `x_(i,r) = t_i/m_i` turns the block matrix
 `A·δ − K_(ij)` into `β = (A/m_i)δ_ij − K_ij`. -/
 theorem multiplicityGram_lift {n : ℕ} (m : Fin n → ℕ) (hm : ∀ i, 0 < m i) (A : ℝ)
@@ -1127,6 +1238,14 @@ theorem multiplicityGram_lift {n : ℕ} (m : Fin n → ℕ) (hm : ∀ i, 0 < m i
       ∑ i, ∑ j, ((if i = j then A / m i else 0) - Kmat i j) * t i * t j := by
   sorry
 
+/-- The two-block witness has value `−34` in both normalizations. -/
+example :
+    (∑ i : Fin 2, ∑ j : Fin 2,
+      (!![2, -2; -2, -2] : Matrix (Fin 2) (Fin 2) ℚ) i j *
+        (![2, 3] : Fin 2 → ℚ) i * (![2, 3] : Fin 2 → ℚ) j) = -34 ∧
+    (30 - (4 + 24 + 36) : ℚ) = -34 := by
+  norm_num [Fin.sum_univ_two]
+
 /-!
 ## Targets stated only in README.md
 
@@ -1135,13 +1254,15 @@ need constructions that are themselves targets (root isolation, the Miller basis
 Hecke matrices, residual polynomials, `p`-adic ball arithmetic, enclosures of special functions,
 the Fincke–Pohst recursion and the saturation algorithm), so they are not stated here.
 
-* `rationalRootCertificate` (0.9), `algebraicEqual` (0.13), `phiResidualPolynomial` (2.20),
-  `ore_residual_irreducible` (2.21), `card_padicRoots_eq` (2.24), `modularDataEqual` (3.5),
+* `presentationChange` (0.17), `aks` (1.13), `millerBasis` (3.3): the executable maps and
+  chosen basis are README constructions; the predicates, certificates and existence signatures are above.
+* `rationalRootCertificate` (0.9), `algebraicEqual` (0.13), `phiResidualPolynomial` (2.19),
+  `ore_residual_irreducible` (2.20), `card_padicRoots_eq` (2.23), `modularDataEqual` (3.5),
   `integralHeckeMatrix` (3.7), `weight38_nonordinary_det` (3.10),
   `NonordinaryLevelOnePair` (3.11), `small_nonordinary_primes` (3.12),
   `nonordinary_pairs_lt_200` (3.13), `weight82_companion_system` (3.14),
   `OrdinaryCompanionPair` (3.15), `corrected_ordinary_companion_list` (3.16),
-  `exists_complete_localImageCertificate` (3.20), `localImage_of_good_odd` (3.21),
+  `LocalImageCertificate` (3.18), `exists_complete_localImageCertificate` (3.20), `localImage_of_good_odd` (3.21),
   `pSaturationTest` (3.26), `padicNormalize` (4.10), `padicAdd` (4.11), `padicMul` (4.12),
   `padicInverse` (4.13), `ctTailKernel_alternating_tail` (4.16), `ctExplicitFormula` (4.17),
   `ctEnclosure` (4.18), `dirichletLBox` (4.20), `cuspLBox` (4.21), `fpEnumeration` (4.26),
