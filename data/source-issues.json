@@ -180755,9 +180755,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Xu §5, Proposition 5.5, p. 15 (rendered page checked): the second case is printed as a ≡ 3 (mod 4) with no condition on b. 3 = 3 + 0i satisfies it and is not ≡ 1 modulo (1 + i)^3; the corrected criterion was checked by machine for all |a|, |b| ≤ 40."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1102",
@@ -180775,9 +180775,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "S. A. Katre, Gauss–Jacobi Sums and Stickelberger's Theorem, In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 75–92; the publisher's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Katre §1 and §3 (pp. 75, 79): both open with 'let p be an odd prime', and Lemma 3's proof expands ζ_p = 1 + π with π of valuation 1 in a ramified extension, while Proposition 5 (pp. 84–85) applies Proposition 4 to every prime divisor of A, including those above 2 when m is odd. The supplied argument for p = 2 (g(ω⁻¹) = 2 Σ ω⁻¹(a) Tr(a) with the sum ≡ −1 modulo the prime, 2 unramified in ℚ(ζ_{q−1})) is correct, and Lemma 2 and Proposition 2 go through with p − 1 = 1."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1103",
@@ -180795,9 +180795,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Xu §6, proof of Proposition 6.12, p. 21: the second computation opens with g(P')^{q'−1}; the argument needs g(P)^{q'−1} = Φ(P)^{(q'−1)/m}."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1104",
@@ -180815,9 +180815,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Xu §4, Theorem 4.6, p. 11: π₁, π₂ are said to lie in ℤ[i]; the section works in ℤ[ζ_3]."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1105",
@@ -180835,9 +180835,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Xu §5, Proposition 5.9, p. 15 (rendered page checked): the first identity is printed with J(χ_p, χ_p); χ_p is undefined there and the intended J(χ_π, χ_π) was checked numerically for 140 split primary primes."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1106",
@@ -180855,9 +180855,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Xu §6, proof of Proposition 6.19, p. 23: the first sentence attributes (α)^γ ≡ ±1 (mod l) to Lemma 6.18, which is about Φ(A); the congruence for α^γ is derived afterwards from the primary hypothesis."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1108",
@@ -180875,9 +180875,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 175–183; the publisher's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Shastri §5, proof of Lemma 1, p. 179 (rendered page checked): the factorisation 1 − a = ∏_{i ≤ n} (1 − ζ^i ⁿ√a) is read as a single norm from K(ⁿ√a), which holds only when that extension has degree n; Fesenko–Vostokov IV.5.1 group the factors into n/d norms."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1109",
@@ -180895,9 +180895,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 175–183; the publisher's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Shastri §5, Lemma 1 (ii), p. 179 (rendered page checked): the identity is quantified over all a ∈ K*, including a = 1, where 1 − a = 0."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1107",
@@ -180915,9 +180915,109 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Read at Xu §5, proof of Proposition 5.13, p. 16: the chain (a, π) = (b, π) = (c, λ) = (d, λ) is printed without its value 1."
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1110",
+   "kind": "gap",
+   "locator": "§5, Lemma 1 (ii)–(iv) and their proof, pp. 179–180",
+   "printed": "Lemma 1 (ii) asserts both ⟨1 − a, a⟩ = 1 and ⟨a, 1 − a⟩ = 1. The proof uses only the criterion that ⟨a, b⟩ = 1 exactly when a is a norm from K(ⁿ√b), and shows that 1 − a is a norm from K(ⁿ√a), which gives ⟨1 − a, a⟩ = 1 alone. Part (iii) then derives ⟨a, −a⟩ = 1 from −a = (1 − a)/(1 − a⁻¹), which needs ⟨x, 1 − x⟩ = 1, and part (iv) derives skew symmetry from (iii).",
+   "correction": "Derive the parts in Fesenko–Vostokov's order: from ⟨1 − a, a⟩ = 1 obtain ⟨−a, a⟩ = ⟨1 − a, a⟩⟨1 − a⁻¹, a⁻¹⟩ = 1; then 1 = ⟨−ab, ab⟩ = ⟨−a, a⟩⟨a, b⟩⟨b, a⟩⟨−b, b⟩ gives skew symmetry; then ⟨a, 1 − a⟩ = ⟨1 − a, a⟩⁻¹ = 1 and ⟨a, −a⟩ = 1.",
+   "reason": "The norm criterion as stated in the proof concerns the first argument only, so it says nothing about ⟨a, 1 − a⟩; the only other route to it is skew symmetry, which the proof obtains from (iii), which uses ⟨a, 1 − a⟩ = 1. The argument is circular as written, although every statement is true.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org), which posts the article without errata",
+    "a web search for errata to Shastri's article (2026-10-14)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+   "citation": "Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 175–183; the publisher's free PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Found by the review at the rendered pp. 179–180; the corrected order is Fesenko–Vostokov IV.5.1, proof of (2)–(4), and is the order the packet's steinberg node now follows."
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1111",
+   "kind": "misprint",
+   "locator": "§5, Lemma 1 (iii), p. 179",
+   "printed": "Part (iii) is printed as one chain of equalities ⟨a, b⁻¹⟩ = ⟨a, b⟩⁻¹ = ⟨a, −a⟩ = 1 = ⟨a, 1⟩, which read literally says that ⟨a, b⟩⁻¹ = 1 for all a, b.",
+   "correction": "Two separate statements: ⟨a, b⁻¹⟩ = ⟨a, b⟩⁻¹, and ⟨a, −a⟩ = 1 = ⟨a, 1⟩.",
+   "reason": "The symbol is nondegenerate (Remark 2 on the same page), so it is not identically 1; the proof of (iii) proves exactly the two separate statements.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org), which posts the article without errata",
+    "a web search for errata to Shastri's article (2026-10-14)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+   "citation": "Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 175–183; the publisher's free PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Found by the review on the rendered p. 179."
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1112",
+   "kind": "error",
+   "locator": "Chapter IV, §5, Exercise 4, printed p. 152 (the authors' PDF of the second edition)",
+   "printed": "The archimedean symbol is defined by (α, β)_(∞) = 1 when α > 0 and β > 0, and −1 otherwise, and the exercise asks to show that the product of (α, β)_(p) over all primes and ∞ is 1 for α, β ∈ ℚ*.",
+   "correction": "(α, β)_(∞) = −1 when α < 0 and β < 0, and 1 otherwise; with this value the product formula holds and is equivalent to quadratic reciprocity.",
+   "reason": "With the printed value, α = 2, β = −1 gives (2, −1)_(∞) = −1, while (2, −1)_(p) = 1 at every odd p (two units) and (2, −1)_(2) = (−1)^{((−1)² − 1)/8} = 1 by Exercise 3, so the product is −1. Also (−1, 1)_(∞) would be −1 although 1 is a square. The real Hilbert symbol is 1 exactly when α is a norm from ℝ(√β), that is unless both are negative (Milne VIII.5, after Theorem 5.11).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "a web search for an errata list of the second edition (2026-10-14), which found none",
+    "the authors' PDF of the second edition on I. Fesenko's site, which carries no errata"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+   "citation": "I. B. Fesenko and S. V. Vostokov, Local Fields and Their Extensions, Second edition, Translations of Mathematical Monographs 121, American Mathematical Society, 2002; the PDF posted on I. Fesenko's own site",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Found by the review on the rendered printed p. 152; the counterexample is checked by Exercise 3's own formulas."
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1113",
+   "kind": "gap",
+   "locator": "§6, proof of Lemma 6.18, p. 23",
+   "printed": "The lemma is stated for every ideal A prime to l, but its proof takes the prime P below A with N(P) = p^f 'where p is an odd prime', so the primes above 2 (which occur, since l is odd) are not treated.",
+   "correction": "The same computation covers p = 2: with ψ(t) = (−1)^{Tr(t)}, Φ(P) = g(P)^l ≡ Σ_{t ≠ 0} ψ(lt) = −1 (mod l), because l is odd and invertible in the residue field.",
+   "reason": "For l = 3 and P = (2) in ℤ[ζ_3], P is prime to 3 and lies over p = 2; Theorem 6.9's proof applies the lemma to every prime factor of α and B.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper (2026-10-14)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+   "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Found by the review; the packet's stickelberger-unit-factor-of-a-primary-element proves the congruence for every p."
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1114",
+   "kind": "error",
+   "locator": "§4, proof of Proposition 4.8, p. 12",
+   "printed": "The power sums Σ_c c^k in the expansion of Σ_t t^{(p−1)/3}(1 − t)^{(p−1)/3} are said to have (p − 1)/3 ≤ k < 2(p − 1)/3 and to vanish 'since (k, p − 1) = 1'.",
+   "correction": "The exponents run over (p − 1)/3 ≤ k ≤ 2(p − 1)/3, and each sum vanishes because 0 < k < p − 1, so γ^k ≠ 1 for a generator γ of 𝔽_p^×; coprimality of k and p − 1 is neither true nor needed.",
+   "reason": "For k = (p − 1)/3 (which occurs), gcd(k, p − 1) = (p − 1)/3 > 1 when p > 4, so the stated reason is false; the conclusion holds for the reason given in the correction (FiniteField.sum_pow_lt_card_sub_one).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper (2026-10-14)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
+   "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.1",
+   "reviewReason": "Found by the review; the packet's cubic-jacobi-sum-norm-and-divisibility uses the correct reason."
   },
   {
    "id": "ClassicalArithmeticCompletion/E1201",
@@ -181017,6 +181117,83 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
    "citation": "Matsusaburô Fujiwara, Über die obere Schranke des absoluten Betrages der Wurzeln einer algebraischen Gleichung, Tôhoku Mathematical Journal, First Series, 10 (1916), 167–171; publisher's free scan on J-STAGE, read 2026-10-14 (page images inspected)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E551",
+   "kind": "error",
+   "locator": "§2, the paragraph after Lemma 2.1, p. 10 (arXiv v3)",
+   "printed": "For k = 2 the descent leaves the point (0, 1, 1), and the source says its Γ-orbit is infinite.",
+   "correction": "The Γ-orbit of (0, 1, 1) is finite: it consists of the twelve points with one coordinate 0 and the other two ±1, and the four points (±1, ±1, ±1) with an even number of minus signs, 16 points in all; it is all of V₂(ℤ), so h_M(2) = 1.",
+   "reason": "V₁(0, 1, 1) = (1, 1, 1), V₂(0, 1, 1) = (0, −1, 1), V₃(0, 1, 1) = (0, 1, −1), and V_i(1, 1, 1) is (0, 1, 1) up to permutation; so the 16 points are closed under the moves, permutations and double sign changes. A search over |x_i| ≤ 40 finds no other integral point, as the descent predicts.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1706.06712 v3 (the version read); the accepted extraction PAPER-GHOSH-SARNAK-22 (its source issues E1–E24 do not mention it)",
+    "Springer article page of the published version (Invent. Math. 229), whose text was not obtained"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+   "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E552",
+   "kind": "misprint",
+   "locator": "§5.1, proof of Lemma 5.1, p. 16 (arXiv v3)",
+   "printed": "The second root is written x₄ = x₁x₂ − α₃ − β₁x₂ − β₂x₁ − εx₃, with P₃P₄ = k − P₁² − P₂² − β₃P₁P₂ − α₁P₁ − α₂P₂.",
+   "correction": "x₄ = ε(x₁x₂ − α₃ − β₁x₂ − β₂x₁) − x₃ and x₃x₄ = ε(x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k); for ε = 1 the printed product has the wrong sign and for ε = −1 the printed root has the wrong sign.",
+   "reason": "As a quadratic in x₃, M* − k = εx₃² + (β₁x₂ + β₂x₁ + α₃ − x₁x₂)x₃ + (x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k), whose roots sum to −(coefficient)/ε and multiply to (constant)/ε, with 1/ε = ε. For M itself (ε = 1, α = β = 0) the product of the roots is x₁² + x₂² − k, not k − x₁² − x₂².",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1706.06712 v3; the accepted extraction PAPER-GHOSH-SARNAK-22 and its source issues E1–E24"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+   "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E554",
+   "kind": "error",
+   "locator": "§1, the paragraph after Theorem 1.1 and the caption of Figures 1–2, p. 4 (arXiv v3)",
+   "printed": "Theorem 1.1, stated for generic k, is illustrated with k = 3685, for which the source gives h_M(3685) = 6.",
+   "correction": "3685 is exceptional, since (1, 32, 70) ∈ V₃₆₈₅(ℤ) (4·3684 = 108² + 3·32²), so Theorem 1.1 (i) does not apply. The six points are F⁺₃₆₈₅(ℤ), and by the corrected comparison of ClassicalArithmeticCompletion/E507, h_M(3685) ≥ h⁺_M(3685) + 1 = 7.",
+   "reason": "M(1, 32, 70) = 1 + 1024 + 4900 − 2240 = 3685, a point with a coordinate 1; the orbit of a point with a small coordinate does not contain any (−u₁, u₂, u₃) with u ∈ F⁺ (CA.4/markoff-positive-root-orbits). The negative illustration k = −3691 is unaffected: all negative levels are generic and h_M(−3691) = |F⁻₋₃₆₉₁(ℤ)| = 9.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1706.06712 v3; the accepted extraction PAPER-GHOSH-SARNAK-22 (item /12 repeats h(3685) = 6) and its source issues E1–E24"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+   "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E553",
+   "kind": "gap",
+   "locator": "§1, consequence (c) of Theorem 1.1, p. 4 (arXiv v3)",
+   "printed": "The source states h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, as a consequence of Theorem 1.1.",
+   "correction": "The argument, through the fundamental sets of Theorem 1.1, covers only levels that are not exceptional (generic k ≥ 5 and all k < 0). At exceptional levels the orbits through small-coordinate points are not controlled, and on the family k = 4 + w² the points (2, t, t + w) appear to lie in ⌊w/2⌋ + 1 distinct orbits, which would contradict the bound for large w.",
+   "reason": "Theorem 1.1 identifies h_M(k) with |F^±_k(ℤ)| only for generic k. On the line (2, t, t + w) ⊂ V_{4+w²} the move V₂ followed by a transposition shifts t by w and a double sign change sends t to −t − w, so the line splits into at most ⌊w/2⌋ + 1 classes; a search of the orbits up to coordinates 10⁵ finds exactly ⌊w/2⌋ + 1 orbits through the line for w = 3, 5, 10, 20, consistent with the Δ-tree structure (every large point has a unique Δ-smaller neighbour, so trees hanging from different line classes cannot join).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1706.06712 v3; the accepted extraction PAPER-GHOSH-SARNAK-22 (item /15 states (c) for all k)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.4.json",
+   "citation": "Amit Ghosh and Peter Sarnak, Integral points on Markoff type cubic surfaces, arXiv:1706.06712v3 (30 May 2022), the final arXiv version of Invent. Math. 229 (2022), 689–749; findings scoped to this preprint",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -184447,6 +184624,27 @@
    "status": "confirmed",
    "reviewedBy": "REV-ColemanPowerSeries",
    "reviewReason": "The concluding proof of Theorem12.9 on p.183 labels the kernel μ_p. Constant norm-fixed units satisfy c^(p−1)=1, so it is μ_{p−1}; Remark12.4 and the theorem statement agree with this correction. The p=2 test excludes the tempting −1."
+  },
+  {
+   "id": "CompletedCohomologyPartII/E5",
+   "kind": "misprint",
+   "locator": "Forum Math. Pi 10 (2022), e7, proof of Lemma 4.4.4, p. 44 (arXiv:2008.07099v3, p. 48)",
+   "printed": "After the universal-coefficient sequence, the proof writes the limit over n of H^{i+1}(M^•)[p^n] as Hom_{Z_p}(Q_p/Z_p, H^i(M^•)).",
+   "correction": "The limit of H^{i+1}(M^•)[p^n] along multiplication by p is Hom_{Z_p}(Q_p/Z_p, H^{i+1}(M^•)).",
+   "reason": "The terms H^{i+1}(M^•)[p^n] are submodules of H^{i+1}, and a compatible system for multiplication by p is a homomorphism Q_p/Z_p → H^{i+1}. The proof has just shown Hom(Q_p/Z_p, H^j(M^•)) = 0 for every degree j, so the conclusion is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The version of record, Forum of Mathematics, Pi 10 (2022), e7, open-access PDF fetched 14 October 2026: the same text.",
+    "arXiv:2008.07099v3 (8 July 2021): the same text.",
+    "The article page at cambridge.org, 14 October 2026: no correction notice; the errata register of this programme (research/blueprint/errata/) has no entry for this paper."
+   ],
+   "owner": "CompletedCohomologyPartII",
+   "file": "research/blueprint/packets/CompletedCohomologyPartII--CC.0.json",
+   "citation": "Sources of the blueprint of CompletedCohomologyPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "CompletedCohomologyPartII/E1",
@@ -252383,6 +252581,28 @@
    "status": "confirmed",
    "reviewedBy": "REV-DESIGN-SemisimpleAlgebrasPartII",
    "reviewReason": "The printed phrase is stronger than bare uniqueness up to isomorphism. It is sound only with fixed identification/evaluation data. This correction does not challenge the Morita equivalence theorem."
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation/E1",
+   "kind": "error",
+   "locator": "Published Theorem 2.8, p. 103; proof p. 105",
+   "printed": "The stated hypotheses on the weight-two form, multiplicity, dyadic level parity and non-Q(i)-induction do not include unramifiedness of the residual representation at the removed odd prime q.",
+   "correction": "Add that ρ is unramified at q, as in the later Ribet–Stein Theorem 3.19 formulation. The node uses this corrected hypothesis.",
+   "reason": "The proof at p. 105 invokes the unramified local restriction in the toric/character-group argument. If ρ is ramified at q, its Artin conductor has a q-factor and cannot divide the proposed lower level M with q∤M.",
+   "affects": "a stated result",
+   "known": "Ribet–Stein, Lectures on Serre’s conjectures, author draft 2010, Theorem 3.19, pp. 49–51 explicitly includes the missing hypothesis; no publisher erratum located.",
+   "searched": [
+    "Buzzard author papers index and note.dvi (version 1 October 1999)",
+    "Publisher volume 7 article and errata searches",
+    "Exact-title erratum/unramified searches",
+    "Ribet–Stein Theorem 3.19 and proof"
+   ],
+   "owner": "SerreWeightAndLevelOptimisation",
+   "file": "research/blueprint/packets/SerreWeightAndLevelOptimisation.json",
+   "citation": "Kevin Buzzard, On level-lowering for mod 2 representations, Mathematical Research Letters 7 (2000), 95–110; publisher PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "ShimuraCompactifications/E1",
