@@ -35024,7 +35024,8 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.4",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9384"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
@@ -35070,7 +35071,8 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9385"
   },
   {
    "id": "BP-GeometricSatakeAndFusion--GS3",
@@ -35705,8 +35707,9 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9305"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9305",
+   "finishedAt": "2026-10-14T01:23:11Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1-2",
@@ -35750,8 +35753,9 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1-classical.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9306"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9306",
+   "finishedAt": "2026-10-14T01:23:12Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1-classical",
@@ -35795,8 +35799,9 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1-plus.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9307"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9307",
+   "finishedAt": "2026-10-14T01:23:14Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1-plus",
@@ -35908,7 +35913,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.2-graded-map",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.2-graded-map.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9267"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.2-symbols",
@@ -36859,7 +36865,8 @@
    ],
    "followUpOf": "BP-PotentialModularityAndCompatibleSystems--R23.1",
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9428"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.4",
@@ -41885,7 +41892,8 @@
    ],
    "revisionOf": "BP-PerfectoidShimuraVarieties",
    "prompt": "research/blueprint/prompts/BP-PerfectoidShimuraVarieties~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9311"
   },
   {
    "priority": 2,
@@ -45493,8 +45501,9 @@
     "REV-PotentialAutomorphyInfrastructurePartII--PL.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-PotentialAutomorphyInfrastructurePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7944"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7944",
+   "finishedAt": "2026-10-14T01:23:16Z"
   },
   {
    "id": "ASM-HodgeStructuresPartII",
@@ -46980,8 +46989,9 @@
     "PKG-ArithmeticQuantumTopology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7916"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7916",
+   "finishedAt": "2026-10-14T01:23:20Z"
   },
   {
    "id": "PKG-AutomorphicBundles",
