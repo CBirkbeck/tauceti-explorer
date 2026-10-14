@@ -22353,9 +22353,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ArakelovGeometryAndAbelianHeights.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #674"
+   "note": "deliverables arrived from an external worker on issue #674",
+   "finishedAt": "2026-10-14T09:13:11Z"
   },
   {
    "id": "REV-ArakelovGeometryAndAbelianHeights",
@@ -24397,8 +24398,9 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9379"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9379",
+   "finishedAt": "2026-10-14T09:13:12Z"
   },
   {
    "id": "BP-EnhancedDerivedSheaves",
@@ -27132,12 +27134,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #962"
+   "note": "claimed on GitHub issue #962"
   },
   {
    "id": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -27296,12 +27298,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicFamilies.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #965"
+   "note": "claimed on GitHub issue #965"
   },
   {
    "id": "REV-PadicFamilies",
@@ -28261,9 +28263,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SerreWeightAndLevelOptimisation.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #989"
+   "note": "claimed on GitHub issue #989"
   },
   {
    "id": "REV-SerreWeightAndLevelOptimisation",
@@ -28689,8 +28691,9 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/BP-TorsionCohomologyInfrastructure.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #1000"
   },
   {
    "id": "REV-TorsionCohomologyInfrastructure",
@@ -29696,7 +29699,8 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9404"
   },
   {
    "id": "BP-ArithmeticDynamics",
@@ -31669,7 +31673,9 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmeticPartII--RS.0",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmeticPartII--RS.0.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8951",
+   "finishedAt": "2026-10-14T09:13:15Z"
   },
   {
    "id": "BP-FunctionFieldArithmeticPartII--RS.1",
@@ -31759,7 +31765,8 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmeticPartII--RS.2",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmeticPartII--RS.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8953"
   },
   {
    "id": "BP-FunctionFieldArithmeticPartII--GC.0",
@@ -32002,8 +32009,9 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--GC.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8914"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8914",
+   "finishedAt": "2026-10-14T09:13:18Z"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--GC.5",
@@ -37851,8 +37859,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics--DY.6",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics--DY.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9276"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9276",
+   "finishedAt": "2026-10-14T09:13:20Z"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.1",
@@ -39833,8 +39842,9 @@
    ],
    "revisionOf": "DESIGN-AnalyticToricGeometryPartII",
    "prompt": "research/blueprint/prompts/DESIGN-AnalyticToricGeometryPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8920"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8920",
+   "finishedAt": "2026-10-14T09:13:24Z"
   },
   {
    "priority": 2,
@@ -41138,8 +41148,9 @@
    ],
    "revisionOf": "BP-FunctionFieldArithmetic",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmetic~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9304"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9304",
+   "finishedAt": "2026-10-14T09:13:26Z"
   },
   {
    "priority": 2,
@@ -44326,8 +44337,9 @@
    ],
    "revisionOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9315"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9315",
+   "finishedAt": "2026-10-14T09:13:28Z"
   },
   {
    "priority": 2,
@@ -96785,8 +96797,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #718"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
@@ -98125,9 +98138,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--P7.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #968"
+   "note": "claimed on GitHub issue #968"
   },
   {
    "id": "REV-PadicHodgeTheory--P7",
@@ -98171,9 +98184,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--R06.5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #969"
+   "note": "claimed on GitHub issue #969"
   },
   {
    "id": "REV-PadicHodgeTheory--R06.5",
@@ -102603,8 +102616,9 @@
     "BP-DrinfeldModulesAndTModules--DM.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DrinfeldModulesAndTModules--DM.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9272"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9272",
+   "finishedAt": "2026-10-14T09:13:34Z"
   },
   {
    "kind": "blueprint",
