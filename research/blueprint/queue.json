@@ -27330,8 +27330,9 @@
    ],
    "avoidAccountOf": "BP-PadicFamilies",
    "prompt": "research/blueprint/prompts/REV-PadicFamilies.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #461"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #461",
+   "finishedAt": "2026-10-14T12:53:11Z"
   },
   {
    "id": "BP-PadicHodgeRegulators",
@@ -28294,8 +28295,9 @@
    ],
    "avoidAccountOf": "BP-SerreWeightAndLevelOptimisation",
    "prompt": "research/blueprint/prompts/REV-SerreWeightAndLevelOptimisation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #486"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #486",
+   "finishedAt": "2026-10-14T12:53:15Z"
   },
   {
    "id": "BP-ShimuraCompactifications",
@@ -37732,7 +37734,9 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.6",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6304",
+   "finishedAt": "2026-10-14T12:53:19Z"
   },
   {
    "id": "BP-ArithmeticDynamics--DY.2",
@@ -38162,8 +38166,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.6",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9679"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9679",
+   "finishedAt": "2026-10-14T12:53:23Z"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.7",
@@ -47541,8 +47546,9 @@
     "PKG-AutomorphicSpectralTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicSpectralTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9684"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9684",
+   "finishedAt": "2026-10-14T12:53:30Z"
   },
   {
    "id": "PKG-ClassicalAdicEtaleCohomology",
