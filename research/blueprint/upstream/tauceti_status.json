@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T18:34Z",
+ "updated": "2026-10-14T18:41Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -100,7 +100,7 @@
     813
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "b1c8916",
+   "head": "6d928b6",
    "review": {
     "recommendation": "approve",
     "head": "8c306f2",
@@ -129,7 +129,7 @@
     818
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "0570163",
+   "head": "cb5f4d4",
    "review": {
     "recommendation": "approve",
     "head": "c67b635",
@@ -142,7 +142,7 @@
    "stage": "pr",
    "pr": 818,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
-   "head": "a79aedf",
+   "head": "9ea97ef",
    "review": {
     "recommendation": "approve",
     "head": "67a02f4",
@@ -158,7 +158,7 @@
     817
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
-   "head": "85e5bce",
+   "head": "727df16",
    "review": {
     "recommendation": "approve",
     "head": "000a33a",
@@ -174,7 +174,7 @@
     814
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
-   "head": "9f751eb",
+   "head": "2281fb7",
    "review": {
     "recommendation": "approve",
     "head": "36cf6e6",
@@ -190,7 +190,7 @@
     818
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "0184f44",
+   "head": "3f6457f",
    "review": {
     "recommendation": "approve",
     "head": "6c8d2d1",
@@ -498,7 +498,7 @@
   "LefschetzPencilsAndVanishingCycles": {
    "stage": "pr",
    "pr": 873,
-   "head": "d165903",
+   "head": "5e2c874",
    "depends_on": [
     779,
     792,
@@ -514,9 +514,9 @@
    "review": {
     "recommendation": "changes",
     "head": "d165903",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
-    "note": "maintainer fresh review (GPT-6 Astra) at d165903: one blocking error in §7b.10 local-obstruction lemma; repair in progress"
+    "note": "maintainer fresh review (GPT-6 Astra) at d165903: §7b.10 local-obstruction lemma repaired and answered at 5e2c874; awaiting re-review"
    }
   },
   "ClassicalAdicEtaleCohomology": {
@@ -591,7 +591,7 @@
     "head": null,
     "current": false,
     "date": null,
-    "note": "red team (Sol + Astra) running"
+    "note": "red team (Sol 20 findings + Astra 23 findings) being applied"
    }
   },
   "FreeGroupsAndLimitGroups": {
@@ -600,11 +600,11 @@
    "head": "a5b47fb",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the decidability and formal-solution results are stated without executable procedures; no supplier in an open pull request; draft until the red team and a deep review pass",
    "review": {
-    "recommendation": null,
-    "head": null,
-    "current": false,
-    "date": null,
-    "note": "red team (Sol + Astra) running"
+    "recommendation": "changes",
+    "head": "a5b47fb",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "deep review (GPT-6 Astra) at a5b47fb: counterexamples, a dependency cycle and ownership boundaries; repair in progress; red team (Sol + Astra) running"
    }
   }
  }
