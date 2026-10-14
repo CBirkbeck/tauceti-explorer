@@ -2,11 +2,12 @@
 
 This roadmap plans the descent from norm-compatible arithmetic cohomology classes to Selmer bounds, primitivity and module structure. The rank-one Mazur–Rubin and Rubin constructions, Howard’s self-dual theory, and the higher-rank Stark and bidual theories have separate coefficient and local hypotheses. Cyclotomic units, Kato classes, and CM points are supplied by their arithmetic owners. ES.8, including Howard’s Λ-adic theorem, is outside this part.
 
-The pass is at target level: all eight layers are planned and none is closed. Each prerequisite chain ends in the pinned libraries, an inspected owner, an exact supplier request, or a recorded gap. Every implementation status is unchecked. Independent revision-two review dated 2026-10-10 requests changes to three arithmetic prototype interfaces. The mathematical targets remain planned; their suggested forms need the repairs recorded below.
+The pass is at target level: all eight layers are planned and none is closed. Each prerequisite chain ends in the pinned libraries, an inspected owner, an exact supplier request, or a recorded gap. Every implementation status is unchecked. Revision three (2026-10-14) repairs the three arithmetic prototype interfaces returned by the independent revision-two review of 2026-10-10; the arithmetic prototype section below describes the repairs. The mathematical targets were already stated at their correct scope.
 
 ## Conventions and ownership
 
 - K is a number field; R is the stated local coefficient ring, with maximal ideal m and residue characteristic p. Principal artinian rings, discrete valuation rings and Gorenstein orders are distinguished in each result.
+- Coefficients follow Mazur–Rubin 2004 §1 and Chapter 2. A coefficient ring is complete noetherian local with finite residue field of characteristic p, in its m-adic topology. Compact coefficients are finitely generated with the m-adic topology and a continuous Galois action; discrete coefficients are m-power torsion of cofinite type with the discrete topology. Cartier duality T ↦ T^* = Hom_cts(T, μ_{p^∞}) exchanges them, and finite modules are both. Every Selmer support contains S_p ∪ S_∞ and the ramified primes.
 - The Cartier dual of a lattice is discrete torsion; its lattice Tate dual is used in Euler polynomials. Finite self-injective coefficient duals need the explicit L2 dictionary.
 - Frobenius is arithmetic. Rubin’s polynomial is det(1−Fr_q⁻¹X on the lattice Tate dual); the Mazur–Rubin polynomial is det(1−Fr_q X on T). Every comparison transports the polynomial convention.
 - Conductors are squarefree finite prime sets, with conductor one represented by the empty set. Divisibility is inclusion and ν(n) is cardinality. Norm relations use corestriction.
@@ -27,23 +28,27 @@ Unavailable supplier conditions are explicitly absent from the prototype in acco
 
 The higher derivative is formed over the full reduced group ring of E(n)/K. Relative Galois products only define the derivative operator; no splitting of the full Galois group is assumed. The correction keeps Δ₁=1, Δ_q=0 and the negative two-prime cross-term. Frobenius injectivity 6.11 is required for the local-relation theorem, rather than for the correction expression itself. At fixed E the typed comparison verifies independence of generators. The larger-auxiliary-field/target-field comparison of Corollary 6.13 and the full corrected MR rank-one comparison remain exact supplier dictionaries; the rank-one typed check covers the raw base component.
 
-The independent revision-two review found three further defects in the prototype: the Selmer support omits mandatory p/infinite places, finite/adic coefficient topology is not enforced in the arithmetic evaluation and duality signatures, and the MR16 unramified condition at p is replaced by an inertia kernel. These are already-expressible missing guards or incorrect constructions, rather than unavailable geometric hypotheses. Their counterexamples and exact repair contracts appear in the gaps and the [review report](../reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0~2.md).
+The coefficient dictionary is explicit. `IsCoefficientRing` states that R is complete noetherian local with finite residue field of prime characteristic in its m-adic topology. `IsCompactCoefficient` (finite type, module topology, jointly continuous action) and `IsDiscreteCoefficient` (open stabilisers, m-power torsion, finite m-torsion) carry that ring condition. The Cartier dual is the module of continuous homomorphisms into μ_{p^∞}. Every `SelmerStructure` records its coefficient category and a support containing S_p ∪ S_∞, and duality, propagation, modification and restriction of the prime set keep that support. So the trivial 𝔽_p-module over ℚ with empty support is not a Selmer structure, and its dual μ_p would be ramified at p.
+
+Frobenius and tame-inertia evaluation, the finite–singular comparison, quotient–dual propagation and local Tate nondegeneracy take compact or arithmetic coefficients. ℚ with the discrete topology is not a coefficient ring, which excludes the discrete rational counterexample to finite evaluation. The identification of dual Selmer modules of quotients has two signatures: the general complete-noetherian form with (H.0), (H.1) and (H.3), and the finite self-injective form with residual invariant vanishing (BSS II Proposition 3.5, Lemmas 3.6–3.7, Corollary 3.8).
+
+F_ur follows Mazur–Rubin 2016 Definition 5.1. At primes above p it is the saturation of the universal norms from finite unramified extensions, built from compact-coefficient corestriction; at archimedean places it is relaxed, and elsewhere it is the rational inertia kernel. Lemma 5.2 and Corollary 5.3 give its comparisons with F_can at their stated scope. The ℤ_p(1) unit example separates F_ur from the inertia-kernel condition, and the Theorem 5.4 and Rubin-bound consumers use the corrected structure. The independent review's counterexamples are recorded in its [report](../reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0~2.md).
 
 ## Counts and coverage
 
 | Item | Result |
 | --- | --- |
 | Nodes | 89: 30 definitions, 7 lemmas, 33 theorems, 6 applications, 10 constructions, 3 comparisons |
-| API / unit tests | 245 / 125 |
+| API / unit tests | 272 / 135 |
 | Planets | 35; 6/3/3/5/5/5/4/4 |
-| Pinned baseline declarations | 19 |
-| Supplier requests / gaps | 10 / 8 |
+| Pinned baseline declarations | 25 |
+| Supplier requests / gaps | 10 / 5 |
 | Pass status | complete |
 
 | Layer | Status | Refinement and implementation boundary |
 | --- | --- | --- |
-| ES.0 | planned | Implement the exact general-R duality and compact/discrete coefficient adapters in the L2 request. The mathematical targets are stated; the suggested arithmetic signatures require the corrections recorded in this review.; Repair the suggested Selmer support/dual-support guard and coefficient-topology dictionary; see the independent review’s concrete counterexamples.; Replace the suggested F_ur at p and infinity by MR16’s saturated unramified universal norms before asserting its core-rank formula. |
-| ES.1 | planned | Lemma level: Mazur–Rubin 2004 Lemma 3.6.3 and the two-step proof of Propositions 3.6.1–3.6.2; Rubin Lemma V.2.1.; The consumer requests of HeegnerPointEulerSystems (Zhang's two-class detection over a finite field k₀, Gross's eigenspace pairings) are special cases of chebotarev-nonvanishing and transverse-duality for self-dual T; state them in Howard's setting as corollaries once HE.6 fixes its exact forms.; The remaining items of the Liu–Tian–Xiao–Zhang–Zhu route (S23-closure, S23-norm, S23-paired, S23-obstruction, S23-defect, S23-error, S24-rows, S24-bounded) refine abundant-tuples and ES.4/abundant-localization to the paired-evaluation obstruction; they are lemma-level statements of linear algebra over a discrete valuation ring.; Restrict local Frobenius/tame evaluation to the source finite/adic coefficient topologies; the arbitrary-TopRep finiteEvaluation is false. |
+| ES.0 | planned | Implement the exact general-R duality and compact/discrete coefficient adapters in the L2 request. The suggested signatures state the coefficient category, the guarded support S_p ∪ S_∞ ⊆ Σ and MR16’s saturated universal-norm F_ur; the supplier proofs remain.; Lemma level: Mazur–Rubin 2016 Lemma 5.2 through the cited universal-norm lemma of Perrin-Riou §2.1.1, and the bounded-kernel comparison H¹(K_𝔭, T^*_k) → H¹(K_𝔭, T^*)[m^k] in the proof of Theorem 5.4. |
+| ES.1 | planned | Lemma level: Mazur–Rubin 2004 Lemma 3.6.3 and the two-step proof of Propositions 3.6.1–3.6.2; Rubin Lemma V.2.1.; The consumer requests of HeegnerPointEulerSystems (Zhang's two-class detection over a finite field k₀, Gross's eigenspace pairings) are special cases of chebotarev-nonvanishing and transverse-duality for self-dual T; state them in Howard's setting as corollaries once HE.6 fixes its exact forms.; The remaining items of the Liu–Tian–Xiao–Zhang–Zhu route (S23-closure, S23-norm, S23-paired, S23-obstruction, S23-defect, S23-error, S24-rows, S24-bounded) refine abundant-tuples and ES.4/abundant-localization to the paired-evaluation obstruction; they are lemma-level statements of linear algebra over a discrete valuation ring. |
 | ES.2 | planned | Lemma level: Rubin Lemma IX.6.3 and Corollary 6.4 (units and shifts of the variable) in full, and Proposition IV.3.1(iv)–(v), Lemmas IV.2.5, IV.4.6 and Proposition IV.4.7 as separate statements.; Smoothing (removing the dependence on an auxiliary prime, as for cyclotomic units) is stated by the cyclotomic owner; a generic smoothing operation was not found in the sources read. |
 | ES.3 | planned | Lemma level: Rubin IV §6 (Proposition 6.1 is planned in SelmerIwasawaCohomology L3; Corollaries 6.2, 6.5, Lemma 6.3, Definition 6.6, Lemma 6.7, Proposition 6.8), IV §7 (Lemmas 7.1, 7.3, the lifted telescoping identity), and Mazur–Rubin Appendix A (Lemma A.6 to Proposition A.15).; The derivative descent statement with explicit kernel and cokernel when W^{G_{F(r)}} ≠ 0 is contained in lifting-to-induced-module; an explicit bound for the non-canonical descent used by HeegnerPointEulerSystems HE.7 (bounded denominators) is a follow-up. |
 | ES.4 | planned | Lemma level: Mazur–Rubin 2004 Lemmas 4.3.8–4.3.9, Propositions 4.3.10–4.3.11, Theorem 4.3.12, Theorem 4.4.3 (sufficiently liftable systems) and Appendix B (Howard's proof of Theorem 4.3.3).; Rubin Theorem II.2.10 is included in rubin-bound(c); Rubin Chapter V §2 general case of Lemma 2.5 at lemma level.; Castella–Grossi–Lee–Skinner Lemmas 3.3.10 and Proposition 3.3.11 are cited inside howard-descent-with-errors; they become nodes at lemma level.; Fulfil CA.7’s noncommutative maximal-order pairing-cokernel bound and HE.7’s geometric/non-CM input dictionary; the exact all-prime annihilator target and dyadic error constants are stated here. |
@@ -76,6 +81,12 @@ Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174. Tau Ceti: f790474821cf4256814
 | tauceti:NumberField.Chebotarev.frobeniusPrimeSet | The set of primes of K unramified in L whose Artin symbol is a given conjugacy class. |
 | tauceti:NumberField.artinSymbol | The Artin symbol (Frobenius conjugacy class) of an unramified prime in a finite Galois extension of number fields. |
 | tauceti:TauCeti.GlobalNumberFields.RayClassGroup | The ray class group of a modulus: ideals prime to the modulus modulo the ray. |
+| mathlib:IsAdic | IsAdic J: the topology of the ring is the J-adic topology; used for the maximal-ideal topology of a coefficient ring. |
+| mathlib:IsAdicComplete | IsAdicComplete I M: M is I-adically Hausdorff and complete; used for completeness of a coefficient ring. |
+| mathlib:IsModuleTopology | IsModuleTopology R A: A carries the module topology induced from R; for a finitely generated module over a coefficient ring this is the m-adic topology. |
+| tauceti:TauCeti.IsSmoothDiscrete | An object of TopRep R G whose module is discrete with open point stabilisers; the discrete G-modules with continuous action. |
+| mathlib:Submodule.torsion | The submodule of elements killed by a non-zero-divisor; the saturation of N in M is the preimage of the torsion of M/N. |
+| mathlib:cyclotomicCharacter | The p-adic cyclotomic character (L ≃+* L) →* ℤ_pˣ; used to type the Tate twist ℤ_p(1) in the universal-norm unit test. |
 
 ## Sources and versions
 
@@ -91,6 +102,7 @@ Barry Mazur and Karl Rubin. Memoirs of the American Mathematical Society 168 (20
 - §§6.1–6.2: Definitions 6.1.1, 6.2.1, Lemmas 6.1.5, 6.2.3, Propositions 6.1.6, 6.2.2, 6.2.6
 - Appendix A: Lemma A.1, Proposition A.2, Definition A.3, Theorem A.4 and the proof of Theorem 3.2.4
 - Not read: §5.3 (Iwasawa algebras, layer ES.8), Appendix B beyond its statements
+- Revision-three check 2026-10-14 (same fingerprint): coefficient conventions pp. 7 and 13, Lemma 1.2.1, Definitions 2.1.1 and 2.3.1, Examples 2.1.7–2.1.8, and §3.5 with (H.0)–(H.6) and Lemmas 3.5.2–3.5.4.
 
 ### Euler systems (rubin-es)
 
@@ -113,6 +125,7 @@ Barry Mazur and Karl Rubin. arXiv:1312.4052v1 (14 December 2013), 32 pp., read 2
 - §§10–13: definitions and statements
 - Not read: §9, §14 and Appendix A beyond their statements
 - Additional published-version reading 2026-10-10: §§10–14 and Appendix A, pp.169–183; the preprint citations remain labelled separately.
+- Revision-three check 2026-10-14 (same fingerprint): notation p. 3, §1 including Lemma 1.3, Definitions 2.1 and 2.3, and §5.1 from Definition 5.1 through the proof of Theorem 5.4, pp. 9–11.
 
 ### On the theory of higher rank Euler, Kolyvagin and Stark systems, II (bss2)
 
@@ -189,9 +202,9 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 | Source | Version / reading date | Fingerprint |
 | --- | --- | --- |
-| mr-ks | author copy; 2026-10-10; [link](https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf) | 4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f |
+| mr-ks | author copy; 2026-10-14; [link](https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf) | 4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f |
 | rubin-es | author copy; 2026-10-10; [link](https://swc-math.github.io/notes/files/99RubinES.pdf) | de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50 |
-| mr-higher | preprint; 2026-10-10; [link](https://arxiv.org/pdf/1312.4052v1) | 15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8 |
+| mr-higher | preprint; 2026-10-14; [link](https://arxiv.org/pdf/1312.4052v1) | 15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8 |
 | bss2 | preprint; 2026-10-10; [link](https://arxiv.org/pdf/1805.08448v1) | 2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429 |
 | howard | published; 2026-10-10; [link](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf) | 89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7 |
 | dk | preprint; 2026-10-10; [link](https://arxiv.org/pdf/2010.00657v3) | c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099 |
@@ -217,14 +230,15 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple` — definition.
 
-**Statement.** Fix a number field K, a prime p and a coefficient ring R: a complete noetherian local ring with maximal ideal m and finite residue field k = R/m of characteristic p. A Selmer triple (T, F, P) consists of a free R-module T of finite rank with a continuous R-linear action of G_K unramified outside finitely many primes, a Selmer structure F on T (a finite set Σ(F) of places containing the archimedean places, the places above p and the primes where T is ramified, with an R-submodule H¹_F(K_v, T) ⊆ H¹(K_v, T) for v ∈ Σ(F), and the unramified condition elsewhere), and a set P of primes of K disjoint from Σ(F). N(P) is the set of squarefree products of primes of P, with 1 ∈ N(P), and ν(n) is the number of prime factors of n. Selmer data (T, F, P, r) add an integer r ≥ 1. The dual is T^* = Hom(T, μ_{p^∞}) with the dual structure F^*.
+**Statement.** Fix a number field K, a prime p and a coefficient ring R: a complete noetherian local ring with maximal ideal m and finite residue field k = R/m of characteristic p. A Selmer triple (T, F, P) consists of a free R-module T of finite rank with a continuous R-linear action of G_K unramified outside finitely many primes, a Selmer structure F on T (a finite set Σ(F) of places containing the archimedean places, the places above p and the primes where T is ramified, with an R-submodule H¹_F(K_v, T) ⊆ H¹(K_v, T) for v ∈ Σ(F), and the unramified condition elsewhere), and a set P of primes of K disjoint from Σ(F). N(P) is the set of squarefree products of primes of P, with 1 ∈ N(P), and ν(n) is the number of prime factors of n. Selmer data (T, F, P, r) add an integer r ≥ 1. The dual is T^* = Hom(T, μ_{p^∞}) with the dual structure F^*. The coefficients form the category of Mazur–Rubin 2004 §1 and Chapter 2: R carries its m-adic topology; compact coefficients are finitely generated R-modules with the m-adic topology and a continuous G_K-action (lattices and finite modules), and discrete coefficients are m-power-torsion modules of cofinite type with the discrete topology and a continuous action (such as T^* for a lattice T). Cartier duality exchanges the two, and finite modules belong to both. Every Selmer structure lives on a module of this category and has Σ(F) ⊇ S_p ∪ S_∞; this is what makes Σ(F^*) = Σ(F) legitimate, because μ_{p^∞} is unramified away from p.
 
-**Suggested declarations.** `TauCeti.KolyvaginSystems.SelmerTriple`, `TauCeti.KolyvaginSystems.SelmerTriple.conductors`, `TauCeti.KolyvaginSystems.SelmerTriple.one_mem_conductors`, `TauCeti.KolyvaginSystems.SelmerTriple.conductors_dvd_closed`, `TauCeti.KolyvaginSystems.SelmerTriple.restrictPrimes`, `TauCeti.KolyvaginSystems.SelmerTriple.dual`.
+**Suggested declarations.** `TauCeti.KolyvaginSystems.SelmerTriple`, `TauCeti.KolyvaginSystems.SelmerTriple.conductors`, `TauCeti.KolyvaginSystems.SelmerTriple.one_mem_conductors`, `TauCeti.KolyvaginSystems.SelmerTriple.conductors_dvd_closed`, `TauCeti.KolyvaginSystems.SelmerTriple.restrictPrimes`, `TauCeti.KolyvaginSystems.SelmerTriple.dual`, `TauCeti.KolyvaginSystems.IsCoefficientRing`, `TauCeti.KolyvaginSystems.residueChar`, `TauCeti.KolyvaginSystems.IsCompactCoefficient`, `TauCeti.KolyvaginSystems.IsDiscreteCoefficient`, `TauCeti.KolyvaginSystems.IsArithmeticCoefficient`, `TauCeti.KolyvaginSystems.SelmerStructure`, `TauCeti.KolyvaginSystems.SelmerTriple.isCompactCoefficient`, `TauCeti.KolyvaginSystems.SelmerTriple.restrictPrimes_F`, `TauCeti.KolyvaginSystems.dualRep`, `TauCeti.KolyvaginSystems.dualRep_isDiscreteCoefficient`, `TauCeti.KolyvaginSystems.dualRep_isCompactCoefficient`, `TauCeti.KolyvaginSystems.dualRep_isUnramified`, `TauCeti.KolyvaginSystems.localPairing_nondegenerate`, `TauCeti.KolyvaginSystems.dualStructure_sigma`, `TauCeti.KolyvaginSystems.propagatedStructure_sigma`.
 
 **Hypotheses.**
 
-- R is complete noetherian local with finite residue field of characteristic p
-- T is free of finite rank over R
+- R is complete noetherian local with finite residue field of characteristic p, in its m-adic topology
+- T is free of finite rank over R, with the m-adic topology and a continuous G_K-action; T^* is discrete of cofinite type
+- Σ(F) contains S_p ∪ S_∞ and every prime where T is ramified
 - P ∩ Σ(F) = ∅
 
 **Construction or proof.**
@@ -232,6 +246,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 1. The Selmer structure, its Selmer module H¹_F(K, T) and the dual structure F^* are those of SelmerIwasawaCohomology L2 (dual-selmer-structure); this node only adds the prime set P and the index set N(P).
 2. N(P) is the set of finite subsets of P, written multiplicatively; divisibility is inclusion and ν is cardinality.
 3. Mazur–Rubin 2004 take K = ℚ (Chapter 2 and the first lines of Chapter 3); Mazur–Rubin 2016 Definition 4.1 states the same data over a number field K, and Howard Definition 1.2.1 over an imaginary quadratic field with P ⊆ the rational primes inert in K.
+4. The coefficient category and the support condition are part of the data, so every constructor must supply them: propagation to T/IT keeps Σ (Mazur–Rubin 2004 Example 2.1.7), modification adds the modified primes (Mazur–Rubin 2016 Definition 2.3), restriction of P keeps F, and duality keeps Σ (Mazur–Rubin 2004 Definition 2.3.1) because T^* is unramified at every prime q ∤ p where T is. Without p ∈ Σ this fails: over ℚ with p odd, the trivial 𝔽_p-module with Σ = ∅ satisfies the unramifiedness conditions, but its dual μ_p is ramified at p.
 
 **Uses.**
 
@@ -244,11 +259,26 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 | Name | Role | Statement |
 | --- | --- | --- |
 | `TauCeti.KolyvaginSystems.SelmerTriple` | structure | The triple (T, F, P): a Selmer structure F on T together with a set P of primes disjoint from Σ(F). |
+| `TauCeti.KolyvaginSystems.IsCoefficientRing` | structure | R is a complete noetherian local ring with finite residue field of prime characteristic, and its topology is the m-adic one (Mazur–Rubin 2004 §1; Mazur–Rubin 2016 §1 for the principal case). |
+| `TauCeti.KolyvaginSystems.residueChar` | data | The residue characteristic p = char(R/m) of a coefficient ring. |
+| `TauCeti.KolyvaginSystems.IsCompactCoefficient` | structure | Over a coefficient ring: T finitely generated, with the R-module (m-adic) topology and a jointly continuous G_K-action. |
+| `TauCeti.KolyvaginSystems.IsDiscreteCoefficient` | structure | Over a coefficient ring: A discrete with open point stabilisers (Tau Ceti IsSmoothDiscrete), m-power torsion, with finite m-torsion. |
+| `TauCeti.KolyvaginSystems.IsArithmeticCoefficient` | other | Compact of finite type or discrete of cofinite type; the two agree on finite modules. |
+| `TauCeti.KolyvaginSystems.SelmerStructure` | structure | The L2 Selmer carrier on canonical H¹: Σ(F), local conditions equal to the unramified condition off Σ(F), T unramified off Σ(F), T in the arithmetic coefficient category, and S_p ∪ S_∞ ⊆ Σ(F). |
 | `TauCeti.KolyvaginSystems.SelmerTriple.conductors` | data | N(P): the squarefree products of primes of P, as finite subsets of P. |
 | `TauCeti.KolyvaginSystems.SelmerTriple.one_mem_conductors` | simp | 1 ∈ N(P). |
 | `TauCeti.KolyvaginSystems.SelmerTriple.conductors_dvd_closed` | characterisation | If n ∈ N(P) and m \| n then m ∈ N(P). |
 | `TauCeti.KolyvaginSystems.SelmerTriple.restrictPrimes` | functoriality | For P′ ⊆ P, (T, F, P′) is a Selmer triple and N(P′) ⊆ N(P). |
-| `TauCeti.KolyvaginSystems.SelmerTriple.dual` | constructor | The Cartier dual data (T^*, F^*, P) use the imported discrete Selmer carrier, with Σ(F^*) = Σ(F). For a DVR lattice T, T^* = Hom(T, μ_{p^∞}) is discrete torsion, not a finite free lattice and hence not an object of the same lattice-triple type. Over a principal artinian ring, the finite Cartier dual is free of the same rank after the coefficient duality identification. |
+| `TauCeti.KolyvaginSystems.SelmerTriple.isCompactCoefficient` | characterisation | A free module of finite rank in the coefficient category is compact. |
+| `TauCeti.KolyvaginSystems.SelmerTriple.restrictPrimes_F` | functoriality | Restricting P keeps the Selmer structure, hence its support and coefficients. |
+| `TauCeti.KolyvaginSystems.SelmerTriple.dual` | constructor | The Cartier dual data (T^*, F^*, P) use the imported discrete Selmer carrier, with Σ(F^*) = Σ(F) ⊇ S_p ∪ S_∞. For a DVR lattice T, T^* = Hom(T, μ_{p^∞}) is discrete torsion of cofinite type, not a finite free lattice and hence not an object of the same lattice-triple type. Over a principal artinian ring, the finite Cartier dual is free of the same rank after the coefficient duality identification. |
+| `TauCeti.KolyvaginSystems.dualRep` | constructor | T^* = Hom_cts(T, μ_{p^∞}) for the residue characteristic p, with ℚ/ℤ discrete, R acting through T and G_K through the cyclotomic twist. |
+| `TauCeti.KolyvaginSystems.dualRep_isDiscreteCoefficient` | compatibility | The Cartier dual of a compact coefficient module is discrete of cofinite type. |
+| `TauCeti.KolyvaginSystems.dualRep_isCompactCoefficient` | compatibility | The Cartier dual of a discrete coefficient module of cofinite type is compact. |
+| `TauCeti.KolyvaginSystems.dualRep_isUnramified` | compatibility | At a prime q ∤ p where T is unramified, T^* is unramified. |
+| `TauCeti.KolyvaginSystems.localPairing_nondegenerate` | characterisation | On arithmetic coefficients the local Tate pairing H¹(K_v,T) × H¹(K_v,T^*) → ℚ_p/ℤ_p is nondegenerate; no such claim is made outside the coefficient category. |
+| `TauCeti.KolyvaginSystems.dualStructure_sigma` | compatibility | Σ(F^*) = Σ(F) (Mazur–Rubin 2004 Definition 2.3.1). |
+| `TauCeti.KolyvaginSystems.propagatedStructure_sigma` | compatibility | Propagation of F to T/IT keeps Σ(F) (Mazur–Rubin 2004 Example 2.1.7). |
 
 **Unit tests.**
 
@@ -256,18 +286,30 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - `SelmerTriple.card_conductors_of_finite` (computation): For two distinct primes q₁,q₂, conductors are exactly 1,q₁,q₂,q₁q₂.
 - `SelmerTriple.disjoint_sigma` (non-example): A prime in Σ(F) divides no allowed conductor.
 - `SelmerTriple.not_mem_conductors_of_sq` (non-example): No squarefree conductor product is the square of a prime ideal.
+- `SelmerStructure.sigma_nonempty` (non-example): No Selmer structure has empty support: S_∞ ⊆ Σ(F). In particular the trivial 𝔽_p-module over ℚ with Σ = ∅ is not one.
+- `SelmerStructure.pInfinity_mem_sigma` (characterisation): Every archimedean place and every prime above the residue characteristic lies in Σ(F).
+- `SelmerTriple.dual_contains_pInfinity` (compatibility): The dual data keep S_p ∪ S_∞ ⊆ Σ(F^*), and T^* is discrete of cofinite type.
+- `dualRep.trivial_mod_p_ramified` (non-example): For p odd, the dual of the trivial 𝔽_p-module over ℚ is μ_p, which is ramified at p; so an empty support cannot be kept by duality.
+- `IsCoefficientRing.padicInt` (computation): ℤ_p with its p-adic topology is a coefficient ring.
+- `IsCoefficientRing.finiteField` (degenerate): 𝔽_p with the discrete topology is a coefficient ring of residue characteristic p.
+- `IsCoefficientRing.not_rat_discrete` (non-example): ℚ with the discrete topology is not a coefficient ring (its residue field is infinite), so finite evaluation and duality make no claim for it.
+- `IsArithmeticCoefficient.finite_both` (compatibility): A finite discrete module with continuous action over a coefficient ring is both a compact and a discrete coefficient.
+- `IsArithmeticCoefficient.not_fraction_field` (non-example): Over a DVR, Frac(R) with the discrete topology is neither finitely generated nor torsion, so it is not an arithmetic coefficient.
 
 **Acceptance checks.**
 
 - For P = ∅ one has N(P) = {1} and a Selmer triple is a Selmer structure.
 - N(P) is closed under taking divisors, and n, nq ∈ N(P) with q prime implies q ∈ P and q ∤ n.
 
-**Prerequisites.** `SelmerIwasawaCohomology:L2`, `SelmerIwasawaCohomology:L2/selmer-kernel`, `mathlib:Squarefree`.
+**Prerequisites.** `SelmerIwasawaCohomology:L2`, `SelmerIwasawaCohomology:L2/selmer-kernel`, `mathlib:Squarefree`, `mathlib:IsAdic`, `mathlib:IsAdicComplete`, `mathlib:IsModuleTopology`, `tauceti:TauCeti.IsSmoothDiscrete`.
 
 **Sources.**
 
 - mr-ks, Chapter 3, first paragraph, p. 19: Definition of a Selmer triple over ℚ.
 - mr-higher, Definition 4.1, p. 8: The same data over a number field K, with the rank r.
+- mr-ks, Chapter 1 opening and §1.1, p. 7; Chapter 2 opening, p. 13: Coefficient conventions: R complete noetherian local with finite residue field of characteristic p; T an R-module with continuous Galois action, finitely generated in Chapter 2.
+- mr-ks, Definition 2.1.1, p. 13; Definition 2.3.1, pp. 16–17: The support of a Selmer structure contains ∞, p and the ramified primes; the dual structure has the same support.
+- mr-higher, Definition 2.1, p. 6: Over a number field the support contains all infinite places, all primes above p and the ramified primes.
 
 ### The category of quotients of T
 
@@ -413,7 +455,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Hypotheses.**
 
-- Local Tate duality for T and T^* = Hom(T, μ_{p^∞}) at v
+- T a compact coefficient module over a coefficient ring (finite type, m-adic topology, continuous action), so that local Tate duality pairs H¹(K_v,T) and H¹(K_v,T^*) perfectly with T^* = Hom(T, μ_{p^∞}) discrete of cofinite type
 
 **Construction or proof.**
 
@@ -438,13 +480,12 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Statement.** Assume T̄^{G_K} = (T̄^*)^{G_K} = 0 for T̄ = T/mT. (a) For every ideal I of R, T^*[I] → T^* induces an isomorphism H¹_{F^*}(K,T^*[I]) ≅ H¹_{F^*}(K,T^*)[I]. At the general complete noetherian coefficient scope of MR04 retain its (H.0), (H.1) and (H.3); at principal-artinian scope, or finite free coefficients over a commutative noetherian self-injective local ring with the BSS finite-dual dictionary, residual dual invariant vanishing suffices. (b) If R is principal artinian of length k and F is cartesian, then for 0 < i ≤ k the injection π^{k−i}:T/m^iT → T induces isomorphisms H¹(K,T/m^iT) ≅ H¹(K,T)[m^i] and H¹_F(K,T/m^iT) ≅ H¹_F(K,T)[m^i], and H¹_F(K,T)[m^i] is the kernel of H¹_F(K,T) → H¹_F(K,T/m^{k−i}T).
 
-**Suggested declarations.** `TauCeti.KolyvaginSystems.selmer_torsion_identification`.
+**Suggested declarations.** `TauCeti.KolyvaginSystems.selmer_torsion_identification`, `TauCeti.KolyvaginSystems.dualSelmerTorsionEquiv`, `TauCeti.KolyvaginSystems.dualSelmerTorsionEquiv_selfInjective`.
 
 **Hypotheses.**
 
 - (T/mT)^{G_K} = (T^*[m])^{G_K} = 0
 - for (b): R principal artinian, F cartesian on Quot_R(T)
-
 - For (a) over general complete noetherian R: MR04 (H.0), (H.1), (H.3). For the weaker finite-coefficient version: principal artinian R, or the self-injective local-ring/free-module/finite-dual scope of BSS II §3.
 
 **Construction or proof.**
@@ -452,6 +493,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 1. Use the corrected MR04 Lemma 2.1.4 only for coefficient-ideal quotients T/IT, as recorded in MR16’s Gomez erratum (arXiv v1 p.32; published p.182). Residual invariant vanishing alone does not apply to arbitrary Galois subquotients.
 2. (a): retain the general MR04 hypotheses for its original dual-annihilator statement. At the weaker finite self-injective coefficient scope use BSS II Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8: for generators r₁,…,r_d of I, compare A/A[I] with A^d by multiplication by those generators; prove vanishing of the diagonal-map cokernel invariants using the coefficient-ideal filtration, then identify the cohomological kernel with I-torsion. The Selmer conditions agree by inverse-image propagation. This replaces the defective induction through unrestricted subquotients.
 3. (b): the same argument with 0 → T/m^i → T → T/m^{k−i} → 0; the local conditions match by cartesianness at Σ(F) and by Lemma 1.1.9 at the unramified places.
+4. The two coefficient scopes give two separate suggested signatures: the general complete-noetherian form carries (H.0), (H.1) and (H.3) for the residue characteristic, and the finite form carries an artinian self-injective coefficient ring with residual invariant vanishing. A single signature with residual vanishing alone would assert the uncorrected Lemma 2.1.4.
 
 **Acceptance checks.**
 
@@ -465,8 +507,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - mr-ks, Lemma 3.5.3, p. 28: Part (a).
 - mr-ks, Lemma 3.5.4, p. 29: Part (b).
 - mr-higher, Proposition 3.3(i)–(ii), pp. 7–8; Gomez erratum to MR04 Lemma 2.1.4, p. 32 (arXiv v1): The principal-artinian number-field statement under invariant vanishing; the erratum restricts Lemma 2.1.4 to coefficient-ideal quotients.
-
-- bss2: Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8, arXiv v1 pp. 15–17. Replacement proof for arbitrary ideals over the stated self-injective local coefficient ring.
+- bss2, Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8, arXiv v1 pp. 15–17: Replacement proof for arbitrary ideals over the stated self-injective local coefficient ring.
 
 ### The Euler characteristic formula for Selmer modules
 
@@ -480,6 +521,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - T finite
 - lengths taken over R (for R = ℤ/p^k these are p-adic valuations of orders)
+- T and T^* lie in the arithmetic coefficient category over a coefficient ring; the Selmer structure records this and Σ(F) ⊇ S_p ∪ S_∞
 
 **Construction or proof.**
 
@@ -510,6 +552,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - R principal artinian (or a discrete valuation ring)
 - F cartesian
 - (T/mT)^{G_K} = (T^*[m])^{G_K} = 0
+- T and T^* lie in the arithmetic coefficient category over a coefficient ring; the Selmer structure records this and Σ(F) ⊇ S_p ∪ S_∞
 
 **Construction or proof.**
 
@@ -567,6 +610,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 **Hypotheses.**
 
 - as in core-rank
+- R/m^i is again a coefficient ring, so the reduced Selmer structure on T/m^iT over R/m^i is defined
 
 **Construction or proof.**
 
@@ -588,19 +632,21 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 `EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure` — definition.
 
-**Statement.** Let R be the ring of integers of a finite extension of ℚ_p (or a discrete valuation ring as in Mazur–Rubin 2016). The canonical Selmer structure F_can on T has Σ(F_can) = {q : T ramified at q} ∪ {v | p} ∪ {v | ∞}; H¹_{F_can}(K_q, T) = ker(H¹(K_q, T) → H¹(K_q^{ur}, T ⊗ ℚ_p)) for q ∈ Σ(F_can), q ∤ p∞; and H¹_{F_can}(K_v, T) = H¹(K_v, T) for v | p∞. On T/IT it is the structure induced from T, which depends on T and not only on T/IT. The unramified structure F_ur of Mazur–Rubin 2016 has the same conditions away from p and, at 𝔭 | p, the saturation of the universal norm subgroup ∩_L Cor_{L/K_𝔭} H¹(L, T) over finite unramified L/K_𝔭.
+**Statement.** Let R be the ring of integers of a finite extension of ℚ_p (or a discrete valuation ring as in Mazur–Rubin 2016) and T a lattice in the compact coefficient category. The canonical Selmer structure F_can on T has Σ(F_can) = {q : T ramified at q} ∪ {v | p} ∪ {v | ∞}; H¹_{F_can}(K_q, T) = ker(H¹(K_q, T) → H¹(K_q^{ur}, T ⊗ ℚ_p)) for q ∈ Σ(F_can), q ∤ p∞; and H¹_{F_can}(K_v, T) = H¹(K_v, T) exactly for v | p∞. On T/IT it is the structure induced from T, which depends on T and not only on T/IT. The unramified structure F_ur of Mazur–Rubin 2016 Definition 5.1 has the same support, the same rational inertia kernel at q ∤ p∞, the relaxed condition at v | ∞, and at 𝔭 | p the saturation of the universal norm subgroup H¹(K_𝔭, T)_u = ⋂_L Cor_{L/K_𝔭} H¹(L, T), the intersection over finite unramified extensions L/K_𝔭; saturation means that H¹(K_𝔭, T)/H¹_{F_ur}(K_𝔭, T) is R-torsion-free and H¹_{F_ur}(K_𝔭, T)/H¹(K_𝔭, T)_u has finite length. At 𝔭 | p, F_ur is not the rational inertia kernel. Its dual condition has the R-corank of H⁰(K_𝔭, T^*) (Mazur–Rubin 2016 Lemma 5.2), and F_ur is relaxed at 𝔭 when H⁰(K_𝔭, T^*) is finite (Corollary 5.3); if this holds at every 𝔭 | p then F_ur = F_can.
 
-**Suggested declarations.** `TauCeti.KolyvaginSystems.canonicalStructure`, `TauCeti.KolyvaginSystems.canonicalStructure_torsionFree`, `TauCeti.KolyvaginSystems.canonicalStructure_dual_at_p`, `TauCeti.KolyvaginSystems.canonicalStructure_quotient_at_p`, `TauCeti.KolyvaginSystems.unramifiedStructure`, `TauCeti.KolyvaginSystems.unramifiedStructure_eq_canonical`.
+**Suggested declarations.** `TauCeti.KolyvaginSystems.canonicalStructure`, `TauCeti.KolyvaginSystems.canonicalStructure_torsionFree`, `TauCeti.KolyvaginSystems.canonicalStructure_dual_at_p`, `TauCeti.KolyvaginSystems.canonicalStructure_quotient_at_p`, `TauCeti.KolyvaginSystems.unramifiedStructure`, `TauCeti.KolyvaginSystems.unramifiedStructure_eq_canonical`, `TauCeti.KolyvaginSystems.UnramifiedLocalLayer`, `TauCeti.KolyvaginSystems.unramifiedCor`, `TauCeti.KolyvaginSystems.universalNormSubgroup`, `TauCeti.KolyvaginSystems.saturation`, `TauCeti.KolyvaginSystems.unramifiedCondition`, `TauCeti.KolyvaginSystems.unramifiedStructure_condition`, `TauCeti.KolyvaginSystems.unramifiedStructure_condition_away`, `TauCeti.KolyvaginSystems.unramifiedStructure_dual_corank_at_p`, `TauCeti.KolyvaginSystems.unramifiedStructure_relaxed_at_p`.
 
 **Hypotheses.**
 
 - R a discrete valuation ring, finite over ℤ_p for F_can
+- T free of finite rank, compact (m-adic topology, continuous action), unramified outside a finite set
 
 **Construction or proof.**
 
 1. The condition away from p is the inverse image of the unramified condition on V = T ⊗ ℚ_p (SelmerIwasawaCohomology L2/lattice-passage), so its quotient is torsion-free and F_can is cartesian on quotients by Mazur–Rubin 2004 Lemma 3.7.1(i).
-2. At 𝔭 | p, H¹_{F_ur}(K_𝔭, T) = H¹(K_𝔭, T) when H⁰(K_𝔭, T^*) has finite length (Mazur–Rubin 2016, Corollary 5.3), so F_ur = F_can in that case.
-3. Euler-system classes lie in H¹_{F_can}(F, T) (SelmerIwasawaCohomology L3/universal-norms-unramified; Rubin, Corollary B.3.5).
+2. Corestriction from a finite unramified L/K_𝔭 on compact coefficients is Shapiro’s isomorphism followed by the induced-module trace (ArithmeticGaloisDuality D7/compact-shapiro-projection). The universal norm subgroup is the intersection of these images, and its saturation is the preimage of the R-torsion of the quotient.
+3. At 𝔭 | p, Mazur–Rubin 2016 Lemma 5.2 identifies H¹_{F_ur^*}(K_𝔭, T^*) with the maximal divisible part of the unramified inflation image, of R-corank equal to corank_R H⁰(K_𝔭, T^*). If H⁰(K_𝔭, T^*) is finite, H¹(K_𝔭, T)/H¹_{F_ur}(K_𝔭, T) is both of finite length and torsion-free, hence zero (Corollary 5.3); so F_ur = F_can when this holds at every 𝔭 | p.
+4. Euler-system classes lie in H¹_{F_can}(F, T) (SelmerIwasawaCohomology L3/universal-norms-unramified; Rubin, Corollary B.3.5).
 
 **Uses.**
 
@@ -612,18 +658,28 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 | Name | Role | Statement |
 | --- | --- | --- |
-| `TauCeti.KolyvaginSystems.canonicalStructure` | constructor | F_can: relaxed at v \| p∞, and at ramified q ∤ p the kernel of H¹(K_q, T) → H¹(K_q^{ur}, T ⊗ ℚ_p). |
+| `TauCeti.KolyvaginSystems.canonicalStructure` | constructor | F_can on a compact lattice: relaxed exactly at S_p ∪ S_∞ and the rational inertia kernel H¹(K_q,T) → H¹(K_q^{ur}, T ⊗ ℚ_p) at the other places of Σ; Σ must contain S_p ∪ S_∞. |
 | `TauCeti.KolyvaginSystems.canonicalStructure_torsionFree` | characterisation | H¹(K_q, T)/H¹_{F_can}(K_q, T) is torsion-free for every q, so F_can is cartesian on quotients. |
 | `TauCeti.KolyvaginSystems.canonicalStructure_dual_at_p` | compatibility | The dual structure F_can^* is strict at every v \| p and equals the dual of the unramified-saturated condition elsewhere. |
 | `TauCeti.KolyvaginSystems.canonicalStructure_quotient_at_p` | relation | H¹_{F_can}(K_𝔭, T/IT) is the image of H¹(K_𝔭, T); it equals H¹(K_𝔭, T/IT) if H⁰(K_𝔭, T^*) is divisible. |
-| `TauCeti.KolyvaginSystems.unramifiedStructure` | constructor | F_ur of Mazur–Rubin 2016, Definition 5.1. |
-| `TauCeti.KolyvaginSystems.unramifiedStructure_eq_canonical` | compatibility | If H⁰(K_𝔭, T^*) has finite length for every 𝔭 \| p then F_ur = F_can. |
+| `TauCeti.KolyvaginSystems.UnramifiedLocalLayer` | structure | Finite unramified extensions L/K_v, as open subgroups of finite index of the decomposition group that contain inertia. |
+| `TauCeti.KolyvaginSystems.unramifiedCor` | data | Corestriction H¹(L, T) → H¹(K_v, T) on compact coefficients, supplied by ArithmeticGaloisDuality D7/compact-shapiro-projection. |
+| `TauCeti.KolyvaginSystems.universalNormSubgroup` | data | H¹(K_v, T)_u = ⋂_L Cor_{L/K_v} H¹(L, T) over finite unramified L/K_v. |
+| `TauCeti.KolyvaginSystems.saturation` | data | The saturation of N ⊆ M: the preimage of the torsion of M/N, i.e. the elements with a nonzero multiple in N. |
+| `TauCeti.KolyvaginSystems.unramifiedCondition` | data | The local conditions of F_ur: relaxed at v \| ∞, the saturated universal norm subgroup at 𝔭 \| p, and the rational inertia kernel at every other prime. |
+| `TauCeti.KolyvaginSystems.unramifiedStructure` | constructor | F_ur of Mazur–Rubin 2016, Definition 5.1, on a DVR lattice: its local conditions are unramifiedCondition. |
+| `TauCeti.KolyvaginSystems.unramifiedStructure_condition` | characterisation | The local condition of F_ur at v is unramifiedCondition at v. |
+| `TauCeti.KolyvaginSystems.unramifiedStructure_condition_away` | compatibility | At every prime q ∤ p, F_ur and F_can impose the same condition. |
+| `TauCeti.KolyvaginSystems.unramifiedStructure_dual_corank_at_p` | relation | At 𝔭 \| p the dual condition H¹_{F_ur^*}(K_𝔭, T^*) has the R-corank of H⁰(K_𝔭, T^*) (Mazur–Rubin 2016, Lemma 5.2). |
+| `TauCeti.KolyvaginSystems.unramifiedStructure_relaxed_at_p` | relation | If H⁰(K_𝔭, T^*) is finite, F_ur is relaxed at 𝔭 \| p (Mazur–Rubin 2016, Corollary 5.3). |
+| `TauCeti.KolyvaginSystems.unramifiedStructure_eq_canonical` | compatibility | If H⁰(K_𝔭, T^*) is finite for every 𝔭 \| p then F_ur = F_can (Mazur–Rubin 2016, Corollary 5.3); mere unramifiedness of T at p does not suffice. |
 
 **Unit tests.**
 
 - `canonicalStructure_unramified_place` (compatibility): Outside Σ, the unramified structure equals the inertia restriction kernel.
-- `canonicalStructure_relaxed_lattice` (characterisation): At a designated p or infinite place the lattice canonical condition is all local H¹.
+- `canonicalStructure_relaxed_lattice` (characterisation): At every place of S_p ∪ S_∞ the lattice canonical condition is all local H¹.
 - `canonicalStructure_quotient_ne_relaxed` (non-example): If the local coefficient reduction map on H¹ is not surjective, the propagated finite canonical condition at a relaxed lattice place is a proper submodule.
+- `unramifiedStructure_tate_twist_units` (non-example): For T = ℤ_p(1) over ℚ with p odd, the rational inertia kernel at p is zero while F_ur at p is free of rank one, so F_ur is not the inertia-kernel structure at p.
 
 **Acceptance checks.**
 
@@ -632,14 +688,16 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - Additional arithmetic check: For K = ℚ, T = ℤ_p(1), p odd: H¹_{F_can}(ℚ, T) is the p-adic completion of ℤ[1/p]^×, free of rank one over ℤ_p, generated by the class of p.
 - Additional arithmetic check: For T=T_pE over ℚ and p odd, F_can is the classical lattice Kummer structure relaxed at p, with F_can^* ≤ F ≤ F_can under the Weil-pairing dictionary. On E[p^k] use the image of H¹(ℚ_p,T_pE); it is the full local group when E(ℚ_p)[p^∞]=0 and may be proper otherwise.
 - Additional arithmetic check: For T = ℤ_p(1) ⊗ ρ^{-1} with ρ finite order prime to p, unramified at p, and ρ(p)=1, T^* is locally ℚ_p/ℤ_p. Its invariants are divisible, so the propagated canonical condition on T/p^kT is all H¹(ℚ_p,T/p^kT). The unit condition on the lattice remains proper.
+- For T = ℤ_p(1) over ℚ with p odd: H¹(ℚ_p, T) is the p-adic completion of ℚ_p^×, free of rank two. T^* = ℚ_p/ℤ_p with trivial action has H⁰ of corank one, so Corollary 5.3 does not apply. F_ur at p is the image of the local units, free of rank one and saturated, and its dual condition is the unramified condition, of corank one (Lemma 5.2). The rational inertia kernel at p is zero, since ℚ_p(1) has no inertia invariants and H¹(ℚ_p, T) has no torsion. So an inertia-kernel definition of F_ur at p is wrong.
 
-**Prerequisites.** `EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition`, `SelmerIwasawaCohomology:L2/lattice-passage`, `SelmerIwasawaCohomology:L2/unramified-condition`, `SelmerIwasawaCohomology:L2`.
+**Prerequisites.** `EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition`, `SelmerIwasawaCohomology:L2/lattice-passage`, `SelmerIwasawaCohomology:L2/unramified-condition`, `SelmerIwasawaCohomology:L2`, `ArithmeticGaloisDuality:D7/compact-shapiro-projection`, `mathlib:Submodule.torsion`, `mathlib:cyclotomicCharacter`.
 
 **Sources.**
 
 - mr-ks, Definition 3.2.1, p. 23: Definition of F_can over ℚ.
 - mr-higher, Definition 5.1, pp. 9–10: Definition of F_ur over a number field.
 - bss2, §6.2, p. 38: The same structure over a number field and a Gorenstein order.
+- mr-higher, Lemma 5.2 and Corollary 5.3, p. 10: The corank of the dual unramified condition at p, and the relaxed condition when H⁰(K_𝔭, T^*) has finite length.
 
 ### Core rank of the canonical and unramified structures
 
@@ -653,6 +711,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - the invariants hypothesis of core-rank
 - for (a): K = ℚ and the hypotheses of Mazur–Rubin 2004 §5.2
+- for (b): R a discrete valuation ring, T a compact lattice, and F_ur as in canonical-selmer-structure, with Σ(F_ur) ⊇ S_p ∪ S_∞
 
 **Construction or proof.**
 
@@ -1079,13 +1138,13 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition` — lemma.
 
-**Statement.** Let K_v be nonarchimedean of residue characteristic ≠ p with residue field 𝔽, T a finitely generated R-module with unramified G_{K_v}-action and |𝔽^×|·T = 0. There are canonical functorial isomorphisms H¹_f(K_v, T) ≅ T/(Fr − 1)T (evaluate cocycles at Frobenius), H¹_s(K_v, T) := H¹(K_v, T)/H¹_f(K_v, T) ≅ Hom(I, T^{Fr=1}), and H¹_s(K_v, T) ⊗ 𝔽^× ≅ T^{Fr=1}.
+**Statement.** Let K_v be nonarchimedean of residue characteristic ≠ p with residue field 𝔽, T a finitely generated module over a coefficient ring R, with its m-adic topology and an unramified continuous G_{K_v}-action and |𝔽^×|·T = 0. There are canonical functorial isomorphisms H¹_f(K_v, T) ≅ T/(Fr − 1)T (evaluate cocycles at Frobenius), H¹_s(K_v, T) := H¹(K_v, T)/H¹_f(K_v, T) ≅ Hom(I, T^{Fr=1}), and H¹_s(K_v, T) ⊗ 𝔽^× ≅ T^{Fr=1}.
 
-**Suggested declarations.** `TauCeti.KolyvaginSystems.finite_singular_decomposition`.
+**Suggested declarations.** `TauCeti.KolyvaginSystems.finite_singular_decomposition`, `TauCeti.KolyvaginSystems.finiteEvaluation`, `TauCeti.KolyvaginSystems.singularEvaluation`, `TauCeti.KolyvaginSystems.quotientRep_isCompactCoefficient`.
 
 **Hypotheses.**
 
-- T unramified, of finite type
+- T unramified, of finite type over a coefficient ring (complete noetherian local, finite residue field of characteristic p ≠ char 𝔽), with the m-adic topology and a continuous action
 - |𝔽^×|·T = 0
 
 **Construction or proof.**
@@ -1097,6 +1156,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - For T = ℤ/p^k with trivial action and p^k | #𝔽^×: H¹_f ≅ ℤ/p^k and H¹_s ≅ Hom(𝔽^×, ℤ/p^k).
 - The isomorphisms commute with maps T → T′ of such modules.
+- Outside the coefficient category the identification fails: for ℚ with the discrete topology and trivial action, continuous H¹ of the unramified quotient Ẑ is zero while the Frobenius coinvariants are ℚ. ℚ is not a coefficient ring, and the suggested finiteEvaluation requires compact coefficients.
 
 **Prerequisites.** `SelmerIwasawaCohomology:L2/unramified-condition`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`, `ArithmeticGaloisDuality:R02.2/compact-five-term`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`.
 
@@ -1169,7 +1229,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Hypotheses.**
 
-- T free of finite rank, unramified
+- T free of finite rank over a coefficient ring, unramified, with the m-adic topology and a continuous action
 - |𝔽^×|·T = 0
 - det(1 − Fr | T) = 0
 
@@ -1224,7 +1284,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Statement.** For a Selmer structure F and pairwise coprime a, b, c with c ∈ N(P) (and I_cT = 0 when needed for the transverse condition; in general one works on T/I_cT), F_a^b(c) has Σ = Σ(F) ∪ {q : q | abc} and local conditions: H¹_F(K_q, T) for q ∈ Σ(F), q ∤ ab; 0 for q | a (strict); H¹(K_q, T) for q | b (relaxed); H¹_tr(K_q, T) for q | c (transverse). One writes F(n) = F^1_1(n), F^n, F_n. Then F_n ≤ F ≤ F^n and F_n ≤ F(n) ≤ F^n, and the dual is (F_a^b(c))^* = (F^*)_b^a(c).
 
-**Suggested declarations.** `TauCeti.KolyvaginSystems.SelmerTriple.modify`, `TauCeti.KolyvaginSystems.SelmerTriple.modify_le`, `TauCeti.KolyvaginSystems.SelmerTriple.dual_modify`, `TauCeti.KolyvaginSystems.SelmerTriple.selmer_strict_eq_inf`, `TauCeti.KolyvaginSystems.SelmerTriple.modify_isCartesian`.
+**Suggested declarations.** `TauCeti.KolyvaginSystems.SelmerTriple.modify`, `TauCeti.KolyvaginSystems.SelmerTriple.modify_le`, `TauCeti.KolyvaginSystems.SelmerTriple.dual_modify`, `TauCeti.KolyvaginSystems.SelmerTriple.selmer_strict_eq_inf`, `TauCeti.KolyvaginSystems.SelmerTriple.modify_isCartesian`, `TauCeti.KolyvaginSystems.strict_sigma`, `TauCeti.KolyvaginSystems.relaxed_sigma`, `TauCeti.KolyvaginSystems.modify_sigma`.
 
 **Hypotheses.**
 
@@ -1251,6 +1311,9 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 | `TauCeti.KolyvaginSystems.SelmerTriple.dual_modify` | compatibility | (F_a^b(c))^* = (F^*)_b^a(c). |
 | `TauCeti.KolyvaginSystems.SelmerTriple.selmer_strict_eq_inf` | characterisation | H¹_{F_n}(K, T) = H¹_F(K, T) ⊓ H¹_{F(n)}(K, T). |
 | `TauCeti.KolyvaginSystems.SelmerTriple.modify_isCartesian` | other | Under (H.2), R principal artinian of length k and n ∈ N_k, F cartesian implies F(n) cartesian. |
+| `TauCeti.KolyvaginSystems.strict_sigma` | compatibility | Σ(F_n) = Σ(F) ∪ {q \| n} for the strict modification at n. |
+| `TauCeti.KolyvaginSystems.relaxed_sigma` | compatibility | Σ(F^n) = Σ(F) ∪ {q \| n} for the relaxed modification at n. |
+| `TauCeti.KolyvaginSystems.modify_sigma` | compatibility | Σ(F_a^b(c)) = Σ(F) ∪ {q \| abc} (Mazur–Rubin 2016 Definition 2.3), so the modified structure keeps S_p ∪ S_∞. |
 
 **Unit tests.**
 
@@ -1284,7 +1347,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 **Hypotheses.**
 
 - v ∤ p
-- T unramified
+- T unramified and a compact coefficient module over a coefficient ring
 - |𝔽^×|·T = 0
 
 **Construction or proof.**
@@ -2454,7 +2517,6 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - Additional arithmetic check: For the constant sheaf R with identity maps on a connected graph, Γ = R and every nonzero section generating at one vertex is primitive iff it is a unit.
 - Additional arithmetic check: On the triangle graph with all modules R = 𝔽₃ and all maps the identity except one vertex-to-edge map equal to −1, the sheaf is locally free of rank one but has nontrivial monodromy, Γ = 0, and evaluation at a hub is not surjective.
 - Additional arithmetic check: On the one-vertex graph, take R=ℤ_p and S(v)=ℤ_p/p. The vertex is a hub and monodromy is trivial, but Γ(S)=ℤ/p cannot be isomorphic to any ideal of the domain ℤ_p. Injectivity into S(v) does not identify S(v) with an ideal.
-
 - Additional arithmetic check: Let R=𝔽₃[[x,y]], with a two-vertex graph, hub stalk R, other stalk and edge R/(y), and edge maps quotient and identity. The section (x,x mod y) generates mS(u) at the non-hub vertex u, but x does not generate mR at the hub. Thus the arbitrary-vertex assertion of MR04 Proposition 3.4.4(iii) fails at general-local-ring scope.
 
 **Prerequisites.** `EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf`.
@@ -3198,9 +3260,8 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 **Sources.**
 
 - howard, Proposition 1.4.1, p. 1448: The pairing.
+- howard, Theorem 1.4.2 and its proof, pp. 1448–1450: Alternating successive-quotient pairings and the doubled-module structure.
 - howard, Lemma 1.5.3, p. 1450: Parity is constant on the graph.
-
-- howard: Theorem 1.4.2 and its proof, pp. 1448–1450. Alternating successive-quotient pairings and the doubled-module structure.
 
 ### Stub Selmer modules in the self-dual setting
 
@@ -3972,7 +4033,7 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality`, `EulerSy
 
 ### SelmerIwasawaCohomology:L2
 
-General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Each R-general consumer points to this requested stage rather than an O-only node. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. The prototype states the resulting finite-torsion criterion and its uniform consequence explicitly.
+General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Each R-general consumer points to this requested stage rather than an O-only node. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. The prototype states the resulting finite-torsion criterion and its uniform consequence explicitly. State these on the coefficient category the ES prototype uses: coefficient rings complete noetherian local with finite residue field of characteristic p in the m-adic topology; compact coefficients of finite type with the module topology and jointly continuous action; discrete m-power-torsion coefficients of cofinite type with open stabilisers; Selmer supports containing S_p ∪ S_∞ and the ramified primes, kept by duality, propagation and modification.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure`, `EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-category`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition`, `EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures`, `EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth`, `EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality`, `EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses`, `EulerSystemsAndKolyvaginSystems:ES.4/vertex-step`, `EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure`, `EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer`, `EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality`, `EulerSystemsAndKolyvaginSystems:ES.6/stark-structure`, `EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization`.
 
@@ -4016,7 +4077,7 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.3/congruence`, `EulerSystemsAndKo
 
 ### General coefficient Selmer duality is still only an open supplier request
 
-The cited SelmerIwasawaCohomology L1/L2 duality and Cartier-dual nodes use O-adic lattices/discrete modules. The abstract L2/selmer-data carrier alone does not prove MR04 artinian/global-length identities or BSS self-injective-ring duality. Fulfil the enlarged L2 request and link each generalized coefficient consumer to it; no O-only theorem may discharge a general-R hypothesis.
+The cited SelmerIwasawaCohomology L1/L2 duality and Cartier-dual nodes use O-adic lattices/discrete modules. The abstract L2/selmer-data carrier alone does not prove MR04 artinian/global-length identities or BSS self-injective-ring duality. Fulfil the enlarged L2 request and link each generalized coefficient consumer to it; no O-only theorem may discharge a general-R hypothesis. The suggested file states the coefficient category these supplier statements must use: coefficient rings (complete noetherian local, finite residue field of characteristic p, m-adic topology), compact coefficients of finite type and discrete coefficients of cofinite type, with Σ ⊇ S_p ∪ S_∞ recorded in every Selmer structure. Evaluation, duality, length and core-rank signatures consume it; the supplier proofs at general R remain open.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-category`, `EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus`, `EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition`, `EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures`, `EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality`, `EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth`, `EulerSystemsAndKolyvaginSystems:ES.4/vertex-step`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer`, `EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure`.
 
@@ -4037,24 +4098,6 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative`, `
 PROTOCOL §13 permits leaving an unavailable condition out of a suggested signature and forbids opaque Prop substitutes. The Nekovář §3.1/§5.19 CM-point/quaternionic and non-CM condition (*) and the ordered archimedean regulator characterization of Rubin–Stark elements are left out of the prototype and retained in the mathematical statements and exact HE.7/I.7 requests. Do not infer source theorems from the displayed prototype data alone. These are supplier-carrier implementation boundaries, not omitted mathematical hypotheses. The classical elliptic Kummer/Weil-pairing realization and the purity/polarization realization of the local finite-torsion criterion are also supplier geometry. Their arithmetic consequences have typed interfaces, while the full geometric conditions remain in the packet and the HE.7/L2 requests.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent`, `EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-class-group`, `EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic`, `EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization`.
-
-### Selmer support and same-support Cartier dual require arithmetic guards
-
-The suggested SelmerStructure omits Σ⊇S_p∪S_∞. Its dual_sigma lemma then asserts unchanged support for inputs that cannot have it: the trivial 𝔽_p representation over ℚ, p odd, with Σ empty satisfies the displayed unramifiedness fields, whereas its Cartier dual μ_p ramifies at p. Add the finite/adic coefficient scope and mandatory p/infinite support to the carrier and thread them through the dual, propagation and constructor APIs. The pInfinity predicate already exists; this is an expressible missing guard, not omitted geometry.
-
-Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`.
-
-### Arithmetic evaluation and duality signatures admit unsupported coefficient topologies
-
-The arithmetic interfaces quantify over arbitrary TopRep R without the finite-p-primary/discrete or complete p-adic lattice topology hypotheses of MR04/MR16/L2. In particular finiteEvaluation is false for R=ℚ with discrete topology and the trivial T=ℚ: continuous H¹ of the unramified quotient Ẑ is zero, while its Frobenius coinvariants are ℚ. Introduce a genuine coefficient/topology dictionary (finite residue characteristic p, finite/free lattice or finite coefficient module, correct topology and continuous action), and pass it to finiteEvaluation, singularEvaluation, dualRep/dualEquiv, quotient-dual propagation, dualSelmerTorsionEquiv, length/core-rank consumers and local Tate pairings. An unproved signature is not a substitute for these source hypotheses.
-
-Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison`.
-
-### Suggested MR16 unramified structure uses the wrong p-adic local condition
-
-unramifiedStructure_condition sets F_ur equal to finiteLatticeCondition at every place, and unramifiedStructure_eq_canonical_empty records the resulting wrong comparison. MR16 Definition5.1 instead uses saturation of the intersection of corestriction images over finite unramified extensions; at infinity its condition is relaxed. For T=ℤ_p(1) at ℚ_p, p odd, the rational inertia-kernel pullback is zero, whereas the unramified universal norms contain the Kummer unit subgroup of rank one. Replace the construction, specialize away from p through MR16 Lemma5.2/Corollary5.3, and use the actual F_ur in Theorem5.4 core-rank consumers. Add a typed p-adic unit example that distinguishes the two constructions.
-
-Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula`.
 
 ## Source findings retained from the independent review
 
