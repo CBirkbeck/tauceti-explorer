@@ -57,12 +57,15 @@ a mod-$2$ adapter cannot replace it.
 
 The geometric targets own the restriction-compatible Morita equivalence for
 specified sheaf splitting generators, equality of annihilator ideal sheaves,
-and the characteristic invariants of actual inverse modules. Generic
-projective-generator Morita theory belongs to GeneralAlgebraicKTheory, K.7.
+and the characteristic invariants of actual inverse modules. The local
+matrix equivalence is Mathlib's `ModuleCat.matrixEquivalence`; the sheaf
+tensor/Hom comparison is constructed here from its positive-rank charts.
 The sheaf Azumaya/Brauer carrier belongs to SchemeAndStackFoundations, SF.2;
 the general sheaf tensor, internal Hom, rank and determinant theory belongs to
-AlgebraicVectorBundles, L0A–L0C. The Higgs carrier and its full symmetric
-characteristic coefficients belong to HodgeStructuresPartII, H.0.
+AlgebraicVectorBundles, L0A–L0C. The Higgs carrier and its equivalence with
+commuting symmetric-algebra actions belong to HodgeStructuresPartII, H.0.
+The coefficient determinant used here is constructed in §3.7 from that
+carrier and the supplied determinant operation.
 
 The affine product-annihilator calculation is supplied by Mathlib's
 `Module.annihilator_pi` and `LinearEquiv.annihilator_eq`. Its exact contract
@@ -295,19 +298,26 @@ Mathlib's `Scheme.Modules` and sheaf module carriers through those interfaces.
 SchemeAndStackFoundations, SF.0, supplies quasi-coherent localization and
 gluing, finite-presentation descent from strict localizations, finite
 pushforward and its base-change comparison, and the coherent/finitely
-presented comparison on locally noetherian schemes. It also supplies triviality
-of an invertible module over the finite semilocal algebra used in Layer 3.
+presented comparison on locally noetherian schemes. The semilocal
+rank-one trivialization needed in Layer 3 is a substep of
+`spectralLineTrivialization`, not an additional export of SF.0.
+Strict henselization itself is supplied by ModularCurves, Layer 4D;
+the limit descent uses SF.0's `finite-presentation-limits` interface.
 SF.2 supplies the shared sheaf Azumaya and splitting objects, algebraic
 Brauer group, pullbacks, abelian étale sheaf cohomology and connecting-map
 naturality. Its map from algebraic Brauer classes to degree-two units
 cohomology must be injective; no surjectivity is assumed.
 
-GeneralAlgebraicKTheory, K.7, supplies the generic projective-generator
-Morita tensor/Hom equivalence, finite-presentation preservation and
-localization. HodgeStructuresPartII, H.0, supplies integrable Higgs objects
-at parameter zero, the finite spectral action and the universal determinant
-with coefficients in every symmetric degree, including frame, direct-sum
-and base-change compatibility.
+HodgeStructuresPartII, H.0, supplies integrable Higgs objects at parameter
+zero and the equivalence between exterior integrability and a commuting
+action of the symmetric algebra of the dual coefficient sheaf. For §3.7
+the coefficient sheaf is finite locally free. The spectral input includes
+the actual algebra map from that symmetric algebra to the finite algebra
+$q_*\mathcal O_V$; its action on $q_*F$ determines the Higgs field. The
+universal determinant and its coefficient, frame, direct-sum and base-change
+laws are established here using AlgebraicVectorBundles L0C, as specified
+in §3.7. No generic projective-generator theorem from an algebraic
+K-theory layer is needed for the local matrix argument.
 
 ### The relative Cartier application contract
 
@@ -930,11 +940,13 @@ $\mathcal O_X$-linear and additive. The displayed tensor/Hom formulas
 specify their objects and maps; an arbitrary equivalence of the two
 categories would not satisfy the target.
 
-Import the projective-generator tensor/Hom equivalence on affine opens
-from GeneralAlgebraicKTheory, K.7. A finite locally free positive-rank
-splitting module is a finite projective generator locally. Choose an
-affine open where the module is free and compare the general equivalence
-with the existing matrix equivalence. Construct the restriction
+Choose affine opens where $P$ is free of positive rank $n$. On such an
+open, $A$ identifies with $M_n(R)$ and the existing matrix equivalence
+sends $N$ to its $n$ columns. Identify its inverse, the $e_{11}$ summand,
+with $\operatorname{Hom}_{M_n(R)}(R^n,M)$ by evaluation on the first
+basis vector. Identify its forward functor with $R^n\otimes_R-$.
+These formulas compare the library unit and counit with the displayed
+tensor/Hom maps. Construct the restriction
 comparisons for both functors and for evaluation, verify the unit and
 counit identities locally, and descend those natural transformations.
 The two triangle identities must survive descent. The result does not
@@ -972,8 +984,7 @@ SA.4.
 
 This uses SchemeAndStackFoundations, SF.2, for the shared
 scheme-Brauer/splitting object; SF.0 for quasi-coherent localization and
-gluing; GeneralAlgebraicKTheory, K.7, for projective-generator Morita
-theory; AlgebraicVectorBundles, L0A–L0C, for sheaf tensor/Hom and finite
+gluing; AlgebraicVectorBundles, L0A–L0C, for sheaf tensor/Hom and finite
 locally free inputs; Mathlib's matrix Morita equivalence.
 The sources are EG, proof of Theorem 2.17, pp. 13–14, and Remark A.3,
 p. 41; BB, §2.2, p. 3, for the splitting-module meaning of equivalence.
@@ -984,9 +995,13 @@ Prove `coherentMorita`: when $X$ is locally noetherian, $A$ is locally
 finite over $\mathcal O_X$, and $P$ is the finite locally free splitting
 generator above, `sheafMorita` restricts to an equivalence on coherent
 modules. Quasi-coherence alone is not the desired finiteness condition.
-Locally the tensor/Hom operations for a finite projective generator
-preserve finite presentations; over the noetherian base these are the
-coherent modules in question.
+On the free charts of §2.2 the forward underlying module is $N^n$ and
+the inverse is the $e_{11}$ direct summand of $M$. Finite sums and
+direct summands preserve finite presentation over $R$. For $A=M_n(R)$,
+finite presentation as an $A$-module agrees with finite presentation
+over $R$: $A$ is finite free over $R$, and an $A$-linear presentation
+can be tested on its underlying $R$-linear kernel. Over the noetherian
+base these are the coherent modules in question.
 
 Also supply the finite-presentation version over arbitrary bases, using
 the full subcategories of finitely presented quasi-coherent modules.
@@ -997,9 +1012,8 @@ coherent. The restrictions of the unit, counit and open-locality maps
 are the ones already constructed, so no second Morita equivalence is
 chosen for coherent modules.
 
-This uses `sheafMorita`; GeneralAlgebraicKTheory, K.7, for
-finite-presentation preservation under the projective-generator
-equivalence; SchemeAndStackFoundations, SF.0, for the locally noetherian
+This uses `sheafMorita`, the preceding affine finite-presentation
+argument, and SchemeAndStackFoundations, SF.0, for the locally noetherian
 coherent/finite-presentation comparison and locality of these
 conditions. The source is EG, Theorem 2.17, pp. 13–14; the finite-
 presentation formulation specifies the general version of the local
@@ -1048,7 +1062,7 @@ $2\cdot1\ne0$; equality of radicals would miss the required ideal action.
 ### Dependencies
 
 Use the sheaf Azumaya and splitting objects of SF.2, QCoh and
-finite-presentation localization of SF.0, generic Morita theory of K.7,
+finite-presentation localization of SF.0, the library's matrix equivalence,
 and tensor/internal Hom and finite locally free operations of
 AlgebraicVectorBundles L0A–L0C. The ideal-sheaf equality follows by gluing
 the library's affine annihilator comparisons through the chosen counit.
@@ -1300,12 +1314,21 @@ especially over finite fields. The universal determinant makes all
 coefficient comparisons simultaneous and compatible with a change
 of local frame of the coefficient sheaf.
 
-This uses SchemeAndStackFoundations, SF.0, for semilocal
-finite-algebra line triviality and descent of finite-presentation
-data from strict localizations; SF.2 for the shared splitting and
+Prove the semilocal rank-one step within `spectralLineTrivialization`:
+choose one module element whose image is a basis at each of the finitely
+many residue fields, using the Chinese remainder theorem. The map from
+the ring to the invertible module sending $1$ to that element is an
+isomorphism at every maximal localization, hence an isomorphism.
+This is the rank-one case of Stacks, Lemma 10.78.7,
+[tag 02M9](https://stacks.math.columbia.edu/tag/02M9).
+
+This uses SchemeAndStackFoundations, SF.0, for descent of finite-presentation
+data from strict localizations, together with ModularCurves Layer 4D's
+strict henselization; SF.2 for the shared splitting and
 étale equality detection; AlgebraicVectorBundles, L0, for invertible
 sheaves and determinants; HodgeStructuresPartII, H.0, for the
-universal symmetric determinant; `Matrix.charpoly_units_conj` for
+Higgs/symmetric-action comparison; the universal coefficient construction
+specified in §3.7; `Matrix.charpoly_units_conj` for
 the affine endomorphism calculation. The source is EG, the strict local
 and finite-presentation steps in Theorem 2.17, pp. 13–14. The
 spectral-line argument specifies the overlap comparison needed after
@@ -1316,10 +1339,26 @@ pushforward.
 Let $q:V\to B$ be a finite spectral morphism, $A$ a sheaf Azumaya
 algebra on $V$, and $M$ an $A$-module. On étale splitting neighborhoods
 of $B$, suppose the pushed inverse modules $q_*F_P(M)$ are finite
-locally free of rank $r$ and carry the integrable coefficient-valued
-Higgs action supplied by HodgeStructuresPartII, H.0. The commuting
-function action on the spectral module gives that Higgs action through
-the shared spectral interface.
+locally free of rank $r$. Fix a finite locally free coefficient sheaf
+$W$ on $B$ and an algebra map
+$\operatorname{Sym}(W^\vee)\to q_*\mathcal O_V$ compatible with
+restrictions and the base changes considered. Its action on each
+$q_*F_P(M)$ gives the integrable $W$-valued Higgs field through
+HodgeStructuresPartII H.0's Higgs/symmetric-action comparison.
+
+For a finite locally free Higgs module $(N,\vartheta)$ of rank $r$,
+construct its universal coefficient polynomial as follows. After scalar
+extension to $S=\operatorname{Sym}_{\mathcal O_B}(W)$, compose
+$\vartheta:N\to N\otimes W$ with the degree-one inclusion
+$W\to S$ to obtain an $S$-linear endomorphism $u_\vartheta$ of $N_S$.
+Take $\det(T\operatorname{id}-u_\vartheta)$. On a frame $w_j$ of $W$
+with contraction matrices $A_j$, this is
+$\det(TI-\sum_j w_jA_j)$. The coefficient of $T^{r-i}$ is homogeneous
+of symmetric degree $i$. Prove independence of both frames by the
+tensorial construction and determinant conjugation invariance; prove
+pullback and direct-sum compatibility by the supplied determinant laws.
+Thus these coefficient laws are substeps of the invariant construction,
+rather than presumed exports of H.0.
 
 Prove `moritaHiggsOverlap`: for two splitting generators, all symmetric
 characteristic coefficients of these pushed inverse modules agree.
@@ -1384,6 +1423,11 @@ inverse image.
 - `higgs_nonreduced_root`: over the characteristic-two dual numbers,
    $T$ and $T+\varepsilon$ have different coefficients despite their
    equal squares; the actual Higgs action selects the invariant.
+- `higgs_finite_field_directions`: over $\mathbb F_2$, the rank-three
+   diagonal field with entries $w_1,w_2,w_1+w_2$ has constant
+   coefficient $w_1^2w_2+w_1w_2^2$. This is a nonzero symmetric
+   coefficient although its value at every $\mathbb F_2$-valued
+   direction is zero. Directionwise testing cannot replace its descent.
 - `higgs_mixed_degree_boundary`: take $V=\operatorname{Spec}k\amalg\operatorname{Spec}k$
    over $\operatorname{Spec}k$, splitting ranks $1$
    and $2$, and inverse modules $k$ on both components. The original
@@ -1404,9 +1448,10 @@ This uses the transition line, finite-pushforward Morita,
 spectral-line trivialization, pushed line invariance and overlap
 targets of this layer; SA.2 sheaf Morita; SchemeAndStackFoundations,
 SF.0 and SF.2, for finite pushforward and coefficient descent;
-HodgeStructuresPartII, H.0, for the shared integrable Higgs carrier,
-universal symmetric determinant and its frame/base-change/direct-sum
-API; Mathlib's `Matrix.det_blockDiagonal`. The source is EG, Theorem 2.17,
+HodgeStructuresPartII, H.0, for the shared integrable Higgs carrier
+and symmetric-action comparison; AlgebraicVectorBundles L0C for the
+determinant laws used in the universal construction above; Mathlib's
+`Matrix.det_blockDiagonal`. The source is EG, Theorem 2.17,
 pp. 13–14, with coefficient descent and the uniform inverse-image
 rank condition specified above.
 
@@ -1424,10 +1469,12 @@ the sign, zero-rank, descent and whole-inverse-image rank conventions.
 ### Dependencies
 
 Use Layer 2's restriction-compatible Morita data, determinants and lines
-from AlgebraicVectorBundles L0A–L0C, finite pushforward and semilocal descent
-from SF.0–SF.2, and the universal symmetric Higgs coefficients of
-HodgeStructuresPartII H.0. The latter retain all coefficient directions,
-including over finite fields and nonreduced bases.
+from AlgebraicVectorBundles L0A–L0C, finite pushforward and descent
+from SF.0–SF.2, and the Higgs/symmetric-action comparison of
+HodgeStructuresPartII H.0. The semilocal line argument and the universal
+coefficient determinant are established in this layer. The determinant
+retains all coefficient directions, including over finite fields and
+nonreduced bases.
 
 ## Layer 4: relative Cartier and Brauer comparison
 
@@ -1472,6 +1519,10 @@ For this relative Cartier application require the following five interfaces:
    $(p-1)$-st infinitesimal neighborhood of the zero section;
 5. the differential-operator/contact-form comparison bimodules and
    their pullback and composition maps, for the categorical refinement.
+
+**Missing prerequisite.** These five contracts have no specified supplying
+roadmap and layer. The applications below are conditional on them;
+generic sheaf cohomology and connection carriers do not construct them.
 
 The generic crystalline-cohomology interfaces alone do not assert
 these particular relative sequence and Azumaya statements. A
@@ -1630,6 +1681,18 @@ Hitchin invariant
 a=\chi_{\mathrm{dR}}(E,\nabla).
 ```
 
+The input assigning this parameter must descend the characteristic
+coefficients of the actual $p$-curvature along Frobenius and supply its
+finite spectral scheme with the corresponding function action. The
+degree-one coefficient is retained unless a trace-free hypothesis is
+imposed. EG, §2.5, equations (2.5)–(2.7), pp. 11–12, uses the
+trace-free convention when omitting that coefficient; Remark A.1,
+p. 40, identifies the parameter used in the relative application.
+**Missing prerequisite.** HodgeStructuresPartII H.0 supplies connection
+and Higgs carriers, but not this positive-characteristic de Rham Hitchin
+and spectral construction. No supplying roadmap and layer for that
+construction is specified here.
+
 Let $Z'$ be the Frobenius twist and $V=Z'_a$ its finite spectral
 scheme in $T^*Z'$. Set
 
@@ -1651,6 +1714,11 @@ Cartier comparison for these data:
 \Phi(m^*\theta-r^*\theta)=0
 \quad\text{on }W.
 ```
+
+Its meaning requires an explicit boundary map on the relevant restricted
+étale sheaves on $W$, together with its comparison to pullback from a
+smooth ambient relative scheme. The smooth $Y/S$ sequence of §4.1 alone
+does not define this map on the possibly singular $W$.
 
 This is a mathematical target to prove, not an extra axiom in
 the definition of the input data. Its statement retains the
@@ -1680,8 +1748,9 @@ needed to compare the forms and the represented classes.
 
 This uses `cartierBoundaryNaturality` and the
 differential-operator Brauer comparison; the shared scheme-Brauer
-pullback and injectivity interfaces; the finite spectral and
-connection interfaces of HodgeStructuresPartII, H.0; the exact
+pullback and injectivity interfaces; the connection carrier of
+HodgeStructuresPartII H.0 and the additional de Rham Hitchin/spectral
+input just stated; the exact
 relative Cartier input and the specified OV bounded splitting.
 The sources are EG, Proposition A.2 and its proof, pp. 40–41, for
 the target and hypotheses; OV, Corollary 2.9, p. 34, for the
@@ -1789,7 +1858,8 @@ automorphisms $1$ and $2$, so its coherence is specified by chosen maps.
 This layer uses the five relative Cartier contracts of §4.1, the two
 connecting-map sequences and their actual naturality, SF.2's injective
 Azumaya comparison, and Layer 2's Morita unit, counit and evaluation. The
-connection and finite spectral data come from HodgeStructuresPartII H.0.
+connection carrier comes from HodgeStructuresPartII H.0; the de Rham
+Hitchin/spectral input and its owner remain as specified in §4.5.
 The vanishing and chosen equivalence retain the specified $W_2$-lift.
 
 ## Downstream consumers
@@ -1811,10 +1881,10 @@ The scheme applications belong under
 `TauCeti/AlgebraicGeometry/Azumaya/Morita.lean` and
 `TauCeti/AlgebraicGeometry/Azumaya/CharacteristicPolynomial.lean`,
 using the shared scheme Azumaya carrier. The finite spectral Higgs
-invariant consumes the shared Higgs carrier and its determinant
-coefficients. Its line-trivialization helper should use the general
-semilocal and finite-presentation interfaces of SchemeAndStackFoundations,
-rather than create a second theory of invertible sheaves.
+invariant consumes the shared Higgs carrier and constructs its coefficients
+using the shared determinant operation. Its line-trivialization helper
+proves the semilocal rank-one substep and uses finite-presentation descent,
+without creating a second theory of invertible sheaves.
 
 The Cartier boundary application belongs with the characteristic-$p$
 differential-operator and Cartier-transform modules. Its generic
