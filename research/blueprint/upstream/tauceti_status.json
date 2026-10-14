@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T17:57Z",
+ "updated": "2026-10-14T17:59Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -160,11 +160,11 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
    "head": "000a33a",
    "review": {
-    "recommendation": "changes",
-    "head": "292dfc0",
-    "current": false,
-    "date": "2026-10-13",
-    "note": "maintainer (GPT-assisted) review at 292dfc0: two findings, repaired at 21e1000 (re-stacked on #817); awaiting re-review | re-stacked on #817 b45e54c at ae824af"
+    "recommendation": "approve",
+    "head": "000a33a",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves the rebased head; folder byte-identical across the rebase"
    }
   },
   "AdicSpacesPartIV": {
@@ -376,11 +376,11 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
    "review": {
-    "recommendation": "changes",
-    "head": "15888a4",
-    "current": false,
-    "date": "2026-10-13",
-    "note": "author-requested ChatGPT Pro review(s) repaired and answered at c26c924; further rounds in progress where ChatGPT posted follow-ups"
+    "recommendation": "approve",
+    "head": "7ea842d",
+    "current": true,
+    "date": "2026-10-14",
+    "note": "author-requested deep review (GPT-6 Astra) approves; marked ready for review; nonblocking documentation cleanup being applied"
    }
   },
   "ArithmeticGaloisDuality": {
@@ -513,10 +513,10 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "approve",
-    "head": "a39a74a",
-    "current": false,
+    "head": "02fe347",
+    "current": true,
     "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+    "note": "author-requested deep re-review (GPT-6 Astra) approves; non-blocking notes being applied"
    }
   },
   "ClassicalAdicEtaleCohomology": {
