@@ -8,7 +8,7 @@
     "HodgeTateAndCanonicalSubgroups:T6:log-sites"
   ],
   "status": "complete",
-  "summary": "Finite-level logarithmic adic geometry and comparison for canonical local systems, after Diao–Lan–Liu–Zhu and Boxer–Pilloni 4.4.38–4.4.39: log adic spaces, monoid-algebra spaces and integral fs charts; continuous log differentials and analytic log de Rham complexes; Kummer étale maps, root covers, the Kummer étale site with its higher direct images to the étale site, rigid Abhyankar, finite Kummer descent and extension of local systems across a normal crossings boundary; the pro-Kummer étale site, log affinoid perfectoid objects and completed structure sheaves; toric Kummer cohomology and the logarithmic primitive comparison with its finiteness consequences; the logarithmic period sheaves, their connection, the log Poincaré lemma and Faltings extension, B_dR-coefficient sheaves, decompletion and the geometric and arithmetic logarithmic Riemann–Hilbert functors with residues, pullback, tensor and proper comparisons; canonical Gᶜ coefficients, their special-point and arithmetic normalisation and the canonical association W_p⊗OB_dR,log≅W_dR⊗OB_dR,log; the two de Rham lattices, the lattice Hodge–Tate filtration, the reduction P_HT, the cyclotomic Levi-torsor comparison and its agreement with the Hodge-type construction. The toroidal infinite-level Hodge–Tate morphism (BP Theorem 4.4.40) belongs to PerfectoidShimuraVarieties:S6.",
+  "summary": "Finite-level logarithmic adic geometry and comparison for canonical local systems, after Diao–Lan–Liu–Zhu and Boxer–Pilloni 4.4.38–4.4.39: log adic spaces, monoid-algebra spaces and integral fs charts; continuous log differentials and analytic log de Rham complexes; Kummer étale maps, root covers, the Kummer étale site with its higher direct images to the étale site, rigid Abhyankar, finite Kummer descent and extension of local systems across a normal crossings boundary; the pro-Kummer étale site, log affinoid perfectoid objects and completed structure sheaves; toric Kummer cohomology and the logarithmic primitive comparison with its finiteness consequences; the logarithmic period sheaves, their connection, the log Poincaré lemma and Faltings extension, B_dR-coefficient sheaves, decompletion and the geometric and arithmetic logarithmic Riemann–Hilbert functors with residues, pullback, tensor and proper comparisons; canonical Gᶜ coefficients, their special-point and arithmetic normalisation and the canonical association W_p⊗OB_dR,log≅W_dR⊗OB_dR,log; the two de Rham lattices, the lattice Hodge–Tate filtration, the reduction P_HT, the cyclotomic Levi-torsor comparison and its agreement with the Hodge-type construction. The toroidal infinite-level Hodge–Tate morphism (BPC25 Theorem 4.4.40) belongs to PerfectoidShimuraVarieties:S6.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "id": "BP",
+      "id": "BPC25",
       "title": "Higher Coleman theory",
       "authors": "George Boxer, Vincent Pilloni",
       "edition": "Public author manuscript, 180 pages; §4.4.38 and Remark 4.4.39, pp. 79–80 (finite-level comparison); Theorem 4.4.40, p. 80 (ownership boundary)",
@@ -154,7 +154,10 @@
         "CrystallineCohomology:CR.5:log-algebra/log-structure",
         "CrystallineCohomology:CR.5:log-algebra/associated-log",
         "CrystallineCohomology:CR.5:log-algebra/log-pullback",
-        "CrystallineCohomology:CR.5:log-algebra"
+        "CrystallineCohomology:CR.5:log-algebra",
+        "ComplexComparisonPartII:C5/prelog-structure",
+        "ComplexComparisonPartII:C5/log-structure",
+        "ComplexComparisonPartII:C5/associated-log-structure"
       ],
       "sources": [
         {
@@ -3484,7 +3487,8 @@
         "PerfectoidSpaces:P0/almost-faithfully-flat-descent",
         "PadicHodgeTheory:P8",
         "ClassicalAdicEtaleCohomology:H0",
-        "PerfectoidSpaces:P0/almost-finitely-generated-and-presented"
+        "PerfectoidSpaces:P0/almost-finitely-generated-and-presented",
+        "PadicHodgeTheory:P8/early-primitive-comparison-and-finiteness"
       ],
       "sources": [
         {
@@ -3544,7 +3548,8 @@
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections",
         "PadicHodgeTheory:P8",
         "DiamondsAndVStacks:D0/cech-to-derived-comparison",
-        "PerfectoidSpaces:P0/almost-finitely-generated-and-presented"
+        "PerfectoidSpaces:P0/almost-finitely-generated-and-presented",
+        "PadicHodgeTheory:P8/early-primitive-comparison-and-finiteness"
       ],
       "sources": [
         {
@@ -3602,7 +3607,8 @@
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections",
-        "PadicHodgeTheory:P8"
+        "PadicHodgeTheory:P8",
+        "PadicHodgeTheory:P8/early-primitive-comparison-and-finiteness"
       ],
       "sources": [
         {
@@ -3847,11 +3853,11 @@
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis",
-        "PadicHodgeTheory:P8:local-rational/period-sheaves-definitions",
-        "PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids",
-        "PadicHodgeTheory:P8:local-rational/rational-acyclicity-of-de-rham-period-sheaves",
-        "PadicHodgeTheory:P8:local-rational/de-rham-period-sheaf",
-        "PadicHodgeTheory:P8:local-rational/graded-de-rham-period-sheaf-tate-twist",
+        "PadicHodgeTheory:P8:local-rational/plan/period-sheaves-definitions",
+        "PadicHodgeTheory:P8:local-rational/plan/period-sheaves-on-affinoid-perfectoids",
+        "PadicHodgeTheory:P8:local-rational/plan/rational-acyclicity-of-de-rham-period-sheaves",
+        "PadicHodgeTheory:P8:local-rational/plan/de-rham-period-sheaf",
+        "PadicHodgeTheory:P8:local-rational/plan/graded-de-rham-period-sheaf-tate-twist",
         "mathlib:BDeRhamPlus",
         "mathlib:fontaineThetaInvertP"
       ],
@@ -4372,8 +4378,7 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid",
-        "PadicHodgeTheory:P8:local-rational/bdr-plus-power-series-extension-lemma",
-        "PadicHodgeTheory:P8:local-rational/etale-algebras-over-torus-models",
+        "PadicHodgeTheory:P8:local-rational/plan/structural-algebra-structure-on-bdr-power-series",
         "AdicSpacesPartII:R0/etale-algebraic-model"
       ],
       "sources": [
@@ -4454,7 +4459,7 @@
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-smooth-chart-criterion",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis",
-        "PadicHodgeTheory:P8:local-rational/formal-poincare-lemma"
+        "PadicHodgeTheory:P8:local-rational/plan/poincare-lemma-and-faltings-extension"
       ],
       "sources": [
         {
@@ -4521,7 +4526,7 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/structural-period-connection",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent",
-        "PadicHodgeTheory:P8:local-rational/faltings-extension"
+        "PadicHodgeTheory:P8:local-rational/plan/faltings-extension"
       ],
       "sources": [
         {
@@ -4566,8 +4571,8 @@
         "gr⁰(O_X⊗̂_kB_dR)=O_X⊗̂_kK, so finite locally free gr⁰-modules are vector bundles on X_{K,an} (Remark 3.1.3)."
       ],
       "prerequisites": [
-        "PadicHodgeTheory:R06.1/de-rham-period-ring",
-        "PadicHodgeTheory:R06.1/fontaine-element-t",
+        "PadicHodgeTheory:R06.1/plan/de-rham-period-ring",
+        "PadicHodgeTheory:R06.1/plan/fontaine-element-t",
         "AdicSpacesPartII:R0/completed-tensor-product",
         "AdicSpacesPartII:R3",
         "ClassicalAdicEtaleCohomology:H0",
@@ -5062,7 +5067,7 @@
           "how": "Arithmetic descent and normalized boundary extension compare canonical coefficients."
         },
         {
-          "where": "BP Proposition 4.4.38",
+          "where": "BPC25 Proposition 4.4.38",
           "how": "Uses the canonical p-adic/de Rham association."
         }
       ],
@@ -5325,8 +5330,8 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-tower-decompletion",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension",
-        "PadicHodgeTheory:P8:local-rational/de-rham-period-sheaf",
-        "PadicHodgeTheory:P8/de-rham-lisse-sheaf",
+        "PadicHodgeTheory:P8:local-rational/plan/de-rham-period-sheaf",
+        "PadicHodgeTheory:P8/plan/de-rham-lisse-sheaf",
         "ClassicalAdicEtaleCohomology:H0",
         "AdicSpacesPartII:R3/coherent-sheaf",
         "AdicSpacesPartII:R3/coherent-sheaf-operations",
@@ -5526,7 +5531,7 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy",
-        "PadicHodgeTheory:P8/de-rham-lisse-sheaf"
+        "PadicHodgeTheory:P8/plan/de-rham-lisse-sheaf"
       ],
       "sources": [
         {
@@ -5587,7 +5592,7 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham",
-        "PadicHodgeTheory:P8/de-rham-lisse-sheaf",
+        "PadicHodgeTheory:P8/plan/de-rham-lisse-sheaf",
         "EnhancedDerivedSheaves:E1",
         "EnhancedDerivedSheaves:E2",
         "AdicSpacesPartII:R3/kiehl-proper-mapping-theorem",
@@ -5650,7 +5655,7 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension",
-        "PadicHodgeTheory:P8/relative-de-rham-comparison",
+        "PadicHodgeTheory:P8/de-rham-pair-derived-pushforward",
         "ClassicalAdicEtaleCohomology:H0",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections",
@@ -5716,7 +5721,7 @@
         "AutomorphicBundles:B2/etale-coefficient-local-system",
         "AutomorphicBundles:B2.general/general-flat-realizations",
         "AutomorphicBundles:B3.general/general-logarithmic-comparison",
-        "ShimuraCompactifications:C2/smooth-normal-crossings"
+        "ShimuraCompactifications:C2/roadmap/smooth-normal-crossings"
       ],
       "sources": [
         {
@@ -5735,9 +5740,9 @@
           "match": "States the tensor-functor and Hecke properties of the p-adic realizations p-dR and p-B that the node constructs."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.4.38, p. 79",
-          "match": "BP’s finite-level coefficients on S^tor_{K,Σ}: the pro-Kummer-étale local system and the filtered log connection that the node supplies."
+          "match": "BPC25’s finite-level coefficients on S^tor_{K,Σ}: the pro-Kummer-étale local system and the filtered log connection that the node supplies."
         }
       ],
       "library": {
@@ -5847,7 +5852,11 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback",
         "ShimuraVarieties:V8.general",
-        "PadicHodgeTheory:P8/relative-de-rham-comparison"
+        "PadicHodgeTheory:P8/de-rham-pair-derived-pushforward",
+        "ShimuraVarieties:V8.general/general-tower",
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "ShimuraVarieties:V7/simple-connected-reduction",
+        "AutomorphicBundles:B0/central-split-quotient"
       ],
       "sources": [
         {
@@ -5899,9 +5908,13 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations",
         "ArithmeticLocallySymmetricSpaces:ALS.1",
         "ShimuraVarieties:V8.general",
-        "PadicHodgeTheory:P8/relative-de-rham-comparison",
+        "PadicHodgeTheory:P8/de-rham-pair-derived-pushforward",
         "AutomorphicBundles:B1/hodge-tensor-realizations",
-        "AutomorphicBundles:B1/absolute-hodge-propagation"
+        "AutomorphicBundles:B1/absolute-hodge-propagation",
+        "ShimuraVarieties:V8.general/general-tower",
+        "ShimuraVarieties:V8/disjoint-special-reflex-fields",
+        "ShimuraVarieties:V7/simple-connected-reduction",
+        "AutomorphicBundles:B0/central-split-quotient"
       ],
       "sources": [
         {
@@ -5967,9 +5980,9 @@
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.4.38, p. 79",
-          "match": "The node’s isomorphism W_p⊗OB_dR,log=W_dR⊗OB_dR,log on S^tor_{K,Σ}, which BP calls a consequence of DLLZ-RH Theorem 5.3.1."
+          "match": "The node’s isomorphism W_p⊗OB_dR,log=W_dR⊗OB_dR,log on S^tor_{K,Σ}, which BPC25 calls a consequence of DLLZ-RH Theorem 5.3.1."
         },
         {
           "sourceId": "DLLZ-RH",
@@ -6023,16 +6036,16 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model",
-        "PadicHodgeTheory:P8:local-rational/formal-poincare-lemma"
+        "PadicHodgeTheory:P8:local-rational/plan/poincare-lemma-and-faltings-extension"
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "Remark 4.4.39 and following text, p. 79",
-          "match": "BP’s definition of the two lattices M and M⁰ in a common B_dR-local system. BP prints M=W_p⊗B⁺_{dR,log}; the sheaf meant is B_dR⁺ (the surrounding text identifies M a B_dR⁺-local system), and the node uses B_dR⁺."
+          "match": "BPC25’s definition of the two lattices M and M⁰ in a common B_dR-local system. BPC25 prints M=W_p⊗B⁺_{dR,log}; the sheaf meant is B_dR⁺ (the surrounding text identifies M a B_dR⁺-local system), and the node uses B_dR⁺."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "Remark 4.4.39 and following text, p. 79",
           "match": "The two filtrations Fil^iM and Fil^iM⁰ are the ones determined by the two lattices; the node defines them as Fil^iB_dR·L."
         }
@@ -6104,7 +6117,7 @@
       ],
       "uses": [
         {
-          "where": "BP Remark 4.4.39",
+          "where": "BPC25 Remark 4.4.39",
           "how": "Intersection images in the first-lattice quotient define the ascending HT filtration."
         }
       ]
@@ -6117,13 +6130,13 @@
       ],
       "title": "The lattice Hodge–Tate filtration",
       "kind": "construction",
-      "statement": "With M, M⁰ and their lattice filtrations from two-de-rham-lattices, define the ascending filtration F_{−j}(Ŵ_p⊗Ô):=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰), equivalently the image of M∩Fil^jM⁰ in M/Fil¹M=Ŵ_p⊗Ô. Each F_i is a locally direct-summand Ô-submodule, the filtration is of the type of the Hodge cocharacter, and with BP’s negative filtration indexing its graded pieces satisfy Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗_{O}Ô. Record the convention by the displayed F_{−j} formula, rather than silently replacing the ascending filtration by the de Rham one.",
+      "statement": "With M, M⁰ and their lattice filtrations from two-de-rham-lattices, define the ascending filtration F_{−j}(Ŵ_p⊗Ô):=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰), equivalently the image of M∩Fil^jM⁰ in M/Fil¹M=Ŵ_p⊗Ô. Each F_i is a locally direct-summand Ô-submodule, the filtration is of the type of the Hodge cocharacter, and with BPC25’s negative filtration indexing its graded pieces satisfy Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗_{O}Ô. Record the convention by the displayed F_{−j} formula, rather than silently replacing the ascending filtration by the de Rham one.",
       "hypotheses": [
         "Two associated B_dR⁺ lattices from the canonical coefficient comparison; intersections and quotients are sheafwise."
       ],
       "proofSteps": [
         "Use intersection submodules in the common B_dR space and project to M/Fil¹M.",
-        "Compute locally: the horizontal part of the j-th filtered piece of W_dR⊗OB_dR,log is Fil^jM by the filtered comparison and the filtered log Poincaré lemma, and the relative position of M⁰ with respect to M has elementary divisors given by the jumps of the Hodge filtration; this gives local splitting and the ranks (the argument of Caraiani–Scholze §2.2 for the open case, to which BP Remark 4.4.39 refers, run with OB_dR,log).",
+        "Compute locally: the horizontal part of the j-th filtered piece of W_dR⊗OB_dR,log is Fil^jM by the filtered comparison and the filtered log Poincaré lemma, and the relative position of M⁰ with respect to M has elementary divisors given by the jumps of the Hodge filtration; this gives local splitting and the ranks (the argument of Caraiani–Scholze §2.2 for the open case, to which BPC25 Remark 4.4.39 refers, run with OB_dR,log).",
         "Apply the graded comparison and gr^rB_dR≃Ô(r) to identify each graded component with the specified Tate twist."
       ],
       "acceptance": [
@@ -6134,17 +6147,18 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare",
-        "HodgeTateAndCanonicalSubgroups:T1",
-        "HodgeTateAndCanonicalSubgroups:T2"
+        "HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison",
+        "HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor",
+        "CohomologyComparisons:CP.0/twist-frobenius-filtration-normalization"
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 79",
           "match": "Introduces the displayed definition Fil_{−j}(W_p⊗Ô)=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰) that the node states."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 79",
           "match": "The filtration is defined from the canonical comparison of §4.4.38 on S^tor_{K,Σ}; the relation Gr_j(W_p⊗Ô)(j)=Gr^jW_dR⊗Ô is displayed at the top of p. 80."
         }
@@ -6174,7 +6188,7 @@
         {
           "name": "TauCeti.LogAdic.LatticeHTFiltration.grade",
           "role": "compatibility",
-          "statement": "With the displayed BP indexing, its graded identification has the Tate twist (j): Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗Ô."
+          "statement": "With the displayed BPC25 indexing, its graded identification has the Tate twist (j): Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗Ô."
         },
         {
           "name": "TauCeti.LogAdic.LatticeHTFiltration.map",
@@ -6211,7 +6225,7 @@
         {
           "name": "TauCeti.LogAdic.LatticeHTFiltration.siegel_h1",
           "kind": "compatibility",
-          "statement": "On the open Siegel variety, for the pair (H₁(A,Q_p),H_{1,dR}(A)) of the universal abelian scheme, F_{−2}=0, F_{−1}=Lie(A)⊗Ô(1) and F₀=H₁(A,Q_p)⊗Ô, recovering 0→Lie(A)⊗Ô(1)→H₁(A,Q_p)⊗Ô→ω_{A^t}⊗Ô→0 (BP §4.4.8, p. 67)."
+          "statement": "On the open Siegel variety, for the pair (H₁(A,Q_p),H_{1,dR}(A)) of the universal abelian scheme, F_{−2}=0, F_{−1}=Lie(A)⊗Ô(1) and F₀=H₁(A,Q_p)⊗Ô, recovering 0→Lie(A)⊗Ô(1)→H₁(A,Q_p)⊗Ô→ω_{A^t}⊗Ô→0 (BPC25 §4.4.8, p. 67)."
         }
       ],
       "uses": [
@@ -6220,7 +6234,7 @@
           "how": "Imports the finite-level flag before trivializing the p-adic torsor on its tower."
         },
         {
-          "where": "BP Remark 4.4.39",
+          "where": "BPC25 Remark 4.4.39",
           "how": "The filtration defines P_HT and the Levi reduction."
         }
       ],
@@ -6253,15 +6267,16 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor",
-        "HodgeTateAndCanonicalSubgroups:T2",
         "AutomorphicBundles:B2/coefficient-tensor-hecke",
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback"
+        "HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback",
+        "HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor",
+        "AutomorphicBundles:B0/hodge-parabolic-convention"
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 80",
-          "match": "BP’s statement that the lattice HT filtration is Hecke functorial and tensor compatible, which the node makes precise (sums over a+b=i, duals, unit, exactness)."
+          "match": "BPC25’s statement that the lattice HT filtration is Hecke functorial and tensor compatible, which the node makes precise (sums over a+b=i, duals, unit, exactness)."
         }
       ],
       "library": {
@@ -6279,10 +6294,10 @@
       ],
       "title": "The Hodge–Tate P^c_µ-reduction of the canonical p-adic torsor",
       "kind": "construction",
-      "statement": "Over S^tor_{K,Σ} (K neat, smooth projective toroidal compactification with normal-crossings boundary, over a finite extension F of Q_p containing the reflex field and splitting G, with a cocharacter µ in the Hodge class defined over F), let G_pet,p be the pro-Kummer-étale Gᶜ(Q_p)-torsor of tensor isomorphisms W⊗_{Q_p}Q̂_p≅Ŵ_p, W∈Rep_{Q_p}(Gᶜ), so that G_pet,p×^{Gᶜ(Q_p)}W=Ŵ_p. Extend G^{c,an} to the pro-Kummer-étale site by U↦Gᶜ(Ô(U)) as in BP §4.4.8. The subsheaf P_HT⊆G_pet,p×^{Gᶜ(Q_p)}G^{c,an} of tensor trivializations W⊗Ô≅Ŵ_p⊗Ô carrying the standard ascending filtration Fil_iW:=⊕_{w≥−i}W[µ-weight w] to the lattice HT filtration F_i(Ŵ_p⊗Ô) for all W is a P^{c,an}_µ-torsor, P^c_µ={g: lim_{t→0}Ad µ(t)g exists}. On the de Rham side the canonical-extension torsor G^an_dR (étale site) has the P^{std,c,an}_µ-reduction P_dR given by the Hodge filtration, P^{std,c}_µ={g: lim_{t→∞}Ad µ(t)g exists}. Both reductions are Hecke-equivariant and compatible with change of level.",
+      "statement": "Over S^tor_{K,Σ} (K neat, smooth projective toroidal compactification with normal-crossings boundary, over a finite extension F of Q_p containing the reflex field and splitting G, with a cocharacter µ in the Hodge class defined over F), let G_pet,p be the pro-Kummer-étale Gᶜ(Q_p)-torsor of tensor isomorphisms W⊗_{Q_p}Q̂_p≅Ŵ_p, W∈Rep_{Q_p}(Gᶜ), so that G_pet,p×^{Gᶜ(Q_p)}W=Ŵ_p. Extend G^{c,an} to the pro-Kummer-étale site by U↦Gᶜ(Ô(U)) as in BPC25 §4.4.8. The subsheaf P_HT⊆G_pet,p×^{Gᶜ(Q_p)}G^{c,an} of tensor trivializations W⊗Ô≅Ŵ_p⊗Ô carrying the standard ascending filtration Fil_iW:=⊕_{w≥−i}W[µ-weight w] to the lattice HT filtration F_i(Ŵ_p⊗Ô) for all W is a P^{c,an}_µ-torsor, P^c_µ={g: lim_{t→0}Ad µ(t)g exists}. On the de Rham side the canonical-extension torsor G^an_dR (étale site) has the P^{std,c,an}_µ-reduction P_dR given by the Hodge filtration, P^{std,c}_µ={g: lim_{t→∞}Ad µ(t)g exists}. Both reductions are Hecke-equivariant and compatible with change of level.",
       "hypotheses": [
         "The HT filtration is the tensor-compatible, exact, locally split filtration of type µ of canonical-ht-tensor; arbitrary filtered local systems are not claimed to give parabolic reductions.",
-        "G_pet,p is defined from the coefficient functor W↦Ŵ_p, not from the toroidal level tower; its comparison with the tower’s deck group and its triviality over the tower diamond belong to PerfectoidShimuraVarieties:S6 (BP Theorem 4.4.40, §4.6.1)."
+        "G_pet,p is defined from the coefficient functor W↦Ŵ_p, not from the toroidal level tower; its comparison with the tower’s deck group and its triviality over the tower diamond belong to PerfectoidShimuraVarieties:S6 (BPC25 Theorem 4.4.40, §4.6.1)."
       ],
       "proofSteps": [
         "G_pet,p is a torsor: locally on the pro-Kummer-étale site the coefficient functor W↦Ŵ_p is tensor-isomorphic to the constant one, since it comes from Gᶜ(Q_p)-representations through the canonical coefficient construction.",
@@ -6298,30 +6313,31 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations",
-        "HodgeTateAndCanonicalSubgroups:T2",
         "AutomorphicBundles:B0/central-split-quotient",
         "AutomorphicBundles:B0/hodge-parabolic-convention",
         "AutomorphicBundles:B1/filtration-reduction",
-        "AutomorphicBundles:B3.general/general-canonical-extension"
+        "AutomorphicBundles:B3.general/general-canonical-extension",
+        "HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction",
+        "HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor"
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 80",
-          "match": "BP’s finite-level torsor G_pet,p over S^tor_{K,Σ}, whose P^c_µ-reduction P_HT (“corresponding to the filtration on W_p⊗Ô”) and de Rham P^{std,c}_µ-reduction P_dR are defined in the same paragraph."
+          "match": "BPC25’s finite-level torsor G_pet,p over S^tor_{K,Σ}, whose P^c_µ-reduction P_HT (“corresponding to the filtration on W_p⊗Ô”) and de Rham P^{std,c}_µ-reduction P_dR are defined in the same paragraph."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 80",
           "match": "The defining property of P_HT stated by the node (layout text of the PDF)."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.4.8, p. 68",
-          "match": "In the Siegel case BP define P_HT as the trivializations of H₁(A,Q_p)⊗Ô respecting the HT filtration, which is the node’s membership description for a faithful representation."
+          "match": "In the Siegel case BPC25 define P_HT as the trivializations of H₁(A,Q_p)⊗Ô respecting the HT filtration, which is the node’s membership description for a faithful representation."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.0, p. 49",
           "match": "Conventions P^std_µ (limit t→∞) and P_µ (limit t→0) used for P_dR and P_HT."
         }
@@ -6378,7 +6394,7 @@
         {
           "name": "TauCeti.LogAdic.HodgeTateReduction.siegel",
           "kind": "compatibility",
-          "statement": "On the open Siegel variety P_HT is the torsor of similitude trivializations of H₁(A,Q_p)⊗Ô carrying the µ-weight-one Lagrangian of Q_p^{2g} (which is Fil_{−1}) to Lie(A)⊗Ô(1) (BP §4.4.8, with W the standard representation realized as H₁(A,Q_p))."
+          "statement": "On the open Siegel variety P_HT is the torsor of similitude trivializations of H₁(A,Q_p)⊗Ô carrying the µ-weight-one Lagrangian of Q_p^{2g} (which is Fil_{−1}) to Lie(A)⊗Ô(1) (BPC25 §4.4.8, with W the standard representation realized as H₁(A,Q_p))."
         },
         {
           "name": "TauCeti.LogAdic.HodgeTateReduction.stabilizer_faithful",
@@ -6392,7 +6408,7 @@
           "how": "Evaluates P_HT on perfectoid test objects over the toroidal tower diamond."
         },
         {
-          "where": "BP text after Remark 4.4.39",
+          "where": "BPC25 text after Remark 4.4.39",
           "how": "M_HT^an:=P_HT×^{P^{c,an}_µ}M^{c,an}_µ."
         },
         {
@@ -6413,7 +6429,7 @@
       "statement": "Let P_dR⊆G_dR^an be the P^{std,c,an}_µ-reduction of the canonical-extension de Rham torsor given by the Hodge filtration (étale site of S^tor_{K,Σ}) and P_HT the P^{c,an}_µ-reduction of G_pet,p×^{Gᶜ(Q_p)}G^{c,an} given by the lattice HT filtration (pro-Kummer-étale site), where P^{std}_µ={g: lim_{t→∞}Ad µ(t)g exists} and P_µ={g: lim_{t→0}Ad µ(t)g exists} have common Levi M_µ. Put M_dR^an:=P_dR×^{P^{std,c,an}_µ}M^{c,an}_µ and M_HT^an:=P_HT×^{P^{c,an}_µ}M^{c,an}_µ. There is a canonical isomorphism of M^{c,an}_µ-torsors M_HT^an≃M_dR^an×^{µ,Z_p^×}Z_p(1) on the pro-Kummer-étale site of S^tor_{K,Σ}, compatible with the Hecke action, where Z_p(1) is the pro-étale Z_p^×-torsor of generators and µ:Z_p^×→M^{c,an}_µ is central. Hence a cyclotomic twist of M_HT^an is defined on the étale site. An untwisted equality requires an explicit cyclotomic trivialization.",
       "hypotheses": [
         "The central cocharacter µ acts on the common Levi; the de Rham and HT parabolic conventions are distinguished (P^{std,c}_µ stabilizes the Hodge filtration, P^c_µ the ascending HT filtration).",
-        "BP states the identification “on the pro-étale site”; the node states it on the pro-Kummer-étale site of S^tor_{K,Σ}, where P_HT and the graded relation live."
+        "BPC25 states the identification “on the pro-étale site”; the node states it on the pro-Kummer-étale site of S^tor_{K,Σ}, where P_HT and the graded relation live."
       ],
       "proofSteps": [
         "Import canonical de Rham torsor and flag conventions from AutomorphicBundles (canonical extension, P^{std,c}_µ-reduction by the Hodge filtration).",
@@ -6427,30 +6443,31 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison",
-        "HodgeTateAndCanonicalSubgroups:T2",
         "AutomorphicBundles:B0/hodge-parabolic-convention",
-        "AutomorphicBundles:B3.general/general-canonical-extension"
+        "AutomorphicBundles:B3.general/general-canonical-extension",
+        "HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction",
+        "HodgeTateAndCanonicalSubgroups:T2/de-rham-hodge-tate-levi-comparison"
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 80",
           "match": "Introduces the displayed identification M_HT^an=M_dR^an×^{µ,Z_p^×}Z_p(1), compatible with Hecke, which is the node’s statement."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text after Remark 4.4.39, p. 80",
           "match": "The Hecke compatibility and the étale-site descent of the twisted torsor stated in the node."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.4.8, p. 68",
           "match": "Definition of the contracted product M_dR×^{µ,Z_p^×}Z_p(1) through the central cocharacter µ, used by the node (Siegel case; §4.4.23, p. 74, repeats it for Hodge type)."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.0, p. 49",
-          "match": "BP’s conventions P^std_µ (limit t→∞) and P_µ (limit t→0) with common Levi M_µ, which the node records."
+          "match": "BPC25’s conventions P^std_µ (limit t→∞) and P_µ (limit t→0) with common Levi M_µ, which the node records."
         }
       ],
       "library": {
@@ -6510,7 +6527,7 @@
       ],
       "uses": [
         {
-          "where": "PerfectoidShimuraVarieties:S6; BP Theorem 4.4.40",
+          "where": "PerfectoidShimuraVarieties:S6; BPC25 Theorem 4.4.40",
           "how": "The tower trivialization pulls back this finite-level Levi comparison, including its twist."
         },
         {
@@ -6527,9 +6544,9 @@
       ],
       "title": "Hodge-type agreement with the abelian-scheme comparison",
       "kind": "theorem",
-      "statement": "Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BP §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.",
+      "statement": "Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BPC25 §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.",
       "hypotheses": [
-        "Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BP Remark 4.4.39, p. 79).",
+        "Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BPC25 Remark 4.4.39, p. 79).",
         "The identification of the lattice HT filtration of (H₁(A,Q_p),H_{1,dR}(A)) with the relative Hodge–Tate filtration of A is T2’s (Caraiani–Scholze §2.2), imported, not re-proved."
       ],
       "proofSteps": [
@@ -6549,16 +6566,18 @@
         "HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor",
-        "PadicHodgeTheory:P8/relative-de-rham-comparison",
+        "PadicHodgeTheory:P8/de-rham-pair-derived-pushforward",
         "AutomorphicBundles:B1/hodge-tensor-realizations",
         "AutomorphicBundles:B1/absolute-hodge-propagation",
-        "HodgeTateAndCanonicalSubgroups:T2"
+        "HodgeTateAndCanonicalSubgroups:T2/relative-hodge-tate-sequence",
+        "HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction",
+        "HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison"
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "Remark 4.4.39, p. 79",
-          "match": "BP’s statement that in Hodge type, off the boundary, the comparison is the abelian-variety one with Hodge tensors; the node states this agreement and its consequences for the HT filtration and P_HT."
+          "match": "BPC25’s statement that in Hodge type, off the boundary, the comparison is the abelian-variety one with Hodge tensors; the node states this agreement and its consequences for the HT filtration and P_HT."
         },
         {
           "sourceId": "DLLZ-RH",
@@ -6588,7 +6607,7 @@
           "how": "Identifies π^tor_HT on the open subdiamond with the Hodge-type period map of S3."
         },
         {
-          "where": "BP Remark 4.4.39",
+          "where": "BPC25 Remark 4.4.39",
           "how": "The Hodge-type, open-variety case of the identity."
         }
       ],
@@ -6602,7 +6621,7 @@
       ],
       "title": "Finite-level general canonical comparison package",
       "kind": "application",
-      "statement": "For every neat pure Shimura datum and smooth projective toroidal model S^tor_{K,Σ}, the canonical Gᶜ coefficient tensor functors are associated through completed logarithmic periods on the pro-Kummer-étale site. They yield the ascending Hodge–Tate flag, its P^c_µ-reduction P_HT and the cyclotomic Levi comparison M_HT≅M_dR×^{µ,Z_p^×}Z_p(1) at finite level, Hecke-compatibly, and for Hodge-type data they agree on the open Shimura variety with the constructions from the universal abelian scheme and its Hodge tensors. Export the full package to PerfectoidShimuraVarieties:S6, which owns the general toroidal-tower diamond Hodge–Tate map and coefficient pullback (BP Theorem 4.4.40). Export only early log-site geometry to PrismaticCohomology:PR.8 and log primitive comparison separately to completed/coherent cohomology consumers.",
+      "statement": "For every neat pure Shimura datum and smooth projective toroidal model S^tor_{K,Σ}, the canonical Gᶜ coefficient tensor functors are associated through completed logarithmic periods on the pro-Kummer-étale site. They yield the ascending Hodge–Tate flag, its P^c_µ-reduction P_HT and the cyclotomic Levi comparison M_HT≅M_dR×^{µ,Z_p^×}Z_p(1) at finite level, Hecke-compatibly, and for Hodge-type data they agree on the open Shimura variety with the constructions from the universal abelian scheme and its Hodge tensors. Export the full package to PerfectoidShimuraVarieties:S6, which owns the general toroidal-tower diamond Hodge–Tate map and coefficient pullback (BPC25 Theorem 4.4.40). Export only early log-site geometry to PrismaticCohomology:PR.8 and log primitive comparison separately to completed/coherent cohomology consumers.",
       "hypotheses": [
         "This application is the narrowed T6 aggregate; it assumes no general-datum toroidal diamond is a perfectoid space."
       ],
@@ -6624,12 +6643,12 @@
       ],
       "sources": [
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "§4.4.38, p. 79",
           "match": "Opens the finite-level general-datum passage (§4.4.38–Remark 4.4.39 and the text before Theorem 4.4.40) that the package assembles."
         },
         {
-          "sourceId": "BP",
+          "sourceId": "BPC25",
           "locator": "text before Theorem 4.4.40, p. 80",
           "match": "Ownership boundary: from this sentence on (diamond limit, Theorem 4.4.40) the material belongs to PerfectoidShimuraVarieties:S6; the package asserts nothing about the tower."
         }
@@ -6661,7 +6680,7 @@
     },
     {
       "supplier": "CrystallineCohomology:CR.5:log-algebra",
-      "need": "State log structures, the associated log structure, inverse image of log structures, charts, characteristic monoids and the coherent/fine/fs conditions for an arbitrary ringed site (Kato's definitions use only the ringed topos), so that they apply to the étale ringed site (X_ét, O_{X_ét}) of a locally noetherian adic space. The existing CR.5:log-algebra nodes are stated for the étale site of a scheme; T6 adds the integral-image condition of DLLZ charts and the analytic constructions.",
+      "need": "Four items remain: inverse images of log structures along morphisms of ringed sites, general (not only fine) charts, characteristic monoids, and the coherent, integral, saturated and fs conditions on a ringed site.",
       "neededBy": [
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space",
         "HodgeTateAndCanonicalSubgroups:T6:log-sites/integral-adic-chart"
@@ -6708,7 +6727,7 @@
     },
     {
       "supplier": "PadicHodgeTheory:P8",
-      "need": "Scholze 2013 §5 inputs: Lemmas 5.3, 5.4, 5.5 and 5.9 and the Artin–Schreier argument of the proof of Theorem 5.1 (DLLZ-adic Lemma 6.1.7, Theorem 6.2.1 and Lemma 6.2.4 cite exactly these), held by P8 through the accepted routes PAPER-SCHOLZE-13 route 1, PAPER-ZAVYALOV-25 route 7 and PAPER-BHATT-MORROW-SCHOLZE-18 route 14. FIX-RT-AREA-padic-1 (finding /24) decided their owner: the new sub-stage PadicHodgeTheory:P8:primitive, placed after P8:local-rational (Scholze's §5 uses the toric charts of his Lemma 5.2, planned at P8:local-rational/toric-charts-for-smooth-spaces) and before P8, CohomologyComparisons CP.3, AInfCohomology AI.4, TorsionCohomologyInfrastructure TC.2, IgusaVarietiesAndTorsionConcentration IG.3 and HodgeTateAndCanonicalSubgroups T6:log-primitive. Replace this stage citation by the P8:primitive nodes once that stage is in the atlas. Citing P8 creates no cycle: P8 is already an ancestor of T6:comparison (P8→T1→T2→T6:comparison).",
+      "need": "The lemmas of Scholze 2013 §5 used inside the logarithmic proofs remain: Lemmas 5.3, 5.4, 5.5 (continuous ℤ_p^d-cohomology of the perfectoid torus with 𝒪⁺/p coefficients) and 5.9, and the Artin–Schreier step of Theorem 5.1, as statements of the proposed stage P8:primitive.",
       "neededBy": [
         "HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness",
@@ -6724,28 +6743,9 @@
     },
     {
       "supplier": "ShimuraVarieties:V8.general",
-      "need": "General pure Shimura data, the central split quotient Gᶜ, reflex-field canonical models, special-point conjugation and descent, simply connected reduction and the Piatetski-Shapiro pair of embeddings used in DLLZ-RH Lemma 5.6.7. The absence of the precise embeddings is recorded as a gap.",
+      "need": "One item remains: the Piatetski-Shapiro pair of embeddings used in DLLZ-RH Lemma 5.6.7.",
       "neededBy": [
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison",
         "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy"
-      ]
-    },
-    {
-      "supplier": "HodgeTateAndCanonicalSubgroups:T1",
-      "need": "Tate twists, the Hodge–Tate weight convention and the functorial tensor-filtration interface; applied to the finite-level logarithmic lattice construction, not to a universal abelian family.",
-      "neededBy": [
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration"
-      ]
-    },
-    {
-      "supplier": "HodgeTateAndCanonicalSubgroups:T2",
-      "need": "The algebraic Hodge cocharacter/parabolic convention and the Tannakian extraction of a flag of prescribed type from filtered representations; for Hodge-type data, the identification of the lattice Hodge–Tate filtration of (H₁(A,Q_p), H_{1,dR}(A)) with the relative Hodge–Tate filtration of the universal abelian scheme and Caraiani–Scholze's P_µ-reduction P_p (Caraiani–Scholze 2017 §§2.2–2.3). Its period map is only a compatibility example; no T2 construction is duplicated.",
-      "neededBy": [
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration",
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor",
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor",
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction",
-        "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement"
       ]
     },
     {
@@ -6884,7 +6884,7 @@
   ],
   "owners": [
     {
-      "target": "General-datum toroidal-tower π^tor_HT and Levi-torsor pullback (BP Theorem 4.4.40)",
+      "target": "General-datum toroidal-tower π^tor_HT and Levi-torsor pullback (BPC25 Theorem 4.4.40)",
       "owner": "PerfectoidShimuraVarieties:S6",
       "formerly": [
         "HodgeTateAndCanonicalSubgroups:T6:comparison"
@@ -6898,11 +6898,11 @@
         "HodgeTateAndCanonicalSubgroups",
         "PerfectoidShimuraVarieties"
       ],
-      "detail": "RT-AREA-padic-1/4 (confirmed) found BP Theorem 4.4.40 planned in both T6:comparison and PerfectoidShimuraVarieties:S6. FIX-RT-AREA-padic-1 (RT-AREA-padic-1.fixes.md, finding /4, edits 2–6) gives the narrowed texts; the atlas text of T6, T6:comparison and the roadmap summary still contains Theorem 4.4.40.",
-      "proposal": "Apply the fix's edits: T6:comparison keeps the logarithmic period sheaves, Poincaré lemma, Riemann–Hilbert, the canonical association W_p⊗OB_dR,log≅W_dR⊗OB_dR,log with regularity, boundary extension and arithmetic rigidity, and at each finite level S^tor_{K,Σ} the Hodge–Tate filtration, its tensor and Hecke compatibility, the reduction P_HT and M_HT=M_dR×^{µ,Z_p^×}Z_p(1) (BP 4.4.38, Remark 4.4.39 and the text before Theorem 4.4.40). The toroidal tower diamond, the triviality of G_pet,p on it, π^tor_HT and its pullback statement (Theorem 4.4.40) are PerfectoidShimuraVarieties:S6's, imported through the existing T6→S6 edge. The packet's nodes already stop at the finite-level package.",
+      "detail": "RT-AREA-padic-1/4 (confirmed) found BPC25 Theorem 4.4.40 planned in both T6:comparison and PerfectoidShimuraVarieties:S6. FIX-RT-AREA-padic-1 (RT-AREA-padic-1.fixes.md, finding /4, edits 2–6) gives the narrowed texts; the atlas text of T6, T6:comparison and the roadmap summary still contains Theorem 4.4.40.",
+      "proposal": "Apply the fix's edits: T6:comparison keeps the logarithmic period sheaves, Poincaré lemma, Riemann–Hilbert, the canonical association W_p⊗OB_dR,log≅W_dR⊗OB_dR,log with regularity, boundary extension and arithmetic rigidity, and at each finite level S^tor_{K,Σ} the Hodge–Tate filtration, its tensor and Hecke compatibility, the reduction P_HT and M_HT=M_dR×^{µ,Z_p^×}Z_p(1) (BPC25 4.4.38, Remark 4.4.39 and the text before Theorem 4.4.40). The toroidal tower diamond, the triviality of G_pet,p on it, π^tor_HT and its pullback statement (Theorem 4.4.40) are PerfectoidShimuraVarieties:S6's, imported through the existing T6→S6 edge. The packet's nodes already stop at the finite-level package.",
       "owners": [
         {
-          "target": "General-datum toroidal-tower π^tor_HT and Levi-torsor pullback (BP Theorem 4.4.40)",
+          "target": "General-datum toroidal-tower π^tor_HT and Levi-torsor pullback (BPC25 Theorem 4.4.40)",
           "owner": "PerfectoidShimuraVarieties:S6",
           "formerly": [
             "HodgeTateAndCanonicalSubgroups:T6:comparison"
@@ -6953,8 +6953,8 @@
       "disposition": "Imported only through the T1/T2 interfaces; targets belong to T2 and VectorBundlesOnCurvesAndSlopeTheory. CS17 §§2.2–2.3 (Hodge-type comparison with Hodge tensors) is the source of the Hodge-type agreement node and is requested from T2."
     },
     {
-      "source": "Bijakowski–Pilloni–Stroh 2016; BP Higher Hida 2026; Pilloni 2020; BCGP 2021; Scholze 2015",
-      "disposition": "Fargues degree, Hasse invariants, integral lattices, canonical-subgroup bounds and early Siegel period estimates belong to T0–T5. None is a new definition or theorem of this finite-level T6 pass."
+      "source": "Bijakowski–Pilloni–Stroh 2016; BP26 (Boxer–Pilloni, Higher Hida 2026); Pilloni 2020; BCGP 2021; Scholze 2015",
+      "disposition": "Fargues degree, Hasse invariants, integral lattices, canonical-subgroup bounds and early Siegel period estimates belong to T0–T5. None is a new definition or theorem of the finite-level logarithmic layers."
     },
     {
       "source": "BCGP-25 route 23 items 4.4.1-usual/-cusp/-analytic-usual/-analytic-cusp",
@@ -6969,11 +6969,11 @@
       "disposition": "DLLZ-RH proves no compactly supported comparison; AutomorphicBundles B5's request to T6:comparison for a compact-support/subcanonical version needs this source, which is not among this packet's sources. Not planned here."
     },
     {
-      "source": "DLLZ-adic §§2–6 (with §4.5, §6.4 read for boundaries), DLLZ-RH §§2–3, 5 and Appendix A; BP 4.4.38–4.4.39",
-      "disposition": "Actual sources of this packet; read in the public author copies."
+      "source": "DLLZ-adic §§2–6 (with §4.5, §6.4 read for boundaries), DLLZ-RH §§2–3, 5 and Appendix A; BPC25 4.4.38–4.4.39",
+      "disposition": "The sources of the logarithmic layers, read in the public author copies."
     },
     {
-      "source": "BP 4.4.40 and §4.6.1",
+      "source": "BPC25 4.4.40 and §4.6.1",
       "disposition": "Read to verify the boundary with PerfectoidShimuraVarieties:S6; not local targets. S6's 'kummer-to-v-bridge' request is part of Theorem 4.4.40's proof and stays with S6."
     }
   ],
@@ -7348,29 +7348,29 @@
       ]
     },
     {
-      "source": "BP",
+      "source": "BPC25",
       "kind": "misprint",
       "locator": "Higher Coleman theory (author manuscript, sha256 d340c9a0…), text after Remark 4.4.39, p. 79 (definition of M and M₀) and the displayed formula for Fil_{−j}",
       "printed": "It defines M = W_p ⊗_{Q_p} B⁺_{dR,log} together with M₀ = (W_dR ⊗ OB⁺_{dR,log})^{∇=0}, and gives … Fil_{−j} W_p ⊗ Ô = (M ∩ Fil^j M⁰)/(Fil¹M ∩ Fil^j M⁰).",
       "correction": "M = W_p ⊗_{Q_p} B⁺_dR, and one symbol for the second lattice (M₀ = M⁰).",
-      "reason": "No sheaf B⁺_{dR,log} is defined: BP lists only B⁺_dR, B_dR, OB⁺_{dR,log} and OB_{dR,log}, DLLZ-RH defines no unadorned log period sheaf B_{dR,log}, and the next sentence calls M a B⁺_dR-local system. The second lattice is named M₀ in its definition and M⁰ in the displayed formula. Checked on the rendered page (220 dpi), not only in pdftotext output.",
+      "reason": "No sheaf B⁺_{dR,log} is defined: BPC25 lists only B⁺_dR, B_dR, OB⁺_{dR,log} and OB_{dR,log}, DLLZ-RH defines no unadorned log period sheaf B_{dR,log}, and the next sentence calls M a B⁺_dR-local system. The second lattice is named M₀ in its definition and M⁰ in the displayed formula. Checked on the rendered page (220 dpi), not only in pdftotext output.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "research/blueprint packets sourceIssues/errata mentioning BP §4.4.38–4.4.40 (PerfectoidShimuraVarieties/E20 and E23 concern the cyclotomic twist and Theorem 4.4.45, not this notation)",
-        "BP author manuscript pp. 79–80 rendered with pdftoppm; grep of the manuscript for “dR,log” (occurs only in §4.4.38–4.4.39)",
+        "research/blueprint packets sourceIssues/errata mentioning BPC25 §4.4.38–4.4.40 (PerfectoidShimuraVarieties/E20 and E23 concern the cyclotomic twist and Theorem 4.4.45, not this notation)",
+        "BPC25 author manuscript pp. 79–80 rendered with pdftoppm; grep of the manuscript for “dR,log” (occurs only in §4.4.38–4.4.39)",
         "DLLZ-RH author copy, Definitions 2.2.3 and 2.2.10 period-sheaf list"
       ],
       "id": "HodgeTateAndCanonicalSubgroups/E13",
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed on the rendered p. 79: M is printed as W_p⊗B⁺_{dR,log}, a sheaf BP does not define (it lists B⁺_dR, B_dR, OB⁺_dR,log, OB_dR,log), and the second lattice is written M₀ and M⁰. Independently rechecked in the same hashed public author copy during round 2; no claim of publisher collation.",
+        "reason": "Confirmed on the rendered p. 79: M is printed as W_p⊗B⁺_{dR,log}, a sheaf BPC25 does not define (it lists B⁺_dR, B_dR, OB⁺_dR,log, OB_dR,log), and the second lattice is written M₀ and M⁰. Independently rechecked in the same hashed public author copy during round 2; no claim of publisher collation.",
         "by": "REV-HodgeTateAndCanonicalSubgroups--T6~2"
       },
       "reviewHistory": [
         {
           "verdict": "confirmed",
-          "reason": "Confirmed on the rendered p. 79: M is printed as W_p⊗B⁺_{dR,log}, a sheaf BP does not define (it lists B⁺_dR, B_dR, OB⁺_dR,log, OB_dR,log), and the second lattice is written M₀ and M⁰.",
+          "reason": "Confirmed on the rendered p. 79: M is printed as W_p⊗B⁺_{dR,log}, a sheaf BPC25 does not define (it lists B⁺_dR, B_dR, OB⁺_dR,log, OB_dR,log), and the second lattice is written M₀ and M⁰.",
           "by": "REV-HodgeTateAndCanonicalSubgroups--T6"
         }
       ]
@@ -7666,7 +7666,7 @@
     "reviewedCoverage": "data/library-coverage.json has no direct T6 record; neighbouring HodgeTate duplicate routes concern T0–T5 and do not constitute a T6 baseline proof.",
     "search": "Searched pinned TauCeti tree across Huber, Spa, sheaves, logarithmic/Kummer/monoid, p-adic periods, connections, Shimura and Tannakian terms. Read actual pinned Huber Pair and Spa statements. Searched pinned Mathlib site, derivation, completion and period modules; read each cited statement. No full log adic/Kummer-site/RH implementation found.",
     "limits": "Affine Spa is built, not bundled log adic geometry. BDeRhamPlus is a carrier construction under explicit assumptions, not proof of principal kernel/DVR, acyclic period sheaf or logarithmic comparison. Generic log algebra is imported from CR.5 rather than planned twice.",
-    "links": "Read all stageEdges touching T6 and searched every links packet for T6 mentions; no matching links packet. Accepted RS-05 and RS-32 supply ordinary site/general compactification ownership but do not own BP 4.4.40."
+    "links": "Read all stageEdges touching T6 and searched every links packet for T6 mentions; no matching links packet. Accepted RS-05 and RS-32 supply ordinary site/general compactification ownership but do not own BPC25 4.4.40."
   },
   "review": {
     "status": "accepted",
@@ -8365,5 +8365,41 @@
         }
       ]
     }
-  ]
+  ],
+  "assemblyMaterialization": {
+    "job": "ASM-HodgeTateAndCanonicalSubgroups",
+    "date": "2026-10-14",
+    "from": "research/blueprint/packets/HodgeTateAndCanonicalSubgroups.json, field assembly, accepted by independent-review-REV-HodgeTateAndCanonicalSubgroups",
+    "prerequisitesReplaced": [
+      "HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/log-faltings-extension",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor",
+      "HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement"
+    ],
+    "fieldsReplaced": {},
+    "retiredNodes": [],
+    "usesRepointed": [],
+    "requestsAndGaps": "Replaced by the whole-roadmap packet's effective requests and gaps whose fromPart is T6: requests resolved by exact supplier nodes are withdrawn or narrowed to their remaining items, and a gap whose only consumer is a retired node is dropped.",
+    "routing": "Unchanged.",
+    "note": "This applies the effective whole-roadmap plan that its independent review accepted; no mathematics beyond it was changed. The review object below predates these edits and does not cover them; the live atlas copy stays at the reviewed version until a new accepted review.",
+    "notation": "Source id BP renamed BPC25, as in the T0–T5 part: both name Boxer–Pilloni, Higher Coleman theory, with the same SHA-256, and BP26 is a different Boxer–Pilloni paper. Review records keep their original wording. The routing ledger names BP26 and BPC25 explicitly."
+  }
 }
