@@ -2,7 +2,7 @@
 
 This part plans EDC.7 and EDC.8. Its targets run from finite-dimensional Frobenius weights through perverse purity, the decomposition theorem and relative hard Lefschetz to correspondence traces and isolated fixed-point local terms. All geometric objects are the actual categories and scheme constructions supplied by the earlier EDC layers. The scheme results do not by themselves provide stack, perfect or equivariant transport.
 
-The Weil-weight foundations needed for perverse purity are owned here at tier 10. DeligneWeightsAndPurity imports them at tier 11. The provenance inventory is in the packet’s `ownershipTransfers` and the revision handoff; the smaller positivity and reduction lemmas are proof steps, and scheme Frobenius is imported from SF.0. Current Tau Ceti roadmaps supply the existing algebraic-group, compact-character, Dirichlet-series and pointed-Jacobian interfaces. Exact additions beyond their present scope are identified as Part II contracts below.
+The Weil-weight foundations needed for perverse purity are owned here at tier 10. DeligneWeightsAndPurity imports them at tier 11. The provenance inventory is in the packet’s `ownershipTransfers` and the revision handoff, with the review handoff correcting the two existing-supplier destinations; the smaller positivity and reduction lemmas are proof steps, and scheme Frobenius is imported from SF.0. Current Tau Ceti roadmaps supply the existing algebraic-group, compact-character, Dirichlet-series and pointed-Jacobian interfaces. Exact additions beyond their present scope are identified as Part II contracts below.
 
 Both stages have a target-level plan with exact supplier obligations. The Suggested file states native numeric, categorical and linear-algebra results; its proof placeholders do not claim implementation. Schemes, sheaves, arithmetic models and their operations have the detailed target specifications below.
 
@@ -505,12 +505,12 @@ Let V and V′ be E-spaces of finite dimension d with invertible endomorphisms F
 - Perfectness is needed: for the zero pairing the equivariance holds for every F′.
 - c is the eigenvalue of Frobenius on the target line. For Poincaré duality H^i × H^{2m−i} → H^{2m} ≅ ℚ_ℓ(−m), c = q^m (Weil I (2.4)–(2.5)). The geometric inputs, that cup product commutes with F and that F acts by q^m on H^{2m}, belong to EDC and WC.2.
 - No semisimplicity is assumed: (iii) is a statement about generalized eigenspaces.
-- The parity of the multiplicity of ±√c for a symmetric or alternating self-pairing, and the sign of the functional equation, are WeilConjectures WC.2's.
+- The self-pairing multiplicity parity and determinant sign are supplied by EDC.8/form-similitude-determinant. EDC.8/poincare-reciprocity-export supplies the cohomological comparison; WeilConjectures WC.2 assembles the zeta functional equation from these exports.
 
 **Proof plan.**
 
-1. (i): ⟨x, F′y⟩ = c⟨F⁻¹x, y⟩, so the adjoint of F′ with respect to the pairing is cF⁻¹.
-2. (ii): the transpose has the same characteristic polynomial. mathlib:Matrix.charpoly_inv expresses the characteristic polynomial of an inverse through the reversed polynomial, and scaling by c gives the formula. The eigenvalues are the c/α_i by the theorem spectra-of-polynomials-in-an-endomorphism applied to F⁻¹.
+1. (i)–(ii): apply EDC.8/similitude-charpoly-reciprocity to the actual perfect pairing. It identifies the adjoint with cF⁻¹ and gives the reciprocal characteristic-polynomial formula without semisimplicity; the present target adds generalized-primary pairing and its weight consequences.
+2. For the eigenvalue multiset, the inverse/scalar spectral calculation gives c/α_i, with algebraic multiplicities, from the same reciprocity formula. Use EDC.7/weight-spectra-of-polynomials-in-an-endomorphism for the generalized eigenspace calculation in (iii).
 3. (iii): ⟨Fx, y⟩ = c⟨x, F′⁻¹y⟩, so ⟨(F − α)^N x, y⟩ = ⟨x, (cF′⁻¹ − α)^N y⟩. For x ∈ V_α take N with (F − α)^N x = 0. On V′_β, cF′⁻¹ − α is c/β − α plus a nilpotent, hence invertible unless αβ = c. So ⟨x, y⟩ = 0 unless αβ = c, and perfectness on the direct sums forces each V_α × V′_{c/α} to be perfect.
 4. (iv): c/α is a Weil q-number of weight w − n (theorem weil-number-arithmetic), and w_ι(c/α) = w_ι(c) − w_ι(α).
 
@@ -521,6 +521,7 @@ Let V and V′ be E-spaces of finite dimension d with invertible endomorphisms F
 
 **Prerequisites.**
 
+- `EtaleDualityAndPerverseSheaves:EDC.8/similitude-charpoly-reciprocity`
 - `EtaleDualityAndPerverseSheaves:EDC.7/weight-endomorphism-weights`
 - `EtaleDualityAndPerverseSheaves:EDC.7/weight-spectra-of-polynomials-in-an-endomorphism`
 - `EtaleDualityAndPerverseSheaves:EDC.7/weight-weil-number-arithmetic`
@@ -788,47 +789,6 @@ Let A be an abelian variety over a field k with a polarization and Rosati involu
 
 **Ownership provenance:** `DeligneWeightsAndPurity:DWP.1/absolute-values-from-the-rosati-involution`.
 
-<a id="weight-rosati-of-the-frobenius-endomorphism"></a>
-
-### Milne II.1.2: π†π = q
-
-**Target:** `EtaleDualityAndPerverseSheaves:EDC.7/weight-rosati-of-the-frobenius-endomorphism` (theorem).
-
-Let A be an abelian variety over 𝔽_q, λ a polarization of A defined over 𝔽_q, and † the Rosati involution of λ. Then π_A^† ∘ π_A = q in End⁰(A), that is π_A^∨ ∘ λ ∘ π_A = q·λ.
-
-**Hypotheses and scope.**
-
-- λ must be defined over 𝔽_q, so that it commutes with the Frobenius. A polarization over 𝔽_q exists, since A is projective over 𝔽_q (requested from AbelianSchemesAndArithmeticModuli A2).
-- This is where the Frobenius–Verschiebung relation enters, as RS-17 keeps it: π^∨ corresponds to the Verschiebung through λ.
-- Import the scheme q-Frobenius from SF.0: it commutes with maps over 𝔽_q; its mth iterate fixes exactly the geometric points rational over 𝔽_(q^m). After constant extension of degree m the relative Frobenius is that iterate. On an abelian variety this supplied scheme map is a group endomorphism; no second Frobenius construction is owned here.
-
-**Proof plan.**
-
-1. With λ = φ_D for an ample divisor D (over 𝔽̄_q): λ(a) = [t_a^*D − D].
-2. For any divisor D′ over 𝔽_q, π^*D′ = qD′: locally D′ = div f and f ∘ π = f^q.
-3. For a ∈ A(𝔽̄_q): (π^∨λπ)(a) = [π^*t_{π(a)}^*D − π^*D] = [t_a^*π^*D − π^*D] = [t_a^*(qD) − qD] = qλ(a), using π ∘ t_a = t_{π(a)} ∘ π.
-
-**Checks and worked examples.**
-
-- An elliptic curve with λ the principal polarization: π† = π̂, and π̂π = [q] = deg π.
-- On ℙ¹ over 𝔽_q, π is [x : y] ↦ [x^q : y^q], and its fixed points are the q + 1 points of ℙ¹(𝔽_q).
-- For an elliptic curve E over 𝔽_q, π_E is the q-power Frobenius endomorphism, and 1 − π_E is separable.
-
-**Prerequisites.**
-
-- `AbelianSchemesAndArithmeticModuli:A2/rosati-involution`
-- `AbelianSchemesAndArithmeticModuli:A2`
-- `EtaleDualityAndPerverseSheaves:EDC.7/weight-finite-field-base-extension-of-weights`
-- `SchemeAndStackFoundations:SF.0`
-
-**Sources.**
-
-- **Milne-AbelianVarieties-v2.00**, Chapter II, Lemma 1.2, p. 76: Lemma 1.2: π†π = q for the Rosati involution.
-- **Milne-AbelianVarieties-v2.00**, Chapter II, §1, p. 75: π_V is the identity on the space and f ↦ f^q on functions.
-- **Milne-AbelianVarieties-v2.00**, Chapter II, §1, p. 75: π_A fixes 0, so it is an endomorphism.
-
-**Ownership provenance:** `DeligneWeightsAndPurity:DWP.1/rosati-of-the-frobenius-endomorphism`, `DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field`.
-
 <a id="weight-weil-estimate-for-abelian-varieties"></a>
 
 ### The Weil estimate for abelian varieties over 𝔽_q
@@ -844,7 +804,7 @@ Let A be an abelian variety of dimension g over 𝔽_q. Every root of the charac
 
 **Proof plan.**
 
-1. π†π = q (theorem rosati-of-the-frobenius-endomorphism).
+1. Import π†π = q from the finite-field clause of AbelianSchemesAndArithmeticModuli:A6/frobenius-semisimplicity; no Tate isogeny theorem is used. For an independent normalization check, A2/polarization-representatives-and-graph gives an ample graph line bundle M over 𝔽_q with φ_M = 2λ. Then π^*M ≅ M^⊗q and φ_(π^*M) = π^∨φ_Mπ, so 2π^∨λπ = 2qλ. Cancel 2 in rational Hom, including characteristic two. This does not assume an arbitrary representative over 𝔽̄_q descends to 𝔽_q (Milne, Chapter II, Lemma 1.2, pp.76–77).
 2. Theorem absolute-values-from-the-rosati-involution with α = π and r = q: every complex root of P_π has absolute value q^{1/2}. P_π ∈ ℤ[X], so the roots are algebraic and every conjugate is again a root, so they are Weil q-numbers of weight 1 (EDC.7/weight-weil-q-number).
 3. On V_ℓA the characteristic polynomial of π is P_π (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-on-tate-module). The geometric Frobenius acts by π⁻¹ on V_ℓA, of weight −1, and by the transpose of π on H¹, of weight 1.
 4. Base extension: π_{A ⊗ 𝔽_{q^m}} = π^m, with roots a_i^m (EDC.7/weight-weil-number-base-extension).
@@ -856,7 +816,8 @@ Let A be an abelian variety of dimension g over 𝔽_q. Every root of the charac
 
 **Prerequisites.**
 
-- `EtaleDualityAndPerverseSheaves:EDC.7/weight-rosati-of-the-frobenius-endomorphism`
+- `AbelianSchemesAndArithmeticModuli:A2/polarization-representatives-and-graph`
+- `AbelianSchemesAndArithmeticModuli:A6/frobenius-semisimplicity`
 - `EtaleDualityAndPerverseSheaves:EDC.7/weight-absolute-values-from-the-rosati-involution`
 - `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`
 - `EtaleDualityAndPerverseSheaves:EDC.7/weight-weil-q-number`
@@ -1160,7 +1121,7 @@ Let ℓ be a prime, X a scheme of finite type over ℤ[1/ℓ], and |X| its set o
 
 **Proof plan.**
 
-1. Apply the the EDC.7 Frobenius-module weight targets eigenvalue predicates to the actual closed-point stalk Frobenius. Define mixedness through finite filtrations in the imported abelian sheaf category, without inferring it from pointwise spectral decompositions.
+1. Apply the EDC.7 Frobenius-module weight targets eigenvalue predicates to the actual closed-point stalk Frobenius. Define mixedness through finite filtrations in the imported abelian sheaf category, without inferring it from pointwise spectral decompositions.
 2. Characteristic-polynomial exactness on stalks proves purity stability under subobjects, quotients and extensions. Refine filtrations for mixed stability. Stalk base change, finite pushforward and tensor products give the remaining operations; lisse duals negate weights.
 
 **Checks and worked examples.**
@@ -1589,7 +1550,7 @@ Let X₀ be a connected normal scheme of finite type over 𝔽_q, X = X₀ ⊗ �
 
 **Target:** `EtaleDualityAndPerverseSheaves:EDC.7/weight-mixed-complexes` (definition).
 
-Let X₀ be a scheme of finite type over 𝔽_q (Weil II (6.1.1) a): sheaves are ℚ̄_ℓ-Weil sheaves) and D^b_c(X₀) the bounded derived category of constructible ℚ̄_ℓ-sheaves on X₀ of EDC.0, with cohomology sheaves ℋ^i. A complex K ∈ D^b_c(X₀) is mixed when every ℋ^iK is mixed (EDC.7/weight-punctual-purity-and-mixedness); D^b_m(X₀) ⊂ D^b_c(X₀) is the full subcategory of mixed complexes. For w ∈ ℤ, K is mixed of weights ≤ w when, for every i, ℋ^iK is mixed of punctual weights ≤ w + i (Weil II 6.2.2); D^b_{≤w}(X₀) denotes the full subcategory of such K. For a fixed field isomorphism ι : ℚ̄_ℓ ≅ ℂ and w ∈ ℝ, 'ι-mixed of ι-weights ≤ w' is defined in the same way from DWP.5's ι-mixed sheaves. For X of finite type over ℤ[1/ℓ] (context (6.1.1) b), and Weil II 6.2.7) the same definitions apply to constructible ℚ̄_ℓ-sheaves.
+Let X₀ be a scheme of finite type over 𝔽_q (Weil II (6.1.1) a): sheaves are ℚ̄_ℓ-Weil sheaves) and D^b_c(X₀) the bounded derived category of constructible ℚ̄_ℓ-sheaves on X₀ of EDC.0, with cohomology sheaves ℋ^i. A complex K ∈ D^b_c(X₀) is mixed when every ℋ^iK is mixed (EDC.7/weight-punctual-purity-and-mixedness); D^b_m(X₀) ⊂ D^b_c(X₀) is the full subcategory of mixed complexes. For w ∈ ℤ, K is mixed of weights ≤ w when, for every i, ℋ^iK is mixed of punctual weights ≤ w + i (Weil II 6.2.2); D^b_{≤w}(X₀) denotes the full subcategory of such K. For a fixed field isomorphism ι : ℚ̄_ℓ ≅ ℂ and w ∈ ℝ, 'ι-mixed of ι-weights ≤ w' is defined in the same way from EDC.7/weight-punctual-purity-and-mixedness. For X of finite type over ℤ[1/ℓ] (context (6.1.1) b), and Weil II 6.2.7) the same definitions apply to constructible ℚ̄_ℓ-sheaves.
 
 **Hypotheses and scope.**
 
@@ -1611,7 +1572,7 @@ Let X₀ be a scheme of finite type over 𝔽_q (Weil II (6.1.1) a): sheaves are
 | --- | --- | --- |
 | `TauCeti.Weights.IsMixedComplex` | data | IsMixedComplex K : Prop := ∀ i, IsMixed (ℋ^i K), for K in the bounded constructible derived category of EDC.0. |
 | `TauCeti.Weights.HasWeightsLE` | data | HasWeightsLE (w : ℤ) K : Prop := ∀ i, IsMixed (ℋ^i K) ∧ ∀ weight m of ℋ^i K, m ≤ w + i. |
-| `TauCeti.Weights.HasIotaWeightsLE` | data | The ι-variant with w : ℝ and DWP.5's ι-mixed sheaves. |
+| `TauCeti.Weights.HasIotaWeightsLE` | data | The ι-variant with w : ℝ and EDC.7/weight-punctual-purity-and-mixedness. |
 | `TauCeti.Weights.isMixedComplex_triangle` | structure | D^b_m is a triangulated subcategory: two out of three terms of a distinguished triangle mixed ⇒ the third is; closed under shifts and direct summands. |
 | `TauCeti.Weights.HasWeightsLE.of_triangle` | structure | For a distinguished triangle K′ → K → K″ →: K′, K″ of weights ≤ w ⇒ K of weights ≤ w. |
 | `TauCeti.Weights.hasWeightsLE_shift` | simp | HasWeightsLE (w + 1) (K[1]) ↔ HasWeightsLE w K: ℋ^i(K[1]) = ℋ^{i+1}K. |
@@ -1784,7 +1745,7 @@ Let X₀ be a normal geometrically connected scheme over 𝔽_q and G an algebra
 
 **Sources.**
 
-- **Deligne-WeilII-1980**, §2.2 (2.2.1)–(2.2.8), pp. 192–195; corrected sign in (2.2.8)(i), p. 195: The stated result and proof, with the conventions and supplier boundaries specified here.
+- **Deligne-WeilII-1980**, §2.2 (2.2.1)–(2.2.8), pp. 192–195; corrected sign in (2.2.8)(i), p. 195; known sign correction PAPER-DELIGNE-80/E38 and PAPER-DELIGNE-80/E72: The stated result and proof, with the conventions and supplier boundaries specified here.
 
 **Ownership provenance:** `DeligneWeightsAndPurity:DWP.5/compact-weil-form`.
 
@@ -2086,9 +2047,9 @@ In the reduced situation of EDC.7/weight-spreading-out-to-a-tame-relative-curve 
 
 **Proof plan.**
 
-1. Proper base change and tameness: because D is finite étale over Y and ℱ is tame along D, the formation of j_*ℱ, i*j_*ℱ and the local monodromy filtration M commutes with passage to the fibres X̄_y, y ∈ |Y| (Weil II 1.8.6–1.8.8, imported from DWP.5; base change of j_* for tame sheaves along a relative divisor with normal crossings, EDC.0/SF.2). So R^i f̄_*(j_*ℱ) and i*j_*ℱ may be computed fibrewise.
-2. On each fibre, a smooth projective curve over the finite field k(y) with a lisse sheaf punctually ι-pure of weight n on the complement of D_y: DWP.6's theorem (Weil II 3.2.3), applied for every ι, gives that H^i(X̄_ȳ, j_*ℱ) is punctually pure of weight n + i.
-3. DWP.5's local weight theorem (Weil II 1.8.4 with 1.8.8, for every ι) gives that Gr^M_k(i*j_*ℱ) vanishes for k > 0 and is punctually pure of weight n + k ≤ n on D.
+1. Proper base change and tameness: because D is finite étale over Y and ℱ is tame along D, the formation of j_*ℱ, i*j_*ℱ and the local monodromy filtration M commutes with passage to the fibres X̄_y, y ∈ |Y| (Weil II 1.8.6–1.8.8, supplied by EDC.7/weight-local-weight-corollaries; base change of j_* for tame sheaves along a relative divisor with normal crossings, EDC.0/SF.2). So R^i f̄_*(j_*ℱ) and i*j_*ℱ may be computed fibrewise.
+2. On each fibre, a smooth projective curve over the finite field k(y) with a lisse sheaf punctually ι-pure of weight n on the complement of D_y: EDC.7/weight-sharp-curve-purity (Weil II 3.2.3), applied for every ι, gives that H^i(X̄_ȳ, j_*ℱ) is punctually pure of weight n + i.
+3. EDC.7/weight-local-monodromy-purity and EDC.7/weight-local-weight-corollaries (Weil II 1.8.4 with 1.8.8, for every ι) gives that Gr^M_k(i*j_*ℱ) vanishes for k > 0 and is punctually pure of weight n + k ≤ n on D.
 4. Apply R f̄_* to 0 → j_!ℱ → j_*ℱ → i_*i*j_*ℱ → 0. Since f̄∘i : D → Y is finite, dévissage (f) shows R^q(f̄ i)_*(i*j_*ℱ) vanishes for q ≠ 0 and R⁰ is mixed of weights ≤ n. The long exact sequence then gives R^q f̄_*(j_!ℱ) as an extension of a subsheaf of R^q f̄_*(j_*ℱ) (weight n + q) by a quotient of R^{q−1}(f̄ i)_*(...) (weights ≤ n ≤ n + q), which is mixed of weights ≤ n + q by dévissage (a).
 
 **Checks and worked examples.**
@@ -2131,7 +2092,7 @@ Let f : X → Y be a separated morphism of schemes of finite type over ℤ[1/ℓ
 **Proof plan.**
 
 1. By EDC.7/weight-spreading-out-to-a-tame-relative-curve it suffices to treat the tame smooth projective relative curve, which is EDC.7/weight-purity-of-the-relative-curve-case.
-2. The finite-field case is the case Y = Spec 𝔽_q; H^i_c(X, ℱ) is the geometric stalk of R^i f_!ℱ, with F acting as the geometric Frobenius of the closed point (Weil-sheaf variant: Weil II 1.1.10–1.1.14, DWP.5).
+2. The finite-field case is the case Y = Spec 𝔽_q; H^i_c(X, ℱ) is the geometric stalk of R^i f_!ℱ, with F acting as the geometric Frobenius of the closed point (Weil-sheaf variant: Weil II 1.1.10–1.1.14, EDC.7/weight-weil-sheaf).
 3. A sheaf on Spec 𝔽_q mixed of weights ≤ n + i is a Frobenius module whose eigenvalues are Weil q-numbers of integer weights ≤ n + i (EDC.7/weight-weil-q-number).
 
 **Checks and worked examples.**
@@ -2172,7 +2133,7 @@ Fix a field isomorphism ι : ℚ̄_ℓ ≅ ℂ and β ∈ ℝ. Let f : X → Y b
 
 **Proof plan.**
 
-1. Rerun EDC.7/weight-spreading-out-to-a-tame-relative-curve and EDC.7/weight-purity-of-the-relative-curve-case with ι-weights: the dévissages hold verbatim for ι-mixed sheaves, and DWP.6 and DWP.5 supply the fixed-ι curve and local statements.
+1. Rerun EDC.7/weight-spreading-out-to-a-tame-relative-curve and EDC.7/weight-purity-of-the-relative-curve-case with ι-weights: the dévissages hold verbatim for ι-mixed sheaves, and EDC.7/weight-sharp-curve-purity and EDC.7/weight-local-weight-corollaries supply the fixed-ι curve and local statements.
 2. Weights mod ℤ: in the reduced situation the weights of R^q f̄_*(j_*ℱ) are β + q and those of Gr^M_k are β + k, all in β + ℤ; the dévissages only take extensions and subquotients, so every weight produced lies in the class mod ℤ of a weight of the input.
 
 **Checks and worked examples.**
@@ -2559,7 +2520,7 @@ Let f : X₀ → Y₀ be a proper morphism of schemes of finite type over 𝔽_q
 **Checks and worked examples.**
 
 - Acceptance: X₀ smooth proper, K = ℚ̄_ℓ: H^i pure of weight i, giving the smooth proper cohomology statement.
-- Acceptance: X₀ = ℙ¹, K = j_*ℱ for a pure lisse ℱ on an open curve (by the sharp curve-purity theorem above): H¹(ℙ¹, j_*ℱ) is pure, as in EDC.7/weight-sharp-curve-purity.
+- Acceptance: X₀ = ℙ¹, K = j_*ℱ for a pure lisse ℱ on an open curve. Weil II 6.2.5(c), p.248, makes the complex j_*ℱ pure; proper direct-image purity then gives H¹(ℙ¹, j_*ℱ) pure, agreeing with EDC.7/weight-sharp-curve-purity.
 - Non-example: for f non-proper, e.g. 𝔾_m → Spec 𝔽_q and K = ℚ̄_ℓ, Rf_*ℚ̄_ℓ is not pure (H¹ = ℚ̄_ℓ(−1) has weight 2 ≠ 1).
 
 **Prerequisites.**
@@ -3042,7 +3003,7 @@ Every mixed perverse sheaf F₀ on X₀ has a unique finite increasing filtratio
 | --- | --- | --- |
 | `TauCeti.EtaleDuality.weightFiltration_pure` | degenerate | If F₀ is pure of weight w then W_i F₀ = 0 for i < w and W_i F₀ = F₀ for i ≥ w. |
 | `TauCeti.EtaleDuality.weightFiltration_jstar_Gm` | computation | For j : 𝔾_m ↪ 𝔸¹ over 𝔽_q, W_1(Rj_*ℚ̄_ℓ[1]) = ℚ̄_ℓ,𝔸¹[1] and Gr^W_2(Rj_*ℚ̄_ℓ[1]) ≅ δ₀(−1). |
-| `TauCeti.EtaleDuality.weightFiltration_point` | compatibility | On Spec 𝔽_q, W_i of a mixed representation V is the sum of the generalized Frobenius eigenspaces with eigenvalues of weight ≤ i, which is the weight filtration of The weight filtration of a lisse mixed sheaf (EDC.7 weight foundations) for lisse sheaves on a point. |
+| `TauCeti.EtaleDuality.weightFiltration_point` | compatibility | On Spec 𝔽_q, W_i of a mixed representation V is the sum of the generalized Frobenius eigenspaces with eigenvalues of weight ≤ i. The ordinary and perverse hearts on a point coincide; EDC.7/weight-endomorphism-weights supplies the spectral calculation. |
 | `TauCeti.EtaleDuality.weightFiltration_not_split_geometrically_trivial` | non-example | The weight filtration is not a direct-sum decomposition in Perv(X₀) in general: the extension in weightFiltration_jstar_Gm is non-split, since Hom(δ₀(−1), Rj_*ℚ̄_ℓ[1]) = 0. |
 
 **Proof plan.**
@@ -3155,7 +3116,7 @@ An object of an abelian category is semisimple if it is isomorphic to a finite d
 
 **Checks and worked examples.**
 
-- The constant sheaf ℚ̄_ℓ[d] on a smooth connected X₀ is geometrically semisimple (it is simple over 𝔽̄_q).
+- The constant sheaf ℚ̄_ℓ[d] on a smooth connected X₀ of pure dimension d is geometrically semisimple. It is geometrically simple when X₀ is geometrically connected; for X₀ = Spec 𝔽_(q²), its geometric pullback is the direct sum of the constant sheaves on two points.
 - The arithmetic sheaf E₂ (unipotent Frobenius) on Spec 𝔽_q is geometrically semisimple (over 𝔽̄_q it is ℚ̄_ℓ²) but not semisimple in Perv(Spec 𝔽_q).
 
 **Prerequisites.**
@@ -3675,7 +3636,7 @@ In the situation of EDC.7/relative-hard-lefschetz-theorem, put P^{−i} := ker(�
 
 **Checks and worked examples.**
 
-- For f the structure map of a smooth projective X₀ of dimension n and F₀ = ℚ̄_ℓ[n], P^{−i} is primitive cohomology P^{n−i}(X), and the decomposition is the classical Lefschetz decomposition, matching DWP.9/lefschetz-decomposition-of-a-graded-operator.
+- For f the structure map of a smooth projective X₀ of dimension n and F₀ = ℚ̄_ℓ[n], P^{−i} is primitive cohomology P^{n−i}(X), and the decomposition is the classical Lefschetz decomposition, matching EDC.7/abstract-primitive-decomposition.
 
 **Prerequisites.**
 
@@ -4161,7 +4122,7 @@ Let [f] = (f₁, f♮, f₂) : c → b be a morphism of correspondences satisfyi
 
 **Proof plan.**
 
-1. In case (i) use cartesian base change for compact pushforward Rf_!, which does not require f to be proper. In case (ii) use the same exchange on a square cartesian up to nilpotents, with topological invariance. In case (iii), with c₁ proper, use the adjoint composite and c₁_!=c₁_* (Varshavsky 1.1.6(a)).
+1. In case (i) use cartesian base change for compact pushforward Rf_!, which does not require f to be proper. In case (ii) the commutative square need not be cartesian: use the ordinary exchange b₁^*Rf₁_* → Rf♮_*c₁^*, obtained by adjunction, and identify Rf₁_! with Rf₁_* and Rf♮_! with Rf♮_* using their properness. This exchange need not be an isomorphism. In case (iii), with c₁ proper, use the adjoint composite and c₁_! = c₁_* (Varshavsky 1.1.6(a)).
 2. Compatibility with composition reduces to the compatibility of base change morphisms with composition (Varshavsky 1.1.6(b)).
 3. RΓ_c(u) := [π]_!(u) for the structure morphism, which satisfies (iii); independence of compactification by 1.1.6(b) (Varshavsky 1.1.7).
 
@@ -4522,7 +4483,7 @@ Let c : C → X × X be a self-correspondence, u : c₂_!c₁^*F → F a c-morph
 
 **Target:** `EtaleDualityAndPerverseSheaves:EDC.8/correspondence-specialization` (construction).
 
-Let k be separably closed, R a discrete valuation ring over k with residue field k (for example k[t]_{(t)} or k[[t]]), D = Spec R with generic point η and closed point s. A separated finite-type X̃ over D lifts X if it comes with ϕ : X̃ → X × D inducing X̃_η ≅ X_η; the specialisation functor is sp_{X̃}(F) := Ψ_{X̃}(ϕ_η^*F_η) : D^b_ctf(X, Λ) → D^b_ctf(X̃_s, Λ), with Ψ the nearby-cycles functor (computed after strict henselisation). A lift f̃ of f gives base-change maps f̃_s^*sp ↔ sp f^*, f̃_s!sp → sp f_!, sp f_* → f̃_s*sp, sp f^! → f̃_s^!sp, isomorphisms for f̃ proper (the ! and * pushforward ones) or smooth (pullback). For a lift c̃ of a correspondence c, every c-morphism u gives a c̃_s-morphism sp_c̃(u) : c̃_s2!c̃_s1^*sp F₁ → sp c₂!c₁^*F₁ → sp F₂. The trace maps commute with specialisation: sp_{Fix(c̃)}(Tr_c(u)) = Tr_{c̃_s}(sp_c̃(u)), where sp_{Fix(c̃)} : H⁰(Fix(c), K) → H⁰(Fix(c̃_s), K) is the induced map; c and c̃ need not be proper. For X̃ = X × D, sp is the identity. In computing Ψ, pass to a strict henselization and a chosen geometric generic point η̄; the functor is i_s^*Rj_η̄* applied to the geometric generic-fibre pullback. Using the ordinary generic point instead would introduce inertia cohomology. The all-finite-type exchange transformations and their adic extension are requested from LPV.0; its existing torsion/quasi-finite functoriality is insufficient by itself.
+Let k be separably closed, R a discrete valuation ring over k with residue field k (for example k[t]_{(t)} or k[[t]]), D = Spec R with generic point η and closed point s. A separated finite-type X̃ over D lifts X if it comes with ϕ : X̃ → X × D inducing X̃_η ≅ X_η; the specialisation functor is sp_{X̃}(F) := Ψ_{X̃}(ϕ_η^*F_η) : D^b_ctf(X, Λ) → D^b_ctf(X̃_s, Λ), with Ψ the nearby-cycles functor (computed after strict henselisation). A lift f̃ of f gives base-change maps f̃_s^*sp → sp f^*, f̃_s!sp → sp f_!, sp f_* → f̃_s*sp, sp f^! → f̃_s^!sp, isomorphisms for f̃ proper (the ! and * pushforward ones) or smooth (pullback). For a lift c̃ of a correspondence c, every c-morphism u gives a c̃_s-morphism sp_c̃(u) : c̃_s2!c̃_s1^*sp F₁ → sp c₂!c₁^*F₁ → sp F₂. The trace maps commute with specialisation: sp_{Fix(c̃)}(Tr_c(u)) = Tr_{c̃_s}(sp_c̃(u)), where sp_{Fix(c̃)} : H⁰(Fix(c), K) → H⁰(Fix(c̃_s), K) is the induced map; c and c̃ need not be proper. For X̃ = X × D, sp is the identity. In computing Ψ, pass to a strict henselization and a chosen geometric generic point η̄; the functor is i_s^*Rj_η̄* applied to the geometric generic-fibre pullback. Using the ordinary generic point instead would introduce inertia cohomology. The all-finite-type exchange transformations and their adic extension are requested from LPV.0; its existing torsion/quasi-finite functoriality is insufficient by itself.
 
 **Hypotheses and scope.**
 
@@ -5151,7 +5112,7 @@ Let c:C→X×X and let Z⊂X be a schematically c-invariant closed subscheme. As
 **Sources.**
 
 - **Varshavsky-LocalTerms-2020**, Theorem 4.10, p.10; Lemma 3.9, pp.7–8; proof §6, pp.12–14 (v3); published pp.995, 997–999: General invariant-closed-subscheme comparison, including the proper-component conclusion without a global no-almost assumption.
-- **Verdier-1983**, §3, Definition 3.1 and criterion 3.2, pp.338–340; §5, Proposition 5.1, pp.341–343; §8, SP1 and SP5, pp.353–354: Specialization is monodromic and its zero-section restriction recovers F|Z; finite-coefficient monodromic sheaves become weakly equivariant for a power of scaling.
+- **Verdier-1983**, §3, Definition 3.1 and criterion 3.2, pp.338–340; §5, Proposition 5.1, pp.341–343; §8, SP1 (p.352), SP5 (p.353) and proof (p.354): Specialization is monodromic and its zero-section restriction recovers F|Z; finite-coefficient monodromic sheaves become weakly equivariant for a power of scaling.
 
 <a id="tame-fixed-subscheme-normal-cone"></a>
 
@@ -5244,9 +5205,9 @@ Used by: `EtaleDualityAndPerverseSheaves:EDC.7/frobenius-descent-of-perverse-she
 
 ### SchemeAndStackFoundations:SF.0
 
-Geometric augmentations over finite-type field bases: Nagata compactification of separated finite-type morphisms; relative blow-up/Proj construction and its properness, making a closed ideal Cartier after blow-up as used in Varshavsky §3; Noether normalization finite on the bad-support locus in that proof; properness of the punctured cone quotient Proj over a proper vertex; and for a reduced diagonalizable group D acting on a smooth finite-type scheme, smoothness of the fixed locus and T_x(X^D)=(T_xX)^D at a fixed point. Only this smooth fixed-locus theorem is requested; the unrestricted normal-cone/fixed-scheme comparison is false. Finite normalization is already supplied by SF.0/nagata-normalization-finite. Spread out schemes and finite stratifications over a finitely generated base for BBD §6.1. For the tame fixed-subscheme lemma supply the standard affine-intersection property of separated schemes and scheme equalizers; its spectral-projector and associated-graded argument is given explicitly in the node. Absolute p-Frobenius of characteristic-p schemes, its q=p^a iterate as an 𝔽_q-morphism, base change and naturality; the Rosati target imports its geometric-point action and induced abelian-variety endomorphism. Include compatibility with products and the finite locally free degree q^g theorem for q-Frobenius on smooth pure g-dimensional schemes over 𝔽_q, via étale local coordinates, independent of point counts or weights. For the general semisimple isolated point, form the full Artin fixed component and the finite jets at a group-fixed point with their rational algebraic group action; no invariant affine neighbourhood or normality is requested.
+Geometric augmentations over finite-type field bases: Nagata compactification of separated finite-type morphisms; relative blow-up/Proj construction and its properness, making a closed ideal Cartier after blow-up as used in Varshavsky §3; Noether normalization finite on the bad-support locus in that proof; properness of the punctured cone quotient Proj over a proper vertex; and for a reduced diagonalizable group D acting on a smooth finite-type scheme, smoothness of the fixed locus and T_x(X^D)=(T_xX)^D at a fixed point. Only this smooth fixed-locus theorem is requested; the unrestricted normal-cone/fixed-scheme comparison is false. Finite normalization is already supplied by SF.0/nagata-normalization-finite. Spread out schemes and finite stratifications over a finitely generated base for BBD §6.1. For the tame fixed-subscheme lemma supply the standard affine-intersection property of separated schemes and scheme equalizers; its spectral-projector and associated-graded argument is given explicitly in the node. Absolute p-Frobenius of characteristic-p schemes, its q=p^a iterate as an 𝔽_q-morphism, base change and naturality; the abelian weight estimate imports its geometric-point action and induced abelian-variety endomorphism. Include compatibility with products and the finite locally free degree q^g theorem for q-Frobenius on smooth pure g-dimensional schemes over 𝔽_q, via étale local coordinates, independent of point counts or weights. For the general semisimple isolated point, form the full Artin fixed component and the finite jets at a group-fixed point with their rational algebraic group action; no invariant affine neighbourhood or normality is requested.
 
-Used by: `EtaleDualityAndPerverseSheaves:EDC.7/restricted-constructible-categories`, `EtaleDualityAndPerverseSheaves:EDC.8/scheme-correspondence`, `EtaleDualityAndPerverseSheaves:EDC.8/normal-cone-specialization`, `EtaleDualityAndPerverseSheaves:EDC.8/finite-order-local-terms`, `EtaleDualityAndPerverseSheaves:EDC.8/normal-cone-trace-comparison`, `EtaleDualityAndPerverseSheaves:EDC.8/tame-fixed-subscheme-normal-cone`, `EtaleDualityAndPerverseSheaves:EDC.7/weight-rosati-of-the-frobenius-endomorphism`, `EtaleDualityAndPerverseSheaves:EDC.8/semisimple-isolated-fixed-subscheme-normal-cone`.
+Used by: `EtaleDualityAndPerverseSheaves:EDC.7/restricted-constructible-categories`, `EtaleDualityAndPerverseSheaves:EDC.8/scheme-correspondence`, `EtaleDualityAndPerverseSheaves:EDC.8/normal-cone-specialization`, `EtaleDualityAndPerverseSheaves:EDC.8/finite-order-local-terms`, `EtaleDualityAndPerverseSheaves:EDC.8/normal-cone-trace-comparison`, `EtaleDualityAndPerverseSheaves:EDC.8/tame-fixed-subscheme-normal-cone`, `EtaleDualityAndPerverseSheaves:EDC.7/weight-weil-estimate-for-abelian-varieties`, `EtaleDualityAndPerverseSheaves:EDC.8/semisimple-isolated-fixed-subscheme-normal-cone`.
 
 ### EtaleDualityAndPerverseSheaves:EDC.5
 
@@ -5280,9 +5241,9 @@ Used by: `EtaleDualityAndPerverseSheaves:EDC.7/weight-twisting-by-rank-one-chara
 
 ### AbelianSchemesAndArithmeticModuli:A2
 
-A polarization of an abelian variety over 𝔽_q defined over 𝔽_q (A is projective over 𝔽_q), with its dual map π^∨ compatible with the Frobenius.
+Import the A2 polarization and canonical graph-bundle interface over 𝔽_q: M = (id,λ)^*P is ample with φ_M = 2λ, and φ_(α^*M) = α^∨φ_Mα. The finite-field identity π†π = q itself is imported from the existing A6/frobenius-semisimplicity target, not planned again in EDC.7.
 
-Used by: `EtaleDualityAndPerverseSheaves:EDC.7/weight-rosati-of-the-frobenius-endomorphism`.
+Used by: `EtaleDualityAndPerverseSheaves:EDC.7/weight-weil-estimate-for-abelian-varieties`.
 
 ### ArithmeticGaloisRepresentations:R01.6
 
@@ -5340,7 +5301,7 @@ Used by: `EtaleDualityAndPerverseSheaves:EDC.7/weight-hadamard-de-la-vallee-pous
 
 ### tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups
 
-Semisimple complex groups: maximal compact subgroup and complexification, finite outer automorphism and compact-normalizer/central-degree criteria of Weil II (1.3.10)–(1.3.15), beyond any currently stated compact-group supplier theorem. For a finite-dimensional faithful representation of an affine algebraic group H over an algebraically closed characteristic-zero field, the module is semisimple iff H has reductive identity component; finite component groups are handled by averaging. Apply to the Zariski closure of the geometric monodromy image. Invariant subspaces for the image and its closure coincide. This is the characteristic-zero linear-reductivity interface of layer 6, not a new algebraic-group theorem here. Use the existing characteristic-zero reductivity/semisimplicity and geometric algebraic monodromy closure interfaces. The additional maximal-compact complexification and finite-outer-automorphism lift of Weil II 2.2.4–2.2.6 must be supplied by ReductiveGroups, Part II: after dividing by central scalars, choose a compact real form compatible with the degree extension; algebraic complex representations restrict equivalently to its compact form, and complex conjugacy of its elements is compact conjugacy. This exact comparison is beyond the current v1 README and is not silently assumed there.
+Semisimple complex groups: maximal compact subgroup and complexification, finite outer automorphism and compact-normalizer/central-degree criteria of Weil II (1.3.10)–(1.3.15), beyond any currently stated compact-group supplier theorem. For a finite-dimensional faithful representation of an affine algebraic group H over an algebraically closed characteristic-zero field, the module is semisimple iff H has reductive identity component; finite component groups are handled by averaging. Apply to the Zariski closure of the geometric monodromy image. Invariant subspaces for the image and its closure coincide. This is the characteristic-zero linear-reductivity interface of layer 6, not a new algebraic-group theorem here. Use the existing characteristic-zero reductivity/semisimplicity and geometric algebraic monodromy closure interfaces. The additional maximal-compact complexification and finite-outer-automorphism lift of Weil II 2.2.4–2.2.6 requires an extension beyond the current ReductiveGroups and ReductiveGroupsPartII scopes: after dividing by central scalars, choose a compact real form compatible with the degree extension; algebraic complex representations restrict equivalently to its compact form, and complex conjugacy of its elements is compact conjugacy. This exact comparison is beyond the inspected current-main READMEs; the existing ReductiveGroupsPartII owns nonarchimedean local structure and arithmetic models and is not silently assumed there.
 
 Used by: `EtaleDualityAndPerverseSheaves:EDC.7/weight-geometric-monodromy-and-central-degree`, `EtaleDualityAndPerverseSheaves:EDC.7/weight-compact-weil-form`, `EtaleDualityAndPerverseSheaves:EDC.7/weight-geometric-semisimplicity`.
 
@@ -5492,6 +5453,17 @@ All statements are paraphrases with locators. The mathematical formulas in the c
 
 **Reason and effect:** On a smooth positive-dimensional stratum, ℚ̄_ℓ[2d](d) is dualizing and is not middle perverse. The main text uses ℚ̄_ℓ[d], and its resolution decomposition also uses [d]. Effect: nothing.
 
+
+### EtaleDualityAndPerverseSheaves/E707
+
+**Locator:** Proposition 2.2.8(i), p.195; repeated in 3.5.1, p.211; compare 2.1.1, p.187, and 2.2.7, p.194.
+
+The purity weight assigned to an irreducible compact-form representation has the positive sign 2Re(r). With the stated norm character ω₁(g)=q^(−deg g), the weight is −2Re(r).
+
+At a geometric Frobenius of degree d, the modulus is q^(−d Re(r)), which equals (q^d)^(w/2) only for w=−2Re(r). The character ω₁ gives the Tate line of weight −2, a diagnostic counterexample to the positive sign.
+
+**Known finding:** PAPER-DELIGNE-80/E38 and PAPER-DELIGNE-80/E72 (already confirmed in the atlas register). Independently confirmed by `REV-EtaleDualityAndPerverseSheaves--EDC.7~2`.
+
 ## Native baseline and implementation boundary
 
 Mathlib pin: `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti pin: `f790474821cf4256814db967cb154e7af3d0c369`.
@@ -5542,7 +5514,7 @@ Current read-only roadmap and library audits: `0d144d044dacebca17b654695b6f1ad58
 | `mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one` | `Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean` | Kronecker: an algebraic integer of a number field all of whose complex embeddings have norm 1 is a root of unity (integral Weil numbers of weight 0). |
 | `mathlib:IsAlgClosed.cardinal_eq_cardinal_transcendence_basis_of_aleph0_lt` | `Mathlib/FieldTheory/IsAlgClosed/Classification.lean` | An uncountable algebraically closed field has a transcendence basis (over a countable ring) of its own cardinality: trdeg(ℂ/σ(k)) = 𝔠. |
 | `mathlib:Cardinal.mk_complex` | `Mathlib/Analysis/Complex/Cardinality.lean` | #ℂ = 𝔠. |
-| `mathlib:IsAlgClosed.equivOfTranscendenceBasis` | `Mathlib/FieldTheory/IsAlgClosed/Classification.lean` | A ring equivalence between algebraically closed R-algebras from equipotent transcendence bases. The declaration returns a ring equivalence and does not state compatibility with a prescribed embedding of R; that compatibility is a separate obligation in the DWP.0 extension lemma. |
+| `mathlib:IsAlgClosed.equivOfTranscendenceBasis` | `Mathlib/FieldTheory/IsAlgClosed/Classification.lean` | A ring equivalence between algebraically closed R-algebras from equipotent transcendence bases. The declaration returns a ring equivalence and does not state compatibility with a prescribed embedding of R; that compatibility is supplied in EDC.7/weight-embeddings-into-the-complex-numbers using IsAlgClosure.equivOfEquiv_algebraMap. |
 | `mathlib:IsAlgClosed.ringEquiv_of_equiv_of_charZero` | `Mathlib/FieldTheory/IsAlgClosed/Classification.lean` | Two uncountable algebraically closed fields of characteristic 0 of the same cardinality are isomorphic: ℚ̄_ℓ ≅ ℂ. |
 | `mathlib:Algebra.IsAlgebraic.cardinalMk_le_max` | `Mathlib/RingTheory/Algebraic/Cardinality.lean` | #L ≤ max #R ℵ₀ for L algebraic over R: #ℚ̄_ℓ = #ℚ_ℓ. |
 | `mathlib:LinearMap.charpoly_baseChange` | `Mathlib/LinearAlgebra/Charpoly/BaseChange.lean` | For a finite free module over a commutative ring R and any commutative R-algebra A, the base-changed characteristic polynomial is the coefficient image under R→A. |

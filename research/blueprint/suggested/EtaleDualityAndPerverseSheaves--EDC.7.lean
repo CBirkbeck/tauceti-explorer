@@ -3,7 +3,7 @@ EDC.7 / EDC.8: native-baseline statement suggestions, revision 2026-10-14.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369.
 
-The reader document states all 115 targets, exact hypotheses, sources, APIs and diagnostic tests.
+The reader document states all 114 targets, exact hypotheses, sources, APIs and diagnostic tests.
 This file follows WORKERS.md's 2026-10-12 shape rule: no substitute sheaf categories,
 no unproved data constructions, and no development of the geometric theory. Perverse sheaves,
 weights, filtered six operations, normal-cone specialization and the coherent categorical
@@ -11,6 +11,7 @@ Lefschetz construction are reader targets until their carriers exist at the pins
 The reader supplies the transferred weight closure and the singular semisimple fixed-point proof.
 Their geometric implementation and the precise supplier requests remain open.
 
+This is a non-exhaustive subset of the README targets, not a completion checklist.
 Below are light predicates and end statements over native category-theoretic and
 finite-dimensional linear-algebra carriers. Proof holes do not claim implementation.
 -/
