@@ -2,6 +2,7 @@ import Mathlib.Algebra.Group.TypeTags.Hom
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.LinearAlgebra.TensorAlgebra.Grading
+import Mathlib.LinearAlgebra.TensorAlgebra.ToTensorPower
 import Mathlib.RingTheory.TwoSidedIdeal.Lattice
 import Mathlib.RingTheory.IntegralDomain
 import Mathlib.Basic.Real.Basic
@@ -140,14 +141,15 @@ Additional README target names, including those needing constructed carriers:
 pairing_identities, homogeneous_steinberg_ideal, graded_degree_two, field_lift_calculus,
 field_cocycle_normalization, field_symbol_pairing, lifted_bruhat_generation,
 field_symbol_generation, lifted_weyl_square_presentation, symbol_extension_local_relations,
-symbol_extension_exact, finite_classical_vanishing, finite_milnor_vanishing,
+symbol_extension_exact, symbol_extension_root_lifts, finite_classical_vanishing, finite_milnor_vanishing,
 infinite_symbol_injectivity, matsumoto_equivalence, matsumoto_natural, graded_symbol_signs,
 milnor_gradedAlgebra, milnor_symbol_mem_degree, milnor_symbol_mul, milnor_symbol_multilinear,
 milnor_hom_ext, milnor_low_degrees, milnor_degree_zero, milnor_unit_one, milnor_sandwich,
 milnor_real_square, milnorFieldMap, milnorFieldMap_symbol, milnorFieldMap_id, milnorFieldMap_comp,
 milnorFieldMap_degreeTwo, map_Q_R, map_F2_identity, map_order, symbolTorusExtension,
-symbolTorus_inl_injective, symbolTorus_defect, symbolTorus_commutator, symbolTorus_map, torus_zero,
+symbolTorus_mul, symbolTorus_project, symbolTorus_inl_injective, symbolTorus_defect, symbolTorus_commutator, symbolTorus_map, torus_zero,
 torus_adjacent, torus_real_defect, symbolMonomialExtension, symbolMonomial_torus,
+symbolMonomial_conjugation, symbolMonomial_hom_ext, symbolMonomial_lift,
 symbolMonomial_square, symbolMonomial_braid, symbolMonomial_kernel, monomial_zero, monomial_square,
 monomial_real_fourth, symbolExtensionSpace, symbolExtensionAction, symbolExtension_project,
 symbolExtension_coeff, symbolExtension_weyl_branch, action_identity_cell, action_square,
