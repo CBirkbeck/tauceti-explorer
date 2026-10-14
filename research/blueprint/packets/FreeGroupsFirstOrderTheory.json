@@ -228,6 +228,20 @@
     "checked": "statement read at the pinned commit (lean-check build tree, Mathlib 082e2d3)"
    },
    {
+    "ref": "mathlib:REPred",
+    "kind": "def",
+    "module": "Mathlib/Computability/RE.lean",
+    "provides": "Recursively enumerable predicates: domains of partial recursive functions",
+    "checked": "statement read at the pinned commit by REV-DESIGN-FGFO"
+   },
+   {
+    "ref": "mathlib:ComputablePred.computable_iff_re_compl_re'",
+    "kind": "theorem",
+    "module": "Mathlib/Computability/RE.lean",
+    "provides": "Post's theorem: a predicate is computable iff it and its complement are recursively enumerable (no decidability instance needed)",
+    "checked": "statement read at the pinned commit by REV-DESIGN-FGFO"
+   },
+   {
     "ref": "mathlib:FreeGroup",
     "kind": "def",
     "module": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
@@ -314,7 +328,8 @@
    "url": "https://arxiv.org/abs/math/0312509",
    "sha256": "ed2cfda3c57223abe585b03b6a6a4dd47b5b61b305d9d46e34be64111e2f24fb",
    "readSections": [
-    "§2.3 (pp. 4–5), §3.1 (pp. 11–13), §4.4 (pp. 24–27: Corollary 9, Definition 13, Theorem 4), §7.6 (pp. 137–142: Theorem 11, Lemma 76, Definition 44, correcting extensions, Theorems 12–14), read 2026-10-14"
+    "§2.3 (pp. 4–5), §3.1 (pp. 11–13), §4.4 (pp. 24–27: Corollary 9, Definition 13, Theorem 4), §7.6 (pp. 137–142: Theorem 11, Lemma 76, Definition 44, correcting extensions, Theorems 12–14), read 2026-10-14",
+    "§3.1 Lemma 3 to Corollary 7 (pp. 11–13), §4.4 (pp. 24–27) and §7.6 including Lemmas 74–75 (pp. 137–142), re-read 2026-10-14 by REV-DESIGN-FGFO"
    ]
   },
   {
@@ -331,11 +346,12 @@
    "id": "ERA98",
    "title": "Tarski's problem about the elementary theory of free groups has a positive solution",
    "authors": "Olga Kharlampovich, Alexei Myasnikov",
-   "edition": "Electron. Res. Announc. Amer. Math. Soc. 4 (1998), 101–108 (EMIS archival TeX version)",
-   "url": "https://www.maths.tcd.ie/EMIS/journals/ERA-AMS/1998-01-014/1998-01-014.tex.html",
-   "sha256": "e425672714dbd4f3b8bb3740a24f27f892dfc3ee23996d34a7ce9a8bcc4468ed",
+   "edition": "Electron. Res. Announc. Amer. Math. Soc. 4 (1998), 101–108; the AMS PDF (page numbers cited) and the EMIS archival TeX version, which has the same text",
+   "url": "https://www.ams.org/journals/era/1998-04-14/S1079-6762-98-00047-X/S1079-6762-98-00047-X.pdf",
+   "sha256": "0238ff1e3a66b9b0fa88ba8752916aea6648afafa38c9821f3a03281f8213caa",
    "readSections": [
-    "Theorems 1–2, the normal form (1), the statement on F(a1..an) ≤ F(a1..an+p), the history (Vaught, Lyndon, Merzljakov, Sacerdote, Makanin), read 2026-10-14"
+    "Theorems 1–2, the normal form (1), the statement on F(a1..an) ≤ F(a1..an+p), the history (Vaught, Lyndon, Merzljakov, Sacerdote, Makanin), read 2026-10-14",
+    "the AMS PDF, pp. 101–108, read 2026-10-14 by REV-DESIGN-FGFO to confirm the page numbers (formula (1) and Theorems 1–2 on p. 101, Vaught and Lyndon on p. 102, Merzljakov and Sacerdote on p. 103, Remeslennikov on p. 104, Theorem 3 on p. 106)"
    ]
   },
   {
@@ -346,7 +362,8 @@
    "url": "https://math.huji.ac.il/~zlil/diophantine6.pdf",
    "sha256": "8bd155c2f6aafdef34345188ada99689abd96e27ac2aa5d5a1137108cfdf1a7d",
    "readSections": [
-    "pp. 1–10: Theorems 1–4, Claim 5, the definition of hyperbolic ω-residually free towers (pp. 8–9), Proposition 6, read 2026-10-14"
+    "pp. 1–10: Theorems 1–4, Claim 5, the definition of hyperbolic ω-residually free towers (pp. 8–9), Proposition 6, read 2026-10-14",
+    "pp. 11–14 (the proof of Proposition 6 and the statement of Theorem 7, p. 14), read 2026-10-14 by REV-DESIGN-FGFO"
    ]
   },
   {
@@ -368,7 +385,8 @@
    "url": "https://arxiv.org/abs/1401.5711",
    "sha256": "c1c7acf39d0d1eafa410fe8660c5f0d5de25fda390d74553e745eab1b56a00a1",
    "readSections": [
-    "introduction and items (1)–(5), (57), read 2026-10-14; the remaining items consulted only through KM-RESPONSE"
+    "introduction and items (1)–(5), (57), read 2026-10-14; the remaining items consulted only through KM-RESPONSE",
+    "§3 items (1)–(5), pp. 6–7, and item (12), pp. 9–10 (the report numbers its §2 and §3 items separately), read 2026-10-14 by REV-DESIGN-FGFO"
    ]
   },
   {
@@ -391,6 +409,17 @@
    "sha256": "f06fd28c7eac36658ade8e813fb052fecd2ce2d656b44553639ff8415ec75701",
    "readSections": [
     "§3 (Definitions 3.4–3.5, Theorem 3.6, Remark 3.7, Theorems 3.8–3.9, pp. 6–9) and Proposition 4.6 (p. 12), read 2026-10-14"
+   ]
+  },
+  {
+   "id": "PERIN",
+   "title": "Elementary embeddings in torsion-free hyperbolic groups",
+   "authors": "Chloé Perin",
+   "edition": "Ann. Sci. Éc. Norm. Supér. (4) 44 (2011), 631–681; arXiv:0903.0945v3 (15 June 2012), the version with Proposition 5.11 corrected; PDF page numbers cited",
+   "url": "https://arxiv.org/abs/0903.0945v3",
+   "sha256": "e9c9ae3da89922c56b9502125529674944cc1ee8098383873e8460b87ca1ab6a",
+   "readSections": [
+    "§1 (pp. 1–4), §5.1 (Definitions 5.2–5.4 and the remarks, pp. 16–17) and §5.3 (Propositions 5.11–5.12, p. 19), read 2026-10-14 by REV-DESIGN-FGFO; the proof of Proposition 5.11 in §7 (pp. 31–47) was not checked"
    ]
   }
  ],
@@ -598,7 +627,7 @@
     {
      "name": "FirstOrder.Language.Formula.equivOver_iff_mem_completeTheory",
      "role": "compatibility",
-     "statement": "For φ ψ : L.Formula (Fin k), EquivOver M φ ψ ↔ (φ.iff ψ).iAlls id ∈ L.completeTheory M (Mathlib's iAlls closure)."
+     "statement": "For φ ψ : L.Formula (Fin k), EquivOver M φ ψ ↔ Formula.iAlls (Fin k) ((φ.iff ψ).relabel Sum.inr) ∈ L.completeTheory M: the universal closure of φ ↔ ψ, a sentence after relabelling the free variables into Empty ⊕ Fin k (Mathlib's iAlls β quantifies the Sum.inr variables of a formula over α ⊕ β)."
     },
     {
      "name": "FirstOrder.Language.BoundedFormula.EquivOver.of_elementarilyEquivalent",
@@ -669,19 +698,20 @@
    ],
    "title": "The alternating standard form ∀X₁∃Y₁…∀X_k∃Y_k ⋁(S = 1 ∧ T ≠ 1)",
    "kind": "theorem",
-   "statement": "There is a computable map stdForm on (codes of) L_A-formulas with parameters P such that stdForm φ has the shape ∀X₁∃Y₁…∀X_k∃Y_k ⋁_{i=1}^{r}(S_i = 1 ∧ T_i ≠ 1), with k ≥ 0, tuples X_j, Y_j possibly empty, and words S_i, T_i in X ∪ Y ∪ P ∪ A, and φ ∼_T stdForm φ for T the group axioms (equivalent in every group with coefficients). Over a nonabelian torsion-free CSA group satisfying Vaught's condition, in particular over F(A) with |A| ≥ 2, each disjunct may be taken with one equation and one inequation, and the matrix is computed effectively (IFT Corollary 7). The number k of ∀∃-blocks is the block count used as the termination measure in FO6.",
+   "statement": "There is a computable map stdForm on (codes of) L_A-formulas with parameters P such that stdForm φ has the shape ∀X₁∃Y₁…∀X_k∃Y_k ⋁_{i=1}^{r}(S_i = 1 ∧ T_i ≠ 1), with k ≥ 0 and tuples X_j, Y_j possibly empty, in one of two forms. (1) General form: each S_i = 1 is a finite (possibly empty) system of equations and each T_i ≠ 1 a finite (possibly empty) system of inequations, every component a word in X ∪ Y ∪ P ∪ A, and φ ∼_T stdForm φ for T the group axioms (equivalent in every group with coefficients; IFT §2.3). If φ is coefficient-free, so is its general form. (2) Merged form: over the class of torsion-free nonabelian CSA groups satisfying Vaught's condition and containing non-commuting coefficients a, b ∈ A, in particular over F(A) with |A| ≥ 2, each S_i and each T_i is a single word, computed effectively from the general form (IFT Corollaries 3, 5, Lemma 5 and Corollary 7); the merging introduces the constants a, b, so the merged form of a coefficient-free formula is not coefficient-free. The number k of ∀∃-blocks is the block count used as the termination measure in FO6.",
    "hypotheses": [
-    "Single equation and inequation per disjunct: the group is torsion-free, nonabelian, CSA and satisfies Vaught's condition (every nonabelian free group does)."
+    "Merged form (2) only: the group is torsion-free, nonabelian, CSA, satisfies Vaught's condition and contains non-commuting coefficients a, b ∈ A (every nonabelian free group F(A) with |A| ≥ 2 does)."
    ],
    "proofSteps": [
     "Apply Mathlib's toPrenex and realize_toPrenex (groups are nonempty).",
     "Group equal adjacent quantifiers into blocks and insert empty blocks (fictitious quantifiers over unused variables) so that the prefix alternates and starts with ∀ and ends with ∃.",
-    "Rewrite the matrix with FG3/quantifier-free-normal-form as a finite disjunction of systems; over F(A) merge each system into one equation and one inequation with IFT Corollaries 3, 5 and Lemma 5 (planned in FG7/positive-normal-form).",
+    "Rewrite the matrix with FG3/quantifier-free-normal-form as a finite disjunction of systems (the general form (1)); over F(A) merge each system into one equation and one inequation with IFT Corollaries 3, 5 and Lemma 5 (planned in FG7/positive-normal-form; the merged form (2)).",
     "Each step is a primitive recursive operation on codes (FG3/syntax-operations-computable)."
    ],
    "acceptance": [
     "∀x∃y([x, y] = 1) is already in standard form with k = 1.",
-    "∃y (y² = a) gets k = 1 with X₁ empty; a quantifier-free formula gets k = 0."
+    "∃y (y² = a) gets k = 1 with X₁ empty; a quantifier-free formula gets k = 0.",
+    "For coefficient-free φ the general form (1) is coefficient-free, while the merged form (2) contains the constants a, b of the Malcev and commutator encodings."
    ],
    "prerequisites": [
     "mathlib:FirstOrder.Language.BoundedFormula.toPrenex",
@@ -1062,7 +1092,7 @@
     {
      "sourceId": "HYP",
      "locator": "§3.2, Definitions 4–5 and Remark 1, pp. 10–12",
-     "match": "the same notions over Γ; Remark 1 records that the fundamental sequences of KM06 had properties 1–2 only and should also have property 3"
+     "match": "the same notions over Γ, except that the envelope in property 3 is generated by R and the edge-group images η_j(E_j) themselves, without isolators; Remark 1 records that the fundamental sequences of KM06 had properties 1–2 only and should also have property 3"
     },
     {
      "sourceId": "KM06",
@@ -1135,12 +1165,12 @@
     {
      "name": "not_isStrict_kills_edge",
      "kind": "non-example",
-     "statement": "A sequence G → G₁ whose epimorphism sends the edge group ⟨[a, b]⟩ of the splitting F(a, b) ∗_{[a,b]=[x,y]} ⟨x, y⟩ to 1 violates condition (2) and is not strict."
+     "statement": "A sequence in which some π_i (1 ≤ i < k) sends a non-trivial edge group of the decomposition of G_i to 1 violates condition (2) and is not strict. An edge group generated by constants cannot serve as an example: in F(a, b) ∗_{[a,b]=[x,y]} ⟨x, y⟩ the edge group ⟨[a, b]⟩ lies in F and is fixed by every π_i, which are F-homomorphisms."
     },
     {
      "name": "FundSeq.isStrict_mono",
      "kind": "compatibility",
-     "statement": "Every fundamental sequence of KM06 satisfying (1)–(2) and the envelope condition (3) is strict in the sense of HYP Definition 5 with Γ = F: the two definitions agree on free groups."
+     "statement": "A sequence strict in the sense of this node (QE-FREE Definition 1, whose envelope ⟨R, Is(η₁(E₁)), …, Is(η_m(E_m))⟩ uses isolators) is strict in the sense of HYP Definition 5 with Γ = F, whose envelope ⟨R, η₁(E₁), …, η_m(E_m)⟩ omits the isolators and is contained in the former; the converse is not claimed, and this roadmap uses the stronger QE-FREE condition."
     }
    ],
    "planet": {
@@ -1276,7 +1306,7 @@
    ],
    "title": "Well-aligned fundamental sequences: the first and second restrictions",
    "kind": "definition",
-   "statement": "A strict fundamental sequence for an irreducible system S = 1 over F, with NTQ system Q = (Q₁(X₁,…,X_n) = 1, …, Q_n(X_n) = 1) adjoined with free variables t₁,…,t_k and π_i : F_{R(Q_i,…,Q_n)} ∗ F(t₁,…,t_{k_{i−1}}) → F_{R(Q_{i+1},…,Q_n)} ∗ F(t₁,…,t_{k_i}), is well aligned when it satisfies: (First restriction) for every MQH vertex group Q of every level, with the free decomposition π(Q) = K₁ ∗ ⋯ ∗ K_p ∗ ⟨t_{j₁}⟩ ∗ ⋯ inherited from the reduced free decomposition of the next level, the surface Σ of Q is cut along a maximal family of disjoint non-homotopic simple closed curves mapped to 1 and realizing that decomposition; each piece attached to a rigid vertex group has no further essential simple closed curve mapped to 1 after capping the boundary components mapped to 1, and each piece not attached to a rigid vertex group caps to a closed surface mapped onto a free group of maximal rank. (Second restriction) at every level: images of distinct abelian free factors are distinct free factors of F(t_{k_{i−1}+1},…,t_{k_i}); likewise for surface-group factors; free variables of quadratic equations correspond to new t's and the images of their coefficients are not conjugate into the new free factor; distinct free factors go to distinct free factors. The dimension of the sequence is k₁ + ⋯ + k_n.",
+   "statement": "A strict fundamental sequence for an irreducible system S = 1 over F, with NTQ system Q = (Q₁(X₁,…,X_n) = 1, …, Q_n(X_n) = 1) adjoined with free variables t₁,…,t_k and π_i : F_{R(Q_i,…,Q_n)} ∗ F(t₁,…,t_{k_{i−1}}) → F_{R(Q_{i+1},…,Q_n)} ∗ F(t₁,…,t_{k_i}), is well aligned when it satisfies: (First restriction) for every MQH vertex group Q of every level, with the free decomposition π(Q) = K₁ ∗ ⋯ ∗ K_p ∗ ⟨t_{j₁}⟩ ∗ ⋯ inherited from the reduced free decomposition of the next level, the surface Σ of Q is cut along a maximal family of disjoint non-homotopic simple closed curves mapped to 1 and realizing that decomposition; each piece attached to a rigid vertex group has no further essential simple closed curve mapped to 1 after capping the boundary components mapped to 1, and each piece not attached to a rigid vertex group caps to a closed surface mapped onto a free group of maximal rank. (Second restriction) at every level: images of distinct abelian free factors are distinct free factors of F(t_{k_{i−1}+1},…,t_{k_i}); likewise for surface-group factors; free variables of quadratic equations correspond to new t's and the images of their coefficients are not conjugate into the new free factor; distinct free factors go to distinct free factors. Here k_i is the number of free variables added at level i, so that the free factor at level i + 1 has the k₁ + ⋯ + k_i variables of the levels above it (QE-FREE writes it F(t₁,…,t_{k_i}), sourceIssue E12); the free variables new at level i are the k_i variables written t_{k_{i−1}+1},…,t_{k_i} in the restrictions above. The dimension of the sequence is k₁ + ⋯ + k_n, the total number of free variables, equal to the rank of the free factor of the terminal level.",
    "hypotheses": [],
    "proofSteps": [
     "State the first restriction surface by surface through the cutting family of simple closed curves (FG6/surface-splittings), and the second through the Grushko factors of each level (FG4/kurosh-grushko).",
@@ -1320,7 +1350,7 @@
     {
      "name": "LimitGroup.FundSeq.dim",
      "role": "data",
-     "statement": "The dimension k₁ + ⋯ + k_n."
+     "statement": "The dimension k₁ + ⋯ + k_n: the total number of free variables t_j added along the sequence."
     },
     {
      "name": "LimitGroup.FundSeq.IsWellAligned.isStrict",
@@ -1534,7 +1564,7 @@
     {
      "name": "not_isGenericFamily_bounded",
      "kind": "non-example",
-     "statement": "For [x, a] = 1, the family x ↦ a^{b} with b ∈ {1, …, 10} is not generic: it is not B-large for B = 10, and it does not discriminate (x a^{−1}⋯ products of bounded length vanish)."
+     "statement": "For [x, a] = 1, the family x ↦ a^{b} with b ∈ {1, …, 10} is not generic: it is not B-large for B = 10, and it does not discriminate: no member keeps all ten elements x a^{−1}, …, x a^{−10} non-trivial."
     },
     {
      "name": "IsGenericFamily.regular_compat",
@@ -1665,7 +1695,7 @@
    ],
    "acceptance": [
     "If U has no centralizer-extending levels, NCW(U) = {U*}.",
-    "For U = ([x, a] = 1) and W: y² = x the correcting extension adjoins a square root of the centralizer generator (⟨a, s | s² = a⟩-type extension inside a larger cyclic group)."
+    "For U = {[x₁, a] = 1, [x₂, a] = 1} over F(a, b) (one centralizer-extending level, abelian vertex group ⟨a, x₁, x₂⟩ ≅ ℤ³) and W the single equation equivalent to y² = x₁ ∨ y² = x₂ ∨ y² = x₁x₂ (FG7/positive-normal-form), the formula ∀X(U = 1 → ∃y W = 1) is true (of the exponents m, n, m + n of x₁ = a^m, x₂ = a^n one is even), NCW(U) consists of correcting extensions whose embeddings realise index-2 sublattices of ⟨x₁, x₂⟩ on which x₁, x₂ or x₁x₂ becomes a square (for instance x₁ ↦ x₁²; x₂ ↦ x₂²; x₁ ↦ x₁x₂, x₂ ↦ x₁⁻¹x₂), and every solution of U factors through one of them."
    ],
    "prerequisites": [
     "FreeGroupsFirstOrderTheory:FO2/normalized-ntq",
@@ -1675,6 +1705,11 @@
     "FreeGroupsAndLimitGroups:FG8/ntq-coordinate-group"
    ],
    "sources": [
+    {
+     "sourceId": "IFT",
+     "locator": "§7.6, Lemma 75 and its proof, pp. 138–139",
+     "match": "for a centralizer-extending system U_com that is true at all its solutions, finitely many ⟨b⟩-embeddings φ_k of the free abelian group A(X, b) make the formula hold in the coordinate group and every solution factors through one of them; read off from the periodic structures of T_sol as integer linear systems"
+    },
     {
      "sourceId": "IFT",
      "locator": "§7.6, 'correcting extension of centralizers', pp. 141–142",
@@ -1756,7 +1791,7 @@
     {
      "name": "correctingExt.not_identity",
      "kind": "non-example",
-     "statement": "In general NCW(U) ≠ {U}: for HYP's counter-example (§3.5, pp. 21–22) no lift exists in the coordinate group itself, so a definition that never enlarges abelian vertex groups fails the parametrization theorem."
+     "statement": "In general NCW(U) ≠ {U}: for U = {[x₁, a] = 1, [x₂, a] = 1} over F(a, b) the formula ∃y (y² = x₁ ∨ y² = x₂ ∨ y² = x₁x₂) holds at every solution x₁ = a^m, x₂ = a^n (one of m, n, m + n is even) but has no solution in F_{R(U)} = F(a, b) ∗_{⟨a⟩} ⟨a, x₁, x₂⟩, where none of x₁, x₂, x₁x₂ is a square (a square root would lie in the centralizer ⟨a, x₁, x₂⟩ ≅ ℤ³); so a definition that never enlarges abelian vertex groups fails the parametrization theorem. (HYP's counter-example on pp. 21–22 concerns Sela's formulation over a non-free hyperbolic group and is not an instance of this.)"
     }
    ],
    "planet": {
@@ -2005,7 +2040,7 @@
    ],
    "uses": [
     {
-     "where": "QE-FREE, §4.2, Theorem 7, p. 24",
+     "where": "QE-FREE, §4.2, Theorem 7, p. 25",
      "how": "the bound on algebraic solutions is stated for K without a sufficient splitting modulo H"
     },
     {
@@ -2108,7 +2143,7 @@
    ],
    "acceptance": [
     "F itself is never a reducing quotient of K modulo H ⊇ F.",
-    "K ∗_{H} (free decomposition of the quotient modulo H₁) is reducing."
+    "A quotient K₁ = H₁ ∗ ⟨s⟩ with s ≠ 1 (a non-trivial free decomposition modulo H₁) is reducing."
    ],
    "prerequisites": [
     "FreeGroupsFirstOrderTheory:FO2/sufficient-splitting",
@@ -2223,7 +2258,7 @@
    "hypotheses": [],
    "proofSteps": [
     "Define ψ_d and θ_d explicitly on generators adapted to D; they are homomorphisms because d commutes with ψ(C), respectively with θ(M).",
-    "Define ∼_AE as an EqvGen closure and ∼_MAX as in (d); prove it is an equivalence relation (transitivity: compose the witnesses θ and use that ∼_AE is an equivalence)."
+    "Define ∼_AE as an EqvGen closure and ∼_MAX as in (d); prove that ∼_MAX is an equivalence relation (the sources speak of MAX-classes). Symmetry and transitivity need, besides ∼_AE being an equivalence, that the twists generating ∼_AE are compatible with agreement up to conjugation on the non-QH components: a twist ψ_d or θ_d is determined by the values on the edge and abelian vertex groups, which lie in those components; this compatibility is part of the node's proof."
    ],
    "acceptance": [
     "For K rigid modulo H with D trivial, ∼_MAX is equality on F-homomorphisms.",
@@ -2469,7 +2504,7 @@
     },
     {
      "sourceId": "SELA-REPORT",
-     "locator": "item (4), p. 6",
+     "locator": "§3, item (4), p. 7",
      "match": "identifies these algebraic solutions with Sela's strictly solid homomorphisms in the published version of KM06"
     }
    ],
@@ -2503,7 +2538,7 @@
    ],
    "uses": [
     {
-     "where": "QE-FREE, §4.2, Theorem 7, p. 24",
+     "where": "QE-FREE, §4.2, Theorem 7, p. 25",
      "how": "the uniform bound N(K, H) on the number of MAX-classes of algebraic solutions"
     },
     {
@@ -2604,7 +2639,7 @@
     "θ₁: ∃X₁X₂ ∀Y T Z (S(X₁, X₂, P) = 1 ∧ ¬(⋀[t_i, c_i(X₂)] = 1 ∧ Z = X₂^{σ_T} ∧ S(Y, X₂, P) = 1 ∧ V(Y, Z, P) = 1)); θ_N by the same pattern with N tuples and pairwise non-equivalence clauses."
    ],
    "acceptance": [
-    "θ₀ is true; for K = H, θ₁ holds at every P̄ and θ₂ at none."
+    "θ₀ is true; for K = H, θ₁ holds exactly at the P̄ that solve the defining relations S(P) = 1 of H (the F-homomorphisms φ : H → F), and θ₂ holds at none."
    ],
    "prerequisites": [
     "FreeGroupsFirstOrderTheory:FO4/algebraic-solution",
@@ -2657,7 +2692,7 @@
    "sources": [
     {
      "sourceId": "QE-FREE",
-     "locator": "§4.2, Theorem 7, p. 24",
+     "locator": "§4.2, Theorem 7, p. 25",
      "match": "the uniform bound N(K, H), recorded as KM06 Theorem 11"
     },
     {
@@ -2675,7 +2710,7 @@
    "planet": {
     "name": "Bound on algebraic solutions"
    },
-   "notes": "Sela's counterpart is the global bound on the number of strictly solid families (Diophantine geometry III, Theorem 2.9), which KM-RESPONSE §4(f) says is stated without proof; QE-FREE p. 24 records that Sela's Theorem 3.5 of the hyperbolic paper is stated without proof."
+   "notes": "Sela's counterpart is the global bound on the number of strictly solid families of Diophantine geometry III (SELA-REPORT §3 items (4)–(5), p. 7, compares KM06 Theorem 11 with Theorems 2.5 and 2.9 there). For the hyperbolic case, QE-FREE p. 25 says that Theorem 3.5 of Sela's hyperbolic-group paper is stated without proof, and KM-RESPONSE §4(f), p. 11, says the same of the bound on strictly solid families in that paper (its Theorem 3.8)."
   },
   {
    "id": "FreeGroupsFirstOrderTheory:FO3/complexity",
@@ -2906,8 +2941,8 @@
     },
     {
      "name": "induced.finite_index_surface",
-     "kind": "computation",
-     "statement": "For S the single regular quadratic equation of a once-punctured genus-2 surface over F and K the subgroup corresponding to a double cover of that surface with its boundary, the induced QH subgroup is K itself, of index 2 in the QH subgroup of S."
+     "kind": "characterisation",
+     "statement": "If K meets a QH vertex group Q of the top level of S in a subgroup of finite index, the QH subgroups of the induced system that come from Q have finite index in Q; a construction that kept a decomposition of K in which a QH subgroup is not of finite index in a QH subgroup of S would fail induced_qh_finiteIndex."
     },
     {
      "name": "induced.not_subgroup_only",
@@ -3213,7 +3248,7 @@
     {
      "name": "tightEnvelope.kuroshRank_le_example",
      "kind": "compatibility",
-     "statement": "For every G ≤ F_{R(L₁)}, the Kurosh rank of TEnv(G; L₁) is at most that of c(L₁), with equality when G has finite index in each QH subgroup it meets."
+     "statement": "For every G ≤ F_{R(L₁)}, the Kurosh rank of TEnv(G; L₁) is at most that of c(L₁) (steps (a)–(f) add only elements that do not increase it)."
     },
     {
      "name": "tightEnvelope.finite_index_qh",
@@ -3454,7 +3489,7 @@
     "A solution f for disjunct i: U_i(X, f(X)) = 1 identically, so Φ fails at most where V_i(X, f(X)) = 1; decide consistency of U₀ = 1 over F with the FG7 solver."
    ],
    "acceptance": [
-    "For Φ = ∀x∃y (y = x) the first step returns 'true' with f(x) = x and U₀ = (1 ≠ 1) inconsistent.",
+    "For Φ = ∀x∃y (y = x), with standard form ∀x∃y (y x⁻¹ = 1 ∧ a ≠ 1), the first step returns 'true' with f(x) = x and U₀ = (a = 1), which is inconsistent over F.",
     "For Φ = ∀x∃y (y² = x) the first step returns 'false'."
    ],
    "prerequisites": [
@@ -3673,13 +3708,13 @@
    ],
    "title": "The ∀∃-tree T_EA(Φ)",
    "kind": "construction",
-   "statement": "For a ∀∃-sentence Φ whose first step (FO5/ae-tree-first-step) passes G = F_{R(U₀)}, the tree T_EA(Φ) is built as follows. Root: all homomorphisms G → F. Level 1: one vertex for each well-aligned fundamental sequence V_fund(S(b)) of the canonical embedding tree of G (FO2/canonical-embedding-tree) with its correcting extension S_corr(b) (FO2/correcting-extension); if the image of G in N₀ = F_{R(S(b))} is a proper quotient, replace the vertex by the fundamental sequences of that quotient. Otherwise apply the parametrization theorem (FO2/parametrization-theorem) to get formula solutions Y = f(X₁,…,X_n) over S_corr(b) — if none exists, Φ is false — and restrict to values minimal with respect to the images of G (FO2/fundamental-sequences-modulo) satisfying the new equation V(X, f(X)) = 1, giving U₁ and G₁ = F_{R(U₁)}; if U₁ is inconsistent the branch is closed (proved on level 2). General step n: given the block-NTQ group N_{n−1} (FO5/block-ntq) and fundamental sequences c^{(n)} for G_n modulo the rigid subgroups R_{r(n)} of the top block: first easy case — G (or the current quotient) does not embed in the image of N_{n−1}: continue with the well-aligned sequences of the image G^{(n)}; second easy case — some top block M_{g(r)}(X, Z_{g(r)}) has a proper projective image: restart from vertex w_{g(r)+1} with that quotient and only sequences of non-maximal complexity; Case 1 (top levels agree: pass to the next level), Case 2 (top levels of c^{(n−1)},…,c^{(n−i)} agree but not c^{(n)}: a level where the image of the top block is proper; build the next blocks from the induced sequence and a sequence for the quotient), Case 3 (consecutive top levels differ: likewise, with sequences not of maximal complexity), Case 4 (all levels agree: replace c by the sequence d induced by the image G_{n,corr} of the corrective extension, which decreases the number of free factors, the regular size or the abelian size at some level). Each vertex carries a fundamental sequence, a block-NTQ group, a correcting extension and, after the parametrization theorem, the next equation.",
+   "statement": "For a ∀∃-sentence Φ whose first step (FO5/ae-tree-first-step) passes G = F_{R(U₀)}, the tree T_EA(Φ) is built as follows. Root: all homomorphisms G → F. Level 1: one vertex for each well-aligned fundamental sequence V_fund(S(b)) of the canonical embedding tree of G (FO2/canonical-embedding-tree) with its correcting extension S_corr(b) (FO2/correcting-extension); if the image of G in N₀ = F_{R(S(b))} is a proper quotient, replace the vertex by the fundamental sequences of that quotient. Otherwise apply the parametrization theorem (FO2/parametrization-theorem) to get formula solutions Y = f(X₁,…,X_n) over S_corr(b) — if none exists, Φ is false; the construction searches for a formula solution and does not decide its existence — and restrict to values minimal with respect to the images of G (FO2/fundamental-sequences-modulo) satisfying the new equation V(X, f(X)) = 1, giving U₁ and G₁ = F_{R(U₁)}; if U₁ is inconsistent the branch is closed (proved on level 2). General step n: given the block-NTQ group N_{n−1} (FO5/block-ntq) and fundamental sequences c^{(n)} for G_n modulo the rigid subgroups R_{r(n)} of the top block: first easy case — G (or the current quotient) does not embed in the image of N_{n−1}: continue with the well-aligned sequences of the image G^{(n)}; second easy case — some top block M_{g(r)}(X, Z_{g(r)}) has a proper projective image: restart from vertex w_{g(r)+1} with that quotient and only sequences of non-maximal complexity; Case 1 (top levels agree: pass to the next level), Case 2 (top levels of c^{(n−1)},…,c^{(n−i)} agree but not c^{(n)}: a level where the image of the top block is proper; build the next blocks from the induced sequence and a sequence for the quotient), Case 3 (consecutive top levels differ: likewise, with sequences not of maximal complexity), Case 4 (all levels agree: replace c by the sequence d induced by the image G_{n,corr} of the corrective extension, which decreases the number of free factors, the regular size or the abelian size at some level). Each vertex carries a fundamental sequence, a block-NTQ group, a correcting extension and, after the parametrization theorem, the next equation. The construction halts when Φ is true (FO5/ae-tree-correct); when Φ is false it may not halt, and the decider (FO5/ae-decider) runs it alongside a search for a counterexample.",
    "hypotheses": [],
    "proofSteps": [
     "Implement the tree as a finitely branching tree whose vertices hold finite presentations of block-NTQ groups, fundamental sequences and equations; every operation used is one of the effective constructions of FO2–FO3 and FG10.",
     "At each vertex decide which case applies (properness of projective images is decidable, FO3/projective-images) and apply it.",
-    "Existence of a formula solution ∃Y(W(X^θ, Y) = 1 ∧ W₁(X^θ, Y) ≠ 1) in a correcting extension F_{R(Ū)} is decided, not searched for: compute a complete Hom-diagram of W(X^θ, Y) = 1 over the finitely generated fully residually free group F_{R(Ū)} (FG10/equations-over-limit-groups) and test with the word problem (FG10/frf-basic-algorithms) whether W₁ vanishes on every branch; a witness is read off a branch where it does not.",
-    "A branch is closed when its current equation is inconsistent (decided by FG7); the procedure answers 'false' when the parametrization theorem yields no formula solution at a vertex."
+    "Formula solutions are found by search, not decided: enumerate tuples Y of words in the generators of the correcting extension F_{R(Ū)} and test W(X^θ, Y) = 1 and W₁(X^θ, Y) ≠ 1 with the word problem of FG10/frf-basic-algorithms-correct. When Φ is true a formula solution exists at every vertex (FO2/parametrization-theorem; IFT Theorem 12 finds it effectively), so each search halts. When Φ is false a search may run forever, and falsity is detected by the counterexample search of FO5/ae-decider. (Deciding the existence of formula solutions outright would need equations with inequations over the limit group F_{R(Ū)}, FG10/equations-over-limit-groups, which rests on a recorded gap of FreeGroupsAndLimitGroups and is not used here.)",
+    "A branch is closed when its current equation is inconsistent over F (decided by FG7/solver-procedure); the construction returns 'true' when every branch is closed."
    ],
    "acceptance": [
     "For Φ proved on the first level the tree has only its root.",
@@ -3695,7 +3730,7 @@
     "FreeGroupsFirstOrderTheory:FO3/projective-images",
     "FreeGroupsFirstOrderTheory:FO3/terminal-image-proper",
     "FreeGroupsFirstOrderTheory:FO3/complexity",
-    "FreeGroupsAndLimitGroups:FG10/equations-over-limit-groups",
+    "FreeGroupsAndLimitGroups:FG7/solver-procedure",
     "FreeGroupsAndLimitGroups:FG10/frf-basic-algorithms-correct"
    ],
    "sources": [
@@ -3776,7 +3811,7 @@
     {
      "name": "AETree.false",
      "kind": "non-example",
-     "statement": "For Φ = ∀x∃y ([x, y] ≠ 1), false in F(a, b) (take x = 1): the first step finds y = a ([x, a] ≠ 1 in F[x]) and leaves U₀ = ([x, a] = 1); on G = ⟨a, b, x | [x, a]⟩ the formula solution y = b leaves the equation x = 1; at that vertex ∃y [1, y] ≠ 1 has no formula solution and the procedure answers 'false'. A procedure that stopped after the first step would wrongly answer 'true'."
+     "statement": "For Φ = ∀x∃y ([x, y] ≠ 1), false in F(a, b) (take x = 1): the first step finds y = a ([x, a] ≠ 1 in F[x]) and leaves U₀ = ([x, a] = 1); on G = ⟨a, b, x | [x, a]⟩ the formula solution y = b leaves the equation x = 1; at that vertex ∃y [1, y] ≠ 1 has no formula solution, so the search for one never halts and the tree construction gives no answer; the counterexample search of FO5/ae-decider finds x̄ = 1, where the universal sentence ∀y [1, y] = 1 holds, and aeDecide answers 'false'. A procedure that stopped after the first step would wrongly answer 'true'."
     },
     {
      "name": "AETree.homs_cover_example",
@@ -3851,7 +3886,7 @@
    ],
    "title": "Correctness of the ∀∃-tree: both answers",
    "kind": "theorem",
-   "statement": "Let Φ be a ∀∃-sentence of L_A over F = F(A), |A| ≥ 2. (1) If the construction of T_EA(Φ) ends with every branch closed (every terminal equation inconsistent over F), Φ is true in F. (2) If at some vertex no formula solution exists over the correcting extension (in particular if the first step finds no free lift), Φ is false in F. (3) Exactly one of the two outcomes occurs.",
+   "statement": "Let Φ = ∀X∃Y φ₀ be a ∀∃-sentence of L_A over F = F(A), |A| ≥ 2. (1) If the construction of T_EA(Φ) ends with every branch closed (every terminal equation inconsistent over F), Φ is true in F. (2) If at some vertex no formula solution exists over the correcting extension (in particular if the first step finds no free lift), Φ is false in F. (3) If Φ is true, the construction, with formula solutions found by search, halts with every branch closed. (4) Φ is false iff there is X̄ ∈ F^X at which the universal sentence ∀Y ¬φ₀(X̄, Y), with constants from F, holds in F.",
    "hypotheses": [
     "F = F(A), |A| ≥ 2."
    ],
@@ -3859,17 +3894,19 @@
     "(1) Every X̄ ∈ F^X is either verified at some vertex (the formula solution witnesses Φ at X̄) or factors through an open vertex (AETree.homs_cover); closed branches have no remaining X̄, so all X̄ are verified.",
     "Minimality: if a specialization of the variables of the fundamental sequence is replaced by a minimal one in its class, Φ at X̄ is unchanged, since the classes are orbits of canonical automorphisms fixing the images of G (QE-FREE p. 12).",
     "(2) If Φ were true, the parametrization theorem (FO2/parametrization-theorem) would give a formula solution at every vertex, applied to the NTQ system of the vertex restricted to the remaining X; at the first step this is FO1/free-lifting-theorem.",
-    "(3) By FO5/ae-tree-finite the construction ends, and it ends in one of the two ways."
+    "(3) If Φ is true, by (2) a formula solution exists at every vertex, so every search halts; the construction is finite (FO5/ae-tree-finite), so it ends, and since no vertex lacks a formula solution every branch ends closed.",
+    "(4) is the meaning of the falsity of ∀X∃Y φ₀; the universal sentences ∀Y ¬φ₀(X̄, Y) with constants from F are decided by FG7/existential-universal-deciders."
    ],
    "acceptance": [
-    "∀x∃y (y ≠ 1 ∧ [x, y] = 1) gives (1); ∀x∃y ([x, y] ≠ 1) gives (2)."
+    "∀x∃y (y ≠ 1 ∧ [x, y] = 1) gives (1) and (3); ∀x∃y ([x, y] ≠ 1) gives (2) at the vertex x = 1 and (4) with X̄ = 1."
    ],
    "prerequisites": [
     "FreeGroupsFirstOrderTheory:FO5/ae-tree",
     "FreeGroupsFirstOrderTheory:FO5/ae-tree-finite",
     "FreeGroupsFirstOrderTheory:FO2/parametrization-theorem",
     "FreeGroupsFirstOrderTheory:FO1/free-lifting-theorem",
-    "FreeGroupsFirstOrderTheory:FO2/fundamental-sequences-modulo"
+    "FreeGroupsFirstOrderTheory:FO2/fundamental-sequences-modulo",
+    "FreeGroupsAndLimitGroups:FG7/existential-universal-deciders"
    ],
    "sources": [
     {
@@ -3893,11 +3930,12 @@
    ],
    "title": "The decider for ∀∃-sentences",
    "kind": "construction",
-   "statement": "aeDecide takes (the FG3 code of) a ∀∃-sentence Φ of L_A, puts it in standard form (FO1/standard-form), runs the first step (FO5/ae-tree-first-step) and then constructs T_EA(Φ) (FO5/ae-tree); it returns false as soon as a vertex has no formula solution and true when every branch is closed. On an ∃∀-sentence Ψ it returns the negation of aeDecide on the ∀∃-sentence equivalent to ¬Ψ (FO1/quantifier-classes).",
+   "statement": "aeDecide takes (the FG3 code of) a ∀∃-sentence Φ = ∀X∃Y φ₀ of L_A and runs two searches in parallel, returning the first answer: (a) the standard form (FO1/standard-form) and the first step (FO5/ae-tree-first-step), returning false if no free lift exists, and then the construction of T_EA(Φ) (FO5/ae-tree), returning true when every branch is closed; (b) an enumeration of tuples X̄ ∈ F^X, returning false at the first X̄ for which FG7's universal decider confirms ∀Y ¬φ₀(X̄, Y). Equivalently, the true ∀∃-sentences and the false ones are both recursively enumerable, and Post's theorem (Mathlib's ComputablePred.computable_iff_re_compl_re') makes truth a computable predicate. On an ∃∀-sentence Ψ it returns the negation of aeDecide on the ∀∃-sentence equivalent to ¬Ψ (FO1/quantifier-classes).",
    "hypotheses": [],
    "proofSteps": [
-    "Compose the computable steps (FG3 encodings, FO1 standard form, FG7 solver, FO2–FO3 constructions, FG10 algorithms).",
-    "Termination on every ∀∃-sentence is FO5/ae-tree-finite; the answer is read off as in FO5/ae-tree-correct."
+    "Compose the computable steps (FG3 encodings, FO1 standard form, FG7 solver and universal decider, FO2–FO3 constructions, FG10 algorithms).",
+    "Search (a) halts on true sentences (FO5/ae-tree-correct (3)) and its answer true is correct (FO5/ae-tree-correct (1)); its answer false at the first step is correct by FO1/free-lifting-theorem. Search (b) halts on false sentences (FO5/ae-tree-correct (4)) and its answer is correct. So both answers are correct and one search always halts.",
+    "In Mathlib's terms: truth is REPred through (a), falsity is REPred through (b), and ComputablePred.computable_iff_re_compl_re' gives the total computable decider."
    ],
    "acceptance": [
     "aeDecide (∀x∃y (y = x)) = true.",
@@ -3909,7 +3947,11 @@
     "FreeGroupsFirstOrderTheory:FO1/standard-form",
     "FreeGroupsFirstOrderTheory:FO1/quantifier-classes",
     "FreeGroupsAndLimitGroups:FG3/effective-encoding",
-    "mathlib:Computable"
+    "mathlib:Computable",
+    "FreeGroupsFirstOrderTheory:FO5/ae-tree-correct",
+    "FreeGroupsAndLimitGroups:FG7/existential-universal-deciders",
+    "mathlib:REPred",
+    "mathlib:ComputablePred.computable_iff_re_compl_re'"
    ],
    "sources": [
     {
@@ -3949,6 +3991,11 @@
      "name": "FreeGroup.FirstOrder.computable_aeDecide",
      "role": "other",
      "statement": "aeDecide is computable (total on ∀∃-sentences)."
+    },
+    {
+     "name": "FreeGroup.FirstOrder.aeTrue_rePred",
+     "role": "other",
+     "statement": "The set of codes of true ∀∃-sentences is REPred (search (a)) and so is the set of false ones (search (b)); with ComputablePred.computable_iff_re_compl_re' this is computable_aeDecide."
     },
     {
      "name": "FreeGroup.FirstOrder.aeDecide_existential",
@@ -4006,7 +4053,7 @@
     "A finite, |A| ≥ 2."
    ],
    "proofSteps": [
-    "Correctness: FO5/ae-tree-correct; totality: FO5/ae-tree-finite; computability: FO5/ae-decider.",
+    "Correctness, totality and computability: FO5/ae-decider (two semi-decision procedures, justified by FO5/ae-tree-correct and FO5/ae-tree-finite, combined by Post's theorem).",
     "∃∀-sentences: Ψ is true iff the ∀∃-sentence equivalent to ¬Ψ is false."
    ],
    "acceptance": [
@@ -4053,7 +4100,7 @@
     "Coefficient-free sentences only (with constants the statement compares F(A) with F(A ⊔ B), FO7/elementary-embedding)."
    ],
    "proofSteps": [
-    "For a coefficient-free Φ, the first step solves a coefficient-free equation over F_k ∗ F(X); its solvability does not depend on k ≥ 2 (Merzljakov words can be chosen in F₂).",
+    "For a coefficient-free Φ, work with the coefficient-free general standard form (FO1/standard-form (1)) and keep every construction coefficient-free: the merged form (2) introduces the constants a, b and is not used, and a coefficient-free replacement for the merging of equations and inequations is part of the recorded gap 'rank independence in KM's route'. The first step then solves coefficient-free systems over F_k ∗ F(X) with X as constants; solvability does not depend on k ≥ 2, because F_k ∗ F(X) and F_ℓ ∗ F(X) embed in each other over F(X) and existential formulas with constants from F(X) go up along embeddings.",
     "Each later construction (canonical embedding tree, correcting extensions, parametrization) for a coefficient-free system over F_ℓ is obtained from that over F_k by replacing terminal factors L by L ∗ F_{ℓ−k} (SELA-VI p. 5).",
     "So the trees for F_k and F_ℓ close or fail at the same vertices, and by FO5/ae-tree-correct Φ has the same truth value."
    ],
@@ -4119,7 +4166,7 @@
    "sources": [
     {
      "sourceId": "QE-FREE",
-     "locator": "§4.2, Theorem 7 ('Moreover … the constant N … can be found effectively') and its proof, pp. 24–25",
+     "locator": "§4.2, Theorem 7 ('Moreover … the constant N … can be found effectively') and its proof, p. 25",
      "match": "the rigid case through the existential theory and the solid case through an ∃∀-sentence, the least false m giving N = m − 1"
     },
     {
@@ -4148,6 +4195,7 @@
    "proofSteps": [
     "Top: the formula solutions of U = 1 ∧ V ≠ 1 for all parameter values lie in finitely many fundamental sequences modulo ⟨A, P, Z⟩ (FO1/free-lifting-theorem with FO2/fundamental-sequences-modulo).",
     "The remaining X: the condition V(P, Z, X, f) = 1 for every f of the sequence is a system over F_{R(U_{1,i})} ∗ F(X), equivalent to a finite subsystem by equational Noetherianity (FG5).",
+    "The formula solutions of U = 1 over the correcting extensions of the NTQ groups at level m ≥ 2 are all of them, not one: QE-FREE p. 27 describes the set of all formula solutions Y by finitely many fundamental sequences. That set is the solution set of an equation over a finitely generated fully residually free group, and its description is a complete Hom-diagram over that group (FG10/equations-over-limit-groups), which rests on a recorded gap of FreeGroupsAndLimitGroups (gap 'all formula solutions over NTQ groups').",
     "Continue as in FO5/ae-tree with the parameter subgroups; finiteness by the argument of FO5/ae-tree-finite; the algorithm uses FO4/reducing-quotients-effective and fundamental sequences modulo subgroups (QE-FREE Proposition 4)."
    ],
    "acceptance": [
@@ -4161,7 +4209,8 @@
     "FreeGroupsFirstOrderTheory:FO2/parametrization-theorem",
     "FreeGroupsFirstOrderTheory:FO1/free-lifting-theorem",
     "FreeGroupsFirstOrderTheory:FO4/reducing-quotients-effective",
-    "FreeGroupsAndLimitGroups:FG5/linear-equationally-noetherian"
+    "FreeGroupsAndLimitGroups:FG5/linear-equationally-noetherian",
+    "FreeGroupsAndLimitGroups:FG10/equations-over-limit-groups"
    ],
    "sources": [
     {
@@ -4251,7 +4300,8 @@
    "library": {
     "module": "TauCeti/GroupTheory/FreeGroup/FirstOrder/QuantifierElimination",
     "namespace": "FreeGroup.FirstOrder"
-   }
+   },
+   "notes": "Unlike the ∀∃-tree, which needs one formula solution per vertex and finds it by search, the parametric tree needs the complete description of all formula solutions over NTQ groups; this is the one place where the roadmap uses FG10/equations-over-limit-groups."
   },
   {
    "id": "FreeGroupsFirstOrderTheory:FO6/true-sets",
@@ -4518,7 +4568,7 @@
    "sources": [
     {
      "sourceId": "QE-FREE",
-     "locator": "§5, p. 25 ('it is enough to give an algorithm to find such a Boolean combination that defines the set defined by Θ(P)'), Proposition 4 and Theorem 8, pp. 28–29",
+     "locator": "§5, p. 26 ('it is enough to give an algorithm to find such a Boolean combination that defines the set defined by Θ(P)'), Proposition 4 and Theorem 8, pp. 28–29",
      "match": "the reduction of the whole elimination to formulas Θ(P) and the level-by-level description of True(Θ)"
     },
     {
@@ -4549,7 +4599,7 @@
    "hypotheses": [],
    "proofSteps": [
     "Define blocks as the k of stdForm φ; a quantifier-free formula has blocks 0.",
-    "Prove blocks (∀X∃Y ψ) = blocks ψ + 1 when ψ is in standard form, and blocks of a Boolean combination of ∀∃-formulas, after prenexing, is at most the number of its ∀∃ constituents' blocks."
+    "Prove blocks (∀X∃Y ψ) = blocks ψ + 1 when ψ is in standard form, and that every Boolean combination of ∀∃-formulas has blocks at most 2 (renaming bound variables apart, it prenexes to an ∃∀∃-formula, whose standard form is ∀∅∃Z∀X∃Y θ)."
    ],
    "acceptance": [
     "blocks (x = y) = 0.",
@@ -4667,7 +4717,7 @@
     },
     {
      "sourceId": "QE-FREE",
-     "locator": "§5, p. 25, and the closing paragraph of §5.4, p. 37",
+     "locator": "§5, p. 26, and the closing paragraph of §5.4, p. 37",
      "match": "it is enough to treat Θ(P) = ∃Z∀X∃Y(…); with all levels done, every step of the elimination is algorithmic"
     },
     {
@@ -4699,9 +4749,9 @@
      "statement": "qeAE φ has the same parameters P as φ."
     },
     {
-     "name": "FreeGroup.FirstOrder.qeAE_coefficientFree",
-     "role": "relation",
-     "statement": "If φ is coefficient-free, so is qeAE φ (FO7/uniform-qe)."
+     "name": "FreeGroup.FirstOrder.qeAECoeffFree",
+     "role": "data",
+     "statement": "The coefficient-free run of the procedure on coefficient-free formulas: the general standard form of FO1/standard-form (1), no constants introduced, and every diagram, correcting extension, induced and tight enveloping system and configuration built for coefficient-free systems; FO7/uniform-qe states that it returns a coefficient-free Boolean combination of ∀∃-formulas equivalent to φ over every F_k, k ≥ 2. qeAE itself, run over F(A) with the merged standard form, may introduce the constants a, b, so qeAE φ need not be coefficient-free when φ is."
     }
    ],
    "uses": [
@@ -5001,16 +5051,16 @@
    ],
    "title": "Coefficient-free elimination is uniform in the rank",
    "kind": "theorem",
-   "statement": "For every coefficient-free formula φ(P) of the language of groups, qeAE φ (FO6/qe-procedure) is coefficient-free and, for every k ≥ 2, φ ∼_{F_k} qeAE φ: the same Boolean combination of coefficient-free ∀∃-formulas defines the set of φ in every nonabelian free group of finite rank.",
+   "statement": "For every coefficient-free formula φ(P) of the language of groups there is a coefficient-free Boolean combination ψ of coefficient-free ∀∃-formulas, computed from φ by the coefficient-free run of the elimination (FO6/qe-procedure with the general standard form of FO1/standard-form (1), no constants introduced, and every diagram, correcting extension, induced and tight enveloping system and configuration built for coefficient-free systems), such that φ ∼_{F_k} ψ for every k ≥ 2: the same Boolean combination defines the set of φ in every nonabelian free group of finite rank. (qeAE run over F(A) with the merged standard form may introduce the constants a, b, so it does not by itself give this statement.)",
    "hypotheses": [
     "φ coefficient-free; k ≥ 2."
    ],
    "proofSteps": [
-    "Every object built along the parametric trees for a coefficient-free formula is coefficient-free: Makanin–Razborov diagrams of coefficient-free systems over F_k are obtained from those over F₂ by replacing terminal factors L by L ∗ F_{k−2} (SELA-VI pp. 3–5), and the same holds for correcting extensions, induced and tight enveloping NTQ systems and configurations.",
-    "Hence the computation of qeAE φ does not depend on k ≥ 2 and its correctness (FO6/qe-procedure-correct) holds over each F_k."
+    "Every object built along the parametric trees for a coefficient-free formula is coefficient-free: Makanin–Razborov diagrams of coefficient-free systems over F_k are obtained from those over F₂ by replacing terminal factors L by L ∗ F_{k−2} (SELA-VI pp. 3–5), and the same holds for correcting extensions, induced and tight enveloping NTQ systems and configurations. The merging of equations and inequations in FO1/standard-form (2) uses the constants a, b; the coefficient-free run keeps finite systems or merges them by a coefficient-free device (part of the gap 'rank independence in KM's route').",
+    "Hence the coefficient-free run does not depend on k ≥ 2, and its correctness (FO6/qe-procedure-correct, applied to the coefficient-free run) holds over each F_k."
    ],
    "acceptance": [
-    "For φ quantifier-free, qeAE φ = φ."
+    "For φ quantifier-free the coefficient-free run returns φ (as a Boolean combination of its atomic formulas)."
    ],
    "prerequisites": [
     "FreeGroupsFirstOrderTheory:FO6/qe-procedure-correct",
@@ -5174,6 +5224,11 @@
      "sourceId": "LPS",
      "locator": "§3, p. 8 (after Definition 3.5)",
      "match": "Sela's original definition was slightly too restrictive and some results were misstated, which is why extended floors and towers were introduced"
+    },
+    {
+     "sourceId": "PERIN",
+     "locator": "§5.1, Definitions 5.2–5.4, p. 16, and the remarks on p. 17",
+     "match": "the same graphs of groups with surfaces, extended hyperbolic floors and towers, with the statement that hyperbolic towers are Sela's non-elementary hyperbolic ω-residually free towers and that the extended notion is needed for Sela's Proposition 6"
     }
    ],
    "implementationStatus": "unchecked",
@@ -5267,8 +5322,8 @@
     "G finitely generated."
    ],
    "proofSteps": [
-    "If: a tower is built from a base H ∗ F ∗ S₁ ∗ ⋯ ∗ S_p by floors with retractions; each floor is a regular quadratic level over the lower floor in the sense of FG6/FG8, so the tower is an NTQ group with generic families (FO2/ntq-generic-family), and the elimination (FO6) and the parametrization theorem (FO2) show that every ∀∃-sentence and then every sentence true in F holds in G (SELA-VI p. 9: the elimination procedure shows every tower is elementarily equivalent to F).",
-    "Only if: G is a non-elementary hyperbolic limit group (FO7/necessary-conditions); its cyclic JSJ decomposition (FG10/jsj-existence) must contain QH vertex groups (the argument of SELA-VI Claim 5); a homomorphism with non-trivial kernel obtained from the Makanin–Razborov diagram of G (FG10) is modified into a retraction onto a proper subgroup giving an (extended) hyperbolic floor (SELA-VI p. 10; Perin's corrected Proposition 5.11, LPS Remark 3.7); induction on the subgroup gives the tower."
+    "If: a tower is built from a base H ∗ F ∗ S₁ ∗ ⋯ ∗ S_p by floors with retractions; each floor is a regular quadratic level over the lower floor in the sense of FG6/FG8, so the tower is an NTQ group with generic families (FO2/ntq-generic-family), and the elimination (FO6) and the parametrization theorem (FO2) show that every ∀∃-sentence and then every sentence true in F holds in G (SELA-VI Theorem 7 and its proof, p. 14 onward, for Sela's towers). For extended floors whose lower floor is cyclic, LPS Remark 3.7 and PERIN p. 17 report on Sela's authority that the proof extends; no written proof is available (gap 'the if direction for extended floors').",
+    "Only if: G is a non-elementary hyperbolic limit group (FO7/necessary-conditions); its cyclic JSJ decomposition (FG10/jsj-existence) must contain QH vertex groups (the argument of SELA-VI Claim 5); a non-injective preretraction obtained from the Makanin–Razborov diagram of G (FG10) by first-order sentences true in F (SELA-VI Proposition 6 and its proof, pp. 9–14) gives, by Perin's corrected Proposition 5.11 (PERIN, statement p. 19, proof §7, pp. 31–47), a retraction onto a proper subgroup forming an extended hyperbolic floor; induction on the subgroup (descending chains of limit-group quotients) gives the tower."
    ],
    "acceptance": [
     "Closed orientable surface groups of genus ≥ 2 are models; the double F₂ ∗_{⟨w⟩} F₂ is not."
@@ -5290,8 +5345,13 @@
     },
     {
      "sourceId": "SELA-VI",
-     "locator": "pp. 8–10 (definition of towers, Proposition 6 and the following argument)",
-     "match": "the original classification as non-elementary hyperbolic ω-residually free towers, its necessity half via the retraction built from the Makanin–Razborov diagram"
+     "locator": "pp. 8–14 (definition of towers, pp. 8–9; Proposition 6, p. 9, and its proof to p. 14; Theorem 7, p. 14)",
+     "match": "the original classification as non-elementary hyperbolic ω-residually free towers (Theorem 7), its necessity half (Proposition 6) via retractions built from the Makanin–Razborov diagram, and the start of the proof of sufficiency"
+    },
+    {
+     "sourceId": "PERIN",
+     "locator": "§5.1, Definitions 5.3–5.4 and the following remarks, pp. 16–17; §5.3, Proposition 5.11, p. 19",
+     "match": "the corrected statement: a non-injective preretraction of a torsion-free hyperbolic group with respect to a cyclic JSJ-like decomposition (not a single surface vertex) yields a retraction onto a proper subgroup forming an extended hyperbolic floor; p. 17 records that Sela's Proposition 6 holds only with extended towers and that the converse is asserted by Sela"
     },
     {
      "sourceId": "KM-RESPONSE",
@@ -5303,7 +5363,7 @@
    "planet": {
     "name": "Classification of models of the free group theory"
    },
-   "notes": "Alternative: KM06 Theorem 41 (regular NTQ groups), not read here. The tower definition is the corrected one of LPS; the original statements (SELA-VI Theorem 7, SELA-ICM Theorem 6) are recorded under sourceIssues."
+   "notes": "Alternative: KM06 Theorem 41 (regular NTQ groups), not read here; KM-RESPONSE item (57) maintains it. The tower definition is the corrected one of LPS and PERIN; the original statements (SELA-VI Theorem 7, SELA-ICM Theorem 6) are recorded under sourceIssues (E8)."
   },
   {
    "id": "FreeGroupsFirstOrderTheory:FO7/surface-groups",
@@ -5338,6 +5398,11 @@
      "match": "a non-cyclic free product of a free group and closed surface groups of Euler characteristic at most −2 is an extended hyperbolic tower over {1} (m = 0), hence a model of the theory of free groups"
     },
     {
+     "sourceId": "LPS",
+     "locator": "§3.4, before Lemma 3.12, p. 9",
+     "match": "S₄, the fundamental group of the connected sum of four projective planes (the non-orientable closed surface of Euler characteristic −2), has the trivial structure of hyperbolic tower over {1}"
+    },
+    {
      "sourceId": "SELA-VI",
      "locator": "pp. 8–9",
      "match": "the first level of a hyperbolic tower: closed hyperbolic surface groups and a free group"
@@ -5361,13 +5426,13 @@
    ],
    "title": "Necessary conditions: a f.g. model is a non-elementary hyperbolic limit group without ℤ²",
    "kind": "theorem",
-   "statement": "If a finitely generated group G is elementarily equivalent to a nonabelian free group F, then: (1) G has the same universal theory as F, hence is a limit group (finitely generated fully residually free, FG8/limit-group-equivalences) and is non-abelian; (2) G contains no subgroup isomorphic to ℤ² (counting commuting classes modulo squares: in F the number of classes of the relation 'x and y commute' on elements modulo 2-divisibility is 2 for cyclic subgroups, while ℤ² has at least 4, a first-order distinction); (3) consequently G is a non-elementary torsion-free hyperbolic group.",
+   "statement": "If a finitely generated group G is elementarily equivalent to a nonabelian free group F, then: (1) G has the same universal theory as F, hence is a limit group (finitely generated fully residually free, FG8/limit-group-equivalences) and is non-abelian; (2) G contains no subgroup isomorphic to ℤ²: the sentence 'for every x ≠ 1 the centralizer C(x) has at most two cosets of its subgroup of squares', ∀x∀y₁∀y₂∀y₃ (x ≠ 1 ∧ ⋀_i [x, y_i] = 1 → ⋁_{i<j} ∃z ([x, z] = 1 ∧ y_i y_j⁻¹ = z²)), holds in F, where C(x) is infinite cyclic; in a limit group the centralizer of x ≠ 1 is free abelian of finite rank, so a subgroup ℤ² ∋ x gives C(x) ≅ ℤ^r with r ≥ 2 and 2^r ≥ 4 cosets of squares (SELA-VI p. 7 counts classes of commuting elements mod 2); (3) consequently G is a non-elementary torsion-free hyperbolic group.",
    "hypotheses": [
     "G finitely generated."
    ],
    "proofSteps": [
     "(1) Elementary equivalence gives the same universal theory; by FG8/limit-group-equivalences (with Remeslennikov's theorem in FG5/FG8) G is fully residually free.",
-    "(2) Write the first-order sentence counting, for a non-trivial x, the classes of its centralizer modulo squares (y ∼ z iff y z⁻¹ is a square in the centralizer): in F every centralizer is cyclic and the count is 2; ℤ² ≤ G would give a centralizer containing ℤ² with count ≥ 4 (SELA-VI p. 7).",
+    "(2) The displayed sentence holds in F because centralizers of non-trivial elements are infinite cyclic (FreeGroupsAndLimitGroups FG1/centralizer-cyclic). By (1) G is a limit group, whose centralizers of non-trivial elements are abelian and free abelian of finite rank (FG8/frf-properties (1), (3)); a subgroup ℤ² ≤ G and x ≠ 1 in it give C(x) ≅ ℤ^r, r ≥ 2, with at least four cosets of squares, so G fails the sentence (SELA-VI p. 7).",
     "(3) A limit group without ℤ² is hyperbolic (limit groups are toral relatively hyperbolic; with no non-cyclic abelian subgroups they are hyperbolic), and it is non-elementary because it is non-abelian (FG8/frf-properties)."
    ],
    "acceptance": [
@@ -5379,7 +5444,8 @@
     "FreeGroupsAndLimitGroups:FG8/limit-group-equivalences",
     "FreeGroupsAndLimitGroups:FG8/frf-properties",
     "FreeGroupsAndLimitGroups:FG5/separation-discrimination",
-    "FreeGroupsAndLimitGroups:FG8"
+    "FreeGroupsAndLimitGroups:FG8",
+    "FreeGroupsAndLimitGroups:FG1/centralizer-cyclic"
    ],
    "sources": [
     {
@@ -5494,22 +5560,24 @@
    "stageId": "FreeGroupsFirstOrderTheory:FO5",
    "status": "planned",
    "remaining": [
-    "FO5/ae-rank-independence follows SELA-VI pp. 3–7; the rank-independence of KM's own constructions is not stated in the readable KM texts (gap 'rank independence in KM's route')."
+    "FO5/ae-rank-independence follows SELA-VI pp. 3–7; the rank-independence of KM's own constructions is not stated in the readable KM texts, and the merging of equations and inequations in the standard form introduces constants that a coefficient-free run must avoid (gap 'rank independence in KM's route')."
    ]
   },
   {
    "stageId": "FreeGroupsFirstOrderTheory:FO6",
    "status": "planned",
    "remaining": [
-    "FO6/true-level-two and FO6/true-all-levels: the depth construction and the general level m are given as a sketch and 'similarly' (QE-FREE §5.4); a full argument is a recorded gap ('level-2 termination', 'general levels')."
+    "FO6/true-level-two and FO6/true-all-levels: the depth construction and the general level m are given as a sketch and 'similarly' (QE-FREE §5.4); a full argument is a recorded gap ('level-2 termination', 'general levels').",
+    "FO6/parametric-tree uses FreeGroupsAndLimitGroups FG10/equations-over-limit-groups (all formula solutions over NTQ groups), which rests on a recorded gap of that roadmap (gap 'all formula solutions over NTQ groups')."
    ]
   },
   {
    "stageId": "FreeGroupsFirstOrderTheory:FO7",
    "status": "planned",
    "remaining": [
-    "FO7/tower-classification: the 'only if' direction rests on Perin's corrected retraction argument (cited in LPS Remark 3.7), not read here (gap 'Perin's retraction').",
-    "FO7/necessary-conditions: hyperbolicity of limit groups without ℤ² is requested from FreeGroupsAndLimitGroups FG8."
+    "FO7/tower-classification: the 'if' direction for extended floors whose lower floor is cyclic rests on an unwritten extension of SELA-VI's proof reported in LPS Remark 3.7 and PERIN p. 17 (gap 'the if direction for extended floors'); the 'only if' direction cites PERIN Proposition 5.11, whose proof (§7) the review did not re-check.",
+    "FO7/necessary-conditions: hyperbolicity of limit groups without ℤ² is requested from FreeGroupsAndLimitGroups FG8.",
+    "FO7/uniform-qe and FO7/elementary-embedding: the coefficient-free run of the elimination (gap 'rank independence in KM's route')."
    ]
   }
  ],
@@ -5558,11 +5626,18 @@
    "detail": "That every construction of the elimination for a coefficient-free formula is the same over F_k and F_ℓ (terminal factors L replaced by L ∗ F_{ℓ−k}) is argued in SELA-VI pp. 3–7 for Sela's procedure. The readable KM texts state decidability and the elementary embedding (ERA98) but not this uniformity explicitly. The plan uses Sela's argument for this step; Sacerdote's 1973 proof of the ∀∃ case was not read."
   },
   {
-   "title": "Perin's retraction argument for the classification",
+   "title": "the 'if' direction of the classification for extended floors",
    "neededBy": [
     "FreeGroupsFirstOrderTheory:FO7/tower-classification"
    ],
-   "detail": "The 'only if' direction of the classification (LPS Theorem 3.6) needs the corrected construction of a retraction making (G, G′, r) an extended hyperbolic floor (Perin, Elementary embeddings in torsion-free hyperbolic groups, Ann. Sci. ENS 2011, Proposition 5.11, and its correction), which was not read; LPS Remark 3.7 records the correction. The 'if' direction in the exceptional low-complexity cases is, by LPS, an extension of Sela's proof communicated by Sela."
+   "detail": "The 'only if' direction of the classification (LPS Theorem 3.6) is covered by Perin's corrected Proposition 5.11 (PERIN, arXiv:0903.0945v3, statement p. 19, proof §7, pp. 31–47), read at statement level by the review; its proof was not re-checked. The 'if' direction for towers whose last floor is an extended, non-hyperbolic floor (the lower floor cyclic) is stated in LPS (Remark 3.7, p. 8) and PERIN (p. 17) on Sela's authority, as a straightforward extension of the proof of SELA-VI Theorem 7; no written proof was found. Next action: write this extension out for the exceptional low-complexity floors, or find it in print."
+  },
+  {
+   "title": "all formula solutions over NTQ groups",
+   "neededBy": [
+    "FreeGroupsFirstOrderTheory:FO6/parametric-tree"
+   ],
+   "detail": "The parametric tree needs, at every level m ≥ 2, a description of all formula solutions of U = 1 over the correcting extensions of NTQ groups by finitely many fundamental sequences (QE-FREE §5, p. 27). That is a complete Hom-diagram of an equation over a finitely generated fully residually free group, the target FreeGroupsAndLimitGroups FG10/equations-over-limit-groups, which rests on that roadmap's recorded gap 'Equations over a represented limit group' (the elimination process over NTQ groups, KM06 Theorem 32). The ∀∃ decider (FO5) does not use it: it searches for one formula solution per vertex and detects falsity by a counterexample search. The elimination (FO6), and with it the decidability of Th(F(A)) and the uniformity statements of FO7, rest on it until that gap is closed in FreeGroupsAndLimitGroups."
   }
  ],
  "sourceIssues": [
@@ -5581,7 +5656,12 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HYP Remark 1, p. 12, says the fundamental sequences of [21] (KM06) had properties 1–2 and should also have had property 3; QE-FREE Definition 1, p. 3, states property 3 with isolators. (HYP Definition 5 states property 3 without isolators, a weaker condition; this roadmap uses QE-FREE's.)",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E2",
@@ -5598,13 +5678,18 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "QE-FREE footnote 3, p. 35, calls the choice in KM06 §11.2 an easy-to-fix error and gives the correction recorded here.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E3",
    "source": "KM06",
    "kind": "error",
-   "locator": "Definition 20 (reducing quotients), p. 483 of the journal version, as described in KM-RESPONSE item (3) and SELA-REPORT item (3); KM06 itself not read",
+   "locator": "Definition 20 (reducing quotients), p. 483 of the journal version, as described in KM-RESPONSE item (3) and SELA-REPORT §3 item (3), p. 7; KM06 itself not read",
    "printed": "a reducing quotient is defined by three alternative conditions",
    "correction": "the third condition is removed: a reducing quotient has a non-trivial free decomposition modulo the image of H or a new elementary abelian splitting modulo it (QE-FREE Definition 4)",
    "reason": "SELA-REPORT item (3): K = ⟨a₁,a₂⟩ ∗ ⟨b₁,b₂⟩ ∗ ⟨c₁,c₂⟩ amalgamated along commutators, H the genus-2 subgroup and τ : c_i ↦ b_i make H a reducing quotient under the printed definition and contradict Lemma 19; under the two-item definition H is not reducing (FO4/reducing-quotient test)",
@@ -5615,7 +5700,12 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KM-RESPONSE item (3), p. 2, says item (3) of Definition 20 was removed after N. Touikan's remark (the authors call it a misprint); SELA-REPORT §3 item (3), p. 7, gives the example recorded here; QE-FREE Definition 4, p. 22, has the two-item definition.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E4",
@@ -5632,7 +5722,12 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KM-RESPONSE item (2), p. 2, supplies the missing word 'non-transcendental' and says the lemma is only used for such solutions; SELA-REPORT §3 item (2), p. 6, gives the counterexample to the printed statement.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E5",
@@ -5649,7 +5744,12 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KM-RESPONSE items (6)–(8), pp. 2–3, concede that the sentence is missing on p. 506; QE-FREE §3.3, pp. 9–10, adds the conjugating elements.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E6",
@@ -5666,7 +5766,12 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KM-RESPONSE item (35), pp. 5–6, gives the omitted sentence for p. 529, line 8.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E7",
@@ -5674,7 +5779,7 @@
    "kind": "gap",
    "locator": "Theorem 11 (the bound on the number of MAX-classes of algebraic solutions), effectiveness of the bound, as described in KM-RESPONSE item (5) and QE-FREE §4.2; KM06 itself not read",
    "printed": "the bound N(K, H) is asserted to be effectively computable with a sketched proof",
-   "correction": "N(K, H) is found by deciding, for m = 1, 2, …, an existential sentence (rigid case) or an ∃∀-sentence (solid case) until it is false (QE-FREE Theorem 7 and proof, pp. 24–25; FO5/effective-bound)",
+   "correction": "N(K, H) is found by deciding, for m = 1, 2, …, an existential sentence (rigid case) or an ∃∀-sentence (solid case) until it is false (QE-FREE Theorem 7 and its proof, p. 25; FO5/effective-bound)",
    "reason": "the authors agree the proof of effectiveness was sketchy (KM-RESPONSE item (5)) and give it in QE-FREE; the algorithm uses the decidability of the ∀∃-theory, which does not use the bound",
    "affects": "the proof",
    "known": "QE-FREE v4, §4.2",
@@ -5683,13 +5788,18 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KM-RESPONSE item (5), p. 2, agrees the proof of effectiveness was sketchy; QE-FREE Theorem 7, p. 25, gives the search; SELA-REPORT §3 items (4)–(5), p. 7, dispute the argument for the bound itself, which this roadmap keeps under the gap 'KM06 not read directly'.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E8",
    "source": "SELA-VI",
    "kind": "error",
-   "locator": "Theorem 7 (classification of finitely generated groups elementarily equivalent to a non-abelian free group) with the definition of hyperbolic ω-residually free towers, pp. 8–9 of the author's copy; also SELA-ICM Theorem 6, p. 90",
+   "locator": "Theorem 7 (classification of finitely generated groups elementarily equivalent to a non-abelian free group), p. 14 of the author's copy, with the definition of hyperbolic ω-residually free towers on pp. 8–9; also SELA-ICM Theorem 6, p. 90",
    "printed": "a finitely generated group is elementarily equivalent to a non-abelian free group iff it is a non-elementary hyperbolic ω-residually free tower, where the first level may contain any closed hyperbolic surface group other than the non-orientable one of genus 2",
    "correction": "the base surfaces must have Euler characteristic ≤ −2 and the floors must be allowed to be extended hyperbolic floors: a finitely generated group is a model iff it is an extended hyperbolic tower over the trivial subgroup (LPS Theorem 3.6)",
    "reason": "the closed non-orientable surface group of genus 3 (χ = −1) is a tower under the printed definition, but Vaught's sentence ∀x∀y∀z (x²y²z² = 1 → [x, y] = [x, z] = [y, z] = 1) holds in free groups (Lyndon) and fails in it (KM-RESPONSE item (57)(a)); LPS p. 8 records that the definition was slightly too restrictive in other respects and that some results were misstated",
@@ -5699,7 +5809,12 @@
     "LPS arXiv:1208.2858",
     "KM-RESPONSE arXiv:1402.0482v3",
     "Sela's home page (the paper's listing)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "SELA-VI p. 8 admits every closed hyperbolic surface except the non-orientable one of genus 2 at the first level, so the genus-3 non-orientable surface group is a tower; Vaught's sentence separates it from F (KM-RESPONSE item (57)(a), p. 7); Theorem 7 is on p. 14, not pp. 8–9 (locator corrected); LPS Theorem 3.6 and PERIN p. 17 give the corrected statement.",
+    "by": "REV-DESIGN-FGFO"
+   }
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E9",
@@ -5716,7 +5831,112 @@
     "QE-FREE arXiv:1207.1900v1–v4 (v4 read)",
     "HYP arXiv:1303.0760v8",
     "the Stevens publication pages of A. Myasnikov"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "KM-RESPONSE item (1), p. 2, concedes the inaccuracy and states only the commutation is used; SELA-REPORT §3 item (1), p. 6, attributes the counterexample to Levitt.",
+    "by": "REV-DESIGN-FGFO"
+   }
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E10",
+   "source": "KM06",
+   "kind": "misprint",
+   "locator": "p. 518, lines 20–22 of the journal version, as described in SELA-REPORT §3 item (12), pp. 9–10, and KM-RESPONSE item (12), p. 3; KM06 itself not read",
+   "printed": "in the construction of the ∀∃-tree, if F_{R(U₀)} splits as a free product one continues with each freely indecomposable factor separately",
+   "correction": "the free factors are treated together, never one at a time",
+   "reason": "SELA-REPORT calls the factor-by-factor reduction a crucial mistake; the authors reply that it is a regrettable misprint, that everything after line 22 treats the factors together and that the wrong statement is never used; QE-FREE §3.4 (p. 12) works modulo the images of all the free factors at once",
+   "affects": "the proof",
+   "known": "acknowledged as a misprint in KM-RESPONSE item (12)",
+   "searched": [
+    "QE-FREE arXiv:1207.1900v4 (the latest version)",
+    "KM-RESPONSE arXiv:1402.0482v3",
+    "SELA-REPORT arXiv:1401.5711v1"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "added by the review from SELA-REPORT §3 item (12) and KM-RESPONSE item (12), both read at their locators; scoped to these descriptions",
+    "by": "REV-DESIGN-FGFO"
+   }
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E11",
+   "source": "QE-FREE",
+   "kind": "misprint",
+   "locator": "§4.1, Theorem 6, p. 23; §5.2, after Corollary 1, p. 33; §5.4, last paragraph, p. 37 (arXiv:1207.1900v4)",
+   "printed": "the Boolean combinations produced are said to consist of formulas 'of type (4)'",
+   "correction": "of type (1): the conjunctive ∃∀-formulas ∃X∀Y(U = 1 ∧ V ≠ 1) of p. 1",
+   "reason": "formula (4) of the paper, on p. 4, is the quadratic relation added at a QH vertex in the construction of canonical NTQ systems; Theorem 6 itself names the class as conjunctive ∃∀-formulas, which are formula (1)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "QE-FREE arXiv:1207.1900v4 (the latest version; earlier versions not compared)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "added by the review after reading pp. 1, 4, 23, 33 and 37",
+    "by": "REV-DESIGN-FGFO"
+   }
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E12",
+   "source": "QE-FREE",
+   "kind": "misprint",
+   "locator": "§3.2, p. 8 (arXiv:1207.1900v4); the same in HYP §4.2, p. 28 (arXiv:1303.0760v8)",
+   "printed": "the level maps are written π_i : F_{R(Q_i,…,Q_n)} ∗ F(t₁,…,t_{k_{i−1}}) → F_{R(Q_{i+1},…,Q_n)} ∗ F(t₁,…,t_{k_i}), indexing the free variables cumulatively, while the dimension is defined as k₁ + ⋯ + k_n",
+   "correction": "k_i is the number of free variables added at level i (as the tree construction uses it: 'top dimension component k₁', 'the sum of the first two dimensions k₁ + k₂', QE-FREE p. 13, HYP p. 33); the free factor at level i + 1 has k₁ + ⋯ + k_i variables, and the dimension k₁ + ⋯ + k_n is the total number of free variables",
+   "reason": "with the cumulative reading the sum would count the variables of the upper levels repeatedly; with the per-level reading the index notation is wrong; the uses on p. 13 fix the per-level reading",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "QE-FREE arXiv:1207.1900v4",
+    "HYP arXiv:1303.0760v8"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "added by the review after reading QE-FREE pp. 8 and 12–13 and HYP pp. 28 and 33",
+    "by": "REV-DESIGN-FGFO"
+   }
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E13",
+   "source": "IFT",
+   "kind": "misprint",
+   "locator": "§4.4, Definition 13, p. 26, and the proof of Theorem 4, p. 27 (arXiv:math/0312509v2)",
+   "printed": "Definition 13 says that G freely lifts φ when φ₀(x₁, q₁, …) '= 1' holds in F[X]; the proof of Theorem 4 obtains the words q_i 'from the argument in Theorem 4'",
+   "correction": "F freely lifts φ when the quantifier-free formula φ₀(x₁, q₁, …, x_k, q_k) holds in F[X] (no '= 1'); the words q_i come from the argument of Merzljakov's theorem (p. 25)",
+   "reason": "the definition concerns the free group F, whose words q_i it uses, and Theorem 4 is stated for F; the proof of Theorem 4 cannot rest on Theorem 4, and the construction cited is the one of Merzljakov's theorem on p. 25, with the same words g_i",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "IFT arXiv:math/0312509v2"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "added by the review after reading pp. 25–27",
+    "by": "REV-DESIGN-FGFO"
+   }
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E14",
+   "source": "LPS",
+   "kind": "misprint",
+   "locator": "§3.3, before Theorem 3.6, p. 8 (arXiv:1208.2858v1)",
+   "printed": "the classification of finitely generated models is attributed to Theorem 6 of [Sel06], Sela's Diophantine geometry VI",
+   "correction": "it is Theorem 7 of Diophantine geometry VI (p. 14 of the author's copy); Theorem 6 is its numbering in Sela's ICM survey",
+   "reason": "SELA-VI has no Theorem 6 (Proposition 6 on p. 9 is the necessity half, Theorem 7 on p. 14 the classification); SELA-ICM labels the statement Theorem 6 ([Se7], 7)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "LPS arXiv:1208.2858v1",
+    "SELA-VI author's copy",
+    "SELA-ICM arXiv:math/0304209v1"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "added by the review after reading LPS p. 8, SELA-VI pp. 9 and 14 and SELA-ICM p. 90",
+    "by": "REV-DESIGN-FGFO"
+   }
   }
  ],
  "sourceVersions": [
@@ -5759,6 +5979,24 @@
   {
    "kind": "published",
    "citation": "Kharlampovich–Myasnikov, J. Algebra 302 (2006), 451–552: not read (publisher refuses automated access); findings E1–E7, E9 are scoped to the authors' own descriptions in KM-RESPONSE, QE-FREE and HYP"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.ams.org/journals/era/1998-04-14/S1079-6762-98-00047-X/S1079-6762-98-00047-X.pdf",
+   "read": "2026-10-14",
+   "sha256": "0238ff1e3a66b9b0fa88ba8752916aea6648afafa38c9821f3a03281f8213caa"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/0903.0945v3",
+   "read": "2026-10-14",
+   "sha256": "e9c9ae3da89922c56b9502125529674944cc1ee8098383873e8460b87ca1ab6a"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/math/0312509v2",
+   "read": "2026-10-14",
+   "sha256": "ed2cfda3c57223abe585b03b6a6a4dd47b5b61b305d9d46e34be64111e2f24fb"
   }
  ],
  "restructure": [
@@ -5770,5 +6008,338 @@
    "detail": "The maintainer's milestones FO1–FO7 are kept with their keys and titles, but the dependencies of the sources force a build order FO1 → FO2 → FO4 → FO3 → FO5 → FO6 → FO7: the configuration machinery of FO3 (certificates and configuration groups, QE-FREE Definition 6) is defined through the algebraic solutions and MAX-equivalence of FO4, and the effective computation of the bound N(K, H) (an FO4 effectivity statement) needs the ∀∃ decider of FO5, so it is planned in FO5 (FO5/effective-bound). The fundamental-sequence infrastructure (strict and well-aligned fundamental sequences, canonical NTQ systems, the canonical embedding tree, fundamental sequences modulo subgroups, sufficient splittings) is planned in FO2 with the parametrization theorem it serves (as HYP §3 groups it).",
    "proposal": "Keep seven layers; record the stage edges FO2 → FO4 → FO3 and FO4, FO3 → FO5. If the atlas prefers layer keys in build order, rename FO3 ↔ FO4 (keeping titles with their content)."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-FGFO",
+  "date": "2026-10-14",
+  "notes": "Independent review of DESIGN-FGFO (issue #9802, reviewer Claude session claude-U9PXIW; the design was written by session claude-n3h6OP). All 65 nodes were checked against the public sources at their locators: QE-FREE in full, HYP at every cited locator, IFT §§2.3, 3.1, 4.4 and 7.6, SELA-VI pp. 1–14 as page images, SELA-ICM, KM-RESPONSE in full, SELA-REPORT §§2–3 items (1)–(5), (12), (57), LPS §§3–4, the AMS PDF of ERA98 (page numbers confirmed), and Perin's corrected arXiv:0903.0945v3 (added). 35 nodes are verified and 30 corrected; none added. Main corrections: (1) the ∀∃ decider no longer presupposes deciding the existence of formula solutions over limit groups (FreeGroupsAndLimitGroups FG10/equations-over-limit-groups rests on a recorded gap there): formula solutions are searched for, falsity is detected by a counterexample search with FG7's universal decider, and Post's theorem (Mathlib ComputablePred.computable_iff_re_compl_re', added to the baseline with REPred) gives the decider; (2) the parametric tree genuinely needs all formula solutions over NTQ groups, so FG10/equations-over-limit-groups is added as its prerequisite and recorded as a new gap, with FG10 added to FO6's requires; (3) the standard form is split into a general form (systems, coefficient-free for coefficient-free formulas) and the merged form (introduces the constants a, b), and the uniform coefficient-free elimination (FO7/uniform-qe, FO6 API, FO5/ae-rank-independence) is restated for the coefficient-free run, since qeAE as specified introduces constants; (4) FO7/necessary-conditions now uses that centralizers in limit groups are free abelian of finite rank (FG1/centralizer-cyclic added; FG1 added to FO7's requires); (5) the classification's 'only if' direction cites Perin's corrected Proposition 5.11, and the remaining gap is narrowed to the 'if' direction for extended floors; (6) wrong tests and acceptance items corrected (an edge group in F that an F-homomorphism cannot kill, the HYP envelope without isolators, a misapplied hyperbolic counter-example replaced by a free-group example needing a correcting extension, an ill-typed iAlls statement, and others); (7) locators corrected (QE-FREE Theorem 7 p. 25, §5 p. 26; SELA-VI Theorem 7 p. 14; SELA-REPORT §3 item numbering; KM-RESPONSE §4(f)). All 38 baseline declarations were read at Mathlib 082e2d3. The nine recorded source issues are confirmed, two with corrected locators, and five new ones (E10–E14) are added. check_blueprint: 0 errors, 0 warnings; lean-check on the suggested file: exit 0, its only warnings being the unproved-declaration warnings (individual Mathlib imports; Sacerdote's theorem and the uniform elimination added as statements). The packet stays complete with honest gaps: FO1 closed, FO2–FO7 planned.",
+  "checked": [
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/quantifier-classes",
+    "verdict": "verified",
+    "note": "Classes and the ∀∃/∃∀ duality checked against Mathlib's IsExistential/IsUniversal inductives (Complexity.lean at the pin; ex is ∼(∼φ).all) and QE-FREE Theorem 1 p. 1, HYP Theorem 1 p. 1, SELA-VI Theorem 1 p. 2; the non-examples hold syntactically."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/equivalence-over",
+    "verdict": "corrected",
+    "note": "API equivOver_iff_mem_completeTheory restated with Mathlib's actual signature Formula.iAlls (β) (φ : L.Formula (α ⊕ β)); the printed 'iAlls id' does not typecheck."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/standard-form",
+    "verdict": "corrected",
+    "note": "Separated the general form (systems of equations and inequations in every disjunct, valid in every group, coefficient-free for coefficient-free φ) from the merged single-equation/single-inequation form, which holds only over the CSA/Vaught class and introduces constants (IFT p. 5 and Corollary 7, p. 13)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/free-lift",
+    "verdict": "verified",
+    "note": "IFT Definition 13 and Corollary 9, p. 26; tests rechecked (x² lifts; x has no square root in F(a, b) ∗ ⟨x⟩ by abelianization; the commuting witness y = x). The misprints in Definition 13 are recorded as E13."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/free-lifting-theorem",
+    "verdict": "verified",
+    "note": "IFT Theorem 4 and its proof, pp. 26–27, with Merzljakov's words, p. 25; FG7/merzljakov-theorem (one equation) with FG7/positive-normal-form suffices for the disjunctive case."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/positive-sentences",
+    "verdict": "verified",
+    "note": "The argument killing F_n in F_n ∗ F(X) checked; ERA98 p. 103 (AMS PDF) and IFT Corollary 9, p. 26."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO1/qe-target",
+    "verdict": "verified",
+    "note": "Definition, the vacuity of the sentence-only version, the trivial-group test and invariance under elementary equivalence checked; QE-FREE, SELA-VI and HYP locators confirmed."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/strict-fundamental-sequence",
+    "verdict": "corrected",
+    "note": "Test not_isStrict_kills_edge corrected (the printed example kills ⟨[a, b]⟩ ⊂ F, impossible for F-homomorphisms); test FundSeq.isStrict_mono corrected (HYP Definition 5's envelope has no isolators, so only one implication holds); HYP match amended."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/canonical-ntq",
+    "verdict": "verified",
+    "note": "QE-FREE §2.2 Steps 1–3, pp. 3–4; HYP §3.4 and Proposition 12, p. 22; tests checked."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/well-aligned",
+    "verdict": "corrected",
+    "note": "Dimension clarified: k_i counts the free variables of level i (as QE-FREE pp. 12–13 and HYP p. 33 use it), the cumulative index notation of QE-FREE p. 8 being a misprint (new sourceIssue E12)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/canonical-embedding-tree",
+    "verdict": "verified",
+    "note": "QE-FREE Proposition 2, p. 8; HYP Proposition 15, p. 28, and Proposition 12, p. 22."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/ntq-generic-family",
+    "verdict": "corrected",
+    "note": "Test not_isGenericFamily_bounded: the discrimination failure stated explicitly."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/normalized-ntq",
+    "verdict": "verified",
+    "note": "IFT pp. 140–141: the three replacement systems and Lemma 76 match; test normalize.case3 is IFT's case 3."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/correcting-extension",
+    "verdict": "corrected",
+    "note": "Acceptance and test correctingExt.not_identity replaced by a free-group example that needs a correcting extension (the printed acceptance claimed a root of the constant a, and the test misapplied HYP's hyperbolic counter-example to Sela VIII Theorem 2.3); IFT Lemma 75 (pp. 138–139), the key input, added as a source."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/parametrization-theorem",
+    "verdict": "verified",
+    "note": "IFT Theorem 12, p. 142 (effective verification under the truth hypothesis); HYP Theorem 4, p. 21."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/ift-arbitrary-ntq",
+    "verdict": "verified",
+    "note": "IFT Theorem 13, p. 142."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/lift-arbitrary-system",
+    "verdict": "verified",
+    "note": "IFT Theorem 14, p. 142."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/generic-family-lifts",
+    "verdict": "verified",
+    "note": "QE-FREE Proposition 1, p. 6; HYP Proposition 13, p. 24; IFT Definition 44, p. 141."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/sufficient-splitting",
+    "verdict": "corrected",
+    "note": "Use locator: QE-FREE Theorem 7 is on p. 25."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO2/fundamental-sequences-modulo",
+    "verdict": "verified",
+    "note": "HYP Proposition 14, p. 25, and Proposition 9, p. 15; QE-FREE Theorems 2–3, p. 2, and Definition 3, pp. 11–12."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/reducing-quotient",
+    "verdict": "corrected",
+    "note": "Garbled acceptance item restated (it now matches the test isReducingQuotient_freeFactor)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/max-equivalence",
+    "verdict": "corrected",
+    "note": "Proof step: symmetry, not only transitivity, needs an argument; the compatibility it uses is named."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/complete-reducing-system",
+    "verdict": "verified",
+    "note": "QE-FREE §4.1, p. 23; the independence test follows from completeness and the equivalence property of ∼_MAX."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/algebraic-solution",
+    "verdict": "corrected",
+    "note": "Locators: QE-FREE Theorem 7 is on p. 25; the SELA-REPORT item is §3 item (4), p. 7 (the report numbers §2 and §3 separately)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/reducing-quotients-effective",
+    "verdict": "verified",
+    "note": "QE-FREE Proposition 3 and its proof, pp. 27–28; HYP Proposition 16, p. 46."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/max-class-count-definable",
+    "verdict": "corrected",
+    "note": "Acceptance: θ₁ holds only at parameter values that define homomorphisms of H."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO4/algebraic-solution-bound",
+    "verdict": "corrected",
+    "note": "Locator p. 24 → p. 25; notes corrected: KM-RESPONSE §4(f) concerns Theorem 3.8 of Sela's hyperbolic-group paper, not Diophantine geometry III, Theorem 2.9."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/complexity",
+    "verdict": "verified",
+    "note": "QE-FREE p. 10 (size, regular size, abelian size) and p. 18 (complexity, Kurosh rank); size tests recomputed from χ = 2 − 2g − b."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/induced-ntq",
+    "verdict": "corrected",
+    "note": "Test induced.finite_index_surface: the printed specific claim (the induced QH subgroup is K itself, of index 2) is not established by the sources; replaced by the finite-index property QE-FREE p. 10 states."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/induced-ntq-terminates",
+    "verdict": "verified",
+    "note": "QE-FREE §3.3, p. 10: the three decreasing characteristics."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/projective-images",
+    "verdict": "verified",
+    "note": "QE-FREE p. 13 (images of G on each level, KM06 Theorems 29 and 31 cited there) and pp. 14–17; HYP Lemma 4, p. 33; tests checked."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/terminal-image-proper",
+    "verdict": "verified",
+    "note": "QE-FREE Lemma 1 and the following paragraph, p. 13; HYP Lemma 4, p. 33."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/tight-enveloping",
+    "verdict": "corrected",
+    "note": "Test tightEnvelope.kuroshRank_le_example: the unsupported equality clause removed."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/tight-envelope-reorganization",
+    "verdict": "verified",
+    "note": "QE-FREE §5.4, pp. 35–37 (a sketch, recorded as gaps); KM-RESPONSE items (43) and (49), pp. 5–6."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/configuration-group",
+    "verdict": "verified",
+    "note": "QE-FREE Definition 6, conditions (1)–(6) and the root variables, pp. 29–30, with footnote 2; HYP Definition 11, p. 48; test ConfigGroup.rigid_example rechecked."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO3/configuration-finiteness",
+    "verdict": "verified",
+    "note": "QE-FREE p. 30, Propositions 5–6 and Corollary 1, pp. 31–33; HYP Proposition 18, p. 49, and Corollary 3, p. 51."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-tree-first-step",
+    "verdict": "corrected",
+    "note": "Acceptance item aligned with the test aeFirstStep.identity (U₀ is the equation a = 1)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/block-ntq",
+    "verdict": "verified",
+    "note": "QE-FREE §3.4, pp. 13–14, and §3.6, p. 16; HYP §§4.4–4.6."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-tree",
+    "verdict": "corrected",
+    "note": "Existence of formula solutions is searched for (halting when Φ is true, by the parametrization theorem) instead of decided through FG10/equations-over-limit-groups, which rests on a recorded FreeGroupsAndLimitGroups gap; prerequisite replaced by FG7/solver-procedure; test AETree.false updated."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-tree-finite",
+    "verdict": "verified",
+    "note": "QE-FREE Theorem 4, Lemma 2 and the proof, pp. 18–21; HYP Theorem 5, p. 38, and Lemma 5, p. 39."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-tree-correct",
+    "verdict": "corrected",
+    "note": "Statement (3) 'exactly one of the two outcomes occurs' presupposed deciding the existence of formula solutions; replaced by (3) halting on true sentences and (4) the counterexample characterisation of falsity."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-decider",
+    "verdict": "corrected",
+    "note": "Decider restated as two semi-decision procedures combined by Post's theorem (Mathlib ComputablePred.computable_iff_re_compl_re'), so that it no longer presupposes deciding the existence of formula solutions; API aeTrue_rePred added."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-decidable",
+    "verdict": "corrected",
+    "note": "Proof step aligned with the corrected decider."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/ae-rank-independence",
+    "verdict": "corrected",
+    "note": "Proof step 1: the standard form used must be coefficient-free; the merged form introduces constants (part of the existing gap)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO5/effective-bound",
+    "verdict": "corrected",
+    "note": "Locator: QE-FREE Theorem 7 and its proof are on p. 25."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/parametric-tree",
+    "verdict": "corrected",
+    "note": "Missing prerequisite FG10/equations-over-limit-groups added (all formula solutions over correcting extensions of NTQ groups are needed, QE-FREE p. 27); new gap records that this supplier rests on a FreeGroupsAndLimitGroups gap."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/true-sets",
+    "verdict": "verified",
+    "note": "QE-FREE §5.2, pp. 28–29, Definition 5, p. 29."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/true-level-one",
+    "verdict": "verified",
+    "note": "QE-FREE Lemma 3, p. 29: algebraicity is universal, so the formula is ∃∀."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/true-level-two",
+    "verdict": "verified",
+    "note": "QE-FREE Theorem 8, p. 29, conditions (a)–(c), p. 33, §5.4, pp. 35–37, and Proposition 7(2), p. 35 (the termination sketch is a recorded gap)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/true-all-levels",
+    "verdict": "verified",
+    "note": "QE-FREE §5.4, last paragraph, p. 37 ('similarly'; recorded gap)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/eae-elimination",
+    "verdict": "corrected",
+    "note": "Locator: the opening of QE-FREE §5 is p. 26."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/qe-measure",
+    "verdict": "corrected",
+    "note": "Garbled proof step restated: a Boolean combination of ∀∃-formulas has at most two blocks."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/qe-procedure",
+    "verdict": "corrected",
+    "note": "API qeAE_coefficientFree was false as specified (qeAE uses the merged standard form, which introduces constants); replaced by the coefficient-free run qeAECoeffFree; locator p. 25 → p. 26."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/qe-procedure-terminates",
+    "verdict": "verified",
+    "note": "Well-founded recursion on the block count checked."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO6/qe-procedure-correct",
+    "verdict": "verified",
+    "note": "Induction on blocks and the Boolean closure of ∼_{F(A)} checked; QE-FREE Theorem 1, p. 1."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/decision-procedure",
+    "verdict": "verified",
+    "note": "HYP Theorems 1–3, p. 1; ERA98 Theorem 2, p. 101 (AMS PDF); tests checked."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/elementary-theory-decidable",
+    "verdict": "verified",
+    "note": "Composition of FO6/qe-procedure-correct and FO5/ae-decidable checked; HYP Theorem 3, p. 1; ERA98 Theorem 2, p. 101."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/uniform-qe",
+    "verdict": "corrected",
+    "note": "Statement corrected: qeAE as specified introduces constants (merged standard form), so the uniform statement is about the coefficient-free run of the elimination; the obstacle is recorded in the existing gap."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/elementary-equivalence",
+    "verdict": "verified",
+    "note": "SELA-VI Theorem 3 and its proof, p. 4; ERA98 Theorem 1, p. 101; SELA-ICM Theorem 3, p. 88."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/elementary-embedding",
+    "verdict": "verified",
+    "note": "SELA-VI Theorem 4 and its proof, pp. 5–7, with the remark on p. 7 that finite generation is not used; ERA98 p. 101; SELA-ICM Theorem 4, p. 89 (F₁ → F₁ ∗ F₂)."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/hyperbolic-tower",
+    "verdict": "corrected",
+    "note": "PERIN Definitions 5.2–5.4 added as a second source for the corrected definitions."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/tower-classification",
+    "verdict": "corrected",
+    "note": "'Only if' direction now cites Perin's corrected Proposition 5.11 (arXiv:0903.0945v3, read by the review at statement level) instead of an unread source; SELA-VI locators corrected (Theorem 7 is p. 14, Proposition 6's proof runs to p. 14); the 'if' direction for extended floors is recorded as the remaining gap."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/surface-groups",
+    "verdict": "corrected",
+    "note": "LPS §3.4, p. 9 added: the non-orientable genus-4 surface group is a tower over {1}."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/necessary-conditions",
+    "verdict": "corrected",
+    "note": "Statement (2) and its proof rewritten: the counting sentence is written out, and the step needs that centralizers in the limit group G are free abelian of finite rank (FG8/frf-properties) — an abelian group containing ℤ² can have only two cosets of squares in general (ℤ[1/2] × ℤ); FG1/centralizer-cyclic added."
+   },
+   {
+    "nodeId": "FreeGroupsFirstOrderTheory:FO7/non-examples",
+    "verdict": "verified",
+    "note": "SELA-VI Claim 5 and its hypotheses (w without roots, the amalgam is the abelian JSJ decomposition), pp. 7–8; KM-RESPONSE item (57)(a), p. 7; ERA98 p. 102."
+   }
+  ]
+ }
 }

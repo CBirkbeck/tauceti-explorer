@@ -4,7 +4,7 @@
  "area": "grouptheory",
  "parent": "FreeGroupsAndLimitGroups",
  "summary": "Tarski's problems for free groups as a library roadmap on top of FreeGroupsAndLimitGroups: the alternating normal form and free lifting of sentences, the parametrization theorem for arbitrary NTQ systems, induced and tight enveloping NTQ systems, MAX-equivalence and algebraic solutions, the ∀∃-decision tree, the parametric elimination of ∃∀∃-formulas and the outer quantifier-elimination procedure, ending with the decidability of the elementary theory of a nonabelian free group with constants, the elementary equivalence of all nonabelian free groups of finite rank, the elementary embeddings F_k ≤ F_ℓ, and the classification of finitely generated groups elementarily equivalent to a free group as hyperbolic towers.",
- "readme": "The definitive document is research/blueprint/readmes/FreeGroupsFirstOrderTheory.md.\n\n**Purpose.** Plan the proofs of Tarski's theorems for free groups: decidability of the elementary theory of a nonabelian free group of finite rank (with constants), elementary equivalence of all nonabelian free groups of finite rank, and their consequences. The endpoints are theorems about Mathlib's first-order syntax (FirstOrder.Language), FreeGroup and computability (Computable, ComputablePred).\n\n**Scope.** Everything FreeGroupsAndLimitGroups plans (free-group algorithms, Stallings graphs, effective first-order syntax for groups, Bass–Serre theory, equations and coordinate groups, surface groups, generalized equations and the solver, positive theory and Merzljakov's theorem, limit groups and NTQ systems, length functions, effective JSJ decompositions and Makanin–Razborov diagrams, regular implicit function theorems) is consumed by stage id and never restated. This roadmap plans what that roadmap excludes: the non-regular implicit function theorems, the machinery of the decision procedure, the quantifier elimination and Tarski's theorems.\n\n**Conventions.** F = F(A) with A finite, |A| ≥ 2; formulas of the language of groups with coefficients carried by free variables (FreeGroupsAndLimitGroups FG3); equivalence over F(A) means equality of defined sets with constants interpreted by FreeGroup.of; algorithms are computable functions on Primcodable codes with correctness of both answers.\n\n**Sources.** Kharlampovich–Myasnikov (Elementary theory of free non-abelian groups, 2006; Quantifier elimination algorithm, arXiv:1207.1900; Decidability of the elementary theory of a torsion-free hyperbolic group, arXiv:1303.0760; Implicit function theorem over free groups), Sela (Diophantine geometry over groups VI), Louder–Perin–Sklinos, and the Sela/Kharlampovich–Myasnikov exchange of 2014.\n\n**Layers.** FO1 formulas and normal forms; FO2 parametrization and fundamental sequences; FO4 MAX-equivalence and algebraic solutions; FO3 induced NTQ systems, tight envelopes and configurations; FO5 ∀∃ decision trees; FO6 the outer elimination; FO7 Tarski's theorems (build order).\n\n**Non-goals.** Executable implementations, complexity bounds and certificates; the elementary theory of hyperbolic groups, free products or partially commutative groups (only the free case is planned).",
+ "readme": "The definitive document is research/blueprint/readmes/FreeGroupsFirstOrderTheory.md.\n\n**Purpose.** Plan the proofs of Tarski's theorems for free groups: decidability of the elementary theory of a nonabelian free group of finite rank (with constants), elementary equivalence of all nonabelian free groups of finite rank, and their consequences. The endpoints are theorems about Mathlib's first-order syntax (FirstOrder.Language), FreeGroup and computability (Computable, ComputablePred).\n\n**Scope.** Everything FreeGroupsAndLimitGroups plans (free-group algorithms, Stallings graphs, effective first-order syntax for groups, Bass–Serre theory, equations and coordinate groups, surface groups, generalized equations and the solver, positive theory and Merzljakov's theorem, limit groups and NTQ systems, length functions, effective JSJ decompositions and Makanin–Razborov diagrams, regular implicit function theorems) is consumed by stage id and never restated. This roadmap plans what that roadmap excludes: the non-regular implicit function theorems, the machinery of the decision procedure, the quantifier elimination and Tarski's theorems. The parametric elimination (FO6) uses that roadmap's FG10 target on equations over limit groups, whose proof is a recorded gap there; the ∀∃ decider (FO5) does not use it.\n\n**Conventions.** F = F(A) with A finite, |A| ≥ 2; formulas of the language of groups with coefficients carried by free variables (FreeGroupsAndLimitGroups FG3); equivalence over F(A) means equality of defined sets with constants interpreted by FreeGroup.of; algorithms are computable functions on Primcodable codes with correctness of both answers.\n\n**Sources.** Kharlampovich–Myasnikov (Elementary theory of free non-abelian groups, 2006; Quantifier elimination algorithm, arXiv:1207.1900; Decidability of the elementary theory of a torsion-free hyperbolic group, arXiv:1303.0760; Implicit function theorem over free groups), Sela (Diophantine geometry over groups VI), Louder–Perin–Sklinos, Perin (Elementary embeddings in torsion-free hyperbolic groups, the corrected arXiv version), and the Sela/Kharlampovich–Myasnikov exchange of 2014.\n\n**Layers.** FO1 formulas and normal forms; FO2 parametrization and fundamental sequences; FO4 MAX-equivalence and algebraic solutions; FO3 induced NTQ systems, tight envelopes and configurations; FO5 ∀∃ decision trees; FO6 the outer elimination; FO7 Tarski's theorems (build order).\n\n**Non-goals.** Executable implementations, complexity bounds and certificates; the elementary theory of hyperbolic groups, free products or partially commutative groups (only the free case is planned).",
  "prerequisites": [
   "FreeGroupsAndLimitGroups"
  ],
@@ -91,7 +91,8 @@
     "FreeGroupsFirstOrderTheory:FO4",
     "FreeGroupsFirstOrderTheory:FO5",
     "FreeGroupsAndLimitGroups:FG3",
-    "FreeGroupsAndLimitGroups:FG5"
+    "FreeGroupsAndLimitGroups:FG5",
+    "FreeGroupsAndLimitGroups:FG10"
    ]
   },
   {
@@ -102,6 +103,7 @@
     "FreeGroupsFirstOrderTheory:FO1",
     "FreeGroupsFirstOrderTheory:FO5",
     "FreeGroupsFirstOrderTheory:FO6",
+    "FreeGroupsAndLimitGroups:FG1",
     "FreeGroupsAndLimitGroups:FG3",
     "FreeGroupsAndLimitGroups:FG4",
     "FreeGroupsAndLimitGroups:FG5",
@@ -170,6 +172,16 @@
    "url": "https://arxiv.org/abs/1208.2858",
    "readSections": [
     "§3, §4"
+   ]
+  },
+  {
+   "id": "PERIN",
+   "title": "Elementary embeddings in torsion-free hyperbolic groups",
+   "authors": "Chloé Perin",
+   "edition": "Ann. Sci. Éc. Norm. Supér. (4) 44 (2011), 631–681; arXiv:0903.0945v3 (2012), with Proposition 5.11 corrected",
+   "url": "https://arxiv.org/abs/0903.0945v3",
+   "readSections": [
+    "§1, §5.1 (Definitions 5.2–5.4), §5.3 (Proposition 5.11)"
    ]
   }
  ],

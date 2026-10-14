@@ -1,4 +1,13 @@
-import Mathlib
+import Mathlib.Algebra.Group.Commutator
+import Mathlib.Algebra.Group.Int.Defs
+import Mathlib.Algebra.Group.PUnit
+import Mathlib.Algebra.Group.TypeTags.Basic
+import Mathlib.Data.Fin.VecNotation
+import Mathlib.GroupTheory.FreeGroup.Basic
+import Mathlib.GroupTheory.PresentedGroup
+import Mathlib.ModelTheory.Complexity
+import Mathlib.ModelTheory.ElementaryMaps
+import Mathlib.SetTheory.Cardinal.Finite
 
 /-!
 # FreeGroupsFirstOrderTheory: representative target signatures
@@ -214,6 +223,22 @@ example : HasAEQE groupLang Unit := by
 
 end FO1Examples
 
+/-! ## Layer FO5: existential–universal decision trees
+
+The decision tree and the decider are README targets (they need `Primcodable` codes of formulas,
+FreeGroupsAndLimitGroups FG3). Sacerdote's theorem is statable at the pins. -/
+
+section FO5
+
+/-- Sacerdote's theorem (FO5.8): a coefficient-free `∀∃`-sentence holds in one nonabelian free
+group of finite rank iff it holds in every one. -/
+theorem realize_iff_of_isForallExists_freeGroup (σ : groupLang.Sentence) (hσ : IsForallExists σ)
+    (k l : ℕ) (hk : 2 ≤ k) (hl : 2 ≤ l) :
+    FreeGroup (Fin k) ⊨ σ ↔ FreeGroup (Fin l) ⊨ σ := by
+  sorry
+
+end FO5
+
 /-! ## Layer FO6: the outer quantifier-elimination procedure
 
 The parametric tree, the sets `True(Θ)_m` and the elimination of `∃∀∃`-formulas over `F(A)` are
@@ -243,6 +268,15 @@ open scoped commutatorElement
 (FO6.10 and FO7; the effective form is a README target). -/
 theorem hasAEQEOver_freeGroup (A : Type) [Finite A] (hA : 1 < Nat.card A) :
     HasAEQEOver (FreeGroup A) (FreeGroup.of : A → FreeGroup A) := by
+  sorry
+
+/-- Uniform coefficient-free elimination (FO7.3): every coefficient-free formula is equivalent,
+over every nonabelian free group of finite rank, to one and the same Boolean combination of
+`∀∃`-formulas. -/
+theorem exists_isBoolCombAE_equivOver_freeGroup (β : Type) (n : ℕ)
+    (φ : groupLang.BoundedFormula β n) :
+    ∃ ψ : groupLang.BoundedFormula β n, IsBoolCombAE ψ ∧
+      ∀ k : ℕ, 2 ≤ k → EquivOver (FreeGroup (Fin k)) φ ψ := by
   sorry
 
 /-- Tarski's problem: nonabelian free groups of finite rank are elementarily equivalent (FO7.4). -/
@@ -328,10 +362,10 @@ sufficient splittings and fundamental sequences modulo subgroups (FO2); reducing
 MAX-equivalence, complete reducing systems, algebraic solutions and the bound `N(K, H)` (FO4);
 complexity, induced NTQ systems, projective images, tight enveloping NTQ groups and configuration
 groups (FO3); the `∀∃`-decision tree, its finiteness and correctness, the `∀∃` decider and the
-decidability of the `∀∃`-theory, Sacerdote's theorem and the computable bound (FO5); the
+decidability of the `∀∃`-theory, and the computable bound (FO5); the
 parametric tree, `True(Θ)_m`, the elimination of `∃∀∃`-formulas, the block measure and the
-effective outer procedure (FO6); the decision procedure, the decidability of `Th(F(A))`, uniform
-coefficient-free elimination, extended hyperbolic towers and the classification of finitely
+effective outer procedure (FO6); the decision procedure, the decidability of `Th(F(A))`, the
+computable form of the coefficient-free elimination, extended hyperbolic towers and the classification of finitely
 generated models, the necessary conditions and the double `F ∗_⟨w⟩ F` (FO7).
 -/
 
