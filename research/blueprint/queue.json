@@ -29702,8 +29702,9 @@
    ],
    "avoidAccountOf": "BP-AnalyticNumberTheory",
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9404"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9404",
+   "finishedAt": "2026-10-14T10:39:52Z"
   },
   {
    "id": "BP-ArithmeticDynamics",
@@ -37911,7 +37912,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.1",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9674"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.2",
@@ -37934,8 +37936,9 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9666"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9666",
+   "finishedAt": "2026-10-14T10:39:56Z"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.2",
@@ -37979,8 +37982,9 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9667"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9667",
+   "finishedAt": "2026-10-14T10:39:58Z"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.3",
@@ -38069,8 +38073,9 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9669"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9669",
+   "finishedAt": "2026-10-14T10:40:00Z"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.5",
@@ -43308,8 +43313,9 @@
    ],
    "revisionOf": "BP-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9672"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9672",
+   "finishedAt": "2026-10-14T10:40:02Z"
   },
   {
    "priority": 2,
@@ -45194,8 +45200,9 @@
     "REV-ModularCurvesPartII--R13.4a"
    ],
    "prompt": "research/blueprint/prompts/ASM-ModularCurvesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #246"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #246",
+   "finishedAt": "2026-10-14T10:40:04Z"
   },
   {
    "id": "ASM-MotivicEtaleKTheory",
@@ -47477,7 +47484,8 @@
    ],
    "revisionOf": "PKG-AutomorphicSpectralTheory",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9673"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory~2",
@@ -49093,7 +49101,8 @@
     "PKG-EnhancedDerivedSheaves"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EnhancedDerivedSheaves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9683"
   },
   {
    "id": "PKG-EnriquesSurfacesAndIntegralNonexistence",
@@ -96393,12 +96402,13 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-CompletedCohomologyPartII--CC.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #701"
   },
   {
    "id": "REV-CompletedCohomologyPartII--CC.0",
@@ -96837,7 +96847,8 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #395"
   },
   {
    "id": "BP-EnhancedDerivedSheaves--E0",
@@ -98179,7 +98190,8 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeTheory--P7",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeTheory--P7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #465"
   },
   {
    "id": "BP-PadicHodgeTheory--R06.5",
@@ -98226,7 +98238,8 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeTheory--R06.5",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeTheory--R06.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #466"
   },
   {
    "id": "BP-PerfectoidSpaces--P0",
@@ -103122,7 +103135,8 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #222"
   },
   {
    "id": "ASM-AInfCohomology",
