@@ -110,19 +110,10 @@ theorem steinitz_ideal_product (I J : (FractionalIdeal A⁰ K)ˣ) :
     Nonempty ((↥((I : FractionalIdeal A⁰ K) : Submodule A K) × ↥((J : FractionalIdeal A⁰ K) : Submodule A K)) ≃ₗ[A]
       (A × ↥(((I : FractionalIdeal A⁰ K) * (J : FractionalIdeal A⁰ K)) : Submodule A K))) := by sorry
 
--- dedekind-projective-steinitz
-theorem dedekind_steinitz
-    (M : Type u) [AddCommGroup M] [Module A M] [Module.Finite A M]
-    [Module.Projective A M] (h : 0 < Module.finrank K (K ⊗[A] M)) :
-    ∃ I : (FractionalIdeal A⁰ K)ˣ,
-      Nonempty ((M) ≃ₗ[A]
-        ((Fin (Module.finrank K (K ⊗[A] M) - 1) → A) ×
-          ↥((I : FractionalIdeal A⁰ K) : Submodule A K))) := by sorry
-
--- finite-dedekind-torsionfree-projective
-theorem dedekind_finite_torsionfree_projective
-    (M : Type u) [AddCommGroup M] [Module A M] [Module.Finite A M]
-    [Module.IsTorsionFree A M] : Module.Projective A M := by sorry
+-- Pseudobases, M ≅ Aⁿ⁻¹ ⊕ I, projectivity of lattices and the Steinitz class are owned by
+-- GeometryOfNumbersAndQuadraticArithmetic GN.2 (lattice-pseudobasis, lattice-steinitz-class);
+-- they are imported, not restated here. `steinitz_ideal_product` is the rank-two case of
+-- that classification, used by the K₀ comparison.
 
 example (I : (FractionalIdeal A⁰ K)ˣ) :
     Nonempty ((↥((I : FractionalIdeal A⁰ K) : Submodule A K) ×
@@ -174,11 +165,13 @@ end FiniteGaussProducts
 
 /-!
 README-only targets: balanced extension on arbitrary rings and its scalar maps;
-Steinitz class and K₀ comparison; order ideles, reduced norms and genus
+the K₀ comparison over GN.2's Steinitz class; order ideles, reduced norms
+assembled from IntegralHeckeAndGaloisDeterminants IHG.0, and genus
 classification; the Eichler predicate and Jacobinski cancellation; determinant
 character homomorphisms, positive Hom quotients and Fröhlich's comparison;
 tame local Gauss sums, Artin signs and the root-number class; the integral
-group logarithm, determinant descent and the Fröhlich–Taylor equality.
+group logarithm, determinant descent (including Q_p-ℓ-elementary groups) and the
+Fröhlich–Taylor equality.
 
 These depend on absent order, character-ring, or noncommutative completion
 carriers. Their precise statements, APIs, tests and proof boundaries are in
