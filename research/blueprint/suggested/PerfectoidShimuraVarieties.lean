@@ -1,24 +1,25 @@
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/PerfectoidShimuraVarieties.md` is definitive. These statements
-suggest Lean forms so that contributors and reviewers can converge on names and signatures.
-They claim no implementation.
+PerfectoidShimuraVarieties: representative target signatures.
 
-BP-PerfectoidShimuraVarieties~2, issue #6998; every implementationStatus remains unchecked.
+This file is not the roadmap and is not exhaustive. The roadmap document
+`research/blueprint/readmes/PerfectoidShimuraVarieties.md` is definitive: it states every target
+with its hypotheses, source locators, API and checks. These statements suggest Lean forms so
+that contributors and reviewers converge on names and signatures. They claim no implementation.
+
+BP-PerfectoidShimuraVarieties~3, issue #9311; every implementationStatus remains unchecked.
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174,
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-The concrete fragments use the existing group, matrix, topology and categorical carriers.
-Category-valued recipes take the canonical-model tower, analytification and diamondification
-as supplied functors. They express composition, limits and fully faithful lifting only:
-they do not construct those suppliers or assert spatiality, perfectoidness or tilde-limits.
-The supplied perfectoid category and fixed-base diamond functor are parameters, not new
-geometric carriers. The representative record below retains only its diamond description;
-the good-affinoid and tilde-limit conditions cannot yet be stated at this pin and are omitted.
-
-The reader's prototype ledger lists exactly which portions are stated and which geometric
-APIs/tests have no signature. There are no comment-only CONTRACT declarations. Compilation
-checks these concrete fragments; it does not establish geometric coverage of the packet.
+Shape (maintainer, 2026-10-12): the file states and does not develop. It keeps only light
+definitions with real bodies over carriers that exist at the pins (the similitude group and its
+level subgroups, matrix charts and frames, group quotients and actions, finite-level traces,
+categorical limits of supplied diagrams) and statements and examples about them; no data is
+defined by `sorry`. The roadmap's geometric objects (adic and perfectoid spaces, diamonds,
+canonical models, toroidal compactifications, period sheaves, analytic groups and tubes) have no
+carriers at the pins, so their definitions, API items and checks are README targets: the closing
+index lists every packet name of that kind, node by node, and the reader gives each one its
+statement. The categorical recipes take the finite-level models and geometric functors as
+supplied parameters; they express composition, limits and full faithfulness only.
 -/
 
 import Mathlib.Data.Matrix.Block
@@ -70,7 +71,11 @@ def gsp : Subgroup (GL (g ⊕ g) R) where
 
 /-- The similitude character `c : GSp_{2g}(R) → Rˣ` (well defined because `J` is invertible and
 `g` is nonempty). -/
-def similitude [Nonempty g] : gsp g R →* Rˣ := sorry
+noncomputable def similitude [Nonempty g] : gsp g R →* Rˣ where
+  toFun γ := Classical.choose (show ∃ c : Rˣ, ((γ : GL (g ⊕ g) R) : Matrix (g ⊕ g) (g ⊕ g) R) *
+    J g R * ((γ : GL (g ⊕ g) R) : Matrix (g ⊕ g) (g ⊕ g) R)ᵀ = (c : R) • J g R from γ.2)
+  map_one' := sorry
+  map_mul' := sorry
 
 /-- `γ J γᵀ = c(γ) J`. -/
 theorem similitude_spec [Nonempty g] (γ : gsp g R) :
@@ -128,16 +133,18 @@ theorem levelGamma1_antitone : Antitone (levelGamma1 g p) := sorry
 theorem levelGamma0_antitone [Nonempty g] : Antitone (levelGamma0 g p) := sorry
 
 /-- `Γ(pᵐ)` is normal in `GSp_{2g}(ℤ_p)`. -/
-instance levelGamma_normal (m : ℕ) : (levelGamma g p m).Normal := sorry
+theorem levelGamma_normal (m : ℕ) : (levelGamma g p m).Normal := sorry
 
 /-- `Γ₁(pᵐ)` is normal in `Γ₀(pᵐ)`. -/
-instance levelGamma1_normal_in_levelGamma0 [Nonempty g] (m : ℕ) :
+theorem levelGamma1_normal_in_levelGamma0 [Nonempty g] (m : ℕ) :
     ((levelGamma1 g p m).subgroupOf (levelGamma0 g p m)).Normal := sorry
 
-/-- `Γ₀(pᵐ)/Γ₁(pᵐ) ≅ GL_g(ℤ/pᵐ)` through the upper-left block. -/
-def levelGamma0QuotGamma1 [Nonempty g] (m : ℕ) :
-    (levelGamma0 g p m) ⧸ ((levelGamma1 g p m).subgroupOf (levelGamma0 g p m)) ≃*
-      GL g (ZMod (p ^ m)) := sorry
+/-- `Γ₀(pᵐ)/Γ₁(pᵐ) ≅ GL_g(ℤ/pᵐ)` through the upper-left block (stated as existence, since
+the quotient needs the normality theorem above as an instance). -/
+theorem levelGamma0QuotGamma1 [Nonempty g] (m : ℕ) :
+    haveI := levelGamma1_normal_in_levelGamma0 g p m
+    Nonempty ((levelGamma0 g p m) ⧸ ((levelGamma1 g p m).subgroupOf (levelGamma0 g p m)) ≃*
+      GL g (ZMod (p ^ m))) := sorry
 
 /-- Cofinality inside the integral compact open: every open subgroup contains a
 principal congruence subgroup. Intersecting a compact open of `GSp(ℚ_p)` with `GSp(ℤ_p)`
@@ -358,10 +365,12 @@ noncomputable def infiniteLevel.proj {S : Type*} [Category S] (J : GrothendieckT
 theorem infiniteLevel_hom_ext {D : Type*} [Category D] (F : L ⥤ D) [HasLimit F]
     {X : D} (f g : X ⟶ limit F) (h : ∀ i, f ≫ limit.π F i = g ≫ limit.π F i) : f = g := sorry
 
-/-- The categorical cofinality interface requires an initial functor, not just trivial intersection. -/
+/-- The categorical cofinality interface requires an initial functor, not just trivial intersection;
+Mathlib's `Functor.Initial.limitIso` supplies the comparison. -/
 noncomputable def infiniteLevel_reindex {D : Type*} [Category D] {L' : Type*} [Category L']
-    (F : L ⥤ D) (r : L' ⥤ L) [r.Initial] [HasLimit F] [HasLimit (r ⋙ F)] :
-    limit F ≅ limit (r ⋙ F) := sorry
+    (F : L ⥤ D) (r : L' ⥤ L) [r.Initial] [HasLimit F] :
+    limit F ≅ limit (r ⋙ F) :=
+  (Functor.Initial.limitIso r F).symm
 
 /-- S0.general uses the same limit recipe. Canonical models for a general datum remain a supplier. -/
 noncomputable def generalInfiniteLevel {D : Type*} [Category D] (F : L ⥤ D) [HasLimit F] : D :=
@@ -766,7 +775,12 @@ theorem lovering_square (ab : G →* A) (reflexNorm : T →* A) :
     ab.comp (loveringToCover ab reflexNorm) = reflexNorm.comp (loveringToTorus ab reflexNorm) := sorry
 
 /-- Test abelian_aux_hodge_trivial, pure group part: pullback along the identity is G. -/
-noncomputable def lovering_id (ab : G →* A) : lovering ab (MonoidHom.id A) ≃* G := sorry
+def lovering_id (ab : G →* A) : lovering ab (MonoidHom.id A) ≃* G where
+  toFun x := x.1.1
+  invFun g := ⟨(g, ab g), rfl⟩
+  left_inv := sorry
+  right_inv := sorry
+  map_mul' := sorry
 
 example (ab : G →* A) (g : G) :
     (g, ab g) ∈ lovering ab (MonoidHom.id A) := sorry
@@ -921,6 +935,29 @@ example (Z : Matrix g g ℤ_[p]) (hZ : Zᵀ = Z) :
 end PadicDistance
 end TauCeti.HodgeTate
 
+/-! ## S6: the Levi image of a double coset (Boxer–Pilloni Lemma 4.6.20, repaired proof)
+
+`PerfectoidShimuraVarieties:S6/toroidal-hecke-correspondences` uses: if `H` has the factorisations
+`H = (H ∩ P)(H ∩ Ū) = (H ∩ Ū)(H ∩ P)`, `P ∩ Ū = 1` and `t` normalises `Ū`, then
+`H t H ∩ P = (H ∩ P) t (H ∩ P)`. The opposite-unipotent factors cancel rather than vanish
+(`PerfectoidShimuraVarieties/E41`); the example after the review section shows they need not be
+trivial. -/
+
+namespace TauCeti.AnalyticLevelGroup
+
+theorem doubleCoset_inf_parabolic {G : Type*} [Group G] (P Ubar H : Subgroup G)
+    (hPU : P ⊓ Ubar = ⊥) (t : G) (ht : ∀ u ∈ Ubar, t⁻¹ * u * t ∈ Ubar)
+    (hfac : ∀ h ∈ H, ∃ a ∈ H ⊓ P, ∃ b ∈ H ⊓ Ubar, h = a * b)
+    (hfac' : ∀ h ∈ H, ∃ b ∈ H ⊓ Ubar, ∃ a ∈ H ⊓ P, h = b * a)
+    {k k' : G} (hk : k ∈ H) (hk' : k' ∈ H) (hP : k * t * k' ∈ P) :
+    ∃ a ∈ H ⊓ P, ∃ a' ∈ H ⊓ P, k * t * k' = a * t * a' := sorry
+
+/-- The cancelled factors: with `t = 1`, `k = u` and `k' = u⁻¹` the product lies in every `P`,
+whatever `u` is, so membership in `P` cannot force the factors to be `1`. -/
+example {G : Type*} [Group G] (P : Subgroup G) (u : G) : u * 1 * u⁻¹ ∈ P := by simp
+
+end TauCeti.AnalyticLevelGroup
+
 /-! ## Independent revision review: exceptional finite pairing level and cusp-fan calculation
 
 The first example is the residue-unit input to finiteLevel_fixed_similitude_g1 at p=2,m=1.
@@ -934,3 +971,177 @@ example (u : (ZMod 2)ˣ) : u = 1 := sorry
 example : let Q : Matrix (Fin 2) (Fin 2) ℤ := !![4, -2; -2, 1]
     Q = Matrix.vecMulVec (![2, -1] : Fin 2 → ℤ) (![2, -1] : Fin 2 → ℤ) ∧
       Q 1 1 < |Q 0 1| := by decide
+
+/-! ## Index of README targets
+
+Every name below is a target of the packet and the reader whose carriers are not in Mathlib
+082e2d3 or Tau Ceti f790474 (adic, perfectoid and analytic spaces, diamonds, canonical models,
+compactifications, period sheaves, almost modules over perfectoid algebras, analytic groups).
+The reader states each one; formalising them is Tau Ceti's work, so they are not declared here.
+Definitions and constructions list their README-only API items and checks; theorem targets list
+their proposed names. Names stated above are omitted.
+
+* S0/p-level-tower (construction): API ShimuraTower.transition_finite,
+  ShimuraTower.points_eq_doubleCoset; checks pLevel_gl2_full_level, pLevel_transition_degree_gl2,
+  pLevel_torus_zero_dim, pLevel_not_over_reflex_completion
+* S0/tower-right-action (construction): API ShimuraTower.primeToPHecke; checks translate_center_gl2,
+  translate_trivial_group
+* S0/infinite-level-diamond (construction): API ShimuraTower.infiniteLevelMin_isSpatial,
+  ShimuraTower.infiniteLevel_isLocallySpatial, ShimuraTower.infiniteLevel_space_homeo,
+  ShimuraTower.infiniteLevel_points, ShimuraTower.infiniteLevel_action,
+  ShimuraTower.infiniteLevel_proEtale; checks infiniteLevel_torus,
+  infiniteLevel_not_perfectoid_definition, infiniteLevel_space_gl2, infiniteLevel_singleton_index
+* S0/perfectoid-representative (definition): checks representative_frobenius_P1,
+  representative_constant_tower
+* S0/tower-action-kernel (theorem): towerActionKernel
+* S0/component-set-of-infinite-level (theorem): componentSetOfInfiniteLevel
+* S0/connected-component-tower (construction): API ShimuraTower.neutralDeckGroup,
+  ShimuraTower.fullOfNeutral, ShimuraTower.connectedDatumTower,
+  ShimuraTower.neutralComponent_isConnected; checks neutral_deck_gl2, neutral_full_comparison_count,
+  neutral_tower_torus, neutral_symmetry_not_Gp
+* S0/rigidified-moduli-tower (definition): API ShimuraTower.Rigidified,
+  ShimuraTower.Rigidified.quotientIso, ShimuraTower.Rigidified.infiniteLevel,
+  ShimuraTower.Rigidified.isTorsor_of_free, ShimuraTower.Rigidified.quotient_infiniteLevel,
+  ShimuraTower.Rigidified.trivial; checks rigidified_trivial_delta, rigidified_not_shimura_kernel
+* S0.general/general-infinite-level-diamond (construction): API
+  ShimuraTower.generalInfiniteLevel_isSpatial, ShimuraTower.generalInfiniteLevel_action,
+  ShimuraTower.generalInfiniteLevel_eq_abelian; checks general_abelian_agrees, general_torus,
+  general_no_perfectoid_claim
+* S0.general/toroidal-tower-diamond (construction): API
+  ShimuraTower.toroidalInfiniteLevel_isSpatial, ShimuraTower.toroidalInfiniteLevel.deck,
+  ShimuraTower.toroidalInfiniteLevel.translate; checks toroidal_g1_equals_minimal,
+  toroidal_refinement_iso_open, toroidal_single_level, toroidal_hecke_needs_refinement
+* S1/siegel-finite-level-spaces (construction): API SiegelTorsion.integralMin,
+  SiegelTorsion.hasseDomain, SiegelTorsion.hasseDomain_generic, SiegelTorsion.finiteLevel,
+  SiegelTorsion.finiteLevel_hasse, SiegelTorsion.finiteLevel_eq_tower,
+  SiegelTorsion.hasseDomain_mono; checks hasseDomain_zero_ordinary, goodReduction_ne_open,
+  hasseDomain_not_blowup, finiteLevel_trivial_level, finiteLevel_fixed_similitude_g1
+* S1/siegel-similitude-comparison (comparison): siegelSimilitudeComparison
+* S1/perfectoid-hebbarkeitssatz (theorem): perfectoidHebbarkeitssatz
+* S1/hasse-locus-hebbarkeitssatz (theorem): hasseLocusHebbarkeitssatz
+* S1/good-triple (definition): API GoodTriple, GoodTriple.indep_t, GoodTriple.tilt_iff,
+  GoodTriple.extend_bounded, GoodTriple.of_hasse_chart, GoodTriple.finite_normal_cover,
+  GoodTriple.limit; checks goodTriple_empty_boundary, goodTriple_empty_open,
+  goodTriple_codimension_one_fails, goodTriple_tilt
+* S1/good-triple-stability (theorem): goodTripleStability
+* S1/hasse-blowup-hartogs (theorem): hasseBlowupHartogs
+* S1/frobenius-diagram-mod-p (lemma): frobeniusDiagramModP
+* S1/frobenius-trace-estimates (theorem): frobeniusTraceEstimates
+* S1/canonical-frobenius-lift (theorem): canonicalFrobeniusLift
+* S1/anticanonical-open-immersions (theorem): anticanonicalOpenImmersions
+* S1/anticanonical-locus-level-p (theorem): anticanonicalLocusLevelP
+* S1/anticanonical-tower (construction): API SiegelTorsion.anticanonical,
+  SiegelTorsion.anticanonical_iso_hasse, SiegelTorsion.anticanonical_isClopen,
+  SiegelTorsion.anticanonical_integralModel, SiegelTorsion.anticanonical_isAffinoid,
+  SiegelTorsion.anticanonical_restrict; checks anticanonical_m1_degree, anticanonical_eps_zero,
+  anticanonical_not_full_preimage, anticanonical_affinoid_of_lift
+* S1/gamma0-infinite-level-perfectoid (theorem): gamma0InfiniteLevelPerfectoid
+* S1/gamma0-boundary-strongly-zariski-closed (theorem): gamma0BoundaryStronglyZariskiClosed
+* S1/tate-normalized-traces (construction): API SiegelTorsion.normalizedTrace_bound,
+  SiegelTorsion.normalizedTrace_tendsto; checks normalizedTrace_g1_monomial
+* S1/hartogs-for-finite-covers-of-anticanonical-tower (theorem):
+  hartogsForFiniteCoversOfAnticanonicalTower
+* S1/anticanonical-torsion-and-tilt (theorem): anticanonicalTorsionAndTilt
+* S1/characteristic-p-base-triples-good (theorem): characteristicPBaseTriplesGood
+* S1/gamma1-cover-tilt (theorem): gamma1CoverTilt
+* S1/gamma1-level-perfectoid (theorem): gamma1LevelPerfectoid
+* S1/full-level-anticanonical-perfectoid (theorem): fullLevelAnticanonicalPerfectoid
+* S1/continuous-hodge-tate-map (construction): API SiegelTorsion.htMapTop,
+  SiegelTorsion.htMapTop_apply, SiegelTorsion.htMapTop_continuous,
+  SiegelTorsion.htMapTop_equivariant, SiegelTorsion.points_infiniteLevel; checks
+  htMapTop_ordinary_rational, htMapTop_supersingular_drinfeld, htMapTop_tate_curve,
+  htMapTop_isotropic
+* S1/rational-flags-preimage (theorem): rationalFlagsPreimage
+* S1/translates-cover-tower (theorem): translatesCoverTower
+* S1/perfectoid-siegel-space (theorem): perfectoidSiegelSpace
+* S1/siegel-hodge-tate-period-map (construction): API SiegelTorsion.htMap, SiegelTorsion.htMap_top,
+  SiegelTorsion.htMap_unique, SiegelTorsion.htMap_equivariant, SiegelTorsion.htMap_anticanonical,
+  SiegelTorsion.htMap_neighbourhood; checks htMap_g1_cusps_rational, htMap_anticanonical_chart,
+  htMap_not_finite_level, htMap_equivariant_center
+* S1/siegel-main-theorem (theorem): siegelMainTheorem
+* S1/perfectoid-toroidal-siegel-tower (theorem): perfectoidToroidalSiegelTower
+* S1/siegel-open-tower-and-level-quotients (construction): API SiegelTorsion.openTower,
+  SiegelTorsion.openTower_torsor, SiegelTorsion.openTower_quotient, SiegelTorsion.openTower_action;
+  checks openTower_trivial_quotient, openTower_kernel_trivial
+* S1/elliptic-cusps-at-infinite-level (theorem): ellipticCuspsAtInfiniteLevel
+* S2/hodge-type-embedding-and-siegel-comparison (construction): API HodgeTower.embedding,
+  HodgeTower.toSiegel, HodgeTower.toSiegel_isClosedImmersion, HodgeTower.toSiegel_boundary,
+  HodgeTower.toSiegel_comp, HodgeTower.toSiegel_finite; checks toSiegel_identity, toSiegel_hilbert,
+  toSiegel_not_closed_large_level, toSiegel_points
+* S2/image-compactification (construction): API HodgeTower.imageCompactification,
+  HodgeTower.minToImage, HodgeTower.minToImage_isNormalization, HodgeTower.minToImage_iso_open,
+  HodgeTower.imageCompactification_boundary, HodgeTower.imageCompactification_stable; checks
+  imageCompactification_siegel, imageCompactification_curve, imageCompactification_not_normal,
+  imageCompactification_open_compat
+* S2/hodge-open-perfectoid-tower (theorem): hodgeOpenPerfectoidTower
+* S2/hodge-image-compactified-tower (theorem): hodgeImageCompactifiedTower
+* S2/siegel-tame-level-removal (lemma): siegelTameLevelRemoval
+* S2/hodge-genuine-minimal-perfectoid-tower (theorem): hodgeGenuineMinimalPerfectoidTower
+* S2/hodge-good-tower-arbitrary-level (theorem): hodgeGoodTowerArbitraryLevel
+* S2/good-tower-base-change (lemma): goodTowerBaseChange
+* S2/genuine-to-image-comparison (comparison): genuineToImageComparison
+* S2/embedding-independence (theorem): embeddingIndependence
+* S3/levi-torsor-over-flag-variety (construction): API HodgeTate.associatedBundle,
+  HodgeTate.associatedBundle_tensor, HodgeTate.FL_siegel; checks FL_gl2_P1, FL_compact_dual
+* S3/siegel-period-map-properties (theorem): siegelPeriodMapProperties
+* S3/siegel-tautological-pullback (theorem): siegelTautologicalPullback
+* S3/siegel-graph-chart-and-frame (construction): checks graph_domain_not_disc
+* S3/hodge-open-period-map (theorem): hodgeOpenPeriodMap
+* S3/hodge-levi-pullback (theorem): hodgeLeviPullback
+* S3/hodge-period-map-datum-functoriality (theorem): hodgePeriodMapDatumFunctoriality
+* S3/hodge-compactified-period-maps (theorem): hodgeCompactifiedPeriodMaps
+* S3/hodge-tate-formal-models (theorem): hodgeTateFormalModels
+* S3/elliptic-hodge-tate-and-O1 (theorem): ellipticHodgeTateAndO1
+* S3/hecke-equivariant-hodge-tate-sequence (comparison): heckeEquivariantHodgeTateSequence
+* S3/hilbert-res-flag-period-map (theorem): hilbertResFlagPeriodMap
+* S3/affinoid-perfectoid-basis-of-flag-variety (lemma): affinoidPerfectoidBasisOfFlagVariety
+* S4/property-p (definition): API ShimuraTower.propertyP_iff_neutral,
+  ShimuraTower.propertyP_of_adjoint, ShimuraTower.propertyP_hodge; checks propertyP_siegel,
+  propertyP_torus, propertyP_not_open_only, propertyP_level_independent
+* S4/property-p-full-iff-neutral (theorem): propertyPFullIffNeutral
+* S4/property-p-from-adjoint (theorem): propertyPFromAdjoint
+* S4/hodge-adjoint-property-p (theorem): hodgeAdjointPropertyP
+* S4/preabelian-minimal-perfectoid (theorem): preabelianMinimalPerfectoid
+* S4/preabelian-open-tower-and-boundary (theorem): preabelianOpenTowerAndBoundary
+* S4/preabelian-reflex-bridge (comparison): preabelianReflexBridge
+* S5/modular-tower-comparison (comparison): modularTowerComparison
+* S5/modular-cusp-charts-and-q-action (comparison): modularCuspChartsAndQAction
+* S5/modular-anticanonical-and-period-compatibility (comparison):
+  modularAnticanonicalAndPeriodCompatibility
+* S5/hilbert-three-towers (construction): API HilbertTower.geometric, HilbertTower.intermediate,
+  HilbertTower.arithmetic, HilbertTower.beta1, HilbertTower.beta2, HilbertTower.polAction,
+  HilbertTower.isPerfectoid; checks three_towers_F_eq_Q, beta1_not_surjective
+* S5/hilbert-mixed-span (theorem): hilbertMixedSpan
+* S5/hilbert-weil-pairing (construction): API HilbertTower.weilPairing_pol,
+  HilbertTower.weilPairing_fibre, HilbertTower.weilPairing_E, HilbertTower.weilPairing_arith; checks
+  weilPairing_F_eq_Q, weilPairing_scalar_pol, weilPairing_arith_not_defined
+* S5/hilbert-polarization-torsors (theorem): hilbertPolarizationTorsors
+* S5/hilbert-level-torsors (theorem): hilbertLevelTorsors
+* S5/hilbert-gl2-qp-action (construction): API HilbertTower.qpAction, HilbertTower.qpAction_extends,
+  HilbertTower.qpAction_polModule, HilbertTower.qpAction_eq_translate; checks qpAction_scalar_p,
+  qpAction_integral, qpAction_not_fixed_c
+* S5/hilbert-period-and-domain-compatibility (theorem): hilbertPeriodAndDomainCompatibility
+* S5/hilbert-f-equals-q-check (comparison): hilbertFEqualsQCheck
+* S6/log-to-v-comparison (lemma): logToVComparison
+* S6/kummer-to-v-bridge (lemma): kummerToVBridge
+* S6/general-toroidal-period-map (theorem): generalToroidalPeriodMap
+* S6/toroidal-hecke-correspondences (theorem): toroidalHeckeCorrespondences
+* S6/abelian-auxiliary-data (construction): API AbelianType.hodgeCover, AbelianType.flag_eq,
+  AbelianType.deltaGroup, AbelianType.neutral_galois; checks abelian_aux_hilbert,
+  abelian_aux_not_preabelian_proof
+* S6/torsor-fibre-product (lemma): torsorFibreProduct
+* S6/abelian-connected-towers-and-descent-group (theorem): abelianConnectedTowersAndDescentGroup
+* S6/tilde-limit-components-and-quotients (lemma): tildeLimitComponentsAndQuotients
+* S6/abelian-minimal-period-map (theorem): abelianMinimalPeriodMap
+* S6/abelian-torsor-descent (theorem): abelianTorsorDescent
+* S6/minimal-toroidal-period-map-compatibility (theorem): minimalToroidalPeriodMapCompatibility
+* S6/integral-levi-reduction (theorem): integralLeviReduction
+* S6/bruhat-level-groups (construction): API LevelGroup.mk, LevelGroup.zero_zero,
+  LevelGroup.antitone, LevelGroup.iwahoriDecomposition, LevelGroup.normalizes,
+  LevelGroup.rank_one_points; checks levelGroups_zero_zero, levelGroups_GL2,
+  levelGroups_decomposition_unique, levelGroups_not_normal
+* S6/bruhat-cell-tubes (construction): API BruhatTube.mk, BruhatTube.prod_iso, BruhatTube.eq_orbit,
+  BruhatTube.inter, BruhatTube.translates_finite, BruhatTube.quotient_presentation; checks
+  tubes_zero_zero, tubes_GL2_disc, tubes_orbit, tubes_not_algebraic_cell
+* S6/bruhat-levi-reduction (theorem): bruhatLeviReduction
+-/
