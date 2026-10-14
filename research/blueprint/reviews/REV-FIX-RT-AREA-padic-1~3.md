@@ -1,4 +1,60 @@
-# Current checkpoint: Codex codex-6w0vbR, 14 October 2026
+# Current checkpoint: Codex codex-TOTmgG, 14 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input commit `4bc0469f322b124477c08fef202d76a103bb79bf`;
+branch `codex-TOTmgG-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6159106188)
+confirms claimant comment `6159104643`. This session did none of the author
+fixes or previous reviews, and claimed this issue alone.
+
+**Blocked checkpoint.** Independently fetched the live #5704 body after claim
+confirmation and the live #6519 body. Their ordered deliverable lists still
+match the historical queues at `c69e5b6c9` and `888f12f5c9`. The current queue
+still expands both issued scopes:
+
+| Job | Issued outputs / packets | Queue outputs / packets | Stock completion, issued / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 23 / 11 | true / false |
+
+Every queued output exists. Read the stock `issues.deliverables_complete`
+function: it requires this job's reviewer in each packet's current top-level
+review and does not consult historical assessments. The preserved read-only
+collision reproduction passes: current issued scopes return `[false, true]`;
+restoring #5704's archived reviews only in memory returns `[true, false]`.
+Overwriting current verdicts would transfer failure to #6519 and would still
+leave #5704's additional 20 packet assessments outside the issued scope.
+
+Reran all ten preserved assessment-bound history regression cases; all pass.
+They reject changed mathematics, suggested files, scope, digests and
+nonverdicts. The fixture also verifies that the three assigned packets,
+excluding only `review` and `reviewHistory`, and all three suggested files
+are unchanged from `331007b5e`. The candidate remains uninstalled, and its
+source and reader binding policy still needs a maintainer decision. This is
+regression evidence, not a new source audit or mathematical verdict.
+
+Fresh stock blueprint checks with the configured declaration index pass with
+**zero errors and zero warnings**: P0 326 nodes, AdicEtaleGeometry 153 and
+AdicSpacesPartII 537. No link map or restructuring proposal is assigned.
+No fresh baseline-statement audit or Lean compilation ran; the suggested
+files are unchanged. Earlier mathematical verdicts, finding dispositions
+and qualified elaboration results below retain their original attribution.
+
+WORKERS.md restricts edits to issue-named files and scratch space. The required
+repair paths `research/blueprint/queue.json`, `research/blueprint/make_queue.py`,
+`research/blueprint/issues.py` and this job's generated prompt are outside the
+assignment and all fail `intake.ALLOWED`. Only this report and its handoff
+change. The runnable reproductions and earlier mathematical review are preserved.
+
+Resume after the maintainer reconciles both issued scopes, preserves them
+through regeneration, and supports content-bound historical completion alongside
+current promotion reviews. Validate both jobs together, including a later scoped
+review and two stable regenerations. Repeating this dispatch before that repair
+cannot complete the job within the authorized deliverables.
+
+---
+
+# Archived checkpoint: Codex codex-6w0vbR, 14 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input commit `8e7e3ccd726c7df769ee22a826f9fe6d48fafe45`;
