@@ -216535,9 +216535,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.2-symbols.json",
    "citation": "Charles A. Weibel, The K-book, Chapter III: K₁ and K₂ of a ring, Author-hosted separate Chapter III PDF, read 2026-10-13; printed chapter pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.2-symbols",
+   "reviewReason": "Independently inspected the rendered author-copy p.46 and its Exercise III.5.8 conjugations. Conjugating h_ij(s) by h_ik(r) gives h_ij(rs)h_ij(r)⁻¹, so taking its commutator with h_ij(s) yields the inverse factors in order r then s. Matsumoto Lemma 5.4(c), printed p.26, agrees because the two roots have Cartan pairing +1. The source tame detector at Weibel Lemma III.6.3, p.51, distinguishes this class from its inverse. The verdict is confined to the identified author chapter, not an unread edition."
   },
   {
    "id": "K2SymbolsBrauer/E1",
