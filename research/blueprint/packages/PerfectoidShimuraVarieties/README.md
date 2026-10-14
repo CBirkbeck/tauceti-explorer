@@ -43,7 +43,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 - `mathlib:Matrix.det` (module `Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean`): The determinant; det(A + ZC) in the strict-Iwahori bound.
 - `mathlib:Matrix.fromBlocks` (module `Mathlib/Data/Matrix/Block.lean`): Block matrices (A B; C D); the graph-chart computation (1 Z)·(A B; C D).
 - `mathlib:Matrix.symplecticGroup` (module `Mathlib/LinearAlgebra/SymplecticGroup.lean`): The submonoid of matrices A with A J Aᵀ = J (similitude factor 1); GSp_2g with similitude 1 is this group.
-- `mathlib:Module.Grassmannian` (module `Mathlib/RingTheory/Grassmannian.lean`): The structure of submodules with finite projective quotient of constant rank k (rankAtStalk), extending Submodule. It supplies a module-valued carrier, not a Grassmannian scheme or the Lagrangian closed subscheme; those geometric constructions are imported from ShimuraData D5.
+- `mathlib:Module.Grassmannian` (module `Mathlib/RingTheory/Grassmannian.lean`): The structure of submodules with finite projective quotient of constant rank k (rankAtStalk), extending Submodule. It supplies a module-valued carrier, not a Grassmannian scheme or the Lagrangian closed subscheme; those geometric constructions are imported from ShimuraData D3.
 - `mathlib:MonoidHom.ker` (module `Mathlib/Algebra/Group/Subgroup/Ker.lean`): The kernel of a group homomorphism as a subgroup; effective deck groups are quotients by the kernel of the action.
 - `mathlib:MulAction.stabilizer` (module `Mathlib/GroupTheory/GroupAction/Defs.lean`): The stabilizer subgroup of a point; the stabiliser of the neutral component.
 - `mathlib:MulAction.toPermHom` (module `Mathlib/Algebra/Group/Action/End.lean`): The permutation homomorphism for a left group action. For the right translation law T_(gh)=T_h∘T_g, use the opposite group before taking this homomorphism and its kernel.
@@ -55,7 +55,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 ### From ShimuraData
 
-D4 supplies Hodge, abelian and pre-abelian data, reflex fields and the prescribed central covers; D5 supplies cocharacters, parabolics, flags and Levi quotients. Connected-data and auxiliary reflex-torus extensions require the additional contracts below. The abstract module Grassmannian does not supply these schemes.
+D4 supplies Hodge, abelian and pre-abelian data, reflex fields and the prescribed central covers; D3 supplies cocharacters, parabolics, flags and Levi quotients; D5 supplies the Hilbert data and trace embedding. Connected-data and auxiliary reflex-torus extensions require the additional contracts below. The abstract module Grassmannian does not supply these schemes.
 
 The exact interfaces used below are `ShimuraData:D3/bruhat-integral`, `ShimuraData:D3/compact-dual`, `ShimuraData:D3/filtration-parabolic`, `ShimuraData:D3/kostant-representatives`, `ShimuraData:D3/schubert-families`, `ShimuraData:D4`, `ShimuraData:D4/abelian-type`, `ShimuraData:D4/adjoint-datum`, `ShimuraData:D4/central-isogeny-lift`, `ShimuraData:D4/datum-morphism`, `ShimuraData:D4/hodge-type`, `ShimuraData:D4/preabelian-type`, `ShimuraData:D4/shimura-datum`, `ShimuraData:D4/type-implications`, `ShimuraData:D5/hilbert-datum`, `ShimuraData:D5/hilbert-star-datum`, `ShimuraData:D5/hilbert-trace-embedding`.
 
@@ -121,7 +121,7 @@ The exact interfaces used below are `SchemeAndStackFoundations:SF.0/coherent-har
 
 ### From ReductiveGroupsPartII
 
-R3 supplies Borels, roots, opposite unipotents and algebraic Iwahori/Bruhat factorization. Layer 6 constructs its specific analytic-depth groups and tubes. Rational points of a nonsplit compact subgroup cannot be factored for an arbitrary splitting-field parabolic solely by regrouping split roots.
+RG2.1 and RG2.3 supply rational root data, valued commutator estimates and algebraic big-cell factorization. Layer 6 constructs its specific analytic-depth groups and tubes. Rational points of a nonsplit compact subgroup cannot be factored for an arbitrary splitting-field parabolic solely by regrouping split roots.
 
 The exact interfaces used below are `ReductiveGroupsPartII:RG2.1/rational-points-root-datum`, `ReductiveGroupsPartII:RG2.1/valued-commutator-estimates`, `ReductiveGroupsPartII:RG2.3/big-cell-criteria`.
 
@@ -133,7 +133,7 @@ The exact interfaces used below are `AlgebraicModuliForArithmeticGeometry:R09.1`
 
 ### From PELModuli
 
-P2 supplies the finite-level principally polarized Siegel moduli object with its universal abelian scheme, level structures and good-reduction models. Layer 1 builds the specialized formal Frobenius and perfectoid constructions from these finite objects.
+M5 supplies the finite-level principally polarized Siegel moduli object with its universal abelian scheme, level structures and good-reduction models. Layer 1 builds the specialized formal Frobenius and perfectoid constructions from these finite objects.
 
 The exact interfaces used below are `PELModuli:M5/siegel-moduli`.
 
@@ -538,7 +538,7 @@ For g=1 and depth one the principal-level index is |GL₂(𝔽_p)|=(p²−1)(p²
 
 ### Dependencies
 
-This layer uses `AdicSpacesPartII:R1`, `DiamondsAndVStacks:D4`, `DiamondsAndVStacks:D5`, `DiamondsAndVStacks:D6`, `Layer 0`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraVarieties:V0`, `ShimuraVarieties:V1`, `ShimuraVarieties:V6`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `AdicSpacesPartII:R1`, `DiamondsAndVStacks:D4`, `DiamondsAndVStacks:D5`, `DiamondsAndVStacks:D6`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraVarieties:V0`, `ShimuraVarieties:V1`, `ShimuraVarieties:V6`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 0.general: general-data and toroidal diamonds
 
@@ -621,7 +621,7 @@ At a genus-two cusp the ray generated by (e₁+e₂)² belongs to the usual perf
 
 ### Dependencies
 
-This layer uses `DiamondsAndVStacks:D5`, `Layer 0`, `Layer 0.general`, `ShimuraCompactifications:C2`, `ShimuraCompactifications:C2.general`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C3.general`, `ShimuraVarieties:V8.general`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `DiamondsAndVStacks:D5`, `Layer 0`, `ShimuraCompactifications:C2`, `ShimuraCompactifications:C2.general`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C3.general`, `ShimuraVarieties:V8.general`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 1: the Siegel construction
 
@@ -1360,7 +1360,7 @@ The elliptic cusp tower has q-roots q^{1/p^n}. Over a finite Kummer level of deg
 
 ### Dependencies
 
-This layer uses `AdicSpacesPartII:R2`, `AdicSpacesPartII:R3`, `DiamondsAndVStacks:D4`, `DiamondsAndVStacks:D5`, `HodgeTateAndCanonicalSubgroups:T0`, `HodgeTateAndCanonicalSubgroups:T2`, `HodgeTateAndCanonicalSubgroups:T3`, `HodgeTateAndCanonicalSubgroups:T4`, `PELModuli:M5`, `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 0.general`, `Layer 1`, `PerfectoidSpaces:P0`, `PerfectoidSpaces:P1`, `PerfectoidSpaces:P2`, `PerfectoidSpaces:P3`, `PerfectoidSpaces:P4`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P7`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C5`, `ShimuraCompactifications:C6`, `ShimuraData:D3`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `AdicSpacesPartII:R2`, `AdicSpacesPartII:R3`, `DiamondsAndVStacks:D4`, `DiamondsAndVStacks:D5`, `HodgeTateAndCanonicalSubgroups:T0`, `HodgeTateAndCanonicalSubgroups:T2`, `HodgeTateAndCanonicalSubgroups:T3`, `HodgeTateAndCanonicalSubgroups:T4`, `PELModuli:M5`, `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 0.general`, `PerfectoidSpaces:P0`, `PerfectoidSpaces:P1`, `PerfectoidSpaces:P2`, `PerfectoidSpaces:P3`, `PerfectoidSpaces:P4`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P7`, `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.4`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C5`, `ShimuraCompactifications:C6`, `ShimuraData:D3`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 2: Hodge-type representability
 
@@ -1580,7 +1580,7 @@ With the identity Siegel embedding, the image compactification is the given Sieg
 
 ### Dependencies
 
-This layer uses `DiamondsAndVStacks:D5`, `DiamondsAndVStacks:D6`, `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 1`, `Layer 2`, `PerfectoidSpaces:P2`, `PerfectoidSpaces:P4`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraData:D4`, `ShimuraVarieties:V0`, `ShimuraVarieties:V1`, `ShimuraVarieties:V2`, `ShimuraVarieties:V6`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `DiamondsAndVStacks:D5`, `DiamondsAndVStacks:D6`, `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 1`, `PerfectoidSpaces:P2`, `PerfectoidSpaces:P4`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraData:D4`, `ShimuraVarieties:V0`, `ShimuraVarieties:V1`, `ShimuraVarieties:V2`, `ShimuraVarieties:V6`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 3: Hodge-type period maps and coefficients
 
@@ -1805,7 +1805,7 @@ Siegel case (Pilloni–Stroh, author's version, Théorème 1.22, after Scholze's
 
 Siegel or Hodge-type (PEL) data; neat tame level; charts indexed by Lagrangian Plücker coordinates only (the published statements use all indices).
 
-Pilloni–Stroh's published numbering is inferred to send the author's Théorème 1.22 to Theorem 1.16, which is how Pilloni and Boxer–Calegari–Gee–Pilloni cite it.
+The modified-model statement here uses Théorème 1.22 in the linked author version; the theorem numbers in the downstream citations are not used to identify that statement.
 
 At p = 2 the statement with B(g,2) = 2g is conditional on the truncated-group integral estimate reported, but not proved, in Pilloni–Stroh Remarque 1.10. The integral T5 comparison retains this proof obligation. The all-prime existence of the perfectoid Siegel tower does not prove this stronger integral model estimate.
 
@@ -1903,7 +1903,7 @@ For genus one, A=a, B=b, C=c, D=d gives z·γ=(b+zd)/(a+zc) and frame factor a+z
 
 ### Dependencies
 
-This layer uses `AdicSpacesPartII:R2`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `AutomorphicBundles:B0`, `AutomorphicBundles:B1`, `AutomorphicBundles:B2`, `AutomorphicBundles:B3`, `AutomorphicBundles:B3.general`, `AutomorphicBundles:B4`, `DiamondsAndVStacks:D4`, `DiamondsAndVStacks:D6`, `HodgeTateAndCanonicalSubgroups:T0`, `HodgeTateAndCanonicalSubgroups:T2`, `HodgeTateAndCanonicalSubgroups:T5`, `HodgeTateAndCanonicalSubgroups:T6`, `Layer 0`, `Layer 1`, `Layer 2`, `Layer 3`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C3.general`, `ShimuraData:D3`, `ShimuraData:D4`, `ShimuraData:D5`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `AdicSpacesPartII:R2`, `AlgebraicModuliForArithmeticGeometry:R09.1`, `AutomorphicBundles:B0`, `AutomorphicBundles:B1`, `AutomorphicBundles:B2`, `AutomorphicBundles:B3`, `AutomorphicBundles:B3.general`, `AutomorphicBundles:B4`, `DiamondsAndVStacks:D4`, `DiamondsAndVStacks:D6`, `HodgeTateAndCanonicalSubgroups:T0`, `HodgeTateAndCanonicalSubgroups:T2`, `HodgeTateAndCanonicalSubgroups:T5`, `HodgeTateAndCanonicalSubgroups:T6`, `Layer 0`, `Layer 1`, `Layer 2`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C3.general`, `ShimuraData:D3`, `ShimuraData:D4`, `ShimuraData:D5`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 4: pre-abelian representability
 
@@ -2061,7 +2061,7 @@ For a zero-dimensional torus datum the tower is a profinite family of C-points, 
 
 ### Dependencies
 
-This layer uses `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 2`, `Layer 4`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraData:D4`, `ShimuraVarieties:V0`, `ShimuraVarieties:V2`, `ShimuraVarieties:V6`, `ShimuraVarieties:V7`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 2`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ShimuraData:D4`, `ShimuraVarieties:V0`, `ShimuraVarieties:V2`, `ShimuraVarieties:V6`, `ShimuraVarieties:V7`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 5: modular and Hilbert towers
 
@@ -2313,7 +2313,7 @@ Over F=ℚ, the Hilbert groups are GL₂ and all three towers reduce to their mo
 
 ### Dependencies
 
-This layer uses `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`, `HilbertModularVarietiesAndShimuraCurves:H4`, `HilbertModularVarietiesAndShimuraCurves:H5`, `HodgeTateAndCanonicalSubgroups:T4`, `HodgeTateAndCanonicalSubgroups:T5`, `Layer 0`, `Layer 1`, `Layer 2`, `Layer 3`, `Layer 4`, `Layer 5`, `PerfectoidSpaces:P6`, `PerfectoidSpaces:P8`, `ShimuraCompactifications:C6`, `ShimuraData:D5`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `HilbertModularVarietiesAndShimuraCurves:H1`, `HilbertModularVarietiesAndShimuraCurves:H3`, `HilbertModularVarietiesAndShimuraCurves:H4`, `HilbertModularVarietiesAndShimuraCurves:H5`, `HodgeTateAndCanonicalSubgroups:T4`, `HodgeTateAndCanonicalSubgroups:T5`, `Layer 0`, `Layer 1`, `Layer 2`, `Layer 3`, `Layer 4`, `PerfectoidSpaces:P6`, `PerfectoidSpaces:P8`, `ShimuraCompactifications:C6`, `ShimuraData:D5`, `ShimuraVarieties:V8`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Layer 6: general period maps and abelian descent
 
@@ -2586,13 +2586,13 @@ In Boxer–Pilloni §4.6, Propositions 4.6.9, 4.6.12 and Lemma 4.6.20, the image
 
 ### 6.13 Tubes of Bruhat cells in the analytic flag variety and their description as orbits
 
-In the situation of §6.12, let P ⊇ B be a parabolic with Levi M, FL = P\G, ^MW the Kostant representatives and, for w ∈ ^MW, U_w ⊆ FL the open translate of the big cell with U_w^{an} ≅ ∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰_α^{an} through (u_α) ↦ w∏_α u_α. Put ]C_{w,k}[ = P\PwIw (the tube of the Bruhat cell C_{w,k} of the special fibre) and, for m, n ∈ ℚ ∪ {−∞}, let ]C_{w,k}[_{m,n} ⊆ U_w^{an} be the image of w∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁻} 𝒰°_{α,m} × ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁺} 𝒰_{α,n} (images in the sheaf-theoretic sense), together with the partial closures obtained from the closed balls and the specialisation closures. Then: (1) for any ordering of the roots, ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁺} 𝒰_α × ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁻} 𝒰°_α → ]C_{w,k}[, (u_α) ↦ w∏ u_α, is an isomorphism; (2) ]C_{w,k}[_{0,0} = ]C_{w,k}[, ]C_{w,k}[_{m,n} = ]C_{w,k}[_{m,0} ∩ ]C_{w,k}[_{0,n} for m, n ≥ 0; (3) orbit description: ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n} for m, n ∈ ℚ_{≥0}, and likewise for the partial closures; (4) for m ≥ 0, a profinite K_p ⊆ 𝒢_{m,0} and s ≥ 0, ]C_{w,k}[_{m+s,s}K_p is a finite disjoint union of translates ]C_{w,k}[_{m+s,s}h, h ∈ K_p; (5) consequently (P^{an} ∩ wK_p𝒢¹_{m,n}w⁻¹)\wK_p𝒢¹_{m,n}w⁻¹·w = ]C_{w,k}[_{m,n}K_p for K_p ⊆ 𝒢_{m−n,0}.
+In the situation of §6.12, let P ⊇ B be a parabolic with Levi M, FL = P\G, ^MW the Kostant representatives and, for w ∈ ^MW, U_w ⊆ FL the open translate of the big cell with U_w^{an} ≅ ∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰_α^{an} through (u_α) ↦ w∏_α u_α. Put ]C_{w,k}[ = P\PwIw (the tube of the Bruhat cell C_{w,k} of the special fibre) and, for m, n ∈ ℚ ∪ {−∞}, let ]C_{w,k}[_{m,n} ⊆ U_w^{an} be the image of w∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁻} 𝒰°_{α,m} × ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁺} 𝒰_{α,n} (images in the sheaf-theoretic sense), together with the partial closures obtained from the closed balls and the specialisation closures. Then: (1) for any ordering of the roots, ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁺} 𝒰_α × ∏_{α ∈ w⁻¹Φ^{−,M} ∩ Φ⁻} 𝒰°_α → ]C_{w,k}[, (u_α) ↦ w∏ u_α, is an isomorphism; (2) ]C_{w,k}[_{0,0} = ]C_{w,k}[, ]C_{w,k}[_{m,n} = ]C_{w,k}[_{m,0} ∩ ]C_{w,k}[_{0,n} for m, n ≥ 0; (3) orbit description: ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n} for m, n ∈ ℚ_{≥0}, and likewise for the partial closures; (4) for m ≥ 0, a profinite K_p ⊆ 𝒢_{m,0} and s ≥ 0, ]C_{w,k}[_{m+s,s}K_p is a finite disjoint union of translates ]C_{w,k}[_{m+s,s}h, h ∈ K_p; (5) consequently (P^{an} ∩ wK_p𝒢¹_{m,n}w⁻¹)\wK_p𝒢¹_{m,n}w⁻¹·w = ]C_{w,k}[_{m,n}K_p for 0 ≤ n ≤ m and K_p ⊆ 𝒢_{m−n,0}.
 
 Hypotheses of §6.12; in the Shimura application P = P_μ, FL = FL_{G,μ} and M = M_μ.
 
 In Boxer–Pilloni's application the unipotent radical of P is abelian, so the root groups for w⁻¹Φ^{−,M} commute; in general the order does not matter by the commutation lemma used in the source.
 
-(1) Immediate from the strong Iwahori decomposition (§6.12 (2)) and P ∩ wIww⁻¹-cancellation: write PwIw = Pw·∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰*_α (Boxer–Pilloni Corollary 3.3.7). (2) From the definition by radii. (3) By the Iwahori decomposition of 𝒢_{m,n} for the grouping w⁻¹Φ^± (§6.12 (3)), w⁻¹Pw ∩ 𝒢_{m,n} absorbs the factors with α ∉ w⁻¹Φ^{−,M}, leaving w∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰*_α with the radii of the definition; the same computation applies to 𝒢¹_{m,n} because the torus and Levi factors are absorbed in P (Boxer–Pilloni Corollary 3.3.17). (4) For h ∈ K_p, ]C_{w,k}[_{m+s,s}h = P\Pw𝒢¹_{m+s,s}h = P\Pwh𝒢¹_{m+s,s} by (3) and the normalisation §6.12 (4); two such translates are equal or disjoint, and there are finitely many because 𝒢_{m+s,s} ∩ K_p has finite index in K_p (Boxer–Pilloni Lemma 3.3.19). (5) K_p normalises 𝒢¹_{m,n} (§6.12 (4) with K_p ⊆ 𝒢_{m−n,0}), so 𝒢¹_{m,n}K_p = K_p𝒢¹_{m,n}, and (3) gives the stated quotient presentation (Boxer–Pilloni, proof of Proposition 4.6.12).
+(1) Immediate from the strong Iwahori decomposition (§6.12 (2)) and P ∩ wIww⁻¹-cancellation: write PwIw = Pw·∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰*_α (Boxer–Pilloni Corollary 3.3.7). (2) From the definition by radii. (3) By the Iwahori decomposition of 𝒢_{m,n} for the grouping w⁻¹Φ^± (§6.12 (3)), w⁻¹Pw ∩ 𝒢_{m,n} absorbs the factors with α ∉ w⁻¹Φ^{−,M}, leaving w∏_{α ∈ w⁻¹Φ^{−,M}} 𝒰*_α with the radii of the definition; the same computation applies to 𝒢¹_{m,n} because the torus and Levi factors are absorbed in P (Boxer–Pilloni Corollary 3.3.17). (4) For h ∈ K_p, ]C_{w,k}[_{m+s,s}h = P\Pw𝒢¹_{m+s,s}h = P\Pwh𝒢¹_{m+s,s} by (3) and the normalisation §6.12 (4); two such translates are equal or disjoint, and there are finitely many because 𝒢_{m+s,s} ∩ K_p has finite index in K_p (Boxer–Pilloni Lemma 3.3.19). (5) For 0 ≤ n ≤ m, K_p normalises 𝒢¹_{m,n} (§6.12 (4) with K_p ⊆ 𝒢_{m−n,0}), so 𝒢¹_{m,n}K_p = K_p𝒢¹_{m,n}, and (3) gives the stated quotient presentation (Boxer–Pilloni, proof of Proposition 4.6.12).
 
 (George Boxer, Vincent Pilloni, [Higher Coleman theory (authors' revised manuscript)](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf), §3.3.6, Corollary 3.3.7, p. 39.) Tubes of Bruhat cells as products of root balls and open root balls.
 
@@ -2606,14 +2606,15 @@ The interface consists of the following definitions and laws.
 
 - `BruhatTube.mk`: ]C_{w,k}[_{m,n} ⊆ FL^{an} for w ∈ ^MW and m, n ∈ ℚ ∪ {−∞}, with partial closures.
 - `BruhatTube.prod_iso`: The product isomorphism (1) of root balls onto ]C_{w,k}[.
-- `BruhatTube.eq_orbit`: ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n}.
+- `BruhatTube.eq_orbit`: ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n} for m, n ≥ 0.
 - `BruhatTube.inter`: ]C_{w,k}[_{m,n} = ]C_{w,k}[_{m,0} ∩ ]C_{w,k}[_{0,n} for m, n ≥ 0.
-- `BruhatTube.translates_finite`: ]C_{w,k}[_{m+s,s}K_p is a finite disjoint union of K_p-translates.
-- `BruhatTube.quotient_presentation`: ]C_{w,k}[_{m,n}K_p = (P^{an} ∩ wK_p𝒢¹_{m,n}w⁻¹)\wK_p𝒢¹_{m,n}w⁻¹·w for K_p ⊆ 𝒢_{m−n,0}.
+- `BruhatTube.translates_finite`: For m, s ≥ 0 and profinite K_p ⊆ 𝒢_{m,0}, ]C_{w,k}[_{m+s,s}K_p is a finite disjoint union of K_p-translates.
+- `BruhatTube.quotient_presentation`: ]C_{w,k}[_{m,n}K_p = (P^{an} ∩ wK_p𝒢¹_{m,n}w⁻¹)\wK_p𝒢¹_{m,n}w⁻¹·w for 0 ≤ n ≤ m and K_p ⊆ 𝒢_{m−n,0}.
 
 **Checks.**
 
 - `tubes_zero_zero`: ]C_{w,k}[_{0,0} = ]C_{w,k}[ = P\PwIw.
+- `tubes_quotient_depth_domain`: At m = n = 0 the quotient presentation is defined for K_p ⊆ Iw. At m = 0, n = 1 it is outside its domain: 𝒢_{m−n,0} would have negative first depth, whereas §6.12 defines these level groups only for nonnegative depths. Thus a quotient constructor accepting this pair fails the stated normalization contract.
 - `tubes_GL2_disc`: For GL₂ with P = B upper triangular and FL = P\G ≅ ℙ¹ through the second row: for w = 1, ]C_{1,k}[_{m,n} = {[z : 1] : |z| < |p^m|}, the open disc of radius |p^m| around the base point P\P = [0 : 1]; for w = s it is the closed disc of radius |p^n| around [1 : 0].
 - `tubes_orbit`: ]C_{w,k}[_{m,n} = P\Pw𝒢_{m,n} = P\Pw𝒢¹_{m,n} for all m, n ≥ 0.
 - `tubes_not_algebraic_cell`: ]C_{w,k}[ is open in FL^{an} and is not the analytification of the locally closed Bruhat cell PwB of the generic fibre: for GL₂, w = 1 it is an open disc, while P\PB is the point [0:1] in the fixed second-row convention.
@@ -2674,7 +2675,7 @@ For the conditional double-coset identity, t∈P is essential: P=1 and H=Ubar=G 
 
 ### Dependencies
 
-This layer uses `AdicSpacesPartII:R2`, `AutomorphicBundles:B0`, `AutomorphicBundles:B1`, `AutomorphicBundles:B1.general`, `AutomorphicBundles:B3.general`, `DiamondsAndVStacks:D4`, `HodgeTateAndCanonicalSubgroups:T6`, `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 0.general`, `Layer 3`, `Layer 4`, `Layer 6`, `PerfectoidSpaces:P6`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ReductiveGroupsPartII:RG2.1`, `ReductiveGroupsPartII:RG2.3`, `ShimuraCompactifications:C2.general`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C3.general`, `ShimuraData:D3`, `ShimuraData:D4`, `ShimuraVarieties:V6`. The individual claims above specify the exact interfaces and base hypotheses.
+This layer uses `AdicSpacesPartII:R2`, `AutomorphicBundles:B0`, `AutomorphicBundles:B1`, `AutomorphicBundles:B1.general`, `AutomorphicBundles:B3.general`, `DiamondsAndVStacks:D4`, `HodgeTateAndCanonicalSubgroups:T6`, `PerfectoidQuotients:Q4`, `Layer 0`, `Layer 0.general`, `Layer 3`, `Layer 4`, `PerfectoidSpaces:P6`, `PerfectoidSpaces:P7`, `PerfectoidSpaces:P8`, `ReductiveGroupsPartII:RG2.1`, `ReductiveGroupsPartII:RG2.3`, `ShimuraCompactifications:C2.general`, `ShimuraCompactifications:C3`, `ShimuraCompactifications:C3.general`, `ShimuraData:D3`, `ShimuraData:D4`, `ShimuraVarieties:V6`. The individual claims above specify the exact interfaces and base hypotheses.
 
 ## Proof inputs still required
 
