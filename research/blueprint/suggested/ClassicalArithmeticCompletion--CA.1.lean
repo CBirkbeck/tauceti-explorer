@@ -87,14 +87,21 @@ Intended forms, for a nonarchimedean local field `F` (`[ValuativeRel F] [Topolog
   (`(1 - a, a) = 1`, `(-a, a) = 1`), `normResidueSymbol_swap` (`(b, a) = (a, b)⁻¹`)
   (`CA.1/norm-residue-symbol-steinberg-and-skew-symmetry`).
 * `normResidueSymbol_eq_one_iff_mem_normGroup`, `normResidueSymbol_eq_one_forall_iff`
-  (`CA.1/norm-residue-symbol-norm-criterion`).
+  (`CA.1/norm-residue-symbol-norm-criterion`), and `normResidueSymbol_pairing`, the induced
+  bimultiplicative pairing `Fˣ ⧸ (powMonoidHom n).range × Fˣ ⧸ (powMonoidHom n).range → rootsOfUnity n F`
+  on which nondegeneracy and the orthogonality of norm groups are stated.
 * `normResidueSymbol_pow_of_dvd`, `normResidueSymbol_norm`, `normResidueSymbol_map_ringEquiv`
   (`CA.1/norm-residue-symbol-functoriality`).
 * `normResidueSymbol_tame`: for residue characteristic prime to `n`, the value is the root of unity
   congruent to `((-1) ^ (v a * v b) * b ^ (v a) * a ^ (-(v b))) ^ ((q - 1) / n)`.
 * `normResidueSymbol_two_eq_hilbertSymbol` and `normResidueSymbol_eq_localSymbol`:
-  `muNRepEquivZMod ζ (normResidueSymbol n a b) = ε * localSymbol (kummerCupPairing ζ hζ)
-  (h2MuEquivZMod_mixed ..) (kummerClass n F a) (kummerClass n F b)` with one universal `ε = ±1`
+  `muNRepEquivZMod ζ (normResidueSymbol n a b) = ε * localSymbol (kummerCupPairing ζ hζ) tr
+  (kummerClass n F a) (kummerClass n F b)` with one universal `ε = ±1`, where `tr` is the
+  invariant coordinate: `H²(F, μ_n) → Br F` induced by `μ_n ⊆ (Fˢ)ˣ`, followed by `n • invMap F`
+  read in `ZMod n`. Class Field Theory's `h2MuEquivZMod_mixed` only asserts that some
+  `H²(F, μ_n) ≃+ ZMod n` exists, so it does not pin `tr` (the current Tau Ceti library, after the pin,
+  defines it as `h2MuEquivZMod F`, characterised by `toRatAddCircle_h2MuEquivZMod`); any other
+  coordinate rescales the right side by a unit of `ZMod n`
   (`CA.1/norm-residue-symbol-and-the-cohomological-symbol`).
 * `archNormResidueSymbol (w : InfinitePlace K) (n : ℕ) (a b : w.Completionˣ)`, from
   `infiniteArtinAt`; `archNormResidueSymbol_complex`, `archNormResidueSymbol_real`,
@@ -368,7 +375,10 @@ end Quartic
 characterisation `stickelbergerPhi_prime`: for an injective ring map `ι : 𝓞 K →+* R` into the
 ring of integers `R` of `ℚ(ζ_{mp})` and a primitive additive character `ψ` of `𝓞 K ⧸ P` with
 values in `R`, `ι (stickelbergerPhi m P) = gaussSum (((powerResidueSymbol m P)⁻¹).ringHomComp ι) ψ ^ m`.
-The automorphisms `σ_t : ζ ↦ ζ ^ t` of `𝓞 K` are passed as a family `σ` with `σ t ζ = ζ ^ t`. -/
+The automorphisms `σ_t : ζ ↦ ζ ^ t` of `𝓞 K` are passed as a family `σ` with `σ t ζ = ζ ^ t` for
+`t` prime to `m`; the condition is asked only there, because no ring automorphism sends a
+primitive `m`-th root of unity to `ζ ^ t` with `gcd(t, m) > 1` (at `t = 0` it would send `ζ` to `1`),
+so asking it for every `t` would make the hypotheses contradictory and the statements vacuous. -/
 
 /-- `CA.1/stickelberger-gauss-sum-power`: `Φ(A)`, multiplicative in the ideal `A` prime to `m`. -/
 noncomputable def stickelbergerPhi (m : ℕ) (A : Ideal (𝓞 K)) : 𝓞 K := sorry
@@ -402,14 +412,15 @@ theorem stickelbergerPhi_modEq {l : ℕ} [Fact l.Prime] (hl : l ≠ 2)
 /-- `CA.1/stickelberger-relation` (`span_stickelbergerPhi`): `(Φ(A)) = A ^ γ`,
 `γ = Σ_{t < m, (t, m) = 1} t σ_t⁻¹`. -/
 theorem span_stickelbergerPhi (hζ : IsPrimitiveRoot ζ m) (σ : ℕ → (𝓞 K ≃+* 𝓞 K))
-    (hσ : ∀ t, (σ t) ζ = ζ ^ t) {A : Ideal (𝓞 K)} (hA : (Ideal.absNorm A).Coprime m) :
+    (hσ : ∀ t, t.Coprime m → (σ t) ζ = ζ ^ t) {A : Ideal (𝓞 K)}
+    (hA : (Ideal.absNorm A).Coprime m) :
     Ideal.span {stickelbergerPhi m A} =
       ∏ t ∈ (Finset.range m).filter (fun t => t.Coprime m), (A.map (σ t).symm) ^ t := by
   sorry
 
 /-- `CA.1/stickelberger-unit-factor-is-a-root-of-unity`: `Φ(α) = ± ζ ^ i · α ^ γ`. -/
 theorem stickelbergerPhi_span_singleton (hζ : IsPrimitiveRoot ζ m) (σ : ℕ → (𝓞 K ≃+* 𝓞 K))
-    (hσ : ∀ t, (σ t) ζ = ζ ^ t) {α : 𝓞 K} (hα : IsCoprime α (m : 𝓞 K)) :
+    (hσ : ∀ t, t.Coprime m → (σ t) ζ = ζ ^ t) {α : 𝓞 K} (hα : IsCoprime α (m : 𝓞 K)) :
     ∃ (e : ℤˣ) (i : ℕ), stickelbergerPhi m (Ideal.span {α}) =
       (e : 𝓞 K) * ζ ^ i *
         ∏ t ∈ (Finset.range m).filter (fun t => t.Coprime m), ((σ t).symm α) ^ t := by
@@ -432,7 +443,7 @@ variable {l : ℕ} [Fact l.Prime] [IsCyclotomicExtension {l} ℚ K] {ζ : 𝓞 K
 
 /-- `CA.1/stickelberger-unit-factor-of-a-primary-element`: for primary `α`, `Φ(α) = ± α ^ γ`. -/
 theorem stickelbergerPhi_of_isEisensteinPrimary (hl : l ≠ 2) (hζ : IsPrimitiveRoot ζ l)
-    (σ : ℕ → (𝓞 K ≃+* 𝓞 K)) (hσ : ∀ t, (σ t) ζ = ζ ^ t) {α : 𝓞 K}
+    (σ : ℕ → (𝓞 K ≃+* 𝓞 K)) (hσ : ∀ t, t.Coprime l → (σ t) ζ = ζ ^ t) {α : 𝓞 K}
     (hα : IsEisensteinPrimary l ζ α) :
     ∃ e : ℤˣ, stickelbergerPhi l (Ideal.span {α}) =
       (e : 𝓞 K) * ∏ t ∈ (Finset.range l).filter (fun t => t.Coprime l), ((σ t).symm α) ^ t := by

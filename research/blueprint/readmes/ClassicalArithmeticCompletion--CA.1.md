@@ -46,12 +46,13 @@ API:
 - `normResidueSymbol_swap` (relation): Skew symmetry: (b, a) = (a, b)⁻¹.
 - `normResidueSymbol_eq_one_iff_mem_normGroup` (characterisation): (a, b) = 1 if and only if a is a norm from F(β), β^n = b; and if and only if b is a norm from F(α), α^n = a.
 - `normResidueSymbol_eq_one_forall_iff` (characterisation): (a, b) = 1 for every b ∈ Fˣ if and only if a ∈ (Fˣ)^n: the pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n is perfect.
+- `normResidueSymbol_pairing` (structure): The symbol descends to a bimultiplicative pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n(F) (by bimultiplicativity and (a, c^n) = (a^n, c) = 1); nondegeneracy and the description of norm groups as orthogonals (CA.1/norm-residue-symbol-norm-criterion) are statements about this pairing.
 - `normResidueSymbol_pow_of_dvd` (functoriality): If F contains a primitive (nm)-th root of unity then (a, b)_{F,nm}^m = (a, b)_{F,n}.
 - `normResidueSymbol_norm` (functoriality): For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F} a, b)_{F,n}.
 - `normResidueSymbol_map_ringEquiv` (functoriality): A continuous field isomorphism e : F ≃ F' carries (a, b)_{F,n} to (e a, e b)_{F',n}.
 - `normResidueSymbol_tame` (compatibility): If the residue characteristic does not divide n and q is the residue cardinality, (a, b)_{F,n} is the root of unity congruent to ((−1)^{v(a)v(b)} b^{v(a)} a^{−v(b)})^{(q−1)/n} modulo the maximal ideal (the tame formula; its global reading is CA.1/tame-hilbert-symbol-formula).
 - `normResidueSymbol_two_eq_hilbertSymbol` (compatibility): For n = 2, (a, b)_{F,2} = −1 exactly when a is not a norm from F(√b), that is, it is the quadratic norm-equation Hilbert symbol of Quadratic Form Invariants 6C (Tau Ceti's hilbertSymbol, read in ±1).
-- `normResidueSymbol_eq_localSymbol` (compatibility): Through the coordinate log_ζ = muNRepEquivZMod ζ and the invariant coordinate of H²(F, μ_n), log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) (kummerClass a) (kummerClass b) for a sign ε ∈ {1, −1} independent of F, n, ζ, a and b (CA.1/norm-residue-symbol-and-the-cohomological-symbol).
+- `normResidueSymbol_eq_localSymbol` (compatibility): Through the coordinate log_ζ = muNRepEquivZMod ζ and the invariant coordinate tr of H²(F, μ_n) (the map H²(F, μ_n) → Br F induced by μ_n ⊆ (Fˢ)ˣ, followed by n · invMap F), log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass a) (kummerClass b) for a sign ε ∈ {1, −1} independent of F, n, ζ, a and b (CA.1/norm-residue-symbol-and-the-cohomological-symbol).
 
 Unit tests:
 
@@ -79,12 +80,12 @@ Acceptance checks:
 
 Proof sketch:
 
-1. Separability and Kummer theory: X^n − b is separable (Polynomial.separable_X_pow_sub_C, n a unit in F); since μ_n ⊆ F, L = F(β) is the splitting field of X^n − b (isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top), so L/F is Galois, and σ ↦ σ(β)/β embeds Gal(L/F) in μ_n(F) (autAdjoinRootXPowSubCEquiv when X^n − b is irreducible; in general the same cocycle computation), so L/F is abelian.
+1. Separability and Kummer theory: X^n − b is separable (Polynomial.separable_X_pow_sub_C, n a unit in F). Since ζ ∈ F, every root of X^n − b is ζ^i β, so X^n − b splits over L = F(β) (X_pow_sub_C_splits_of_isPrimitiveRoot) and L is a splitting field of a separable polynomial: L/F is Galois. σ ↦ σ(β)/β is an injective homomorphism Gal(L/F) → μ_n(F) (the inverse of autAdjoinRootXPowSubCEquiv when X^n − b is irreducible; in general the same computation), so L/F is abelian of exponent dividing n, of degree d = [L:F] with β^d ∈ F (isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top is the same fact for X^d − β^d).
 2. The Artin symbol: Art_F(a) ∈ Gal(L/F)^ab = Gal(L/F) is localArtinMap F L ι a (Class Field Theory Layer 6); by artinMap_restrict (Layer 7) it is the restriction of the absolute symbol, and by localArtinEquiv_eq_of_iota it does not depend on the embedding ι. Set (a, b)_{F,n} := Art_F(a)(β)/β; it is an n-th root of unity of L, hence lies in μ_n(F).
 3. Independence of β: another root is β' = ξβ with ξ ∈ μ_n(F), and Art_F(a) fixes ξ, so Art_F(a)(β')/β' = Art_F(a)(β)/β.
 4. Dependence on classes: replacing b by b c^n replaces β by βc with c ∈ F, which Art_F(a) fixes; replacing a by a c^n multiplies Art_F(a) by Art_F(c)^n, which is trivial on L because Gal(L/F) has exponent dividing n.
 
-Direct prerequisites: `mathlib:Polynomial.separable_X_pow_sub_C`, `mathlib:autAdjoinRootXPowSubCEquiv`, `mathlib:isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top`, `mathlib:IsNonarchimedeanLocalField`, `mathlib:rootsOfUnity`, `mathlib:Field.absoluteGaloisGroup`.
+Direct prerequisites: `mathlib:Polynomial.separable_X_pow_sub_C`, `mathlib:X_pow_sub_C_splits_of_isPrimitiveRoot`, `mathlib:autAdjoinRootXPowSubCEquiv`, `mathlib:isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top`, `mathlib:IsNonarchimedeanLocalField`, `mathlib:rootsOfUnity`, `mathlib:Field.absoluteGaloisGroup`.
 
 Tau Ceti roadmap layers used: `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`.
 
@@ -138,15 +139,15 @@ Proof sketch:
 
 1. Art_ℂ is trivial (infiniteArtinAt_eq_one_of_isComplex), so (a, b)_ℂ = 1.
 2. Art_ℝ(a) is complex conjugation exactly when a < 0 (infiniteArtinAt_eq_one_iff_of_isReal); conjugation sends √b to −√b exactly when b < 0, so (a, b)_ℝ = −1 exactly when a < 0 and b < 0.
-3. Bimultiplicativity, skew symmetry and the norm criterion follow from these values; for n = 2 the symbol agrees with the real quadratic norm-equation symbol of Global Quadratic Forms 4.4.
+3. Bimultiplicativity, skew symmetry and the norm criterion follow from these values; for n = 2 the symbol agrees with the real norm-equation symbol, whose value Global Quadratic Forms 4.4 computes from Quadratic Form Invariants' hilbertSymbol, and with the sign form of Class Field Theory Layer 14's infiniteHilbertInvariantAt.
 
 Direct prerequisites: `mathlib:NumberField.InfinitePlace`, `mathlib:NumberField.InfinitePlace.Completion`, `mathlib:NumberField.InfinitePlace.IsReal`, `mathlib:NumberField.InfinitePlace.IsComplex`.
 
-Tau Ceti roadmap layers used: `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`.
+Tau Ceti roadmap layers used: `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`, `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity`.
 
 Source: [J. S. Milne, *Class Field Theory*](https://www.jmilne.org/math/CourseNotes/CFT.pdf), Chapter VIII, §5, the paragraph after Theorem 5.11, p. 248. States the archimedean values: trivial at complex places, and at a real place the symbol is 1 exactly when a > 0 or b > 0.
 
-Source: [I. B. Fesenko and S. V. Vostokov, *Local Fields and Their Extensions*](https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf), Chapter IV, §5, Exercise 4, p. 150. The real quadratic symbol: 1 when a > 0 or b > 0 and −1 otherwise, entering the product formula over ℚ.
+Source: [I. B. Fesenko and S. V. Vostokov, *Local Fields and Their Extensions*](https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf), Chapter IV, §5, Exercise 4, printed p. 152. Exercise 4 introduces the real quadratic symbol to complete the product formula over ℚ. As printed it gives the value 1 only when both arguments are positive, which is wrong (source issue E1112); the node uses the correct value (−1 exactly when both are negative), as Milne states it.
 
 <a id="CA-1-norm-residue-symbol-at-a-place"></a>
 
@@ -194,6 +195,8 @@ Proof sketch:
 
 Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol), [CA.1/archimedean-norm-residue-symbol](#CA-1-archimedean-norm-residue-symbol), `mathlib:IsDedekindDomain.HeightOneSpectrum`, `mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion`, `mathlib:NumberField.InfinitePlace`, `mathlib:NumberField.InfinitePlace.Completion`.
 
+Tau Ceti roadmap layers used: `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity`.
+
 Source: [J. S. Milne, *Class Field Theory*](https://www.jmilne.org/math/CourseNotes/CFT.pdf), Chapter VIII, §5, 'The Hilbert symbol', 5.6–5.10, pp. 245–247. The Hilbert symbol (a, b)_v of a number field containing μ_n at all places, with its tame formula 5.8 and product formula 5.10.
 
 Source: [Parvati Shastri, *Reciprocity Laws: Artin–Hilbert*](https://www.bprim.org/sites/default/files/rlmain.pdf), §§6–8, pp. 180–181. The global family of local symbols at all places of a number field containing μ_n, whose product formula is Shastri's Theorem 4.
@@ -217,15 +220,17 @@ Proof sketch:
 
 1. Left multiplicativity: Art_F is a homomorphism and fixes μ_n(F) ∋ (a', b), so Art(aa')(β)/β = Art(a)(Art(a')(β))/β = (a, b)(a', b).
 2. Right multiplicativity: with β₁^n = b, β₂^n = b', the product β₁β₂ is an n-th root of bb', and Art(a)(β₁β₂)/(β₁β₂) = (a, b)(a, b').
-3. Steinberg: factor X^n − a = ∏ f_i into irreducibles over F; every root α_i generates the same field L = F(ⁿ√a) because the roots differ by elements of μ_n ⊆ F, so 1 − a = ∏ f_i(1) = ∏ N_{L/F}(1 − α_i) is a norm from L; by the norm criterion (second form) (1 − a, a) = 1.
-4. (−a, a) = 1: −a = (1 − a)/(1 − a⁻¹), and (1 − a⁻¹, a) = (1 − a⁻¹, a⁻¹)⁻¹ = 1.
-5. Skew symmetry: 1 = (ab, −ab) = (a, −a)(a, b)(b, a)(b, −b) = (a, b)(b, a).
+3. Steinberg: factor X^n − a = ∏ f_i into irreducibles over F; every root α_i generates the same field L = F(ⁿ√a) because the roots differ by elements of μ_n ⊆ F, so each f_i has degree [L:F] and 1 − a = ∏ f_i(1) = ∏ N_{L/F}(1 − α_i) is a norm from L. By local reciprocity (Class Field Theory Layer 6: the kernel of the Artin map of the abelian extension L/F is N_{L/F}(Lˣ)), Art_F(1 − a) fixes ⁿ√a, so (1 − a, a) = 1. This is the norm criterion in the first argument, which needs no skew symmetry; the form in the second argument is derived afterwards from skew symmetry (CA.1/norm-residue-symbol-norm-criterion).
+4. (−a, a) = 1: for a ≠ 1, −a = (1 − a)/(1 − a⁻¹), so (−a, a) = (1 − a, a) (1 − a⁻¹, a)⁻¹ = (1 − a, a) (1 − a⁻¹, a⁻¹) = 1 by left multiplicativity and (c, a⁻¹) = (c, a)⁻¹; for a = 1 it is (−1, 1) = 1.
+5. Skew symmetry: 1 = (−ab, ab) = (−a, a)(a, b)(b, a)(−b, b) = (a, b)(b, a), expanding by bimultiplicativity (−ab = (−a)·b in the first argument, ab = a·b in the second) and using (−1, b)(b, b) = (−b, b). Then (a, 1 − a) = (1 − a, a)⁻¹ = 1 and (a, −a) = 1 as well.
 
-Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol), [CA.1/norm-residue-symbol-norm-criterion](#CA-1-norm-residue-symbol-norm-criterion).
+Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol).
 
-Source: [I. B. Fesenko and S. V. Vostokov, *Local Fields and Their Extensions*](https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf), Chapter IV, §5, (5.1) Proposition (1)–(4) and its proof, pp. 143–144. Bilinearity, the Steinberg property (1 − α, α) = 1, (−α, α) = 1 and skew symmetry, with the proofs followed in the steps.
+Tau Ceti roadmap layers used: `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`.
 
-Source: [Parvati Shastri, *Reciprocity Laws: Artin–Hilbert*](https://www.bprim.org/sites/default/files/rlmain.pdf), §5, Lemma 1 and its proof, pp. 179–180. Bimultiplicativity, the Steinberg relation and skew symmetry; the printed proof of the Steinberg relation treats only the case [K(ⁿ√a):K] = n (source issue E1108).
+Source: [I. B. Fesenko and S. V. Vostokov, *Local Fields and Their Extensions*](https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf), Chapter IV, §5, (5.1) Proposition (1)–(4) and its proof, pp. 143–144. Bilinearity, the Steinberg property (1 − α, α) = 1, (−α, α) = 1 and skew symmetry, proved in that order from the norm criterion in the first argument (Theorem (4.2)); the steps follow this order, which avoids the circularity of deriving skew symmetry from (α, −α) = 1.
+
+Source: [Parvati Shastri, *Reciprocity Laws: Artin–Hilbert*](https://www.bprim.org/sites/default/files/rlmain.pdf), §5, Lemma 1 and its proof, pp. 179–180. Bimultiplicativity, the Steinberg relation and skew symmetry. The printed proof of the Steinberg relation treats only the case [K(ⁿ√a):K] = n (source issue E1108) and establishes only the half ⟨1 − a, a⟩ = 1 of (ii), while (iii) and (iv) rest on the other half (E1110); (iii) is printed as one chain of equalities (E1111). The steps here follow Fesenko–Vostokov instead.
 
 Source: [J. S. Milne, *Class Field Theory*](https://www.jmilne.org/math/CourseNotes/CFT.pdf), Chapter III, §4, Theorem 4.4 (a)–(b), p. 113. Bimultiplicativity and skew symmetry of the cup-product symbol.
 
@@ -251,7 +256,7 @@ Proof sketch:
 3. If (a, b) = 1 for all a then N_{L/F}(Lˣ) = Fˣ; the index of the norm group equals [L:F] for the abelian extension L/F (Layer 6), so L = F and b = β^n ∈ (Fˣ)^n. Symmetrically for a.
 4. Both sides being the finite group Fˣ/(Fˣ)^n, the pairing is perfect; the orthogonality statement is Fesenko–Vostokov's Theorem (5.2), deduced from the perfectness by counting.
 
-Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol).
+Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol), [CA.1/norm-residue-symbol-steinberg-and-skew-symmetry](#CA-1-norm-residue-symbol-steinberg-and-skew-symmetry).
 
 Tau Ceti roadmap layers used: `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity`.
 
@@ -265,9 +270,9 @@ Source: [J. S. Milne, *Class Field Theory*](https://www.jmilne.org/math/CourseNo
 
 `ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-functoriality` · theorem
 
-Let F be a nonarchimedean local field containing a primitive n-th root of unity. (i) If F contains a primitive (nm)-th root of unity, then (a, b)_{F,nm}^m = (a, b)_{F,n}. (ii) For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F}(a), b)_{F,n}. (iii) For a continuous isomorphism of fields e : F ≃ F' (more generally σ ∈ Gal(Fˢ/F) with L ⊇ μ_n), e((a, b)_{F,n}) = (e a, e b)_{F',n}.
+Let F be a nonarchimedean local field containing a primitive n-th root of unity. (i) If F contains a primitive (nm)-th root of unity, then (a, b)_{F,nm}^m = (a, b)_{F,n}. (ii) For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F}(a), b)_{F,n}. (iii) For a continuous isomorphism of fields e : F ≃ F', e((a, b)_{F,n}) = (e a, e b)_{F',n}; in Fesenko–Vostokov's form, for a finite separable extension L/F with μ_n ⊆ L (μ_n ⊆ F not needed) and σ ∈ Gal(Fˢ/F), σ((a, b)_{L,n}) = (σa, σb)_{σL,n}.
 
-Hypotheses and conventions: μ_n ⊆ F in (i)–(iii); μ_{nm} ⊆ F in (i). In (ii) the symbol on the left is the symbol of L (which contains μ_n ⊆ F).
+Hypotheses and conventions: μ_n ⊆ F in (i), (ii) and the first form of (iii); μ_{nm} ⊆ F in (i); in the general form of (iii) only μ_n ⊆ L. In (ii) the symbol on the left is the symbol of L (which contains μ_n ⊆ F).
 
 Acceptance checks:
 
@@ -278,7 +283,7 @@ Proof sketch:
 
 1. (i): if γ^{nm} = b then γ^m is an n-th root of b, and (Art(a)(γ)/γ)^m = Art(a)(γ^m)/γ^m.
 2. (ii): the norm functoriality of the absolute Artin map (Class Field Theory Layer 7, artinMap_norm): the Artin symbol of a ∈ Lˣ restricted to F(β) is the Artin symbol of N_{L/F} a.
-3. (iii): naturality of the absolute Artin map under isomorphisms (artinMap_congr, Layer 7), applied to an n-th root of b.
+3. (iii): naturality of the absolute Artin map under isomorphisms of local fields (artinMap_congr, Layer 7), applied to an n-th root of b; for σ ∈ Gal(Fˢ/F) apply it to the continuous isomorphism σ|_L : L ≃ σL.
 
 Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol).
 
@@ -292,9 +297,9 @@ Source: [I. B. Fesenko and S. V. Vostokov, *Local Fields and Their Extensions*](
 
 `ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-and-the-cohomological-symbol` · comparison
 
-Let F be a nonarchimedean local field containing a primitive n-th root of unity ζ, and let tr : H²(F, μ_n) ≃ ℤ/n be the invariant coordinate of Class Field Theory Layer 5 (h2MuEquivZMod_mixed). There is a sign ε ∈ {1, −1}, depending only on the conventions of kummerClass, of the cup product and of tr (not on F, n, ζ, a, b), such that for all a, b ∈ Fˣ: log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass n F a) (kummerClass n F b) in ℤ/n, where log_ζ = muNRepEquivZMod ζ. The sign is fixed by one computation: for F unramified over ℚ_p with residue field of q ≡ 1 (mod n) elements, a uniformiser π and a unit u, the left side is the exponent k with ζ^k ≡ u^{(q−1)/n} (tame formula). For n = 2 the sign is irrelevant and the statement reads: (a, b)_{F,2} = −1 if and only if localSymbol (kummerCupPairing (−1)) tr (kummerClass a) (kummerClass b) = 1, Tau Ceti's localArtinMap_quadratic_eq_hilbertSymbol.
+Let F be a nonarchimedean local field containing a primitive n-th root of unity ζ, and let tr : H²(F, μ_n) ≃ ℤ/n be the invariant coordinate: the map H²(F, μ_n) → Br F induced by the inclusion μ_n ⊆ (Fˢ)ˣ (injective with image Br(F)[n], by Hilbert 90), followed by n · invMap F with (1/n)ℤ/ℤ read as ℤ/n (Class Field Theory Layer 5's h2MuEquivZMod_mixed asserts only that some isomorphism H²(F, μ_n) ≃ ℤ/n exists, so it does not fix tr; the current Tau Ceti library, after the pin, defines this coordinate as h2MuEquivZMod F with toRatAddCircle_h2MuEquivZMod, whose value k ∈ ℤ/n maps to the Brauer invariant k/n). There is a sign ε ∈ {1, −1}, depending only on the conventions of kummerClass, of the cup product and of tr (not on F, n, ζ, a, b), such that for all a, b ∈ Fˣ: log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass n F a) (kummerClass n F b) in ℤ/n, where log_ζ = muNRepEquivZMod ζ. The sign is fixed by one computation: for F unramified over ℚ_p with residue field of q ≡ 1 (mod n) elements, a uniformiser π and a unit u, the left side is the exponent k with ζ^k ≡ u^{(q−1)/n} (tame formula). For n = 2 the sign is irrelevant and the statement reads: (a, b)_{F,2} = −1 if and only if localSymbol (kummerCupPairing (−1)) tr (kummerClass a) (kummerClass b) = 1, Tau Ceti's localArtinMap_quadratic_eq_hilbertSymbol.
 
-Hypotheses and conventions: F nonarchimedean local, ζ ∈ F a primitive n-th root of unity; tr is the invariant coordinate, not an arbitrary isomorphism (localSymbol is stated in Class Field Theory with tr as a parameter; any other coordinate rescales the right side by a unit of ℤ/n). The comparison is with the named pairing kummerCupPairing ζ; the zero pairing would make the right side vanish.
+Hypotheses and conventions: F nonarchimedean local, ζ ∈ F a primitive n-th root of unity; tr is the invariant coordinate just defined, not an arbitrary isomorphism (localSymbol is stated in Class Field Theory with tr as a parameter; any other coordinate rescales the right side by a unit of ℤ/n). The comparison is with the named pairing kummerCupPairing ζ; the zero pairing would make the right side vanish.
 
 Acceptance checks:
 
@@ -303,8 +308,8 @@ Acceptance checks:
 
 Proof sketch:
 
-1. Milne (III.4, Remark 4.5) shows that the cup-product symbol of Kummer classes, read through the invariant, is the Artin-map symbol with its arguments transposed; by skew symmetry the transposition is the inverse, so the two symbols agree up to a sign of the coordinate.
-2. Both sides are bimultiplicative and vanish exactly on norms (CA.1/norm-residue-symbol-norm-criterion; Class Field Theory's localSymbol_eq_zero_iff_mem_normGroup), and the sign is determined by the unramified computation, where the left side is the tame value and the right side is computed from the cyclic-algebra description of the cup of two Kummer classes (Layer 5, step 2 of the duality proof).
+1. Milne (III.4, Remark 4.5) shows that the cup-product symbol of Kummer classes, read through the invariant, is the Artin-map symbol with its arguments transposed; by skew symmetry the transposition is the inverse. Class Field Theory's localSymbol differs from Milne's symbol only in the coefficient pairing kummerCupPairing ζ, (x, y) ↦ log_ζ(x)·y, so the two sides agree up to a sign of the coordinate.
+2. Both sides are bimultiplicative and vanish exactly on norms in the same orientation (CA.1/norm-residue-symbol-norm-criterion: (a, b) = 1 iff a is a norm from F(ⁿ√b); Class Field Theory's localSymbol_eq_zero_iff_mem_normGroup: the symbol of (kummerClass a, kummerClass b) vanishes iff a is a norm from F(ⁿ√b)), and the sign is determined by the unramified computation, where the left side is the tame value and the right side is computed from the cyclic-algebra description of the cup of two Kummer classes (Layer 5, step 2 of the duality proof).
 3. For n = 2 both sides are ±1-valued and the equivalence is Class Field Theory Layer 6's localArtinMap_quadratic_eq_hilbertSymbol.
 
 Direct prerequisites: [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol), [CA.1/norm-residue-symbol-norm-criterion](#CA-1-norm-residue-symbol-norm-criterion).
@@ -419,7 +424,7 @@ Proof sketch:
 
 Direct prerequisites: [CA.1/completed-quadratic-residue-symbol](#CA-1-completed-quadratic-residue-symbol), [CA.1/norm-residue-symbol-steinberg-and-skew-symmetry](#CA-1-norm-residue-symbol-steinberg-and-skew-symmetry), [CA.1/norm-residue-symbol-at-a-place](#CA-1-norm-residue-symbol-at-a-place).
 
-Source: [John Friedlander, Henryk Iwaniec, Barry Mazur and Karl Rubin, *The spin of prime ideals*](https://arxiv.org/pdf/1110.6331v2), §2, Lemma 2.3 and its proof, arXiv v2 p. 6. States that μ₂(α, β) depends only on α, β modulo 8 and proves it by the binomial series for √(1 + 8x).
+Source: [John Friedlander, Henryk Iwaniec, Barry Mazur and Karl Rubin, *The spin of prime ideals*](https://arxiv.org/pdf/1110.6331v2), §2, Lemma 2.3 and its proof, arXiv v2 p. 7. States that μ₂(α, β) depends only on α, β modulo 8 and proves it by the binomial series for √(1 + 8x).
 
 <a id="CA-1-completed-quadratic-residue-symbol-periodicity"></a>
 
@@ -445,7 +450,7 @@ Proof sketch:
 
 Direct prerequisites: [CA.1/completed-quadratic-residue-symbol](#CA-1-completed-quadratic-residue-symbol), [CA.1/quadratic-reciprocity-in-a-number-field](#CA-1-quadratic-reciprocity-in-a-number-field), [CA.1/dyadic-hilbert-factor-depends-on-residues-mod-eight](#CA-1-dyadic-hilbert-factor-depends-on-residues-mod-eight), [CA.1/norm-residue-symbol-steinberg-and-skew-symmetry](#CA-1-norm-residue-symbol-steinberg-and-skew-symmetry).
 
-Source: [John Friedlander, Henryk Iwaniec, Barry Mazur and Karl Rubin, *The spin of prime ideals*](https://arxiv.org/pdf/1110.6331v2), §2, Proposition 2.2, Corollary 2.4, (2.4), Lemma 2.5 and the end of the proof of Proposition 2.2, arXiv v2 pp. 6–8. States and proves the periodicity of |α/β| modulo 8α and of (α/β) for totally positive β, by the auxiliary symbol [α/β] and Lemma 2.5.
+Source: [John Friedlander, Henryk Iwaniec, Barry Mazur and Karl Rubin, *The spin of prime ideals*](https://arxiv.org/pdf/1110.6331v2), §2, Proposition 2.2, Lemma 2.3, Corollary 2.4, (2.4), Lemma 2.5 and the end of the proof of Proposition 2.2, arXiv v2 pp. 7–9. States and proves the periodicity of |α/β| modulo 8α and of (α/β) for totally positive β, by the auxiliary symbol [α/β] and Lemma 2.5.
 
 Source: [Peter Koymans and Djordjo Milovic, *Joint distribution of spins*](https://arxiv.org/pdf/1809.09597v1), §2.1, Lemma 2.1 (first assertion), p. 4. States that μ_∞(α, β)(α/β) depends only on β modulo 8α (Koymans–Milovic item 3).
 
@@ -768,7 +773,7 @@ CA.1's Eisenstein reciprocity law rests on the element Φ(P) = g(P)^m, Stickelbe
 
 Let m ≥ 2, K = ℚ(ζ_m) with ζ_m a primitive m-th root of unity, and P a prime of 𝓞_K = ℤ[ζ_m] not dividing m, lying over the rational prime p, with N(P) = q = p^f. On F = 𝓞_K/P let χ_P(t) = (t/P)_m⁻¹ (the inverse of the m-th power residue character, χ_P(0) = 0) and ψ(t) = ζ_p^{Tr_{F/𝔽_p}(t)}, and let g(P) = g(χ_P, ψ) ∈ ℚ(ζ_m, ζ_p). Then Φ(P) := g(P)^m lies in 𝓞_K. Extend Φ multiplicatively to nonzero ideals A prime to m: Φ(A) = ∏ Φ(P_i) for A = P_1 ⋯ P_r, with Φ(𝓞_K) = 1, and write Φ(α) = Φ(α𝓞_K) for α prime to m.
 
-Hypotheses and conventions: m ≥ 2; P ∤ m, equivalently p ∤ m; ζ_p ∈ ℚ(ζ_m, ζ_p) = ℚ(ζ_{mp}) a primitive p-th root of unity (for p = 2, ζ_2 = −1). The character is the inverse of the residue symbol: with (·/P)_m itself the ideal of Φ(P) would be P^{Σ t σ_t} instead of P^{Σ t σ_t⁻¹}.
+Hypotheses and conventions: m ≥ 2; P ∤ m, equivalently p ∤ m; ζ_p ∈ ℚ(ζ_m, ζ_p) = ℚ(ζ_{mp}) a primitive p-th root of unity (for p = 2, ζ_2 = −1). The character is the inverse of the residue symbol: with (·/P)_m itself the ideal of the m-th power of the Gauss sum would be the complex conjugate ideal P^{Σ t σ_{−t}⁻¹} = P^{Σ (m − t) σ_t⁻¹} instead of P^{Σ t σ_t⁻¹} (for m = 3: P²P̄ in place of PP̄²).
 
 API:
 
@@ -985,7 +990,7 @@ Proof sketch:
 
 Direct prerequisites: `mathlib:Projectivization`, `mathlib:Projectivization.mk`, `mathlib:quadratic_eq_zero_iff_discrim_eq_sq`, `mathlib:discrim`, `mathlib:quadraticChar_card_sqrts`, `mathlib:legendreSym.card_sqrts`, `mathlib:legendreSym`.
 
-Source: [Frank Calegari and David Geraghty, *Minimal modularity lifting for nonregular symplectic representations*](http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf), §8.7, Lemma 8.21 and its proof, printed pp. 872–873. The proof of Lemma 8.21 uses that a p-primitive binary quadratic form has 0, 1 or 2 zeros in ℙ¹(𝔽_p) according as the Legendre symbol of its discriminant is −1, 0 or 1; the node is that fact for every nonzero form over 𝔽_p, with the discriminant r² − 4mn.
+Source: [Frank Calegari and David Geraghty, *Minimal modularity lifting for nonregular symplectic representations*](http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf), §8.7, Lemma 8.21 and its proof, pp. 72–73 of the posted copy (Duke pp. 872–873). The proof of Lemma 8.21 uses that a p-primitive binary quadratic form has 0, 1 or 2 zeros in ℙ¹(𝔽_p) according as the Legendre symbol of its discriminant is −1, 0 or 1; the node is that fact for every nonzero form over 𝔽_p, with the discriminant r² − 4mn.
 
 ## Supporting lemmas for the first-pass targets
 
@@ -1358,38 +1363,42 @@ This part cites only Mathlib, Tau Ceti, the first pass of this roadmap and the T
 
 | Tau Ceti layer | What this part uses |
 | --- | --- |
-| Class Field Theory, Layer 5 | `localSymbol (kummerCupPairing ζ)` with the invariant coordinate `h2MuEquivZMod_mixed`, `localSymbol_eq_zero_iff_mem_normGroup`, `localSymbol_kummerClass_eq_zero_iff`, for the comparison theorem |
+| Class Field Theory, Layer 5 | `localSymbol (kummerCupPairing ζ)`, `localSymbol_eq_zero_iff_mem_normGroup`, `localSymbol_kummerClass_eq_zero_iff`, and a named invariant coordinate of H²(F, μ_n) (the map to Br F followed by n · `invMap`; `h2MuEquivZMod_mixed` asserts only that some coordinate exists), for the comparison theorem |
 | Class Field Theory, Layer 6 | `localArtinMap`, `localArtinEquiv_eq_of_iota`, kernel = norm group of index [L:F], `localArtinMap_uniformizer`, `localArtinMap_quadratic_eq_hilbertSymbol` |
 | Class Field Theory, Layer 7 | `artinMap`, `artinMap_restrict`, `artinMap_norm`, `artinMap_congr` |
 | Class Field Theory, Layer 10 | `infiniteArtinAt`, `infiniteArtinAt_eq_one_of_isComplex`, `infiniteArtinAt_eq_one_iff_of_isReal` |
+| Class Field Theory, Layer 14 | `finiteHilbertInvariantAt`, `infiniteHilbertInvariantAt`, the sign forms the degree-2 symbol at a place is compared with |
+| Global Quadratic Forms, Layer 4 (4.4) | the real value of the norm-equation symbol, which the degree-2 archimedean symbol agrees with |
 | Quadratic Form Invariants, 6C | the norm-equation Hilbert symbol `hilbertSymbol`, for n = 2 |
 
-The current Tau Ceti library (after the pinned commit) already contains the absolute local Artin map `TauCeti.ClassFieldTheory.artinMap`, `localSymbol`, `kummerClass` and the quadratic comparison `localArtinMap_quadratic_eq_hilbertSymbol`. None of these is at the pin. The degree-n norm-residue symbol, its comparison for n > 2, and every target of this part are absent from both.
+The current Tau Ceti library (after the pinned commit) already contains the absolute local Artin map `TauCeti.ClassFieldTheory.artinMap`, `localSymbol`, `kummerClass`, the normalised invariant coordinate `h2MuEquivZMod` (characterised by `toRatAddCircle_h2MuEquivZMod`) and the quadratic comparison `localArtinMap_quadratic_eq_hilbertSymbol`. None of these is at the pin. The degree-n norm-residue symbol, its comparison for n > 2, and every target of this part are absent from both.
 
 ## Boundaries
 
 - **Explicit reciprocity laws at the places above n (n > 2).** These are the Artin–Hasse and Artin–Hasse–Iwasawa formulas, and Kummer's, Shafarevich's and Vostokov's formulas for the wild symbol. They belong to HigherLocalFieldsAndHigherClassFieldTheory HL.4, whose explicit-formula targets contain the one-dimensional case. HL.4 imports [CA.1/local-norm-residue-symbol](#CA-1-local-norm-residue-symbol) as the symbol those formulas evaluate. Fesenko–Vostokov Chapter VII proves the Artin–Hasse formulas (as §5 Exercises 1 and 4) in the orientation pinned here. No target of CA.1 depends on them, because the power reciprocity law keeps the factors at the places above n as norm-residue symbols.
+- **K2SymbolsBrauer T.7.** Its packet also plans the local m-th power norm-residue symbol and its comparison with the invariant of the Kummer cup product, in the orientation pinned here. T.7 imports CA.1, so CA.1 owns these objects and T.7 keeps the passage to K₂ (Matsumoto's theorem, the Brauer-valued symbol and the global adapter); the packet records this as a rescoping proposal.
 - **Hilbert reciprocity and global Artin reciprocity** are Class Field Theory's (Layers 11 and 14) and are not re-planned. Their application to the degree-n symbol is the first pass's product formula.
 - **The quadratic norm-equation Hilbert symbol** is Quadratic Form Invariants 6C's. For n = 2 the degree-2 norm-residue symbol agrees with it, and the suggested file restates it only as a stand-in at the pin.
 
 ## Recorded gaps
 
 - **No public proof of the supplement for 1 + i was read.** ((1 + i)/λ)_4 = i^{(a − b − b² − 1)/4} is checked by direct computation: every primary prime with |a|, |b| ≤ 12, 67 primary composites, and multiplicativity of the right side on all primary residues modulo 32. Its proof sketch reduces it to rational-denominator reciprocity and the supplement for i. Xu's paper does not state the supplement and Relyea's survey states only the main law. Gauss's second memoir on biquadratic residues (§§68–76), Lemmermeyer's *Reciprocity Laws* (Theorem 6.9) and Ireland–Rosen Chapter 9 were not read; the last two are not freely available.
-- **The sign of the comparison with the cohomological symbol is fixed by a computation, not read from a source.** Milne III Remark 4.5 relates the cup-product symbol to the Artin map only for Milne's conventions. The node asserts agreement up to one universal sign ε and pins ε by the unramified computation.
+- **The sign of the comparison with the cohomological symbol is fixed by a computation, not read from a source.** Milne III Remark 4.5 relates the cup-product symbol to the Artin map only for Milne's conventions, and Class Field Theory leaves the coordinate of H²(F, μ_n) as a parameter. The node fixes that coordinate as the invariant one (requested from Layer 5), asserts agreement up to one universal sign ε and pins ε by the unramified computation. K2SymbolsBrauer T.7's comparison node, not yet accepted, gives ε = −1 under Milne's sign conventions for Kummer classes and cup products.
 
 ## Continuation frontier
 
 - **A public proof of the supplement for 1 + i**, compared with the reduction written in [CA.1/quartic-supplement-for-one-plus-i](#CA-1-quartic-supplement-for-one-plus-i).
-- **The value of ε** in [CA.1/norm-residue-symbol-and-the-cohomological-symbol](#CA-1-norm-residue-symbol-and-the-cohomological-symbol), against the conventions of Class Field Theory's `kummerClass`, cup product and `h2MuEquivZMod_mixed`.
+- **The value of ε** in [CA.1/norm-residue-symbol-and-the-cohomological-symbol](#CA-1-norm-residue-symbol-and-the-cohomological-symbol), against the conventions of Class Field Theory's `kummerClass`, cup product and invariant coordinate.
 
 ## Mistakes found in the sources
 
-All are recorded in the packet under `sourceIssues`, E1101–E1109, with reasons and where corrections were looked for.
+All are recorded in the packet under `sourceIssues`, E1101–E1114, with reasons, where corrections were looked for, and the independent review's verdicts (all confirmed); E1110–E1114 were found by the review.
 
 - Xu, Proposition 5.5 (p. 15): the coordinate criterion for primary Gaussian integers omits b ≡ 2 (mod 4) in its second case. As printed, 3 would be primary.
 - Katre, §§1–4 (pp. 75–85): the factorisation of Gauss sums is proved for odd p, while Proposition 5 applies it at primes above 2. The argument extends to p = 2 (see [CA.1/stickelberger-relation](#CA-1-stickelberger-relation), step 4).
-- Shastri, §5, Lemma 1 (p. 179): the proof of the Steinberg relation treats only the case [K(ⁿ√a):K] = n. The statement also omits a ≠ 1.
-- Xu, Proposition 6.12 (p. 21): g(P') for g(P). Theorem 4.6 (p. 11): ℤ[i] for ℤ[ζ_3]. Proposition 5.9 (p. 15): χ_p for χ_π. Proposition 6.19 (p. 23): (α)^γ for Φ(α). Proposition 5.13 (p. 16): a gcd condition without its value 1.
+- Shastri, §5, Lemma 1 (pp. 179–180): the proof of the Steinberg relation treats only the case [K(ⁿ√a):K] = n, and the statement omits a ≠ 1. The proof also establishes only the half ⟨1 − a, a⟩ = 1 of (ii), while (iii) and (iv) rest on the other half, so the argument is circular as written; the parts are derived in Fesenko–Vostokov's order in [CA.1/norm-residue-symbol-steinberg-and-skew-symmetry](#CA-1-norm-residue-symbol-steinberg-and-skew-symmetry). Part (iii) is printed as a single chain of equalities that would make the symbol trivial.
+- Fesenko–Vostokov, Chapter IV §5, Exercise 4 (p. 152): the real quadratic symbol is printed as 1 only when both arguments are positive; it is −1 exactly when both are negative, and with the printed value the product formula fails at (2, −1).
+- Xu, Proposition 6.12 (p. 21): g(P') for g(P). Theorem 4.6 (p. 11): ℤ[i] for ℤ[ζ_3]. Proposition 5.9 (p. 15): χ_p for χ_π. Proposition 6.19 (p. 23): (α)^γ for Φ(α). Proposition 5.13 (p. 16): a gcd condition without its value 1. Lemma 6.18 (p. 23): the proof assumes the prime below P odd, though primes above 2 occur; the same computation covers them. Proposition 4.8 (p. 12): the power sums are said to vanish because the exponent is prime to p − 1, which is false for the exponent (p − 1)/3; they vanish because the exponent lies strictly between 0 and p − 1.
 
 ## Planets and proposed sub-layers
 
