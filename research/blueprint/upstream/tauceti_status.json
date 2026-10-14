@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T17:53Z",
+ "updated": "2026-10-14T17:57Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -36,7 +36,7 @@
    "stage": "pr",
    "pr": 785,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "7e695c0",
+   "head": "229fbf3",
    "review": {
     "recommendation": "changes",
     "head": "3c6c215",
@@ -54,11 +54,11 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
    "head": "9f5058d",
    "review": {
-    "recommendation": "approve",
-    "head": "2b26e68",
-    "current": false,
+    "recommendation": "changes",
+    "head": "9f5058d",
+    "current": true,
     "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+    "note": "maintainer re-review at 9f5058d: one dependency/ownership regression; repair in progress"
    }
   },
   "SmoothRepresentationsOfLocalGroups": {
@@ -68,13 +68,13 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "c12d484",
+   "head": "e664bc4",
    "review": {
-    "recommendation": "changes",
-    "head": "dbe52a5",
+    "recommendation": "approve",
+    "head": "c12d484",
     "current": false,
-    "date": "2026-10-13",
-    "note": "maintainer re-review of 2026-10-13 repaired and answered at 51b86fd; awaiting re-review"
+    "date": "2026-10-14",
+    "note": "maintainer integration re-review (roed-math, GPT-5.6 Sol) finds no blocker and asks only for a restack onto current main, done at e664bc4"
    }
   },
   "IntegralHeckeAndGaloisDeterminants": {
@@ -84,7 +84,7 @@
     793
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-   "head": "c69bdd6",
+   "head": "1c139ad",
    "review": {
     "recommendation": "approve",
     "head": "ac1db49",
@@ -256,7 +256,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "86d8cfc",
+   "head": "62c0620",
    "depends_on": [
     792,
     785
@@ -265,7 +265,7 @@
    "review": {
     "recommendation": "changes",
     "head": "86d8cfc",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
     "note": "deep review (GPT-6 Astra) at 86d8cfc; repair in progress"
    }
