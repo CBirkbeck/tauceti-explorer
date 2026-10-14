@@ -185,8 +185,6 @@ example : aipExponent 3 1 (1 / 9) = 5 / 6 := by norm_num [aipExponent]
 
 end HodgeTate
 
-
-
 /-! The definitions and constructions of the README that need group schemes, sheaves of
 modules, adic spaces, sites, diamonds or geometric torsors are README targets and are not
 declared here:
