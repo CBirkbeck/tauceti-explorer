@@ -102,7 +102,7 @@ theorem abelianization_exact_of_extension (S : GroupExtension A E G) :
     (Abelianization.map S.rightHom).ker = (Abelianization.of.comp S.inl).range := by
   sorry
 
-/-- **Stem extensions do not change the abelianization** (RS.0.4, `abelianization_equiv_of_stem`). -/
+/-- **Stem extensions do not change the abelianization** (RS.0.4): `Eᵃᵇ → Gᵃᵇ` is bijective. -/
 theorem abelianization_map_bijective_of_stem (S : GroupExtension A E G) (hS : IsStemExtension S) :
     Function.Bijective (Abelianization.map S.rightHom) := by
   sorry
@@ -189,7 +189,9 @@ def liftCommutator (S : GroupExtension A E G) {x y : G} (h : Commute x y) : A :=
   (MonoidHom.ofInjective S.inl_injective).symm
     ⟨liftCommutatorElem S x y, liftCommutatorElem_mem_range S h⟩
 
-/-- `liftCommutator_independent`: in a central extension any lifts give the same commutator. -/
+/-- `liftCommutator_inl`: in a central extension the commutator of any lifts `X, Y` of `x, y` is
+the image of `κ_E(x, y)`; in particular it does not depend on the lifts
+(`liftCommutator_independent`). -/
 theorem liftCommutator_inl (S : GroupExtension A E G) (hS : IsCentralExtension S) {x y : G}
     (h : Commute x y) (X Y : E) (hX : S.rightHom X = x) (hY : S.rightHom Y = y) :
     S.inl (liftCommutator S h) = ⁅X, Y⁆ := by
@@ -349,7 +351,7 @@ def universalProjection (c : Set G) (hc : ConjInvariant c) : UniversalMarked c h
 /-- `universalMarked_test_2`: for `C₂` with `c` its nonidentity element, `U(G, c)` is infinite
 (it is `ℤ`); imposing `[x]² = 1` would wrongly give `C₂`. -/
 example : Infinite (UniversalMarked ({Multiplicative.ofAdd (1 : ZMod 2)} : Set _)
-    (fun g x hx => by sorry)) := by
+    (fun g x hx => by rwa [mul_inv_cancel_comm])) := by
   sorry
 
 /-- The conjugacy classes contained in `c` (the classes meeting `c`, for conjugation-invariant
@@ -468,7 +470,7 @@ theorem universalKernel_degree (c : Set G) (hc : ConjInvariant c) (hgen : Subgro
 
 /-- `universalKernel_test_3`: for `C₂` the kernel is infinite although `M(C₂, c) = 0`. -/
 example : Infinite (universalKernel ({Multiplicative.ofAdd (1 : ZMod 2)} : Set _)
-    (fun g x hx => by sorry)) := by
+    (fun g x hx => by rwa [mul_inv_cancel_comm])) := by
   sorry
 
 end RS2
@@ -485,7 +487,8 @@ permutation of the underlying set, not a homomorphism. -/
 def finitePower (n : ℕ) (α : (ZMod n)ˣ) (g : G) : G :=
   g ^ (α : ZMod n).val
 
-/-- `finitePower_residue`: congruent exponents modulo `orderOf g` give the same power. -/
+/-- `finitePower_residue`: any natural number representing `α` modulo the common exponent `n`
+gives the same power. -/
 theorem finitePower_residue (n : ℕ) [NeZero n] (hn : ∀ g : G, g ^ n = 1) (α : (ZMod n)ˣ) (g : G)
     (a : ℕ) (ha : (a : ZMod n) = α) : finitePower n α g = g ^ a := by
   sorry
@@ -806,6 +809,11 @@ theorem sumKernelModel_card [Finite G] :
     Nat.card (sumKernelModel G) = 2 * Nat.card G * Nat.card (commutator G) := by
   sorry
 
+/-- `sumKernelModel_eq_top_of_perfect`: for a perfect group the sum kernel is all of `W(G)`, the
+full wreath model of RS.6.9. -/
+theorem sumKernelModel_eq_top_of_perfect (h : commutator G = ⊤) : sumKernelModel G = ⊤ := by
+  sorry
+
 /-- `sumKernelModel_test_2`: the sum-kernel model of `A₄` has order `96` (the order-96 type of
 RS.6.6, Table 2 row 8). -/
 example : Nat.card (sumKernelModel (alternatingGroup (Fin 4))) = 96 := by
@@ -820,12 +828,13 @@ example :
         SwapWreath (Multiplicative (ZMod 3))) ∉ sumKernelModel _ := by
   sorry
 
-/-- **The anti-diagonal marking** (RS.6.8): for abelian `G`, the outside involutions generate
-`F(G)`, and for odd order they form one conjugacy class. -/
-theorem antidiagonal_marking (G : Type) [CommGroup G] [Finite G] (hodd : Odd (Nat.card G)) :
+/-- **The anti-diagonal marking** (RS.6.8): for every abelian `G` the outside involutions generate
+`F(G)`, and for finite `G` of odd order they form one conjugacy class. -/
+theorem antidiagonal_marking (G : Type) [CommGroup G] :
     Subgroup.closure (outsideInvolutions (sumKernelModel G)) = ⊤ ∧
-      ∀ x ∈ outsideInvolutions (sumKernelModel G), ∀ y ∈ outsideInvolutions (sumKernelModel G),
-        IsConj x y := by
+      (Finite G → Odd (Nat.card G) →
+        ∀ x ∈ outsideInvolutions (sumKernelModel G), ∀ y ∈ outsideInvolutions (sumKernelModel G),
+          IsConj x y) := by
   sorry
 
 /-- **The reduced multiplier of the anti-diagonal model** (RS.6.8): for finite abelian `G` of odd
@@ -873,7 +882,8 @@ the roadmap plans):
   `extensionClassMap_commutator` and `extensionClassMap_natural`; `extensionClassMap_exact_left`,
   `extensionClassMap_exact_mid`, `extensionClassMap_surjective_of_stem`; `IsSchurCover`,
   `isSchurCover_of_stem_card`, `isSchurCover_of_representationGroup`, `exists_isSchurCover`;
-  `multiplier_primaryDecomposition`, `multiplier_hallPart`; `cyclic_subgroup_conj_to_complement`.
+  `extensionClassMap_eq_zero_of_splitting`; `multiplier_primaryDecomposition`,
+  `multiplier_hallPart`; `cyclic_subgroup_conj_to_complement`.
 * RS.1: `ReducedCover` (the quotient of a Schur cover by `reducedCoverRelations` for its class
   map) and its API, `centralizer_lifts`, `conjugacy_bijection`, `classCompatibleMarking`,
   `localClassNormalization`, `local_factors_commute`, `homology_image`, `homology_composite_zero`,
@@ -887,10 +897,13 @@ the roadmap plans):
   `all_fixed_fibers`, `odd_parity_fiber`, `even_parity_fiber`, `lift_square_columns`,
   `paritySquareMap`, `affine_compatible_parities`, `surviving_parities`, `independent_classes`
   (each is a statement about the fibers of the marked fiber product of a reduced cover).
-* RS.5: `compatibleCovers`, `hall_preimage_normal`, `multiplier_kernel_primary` (its multiplier
+* RS.5: `multiplier_primary_support`, `compatibleCovers`, `hall_preimage_normal`,
+  `multiplier_kernel_primary` (its multiplier
   form is `multiplier_complementPart` above), `compatible_correction`.
 * RS.6: `ReductionCertificate`, `finiteParityAlgorithm`, `centralizer_generator_relations`, the
-  graph models, and the remaining rows `table_row_k` of Wood's Table 2.
+  graph models, and the remaining rows `table_row_k` of Wood's Table 2. The marked groups
+  `antidiagonalModel` and `order96Type` appear above as `sumKernelModel G` for commutative `G`
+  and as `sumKernelModel (alternatingGroup (Fin 4))`, each marked by `outsideInvolutions`.
 -/
 
 end TauCetiRoadmap.InductionRestrictionPartII
