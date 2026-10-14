@@ -1,0 +1,902 @@
+{
+  "roadmapId": "HeegnerPointEulerSystems",
+  "protocol": "blueprint-v1",
+  "part": "HE.8",
+  "scope": [
+    "HeegnerPointEulerSystems:HE.8"
+  ],
+  "status": "complete",
+  "summary": "HE.8 target-level refinement of the accepted HE.7s packet. Reuse its 49 HE.8 target/API nodes (excluding the separate parity target) and its six planets without redefining them. Add eight missing proof interfaces: the clean traced norm module, the adelic/local toric fibre, the arithmetic joining application, the weaker fixed-torsion CM trace theorem, weak-torsion shifted-conductor descent, clean Howard A–D verification, actual perfect character base change, and broadened integral determinant containment. Main-conjecture implications remain conditional; proofs of those conjectures belong to HE.8b. Complete means target coverage, not formalisation or gap-free mathematical closure.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Module",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Defs.lean",
+        "provides": "Existing module over a semiring and additive commutative monoid, with distributive scalar action. Lines54–61 read with git show at the exact pin; used only for the elementary stabilization formulas.",
+        "checked": "statement read at the pinned commit"
+      },
+      {
+        "ref": "mathlib:LinearMap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Bundled semilinear map extending additive and scalar-compatible maps; the R-linear notation specializes the scalar homomorphism to the identity. Lines85–96 read at the exact pin.",
+        "checked": "statement read at the pinned commit"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "howard",
+      "title": "The Heegner point Kolyvagin system",
+      "authors": "Benjamin Howard",
+      "edition": "arXiv:1202.6340v1; original Compositio Math.140 (2004),1439–1472. Locators below use preprint PDF pages.",
+      "url": "https://arxiv.org/pdf/1202.6340v1",
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction pp.2–3; Chapter2 pp.22–35 in full, including arithmetic hypotheses, specialization, norm modules and proof of Theorem B. Chapter1 is imported through HE.0 and ES.5, not claimed as a fresh full reading."
+      ]
+    },
+    {
+      "id": "cv-cm",
+      "title": "CM points and quaternion algebras",
+      "authors": "Christophe Cornut; Vinayak Vatsal",
+      "edition": "Documenta Mathematica10 (2005),263–309, published version. Printed page equals PDF page+262.",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-10/07.pdf",
+      "sha256": "47ff862cffc6980c79a63ef041762397dcdf5b71155ce4d7d09d65e16507b109",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Printed pp.263–300: §§1–3, adelic spaces, distribution and supersingular reduction, including Theorem2.29 and the stated Ratner orbit-classification consequence. Complements after p.300 not used."
+      ]
+    },
+    {
+      "id": "cv",
+      "title": "Nontriviality of Rankin–Selberg L-functions and CM points",
+      "authors": "Christophe Cornut; Vinayak Vatsal",
+      "edition": "Author preprint dated1 April2005; published LMS Lecture Notes320 (2007),121–186. All locators here are preprint PDF page numbers.",
+      "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction pp.1–13,15–16; relative torsion/character setup pp.20–24; §§3.7–3.8 pp.34–35; §§4–5 pp.36–60 in full; Appendix6.5 pp.67–69, predecessors and degeneracy maps. Other Appendix6 material is supplied by HE.2."
+      ]
+    },
+    {
+      "id": "bcgs",
+      "title": "Nonvanishing of Kolyvagin systems and Iwasawa theory",
+      "authors": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner",
+      "edition": "arXiv:2312.09301v2, January2026. Published Cambridge J.Math.14(2)(2026),285–348; locators are v2 PDF pages, not published pagination.",
+      "url": "https://arxiv.org/pdf/2312.09301v2",
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction and §§1–2, pp.1–20 in full, stopping at the cyclotomic heading. §3 cyclotomic Kato results are outside this part."
+      ]
+    },
+    {
+      "id": "cs",
+      "title": "On refined nonvanishing conjectures by Kurihara and Kolyvagin",
+      "authors": "Francesc Castella; Takamichi Sano",
+      "edition": "arXiv:2601.14504v1,20 January2026; 18 pages. No published version listed on the arXiv/author pages inspected.",
+      "url": "https://arxiv.org/pdf/2601.14504v1",
+      "sha256": "3cd76c20dfc777ccc4126e153b88bef7eb7574bdf5402c6d5123208e30c30eda",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Introduction pp.1–5 and §3 pp.11–17 in full; §2 cyclotomic argument not used. Lemma3.1.1 p.13 also checked visually against the rendered PDF."
+      ]
+    },
+    {
+      "id": "cgls",
+      "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+      "authors": "Francesc Castella; Giada Grossi; Jaehoon Lee; Christopher Skinner",
+      "edition": "Invent.Math.227(2022),517–580; published author-hosted copy.",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§3.2 setup printed p.547; §3.4 and §4.1 printed pp.564–569, including Theorems3.4.1/4.1.1 and Remark4.1.3. The surrounding Eisenstein main-conjecture proof was not read or planned here."
+      ]
+    },
+    {
+      "id": "cs-author",
+      "title": "On refined nonvanishing conjectures by Kurihara and Kolyvagin",
+      "authors": "Francesc Castella; Takamichi Sano",
+      "edition": "Current author-hosted preprint, dated20 January2026, accessed14 October2026; 18 pages.",
+      "url": "https://web.math.ucsb.edu/~castella/Kurihara.pdf",
+      "sha256": "9478dc414299a3821fe4192ef138bb1da96a30b95f8b01beae54895340f903c9",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Lemma3.1.1 and neighboring definitions, p.13, checked for a correction to the arXiv coefficient-ideal condition; the same condition remains printed."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/howard-traced-universal-norm-module",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "The traced Heegner norm module over K∞",
+      "kind": "construction",
+      "statement": "Assume Howard’s ordinary Heegner setting: E/ℚ of conductor N; K imaginary quadratic of odd discriminant D_K<0, D_K≠−3, all primes of N split; odd p∤ND_K, good ordinary reduction, G_K-image GL₂(ℤ_p), p∤h_K, and total ramification at the p-adic places in K∞/K. Write K_k for its degree-p^k layer, G=Gal(K[1]/K), and Λ=ℤ_p⟦Γ⟧. Define H_k inside E(K_k)⊗ℤ_p as the Λ-submodule generated by Tr_(K[1]/K)P[1] and Tr_(K_k[1]/K_k)P_j[1] for 0≤j≤k, using the accepted conductor-one family P_j[1]. Corestriction restricts to H_(k+1)→H_k; H=lim_k H_k has its actual level projections. It is the traced module over K∞, distinct from H[1] over K∞[1]. The traced chosen Q[1] gives κ̃₁∈H. Howard Theorem 2.3.7 identifies H as a free rank-one Λ-module generated by κ̃₁, with injective inverse-limit Kummer map sending κ̃₁ to the accepted bottom Selmer class. No unit assertion about aug(Φ) is made.",
+      "hypotheses": [
+        "All arithmetic hypotheses and coefficient/local-condition conventions in the statement are required."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
+        "HeegnerPointEulerSystems:HE.8/cornut-tower-trace-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "SelmerIwasawaCohomology:L3/iwasawa-shapiro"
+      ],
+      "sources": [
+        {
+          "sourceId": "howard",
+          "locator": "Theorem 2.3.7 and Lemmas 2.3.8–2.3.9, §2.3, PDF pp.34–35.",
+          "match": "The proof uses the traced modules, the finite class-group norm, an augmentation image and Nakayama; it does not identify H with H[1]."
+        }
+      ],
+      "proofSteps": [
+        "Restrict the actual corestrictions to the displayed generating sets and form their compact inverse limit using the existing owner’s construction.",
+        "Apply the fixed-torsion CM trace theorem through the accepted tower-trace target. Verify the Perrin–Riou rank comparison that Howard cites (Proposition 10, §3) with these modules; the original passage remains an acquisition/interface gap.",
+        "In the free presentation use the surjective norm diagram H̃→H[1], H̃^G→H, with vertical maps Norm_G. Since |G| is a p-adic unit, taking G-invariants is exact here.",
+        "Identify H̃^G/(γ−1)H̃^G with aug(Φ)H̃^G_0 using the recurrence and the kernel argument of Lemmas 2.3.8–2.3.9. The image of the traced lift generates this module even if aug(Φ) is not a unit. Nakayama gives generation of H, and rank one gives freeness."
+      ],
+      "acceptance": [
+        "The finite subgroup and trace are retained in the module and the Kummer comparison.",
+        "This clean rank/generator argument is not extended to p|h_K by dividing by |G|. The broad accepted non-torsion assertion has its separate construction."
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "early",
+      "library": {
+        "module": "TauCeti/NumberTheory/Heegner/Anticyclotomic",
+        "namespace": "TauCeti.Heegner.Anticyclotomic"
+      },
+      "declaration": "tracedNormModule",
+      "uses": [
+        {
+          "where": "Howard Theorem 2.3.7, PDF p.34",
+          "how": "The geometric non-torsion trace identifies the rank of H, rather than H[1]."
+        },
+        {
+          "where": "Howard Lemmas 2.3.8–2.3.9, PDF p.35",
+          "how": "The traced presentation and its augmentation quotient establish that κ̃₁ is a generator."
+        },
+        {
+          "where": "Accepted HE.8/lambda-bottom-class-nontorsion",
+          "how": "The inverse-limit Kummer map identifies the clean branch with the cohomological bottom class."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.tracedNormModule_level",
+          "role": "projection",
+          "statement": "Projection pr_k:H→H_k is Λ-linear and satisfies cor_k∘pr_(k+1)=pr_k with the actual restricted point traces."
+        },
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.tracedNormModule_trace",
+          "role": "compatibility",
+          "statement": "The Norm_G map H[1]→H is the map induced by the levelwise field traces; it carries the chosen Q[1] to κ̃₁ and commutes with Kummer."
+        },
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.tracedNormModule_generator",
+          "role": "characterisation",
+          "statement": "Under the clean hypotheses the map Λ→H, a↦aκ̃₁, is a Λ-linear isomorphism."
+        },
+        {
+          "name": "TauCeti.Heegner.Anticyclotomic.tracedNormModule_augmentation",
+          "role": "characterisation",
+          "statement": "For the traced free presentation, the bottom projection gives H̃^G/(γ−1)H̃^G≅aug(Φ)H̃^G_0 and sends y^G to aug(Φ)x^G. This comparison is for the presentation, not an asserted description of the arithmetic H_0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "tracedNormModule_trivial_class_group",
+          "kind": "degenerate",
+          "statement": "If G is trivial, Norm_G=id and the traced level modules coincide with H_k[1]; no extra class-number factor appears."
+        },
+        {
+          "name": "tracedNormModule_trace_scale",
+          "kind": "compatibility",
+          "statement": "For p=5 and a trivial-action free ℤ_5 module with G cyclic of order 2, Norm_G sends x to 2x. Replacing this trace by the identity loses the normalization even though both generate the same line."
+        },
+        {
+          "name": "tracedNormModule_nonunit_augmentation",
+          "kind": "non-example",
+          "statement": "For the free presentation with inert p=5,a_p=1, aug(Φ)=35. The image lattice is 35ℤ_5 x^G, not ℤ_5 x^G; a generator of this image does not make 35 a unit."
+        },
+        {
+          "name": "tracedNormModule_bad_class_number",
+          "kind": "non-example",
+          "statement": "For G cyclic of order 5 over ℤ_5, the normalized average Norm_G/5 is not an integral group-ring operator; the clean invariant-exactness argument cannot be invoked."
+        }
+      ]
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Adelic norm fibres and expanding P-isogeny annuli",
+      "kind": "theorem",
+      "statement": "Fix the actual CV data: F totally real, K/F CM, a prime P of F, a quaternion algebra B split at P and with K embedded, a compact open level H, the relative ring-class tower, a nonempty finite collection 𝒮 of allowed reduction sets S, and a finite set R of shifts distinct modulo Gal_K^(P-rat). For each S, exclude P, require B split and K nonsplit at its primes and |S|+|Ram_f(B)|+[F:ℚ] even. Retain the central norm-component spaces in the accepted joint-CM reduction target. Their fixed norm-component fibres are finite unions of compact quotients Γ_(S,g)\\SL₂(F_P), with arithmetic lattices and commensurators identified. For each compact open Galois averaging subgroup G and compact open level H, a fixed P-isogeny class has the parametrization of CV Propositions 2.12 and 2.28: finitely many x_i and one-parameter unipotent groups u_i, and a compact open multiplicative subgroup κ⊂F_P^×, such that its G/level saturation is the union over i and n≥0 of G·x_i·u_i(ϖ^(−n)κ)·H. For fixed i,n this set is the single double orbit G·x_i u_i(ϖ^(−n))·H. The sets ϖ^(−n)κ⊂F_P are expanding annuli, carrying the additive Haar measure used in the subsequent integration. CM conductor tending to infinity escapes compact subsets of that isogeny class. The torus subgroup is not replaced by an arbitrary additive ball.",
+      "hypotheses": [
+        "The hypotheses and conventions in this statement are part of the target."
+      ],
+      "proofSteps": [
+        "Import the existing AdelicAlgebraicGroups strong-approximation and anisotropic quotient contracts.",
+        "Identify local stabilizers and commensurators through the quaternion order.",
+        "Parametrize the toric orbit by the finite unipotent charts, with κ⊂F_P^× and the single-double-orbit identity. Verify conductor escape and the additive Haar normalization on these annuli."
+      ],
+      "acceptance": [
+        "κ is multiplicative in F_P^×; its scaled annuli are then integrated with additive Haar measure on F_P. It is not a subgroup of K_P^× or an arbitrary additive ball.",
+        "The norm component is fixed before applying Haar distribution."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/cm-character-stratum",
+        "HeegnerPointEulerSystems:HE.0/relative-cm-conductor-tower",
+        "AdelicAlgebraicGroups:AA.3",
+        "AdelicAlgebraicGroups:AA.4",
+        "HilbertModularVarietiesAndShimuraCurves:R18.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv-cm",
+          "locator": "Proposition2.12 pp.275–276; Lemmas2.19–2.20 pp.280–282; Proposition2.28 pp.287–289.",
+          "match": "Strong approximation gives the local quotient fibres; the torus calculation expresses conductor growth as translated annuli."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "early"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/p-adic-orbit-density-application",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Noncommensurable CM joining and dense unipotent orbit",
+      "kind": "theorem",
+      "statement": "In a component fibre of the simultaneous CV reduction space, pairwise distinct shifts modulo Gal^{P-rat}_{K} exclude the proper pairwise commensurable joinings. After the source’s local torus parametrization, for almost every averaging parameter the diagonal unipotent orbit is dense in the product of the cocompact SL₂(F_P)-lattice quotients. The exceptional Galois averaging parameters lie in a countable union of cosets of Gal_K^(P-rat) in Gal_K^ab, negligible for Haar measure as in CV Proposition 2.24. These cosets arise from countably many F_P^×-cosets in K_P^× in the local calculation. Use the exact p-adic orbit-closure/stabilizer classification and partition-diagonal argument, rather than real Ratner or independent density of each coordinate.",
+      "hypotheses": [
+        "The hypotheses and conventions in this statement are part of the target."
+      ],
+      "proofSteps": [
+        "Import the requested p-adic orbit-classification statement and twisted-diagonal stabilizer consequence.",
+        "Use partition-diagonal subgroups and closed-orbit commensurability to identify every proper joining.",
+        "Use the P-rational distinctness of shifts and Proposition 2.24’s countable Haar-null Gal_K^(P-rat)-cosets to exclude these joinings almost everywhere."
+      ],
+      "acceptance": [
+        "Marginal density alone is insufficient for a product joining.",
+        "The finite-extension F_P version is an explicit supplier obligation, not inferred from a Q_p-only citation."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv-cm",
+          "locator": "Propositions 2.22 and 2.24, printed pp.282–286; Lemmas 2.30–2.32 and Corollary 2.34/Proposition 2.35, printed pp.289–292, §2.5/§2.7.",
+          "match": "Orbit classification plus the quaternionic commensurator description rules out proper joinings; the rational and finite-extension input boundary is recorded separately."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "early"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Cornut–Vatsal nonzero fixed-torsion CM trace",
+      "kind": "theorem",
+      "statement": "In the indefinite quaternionic CV setting assume H2: at each Q≠P ramified in K/F, B_Q is split and R_Q maximal. Let π:J↠A be a nonzero surjective rational Pic(O_F)-equivariant quotient with A=A{ω}, and choose χ on G0 inducing ω^ε on G2. For all but finitely many x∈CM(P∞), Σ_{σ∈G0}χ(σ)σ·α(x)/|G0| is nonzero in A⊗_{Z{ω}}C. H1 and P-newness are not needed for this fixed-torsion projection theorem. For Howard’s F=Q modular quotient, use trivial torsion type to obtain a non-torsion trace at some sufficiently high conductor.",
+      "hypotheses": [
+        "The hypotheses and conventions in this statement are part of the target."
+      ],
+      "proofSteps": [
+        "Use H2 degeneracy maps to remove the G1/G2 contribution without losing surjectivity; import their quaternionic Hecke realization.",
+        "For the remaining G0/G1 shifts use eventual independent reduction on compatible components.",
+        "Choose an inert auxiliary reduction prime with supersingular fibres larger than the fixed map-degree times the finite torsion bound, via the requested quantitative class-set growth.",
+        "Conclude the assumed torsion projection cannot vanish for all sufficiently high CM points."
+      ],
+      "acceptance": [
+        "A rational-character denominator is not asserted to be a p-adic unit.",
+        "This theorem does not depend on an anticyclotomic main conjecture."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite",
+        "HeegnerPointEulerSystems:HE.8/cm-character-stratum",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity",
+        "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
+        "HilbertModularVarietiesAndShimuraCurves:R18.3",
+        "HilbertModularVarietiesAndShimuraCurves:R18.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "cv",
+          "locator": "Theorem4.10 p.41; Lemmas4.14–4.16 pp.44–48; Proposition4.17 and end of proof pp.49–50.",
+          "match": "The fixed-torsion trace is the statement used by Howard; the proof uses simultaneous reduction and a finite-fibre contradiction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "early"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Weak-torsion descent and shifted-conductor verification",
+      "kind": "theorem",
+      "statement": "In the ordinary Heegner setting of CGLS §4.1 with E(K)[p]=0, and without p∤h_K or full G_K-image, put d(k)=min{d≥0:K_k⊂K[p^d]} and P_k[n]=Tr_(K[np^d(k)]/K_k[n])P[np^d(k)]. For each admissible squarefree n and each coefficient quotient by the actual I_n, establish the auxiliary disjointness/invariant-vanishing that makes restriction H¹(K,T/I_nT)→H¹(K[n],T/I_nT)^{Gal(K[n]/K)} an isomorphism. Verify the pro-p base-tower vanishing E(K∞)[p]=0, the actual transition squares for these shifted P_k[n], and the common-presentation finite solvability used by universal-norm-heegner-family with finite G0 retained. These checks provide that accepted construction and derivative restriction API in the weak-torsion branch; no rank or main-conjecture endpoint is replanned. Do not use the integral average 1/|G0| when p divides |G0|.",
+      "hypotheses": [
+        "All arithmetic hypotheses and coefficient/local-condition conventions in the statement are required."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
+        "HeegnerPointEulerSystems:HE.2/norm-relation-and-reduction-congruence",
+        "HeegnerPointEulerSystems:HE.4",
+        "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+        "HeegnerPointEulerSystems:HE.8/initial-euler-factor"
+      ],
+      "sources": [
+        {
+          "sourceId": "cgls",
+          "locator": "Theorem 4.1.1, §4.1, published pp.566–568; d(k), equations (4.1)–(4.3) and restriction comparison on p.567.",
+          "match": "The weak-torsion adaptation needs these arithmetic comparisons; a formal substitution of d(k) in the clean proof does not discharge them."
+        }
+      ],
+      "proofSteps": [
+        "Use the p-group fixed-vector argument for E(K∞)[p]=0. Obtain the exact auxiliary disjointness and invariant-vanishing from the HE.4 extension request, and apply inflation–restriction with both end terms checked.",
+        "Track finite G0 and the actual inclusions K_k⊂K[p^d(k)] in the point traces. Prove the common free-presentation finite constraints with those maps, not with the clean tower’s k+1 indexing.",
+        "Check the ordinary local descent using the semilocal norm comparison at p; its finite residue torsion term is retained. Supply these verification data to the already accepted family and restriction APIs."
+      ],
+      "acceptance": [
+        "A pro-p fixed-vector argument alone does not prove auxiliary ring-class disjointness.",
+        "The weak-torsion localized divisibility theorem remains separate from integral Howard Theorem B."
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "early"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/howard-specialization-hypotheses",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Arithmetic verification of Howard’s abstract bound",
+      "kind": "theorem",
+      "statement": "Assume the full clean arithmetic hypotheses of howard-traced-universal-norm-module. For T=T_pE⊗Λ with the fixed inverse tautological Γ-action and Howard’s propagated ordinary self-dual local conditions, verify hypotheses A–D of EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-adic-kolyvagin-bound: S is Λ-torsion-free; normalized height-one specialization/control has finite kernel and cokernel and bounded lattice index outside a finite exceptional set; specialized coefficients and local conditions satisfy Howard’s actual H0–H5; and char_Λ(X_tors) is invariant under ι(γ)=γ^−1 through the arithmetic functional equation. Specify the same local conditions in that functional equation and in the height-one maps. Local p-torsion/component effects are finite control errors, not assumed zero. This is the arithmetic verification input to the accepted Theorem B endpoint, without restating that endpoint or importing it as a proof prerequisite.",
+      "hypotheses": [
+        "The hypotheses and conventions in this statement are part of the target."
+      ],
+      "proofSteps": [
+        "Import HE.5’s actual H0–H5 checks, retaining its χ comparison gap.",
+        "Apply local control with finite reduction errors and the stated normalized height-one maps.",
+        "Verify the exact complementary local conditions required by the arithmetic functional equation and identify its characteristic-ideal consequence."
+      ],
+      "acceptance": [
+        "Howard’s height-one comparison excludes pΛ where stated.",
+        "Rubin’s admissible Z_p-extension hypothesis is not imposed: auxiliary inert primes split completely here.",
+        "At an inert auxiliary prime the infinite-decomposition hypothesis of SI.L3/universal-norms-unramified is unavailable: use the accepted Heegner local verification for that case, not this generic shortcut.",
+        "The Shapiro convention is reconciled with Howard’s direct action through the ι-semilinear comparison; α and α^−1 are not silently exchanged."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions",
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+        "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
+        "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
+        "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
+        "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "SelmerIwasawaCohomology:L3"
+      ],
+      "sources": [
+        {
+          "sourceId": "howard",
+          "locator": "Proposition2.1.3 pp.23–24; Lemma2.2.7/Proposition2.2.8/Lemma2.2.9 pp.25–26; proof of Theorem2.3.1 pp.27–28.",
+          "match": "These are the arithmetic verifications for the generic A–D theorem; invariance needs the functional equation, not a formal module decomposition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "early"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/perfect-character-base-change",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Perfect character base change for the arithmetic complex",
+      "kind": "theorem",
+      "statement": "For CS’s actual all-p strict ordinary Selmer complex C=RΓ_f(K,T_pE⊗Λ), with its global-to-local cone, unramified inertia terms away from p and ordinary quotient terms at every v|p, assume (Heeg),(disc), odd p∤ND_K, good ordinary reduction and E(K)[p]=0. Prove perfectness over Λ and, for every continuous α:Γ→ℤ_p^× sufficiently close to 1, the arithmetic derived comparison C⊗^L_(Λ,α)ℤ_p≃RΓ_f(K,T_pE(α)), using the same ordinary/inertia local maps and preserving their H⁰ and Tor terms. The induced inverse-determinant isomorphism transports the integral lattice and, where the rational rank-one tensor identification is defined, the Heegner tensor. This refines the accepted determinant-specialization-lattice proof input, rather than asserting that finite-layer control already covers character evaluation. The Nekovář 8.10.1 theorem used by CS is requested from SI.L3; its proof was not independently read in this run.",
+      "hypotheses": [
+        "The hypotheses and conventions in this statement are part of the target."
+      ],
+      "proofSteps": [
+        "Import the exact perfect character-specialization theorem through the SI.L3 request.",
+        "Verify every local ordinary/inertia map and its specialization compatibility for the stated arithmetic representation.",
+        "Apply the generic determinant functor only after the arithmetic derived equivalence has been established. Then compare its rational identification with the accepted Heegner determinant tensor, keeping ι/α^−1 conventions."
+      ],
+      "acceptance": [
+        "Finite generation is insufficient for perfectness.",
+        "Tor and local-change terms are preserved until the asserted derived comparison establishes the correct lattice.",
+        "No localization cokernel or bad-place determinant term is suppressed in the local comparison. The asymmetric split Greenberg complex of BCGS is a different complex."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/strict-ordinary-selmer-complex",
+        "HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing",
+        "SelmerIwasawaCohomology:L3/derived-control",
+        "SelmerIwasawaCohomology:L3/selmer-determinant",
+        "SelmerIwasawaCohomology:L3"
+      ],
+      "sources": [
+        {
+          "sourceId": "cs",
+          "locator": "Equation(3.17), Corollary3.3.4 proof p.16, referring to Nekovář8.10.1.",
+          "match": "Character specialization is a derived determinant comparison for a perfect complex, not a bare H¹ tensor identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "determinant"
+    },
+    {
+      "id": "HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containment",
+      "parentStageId": "HeegnerPointEulerSystems:HE.8",
+      "realises": [
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "title": "Integral containment under the CS surjective hypotheses",
+      "kind": "theorem",
+      "statement": "Under (Heeg),(disc), p>3 ordinary unramified, residual G_Q-image GL₂(F_p) and p∤c_φ, verify the arithmetic Λ-bound needed to place z_{K∞} inside det^{-1}C, without assuming p∤h_K. This entails the broader d(k) construction, the full integral self-dual A–D control and the exact ordinary lattice comparison; a divisibility proved only in Λ[1/p,1/(γ−1)] is insufficient. The containment proves one side of the basis proposition and is an input to the converse refined-index implication. It is not an assertion that clean Howard Theorem B already has these weaker tower hypotheses.",
+      "hypotheses": [
+        "The hypotheses and conventions in this statement are part of the target."
+      ],
+      "proofSteps": [
+        "Check residual-to-p-adic image and local control hypotheses for this arithmetic representation.",
+        "Verify the broadened arithmetic A–D hypotheses at every height-one prime, including pΛ and the augmentation prime, through the exact ES.8/SI.L3 contracts. The clean howard-specialization-hypotheses node is a comparison case, not a theorem applied outside its hypotheses.",
+        "Translate the product of Heegner index ideals into an integral determinant containment."
+      ],
+      "acceptance": [
+        "Localized CGLS divisibility cannot substitute for integral containment.",
+        "This target is explicitly open at the expanded arithmetic-interface verification.",
+        "The lower integral divisibility is independent of the main-conjecture equality. Introducing that equality as a prerequisite would make the converse equivalence circular.",
+        "Residual G_Q surjectivity, restriction to G_K and the full p-adic image implication are checked with p>3 and p∤D_K; they are not equated by notation."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification",
+        "HeegnerPointEulerSystems:HE.8/determinant-characteristic-ideal-comparison",
+        "EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-adic-kolyvagin-bound",
+        "EulerSystemsAndKolyvaginSystems:ES.8",
+        "SelmerIwasawaCohomology:L3"
+      ],
+      "sources": [
+        {
+          "sourceId": "cs",
+          "locator": "Proof of Theorem C, §3.4 p.17, invoking Howard Theorem B; compare Howard Theorem B p.3 and CGLS Theorem4.1.2 p.568.",
+          "match": "The converse needs integral containment; the source’s invocation must be reconciled with the clean class-number condition through an explicit broadened arithmetic verification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "exportGroup": "determinant"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+      "need": "Homogeneous-dynamics Part II contract: for L a finite extension of Q_p, G=SL₂(L), X=∏_{i=1}^r Γ_i\\G with cocompact arithmetic lattices, V={v(t)} a one-parameter L-unipotent subgroup of G^r, each orbit closure is xH for a closed H⊃V and has its normalized H-invariant probability θ_x. For continuous f and every compact κ⊂L of positive additive Haar measure, |s|→∞ gives λ(sκ)^{-1}∫_{sκ}f(xv(t))dλ(t)→∫f dθ_x. For V=ΔU the measure stabilizer contains cΔG c^{-1} with c∈U^r. Export the pairwise-commensurability/partition-diagonal joining consequence. This is CV-CM Theorem2.29/Lemma2.30, p.289; the Q_p case cites Ratner Duke Math.J.77(1995), Corollary4 of Theorem6; the S-arithmetic/finite-extension supplier must verify the precise Ratner and Margulis–Tomanov Invent.Math.116(1994) hypotheses. Existing GN.4 is real-only and does not yet supply it.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/p-adic-orbit-density-application"
+      ]
+    },
+    {
+      "supplier": "AdelicAlgebraicGroups:AA.3",
+      "need": "Reuse the existing anisotropic compact quotient theorem for B_S and identify the finite union of cocompact local SL₂(F_P)-lattice quotients in CV-CM Lemmas2.19–2.20, pp.280–282.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus"
+      ]
+    },
+    {
+      "supplier": "AdelicAlgebraicGroups:AA.4",
+      "need": "Reuse current upstream simply connected strong approximation with noncompact factor outside S to obtain the exact quaternionic fibre and commensurator description of CV-CM Lemmas2.19–2.20. Keep the central reduced-norm component; do not re-plan strong approximation.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.2",
+      "need": "Reuse the existing supersingular-reduction owner for the exact CV-CM §3 local quaternionic fibre model: Proposition 3.9 and Corollary 3.10, printed pp.297–298. Retain the central norm component and flip exactly the reduction prime and archimedean ramification. This is a refinement of HE.7s’s request, not a new canonical-model theory.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+      "need": "Quantitative supersingular norm-fibre growth used in CV Theorem 4.10 proof, preprint pp.49–50: for each fixed finite degree d and tower torsion bound t choose suitable inert good reduction primes with every relevant fibre cardinality >td. Supply the component-aware class-set/mass/point-count comparison through the existing definite quaternionic owner.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+      "need": "H2 ramified-prime degeneracy maps preserving Pic(O_F)-equivariance and the nonzero/surjective quotient in CV Lemmas 4.14–4.16, preprint pp.44–48. Only the fixed-torsion Theorem 4.10 branch is a new consumer here; P-new/type-I/II primitive-character interfaces remain in HE.7s.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing"
+      ]
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+      "need": "Refine the existing Howard norm-module request to the traced module H over K∞: verify the universal-norm rank comparison quoted as Perrin–Riou (1987), Proposition 10 of §3, and compact inverse-limit/presentation exactness used in Howard Theorem 2.3.7 and Lemmas 2.3.8–2.3.9, PDF pp.34–35. Supply the stated finite class-group norm diagram and augmentation kernel comparison, without asserting aug(Φ) is a unit. The original Perrin–Riou proof remains unread here.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/howard-traced-universal-norm-module"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L3",
+      "need": "Refine the accepted character/control request: establish Nekovář 8.10.1 coefficient-character derived specialization for the actual ordinary/inertia maps of CS equation (3.17), PDF p.16, with perfectness and H⁰/Tor retained; verify Howard’s exact arithmetic functional equation and normalized height-one errors under the clean hypotheses. For CS integral containment supply the full integral self-dual local-condition comparison at pΛ and augmentation as well, not just rational duality. Finite-layer derived control is already planned and is reused. For broader-tower-descent-verification also supply the actual semilocal ordinary norm comparison at p in the shifted d(k) tower, preserving its finite residue torsion term.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/perfect-character-base-change",
+        "HeegnerPointEulerSystems:HE.8/howard-specialization-hypotheses",
+        "HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containment",
+        "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification"
+      ]
+    },
+    {
+      "supplier": "HeegnerPointEulerSystems:HE.4",
+      "need": "Refine the full-image HE.4 torsion-invariants result to the actual weak-torsion CGLS §4.1 tower: prove auxiliary K[n]/K versus ℚ(E[p]) disjointness, invariant vanishing and inflation–restriction for the completed coefficient quotients in equation (4.3), published p.567. Record the base pro-p torsion comparison and the actual d(k) maps.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification"
+      ]
+    },
+    {
+      "supplier": "EulerSystemsAndKolyvaginSystems:ES.8",
+      "need": "The self-dual-lambda-adic-kolyvagin-bound node is reused. Supply its exact integral application contract for CS §3.4 under residual surjectivity and d(k), without a p∤h_K hypothesis: verify A–D at all height-one primes using the actual propagated ordinary Heegner strong system. This is the explicit gap between clean Howard Theorem B (PDF p.3) and CGLS’s localized Theorem 4.1.2 (published p.568); do not replace integral containment by that localization.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containment"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Exact p-adic dynamics and joining supplier",
+      "detail": "The generic GN.4 extension is already requested by HE.7s. Its finite-extension F_P orbit/measure/stabilizer contract remains unverified in original sources; CV-CM Lemma 2.30, printed p.289, qualifies the general local-field extension. The new node records the arithmetic joining application only.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/p-adic-orbit-density-application"
+      ]
+    },
+    {
+      "title": "Quaternionic fibre and quantitative reduction growth",
+      "detail": "The adelic/S-arithmetic fibre model, H2 degeneracy compatibility and arbitrarily large supersingular norm fibres require the exact R18 and AA requests. These inputs are not supplied by a complex CM double-coset description or by marginal density.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus",
+        "HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing"
+      ]
+    },
+    {
+      "title": "Traced universal-norm rank and presentation comparison",
+      "detail": "Howard’s proof of Theorem 2.3.7 was read, but its cited Perrin–Riou rank comparison was not independently read; PMIA L5 remains not_read in its accepted packet. The exact traced norm-module/presentation interface is requested there, preserving finite G and the nonunit augmentation lattice.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/howard-traced-universal-norm-module"
+      ]
+    },
+    {
+      "title": "Weak-torsion auxiliary descent and d(k) finite solvability",
+      "detail": "CGLS states the adaptation under E(K)[p]=0. The precise auxiliary disjointness and common free-presentation proof with shifted conductor and finite G0 must still be supplied for the accepted family. Full-image HE.4 or integral averaging cannot simply be reused without verifying their hypotheses.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification"
+      ]
+    },
+    {
+      "title": "Arithmetic integral control and arbitrary character base change",
+      "detail": "Existing SI.L3 nodes cover inverse Shapiro, finite-layer derived control and duality with error cones. Exact perfect character base change, ordinary/inertia map compatibility and Howard’s arithmetic functional equation remain stronger requested interfaces. Nekovář 8.10.1 is cited through the read CS proof, not represented as independently acquired/read.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/howard-specialization-hypotheses",
+        "HeegnerPointEulerSystems:HE.8/perfect-character-base-change"
+      ]
+    },
+    {
+      "title": "Integral containment beyond the clean class-number condition",
+      "detail": "CS §3.4 invokes Howard’s integral bound without imposing p∤h_K. The broadened integral A–D verification, including the p and augmentation primes and the ordinary lattice comparison, is therefore a distinct required input. CGLS gives only localized divisibility. This is an open application/supplier gap, not a claimed counterexample or source erratum.",
+      "neededBy": [
+        "HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containment"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.8",
+      "status": "planned",
+      "imports": [
+        "HeegnerPointEulerSystems:HE.8/initial-euler-factor",
+        "HeegnerPointEulerSystems:HE.8/ordinary-stabilized-point",
+        "HeegnerPointEulerSystems:HE.8/stabilized-corestriction",
+        "HeegnerPointEulerSystems:HE.8/compact-universal-norm-lift",
+        "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "HeegnerPointEulerSystems:HE.8/cm-character-stratum",
+        "HeegnerPointEulerSystems:HE.8/cm-generic-root-number",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+        "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity",
+        "HeegnerPointEulerSystems:HE.8/indefinite-cm-character-point",
+        "HeegnerPointEulerSystems:HE.8/definite-cm-character-period",
+        "HeegnerPointEulerSystems:HE.8/definite-rankin-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+        "HeegnerPointEulerSystems:HE.8/cornut-tower-trace-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/lambda-heegner-derivative-class",
+        "HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions",
+        "HeegnerPointEulerSystems:HE.8/lambda-finite-singular-relation",
+        "HeegnerPointEulerSystems:HE.8/howard-stabilization-unit-comparison",
+        "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+        "HeegnerPointEulerSystems:HE.8/weak-torsion-localized-divisibility",
+        "HeegnerPointEulerSystems:HE.8/crystalline-near-trivial-character",
+        "HeegnerPointEulerSystems:HE.8/near-trivial-heegner-specialization",
+        "HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8/heegner-divisibility-profile",
+        "HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison",
+        "HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula",
+        "HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control",
+        "HeegnerPointEulerSystems:HE.8/near-trivial-tamagawa-stability",
+        "HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound",
+        "HeegnerPointEulerSystems:HE.8/heegner-exact-sha-length",
+        "HeegnerPointEulerSystems:HE.8/integral-main-conjecture-index-square",
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-kolyvagin-nonvanishing",
+        "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility",
+        "HeegnerPointEulerSystems:HE.8/strict-ordinary-selmer-complex",
+        "HeegnerPointEulerSystems:HE.8/determinantal-heegner-element",
+        "HeegnerPointEulerSystems:HE.8/determinant-characteristic-ideal-comparison",
+        "HeegnerPointEulerSystems:HE.8/ordinary-local-specialization-defect",
+        "HeegnerPointEulerSystems:HE.8/determinant-specialization-lattice",
+        "HeegnerPointEulerSystems:HE.8/determinantal-twisted-index-square",
+        "HeegnerPointEulerSystems:HE.8/castella-sano-refined-equivalence",
+        "HeegnerPointEulerSystems:HE.8/universal-norm-level-zero",
+        "HeegnerPointEulerSystems:HE.8/iwasawa-heegner-level-projection",
+        "HeegnerPointEulerSystems:HE.8/lambda-derivative-restriction",
+        "HeegnerPointEulerSystems:HE.8/near-trivial-character-congruence",
+        "HeegnerPointEulerSystems:HE.8/determinantal-heegner-image",
+        "HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite",
+        "HeegnerPointEulerSystems:HE.8/universal-norm-auxiliary-trace"
+      ],
+      "remaining": [
+        "Exact p-adic dynamics and joining supplier",
+        "Quaternionic fibre and quantitative reduction growth",
+        "Traced universal-norm rank and presentation comparison",
+        "Weak-torsion auxiliary descent and d(k) finite solvability",
+        "Arithmetic integral control and arbitrary character base change",
+        "Integral containment beyond the clean class-number condition",
+        "Inherited HE.7s gaps persist, including the global χ localization square, BCGS exact rigidity/control normalization and p=3 proof extension; no supplier is declared closed by this refinement."
+      ],
+      "note": "All original HE.8 targets are reused at accepted IDs; the new nodes refine proof inputs and one missing construction. The standalone Nekovář parity node added to HE.7s is outside this two-paragraph issue. HE.8 is not closed."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "HeegnerPointEulerSystems",
+        "RankZeroOneBSD"
+      ],
+      "detail": "Refine the already accepted RT-AREA-iwasawa-1/13 scope repair: duplicated HE.8/HE.8b extracts obscure early family versus downstream main-conjecture use.",
+      "proposal": "Re-extract HE.8 README lines 102–108 and HE.8b lines 110–116 separately; retain the accepted HE.8c legacy CV node ID and its existing HE.8 parent. Remove HE.8→HE.8c and HE.8b→HE.8c process edges. Keep conditional BCGS/CS conclusions distinct from unconditional HE.8b discharge. If stage-wide edges must be emitted, split an early HE.8e family/geometric/Howard export from late HE.8s specialization/determinant consequences, with early→BSD.7a→HE.8b→late; conditional theorems carry hypotheses rather than depending on their proof. The refined proof-input edges in this packet do not authorize atlas edits. BSD extraction repair remains its owner’s work."
+    },
+    {
+      "action": "split",
+      "roadmaps": [
+        "GeometryOfNumbersAndQuadraticArithmetic",
+        "HeegnerPointEulerSystems"
+      ],
+      "detail": "RT-AREA-iwasawa-1/1 and the accepted HE.7s GN.4 request: generic p-adic homogeneous dynamics has one supplier.",
+      "proposal": "Implement the exact orbit-closure, Haar averaging, twisted-diagonal stabilizer and partition/commensurability contract at GN.4 or a homogeneous-dynamics Part II linked to it. The HE-owned local fibre and joining-application nodes consume that contract; they do not duplicate generic Ratner. Preserve the unresolved general finite-extension proof boundary and use current AdelicAlgebraicGroups quotient/strong-approximation exports."
+    }
+  ],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1202.6340v1",
+      "read": "2026-10-14",
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "citation": "arXiv:1202.6340v1; original Compositio Math.140 (2004),1439–1472. Locators below use preprint PDF pages."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-10/07.pdf",
+      "read": "2026-10-14",
+      "sha256": "47ff862cffc6980c79a63ef041762397dcdf5b71155ce4d7d09d65e16507b109",
+      "citation": "Documenta Mathematica10 (2005),263–309, published version. Printed page equals PDF page+262."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://personal.math.ubc.ca/~vatsal/research/part1.pdf",
+      "read": "2026-10-14",
+      "sha256": "bdf258c742a88ce4328dcf3ef1df0dfe1235f1640c06bd66eeaaef2c1c6625e1",
+      "citation": "Author preprint dated1 April2005; published LMS Lecture Notes320 (2007),121–186. All locators here are preprint PDF page numbers."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2312.09301v2",
+      "read": "2026-10-14",
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "citation": "arXiv:2312.09301v2, January2026. Published Cambridge J.Math.14(2)(2026),285–348; locators are v2 PDF pages, not published pagination."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2601.14504v1",
+      "read": "2026-10-14",
+      "sha256": "3cd76c20dfc777ccc4126e153b88bef7eb7574bdf5402c6d5123208e30c30eda",
+      "citation": "arXiv:2601.14504v1,20 January2026; 18 pages. No published version listed on the arXiv/author pages inspected."
+    },
+    {
+      "kind": "published",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "read": "2026-10-14",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "citation": "Invent.Math.227(2022),517–580; published author-hosted copy."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Kurihara.pdf",
+      "read": "2026-10-14",
+      "sha256": "9478dc414299a3821fe4192ef138bb1da96a30b95f8b01beae54895340f903c9",
+      "citation": "Current author-hosted preprint, dated20 January2026, accessed14 October2026; 18 pages."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmapHead": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "taucetiHead": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "detail": "Read current EllipticCurves, ProfiniteCohomology and AdelicAlgebraicGroups roadmaps and screen the newer current roadmaps/library. Reuse current ordinary reduction/component comparison, discrete cohomology and adelic measure/compactness/strong approximation plans; none supplies these compact Heegner arithmetic carriers or generic p-adic Ratner interfaces. No lake command was run there. Baseline declarations separately checked at the exact recorded pins."
+    },
+    {
+      "detail": "Only the elementary root-factor and linear recurrence formulas are expressible over existing ring/module carriers in Suggested. Actual CM field realizations, compact cohomology, norm modules and perfect arithmetic determinant lines remain reader targets with the explicit requests above; no stand-in carrier or Prop field is introduced."
+    }
+  ],
+  "reusedPacket": {
+    "path": "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
+    "review": "REV-HeegnerPointEulerSystems--HE.7s~2",
+    "verdict": "accepted",
+    "scopeReason": "That packet already covers HE.8, HE.8b and HE.8c; issue #9417 points only to HE.0. Its accepted HE.8 IDs, APIs, tests and planets are imported, never duplicated.",
+    "nodes": [
+      "HeegnerPointEulerSystems:HE.8/initial-euler-factor",
+      "HeegnerPointEulerSystems:HE.8/ordinary-stabilized-point",
+      "HeegnerPointEulerSystems:HE.8/stabilized-corestriction",
+      "HeegnerPointEulerSystems:HE.8/compact-universal-norm-lift",
+      "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
+      "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+      "HeegnerPointEulerSystems:HE.8/cm-character-stratum",
+      "HeegnerPointEulerSystems:HE.8/cm-generic-root-number",
+      "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+      "HeegnerPointEulerSystems:HE.8/joint-cm-orbit-surjectivity",
+      "HeegnerPointEulerSystems:HE.8/indefinite-cm-character-point",
+      "HeegnerPointEulerSystems:HE.8/definite-cm-character-period",
+      "HeegnerPointEulerSystems:HE.8/definite-rankin-nonvanishing",
+      "HeegnerPointEulerSystems:HE.8c/cornut-vatsal-nonvanishing-with-its-exact-hypotheses",
+      "HeegnerPointEulerSystems:HE.8/cornut-tower-trace-nontorsion",
+      "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+      "HeegnerPointEulerSystems:HE.8/lambda-heegner-derivative-class",
+      "HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions",
+      "HeegnerPointEulerSystems:HE.8/lambda-finite-singular-relation",
+      "HeegnerPointEulerSystems:HE.8/howard-stabilization-unit-comparison",
+      "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+      "HeegnerPointEulerSystems:HE.8/weak-torsion-localized-divisibility",
+      "HeegnerPointEulerSystems:HE.8/crystalline-near-trivial-character",
+      "HeegnerPointEulerSystems:HE.8/near-trivial-heegner-specialization",
+      "HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing",
+      "HeegnerPointEulerSystems:HE.8/heegner-divisibility-profile",
+      "HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison",
+      "HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula",
+      "HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control",
+      "HeegnerPointEulerSystems:HE.8/near-trivial-tamagawa-stability",
+      "HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound",
+      "HeegnerPointEulerSystems:HE.8/heegner-exact-sha-length",
+      "HeegnerPointEulerSystems:HE.8/integral-main-conjecture-index-square",
+      "HeegnerPointEulerSystems:HE.8/bcgs-conditional-kolyvagin-nonvanishing",
+      "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility",
+      "HeegnerPointEulerSystems:HE.8/strict-ordinary-selmer-complex",
+      "HeegnerPointEulerSystems:HE.8/determinantal-heegner-element",
+      "HeegnerPointEulerSystems:HE.8/determinant-characteristic-ideal-comparison",
+      "HeegnerPointEulerSystems:HE.8/ordinary-local-specialization-defect",
+      "HeegnerPointEulerSystems:HE.8/determinant-specialization-lattice",
+      "HeegnerPointEulerSystems:HE.8/determinantal-twisted-index-square",
+      "HeegnerPointEulerSystems:HE.8/castella-sano-refined-equivalence",
+      "HeegnerPointEulerSystems:HE.8/universal-norm-level-zero",
+      "HeegnerPointEulerSystems:HE.8/iwasawa-heegner-level-projection",
+      "HeegnerPointEulerSystems:HE.8/lambda-derivative-restriction",
+      "HeegnerPointEulerSystems:HE.8/near-trivial-character-congruence",
+      "HeegnerPointEulerSystems:HE.8/determinantal-heegner-image",
+      "HeegnerPointEulerSystems:HE.8/relative-ring-class-tower-torsion-finite",
+      "HeegnerPointEulerSystems:HE.8/universal-norm-auxiliary-trace"
+    ],
+    "planets": [
+      "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+      "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+      "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+      "HeegnerPointEulerSystems:HE.8/bcgs-conditional-kolyvagin-nonvanishing",
+      "HeegnerPointEulerSystems:HE.8/bcgs-conditional-refined-divisibility",
+      "HeegnerPointEulerSystems:HE.8/castella-sano-refined-equivalence"
+    ]
+  },
+  "refinementEdges": [
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/adelic-fibre-and-isogeny-annulus",
+      "consumer": "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/p-adic-orbit-density-application",
+      "consumer": "HeegnerPointEulerSystems:HE.8/joint-cm-equidistribution",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/cornut-vatsal-torsion-trace-nonvanishing",
+      "consumer": "HeegnerPointEulerSystems:HE.8/cornut-tower-trace-nontorsion",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/howard-traced-universal-norm-module",
+      "consumer": "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification",
+      "consumer": "HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/broader-tower-descent-verification",
+      "consumer": "HeegnerPointEulerSystems:HE.8/lambda-derivative-restriction",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/howard-specialization-hypotheses",
+      "consumer": "HeegnerPointEulerSystems:HE.8/lambda-adic-heegner-kolyvagin-system-and-theorem-B",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/perfect-character-base-change",
+      "consumer": "HeegnerPointEulerSystems:HE.8/determinant-specialization-lattice",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    },
+    {
+      "input": "HeegnerPointEulerSystems:HE.8/integral-heegner-determinant-containment",
+      "consumer": "HeegnerPointEulerSystems:HE.8/castella-sano-refined-equivalence",
+      "status": "proposal",
+      "note": "Add this proof-input edge when assembling HE.8; existing accepted packets are not edited in this job."
+    }
+  ],
+  "reusedSourceIssues": [
+    {
+      "id": "HeegnerPointEulerSystems/E2",
+      "packet": "HeegnerPointEulerSystems--HE.7s",
+      "verdict": "confirmed by independent revision-2 review",
+      "recheck": "2026-10-14: CS arXiv v1 and current author PDF p.13 still have the reversed coefficient membership; use I_n⊂p^mℤ_p, equivalently M(n)≥m. This reuses E2, not a new erratum."
+    },
+    {
+      "id": "HeegnerPointEulerSystems/E3",
+      "packet": "HeegnerPointEulerSystems--HE.7s",
+      "verdict": "confirmed proof-threshold mismatch",
+      "recheck": "BCGS v2 pp.17–19 read: retain the verified p>3 exact-rigidity route; this refinement does not certify its p=3 extension."
+    }
+  ],
+  "validation": {
+    "semanticAudit": "All original target IDs are imported from the accepted packet; new nodes are strict proof-interface refinements, not renamed endpoints. Proposed refinement edges introduce no main-conjecture-return dependency into the early family.",
+    "suggested": "lean-check passed on 2026-10-14 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: four theorem signatures and three examples; only seven expected admitted-proof warnings. No arithmetic carriers or admitted data definitions."
+  }
+}
