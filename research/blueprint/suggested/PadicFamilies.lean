@@ -12,6 +12,12 @@ rigid-analytic spaces, which neither pinned library has, so its signatures remai
 
 Imports are individual Mathlib modules at the pinned commit 082e2d3; no Tau Ceti module is needed
 for L0a.
+
+The completion pass (claude-LgrPjn, 2026-10-14) adds: locally finite endomorphisms of complete
+modules and the existence of their ordinary projectors (L0a, Pilloni §2, BCGP §2.11); the
+congruence module and congruence ideal of an augmentation (L1); and signature comments for the
+L0, L2, L2a, L4 and L5 nodes whose carriers (rigid spaces, Banach modules, modular curves,
+Galois cohomology of big representations, Hilbert modular forms) are not in the pinned libraries.
 -/
 import Mathlib.RingTheory.Artinian.Module
 import Mathlib.RingTheory.LocalRing.Quotient
@@ -29,6 +35,10 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.Analysis.Complex.Basic
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.Algebra.DualNumber
+import Mathlib.LinearAlgebra.Finsupp.Defs
+import Mathlib.Order.Filter.AtTopBot.Basic
 
 open scoped Nat
 
@@ -484,5 +494,174 @@ theorem algebraicPrimes_dense (Q ∈ minimalPrimes (hidaHeckeAlgebra U 𝒪)) :
 -/
 
 end TotallyReal
+
+/-! ## L0a. Locally finite endomorphisms (Pilloni §2, BCGP §2.11; completion pass) -/
+
+section LocallyFinite
+
+variable {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M]
+
+/-- `PadicFamilies:L0a/locally-finite-action`: `T` is locally finite for the `I`-adic topology if,
+for every `n` and `v`, the whole orbit `{T^k v}` lies in a finitely generated submodule modulo
+`I^n M`. (Over a noetherian `R` with `R/I` finite this is Pilloni's Definition 2.1.1.) -/
+def IsLocallyFiniteEnd (I : Ideal R) (T : Module.End R M) : Prop :=
+  ∀ n : ℕ, ∀ v : M, ∃ s : Finset M, ∀ k : ℕ,
+    (T ^ k) v ∈ Submodule.span R (s : Set M) ⊔ (I ^ n) • (⊤ : Submodule R M)
+
+/-- A finitely generated module carries only locally finite endomorphisms. -/
+theorem isLocallyFiniteEnd_of_finite [Module.Finite R M] (I : Ideal R) (T : Module.End R M) :
+    IsLocallyFiniteEnd I T := sorry
+
+/-- `isLocallyFiniteEnd_iff_directed_union`: equivalently, modulo every `I^n M` each vector lies in
+a `T`-stable finitely generated submodule. -/
+theorem isLocallyFiniteEnd_iff_directed_union (I : Ideal R) (T : Module.End R M) :
+    IsLocallyFiniteEnd I T ↔ ∀ n : ℕ, ∀ v : M, ∃ N : Submodule R M, N.FG ∧
+      Set.MapsTo T (N ⊔ (I ^ n) • ⊤ : Submodule R M) (N ⊔ (I ^ n) • ⊤ : Submodule R M) ∧
+      v ∈ N ⊔ (I ^ n) • (⊤ : Submodule R M) := sorry
+
+/-- `isLocallyFiniteEnd_of_finiteQuotientSystem`: when every `M / I^n M` is finite, every
+endomorphism is locally finite. -/
+theorem isLocallyFiniteEnd_of_finite_quotients (I : Ideal R) (T : Module.End R M)
+    (h : ∀ n : ℕ, Finite (M ⧸ (I ^ n) • (⊤ : Submodule R M))) : IsLocallyFiniteEnd I T := sorry
+
+/-- `PadicFamilies:L0a/locally-finite-stability` (BCGP Lemma 2.11.2): products of commuting
+locally finite endomorphisms are locally finite. -/
+theorem IsLocallyFiniteEnd.mul {I : Ideal R} {T₁ T₂ : Module.End R M} (h : Commute T₁ T₂)
+    (h₁ : IsLocallyFiniteEnd I T₁) (h₂ : IsLocallyFiniteEnd I T₂) :
+    IsLocallyFiniteEnd I (T₁ * T₂) := sorry
+
+/-- `PadicFamilies:L0a/locally-finite-mod-maximal` (Pilloni Lemma 2.1.2): local finiteness is
+detected modulo `I` when `R` is noetherian and `M` is `I`-adically complete. -/
+theorem isLocallyFiniteEnd_iff_mod [IsNoetherianRing R] (I : Ideal R) [IsAdicComplete I M]
+    (T : Module.End R M) :
+    IsLocallyFiniteEnd I T ↔ ∀ v : M, ∃ s : Finset M, ∀ k : ℕ,
+      (T ^ k) v ∈ Submodule.span R (s : Set M) ⊔ I • (⊤ : Submodule R M) := sorry
+
+/-- `PadicFamilies:L0a/locally-finite-ordinary-projector` (Pilloni Lemma 2.1.3, BCGP Lemma 2.11.4):
+the ordinary projector `e(T) = lim T^{N!}` exists, is idempotent and commutes with `T`. -/
+theorem ordinaryProjectorLF [IsNoetherianRing R] (I : Ideal R) [IsAdicComplete I M]
+    (T : Module.End R M) (hT : IsLocallyFiniteEnd I T) :
+    ∃ e : Module.End R M, IsIdempotentElem e ∧ Commute T e ∧
+      ∀ (x : M) (n : ℕ), ∀ᶠ N in Filter.atTop, (T ^ N !) x - e x ∈ (I ^ n) • (⊤ : Submodule R M) :=
+  sorry
+
+/-- Uniqueness: an idempotent commuting with `T`, with `T` bijective on its range and
+topologically nilpotent on its kernel, is `e(T)`. -/
+theorem ordinaryProjectorLF_unique [IsNoetherianRing R] (I : Ideal R) [IsAdicComplete I M]
+    (T e e' : Module.End R M) (he : IsIdempotentElem e) (he' : IsIdempotentElem e')
+    (hc : Commute T e) (hc' : Commute T e')
+    (hbij : Set.BijOn T (LinearMap.range e) (LinearMap.range e))
+    (hbij' : Set.BijOn T (LinearMap.range e') (LinearMap.range e'))
+    (hnil : ∀ x ∈ LinearMap.ker e, ∀ n : ℕ, ∀ᶠ k in Filter.atTop,
+      (T ^ k) x ∈ (I ^ n) • (⊤ : Submodule R M))
+    (hnil' : ∀ x ∈ LinearMap.ker e', ∀ n : ℕ, ∀ᶠ k in Filter.atTop,
+      (T ^ k) x ∈ (I ^ n) • (⊤ : Submodule R M)) : e = e' := sorry
+
+-- Unit tests.
+/-- `isLocallyFiniteEnd_zero` (degenerate): the identity is locally finite for every ideal. -/
+example (I : Ideal R) : IsLocallyFiniteEnd I (1 : Module.End R M) := sorry
+/-- `not_isLocallyFiniteEnd_shift` (non-example): the shift on `ℕ →₀ ZMod 2` is not locally finite (orbits span infinitely many
+coordinates). -/
+example : ¬ IsLocallyFiniteEnd (⊥ : Ideal (ZMod 2))
+    (Finsupp.lmapDomain (ZMod 2) (ZMod 2) (· + 1) : Module.End (ZMod 2) (ℕ →₀ ZMod 2)) := sorry
+/-- `isLocallyFiniteEnd_finite` (compatibility): on a finite module the condition holds, matching
+the adic instance. -/
+example (T : Module.End ℤ (ZMod 6)) : IsLocallyFiniteEnd (⊥ : Ideal ℤ) T :=
+  isLocallyFiniteEnd_of_finite _ T
+
+/- Derived level (signatures; complete flat complexes are DeformationAndDerivedPatchingAlgebra P7):
+theorem isLocallyFiniteDerivedEnd_iff (M : D^flat(R)) (T : End M) :                                -- locally-finite-derived-endomorphism
+    IsLocallyFiniteDerivedEnd T ↔ (∃ complete flat representative) ∧ ∀ i, IsLocallyFiniteEnd 𝔪 (Hⁱ(T ⊗ᴸ R/𝔪))
+theorem derivedOrdinaryPart_indep (T₀ T₁ : locally finite representatives) (h : IsPerfect (e T₀ M)) :  -- derived-ordinary-direct-factor
+    IsPerfect (e T₁ M) ∧ IsIso (canonical map e T₀ M ⟶ e T₁ M)
+-/
+
+end LocallyFinite
+
+/-! ## L1. Congruence modules (completion pass; owner for RT-AREA-langlands-1/27) -/
+
+section Congruence
+
+variable {A O : Type*} [CommRing A] [CommRing O]
+
+/-- The annihilator `I_λ = A[ker λ]` of the augmentation ideal, as an ideal of `A`. -/
+def augmentationAnnihilator (lam : A →+* O) : Ideal A :=
+  Submodule.torsionBySet A A (RingHom.ker lam : Set A)
+
+/-- `PadicFamilies:L1/congruence-module`: the submodule `M[ker λ] + M[I_λ]`. -/
+def congruenceSubmodule (lam : A →+* O) (M : Type*) [AddCommGroup M] [Module A M] :
+    Submodule A M :=
+  Submodule.torsionBySet A M (RingHom.ker lam : Set A) ⊔
+    Submodule.torsionBySet A M (augmentationAnnihilator lam : Set A)
+
+/-- `PadicFamilies:L1/congruence-module`: `Ψ_λ(M) = M / (M[ker λ] + M[I_λ])`. -/
+abbrev congruenceModule (lam : A →+* O) (M : Type*) [AddCommGroup M] [Module A M] : Type _ :=
+  M ⧸ congruenceSubmodule lam M
+
+/-- `PadicFamilies:L1/congruence-ideal`: `η_λ = λ(I_λ)`. -/
+def congruenceIdeal (lam : A →+* O) : Ideal O := Ideal.map lam (augmentationAnnihilator lam)
+
+/-- Functoriality of `Ψ_λ` in `A`-linear maps. -/
+theorem congruenceModule_map (lam : A →+* O) {M N : Type*} [AddCommGroup M] [Module A M]
+    [AddCommGroup N] [Module A N] (f : M →ₗ[A] N) :
+    (congruenceSubmodule lam M).map f ≤ congruenceSubmodule lam N := sorry
+
+/-- `ker λ + I_λ` kills `Ψ_λ(M)`. -/
+theorem congruenceModule_annihilated (lam : A →+* O) (M : Type*) [AddCommGroup M] [Module A M]
+    (a : A) (ha : a ∈ RingHom.ker lam ⊔ augmentationAnnihilator lam) (x : congruenceModule lam M) :
+    a • x = 0 := sorry
+
+/-- For `A` reduced with `Ann(I_λ) = ker λ` and `λ` surjective, `Ψ_λ(A) ≅ O / η_λ`. -/
+theorem congruenceModule_self (lam : A →+* O) (hsurj : Function.Surjective lam)
+    (hann : Submodule.torsionBySet A A (augmentationAnnihilator lam : Set A) = RingHom.ker lam) :
+    Nonempty (congruenceModule lam A ≃+ O ⧸ congruenceIdeal lam) := sorry
+
+/-- `congruenceIdeal_map`: if `λ` factors through a surjection `A → A'`, then `η_λ(A) ≤ η_λ(A')`. -/
+theorem congruenceIdeal_map {A' : Type*} [CommRing A'] (π : A →+* A') (hπ : Function.Surjective π)
+    (lam' : A' →+* O) : congruenceIdeal (lam'.comp π) ≤ congruenceIdeal lam' := sorry
+
+/-- `congruenceModule_self_eq` is `congruenceModule_self`; `congruenceIdeal_ne_bot`: for `A` reduced
+and finite free over a domain `O` with `λ` a section-compatible augmentation, `η_λ ≠ 0`. -/
+theorem congruenceIdeal_ne_bot [IsDomain O] [IsReduced A] [Algebra O A] [Module.Free O A]
+    [Module.Finite O A] (lam : A →ₐ[O] O) : congruenceIdeal lam.toRingHom ≠ ⊥ := sorry
+
+-- Unit tests.
+/-- `congruenceIdeal_identity` (degenerate): for `λ = id` the congruence ideal is the unit ideal. -/
+example : congruenceIdeal (RingHom.id ℤ) = ⊤ := sorry
+/-- `congruenceIdeal_dual_numbers` (non-example): for the dual numbers over `ℤ` and `λ(ε) = 0`,
+the congruence ideal is zero. -/
+example : congruenceIdeal (TrivSqZeroExt.fstHom ℤ ℤ ℤ).toRingHom = ⊥ := sorry
+/-- `congruenceModule_identity` (degenerate): for `λ = id`, `Ψ_λ(M) = 0` for every `M`. -/
+example : congruenceSubmodule (RingHom.id ℤ) ℤ = ⊤ := sorry
+
+end Congruence
+
+/-! ## Signature comments for the completion pass (carriers not in the pinned libraries)
+
+L0 (Hida 1986 §§2–4):
+  LambdaAdicForm N I : Submodule I I⟦q⟧ ;  lambdaAdicForm_equiv_hom : S^ord(N; Λ) ≃ₗ[Λ] (h^ord(N; Λ) →ₗ[Λ] Λ)   -- lambda-adic-forms
+  primitive components 𝒦 of h^ord ⊗ L are fields; exactly [𝒦 : L] forms of each weight k ≥ 2 belong to 𝒦   -- primitive-components
+  compact Nakayama: M compact over complete local Λ, M ⧸ 𝔪M finite ⇒ Module.Finite Λ M                       -- compact-nakayama
+L2a (Buzzard §5; Pilloni §13.1; BCGP §6.1.1):
+  projCharpoly (f : Module.End A V) [Module.Projective A V] (rank d) : A[X], via IHG.0's determinant law      -- projective-characteristic-polynomial
+  complexCharSeries Ũ := ∏ₖ det(1 − XŨ | Mᵏ);  complexSpectralVariety := V(Ann ⊕ᵢ 𝓗ⁱ(𝓜•))                     -- complex-spectral-hypersurface, complex-spectral-variety
+  eigenmoduleSheaf : coherent sheaf on the eigenvariety with sections N(Y) on D(Y)                             -- coherent-eigenmodule-sheaf
+L2 (Bellaïche §3):
+  distFamily W r := R ⊗̂ D[r] with Σ₀(p)-action through κ_W;  familySymb := Symb^±_Γ(R ⊗̂ D[r]) (Pr), U_p compact
+  localEigencurveAlgebra W ν ⊆ End_R(Symb^±_Γ(R ⊗̂ D)^{≤ν});  symbolEigencurve C^± → 𝒲 locally finite flat
+  specialisation s_w surjective with nilpotent kernel;  small-slope classicality;  étale-point freeness
+L1 (EPW §§2.6–4.3):
+  reducedHidaAlgebra T_Σ(ρ̄), branchAlgebra T(𝔞) ↪ T(𝔞)°;  familyCongruenceModule := congruenceModule (T_Σ → T(𝔞))
+  branchFamilyL, imprimitiveFamilyL with L_Σ ≡ u · L(ρ̄, 𝔞) · E_Σ(𝔞) mod 𝔞;  period change L_{uθ} = u · L_θ
+L4 (Ochiai 2005 §1; KLZ §8.2; LZ 2016 §§6–7):
+  nearlyOrdinaryDeformation T over H^{n.o.} = H^ord⟦Γ⟧;  ordinary filtration F⁺T ⊆ T at p
+  familySelmer (Greenberg = Bloch–Kato), familySelmerComplex;  bigKatoClass Z(r) with Euler-system norm relations
+  bigLogarithm L_M for unramified profinite M;  L_p(T) := Ξ(loc Z(1)) with interpolation;  Theorem C divisibility
+  Coleman-family triangulation and regulator after shrinking around a noble point
+L5 (Skinner–Wiles §3.2; DKV §§3–4):
+  quaternionicOrdinaryProjector on H⁰(X(U_a), R);  hidaHeckeAlgebra T_∞(U, 𝒪) := lim eT(U_a, 𝒪)
+  ordinary towers M_∞ ≅ Hom(H_∞, K/𝒪);  quaternionicPeriodModule (invertible only under freeness)
+  LambdaAdicHilbertForm 𝔫 χ;  Fourier embedding S°(𝔫, χ)_(1) ↪ ∏ Λ_(1);  T_(𝔪) reduced;  Frac T_(𝔪) ≅ ∏ L_{H_i}
+-/
 
 end TauCeti.PadicFamilies
