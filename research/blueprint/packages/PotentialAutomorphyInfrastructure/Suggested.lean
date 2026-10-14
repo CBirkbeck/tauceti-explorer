@@ -1,33 +1,4 @@
-import Mathlib.CategoryTheory.Retract
-import Mathlib.CategoryTheory.Types.Basic
-import Mathlib.Logic.Equiv.Fin.Basic
-import Mathlib.GroupTheory.Perm.Basic
-import Mathlib.Data.Fin.Rev
-import Mathlib.Data.Finset.Card
-import Mathlib.Data.Multiset.Sum
-import Mathlib.Algebra.Group.Submonoid.Basic
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Algebra.Group.Units.Basic
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.LinearAlgebra.Matrix.Notation
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.LinearAlgebra.Matrix.Block
-import Mathlib.RingTheory.Ideal.Quotient.Defs
-import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
-import Mathlib.Algebra.Group.Pi.Units
-import Mathlib.GroupTheory.Index
-import Mathlib.GroupTheory.Torsion
-import Mathlib.GroupTheory.Subgroup.Simple
-import Mathlib.Data.Nat.Factorization.Defs
-import Mathlib.Data.Nat.Factorial.Basic
-import Mathlib.Data.Nat.ModEq
-import Mathlib.Data.Fintype.Sigma
-import Mathlib.Topology.Instances.Matrix
-import Mathlib.Topology.Algebra.Constructions
-import Mathlib.Analysis.Normed.Field.Basic
-import Mathlib.NumberTheory.Padics.PadicNumbers
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.FieldTheory.LinearDisjoint
+import Mathlib
 
 /-!
 # PotentialAutomorphyInfrastructure: representative target signatures
@@ -97,7 +68,7 @@ def refl (A : C) (f : I → (A ⟶ A)) : EquivariantRetract A A f f where
   inclusion_comm_eq r := by simp
   retraction_comm_eq r := by simp
 
-/-- The complementary projector `r ≫ i` of `B` is idempotent and commutes with every action
+/-- The summand projector `r ≫ i` of `B` is idempotent and commutes with every action
 operator; in a derived category it is the idempotent whose image is the equivariant summand. -/
 theorem idempotent (h : EquivariantRetract A B fA fB) :
     (h.toRetract.r ≫ h.i) ≫ (h.toRetract.r ≫ h.i) = h.toRetract.r ≫ h.i ∧
@@ -554,7 +525,8 @@ the integral cohomology models and Siegel boundary comparisons of Layer 0, the i
 modules with their Levi splitting and bottom-alcove duality (`IntegralDualWeylModule`), the Hecke
 algebras of positive monoids, the image of a residually multiplicity-free pair, the forms of
 products of `PGL₂`, the density-one comparison of semisimple Galois representations, the
-irreducibility of pure unramified principal series, smooth modules over open monoids
+nonabelian cocycle quotient (`NonabelianGaloisH1`), the irreducibility of pure unramified principal
+series, smooth modules over open monoids
 (`SmoothMonoidModules`), the residual Iwahori Hecke algebra at Taylor–Wiles places, the Kostant and
 Fontaine–Laffaille comparisons of Layer 1 (`fontaine_laffaille_local_global`), the soluble
 transport and rank-two compatible-system theorems of Layer 2
