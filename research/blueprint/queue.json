@@ -24605,7 +24605,8 @@
    ],
    "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9383"
   },
   {
    "id": "BP-EulerSystemsCyclotomicMainConjecture",
@@ -25473,11 +25474,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #9416"
+   "note": "deliverables arrived from an external worker on issue #9416",
+   "finishedAt": "2026-10-14T03:40:58Z"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights",
@@ -25982,8 +25984,9 @@
    ],
    "avoidAccountOf": "BP-HodgeTateAndCanonicalSubgroups",
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9394"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9394",
+   "finishedAt": "2026-10-14T03:40:59Z"
   },
   {
    "id": "BP-IgusaVarietiesAndTorsionConcentration",
@@ -27792,7 +27795,8 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R24.5",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9400"
   },
   {
    "id": "BP-PrismaticCohomology",
@@ -35518,7 +35522,8 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.8",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9388"
   },
   {
    "id": "BP-HeegnerPointEulerSystems--HE.8b",
@@ -35564,8 +35569,9 @@
    ],
    "avoidAccountOf": "BP-HeegnerPointEulerSystems--HE.8b",
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.8b.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9389"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9389",
+   "finishedAt": "2026-10-14T03:41:03Z"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--R18.2",
@@ -47965,7 +47971,8 @@
    ],
    "revisionOf": "PKG-ComputationalNumberTheory",
    "prompt": "research/blueprint/prompts/PKG-ComputationalNumberTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9162"
   },
   {
    "id": "REV-PKG-ComputationalNumberTheory~2",
@@ -49169,7 +49176,8 @@
     "PKG-FaltingsFinitenessAndIsogenyTheorems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9214"
   },
   {
    "id": "PKG-FarguesFontaineDiamonds",
@@ -49567,8 +49575,9 @@
    ],
    "revisionOf": "PKG-GlobalGaloisDeformations",
    "prompt": "research/blueprint/prompts/PKG-GlobalGaloisDeformations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9172"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9172",
+   "finishedAt": "2026-10-14T03:41:07Z"
   },
   {
    "id": "REV-PKG-GlobalGaloisDeformations~2",
