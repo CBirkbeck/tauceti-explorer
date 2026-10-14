@@ -211570,6 +211570,46 @@
    "reviewReason": "Confirmed as a mismatch in the served proof assumptions only. The p>3 route is supported; the p=3 conclusion is not declared false."
   },
   {
+   "id": "HeegnerPointEulerSystems/E11",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.2.1, published p.11 (arXiv v2 p.10), twice; final line of the proof of Theorem 1.4.1, published p.13 (arXiv v2 p.11)",
+   "printed": "The two-variable comparison is called Proposition 4.1.3 although it is headed Theorem 4.1.3.",
+   "correction": "Read Theorem 4.1.3 at all three references.",
+   "reason": "Theorem 4.1.3 supplies exactly the two-variable ordinary/Greenberg comparison invoked. The correction leaves the intended containments unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
+    "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
+   ],
+   "owner": "HeegnerPointEulerSystems",
+   "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
+   "citation": "Ashay Burungale; Francesc Castella; Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, pp.1–15, DOI 10.1093/imrn/rnaf082; publisher-form PDF served by Castella",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeegnerPointEulerSystems/E12",
+   "kind": "misprint",
+   "locator": "Proof of Theorems 1.2.2/1.2.4, published p.12 (arXiv v2 p.11), projected product display following (5.5)",
+   "printed": "The second characteristic ideal inside π⁻ carries Λ_K⁻ although its module is still over the two-variable tower K∞.",
+   "correction": "Use char over Λ_K for both factors before π⁻. After projection the target characteristic ideals are over Λ_K⁻.",
+   "reason": "Both input factors in (5.5) are two-variable Λ_K-modules; π⁻ maps their product to the anticyclotomic ring. This correction leaves the intended containment unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
+    "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
+   ],
+   "owner": "HeegnerPointEulerSystems",
+   "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
+   "citation": "Ashay Burungale; Francesc Castella; Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, pp.1–15, DOI 10.1093/imrn/rnaf082; publisher-form PDF served by Castella",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HeegnerPointEulerSystems/E1",
    "kind": "misprint",
    "locator": "Introduction(disc), arXiv v2 p.1; same text in linked author copy dated 2 January 2026 p.1; journal wording unverified",
@@ -211579,14 +211619,15 @@
    "affects": "nothing",
    "known": "recorded in accepted HE.7s packet",
    "searched": [
-    "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+    "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet.",
+    "Independent review checked arXiv submission history https://arxiv.org/abs/2312.09301 (v2 remains latest) and https://web.math.ucsb.edu/~castella/ on 2026-10-14; no correction linked for this paper. The CJM DOI 10.4310/CJM.260514224852 returned HTTP 403, so the findings remain scoped to arXiv v2 and the linked author copy."
    ],
    "owner": "HeegnerPointEulerSystems",
    "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8c.json",
    "citation": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner, Non-vanishing of Kolyvagin systems and Iwasawa theory, arXiv:2312.09301v2, dated 21 January 2026; all locators refer to this version, not a publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HeegnerPointEulerSystems--HE.8c",
+   "reviewReason": "Both served copies introduce a positive absolute discriminant but exclude the negative value; positive 3 therefore passes the printed test. Signed d_K not equal to −3 is the intended restriction."
   },
   {
    "id": "HeegnerPointEulerSystems/E3",
@@ -211598,14 +211639,55 @@
    "affects": "the proof",
    "known": "recorded in accepted HE.7s packet",
    "searched": [
-    "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+    "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet.",
+    "Independent review checked arXiv submission history https://arxiv.org/abs/2312.09301 (v2 remains latest) and https://web.math.ucsb.edu/~castella/ on 2026-10-14; no correction linked for this paper. The CJM DOI 10.4310/CJM.260514224852 returned HTTP 403, so the findings remain scoped to arXiv v2 and the linked author copy."
    ],
    "owner": "HeegnerPointEulerSystems",
    "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8c.json",
    "citation": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner, Non-vanishing of Kolyvagin systems and Iwasawa theory, arXiv:2312.09301v2, dated 21 January 2026; all locators refer to this version, not a publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HeegnerPointEulerSystems--HE.8c",
+   "reviewReason": "Both served copies put Theorem 2.2.2 in Proposition 2.2.1’s odd-prime setting, while its two uniform-stub identifications invoke Lemma 2.2.4 with p>3. This is a proof-range gap at p=3, not a counterexample; Theorem B already assumes p>3."
+  },
+  {
+   "id": "HeegnerPointEulerSystems/E11",
+   "kind": "misprint",
+   "locator": "Definition 2.33 and proof of Corollary 2.34, Documenta Math.10 (2005), p.290 (PDF p.28); same omission in 3 April 2005 manuscript p.33",
+   "printed": "After naming Gamma and Gamma-prime, the conjugate in the U-commensurability condition uses Gamma again, so the second subgroup does not occur.",
+   "correction": "Require Gamma and u^−1 Gamma-prime u to be commensurable for some u in U.",
+   "reason": "With u=1, the printed self-comparison holds for every Gamma and any choice of Gamma-prime, even one not commensurable with Gamma. The proof of Corollary 2.34 instead compares two distinct conjugated lattices and supplies the intended prime.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Cornut’s publication page https://webusers.imj-prg.fr/~christophe.cornut/papers.html and Vatsal’s preprint page https://personal.math.ubc.ca/~vatsal/page.html, checked 2026-10-14; no correction linked for this definition.",
+    "EMS Press article page https://ems.press/journals/dm/articles/8965120 and its served version-of-record PDF, checked 2026-10-14; omission persists. A title-and-erratum search found no correction for this paper."
+   ],
+   "owner": "HeegnerPointEulerSystems",
+   "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8c.json",
+   "citation": "Christophe Cornut; Vinayak Vatsal, CM points and quaternion algebras, Documenta Mathematica 10 (2005),263–309; EMS Press version of record. Published p.290 is one-based PDF p.28.",
+   "status": "confirmed",
+   "reviewedBy": "REV-HeegnerPointEulerSystems--HE.8c",
+   "reviewReason": "Read the published page image and collated the manuscript and EMS text. The missing prime makes the predicate independent of its second argument; the adjacent proof resolves the intended definition unambiguously."
+  },
+  {
+   "id": "HeegnerPointEulerSystems/E12",
+   "kind": "misprint",
+   "locator": "Theorem 4.1, 1 April 2005 manuscript p.37; compare Theorem 4.2 on the same page and Remark 4.3 pp.37–38. The published chapter is not collated.",
+   "printed": "The compatibility clause in the hypothesis refers to Res(chi), although the fixed torsion character is chi_0 and the primitive character chi is selected only in the conclusion.",
+   "correction": "Use Res(chi_0)=omega_A^epsilon in the hypothesis.",
+   "reason": "The asserted equivalent isotypic variant, Theorem 4.2, explicitly restricts chi_0 to omega_A^epsilon on G_2. A condition on an unspecified future primitive character does not state the fixed input type.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The current CV manuscript linked by Vatsal and Cornut’s publication page, checked 2026-10-14; Theorem 4.2 already clarifies the intended condition, but no separate correction is linked.",
+    "Title-and-erratum search on 2026-10-14 found no correction for this index. Finding scoped to the hash-identified manuscript; no publisher wording is certified."
+   ],
+   "owner": "HeegnerPointEulerSystems",
+   "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8c.json",
+   "citation": "Christophe Cornut; Vinayak Vatsal, Nontriviality of Rankin–Selberg L-functions and CM points, Author manuscript, 1 April 2005; LMS Lecture Note Series320 (2007),121–186",
+   "status": "confirmed",
+   "reviewedBy": "REV-HeegnerPointEulerSystems--HE.8c",
+   "reviewReason": "Read the page image: the hypothesis prints chi without the zero subscript. Theorem 4.2 fixes the same input as chi_0 on G_2, so this is a harmless index slip rather than a new theorem restriction."
   },
   {
    "id": "HeightsRationalPointsAndObstructions/E1",
@@ -216970,9 +217052,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.2.json",
    "citation": "Sources of the blueprint of K2SymbolsBrauer",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.2",
+   "reviewReason": "Independently read the author-hosted PDF p. 7. Its six displayed cells repeat the (12) transposition and omit (13); the adjacent matrices and the six permutations confirm the correction."
   },
   {
    "id": "K2SymbolsBrauer/E-T2-2",
@@ -216991,9 +217073,29 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.2.json",
    "citation": "Sources of the blueprint of K2SymbolsBrauer",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.2",
+   "reviewReason": "Independently checked author chapter pp. 1, 42 and 46, and Matsumoto Lemma 5.4(c), p. 26. Direct diagonal conjugation gives the positive defect for the +1 overlap. The t-adic (t,2) pairing on chapter p. 51 distinguishes this defect from its inverse. The finding is scoped to this public author PDF, not asserted for an uninspected published edition."
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T2-3",
+   "kind": "misprint",
+   "locator": "Published 1969 Numdam scan, §5, Lemma 5.6, printed p. 28 (PDF p. 29), opening list of implied condition labels.",
+   "printed": "The list repeats condition (S1) in its second position and does not name (S2).",
+   "correction": "The intended list is (S1), (S2), (S3): bilinear Steinberg pairings satisfy all three general cocycle conditions.",
+   "reason": "The following paragraph defines the general cocycle using (S1), (S2), (S3). Bilinearity gives the cocycle identity (S1), normalization and simultaneous inversion (S2), and bilinearity with c(x,1-x)=0 gives (S3). Thus the second label in the lemma is a typographical repetition.",
+   "affects": "nothing",
+   "known": "No correction found in the inspected Numdam record or targeted searches; no novelty claim.",
+   "searched": [
+    "Numdam version-of-record page https://numdam.org/articles/10.24033/asens.1174/ and its published scan, 2026-10-14",
+    "Targeted web searches for Matsumoto/title/errata and Lemma 5.6/correction, 2026-10-14"
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.2.json",
+   "citation": "Sources of the blueprint of K2SymbolsBrauer",
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.2",
+   "reviewReason": "Read the raster scan of printed p. 28, not just OCR: the opening list visibly repeats (S1). The adjacent definition names all three conditions and the bilinear hypotheses imply (S2) as well."
   },
   {
    "id": "K2SymbolsBrauer/E1",
