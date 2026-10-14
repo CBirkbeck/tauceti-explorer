@@ -6,26 +6,27 @@ signatures. They claim no implementation; implementationStatus stays unchecked.
 Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 Individual Mathlib and TauCeti modules are imported at the recorded pins.
-The algebraic interfaces use native affine Hopf points, a twisted-conjugacy
-representative groupoid, the centralizer functor on coefficient E-algebras,
-Witt-unit rank-one classes, the diagonalizable rational slope protorus, and
-Frobenius tensor families on the actual finite rational comodule fibre functor,
-and sigma-class descent to native integral cyclic coinvariants.
-The numerical cores retain the finite twisted product, affine difference fibre
-and rational GL_n slope data. The trivialized tensor family reconstructs a
-point through native Tannaka duality. Untrivialized exact tensor-isocrystal
-comparison, represented reductive descent and relative analytic geometry
-remain separate obligations.
-The exact-name register at
-this file's end identifies unavailable supplier carriers under gap G08.
-The native exact tensor interface below checks categorical data and coherence
-without claiming the missing analytic instantiation. Fundamental-group and
-z-extension foundations are imported from existing upstream RG2.1.5; no
-duplicate root-quotient theory is planned here.
-The filtered-group register now states the affine smooth-group splitting hypotheses
-and rational-jump/non-affine controls. Family-stratum and ordinary-flag registers
-retain the normal-base and split-p source-version boundaries. These are omitted
-contracts, not new elaborated geometric signatures.
+
+Every node of the packet has a typed declaration here under the name the packet gives it, and
+every API item and unit test of the packet appears as a declaration or as a named `example`.
+The first half keeps the native algebraic cores (twisted conjugacy, the representative groupoid,
+the centralizer functor on coefficient algebras, the trivialized Frobenius tensor family with its
+Tannakian reconstruction, integral Kottwitz descent, GL_n slope data and the slope protorus).
+
+Objects owned by other roadmaps enter as named parameters, as in the accepted DiamondsAndVStacks
+suggested file: `LocalDatum` (RG2.1.5 π₁ and κ̃, the RG2.4 based root datum, VB0 slope
+morphisms), `ExactTensorCat` and `CurveSite` (D1–D2 perfectoid site, RF2/VB1 curve bundles and
+the isocrystal-to-bundle functor, VB2/VB4 slopes), `StackGeometry` (D0/D3/D4/D5 stack operations
+and predicates, VS0 Artin and cohomological smoothness), `SlopeFiltrations` (VB4),
+`GrassmannianInterface` (GS0/RF4), `EtaleSites` (D2/D6/RF2, ET.0, C1) and the torsor interfaces
+(R09.3/D3). Each field names its owner; BG plans none of them. Statements involving these fields
+are asserted for the owners' instantiations. BG's own notions (B(G), N(G), κ, ν, μ♯, μ◇, basic
+classes, the Newton order, B(G,{μ}), ordinary classes, decency, defect, G-bundles, G-isocrystals,
+the points of Bun_G, the Newton topology, strata, HN-graded bundles, filtered automorphism groups,
+full automorphism groups, charts and flag strata) have real bodies over these parameters wherever
+their definition is not itself a stack-level construction; prestack-valued constructions
+(`Bun.stack`, `BunContext.substack`, `HNGraded.stack`, `FullAutomorphism.stack`, the chart
+stacks) are typed with admitted bodies, and their objects are described by API theorems.
 All theorem and example proofs are sorry; elaboration checks types, not proofs.
 -/
 import Mathlib.Algebra.Group.Subgroup.Basic
@@ -50,6 +51,22 @@ import TauCeti.Algebra.AlgebraicGroup.DiagonalizableGroup.Weight
 import TauCeti.Algebra.Bialgebra.MonoidAlgebra.GroupLike
 import Mathlib.Algebra.Category.CommHopfAlgCat
 import Mathlib.RingTheory.TensorProduct.Maps
+import Mathlib.CategoryTheory.Sites.Descent.IsStack
+import Mathlib.CategoryTheory.Bicategory.Functor.Pseudofunctor
+import Mathlib.CategoryTheory.Bicategory.FunctorBicategory.Pseudo
+import Mathlib.Topology.Category.TopCat.Basic
+import Mathlib.Topology.Connected.Clopen
+import Mathlib.Topology.Algebra.Group.Basic
+import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.Data.Finsupp.Basic
+import Mathlib.Algebra.Group.End
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.Topology.Order.UpperLowerSetTopology
+import Mathlib.Topology.Semicontinuity.Basic
+import Mathlib.Topology.LocallyConstant.Basic
+import Mathlib.Topology.KrullDimension
+import Mathlib.Topology.Inseparable
+
 
 noncomputable section
 namespace TauCeti.BunG
@@ -160,7 +177,7 @@ def frobeniusNorm (sigma : G ≃* G) (b : G) : ℕ → G
   | r + 1 => frobeniusNorm sigma b r * ((sigma : G → G)^[r]) b
 
 /-- Positive-period equation core of decency. The actual Newton-integrality
-condition needs the full Newton morphism and is omitted under G08. -/
+condition is part of `DecentRepresentative` over the local datum below. -/
 def decencyEquation (sigma : G ≃* G) (b a : G) (r : ℕ) : Prop :=
   0 < r ∧ frobeniusNorm sigma b r = a
 
@@ -324,7 +341,7 @@ example : ¬ ∃ x : GLnSlopeData 1, x.slopes 0 = (1/2 : ℚ) := by sorry
 end GLnSlopeData
 
 /-! Invariant-value core of the quadratic norm-one torus example. The local
-identification with B(T) is omitted under G08, without replacing the local field. -/
+identification with B(T) is `TorusNormDescription` over the local datum below. -/
 namespace TorsionExample
 
 def newton (_ : ZMod 2) : ℚ := 0
@@ -342,7 +359,7 @@ example : {x : ZMod 2 | kottwitz x = 1 ∧ newton x ≤ 0} = {1} := by sorry
 example (q : ℚ) : (q + (-q)) / 2 = 0 := by sorry
 end TorsionExample
 
-/-- Rank correction core; the algebraic split-rank interfaces are supplier work. -/
+/-- Rank correction core; `Defect.value` below uses the local datum's split ranks. -/
 def rankDefect (rankG rankJ : ℕ) : ℤ := (rankG : ℤ) - (rankJ : ℤ)
 -- TauCeti.BunG.Defect.testUnit
 example (n : ℕ) : rankDefect n n = 0 := by sorry
@@ -365,7 +382,7 @@ example : ∃ z : ℤ, (-(1 / 2 : ℚ)) = (1 / 2 : ℚ) + (z : ℚ) := by sorry
 end TauCeti.BunG
 
 /- Native categorical consumer interface. Source categories and their exact
-structures are specified inputs; actual analytic instantiation is still G08. -/
+structures are specified inputs; `ExactTensorCat` and `CurveSite` below instantiate them. -/
 noncomputable section
 namespace TauCeti.BunG.TensorInterface
 open CategoryTheory CategoryTheory.Limits MonoidalCategory
@@ -1270,911 +1287,2146 @@ theorem ambient_lift_not_tensor_lift :
 
 end TauCeti.BunG.FamilyDescentControls
 
+/-! ## Local invariant datum (BG0/BG1)
+
+Supplier interface for one connected reductive `G` over a nonarchimedean local field `E`, with
+`L = Ĕ`. Each field is named after its owner and is instantiated there; BG plans none of them.
+* `Pt`, `frob`: the coefficient point group `G(L)` with arithmetic Frobenius; at the pins this is
+  `AffinePoints E H L` with `pointsFrobenius` (Tau Ceti ReductiveGroups, layer 1).
+* `Pi`, `piFrob`, `kappaTilde`: `π₁(G)_I`, its Frobenius and the representative Kottwitz
+  homomorphism `κ̃` of upstream ReductiveGroupsPartII RG2.1.5 (`KottwitzMap.kottwitz`).
+* `Cochar`, `RatCochar`, `Simple`, `simpleCoroot`, `simpleRoot`, `twoRho`, `Gal`, `galAct`,
+  `dominantRat`, `dominantCochar`, `centralProj`: the based root datum of the quasi-split inner
+  form with its finite Galois action and dominant chamber (RG2.1/RG2.4).
+* `newtonRep`: the slope morphism of a representative, read from VB0's Dieudonné–Manin
+  decomposition on every rational representation (BG1 `Invariants` descends it).
+* `jRank`, `rank`: split ranks of `G` and of the represented `J_b` (G02 representability).
+* `borel`, `newtonLevi`: a Borel `B(L)` (Tau Ceti layer 7) and the Newton Levi `Z_G(ν_b)(L)`
+  (RG2.4 Levi of the slope morphism).
+BG's own notions below (`NewtonSpace`, `Invariants`, `Basic`, `NewtonOrder`, `Acceptable`,
+`Ordinary`, `Defect`, `DecentRepresentative`, …) have real bodies over these fields. -/
+namespace TauCeti.BunG
+universe u
+
+structure LocalDatum where
+  E : Type u
+  [field : Field E]
+  Pt : Type u
+  [group : Group Pt]
+  frob : Pt ≃* Pt
+  Pi : Type u
+  [piGroup : AddCommGroup Pi]
+  piFrob : Pi ≃+ Pi
+  kappaTilde : KottwitzDescent.Data frob piFrob
+  Cochar : Type u
+  [cocharGroup : AddCommGroup Cochar]
+  RatCochar : Type u
+  [ratGroup : AddCommGroup RatCochar]
+  [ratModule : Module ℚ RatCochar]
+  rational : Cochar →+ RatCochar
+  piClass : Cochar →+ Pi
+  Simple : Type u
+  [simpleFintype : Fintype Simple]
+  simpleCoroot : Simple → RatCochar
+  simpleRoot : Simple → Module.Dual ℚ RatCochar
+  roots : Set (Module.Dual ℚ RatCochar)
+  twoRho : Module.Dual ℚ RatCochar
+  Gal : Type u
+  [galGroup : Group Gal]
+  [galFintype : Fintype Gal]
+  galAct : Gal →* (RatCochar ≃ₗ[ℚ] RatCochar)
+  galCochar : Gal →* Module.End ℤ Cochar
+  dominantRat : RatCochar → RatCochar
+  dominantCochar : Cochar → Cochar
+  PiRat : Type u
+  [piRatGroup : AddCommGroup PiRat]
+  [piRatModule : Module ℚ PiRat]
+  centralProj : RatCochar →ₗ[ℚ] PiRat
+  piAverage : KottwitzDescent.Target piFrob →+ PiRat
+  atUniformizer : Cochar → Pt
+  newtonRep : Pt → RatCochar
+  newtonRep_twisted : ∀ g b, newtonRep (twistedConjugate frob g b) = newtonRep b
+  rank : ℕ
+  jRank : Pt → ℕ
+  borel : Subgroup Pt
+  newtonLevi : Pt → Subgroup Pt
+
+namespace LocalDatum
+attribute [instance] field group piGroup cocharGroup ratGroup ratModule simpleFintype galGroup
+  galFintype piRatGroup piRatModule
+variable (D : LocalDatum.{u})
+
+/-- `B(G)`, the σ-conjugacy classes of `G(L)`. -/
+abbrev BofG := SigmaClass D.frob
+
+def Dominant (ν : D.RatCochar) : Prop := ∀ i, 0 ≤ D.simpleRoot i ν
+def GalFixed (ν : D.RatCochar) : Prop := ∀ γ, D.galAct γ ν = ν
+def Central (ν : D.RatCochar) : Prop := ∀ i, D.simpleRoot i ν = 0
+/-- The closed cone of nonnegative rational combinations of simple coroots. -/
+def corootCone : Set D.RatCochar :=
+  {v | ∃ c : D.Simple → ℚ, (∀ i, 0 ≤ c i) ∧ v = ∑ i, c i • D.simpleCoroot i}
+/-- A torus datum has no roots. -/
+def IsTorus : Prop := IsEmpty D.Simple
+/-- `G(E)`: the Frobenius-fixed coefficient points. -/
+def rationalPoints : Subgroup D.Pt where
+  carrier := {g | D.frob g = g}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+end LocalDatum
+
+/-- A morphism of local data: a Frobenius-equivariant point map with compatible `π₁` and
+cocharacter maps (RG2.1.5 functoriality). -/
+structure LocalDatum.Hom (D D' : LocalDatum.{u}) where
+  pt : D.Pt →* D'.Pt
+  pt_frob : ∀ g, pt (D.frob g) = D'.frob (pt g)
+  pi : D.Pi →ₗ[ℤ] D'.Pi
+  pi_frob : ∀ a, pi (D.piFrob a) = D'.piFrob (pi a)
+  pi_kappa : ∀ g, pi (D.kappaTilde.representative g).toAdd =
+    (D'.kappaTilde.representative (pt g)).toAdd
+  rat : D.RatCochar →ₗ[ℚ] D'.RatCochar
+  cochar : D.Cochar →+ D'.Cochar
+  rat_cochar : ∀ lam, rat (D.rational lam) = D'.rational (cochar lam)
+  newton_compat : ∀ b, D'.newtonRep (pt b) = D'.dominantRat (rat (D.newtonRep b))
+
+/-- The identity morphism (requires dominance of representative slopes). -/
+def LocalDatum.Hom.id (D : LocalDatum.{u}) (hdom : ∀ b, D.dominantRat (D.newtonRep b) = D.newtonRep b) :
+    LocalDatum.Hom D D where
+  pt := MonoidHom.id _
+  pt_frob := fun _ => rfl
+  pi := LinearMap.id
+  pi_frob := fun _ => rfl
+  pi_kappa := fun _ => rfl
+  rat := LinearMap.id
+  cochar := AddMonoidHom.id _
+  rat_cochar := fun _ => rfl
+  newton_compat := fun b => (hdom b).symm
+
+/-- Minuscule: every root pairs with `μ` in `{-1, 0, 1}`. -/
+def IsMinuscule (D : LocalDatum.{u}) (μ : D.Cochar) : Prop :=
+  ∀ α ∈ D.roots, α (D.rational μ) ∈ ({-1, 0, 1} : Set ℚ)
+
+/-! ### BG1/newton-orbit-space -/
+/-- `N(G)`: Γ-fixed dominant rational cocharacters of the quasi-split inner form. -/
+def NewtonSpace (D : LocalDatum.{u}) := {ν : D.RatCochar // D.Dominant ν ∧ D.GalFixed ν}
+
+namespace NewtonSpace
+variable {D : LocalDatum.{u}}
+/-- The dominant representative of a Γ-fixed rational cocharacter class. -/
+def dominant (D : LocalDatum.{u}) (ν : D.RatCochar) (hν : D.GalFixed (D.dominantRat ν))
+    (hd : D.Dominant (D.dominantRat ν)) : NewtonSpace D := ⟨D.dominantRat ν, hd, hν⟩
+/-- Positive-coroot dominance; the central projection is then equal. -/
+def le (ν ν' : NewtonSpace D) : Prop := ν'.1 - ν.1 ∈ D.corootCone
+/-- `δ : N(G) → (π₁(G) ⊗ ℚ)^Γ`. -/
+def delta (ν : NewtonSpace D) : D.PiRat := D.centralProj ν.1
+theorem le_delta {ν ν' : NewtonSpace D} (h : le ν ν') : delta ν = delta ν' := by sorry
+
+/-- An inner twisting `ξ : G → G'` identifies the quasi-split based root data. -/
+structure InnerTwisting (D D' : LocalDatum.{u}) where
+  rat : D.RatCochar ≃ₗ[ℚ] D'.RatCochar
+  simple : D.Simple ≃ D'.Simple
+  coroot : ∀ i, rat (D.simpleCoroot i) = D'.simpleCoroot (simple i)
+  root : ∀ i v, D'.simpleRoot (simple i) (rat v) = D.simpleRoot i v
+  gal : ∀ (γ : D.Gal) , ∃ γ' : D'.Gal, ∀ v, rat (D.galAct γ v) = D'.galAct γ' (rat v)
+
+def transfer {D' : LocalDatum.{u}} (ξ : InnerTwisting D D') : NewtonSpace D ≃ NewtonSpace D' :=
+  by sorry
+theorem transfer_le {D' : LocalDatum.{u}} (ξ : InnerTwisting D D') (ν ν' : NewtonSpace D) :
+    le (transfer ξ ν) (transfer ξ ν') ↔ le ν ν' := by sorry
+end NewtonSpace
+
+/-- Split `GL₂` controls: rational cocharacters `ℚ²`, one simple coroot `e₁ - e₂`. -/
+def gl2Cone : Set (Fin 2 → ℚ) := {v | ∃ c : ℚ, 0 ≤ c ∧ v = c • ![1, -1]}
+-- TauCeti.BunG.NewtonSpace.testGL2: in `GL₂`, `(1,0) - (1/2,1/2) = (1/2)(e₁ - e₂)`.
+example (D : LocalDatum.{u}) (i : D.Simple) (ν ν' : NewtonSpace D)
+    (h : ν'.1 - ν.1 = (1/2 : ℚ) • D.simpleCoroot i) :
+    NewtonSpace.le ν ν' ∧ NewtonSpace.delta ν = NewtonSpace.delta ν' := by sorry
+example : (![1, 0] - ![1/2, 1/2] : Fin 2 → ℚ) ∈ gl2Cone := by sorry
+-- TauCeti.BunG.NewtonSpace.testTorus
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (ν ν' : NewtonSpace D) :
+    NewtonSpace.le ν ν' ↔ ν = ν' := by sorry
+-- TauCeti.BunG.NewtonSpace.testCentral: for `G_m`, `0` and `1` are incomparable.
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (ν ν' : NewtonSpace D) (h : ν ≠ ν') :
+    ¬ NewtonSpace.le ν ν' := by sorry
+
+/-! ### BG1/algebraic-fundamental-group (import alias of upstream RG2.1.5) -/
+/-- Alias: `π₁(G)_I` with its Frobenius, supplied by upstream RG2.1.5. -/
+abbrev AlgebraicPiOne (D : LocalDatum.{u}) := D.Pi
+namespace AlgebraicPiOne
+def ofCocharacter (D : LocalDatum.{u}) (lam : D.Cochar) : AlgebraicPiOne D := D.piClass lam
+/-- Full Γ-coinvariants `π₁(G)_Γ`, integral. -/
+abbrev coinvariants (D : LocalDatum.{u}) := KottwitzDescent.Target D.piFrob
+def map {D D' : LocalDatum.{u}} (f : LocalDatum.Hom D D') : AlgebraicPiOne D →ₗ[ℤ] AlgebraicPiOne D' :=
+  f.pi
+/-- Canonical transport of `π₁(G)_Γ` along an inner twisting (RG2.1 comparison refinement). -/
+def innerInvariant {D D' : LocalDatum.{u}} (ξ : NewtonSpace.InnerTwisting D D') :
+    coinvariants D ≃+ coinvariants D' := by sorry
+end AlgebraicPiOne
+-- TauCeti.BunG.AlgebraicPiOne.testGLn: split `GL_n`, `n ≥ 1`: `π₁ = ℤ` by the coordinate sum,
+-- and trivial Frobenius leaves the coinvariants equal to `π₁`.
+example (n : ℕ) (hn : 1 ≤ n) :
+    Function.Surjective (fun v : Fin n → ℤ => ∑ i, v i) := by sorry
+example (D : LocalDatum.{u}) (hτ : D.piFrob = AddEquiv.refl _) (e : AlgebraicPiOne D ≃+ ℤ) :
+    Nonempty (AlgebraicPiOne.coinvariants D ≃+ ℤ) := by sorry
+-- TauCeti.BunG.AlgebraicPiOne.testSLn
+example (D : LocalDatum.{u}) (h : Subsingleton (AlgebraicPiOne D)) :
+    Subsingleton (AlgebraicPiOne.coinvariants D) := by sorry
+-- TauCeti.BunG.AlgebraicPiOne.testNormOne
+example : Nonempty (KottwitzDescent.Target ComponentCoset.negation ≃+ ZMod 2) ∧
+    ((1 : ZMod 2) ≠ 0) := ⟨⟨KottwitzDescent.signCoinvariantsEquiv⟩, by decide⟩
+
+/-! ### BG1/galois-average -/
+namespace HodgeInvariants
+variable (D : LocalDatum.{u})
+/-- `μ♯`: the full integral class of the dominant representative in `π₁(G)_Γ`. -/
+def sharp (μ : D.Cochar) : KottwitzDescent.Target D.piFrob :=
+  Representation.Coinvariants.mk _ (D.piClass (D.dominantCochar μ))
+/-- `μ◇`: the rational Γ-average of the dominant representative. -/
+def diamond (μ : D.Cochar) : D.RatCochar :=
+  (Fintype.card D.Gal : ℚ)⁻¹ • ∑ γ : D.Gal, D.galAct γ (D.rational (D.dominantCochar μ))
+theorem average_eq (μ : D.Cochar) :
+    D.piAverage (sharp D μ) = D.centralProj (diamond D μ) := by sorry
+theorem diamond_dominant (μ : D.Cochar) : D.Dominant (diamond D μ) := by sorry
+theorem diamond_galFixed (μ : D.Cochar) : D.GalFixed (diamond D μ) := by sorry
+/-- Restriction of the Galois action along a finite extension: the average is taken over the
+smaller group, with explicit degree normalisation. -/
+theorem baseChange (H : Subgroup D.Gal) [Fintype H] (μ : D.Cochar) :
+    (Fintype.card H : ℚ)⁻¹ • ∑ γ : H, D.galAct γ (D.rational (D.dominantCochar μ)) =
+      diamond D μ ∨ ∃ γ : D.Gal, D.galAct γ (D.rational (D.dominantCochar μ)) ≠
+        D.rational (D.dominantCochar μ) := by sorry
+end HodgeInvariants
+-- TauCeti.BunG.HodgeInvariants.testSplitGL2: trivial Galois action, μ = (1,0).
+example (D : LocalDatum.{u}) (hΓ : ∀ γ : D.Gal, D.galAct γ = 1) (μ : D.Cochar) :
+    HodgeInvariants.diamond D μ = D.rational (D.dominantCochar μ) := by sorry
+-- TauCeti.BunG.HodgeInvariants.testUnit
+example (D : LocalDatum.{u}) (h0 : D.dominantCochar 0 = 0) :
+    HodgeInvariants.sharp D 0 = 0 ∧ HodgeInvariants.diamond D 0 = 0 := by sorry
+-- TauCeti.BunG.HodgeInvariants.testTorsion: norm-one torus, sign Frobenius on `π₁ = ℤ`.
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (e : D.Pi ≃+ ℤ)
+    (he : ∀ a, e (D.piFrob a) = -e a) (μ : D.Cochar)
+    (h1 : e (D.piClass (D.dominantCochar μ)) = 1) (hav : HodgeInvariants.diamond D μ = 0) :
+    HodgeInvariants.sharp D μ ≠ 0 := by sorry
+
+/-- `(μ♯, μ◇)`. -/
+def HodgeInvariants (D : LocalDatum.{u}) (μ : D.Cochar) :
+    KottwitzDescent.Target D.piFrob × D.RatCochar :=
+  (HodgeInvariants.sharp D μ, HodgeInvariants.diamond D μ)
+
+/-! ### BG1/newton-and-kottwitz-maps -/
+namespace Invariants
+variable (D : LocalDatum.{u})
+def representativeKottwitz (b : D.Pt) : D.Pi := (D.kappaTilde.representative b).toAdd
+def kottwitz : D.BofG → KottwitzDescent.Target D.piFrob :=
+  KottwitzDescent.classKottwitz D.frob D.piFrob D.kappaTilde
+/-- The Newton map, descended from the representative slope morphism. -/
+def newtonRat : D.BofG → D.RatCochar :=
+  SigmaClass.lift D.frob D.newtonRep (fun g b => D.newtonRep_twisted g b)
+def newton (hdom : ∀ b, D.Dominant (D.newtonRep b)) (hgal : ∀ b, D.GalFixed (D.newtonRep b)) :
+    D.BofG → NewtonSpace D :=
+  fun x => ⟨newtonRat D x, by sorry, by sorry⟩
+theorem newtonRat_mk (b : D.Pt) : newtonRat D (SigmaClass.mk D.frob b) = D.newtonRep b := by sorry
+theorem kottwitz_mk (b : D.Pt) : kottwitz D (SigmaClass.mk D.frob b) =
+    Representation.Coinvariants.mk _ (representativeKottwitz D b) := by sorry
+/-- Functoriality of both invariants along a morphism of local data. -/
+theorem map {D' : LocalDatum.{u}} (f : LocalDatum.Hom D D') (b : D.Pt) :
+    kottwitz D' (SigmaClass.mk D'.frob (f.pt b)) =
+      Representation.Coinvariants.map _ _ (KottwitzDescent.intertwiner D.piFrob D'.piFrob f.pi
+        f.pi_frob) (kottwitz D (SigmaClass.mk D.frob b)) ∧
+    newtonRat D' (SigmaClass.mk D'.frob (f.pt b)) =
+      D'.dominantRat (f.rat (newtonRat D (SigmaClass.mk D.frob b))) := by sorry
+/-- `δ(ν_b) = average(κ(b) ⊗ 1)`. -/
+theorem rationalCompatibility (x : D.BofG) :
+    D.centralProj (newtonRat D x) = D.piAverage (kottwitz D x) := by sorry
+end Invariants
+-- TauCeti.BunG.Invariants.testGL1: `G_m` with `κ̃ = v`, `b = π^m`.
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (m : D.Cochar) (b : D.Pt)
+    (hb : b = D.atUniformizer m) (hκ : Invariants.representativeKottwitz D b = D.piClass m)
+    (hν : D.newtonRep b = D.rational m) :
+    Invariants.newtonRat D (SigmaClass.mk D.frob b) = D.rational m ∧
+      Invariants.kottwitz D (SigmaClass.mk D.frob b) =
+        Representation.Coinvariants.mk _ (D.piClass m) := by sorry
+-- TauCeti.BunG.Invariants.testTorsion: the two norm-one torus classes.
+example (D : LocalDatum.{u}) (e : D.Pi ≃+ ℤ) (he : ∀ a, e (D.piFrob a) = -e a)
+    (x y : D.BofG) (hx : Invariants.kottwitz D x = Representation.Coinvariants.mk _ (e.symm 0))
+    (hy : Invariants.kottwitz D y = Representation.Coinvariants.mk _ (e.symm 1))
+    (hν : Invariants.newtonRat D x = Invariants.newtonRat D y) : x ≠ y := by sorry
+
+/-- `(ν, κ) : B(G) → N(G) × π₁(G)_Γ`. -/
+def Invariants (D : LocalDatum.{u}) (x : D.BofG) : D.RatCochar × KottwitzDescent.Target D.piFrob :=
+  (Invariants.newtonRat D x, Invariants.kottwitz D x)
+
+-- TauCeti.BunG.SigmaClass.testGL1: split `G_m` (Witt specialization: `SigmaClass.wittGmSlopeEquiv`).
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (e : D.Pi ≃+ ℤ) (hτ : D.piFrob = AddEquiv.refl _)
+    (hκ : Function.Bijective (Invariants.kottwitz D)) : Nonempty (D.BofG ≃ ℤ) := by sorry
+
+/-! ### BG1/classification-by-two-invariants -/
+theorem ClassificationByTwoInvariants (D : LocalDatum.{u}) :
+    Function.Injective (fun x : D.BofG => (Invariants.newtonRat D x, Invariants.kottwitz D x)) ∧
+    Function.Bijective (fun x : {x : D.BofG // D.Central (Invariants.newtonRat D x)} =>
+      Invariants.kottwitz D x.1) := by sorry
+
+/-! ### BG1/basic-class -/
+def Basic (D : LocalDatum.{u}) (x : D.BofG) : Prop := D.Central (Invariants.newtonRat D x)
+namespace Basic
+variable (D : LocalDatum.{u})
+/-- Basic iff every adjoint slope vanishes: no simple root pairs nontrivially. -/
+theorem adjoint_iff (x : D.BofG) :
+    Basic D x ↔ ∀ i, D.simpleRoot i (Invariants.newtonRat D x) = 0 := Iff.rfl
+def ofKottwitz (α : KottwitzDescent.Target D.piFrob) : {x : D.BofG // Basic D x} := by sorry
+theorem ofKottwitz_kottwitz (α : KottwitzDescent.Target D.piFrob) :
+    Invariants.kottwitz D (ofKottwitz D α).1 = α := by sorry
+theorem newton (x : D.BofG) (hx : Basic D x) :
+    D.centralProj (Invariants.newtonRat D x) = D.piAverage (Invariants.kottwitz D x) := by sorry
+theorem innerTransport {D' : LocalDatum.{u}} (ξ : NewtonSpace.InnerTwisting D D')
+    (x : D.BofG) (hx : Basic D x) :
+    ∃ y : D'.BofG, Basic D' y ∧
+      Invariants.kottwitz D' y = AlgebraicPiOne.innerInvariant ξ (Invariants.kottwitz D x) ∧
+      Invariants.newtonRat D' y = ξ.rat (Invariants.newtonRat D x) := by sorry
+end Basic
+-- TauCeti.BunG.Basic.testGL2Half: the central slope `(1/2,1/2)` pairs to zero with `e₁ - e₂`.
+example (D : LocalDatum.{u}) (x : D.BofG)
+    (h : ∀ i, D.simpleRoot i (Invariants.newtonRat D x) = 0) : Basic D x := by sorry
+-- TauCeti.BunG.Basic.testTorus
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (x : D.BofG) : Basic D x := by sorry
+-- TauCeti.BunG.Basic.testNonbasic: slopes `(1,0)` pair to `1` with `e₁ - e₂`.
+example (D : LocalDatum.{u}) (x : D.BofG) (i : D.Simple)
+    (h : D.simpleRoot i (Invariants.newtonRat D x) = 1) : ¬ Basic D x := by sorry
+
+/-! ### BG1/representation-detects-dominance -/
+/-- The rational representations of the quasi-split form with the descending slopes of a
+rational cocharacter on each (Tau Ceti ReductiveGroups layer 1; highest-weight detection G02). -/
+structure RepresentationWeights (D : LocalDatum.{u}) where
+  Rep : Type u
+  weights : Rep → D.RatCochar → List ℚ
+  sorted : ∀ V ν, (weights V ν).Pairwise (· ≥ ·)
+  conj : ∀ V ν, weights V (D.dominantRat ν) = weights V ν
+
+/-- RR96 Lemma 2.2 (characteristic zero); the equal-characteristic case is the G02 request. -/
+theorem RepresentationDetectsDominance (D : LocalDatum.{u}) [CharZero D.E]
+    (R : RepresentationWeights D) (ν ν' : NewtonSpace D) :
+    NewtonSpace.le ν ν' ↔ ∀ V k, ((R.weights V ν.1).take k).sum ≤
+      ((R.weights V ν'.1).take k).sum ∧ (R.weights V ν.1).sum = (R.weights V ν'.1).sum := by sorry
+
+/-! ### BG1/partial-order-on-B-of-G -/
+def NewtonOrder (D : LocalDatum.{u}) (x y : D.BofG) : Prop :=
+  Invariants.kottwitz D x = Invariants.kottwitz D y ∧
+    Invariants.newtonRat D y - Invariants.newtonRat D x ∈ D.corootCone
+namespace NewtonOrder
+variable (D : LocalDatum.{u})
+theorem le_iff (x y : D.BofG) : NewtonOrder D x y ↔
+    Invariants.kottwitz D x = Invariants.kottwitz D y ∧
+      Invariants.newtonRat D y - Invariants.newtonRat D x ∈ D.corootCone := Iff.rfl
+/-- With `κ` fixed the relation is a partial order (classification by both invariants). -/
+@[reducible] def partialOrder : PartialOrder D.BofG where
+  le := NewtonOrder D
+  le_refl := by sorry
+  le_trans := by sorry
+  le_antisymm := by sorry
+theorem basic_minimal (x y : D.BofG) (hx : Basic D x)
+    (hκ : Invariants.kottwitz D x = Invariants.kottwitz D y) : NewtonOrder D x y := by sorry
+/-- Representation criterion: with `κ` fixed, dominance is tested on the descending slope
+polygons of all rational representations (`weights` = the slopes of `ν` on a representation). -/
+theorem representationCriterion [CharZero D.E] (R : RepresentationWeights D)
+    (x y : D.BofG) (hκ : Invariants.kottwitz D x = Invariants.kottwitz D y) :
+    NewtonOrder D x y ↔ ∀ V k, ((R.weights V (Invariants.newtonRat D x)).take k).sum ≤
+      ((R.weights V (Invariants.newtonRat D y)).take k).sum := by sorry
+end NewtonOrder
+-- TauCeti.BunG.NewtonOrder.testGL2
+example (D : LocalDatum.{u}) (x y : D.BofG) (i : D.Simple)
+    (hκ : Invariants.kottwitz D x = Invariants.kottwitz D y)
+    (h : Invariants.newtonRat D y - Invariants.newtonRat D x = (1/2 : ℚ) • D.simpleCoroot i) :
+    NewtonOrder D x y := by sorry
+-- TauCeti.BunG.NewtonOrder.testDifferentKappa: `GL₁` classes `0,1` have distinct `κ`.
+example (D : LocalDatum.{u}) (x y : D.BofG)
+    (h : Invariants.kottwitz D x ≠ Invariants.kottwitz D y) : ¬ NewtonOrder D x y := by sorry
+-- TauCeti.BunG.NewtonOrder.testTorsion: equal Newton points, distinct `κ`.
+example (D : LocalDatum.{u}) (x y : D.BofG)
+    (hν : Invariants.newtonRat D x = Invariants.newtonRat D y)
+    (hκ : Invariants.kottwitz D x ≠ Invariants.kottwitz D y) :
+    ¬ NewtonOrder D x y ∧ ¬ NewtonOrder D y x := by sorry
+
+/-! ### BG1/admissible-pair -/
+def Acceptable (D : LocalDatum.{u}) (μ : D.Cochar) (x : D.BofG) : Prop :=
+  Invariants.kottwitz D x = HodgeInvariants.sharp D μ ∧
+    HodgeInvariants.diamond D μ - Invariants.newtonRat D x ∈ D.corootCone
+namespace Acceptable
+variable (D : LocalDatum.{u})
+theorem mem_iff (μ : D.Cochar) (x : D.BofG) : Acceptable D μ x ↔
+    Invariants.kottwitz D x = HodgeInvariants.sharp D μ ∧
+      HodgeInvariants.diamond D μ - Invariants.newtonRat D x ∈ D.corootCone := Iff.rfl
+theorem basic (μ : D.Cochar) :
+    Acceptable D μ (Basic.ofKottwitz D (HodgeInvariants.sharp D μ)).1 := by sorry
+theorem finite (μ : D.Cochar) : {x : D.BofG | Acceptable D μ x}.Finite := by sorry
+theorem torus_iff (hT : D.IsTorus) (μ : D.Cochar) (x : D.BofG) :
+    Acceptable D μ x ↔ Invariants.kottwitz D x = HodgeInvariants.sharp D μ := by sorry
+theorem product {D₁ D₂ D₁₂ : LocalDatum.{u}} (p₁ : LocalDatum.Hom D₁₂ D₁)
+    (p₂ : LocalDatum.Hom D₁₂ D₂) (hprod : Function.Bijective
+      (fun g => (p₁.pt g, p₂.pt g))) (μ : D₁₂.Cochar) (μ₁ : D₁.Cochar) (μ₂ : D₂.Cochar)
+    (x : D₁₂.BofG) :
+    Acceptable D₁₂ μ x ↔ Acceptable D₁ μ₁ (SigmaClass.map _ _ p₁.pt p₁.pt_frob x) ∧
+      Acceptable D₂ μ₂ (SigmaClass.map _ _ p₂.pt p₂.pt_frob x) := by sorry
+end Acceptable
+-- TauCeti.BunG.Acceptable.testGL2: basic `(1/2,1/2)` and ordinary `(1,0)` lie below `μ◇ = (1,0)`.
+example (D : LocalDatum.{u}) (μ : D.Cochar) (x y : D.BofG) (i : D.Simple)
+    (hx : Invariants.kottwitz D x = HodgeInvariants.sharp D μ)
+    (hy : Invariants.kottwitz D y = HodgeInvariants.sharp D μ)
+    (hxν : HodgeInvariants.diamond D μ - Invariants.newtonRat D x = (1/2 : ℚ) • D.simpleCoroot i)
+    (hyν : Invariants.newtonRat D y = HodgeInvariants.diamond D μ) :
+    Acceptable D μ x ∧ Acceptable D μ y := by sorry
+-- TauCeti.BunG.Acceptable.testZero
+example (D : LocalDatum.{u}) (h0 : D.dominantCochar 0 = 0) (x : D.BofG) :
+    Acceptable D 0 x ↔ x = (Basic.ofKottwitz D 0).1 := by sorry
+-- TauCeti.BunG.Acceptable.testTorsion
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (μ : D.Cochar) (x : D.BofG)
+    (hx : Invariants.kottwitz D x ≠ HodgeInvariants.sharp D μ) : ¬ Acceptable D μ x := by sorry
+
+/-! ### BG1/admissible-finiteness-and-basic -/
+theorem AdmissibleFinitenessAndBasic (D : LocalDatum.{u}) (μ : D.Cochar) :
+    {x : D.BofG | Acceptable D μ x}.Finite ∧
+    (∃! x : D.BofG, Acceptable D μ x ∧ Basic D x) ∧
+    (∀ x y, Acceptable D μ x → Basic D x → Acceptable D μ y → NewtonOrder D x y) ∧
+    (D.IsTorus → ∀ x y, Acceptable D μ x → Acceptable D μ y → x = y) := by sorry
+
+/-! ### BG1/ordinary-class and the unique maximum -/
+def Ordinary (D : LocalDatum.{u}) (μ : D.Cochar) (x : D.BofG) : Prop :=
+  Acceptable D μ x ∧ Invariants.newtonRat D x = HodgeInvariants.diamond D μ
+/-- Quasi-split: some `G(L)`-conjugate of the chosen Borel `B(L)` is Frobenius stable (RG2.4). -/
+def IsQuasiSplit (D : LocalDatum.{u}) : Prop :=
+  ∃ g : D.Pt, ∀ h ∈ D.borel, D.frob (g * h * g⁻¹) ∈ (D.borel.map (MulAut.conj g).toMonoidHom)
+namespace Ordinary
+variable (D : LocalDatum.{u})
+theorem isOrdinary (μ : D.Cochar) (x : D.BofG) : Ordinary D μ x ↔
+    Acceptable D μ x ∧ Invariants.newtonRat D x = HodgeInvariants.diamond D μ := Iff.rfl
+theorem unique (μ : D.Cochar) (x y : D.BofG) (hx : Ordinary D μ x) (hy : Ordinary D μ y) :
+    x = y := by sorry
+theorem quasiSplitExists (hqs : IsQuasiSplit D) (μ : D.Cochar) : ∃ x, Ordinary D μ x := by sorry
+theorem maximal (μ : D.Cochar) (x y : D.BofG) (hx : Ordinary D μ x) (hy : Acceptable D μ y) :
+    NewtonOrder D y x := by sorry
+theorem derivedIsogeny {D' : LocalDatum.{u}} (f : LocalDatum.Hom D D')
+    (hder : ∃ e : D.Simple ≃ D'.Simple, ∀ i, f.rat (D.simpleCoroot i) = D'.simpleCoroot (e i))
+    (μ : D.Cochar) (μ' : D'.Cochar) (hμ : f.cochar μ = μ')
+    (x : D.BofG) (hx : Acceptable D μ x) :
+    Ordinary D μ x ↔ Ordinary D' μ' (SigmaClass.map _ _ f.pt f.pt_frob x) := by sorry
+end Ordinary
+-- TauCeti.BunG.Ordinary.testGL2: `(1,0)` attains `μ◇`, `(1/2,1/2)` does not.
+example (D : LocalDatum.{u}) (μ : D.Cochar) (x y : D.BofG) (i : D.Simple)
+    (hx : Acceptable D μ x) (hxν : Invariants.newtonRat D x = HodgeInvariants.diamond D μ)
+    (hyν : HodgeInvariants.diamond D μ - Invariants.newtonRat D y = (1/2 : ℚ) • D.simpleCoroot i)
+    (hi : D.simpleCoroot i ≠ 0) : Ordinary D μ x ∧ ¬ Ordinary D μ y := by sorry
+-- TauCeti.BunG.Ordinary.testTorus
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (μ : D.Cochar) (x : D.BofG)
+    (hx : Acceptable D μ x) : Ordinary D μ x := by sorry
+-- TauCeti.BunG.Ordinary.testQuaternion: after splitting, slopes `1/2, -1/2` with multiplicity
+-- one violate the Dieudonné–Manin denominator condition of the native GL slope data.
+example : ¬ ∃ x : GLnSlopeData 2, x.slopes 0 = 1/2 ∧ x.slopes 1 = -1/2 := by sorry
+
+theorem AcceptableUniqueMaximum (D : LocalDatum.{u}) (μ : D.Cochar) :
+    ∃ x, Acceptable D μ x ∧ (∀ y, Acceptable D μ y → NewtonOrder D y x) ∧
+      (Ordinary D μ x ↔ Invariants.newtonRat D x = HodgeInvariants.diamond D μ) := by sorry
+
+/-! ### BG1/rational-newton-witness -/
+/-- An `E`-rational slope morphism in the class of `ν_b`, with its conjugator. The rational
+cocharacter `ν` lives in a Frobenius-stable torus of `G` (RG2.4); `g` conjugates it to `ν_b`. -/
+structure RationalNewtonWitness (D : LocalDatum.{u}) (b : D.Pt) where
+  ν : D.RatCochar
+  conjugator : D.Pt
+  conj : D.dominantRat ν = D.newtonRep b
+  rationalFixed : D.GalFixed ν
+namespace RationalNewtonWitness
+variable (D : LocalDatum.{u})
+def quasiSplit (hqs : IsQuasiSplit D) (b : D.Pt) : RationalNewtonWitness D b := by sorry
+def basic (b : D.Pt) (hb : Basic D (SigmaClass.mk D.frob b)) : RationalNewtonWitness D b := by sorry
+/-- The Levi `Z_G(ν)`: the simple roots vanishing on the rational representative. -/
+def levi {b : D.Pt} (w : RationalNewtonWitness D b) : Set D.Simple := {i | D.simpleRoot i w.ν = 0}
+/-- The central morphism transported to `J_b`. -/
+def centralOnJ {b : D.Pt} (w : RationalNewtonWitness D b) : D.RatCochar := w.ν
+end RationalNewtonWitness
+-- TauCeti.BunG.RationalNewtonWitness.testSplitGL2: `(1,0)` is already dominant and rational.
+example (D : LocalDatum.{u}) (b : D.Pt) (hgal : D.GalFixed (D.newtonRep b))
+    (hdom : D.dominantRat (D.newtonRep b) = D.newtonRep b) :
+    Nonempty (RationalNewtonWitness D b) := by sorry
+-- TauCeti.BunG.RationalNewtonWitness.testBasic
+example (D : LocalDatum.{u}) (b : D.Pt) (w : RationalNewtonWitness D b) (hw : D.Central w.ν) :
+    w.levi = Set.univ := by sorry
+-- TauCeti.BunG.RationalNewtonWitness.testInnerForm: an anisotropic inner form has no rational
+-- noncentral representative; Galois invariance of the orbit alone does not supply one.
+example (D : LocalDatum.{u}) (hanis : ∀ ν, D.GalFixed ν → D.Central ν) (b : D.Pt)
+    (hb : ¬ D.Central (D.newtonRep b)) (hdom : ∀ ν, D.Central ν → D.dominantRat ν = ν) :
+    IsEmpty (RationalNewtonWitness D b) := by sorry
+
+/-! ### BG0/central-newton-on-J -/
+namespace CentralNewtonOnJ
+variable (D : LocalDatum.{u})
+/-- The descended central rational morphism `ν_{b,J}`: the representative slope vector, which is
+central in `J_b` and needs no rational representative in `G`. -/
+def morphism (b : D.Pt) : D.RatCochar := D.newtonRep b
+def integralMultiple (b : D.Pt) : {N : ℕ // 0 < N ∧ ∃ lam : D.Cochar,
+    D.rational lam = (N : ℚ) • morphism D b} := by sorry
+/-- `U_π = (N ν_{b,J})(π) ∈ J_b(E)`. -/
+def uniformizerElement (b : D.Pt) : D.Pt := D.atUniformizer (integralMultiple D b).2.2.choose
+theorem uniformizerElement_mem (b : D.Pt) :
+    uniformizerElement D b ∈ SigmaCentralizer.points D.frob b := by sorry
+theorem transport (g b : D.Pt) :
+    morphism D (twistedConjugate D.frob g b) = morphism D b := D.newtonRep_twisted g b
+end CentralNewtonOnJ
+-- TauCeti.BunG.CentralNewtonOnJ.testBasicHalf: twice the half slope is the central scalar.
+example (D : LocalDatum.{u}) (b : D.Pt) (c : D.Cochar)
+    (hb : D.newtonRep b = (1/2 : ℚ) • D.rational c) (hc : D.Central (D.rational c)) :
+    (2 : ℚ) • CentralNewtonOnJ.morphism D b = D.rational c := by sorry
+-- TauCeti.BunG.CentralNewtonOnJ.testUnit
+example (D : LocalDatum.{u}) (h1 : D.newtonRep 1 = 0) : CentralNewtonOnJ.morphism D 1 = 0 := h1
+-- TauCeti.BunG.CentralNewtonOnJ.testNonbasic: `(1,0)` is noncentral in `GL₂`.
+example (D : LocalDatum.{u}) (b : D.Pt) (i : D.Simple)
+    (h : D.simpleRoot i (D.newtonRep b) ≠ 0) : ¬ D.Central (CentralNewtonOnJ.morphism D b) := by
+  sorry
+
+/-- `ν_{b,J}`. -/
+def CentralNewtonOnJ (D : LocalDatum.{u}) (b : D.Pt) : D.RatCochar := CentralNewtonOnJ.morphism D b
+
+/-! ### BG0/sigma-centralizer-J-b over the local datum -/
+/-- `J_b(E)`: the σ-stabilizer `{g ∈ G(L) | g b = b σ(g)}`. -/
+abbrev SigmaCentralizer (D : LocalDatum.{u}) (b : D.Pt) : Subgroup D.Pt :=
+  SigmaCentralizer.points D.frob b
+/-- `J_b ⊗ L ≅ M_b = Z_G(ν_b)` with descent datum `Ad(b)σ`: `J_b(E)` lies in `M_b(L)`, `Ad(b)σ`
+preserves `M_b(L)`, and `J_b(E)` is its fixed group. -/
+theorem SigmaCentralizer.baseChange (D : LocalDatum.{u}) (b : D.Pt) :
+    SigmaCentralizer D b ≤ D.newtonLevi b ∧
+      (∀ g ∈ D.newtonLevi b, b * D.frob g * b⁻¹ ∈ D.newtonLevi b) ∧
+      ∀ g ∈ D.newtonLevi b, (g ∈ SigmaCentralizer D b ↔ b * D.frob g * b⁻¹ = g) := by sorry
+/-- `h ↦ g h g⁻¹ : J_b ≅ J_{g b σ(g)⁻¹}`. -/
+def SigmaCentralizer.conjugate (D : LocalDatum.{u}) (b g : D.Pt) :
+    SigmaCentralizer D b ≃* SigmaCentralizer D (twistedConjugate D.frob g b) :=
+  SigmaCentralizer.conjugateEquiv D.frob b g
+/-- BG0/sigma-centralizer-conjugacy. -/
+theorem SigmaCentralizerConjugacy (D : LocalDatum.{u}) (b g h : D.Pt) :
+    h ∈ SigmaCentralizer D b ↔ g * h * g⁻¹ ∈ SigmaCentralizer D (twistedConjugate D.frob g b) :=
+  SigmaCentralizer.conjugate_points D.frob b g h
+
+/-! ### BG0/decent-representative and its existence -/
+structure DecentRepresentative (D : LocalDatum.{u}) (b : D.Pt) where
+  r : ℕ
+  r_pos : 0 < r
+  slope : D.Cochar
+  slope_eq : D.rational slope = (r : ℚ) • D.newtonRep b
+  equation : frobeniusNorm D.frob b r = D.atUniformizer slope
+namespace DecentRepresentative
+variable {D : LocalDatum.{u}} {b : D.Pt}
+theorem equation' (d : DecentRepresentative D b) :
+    frobeniusNorm D.frob b d.r = D.atUniformizer d.slope := d.equation
+def multiple (d : DecentRepresentative D b) (k : ℕ) (hk : 0 < k)
+    (hmul : ∀ lam, D.atUniformizer ((k : ℤ) • lam) = frobeniusNorm D.frob (D.atUniformizer lam) k) :
+    DecentRepresentative D b := by sorry
+/-- Finite unramified descent: a decent `b` lies in `G(E_r)`, the points fixed by `σ^r`. -/
+theorem finiteDescent (d : DecentRepresentative D b) :
+    ((D.frob : D.Pt → D.Pt)^[d.r]) b = b := by sorry
+end DecentRepresentative
+-- TauCeti.BunG.DecentRepresentative.testRankOne
+example (D : LocalDatum.{u}) (m : D.Cochar) (hν : D.newtonRep (D.atUniformizer m) = D.rational m) :
+    Nonempty (DecentRepresentative D (D.atUniformizer m)) := by sorry
+-- TauCeti.BunG.DecentRepresentative.testUnit
+example (D : LocalDatum.{u}) (h1 : D.newtonRep 1 = 0) (h0 : D.atUniformizer 0 = 1) :
+    Nonempty (DecentRepresentative D 1) := by sorry
+-- TauCeti.BunG.DecentRepresentative.testPositivePeriod
+example (D : LocalDatum.{u}) (b : D.Pt) (d : DecentRepresentative D b) : d.r ≠ 0 := by sorry
+
+theorem ExistenceOfDecentRepresentative (D : LocalDatum.{u}) (x : D.BofG) :
+    ∃ b, SigmaClass.mk D.frob b = x ∧ Nonempty (DecentRepresentative D b) := by sorry
+
+/-! ### BG0/defect -/
+namespace Defect
+variable (D : LocalDatum.{u})
+def value (b : D.Pt) : ℤ := (D.rank : ℤ) - D.jRank b
+theorem conjugate (hJ : ∀ g b, D.jRank (twistedConjugate D.frob g b) = D.jRank b) (g b : D.Pt) :
+    value D (twistedConjugate D.frob g b) = value D b := by sorry
+theorem product {D₁ D₂ D₁₂ : LocalDatum.{u}} (hr : D₁₂.rank = D₁.rank + D₂.rank)
+    (b : D₁₂.Pt) (b₁ : D₁.Pt) (b₂ : D₂.Pt) (hj : D₁₂.jRank b = D₁.jRank b₁ + D₂.jRank b₂) :
+    value D₁₂ b = value D₁ b₁ + value D₂ b₂ := by sorry
+end Defect
+-- TauCeti.BunG.Defect.testUnit: split `GL_n`, `b = 1`, `J_1 = GL_n`.
+example (D : LocalDatum.{u}) (h : D.jRank 1 = D.rank) : Defect.value D 1 = 0 := by sorry
+-- TauCeti.BunG.Defect.testHalf: ranks `2` and `1`.
+example (D : LocalDatum.{u}) (b : D.Pt) (h2 : D.rank = 2) (h1 : D.jRank b = 1) :
+    Defect.value D b = 1 := by sorry
+-- TauCeti.BunG.Defect.testSplitNonbasic: `J_b` a split rank-two torus.
+example (D : LocalDatum.{u}) (b : D.Pt) (h2 : D.rank = 2) (hJ : D.jRank b = 2)
+    (hb : ¬ Basic D (SigmaClass.mk D.frob b)) : Defect.value D b = 0 := by sorry
+
+def Defect (D : LocalDatum.{u}) (b : D.Pt) : ℤ := Defect.value D b
+
+/-! ### BG1/torus-norm-description -/
+theorem TorusNormDescription (D : LocalDatum.{u}) (hT : D.IsTorus) :
+    Function.Bijective (Invariants.kottwitz D) ∧
+    ∀ (lam : D.Cochar) (x : D.BofG), Invariants.kottwitz D x =
+      Representation.Coinvariants.mk _ (D.piClass lam) →
+      Invariants.newtonRat D x =
+        (Fintype.card D.Gal : ℚ)⁻¹ • ∑ γ : D.Gal, D.galAct γ (D.rational lam) := by sorry
+
+/-! ### BG1/torus-special-pair, elliptic tori and transfer -/
+/-- A maximal torus `j : T → G` is elliptic modulo the centre: its Γ-fixed rational
+cocharacters are central in `G`. -/
+def IsElliptic {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D) : Prop :=
+  ∀ ν, T.GalFixed ν → D.Central (j.rat ν)
+structure TorusSpecial {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D) (μ : D.Cochar)
+    (x : D.BofG) where
+  μT : T.Cochar
+  inClass : D.dominantCochar (j.cochar μT) = D.dominantCochar μ
+  classT : T.BofG
+  classT_kottwitz : Invariants.kottwitz T classT = Representation.Coinvariants.mk _ (T.piClass μT)
+  image : SigmaClass.map _ _ j.pt j.pt_frob classT = x
+namespace TorusSpecial
+variable {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D)
+def mk' (μ : D.Cochar) (x : D.BofG) (μT : T.Cochar)
+    (hμ : D.dominantCochar (j.cochar μT) = D.dominantCochar μ) (c : T.BofG)
+    (hc : Invariants.kottwitz T c = Representation.Coinvariants.mk _ (T.piClass μT))
+    (hx : SigmaClass.map _ _ j.pt j.pt_frob c = x) : TorusSpecial j μ x :=
+  ⟨μT, hμ, c, hc, hx⟩
+def witness {μ : D.Cochar} {x : D.BofG} (w : TorusSpecial j μ x) : T.Cochar × T.BofG :=
+  (w.μT, w.classT)
+theorem newton (hT : T.IsTorus) {μ : D.Cochar} {x : D.BofG} (w : TorusSpecial j μ x) :
+    Invariants.newtonRat D x = D.dominantRat (j.rat
+      ((Fintype.card T.Gal : ℚ)⁻¹ • ∑ γ : T.Gal, T.galAct γ (T.rational w.μT))) := by sorry
+def ellipticBasic (hT : T.IsTorus) (he : IsElliptic j) (μ : D.Cochar) (x : D.BofG)
+    (hx : Acceptable D μ x) (hb : Basic D x) : TorusSpecial j μ x := by sorry
+end TorusSpecial
+-- TauCeti.BunG.TorusSpecial.testSplitGL1: `G = T = G_m`, `μ = m` gives the class of `p^m`.
+example (D : LocalDatum.{u}) (hT : D.IsTorus)
+    (hdom : ∀ b, D.dominantRat (D.newtonRep b) = D.newtonRep b) (hdomc : ∀ c, D.dominantCochar c = c)
+    (m : D.Cochar)
+    (hκ : Invariants.representativeKottwitz D (D.atUniformizer m) = D.piClass m) :
+    Nonempty (TorusSpecial (LocalDatum.Hom.id D hdom) m
+      (SigmaClass.mk D.frob (D.atUniformizer m))) := by sorry
+-- TauCeti.BunG.TorusSpecial.testZero
+example {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D) (h0 : D.dominantCochar 0 = 0) :
+    Nonempty (TorusSpecial j 0 (SigmaClass.mk D.frob 1)) := by sorry
+-- TauCeti.BunG.TorusSpecial.testSplitTorus: a split torus only produces Newton points of integral
+-- cocharacters, so the basic slope `1/2` class of `GL₂` has no witness.
+example {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D) (hT : T.IsTorus)
+    (hsplit : ∀ γ, T.galAct γ = 1) (μ : D.Cochar) (x : D.BofG)
+    (hx : ∀ μT : T.Cochar, D.dominantRat (j.rat (T.rational μT)) ≠ Invariants.newtonRat D x) :
+    IsEmpty (TorusSpecial j μ x) := by sorry
+
+theorem EllipticTorusBasicImage {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D)
+    (hT : T.IsTorus) (he : IsElliptic j) :
+    Set.range (SigmaClass.map _ _ j.pt j.pt_frob) = {x | Basic D x} := by sorry
+
+theorem TransferredTorusSpecialness {T D : LocalDatum.{u}} (j : LocalDatum.Hom T D)
+    (hT : T.IsTorus) (μ : D.Cochar) (b : D.Pt) (w : RationalNewtonWitness D b)
+    (hacc : Acceptable D μ (SigmaClass.mk D.frob b))
+    (htransfer : IsQuasiSplit D ∨ IsElliptic j) :
+    ∃ s : TorusSpecial j μ (SigmaClass.mk D.frob b),
+      j.rat ((Fintype.card T.Gal : ℚ)⁻¹ • ∑ γ : T.Gal, T.galAct γ (T.rational s.μT)) = w.ν := by
+  sorry
+
+/-! ### Levi data (RG2.4 standard Levi of the quasi-split form) -/
+structure StandardLevi (D : LocalDatum.{u}) where
+  J : Set D.Simple
+  M : LocalDatum.{u}
+  incl : LocalDatum.Hom M D
+  simpleEquiv : M.Simple ≃ J
+  coroot : ∀ i, incl.rat (M.simpleCoroot i) = D.simpleCoroot (simpleEquiv i)
+  frobStable : ∀ g, g ∈ Set.range incl.pt → D.frob g ∈ Set.range incl.pt
+
+theorem LeviNewtonFormula (D : LocalDatum.{u}) (hqs : IsQuasiSplit D) (L : StandardLevi D)
+    (μ : D.Cochar) (μM : L.M.Cochar) (xM : L.M.BofG) (hb : Basic L.M xM)
+    (hκ : Invariants.kottwitz L.M xM = HodgeInvariants.sharp L.M μM)
+    (hπ : L.incl.pi (L.M.piClass μM) = D.piClass μ) :
+    Acceptable D μ (SigmaClass.map _ _ L.incl.pt L.incl.pt_frob xM) ↔
+      HodgeInvariants.diamond D μ -
+        D.dominantRat (L.incl.rat (Invariants.newtonRat L.M xM)) ∈ D.corootCone := by sorry
+
+theorem MinusculeBasicLeviLift (D : LocalDatum.{u}) (L : StandardLevi D) (μ : D.Cochar)
+    (hmin : IsMinuscule D μ)
+    (xM : L.M.BofG) (hb : Basic L.M xM)
+    (hacc : Acceptable D μ (SigmaClass.map _ _ L.incl.pt L.incl.pt_frob xM)) :
+    ∃ μM : L.M.Cochar, D.dominantCochar (L.incl.cochar μM) = D.dominantCochar μ ∧
+      Acceptable L.M μM xM := by sorry
+
+theorem BasicLeviFibreUniqueness (D : LocalDatum.{u}) (L : StandardLevi D) (x : D.BofG)
+    (hx : Basic D x) :
+    {y : L.M.BofG | SigmaClass.map _ _ L.incl.pt L.incl.pt_frob y = x}.Subsingleton := by sorry
+
+theorem GeneralLeviNewtonComparison (D : LocalDatum.{u}) (hqs : IsQuasiSplit D)
+    (L : StandardLevi D) (xM : L.M.BofG) :
+    Invariants.newtonRat D (SigmaClass.map _ _ L.incl.pt L.incl.pt_frob xM) -
+      L.incl.rat (Invariants.newtonRat L.M xM) ∈ D.corootCone := by sorry
+
+/-! ### Iwahori–Weyl data (RG2.4) and the straight classification -/
+structure IwahoriWeylDatum (D : LocalDatum.{u}) where
+  W : Type u
+  [group : Group W]
+  frobW : W ≃* W
+  length : W → ℕ
+  lift : W →* D.Pt
+  lift_frob : ∀ w, lift (frobW w) = D.frob (lift w)
+  translation : Multiplicative D.Cochar →* W
+  newtonW : W → D.RatCochar
+attribute [instance] IwahoriWeylDatum.group
+/-- σ-straight: `ℓ(w) = ⟨2ρ, ν_w⟩`. -/
+def IwahoriWeylDatum.IsStraight {D : LocalDatum.{u}} (I : IwahoriWeylDatum D) (w : I.W) : Prop :=
+  (I.length w : ℚ) = D.twoRho (I.newtonW w)
+
+theorem StraightWeylClassification (D : LocalDatum.{u}) (I : IwahoriWeylDatum D) :
+    Function.Bijective (fun c : {c : SigmaClass I.frobW // ∃ w, I.IsStraight w ∧
+        c = SigmaClass.mk I.frobW w} => SigmaClass.map _ _ I.lift I.lift_frob c.1) ∧
+    ∀ w, I.IsStraight w → Invariants.newtonRat D (SigmaClass.mk D.frob (I.lift w)) =
+      D.dominantRat (I.newtonW w) := by sorry
+
+theorem OrdinaryStraightTranslation (D : LocalDatum.{u}) (I : IwahoriWeylDatum D)
+    (μ : D.Cochar) (x : D.BofG) (hx : Ordinary D μ x) :
+    ∃ μ' : D.Cochar, D.dominantCochar μ' = D.dominantCochar μ ∧
+      I.IsStraight (I.translation (Multiplicative.ofAdd μ')) ∧
+      SigmaClass.mk D.frob (I.lift (I.translation (Multiplicative.ofAdd μ'))) = x ∧
+      ∀ i, D.simpleRoot i (Invariants.newtonRat D x) = 0 → D.simpleRoot i (D.rational μ') = 0 :=
+  by sorry
+
+theorem OrdinaryDerivedIsogeny (D D' : LocalDatum.{u}) (f : LocalDatum.Hom D D')
+    (hder : ∃ e : D.Simple ≃ D'.Simple, ∀ i, f.rat (D.simpleCoroot i) = D'.simpleCoroot (e i))
+    (μ : D.Cochar) (μ' : D'.Cochar) (hμ : f.cochar μ = μ') :
+    ((∃ x, Ordinary D μ x) ↔ ∃ y, Ordinary D' μ' y) ∧
+    ∀ x, Acceptable D μ x → (Ordinary D μ x ↔ Ordinary D' μ' (SigmaClass.map _ _ f.pt f.pt_frob x)) :=
+  by sorry
+
+/-- A parahoric subgroup `𝒢(O_L) ⊂ G(L)`, Frobenius stable (RG2.3), with its admissible union. -/
+structure ParahoricDatum (D : LocalDatum.{u}) where
+  K : Subgroup D.Pt
+  frobStable : ∀ k ∈ K, D.frob k ∈ K
+  admissible : D.Cochar → Set D.Pt
+
+theorem OrdinaryIntegralConjugacy (D : LocalDatum.{u}) (I : IwahoriWeylDatum D)
+    (P : ParahoricDatum D) (μ : D.Cochar) (b : D.Pt) (hadm : b ∈ P.admissible μ)
+    (hord : Ordinary D μ (SigmaClass.mk D.frob b)) :
+    ∃ μ' : D.Cochar, ∃ k ∈ P.K, D.dominantCochar μ' = D.dominantCochar μ ∧
+      I.IsStraight (I.translation (Multiplicative.ofAdd μ')) ∧
+      twistedConjugate D.frob k b = I.lift (I.translation (Multiplicative.ofAdd μ')) := by sorry
+
+/-! ### BG1/product-and-unramified-norm -/
+/-- The norm for `G(F̆) = ∏_{i<d} H(F̆)` with Frobenius `(b₀,…,b_{d-1}) ↦ (b₁,…,b_{d-1},σ_E b₀)`:
+`Nm(b) = b₀ b₁ ⋯ b_{d-1}`. Identifying the factors through `σ^i` instead gives the source's
+`b₀ σ(b₁) ⋯ σ^{d-1}(b_{d-1})`. -/
+def unramifiedNorm (H : LocalDatum.{u}) (d : ℕ) (b : Fin d → H.Pt) : H.Pt :=
+  ((List.finRange d).map b).prod
+
+theorem ProductAndUnramifiedNorm {D₁ D₂ D₁₂ : LocalDatum.{u}} (p₁ : LocalDatum.Hom D₁₂ D₁)
+    (p₂ : LocalDatum.Hom D₁₂ D₂) (hprod : Function.Bijective (fun g => (p₁.pt g, p₂.pt g)))
+    (hrank : D₁₂.rank = D₁.rank + D₂.rank)
+    (H Res : LocalDatum.{u}) (d : ℕ) (hd : 0 < d) (factors : Res.Pt ≃* (Fin d → H.Pt))
+    (hfrob : ∀ g (i : Fin d), factors (Res.frob g) i =
+      if h : i.val + 1 < d then factors g ⟨i.val + 1, h⟩ else H.frob (factors g ⟨0, hd⟩)) :
+    Function.Bijective (fun x : D₁₂.BofG => (SigmaClass.map _ _ p₁.pt p₁.pt_frob x,
+      SigmaClass.map _ _ p₂.pt p₂.pt_frob x)) ∧
+    (∀ b, D₁₂.jRank b = D₁.jRank (p₁.pt b) + D₂.jRank (p₂.pt b) →
+      Defect.value D₁₂ b = Defect.value D₁ (p₁.pt b) + Defect.value D₂ (p₂.pt b)) ∧
+    ∃ e : Res.BofG ≃ H.BofG, ∀ b, e (SigmaClass.mk Res.frob b) =
+      SigmaClass.mk H.frob (unramifiedNorm H d (factors b)) ∧
+      Defect.value Res b = Defect.value H (unramifiedNorm H d (factors b)) := by sorry
+
+/-! ### BG1/abelianized-kottwitz-set and its identification -/
+/-- The crossed-module coefficients `[G_sc(L^sep) → G(L^sep)]` with the Weil action, and the
+discrete Weil `H¹` (ET.0 owner). -/
+structure CrossedModuleCohomology (D : LocalDatum.{u}) where
+  H1 : Type u
+  [group : AddCommGroup H1]
+  abelianize : D.BofG → H1
+  torusModel : H1 ≃+ H1
+  centerModel : H1 ≃+ H1
+attribute [instance] CrossedModuleCohomology.group
+abbrev AbelianizedClass {D : LocalDatum.{u}} (C : CrossedModuleCohomology D) := C.H1
+namespace AbelianizedClass
+variable {D : LocalDatum.{u}} (C : CrossedModuleCohomology D)
+def abelianize : D.BofG → AbelianizedClass C := C.abelianize
+def torusModel : AbelianizedClass C ≃+ AbelianizedClass C := C.torusModel
+def centerModel : AbelianizedClass C ≃+ AbelianizedClass C := C.centerModel
+def map {D' : LocalDatum.{u}} (C' : CrossedModuleCohomology D') (f : LocalDatum.Hom D D') :
+    AbelianizedClass C →+ AbelianizedClass C' := by sorry
+end AbelianizedClass
+-- TauCeti.BunG.AbelianizedClass.testTorus
+example (D : LocalDatum.{u}) (C : CrossedModuleCohomology D) (hT : D.IsTorus) :
+    Function.Bijective (AbelianizedClass.abelianize C) := by sorry
+-- TauCeti.BunG.AbelianizedClass.testSLn
+example (D : LocalDatum.{u}) (C : CrossedModuleCohomology D) (hsc : Subsingleton D.Pi) :
+    Subsingleton (AbelianizedClass C) := by sorry
+-- TauCeti.BunG.AbelianizedClass.testPGLn: `B_ab(PGL_n) = ℤ/n`, nonzero torsion.
+example (D : LocalDatum.{u}) (C : CrossedModuleCohomology D) (n : ℕ) (hn : 1 < n)
+    (e : AbelianizedClass C ≃+ ZMod n) :
+    Nontrivial (AbelianizedClass C) ∧ ∀ a : AbelianizedClass C, n • a = 0 := by sorry
+
+theorem AbelianizationIdentification (D : LocalDatum.{u}) (C : CrossedModuleCohomology D) :
+    ∃ e : AbelianizedClass C ≃+ KottwitzDescent.Target D.piFrob,
+      ∀ x, e (AbelianizedClass.abelianize C x) = Invariants.kottwitz D x := by sorry
+
+/-! ### BG1/rational-kottwitz-surjectivity, z-extensions, connected centre -/
+theorem RationalKottwitzSurjectivity (D : LocalDatum.{u}) [CharZero D.E] :
+    Function.Surjective (fun g : D.rationalPoints =>
+      (⟨(D.kappaTilde.representative g.1).toAdd, by sorry⟩ :
+        {a : D.Pi // D.piFrob a = a})) := by sorry
+
+/-- A z-extension `G̃ → G` with induced central torus kernel (upstream RG2.1.5 `IsZExtension`). -/
+structure ZExtension (D : LocalDatum.{u}) where
+  Dt : LocalDatum.{u}
+  proj : LocalDatum.Hom Dt D
+  surj : Function.Surjective proj.pt
+  kernelTorus : LocalDatum.{u}
+  kernelIncl : LocalDatum.Hom kernelTorus Dt
+  kernel_isTorus : kernelTorus.IsTorus
+  kernel_eq : Set.range kernelIncl.pt = proj.pt.ker
+  /-- Induced torus: its cocharacters are a permutation Galois module. -/
+  kernel_induced : ∃ (B : Type u) (perm : kernelTorus.Gal →* Equiv.Perm B)
+    (e : (B →₀ ℤ) ≃+ kernelTorus.Cochar),
+    ∀ γ f, kernelTorus.galCochar γ (e f) = e (Finsupp.mapDomain (perm γ) f)
+
+theorem ComponentCoset.liftZExtension (D : LocalDatum.{u}) (Z : ZExtension D) (bt : Z.Dt.Pt)
+    (μt : Z.Dt.Cochar) (d : Z.Dt.Pi) [CharZero D.E] :
+    Set.SurjOn Z.proj.pi (ComponentCoset Z.Dt.piFrob d)
+      (ComponentCoset D.piFrob (Z.proj.pi d)) := by sorry
+
+theorem ZExtensionBoundedLifting (D : LocalDatum.{u}) (Z : ZExtension D) (μ : D.Cochar)
+    (μt : Z.Dt.Cochar) (hμ : Z.proj.cochar μt = μ) (x : D.BofG) (hx : Acceptable D μ x)
+    [CharZero D.E] :
+    ∃ xt : Z.Dt.BofG, Acceptable Z.Dt μt xt ∧
+      SigmaClass.map _ _ Z.proj.pt Z.proj.pt_frob xt = x := by sorry
+
+/-- With connected centre, `B(G)_basic → B(G_ad)_basic ≅ H¹(E, G_ad)` is surjective; the
+second identification is `b ↦ J_b` (ET.0 owner). -/
+theorem ConnectedCenterBasicInnerForms (D Dad Zc : LocalDatum.{u}) (ad : LocalDatum.Hom D Dad)
+    (z : LocalDatum.Hom Zc D) (hZ : Zc.IsTorus)
+    (hcentre : Set.range z.pt = (Subgroup.center D.Pt : Set D.Pt)) :
+    ∀ y : Dad.BofG, Basic Dad y → ∃ x : D.BofG, Basic D x ∧
+      SigmaClass.map _ _ ad.pt ad.pt_frob x = y := by sorry
+
+/-! ### BG1/gl-minuscule-quasisplit-centralizer -/
+/-- For `GL_n` and `μ = (1^{n-q}, 0^q)`, the class of `diag(π^{-1}, …, 1, …)` is the unique class
+of `B(GL_n, {μ⁻¹})` with quasi-split `J_b`; the GL slope data is the native `GLnSlopeData`. -/
+theorem GlMinusculeQuasisplitCentralizer (D : LocalDatum.{u}) (n : ℕ)
+    (hGL : ∃ (L : Type u) (_ : Field L), Nonempty (D.Pt ≃* Matrix.GeneralLinearGroup (Fin n) L))
+    [CharZero D.E] (μ : D.Cochar) (hμ : IsMinuscule D μ)
+    (Jd : D.BofG → LocalDatum.{u})
+    (hJd : ∀ b, Nonempty ((Jd (SigmaClass.mk D.frob b)).rationalPoints ≃* SigmaCentralizer D b)) :
+    (∀ x, Acceptable D (-μ) x → (IsQuasiSplit (Jd x) ↔ Ordinary D (-μ) x)) ∧
+      ∃ x, Ordinary D (-μ) x := by sorry
+
+/-! ### BG0/finite-frobenius-norm-centralizer: full form over the local datum -/
+theorem FiniteFrobeniusNormCentralizer (D : LocalDatum.{u}) (r n : ℕ) (δ : D.Pt)
+    (hper : ∀ g, ((D.frob : D.Pt → D.Pt)^[r]) g = g) (h : D.Pt)
+    (hh : h ∈ SigmaCentralizer.points D.frob δ) :
+    h * frobeniusNorm D.frob δ r = frobeniusNorm D.frob δ r * h ∧
+      h * frobeniusNorm D.frob δ (r * n) = frobeniusNorm D.frob δ (r * n) * h := by sorry
+end TauCeti.BunG
+
+/-! ## Owner interfaces for the geometric layers (BG0, BG2, BG3, BG4)
+
+The perfectoid site, the relative curve, its bundle categories and the v-stack predicates are
+their owners' objects. As in the accepted DiamondsAndVStacks suggested file, they enter as named
+parameters, gathered in `CurveSite` and `StackGeometry`; each field names its owner. Bundles on
+`X_S` are VB1's exact `E`-linear symmetric tensor categories; v-stacks are Mathlib pseudofunctors
+`LocallyDiscrete Perfᵒᵖ ⥤ᵖ Cat` with Mathlib's `IsStack` (D0). BG's own objects (`GBundle`,
+`GIsocrystal`, `Bun`, the strata, `HNGraded`, `FullAutomorphism`, the charts) are defined or
+stated on top of them. -/
+noncomputable section
+namespace TauCeti.BunG
+open CategoryTheory CategoryTheory.Limits MonoidalCategory Bicategory
+open scoped Pseudofunctor.StrongTrans
+universe u
+
+/-- A small exact `E`-linear symmetric tensor category. Owner instantiations: Tau Ceti
+`FGPointRepresentationCat` (finite rational representations), VB0's finite isocrystals with
+their exported exact tensor structure, VB1's vector bundles on a relative curve `X_S`. -/
+structure ExactTensorCat (E : Type u) [Field E] where
+  carrier : Type u
+  [cat : Category.{u} carrier]
+  [preadd : Preadditive carrier]
+  [lin : Linear E carrier]
+  [mon : MonoidalCategory carrier]
+  [symm : SymmetricCategory carrier]
+  [zero : HasZeroObject carrier]
+  [biprod : HasBinaryBiproducts carrier]
+  exact : TauCeti.ExactStructure carrier
+
+namespace ExactTensorCat
+attribute [instance] cat preadd lin mon symm zero biprod
+end ExactTensorCat
+
+variable {E : Type u} [Field E]
+
+/-- Exact `E`-linear symmetric tensor functors `A → B`, with monoidal natural isomorphisms. -/
+abbrev TensorFunctors (A B : ExactTensorCat E) : Type u :=
+  TensorInterface.Data E A.carrier B.carrier A.exact B.exact
+
+instance (A B : ExactTensorCat E) : Groupoid (TensorFunctors A B) where
+  Hom F G := TensorInterface.Iso F G
+  id F := TensorInterface.Iso.refl F
+  comp f g := TensorInterface.Iso.trans f g
+  inv f := TensorInterface.Iso.symm f
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+  inv_comp := by sorry
+  comp_inv := by sorry
+
+/-- Owner interface for the curve side. `Perf`, `vTop`, `proetTop`, `sp` and `GeomPoint` are
+DiamondsAndVStacks D1–D2 (perfectoid spaces over `F_q`, the v- and pro-étale topologies, the
+underlying space, geometric points `Spa C`); `bundles`, `pullback`, `structureSheaf`, `isoc` and
+`ofIsocrystal` are VB1 over RelativeFarguesFontaine RF2 (bundles on `X_S`, pullback along
+`X_T → X_S`, `V ↦ V ⊗ O_{X_S}`, VB0's isocrystals and the isocrystal-to-bundle functor);
+`isocRank`, `isocSlope`, `brauerInv` are VB0's rank, slope of an isoclinic isocrystal and the
+arithmetic invariant of its endomorphism algebra;
+`slopes` is the VB2/VB4 Harder–Narasimhan slope multiset at a geometric point. -/
+structure CurveSite (E : Type u) [Field E] where
+  Perf : Type u
+  [cat : Category.{u} Perf]
+  vTop : GrothendieckTopology Perf
+  proetTop : GrothendieckTopology Perf
+  sp : Perf ⥤ TopCat.{u}
+  GeomPoint : Type u
+  geomPt : GeomPoint → Perf
+  IsStrictlyTotallyDisconnected : Perf → Prop
+  IsAffinoid : Perf → Prop
+  bundles : Perf → ExactTensorCat E
+  pullback : ∀ {S T : Perf}, (T ⟶ S) → TensorFunctors (bundles S) (bundles T)
+  pullbackId : ∀ S, pullback (𝟙 S) ≅ TensorInterface.Data.identity (bundles S).exact
+  pullbackComp : ∀ {S T U : Perf} (f : T ⟶ S) (g : U ⟶ T),
+    pullback (g ≫ f) ≅ (pullback f).postcompose (pullback g)
+  vect : ExactTensorCat E
+  structureSheaf : ∀ S, TensorFunctors vect (bundles S)
+  isoc : ExactTensorCat E
+  ofIsocrystal : ∀ S, TensorFunctors isoc (bundles S)
+  isocRank : isoc.carrier → ℕ
+  isocSlope : isoc.carrier → ℚ
+  brauerInv : isoc.carrier → ℚ
+  rank : ∀ S, (bundles S).carrier → ℕ
+  degree : ∀ S, (bundles S).carrier → ℤ
+  slopes : ∀ (x : GeomPoint), (bundles (geomPt x)).carrier → List ℚ
+
+namespace CurveSite
+attribute [instance] cat
+end CurveSite
+
+/-- Prestacks of groupoids on `Perf` (DiamondsAndVStacks D0 uses the same Mathlib carrier). -/
+abbrev Prestack (X : CurveSite E) := LocallyDiscrete X.Perfᵒᵖ ⥤ᵖ Cat.{u, u}
+
+end TauCeti.BunG
+
+noncomputable section
+namespace TauCeti.BunG
+open CategoryTheory CategoryTheory.Limits MonoidalCategory Bicategory
+open scoped Pseudofunctor.StrongTrans
+universe u
+variable {E : Type u} [Field E]
+
+/-- Owner interface for v-stack geometry over a curve site. `terminal`, `classifying`,
+`groupClassifying`, `coproduct`, `fibreProduct` are DiamondsAndVStacks D0/D3 (the point,
+`[∗/H]` for a locally profinite `H`, `[∗/𝒢]` for a group v-sheaf, disjoint unions and
+2-fibre products); `IsSmall`, `IsLocallySpatialDiamond`, `space` are D4; the morphism properties
+are D3/D5 (immersions, separated, partially proper, proper, v-surjective, representable in locally
+spatial diamonds); `IsArtin` and `CohSmooth` (ℓ-cohomologically smooth of ℓ-dimension `d`, ℓ ≠ p)
+are VStackSheavesAndLisseCategories VS0; `coproductDesc`, `fibreSnd`, `spaceMap` and
+`quotientByEndo` (quotient by a `ℤ`-action) are D0/D4. -/
+structure StackGeometry (X : CurveSite E) where
+  terminal : Prestack X
+  classifying : ∀ (H : Type u) [Group H] [TopologicalSpace H], Prestack X
+  groupClassifying : Prestack X → Prestack X
+  coproduct : ∀ {ι : Type u}, (ι → Prestack X) → Prestack X
+  fibreProduct : ∀ {F G H : Prestack X}, (F ⟶ H) → (G ⟶ H) → Prestack X
+  IsSmall : Prestack X → Prop
+  IsLocallySpatialDiamond : Prestack X → Prop
+  IsArtin : Prestack X → Prop
+  space : Prestack X → TopCat.{u}
+  OpenImmersion : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  ClosedImmersion : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  LocallyClosedImmersion : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  Separated : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  PartiallyProper : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  Proper : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  VSurjective : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  ReprLSD : ∀ {F G : Prestack X}, (F ⟶ G) → Prop
+  CohSmooth : ∀ {F G : Prestack X}, (F ⟶ G) → ℤ → Prop
+  IsSpatialDiamond : Prestack X → Prop
+  toTerminal : ∀ F : Prestack X, F ⟶ terminal
+  coproductDesc : ∀ {ι : Type u} (F : ι → Prestack X) {G : Prestack X}, (∀ i, F i ⟶ G) →
+    (coproduct F ⟶ G)
+  fibreSnd : ∀ {F G H : Prestack X} (f : F ⟶ H) (g : G ⟶ H), fibreProduct f g ⟶ G
+  spaceMap : ∀ {F G : Prestack X}, (F ⟶ G) → (space F → space G)
+  quotientByEndo : ∀ F : Prestack X, (F ⟶ F) → Prestack X
+  basePoint : ∀ (H : Type u) [Group H] [TopologicalSpace H], terminal ⟶ classifying H
+
+variable (X : CurveSite E) (Rep : ExactTensorCat E)
+
+/-! ### BG0/g-bundle -/
+/-- `G`-bundles on `X_S`: exact `E`-linear tensor functors `Rep_E(G) → Bun(X_S)` (FS III.1). -/
+abbrev GBundle (S : X.Perf) := TensorFunctors Rep (X.bundles S)
+namespace GBundle
+variable {X Rep}
+/-- The trivial bundle: the fibre functor followed by `V ↦ V ⊗ O_{X_S}`. -/
+def trivial (fibre : TensorFunctors Rep X.vect) (S : X.Perf) : GBundle X Rep S :=
+  fibre.postcompose (X.structureSheaf S)
+def evaluate {S : X.Perf} (F : GBundle X Rep S) (V : Rep.carrier) : (X.bundles S).carrier :=
+  TensorInterface.Data.evaluate F V
+def tensorIso {S : X.Perf} {F G : GBundle X Rep S} (α : F ⟶ G) : TensorInterface.Iso F G := α
+def pullback {S T : X.Perf} (f : T ⟶ S) : GBundle X Rep S ⥤ GBundle X Rep T where
+  obj F := F.postcompose (X.pullback f)
+  map α := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+theorem pullback_obj {S T : X.Perf} (f : T ⟶ S) (F : GBundle X Rep S) (V : Rep.carrier) :
+    ((pullback f).obj F).evaluate V = (X.pullback f).evaluate (F.evaluate V) := by sorry
+theorem tensorIso_ext {S : X.Perf} {F G : GBundle X Rep S} (α β : F ⟶ G)
+    (h : ∀ V, (tensorIso α).iso.hom.app V = (tensorIso β).iso.hom.app V) : α = β := by sorry
+theorem evaluate_rank {S : X.Perf} (F : GBundle X Rep S) (fibre : TensorFunctors Rep X.vect)
+    (dimE : X.vect.carrier → ℕ) (hrk : ∀ W, X.rank S ((X.structureSheaf S).evaluate W) = dimE W)
+    (V : Rep.carrier) : X.rank S (F.evaluate V) = dimE (fibre.evaluate V) := by sorry
+end GBundle
+open scoped ZeroObject in
+-- TauCeti.BunG.GBundle.testGL1: for `G_m` (Rep generated by the tensor powers `pow n` of the
+-- standard character), evaluation at `pow 1` lands in line bundles and detects isomorphism.
+example (S : X.Perf) (pow : ℤ → Rep.carrier)
+    (hpow : ∀ m n, Nonempty (pow (m + n) ≅ pow m ⊗ pow n))
+    (hgen : ∀ V : Rep.carrier, ∃ l : List ℤ, Nonempty (V ≅ (l.map pow).foldr (· ⊞ ·) 0))
+    (fibre : TensorFunctors Rep X.vect) (dimE : X.vect.carrier → ℕ)
+    (hdim : dimE (fibre.evaluate (pow 1)) = 1)
+    (hrk : ∀ W, X.rank S ((X.structureSheaf S).evaluate W) = dimE W) (F G : GBundle X Rep S) :
+    X.rank S (GBundle.evaluate F (pow 1)) = 1 ∧
+      (Nonempty (F ≅ G) ↔ Nonempty (GBundle.evaluate F (pow 1) ≅ GBundle.evaluate G (pow 1))) := by
+  sorry
+open scoped ZeroObject in
+-- TauCeti.BunG.GBundle.testTrivial: `G = 1`, every representation is a sum of units.
+example (S : X.Perf)
+    (hgen : ∀ V : Rep.carrier, ∃ n : ℕ,
+      Nonempty (V ≅ (List.replicate n (𝟙_ Rep.carrier)).foldr (· ⊞ ·) 0))
+    (F G : GBundle X Rep S) : Nonempty (F ≅ G) ∧ Subsingleton (F ⟶ G) := by sorry
+-- TauCeti.BunG.GBundle.testNoFaithfulChoice: the value on `std ⊞ det` is determined by the values
+-- on `std` and `det`, and the tensor constraint is part of the data; unrelated bundles on the
+-- objects of `Rep` do not form a `G`-bundle.
+example (S : X.Perf) (F : GBundle X Rep S) (std det : Rep.carrier) :
+    Nonempty (GBundle.evaluate F (std ⊞ det) ≅ GBundle.evaluate F std ⊞ GBundle.evaluate F det) ∧
+      Nonempty (GBundle.evaluate F (std ⊗ det) ≅ GBundle.evaluate F std ⊗ GBundle.evaluate F det)
+  := by sorry
+
+/-! ### BG0/g-isocrystals-and-B-of-G (untrivialized form over VB0's isocrystal category) -/
+/-- `G`-isocrystals: exact tensor functors `Rep_E(G) → Isoc_E`. -/
+abbrev GIsocrystal := TensorFunctors Rep X.isoc
+/-- Owner interface realizing a representative `b ∈ G(L)` as the isocrystal `ρ ↦ (Vρ ⊗ L, ρ(b)σ)`
+(Tau Ceti representation action, VB0 isocrystal category; the native trivialized form is
+`RepresentativeTensor.ofRepresentative`). -/
+structure IsocrystalRealization (D : LocalDatum.{u}) where
+  ofPoint : D.Pt → GIsocrystal X Rep
+  conj : ∀ g b, ofPoint b ≅ ofPoint (twistedConjugate D.frob g b)
+  underlying : ExactTensorCat E
+  forget : TensorFunctors X.isoc underlying
+/-- `J_b(E)` is the tensor automorphism group of the `G`-isocrystal of `b`. -/
+theorem SigmaCentralizer.autIsocrystal {D : LocalDatum.{u}} (R : IsocrystalRealization X Rep D)
+    (b : D.Pt) : Nonempty (Aut (R.ofPoint b) ≃* SigmaCentralizer D b) := by sorry
+
+namespace GIsocrystal
+variable {X Rep} {D : LocalDatum.{u}} (R : IsocrystalRealization X Rep D)
+def ofRepresentative (b : D.Pt) : GIsocrystal X Rep := R.ofPoint b
+def forget (F : GIsocrystal X Rep) : TensorFunctors Rep R.underlying := F.postcompose R.forget
+def changeTrivialization (g b : D.Pt) :
+    ofRepresentative R b ≅ ofRepresentative R (twistedConjugate D.frob g b) := R.conj g b
+def map {Rep' : ExactTensorCat E} (res : TensorFunctors Rep' Rep) (F : GIsocrystal X Rep) :
+    GIsocrystal X Rep' := res.postcompose F
+theorem iso_iff (b c : D.Pt) (hfull : ∀ b c, Nonempty (R.ofPoint b ≅ R.ofPoint c) →
+      ∃ g, c = twistedConjugate D.frob g b) :
+    Nonempty (ofRepresentative R b ≅ ofRepresentative R c) ↔
+      SigmaClass.mk D.frob b = SigmaClass.mk D.frob c := by sorry
+end GIsocrystal
+-- TauCeti.BunG.GIsocrystal.testGLn: for `GL_n` over `ℚ_p` the standard representation gives an
+-- `n`-dimensional isocrystal for every `b` (VB0 compares these with Mathlib's
+-- `WittVector.Isocrystal` over `FractionRing (WittVector p k)`).
+example (D : LocalDatum.{u}) (R : IsocrystalRealization X Rep D) (std : Rep.carrier) (n : ℕ)
+    (h1 : X.isocRank ((R.ofPoint 1).evaluate std) = n) (b : D.Pt) :
+    X.isocRank ((GIsocrystal.ofRepresentative R b).evaluate std) = n := by sorry
+-- TauCeti.BunG.GIsocrystal.testUnit: `b = 1` gives the unit Frobenius `1 ⊗ σ`.
+example (D : LocalDatum.{u}) (R : IsocrystalRealization X Rep D) (unitIsoc : GIsocrystal X Rep)
+    (h1 : R.ofPoint 1 = unitIsoc) : GIsocrystal.ofRepresentative R 1 = unitIsoc := by sorry
+-- TauCeti.BunG.GIsocrystal.testTensorSlope: for `G_m`, `π^a ⊗ π^b` has slope `a + b`, the dual
+-- of `π^a` slope `-a` (VB0 `tensor-and-dual-slopes`).
+example (D : LocalDatum.{u}) (hT : D.IsTorus) (a b : D.Cochar)
+    (hmul : D.atUniformizer (a + b) = D.atUniformizer a * D.atUniformizer b)
+    (hν : ∀ c, D.newtonRep (D.atUniformizer c) = D.rational c) :
+    D.newtonRep (D.atUniformizer a * D.atUniformizer b) = D.rational a + D.rational b ∧
+      D.newtonRep (D.atUniformizer (-a)) = -D.rational a := by sorry
+
+/-! ### BG0/g-torsors-three-descriptions and structure-group descent -/
+/-- Owner interface for torsors on `X_S` (AlgebraicModuliForArithmeticGeometry R09.3, D3): the
+groupoids of geometric étale-locally trivial torsors and of étale sheaf torsors, and `H¹_et`. -/
+structure TorsorDescriptions where
+  geometric : X.Perf → Type u
+  [geomGpd : ∀ S, Groupoid.{u} (geometric S)]
+  sheaf : X.Perf → Type u
+  [sheafGpd : ∀ S, Groupoid.{u} (sheaf S)]
+  H1 : X.Perf → Type u
+attribute [instance] TorsorDescriptions.geomGpd TorsorDescriptions.sheafGpd
+
+theorem GTorsorsThreeDescriptions (T : TorsorDescriptions X) (S : X.Perf) :
+    Nonempty (T.geometric S ≌ T.sheaf S) ∧ Nonempty (T.sheaf S ≌ GBundle X Rep S) ∧
+      Nonempty (Quotient (isIsomorphicSetoid (GBundle X Rep S)) ≃ T.H1 S) := by sorry
+
+/-- Extension of structure group along `G → H`: precomposition with restriction `Rep(H) → Rep(G)`. -/
+def GBundle.extend {Rep' : ExactTensorCat E} (res : TensorFunctors Rep' Rep) (S : X.Perf) :
+    GBundle X Rep S ⥤ GBundle X Rep' S where
+  obj F := res.postcompose F
+  map α := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+
+theorem StructureGroupAndTensorDescent {Rep' Rep'' : ExactTensorCat E}
+    (res : TensorFunctors Rep' Rep) (res' : TensorFunctors Rep'' Rep') {S T : X.Perf}
+    (f : T ⟶ S) :
+    Nonempty (GBundle.extend X Rep res S ⋙ GBundle.pullback f ≅
+      GBundle.pullback f ⋙ GBundle.extend X Rep res T) ∧
+    Nonempty (GBundle.extend X Rep (res'.postcompose res) S ≅
+      GBundle.extend X Rep res S ⋙ GBundle.extend X Rep' res' S) := by sorry
+
+/-! ### BG2:uniformization/bun-g-as-v-stack -/
+
+namespace Bun
+variable {X Rep}
+/-- `Bun_G(S)`: the groupoid of `G`-bundles on `X_S`, keeping all isomorphisms. -/
+abbrev objects (S : X.Perf) := GBundle X Rep S
+def pullback {S T : X.Perf} (f : T ⟶ S) : objects (Rep := Rep) S ⥤ objects (Rep := Rep) T :=
+  GBundle.pullback f
+def pullback_id (S : X.Perf) : pullback (Rep := Rep) (𝟙 S) ≅ 𝟭 _ := by sorry
+def pullback_comp {S T U : X.Perf} (f : T ⟶ S) (g : U ⟶ T) :
+    pullback (Rep := Rep) (g ≫ f) ≅ pullback f ⋙ pullback g := by sorry
+variable (X Rep)
+/-- The prestack `S ↦ Bun_G(S)`; its object and arrow components are `objects` and `pullback`,
+with coherence `pullback_id`, `pullback_comp`. -/
+def stack (X : CurveSite E) (Rep : ExactTensorCat E) : Prestack X := by sorry
+theorem stack_obj (S : X.Perf) :
+    (stack X Rep).obj ⟨Opposite.op S⟩ = Cat.of (objects (X := X) (Rep := Rep) S) := by sorry
+theorem isStack : (stack X Rep).IsStack X.vTop := by sorry
+variable {X Rep}
+/-- The constant bundle `E_b` of a `G`-isocrystal on every `X_S`. -/
+def ofIsocrystal (F : GIsocrystal X Rep) (S : X.Perf) : objects (Rep := Rep) S :=
+  F.postcompose (X.ofIsocrystal S)
+/-- The diagonal fibre: `T ↦ Isom(f^*E₁, f^*E₂)` over `S`. -/
+def isomSheaf {S : X.Perf} (E₁ E₂ : objects (Rep := Rep) S) :
+    (Over S)ᵒᵖ ⥤ Type u where
+  obj T := (pullback T.unop.hom).obj E₁ ⟶ (pullback T.unop.hom).obj E₂
+  map φ := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+/-- GAGA on affinoid `S`: VB2's analytification `an` of algebraic curve bundles, an equivalence
+there (`gaga-equivalence`), induces the equivalence on `G`-bundles. -/
+def gaga (alg : X.Perf → ExactTensorCat E) (an : ∀ S, TensorFunctors (alg S) (X.bundles S))
+    (S : X.Perf) (hS : X.IsAffinoid S) (hVB : (an S).functor.IsEquivalence) :
+    TensorFunctors Rep (alg S) ≌ objects (Rep := Rep) S := by sorry
+end Bun
+/-- `Bun_G` as a prestack on `Perf`. -/
+abbrev Bun (X : CurveSite E) (Rep : ExactTensorCat E) : Prestack X := Bun.stack X Rep
+
+-- TauCeti.BunG.Bun.testGLn: for `GL_n`, objects are rank-`n` bundles with all isomorphisms.
+example (S : X.Perf) (std : Rep.carrier) (n : ℕ) (fibre : TensorFunctors Rep X.vect)
+    (dimE : X.vect.carrier → ℕ) (hstd : dimE (fibre.evaluate std) = n)
+    (hrk : ∀ W, X.rank S ((X.structureSheaf S).evaluate W) = dimE W)
+    (F : Bun.objects (X := X) (Rep := Rep) S) : X.rank S (GBundle.evaluate F std) = n := by sorry
+-- TauCeti.BunG.Bun.testTrivial: for `G = 1` every `Bun_G(S)` is equivalent to the point.
+example (hunit : ∀ V : Rep.carrier, Nonempty (V ≅ 𝟙_ Rep.carrier)) (S : X.Perf) :
+    ∀ F G : Bun.objects (X := X) (Rep := Rep) S, Nonempty (F ≅ G) ∧ Subsingleton (F ⟶ G) := by
+  sorry
+-- TauCeti.BunG.Bun.testNonbasicHom: for `GL₂` slopes `0,1` the isocrystals of slopes `0` and `-1`
+-- have no nonzero maps while `O → O(1)` has nonzero sections, so the constant-bundle functor is
+-- not full on the ungraded categories.
+example (S : X.Perf) (V W : X.isoc.carrier) (hiso : ∀ f : V ⟶ W, f = 0)
+    (hbun : ∃ g : (X.ofIsocrystal S).evaluate V ⟶ (X.ofIsocrystal S).evaluate W, g ≠ 0) :
+    ¬ (X.ofIsocrystal S).functor.Full := by sorry
+-- TauCeti.BunG.Invariants.testSign: the line bundle of `π^m` has degree `-m` (`c₁(E_b) = -κ(b)`).
+example (D : LocalDatum.{u}) (R : IsocrystalRealization X Rep D) (S : X.Perf) (χ : Rep.carrier)
+    (e : D.Pi ≃+ ℤ) (m : D.Cochar) :
+    X.degree S (GBundle.evaluate
+      (Bun.ofIsocrystal (GIsocrystal.ofRepresentative R (D.atUniformizer m)) S) χ) =
+        -e (D.piClass m) := by sorry
+end TauCeti.BunG
+
+noncomputable section
+namespace TauCeti.BunG
+open CategoryTheory CategoryTheory.Limits MonoidalCategory Bicategory
+open scoped Pseudofunctor.StrongTrans
+universe u
+variable {E : Type u} [Field E]
+
+/-- Owner interface for graded and filtered bundles (VB4): `ℚ`-graded and increasingly
+`ℚ`-filtered bundles on `X_S` with their tensor structures, the forgetful functors, the
+associated graded, the split filtration, the VB4 condition that each weight-`λ` piece is
+semistable of slope `λ`, and the slope-reversed grading of `E_b`. -/
+structure SlopeFiltrations (X : CurveSite E) where
+  graded : X.Perf → ExactTensorCat E
+  filtered : X.Perf → ExactTensorCat E
+  forgetGrading : ∀ S, TensorFunctors (graded S) (X.bundles S)
+  forgetFiltration : ∀ S, TensorFunctors (filtered S) (X.bundles S)
+  assocGraded : ∀ S, TensorFunctors (filtered S) (graded S)
+  splitFiltration : ∀ S, TensorFunctors (graded S) (filtered S)
+  SemistablePieces : ∀ S, (graded S).carrier → Prop
+  gradedOfIsocrystal : ∀ S, TensorFunctors X.isoc (graded S)
+  filtrationSlopes : ∀ S, (filtered S).carrier → List ℚ
+
+/-- Prestack morphisms that are objectwise equivalences of groupoids. -/
+def IsObjectwiseEquiv {X : CurveSite E} {F G : Prestack X} (f : F ⟶ G) : Prop :=
+  ∀ S : X.Perf, (f.app ⟨Opposite.op S⟩).toFunctor.IsEquivalence
+
+/-- Owner interface for the affine Grassmannian and Beauville–Laszlo map (GS0, RF4): points of
+`Gr_G` over `S`, restriction, open Schubert cells `Gr_μ`, the residue-field points of `S` (D1),
+the modification map on points and as a prestack map, the component in `π₁(G)`, the quotients
+`[G(E)\Gr_μ]` with their maps to `Bun_G`, and the flag variety's underlying space with its
+geometric points (`Fℓ_{G,μ} ≅ Gr_μ` for minuscule `μ`). -/
+structure GrassmannianInterface (X : CurveSite E) (SG : StackGeometry X) (Rep : ExactTensorCat E)
+    (D : LocalDatum.{u}) where
+  points : X.Perf → Type u
+  restrict : ∀ {S T : X.Perf}, (T ⟶ S) → points S → points T
+  schubertCell : D.Cochar → ∀ S, Set (points S)
+  residuePoint : ∀ S, X.sp.obj S → X.Perf
+  residueMap : ∀ S (s : X.sp.obj S), residuePoint S s ⟶ S
+  blPoint : ∀ S, points S → Bun.objects (X := X) (Rep := Rep) S
+  gr : Prestack X
+  bl : gr ⟶ Bun.stack X Rep
+  component : ∀ S, points S → D.Pi
+  openCellQuotient : D.Cochar → Prestack X
+  openCellToBun : ∀ μ, openCellQuotient μ ⟶ Bun.stack X Rep
+  flagSpace : D.Cochar → TopCat.{u}
+  flagPoint : ∀ μ (x : X.GeomPoint), schubertCell μ (X.geomPt x) → flagSpace μ
+  flagPoint_surj : ∀ μ (p : flagSpace μ), ∃ x y, flagPoint μ x y = p
+
+/-- The data of the geometric layers over a curve site: `Rep_E(G)`, the local datum, the
+isocrystal realization, slope filtrations, `J_b(E)` and `G(E)` with their locally profinite
+topologies (BG0 `SigmaCentralizer`; topology from D3). -/
+structure BunContext (X : CurveSite E) where
+  Rep : ExactTensorCat E
+  D : LocalDatum.{u}
+  R : IsocrystalRealization X Rep D
+  Fl : SlopeFiltrations X
+  J : D.Pt → Type u
+  [jGroup : ∀ b, Group (J b)]
+  [jTop : ∀ b, TopologicalSpace (J b)]
+  jPoints : ∀ b, J b ≃* ↥(SigmaCentralizer.points D.frob b)
+  Grat : Type u
+  [gGroup : Group Grat]
+  [gTop : TopologicalSpace Grat]
+  gPoints : Grat ≃* ↥D.rationalPoints
+  /-- Descending slopes of a rational cocharacter on a representation (Tau Ceti layer 1). -/
+  weights : Rep.carrier → D.RatCochar → List ℚ
+  /-- Sections over `X_S` of the parabolic group with the given roots, twisted by `E_{b_M}`. -/
+  parabolicSections : Set (Module.Dual ℚ D.RatCochar) → X.Perf → Type u
+  [parabolicGroup : ∀ P S, Group (parabolicSections P S)]
+  /-- VB3: `BC((ad E_b)^λ)` over `S` (for `λ < 0` the `H¹` space `BC((ad E_b)^λ[1])`). -/
+  bcAdjoint : D.Pt → X.Perf → ℚ → Type u
+attribute [instance] BunContext.parabolicGroup
+attribute [instance] BunContext.jGroup BunContext.jTop BunContext.gGroup BunContext.gTop
+
+namespace BunContext
+variable {X : CurveSite E} (C : BunContext X)
+abbrev Bun := Bun.stack X C.Rep
+abbrev Obj (S : X.Perf) := Bun.objects (X := X) (Rep := C.Rep) S
+/-- Isomorphism classes of `G`-bundles on `X_C` for a geometric point. -/
+abbrev PointClasses (x : X.GeomPoint) := Quotient (isIsomorphicSetoid (C.Obj (X.geomPt x)))
+/-- `b ↦ [E_b]`, descended to `B(G)` along `IsocrystalRealization.conj`. -/
+def classToPoint (x : X.GeomPoint) : C.D.BofG → C.PointClasses x :=
+  SigmaClass.lift C.D.frob
+    (fun b => Quotient.mk _ (Bun.ofIsocrystal (C.R.ofPoint b) (X.geomPt x))) (by sorry)
+end BunContext
+
+/-! ### BG2:uniformization/points-are-B-of-G -/
+theorem PointsAreBOfG {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) :
+    (∀ x, Function.Bijective (C.classToPoint x)) ∧ Nonempty (SG.space C.Bun ≃ C.D.BofG) := by
+  sorry
+
+namespace BunContext
+variable {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+/-- The geometric class of a bundle at a geometric point (inverse of `classToPoint`). -/
+def geomClass (x : X.GeomPoint) (F : C.Obj (X.geomPt x)) : C.D.BofG :=
+  Function.surjInv ((PointsAreBOfG SG C).1 x).2 (Quotient.mk _ F)
+/-- `|Bun_G| ≃ B(G)`. -/
+def spaceEquiv : SG.space C.Bun ≃ C.D.BofG := (PointsAreBOfG SG C).2.some
+/-- The Newton topology on `B(G)`: the open sets are the lower sets of the Newton order. -/
+@[reducible] def newtonTopology : TopologicalSpace C.D.BofG :=
+  @Topology.lowerSet C.D.BofG (NewtonOrder.partialOrder C.D).toPreorder
+/-- `S`-points all of whose geometric fibres have classes in `P`. -/
+def ObjWithClasses (P : C.D.BofG → Prop) (S : X.Perf) : Type u :=
+  {F : C.Obj S // ∀ (x : X.GeomPoint) (f : X.geomPt x ⟶ S),
+    P (geomClass SG C x ((Bun.pullback f).obj F))}
+/-- The full sub-prestack with these `S`-points (D3 sub-prestack). -/
+def substack (SG : StackGeometry X) (C : BunContext X) (P : C.D.BofG → Prop) : Prestack X := by
+  sorry
+def substackIncl (SG : StackGeometry X) (C : BunContext X) (P : C.D.BofG → Prop) :
+    substack SG C P ⟶ C.Bun := by sorry
+theorem substack_obj (P : C.D.BofG → Prop) (S : X.Perf) :
+    Nonempty (((substack SG C P).obj ⟨Opposite.op S⟩ : Type u) ≃ ObjWithClasses SG C P S) := by
+  sorry
+end BunContext
+
+/-! ### BG2:uniformization/hn-sign-and-semicontinuity -/
+theorem HnSignAndSemicontinuity {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (V det : C.Rep.carrier) :
+    (∀ (x : X.GeomPoint) (b : C.D.Pt), X.slopes x
+      (GBundle.evaluate (Bun.ofIsocrystal (C.R.ofPoint b) (X.geomPt x)) V) =
+        ((C.weights V (C.D.newtonRep b)).map Neg.neg).reverse) ∧
+    (∀ (x : X.GeomPoint) (b : C.D.Pt), (X.degree (X.geomPt x)
+      (GBundle.evaluate (Bun.ofIsocrystal (C.R.ofPoint b) (X.geomPt x)) det) : ℚ) =
+        -(C.weights det (C.D.newtonRep b)).sum) ∧
+    ∀ k : ℕ, UpperSemicontinuous (fun p : SG.space C.Bun =>
+      ((((C.weights V (Invariants.newtonRat C.D (C.spaceEquiv SG p))).map Neg.neg).reverse).take
+        k).sum) := by sorry
+
+/-! ### BG2:uniformization/strictly-disconnected-torsors -/
+/-- Owner interface for pro-étale torsors under locally profinite groups (D3). -/
+structure LocallyProfiniteTorsors (X : CurveSite E) where
+  Tors : ∀ (H : Type u) [Group H] [TopologicalSpace H], X.Perf → Type u
+  [gpd : ∀ (H : Type u) [Group H] [TopologicalSpace H] S, Groupoid.{u} (Tors H S)]
+  trivial : ∀ (H : Type u) [Group H] [TopologicalSpace H] S, Tors H S
+  representing : ∀ (H : Type u) [Group H] [TopologicalSpace H] S, Tors H S → X.Perf
+attribute [instance] LocallyProfiniteTorsors.gpd
+
+theorem StrictlyDisconnectedTorsors {X : CurveSite E} (T : LocallyProfiniteTorsors X)
+    (H : Type u) [Group H] [TopologicalSpace H] [IsTopologicalGroup H] [T2Space H]
+    [TotallyDisconnectedSpace H] [LocallyCompactSpace H] [FirstCountableTopology H]
+    (S : X.Perf) :
+    (X.IsStrictlyTotallyDisconnected S → ∀ P : T.Tors H S, Nonempty (P ≅ T.trivial H S)) ∧
+      ∀ P : T.Tors H S, Nonempty (T.representing H S P ⟶ S) := by sorry
+
+/-! ### BG2:uniformization/geometrically-trivial-locus -/
+theorem GeometricallyTrivialLocus {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) :
+    SG.OpenImmersion (BunContext.substackIncl SG C (· = SigmaClass.mk C.D.frob 1)) ∧
+    ∃ f : SG.classifying C.Grat ⟶ BunContext.substack SG C (· = SigmaClass.mk C.D.frob 1),
+      IsObjectwiseEquiv f := by sorry
+
+/-! ### BG2:uniformization/grassmannian-point-lifting and Beauville–Laszlo -/
+theorem GrassmannianPointLifting {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (S : X.Perf)
+    (hS : X.IsStrictlyTotallyDisconnected S) (s : X.sp.obj S) :
+    Function.Surjective (Gr.restrict (Gr.residueMap S s)) := by sorry
+
+theorem BeauvilleLaszloSurjectivity {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) :
+    SG.VSurjective Gr.bl ∧ ∀ (x : X.GeomPoint) (F : C.Obj (X.geomPt x)),
+      ∃ y : Gr.points (X.geomPt x), Nonempty (Gr.blPoint _ y ≅ F) := by sorry
+
+/-- A central extension `G̃ → G` with torus kernel (not necessarily induced). -/
+structure CentralTorusExtension (D : LocalDatum.{u}) where
+  Dt : LocalDatum.{u}
+  proj : LocalDatum.Hom Dt D
+  surj : Function.Surjective proj.pt
+  kernelTorus : LocalDatum.{u}
+  kernelIncl : LocalDatum.Hom kernelTorus Dt
+  kernel_isTorus : kernelTorus.IsTorus
+  kernel_eq : Set.range kernelIncl.pt = proj.pt.ker
+  kernel_central : ∀ z, kernelIncl.pt z ∈ Subgroup.center Dt.Pt
+
+/-- The map of affine Grassmannians induced by a group morphism (GS0 functoriality). -/
+def GrassmannianInterface.mapOf {X : CurveSite E} {SG : StackGeometry X} {C Ct : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (Grt : GrassmannianInterface X SG Ct.Rep Ct.D)
+    (f : LocalDatum.Hom Ct.D C.D) : Grt.gr ⟶ Gr.gr := by sorry
+def GrassmannianInterface.pointMap {X : CurveSite E} {SG : StackGeometry X} {C Cc : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (Grc : GrassmannianInterface X SG Cc.Rep Cc.D)
+    (f : LocalDatum.Hom C.D Cc.D) (S : X.Perf) : Gr.points S → Grc.points S := by sorry
+
+theorem CentralTorusGrassmannianSurjectivity {X : CurveSite E} {SG : StackGeometry X}
+    {C Ct : BunContext X} (Z : CentralTorusExtension C.D) (hZ : Z.Dt = Ct.D)
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (Grt : GrassmannianInterface X SG Ct.Rep Ct.D)
+    (proj : LocalDatum.Hom Ct.D C.D) (hproj : HEq proj Z.proj) :
+    SG.VSurjective (GrassmannianInterface.mapOf Gr Grt proj) := by sorry
+
+/-- The prestack map of extension of structure group. -/
+def Bun.extendMap (X : CurveSite E) {Rep Rep' : ExactTensorCat E} (res : TensorFunctors Rep' Rep) :
+    Bun.stack X Rep ⟶ Bun.stack X Rep' := by sorry
+
+/-- A central torus extension together with restriction `Rep(G) → Rep(G̃)` along it (Tau Ceti
+layer 1). -/
+structure CentralTorusExtensionData {X : CurveSite E} (C Ct : BunContext X) where
+  Z : CentralTorusExtension C.D
+  hZ : Z.Dt = Ct.D
+  restriction : TensorFunctors C.Rep Ct.Rep
+
+theorem CentralTorusBundleSurjectivity {X : CurveSite E} (SG : StackGeometry X)
+    {C Ct : BunContext X} (Z : CentralTorusExtensionData C Ct) :
+    SG.VSurjective (Bun.extendMap X Z.restriction) := by sorry
+
+/-! ### BG2:uniformization/semicontinuity-and-local-constancy and the Newton topology -/
+theorem SemicontinuityAndLocalConstancy {X : CurveSite E} (SG : StackGeometry X)
+    (C : BunContext X) :
+    IsLocallyConstant (fun p => Invariants.kottwitz C.D (C.spaceEquiv SG p)) ∧
+      @Continuous _ _ _ (C.newtonTopology) (C.spaceEquiv SG) := by sorry
+
+theorem GrassmannianKottwitzSign {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (x : X.GeomPoint)
+    (y : Gr.points (X.geomPt x)) :
+    Invariants.kottwitz C.D (C.geomClass SG x (Gr.blPoint _ y)) =
+      -Representation.Coinvariants.mk _ (Gr.component _ y) := by sorry
+
+theorem NewtonTopologyHomeomorphism {X : CurveSite E} (SG : StackGeometry X)
+    (C : BunContext X) :
+    @Continuous _ _ _ (C.newtonTopology) (C.spaceEquiv SG) ∧
+      @Continuous _ _ (C.newtonTopology) _ (C.spaceEquiv SG).symm ∧
+    ∀ c c' : C.D.BofG, NewtonOrder C.D c c' ↔
+      (C.spaceEquiv SG).symm c ⤳ (C.spaceEquiv SG).symm c' := by sorry
+
+/-! ### BG2:uniformization/modification-newton-bound, minuscule image -/
+theorem ModificationNewtonBound {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (μ : C.D.Cochar)
+    (x : X.GeomPoint) (y : Gr.points (X.geomPt x)) (hy : y ∈ Gr.schubertCell μ _) :
+    Acceptable C.D (-μ) (C.geomClass SG x (Gr.blPoint _ y)) := by sorry
+
+
+theorem MinusculeModificationImage {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (μ : C.D.Cochar)
+    (hμ : IsMinuscule C.D μ) (c : C.D.BofG) (hc : Acceptable C.D (-μ) c) :
+    ∃ (x : X.GeomPoint) (y : Gr.points (X.geomPt x)), y ∈ Gr.schubertCell μ _ ∧
+      C.geomClass SG x (Gr.blPoint _ y) = c := by sorry
+
+/-! ### BG2:uniformization/de-rham-quotient-group-class -/
+/-- The `B(G^c)` class of a de Rham lattice: the class of its Beauville–Laszlo modification. -/
+def DeRhamQuotientGroupClass {X : CurveSite E} {SG : StackGeometry X} {Cc : BunContext X}
+    (Grc : GrassmannianInterface X SG Cc.Rep Cc.D) (x : X.GeomPoint)
+    (lattice : Grc.points (X.geomPt x)) : Cc.D.BofG :=
+  Cc.geomClass SG x (Grc.blPoint _ lattice)
+/-- A `G`-level lift exists only with lifted tensor data: a lifted lattice gives a class mapping to
+the `G^c` class; no canonical lift is asserted. -/
+theorem DeRhamQuotientGroupClass.lift {X : CurveSite E} {SG : StackGeometry X}
+    {C Cc : BunContext X} (q : LocalDatum.Hom C.D Cc.D)
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (Grc : GrassmannianInterface X SG Cc.Rep Cc.D)
+    (x : X.GeomPoint) (lattice : Gr.points (X.geomPt x)) :
+    SigmaClass.map _ _ q.pt q.pt_frob (C.geomClass SG x (Gr.blPoint _ lattice)) =
+      DeRhamQuotientGroupClass Grc x (GrassmannianInterface.pointMap Gr Grc q _ lattice) := by
+  sorry
+
+/-! ### BG2:uniformization: curve étale site and cohomology comparisons -/
+/-- Owner interface for étale sites (D2, D6, RF2): `S_et`, `(X_S)_et`, `(Div¹_S)_et`, the
+identification `(X_S)_et ≅ (Div¹_S)_et`, pullback along `Div¹ × S → S`, and étale cohomology
+of the curve and of `Spa E` (or discrete Weil cohomology) with the constant-map comparison. -/
+structure EtaleSites (X : CurveSite E) where
+  et : X.Perf → Type u
+  [etCat : ∀ S, Category.{u} (et S)]
+  [etCoprod : ∀ S, HasBinaryCoproducts (et S)]
+  curveEt : X.Perf → Type u
+  [curveCat : ∀ S, Category.{u} (curveEt S)]
+  [curveCoprod : ∀ S, HasBinaryCoproducts (curveEt S)]
+  divEt : X.Perf → Type u
+  [divCat : ∀ S, Category.{u} (divEt S)]
+  curveToDiv : ∀ S, curveEt S ≌ divEt S
+  projPullback : ∀ S, et S ⥤ divEt S
+  baseChange : ∀ {S S' : X.Perf}, (S' ⟶ S) → et S ⥤ et S'
+  curveBaseChange : ∀ {S S' : X.Perf}, (S' ⟶ S) → curveEt S ⥤ curveEt S'
+  Coeff : Type u
+  curveCoh : X.GeomPoint → ℕ → Coeff → Type u
+  [curveCohGrp : ∀ x i Λ, AddCommGroup (curveCoh x i Λ)]
+  baseCoh : ℕ → Coeff → Type u
+  [baseCohGrp : ∀ i Λ, AddCommGroup (baseCoh i Λ)]
+  comparison : ∀ x i Λ, baseCoh i Λ →+ curveCoh x i Λ
+  Diag : Type u
+  diagCurveCoh : X.GeomPoint → ℕ → Diag → Type u
+  [diagCurveGrp : ∀ x i Dg, AddCommGroup (diagCurveCoh x i Dg)]
+  weilCoh : ℕ → Diag → Type u
+  [weilGrp : ∀ i Dg, AddCommGroup (weilCoh i Dg)]
+  diagComparison : ∀ x i Dg, weilCoh i Dg →+ diagCurveCoh x i Dg
+attribute [instance] EtaleSites.diagCurveGrp EtaleSites.weilGrp
+attribute [instance] EtaleSites.etCat EtaleSites.etCoprod EtaleSites.curveCat
+  EtaleSites.curveCoprod EtaleSites.divCat EtaleSites.curveCohGrp EtaleSites.baseCohGrp
+
+namespace CurveEtaleBase
+variable {X : CurveSite E} (Et : EtaleSites X)
+/-- `τ^* : S_et → (X_S)_et`, `T ↦ X_T`, through `(X_S)_et ≅ (Div¹_S)_et`. -/
+def pullback (S : X.Perf) : Et.et S ⥤ Et.curveEt S := Et.projPullback S ⋙ (Et.curveToDiv S).inverse
+def baseChange {S S' : X.Perf} (f : S' ⟶ S) :
+    pullback Et S ⋙ Et.curveBaseChange f ≅ Et.baseChange f ⋙ pullback Et S' := by sorry
+/-- The induced functor on presheaves of abelian groups (`τ_*`), by precomposition. -/
+def pushforward (S : X.Perf) : ((Et.curveEt S)ᵒᵖ ⥤ AddCommGrpCat.{u}) ⥤ ((Et.et S)ᵒᵖ ⥤ AddCommGrpCat.{u}) :=
+  (Functor.whiskeringLeft _ _ _).obj (pullback Et S).op
+def constantComparison (x : X.GeomPoint) (i : ℕ) (Λ : Et.Coeff) :
+    Et.baseCoh i Λ →+ Et.curveCoh x i Λ := Et.comparison x i Λ
+end CurveEtaleBase
+-- TauCeti.BunG.CurveEtaleBase.testGeometric
+example {X : CurveSite E} (Et : EtaleSites X) [CharZero E] (x : X.GeomPoint) (i : ℕ)
+    (Λ : Et.Coeff) : Function.Bijective (CurveEtaleBase.constantComparison Et x i Λ) := by sorry
+-- TauCeti.BunG.CurveEtaleBase.testTrivialSheaf
+example {X : CurveSite E} (Et : EtaleSites X) (S : X.Perf)
+    (F : (Et.curveEt S)ᵒᵖ ⥤ AddCommGrpCat.{u}) (hF : ∀ U, IsZero (F.obj U)) (V : (Et.et S)ᵒᵖ) :
+    IsZero (((CurveEtaleBase.pushforward Et S).obj F).obj V) := by sorry
+-- TauCeti.BunG.CurveEtaleBase.testCoproduct
+example {X : CurveSite E} (Et : EtaleSites X) (S : X.Perf) (A B : Et.et S) :
+    Nonempty ((CurveEtaleBase.pullback Et S).obj (A ⨿ B) ≅
+      (CurveEtaleBase.pullback Et S).obj A ⨿ (CurveEtaleBase.pullback Et S).obj B) := by sorry
+
+def CurveEtaleBase {X : CurveSite E} (Et : EtaleSites X) (S : X.Perf) : Et.et S ⥤ Et.curveEt S :=
+  CurveEtaleBase.pullback Et S
+
+theorem CurveTorsionCohomology {X : CurveSite E} (Et : EtaleSites X) [CharZero E]
+    (x : X.GeomPoint) (i : ℕ) (Λ : Et.Coeff) :
+    Function.Bijective (CurveEtaleBase.constantComparison Et x i Λ) := by sorry
+
+theorem DiagonalizableCurveCohomology {X : CurveSite E} (Et : EtaleSites X) [CharZero E]
+    (x : X.GeomPoint) (i : ℕ) (hi : i ≤ 2) (Dg : Et.Diag) :
+    Function.Bijective (Et.diagComparison x i Dg) := by sorry
+
+/-- The curve abelianization `H¹_et(X_C, [G_sc → G])` of a bundle (ET.0 with C1). -/
+structure CurveCrossedModule {X : CurveSite E} (C : BunContext X) (Cm : CrossedModuleCohomology C.D) where
+  curveAb : ∀ x : X.GeomPoint, C.Obj (X.geomPt x) → Cm.H1
+
+theorem CrossedModuleCurveClasses {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (Cm : CrossedModuleCohomology C.D) (K : CurveCrossedModule C Cm) [CharZero C.D.E]
+    (x : X.GeomPoint) (F : C.Obj (X.geomPt x)) :
+    K.curveAb x F = AbelianizedClass.abelianize Cm (C.geomClass SG x F) := by sorry
+
+/-! ### BG2:uniformization/bun-g-smallness -/
+theorem BunGSmallness {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    {I : Type u} [SmallCategory I] [IsCofiltered I]
+    (hω₁ : ∀ s : Set I, s.Countable → ∃ i, ∀ j ∈ s, Nonempty (i ⟶ j))
+    (Sd : I ⥤ X.Perf) (hS : ∀ i, X.IsAffinoid (Sd.obj i)) (c : Cone Sd) (hc : IsLimit c) :
+    SG.IsSmall C.Bun ∧
+    (∀ F : C.Obj c.pt, ∃ (i : I) (Fi : C.Obj (Sd.obj i)),
+      Nonempty ((Bun.pullback (c.π.app i)).obj Fi ≅ F)) ∧
+    ∀ (i : I) (F G : C.Obj (Sd.obj i)),
+      Nonempty ((Bun.pullback (c.π.app i)).obj F ≅ (Bun.pullback (c.π.app i)).obj G) →
+        ∃ (j : I) (g : j ⟶ i),
+          Nonempty ((Bun.pullback (Sd.map g)).obj F ≅ (Bun.pullback (Sd.map g)).obj G) := by sorry
+end TauCeti.BunG
+
+noncomputable section
+namespace TauCeti.BunG
+open CategoryTheory CategoryTheory.Limits MonoidalCategory Bicategory
+open scoped Pseudofunctor.StrongTrans
+universe u
+variable {E : Type u} [Field E]
+
+/-! ### BG0/pure-inner-twisting and the basic inner form -/
+/-- Owner interface for torsors under group sheaves (AlgebraicModuli R09.3, D3): torsor groupoids,
+the trivial torsor, `H_T = Aut_H(T)`, `S ↦ Isom_H(S, T)` and the contracted product. -/
+structure GroupSheafTorsors (X : CurveSite E) where
+  GroupSheaf : Type u
+  Tors : GroupSheaf → X.Perf → Type u
+  [gpd : ∀ H S, Groupoid.{u} (Tors H S)]
+  trivial : ∀ H S, Tors H S
+  autGroup : ∀ H S, Tors H S → GroupSheaf
+  isomTo : ∀ H S (T : Tors H S), Tors H S ⥤ Tors (autGroup H S T) S
+  contract : ∀ H S (T : Tors H S), Tors (autGroup H S T) S ⥤ Tors H S
+attribute [instance] GroupSheafTorsors.gpd
+
+theorem PureInnerTwisting {X : CurveSite E} (T : GroupSheafTorsors X) (H : T.GroupSheaf)
+    (S : X.Perf) (P : T.Tors H S) :
+    Nonempty (T.isomTo H S P ⋙ T.contract H S P ≅ 𝟭 _) ∧
+      Nonempty (T.contract H S P ⋙ T.isomTo H S P ≅ 𝟭 _) ∧
+      Nonempty ((T.isomTo H S P).obj P ≅ T.trivial _ S) := by sorry
+
+theorem BasicInnerFormBundleEquivalence {X : CurveSite E} (C CJ : BunContext X) (b : C.D.Pt)
+    (hb : Basic C.D (SigmaClass.mk C.D.frob b)) (ξ : NewtonSpace.InnerTwisting C.D CJ.D)
+    (hJ : CJ.Grat ≃* C.J b)
+    (fibreJ : TensorFunctors CJ.Rep X.vect) :
+    ∃ e : ∀ S, C.Obj S ≌ CJ.Obj S,
+      (∀ S, Nonempty ((e S).functor.obj (Bun.ofIsocrystal (C.R.ofPoint b) S) ≅
+        GBundle.trivial fibreJ S)) ∧
+      ∀ {S T : X.Perf} (f : T ⟶ S),
+        Nonempty ((e S).functor ⋙ Bun.pullback f ≅ Bun.pullback f ⋙ (e T).functor) := by sorry
+
+/-! ### BG0/division-algebra-morita -/
+/-- `Hom(E_b, ℰ)` as a right `End(E_b)`-module by precomposition (Mathlib
+`Preadditive.moduleEndLeft`). -/
+def homModule {X : CurveSite E} (S : X.Perf) (Eb ℰ : (X.bundles S).carrier) :
+    ModuleCat.{u} (End Eb)ᵐᵒᵖ := ModuleCat.of _ (Eb ⟶ ℰ)
+
+theorem DivisionAlgebraMorita {X : CurveSite E} (C : BunContext X) (x : X.GeomPoint)
+    (b : C.D.Pt) (std : C.Rep.carrier) (a : ℤ) (h : ℕ) (hh : 0 < h) (hcop : Int.gcd a h = 1)
+    (hslope : X.isocSlope ((C.R.ofPoint b).evaluate std) = (a : ℚ) / h)
+    (hsimple : X.isocRank ((C.R.ofPoint b).evaluate std) = h) :
+    X.brauerInv ((C.R.ofPoint b).evaluate std) = Int.fract (-((a : ℚ) / h)) ∧
+    Nonempty (C.J b ≃* (End ((C.R.ofPoint b).evaluate std))ˣ) ∧
+    Function.Bijective (fun φ : End ((C.R.ofPoint b).evaluate std) =>
+      (X.ofIsocrystal (X.geomPt x)).functor.map φ) ∧
+    ∀ ℰ₁ ℰ₂ : (X.bundles (X.geomPt x)).carrier,
+      X.slopes x ℰ₁ = List.replicate (X.rank _ ℰ₁) (-((a : ℚ) / h)) →
+      X.slopes x ℰ₂ = List.replicate (X.rank _ ℰ₂) (-((a : ℚ) / h)) →
+      Nonempty ((ℰ₁ ≅ ℰ₂) ≃ (homModule (X.geomPt x)
+        ((X.ofIsocrystal _).evaluate ((C.R.ofPoint b).evaluate std)) ℰ₁ ≅
+        homModule (X.geomPt x) ((X.ofIsocrystal _).evaluate ((C.R.ofPoint b).evaluate std)) ℰ₂))
+  := by sorry
+
+/-! ### BG0/families-of-g-isocrystals and BG1/family-kottwitz-local-constancy -/
+/-- Owner interface for isocrystals over perfect `F_q`-algebras (VB0 relative form, D2/D3):
+perfect schemes with the v-topology, isocrystals over `L_R` (`W_{O_E}(R)[1/π]` or `R((t))`), their
+pullbacks, the loop group `LG(R) = G(L_R)` with Frobenius and the realization `b ↦ (·, bσ)`, the
+geometric point `Spec F̄_q` with `LG(F̄_q) = G(L)`, underlying spaces and residue points. -/
+structure IsocrystalFamilies (Rep : ExactTensorCat E) (D : LocalDatum.{u}) where
+  PerfSch : Type u
+  [cat : Category.{u} PerfSch]
+  vTop : GrothendieckTopology PerfSch
+  isoc : PerfSch → ExactTensorCat E
+  pullback : ∀ {R R' : PerfSch}, (R' ⟶ R) → TensorFunctors (isoc R) (isoc R')
+  loop : PerfSch → Type u
+  [loopGroup : ∀ R, Group (loop R)]
+  ofLoop : ∀ R, loop R → TensorFunctors Rep (isoc R)
+  geomPoint : PerfSch
+  geomLoop : loop geomPoint ≃* D.Pt
+  space : PerfSch → TopCat.{u}
+  residue : ∀ R, space R → (geomPoint ⟶ R)
+attribute [instance] IsocrystalFamilies.cat IsocrystalFamilies.loopGroup
+
+namespace GIsocrystalFamily
+variable {Rep : ExactTensorCat E} {D : LocalDatum.{u}} (F : IsocrystalFamilies Rep D)
+/-- `G`-isocrystal families over `R` (Tannakian form of a `G`-torsor on `Spec L_R` with Frobenius). -/
+abbrev Obj (R : F.PerfSch) := TensorFunctors Rep (F.isoc R)
+def pullback {R R' : F.PerfSch} (f : R' ⟶ R) (P : Obj F R) : Obj F R' :=
+  P.postcompose (F.pullback f)
+def ofLoopElement (R : F.PerfSch) (b : F.loop R) : Obj F R := F.ofLoop R b
+/-- The class of a loop element at the geometric point. -/
+def geometricClass (b : F.loop F.geomPoint) : D.BofG := SigmaClass.mk D.frob (F.geomLoop b)
+theorem geometric_bijective :
+    Function.Bijective (SigmaClass.lift D.frob
+      (fun b => (Quotient.mk (isIsomorphicSetoid (Obj F F.geomPoint))
+        (ofLoopElement F _ (F.geomLoop.symm b)))) (by sorry)) := by sorry
+/-- The class of a family at a point of `|Spec R|`. -/
+def classAt {R : F.PerfSch} (P : Obj F R) (p : F.space R) : D.BofG :=
+  Function.surjInv (geometric_bijective F).2 (Quotient.mk _ (pullback F (F.residue R p) P))
+/-- v-locally every family is `(·, bσ)` for a loop element: the v-stackification is
+`LG / Ad_σ LG`. -/
+theorem loopQuotient (R : F.PerfSch) (P : Obj F R) :
+    ∃ (R' : F.PerfSch) (f : R' ⟶ R) (b : F.loop R'),
+      Sieve.generate (Presieve.singleton f) ∈ F.vTop R ∧
+        Nonempty (pullback F f P ≅ ofLoopElement F R' b) := by sorry
+end GIsocrystalFamily
+abbrev GIsocrystalFamily {Rep : ExactTensorCat E} {D : LocalDatum.{u}}
+    (F : IsocrystalFamilies Rep D) (R : F.PerfSch) := GIsocrystalFamily.Obj F R
+-- TauCeti.BunG.GIsocrystalFamily.testField
+example {Rep : ExactTensorCat E} {D : LocalDatum.{u}} (F : IsocrystalFamilies Rep D) :
+    Function.Surjective (GIsocrystalFamily.geometricClass F) := by sorry
+-- TauCeti.BunG.GIsocrystalFamily.testTrivial: `G = 1`.
+example {Rep : ExactTensorCat E} {D : LocalDatum.{u}} (F : IsocrystalFamilies Rep D)
+    (hunit : ∀ V : Rep.carrier, Nonempty (V ≅ 𝟙_ Rep.carrier)) (R : F.PerfSch)
+    (P Q : GIsocrystalFamily.Obj F R) : Nonempty (P ≅ Q) ∧ Subsingleton (P ⟶ Q) := by sorry
+-- TauCeti.BunG.GIsocrystalFamily.testAutomorphisms: family automorphisms of `b` are `J_b(E)`,
+-- without the positive Banach–Colmez kernel of the bundle.
+example {X : CurveSite E} (C : BunContext X) (F : IsocrystalFamilies C.Rep C.D)
+    (b : F.loop F.geomPoint) :
+    Nonempty (Aut (GIsocrystalFamily.ofLoopElement F _ b) ≃* C.J (F.geomLoop b)) := by sorry
+
+/-- The prestack of `G`-isocrystal families on perfect schemes. -/
+def GIsocrystalFamily.stack {Rep : ExactTensorCat E} {D : LocalDatum.{u}}
+    (F : IsocrystalFamilies Rep D) : LocallyDiscrete F.PerfSchᵒᵖ ⥤ᵖ Cat.{u, u} := by sorry
+
+theorem IsocrystalFamilyVDescent {Rep : ExactTensorCat E} {D : LocalDatum.{u}}
+    (F : IsocrystalFamilies Rep D) (J : D.Pt → Type u) [∀ b, Group (J b)]
+    (hJ : ∀ b, J b ≃* ↥(SigmaCentralizer.points D.frob b)) :
+    (GIsocrystalFamily.stack F).IsStack F.vTop ∧
+    (∀ (R : F.PerfSch) (P : GIsocrystalFamily.Obj F R) (c : D.BofG),
+      IsLocallyClosed {p | GIsocrystalFamily.classAt F P p = c}) ∧
+    ∀ b : F.loop F.geomPoint,
+      Nonempty (Aut (GIsocrystalFamily.ofLoopElement F _ b) ≃* J (F.geomLoop b)) := by sorry
+
+theorem FamilyKottwitzLocalConstancy {Rep : ExactTensorCat E} {D : LocalDatum.{u}}
+    (F : IsocrystalFamilies Rep D) (R : F.PerfSch) (P : GIsocrystalFamily.Obj F R) :
+    IsLocallyConstant (fun p => Invariants.kottwitz D (GIsocrystalFamily.classAt F P p)) := by
+  sorry
+
+/-! ### BG2:smooth-Artin -/
+namespace BunContext
+variable {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+/-- The diagonal `Bun_G → Bun_G × Bun_G` (D0 2-fibre product over the point). -/
+def diagonal : C.Bun ⟶ SG.fibreProduct (SG.toTerminal C.Bun) (SG.toTerminal C.Bun) := by sorry
+end BunContext
+
+theorem IsomSheafRepresentability {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) :
+    SG.ReprLSD (C.diagonal SG) := by sorry
+
+theorem BunGIsSmoothArtin {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (Gr : GrassmannianInterface X SG C.Rep C.D) :
+    SG.IsArtin C.Bun ∧ SG.CohSmooth (SG.toTerminal C.Bun) 0 ∧
+    (let chart := SG.coproductDesc (fun μ : {μ : C.D.Cochar // C.D.dominantCochar μ = μ} =>
+        Gr.openCellQuotient μ.1) (fun μ => Gr.openCellToBun μ.1)
+     SG.Separated chart ∧ SG.VSurjective chart) ∧
+    ∀ μ : C.D.Cochar, C.D.dominantCochar μ = μ → ∃ d : ℤ,
+      (d : ℚ) = C.D.twoRho (C.D.rational μ) ∧ SG.CohSmooth (Gr.openCellToBun μ) d := by sorry
+
+theorem ConnectedComponents {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) :
+    (∃ e : _root_.ConnectedComponents (SG.space C.Bun) ≃ KottwitzDescent.Target C.D.piFrob,
+      ∀ p, e (_root_.ConnectedComponents.mk p) = Invariants.kottwitz C.D (C.spaceEquiv SG p)) ∧
+    ∀ U : Set (SG.space C.Bun), IsOpen U → U.Nonempty →
+      ∃ p ∈ U, Basic C.D (C.spaceEquiv SG p) := by sorry
+
+/-! ### BG3/hn-graded-g-bundles and their classification -/
+namespace HNGraded
+variable {X : CurveSite E} (C : BunContext X)
+/-- HN-split `G`-bundles: tensor functors into `ℚ`-graded bundles with semistable pieces. -/
+abbrev Obj (S : X.Perf) := ObjectProperty.FullSubcategory
+  (fun P : TensorFunctors C.Rep (C.Fl.graded S) =>
+    ∀ V, C.Fl.SemistablePieces S (TensorInterface.Data.evaluate P V))
+def forget (S : X.Perf) : Obj C S ⥤ C.Obj S where
+  obj P := P.obj.postcompose (C.Fl.forgetGrading S)
+  map φ := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+def ofClass (b : C.D.Pt) (S : X.Perf) : Obj C S :=
+  ⟨(C.R.ofPoint b).postcompose (C.Fl.gradedOfIsocrystal S), by sorry⟩
+def automorphisms (b : C.D.Pt) (x : X.GeomPoint) :
+    Aut (ofClass C b (X.geomPt x)) ≃* C.J b := by sorry
+/-- The HN-split prestack `S ↦ Obj C S`. -/
+def stack (C : BunContext X) : Prestack X := by sorry
+theorem classifying (SG : StackGeometry X) :
+    ∃ f : SG.coproduct (fun c : C.D.BofG => SG.classifying (C.J (Quotient.out c))) ⟶ stack C,
+      IsObjectwiseEquiv f := by sorry
+end HNGraded
+abbrev HNGraded {X : CurveSite E} (C : BunContext X) (S : X.Perf) := HNGraded.Obj C S
+-- TauCeti.BunG.HNGraded.testGL2: for `O ⊕ O(1)`, graded automorphisms are `E^× × E^×`.
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (e : C.J b ≃* (C.D.E)ˣ × (C.D.E)ˣ) :
+    Nonempty (Aut (HNGraded.ofClass C b (X.geomPt x)) ≃* (C.D.E)ˣ × (C.D.E)ˣ) := by sorry
+-- TauCeti.BunG.HNGraded.testBasic: for basic `b` forgetting the grading is bijective on
+-- automorphisms (no positive kernel).
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (hb : Basic C.D (SigmaClass.mk C.D.frob b)) :
+    Function.Bijective ((HNGraded.forget C (X.geomPt x)).mapAut (HNGraded.ofClass C b _)) := by
+  sorry
+-- TauCeti.BunG.HNGraded.testUngraded: for nonbasic `b` the ungraded automorphisms are larger.
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (hb : ¬ Basic C.D (SigmaClass.mk C.D.frob b)) :
+    ¬ Function.Surjective ((HNGraded.forget C (X.geomPt x)).mapAut (HNGraded.ofClass C b _)) := by
+  sorry
+
+theorem HnGradedClassification {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) :
+    (∃ f : SG.coproduct (fun c : C.D.BofG => SG.classifying (C.J (Quotient.out c))) ⟶
+      HNGraded.stack C, IsObjectwiseEquiv f) ∧
+    ∀ (x : X.GeomPoint) (P : HNGraded.Obj C (X.geomPt x)),
+      ∃ b, Nonempty (P ≅ HNGraded.ofClass C b _) := by sorry
+
+/-! ### BG3/filtered-automorphism-group-scheme (affine chart, functor-of-points form) -/
+/-- A `ℚ`-filtered fibre functor over a coefficient ring `A`: modules `M V`, decreasing
+filtrations, and the group of tensor automorphisms `H(A) = Aut_G(E)(A)` (Tau Ceti layer 1). -/
+structure FilteredFibreFunctor (A : Type u) [CommRing A] (Rep : Type u) where
+  M : Rep → Type u
+  [grp : ∀ V, AddCommGroup (M V)]
+  [mod : ∀ V, Module A (M V)]
+  fil : ∀ V, ℚ → Submodule A (M V)
+  fil_antitone : ∀ V, Antitone (fil V)
+  aut : Subgroup (∀ V, M V ≃ₗ[A] M V)
+attribute [instance] FilteredFibreFunctor.grp FilteredFibreFunctor.mod
+
+namespace FilteredAutomorphism
+variable {A : Type u} [CommRing A] {Rep : Type u} (ω : FilteredFibreFunctor A Rep)
+/-- `H^{≥λ}`: automorphisms with `(γ - 1) Fil^{λ'} ⊆ Fil^{λ'+λ}`. -/
+def raising (lam : ℚ) : Subgroup (∀ V, ω.M V ≃ₗ[A] ω.M V) where
+  carrier := {γ | γ ∈ ω.aut ∧ ∀ V lam', ∀ v ∈ ω.fil V lam', γ V v - v ∈ ω.fil V (lam' + lam)}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+/-- `H^{>λ}`: automorphisms raising every filtration by more than `λ`. -/
+def strictlyRaising (lam : ℚ) : Subgroup (∀ V, ω.M V ≃ₗ[A] ω.M V) where
+  carrier := {γ | γ ∈ ω.aut ∧ ∀ V lam', ∀ v ∈ ω.fil V lam', ∃ ε > 0,
+    γ V v - v ∈ ω.fil V (lam' + lam + ε)}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+theorem raising_iff (lam : ℚ) (γ : ∀ V, ω.M V ≃ₗ[A] ω.M V) : γ ∈ raising ω lam ↔
+    γ ∈ ω.aut ∧ ∀ V lam', ∀ v ∈ ω.fil V lam', γ V v - v ∈ ω.fil V (lam' + lam) := Iff.rfl
+/-- `H^{≥0}` is the parabolic preserving the filtration. -/
+def parabolic : Subgroup (∀ V, ω.M V ≃ₗ[A] ω.M V) := raising ω 0
+/-- `H^{>0}` is its unipotent radical. -/
+def unipotent : Subgroup (∀ V, ω.M V ≃ₗ[A] ω.M V) := strictlyRaising ω 0
+theorem unipotent_normal : ∀ g ∈ parabolic ω, ∀ h ∈ unipotent ω, g * h * g⁻¹ ∈ unipotent ω := by
+  sorry
+/-- For `λ > 0` the quotient `H^{≥λ}/H^{>λ}` is commutative (the vector group
+`(ad E)^{≥λ}/(ad E)^{>λ}`). -/
+theorem graded (lam : ℚ) (hlam : 0 < lam) : ∀ g ∈ raising ω lam, ∀ h ∈ raising ω lam,
+    g * h * g⁻¹ * h⁻¹ ∈ strictlyRaising ω lam := by sorry
+/-- Base change along `A → B` carries `H^{≥λ}` into `H^{≥λ}`. -/
+theorem pullback {B : Type u} [CommRing B] (ω' : FilteredFibreFunctor B Rep)
+    (φ : (∀ V, ω.M V ≃ₗ[A] ω.M V) →* (∀ V, ω'.M V ≃ₗ[B] ω'.M V))
+    (hφ : ∀ γ ∈ ω.aut, φ γ ∈ ω'.aut) (bc : ∀ V, ω.M V →+ ω'.M V)
+    (hbc : ∀ V lam, ω'.fil V lam = Submodule.span B (bc V '' (ω.fil V lam : Set (ω.M V))))
+    (hφbc : ∀ γ V v, φ γ V (bc V v) = bc V (γ V v)) (lam : ℚ) :
+    ∀ γ ∈ raising ω lam, φ γ ∈ raising ω' lam := by sorry
+/-- On a local chart the filtration splits into weight submodules (a rational cocharacter after
+étale trivialization); no global splitting is asserted. -/
+theorem localSplit [IsLocalRing A] (hproj : ∀ V, Module.Projective A (ω.M V)) :
+    ∃ gr : ∀ V, ℚ → Submodule A (ω.M V), ∀ V, iSupIndep (gr V) ∧
+      ∀ lam, ω.fil V lam = ⨆ (μ : ℚ) (_ : lam ≤ μ), gr V μ := by sorry
+end FilteredAutomorphism
+-- TauCeti.BunG.FilteredAutomorphism.testGL2: the two-step filtration with weights `0, 1` on a line
+-- `ℓ ⊂ M`: the positive radical is `H^{≥1}`.
+example {A : Type u} [CommRing A] {Rep : Type u} (ω : FilteredFibreFunctor A Rep)
+    (ℓ : ∀ V, Submodule A (ω.M V))
+    (hfil : ∀ V lam, ω.fil V lam = if lam ≤ 0 then ⊤ else if lam ≤ 1 then ℓ V else ⊥) :
+    FilteredAutomorphism.unipotent ω = FilteredAutomorphism.raising ω 1 := by sorry
+-- TauCeti.BunG.FilteredAutomorphism.testRationalJump: weights `0` and `3/2` on a line
+-- `ℓ ⊂ M`: `H^{≥1} = H^{≥3/2}`, and `H^{≥2}` is trivial.
+example {A : Type u} [CommRing A] {Rep : Type u} (ω : FilteredFibreFunctor A Rep)
+    (ℓ : ∀ V, Submodule A (ω.M V))
+    (hfil : ∀ V lam, ω.fil V lam = if lam ≤ 0 then ⊤ else if lam ≤ 3/2 then ℓ V else ⊥) :
+    FilteredAutomorphism.raising ω 1 = FilteredAutomorphism.raising ω (3/2) ∧
+      ∀ γ ∈ FilteredAutomorphism.raising ω 2, γ = 1 := by sorry
+-- TauCeti.BunG.FilteredAutomorphism.testTrivialFiltration
+example {A : Type u} [CommRing A] {Rep : Type u} (ω : FilteredFibreFunctor A Rep)
+    (hfil : ∀ V lam, ω.fil V lam = if lam ≤ 0 then ⊤ else ⊥) :
+    FilteredAutomorphism.parabolic ω = ω.aut ∧ FilteredAutomorphism.unipotent ω = ⊥ := by sorry
+-- TauCeti.BunG.FilteredAutomorphism.testZeroWeight: at `λ = 0` the quotient is the Levi, which is
+-- not commutative for `GL₂` with the trivial filtration.
+example : ∃ ω : FilteredFibreFunctor ℚ PUnit.{1}, ¬ ∀ g ∈ FilteredAutomorphism.raising ω 0,
+    ∀ h ∈ FilteredAutomorphism.raising ω 0,
+      g * h * g⁻¹ * h⁻¹ ∈ FilteredAutomorphism.strictlyRaising ω 0 := by sorry
+
+-- TauCeti.BunG.FilteredAutomorphism.testNonAffine: on `P¹` the Euler sequence
+-- `0 → O(-1) → O² → O(1) → 0` (owner: quasi-coherent bundles on `P¹`) has no global splitting,
+-- since every map `O(1) → O` vanishes; it splits on affine opens.
+example (B : Type u) [Category.{u} B] [Preadditive B] [HasBinaryBiproducts B] (O : ℤ → B)
+    (euler : ShortComplex B) (h₂ : euler.X₂ = (O 0 ⊞ O 0)) (h₃ : euler.X₃ = O 1)
+    (hHom : ∀ f : O 1 ⟶ O 0, f = 0) (hnz : ¬ IsZero (O 1)) : IsEmpty euler.Splitting := by sorry
+abbrev FilteredAutomorphism {A : Type u} [CommRing A] {Rep : Type u}
+    (ω : FilteredFibreFunctor A Rep) (lam : ℚ) := FilteredAutomorphism.raising ω lam
+
+/-! ### BG3/full-automorphism-v-group and the positive kernel -/
+namespace FullAutomorphism
+variable {X : CurveSite E} (C : BunContext X)
+/-- `J̃_b(S) = Aut(E_b over X_S)`. -/
+abbrev group (b : C.D.Pt) (S : X.Perf) := Aut (Bun.ofIsocrystal (C.R.ofPoint b) S)
+/-- Action on the HN graded object, valued in `J_b(E)` at a geometric point. -/
+def projection (b : C.D.Pt) (x : X.GeomPoint) : group C b (X.geomPt x) →* C.J b := by sorry
+/-- The isocrystal automorphisms split the projection. -/
+def «section» (b : C.D.Pt) (x : X.GeomPoint) : C.J b →* group C b (X.geomPt x) := by sorry
+theorem section_projection (b : C.D.Pt) (x : X.GeomPoint) (g : C.J b) :
+    projection C b x («section» C b x g) = g := by sorry
+theorem kernel (b : C.D.Pt) (x : X.GeomPoint) :
+    (projection C b x).ker = ⊥ ↔ Basic C.D (SigmaClass.mk C.D.frob b) := by sorry
+/-- For each positive bundle slope `λ` the `λ`-graded quotient of the kernel is `BC((ad E_b)^λ)`. -/
+theorem graded (b : C.D.Pt) (x : X.GeomPoint) (lam : ℚ) (hlam : 0 < lam) :
+    ∃ K₁ K₂ : Subgroup (group C b (X.geomPt x)), K₂ ≤ K₁ ∧ K₁ ≤ (projection C b x).ker ∧
+      Nonempty ((↥K₁ ⧸ K₂.subgroupOf K₁) ≃ C.bcAdjoint b (X.geomPt x) lam) := by sorry
+theorem semidirect (b : C.D.Pt) (x : X.GeomPoint) :
+    ∀ γ : group C b (X.geomPt x), ∃ k ∈ (projection C b x).ker, ∃ g : C.J b,
+      γ = k * «section» C b x g := by sorry
+/-- The full automorphism group v-sheaf and its positive kernel (D0 group objects). -/
+def stack (b : C.D.Pt) : Prestack X := by sorry
+def kernelStack (b : C.D.Pt) : Prestack X := by sorry
+end FullAutomorphism
+-- TauCeti.BunG.FullAutomorphism.testGL2: `Aut(O ⊕ O(1))` is triangular: the projection to
+-- `E^× × E^×` is onto with nontrivial kernel `BC(O(1))`.
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (hb : ¬ Basic C.D (SigmaClass.mk C.D.frob b)) :
+    Function.Surjective (FullAutomorphism.projection C b x) ∧
+      ¬ Function.Injective (FullAutomorphism.projection C b x) := by sorry
+-- TauCeti.BunG.FullAutomorphism.testBasic
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (hb : Basic C.D (SigmaClass.mk C.D.frob b)) :
+    Function.Injective (FullAutomorphism.projection C b x) := by sorry
+-- TauCeti.BunG.FullAutomorphism.testAlgebraicJ: `J_b(E)` alone misses the upper-triangular sections.
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (hb : ¬ Basic C.D (SigmaClass.mk C.D.frob b)) :
+    ¬ Function.Surjective (FullAutomorphism.«section» C b x) := by sorry
+
+abbrev FullAutomorphism {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (S : X.Perf) :=
+  FullAutomorphism.group C b S
+-- TauCeti.BunG.SigmaCentralizer.testNonbasic: for `GL₂` slopes `0,1` the algebraic `J_b(E)` misses
+-- the positive kernel of the bundle automorphism group.
+example {X : CurveSite E} (C : BunContext X) (b : C.D.Pt) (x : X.GeomPoint)
+    (hb : ¬ Basic C.D (SigmaClass.mk C.D.frob b)) :
+    ¬ Function.Injective (FullAutomorphism.projection C b x) := by sorry
+-- TauCeti.BunG.SigmaCentralizer.testBasicGL2: simple slope `1/2` gives the quaternion units, simple
+-- slope `1/3` an algebra of invariant `-1/3 = 2/3`.
+example {X : CurveSite E} (C : BunContext X) (x : X.GeomPoint) (b : C.D.Pt) (std : C.Rep.carrier)
+    (h3 : X.isocSlope ((C.R.ofPoint b).evaluate std) = 1 / 3)
+    (hr : X.isocRank ((C.R.ofPoint b).evaluate std) = 3) :
+    X.brauerInv ((C.R.ofPoint b).evaluate std) = 2 / 3 ∧
+      Nonempty (C.J b ≃* (End ((C.R.ofPoint b).evaluate std))ˣ) := by sorry
+
+theorem PositiveAutomorphismKernel {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) :
+    SG.IsLocallySpatialDiamond (FullAutomorphism.kernelStack C b) ∧
+    (∃ d : ℤ, (d : ℚ) = C.D.twoRho (C.D.newtonRep b) ∧
+      SG.CohSmooth (SG.toTerminal (FullAutomorphism.kernelStack C b)) d) ∧
+    Nonempty (_root_.ConnectedComponents (SG.space (FullAutomorphism.stack C b)) ≃ C.J b) := by sorry
+
+/-- The opposite parabolic of a rational Newton witness: roots with `α(ν) ≤ 0`. -/
+def oppositeParabolicRoots {D : LocalDatum.{u}} {b : D.Pt} (w : RationalNewtonWitness D b) :
+    Set (Module.Dual ℚ D.RatCochar) := {α | α ∈ D.roots ∧ α w.ν ≤ 0}
+
+theorem QuasiSplitOppositeParabolic {X : CurveSite E} (C : BunContext X) (b : C.D.Pt)
+    (hqs : IsQuasiSplit C.D) (w : RationalNewtonWitness C.D b) (S : X.Perf) :
+    Nonempty (FullAutomorphism.group C b S ≃* C.parabolicSections (oppositeParabolicRoots w) S) :=
+  by sorry
+
+/-! ### BG3/semistable-locus-and-basic-strata -/
+namespace Semistable
+variable {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+def IsSemistable {S : X.Perf} (F : C.Obj S) : Prop :=
+  ∀ (x : X.GeomPoint) (f : X.geomPt x ⟶ S), Basic C.D (C.geomClass SG x ((Bun.pullback f).obj F))
+theorem mem_iff {S : X.Perf} (F : C.Obj S) : IsSemistable SG C F ↔
+    ∀ x (f : X.geomPt x ⟶ S), Basic C.D (C.geomClass SG x ((Bun.pullback f).obj F)) := Iff.rfl
+theorem openImmersion : SG.OpenImmersion (BunContext.substackIncl SG C (Basic C.D)) := by sorry
+theorem basicDecomposition :
+    ∃ f : SG.coproduct (fun c : {c : C.D.BofG // Basic C.D c} =>
+      SG.classifying (C.J (Quotient.out c.1))) ⟶ BunContext.substack SG C (Basic C.D),
+      IsObjectwiseEquiv f := by sorry
+def component (x : X.GeomPoint) (F : C.Obj (X.geomPt x)) : KottwitzDescent.Target C.D.piFrob :=
+  Invariants.kottwitz C.D (C.geomClass SG x F)
+end Semistable
+-- TauCeti.BunG.Semistable.testGL2Half
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (b : C.D.Pt)
+    (hb : Basic C.D (SigmaClass.mk C.D.frob b)) (S : X.Perf) :
+    Semistable.IsSemistable SG C (Bun.ofIsocrystal (C.R.ofPoint b) S) := by sorry
+-- TauCeti.BunG.Semistable.testTorus
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (hT : C.D.IsTorus)
+    (S : X.Perf) (F : C.Obj S) : Semistable.IsSemistable SG C F := by sorry
+-- TauCeti.BunG.Semistable.testUnstable
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (b : C.D.Pt)
+    (hb : ¬ Basic C.D (SigmaClass.mk C.D.frob b)) (x : X.GeomPoint) :
+    ¬ Semistable.IsSemistable SG C (Bun.ofIsocrystal (C.R.ofPoint b) (X.geomPt x)) := by sorry
+
+abbrev Semistable {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) : Prestack X :=
+  BunContext.substack SG C (Basic C.D)
+
+/-! ### BG3/torus-picard-stack -/
+namespace TorusPicard
+variable {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+/-- Contracted product of torus bundles. -/
+def tensor {S : X.Perf} (F G : C.Obj S) : C.Obj S := by sorry
+theorem kottwitz (hT : C.D.IsTorus) (x : X.GeomPoint) (F G : C.Obj (X.geomPt x)) :
+    Invariants.kottwitz C.D (C.geomClass SG x (tensor C F G)) =
+      Invariants.kottwitz C.D (C.geomClass SG x F) +
+        Invariants.kottwitz C.D (C.geomClass SG x G) := by sorry
+theorem fibre (hT : C.D.IsTorus) (β : KottwitzDescent.Target C.D.piFrob) :
+    ∃ f : SG.classifying C.Grat ⟶
+      BunContext.substack SG C (fun c => Invariants.kottwitz C.D c = β), IsObjectwiseEquiv f := by
+  sorry
+theorem splitOfSection (hT : C.D.IsTorus)
+    (s : Multiplicative (KottwitzDescent.Target C.D.piFrob) →* C.D.Pt)
+    (hs : ∀ β, Invariants.kottwitz C.D (SigmaClass.mk C.D.frob (s β)) = β.toAdd) :
+    ∃ f : SG.coproduct (fun _ : KottwitzDescent.Target C.D.piFrob => SG.classifying C.Grat) ⟶
+      C.Bun, IsObjectwiseEquiv f := by sorry
+end TorusPicard
+/-- `Bun_T` with its Picard structure. -/
+abbrev TorusPicard {X : CurveSite E} (C : BunContext X) (_hT : C.D.IsTorus) : Prestack X := C.Bun
+-- TauCeti.BunG.TorusPicard.testGm: line bundles: `κ` is additive under tensor product.
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (hT : C.D.IsTorus)
+    (e : C.D.Pi ≃+ ℤ) (x : X.GeomPoint) (F G : C.Obj (X.geomPt x)) :
+    Invariants.kottwitz C.D (C.geomClass SG x (TorusPicard.tensor C F G)) =
+      Invariants.kottwitz C.D (C.geomClass SG x F) +
+        Invariants.kottwitz C.D (C.geomClass SG x G) := by sorry
+-- TauCeti.BunG.TorusPicard.testTrivial
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (hunit : ∀ V : C.Rep.carrier, Nonempty (V ≅ 𝟙_ C.Rep.carrier)) (S : X.Perf) (F G : C.Obj S) :
+    Nonempty (F ≅ G) := by sorry
+-- TauCeti.BunG.TorusPicard.testTorsion: for the norm-one torus no group section exists through
+-- `T(L)` when `T(L) → B(T)` has torsion cokernel classes not lifting multiplicatively.
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (hT : C.D.IsTorus)
+    (e : C.D.Pi ≃+ ℤ) (he : ∀ a, e (C.D.piFrob a) = -e a)
+    (hnolift : ∀ t : C.D.Pt, t * t = 1 → Invariants.kottwitz C.D (SigmaClass.mk C.D.frob t) = 0) :
+    IsEmpty {s : Multiplicative (KottwitzDescent.Target C.D.piFrob) →* C.D.Pt //
+      ∀ β, Invariants.kottwitz C.D (SigmaClass.mk C.D.frob (s β)) = β.toAdd} := by sorry
+
+/-! ### BG3: strata, reduction and dimension -/
+theorem StratumIsClassifyingStack {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) :
+    SG.LocallyClosedImmersion
+      (BunContext.substackIncl SG C (· = SigmaClass.mk C.D.frob b)) ∧
+    ∃ f : SG.groupClassifying (FullAutomorphism.stack C b) ⟶
+      BunContext.substack SG C (· = SigmaClass.mk C.D.frob b), IsObjectwiseEquiv f := by sorry
+
+theorem AutomorphismTorsorReduction {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) (S : X.Perf) (hS : X.IsAffinoid S)
+    (F : C.ObjWithClasses SG (· = SigmaClass.mk C.D.frob b) S) :
+    ∃ P : HNGraded.Obj C S, Nonempty ((HNGraded.forget C S).obj P ≅ F.1) := by sorry
+
+theorem StratumDimension {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) :
+    SG.IsArtin (BunContext.substack SG C (· = SigmaClass.mk C.D.frob b)) ∧
+    ∃ d : ℤ, (d : ℚ) = -C.D.twoRho (C.D.newtonRep b) ∧
+      SG.CohSmooth (SG.toTerminal (BunContext.substack SG C (· = SigmaClass.mk C.D.frob b))) d :=
+  by sorry
+
+/-! ### BG3: Newton strata of minuscule flag varieties -/
+namespace FlagNewton
+variable {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+  (Gr : GrassmannianInterface X SG C.Rep C.D)
+def classAt {x : X.GeomPoint} (y : Gr.points (X.geomPt x)) : C.D.BofG :=
+  C.geomClass SG x (Gr.blPoint _ y)
+def stratum (μ : C.D.Cochar) (c : C.D.BofG) (x : X.GeomPoint) : Set (Gr.points (X.geomPt x)) :=
+  {y | y ∈ Gr.schubertCell μ _ ∧ classAt Gr y = c}
+def upperUnion (μ : C.D.Cochar) (c : C.D.BofG) (x : X.GeomPoint) : Set (Gr.points (X.geomPt x)) :=
+  {y | y ∈ Gr.schubertCell μ _ ∧ NewtonOrder C.D c (classAt Gr y)}
+/-- The class map on the underlying space of `Fℓ_{G,μ}`. -/
+def classOnSpace (μ : C.D.Cochar) (p : Gr.flagSpace μ) : C.D.BofG :=
+  classAt Gr (Classical.choose (Classical.choose_spec (Gr.flagPoint_surj μ p))).1
+theorem acceptableImage [CharZero C.D.E] (μ : C.D.Cochar) (hμ : IsMinuscule C.D μ) :
+    {c | ∃ (x : X.GeomPoint) (y : Gr.points (X.geomPt x)), y ∈ Gr.schubertCell μ _ ∧
+      classAt Gr y = c} = {c | Acceptable C.D (-μ) c} := by sorry
+theorem baseChange {x x' : X.GeomPoint} (f : X.geomPt x' ⟶ X.geomPt x)
+    (y : Gr.points (X.geomPt x)) : classAt Gr (Gr.restrict f y) = classAt Gr y := by sorry
+end FlagNewton
+-- TauCeti.BunG.FlagNewton.testGL2: for `GL₂`, `μ = (1,0)`: exactly the ordinary and the basic class.
+example {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (μ : C.D.Cochar)
+    (hμ : IsMinuscule C.D μ)
+    (htwo : ∀ c, Acceptable C.D (-μ) c → Ordinary C.D (-μ) c ∨ Basic C.D c) (x : X.GeomPoint)
+    (y : Gr.points (X.geomPt x)) (hy : y ∈ Gr.schubertCell μ _) :
+    Ordinary C.D (-μ) (FlagNewton.classAt Gr y) ∨ Basic C.D (FlagNewton.classAt Gr y) := by sorry
+-- TauCeti.BunG.FlagNewton.testCentral
+example {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (μ : C.D.Cochar)
+    (hcent : C.D.Central (C.D.rational μ)) (x x' : X.GeomPoint) (y : Gr.points (X.geomPt x))
+    (y' : Gr.points (X.geomPt x')) (hy : y ∈ Gr.schubertCell μ _)
+    (hy' : y' ∈ Gr.schubertCell μ _) : FlagNewton.classAt Gr y = FlagNewton.classAt Gr y' := by
+  sorry
+-- TauCeti.BunG.FlagNewton.testSign
+example {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (μ : C.D.Cochar)
+    (hsharp : HodgeInvariants.sharp C.D μ ≠ HodgeInvariants.sharp C.D (-μ)) (x : X.GeomPoint)
+    (y : Gr.points (X.geomPt x)) (hy : y ∈ Gr.schubertCell μ _) :
+    ¬ Acceptable C.D μ (FlagNewton.classAt Gr y) := by sorry
+
+def FlagNewton {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) (μ : C.D.Cochar) (c : C.D.BofG)
+    (x : X.GeomPoint) : Set (Gr.points (X.geomPt x)) := FlagNewton.stratum Gr μ c x
+
+theorem FlagStrataSemicontinuity {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (μ : C.D.Cochar)
+    (hμ : IsMinuscule C.D μ) (c : C.D.BofG) :
+    IsClosed {p | NewtonOrder C.D c (FlagNewton.classOnSpace Gr μ p)} ∧
+    IsOpen {p | Basic C.D (FlagNewton.classOnSpace Gr μ p)} ∧
+    IsLocallyClosed {p | FlagNewton.classOnSpace Gr μ p = c} := by sorry
+
+/-- The CS24 §2.1 datum: the quasi-split unitary similitude group of `F^{2n}` with its standard
+skew-hermitian form, signature `(n,n)`, `p` unramified in `F`, `[F⁺ : ℚ] = fieldDegree` (IG.0). -/
+structure CS24UnitaryDatum (D : LocalDatum.{u}) where
+  n : ℕ
+  fieldDegree : ℕ
+  GU : Type u
+  [guGroup : Group GU]
+  ident : D.Pt ≃* GU
+  μ : D.Cochar
+  minuscule : IsMinuscule D μ
+  quasiSplit : IsQuasiSplit D
+
+theorem UnitaryFlagStratumDimension {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (U : CS24UnitaryDatum C.D)
+    (c : C.D.BofG) (hc : Acceptable C.D (-U.μ) c) :
+    ∃ db : ℕ, (db : ℚ) = C.D.twoRho (Invariants.newtonRat C.D c) ∧
+      topologicalKrullDim {p // FlagNewton.classOnSpace Gr U.μ p = c} =
+        ((U.n ^ 2 * U.fieldDegree - db : ℕ) : WithBot ℕ∞) := by sorry
+
+theorem UnitaryOrdinaryFlagLocus {X : CurveSite E} {SG : StackGeometry X} {C : BunContext X}
+    (Gr : GrassmannianInterface X SG C.Rep C.D) [CharZero C.D.E] (U : CS24UnitaryDatum C.D) :
+    ∃ c, Ordinary C.D (-U.μ) c ∧ (∀ c', Acceptable C.D (-U.μ) c' → NewtonOrder C.D c' c) ∧
+      topologicalKrullDim {p // FlagNewton.classOnSpace Gr U.μ p = c} = 0 := by sorry
+
+/-! ### BG4: filtered charts -/
+namespace FilteredChart
+variable {X : CurveSite E} (C : BunContext X)
+/-- `M(S)`: `G`-bundles with an increasing `ℚ`-filtration whose graded pieces are semistable of
+their weights (opposite to the HN filtration). -/
+abbrev Obj (S : X.Perf) := ObjectProperty.FullSubcategory
+  (fun P : TensorFunctors C.Rep (C.Fl.filtered S) =>
+    ∀ V, C.Fl.SemistablePieces S
+      (TensorInterface.Data.evaluate (P.postcompose (C.Fl.assocGraded S)) V))
+def graded (S : X.Perf) : Obj C S ⥤ HNGraded.Obj C S where
+  obj P := ⟨P.obj.postcompose (C.Fl.assocGraded S), P.property⟩
+  map φ := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+def forget (S : X.Perf) : Obj C S ⥤ C.Obj S where
+  obj P := P.obj.postcompose (C.Fl.forgetFiltration S)
+  map φ := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+def split (S : X.Perf) : HNGraded.Obj C S ⥤ Obj C S where
+  obj P := ⟨P.obj.postcompose (C.Fl.splitFiltration S), by sorry⟩
+  map φ := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+def pullback {S T : X.Perf} (f : T ⟶ S) : Obj C S ⥤ Obj C T := by sorry
+/-- The chart `M_b`, its maps `q_b` and `π_b`, the split section, and the graded framing
+`M̃_b = M_b ×_{[∗/J_b(E)]} ∗` with its punctured complement. -/
+def chartStack (b : C.D.Pt) : Prestack X := by sorry
+def qChart (SG : StackGeometry X) (b : C.D.Pt) : chartStack C b ⟶ SG.classifying (C.J b) := by
+  sorry
+def piChart (b : C.D.Pt) : chartStack C b ⟶ C.Bun := by sorry
+def chartSection (SG : StackGeometry X) (b : C.D.Pt) : SG.classifying (C.J b) ⟶ chartStack C b :=
+  by sorry
+def gradedFraming (SG : StackGeometry X) (b : C.D.Pt) : Prestack X :=
+  SG.fibreProduct (qChart C SG b) (SG.basePoint (C.J b))
+def puncturedFraming (b : C.D.Pt) : Prestack X := by sorry
+/-- The action of `U_π = (N ν_{b,J})(π) ∈ J_b(E)` on the punctured framed chart. -/
+def uAction (b : C.D.Pt) : puncturedFraming C b ⟶ puncturedFraming C b := by sorry
+end FilteredChart
+-- TauCeti.BunG.FilteredChart.testGL2Extension: for graded `O` and `O(1)` the framed chart is
+-- `Ext¹(O(1), O) = BC(O(-1)[1])`.
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (b : C.D.Pt) (S : X.Perf) :
+    Nonempty (((FilteredChart.gradedFraming C SG b).obj ⟨Opposite.op S⟩ : Type u) ≃
+      C.bcAdjoint b S (-1)) := by sorry
+-- TauCeti.BunG.FilteredChart.testBasic
+example {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (b : C.D.Pt)
+    (hb : Basic C.D (SigmaClass.mk C.D.frob b)) : IsObjectwiseEquiv (FilteredChart.qChart C SG b) :=
+  by sorry
+-- TauCeti.BunG.FilteredChart.testOpposite: chart weights increase along the filtration, while HN
+-- slopes decrease.
+example {X : CurveSite E} (C : BunContext X) (x : X.GeomPoint)
+    (P : FilteredChart.Obj C (X.geomPt x)) (V : C.Rep.carrier) :
+    (C.Fl.filtrationSlopes _ (TensorInterface.Data.evaluate P.obj V)).Pairwise (· ≤ ·) ∧
+      (X.slopes x (GBundle.evaluate ((FilteredChart.forget C _).obj P) V)).Pairwise (· ≥ ·) := by
+  sorry
+
+abbrev FilteredChart {X : CurveSite E} (C : BunContext X) (S : X.Perf) := FilteredChart.Obj C S
+
+theorem QuasiSplitParabolicChart {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) (hqs : IsQuasiSplit C.D) (w : RationalNewtonWitness C.D b)
+    (CP CM : BunContext X) (resPM : TensorFunctors CM.Rep CP.Rep) (bM : CM.D.Pt)
+    (iM : LocalDatum.Hom CM.D C.D) (hLevi : ∀ α ∈ C.D.roots, α w.ν = 0 → ∃ β ∈ CM.D.roots,
+      ∀ v, β v = α (iM.rat v)) (hbM : Basic CM.D (SigmaClass.mk CM.D.frob bM))
+    (himg : SigmaClass.map _ _ iM.pt iM.pt_frob (SigmaClass.mk CM.D.frob bM) =
+      SigmaClass.mk C.D.frob b) :
+    ∃ f : SG.fibreProduct (Bun.extendMap X resPM)
+        (BunContext.substackIncl SG CM (· = SigmaClass.mk CM.D.frob bM)) ⟶
+      FilteredChart.chartStack C b, IsObjectwiseEquiv f := by sorry
+
+theorem ChartOverClassifyingStack {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) :
+    SG.PartiallyProper (FilteredChart.qChart C SG b) ∧ SG.ReprLSD (FilteredChart.qChart C SG b) ∧
+    (∃ d : ℤ, (d : ℚ) = C.D.twoRho (C.D.newtonRep b) ∧
+      SG.CohSmooth (FilteredChart.qChart C SG b) d) ∧
+    (¬ Basic C.D (SigmaClass.mk C.D.frob b) →
+      ¬ SG.IsLocallySpatialDiamond (FilteredChart.gradedFraming C SG b) ∧
+        SG.ReprLSD (SG.toTerminal (FilteredChart.gradedFraming C SG b))) := by sorry
+
+theorem SectionAndSpatialComplement {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) :
+    SG.ClosedImmersion (FilteredChart.chartSection C SG b) ∧
+    SG.IsSpatialDiamond (FilteredChart.puncturedFraming C b) ∧
+    ∀ (x : X.GeomPoint) (P : FilteredChart.Obj C (X.geomPt x)),
+      Nonempty (((FilteredChart.graded C _).obj P) ≅ HNGraded.ofClass C b _) →
+      NewtonOrder C.D (C.geomClass SG x ((FilteredChart.forget C _).obj P))
+        (SigmaClass.mk C.D.frob b) := by sorry
+
+theorem ContractingChartAction {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) :
+    SG.Proper (SG.toTerminal (SG.quotientByEndo (FilteredChart.puncturedFraming C b)
+      (FilteredChart.uAction C b))) := by sorry
+
+theorem ChartJacobianPositivity {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt) (Sstk : Prestack X) (s : Sstk ⟶ C.Bun) :
+    ∃ d : ℤ, (d : ℚ) = C.D.twoRho (C.D.newtonRep b) ∧
+      SG.CohSmooth (SG.fibreSnd (FilteredChart.piChart C b) s) d := by sorry
+
+theorem ChartToBunG {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X) (b : C.D.Pt) :
+    SG.Separated (FilteredChart.piChart C b) ∧ SG.PartiallyProper (FilteredChart.piChart C b) ∧
+    SG.ReprLSD (FilteredChart.piChart C b) ∧
+    (∃ d : ℤ, (d : ℚ) = C.D.twoRho (C.D.newtonRep b) ∧
+      SG.CohSmooth (FilteredChart.piChart C b) d) ∧
+    Set.range (C.spaceEquiv SG ∘ SG.spaceMap (FilteredChart.piChart C b)) =
+      {c | NewtonOrder C.D c (SigmaClass.mk C.D.frob b)} := by sorry
+
+theorem Gl2ExtensionChart {X : CurveSite E} (SG : StackGeometry X) (C : BunContext X)
+    (b : C.D.Pt)
+    (htwo : ∀ c, NewtonOrder C.D c (SigmaClass.mk C.D.frob b) → c = SigmaClass.mk C.D.frob b ∨
+      Basic C.D c)
+    (x : X.GeomPoint) (P : FilteredChart.Obj C (X.geomPt x))
+    (hP : Nonempty (((FilteredChart.graded C _).obj P) ≅ HNGraded.ofClass C b _)) :
+    C.geomClass SG x ((FilteredChart.forget C _).obj P) = SigmaClass.mk C.D.frob b ∨
+      C.geomClass SG x ((FilteredChart.forget C _).obj P) =
+        (Basic.ofKottwitz C.D (Invariants.kottwitz C.D (SigmaClass.mk C.D.frob b))).1 := by sorry
+end TauCeti.BunG
+
 /-
-Exact-name contract and omission register (G08). These are comment contracts,
-not Lean declarations. A typed prototype covers only the scope its note states;
-a full-signature omission has no elaborated mathematical signature.
-
-BunGAndNewtonStrata:BG0/g-bundle
-TauCeti.BunG.GBundle
-Full definition contract: For a sousperfectoid E-space X and connected reductive G/E, a G-bundle is an exact E-linear tensor functor from finite rational representations Rep_E(G) to finite locally free bundles on X. Arrows are tensor natural isomorphisms. Exactness means preservation of bundle short exact sequences, not an arbitrary functor or abstract action of G(E).
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-category-interface. Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced.
-TauCeti.BunG.GBundle.trivial — constructor: The standard fibre functor V↦V⊗_E O_X defines the trivial G-bundle.
-TauCeti.BunG.GBundle.evaluate — projection: For each rational representation V, evaluate a G-bundle to a bundle of rank dim_E V; tensor and dual comparisons are natural.
-TauCeti.BunG.GBundle.tensorIso — characterisation: An isomorphism consists of invertible natural maps preserving the unit and tensor constraints.
-TauCeti.BunG.GBundle.pullback — functoriality: For f:Y→X, bundle pullback gives f* on G-bundles, with coherent identity and composition isomorphisms.
-TauCeti.BunG.GBundle.tensorIso_ext — extensionality: Two tensor natural isomorphisms are equal if their components agree on every finite rational representation.
-TauCeti.BunG.GBundle.testGL1 — example contract (compatibility): For G=G_m, evaluation at the standard character identifies G-bundles with line bundles.
-TauCeti.BunG.GBundle.testTrivial — example contract (degenerate): For G=1 the G-bundle groupoid has one object up to a unique isomorphism.
-TauCeti.BunG.GBundle.testNoFaithfulChoice — example contract (non-example): For GL_2 the standard and standard-plus-determinant faithful realizations recover isomorphic torsors; independent unrelated bundles do not define a tensor functor.
-
-BunGAndNewtonStrata:BG0/g-torsors-three-descriptions
-TauCeti.BunG.GTorsorsThreeDescriptions
-Full theorem contract: For X sousperfectoid over E and reductive G/E, geometric étale-locally trivial G-torsors, étale sheaf G-torsors, and G-bundles are naturally equivalent categories. Hence their isomorphism classes identify with H¹_et(X,G). The scheme version is fpqc/fppf, with étale comparison for smooth G; do not transplant a scheme statement to an arbitrary adic space.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent
-TauCeti.BunG.StructureGroupAndTensorDescent
-Full theorem contract: For a morphism f:G→H of connected reductive E-groups, extending a G-bundle is precomposition by restriction Rep(H)→Rep(G); it agrees with contracted product of torsors, commutes with base change and respects identity/composition. Tensor isomorphisms descend effectively for étale covers. Reconstruction by any faithful rational representation with its defining tensors gives the same torsor.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G
-TauCeti.BunG.GIsocrystal
-Full definition contract: A G-isocrystal over L=breve E is an exact E-linear tensor functor Rep_E(G)→Isoc_E, with tensor isomorphisms as arrows. After trivializing its underlying L-fibre functor, Frobenius is bσ for b∈G(L). Steinberg triviality over L permits such a trivialization; it is a choice, not part of the definition.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-native-trivialized-frobenius-family. Over fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, RepresentativeTensor uses the actual native finite rational comodule category and scalar-extension fibre functor. It types σ-semilinear Frobenius components, explicit naturality/unit/tensor equations, linearization and native Tannakian reconstruction, a Groupoid of tensor intertwiners and all twisted conjugator arrows. These are the trivialized presentation, not another definition of linear isocrystals. VB0’s structured untrivialized exact category, its general local coefficients and the Steinberg trivialization comparison are still G08; the original full GIsocrystal API and Witt GL_n/slope tests remain unfulfilled.
-TauCeti.BunG.GIsocrystal.ofRepresentative — constructor: The object from b sends ρ to (Vρ⊗_E L,ρ(b)σ).
-TauCeti.BunG.GIsocrystal.forget — projection: Forget Frobenius to the underlying L-fibre functor; retain its tensor constraints.
-TauCeti.BunG.GIsocrystal.changeTrivialization — equivalence: A change g of trivialization identifies the representatives b and g b σ(g)^−1.
-TauCeti.BunG.GIsocrystal.map — functoriality: A group morphism carries b to f(b) and agrees with precomposition of rational representations.
-TauCeti.BunG.GIsocrystal.testGLn — example contract (compatibility): For GL_n with E=Q_p this agrees with finite-dimensional WittVector.Isocrystal over k=bar F_p, after fixing the coefficient identification.
-TauCeti.BunG.GIsocrystal.testUnit — example contract (degenerate): b=1 gives standard Frobenius on each representation.
-TauCeti.BunG.GIsocrystal.testTensorSlope — example contract (computation): For G_m representatives π^a and π^b, tensoring has slope a+b and duality has slope −a.
-
-TauCeti.BunG.RepresentativeTensor.coefficientSigma — constructor: For fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, coefficient Frobenius on L⊗_E M is the invertible σ-semilinear map σ⊗id_M, for every native finite rational H-comodule M.
-TauCeti.BunG.RepresentativeTensor.coefficientSigma_tmul — characterisation: Coefficient Frobenius sends a⊗m to σ(a)⊗m; the representation factor remains fixed.
-TauCeti.BunG.RepresentativeTensor.frobenius — constructor: For a native convolution point b:H→L, compose σ⊗id_M with Tau Ceti’s native point action ρ_M(b), obtaining an invertible σ-semilinear map on L⊗_E M.
-TauCeti.BunG.RepresentativeTensor.frobenius_apply — characterisation: The component formula is Φ_b,M(x)=ρ_M(b)((σ⊗id_M)(x)), with coefficient Frobenius applied first.
-TauCeti.BunG.RepresentativeTensor.tensorCombine — compatibility: Combine x∈L⊗_E M and y∈L⊗_E N using the inverse native base-change distribution isomorphism on x⊗_L y. The result lies in L⊗_E(M⊗_E N).
-TauCeti.BunG.RepresentativeTensor.Data — constructor: Trivialized Frobenius data on the fixed native scalar-extension fibre functor consist of invertible σ-semilinear components on every finite rational comodule, natural for comodule maps, taking a⊗1 in the tensor unit to σ(a)⊗1 and preserving tensorCombine. These are explicit equations; this presentation is not the untrivialized exact G-isocrystal definition.
-TauCeti.BunG.RepresentativeTensor.ofRepresentative — constructor: The family Φ_b,M=ρ_M(b)(σ⊗id_M) satisfies the naturality, unit and tensor equations of Data. Its underlying L-fibre functor is the native finite-comodule scalar-extension functor.
-TauCeti.BunG.RepresentativeTensor.linearized — constructor: Compose every component of Data with inverse coefficient Frobenius to obtain a native tensor automorphism of finite-comodule scalar extension.
-TauCeti.BunG.RepresentativeTensor.linearized_component — characterisation: The transported component of the linearized tensor automorphism at M sends x to Φ_M((σ⊗id_M)⁻¹x).
-TauCeti.BunG.RepresentativeTensor.reconstructedPoint — compatibility: Apply the inverse of Tau Ceti’s native field-valued Tannakian point/tensor-automorphism equivalence to the linearized family, reconstructing a genuine E-algebra point H→L.
-TauCeti.BunG.RepresentativeTensor.equivalence — equivalence: Representative points and trivialized Frobenius families are equivalent, with inverse reconstructedPoint. The inverse laws recover the point and the entire family, rather than only one faithful representation.
-TauCeti.BunG.RepresentativeTensor.Iso — constructor: An arrow between two trivialized families is a native tensor automorphism η of scalar extension satisfying η_MΦ_M=Ψ_Mη_M on every finite rational comodule.
-TauCeti.BunG.RepresentativeTensor.conjugatorEquiv — equivalence: All points g with c=g b σ(g)⁻¹ are equivalent to the Frobenius-compatible tensor arrows from ofRepresentative b to ofRepresentative c. The forward arrow is native Tannakian action by g; the inverse reconstructs g from the tensor arrow.
-TauCeti.BunG.RepresentativeTensor.changeTrivialization — equivalence: For b,g, the native tensor action by g gives a Frobenius-compatible arrow from the family of b to the family of g b σ(g)⁻¹.
-TauCeti.BunG.RepresentativeTensor.changeTrivialization_component — characterisation: The component of that arrow on L⊗_E M is exactly the native point action ρ_M(g), without an extra coefficient Frobenius.
-TauCeti.BunG.RepresentativeTensor.isoComp — functoriality: Compose a tensor arrow f:F→G with g:G→K by multiplying their native tensor automorphisms as g·f. This corresponds to the later conjugator on the left.
-TauCeti.BunG.RepresentativeTensor.isoRefl — constructor: The identity native tensor automorphism is the identity arrow on each trivialized Frobenius family.
-TauCeti.BunG.RepresentativeTensor.isoInv — constructor: The inverse native tensor automorphism reverses a Frobenius-compatible arrow. Together with isoComp and isoRefl these give a native Groupoid on Data.
-TauCeti.BunG.RepresentativeTensor.testSemilinearity — example contract (compatibility): For every representation M and a∈L, Φ_b,M(a x)=σ(a)Φ_b,M(x), rather than aΦ_b,M(x).
-TauCeti.BunG.RepresentativeTensor.testCoefficientUnit — example contract (degenerate): For b=1 and every native finite rational comodule, Φ_1,M(a⊗m)=σ(a)⊗m.
-TauCeti.BunG.RepresentativeTensor.testTensorFamily — example contract (compatibility): The component on M⊗N sends tensorCombine(x,y) to tensorCombine(Φ_M(x),Φ_N(y)) for arbitrary M,N.
-TauCeti.BunG.RepresentativeTensor.testNotLinear — example contract (non-example): If σ(a)≠a for some a∈L, no L-linear map on the scalar-extended tensor-unit representation agrees everywhere with its Frobenius component.
-TauCeti.BunG.RepresentativeTensor.testIntertwiner — example contract (compatibility): For b′=g b σ(g)⁻¹, the point action ρ_M(g) intertwines Φ_b,M and Φ_b′,M on every M.
-TauCeti.BunG.RepresentativeTensor.testArrowComposition — example contract (compatibility): For conjugators g:b→c and h:c→d, the composite tensor arrow acts as ρ_M(h g) on every representation; reversing the point multiplication order fails in noncommutative cases.
-TauCeti.BunG.RepresentativeTensor.testReconstruction — example contract (compatibility): Reconstructing a point from an arbitrary Data family and applying ofRepresentative recovers that entire family, including its coherence fields.
-
-BunGAndNewtonStrata:BG0/sigma-conjugacy-quotient
-TauCeti.BunG.SigmaClass
-Full definition contract: B(G)=G(L)/~ where b~bprime iff bprime=g b σ(g)^−1 for some g∈G(L). Here σ is arithmetic q-Frobenius fixing E and its uniformizer. This orbit quotient is the set of isomorphism classes of G-isocrystals; the groupoid itself retains automorphisms.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-affine-point-and-tensor-groupoid-interface. The native Hopf-point quotient and representative groupoid now compare by an actual category-equivalence signature with the whole trivialized Frobenius tensor family on finite rational comodules. Its arrows reconstruct the actual conjugator by native Tannaka duality. G_m and Witt-unit controls remain concrete. The untrivialized exact tensor G-isocrystal comparison and actual general local coefficient/Frobenius instantiation remain G08; this does not supply analytic bundle or v-stack signatures.
-TauCeti.BunG.SigmaClass.mk — constructor: Send b∈G(L) to its sigma class.
-TauCeti.BunG.SigmaClass.mk_eq_iff — characterisation: Two representative classes are equal precisely when a sigma conjugator exists.
-TauCeti.BunG.SigmaClass.map — functoriality: A σ-compatible group homomorphism gives B(G)→B(H), with identity and composition laws.
-TauCeti.BunG.SigmaClass.lift — universal-property: Every function on G(L) invariant under twisted conjugation descends uniquely to B(G).
-TauCeti.BunG.SigmaClass.affinePoints — compatibility: For a commutative coordinate Hopf algebra H over E and an E-algebra automorphism σ of L, specialize the quotient to the native convolution group of E-algebra maps H→L. Arithmetic B(G) uses the actual coefficient field and Frobenius supplied by VB0.
-TauCeti.BunG.SigmaClass.equiv — equivalence: A Frobenius-compatible group equivalence induces an equivalence of sigma-class quotients, carrying the class of b to the class of its image.
-TauCeti.BunG.SigmaClass.representativeGroupoid — constructor: Objects are elements b of the coefficient point group; arrows b→c are all g satisfying c=g b σ(g)^−1. The composite of g:b→c and h:c→d has conjugator h g, and inverses use g^−1.
-TauCeti.BunG.SigmaClass.representative_hom_iff — characterisation: A representative Hom is nonempty exactly when the two quotient classes agree; this does not make it a singleton.
-TauCeti.BunG.SigmaClass.representativeAut — compatibility: The native category-theoretic automorphism group of representative b identifies multiplicatively with its sigma-stabilizer. Mathlib’s Aut multiplication reverses categorical composition, matching the usual stabilizer multiplication.
-TauCeti.BunG.SigmaClass.gmEquiv — compatibility: The native Laurent-polynomial Hopf points equivalence identifies the split G_m sigma quotient with the quotient on L×, for any E-algebra automorphism of L.
-TauCeti.BunG.SigmaClass.wittGmSlopeEquiv — equivalence: For prime p and an algebraically closed field k of characteristic p, the units of FractionRing(WittVector p k), with native Witt Frobenius, have sigma-class quotient equivalent to Z. This is a concrete p-typical specialization, not the general-E supplier theorem.
-TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer — characterisation: In that Witt specialization, the class of p^m maps to m, for every integer m; the normalized valuation is Frobenius-invariant.
-TauCeti.BunG.SigmaClass.testGL1 — example contract (computation): For split G_m, valuation gives B(G_m)≅Z.
-TauCeti.BunG.SigmaClass.testIdentitySigma — example contract (compatibility): With σ the identity the orbit relation is ordinary conjugacy.
-TauCeti.BunG.SigmaClass.testCommutative — example contract (non-example): For an abelian group the relation is multiplication by g/σ(g), not equality unless σ is trivial.
-TauCeti.BunG.SigmaClass.testRepresentativeHom — example contract (compatibility): For representative objects b,c, equality of sigma classes is equivalent to existence of a conjugator arrow.
-TauCeti.BunG.SigmaClass.testRepresentativeComposition — example contract (compatibility): For arrows g:b→c and h:c→d, composition has conjugator h g; reversing this order is invalid in a noncommutative point group.
-TauCeti.BunG.SigmaClass.testRepresentativeAutomorphisms — example contract (non-example): With identity Frobenius and representative 1, the automorphism group is the entire point group, rather than the trivial group of a discrete quotient category.
-TauCeti.BunG.SigmaClass.testGmNativePoints — example contract (compatibility): The split G_m quotient equivalence sends a class represented by an actual Laurent-polynomial algebra map to the class of its corresponding unit.
-TauCeti.BunG.SigmaClass.testWittGL1 — example contract (computation): For the native Witt fraction field and every integer m, the class of p^m has slope m.
-TauCeti.BunG.SigmaClass.testWittGL1Unit — example contract (degenerate): The class of 1 in the Witt units quotient has slope zero.
-TauCeti.BunG.SigmaClass.testWittGL1Distinct — example contract (non-example): The classes of 1 and p in the Witt units quotient differ; replacing Frobenius or dropping the valuation normalization would miss this control.
-
-TauCeti.BunG.RepresentativeTensor.representativeFunctor — functoriality: Send each native twisted-conjugacy representative b to its whole Frobenius tensor family and every conjugator g to its native Tannakian tensor action.
-TauCeti.BunG.RepresentativeTensor.reconstructionFunctor — functoriality: Reconstruct both the native coefficient point and the actual conjugator of each Frobenius-compatible tensor arrow. Identity and composition agree with the representative groupoid.
-TauCeti.BunG.RepresentativeTensor.categoryEquivalence — equivalence: The native representative groupoid is equivalent to the Groupoid of trivialized Frobenius families on finite rational comodules. Comparison with untrivialized exact G-isocrystals still requires VB0’s structured category and Steinberg triviality.
-TauCeti.BunG.RepresentativeTensor.testRepresentativeFamily — example contract (compatibility): The forward category equivalence sends b to the family whose component on every native representation is ρ_M(b)(σ⊗id_M).
-
-BunGAndNewtonStrata:BG0/sigma-centralizer-J-b
-TauCeti.BunG.SigmaCentralizer
-Full construction contract: For b∈G(L), J_b is the reductive E-group representing A↦{g∈G(A⊗_E L):g b=b σ(g)}. Its L-base change is the centralizer M_b of ν_b. It is an inner form of the corresponding Levi in the quasi-split inner form G*, and is an inner form of G* precisely when b is basic. Descent uses the semilinear action Ad(b)σ on M_b.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-affine-point-functor-and-tensor-automorphisms. The actual group-valued functor on all commutative E-algebras and natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Native tensor automorphisms of the trivialized Frobenius family now identify multiplicatively with the point sigma-stabilizer, with component formulas on every representation. Reductive representation of this functor, Newton-Levi base change and untrivialized exact G-isocrystal comparison remain omitted.
-TauCeti.BunG.SigmaCentralizer.points — characterisation: For every E-algebra A, membership is exactly g b=b σ(g).
-TauCeti.BunG.SigmaCentralizer.baseChange — compatibility: J_b⊗_E L≅Z_(G_L)(ν_b), with the descended semilinear datum.
-TauCeti.BunG.SigmaCentralizer.conjugate — equivalence: For bprime=g b σ(g)^−1, h↦g h g^−1 induces J_b≅J_bprime.
-TauCeti.BunG.SigmaCentralizer.autIsocrystal — equivalence: J_b(E) is the tensor automorphism group of the G-isocrystal defined by b.
-TauCeti.BunG.SigmaCentralizer.functorOfPoints — functoriality: Retain the whole group-valued functor on commutative E-algebras A. Its coefficient group is the native convolution group of maps H→A⊗_E L; Frobenius acts as id_A⊗σ and b enters through the right tensor factor. An algebra map f:A→B acts by f⊗id_L.
-TauCeti.BunG.SigmaCentralizer.naturalConjugacy — equivalence: Changing b by g b σ(g)^−1 gives a natural isomorphism of these group-valued functors, whose component conjugates by the image of g in A⊗_E L. Representability and Levi descent remain additional contracts.
-TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply — characterisation: At every coefficient E-algebra A, the natural representative-change map sends h to g_A h g_A^−1, where g_A is the image of g in G(A⊗_E L). It uses g_A on both sides, rather than σ(g_A).
-TauCeti.BunG.SigmaCentralizer.testTrivial — example contract (degenerate): J_1(E)=G(E).
-TauCeti.BunG.SigmaCentralizer.testBasicGL2 — example contract (computation): For the simple GL_2 slope1/2 block, J_b(E)=A_(1/2)^×; two copies give GL_2(A_(1/2)). For the simple GL_3 slope1/3 block its division algebra has arithmetic invariant −1/3=2/3 mod Z, detecting the sign hidden by the half-slope case.
-TauCeti.BunG.SigmaCentralizer.testNonbasic — example contract (non-example): For GL_2 slopes0,1, the algebraic J_b is G_m×G_m, while the bundle automorphism v-group also has a positive-slope kernel.
-TauCeti.BunG.SigmaCentralizer.testCoefficientNaturality — example contract (compatibility): A coefficient map f:A→B sends an H-point by postcomposition with f⊗id_L, without changing the L factor.
-TauCeti.BunG.SigmaCentralizer.testFixedGroup — example contract (degenerate): For b=1 and every E-algebra A, the centralizer functor is exactly the id_A⊗σ-fixed subgroup of G(A⊗_E L). Arithmetic fixed-field descent to G(A) is a separate theorem.
-TauCeti.BunG.SigmaCentralizer.testIdentityFrobenius — example contract (non-example): If σ is replaced by the identity and b=1, the value at A is the entire coefficient point group. This control must not be mistaken for arithmetic fixed-field descent.
-
-TauCeti.BunG.RepresentativeTensor.tensorAut — compatibility: The native category-theoretic Aut group of ofRepresentative b identifies multiplicatively with the point sigma-stabilizer {g:g b=b σ(g)}. This is the tensor automorphism comparison on the trivialized presentation; reductive representability of J_b and untrivialized comparison remain additional contracts.
-TauCeti.BunG.RepresentativeTensor.tensorAut_component — characterisation: Every tensor automorphism has component equal to the native representation action of its reconstructed stabilizer point, for every finite rational comodule.
-TauCeti.BunG.RepresentativeTensor.testTensorStabilizer — example contract (compatibility): A tensor automorphism reconstructs a point satisfying g b=b σ(g), preserving the correct placement of Frobenius.
-TauCeti.BunG.RepresentativeTensor.testTensorIdentitySigma — example contract (non-example): At identity coefficient Frobenius and b=1, the tensor automorphism group is the entire native point group, rather than a trivial automorphism group of orbit classes.
-
-BunGAndNewtonStrata:BG0/sigma-centralizer-conjugacy
-TauCeti.BunG.SigmaCentralizerConjugacy
-Full lemma contract: If bprime=g b σ(g)^−1 then conjugation h↦g h g^−1 induces an E-group isomorphism J_b≅J_bprime and identifies their tensor automorphism actions. The transport is compatible with products of changes of trivialization.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-natural-point-functor-isomorphism. The native affine point-functor isomorphism now retains naturality on all coefficient E-algebras, in addition to the stabilizer equivalence. The reductive representing-group isomorphism and its tensor automorphism action still require the Newton/descent and concrete isocrystal suppliers.
-
-BunGAndNewtonStrata:BG0/decent-representative
-TauCeti.BunG.DecentRepresentative
-Full definition contract: For a positive integer r and b∈G(L), require rν_b to be integral and (bσ)^r=(rν_b)(π)σ^r in G(L)⋊<σ>. Equivalently b σ(b)⋯σ^(r−1)(b)=(rν_b)(π), exactly r factors. A decent representative admits finite unramified descent; the definition excludes r=0.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.DecentRepresentative.mk — constructor: Package b, r>0, integrality of rν_b and the r-factor equation.
-TauCeti.BunG.DecentRepresentative.equation — projection: Expose the semilinear power equation with the chosen uniformizer.
-TauCeti.BunG.DecentRepresentative.multiple — compatibility: A decent period r may be replaced by a positive multiple, with the matching integral slope.
-TauCeti.BunG.DecentRepresentative.finiteDescent — data: Supply the unramified degree-r coefficient field and descended b and Newton map.
-TauCeti.BunG.DecentRepresentative.testRankOne — example contract (computation): b=π^m has period1 and integral Newton point m.
-TauCeti.BunG.DecentRepresentative.testUnit — example contract (degenerate): b=1 has period1 and zero Newton point.
-TauCeti.BunG.DecentRepresentative.testPositivePeriod — example contract (non-example): The zero period is excluded, even though its empty-product equality is tautological.
-
-BunGAndNewtonStrata:BG0/existence-of-decent-representative
-TauCeti.BunG.ExistenceOfDecentRepresentative
-Full theorem contract: Every class of B(G) has a decent representative for some sufficiently divisible positive r. In the mixed-characteristic GLX setting r can be enlarged so G is quasi-split over E_r and the representative has the chosen dominant Newton map.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/defect
-TauCeti.BunG.Defect
-Full definition contract: For the connected reductive local group G and its algebraic sigma-centralizer J_b, def_G(b)=rank_E G−rank_E J_b as an integer. The ranks are split ranks over E, not absolute ranks over L and not dimensions of topological point groups.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.Defect.value — data: Return rank_E G−rank_E J_b in Z.
-TauCeti.BunG.Defect.conjugate — compatibility: Sigma conjugate representatives have equal defect.
-TauCeti.BunG.Defect.product — simp: Defect is additive for products of groups and classes.
-TauCeti.BunG.Defect.testUnit — example contract (degenerate): For split GL_n and b=1 the defect is0.
-TauCeti.BunG.Defect.testHalf — example contract (computation): For split GL_2 and simple slope1/2, ranks2 and1 give defect1.
-TauCeti.BunG.Defect.testSplitNonbasic — example contract (non-example): For split GL_2 slopes0,1, J_b is a split rank2 torus, so defect0 although b is nonbasic.
-
-BunGAndNewtonStrata:BG0/pure-inner-twisting
-TauCeti.BunG.PureInnerTwisting
-Full theorem contract: For a group sheaf H on a site and an H-torsor T, put H_T=Aut_H(T). The bitorsor T induces an equivalence between H-torsors and H_T-torsors by S↦Isom_H(S,T), with the inverse contracted product. Applied on the curve, this is an equivalence of the actual torsor groupoids, not just of isomorphism classes.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/basic-inner-form-bundle-equivalence
-TauCeti.BunG.BasicInnerFormBundleEquivalence
-Full theorem contract: For basic b, the curve group Aut_G(E_b) is J_b×_E X. Pure inner twisting therefore gives Bun_G≃Bun_(J_b), compatible with perfectoid base change and carrying E_b to the trivial J_b-bundle.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/division-algebra-morita
-TauCeti.BunG.DivisionAlgebraMorita
-Full comparison contract: For a simple isocrystal D(a,h) of slope λ=a/h, gcd(a,h)=1 and h>0, set A_λ=End_Φ(D(a,h)). Under the arithmetic Frobenius/Brauer convention of VB0, A_λ≅D_{−λ} has invariant −λ mod Z, and J_b≅A_λ^×. The associated bundle is O(−λ); the natural End comparison identifies A_λ with its endomorphism algebra. Twisting gives an equivalence between rank-h vector bundles and locally free rank-one right (A_λ⊗_E O_X)-modules via E↦Hom(E_b,E), with right action by precomposition. Its inverse is M↦M⊗_(A_λ⊗O_X)E_b, where E_b is a left A_λ-module. For m copies the automorphism group is GL_m(A_λ). This is a Morita/torsor equivalence.
-Hypotheses: The local field and arithmetic Frobenius conventions of VB0 apply; λ is the isocrystal slope, so the bundle slope is −λ. Right modules use Hom(E_b,E); the Hom(E,E_b) functor in FS Example III.4.4 uses left modules.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/levi-newton-formula
-TauCeti.BunG.LeviNewtonFormula
-Full theorem contract: For quasi-split G/Q_p and a rational standard Levi M, a basic class b_M with κ_M(b_M)=μ_M♯ has Newton point the corresponding element of (X_*(Z_M)⊗Q)^Γ. If μ_M and μ have the same image in π_1(G), its image in B(G) is acceptable for μ precisely when its G-dominant Newton point is bounded by μ◇. The M-dominant and G-dominant representatives can differ by a Weyl conjugation.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift
-TauCeti.BunG.MinusculeBasicLeviLift
-Full theorem contract: For a connected reductive G/Q_p, a rational Levi M containing a maximal torus T, a G-minuscule μ∈X_*(T), and basic b_M whose image lies in B(G,{μ}), some w in the absolute Weyl group W(G,T) makes b_M∈B(M,{wμ}). For quasi-split G the proof first treats unramified models, then replaces the based-root averaging datum by an unramified datum; the general case transports the rational Levi to G*.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/torus-special-pair
-TauCeti.BunG.TorusSpecial
-Full definition contract: For T⊂G a maximal torus over Q_p, an acceptable pair ([b],{μ}) is T-special if there exists μ_T∈X_*(T) in {μ} such that the unique class of B(T) with κ_T=[μ_T] maps to [b]. For tori admissibility is determined by κ, and the Newton point is the Galois average of μ_T. This packages local specialness, not a global CM point.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.TorusSpecial.mk — constructor: Package μ_T, its conjugacy class and its torus-class image equation.
-TauCeti.BunG.TorusSpecial.witness — projection: Recover μ_T and the B(T) class.
-TauCeti.BunG.TorusSpecial.newton — compatibility: The mapped class has Newton orbit the image of average(μ_T).
-TauCeti.BunG.TorusSpecial.ellipticBasic — constructor: For elliptic T a basic acceptable pair has a T-special witness.
-TauCeti.BunG.TorusSpecial.testSplitGL1 — example contract (computation): For G=T=G_m, μ=m gives the class of p^m.
-TauCeti.BunG.TorusSpecial.testZero — example contract (degenerate): The trivial class with μ=0 is T-special.
-TauCeti.BunG.TorusSpecial.testSplitTorus — example contract (non-example): For GL_2, the basic slope1/2 class cannot come from an integral cocharacter of the split diagonal torus; the ellipticity hypothesis matters.
-
-BunGAndNewtonStrata:BG1/elliptic-torus-basic-image
-TauCeti.BunG.EllipticTorusBasicImage
-Full theorem contract: If T⊂G is elliptic modulo Z(G), the image of B(T)→B(G) is exactly B(G)_basic. For every basic acceptable pair ([b],{μ}) and every μ_T∈X_*(T) in {μ}, the image of κ_T^−1([μ_T]) is [b]. Thus every such pair is T-special; this argument requires no minuscule hypothesis.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/transferred-torus-specialness
-TauCeti.BunG.TransferredTorusSpecialness
-Full theorem contract: Under a rational Newton witness, a G-minuscule acceptable pair and a rational transfer j:Tprime→M_[b] of a maximal torus of J_b, the pair is j(Tprime)-special. There is μ_Tprime in the prescribed geometric class whose Galois average equals the central morphism ν_(b,J). Such a transfer exists if G is quasi-split or Tprime is elliptic; geometric conjugacy alone is not a transfer.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/ordinary-class
-TauCeti.BunG.Ordinary
-Full definition contract: An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. For either characteristic, every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.Ordinary.isOrdinary — relation: Acceptability and equality of transferred Newton with μ◇.
-TauCeti.BunG.Ordinary.unique — characterisation: At most one acceptable class is ordinary.
-TauCeti.BunG.Ordinary.quasiSplitExists — universal-property: Quasi-split G admits the ordinary class.
-TauCeti.BunG.Ordinary.maximal — other: An ordinary class is the maximum of B(G,{μ}).
-TauCeti.BunG.Ordinary.derivedIsogeny — compatibility: A morphism inducing an isogeny on derived groups preserves ordinary existence and membership for compatible μ.
-TauCeti.BunG.Ordinary.testGL2 — example contract (computation): For split GL_2 μ=(1,0), slopes1,0 are ordinary and1/2,1/2 are not.
-TauCeti.BunG.Ordinary.testTorus — example contract (degenerate): The unique acceptable torus class is ordinary.
-TauCeti.BunG.Ordinary.testQuaternion — example contract (non-example): For G=D^× with invariant1/2 and geometric μ inverse=(0,−1), the acceptable set has its basic maximum but no ordinary member: after splitting/twisting the hypothetical slopes1/2,−1/2 each have multiplicity1, contrary to their denominator2.
-
-BunGAndNewtonStrata:BG1/acceptable-unique-maximum
-TauCeti.BunG.AcceptableUniqueMaximum
-Full theorem contract: For a connected reductive group G over any nonarchimedean local field E with finite residue field, and a geometric conjugacy class {μ}, B(G,{μ}) has a unique maximum for the fixed-integral-κ Newton order. It is ordinary exactly when its Newton point equals μ◇. The general-field assertion is derived from the characteristic-independent root-datum theorem HN18 Theorem1.1(1) and the local straight-class/invariant comparison; it is not attributed to HN18 Theorem0.1 outside that theorem’s p-adic scope.
-Hypotheses: G/E is connected reductive, E is a nonarchimedean local field of either characteristic, and {μ} is a geometric cocharacter conjugacy class. No quasi-split hypothesis. Use the actual local affine root datum and Frobenius action from RG2.4. Retain the full integral κ fibre while removing central inertia torsion for the numerical root-datum calculation.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/straight-weyl-classification
-TauCeti.BunG.StraightWeylClassification
-Full theorem contract: For the local Iwahori–Weyl group with its specified Frobenius and parahoric root datum, the map from σ-straight σ-conjugacy classes of Weyl elements to B(G) is a bijection and preserves κ and dominant Newton points. For w, choose n killing the finite Weyl/Frobenius action and write wσ(w)⋯σ^(n−1)(w)=t_λ; ν_w=λ/n. The straightness criterion is length(w)=<2ρ_Σ,ν_w^dom>. Generic affine Weyl groups, lengths and Adm(μ) belong to RG2.4.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/ordinary-straight-translation
-TauCeti.BunG.OrdinaryStraightTranslation
-Full theorem contract: Every ordinary class has a representative lifting a σ-straight translation t_μprime with μprime in the relative Weyl orbit of the projected μ. Such a translation has μprime central in the rational Newton Levi. If μprime=w(μ) with μ the projection of an absolute dominant cocharacter μtilde, the compatible absolute lift w(μtilde) is central in that Levi. The absolute/relative projection and Frobenius are part of the supplied root datum.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/ordinary-derived-isogeny
-TauCeti.BunG.OrdinaryDerivedIsogeny
-Full theorem contract: If f:G→Gprime induces an isogeny of derived groups and sends μ to μprime, the ordinary class exists for (G,μ) iff it exists for (Gprime,μprime). For b∈B(G,{μ}), b is ordinary iff f(b) is ordinary. The proof compares the noncentral root data and restores the central equality from acceptability.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy
-TauCeti.BunG.OrdinaryIntegralConjugacy
-Full theorem contract: In the KZ local setup with the specified connected parahoric model, if b is μ-ordinary and lies in the union of μ-admissible parahoric double cosets, b lies in the double coset of a σ-straight translation t_μprime for μprime in W_0μ. It is σ-conjugate to the chosen translation lift by an element of G(O_breveF). The claim is for elements satisfying the integral double-coset hypothesis, not every representative of the ordinary class.
-Hypotheses: Use KZ §2.1: F a nonarchimedean local field, connected reductive G/F, a σ-stable alcove, its Iwahori model I, and a specified connected parahoric model G_script with subgroup W_J. Require b to lie in both the μ-admissible parahoric double-coset union and the ordinary class. Here G_script(O_breveF) is the parahoric subgroup, not the rational points of G.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/product-and-unramified-norm
-TauCeti.BunG.ProductAndUnramifiedNorm
-Full comparison contract: B(G1×G2)=B(G1)×B(G2), compatibly with ν,κ,defect and acceptable bounds. For E/F unramified of degree d and G=Res_(E/F)H, after decomposing G(breveF) into d factors, Nm(b)=b_0 σ(b_1)⋯σ^(d−1)(b_(d−1)) gives B(G,σ)≅B(H,σ_E). The bound on H is the sum of the component cocharacters, with the chosen factor identifications. J_b^G≅Res_(E/F)J_Nm(b)^H and the F/E split-rank defects agree.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/basic-levi-fibre-uniqueness
-TauCeti.BunG.BasicLeviFibreUniqueness
-Full theorem contract: For a basic G-class and a σ-stable standard Levi, its intersection with the Levi has at most one Levi σ-conjugacy class. For a nonbasic G-class the corresponding uniqueness assertion is false; the Levi-dominant Newton vector can be a Weyl conjugate of the G-dominant vector and Levi κ must be checked separately.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/families-of-g-isocrystals
-TauCeti.BunG.GIsocrystalFamily
-Full definition contract: For a perfect F_q-algebra R, put L_R=R((t)) in equal characteristic and L_R=W_(O_E)(R)[1/π] in mixed characteristic. A family is a G-torsor on Spec L_R with a Frobenius descent isomorphism σ^*P≃P. This is a groupoid-valued prestack on perfect schemes; it is distinct from the geometric groupoid G-Isoc and from Bun_G on perfectoid spaces.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.GIsocrystalFamily.pullback — functoriality: Perfect-algebra maps pull back the torsor and Frobenius isomorphism, coherently.
-TauCeti.BunG.GIsocrystalFamily.ofLoopElement — constructor: A loop element b defines the trivial torsor with Frobenius bσ.
-TauCeti.BunG.GIsocrystalFamily.geometricClass — projection: A geometric point defines its class in B(G).
-TauCeti.BunG.GIsocrystalFamily.loopQuotient — equivalence: After v-stackification the moduli is LG/Ad_σ LG, using v-local triviality of the coefficient-ring torsor.
-TauCeti.BunG.GIsocrystalFamily.testField — example contract (compatibility): For R=bar F_q the geometric classes recover B(G).
-TauCeti.BunG.GIsocrystalFamily.testTrivial — example contract (degenerate): For G=1 the family groupoid is terminal.
-TauCeti.BunG.GIsocrystalFamily.testAutomorphisms — example contract (non-example): For a nonbasic GL_2 class its family automorphisms are J_b(E), not the full positive-kernel bundle automorphisms.
-
-BunGAndNewtonStrata:BG0/isocrystal-family-v-descent
-TauCeti.BunG.IsocrystalFamilyVDescent
-Full theorem contract: The G-isocrystal family prestack is a v-stack on perfect F_q-schemes. It has locally closed geometric-class strata indexed by B(G), each equivalent to [*/J_b(E)] for the locally profinite rational-point group. This is the family stack statement of FS I.2.1; the algebraic classifying stack [*/J_b] and the bundle stratum with its full automorphisms are different objects.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The full family v-stack signature remains omitted under G08. Three elaborated native Submodule/field-vector controls check E08/E09 only: stable over-lattices contain the shear coefficient, a nonintegral scaled coefficient violates a proposed bound, and an ambient invertible lift need not lie in the smaller tensor stabilizer. No analytic geometry or actual orbit-lifting theorem is supplied.
-
-Proof controls: E08 requires an initial Frobenius denominator d; the field-level rank-h bound is d(h−1). E09 requires lifting through the actual tensor automorphism orbit, not an ambient GL(H) section. These controls do not establish either full supplier theorem.
-
-BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy
-TauCeti.BunG.FamilyKottwitzLocalConstancy
-Full theorem contract: For an F_q-scheme S with a G-isocrystal family, the function s↦κ(E_s) in π_1(G)_Γ is locally constant. Perfectifying S preserves the relevant topology. Analytify the family to the curve and apply bundle κ-local-constancy; this establishes the routed FS III.2.8 assertion without assuming it in the family v-descent proof.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/abelianized-kottwitz-set
-TauCeti.BunG.AbelianizedClass
-Full definition contract: For E p-adic, B_ab(G)=H^1(W_E,[Gsc(L^sep)→G(L^sep)]) with the natural crossed-module action. The abelianization map comes from [1→G]→[Gsc→G]. A maximal torus complex [Tsc→T] and center complex [Zsc→Z] are homotopy-equivalent coefficient models, not replacements of G by an arbitrary abelian group.
-Hypotheses: E is p-adic; L^sep denotes a separable algebraic closure of L=breve E (the overline of breve E in FS), with its natural W_E-action. Continuous Weil cohomology uses these discrete coefficient groups, not only L-rational points.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.AbelianizedClass.abelianize — functoriality: Send a sigma class to its crossed-module H^1 class.
-TauCeti.BunG.AbelianizedClass.torusModel — equivalence: Replace the crossed module by [Tsc(L^sep)→T(L^sep)] for a maximal torus.
-TauCeti.BunG.AbelianizedClass.centerModel — equivalence: Replace it by [Zsc(L^sep)→Z(L^sep)].
-TauCeti.BunG.AbelianizedClass.map — functoriality: Reductive homomorphisms and compatible simply connected lifts induce the abelianized map.
-TauCeti.BunG.AbelianizedClass.testTorus — example contract (compatibility): For a torus Gsc=1, B_ab(T)=B(T).
-TauCeti.BunG.AbelianizedClass.testSLn — example contract (degenerate): For simply connected semisimple G the abelianized set is0.
-TauCeti.BunG.AbelianizedClass.testPGLn — example contract (computation): For split PGL_n, B_ab(G)=Z/n, which cannot be recovered by rationalization.
-
-BunGAndNewtonStrata:BG1/abelianization-identification
-TauCeti.BunG.AbelianizationIdentification
-Full theorem contract: For p-adic E there is a canonical B_ab(G)≅π_1(G)_Γ under which B(G)→B_ab(G) is κ. In a maximal-torus model this is coker(B(Tsc)→B(T)), using H^2(W_E,Tsc(L^sep))=0 and the torus Kottwitz descriptions.
-Hypotheses: E is p-adic; L^sep denotes a separable algebraic closure of L=breve E (the overline of breve E in FS), with its natural W_E-action. Continuous Weil cohomology uses these discrete coefficient groups, not only L-rational points.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/curve-etale-base-site
-TauCeti.BunG.CurveEtaleBase
-Full construction contract: For S∈Perf_k, define τ:(X_S)_et→S_et through (X_S)_et≅(X_S^diamond)_et≅(Div^1_S)_et and the projection Div^1×S→S. Equivalently τ* sends étale T/S to X_T/X_S. This is a site morphism; no geometric projection X_S→S is postulated.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.CurveEtaleBase.pullback — projection: On an étale T→S, τ* is X_T→X_S.
-TauCeti.BunG.CurveEtaleBase.baseChange — compatibility: The square for Sprime→S commutes up to the natural site equivalence.
-TauCeti.BunG.CurveEtaleBase.pushforward — universal-property: Use the induced adjoint sheaf pushforward and derived pushforward.
-TauCeti.BunG.CurveEtaleBase.constantComparison — functoriality: The structural E-map induces RΓ_et(Spa E,F)→Rτ*(F|X_S).
-TauCeti.BunG.CurveEtaleBase.testGeometric — example contract (compatibility): For geometric S, the comparison is the curve/local-field cohomology comparison.
-TauCeti.BunG.CurveEtaleBase.testTrivialSheaf — example contract (degenerate): The zero finite sheaf has zero derived pushforward.
-TauCeti.BunG.CurveEtaleBase.testCoproduct — example contract (compatibility): For T=S⊔S in S_et, τ*(T) is X_S⊔X_S over X_S, with the two inclusions preserved. This checks the actual inverse-image site functor.
-
-BunGAndNewtonStrata:BG2:uniformization/curve-torsion-cohomology
-TauCeti.BunG.CurveTorsionCohomology
-Full comparison contract: For p-adic E, S∈Perf_k and a locally constant finite abelian sheaf F on Spa(E)_et, Rτ*(F|X_S) is the constant complex RΓ_et(Spa E,F). For algebraically closed perfectoid C the comparison is an isomorphism in all degrees. Prime-to-p coefficients use Kummer and p coefficients use Artin–Schreier after tilting.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/diagonalizable-curve-cohomology
-TauCeti.BunG.DiagonalizableCurveCohomology
-Full comparison contract: For p-adic E and diagonalizable D/E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,D) is constant with value H^1(W_E,D(L^sep)). For algebraically closed perfectoid C, H^i(W_E,D(L^sep))≅H^i_et(X_C,D), 0≤i≤2. The natural map comes from the curve étale site to discrete W_E-sets. Use 1→D^0→D→π_0(D)→1 and retain all finite component contributions.
-Hypotheses: E is p-adic; L^sep denotes a separable algebraic closure of L=breve E (the overline of breve E in FS), with its natural W_E-action. Continuous Weil cohomology uses these discrete coefficient groups, not only L-rational points.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/crossed-module-curve-classes
-TauCeti.BunG.CrossedModuleCurveClasses
-Full theorem contract: For p-adic E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,[Gsc→G]) is constant with value B_ab(G). The comparison identifies the curve abelianization of a bundle with its κ class.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/bun-g-as-v-stack
-TauCeti.BunG.Bun
-Full construction contract: For S∈Perf_k, Bun_G(S) is the groupoid of G-bundles on X_S, with pullback along perfectoid maps. Effective v-descent for vector bundles and the rational tensor description make it a v-stack. On affinoid S the algebraic and adic curve descriptions agree by GAGA. The moduli keeps bundle isomorphisms, rather than quotienting them out.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.Bun.objects — projection: Evaluate to the G-bundle groupoid on X_S.
-TauCeti.BunG.Bun.pullback — functoriality: For T→S, the curve map X_T→X_S induces bundle pullback Bun_G(S)→Bun_G(T), with coherent identities and compositions.
-TauCeti.BunG.Bun.ofIsocrystal — constructor: An exact tensor G-isocrystal gives the constant bundle E_b on every X_S.
-TauCeti.BunG.Bun.isomSheaf — projection: The diagonal fibre is the v-sheaf Isom of two G-bundles.
-TauCeti.BunG.Bun.gaga — equivalence: For affinoid S compare algebraic and analytic curve torsor categories.
-TauCeti.BunG.Bun.pullback_id — simp: Pullback of G-bundles along id_S is naturally tensor-isomorphic to the identity functor, with its unit coherence.
-TauCeti.BunG.Bun.pullback_comp — compatibility: For U→T→S, pullback along the composite is naturally tensor-isomorphic to successive pullback, with the associativity coherence.
-TauCeti.BunG.Bun.testGLn — example contract (compatibility): For GL_n, objects are rank-n vector bundles with all bundle isomorphisms.
-TauCeti.BunG.Bun.testTrivial — example contract (degenerate): For G=1, Bun_G is the terminal v-stack.
-TauCeti.BunG.Bun.testNonbasicHom — example contract (non-example): For GL_2 slopes0,1, bundle automorphisms include positive-slope sections, so the isocrystal-to-bundle functor is not fully faithful on the ungraded categories.
-
-BunGAndNewtonStrata:BG2:uniformization/bun-g-smallness
-TauCeti.BunG.BunGSmallness
-Full theorem contract: Bun_G is a small v-stack. For an ω_1-cofiltered inverse system of affinoid perfectoids with limit S, Bun_G(S) is the filtered colimit of the groupoids Bun_G(S_i), and its Isom sheaves have the same limit property. Hence bundles and arrows descend to topologically countably generated coefficient algebras, giving a set-sized cover.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G
-TauCeti.BunG.PointsAreBOfG
-Full theorem contract: For complete algebraically closed nonarchimedean C/k, b↦E_b gives a bijection B(G)→Bun_G(C)/≅ and consequently B(G)≅|Bun_G|. The slope grading identifies isocrystals with HN-graded bundles; positive-slope H^1 vanishing splits the filtered tensor functor. It does not identify the ungraded groupoids or all their morphisms.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity
-TauCeti.BunG.HnSignAndSemicontinuity
-Full theorem contract: For E_b, its bundle HN class is ν_b*=w_0(−ν_b) and c_1(E_b)=−κ(b). The HN class ν* on |Bun_G| is upper semicontinuous: specialization can increase the upper-concave HN polygon. Detect the reductive order on rational representations using RR96 Lemma2.2 and VB4 relative semicontinuity.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/strictly-disconnected-torsors
-TauCeti.BunG.StrictlyDisconnectedTorsors
-Full theorem contract: Every pro-étale H-torsor on a strictly totally disconnected perfectoid S is trivial when H is a first-countable locally profinite group. Such torsors on arbitrary S are represented by perfectoid spaces as the inverse limit over compact open subgroups. First countability supplies the countable nested system used to choose compatible sections.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/geometrically-trivial-locus
-TauCeti.BunG.GeometricallyTrivialLocus
-Full theorem contract: Bun_G^1 is open and [*/G(E)]→Bun_G^1 is an equivalence, where G(E) has its locally profinite topology and torsors are pro-étale. Prove openness before κ-local-constancy: on strictly disconnected bases the ν=0 locus yields E-local systems; their continuous fibre functor is a reductive torsor over C^0(π_0S,E), whose triviality is open by henselian local rings.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting
-TauCeti.BunG.GrassmannianPointLifting
-Full lemma contract: For strictly totally disconnected S=Spa(R,R+) over Spa(E) and s∈S, Gr_G(R)→Gr_G(K(s)) is surjective. Split G after a finite field extension embedded in R, use the Cartan decomposition, and lift G(B_dR^+(K(s))) through successive nilpotent thickenings by smoothness and Lie algebra surjectivity.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/beauville-laszlo-surjectivity
-TauCeti.BunG.BeauvilleLaszloSurjectivity
-Full theorem contract: The modification map BL:Gr_G→Bun_G is a surjection of pro-étale stacks and hence of v-stacks. Over a geometric point and a chosen untilt, every G-bundle can be modified at its untilt point to a trivial bundle. Relatively, lift that modification on a strictly disconnected base and use the geometrically trivial open locus to trivialize it near the given point.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity
-TauCeti.BunG.CentralTorusGrassmannianSurjectivity
-Full lemma contract: For a central extension Gtilde→G with torus kernel Z, Gr_Gtilde→Gr_G is surjective as a v-sheaf. After a finite splitting extension, lift the dominant cocharacter through the split torus lattice sequence. The corresponding map of bounded Schubert closures is surjective on geometric points and quasicompact, hence a v-cover. Generic Schubert bounds and properness are imported from GS0.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/central-torus-bundle-surjectivity
-TauCeti.BunG.CentralTorusBundleSurjectivity
-Full lemma contract: For a central extension Gtilde→G with torus kernel Z, Bun_Gtilde→Bun_G is a v-surjection. Bun_Z acts by central tensor product and Bun_G is its quotient stack; the action is a quasi-torsor before surjectivity is proved.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/semicontinuity-and-local-constancy
-TauCeti.BunG.SemicontinuityAndLocalConstancy
-Full theorem contract: κ:|Bun_G|→π_1(G)_Γ is locally constant, with the discrete topology on its integral target. Together with HN semicontinuity this makes |Bun_G|→B(G) continuous for the Newton-order topology. The proof for every local E uses central-torus bundle surjectivity, z-extensions and induced tori; the crossed-module proof is a second proof for p-adic E.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign
-TauCeti.BunG.GrassmannianKottwitzSign
-Full comparison contract: For split G, GS0’s decomposition Gr_G=∐_(α∈π_1G) Gr_G^α has each component a filtered union of proper Schubert closures with [μ]=α. On the modification map, κ(BL(x))=−α. For nonsplit G, use geometric π_1 with Galois descent and then its Γ-coinvariant image in Bun_G. A component decomposition alone does not prove uniformization or bundle connectedness.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism
-TauCeti.BunG.NewtonTopologyHomeomorphism
-Full theorem contract: For every nonarchimedean local field E and connected reductive G/E, the geometric-class bijection |Bun_G|→B(G) is a homeomorphism for the topology whose closed subsets are upward closed in the fixed-κ Newton order. Equivalently, [b]≤[bprime] iff E_bprime lies in the closure of E_b. Mixed characteristic follows from Viehmann. In equal characteristic, combine the schematic closure theorem with the schematic/analytic topology comparison of Gleason–Ivanov–Zillinger; the comparison alone does not identify geometric specialization with the combinatorial order.
-Hypotheses: E is a nonarchimedean local field of either characteristic, with finite residue field; G/E is connected reductive, with no quasi-split or unramified hypothesis. Use GIZ26 arXiv v3: its §2 and Remark2.1 allow both characteristics. He16 §2.5 restricts the schematic closure discussion to equal characteristic; use Vie21 for the mixed-characteristic route.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/hn-graded-g-bundles
-TauCeti.BunG.HNGraded
-Full construction contract: Bun_G^(HN-split)(S) consists of exact rational tensor functors into Q-graded bundles on X_S with weight-λ piece everywhere semistable of bundle slope λ. For b, use the slope-reversed grading of E_b. Forgetting the grading lands in Bun_G. The graded automorphism group scheme is the constant curve group J_b×X_S.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.HNGraded.forget — functoriality: Forget grading to Bun_G.
-TauCeti.BunG.HNGraded.ofClass — constructor: E_b has its canonical Q-grading from the isocrystal, with slope reversal.
-TauCeti.BunG.HNGraded.automorphisms — characterisation: At a geometric point, graded automorphisms of E_b^gr are J_b(E). Over S, the automorphism v-sheaf is the constant locally profinite group sheaf J_b(E), with sections given by continuous maps |S|→J_b(E).
-TauCeti.BunG.HNGraded.classifying — equivalence: Bun_G^(HN-split)≃∐_(b∈B(G))[*/J_b(E)]. This equivalence uses HNGradedClassification.
-TauCeti.BunG.HNGraded.testGL2 — example contract (computation): For O⊕O(1), graded automorphisms are E××E×.
-TauCeti.BunG.HNGraded.testBasic — example contract (degenerate): For a basic object no positive grading-changing kernel occurs.
-TauCeti.BunG.HNGraded.testUngraded — example contract (non-example): For O⊕O(1), ungraded automorphisms also contain BC(O(1)), which grading removes.
-
-BunGAndNewtonStrata:BG3/hn-graded-classification
-TauCeti.BunG.HnGradedClassification
-Full theorem contract: The natural map ∐_b[*/J_b(E)]→Bun_G^(HN-split) is an equivalence. The graded fibre is locally isomorphic to E_b^gr and its Isom torsor is a J_b-bundle geometrically trivial at the chosen point; openness and locally profinite torsor triviality make it locally constant.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/filtered-automorphism-group-scheme
-TauCeti.BunG.FilteredAutomorphism
-Full construction contract: For a reductive G/K, scheme X/K and Q-filtered G-fibre functor E, let H=Aut_G(E), its inner group over X. For λ≥0, H^≥λ consists of automorphisms whose difference from1 raises every represented filtration by at least λ. H^≥0 is parabolic with unipotent radical H^>0; the groups are smooth, Lie H^≥λ=(ad E)^≥λ, and for λ>0 the quotient H^≥λ/H^>λ is the vector group (ad E)^≥λ/(ad E)^>λ.
-Hypotheses: The underlying functor is an exact K-linear tensor fibre functor for finite rational representations of a reductive G/K, associated to a G-torsor on X. The descending Q-filtration is exhaustive, separated and locally has finitely many jumps on each representation; its steps are subbundles with locally free graded pieces, and it is exact and tensor-compatible. Splitting is asserted on affine open charts, followed by étale trivialization of the smooth underlying torsor; no global splitting over an arbitrary scheme is assumed.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.FilteredAutomorphism.raising_iff — characterisation: For every rational representation and λprime, (γ−1)E^≥λprime⊂E^≥(λprime+λ).
-TauCeti.BunG.FilteredAutomorphism.parabolic — projection: H^≥0 is the filtration-preserving parabolic.
-TauCeti.BunG.FilteredAutomorphism.unipotent — projection: H^>0 is its unipotent radical.
-TauCeti.BunG.FilteredAutomorphism.graded — equivalence: For λ>0 the quotient is the stated additive vector group.
-TauCeti.BunG.FilteredAutomorphism.pullback — functoriality: Scheme pullback commutes with H, its filtration and vector-group quotients.
-TauCeti.BunG.FilteredAutomorphism.testGL2 — example contract (computation): For the two-step diagonal filtration the parabolic is triangular and the positive radical has one root line.
-TauCeti.BunG.FilteredAutomorphism.testTrivialFiltration — example contract (degenerate): For the trivial filtration H^≥0=H and H^>0=1.
-TauCeti.BunG.FilteredAutomorphism.testZeroWeight — example contract (non-example): At λ=0 the reductive Levi quotient is not generally an additive vector group.
-TauCeti.BunG.FilteredAutomorphism.localSplit — constructor: There is an affine open cover on which the filtered fibre functor splits; after an étale trivialization of its underlying torsor the splitting is a rational cocharacter D→G. This assertion is compatible with restriction and does not assert a global splitting on X.
-TauCeti.BunG.FilteredAutomorphism.testRationalJump — example contract (computation): For GL_2 with ordered basis of weights 0,3/2, H^≥0 is lower triangular and H^>0 is its one-dimensional lower unipotent radical. H^≥1/H^>1 is trivial, H^≥(3/2)/H^>(3/2) is G_a, and H^≥2 is trivial. Clearing denominator2 preserves these thresholds.
-TauCeti.BunG.FilteredAutomorphism.testNonAffine — example contract (non-example): On P^1_K, the Euler filtration 0→O(−1)→O^2→O(1)→0 defines a filtered GL_2 fibre functor with smooth underlying group, but no global splitting: O^2 is not O(−1)⊕O(1). It splits on affine opens. Thus the affine hypothesis cannot be dropped.
-
-BunGAndNewtonStrata:BG3/full-automorphism-v-group
-TauCeti.BunG.FullAutomorphism
-Full construction contract: For b, tildeJ_b(S)=Aut_(X_S)(E_b). Every automorphism preserves HN; its action on the associated graded gives a split exact sequence 1→tildeJ_b^>0→tildeJ_b→J_b(E)→1, with tildeJ_b=tildeJ_b^>0⋊J_b(E). For positive bundle slope λ the graded quotient is BC((ad E_b)^λ); it corresponds to the isocrystal slope −λ. The connected kernel is generally nonzero for nonbasic b.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.FullAutomorphism.projection — functoriality: Return the action on the HN graded object in J_b(E).
-TauCeti.BunG.FullAutomorphism.section — functoriality: The isocrystal automorphism action splits the projection.
-TauCeti.BunG.FullAutomorphism.kernel — characterisation: Kernel consists of strictly HN-raising automorphisms.
-TauCeti.BunG.FullAutomorphism.graded — equivalence: For λ>0, the filtration quotient is BC of the bundle-slope λ adjoint piece.
-TauCeti.BunG.FullAutomorphism.semidirect — equivalence: Identify tildeJ_b with its positive kernel semidirect J_b(E).
-TauCeti.BunG.FullAutomorphism.testGL2 — example contract (computation): Aut(O⊕O(1)) consists of invertible triangular matrices with diagonal E× and upper entry BC(O(1)).
-TauCeti.BunG.FullAutomorphism.testBasic — example contract (degenerate): For basic b all adjoint slopes are0, so the positive kernel is trivial.
-TauCeti.BunG.FullAutomorphism.testAlgebraicJ — example contract (non-example): For the nonbasic example J_b(E)=E××E× alone misses the upper triangular sections.
-
-BunGAndNewtonStrata:BG3/positive-automorphism-kernel
-TauCeti.BunG.PositiveAutomorphismKernel
-Full theorem contract: tildeJ_b^>0 is a successive extension of positive Banach–Colmez spaces, represented by a locally spatial diamond. For ℓ≠p it is cohomologically smooth of dimension sum_(λ>0) λ·rank((ad E_b)^λ)=<2ρ,ν_b>. Its connectedness identifies π_0 tildeJ_b=J_b(E). All dimensions use the isocrystal dominant ν_b with the slope reversal already incorporated.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/quasi-split-opposite-parabolic
-TauCeti.BunG.QuasiSplitOppositeParabolic
-Full comparison contract: For quasi-split G and a dominant rational ν_b, M_b=Z_G(ν_b), P_b^− is the parabolic with nonpositive ν_b weights. The curve group Q=E_(b_M)×^(M_b)P_b^− has tildeJ_b(S)=Q(X_S) and positive kernel Γ(X_S,R_uQ). The opposite sign reflects the slope-reversing isocrystal-to-bundle functor.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/semistable-locus-and-basic-strata
-TauCeti.BunG.Semistable
-Full construction contract: Bun_G^ss is the full substack where every geometric fibre has central Newton morphism. It is open; κ decomposes it into open and closed basic strata and Bun_G^ss≃∐_(b basic)[*/J_b(E)]. Each basic stratum is neutralized by its chosen E_b; the locally profinite topology on J_b(E) is retained.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.Semistable.mem_iff — characterisation: Every geometric Newton class is basic.
-TauCeti.BunG.Semistable.openImmersion — data: The inclusion Bun_G^ss→Bun_G is open.
-TauCeti.BunG.Semistable.basicDecomposition — equivalence: Decompose as the disjoint union of basic rational-point classifying stacks.
-TauCeti.BunG.Semistable.component — projection: The κ index identifies the basic summand.
-TauCeti.BunG.Semistable.testGL2Half — example contract (computation): The bundle of the basic slope1/2 block is semistable of bundle slope−1/2.
-TauCeti.BunG.Semistable.testTorus — example contract (degenerate): For a torus Bun_T is entirely semistable.
-TauCeti.BunG.Semistable.testUnstable — example contract (non-example): O⊕O(1) is not semistable.
-
-BunGAndNewtonStrata:BG3/torus-picard-stack
-TauCeti.BunG.TorusPicard
-Full construction contract: For a torus T, Bun_T is a Picard stack fitting into 0→[*/T(E)]→Bun_T→X_*(T)_Γ→0. Every κ-fibre is a T(E)-banded gerbe neutralized by a choice of representative b of its class. A multiplicative splitting exists when a group section of T(L)→B(T) is chosen, for example when B(T) is torsion-free. It is not asserted canonically for a torus with torsion coinvariants.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.TorusPicard.tensor — structure: Contracted product adds the κ classes.
-TauCeti.BunG.TorusPicard.kottwitz — functoriality: Bun_T→X_*(T)_Γ is a Picard-stack morphism.
-TauCeti.BunG.TorusPicard.fibre — equivalence: A chosen b of κ=β neutralizes the fibre as [*/T(E)].
-TauCeti.BunG.TorusPicard.splitOfSection — equivalence: A group section of T(L)→B(T) gives the Picard product decomposition.
-TauCeti.BunG.TorusPicard.testGm — example contract (computation): Line bundles form ∐_(d∈Z)[*/E×], with tensor product adding degrees.
-TauCeti.BunG.TorusPicard.testTrivial — example contract (degenerate): The trivial torus has the terminal Picard stack.
-TauCeti.BunG.TorusPicard.testTorsion — example contract (non-example): For the norm-one torus, the two κ fibres do not by themselves specify a canonical multiplicative splitting.
-
-BunGAndNewtonStrata:BG3/stratum-is-classifying-stack
-TauCeti.BunG.StratumIsClassifyingStack
-Full theorem contract: For every b, Bun_G^b is the locally closed full substack of bundles geometrically isomorphic to E_b and Bun_G^b≃[*/tildeJ_b]. The map to [*/J_b(E)] has the canonical section induced by the semidirect splitting. For basic b the kernel vanishes; for nonbasic b it must be retained.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/automorphism-torsor-reduction
-TauCeti.BunG.AutomorphismTorsorReduction
-Full lemma contract: Over affinoid perfectoid S, every tildeJ_b-torsor is induced from a J_b(E)-torsor and is representable in locally spatial diamonds; the reduction follows from H^1_v vanishing for the positive Banach–Colmez graded pieces. This is an existence of reduction, not a canonical equivalence of all torsor groupoids.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/stratum-dimension
-TauCeti.BunG.StratumDimension
-Full theorem contract: For ℓ≠p, Bun_G^b is a cohomologically smooth Artin v-stack of ℓ-dimension −<2ρ,ν_b>. The fibre over [*/J_b(E)] has the smooth cover * of relative dimension <2ρ,ν_b>; the rational-point classifying stack has dimension0.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:smooth-Artin/isom-sheaf-representability
-TauCeti.BunG.IsomSheafRepresentability
-Full theorem contract: For G-bundles E1,E2 over X_S, Isom_G(E1,E2) is a locally spatial diamond over S. For vector bundles the surjection locus and isomorphism locus are open subdiamonds of BC(E1∨⊗E2). For general reductive G, a Chevalley faithful representation with its stabilizer line presents Isom_G as finite closed compatibility conditions inside products of these linear Isom diamonds.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin
-TauCeti.BunG.BunGIsSmoothArtin
-Full theorem contract: For ℓ≠p, Bun_G is an ℓ-cohomologically smooth Artin v-stack of ℓ-dimension0. The disjoint union over Galois cocharacter orbits of [G(E)\Gr_(G,μbar)] maps to Bun_G by a separated cohomologically smooth surjection. These are open Schubert cells, not their generally singular closures.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:smooth-Artin/connected-components
-TauCeti.BunG.ConnectedComponents
-Full theorem contract: κ induces π_0(Bun_G)≅π_1(G)_Γ. Every nonempty open substack contains a basic point: restrict to a finite T_0 Newton region, take an open point, and compare the whole-stack dimension0 with the stratum dimension −<2ρ,ν_b> to force central ν_b.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/filtered-bundle-chart
-TauCeti.BunG.FilteredChart
-Full construction contract: M(S) consists of G-bundles E on X_S with an increasing, separated and exhaustive Q-filtration on every rational representation, exact and tensor-compatible, whose weight-λ graded piece is semistable of bundle slope λ. This is opposite to the decreasing HN filtration. The associated graded map to Bun_G^(HN-split) decomposes M=∐_b M_b and gives q_b:M_b→[*/J_b(E)] and π_b:M_b→Bun_G.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.FilteredChart.graded — functoriality: q_b records the graded J_b(E)-torsor.
-TauCeti.BunG.FilteredChart.forget — functoriality: π_b forgets the filtration.
-TauCeti.BunG.FilteredChart.split — constructor: A graded object gives the split filtered chart section.
-TauCeti.BunG.FilteredChart.pullback — functoriality: Pullback preserves filtration subbundles, exactness and graded slopes.
-TauCeti.BunG.FilteredChart.gradedFraming — constructor: tildeM_b=M_b×_[*/J_b(E)]* is the chart with a graded trivialization.
-TauCeti.BunG.FilteredChart.testGL2Extension — example contract (computation): For graded O and O(1), objects are 0→O→E→O(1)→0 and the framed chart is BC(O(−1)[1]).
-TauCeti.BunG.FilteredChart.testBasic — example contract (degenerate): For basic b there is one slope and M_b=[*/J_b(E)].
-TauCeti.BunG.FilteredChart.testOpposite — example contract (non-example): The HN filtration of O⊕O(1) begins with O(1); the chart extension filtration begins with O.
-
-BunGAndNewtonStrata:BG4/quasi-split-parabolic-chart
-TauCeti.BunG.QuasiSplitParabolicChart
-Full comparison contract: For quasi-split G and a rational dominant Newton representative, let M_b=Z_G(ν_b) and P_b be its parabolic with nonnegative ν_b weights. Then M_b(chart)=Bun_(P_b)×_(Bun_(M_b))Bun_(M_b)^(b_M), with the Levi basic summand identified as [*/J_b(E)]. Use the source’s positive Newton parabolic; it is opposite to the curve-HN automorphism parabolic.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/chart-over-classifying-stack
-TauCeti.BunG.ChartOverClassifyingStack
-Full theorem contract: q_b:M_b→[*/J_b(E)] is partially proper, representable in locally spatial diamonds, and ℓ-cohomologically smooth of relative dimension <2ρ,ν_b> for ℓ≠p. After graded framing it is a successive torsor under negative Banach–Colmez v-sheaves, namely H^1 of the negative curve-slope pieces of the opposite unipotent group. The framed v-sheaf itself is not an absolute diamond; its punctured complement is locally spatial, and the representability assertion is relative.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/section-and-spatial-complement
-TauCeti.BunG.SectionAndSpatialComplement
-Full theorem contract: The split section [*/J_b(E)]→M_b is closed and is exactly the locus whose underlying bundle is geometrically E_b. Its framed preimage is the origin. The open complement tildeM_b°=tildeM_b minus {origin} is a spatial diamond. The unsplit extensions satisfy [bprime]≤[b] and can be strictly smaller.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/contracting-chart-action
-TauCeti.BunG.ContractingChartAction
-Full theorem contract: For sufficiently divisible N>0, the central Newton morphism in J_b gives U_π=ν_(b,J)^N(π)∈J_b(E). It contracts the framed extension tower to the origin. On tildeM_b° the Z-action has the source’s escaping property and tildeM_b°/U_π^Z→* is proper. This is ordinary properness, not merely partial properness.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/chart-jacobian-positivity
-TauCeti.BunG.ChartJacobianPositivity
-Full lemma contract: After S→Bun_G corresponds to E, the fibre M×_(Bun_G)S is the open subfunctor of sections of E×^GFl→X_S having semistable graded pieces of their specified slopes. Fl is the disjoint union of projective filtration varieties. Along these sections its tangent bundle has a finite filtration with semistable positive-slope quotients, so the section lies in VS1’s cohomologically smooth locus.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/chart-to-bun-g
-TauCeti.BunG.ChartToBunG
-Full theorem contract: π_b:M_b→Bun_G is separated, partially proper, representable in locally spatial diamonds and ℓ-cohomologically smooth of relative dimension <2ρ,ν_b>. Its open image is exactly the points whose corresponding bundles specialize to E_b; in the fixed-κ order this is {[bprime]:[bprime]≤[b]}. The charts cover Bun_G, since every b lies in its own chart image.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG4/gl2-extension-chart
-TauCeti.BunG.Gl2ExtensionChart
-Full application contract: For graded bundle O⊕O(1), tildeM_b=BC(O(−1)[1]) parametrizes framed extensions 0→O→E→O(1)→0. E is either split or the simple rank2 slope1/2 bundle. The fibres of π_b are open subspaces of (BC(E) minus {0})/E× of nowhere-vanishing sections giving the prescribed quotient.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/finite-frobenius-norm-centralizer
-TauCeti.BunG.FiniteFrobeniusNormCentralizer
-Full comparison contract: For the degree-r unramified extension K_0/Q_p, δ∈G(K_0), σ^r=id, and γ=δσ(δ)⋯σ^(r−1)(δ), the algebraic twisted centralizer functor defined by δσ(g)=gδ becomes Z_G(γ) after base change to K_0. Extending the coefficient field from degree r to degree rn defines I_(p,n); after extension to L its centralizer is Z_G(γ^n). The norm of δ^n is not substituted for this iterated twisted product. This finite-period comparison is distinct from the infinite-coefficient Newton Levi J_δ.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-pointwise-core. These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage.
-
-BunGAndNewtonStrata:BG2:uniformization/modification-newton-bound
-TauCeti.BunG.ModificationNewtonBound
-Full theorem contract: For G/Q_p and any geometric cocharacter class μ, a geometric point of Gr_(G,μ) modifying the trivial bundle determines b∈B(G,{μ^−1}). For GL_n the bundle Newton tuple is dominated by its relative-position tuple with matching total degree; translate through ν_bundle=w_0(−ν_isocrystal). The full κ equality is μ^−1♯.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/minuscule-modification-image
-TauCeti.BunG.MinusculeModificationImage
-Full theorem contract: For minuscule μ over Q_p, the map from the flag variety Fℓ_(G,μ)≅Gr_(G,μ) to B(G,{μ^−1}) is surjective on geometric classes. This is stronger than the invariant containment for all μ and uses the Rapoport existence result recalled by CS17 Remark3.5.8.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/flag-newton-strata
-TauCeti.BunG.FlagNewton
-Full construction contract: For G/Q_p, minuscule μ and its reflex field E_μ, let Fℓ_(G,μ) be the adic/diamond flag variety and E(x) the modification of the trivial G-bundle at the untilt. Define Fℓ_(G,μ)^b as its fibre over Bun_G^b. The point map is independent of algebraically closed residue-field extension, is constant along rank-one generalization, and has image B(G,{μ^−1}).
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.FlagNewton.classAt — projection: Map a flag point to its bundle sigma class.
-TauCeti.BunG.FlagNewton.stratum — constructor: Take the locally closed fibre over Bun_G^b.
-TauCeti.BunG.FlagNewton.upperUnion — constructor: For b define the union over bprime≥b.
-TauCeti.BunG.FlagNewton.acceptableImage — characterisation: The image equals B(G,{μ^−1}).
-TauCeti.BunG.FlagNewton.baseChange — compatibility: Pullback along algebraically closed field extension preserves class and strata.
-TauCeti.BunG.FlagNewton.testGL2 — example contract (computation): For split GL_2 μ=(1,0), the inverse-bound ordinary stratum has slopes0,−1 and the basic stratum slopes−1/2,−1/2.
-TauCeti.BunG.FlagNewton.testCentral — example contract (degenerate): A central minuscule μ gives a zero-dimensional flag variety with its single acceptable class.
-TauCeti.BunG.FlagNewton.testSign — example contract (non-example): Using B(G,{μ}) instead of B(G,{μ^−1}) gives the wrong κ for the same CS modification.
-
-BunGAndNewtonStrata:BG3/flag-strata-semicontinuity
-TauCeti.BunG.FlagStrataSemicontinuity
-Full theorem contract: The flag Newton strata are locally closed and partially proper, their upper unions Fℓ^≥b are closed, and the basic stratum is open. The bundle HN polygon is upper semicontinuous under specialization, with κ fixed by μ^−1. CS17 Proposition3.5.7 prints lower semicontinuity; the retained E35 correction uses the upper-polygon and closed-upper-union convention.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/unitary-flag-stratum-dimension
-TauCeti.BunG.UnitaryFlagStratumDimension
-Full theorem contract: For the CS24 Section2.1 quasi-split unitary similitude datum on F^(2n) with its standard skew-hermitian form, self-dual O_F-lattice and signatures(n,n), at p unramified in F, let d=n²[F+:Q]. Its flag strata have Krull dimension d−d_b, where d_b=<2ρ,ν_b> is IG.0’s dimension of the corresponding Igusa variety. This is the specific unitary dimension statement of Theorem2.7.3, not a general dimension formula deduced solely from upper semicontinuity.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus
-TauCeti.BunG.UnitaryOrdinaryFlagLocus
-Full theorem contract: In the preceding unramified quasi-split CS24 unitary similitude datum, the reflex field is Q and the largest acceptable element is ordinary. Its flag stratum is Fℓ(Q_p), interpreted as the constant locally profinite rational-point diamond; hence its Krull dimension is0. The read original arguments identify the split/unramified cocharacter calculation and ambient Siegel rational-period criterion. Transport to this unramified unitary datum remains the exact PEL comparison in G07; the read CGH preprint assumes p splits completely.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/gl-minuscule-quasisplit-centralizer
-TauCeti.BunG.GlMinusculeQuasisplitCentralizer
-Full theorem contract: For GL_n over a p-adic field L and μ(t)=diag(t repeated n−q,1 repeated q), exactly one class in B(GL_n/L,{μ^−1}) has quasi-split J_b: the ordinary class diag(π^−1 repeated n−q,1 repeated q). The extension to the CS17 unramified restrictions of scalars uses the cocharacter supported at one noncentral embedding. No implication quasi-split J_b⇒ordinary is claimed for arbitrary reductive data.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/slope-protorus
-TauCeti.BunG.SlopeProtorus
-Full definition contract: Let D=D(Q) be the diagonalizable E-protorus with coordinate Hopf algebra E[Q], using the additive group Q. It is not a finite-type torus. A homomorphism D→G is a Hopf-compatible coordinate map O(G)→E[Q]. Its restriction on each finite rational representation gives rational weight subspaces, with only finitely many nonzero weights. Over a splitting field, Hom(D,T) is Hom(X*(T),Q), hence X_*(T)⊗Q for a finite-rank torus. A rational cocharacter need not be integral.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-diagonalizable-protorus-interface. The native commutative Hopf algebra E[Q], representation weights, finite denominator clearing, split-torus character-map equivalence and coordinate postcomposition are typed. The three tests evaluate or distinguish actual coordinate morphisms. Canonical comparison with arbitrary nonsplit tori and the full Newton morphism remain the reductive/local coefficient supplier contracts; no finite-type diagonalizable group category is incorrectly applied to Q.
-TauCeti.BunG.SlopeProtorus.weight — projection: For a representation comodule V and coordinate map ν:O(G)→E[Q], return the q-weight submodule of V obtained by native comodule corestriction.
-TauCeti.BunG.SlopeProtorus.integralMultiple — constructor: For a finite representation, choose a positive integer n such that n q is integral for every nonzero rational weight submodule. Finite support comes from the native diagonalizable weight theorem.
-TauCeti.BunG.SlopeProtorus.toTorus — equivalence: Over a splitting field, the coordinate maps E[X*(T)]→E[Q] identify with additive maps X*(T)→Q. For a finite free character lattice this identifies Hom(D,T) with X_*(T)⊗Q; a nonsplit descent comparison must preserve its Galois action.
-TauCeti.BunG.SlopeProtorus.map — functoriality: For G→H represented by O(H)→O(G), postcomposition of D→G is coordinate-map composition O(H)→O(G)→E[Q].
-TauCeti.BunG.SlopeProtorus.mem_weight — characterisation: A vector v lies in the q-weight submodule precisely when its corestricted coaction is v⊗[q].
-TauCeti.BunG.SlopeProtorus.finite_weights — characterisation: A finite representation has only finitely many nonzero rational weight submodules.
-TauCeti.BunG.SlopeProtorus.toTorus_generator — characterisation: The coordinate map associated to X*(T)→Q sends the group-like generator [m] to [ν(m)].
-TauCeti.BunG.SlopeProtorus.toMultiplicativeGroup — constructor: The rational slope q determines a coordinate map E[Z]→E[Q] sending [n] to [n q].
-TauCeti.BunG.SlopeProtorus.map_apply — compatibility: Coordinate-side postcomposition evaluates as the composite of the two bialgebra maps.
-TauCeti.BunG.SlopeProtorus.testHalf — example contract (computation): The actual half-slope coordinate map E[Z]→E[Q] sends the generator [2] to [1], detecting denominator clearing on Hopf algebra generators.
-TauCeti.BunG.SlopeProtorus.testZero — example contract (degenerate): The zero-slope coordinate map sends every [n] to the unit [0], giving the trivial group homomorphism.
-TauCeti.BunG.SlopeProtorus.testDenominator — example contract (non-example): The half-slope coordinate map differs from every integral-slope map E[Z]→E[Q], including slope one.
-
-BunGAndNewtonStrata:BG1/algebraic-fundamental-group
-TauCeti.BunG.AlgebraicPiOne
-Full definition contract: Use the integral algebraic fundamental group already supplied by upstream ReductiveGroups Part II RG2.1.5: π_1(G)=X_*(T)/ZΦ∨ with its Γ_E-action. BG’s notation AlgebraicPiOne is an import alias for this object, not a second coroot-quotient construction. Use its integral inertia and full Galois coinvariants, preserving torsion; import Weyl invariance, functorial maps and their Galois compatibility. Independence of a maximal-torus choice and canonical inner-twist transport require the specific comparison refinement stated in the supplier request.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: imported-upstream-signatures. The upstream suggested file defines the quotient from actual AbsoluteRootData and supplies its Galois action, inertia coinvariants and maps. BG does not restate those definitions. The pinned shared build does not expose this roadmap module as an import; the BG alias and canonical inner-twist comparison signatures remain omitted. This is an import of existing work, not a missing fundamental-group plan.
-TauCeti.BunG.AlgebraicPiOne.ofCocharacter — constructor: Reuse the upstream RG2.1.5 operation: Take the class of an integral cocharacter.
-TauCeti.BunG.AlgebraicPiOne.coinvariants — structure: Reuse the upstream RG2.1.5 operation: Form Γ- or I-coinvariants with the specified action.
-TauCeti.BunG.AlgebraicPiOne.map — functoriality: Reuse the upstream RG2.1.5 operation: A reductive group morphism induces the canonical homomorphism on π_1.
-TauCeti.BunG.AlgebraicPiOne.innerInvariant — equivalence: Use canonical Γ-module transport under inner twisting after importing the RG2.1 maximal-torus/inner-twist comparison refinement; existing fixed-datum signatures do not yet assert this comparison.
-TauCeti.BunG.AlgebraicPiOne.testGLn — example contract (computation): For GL_n with n≥1, reuse the upstream identification π_1≅Z by the sum of diagonal cocharacters; GL_0 instead has π_1=0.
-TauCeti.BunG.AlgebraicPiOne.testSLn — example contract (degenerate): For SL_n the coroot quotient is0.
-TauCeti.BunG.AlgebraicPiOne.testNormOne — example contract (non-example): The unramified quadratic norm-one torus has Γ-coinvariants Z/2; its rationalization loses its nonzero class.
-
-BunGAndNewtonStrata:BG1/newton-orbit-space
-TauCeti.BunG.NewtonSpace
-Full definition contract: N(G) is the Γ_E-fixed set of G(bar E)-conjugacy classes of D→G. For a quasi-split inner form G*, choose a rational Borel and torus and identify it with Γ-fixed dominant rational cocharacters. Define ν≤νprime when νprime−ν is a nonnegative rational combination of positive coroots in the chosen chamber; the central projection is consequently equal.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.NewtonSpace.dominant — characterisation: Choose the unique dominant representative in G*.
-TauCeti.BunG.NewtonSpace.le — relation: Positive-coroot dominance with equal central projection.
-TauCeti.BunG.NewtonSpace.delta — projection: Project to (π_1(G)⊗Q)^Γ.
-TauCeti.BunG.NewtonSpace.transfer — equivalence: An inner twisting transports Newton orbit classes, independently of its representative.
-TauCeti.BunG.NewtonSpace.testGL2 — example contract (computation): (1/2,1/2)≤(1,0), with equal total1.
-TauCeti.BunG.NewtonSpace.testTorus — example contract (degenerate): For a torus dominance is equality.
-TauCeti.BunG.NewtonSpace.testCentral — example contract (non-example): For G_m, 0 and1 are incomparable despite the usual rational-number inequality.
-
-BunGAndNewtonStrata:BG1/galois-average
-TauCeti.BunG.HodgeInvariants
-Full construction contract: For a geometric conjugacy class {μ}, choose its dominant representative μ* in a quasi-split inner form. Put μ♯=[μ*] in π_1(G)_Γ and μ◇=|Γ·μ*|^−1 sum over the finite orbit. The latter is dominant and Γ-fixed. Rational averaging gives (π_1(G)⊗Q)_Γ≅(π_1(G)⊗Q)^Γ and δ(μ◇)=average(μ♯⊗1); it is not an integral averaging isomorphism.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.HodgeInvariants.sharp — projection: Return the full integral Γ-coinvariant class.
-TauCeti.BunG.HodgeInvariants.diamond — projection: Return the rational dominant orbit average.
-TauCeti.BunG.HodgeInvariants.average_eq — compatibility: The rational projection of sharp is delta of diamond.
-TauCeti.BunG.HodgeInvariants.baseChange — functoriality: Restrict the Γ action and use the corresponding orbit average; ramified degree normalizations must be explicit.
-TauCeti.BunG.HodgeInvariants.testSplitGL2 — example contract (computation): For split GL_2 and μ=(1,0), μ◇=(1,0) and μ♯=1.
-TauCeti.BunG.HodgeInvariants.testUnit — example contract (degenerate): The zero cocharacter has both invariants0.
-TauCeti.BunG.HodgeInvariants.testTorsion — example contract (non-example): For the quadratic norm-one torus μ=1 has μ◇=0 and nonzero μ♯ in Z/2.
-
-BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps
-TauCeti.BunG.Invariants
-Full construction contract: There are functorial maps ν:B(G)→N(G) and κ:B(G)→π_1(G)_Γ. The Newton morphism is the slope grading in every rational representation. Import the representative homomorphism κ̃:G(L)→π_1(G)_I from upstream RG2.1.5, rather than reconstructing its torus and z-extension foundations here. Given its Frobenius equivariance, κ is its descent to sigma classes followed by integral Frobenius coinvariants. Their rational images agree: δ(ν_b)=average(κ(b)⊗1).
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract. The typed KottwitzDescent consumer interface takes an actual group G, an integral abelian group A, automorphisms σ and τ, and a supplied homomorphism with κ̃(σg)=τκ̃(g). It does not identify arbitrary such data with a reductive group over a local field.
-Formulation: typed-integral-kottwitz-descent-interface. KottwitzDescent types the actual sigma-class descent of a supplied Frobenius-equivariant homomorphism to native integral cyclic coinvariants, its uniqueness, surjectivity, naturality and abelian quotient equivalence. Identity/sign-action controls retain integral torsion. This consumer interface does not reconstruct upstream π_1 or κ̃. The general-E Newton morphism, local Frobenius-equivariance instantiation, successive inertia/Γ comparison and rational compatibility signatures remain G08; the original GL_n, bundle-sign and norm-one-torus examples are still required.
-TauCeti.BunG.Invariants.newton — projection: Evaluate the Newton class or its chosen dominant representative.
-TauCeti.BunG.Invariants.kottwitz — projection: Evaluate κ in integral Γ-coinvariants.
-TauCeti.BunG.Invariants.representativeKottwitz — projection: Evaluate the imported upstream κ̃ in integral inertia coinvariants before the σ quotient.
-TauCeti.BunG.Invariants.map — functoriality: Group morphisms commute with κ and with the induced conjugacy-class Newton map.
-TauCeti.BunG.Invariants.rationalCompatibility — compatibility: The δ/average square commutes; it does not recover torsion κ from ν.
-TauCeti.BunG.KottwitzDescent.cyclicRepresentation — constructor: For an integral abelian group A and additive automorphism τ, the multiplicativized integer n acts by the ℤ-linear automorphism τ^n.
-TauCeti.BunG.KottwitzDescent.cyclicRepresentation_generator — characterisation: The positive generator acts by τ, fixing the arithmetic Frobenius orientation.
-TauCeti.BunG.KottwitzDescent.Target — projection: Reuse native Representation.Coinvariants over ℤ for the cyclic action on A; retain torsion.
-TauCeti.BunG.KottwitzDescent.relationMap — constructor: The integral relation map is τ−id on the actual ℤ-module A.
-TauCeti.BunG.KottwitzDescent.ker_eq_range — characterisation: The native cyclic-action relation submodule equals the range of τ−id; no rationalization occurs.
-TauCeti.BunG.KottwitzDescent.Data — constructor: Supply a homomorphism G→Multiplicative A together with its explicit Frobenius-equivariance equation. Upstream owns its reductive-group construction.
-TauCeti.BunG.KottwitzDescent.representativeClass — projection: Project the supplied representative invariant to native integral Frobenius coinvariants.
-TauCeti.BunG.KottwitzDescent.representative_twisted — characterisation: For c=g b σ(g)⁻¹, the additive representative invariant is κ̃(b)+κ̃(g)−τκ̃(g).
-TauCeti.BunG.KottwitzDescent.representativeClass_twisted — compatibility: The native integral quotient kills the change κ̃(g)−τκ̃(g).
-TauCeti.BunG.KottwitzDescent.classKottwitz — constructor: Descend the supplied invariant to the actual SigmaClass quotient using twisted-conjugacy invariance.
-TauCeti.BunG.KottwitzDescent.classKottwitz_mk — characterisation: On the class represented by b, the descended map is the native coinvariant class of κ̃(b).
-TauCeti.BunG.KottwitzDescent.classKottwitz_unique — extensionality: A function on SigmaClass with the specified representative formula equals classKottwitz.
-TauCeti.BunG.KottwitzDescent.classKottwitz_surjective — compatibility: Surjectivity of the supplied representative homomorphism implies surjectivity on sigma classes; it is an explicit hypothesis.
-TauCeti.BunG.KottwitzDescent.intertwiner — functoriality: A ℤ-linear map intertwining τ and υ induces a native Representation.IntertwiningMap between their cyclic representations.
-TauCeti.BunG.KottwitzDescent.classKottwitz_natural — functoriality: A Frobenius-compatible point-group map and an integral intertwiner compatible with the supplied representative homomorphisms commute with the descended maps via native Coinvariants.map.
-TauCeti.BunG.KottwitzDescent.identityData — constructor: For Multiplicative A with Frobenius τ, the identity homomorphism supplies the representative invariant.
-TauCeti.BunG.KottwitzDescent.abelianEquiv — equivalence: The twisted-conjugacy quotient of Multiplicative A is equivalent to its native integral τ-coinvariants.
-TauCeti.BunG.KottwitzDescent.abelianEquiv_mk — characterisation: The abelian equivalence sends a represented element a to its native integral coinvariant class.
-TauCeti.BunG.KottwitzDescent.identityFrobeniusEquiv — equivalence: For identity Frobenius, the integral target is ℤ-linearly equivalent to A.
-TauCeti.BunG.KottwitzDescent.identityFrobeniusEquiv_mk — characterisation: The identity-action target equivalence sends the class of a to a.
-TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv — equivalence: For A=ℤ and τ(n)=−n, the native integral target is additively equivalent to ZMod 2.
-TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv_mk — characterisation: The sign-action equivalence sends the integral class of n to its parity in ZMod 2.
-TauCeti.BunG.Invariants.testGL1 — example contract (computation): b=π^m has ν=m and κ=m.
-TauCeti.BunG.Invariants.testSign — example contract (compatibility): Its associated line bundle is O(−m), so degree is −κ.
-TauCeti.BunG.Invariants.testTorsion — example contract (non-example): The two norm-one torus classes have equal Newton0 and distinct κ in Z/2.
-TauCeti.BunG.KottwitzDescent.testIdentityTarget — example contract (degenerate): With identity Frobenius and the identity representative map on Multiplicative A, the descended value of a is a.
-TauCeti.BunG.KottwitzDescent.testUnit — example contract (degenerate): For every supplied equivariant representative homomorphism, the class represented by 1 maps to zero.
-TauCeti.BunG.KottwitzDescent.testTwistedInvariant — example contract (compatibility): The classes represented by b and g b σ(g)⁻¹ have equal descended integral invariants.
-TauCeti.BunG.KottwitzDescent.testSignParity — example contract (computation): For sign Frobenius on Multiplicative ℤ, the actual twisted class of n maps to n modulo 2.
-TauCeti.BunG.KottwitzDescent.testSignDistinct — example contract (non-example): Under sign Frobenius, the twisted classes represented by 0 and 1 differ; rationalizing the target would lose this distinction.
-TauCeti.BunG.KottwitzDescent.testSignTwo — example contract (computation): Under sign Frobenius, the twisted classes represented by 2 and 0 agree.
-TauCeti.BunG.KottwitzDescent.testSignNotFixed — example contract (non-example): The sign-action coinvariant class of 1 is nonzero, whereas every fixed integer is zero; fixed points cannot replace coinvariants.
-
-BunGAndNewtonStrata:BG1/classification-by-two-invariants
-TauCeti.BunG.ClassificationByTwoInvariants
-Full theorem contract: The map (ν,κ):B(G)→N(G)×π_1(G)_Γ is injective. For basic classes, κ restricts to a bijection B(G)_basic≅π_1(G)_Γ; their Newton point is the central rational representative determined by κ⊗1. Injectivity of ν alone is false.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/basic-class
-TauCeti.BunG.Basic
-Full definition contract: A class is basic when its Newton morphism factors through Z(G), equivalently every adjoint representation slope is0. This definition applies to all connected reductive inner forms, independently of a rational representative choice.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.Basic.adjoint_iff — characterisation: Basic iff the adjoint isocrystal has slope0.
-TauCeti.BunG.Basic.ofKottwitz — constructor: Construct the unique basic class with a given integral κ.
-TauCeti.BunG.Basic.newton — projection: Its central rational slope is determined by κ⊗1.
-TauCeti.BunG.Basic.innerTransport — equivalence: Corresponding basic classes for inner forms have the same integral κ and transferred Newton point.
-TauCeti.BunG.Basic.testGL2Half — example contract (computation): The simple GL_2 slope1/2 class is basic.
-TauCeti.BunG.Basic.testTorus — example contract (degenerate): Every torus class is basic.
-TauCeti.BunG.Basic.testNonbasic — example contract (non-example): GL_2 with slopes1,0 is not basic.
-
-BunGAndNewtonStrata:BG1/partial-order-on-B-of-G
-TauCeti.BunG.NewtonOrder
-Full definition contract: Define [b]≤[c] iff κ(b)=κ(c) and ν_b≤ν_c in the coroot order on N(G). Classification by both invariants makes this a partial order. The ν-only relation in KMPS is a preorder across all of B(G), and becomes a partial order on each κ fibre.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.NewtonOrder.le_iff — characterisation: Expose the κ equality and Newton dominance.
-TauCeti.BunG.NewtonOrder.partialOrder — data: Reflexive, transitive and antisymmetric relation on B(G).
-TauCeti.BunG.NewtonOrder.basic_minimal — other: The basic class with κ=α lies below every class of κ=α.
-TauCeti.BunG.NewtonOrder.representationCriterion — characterisation: With κ fixed, dominance is equivalent to the Newton-polygon inequalities on every rational representation.
-TauCeti.BunG.NewtonOrder.testGL2 — example contract (computation): Basic slopes1/2,1/2 are below slopes1,0 in κ=1.
-TauCeti.BunG.NewtonOrder.testDifferentKappa — example contract (non-example): GL_1 classes0 and1 are incomparable.
-TauCeti.BunG.NewtonOrder.testTorsion — example contract (non-example): Distinct norm-one torus κ classes are incomparable although ν is0 for both.
-
-BunGAndNewtonStrata:BG1/representation-detects-dominance
-TauCeti.BunG.RepresentationDetectsDominance
-Full theorem contract: For Γ-invariant rational cocharacter classes, ν≤νprime iff for every rational representation the descending slope tuples have the corresponding positive-coroot majorization; totals agree. Basic classes are minimal among the classes with the same rational central projection. Passing to B(G) additionally requires equality of integral κ.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.; RR96 Lemma2.2 is stated in characteristic zero. The equal-characteristic target uses the explicitly requested highest-weight/exterior-power detection and finite-separable scalar-descent interface in G02; it is not claimed closed.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/admissible-pair
-TauCeti.BunG.Acceptable
-Full definition contract: For a geometric cocharacter class {μ}, set B(G,{μ})={ [b] : κ(b)=μ♯ and N_ξ(ν_b)≤μ◇ }. ξ is an inner twisting to the quasi-split form used for the dominant average. Both conditions are required. Acceptable describes the local invariant set; it does not assert existence of a period point or weak admissibility.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.Acceptable.mem_iff — characterisation: Membership is full κ equality and Newton bound.
-TauCeti.BunG.Acceptable.basic — constructor: The unique basic class of κ=μ♯ lies in B(G,{μ}).
-TauCeti.BunG.Acceptable.finite — other: The acceptable subset is finite.
-TauCeti.BunG.Acceptable.torus_iff — simp: For T, membership is κ_T(b)=μ♯; the Newton equality follows.
-TauCeti.BunG.Acceptable.product — equivalence: Acceptable sets for a product factor with the component bounds.
-TauCeti.BunG.Acceptable.testGL2 — example contract (computation): For split GL_2 and μ=(1,0), basic slopes1/2,1/2 and ordinary slopes1,0 occur.
-TauCeti.BunG.Acceptable.testZero — example contract (degenerate): B(G,{0}) contains exactly its basic class with κ=0.
-TauCeti.BunG.Acceptable.testTorsion — example contract (non-example): For the quadratic norm-one torus μ=1, only κ=1 mod2 is allowed, though both Newton points equal μ◇=0.
-
-BunGAndNewtonStrata:BG1/admissible-finiteness-and-basic
-TauCeti.BunG.AdmissibleFinitenessAndBasic
-Full theorem contract: B(G,{μ}) is finite and has exactly one basic member, characterized by κ=μ♯. That member is its minimum for the Newton order. For μ=0 it is the only member. For tori the whole acceptable set is this singleton.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/rational-newton-witness
-TauCeti.BunG.RationalNewtonWitness
-Full definition contract: A rational-Newton witness for [b] is an E-rational homomorphism ν_G([b]):D→G in the G(L)-conjugacy class of ν_b, with a specified conjugator. It exists when G is quasi-split or [b] is basic; the KMPS constructions that require it retain this hypothesis for general inner forms.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.RationalNewtonWitness.quasiSplit — constructor: Build the unique B-dominant rational representative for quasi-split G.
-TauCeti.BunG.RationalNewtonWitness.basic — constructor: A basic class has a central rational representative.
-TauCeti.BunG.RationalNewtonWitness.levi — projection: Return Z_G(ν_G([b])) as an E-defined Levi.
-TauCeti.BunG.RationalNewtonWitness.centralOnJ — projection: Transport the central Newton morphism to J_b, retaining the inner identification.
-TauCeti.BunG.RationalNewtonWitness.testSplitGL2 — example contract (computation): The slope1,0 map has the diagonal rational representative.
-TauCeti.BunG.RationalNewtonWitness.testBasic — example contract (degenerate): A basic witness centralizes all of G.
-TauCeti.BunG.RationalNewtonWitness.testInnerForm — example contract (non-example): An anisotropic inner form need not realize a noncentral geometric Newton orbit rationally.
-
-BunGAndNewtonStrata:BG1/torus-norm-description
-TauCeti.BunG.TorusNormDescription
-Full theorem contract: For a torus T/E, κ:B(T)≅X_*(T)_Γ and ν of the class κ^−1([λ]) is the rational Γ-average of λ. Kottwitz’s finite splitting-field norm construction gives a representative after choosing the splitting extension, the unramified coefficient field and the valuation normalization of its uniformizer; these choices do not change the resulting class.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/rational-kottwitz-surjectivity
-TauCeti.BunG.RationalKottwitzSurjectivity
-Full theorem contract: The restriction tildeκ:G(E)→(π_1(G)_I)^σ is surjective for connected reductive G over a finite extension E of Q_p. Its target is Frobenius invariants in inertia coinvariants, not π_1(G)_Γ. For the unramified Q_p model in Kisin17 Lemma4.6.4, J_b(Q_p)→π_1(G)^Γ is surjective for every b; the basic tame vH24 case also follows by inner-form compatibility and the rational quotient map.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.; For the G(E) surjectivity assertion, E is a finite extension of Q_p, as in Kot97 §7.7. The separate J_b(Q_p) statements retain the unramified Kisin and basic tame van Hoften hypotheses; no equal-characteristic rational-point surjectivity is asserted here.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/component-kottwitz-coset
-TauCeti.BunG.ComponentCoset
-Full construction contract: For b∈G(L) and a bound μ with compatible full κ, let c_(b,μ)={x∈π_1(G)_I:(σ−1)x=tildeκ(μ(π))−tildeκ(b)}. Compatibility in π_1(G)_Γ makes this a nonempty affine coset under (π_1(G)_I)^σ. This is an affine set of components, with no distinguished origin before a choice.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-pointwise-core. These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage.
-TauCeti.BunG.ComponentCoset.mem_iff — characterisation: A component x solves the stated difference equation.
-TauCeti.BunG.ComponentCoset.nonempty — universal-property: The Γ-coinvariant compatibility is equivalent to nonemptiness.
-TauCeti.BunG.ComponentCoset.translate — structure: Invariant classes act freely and transitively on the fibre.
-TauCeti.BunG.ComponentCoset.liftZExtension — other: Over a finite extension of Q_p, a z-extension and lifted b,μ give a surjective map of affine component cosets, using ZExtensionBoundedLifting with its p-adic scope.
-TauCeti.BunG.ComponentCoset.testIdentity — example contract (degenerate): For σ=id a nonempty coset requires difference0 and equals the entire lattice.
-TauCeti.BunG.ComponentCoset.testSign — example contract (computation): On Z with σ=−id, the equation −2x=2 has unique solution x=−1.
-TauCeti.BunG.ComponentCoset.testParity — example contract (non-example): On the same lattice difference1 has no solution; its full coinvariant compatibility fails.
-
-BunGAndNewtonStrata:BG1/z-extension-bounded-lifting
-TauCeti.BunG.ZExtensionBoundedLifting
-Full theorem contract: For E a finite extension of Q_p and a z-extension 1→Z→Gtilde→G→1 with induced torus Z, every cocharacter class μ lifts after choosing maximal tori. Given b∈B(G,{μ}) and a chosen lift μtilde, there is btilde∈B(Gtilde,{μtilde}) above b; the induced map of component cosets is surjective. Projection to the adjoint group gives B(G,{μ})≅B(Gad,{μad}) with the fixed central invariant.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.; The bounded-class, component-coset and adjoint acceptable-set conclusions are asserted in the p-adic scope of Kot97 §6.5 and GLX Lemma3.16. The generic z-extension definition is imported in its existing broader scope.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG1/connected-center-basic-inner-forms
-TauCeti.BunG.ConnectedCenterBasicInnerForms
-Full theorem contract: If Z(G) is a connected torus, B(G)_basic→B(Gad)_basic≅H^1(E,Gad) is surjective. The map sends a basic class to the inner form J_b. The assertion does not assume this surjectivity for groups with disconnected center.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG0/central-newton-on-J
-TauCeti.BunG.CentralNewtonOnJ
-Full construction contract: For every b∈G(L), the slope morphism ν_b, viewed in the center of its geometric centralizer, descends through the defining Frobenius descent datum to an E-rational central morphism ν_(b,J):D→J_b. No rational representative of ν_b inside G is needed. For a positive multiple N clearing its denominators, Nν_(b,J) is an integral cocharacter and U_π=(Nν_(b,J))(π) belongs to J_b(E).
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-TauCeti.BunG.CentralNewtonOnJ.morphism — data: Return the E-defined central D→J_b morphism.
-TauCeti.BunG.CentralNewtonOnJ.integralMultiple — constructor: For sufficiently divisible N>0 obtain an integral central cocharacter.
-TauCeti.BunG.CentralNewtonOnJ.transport — compatibility: Sigma conjugacy transports ν_(b,J) through the centralizer isomorphism.
-TauCeti.BunG.CentralNewtonOnJ.testBasicHalf — example contract (computation): For a simple GL_2 slope1/2 block, 2ν_(b,J) is the central scalar cocharacter of D_(1/2)^×.
-TauCeti.BunG.CentralNewtonOnJ.testUnit — example contract (degenerate): For b=1 the morphism is zero and U_π=1.
-TauCeti.BunG.CentralNewtonOnJ.testNonbasic — example contract (non-example): For GL_2 slopes1,0 it is central in J_b=G_m×G_m, while its image in GL_2 is noncentral.
-
-BunGAndNewtonStrata:BG1/general-levi-newton-comparison
-TauCeti.BunG.GeneralLeviNewtonComparison
-Full theorem contract: Let M_J be a σ-stable standard Levi of a quasi-split based local group G and let b_M∈M_J(L) map to b∈B(G). Its M_J-dominant Newton point ν_M is Weyl-conjugate to ν_G and ν_G−ν_M is a nonnegative rational sum of simple G-coroots. If κ_M(b_M)=κ_M(t^λσ(η)) in the situation of He §6.2, then λ◇−ν_M belongs to the rational span of the J-coroots. This comparison does not require b or b_M to be basic.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
-
-BunGAndNewtonStrata:BG2:uniformization/de-rham-quotient-group-class
-TauCeti.BunG.DeRhamQuotientGroupClass
-Full comparison contract: In Liu–Zhu Corollary4.9, the tensor functor has domain Rep_(Q_p)(G^c), where G^c=G/Z_G^s. At a classical point embedded into C_p, its de Rham comparison defines compatible B_dR^+ lattices. The Fargues tensor modification construction therefore gives a class in B(G^c_(Q_p)). Producing a class in B(G_(Q_p)) requires a chosen compatible lift or additional G-level tensor data. No canonical lift is claimed.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
+Owner interfaces and admitted constructions.
+
+The parameters gathered in `LocalDatum`, `ExactTensorCat`, `CurveSite`, `StackGeometry`,
+`SlopeFiltrations`, `GrassmannianInterface`, `EtaleSites`, `LocallyProfiniteTorsors`,
+`GroupSheafTorsors`, `IsocrystalFamilies`, `CrossedModuleCohomology`, `CurveCrossedModule` and
+`BunContext` are the owners' objects (gap G08 records their instantiation at the pins); the
+packet's requests name each owner stage. The prestack-valued constructions `Bun.stack`,
+`BunContext.substack`/`substackIncl`, `BunContext.diagonal`, `Bun.extendMap`, `HNGraded.stack`,
+`FullAutomorphism.stack`/`kernelStack`, `GIsocrystalFamily.stack`, the `FilteredChart` stacks and
+maps, and `GrassmannianInterface.mapOf`/`pointMap` are typed with admitted bodies, because their
+bodies are D0 stackification or D3 sub-prestack constructions; their objects are described by
+`Bun.stack_obj`, `BunContext.substack_obj` and the S-point types `BunContext.ObjWithClasses`,
+`HNGraded.Obj` and `FilteredChart.Obj`, which have real bodies.
 -/
