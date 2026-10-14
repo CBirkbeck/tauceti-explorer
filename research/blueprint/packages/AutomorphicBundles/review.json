@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-AutomorphicBundles",
-    "date": "2026-10-09",
-    "notes": "Independent review against both accepted packets, upstream form, source restrictions, ownership/link boundaries and pinned library statements. Restored hypotheses/constructions in nine README targets and added the precise Principle B citation. All 96 targets, 154 API specifications and 102 test specifications remain in the README; size 166600 bytes, own-word mathematical presentation, no programme process, and single-line math.NT metadata pass. lean-check exits 0 with 62 sorry-only warnings and no errors (active Mathlib-only code; unused Tau Ceti imports/checks are commented). Item 5 still fails target agreement: 129 of 154 planned API names have no active declaration, and geometric targets/theorems/tests remain a comment inventory; several active declarations are explicitly limited forgettings. Accepted target-pass signature gaps are acknowledged, but a name inventory is not the package declarations required by PROTOCOL sections 13/20. Completed needs_changes review; see REV-PKG-AutomorphicBundles report for exact evidence and revision steps."
+    "reviewer": "independent-review-REV-PKG-AutomorphicBundles~2",
+    "date": "2026-10-14",
+    "notes": "Completed independent fixing review of issue #7917. Read accepted packets, current upstream roadmaps/library, six new targets and three flagged inputs, 15 randomly sampled source targets, all-target adversarial pass and ten Lean signatures. Fixed Hodge-line duplication, generic supplier mappings, Hopf/generality scope, scalar cocycle source error, determinant convention, weight tests and binding Lean shape. Final lean-check exits 0 with 16 sorry-only warnings; no sorry data; packet and intake checks pass. Needs changes for two exact closure defects: missing rational Hodge\u2013Tate/VB, logarithmic comparison and dual-BGG constructions (B4.21/B5.20\u201322), and missing ramified Hilbert splitting-model boundary/formal coefficient suppliers (B4.15/B5.16\u201318/Hilbert B5.19). Conditional conclusions retained and gaps marked. The old active-API-count/200KB objections are superseded by the 2026-10-12 shape. See REV-PKG-AutomorphicBundles~2.md for evidence and repair contracts."
   }
 }
