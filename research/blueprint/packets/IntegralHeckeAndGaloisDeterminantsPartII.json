@@ -11,8 +11,8 @@
   "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6",
   "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7"
  ],
- "status": "partial",
- "summary": "This packet plans Integral Hecke actions, determinants and interpolation, Part II: ramified Hecke operators and local–global compatibility away from p, from §2.2.5 and §3 of Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne (Ann. of Math. 197, 2023; published numbering). IHR.1 defines the tame Iwahori levels Iw_{v,1} ⊆ I_v ⊆ Iw_v of GL_n(F_v), the tame torus quotient Ξ_v, the injective embedding t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O (Flicker's invertibility, extended to intermediate levels and integral coefficients), the normalized operators t_{v,i}(α) = q_v^{(i−1)v(α)}t([e_i(α)]), their elementary symmetric functions e_{v,i}, the characters ψ_{v,i} of W_{F_v} and the ramified Hecke polynomial P_{v,σ}(X) (2.2.8). IHR.2 proves Proposition 2.2.9: the tame principal series criterion, the centrality of the e_{v,i}, and that P_{v,σ} acts on π_v^{I_v} by the characteristic polynomial of rec^T(π_v)(σ), specializing to IHG.3's spherical P_v. IHR.3 transfers the operators to Siegel-parahoric levels q̃_v and unitary tame levels Ĩ_v̄ of U(n, n) at split places (Lemmas 2.2.10, 2.2.13, (2.2.11)–(2.2.12), (2.2.17)) and computes their Satake transforms (Propositions 2.2.18–2.2.19). IHR.4 defines the resultant Res_v, proves étaleness of factorizations away from it (Thorne) and Proposition 2.2.14 and Corollary 2.2.15. IHR.5 builds the commutative Hecke algebras T^T_R(K, λ) and T̃^T_R with their localization, Satake homomorphism, twisting, duality and level change. IHR.6 proves local–global compatibility at R for classical points, interpolates it with Scholze's method (Proposition 3.2.2) and extends it to RΓ and the boundary (Corollary 3.2.3). IHR.7 descends to GL_n: auxiliary characters, the decomposed unitary level, Lemma 3.2.1, the boundary determinant D′, the identification D|_{W_{F_v}} = E_v, unramifiedness at R^c − R, Proposition 3.1.2 and Theorem 3.1.1. Imported, never re-planned: IHG.0–IHG.5, ALS.0–ALS.6, SR.1–SR.3, TC.2–TC.4, PA.0 (Theorem 2.4.8), AG2.2/AG2.5, R01.2, ET.6 and Tau Ceti class field theory and Chebotarev; nineteen requests record the precise statements needed from them.",
+ "status": "complete",
+ "summary": "This packet plans Integral Hecke actions, determinants and interpolation, Part II: ramified Hecke operators and local–global compatibility away from p, from §2.2.5 and §3 of Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne (Ann. of Math. 197, 2023; published numbering). IHR.1 defines the tame Iwahori levels Iw_{v,1} ⊆ I_v ⊆ Iw_v of GL_n(F_v), the tame torus quotient Ξ_v, the injective embedding t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O (torus double cosets are invertible over ℤ[1/q_v] at every intermediate level, by descent from the pro-ℓ-Iwahori level), the normalized operators t_{v,i}(α) = q_v^{(i−1)v(α)}t([e_i(α)]), their elementary symmetric functions e_{v,i}, the characters ψ_{v,i} of W_{F_v} and the ramified Hecke polynomial P_{v,σ}(X) (2.2.8). IHR.2 proves Proposition 2.2.9: the tame principal series criterion, the centrality of the e_{v,i}, and that P_{v,σ} acts on π_v^{I_v} by the characteristic polynomial of rec^T(π_v)(σ), specializing to IHG.3's spherical P_v. IHR.3 transfers the operators to Siegel-parahoric levels q̃_v and unitary tame levels Ĩ_v̄ of U(n, n) at split places (Lemmas 2.2.10, 2.2.13, (2.2.11)–(2.2.12), (2.2.17)) and computes their Satake transforms (Propositions 2.2.18–2.2.19). IHR.4 defines the resultant Res_v, proves that the algebra of ordered factorizations is finite free and étale exactly away from it (Thorne) and Proposition 2.2.14 and Corollary 2.2.15. IHR.5 builds the commutative Hecke algebras T^T_R(K, λ) and T̃^T_R with their localization, Satake homomorphism, twisting, duality and level change. IHR.6 proves local–global compatibility at R for classical points, interpolates it with Scholze's method (Proposition 3.2.2) and extends it to RΓ and the boundary (Corollary 3.2.3). IHR.7 descends to GL_n: auxiliary characters (from the Grunwald–Wang theorem in odd order), the decomposed unitary level, Lemma 3.2.1, the boundary determinant D′, the identification D|_{W_{F_v}} = E_v, unramifiedness at R^c − R, Proposition 3.1.2 and Theorem 3.1.1. Imported, never re-planned: IHG.0–IHG.5, ALS.0–ALS.6, SR.1–SR.3, TC.2–TC.4, PA.0 (Theorem 2.4.8), AG2.2/AG2.5, R01.2, ET.6, the Grunwald–Wang theorem of ArithmeticGaloisDuality R02.4, and Tau Ceti class field theory and Chebotarev; twenty requests record the precise statements needed from them.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -170,6 +170,13 @@
     "module": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
     "provides": "The normalized map Kˣ →* Multiplicative ℤ for a field with ValuativeRel, a topology and IsNonarchimedeanLocalField (line 101); uniformizers have additive value 1. It already exists and is not a new Part II definition. The generic DVR prototype wraps Ring.ordFrac instead.",
     "checked": "Independently read at the pinned commit, 2026-10-10."
+   },
+   {
+    "ref": "mathlib:Algebra.etaleLocus",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Etale/Locus.lean",
+    "provides": "The set of primes q of an R-algebra A at which A is étale over R (A_q formally étale over R); used to state the étaleness of the factorization algebra exactly away from the resultant.",
+    "checked": "statement read at the pinned commit (line 40), 2026-10-14"
    }
   ]
  },
@@ -237,6 +244,18 @@
     "§3, Lemma 3.1, pp. 7–8 (parahoric inverse and convolution volume)"
    ],
    "reviewRead": "Published locators used by this packet independently checked on 2026-10-10; paraphrases only."
+  },
+  {
+   "id": "Con11",
+   "title": "Lifting global representations with local properties",
+   "authors": "Brian Conrad",
+   "edition": "Author manuscript, 11 December 2011 (37 pp.)",
+   "url": "https://virtualmath1.stanford.edu/~conrad/papers/locchar.pdf",
+   "sha256": "782fe71a3c7f26ccd67943d468f73540d384e2de5d474bf8369475b8b631d9bd",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "Appendix A, The Grunwald–Wang theorem: the definition of s_k, Definition A.1 (the special case), Remark A.2 and Proposition A.3, pp. 31–32"
+   ]
   }
  ],
  "sourceVersions": [
@@ -267,6 +286,13 @@
    "citation": "Thorne, arXiv:2207.04925v1",
    "read": "2026-10-09",
    "sha256": "3bfd478657a9f38c79580bcf7d4cb64dfd071fe25f18d99b752a12c370d0d3cd"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://virtualmath1.stanford.edu/~conrad/papers/locchar.pdf",
+   "citation": "Conrad, Lifting global representations with local properties (2011), author manuscript",
+   "read": "2026-10-14",
+   "sha256": "782fe71a3c7f26ccd67943d468f73540d384e2de5d474bf8369475b8b631d9bd"
   }
  ],
  "nodes": [
@@ -1108,20 +1134,22 @@
    ],
    "title": "The elementary symmetric operators are central (Proposition 2.2.9(2))",
    "kind": "theorem",
-   "statement": "For every tame Iwahori level I_v, α ∈ F_v^× and 0 ≤ i ≤ n, e_{v,i}(α) lies in the centre of H(GL_n(F_v), I_v) ⊗ O. Consequently, if π_v is an irreducible admissible Q̄_p[GL_n(F_v)]-module with π_v^{I_v} ≠ 0, each e_{v,i}(α) acts on π_v^{I_v} by a scalar e_{v,i}(α, π_v) ∈ Q̄_p, and e_{v,n}(α, π_v) ∈ Q̄_p^×. (ACC+ prints the scalar in Q̄_p^× for every i; for 0 < i < n it can vanish, see the sourceIssues.)",
+   "statement": "Let O be a commutative ring in which q_v is a unit. For every tame Iwahori level I_v, α ∈ F_v^× and 0 ≤ i ≤ n, e_{v,i}(α) lies in the centre of H(GL_n(F_v), I_v) ⊗ O. Consequently, if π_v is an irreducible admissible Q̄_p[GL_n(F_v)]-module with π_v^{I_v} ≠ 0 (p ≠ ℓ), each e_{v,i}(α) acts on π_v^{I_v} by a scalar e_{v,i}(α, π_v) ∈ Q̄_p, and e_{v,n}(α, π_v) ∈ Q̄_p^×. (ACC+ prints the scalar in Q̄_p^× for every i; for 0 < i < n it can vanish, see the sourceIssues.)",
    "hypotheses": [
-    "q_v ∈ O^×; O ⊂ Q̄_p a subring"
+    "q_v ∈ O^×; O any commutative ring (the arithmetic case is O ⊂ Q̄_p, the ring of integers of a finite extension of ℚ_p with p ≠ ℓ, and its quotients O/ϖ^m)"
    ],
    "proofSteps": [
     "At I_v = Iw_{v,1} with complex coefficients, Flicker's Bernstein presentation (Theorem 4.5) and Proposition 4.11 identify the centre with R_t^{W_f}, R_t = ℂ[T_n(F_v)/T_n(1+ϖ_vO)] embedded by the ρ-normalized θ.",
     "By tameOperator_eq_bernstein, t_{v,i}(α) = q_v^{(n−1)v(α)/2}θ_{e_i(α)} with a factor independent of i, so e_{v,i}(α) is q_v^{i(n−1)v(α)/2} times the i-th elementary symmetric function of θ_{e_1(α)}, …, θ_{e_n(α)}, which is S_n-invariant, hence central.",
     "For an intermediate level, after extending scalars to Q̄_p, H(GL_n(F_v), I_v) ⊗ Q̄_p ≅ e H(GL_n(F_v), Iw_{v,1}) ⊗ Q̄_p e with e the idempotent averaging over I_v/Iw_{v,1}, and t_{I_v}([x]) = e t_{Iw_{v,1}}([x]) e (same coset representatives); hence e^{I_v}_{v,i}(α) = e·e^{Iw_{v,1}}_{v,i}(α) is central.",
-    "Commutation identities between O-valued Hecke functions hold if they hold after extending scalars to Q̄_p, since H ⊗ O is O-torsion-free; so e_{v,i}(α) is central in H ⊗ O.",
+    "Base change: H(GL_n(F_v), I_v) ⊗ O = (H(GL_n(F_v), I_v) ⊗ ℤ[1/q_v]) ⊗_{ℤ[1/q_v]} O, the operators e_{v,i}(α) over O are the images of those over ℤ[1/q_v] (their coefficients lie in ℤ[1/q_v]), and the images of the double cosets span H ⊗ O over the central subring O; so centrality over ℤ[1/q_v] gives centrality over O. Over ℤ[1/q_v] ⊂ ℂ it follows from the complex case, H being free over ℤ.",
+    "Commutation identities between ℤ[1/q_v]-valued Hecke functions hold if they hold after extending scalars to ℂ, since H ⊗ ℤ[1/q_v] is torsion-free; this is the descent used in the previous step.",
     "π_v^{I_v} is a finite-dimensional simple H(GL_n(F_v), I_v) ⊗ Q̄_p-module (admissibility, SmoothRepresentationsOfLocalGroups SR.3, and the e_U-corner correspondence of SR.1), so central elements act by scalars; e_{v,n}(α) is a unit, so its scalar is nonzero."
    ],
    "acceptance": [
     "For n = 2, an unramified principal series with Frobenius eigenvalues a and −a on rec^T has e_{v,1}(ϖ_v, π_v) = 0.",
-    "For n = 1, e_{v,1}(α) = [I_v α I_v] is central in the commutative ring ℤ[F_v^×/I_v]."
+    "For n = 1, e_{v,1}(α) = [I_v α I_v] is central in the commutative ring ℤ[F_v^×/I_v].",
+    "Coefficients O = ℤ/ℓ' ℤ for a prime ℓ' ≠ ℓ: centrality holds, being the image of the statement over ℤ[1/q_v]; averaging over I_v/Iw_{v,1} is not used, so p dividing [I_v : Iw_{v,1}] causes no difficulty."
    ],
    "prerequisites": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-hecke-operators",
@@ -2098,12 +2126,14 @@
     "Compute relative differentials for the coefficient multiplication map: the square Jacobian is the Sylvester map and its determinant is the resultant, up to the harmless fixed sign from ordering bases. Its invertibility gives Ω_{B/A}=0 locally; finite freeness gives flatness, hence étaleness. A finite étale fibre is a product of finite separable fields, so its localization at a maximal ideal is the stated field. This uses relative differentials, not merely the ordinary maximal-ideal tangent space, which does not detect inseparability over a nonperfect field (Thorne §2, Proposition 2.3, pp. 5–6)."
    ],
    "acceptance": [
-    "n₁ = n₂ = 1, f = (X − a)(X − b) over κ = ℚ̄: B ⊗ κ = κ × κ when a ≠ b, and κ[ε]/(ε²) when a = b, where the resultant vanishes."
+    "n₁ = n₂ = 1, f = (X − a)(X − b) over κ = ℚ̄: B ⊗ κ = κ × κ when a ≠ b, and κ[ε]/(ε²) when a = b, where the resultant vanishes.",
+    "n₁ = n₂ = 1: resultant(X + a_1, X + b_1) = b_1 − a_1 (Mathlib's sign convention, resultant(X − x, X − y) = x − y), so the étale locus is the complement of the diagonal a_1 = b_1; B has rank binom(n, n₁) over A."
    ],
    "prerequisites": [
     "mathlib:Polynomial.resultant",
     "mathlib:Polynomial.isUnit_resultant_iff_isCoprime",
-    "mathlib:Polynomial.exists_mul_add_mul_eq_C_resultant"
+    "mathlib:Polynomial.exists_mul_add_mul_eq_C_resultant",
+    "mathlib:Algebra.etaleLocus"
    ],
    "sources": [
     {
@@ -2801,7 +2831,7 @@
    "kind": "theorem",
    "statement": "In the setting of IHR.5/unitary-ramified-hecke-algebra (with K̃ as there) fix a Frobenius lift φ_v ∈ W_{F_v} for each v ∈ R. Let π̃ be a cuspidal automorphic representation of G̃(A_{F⁺}), cohomological for an algebraic representation of G̃_ℂ, with (π̃^∞)^{K̃} ≠ 0; fix ι : Q̄_p ≅ ℂ, let T̃^T_R(π̃) be the image of T̃^T_R ⊗_O Q̄_p in End_{Q̄_p}(ι^{−1}(π̃^∞)^{K̃}), and let ρ : G_{F,S} → GL_{2n}(T̃^T_R(π̃)) be the composite of r_ι(π̃) : G_{F,S} → GL_{2n}(Q̄_p) (ACC+ Theorem 2.3.3) with GL_{2n}(Q̄_p) ⊂ GL_{2n}(T̃^T_R(π̃)). Then: (1) for v ∉ S the characteristic polynomial of ρ(Frob_v) is the image of P̃_v(X); (2) for v ∈ R and σ ∈ W_{F_v} the characteristic polynomial of ρ(σ) is the image of P̃_{v,σ}(X); (3) for v ∈ R − R^c and τ_v ∈ I_{F_v}, Res_v^{(2n)!}ρ((τ_v − 1)P_{v,φ_v}(φ_v)) = 0 in M_{2n}(T̃^T_R(π̃)). The images of P̃_v and P̃_{v,σ} lie in Q̄_p[X].",
    "hypotheses": [
-    "For each v∈R its residue characteristic splits in some imaginary quadratic subfield of F; that subfield may depend on v (Theorem 2.3.3(c), p. 936). F contains an imaginary quadratic field for the global representation theorem.",
+    "For each v∈R its residue characteristic splits in some imaginary quadratic subfield of F; that subfield may depend on v (Theorem 2.3.3(c), p. 936). F contains an imaginary quadratic field for the global representation theorem",
     "condition (3) is stated for v ∈ R − R^c (the printed R^c − R is a slip, sourceIssues)"
    ],
    "proofSteps": [
@@ -3217,18 +3247,24 @@
    ],
    "title": "Auxiliary characters separating the Frobenius eigenvalues at R",
    "kind": "theorem",
-   "statement": "Setting of ACC+ §3.1: F is a CM field containing an imaginary quadratic field, p a prime, E/ℚ_p finite containing the images of all embeddings of F, with ring of integers O, uniformizer ϖ and residue field k, and every p-adic place of F⁺ splits in F; K ⊂ GL_n(A_F^∞) is a good subgroup, λ ∈ (ℤ^n_+)^{Hom(F,E)}, and S is a finite set of finite places of F containing the p-adic ones with S = S^c and such that for every finite v ∉ S of residue characteristic l, either S contains no l-adic place and l is unramified in F, or l splits in an imaginary quadratic subfield of F. R ⊂ S is a set of places prime to p whose residue characteristics split in an imaginary quadratic subfield of F (so each v ∈ R is split over F⁺), with Iw_{v,1} ⊆ K_v ⊆ Iw_v for v ∈ R and K_v = GL_n(O_{F_v}) for v ∈ R^c − R; T = S − (R^c − R). Let 𝔪 ⊂ T^S(K, λ) be non-Eisenstein with residual representation ρ̄_𝔪 (IntegralHeckeAndGaloisDeterminants IHG.3) and fix Frobenius lifts φ_v (v ∈ R). After possibly enlarging O there are characters ψ_1, ψ_2 : G_F → O^× of finite order prime to p such that: both are unramified at every place of S; there is no rational prime above which both are ramified; and for i = 1, 2 and each v ∈ R the characteristic polynomials of (ρ̄_𝔪 ⊗ ψ̄_i)(φ_v) and ((ρ̄_𝔪 ⊗ ψ̄_i)^{c,∨} ⊗ ε̄^{1−2n})(φ_v) are coprime. Likewise there is ψ : G_F → O^× of finite prime-to-p order, unramified above R ∪ R^c ∪ S_p, such that for each v ∈ R the characteristic polynomials of ψ̄(Frob_v)ρ̄_𝔪(φ_v) and ψ̄(Frob_{v^c})^{−1}(ρ̄_𝔪 ⊕ ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v) are coprime.",
+   "statement": "Setting of ACC+ §3.1: F is a CM field containing an imaginary quadratic field, with maximal totally real subfield F⁺ and complex conjugation c; p is a prime such that every p-adic place of F⁺ splits in F; E/ℚ_p is finite, containing the images of all embeddings of F, with ring of integers O, uniformizer ϖ and residue field k; K ⊂ GL_n(A_F^∞) is a good subgroup and λ ∈ (ℤ^n_+)^{Hom(F,E)}; S is a finite set of finite places of F containing the p-adic ones with S = S^c and such that for every finite v ∉ S of residue characteristic l, either S contains no l-adic place and l is unramified in F, or l splits in an imaginary quadratic subfield of F; R ⊂ S is a set of places prime to p whose residue characteristics split in an imaginary quadratic subfield of F (so each v ∈ R lies over a place v̄ of F⁺ split in F); Iw_{v,1} ⊆ K_v ⊆ Iw_v for v ∈ R and K_v = GL_n(O_{F_v}) for v ∈ R^c − R; T = S − (R^c − R). Let 𝔪 ⊂ T^S(K, λ) be non-Eisenstein with residual representation ρ̄_𝔪 : G_{F,S} → GL_n(k̄) (IntegralHeckeAndGaloisDeterminants IHG.3, TorsionCohomologyInfrastructure TC.4), and fix Frobenius lifts φ_v ∈ W_{F_v} (v ∈ R). Then, after replacing E by a finite extension (so enlarging O and k), there are characters ψ_1, ψ_2 : G_F → O^× of finite order prime to p such that: (i) ψ_1 and ψ_2 are unramified at every place of S; (ii) there is no rational prime l such that both ψ_1 and ψ_2 are ramified at some place above l; (iii) for i = 1, 2 and every v ∈ R the characteristic polynomials of (ρ̄_𝔪 ⊗ ψ̄_i)(φ_v) and ((ρ̄_𝔪 ⊗ ψ̄_i)^{c,∨} ⊗ ε̄^{1−2n})(φ_v) are coprime. There is also a character ψ : G_F → O^× of finite order prime to p, unramified at every place of F lying above a rational prime below R ∪ R^c ∪ S_p (in particular at every place of R ∪ R^c ∪ S_p), such that for every v ∈ R the characteristic polynomials of ψ̄(Frob_v)ρ̄_𝔪(φ_v) and ψ̄(Frob_{v^c})^{−1}(ρ̄_𝔪 ⊕ ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v) are coprime. All three characters can be taken of the form χ|_{G_F} for a character χ : G_{F⁺} → μ_r(O) of order dividing a fixed odd prime r ≠ p with r > 4n²; such a ψ satisfies ψ^c = ψ.",
    "hypotheses": [
-    "ρ̄_𝔪 exists by Theorem 2.3.5 (TorsionCohomologyInfrastructure TC.4)"
+    "ρ̄_𝔪 exists by Theorem 2.3.5 (TorsionCohomologyInfrastructure TC.4); its Frobenius eigenvalues at the places of R are nonzero elements of k̄",
+    "Coprimality of two monic polynomials over the field k̄ means that they have no common root; the auxiliary prime r is chosen odd, different from p and larger than 4n², and E is enlarged to contain μ_r, so that reduction μ_r(O) → μ_r(k) is a bijection"
    ],
    "proofSteps": [
-    "Both coprimality conditions only require that the product ψ(Frob_v)ψ(Frob_{v^c}) avoid a finite subset Z_v ⊂ k̄^× (ratios of eigenvalues) for each v ∈ R.",
-    "Take ψ = χ|_{G_F} for a character χ of G_{F⁺} of odd prime order r with r ≠ p and r > max_v #Z_v: since v and v^c lie over the split place v̄, Frob_v and Frob_{v^c} both map to Frob_v̄, so ψ(Frob_v)ψ(Frob_{v^c}) = χ(Frob_v̄)²; squaring is a bijection of μ_r, and μ_r → k̄^× is injective because r ≠ p, so a suitable value of χ(Frob_v̄) avoids Z_v.",
-    "Missing input: for a number field L, finite set Σ of finite places, finite split-place prescription set V⊆Σ and an odd prime r≠p, construct a continuous μ_r-valued global Galois character unramified at Σ with specified unramified Frobenius values at V, allowing ramification outside Σ. This is an odd-order local-prescription (Grunwald-type) theorem. ClassFieldTheory layers 11–12 provide reciprocity and norm-subgroup existence, not this prescription theorem; Chebotarev layer 10 does not prove the required independence. The previous Kummer-independence sentence did not construct or prove it. Supply a precise source and proof/supplier contract before closing this node.",
-    "For ψ_2, add to S̄ the places above the primes where ψ_1 ramifies; for ψ, additionally require unramifiedness above R ∪ R^c ∪ S_p, which is part of the construction."
+    "Reduction to one value per place of F⁺. Let χ : G_{F⁺} → μ_r(O) be a continuous character and ψ = χ|_{G_F}. For v ∈ R the place v̄ splits, so F_v = F⁺_v̄ and the decomposition groups of v and of v^c both map onto that of v̄; if χ is unramified at v̄ then ψ is unramified at v and v^c with ψ(Frob_v) = ψ(Frob_{v^c}) = χ(Frob_v̄), and ψ^c(φ_v) = χ(cφ_vc) = χ(φ_v) because χ is a character of G_{F⁺}. Hence (ρ̄_𝔪 ⊗ ψ̄)(φ_v) has eigenvalues αχ̄(Frob_v̄) and ((ρ̄_𝔪 ⊗ ψ̄)^{c,∨} ⊗ ε̄^{1−2n})(φ_v) has eigenvalues βχ̄(Frob_v̄)^{−1}, where α runs over the eigenvalues of ρ̄_𝔪(φ_v) and β over those of (ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v). Condition (iii) at v is therefore χ̄(Frob_v̄)² ∉ Z_v := {β/α}, a subset of k̄^× with at most n² elements. In the same way the condition on ψ at v is χ̄(Frob_v̄)² ∉ Z′_v := {γ/α}, with γ running over the eigenvalues of (ρ̄_𝔪 ⊕ ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v); |Z′_v| ≤ 2n² and 1 ∈ Z′_v.",
+    "Choice of the Frobenius values. If v and v^c both lie in R they impose conditions on the same value χ(Frob_v̄); for each place v̄ of F⁺ below R let Z_v̄ be the union of the sets Z_w (respectively Z′_w) over the places w ∈ R above v̄, so |Z_v̄| ≤ 4n². Since r is odd, squaring is a bijection of μ_r(k), and since r ≠ p the reduction μ_r(O) → μ_r(k) is a bijection; as r > 4n² there is ζ_v̄ ∈ μ_r(O) with ζ̄_v̄² ∉ Z_v̄.",
+    "Global character with these local restrictions (Grunwald–Wang in odd order). Let Σ be a finite set of places of F⁺ containing the places below S. Prescribe local characters χ_w : G_{F⁺_w} → μ_r: for w a place below R, the unramified character with χ_w(Frob_w) = ζ_w; for every other w ∈ Σ, the trivial character. Their orders divide r, so the least common multiple n′ of their orders is 1 or r, which is odd; the special case of the Grunwald–Wang theorem requires 8 | n′ (Conrad, Definition A.1), so it does not occur, and ArithmeticGaloisDuality:R02.4/grunwald-wang (Conrad, Proposition A.3) gives a finite-order character χ : G_{F⁺} → ℂ^× of order n′ with χ|_{G_{F⁺_w}} = χ_w for every w ∈ Σ. Its values are r-th roots of unity; transport them to μ_r(O) by a fixed isomorphism μ_r(ℂ) ≅ μ_r(O). Passing between characters of G_{F⁺}^{ab} and idele class characters, and between unramified local characters and their values on uniformizers, uses the global reciprocity map and its compatibility with the local Artin maps (ClassFieldTheory layers 7, 11 and 12; uniformizers go to geometric Frobenius elements).",
+    "ψ_1: apply the previous step with the sets Z_w and Σ_1 = the places of F⁺ below S. Then ψ_1 = χ_1|_{G_F} has order dividing r (prime to p), is unramified at every place of S, and satisfies (iii) by the first step.",
+    "ψ_2: let L_1 be the finite set of rational primes l such that ψ_1 is ramified at some place above l, and apply the same step with Σ_2 = Σ_1 together with all places of F⁺ above the primes of L_1, prescribing the trivial character at the added places. Then ψ_2 = χ_2|_{G_F} is unramified at every place of F above a prime of L_1, so (ii) holds, and (i) and (iii) hold as for ψ_1.",
+    "ψ: apply the same step with the sets Z′_w and Σ = the places of F⁺ below S together with all places of F⁺ above the rational primes below R ∪ R^c ∪ S_p, prescribing the trivial character at the added places. Then ψ = χ|_{G_F} is unramified at every place above those primes and satisfies the coprimality condition by the first step; because 1 ∈ Z′_w, χ(Frob_v̄) ≠ 1 for every v̄ below R."
    ],
    "acceptance": [
-    "If ρ̄_𝔪(φ_v) and (ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v) already have coprime characteristic polynomials, ψ_i = 1 works for that condition."
+    "If ρ̄_𝔪(φ_v) and (ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v) already have coprime characteristic polynomials for every v ∈ R, then ψ_1 = ψ_2 = 1 satisfy (i)–(iii).",
+    "R = ∅: every condition at R is vacuous and the trivial characters work.",
+    "n = 1, ρ̄_𝔪 = 1, ε̄ trivial on φ_v: Z_v = {1} and Z′_v = {1}, so a character with χ(Frob_v̄)² ≠ 1, that is χ(Frob_v̄) ≠ 1, is needed; any r ≥ 5 with r ≠ p works.",
+    "Non-example for even order: with r = 2 squaring is not injective on μ_2, so prescribing χ(Frob_v̄) = −1 gives ψ(Frob_v)ψ(Frob_{v^c}) = 1 and cannot avoid Z′_v ∋ 1; this is why r is taken odd."
    ],
    "prerequisites": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-hecke-algebra",
@@ -3237,13 +3273,19 @@
     "TorsionCohomologyInfrastructure:TC.4",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+    "ArithmeticGaloisDuality:R02.4/grunwald-wang",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
    ],
    "sources": [
     {
      "sourceId": "ACC23",
      "locator": "§3.2, proof of Lemma 3.2.1, p. 956",
-     "match": "After possibly enlarging O there are characters ψ_1, ψ_2 of finite prime-to-p order, unramified at S, not both ramified at any rational prime, separating the characteristic polynomials at each v ∈ R; 'a very similar argument' gives ψ as in condition (3). No proof of existence is written."
+     "match": "After possibly enlarging O, ACC+ asserts characters ψ_1, ψ_2 of finite prime-to-p order, unramified at S, never both ramified above one rational prime, making the characteristic polynomials at each v ∈ R coprime after twisting; the character ψ of condition (3) is obtained by 'a very similar argument'. No construction is written (sourceIssues E17); the T_i of the proof add every place above a prime where ψ_i ramifies."
+    },
+    {
+     "sourceId": "Con11",
+     "locator": "Appendix A, Definition A.1 and Proposition A.3, pp. 31–32",
+     "match": "Proposition A.3: for a finite set of places of a global field and finite-order local characters at them, there is a finite-order global character restricting to each, of order the least common multiple n of their orders, unless the triple is in the special case of Definition A.1; the special case requires the 2-adic valuation of n to exceed s_k ≥ 2, so it never occurs for odd n."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3253,6 +3295,12 @@
    },
    "sourceItems": [
     "PAPER-ALLEN-ETAL-23/91"
+   ],
+   "uses": [
+    {
+     "where": "ACC+ Lemma 3.2.1, proof of reductions (2) and (3), p. 956",
+     "how": "the twists by ψ_1, ψ_2 and by ψ supply conditions (2) and (3) at levels K_i = ∏_v ker(ψ_i ∘ Art ∘ det|K_v), with T_i enlarged by the places above the primes where ψ_i ramifies"
+    }
    ]
   },
   {
@@ -3872,7 +3920,8 @@
    "need": "Art_{F_v} with the geometric normalization (uniformizers to geometric Frobenius elements, geometricArtinMap) and its unramified coordinate, so that α ↦ t_{v,i}(α) defines characters of W_{F_v}.",
    "neededBy": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-hecke-operators",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2/tame-local-langlands-charpoly"
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2/tame-local-langlands-charpoly",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters"
    ]
   },
   {
@@ -3893,16 +3942,15 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-   "need": "Global existence: open finite-index subgroups of the idele class group are norm groups of finite abelian extensions, so finite-order characters of G_{F⁺} correspond to finite-order idele class characters.",
+   "need": "Global existence and the global class-field correspondence for number fields: finite-order characters of G_{F⁺}^{ab} correspond to finite-order idele class characters, compatibly with the local Artin maps, so that the Grunwald–Wang character of ArithmeticGaloisDuality R02.4 (an idele class character) is a Galois character with the prescribed restrictions. The local-prescription existence itself is not asked of this layer: ClassFieldTheory leaves the Grunwald–Wang theorem out of scope.",
    "neededBy": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters"
    ]
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-   "need": "Dirichlet-density Chebotarev for finite Galois extensions of number fields: the conjugacy-saturated Frobenius set is dense for comparing continuous determinants. It does not by itself establish the independent local prescriptions in G1.",
+   "need": "Dirichlet-density Chebotarev for finite Galois extensions of number fields: the conjugacy-saturated Frobenius set is dense, which is how continuous determinants are compared (Chenevier's Lemma 1.12) in the reduction steps of Lemma 3.2.1.",
    "neededBy": [
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction"
    ]
   },
@@ -3913,6 +3961,13 @@
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/compact-support-compatibility",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction"
    ]
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:R02.4",
+   "need": "The odd-order case of 'Grunwald–Wang with its exact dyadic obstruction' (node ArithmeticGaloisDuality:R02.4/grunwald-wang, accepted): for the number field F⁺, a finite set Σ of places and local characters χ_w of order dividing an odd prime r (unramified with a prescribed value on a uniformizer at the places below R, trivial at the other places of Σ), a global finite-order character of order dividing r restricting to each χ_w. Since the special case needs 8 | n, no obstruction arises; the dyadic places of Σ may be present. Consumed as stated; nothing beyond the accepted node is asked.",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters"
+   ]
   }
  ],
  "coverage": [
@@ -3921,7 +3976,7 @@
    "status": "planned",
    "remaining": [
     "SR.1's integral Lemmas 2.1.12–2.1.13 and Tau Ceti ClassFieldTheory layers 7 and 9 are requested; torus invertibility descends integrally from the pro-ℓ-Iwahori algebra, without a Weyl presentation at arbitrary intermediate levels.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
+    "The suggested file states every IHR.1 declaration whose carriers exist at the pins; the API items that need smooth modules and their invariants, ALS.4's Satake map or q_v^{1/2} (tameEmbedding_restrict_level, tameEmbedding_satake, tameEmbedding_iwahori, tameOperator_eq_bernstein, tameOperator_central_character, ramifiedHeckePoly_restrict_level, ramifiedHeckePoly_steinberg, ramifiedHeckePoly_spherical) are targets of the roadmap document only, listed by name in the file's closing comment."
    ]
   },
   {
@@ -3929,7 +3984,7 @@
    "status": "planned",
    "remaining": [
     "Requests to SR.1–SR.3 (Jacquet's lemma in the Bushnell–Kutzko form, supercuspidal support, universal unramified twist) and ET.6 (rec^T, Steinberg parameters, supercuspidal support) remain open; the universal-unramified-twist density argument is the first lemma-level refinement.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
+    "Only IHR.2/tame-hecke-centre is statable at the pins and is in the suggested file; the principal series criterion, the local Langlands identity and the spherical specialization need admissible representations, parabolic induction and rec^T and are document targets."
    ]
   },
   {
@@ -3937,7 +3992,7 @@
    "status": "planned",
    "remaining": [
     "Requests to TC.3 (Siegel datum ι_v and Proposition 2.2.16) and IHG.3 (unramified Weil-group polynomials P_{v,σ}) remain open; the Satake computations of Propositions 2.2.18–2.2.19 are planned as single nodes and split into the v and v^c coordinate computations at lemma level.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
+    "The suggested file states the Siegel and unitary tame levels, their Iwahori decompositions with respect to the Siegel parabolic, Lemma 2.2.10 and the operators and polynomials on the GL_{2n}(F_v) side of ι_v; statements needing ι_{v^c}, the parabolic Satake map or admissible representations of G̃ are document targets."
    ]
   },
   {
@@ -3945,7 +4000,7 @@
    "status": "planned",
    "remaining": [
     "Proposition 2.2.14 rests on ET.6's Langlands classification for tamely ramified principal-series support; its root bookkeeping (with the correction of IntegralHeckeAndGaloisDeterminantsPartII/E9) is the first lemma-level refinement.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
+    "The suggested file states the resultant API, the factorization algebra over ℤ with its finite freeness and its étale locus, and the linear algebra behind Corollary 2.2.15; Proposition 2.2.14, Corollary 2.2.15 and the Satake image of Res_v need rec^T, Weil–Deligne representations or the Satake map and are document targets."
    ]
   },
   {
@@ -3953,7 +4008,7 @@
    "status": "planned",
    "remaining": [
     "Requests to ALS.5:finite-level-duality (adjoint duality at the places of R) and SR.1 remain open; the equivariant action of the tame operators on the relative complexes RΓ_{K/K′}(X_{K′}) is planned inside IHR.5/ramified-level-change and becomes its own lemma at lemma level.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
+    "Every IHR.5 declaration needs adelic Hecke algebras, the complexes RΓ(X_K, 𝒱_λ) and derived Hecke images, which are not at the pins; they are document targets, listed by name in the suggested file's closing comment."
    ]
   },
   {
@@ -3961,50 +4016,19 @@
    "status": "planned",
    "remaining": [
     "Requests to TC.2 (Scholze's comparison for the full prime-to-p Hecke algebra), AG2.2/AG2.5 (Theorem 2.3.3) and IHG.2 (Hecke images of an exact triangle) remain open.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
+    "Every IHR.6 declaration needs Chenevier determinants, G_{F,S} with Frobenius elements and automorphic Galois representations, which are not at the pins; they are document targets, listed by name in the suggested file's closing comment."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "Requests to TC.4 (Theorems 2.3.5 and 2.3.7), IHG.1 (Lemma 3.2.4) and Tau Ceti ClassFieldTheory/Chebotarev remain open; the import of Theorem 2.4.8 from PotentialAutomorphyInfrastructure PA.0 is subject to the restructure proposal recorded in this packet.",
-    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2).",
-    "G1: odd-prime-order global characters with prescribed unramified local values, needed by auxiliary-characters and all downstream descent targets, are not proved by the cited ClassFieldTheory/Chebotarev layers."
+    "Requests to TC.4 (Theorems 2.3.5 and 2.3.7), IHG.1 (Lemma 3.2.4), ArithmeticGaloisDuality R02.4 (Grunwald–Wang in odd order, an accepted node) and Tau Ceti ClassFieldTheory/Chebotarev remain open; the import of Theorem 2.4.8 from PotentialAutomorphyInfrastructure PA.0 is subject to the restructure proposal recorded in this packet.",
+    "Only the matrix form of E_v (weilDeterminant with its characteristic polynomial, determinant, twist and coefficient change) is statable at the pins; the determinant-level statements, the auxiliary characters, the decomposed unitary level and the descent theorems are document targets, listed by name in the suggested file's closing comment."
    ]
   }
  ],
- "gaps": [
-  {
-   "id": "IntegralHeckeAndGaloisDeterminantsPartII/G1",
-   "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
-   "title": "Auxiliary-character local prescriptions",
-   "detail": "The odd-order global character theorem with independent unramified local Frobenius prescriptions is not supplied. Prove/source the exact contract in the corrected proofSteps; retain disjoint rational-prime ramification by enlarging the avoidance set for the second character. Locate a freely readable precise Grunwald-type theorem, with its odd-prime hypotheses, and prove how it yields both prescriptions. Request it from the appropriate lower-tier owner without pretending it is already in ClassFieldTheory.",
-   "neededBy": [
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/boundary-determinant",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/determinant-restriction-at-R",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/unramified-at-conjugate",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/determinant-local-global",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/local-global-away-from-p"
-   ]
-  },
-  {
-   "id": "IntegralHeckeAndGaloisDeterminantsPartII/G2",
-   "title": "Lean signature coverage",
-   "detail": "Suggested.lean is a partial carrier prototype: its omission ledger lists required definitions, APIs, tests and named theorems with no elaborated declaration, including all global targets. A comment is not a Lean signature. Compilation of the present declarations does not establish coverage. Finish the ledger against genuine imported roadmap carriers; retain exact hypotheses and normalization. Do not replace absent carriers or conclusions by Prop-valued placeholders.",
-   "neededBy": [
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6",
-    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7"
-   ]
-  }
- ],
+ "gaps": [],
  "sourceIssues": [
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E1",
@@ -4364,8 +4388,8 @@
    "kind": "gap",
    "locator": "§3.2, proof of Lemma 3.2.1, p. 956 (also in arXiv v2)",
    "printed": "Lemma 3.2.1(2)–(3) asserts the separating finite-order characters without giving their global construction or a local-prescription theorem.",
-   "correction": "Record a missing proof input, rather than a false theorem: an odd-prime-order global-character theorem with prescribed unramified Frobenius values and avoidance of a finite ramification set is needed. The former ClassFieldTheory/Kummer/Chebotarev paragraph did not prove that theorem; see G1.",
-   "reason": "The coprimality conditions only constrain ψ(Frob_v)ψ(Frob_{v^c}) = χ(Frob_v̄)² to avoid finitely many values; the independence of the uniformizer classes modulo r follows from the principle that an element which is an r-th power at a density-one set of places is an r-th power.",
+   "correction": "Supply the construction: take the characters to be restrictions to G_F of characters of G_{F⁺} of odd prime order r ≠ p with r > 4n², whose unramified local components at the places of F⁺ below R have Frobenius values chosen so that their squares avoid the finitely many eigenvalue ratios, and which are trivial at the other places below S (and, for ψ_2, at every place above a prime where ψ_1 ramifies; for the character of condition (3), at every place above a prime below R ∪ R^c ∪ S_p). Such characters exist by the Grunwald–Wang theorem, whose special case never occurs in odd order (Conrad, Lifting global representations with local properties, Appendix A, Proposition A.3, p. 32). The proof is IHR.7/auxiliary-characters.",
+   "reason": "For ψ = χ|_{G_F} with χ a character of G_{F⁺} unramified at v̄, ψ(Frob_v) = ψ(Frob_{v^c}) = χ(Frob_v̄) and ψ^c = ψ, so the coprimality conditions at v only ask that χ(Frob_v̄)² avoid a set of at most 4n² eigenvalue ratios in k̄^×; squaring is a bijection of μ_r for r odd, and μ_r(O) → k^× is injective for r ≠ p. The global existence with prescribed restrictions at a finite set of places is the Grunwald–Wang theorem, unobstructed for odd orders.",
    "affects": "nothing",
    "known": "new",
    "searched": [
