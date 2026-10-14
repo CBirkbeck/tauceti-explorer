@@ -29,4 +29,10 @@ carriers and hypotheses in the reader rather than manufacturing data here.
 Compilation of this file cannot close the non-Archimedean dynamics, exact
 analytic/BDP normalization, independent Eisenstein proof, or uniform
 weak-torsion-bound gaps recorded in the companion packet.
+
+The independent source review retains this empty declaration set. The reader
+fixes the quotient projector type (with the reciprocal analytic character),
+the two-subgroup commensurability condition, and the absolute-quadratic scope
+of upstream's named ring-class-field API. These are source and ownership
+conditions, not additional Lean declarations in this process companion.
 -/

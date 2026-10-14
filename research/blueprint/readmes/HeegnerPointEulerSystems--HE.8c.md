@@ -196,15 +196,25 @@ A positive-level point must pass the endpoint test. The new-vector and
 conductor distribution arguments use it; it is not supplied by merely
 being a CM point.
 
-The indefinite quotient J→A is a surjective rational morphism of abelian
-varieties, Pic(𝒪_F)-equivariant and P-new, with a nonzero component of the
-specified central-character type. Surjective here means that some nonzero
-multiple is a genuine surjective morphism. CV Theorems 4.1–4.2, pp.36–37,
-and the automorphic specialization Theorem 1.10, p.13, give a nonzero
+The indefinite quotient q:J→A is a surjective rational morphism of abelian
+varieties, Pic(𝒪_F)-equivariant and P-new. Surjective here means that some
+nonzero multiple is a genuine surjective morphism. To state the character
+condition without conflating two conventions, let ω_A be a character with
+A{ω_A}≠0, let ε∈{±1} be the fixed Shimura reciprocity sign, and fix the
+**projector** torsion type ξ₀ with ξ₀|G₂=ω_A^ε. Apply the projector to
+α(x), where α=q∘ι and ι is the rational Hodge embedding of the curve into
+J. CV Theorems 4.1–4.2, pp.36–37, give a nonzero
 primitive-character projection for every good CM point at sufficiently
 large conductor. The projection lives in a Mordell–Weil space tensored
 with the character field. Nonzero torsion in a raw point group does not
 satisfy this conclusion.
+
+In the automorphic specialization, ε=1 and ω_A=ω. The analytic torsion
+type χ₀ of H2 satisfies χ₀ω=1, so the projector type is ξ₀=χ₀⁻¹.
+Theorem 1.10, p.13, and Remark 4.3, pp.37–38, thus use e_{χ⁻¹}α(x)
+for the χ-weighted average. Theorem 4.1 drops the zero subscript in its
+compatibility clause; the equivalent Theorem 4.2 supplies it explicitly
+(sourceIssue E12). This correction does not add a hypothesis to the source.
 
 The definite statement uses a nonzero P-new vector θ in the quaternionic
 representation associated to the nonexceptional π. Its induced function
@@ -234,6 +244,11 @@ trivial-central-character anticyclotomic specialization through the outer
 Galois twist. The imported projector and Artin conventions must be retained;
 reciprocity in the dynamics manuscript sends uniformizers to geometric
 Frobenius (Definition 2.8, p.11).
+
+**Worked check.** For G=C₃ with generator g and χ(g)=ζ₃, on the regular
+representation a χ-weighted average is an eigenvector with eigenvalue
+ζ₃⁻¹ under g. The χ⁻¹-weighted average has eigenvalue ζ₃. These differ;
+a test using only C₂ cannot detect a lost character inversion.
 
 ### H5. Central values and derivatives after geometry
 
@@ -312,6 +327,14 @@ a compact κ⊂F_P of positive Haar measure as |s|→∞. Its Lemma 2.30,
 p.32, requires a twisted-diagonal SL₂(F_P) subgroup inside the measure
 stabilizer. Lemmas 2.31–2.32 and Corollary 2.34, pp.32–33, then relate
 proper factors to commensurable lattices.
+
+Here U-commensurability of Γ and Γ′ means that Γ and u⁻¹Γ′u are
+commensurable for some u∈U. Definition 2.33 omits the prime on the second
+group in both the manuscript p.33 and the published p.290; the proof of
+Corollary 2.34 on those pages uses the intended two distinct lattices
+(sourceIssue E11). With u=1, the printed self-comparison would ignore Γ′
+and hold for every pair. The generic supplier must use the corrected
+two-subgroup condition.
 
 The manuscript cites Margulis–Tomanov Theorem 11.2 and Ratner Theorem 3
 for uniform distribution. For the twisted-diagonal lemma it directly cites
@@ -489,12 +512,21 @@ change an integral index.
 ## H10. Ownership, dependency order and acceptance
 
 Generic orders, invertible Picard groups and Hecke characters are supplied
-by GlobalNumberFields; ring class fields and reciprocity by ClassFieldTheory;
-elliptic curves, point groups and ordinary reduction by EllipticCurves;
+by GlobalNumberFields; global class-field correspondence and reciprocity
+by ClassFieldTheory; elliptic curves, point groups and ordinary reduction by EllipticCurves;
 generic profinite calculus by ProfiniteArithmetic and its Tau Ceti inputs.
 Their current upstream contracts are the inputs to the specialized
 HE.0/HE.1 tower and CM-point constructions. HE.8c does not develop any
 of them again.
+
+The current ClassFieldTheory Layer 13 `ringClassField` interface assumes
+that the field is quadratic over ℚ. It directly supplies the classical
+imaginary-quadratic tower, but cannot be applied to K/F with arbitrary
+totally real F. In that relative scope,
+`HE.0/relative-cm-conductor-tower` constructs the specific 𝒪_F-order
+idele quotient using the general global correspondence in ClassFieldTheory
+Layer 12. Import that specialized HE.0 construction rather than claiming
+that the absolute-quadratic API already states it.
 
 The additional source routes have the same boundary. Khayutin's
 quadratic-order constructions belong to HE.0, with order-genus extensions
@@ -546,11 +578,13 @@ No arithmetic theorem or imported API/test is re-prototyped by the
 [Suggested file](../suggested/HeegnerPointEulerSystems--HE.8c.lean); its
 elaboration validates an empty declaration set.
 
-## Source versions and inherited source issues
+## Source versions and reviewed source issues
 
 All prose statements above are independent formulations of the mathematics.
-All seven public copies were read on 14 October 2026; their URLs, editions,
-read ranges and SHA-256 receipts are in the packet.
+The seven public copies used for the matrix and an additional published
+dynamics copy were read on 14 October 2026; their URLs, editions, read
+ranges and SHA-256 receipts are in the packet. The independent review
+confirms E1/E3 and records E11/E12 below.
 
 - [Cornut, *Mazur's conjecture on higher Heegner points*](https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf),
   author manuscript dated 24 October 2001. Locators use manuscript pp.1–28,
@@ -565,6 +599,10 @@ read ranges and SHA-256 receipts are in the packet.
 - [Cornut–Vatsal, *CM points and quaternion algebras*](https://webusers.imj-prg.fr/~christophe.cornut/papers/part2.pdf),
   author manuscript dated 3 April 2005, with its own pp.9–12,31–34 for the
   required supplier statements. These are not the journal pp.263–309.
+  The [EMS Press published PDF](https://ems.press/content/serial-article-files/25969?nt=1)
+  was separately read at Definition 2.33 and the Corollary 2.34 proof,
+  published p.290 (one-based PDF p.28), to collate E11. This does not
+  certify a full reading of the published paper.
 - [Burungale–Castella–Grossi–Skinner, *Non-vanishing of Kolyvagin systems and Iwasawa theory*, arXiv v2](https://arxiv.org/pdf/2312.09301v2),
   dated 21 January 2026. The introductory hypotheses, Conjecture 1.2.10,
   residual branch list, and complete A/B proofs were read at the cited
@@ -575,7 +613,8 @@ read ranges and SHA-256 receipts are in the packet.
   March 2025, §1.2 pp.2–3. Theorem numbering and normalization in this
   companion refer to v2, not to a different revision.
 - [Castella–Grossi–Skinner, *Mazur's main conjecture at Eisenstein primes*](https://web.math.ucsb.edu/~castella/Mazur.pdf),
-  author-served copy. Theorem C and its Greenberg reformulation pp.3–4
+  author-served copy dated 15 September 2023, linked to the 2025 publication.
+  Theorem C and its Greenberg reformulation pp.3–4
   supply the branch hypotheses. This is a statement/interface reading;
   the independent proof is a supplier obligation.
 
@@ -587,6 +626,17 @@ must differ from 3. This is the existing sourceIssue E1, rechecked in both
 served copies. In §2.2, pp.17–19, the exact-length theorem imports an
 odd-prime range whose proof invokes a stub lemma assuming p>3. Preserve
 the verified p>3 proof route (existing E3); no counterexample at p=3 is
-asserted. Theorem B already has that stronger prime bound. This companion
-carries these findings without issuing a new independent review verdict
-or claiming a publisher correction search beyond the recorded collation.
+asserted. Theorem B already has that stronger prime bound. The independent
+review confirms both findings in these two copies. The arXiv history still
+lists v2 as latest and Castella's page links no correction for this paper;
+the CJM DOI returned HTTP 403, so no publisher wording is certified.
+
+Two additional index slips were found in the review. E11 corrects
+U-commensurability to compare Γ with a conjugate of Γ′, as explained in
+H6; it persists in the published dynamics PDF. E12 supplies χ₀ in
+Theorem 4.1's restriction clause, as its equivalent Theorem 4.2 already
+does. E12 is scoped to the 1 April 2005 manuscript, without publisher
+collation. The adjacent arguments establish the intended meanings, so
+neither finding invalidates the nonvanishing statements. The authors'
+pages and title-and-erratum searches revealed no separate correction;
+the packet records the searches and independent verdicts.
