@@ -83,7 +83,7 @@ def totalLength (m : Multisegment) : ℕ :=
 
 /-- Occurrence labels obtained from one representative list of the multiset. -/
 def occurrenceInterval (m : Multisegment) (i : Fin m.card) : Interval :=
-  m.toList[i.val]'(by simpa using i.isLt)
+  m.toList[i.val]'(by simp)
 
 /-- One copy of each distinct inclusion-maximal interval. -/
 def maximalPart (m : Multisegment) : Multisegment :=
@@ -258,6 +258,7 @@ theorem polynomial_irreducible (n : ℕ) :
 
 example : Precedes (intSeg 0 0) (intSeg 1 0) := by sorry
 example : ¬ Precedes (intSeg 0 2) (intSeg 0 2) := by sorry
+example : ¬ Precedes (intSeg 0 0) (intSeg 2 0) := by sorry
 example (S : Space) : (0 : Module.End ℂ S.Carrier) ∈ centralizer (zeroPair S .up) := by sorry
 example : Module.finrank ℂ (centralizer (zeroPair
     (⟨2, fun i => (i.val : ℤ)⟩ : Space) .up)) = 1 := by sorry
@@ -333,6 +334,12 @@ example : IsEndpointAntichain ({intSeg 0 1, intSeg 0 1} : Multisegment) Finset.u
 example : IsEndpointMatching (0 : Multisegment) ∅ := by sorry
 example : ¬ IsEndpointMatching ({intSeg 0 1, intSeg 0 1} : Multisegment)
     {(⟨0, by simp⟩, ⟨1, by simp⟩)} := by sorry
+example (m : Multisegment) (i j k : Fin m.card)
+    (hij : endpointBefore m i j) (hik : endpointBefore m i k) (hjk : j ≠ k) :
+    ¬ IsEndpointMatching m {(i, j), (i, k)} := by sorry
+example (m : Multisegment) (i j k : Fin m.card)
+    (hik : endpointBefore m i k) (hjk : endpointBefore m j k) (hij : i ≠ j) :
+    ¬ IsEndpointMatching m {(i, k), (j, k)} := by sorry
 example : antichainWidth ({intSeg 0 1, intSeg 0 1} : Multisegment) = 2 ∧
     matchingNumber ({intSeg 0 1, intSeg 0 1} : Multisegment) = 0 := by sorry
 example : antichainWidth ({intSeg 0 0, intSeg 1 0} : Multisegment) = 1 ∧
@@ -416,6 +423,7 @@ README constructions and targets not declared here:
 VN, WL, standardSpace, standardPair, standardVector, standardBasis, pairType,
 shiftPair, ImageModel, imagePair, iteratedImage, oppositePair, restrictCentralizer,
 centralizerTopology, ZariskiOpenDense, genericType, genericLocus,
+genericType_shift, genericLocus_shift, dual_shift, ram_shift,
 commutingIncidence and its orbit conormal comparisons, dual, Admissible,
 onOppositeImage, imageAdmissibleLocus, simultaneousRestrictions, ram,
 adjacentDualCount, adjacent_generic_rank, adjacent_chain_formula,

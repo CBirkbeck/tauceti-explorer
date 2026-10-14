@@ -14,6 +14,8 @@ General homogeneity belongs to Tau Ceti’s `TauCeti.LinearMap.IsHomogeneous` an
 
 For geometric foundations, reuse the algebraic-group and scheme APIs rather than introduce a second general theory. In particular, current Tau Ceti’s `TauCeti.isLocallyClosed_orbit_of_isConstructible`, in `TauCeti/Topology/Algebra/MulAction/Orbit`, supplies local closedness for a constructible orbit in a Noetherian space acted on by homeomorphisms. Its hypothesis still requires a constructibility proof for the graded conjugation action. The Hopf-ideal conormal API concerns closed subgroups at the identity; it is distinct from the orbit conormal bundle needed here. The scoped orbit, incidence, dimension, and fibre comparisons in §2.7 specify the additional geometric interface.
 
+[AlgebraicVectorBundles](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/AlgebraicVectorBundles), L0 and L2B, owns finite locally free sheaves, their rank, geometric total spaces, and the equivalence between the sheaf and geometric bundle presentations. Consume `FiniteLocallyFreeSheaf`, `rank`, `totalSpaceScheme`, `totalSpaceEquiv`, and `totalSpaceHomEquiv`: the last identifies a total-space point over a test scheme with a section of the pulled-back sheaf. The conormal target here identifies the tangent-annihilator family of this specific orbit action with such a bundle; it does not construct a second general bundle category. The orbit smoothness, dimension and projection comparisons remain scoped targets here, since the bundle equivalence does not assert them.
+
 For finite posets, follow the chain-cover interface of [Mathlib PR #40741](https://github.com/leanprover-community/mathlib4/pull/40741): `IsChain`, `IsAntichain`, an antichain bound for every chain cover, and a disjoint chain partition attaining that bound. Where this interface is absent from the pinned library, establish the required finite statements with that vocabulary. The targets here specialize it to occurrence labels and then compare chain partitions with split-graph matchings and weighted interval chains.
 
 ## Conventions
@@ -61,6 +63,8 @@ At the same pin, `TauCeti.LinearMap.IsHomogeneous` supplies the degree condition
 The parent roadmap’s Layer 1, `quiverRepEquivalence`, identifies these representations with **left** path-algebra modules, with later arrows multiplying on the left. The adapter must extend by zero outside a finite window, compare different windows by restriction and extension, and preserve graded morphisms and their intertwining equations. No window choice may change an interval label.
 
 From Layer 2 consume `exists_indecomposable_decomposition` and `krullSchmidt_unique`: finite-length modules split into finitely many indecomposable summands, and two such decompositions are matched by isomorphisms. Distinct isomorphic submodules may occur, so multiplicities survive the passage to the multiset of isomorphism classes.
+
+Current Tau Ceti also supplies these interfaces directly. `TauCeti.quiverRepEquivalence`, in `TauCeti/RepresentationTheory/Quiver/Representation/AsModule`, applies to a finite vertex quiver over a field. In `TauCeti/RepresentationTheory/Quiver/Representation/KrullSchmidt`, `TauCeti.QuiverRep.exists_indecomposable_iso_biproduct` decomposes a pointwise finite-dimensional representation of a finite quiver into a finite family indexed by `Fin n`; `exists_equiv_iso_of_iso_biproduct` matches two such indecomposable families by an index equivalence; `card_iso_eq_card_iso_of_iso_biproduct` preserves each isomorphism-class multiplicity. A finite support window satisfies the finite-vertex and pointwise finite-dimensional hypotheses. Use these declarations when consuming the parent contracts.
 
 From Layer 5 consume the type-A specialization of the indecomposable/positive-root bijection: on an equioriented finite path, the indecomposables are exactly the one-dimensional interval blocks, with identity arrows inside their support. Reversing orientation gives the same interval supports. The graded adapter in Layer 1 below combines these supplier results; it does not prove a second Gabriel theorem.
 
@@ -246,6 +250,12 @@ Extend coefficients by zero outside both blocks. The equation `NL=LN` equates ad
 
 A self-block is forbidden. Adjacent singletons `[a,a]` and `[a+1,a+1]` admit exactly one block in the descending direction. With two copies in degree a and three in degree a+1 there are six independent coordinates. Dropping occurrence labels, reversing source and target, or allowing equality of the left endpoints fails these controls.
 
+**Checks.**
+
+- `Precedes [0,0] [1,1]` holds, and the corresponding block sends the degree-1 basis vector to the degree-0 basis vector.
+- `Precedes [0,2] [0,2]` fails: equal left endpoints forbid a self-block.
+- `Precedes [0,0] [2,2]` fails despite both endpoints increasing: the overlap inequality is necessary.
+
 *Needs:* §§1.3, 2.1.
 
 ### 2.3 Surjective restriction to a VN image
@@ -287,6 +297,8 @@ Construct `genericType P` by maximizing all graded path ranks of an opposite ope
 
 Define `genericLocus P` to contain exactly the opposite operators of that type. Prove `generic_rank_locus`: this whole type locus is open dense, because its ranks are exactly the attained maxima. Prove `genericType_iso` under graded conjugation, and `genericType_unique`: a type with open dense locus must equal the selected type. The intersection argument supplies uniqueness even for a zero-dimensional centralizer.
 
+Prove `genericType_shift`: for either direction and every integer c, `genericType (shiftPair P c) = shiftMultisegment (genericType P) c`. Prove `genericLocus_shift` under the identity on underlying endomorphisms: the same opposite map is generic before and after shifting. Reindexing all grades preserves the commuting submodule, its polynomial topology, and every path rank. These targets make genericity available on the shifted image pairs used in §3.5 (AKY §3.1, p.15, shift convention; Proposition 3.5, pp.18–19).
+
 **Checks.**
 
 - The VN chain `[0,2]` has generic opposite type `[0,0]+[1,1]+[2,2]`; its centralizer is zero.
@@ -323,6 +335,8 @@ Swapping `E₊` and `E₋` now gives the required symmetry. Z81 applies Pyasetsk
 ### 2.8 Multisegment duality
 
 Define `dual m := genericType (standardPair m up)`. Prove `dual_generic_up` for any VN pair P and `dual_generic_down` for any WL pair P, both asserting `genericType P = dual (pairType P)`. Prove `dual_dimension`, preserving each grade dimension, and hence total length (AKY §3.1, p.16; Z98 §2, p.410).
+
+Prove `dual_shift`: `dual (shiftMultisegment m c) = shiftMultisegment (dual m) c` for every m and integer c, using `genericType_shift` and the shifted standard-pair isomorphism. For example, translating `[0,0]+[1,1]` by −2 translates its dual `[0,1]` to `[-2,-1]`.
 
 For the VN statement use conjugacy to the standard pair. For the WL statement transpose operators to the graded vector-space dual, keeping the dual of `Vₐ` in grade a. Transposition switches operator directions, preserves interval labels and the commuting equation, and is an algebraic linear isomorphism of the centralizer coordinate spaces. This establishes the WL assertion independently of involutivity. Grade reflection, in contrast, negates the endpoints and is used only with its explicit interval transformation.
 
@@ -398,6 +412,8 @@ ram(m) = dual(rightTruncate(dual(m))).
 
 Prove `ram_dual`, giving `dual(ram m)=rightTruncate(dual m)`, and `ram_vn_image`: for an image-admissible L commuting with a VN pair of type m, the unshifted VN pair `(Im L,N|Im L)` has type `ram m`. Prove `ram_totalLength_le`, since its total length is the dimension of an actual subspace of V (AKY §2.3, p.8; §3.2, p.18).
 
+Prove `ram_shift`, commuting ramification with every integer translation, from `dual_shift` and `rightTruncate_shift`. The same opposite map is image-admissible on a pair and on its shift: the range carrier stays fixed while all its grades are reindexed. This follows from `genericLocus_shift`, `pairType_shift`, and `dual_shift`, and applies in particular to the shift by −1 in §3.5.
+
 The WL image type is `rightTruncate(dual m)` by §1.5. The second admissibility equality and dual involutivity give precisely the claimed VN type. The operation is defined on integral intervals independently of representations or a local field.
 
 **Checks.**
@@ -418,7 +434,7 @@ ram(rightTruncate m) = rightTruncate(ram m).
 
 Choose one L satisfying §3.3. For the left side take the VN image, shift it by −1, and then take the image of restricted L. For the right side take the WL image first, then its VN image and shift by −1. Both are actual copies of `Im(LN)(-1)=Im(NL)(-1)`, with restricted N. Image admissibility on V and `Im N` identifies their ramified types. The common shift is necessary; equality of unshifted ranges alone would give the wrong endpoints (AKY Proposition 3.5 and proof, pp.18–19).
 
-*Needs:* §§1.5, 3.3–3.4.
+*Needs:* §§1.5, 2.6, 2.8, 3.3–3.4, including their shift compatibilities.
 
 ### Examples
 
@@ -459,6 +475,7 @@ Prove `endpointBefore_irrefl`, `endpointBefore_trans`, and `matchingNumber_bound
 - For `[0,0]+[1,1]`, width is 1 and matching number is 1, with the edge from the degree-0 singleton’s left copy to the degree-1 singleton’s right copy.
 - For `[0,2]+[1,1]`, width is 2 and matching number is 0; increasing only the left endpoint does not make an edge.
 - For `[0,0]+[1,1]+[2,2]`, the two successive edges form a matching of size 2. The middle label appears in opposite roles, which is allowed.
+- In the same three-singleton poset, the edges `0→1` and `0→2` fail the matching predicate because they reuse a left vertex. The edges `0→2` and `1→2` fail because they reuse a right vertex. Checking just that the pairs are edges would admit both forbidden sets.
 
 *Needs:* §0.2, finite powersets, occurrence labels, and integer endpoint comparisons.
 
