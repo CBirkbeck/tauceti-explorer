@@ -22377,8 +22377,9 @@
    ],
    "avoidAccountOf": "BP-ArakelovGeometryAndAbelianHeights",
    "prompt": "research/blueprint/prompts/REV-ArakelovGeometryAndAbelianHeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #348"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #348",
+   "finishedAt": "2026-10-14T12:18:46Z"
   },
   {
    "id": "BP-ArithmeticGaloisDuality",
@@ -27162,8 +27163,9 @@
    ],
    "avoidAccountOf": "BP-OrdinaryAutomorphicFormsAndModularityLifting",
    "prompt": "research/blueprint/prompts/REV-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #458"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #458",
+   "finishedAt": "2026-10-14T12:18:52Z"
   },
   {
    "id": "BP-PELModuli",
@@ -28722,8 +28724,9 @@
    ],
    "avoidAccountOf": "BP-TorsionCohomologyInfrastructure",
    "prompt": "research/blueprint/prompts/REV-TorsionCohomologyInfrastructure.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #498"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #498",
+   "finishedAt": "2026-10-14T12:18:57Z"
   },
   {
    "id": "BP-VStackSheavesAndLisseCategories",
@@ -37706,8 +37709,9 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6347"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6347",
+   "finishedAt": "2026-10-14T12:19:03Z"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
@@ -38062,8 +38066,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.4",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9677"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9677",
+   "finishedAt": "2026-10-14T12:19:05Z"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.5",
@@ -38157,7 +38162,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.6",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9679"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.7",
@@ -38203,7 +38209,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.7",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9680"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.0",
@@ -44402,8 +44409,9 @@
     "BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9273"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9273",
+   "finishedAt": "2026-10-14T12:19:10Z"
   },
   {
    "kind": "blueprint",
@@ -44858,8 +44866,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a"
    ],
    "prompt": "research/blueprint/prompts/ASM-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #226"
+   "state": "pending",
+   "note": "released on GitHub issue #226"
   },
   {
    "id": "ASM-EtaleDualityAndPerverseSheaves",
@@ -47533,7 +47541,8 @@
     "PKG-AutomorphicSpectralTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicSpectralTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9684"
   },
   {
    "id": "PKG-ClassicalAdicEtaleCohomology",
