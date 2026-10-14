@@ -17206,8 +17206,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DeligneWeightsAndPurityPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4584"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4584",
+   "finishedAt": "2026-10-14T02:22:48Z"
   },
   {
    "id": "REV-DESIGN-DeligneWeightsAndPurityPartII",
@@ -25050,9 +25051,10 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9415"
+   "note": "deliverables arrived from an external worker on issue #9415",
+   "finishedAt": "2026-10-14T02:22:49Z"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.6",
@@ -25466,10 +25468,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9416"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights",
@@ -25789,9 +25792,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.8c.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9419"
+   "note": "deliverables arrived from an external worker on issue #9419",
+   "finishedAt": "2026-10-14T02:22:51Z"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.8c",
@@ -27753,10 +27757,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9429"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.5",
@@ -35480,7 +35485,8 @@
    ],
    "followUpOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9417"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.8",
@@ -35784,8 +35790,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1-classical",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1-classical.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9264"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9264",
+   "finishedAt": "2026-10-14T02:22:52Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1-plus",
@@ -35879,7 +35886,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.2",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9266"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.2-graded-map",
@@ -36901,7 +36909,9 @@
    ],
    "avoidAccountOf": "BP-PotentialModularityAndCompatibleSystems--R24.4",
    "prompt": "research/blueprint/prompts/REV-PotentialModularityAndCompatibleSystems--R24.4.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9399",
+   "finishedAt": "2026-10-14T02:22:55Z"
   },
   {
    "id": "BP-RankZeroOneBSD--BSD.7",
@@ -41935,7 +41945,8 @@
     "BP-PerfectoidShimuraVarieties~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PerfectoidShimuraVarieties~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9269"
   },
   {
    "kind": "blueprint",
@@ -88713,8 +88724,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -90839,8 +90850,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5704"
+   "state": "pending",
+   "note": "released on GitHub issue #5704"
   },
   {
    "id": "FIX-RT-AREA-padic-1~4",
@@ -100911,7 +100922,9 @@
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~3"
    ],
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems--ES.0~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9261",
+   "finishedAt": "2026-10-14T02:22:58Z"
   },
   {
    "kind": "blueprint",
