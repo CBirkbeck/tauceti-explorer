@@ -289,6 +289,11 @@ example : ¬ KimDimensionInequality (fun _ => 1) (fun _ => 1) := by sorry
 -- selmerVanishing_zero_rep: the zero sequence vanishes eventually.
 example : EventuallyVanishing (fun _ => 0) := by sorry
 
+-- selmerVanishing_needs_local_conditions (dimension form): the unrestricted `H¹(G_T, V_n)` of the
+-- thrice-punctured line is nonzero at every even `n`, and such a sequence never vanishes eventually.
+example (dim : ℕ → ℕ) (h : ∀ n, 2 ≤ n → n % 2 = 0 → 1 ≤ dim n) : ¬ EventuallyVanishing dim := by
+  sorry
+
 end DimensionFrontier
 
 /-! ## Kim's conjecture: eventual equality of a decreasing family of loci -/
@@ -360,7 +365,7 @@ They are stated in the README and not given Lean signatures here:
   (abstract inequality above);
 * `SelmerVanishing`, `sel0_eq_sha1`, `sel0_dual_sha2`, `sel0_mono_T`,
   `selmerVanishing_of_finite_extension`, and the tests `selmerVanishing_thrice_punctured`,
-  `sel0_eq_sha1_test`, `selmerVanishing_not_bloch_kato_selmer` (abstract eventual vanishing above);
+  `sel0_eq_sha1_test`, `selmerVanishing_needs_local_conditions` (abstract eventual vanishing above);
 * `kimLocus`, `kimLocus_antitone`, `integral_subset_kimLocus`, `kimConjecture_iff_exists_subset`
   (abstract form `eventualEquality_iff_exists_subset` above), `kimLocus_eq_crystallineLocus`,
   `kimLocus_indep_T`, `kimLocus_indep_basepoint`, `kimConjectureS`, and the tests
