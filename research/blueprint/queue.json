@@ -25049,8 +25049,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.6.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9415"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.6",
@@ -35000,8 +35001,9 @@
    ],
    "followUpOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9413"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9413",
+   "finishedAt": "2026-10-14T00:56:33Z"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.4",
@@ -35045,8 +35047,9 @@
    ],
    "followUpOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9414"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9414",
+   "finishedAt": "2026-10-14T00:56:35Z"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
@@ -35702,7 +35705,8 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9305"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1-2",
@@ -35746,7 +35750,8 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1-classical.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9306"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1-classical",
@@ -35790,7 +35795,8 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.1-plus.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9307"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.1-plus",
@@ -35834,7 +35840,8 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9308"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.2",
@@ -35878,8 +35885,9 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.2-graded-map.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9309"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9309",
+   "finishedAt": "2026-10-14T00:56:36Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.2-graded-map",
@@ -48115,8 +48123,9 @@
     "PKG-CrystallineLocalGlobalCompatibilityCM"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7481"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7481",
+   "finishedAt": "2026-10-14T00:56:37Z"
   },
   {
    "id": "PKG-DeformationAndDerivedPatchingAlgebraPartII",
@@ -50683,8 +50692,9 @@
     "PKG-LanglandsParameterStacks"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7937"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7937",
+   "finishedAt": "2026-10-14T00:56:40Z"
   },
   {
    "id": "PKG-LefschetzPencilsAndVanishingCycles",
@@ -51105,8 +51115,9 @@
     "PKG-MordellLawrenceVenkatesh~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-MordellLawrenceVenkatesh~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7939"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7939",
+   "finishedAt": "2026-10-14T00:56:43Z"
   },
   {
    "id": "PKG-MultiquadraticPartII",
@@ -88676,8 +88687,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -100846,7 +100857,8 @@
    ],
    "revisionOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9303"
   },
   {
    "priority": 2,
