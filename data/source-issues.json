@@ -168601,9 +168601,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), no.2, published article",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "At ε=1/2 and n=120, τ(n)=16 exceeds √120. The uniform constant and eventual threshold are both necessary. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E2",
@@ -168621,9 +168621,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Differentiating the xi completion absorbs 1/s through ψ(1+s/2); the printed half-shift cannot absorb it. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E3",
@@ -168641,9 +168641,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The residue element1 satisfies the existential condition for every automorphism. A nontrivial quadratic Galois group then contradicts the claimed single conjugacy class. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E4",
@@ -168661,9 +168661,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The two signed ordinates of a conjugate pair cancel, while their counting measure gives a positive reciprocal-ordinate contribution. Boundary ordinates also require consistent cutoffs. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E5",
@@ -168681,9 +168681,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The denominator log t vanishes at t=1, and the proof estimates only large heights. Compact heights need a separate argument. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E6",
@@ -168701,9 +168701,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Multiplication of (1−u)e^u gives 1−u²/2+O(u³). The partition labels in the same proof also require the middle factor h₂. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E7",
@@ -168721,9 +168721,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "A one-sided bound for Re g is not yet a bound for |g|. A global logarithm and the Borel–Carathéodory estimate supply the missing argument. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E8",
@@ -168741,9 +168741,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The gamma parity of an even primitive character is0. Substitution in the completed equation gives the correction stated in the packet. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E9",
@@ -168761,9 +168761,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The nonreduced progression 2 mod4 contains just one prime. The Siegel–Walfisz proof also needs a fixed logarithmic modulus range. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E10",
@@ -168781,9 +168781,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The invoked Siegel lower bound has an ineffective constant, which the subsequent proof does not make effective. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E11",
@@ -168801,9 +168801,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The contour moves arbitrarily far left as U grows, rather than shrinks; the interval endpoint in the nearby estimate needs the factor x. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E12",
@@ -168821,9 +168821,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "At s=σ+i Imρ, s−ρ=σ−Reρ. The principal-character pole is at the point s=1. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E13",
@@ -168841,9 +168841,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The primitive character of conductor1 makes log N=0; its zeta case cannot be included in that formula. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E16",
@@ -168861,9 +168861,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The positive gamma integral has growth exp(O(r log r)), which proves order1 but contradicts the printed exponential-type bound. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E17",
@@ -168881,9 +168881,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch zeta function III. Polylogarithms and special values, arXiv1506.06161v1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Termwise application of the two differential operators to z^n(n+c)^(−s) gives −s times that term. Published (2.5) has this corrected sign. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E18",
@@ -168902,9 +168902,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The local expansion −log(1−u)=Σ u^n/n has coefficient1/2 at n=2, confirming the missing prime-power denominator. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E19",
@@ -168923,9 +168923,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Dimitris Koukoulopoulos, The Distribution of Prime Numbers, Author preliminary version provided with AMS permission, acquired 2026-10-05; published GSM203 (2019) text not inspected",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Splitting the integral at1 and using the Euler-constant integral gives γ for cutoff minus exponential; reversing the subtraction gives −γ. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E20",
@@ -168945,9 +168945,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jean-François Mestre, Formules explicites et minorations de conducteurs de variétés algébriques, Compositio Mathematica 58 (1986), 209–232, Numdam publisher scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The transform requires control of both tails. A weight exp(Ax) on only the signed variable does not control an arbitrary reflected negative tail. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E21",
@@ -168965,9 +168965,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Dimitris Koukoulopoulos, The Distribution of Prime Numbers, Author preliminary version provided with AMS permission, acquired 2026-10-05; published GSM203 (2019) text not inspected",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The strip is indexed by b≤B; its harmonic contribution is xΣ_(b≤B)1/b, not the larger cutoff-x sum. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E22",
@@ -168986,9 +168986,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The polynomial recurrence retains q_(m+1−j) in each term. Dropping it fails the next polynomial case. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E23",
@@ -169007,9 +169007,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The generating function has constant term1 at t=0, so the Bernoulli sum must begin at k=0. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E24",
@@ -169028,9 +169028,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "At k=0, ζ(0)=−1/2. The stated all-k formula has the opposite value with the source’s B₁ convention. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E25",
@@ -169049,9 +169049,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The periodic series begins at n=1. Reindexing Φ(z,s,1) from n=0 introduces exactly the missing factor z. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E26",
@@ -169070,9 +169070,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "At m=0, the periodic series is z/(1−z), while the continued Hurwitz boundary expression includes its surviving initial term. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E27",
@@ -169091,9 +169091,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Expanding the periodic kernel for |z|<1 requires z e^(−t) in the numerator; its Mellin transform then starts at n=1. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E28",
@@ -169112,9 +169112,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The special-value proof concerns s=−m and evaluation at e^(2πia); the printed labels do not match those parameters. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E29",
@@ -169134,9 +169134,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Continuation of (log z)^(s−1) around z=1 multiplies the p=0 residue germ by e^(2πis); the other shifted logarithms do not wind about zero. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E30",
@@ -169153,9 +169153,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "W. Duke, Ö. Imamoḡlu, Á. Tóth, Geometric invariants for real quadratic fields, Published journal PDF; selected reading only",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Expanding the ideal-character Euler product gives χ(p) in its linear local coefficient. The printed denominator omits this value. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E31",
@@ -169172,9 +169172,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Dimitris Koukoulopoulos, The Distribution of Prime Numbers, Author preliminary version provided with AMS permission, acquired 2026-10-05; published GSM203 (2019) text not inspected",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Floor removal introduces an error bounded by the prime-power logarithmic sum O(x), which is O(1) only after division by x. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E32",
@@ -169191,9 +169191,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions, Annals of Mathematics 186 (2017), 767–911, published PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Order uses log log M(r)/log r. Division by r would assign order0 to standard exponential functions. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E33",
@@ -169210,9 +169210,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions, Annals of Mathematics 186 (2017), 767–911, published PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "A nonconstant polynomial satisfying the other assumptions has vanishing sufficiently high derivatives. Nonpolynomiality restores strict positivity at every order. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E34",
@@ -169229,9 +169229,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jesse Thorner and Asif Zaman, An explicit bound for the least prime ideal in the Chebotarev density theorem, Published journal PDF; selected reading only",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The logarithmic derivative of (1−χ(p)Np^(−s))⁻¹ has χ(p)^m at the m-th prime power. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E35",
@@ -169248,9 +169248,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch zeta function II. Analytic continuation, arXiv1005.4967v2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The second functional-relation summand uses the reflected parameter −a; its exponential must be e^(−2πia). The proof and PartI agree. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E36",
@@ -169267,9 +169267,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch zeta function I. Zeta integrals, arXiv1005.4712v2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The tail term has the constant germ responsible for a possible pole at0. Its claimed pole at1 belongs to the other endpoint term. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E37",
@@ -169286,9 +169286,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch zeta function I. Zeta integrals, arXiv1005.4712v2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The residue at0 involves integral c and f(0); the residue at1 involves integral a and the Fourier value at0. The adjacent formulae fix the interchanged conditions. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E38",
@@ -169305,9 +169305,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jean-François Mestre, Formules explicites et minorations de conducteurs de variétés algébriques, Compositio Mathematica 58 (1986), 209–232, Numdam publisher scan",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The determinant of 1−A p^(−s) has quadratic term det(A)p^(−2s). For the weight-k local polynomial det(A)=p^(k−1). Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E39",
@@ -169324,9 +169324,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch zeta function I. Zeta integrals, arXiv1005.4712v2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "x e^(+πx²) is not Schwartz and has a divergent Mellin integral. The negative Gaussian later used by the proof is the required function. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E40",
@@ -169343,9 +169343,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch zeta function I. Zeta integrals, arXiv1005.4712v2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The prefactor retained by the preceding normalized definition and following integral is e^(πiac), not its square. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E41",
@@ -169362,9 +169362,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jeffrey C. Lagarias and Wen-Ching Winnie Li, The Lerch Zeta function III. Polylogarithms and special values, Research in the Mathematical Sciences3:2(2016),54pp, publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "At m=0 the stated recursion references the previous index. The base polynomial is r₀=1; the recurrence starts at m=1. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E14",
@@ -169384,9 +169384,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jean-Benoît Bost and Alain Connes, Hecke algebras, type III factors and phase transitions with spontaneous symmetry breaking in number theory, Selecta Mathematica (N.S.) 1 (1995), no. 3, 411–457; author-hosted scan of the published article on Connes's site (no text layer, read on page images); journal page = PDF page + 410; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The multiplication calculation and inversion law require translation γ/m. Comparing the double class with the convolution of the two dilation generators confirms it. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E42",
@@ -169406,9 +169406,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Valentin Blomer, Subconvexity for a double Dirichlet series, Compositio Math.147 (2011),355–374; version of record downloaded 2026-10-05. Results outside the selected continuation/functional-equation target are not extracted.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The Legendre values (2/3)=(2/5)=−1 and the corresponding negative-two values verify the two corrected character rows. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E43",
@@ -169428,9 +169428,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Valentin Blomer, Subconvexity for a double Dirichlet series, Compositio Math.147 (2011),355–374; version of record downloaded 2026-10-05. Results outside the selected continuation/functional-equation target are not extracted.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "For d₀=3 and ψ=ψ₁ the primitive quadratic character has conductor12, not3. The two parity conditions for conductor4d₀ are reversed. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E44",
@@ -169450,9 +169450,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Valentin Blomer, Subconvexity for a double Dirichlet series, Compositio Math.147 (2011),355–374; version of record downloaded 2026-10-05. Results outside the selected continuation/functional-equation target are not extracted.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Negative imaginary parts can make the printed growth factors zero or negative. Absolute values give the vertical growth majorant used by the proof. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E45",
@@ -169472,9 +169472,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Valentin Blomer, Subconvexity for a double Dirichlet series, Compositio Math.147 (2011),355–374; version of record downloaded 2026-10-05. Results outside the selected continuation/functional-equation target are not extracted.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The convex hull of the annular base is the same Euclidean ball with both coordinates squared. The printed asymmetric region is not that hull. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E46",
@@ -169493,9 +169493,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jay Jorgenson, Lejla Smajlovic and Polyxeni Spilioti, Determinants of twisted Laplacians and the twisted Selberg zeta function, arXiv 2512.16681v2, 9 February 2026. The torsion-factor sign in v1 is already corrected in v2.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "In v1, (8.8) gives +2 dim(Vρ)C for C=2ζ′(−1)−log√(2π). Since χ(X)=−2 for genus2, (1.3)/(8.6) require the negative χ-prefactor. The claim is scoped to v1. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E47",
@@ -169515,9 +169515,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Alain Connes and Matilde Marcolli, Noncommutative Geometry, Quantum Fields and Motives, AMS Colloquium Publications 55 (2008); author-hosted PDF on Marcolli's page; printed page = PDF page − 22; accessed 2026-09-28",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The complementary nonzero-residue case is required for φ(a)≠0. Repeating the zero congruence contradicts its own asserted conclusion. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E48",
@@ -169536,9 +169536,9 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Jay Jorgenson, Lejla Smajlovic and Polyxeni Spilioti, Determinants of twisted Laplacians and the twisted Selberg zeta function, arXiv 2512.16681v2, 9 February 2026. The torsion-factor sign in v1 is already corrected in v2.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "At m=0 the two gamma terms in (6.2) contribute coefficient2, while scalar (8.4) contributes1. The review adopts (8.4) only, preserving the stated limit on the twisted claim. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "AnalyticNumberTheory/E49",
@@ -169556,9 +169556,70 @@
    "owner": "AnalyticNumberTheory",
    "file": "research/blueprint/packets/AnalyticNumberTheory.json",
    "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The character orthogonality argument requires a unit residue class. The progression 2 mod4 disproves the density conclusion without that assumption. Independently checked at the cited public-version locator on 2026-10-14."
+  },
+  {
+   "id": "AnalyticNumberTheory/E50",
+   "kind": "misprint",
+   "locator": "Lemma 3 proof, p.164, first equality",
+   "printed": "The finite reciprocal sum restricted to n≤x is equated to the full Euler product on primes ≤x.",
+   "correction": "Replace that equality by ≤. The product also contains smooth integers larger than x.",
+   "reason": "Take f(n)=1 for positive n, modulus k=3 and x=2. The restricted sum is 1+1/2, whereas the prime-2 Euler factor is 2. Nonnegativity supplies the inequality needed for the upper bound.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-14: publisher DOI 10.1515/crll.1980.313.161 metadata and GDZ published scan; bounded searches for Shiu Brun–Titchmarsh erratum and Lemma 3 corrections found no correction. Newly recorded here; no exhaustive novelty claim."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory.json",
+   "citation": "P. Shiu, A Brun–Titchmarsh theorem for multiplicative functions, Journal für die reine und angewandte Mathematik 313 (1980), pp.161–170",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The full Euler product contains positive terms for smooth integers exceeding x. At x=2, the truncated sum is 3/2 while the product is2. Independently checked at the cited public-version locator on 2026-10-14."
+  },
+  {
+   "id": "AnalyticNumberTheory/E51",
+   "kind": "misprint",
+   "locator": "Lemma9.2, §9.2, printed p.54 (PDF p.70), December 2025 author PreTeXt PDF.",
+   "printed": "The displayed trivial-zero contribution has summands x^(−2n)/(−2n), although the logarithmic expression on its right has the opposite sign.",
+   "correction": "Use −Σ_(n≥1) x^(−2n)/(−2n) = −(1/2)log(1−x^(−2)) for x>1.",
+   "reason": "At a simple zero ρ, the residue of −(ζ′/ζ)(s)x^s/s is −x^ρ/ρ. For ρ=−2n this is positive. The printed series is negative, while the displayed logarithm is positive.",
+   "affects": "nothing",
+   "known": "new; no applicable correction found in the recorded bounded search, without a claim of global novelty",
+   "searched": [
+    "2026-10-14: author publications page https://kskedlaya.org/papers/ links the December 2025 PDF and parallel HTML, with no analytic-number-theory erratum listed.",
+    "Bounded searches for site:kskedlaya.org ant errata 9.2 and Kedlaya Lemma 9.2 zeta correction found no applicable correction. The attempted parallel chapter HTML was inaccessible; no claim about that text is made.",
+    "Fresh author PDF SHA-256 7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be, printed p.54, checked on its page image."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "The residue at each trivial zero is −x^ρ/ρ, which is positive for ρ=−2n. The printed left-hand series has the opposite sign. Independently checked at the cited public-version locator on 2026-10-14."
+  },
+  {
+   "id": "AnalyticNumberTheory/E52",
+   "kind": "misprint",
+   "locator": "Lemma9.2, §9.2, printed p.54 (PDF p.70), December 2025 author PreTeXt PDF.",
+   "printed": "The constant residue at s=0 is written with ζ′(0) in both numerator and denominator.",
+   "correction": "Use −ζ′(0)/ζ(0).",
+   "reason": "The factor x^s/s has residue1 at zero, while −ζ′/ζ is holomorphic there because ζ(0)=−1/2. Hence the residue is its value −ζ′(0)/ζ(0), not −1.",
+   "affects": "nothing",
+   "known": "new; no applicable correction found in the recorded bounded search, without a claim of global novelty",
+   "searched": [
+    "2026-10-14: author publications page https://kskedlaya.org/papers/ links the December 2025 PDF and parallel HTML, with no analytic-number-theory erratum listed.",
+    "Bounded searches for site:kskedlaya.org ant errata 9.2 and Kedlaya Lemma 9.2 zeta correction found no applicable correction. The attempted parallel chapter HTML was inaccessible; no claim about that text is made.",
+    "Fresh author PDF SHA-256 7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be, printed p.54, checked on its page image."
+   ],
+   "owner": "AnalyticNumberTheory",
+   "file": "research/blueprint/packets/AnalyticNumberTheory.json",
+   "citation": "Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnalyticNumberTheory",
+   "reviewReason": "Multiplying x^s/s by the holomorphic value of −ζ′/ζ at0 gives residue −ζ′(0)/ζ(0); differentiating the denominator is unjustified. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
    "id": "ArakelovGeometryAndAbelianHeights/E1",
@@ -180854,6 +180915,108 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.1.json",
    "citation": "Nancy Xu, Reciprocity Laws, University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1201",
+   "kind": "misprint",
+   "locator": "§4, proof of Lemma 4.6, the third line of the first display, p. 16 (arXiv:1611.06506v1)",
+   "printed": "After expanding the block product modulo p^{2α}, the line carries the factor p^α(n − 1) twice: once in front of f_p(p^α(n − 1))f_p(p^α) and again inside the sum, whose terms are written p^α(n − 1)·(1/i).",
+   "correction": "f_p(p^αn) − f_p(p^α(n − 1))f_p(p^α) ≡ p^α(n − 1)·f_p(p^α(n − 1))f_p(p^α)·Σ_{i ≤ p^α, p∤i} 1/i (mod p^{2α}), with the factor p^α(n − 1) once.",
+   "reason": "Modulo p^{2α}, ∏(p^α(n − 1) + i) = f_p(p^α)(1 + p^α(n − 1)Σ 1/i), so the difference is f_p(p^α(n − 1))f_p(p^α)·p^α(n − 1)Σ 1/i; the printed line would be a product of two copies of p^α(n − 1). The next two lines and the conclusion are as intended.",
+   "affects": "nothing",
+   "known": "Corrected in arXiv:2106.02882v1 (the 2021 deposit of the published article, Commun. Number Theory Phys. 13 (2019)), Lemma 3.1, p. 6, whose display has the factor once.",
+   "searched": [
+    "the arXiv listing of 1611.06506 (one version only)",
+    "arXiv:2106.02882v1, §3, Lemma 3.1"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+   "citation": "Wei Luo and Shengmao Zhu, Integrality structures in topological strings I: framed unknot, arXiv:1611.06506v1 (20 November 2016)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1202",
+   "kind": "error",
+   "locator": "Slide 1, 'Elliptic Divisibility Sequences As Recursions' (ICMS workshop slides, 27 June 2007)",
+   "printed": "For an integral EDS with W₀ = 0, W₁ = 1, W₂W₃ ≠ 0 and W₂ | W₄, the slide asserts that W is a strong divisibility sequence, with W_{gcd(m,n)} = gcd(W_m, Wₙ).",
+   "correction": "Strong divisibility needs gcd(W₃, W₄) = 1 (Ward's theorem), and the identity holds with |W_{gcd(m,n)}|: gcd(W_m, Wₙ) = |W_{gcd(m,n)}|.",
+   "reason": "W = 0, 1, 1, −6, −6, 210, … (b = 1, c = −6, d = −6) satisfies the slide's hypotheses but gcd(W₃, W₄) = 6 ≠ 1 = W₁; and for y² + y = x³ − x, W₃ = −1 while gcd(W₃, W₆) = 1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the slide file on the author's presentations page (the only version)",
+    "Silverman's paper arXiv:math/0404412, Definition 2 and §8, which defines EDS as divisibility sequences and does not repeat the claim"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.2.json",
+   "citation": "Joseph H. Silverman, p-adic properties of elliptic divisibility sequences (lecture slides), Slides, ICMS Workshop on Number Theory and Computability, Edinburgh, 27 June 2007",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E900",
+   "kind": "misprint",
+   "locator": "Section 6, Example 34, printed p. 333 (publisher PDF of the Monthly article)",
+   "printed": "The example says that ℚ(√−23), a Pólya field, has class number 4.",
+   "correction": "The class number of ℚ(√−23) is 3 (the reduced forms of discriminant −23 are x² + xy + 6y² and 2x² ± xy + 3y²).",
+   "reason": "Three reduced binary quadratic forms of discriminant −23; Leriche (JTNB 2011, p. 236) states the same example with class number 3. The point of the example — a Pólya field whose ring of integers is not principal — is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4169/amer.math.monthly.123.4.311 (2026-10-14): no update-to, updated-by or relation entries",
+    "Web search for an erratum or corrigendum to the article (2026-10-14): none found; the HAL record (hal-03621215) and the MAA table of contents list no correction",
+    "Leriche 2011, p. 236, which gives the correct class number for the same field (a later paper, not a correction of this one)"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+   "citation": "Paul-Jean Cahen and Jean-Luc Chabert, What You Should Know About Integer-Valued Polynomials, The American Mathematical Monthly 123 (2016), no. 4, 311–337, doi:10.4169/amer.math.monthly.123.4.311; publisher PDF as posted on a University of Rochester page (same file as the main packet's copy), read 2026-10-14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E901",
+   "kind": "error",
+   "locator": "Section 6, Proposition 33, real case, printed p. 333",
+   "printed": "The real quadratic Pólya fields are listed as ℚ(√p) with p prime and, when the fundamental unit has norm 1, ℚ(√(pq)) with p and q prime.",
+   "correction": "The second family must have exactly two ramified primes: ℚ(√d) with fundamental unit of norm +1 and d = 2q (q an odd prime) or d = pq with p, q odd primes and pq ≡ 1 (mod 4). (ℚ(√p) with p ≡ 3 mod 4 already has two ramified primes and fundamental unit of norm +1.)",
+   "reason": "ℚ(√15) fits the printed description (15 = 3·5, fundamental unit 4 + √15 of norm 1) but is not a Pólya field: the prime 𝔭_2 above 2 (𝔭_2² = 2𝒪) is not principal, since x² − 15y² = ±2 has no solution modulo 5. Here 2, 3, 5 ramify, and Hilbert's count quoted in Leriche, Proposition 2.4, gives a Pólya group of order 2^{3−2} = 2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4169/amer.math.monthly.123.4.311 (2026-10-14): no correction relation",
+    "Web search for an erratum to the article (2026-10-14): none found",
+    "Chabert's survey (author PDF, p. 13) only attributes the classification to Zantema without listing it; Leriche 2011, Proposition 2.4, gives the order of the Pólya group from which the correction follows"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+   "citation": "Paul-Jean Cahen and Jean-Luc Chabert, What You Should Know About Integer-Valued Polynomials, The American Mathematical Monthly 123 (2016), no. 4, 311–337, doi:10.4169/amer.math.monthly.123.4.311; publisher PDF as posted on a University of Rochester page (same file as the main packet's copy), read 2026-10-14",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E902",
+   "kind": "error",
+   "locator": "Footnote to formula (1), printed p. 167, and formula (3), printed p. 168",
+   "printed": "The footnote asserts that the bound (1) becomes strict when Σ1/λ_k < 1, and formula (3) states |α| < 2·max_k|a_k/a_0|^{1/k} with strict inequality.",
+   "correction": "Strictness requires some a_k with k ≥ 1 to be nonzero; for f = a_0X^n the root 0 gives equality 0 = 0. With that exclusion both strict statements hold; the non-strict versions hold without it.",
+   "reason": "For f = X², every a_k (k ≥ 1) vanishes, the maximum is 0 and the only root is 0, so |α| < 0 fails.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "J-STAGE record of Tôhoku Math. J. 10 (1916), 167–171 (2026-10-14): no correction attached",
+    "Bhargava–Shankar–Wang (arXiv:1611.09806v3, p. 27) use the non-strict form and do not revisit the strict one"
+   ],
+   "owner": "ClassicalArithmeticCompletion",
+   "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.3.json",
+   "citation": "Matsusaburô Fujiwara, Über die obere Schranke des absoluten Betrages der Wurzeln einer algebraischen Gleichung, Tôhoku Mathematical Journal, First Series, 10 (1916), 167–171; publisher's free scan on J-STAGE, read 2026-10-14 (page images inspected)",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -225446,7 +225609,7 @@
    "reviewReason": "Conrad’s proof (p.16) defers to the technique of Theorem 2.3.7, which applies DR III Théorème 1.2 (needs C₀ smooth or n prime to p, p.197). Česnavičius makes exactly this objection on p.33."
   },
   {
-   "id": "ModularCurvesPartII/E1",
+   "id": "ModularCurvesPartII/E301",
    "kind": "error",
    "locator": "Gross–Zagier (1986), Chapter III Proposition (1.4), p.255, published scan sha256 8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
    "printed": "In our words: The singular exception is restricted to supersingular extra-automorphism points.",
@@ -225466,7 +225629,7 @@
    "reviewReason": "Confirmed against GZ III Proposition (1.4), p.255, and Edixhoven §1.1.4–1.1.5, pp.35–36. The mixed ordinary order-2 example disproves the restricted locus; wild primes remain a separate gap."
   },
   {
-   "id": "ModularCurvesPartII/E2",
+   "id": "ModularCurvesPartII/E302",
    "kind": "error",
    "locator": "Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
    "printed": "In our words: The scalar-equivalence framing problem is described as fine.",
@@ -225487,7 +225650,7 @@
    "reviewReason": "Confirmed at the fine-moduli assertion on BT p.715: central inversion fixes a scalar framing. The corrected coarse/rigidified convention avoids descending a universal elliptic family."
   },
   {
-   "id": "ModularCurvesPartII/E3",
+   "id": "ModularCurvesPartII/E303",
    "kind": "error",
    "locator": "Bakker–Tsimerman (2016), §2.5, p.717, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
    "printed": "In our words: The cyclic isogeny correspondence is assigned degree σ₁(m).",
@@ -225508,7 +225671,7 @@
    "reviewReason": "Confirmed at BT §2.5, p.717. The m=4 HNF count is 7 full versus 6 cyclic; (2,2,0) is the excluded E[2] branch. The printed full boundary union needs the cyclicity filter."
   },
   {
-   "id": "ModularCurvesPartII/E4",
+   "id": "ModularCurvesPartII/E304",
    "kind": "misprint",
    "locator": "Bakker–Tsimerman (2016), §2.5, pp.716–717, two smooth-locus polygon domains, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
    "printed": "In our words: The auxiliary C_(pm)→C_p map and the C_p power map have component domains written as ℤ/m.",
@@ -225529,7 +225692,7 @@
    "reviewReason": "Confirmed against the two maps on BT pp.716–717. The auxiliary polygon has pm components and degree m²; the target power map has p components. The p-torsion identification is unchanged for p∤m."
   },
   {
-   "id": "ModularCurvesPartII/E5",
+   "id": "ModularCurvesPartII/E305",
    "kind": "error",
    "locator": "Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
    "printed": "In our words: The unrigidified stack of generalized p-gons is assigned cusp stabilizer order p.",
@@ -225550,7 +225713,7 @@
    "reviewReason": "Confirmed against BT §2.2, p.715. Before rigidifying central inversion, the pointed p-gon automorphism group has order 2p; the effective order p belongs to the rigidified orbifold. The explicit actions commute."
   },
   {
-   "id": "ModularCurvesPartII/E6",
+   "id": "ModularCurvesPartII/E306",
    "kind": "error",
    "locator": "Conrad, author PDF dated 18 July 2006, Theorem 4.3.4 p.38 and the final component clause of Theorem 4.3.6 p.40, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
    "printed": "In our words: For d>2 the component labels use both a unit b modulo d and a positive divisor r of d; the later chart clause asserts a unique positive-divisor lift.",
@@ -225571,7 +225734,7 @@
    "reviewReason": "Confirmed for the inspected Conrad author PDF: pp.38–41 give φ(d)/2 components after the unit and sign identifications, contradicting positive-divisor labels and uniqueness. Vu’s institutional indexed text supports the known-overcount attribution; published journal wording was not checked."
   },
   {
-   "id": "ModularCurvesPartII/E7",
+   "id": "ModularCurvesPartII/E307",
    "kind": "error",
    "locator": "Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
    "printed": "In our words: The branchwise mth-power map between the proper formal Tate n-gon curves is asserted finite flat of degree m.",
