@@ -678,6 +678,10 @@ end RD4
 -- Algebraic duals; the continuous duals of the duality theorems carry topologies.
 #check Module.Dual
 
+-- The index of a linear map, additive under composition of maps with finite-dimensional
+-- kernel and cokernel.
+#check @LinearMap.index_comp
+
 
 namespace RD5
 
@@ -689,37 +693,33 @@ variable {K : Type*} [Field K]
 variable {U V W : Type*} [AddCommGroup U] [Module K U] [AddCommGroup V] [Module K V]
   [AddCommGroup W] [Module K W]
 
-/-- A linear map has finite index when its kernel and cokernel are finite dimensional. -/
-def HasFiniteIndex (f : V →ₗ[K] W) : Prop :=
+/-- A near-isomorphism (README §RD.5.23): kernel and cokernel are finite dimensional. Its index
+`dim ker f − dim coker f` is Mathlib's `LinearMap.index`, which is additive under composition of
+such maps (`LinearMap.index_comp`). -/
+def NearIsomorphism (f : V →ₗ[K] W) : Prop :=
   FiniteDimensional K (LinearMap.ker f) ∧ FiniteDimensional K (W ⧸ LinearMap.range f)
 
-/-- The index `dim ker f − dim coker f`. It is only meaningful under `HasFiniteIndex f`,
-since `Module.finrank` of an infinite-dimensional space is `0`. -/
-def finiteIndex (f : V →ₗ[K] W) : ℤ :=
-  (Module.finrank K (LinearMap.ker f) : ℤ) - (Module.finrank K (W ⧸ LinearMap.range f) : ℤ)
-
-/-- Index additivity for a composite of finite-index maps. -/
-theorem finiteIndex_comp (f : U →ₗ[K] V) (g : V →ₗ[K] W)
-    (hf : HasFiniteIndex f) (hg : HasFiniteIndex g) :
-    HasFiniteIndex (g ∘ₗ f) ∧ finiteIndex (g ∘ₗ f) = finiteIndex f + finiteIndex g := by
+/-- Near-isomorphisms are closed under composition. -/
+theorem NearIsomorphism.comp (f : U →ₗ[K] V) (g : V →ₗ[K] W)
+    (hf : NearIsomorphism f) (hg : NearIsomorphism g) : NearIsomorphism (g ∘ₗ f) := by
   sorry
 
-/-- The square identity used for curves: if `b ∘ a = d ∘ c` and all four maps have finite
-index, then `ind a + ind b = ind c + ind d`. -/
-theorem finiteIndex_square {X : Type*} [AddCommGroup X] [Module K X]
+/-- The square identity used for curves: if `b ∘ a = d ∘ c` and all four maps are
+near-isomorphisms, then `ind a + ind b = ind c + ind d`. -/
+theorem NearIsomorphism.index_square {X : Type*} [AddCommGroup X] [Module K X]
     (a : U →ₗ[K] V) (b : V →ₗ[K] X) (c : U →ₗ[K] W) (d : W →ₗ[K] X)
-    (hsq : b ∘ₗ a = d ∘ₗ c) (ha : HasFiniteIndex a) (hb : HasFiniteIndex b)
-    (hc : HasFiniteIndex c) (hd : HasFiniteIndex d) :
-    finiteIndex a + finiteIndex b = finiteIndex c + finiteIndex d := by
+    (hsq : b ∘ₗ a = d ∘ₗ c) (ha : NearIsomorphism a) (hb : NearIsomorphism b)
+    (hc : NearIsomorphism c) (hd : NearIsomorphism d) :
+    a.index + b.index = c.index + d.index := by
   sorry
 
 /-- An isomorphism has index zero. -/
-example (e : V ≃ₗ[K] W) : finiteIndex (e : V →ₗ[K] W) = 0 := by
-  sorry
+example (e : V ≃ₗ[K] W) : (e : V →ₗ[K] W).index = 0 := by
+  simp
 
 /-- The zero map `K² → K` has kernel of dimension 2 and cokernel of dimension 1. -/
-example : finiteIndex (0 : (Fin 2 → K) →ₗ[K] K) = 1 := by
-  sorry
+example : (0 : (Fin 2 → K) →ₗ[K] K).index = 1 := by
+  simp
 
 end Index
 
@@ -746,7 +746,8 @@ section LocalPairing
 
 variable (K : Type*) [Field K]
 
-/-- The constant-term pairing on formal Laurent series. -/
+/-- The residue pairing of README §RD.5.45 in the coordinate `dx/x`, on formal Laurent series:
+`⟨f, g · dx/x⟩ = Res(f g dx/x)` is the constant coefficient of `f g`. -/
 def localPairing (f g : LaurentSeries K) : K := (f * g).coeff 0
 
 variable {K}
@@ -760,8 +761,8 @@ example (n : ℤ) :
     localPairing K (HahnSeries.single n (1 : K)) (HahnSeries.single (-n) 1) = 1 := by
   sorry
 
-/-- Non-example: the constant-term pairing is not the coefficient of `x⁻¹`; the monomial
-`x⁻¹` pairs to zero with `1`. -/
+/-- Non-example: pairing with `g · dx/x` is not pairing with `g · dx`. Here `x⁻¹` pairs to zero
+with `1`, although `Res(x⁻¹ dx) = 1`. -/
 example : localPairing K (HahnSeries.single (-1) (1 : K)) 1 = 0 := by
   sorry
 
@@ -1022,7 +1023,8 @@ theorem rational_descent {k L : Type*} [Field k] [Field L] [Algebra k L] (f : Po
     ∃ P Q : Polynomial k, Q.coeff 0 = 1 ∧ (Q : PowerSeries k) * f = (P : PowerSeries k) :=
   sorry
 
-/-- Test: the zeta function of `ℙ¹` over `𝔽_q`, `∑ (1 + q^r) t^r`, is rational over `ℚ`. -/
+/-- Test: the point-count series of `ℙ¹` over `𝔽_q`, `∑_{r ≥ 0} (1 + q^r) t^r`, is rational over `ℚ`
+(README §RD.6.24). -/
 example (q : ℕ) :
     (((Polynomial.C (1 : ℚ) - Polynomial.X) *
         (Polynomial.C 1 - Polynomial.C (q : ℚ) * Polynomial.X) : Polynomial ℚ) : PowerSeries ℚ) *
@@ -1033,7 +1035,7 @@ example (q : ℕ) :
 /-- The multiplier `θ = exp(π(x^q - x))` satisfies `θ' = π(q x^(q-1) - 1) θ`: this is the
 horizontality of `F(σ^*e) = θ e` for the connection `∇e = π e dx` with `σ(x) = x^q`. The opposite
 multiplier `exp(π(x - x^q))` (printed by Kedlaya and by Xu–Zhu) fails this identity. -/
-theorem dwork_multiplier_horizontal {K : Type*} [Field K] [CharZero K] (π : K) (q : ℕ) :
+theorem dwork_multiplier_horizontal {K : Type*} [Field K] [CharZero K] (π : K) (q : ℕ) (hq : 0 < q) :
     PowerSeries.derivative K
         ((PowerSeries.exp K).subst (PowerSeries.C π * (PowerSeries.X ^ q - PowerSeries.X))) =
       PowerSeries.C π * (PowerSeries.C (q : K) * PowerSeries.X ^ (q - 1) - 1) *
@@ -1256,5 +1258,27 @@ example : (1 + 3 * X + 7 * X ^ 2 + 21 * X ^ 3 + 49 * X ^ 4 : ℤ[X]).reverse =
 end PointCounting
 
 end RD7
+
+/-!
+## Definitions stated only in the README
+
+The following definitions and constructions of `README.md` need carriers that Mathlib and Tau Ceti
+do not have at the pins (Robba and Amice rings, dagger algebras, differential and Frobenius modules,
+frames and tubes, isocrystal categories, rigid cohomology and their relatives). They are README
+targets with their intended signatures and are not declared here:
+* Layer RD.0: §§0.1, 0.2, 0.3, 0.5, 0.6, 0.9, 0.17, 0.19, 0.34, 0.35, 0.36, 0.48, 0.50, 0.54.
+* Layer RD.1: §§1.1, 1.2, 1.8, 1.11, 1.14, 1.17, 1.19, 1.22, 1.25, 1.26, 1.27, 1.35, 1.36, 1.43,
+  1.55, 1.73.
+* Layer RD.2: §§2.11, 2.12, 2.13, 2.14, 2.18, 2.24, 2.28, 2.34, 2.45, 2.49.
+* Layer RD.3: §§3.1, 3.2, 3.3, 3.4, 3.13, 3.19, 3.22, 3.24, 3.25, 3.28, 3.34, 3.35, 3.37, 3.41,
+  3.46, 3.51.
+* Layer RD.4: §§4.1, 4.2, 4.5, 4.10, 4.11, 4.12, 4.15, 4.16, 4.17, 4.18, 4.36, 4.41, 4.42, 4.43,
+  4.44, 4.45, 4.47, 4.49, 4.51, 4.58.
+* Layer RD.5: §§5.12, 5.13, 5.14, 5.24, 5.50, 5.67, 5.68, 5.81, 5.82, 5.86, 5.87, 5.92, 5.93, 5.101,
+  5.107.
+* Layer RD.6: §§6.1, 6.2, 6.3, 6.4, 6.6, 6.8, 6.11, 6.38, 6.40, 6.41, 6.42, 6.43, 6.45, 6.51, 6.57,
+  6.58, 6.59, 6.69, 6.70.
+* Layer RD.7: §§7.2, 7.18.
+-/
 
 end TauCetiRoadmap.PadicDifferentialEquationsAndRigidCohomology
