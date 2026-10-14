@@ -22,9 +22,9 @@ Design choices made explicit here:
 * Elliptic curves are Mathlib Weierstrass curves with `IsElliptic`; their homomorphism groups are Tau
   Ceti's `TauCeti.Isogeny.Hom`, and "`K`-isogenous" means a nonzero element of that group.
 
-Abelian varieties with Tate modules, polarizations and semiabelian models are not available at the
-pins, so the finiteness theorems of Faltings (Satz 1–7) are README targets; the closing comment lists
-them.
+The enriched carriers for abelian varieties with Tate modules, polarizations and semiabelian models
+are not available at the pins, so their finiteness theorems are README targets; the closing comment
+lists them. The rational-points application uses HeightsRationalPointsAndObstructions RP.4.
 -/
 
 namespace TauCetiRoadmap.FaltingsFinitenessAndIsogenyTheorems
@@ -39,7 +39,7 @@ section Degree
 variable {K : Type*} [Field K] [NumberField K]
 
 /-- Faltings' degree (§3, pp. 353–354) of the metrized line bundle on `Spec 𝓞 K` given by the
-fractional ideal `I` with norm `‖x‖_v = c v * v x` at the infinite place `v`:
+nonzero fractional ideal `I`, with positive `c v` and norm `‖x‖_v = c v * v x` at the infinite place `v`:
 `deg = log #(I / 𝓞 K • p) − Σ_v ε_v log ‖p‖_v` for any nonzero `p ∈ I`, which equals
 `− log N(I) − Σ_v ε_v log (c v)` (see `fracIdealDegree_eq_of_mem`). Belongs to R28.1.5. -/
 noncomputable def fracIdealDegree (I : FractionalIdeal (𝓞 K)⁰ K) (c : InfinitePlace K → ℝ) : ℝ :=
@@ -90,6 +90,10 @@ theorem quatMatrix_transpose_mul {R : Type*} [CommRing R] (a b c d : R) :
 example : quatMatrix (2 : ℤ) 3 5 7 * (quatMatrix (2 : ℤ) 3 5 7)ᵀ = (87 : ℤ) • 1 := by
   rw [quatMatrix_mul_transpose]; norm_num
 
+/-- Right multiplication by `i` sends the third basis vector to minus the fourth. -/
+example : quatMatrix (0 : ℤ) 1 0 0 3 2 = -1 := by
+  decide
+
 /-- `−1` is a sum of four squares in `ℤ_l` for every prime `l`, `l = 2` included (R28.4.1). -/
 theorem exists_sum_four_squares_eq_neg_one (l : ℕ) [Fact l.Prime] :
     ∃ a b c d : ℤ_[l], a ^ 2 + b ^ 2 + c ^ 2 + d ^ 2 = -1 := by
@@ -112,9 +116,29 @@ def matAct (v : Matrix (Fin 4) (Fin 4) k) : (Fin 4 → V) →ₗ[k] (Fin 4 → V
     ext i
     simp [Finset.smul_sum, smul_smul, mul_comm]
 
+/-- The coefficient action of the identity matrix fixes every vector. -/
+example (x : Fin 4 → V) : matAct (1 : Matrix (Fin 4) (Fin 4) k) x = x := by
+  ext i
+  simp [matAct, Matrix.one_apply]
+
+/-- The coefficient action of the zero matrix kills every vector. -/
+example (x : Fin 4 → V) : matAct (0 : Matrix (Fin 4) (Fin 4) k) x = 0 := by
+  ext i
+  simp [matAct]
+
 /-- The orthogonal-sum form on `V ^ 8 = V ^ 4 × V ^ 4` induced by a form `B` on `V`. -/
 def sumForm (B : LinearMap.BilinForm k V) (x y : (Fin 4 → V) × (Fin 4 → V)) : k :=
   ∑ i, B (x.1 i) (y.1 i) + ∑ i, B (x.2 i) (y.2 i)
+
+/-- Eight equal coordinate pairings sum to eight times their common value. -/
+example (B : LinearMap.BilinForm k V) (u w : V) :
+    sumForm B ((fun _ => u), (fun _ => u)) ((fun _ => w), (fun _ => w)) = 8 * B u w := by
+  simp [sumForm]
+  ring
+
+/-- The zero bilinear form gives the zero orthogonal-sum form. -/
+example (x y : (Fin 4 → V) × (Fin 4 → V)) : sumForm (0 : LinearMap.BilinForm k V) x y = 0 := by
+  simp [sumForm]
 
 namespace QuaternionIsotropic
 
@@ -198,15 +222,19 @@ theorem finite_stableLattices {G V : Type*} [Group G] [AddCommGroup V] [Module �
     [FiniteDimensional ℚ_[l] V] [Module ℤ_[l] V] [IsScalarTower ℤ_[l] ℚ_[l] V]
     (ρ : Representation ℚ_[l] G V)
     (hss : ∀ W : Submodule ℚ_[l] V, (∀ g, ∀ x ∈ W, ρ g x ∈ W) →
-      ∃ W' : Submodule ℚ_[l] V, IsCompl W W' ∧ ∀ g, ∀ x ∈ W', ρ g x ∈ W') :
-    ∃ F : Finset (Submodule ℤ_[l] V), ∀ Λ : Submodule ℤ_[l] V, Submodule.IsLattice ℚ_[l] Λ →
+      ∃ W' : Submodule ℚ_[l] V, IsCompl W W' ∧ ∀ g, ∀ x ∈ W', ρ g x ∈ W')
+    (hexists : ∃ Λ : Submodule ℤ_[l] V, Submodule.IsLattice ℚ_[l] Λ ∧
+      ∀ g, ∀ x ∈ Λ, ρ g x ∈ Λ) :
+    ∃ F : Finset (Submodule ℤ_[l] V),
+      (∀ Λ ∈ F, Submodule.IsLattice ℚ_[l] Λ ∧ ∀ g, ∀ x ∈ Λ, ρ g x ∈ Λ) ∧
+      ∀ Λ : Submodule ℤ_[l] V, Submodule.IsLattice ℚ_[l] Λ →
       (∀ g, ∀ x ∈ Λ, ρ g x ∈ Λ) →
       ∃ Λ' ∈ F, ∃ φ : V ≃ₗ[ℚ_[l]] V, (∀ g x, φ (ρ g x) = ρ g (φ x)) ∧ ∀ x, x ∈ Λ ↔ φ x ∈ Λ' := by
   sorry
 
 end Lattices
 
-/-! ## Layer R28.6: Elliptic curves and two remarks -/
+/-! ## Layer R28.6: Elliptic curves and the integral commutant -/
 
 section Elliptic
 
@@ -218,7 +246,7 @@ theorem hom_isogenous_cyclic {F : Type*} [Field F] [CharZero F]
     {W W' : WeierstrassCurve.Affine F} [W.IsElliptic] [W'.IsElliptic]
     (hEnd : ∀ f : Hom W' W', ∃ n : ℤ, f = n • Hom.id W')
     (hne : ∃ f : Hom W W', f ≠ 0) :
-    ∃ f₀ : Hom W W', ∀ f : Hom W W', ∃ n : ℤ, f = n • f₀ := by
+    ∃ f₀ : Hom W W', f₀ ≠ 0 ∧ ∀ f : Hom W W', ∃! n : ℤ, f = n • f₀ := by
   sorry
 
 /-- Degrees in a cyclic `Hom`: `deg (n • f₀) = n² · deg f₀` (Tau Ceti `Hom.degree_zsmul`). -/
@@ -243,23 +271,25 @@ The README states the remaining targets with their hypotheses and sources; their
 representations of number fields with Frobenius elements) are not at the pins. By layer:
 
 * R28.1: `SemiabelianScheme.hodgeLine`, `SemiabelianModel.unique`, `CorrespondenceStack`,
-  `modular_hodge_commensurable`, `modularHeight`, `HermitianMetric.HasLogSingularities`,
+  `modular_hodge_commensurable`, `metrizedDegree`, `modularHeight`, `HermitianMetric.HasLogSingularities`,
   `hodgeMetric_hasLogSingularities`, `northcott_logSingular`, `hermiteMinkowski`,
-  `finite_forms_semiabelian`, `finite_ppav_bounded_height`, `principalReduction_uniform`.
+  `finite_forms_semiabelian`, `finite_ppav_bounded_height`, `Polarization.kernelPairing`,
+  `Polarization.descend`, `principalReduction_uniform`.
 * R28.2: `height_isogeny`, `height_isogeny_padicVal_bounds`, `inertia_trivial_quotient`,
   `card_invDiff_level`, `det_hodgeTate_local`, `ladicChar_eq_cyclotomic_pow_mul_finite`,
   `det_induced_at_l`, `frobenius_weights_induced`, `sum_local_dims_eq`.
 * R28.3: `closure_tower_lDivisible`, `toric_intersection_lDivisible`, `card_invDiff_shifted`,
-  `height_stationary`, `Polarization.kernelPairing`, `Polarization.descend`,
-  `PolarizationReduction`, `ppav_pow`, `tate_invariance`, `exists_isomorphic_quotients`.
-* R28.4: `exists_idempotent_image_of_isotropic`, `exists_idempotent_image`, `tate_semisimple`,
+  `height_stationary`, `PolarizationReduction`, `ppav_pow`, `tate_invariance`,
+  `exists_isomorphic_quotients`.
+* R28.4: `QuaternionIsotropic.finrank_subspace_of_two_ne_zero`,
+  `QuaternionIsotropic.map_recover_subspace_of_two_ne_zero`, `exists_idempotent_image_of_isotropic`, `exists_idempotent_image`, `tate_semisimple`,
   `tate_end_iso`, `tate_hom_iso`, `isogenous_iff_localFactors`, `finite_of_tateModules_iso`.
-* R28.5: `frobeniusTestSet`, `finite_isogenyClasses`, `auxPoly_spec`, `twistedDet_unramified`,
+* R28.5: `frobeniusTestSet`, `finite_isogenyClasses`, `auxBound`, `auxPoly_spec`, `twistedDet_unramified`,
   `modl_char_cyclotomic`, `raynaud_determinant`, `height_eq_of_large_prime_isogeny`,
-  `finite_padicVal_heightQuotient`, `shafarevich`, `zarhinTrick`, `finite_directFactors`,
-  `shafarevich_unpolarized`, `rationalTorelli`, `finite_curves_goodReduction`, `mordell`.
+  `finite_padicVal_heightQuotient`, `shafarevich`, `zarhinGraphDescent`, `zarhinTrick`,
+  `finite_directFactors`, `shafarevich_unpolarized`, `rationalTorelli`, `finite_curves_goodReduction`.
 * R28.6: `ellipticBridge`, `elliptic_semisimple`, `elliptic_tate_hom_iso`,
-  `elliptic_isogenous_iff_ap`, `commutant_almostAll`.
+  `elliptic_isogenous_iff_ap`, `order_centralizer_reduce`, `commutant_almostAll`.
 -/
 
 end TauCetiRoadmap.FaltingsFinitenessAndIsogenyTheorems
