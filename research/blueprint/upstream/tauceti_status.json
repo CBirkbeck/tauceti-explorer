@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T20:43Z",
+ "updated": "2026-10-14T20:51Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -498,7 +498,7 @@
   "LefschetzPencilsAndVanishingCycles": {
    "stage": "pr",
    "pr": 873,
-   "head": "5e2c874",
+   "head": "171a973",
    "depends_on": [
     779,
     792,
@@ -514,9 +514,9 @@
    "review": {
     "recommendation": "changes",
     "head": "5e2c874",
-    "current": true,
+    "current": false,
     "date": "2026-10-14",
-    "note": "maintainer fresh review (GPT-6 Astra) at 5e2c874: two localized zero-case corrections; repair in progress"
+    "note": "maintainer fresh review at 5e2c874 (two zero-case corrections) repaired and answered at 171a973; awaiting re-review"
    }
   },
   "ClassicalAdicEtaleCohomology": {
@@ -702,6 +702,19 @@
    "stage": "pr",
    "pr": 928,
    "head": "02d5299",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "red team (Sol + Astra) running"
+   }
+  },
+  "DeligneWeightsAndPurity": {
+   "stage": "pr",
+   "pr": 929,
+   "head": "ebd7f9e",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
     "recommendation": null,
