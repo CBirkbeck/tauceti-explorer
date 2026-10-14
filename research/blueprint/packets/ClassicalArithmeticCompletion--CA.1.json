@@ -1,0 +1,3320 @@
+{
+ "roadmapId": "ClassicalArithmeticCompletion",
+ "protocol": "blueprint-v1",
+ "part": "CA.1",
+ "status": "complete",
+ "scope": [
+  "ClassicalArithmeticCompletion:CA.1"
+ ],
+ "summary": "Continuation of CA.1 (Residues and reciprocity), planned at target level from public sources. It supplies the four inputs the first pass left open. (1) The degree-n norm-residue symbol (a, b)_v = Art_v(a)(ⁿ√b)/ⁿ√b of a local field containing μ_n, moved down from K2SymbolsBrauer T.7 and built on Class Field Theory's local and archimedean Artin maps, with its global packaging at the places of a number field, bimultiplicativity, the Steinberg relation, skew symmetry, the norm criterion and nondegeneracy, functoriality, and the comparison with Class Field Theory's cohomological localSymbol (Fesenko–Vostokov IV.5, Milne III.4 and VIII.5); this is the symbol that CA.1's tame formula, degree-n product formula and power reciprocity law use. (2) Biquadratic reciprocity in ℤ[i]: primary Gaussian integers, the quartic Jacobi and Gauss sums of a primary prime, reciprocity with rational denominators and for coprime coordinates, the law (λ/π)_4 = (π/λ)_4 (−1)^{((Nλ−1)/4)((Nπ−1)/4)} for coprime primary elements, and the supplements for i, −1 and 1 + i, on the power residue symbol with n = 4 (Xu's REU paper, with the proofs it leaves to Ireland–Rosen written out; every formula checked by machine on small cases). (3) The three inputs of Eisenstein reciprocity: Φ(P) = g(P)^m, Stickelberger's relation (Φ(P)) = P^{Σ t σ_t⁻¹} (Katre, Clausen; the prime 2 supplied), the unit factor ±ζ_m^i and ±1 for primary α, the residue identity (Φ(P)/P')_m = (N P'/P)_m and Eisenstein reciprocity at ideal norms (Adhikari, Xu). (4) The number-field quadratic law with dyadic and archimedean factors, the completed symbol |α/β| and its periodicity modulo 8α (FIMR §2, Koymans–Milovic items 3–4), the norm compatibility of the power residue symbol in any finite extension, and the count 1 + (d/p) of zeros of a binary quadratic form on ℙ¹(𝔽_p) (Calegari–Geraghty adapter). Of the twelve first-pass targets whose obligations the independent review recorded, eight receive fourteen supporting lemma nodes (root counts, the squarefree part, primary Eisenstein integers, the cubic Jacobi and Gauss sums, the three cases of cubic reciprocity, its extension to rational denominators, and the normalising root of unity); the other four (the three degree-n theorems and Eisenstein reciprocity) are supplied by the norm-residue symbol and the Stickelberger nodes. A public proof of the 1 + i supplement and the value of the comparison sign ε remain, as recorded; the explicit laws at the places above n belong to HigherLocalFieldsAndHigherClassFieldTheory HL.4 (restructure entry).",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AddChar.IsPrimitive",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+    "provides": "Primitive additive characters, for which the Gauss-sum identities hold.",
+    "checked": "statement read in the source file at the pinned commit (line 61), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Algebra.trace",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Trace/Defs.lean",
+    "provides": "The trace of a finite field over its prime field, defining the additive character t ↦ ζ_p^{Tr(t)}.",
+    "checked": "statement read in the source file at the pinned commit (line 71), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Associated",
+    "kind": "def",
+    "module": "Mathlib/Algebra/GroupWithZero/Associated.lean",
+    "provides": "Associated elements of a monoid (differing by a unit).",
+    "checked": "statement read in the source file at the pinned commit (line 29), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Field.absoluteGaloisGroup",
+    "kind": "def",
+    "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+    "provides": "The absolute Galois group Gal(K^alg/K), the target of the absolute local Artin map of Class Field Theory Layer 7 through its topological abelianization.",
+    "checked": "statement read in the source file at the pinned commit (line 43), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:FiniteField.sum_pow_lt_card_sub_one",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+    "provides": "Σ_{x ∈ F} x^i = 0 for i < q − 1 in a finite field with q elements.",
+    "checked": "statement read in the source file at the pinned commit (line 311), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Zsqrtd/QuadraticReciprocity.lean",
+    "provides": "A rational prime p is prime in ℤ[i] exactly when p ≡ 3 (mod 4).",
+    "checked": "statement read in the source file at the pinned commit (line 83), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Zsqrtd/GaussianInt.lean",
+    "provides": "A rational prime that is not irreducible in ℤ[i] is a sum of two squares a² + b², hence the product (a + bi)(a − bi).",
+    "checked": "statement read in the source file at the pinned commit (line 243), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:HasEnoughRootsOfUnity",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/RootsOfUnity/EnoughRootsOfUnity.lean",
+    "provides": "The class saying a ring contains a primitive n-th root of unity and its n-th roots of unity form a cyclic group; the hypothesis of the power residue symbol.",
+    "checked": "statement read in the source file at the pinned commit (line 27), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.absNorm",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+    "provides": "The absolute norm N(A) = #(𝓞_K/A) of an ideal.",
+    "checked": "statement read in the source file at the pinned commit (line 258), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.absNorm_relNorm",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "N(N_{L/K}𝔄) = N(𝔄): the relative norm preserves absolute norms.",
+    "checked": "statement read in the source file at the pinned commit (line 460), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.inertiaDeg",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/RamificationInertia/Inertia.lean",
+    "provides": "The residue degree f(𝔓|𝔭) of a prime over a prime.",
+    "checked": "statement read in the source file at the pinned commit (line 44), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.relNorm",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "The relative norm of ideals N_{L/K} : Ideal 𝓞_L →*₀ Ideal 𝓞_K.",
+    "checked": "statement read in the source file at the pinned commit (line 270), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.relNorm_eq_pow_of_isMaximal",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "The relative norm of a maximal ideal P over p is p^{f(P|p)}.",
+    "checked": "statement read in the source file at the pinned commit (line 437), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.span",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/Ideal/Span.lean",
+    "provides": "The ideal generated by a set; the principal ideals (1 + i)^3 𝓞_K and (π) used by the congruences and symbols.",
+    "checked": "statement read in the source file at the pinned commit (line 46), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Ideal.spanNorm_singleton",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Ideal/Norm/RelNorm.lean",
+    "provides": "The relative norm of a principal ideal (r) is the principal ideal of the element norm of r.",
+    "checked": "statement read in the source file at the pinned commit (line 82), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsCyclic.card_powMonoidHom_ker",
+    "kind": "theorem",
+    "module": "Mathlib/GroupTheory/SpecificGroups/Cyclic.lean",
+    "provides": "In a finite cyclic group G, the kernel of the d-th power map has gcd(#G, d) elements.",
+    "checked": "statement read in the source file at the pinned commit (line 695), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension",
+    "kind": "class",
+    "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+    "provides": "The class IsCyclotomicExtension S A B: B contains primitive n-th roots of unity for n ∈ S and is generated over A by them; ℚ(i) is IsCyclotomicExtension {4} ℚ K.",
+    "checked": "statement read in the source file at the pinned commit (line 76), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.Three.Units.mem",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Three.lean",
+    "provides": "Every unit of 𝓞_K for K = ℚ(ζ_3) is one of 1, −1, η, −η, η², −η² (each of which is a unit).",
+    "checked": "statement read in the source file at the pinned commit (line 51), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "provides": "In ℚ(ζ_{p^{k+1}}) the prime (ζ − 1) has residue degree 1 over ℤ; for k = 0 it is the prime above p of ℚ(ζ_p), with residue field 𝔽_p.",
+    "checked": "statement read in the source file at the pinned commit (line 100), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.three_pid",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/PID.lean",
+    "provides": "The ring of integers of ℚ(ζ_3) is a principal ideal domain.",
+    "checked": "statement read in the source file at the pinned commit (line 34), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.torsionOrder_eq",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "provides": "The group of roots of unity of ℚ(ζ_n) has order n for even n and 2n for odd n; since the ±ζ^i are that many distinct roots of unity, they are all of them.",
+    "checked": "statement read in the source file at the pinned commit (line 912), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+    "provides": "The finite places of a number field, as height-one primes of its ring of integers.",
+    "checked": "statement read in the source file at the pinned commit (line 493), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+    "provides": "The completion K_v of a number field at a finite place v.",
+    "checked": "statement read in the source file at the pinned commit (line 602), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsNonarchimedeanLocalField",
+    "kind": "class",
+    "module": "Mathlib/NumberTheory/LocalField/Basic.lean",
+    "provides": "The class of nonarchimedean local fields (valuative topology, locally compact, nontrivial valuation), the carrier of the local Artin map.",
+    "checked": "statement read in the source file at the pinned commit (line 45), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+    "provides": "Primitive n-th roots of unity; the coordinate ζ ↦ 1 of μ_n used in the comparison with the cohomological symbol.",
+    "checked": "statement read in the source file at the pinned commit (line 63), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.integralPowerBasisOfPrimePow",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "provides": "For K = ℚ(ζ_{p^k}) the powers of ζ form a ℤ-basis of 𝓞_K; for p^k = 4 the basis {1, i} of ℤ[i].",
+    "checked": "statement read in the source file at the pinned commit (line 179), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.zeta_sub_one_prime'",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Basic.lean",
+    "provides": "For ζ a primitive p-th root of unity in ℚ(ζ_p), ζ − 1 is a prime of 𝓞_K.",
+    "checked": "statement read in the source file at the pinned commit (line 310), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:MulChar",
+    "kind": "structure",
+    "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+    "provides": "Multiplicative characters of a commutative monoid with values in a commutative monoid with zero.",
+    "checked": "statement read in the source file at the pinned commit (line 72), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:MulChar.ringHomComp",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+    "provides": "Push a multiplicative character forward along a ring homomorphism of the value rings; Gauss and Jacobi sums are transported termwise.",
+    "checked": "statement read in the source file at the pinned commit (line 453), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Nat.card_units",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/GroupWithZero/Units/Fintype.lean",
+    "provides": "The unit group of a finite field with q elements has q − 1 elements.",
+    "checked": "statement read in the source file at the pinned commit (line 40), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
+    "provides": "Kronecker: an algebraic integer all of whose complex conjugates have absolute value one is a root of unity.",
+    "checked": "statement read in the source file at the pinned commit (line 138), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:NumberField.InfinitePlace",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+    "provides": "The infinite places of a number field.",
+    "checked": "statement read in the source file at the pinned commit (line 57), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:NumberField.InfinitePlace.Completion",
+    "kind": "structure",
+    "module": "Mathlib/NumberTheory/NumberField/Completion/InfinitePlace.lean",
+    "provides": "The completion of a number field at an infinite place, isomorphic to ℝ or ℂ.",
+    "checked": "statement read in the source file at the pinned commit (line 81), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:NumberField.InfinitePlace.IsComplex",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+    "provides": "An infinite place is complex when its embedding is not real.",
+    "checked": "statement read in the source file at the pinned commit (line 188), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:NumberField.InfinitePlace.IsReal",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+    "provides": "An infinite place is real when its embedding is real.",
+    "checked": "statement read in the source file at the pinned commit (line 185), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Polynomial.separable_X_pow_sub_C",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Separable.lean",
+    "provides": "If n is nonzero in F and a is nonzero, then X^n - a is separable: the n-th roots of b used by the norm-residue symbol lie in the separable closure.",
+    "checked": "statement read in the source file at the pinned commit (line 414), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Projectivization",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Projectivization/Basic.lean",
+    "provides": "The projectivization ℙ(V) of a vector space, here ℙ¹(𝔽_p) = ℙ(𝔽_p²).",
+    "checked": "statement read in the source file at the pinned commit (line 48), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Projectivization.mk",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Projectivization/Basic.lean",
+    "provides": "The point [v] of ℙ(V) of a nonzero vector v.",
+    "checked": "statement read in the source file at the pinned commit (line 60), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Squarefree",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+    "provides": "Squarefree elements of a monoid; on ℤ the integers not divisible by a square of a prime, including ±1.",
+    "checked": "statement read in the source file at the pinned commit (line 42), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Squarefree.natFactorization_le_one",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Squarefree.lean",
+    "provides": "The exponent of every prime in a squarefree natural number is at most 1.",
+    "checked": "statement read in the source file at the pinned commit (line 50), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:Zsqrtd.isUnit_iff_norm_isUnit",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Zsqrtd/Basic.lean",
+    "provides": "An element of ℤ[√d] is a unit exactly when its norm is a unit; for ℤ[i] the units are ±1, ±i.",
+    "checked": "statement read in the source file at the pinned commit (line 490), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:autAdjoinRootXPowSubCEquiv",
+    "kind": "def",
+    "module": "Mathlib/FieldTheory/KummerExtension.lean",
+    "provides": "When K contains a primitive n-th root of unity and X^n - a is irreducible, the Kummer equivalence between the n-th roots of unity of K and Gal(K[ⁿ√a]/K), σ ↦ σ(ⁿ√a)/ⁿ√a.",
+    "checked": "statement read in the source file at the pinned commit (line 257), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:discrim",
+    "kind": "def",
+    "module": "Mathlib/Algebra/QuadraticDiscriminant.lean",
+    "provides": "The discriminant b² − 4ac of a quadratic.",
+    "checked": "statement read in the source file at the pinned commit (line 48), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "The Gauss sum g(χ, ψ) = Σ_x χ(x) ψ(x) of a multiplicative and an additive character.",
+    "checked": "statement read in the source file at the pinned commit (line 72), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum_frob",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "In characteristic p, g(χ, ψ)^p = g(χ^p, ψ^p).",
+    "checked": "statement read in the source file at the pinned commit (line 245), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum_mulShift_eq",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "Replacing ψ by ψ(a ·) multiplies the Gauss sum by χ⁻¹(a), for a unit a.",
+    "checked": "statement read in the source file at the pinned commit (line 83), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "For nontrivial χ and primitive ψ, g(χ, ψ) g(χ⁻¹, ψ⁻¹) = #R.",
+    "checked": "statement read in the source file at the pinned commit (line 188), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum_ne_zero_of_nontrivial",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "A Gauss sum of a nontrivial character with primitive additive character is nonzero when the cardinality is invertible.",
+    "checked": "statement read in the source file at the pinned commit (line 215), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum_pow_eq_prod_jacobiSum",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+    "provides": "For a character χ of order n ≥ 2 and a primitive ψ on a finite field F, g(χ)^n = χ(−1) · #F · ∏_{1≤i<n−1} J(χ, χ^i).",
+    "checked": "statement read in the source file at the pinned commit (line 342), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:gaussSum_sq",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/GaussSum.lean",
+    "provides": "For a nontrivial quadratic character χ and a primitive ψ, g(χ, ψ)^2 = χ(−1) · #R.",
+    "checked": "statement read in the source file at the pinned commit (line 222), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:isCyclic_of_injective_ringHom",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/IntegralDomain.lean",
+    "provides": "A finite subgroup of the units of a domain is cyclic; in particular Fˣ for a finite field F.",
+    "checked": "statement read in the source file at the pinned commit (line 130), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top",
+    "kind": "lemma",
+    "module": "Mathlib/FieldTheory/KummerExtension.lean",
+    "provides": "A field generated by a root α with α^[L:K] in K, over K containing the roots of unity, is the splitting field of X^[L:K] - a: Kummer extensions are Galois.",
+    "checked": "statement read in the source file at the pinned commit (line 538), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:jacobiSum",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+    "provides": "The Jacobi sum J(χ, ψ) = Σ_x χ(x) ψ(1 − x) of two multiplicative characters of a finite commutative ring.",
+    "checked": "statement read in the source file at the pinned commit (line 47), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:jacobiSum_mul_jacobiSum_inv",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+    "provides": "For nontrivial χ, φ, χφ on a finite field F with values in a field of different characteristic, J(χ, φ) J(χ⁻¹, φ⁻¹) = #F.",
+    "checked": "statement read in the source file at the pinned commit (line 203), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:jacobiSum_mul_nontrivial",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
+    "provides": "If χφ is nontrivial then g(χφ) J(χ, φ) = g(χ) g(φ).",
+    "checked": "statement read in the source file at the pinned commit (line 165), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:jacobiSym.quadratic_reciprocity",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+    "provides": "For odd natural numbers a, b, J(a | b) = (−1)^{(a/2)(b/2)} J(b | a): quadratic reciprocity for the Jacobi symbol, which the number-field law specialises to at K = ℚ.",
+    "checked": "statement read in the source file at the pinned commit (line 425), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:legendreSym",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+    "provides": "The Legendre symbol (a/p) ∈ {0, ±1}.",
+    "checked": "statement read in the source file at the pinned commit (line 109), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:legendreSym.card_sqrts",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+    "provides": "For p odd, the number of square roots of a modulo p is legendreSym p a + 1.",
+    "checked": "statement read in the source file at the pinned commit (line 197), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:padicValRat",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "The p-adic valuation of a rational number.",
+    "checked": "statement read in the source file at the pinned commit (line 128), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:padicValRat.mul",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "v_p(qr) = v_p(q) + v_p(r) for nonzero rationals q, r.",
+    "checked": "statement read in the source file at the pinned commit (line 227), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:padicValRat.pow",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "v_p(q^k) = k · v_p(q).",
+    "checked": "statement read in the source file at the pinned commit (line 244), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:quadraticChar_card_sqrts",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+    "provides": "In a finite field of odd characteristic, the number of x with x² = a is quadraticChar a + 1.",
+    "checked": "statement read in the source file at the pinned commit (line 214), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:quadratic_eq_zero_iff_discrim_eq_sq",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/QuadraticDiscriminant.lean",
+    "provides": "For a ≠ 0 in a domain with 2 ≠ 0, a x² + b x + c = 0 iff discrim a b c = (2ax + b)².",
+    "checked": "statement read in the source file at the pinned commit (line 63), 2026-10-14"
+   },
+   {
+    "ref": "mathlib:rootsOfUnity",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+    "provides": "The subgroup μ_n of n-th roots of unity of a commutative monoid, where the norm-residue symbol takes its values.",
+    "checked": "statement read in the source file at the pinned commit (line 56), 2026-10-14"
+   },
+   {
+    "ref": "tauceti:Rat.exists_squarefree_int_mul_sq",
+    "kind": "theorem",
+    "module": "TauCeti/Algebra/Squarefree.lean",
+    "provides": "Every nonzero rational is a squarefree integer times the square of a nonzero rational.",
+    "checked": "statement read in the source file at the pinned commit (line 92), 2026-10-14"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "xu-reciprocity-2021",
+   "title": "Reciprocity Laws",
+   "authors": "Nancy Xu",
+   "edition": "University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF",
+   "url": "http://math.uchicago.edu/~may/REU2021/REUPapers/Xu,Nancy.pdf",
+   "sha256": "f3c26a5da360e62580d18b74539a9a5240c8c0f831b4c4a7ae3f0fbb6e2cd0c0",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§3 Gauss and Jacobi sums (pp. 8–10)",
+    "§4 Cubic reciprocity (pp. 10–14)",
+    "§5 Biquadratic reciprocity, Definitions 5.2–5.4, Propositions 5.5–5.13 and Theorem 5.8 with its proof (pp. 14–17)",
+    "§6 Eisenstein reciprocity, Definitions 6.3–6.11, Propositions 6.5–6.19 and Theorem 6.9 (pp. 18–24)"
+   ]
+  },
+  {
+   "id": "katre-stickelberger-2000",
+   "title": "Gauss–Jacobi Sums and Stickelberger's Theorem",
+   "authors": "S. A. Katre",
+   "edition": "In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 75–92; the publisher's free PDF",
+   "url": "https://www.bprim.org/sites/default/files/jacn.pdf",
+   "sha256": "ad5c29968f50bd18265c453879e6e9bbe26967ef3c98558ad97c4d9dc6337400",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§1 Gauss and Jacobi sums, Definition 1 and Proposition 1 (pp. 75–77)",
+    "§2 the Stickelberger element and ideal (pp. 77–79)",
+    "§3 Prime factorisation of Gauss sums, Lemmas 2–3, Propositions 2, 3 and 3′ (pp. 79–82)",
+    "§4 Lemma 4 and Proposition 4 (pp. 82–84), Proposition 5 (pp. 84–85)"
+   ]
+  },
+  {
+   "id": "clausen-cyclotomic-2014",
+   "title": "Cyclotomic fields, lectures 15 and 16: the maximal ideal factorization of Gauss sums; Stickelberger's theorem and Herbrand's theorem",
+   "authors": "Dustin Clausen",
+   "edition": "Course notes, January 2014, the author's PDFs on his IHES page (Cyclo15.pdf, Cyclo16.pdf)",
+   "url": "https://www.ihes.fr/~dustin/files/CyclotimicFields/Cyclo16.pdf",
+   "sha256": "c7be0246ed2b617dd7c43e80b971c14c3d28395cd3bd74753a6830cf39272ea0",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "Lecture 15 (Cyclo15.pdf, SHA-256 f892ec394bb667d78bea6ad7ddb34f7b350644be6330e02449441e5146e9c40d): Theorems 0.1, 0.5, 0.6, 0.7 and Lemmas 0.2–0.4 (pp. 1–5)",
+    "Lecture 16 (Cyclo16.pdf): Theorem 0.1 and Corollaries 0.2–0.3 (pp. 1–2)"
+   ]
+  },
+  {
+   "id": "fesenko-vostokov-2002",
+   "title": "Local Fields and Their Extensions",
+   "authors": "I. B. Fesenko and S. V. Vostokov",
+   "edition": "Second edition, Translations of Mathematical Monographs 121, American Mathematical Society, 2002; the PDF posted on I. Fesenko's own site",
+   "url": "https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf",
+   "sha256": "019f09b449c8a5310a699855d88dfd43d202d2697f44b0a0fd1378c9dd257ec0",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "Chapter IV, §5 Pairings of the multiplicative group, (5.1) definition and Proposition with properties (1)–(9), Corollary, (5.2) Theorem, (5.3) Theorem on the tame symbol (pp. 143–146)",
+    "Chapter IV, §5 Exercises 3–4 on the quadratic symbols of ℚ_p and ℝ (pp. 149–150)",
+    "Chapter VII, §5, Remarks (5.3) and Exercises 1 and 4 (the Artin–Hasse and Artin–Hasse–Iwasawa formulas, stated as exercises on the explicit formula of Chapter VII), read for scope only"
+   ]
+  },
+  {
+   "id": "fimr-spin-2013",
+   "title": "The spin of prime ideals",
+   "authors": "John Friedlander, Henryk Iwaniec, Barry Mazur and Karl Rubin",
+   "edition": "Invent. Math. 193 (2013), 697–749; arXiv:1110.6331v2, the version read",
+   "url": "https://arxiv.org/pdf/1110.6331v2",
+   "sha256": "b51c25e1d9e7aea35e3d7a92d8f7e80eb8237775daef98e30740115767e71b44",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§2 Quadratic residue symbols and the law of quadratic reciprocity: the symbol, the Hilbert symbols and μ₂, μ_∞, (2.1), Lemma 2.1, Proposition 2.2, Lemma 2.3, Corollary 2.4, (2.4), Lemma 2.5 and the end of the proof of Proposition 2.2 (arXiv v2, pp. 4–8)"
+   ]
+  },
+  {
+   "id": "koymans-milovic-2021",
+   "title": "Joint distribution of spins",
+   "authors": "Peter Koymans and Djordjo Milovic",
+   "edition": "Duke Math. J. 170 (2021), 1723–1755; arXiv:1809.09597v1, the version read",
+   "url": "https://arxiv.org/pdf/1809.09597v1",
+   "sha256": "d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§2.1 the quadratic residue symbol, the Hilbert symbols and Lemma 2.1 (p. 4)",
+    "§5 Governing fields, the computation of the product of spins (pp. 21–22)"
+   ]
+  },
+  {
+   "id": "calegari-geraghty-2020",
+   "title": "Minimal modularity lifting for nonregular symplectic representations",
+   "authors": "Frank Calegari and David Geraghty",
+   "edition": "Duke Math. J. 169 (2020), 801–896; the typeset article posted on F. Calegari's page (paginated 1–96)",
+   "url": "http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
+   "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§8.7 Binary quadratic forms: Definition 8.19, Lemmas 8.20 and 8.21 with its proof (printed pp. 872–873)"
+   ]
+  },
+  {
+   "id": "adhikari-reciprocity-2000",
+   "title": "The Early Reciprocity Laws: From Gauss to Eisenstein",
+   "authors": "Sukumar Das Adhikari",
+   "edition": "In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 55–74; the publisher's free PDF",
+   "url": "https://www.bprim.org/sites/default/files/recipro1.pdf",
+   "sha256": "150ff1368481f7e1520e7c33d6ec3504c17a5a9aa3dec76b3a89efada0386148",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§3 Cubic reciprocity, Lemma 3.2 and the proof of Theorem 3.1 (pp. 58–66)",
+    "§4 Eisenstein reciprocity law: the power residue symbol, primary elements (19)–(22), Theorem 4.1, Propositions 4.1–4.6, (24), (25) and the proof of Theorem 4.1 (pp. 67–73)"
+   ]
+  },
+  {
+   "id": "relyea-reciprocity-2024",
+   "title": "On finite fields and higher reciprocity",
+   "authors": "Matias Carl Relyea",
+   "edition": "arXiv:2407.03559v3 (3 August 2024)",
+   "url": "https://arxiv.org/pdf/2407.03559v3",
+   "sha256": "16340a3a74b207e75e40db338ad9df35ef71d5f9088b4c2d9d824cd4f72e5847",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§1.2, Theorem 1.7 and its proof (pp. 11–13)",
+    "§4.1, Definition 22 and Theorem 4.4 (pp. 44–45)"
+   ]
+  },
+  {
+   "id": "milne-cft-2020",
+   "title": "Class Field Theory",
+   "authors": "J. S. Milne",
+   "edition": "Course notes, version 4.03 (6 August 2020), the author's PDF",
+   "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf",
+   "sha256": "50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "Chapter III, §4 The Hilbert symbol, Theorem 4.4 and Remarks 4.5–4.8 (pp. 110–115)",
+    "Chapter VIII, §5 Higher reciprocity laws: the Hilbert symbol, 5.6–5.10, Theorem 5.11, Proposition 5.12 and Example 5.13 (pp. 245–249)"
+   ]
+  },
+  {
+   "id": "shastri-reciprocity-2000",
+   "title": "Reciprocity Laws: Artin–Hilbert",
+   "authors": "Parvati Shastri",
+   "edition": "In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 175–183; the publisher's free PDF",
+   "url": "https://www.bprim.org/sites/default/files/rlmain.pdf",
+   "sha256": "d4c8431bb2ad93836763b3275ebc5c9c18b685be1d8ca665a66d8ce22a1b6e24",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "§5 Hilbert symbol, the definition, Remark 2 and Lemma 1 with its proof (pp. 178–180)",
+    "§§6–9 power residue symbol, Artin's and Hilbert's reciprocity laws, Theorems 4–5 (pp. 180–182)"
+   ]
+  },
+  {
+   "id": "SHOUP.V2",
+   "title": "A Computational Introduction to Number Theory and Algebra (Version 2)",
+   "authors": "Victor Shoup",
+   "edition": "Version 2, the author's freely distributable PDF, 598 pages",
+   "url": "https://shoup.net/ntb/ntb-v2.pdf",
+   "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
+   "accessed": "2026-10-14",
+   "readSections": [
+    "Exercise 1.30 (printed p. 13): the p-adic valuation on ℚ, its additivity and the factorisation x = ±∏ p^{ν_p(x)}"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The degree-n norm-residue symbol of a nonarchimedean local field",
+   "kind": "definition",
+   "statement": "Let F be a nonarchimedean local field, n ≥ 1, and suppose F contains a primitive n-th root of unity ζ (so the characteristic of F does not divide n and μ_n(Fˢ) ⊆ F). For a, b ∈ Fˣ choose β in a separable closure Fˢ with β^n = b; L = F(β) is a finite abelian (Kummer) extension of F. The degree-n norm-residue (Hilbert) symbol is (a, b)_{F,n} := Art_F(a)(β) / β ∈ μ_n(F), where Art_F(a) is the image of a under the local Artin map of Class Field Theory (Layer 6, localArtinMap for L/F; equivalently Layer 7, the absolute map artinMap F restricted to L), normalised by arithmetic Frobenius. The value does not depend on the root β, on the embedding of L in Fˢ, or on a and b beyond their classes in Fˣ/(Fˣ)^n.",
+   "hypotheses": [
+    "n ≥ 1 and F contains a primitive n-th root of unity; this forces char F ∤ n, so X^n − b is separable for b ≠ 0.",
+    "Orientation is pinned: the first argument enters through the Artin map, the second through an n-th root. This is the orientation of Fesenko–Vostokov IV.5.1 and of Shastri §5; Milne's symbol (III.4, Remark 4.5; VIII.5.9) is the transpose, (a, b)_Milne = (b, a)_{F,n} = (a, b)_{F,n}⁻¹.",
+    "The Artin map is normalised by arithmetic Frobenius (Class Field Theory §2.6): a uniformiser acts on an unramified extension as x ↦ x^q on residues.",
+    "The value is an element of μ_n(F); no coordinate ζ is used in the definition, only in the comparison with the cohomological symbol."
+   ],
+   "proofSteps": [
+    "Separability and Kummer theory: X^n − b is separable (Polynomial.separable_X_pow_sub_C, n a unit in F); since μ_n ⊆ F, L = F(β) is the splitting field of X^n − b (isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top), so L/F is Galois, and σ ↦ σ(β)/β embeds Gal(L/F) in μ_n(F) (autAdjoinRootXPowSubCEquiv when X^n − b is irreducible; in general the same cocycle computation), so L/F is abelian.",
+    "The Artin symbol: Art_F(a) ∈ Gal(L/F)^ab = Gal(L/F) is localArtinMap F L ι a (Class Field Theory Layer 6); by artinMap_restrict (Layer 7) it is the restriction of the absolute symbol, and by localArtinEquiv_eq_of_iota it does not depend on the embedding ι. Set (a, b)_{F,n} := Art_F(a)(β)/β; it is an n-th root of unity of L, hence lies in μ_n(F).",
+    "Independence of β: another root is β' = ξβ with ξ ∈ μ_n(F), and Art_F(a) fixes ξ, so Art_F(a)(β')/β' = Art_F(a)(β)/β.",
+    "Dependence on classes: replacing b by b c^n replaces β by βc with c ∈ F, which Art_F(a) fixes; replacing a by a c^n multiplies Art_F(a) by Art_F(c)^n, which is trivial on L because Gal(L/F) has exponent dividing n."
+   ],
+   "acceptance": [
+    "(7, 2)_{ℚ_7,3} is the cube root of unity of ℚ_7 congruent to 4 modulo 7, and (2, 7)_{ℚ_7,3} the one congruent to 2: the symbol is not symmetric, and the orientation is visible.",
+    "For n = 2 and F = ℚ_2, (−1, −1)_{F,2} = −1, the value of the quadratic norm-equation symbol.",
+    "For every a and every c, (a, c^n)_{F,n} = 1."
+   ],
+   "uses": [
+    {
+     "where": "CA.1/tame-hilbert-symbol-formula, CA.1/hilbert-product-formula-of-degree-n and CA.1/power-reciprocity-law",
+     "how": "their degree-n Hilbert symbol (a, b)_v is this symbol at the completion K_v (through CA.1/norm-residue-symbol-at-a-place); the tame formula is its value at places prime to n"
+    },
+    {
+     "where": "Fesenko–Vostokov IV.5.1–5.3",
+     "how": "properties (1)–(9) and the tame symbol formula are the API of the symbol"
+    },
+    {
+     "where": "Milne, Chapter VIII, Theorem 5.11",
+     "how": "the power reciprocity law expresses (a/b)(b/a)⁻¹ as a product of these symbols at the places in S"
+    },
+    {
+     "where": "FIMR §2 and Koymans–Milovic Lemma 2.1",
+     "how": "for n = 2 the local factors μ₂ and μ_∞ are products of these symbols at the dyadic and archimedean places"
+    },
+    {
+     "where": "K2SymbolsBrauer:T.7 (classical local symbols)",
+     "how": "imports this symbol as the Steinberg symbol K₂(F) → μ_n of a local field"
+    },
+    {
+     "where": "Fesenko–Vostokov VII.5, Exercises 1 and 4; HigherLocalFieldsAndHigherClassFieldTheory:HL.4",
+     "how": "the Artin–Hasse and Vostokov formulas evaluate this symbol at the places above p of ℚ_p(ζ_{p^m}); HL.4 imports it"
+    }
+   ],
+   "tests": [
+    {
+     "name": "normResidueSymbol_test_one",
+     "kind": "degenerate",
+     "statement": "For n = 1 the symbol is identically 1."
+    },
+    {
+     "name": "normResidueSymbol_test_pow_right",
+     "kind": "degenerate",
+     "statement": "(a, c^n)_{F,n} = 1 for all a, c ∈ Fˣ."
+    },
+    {
+     "name": "normResidueSymbol_test_Q7_cube",
+     "kind": "computation",
+     "statement": "In F = ℚ_7 with n = 3 (μ_3 ⊆ ℚ_7 since 7 ≡ 1 mod 3), (7, 2)_{F,3} is the cube root of unity congruent to 4 = 2^{(7−1)/3} modulo 7."
+    },
+    {
+     "name": "normResidueSymbol_test_Q7_swap",
+     "kind": "non-example",
+     "statement": "In the same field, (2, 7)_{F,3} is the cube root of unity congruent to 2 modulo 7, the inverse of (7, 2)_{F,3}: a definition with the arguments transposed (Milne's orientation) fails the previous test."
+    },
+    {
+     "name": "normResidueSymbol_test_units",
+     "kind": "computation",
+     "statement": "In ℚ_7 with n = 3, (2, 3)_{F,3} = 1: two units at a place prime to n pair trivially."
+    },
+    {
+     "name": "normResidueSymbol_test_Q2_quadratic",
+     "kind": "compatibility",
+     "statement": "In F = ℚ_2 with n = 2, (−1, −1)_{F,2} = −1 = hilbertSymbol (−1) (−1), while (−1, 5)_{F,2} = 1."
+    }
+   ],
+   "planet": {
+    "name": "Norm-residue symbol"
+   },
+   "prerequisites": [
+    "mathlib:Polynomial.separable_X_pow_sub_C",
+    "mathlib:autAdjoinRootXPowSubCEquiv",
+    "mathlib:isSplittingField_X_pow_sub_C_of_root_adjoin_eq_top",
+    "mathlib:IsNonarchimedeanLocalField",
+    "mathlib:rootsOfUnity",
+    "mathlib:Field.absoluteGaloisGroup",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+   ],
+   "api": [
+    {
+     "name": "normResidueSymbol",
+     "role": "constructor",
+     "statement": "For a nonarchimedean local field F containing a primitive n-th root of unity and a, b ∈ Fˣ, the symbol (a, b)_{F,n} ∈ μ_n(F)."
+    },
+    {
+     "name": "normResidueSymbol_spec",
+     "role": "characterisation",
+     "statement": "For every β ∈ Fˢ with β^n = b, the absolute Artin symbol of a sends β to (a, b)_{F,n} · β; equivalently localArtinMap F F(β) ι a acts on β by (a, b)_{F,n}."
+    },
+    {
+     "name": "normResidueSymbol_mul_left",
+     "role": "relation",
+     "statement": "(a a', b) = (a, b)(a', b)."
+    },
+    {
+     "name": "normResidueSymbol_mul_right",
+     "role": "relation",
+     "statement": "(a, b b') = (a, b)(a, b')."
+    },
+    {
+     "name": "normResidueSymbol_one_sub_self",
+     "role": "relation",
+     "statement": "Steinberg relation: (1 − a, a) = 1 for a ≠ 0, 1; and (−a, a) = 1 for every a."
+    },
+    {
+     "name": "normResidueSymbol_swap",
+     "role": "relation",
+     "statement": "Skew symmetry: (b, a) = (a, b)⁻¹."
+    },
+    {
+     "name": "normResidueSymbol_eq_one_iff_mem_normGroup",
+     "role": "characterisation",
+     "statement": "(a, b) = 1 if and only if a is a norm from F(β), β^n = b; and if and only if b is a norm from F(α), α^n = a."
+    },
+    {
+     "name": "normResidueSymbol_eq_one_forall_iff",
+     "role": "characterisation",
+     "statement": "(a, b) = 1 for every b ∈ Fˣ if and only if a ∈ (Fˣ)^n: the pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n is perfect."
+    },
+    {
+     "name": "normResidueSymbol_pow_of_dvd",
+     "role": "functoriality",
+     "statement": "If F contains a primitive (nm)-th root of unity then (a, b)_{F,nm}^m = (a, b)_{F,n}."
+    },
+    {
+     "name": "normResidueSymbol_norm",
+     "role": "functoriality",
+     "statement": "For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F} a, b)_{F,n}."
+    },
+    {
+     "name": "normResidueSymbol_map_ringEquiv",
+     "role": "functoriality",
+     "statement": "A continuous field isomorphism e : F ≃ F' carries (a, b)_{F,n} to (e a, e b)_{F',n}."
+    },
+    {
+     "name": "normResidueSymbol_tame",
+     "role": "compatibility",
+     "statement": "If the residue characteristic does not divide n and q is the residue cardinality, (a, b)_{F,n} is the root of unity congruent to ((−1)^{v(a)v(b)} b^{v(a)} a^{−v(b)})^{(q−1)/n} modulo the maximal ideal (the tame formula; its global reading is CA.1/tame-hilbert-symbol-formula)."
+    },
+    {
+     "name": "normResidueSymbol_two_eq_hilbertSymbol",
+     "role": "compatibility",
+     "statement": "For n = 2, (a, b)_{F,2} = −1 exactly when a is not a norm from F(√b), that is, it is the quadratic norm-equation Hilbert symbol of Quadratic Form Invariants 6C (Tau Ceti's hilbertSymbol, read in ±1)."
+    },
+    {
+     "name": "normResidueSymbol_eq_localSymbol",
+     "role": "compatibility",
+     "statement": "Through the coordinate log_ζ = muNRepEquivZMod ζ and the invariant coordinate of H²(F, μ_n), log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) (kummerClass a) (kummerClass b) for a sign ε ∈ {1, −1} independent of F, n, ζ, a and b (CA.1/norm-residue-symbol-and-the-cohomological-symbol)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ClassFieldTheory/Local/NormResidueSymbol",
+    "namespace": "TauCeti.ClassFieldTheory"
+   },
+   "sources": [
+    {
+     "sourceId": "fesenko-vostokov-2002",
+     "locator": "Chapter IV, §5, (5.1), definition and the paragraph after it, p. 143",
+     "match": "Defines the n-th Hilbert (norm-residue) symbol of a local field containing μ_n (with p ∤ n in characteristic p) as γ⁻¹Ψ_F(α)(γ) for γ^n = β, exactly the orientation pinned here, and checks independence of the root γ."
+    },
+    {
+     "sourceId": "milne-cft-2020",
+     "locator": "Chapter III, §4, Remark 4.5, p. 114; Chapter VIII, §5, 5.9, p. 247",
+     "match": "Relates Milne's Hilbert symbol to the local Artin map: the Artin symbol of b acts on an n-th root of a by Milne's (a, b); so Milne's symbol is the transpose of the one defined here."
+    },
+    {
+     "sourceId": "shastri-reciprocity-2000",
+     "locator": "§5, the definition of ⟨a, b⟩_n and Remark 2, pp. 178–179",
+     "match": "The same symbol, χ_b of the local Artin symbol of a, with values in μ_n, in the same orientation, and its nondegeneracy."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, p. 68",
+     "match": "The global power residue symbol that the local symbol refines at places prime to n (through the tame formula)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/archimedean-norm-residue-symbol",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The norm-residue symbol of ℝ and ℂ",
+   "kind": "definition",
+   "statement": "Let F be ℝ or ℂ (the completion of a number field at an infinite place) and n ≥ 1 with μ_n ⊆ F (so n ≤ 2 when F = ℝ). For a, b ∈ Fˣ and β ∈ ℂ with β^n = b, (a, b)_{F,n} := Art_F(a)(β)/β ∈ μ_n(F), where Art_F is the archimedean Artin map of Class Field Theory Layer 10 (infiniteArtinAt): trivial for F = ℂ, and for F = ℝ the map sending a to complex conjugation when a < 0 and to the identity when a > 0. Explicitly (a, b)_{ℂ,n} = 1, and (a, b)_{ℝ,2} = −1 exactly when a < 0 and b < 0; (a, b)_{ℝ,1} = 1.",
+   "hypotheses": [
+    "F = ℝ or F = ℂ with its usual topology; μ_n ⊆ F.",
+    "Same orientation as the nonarchimedean symbol: the first argument through the Artin map."
+   ],
+   "proofSteps": [
+    "Art_ℂ is trivial (infiniteArtinAt_eq_one_of_isComplex), so (a, b)_ℂ = 1.",
+    "Art_ℝ(a) is complex conjugation exactly when a < 0 (infiniteArtinAt_eq_one_iff_of_isReal); conjugation sends √b to −√b exactly when b < 0, so (a, b)_ℝ = −1 exactly when a < 0 and b < 0.",
+    "Bimultiplicativity, skew symmetry and the norm criterion follow from these values; for n = 2 the symbol agrees with the real quadratic norm-equation symbol of Global Quadratic Forms 4.4."
+   ],
+   "acceptance": [
+    "(−1, −1)_{ℝ,2} = −1 and (−1, 1)_{ℝ,2} = (2, −3)_{ℝ,2} = 1.",
+    "(a, b)_{ℂ,n} = 1 for all n."
+   ],
+   "uses": [
+    {
+     "where": "CA.1/hilbert-product-formula-of-degree-n",
+     "how": "the factors at the infinite places, trivial for n ≥ 3"
+    },
+    {
+     "where": "CA.1/power-reciprocity-law and CA.1/quadratic-reciprocity-in-a-number-field",
+     "how": "the archimedean factors μ_∞ of the reciprocity law"
+    },
+    {
+     "where": "FIMR (2.1)",
+     "how": "the completed quadratic residue symbol multiplies (α/β) by μ_∞(α, β)"
+    }
+   ],
+   "tests": [
+    {
+     "name": "archNormResidueSymbol_test_neg_neg",
+     "kind": "computation",
+     "statement": "(−1, −1)_{ℝ,2} = −1."
+    },
+    {
+     "name": "archNormResidueSymbol_test_complex",
+     "kind": "degenerate",
+     "statement": "(a, b)_{ℂ,3} = 1 for all a, b ∈ ℂˣ."
+    },
+    {
+     "name": "archNormResidueSymbol_test_sign_product",
+     "kind": "non-example",
+     "statement": "(2, −3)_{ℝ,2} = 1, although sign(2)·sign(−3) = −1: the symbol is not the product of the signs."
+    },
+    {
+     "name": "archNormResidueSymbol_test_n_one",
+     "kind": "degenerate",
+     "statement": "(a, b)_{ℝ,1} = 1."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:NumberField.InfinitePlace",
+    "mathlib:NumberField.InfinitePlace.Completion",
+    "mathlib:NumberField.InfinitePlace.IsReal",
+    "mathlib:NumberField.InfinitePlace.IsComplex",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
+   ],
+   "api": [
+    {
+     "name": "archNormResidueSymbol",
+     "role": "constructor",
+     "statement": "For F = ℝ or ℂ with μ_n ⊆ F, the symbol (a, b)_{F,n} ∈ μ_n(F)."
+    },
+    {
+     "name": "archNormResidueSymbol_complex",
+     "role": "simp",
+     "statement": "(a, b)_{ℂ,n} = 1."
+    },
+    {
+     "name": "archNormResidueSymbol_real",
+     "role": "characterisation",
+     "statement": "(a, b)_{ℝ,2} = −1 if and only if a < 0 and b < 0."
+    },
+    {
+     "name": "archNormResidueSymbol_spec",
+     "role": "characterisation",
+     "statement": "infiniteArtinAt sends β to (a, b)·β whenever β^n = b."
+    },
+    {
+     "name": "archNormResidueSymbol_eq_one_iff",
+     "role": "characterisation",
+     "statement": "(a, b) = 1 if and only if a is a norm from F(β)."
+    },
+    {
+     "name": "archNormResidueSymbol_mul_left",
+     "role": "relation",
+     "statement": "Bimultiplicativity, as for the nonarchimedean symbol."
+    },
+    {
+     "name": "archNormResidueSymbol_two_compat",
+     "role": "compatibility",
+     "statement": "For F = ℝ and n = 2 it is the real norm-equation symbol of Global Quadratic Forms 4.4 and the sign form of Class Field Theory's infiniteHilbertInvariantAt."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ClassFieldTheory/Local/NormResidueSymbol",
+    "namespace": "TauCeti.ClassFieldTheory"
+   },
+   "sources": [
+    {
+     "sourceId": "milne-cft-2020",
+     "locator": "Chapter VIII, §5, the paragraph after Theorem 5.11, p. 248",
+     "match": "States the archimedean values: trivial at complex places, and at a real place the symbol is 1 exactly when a > 0 or b > 0."
+    },
+    {
+     "sourceId": "fesenko-vostokov-2002",
+     "locator": "Chapter IV, §5, Exercise 4, p. 150",
+     "match": "The real quadratic symbol: 1 when a > 0 or b > 0 and −1 otherwise, entering the product formula over ℚ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-at-a-place",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The degree-n norm-residue symbol at a place of a number field",
+   "kind": "definition",
+   "statement": "Let K be a number field containing a primitive n-th root of unity ζ. For a place v of K and a, b ∈ Kˣ, (a, b)_v := (a, b)_{K_v,n}, the norm-residue symbol of the completion K_v at the images of a and b: the nonarchimedean symbol at a finite place v (K_v = v.adicCompletion K, which contains ζ) and the archimedean symbol at an infinite place (K_v ≅ ℝ or ℂ; for n ≥ 3 every infinite place is complex because ζ is not real). The value lies in μ_n(K_v) = μ_n(K), identified through ζ.",
+   "hypotheses": [
+    "K is a number field and ζ ∈ K is a primitive n-th root of unity, n ≥ 1.",
+    "Places are Mathlib's: finite places are IsDedekindDomain.HeightOneSpectrum (𝓞 K), infinite places are NumberField.InfinitePlace K."
+   ],
+   "proofSteps": [
+    "At a finite place, K_v is a nonarchimedean local field containing the image of ζ; apply the local symbol.",
+    "At an infinite place, K_v is ℝ or ℂ; apply the archimedean symbol. If n ≥ 3, ζ ∉ ℝ, so no infinite place is real and every archimedean factor is 1.",
+    "μ_n(K) maps isomorphically onto μ_n(K_v) for every v, so all values can be read in μ_n(K)."
+   ],
+   "acceptance": [
+    "For K = ℚ, n = 2 and an odd prime p, (p, u)_p = legendreSym p u for a p-adic unit u, the reading of CA.1/hilbert-symbol.",
+    "For K = ℚ(ζ_3), n = 3 and the two primes 𝔭, 𝔭̄ above 7, (7, 2)_𝔭 (7, 2)_𝔭̄ = 1: complex conjugation exchanges the two places and inverts the value."
+   ],
+   "uses": [
+    {
+     "where": "CA.1/hilbert-product-formula-of-degree-n",
+     "how": "the product over all places of (a, b)_v"
+    },
+    {
+     "where": "CA.1/power-reciprocity-law",
+     "how": "the correction factor ∏_{v | n∞} (a, b)_v"
+    },
+    {
+     "where": "CA.1/quadratic-reciprocity-in-a-number-field",
+     "how": "μ₂ and μ_∞ for n = 2"
+    }
+   ],
+   "tests": [
+    {
+     "name": "hilbertSymbolAt_test_Q_odd",
+     "kind": "computation",
+     "statement": "For K = ℚ, n = 2 and v = 7: (7, 3)_7 = legendreSym 7 3 = −1."
+    },
+    {
+     "name": "hilbertSymbolAt_test_infinite_cubic",
+     "kind": "degenerate",
+     "statement": "For K = ℚ(ζ_3) and n = 3, (a, b)_w = 1 at the unique infinite place w."
+    },
+    {
+     "name": "hilbertSymbolAt_test_conjugate_places",
+     "kind": "characterisation",
+     "statement": "For K = ℚ(ζ_3), n = 3 and the primes 𝔭, 𝔭̄ above 7, (7, 2)_𝔭 · (7, 2)_𝔭̄ = 1 while (7, 2)_𝔭 ≠ 1."
+    },
+    {
+     "name": "hilbertSymbolAt_test_Q_infinite",
+     "kind": "non-example",
+     "statement": "For K = ℚ, n = 2: (−1, −1)_∞ = −1 while (−1, −1)_p = 1 for every odd p; the archimedean factor is not trivial for n = 2."
+    }
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/archimedean-norm-residue-symbol",
+    "mathlib:IsDedekindDomain.HeightOneSpectrum",
+    "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+    "mathlib:NumberField.InfinitePlace",
+    "mathlib:NumberField.InfinitePlace.Completion"
+   ],
+   "api": [
+    {
+     "name": "hilbertSymbolAt",
+     "role": "constructor",
+     "statement": "(a, b)_v for a place v of K and a, b ∈ Kˣ, with values in μ_n(K)."
+    },
+    {
+     "name": "hilbertSymbolAt_finite",
+     "role": "characterisation",
+     "statement": "At a finite place it is the local symbol of v.adicCompletion K."
+    },
+    {
+     "name": "hilbertSymbolAt_infinite",
+     "role": "characterisation",
+     "statement": "At an infinite place it is the archimedean symbol; it is 1 when n ≥ 3."
+    },
+    {
+     "name": "hilbertSymbolAt_tame",
+     "role": "compatibility",
+     "statement": "At a finite place not dividing n it is given by the tame formula (CA.1/tame-hilbert-symbol-formula)."
+    },
+    {
+     "name": "hilbertSymbolAt_eq_one_of_unit",
+     "role": "simp",
+     "statement": "If v ∤ n is finite and a, b are v-adic units then (a, b)_v = 1; hence (a, b)_v = 1 for all but finitely many v."
+    },
+    {
+     "name": "hilbertSymbolAt_galois",
+     "role": "functoriality",
+     "statement": "For σ ∈ Aut(K), σ((a, b)_v) = (σa, σb)_{σv}."
+    },
+    {
+     "name": "hilbertSymbolAt_two",
+     "role": "compatibility",
+     "statement": "For n = 2 it is the quadratic Hilbert symbol (α, β / 𝔭) of FIMR §2 and the sign form of Class Field Theory's finiteHilbertInvariantAt and infiniteHilbertInvariantAt."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ClassFieldTheory/Global/HilbertSymbolAt",
+    "namespace": "TauCeti.ClassFieldTheory"
+   },
+   "sources": [
+    {
+     "sourceId": "milne-cft-2020",
+     "locator": "Chapter VIII, §5, 'The Hilbert symbol', 5.6–5.10, pp. 245–247",
+     "match": "The Hilbert symbol (a, b)_v of a number field containing μ_n at all places, with its tame formula 5.8 and product formula 5.10."
+    },
+    {
+     "sourceId": "shastri-reciprocity-2000",
+     "locator": "§§6–8, pp. 180–181",
+     "match": "The global family of local symbols at all places of a number field containing μ_n, whose product formula is Shastri's Theorem 4."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-norm-criterion",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The norm criterion and nondegeneracy of the norm-residue symbol",
+   "kind": "theorem",
+   "statement": "Let F be a nonarchimedean local field containing a primitive n-th root of unity, and a, b ∈ Fˣ. Then (a, b)_{F,n} = 1 if and only if a is a norm from F(β) (β^n = b), if and only if b is a norm from F(α) (α^n = a). Moreover (a, b)_{F,n} = 1 for every b if and only if a ∈ (Fˣ)^n, and (a, b)_{F,n} = 1 for every a if and only if b ∈ (Fˣ)^n; so the symbol induces a perfect pairing Fˣ/(Fˣ)^n × Fˣ/(Fˣ)^n → μ_n(F). For a subgroup A ⊇ (Fˣ)^n of Fˣ with orthogonal B = A^⊥, A is the norm group of F(ⁿ√B).",
+   "hypotheses": [
+    "F nonarchimedean local, μ_n ⊆ F.",
+    "The second form uses skew symmetry (CA.1/norm-residue-symbol-steinberg-and-skew-symmetry)."
+   ],
+   "proofSteps": [
+    "(a, b) = 1 exactly when Art_F(a) fixes β, i.e. acts trivially on L = F(β); by local reciprocity (Class Field Theory Layer 6: the kernel of localArtinMap F L is the norm group N_{L/F}(Lˣ)), exactly when a ∈ N_{L/F}(Lˣ).",
+    "By skew symmetry (b, a) = (a, b)⁻¹, so (a, b) = 1 exactly when b is a norm from F(α).",
+    "If (a, b) = 1 for all a then N_{L/F}(Lˣ) = Fˣ; the index of the norm group equals [L:F] for the abelian extension L/F (Layer 6), so L = F and b = β^n ∈ (Fˣ)^n. Symmetrically for a.",
+    "Both sides being the finite group Fˣ/(Fˣ)^n, the pairing is perfect; the orthogonality statement is Fesenko–Vostokov's Theorem (5.2), deduced from the perfectness by counting."
+   ],
+   "acceptance": [
+    "For F = ℚ_p with p odd and n = 2, (p, u) = 1 exactly when u is a square modulo p, i.e. when p is a norm from ℚ_p(√u).",
+    "In ℚ_7 with n = 3, (7, 2)_3 ≠ 1, so 7 is not a norm from ℚ_7(∛2), and 2 is not a cube in ℚ_7."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity"
+   ],
+   "sources": [
+    {
+     "sourceId": "fesenko-vostokov-2002",
+     "locator": "Chapter IV, §5, (5.1) Proposition (5) and (6), Corollary, and (5.2) Theorem, pp. 143–145",
+     "match": "The norm criterion in both arguments, nondegeneracy, the induced perfect pairing, and the description of norm groups as orthogonals."
+    },
+    {
+     "sourceId": "milne-cft-2020",
+     "locator": "Chapter III, §4, Theorem 4.4 (c)–(d), p. 113",
+     "match": "Nondegeneracy and the norm criterion for Milne's (transposed) symbol."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-steinberg-and-skew-symmetry",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Bimultiplicativity, the Steinberg relation and skew symmetry of the norm-residue symbol",
+   "kind": "theorem",
+   "statement": "Let F be a nonarchimedean local field containing a primitive n-th root of unity. For a, a', b, b' ∈ Fˣ: (a a', b) = (a, b)(a', b) and (a, b b') = (a, b)(a, b'); (1 − a, a) = 1 whenever a ≠ 1; (−a, a) = 1; and (b, a) = (a, b)⁻¹. The same identities hold for the archimedean symbol.",
+   "hypotheses": [
+    "F nonarchimedean local containing μ_n; a ≠ 0 throughout, and a ≠ 1 in the Steinberg relation.",
+    "The identities are stated for the pinned orientation; they are invariant under transposition, so they hold verbatim for Milne's symbol."
+   ],
+   "proofSteps": [
+    "Left multiplicativity: Art_F is a homomorphism and fixes μ_n(F) ∋ (a', b), so Art(aa')(β)/β = Art(a)(Art(a')(β))/β = (a, b)(a', b).",
+    "Right multiplicativity: with β₁^n = b, β₂^n = b', the product β₁β₂ is an n-th root of bb', and Art(a)(β₁β₂)/(β₁β₂) = (a, b)(a, b').",
+    "Steinberg: factor X^n − a = ∏ f_i into irreducibles over F; every root α_i generates the same field L = F(ⁿ√a) because the roots differ by elements of μ_n ⊆ F, so 1 − a = ∏ f_i(1) = ∏ N_{L/F}(1 − α_i) is a norm from L; by the norm criterion (second form) (1 − a, a) = 1.",
+    "(−a, a) = 1: −a = (1 − a)/(1 − a⁻¹), and (1 − a⁻¹, a) = (1 − a⁻¹, a⁻¹)⁻¹ = 1.",
+    "Skew symmetry: 1 = (ab, −ab) = (a, −a)(a, b)(b, a)(b, −b) = (a, b)(b, a)."
+   ],
+   "acceptance": [
+    "In ℚ_7 with n = 3, (7, 2)(2, 7) = 1 (values congruent to 4 and 2 modulo 7).",
+    "(a, −a) = 1 gives (a, a) = (a, −1), so (a, a) = 1 when n is odd."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-norm-criterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "fesenko-vostokov-2002",
+     "locator": "Chapter IV, §5, (5.1) Proposition (1)–(4) and its proof, pp. 143–144",
+     "match": "Bilinearity, the Steinberg property (1 − α, α) = 1, (−α, α) = 1 and skew symmetry, with the proofs followed in the steps."
+    },
+    {
+     "sourceId": "shastri-reciprocity-2000",
+     "locator": "§5, Lemma 1 and its proof, pp. 179–180",
+     "match": "Bimultiplicativity, the Steinberg relation and skew symmetry; the printed proof of the Steinberg relation treats only the case [K(ⁿ√a):K] = n (source issue E1108)."
+    },
+    {
+     "sourceId": "milne-cft-2020",
+     "locator": "Chapter III, §4, Theorem 4.4 (a)–(b), p. 113",
+     "match": "Bimultiplicativity and skew symmetry of the cup-product symbol."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-functoriality",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Functoriality of the norm-residue symbol in n, in the field and under isomorphisms",
+   "kind": "theorem",
+   "statement": "Let F be a nonarchimedean local field containing a primitive n-th root of unity. (i) If F contains a primitive (nm)-th root of unity, then (a, b)_{F,nm}^m = (a, b)_{F,n}. (ii) For a finite separable extension L/F, a ∈ Lˣ and b ∈ Fˣ: (a, b)_{L,n} = (N_{L/F}(a), b)_{F,n}. (iii) For a continuous isomorphism of fields e : F ≃ F' (more generally σ ∈ Gal(Fˢ/F) with L ⊇ μ_n), e((a, b)_{F,n}) = (e a, e b)_{F',n}.",
+   "hypotheses": [
+    "μ_n ⊆ F in (i)–(iii); μ_{nm} ⊆ F in (i).",
+    "In (ii) the symbol on the left is the symbol of L (which contains μ_n ⊆ F)."
+   ],
+   "proofSteps": [
+    "(i): if γ^{nm} = b then γ^m is an n-th root of b, and (Art(a)(γ)/γ)^m = Art(a)(γ^m)/γ^m.",
+    "(ii): the norm functoriality of the absolute Artin map (Class Field Theory Layer 7, artinMap_norm): the Artin symbol of a ∈ Lˣ restricted to F(β) is the Artin symbol of N_{L/F} a.",
+    "(iii): naturality of the absolute Artin map under isomorphisms (artinMap_congr, Layer 7), applied to an n-th root of b."
+   ],
+   "acceptance": [
+    "(i) with n = 1: (a, b)_{F,m}^m = 1.",
+    "(ii) for a ∈ Fˣ ⊆ Lˣ and [L:F] = f: (a, b)_{L,n} = (a^f, b)_{F,n} = (a, b)_{F,n}^f, since N_{L/F}(a) = a^f."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+   ],
+   "sources": [
+    {
+     "sourceId": "fesenko-vostokov-2002",
+     "locator": "Chapter IV, §5, (5.1) Proposition (7)–(9) and their proofs, pp. 143–145",
+     "match": "Power compatibility, norm compatibility along finite separable extensions via Theorem (4.2), and Galois transport."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-and-the-cohomological-symbol",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The norm-residue symbol and Class Field Theory's cohomological local symbol",
+   "kind": "comparison",
+   "statement": "Let F be a nonarchimedean local field containing a primitive n-th root of unity ζ, and let tr : H²(F, μ_n) ≃ ℤ/n be the invariant coordinate of Class Field Theory Layer 5 (h2MuEquivZMod_mixed). There is a sign ε ∈ {1, −1}, depending only on the conventions of kummerClass, of the cup product and of tr (not on F, n, ζ, a, b), such that for all a, b ∈ Fˣ: log_ζ (a, b)_{F,n} = ε · localSymbol (kummerCupPairing ζ) tr (kummerClass n F a) (kummerClass n F b) in ℤ/n, where log_ζ = muNRepEquivZMod ζ. The sign is fixed by one computation: for F unramified over ℚ_p with residue field of q ≡ 1 (mod n) elements, a uniformiser π and a unit u, the left side is the exponent k with ζ^k ≡ u^{(q−1)/n} (tame formula). For n = 2 the sign is irrelevant and the statement reads: (a, b)_{F,2} = −1 if and only if localSymbol (kummerCupPairing (−1)) tr (kummerClass a) (kummerClass b) = 1, Tau Ceti's localArtinMap_quadratic_eq_hilbertSymbol.",
+   "hypotheses": [
+    "F nonarchimedean local, ζ ∈ F a primitive n-th root of unity; tr is the invariant coordinate, not an arbitrary isomorphism (localSymbol is stated in Class Field Theory with tr as a parameter; any other coordinate rescales the right side by a unit of ℤ/n).",
+    "The comparison is with the named pairing kummerCupPairing ζ; the zero pairing would make the right side vanish."
+   ],
+   "proofSteps": [
+    "Milne (III.4, Remark 4.5) shows that the cup-product symbol of Kummer classes, read through the invariant, is the Artin-map symbol with its arguments transposed; by skew symmetry the transposition is the inverse, so the two symbols agree up to a sign of the coordinate.",
+    "Both sides are bimultiplicative and vanish exactly on norms (CA.1/norm-residue-symbol-norm-criterion; Class Field Theory's localSymbol_eq_zero_iff_mem_normGroup), and the sign is determined by the unramified computation, where the left side is the tame value and the right side is computed from the cyclic-algebra description of the cup of two Kummer classes (Layer 5, step 2 of the duality proof).",
+    "For n = 2 both sides are ±1-valued and the equivalence is Class Field Theory Layer 6's localArtinMap_quadratic_eq_hilbertSymbol."
+   ],
+   "acceptance": [
+    "For n = 2 and F = ℚ_2: (−1, −1) = −1 and the cohomological symbol of (kummerClass (−1), kummerClass (−1)) is 1 ∈ ℤ/2.",
+    "The sign ε is the same for all local fields: it is fixed once, in the unramified case."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-norm-criterion",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant"
+   ],
+   "sources": [
+    {
+     "sourceId": "milne-cft-2020",
+     "locator": "Chapter III, §4, the definition by cup product and Remark 4.5, pp. 112–114",
+     "match": "Defines the Hilbert symbol by the cup product of Kummer classes followed by the invariant, and states its relation to the local Artin map, from which the comparison and its transposition are read."
+    },
+    {
+     "sourceId": "fesenko-vostokov-2002",
+     "locator": "Chapter IV, §5, (5.3) Theorem, pp. 145–146",
+     "match": "The tame formula that fixes the sign in the unramified case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Primary Gaussian integers",
+   "kind": "definition",
+   "statement": "Let K = ℚ(i), given as a number field with IsCyclotomicExtension {4} ℚ K, and let i ∈ 𝓞_K be a primitive 4th root of unity, so that 𝓞_K = ℤ[i] with ℤ-basis {1, i}. An element α ∈ 𝓞_K is primary if α ≡ 1 (mod (1 + i)^3), that is, (1 + i)^3 divides α − 1 (the ideal ((1 + i)^3) = (2 + 2i) has norm 8). For α = a + bi with a, b ∈ ℤ this says: a ≡ 1 and b ≡ 0 (mod 4), or a ≡ 3 and b ≡ 2 (mod 4). If N(α) is odd (α prime to 1 + i), exactly one of α, iα, −α, −iα is primary. Primary elements are closed under products and complex conjugation; a rational integer is primary exactly when it is ≡ 1 (mod 4); a primary nonunit is a product of primary primes, which are the elements −q (q a rational prime ≡ 3 mod 4) and the primary elements of prime norm p ≡ 1 (mod 4); and for primary α = a + bi, (N(α) − 1)/4 ≡ (a − 1)/2 (mod 2). The predicate is stated for every element; the unit 1 satisfies it, so the reciprocity statements carry their nonunit hypotheses separately.",
+   "hypotheses": [
+    "K = ℚ(i) with IsCyclotomicExtension {4} ℚ K and i ∈ 𝓞_K a primitive 4th root of unity; the coordinates a, b are those of the basis {1, i} (integralPowerBasisOfPrimePow).",
+    "Primary is the congruence modulo (1 + i)^3; it implies N(α) odd. Xu's Definition 5.4 adds 'nonunit' to the definition; here it is a hypothesis of the theorems, as for the parent's IsPrimaryEisenstein."
+   ],
+   "proofSteps": [
+    "Coordinates: (1 + i)^3 = −2 + 2i = i(2 + 2i), and 1 + (2 + 2i)(x + yi) = (1 + 2x − 2y) + 2(x + y)i; so α = a + bi is primary exactly when a − 1 and b are even and (a − 1)/2 ≡ b/2 (mod 2), which is the stated pair of congruences mod 4.",
+    "Unique primary associate: the units of ℤ[i] are ±1, ±i (Zsqrtd.isUnit_iff_norm_isUnit). The group (𝓞_K/(1 + i)^3)ˣ has order 4 and is represented by 1, i, −1, −i, which are pairwise incongruent; so for N(α) odd the class of α is the class of exactly one of them, u⁻¹, and uα is the unique primary associate.",
+    "Closure under products and conjugation: immediate from the congruence, since (1 + i)^3 𝓞_K is stable under conjugation (1 − i = −i(1 + i)).",
+    "Factorisation: each prime factor of a primary nonunit has a unique primary associate; the product of these associates is primary and differs from α by a unit u with u ≡ 1 mod (1 + i)^3, so u = 1. The primary primes: −q for q ≡ 3 mod 4 (GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime) and the primary associates of the factors of p = ππ̄ ≡ 1 mod 4 (GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible).",
+    "Norm congruence: if a ≡ 1, b ≡ 0 (mod 4), then a² − 1 ≡ 0 (mod 8) and b² ≡ 0 (mod 16), so (N − 1)/4 ≡ (a² − 1)/4 ≡ (a − 1)/2 (mod 2); if a ≡ 3, b ≡ 2 (mod 4), then (a² − 1)/4 is even and b²/4 is odd, and (a − 1)/2 is odd."
+   ],
+   "acceptance": [
+    "−3, −1 + 2i (norm 5) and 3 + 2i (norm 13) are primary; 3, 1 + 2i and 1 + i are not.",
+    "The two primary primes above 5 are −1 + 2i and −1 − 2i, conjugate to each other.",
+    "(N(3 + 2i) − 1)/4 = 3 ≡ (3 − 1)/2 = 1 (mod 2)."
+   ],
+   "uses": [
+    {
+     "where": "Xu, Theorem 5.8; CA.1/quartic-reciprocity",
+     "how": "biquadratic reciprocity is stated for coprime primary elements"
+    },
+    {
+     "where": "CA.1/quartic-supplement-for-i-and-minus-one and CA.1/quartic-supplement-for-one-plus-i",
+     "how": "the supplements are formulas in the coordinates of a primary element"
+    },
+    {
+     "where": "CA.1/quartic-jacobi-sum-of-a-primary-prime",
+     "how": "−χ(−1) J(χ, χ) is the primary generator of the prime"
+    },
+    {
+     "where": "Xu, proof of Theorem 5.8, p. 17",
+     "how": "the decomposition π = m(a + bi) with m ≡ 1 mod 4 and gcd(a, b) = 1 into primary factors"
+    },
+    {
+     "where": "Relyea, Theorem 4.4 (parent source issues E203, E204)",
+     "how": "the corrected statement of biquadratic reciprocity needs this definition"
+    }
+   ],
+   "tests": [
+    {
+     "name": "isPrimaryGaussian_test_neg_three",
+     "kind": "computation",
+     "statement": "−3 is primary (a = −3 ≡ 1, b = 0 mod 4)."
+    },
+    {
+     "name": "isPrimaryGaussian_test_norm_five",
+     "kind": "computation",
+     "statement": "−1 + 2i, of norm 5, is primary; so is its conjugate −1 − 2i."
+    },
+    {
+     "name": "isPrimaryGaussian_test_one_add_two_i",
+     "kind": "non-example",
+     "statement": "1 + 2i is not primary although a is odd and b even: 'a odd and b even' is not the definition."
+    },
+    {
+     "name": "isPrimaryGaussian_test_three",
+     "kind": "non-example",
+     "statement": "3 is not primary; the primary associate of the prime 3 is −3."
+    },
+    {
+     "name": "isPrimaryGaussian_test_one_add_i",
+     "kind": "degenerate",
+     "statement": "1 + i has no primary associate: no element of even norm is primary."
+    },
+    {
+     "name": "isPrimaryGaussian_test_one",
+     "kind": "degenerate",
+     "statement": "1 satisfies the congruence: the nonunit hypothesis of the reciprocity law is carried separately."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:IsCyclotomicExtension",
+    "mathlib:IsPrimitiveRoot",
+    "mathlib:IsPrimitiveRoot.integralPowerBasisOfPrimePow",
+    "mathlib:Ideal.span",
+    "mathlib:Associated",
+    "mathlib:GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime",
+    "mathlib:GaussianInt.sq_add_sq_of_nat_prime_of_not_irreducible",
+    "mathlib:Zsqrtd.isUnit_iff_norm_isUnit"
+   ],
+   "api": [
+    {
+     "name": "IsPrimaryGaussian",
+     "role": "constructor",
+     "statement": "α is primary: (1 + i)^3 divides α − 1 in 𝓞_K."
+    },
+    {
+     "name": "isPrimaryGaussian_add_mul_iff",
+     "role": "characterisation",
+     "statement": "a + b i is primary if and only if (a ≡ 1 and b ≡ 0 mod 4) or (a ≡ 3 and b ≡ 2 mod 4)."
+    },
+    {
+     "name": "exists_unique_unit_mul_isPrimaryGaussian",
+     "role": "structure",
+     "statement": "If N(α) is odd there is exactly one unit u ∈ {1, i, −1, −i} with uα primary."
+    },
+    {
+     "name": "IsPrimaryGaussian.mul",
+     "role": "relation",
+     "statement": "Products of primary elements are primary."
+    },
+    {
+     "name": "IsPrimaryGaussian.conj",
+     "role": "relation",
+     "statement": "The complex conjugate of a primary element is primary."
+    },
+    {
+     "name": "isPrimaryGaussian_intCast_iff",
+     "role": "compatibility",
+     "statement": "A rational integer m is primary exactly when m ≡ 1 (mod 4)."
+    },
+    {
+     "name": "IsPrimaryGaussian.div_intCast",
+     "role": "relation",
+     "statement": "If α is primary, m ≡ 1 (mod 4) is a rational integer and m divides α, then α/m is primary."
+    },
+    {
+     "name": "IsPrimaryGaussian.norm_sub_one_div_four",
+     "role": "other",
+     "statement": "For primary α = a + b i: (N(α) − 1)/4 ≡ (a − 1)/2 (mod 2)."
+    },
+    {
+     "name": "IsPrimaryGaussian.exists_prod_primary_primes",
+     "role": "structure",
+     "statement": "A primary nonunit is a finite product of primary primes."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Reciprocity/Quartic",
+    "namespace": "TauCeti.Reciprocity"
+   },
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Proposition 5.1, Definitions 5.3–5.4 and Propositions 5.5–5.6, pp. 14–15",
+     "match": "Defines primary nonunits of ℤ[i] as α ≡ 1 mod (1 + i)^3, states the coordinate criterion and the existence and uniqueness of the primary associate (deferring both proofs to Ireland–Rosen §9.7), and remarks that primary elements are products of primary irreducibles; the coordinate criterion is printed incompletely (source issue E1101)."
+    },
+    {
+     "sourceId": "relyea-reciprocity-2024",
+     "locator": "§4.1, Definition 22 and Theorem 4.4, p. 45",
+     "match": "Uses primary elements of ℤ[i] in the statement of biquadratic reciprocity without defining them (parent source issue E204); the definition here supplies what that statement needs."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-character-of-coprime-rational-integers",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The quartic symbol of a rational integer at a coprime rational integer is trivial",
+   "kind": "lemma",
+   "statement": "Let K = ℚ(i). For a rational integer a that is odd and not a unit, and a rational integer m coprime to a, the quartic residue symbol at the ideal a𝓞_K is trivial: (m / a)_4 = 1.",
+   "hypotheses": [
+    "a, m ∈ ℤ, a odd with |a| > 1, gcd(a, m) = 1.",
+    "The symbol is the parent's power residue symbol with n = 4 at the ideal a𝓞_K, which is prime to 2."
+   ],
+   "proofSteps": [
+    "Reduce by multiplicativity in the ideal to a = p a prime.",
+    "If p ≡ 1 (mod 4), p = ππ̄ with π a Gaussian prime; by Galois equivariance under complex conjugation, (m/π̄)_4 = conj((m/π)_4) = (m/π)_4⁻¹, so (m/p)_4 = 1.",
+    "If p ≡ 3 (mod 4), p is prime in ℤ[i] with norm p²; (m/p)_4 ≡ m^{(p²−1)/4} = (m^{p−1})^{(p+1)/4} ≡ 1 (mod p) by Fermat, and the reduction of μ_4 modulo p is injective, so (m/p)_4 = 1."
+   ],
+   "acceptance": [
+    "(3 / (−1 + 2i))_4 = i and (3 / (−1 − 2i))_4 = −i, whose product (3/5)_4 is 1 (checked by direct computation in 𝔽_5): the factors are not trivial, only their product.",
+    "(2/3)_4 = 1, since 2^{(9−1)/4} = 4 ≡ 1 (mod 3)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n",
+    "mathlib:GaussianInt.prime_iff_mod_four_eq_three_of_nat_prime"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Proposition 5.10 and its proof, p. 16",
+     "match": "States and proves that χ_a(α) = 1 for coprime rational a, α with a odd and not a unit, by the split and inert cases."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-supplement-for-i-and-minus-one",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The supplementary laws for i and −1",
+   "kind": "theorem",
+   "statement": "Let K = ℚ(i) and let λ = a + bi be primary with N(λ) odd. Then (i/λ)_4 = i^{−(a−1)/2} and (−1/λ)_4 = (−1)^{b/2} = (−1)^{(a−1)/2}, the symbols being taken at the ideal λ𝓞_K. In particular, for a rational integer n ≡ 1 (mod 4), (i/n)_4 = (−1)^{(n−1)/4} and (−1/n)_4 = 1.",
+   "hypotheses": [
+    "λ primary (possibly composite, possibly a rational integer); for λ = 1 both sides are 1.",
+    "i is the primitive 4th root of unity fixed in the definition of primary; replacing i by −i changes both sides compatibly."
+   ],
+   "proofSteps": [
+    "Prime case, split: for a primary prime π = a + bi of norm p ≡ 1 (mod 4), (i/π)_4 = i^{(p−1)/4} by the value of the power residue symbol at a root of unity (powerResidueSymbol_zeta); and (p − 1)/4 ≡ −(a − 1)/2 (mod 4) by the coordinate congruences of a primary element (a ≡ 1, b ≡ 0 or a ≡ 3, b ≡ 2 mod 4).",
+    "Prime case, inert: for π = −q with q ≡ 3 (mod 4), (i/q)_4 = i^{(q²−1)/4} and (q²−1)/4 ≡ (q + 1)/2 = −(a − 1)/2 (mod 4).",
+    "Multiplicativity: the left side is multiplicative in λ (powerResidueSymbolIdeal_mul_right); the right side α ↦ i^{−(a−1)/2} is multiplicative on primary elements, a congruence check on (a, b) modulo 8; primary nonunits are products of primary primes.",
+    "−1 = i², and (−1)^{(a−1)/2} = (−1)^{b/2} for primary a + bi.",
+    "For rational n ≡ 1 (mod 4): a = n, b = 0 gives (i/n)_4 = i^{−(n−1)/2} = (−1)^{(n−1)/4}, and (−1/n)_4 = (−1)^0 = 1."
+   ],
+   "acceptance": [
+    "(i/(−3))_4 = i^2 = −1 = (−1)^{(−3−1)/4}; (i/(−1 + 2i))_4 = i, i^{−(−2)/2} = i.",
+    "Checked by direct computation for every primary prime with |a|, |b| ≤ 12 and for 67 primary composites with |a|, |b| ≤ 30."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Proposition 5.7 and its proof, p. 15",
+     "match": "Proves (i/n)_4 = (−1)^{(n−1)/4} for rational n ≡ 1 mod 4 from the split and inert prime cases and multiplicativity; the node extends the same computation to all primary λ."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Definition 5.2, p. 14",
+     "match": "The quartic residue character χ_π(α) ≡ α^{(Nπ−1)/4} at a Gaussian prime, which gives the prime case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-jacobi-sum-of-a-primary-prime",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The Jacobi sum of the quartic character of a primary prime",
+   "kind": "lemma",
+   "statement": "Let π be a primary prime of ℤ[i] of norm p ≡ 1 (mod 4), and χ = (·/π)_4 the quartic residue character of 𝓞_K/π ≅ 𝔽_p, with values in 𝓞_K. Then −χ(−1) J(χ, χ) = π; equivalently J(χ, χ) = −(−1)^{(p−1)/4} π.",
+   "hypotheses": [
+    "π prime, primary, of norm p ≡ 1 (mod 4); χ has order exactly 4 (orderOf_powerResidueSymbol).",
+    "J is Mathlib's jacobiSum with χ(0) = 0."
+   ],
+   "proofSteps": [
+    "Middle term and pairing: in J = Σ_t χ(t)χ(1 − t) the term t = 1/2 is χ(1/4) = χ(4)⁻¹ = χ(−1), because −4 = (1 + i)^4 is a 4th power; the remaining t ∉ {0, 1, 1/2} pair as t ↔ 1 − t, each pair contributing 2u with u a unit, and 2u ≡ 2 modulo (2 + 2i) = ((1 + i)^3).",
+    "Hence J ≡ χ(−1) + (p − 3) ≡ χ(−1) + 2 and −χ(−1)J ≡ −1 − 2 ≡ 1 modulo (1 + i)^3 (using 4 ∈ (1 + i)^3): −χ(−1)J is primary.",
+    "Norm: J(χ, χ) J(χ⁻¹, χ⁻¹) = p (jacobiSum_mul_jacobiSum_inv; χ, χ and χ² are nontrivial) and J(χ⁻¹, χ⁻¹) is the complex conjugate of J(χ, χ); so −χ(−1)J is a primary element of norm p, hence π or π̄.",
+    "Divisibility: modulo π, χ(t) ≡ t^k with k = (p − 1)/4, so J ≡ Σ_t t^k (1 − t)^k, a sum of power sums Σ_t t^j with 1 ≤ j ≤ 2k < p − 1, each zero (FiniteField.sum_pow_lt_card_sub_one); so π divides J, and since π and π̄ are not associate, −χ(−1)J = π."
+   ],
+   "acceptance": [
+    "For π = −1 + 2i (p = 5): χ(−1) = −1 and J(χ, χ) = −1 + 2i = π (direct computation).",
+    "Checked by direct computation for every primary split prime with |a|, |b| ≤ 12."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+    "mathlib:jacobiSum",
+    "mathlib:jacobiSum_mul_jacobiSum_inv",
+    "mathlib:FiniteField.sum_pow_lt_card_sub_one",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Proposition 5.9, p. 15",
+     "match": "States −χ_π(−1) J(χ_π, χ_π) = π for primary π (deferring the proof to Ireland–Rosen §9.9); the proof steps here follow the cubic argument of Xu Proposition 4.8 (p. 12)."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, Lemma 3.2 and its proof, pp. 62–64",
+     "match": "The cubic analogue J(χ_π, χ_π) = π, whose method (primary congruence, norm, divisibility by π) the quartic proof follows."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-gauss-sum-fourth-power",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The fourth power of the quartic Gauss sum",
+   "kind": "lemma",
+   "statement": "Let π be a primary prime of ℤ[i] of norm p ≡ 1 (mod 4) and χ = (·/π)_4, pushed along an injective ring homomorphism φ : 𝓞_K → R into an integral domain R, and ψ a primitive additive character of 𝓞_K/π ≅ 𝔽_p with values in R. Then g(χ, ψ)^4 = p · φ(J(χ, χ))^2 = φ(π)^3 φ(π̄).",
+   "hypotheses": [
+    "As in the Jacobi sum lemma; ψ primitive; R a domain (for example ℂ, or the ring of integers of ℚ(i, ζ_p), which the reciprocity proof uses for congruences modulo q)."
+   ],
+   "proofSteps": [
+    "g(χ)^2 = J(χ, χ) g(χ^2) (jacobiSum_mul_nontrivial with χ·χ = χ² ≠ 1).",
+    "χ² is the quadratic character of 𝔽_p and χ²(−1) = χ(−1)² = 1, so g(χ²)^2 = p (gaussSum_sq).",
+    "Hence g(χ)^4 = p J(χ, χ)^2, and J(χ, χ)^2 = π² by the Jacobi sum lemma; p = ππ̄. Transport along φ is termwise (MulChar.ringHomComp)."
+   ],
+   "acceptance": [
+    "|g(χ, ψ)|² = p in ℂ (gaussSum_mul_gaussSum_eq_card), consistent with |π³π̄| = p².",
+    "For π = −1 + 2i: g^4 = 5(−1 + 2i)^2 = −15 − 20i."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/quartic-jacobi-sum-of-a-primary-prime",
+    "mathlib:gaussSum",
+    "mathlib:jacobiSum_mul_nontrivial",
+    "mathlib:gaussSum_sq",
+    "mathlib:gaussSum_mul_gaussSum_eq_card",
+    "mathlib:MulChar.ringHomComp",
+    "mathlib:AddChar.IsPrimitive"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Proposition 5.9, p. 15",
+     "match": "States g(χ_π)^4 = p J(χ_π, χ_π)^2 and the consequence g(χ_π)^4 = π³π̄."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§3, Propositions 3.4 and 3.6, pp. 9–10",
+     "match": "The Gauss–Jacobi relation g(χ)g(λ) = J(χ, λ)g(χλ) and g(χ)g(χ̄) = χ(−1)p used in the steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity-with-a-rational-denominator",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Quartic reciprocity between a primary element and a rational integer",
+   "kind": "lemma",
+   "statement": "Let K = ℚ(i). (a) For an odd rational prime q and a primary prime π of ℤ[i] of norm p ≡ 1 (mod 4) with p ≠ q: ((−1)^{(q−1)/2} q / π)_4 = (π / q)_4. (b) For a rational integer a ≡ 1 (mod 4) and a primary λ ∈ ℤ[i] coprime to a: (a / λ)_4 = (λ / a)_4.",
+   "hypotheses": [
+    "Symbols are the parent's power residue symbols with n = 4 at the principal ideals (π), (q), (λ), (a), all of odd norm.",
+    "In (b), λ may be composite or rational; a may be negative."
+   ],
+   "proofSteps": [
+    "(a), q ≡ 3 (mod 4): q is inert, 𝓞_K/q ≅ 𝔽_{q²} with Frobenius x ↦ x^q acting as complex conjugation, so π^q ≡ π̄ and (π/q)_4 ≡ π^{(q²−1)/4} = (π̄/π)^{(q+1)/4} (mod q). In R = 𝓞 of ℚ(i, ζ_p): g(χ_π)^q ≡ Σ χ(t)^q ψ(t)^q = Σ χ̄(t) ψ(qt) = χ(q) g(χ̄) (mod q) (gaussSum_frob, gaussSum_mulShift_eq), so g^{q+1} ≡ χ(q) g(χ)g(χ̄) = χ(q)χ(−1) p; and g^{q+1} = (π³π̄)^{(q+1)/4} = π^{q+1}(π̄/π)^{(q+1)/4} ≡ p (π/q)_4 (mod q). Cancel p and lift from congruence modulo q to equality of 4th roots of unity: (π/q)_4 = χ_π(−q).",
+    "(a), q ≡ 1 (mod 4): q = λλ̄; g^q ≡ χ(q)⁻¹ g (mod q), so g^{q−1} ≡ χ_π(q)⁻¹; also g^{q−1} = (π³π̄)^{(q−1)/4} ≡ (π³π̄ / λ)_4 (mod λ) and likewise modulo λ̄; combining with Galois equivariance (conjugation exchanges λ and λ̄ and inverts values) gives χ_π(q) = (π/λ)_4 (π/λ̄)_4 = (π/q)_4.",
+    "(b): write a = ∏ q_j* with q_j* = (−1)^{(q_j−1)/2} q_j (the product of these factors is ≡ 1 mod 4 and equals ±a, hence a); for each primary prime factor λ_k of λ that is split, (a/λ_k) = ∏_j (q_j*/λ_k) = ∏_j (λ_k/q_j) = (λ_k/a) by (a); for an inert factor −q both sides are 1 by the rational lemma; multiply over k."
+   ],
+   "acceptance": [
+    "((−3)/(−1 + 2i))_4 = ((−1 + 2i)/3)_4 = −i, the instance of parent source issue E203 (direct computation).",
+    "For q ≡ 1 (mod 4) the sign (−1)^{(q−1)/2} is +1: (5/(3 + 2i))_4 = ((3 + 2i)/5)_4."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/quartic-gauss-sum-fourth-power",
+    "ClassicalArithmeticCompletion:CA.1/quartic-character-of-coprime-rational-integers",
+    "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n",
+    "mathlib:gaussSum_frob",
+    "mathlib:gaussSum_mulShift_eq",
+    "mathlib:gaussSum_mul_gaussSum_eq_card"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Propositions 5.11–5.12, pp. 15–16",
+     "match": "States (a) for an odd prime q (deferring the proof to Ireland–Rosen §9.9, which writes g^{q+1}, resp. g^{q+3}, in two ways) and proves (b) from (a) by multiplicativity; the steps here carry out the computation sketched there, as in the cubic case."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, proof of Theorem 4.6, Case 2, p. 13",
+     "match": "The cubic model of the argument: raise g^3 = pπ to a power and compare with the Frobenius congruence for Gauss sums."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity-for-coprime-coordinates",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Quartic reciprocity for primary elements with coprime coordinates",
+   "kind": "lemma",
+   "statement": "Let π = a + bi and λ = c + di be coprime primary elements of ℤ[i] with gcd(a, b) = gcd(c, d) = 1. Then (λ/π)_4 = (π/λ)_4 · (−1)^{((a−1)/2)((c−1)/2)}.",
+   "hypotheses": [
+    "π, λ primary, coprime, nonunits or units; gcd(a, b) = gcd(c, d) = 1, so a, b, c, d are prime to π, λ as appropriate."
+   ],
+   "proofSteps": [
+    "From c i ≡ d (mod λ): c π ≡ ac + bd (mod λ), so (c/λ)(π/λ) = ((ac + bd)/λ); from b i ≡ −a (mod π): a λ ≡ ac + bd (mod π), so (a/π)(λ/π) = ((ac + bd)/π).",
+    "Taking the complex conjugate of the second relation (Galois equivariance: conj((x/π)_4) = (x̄/π̄)_4) and combining it with the first expresses (π/λ)(λ/π)⁻¹ as a product of symbols whose numerators are the rational integers c, a and ac + bd; by the rational-denominator lemma each becomes a symbol with a rational denominator, and the congruences c + di ≡ di (mod c), a + bi ≡ bi (mod a) and π̄λ ≡ (ad − bc)i (mod ac + bd), with the rational lemma, reduce these to symbols of i.",
+    "Collecting, (λ/π)(π/λ)⁻¹ = (i / (ac + bd)ac)_4 = (−1)^{((ac+bd)ac − 1)/4} by the supplement for i, and ((ac + bd)ac − 1)/4 ≡ ((a − 1)/2)((c − 1)/2) (mod 2) for primary a + bi, c + di (casework mod 8; checked by machine for all primary pairs with |a|, …, |d| ≤ 21).",
+    "When a, c or ac + bd is ±1 the corresponding factor is 1 and the same computation applies."
+   ],
+   "acceptance": [
+    "For π = −1 + 2i and λ = 3 + 2i: (a − 1)/2 = −1, (c − 1)/2 = 1, so (λ/π)_4 = −(π/λ)_4.",
+    "For λ = −3 (d = 0, gcd(−3, 0) = 3 ≠ 1) the lemma does not apply directly; the general theorem handles it by the decomposition λ = m(c + di)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity-with-a-rational-denominator",
+    "ClassicalArithmeticCompletion:CA.1/quartic-character-of-coprime-rational-integers",
+    "ClassicalArithmeticCompletion:CA.1/quartic-supplement-for-i-and-minus-one",
+    "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Proposition 5.13 and its proof, pp. 16–17",
+     "match": "States and proves this case from the two congruences, the rational lemmas and the supplement for i, with the final congruence left to casework."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The law of biquadratic (quartic) reciprocity",
+   "kind": "theorem",
+   "statement": "Let K = ℚ(i) and let λ, π ∈ ℤ[i] be coprime primary elements (in particular of odd norm). Then (λ/π)_4 = (π/λ)_4 · (−1)^{((N(λ)−1)/4)((N(π)−1)/4)}, the symbols being the quartic power residue symbols at the principal ideals (π) and (λ).",
+   "hypotheses": [
+    "λ, π primary and coprime; for a unit (λ = 1) both sides are 1.",
+    "The quotient (λ/π)(π/λ)⁻¹, not the product, is the sign: the product is not a sign in general (parent source issue E203)."
+   ],
+   "proofSteps": [
+    "Write π = m(a + bi), λ = n(c + di) with m, n rational, m ≡ n ≡ 1 (mod 4), gcd(a, b) = gcd(c, d) = 1; then a + bi and c + di are primary (IsPrimaryGaussian.div_intCast).",
+    "By the rational-denominator lemma, (λ/m) = (m/λ) and (π/n) = (n/π); by the rational lemma (m/n) = (n/m) = 1.",
+    "Expand (λ/π) = (λ/m)(λ/(a + bi)) = (m/λ)(n/(a + bi))((c + di)/(a + bi)) and apply the coprime-coordinates lemma: (λ/π) = (π/λ)(−1)^{((a−1)/2)((c−1)/2)}.",
+    "Finally ((a − 1)/2)((c − 1)/2) ≡ ((N(π) − 1)/4)((N(λ) − 1)/4) (mod 2), from the norm congruence (N − 1)/4 ≡ (a − 1)/2 for primary elements and m² ≡ n² ≡ 1 (mod 8)."
+   ],
+   "acceptance": [
+    "π = −1 + 2i (norm 5) and λ = −3 (norm 9): (λ/π)_4 = (π/λ)_4 = −i, and the sign is (−1)^{1·2} = 1 (parent source issue E203).",
+    "Checked by direct computation for 266 coprime pairs of primary composites with |a|, |b| ≤ 30.",
+    "The sign is −1 exactly when N(λ) ≡ N(π) ≡ 5 (mod 8)."
+   ],
+   "planet": {
+    "name": "Quartic reciprocity"
+   },
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity-for-coprime-coordinates",
+    "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity-with-a-rational-denominator",
+    "ClassicalArithmeticCompletion:CA.1/quartic-character-of-coprime-rational-integers",
+    "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Theorem 5.8 and its proof, pp. 15–17",
+     "match": "States biquadratic reciprocity for relatively prime primary elements and proves it from Propositions 5.10–5.13 by the decomposition π = m(a + bi)."
+    },
+    {
+     "sourceId": "relyea-reciprocity-2024",
+     "locator": "§4.1, Theorem 4.4, p. 45",
+     "match": "States the law with the product of the two characters in place of their quotient (parent source issue E203) and without defining primary (E204); the node is the corrected statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quartic-supplement-for-one-plus-i",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The supplementary law for 1 + i",
+   "kind": "theorem",
+   "statement": "Let λ = a + bi ∈ ℤ[i] be primary. Then ((1 + i)/λ)_4 = i^{(a − b − b² − 1)/4}, the symbol being taken at the ideal λ𝓞_K. In particular, for a rational integer n ≡ 1 (mod 4), ((1 + i)/n)_4 = i^{(n−1)/4}.",
+   "hypotheses": [
+    "λ primary (composite allowed); a − b − b² − 1 is divisible by 4 for primary a + bi."
+   ],
+   "proofSteps": [
+    "Split prime π = a + bi, b ≠ 0: b i ≡ −a (mod π) gives b(1 + i) ≡ b − a (mod π), so ((1 + i)/π) = ((b − a)/π)(b/π)⁻¹. Write b = 2^k b' with b' odd and use (2/π) = (−i/π)((1 + i)/π)²; this gives ((1 + i)/π)^{1+2k} as a product of symbols of rational integers and of −i.",
+    "The rational symbols: for odd rational m with ±m ≡ 1 (mod 4), (m/π) = (±1/π)·(π/±m) (rational-denominator lemma); (π/b') = (a/b') = 1 since a + bi ≡ a (mod b'), and (π/(b − a)) = ((b(1 + i))/(b − a)) = ((1 + i)/(b − a)) since a ≡ b (mod b − a) and the rational lemma; ((1 + i)/q)_4 = (2i)^{(q² − 1)/8} modulo an inert q and ((1 + i)/p)_4 = i^{(p−1)/4} for split p = ρρ̄ (conjugation and 1 − i = −i(1 + i)).",
+    "Since 1 + 2k is odd, it is invertible modulo 4, which determines ((1 + i)/π); a congruence computation on a, b modulo 16 yields i^{(a − b − b² − 1)/4}. The inert primes π = −q are computed directly.",
+    "Both sides are multiplicative on primary elements (for the right side, a congruence check of α ↦ (a − b − b² − 1)/4 mod 4 on primary residues modulo 32, done by machine), and primary nonunits are products of primary primes."
+   ],
+   "acceptance": [
+    "((1 + i)/(−3))_4 = i^{(−3−0−0−1)/4} = i^{−1} = −i; ((1 + i)/(−1 + 2i))_4 = i^{(−1−2−4−1)/4} = i^{−2} = −1.",
+    "Checked by direct computation for every primary prime with |a|, |b| ≤ 12 and for 67 primary composites with |a|, |b| ≤ 30."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/quartic-reciprocity-with-a-rational-denominator",
+    "ClassicalArithmeticCompletion:CA.1/quartic-character-of-coprime-rational-integers",
+    "ClassicalArithmeticCompletion:CA.1/quartic-supplement-for-i-and-minus-one",
+    "ClassicalArithmeticCompletion:CA.1/primary-gaussian-integer",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§5, Definitions 5.2–5.4 and Propositions 5.10–5.12, pp. 14–16",
+     "match": "The quartic symbol at composite primary elements and the rational-denominator reciprocity used in the reduction; Xu does not state the supplement for 1 + i, whose public proof is a recorded gap."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/stickelberger-gauss-sum-power",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The Gauss sum power Φ(P) = g(P)^m of a prime of ℤ[ζ_m]",
+   "kind": "construction",
+   "statement": "Let m ≥ 2, K = ℚ(ζ_m) with ζ_m a primitive m-th root of unity, and P a prime of 𝓞_K = ℤ[ζ_m] not dividing m, lying over the rational prime p, with N(P) = q = p^f. On F = 𝓞_K/P let χ_P(t) = (t/P)_m⁻¹ (the inverse of the m-th power residue character, χ_P(0) = 0) and ψ(t) = ζ_p^{Tr_{F/𝔽_p}(t)}, and let g(P) = g(χ_P, ψ) ∈ ℚ(ζ_m, ζ_p). Then Φ(P) := g(P)^m lies in 𝓞_K. Extend Φ multiplicatively to nonzero ideals A prime to m: Φ(A) = ∏ Φ(P_i) for A = P_1 ⋯ P_r, with Φ(𝓞_K) = 1, and write Φ(α) = Φ(α𝓞_K) for α prime to m.",
+   "hypotheses": [
+    "m ≥ 2; P ∤ m, equivalently p ∤ m; ζ_p ∈ ℚ(ζ_m, ζ_p) = ℚ(ζ_{mp}) a primitive p-th root of unity (for p = 2, ζ_2 = −1).",
+    "The character is the inverse of the residue symbol: with (·/P)_m itself the ideal of Φ(P) would be P^{Σ t σ_t} instead of P^{Σ t σ_t⁻¹}."
+   ],
+   "proofSteps": [
+    "g(P) is an algebraic integer of ℚ(ζ_{mp}), with g(P) times its complex conjugate equal to q (gaussSum_mul_gaussSum_eq_card) in every complex embedding.",
+    "For c ≡ 1 (mod m) prime to p, the automorphism ζ_{mp} ↦ ζ_{mp}^c fixes ℚ(ζ_m) and multiplies g(P) by χ_P(c)⁻¹, an m-th root of unity (gaussSum_mulShift_eq); hence it fixes g(P)^m, and these automorphisms are Gal(ℚ(ζ_{mp})/ℚ(ζ_m)), so Φ(P) ∈ 𝓞_K.",
+    "Multiplicativity in A by definition, through the factorisation of A in the Dedekind domain 𝓞_K."
+   ],
+   "acceptance": [
+    "For m = 2, K = ℚ and P = (p) with p odd: χ_P is the Legendre character and Φ((p)) = g² = (−1/p) p = (−1)^{(p−1)/2} p.",
+    "For m = 3 and P = (π) with π = −1 − 3ω primary of norm 7: Φ(P) = 7π̄ = π π̄², whose ideal is P^{1·σ_1⁻¹ + 2·σ_2⁻¹}."
+   ],
+   "uses": [
+    {
+     "where": "CA.1/eisenstein-reciprocity, steps 1–3",
+     "how": "Φ(α) and its ideal factorisation are the bridge between (α/a)_l and (a/α)_l"
+    },
+    {
+     "where": "CA.1/stickelberger-relation",
+     "how": "the ideal of Φ(P) is P^γ"
+    },
+    {
+     "where": "CA.1/gauss-sum-power-residue-identity",
+     "how": "Φ(P) evaluated by the residue symbol at a second prime"
+    },
+    {
+     "where": "Katre §4 and Clausen lecture 16",
+     "how": "Stickelberger's theorem on annihilation of class groups uses g(χ)^m and its powers by Stickelberger elements"
+    },
+    {
+     "where": "FiniteFieldsAndCharacterSums:FF.1",
+     "how": "imports Φ and Stickelberger's relation once this lower-tier package exists"
+    }
+   ],
+   "tests": [
+    {
+     "name": "stickelbergerPhi_test_top",
+     "kind": "degenerate",
+     "statement": "Φ(𝓞_K) = 1."
+    },
+    {
+     "name": "stickelbergerPhi_test_quadratic",
+     "kind": "computation",
+     "statement": "For m = 2, K = ℚ and P = (5): Φ(P) = 5; for P = (3): Φ(P) = −3."
+    },
+    {
+     "name": "stickelbergerPhi_test_cubic",
+     "kind": "computation",
+     "statement": "For m = 3 and P = (π), π = −1 − 3ω of norm 7: Φ(P) = 7π̄."
+    },
+    {
+     "name": "stickelbergerPhi_test_inverse_character",
+     "kind": "non-example",
+     "statement": "In the cubic test, Φ(P) ≠ 7π: using (·/P)_m instead of its inverse would give 7π, whose ideal is P²P̄ rather than PP̄²."
+    }
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "mathlib:gaussSum",
+    "mathlib:gaussSum_mul_gaussSum_eq_card",
+    "mathlib:gaussSum_mulShift_eq",
+    "mathlib:Algebra.trace",
+    "mathlib:Ideal.absNorm",
+    "mathlib:IsCyclotomicExtension"
+   ],
+   "api": [
+    {
+     "name": "stickelbergerPhi",
+     "role": "constructor",
+     "statement": "Φ(A) ∈ 𝓞_K for a nonzero ideal A of ℤ[ζ_m] prime to m: the product of g(P)^m over the prime factors of A."
+    },
+    {
+     "name": "stickelbergerPhi_prime",
+     "role": "characterisation",
+     "statement": "For a prime P ∤ m, Φ(P) = g(χ_P, ψ)^m with χ_P = (·/P)_m⁻¹ and ψ the trace character, read in ℚ(ζ_{mp})."
+    },
+    {
+     "name": "stickelbergerPhi_mul",
+     "role": "relation",
+     "statement": "Φ(AB) = Φ(A) Φ(B) for ideals prime to m."
+    },
+    {
+     "name": "stickelbergerPhi_top",
+     "role": "simp",
+     "statement": "Φ(𝓞_K) = 1."
+    },
+    {
+     "name": "stickelbergerPhi_norm_sq",
+     "role": "other",
+     "statement": "In every complex embedding σ of K, |σ(Φ(A))|² = N(A)^m."
+    },
+    {
+     "name": "stickelbergerPhi_galois",
+     "role": "functoriality",
+     "statement": "σ(Φ(A)) = Φ(σA) for σ ∈ Gal(K/ℚ)."
+    },
+    {
+     "name": "stickelbergerPhi_modEq",
+     "role": "other",
+     "statement": "For m = l an odd prime, Φ(P) ≡ −1 (mod l𝓞_K), so Φ(A) ≡ ±1 (mod l𝓞_K)."
+    },
+    {
+     "name": "span_stickelbergerPhi",
+     "role": "characterisation",
+     "statement": "The ideal generated by Φ(A) is A^γ, γ = Σ_{1≤t<m, (t,m)=1} t σ_t⁻¹ (CA.1/stickelberger-relation)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Stickelberger",
+    "namespace": "TauCeti.Cyclotomic"
+   },
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, the definitions of χ_P, ψ, g(P), Φ(P) and Proposition 4.2, pp. 70–71; the extension Φ(A) before Proposition 4.4, p. 72",
+     "match": "Defines g(P) with χ_P = (·/P)_m⁻¹ and the trace character, proves Φ(P) ∈ ℚ(ζ_m) by the invariance argument of the second step, and extends Φ multiplicatively to ideals prime to m."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, the paragraph before Theorem 6.10 and Definition 6.11, pp. 20–21",
+     "match": "The same construction, with the example m = 3: Φ(P) = π^{1 + 2σ}."
+    },
+    {
+     "sourceId": "katre-stickelberger-2000",
+     "locator": "§1, Definition 1 and Proposition 1 (b), (g), (h), pp. 75–77",
+     "match": "Gauss sums of characters of order dividing m lie in ℚ(ζ_{mp}), have absolute value √q, and their m-th powers lie in ℚ(ζ_m); Katre's Gauss sums carry the opposite sign, which does not change the ideal of g^m."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/stickelberger-relation",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Stickelberger's relation: the prime factorisation of Φ(P)",
+   "kind": "theorem",
+   "statement": "Let m ≥ 2, K = ℚ(ζ_m), and P a prime of ℤ[ζ_m] not dividing m. Then the principal ideal generated by Φ(P) = g(P)^m is P^γ, where γ = Σ_{1 ≤ t < m, gcd(t, m) = 1} t σ_t⁻¹ ∈ ℤ[Gal(K/ℚ)], σ_t(ζ_m) = ζ_m^t, and P^{Σ a_σ σ} := ∏ σ(P)^{a_σ}. Consequently (Φ(A)) = A^γ for every ideal A prime to m, and (Φ(α)) = (α^γ) for α prime to m.",
+   "hypotheses": [
+    "m ≥ 2; P ∤ m. The rational prime p below P may be 2 (when m is odd)."
+   ],
+   "proofSteps": [
+    "Teichmüller character: put q = N(P) = p^f and choose a prime 𝔓 of ℚ(ζ_{q−1}) above P; reduction modulo 𝔓 gives ω : 𝔽_qˣ → μ_{q−1}, and χ_P = ω^{−(q−1)/m} (Katre, after Proposition 2).",
+    "Valuation of Gauss sums: for the prime 𝔓̃ of ℚ(ζ_{q−1}, ζ_p) above 𝔓, v_𝔓̃(g(ω^{−α})) = s(α), the sum of the base-p digits of α ∈ [0, q − 1): from s(0) = 0, s(α + β) ≤ s(α) + s(β) and s(α + β) ≡ s(α) + s(β) (mod p − 1) (Jacobi sums are integral in ℚ(ζ_{q−1}) and 𝔓 = 𝔓̃^{p−1}), s(pα) = s(α), s(α) + s(q − 1 − α) = f(p − 1), and s(1) = 1 (g(ω⁻¹) ≡ ±(ζ_p − 1) modulo 𝔓̃², the sign depending on the sign convention for Gauss sums), by Katre's counting argument.",
+    "Galois conjugates of 𝔓̃ give the full factorisation of (g(χ_P)) in ℚ(ζ_m, ζ_p), and the digit-sum identity s(h) = (p − 1) Σ_{i<f} {p^i h/(q − 1)} turns m times it into the exponent Σ_{(t,m)=1, t<m} t σ_t⁻¹ on P = 𝔓̃^{p−1} ∩ 𝓞_K; unique factorisation descends the equality of ideals to 𝓞_K.",
+    "The prime p = 2 (possible when m is odd): Katre and Clausen take p odd. For p = 2, ζ_2 = −1, ℚ(ζ_m, ζ_2) = ℚ(ζ_m) and 𝔓̃ = 𝔓; with Tr(a) lifted to {0, 1}, (−1)^{Tr(a)} = 1 − 2 Tr(a), so g(ω⁻¹) = ±2 Σ ω⁻¹(a) Tr(a) and the sum is ≡ q − 1 ≢ 0 modulo 𝔓; since 2 is unramified in ℚ(ζ_{q−1}), s(1) = 1, and the rest of the argument is unchanged with p − 1 = 1 (source issue E1102).",
+    "Multiplicativity gives (Φ(A)) = A^γ; for A = α𝓞_K, A^γ = (α^γ) because σ(α𝓞_K) = σ(α)𝓞_K."
+   ],
+   "acceptance": [
+    "For m = 3 and P = (π) of norm 7: (Φ(P)) = (7π̄) = P P̄² = P^{σ_1⁻¹ + 2σ_2⁻¹}.",
+    "For m = 2 and an odd prime p: (Φ((p))) = (p) = (p)^{1·σ_1⁻¹}, the case of the quadratic Gauss sum.",
+    "γ has nonintegral counterpart θ = γ/m, the Stickelberger element; the relation says P^{mθ} is principal, generated by g(P)^m."
+   ],
+   "planet": {
+    "name": "Stickelberger relation"
+   },
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-gauss-sum-power",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "mathlib:Ideal.relNorm_eq_pow_of_isMaximal",
+    "mathlib:Ideal.absNorm",
+    "mathlib:gaussSum_ne_zero_of_nontrivial",
+    "mathlib:IsCyclotomicExtension"
+   ],
+   "sources": [
+    {
+     "sourceId": "katre-stickelberger-2000",
+     "locator": "§3, Lemmas 2–3, Propositions 2, 3 and 3′, pp. 79–82; §4, Lemma 4 and Proposition 4 (i), pp. 82–84",
+     "match": "Proves the digit-sum valuation of Gauss sums, their prime factorisation in ℚ(ζ_m, ζ_p), and (g(χ)^m) = ℘^{Σ a σ_a⁻¹} for χ the reciprocal of the m-th power residue character, for p odd (source issue E1102 records the case p = 2)."
+    },
+    {
+     "sourceId": "clausen-cyclotomic-2014",
+     "locator": "Lecture 15, Theorems 0.1, 0.5–0.7, pp. 1–5; lecture 16, Theorem 0.1 with x = ℓ, p. 1",
+     "match": "The same valuation computation and the factorisation (G(χ)^ℓ) = P^{Σ a σ_a⁻¹} for m = ℓ an odd prime and p > 2."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, Proposition 4.3 and Proposition 4.4 (iii), pp. 71–72",
+     "match": "States Stickelberger's relation (Φ(P)) = P^{Σ t σ_t⁻¹} (citing Ireland–Rosen and Katre for the proof) and its consequence (Φ(A)) = A^γ."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, Theorem 6.10, pp. 20–21",
+     "match": "The same statement, with the cubic example."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/stickelberger-unit-factor-is-a-root-of-unity",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The unit Φ(α)/α^γ is a root of unity ±ζ_m^i",
+   "kind": "lemma",
+   "statement": "Let m ≥ 2, K = ℚ(ζ_m) and α ∈ 𝓞_K prime to m. Then Φ(α) = ε(α) α^γ for a unit ε(α) of 𝓞_K, and ε(α) = ±ζ_m^i for some i.",
+   "hypotheses": [
+    "α nonzero and prime to m; α^γ := ∏_t σ_t⁻¹(α)^t."
+   ],
+   "proofSteps": [
+    "By Stickelberger's relation (Φ(α)) = (α^γ), so ε(α) = Φ(α)/α^γ is a unit.",
+    "In every complex embedding, |Φ(α)|² = |N(α)|^m (stickelbergerPhi_norm_sq), and |α^γ|² = α^{γ(1 + σ_{−1})} = α^{m Σ_t σ_t⁻¹} = |N(α)|^m, since (1 + σ_{−1})γ = m Σ_t σ_t⁻¹; so |ε(α)| = 1.",
+    "Galois equivariance (σ(Φ(α)) = Φ(σα)) shows the same for every conjugate of ε(α); by Kronecker's theorem ε(α) is a root of unity, and the roots of unity of ℚ(ζ_m) are the ±ζ_m^i (torsionOrder_eq)."
+   ],
+   "acceptance": [
+    "For m = 3 and α = π primary of norm 7: Φ(π) = 7π̄ and π^γ = π · σ_2⁻¹(π)² = π π̄², so ε(π) = 7π̄/(ππ̄²) = 1."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-relation",
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-gauss-sum-power",
+    "mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
+    "mathlib:IsCyclotomicExtension.Rat.torsionOrder_eq"
+   ],
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, Proposition 4.4 (iv) and Proposition 4.5 with the argument before it, p. 72",
+     "match": "Φ(α) = ε(α)α^γ with ε(α) a unit, and ε(α) = ±ζ_m^i from |ε(α)^σ| = 1 for all σ."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, Lemmas 6.14–6.16 and Proposition 6.17 with its proof, pp. 22–23",
+     "match": "The same, with the computation |α^γ|² = |Nα|^m written out."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/stickelberger-unit-factor-of-a-primary-element",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "For primary α in ℤ[ζ_l], Φ(α) = ±α^γ",
+   "kind": "lemma",
+   "statement": "Let l be an odd prime, K = ℚ(ζ_l), and α ∈ ℤ[ζ_l] primary (prime to l and congruent to a rational integer modulo (1 − ζ_l)²). Then ε(α) = ±1, that is Φ(α) = ±α^γ. Moreover Φ(P) ≡ −1 (mod l) for every prime P ∤ l, so Φ(A) ≡ ±1 (mod l) for every ideal A prime to l.",
+   "hypotheses": [
+    "l an odd prime; α primary in the sense of CA.1/primary-element-of-a-cyclotomic-ring."
+   ],
+   "proofSteps": [
+    "Φ(P) ≡ −1 (mod l): modulo l in ℤ[ζ_l, ζ_p], g(P)^l ≡ Σ_t χ_P(t)^l ψ(t)^l = Σ_{t ≠ 0} ψ(lt) = −1, since χ_P^l is trivial on 𝔽_qˣ and l is invertible in 𝔽_q; as Φ(P) ∈ 𝓞_K and l ℤ[ζ_l, ζ_p] ∩ 𝓞_K = l𝓞_K, Φ(P) ≡ −1 (mod l𝓞_K). Hence Φ(α) ≡ ±1 (mod l).",
+    "With λ = 1 − ζ_l and α ≡ x (mod λ²), x ∈ ℤ, every σ(α) ≡ x (mod λ²) because λ²𝓞_K is Galois stable; so α^γ ≡ x^{1 + 2 + ⋯ + (l−1)} = (x^{(l−1)/2})^l ≡ ±1 (mod λ²), using x^{(l−1)/2} ≡ ±1 (mod l) and l ∈ λ².",
+    "So ε(α) ≡ ±1 (mod λ²); by the previous lemma ε(α) = ±ζ_l^i, so ζ_l^i ≡ ±1 (mod λ²); the sign is + because ζ_l^i ≡ 1 (mod λ) and 2 ∉ λ, and then ζ_l^i ≡ 1 − iλ (mod λ²) forces l | i (the uniqueness of the normalising power, CA.1/normalising-root-of-unity-of-a-cyclotomic-integer). Hence ε(α) = ±1."
+   ],
+   "acceptance": [
+    "For l = 3, (1 − ω)² = −3ω, so an element ≡ 2 (mod 3) such as π = −1 − 3ω (norm 7) is primary in this sense, and ε(π) = 1 by the computation Φ(π) = 7π̄ = π^γ.",
+    "The primary hypothesis is needed: for α = ζ_l π, Φ(α) = Φ(π) but α^γ = ζ_l^{Σ t·t⁻¹}π^γ = ζ_l^{l−1}π^γ ≠ ±π^γ."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-unit-factor-is-a-root-of-unity",
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-gauss-sum-power",
+    "ClassicalArithmeticCompletion:CA.1/primary-element-of-a-cyclotomic-ring",
+    "mathlib:IsPrimitiveRoot.zeta_sub_one_prime'"
+   ],
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, Proposition 4.6 and (24), pp. 72–73",
+     "match": "States ε(α) = ±1 for primary α (citing Ireland–Rosen) and deduces (ε(α)/B)_l = 1 because −1 is an l-th power."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, Lemma 6.18 and Proposition 6.19 with their proofs, pp. 23–24",
+     "match": "Proves Φ(P) ≡ −1 (mod l) and ε(α) = ±1 for primary α by the congruence modulo (1 − ζ_l)² and the uniqueness of the normalising root of unity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/gauss-sum-power-residue-identity",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The residue symbol of Φ(P) at a second prime",
+   "kind": "lemma",
+   "statement": "Let m ≥ 2, K = ℚ(ζ_m), and P, P' primes of ℤ[ζ_m] not dividing m with N(P) and N(P') coprime. Then (Φ(P)/P')_m = (N(P')/P)_m.",
+   "hypotheses": [
+    "P, P' ∤ m; gcd(N(P), N(P')) = 1, so P' does not divide Φ(P) (|Φ(P)|² = N(P)^m)."
+   ],
+   "proofSteps": [
+    "Let q' = N(P') = p'^{f'}, so q' ≡ 1 (mod m). Modulo p' in ℤ[ζ_m, ζ_p], the q'-th power map is additive, so g(P)^{q'} ≡ Σ_t χ_P(t)^{q'} ψ(t)^{q'} = Σ_t χ_P(t) ψ(q't) = χ_P(q')⁻¹ g(P) = (q'/P)_m g(P).",
+    "g(P) is invertible modulo p' (g(P) times its complex conjugate is N(P), which is prime to p'), so g(P)^{q'−1} ≡ (q'/P)_m (mod p').",
+    "On the other hand g(P)^{q'−1} = Φ(P)^{(q'−1)/m} ≡ (Φ(P)/P')_m modulo every prime above P' (defining congruence of the residue symbol).",
+    "Two m-th roots of unity congruent modulo a prime above p' ∤ m are equal (CA.1/norm-of-a-prime-is-one-modulo-n)."
+   ],
+   "acceptance": [
+    "For m = 3, P = (π) with N(π) = 7 and P' = (2): (Φ(P)/2)_3 = (7π̄/2)_3 = (π̄/2)_3 and (N(2)/π)_3 = (4/π)_3 = (2/π)_3²; both equal ω: modulo 2, π̄ = 2 + 3ω ≡ ω and 7 ≡ 1, and the residue symbol at the inert prime 2 is x ↦ x^{(4−1)/3} = x; modulo π, ω ≡ 2 in 𝔽_7 and 4^{(7−1)/3} = 16 ≡ 2."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-gauss-sum-power",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n",
+    "mathlib:gaussSum_frob",
+    "mathlib:gaussSum_mulShift_eq",
+    "mathlib:gaussSum_mul_gaussSum_eq_card"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, Proposition 6.12 and its proof, p. 21",
+     "match": "States and proves the identity by computing g(P)^{q'−1} in two ways; the printed proof writes g(P')^{q'−1} where g(P)^{q'−1} is meant (source issue E1103)."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, the relation (Φ(P)/P')_l = (N(P')/P)_l before (25), p. 73",
+     "match": "States the identity for m = l (citing Ireland–Rosen)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/eisenstein-reciprocity-at-ideal-norms",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Eisenstein reciprocity at the norm of an ideal",
+   "kind": "lemma",
+   "statement": "Let l be an odd prime, K = ℚ(ζ_l), α ∈ ℤ[ζ_l] a primary nonunit, and 𝔅 an ideal of ℤ[ζ_l] prime to l with N(𝔅) prime to α. Then (α/N(𝔅))_l = (N(𝔅)/α)_l, the symbols at the principal ideals N(𝔅)𝓞_K and α𝓞_K.",
+   "hypotheses": [
+    "l odd prime; α primary and not a unit; 𝔅 prime to l; N(𝔅) and α coprime."
+   ],
+   "proofSteps": [
+    "Reduce by multiplicativity to 𝔅 = P prime.",
+    "(Φ(α)/P) = ∏_i (Φ(P_i)/P) over the prime factors P_i of α, and by the residue identity each factor is (N(P)/P_i); so (Φ(α)/P) = (N(P)/α).",
+    "(α^γ/P) = ∏_t (σ_t⁻¹(α)/P)^t = ∏_t σ_t((σ_t⁻¹α/P)) = ∏_t (α/σ_t P) = (α/∏_t σ_t(P)) = (α/N(P)), by Galois equivariance (σ_t acts on μ_l by the t-th power) and ∏_σ σ(P) = N(P)𝓞_K.",
+    "Φ(α) = ±α^γ (previous lemma), and (−1/P)_l = 1 because −1 = (−1)^l is an l-th power; combining, (α/N(P)) = (N(P)/α)."
+   ],
+   "acceptance": [
+    "For l = 3, α = π = −1 − 3ω (norm 7) and 𝔅 = (2) (N = 4): (π/4)_3 = (4/π)_3, i.e. (π/2)_3² = (2/π)_3², an instance of cubic reciprocity."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-unit-factor-of-a-primary-element",
+    "ClassicalArithmeticCompletion:CA.1/gauss-sum-power-residue-identity",
+    "ClassicalArithmeticCompletion:CA.1/stickelberger-gauss-sum-power",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance"
+   ],
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, the derivation of (25), p. 73",
+     "match": "Deduces (α/N(B))_l = (N(B)/α)_l from Proposition 4.4 (iv), Proposition 4.1, the residue identity and (24)."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, Corollary 6.13 and the end of the proof of Theorem 6.9, pp. 21–24",
+     "match": "The same derivation, with the computation (α^γ/P) = (α/N(P)) written out."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/completed-quadratic-residue-symbol",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The completed quadratic residue symbol |α/β| of a number field",
+   "kind": "definition",
+   "statement": "Let K be a number field. For α, β ∈ 𝓞_K with α ≠ 0 and β odd (β𝓞_K prime to 2), put μ_∞(α, β) = ∏_{v | ∞} (α, β)_v and μ₂(α, β) = ∏_{v | 2} (α, β)_v, products of the degree-2 norm-residue symbols at the infinite and the dyadic places, μ(α, β) = μ₂(α, β) μ_∞(α, β), and define the completed quadratic residue symbol |α/β| := μ_∞(α, β) · (α/β), where (α/β) is the quadratic residue symbol at the ideal β𝓞_K (the power residue symbol with n = 2). If α or β is totally positive, or K is totally complex, then |α/β| = (α/β).",
+   "hypotheses": [
+    "K a number field; −1 is a primitive square root of unity in 𝓞_K, so the power residue symbol with n = 2 is defined at every odd ideal.",
+    "α ≠ 0 so that the local symbols (α, β)_v are defined; |α/β| = 0 when α and β are not coprime.",
+    "β odd: β𝓞_K is prime to 2. The plain symbol (α/β) depends only on the ideal β𝓞_K; μ_∞, and hence |α/β|, also depends on the signs of β at the real places."
+   ],
+   "proofSteps": [
+    "(α/β) is the parent's power residue symbol of the ideal β𝓞_K with n = 2, valued in {0, ±1}.",
+    "μ_∞ and μ₂ are finite products of degree-2 norm-residue symbols at places (CA.1/norm-residue-symbol-at-a-place), each ±1.",
+    "If α or β is totally positive, every real factor (α, β)_v is 1 (the archimedean symbol is −1 only when both are negative), and a complex factor is always 1."
+   ],
+   "acceptance": [
+    "For K = ℚ: |−1/−3| = μ_∞(−1, −3)(−1/3) = (−1)(−1) = 1, while (−1/−3) = (−1/3) = −1.",
+    "For K = ℚ and positive b, |a/b| is the Jacobi symbol (a/b)."
+   ],
+   "uses": [
+    {
+     "where": "FIMR, Proposition 2.2",
+     "how": "periodicity of |α/β| in β modulo 8α, the property the spin sieve uses"
+    },
+    {
+     "where": "Koymans–Milovic, Lemma 2.1 and §§3–5",
+     "how": "the spin symbol (w/σ(w)) and its reciprocity, through μ₂ and μ_∞"
+    },
+    {
+     "where": "CA.1/quadratic-reciprocity-in-a-number-field",
+     "how": "the reciprocity law in the completed form |α/β| = μ₂(α, β)(β/α)"
+    }
+   ],
+   "tests": [
+    {
+     "name": "completedQuadSym_test_neg_neg",
+     "kind": "computation",
+     "statement": "For K = ℚ, |−1/−3| = 1."
+    },
+    {
+     "name": "completedQuadSym_test_neg_pos",
+     "kind": "computation",
+     "statement": "For K = ℚ, |−1/3| = (−1/3) = −1."
+    },
+    {
+     "name": "completedQuadSym_test_unit",
+     "kind": "degenerate",
+     "statement": "|α/1| = 1 for every α ≠ 0 (the empty product and positive denominator)."
+    },
+    {
+     "name": "completedQuadSym_test_not_plain",
+     "kind": "non-example",
+     "statement": "For K = ℚ, |−1/−3| ≠ (−1/−3): the archimedean factor is part of the symbol, and only the completed symbol is periodic in β."
+    }
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-at-a-place",
+    "ClassicalArithmeticCompletion:CA.1/archimedean-norm-residue-symbol"
+   ],
+   "api": [
+    {
+     "name": "completedQuadSym",
+     "role": "constructor",
+     "statement": "|α/β| = μ_∞(α, β)(α/β) for α ≠ 0 and β odd, valued in {0, ±1}."
+    },
+    {
+     "name": "archQuadFactor",
+     "role": "data",
+     "statement": "μ_∞(α, β) = ∏_{v | ∞} (α, β)_v ∈ {±1}."
+    },
+    {
+     "name": "dyadicQuadFactor",
+     "role": "data",
+     "statement": "μ₂(α, β) = ∏_{v | 2} (α, β)_v ∈ {±1}."
+    },
+    {
+     "name": "completedQuadSym_of_totallyPositive",
+     "role": "simp",
+     "statement": "If α or β is totally positive, or K is totally complex, |α/β| = (α/β)."
+    },
+    {
+     "name": "completedQuadSym_mul_left",
+     "role": "relation",
+     "statement": "|αα'/β| = |α/β| |α'/β|."
+    },
+    {
+     "name": "completedQuadSym_reciprocity",
+     "role": "relation",
+     "statement": "For coprime odd α, β: |α/β| = μ(α, β)|β/α| = μ₂(α, β)(β/α) (CA.1/quadratic-reciprocity-in-a-number-field)."
+    },
+    {
+     "name": "completedQuadSym_periodic",
+     "role": "characterisation",
+     "statement": "|α/β| depends only on β modulo 8α (CA.1/completed-quadratic-residue-symbol-periodicity)."
+    },
+    {
+     "name": "completedQuadSym_rat",
+     "role": "compatibility",
+     "statement": "For K = ℚ and odd b: |a/b| = (−1 if a < 0 and b < 0, else 1) · jacobiSym a |b|."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Reciprocity/Quadratic",
+    "namespace": "TauCeti.Reciprocity"
+   },
+   "sources": [
+    {
+     "sourceId": "fimr-spin-2013",
+     "locator": "§2, the definitions of μ₂, μ_∞, μ and (2.1), arXiv v2 pp. 5–6",
+     "match": "Defines the dyadic and archimedean products of quadratic Hilbert symbols and the completed symbol |α/β| = μ_∞(α, β)(α/β), noting that it equals (α/β) when α or β is totally positive."
+    },
+    {
+     "sourceId": "koymans-milovic-2021",
+     "locator": "§2.1, p. 4",
+     "match": "Uses the same μ₂, μ_∞ (after FIMR) and the symbol μ_∞(α, β)(α/β)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/quadratic-reciprocity-in-a-number-field",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Quadratic reciprocity in a number field with dyadic and archimedean factors",
+   "kind": "theorem",
+   "statement": "Let K be a number field and α, β ∈ 𝓞_K nonzero, odd and coprime. Then (α/β) = μ(α, β) (β/α) with μ = μ₂ μ_∞, the products of the degree-2 norm-residue symbols over the dyadic and the infinite places; equivalently |α/β| = μ(α, β)|β/α| = μ₂(α, β)(β/α).",
+   "hypotheses": [
+    "α, β nonzero, odd (prime to 2), and coprime; the quadratic residue symbols are at the ideals β𝓞_K and α𝓞_K."
+   ],
+   "proofSteps": [
+    "Apply the power reciprocity law with n = 2 (−1 ∈ K is a primitive square root of unity): (α/β)(β/α)⁻¹ = ∏_{v | 2∞} (α, β)_v, since (α), (β) and (2) are pairwise coprime.",
+    "The values are ±1, so the inverse is the value itself, and the right side is μ₂(α, β)μ_∞(α, β).",
+    "The degree-2 symbol is symmetric ((β, α)_v = (α, β)_v⁻¹ = (α, β)_v), so μ_∞(β, α) = μ_∞(α, β); hence |α/β| = μ_∞(α, β)μ(α, β)(β/α) = μ₂(α, β)(β/α) = μ(α, β)|β/α|."
+   ],
+   "acceptance": [
+    "For K = ℚ and odd positive coprime a, b: μ_∞ = 1 and μ₂(a, b) = (a, b)_2 = (−1)^{((a−1)/2)((b−1)/2)}, which is jacobiSym.quadratic_reciprocity.",
+    "For K = ℚ, α = −1, β = −3: (−1/−3) = −1, (−3/−1) = 1, μ₂ = (−1, −3)_2 = 1 and μ_∞ = (−1, −3)_∞ = −1, so the law holds with μ = −1."
+   ],
+   "planet": {
+    "name": "Quadratic reciprocity in number fields"
+   },
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-reciprocity-law",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-at-a-place",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-steinberg-and-skew-symmetry",
+    "ClassicalArithmeticCompletion:CA.1/completed-quadratic-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/dyadic-hilbert-symbol-via-chi4-chi8",
+    "mathlib:jacobiSym.quadratic_reciprocity"
+   ],
+   "sources": [
+    {
+     "sourceId": "fimr-spin-2013",
+     "locator": "§2, Lemma 2.1, (2.2)–(2.3), arXiv v2 p. 6",
+     "match": "States the number-field quadratic reciprocity law (α/β) = μ(α, β)(β/α) and its completed form, citing Hecke Chapter 8 and Neukirch VI.8 for the proof; the node derives it from the power reciprocity law."
+    },
+    {
+     "sourceId": "koymans-milovic-2021",
+     "locator": "§2.1, Lemma 2.1, p. 4",
+     "match": "States that for odd α, (α/β) = μ₂(α, β)μ_∞(α, β)(β/α), after FIMR (Koymans–Milovic item 3)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/dyadic-hilbert-factor-depends-on-residues-mod-eight",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The dyadic factor μ₂(α, β) depends only on α and β modulo 8",
+   "kind": "lemma",
+   "statement": "Let K be a number field and α, β, α', β' ∈ 𝓞_K odd with α ≡ α' and β ≡ β' (mod 8𝓞_K). Then μ₂(α, β) = μ₂(α', β').",
+   "hypotheses": [
+    "α, β, α', β' odd; congruences modulo 8𝓞_K."
+   ],
+   "proofSteps": [
+    "If η ∈ 𝓞_K and η ≡ 1 (mod 8), then η is a square in K_v for every dyadic place v: the binomial series √(1 + 8x) = 1 + Σ_{ℓ≥1} c_ℓ (4x)^ℓ/ℓ!, c_ℓ = ∏_{0≤k<ℓ}(1 − 2k), converges 2-adically because 4^ℓ/ℓ! has positive 2-adic valuation (alternatively Hensel's lemma).",
+    "Write α' = αη with η = α'/α ≡ 1 (mod 8) in 𝓞_{K_v} (α is a v-adic unit); then (α', β)_v = (α, β)_v(η, β)_v = (α, β)_v, since (η, β)_v = 1 for a square η (bimultiplicativity and (c², β) = 1). The same for β."
+   ],
+   "acceptance": [
+    "For K = ℚ: (a, b)_2 for odd a, b depends only on a, b mod 4 (it is (−1)^{((a−1)/2)((b−1)/2)}), a fortiori mod 8.",
+    "17 ≡ 1 (mod 8) is a square in ℚ_2, so μ₂(17α, β) = μ₂(α, β)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/completed-quadratic-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-steinberg-and-skew-symmetry",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-at-a-place"
+   ],
+   "sources": [
+    {
+     "sourceId": "fimr-spin-2013",
+     "locator": "§2, Lemma 2.3 and its proof, arXiv v2 p. 6",
+     "match": "States that μ₂(α, β) depends only on α, β modulo 8 and proves it by the binomial series for √(1 + 8x)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/completed-quadratic-residue-symbol-periodicity",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Periodicity of the completed quadratic residue symbol modulo 8α",
+   "kind": "theorem",
+   "statement": "Let K be a number field and α ∈ 𝓞_K nonzero. For odd β, δ ∈ 𝓞_K with β ≡ δ (mod 8α), |α/β| = |α/δ|. If moreover β and δ are totally positive, (α/β) = (α/δ).",
+   "hypotheses": [
+    "α ≠ 0; β, δ odd; congruence modulo the ideal 8α𝓞_K.",
+    "No coprimality is assumed: if α and β are not coprime then neither are α and δ, and both sides are 0."
+   ],
+   "proofSteps": [
+    "For odd α the statement follows from the reciprocity law, |α/β| = μ₂(α, β)(β/α), since (β/α) depends only on β mod α and μ₂ only on β mod 8 (FIMR Corollary 2.4).",
+    "For α with 1 + α odd, the auxiliary symbol [α/β] = μ₂(α, β)|α/β| = μ(α, β)(α/β) satisfies [α/β] = [α/δ] when β ≡ δ (mod 2α): choose γ with βγ ≡ 1 + α (mod 2α) and λ = (βγ − 1)/α, odd and prime to βγ; apply the reciprocity law to (α/β) = (−λ/β) and to (β/λ), (λ/γ), and collect the local factors, which reduce to (βγ, α)_v by the Steinberg relation (βγ, −αλ)_v = (βγ, 1 − βγ)_v = 1 (FIMR Lemma 2.5).",
+    "Apply this to 2 and to 2α (both have 1 + (·) odd): [2/β] = [2/δ] for β ≡ δ (mod 4) and [2α/β] = [2α/δ] for β ≡ δ (mod 4α); multiplying, and since 4 is a square, [α/β] = [α/δ] for β ≡ δ (mod 4α).",
+    "For β ≡ δ (mod 8α), μ₂(α, β) = μ₂(α, δ) by the previous lemma, so |α/β| = |α/δ|; for totally positive β, δ, |α/·| = (α/·)."
+   ],
+   "acceptance": [
+    "For K = ℚ, |−1/b| = (−1)^{(b−1)/2} for every odd b, positive or negative: it depends only on b mod 4.",
+    "Without the archimedean factor periodicity fails: for K = ℚ, −3 ≡ 5 (mod 8), but (−1/−3) = −1 ≠ 1 = (−1/5), while |−1/−3| = 1 = |−1/5|."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/completed-quadratic-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/quadratic-reciprocity-in-a-number-field",
+    "ClassicalArithmeticCompletion:CA.1/dyadic-hilbert-factor-depends-on-residues-mod-eight",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-steinberg-and-skew-symmetry"
+   ],
+   "sources": [
+    {
+     "sourceId": "fimr-spin-2013",
+     "locator": "§2, Proposition 2.2, Corollary 2.4, (2.4), Lemma 2.5 and the end of the proof of Proposition 2.2, arXiv v2 pp. 6–8",
+     "match": "States and proves the periodicity of |α/β| modulo 8α and of (α/β) for totally positive β, by the auxiliary symbol [α/β] and Lemma 2.5."
+    },
+    {
+     "sourceId": "koymans-milovic-2021",
+     "locator": "§2.1, Lemma 2.1 (first assertion), p. 4",
+     "match": "States that μ_∞(α, β)(α/β) depends only on β modulo 8α (Koymans–Milovic item 3)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/norm-compatibility-of-the-power-residue-symbol",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Norm compatibility of the power residue symbol in an extension",
+   "kind": "theorem",
+   "statement": "Let L/K be a finite extension of number fields, n ≥ 1, and suppose 𝓞_K contains a primitive n-th root of unity. For x ∈ 𝓞_K and a nonzero ideal 𝔄 of 𝓞_L with N(𝔄) prime to n, (x/𝔄)_{L,n} = (x/N_{L/K}(𝔄))_{K,n}, where N_{L/K} is the relative norm of ideals (Mathlib's Ideal.relNorm) and both symbols are the parent's power residue symbols of ideals. In particular, for w ∈ 𝓞_L with N(w) prime to n, (x/w)_{L,n} = (x/N_{L/K}(w))_{K,n}.",
+   "hypotheses": [
+    "L/K any finite extension (no Galois hypothesis); μ_n ⊆ K, hence μ_n ⊆ L, with the same roots of unity used on both sides.",
+    "N(𝔄) prime to n, so N_{L/K}(𝔄) is prime to n (Ideal.absNorm_relNorm)."
+   ],
+   "proofSteps": [
+    "Both sides are multiplicative in 𝔄 (powerResidueSymbolIdeal_mul_right; relNorm is a monoid homomorphism), so reduce to a prime 𝔓 of 𝓞_L over 𝔭 of 𝓞_K, with residue degree f; then N_{L/K}(𝔓) = 𝔭^f (Ideal.relNorm_eq_pow_of_isMaximal) and N(𝔓) = N(𝔭)^f.",
+    "If x ∈ 𝔭 both sides are 0. Otherwise, modulo 𝔓, (x/𝔓)_L ≡ x^{(N𝔭^f − 1)/n} = (x^{(N𝔭 − 1)/n})^{1 + N𝔭 + ⋯ + N𝔭^{f−1}} ≡ ((x/𝔭)_K)^{f} because N𝔭 ≡ 1 (mod n) makes the exponent ≡ f (mod n).",
+    "((x/𝔭)_K)^f = (x/𝔭^f)_K, and two n-th roots of unity congruent modulo 𝔓 are equal (CA.1/norm-of-a-prime-is-one-modulo-n in L)."
+   ],
+   "acceptance": [
+    "K = ℚ, L = ℚ(i), n = 2, x = 3, 𝔄 = (−1 + 2i): (3/(−1 + 2i))_{L,2} = (3/5) = −1.",
+    "If L/ℚ is Galois of even degree and p splits completely in L, then for a ∈ ℤ prime to p, (a/p𝓞_L)_{L,2} = (a/p)^{[L:ℚ]} = 1, although the Legendre symbol (a/p) may be −1 (FIMR §2, p. 5)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n",
+    "mathlib:Ideal.relNorm",
+    "mathlib:Ideal.relNorm_eq_pow_of_isMaximal",
+    "mathlib:Ideal.spanNorm_singleton",
+    "mathlib:Ideal.inertiaDeg",
+    "mathlib:Ideal.absNorm_relNorm"
+   ],
+   "sources": [
+    {
+     "sourceId": "koymans-milovic-2021",
+     "locator": "§5, the computation of ∏_{σ∈S} spin(σ, w), p. 22",
+     "match": "Uses (x/w)_{K,2} = (x/N_{K/E}(w))_{E,2} for x ∈ 𝓞_E and odd w ∈ 𝓞_K in a Galois extension K/E (Koymans–Milovic item 4); the node proves it for every n with μ_n ⊆ E and any finite extension."
+    },
+    {
+     "sourceId": "fimr-spin-2013",
+     "locator": "§2, the remark after the definition of the quadratic residue symbol, arXiv v2 p. 5",
+     "match": "Observes that (a/p) computed in K need not be the Legendre symbol, by the computation (a/p) = (a/q)(a/q^σ) = (a/q)² for split p, the special case of the node."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/projective-zeros-of-a-binary-quadratic-form",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The number of zeros of a binary quadratic form on ℙ¹(𝔽_p)",
+   "kind": "theorem",
+   "statement": "Let p be an odd prime and Q(x, y) = m x² + r x y + n y² with m, r, n ∈ 𝔽_p not all zero. The number of points [x : y] ∈ ℙ¹(𝔽_p) with Q(x, y) = 0 is 1 + (d/p), where d = r² − 4mn is the discriminant and (·/p) is the Legendre symbol with (0/p) = 0: there are 0, 1 or 2 zeros according as d is a nonsquare, zero, or a nonzero square.",
+   "hypotheses": [
+    "p odd; Q is not the zero form (for the zero form every one of the p + 1 points is a zero).",
+    "d = r² − 4mn is the discriminant of the form, which equals −4 det of the symmetric matrix (m, r/2; r/2, n); the determinant itself gives a different Legendre symbol when p ≡ 3 (mod 4)."
+   ],
+   "proofSteps": [
+    "Q(λx, λy) = λ²Q(x, y), so vanishing at [x : y] is well defined on ℙ¹(𝔽_p) = ℙ(𝔽_p²).",
+    "m ≠ 0: [1 : 0] is not a zero (Q(1, 0) = m); every other point is [x : 1], a zero exactly when m x² + r x + n = 0, i.e. when (2mx + r)² = d (quadratic_eq_zero_iff_discrim_eq_sq, 2 ≠ 0); x ↦ 2mx + r is a bijection of 𝔽_p, so the count is #{s : s² = d} = 1 + (d/p) (quadraticChar_card_sqrts, legendreSym.card_sqrts).",
+    "m = 0, r ≠ 0: [1 : 0] is a zero and [x : 1] is a zero exactly for x = −n/r; two zeros, and d = r² is a nonzero square.",
+    "m = 0, r = 0: then n ≠ 0, Q = n y² vanishes only at [1 : 0]; one zero, and d = 0."
+   ],
+   "acceptance": [
+    "Over 𝔽_3, x² + y² has no zeros (d = −4 ≡ 2 is a nonsquare); over 𝔽_5 it has two, [2 : 1] and [3 : 1] (d ≡ 1).",
+    "xy has the two zeros [1 : 0], [0 : 1] (d = 1); y² has the single zero [1 : 0] (d = 0).",
+    "Over 𝔽_3, x² + xy + y² (d = −3 ≡ 0) has the single zero [1 : 1]."
+   ],
+   "prerequisites": [
+    "mathlib:Projectivization",
+    "mathlib:Projectivization.mk",
+    "mathlib:quadratic_eq_zero_iff_discrim_eq_sq",
+    "mathlib:discrim",
+    "mathlib:quadraticChar_card_sqrts",
+    "mathlib:legendreSym.card_sqrts",
+    "mathlib:legendreSym"
+   ],
+   "sources": [
+    {
+     "sourceId": "calegari-geraghty-2020",
+     "locator": "§8.7, Lemma 8.21 and its proof, printed pp. 872–873",
+     "match": "The proof of Lemma 8.21 uses that a p-primitive binary quadratic form has 0, 1 or 2 zeros in ℙ¹(𝔽_p) according as the Legendre symbol of its discriminant is −1, 0 or 1; the node is that fact for every nonzero form over 𝔽_p, with the discriminant r² − 4mn."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/nonzero-root-count-of-a-power-equation",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-finite-field",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The number of n-th roots of an n-th power in a finite field",
+   "kind": "lemma",
+   "statement": "Let F be a finite field with q elements, n ∈ ℕ and a ∈ Fˣ an n-th power. Then the equation x^n = a has exactly gcd(q − 1, n) solutions x ∈ Fˣ. If n ≥ 1, every solution in F is nonzero, so x^n = a also has exactly gcd(q − 1, n) solutions in F. For n = 0 (where a must be 1) all q elements of F are solutions, one more than the gcd(q − 1, 0) = q − 1 solutions in Fˣ.",
+   "hypotheses": [
+    "F finite with q elements; a ≠ 0 and a is an n-th power.",
+    "Root counts are taken in Fˣ; the count in F agrees for n ≥ 1 and differs by one (the root 0) for n = 0."
+   ],
+   "proofSteps": [
+    "Fˣ is cyclic of order q − 1 (isCyclic_of_injective_ringHom, Nat.card_units).",
+    "If x₀^n = a, the solutions in Fˣ are x₀ times the kernel of the n-th power map, which has gcd(q − 1, n) elements (IsCyclic.card_powMonoidHom_ker).",
+    "For n ≥ 1, 0^n = 0 ≠ a, so no solution is zero; for n = 0, x^0 = 1 for every x ∈ F, including 0."
+   ],
+   "acceptance": [
+    "In 𝔽_7, x³ = 1 has three solutions (1, 2, 4) and x³ = 6 has three (3, 5, 6); x³ = 2 has none.",
+    "In 𝔽_5 with n = 0 and a = 1: five solutions in F and four in Fˣ."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-criterion-in-a-cyclic-group",
+    "mathlib:IsCyclic.card_powMonoidHom_ker",
+    "mathlib:Nat.card_units",
+    "mathlib:isCyclic_of_injective_ringHom"
+   ],
+   "sources": [
+    {
+     "sourceId": "relyea-reciprocity-2024",
+     "locator": "§1.2, Theorem 1.7 and its proof, pp. 11–13",
+     "match": "For positive n and α ∈ Fˣ, x^n = α is solvable exactly when α^{(q−1)/d} = 1 (d = gcd(n, q − 1)), and then has exactly d solutions; the node pins the count in Fˣ and records the n = 0 boundary that the review flagged."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/squarefree-part-signed-uniqueness",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/squarefree-part-of-a-rational",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Uniqueness of the signed squarefree part of a rational square class",
+   "kind": "lemma",
+   "statement": "If d, d' ∈ ℤ are squarefree, c, c' ∈ ℚ are nonzero, and d c² = d' c'² ≠ 0, then d = d'.",
+   "hypotheses": [
+    "Squarefree is Mathlib's Squarefree on ℤ, so ±1 are squarefree and d may be negative.",
+    "The common value d c² is nonzero, so d, d' ≠ 0."
+   ],
+   "proofSteps": [
+    "Signs: d c² and d' c'² have the signs of d and d', so d and d' have the same sign.",
+    "Valuations: for every prime p, v_p(d) + 2 v_p(c) = v_p(d') + 2 v_p(c') (padicValRat.mul, padicValRat.pow), and v_p(d), v_p(d') ∈ {0, 1} because d, d' are squarefree (Squarefree.natFactorization_le_one on |d|, |d'|); so v_p(d) = v_p(d').",
+    "Two nonzero integers with the same sign and the same valuation at every prime are equal (x = ±∏ p^{v_p(x)})."
+   ],
+   "acceptance": [
+    "2 · (3/2)² = 18 · (1/2)², but 18 is not squarefree; with squarefree data, 2 · c² = 2 · c'² forces c = ±c' and nothing else.",
+    "−3 · 2² = −12 = −3 · (−2)², while 3 · c² = −12 has no rational solution."
+   ],
+   "prerequisites": [
+    "mathlib:padicValRat",
+    "mathlib:padicValRat.mul",
+    "mathlib:padicValRat.pow",
+    "mathlib:Squarefree",
+    "mathlib:Squarefree.natFactorization_le_one"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Exercise 1.30 (b) and (d), printed p. 13",
+     "match": "The valuation on ℚ is additive and every nonzero rational is ±∏ p^{ν_p(x)}, which are the two facts the uniqueness compares."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/squarefree-part-of-a-square-multiple",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/squarefree-part-of-a-rational",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The squarefree part is constant on square classes",
+   "kind": "lemma",
+   "statement": "For nonzero rationals u and t, ratSquarefreePart(u t²) = ratSquarefreePart(u).",
+   "hypotheses": [
+    "u, t ≠ 0; ratSquarefreePart is the parent's definition (the unique squarefree d with u = d c², c ≠ 0)."
+   ],
+   "proofSteps": [
+    "Write u = d c² with d = ratSquarefreePart u squarefree and c ≠ 0 (Rat.exists_squarefree_int_mul_sq and the parent's characterisation).",
+    "Then u t² = d (ct)² with ct ≠ 0, so by the signed uniqueness lemma ratSquarefreePart(u t²) = d."
+   ],
+   "acceptance": [
+    "ratSquarefreePart(8/9) = ratSquarefreePart(2 · (2/3)²) = 2.",
+    "ratSquarefreePart(−12) = ratSquarefreePart(−3 · 2²) = −3."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/squarefree-part-signed-uniqueness",
+    "tauceti:Rat.exists_squarefree_int_mul_sq"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Exercise 1.30 (b) and (d), printed p. 13",
+     "match": "The valuation calculus behind the invariance under multiplication by squares."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/prime-divides-squarefree-part-iff-odd-valuation",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/squarefree-part-of-a-rational",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "A prime divides the squarefree part exactly when the valuation is odd",
+   "kind": "lemma",
+   "statement": "For a nonzero rational u and a prime p, p divides ratSquarefreePart(u) if and only if padicValRat p u is odd.",
+   "hypotheses": [
+    "u ≠ 0; p prime."
+   ],
+   "proofSteps": [
+    "With u = d c², v_p(u) = v_p(d) + 2 v_p(c) (padicValRat.mul, padicValRat.pow), and v_p(d) ∈ {0, 1} because d is squarefree.",
+    "So v_p(u) is odd exactly when v_p(d) = 1, that is, when p divides d."
+   ],
+   "acceptance": [
+    "For u = 8/9: v_2 = 3 is odd and 2 | 2; v_3 = −2 is even and 3 ∤ 2.",
+    "For u = −12: v_3 = 1 is odd and 3 | −3; v_2 = 2 is even and 2 ∤ −3."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/squarefree-part-of-a-square-multiple",
+    "mathlib:padicValRat",
+    "mathlib:padicValRat.mul",
+    "mathlib:padicValRat.pow",
+    "mathlib:Squarefree.natFactorization_le_one",
+    "tauceti:Rat.exists_squarefree_int_mul_sq"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "Exercise 1.30 (b) and (d), printed p. 13",
+     "match": "Additivity of ν_p on ℚ, from which the parity statement is read off."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-coordinate-criterion",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The coordinate criterion for primary Eisenstein integers",
+   "kind": "lemma",
+   "statement": "Let K be a number field with IsCyclotomicExtension {3} ℚ K and ω ∈ 𝓞_K a primitive cube root of unity. For a, b ∈ ℤ, a + bω is primary (≡ 2 mod 3𝓞_K) if and only if a ≡ 2 (mod 3) and b ≡ 0 (mod 3).",
+   "hypotheses": [
+    "The coordinates are those of the ℤ-basis {1, ω} of 𝓞_K."
+   ],
+   "proofSteps": [
+    "{1, ω} is a ℤ-basis of 𝓞_K (integralPowerBasisOfPrimePow for 3 = 3^1, whose generator is ω and whose dimension is φ(3) = 2).",
+    "Hence 3𝓞_K = 3ℤ ⊕ 3ℤω, and a + bω − 2 ∈ 3𝓞_K exactly when 3 | a − 2 and 3 | b."
+   ],
+   "acceptance": [
+    "−1 − 3ω is primary; 2 + ω and 3 + ω are not.",
+    "−ω² = 1 + ω is not primary (a = 1)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer",
+    "mathlib:IsPrimitiveRoot.integralPowerBasisOfPrimePow",
+    "mathlib:IsCyclotomicExtension",
+    "mathlib:Ideal.span"
+   ],
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, the definition of primary, p. 59",
+     "match": "A prime a + bω is primary when a ≡ 2 and b ≡ 0 (mod 3), the coordinate form of π ≡ 2 (mod 3)."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, Definition 4.4 and Proposition 4.5, p. 11",
+     "match": "π primary means π ≡ 2 (mod 3), read in the coordinates a + bζ_3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/unique-primary-associate-of-an-eisenstein-prime",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Every Eisenstein prime of norm different from 3 has exactly one primary associate",
+   "kind": "lemma",
+   "statement": "Let K = ℚ(ζ_3) with 𝓞_K = ℤ[ω]. Every prime π of 𝓞_K with N(π) ≠ 3 has exactly one primary associate, among the six associates uπ, u ∈ {±1, ±ω, ±ω²}.",
+   "hypotheses": [
+    "π prime with N(π) ≠ 3, so π is prime to 1 − ω and N(π) ≡ 1 (mod 3)."
+   ],
+   "proofSteps": [
+    "The units of 𝓞_K are ±1, ±ω, ±ω² (IsCyclotomicExtension.Rat.Three.Units.mem).",
+    "Existence: for π = a + bω, a² − ab + b² = N(π) ≡ 1 (mod 3); the six associates a + bω, −b + (a − b)ω, (b − a) − aω, −a − bω, b + (b − a)ω, (a − b) + aω cover the cases 3 ∤ a or 3 ∤ b, and the coordinate criterion selects one with first coordinate ≡ 2 and second ≡ 0 (mod 3).",
+    "Uniqueness: if π and uπ are both ≡ 2 (mod 3), then (u − 1)π ∈ 3𝓞_K; π is prime to 3, so 3 | u − 1, and among the six units only u = 1 satisfies this (u − 1 is 0, a unit, or of norm 3 or 4)."
+   ],
+   "acceptance": [
+    "The primary associate of 3 + ω (norm 7) is (a − b) + aω = 2 + 3ω, the complex conjugate of the primary prime −1 − 3ω.",
+    "2 is its own primary associate; 1 − ω (norm 3) has none."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-coordinate-criterion",
+    "mathlib:IsCyclotomicExtension.Rat.Three.Units.mem",
+    "mathlib:IsCyclotomicExtension.Rat.three_pid",
+    "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, Proposition 4.5 and its proof, p. 11",
+     "match": "Lists the six associates of a + bζ_3 and proves existence and uniqueness of the primary one when N(π) = p ≡ 1 (mod 3)."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, p. 59",
+     "match": "States that every prime of norm different from 3 has exactly one primary associate."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/cubic-jacobi-sum-is-primary",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-jacobi-sum-of-a-primary-prime",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The cubic Jacobi sum of a primary prime is primary",
+   "kind": "lemma",
+   "statement": "Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3) and χ = (·/π)_3. Then J(χ, χ) ≡ 2 (mod 3𝓞_K).",
+   "hypotheses": [
+    "As in the parent's Jacobi sum lemma."
+   ],
+   "proofSteps": [
+    "In the ring of integers R of ℚ(ω, ζ_p), g(χ)^3 = pJ(χ, χ) (the cubic Gauss sum identity).",
+    "Modulo 3R, cubing is additive: g(χ)^3 ≡ Σ_t χ(t)^3 ψ(t)^3 = Σ_{t ≠ 0} ψ(3t) = −1, since χ^3 = 1 on 𝔽_pˣ and 3 is invertible in 𝔽_p.",
+    "As p ≡ 1 (mod 3), J ≡ −1 ≡ 2 (mod 3R), and 3R ∩ 𝓞_K = 3𝓞_K (an element of K integral over ℤ lies in 𝓞_K)."
+   ],
+   "acceptance": [
+    "For π = −1 − 3ω: J = −1 − 3ω ≡ 2 (mod 3)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/gauss-sum-cube-of-a-cubic-character",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer",
+    "mathlib:gaussSum_frob",
+    "mathlib:IsCyclotomicExtension"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, Proposition 4.8 and its proof, p. 12",
+     "match": "Shows J(χ_π, χ_π) ≡ −1 (mod 3) from g^3 = pJ and the congruence g^3 ≡ −1."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, Lemma 3.2 and its proof, pp. 62–64",
+     "match": "The same congruence as the first part of the proof that J = π."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/gauss-sum-cube-of-a-cubic-character",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-gauss-sum-cube",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The cube of the Gauss sum of a cubic character",
+   "kind": "lemma",
+   "statement": "Let F be a finite field with q elements, R an integral domain, χ : F → R a multiplicative character of order exactly 3 and ψ a primitive additive character of F with values in R. Then χ(−1) = 1 and g(χ, ψ)^3 = q · J(χ, χ).",
+   "hypotheses": [
+    "orderOf χ = 3; ψ primitive; R a domain (χ(−1) is then a root of unity of order dividing 2 and 3)."
+   ],
+   "proofSteps": [
+    "gaussSum_pow_eq_prod_jacobiSum with orderOf χ = 3 gives g(χ)^3 = χ(−1) · q · ∏_{i ∈ Ico 1 2} J(χ, χ^i) = χ(−1) · q · J(χ, χ).",
+    "χ(−1)² = χ(1) = 1 and χ(−1)³ = χ(−1)^{orderOf χ} = 1, so χ(−1) = 1."
+   ],
+   "acceptance": [
+    "For χ = (·/π)_3 with π = −1 − 3ω of norm 7: g^3 = 7 J(χ, χ) = 7π.",
+    "The identity fails for a quadratic character (order 2), where g² = χ(−1) q: the order hypothesis is used."
+   ],
+   "prerequisites": [
+    "mathlib:gaussSum_pow_eq_prod_jacobiSum",
+    "mathlib:jacobiSum",
+    "mathlib:gaussSum",
+    "mathlib:AddChar.IsPrimitive"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, Proposition 4.7 and its proof, p. 12",
+     "match": "g(χ_π)^3 = pJ(χ_π, χ_π) from the Gauss–Jacobi relation and χ_π(−1) = 1."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, Proposition 3.3, p. 61",
+     "match": "The general identity g(χ)^m = χ(−1) p J(χ, χ) ⋯ J(χ, χ^{m−2}) for a character of order m, specialised here to m = 3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/cubic-jacobi-sum-norm-and-divisibility",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-jacobi-sum-of-a-primary-prime",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The cubic Jacobi sum has norm p and is divisible by π",
+   "kind": "lemma",
+   "statement": "Let π be a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3) and χ = (·/π)_3. Then J(χ, χ) times its complex conjugate is p, and π divides J(χ, χ) in 𝓞_K. Consequently J(χ, χ) = π.",
+   "hypotheses": [
+    "As in the parent's Jacobi sum lemma; 𝓞_K = ℤ[ω] is a principal ideal domain."
+   ],
+   "proofSteps": [
+    "J(χ, χ) J(χ⁻¹, χ⁻¹) = p (jacobiSum_mul_jacobiSum_inv; χ, χ and χ² are nontrivial), and J(χ⁻¹, χ⁻¹) = J(χ̄, χ̄) is the complex conjugate.",
+    "Modulo π, χ(t) ≡ t^{(p−1)/3}, so J ≡ Σ_t t^k(1 − t)^k with k = (p − 1)/3, a combination of power sums Σ_t t^j with 1 ≤ j ≤ 2k < p − 1, all zero (FiniteField.sum_pow_lt_card_sub_one); so π | J.",
+    "J has norm p and is divisible by π (norm p), so J is an associate of π (𝓞_K is a PID, three_pid); J is primary (previous lemma), and π has exactly one primary associate, so J = π."
+   ],
+   "acceptance": [
+    "For π = −1 − 3ω: J(χ, χ) = −1 − 3ω, and its conjugate 2 + 3ω satisfies (−1 − 3ω)(2 + 3ω) = 7.",
+    "The non-primary associate −π gives the same character, so J = π, not −π."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/cubic-jacobi-sum-is-primary",
+    "ClassicalArithmeticCompletion:CA.1/unique-primary-associate-of-an-eisenstein-prime",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "mathlib:jacobiSum",
+    "mathlib:jacobiSum_mul_jacobiSum_inv",
+    "mathlib:FiniteField.sum_pow_lt_card_sub_one",
+    "mathlib:IsCyclotomicExtension.Rat.three_pid"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, Proposition 4.8 and its proof, p. 12",
+     "match": "Shows J J̄ = p and J ≡ 0 (mod π) by the power-sum argument, and concludes J = π from primarity."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, Lemma 3.2 and its proof, pp. 62–64",
+     "match": "The same three steps: primary congruence, norm p, divisibility by π."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-with-two-rational-primes",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The cubic symbol of a rational integer at a rational prime is trivial",
+   "kind": "lemma",
+   "statement": "Let q ≡ 2 (mod 3) be a rational prime (inert in ℤ[ω]) and n a rational integer prime to q. Then (n/q)_3 = 1. In particular cubic reciprocity holds trivially for two distinct rational primes q₁, q₂ ≡ 2 (mod 3).",
+   "hypotheses": [
+    "q ≡ 2 (mod 3) prime, so q is a primary prime of ℤ[ω] of norm q²; n ∈ ℤ prime to q."
+   ],
+   "proofSteps": [
+    "Complex conjugation fixes n and q, so by Galois equivariance conj((n/q)_3) = (n/q)_3.",
+    "For a cube root of unity ζ, conj(ζ) = ζ² ; so (n/q)_3 = (n/q)_3², and (n/q)_3 = 1."
+   ],
+   "acceptance": [
+    "(2/5)_3 = 1: 5 is inert in ℤ[ω] and 2^{(25−1)/3} = 2^8 = 256 ≡ 1 (mod 5).",
+    "(7/2)_3 = 1: 7 ≡ 1 (mod 2)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, proof of Theorem 4.6, Case 1, p. 13",
+     "match": "Proves χ_p(n) = 1 for rational n prime to p from χ_π(ᾱ) = χ̄_π(α) and the fact that a cube root of unity's conjugate is its square."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, proof of Theorem 3.1, first case, p. 64",
+     "match": "The case of two rational primes."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-rational-and-complex-prime",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Cubic reciprocity between a rational prime and a complex primary prime",
+   "kind": "lemma",
+   "statement": "Let q ≡ 2 (mod 3) be a rational prime and π a primary prime of ℤ[ω] of norm p ≡ 1 (mod 3). Then (q/π)_3 = (π/q)_3.",
+   "hypotheses": [
+    "q ≠ p automatically (p ≡ 1, q ≡ 2 mod 3)."
+   ],
+   "proofSteps": [
+    "In R = 𝓞 of ℚ(ω, ζ_p): g(χ_π)^3 = pπ (the cubic Gauss sum lemma). Raise to (q² − 1)/3 and reduce modulo q: g^{q²−1} ≡ (pπ)^{(q²−1)/3} ≡ (pπ/q)_3 = (π/q)_3, since (p/q)_3 = 1 by the previous lemma.",
+    "Also g^{q²} ≡ Σ_t χ_π(t)^{q²} ψ(t)^{q²} = Σ_t χ_π(t) ψ(q²t) = χ_π(q⁻²) g = χ_π(q) g (mod q), by the Frobenius congruence (gaussSum_frob), q² ≡ 1 (mod 3) and the shift formula (gaussSum_mulShift_eq).",
+    "g is invertible modulo q (g ḡ = p), so (π/q)_3 ≡ χ_π(q) (mod q); two cube roots of unity congruent modulo q are equal."
+   ],
+   "acceptance": [
+    "q = 2, π = −1 − 3ω: (2/π)_3 = ω² = (π/2)_3 (the parent's acceptance example)."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/cubic-gauss-sum-cube",
+    "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-with-two-rational-primes",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n",
+    "mathlib:gaussSum_frob",
+    "mathlib:gaussSum_mulShift_eq",
+    "mathlib:gaussSum_mul_gaussSum_eq_card"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, proof of Theorem 4.6, Case 2, p. 13",
+     "match": "Compares g^{q²−1} computed from g³ = pπ with g^{q²} computed by the Frobenius congruence."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, proof of Theorem 3.1, second case, pp. 64–65",
+     "match": "The same comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-two-complex-primes",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Cubic reciprocity between two complex primary primes",
+   "kind": "lemma",
+   "statement": "Let π₁, π₂ be primary primes of ℤ[ω] of norms p₁ ≠ p₂, both ≡ 1 (mod 3). Then (π₂/π₁)_3 = (π₁/π₂)_3.",
+   "hypotheses": [
+    "p₁ ≠ p₂, so π₁ and π₂ are coprime and neither divides the other's norm."
+   ],
+   "proofSteps": [
+    "As in the previous lemma, in the ring of integers of ℚ(ω, ζ_{p₁}) and modulo a prime above π₂: g(χ_{π₁})^{p₂} ≡ χ_{π₁}(p₂)⁻¹ g(χ_{π₁}) = χ_{π₁}(p₂²) g(χ_{π₁}), while g(χ_{π₁})^{p₂−1} = (p₁π₁)^{(p₂−1)/3} ≡ χ_{π₂}(p₁π₁); so χ_{π₁}(p₂²) = χ_{π₂}(p₁π₁). Symmetrically χ_{π₂}(p₁²) = χ_{π₁}(p₂π₂).",
+    "Write x = χ_{π₁}(π₂), y = χ_{π₂}(π₁), u = χ_{π₁}(π̄₂), v = χ_{π₂}(π̄₁), using p₁ = π₁π̄₁ and p₂ = π₂π̄₂: the two relations read x²u² = y²v and y²v² = x²u.",
+    "Multiplying them gives uv = 1; substituting v = u⁻¹ in the first gives x² u³ = y², and u³ = 1, so x² = y²; squaring is a bijection of μ_3, so x = y."
+   ],
+   "acceptance": [
+    "π₁ = −1 − 3ω (norm 7) and π₂ = −1 + 3ω (norm 13): modulo π₁, ω ≡ 2 and π₂ ≡ 5 with 5² ≡ 4 ≡ ω²; modulo π₂, ω ≡ 9 and π₁ ≡ 11 with 11⁴ ≡ 3 ≡ ω²; both symbols are ω²."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/cubic-gauss-sum-cube",
+    "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-rational-and-complex-prime",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-galois-equivariance",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-of-a-prime-is-one-modulo-n",
+    "mathlib:gaussSum_frob",
+    "mathlib:gaussSum_mulShift_eq"
+   ],
+   "sources": [
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, proof of Theorem 4.6, Case 3, pp. 13–14",
+     "match": "Derives the two congruences and combines them with χ_π(ᾱ) = conj(χ_π(α))."
+    },
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, proof of Theorem 3.1, third case, pp. 65–66",
+     "match": "The same argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-with-a-rational-integer",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/cubic-supplement-for-one-minus-zeta",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "Cubic reciprocity between a primary prime and a rational integer",
+   "kind": "lemma",
+   "statement": "Let π be a primary prime of ℤ[ω] with N(π) ≠ 3, and A a rational integer prime to 3 and to π. Then (A/π)_3 = (π/A)_3, the right side being the cubic symbol at the ideal A ℤ[ω].",
+   "hypotheses": [
+    "A ∈ ℤ, 3 ∤ A, A prime to π; A may be negative or composite. (−1/·)_3 = 1 because −1 = (−1)³."
+   ],
+   "proofSteps": [
+    "Both sides are unchanged by A ↦ −A, so take A > 0 and factor A into rational primes q ≡ 2 (mod 3), which are primary primes of ℤ[ω], and p ≡ 1 (mod 3) = ρρ̄ with ρ, ρ̄ primary primes of norm p (conjugation preserves π ≡ 2 mod 3).",
+    "(A/π) = ∏ (q/π) ∏ (ρ/π)(ρ̄/π) and (π/A) = ∏ (π/q) ∏ (π/ρ)(π/ρ̄) (multiplicativity in numerator and in the ideal).",
+    "Each factor pair agrees by cubic reciprocity: for a rational prime factor q (and π rational or complex) by the two previous lemmas; for ρ, ρ̄ by the two-complex-primes lemma, their norm p differing from N(π) because otherwise π would be associate to ρ or ρ̄ and divide A."
+   ],
+   "acceptance": [
+    "π = −1 − 3ω, A = 10 = 2·5: (10/π)_3 = (2/π)_3(5/π)_3 and (π/10)_3 = (π/2)_3(π/5)_3."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-with-two-rational-primes",
+    "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-rational-and-complex-prime",
+    "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity-two-complex-primes",
+    "ClassicalArithmeticCompletion:CA.1/cubic-reciprocity",
+    "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
+    "ClassicalArithmeticCompletion:CA.1/primary-eisenstein-integer",
+    "ClassicalArithmeticCompletion:CA.1/unique-primary-associate-of-an-eisenstein-prime"
+   ],
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§3, Williams' proof of the supplement, pp. 66–67",
+     "match": "Applies cubic reciprocity with the composite primary rational denominators a and a + b; the node is that multiplicative extension, which the review asked to be stated separately."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§4, Theorem 4.6, p. 11",
+     "match": "Cubic reciprocity for primary primes of distinct norms, the input of the multiplicative extension."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ClassicalArithmeticCompletion:CA.1/normalising-root-of-unity-of-a-cyclotomic-integer",
+   "parentStageId": "ClassicalArithmeticCompletion:CA.1/primary-element-of-a-cyclotomic-ring",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.1"
+   ],
+   "title": "The unique root of unity making a cyclotomic integer primary",
+   "kind": "lemma",
+   "statement": "Let l be an odd prime, K = ℚ(ζ_l), ζ = ζ_l ∈ 𝓞_K and λ = 1 − ζ. Then λ𝓞_K is a prime of residue degree 1 with 𝓞_K/λ ≅ 𝔽_l; every α ∈ 𝓞_K satisfies α ≡ a + bλ (mod λ²) for some a, b ∈ ℤ, unique modulo l; ζ^c ≡ 1 − cλ (mod λ²) for c ∈ ℤ; and for α prime to l there is exactly one c ∈ ℤ/l such that ζ^c α is primary (congruent to a rational integer modulo λ²).",
+   "hypotheses": [
+    "l odd prime; α prime to l means λ ∤ α."
+   ],
+   "proofSteps": [
+    "λ is prime (IsPrimitiveRoot.zeta_sub_one_prime') of residue degree 1 (IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one), so α ≡ a (mod λ) for some a ∈ ℤ, and (α − a)/λ ≡ b (mod λ) for some b ∈ ℤ: α ≡ a + bλ (mod λ²).",
+    "ζ^c = (1 − λ)^c ≡ 1 − cλ (mod λ²), so ζ^c α ≡ a + (b − ac)λ (mod λ²).",
+    "If λ ∤ α then l ∤ a, so there is exactly one c modulo l with ac ≡ b (mod l), i.e. with ζ^c α ≡ a (mod λ²); uniqueness uses that a + eλ with e ∈ ℤ is congruent to a rational integer modulo λ² exactly when l | e (λ² ∩ ℤ = lℤ for l odd)."
+   ],
+   "acceptance": [
+    "For α = ζ = 1 − λ: a = 1, b = −1, and the unique c is −1 (ζ^{−1}ζ = 1).",
+    "α = 2 is primary (c = 0); α = 1 − ζ is not prime to l."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.1/primary-element-of-a-cyclotomic-ring",
+    "mathlib:IsPrimitiveRoot.zeta_sub_one_prime'",
+    "mathlib:IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one",
+    "mathlib:IsCyclotomicExtension"
+   ],
+   "sources": [
+    {
+     "sourceId": "adhikari-reciprocity-2000",
+     "locator": "§4, (19)–(22) and the paragraph after them, p. 69",
+     "match": "Proves α ≡ a + b(1 − ζ_l), ζ^d ≡ 1 − d(1 − ζ_l) modulo (1 − ζ_l)², and the existence and uniqueness of the normalising power."
+    },
+    {
+     "sourceId": "xu-reciprocity-2021",
+     "locator": "§6, Definition 6.7 and Proposition 6.8 with its proof, pp. 19–20",
+     "match": "The same argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+   "need": "The finite local Artin map localArtinMap F L ι for a finite abelian extension L/F of a nonarchimedean local field, its independence of ι (localArtinEquiv_eq_of_iota), its kernel the norm group N_{L/F}(Lˣ) with index [L:F] (the norm criterion and nondegeneracy of the norm-residue symbol), and the arithmetic normalisation localArtinMap_uniformizer on unramified extensions (the tame formula).",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-norm-criterion"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+   "need": "The absolute local Artin map artinMap F : Fˣ → G_F^ab with artinMap_restrict (finite restrictions are the finite local maps), artinMap_norm (norm functoriality along finite extensions) and artinMap_congr (naturality under isomorphisms of local fields), for the functoriality of the norm-residue symbol in the field.",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/local-norm-residue-symbol",
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-functoriality"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+   "need": "The archimedean Artin maps infiniteArtinAt with infiniteArtinAt_eq_one_of_isComplex and infiniteArtinAt_eq_one_iff_of_isReal (kernel ℝ_{>0}), which define the norm-residue symbol at the infinite places.",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/archimedean-norm-residue-symbol"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+   "need": "The cohomological Hilbert pairing localSymbol (kummerCupPairing ζ) tr (kummerClass a) (kummerClass b) with the invariant coordinate tr = h2MuEquivZMod_mixed, its symbol–norm criterion localSymbol_eq_zero_iff_mem_normGroup and nondegeneracy localSymbol_kummerClass_eq_zero_iff, for the comparison theorem of the norm-residue symbol with the cohomological symbol (up to the universal sign ε).",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-and-the-cohomological-symbol"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+   "need": "The quadratic norm-equation Hilbert symbol hilbertSymbol over a nonarchimedean local field (item 1), with which the degree-2 norm-residue symbol agrees: (a, b)_{F,2} = −1 exactly when a is not a norm from F(√b).",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-and-the-cohomological-symbol"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ClassicalArithmeticCompletion:CA.1",
+   "status": "planned",
+   "note": "Every target CA.1 states is now realised by a node of this packet or of the first-pass packet, with prerequisite chains ending in the pinned libraries, in Tau Ceti roadmap layers with requests, or in the recorded gaps. Supplied here: the CA.1-owned degree-n norm-residue symbol (local-norm-residue-symbol, archimedean-norm-residue-symbol, norm-residue-symbol-at-a-place and four theorems), which is the symbol (a, b)_v of the first pass's tame-hilbert-symbol-formula, hilbert-product-formula-of-degree-n and power-reciprocity-law and so discharges their recorded frontier; the three CA.1-owned inputs of eisenstein-reciprocity (stickelberger-gauss-sum-power, stickelberger-relation, stickelberger-unit-factor-is-a-root-of-unity, stickelberger-unit-factor-of-a-primary-element, gauss-sum-power-residue-identity, eisenstein-reciprocity-at-ideal-norms), which discharge the gap 'The three unsupplied inputs of Eisenstein reciprocity belong to CA.1' at the contract of the local request (Adhikari Propositions 4.2–4.6 and the relation before (25)); biquadratic reciprocity with its supplements on the power residue symbol with n = 4; the Koymans–Milovic items 3–4 and the Calegari–Geraghty count; and, as sub-nodes of the first-pass targets they serve, the fourteen review-frontier suppliers. The explicit reciprocity laws at the places above n (n > 2), which the first pass listed as open, are not planned here: no CA.1 target depends on them, because the power reciprocity law keeps the factors at the places above n as norm-residue symbols, and their owner is HigherLocalFieldsAndHigherClassFieldTheory HL.4, whose node HL.4/explicit-formulas-for-the-hilbert-symbol covers Kummer's formula for ℚ_p(ζ_p) and Shafarevich's and Vostokov's formulas (Fesenko–Vostokov Chapter VII proves the Artin–Hasse formulas there, as §5 Exercises 1 and 4, in the orientation pinned here); HL.4 imports CA.1/local-norm-residue-symbol as the symbol its formulas evaluate (restructure entry). The assembly joins the two packets: the first pass's degree-n nodes take CA.1/norm-residue-symbol-at-a-place as the supplier of their symbol, and its eisenstein-reciprocity node takes CA.1/eisenstein-reciprocity-at-ideal-norms and CA.1/stickelberger-unit-factor-of-a-primary-element as the suppliers of its steps 2–3.",
+   "remaining": [
+    "A public proof of the supplementary law ((1 + i)/λ)_4 = i^{(a − b − b² − 1)/4} (gap 'No public proof of the supplement for 1 + i was read'): obtain Gauss's second memoir on biquadratic residues (§§68–76, public domain) or another public text with a proof, and compare it with the reduction to rational denominators written in quartic-supplement-for-one-plus-i.",
+    "The sign ε of norm-residue-symbol-and-the-cohomological-symbol: compute it against the conventions that Class Field Theory's kummerClass, cup product and h2MuEquivZMod_mixed fix (the unramified test pins it); Milne III Remark 4.5 gives the relation only for Milne's conventions."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "No public proof of the supplement for 1 + i was read",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/quartic-supplement-for-one-plus-i"
+   ],
+   "detail": "The statement ((1 + i)/λ)_4 = i^{(a − b − b² − 1)/4} for primary λ = a + bi is checked by direct computation (every primary prime with |a|, |b| ≤ 12 and 67 primary composites; multiplicativity of the right side on all primary residues modulo 32), and the node's proof sketch reduces it to the rational-denominator reciprocity and the supplement for i. No public source proving it was read: Xu's paper does not state it, Relyea's survey states only the main law, and Gauss's second memoir (§§68–76), Lemmermeyer's Reciprocity Laws (Theorem 6.9) and Ireland–Rosen Chapter 9 were not read (the last two are not public). The node rests on its own proof sketch until a public proof is compared with it."
+  },
+  {
+   "title": "The sign of the comparison with Class Field Theory's cohomological symbol is fixed by a computation, not read from a source",
+   "neededBy": [
+    "ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-and-the-cohomological-symbol"
+   ],
+   "detail": "Milne III §4 (Remark 4.5) relates the cup-product symbol to the local Artin map for Milne's own conventions (his symbol is the transpose of the one pinned here). Class Field Theory's localSymbol is built from its kummerClass, its continuous cup product and the coordinate h2MuEquivZMod_mixed, whose sign conventions no source read here states. The node asserts agreement up to one universal sign ε and determines ε by the unramified computation; ε itself is to be computed when those conventions are fixed in the library."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "ClassicalArithmeticCompletion",
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+   ],
+   "detail": "The first pass of CA.1 listed the explicit reciprocity laws at the places above n (the Artin–Hasse and Artin–Hasse–Iwasawa formulas) as open CA.1 work. HigherLocalFieldsAndHigherClassFieldTheory HL.4 plans explicit formulas for the wild Hilbert symbol (its node HL.4/explicit-formulas-for-the-hilbert-symbol inventories Kummer's formula for ℚ_p(ζ_p), Shafarevich's formula and Vostokov's pairing), of which the classical one-dimensional formulas are the base case. No target of CA.1 needs them.",
+   "proposal": "CA.1 keeps the degree-n norm-residue symbol (local-norm-residue-symbol and its theorems) and the power reciprocity law with its factors at the places above n left as symbols; it does not plan explicit formulas at those places. HL.4 owns the explicit formulas in the one-dimensional case as well (Kummer, Artin–Hasse, Artin–Hasse–Iwasawa, Shafarevich, Vostokov), and imports CA.1/local-norm-residue-symbol as the symbol they evaluate, in the orientation (a, b) = Art(a)(ⁿ√b)/ⁿ√b that Fesenko–Vostokov also use. Link: ClassicalArithmeticCompletion:CA.1 → HigherLocalFieldsAndHigherClassFieldTheory:HL.4."
+  },
+  {
+   "action": "split",
+   "roadmaps": [
+    "ClassicalArithmeticCompletion"
+   ],
+   "detail": "CA.1 now has 34 first-pass nodes and 41 continuation nodes, with ten candidate planets (six first-pass, four here) against the atlas limit of six per layer. Its material falls into three directions with few edges between them: elementary residues and quadratic characters; the local norm-residue symbol with the power reciprocity law; and the explicit higher laws (cubic, quartic, Eisenstein) proved by Gauss and Jacobi sums.",
+   "proposal": "Divide CA.1 into three sub-layers for the atlas. CA.1a 'Power residues and quadratic characters': unit-group-of-a-power-of-two through two-adic-conductor-bound, power-residue-criterion-in-a-cyclic-group and -in-a-finite-field, norm-of-a-prime-is-one-modulo-n, power-residue-symbol, power-residue-euler-criterion, power-residue-symbol-of-an-ideal, power-residue-symbol-galois-equivariance, power-residue-symbol-and-frobenius, norm-compatibility-of-the-power-residue-symbol, projective-zeros-of-a-binary-quadratic-form, nonzero-root-count-of-a-power-equation and the three squarefree-part lemmas; planets Units modulo a power of two, Quadratic character of a square class, Power residue symbol. CA.1b 'Norm-residue symbols and power reciprocity': hilbert-symbol, dyadic-hilbert-symbol-via-chi4-chi8, the seven norm-residue-symbol nodes, tame-hilbert-symbol-formula, hilbert-product-formula-of-degree-n, power-reciprocity-law and the five number-field quadratic nodes (completed-quadratic-residue-symbol, quadratic-reciprocity-in-a-number-field, dyadic-hilbert-factor-depends-on-residues-mod-eight, completed-quadratic-residue-symbol-periodicity); planets Norm-residue symbol, Power reciprocity law, Quadratic reciprocity in number fields. CA.1c 'Cubic, quartic and Eisenstein reciprocity': the cubic nodes with their seven frontier lemmas, the nine quartic nodes, primary-element-of-a-cyclotomic-ring with its normalising-power lemma, the six Stickelberger nodes and eisenstein-reciprocity; planets Cubic reciprocity, Quartic reciprocity, Stickelberger relation, Eisenstein reciprocity. Sub-layer order CA.1a → CA.1b → CA.1c, CA.1a → CA.1c; nothing moves to another roadmap."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "ClassicalArithmeticCompletion/E1101",
+   "source": "xu-reciprocity-2021",
+   "kind": "error",
+   "locator": "§5, Proposition 5.5, p. 15",
+   "printed": "The coordinate criterion is printed as: a nonunit a + bi is primary if and only if either a ≡ 1 (mod 4) and b ≡ 0 (mod 4), or a ≡ 3 (mod 4), with no condition on b in the second case.",
+   "correction": "A nonunit a + bi is primary if and only if a ≡ 1, b ≡ 0 (mod 4) or a ≡ 3, b ≡ 2 (mod 4).",
+   "reason": "3 = 3 + 0i has a ≡ 3 (mod 4) but is not ≡ 1 modulo (1 + i)^3: 3 − 1 = 2 has norm 4 < 8. Writing 1 + (2 + 2i)(x + yi) = (1 + 2x − 2y) + 2(x + y)i shows that b ≡ 2 (mod 4) is forced when a ≡ 3 (mod 4).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1102",
+   "source": "katre-stickelberger-2000",
+   "kind": "gap",
+   "locator": "§1 and §3 (pp. 75, 79), with §4 Proposition 5 (pp. 84–85)",
+   "printed": "The prime factorisation of Gauss sums (Lemmas 2–3, Propositions 2–4) is proved for an odd prime p, but Proposition 5 (Stickelberger's theorem for an abelian field) applies Proposition 4 to every prime divisor of an ideal A prime to m, including the primes above 2 when m is odd.",
+   "correction": "The factorisation (g(χ)^m) = ℘^{Σ a σ_a⁻¹} also holds for p = 2: there ζ_2 = −1, ℚ(ζ_m, ζ_2) = ℚ(ζ_m) and the prime above ℘ is ℘ itself; lifting Tr(a) to {0, 1}, (−1)^{Tr(a)} = 1 − 2 Tr(a), so g(ω⁻¹) is 2 times an element ≡ q − 1 ≢ 0 modulo the prime, and s(1) = 1 because 2 is unramified in ℚ(ζ_{q−1}); Lemma 2 and Proposition 2 then hold with p − 1 = 1.",
+   "reason": "The proof of Lemma 3 expands ζ_p = 1 + π to first order in π with π of valuation 1 above p in a ramified extension; for p = 2 that extension is trivial and the expansion is exact, so the statement survives but the written proof does not cover the case.",
+   "affects": "the proof",
+   "known": "new (no erratum to the proceedings was found; the textbook proofs Katre cites, Washington and Ireland–Rosen, were not read)",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org, Cyclotomic Fields and Related Topics)",
+    "a web search for errata to Katre's article"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1103",
+   "source": "xu-reciprocity-2021",
+   "kind": "misprint",
+   "locator": "§6, proof of Proposition 6.12, p. 21",
+   "printed": "The second computation begins with g(P')^{q'−1} = Φ(P)^{(q'−1)/m}.",
+   "correction": "g(P)^{q'−1} = Φ(P)^{(q'−1)/m}: the Gauss sum of P, not of P', raised to q' − 1.",
+   "reason": "The first computation is of g(P)^{q'} modulo p', and Φ(P) = g(P)^m; g(P') plays no role in the argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1104",
+   "source": "xu-reciprocity-2021",
+   "kind": "misprint",
+   "locator": "§4, Theorem 4.6, p. 11",
+   "printed": "Cubic reciprocity is stated for primary primes π₁, π₂ ∈ ℤ[i].",
+   "correction": "π₁, π₂ ∈ ℤ[ζ_3].",
+   "reason": "The section works in ℤ[ζ_3], where primary means ≡ 2 (mod 3) (Definition 4.4) and the cubic character is defined (Definition 4.2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1105",
+   "source": "xu-reciprocity-2021",
+   "kind": "misprint",
+   "locator": "§5, Proposition 5.9, p. 15",
+   "printed": "The first identity is printed g(χ_π)^4 = p J(χ_p, χ_p)^2.",
+   "correction": "g(χ_π)^4 = p J(χ_π, χ_π)^2.",
+   "reason": "χ_p is not defined there; the identity is about the quartic character of π, and the second sentence of the proposition uses J(χ_π, χ_π).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1106",
+   "source": "xu-reciprocity-2021",
+   "kind": "misprint",
+   "locator": "§6, proof of Proposition 6.19, p. 23",
+   "printed": "The proof opens by deducing from Lemma 6.18 that (α)^γ ≡ ±1 (mod l).",
+   "correction": "Lemma 6.18 gives Φ(α) ≡ ±1 (mod l); the congruence α^γ ≡ ±1 is proved afterwards, modulo (1 − ζ_l)², from the primary hypothesis.",
+   "reason": "Lemma 6.18 is a statement about Φ(A), and the next lines of the proof compute α^γ separately; with α^γ in place of Φ(α) the argument would be circular.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1108",
+   "source": "shastri-reciprocity-2000",
+   "kind": "gap",
+   "locator": "§5, proof of Lemma 1 (ii), p. 179",
+   "printed": "The proof writes 1 − a as the product of the n factors 1 − ζ^i ⁿ√a and concludes that 1 − a is a norm from K(ⁿ√a).",
+   "correction": "When K(ⁿ√a) has degree d < n over K the product is not a single norm of 1 − ⁿ√a; grouping the n factors into n/d blocks of d conjugates shows 1 − a = ∏_{i < n/d} N_{K(ⁿ√a)/K}(1 − ζ_n^i ⁿ√a), still a norm.",
+   "reason": "The conjugates of ⁿ√a over K are its products with the d-th roots of unity only, so N_{K(ⁿ√a)/K}(1 − ⁿ√a) is the product of d of the n factors, not of all n; for 1 < d < n the conclusion needs the grouping into n/d norms (Fesenko–Vostokov IV.5.1, proof of (2)).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org)",
+    "a web search for errata to Shastri's article"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1109",
+   "source": "shastri-reciprocity-2000",
+   "kind": "misprint",
+   "locator": "§5, Lemma 1 (ii), p. 179",
+   "printed": "The Steinberg relation ⟨1 − a, a⟩ = 1 = ⟨a, 1 − a⟩ is stated for all a ∈ K*.",
+   "correction": "For all a ∈ K* with a ≠ 1.",
+   "reason": "For a = 1, 1 − a = 0 is not in K*, so the symbol is undefined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the publisher's page for the proceedings (bprim.org)",
+    "a web search for errata to Shastri's article"
+   ]
+  },
+  {
+   "id": "ClassicalArithmeticCompletion/E1107",
+   "source": "xu-reciprocity-2021",
+   "kind": "misprint",
+   "locator": "§5, proof of Proposition 5.13, p. 16",
+   "printed": "The first sentence reads (a, π) = (b, π) = (c, λ) = (d, λ), with no value given.",
+   "correction": "(a, π) = (b, π) = (c, λ) = (d, λ) = 1: each coordinate is prime to the corresponding element.",
+   "reason": "The proof then uses that a, c and ac + bd are prime to π and λ, which needs the gcds to be 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the University of Chicago REU 2021 papers page, which posts the paper without an errata list",
+    "a web search for a corrected version of the paper"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "sourceId": "xu-reciprocity-2021",
+   "kind": "author copy",
+   "url": "http://math.uchicago.edu/~may/REU2021/REUPapers/Xu,Nancy.pdf",
+   "read": "2026-10-14",
+   "sha256": "f3c26a5da360e62580d18b74539a9a5240c8c0f831b4c4a7ae3f0fbb6e2cd0c0",
+   "edition": "University of Chicago Mathematics REU 2021, final paper, 24 pages; the programme's free PDF"
+  },
+  {
+   "sourceId": "katre-stickelberger-2000",
+   "kind": "published",
+   "url": "https://www.bprim.org/sites/default/files/jacn.pdf",
+   "read": "2026-10-14",
+   "sha256": "ad5c29968f50bd18265c453879e6e9bbe26967ef3c98558ad97c4d9dc6337400",
+   "edition": "In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 75–92; the publisher's free PDF"
+  },
+  {
+   "sourceId": "clausen-cyclotomic-2014",
+   "kind": "author copy",
+   "url": "https://www.ihes.fr/~dustin/files/CyclotimicFields/Cyclo16.pdf",
+   "read": "2026-10-14",
+   "sha256": "c7be0246ed2b617dd7c43e80b971c14c3d28395cd3bd74753a6830cf39272ea0",
+   "edition": "Course notes, January 2014, the author's PDFs on his IHES page (Cyclo15.pdf, Cyclo16.pdf)"
+  },
+  {
+   "sourceId": "fesenko-vostokov-2002",
+   "kind": "author copy",
+   "url": "https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf",
+   "read": "2026-10-14",
+   "sha256": "019f09b449c8a5310a699855d88dfd43d202d2697f44b0a0fd1378c9dd257ec0",
+   "edition": "Second edition, Translations of Mathematical Monographs 121, American Mathematical Society, 2002; the PDF posted on I. Fesenko's own site"
+  },
+  {
+   "sourceId": "fimr-spin-2013",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1110.6331v2",
+   "read": "2026-10-14",
+   "sha256": "b51c25e1d9e7aea35e3d7a92d8f7e80eb8237775daef98e30740115767e71b44",
+   "edition": "Invent. Math. 193 (2013), 697–749; arXiv:1110.6331v2, the version read"
+  },
+  {
+   "sourceId": "koymans-milovic-2021",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1809.09597v1",
+   "read": "2026-10-14",
+   "sha256": "d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433",
+   "edition": "Duke Math. J. 170 (2021), 1723–1755; arXiv:1809.09597v1, the version read"
+  },
+  {
+   "sourceId": "calegari-geraghty-2020",
+   "kind": "author copy",
+   "url": "http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
+   "read": "2026-10-14",
+   "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
+   "edition": "Duke Math. J. 169 (2020), 801–896; the typeset article posted on F. Calegari's page (paginated 1–96)"
+  },
+  {
+   "sourceId": "adhikari-reciprocity-2000",
+   "kind": "published",
+   "url": "https://www.bprim.org/sites/default/files/recipro1.pdf",
+   "read": "2026-10-14",
+   "sha256": "150ff1368481f7e1520e7c33d6ec3504c17a5a9aa3dec76b3a89efada0386148",
+   "edition": "In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 55–74; the publisher's free PDF"
+  },
+  {
+   "sourceId": "relyea-reciprocity-2024",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2407.03559v3",
+   "read": "2026-10-14",
+   "sha256": "16340a3a74b207e75e40db338ad9df35ef71d5f9088b4c2d9d824cd4f72e5847",
+   "edition": "arXiv:2407.03559v3 (3 August 2024)"
+  },
+  {
+   "sourceId": "milne-cft-2020",
+   "kind": "author copy",
+   "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf",
+   "read": "2026-10-14",
+   "sha256": "50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5",
+   "edition": "Course notes, version 4.03 (6 August 2020), the author's PDF"
+  },
+  {
+   "sourceId": "shastri-reciprocity-2000",
+   "kind": "published",
+   "url": "https://www.bprim.org/sites/default/files/rlmain.pdf",
+   "read": "2026-10-14",
+   "sha256": "d4c8431bb2ad93836763b3275ebc5c9c18b685be1d8ca665a66d8ce22a1b6e24",
+   "edition": "In: Cyclotomic Fields and Related Topics (same volume as Katre), pp. 175–183; the publisher's free PDF"
+  },
+  {
+   "sourceId": "SHOUP.V2",
+   "kind": "author copy",
+   "url": "https://shoup.net/ntb/ntb-v2.pdf",
+   "read": "2026-10-14",
+   "sha256": "8e1abc54f4510c3f274dfbed07ea602a6a439ee24b2c916e61abe829b402ec06",
+   "edition": "Version 2, the author's freely distributable PDF, 598 pages"
+  }
+ ]
+}
