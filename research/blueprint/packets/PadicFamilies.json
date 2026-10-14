@@ -6293,17 +6293,17 @@
    ],
    "title": "Families of distribution-valued modular symbols with compact U_p",
    "kind": "construction",
-   "statement": "Let N ≥ 1 be prime to p and Γ = Γ₁(N) ∩ Γ₀(p). For W = Sp R and r as in L2/distribution-families, Symb_Γ(R ⊗̂ D[r]) = Hom_Γ(Δ₀, R ⊗̂ D[r]) (Δ₀ the degree-zero divisors on P¹(ℚ)) is a Banach R-module with Buzzard's property (Pr) (via the isomorphism with ⊕_i (R ⊗̂ D[r])^{Γ_i} over representatives δ_i of the finitely many Γ-orbits on Δ₀, with finite stabilisers Γ_i). The Hecke operators T_ℓ (ℓ ∤ Np), the diamond operators and U_p act continuously, the involution ι = diag(−1, 1) splits it into ± parts, U_p is compact, and for w ∈ W(ℚ_p) there is a Hecke- and ι-equivariant isomorphism Symb^±_Γ(R ⊗̂ D[r]) ⊗_{R,w} ℚ_p ≅ Symb^±_Γ(D_w[r]).",
+   "statement": "Let N ≥ 1 be prime to p and Γ = Γ₁(N) ∩ Γ₀(p). For W = Sp R and r as in L2/distribution-families, Symb_Γ(R ⊗̂ D[r]) = Hom_Γ(Δ₀, R ⊗̂ D[r]) (Δ₀ the degree-zero divisors on P¹(ℚ)) is a Banach R-module with Buzzard's property (Pr) (through a finite presentation of Δ₀ as a ℤ[Γ]-module by Manin relations, which exhibits it as a closed submodule of a finite direct sum of copies of R ⊗̂ D[r] cut out by finitely many continuous relations). The Hecke operators T_ℓ (ℓ ∤ Np), the diamond operators and U_p act continuously, the involution ι = diag(−1, 1) splits it into ± parts, U_p is compact, and for w ∈ W(ℚ_p) there is a Hecke- and ι-equivariant specialisation map Symb^±_Γ(R ⊗̂ D[r]) ⊗_{R,w} ℚ_p → Symb^±_Γ(D_w[r]), which Bellaïche asserts is an isomorphism (Proposition 3.3(iii)); its kernel and cokernel are the Tor terms of the universal-coefficients comparison for H¹_c (E14), and the planned statement keeps them.",
    "hypotheses": [
     "N prime to p; W an affinoid in one component of weight space; r ∈ p^ℤ with 0 < r ≤ 1."
    ],
    "proofSteps": [
-    "The coset description of modular symbols (ModularSymbolsPadicLFunctions L0) identifies Symb_Γ(A) with a finite direct sum of invariants of finite groups, so (Pr) follows from orthonormalisability of R ⊗̂ D[r] and invariants of finite groups in characteristic zero are direct summands.",
+    "The Manin-relations presentation of Δ₀ (ModularSymbolsPadicLFunctions L0, the coset description) identifies Symb_Γ(A) with the kernel of an A-linear map A^a → A^b given by an integral matrix in ℤ[Σ₀(p)]; for A = R ⊗̂ D[r] this is a closed submodule, and (Pr) follows as in Pollack–Stevens's treatment of overconvergent symbols. Bellaïche's own route through (10) is defective (E14).",
     "Compactness of U_p: it factors through the symbols with values in R ⊗̂ D[r/p] followed by the compact radius change.",
-    "Base change: formation of Symb_Γ commutes with any base change R → R′ in characteristic zero, by the same finite description; specialise with L2/distribution-families."
+    "Base change: the presentation commutes with flat base change (ModularSymbolsPadicLFunctions L0/symbols-base-change); along the non-flat specialisation w the comparison map is the degree-one edge map of the universal-coefficients spectral sequence for compactly supported cohomology, whose correction terms are Tor terms; this is the specialisation statement with its Tor terms that the stage requires."
    ],
    "acceptance": [
-    "U_p is compact on the family module and the specialisation isomorphism holds for every w ∈ W(ℚ_p), not only for integral weights."
+    "U_p is compact on the family module, and the specialisation map is stated with its Tor terms; that it is an isomorphism (Bellaïche Proposition 3.3(iii)) is the source's claim, whose proof through (10) is recorded as E14."
    ],
    "prerequisites": [
     "PadicFamilies:L2/distribution-families",
@@ -6356,7 +6356,7 @@
     {
      "name": "TauCeti.PadicFamilies.familySymb_specialise",
      "role": "compatibility",
-     "statement": "Hecke-equivariant isomorphism with Symb^±_Γ(D_w[r]) after specialisation at w."
+     "statement": "Hecke-equivariant specialisation map to Symb^±_Γ(D_w[r]), with its Tor-term kernel and cokernel (an isomorphism in Bellaïche's statement)."
     },
     {
      "name": "TauCeti.PadicFamilies.familySymb_iota",
@@ -6368,12 +6368,12 @@
     {
      "name": "familySymb_specialise_k",
      "kind": "compatibility",
-     "statement": "At w = k the specialisation is ModularSymbolsPadicLFunctions L2's Symb_Γ(D_k)."
+     "statement": "At w = k the specialisation map lands in ModularSymbolsPadicLFunctions L2's Symb_Γ(D_k) and is Hecke-equivariant."
     },
     {
-     "name": "familySymb_trivial_level",
-     "kind": "degenerate",
-     "statement": "For N = 1 and p = 2 the number of Γ₀(2)-orbits of cusps is two, so Symb_Γ(A) ≅ (A^{Γ_1}) ⊕ (A^{Γ_2}) by (10)."
+     "name": "familySymb_iota_square",
+     "kind": "characterisation",
+     "statement": "ι² = 1, so on R ⊗̂ D[r] (where 2 is invertible) the projectors (1 ± ι)/2 are complementary idempotents commuting with the Hecke operators."
     },
     {
      "name": "familySymb_split",
@@ -9127,9 +9127,10 @@
    "status": "planned",
    "remaining": [
     "The comparison with the Coleman–Mazur–Buzzard eigencurve of overconvergent forms rests on unplanned inputs (gap 'Coleman's overconvergent modular forms and Chenevier's comparison theorem').",
-    "Equidimensionality is imported from L2a/equidimensional-components, whose density statement carries the gap 'Dimension theorem narrowed'."
+    "Equidimensionality is imported from L2a/equidimensional-components, whose density statement carries the gap 'Dimension theorem narrowed'.",
+    "Prove or correct Bellaïche's Proposition 3.3(iii) (specialisation of family symbols is an isomorphism) without his (10): via the Manin-relations presentation and the universal-coefficients spectral sequence for compactly supported cohomology (Hansen, J. reine angew. Math. 730, 2017, not read), identifying the Tor terms on slope-≤ν parts (E14)."
    ],
-   "notes": "claude-LgrPjn plans the arithmetic finite-slope instance from Bellaïche §3 (Stevens's overconvergent modular symbols): distribution families with the interpolated Σ₀(p)-action, family modular symbols with property (Pr) and compact U_p, finite slope pieces and their specialisation, the local pieces C^±_{W,ν}, specialisation of Hecke algebras with nilpotent kernel (Chenevier's lemma; nilpotents retained), the glued eigencurves C^± and the coherent eigensymbol sheaf, small-slope classicality via ModularSymbolsPadicLFunctions L2's control theorem, freeness at étale non-critical points (the scalar-family hypothesis), and the comparison with the Coleman–Mazur–Buzzard eigencurve. Base change of compactly supported modular symbols is exact in characteristic zero (Bellaïche (10)), so no Tor terms arise in this model; the Tor and generalised-eigenspace phenomena are carried by L2a/complex-spectral-variety and L2/specialisation-nilpotent-kernel."
+   "notes": "claude-LgrPjn plans the arithmetic finite-slope instance from Bellaïche §3 (Stevens's overconvergent modular symbols): distribution families with the interpolated Σ₀(p)-action, family modular symbols with property (Pr) and compact U_p, finite slope pieces and their specialisation, the local pieces C^±_{W,ν}, specialisation of Hecke algebras with nilpotent kernel (Chenevier's lemma; nilpotents retained), the glued eigencurves C^± and the coherent eigensymbol sheaf, small-slope classicality via ModularSymbolsPadicLFunctions L2's control theorem, freeness at étale non-critical points (the scalar-family hypothesis), and the comparison with the Coleman–Mazur–Buzzard eigencurve. Specialisation of the family symbols is stated with its Tor terms (E14: Bellaïche's (10) does not prove exactness), and the generalised-eigenspace phenomena are carried by L2/specialisation-nilpotent-kernel and L2a/complex-spectral-variety."
   },
   {
    "stageId": "PadicFamilies:L2a",
@@ -9437,6 +9438,20 @@
    "searched": [
     "the author's copy in the maintainer's cleared library",
     "the extraction PAPER-PILLONI-20 and its review"
+   ]
+  },
+  {
+   "id": "PadicFamilies/E14",
+   "source": "BELLAICHE-CRITICAL-2012",
+   "kind": "error",
+   "affects": "the proof",
+   "locator": "§3.2.1, the isomorphism (10) and the sentence after it, p. 25; used in the proof of Proposition 3.3(i) and (iii), p. 26 (arXiv v1)",
+   "printed": "Modular symbols Symb_Γ(A) are identified with a finite direct sum ⊕_i A^{Γ_i} over representatives δ_i of Δ₀/Γ whose stabilisers Γ_i are said to be finite, and it is deduced that the formation of Symb_Γ commutes with every base change in characteristic zero.",
+   "correction": "Δ₀ is not a permutation ℤ[Γ]-module and Δ₀/Γ is not finite; the finite description is a presentation of Δ₀ by Manin relations, exhibiting Symb_Γ(A) as the kernel of an A-linear map A^a → A^b. This gives (Pr) and compatibility with flat base change; compatibility with the specialisation R → ℚ_p at a weight needs the universal-coefficients comparison for compactly supported cohomology, with Tor terms.",
+   "reason": "Γ preserves the coefficients of a divisor, so the divisors n({0} − {∞}), n ≥ 1, lie in pairwise different Γ-orbits and Δ₀/Γ is infinite; moreover a modular symbol is additive, Φ(nδ) = nΦ(δ), so the values at orbit representatives are not independent and Φ ↦ (Φ(δ_i))_i is not onto a direct sum of invariants. The conclusions Bellaïche draws need the presentation of Δ₀ by Manin relations instead.",
+   "known": "new: not checked against the published version (Invent. Math. 189, 2012) or Bellaïche's book The Eigenbook (2021)",
+   "searched": [
+    "arXiv:0912.2925 (one version)"
    ]
   }
  ],
