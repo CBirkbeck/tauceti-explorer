@@ -1310,9 +1310,6 @@
     "A tamely ramified or unramified V: all breaks 0, Swan(E) = Sw(V) = 0, IR(D†(V) ⊗ F_ρ) = 1.",
     "Integrality: for the induced representation from a ramified Artin-Schreier extension of break 1 over the tame extension t^{1/2} (p odd), V is two-dimensional with upper break 1/2 and Sw(V) = 2·(1/2) = 1, an integer, matching the differential Swan conductor of the rank-two module."
    ],
-   "planet": {
-    "name": "Irregularity equals Swan conductor"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.2/matsuda-highest-break-theorem",
     "PadicDifferentialEquationsAndRigidCohomology:RD.2/matsuda-decomposition",
@@ -1652,9 +1649,6 @@
     "Kummer module ∇v = (1/m) v ⊗ dt/t (p ∤ m) ↦ a tame character of I of order m (trivial on P), irregularity 0.",
     "André Corollaire 7.1.3: if k is finite, the isomorphism classes of objects of MCF(R_{K̄}/K̄) form a countable set, because I has countably many open subgroups."
    ],
-   "planet": {
-    "name": "André's local monodromy group"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.2/differential-modules-with-algebraic-constants",
     "PadicDifferentialEquationsAndRigidCohomology:RD.2/quasi-unipotent-modules-admit-frobenius-structures",

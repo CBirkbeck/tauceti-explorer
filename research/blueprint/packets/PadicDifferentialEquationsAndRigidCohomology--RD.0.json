@@ -345,7 +345,7 @@
         "For discs use power-series truncations. Give the existing Robba union the locally convex inductive-limit topology of LocallyAnalyticDistributions:L0/locally-convex-limits (i): a lattice is open exactly when its preimage in every chart is open, and a linear map out of R_K is continuous exactly when its restrictions to all charts are. Each chart is the projective limit of part (ii) over its compact windows. Chart restriction is injective and continuous; multiplication is continuous on every fixed chart and separately continuous on the union."
       ],
       "prerequisites": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0/frobenius-lift-on-robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/laurent-robba-amice-carriers",
         "mathlib:WithSeminorms",
         "mathlib:WithSeminorms.continuous_of_isBounded",
         "LocallyAnalyticDistributions:L0/nonarchimedean-locally-convex-spaces",
@@ -472,7 +472,7 @@
       "prerequisites": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.0/laurent-topology-interface",
         "mathlib:Module.Basis.equivFunL",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0/frobenius-lift-on-robba-ring"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/laurent-robba-amice-carriers"
       ],
       "sources": [
         {
@@ -571,7 +571,7 @@
         "The t-adic multiplication estimates on each quotient give the ring topology. Truncate both tails modulo π^m to prove weak density. Every U(m,N) contains π^mO_E, so the identity from the π-adic topology to the weak topology is continuous."
       ],
       "prerequisites": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0/frobenius-lift-on-robba-ring",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/laurent-robba-amice-carriers",
         "PadicDifferentialEquationsAndRigidCohomology:RD.0/laurent-topology-interface"
       ],
       "sources": [
@@ -669,7 +669,7 @@
       ],
       "prerequisites": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.0/integral-amice-weak-topology",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0/frobenius-lift-on-robba-ring"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0/laurent-robba-amice-carriers"
       ],
       "sources": [
         {
@@ -723,13 +723,50 @@
       "acceptance": [
         "For standard substitution, |σ(t⁻¹)|_{ρ^{1/q}}=ρ⁻¹.",
         "Over Q_p, Σ_{n≥1}p^n t⁻ⁿ is analytic for p⁻¹<ρ<1 but its standard Frobenius pullback diverges for p⁻¹<ρ≤p^{−1/p}.",
-        "Cyclotomic substitution gives σ(log(1+t))=p log(1+t), with both sides interpreted on the open unit disc."
+        "Cyclotomic substitution gives σ(log(1+t))=p log(1+t), with both sides interpreted on the open unit disc.",
+        "Standard lift σ(t) = t^q: σ(Σ a_i t^i) = Σ σ_K(a_i) t^{qi}.",
+        "Cyclotomic lift for K = Q_p, q = p: σ(t) = (1+t)^p − 1 lies in R^int and is congruent to t^p modulo p; log(1+t) ∈ R satisfies σ(log(1+t)) = p·log(1+t) (slope filtrations revisited, Remark 3.3.6).",
+        "Transport to a finite separable extension L of k((t)): the lift extends uniquely to R^int_L (see the finite-separable-extension node); a standard lift is in general not standard on R^int_L."
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/RigidCohomology/Foundations",
         "namespace": "TauCeti.RigidCohomology"
-      }
+      },
+      "api": [
+        {
+          "name": "RobbaRing.FrobeniusLift.toBounded",
+          "role": "functoriality",
+          "statement": "The unique extension of σ to a ring endomorphism of R^bd = R^int[1/π]."
+        },
+        {
+          "name": "RobbaRing.FrobeniusLift.toAmice",
+          "role": "functoriality",
+          "statement": "The unique continuous extension of σ to the Amice ring E = O_E[1/π]."
+        },
+        {
+          "name": "RobbaRing.FrobeniusLift.toRobba",
+          "role": "functoriality",
+          "statement": "The unique continuous extension of σ to the Robba ring R, mapping functions on r < |t| < 1 to functions on r^{1/q} < |t| < 1 for r close to 1."
+        },
+        {
+          "name": "RobbaRing.FrobeniusLift.gaussNorm_apply",
+          "role": "relation",
+          "statement": "For ρ close to 1: |σ(f)|_{ρ^{1/q}} = |f|_ρ for f in the ring of functions on the annulus."
+        }
+      ],
+      "tests": [
+        {
+          "name": "frobeniusLift_cyclotomic_log",
+          "kind": "computation",
+          "statement": "For K = Q_p, q = p and σ(t) = (1+t)^p − 1: σ(log(1+t)) = p·log(1+t)."
+        },
+        {
+          "name": "frobeniusLift_not_on_fixed_annulus",
+          "kind": "non-example",
+          "statement": "Over K = Q_p with q = p and the standard lift, f = Σ_{n≥1} p^n t^{-n} is a function on p^{-1} < |t| < 1, but σ(f) = Σ_{n≥1} p^n t^{-pn} diverges at every t with p^{-1} < |t| ≤ p^{-1/p}; so σ does not preserve the ring of functions on a fixed annulus."
+        }
+      ]
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.0/valuation-basis",

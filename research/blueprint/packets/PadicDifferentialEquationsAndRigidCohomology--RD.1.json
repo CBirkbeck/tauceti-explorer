@@ -423,8 +423,7 @@
         "Apply the finite-candidate theorem. With ∂=0 and D=0 on K² no vector is cyclic; do not drop ∂≠0."
       ],
       "prerequisites": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-local-global-algorithm",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.1/cyclic-vector-lemma"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1/katz-local-global-algorithm"
       ],
       "sources": [
         {
@@ -1537,9 +1536,9 @@
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/common-vertex-global-subobject",
-      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
       "realises": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3"
       ],
       "kind": "theorem",
       "title": "Common Newton-vertex subisocrystal",
@@ -1572,9 +1571,9 @@
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/dense-open-global-slopes",
-      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
       "realises": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3"
       ],
       "kind": "theorem",
       "title": "Dense-open global slope filtration",
@@ -1765,9 +1764,9 @@
     },
     {
       "id": "PadicDifferentialEquationsAndRigidCohomology:RD.1/robba-residue-duality",
-      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.2",
       "realises": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2"
       ],
       "kind": "theorem",
       "title": "Robba residue duality",
@@ -1788,7 +1787,8 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.2/local-monodromy-finite-etale-form",
         "PadicDifferentialEquationsAndRigidCohomology:RD.2/logarithmic-form-of-local-monodromy",
         "PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-separable-extensions-of-analytic-rings",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.2/unipotent-iff-nilpotent-residue"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/unipotent-iff-nilpotent-residue",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/matsuda-decomposition"
       ],
       "sources": [
         {

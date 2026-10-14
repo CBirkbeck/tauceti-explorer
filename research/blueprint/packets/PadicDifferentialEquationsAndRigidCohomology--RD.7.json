@@ -246,9 +246,9 @@
  "nodes": [
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology:RD.7/tube-to-envelope-comparison-map",
-   "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+   "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
    "realises": [
-    "PadicDifferentialEquationsAndRigidCohomology:RD.7"
+    "PadicDifferentialEquationsAndRigidCohomology:RD.4"
    ],
    "title": "Berthelot's comparison morphism from the tube to the completed PD envelope",
    "kind": "construction",
@@ -384,9 +384,9 @@
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology:RD.7/comparison-map-quasi-isomorphism",
-   "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+   "parentStageId": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
    "realises": [
-    "PadicDifferentialEquationsAndRigidCohomology:RD.7"
+    "PadicDifferentialEquationsAndRigidCohomology:RD.4"
    ],
    "title": "Berthelot's comparison morphism is a quasi-isomorphism for smooth X",
    "kind": "theorem",

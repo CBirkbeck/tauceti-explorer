@@ -423,9 +423,6 @@
     "C = G_m, E = K_a (Kummer, a ∉ Z, RD.6/kummer-isocrystal): Irr_0 = Irr_∞ = 0, χ = 0, matching H^0 = H^1 = 0.",
     "C = A^1, E = L_{x^d}, p ∤ d: χ = 1 − d, so dim H^1 = d − 1."
    ],
-   "planet": {
-    "name": "p-adic Euler–Poincaré formula"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.1/christol-mebkhout-local-index",
     "PadicDifferentialEquationsAndRigidCohomology:RD.1/differential-swan-conductor",
@@ -798,9 +795,6 @@
     "K_a on G_m with a = b/(q − 1): K_a^{⊗(q−1)} ≅ O, c = 1.",
     "O(−1) = L_q: twist by c = q^{-1}, n = 1."
    ],
-   "planet": {
-    "name": "Finite monodromy of rank-one F-isocrystals"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.6/rank-one-isoclinic-twist",
     "PadicDifferentialEquationsAndRigidCohomology:RD.6/unit-root-isocrystals-and-p-adic-representations",
@@ -898,9 +892,6 @@
     "For a finite group Γ, Rep_K(Γ) with the forgetful functor gives the constant group scheme Γ (compare Mathlib's Tannaka duality for finite groups, TannakaDuality.FiniteGroup).",
     "The category of finite-dimensional K-vector spaces with a nilpotent endomorphism (char K = 0) gives G_a."
    ],
-   "planet": {
-    "name": "Neutral Tannakian recognition theorem"
-   },
    "prerequisites": [
     "tauceti:TauCeti.FGComoduleCat",
     "tauceti:TauCeti.FGComoduleCat.instSymmetricCategory",
@@ -1184,9 +1175,6 @@
      "statement": "The pair ∇e = −a e dt/t with F(σ^*e) = t^{(q−1)a}e is not horizontal for a ∉ Z: horizontality would force b − a = −q a, i.e. b = −(q − 1)a."
     }
    ],
-   "planet": {
-    "name": "Kummer F-isocrystal"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.3/kummer-isocrystal",
     "PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-f-isocrystal",
@@ -1493,9 +1481,6 @@
      "statement": "Kl_{n+1} is not unipotent at ∞: its Swan conductor there is 1, so no finite tame base change trivialises the local monodromy."
     }
    ],
-   "planet": {
-    "name": "Kloosterman F-isocrystal"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.6/dwork-isocrystal",
     "PadicDifferentialEquationsAndRigidCohomology:RD.6/dwork-additive-character",
@@ -1864,9 +1849,6 @@
     "A Tate-curve type degeneration with V_η of rank 2, N ≠ 0 and β = 1: gr^M_{−1} = ker N = im N is pure of weight 0 and gr^M_1 of weight 2.",
     "Kl_{n+1} at 0 (single block of size n + 1, weight n): ker N is one-dimensional of weight 0 (RD.6/kloosterman-local-monodromy-and-purity)."
    ],
-   "planet": {
-    "name": "Local weight–monodromy purity"
-   },
    "prerequisites": [
     "PadicDifferentialEquationsAndRigidCohomology:RD.6/local-invariants-weakly-mixed",
     "PadicDifferentialEquationsAndRigidCohomology:RD.6/weight-drop-lemma",

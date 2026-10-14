@@ -438,9 +438,6 @@
           "statement": "For A^1 → Spec k, ringed pullback of the unit crystal K realises as i^{−1}O on ]A^1[, with sections K⟨t⟩† on the projective realisation. Plain inverse image of the constant sheaf K would miss these functions."
         }
       ],
-      "planet": {
-        "name": "Le Stum's overconvergent site"
-      },
       "implementationStatus": "unchecked"
     },
     {
@@ -629,9 +626,6 @@
           "match": "The earlier proof of descent for étale-proper hypercoverings in Berthelot's framework, of which the proper case (Tsuzuki, Invent. Math. 151) is the continuation."
         }
       ],
-      "planet": {
-        "name": "Proper cohomological descent"
-      },
       "implementationStatus": "unchecked"
     },
     {
@@ -2126,9 +2120,6 @@
           "statement": "If E and E' are docile along D then so are E ⊗ E', E^∨ and every subquotient of E in Isoc†(X)."
         }
       ],
-      "planet": {
-        "name": "Unipotent monodromy along the boundary"
-      },
       "implementationStatus": "unchecked"
     },
     {
@@ -2401,9 +2392,6 @@
           "match": "Uses Theorem 6.4.5 of part I to log-extend near the centre of a valuation, with unique extension of the Frobenius structure."
         }
       ],
-      "planet": {
-        "name": "Logarithmic extension"
-      },
       "implementationStatus": "unchecked"
     },
     {
@@ -2454,9 +2442,6 @@
           "match": "Uses Kedlaya's semistable reduction to reduce to an F-isocrystal docile along an SNC boundary of a smooth projective compactification."
         }
       ],
-      "planet": {
-        "name": "Semistable reduction for F-isocrystals"
-      },
       "implementationStatus": "unchecked"
     },
     {

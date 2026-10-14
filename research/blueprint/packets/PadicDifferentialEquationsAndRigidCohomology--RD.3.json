@@ -1241,12 +1241,12 @@
      "statement": "(K⟨t⟩, ∇(1) = −dt) admits no Frobenius structure: it is not even convergent, while every module with Frobenius structure is."
     }
    ],
-   "planet": {
-    "name": "Convergent F-isocrystal"
-   },
    "library": {
     "module": "TauCeti/RigidCohomology/Isocrystals/Convergent",
     "namespace": "TauCeti.RigidCohomology"
+   },
+   "planet": {
+    "name": "Convergent F-isocrystal"
    }
   },
   {
