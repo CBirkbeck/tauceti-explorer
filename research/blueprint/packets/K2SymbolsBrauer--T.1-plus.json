@@ -1,0 +1,553 @@
+{
+  "roadmapId": "K2SymbolsBrauer",
+  "protocol": "blueprint-v1",
+  "part": "T.1-plus",
+  "scope": [
+    "K2SymbolsBrauer:T.1:plus"
+  ],
+  "status": "complete",
+  "summary": "A target-level supplement to the inherited classical/homotopy K₂ comparison. It fixes the comparison by the explicit homotopy-fibre boundary and the common universal-central-extension kernel/H₂ convention, proves the ring-map and model comparison squares, and transports it through the early projective-module plus/Q model. Stable group theory, general plus topology, Hurewicz and the Q construction retain their existing owners.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:groupHomology.H2",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
+        "provides": "Degree 2 homology of A:Rep k G as a ModuleCat k object. This packet uses A=Rep.trivial ℤ E ℤ with E in Type.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:Rep.trivial",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+        "provides": "The trivial representation on a module, with ρ(g)=id.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:groupHomology.map",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Induced homology morphism for a group homomorphism and a restriction-compatible coefficient morphism; specialize degree 2 and identity trivial integral coefficients.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:groupHomology.map_id",
+        "kind": "lemma",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "The map of the identity group and coefficient morphisms is identity.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:groupHomology.map_comp",
+        "kind": "lemma",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean",
+        "provides": "Composition law, with restriction of the second coefficient morphism.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:HomotopyGroup",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
+        "provides": "Cubical homotopy groups indexed by a coordinate type; Fin 2 gives π₂ with its commutative group structure.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:MonoidHom.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "Kernel subgroup of a group homomorphism, consisting of elements mapped to 1.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:MulEquiv.toAdditive",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/TypeTags.lean",
+        "provides": "Reinterprets a multiplicative equivalence as an additive equivalence between Additive type tags.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:MonoidHom.toAdditive",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/TypeTags/Hom.lean",
+        "provides": "Reinterprets a monoid homomorphism additively without changing its underlying map.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "tauceti:HomotopyGroup.mapHom",
+        "kind": "def",
+        "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean",
+        "provides": "Induced group homomorphism for a continuous map and an explicit equation of basepoints; needs a nonempty decidable coordinate type.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "tauceti:HomotopyGroup.mulEquivOfHomotopyEquiv",
+        "kind": "def",
+        "module": "TauCeti/Topology/Homotopy/HomotopyGroup/HomotopyEquiv.lean",
+        "provides": "Homotopy equivalence induces a multiplicative equivalence from π_N(X,x) to π_N(Y,e(x)); Fin 2 satisfies its finite/nonempty/decidable hypotheses.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "tauceti:TauCeti.homotopyGroupTransport_map",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Homotopy/HomotopyGroup/HomotopyEquiv.lean",
+        "provides": "A free homotopy identifies induced homotopy-group maps after transport along its basepoint track; does not omit the track.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "tauceti:IsCoveringMap.homotopyGroupMulEquiv",
+        "kind": "def",
+        "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Covering.lean",
+        "provides": "An actual covering map induces π_N(E,e)≃*π_N(X,p(e)) for nontrivial decidable N; Fin 2 qualifies. Used in the retained inherited cover proof, not re-planned.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      },
+      {
+        "ref": "mathlib:AlgebraicTopology.singularHomologyFunctor",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicTopology/SingularHomology/Basic.lean",
+        "provides": "Singular homology as a coefficient-object-indexed functor on TopCat. For C=ModuleCat ℤ and coefficient object ℤ it is the H₂ of spaces in the retained cover proof.",
+        "checked": "Statement read in the source tree at the pinned commit on 2026-10-14; Codex, codex-9L3lGH."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Weibel-III",
+      "title": "The K-book: An introduction to algebraic K-theory, Chapter III: K₁ and K₂ of a Ring",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted chapter PDF, accessed 2026-10-14; chapter-local printed pagination",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "readSections": [
+        "§5, pp. III.36–38: Definition 5.3.1, Lemmas 5.3.2–5.3.3, Example 5.3.4, Theorems 5.4–5.5 and the intervening proofs."
+      ]
+    },
+    {
+      "id": "Weibel-IV",
+      "title": "The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of Higher K-Theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted chapter PDF, accessed 2026-10-14; chapter-local printed pagination",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "readSections": [
+        "§1, pp. IV.2–7: Definition 1.1, Functoriality 1.1.2, Homotopy Fiber 1.2, Theorem 1.5, Lemma 1.6, Proposition 1.7 and Corollary 1.7.1 with proofs.",
+        "§1, Exercise 1.8, pp. IV.14–15 (cover route and ownership check).",
+        "§4, Theorem 4.11 and Corollary 4.11.1 with proof, pp. IV.44–45.",
+        "§7, Theorem 7.1, Corollary 7.2 and the proof through Theorem 7.8, pp. IV.61–64."
+      ]
+    },
+    {
+      "id": "Hatcher",
+      "title": "Algebraic Topology",
+      "authors": "Allen Hatcher",
+      "edition": "Author-hosted PDF, accessed 2026-10-14; printed book pagination",
+      "url": "https://pi.math.cornell.edu/~hatcher/AT/AT.pdf",
+      "sha256": "bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618",
+      "readSections": [
+        "§4.1, Proposition 4.1 and proof, p. 342.",
+        "§4.2, Theorem 4.32 and proof, pp. 366–367; definition and naturality of the absolute Hurewicz map, p. 370."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K2SymbolsBrauer:T.1:plus/normalised-comparison",
+      "parentStageId": "K2SymbolsBrauer:T.1:plus",
+      "realises": [
+        "K2SymbolsBrauer:T.1:plus"
+      ],
+      "title": "The normalised classical-to-plus comparison",
+      "kind": "construction",
+      "statement": "For an associative unital ring A in Type, write s_A : St(A) → E(A), C_A = ker(s_A), and i_A : BGL(A) → X_A = BGL(A)⁺ relative to E(A), based at the vertex and its image. Put F_A = F(i_A,x_A), with paths from i_A(z) to x_A, U_A = π₁(F_A), and ε_A : U_A → E(A) the factor of the fibre projection. Let δ_A : Additive(π₂(X_A,x_A)) ≃+ Additive(ker ε_A) be the positive loop-space connecting map of StableHomotopyKTheory:H.2/connecting-map, corestricted to the kernel. Let κ_A : Additive C_A ≃+ H₂(E(A);ℤ) and κ_F,A : Additive(ker ε_A) ≃+ H₂(E(A);ℤ) be the inherited universal-central-extension kernel identifications, using the same Hopf transgression convention. Define ρ_A = κ_F,A ∘ δ_A and χ_A = ρ_A⁻¹ ∘ κ_A. This specifies an additive equivalence Additive C_A ≃+ Additive(π₂(X_A,x_A)), refining the inherited target K2SymbolsBrauer:T.1/k2-pi2 by an explicit normalisation. Here H₂(E;ℤ) means the underlying additive group of groupHomology.H2 (Rep.trivial ℤ E ℤ).",
+      "hypotheses": [
+        "A is an associative ring with 1; commutativity, nontriviality, regularity and finiteness are not assumed.",
+        "E(A) and St(A) are the stable groups, not fixed finite-rank groups. The stable Steinberg extension and ε_A are universal central extensions of the perfect group E(A).",
+        "i_A is a plus construction in the local-coefficient/acyclic sense, not just an integral homology equivalence; all spaces have the CW models supplied by H.1–H.3."
+      ],
+      "proofSteps": [
+        "Import s_A, C_A and the stable Steinberg universal central extension from the inherited classical nodes; import E(A) normal and perfect from KTheoryLowDegrees:U.1. Do not rebuild any of those objects.",
+        "Apply H.3/plus-pi2-universal-central-extension with G=GL(A), P=E(A). It supplies the universal central extension ε_A. The vanishing π₂(BGL(A))=0 and exactness of H.2/long-exact-sequence make the corestriction of the explicit H.2/connecting-map into ker ε_A an isomorphism δ_A. Exactness is unchanged if the relative-pair boundary uses the opposite sign, but δ_A itself is fixed here without that inversion.",
+        "Apply the same inherited uce-kernel-h2 construction to s_A and ε_A; compose to obtain ρ_A and χ_A. Equivalently, if a_A : St(A) ≃* U_A is the unique isomorphism over E(A), then δ_A(χ_A(z)) = a_A(z) in ker ε_A. This follows from uce-kernel-h2-natural and fixes the map without any presentation or lift choices.",
+        "Use Additive for the multiplicative kernel and cubical homotopy group; centrality gives commutativity of C_A. Mathlib represents π₂ by HomotopyGroup (Fin 2), and a based map acts through HomotopyGroup.mapHom. Weibel IV.1.2 uses reversed fibre paths; use the path-reversal homeomorphism, not an unannounced identification of the two boundary maps."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "K2SymbolsBrauer:T.1/k2-h2-elementary",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "K2SymbolsBrauer:T.1:classical/uce-lift",
+        "KTheoryLowDegrees:U.1/whitehead-lemma",
+        "KTheoryLowDegrees:U.1/stable-elementary-perfect",
+        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
+        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+        "StableHomotopyKTheory:H.2/connecting-map",
+        "StableHomotopyKTheory:H.2/long-exact-sequence",
+        "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+        "mathlib:groupHomology.H2",
+        "mathlib:Rep.trivial",
+        "mathlib:HomotopyGroup",
+        "mathlib:MonoidHom.ker",
+        "mathlib:MulEquiv.toAdditive",
+        "tauceti:HomotopyGroup.mapHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "§III.5, Definition 5.3.1, Lemma 5.3.3, Example 5.3.4 and Theorem 5.5, pp. III.37–38",
+          "match": "Universal central extensions give the unique isomorphism between the stable Steinberg extension and the fibre extension; the kernel is integral second group homology."
+        },
+        {
+          "sourceId": "Weibel-IV",
+          "locator": "§IV.1, Homotopy Fiber 1.2, p. IV.3; Proposition 1.7 and Corollary 1.7.1, p. IV.6",
+          "match": "The homotopy-fibre sequence identifies π₂ of the ring plus construction with the kernel of the universal central extension of the elementary group. The displayed χ and its normalisation assemble those identifications using the inherited sign convention."
+        }
+      ],
+      "acceptance": [
+        "The equation ρ_A(χ_A(z))=κ_A(z) holds for every z; it determines χ_A uniquely.",
+        "The construction applies to noncommutative rings and to the zero ring; no assertion about a finite-rank Steinberg extension is used."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.1/k2-pi2",
+          "how": "Supplies a named, normalised map for the inherited existence-and-naturality target."
+        },
+        {
+          "where": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons and KU-pluscomparison",
+          "how": "Transports the explicit Steinberg kernel into the homotopy K₂ group, after the early plus model is constructed."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.7",
+          "how": "Makes the classical K₂ object compatible with the homotopy theory used by downstream residue and reciprocity constructions; no compatibility of residue maps is asserted here."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.K2Comparison.fromHomology",
+          "role": "constructor",
+          "statement": "Given the established κ_A and ρ_A, χ_A is their composite κ_A followed by ρ_A⁻¹. A light general form accepts an actual group homomorphism s:S→E and equivalences Additive(ker s)≃+H₂(E;ℤ) and Additive(π₂X)≃+H₂(E;ℤ)."
+        },
+        {
+          "name": "TauCeti.K2Comparison.fromHomology_normalise",
+          "role": "characterisation",
+          "statement": "For every z, ρ_A(χ_A(z))=κ_A(z)."
+        },
+        {
+          "name": "TauCeti.K2Comparison.fromHomology_symm",
+          "role": "simp",
+          "statement": "For every v in Additive(π₂X_A), χ_A⁻¹(v)=κ_A⁻¹(ρ_A(v))."
+        },
+        {
+          "name": "TauCeti.K2Comparison.fromHomology_unique",
+          "role": "extensionality",
+          "statement": "An additive homomorphism c:Additive C_A→Additive(π₂X_A) with ρ_A∘c=κ_A equals χ_A."
+        },
+        {
+          "name": "TauCeti.K2Comparison.fromHomology_fibre",
+          "role": "compatibility",
+          "statement": "For the unique UCE isomorphism a_A:St(A)≃*U_A over E(A), δ_A∘χ_A is its restriction to the kernel, written additively."
+        },
+        {
+          "name": "TauCeti.K2Comparison.fromHomology_add",
+          "role": "structure",
+          "statement": "χ_A(0)=0, χ_A(z+w)=χ_A(z)+χ_A(w), and χ_A(-z)=-χ_A(z); the inverse obeys the corresponding identities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.K2Comparison.normalisation_test",
+          "kind": "compatibility",
+          "statement": "For z in Additive C_A, ρ_A(χ_A(z))=κ_A(z), using the fixed inherited Hopf map rather than an unspecified automorphism of H₂."
+        },
+        {
+          "name": "TauCeti.K2Comparison.inverse_test",
+          "kind": "characterisation",
+          "statement": "For v in Additive(π₂X_A), χ_A(κ_A⁻¹(ρ_A(v)))=v."
+        },
+        {
+          "name": "TauCeti.K2Comparison.zero_ring_test",
+          "kind": "degenerate",
+          "statement": "For the zero ring, every stable Steinberg generator is x_ij(0)=1, so C_A and π₂X_A are trivial and χ_A is the unique equivalence between their additive groups."
+        },
+        {
+          "name": "TauCeti.K2Comparison.negative_comparison_test",
+          "kind": "non-example",
+          "statement": "If κ_A(z)≠-κ_A(z), the map z↦-χ_A(z) fails the normalisation equation at z. In the light composition template with all three additive groups ℤ and both equivalences the identity, 1 maps to 1 and not to -1; this template test is not a computation of K₂(ℤ)."
+        }
+      ],
+      "planet": {
+        "name": "Classical and homotopy K₂"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:plus/comparison-naturality",
+      "parentStageId": "K2SymbolsBrauer:T.1:plus",
+      "realises": [
+        "K2SymbolsBrauer:T.1:plus"
+      ],
+      "title": "Naturality of the normalised comparison",
+      "kind": "theorem",
+      "statement": "For every unital ring homomorphism f:A→B, let C(f):C_A→C_B be the inherited kernel map and f⁺:X_A→X_B a plus map with its comparison homotopy over BGL(f). Use a based square, or transport basepoints along the specified tracks and use the trivial π₁(X_B)-action supplied by its H-space structure. Then ρ_B ∘ π₂(f⁺) = H₂(E(f);ℤ) ∘ ρ_A and χ_B ∘ Additive(C(f)) = Additive(π₂(f⁺)) ∘ χ_A. In the first equality the π₂ groups are written additively. H₂(E(f);ℤ) is exactly groupHomology.map of E(f), with the identity morphism of trivial integral coefficients, in degree 2. These maps satisfy identity and composition on groups, although the chosen plus-space maps need only do so up to homotopy.",
+      "hypotheses": [
+        "A and B are associative unital rings in Type; f preserves 1.",
+        "For a free comparison homotopy the target X_B has trivial π₁-action on π₂; the early ring/plus supplier provides its connected H-space structure."
+      ],
+      "proofSteps": [
+        "Specialise H.3/plus-pi2-natural to GL(f), E(f), using the explicitly selected H.2/connecting-map. It gives the first displayed square through the natural boundary and the map of universal central extensions of the elementary groups.",
+        "Use inherited uce-kernel-h2-natural for the Steinberg maps to obtain κ_B C(f)=H₂(E(f);ℤ) κ_A. Substitute χ=ρ⁻¹κ and cancel the injective ρ_B to get the second square.",
+        "For free homotopies retain the basepoint track in TauCeti.homotopyGroupTransport_map. H.3/hspace-is-abelian removes its action only after applying the supplied H-space structure. Identity and composition follow from the inherited kernel functor, groupHomology.map_id/map_comp and the same square."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:plus/normalised-comparison",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "StableHomotopyKTheory:H.3/plus-pi2-natural",
+        "StableHomotopyKTheory:H.3/plus-construction-functoriality",
+        "StableHomotopyKTheory:H.3/hspace-is-abelian",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "mathlib:groupHomology.map",
+        "mathlib:groupHomology.map_id",
+        "mathlib:groupHomology.map_comp",
+        "mathlib:MonoidHom.toAdditive",
+        "tauceti:TauCeti.homotopyGroupTransport_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-IV",
+          "locator": "§IV.1, Functoriality 1.1.2, p. IV.3; Proposition 1.7 and Corollary 1.7.1, p. IV.6",
+          "match": "Ring maps induce the plus homotopy-group maps. The explicit naturality square is an authored consequence of the natural fibre boundary and the inherited naturality of universal-central-extension kernels."
+        }
+      ],
+      "acceptance": [
+        "For f=id_A both squares are identities, and for A→B→D the square for the composite equals the composite of the squares.",
+        "A free homotopy without a specified track or a trivial target action is not used as equality of based homotopy-group maps.",
+        "κ and ρ use the same H₂(E(f);ℤ), not H₂(GL(f);ℤ)."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:plus/comparison-model-independence",
+      "parentStageId": "K2SymbolsBrauer:T.1:plus",
+      "realises": [
+        "K2SymbolsBrauer:T.1:plus"
+      ],
+      "title": "Independence of the plus model",
+      "kind": "theorem",
+      "statement": "Let i_A:BGL(A)→X_A and i′_A:BGL(A)→X′_A be two ring plus models, and let u:X_A→X′_A be a homotopy equivalence under BGL(A). For a based comparison homotopy, or with its basepoint track and the trivial π₁-action on π₂ of the target ring model, u_* χ_A=χ′_A and ρ′_A u_*=ρ_A. Consequently the transported comparison is independent of the representative u and of the homotopy used under BGL(A). For arbitrary choices of CW, fibre and Hopf-presentation models, the same statements hold through their specified comparison maps; no literal equality of elements in different carriers is asserted.",
+      "hypotheses": [
+        "Both plus maps kill E(A) and preserve homology with all quotient local coefficients.",
+        "u is under BGL(A), with the basepoint policy of the naturality theorem. Arbitrary self-equivalences of the bare target X_A are not allowed."
+      ],
+      "proofSteps": [
+        "Apply comparison-naturality to the identity map of GL(A) and E(A), permitting distinct choices of plus model. H.3/plus-construction-uniqueness supplies the equivalence under BGL(A) because ring models are abelian spaces.",
+        "The resulting maps between the fibre extensions are maps over id_E(A). Uniqueness of maps out of a universal central extension makes their restrictions to the kernels equal. Transport by δ and κ gives the equations.",
+        "The normalisation characterisation of χ gives uniqueness after all carrier comparisons. Use the same inherited canonical kernel/H₂ maps for different free presentations; no new Hopf-formula theorem is planned."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:plus/comparison-naturality",
+        "K2SymbolsBrauer:T.1:classical/uce-lift",
+        "K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural",
+        "StableHomotopyKTheory:H.3/plus-construction-uniqueness",
+        "tauceti:HomotopyGroup.mulEquivOfHomotopyEquiv",
+        "tauceti:TauCeti.homotopyGroupTransport_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "§III.5, Definition 5.3.1 and Lemma 5.3.3, p. III.37",
+          "match": "The map between the two universal central extensions over the elementary group is unique."
+        },
+        {
+          "sourceId": "Weibel-IV",
+          "locator": "§IV.1, Definition 1.1, p. IV.2; Theorem 1.5, p. IV.5; Corollary 1.7.1, p. IV.6",
+          "match": "Plus models are compared under their source. The authored kernel-and-boundary argument fixes the induced map on second homotopy groups."
+        }
+      ],
+      "acceptance": [
+        "Taking X′_A=X_A and u homotopic to the identity under BGL(A) gives u_*χ_A=χ_A.",
+        "A mere abstract isomorphism C_A≅π₂X_A does not determine the comparison; normalisation and the map under BGL(A) are retained."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1:plus/quillen-pi2-comparison",
+      "parentStageId": "K2SymbolsBrauer:T.1:plus",
+      "realises": [
+        "K2SymbolsBrauer:T.1:plus"
+      ],
+      "title": "The comparison with the projective-module K-space",
+      "kind": "construction",
+      "statement": "Let K_Q(A)=ΩBQ(Proj_fg(A)), based at the constant loop, and let K_Q(A)₀ be its path component of zero with inclusion j_A. Use the natural zero-component equivalence η_A:X_A≃K_Q(A)₀ supplied by GeneralAlgebraicKTheory:K.2:plus. Define Ξ_A=(j_A)_* ∘ (η_A)_* ∘ χ_A : Additive C_A ≃+ Additive(π₂(K_Q(A),0)), with any needed basepoint track retained. The inclusion of the path component induces an isomorphism on based π₂. The equivalence Ξ_A is natural in all unital ring maps, using scalar extension on finitely generated projectives, and is invariant under the compatible model comparisons above. No representatives of nonzero K₀-components are chosen.",
+      "hypotheses": [
+        "A is an associative unital ring in Type.",
+        "The early ring/plus supplier constructs Proj_fg(A), K_Q(A), its zero component, η_A and their compatibility with scalar extension and direct sum."
+      ],
+      "proofSteps": [
+        "Import the entire Q/group-completion/plus comparison from the early ring/plus stage. Its split exact category of finitely generated projectives is preserved by scalar extension because split exact sequences remain split and finite projective modules are summands of finite free modules; flatness of A→B is not required.",
+        "The inclusion of the path component is bijective on based homotopy classes of spheres and their based homotopies: their connected domains force their images into that component. Use the degree-two component-inclusion theorem requested from the supplier, rather than constructing the component topology here.",
+        "Compose η_* and j_* with χ_A. Its inverse is χ_A⁻¹ η_*⁻¹ j_*⁻¹. Naturality is the composite of comparison-naturality and the supplier zero-component square; comparison-model-independence controls changes of compatible η and plus models.",
+        "The source route is the split-exact plus-equals-Q theorem with projective/free cofinality (Weibel IV.4.11, 4.11.1, 7.1–7.2), all owned by the early ring/plus supplier. Do not use the late low-degree-comparisons stage as an input."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:plus/normalised-comparison",
+        "K2SymbolsBrauer:T.1:plus/comparison-naturality",
+        "K2SymbolsBrauer:T.1:plus/comparison-model-independence",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "tauceti:HomotopyGroup.mulEquivOfHomotopyEquiv",
+        "mathlib:MulEquiv.toAdditive"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-IV",
+          "locator": "§IV.4, Theorem 4.11 and Corollary 4.11.1, pp. IV.44–45; §IV.7, Theorem 7.1 and Corollary 7.2 with proof, pp. IV.61–64; §IV.1, Functoriality 1.1.2, p. IV.3",
+          "match": "Projective/free cofinality and the split-exact Q comparison identify the zero component with the ring plus space. Its second homotopy group is transported by that actual map. The global product description does not supply a natural splitting on all components."
+        }
+      ],
+      "acceptance": [
+        "Ξ_A has the actual based group π₂(ΩBQ(Proj_fg(A)),0) as target, not a newly stipulated K₂ carrier.",
+        "For every ring map f, K_Q(f)_* Ξ_A=Ξ_B C(f), with basepoint transports understood."
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "GeneralAlgebraicKTheory:K.2:low-degree-comparisons",
+          "how": "Gives the K₂ portion of the explicit-versus-Q comparison without a circular dependence on the late stage."
+        },
+        {
+          "where": "GeneralAlgebraicKTheory:KU-pluscomparison",
+          "how": "Identifies the Steinberg kernel with the degree-two homotopy group of the projective-module K-space."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.K2Comparison.toQuillen",
+          "role": "constructor",
+          "statement": "Ξ_A is χ_A followed by η_A on π₂ and the zero-component inclusion. The light template composes an actual kernel-to-π₂ equivalence with an actual homotopy equivalence; the component-inclusion step is supplied separately."
+        },
+        {
+          "name": "TauCeti.K2Comparison.toQuillen_apply",
+          "role": "simp",
+          "statement": "For z, Ξ_A(z)=j_A*(η_A*(χ_A(z)))."
+        },
+        {
+          "name": "TauCeti.K2Comparison.toQuillen_symm",
+          "role": "simp",
+          "statement": "For v in π₂K_Q(A), Ξ_A⁻¹(v)=χ_A⁻¹(η_A*⁻¹(j_A*⁻¹(v)))."
+        },
+        {
+          "name": "TauCeti.K2Comparison.toQuillen_natural",
+          "role": "functoriality",
+          "statement": "For any unital f:A→B, Ξ_B C(f)=K_Q(f)_* Ξ_A; identities and composition hold on groups."
+        },
+        {
+          "name": "TauCeti.K2Comparison.toQuillen_model_independent",
+          "role": "compatibility",
+          "statement": "Compatible changes of the Q/group-completion and plus models transport Ξ_A through the induced based π₂ equivalences; the zero-component comparison square must be retained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.K2Comparison.quillen_formula_test",
+          "kind": "compatibility",
+          "statement": "For each z, j_A*(η_A*(χ_A(z)))=Ξ_A(z); the inverse transports back to z."
+        },
+        {
+          "name": "TauCeti.K2Comparison.quillen_zero_ring_test",
+          "kind": "degenerate",
+          "statement": "For the zero ring the category of finitely generated projective modules is equivalent to the zero exact category, so π₂K_Q(A)=0 and Ξ_A is the unique equivalence from C_A=0."
+        },
+        {
+          "name": "TauCeti.K2Comparison.quillen_nonflat_test",
+          "kind": "compatibility",
+          "statement": "Scalar extension ℤ→ℤ/2ℤ, although not flat, gives K_Q(f)_* Ξ_ℤ=Ξ_(ℤ/2ℤ) C(f); the statement does not require a flatness instance."
+        },
+        {
+          "name": "TauCeti.K2Comparison.quillen_component_test",
+          "kind": "non-example",
+          "statement": "Ξ_A always lands at the zero basepoint. Changing a chosen representative of a nonzero K₀-class is not an input to Ξ_A and cannot change it; no natural K₀(A)×X_A splitting of infinite-loop spaces is inferred."
+        }
+      ],
+      "planet": {
+        "name": "The plus and Q comparison"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.2:plus",
+      "need": "For all associative unital rings and all unital ring maps, supply the split-exact category Proj_fg(A), functorial K_Q(A)=ΩBQ(Proj_fg(A)) based at 0, and its natural zero-component comparison η_A:BGL(A)⁺≃K_Q(A)₀, compatible with block sum. Supply the connected H-space structure on the ring plus model (hence trivial π₁-action by H.3/hspace-is-abelian), and the induced isomorphism π₂(K_Q(A)₀,0)→π₂(K_Q(A),0) of the actual component inclusion, with its ring-map square. Scalar extension needs no flatness; no natural global product splitting is requested. This is the early ring/plus stage, not its late explicit low-degree comparisons.",
+      "neededBy": [
+        "K2SymbolsBrauer:T.1:plus/comparison-naturality",
+        "K2SymbolsBrauer:T.1:plus/quillen-pi2-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+      "need": "Import the already planned natural absolute degree-two Hurewicz homomorphism Additive(π₂(Y,y))→H₂(Y;ℤ), an isomorphism for simply connected CW models, with the upstream cubical/sphere orientation convention and compatibility with based maps. This supplies the retained cover/Hurewicz proof of the inherited comparison target; it is not a request for a new Hurewicz development or a claim that the map is at the pins.",
+      "neededBy": [
+        "K2SymbolsBrauer:T.1/k2-pi2"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K2SymbolsBrauer:T.1:plus",
+      "status": "planned",
+      "remaining": [
+        "Discharge the explicitly requested early ring/plus supplier interface (natural zero component, component inclusion on π₂ and ring-model H-space structure).",
+        "Use the existing Tau Ceti AlgebraicTopology Stage 8 Hurewicz interface in the retained inherited cover proof; its exact request and map directions are recorded under inheritedTargets."
+      ],
+      "note": "Both inherited targets k2-h2-elementary and k2-pi2 are retained by id. New nodes refine their map contracts and transport to the early K-space model. There is no unresolved local proof step; supplier mathematics and inherited classical/topological gaps are not claimed implemented or closed."
+    }
+  ],
+  "gaps": [],
+  "inheritedTargets": [
+    {
+      "id": "K2SymbolsBrauer:T.1/k2-h2-elementary",
+      "use": "The unchanged natural classical kernel/H₂ identification κ_A."
+    },
+    {
+      "id": "K2SymbolsBrauer:T.1/k2-pi2",
+      "use": "The inherited natural comparison target; this supplement specifies χ_A by the fibre/UCE route instead of duplicating the cover/Hurewicz construction.",
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1/k2-h2-elementary",
+        "StableHomotopyKTheory:H.3/plus-universal-cover",
+        "StableHomotopyKTheory:H.1/bar-complex-comparison",
+        "StableHomotopyKTheory:H.3/twisted-homology-via-cover",
+        "tauceti:IsCoveringMap.homotopyGroupMulEquiv",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ],
+      "proofSupport": "For the inherited cover/Hurewicz proof, choose the universal cover p_A:Y_A→X_A and q_A:BE(A)→Y_A from H.3/plus-universal-cover with H=P=E(A). The quotient-regular local coefficient system and twisted-homology-via-cover make H₂(q_A;ℤ) an isomorphism. If b_A:H₂(BE(A);ℤ)≃H₂(E(A);ℤ) is H.1/bar-complex-comparison and h_A:Additive π₂Y_A≃H₂(Y_A;ℤ) is the upstream absolute Hurewicz map, then ρ_cov,A=b_A ∘ H₂(q_A)⁻¹ ∘ h_A ∘ (p_A*)⁻¹ and χ_cov,A=ρ_cov,A⁻¹ ∘ κ_A. This specifies all arrows in the inherited route without new nodes for its suppliers. Naturality uses based lift squares, cover homotopy lifting, natural Hurewicz and the natural bar comparison; target ring H-space triviality removes free basepoint tracks. It establishes the inherited natural-isomorphism target. Equality of χ_cov,A with the independently normalised fibre map χ_A is not a target asserted here.",
+      "sources": [
+        {
+          "sourceId": "Hatcher",
+          "locator": "§4.1, Proposition 4.1, p. 342; §4.2, Theorem 4.32 and proof, pp. 366–367; absolute Hurewicz map and naturality, p. 370",
+          "match": "Covering projections preserve higher homotopy groups, while the natural Hurewicz map identifies π₂ with H₂ for simply connected spaces. These apply to the universal cover, not directly to a possibly nonsimply connected ring plus space."
+        },
+        {
+          "sourceId": "Weibel-IV",
+          "locator": "§IV.1, Lemma 1.6 with proof, pp. IV.5–6; Exercise 1.8, pp. IV.14–15",
+          "match": "The regular quotient local system controls the homology of the pulled-back cover; the H=P special case identifies the plus of BP with the universal cover of the plus of BG."
+        }
+      ]
+    }
+  ],
+  "ownershipNotes": [
+    "The inherited coverage remainder naming independent review is a process marker, not an extra mathematical target. No review of the inherited work is performed here.",
+    "The H=P special case of H.3/plus-universal-cover supplies the alternative BE(A)⁺ description. Generic Hurewicz is owned by the current Tau Ceti AlgebraicTopology roadmap, Stage 8, and cover maps by the completed UniversalCovers roadmap; neither is a new node here. No equality between separately chosen cover-Hurewicz and fibre comparison maps is asserted without a sign-compatible comparison.",
+    "The inherited classical proof gaps remain with their existing owners. In particular, no finite-rank Steinberg centrality statement and no matrix theory over noncommutative rings is inferred from the pinned commutative transvection API.",
+    "The downstream GeneralAlgebraicKTheory:K.2:low-degree-comparisons consumes these comparisons; it is never an input."
+  ],
+  "currentUpstreamCheck": {
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "libraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "documents": [
+      "TauCetiRoadmap/AlgebraicTopology/README.md and Suggested.lean",
+      "Completed/UniversalCovers/README.md",
+      "The nine newer roadmap directories named by WORKERS.md: README and extant Suggested files screened for the comparison objects."
+    ],
+    "result": "Current generic homotopy, basepoint and covering APIs retain their owners. Searches for the stable Steinberg kernel, the algebraic plus construction and their comparison found no existing implementation in the current Tau Ceti tree. Lie-theoretic Steinberg endomorphisms are different objects."
+  },
+  "sourceIssues": []
+}
