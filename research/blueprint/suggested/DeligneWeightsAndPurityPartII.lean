@@ -138,12 +138,14 @@ section Datum
 
 variable (ℓ : ℕ) [Fact ℓ.Prime]
 
-/-- A local monodromy datum on a topological group `H` (README, WM.0): inertia `I`, a continuous
+/-- A local monodromy datum on a profinite group `H` (README, WM.0): inertia `I`, a continuous
 nonzero additive ℓ-adic tame character `t`, the coset `Fr` of geometric Frobenius elements, which
 generates `H` topologically together with `I`, and an integer `Q ≥ 2` prime to `ℓ`, with the twist
 relation `t(Φ σ Φ⁻¹) = Q⁻¹ t(σ)`. The README also requires `H / I ≅ ℤ̂`, which only the restriction
-construction uses. -/
-structure LocalMonodromyDatum (H : Type*) [Group H] [TopologicalSpace H] [IsTopologicalGroup H] where
+construction uses. Compactness is retained here: it forces a nonzero tame character to
+remain nonzero on every open subgroup of inertia, which is essential for uniqueness of `N`. -/
+structure LocalMonodromyDatum (H : Type*) [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
+    [CompactSpace H] [T2Space H] [TotallyDisconnectedSpace H] where
   /-- The inertia subgroup. -/
   inertia : Subgroup H
   inertia_normal : inertia.Normal
@@ -166,6 +168,7 @@ structure LocalMonodromyDatum (H : Type*) [Group H] [TopologicalSpace H] [IsTopo
 
 variable {ℓ}
 variable {H : Type*} [Group H] [TopologicalSpace H] [IsTopologicalGroup H]
+  [CompactSpace H] [T2Space H] [TotallyDisconnectedSpace H]
 
 /-- The identity is never a Frobenius element. -/
 theorem LocalMonodromyDatum.one_not_mem_frob (D : LocalMonodromyDatum ℓ H) : (1 : H) ∉ D.frob := by
@@ -179,7 +182,7 @@ theorem LocalMonodromyDatum.inv_mul_mem_inertia (D : LocalMonodromyDatum ℓ H) 
 /-- An isomorphism of local monodromy data along a topological group isomorphism `α`, rescaling the
 tame character by `c ≠ 0`. -/
 structure LocalMonodromyDatum.IsIso {H' : Type*} [Group H'] [TopologicalSpace H']
-    [IsTopologicalGroup H'] (D : LocalMonodromyDatum ℓ H) (D' : LocalMonodromyDatum ℓ H')
+    [IsTopologicalGroup H'] [CompactSpace H'] [T2Space H'] [TotallyDisconnectedSpace H'] (D : LocalMonodromyDatum ℓ H) (D' : LocalMonodromyDatum ℓ H')
     (α : H ≃ₜ* H') (c : ℚ_[ℓ]) : Prop where
   ne_zero : c ≠ 0
   map_inertia : D.inertia.map α.toMulEquiv.toMonoidHom = D'.inertia
@@ -193,12 +196,13 @@ theorem LocalMonodromyDatum.IsIso.refl (D : LocalMonodromyDatum ℓ H) :
   sorry
 
 theorem LocalMonodromyDatum.IsIso.symm {H' : Type*} [Group H'] [TopologicalSpace H']
-    [IsTopologicalGroup H'] {D : LocalMonodromyDatum ℓ H} {D' : LocalMonodromyDatum ℓ H'}
+    [IsTopologicalGroup H'] [CompactSpace H'] [T2Space H'] [TotallyDisconnectedSpace H'] {D : LocalMonodromyDatum ℓ H} {D' : LocalMonodromyDatum ℓ H'}
     {α : H ≃ₜ* H'} {c : ℚ_[ℓ]} (hα : D.IsIso D' α c) : D'.IsIso D α.symm c⁻¹ := by
   sorry
 
 theorem LocalMonodromyDatum.IsIso.trans {H' H'' : Type*} [Group H'] [TopologicalSpace H']
-    [IsTopologicalGroup H'] [Group H''] [TopologicalSpace H''] [IsTopologicalGroup H'']
+    [IsTopologicalGroup H'] [CompactSpace H'] [T2Space H'] [TotallyDisconnectedSpace H'] [Group H''] [TopologicalSpace H''] [IsTopologicalGroup H'']
+    [CompactSpace H''] [T2Space H''] [TotallyDisconnectedSpace H'']
     {D : LocalMonodromyDatum ℓ H} {D' : LocalMonodromyDatum ℓ H'} {D'' : LocalMonodromyDatum ℓ H''}
     {α : H ≃ₜ* H'} {α' : H' ≃ₜ* H''} {c c' : ℚ_[ℓ]} (hα : D.IsIso D' α c)
     (hα' : D'.IsIso D'' α' c') : D.IsIso D'' (α.trans α') (c' * c) := by
@@ -237,7 +241,7 @@ theorem IsWeightMonodromyPure.frob_conj_monodromy (D : LocalMonodromyDatum ℓ H
 
 /-- Purity is transported along isomorphisms of data (WM.0/transport-along-isomorphisms). -/
 theorem IsWeightMonodromyPure.iso_iff {H' : Type*} [Group H'] [TopologicalSpace H']
-    [IsTopologicalGroup H'] {D : LocalMonodromyDatum ℓ H} {D' : LocalMonodromyDatum ℓ H'}
+    [IsTopologicalGroup H'] [CompactSpace H'] [T2Space H'] [TotallyDisconnectedSpace H'] {D : LocalMonodromyDatum ℓ H} {D' : LocalMonodromyDatum ℓ H'}
     {α : H ≃ₜ* H'} {c : ℚ_[ℓ]} (hα : D.IsIso D' α c) (ρ' : Representation E H' V) (w : ℤ) :
     IsWeightMonodromyPure D (ρ'.comp α.toMulEquiv.toMonoidHom) w ↔ IsWeightMonodromyPure D' ρ' w := by
   sorry
@@ -251,12 +255,12 @@ theorem isWeightMonodromyPure_prod {W : Type*} [AddCommGroup W] [Module E W]
   sorry
 
 /-- Detection on a closed subgroup (WM.0/detection-on-subgroups), in the form used for restricted
-data: `D'` is a datum on a subgroup `H'` whose inertia is the intersection with that of `D`, whose
+data: `D'` is a datum on a compact (hence closed) subgroup `H'` whose inertia is the intersection with that of `D`, whose
 tame character is the restriction, whose Frobenius elements lie in the `f`-th Frobenius coset, and
 whose `Q` is `Q ^ f`; the hypothesis `htame` is the openness of the tame image. The README states
 the theorem for the standard datum, where condition (a) holds for every representation by
 Grothendieck's monodromy theorem; that hypothesis is `hgr`. -/
-theorem isWeightMonodromyPure_iff_restrict (D : LocalMonodromyDatum ℓ H) (H' : Subgroup H)
+theorem isWeightMonodromyPure_iff_restrict (D : LocalMonodromyDatum ℓ H) (H' : Subgroup H) [CompactSpace H']
     (D' : LocalMonodromyDatum ℓ H') (f : ℕ) (hf : 0 < f)
     (hI : ∀ σ : H', σ ∈ D'.inertia ↔ (σ : H) ∈ D.inertia)
     (htameEq : ∀ (σ : D'.inertia) (h : ((σ : H') : H) ∈ D.inertia),
