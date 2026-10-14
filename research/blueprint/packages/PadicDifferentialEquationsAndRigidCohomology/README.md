@@ -77,7 +77,8 @@ reconstruction from a given Hopf algebra) is in neither library and is a target 
 Layer 9 for the comparison of Kähler and Weil differentials with residues; EllipticCurves Layer 3
 for the criterion "supersingular if and only if p divides the trace"; JacobianChallenge Layer F
 for Jacobians and the Abel–Jacobi map; ReductiveGroups Layers 1–3 for Lie algebras of algebraic
-groups; and the cohomological point-counting family of pull request #196 (ConstructibleEtale
+groups; LocalFieldsRamification Layer 3 for the upper numbering and Herbrand functions of local
+fields with finite residue field, which [§RD.2.45](#rd-2-45) extends to perfect residue fields; and the cohomological point-counting family of pull request #196 (ConstructibleEtale
 Layer 3 for étale fundamental groups, TraceFormula Layers 12–13 for the Grothendieck–Lefschetz
 trace formula for all finite extensions and the cohomological expression of zeta functions). The
 last is the only ℓ-adic input, and it enters only the comparison of rigid and ℓ-adic Weil factors
@@ -286,6 +287,8 @@ Each item below is used as stated; the targets that use it are listed after it.
 - `LieModule.traceForm`: The trace form (x, y) ↦ Tr(ρ(x)ρ(y)) of a finite free representation. Used in RD.6.72.
 - `LinearMap`: Bundled linear and semilinear maps, without an analytic convergence or connection structure. Used in RD.1.3.
 - `LinearMap.IsPerfPair`: Perfect pairings (bijective in both arguments): the form of Poincaré duality. Used in RD.5.89.
+- `LinearMap.index`: The index dim ker f − dim coker f of a linear map (a junk value unless kernel and cokernel are finite dimensional). Used in RD.5.23, RD.5.32.
+- `LinearMap.index_comp`: Additivity of the index under composition of maps with finite-dimensional kernels and cokernels over a division ring. Used in RD.5.23, RD.5.32.
 - `LinearMap.charpoly`: Characteristic polynomial of an endomorphism of a finite free module (Frobenius on cohomology). Used in RD.4.17, RD.6.2, RD.6.4.
 - `LinearMap.ker`: The kernel submodule of a (semi)linear map; the light support-section illustration uses this existing carrier. Used in RD.4.42, RD.5.23.
 - `LinearMap.range`: The image submodule of a linear map, used for the theta quotient. Used in RD.4.60.
@@ -362,6 +365,7 @@ Each item below is used as stated; the targets that use it are listed after it.
 ### From TauCetiRoadmap
 
 - AdicSpaces: adic spectra, rational subsets and the analytic vocabulary on which AdicSpacesPartII builds; used throughout Layers RD.3–RD.5 through AdicSpacesPartII.
+- LocalFieldsRamification, Layer 3: lower and upper ramification groups, the Herbrand functions φ and ψ and Herbrand's theorem for finite Galois extensions of nonarchimedean local fields (finite residue field). Used in [§RD.2.45](#rd-2-45), which extends them to infinite perfect residue fields.
 - AlgebraicCurves, Layer 9: Kähler differentials of a function field are identified with Weil differentials compatibly with residues; regular differentials have dimension g and principal parts at the missing points of an affine curve have one-dimensional cokernel (residue theorem). Used in the index computation for affine curves ([§RD.5.25](#rd-5-25)).
 - EllipticCurves, Layer 3: an elliptic curve over 𝔽_q is supersingular if and only if p divides its Frobenius trace. Used in [§RD.7.11](#rd-7-11).
 - JacobianChallenge, Layer F: the Jacobian of a smooth proper geometrically connected curve with a rational point after a finite extension, the Abel–Jacobi map and its universal property for maps to abelian varieties. Used in [§RD.6.62](#rd-6-62).
@@ -374,15 +378,11 @@ Section numbers are those of the roadmaps named; each is built before this one.
 
 **AbelianSchemesAndArithmeticModuli.**
 
-- §A6.11 (*P_α is the characteristic polynomial of α on V_ℓA, for every ℓ ≠ char k*): used in RD.5.116, RD.7.17.
+- §A6.11 (*The characteristic polynomial on the Tate module*): used in RD.5.116, RD.7.17.
 
 **AdicCoefficientsAndComparisons.**
 
 - §L2: used in RD.3.1, RD.3.24, RD.4.10, RD.4.12.
-
-**AdicEtaleGeometry.**
-
-- AdicSpacesPartII §R2.76 and ClassicalAdicEtaleCohomology §§4.1–4.2: used in RD.4.41.
 
 **AdicSpacesPartII.**
 
@@ -403,7 +403,7 @@ Section numbers are those of the roadmaps named; each is built before this one.
 - §F1.46 (*The module of (universally finite) differentials Ω^1_A of a dagger algebra and the exterior derivative*): used in RD.0.38, RD.0.42, RD.0.44, RD.0.45, RD.3.8, RD.3.27, RD.3.28, RD.3.29, ….
 - §F1.48 (*The overconvergent de Rham complex of a smooth dagger space, with coefficients in a module with integrable connection*): used in RD.0.44, RD.4.1.
 - §F1.50 (*De Rham cohomology of a smooth partially proper dagger space equals that of its rigid space (and fails to for affinoids)*): used in RD.4.55.
-- §F1.55: used in RD.4.56.
+- §F1.55 (*Compactly supported coherent and de Rham cohomology of affinoid and Stein dagger spaces*): used in RD.4.56.
 - §F1.59 (*Trace on de Rham complexes for finite étale morphisms of smooth dagger spaces*): used in RD.3.39.
 - §F1.6 (*Dagger algebras over a complete nonarchimedean field*): used in RD.0.38, RD.0.42, RD.0.45, RD.3.8, RD.3.26, RD.3.27, RD.3.28, RD.3.32, ….
 - §F1.67 (*Strict normal crossings divisors on smooth dagger spaces (smooth dagger pairs)*): used in RD.5.100, RD.5.101.
@@ -411,6 +411,7 @@ Section numbers are those of the roadmaps named; each is built before this one.
 - §F1.69 (*The boundary-vanishing (compact-support) logarithmic de Rham complex Ω^•_X(log D)(−D)*): used in RD.5.106.
 - §F1.73 (*The integral subring of a dagger algebra of MW-type is a Monsky–Washnitzer lift*): used in RD.5.29.
 - §F1.9 (*A dagger algebra and its completion: faithful flatness, points, completed local rings, reducedness and regularity, supremum norm*): used in RD.3.38, RD.3.39, RD.3.49, RD.3.50.
+- §R2.76 (*The étale site of a formal scheme is the étale site of its special fibre; the generic-fibre functor on étale objects*): used in RD.4.41.
 - §R0.110 (*Jacobian criterion for closed subspaces of smooth spaces (Huber 1.6.9(ii))*): used in RD.3.11, RD.3.16.
 - §R0.54 (*Maximum modulus principle for K-affinoid algebras*): used in RD.3.5, RD.3.6, RD.3.11, RD.3.16, RD.3.30.
 - §R0.91 (*Quasi-finite and proper equals finite (Huber 1.5.5)*): used in RD.3.11.
@@ -424,24 +425,24 @@ Section numbers are those of the roadmaps named; each is built before this one.
 - §R3.23 (*Kiehl's Theorem B on quasi-Stein spaces*): used in RD.3.3, RD.3.4, RD.3.7, RD.3.10, RD.3.13, RD.3.32, RD.3.41, RD.4.8, ….
 - §R3.25 (*Coherent cohomology of the open polydisc vanishes*): used in RD.4.6.
 - §R3.26 (*Acyclicity of direct images along quasi-Stein inclusions*): used in RD.3.7, RD.4.24.
+- §R3.37 (*Kiehl's proper mapping theorem*): used in RD.5.115.
 - §R3.55 (*Proper GAGA: comparison of coherent cohomology (Köpf)*): used in RD.5.29, RD.5.31, RD.5.79, RD.5.81, RD.5.115.
 - §R3.56 (*Proper GAGA: analytification is an equivalence on coherent sheaves*): used in RD.6.54.
 - §§R3.55–R3.56: used in RD.4.58.
 
 **ArithmeticGaloisRepresentations.**
 
-- §3.1 (*Upper-numbering breaks and the Swan conductor of a representation with finite wild image*): used in RD.2.45, RD.2.46, RD.2.47.
-- §3.1 (*Swan conductor*): used in RD.2.45, RD.6.51, RD.6.52, RD.6.56.
-- §3.2 (*Integrality of Swan and Artin conductors*): used in RD.2.45, RD.2.47, RD.6.52.
-- §3.2 (*Conductor of a ramified character*): used in RD.2.46.
-- §3.4 (*Tame base change of Swan conductors*): used in RD.2.46.
-- §3.4 (*Unramified base change of conductors*): used in RD.2.46.
-- §3.4 (*Swan additivity in exact sequences*): used in RD.2.47, RD.6.52.
-- §3.5 (*Upper numbering of the subgroup G_L: the function ψ_{L/K} of a finite separable extension*): used in RD.2.46.
-- §3.5 (*The local induction formula for conductors, in rational form*): used in RD.6.54.
-- §3.7 (*Ramification break of an Artin–Schreier extension*): used in RD.2.44, RD.2.46.
-- §3.7 (*Artin–Schreier conductors*): used in RD.6.52.
-- §6.3 and AbelianSchemesAndArithmeticModuli §A5.7: used in RD.7.17.
+- §3.1 (*Finite wild image, breaks and the Swan conductor*): used in RD.2.45, RD.2.46, RD.2.47, RD.6.51, RD.6.52, RD.6.56.
+- §3.2 (*The Artin conductor and its integrality*, including the conductor of a ramified character): used in RD.2.45, RD.2.46, RD.2.47, RD.6.52.
+- §3.4 (*Functoriality*: tame and unramified base change of conductors, additivity of Swan conductors in exact sequences): used in RD.2.46, RD.2.47, RD.6.52.
+- §3.5 (*Induction and the conductor–discriminant formula*): used in RD.6.54.
+- §3.7 (*Computations and Artin–Schreier characters*): used in RD.2.44, RD.2.46, RD.6.52.
+- §2.6 (*Monodromy filtration and purity*): used in RD.6.80.
+- §6.3 (*Reduction and Euler factors*) and AbelianSchemesAndArithmeticModuli §A5.7 (*Degree-one realization conventions*): used in RD.7.17.
+
+**ClassicalAdicEtaleCohomology.**
+
+- §§4.1–4.2: used in RD.4.41.
 
 **ClassicalArithmeticCompletion.**
 
@@ -517,20 +518,18 @@ Section numbers are those of the roadmaps named; each is built before this one.
 
 **InverseGaloisAndArithmeticFundamentalGroups.**
 
-- §IG.0.3 (*Integral, isogeny and rational local systems*): used in RD.3.48.
+- §IG.0.3 (*Integral, isogeny and rational `ℤ_p`-local systems*): used in RD.3.48.
 - §§IG.1.1–IG.1.2: used in RD.6.61, RD.6.62, RD.6.63.
-- TauCetiRoadmap pull request #196 (CohomologicalPointCounting, ConstructibleEtale Layer 3): used in RD.3.48.
 
 **LefschetzPencilsAndVanishingCycles.**
 
-- ArithmeticGaloisRepresentations §2.6: used in RD.6.80.
-- §1.3 (*Monodromy filtration centered at an integer*): used in RD.6.80.
+- §1.3 (*The monodromy filtration in an abelian category*): used in RD.6.80.
 
 **LocallyAnalyticDistributions.**
 
 - Layer 0: used in RD.5.31, RD.5.42, RD.5.44.
-- §0.0 (*Nonarchimedean locally convex spaces*): used in RD.0.2, RD.5.40, RD.5.44.
-- §0.0 (*Locally convex inductive and projective limits*): used in RD.0.2, RD.5.30, RD.5.40, RD.5.42, RD.5.45, RD.6.5.
+- §0.0 (*Locally convex spaces and separation*): used in RD.0.2, RD.5.40, RD.5.44.
+- §0.0 (*Locally convex limits*): used in RD.0.2, RD.5.30, RD.5.40, RD.5.42, RD.5.45, RD.6.5.
 - §0.2 (*The nonarchimedean Hahn–Banach theorem*): used in RD.5.40, RD.5.42, RD.5.43, RD.5.62.
 - §4.2 (*Fredholm determinant in an orthonormal chart*): used in RD.6.5, RD.6.16.
 - §4.2 (*Cyclic Fredholm determinant identity*): used in RD.6.5, RD.6.16.
@@ -560,7 +559,7 @@ Section numbers are those of the roadmaps named; each is built before this one.
 - §SF.4b (T384) (*Grothendieck's algebraization theorem*): used in RD.5.29.
 - §SF.4b (T385) (*Formal deformations of proper curves are effective*): used in RD.5.29.
 - §SF.4c (Chow's lemma, T391) and AdicSpacesPartII §F1.28: used in RD.4.6, RD.4.7, RD.4.40, RD.4.44.
-- §SF.4c (T386) (*Modifications and their centres*): used in RD.5.71, RD.5.102.
+- §SF.4c (T386) (*Modifications*): used in RD.5.71, RD.5.102.
 - §SF.4c (T389) (*Flattening by blowing up (Raynaud–Gruson)*): used in RD.5.72, RD.5.73.
 - §SF.4c (T390) (*Modifications are dominated by admissible blowups*): used in RD.3.23, RD.5.71.
 - §SF.4c (T391) (*Chow's lemma*): used in RD.5.71, RD.5.73.
@@ -644,7 +643,7 @@ The API:
 2. Construct the compact completion as weighted two-sided null sequences. Compatible coefficient limits on a countable compact exhaustion give completeness and metrisability of A_K(I); the topology does not depend on the exhaustion.
 3. For discs use power-series truncations. Give the existing Robba union the locally convex inductive-limit topology of LocallyAnalyticDistributions §0.0 (i): a lattice is open exactly when its preimage in every chart is open, and a linear map out of R_K is continuous exactly when its restrictions to all charts are. Each chart is the projective limit of part (ii) over its compact windows. Chart restriction is injective and continuous; multiplication is continuous on every fixed chart and separately continuous on the union.
 
-*Sources.* Lazard, *Les zéros des fonctions analytiques d’une variable sur un corps valué complet*, §2, (2.1)–(2.6) and Proposition 1, pp.50–51; Kedlaya, *Slope filtrations revisited*, Definition 2.4.2 and Remark 2.4.3, p.460; Example 2.4.9, p.461; Colmez–Fargues–Fontaine, *Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Préface §2.5.1, p.24.
+*Sources.* Lazard, *Les zéros des fonctions analytiques d’une variable sur un corps valué complet*, §2, (2.1)–(2.6) and Proposition 1, pp.50–51; Kedlaya, *Slope filtrations revisited*, Definition 2.4.2 and Remark 2.4.3, p. 14; Example 2.4.9, p. 15; Colmez–Fargues–Fontaine, *Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Préface §2.5.1, p.24.
 
 *Needs:* [§RD.0.1](#rd-0-1) *Laurent, Robba and Amice coefficient carriers*; Mathlib `WithSeminorms`; Mathlib `WithSeminorms.continuous_of_isBounded`; LocallyAnalyticDistributions §0.0 *Locally convex spaces and separation*; LocallyAnalyticDistributions §0.0 *Locally convex limits*.
 
@@ -682,7 +681,7 @@ The API:
 2. Choose compatible coefficient lifts in O to identify O_E with the inverse limit of these Laurent series rings. This proves completeness and Hausdorffness of the levelwise topology.
 3. The t-adic multiplication estimates on each quotient give the ring topology. Truncate both tails modulo π^m to prove weak density. Every U(m,N) contains π^mO_E, so the identity from the π-adic topology to the weak topology is continuous.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Definition 2.2.7, p.454; Convention 2.3.1 and Definition 2.3.2, p.458.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Definition 2.2.7, p. 8; Convention 2.3.1 and Definition 2.3.2, pp. 11–12.
 
 *Needs:* [§RD.0.1](#rd-0-1) *Laurent, Robba and Amice coefficient carriers*; [§RD.0.2](#rd-0-2) *Laurent Fréchet charts and the Robba inductive limit*.
 
@@ -709,7 +708,7 @@ The API:
 2. For the positive tail use that estimate, including σ\_K on coefficients; for the negative tail a_i vanish modulo π^m once i is sufficiently negative. Thus both tails converge in every quotient.
 3. Use finite polynomial substitution and continuity to obtain additivity, multiplicativity and uniqueness on the weak completion. For reduction, raising a Laurent series to q in characteristic p applies q-power to coefficients and multiplies every exponent by q.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Convention 2.3.1 and Definitions 2.2.3, 2.2.7, pp.454,458.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Convention 2.3.1, p. 11, and Definitions 2.2.3 and 2.2.7, p. 8.
 
 *Needs:* [§RD.0.3](#rd-0-3) *The weak topology on the integral Amice ring*; [§RD.0.1](#rd-0-1) *Laurent, Robba and Amice coefficient carriers*.
 
@@ -874,7 +873,7 @@ The API:
 - `analyticRing_closed_interval`: For I = [0, s], Γ\_I = Γ\_s[π^{-1}].
 - `analyticRing_slopes_monomial`: For ℓ = k((t)), O = W(k) and the standard lift, the Laurent polynomial t − p has exactly one slope, equal to 1 with multiplicity 1 (its zero lies on |t| = |π|^1), while u·π^m for a unit u of Γ\_{r_0} has no slopes.
 - `analyticRing_compat_robba`: For ℓ = k((t)) and a Frobenius lift with σ(t) overconvergent, Γ\_an,con coincides with the Robba ring constructed in the Frobenius-lift target (see the comparison target).
-- `analyticRing_not_noetherian`: For ℓ = k((t)) the ideal generated by x_j = Π\_{i ≥ j}(1 − u^{p^i}/p^i), j ≥ 1, is not finitely generated, so Γ\_an,con is not noetherian.
+- `analyticRing_not_noetherian`: For ℓ = k((t)) the ideal generated by x_j = Π\_{i ≥ j}(1 − t^{p^i}/p^i), j ≥ 1, is not finitely generated, so Γ\_an,con is not noetherian.
 - For ℓ with trivial valuation: Γ\_I = Γ[π^{-1}] for every I and Γ\_an,con = Γ[π^{-1}].
 - For ℓ = k((t)): Γ\_an,con is the Robba ring (comparison target).
 
@@ -1064,7 +1063,7 @@ The API:
 2. Apply those bounds to |a_n|ρ^n at every radius, and to boundedness and the negative-tail limit for E. Reconstruct the inverse finite sum Σ\_j e_j f_j and verify multiplication coefficientwise using convergent convolution.
 3. Apply the same uniform bounds on every compact window. For the Robba union, finitely many coordinate series share a common inner radius; the final linear topology proves continuity in both directions.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Proof of Lemma 2.2.12, p.455, and Remark 2.3.8, p.459; Lazard, *Les zéros des fonctions analytiques d’une variable sur un corps valué complet*, §2, pp.50–53.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Proof of Lemma 2.2.12, p. 9, and Remark 2.3.8, pp. 13–14; Lazard, *Les zéros des fonctions analytiques d’une variable sur un corps valué complet*, §2, pp.50–53.
 
 *Needs:* [§RD.0.2](#rd-0-2) *Laurent Fréchet charts and the Robba inductive limit*; Mathlib `Module.Basis.equivFunL`; [§RD.0.1](#rd-0-1) *Laurent, Robba and Amice coefficient carriers*.
 
@@ -1675,7 +1674,7 @@ The API:
 
 **Checks.**
 
-- Numerical check (, p = 3): v_3(a_m)/m at m = 3^n equals n/3^n = 0.333, 0.222, 0.111, 0.049, 0.021, 0.008 for n = 1..6 (tending to 0), and for ρ = 3^{-1/10} the exponent 3^n/10 − n equals −0.7, −1.1, −0.3, 4.1, 19.3, 66.9, 211.7, 648.1 for n = 1..8, so |p^n|ρ^{-p^n} → ∞.
+- Numerical check (p = 3): v_3(a_m)/m at m = 3^n equals n/3^n = 0.333, 0.222, 0.111, 0.049, 0.021, 0.008 for n = 1..6 (tending to 0), and for ρ = 3^{-1/10} the exponent 3^n/10 − n equals −0.7, −1.1, −0.3, 4.1, 19.3, 66.9, 211.7, 648.1 for n = 1..8, so |p^n|ρ^{-p^n} → ∞.
 - Kedlaya's Monsky-Washnitzer example: for A = R[x] the sum Σ p^n x^{p^n −1} dx is a limit of exact differentials but not exact over the completion A^∞.
 
 <a id="rd-0-39"></a>
@@ -1712,7 +1711,7 @@ The API:
 
 **Theorem.** Let O_K be a complete discrete valuation ring with uniformiser π. (a) If A → B is a flat map of O_K-algebras of finite type whose reduction A/πA → B/πB is an isomorphism, the induced map of Monsky–Washnitzer weak completions A† → B† is an isomorphism. (b) If an algebra is weakly complete and the reductions modulo π of finitely many of its elements generate it modulo π, those elements weakly generate it; in particular it is weakly finitely generated. (c) For a weakly finitely generated O_K-algebra B† and a finitely presented étale B†-algebra C, the relative weak completion C† exists, is independent of the presentation and has the universal property for maps to weakly complete B†-algebras; quotient and evaluation maps extend to it. If C is an étale neighbourhood of an ideal contained in πB†, then C† = B† canonically.
 
-*Hypotheses.* O_K complete discretely valued; weak completion and weak finite generation in the sense of Monsky–Washnitzer (AdicSpacesPartII §F1, weak completions).
+*Hypotheses.* O_K complete discretely valued; weak completion and weak finite generation in the sense of Monsky–Washnitzer (AdicSpacesPartII §F1.22).
 
 *Proof sketch.*
 
@@ -1763,7 +1762,7 @@ The API:
 
 ### RD.0.42 Existence of Frobenius lifts on the weak completion of a smooth O_K-algebra (van der Put; Arabia)
 
-**Theorem.** Let O_K be a complete discrete valuation ring of characteristic 0 with uniformiser π and residue field k containing F_q, and σ\_K a Frobenius lift on K (continuous, σ\_K(O_K) ⊆ O_K, reducing to x ↦ x^q). Let S be a smooth finitely generated O_K-algebra and S† its weak completion (Monsky-Washnitzer; AdicSpacesPartII §F1.55), so that S†/πS† = S/πS =: S̄ is smooth over k. Then there is a ring endomorphism φ of S†, σ\_K-semilinear over O_K, with φ(x) − x^q ∈ πS† for all x ∈ S†. It extends to a K-(semi)linear endomorphism of S† ⊗ K preserving S†, and its relative linearisation S† ⊗\_{O_K,σ\_K} O_K → S† (with weak completion of the tensor product) is finite flat. If σ\_K is an automorphism, the semilinear ring map may also be viewed as finite flat. When k = F_q and σ\_K = id (for instance K finite over Q_p with residue field F_q), φ is an O_K-algebra endomorphism with φ(x) − x^q ∈ πS†, i.e. AlgHom.IsArithFrobAt φ (πS†) holds. Lifts are not unique; two of them are homotopic (the next target).
+**Theorem.** Let O_K be a complete discrete valuation ring of characteristic 0 with uniformiser π and residue field k containing F_q, and σ\_K a Frobenius lift on K (continuous, σ\_K(O_K) ⊆ O_K, reducing to x ↦ x^q). Let S be a smooth finitely generated O_K-algebra and S† its weak completion (Monsky-Washnitzer; AdicSpacesPartII §F1.22), so that S†/πS† = S/πS =: S̄ is smooth over k. Then there is a ring endomorphism φ of S†, σ\_K-semilinear over O_K, with φ(x) − x^q ∈ πS† for all x ∈ S†. It extends to a K-(semi)linear endomorphism of S† ⊗ K preserving S†, and its relative linearisation S† ⊗\_{O_K,σ\_K} O_K → S† (with weak completion of the tensor product) is finite flat. If σ\_K is an automorphism, the semilinear ring map may also be viewed as finite flat. When k = F_q and σ\_K = id (for instance K finite over Q_p with residue field F_q), φ is an O_K-algebra endomorphism with φ(x) − x^q ∈ πS†, i.e. AlgHom.IsArithFrobAt φ (πS†) holds. Lifts are not unique; two of them are homotopic (the next target).
 
 *Hypotheses.*
 
@@ -1906,7 +1905,7 @@ The API:
 2. Apply the comparison of truncated naive partial valuations with the σ-defined partial valuations (Slopes Lemmas 2.3.3 and 2.3.5). This proves equality, rather than just the easy upper bound from submultiplicativity; it excludes cancellation between dominant terms.
 3. Laurent truncations and the chart completion extend the equality to arbitrary analytic f. Uniform bounds on each compact window give continuity. Inverting π gives the bounded/Amice maps; the final seminorm topology gives the Robba map.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Lemmas 2.3.3 and 2.3.5, pp.458–459; Corollary 2.3.7, p.459; Definition 2.4.2, p.460.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Lemmas 2.3.3 and 2.3.5, p. 12; Corollary 2.3.7, p. 13; Definition 2.4.2, p. 14.
 
 *Needs:* [§RD.0.4](#rd-0-4) *Weak convergence of semilinear Laurent substitution*; [§RD.0.2](#rd-0-2) *Laurent Fréchet charts and the Robba inductive limit*; [§RD.0.6](#rd-0-6) *Partial valuations v_n, w_r on Witt vectors and the overconvergent Witt vectors W_con*; [§RD.0.25](#rd-0-25) *The Robba ring R_K is Kedlaya's analytic ring Γ^{k((t))}_an,con: naive and true partial valuations agree*.
 
@@ -1947,7 +1946,7 @@ The API:
 2. Translate max norms to min additive valuations by the fixed logarithmic normalisation. The zero family must be treated explicitly.
 3. Transport the equality under reindexing and nonzero diagonal rescaling; each coordinate summand is bounded by the norm of the reconstructed vector.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Definition 2.2.17, p.456.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Definition 2.2.17, p. 10.
 
 *Needs:* Mathlib `Module.Basis`.
 
@@ -1982,7 +1981,7 @@ The API:
 2. Uniqueness and spanning are algebraic requirements independent of norm orthogonality. Iterating Frobenius gives the analogous q^n monomial bases over κ^{q^n}.
 3. Use the valuation formula to identify coordinate projections as nonexpanding on weighted summands, which is the ingredient of Lemma 2.2.19.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Definition 2.2.17 and Lemma 2.2.19, p.456.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Definition 2.2.17 and Lemma 2.2.19, pp. 10–11.
 
 *Needs:* [§RD.0.47](#rd-0-47) *Valuation bases*; Mathlib `Module.Basis`.
 
@@ -2012,13 +2011,13 @@ The API:
 2. Expand every coefficient in the same finite collection of p-monomials in B. Each coordinate is then a Laurent series in t^p with coefficients in k^p, hence lies in κ^p. Uniqueness follows coefficientwise.
 3. At the lowest t-degree, independence of the constant p-monomials prevents cancellation, proving the minimum valuation formula. The infinite-coefficient example above fails the finite-support requirement, which corrects the source’s unrestricted example.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Example 2.2.18, p.456; preprint p.10.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Example 2.2.18, p. 10.
 
 *Needs:* [§RD.0.48](#rd-0-48) *Valuation p-bases and their finite monomials*.
 
 **Checks.**
 
-- The monomial families are empty-or-{t} for k perfect and {t,s} for k=F_p(s).
+- The monomial family is {t} for k perfect (B = ∅) and {t, s} for k = F_p(s).
 - For k=F_p(s_1,s_2,…), project coefficients onto the distinct constant p-monomials s_n: every n occurs, so the proposed expression cannot be a finite sum.
 
 <a id="rd-0-50"></a>
@@ -2049,7 +2048,7 @@ The API:
 3. Induct on the π-length to prove the truncated equality min_{j≤m}v_{j,r}(x)=min_u min_{j≤m}v_{j,r}(x_u u). It bounds the coefficient-of-one projection uniformly in the level, proves preservation of every sufficiently small shared Γ\_r, and gives levelwise continuity.
 4. Approximate the first finitely many residue coefficients in the completed perfect field by algebraic perfection levels; completeness of Γ for its levelwise topology extends f. Use the same truncated estimates before passing to limits, then all m, to preserve the overconvergence growth condition.
 
-*Sources.* Kedlaya, *Slope filtrations revisited*, Lemma 2.2.19 and proof, p.456.
+*Sources.* Kedlaya, *Slope filtrations revisited*, Lemma 2.2.19 and proof, pp. 10–11.
 
 *Needs:* [§RD.0.48](#rd-0-48) *Valuation p-bases and their finite monomials*; [§RD.0.9](#rd-0-9) *Kedlaya's analytic rings Γ^ℓ_I, Γ^ℓ_an,r and Γ^ℓ_an,con*; [§RD.0.6](#rd-0-6) *Partial valuations v_n, w_r on Witt vectors and the overconvergent Witt vectors W_con*.
 
@@ -2082,7 +2081,7 @@ The API:
 **Checks.**
 
 - α ∈ E: Δ = ∞ and a = α.
-- Tr(c^{1/p}) = Tr(c)^{1/p} = 1 for every c of trace 1, since Frobenius is a field automorphism of the perfect field L commuting with the Galois action.
+- Tr(c^{1/p}) = Tr(c)^{1/p} = 1 for every c of trace 1, since Frobenius is a field automorphism of the perfect field L (a finite Galois extension of E, as in the proof) commuting with the Galois action.
 - Non-example in characteristic 0: over E = ℚ\_p, α = p^{1/p} has Δ(α) = 1/p + 1/(p − 1), but v(α − a) ≤ 1/p for every a ∈ ℚ\_p; so no bound Δ − ε holds there.
 
 <a id="rd-0-52"></a>
@@ -2102,7 +2101,7 @@ The API:
 2. Witt functoriality acts coefficientwise. Uniqueness of the π-Teichmüller expansion, with G fixing π, makes every expansion coefficient fixed, hence in κ^perf. Conversely all such coefficients are fixed.
 3. The valuations of these coefficients are their restricted valuations in κ^alg. The same partial-valuation growth test therefore identifies the intersection with the overconvergent subring.
 
-*Sources.* Fontaine–Ouyang, *Theory of p-adic Galois Representations*, Propositions 3.6 and 3.8, pp.42–44; Kedlaya, *Slope filtrations revisited*, Convention 2.2.16, pp.455–456; proof of Proposition 2.2.21(a), p.457.
+*Sources.* Fontaine–Ouyang, *Theory of p-adic Galois Representations*, Propositions 3.6 and 3.8, pp.42–44; Kedlaya, *Slope filtrations revisited*, Convention 2.2.16, p. 9; proof of Proposition 2.2.21(a), p. 11.
 
 *Needs:* [§RD.0.9](#rd-0-9) *Kedlaya's analytic rings Γ^ℓ_I, Γ^ℓ_an,r and Γ^ℓ_an,con*; [§RD.0.6](#rd-0-6) *Partial valuations v_n, w_r on Witt vectors and the overconvergent Witt vectors W_con*; Mathlib `WittVector.map`; Mathlib `WittVector.map_coeff`; Mathlib `WittVector.ext`; [§RD.0.51](#rd-0-51) *Fixed fields of completed algebraic closures in characteristic p (Ax–Sen without a constant)*.
 
@@ -2453,7 +2452,7 @@ The API:
 
 *Hypotheses.* Same as the spectral-norm target; the Newton polygon uses v = −log|·|.
 
-*Proof sketch.* Christol-Dwork, Théorème 1.5 (attributed to Dwork, Katz, Turrittin), or Kedlaya's book Theorem 6.5.3 () as cited by Kedlaya-Xiao: compare the recursion D^{s} on the cyclic basis with the Newton polygon of P using the operator-norm bound (6) of Christol-Dwork. (Kedlaya–Xiao, *Differential modules on p-adic polyannuli*, Proposition 1.3.2, p. 9; Kedlaya, *Swan conductors for p-adic differential modules, I: A local construction*, Proposition 1.1.9, p. 3.)
+*Proof sketch.* Christol-Dwork, Théorème 1.5 (attributed to Dwork, Katz, Turrittin), or Kedlaya's book Theorem 6.5.3 (p. 106) as cited by Kedlaya-Xiao: compare the recursion D^{s} on the cyclic basis with the Newton polygon of P using the operator-norm bound (6) of Christol-Dwork. (Kedlaya–Xiao, *Differential modules on p-adic polyannuli*, Proposition 1.3.2, p. 9; Kedlaya, *Swan conductors for p-adic differential modules, I: A local construction*, Proposition 1.1.9, p. 3.)
 
 *Needs:* [§RD.1.8](#rd-1-8) *Spectral norm of ∂ on a differential module over a complete nonarchimedean differential field*; [§RD.1.2](#rd-1-2) *Twisted polynomials F{T} and cyclic vectors*.
 
@@ -2526,7 +2525,7 @@ The API:
 - `genericRadius_basis_indep`: The value computed from D_s in two bases related by H ∈ GL_n (functions on J) coincides (Christol-Dwork Proposition 1.3).
 - `genericRadius_zero`: For E = 0, S and IS are empty and the chosen radius convention is R(0, ρ) = ρ, T(0, ρ) = 1.
 - Trivial module: R(O, ρ) = ρ, T = 1.
-- Dwork exponential module E_π (D(w) = −π t^{-2} w, π^{p−1} = −p): D^s w = (−1)^s Σ\_k L(s,k) π^k t^{−s−k} w with L(s,k) = C(s−1,k−1) s!/k! (Lah numbers); |D_s|\_ρ^{1/s} → |π|ρ^{-2}, so R(E_π, ρ) = ρ^2 and T(E_π, ρ) = ρ for all ρ ∈ (0, 1). the Lah closed form was verified symbolically against the recursion D_{s+1} = D_s' + D_s f for s ≤ 40, and (1/s)(−log_p |D_s|\_ρ) − (1/(p−1) − 2a) at ρ = p^{-a} equals −0.012, −0.002, −0.001, −0.0002 at s = 50, 200, 800, 3200 for p = 3, a = 1/10 and is 0 for p = 5 and a ∈ {1/10, 3/10, 1/2, 9/10}.
+- Dwork exponential module E_π (D(w) = −π t^{-2} w, π^{p−1} = −p): D^s w = (−1)^s Σ\_k L(s,k) π^k t^{−s−k} w with L(s,k) = C(s−1,k−1) s!/k! (Lah numbers); |D_s|\_ρ^{1/s} → |π|ρ^{-2}, so R(E_π, ρ) = ρ^2 and T(E_π, ρ) = ρ for all ρ ∈ (0, 1). The Lah closed form satisfies the recursion D_{s+1} = D_s' + D_s f (a direct check for s ≤ 40), and (1/s)(−log_p |D_s|\_ρ) − (1/(p−1) − 2a) at ρ = p^{-a} equals −0.012, −0.002, −0.001, −0.0002 at s = 50, 200, 800, 3200 for p = 3, a = 1/10 and is 0 for p = 5 and a ∈ {1/10, 3/10, 1/2, 9/10}.
 
 <a id="rd-1-12"></a>
 
@@ -2951,7 +2950,7 @@ The API:
 - `hnFiltration_rankOne`: A rank-one σ-module is stable; its HN filtration is 0 ⊂ M.
 - `not_isSemistable_sum`: A(0) ⊕ A(1) is not semistable.
 - `newtonPolygon_endpoint`: The Newton polygon of S has endpoint (|S|, Σ S) and the HN polygon of M has endpoint (rank M, deg M).
-- `hnFiltration_compat_bundles`: Under the sign change μ ↦ −μ the definitions match the Harder-Narasimhan formalism of VectorBundlesAndIsocrystals Layer VB1 (degree-rank-slope target).
+- `hnFiltration_compat_bundles`: Under the sign change μ ↦ −μ these are the usual Harder–Narasimhan conventions for vector bundles (semistable means μ(N) ≤ μ(M) for subobjects N), so A(1), of arithmetic slope 1, corresponds to a bundle of slope −1.
 - A(0) ⊕ A(1) is not semistable (A(0) is a submodule of smaller slope); its HN filtration is 0 ⊂ A(0) ⊂ A(0) ⊕ A(1) with polygon slopes 0, 1.
 - M_{1,2} is stable of slope 1/2 and has HN polygon with slopes 1/2, 1/2.
 - In the special case of a perfect residue field k, K=W(k)[1/p], q=p and the standard lift σ(t)=t^p, this target agrees with FiniteFlatGroupsAndIntegralPadicHodgeTheory §§R07.4.7–R07.4.8: the same coefficient carriers, degree convention, standard blocks and increasing slope filtration. This roadmap adds the general coefficients and Frobenius lifts.
@@ -2974,7 +2973,7 @@ The API:
 - `FrobeniusModule.standard_isStable`: M_{c,d} is stable of slope c/d.
 - `FrobeniusModule.hom_standard_ne_zero_iff`: Hom(M_{c',d'}, M_{c,d}) ≠ 0 iff c'/d' ≥ c/d (v_ℓ nontrivial) or c'/d' = c/d (v_ℓ trivial).
 - `FrobeniusModule.standard_end_divisionRing`: End(M_{c,d}) is a division algebra.
-- `FrobeniusModule.standard_compat_vb0`: Over W(F̄\_q)-type coefficients, VB0's standard block of slope d/h is M_{−d,h}.
+- `FrobeniusModule.standard_compat_bundle`: Over W(F̄\_q)-type coefficients, the standard vector-bundle block of slope d/h (φ(e_h) = π^{−d}e_1) is M_{−d,h}.
 
 *Proof sketch.* Stability: Lemma 3.4.9. (a) Lemma 4.1.2: after [dd']\_\* both sides become sums of rank-one modules (Lemma 3.2.4), and Lemma 3.2.5 detects isomorphism. (b) Proposition 4.1.3 from the H^0/H^1 of twists and H^i([d]^\*M) ≅ H^i(M). (c) Corollary 4.1.4 via Hom = H^0(M^∨ ⊗ N), Ext = H^1. (d) Corollary 4.5.9 (after Dieudonné-Manin). (Kedlaya, *Slope filtrations revisited*, Definition 4.1.1, p. 40, and Lemma 4.1.2, p. 40, and Corollary 4.1.4, p. 40, and Corollary 4.5.9, p. 50.)
 
@@ -3074,7 +3073,7 @@ The API:
 
 ### RD.1.32 Dieudonné-Manin classification over a complete discretely valued field with algebraically closed residue field
 
-**Theorem.** Let κ be an algebraically closed field of characteristic p, O finite totally ramified over W(k_0) ⊆ W(κ), R = W(κ) ⊗\_{W(k_0)} O (a complete DVR with residue field κ), and σ a q-power Frobenius lift on R fixing π (after enlarging O). Every σ-module M over F = R[π^{-1}] is isomorphic to a direct sum of standard σ-modules M_{c,d}; the multiset of slopes c/d (each with multiplicity d) does not depend on the decomposition; there is a unique decomposition M = ⊕\_s M_s into isoclinic σ-submodules of pairwise distinct slopes (the slope decomposition), M_s being spanned (after a finite extension of O) by the eigenvectors of slope s; Hom(M_s, M_{s'}) = 0 for s ≠ s'. For κ = F̄\_q this is the familiar finite-residue-field special case of the present classification (sign dictionary: VB0's standard block of slope d/h is M_{−d,h}); for O = W(κ) and q = p it extends Mathlib's rank-one classification WittVector.isocrystal_classification to all ranks.
+**Theorem.** Let κ be an algebraically closed field of characteristic p, O finite totally ramified over W(k_0) ⊆ W(κ), R = W(κ) ⊗\_{W(k_0)} O (a complete DVR with residue field κ), and σ a q-power Frobenius lift on R fixing π (after enlarging O). Every σ-module M over F = R[π^{-1}] is isomorphic to a direct sum of standard σ-modules M_{c,d}; the multiset of slopes c/d (each with multiplicity d) does not depend on the decomposition; there is a unique decomposition M = ⊕\_s M_s into isoclinic σ-submodules of pairwise distinct slopes (the slope decomposition), M_s being spanned (after a finite extension of O) by the eigenvectors of slope s; Hom(M_s, M_{s'}) = 0 for s ≠ s'. For κ = F̄\_q this is the familiar finite-residue-field special case of the present classification (sign dictionary: the standard vector-bundle block of slope d/h, φ(e_h) = π^{−d}e_1, is M_{−d,h}); for O = W(κ) and q = p it extends Mathlib's rank-one classification WittVector.isocrystal_classification to all ranks.
 
 *Hypotheses.* κ algebraically closed (any cardinality, not only F̄\_q); the case of a non-closed residue field gives only a canonical slope filtration after base change.
 
@@ -3091,7 +3090,7 @@ The API:
 **Checks.**
 
 - F-matrix [[0, 1], [p, 0]] over W(F̄\_p)[1/p]: M_{1,2}, slopes 1/2, 1/2.
-- F-matrix [[0, 1], [p, u]] with u a unit (the matrix of Kedlaya's generic example, at the level of a residue field): Newton polygon of x^2 − ux − p has slopes 0 and 1, so M ≅ M_{0,1} ⊕ M_{1,1} (newtonpoly(x^2 − x − 3, 3) = [1, 0]).
+- F-matrix [[0, 1], [p, u]] with u a unit (the matrix of Kedlaya's generic example, at the level of a residue field): Newton polygon of x^2 − ux − p has slopes 0 and 1, so M ≅ M_{0,1} ⊕ M_{1,1} (for p = 3 and u = 1 the Newton polygon of x^2 − x − 3 has slopes 0 and 1).
 - Rank one: the classification is Mathlib's WittVector.isocrystal_classification.
 
 <a id="rd-1-33"></a>
@@ -3169,7 +3168,7 @@ The API:
 - `genericSlopes_compat_isocrystal`: For a one-dimensional Mathlib isocrystal over K(p, k), k algebraically closed, isomorphic to StandardOneDimIsocrystal p k m, the generic slope is m.
 - `slopes_generic_ne_special`: For F v_1 = v_2, F v_2 = p v_1 + u v_2 over R^bd (u = t, standard lift, O = Z_p) the generic slopes are {0, 1} but the special slopes are {1/2, 1/2}: generic and special slopes must not be conflated.
 - `slopes_not_charpoly`: The slope polygon is in general not the Newton polygon of the characteristic polynomial of a Frobenius matrix (Notes on isocrystals Remark 3.4, citing Katz; slope filtrations revisited Remark 5.2.7); it is for the companion matrix of a cyclic vector (generic-Newton-polygon target).
-- newtonpoly(x^2 − x − 3, 3) = [1, 0] and newtonpoly(x^2 − 5, 5) = [1/2, 1/2], the generic polygons of the σ-modules with F-matrices [[0,1],[3,1]] over W(F̄\_3)[1/3] and [[0,1],[5,0]] over W(F̄\_5)[1/5].
+- The Newton polygons of x^2 − x − 3 (at 3) and x^2 − 5 (at 5) have slopes {0, 1} and {1/2, 1/2}: these are the generic polygons of the σ-modules with F-matrices [[0,1],[3,1]] over W(F̄\_3)[1/3] and [[0,1],[5,0]] over W(F̄\_5)[1/5].
 - In the special case of a perfect residue field k, K=W(k)[1/p], q=p and the standard lift σ(t)=t^p, this target agrees with FiniteFlatGroupsAndIntegralPadicHodgeTheory §§R07.4.7–R07.4.8: the same coefficient carriers, degree convention, standard blocks and increasing slope filtration. This roadmap adds the general coefficients and Frobenius lifts.
 
 <a id="rd-1-36"></a>
@@ -3331,8 +3330,8 @@ The API:
 
 **Checks.**
 
-- Kedlaya's example: F v_1 = v_2, F v_2 = p v_1 + u v_2: x^2 − ux − p has Newton polygon with slopes 0, 1 (newtonpoly(x^2 − x − 3, 3) = [1, 0] with u ↦ 1 a unit).
-- F v_1 = v_2, F v_2 = p v_1: x^2 − p has slopes 1/2, 1/2 (newtonpoly(x^2 − 5, 5) = [1/2, 1/2]).
+- Kedlaya's example: F v_1 = v_2, F v_2 = p v_1 + u v_2: x^2 − ux − p has Newton polygon with slopes 0, 1 (for p = 3, u = 1: x^2 − x − 3).
+- F v_1 = v_2, F v_2 = p v_1: x^2 − p has slopes 1/2, 1/2 (for p = 5: x^2 − 5).
 
 <a id="rd-1-43"></a>
 
@@ -3439,9 +3438,9 @@ The API:
 
 **Checks.**
 
-- (1): v_p(π^n/n!) = s_p(n)/(p−1) checked for n ≤ 400 and p = 3, 5, 7; at n = p^k the value is 1/(p−1) (no decay on |x| = 1).
+- (1): v_p(π^n/n!) = s_p(n)/(p−1) (a direct check for n ≤ 400 and p = 3, 5, 7); at n = p^k the value is 1/(p−1) (no decay on |x| = 1).
 - (2): coefficients c_n of exp(π(x − x^p)) computed in Q[π]/(π^{p−1} + p): min_n (v_p(c_n) − n(p−1)/p^2) = 5/18 over n ≤ 120 for p = 3 and 9/100 over n ≤ 60 for p = 5 (so v_p(c_n) ≥ n(p−1)/p^2 in this range, radius ≥ p^{(p−1)/p^2}).
-- (3): Lah closed form of D^s verified symbolically for s ≤ 40; (1/s)(−log_p|D_s|\_ρ) converges to 1/(p−1) − 2a at ρ = p^{-a} (differences −0.012, −0.002, −0.001, −0.0002 at s = 50, 200, 800, 3200 for p = 3, a = 1/10; exactly 0 for p = 5 and a ∈ {1/10, 3/10, 1/2, 9/10}).
+- (3): the Lah closed form of D^s satisfies the recursion (a direct check for s ≤ 40); (1/s)(−log_p|D_s|\_ρ) converges to 1/(p−1) − 2a at ρ = p^{-a} (differences −0.012, −0.002, −0.001, −0.0002 at s = 50, 200, 800, 3200 for p = 3, a = 1/10; exactly 0 for p = 5 and a ∈ {1/10, 3/10, 1/2, 9/10}).
 
 <a id="rd-1-47"></a>
 
@@ -4345,7 +4344,7 @@ these categories.
 
 **Checks.**
 
-- SFR §7.3: F v_1 = v_2, F v_2 = p v_1 + u v_2 with u^σ = u^p: generic slopes {0, 1} (Newton polygon of x² − ux − p), special slopes {1/2, 1/2} (Dwork's trick); newtonpoly gives [1, 0] for x² − (1+3y)x − 3 and [1/2, 1/2] for x² − 3.
+- SFR §7.3: F v_1 = v_2, F v_2 = p v_1 + u v_2 with u^σ = u^p: generic slopes {0, 1} (Newton polygon of x² − ux − p), special slopes {1/2, 1/2} (Dwork's trick); for p = 3 the Newton polygon of x² − (1 + 3y)x − 3 has slopes {0, 1} and that of x² − 3 has slopes {1/2, 1/2}.
 - Bessel isocrystal (arXiv:math/0110124 §1.5): generic 0, 1; special 1/2, 1/2.
 
 <a id="rd-2-4"></a>
@@ -5234,7 +5233,7 @@ The API:
 - `SolutionSpace.finrank_eq_rank`: dim V_L(M) = rank M, and M is unipotent over R_K iff its G_L-representation is semilinearly trivial, that is, a sum of copies of K' with coefficient action (for L large); the inertia subgroup fixing K' then acts identically.
 - `SolutionSpace.not_for_nonsolvable`: For the ∇-module R_K e with ∇e = e dt (no Frobenius structure), (R^L_log e)^{∇=0} = 0 for every L: the construction requires quasi-unipotence.
 - M = (R_K, d) with F = φ: V = K', φ = σ\_K, N = 0, with the usual coefficient Galois action on K'.
-- SFR Example 7.2.6 with u^σ = u^q: V = K e_1 ⊕ K(e_2 − ℓ e_1), φ(e_1) = e_1, φ(e_2 − ℓe_1) = q(e_2 − ℓe_1), N(e_2 − ℓ e_1) = e_1, N(e_1) = 0; Nφ = qφN holds = q·diag(1,q)·N for N = [[0,1],[0,0]]).
+- SFR Example 7.2.6 with u^σ = u^q: V = K e_1 ⊕ K(e_2 − ℓ e_1), φ(e_1) = e_1, φ(e_2 − ℓe_1) = q(e_2 − ℓe_1), N(e_2 − ℓ e_1) = e_1, N(e_1) = 0; Nφ = qφN holds: for N = [[0,1],[0,0]] both N·diag(1,q) and q·diag(1,q)·N equal [[0,q],[0,0]].
 
 <a id="rd-2-35"></a>
 
@@ -5387,7 +5386,7 @@ The API:
 
 **Checks.**
 
-- N_0 φ = q φ N_0 for N_0 = [[0,1],[0,0]], φ = diag(1,q): checked in (N\*F(3) == 3\*F(3)\*N returns 1).
+- N_0 φ = q φ N_0 for N_0 = [[0,1],[0,0]], φ = diag(1,q): both sides equal [[0,q],[0,0]].
 - Residue nilpotent of index 2; H^0(M) = K e_1 = ker N_0 and H^1(M) ≅ coker N_0 is one-dimensional (Crew, Remark after Proposition 6.7).
 - Negative control: the trivial rank-one connection has the logarithmic lattice generated by f = t e, of residue 1. Frobenius on the punctured annulus sends f to t^{q−1}f, which is not an isomorphism of that lattice at t = 0; this lattice need not have nilpotent residue.
 
@@ -5415,7 +5414,7 @@ The API:
 
 **Checks.**
 
-- λ = 1, p odd or p = 2: R(M_1, ρ)/ρ → p^{-1/(p−1)} (1/√3 for p = 3), numerically confirmed.
+- λ = 1, p odd or p = 2: R(M_1, ρ)/ρ → p^{-1/(p−1)} (1/√3 for p = 3).
 - λ = π: M_π is trivial; this is the connection of the Dwork isocrystal L_π at the finite points (Berthelot 4.2.3), which does carry a Frobenius structure.
 
 <a id="rd-2-42"></a>
@@ -5438,7 +5437,7 @@ The API:
 
 **Checks.**
 
-- Numerical check (): v(c_N)/N at N = 200 is 0.235 (p = 3) ≥ 2/9, 0.165 (p = 5) ≥ 4/25, 0.1267 (p = 7) ≥ 6/49.
+- Numerical check: v(c_N)/N at N = 200 is 0.235 (p = 3) ≥ 2/9, 0.165 (p = 5) ≥ 4/25, 0.1267 (p = 7) ≥ 6/49.
 - Exercise of Berthelot 4.2.4: H^\*\_rig(A^1/K, L_π) = H^\*\_c(A^1/K, L_π) = 0 (consistent with Swan conductor 1 at ∞ and the Euler characteristic χ(A^1)·1 − Swan = 1 − 1 = 0).
 
 <a id="rd-2-43"></a>
@@ -5490,7 +5489,7 @@ The API:
 
 *Sources.* Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Lemmas 5.3.1, 5.3.2 and 5.3.3, pp. 30-32, and Definition 5.4.1 and Lemmas 5.4.4-5.4.9, pp. 32-35, and Example 2.1.10, p. 6.
 
-*Needs:* [§RD.1.17](#rd-1-17) *Highest break b(E) of a solvable ∇-module (differential irregularity)*; [§RD.1.13](#rd-1-13) *The generic radius is the radius of convergence of horizontal sections at a generic point (Dwork transfer)*; [§RD.1.12](#rd-1-12) *Basic properties of generic radii: exact sequences, duals, tensor products, log-concavity, continuity, invariance*; [§RD.1.46](#rd-1-46) *The rank-one exponential connection (Dwork's exponential): radius, highest break 1, Swan conductor 1, unit-root Frobenius structure*; [§RD.2.16](#rd-2-16) *Unipotent ∇-modules are the modules V ⊗ R with nilpotent residue*; [§RD.2.11](#rd-2-11) *Finite étale extensions of R^int and the Robba rings R^L of finite separable extensions of k((t))*; [§RD.2.18](#rd-2-18) *Unramified extensions E_L, E†_L and the completed maximal unramified extension Ẽ of the Amice ring*; ArithmeticGaloisRepresentations §3.7 *Ramification break of an Artin–Schreier extension*.
+*Needs:* [§RD.1.17](#rd-1-17) *Highest break b(E) of a solvable ∇-module (differential irregularity)*; [§RD.1.13](#rd-1-13) *The generic radius is the radius of convergence of horizontal sections at a generic point (Dwork transfer)*; [§RD.1.12](#rd-1-12) *Basic properties of generic radii: exact sequences, duals, tensor products, log-concavity, continuity, invariance*; [§RD.1.46](#rd-1-46) *The rank-one exponential connection (Dwork's exponential): radius, highest break 1, Swan conductor 1, unit-root Frobenius structure*; [§RD.2.16](#rd-2-16) *Unipotent ∇-modules are the modules V ⊗ R with nilpotent residue*; [§RD.2.11](#rd-2-11) *Finite étale extensions of R^int and the Robba rings R^L of finite separable extensions of k((t))*; [§RD.2.18](#rd-2-18) *Unramified extensions E_L, E†_L and the completed maximal unramified extension Ẽ of the Amice ring*; ArithmeticGaloisRepresentations §3.7 *Computations and Artin–Schreier characters*.
 
 **Checks.**
 
@@ -5508,7 +5507,7 @@ The API:
 *Hypotheses.*
 
 - κ perfect; for imperfect κ this filtration is not defined (Abbes–Saito's filtration replaces it).
-- For finite κ this is the theory of ArithmeticGaloisRepresentations Layer 3 (§3.1).
+- For finite κ the lower and upper numbering, the Herbrand functions and Herbrand's theorem are those of TauCetiRoadmap LocalFieldsRamification Layer 3 (finite Galois extensions of nonarchimedean local fields), and the breaks and the Swan conductor are those of ArithmeticGaloisRepresentations Layer 3 (§3.1). This target extends them to infinite perfect κ, where those statements do not apply.
 
 The API:
 
@@ -5521,7 +5520,7 @@ The API:
 
 *Proof sketch.* Serre's construction (Local Fields, Chapter IV) uses only that the residue extensions are separable, which holds when κ is perfect; Herbrand's theorem gives compatibility with quotients. The break decomposition follows from the finiteness of the image of P_L and the fact that G_L^{b+} is normal; integrality of the Swan conductor is the Hasse–Arf theorem (Local Fields, Chapter V §7, abelian case) together with the integrality of Artin conductors (Chapter VI §2). (Serre, *Local Fields*, GTM 67, Chapter IV §§1–3, Chapter V §7 and Chapter VI §2 (residue field assumed perfect throughout); Katz, *Gauss sums, Kloosterman sums and monodromy groups*, Ann. of Math. Studies 116, Chapter 1 (breaks and Swan conductors of representations with finite wild image).)
 
-*Needs:* ArithmeticGaloisRepresentations §3.1 *Upper-numbering breaks and the Swan conductor of a representation with finite wild image*; ArithmeticGaloisRepresentations §3.1 *Swan conductor*; ArithmeticGaloisRepresentations §3.2 *Integrality of Swan and Artin conductors*.
+*Needs:* TauCetiRoadmap LocalFieldsRamification Layer 3 (*ramification, the tame and wild cases, and the filtration*); ArithmeticGaloisRepresentations §3.1 *Finite wild image, breaks and the Swan conductor*; ArithmeticGaloisRepresentations §3.2 *The Artin conductor and its integrality*.
 
 **Checks.**
 
@@ -5549,7 +5548,7 @@ The API:
 
 *Sources.* Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Theorem 5.4.10 and proof, pp. 35-36, and Remark 5.4.13, p. 36, and Proposition 2.3.6, p. 8.
 
-*Needs:* [§RD.2.44](#rd-2-44) *Highest breaks under unipotent twists, tame covers and Artin-Schreier covers*; [§RD.2.36](#rd-2-36) *Matsuda's decomposition of quasi-unipotent ∇-modules as ⊕ F_i ⊗ U_i*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*; [§RD.1.17](#rd-1-17) *Highest break b(E) of a solvable ∇-module (differential irregularity)*; ArithmeticGaloisRepresentations §3.1 *Upper-numbering breaks and the Swan conductor of a representation with finite wild image*; ArithmeticGaloisRepresentations §3.5 *Upper numbering of the subgroup G_L: the function ψ_{L/K} of a finite separable extension*; ArithmeticGaloisRepresentations §3.7 *Ramification break of an Artin–Schreier extension*; ArithmeticGaloisRepresentations §3.2 *Conductor of a ramified character*; ArithmeticGaloisRepresentations §3.4 *Tame base change of Swan conductors*; [§RD.2.17](#rd-2-17) *Quasi-unipotent ∇-modules are overconvergent*; [§RD.1.12](#rd-1-12) *Basic properties of generic radii: exact sequences, duals, tensor products, log-concavity, continuity, invariance*; ArithmeticGaloisRepresentations §3.4 *Unramified base change of conductors*; [§RD.2.45](#rd-2-45) *Upper numbering and Swan conductors over a perfect residue field*.
+*Needs:* [§RD.2.44](#rd-2-44) *Highest breaks under unipotent twists, tame covers and Artin-Schreier covers*; [§RD.2.36](#rd-2-36) *Matsuda's decomposition of quasi-unipotent ∇-modules as ⊕ F_i ⊗ U_i*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*; [§RD.1.17](#rd-1-17) *Highest break b(E) of a solvable ∇-module (differential irregularity)*; ArithmeticGaloisRepresentations §3.1 *Finite wild image, breaks and the Swan conductor*; [§RD.2.45](#rd-2-45) *Upper numbering and Swan conductors over a perfect residue field*; ArithmeticGaloisRepresentations §3.7 *Computations and Artin–Schreier characters*; ArithmeticGaloisRepresentations §3.2 *The Artin conductor and its integrality*; ArithmeticGaloisRepresentations §3.4 *Functoriality*; [§RD.2.17](#rd-2-17) *Quasi-unipotent ∇-modules are overconvergent*; [§RD.1.12](#rd-1-12) *Basic properties of generic radii: exact sequences, duals, tensor products, log-concavity, continuity, invariance*; ArithmeticGaloisRepresentations §3.4 *Functoriality*; [§RD.2.45](#rd-2-45) *Upper numbering and Swan conductors over a perfect residue field*.
 
 **Checks.**
 
@@ -5576,7 +5575,7 @@ The API:
 
 *Sources.* Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Corollary 5.4.11, Remarks 5.4.12-5.4.13, p. 36; Kedlaya, *p-adic Differential Equations*, Theorem 19.4.1, Corollary 19.4.2, Remark 19.4.4, pp. 321-322; André, *Filtrations de type Hasse-Arf et monodromie p-adique*, Complément 7.1.2 and its proof, p. 24.
 
-*Needs:* [§RD.2.46](#rd-2-46) *The highest break of a quasi-unipotent ∇-module equals the highest ramification break of its monodromy representation*; [§RD.2.36](#rd-2-36) *Matsuda's decomposition of quasi-unipotent ∇-modules as ⊕ F_i ⊗ U_i*; [§RD.2.24](#rd-2-24) *Unit-root differential modules D(V), D†(V) attached to Galois representations; finite local monodromy*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*; [§RD.2.31](#rd-2-31) *The p-adic local monodromy theorem (Crew's conjecture): (φ,∇)-modules over the Robba ring are quasi-unipotent*; [§RD.1.18](#rd-1-18) *Break decomposition of a solvable ∇-module near the boundary (Christol-Mebkhout)*; [§RD.1.19](#rd-1-19) *Break multiset and differential Swan conductor of a solvable ∇-module*; [§RD.1.11](#rd-1-11) *Generic radius of convergence R(E, ρ), intrinsic radius T(E, ρ) and subsidiary radii*; ArithmeticGaloisRepresentations §3.1 *Upper-numbering breaks and the Swan conductor of a representation with finite wild image*; ArithmeticGaloisRepresentations §3.2 *Integrality of Swan and Artin conductors*; ArithmeticGaloisRepresentations §3.4 *Swan additivity in exact sequences*; [§RD.2.17](#rd-2-17) *Quasi-unipotent ∇-modules are overconvergent*.
+*Needs:* [§RD.2.46](#rd-2-46) *The highest break of a quasi-unipotent ∇-module equals the highest ramification break of its monodromy representation*; [§RD.2.36](#rd-2-36) *Matsuda's decomposition of quasi-unipotent ∇-modules as ⊕ F_i ⊗ U_i*; [§RD.2.24](#rd-2-24) *Unit-root differential modules D(V), D†(V) attached to Galois representations; finite local monodromy*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*; [§RD.2.31](#rd-2-31) *The p-adic local monodromy theorem (Crew's conjecture): (φ,∇)-modules over the Robba ring are quasi-unipotent*; [§RD.1.18](#rd-1-18) *Break decomposition of a solvable ∇-module near the boundary (Christol-Mebkhout)*; [§RD.1.19](#rd-1-19) *Break multiset and differential Swan conductor of a solvable ∇-module*; [§RD.1.11](#rd-1-11) *Generic radius of convergence R(E, ρ), intrinsic radius T(E, ρ) and subsidiary radii*; ArithmeticGaloisRepresentations §3.1 *Finite wild image, breaks and the Swan conductor*; ArithmeticGaloisRepresentations §3.2 *The Artin conductor and its integrality*; ArithmeticGaloisRepresentations §3.4 *Functoriality*; [§RD.2.17](#rd-2-17) *Quasi-unipotent ∇-modules are overconvergent*.
 
 **Checks.**
 
@@ -5730,7 +5729,7 @@ The Checks of the targets above are the worked examples of this layer.
 
 ### Dependencies
 
-Earlier layers: RD.0, RD.1. Other roadmaps: ArithmeticGaloisRepresentations, FiniteFlatGroupsAndIntegralPadicHodgeTheory. Libraries: Mathlib and Tau Ceti.
+Earlier layers: RD.0, RD.1. Other roadmaps: ArithmeticGaloisRepresentations, FiniteFlatGroupsAndIntegralPadicHodgeTheory. TauCetiRoadmap: LocalFieldsRamification. Libraries: Mathlib and Tau Ceti.
 
 ## Layer RD.3: Frames, convergent and overconvergent coefficients
 
@@ -5769,7 +5768,7 @@ The API:
 - `Frame.prod`: Fibre product of frames over (X, Y): (X, Y, P ×\_O P') with the diagonal immersion, used to compare two frames.
 - `Frame.affineSpace`: (A^n_k, P^n_k, P̂^n_O) and (A^n_k, (P^1_k)^n, (P̂^1_O)^n).
 
-*Proof sketch.* The data are Mathlib schemes and morphism classes (AlgebraicGeometry.IsOpenImmersion, IsClosedImmersion, IsProper, Smooth) together with a formal scheme from AdicSpacesPartII Layer R2; smoothness of P near X is smoothness of the reductions P ⊗ O/π^n near X (Berthelot 1.1). (Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.2), p. 17; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Hypothesis 4.2.1, p. 25.)
+*Proof sketch.* The data are Mathlib schemes and morphism classes (AlgebraicGeometry.IsOpenImmersion, IsClosedImmersion, IsProper, Smooth) together with a formal scheme from AdicSpacesPartII Layer R2; smoothness of P near X is smoothness of the reductions P ⊗ O/π^n near X (Berthelot 1.1). (Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.2), pp. 16–17; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Hypothesis 4.2.1, p. 25.)
 
 *Needs:* Mathlib `AlgebraicGeometry.Scheme`; Mathlib `AlgebraicGeometry.IsOpenImmersion`; Mathlib `AlgebraicGeometry.IsClosedImmersion`; Mathlib `AlgebraicGeometry.IsProper`; Mathlib `AlgebraicGeometry.Smooth`; Mathlib `AlgebraicGeometry.IsSeparated`; AdicCoefficientsAndComparisons §L2; AdicSpacesPartII §R2.10 *For formal O_K-schemes locally of tf presentation, d(X) is the adic space of Raynaud's rigid generic fibre*; AdicSpacesPartII §R2.11 *The generic fibre commutes with fibre products and with completed extension of the base field*; AdicSpacesPartII §R2.13 *Tubes ]T[ of locally closed subsets of the special fibre, adic and rigid*.
 
@@ -5799,7 +5798,7 @@ The API:
 - `Frame.tube_isQuasiStein`: For P affine, ]T[\_P is quasi-Stein.
 - `Frame.tube_union_radius`: ]T[\_P = ∪\_{λ<1} ]T[\_{P,λ} (admissible covering) for T closed.
 
-*Proof sketch.* Start from the tube of AdicSpacesPartII §R2 and its rigid–adic comparison. For an affine formal scheme and a closed T, use its increasing rational exhaustion to prove the tube is quasi-Stein; for locally closed T choose the corresponding open formal locus first. Functoriality: a morphism u : P' → P with u(T') ⊆ T maps ]T'[\_{P'} into ]T[\_P (sp is natural). (Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (1.3) Définition, p. 12; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 4.1.2, p. 25.)
+*Proof sketch.* Start from the tube of AdicSpacesPartII §R2.13 and its rigid–adic comparison. For an affine formal scheme and a closed T, use its increasing rational exhaustion to prove the tube is quasi-Stein; for locally closed T choose the corresponding open formal locus first. Functoriality: a morphism u : P' → P with u(T') ⊆ T maps ]T'[\_{P'} into ]T[\_P (sp is natural). (Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (1.3) Définition, p. 12; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 4.1.2, p. 25.)
 
 *Needs:* AdicSpacesPartII §R2.10 *For formal O_K-schemes locally of tf presentation, d(X) is the adic space of Raynaud's rigid generic fibre*; AdicSpacesPartII §R2.11 *The generic fibre commutes with fibre products and with completed extension of the base field*; AdicSpacesPartII §R2.13 *Tubes ]T[ of locally closed subsets of the special fibre, adic and rigid*; Mathlib `AlgebraicGeometry.Scheme`.
 
@@ -5872,7 +5871,7 @@ The API:
 - `Frame.jDagger_map`: For a morphism of frames u, the canonical map j†E → u_\* j'† u^{-1} E, compatible with composition.
 - `Frame.jDagger_empty_boundary`: If Z = ∅ then j†E = E.
 
-*Proof sketch.* Direct limit of sheaves (a sheaf on the G-topology of ]Y[ since the limit is filtered). Module structure and the canonical map from the adjunctions (Berthelot 2.2, construction of (2.2.1)). (Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.2), p. 17; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 4.3.1, p. 27.)
+*Proof sketch.* Direct limit of sheaves (a sheaf on the G-topology of ]Y[ since the limit is filtered). Module structure and the canonical map from the adjunctions (Berthelot 2.2, construction of (2.2.1)). (Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.2), pp. 16–17; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 4.3.1, p. 27.)
 
 *Needs:* [§RD.3.3](#rd-3-3) *Strict neighbourhoods of ]X[ in ]Y[*; [§RD.3.2](#rd-3-2) *The tube ]T[_P of a locally closed subscheme*; AdicSpacesPartII §R2.10 *For formal O_K-schemes locally of tf presentation, d(X) is the adic space of Raynaud's rigid generic fibre*; AdicSpacesPartII §R2.11 *The generic fibre commutes with fibre products and with completed extension of the base field*; AdicSpacesPartII §R2.13 *Tubes ]T[ of locally closed subsets of the special fibre, adic and rigid*; AdicSpacesPartII §R3.16 *Kiehl's theorem: coherent sheaves on a strongly noetherian Tate affinoid are the M̃*; AdicSpacesPartII §R3.23 *Kiehl's Theorem B on quasi-Stein spaces*.
 
@@ -5980,7 +5979,7 @@ The API:
 *Proof sketch.*
 
 1. Identify the tube ]X̄[ with 𝔛\_K^an ∩ P^{n,an}\_K and ]Z[\_λ with the complement of the ball of radius 1/λ by an exercise in projective coordinates (Berthelot 2.1).
-2. Γ(U_λ, O) is the ring of functions on the affinoid 𝔛\_K^an ∩ B(0, 1/λ); their union is A† ⊗ K by the definition of weak completion (AdicSpacesPartII §F1.55: dagger algebras as unions over radius-indexed presentations; Kedlaya, Finiteness, §2.2 and Remark 4.2.5).
+2. Γ(U_λ, O) is the ring of functions on the affinoid 𝔛\_K^an ∩ B(0, 1/λ); their union is A† ⊗ K by the definition of weak completion (AdicSpacesPartII §F1.22, weak completions, and §F1.15, radius-indexed presentations; Kedlaya, Finiteness, §2.2 and Remark 4.2.5).
 3. The identity Γ = A† ⊗ K is Berthelot 96-03 (2.1.2.4), p. 50; the module-level statement (coherent j†O-modules and overconvergent isocrystals on the Monsky–Washnitzer frame are determined by their global sections over A†\_K) is [§RD.3.29](#rd-3-29), proved in (2.5.2) without Theorem B for the frame.
 
 *Sources.* Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.1), p. 16; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Remark 4.2.5, p. 26.
@@ -6478,7 +6477,7 @@ The API:
 
 ### RD.3.28 (σ,∇)-modules over a dagger algebra of Monsky–Washnitzer type
 
-**Definition.** Let A be a dagger algebra of MW-type over K (a quotient of K⟨x_1,…,x_n⟩† that is regular and whose reduction A^int/πA^int is a smooth k-algebra), with its module of continuous differentials Ω^1_{A/K} (finite projective) and exterior powers Ω^i_{A/K} = ∧^i Ω^1_{A/K}, and let σ: A → A be a Frobenius lift (σ\_K-semilinear, acting as the q-power map on the reduction). A (σ,∇)-module over A is a finite locally free A-module M together with (a) an integrable connection ∇: M → M ⊗\_A Ω^1_{A/K}: a K-linear map with ∇(am) = a∇(m) + m ⊗ da and ∇\_1 ∘ ∇ = 0, where ∇\_i: M ⊗ Ω^i → M ⊗ Ω^{i+1} is the induced map; and (b) a Frobenius structure: an additive σ-semilinear map F: M → M (F(am) = σ(a)F(m)) whose linearisation σ^\*M → M is an isomorphism; subject to ∇ ∘ F = (F ⊗ dσ) ∘ ∇, i.e. the linearisation is horizontal. Morphisms are A-linear maps commuting with ∇ and F. The trivial object is (A, d, σ). A finite module with integrable connection over a weak completion of a smooth V-algebra, equipped with a horizontal invertible Frobenius pullback map lifting residue Frobenius, has the required overconvergent Taylor isomorphism. Integrability without such Frobenius is not enough.
+**Definition.** Let A be a dagger algebra of MW-type over K (a quotient of K⟨x_1,…,x_n⟩† that is regular and whose reduction A^int/πA^int is a smooth k-algebra), with its module of continuous differentials Ω^1_{A/K} (finite projective) and exterior powers Ω^i_{A/K} = ∧^i Ω^1_{A/K}, and let σ: A → A be a Frobenius lift (σ\_K-semilinear, acting as the q-power map on the reduction). A (σ,∇)-module over A is a finite locally free A-module M together with (a) an integrable connection ∇: M → M ⊗\_A Ω^1_{A/K}: a K-linear map with ∇(am) = a∇(m) + m ⊗ da and ∇\_1 ∘ ∇ = 0, where ∇\_i: M ⊗ Ω^i → M ⊗ Ω^{i+1} is the induced map; and (b) a Frobenius structure: an additive σ-semilinear map F: M → M (F(am) = σ(a)F(m)) whose linearisation σ^\*M → M is an isomorphism; subject to ∇ ∘ F = (F ⊗ dσ) ∘ ∇, i.e. the linearisation is horizontal. Morphisms are A-linear maps commuting with ∇ and F. The trivial object is (A, d, σ). A finite module with integrable connection over a weak completion of a smooth O_K-algebra, equipped with a horizontal invertible Frobenius pullback map lifting residue Frobenius, has the required overconvergent Taylor isomorphism. Integrability without such Frobenius is not enough.
 
 *Hypotheses.*
 
@@ -6500,7 +6499,7 @@ The API:
 
 *Proof sketch.*
 
-1. The dagger algebra, its differentials Ω^i_{A/K} and the exterior derivative d are supplied by AdicSpacesPartII §F1.55; tensor products are Mathlib's TensorProduct over A.
+1. The dagger algebra, its differentials Ω^i_{A/K} and the exterior derivative d are supplied by AdicSpacesPartII §§F1.6 and F1.46; tensor products are Mathlib's TensorProduct over A.
 2. Leibniz and integrability are conditions on the data (∇, F); they are checked on the generators dx_j of Ω^1 for A a quotient of K⟨x_1,…,x_n⟩†.
 3. Horizontality of the linearisation σ^\*M → M is equivalent to ∇ ∘ F = (F ⊗ dσ) ∘ ∇ (Kedlaya, Remark 3.3.3).
 4. Local freeness from a connection (Kedlaya, Lemma 3.3.4): at a maximal ideal a, a minimal nontrivial relation Σ c_i v_i = 0 among lifts of a basis of M/aM is differentiated along a vector field ∂\_j with ∂\_j c_1 of smaller order, producing a relation of smaller minimal order, a contradiction.
@@ -6602,7 +6601,7 @@ The API:
 
 ### RD.3.32 Overconvergent F-isocrystals on a smooth affine variety are (σ,∇)-modules over its dagger algebra
 
-**Theorem.** Let X be a smooth affine k-scheme, A a dagger algebra of MW-type with special fibre X (it exists and is unique up to non-canonical isomorphism), and σ a Frobenius lift on A. Choose the compatible Monsky–Washnitzer affine lifting and its projective frame, with cofinal affinoid strict neighbourhoods V realizing that chosen dagger presentation. Then A ≅ colim_V Γ(V, O_V) over the strict neighbourhoods V of ]X[\_P in ]Y[\_P, and E ↦ M_E := colim_V Γ(V, E_V) is an equivalence between F-Isoc†(X/K) and the category of (σ,∇)-modules over A, compatible with tensor products, duals and pullbacks. For overconvergent isocrystals carrying a Frobenius structure, the convergence (Taylor) condition in the definition is automatic. A finite module with integrable connection over a weak completion of a smooth V-algebra, equipped with a horizontal invertible Frobenius pullback map lifting residue Frobenius, has the required overconvergent Taylor isomorphism. Integrability without such Frobenius is not enough.
+**Theorem.** Let X be a smooth affine k-scheme, A a dagger algebra of MW-type with special fibre X (it exists and is unique up to non-canonical isomorphism), and σ a Frobenius lift on A. Choose the compatible Monsky–Washnitzer affine lifting and its projective frame, with cofinal affinoid strict neighbourhoods V realizing that chosen dagger presentation. Then A ≅ colim_V Γ(V, O_V) over the strict neighbourhoods V of ]X[\_P in ]Y[\_P, and E ↦ M_E := colim_V Γ(V, E_V) is an equivalence between F-Isoc†(X/K) and the category of (σ,∇)-modules over A, compatible with tensor products, duals and pullbacks. For overconvergent isocrystals carrying a Frobenius structure, the convergence (Taylor) condition in the definition is automatic. A finite module with integrable connection over a weak completion of a smooth O_K-algebra, equipped with a horizontal invertible Frobenius pullback map lifting residue Frobenius, has the required overconvergent Taylor isomorphism. Integrability without such Frobenius is not enough.
 
 *Hypotheses.*
 
@@ -7236,7 +7235,7 @@ The API:
 
 - For p = 2: m_1 = 2, N_1 = 4, m_2 = 3, N_2 = 12, m_3 = 10: |f_4| = 2^{−1}, |f_{12}| = 2^{−2}, while 4 + λ ≡ 0 mod 2^3 and 12 + λ ≡ 0 mod 2^{10}.
 - Contrast: for λ = −1/2 (p odd), v_p(n − 1/2) = v_p(2n − 1) ≤ log_p(2n), so |f_n| ≤ 2n p^{−n} and Σ f_n t^n converges for |t| < p: it is overconvergent. The numbers n − 1/2 are not all units (p divides 2n − 1 for n = (p + 1)/2); what matters is that v_p(n + λ) grows only logarithmically. In general Σ f_n t^n is overconvergent if and only if limsup_n v_p(n + λ)/n < 1, and no λ ∈ ℤ\_p ∖ ℤ has |n + λ| bounded below, because ℕ is dense in ℤ\_p.
-- Contrast: for λ ∈ ℤ the sequence is undefined at n = −λ, which is why λ ∉ ℤ is required.
+- Contrast: for a negative integer λ the sequence is undefined at n = −λ, and for an integer λ ≥ 0 the series Σ f_n t^n is overconvergent (v_p(n + λ) ≤ log_p(n + λ)); so λ ∉ ℤ is required.
 
 <a id="rd-3-53"></a>
 
@@ -7269,7 +7268,7 @@ The Checks of the targets above are the worked examples of this layer.
 
 ### Dependencies
 
-Earlier layers: RD.0, RD.1. Other roadmaps: AdicCoefficientsAndComparisons, AdicSpacesPartII, CrystallineCohomology, InverseGaloisAndArithmeticFundamentalGroups, PerfectoidSpaces, SchemeAndStackFoundations. Libraries: Mathlib.
+Earlier layers: RD.0, RD.1. Other roadmaps: AdicCoefficientsAndComparisons, AdicSpacesPartII, CrystallineCohomology, InverseGaloisAndArithmeticFundamentalGroups, PerfectoidSpaces, SchemeAndStackFoundations. TauCetiRoadmap: pull request #196 (ConstructibleEtale). Libraries: Mathlib.
 
 ## Layer RD.4: Rigid cohomology, supports and comparison maps
 
@@ -7430,10 +7429,10 @@ The API:
 
 1. Define j†F as the colimit of j_{V\*}j_V^{-1}F; since the strict neighbourhoods form a filtered system, j† is an exact functor on sheaves of abelian groups (Chiarellotto–Tsuzuki, Proposition 2.7.2).
 2. j†F depends only on the restriction of F to any strict neighbourhood V, and H^\*(]Y[, j†F) = H^\*(V, j†F) (Berthelot (2.5) a)).
-3. For E realised on V with connection ∇ ([§RD.3.13](#rd-3-13)), E_V ⊗ Ω^•\_V is a complex of sheaves on V (differential forms on the rigid space V, supplied by AdicSpacesPartII §F1.55); apply j†.
+3. For E realised on V with connection ∇ ([§RD.3.13](#rd-3-13)), E_V ⊗ Ω^•\_V is a complex of sheaves on V (differential forms on the rigid space V, supplied by AdicSpacesPartII §R3.36); apply j†.
 4. For a morphism of frames u, the canonical maps j†F → u_\*j'†u^{-1}F composed with u^{-1}Ω^•\_{]Y[\_P} → Ω^•\_{]Y'[\_{P'}} and an injective resolution give (2.2.1).
 
-*Sources.* Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.2), p. 17, and (2.5) a), p. 19; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 4.3.1, p. 27; Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Section 2.2, p. 12.
+*Sources.* Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.2), pp. 16–17, and (2.5) a), p. 19; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 4.3.1, p. 27; Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Section 2.2, p. 12.
 
 *Needs:* [§RD.3.1](#rd-3-1) *Frames (X ⊂ Y ⊂ P)*; [§RD.3.2](#rd-3-2) *The tube ]T[_P of a locally closed subscheme*; [§RD.3.3](#rd-3-3) *Strict neighbourhoods of ]X[ in ]Y[*; [§RD.3.13](#rd-3-13) *Overconvergent isocrystals on a frame*; AdicSpacesPartII §F1.6 *Dagger algebras over a complete nonarchimedean field*; AdicSpacesPartII §F1.15 *Fringe (radius-indexed) presentations of a dagger algebra*; AdicSpacesPartII §F1.17 *The fringe (direct limit) topology on dagger algebras and their finite modules*; AdicSpacesPartII §F1.46 *The module of (universally finite) differentials Ω^1_A of a dagger algebra and the exterior derivative*; AdicSpacesPartII §F1.19 *The dagger (overconvergent completed) tensor product A_1 ⊗†_B A_2*; AdicSpacesPartII §F1.20 *Rational localisation A⟨f/g⟩† of a dagger algebra and its universal property*; AdicSpacesPartII §R2.10 *For formal O_K-schemes locally of tf presentation, d(X) is the adic space of Raynaud's rigid generic fibre*; AdicSpacesPartII §R2.11 *The generic fibre commutes with fibre products and with completed extension of the base field*; AdicSpacesPartII §R2.13 *Tubes ]T[ of locally closed subsets of the special fibre, adic and rigid*; Mathlib `CategoryTheory.Sheaf`; Mathlib `DerivedCategory`; [§RD.3.4](#rd-3-4) *Berthelot's functor j† of overconvergent sections*; [§RD.3.7](#rd-3-7) *Exactness of j† on coherent sheaves and the acyclicity of j_{λ\*}*.
 
@@ -7621,7 +7620,7 @@ The API:
 *Hypotheses.*
 
 - Y proper over k is essential (for Y not proper this computes cohomology with supports in X relative to Y).
-- ι^\* and ι\_\* on the admissible open ]Z[ ∩ V; the two-term description uses coherence of E_V ⊗ Ω^i_V and quasi-Stein acyclicity (Kiehl's Theorem B, AdicSpacesPartII §R3).
+- ι^\* and ι\_\* on the admissible open ]Z[ ∩ V; the two-term description uses coherence of E_V ⊗ Ω^i_V and quasi-Stein acyclicity (Kiehl's Theorem B, AdicSpacesPartII §R3.23).
 
 The API:
 
@@ -7812,7 +7811,7 @@ The API:
 
 ### RD.4.19 The excision long exact sequence for compact-support rigid cohomology
 
-**Theorem.** Let X be separated of finite type over k, Z ⊂ X a closed subscheme, U = X \\ Z and E ∈ F-Isoc†(X/K). There is a distinguished triangle RΓ\_{c,rig}(U/K, E|\_U) → RΓ\_{c,rig}(X/K, E) → RΓ\_{c,rig}(Z/K, E|\_Z) → +1, hence a long exact sequence ⋯ → H^i_{c,rig}(U/K, E) → H^i_{c,rig}(X/K, E) → H^i_{c,rig}(Z/K, E) → H^{i+1}\_{c,rig}(U/K, E) → ⋯, natural in E, whose maps between groups of the same degree are the extension by zero and the (proper) restriction; the triangle is one of complexes with Frobenius, so every map of the sequence, the connecting maps H^i_{c,rig}(Z/K, E) → H^{i+1}\_{c,rig}(U/K, E) included, is Frobenius-equivariant. For closed T ⊆ Z ⊆ X there is a triangle RΓ\_T → RΓ\_Z → RΓ\_(Z∖T)(X∖T) → RΓ\_T[1]; excision allows restriction to an open neighbourhood of the support, and disjoint closed supports split. These triangles exist for every E ∈ Isoc†(X/K), without Frobenius; when E carries a Frobenius structure they are compatible with it.
+**Theorem.** Let X be separated of finite type over k, Z ⊂ X a closed subscheme, U = X \\ Z and E ∈ F-Isoc†(X/K). There is a distinguished triangle RΓ\_{c,rig}(U/K, E|\_U) → RΓ\_{c,rig}(X/K, E) → RΓ\_{c,rig}(Z/K, E|\_Z) → +1, hence a long exact sequence ⋯ → H^i_{c,rig}(U/K, E) → H^i_{c,rig}(X/K, E) → H^i_{c,rig}(Z/K, E) → H^{i+1}\_{c,rig}(U/K, E) → ⋯, natural in E, whose maps between groups of the same degree are the extension by zero and the (proper) restriction; the triangle is one of complexes with Frobenius, so every map of the sequence, the connecting maps H^i_{c,rig}(Z/K, E) → H^{i+1}\_{c,rig}(U/K, E) included, is Frobenius-equivariant. These triangles exist for every E ∈ Isoc†(X/K), without Frobenius; when E carries a Frobenius structure they are compatible with it.
 
 *Hypotheses.* Z closed in X (reduced structure allowed: rigid cohomology does not see nilpotents).
 
@@ -7950,7 +7949,7 @@ The API:
 
 ### RD.4.24 The Monsky–Washnitzer comparison: rigid cohomology of a smooth affine is the de Rham cohomology of its dagger algebra
 
-**Theorem.** Let X be a smooth affine k-scheme with a smooth lift 𝒳 = Spec 𝒜 over O_K, A = 𝒜† ⊗ K the weak completion (a dagger algebra of MW-type with special fibre X), σ a Frobenius lift on A and E ∈ F-Isoc†(X/K) with associated (σ,∇)-module M ([§RD.3.32](#rd-3-32)). Then there is a canonical isomorphism H^i_rig(X/K, E) ≅ H^i(M ⊗\_A Ω^•\_{A/K}) for all i, functorial in E and in X, and compatible with the Frobenius (Φ on the left, F ⊗ ∧^i dσ on the right). For a smooth affine weak lift and E∈Isoc†(X/K), the finite projective A†\_K-module M with integrable, Taylor-overconvergent connection computes ordinary rigid cohomology by M⊗Ω•\_(A†\_K/K). The F-isocrystal comparison is its specialisation with Frobenius; integrability alone is not sufficient.
+**Theorem.** Let X be a smooth affine k-scheme with a smooth lift 𝒳 = Spec 𝒜 over O_K, A = 𝒜† ⊗ K the weak completion (a dagger algebra of MW-type with special fibre X), σ a Frobenius lift on A and E ∈ F-Isoc†(X/K) with associated (σ,∇)-module M ([§RD.3.32](#rd-3-32)). Then there is a canonical isomorphism H^i_rig(X/K, E) ≅ H^i(M ⊗\_A Ω^•\_{A/K}) for all i, functorial in E and in X, and compatible with the Frobenius (Φ on the left, F ⊗ ∧^i dσ on the right). For a smooth affine weak lift and E ∈ Isoc†(X/K), the finite projective A†\_K-module M with integrable, Taylor-overconvergent connection computes ordinary rigid cohomology by M ⊗ Ω^•\_{A†\_K/K}. The F-isocrystal comparison is its specialisation with Frobenius; integrability alone is not sufficient.
 
 *Hypotheses.*
 
@@ -7963,7 +7962,7 @@ The API:
 2. Γ(U_λ, O) is an affinoid algebra and colim_λ Γ(U_λ, O) = A (Berthelot (2.1)); coherent sheaves on the affinoids U_λ have vanishing higher global cohomology by AdicSpacesPartII §R3.16; for acyclicity of j_{λ\*}, additionally verify the quasi-Stein intersections required by AdicSpacesPartII §R3.26, and ]Y[ is quasi-compact, so the hypercohomology of j†(E ⊗ Ω^•) is the cohomology of colim_λ Γ(U_λ, E ⊗ Ω^•) = M ⊗ Ω^•\_A (Crew (8.1.1) for curves).
 3. Frobenius: σ extends to a morphism of the system of strict neighbourhoods over σ\_K, and the identification is compatible with σ^\* and F_E ([§RD.4.18](#rd-4-18)).
 4. Canonicity: another lift gives an isomorphic dagger algebra, and the comparison maps differ by the functoriality isomorphism (van der Put, Corollary 2.4.5).
-5. Use the no-F coefficient equivalence of Berthelot 96-03 Proposition 2.5.2(ii), with Taylor convergence imposed, and Corollary 2.5.6 for lifted maps. Take a projective closure of the weak affine lift. Coherent acyclicity on strict-neighbourhood affinoids and filtered global forms identify the coefficient hypercohomology with M⊗Ω•\_(A†\_K/K). The constant-coefficient radius calculation in Berthelot (Finitude, 1997) Proposition 1.10 is applied termwise to the coherent coefficient realization, not cited as a theorem for arbitrary coefficients. Graph common frames and the relative Poincaré comparison supply functoriality.
+5. Use the no-F coefficient equivalence of Berthelot 96-03 Proposition 2.5.2(ii), with Taylor convergence imposed, and Corollary 2.5.6 for lifted maps. Take a projective closure of the weak affine lift. Coherent acyclicity on strict-neighbourhood affinoids and filtered global forms identify the coefficient hypercohomology with M ⊗ Ω^•\_{A†\_K/K}. The constant-coefficient radius calculation in Berthelot (Finitude, 1997) Proposition 1.10 is applied termwise to the coherent coefficient realization, not cited as a theorem for arbitrary coefficients. Graph common frames and the relative Poincaré comparison supply functoriality.
 
 *Sources.* Berthelot, *Géométrie rigide et cohomologie des variétés algébriques de caractéristique p*, (2.1), p. 16; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Remark 4.3.3, p. 27; Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Section 2.4, p. 16; Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, (8.1.1), p. 749; Berthelot, *Finitude et pureté cohomologique en cohomologie rigide*, Proposition 1.10 and proof, pp. 15–16; Berthelot, *Cohomologie rigide et cohomologie rigide à supports propres, première partie*, Proposition 2.5.2(ii), global pp. 82–83 (II, pp. 36–37); Corollary 2.5.6, global p. 86 (II, p. 40).
 
@@ -8079,7 +8078,7 @@ The API:
 
 ### RD.4.30 Rigid cohomology is invariant under finite étale pushforward
 
-**Theorem.** Let f: X → Y be a finite étale morphism of separated k-schemes of finite type and E ∈ F-Isoc†(X/K). Then there are canonical Frobenius-compatible isomorphisms H^i_rig(X/K, E) ≅ H^i_rig(Y/K, f_\*E) and H^i_{c,rig}(X/K, E) ≅ H^i_{c,rig}(Y/K, f_\*E) for all i. The same isomorphisms hold for E∈Isoc†(X/K) without Frobenius, compatibly with supports.
+**Theorem.** Let f: X → Y be a finite étale morphism of separated k-schemes of finite type and E ∈ F-Isoc†(X/K). Then there are canonical Frobenius-compatible isomorphisms H^i_rig(X/K, E) ≅ H^i_rig(Y/K, f_\*E) and H^i_{c,rig}(X/K, E) ≅ H^i_{c,rig}(Y/K, f_\*E) for all i. The same isomorphisms hold for E ∈ Isoc†(X/K) without Frobenius, compatibly with supports.
 
 *Hypotheses.* f finite étale.
 
@@ -8101,7 +8100,7 @@ The API:
 
 ### RD.4.31 Base change of rigid cohomology along finite extensions of the coefficient field
 
-**Theorem.** Let K'/K be a finite extension with residue field k' and E ∈ F-Isoc†(X/K). Then the natural maps H^i_rig(X/K, E) ⊗\_K K' → H^i_rig(X ×\_k k'/K', E) and H^i_{c,rig}(X/K, E) ⊗\_K K' → H^i_{c,rig}(X ×\_k k'/K', E) are isomorphisms for all i. Use finite K′/K scalar extension for ordinary E∈Isoc†(X/K) cohomology without Frobenius, and hence for closed support by localization. Retain the compact-support extension as a support-preserving target. This is finite scalar extension, not arbitrary relative smooth base change.
+**Theorem.** Let K'/K be a finite extension with residue field k' and E ∈ F-Isoc†(X/K). Then the natural maps H^i_rig(X/K, E) ⊗\_K K' → H^i_rig(X ×\_k k'/K', E) and H^i_{c,rig}(X/K, E) ⊗\_K K' → H^i_{c,rig}(X ×\_k k'/K', E) are isomorphisms for all i. The same holds for E ∈ Isoc†(X/K) without Frobenius structure, and hence, by localisation, for cohomology with closed supports; the compact-support map preserves supports. This is finite extension of scalars, not smooth base change in general.
 
 *Hypotheses.* K'/K finite; the Frobenius lift on K' extends σ\_K (when Frobenius structures are considered).
 
@@ -8123,7 +8122,7 @@ The API:
 
 ### RD.4.32 H^1 of the dagger algebra of a smooth affine curve is H^1_rig, with a lift-independent Frobenius
 
-**Application.** Let Y_k be a smooth affine curve over F_q with a smooth lift 𝒴 = Spec 𝒜 over O_K (K finite over ℚ\_p with residue field F_q, σ\_K = id), let A† = 𝒜† ⊗ K be its dagger algebra and Ω^1_{A†} its module of continuous differentials. Then H^0(A† → Ω^1_{A†}) = ker d ≅ H^0_rig(Y_k/K) and H^1(A† → Ω^1_{A†}) = Ω^1_{A†}/dA† ≅ H^1_rig(Y_k/K) canonically. For every Frobenius lift φ of A† (a K-algebra endomorphism with φ(x) ≡ x^q mod π on 𝒜†), the endomorphism φ^\* of Ω^1_{A†}/dA† corresponds to the Frobenius Φ of H^1_rig(Y_k/K); in particular it does not depend on φ. For a smooth affine weak lift and E∈Isoc†(X/K), the finite projective A†\_K-module M with integrable, Taylor-overconvergent connection computes ordinary rigid cohomology by M⊗Ω•\_(A†\_K/K). The F-isocrystal comparison is its specialisation with Frobenius; integrability alone is not sufficient.
+**Application.** Let Y_k be a smooth affine curve over F_q with a smooth lift 𝒴 = Spec 𝒜 over O_K (K finite over ℚ\_p with residue field F_q, σ\_K = id), let A† = 𝒜† ⊗ K be its dagger algebra and Ω^1_{A†} its module of continuous differentials. Then H^0(A† → Ω^1_{A†}) = ker d ≅ H^0_rig(Y_k/K) and H^1(A† → Ω^1_{A†}) = Ω^1_{A†}/dA† ≅ H^1_rig(Y_k/K) canonically. For every Frobenius lift φ of A† (a K-algebra endomorphism with φ(x) ≡ x^q mod π on 𝒜†), the endomorphism φ^\* of Ω^1_{A†}/dA† corresponds to the Frobenius Φ of H^1_rig(Y_k/K); in particular it does not depend on φ. For a smooth affine weak lift and E ∈ Isoc†(X/K), the finite projective A†\_K-module M with integrable, Taylor-overconvergent connection computes ordinary rigid cohomology by M ⊗ Ω^•\_{A†\_K/K}. The F-isocrystal comparison is its specialisation with Frobenius; integrability alone is not sufficient.
 
 *Hypotheses.*
 
@@ -8134,7 +8133,7 @@ The API:
 
 1. Apply [§RD.4.24](#rd-4-24) with E = O and M = A†: Ω^2_{A†} = 0 because the special fibre is one-dimensional, so the de Rham complex is A† → Ω^1_{A†}.
 2. Frobenius compatibility and independence of φ: [§RD.4.23](#rd-4-23) (b) with constant coefficients (van der Put, Theorem 2.4.4 (iii)).
-3. Use the no-F coefficient equivalence of Berthelot 96-03 Proposition 2.5.2(ii), with Taylor convergence imposed, and Corollary 2.5.6 for lifted maps. Take a projective closure of the weak affine lift. Coherent acyclicity on strict-neighbourhood affinoids and filtered global forms identify the coefficient hypercohomology with M⊗Ω•\_(A†\_K/K). The constant-coefficient radius calculation in Berthelot (Finitude, 1997) Proposition 1.10 is applied termwise to the coherent coefficient realization, not cited as a theorem for arbitrary coefficients. Graph common frames and the relative Poincaré comparison supply functoriality.
+3. Use the no-F coefficient equivalence of Berthelot 96-03 Proposition 2.5.2(ii), with Taylor convergence imposed, and Corollary 2.5.6 for lifted maps. Take a projective closure of the weak affine lift. Coherent acyclicity on strict-neighbourhood affinoids and filtered global forms identify the coefficient hypercohomology with M ⊗ Ω^•\_{A†\_K/K}. The constant-coefficient radius calculation in Berthelot (Finitude, 1997) Proposition 1.10 is applied termwise to the coherent coefficient realization, not cited as a theorem for arbitrary coefficients. Graph common frames and the relative Poincaré comparison supply functoriality.
 
 *Sources.* Put, *The cohomology of Monsky and Washnitzer*, Theorem 2.4.4 (iii), p. 37; Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, (8.1.1), p. 749; Kedlaya, *Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology*, Section 2, p. 3; Berthelot, *Finitude et pureté cohomologique en cohomologie rigide*, Proposition 1.10 and proof, pp. 15–16; Berthelot, *Cohomologie rigide et cohomologie rigide à supports propres, première partie*, Proposition 2.5.2(ii), global pp. 82–83 (II, pp. 36–37); Corollary 2.5.6, global p. 86 (II, p. 40).
 
@@ -8305,7 +8304,7 @@ The API:
 *Hypotheses.*
 
 - X is separated of finite type over k; support and compactification conventions are those of the complexes of this layer.
-- The support and localisation sequences, the Monsky–Washnitzer comparison and finite scalar extension of this layer are used in their versions without Frobenius structure; an arbitrary E∈Isoc† is not obtained by forgetting the Frobenius of an F-isocrystal.
+- The support and localisation sequences, the Monsky–Washnitzer comparison and finite scalar extension of this layer are used in their versions without Frobenius structure; an arbitrary E ∈ Isoc† is not obtained by forgetting the Frobenius of an F-isocrystal.
 
 *Proof sketch.*
 
@@ -8333,7 +8332,7 @@ The API:
 - k is perfect of characteristic p, and K is a complete characteristic-zero coefficient field with residue field k.
 - Mixed codimension components require separate shifts; the Frobenius twist is part of the equivariant statement.
 - The independence of the choice of coordinates is part of the proof below (Tsuzuki, *On the Gysin isomorphism of rigid cohomology*, Hiroshima Math. J. 29 (1999), Theorem 4.1.1).
-- The support and localisation sequences, the Monsky–Washnitzer comparison and finite scalar extension of this layer are used in their versions without Frobenius structure; an arbitrary E∈Isoc† is not obtained by forgetting the Frobenius of an F-isocrystal.
+- The support and localisation sequences, the Monsky–Washnitzer comparison and finite scalar extension of this layer are used in their versions without Frobenius structure; an arbitrary E ∈ Isoc† is not obtained by forgetting the Frobenius of an F-isocrystal.
 
 *Proof sketch.*
 
@@ -8727,7 +8726,7 @@ The API:
 
 - K is the complete mixed-characteristic discrete-valuation coefficient field. Codimension is measured componentwise; the empty support has zero groups in every degree.
 - This is an amplitude theorem, not finite-dimensionality.
-- The support and localisation sequences, the Monsky–Washnitzer comparison and finite scalar extension of this layer are used in their versions without Frobenius structure; an arbitrary E∈Isoc† is not obtained by forgetting the Frobenius of an F-isocrystal.
+- The support and localisation sequences, the Monsky–Washnitzer comparison and finite scalar extension of this layer are used in their versions without Frobenius structure; an arbitrary E ∈ Isoc† is not obtained by forgetting the Frobenius of an F-isocrystal.
 
 *Proof sketch.*
 
@@ -8812,7 +8811,7 @@ The API:
 *Proof sketch.*
 
 1. Apply the ordinary dagger comparison to the two terms of the Z-support localization triangle; its naturality identifies their homotopy fibres.
-2. For compact support use the complex of forms supported in a larger-radius ambient space (AdicSpacesPartII §F1, *compact-support logarithmic complex*, with radius-change maps; Grosse-Klönne 2000, §4.8) and compare its support complex with the tube support complex of [§RD.4.20](#rd-4-20).
+2. For compact support use the complex of forms supported in a larger-radius ambient space (AdicSpacesPartII §F1.55, compactly supported de Rham cohomology of affinoid and Stein dagger spaces, with radius-change maps; Grosse-Klönne 2000, §4.8) and compare its support complex with the tube support complex of [§RD.4.20](#rd-4-20).
 3. Prove invariance under enlarging the ambient radius, then glue by compact-support excision ([§RD.4.19](#rd-4-19)) and independence of the proper model ([§RD.4.14](#rd-4-14)). Grosse-Klönne 2000, Theorem 5.1, gives the comparison without supports; §5.2 there announces the compactly supported version.
 
 *Sources.* Grosse-Klönne, *Rigid analytic spaces with overconvergent structure sheaf*, §4.8, pp. 21–22; §5.2, p. 24; Berthelot, *Finitude et pureté cohomologique en cohomologie rigide*, §2.1–2.5, pp. 16–19.
@@ -8968,7 +8967,7 @@ The theta cokernel is the quotient W/im θ. A zero operator leaves W unchanged a
 
 ### Dependencies
 
-Earlier layers: RD.0, RD.3. Other roadmaps: AdicCoefficientsAndComparisons, AdicEtaleGeometry, AdicSpacesPartII, CrystallineCohomology, EnhancedDerivedSheaves, SchemeAndStackFoundations. Libraries: Mathlib.
+Earlier layers: RD.0, RD.3. Other roadmaps: AdicCoefficientsAndComparisons, AdicSpacesPartII, ClassicalAdicEtaleCohomology, CrystallineCohomology, EnhancedDerivedSheaves, SchemeAndStackFoundations. Libraries: Mathlib.
 
 ## Layer RD.5: Finiteness, descent, duality and semistable reduction
 
@@ -9207,7 +9206,7 @@ reduction, and the theory of relative convergent cohomology and overconvergent d
 
 **Lemma.** Let A be a dagger algebra and B a fringe algebra of A (the image of some T_{n,ρ}, ρ > 1, under a presentation W_n → A). For every rational ε ∈ (0, 1] there is a fringe algebra C ⊇ B of A with |x|\_{sup,C} ≤ |x|\_{sup,A}^{1−ε} |x|\_{sup,B}^{ε} for all x ∈ B (a Hadamard three-circles inequality).
 
-*Hypotheses.* Fringe algebras and the spectral seminorms of affinoid algebras are part of the dagger-algebra theory of AdicSpacesPartII §F1.55 (radius-indexed presentations).
+*Hypotheses.* Fringe algebras and the spectral seminorms of affinoid algebras are part of the dagger-algebra theory of AdicSpacesPartII §F1.15 (radius-indexed presentations).
 
 *Proof sketch.* Gröbner-basis lemma (Kedlaya, Lemma 2.4.1): for an ideal a of W_n there is ρ\_0 > 1 such that for ρ ∈ (1, ρ\_0] and y ∈ W_n, z ∈ T_{n,ρ} with y − z ∈ a there is u ∈ T_{n,ρ} with u − z ∈ a, |u| ≤ |y| and |u|\_ρ ≤ |z|\_ρ. Proof: order monomials by a deglex well-ordering refining the componentwise well partial order (Dickson), pick finitely many generators of a whose leading terms generate all leading terms, and divide; 1-leading and ρ-leading terms agree for ρ close to 1. For monomials |y|\_{ρ^ε} = |y|^{1−ε}|y|\_ρ^ε, hence ≤ for all y ∈ T_{n,ρ}; apply to the u of the lemma, set C = f(T_{n,ρ^ε}), and pass to spectral seminorms by applying the inequality to x^i and taking i-th roots. (Kedlaya, *Finiteness of rigid cohomology with coefficients*, Proposition 2.4.2, p. 14, and Lemma 2.4.1, p. 13.)
 
@@ -9483,7 +9482,7 @@ The API:
 
 **Definition.** A K-linear map f: V → W is a near-injection if ker f is finite dimensional, a near-surjection if coker f = W/im f is finite dimensional, and a near-isomorphism if both hold; equivalently f becomes injective, surjective or bijective in the quotient of the category of K-vector spaces by the Serre subcategory of finite-dimensional spaces. If g ∘ f is a near-injection so is f; if g ∘ f is a near-surjection so is g; if two of f, g, g ∘ f are near-isomorphisms so is the third; in a commutative square, if three maps are near-isomorphisms so is the fourth.
 
-`Suggested.lean` declares `RD5.HasFiniteIndex`, `RD5.finiteIndex`, `RD5.finiteIndex_comp`, `RD5.finiteIndex_square`.
+`Suggested.lean` declares `RD5.NearIsomorphism`, `RD5.NearIsomorphism.comp`, `RD5.NearIsomorphism.index_square`; the index is Mathlib's `LinearMap.index`.
 
 *Hypotheses.* Linear maps of K-vector spaces, of arbitrary dimension.
 
@@ -9496,12 +9495,12 @@ The API:
 - `NearSurjective.of_comp`: g ∘ f near-surjective ⇒ g near-surjective.
 - `NearIsomorphism.two_of_three`: Two of f, g, g ∘ f near-isomorphisms ⇒ the third.
 - `NearIsomorphism.of_square`: Three near-isomorphisms in a commutative square ⇒ the fourth.
-- `NearIsomorphism.index`: For a near-isomorphism, index(f) = dim ker f − dim coker f ∈ ℤ, additive under composition.
+- `NearIsomorphism.index`: For a near-isomorphism, index(f) = dim ker f − dim coker f ∈ ℤ; this is Mathlib's `LinearMap.index`, and its additivity under composition is Mathlib's `LinearMap.index_comp`.
 - `NearIsomorphism.of_bijective`: A linear equivalence is a near-isomorphism with index 0.
 
 *Proof sketch.* The two-of-three and square properties follow from the exact sequence 0 → ker f → ker gf → ker g → coker f → coker gf → coker g → 0 of K-vector spaces (snake lemma for the composite), since finite-dimensional spaces form a Serre subcategory. (Kedlaya, *Finiteness of rigid cohomology with coefficients*, Definition 6.1.1, p. 36, and Section 6.1, p. 36.)
 
-*Needs:* Mathlib `FiniteDimensional`; Mathlib `LinearMap.ker`; Mathlib `Submodule.mkQ`.
+*Needs:* Mathlib `FiniteDimensional`; Mathlib `LinearMap.ker`; Mathlib `Submodule.mkQ`; Mathlib `LinearMap.index`; Mathlib `LinearMap.index_comp`.
 
 **Checks.**
 
@@ -9692,7 +9691,7 @@ The API:
 
 1. For r close to 1, {V_r, [D]\_r} with [D]\_r = ∪\_i{|t_i| ≤ r'} (r < r' < 1, closed discs) is an admissible affinoid covering of C^an, so the Čech complex Γ(V_r) ⊕ Γ([D]\_r) → Γ(V_r ∩ [D]\_r) computes H^\*(C^an, 𝓛^an) (Tate acyclicity, AdicSpacesPartII §R3.16; Crew, proof of Theorem 7.5).
 2. H^\*(C^an, 𝓛^an) = H^\*(C, 𝓛) by proper GAGA (AdicSpacesPartII §R3.55).
-3. Pass first to the inverse limit of sections on increasing closed discs r′ → 1. Dense restriction alone is not algebraic Mittag–Leffler: use the nonarchimedean Fréchet inverse-limit exactness of Crew's argument ([§RD.5.30](#rd-5-30)) together with AdicSpacesPartII §R3 (*Dense restriction of coherent sections on a quasi-Stein space*). Then take the exact direct limit over strict neighbourhoods. The intersections give the Robba local algebras (Crew (7.3.3)).
+3. Pass first to the inverse limit of sections on increasing closed discs r′ → 1. Dense restriction alone is not algebraic Mittag–Leffler: use the nonarchimedean Fréchet inverse-limit exactness of Crew's argument ([§RD.5.30](#rd-5-30)) together with AdicSpacesPartII §R3.22 (*Dense restriction of coherent sections on a quasi-Stein space*). Then take the exact direct limit over strict neighbourhoods. The intersections give the Robba local algebras (Crew (7.3.3)).
 4. For 𝓛 = O and 𝓛 = Ω^1, eliminating the disc terms gives the four-term sequences, the kernel of ρ being A ∩ ⊕A(x_i)^+ = H^0(C, O).
 
 *Sources.* Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, Proof of Theorem 7.5, pp. 745–746, and 7.3, (7.3.1)–(7.3.3), p. 743; Kedlaya, *Finiteness of rigid cohomology with coefficients*, Remark 6.2.4, p. 37.
@@ -9776,7 +9775,7 @@ The API:
 
 **Checks.**
 
-- For y^2 = x^3 − x over F_5 (a Legendre curve after translation): a_5 = −2, #E(F_5) = 8, #E\*(F_5) = 7, and a Monsky–Washnitzer computation gives T^2 + 2T + 5, i.e. α\_1α\_2 = 5 and α\_1 + α\_2 = −2.
+- For y^2 = x^3 − x over F_5 (the Legendre curve with ū = −1): a_5 = −2, #E(F_5) = 8, #E\*(F_5) = 7, and a Monsky–Washnitzer computation gives T^2 + 2T + 5, i.e. α\_1α\_2 = 5 and α\_1 + α\_2 = −2.
 
 <a id="rd-5-35"></a>
 
@@ -9884,13 +9883,13 @@ The API:
 2. (d)–(g) are the facts Crew collects in his §2 for the strictness criteria, with proofs or references.
 3. (h) is Schneider–Teitelbaum's duality theorem.
 
-*Sources.* Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, Ann. Sci. ÉNS (4) 31 (1998), §2 (in particular (2.9)) and §3, pp. 719–728; Schneider, *Nonarchimedean Functional Analysis*, Springer (2002), §6 (Banach–Steinhaus), §13 (pseudo-polars and the bipolar theorem), §§15–16 (reflexivity, compactoid sets and Montel spaces); Schneider–Teitelbaum, *Locally analytic distributions and p-adic representation theory, with applications to GL₂*, J. Amer. Math. Soc. 15 (2002), §1 (spaces of compact type and their duals).
+*Sources.* Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, Ann. Sci. ÉNS (4) 31 (1998), §2 (in particular (2.9)) and §3, pp. 719–728; Schneider, *Nonarchimedean Functional Analysis*, Springer (2002), §6 (Banach–Steinhaus), §13 (pseudo-polars and the bipolar theorem), §§15–16 (reflexivity, compactoid sets and Montel spaces); Schneider–Teitelbaum, *Locally analytic distributions and p-adic representation theory, with applications to GL₂*, J. Amer. Math. Soc. 15 (2002), §1, Theorem 1.1, Theorem 1.3 and Corollary 1.4 (spaces of compact type and their duals), pp. 3–4 of arXiv:math/9912073v1.
 
 *Needs:* LocallyAnalyticDistributions §0.0 *Locally convex spaces and separation*; LocallyAnalyticDistributions §0.0 *Locally convex limits*; LocallyAnalyticDistributions §0.2 *The nonarchimedean Hahn–Banach theorem*; Mathlib `WithSeminorms`.
 
 **Checks.**
 
-- c_0(ℕ) over ℚ\_p: its dual is ℓ^∞ and its bidual is ℓ^∞ again, strictly larger than c_0, so c_0 is not reflexive, as (f) requires.
+- c_0(ℕ) over ℚ\_p: its dual is ℓ^∞. The quotient ℓ^∞/c_0 is a nonzero Banach space, so by Hahn–Banach there is a nonzero continuous functional on ℓ^∞ vanishing on c_0; it is not evaluation at any element of c_0 (such an evaluation vanishing on every unit vector e_n is zero), so the canonical map from c_0 to its bidual (ℓ^∞)' is not surjective and c_0 is not reflexive, as (f) requires.
 - For the compact-type space V = colim_n K⟨p^{-n}t⟩ (analytic functions near 0) the strong dual is a nuclear Fréchet space, as in (h).
 - Finite-dimensional V: every statement reduces to linear algebra, and V′\_b ≅ Hom(V, K) with V ≅ V″.
 
@@ -9942,7 +9941,7 @@ The API:
 
 *Proof sketch.*
 
-1. (a) The nonarchimedean form of Bourbaki EVT IV §4 no. 1 Prop. 2: the bipolar theorem (LocallyAnalyticDistributions Layer L0) identifies closures with bipolars, and Hahn–Banach (LocallyAnalyticDistributions §0.2 (b)) extends forms from closed subspaces (Crew 3.8).
+1. (a) The nonarchimedean form of Bourbaki EVT IV §4 no. 1 Prop. 2: the bipolar theorem ([§RD.5.40](#rd-5-40) (b)) identifies closures with bipolars, and Hahn–Banach (LocallyAnalyticDistributions §0.2 (b)) extends forms from closed subspaces (Crew 3.8).
 2. (b) A strict exact sequence stays strict exact for the weak topologies; its transpose is exact, the injective case being Hahn–Banach (Crew 3.9).
 3. (c) Mackey: V = (V'\_c)' for semi-complete V, and convex equicontinuous subsets of the dual are the relatively linearly compact convex sets (Crew 3.10). The bounded-set lifting condition tests subsets of f(V), not all subsets of W; this is also the image in which Crew 3.11 lifts null sequences. See see *Corrections to the sources*.
 4. (d) In a Fréchet space every balanced convex closed bounded linearly compact set lies in the closed convex hull of a null sequence (Crew 2.9); lift null sequences along a strict map of metrisable spaces (Crew 3.11); for Montel spaces linearly compact and strong duals agree (Crew 3.12).
@@ -9984,7 +9983,7 @@ The API:
 *Proof sketch.*
 
 1. V has a countable basis of convex neighbourhoods of 0 (Fréchet) and, as the strong dual of a Fréchet space, a countable fundamental family of bounded convex sets B_n (LocallyAnalyticDistributions §0.3).
-2. Choose λ\_n with λ\_n B_n ⊂ U_n; the closed convex hull of ∪ λ\_n B_n is a bounded barrel, hence a neighbourhood of 0 since Fréchet spaces are barrelled (LocallyAnalyticDistributions Layer L0); a space with a bounded neighbourhood of 0 is normable, so V is Banach.
+2. Choose λ\_n with λ\_n B_n ⊂ U_n; the closed convex hull of ∪ λ\_n B_n is a bounded barrel, hence a neighbourhood of 0 since Fréchet spaces are barrelled ([§RD.5.40](#rd-5-40) (a)); a space with a bounded neighbourhood of 0 is normable, so V is Banach.
 3. V is reflexive as the dual of a reflexive space; a reflexive Banach space over a discretely valued field is finite dimensional (Crew 2.2; the unit ball of an infinite-dimensional Banach space over a discretely valued field is not weakly compact).
 
 *Sources.* Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, Proposition 2.8, p. 724.
@@ -10002,6 +10001,8 @@ The API:
 
 **Theorem.** Let A be the local algebra (the Robba ring of Laurent series in x over a discretely valued K converging on some annulus r < |x| < 1) with its LF topology A = lim_{r→1} A_{(r,1)}, and Ω^1_A = A·dx/x. The residue pairing A × Ω^1_A → K, (f, ω) ↦ Res_{x=0}(fω) (the coefficient of dx/x), is separately continuous and induces topological isomorphisms A ≅ (Ω^1_A)'\_b and Ω^1_A ≅ A'\_b. A subset of A is bounded iff it lies and is bounded in some A_{[r,1)}, iff its image in (Ω^1_A)'\_b is bounded; A is Montel; and for every finite free A-module M the induced map M → (M^∨ ⊗ Ω^1_A)'\_b is a topological isomorphism. The pairing satisfies (f, dg) = −(g, df).
 
+`Suggested.lean` declares `RD5.localPairing` (the pairing with g·dx/x on formal Laurent series) and `RD5.localPairing_comm`.
+
 *Hypotheses.*
 
 - K discretely valued; the LF topology of the Robba ring is the RD.0 carrier topology.
@@ -10011,7 +10012,7 @@ The API:
 
 1. Continuity and injectivity: |(f, g dx/x)| ≤ |fg|\_I ≤ |f|\_I|g|\_I on closed annuli I ⊂ (r, 1), and the coefficient functionals (·, x^{n}dx/x) separate points (Crew 5.1).
 2. Surjectivity: a continuous functional ℓ on Ω^1_A is bounded on some U_{ε,[s,t]} for each s < 1; the coefficients a_{−n} = ℓ(x^n dx/x) satisfy the growth conditions (4.1.2)–(4.1.3), hence define f ∈ A with ℓ = (f, ·) (Crew (5.1.5)–(5.1.6)).
-3. Bounded sets (Crew Lemma 5.2) by Banach–Steinhaus on the barrelled space Ω^1_A (LocallyAnalyticDistributions Layer L0); Montel from relative linear compactness of bounded sets, via complete continuity of restriction between nested annuli (Crew Lemma 4.3, Corollary 4.4, Corollary 5.3).
+3. Bounded sets (Crew Lemma 5.2) by Banach–Steinhaus on the barrelled space Ω^1_A ([§RD.5.40](#rd-5-40) (a)); Montel from relative linear compactness of bounded sets, via complete continuity of restriction between nested annuli (Crew Lemma 4.3, Corollary 4.4, Corollary 5.3).
 4. Strictness of A → (Ω^1_A)'\_b: A is reflexive (Montel), so this map is its own transpose, and bounded sets correspond (Crew Theorem 5.4 using [§RD.5.42](#rd-5-42)); finite free modules reduce to A^n.
 
 *Sources.* Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, 4.1–4.4 and 5.1–5.4, pp. 728–734.
@@ -10322,8 +10323,6 @@ The API:
 
 **Lemma.** The pairing K⟨x_1, …, x_n⟩† ⊗\_K S^{(n)}\_r/Σ\_i S^{(n),i'}\_r → K sending a ⊗ b to the coefficient of t_1⋯t_n in ab (t_i = x_i^{-1}) is perfect: each space is, topologically, the strong dual of the other. The second space is Fréchet–Montel (homeomorphic to t_1⋯t_n R^{{t_1..t_n},+}\_K).
 
-`Suggested.lean` declares `RD5.localPairing`, `RD5.localPairing_comm`.
-
 *Hypotheses.* Topologies: fringe (LF) topology on K⟨x⟩†, Fréchet topology on the quotient.
 
 *Proof sketch.* Apply [§RD.5.45](#rd-5-45) and [§RD.5.60](#rd-5-60), with strictness and the Fréchet–Montel hypotheses. The one-variable pairing is Crew Proposition 5.5; the n-variable residue factors over the coordinates as in Kedlaya Lemma 8.5.1. The topology is the strong continuous dual topology, not an algebraic-dual identification. (Kedlaya, *Finiteness of rigid cohomology with coefficients*, Lemma 8.5.1, p. 58.)
@@ -10458,7 +10457,7 @@ The API:
 
 - `smoothHypercovering_of_smooth`: If X is smooth over k, the constant simplicial scheme X is such a hypercovering with k_n = k.
 - `smoothHypercovering_cusp`: For the cuspidal cubic X: y^2 = x^3 over k, Y_0 can be taken to be the normalisation A^1 → X (t ↦ (t^2, t^3)), which is proper surjective and smooth.
-- `smoothHypercovering_not_cover_nonexample`: A single alteration Y → X is not in general a hypercovering: Y ×\_X Y is not smooth, which is why the coskeleton construction is iterated.
+- `smoothHypercovering_not_cover_nonexample`: The Čech nerve of a single alteration Y → X is a proper hypercovering, but its terms Y ×\_X Y need not be smooth, which is why the coskeleton construction is iterated with new alterations.
 - `smoothHypercovering_inseparable`: Over imperfect k the terms may only be smooth over purely inseparable extensions k_n, and rigid cohomology is insensitive to the nilpotent immersion Y_n → Y_n ×\_k k_n.
 - X smooth: Y_• the constant hypercovering X.
 
@@ -10569,7 +10568,7 @@ The API:
 
 *Sources.* Zureick-Brown, *Cohomological descent on the overconvergent site*, Theorem 5.9, Corollaries 5.11–5.12, pp. 19–20, and Lemmas 5.14–5.15 and Proposition 5.16, pp. 20–21, and Theorems 3.16–3.17 and Corollary 3.18, pp. 9–10.
 
-*Needs:* [§RD.5.68](#rd-5-68) *Le Stum's overconvergent site of a variety*; [§RD.5.69](#rd-5-69) *Overconvergent isocrystals are crystals on the overconvergent site, with the same cohomology*; [§RD.5.70](#rd-5-70) *The calculus of universal cohomological descent*; EnhancedDerivedSheaves §E2.6 *Bounded-below hypercover descent*; EnhancedDerivedSheaves §E2.6; SchemeAndStackFoundations §SF.4c (T391) *Chow's lemma*; SchemeAndStackFoundations §SF.4c (T390) *Modifications are dominated by admissible blowups*; SchemeAndStackFoundations §SF.4c (T386) *Modifications and their centres*.
+*Needs:* [§RD.5.68](#rd-5-68) *Le Stum's overconvergent site of a variety*; [§RD.5.69](#rd-5-69) *Overconvergent isocrystals are crystals on the overconvergent site, with the same cohomology*; [§RD.5.70](#rd-5-70) *The calculus of universal cohomological descent*; EnhancedDerivedSheaves §E2.6 *Bounded-below hypercover descent*; EnhancedDerivedSheaves §E2.6; SchemeAndStackFoundations §SF.4c (T391) *Chow's lemma*; SchemeAndStackFoundations §SF.4c (T390) *Modifications are dominated by admissible blowups*; SchemeAndStackFoundations §SF.4c (T386) *Modifications*.
 
 **Checks.**
 
@@ -11208,7 +11207,7 @@ The API:
 
 **Checks.**
 
-- Checked numerically (): for p = 3, n_1 = 3 with v_3(a − 3) = 3 > 3/4, n_2 = 30 with v_3(a − 30) = 27 > 30/4.
+- Numerical check: for p = 3, n_1 = 3 with v_3(a − 3) = 3 > 3/4, n_2 = 30 with v_3(a − 30) = 27 > 30/4.
 
 <a id="rd-5-97"></a>
 
@@ -11230,7 +11229,7 @@ The API:
 
 **Checks.**
 
-- for y^2 = x^3 − x over F_5, a_5 = −2, #E = 8, #U = 7 = q − (α + β); hyperellcharpoly (Kedlaya's Monsky–Washnitzer algorithm) gives T^2 + 2T + 5 (αβ = 5). For y^2 = x^3 − x + 1 over all good p ≤ 31, #U(F_p) = p − a_p.
+- For y^2 = x^3 − x over F_5, a_5 = −2, #E = 8, #U = 7 = q − (α + β); Kedlaya's Monsky–Washnitzer algorithm ([§RD.7.16](#rd-7-16)) gives T^2 + 2T + 5 (αβ = 5). For y^2 = x^3 − x + 1 over all good p ≤ 31, #U(F_p) = p − a_p.
 - P^1 minus N points: q + 1 − N = q − (N − 1) = Tr(Φ | H^2_c) − Tr(Φ | H^1_c).
 
 <a id="rd-5-98"></a>
@@ -11389,7 +11388,7 @@ The API:
 
 *Sources.* Kedlaya, *Semistable reduction for overconvergent F-isocrystals, I: Unipotence and logarithmic extensions*, Theorem 5.2.1 and its proof, pp. 45–47, and Proposition 5.3.1, Proposition 5.3.3 and Remark 5.3.4, p. 48.
 
-*Needs:* [§RD.5.100](#rd-5-100) *Constant and unipotent monodromy along a boundary divisor; docile isocrystals*; [§RD.3.24](#rd-3-24) *The category Isoc†(X/K) of a separated finite type k-scheme*; [§RD.3.12](#rd-3-12) *Strong fibration theorem: strict neighbourhoods along smooth morphisms*; [§RD.2.16](#rd-2-16) *Unipotent ∇-modules are the modules V ⊗ R with nilpotent residue*; SchemeAndStackFoundations §SF.4c (T386) *Modifications and their centres*.
+*Needs:* [§RD.5.100](#rd-5-100) *Constant and unipotent monodromy along a boundary divisor; docile isocrystals*; [§RD.3.24](#rd-3-24) *The category Isoc†(X/K) of a separated finite type k-scheme*; [§RD.3.12](#rd-3-12) *Strong fibration theorem: strict neighbourhoods along smooth morphisms*; [§RD.2.16](#rd-2-16) *Unipotent ∇-modules are the modules V ⊗ R with nilpotent residue*; SchemeAndStackFoundations §SF.4c (T386) *Modifications*.
 
 **Checks.**
 
@@ -11692,9 +11691,9 @@ The API:
 
 *Hypotheses.* Liftability as stated; the general case is Berthelot's conjecture. Convergent direct images ([§RD.5.110](#rd-5-110)) alone do not give overconvergence.
 
-*Proof sketch.* Compute R^q f_rig,\* E on the tube by the relative de Rham complex of the lift; coherence follows from the properness of the lift and the finiteness of proper direct images of coherent sheaves (AdicSpacesPartII §R3), and the Gauss–Manin connection is overconvergent because it is defined on strict neighbourhoods. Base change holds because the relative de Rham cohomology of a proper smooth lift commutes with base change (Tsuzuki 2003, Proposition 2.3.1 and Theorem 4.1.1); Frobenius is transported by functoriality. (Tsuzuki, *On base change theorem and coherence in rigid cohomology*, Doc. Math. Extra Volume Kato (2003), 891–918: Theorem 4.1.1, p. 906 (the liftable case, after Berthelot), Theorem 4.1.4, p. 909 (with Frobenius), Theorem 3.3.1, p. 902 (overconvergence of the Gauss–Manin connection from coherence) and Proposition 2.3.1, p. 895 (base change); Lazda, *Incarnations of Berthelot's conjecture*, J. Number Theory 166 (2016), main theorem (proper smooth liftable morphisms).)
+*Proof sketch.* Compute R^q f_rig,\* E on the tube by the relative de Rham complex of the lift; coherence follows from the properness of the lift and the finiteness of proper direct images of coherent sheaves (Kiehl's proper mapping theorem, AdicSpacesPartII §R3.37), and the Gauss–Manin connection is overconvergent because it is defined on strict neighbourhoods. Base change holds because the relative de Rham cohomology of a proper smooth lift commutes with base change (Tsuzuki 2003, Proposition 2.3.1 and Theorem 4.1.1); Frobenius is transported by functoriality. (Tsuzuki, *On base change theorem and coherence in rigid cohomology*, Doc. Math. Extra Volume Kato (2003), 891–918: Theorem 4.1.1, p. 906 (the liftable case, after Berthelot), Theorem 4.1.4, p. 909 (with Frobenius), Theorem 3.3.1, p. 902 (overconvergence of the Gauss–Manin connection from coherence) and Proposition 2.3.1, p. 895 (base change); Lazda, *Incarnations of Berthelot's conjecture*, J. Number Theory 166 (2016), main theorem (proper smooth liftable morphisms).)
 
-*Needs:* [§RD.5.110](#rd-5-110) *Higher direct images of convergent F-isocrystals under smooth proper morphisms (Xu)*; [§RD.3.13](#rd-3-13) *Overconvergent isocrystals on a frame*; AdicSpacesPartII §R3.55 *Proper GAGA: comparison of coherent cohomology (Köpf)*; [§RD.4.10](#rd-4-10) *Rigid cohomology H^i_rig(X/K, E)*.
+*Needs:* [§RD.5.110](#rd-5-110) *Higher direct images of convergent F-isocrystals under smooth proper morphisms (Xu)*; [§RD.3.13](#rd-3-13) *Overconvergent isocrystals on a frame*; AdicSpacesPartII §R3.37 *Kiehl's proper mapping theorem*; AdicSpacesPartII §R3.55 *Proper GAGA: comparison of coherent cohomology (Köpf)*; [§RD.4.10](#rd-4-10) *Rigid cohomology H^i_rig(X/K, E)*.
 
 **Checks.**
 
@@ -11712,7 +11711,7 @@ The API:
 
 *Proof sketch.* Given a polarisation λ : A → A^∨ of degree d², choose a matrix M ∈ M_4(ℤ) with M^tM = d·1 (Lagrange's four-square theorem) and use it to build a principal polarisation on A^4 × (A^∨)^4 from λ and its dual (Zarhin). (Zarhin, *A remark on endomorphisms of abelian varieties over function fields of finite characteristic*, Izv. Akad. Nauk SSSR 38 (1974); Moret-Bailly, *Pinceaux de variétés abéliennes*, Astérisque 129 (1985), Chapitre IX, 1.1.)
 
-*Needs:* AbelianSchemesAndArithmeticModuli §A6.11 *P_α is the characteristic polynomial of α on V_ℓA, for every ℓ ≠ char k*.
+*Needs:* AbelianSchemesAndArithmeticModuli §A6.11 *The characteristic polynomial on the Tate module*.
 
 **Checks.**
 
@@ -11968,7 +11967,7 @@ The API:
 
 *Proof sketch.*
 
-1. Reduction to free modules over W_n: choose a surjection W_n → A and a Frobenius lift on W_n compatible with σ (lift the images σ(x̄\_i) to elements ≡ x_i^q mod m; the kernel is preserved); W_n is noetherian and regular (AdicSpacesPartII §F1.55), so M has a finite projective resolution P_• → M over W_n; σ is finite flat (Kedlaya, Finiteness, Remark 3.2.4), so σ\_\*P_j is projective and θ lifts to Dwork operators θ\_j on the P_j with alternating traces adding up; a projective P_j is a summand of a free module, and θ\_j ⊕ 0 is a Dwork operator on the free module with the same trace.
+1. Reduction to free modules over W_n: choose a surjection W_n → A and a Frobenius lift on W_n compatible with σ (lift the images σ(x̄\_i) to elements ≡ x_i^q mod m; the kernel is preserved); W_n is noetherian and regular (AdicSpacesPartII §§F1.6 and F1.9), so M has a finite projective resolution P_• → M over W_n; σ is finite flat (Kedlaya, Finiteness, Remark 3.2.4), so σ\_\*P_j is projective and θ lifts to Dwork operators θ\_j on the P_j with alternating traces adding up; a projective P_j is a summand of a free module, and θ\_j ⊕ 0 is a Dwork operator on the free module with the same trace.
 2. Free case M = ⊕\_{i ≤ m} W_n e_i: θ is determined by the finitely many values θ(t^α e_i), 0 ≤ α\_j < q, since θ(Σ σ(a_{α,i}) t^α e_i) = Σ a_{α,i} θ(t^α e_i).
 3. For r > 1 let M(r) = ⊕ T_{n,r} e_i (Banach spaces). For r close to 1, θ(M(r)) ⊂ M(r^q) continuously, and M(r^q) ↪ M(r) is completely continuous (a uniform limit of finite-rank maps); so θ\_r : M(r) → M(r) is completely continuous, hence nuclear, with trace and Fredholm determinant given by LocallyAnalyticDistributions §4.2.
 4. The M(r) share the orthogonal basis t^α e_i, so Tr(θ\_r) and det(1 − tθ\_r) do not depend on r; θ = lim θ\_r on M = ∪\_r M(r) is nuclear with the same trace and determinant.
@@ -12383,7 +12382,7 @@ The API:
 - P^1: #P^1(F_{q^r}) = q^r + 1 = Tr(F^r | H^0) + Tr(F^r | H^2) with eigenvalues 1 and q ([§RD.6.27](#rd-6-27)).
 - G_m: #G_m(F_{q^r}) = q^r − 1 = Tr(F^r | H^2_c) − Tr(F^r | H^1_c) with H^1_c = K (F = 1) and H^2_c = K(−1) ([§RD.6.29](#rd-6-29)).
 - Dwork isocrystal on A^1: Σ\_{x ∈ F_{q^r}} ψ(Tr x) = 0 = Σ(−1)^i Tr(F^r | H^i_c(A^1, L_π)) since all these groups vanish ([§RD.6.42](#rd-6-42)).
-- Elliptic curve E/F_7 with y^2 = x^3 + x + 1: #E(F_7) = 5 = 1 − 3 + 7, Tr(F | H^1) = a_7 = 3 (ellap and a brute-force count).
+- Elliptic curve E/F_7 with y^2 = x^3 + x + 1: #E(F_7) = 5 = 1 − 3 + 7, Tr(F | H^1) = a_7 = 3 (count the points directly).
 
 <a id="rd-6-24"></a>
 
@@ -12401,7 +12400,7 @@ The API:
 
 **Checks.**
 
-- f = Σ\_{r≥0} (1 + q^r) t^r ∈ Q[[t]] is (2 − (1 + q)t)/((1 − t)(1 − qt)), with D_n(f) = 0 for n ≥ 3 in the convention of ClassicalArithmeticCompletion Layer CA.6 (D_n the n × n determinant of the coefficients a_{i+j+1}); here D_1 = 1 + q and D_2 = q(q − 1)^2 ≠ 0.
+- f = Σ\_{r≥0} (1 + q^r) t^r ∈ Q[[t]] is (2 − (1 + q)t)/((1 − t)(1 − qt)), with D_n(f) = 0 for n ≥ 3 in the convention of ClassicalArithmeticCompletion Layer 6 (§6.44) (D_n the n × n determinant of the coefficients a_{i+j+1}); here D_1 = 1 + q and D_2 = q(q − 1)^2 ≠ 0.
 - f = exp(t) ∈ Q[[t]] is not rational over any field containing Q: its Hankel determinants never vanish.
 
 <a id="rd-6-25"></a>
@@ -12465,7 +12464,7 @@ The API:
 
 ### RD.6.28 Pointwise ι-weights of overconvergent F-isocrystals
 
-**Definition.** Fix a field embedding ι : K^alg → ℂ as part of the data; no existence is asserted for arbitrary K. The number and endomorphism weight predicates are those of DeligneWeightsAndPurity Layer 0. For w ∈ R and E ∈ F-Isoc†(X/K) on a separated finite-type F_q-scheme X: E is ι-pure of weight w if for every closed point x (degree d) every eigenvalue α ∈ K^alg of F_x satisfies |ι(α)| = q^{wd/2}; E is (strongly) ι-mixed of weight ≤ w (resp. ≥ w) if every such α satisfies |ι(α)| = q^{(w+i)d/2} for an integer i = i(α) ≤ 0 (resp. ≥ 0); weakly ι-mixed if i is only required to be real. The same predicates for a K'-linear endomorphism T of a finite-dimensional space, with q' = q^a in place of q^d, are those of DeligneWeightsAndPurity Layer DWP.0. These are pointwise notions (Deligne's 'ponctuellement ι-pur'); Deligne's ι-mixed additionally asks for a filtration with ι-pure graded pieces.
+**Definition.** Fix a field embedding ι : K^alg → ℂ as part of the data; no existence is asserted for arbitrary K. The number and endomorphism weight predicates are those of DeligneWeightsAndPurity Layer DWP.0. For w ∈ R and E ∈ F-Isoc†(X/K) on a separated finite-type F_q-scheme X: E is ι-pure of weight w if for every closed point x (degree d) every eigenvalue α ∈ K^alg of F_x satisfies |ι(α)| = q^{wd/2}; E is (strongly) ι-mixed of weight ≤ w (resp. ≥ w) if every such α satisfies |ι(α)| = q^{(w+i)d/2} for an integer i = i(α) ≤ 0 (resp. ≥ 0); weakly ι-mixed if i is only required to be real. The same predicates for a K'-linear endomorphism T of a finite-dimensional space, with q' = q^a in place of q^d, are those of DeligneWeightsAndPurity Layer DWP.0. These are pointwise notions (Deligne's 'ponctuellement ι-pur'); Deligne's ι-mixed additionally asks for a filtration with ι-pure graded pieces.
 
 `Suggested.lean` declares `HasIotaWeight`, `zero_not_pure`, `iotaWeight_mul`, `iotaWeight_tateTwist`, `HasPureSpectrum`.
 
@@ -12488,7 +12487,7 @@ The API:
 - `h0_of_isIotaPure`: If X is geometrically connected and E is ι-pure of weight w then H^0_rig(X/K, E) is ι-pure of weight w (it embeds Frobenius-equivariantly in a fibre).
 - `isIotaMixed_of_successiveExtension`: A successive extension of ι-pure objects (the notes' Definition 10.2) is pointwise ι-mixed and each graded piece is ι-realizable.
 
-*Proof sketch.* Existence of ι: Mathlib `IsAlgClosed.ringEquiv_of_equiv_of_charZero` applied to K^alg and C (both uncountable of cardinality continuum). The predicates on eigenvalues of endomorphisms, with the q^a normalisation, are those of DeligneWeightsAndPurity Layer 0; the isocrystal predicates quantify them over closed points using F_x ([§RD.6.2](#rd-6-2)). (Kedlaya, *Fourier transforms and p-adic 'Weil II'*, §6.1, p. 40, and Remark 6.1.1, p. 40–41; Kedlaya, *Notes on isocrystals*, Definition 10.2, p. 27.)
+*Proof sketch.* Existence of ι: Mathlib `IsAlgClosed.ringEquiv_of_equiv_of_charZero` applied to K^alg and C (both uncountable of cardinality continuum). The predicates on eigenvalues of endomorphisms, with the q^a normalisation, are those of DeligneWeightsAndPurity Layer DWP.0; the isocrystal predicates quantify them over closed points using F_x ([§RD.6.2](#rd-6-2)). (Kedlaya, *Fourier transforms and p-adic 'Weil II'*, §6.1, p. 40, and Remark 6.1.1, p. 40–41; Kedlaya, *Notes on isocrystals*, Definition 10.2, p. 27.)
 
 *Needs:* [§RD.6.2](#rd-6-2) *Fibres and the linear Frobenius at a closed point*; DeligneWeightsAndPurity §0.4 *ι-weights of nonzero elements of a coefficient field*; DeligneWeightsAndPurity §0.7 *Eigenvalues, Weil purity and ι-weights of an invertible endomorphism*; Mathlib `Polynomial.roots`.
 
@@ -12856,8 +12855,8 @@ The API:
 - `dworkIsocrystal_zero`: L_0 = 0^\*L ≅ O (the trivial F-isocrystal).
 - `dworkIsocrystal_trace_character`: The Frobenius traces x_0 ↦ Tr(F_{x_0}) on F_q are the values of the inverse of the trace character traceAddChar F_q p θ\_p(1) ([§RD.6.46](#rd-6-46)); their sum over F_q is 0 (AddChar.sum_eq_zero_of_ne_one).
 - `dworkIsocrystal_printed_sign`: The pair ∇e = πe dx, Fe = exp(πx − πx^q)e is not a (σ, ∇)-module: the horizontality defect has constant term 2π.
--, p = 3, π^2 = −3, series to degree 300: θ\_3(1)^3 ≡ 1 to π-adic order 144, v_π(θ\_3(1) − 1) = 1 and v_π(θ\_3(1) − 1 − π) = 2, θ\_3(1)θ\_3(−1) ≡ 1, and θ\_3(0) + θ\_3(1) + θ\_3(−1) ≡ 0 (character sum over F_3).
-- with the printed F e = exp(πx − πx^q)e the horizontality defect ∇(Fe) − (F ⊗ dσ)(∇e) has constant term 2π ≠ 0; with θ = exp(πx^q − πx) it vanishes identically to order 298.
+- For p = 3 and π^2 = −3, computing with the series truncated at degree 300: θ\_3(1)^3 ≡ 1 to π-adic order 144, v_π(θ\_3(1) − 1) = 1 and v_π(θ\_3(1) − 1 − π) = 2, θ\_3(1)θ\_3(−1) ≡ 1, and θ\_3(0) + θ\_3(1) + θ\_3(−1) ≡ 0 (character sum over F_3).
+- With the printed F e = exp(πx − πx^q)e the horizontality defect ∇(Fe) − (F ⊗ dσ)(∇e) has constant term 2π ≠ 0; with θ = exp(πx^q − πx) it vanishes identically to order 298.
 
 <a id="rd-6-43"></a>
 
@@ -13136,15 +13135,15 @@ The API:
 - `swanConductor_additive`: Swan is additive in short exact sequences and depends only on the semisimplified local monodromy.
 - `swanConductor_twist`: If all breaks of ρ\_x are < d and ψ\_P has break d, then ρ\_x ⊗ ψ\_P has all breaks d and Swan = d·rank.
 
-*Proof sketch.* Quasi-unipotence (RD.2) provides F and the finite-image representation of G on horizontal sections. The Swan conductor of a finite-image representation of the Galois group of an equal-characteristic local field, its integrality (Hasse–Arf) and independence of F, and the break formula are supplied by ArithmeticGaloisRepresentations Layer R01.3. (Kedlaya, *Fourier transforms and p-adic 'Weil II'*, §4.4, p. 32, and §4.4, p. 33.)
+*Proof sketch.* Quasi-unipotence (RD.2) provides F and the finite-image representation of G on horizontal sections. The Swan conductor of a finite-image representation of the Galois group of an equal-characteristic local field, its integrality (Hasse–Arf) and independence of F, and the break formula are supplied by ArithmeticGaloisRepresentations Layer 3 (§3.1). (Kedlaya, *Fourier transforms and p-adic 'Weil II'*, §4.4, p. 32, and §4.4, p. 33.)
 
-*Needs:* [§RD.2.31](#rd-2-31) *The p-adic local monodromy theorem (Crew's conjecture): (φ,∇)-modules over the Robba ring are quasi-unipotent*; ArithmeticGaloisRepresentations §3.1 *Swan conductor*; [§RD.2.28](#rd-2-28) *The logarithmic Robba ring R^L_log = R^L[log u] with Frobenius, derivation and monodromy operator*; [§RD.2.34](#rd-2-34) *The (φ, N, Gal)-module of logarithmic solutions (local monodromy representation)*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*.
+*Needs:* [§RD.2.31](#rd-2-31) *The p-adic local monodromy theorem (Crew's conjecture): (φ,∇)-modules over the Robba ring are quasi-unipotent*; ArithmeticGaloisRepresentations §3.1 *Finite wild image, breaks and the Swan conductor*; [§RD.2.28](#rd-2-28) *The logarithmic Robba ring R^L_log = R^L[log u] with Frobenius, derivation and monodromy operator*; [§RD.2.34](#rd-2-34) *The (φ, N, Gal)-module of logarithmic solutions (local monodromy representation)*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*.
 
 **Checks.**
 
 - `swanConductor_const`: Swan_x(O) = 0 at every x.
 - `swanConductor_dwork`: Swan_∞(L_{x^d}) = d for p ∤ d (Artin–Schreier character of break d).
-- `swanConductor_formula_trivialGroup`: If G is trivial (F = E_x) then Swan_x(E) = 0, matching the Artin–Swan formula of ArithmeticGaloisRepresentations Layer R01.3 for the unramified representation.
+- `swanConductor_formula_trivialGroup`: If G is trivial (F = E_x) then Swan_x(E) = 0, matching the Artin–Swan formula of ArithmeticGaloisRepresentations Layer 3 (§3.1) for the unramified representation.
 - `swanConductor_not_irregularity_of_frobenius`: Swan_x depends only on the connection: E and E(1) (same connection, Frobenius multiplied by q^{−1}) have the same Swan conductor, while their Frobenius slopes differ.
 - For E unipotent at x (e.g. E = O or a unipotent extension), Swan_x(E) = 0.
 - For the Dwork isocrystal L_P with P of degree d prime to p, Swan_∞(L_P) = d.
@@ -13169,7 +13168,7 @@ The API:
 
 *Sources.* Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Theorem 4.4.1, part (b) of the proof, p. 33; Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Corollary 5.4.11 and Remark 5.4.13, p. 36; Kedlaya, *Swan conductors for p-adic differential modules, I: A local construction*, Proposition 3.5.5 (p. 23, proof p. 24) and Remark 3.5.14 (p. 25).
 
-*Needs:* [§RD.2.47](#rd-2-47) *Break decompositions match ramification: the differential Swan conductor equals the Swan conductor of the monodromy*; [§RD.2.46](#rd-2-46) *The highest break of a quasi-unipotent ∇-module equals the highest ramification break of its monodromy representation*; [§RD.6.51](#rd-6-51) *Local monodromy representation and Swan conductor of an overconvergent F-isocrystal*; [§RD.1.19](#rd-1-19) *Break multiset and differential Swan conductor of a solvable ∇-module*; [§RD.1.20](#rd-1-20) *Integrality of the differential Swan conductor (p-adic Hasse-Arf)*; [§RD.2.31](#rd-2-31) *The p-adic local monodromy theorem (Crew's conjecture): (φ,∇)-modules over the Robba ring are quasi-unipotent*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*; ArithmeticGaloisRepresentations §3.1 *Swan conductor*; ArithmeticGaloisRepresentations §3.2 *Integrality of Swan and Artin conductors*; ArithmeticGaloisRepresentations §3.4 *Swan additivity in exact sequences*; ArithmeticGaloisRepresentations §3.7 *Artin–Schreier conductors*.
+*Needs:* [§RD.2.47](#rd-2-47) *Break decompositions match ramification: the differential Swan conductor equals the Swan conductor of the monodromy*; [§RD.2.46](#rd-2-46) *The highest break of a quasi-unipotent ∇-module equals the highest ramification break of its monodromy representation*; [§RD.6.51](#rd-6-51) *Local monodromy representation and Swan conductor of an overconvergent F-isocrystal*; [§RD.1.19](#rd-1-19) *Break multiset and differential Swan conductor of a solvable ∇-module*; [§RD.1.20](#rd-1-20) *Integrality of the differential Swan conductor (p-adic Hasse-Arf)*; [§RD.2.31](#rd-2-31) *The p-adic local monodromy theorem (Crew's conjecture): (φ,∇)-modules over the Robba ring are quasi-unipotent*; [§RD.2.37](#rd-2-37) *Quasi-unipotent ∇-modules are classified by their monodromy representations*; ArithmeticGaloisRepresentations §3.1 *Finite wild image, breaks and the Swan conductor*; ArithmeticGaloisRepresentations §3.2 *The Artin conductor and its integrality*; ArithmeticGaloisRepresentations §3.4 *Functoriality*; ArithmeticGaloisRepresentations §3.7 *Computations and Artin–Schreier characters*.
 
 **Checks.**
 
@@ -13216,7 +13215,7 @@ The API:
 
 *Sources.* Christol–Mebkhout, *Équations différentielles p-adiques et coefficients p-adiques sur les courbes*, Théorème 1.2, p. 129, and Théorème 1.1, p. 127; Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Theorem 4.4.1 (a) and the proof sketch, pp. 33-35; Kedlaya, *Notes on isocrystals*, Theorem 8.6, p. 21.
 
-*Needs:* [§RD.1.74](#rd-1-74) *Christol–Mebkhout local index theorems on the Robba ring*; [§RD.1.19](#rd-1-19) *Break multiset and differential Swan conductor of a solvable ∇-module*; [§RD.5.76](#rd-5-76) *Finite dimensionality of rigid cohomology with coefficients (Kedlaya, Theorem 1.2.1)*; [§RD.5.46](#rd-5-46) *Crew's finiteness and duality theorem on curves, made unconditional by local monodromy*; [§RD.4.24](#rd-4-24) *The Monsky–Washnitzer comparison: rigid cohomology of a smooth affine is the de Rham cohomology of its dagger algebra*; [§RD.4.10](#rd-4-10) *Rigid cohomology H^i_rig(X/K, E)*; [§RD.3.25](#rd-3-25) *Overconvergent F-isocrystals*; [§RD.3.41](#rd-3-41) *Pushforward of (overconvergent) F-isocrystals along finite étale morphisms*; [§RD.4.30](#rd-4-30) *Rigid cohomology is invariant under finite étale pushforward*; AdicSpacesPartII §R3.56 *Proper GAGA: analytification is an equivalence on coherent sheaves*; [§RD.6.52](#rd-6-52) *Irregularity equals Swan conductor for overconvergent F-isocrystals*; ArithmeticGaloisRepresentations §3.5 *The local induction formula for conductors, in rational form*; [§RD.5.7](#rd-5-7) *Open dense affines finite étale over affine space in positive characteristic*; [§RD.5.32](#rd-5-32) *The indices of the principal-part maps and the dimension of H^1 of an affine curve*; [§RD.6.53](#rd-6-53) *The algebraic Euler–Poincaré formula for meromorphic connections on curves*.
+*Needs:* [§RD.1.74](#rd-1-74) *Christol–Mebkhout local index theorems on the Robba ring*; [§RD.1.19](#rd-1-19) *Break multiset and differential Swan conductor of a solvable ∇-module*; [§RD.5.76](#rd-5-76) *Finite dimensionality of rigid cohomology with coefficients (Kedlaya, Theorem 1.2.1)*; [§RD.5.46](#rd-5-46) *Crew's finiteness and duality theorem on curves, made unconditional by local monodromy*; [§RD.4.24](#rd-4-24) *The Monsky–Washnitzer comparison: rigid cohomology of a smooth affine is the de Rham cohomology of its dagger algebra*; [§RD.4.10](#rd-4-10) *Rigid cohomology H^i_rig(X/K, E)*; [§RD.3.25](#rd-3-25) *Overconvergent F-isocrystals*; [§RD.3.41](#rd-3-41) *Pushforward of (overconvergent) F-isocrystals along finite étale morphisms*; [§RD.4.30](#rd-4-30) *Rigid cohomology is invariant under finite étale pushforward*; AdicSpacesPartII §R3.56 *Proper GAGA: analytification is an equivalence on coherent sheaves*; [§RD.6.52](#rd-6-52) *Irregularity equals Swan conductor for overconvergent F-isocrystals*; ArithmeticGaloisRepresentations §3.5 *Induction and the conductor–discriminant formula*; [§RD.5.7](#rd-5-7) *Open dense affines finite étale over affine space in positive characteristic*; [§RD.5.32](#rd-5-32) *The indices of the principal-part maps and the dimension of H^1 of an affine curve*; [§RD.6.53](#rd-6-53) *The algebraic Euler–Poincaré formula for meromorphic connections on curves*.
 
 **Checks.**
 
@@ -13254,14 +13253,14 @@ The API:
 *Proof sketch.*
 
 1. Choose an integer N strictly above the largest rational upper-numbering break of the finite geometric inertia representation of M at infinity. A largest break need not itself be an integer.
-2. The local monodromy at ∞ of M ⊗ L_P is ρ ⊗ ψ\_P, where ψ\_P is the Artin–Schreier character of L = k((t))[u]/(u^p − u − P(t^{-1})); since d > N, ρ ⊗ ψ\_P has all breaks equal to d (ArithmeticGaloisRepresentations Layer R01.3 upper-numbering breaks; [§RD.6.51](#rd-6-51)).
+2. The local monodromy at ∞ of M ⊗ L_P is ρ ⊗ ψ\_P, where ψ\_P is the Artin–Schreier character of L = k((t))[u]/(u^p − u − P(t^{-1})); since d > N, ρ ⊗ ψ\_P has all breaks equal to d (ArithmeticGaloisRepresentations Layer 3 (§3.1) upper-numbering breaks; [§RD.6.51](#rd-6-51)).
 3. No break 0 means no trivial subrepresentation: H^0_loc(M ⊗ L_P) = H^0_loc(M^∨ ⊗ L_{−P}) = 0, and H^1_loc = 0 by local duality (the pairing H^0_loc × H^1_loc → K(−1) of Kedlaya §2.6).
 4. Swan(ρ ⊗ ψ\_P) = d·rank(M), so [§RD.6.55](#rd-6-55) gives χ(M ⊗ L_P) = (1 − d)·rank(M).
 5. H^0(M ⊗ L_P) injects into H^0_loc by the exact sequence (2.6.1), hence vanishes; so dim H^1 = (d − 1)·rank(M).
 
 *Sources.* Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Proposition 4.4.5, p. 36, and Proof of Proposition 4.4.5, p. 36.
 
-*Needs:* [§RD.6.55](#rd-6-55) *The p-adic Grothendieck–Ogg–Shafarevich formula*; [§RD.6.51](#rd-6-51) *Local monodromy representation and Swan conductor of an overconvergent F-isocrystal*; [§RD.6.42](#rd-6-42) *The Dwork (Artin–Schreier) isocrystal L_π*; ArithmeticGaloisRepresentations §3.1 *Swan conductor*; [§RD.5.46](#rd-5-46) *Crew's finiteness and duality theorem on curves, made unconditional by local monodromy*.
+*Needs:* [§RD.6.55](#rd-6-55) *The p-adic Grothendieck–Ogg–Shafarevich formula*; [§RD.6.51](#rd-6-51) *Local monodromy representation and Swan conductor of an overconvergent F-isocrystal*; [§RD.6.42](#rd-6-42) *The Dwork (Artin–Schreier) isocrystal L_π*; ArithmeticGaloisRepresentations §3.1 *Finite wild image, breaks and the Swan conductor*; [§RD.5.46](#rd-5-46) *Crew's finiteness and duality theorem on curves, made unconditional by local monodromy*.
 
 **Checks.**
 
@@ -13324,7 +13323,7 @@ The API:
 
 **Checks.**
 
-- `slope_ordinary`: For T^2 − 3T + 7 over F_7 the roots have slopes 0 and 1 (newtonpoly: [1, 0] in p-adic valuations).
+- `slope_ordinary`: For T^2 − 3T + 7 over F_7 the roots have slopes 0 and 1 (the Newton polygon at 7 has slopes 0 and 1).
 - `slope_supersingular`: For T^2 + 7 over F_7 both roots have slope 1/2.
 - `slope_const`: O_X has slopes in [0, 0].
 - `slope_not_weight`: Slope and weight differ: the roots of T^2 − 3T + 7 both have complex absolute value √7 (weight 1) but slopes 0 and 1; slope is not determined by weight.
@@ -13824,7 +13823,7 @@ The API:
 
 *Sources.* Crew, *Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve*, 10.6-10.8, pp. 758-761; Deligne, *La conjecture de Weil. II*, (1.6.1), (1.6.13)-(1.6.14), pp. 165-171, and (1.8.1) and Théorème (1.8.4) with proof, pp. 175-176; Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Proposition 6.4.4, pp. 47-48.
 
-*Needs:* [§RD.6.79](#rd-6-79) *Local invariants of a pure isocrystal are weakly mixed of weight ≤ w*; [§RD.6.78](#rd-6-78) *The weight drop lemma*; [§RD.6.23](#rd-6-23) *The rigid Lefschetz trace formula for Frobenius*; [§RD.5.46](#rd-5-46) *Crew's finiteness and duality theorem on curves, made unconditional by local monodromy*; [§RD.2.32](#rd-2-32) *Local monodromy theorem in finite étale form (the form used for finiteness of rigid cohomology)*; [§RD.2.16](#rd-2-16) *Unipotent ∇-modules are the modules V ⊗ R with nilpotent residue*; [§RD.2.34](#rd-2-34) *The (φ, N, Gal)-module of logarithmic solutions (local monodromy representation)*; LefschetzPencilsAndVanishingCycles §1.3 *Monodromy filtration centered at an integer*; ArithmeticGaloisRepresentations §2.6; DeligneWeightsAndPurity §0.9 *Purity and weights under subobjects, quotients, extensions and direct sums*.
+*Needs:* [§RD.6.79](#rd-6-79) *Local invariants of a pure isocrystal are weakly mixed of weight ≤ w*; [§RD.6.78](#rd-6-78) *The weight drop lemma*; [§RD.6.23](#rd-6-23) *The rigid Lefschetz trace formula for Frobenius*; [§RD.5.46](#rd-5-46) *Crew's finiteness and duality theorem on curves, made unconditional by local monodromy*; [§RD.2.32](#rd-2-32) *Local monodromy theorem in finite étale form (the form used for finiteness of rigid cohomology)*; [§RD.2.16](#rd-2-16) *Unipotent ∇-modules are the modules V ⊗ R with nilpotent residue*; [§RD.2.34](#rd-2-34) *The (φ, N, Gal)-module of logarithmic solutions (local monodromy representation)*; LefschetzPencilsAndVanishingCycles §1.3 *The monodromy filtration in an abelian category*; ArithmeticGaloisRepresentations §2.6; DeligneWeightsAndPurity §0.9 *Purity and weights under subobjects, quotients, extensions and direct sums*.
 
 **Checks.**
 
@@ -14104,8 +14103,8 @@ The API:
 **Checks.**
 
 - (P^1, {0, 1, ∞}): H^1 ≅ K(−1)^2 with F = q (Coleman's datum M = pI for q = p), weight 2.
-- (E, {O}) for E: y^2 = x^3 + x + 1 over F_7: H^1(E − O) ≅ H^1(E), eigenvalues roots of T^2 − 3T + 7, |·| = √7 ().
-- (P^1, {0, ∞} ∪ μ\_N) over F_q with p ∤ N: H^1 eigenvalues are q·ζ where ζ runs over roots of unity of orders the degrees of the closed points of μ\_N (one eigenvalue q is removed by the map to H^2).
+- (E, {O}) for E: y^2 = x^3 + x + 1 over F_7: H^1(E − O) ≅ H^1(E), eigenvalues roots of T^2 − 3T + 7, |·| = √7.
+- (P^1, {0, ∞} ∪ μ\_N) over F_q with p ∤ N: H^1 eigenvalues are q·ζ where, for each closed point of D of degree d, ζ runs over the d-th roots of unity (the points 0 and ∞ each give the eigenvalue q, and one eigenvalue q is removed by the map to H^2).
 
 <a id="rd-6-93"></a>
 
@@ -14590,7 +14589,7 @@ The API:
 
 **Checks.**
 
-- ellap and newtonpoly: y^2 = x^3 + x + 1 over F_7: a = 3, P = x^2 − 3x + 7, slopes (1, 0); over F_5: a = −3, slopes (1, 0); y^2 = x^3 + 2x + 3 over F_13: a = −4, slopes (1, 0); y^2 = x^3 + x over F_7 and F_11: a = 0, slopes (1/2, 1/2); all roots have modulus √p.
+- Point counts and Newton polygons: y^2 = x^3 + x + 1 over F_7: a = 3, P = x^2 − 3x + 7, slopes (1, 0); over F_5: a = −3, slopes (1, 0); y^2 = x^3 + 2x + 3 over F_13: a = −4, slopes (1, 0); y^2 = x^3 + x over F_7 and F_11: a = 0, slopes (1/2, 1/2); all roots have modulus √p.
 - y^2 = x^3 + x over F_49: a = −14, P = (x + 7)^2 (brute-force count #E(F_49) = 64); α = −7 = −q^{1/2} has slope 1/2 and weight 1, and α/q^{1/2} = −1 is a root of unity (Kedlaya §1.5).
 - Counterexample to a one-place slope criterion: α=(2+i)(1+√(−19))/2 is a weight-one Weil 25-number with polynomial T^4−4T^3+35T^2−100T+625. At p=5 its valuations are 0,1,1,2, so some normalised slopes are 1/2. Nevertheless α/5 is not a root of unity, since it is not integral at all places over 5.
 
@@ -14707,7 +14706,7 @@ The API:
 **Checks.**
 
 - C: y^2 = x^5 + x + 3 over F_7 (g = 2): Frobenius polynomial T^4 + 3T^3 + 7T^2 + 21T + 49; a_3 = 21 = 7·a_1 and a_4 = 49 = 7^2 (the corrected relation), while the printed a_1 = a_3 fails; |a_i| ≤ C(4, i)·7^{i/2} for all i; N_1 = ⌈1 + 5 log_7 2⌉ = 3 and 7^3 = 343 > 84 = 2·max C(4, i)7^{i/2}, and a_1, a_2 are recovered from their residues mod 343; #C(F_7) = 11 by brute force = 8 − (−3).
-- for the same curve #C'(F_{7^k}) = #C − 1 − r_k gives 10, 54, 370 for k = 1, 2, 3, while the printed #C − 2g gives 7, 51, 367.
+- For the same curve #C'(F_{7^k}) = #C − 1 − r_k gives 10, 54, 370 for k = 1, 2, 3, while the printed #C − 2g gives 7, 51, 367.
 
 <a id="rd-7-17"></a>
 
@@ -14730,7 +14729,7 @@ The API:
 
 *Sources.* D'Addezio, *Parabolicity conjecture of F-isocrystals*, proof of Theorem 5.1.6, p. 25 (arXiv v4); Kedlaya, *Fourier transforms and p-adic 'Weil II'*, §1.1, p. 3.
 
-*Needs:* [§RD.7.3](#rd-7-3) *The rigid and crystalline zeta expressions for every finite extension*; [§RD.7.6](#rd-7-6) *The Weil factors are integral polynomials determined by weights*; [§RD.7.5](#rd-7-5) *Weight separation: pure factors of a rational zeta function are unique, rational and integral*; [§RD.7.1](#rd-7-1) *The comparison matches the q-Frobenius with the f-th iterate of crystalline Frobenius*; DeligneWeightsAndPurity §1.1 *The q-Frobenius endomorphism of a variety over 𝔽_q*; DeligneWeightsAndPurity §1.4 *The Weil estimate for abelian varieties over 𝔽_q*; DeligneWeightsAndPurity §1.5 *Point counts of abelian varieties over 𝔽_{q^m}, and their bounds*; DeligneWeightsAndPurity §0.2 *Products, inverses, conjugation and integrality of Weil q-numbers*; AbelianSchemesAndArithmeticModuli §A6.11 *P_α is the characteristic polynomial of α on V_ℓA, for every ℓ ≠ char k*; ArithmeticGaloisRepresentations §6.3 and AbelianSchemesAndArithmeticModuli §A5.7; Tau Ceti `WeierstrassCurve.frobeniusTrace`.
+*Needs:* [§RD.7.3](#rd-7-3) *The rigid and crystalline zeta expressions for every finite extension*; [§RD.7.6](#rd-7-6) *The Weil factors are integral polynomials determined by weights*; [§RD.7.5](#rd-7-5) *Weight separation: pure factors of a rational zeta function are unique, rational and integral*; [§RD.7.1](#rd-7-1) *The comparison matches the q-Frobenius with the f-th iterate of crystalline Frobenius*; DeligneWeightsAndPurity §1.1 *The q-Frobenius endomorphism of a variety over 𝔽_q*; DeligneWeightsAndPurity §1.4 *The Weil estimate for abelian varieties over 𝔽_q*; DeligneWeightsAndPurity §1.5 *Point counts of abelian varieties over 𝔽_{q^m}, and their bounds*; DeligneWeightsAndPurity §0.2 *Products, inverses, conjugation and integrality of Weil q-numbers*; AbelianSchemesAndArithmeticModuli §A6.11 *The characteristic polynomial on the Tate module*; ArithmeticGaloisRepresentations §6.3 and AbelianSchemesAndArithmeticModuli §A5.7; Tau Ceti `WeierstrassCurve.frobeniusTrace`.
 
 **Checks.**
 
@@ -14901,7 +14900,7 @@ The API:
 
 ### Dependencies
 
-Earlier layers: RD.0, RD.1, RD.3, RD.4, RD.5, RD.6. Other roadmaps: AbelianSchemesAndArithmeticModuli, ArithmeticGaloisRepresentations, CrystallineCohomology, DeligneWeightsAndPurity, FiniteFlatGroupsAndIntegralPadicHodgeTheory, NeronModelsAndSemistableAbelianVarieties. Libraries: Mathlib and Tau Ceti.
+Earlier layers: RD.0, RD.1, RD.3, RD.4, RD.5, RD.6. Other roadmaps: AbelianSchemesAndArithmeticModuli, ArithmeticGaloisRepresentations, CrystallineCohomology, DeligneWeightsAndPurity, FiniteFlatGroupsAndIntegralPadicHodgeTheory, NeronModelsAndSemistableAbelianVarieties. TauCetiRoadmap: EllipticCurves; pull request #196 (TraceFormula). Libraries: Mathlib and Tau Ceti.
 
 ## Downstream consumers
 
@@ -14920,7 +14919,7 @@ The following corrections to statements or proofs in the sources are used above.
 - **Kedlaya, *Slope filtrations revisited*, Example 2.2.18, journal p.456; arXiv v4 p.10.** Require finite coefficient p-rank for this particular Laurent monomial basis, or independently assume an actual valuation p-basis of the complete residue field. *Why:* For k=F_p(s_1,s_2,…) with independent indeterminates, Σ\_{n≥1}s_n t^{pn} has infinitely many nonzero coordinates in distinct constant p-monomials over k^p((t^p)). A finite monomial sum cannot represent it. This invalidates this proposed basis, not the existence of any other valuation p-basis.
 - **Kedlaya, *Slope filtrations revisited*, Proof of Proposition 2.2.21(c), journal p.457; arXiv v4 p.11.** Use y_i+c_i y_1. Make the DVR relation primitive before choosing a unit coefficient to express x_1. *Why:* Bilinearity gives x_1⊗y_1=Σ x_i⊗c_i y_1. Even over Z, taking y_1=2 shows the omitted factor changes the tensor. The corrected rewrite decreases its length.
 - **Colmez–Fargues–Fontaine, *Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Théorème 2.30(ii), printed p.24.** Restrict the finite effective-divisor bijection to nonzero closed ideals and treat the zero ideal separately. *Why:* Zero is a closed ideal whose generator is the zero function. Its orders are infinite at every point, so it has no locally finite effective divisor with natural-number multiplicities.
-- **Fontaine–Ouyang, *Theory of p-adic Galois Representations*, Proof of Proposition 3.6, printed p.43.** The sum is αTr(c)=α. Keep the scalar α in the subtraction used to estimate Tr(cα)−α. *Why:* Α is fixed as an external factor in this sum, so factoring it out gives αΣ\_σ σ(c). The subsequent conjugate-difference estimate uses this corrected equality.
+- **Fontaine–Ouyang, *Theory of p-adic Galois Representations*, Proof of Proposition 3.6, printed p.43.** The sum is αTr(c)=α. Keep the scalar α in the subtraction used to estimate Tr(cα)−α. *Why:* α is fixed as an external factor in this sum, so factoring it out gives αΣ\_σ σ(c). The subsequent conjugate-difference estimate uses this corrected equality.
 - **Colmez–Fargues–Fontaine, *Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Préface §2.5.1, printed p.24.** Use the already-defined v_J=inf_{r∈J}v_r, equivalently the compact endpoint Gauss maximum after converting to norms. Any pointwise reformulation needs an infimum with a sufficient set of valued extension points, not a sum. *Why:* For the constant f=p on a nonempty annulus, v_J(f)=1, whereas summing the value 1 over its infinitely many analytic points cannot give 1.
 - **Colmez–Fargues–Fontaine, *Préface to Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Préface §2.5.1, printed p.24.** For a disc containing the centre complete polynomials (nonnegative powers); for positive-radius annuli use Laurent polynomials. *Why:* T^{-1} has a pole at the centre and its Gauss value at +∞ is not finite. It cannot be an analytic element or a member of a finite-norm polynomial starting space for that disc.
 - **Kedlaya–Xiao, *Differential modules on p-adic polyannuli*, KX arXiv v4 Lemma 2.3.2 proof, p. 23.** Use Lemma 2.3.1. *Why:* Lemma 2.3.1 is the preceding finite-locally-free intersection statement needed on End(M).
@@ -14941,10 +14940,10 @@ The following corrections to statements or proofs in the sources are used above.
 - **Kedlaya, *Slope filtrations revisited*, Lemma 2.9.3, proof, p. 475 (Doc. Math. 10; arXiv v4: statement p. 28, proof p. 29).** Replace g_{i+1} − x_i by y_i ∈ Γ\_r with g_{i+1} − x_i − y_i divisible by h_{i+1} in Γ\_{i+1}, chosen by an argument like Lemma 2.9.2. *Why:* Observed by R. Liu and repaired in the published erratum.
 - **Kedlaya, *A p-adic local monodromy theorem*, Introduction (Section 1.1), p. 3 of arXiv:math/0110124v4 (p. 95 of the Annals version).** An element of Γcon has that property only after multiplication by a large power of the series variable (and conversely); Γcon is the ring of bounded-by-1 overconvergent series in the sense of Chapter 3. *Why:* Pointed out by K. Buzzard and corrected in the erratum to Slope filtrations revisited; for example u^{−1} ∈ Γcon has |u^{−1}| = 1/|u| > 1 on every annulus ρ < |u| < 1, while u·u^{−1} = 1 is integral.
 - **Kedlaya, *A p-adic local monodromy theorem*, Lemma 2.3, p. 14 of arXiv:math/0110124v4 (Annals version, Lemma 2.3).** R must be a Bézout domain: the proof divides by a generator d of (x_1, …, x_{n−1}), which needs d to be a nonzerodivisor. *Why:* The induction forms x_i/d; in a ring with zero divisors a generator need not divide its multiples uniquely. Corrected by the author.
-- **Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Lemma 5.4.6, p. 33 (arXiv:math/0501361v2;).** E has highest break ≥ β (resp. ≤ β) iff f^\*E has highest break ≥ nβ (resp. ≤ nβ) iff f_\*E has highest break ≥ β/n (resp. ≤ β/n). *Why:* Each clause compares one-sided bounds; with 'exactly nβ' the equivalence fails, e.g. E of highest break 2β has highest break ≥ β while f^\*E has highest break 2nβ ≠ nβ. The proof (Lemma 5.3.1) gives the one-sided statements.
-- **Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Proof of Lemma 5.4.7, p. 33 (arXiv:math/0501361v2;).** That ring reduces to u^p − u = −a t^{−n} (expand (1 + πu)^p = 1 + pπu − pπu^p + higher terms and divide by pπ); take b lifting −a, or replace u by −u when p is odd. The cover is the same up to this sign, so nothing downstream changes. *Why:* Coefficient comparison modulo pπ^2: π^p = −pπ and the middle binomial terms are divisible by pπ^2.
+- **Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Lemma 5.4.6, p. 33 (arXiv:math/0501361v2).** E has highest break ≥ β (resp. ≤ β) iff f^\*E has highest break ≥ nβ (resp. ≤ nβ) iff f_\*E has highest break ≥ β/n (resp. ≤ β/n). *Why:* Each clause compares one-sided bounds; with 'exactly nβ' the equivalence fails, e.g. E of highest break 2β has highest break ≥ β while f^\*E has highest break 2nβ ≠ nβ. The proof (Lemma 5.3.1) gives the one-sided statements.
+- **Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Proof of Lemma 5.4.7, p. 33 (arXiv:math/0501361v2).** That ring reduces to u^p − u = −a t^{−n} (expand (1 + πu)^p = 1 + pπu − pπu^p + higher terms and divide by pπ); take b lifting −a, or replace u by −u when p is odd. The cover is the same up to this sign, so nothing downstream changes. *Why:* Coefficient comparison modulo pπ^2: π^p = −pπ and the middle binomial terms are divisible by pπ^2.
 - **Kedlaya, *p-adic Differential Equations*, Lemma 19.3.3, proof, last paragraph, pp. 319-320 (first edition).** For the standard lift φ(t) = t^q, (17.1.2.1) reads NA + t dA/dt = qAφ(N), that is N − qAφ(N)A^{−1} = −t(dA/dt)A^{−1}; the proof of Lemma 19.3.4 on the next page writes the relation correctly. The argument only uses which powers of t occur, so nothing changes. *Why:* Rank one: the module E† v with t dv/dt = v/(q − 1) and F(v) = t·v satisfies (17.1.2.1), since NA + t dA/dt = t/(q − 1) + t = q·t/(q − 1) = qAφ(N); the printed form fails, since there N − qAφ(N)A^{−1} = −1 while t(dA/dt)A^{−1} = 1.
-- **Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Proof of Lemma 5.4.7, pp. 33-34 (arXiv:math/0501361v2;).** p·d(1 + πu)^i/(1 + πu)^i = i·d(1 + pπbt^{−n})/(1 + pπbt^{−n}), so the summand generated by (1 + πu)^i has ∇v = −iπnbt^{−n−1}(1 + pπbt^{−n})^{−1} v ⊗ dt, and in the rest of the proof the horizontal section is exp(−iπb(t^{−n} − t_ρ^{−n}))w. The convergence radius ρ^{n+1}, hence the break n, is unchanged because |i| = 1. *Why:* (1 + πu)^p = 1 + pπbt^{−n} gives p·dlog(1 + πu) = dlog(1 + pπbt^{−n}), and dlog((1 + πu)^i) = i·dlog(1 + πu). The p − 1 nontrivial summands correspond to the p − 1 distinct nontrivial characters of Z/p, so they are pairwise non-isomorphic and cannot all equal one module.
+- **Kedlaya, *Local monodromy of p-adic differential equations: an overview*, Proof of Lemma 5.4.7, pp. 33-34 (arXiv:math/0501361v2).** p·d(1 + πu)^i/(1 + πu)^i = i·d(1 + pπbt^{−n})/(1 + pπbt^{−n}), so the summand generated by (1 + πu)^i has ∇v = −iπnbt^{−n−1}(1 + pπbt^{−n})^{−1} v ⊗ dt, and in the rest of the proof the horizontal section is exp(−iπb(t^{−n} − t_ρ^{−n}))w. The convergence radius ρ^{n+1}, hence the break n, is unchanged because |i| = 1. *Why:* (1 + πu)^p = 1 + pπbt^{−n} gives p·dlog(1 + πu) = dlog(1 + pπbt^{−n}), and dlog((1 + πu)^i) = i·dlog(1 + πu). The p − 1 nontrivial summands correspond to the p − 1 distinct nontrivial characters of Z/p, so they are pairwise non-isomorphic and cannot all equal one module.
 - **Kedlaya, *p-adic Differential Equations*, Example 17.1.4, p. 292 (first edition); used in Example 19.2.6, p. 317.** These two do not match: for D(v) = π(df/dt)v the compatibility (17.1.1.1) forces Φ(v) = exp(πφ(f) − πf)v; equivalently, keep Φ and take D(v) = −π(df/dt)v. With the second reading, Example 19.2.6 (D†(V) = M_f for the character sending z ↦ z + 1 to ζ\_p, where 1 − ζ\_p ≡ π modulo π^2) holds as printed. *Why:* In rank one (17.1.1.1) reads Na + da/dt = (dφ(t)/dt)·a·φ(N); with N = π df/dt it gives dlog a = π d(φ(f)) − π df, so a = exp(π(φ(f) − f)) up to a constant, as also follows from Φ carrying the horizontal section exp(−πf)v to a multiple of itself. For Example 19.2.6 with f = t^{−1}: in E†[u]/((1 + πu)^p − 1 − pπt^{−1}) the automorphism z ↦ z + 1 (z = −ū) multiplies 1 + πu by ζ\_p, so D†(V) is spanned by (1 + πu)^{−1}, whose connection form πt^{−2}(1 + pπt^{−1})^{−1} dt matches −π(df/dt) dt.
 - **Berthelot, *Cohomologie rigide et cohomologie rigide à supports propres. Première partie (version provisoire 1991)*, (2.3.2)(iii), p. 71 (IRMAR 96-03, version provisoire 1991).** Independence follows by passing to a common refinement embedded in the products P_α ×\_S P′\_β, using the frame-independence equivalences on each piece and the uniqueness and transitivity of the Taylor comparison isomorphisms; the argument is written out in [§RD.3.22](#rd-3-22). *Why:* The step is needed for the gluing construction to define a category up to canonical equivalence, on which the independence of the compactification (2.3.5) and the definition (2.3.6) rely.
 - **Berthelot, *Cohomologie rigide et cohomologie rigide à supports propres. Première partie (version provisoire 1991)*, Proof of (2.3.5), p. 73.** The locality in X is the remark after (2.2.11) (together with (2.3.3)(i)); (2.2.17) concerns two morphisms with the same restriction to Y′. *Why:* (2.2.17) constructs the comparison isomorphism between pullbacks along morphisms agreeing on Y′ and says nothing about restriction to opens of X; the stack statement used here is the remark after (2.2.11).
@@ -15122,7 +15121,7 @@ The following corrections to statements or proofs in the sources are used above.
 - K. S. Kedlaya, *Full faithfulness for overconvergent F-isocrystals*, in Geometric Aspects of Dwork Theory, de Gruyter (2004), 819–835; arXiv:math/0110125v4. <https://arxiv.org/abs/math/0110125v4>
 - K. S. Kedlaya, *A p-adic local monodromy theorem*, Ann. of Math. 160 (2004), 93–184; arXiv:math/0110124v4. <https://arxiv.org/abs/math/0110124v4> <https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p04.pdf>
 - K. S. Kedlaya, *Comments and errata for 'Counting points on hyperelliptic curves using Monsky–Washnitzer cohomology'*, author's note (2003). <https://kskedlaya.org/papers/hyperell-errata.pdf>
-- K. S. Kedlaya, *Slope filtrations revisited*, Doc. Math. 10 (2005), 447–525; arXiv:math/0504204v4. <https://arxiv.org/abs/math/0504204v4> <https://ems.press/content/serial-article-files/25974>
+- K. S. Kedlaya, *Slope filtrations revisited*, Doc. Math. 10 (2005), 447–525; arXiv:math/0504204v4 (page numbers cited are those of the arXiv version unless marked Doc. Math.). <https://arxiv.org/abs/math/0504204v4> <https://ems.press/content/serial-article-files/25974>
 - K. S. Kedlaya, *Swan conductors for p-adic differential modules, I: A local construction*, Algebra Number Theory 1 (2007), 269–300; arXiv:math/0611835v3. <https://arxiv.org/abs/math/0611835v3>
 - K. S. Kedlaya, *Fourier transforms and p-adic 'Weil II'*, Compositio Math. 142 (2006), 1426–1450; arXiv:math/0210149v3 (theorem numbers of the arXiv version). <https://arxiv.org/abs/math/0210149v3>
 - K. S. Kedlaya and L. Xiao, *Differential modules on p-adic polyannuli*, J. Inst. Math. Jussieu 9 (2010), 155–201; arXiv:0804.1495v4. <https://arxiv.org/abs/0804.1495v4> <https://arxiv.org/pdf/0804.1495v4>
@@ -15153,7 +15152,7 @@ The following corrections to statements or proofs in the sources are used above.
 - J. Poineau and A. Pulita, *The convergence Newton polygon of a p-adic differential equation V: local index theorems*, arXiv:1309.3940v3. <https://arxiv.org/abs/1309.3940v3>
 - Marius van der Put, *The cohomology of Monsky and Washnitzer*, Mém. Soc. Math. France (N.S.) 23 (1986), 33–59. <https://www.numdam.org/item/MSMF_1986_2_23__33_0/> <http://www.numdam.org/item/MSMF_1986_2_23__33_0/>
 - P. Schneider, *Nonarchimedean Functional Analysis*, Springer Monographs in Mathematics, 2002.
-- P. Schneider and J. Teitelbaum, *Locally analytic distributions and p-adic representation theory, with applications to GL₂*, J. Amer. Math. Soc. 15 (2002), 443–468.
+- P. Schneider and J. Teitelbaum, *Locally analytic distributions and p-adic representation theory, with applications to GL₂*, J. Amer. Math. Soc. 15 (2002), 443–468; arXiv:math/9912073v1. <https://arxiv.org/abs/math/9912073v1>
 - J.-P. Serre, *Endomorphismes complètement continus des espaces de Banach p-adiques*, Publ. Math. IHÉS 12 (1962), 69–85.
 - J.-P. Serre, *Groupes algébriques et corps de classes*, Hermann, 1959.
 - J.-P. Serre, *Local Fields*, Graduate Texts in Mathematics 67, Springer, 1979.
