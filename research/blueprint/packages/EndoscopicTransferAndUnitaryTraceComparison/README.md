@@ -14,17 +14,17 @@ Existing theories are consumed with their original carriers. `TauCetiRoadmap.Red
 
 `TauCetiRoadmap.AdelicAlgebraicGroups` AA.2 owns adelic and Tamagawa measures, quotient integration and continuous central-character extension. `GlobalNumberFields` Layers 9–10 owns algebraic Hecke characters and infinity types. Layer 6 retains only the chosen CM extension character's ramification set and parity adapter needed by the L-embeddings; it does not repeat either general character-extension theorem or the classification of complex characters.
 
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` SR.0–SR.5 owns smooth and finite-length categories, normalized induction and Jacquet functors, Bernstein components, the Langlands standard quotient, compact types, and SR.5.3's segment and multisegment classifications, both Z/L conventions, Zelevinsky involution and endpoint-shortening derivative formula. Those classifications have no duplicate sections or declarations here. Layer 10 uses their essentially square-integrable segment constituent to attach a special Weil–Deligne block. Ladder classification and the full Tadić unitary dual are outside this scope. The all-rank generic newvector theorem and the particular compact-type separator needed for the trace construction require the precise additional supplier contracts below; they cannot be inferred from the segment classification. SR.5.2 (*classical-llc-normalization*) states the classical GL_n correspondence rec, the Weil–Deligne functor and the Breuil–Schneider normalization as an input theorem of that roadmap, with local reciprocity sending a uniformizer to arithmetic Frobenius. Layer 10 here constructs that correspondence by the trace method and proves its characterization, in the geometric normalization fixed under Conventions; the two normalizations of reciprocity differ by inversion on the abelianized Weil group, and the dual of a Weil–Deligne representation is (r^∨, −N^t) in both.
+`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` SR.0–SR.5 owns smooth and finite-length categories, normalized induction and Jacquet functors, Bernstein components, the conditional Langlands standard quotient and the Iwahori block, and SR.5.3's segment and multisegment classifications, both Z/L conventions, Zelevinsky involution and endpoint-shortening derivative formula. Those classifications have no duplicate sections or declarations here. Layer 10 uses their essentially square-integrable segment constituent to attach a special Weil–Deligne block. Ladder classification and the full Tadić unitary dual are outside this scope. The all-rank generic newvector theorem and the particular compact-type separator needed for the trace construction are targets of §§10.16–10.17. SR.5.2 (*classical-llc-normalization*) states the classical GL_n correspondence rec, the Weil–Deligne functor and the Breuil–Schneider normalization as an input theorem of that roadmap, with local reciprocity sending a uniformizer to arithmetic Frobenius. Layer 10 here constructs that correspondence by the trace method and proves its characterization, in the geometric normalization fixed under Conventions; the two normalizations of reciprocity differ by inversion on the abelianized Weil group, and the dual of a Weil–Deligne representation is (r^∨, −N^t) in both.
 
-`ArithmeticGaloisRepresentations` R01.1–R01.2 owns representations of Galois and Weil groups, the Weil–Deligne carrier, special objects, duals, direct sums, Frobenius semisimplification, local Euler/epsilon factors and Artin–Deligne conductors. `AutomorphicLFunctionsAndLocalFactors` AL.1 and AL.3 owns the Tate normalization and analytic factors. Layer 10 compares those objects with representations of GL groups, without redefining the arithmetic factors or inferring monodromy from semisimple traces. Full local–global monodromy compatibility and any comparison with an excursion parameter are downstream consumers.
+`ArithmeticGaloisRepresentations` Layers 1–3 owns continuous Galois representations, the Weil–Deligne carrier, special objects, duals, direct sums, Frobenius semisimplification, local Euler/epsilon factors and Artin–Deligne conductors. `AutomorphicLFunctionsAndLocalFactors` AL.1 and AL.3 owns the Tate normalization and analytic factors. Layer 10 compares those objects with representations of GL groups, without redefining the arithmetic factors or inferring monodromy from semisimple traces. Full local–global monodromy compatibility and any comparison with an excursion parameter are downstream consumers.
 
-The general sheaf theory belongs to `EtaleDualityAndPerverseSheaves` EDC.0–EDC.8, `DeligneWeightsAndPurity` DWP.8, `LefschetzPencilsAndVanishingCycles` LPV.6, `ClassicalAdicEtaleCohomology` H1–H3, `DiamondSixOperations` S2 and `AdicCoefficientsAndComparisons` L0. Their duality, perverse t-structures, purity, nearby cycles and trace theorems are prerequisites rather than extra layers here. The Hitchin application needs their Deligne–Mumford stack versions, and tower compact support needs their all-dimensional equivariant analytic comparisons; a scheme theorem or a curve-only support theorem is insufficient.
+The general sheaf theory belongs to `EtaleDualityAndPerverseSheaves` EDC.0–EDC.8, `DeligneWeightsAndPurity` DWP.8, `LefschetzPencilsAndVanishingCycles` LPV.6, `ClassicalAdicEtaleCohomology` H1–H3, `DiamondSixOperations` S2 and `AdicCoefficientsAndComparisons` L0. Their scheme duality, perverse t-structures, purity and torsion nearby cycles are used unchanged. §§3.15–3.18 construct the Deligne–Mumford and perverse trace applications; §§10.4, 12.12–12.13 construct the ℓ-adic and equivariant analytic comparisons for these towers.
 
 `TauCetiRoadmap.AlgebraicCurves` Layers 4–5 and 12 owns repartitions, Riemann–Roch, the completion comparison and the curve/function-field dictionary. The early curve-bundle and local-loop instances below provide only what the Hitchin argument uses, without a global-shtuka or function-field Langlands dependency. `AlgebraicModuliForArithmeticGeometry` and `SchemeAndStackFoundations` own the general algebraicity and descent criteria used for these instances.
 
 `PELModuli` M0–M4 and `AbelianSchemesAndArithmeticModuli` own PEL carriers, universal abelian schemes, determinant conditions and canonical-model comparison. `FiniteFlatGroupsAndIntegralPadicHodgeTheory` R07.1–R07.2 owns p-divisible groups and Dieudonné theory. The Igusa liftability, structured slope data, special formal-module deformation instances and raw compact-unitary cohomology needed here are specified separately at the exact scope used. Rational alternating Igusa cohomology and its group action occur before counting. Compactified Igusa fibres, torsion concentration, positivity, integral lattices, and general relative Rapoport–Zink spaces are downstream theory.
 
-`TauCetiRoadmap.AdicSpaces` Layer 6 owns the actual adic Fargues–Fontaine curve, its period annuli and quotient sheaf. Tau Ceti supplies the Frobenius orbit topology through `TauCeti.FarguesFontaine.spaX`, `quotientMap`, `quotientMap_eq_iff` and `isOpenQuotientMap_quotientMap`; this topological API alone supplies neither a sheaf of complete rings nor an untilt divisor. `PerfectoidSpaces` P1–P5 and `DiamondsAndVStacks` D6 own marked untilts, tilting, limits and the analytic diamond functor. Layer 12's additional marked-untilt chart is the relative, tower-specific GL/EL modification instance; it does not repeat the fixed-field curve construction or the fixed-field diamond/site comparison. General Hecke stacks and local shtukas are downstream consumers of this particular fibre.
+`TauCetiRoadmap.AdicSpaces` Layer 6 owns the adic Fargues–Fontaine curve for E=Q_p, its period annuli and quotient sheaf. For E=Q_p, Tau Ceti supplies the Frobenius orbit topology through `TauCeti.FarguesFontaine.spaX`, `quotientMap`, `quotientMap_eq_iff` and `isOpenQuotientMap_quotientMap`; this topological API alone supplies neither a sheaf of complete rings nor an untilt divisor. `PerfectoidSpaces` P1–P5 and `DiamondsAndVStacks` D6 own marked untilts, tilting, limits and the analytic diamond functor. Layer 12 first extends the coefficient field from Q_p to a finite E in §12.1, then constructs the relative GL/EL marked-untilt modification chart. The Q_p quotient construction and the fixed-field diamond/site comparison are reused. General Hecke stacks and local shtukas are downstream consumers of this particular fibre.
 
 `AutomorphicFormsOnReductiveGroups` AF.1–AF.5 and `AutomorphicSpectralTheory` AS.4 and AS.6 own automorphic spaces, archimedean GL parameters, Eisenstein series and invariant spectral expansions. Layer 5 supplies the full number-field GL residual Speh classification needed by the unitary spectral calculation, beyond a function-field or spherical specialization. The generic pure-inner unitary classification and the GSp₄ general-type comparison have their separate primary classification inputs; the latter is not deduced from a unitary theorem.
 
@@ -36,21 +36,21 @@ Ordinary orbital integrals are O_gamma(f); discriminant-normalized ones are J_ga
 
 Geometric Frobenius Phi has absolute value omega(Phi)=q^(-1); arithmetic Frobenius has value q. Arithmetic degree assigns deg(Phi)=-1. Geometric reciprocity sends a uniformizer to Phi in the abelianized Weil group; replacing arithmetic reciprocity by geometric reciprocity uses inversion on that abelianization, not an inversion homomorphism on a nonabelian Weil group. Fix the positive square root of q. A Tate twist by 1 has geometric eigenvalue q^(-1).
 
-Normalized induction uses delta_P^(1/2). Write nu=|det|. Scholze's trace parameter and the unitary-normalized Weil parameter satisfy sigma_ss(pi)=rec_un(pi) tensor omega^((1-n)/2). In the raw special block Sp(k), r(w)e_i=omega(w)^i e_i, N e_i=e_(i+1), and N e_(k-1)=0. Thus r(w) N r(w)^(-1)=omega(w) N. Unitary St_n has parameter omega^((1-n)/2) Sp(n). The L-factor uses (ker N)^I; epsilon factors and conductors retain the Deligne monodromy correction. Frobenius semisimplification retains N, whereas categorical semisimplification removes it.
+Normalized induction uses delta_P^(1/2). Write nu=|det|. Write rec_un for Scholze's unnormalized trace parameter; its unitary normalization is sigma_ss(pi)=rec_un(pi) tensor omega^((1-n)/2). In the raw special block Sp(k), r(w)e_i=omega(w)^i e_i, N e_i=e_(i+1), and N e_(k-1)=0. Thus r(w) N r(w)^(-1)=omega(w) N. Unitary St_n has parameter omega^((1-n)/2) Sp(n). The L-factor uses (ker N)^I; epsilon factors and conductors retain the Deligne monodromy correction. Frobenius semisimplification retains N, whereas categorical semisimplification removes it.
 
 For unitary base change the involution is inverse conjugate transpose with the chosen antidiagonal form. The CM auxiliary character and every half twist remain part of the L-embedding. The simple geometric comparison assumes [F^+:Q]>1 and its specified Lefschetz infinity function. Proper geometric Levi terms vanish under that criterion; proper spectral Levi terms can remain. The stable coefficient is iota(G,H)=tau(G)/(tau(H) |Out(H,s,eta)|). Balanced proper unitary endoscopy has coefficient 1/2. This is distinct from the twisted spectral determinant factor 2^(-r).
 
 For the equal-characteristic geometry, k is finite, X/k is smooth projective and geometrically connected, and char(k) does not divide the Weyl-group order. The line bundle D is arbitrary for the Hitchin carrier; degree, square-root and anisotropic assumptions appear on each result. Waldspurger's characteristic-transfer bound is a separate sufficiently-large-characteristic hypothesis.
 
-In PEL Dieudonné comparison, record contravariant and covariant conventions separately. Acceptability orders slopes decreasingly and compares every eigenvalue across two distinct slope blocks. Scalar translation first clears inverse denominators; a negative central Frobenius shift then gives the monoid and slope conditions. Neither step substitutes for the other. For SW20's covariant height-n formal module, b lies in B(GL_n,mu^(-1)), its Newton slope is -1/n, and the associated bundle in the modification exact sequence has degree +1. The opposite Fargues–Scholze orientation is compared by an action theorem, rather than by changing the sign silently.
+In PEL Dieudonné comparison, record contravariant and covariant conventions separately. Acceptability orders slopes decreasingly and compares every eigenvalue across two distinct slope blocks. Scalar translation first clears inverse denominators; a negative central Frobenius shift then gives the monoid and slope conditions. Neither step substitutes for the other. For SW20's covariant height-n formal module, b lies in B(GL_n,mu^(-1)), its Newton slope is -1/n, and the associated bundle in the modification exact sequence has degree +1. §12.22 states the Fargues–Scholze basic-Hecke calculations in their two native orientations, with their own source-torsor actions.
 
 Tower cohomology uses inverse pullback to turn right geometric actions into left representations. Keep the GL_n, division-algebra and Weil actions, the central quotient, contragredients and Tate twist in the same comparison. In Dat's convention, a tensor sector with right action v·d=d^(-1)v selects the dual division-algebra representation. Rational Grothendieck classes are signed alternating classes; a finite trace factorization proves virtual support and does not imply concentration or positivity.
 
 `Suggested.lean` records only signatures over the pinned existing carriers. Its definitions `kottwitzSign`, `kappaSum`, `chevalleyMap`, `kostantSectionGL`, `endoscopicCoefficient`, `unitaryComponentCount`, `AcceptableValuations`, `specialMonodromy`, `specialFrobenius` and `comparisonTrace` fix selected numerical conventions below. They do not supply reductive-group, moduli, representation-category or cohomology constructions. The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-## Exact supplier contracts
+## Prerequisite interfaces
 
-The following inputs are used at their stated scope. Each contract includes the extension needed for this application when the general statement alone is insufficient. A claimed comparison must provide the indicated functoriality, coefficients and action laws, as well as an existence theorem.
+Each external input below is used only at the scope its roadmap states. The additional results specific to endoscopy, strict deformation spaces and local towers are numbered targets of this roadmap; their points of use are given alongside the external input.
 
 ### From Mathlib and Tau Ceti
 
@@ -72,206 +72,48 @@ The following inputs are used at their stated scope. Each contract includes the 
 - Mathlib `Matrix.diagonal`: The matrix with prescribed diagonal and zero off the diagonal, used in the two-dimensional special-block regression.
 - Mathlib `Matrix.trace`: The finite square-matrix trace, the sum of its diagonal entries, over an additive commutative monoid.
 - Mathlib `Matrix.trace_diagonal`: The trace of a diagonal matrix over a finite type with decidable equality is the sum of its diagonal entries.
-
-### From lower arithmetic and geometric roadmaps
-
-#### From `TauCetiRoadmap.AdicCoefficientsAndComparisons`
-
-`TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0. At a fixed finite level, adic coefficient complexes as derived inverse limits over ell^r, derived reduction and scalar extension, followed by the separate smooth level colimit; no unproved interchange of these limits.
-
-#### From `TauCetiRoadmap.AlgebraicCurves`
-
-`TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch. Riemann–Roch on a smooth projective curve; used for the dimension of the Hitchin base, Schiffmann's boundedness and the δ-codimension estimate.
-
-`TauCetiRoadmap.AlgebraicCurves`, layer 12 the dictionary  function fields  curves and the comparison contracts. The dictionary between function fields and smooth projective curves over finite fields; used for the global curve of the Hitchin fibration.
-
-#### From `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`
-
-`TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4. For a smooth projective curve X over 𝔽_q, a smooth affine group scheme G over X and a line bundle D: (i) for a G-torsor E on X × S, the stack over Bun_G of sections φ ∈ H^0(X × S, ad(E) ⊗ D) (an abelian cone of a coherent sheaf) is algebraic and locally of finite type; (ii) for a smooth commutative group scheme J over X × S, the Picard stack of J-torsors is algebraic and smooth when H^2 vanishes; (iii) the criterion that an algebraic stack of finite type with finite unramified inertia is Deligne–Mumford. These are the stack inputs of the Hitchin moduli stack, its Picard action and the anisotropic DM statement.
-
-#### From `TauCetiRoadmap.ArithmeticGaloisRepresentations`
-
-`TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.1. For Weil representations with finite inertia, extend the existing representation operations to cyclic restriction/orbit Clifford calculations and Brauer induction after an unramified scalar twist, using InductionRestriction Layers 5–6 rather than rebuilding finite-group theory. For the global step require global Weil groups and algebraic Weil-to-ℓ-adic realizations from a ClassFieldTheory Part II (global Weil groups require the stated extension of ClassFieldTheory); define its localization/finite-extension descent and verify agreement at every v∤ℓ (Scholze 13.4).
-
-#### From `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`
-
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1. For GL_n(ℝ) and GL_n(ℂ), normalized parabolic induction of arbitrary irreducible unitary GL-block representations is irreducible, and the normalized intertwiner is holomorphic/invertible at the unitary point. Mœglin–Waldspurger §I.1.1(3) pp. 607–608 invokes Vogan/Bernstein; generic-unitary classification alone does not cover residual Speh data. The non-archimedean blocks are §6.1 (Bernstein); the required extension is the archimedean case (Vogan), used there and in the spectral side.
-
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5. Import AF.5/gl1-dictionary, GlobalNumberFields algebraic Hecke characters and their norm/twist/infinity-type APIs. Supply the precise conjugate-self-dual half-normalization correcting characters used by Scholze 13.2 and 13.6, with strong multiplicity-one comparison supplied by the early automorphic prefix. Archimedean LLC itself is the existing AF.1/archimedean-llc-gln node.
-
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln. Import the specified real/complex GL_n archimedean LLC endpoint with the same norm convention, algebraic infinity types and compatibility with cyclic restriction/automorphic induction. Both are supplier targets with the full normalization and functoriality stated above.
-
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.2. Cuspidal automorphic representations with unitary central character, normalized restricted tensor products and square integrability modulo the centre.
-
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5. For the standard definite unitary datum: identification of the degree-zero cohomology of the Shimura sets with algebraic automorphic forms on the compact-at-infinity unitary group (functions on finite adelic double cosets), compatibly with Hecke operators and with the decomposition into automorphic representations with trivial infinity component. This is the definite case of the oldform count; it is not integral or Igusa concentration.
-
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4. Cohomological representations of the real unitary group U(N−1,1)×U(N)^(d−1) and the (g,K)-cohomology (Matsushima) description of the Π-eigenspace of the cohomology of the standard indefinite unitary Shimura variety for relevant Π: every contributing π is cuspidal and tempered, contributes only in degree N−1, and each of the N discrete series with Harish-Chandra parameter {(1−N)/2,…,(N−1)/2} contributes one dimension. Characteristic zero only; not integral or Igusa concentration.
-
-#### From `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`
-
-`TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.1. Supply global Hecke-character approximation with prescribed trivial component at the distinguished place and arbitrarily large conductors at a finite other set, plus the global Weil/Hecke functional equation and the fixed Tate measure/s-variable dictionary.
-
-`TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3. Supply Henniart 2000 Corollary 2.4’s highly ramified pair stability, including analytic and Weil vanishing L=1 and epsilon comparison under equal dimensions/determinants. Retain ψ and measures, and state the threshold depending on the fixed local pair. Its independent primary stability proof is required with these exact hypotheses.
-
-`TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3. Supply exact segment-pair factor formulas and the all-Langlands-quotient, including nongeneric, standard/pair L,gamma,epsilon products stated in Henniart 2002 §2.6 and §2.8, with the JPSS 1983 §9 analytic proof. The supplier’s rs-induced-factor-product is limited to generic irreducible normalized inductions.
-
-#### From `TauCetiRoadmap.AutomorphicSpectralTheory`
-
-`TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6. The unweighted invariant orbital integral of a semisimple element of a connected reductive group over a local field of characteristic 0 (or a finite product of such): the quotient measure on G_γ^0\G, convergence, invariance, linearity in the measures and the full-centralizer factor [G_γ : G_γ^0] (target AS.6.9 of the AutomorphicSpectralTheory package); and, for real groups, the Clozel–Delorme pseudo-coefficients of discrete series and the Euler–Poincaré test functions with tr π(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K; π ⊗ ξ) for every finite-length π (targets AS.6.18–AS.6.19). Layer 2 uses these inputs and constructs the Lie-algebra, descent, packet-average, inner-form and twisted statements.
-
-`TauCetiRoadmap.AutomorphicSpectralTheory`, AS.4. The discrete and continuous automorphic spectral decomposition with fixed unitary central character, normalized Langlands quotients, meromorphic normalized Eisenstein intertwiners, their Rankin–Selberg factors and residue calculus. These are inputs to the MW target here; the residual Speh classification in this part supplies the resulting GL discrete data.
-
-#### From `TauCetiRoadmap.Chebotarev`
-
-`TauCetiRoadmap.Chebotarev`, layer 10 dirichlet density chebotarev. Chebotarev density for number fields (Dirichlet density); used to choose auxiliary split places (Waldspurger's global argument and the global applications of the fundamental lemma) and in §1.9. The layer is stated for number fields only; the comparison of Frobenius traces in the geometric stabilization is a function-field statement, specified from EtaleDualityAndPerverseSheaves:EDC.7.
-
-#### From `TauCetiRoadmap.ClassFieldTheory`
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 3 tates theorem for a class formation. Tate's theorem (cup product with the fundamental class is an isomorphism Ĥ^r(Γ, ℤ) → Ĥ^{r+2}(Γ, C)) with the scaled inflation formula; Layer 1 applies the Nakayama generalization to the cocharacter module of a torus.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 6 the local class formation and finite local reciprocity. The local class formation and fundamental class; used for local Tate–Nakayama for tori.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors. The local Artin map with its pinned normalization (arithmetic versus geometric Frobenius); transfer factors record which normalization is in force (Kottwitz–Shelstad 2012).
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group. The local Weil group W_F, used for L-groups, endoscopic data and the cocycle a_ω.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants. Global carriers and the sum-of-local-invariants formula; used for global Tate–Nakayama and ker^1 duality.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity. The global class formation, idele class groups and global reciprocity; used for global Tate–Nakayama, global χ-data and the character ϖ of the unitary L-morphisms.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity. Global class field theory for cyclic extensions: the character ω of 𝔸_F^×/F^×N(𝔸_E^×) attached to a cyclic extension E/F.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants. Consume the existing cohomological Brauer local-invariant exact sequence, including finite support, real places, localization functoriality and the sum-zero criterion. The comparison to algebraic central-simple Brauer classes and the embedding/index criterion are a separate CSA interface; neither follows merely by naming this CFT sequence.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors. Use the normalization, base-change and functoriality of this layer at the scope stated in the ownership boundary.
-
-`TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group. Use the normalization, base-change and functoriality of this layer at the scope stated in the ownership boundary.
-
-#### From `TauCetiRoadmap.ClassicalAdicEtaleCohomology`
-
-`TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1. Supply finite ℓ-adic nearby cycles on the equivariant finite-type algebraizations of formal strict-O deformation spaces: finiteness in degrees 0,…,n−1, formal-disc invariance, proper base change, Berkovich comparison, congruence-near-identity action invariance and ℓ-independent alternating finite automorphism/Frobenius traces. Deformations 2.8–2.10, 3.15 and 4.2–4.3 specify the controlled-cohomology contract.
-
-`TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1. Supply the all-F inertia-average calculation for Scholze 12.1(v): (1−q^r)tr_ss equals the trace on derived inertia invariants and the latter cohomology is independent of basic β. His footnote 8 uses finite-type algebraizations to extend the referenced Q_p calculation. A generic nearby-cycle existence theorem does not supply this calculation.
-
-`TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1:formal-adic-comparison. Comparison of formal-model generic-fibre nearby cycles with analytic cohomology on finite tower/compact-unitary levels, including pullback, proper trace and Weil descent. Do not use the higher Galois compatibility theorem.
-
-#### From `TauCetiRoadmap.DiamondSixOperations`
-
-`TauCetiRoadmap.DiamondSixOperations`, S2. Non-quasicompact compactifiable proper-support pushforward and finite étale pullback/trace in all required dimensions n−1, plus the analytic comparison of support functors. The classical H3 curve theory alone is inadequate for n>2.
-
-#### From `TauCetiRoadmap.DiamondsAndVStacks`
-
-`TauCetiRoadmap.DiamondsAndVStacks`, D6. The diamond associated to a classical analytic adic space, full faithfulness and compatibility with the marked untilt and group actions for the classical tower-fibre comparison.
-
-#### From `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`
-
-`TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7. The decomposition theorem (BBD 5.4.5) and relative hard Lefschetz for a proper morphism f : M → S from a smooth separated Deligne–Mumford stack of finite type over 𝔽_q to a scheme (in Ngô's application M^ani → A^ani, with M^ani a global quotient by a finite-stabilizer action), extending the scheme statements EDC.7/decomposition-theorem and EDC.7/relative-hard-lefschetz-theorem to this stack scope; Ngô (Remarque 7.5.1) records that the argument carries over. Also the Chebotarev-type principle: two mixed perverse sheaves on a scheme X_0 of finite type over 𝔽_q whose Frobenius trace functions agree at all closed points of X_0 (and its finite extensions) have isomorphic semisimplifications.
-
-`TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8. The existing coefficient correspondence c_2!c_1*L→L and compact-support trace theorem for a finite-type finite-field scheme with c_1 proper, c_2 quasi-finite, and sufficiently large Frobenius power. Its ramification/contraction bound is coefficient-independent for the fixed correspondence. The generic compactification and local-term machinery remain EDC.8.
-
-#### From `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`
-
-`TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1. The required FiniteFlatGroups Part II supplies after R07.1–R07.2 for strict relative O-action, dimension-one height-n marked deformations, full Cartier-divisor Drinfeld levels, regular finite covers and strict truncated-O algebraization (Scholze 2.3–2.4/Faltings). R07.1 supplies ordinary p-divisible groups and R07.2 their Dieudonné classification; neither supplies this deformation theorem. R07.3 is Fontaine–Laffaille theory and is not the deformation supplier. Preserve the existing contravariant and covariant carriers.
-
-`TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2. Extend the contravariant p-divisible classification to strict relative O-linear Dieudonné modules F=βσ and the étale O_A^op-linear rank-one case F=β⁻¹σ₀. Supply Morita decomposition, the opposite endomorphism algebra, integral σ-conjugacy and chosen-isomorphism transport. This is a convention adapter on the existing contravariant carrier, not an identification with its covariant counterpart.
-
-`TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2. Add an early local p-divisible/formal-module supplier after Dieudonné theory: deformation representability with full Drinfeld levels for one-dimensional formal O_E modules and special O_D modules; SW13 5.1.4, 5.1.6 and 5.2.1 with Hodge–Tate subspace and vector-bundle exact sequence, including the SW20 covariant conversion and O_E-linear specialization. This local formal-module classification is a required Part II extension after R07.2; the period-bundle prerequisites are the relative chart of §12.1.
-
-#### From `TauCetiRoadmap.GlobalNumberFields`
-
-`TauCetiRoadmap.GlobalNumberFields`, layer 0 places completions and the product formula. Places, completions and the product formula; used for the global product formula for transfer factors.
-
-`TauCetiRoadmap.GlobalNumberFields`, layer 5 full adeles and the additive quotient. Adeles of number fields; used for adelic abelianized cohomology.
-
-`TauCetiRoadmap.GlobalNumberFields`, layer 10 archimedean characters infinity types and cyclotomic arithmetic. Import the already specified real/complex continuous-character classification for the infinity component of ϖ: its restriction to ℝ× forces odd angular exponent and zero norm exponent. Use that classification in the chosen CM-character adapter.
-
-`TauCetiRoadmap.GlobalNumberFields`, layer 10 archimedean characters infinity types and cyclotomic arithmetic. Use the normalization, base-change and functoriality of this layer at the scope stated in the ownership boundary.
-
-`TauCetiRoadmap.GlobalNumberFields`, layer 9 hecke and ray class characters. Use the normalization, base-change and functoriality of this layer at the scope stated in the ownership boundary.
-
-#### From `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles`
-
-`TauCetiRoadmap.LefschetzPencilsAndVanishingCycles`, LPV.6. Nearby-cycle functors and the perverse/spectral-sequence formalism on the actual compact unitary integral model with stratum restriction, coefficient local systems and inertia. No Harris–Taylor stratum calculation is assumed to be contained in this general supplier.
-
-#### From `TauCetiRoadmap.LocallyAnalyticDistributions`
-
-`TauCetiRoadmap.LocallyAnalyticDistributions`, L0. Locally analytic vectors in the rank-two tower affinoid function spaces, their analytic-radius topology and continuous Lie-algebra differentiation. Pan22’s explicit local-series and Higgs compatibility input must be assigned once within this lower analytic direction.
-
-#### From `TauCetiRoadmap.PELModuli`
-
-`TauCetiRoadmap.PELModuli`, M2. Import PELModuli M0–M2’s O_B-action, polarization and determinant framework. Extend it to the strict relative p-divisible quasi-EL datum and its Morita decomposition, with independent étale generators as in Scholze §7 and Deformations 3.14. The M2 unitary deformation theorem assumes an unramified CM field at p; it does not by itself establish this arbitrary ramified local O-action case.
-
-`TauCetiRoadmap.PELModuli`, M4. Import M4’s ker^1-indexed canonical generic fibre and higher-level normalization contracts. Supply the auxiliary compact CM division PEL model, proper flat closure and Serre–Tate completed-local comparisons for the arbitrary local F of Scholze §8 and Deformations 5.2, 5.4–5.8. M4 good-prime normalization alone does not supply the ramified strict-O moduli or its level-structure interpretation.
-
-#### From `TauCetiRoadmap.PerfectoidSpaces`
-
-`TauCetiRoadmap.PerfectoidSpaces`, P5. Finite-level étale-object descent, the tilde-limit topology and completed affinoid colimit, with compatible descent of compact supports through cofinal levels. Supply the topos-level statement required for equivariant tower cohomology; a space limit alone is insufficient.
-
-#### From `TauCetiRoadmap.ProfiniteCohomology`
-
-`TauCetiRoadmap.ProfiniteCohomology`, layer 5 exact sequences. Long exact sequences of continuous cohomology of profinite groups; used for crossed-module cohomology (abelian coefficients; the nonabelian and crossed-module statements are specified in §1.1).
-
-`TauCetiRoadmap.ProfiniteCohomology`, layer 9 the galois interface hilbert 90 and kummer theory. Hilbert 90 for split tori and Galois cohomology of field extensions; used for Tate–Nakayama, z-pairs and transfer of tori.
-
-`TauCetiRoadmap.ProfiniteCohomology`, layer 10 continuous cohomology in all degrees. Continuous cohomology of profinite groups in all degrees with discrete coefficients; used for Galois cohomology of tori and crossed modules (abelian coefficients; the nonabelian and crossed-module statements are specified in §1.1).
-
-`TauCetiRoadmap.ProfiniteCohomology`, layer 12 the graded cup product in all degrees. Cup products in all degrees and the projection formula; used for the Tate–Nakayama isomorphisms.
-
-#### From `TauCetiRoadmap.ReductiveGroups`
-
-`TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation. The Lie algebra 𝔤 of a reductive group scheme with its adjoint representation; used for orbital integrals on 𝔤(F), Shalika germs, the Chevalley quotient and the Kostant section. Centralizers and the regular and regular semisimple loci are not in this layer; they are defined in §1.3 and §3.3.
-
-`TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori. Tori, their character and cocharacter modules with Galois action, the Jordan decomposition and centralizers of semisimple elements; used for stable centralizers, Tate–Nakayama and the regular centralizer.
-
-`TauCetiRoadmap.ReductiveGroups`, layer 6 reductive and semisimple groups. Reductive and semisimple groups with the simply connected cover of the derived group and central isogenies; used for the crossed module [G_sc → G] and abelianized cohomology.
-
-`TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory. Maximal tori, Borel pairs, root data with Galois action, Weyl groups, quasi-split groups and pinnings; used throughout for stable conjugacy, endoscopic data, a-data and χ-data and the Chevalley quotient.
-
-`TauCetiRoadmap.ReductiveGroups`, layer 9 pinned chevalleydemazure group schemes over ℤ. Pinned split reductive groups over ℤ and their automorphisms preserving a pinning; used for quasi-split forms, the Kostant section (regular nilpotent from a pinning) and Out-torsors over a curve.
-
-`TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory. Maximal tori, Levi subgroups and anisotropic tori of connected reductive groups over ℚ and ℝ, used to define cuspidal groups.
-
-`TauCetiRoadmap.ReductiveGroups`, layer 1 representations  comodules. Consume the existing finite-dimensional algebraic representation/comodule tensor category, its forgetful fibre functor and tensor-automorphism reconstruction of G in upstream ReductiveGroups Layer 1. The G-isocrystal Frobenius descent and trivialization proof is in Layer 7; the Langlands dual group is not this supplier.
-
-#### From `TauCetiRoadmap.ReductiveGroupsPartII`
-
-`TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1. Consume the algebraic fundamental group π₁(G)=X_*(T)/Q^∨, its Galois action, torus independence, functoriality and coinvariants from upstream RG2.1.5. Layer 7 adds the isocrystal Newton/κ invariants to that algebraic fundamental group.
-
-#### From `TauCetiRoadmap.RepresentationTheory`
-
-`TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras`, layer 6 the brauer group and splitting fields. Consume SemisimpleAlgebras Layers 2–6 for Morita dimensions, central division representatives, algebraic Brauer operations, base change, splitting and index. The required extension supplies the comparison of this algebraic Brauer group with the cohomological Brauer carrier of CFT, compatible with local invariants and scalar extension, and the centre-sensitive embedding/commutant criterion needed for a B-action. Include the finite separable field criterion E↪A iff [E:K]·ind(A⊗_K E) divides deg(A), with A central simple over K, and the corresponding simple-algebra module divisibility condition with its actual centre specified. The inspected upstream roadmap has central-simple subalgebra centralizers, not the general centre-sensitive extension; that extension is specified from this owner, not respecified in Layers 7–8.
-
-`TauCetiRoadmap.RepresentationTheory.InductionRestriction`, layer 5 clifford theory over a normal subgroup. Use the normalization, base-change and functoriality of this layer at the scope stated in the ownership boundary.
-
-`TauCetiRoadmap.RepresentationTheory.InductionRestriction`, layer 6 the virtual character ring artin and brauer induction. Use the normalization, base-change and functoriality of this layer at the scope stated in the ownership boundary.
-
-#### From `TauCetiRoadmap.SchemeAndStackFoundations`
-
-`TauCetiRoadmap.SchemeAndStackFoundations`, SF.2. The Grothendieck–Lefschetz trace formula over 𝔽_q with Q̄_ℓ coefficients for separated schemes of finite type and its extension to separated Deligne–Mumford stacks of finite type (counting points weighted by 1/#Aut), with compact supports; used to count points of anisotropic Hitchin fibres.
-
-#### From `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3. SmoothRepresentations characters Part II: Harish-Chandra locally integrable characters, local constancy on the regular semisimple locus, distribution character identity, Clozel’s twisted character on G⋊θ, untwisted/twisted Weyl integration and character–Jacquet compatibility. Include elliptic JL orthogonality/independence. Build after SR.3, Layer 2 and ReductiveGroupsPartII:RG2.0; supply Layer 6 and Layer 10, not Layer 2. Do not assume twisted character values for a general reductive group are stable.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3. In the same smooth-representation extension supply Schneider–Zink Proposition 11 in precisely the generalized-Speh versus square-integrable separation used by Scholze Lemma 3.1(i), and Kazhdan density for Lemma 3.1(ii). Import SR.3 Bernstein-centre regular functions and universal unramified twists for Lemma 3.2. Supply genericity of supercuspidals and the all-rank K_1(c) newvector theorem JPSS §5.1 with Jacquet 2012’s corrected essential-vector proof. SR.5 excludes all-rank newforms; AL.5’s reference to them does not establish them.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3. Import SR.3.3 Langlands-support/standard-data API for GL_n; extend only where needed to an unconditional GL_r(D) essentially square-integrable standard-module basis and unique Langlands quotient, with split/inner segment orientation fixed. A conditional general-group tempered-support theorem is insufficient.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0:abelian-category. Import the existing early abelian smooth category and finite-length Grothendieck class/additivity interface, separately from its derived enhancement. No late excursion or sheaf input.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2. Use normalized induction, unnormalized and normalized Jacquet functors, transitivity, geometric lemma and their finite-length/Grothendieck additivity; harmonically compare the half-modulus conversion explicitly.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5. Import the TauCetiRoadmap SmoothRepresentations SR.5.3 highest-derivative-adapter: the two segment conventions, multisegment classification, Zelevinsky involution, unique standard quotient and segment Jacquet formula. Use those segment and derivative formulas in the parameter adapter below.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4. Use the Iwahori fixed-vector/support classification and the compact type framework. For Scholze 12.1(v), pair the existing Iwahori criterion with H1’s exact inertia-average calculation; this is not a hyperspecial fixed-vector criterion.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0. Smooth group representations over Λ, equivariant derived complexes with additional abstract W_E action, exact characteristic-zero compact-mod-centre sector extraction, tensor/Hom dual convention, and compatible level colimits.
-
-`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2. Normalized opposite-parabolic Jacquet functors, normalized induction and trace duality with constant terms, including additivity on Grothendieck groups.
+- Tau Ceti `TauCeti.ExactK0`, `TauCeti.ExactK0.of_conflation`, `TauCeti.ExactK0.map` and `TauCeti.ExactK0.lift`: the exact Grothendieck group of an essentially small additive category with a chosen exact structure, its conflation relation, functoriality for conflation-exact functors, and its universal additive invariant. §10.6 applies it to finite-length smooth admissible representations.
+
+### Arithmetic, algebraic groups and representations
+
+- `TauCetiRoadmap.ClassFieldTheory` §2.4 and Layer 0, item 4 (Tate–Nakayama with a free coefficient lattice), Layers 3, 6, 7, 9, 10 and 11 (class formations, local reciprocity and Weil groups, the Brauer invariant sequence, global reciprocity). §1.2 specializes the lattice theorem to tori and complexes of tori. The restriction and corestriction formulas for local invariants use Layer 5; the global invariant sequence is used with its finite-support and real-place terms.
+- `TauCetiRoadmap.ProfiniteCohomology` Layers 9, 10 and 12 (Hilbert 90, all-degree continuous cohomology and its long exact sequence, graded cup products). For a split torus G_m^r, apply Hilbert 90 to each coordinate; finite products commute with cocycles and coboundaries. The crossed-module and nonabelian constructions are §1.1.
+- `TauCetiRoadmap.ReductiveGroups` Layers 1, 2, 4, 7, 8 and 9 (algebraic representations, Lie algebras, tori, Galois root data, isogenies and simply connected covers, integral pinnings). The semisimple-centralizer theorem used for stable conjugacy is stated in §1.3. Anisotropy of a torus means X_*(T)^Γ=0 and is used in §6.11.
+- `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.1.1, RG2.1.5, RG2.3.3, RG2.3.6–RG2.3.7, RG2.4.1, RG2.4.4 and RG2.5.1–RG2.5.2 (quasi-split forms, π₁ and z-extensions, parahorics and filtrations, Lang's theorem, the Kottwitz kernel, Cartan decomposition, dual groups and L-groups). The rational-point Kottwitz map and its unramified kernel stay there; §§1.11 and 7.2 concern cohomology and sigma-conjugacy instead.
+- `TauCetiRoadmap.AdelicAlgebraicGroups` §§2.1–2.4 and 4.1 (central-character extension, quotient integration, Tamagawa normalization, local H¹ vanishing and the simply connected Hasse principle). §1.9 applies the last two through the torsor–Galois-cohomology dictionary; it adds the reductive abelianization and adjoint comparisons.
+- `TauCetiRoadmap.GlobalNumberFields` Layers 0, 5, 9 and 10 (places, adeles, Hecke characters and infinity types). Algebraic infinity types compose with norms as described there. For the continuous unitary auxiliary character, §6.3 defines composition with local and adelic norms directly, computes its archimedean parity and records its ramification; no norm functoriality for arbitrary continuous characters is attributed to Layer 9.
+- `TauCetiRoadmap.ArithmeticGaloisDuality` §§R02.3.1, R02.4.3, R02.4.6 and D7 (localization, Poitou–Tate and derived continuous duality). `TauCetiRoadmap.Chebotarev` Layer 10 gives number-field Dirichlet density. The perverse-sheaf trace recognition used in the Hitchin argument is §3.18.
+- `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras` Layers 2–6 (Morita theory, central simple algebras, algebraic Brauer groups, splitting and index). `TauCetiRoadmap.SchemeAndStackFoundations` §SF.2f, **Brauer groups of schemes**, in particular **The cohomological Brauer group of a field is the Brauer group**, supplies the field comparison. The centre-sensitive embedding and commutant calculation for the B-action is §8.3, with its division-algebra specialization in §8.10.
+- `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layers 5–6 (complex Clifford theory and Brauer induction for finite groups). These are used over ℂ. §10.21 reduces the finite-inertia Weil calculation to them after an unramified twist; it does not require a coefficient-change theorem from finite-group Clifford theory.
+- `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §§SR.0.1–SR.0.4, SR.0d.1–SR.0d.2 and SR.1.1 (smooth categories, averaging, duals, derived categories and convolution). The finite-length K₀ adapter is §10.6; the Weil-equivariant tower object and compact-mod-centre sector are §§12.12 and 12.14.
+- The same roadmap, §§SR.2.2–SR.2.3 and SR.2a.1, gives normalized induction and Jacquet functors, exactness, the geometric lemma, Jacquet duality and second adjointness. Exactness induces their maps on the finite-length K₀ of §10.6. Character–constant-term trace duality is proved in §§8.9 and 10.11.
+- The same roadmap, §§SR.3.1–SR.3.4, gives finite length, Bernstein components and centre, the conditional Langlands standard quotient, and the Iwahori block criterion. §§SR.4.1–SR.4.3 gives spherical Satake. §SR.5.3 gives the segment and multisegment conventions, classification, Zelevinsky involution and endpoint-shortening formula. §10.23 only converts these labels into monodromy blocks. §2.16 establishes the GL_r(D) tempered-support hypothesis before applying §SR.3.3. Character theory, elliptic orthogonality, Schneider–Zink separation, density, supercuspidal genericity and the required all-rank newvector theorem are targets in §§2.16, 6.4, 10.16 and 10.17.
+- `TauCetiRoadmap.ArithmeticGaloisRepresentations` §§1.1–1.3, 1.7–1.8, 2.4–2.7, 3.1–3.5 and 5.12 gives representation operations, Brauer–Nesbitt, the Weil–Deligne carrier, special objects, factors and conductors, and potentially abelian ℓ-adic representations. The finite-inertia Weil and global algebraic Weil constructions needed by the trace method are §§10.19 and 10.21–10.22.
+
+### Automorphic and harmonic analysis
+
+- `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` Layers AF.1, AF.2, AF.4 and AF.5 gives archimedean representation theory and LLC, automorphic spaces, relative Lie-algebra cohomology and algebraic automorphic forms. The arbitrary-unitary GL induction theorem is §6.1; the archimedean norm/restriction/induction adapter is §10.22. The definite Shimura-set H⁰ dictionary and the U(N−1,1) Matsushima calculation are §§13.8–13.9 and 13.4.
+- `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.1, **Local epsilon factors and Gauss sums** and **Poisson continuation and the global functional equation**, gives Tate factors, measures and the Hecke functional equation. AL.2, **Matrix zeta integrals and standard denominators**, gives standard factors. AL.3, **Induction, functional equations and test realization**, **Poles, functional equations, strip bounds and the closed boundary**, and **Strong multiplicity one and degree-one primes**, gives generic Rankin–Selberg theory and strong multiplicity one for isobaric sums. §§10.27 and 10.29 establish the high-ramification and nongeneric segment-pair extensions used here.
+- `TauCetiRoadmap.AutomorphicSpectralTheory` §§2.1–2.6, 4.1–4.6 and 6.5–6.19 gives meromorphic intertwiners, residues, spectral completeness, invariant trace distributions, ordinary orbital integrals, pseudo-coefficients and real Euler–Poincaré functions. The GL Rankin–Selberg scalar normalization used for residual Speh data is §5.1. Local Langlands quotients come from SmoothRepresentations §SR.3.3 and AutomorphicForms AF.1. The full number-field residual classification of §5.2 extends the everywhere-unramified function-field statement of AutomorphicSpectralTheory §4.14.
+
+### Curves, moduli and cohomology
+
+- `TauCetiRoadmap.AlgebraicCurves` Layers 4–5 and 12 (Riemann–Roch, completions and regular projective models). A regular finite-type curve over a perfect constant field is smooth: regularity is geometric regularity over a perfect field, and finite presentation converts that condition to smoothness. Thus the model over its finite full constant field is the smooth projective curve used in Layer 3 (Stacks, **Varieties**, Lemmas 33.12.2 and 33.12.6, section tag 038S).
+- `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §§1.3, 2.1–2.2 and 7.1 (Quot/Hilbert charts and Artin algebraicity), together with `TauCetiRoadmap.SchemeAndStackFoundations` SF.1 (spaces, stacks, descent and crossed modules). The stack of Higgs sections, J-torsor Picard stack and anisotropic Deligne–Mumford criterion are proved in §§3.6, 3.10 and 3.12 using those charts.
+- `TauCetiRoadmap.CohomologicalPointCounting`, **TraceFormula**, gives the scheme Grothendieck–Lefschetz formula. §3.16 derives the finite-stabilizer Deligne–Mumford weighted formula required for Hitchin fibres.
+- `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` Layers EDC.7–EDC.8 gives scheme decomposition, relative hard Lefschetz and coefficient-correspondence trace theorems. `TauCetiRoadmap.DeligneWeightsAndPurity` §8.12 gives proper purity. §3.15 extends the decomposition/purity statements to the smooth separated Deligne–Mumford source of the anisotropic Hitchin map; §3.18 proves the perverse trace recognition used there. `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles` LPV.6 supplies nearby-cycle and perverse formalism; the explicit strata calculation is §12.15.
+- `TauCetiRoadmap.PELModuli` §§M0.7, M0.18, M1.7–M1.13, M2.5–M2.12, M4.3–M4.6 and M5.5 gives the PEL datum, determinant condition, good-prime models, universal families and canonical generic fibre. The ramified strict quasi-EL case is §10.12; the auxiliary compact division model and its completed-local comparison are §§9.1 and 10.13.
+- `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` Layers A1–A4 and A6 gives rigidity, polarizations, Tate modules, Serre–Tate equivalence, isogeny categories and polarized twisting. Its carriers remain unchanged.
+- `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §§R07.1.5–R07.1.9, R07.2.10–R07.2.17, R07.2.20 and R07.2.25 gives p-divisible groups, Cartier duality, Dieudonné–Manin, the covariant conversion and universal covers. §7.6 constructs the relative O-linear/Morita normalization and §10.5 its descent norm; §10.2 constructs the strict deformation spaces with Drinfeld levels; §§12.3–12.4 give their formal O_E and special O_D tower instances and Hodge–Tate sequences.
+- `TauCetiRoadmap.ClassicalAdicEtaleCohomology` H1 (torsion nearby cycles and formal/analytic comparison) and `TauCetiRoadmap.AdicCoefficientsAndComparisons` L0 (derived adic coefficients at a fixed level) are used in that order. §§10.4 and 10.20 prove the ℓ-adic controlled-cohomology and inertia-average calculations for strict deformation spaces. §12.13 makes their finite-level comparison equivariant for pullback, proper trace and Weil descent.
+- `TauCetiRoadmap.DiamondSixOperations` S2 gives compactifiable proper-support pushforward and finite étale pullback/trace. §12.12 proves the all-dimensional analytic support comparison and the cofinal-level compact-support descent used for these towers. It forms the adic inverse limit at each finite level before taking the smooth level colimit.
+- `TauCetiRoadmap.DiamondsAndVStacks` §6.9 gives full faithfulness on seminormal rigid spaces over a fixed complete field. The finite-level tower fibres here are smooth, hence seminormal. Functoriality carries their group actions and marked untilts; no larger full-faithfulness assertion is used. `TauCetiRoadmap.PerfectoidSpaces` P5 gives completed affinoid tilde-limits and finite-stage étale-object descent; the cohomological support statement is §12.12.
+- `TauCetiRoadmap.AdicSpaces` Layer 6 gives the fixed-coefficient Fargues–Fontaine curve for E=ℚ_p. §12.1 extends this construction to a finite E/ℚ_p with its relative period annuli and marked divisor before forming the GL/EL modification chart. Tau Ceti's Frobenius-orbit quotient topology is reused; the sheaf and divisor are additional data.
+- `TauCetiRoadmap.LocallyAnalyticDistributions` L0 gives local analytic-group charts. §12.16 constructs the locally analytic vector spaces, radius topology, Lie derivatives and Higgs compatibility for the rank-two tower affinoids it uses.
 
 ## How to read the build
 
-Layers 1–4 construct the stable-class invariants, transfer and geometric fundamental-lemma machinery. Layer 5 establishes number-field discrete GL data before Layer 6 uses them on the unitary spectral side; Layer 6 also establishes cyclic base change, induction and the restricted division-unitary descent before the local correspondence. Layers 7–8 form rational Igusa geometry and then count and stabilize its correspondences. Layer 9 constructs raw finite-level compact-unitary cohomology and its commuting actions before Layer 10's independent trace construction of classical local Langlands. Layer 11 supplies the local unitary packets that require that correspondence. Layer 12 realizes the classical parameter in local towers, preserving actual cohomology separately from earlier virtual traces. The pure automorphic branch of Layer 13 and the rational Igusa branch of Layer 14 are separate inputs to the calculations and joint interface of Layer 15. Each section's *Needs* names a specific earlier section or a supplier contract; no final global Galois or integral concentration theorem is used to build these inputs.
+Layers 1–4 construct the stable-class invariants, transfer and geometric fundamental-lemma machinery. Layer 5 establishes number-field discrete GL data before Layer 6 uses them on the unitary spectral side; Layer 6 also establishes cyclic base change, induction and the restricted division-unitary descent before the local correspondence. Layers 7–8 form rational Igusa geometry and then count and stabilize its correspondences. Layer 9 constructs raw finite-level compact-unitary cohomology and its commuting actions before Layer 10's independent trace construction of classical local Langlands. Layer 11 supplies the local unitary packets that require that correspondence. Layer 12 realizes the classical parameter in local towers, preserving actual cohomology separately from earlier virtual traces. The pure automorphic branch of Layer 13 and the rational Igusa branch of Layer 14 are separate inputs to the calculations and joint interface of Layer 15. The strict-O Dieudonné normalization of §7.6 precedes the deformation and norm constructions of Layer 10. The independent local harmonic-analysis targets §2.16 and §8.9 precede their trace applications. Within Layer 6 follow its *Needs* edges, with the separate twisted character-support theorem before invariant recursion. Each section's *Needs* names a mathematical construction or a prerequisite interface; no final global Galois or integral concentration theorem is used to build these inputs.
 
 ## Layer 1: stable conjugacy and arithmetic invariants
 
@@ -307,11 +149,9 @@ Define the cocycle and coboundary relations as in Labesse §1.2 (crossed sets) o
 - `CrossedModuleCohomology.sl2_gl2`. For [SL_2 → GL_2] over a field F of characteristic 0, H^0(F, SL_2 → GL_2) ≅ F^× through the determinant, and H^1(F, SL_2 → GL_2) = 0 by Hilbert 90.
 - `CrossedModuleCohomology.not_kernel_only`. For the crossed module [μ_2 → 1] over ℝ (kernel μ_2 in degree −1), H^0 = H^1(ℝ, μ_2) = ℤ/2, so H^0 of a crossed module is not the H^0 of its cokernel when the kernel is nontrivial.
 - `CrossedModuleCohomology.not_abelian_without_braiding`. For ∂ = 1 : ℤ/3 → ℤ/2 with ℤ/2 acting on ℤ/3 by inversion and Γ = ℤ/3 acting trivially, ker ∂ is central and coker ∂ is abelian, yet H^0(Γ, ℤ/3 → ℤ/2) ≅ ℤ/3 ⋊ ℤ/2 ≅ S_3 is nonabelian: item (5) needs the braiding.
-- With H̃ = 1 the construction reproduces the nonabelian H^0 and H^1 of continuous cocycles modulo twisted conjugation.
-- For [SL_2 → GL_2] over a characteristic-0 field, H^0 ≅ F^× via the determinant and H^1 = 0.
 - The seven-term sequence is exact for [G_sc → G] with G = PGL_2 over ℝ.
 
-*Needs:* `TauCetiRoadmap.SchemeAndStackFoundations`, SF.1/crossed-module-category; `TauCetiRoadmap.ProfiniteCohomology`, layer 10 continuous cohomology in all degrees; `TauCetiRoadmap.ProfiniteCohomology`, layer 5 exact sequences.
+*Needs:* `TauCetiRoadmap.SchemeAndStackFoundations` §SF.1f (crossed modules and Galois gerbs); `TauCetiRoadmap.ProfiniteCohomology` Layer 10 (continuous cohomology in all degrees); `TauCetiRoadmap.ProfiniteCohomology` Layer 5 (exact sequences).
 
 ### 1.2 Tate–Nakayama isomorphisms for tori
 
@@ -321,7 +161,7 @@ Let S be a torus over a field F of characteristic 0, split by a finite Galois ex
 
 ([T. Kaletha — Rigid inner forms of real and p-adic groups](https://arxiv.org/abs/1304.3292v5), arXiv v5: §4 introduction; Theorem 4.8 (p. 24) and its proof (p. 25); Corollary 3.7 (p. 14); §5.3 (p. 33); [J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf), §1.7, proof of Proposition 1.7.3 (pp. 38–39); Lemme 1.5.1 (p. 27); [R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0275/LOG_0056.pdf), §1.1–1.2 (p. 368).)
 
-Nakayama's generalization of Tate's theorem: for a finite group Γ, a class formation module C with fundamental class u and a ℤ-free (hence Tor-free) Γ-module M, cup product with u is an isomorphism Ĥ^i(Γ, M) → Ĥ^{i+2}(Γ, M ⊗ C). The case M = ℤ is the upstream ClassFieldTheory Layer 3 theorem (tateTheorem); the general case follows from it by the cup-product criterion applied to M ⊗ C with M ℤ-free (the generalization the upstream §2.4 asks for in the generic Tate-cohomology supplier). Apply it with M = X_*(S) and C = E^× (local, upstream ClassFieldTheory Layer 6) or C = C_E (global, Layer 11). Identify S(E) = X_*(S) ⊗ E^× as Γ-modules, so Ĥ^{i+2}(Γ_{E/F}, S(E)) is Galois cohomology of the torus; Hilbert 90 for split tori (upstream ProfiniteCohomology Layer 9) gives the inflation statements in degree 1, and the injectivity in degree 2. Anisotropic vanishing: X_*(S)^Γ = 0 gives Ĥ^0 = 0, so H^2(Γ_{E/F}, S(E)) = 0 for every splitting E, and H^2(F, S) is the colimit (Kaletha, Corollary 3.7(1)). Compatibilities: restriction and corestriction commute with cup products by the projection formula; inflation multiplies the fundamental class by the degree (upstream ClassFieldTheory Layer 3, scaled inflation). Global duality: Poitou–Tate for tori in the form ker^1(F, S) ≅ ker^1(F, Ŝ)^D follows from (b) by comparing with the local statements (Kottwitz 1984 §4; recalled in Labesse Proposition 1.7.3 for the centre complex). Complexes: use the long exact sequences of hypercohomology and the five lemma (Labesse §1.7, 'Tate–Nakayama pour les complexes de tores').
+ClassFieldTheory §2.4 and Layer 0 item 4 give the Tate–Nakayama theorem for a ℤ-free lattice, including its Tor-vanishing hypothesis. Here X_*(S) is finite free over ℤ, so this is a specialization of that theorem. Apply it with M = X_*(S) and C = E^× (local, ClassFieldTheory Layer 6) or C = C_E (global, Layer 11). Identify S(E) = X_*(S) ⊗ E^× as Γ-modules, so Ĥ^{i+2}(Γ_{E/F}, S(E)) is Galois cohomology of the torus; Hilbert 90 for G_m (ProfiniteCohomology Layer 9), applied coordinatewise after identifying a split torus with a finite product of G_m, gives the inflation statements in degree 1, and the injectivity in degree 2. Anisotropic vanishing: X_*(S)^Γ = 0 gives Ĥ^0 = 0, so H^2(Γ_{E/F}, S(E)) = 0 for every splitting E, and H^2(F, S) is the colimit (Kaletha, Corollary 3.7(1)). Compatibilities: restriction and corestriction commute with cup products by the projection formula; inflation multiplies the fundamental class by the degree (ClassFieldTheory Layer 3, scaled inflation). Global duality: Poitou–Tate for tori in the form ker^1(F, S) ≅ ker^1(F, Ŝ)^D follows from (b) by comparing with the local statements (Kottwitz 1984 §4; recalled in Labesse Proposition 1.7.3 for the centre complex). Complexes: use the long exact sequences of hypercohomology and the five lemma (Labesse §1.7, 'Tate–Nakayama pour les complexes de tores').
 
 **Checks.**
 
@@ -329,7 +169,7 @@ Nakayama's generalization of Tate's theorem: for a finite group Γ, a class form
 - For S = R^1_{E/F} G_m the norm-one torus of a quadratic E/F: X_*(S) = ℤ with the nontrivial element acting by −1, (X_*(S)_Γ)_tors = ℤ/2 and H^1(F, S) = F^×/N E^× ≅ ℤ/2 for F local nonarchimedean.
 - For S = R_{E/F} G_m: X_*(S) is induced, Ĥ^i vanishes and H^1(F, S) = 0 (Shapiro and Hilbert 90).
 
-*Needs:* `TauCetiRoadmap.ClassFieldTheory`, layer 3 tates theorem for a class formation; `TauCetiRoadmap.ClassFieldTheory`, layer 6 the local class formation and finite local reciprocity; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity; `TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants; `TauCetiRoadmap.ProfiniteCohomology`, layer 9 the galois interface hilbert 90 and kummer theory; `TauCetiRoadmap.ProfiniteCohomology`, layer 12 the graded cup product in all degrees; `TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/torus-and-gl-dual-groups; `TauCetiRoadmap.ArithmeticGaloisDuality`, R02.4/poitou-tate.
+*Needs:* `TauCetiRoadmap.ClassFieldTheory` §2.4 and Layer 0, item 4 (Tate–Nakayama for a free lattice); `TauCetiRoadmap.ClassFieldTheory` Layer 3 (Tate's theorem for a class formation); `TauCetiRoadmap.ClassFieldTheory` Layer 6 (the local class formation and finite local reciprocity); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity); `TauCetiRoadmap.ClassFieldTheory` Layer 10 (global carriers, the Brauer sequence, and the sum of local invariants); `TauCetiRoadmap.ProfiniteCohomology` Layer 9 (the Galois interface: Hilbert 90 and Kummer theory); `TauCetiRoadmap.ProfiniteCohomology` Layer 12 (the graded cup product in all degrees); `TauCetiRoadmap.ReductiveGroups` Layer 4 (Jordan decomposition, diagonalizable groups, tori); `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ArithmeticGaloisDuality` §R02.4.3 (Poitou–Tate duality).
 
 ### 1.3 Rational, geometric and stable conjugacy of semisimple elements
 
@@ -353,21 +193,20 @@ The interface consists of the following operations and identities.
 
 Connectedness: Steinberg's theorem that the fixed points of a semisimple automorphism of a simply connected group are connected gives I_δ = G_δ^0 when G_der is simply connected (Labesse Définition 2.3.1 and the remark following it; Lemme 2.3.3 for base change). Equivalence relation: the cocycle of a composite is the twisted product of the cocycles, and inverses give inverse cocycles; values stay in I_δ because conjugation by x identifies I_δ with I_δ′ (Labesse Définition 2.3.4). The Lie algebra version is identical with Ad in place of conjugation (Ngô §1.7 uses stable classes in 𝔤 parametrized by 𝔠(F)).
 
+The centralizer facts used here are also targets: over F̄ the identity component of the centralizer of a semisimple element is reductive; for simply connected G_der the whole centralizer is connected. For a strongly regular element it is a maximal torus. Prove reductivity from the root decomposition relative to a maximal torus containing δ: the roots surviving in the centralizer are exactly α with α(δ)=1. For connectedness use Steinberg's semisimple-centralizer theorem in the form recalled by Labesse §2.3, pp. 52–53, and descent for the identity component. Extend the API by `SemisimpleCentralizer.isReductive`, `SemisimpleCentralizer.connected_of_simplyConnected` and `SemisimpleCentralizer.stronglyRegularTorus`. The disconnected centralizer of an involution in PGL₂ tests the simple-connectedness hypothesis; the centralizer of a central scalar in GL₂ is GL₂, not a torus; a diagonal matrix with distinct eigenvalues has its diagonal maximal torus as centralizer.
+
 **Checks.**
 
 - `stableConj_gln`. For G = GL_n, two semisimple elements of GL_n(F) are stably conjugate iff they have the same characteristic polynomial iff they are GL_n(F)-conjugate.
 - `stableConj_sl2_elliptic`. For G = SL_2 over a p-adic F and E/F quadratic, the element of SL_2(F) acting on E = F² by multiplication by u ∈ E^1 \ {±1} and its conjugate by diag(a, 1) with a ∉ N E^× are stably conjugate but not SL_2(F)-conjugate.
 - `stableConj_torus`. For G = T a torus, stable conjugacy is equality.
 - `stableConj_not_geometric`. In PGL_2(F), the images of diag(1, −1) and of the matrix with rows (0, 1) and (a, 0), a ∉ F^{×2}, are geometrically conjugate (both are involutions), but the identity components of their centralizers are a split and a nonsplit torus, so they are not stably conjugate.
-- In GL_n stable conjugacy, rational conjugacy and equality of characteristic polynomials agree for semisimple elements.
-- In SL_2 over a p-adic field a regular elliptic stable class contains two rational classes.
-- In PGL_2 geometric conjugacy of involutions does not imply stable conjugacy.
 
-*Needs:* `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; `TauCetiRoadmap.ReductiveGroups`, layer 6 reductive and semisimple groups.
+*Needs:* `TauCetiRoadmap.ReductiveGroups` Layer 8 (Isogeny and existence theorems); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 4 (Jordan decomposition, diagonalizable groups, tori); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); `TauCetiRoadmap.ReductiveGroups` Layer 6 (reductive and semisimple groups).
 
 ### 1.4 Endoscopic data, twisted endoscopic data and their isomorphisms
 
-Let F be a local or global field of characteristic 0, W_F its Weil group, G connected reductive over F, θ an F-automorphism of G (quasi-semisimple, i.e. preserving a Borel pair over F̄), ω a character of G(F) (local) or of G(𝔸_F)/G(F) (global) with class a_ω ∈ H^1(W_F, Z(Ĝ)) (Langlands' correspondence for characters, recalled by Waldspurger 2008 §1.3), Ĝ the dual group with a Γ-stable pinning (B̂, T̂, {X_α}) and ^LG = Ĝ ⋊ W_F (ReductiveGroupsPartII:RG2.5/l-group), θ̂ the dual automorphism of Ĝ preserving the pinning and ^Lθ = θ̂ × id. An endoscopic datum for (G, θ, ω) is a quadruple (H, ℋ, s, ξ) with: (1) H a quasi-split connected reductive group over F; (2) ℋ a split extension of W_F by Ĥ whose induced outer action of W_F on Ĥ is the one given by H; (3) s ∈ Ĝ such that Int(s)∘θ̂ is semisimple; (4) ξ : ℋ → ^LG a continuous injective homomorphism over W_F such that (a) there is a 1-cocycle a : W_F → Z(Ĝ) of class a_ω with s ^Lθ ξ(h) = a(h) ξ(h) s ^Lθ for all h ∈ ℋ, and (b) ξ restricts to an isomorphism of Ĥ onto the identity component Z_Ĝ(s ^Lθ)^0 of the centralizer of s θ̂. Ordinary endoscopic data are the case θ = 1, ω = 1, written (H, ℋ, s, ξ) with s ∈ Ĝ semisimple (Langlands–Shelstad §1.2; for G_der simply connected one may take ℋ = ^LH). An isomorphism (H, ℋ, s, ξ) → (H′, ℋ′, s′, ξ′) is g ∈ Ĝ with g ξ(ℋ) g⁻¹ = ξ′(ℋ′) and g s ^Lθ g⁻¹ ∈ Z(Ĝ) s′ ^Lθ; Out(H, ℋ, s, ξ) is the group of automorphisms modulo ξ(Ĥ). In the ordinary global or local case the datum is elliptic if ξ(Z(Ĥ)^Γ)^0 ⊆ Z(Ĝ); E(G) and E_ell(G) denote sets of representatives of isomorphism classes (resp. elliptic ones); for F local E_ell(G) is finite. Endoscopic triples (H, s, η) (Kottwitz's convention, used by Shin) are the data with ℋ = ^LH and η = ξ|_Ĥ when G_der is simply connected. For a Levi subgroup M ⊆ G with ^LM ⊆ ^LG (ReductiveGroupsPartII:RG2.5/l-group-levi-embedding), an endoscopic datum (M_H, ℳ, s, ξ_M) for M induces one for G with H ⊇ M_H as a Levi, by taking the centralizer of s in Ĝ.
+Let F be a local or global field of characteristic 0, W_F its Weil group, G connected reductive over F, θ an F-automorphism of G (quasi-semisimple, i.e. preserving a Borel pair over F̄), ω a character of G(F) (local) or of G(𝔸_F)/G(F) (global) with class a_ω ∈ H^1(W_F, Z(Ĝ)) (Langlands' correspondence for characters, recalled by Waldspurger 2008 §1.3), Ĝ the dual group with a Γ-stable pinning (B̂, T̂, {X_α}) and ^LG = Ĝ ⋊ W_F (ReductiveGroupsPartII §RG2.5.2 (L-groups)), θ̂ the dual automorphism of Ĝ preserving the pinning and ^Lθ = θ̂ × id. An endoscopic datum for (G, θ, ω) is a quadruple (H, ℋ, s, ξ) with: (1) H a quasi-split connected reductive group over F; (2) ℋ a split extension of W_F by Ĥ whose induced outer action of W_F on Ĥ is the one given by H; (3) s ∈ Ĝ such that Int(s)∘θ̂ is semisimple; (4) ξ : ℋ → ^LG a continuous injective homomorphism over W_F such that (a) there is a 1-cocycle a : W_F → Z(Ĝ) of class a_ω with s ^Lθ ξ(h) = a(h) ξ(h) s ^Lθ for all h ∈ ℋ, and (b) ξ restricts to an isomorphism of Ĥ onto the identity component Z_Ĝ(s ^Lθ)^0 of the centralizer of s θ̂. Ordinary endoscopic data are the case θ = 1, ω = 1, written (H, ℋ, s, ξ) with s ∈ Ĝ semisimple (Langlands–Shelstad §1.2; for G_der simply connected one may take ℋ = ^LH). An isomorphism (H, ℋ, s, ξ) → (H′, ℋ′, s′, ξ′) is g ∈ Ĝ with g ξ(ℋ) g⁻¹ = ξ′(ℋ′) and g s ^Lθ g⁻¹ ∈ Z(Ĝ) s′ ^Lθ; Out(H, ℋ, s, ξ) is the group of automorphisms modulo ξ(Ĥ). In the ordinary global or local case the datum is elliptic if ξ(Z(Ĥ)^Γ)^0 ⊆ Z(Ĝ); E(G) and E_ell(G) denote sets of representatives of isomorphism classes (resp. elliptic ones); for F local E_ell(G) is finite. Endoscopic triples (H, s, η) (Kottwitz's convention, used by Shin) are the data with ℋ = ^LH and η = ξ|_Ĥ when G_der is simply connected. For a Levi subgroup M ⊆ G with ^LM ⊆ ^LG (ReductiveGroupsPartII §RG2.5.2 (Levi L-embeddings)), an endoscopic datum (M_H, ℳ, s, ξ_M) for M induces one for G with H ⊇ M_H as a Levi, by taking the centralizer of s in Ĝ.
 
 *Hypotheses.* F local or global of characteristic 0; G connected reductive, θ quasi-semisimple, ω a character.
 
@@ -391,15 +230,12 @@ The definition is Waldspurger 2008 §1.3 (twisted, after Kottwitz–Shelstad Cha
 **Checks.**
 
 - `EndoscopicDatum.gln_elliptic`. For G = GL_n (ordinary endoscopy), E_ell(G) = {(GL_n, ^LGL_n, 1, id)}: an elliptic s must be central because Z_Ĝ(s)^0 is a Levi subgroup of GL_n(ℂ) whose centre is too big otherwise.
-- `EndoscopicDatum.sl2`. For G = SL_2 over a p-adic F, the elliptic endoscopic data are G itself and, for each quadratic extension E/F, the torus H = R^1_{E/F} G_m with s = diag(1, −1) ∈ PGL_2(ℂ).
+- `EndoscopicDatum.sl2`. For G = SL_2 over a p-adic F, the elliptic endoscopic data are G itself and, for each quadratic extension E/F, the torus H = R^1_{E/F} G_m with s = diag(1, −1) ∈ PGL_2(ℂ). For odd residue characteristic there are three quadratic extensions, hence three such torus data.
 - `EndoscopicDatum.torus`. For G = T a torus the only datum up to isomorphism is (T, ^LT, 1, id), and Out is trivial.
 - `EndoscopicDatum.unitary`. For G = U(n) quasi-split attached to E/F and n = n_1 + n_2, (U(n_1) × U(n_2), s = diag(1_{n_1}, −1_{n_2}), ξ) is an elliptic datum, ξ depending on a character of E^× extending the quadratic character of E/F raised to a power determined by the parities of n_1, n_2 (Rogawski; Shin §3.2).
 - `EndoscopicDatum.not_any_centralizer`. For G = SL_2, s = diag(1, −1) with ℋ = Ĥ × W_F (split torus action) gives a datum that is not elliptic (Z(Ĥ)^Γ = Ĥ is not in Z(Ĝ)), so it does not contribute to the elliptic part of the stable trace formula.
-- E_ell(GL_n) consists of GL_n alone.
-- E_ell(SL_2) over a p-adic field with p odd consists of SL_2 and the three norm-one tori.
-- For quasi-split U(n), the data U(n_1) × U(n_2) with s = diag(1, −1) are elliptic.
 
-*Needs:* `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/galois-action-on-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/l-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/l-group-levi-embedding; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group.
+*Needs:* `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group).
 
 ### 1.5 Abelianized Galois cohomology of a connected reductive group
 
@@ -429,11 +265,8 @@ Quasi-isomorphism: T_sc → T and Z_sc → Z map to G_sc → G with the same ker
 - `abelianizedCohomology_gln`. For G = GL_n, H^0_ab(F, GL_n) ≅ F^× with ab^0 = det, and H^1_ab(F, GL_n) ≅ H^1(F, G_m) = 0.
 - `abelianizedCohomology_pgl2_real`. For G = PGL_2 over ℝ, H^1_ab(ℝ, PGL_2) = H^1(ℝ, μ_2 → 1) = H^2(ℝ, μ_2) = ℤ/2, matching the two real forms PGL_2 and SO(3).
 - `abelianizedCohomology_not_H1_of_G_ab`. H^1_ab(F, G) is not H^1(F, G/G_der): for G = PGL_2 over ℝ, G/G_der = 1 but H^1_ab(ℝ, PGL_2) = ℤ/2.
-- For a torus T, H^i_ab(F, T) = H^i(F, T); for simply connected semisimple G, H^i_ab(F, G) = 0.
-- For GL_n, ab^0 = det : GL_n(F) → F^× and H^1_ab = 0.
-- For PGL_2 over ℝ, H^1_ab = ℤ/2, matching the two real forms.
 
-*Needs:* §1.1; `TauCetiRoadmap.ReductiveGroups`, layer 6 reductive and semisimple groups; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori; `TauCetiRoadmap.ProfiniteCohomology`, layer 10 continuous cohomology in all degrees; `TauCetiRoadmap.GlobalNumberFields`, layer 5 full adeles and the additive quotient.
+*Needs:* `TauCetiRoadmap.ReductiveGroups` Layer 8 (Isogeny and existence theorems); §1.1; `TauCetiRoadmap.ReductiveGroups` Layer 6 (reductive and semisimple groups); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 4 (Jordan decomposition, diagonalizable groups, tori); `TauCetiRoadmap.ProfiniteCohomology` Layer 10 (continuous cohomology in all degrees); `TauCetiRoadmap.GlobalNumberFields` Layer 5 (full adeles and the additive quotient).
 
 ### 1.6 Inner twists and the quasi-split inner form
 
@@ -453,7 +286,7 @@ The interface consists of the following operations and identities.
 - `TauCeti.InnerTwist.mapStableClass`: The induced injection from F-rational stable strongly regular classes of G′ to those of G*.
 - `TauCeti.InnerTwist.comp`: Composition of inner twists, with the class of the composite the product class.
 
-Classification by H^1(F, G_ad): standard twisting (§1.1, nonabelian H^1 with twisted coefficients) applied to the automorphism group of G and its inner part G_ad (Labesse Définition 1.7.1 uses this bijection). Quasi-split inner form: existence and uniqueness via a pinning and the splitting of Aut(G) → Out(G) (upstream ReductiveGroups Layer 7/9 pinnings). Transfer of tori and of rational stable classes: Steinberg's theorem that a quasi-split group with simply connected derived group has a rational point in every F-rational stable (geometric) semisimple class (cited as Kottwitz 1982, Theorem 4.4 in Labesse's proof of Théorème 2.4.2), reduced to that case by a z-extension (ReductiveGroupsPartII:RG2.1/z-extension-existence) and Hilbert 90 for the induced central torus. Centralizers: ψ restricted to the centralizer is defined over F up to an inner automorphism of an abelian group, hence defined over F in the strongly regular case.
+Classification by H^1(F, G_ad): standard twisting (§1.1, nonabelian H^1 with twisted coefficients) applied to the automorphism group of G and its inner part G_ad (Labesse Définition 1.7.1 uses this bijection). Quasi-split inner form: existence and uniqueness via a pinning and the splitting of Aut(G) → Out(G) (ReductiveGroupsPartII §RG2.1.1). Transfer of tori and of rational stable classes: Steinberg's theorem that a quasi-split group with simply connected derived group has a rational point in every F-rational stable (geometric) semisimple class (cited as Kottwitz 1982, Theorem 4.4 in Labesse's proof of Théorème 2.4.2), reduced to that case by a z-extension (ReductiveGroupsPartII §RG2.1.5) and Hilbert 90 for the induced central torus. Centralizers: ψ restricted to the centralizer is defined over F up to an inner automorphism of an abelian group, hence defined over F in the strongly regular case.
 
 **Checks.**
 
@@ -461,15 +294,13 @@ Classification by H^1(F, G_ad): standard twisting (§1.1, nonabelian H^1 with tw
 - `innerTwist_quasiSplit_unique`. Two quasi-split inner forms of G are isomorphic over F.
 - `innerTwist_torus`. A torus has no nontrivial inner twists (T_ad = 1).
 - `innerTwist_not_all_forms`. The outer form U(n) of GL_n attached to a quadratic extension is not an inner twist of GL_n for n ≥ 2: ψ⁻¹σ(ψ) involves transpose-inverse.
-- The inner forms of GL_2 over a p-adic field are GL_2 and D^×, classified by H^1(F, PGL_2) = ℤ/2.
 - Every maximal torus of D^× transfers to an elliptic maximal torus of GL_2.
-- Tori have no nontrivial inner twists.
 
-*Needs:* §1.1; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 9 pinned chevalleydemazure group schemes over ℤ; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.ProfiniteCohomology`, layer 9 the galois interface hilbert 90 and kummer theory.
+*Needs:* §1.1; `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 9 (pinned Chevalley–Demazure group schemes over `ℤ`); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.ProfiniteCohomology` Layer 9 (the Galois interface: Hilbert 90 and Kummer theory).
 
 ### 1.7 z-pairs for endoscopic data
 
-Let (H, ℋ, s, ξ) be an endoscopic datum for (G, θ, ω) over a field F of characteristic 0. A z-pair is a triple (H_1, ξ_1, ξ̂_1) with: (1) H_1 a quasi-split connected reductive group over F with simply connected derived group; (2) ξ_1 : H_1 → H a surjective homomorphism whose kernel Z_1 is a central induced torus (so H_1 → H is a z-extension in the sense of ReductiveGroupsPartII:RG2.1/z-extension); (3) ξ̂_1 : ℋ → ^LH_1 an injective homomorphism over W_F whose restriction to Ĥ is the dual of ξ_1. Because Z_1 is induced, H_1(F) → H(F) is surjective. The composite W_F → ℋ → ^LH_1 → ^LZ_1 → Ẑ_1 (for any section W_F → ℋ) is a 1-cocycle whose class is independent of the section; it defines a character λ_1 of Z_1(F) (of Z_1(𝔸_F)/Z_1(F) globally). Transfer to H is replaced by transfer to functions on H_1(F) that transform under Z_1(F) by λ_1^{-1}. z-pairs exist for every endoscopic datum (Kottwitz–Shelstad §2.2).
+Let (H, ℋ, s, ξ) be an endoscopic datum for (G, θ, ω) over a field F of characteristic 0. A z-pair is a triple (H_1, ξ_1, ξ̂_1) with: (1) H_1 a quasi-split connected reductive group over F with simply connected derived group; (2) ξ_1 : H_1 → H a surjective homomorphism whose kernel Z_1 is a central induced torus (so H_1 → H is a z-extension in the sense of ReductiveGroupsPartII §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism)); (3) ξ̂_1 : ℋ → ^LH_1 an injective homomorphism over W_F whose restriction to Ĥ is the dual of ξ_1. Because Z_1 is induced, H_1(F) → H(F) is surjective. The composite W_F → ℋ → ^LH_1 → ^LZ_1 → Ẑ_1 (for any section W_F → ℋ) is a 1-cocycle whose class is independent of the section; it defines a character λ_1 of Z_1(F) (of Z_1(𝔸_F)/Z_1(F) globally). Transfer to H is replaced by transfer to functions on H_1(F) that transform under Z_1(F) by λ_1^{-1}. z-pairs exist for every endoscopic datum (Kottwitz–Shelstad §2.2).
 
 *Hypotheses.* (H, ℋ, s, ξ) an endoscopic datum over F of characteristic 0.
 
@@ -483,7 +314,7 @@ The interface consists of the following operations and identities.
 - `TauCeti.EndoscopicDatum.ZPair.surjective_points`: H_1(F) → H(F) is surjective.
 - `TauCeti.EndoscopicDatum.ZPair.trivial`: The trivial z-pair when H_der is simply connected and ℋ = ^LH.
 
-Existence: take a z-extension H_1 → H (ReductiveGroupsPartII:RG2.1/z-extension-existence); since H_1 has simply connected derived group, ℋ embeds into ^LH_1 extending the dual inclusion Ĥ → Ĥ_1 (Langlands' lemma on L-embeddings for groups with simply connected derived group, as used by Kottwitz–Shelstad §2.2; recalled in Waldspurger 2008 §1.4). Independence of the cocycle class from the section: two sections differ by a cocycle valued in Ĥ, which maps trivially to Ẑ_1 after composing with ^LH_1 → ^LZ_1 because ξ̂_1 is dual to ξ_1 on Ĥ (Waldspurger 2008 §1.4). Surjectivity H_1(F) → H(F): H^1(F, Z_1) = 0 for an induced torus (Shapiro and Hilbert 90).
+Existence: take a z-extension H_1 → H (ReductiveGroupsPartII §RG2.1.5); since H_1 has simply connected derived group, ℋ embeds into ^LH_1 extending the dual inclusion Ĥ → Ĥ_1 (Langlands' lemma on L-embeddings for groups with simply connected derived group, as used by Kottwitz–Shelstad §2.2; recalled in Waldspurger 2008 §1.4). Independence of the cocycle class from the section: two sections differ by a cocycle valued in Ĥ, which maps trivially to Ẑ_1 after composing with ^LH_1 → ^LZ_1 because ξ̂_1 is dual to ξ_1 on Ĥ (Waldspurger 2008 §1.4). Surjectivity H_1(F) → H(F): H^1(F, Z_1) = 0 for an induced torus (Shapiro and Hilbert 90).
 
 **Checks.**
 
@@ -491,11 +322,8 @@ Existence: take a z-extension H_1 → H (ReductiveGroupsPartII:RG2.1/z-extension
 - `ZPair.unitary`. For H = U(n_1) × U(n_2) (simply connected derived group), the trivial z-pair applies and the transfer factor is a function on H(F) × G(F).
 - `ZPair.sl2_torus`. For G = SL_2 and H = R^1_{E/F} G_m, H_der = 1 is simply connected and the trivial z-pair suffices.
 - `ZPair.not_arbitrary_extension`. A central extension H_1 → H with non-induced torus kernel (e.g. kernel R^1_{E/F} G_m) need not give surjective H_1(F) → H(F) and is not a z-pair.
-- When H_der is simply connected and ℋ = ^LH, the trivial z-pair exists and λ_1 = 1.
-- For U(n_1) × U(n_2) and for the tori of SL_2, the trivial z-pair applies.
-- A central extension with non-induced torus kernel need not give H_1(F) → H(F) surjective.
 
-*Needs:* §1.4; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-isogenies-and-products; `TauCetiRoadmap.ProfiniteCohomology`, layer 9 the galois interface hilbert 90 and kummer theory.
+*Needs:* §1.4; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.5.1 (the dual group and its Galois action); `TauCetiRoadmap.ProfiniteCohomology` Layer 9 (the Galois interface: Hilbert 90 and Kummer theory).
 
 ### 1.8 Elliptic endoscopic data of unitary similitude groups
 
@@ -505,7 +333,7 @@ Let F = F^+F_0 be a CM field with F^+ totally real and F_0 imaginary quadratic, 
 
 ([S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §§3.1–3.2, (3.1)–(3.4) and the displays for η̃_{n_1,n_2} and N(n_1,n_2), Remark 3.2 (pp. 12–14); [A. Caraiani and P. Scholze — On the generic part of the cohomology of local and global Shimura varieties](https://arxiv.org/abs/1909.01898v2), §5.2 (pp. 67–68); [G. Laumon and B. C. Ngô — Le lemme fondamental pour les groupes unitaires](https://arxiv.org/abs/math/0404454v2), §0.1 (PDF pp. 1–2).)
 
-Compute Ĝ_N and its Galois action from the definition of G_N (ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction for the restriction of scalars, RG2.5/galois-action-on-dual-group). An elliptic s ∈ Ĝ_N modulo the centre has, in each GL_N(ℂ)-factor compatible with the Galois action, eigenvalues ±1 up to the centre; the Galois-fixed connected centralizers are of the form GL_{n_1} × GL_{n_2} (Rogawski's classification for unitary groups, adapted to similitudes in Shin §3.2). The L-morphism condition for η̃ is checked directly from the semidirect product rule (Caraiani–Scholze non-compact §5.2, p. 68, after Rogawski 1992 §1.2); Kottwitz's condition 7.4.3 removes data that do not extend to L-embeddings or are not relevant when all three integers are odd. The index condition n_2 ≥ 1 (Shin) avoids repeating the principal datum; Caraiani–Scholze print n_2 ≥ 0 (explained in the normalization calculation).
+Compute Ĝ_N and its Galois action from the definition of G_N (ReductiveGroupsPartII §RG2.5.1 (the dual group and its Galois action) for the restriction of scalars, §RG2.5.1 (the dual group and its Galois action)). An elliptic s ∈ Ĝ_N modulo the centre has, in each GL_N(ℂ)-factor compatible with the Galois action, eigenvalues ±1 up to the centre; the Galois-fixed connected centralizers are of the form GL_{n_1} × GL_{n_2} (Rogawski's classification for unitary groups, adapted to similitudes in Shin §3.2). The L-morphism condition for η̃ is checked directly from the semidirect product rule (Caraiani–Scholze non-compact §5.2, p. 68, after Rogawski 1992 §1.2); Kottwitz's condition 7.4.3 removes data that do not extend to L-embeddings or are not relevant when all three integers are odd. The index condition n_2 ≥ 1 (Shin) avoids repeating the principal datum; Caraiani–Scholze print n_2 ≥ 0 (explained in the normalization calculation).
 
 **Checks.**
 
@@ -513,17 +341,17 @@ Compute Ĝ_N and its Galois action from the definition of G_N (ReductiveGroupsPa
 - N = 3 and [F^+ : ℚ] odd: the pair (n_1, n_2) = (2, 1) is kept and there are two elliptic data.
 - N = 2 with [F^+ : ℚ] odd: n_1 = n_2 = 1 and [F^+ : ℚ] are all odd, so the datum G_{1,1} may be omitted under condition 7.4.3; for [F^+ : ℚ] even it is present.
 
-*Needs:* §1.4; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-of-weil-restriction; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/galois-action-on-dual-group; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity.
+*Needs:* §1.4; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.5.1 (the dual group and its Galois action); `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity).
 
 ### 1.9 Kneser, Hasse principle and the abelianization comparisons
 
-Let G be connected reductive over a field F of characteristic 0. (a) (Kneser; imported from AdelicAlgebraicGroups:AA.4/kneser-local-torsor) If F is nonarchimedean local and G is semisimple simply connected, H^1(F, G) = 1. (b) If F is nonarchimedean local, ab^1 : H^1(F, G) → H^1_ab(F, G) is bijective and ab^0 : G(F) → H^0_ab(F, G) is surjective; if F is archimedean or global, ab^1 is surjective. (c) (Kneser–Harder–Chernousov) If F is a number field and G is semisimple simply connected, H^1(F, G) → ∏_{v real} H^1(F_v, G) is bijective. (d) For F a number field, the square formed by H^1(F, G) → H^1_ab(F, G) and the localization to the archimedean places, H^1(F, G) → H^1(F_∞, G) → H^1_ab(F_∞, G), is cartesian and all four arrows are surjective; consequently ker^1(F, G) := ker(H^1(F, G) → ∏_v H^1(F_v, G)) maps bijectively to its abelianized analogue ker^1_ab(F, G), and for an inner form G′ of G the natural map ker^1_ab(F, G′) → ker^1_ab(F, G) is an isomorphism, so that ker^1(F, G′) and ker^1(F, G) are in canonical bijection. (e) For F a number field and a finite subset of H^1(F, G), there is a maximal F-torus T ⊆ G such that the subset lies in the image of H^1(F, T) → H^1(F, G). (f) For F a number field and G adjoint, H^1(F, G) → ∏_v H^1(F_v, G) is injective; hence an inner form of a connected reductive group over F is determined up to isomorphism by its localizations. (g) (Serre) If F = ℝ and G(ℝ) is compact, H^1(ℝ, G) is in bijection with the G(ℝ)-conjugacy classes of elements of order dividing 2 in G(ℝ), functorially in G; and for a connected reductive subgroup H′ ⊆ H over ℝ with H_ad(ℝ) compact and H′ containing the maximal ℝ-split central torus of H, ker(H^1(ℝ, H′) → H^1(ℝ, H)) is trivial.
+Let G be connected reductive over a field F of characteristic 0. (a) (Kneser; recalled from AdelicAlgebraicGroups §4.1, “Local H¹ vanishing”) If F is nonarchimedean local and G is semisimple simply connected, H^1(F, G) = 1. (b) If F is nonarchimedean local, ab^1 : H^1(F, G) → H^1_ab(F, G) is bijective and ab^0 : G(F) → H^0_ab(F, G) is surjective; if F is archimedean or global, ab^1 is surjective. (c) (Kneser–Harder–Chernousov; recalled from AdelicAlgebraicGroups §4.1, “Hasse kernel and injectivity”) If F is a number field and G is semisimple simply connected, H^1(F, G) → ∏_{v real} H^1(F_v, G) is bijective. (d) For F a number field, the square formed by H^1(F, G) → H^1_ab(F, G) and the localization to the archimedean places, H^1(F, G) → H^1(F_∞, G) → H^1_ab(F_∞, G), is cartesian and all four arrows are surjective; consequently ker^1(F, G) := ker(H^1(F, G) → ∏_v H^1(F_v, G)) maps bijectively to its abelianized analogue ker^1_ab(F, G), and for an inner form G′ of G the natural map ker^1_ab(F, G′) → ker^1_ab(F, G) is an isomorphism, so that ker^1(F, G′) and ker^1(F, G) are in canonical bijection. (e) For F a number field and a finite subset of H^1(F, G), there is a maximal F-torus T ⊆ G such that the subset lies in the image of H^1(F, T) → H^1(F, G). (f) For F a number field and G adjoint, H^1(F, G) → ∏_v H^1(F_v, G) is injective; hence an inner form of a connected reductive group over F is determined up to isomorphism by its localizations. (g) (Serre) If F = ℝ and G(ℝ) is compact, H^1(ℝ, G) is in bijection with the G(ℝ)-conjugacy classes of elements of order dividing 2 in G(ℝ), functorially in G; and for a connected reductive subgroup H′ ⊆ H over ℝ with H_ad(ℝ) compact and H′ containing the maximal ℝ-split central torus of H, ker(H^1(ℝ, H′) → H^1(ℝ, H)) is trivial.
 
 *Hypotheses.* F of characteristic 0; G connected reductive; for (a): F nonarchimedean local and G simply connected; for (c): G simply connected; for (f): G adjoint.
 
 ([J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf), Théorème 1.6.6 (p. 31), Proposition 1.6.7 (pp. 31–32), Théorème 1.6.9 and Théorème 1.6.10 (p. 33), Corollaire 1.6.11 (p. 34); [M. Kisin — Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf), Theorem (3.4.6), p. 46; the remark after (4.3.1)(iv), p. 75; §§4.4.1–4.4.9 with Lemma (4.4.5) and its proof, p. 81; proof of Proposition (3.4.11), pp. 47–48; [T. Kaletha — Rigid inner forms of real and p-adic groups](https://arxiv.org/abs/1304.3292v5), arXiv v5: Fact 3.4 (p. 13), Corollary 3.7 (p. 14), Lemma 4.9 (p. 25).)
 
-(a) Kneser's theorem is imported from AdelicAlgebraicGroups:AA.4/kneser-local-torsor, which states it for torsors (every torsor under a semisimple simply connected group over a nonarchimedean local field of characteristic 0 is trivial); for smooth affine groups over a field of characteristic 0, torsors are classified by Galois H^1. Labesse Théorème 1.6.6 states the same, citing Kneser. ReductiveGroupsPartII supplies the vanishing over the completed maximal unramified extension (RG2.1/steinberg-quasi-split), the starting point of the Bruhat–Tits proof. (b) Use the exact sequence of §1.5: by (a) the term H^1(F, G_sc) vanishes, giving injectivity of ab^1 and surjectivity of ab^0; surjectivity of ab^1 uses a fundamental (elliptic) maximal torus T, for which H^1(F, T) → H^1_ab(F, G) is onto (Labesse Lemme 1.6.5, Proposition 1.6.7; Borovoi Proposition 5.1, Theorems 5.4 and 5.7). Over a number field the surjectivity is Borovoi's Theorem 5.7. (c) The Hasse principle for simply connected groups is imported (AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected) in the form: an F-torsor under G is trivial iff it is trivial at every place; with (a) at the finite places this gives the bijectivity onto the real places (Labesse Théorème 1.6.9). (d) Combine (b) and (c) with the density of the image of H^0_ab(F, G) in H^0_ab(F_∞, G), proved by dévissage to a complex of tori [T_2 → T_1] with T_1 induced (Labesse Théorème 1.6.10, which states the cartesian square with H^1(𝔸_F, G) and reduces to F_∞ by (b) at the finite places, and Corollaire 1.6.11; Borovoi's theorem, recalled by Kisin as Theorem (3.4.6), who cites it as [Bo, Thm. 5.12]). (e) Borovoi Theorem 5.11 as used in Kisin §4.4.7: choose a maximal torus meeting each class at every place of a finite set and use (d). (f) The Hasse principle for adjoint groups is used by Kisin (§4.3.1, proof of Corollary 4.6.5) as a known result; by Kottwitz's duality (§1.11 (b), whose proof does not use (f)) it amounts to ker^1(F, Z(Ĝ)) = 0 for the finite Galois module Z(Ĝ) when Ĝ is simply connected. Its independent primary proof is Platonov–Rapinchuk, Chapter 6; inner forms of a reductive group are classified by H^1(F, G_ad) (§1.6), which gives the consequence. (g) Serre, Galois Cohomology III §4.5, Theorem 6 (recalled by Kisin, proof of Lemma 4.4.5) for compact G(ℝ); the injectivity statement is Kisin Lemma 4.4.5.
+(a) Kneser's theorem is imported from AdelicAlgebraicGroups §4.1, “Local H¹ vanishing”, which states it for torsors (every torsor under a semisimple simply connected group over a nonarchimedean local field of characteristic 0 is trivial); for smooth affine groups over a field of characteristic 0, torsors are classified by Galois H^1. Labesse Théorème 1.6.6 states the same, citing Kneser. ReductiveGroupsPartII supplies the vanishing over the completed maximal unramified extension (ReductiveGroupsPartII §RG2.1.1), the starting point of the Bruhat–Tits proof. (b) Use the exact sequence of §1.5: by (a) the term H^1(F, G_sc) vanishes, giving injectivity of ab^1 and surjectivity of ab^0; surjectivity of ab^1 uses a fundamental (elliptic) maximal torus T, for which H^1(F, T) → H^1_ab(F, G) is onto (Labesse Lemme 1.6.5, Proposition 1.6.7; Borovoi Proposition 5.1, Theorems 5.4 and 5.7). Over a number field the surjectivity is Borovoi's Theorem 5.7. (c) The Hasse principle for simply connected groups is imported (AdelicAlgebraicGroups §4.1, “Hasse kernel and injectivity”) in the form: an F-torsor under G is trivial iff it is trivial at every place; with (a) at the finite places this gives injectivity into the real places; the real-place realization theorem supplies surjectivity (Labesse Théorème 1.6.9). (d) Combine (b) and (c) with the density of the image of H^0_ab(F, G) in H^0_ab(F_∞, G), proved by dévissage to a complex of tori [T_2 → T_1] with T_1 induced (Labesse Théorème 1.6.10, which states the cartesian square with H^1(𝔸_F, G) and reduces to F_∞ by (b) at the finite places, and Corollaire 1.6.11; Borovoi's theorem, recalled by Kisin as Theorem (3.4.6), who cites it as [Bo, Thm. 5.12]). (e) Borovoi Theorem 5.11 as used in Kisin §4.4.7: choose a maximal torus meeting each class at every place of a finite set and use (d). (f) The Hasse principle for adjoint groups is used by Kisin (§4.3.1, proof of Corollary 4.6.5) as a known result; by Kottwitz's duality (§1.11 (b), whose proof does not use (f)) it amounts to ker^1(F, Z(Ĝ)) = 0 for the finite Galois module Z(Ĝ) when Ĝ is simply connected. Prove the finite-module vanishing by decomposing the centre according to the Galois orbits of simple factors and applying restriction–corestriction and the cyclic norm calculation to the resulting root-lattice quotients, as in the duality calculation of §1.11; inner forms of a reductive group are classified by H^1(F, G_ad) (§1.6), which gives the consequence. (g) Serre, Galois Cohomology III §4.5, Theorem 6 (recalled by Kisin, proof of Lemma 4.4.5) for compact G(ℝ); the injectivity statement is Kisin Lemma 4.4.5.
 
 **Checks.**
 
@@ -531,7 +359,7 @@ Let G be connected reductive over a field F of characteristic 0. (a) (Kneser; im
 - For G = SL_1(D) with D a quaternion division algebra over ℚ ramified at ∞ and one prime, (c) identifies H^1(ℚ, G) with H^1(ℝ, G), which has two elements.
 - For G = SO(3) over ℝ (compact), (g) gives H^1(ℝ, G) of cardinality 2: the identity and the class of rotations by π.
 
-*Needs:* §1.5; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.4/kneser-local-torsor; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.4/hasse-principle-simply-connected; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/steinberg-quasi-split; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.Chebotarev`, layer 10 dirichlet density chebotarev.
+*Needs:* `TauCetiRoadmap.AdelicAlgebraicGroups` §4.1 (Weak approximation and torsors); §1.5; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.1 (quasi-split forms and rational tori over Ĕ); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.Chebotarev` Layer 10 (Dirichlet-density Chebotarev).
 
 ### 1.10 Degree-zero abelianization and positive rational images
 
@@ -549,17 +377,17 @@ Let G be a connected reductive group over ℚ with ρ : G_sc → G. (a) H^0_ab(�
 - For G = SL_2 (simply connected) both sides of (b) are trivial.
 - For G = G_m: G(ℝ)_+ = ℝ^× and G(ℚ)_+ = ℚ^×, and (b) holds since ab^0(Z(G)(ℝ)) = ℝ^×; with the identity component ℝ_{>0} of G(ℝ) in place of G(ℝ)_+ the identification in (b) would fail.
 
-*Needs:* §1.5; §1.9; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/kottwitz-homomorphism; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/algebraic-fundamental-group.
+*Needs:* §1.5; §1.9; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism).
 
 ### 1.11 Kottwitz's map and the duality for reductive groups
 
-Let F be a field of characteristic 0 and G connected reductive over F, with dual group Ĝ (complex), its centre Z(Ĝ) with the Galois action of ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group, and A(G) := π_0(Z(Ĝ)^Γ)^D (Pontryagin dual). (a) (Local) If F is local there is a unique extension of the Tate–Nakayama isomorphisms for tori to a morphism of functors α_G : H^1(F, G) → A(G) on the category of connected reductive groups and normal homomorphisms (Kottwitz 1986, Theorem 1.2). It factors through ab^1 and an injective homomorphism H^1_ab(F, G) → A(G). If F is nonarchimedean, α_G is a bijection; the group structure it induces on H^1(F, G) is Kottwitz's. If F = ℝ, the fibre of α_G over 0 is the image of H^1(ℝ, G_sc), and the image of α_G is the annihilator of the image of the norm N_{ℂ/ℝ} on Z(Ĝ); α_G is not bijective in general and H^1(ℝ, G) is not a group. For a maximal torus S ⊆ G, α_G restricted along H^1(F, S) → H^1(F, G) is α_S followed by the restriction A(S) → A(G) dual to π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ); a class of H^1(F, S) comes from H^1(F, G_sc) exactly when α_S of it annihilates the image of π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ). Equivalently, via ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group, for F nonarchimedean H^1(F, G) ≅ (π_1(G)_Γ)_tors. (b) (Global) If F is a number field, H^1_ab(𝔸_F/F, G) ≅ A(G) canonically; ker^1(F, G) = ker^1_ab(F, G) ≅ ker^1(F, Z(Ĝ))^D. Kottwitz's Tamagawa-number formula τ(G) = #π_0(Z(Ĝ)^Γ)/#ker^1(F, Z(Ĝ)) is not part of this construction.
+Let F be a field of characteristic 0 and G connected reductive over F, with dual group Ĝ (complex), its centre Z(Ĝ) with the Galois action of ReductiveGroupsPartII §RG2.5.2 (the L-group and its functoriality), and A(G) := π_0(Z(Ĝ)^Γ)^D (Pontryagin dual). (a) (Local) If F is local there is a unique extension of the Tate–Nakayama isomorphisms for tori to a morphism of functors α_G : H^1(F, G) → A(G) on the category of connected reductive groups and normal homomorphisms (Kottwitz 1986, Theorem 1.2). It factors through ab^1 and an injective homomorphism H^1_ab(F, G) → A(G). If F is nonarchimedean, α_G is a bijection; the group structure it induces on H^1(F, G) is Kottwitz's. If F = ℝ, the fibre of α_G over 0 is the image of H^1(ℝ, G_sc), and the image of α_G is the annihilator of the image of the norm N_{ℂ/ℝ} on Z(Ĝ); α_G is not bijective in general and H^1(ℝ, G) is not a group. For a maximal torus S ⊆ G, α_G restricted along H^1(F, S) → H^1(F, G) is α_S followed by the restriction A(S) → A(G) dual to π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ); a class of H^1(F, S) comes from H^1(F, G_sc) exactly when α_S of it annihilates the image of π_0(Z(Ĝ)^Γ) → π_0(Ŝ^Γ). Equivalently, via ReductiveGroupsPartII §RG2.5.2 (the L-group and its functoriality), for F nonarchimedean H^1(F, G) ≅ (π_1(G)_Γ)_tors. (b) (Global) If F is a number field, H^1_ab(𝔸_F/F, G) ≅ A(G) canonically; ker^1(F, G) = ker^1_ab(F, G) ≅ ker^1(F, Z(Ĝ))^D. Kottwitz's Tamagawa-number formula τ(G) = #π_0(Z(Ĝ)^Γ)/#ker^1(F, Z(Ĝ)) is not part of this construction.
 
 *Hypotheses.* F of characteristic 0, local for (a), a number field for (b); G connected reductive.
 
 ([R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0275/LOG_0056.pdf), §1.2, Theorem 1.2 (p. 368); §2.2, Theorem 2.2 (p. 374); [J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf), Proposition 1.7.3 (pp. 38–39) and Corollaire 1.7.4 (p. 39); [T. Kaletha — Rigid inner forms of real and p-adic groups](https://arxiv.org/abs/1304.3292v5), arXiv v5: Kottwitz's Theorem 1.2 as used in Corollary 3.8 (p. 15), Lemma 4.9 (p. 25), §4.7, Corollary 5.4 and Lemma 5.7.)
 
-(a) For a torus define α_S by Tate–Nakayama (§1.2 (a), degree −1). For general G use a z-extension (ReductiveGroupsPartII:RG2.1/z-extension-existence) to reduce to G with simply connected derived group, then use the exact sequence H^1(F, G_sc) → H^1(F, G) → H^1(F, D) with D = G/G_der a torus and Kneser's vanishing (§1.9 (a)) in the p-adic case; uniqueness follows from the existence of fundamental tori (Kottwitz 1986, Theorem 1.2 and its proof; Labesse Proposition 1.7.3). Injectivity on H^1_ab and bijectivity for nonarchimedean F: Labesse Proposition 1.7.3 via the quasi-isomorphism [Z(Ĝ) → 1] ≃ [Ĝ → Ĝ_sc]-dual of the centre complex and the Tate–Nakayama isomorphism for complexes of tori; the limit over cofinal splitting fields gives bijectivity. Real case: describe H^1(ℝ, G) through fundamental tori (Kaletha; Kottwitz 1986 Theorem 1.2). (b) Global: Labesse Proposition 1.7.3 (global part), from the global Tate–Nakayama isomorphism for the centre complex (§1.2 (b), (c)) and the cofinality of splitting fields; ker^1(F, G) = ker^1_ab(F, G) is §1.9 (d).
+(a) For a torus define α_S by Tate–Nakayama (§1.2 (a), degree −1). For general G use a z-extension (ReductiveGroupsPartII §RG2.1.5) to reduce to G with simply connected derived group, then use the exact sequence H^1(F, G_sc) → H^1(F, G) → H^1(F, D) with D = G/G_der a torus and Kneser's vanishing (§1.9 (a)) in the p-adic case; uniqueness follows from the existence of fundamental tori (Kottwitz 1986, Theorem 1.2 and its proof; Labesse Proposition 1.7.3). Injectivity on H^1_ab and bijectivity for nonarchimedean F: Labesse Proposition 1.7.3 via the quasi-isomorphism [Z(Ĝ) → 1] ≃ [Ĝ → Ĝ_sc]-dual of the centre complex and the Tate–Nakayama isomorphism for complexes of tori; the limit over cofinal splitting fields gives bijectivity. Real case: describe H^1(ℝ, G) through fundamental tori (Kaletha; Kottwitz 1986 Theorem 1.2). (b) Global: Labesse Proposition 1.7.3 (global part), from the global Tate–Nakayama isomorphism for the centre complex (§1.2 (b), (c)) and the cofinality of splitting fields; ker^1(F, G) = ker^1_ab(F, G) is §1.9 (d).
 
 **Checks.**
 
@@ -568,24 +396,26 @@ Let F be a field of characteristic 0 and G connected reductive over F, with dual
 - For G = U(1) over ℝ attached to ℂ/ℝ: α_G is a bijection H^1(ℝ, U(1)) = ℤ/2 ≅ A(G).
 - For G = SU(2) compact over ℝ: H^1(ℝ, G) has two elements (identity and −1 up to conjugacy, §1.9 (g)) while A(G) = π_0(Z(Ĝ)^Γ)^D for Ĝ = PGL_2(ℂ) is trivial, so α_G is not injective over ℝ.
 
-*Needs:* §1.2; §1.5; §1.9; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/galois-action-on-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-centre-and-fundamental-group.
+*Needs:* §1.2; §1.5; §1.9; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group).
 
 ### 1.12 Unramified Galois cohomology of reductive models
 
-Let G be a connected reductive group over ℚ_p with a reductive model G_{ℤ_p} (smooth affine with connected reductive special fibre), and L = ℚ_p^ur. (a) (Lang) H^1(Gal(L/ℚ_p), G_{ℤ_p}(ℤ_p^ur)) = 1, i.e. every G_{ℤ_p}-torsor over ℤ_p is trivial; the same holds for every smooth affine ℤ_p-group with connected fibres, and over ℤ_ℓ. (b) (Integral z-extensions) A reductive group G_{ℤ_(p)} over ℤ_(p) admits a z-extension G_{1,ℤ_(p)} → G_{ℤ_(p)}: a surjection of reductive ℤ_(p)-groups whose kernel is a central induced torus and with G_1^der simply connected. (c) (Kernel of the Kottwitz homomorphism on unramified points) Let ρ : G̃ → G be the simply connected cover of the derived group and κ̃_G : G(L) → π_1(G) the Kottwitz homomorphism (ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism, with I acting trivially since G is unramified). Then ρ(G̃(L))·G_{ℤ_p}(ℤ_p^ur) = ker κ̃_G, a normal subgroup; its intersection with G(ℚ_p) is ρ(G̃(ℚ_p))·G_{ℤ_p}(ℤ_p) = ker(κ̃_G|_{G(ℚ_p)}); and a class in G(L)/ρ(G̃(L))G_{ℤ_p}(ℤ_p^ur) whose κ̃_G-image is Frobenius invariant contains an element of G(ℚ_p).
+Let G be a connected reductive group over ℚ_p with a reductive model G_{ℤ_p} (smooth affine with connected reductive special fibre), and L = ℚ_p^ur. (a) (Lang) H^1(Gal(L/ℚ_p), G_{ℤ_p}(ℤ_p^ur)) = 1, i.e. every G_{ℤ_p}-torsor over ℤ_p is trivial; the same holds for every smooth affine ℤ_p-group with connected fibres, and over ℤ_ℓ. (b) (Integral z-extensions) A reductive group G_{ℤ_(p)} over ℤ_(p) admits a z-extension G_{1,ℤ_(p)} → G_{ℤ_(p)}: a surjection of reductive ℤ_(p)-groups whose kernel is a central induced torus and with G_1^der simply connected. (c) (Kernel of the Kottwitz homomorphism on unramified points) Let ρ : G̃ → G be the simply connected cover of the derived group and κ̃_G : G(L) → π_1(G) the Kottwitz homomorphism (ReductiveGroupsPartII §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism), with I acting trivially since G is unramified). Then ρ(G̃(L))·G_{ℤ_p}(ℤ_p^ur) = ker κ̃_G, a normal subgroup; its intersection with G(ℚ_p) is ρ(G̃(ℚ_p))·G_{ℤ_p}(ℤ_p) = ker(κ̃_G|_{G(ℚ_p)}); and a class in G(L)/ρ(G̃(L))G_{ℤ_p}(ℤ_p^ur) whose κ̃_G-image is Frobenius invariant contains an element of G(ℚ_p).
 
 *Hypotheses.* G_{ℤ_p} a reductive model (connected special fibre); for (b): G_{ℤ_(p)} reductive over ℤ_(p).
 
 ([M. Kisin — Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf), footnote 20 (p. 54); Proposition (3.6.7) and its proof (p. 56); Proposition (3.6.10) and its proof (p. 58); Lemma (3.6.2) (p. 53) and the Cartan-decomposition step of its proof (p. 54); (3.6.8) (p. 57) and (3.6.9) (p. 58); [M. Kisin — Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf), Corollary (2.3.5) and its proof (p. 34).)
 
-(a) Lang's theorem for the connected special fibre (ReductiveGroupsPartII:RG2.3/lang-theorem) gives a section mod p; smoothness and Hensel's lemma lift it (Kisin footnote 20 and proofs of Proposition 3.6.7, Lemma 3.8.2). (b) Kottwitz's construction of z-extensions over fields (ReductiveGroupsPartII:RG2.1/z-extension-existence) carried out with an induced torus split over an unramified extension so that it extends to ℤ_(p) (Kisin, proof of Proposition 3.6.10, citing Kottwitz 'Shimura varieties and λ-adic representations' §1). (c) The Cartan decomposition for the hyperspecial subgroup G_{ℤ_p}(ℤ_p^ur) of G(L) (ReductiveGroupsPartII:RG2.3/hyperspecial-vertices and RG2.4) shows that G(L) = ⊔ over dominant cocharacters of double cosets, and κ̃_G is the image of the cocharacter in π_1(G); its kernel is generated by ρ(G̃(L)) and the hyperspecial subgroup. Intersecting with G(ℚ_p) uses (a) and Kneser's vanishing (§1.9 (a)); the last assertion uses Lang's theorem for the Frobenius-twisted action (Kisin, proof of Lemma 3.6.2(2)).
+(a) Lang's theorem for the connected special fibre (ReductiveGroupsPartII §RG2.3.7 (Lang's theorem and lifting)) gives a section mod p; smoothness and Hensel's lemma lift it (Kisin footnote 20 and proofs of Proposition 3.6.7, Lemma 3.8.2). (b) Kottwitz's construction of z-extensions over fields (ReductiveGroupsPartII §RG2.1.5) carried out with an induced torus split over an unramified extension so that it extends to ℤ_(p) (Kisin, proof of Proposition 3.6.10, citing Kottwitz 'Shimura varieties and λ-adic representations' §1). (c) The Cartan decomposition for the hyperspecial subgroup G_{ℤ_p}(ℤ_p^ur) of G(L) (ReductiveGroupsPartII §RG2.3.3 (Bruhat–Tits and parahoric group schemes) and §RG2.4.4) shows that G(L) = ⊔ over dominant cocharacters of double cosets, and κ̃_G is the image of the cocharacter in π_1(G); its kernel is generated by ρ(G̃(L)) and the hyperspecial subgroup. Intersecting with G(ℚ_p) uses (a) and Kneser's vanishing (§1.9 (a)); the last assertion uses Lang's theorem for the Frobenius-twisted action (Kisin, proof of Lemma 3.6.2(2)).
+
+Clause (c) is the existing ReductiveGroupsPartII §RG2.4.1 theorem `kottwitz-rational-surjectivity`, recalled to fix notation for its use with integral z-extensions. The new assertions here are (a), the integral form (b), and their compatibility with that theorem.
 
 **Checks.**
 
 - For G = GL_n: κ̃_G = val ∘ det, its kernel is SL_n(L)·GL_n(ℤ_p^ur) and the rational points of the kernel are SL_n(ℚ_p)·GL_n(ℤ_p) = {g : val det g = 0}.
 - For G = G_m: H^1(Gal(L/ℚ_p), ℤ_p^{ur,×}) = 1 (the unit group is cohomologically trivial for unramified extensions).
 
-*Needs:* `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/lang-theorem; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/kottwitz-homomorphism; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/hyperspecial-vertices; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.4/cartan-decomposition; §1.9.
+*Needs:* `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.4.1 (the Iwahori–Weyl group, rational Kottwitz surjectivity); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.7 (Lang's theorem and lifting); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.3 (Bruhat–Tits and parahoric group schemes); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.4.4 (Cartan and Iwasawa decompositions); §1.9.
 
 ### 1.13 The Kottwitz sign of an inner form
 
@@ -611,17 +441,13 @@ Well definedness: α_{G*_ad} is defined on H^1(F, G*_ad) (§1.11), and ⟨2ρ, �
 **Checks.**
 
 - The numerical `kottwitzSign 0 0` is +1 and `kottwitzSign 1 0` is −1. The latter agrees with the quaternionic GL₂ inner form.
-- For an actual real compact U(3), q(U(2,1))−q(U(3))=2, so the real sign is +1; substituting the p-adic split-rank formula gives the wrong −1.
 - `kottwitzSign_quasiSplit`. e(G*) = 1 for every quasi-split G*.
 - `kottwitzSign_quaternion`. For D^× with D a quaternion division algebra over a p-adic F, an inner form of GL_2, e(D^×) = −1; more generally e(GL_m(D)) = (−1)^{n − m} for D central division of degree d over F and n = md.
-- `kottwitzSign_compact_real`. For the compact form U(n) of the quasi-split unitary group over ℝ, e(U(n))=(−1)^{⌊n²/4⌋}: q(U(n))=0 and q(U(a,b))=ab, with (a,b)=(⌈n/2⌉,⌊n/2⌋) for the quasi-split form. In particular compact U(3) has sign +1; using its real-rank difference would incorrectly give −1.
+- `kottwitzSign_compact_real`. For the compact form U(n) of the quasi-split unitary group over ℝ, e(U(n))=(−1)^{⌊n²/4⌋}: q(U(n))=0 and q(U(a,b))=ab, with (a,b)=(⌈n/2⌉,⌊n/2⌋) for the quasi-split form. In particular compact U(3) has sign +1; using its real-rank difference would incorrectly give −1. The compact U(2) and U(4) signs are −1 and +1.
 - `kottwitzSign_product`. For a quaternion algebra B over ℚ, ∏_v e(B_v^×) = (−1)^{#ramified places} = 1, recovering that a quaternion algebra over ℚ ramifies at an even number of places.
 - `kottwitzSign_not_rank_parity`. e(G) is not (−1)^{rank G}: for GL_2 and its inner form D^× both have absolute rank 2 but e differs.
-- e(G*) = 1; e(D^×) = −1 for a quaternion division algebra D; e(GL_m(D)) = (−1)^{n−m}.
-- For compact U(2), U(3) and U(4) over ℝ the signs are −1, +1 and +1, respectively; these distinguish half-dimension parity from real-rank parity.
-- For a quaternion algebra over ℚ, the product of local signs is 1.
 
-*Needs:* §1.11; §1.6; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory.
+*Needs:* §1.11; §1.6; `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory).
 
 ### 1.14 Rational classes inside a stable class
 
@@ -631,7 +457,7 @@ Let F be a field of characteristic 0, G connected reductive over F, δ ∈ G(F) 
 
 ([J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf), §2.3 after Définition 2.3.4 (pp. 53–54); proof of Théorème 2.4.2 (p. 56); [R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0275/LOG_0056.pdf), Introduction (p. 366); §4.1–4.6, definitions of 𝔇, 𝔈, 𝔎 (pp. 378–379); [D. Hansen, T. Kaletha and J. Weinstein — On the Kottwitz conjecture for local shtuka spaces](https://arxiv.org/abs/1709.06651v4), arXiv v4, Lemma 3.2.1 (p. 17); [T. Kaletha — Rigid inner forms of real and p-adic groups](https://arxiv.org/abs/1304.3292v5), arXiv v5, Fact 3.4 (p. 13).)
 
-(a) Labesse §2.3 after Définition 2.3.4: the pair (x, a) gives a class in H^0(F, I\G), whose image in H^1(F, I) lies in D(I, G; F); the fibres of H^0(F, I\G) → G(F) are the kernels displayed there, giving the parametrization through the image in ker[H^1(F, G_δ) → H^1(F, G)] (also Kottwitz 1986 Introduction and §4.1). (b) Finiteness: local H^1 of linear algebraic groups is finite (Kaletha Fact 3.4, citing Platonov–Rapinchuk Theorem 6.14); E(T, G; F) is the abelianized kernel and the comparison with D uses §1.9 (b); the duality with K(T, G; F) is §1.2 (a) and §1.11 (a) (Kottwitz 1986 §§4.4–4.6). (c) Steinberg: H^1(F̆, T) = 0 for every torus over F̆ (ReductiveGroupsPartII:RG2.1/steinberg-quasi-split, which states that H^1(L, H) = 1 for connected reductive H over the completed maximal unramified extension); conjugacy over F̄ by x with xσ(x)⁻¹ ∈ T and vanishing of the class over F̆ give conjugacy over F̆ (Hansen–Kaletha–Weinstein Lemma 3.2.1). (d) Kottwitz 1982 Theorem 4.4 as cited by Labesse in the proof of Théorème 2.4.2; the transfer of tori in §1.6 (ii) is the same argument. (e) Functoriality of H^1 for M ⊆ G; example in the acceptance tests.
+(a) Labesse §2.3 after Définition 2.3.4: the pair (x, a) gives a class in H^0(F, I\G), whose image in H^1(F, I) lies in D(I, G; F); the fibres of H^0(F, I\G) → G(F) are the kernels displayed there, giving the parametrization through the image in ker[H^1(F, G_δ) → H^1(F, G)] (also Kottwitz 1986 Introduction and §4.1). (b) Finiteness: local H^1 of linear algebraic groups is finite (Kaletha Fact 3.4, citing Platonov–Rapinchuk Theorem 6.14); E(T, G; F) is the abelianized kernel and the comparison with D uses §1.9 (b); the duality with K(T, G; F) is §1.2 (a) and §1.11 (a) (Kottwitz 1986 §§4.4–4.6). (c) Steinberg: H^1(F̆, T) = 0 for every torus over F̆ (ReductiveGroupsPartII:ReductiveGroupsPartII §RG2.1.1, which states that H^1(L, H) = 1 for connected reductive H over the completed maximal unramified extension); conjugacy over F̄ by x with xσ(x)⁻¹ ∈ T and vanishing of the class over F̆ give conjugacy over F̆ (Hansen–Kaletha–Weinstein Lemma 3.2.1). (d) Kottwitz 1982 Theorem 4.4 as cited by Labesse in the proof of Théorème 2.4.2; the transfer of tori in §1.6 (ii) is the same argument. (e) Functoriality of H^1 for M ⊆ G; example in the acceptance tests.
 
 **Checks.**
 
@@ -641,7 +467,7 @@ Let F be a field of characteristic 0, G connected reductive over F, δ ∈ G(F) 
 - Nonsplit unitary group G = U(1, 1) attached to E/F with T ≅ U(1) × U(1) elliptic: H^1(F, T) = (ℤ/2)², H^1_ab(F, G) = ℤ/2 and D(T, G; F) = E(T, G; F) = ker of the sum map, of order 2 (Leslie Lemma 1.8 pattern with S_1 = {1, 2}).
 - Proper Levi with different rational classes in one stable class: in G = Sp_4 over p-adic F, the Levi M ≅ GL_1 × SL_2 contains elliptic elements of its SL_2 factor whose stable class splits into two M(F)-classes, as for SL_2 above.
 
-*Needs:* §1.3; §1.5; §1.9; §1.2; §1.11; §1.6; §1.1; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/steinberg-quasi-split.
+*Needs:* §1.3; §1.5; §1.9; §1.2; §1.11; §1.6; §1.1; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.1 (quasi-split forms and rational tori over Ĕ).
 
 ### 1.15 The global obstruction for adelic stable classes
 
@@ -658,7 +484,7 @@ Construct obs_1(γ) first using G_sc(𝔸)-conjugacy and the Hasse principle for
 - For G = GL_n every adelic element stably conjugate everywhere to γ_0 ∈ GL_n(F) is G(𝔸)-conjugate to γ_0 (obs is trivial because 𝔎(I_0/F) = 1 for centralizers that are products of restrictions of scalars of GL's).
 - For G = SL_2 and γ_0 regular elliptic with splitting field E: the local invariants lie in ℤ/2 at each place nonsplit in E, and obs(γ) is their sum; an adelic element whose invariants are nontrivial at exactly one place is not conjugate to a rational element.
 
-*Needs:* §1.14; §1.11; §1.2; §1.9; `TauCetiRoadmap.ArithmeticGaloisDuality`, R02.3/localisation-maps.
+*Needs:* §1.14; §1.11; §1.2; §1.9; `TauCetiRoadmap.ArithmeticGaloisDuality` §R02.3.1 (The group `G_{K,S}`, finiteness and localisation).
 
 ### 1.16 Images and norms: matching of strongly regular classes
 
@@ -687,11 +513,8 @@ Construct the map T_H/Ω_H → (T*)_{θ*}/Ω^{θ*} from the dual isomorphism giv
 - `normCorrespondence.sl2_torus`. For G = SL_2 and H = R^1_{E/F} G_m, γ_H = u ∈ E^1 \ {±1} corresponds to the stable class of elements with eigenvalues u, ū; two G(F)-classes lie in it.
 - `normCorrespondence.basechange_gl1`. For G = R_{E/F} G_m and θ the Galois automorphism, the norm of x ∈ E^× is N_{E/F}(x) ∈ F^× and the set of norms is N E^×.
 - `normCorrespondence.innerForm_missing`. For G = D^× (D a quaternion division algebra) and the principal datum H = GL_2, a split regular γ_H ∈ GL_2(F) has no image in D^×, since D^× has no split maximal torus.
-- For the principal datum of quasi-split G the image of γ_H is its own stable class.
-- For R_{E/F}G_m with the Galois automorphism, norms are N_{E/F}(x) and the set of norms is N E^×.
-- A split regular element of GL_2(F) has no image in D^×.
 
-*Needs:* §1.4; §1.3; §1.14; §1.6; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence.
+*Needs:* §1.4; §1.3; §1.14; §1.6; `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism).
 
 ### 1.17 Centralizers, stable classes and matching for unitary Lie algebras
 
@@ -732,7 +555,7 @@ For a quadratic extension E/F of a p-adic field, the norm-one torus T has H¹(F,
 
 ### Dependencies
 
-`TauCetiRoadmap.SchemeAndStackFoundations`, SF.1/crossed-module-category; `TauCetiRoadmap.ProfiniteCohomology`, layer 10 continuous cohomology in all degrees; `TauCetiRoadmap.ProfiniteCohomology`, layer 5 exact sequences; `TauCetiRoadmap.ClassFieldTheory`, layer 3 tates theorem for a class formation; `TauCetiRoadmap.ClassFieldTheory`, layer 6 the local class formation and finite local reciprocity; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity; `TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants; `TauCetiRoadmap.ProfiniteCohomology`, layer 9 the galois interface hilbert 90 and kummer theory; `TauCetiRoadmap.ProfiniteCohomology`, layer 12 the graded cup product in all degrees; `TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/torus-and-gl-dual-groups; `TauCetiRoadmap.ArithmeticGaloisDuality`, R02.4/poitou-tate; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; `TauCetiRoadmap.ReductiveGroups`, layer 6 reductive and semisimple groups; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/galois-action-on-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/l-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/l-group-levi-embedding; `TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group; `TauCetiRoadmap.GlobalNumberFields`, layer 5 full adeles and the additive quotient; `TauCetiRoadmap.ReductiveGroups`, layer 9 pinned chevalleydemazure group schemes over ℤ; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-isogenies-and-products; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-of-weil-restriction; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.4/kneser-local-torsor; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.4/hasse-principle-simply-connected; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/steinberg-quasi-split; `TauCetiRoadmap.Chebotarev`, layer 10 dirichlet density chebotarev; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/kottwitz-homomorphism; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/algebraic-fundamental-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-centre-and-fundamental-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/lang-theorem; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/hyperspecial-vertices; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.4/cartan-decomposition; `TauCetiRoadmap.ArithmeticGaloisDuality`, R02.3/localisation-maps; Mathlib `Matrix.IsHermitian`.
+`TauCetiRoadmap.SchemeAndStackFoundations` §SF.1f (crossed modules and Galois gerbs); `TauCetiRoadmap.ProfiniteCohomology` Layer 10 (continuous cohomology in all degrees); `TauCetiRoadmap.ProfiniteCohomology` Layer 5 (exact sequences); `TauCetiRoadmap.ClassFieldTheory` §2.4 and Layer 0, item 4 (Tate–Nakayama for a free lattice); `TauCetiRoadmap.ClassFieldTheory` Layer 3 (Tate's theorem for a class formation); `TauCetiRoadmap.ClassFieldTheory` Layer 6 (the local class formation and finite local reciprocity); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity); `TauCetiRoadmap.ClassFieldTheory` Layer 10 (global carriers, the Brauer sequence, and the sum of local invariants); `TauCetiRoadmap.ProfiniteCohomology` Layer 9 (the Galois interface: Hilbert 90 and Kummer theory); `TauCetiRoadmap.ProfiniteCohomology` Layer 12 (the graded cup product in all degrees); `TauCetiRoadmap.ReductiveGroups` Layer 4 (Jordan decomposition, diagonalizable groups, tori); `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ArithmeticGaloisDuality` §R02.4.3 (Poitou–Tate duality); `TauCetiRoadmap.ReductiveGroups` Layer 8 (Isogeny and existence theorems); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); `TauCetiRoadmap.ReductiveGroups` Layer 6 (reductive and semisimple groups); `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group); `TauCetiRoadmap.GlobalNumberFields` Layer 5 (full adeles and the additive quotient); `TauCetiRoadmap.ReductiveGroups` Layer 9 (pinned Chevalley–Demazure group schemes over `ℤ`); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.5.1 (the dual group and its Galois action); `TauCetiRoadmap.AdelicAlgebraicGroups` §4.1 (Weak approximation and torsors); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.1 (quasi-split forms and rational tori over Ĕ); `TauCetiRoadmap.Chebotarev` Layer 10 (Dirichlet-density Chebotarev); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.4.1 (the Iwahori–Weyl group, rational Kottwitz surjectivity); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.7 (Lang's theorem and lifting); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.3 (Bruhat–Tits and parahoric group schemes); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.4.4 (Cartan and Iwasawa decompositions); `TauCetiRoadmap.ArithmeticGaloisDuality` §R02.3.1 (The group `G_{K,S}`, finiteness and localisation); Mathlib `Matrix.IsHermitian`.
 
 ## Layer 2: orbital integrals and transfer factors
 
@@ -740,7 +563,7 @@ Fix measures and the discriminant convention first. Build the auxiliary root dat
 
 ### 2.1 Invariant orbital integrals and their normalizations
 
-Let F be a local field of characteristic 0 and G connected reductive over F, with a fixed Haar measure dg on G(F). The orbital integral of a semisimple γ ∈ G(F) is owned by AutomorphicSpectralTheory AS.6 (AS.6.9): for f ∈ C_c^∞(G(F)) (locally constant compactly supported if F is p-adic, smooth compactly supported if F is archimedean), O_γ(f) = ∫_{G_γ^0(F)\G(F)} f(g⁻¹γg) dg/dt, with dt a Haar measure on the identity component G_γ^0(F) of the centralizer and the quotient measure (AdelicAlgebraicGroups:AA.2/quotient-measure); it converges for every semisimple γ, and J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f) with D^G(γ) = det(1 − Ad(γ))|_{𝔤/𝔤_γ}. With these conventions, construct the following extensions: (i) following Waldspurger, O^G_γ(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), which depends only on the G(F)-class of γ; (ii) measures on centralizers of stably conjugate (or matching) elements are transported by the inner twist between their identity components (§1.3); (iii) for regular semisimple γ, J_G(γ, f) is a bounded locally constant (p-adic) or smooth (real) function of γ on G_reg(F) for fixed f (Harish-Chandra), and the Weyl integration formula expresses ∫_{G(F)} f through the integrals of |D^G(t)| O_t(f) over maximal tori; (iv) the Lie-algebra version: for f ∈ C_c^∞(𝔤(F)) and X ∈ 𝔤(F) semisimple, O_X(f) = ∫_{G_X^0(F)\G(F)} f(Ad(g)⁻¹X) dg/dt and D(X) = det(ad X)|_{𝔤/𝔤_X}; for F p-adic, the orbital integrals of nilpotent orbits are defined by the invariant measure on the orbit (Deligne–Ranga Rao) and are needed for germ expansions; (v) semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F).
+Let F be a local field of characteristic 0 and G connected reductive over F, with a fixed Haar measure dg on G(F). The orbital integral of a semisimple γ ∈ G(F) is owned by AutomorphicSpectralTheory AS.6 (AS.6.9): for f ∈ C_c^∞(G(F)) (locally constant compactly supported if F is p-adic, smooth compactly supported if F is archimedean), O_γ(f) = ∫_{G_γ^0(F)\G(F)} f(g⁻¹γg) dg/dt, with dt a Haar measure on the identity component G_γ^0(F) of the centralizer and the quotient measure (AdelicAlgebraicGroups §2.2 (Parabolic modulus and homogeneous integration)); it converges for every semisimple γ, and J_G(γ, f) = |D^G(γ)|^{1/2} O_γ(f) with D^G(γ) = det(1 − Ad(γ))|_{𝔤/𝔤_γ}. With these conventions, construct the following extensions: (i) following Waldspurger, O^G_γ(f) = [G_γ(F) : G_γ^0(F)]⁻¹ O_γ(f), which depends only on the G(F)-class of γ; (ii) measures on centralizers of stably conjugate (or matching) elements are transported by the inner twist between their identity components (§1.3); (iii) for regular semisimple γ, J_G(γ, f) is a bounded locally constant (p-adic) or smooth (real) function of γ on G_reg(F) for fixed f (Harish-Chandra), and the Weyl integration formula expresses ∫_{G(F)} f through the integrals of |D^G(t)| O_t(f) over maximal tori; (iv) the Lie-algebra version: for f ∈ C_c^∞(𝔤(F)) and X ∈ 𝔤(F) semisimple, O_X(f) = ∫_{G_X^0(F)\G(F)} f(Ad(g)⁻¹X) dg/dt and D(X) = det(ad X)|_{𝔤/𝔤_X}; for F p-adic, the orbital integrals of nilpotent orbits are defined by the invariant measure on the orbit (Deligne–Ranga Rao) and are needed for germ expansions; (v) semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F).
 
 *Hypotheses.* F local of characteristic 0; G connected reductive with fixed Haar measures on G(F) and on the centralizers.
 
@@ -758,7 +581,7 @@ The interface consists of the following operations and identities.
 - `TauCeti.orbitalIntegral_descent`: Semisimple descent: near a semisimple γ, O^G is expressed through O^{G_γ} of a descended function on a neighbourhood of 0 in 𝔤_γ(F).
 - `TauCeti.orbitalIntegralLie_conj`: O_{Ad(x)X}(f) = O_X(f) and O_X(f ∘ Ad(x)⁻¹) = O_X(f) for x ∈ G(F) on 𝔤(F).
 
-The group orbital integral, its quotient measure and its convergence are imported from AutomorphicSpectralTheory AS.6.9, with Arthur's introduction §18. Quotient measure: AdelicAlgebraicGroups:AA.2/quotient-measure applies since reductive groups are unimodular; Weil's integration formula AA.2/quotient-integral-integrable gives the integral as an iterated integral (Kottwitz, Clay notes §2). Convergence for semisimple γ (the argument behind AS.6.9, used here for the Lie-algebra version): the orbit O_γ is closed, and G_γ^0(F)\G(F) → O_γ(F) is proper with finite fibres over its image (Kottwitz, Clay notes §3). Boundedness and local constancy of normalized orbital integrals near regular elements: Harish-Chandra; the p-adic statements are in Kottwitz's Clay notes §§3, 15–16 (Harish-Chandra's compactness lemma and semisimple descent). Nilpotent orbital integrals: the invariant measure on a nilpotent orbit extends to a Radon measure on 𝔤(F) (Deligne–Ranga Rao), recalled in Kottwitz's Clay notes §17.
+The group orbital integral, its quotient measure and its convergence are imported from AutomorphicSpectralTheory AS.6.9, with Arthur's introduction §18. Quotient measure: AdelicAlgebraicGroups §2.2 (Parabolic modulus and homogeneous integration) applies since reductive groups are unimodular; Weil's integration formula AdelicAlgebraicGroups §2.2 (Parabolic modulus and homogeneous integration) gives the integral as an iterated integral (Kottwitz, Clay notes §2). Convergence for semisimple γ (the argument behind AS.6.9, used here for the Lie-algebra version): the orbit O_γ is closed, and G_γ^0(F)\G(F) → O_γ(F) is proper with finite fibres over its image (Kottwitz, Clay notes §3). Boundedness and local constancy of normalized orbital integrals near regular elements: Harish-Chandra; the p-adic statements are in Kottwitz's Clay notes §§3, 15–16 (Harish-Chandra's compactness lemma and semisimple descent). Nilpotent orbital integrals: the invariant measure on a nilpotent orbit extends to a Radon measure on 𝔤(F) (Deligne–Ranga Rao), recalled in Kottwitz's Clay notes §17.
 
 **Checks.**
 
@@ -767,11 +590,8 @@ The group orbital integral, its quotient measure and its convergence are importe
 - `orbitalIntegral_gl2_split`. For G = GL_2(F), F p-adic with q residue elements, γ = diag(a, b) with a, b ∈ 𝒪^× and |a − b| = 1 and f = 1_{GL_2(𝒪)}, measures giving GL_2(𝒪) and the diagonal units volume 1: O_γ(f) = 1 (Kottwitz, Clay notes §5).
 - `orbitalIntegralWaldspurger_invariant`. O^G_{xγx⁻¹}(f) = O^G_γ(f) for x ∈ G(F), with the transported centralizer measure, and O^G_γ(f^x) = O^G_γ(f) for f^x(g) = f(xgx⁻¹).
 - `orbitalIntegral_not_regular_only`. The integral over G_γ(F)\G(F) with G_γ disconnected differs from the one over G_γ^0(F)\G(F) by [G_γ(F) : G_γ^0(F)] (e.g. γ = diag(1, −1) in PGL_2), so the two conventions must not be mixed.
-- O_X(f) = f(X) for central X ∈ 𝔤(F) and for tori (the group statement is AS.6.9's test).
-- For GL_2 over a p-adic field and γ = diag(a, b) with a, b ∈ 𝒪^× and |a − b| = 1, the orbital integral of 1_{GL_2(𝒪)} is 1 with the standard measures.
-- Orbital integrals are invariant under conjugation of γ and of f.
 
-*Needs:* `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/quotient-measure; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/quotient-integral-integrable; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/quotient-measure-transitivity; §1.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.1/convolution-algebra; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; Mathlib `MeasureTheory.Measure.IsHaarMeasure`.
+*Needs:* `TauCetiRoadmap.AutomorphicSpectralTheory` §6 (Paley–Wiener theory and trace distributions); `TauCetiRoadmap.AdelicAlgebraicGroups` §2.2 (Parabolic modulus and homogeneous integration); §1.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.1.1 (Functions, measures and convolution); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); Mathlib `MeasureTheory.Measure.IsHaarMeasure`.
 
 ### 2.2 a-data and χ-data for the roots of a maximal torus
 
@@ -798,28 +618,26 @@ Existence: choose a_α on representatives of Γ-orbits of roots and extend by th
 - `chiData_symmetric_quadratic`. For a symmetric root with F_α = E quadratic over F_{±α}, χ_α|_{F_{±α}^×} is the quadratic character η_{E/F_{±α}}.
 - `aData_torus`. For G = T a torus, R = ∅ and a-data and χ-data are empty.
 - `chiData_not_trivial`. The family χ_α = 1 for all α is not χ-data when some root is symmetric, since the restriction to F_{±α}^× must be nontrivial.
-- For a split torus of SL_2, a-data is a single a ∈ F^× with a_{−α} = −a.
-- For a symmetric root, χ_α restricted to F_{±α}^× is the quadratic character of F_α/F_{±α}.
 - The transfer factor does not depend on the choice of a-data and χ-data (§2.5).
 
-*Needs:* `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity.
+*Needs:* `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ClassFieldTheory` Layer 7 (the absolute local Artin map, its normalizations, and conductors); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity).
 
 ### 2.3 Harish-Chandra's character theory for real reductive groups
 
-Let G be a connected reductive group over ℝ (more generally a real reductive group in the sense of AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-group), K a maximal compact subgroup and π a finite-length admissible representation of G(ℝ) (an admissible (𝔤, K)-module with its Casselman–Wallach globalization). (a) For f ∈ C_c^∞(G(ℝ)), π(f) is trace class, and Θ_π(f) = tr π(f) is a conjugation-invariant distribution, an eigendistribution of the centre Z(𝔤) of U(𝔤_ℂ) acting through the infinitesimal character of π when π has one. (b) (Harish-Chandra's regularity theorem) Θ_π is a locally integrable function on G(ℝ), real-analytic on the set G_reg(ℝ) of strongly regular elements: Θ_π(f) = ∫_{G_reg(ℝ)} f(x)Θ_π(x) dx. (c) |D(x)|^{1/2}Θ_π(x) is locally bounded, and on each Cartan subgroup Θ_π is a finite combination of exponentials divided by the Weyl denominator; for discrete series π with Harish-Chandra parameter λ, on the compact Cartan T: Θ_π = (−1)^{q(G)} Σ_{w ∈ W_K} ε(w) e^{wλ}/Δ, and Harish-Chandra's algorithm determines Θ_π on the other Cartan subgroups. (d) Characters determine finite-length representations up to semisimplification, and the characters of the tempered irreducible representations are linearly independent.
+Let G be a connected reductive group over ℝ (more generally a real reductive group in the sense of AutomorphicFormsOnReductiveGroups AF.1. Real reductive representation foundations), K a maximal compact subgroup and π a finite-length admissible representation of G(ℝ) (an admissible (𝔤, K)-module with its Casselman–Wallach globalization). (a) For f ∈ C_c^∞(G(ℝ)), π(f) is trace class, and Θ_π(f) = tr π(f) is a conjugation-invariant distribution, an eigendistribution of the centre Z(𝔤) of U(𝔤_ℂ) acting through the infinitesimal character of π when π has one. (b) (Harish-Chandra's regularity theorem) Θ_π is a locally integrable function on G(ℝ), real-analytic on the set G_reg(ℝ) of strongly regular elements: Θ_π(f) = ∫_{G_reg(ℝ)} f(x)Θ_π(x) dx. (c) |D(x)|^{1/2}Θ_π(x) is locally bounded, and on each Cartan subgroup Θ_π is a finite combination of exponentials divided by the Weyl denominator; for discrete series π with Harish-Chandra parameter λ, on the compact Cartan T: Θ_π = (−1)^{q(G)} Σ_{w ∈ W_K} ε(w) e^{wλ}/Δ, and Harish-Chandra's algorithm determines Θ_π on the other Cartan subgroups. (d) Characters determine finite-length representations up to semisimplification, and the characters of the tempered irreducible representations are linearly independent.
 
 *Hypotheses.* G connected reductive over ℝ (all real reductive groups, not only the unitary groups of Layer 6–Layer 15); π of finite length, admissible.
 
 ([J. Arthur — An introduction to the trace formula](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf), §24 (pp. 157–160); [T. Kaletha — Rigid inner forms of real and p-adic groups](https://arxiv.org/abs/1304.3292v5), §§5.1, 5.6 (arXiv v5).)
 
-(a) Trace class property and invariance from admissibility (AutomorphicFormsOnReductiveGroups:AF.1/harish-chandra-admissibility) and the Casselman–Wallach globalization (AF.1/casselman-wallach-globalization). (b)–(c) Harish-Chandra's regularity theorem for invariant eigendistributions (Harish-Chandra, 'Invariant eigendistributions on a semisimple Lie group', Trans. AMS 119 (1965)), as recalled by Arthur (Clay introduction §24, pp. 158–159) and used by Kaletha. The discrete series character formula on the compact Cartan is part of Harish-Chandra's classification (AF.1/discrete-series). (d) Linear independence of characters: standard consequence of (b) and the Langlands classification (AF.1/langlands-classification).
+(a) Trace class property and invariance from admissibility (AutomorphicFormsOnReductiveGroups AF.1. Real reductive representation foundations) and the Casselman–Wallach globalization (AutomorphicFormsOnReductiveGroups AF.1, **Casselman–Wallach globalization theorem**). (b)–(c) Harish-Chandra's regularity theorem for invariant eigendistributions (Harish-Chandra, 'Invariant eigendistributions on a semisimple Lie group', Trans. AMS 119 (1965)), as recalled by Arthur (Clay introduction §24, pp. 158–159) and used by Kaletha. The discrete series character formula on the compact Cartan is part of Harish-Chandra's classification (AutomorphicFormsOnReductiveGroups AF.1, **Harish-Chandra’s discrete series: existence criterion and parametrization**). (d) Linear independence of characters: standard consequence of (b) and the Langlands classification (AutomorphicFormsOnReductiveGroups AF.1, **Langlands classification**).
 
 **Checks.**
 
 - For G = U(1) = SO(2): Θ_{χ_k}(e^{iθ}) = e^{ikθ}.
 - For G = SL_2(ℝ) and the discrete series D_k^±: on the compact Cartan, Θ_{D_k^+} + Θ_{D_k^−} = −(e^{i(k−1)θ} − e^{−i(k−1)θ})/(e^{iθ} − e^{−iθ}), the negative of the character of the (k−1)-dimensional representation.
 
-*Needs:* `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/real-reductive-group; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/admissible-gk-module; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/harish-chandra-admissibility; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/casselman-wallach-globalization; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/discrete-series; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/langlands-classification; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/infinitesimal-character.
+*Needs:* `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 2.4 κ-orbital integrals and stable orbital integrals
 
@@ -850,9 +668,6 @@ Finiteness of the sum: D(T, G; F) is finite (§1.14 (b)). Dependence on γ withi
 - `kappaOrbitalIntegral_sl2`. For G = SL_2, T elliptic with D(T) = ℤ/2 and κ nontrivial: O^κ_γ(f) = O_γ(f) − O_{γ′}(f) for γ′ the other rational class.
 - `kappaOrbitalIntegral_change_base`. O^κ_{γ″}(f) = κ(inv(γ, γ″))⁻¹ O^κ_γ(f) for γ″ stably conjugate to γ.
 - `stableOrbitalIntegral_not_orbital`. For G = SL_2 and γ regular elliptic, SO_γ ≠ O_γ in general: f supported on the rational class of γ′ ≠ γ gives O_γ(f) = 0 but SO_γ(f) = O_{γ′}(f) ≠ 0.
-- For GL_n, SO_γ = O_γ.
-- For SL_2 and an elliptic torus, O^κ_γ = O_γ − O_{γ′} for the nontrivial κ.
-- O^κ changes by κ(inv(γ, γ″))⁻¹ when γ is replaced by a stably conjugate γ″.
 
 *Needs:* §2.1; §1.14; §1.13; §1.2.
 
@@ -885,11 +700,8 @@ The interface consists of the following operations and identities.
 - `transferFactor_stable_conj`. Replacing δ by a stably conjugate δ′ gives Δ(γ_1, δ′) = ⟨inv(δ, δ′), κ⟩⁻¹ Δ(γ_1, δ) for the endoscopic character κ.
 - `transferFactor_sl2_torus`. For G = SL_2, H = R^1_{E/F} G_m and a matching pair (u, δ) with u ∈ E^1 regular, D_H(u) = 1 and D_G(δ) = −(u − ū)²/(uū), so |Δ_IV(u, δ)| = |(u − ū)²|_F^{1/2}; between the two rational classes in the stable class of δ the factor changes by the nontrivial character of D(T, SL_2; F) = ℤ/2.
 - `transferFactor_D_vs_prime`. Δ_D and Δ′ for the same datum are not equal in general: their ratio is (Δ_I^new Δ_III)² Δ_II⁻², nontrivial for the twisted GL_n ⋊ θ case (§2.8).
-- For H = G = G* and s = 1 the relative factor is 1.
-- The relative factor satisfies the cocycle identity for three matching pairs.
-- For SL_2 and the elliptic torus datum, |Δ_IV(u, δ)| = |(u − ū)²|_F^{1/2} and the factor changes by the nontrivial character between the two rational classes.
 
-*Needs:* §1.4; §1.7; §1.16; §1.2; §1.14; §1.6; §2.2; `TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors; `TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group.
+*Needs:* §1.4; §1.7; §1.16; §1.2; §1.14; §1.6; §2.2; `TauCetiRoadmap.ClassFieldTheory` Layer 7 (the absolute local Artin map, its normalizations, and conductors); `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group).
 
 ### 2.6 Shalika germs on p-adic Lie algebras
 
@@ -906,7 +718,7 @@ Let F be a p-adic field and G connected reductive over F with Lie algebra 𝔤. 
 - For 𝔤 = 𝔤𝔩_2, the nilpotent orbits are {0} and the regular one; on an elliptic Cartan subalgebra the germ Γ_0 of {0} is constant and the regular germ is a constant multiple of |D(X)|^{−1/2} (Kottwitz's GL_2 computation, §5.9: for elliptic γ ∈ GL_2(𝒪) the coefficient of the identity orbit is −2/(q − 1), independent of γ, while that of the regular unipotent orbit grows like q^{d_γ}).
 - For 𝔤 = 𝔱 a torus there is one nilpotent orbit {0} and Γ_0 = 1.
 
-*Needs:* §2.1; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation.
+*Needs:* §2.1; `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation).
 
 ### 2.7 Transport, descent, central extensions and the global product formula
 
@@ -922,7 +734,7 @@ In the setting of §2.5: (a) (Invariance) Δ(γ_1, δ) is invariant under H_1(F)
 
 - For ordinary endoscopy of GL_n only H = GL_n occurs and the product formula is trivial; for SL_2 over a number field and H = R^1_{E/F} G_m with γ ∈ E^1 rational and regular, the product over all places of the local factors built from global a-data and χ-data equals 1.
 
-*Needs:* §2.5; §1.15; §1.2; §1.7; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension; `TauCetiRoadmap.GlobalNumberFields`, layer 0 places completions and the product formula; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity.
+*Needs:* §2.5; §1.15; §1.2; §1.7; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.GlobalNumberFields` Layer 0 (places, completions, and the product formula); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity).
 
 ### 2.8 Twisted transfer factors and the Kottwitz–Shelstad corrections
 
@@ -949,11 +761,8 @@ Use the twisted splitting invariant of Kottwitz–Shelstad 2012 §2.2 and its co
 - `twistedTransferFactor_untwisted`. For θ = 1 and ω = 1, Δ′ and Δ_D reduce to the ordinary factors of §2.5 in the two conventions.
 - `twistedTransferFactor_gl_odd_sign`. For G = GL(2n + 1) with θ the transpose-inverse composed with an inner automorphism, Δ_I^new ≠ Δ_I, and the classical and renormalized factors Δ′ and Δ_D differ on suitable matching pairs by the sign computed in Kottwitz–Shelstad 2012 §3.5.
 - `twistedTransferFactor_1999_dependence`. The 1999 product Δ_I Δ_II Δ_III Δ_IV depends on the χ-data (Kottwitz–Shelstad 2012, introduction), so it is not a transfer factor.
-- For base change of G_m the factor is 1 on norms and 0 elsewhere.
-- For θ = 1 the twisted factors reduce to the ordinary Δ′ and Δ_D.
-- For GL_{2n+1} with transpose-inverse, Δ_I^new differs from Δ_I.
 
-*Needs:* §2.5; §2.2; §1.4; §1.7; §1.16; `TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors.
+*Needs:* §2.5; §2.2; §1.4; §1.7; §1.16; `TauCetiRoadmap.ClassFieldTheory` Layer 7 (the absolute local Artin map, its normalizations, and conductors).
 
 ### 2.9 Transfer factors for Lie algebras
 
@@ -979,15 +788,12 @@ Langlands–Shelstad's construction carries over to Lie algebras with the expone
 - `lieTransferFactor_torus_datum`. For an elliptic datum whose group H is a torus (e.g. 𝔤 = 𝔰𝔩_2 and H = R^1_{E/F} G_m), D_H = 1, so r_{G,H}(a_H) = val(D_G(a))/2 and |Δ_IV| = |D_G(a)|^{1/2} = q^{−r_{G,H}(a_H)}.
 - `lieTransferFactor_conj`. Δ(X_H, Ad(g)X) = Δ(X_H, X) for g ∈ G(F) and Δ(X_H, X′) = κ(inv(X, X′))⁻¹ Δ(X_H, X) for X′ stably conjugate to X.
 - `lieTransferFactor_not_group_globally`. The Lie-algebra factor agrees with the group factor only after descent near a semisimple element and up to a constant; away from the identity the exponential is not defined on all of 𝔤(F).
-- For the principal datum the Lie-algebra factor is 1 on stably conjugate pairs.
-- For an elliptic datum whose H is a torus, r_{G,H}(a_H) = val(D_G(a))/2.
-- The factor is invariant under G(F)-conjugation and changes by κ(inv)⁻¹ under stable conjugacy.
 
 *Needs:* §2.5; §1.4; §1.14; §1.16; §1.3.
 
 ### 2.10 Pseudo-coefficients and Euler–Poincaré functions at the real place
 
-Let G be connected reductive over ℝ with A_G the split component of the centre, ξ an irreducible finite-dimensional algebraic representation of G_ℂ with central character χ on A_G(ℝ)^0, and q(G) = ½ dim(G(ℝ)/K_∞A_G(ℝ)^0). Assume G(ℝ) has discrete series modulo A_G(ℝ)^0 (equivalently a maximal ℝ-torus anisotropic modulo A_G). (a) (Clozel–Delorme; imported from AutomorphicSpectralTheory AS.6, targets AS.6.18–AS.6.19 of its package, which moved them below this roadmap in the upstream order) For each discrete series π (modulo the centre) there is a pseudo-coefficient φ_π ∈ C_c^∞(G(ℝ), χ⁻¹), K-finite, with tr π′(φ_π) = 1 if π′ ≅ π and 0 for every other irreducible tempered π′ with the same central character, and tr π′(φ_π) given by the Euler–Poincaré pairing for non-tempered π′; AS.6 also supplies a test function with tr π′ = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every finite-length π′. (b) For the L-packet Π(ξ^∨) of discrete series with the infinitesimal character of ξ^∨, the Euler–Poincaré function φ_ξ = |Π(ξ^∨)|⁻¹ Σ_{π ∈ Π(ξ^∨)} φ_π satisfies tr π′(φ_ξ) = (−1)^{q(G)} |Π(ξ^∨)|⁻¹ Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every irreducible admissible π′ with the given central character. Put f_ξ = (−1)^{q(G)} |Π(ξ^∨)| φ_ξ (Kottwitz's Euler–Poincaré function, tr π′(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ)). The orbital integrals of f_ξ vanish at regular semisimple elements that are not elliptic, and at an elliptic semisimple γ, O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ), with Ḡ_γ the inner form of G_γ that is compact modulo A_G, its Haar measure transported from that of G_γ(ℝ), and q(G_γ) defined like q(G); for regular elliptic γ the sign is 1, and SO_γ(f_ξ) is the sum of these values over the rational classes in the stable class of γ, with the signs of §2.4. (c) The construction applies to every inner form of a quasi-split group of arbitrary signature at ∞ (needed for the unitary groups of Caraiani–Scholze), and to a twisted space (Labesse's Lefschetz functions for base change).
+Let G be connected reductive over ℝ with A_G the split component of the centre, ξ an irreducible finite-dimensional algebraic representation of G_ℂ with central character χ on A_G(ℝ)^0, and q(G) = ½ dim(G(ℝ)/K_∞A_G(ℝ)^0). Assume G(ℝ) has discrete series modulo A_G(ℝ)^0 (equivalently a maximal ℝ-torus anisotropic modulo A_G). (a) (Clozel–Delorme; AutomorphicSpectralTheory §§6.18–6.19) For each discrete series π (modulo the centre) there is a pseudo-coefficient φ_π ∈ C_c^∞(G(ℝ), χ⁻¹), K-finite, with tr π′(φ_π) = 1 if π′ ≅ π and 0 for every other irreducible tempered π′ with the same central character, and tr π′(φ_π) given by the Euler–Poincaré pairing for non-tempered π′; AS.6 also supplies a test function with tr π′ = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every finite-length π′. (b) For the L-packet Π(ξ^∨) of discrete series with the infinitesimal character of ξ^∨, the Euler–Poincaré function φ_ξ = |Π(ξ^∨)|⁻¹ Σ_{π ∈ Π(ξ^∨)} φ_π satisfies tr π′(φ_ξ) = (−1)^{q(G)} |Π(ξ^∨)|⁻¹ Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ) for every irreducible admissible π′ with the given central character. Put f_ξ = (−1)^{q(G)} |Π(ξ^∨)| φ_ξ (Kottwitz's Euler–Poincaré function, tr π′(f_ξ) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π′ ⊗ ξ)). The orbital integrals of f_ξ vanish at regular semisimple elements that are not elliptic, and at an elliptic semisimple γ, O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ), with Ḡ_γ the inner form of G_γ that is compact modulo A_G, its Haar measure transported from that of G_γ(ℝ), and q(G_γ) defined like q(G); for regular elliptic γ the sign is 1, and SO_γ(f_ξ) is the sum of these values over the rational classes in the stable class of γ, with the signs of §2.4. (c) The construction applies to every inner form of a quasi-split group of arbitrary signature at ∞ (needed for the unitary groups of Caraiani–Scholze), and to a twisted space (Labesse's Lefschetz functions for base change).
 
 *Hypotheses.* G connected reductive over ℝ with discrete series modulo the centre; ξ irreducible algebraic.
 
@@ -1002,7 +808,7 @@ The interface consists of the following operations and identities.
 - `TauCeti.orbitalIntegral_eulerPoincare`: O_γ(f_ξ) = (−1)^{q(G_γ)} vol(Ḡ_γ(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ) for elliptic semisimple γ, and O_γ(f_ξ) = 0 for regular non-elliptic γ.
 - `TauCeti.eulerPoincare_innerForm`: The construction for every inner form, compatible with transfer to the quasi-split form.
 
-(a) is imported from AutomorphicSpectralTheory AS.6.18–AS.6.19, with Clozel–Delorme 1990 §5.2. Clozel–Delorme's invariant Paley–Wiener theorem (Invent. Math. 77 (1984); Ann. Sci. ÉNS 1990) gives functions with prescribed tempered traces, as recalled by Shin (p. 18–19: credits Clozel–Delorme for existence) and Arthur (§24). (b) The Euler–Poincaré property follows from Wigner's lemma (AutomorphicFormsOnReductiveGroups:AF.4/wigner-lemma) and Vogan–Zuckerman (AF.4/vogan-zuckerman), with q(G) as in AF.4/l0-q0-invariants. Orbital integrals at elliptic elements: for regular elliptic γ with centralizer T, O_γ(φ_π) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ Θ_π(γ⁻¹) (Weyl integration formula and the orthogonality of discrete series characters), and Σ_{π ∈ Π(ξ^∨)} Θ_π(γ⁻¹) = (−1)^{q(G)} tr ξ(γ) on the compact Cartan, so O_γ(f_ξ) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ); at a singular elliptic γ the sign (−1)^{q(G_γ)} of Arthur's global term (24.4) appears, which for central γ is (−1)^{q(G)}, the sign of f_ξ(1) = (−1)^{q(G)} Σ_π d(π) with d(π) the formal degrees; the discrete series characters vanish on non-elliptic tori after summing over the L-packet (Arthur §24 (24.2)–(24.4); Shin (3.12), (3.14)). (c) The construction does not use quasi-splitness; the arbitrary-signature case is required by Caraiani–Scholze (compact paper, §5.2, p. 735, and the highest-weight calculation of §5.3).
+(a) is imported from AutomorphicSpectralTheory AS.6.18–AS.6.19, with Clozel–Delorme 1990 §5.2. Clozel–Delorme's invariant Paley–Wiener theorem (Invent. Math. 77 (1984); Ann. Sci. ÉNS 1990) gives functions with prescribed tempered traces, as recalled by Shin (p. 18–19: credits Clozel–Delorme for existence) and Arthur (§24). (b) The Euler–Poincaré property follows from Wigner’s lemma (AutomorphicFormsOnReductiveGroups AF.4, **Wigner’s lemma**) and Vogan–Zuckerman (AutomorphicFormsOnReductiveGroups AF.4, **Vogan–Zuckerman classification of unitary cohomological representations**), with q(G) as in AutomorphicFormsOnReductiveGroups AF.4, **The invariants ℓ₀ and q₀**. Orbital integrals at elliptic elements: for regular elliptic γ with centralizer T, O_γ(φ_π) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ Θ_π(γ⁻¹) (Weyl integration formula and the orthogonality of discrete series characters), and Σ_{π ∈ Π(ξ^∨)} Θ_π(γ⁻¹) = (−1)^{q(G)} tr ξ(γ) on the compact Cartan, so O_γ(f_ξ) = vol(T(ℝ)/A_G(ℝ)^0)⁻¹ tr ξ(γ); at a singular elliptic γ the sign (−1)^{q(G_γ)} of Arthur's global term (24.4) appears, which for central γ is (−1)^{q(G)}, the sign of f_ξ(1) = (−1)^{q(G)} Σ_π d(π) with d(π) the formal degrees; the discrete series characters vanish on non-elliptic tori after summing over the L-packet (Arthur §24 (24.2)–(24.4); Shin (3.12), (3.14)). (c) The construction does not use quasi-splitness; the arbitrary-signature case is required by Caraiani–Scholze (compact paper, §5.2, p. 735, and the highest-weight calculation of §5.3).
 
 **Checks.**
 
@@ -1011,11 +817,8 @@ The interface consists of the following operations and identities.
 - `eulerPoincare_compact`. If G(ℝ) is compact (A_G trivial), q(G) = 0, Π(ξ^∨) = {ξ^∨} and f_ξ = vol(G(ℝ))⁻¹ tr ξ, so O_γ(f_ξ) = vol(G_γ(ℝ))⁻¹ tr ξ(γ) by Schur orthogonality.
 - `eulerPoincare_sl2_elliptic`. For G = SL_2(ℝ), ξ trivial and γ regular elliptic with centralizer T = SO(2): O_γ(f_ξ) = vol(T(ℝ))⁻¹ > 0, and SO_γ(f_ξ) = 2 vol(T(ℝ))⁻¹ (two rational classes); the sign (−1)^{q(G)} = −1 appears only at central γ, where f_ξ(±1) = −(d(D_2^+) + d(D_2^−)).
 - `eulerPoincare_nonelliptic_vanish`. O_γ(φ_ξ) = 0 for γ regular semisimple non-elliptic (e.g. hyperbolic elements of SL_2(ℝ)), so φ_ξ is not a positive multiple of a function concentrated near the identity.
-- For SL_2(ℝ) and ξ trivial, tr 1(φ_ξ) = −1 and tr D_2^±(φ_ξ) = 1/2.
-- For compact G(ℝ), f_ξ = vol(G(ℝ))⁻¹ tr ξ and O_γ(f_ξ) = vol(G_γ(ℝ))⁻¹ tr ξ(γ).
-- Orbital integrals of f_ξ vanish at regular non-elliptic elements.
 
-*Needs:* `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6; §2.3; §2.4; §1.13; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/discrete-series; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4/wigner-lemma; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4/vogan-zuckerman; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4/l0-q0-invariants.
+*Needs:* `TauCetiRoadmap.AutomorphicSpectralTheory` §6 (Paley–Wiener theory and trace distributions); §2.3; §2.4; §1.13; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.4. Algebraic weights and rational structures.
 
 ### 2.11 Matching test functions and transfer classes
 
@@ -1043,9 +846,6 @@ Well definedness of O^{G,ω}_{γ_1}: finitely many classes match γ_1 (§1.14 (b
 - `transfer_class_unique`. If f^H and f′^H are both transfers of f then SO_γ(f^H − f′^H) = 0 for all strongly G-regular γ, and conversely any such difference preserves transfer.
 - `transfer_unramified_unit`. In the unramified situation, the characteristic function of H(𝒪) (suitably normalized) is a transfer of the characteristic function of G(𝒪) (the fundamental lemma, §4.6).
 - `transfer_not_function`. The transfer is not a well-defined function on H_1(F): adding any nonzero function whose strongly regular stable orbital integrals all vanish gives another transfer; for H_1 = SL_2 over a p-adic field, such a function is φ_1 − φ_2 with φ_1, φ_2 supported near the two rational classes of a regular elliptic stable class and having equal orbital integrals there.
-- For the principal datum of quasi-split G, f is a transfer of itself.
-- Two transfers of f have the same stable orbital integrals.
-- In the unramified situation the unit function of H(𝒪) is a transfer of that of G(𝒪) (§4.6).
 
 *Needs:* §2.5; §2.8; §2.4; §2.1; §1.16; §1.7.
 
@@ -1074,7 +874,7 @@ Let F be a p-adic field, G connected reductive, ψ a nontrivial additive charact
 
 ([R. E. Kottwitz — Harmonic analysis on reductive p-adic groups and Lie algebras](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf), §26 'Niceness of Ô_X for X ∈ 𝔤_rs' (p. 509); §25 (p. 507); [J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf), §3.3, before Théorème 3.3.1 (p. 78); [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §3.4 and Remark 3.4 (p. 15).)
 
-(a) Harish-Chandra's local integrability theorem on the Lie algebra (Kottwitz, Clay notes §26 'Niceness of Ô_X for X ∈ 𝔤_rs', p. 509). (b) Waldspurger, 'Le lemme fondamental implique le transfert', Compositio Math. 105 (1997), main theorem on Fourier transform and transfer, as recalled by Labesse (§3.3, citing its Corollaire 1.7 for inner forms) and by Ngô (introduction, p. 2) and Shin (§3.4, p. 15). Its independent Fourier-transfer proof is required separately. (c) Combine (b) with homogeneity of germs (§2.6) and the local gluing lemma for transfer (Waldspurger 2008 §2.2).
+(a) Harish-Chandra's local integrability theorem on the Lie algebra (Kottwitz, Clay notes §26 'Niceness of Ô_X for X ∈ 𝔤_rs', p. 509). (b) Waldspurger, 'Le lemme fondamental implique le transfert', Compositio Math. 105 (1997), main theorem on Fourier transform and transfer, as recalled by Labesse (§3.3, citing its Corollaire 1.7 for inner forms) and by Ngô (introduction, p. 2) and Shin (§3.4, p. 15). (c) Combine (b) with homogeneity of germs (§2.6) and the local gluing lemma for transfer (Waldspurger 2008 §2.2).
 
 **Checks.**
 
@@ -1091,14 +891,14 @@ Let G be connected reductive over ℝ with an endoscopic datum (H, ℋ, s, ξ), 
 
 ([J. Arthur — An introduction to the trace formula](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf), §27 (pp. 192–204, in particular p. 203); [J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf), §3.5, Lemme 3.5.1, Propositions 3.5.2–3.5.4 and 3.5.6 (pp. 82–87).)
 
-(a)–(b) Shelstad's theory of real endoscopy (Shelstad, 'L-indistinguishability for real groups', Math. Ann. 259 (1982), and subsequent papers; the independent primary proof is required). Arthur's Clay introduction §27 (p. 192 ff.) states that the transfer conjecture at archimedean places was established by Shelstad and motivated the general transfer factors; its independent primary proof is required. (c) Labesse §3.5: Propositions 3.5.2–3.5.4 establish K-finite base-change transfer at archimedean places using the twisted trace Paley–Wiener theorem of Clozel–Delorme, and Proposition 3.5.6 for complex groups.
+(a)–(b) Use [Shelstad, *Tempered endoscopy for real groups I*](https://sites.rutgers.edu/diana-shelstad/wp-content/uploads/sites/189/2019/10/shelstadtempend1.pdf), Theorem 14.3 and §§14–15, pp. 40–46, and [Part II](https://sites.rutgers.edu/diana-shelstad/wp-content/uploads/sites/189/2019/10/shelstadtempend2.pdf), Theorem 5.1, pp. 7–8, with proof §§13–14, pp. 31–39 (author-version pages). On Cartan subgroups form the transfer-factor combination of orbital integrals and verify the differential equations, Weyl symmetry, decay and imaginary-wall jump conditions characterizing stable orbital integrals. These give the geometric transfer; the compact-support statement follows by the support and jump criterion in I §15, pp. 45–46. Duality and Weyl integration convert it into an invariant tempered eigendistribution. Parabolic descent reduces its character expansion to the discrete elliptic case, where the Harish-Chandra character formula fixes the coefficients. Coherent continuation and the Hecht–Schmid identities extend to singular tempered parameters. The compatible geometric and spectral factors give (b). (c) Labesse §3.5: Propositions 3.5.2–3.5.4 establish K-finite base-change transfer at archimedean places using the twisted trace Paley–Wiener theorem of Clozel–Delorme, and Proposition 3.5.6 for complex groups.
 
 **Checks.**
 
 - For the principal datum the transfer is the identity on stable orbital integrals.
 - For G = SL_2(ℝ) and H = U(1): the κ-character Θ_{D_k^+} − Θ_{D_k^−} is, up to the sign fixed by the transfer factor normalization, the transfer of a character of U(1) (Shelstad's character identity).
 
-*Needs:* §2.5; §2.11; §2.3; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/tempered-square-integrable.
+*Needs:* §2.5; §2.11; §2.3; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 2.15 Transfer of Euler–Poincaré functions to endoscopic groups
 
@@ -1121,11 +921,15 @@ Kottwitz's construction (Kottwitz, 'Shimura varieties and λ-adic representation
 
 Let F be a non-archimedean local field of characteristic 0, G a connected reductive group over F and π an admissible irreducible smooth complex representation of G(F). (a) For f ∈ C_c^∞(G(F)) the operator π(f) has finite rank, and Θ_π(f) = tr π(f) is an invariant distribution. (b) (Harish-Chandra) There is a locally integrable function θ_π on G(F), locally constant on the regular semisimple set G(F)_rs and invariant under conjugation, with Θ_π(f) = ∫_G f(g) θ_π(g) dg for every f; |D^G|^{1/2} θ_π is locally bounded. (c) (Weyl integration formula) For f ∈ C_c^∞(G(F)), ∫_G f(g) dg = Σ_T |N_G(T)(F)/T(F)|^{-1} ∫_{T(F)} |D^G(t)| O_t(f) dt, the sum over representatives T of the G(F)-conjugacy classes of maximal F-tori, with the orbital integrals and measures of §2.1. (d) Consequently Θ_π(f) = Σ_T |N_G(T)(F)/T(F)|^{-1} ∫_{T(F)} |D^G(t)| θ_π(t) O_t(f) dt, and Θ_π is determined by θ_π on the elliptic regular set together with the characters of proper Levi subgroups through the van Dijk formula for induced representations.
 
-*Hypotheses.* F non-archimedean of characteristic 0 (the theorem is used only in characteristic 0 here). π admissible and of finite length (irreducible representations are admissible by SmoothRepresentationsOfLocalGroups:SR.3a/admissibility-of-irreducibles).
+*Hypotheses.* F non-archimedean of characteristic 0 (the theorem is used only in characteristic 0 here). π admissible and of finite length (irreducible representations are admissible by SmoothRepresentationsOfLocalGroups §SR.3a.2).
 
 ([L. Clozel — Characters of non-connected reductive p-adic groups](https://doi.org/10.4153/CJM-1987-008-3), §3.3 Theorems 1–3 pp. 153–154; §3.4 pp. 154–156; §§3.5–3.9 pp. 156–167; [R. E. Kottwitz — Harmonic analysis on reductive p-adic groups and Lie algebras](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf), Introduction, pp. 394–396; [R. E. Kottwitz — Harmonic analysis on reductive p-adic groups and Lie algebras](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf), §7, pp. 421–423 (7.7); [J. Arthur and L. Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Ch. 1 §2, pp. 11–12 (Proposition 2.2).)
 
-Finite rank of π(f) is admissibility: f is bi-invariant under some compact open K and π(f) factors through π^K. Clozel 1987 Theorems 1–3: descend an admissible character near a semisimple element to its connected centralizer, use the exponential chart, and express the descended distribution locally by Fourier transforms of nilpotent orbital measures. The discriminant comparison in §3.4 transfers local boundedness/integrability back to the group; Layer 2 supplies the orbital Fourier integrability. The Fourier-support input is Clozel Lemma 6, proved in §§3.5–3.9 from Howe’s small-compact orbit parametrization, the intertwining criterion, the norm estimates and the Fourier coefficient formula. Its underlying Howe theorem and Cartan decomposition are exact character-prefix proof inputs required separately in the proof, not consequences of admissibility. For the group formula use the Jacobian of (T(F)\G(F)) × T(F)_rs → G(F)_rs, (x,t) ↦ x⁻¹tx: it is |det(1−Ad(t)|𝔤/𝔱)|. Its fibre has |N_G(T)(F)/T(F)| elements. Kottwitz §7 proves the analogous Lie-algebra formula; it does not itself state the group formula. (d) combines (b) and (c); the formula for parabolically induced characters is van Dijk's, supplied with the induction functor of SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction.
+Finite rank of π(f) is admissibility: f is bi-invariant under some compact open K and π(f) factors through π^K. Clozel 1987 Theorems 1–3: descend an admissible character near a semisimple element to its connected centralizer, use the exponential chart, and express the descended distribution locally by Fourier transforms of nilpotent orbital measures. The discriminant comparison in §3.4 transfers local boundedness/integrability back to the group; Layer 2 supplies the orbital Fourier integrability. The Fourier-support input is Clozel Lemma 6, proved in §§3.5–3.9 from Howe’s small-compact orbit parametrization, the intertwining criterion, the norm estimates and the Fourier coefficient formula. The small-compact orbit calculation uses Howe’s parametrization, while Cartan decomposition is ReductiveGroupsPartII §RG2.4.4. For the group formula use the Jacobian of (T(F)\G(F)) × T(F)_rs → G(F)_rs, (x,t) ↦ x⁻¹tx: it is |det(1−Ad(t)|𝔤/𝔱)|. Its fibre has |N_G(T)(F)/T(F)| elements. Kottwitz §7 proves the analogous Lie-algebra formula; it does not itself state the group formula. (d) combines (b) and (c); derive the parabolically induced character formula by writing the induced convolution operator on K/(K∩P), taking its diagonal kernel and changing variables along N. The normalized induction factor is δ_P^(1/2); this gives van Dijk’s formula with the same Haar measures. Its constant-term and contracting-Jacquet forms are spelled out in §8.9.
+
+For GL_r(D), the tempered-support theorem used in the Langlands classification is a target here: every irreducible tempered representation is normalized induction of a tensor product of unitary square-integrable representations of a Levi, and that induction is irreducible. Hence every irreducible has a unique ordered standard quotient with essentially square-integrable blocks; the standard modules form a ℤ-basis of the finite-length Grothendieck group. Prove tempered support by the weak Jacquet-module argument of Waldspurger, *La formule de Plancherel*, Proposition III.4.1, p. 269: choose a minimal parabolic P for which the unitary-exponent summand of r_Pπ is nonzero. An irreducible quotient of this summand is square-integrable by the exponent criterion (Proposition III.2.2 and Lemmas III.3.1–III.3.2, pp. 265–268); Frobenius reciprocity embeds π in its induction. The geometric lemma applied to weak Jacquet modules gives uniqueness up to Weyl conjugacy (Lemma III.3.3, p. 268). For GL_r(D), Badulescu §2, Theorem 2.1 and its proof, pp. 5–12, proves that this unitary induction is irreducible. These two arguments establish the tempered-support hypothesis before applying SmoothRepresentationsOfLocalGroups §SR.3.3; Badulescu p. 5 records the resulting Langlands basis. Keep the positive-exponent quotient convention; the split segment notation is that of SmoothRepresentationsOfLocalGroups §SR.5.3.
+
+The elliptic pairing used for uniqueness is also a target: for unitary square-integrable π,π′ with the same central character, their Harish-Chandra characters are orthonormal for the elliptic Weyl pairing on G/Z. Sum over elliptic maximal tori, divide by their rational Weyl groups, integrate D(t)Θπ(t)overline(Θπ′(t)) on T/Z with compatible quotient Haar measures; the result is δ_{π,π′}. Use Arthur, *On elliptic tempered characters*, Theorem 6.1 and Corollary 6.2, pp. 113–115, with the discrete-series datum M=G: its R-group and determinant factor are both 1. The proof compares the geometric elliptic pairing with the spectral pairing in the cuspidal local trace formula (§4, Corollary 4.3, pp. 104–105), using the trace Paley–Wiener theorem to realize cuspidal spectral tests. Normalize the compact T/Z quotient measure to volume one as in Badulescu §2, pp. 9–10. This proof precedes and does not use Jacquet–Langlands. Character local integrability and regular local constancy are proved above, and Weyl integration is used with its discriminant. The API `InnerGL.temperedSupport`, `.temperedInductionIrreducible`, `.standardBasis` and `.ellipticCharacterPairing` records these inputs. Check D=F recovers the split standard quotient; two distinct discrete series with fixed central character have pairing zero; a proper parabolic induction has zero elliptic character and cannot be added to an orthonormal discrete-series basis.
 
 **Checks.**
 
@@ -1133,7 +937,7 @@ Finite rank of π(f) is admissibility: f is bi-invariant under some compact open
 - For the Steinberg representation of GL_2(F), θ_St = −1 on the regular elliptic set (the normalization check reused by the Layer 10 local correspondence).
 - Θ_π is nonzero on C_c^∞(G(F)_rs) for every irreducible π (linear independence of characters).
 
-*Needs:* §2.1; §2.13; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3a/admissibility-of-irreducibles; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; Mathlib `MeasureTheory.Measure.IsHaarMeasure`.
+*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.3 (Tempered representations and the conditional Langlands classification); §2.1; §2.13; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3a.2 (Uniform admissibility); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); Mathlib `MeasureTheory.Measure.IsHaarMeasure`.
 
 ### Examples
 
@@ -1141,7 +945,7 @@ If a stable class has two rational classes with orbital values a and b, the stab
 
 ### Dependencies
 
-`TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/quotient-measure; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/quotient-integral-integrable; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/quotient-measure-transitivity; §1.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.1/convolution-algebra; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/real-reductive-group; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/admissible-gk-module; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/harish-chandra-admissibility; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/casselman-wallach-globalization; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/discrete-series; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/langlands-classification; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/infinitesimal-character; §1.14; §1.13; §1.2; §1.4; §1.7; §1.16; §1.6; `TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group; §1.15; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension; `TauCetiRoadmap.GlobalNumberFields`, layer 0 places completions and the product formula; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4/wigner-lemma; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4/vogan-zuckerman; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4/l0-q0-invariants; §1.17; §1.8; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/tempered-square-integrable.
+`TauCetiRoadmap.AutomorphicSpectralTheory` §6 (Paley–Wiener theory and trace distributions); `TauCetiRoadmap.AdelicAlgebraicGroups` §2.2 (Parabolic modulus and homogeneous integration); §1.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.1.1 (Functions, measures and convolution); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.ClassFieldTheory` Layer 7 (the absolute local Artin map, its normalizations, and conductors); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; §1.14; §1.13; §1.2; §1.4; §1.7; §1.16; §1.6; `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group); §1.15; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.GlobalNumberFields` Layer 0 (places, completions, and the product formula); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.4. Algebraic weights and rational structures; §1.17; §1.8; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.3 (Tempered representations and the conditional Langlands classification); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3a.2 (Uniform admissibility); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction).
 
 ## Layer 3: Hitchin geometry and support
 
@@ -1160,7 +964,7 @@ The interface consists of the following operations and identities.
 - `CurveBundles.adjoint`: the vector bundle associated to the adjoint representation, compatible with pullback.
 - `CurveBundles.algebraic`: algebraic, locally of finite type, with smooth atlases on bounded families.
 
-Use torsor descent from the reductive-group supplier and the stack criterion from the moduli supplier. For a bounded family, choose a sufficiently positive twist and a presentation of the associated vector bundles by Quot charts, impose the reduction-to-G equations, and take the change-of-framing quotient. Cover by such bounded charts. Verify representability of the diagonal through the isomorphism functor and use smooth torsor deformation theory on a curve. This is the fixed-curve input recalled in [Ngô, *Le lemme fondamental pour les algèbres de Lie*](https://arxiv.org/abs/0801.0446v3), §4.1, p. 62; the algebraicity proof uses the stated supplier criterion rather than a global-shtuka construction.
+Use torsor descent (ReductiveGroups Layer 7; SchemeAndStackFoundations SF.1) and the Artin criterion (AlgebraicModuliForArithmeticGeometry §7.1). For a bounded family, choose a sufficiently positive twist and a presentation of the associated vector bundles by Quot charts, impose the reduction-to-G equations, and take the change-of-framing quotient. Cover by such bounded charts. Represent the diagonal by the isomorphism functor and use smooth torsor deformation theory on a curve. This gives the fixed-curve bundle stack of Ngô §4.1, p. 62.
 
 **Checks.**
 
@@ -1169,7 +973,7 @@ Use torsor descent from the reductive-group supplier and the stack criterion fro
 - Over an algebraic closure, degree-d line bundles occur for every integer d; Bun_GL₁ is not quasi-compact.
 - A torsor with a descent datum glues uniquely up to the specified isomorphism; a collection of local isomorphism classes without cocycle data is insufficient.
 
-*Needs:* `TauCetiRoadmap.AlgebraicCurves`, Layers 4 and 12; `TauCetiRoadmap.ReductiveGroups`, Layer 7; `TauCetiRoadmap.SchemeAndStackFoundations`, SF.1; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4 and A0-extension/artin-stack-criterion.
+*Needs:* `TauCetiRoadmap.AlgebraicCurves` Layers 4 (repartitions, Weil differentials and Riemann–Roch) and 12 (the function-field/curve dictionary); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.SchemeAndStackFoundations` SF.1. Descent, algebraic spaces and stacks; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §7.1 (Formal points, gluing and module obstructions).
 
 ### 3.2 The equal-characteristic local loop quotient
 
@@ -1193,7 +997,7 @@ For GL_n construct bounded lattice charts t^m R[[t]]^n⊂L⊂t^(−m)R[[t]]^n in
 - The loop diag(t,1,…,1) does not fix the unit lattice; a constant integral invertible matrix does.
 - Changing t to a unit times t transports both the lattice bounds and the punctured-disc trivialization; the functor does not depend on a chosen uniformizer.
 
-*Needs:* `TauCetiRoadmap.AlgebraicCurves`, Layer 5 (completed local rings); `TauCetiRoadmap.ReductiveGroups`, Layer 7; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4 (Grassmannians and Quot charts); `TauCetiRoadmap.SchemeAndStackFoundations`, SF.1 (fpqc descent).
+*Needs:* `TauCetiRoadmap.AlgebraicCurves` Layer 5 (consequences of Riemann–Roch, and local components); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags); `TauCetiRoadmap.SchemeAndStackFoundations` §SF.1a (Descent).
 
 ### 3.3 The Chevalley quotient and the characteristic map
 
@@ -1225,11 +1029,8 @@ The interface consists of the following operations and identities.
 - `chevalleyQuotient_sl2`. For G = SL_2, 𝔠 = 𝔸^1 with χ(X) = −det X = (tr X²)/2 of weight 2, and 𝔇 = {0}.
 - `chevalleyQuotient_torus`. For G = T a torus, W = 1, 𝔠 = 𝔱 and χ is the identity.
 - `chevalleyQuotient_not_smooth_off_regular`. χ is not smooth away from 𝔤^reg: for G = SL_2, χ = −det has vanishing differential at X = 0, which is not regular.
-- For GL_n, 𝔠 = 𝔸^n and χ is the characteristic polynomial.
-- For SL_2, 𝔠 = 𝔸^1 with χ of weight 2 and discriminant {0}.
-- χ is smooth on 𝔤^reg and not at 0.
 
-*Needs:* `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; `TauCetiRoadmap.ReductiveGroups`, layer 9 pinned chevalleydemazure group schemes over ℤ; §1.3; Mathlib `Matrix.charpoly`; Mathlib `Matrix.charpoly_monic`; Mathlib `Polynomial.discr`.
+*Needs:* `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); `TauCetiRoadmap.ReductiveGroups` Layer 9 (pinned Chevalley–Demazure group schemes over `ℤ`); §1.3; Mathlib `Matrix.charpoly`; Mathlib `Matrix.charpoly_monic`; Mathlib `Polynomial.discr`.
 
 ### 3.4 The Kostant section
 
@@ -1260,11 +1061,9 @@ Kostant's theorem: χ restricted to e + 𝔤^f is an isomorphism onto 𝔠 (Ngô
 - `kostantSection_regular`. ε(a) is regular for every a, including a = 0 where ε(0) = e is regular nilpotent.
 - `kostantSection_torus`. For G = T, ε = id.
 - `kostantSection_not_semisimple`. ε(0) = e ≠ 0, so ε is not the zero section on the discriminant: a section through semisimple elements does not exist over 𝔇.
-- For GL_n, ε(a) is the companion matrix, with characteristic polynomial a.
-- ε(0) is a regular nilpotent element.
 - Over a curve, ε globalizes after choosing a square root of D.
 
-*Needs:* §3.3; `TauCetiRoadmap.ReductiveGroups`, layer 9 pinned chevalleydemazure group schemes over ℤ; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; Mathlib `Matrix.charpoly`.
+*Needs:* §3.3; `TauCetiRoadmap.ReductiveGroups` Layer 9 (pinned Chevalley–Demazure group schemes over `ℤ`); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); Mathlib `Matrix.charpoly`.
 
 ### 3.5 The regular centralizer group scheme
 
@@ -1291,11 +1090,8 @@ The interface consists of the following operations and identities.
 - `regularCentralizer_torus`. For G = T, J = T × 𝔱 is constant.
 - `regularCentralizer_rs`. Over 𝔠^rs, J is a torus: the fibre at a is the centralizer of any regular semisimple X with χ(X) = a.
 - `regularCentralizer_not_centralizer`. J is not χ^*I over all of 𝔤: at X = 0 the centralizer is G, while J_0 is commutative of dimension r.
-- For GL_n, J_a is the unit group of k[t]/(P_a(t)).
-- Over 𝔠^rs, J is a torus.
-- J is not the full centralizer at non-regular elements (at X = 0 the centralizer is G).
 
-*Needs:* §3.3; §3.4; `TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4.
+*Needs:* §3.3; §3.4; `TauCetiRoadmap.ReductiveGroups` Layer 4 (Jordan decomposition, diagonalizable groups, tori); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags).
 
 ### 3.6 The Hitchin moduli stack, base and fibration
 
@@ -1317,7 +1113,9 @@ The interface consists of the following operations and identities.
 - `TauCeti.kostantHitchinSection_hitchin`: The section A → M^reg.
 - `TauCeti.HitchinStack.baseChange`: Compatibility with finite extensions of k.
 
-Algebraicity: M → Bun_G is the stack of sections of the coherent sheaf ad(E) ⊗ D, representable by an abelian cone (AlgebraicModuliForArithmeticGeometry R09.4 linear stacks and the Artin criterion of A0-extension); Bun_G is algebraic and locally of finite type (§3.1). Dimension and non-emptiness: Riemann–Roch on X for the line bundles of weights e_i (upstream AlgebraicCurves Layer 4; Ngô Lemme 4.4.1, p. 64; §4.5, p. 67; Proposition 4.6.1, p. 69). Smoothness: deformation theory of Higgs pairs and the vanishing of the obstruction H^1 under the degree hypothesis, at points over A^♥ (Ngô Théorème 4.12.1, p. 84). The Kostant–Hitchin section: §3.4 globalized with D′ (Ngô §4.2.4, p. 63).
+Algebraicity: over each finite-type chart of Bun_G (§3.1), represent the Higgs-section functor by the finite-complex cone constructed below and descend it through changes of framing. Dimension and non-emptiness: Riemann–Roch on X for the line bundles of weights e_i (AlgebraicCurves Layer 4; Ngô Lemme 4.4.1, p. 64; §4.5, p. 67; Proposition 4.6.1, p. 69). Smoothness: deformation theory of Higgs pairs and the vanishing of the obstruction H^1 under the degree hypothesis, at points over A^♥ (Ngô Théorème 4.12.1, p. 84). The Kostant–Hitchin section: §3.4 globalized with D′ (Ngô §4.2.4, p. 63).
+
+The stack of Higgs sections is constructed here from AlgebraicModuliForArithmeticGeometry's Quot charts and Artin criterion. Over a finite-type chart U→Bun_G, let E be its universal bundle and V=ad(E)⊗D on X×U. Locally on U, represent Rpr_*V in degrees 0 and 1 by finite locally free modules K⁰→K¹, compatibly with base change. The affine scheme of sections is the kernel of the corresponding map of vector bundles, equivalently Spec Sym(coker((K¹)∨→(K⁰)∨)). Descent along the chart groupoid gives M, algebraic and locally of finite type, even where h⁰ jumps. The API `HiggsSections.coneChart`, `.baseChange` and `.chartDescent` belongs to this construction (Ngô §4.2, pp. 62–63). Check V=O_X gives the ordinary additive space of global functions; a jump in h⁰ need not be a vector bundle over U; the zero differential in K gives the full K⁰ section space, while an isomorphism K⁰→K¹ gives only its zero section.
 
 **Checks.**
 
@@ -1326,11 +1124,8 @@ Algebraicity: M → Bun_G is the stack of sections of the coherent sheaf ad(E) �
 - `hitchinStack_negative_twist`. For X=ℙ¹ and G=GL₂, D=O(−1) satisfies deg D>2g−2 but A=0; the unrestricted expression 3d+2 would be −1. This forces the nonnegative-degree or weightwise-vanishing qualification.
 - `hitchinStack_zero_twist`. For D = O_X, A = ⊕_i H^0(X, O_X) = 𝔠(k) and the Hitchin map records constant characteristic values (the case of Yu's Appendix B).
 - `hitchinStack_not_finite_type`. For G=GL_n with n≥1, M is not of finite type: its zero fibre contains Bun_GL_n via φ=0, with unbounded determinant degrees.
-- For GL_1, M = Pic_X × H^0(X, D).
-- For GL_2 and deg D = d≥0 with d > 2g − 2, dim A = 3d + 2 − 2g.
-- For G=GL_n with n≥1 the zero fibre contains Bun_GL_n; its unbounded degrees exclude finite type. The trivial group is an exception.
 
-*Needs:* §3.3; §3.4; §3.1; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, A0-extension/artin-stack-criterion; `TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch; `TauCetiRoadmap.AlgebraicCurves`, layer 12 the dictionary  function fields  curves and the comparison contracts.
+*Needs:* §3.3; §3.4; §3.1; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §7.1 (Formal points, gluing and module obstructions); `TauCetiRoadmap.AlgebraicCurves` Layer 4 (repartitions, Weil differentials, and Riemann–Roch); `TauCetiRoadmap.AlgebraicCurves` Layer 12 (the dictionary — function fields ↔ curves, and the comparison contracts).
 
 ### 3.7 Boundedness of Higgs sheaves through a good pair of line bundles
 
@@ -1340,14 +1135,14 @@ Let X be a smooth projective geometrically connected curve over a field k, Ω_X 
 
 ([O. Schiffmann — Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://arxiv.org/abs/1406.3839v2), arXiv v2 (4 October 2014, no printed page numbers): §6.2 and the definition of strong generation in §6.3 (PDF p. 22); Lemma 6.1 (PDF p. 23).)
 
-Bound the slopes of subsheaves of semistable Higgs bundles and of indecomposable bundles of class α (Harder–Narasimhan filtrations and the bound on Hom from destabilizing pieces); choose L_1, L_2 of sufficiently negative degree so that Ext^1(L_i, V) = H^1(X, L_i^{-1} ⊗ V) = 0 by Serre duality and V ⊗ L_i^{-1} is globally generated (Schiffmann, proof of Lemma 6.1). Finite type: strongly generated sheaves of class α are quotients of L_1^{⊕N} with N = χ(L_1^{-1} ⊗ V), parametrized by an open subscheme of a Quot scheme (AlgebraicModuliForArithmeticGeometry:R09.2/quot-projectivity).
+Bound the slopes of subsheaves of semistable Higgs bundles and of indecomposable bundles of class α (Harder–Narasimhan filtrations and the bound on Hom from destabilizing pieces); choose L_1, L_2 of sufficiently negative degree so that Ext^1(L_i, V) = H^1(X, L_i^{-1} ⊗ V) = 0 by Serre duality and V ⊗ L_i^{-1} is globally generated (Schiffmann, proof of Lemma 6.1). Finite type: strongly generated sheaves of class α are quotients of L_1^{⊕N} with N = χ(L_1^{-1} ⊗ V), parametrized by an open subscheme of a Quot scheme (AlgebraicModuliForArithmeticGeometry §1.3 (Coherent quotients, Plücker and partial flags)).
 
 **Checks.**
 
 - For r = 1, every Higgs bundle of class (1, d) is semistable, and a line bundle M of degree d is strongly generated by every line bundle L with deg L ≤ d − 2g: then deg(L^{-1}M) ≥ 2g, so Ext^1(L, M) = H^1(X, L^{-1}M) = 0 and L^{-1}M is globally generated.
 - On X = ℙ^1 (Ω = O(−2)) every indecomposable vector bundle is a line bundle, so (b) is vacuous for r = 2; for V = O(a) ⊕ O(−a) with a ≥ 1 there is no nonzero component O(a) → O(−a) ⊗ Ω = O(−a − 2), so O(a) is a destabilizing Higgs subsheaf, and the only semistable Higgs bundle of class (2, 0) is (O ⊕ O, 0).
 
-*Needs:* §3.6; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.2/quot-projectivity; `TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch.
+*Needs:* §3.6; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags); `TauCetiRoadmap.AlgebraicCurves` Layer 4 (repartitions, Weil differentials, and Riemann–Roch).
 
 ### 3.8 Cameral covers and spectral curves
 
@@ -1374,9 +1169,6 @@ Base change of the finite flat W-cover 𝔱 → 𝔠 (Ngô §1.4 and §4.5). Red
 - `spectralCurve_gl2_smooth`. For G = GL_2 and a = (0, a_2) with a_2 ∈ H^0(X, D^{⊗2}) having simple zeros, Y_a is the curve t² + a_2 = 0 in the total space of D, a double cover of X branched at the 2 deg D zeros of a_2, smooth of genus 2g − 1 + deg D by Riemann–Hurwitz.
 - `cameralCover_wtorsor_generic`. Over U_a = a^{-1}(𝔠^rs_D), X̃_a → U_a is a W-torsor.
 - `cameralCover_nilpotent_nonreduced`. For a = 0 ∉ A^♥, X̃_0 is the W-fold nonreduced thickening along the zero section and is not a W-torsor anywhere.
-- For GL_1 the cameral cover is X̄ itself.
-- For GL_2 and a = (0, a_2) with simple zeros, the spectral curve has genus 2g − 1 + deg D.
-- Over the regular semisimple locus the cameral cover is a W-torsor.
 
 *Needs:* §3.6; §3.5; §3.3.
 
@@ -1405,9 +1197,6 @@ Representability as a closed sub-ind-scheme of Gr_v and local finiteness (Kazhda
 - `affineSpringer_gl2_delta`. For G = GL_2 and γ with characteristic polynomial t² − ε^n: d_v = val(4ε^n) = n (p odd); if n is even the centralizer is split, c_v = 0 and δ_v = n/2; if n is odd it is the ramified torus R_{E/F}G_m, c_v = 1 and δ_v = (n − 1)/2.
 - `affineSpringer_torus`. For G = T a torus, M_v(a) = Gr_T = X_*(T) and P_v = Gr_T.
 - `affineSpringer_not_finite_type`. For γ = diag(ε, −ε) in 𝔤𝔩_2 (split, d_v = 2, c_v = 0, δ_v = 1), M_v(a) has infinitely many irreducible components, permuted by Λ = X_*(T) = ℤ², so it is not of finite type; only M_v(a)^red/Λ is (and it is projective).
-- If a is regular semisimple modulo ε, δ_v = 0 and M_v(a) is the discrete set X_*(T).
-- For GL_2 and characteristic polynomial t² − ε^n, δ_v = ⌊n/2⌋.
-- For γ = diag(ε, −ε), M_v(a) has infinitely many components and its quotient by Λ is projective.
 
 *Needs:* §3.5; §3.4; §3.3; §3.2; Mathlib `LaurentSeries`; Mathlib `PowerSeries`.
 
@@ -1428,7 +1217,9 @@ The interface consists of the following operations and identities.
 - `TauCeti.HitchinPicard.componentGroup`: π_0(P_a) with its description through the cameral cover.
 - `TauCeti.HitchinPicard.componentsOfFibre`: Irreducible components of M_a ↔ π_0(P_a) for a ∈ A^ani.
 
-Define P_a and the action using χ^*J → I (Ngô §4.3.1, p. 63); the torsor statement (a) uses that J ≅ I on the regular locus (Proposition 4.3.3, p. 64). Smoothness (b): the deformation theory of J_a-torsors is governed by H^1(X, Lie J_a), which has constant dimension over A^♥ (Proposition 4.4.2, p. 65). (c) Ngô §4.10, Lemme 4.10.1 and Proposition 4.10.2 (p. 78): compute π_0 through the Néron model and the cameral monodromy. (d) Corollaire 4.14.3 (p. 88), from the product formula and the local statement on components of affine Springer fibres.
+Define P_a and the action using χ^*J → I (Ngô §4.3.1, p. 63); the torsor statement (a) uses that J ≅ I on the regular locus (Proposition 4.3.3, p. 64). Smoothness (b): the obstruction to lifting a J_a-torsor lies in H²(X, Lie J_a), which vanishes because X is a curve (Proposition 4.4.2, p. 65). (c) Ngô §4.10, Lemme 4.10.1 and Proposition 4.10.2 (p. 78): compute π_0 through the Néron model and the cameral monodromy. (d) Corollaire 4.14.3 (p. 88), from the product formula and the local statement on components of affine Springer fibres.
+
+Construct P_a=Bun_{J_a} as an algebraic Picard stack of J_a-torsors on X, with contracted product as its group law. The smooth affine commutative X-group J_a is finitely presented; use étale local trivializations of torsors and the Quot/graph charts of AlgebraicModuliForArithmeticGeometry §§1.3, 2.1 and 2.2, then its §7.1 Artin criterion. Torsor deformation and automorphism spaces are H¹(X,Lie J_a) and H⁰(X,Lie J_a); the obstruction H² vanishes on a curve, giving smoothness at a smooth J_a. This is the J_a-specific Picard-stack construction of Ngô §§4.3–4.4, pp. 63–65, rather than a gerbe theorem. Add `RegularCentralizerPicard.torsors`, `.contractedProduct` and `.tangentComplex`. Check J=G_m recovers the Picard groupoid with scalar automorphisms; tensoring by the trivial torsor is the identity; inverse torsors cancel under contracted product. A Picard variety obtained by rigidification does not have that automorphism group.
 
 **Checks.**
 
@@ -1436,11 +1227,8 @@ Define P_a and the action using χ^*J → I (Ngô §4.3.1, p. 63); the torsor st
 - `picardStack_gln_spectral`. For G = GL_n and a with integral spectral curve Y_a, P_a = Pic_{Y_a} (line bundles on Y_a) and π_0(P_a) = ℤ.
 - `picardStack_sl2_component`. For G = SL_2 and a = ν(a_H) in the image of the endoscopic base of the norm-one torus H of a connected étale double cover X′ → X̄, the spectral curve is nodal with normalization X′, and π_0(P_a) contains ℤ/2, on which the character κ attached to X′ is nontrivial; for a with smooth (ramified) spectral curve π_0(P_a) is trivial (the Prym of a ramified double cover is connected).
 - `picardStack_not_torsor_on_singular`. On M \ M^reg the action of P_a need not be free: at a point where φ is not regular, the stabilizer in P_a is a nontrivial affine group (as required by the weak-abelian-fibration axioms), so M_a is not a P_a-torsor.
-- For GL_1, P_a = Pic_X and π_0(P_a) = ℤ.
-- For GL_n with integral spectral curve, P_a = Pic_{Y_a}.
-- For SL_2 and a in the image of the endoscopic base of a connected étale double cover X′ → X, π_0(P_a) carries the nontrivial character attached to X′.
 
-*Needs:* §3.6; §3.5; §3.8; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4.
+*Needs:* §3.6; §3.5; §3.8; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags), §2.1 (Hilbert families and graph parameters), §2.2 (Automorphisms and bounded quotients), and §7.1 (Formal points, gluing and module obstructions).
 
 ### 3.11 The product formula for Hitchin fibres
 
@@ -1469,12 +1257,14 @@ In the setting of §3.6 with deg D > 2g and D = D′^{⊗2}: (a) the anisotropic
 
 (a) Ngô §6.1 (pp. 111–112): A^ani is a union of strata A_ψ with ψ in an anisotropic set; openness from the semicontinuity of π_0 (Lemme 6.1.1, p. 112). (b) Ngô Proposition 6.1.5 (p. 113): finiteness of π_0 and of stabilizers gives the DM property; properness uses Higgs semistable reduction and stability (Faltings, as recalled in §6.1.3 and Lemma 6.1.4), together with the product formula for finite type; the product formula alone does not prove the valuative criterion. (c) Ngô Proposition 4.13.1 (pp. 86–87); smoothness of M at anisotropic points with deg D = 2g − 2 is Théorème 4.12.1 (§3.6 (c)).
 
+For the anisotropic source the Deligne–Mumford criterion is also part of this target. In an Artin presentation of M, identify the Higgs automorphism group with the global sections of the regular centralizer in its generic centralizer; on the anisotropic locus Ngô Lemma 6.1.2, p. 112, and Proposition 6.1.5, p. 113, makes these stabilizers finite and reduced under the standing characteristic hypothesis. The diagonal is therefore unramified; the Artin stack is Deligne–Mumford there. Separatedness uses the extension/uniqueness argument in the valuative criterion, independently of finiteness of stabilizers. Use this criterion only after removing a surviving split centre. The GL₁ scalar group and the fixed-degree Picard stack in the checks below show why finiteness of a coarse set of objects would not suffice.
+
 **Checks.**
 
 - For G=GL₁ the full anisotropic locus is empty because π₀(P_a)=ℤ. The coarse degree-d Picard variety is proper, but the degree-d Picard stack has G_m stabilizers and is not Deligne–Mumford.
 - For G = SL_2 and a with irreducible spectral curve, a ∈ A^ani and M_a is a compactified Prym, proper.
 
-*Needs:* §3.6; §3.10; §3.11; §3.9; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4.
+*Needs:* §3.6; §3.10; §3.11; §3.9; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags).
 
 **Checks for the central boundary.**
 
@@ -1497,7 +1287,7 @@ In the setting of §3.6, for a ∈ A^♥ let δ_a = Σ_v δ_v(a) (§3.11). (a) A
 - δ = 0 stratum: a regular semisimple everywhere; codimension 0.
 - For G = GL_2 the locus of spectral curves with one node has codimension 1 = δ in A when deg D ≥ 2g + 2 (one condition on the discriminant).
 
-*Needs:* §3.6; §3.11; §3.9; §3.8; `TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch.
+*Needs:* §3.6; §3.11; §3.9; §3.8; `TauCetiRoadmap.AlgebraicCurves` Layer 4 (repartitions, Weil differentials, and Riemann–Roch).
 
 ### 3.14 Weak abelian fibrations
 
@@ -1523,21 +1313,20 @@ Ngô §7.1 (pp. 122–124): hypotheses 7.1.1–7.1.4 listed as the axioms used i
 - `weakAbelian_hitchin`. (M^ani|_U, P^ani|_U) over the δ-regular open U ⊆ A^ani is a weak abelian fibration (Ngô §7.6).
 - `weakAbelian_compactifiedJacobian`. The family of compactified Jacobians of a versal family of integral plane curves over a smooth base, with the generalized Jacobians acting, is a weak abelian fibration (δ = number of nodes along nodal strata).
 - `weakAbelian_not_without_affine_stabilizers`. An abelian scheme acting trivially on a projective family violates the affine-stabilizer axiom (the stabilizers are the whole abelian variety).
-- An abelian scheme acting on itself is a weak abelian fibration with δ = 0.
-- The anisotropic Hitchin fibration over its δ-regular open is a weak abelian fibration.
-- A trivial action of an abelian scheme violates the affine-stabilizer axiom.
 
-*Needs:* §3.10; §3.13; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/decomposition-theorem.
+*Needs:* §3.10; §3.13; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.7 — Pure intersection complexes and decomposition.
 
 ### 3.15 Purity, decomposition and the κ-isotypic parts of the Hitchin cohomology
 
-In the setting of §3.12, let f^ani : M^ani → A^ani and K = f^ani_* Q̄_ℓ. (a) K is pure (M^ani smooth, f^ani proper) and, by the decomposition theorem, K ⊗ k̄ is isomorphic to the direct sum of its shifted perverse cohomology sheaves ^pH^n(K), each geometrically semisimple. (b) Over the étale cover Ã^ani of A^ani trivializing the cameral monodromy, the action of π_0(P) on ^pH^n(f̃^ani_* Q̄_ℓ) factors through a finite quotient and gives a decomposition ^pH^n = ⊕_{κ} ^pH^n_κ over the characters κ of that quotient (κ ∈ κ^ani), with ^pH^n_κ supported in Ã_κ ∩ Ã^ani, where Ã_κ is the locus of a whose cameral monodromy fixes κ (Ngô (6.2.5), Proposition 6.2.6). (c) The κ = 1 part is the stable part ^pH^n_st. The decomposition theorem is applied to f^ani with source a smooth separated Deligne–Mumford stack (Ngô Remarque 7.5.1); the scheme decomposition theorem of EtaleDualityAndPerverseSheaves:EDC.7 requires the specified extension to proper maps from such stacks.
+In the setting of §3.12, let f^ani : M^ani → A^ani and K = f^ani_* Q̄_ℓ. (a) K is pure (M^ani smooth, f^ani proper) and, by the decomposition theorem, K ⊗ k̄ is isomorphic to the direct sum of its shifted perverse cohomology sheaves ^pH^n(K), each geometrically semisimple. (b) Over the étale cover Ã^ani of A^ani trivializing the cameral monodromy, the action of π_0(P) on ^pH^n(f̃^ani_* Q̄_ℓ) factors through a finite quotient and gives a decomposition ^pH^n = ⊕_{κ} ^pH^n_κ over the characters κ of that quotient (κ ∈ κ^ani), with ^pH^n_κ supported in Ã_κ ∩ Ã^ani, where Ã_κ is the locus of a whose cameral monodromy fixes κ (Ngô (6.2.5), Proposition 6.2.6). (c) The κ = 1 part is the stable part ^pH^n_st. The decomposition theorem is applied to f^ani with source a smooth separated Deligne–Mumford stack (Ngô Remarque 7.5.1); the scheme decomposition theorem of EtaleDualityAndPerverseSheaves:EDC.7 is extended here to this smooth separated Deligne–Mumford source.
 
 *Hypotheses.* The setting of §3.12; ℓ ≠ char(k), coefficients Q̄_ℓ.
 
 ([Bao Châu Ngô — Le lemme fondamental pour les algèbres de Lie](https://arxiv.org/abs/0801.0446v3), §6.2, (6.2.5) and Proposition 6.2.6 (pp. 113–114); Remarque 7.5.1 (p. 149); Corollaire 5.7.5 (p. 110).)
 
-(a) Deligne's theorem that proper direct images of pure complexes are pure (DeligneWeightsAndPurity:DWP.8/proper-direct-image-preserves-purity-6-2-6) and the decomposition theorem of BBD 5.4.5 (EtaleDualityAndPerverseSheaves:EDC.7/decomposition-theorem), applied as in Ngô §6.2 (p. 113) with Remarque 7.5.1 (p. 149) for Deligne–Mumford stacks. (b) The homotopy argument: P acts on K, its identity component acts trivially on cohomology sheaves, so π_0(P) acts; over Ã^ani it is a quotient of a constant finitely generated group with finite image (Ngô §6.2, (6.2.5) and Proposition 6.2.6, p. 114; Corollaire 5.7.5, p. 110).
+(a) Deligne's theorem that proper direct images of pure complexes are pure (DeligneWeightsAndPurity DWP.8 — Mixed complexes, weight filtrations and geometric semisimplicity) and the decomposition theorem of BBD 5.4.5 (EtaleDualityAndPerverseSheaves EDC.7 — Pure intersection complexes and decomposition), applied as in Ngô §6.2 (p. 113) with Remarque 7.5.1 (p. 149) for Deligne–Mumford stacks. (b) The homotopy argument: P acts on K, its identity component acts trivially on cohomology sheaves, so π_0(P) acts; over Ã^ani it is a quotient of a constant finitely generated group with finite image (Ngô §6.2, (6.2.5) and Proposition 6.2.6, p. 114; Corollaire 5.7.5, p. 110).
+
+For this extension choose a scheme presentation and a proper generically finite alteration by smooth schemes. Over the dense finite étale locus, the unit and trace compose to the degree; after dividing by that degree over Q̄_ℓ the constant intersection complex of the smooth stack is a direct summand. Extend the projector using the intersection-complex characterization and proper descent. Apply scheme proper purity and decomposition to the alteration and take this summand; étale descent identifies the result independently of the presentation. This proves the needed pure direct-image and geometric semisimplicity statements for f^ani (Ngô Remarque 7.5.1, p. 149). When a relatively ample class is chosen on the projective coarse Hitchin map, the same summand argument carries relative hard Lefschetz. No arbitrary Artin-stack decomposition theorem is asserted. Check a finite quotient [Y/H] gives the H-invariant summand of the scheme statement; for BH with H finite the positive-degree Q̄_ℓ group cohomology vanishes; BG_m has nonzero higher cohomology and fails the finite-stabilizer hypothesis.
 
 **Checks.**
 
@@ -1545,7 +1334,7 @@ In the setting of §3.12, let f^ani : M^ani → A^ani and K = f^ani_* Q̄_ℓ. (
 - For the trivial group the Hitchin base, fibre and Picard groupoid are points; the only component character is trivial and the cohomological decomposition has one summand.
 - For G = SL_2, κ ranges over characters of ℤ/2, and the nontrivial κ-part attached to a connected étale double cover X′ → X is supported on the image of the endoscopic base A_H, where the spectral curves are nodal with normalization X′.
 
-*Needs:* §3.12; §3.10; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/decomposition-theorem; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/pure-complex-geometric-splitting; `TauCetiRoadmap.DeligneWeightsAndPurity`, DWP.8/proper-direct-image-preserves-purity-6-2-6.
+*Needs:* §3.12; §3.10; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.7 — Pure intersection complexes and decomposition; `TauCetiRoadmap.DeligneWeightsAndPurity` DWP.8 — Mixed complexes, weight filtrations and geometric semisimplicity.
 
 ### 3.16 Counting points of Hitchin fibres
 
@@ -1555,14 +1344,14 @@ In the setting of §3.12, for a ∈ A^ani(k) with U ⊆ X the regular semisimple
 
 ([Bao Châu Ngô — Le lemme fondamental pour les algèbres de Lie](https://arxiv.org/abs/0801.0446v3), §8.1, Propositions 8.1.6 and 8.1.13 (pp. 157–160); §8.4, Propositions 8.4.2–8.4.3 (pp. 175–176); §8.5, Lemmes 8.5.1 and 8.5.7 (pp. 178–179).)
 
-(a) The Grothendieck–Lefschetz trace formula for Deligne–Mumford stacks of finite type over 𝔽_q (specified from SchemeAndStackFoundations:SF.2; the scheme case underlies it), as used by Ngô §8.1 (Proposition 8.1.6 for finiteness, Proposition 8.1.13 for the formula, pp. 157–160). (b) Ngô §8.4 (pp. 175–176); (c) §8.5 (pp. 177–179).
+(a) Extend CohomologicalPointCounting’s scheme trace formula to the finite-stabilizer quotient here by étale descent. For a quotient [Y/H] by a finite group, use the average of Frobenius composed with each h∈H on RΓ_c(Y,Q̄_ℓ). The twisted fixed-point groupoids account for all torsors, giving each rational isomorphism class the reciprocal of its automorphism order. Descent and additivity over a finite stratification give the formula for the Deligne–Mumford quotient; inserting the finite-character projector gives the κ-weighted version of Ngô Proposition 8.1.13, pp. 159–160. In particular the count of BH over 𝔽_q is 1 for a constant finite H, not 1/|H|: its twisted torsors must also be counted. For a scheme every automorphism weight is 1. Positive-dimensional stabilizers require a different trace theorem. (b) Ngô §8.4 (pp. 175–176); (c) §8.5 (pp. 177–179).
 
 **Checks.**
 
 - If a is regular semisimple and unramified everywhere, the κ-count is the number of k-points of a torsor under P_a weighted by κ, and the product of local counts is 1.
 - For G = GL_1 the count of degree-d points is #Pic^d_X(k) = #Pic^0_X(k).
 
-*Needs:* §3.12; §3.11; §3.9; `TauCetiRoadmap.SchemeAndStackFoundations`, SF.2.
+*Needs:* §3.12; §3.11; §3.9; `TauCetiRoadmap.SchemeAndStackFoundations` SF.2 (Sites and scheme cohomology); `TauCetiRoadmap.CohomologicalPointCounting` TraceFormula (the scheme Grothendieck–Lefschetz formula).
 
 ### 3.17 Ngô's support theorem
 
@@ -1572,14 +1361,14 @@ Let (f : M → S, P) be a weak abelian fibration of relative dimension d over S 
 
 ([Bao Châu Ngô — Le lemme fondamental pour les algèbres de Lie](https://arxiv.org/abs/0801.0446v3), §7.1, Théorème 7.1.5 and Corollaire 7.1.6 (pp. 124–125), Théorème 7.1.13 (pp. 127–128); §7.2, 7.2.2 and Proposition 7.2.3 (pp. 130–131); §7.6, Lemme 7.6.5 and Théorème 7.6.6 (p. 153).)
 
-(a) Ngô §7.2 (pp. 130–131): freeness of the cohomology of the fibres over the cohomology of the Tate module of P^ab gives the amplitude bound. (b) Ngô §7.3 (p. 131 ff.) deduces Théorème 7.1.5 (pp. 124–125) and its κ-version Théorème 7.1.13 (pp. 127–128) from (a), δ-regularity and relative hard Lefschetz (EtaleDualityAndPerverseSheaves:EDC.7/relative-hard-lefschetz-theorem for the projective case, as in BBD). (c) Ngô §7.6 (pp. 149–153), Lemme 7.6.5 and Théorème 7.6.6, identifying the strata where κ is fixed with the images of endoscopic Hitchin bases.
+(a) Ngô §7.2 (pp. 130–131): freeness of the cohomology of the fibres over the cohomology of the Tate module of P^ab gives the amplitude bound. (b) Ngô §7.3 (p. 131 ff.) deduces Théorème 7.1.5 (pp. 124–125) and its κ-version Théorème 7.1.13 (pp. 127–128) from (a), δ-regularity and relative hard Lefschetz (EtaleDualityAndPerverseSheaves EDC.7 — Pure intersection complexes and decomposition for the projective case, as in BBD). (c) Ngô §7.6 (pp. 149–153), Lemme 7.6.5 and Théorème 7.6.6, identifying the strata where κ is fixed with the images of endoscopic Hitchin bases.
 
 **Checks.**
 
 - For an abelian scheme (δ = 0 everywhere), the only support is S itself.
 - For the compactified Jacobian family of a versal family of integral plane curves, the support theorem recovers that the perverse cohomology has full support (Ngô's argument, cf. Migliorini–Shende for the comparison).
 
-*Needs:* §3.14; §3.15; §3.13; §3.12; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/decomposition-theorem; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/relative-hard-lefschetz-theorem.
+*Needs:* §3.14; §3.15; §3.13; §3.12; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.7 — Pure intersection complexes and decomposition.
 
 ### 3.18 Geometric stabilization: comparison of κ-parts with stable parts of endoscopic groups
 
@@ -1589,14 +1378,14 @@ In the setting of §3.17, let κ be a character as in §3.15, (H, κ) the corres
 
 ([Bao Châu Ngô — Le lemme fondamental pour les algèbres de Lie](https://arxiv.org/abs/0801.0446v3), §6.3–6.4, §6.4.2 and Théorème 6.4.3 (p. 120); §8.5, Lemmes 8.5.1 and 8.5.7 (pp. 178–179); §8.7 (p. 185).)
 
-Transverse locus: Ngô §8.5, Lemme 8.5.1 (p. 178) gives the open set of transversal a_H, and Lemme 8.5.7 (p. 179) the local count identity with q^{deg v · r_{GH,v}(a_H)}; the Chebotarev-type principle that semisimple mixed perverse sheaves on a scheme over 𝔽_q are determined up to semisimplification by their Frobenius traces at closed points (specified from EtaleDualityAndPerverseSheaves:EDC.7) gives equality of the semisimplified perverse sheaves on that open. Extension: §3.17 (c) — every support of either side is Ã_H — so the isomorphism of semisimplifications over a dense open of Ã_H extends (Ngô §§6.4, 7.6–7.7). Shift r_{G,H}(D): the difference of dimensions of the Hitchin fibres of G and H over Ã_H (Ngô §6.4.2, p. 120).
+Transverse locus: Ngô §8.5, Lemme 8.5.1 (p. 178) gives the open set of transversal a_H, and Lemme 8.5.7 (p. 179) the local count identity with q^{deg v · r_{GH,v}(a_H)}; prove the perverse trace-recognition step as follows. Equality of traces of every power of Frobenius at every closed point determines the semisimplified lisse constituents on each smooth support by Chebotarev. Stratify by supports and pass from a perverse sheaf to its generic local systems; intermediate extension and induction over smaller supports identify the semisimplifications. For the graded direct image keep the perverse degrees and weights separate, so an equality of alternating traces alone is not used to distinguish opposite degrees. This is the trace-to-perverse argument of Ngô §8.7, p. 185, applied after purity from §3.15. Extension: §3.17 (c) — every support of either side is Ã_H — so the isomorphism of semisimplifications over a dense open of Ã_H extends (Ngô §§6.4, 7.6–7.7). Shift r_{G,H}(D): the difference of dimensions of the Hitchin fibres of G and H over Ã_H (Ngô §6.4.2, p. 120).
 
 **Checks.**
 
 - For κ = 1 and H = G the statement is a tautology with r_{G,G} = 0.
 - For G = SL_2 and H the norm-one torus of a connected étale double cover X′ → X: #Φ − #Φ_H = 2, so r_{G,H}(D) = deg D, and the comparison identifies the nontrivial κ-part over Ã_H with the stable cohomology of the Hitchin fibration of the torus H (whose fibres are torsors under the Picard stack of H-torsors), shifted by 2 deg D and Tate-twisted by deg D.
 
-*Needs:* §3.17; §3.15; §3.16; §3.5; §1.4; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/decomposition-theorem.
+*Needs:* §3.17; §3.15; §3.16; §3.5; §1.4; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.7 — Pure intersection complexes and decomposition.
 
 ### 3.19 Worked examples for the Hitchin fibration
 
@@ -1620,7 +1409,7 @@ For split GL₂ and deg(D)=d>2g-2, the base H⁰(D) direct-sum H⁰(D²) has dim
 
 ### Dependencies
 
-`TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.ReductiveGroups`, layer 2 lie algebra and the adjoint representation; `TauCetiRoadmap.ReductiveGroups`, layer 9 pinned chevalleydemazure group schemes over ℤ; §1.3; Mathlib `Matrix.charpoly`; Mathlib `Matrix.charpoly_monic`; Mathlib `Polynomial.discr`; `TauCetiRoadmap.ReductiveGroups`, layer 4 jordan decomposition diagonalizable groups tori; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.4; §3.1; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, A0-extension/artin-stack-criterion; `TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch; `TauCetiRoadmap.AlgebraicCurves`, layer 12 the dictionary  function fields  curves and the comparison contracts; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.2/quot-projectivity; §3.2; Mathlib `LaurentSeries`; Mathlib `PowerSeries`; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/decomposition-theorem; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/pure-complex-geometric-splitting; `TauCetiRoadmap.DeligneWeightsAndPurity`, DWP.8/proper-direct-image-preserves-purity-6-2-6; `TauCetiRoadmap.SchemeAndStackFoundations`, SF.2; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.7/relative-hard-lefschetz-theorem; §1.4.
+`TauCetiRoadmap.AlgebraicCurves` Layers 4 (repartitions, Weil differentials and Riemann–Roch) and 12 (the function-field/curve dictionary); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.SchemeAndStackFoundations` SF.1. Descent, algebraic spaces and stacks; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §7.1 (Formal points, gluing and module obstructions); `TauCetiRoadmap.AlgebraicCurves` Layer 5 (consequences of Riemann–Roch, and local components); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §1.3 (Coherent quotients, Plücker and partial flags); `TauCetiRoadmap.SchemeAndStackFoundations` §SF.1a (Descent); `TauCetiRoadmap.ReductiveGroups` Layer 2 (Lie algebra and the adjoint representation); `TauCetiRoadmap.ReductiveGroups` Layer 9 (pinned Chevalley–Demazure group schemes over `ℤ`); §1.3; Mathlib `Matrix.charpoly`; Mathlib `Matrix.charpoly_monic`; Mathlib `Polynomial.discr`; `TauCetiRoadmap.ReductiveGroups` Layer 4 (Jordan decomposition, diagonalizable groups, tori); `TauCetiRoadmap.AlgebraicCurves` Layer 4 (repartitions, Weil differentials, and Riemann–Roch); `TauCetiRoadmap.AlgebraicCurves` Layer 12 (the dictionary — function fields ↔ curves, and the comparison contracts); Mathlib `LaurentSeries`; Mathlib `PowerSeries`; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.7 — Pure intersection complexes and decomposition; `TauCetiRoadmap.DeligneWeightsAndPurity` DWP.8 — Mixed complexes, weight filtrations and geometric semisimplicity; `TauCetiRoadmap.SchemeAndStackFoundations` SF.2. Sites and scheme cohomology; `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §2.1 (Hilbert families and graph parameters); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §2.2 (Automorphisms and bounded quotients); `TauCetiRoadmap.CohomologicalPointCounting` TraceFormula (the scheme Grothendieck–Lefschetz formula); §1.4.
 
 ## Layer 4: the fundamental lemma and smooth transfer
 
@@ -1676,7 +1465,7 @@ Globalize: choose a smooth projective curve X over k, a point v with completion 
 - For G = SL_2 and H the norm-one torus of an unramified quadratic extension: O^κ_{ν(a)}(1_{𝔰𝔩_2(𝒪)}) = q^{val(D_G(a))/2} times the volume of the integral points of the torus, a statement checkable by counting lattices (the case Langlands verified by hand).
 - For unitary groups the statement specializes to Laumon–Ngô's theorem (§4.4).
 
-*Needs:* §3.18; §3.16; §3.17; §3.4; §4.1; §2.9; §2.4; §1.4; `TauCetiRoadmap.AlgebraicCurves`, layer 5 affine completion comparison; `TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch.
+*Needs:* §3.18; §3.16; §3.17; §3.4; §4.1; §2.9; §2.4; §1.4; `TauCetiRoadmap.AlgebraicCurves` Layer 5 (consequences of Riemann–Roch, and local components); `TauCetiRoadmap.AlgebraicCurves` Layer 4 (repartitions, Weil differentials, and Riemann–Roch).
 
 ### 4.4 The fundamental lemma for unitary Lie algebras (Laumon–Ngô)
 
@@ -1710,7 +1499,7 @@ Translate stable classes, Moy–Prasad lattices and the tame Galois group into F
 - For G = T a torus the forms J^D are evaluations and the statements are trivial.
 - For G = SL_2 and its elliptic torus data, the κ-orbital integrals of the unit function computed over 𝔽_q((t)) and over the unramified extension of ℚ_p of residue field 𝔽_q agree for p large.
 
-*Needs:* §2.1; §2.6; §2.9; §2.11; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/moy-prasad-filtration; §4.3.
+*Needs:* §2.1; §2.6; §2.9; §2.11; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.6 (Moy–Prasad filtrations); §4.3.
 
 ### 4.6 The fundamental lemma for groups and for spherical Hecke algebras
 
@@ -1720,7 +1509,7 @@ Let F be a p-adic field of characteristic 0, G a connected reductive group over 
 
 ([J.-L. Waldspurger — L'endoscopie tordue n'est pas si tordue : intégrales orbitales](https://webusers.imj-prg.fr/~jean-loup.waldspurger/endoscopietordue.pdf), §§4.4–4.11 (pp. 48–52) and §5 (pp. 53–73), Théorème 4.11; [T. C. Hales — A statement of the fundamental lemma](https://arxiv.org/abs/math/0312227v2), Conjecture 6.1 (PDF p. 10) and Remark 9.3 (PDF p. 16); [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §3.4 and Remark 3.4 (p. 15).)
 
-(a) Waldspurger 2008 §§4.4–4.11 and §5 with θ = 1 and ω = 1: descent of stable and κ-orbital integrals of the unit function to centralizers of topologically semisimple elements (§§5.2–5.8), equality of unramified transfer factors after descent (§§5.10–5.11), and the Lie-algebra fundamental lemma for each descended datum. (b) Hales, 'On the fundamental lemma for standard endoscopy: reduction to unit elements', Canad. J. Math. 47 (1995) (as recalled by Hales 2003 Remark 9.3 and by Shin §3.4, p. 15). Satake isomorphism and the map b: SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism (with its unitary normalizations) and ReductiveGroupsPartII:RG2.5 (dual groups).
+(a) Waldspurger 2008 §§4.4–4.11 and §5 with θ = 1 and ω = 1: descent of stable and κ-orbital integrals of the unit function to centralizers of topologically semisimple elements (§§5.2–5.8), equality of unramified transfer factors after descent (§§5.10–5.11), and the Lie-algebra fundamental lemma for each descended datum. (b) Hales, 'On the fundamental lemma for standard endoscopy: reduction to unit elements', Canad. J. Math. 47 (1995) (as recalled by Hales 2003 Remark 9.3 and by Shin §3.4, p. 15). Satake isomorphism and the map b: SmoothRepresentationsOfLocalGroups §SR.4.1 (The Satake transform and isomorphism) (with its unitary normalizations) and ReductiveGroupsPartII §§RG2.5.1–RG2.5.2 (dual groups and L-groups).
 
 **Checks.**
 
@@ -1728,7 +1517,7 @@ Let F be a p-adic field of characteristic 0, G a connected reductive group over 
 - For G = GL_n there is no proper elliptic datum and the statement reduces to (a) for H = G.
 - The proof uses Waldspurger's bound on the residue characteristic (2008 §4.4, (H1), and the change of characteristic); the hypothesis p ∤ |W| of the equal-characteristic theorem does not by itself give the statement over p-adic fields.
 
-*Needs:* §4.3; §4.5; §2.5; §2.7; §2.11; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/hyperspecial-vertices; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/satake-isomorphism; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.1/convolution-algebra.
+*Needs:* §4.3; §4.5; §2.5; §2.7; §2.11; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.3 (Bruhat–Tits and parahoric group schemes); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.1 (The Satake transform and isomorphism); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.1.1 (Functions, measures and convolution).
 
 ### 4.7 Existence of smooth transfer (Waldspurger)
 
@@ -1745,7 +1534,7 @@ Lie algebra: Waldspurger 1997 (its main theorem and Corollary 1.7 are recalled b
 - For the principal datum of quasi-split G the identity function transfer is valid.
 - For SL_2 and the elliptic torus data, transfer exists for every f, matching κ-orbital integrals with orbital integrals on the torus times transfer factors.
 
-*Needs:* §4.6; §4.5; §2.13; §2.6; §2.7; §2.11; §2.14; `TauCetiRoadmap.Chebotarev`, layer 10 dirichlet density chebotarev.
+*Needs:* §4.6; §4.5; §2.13; §2.6; §2.7; §2.11; §2.14; `TauCetiRoadmap.Chebotarev` Layer 10 (Dirichlet-density Chebotarev).
 
 ### 4.8 Transfer between inner forms of GL_n and quaternionic matching
 
@@ -1755,7 +1544,7 @@ These are two different occurrences of normalization. If one defines a signed tr
 
 ([J. Cohen — Transfer of representations and orbital integrals for inner forms of GL_n](https://doi.org/10.4153/CJM-2017-017-5), §8.1, Definition 8.1 and Lemma 8.2, pp. 615–617; Theorem 8.3 and its transfer-existence input, p. 617; [J. Arthur — An introduction to the trace formula](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf), §25, Theorem 25.1, p. 168.)
 
-Use the classical essentially square-integrable character relation and normalized parabolic induction to obtain the tempered injection. Weyl integration combines character signs with the unsigned regular orbital equality and gives the trace identity. Cohen’s proof of Theorem 8.3 recalls the regular transfer-existence theorem of Deligne–Kazhdan–Vignéras, Theorem B.2.c.1; that primary proof remains a requirement, whereas the normalization and Weyl-integration argument can be checked in Cohen. Whole-group Haar measures and centralizer measures are specified separately; assigning volume one to both maximal compact subgroups need not be transfer of invariant differentials.
+Use the classical essentially square-integrable character relation and normalized parabolic induction to obtain the tempered injection. Weyl integration combines character signs with the unsigned regular orbital equality and gives the trace identity. For existence, prescribe the inner-form orbital-integral function on the matching regular set and zero on the nonmatching set. Harish-Chandra descent and the Shalika-germ expansions give its local germ conditions near each semisimple class; the inner-form comparison identifies the coefficients of the matching nilpotent germs. The characterization of orbital integrals then produces f* with these germs and compact support modulo conjugation. This is the Deligne–Kazhdan–Vignéras Theorem B.2.c.1 used in Cohen Theorem 8.3, p. 617; the descent and germ comparison also give the stated singular factor. Equality of traces on all tempered characters and Kazhdan density then identifies the transfer modulo zero regular orbital integrals. Whole-group Haar measures and centralizer measures are specified separately; assigning volume one to both maximal compact subgroups need not be transfer of invariant differentials.
 
 **Checks.**
 
@@ -1764,7 +1553,7 @@ Use the classical essentially square-integrable character relation and normalize
 - A split regular GL₂ element has no D× match, so O_{γ*}(f*)=0. This excludes using the GL₂ spherical unit as an associated function at a division place.
 - At a central scalar in D×, the centralizer is D× itself and the singular associated factor is −1, while it is +1 at every regular elliptic class. A constant factor −1 on all orbital classes conflates these cases.
 
-*Needs:* §4.7; §1.13; §1.6; §2.11; §2.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3 (tempered representations); §2.16 (characters and Weyl integration).
+*Needs:* §4.7; §1.13; §1.6; §2.11; §2.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.3 (Tempered representations and the conditional Langlands classification); §2.16 (characters and Weyl integration).
 
 ### 4.9 Stable base change: fundamental lemma, transfer and identity terms
 
@@ -1781,7 +1570,7 @@ Let E/F be a cyclic extension of local fields of characteristic 0 of degree ℓ 
 - G_0 = GL_1: the norm map E^× → F^× and the statement that 1_{𝒪_E^×} and 1_{𝒪_F^×} match for E/F unramified (the norm maps 𝒪_E^× onto 𝒪_F^×).
 - G_0 = GL_n, unit elements: Kottwitz's earlier Lemma 8.8 already gives the matching (cited in his 1986 introduction).
 
-*Needs:* §1.16; §2.8; §2.11; §4.6; §4.7; §4.4; §2.14; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/satake-isomorphism.
+*Needs:* §1.16; §2.8; §2.11; §4.6; §4.7; §4.4; §2.14; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.1 (The Satake transform and isomorphism).
 
 ### 4.10 The twisted fundamental lemma and twisted transfer
 
@@ -1791,7 +1580,7 @@ Let F be a p-adic field of characteristic 0, (G, θ, ω) a twisted triple with �
 
 ([J.-L. Waldspurger — L'endoscopie tordue n'est pas si tordue : intégrales orbitales](https://webusers.imj-prg.fr/~jean-loup.waldspurger/endoscopietordue.pdf), Introduction (pp. 1–4); §1.8 (p. 15); §3.11 (p. 41); §4.11 (p. 52); §5.12 (p. 71); [Bao Châu Ngô — Le lemme fondamental pour les algèbres de Lie](https://arxiv.org/abs/0801.0446v3), Introduction (pp. 1–2) and §8.8 (pp. 186–187).)
 
-(a) Waldspurger 2008 §§2–3, Théorème 1.8 (proof §3.11, p. 41): descent of twisted orbital integrals near θ-semisimple elements to Lie algebras of twisted centralizers, decomposition of stable classes (§3.8) and equality of transfer factors (§3.9). (b) Waldspurger 2008 §§4–5, Théorème 4.11 (proof §5.12, p. 71). (c) Combine with Ngô (Théorèmes 1 and 2) and Waldspurger's change of characteristic. (d) Lemaire–Mœglin–Waldspurger, 'Le lemme fondamental pour l'endoscopie tordue : réduction aux éléments unités', arXiv:1506.03383 (Ann. Sci. ÉNS 51 (2018)); the reduction theorem is stated there and its primary proof is required for this twisted application.
+(a) Waldspurger 2008 §§2–3, Théorème 1.8 (proof §3.11, p. 41): descent of twisted orbital integrals near θ-semisimple elements to Lie algebras of twisted centralizers, decomposition of stable classes (§3.8) and equality of transfer factors (§3.9). (b) Waldspurger 2008 §§4–5, Théorème 4.11 (proof §5.12, p. 71). (c) Combine with Ngô (Théorèmes 1 and 2) and Waldspurger's change of characteristic. (d) Use [Lemaire–Mœglin–Waldspurger, *Le lemme fondamental pour l’endoscopie tordue : réduction aux éléments unités*](https://arxiv.org/abs/1506.03383), §2.8, Theorems 1–2, p. 17, with the hypotheses of §2.1 and the reduction proved in §§3–5, pp. 21–88. Parabolic descent reduces to elliptic data. Dualize geometric transfer to tempered characters and compare it with the map obtained from Satake. The elliptic decomposition and twisted R-groups reduce equality of these maps to their unramified support; the unit-element equality fixes the remaining scalar. Their equality gives spherical transfer for every Hecke element. Keep the residue-characteristic restriction from the unit-element theorem.
 
 **Checks.**
 
@@ -1802,20 +1591,20 @@ Let F be a p-adic field of characteristic 0, (G, θ, ω) a twisted triple with �
 
 ### 4.11 The fundamental lemma at almost all places of a global datum
 
-Let F be a number field, G a connected reductive group over F and (H, ℋ, s, ξ) a global endoscopic datum with z-pair, and S a finite set of places containing the archimedean places and the places where G, H or the datum ramify. Then there is a finite set S′ ⊇ S, depending only on G and H (the places of residue characteristic below Waldspurger's bound), such that for every v ∉ S′ the unit element 1_{K_{H,v}} is a transfer of 1_{K_v} with the unramified transfer factors and the spherical Hecke algebras match through b_v (§4.6), and similarly for the twisted and base-change data (§4.10, §4.9). The global transfer factors are the products of these local ones (§2.7 (f)). In global applications an auxiliary place where G is split may be chosen outside any finite set by Chebotarev's density theorem (upstream Chebotarev roadmap); no statement at the finitely many places of S′ \ S follows from the equal-characteristic theorem by renaming the field.
+Let F be a number field, G a connected reductive group over F and (H, ℋ, s, ξ) a global endoscopic datum with z-pair, and S a finite set of places containing the archimedean places and the places where G, H or the datum ramify. Then there is a finite set S′ ⊇ S, depending only on G and H (the places of residue characteristic below Waldspurger's bound), such that for every v ∉ S′ the unit element 1_{K_{H,v}} is a transfer of 1_{K_v} with the unramified transfer factors and the spherical Hecke algebras match through b_v (§4.6), and similarly for the twisted and base-change data (§4.10, §4.9). The global transfer factors are the products of these local ones (§2.7 (f)). In global applications an auxiliary place where G is split may be chosen outside any finite set by Chebotarev's density theorem (Chebotarev roadmap); no statement at the finitely many places of S′ \ S follows from the equal-characteristic theorem by renaming the field.
 
 *Hypotheses.* F a number field; a global unramified-outside-S endoscopic datum.
 
 ([S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §3.4 (pp. 15–16), the unramified case (3.8); [J.-L. Waldspurger — L'endoscopie tordue n'est pas si tordue : intégrales orbitales](https://webusers.imj-prg.fr/~jean-loup.waldspurger/endoscopietordue.pdf), §4.4 (p. 48).)
 
-Apply §4.6 at each v ∉ S′; the bound on residue characteristics is uniform in v because it depends only on the root data of G and H. Chebotarev for the auxiliary split place: upstream Chebotarev Layer 10.
+Apply §4.6 at each v ∉ S′; the bound on residue characteristics is uniform in v because it depends only on the root data of G and H. Chebotarev for the auxiliary split place: Chebotarev Layer 10.
 
 **Checks.**
 
 - For G = GL_n and H = G, S′ = S and the statement is trivial.
 - For unitary similitude groups G_{n⃗} over ℚ attached to a CM field, S′ is finite and contains the primes ramified in the CM field and the primes below Waldspurger's bound.
 
-*Needs:* §4.6; §4.10; §4.9; §2.7; `TauCetiRoadmap.Chebotarev`, layer 10 dirichlet density chebotarev.
+*Needs:* §4.6; §4.10; §4.9; §2.7; `TauCetiRoadmap.Chebotarev` Layer 10 (Dirichlet-density Chebotarev).
 
 ### Examples
 
@@ -1823,7 +1612,7 @@ For GL₁, the endoscopic datum is principal and the Lie transfer identity is th
 
 ### Dependencies
 
-§3.9; §3.5; §2.4; §2.1; §1.14; §3.17; §3.15; §3.16; §3.3; §3.18; §3.4; §2.9; §1.4; `TauCetiRoadmap.AlgebraicCurves`, layer 5 affine completion comparison; `TauCetiRoadmap.AlgebraicCurves`, layer 4 repartitions weil differentials and riemannroch; §2.12; §1.8; §2.6; §2.11; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/moy-prasad-filtration; §2.5; §2.7; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.3/hyperspecial-vertices; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/satake-isomorphism; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.1/convolution-algebra; §2.13; §2.14; `TauCetiRoadmap.Chebotarev`, layer 10 dirichlet density chebotarev; §1.13; §1.6; §2.3; §1.16; §2.8; §1.7.
+§3.9; §3.5; §2.4; §2.1; §1.14; §3.17; §3.15; §3.16; §3.3; §3.18; §3.4; §2.9; §1.4; `TauCetiRoadmap.AlgebraicCurves` Layer 5 (consequences of Riemann–Roch, and local components); `TauCetiRoadmap.AlgebraicCurves` Layer 4 (repartitions, Weil differentials, and Riemann–Roch); §2.12; §1.8; §2.6; §2.11; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.6 (Moy–Prasad filtrations); §2.5; §2.7; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.3.3 (Bruhat–Tits and parahoric group schemes); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.1 (The Satake transform and isomorphism); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.1.1 (Functions, measures and convolution); §2.13; §2.14; `TauCetiRoadmap.Chebotarev` Layer 10 (Dirichlet-density Chebotarev); §1.13; §1.6; §2.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.3 (Tempered representations and the conditional Langlands classification); §2.16 (characters and Weyl integration); §1.16; §2.8; §1.7.
 
 ## Layer 5: number-field discrete general linear spectrum
 
@@ -1847,15 +1636,20 @@ The interface consists of the following operations and identities.
 
 Form the normalized standard module. Use the local Langlands-quotient theorem at all places and restricted tensor product compatibility. Compute the exponent sum and central character. Retain the quotient realization when discussing global residues.
 
+Fix the GL Rankin–Selberg normalization of the global intertwiner as a target here. For unitary cuspidal blocks ρ_i and their complex exponents s_i, let M(w,ρ,s) be the standard meromorphic global operator. For each inversion (i,j) of w put u=s_i−s_j and
+
+r(w,ρ,s)=∏_(i,j) L(u,ρ_i×ρ_j∨)/(L(1+u,ρ_i×ρ_j∨) ε(u,ρ_i×ρ_j∨,ψ)),    N(w,ρ,s)=r(w,ρ,s)⁻¹M(w,ρ,s).
+
+Use the same global additive character and compatible local self-dual measures in every factor. The operators satisfy the permutation cocycle, the adjoint relation on the unitary axis, and holomorphy with invertibility for purely imaginary s and unitary blocks. Mœglin–Waldspurger §I.1.1, pp. 607–609, proves these identities from the local functional equations, the rank-one operator and induction in stages; §6.1 gives irreducibility at the unitary point. The API `GLIntertwiner.normalizingFactor`, `.cocycle` and `.unitaryIsomorphism` fixes this normalization before residues are taken. Check the identity permutation has r=1 and N=id; two adjacent transpositions composed with the permuted data give the identity; omitting the epsilon term changes the adjoint/unitary identity at a ramified place. AutomorphicSpectralTheory supplies meromorphic continuation of M, rather than this GL-specific factor formula.
+
 **Checks.**
 
 - `Speh.lengthOne`. b=1 gives the original cuspidal representation.
 - `Speh.lengthTwo`. For b=2 the exponents are +1/2 and −1/2 and the central character is ω_ρ².
 - `Speh.quotientVsSub`. Replacing the quotient by the local essentially square-integrable segment subrepresentation is not the global Speh definition.
-- At b=1 it is ρ.
 - For b>1 it lies in the residual discrete spectrum, not the cuspidal spectrum.
 
-*Needs:* `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.2; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.4.
+*Needs:* `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.2. Automorphic spaces and representations; `TauCetiRoadmap.AutomorphicSpectralTheory` §4 (Automorphic spectral completeness).
 
 ### 5.2 The full GL_m discrete spectrum
 
@@ -1872,7 +1666,7 @@ Decompose by cuspidal support classes. Normalize intertwining operators by the R
 - A b=2 residual constituent must appear in a discrete spectral calculation.
 - Continuous Eisenstein contributions remain in the full trace formula where required.
 
-*Needs:* §5.1; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-spectral-expansion.
+*Needs:* §5.1; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.13 Fine spectral expansion.
 
 ### Examples
 
@@ -1880,7 +1674,7 @@ Take a unitary Hecke character rho and b=2. The standard data have exponents 1/2
 
 ### Dependencies
 
-`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.2; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.4; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-spectral-expansion.
+`TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.2. Automorphic spaces and representations; `TauCetiRoadmap.AutomorphicSpectralTheory` §4 (Automorphic spectral completeness); `TauCetiRoadmap.AutomorphicSpectralTheory` §6.13 Fine spectral expansion.
 
 ## Layer 6: stable and twisted unitary trace comparison
 
@@ -1888,13 +1682,13 @@ Build characters, Tamagawa coefficients and finite/infinity transfer before comp
 
 ### 6.1 Irreducibility of unitary parabolic induction for GL_n
 
-Let F be a non-archimedean local field of characteristic 0 and π_1, …, π_m irreducible unitary smooth representations of GL_{n_1}(F), …, GL_{n_m}(F). Then the normalized parabolic induction π_1 × ⋯ × π_m from the standard parabolic subgroup with Levi GL_{n_1} × ⋯ × GL_{n_m} is an irreducible unitary representation of GL_n(F), n = n_1 + ⋯ + n_m (Bernstein). Consequently, for unitary π_i and purely imaginary exponents s, the normalized intertwining operators N(σ,π,s) between π_1[s_1] × ⋯ × π_m[s_m] and its permutations are holomorphic at s and are isomorphisms. The same statements over ℝ and ℂ are the archimedean input specified from AutomorphicFormsOnReductiveGroups:AF.1.
+Let F be a non-archimedean local field of characteristic 0 and π_1, …, π_m irreducible unitary smooth representations of GL_{n_1}(F), …, GL_{n_m}(F). Then the normalized parabolic induction π_1 × ⋯ × π_m from the standard parabolic subgroup with Levi GL_{n_1} × ⋯ × GL_{n_m} is an irreducible unitary representation of GL_n(F), n = n_1 + ⋯ + n_m (Bernstein). Consequently, for unitary π_i and purely imaginary exponents s, the normalized intertwining operators N(σ,π,s) between π_1[s_1] × ⋯ × π_m[s_m] and its permutations are holomorphic at s and are isomorphisms. The same irreducibility and normalized-intertwiner assertions over ℝ and ℂ are targets here for all irreducible unitary blocks, including residual Speh blocks.
 
-*Hypotheses.* F non-archimedean of characteristic 0; induction normalized by δ_P^{1/2}. Each π_i is unitary, not merely of unitary central character; the exponents s_i are purely imaginary.
+*Hypotheses.* F a local field of characteristic 0; at archimedean places use admissible unitary globalizations; induction normalized by δ_P^{1/2}. Each π_i is unitary, not merely of unitary central character; the exponents s_i are purely imaginary.
 
 ([M. Tadić — Classification of unitary representations in irreducible representations of general linear group (non-Archimedean case)](https://www.numdam.org/item/ASENS_1986_4_19_3_335_0.pdf), §2.5, Theorem (J. N. Bernstein) (i), p. 346; [C. Mœglin and J.-L. Waldspurger — Le spectre résiduel de GL(n)](https://www.numdam.org/item/ASENS_1989_4_22_4_605_0.pdf), §I.1.1, property (3) and its proof, pp. 607–608; [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §4.5, before Proposition 4.8, p. 28.)
 
-Bernstein’s theorem, stated as Tadić 1986 Theorem 2.5(i) p. 346 with attribution to Bernstein (P-invariant distributions on GL(N), §0.2), gives irreducibility and unitarity of π_1 × π_2 for irreducible unitary π_1, π_2; induction in stages gives the m-fold product. Unitarity of the induced representation is the induced inner product on the normalized induction of SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction. Mœglin–Waldspurger §I.1.1(3) pp. 607–608: at purely imaginary exponents the normalized operators are holomorphic, and irreducibility of the unitary induced representation makes the nonzero operator N(σ,π,s) an isomorphism. Bernstein’s primary proof is in Lecture Notes in Mathematics 1041 (1984) and was not read; its independent proof is required for the residual-spectrum and unitary-induction inputs.
+Bernstein’s theorem, stated as Tadić 1986 Theorem 2.5(i) p. 346 with attribution to Bernstein (P-invariant distributions on GL(N), §0.2), gives irreducibility and unitarity of π_1 × π_2 for irreducible unitary π_1, π_2; induction in stages gives the m-fold product. Unitarity of the induced representation is the induced inner product on the normalized induction of SmoothRepresentationsOfLocalGroups §SR.2.2 (Jacquet functors and parabolic induction). Mœglin–Waldspurger §I.1.1(3) pp. 607–608: at purely imaginary exponents the normalized operators are holomorphic, and irreducibility of the unitary induced representation makes the nonzero operator N(σ,π,s) an isomorphism. For ℝ and ℂ use [D. Vogan, *The unitary dual of GL(n) over an archimedean field*](https://www.math.utah.edu/~ptrapa/math-library/vogan/vogan-GLn.pdf), Theorems 17.4 and 17.6, pp. 501–502: classify each unitary block by its nondegenerate Levi datum and use independence of polarization to identify their parabolic product with the irreducible representation attached to the combined datum. This covers arbitrary unitary blocks. Apply the same rank-one normalization and cocycle of §5.1, using Mœglin–Waldspurger §I.1.1(3), to obtain the holomorphic isomorphisms on the unitary axis.
 
 **Checks.**
 
@@ -1902,17 +1696,17 @@ Bernstein’s theorem, stated as Tadić 1986 Theorem 2.5(i) p. 346 with attribut
 - Non-example: |·|^{1/2} × |·|^{−1/2} is reducible, with the trivial character and the Steinberg representation as constituents; its inducing characters are not unitary, so the hypothesis cannot be weakened to unitary central character.
 - For m = 1 the statement is the irreducibility and unitarity of π_1 itself.
 
-*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1.
+*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 6.2 Tamagawa number one for the simply connected classical inputs
 
-For a number field k and a simply connected semisimple group S that is a product of restrictions of scalars of the special linear or special unitary inner forms occurring as derived groups of G, H and connected elliptic centralizers I, τ(S)=1. The quasi-split branch is Lai §7.2, deduced from his Theorem 7.1. The inner special-unitary and inner special-linear branch is a separate primary-proof obligation; quasi-splitness is not inferred from being simply connected.
+For a number field k and a simply connected semisimple group S that is a product of restrictions of scalars of the special linear or special unitary inner forms occurring as derived groups of G, H and connected elliptic centralizers I, τ(S)=1. This includes the anisotropic inner forms; it uses inner-form invariance of the Tamagawa number, not an assertion that a simply connected group is quasi-split.
 
 *Hypotheses.* Characteristic zero; S is the simply connected cover of the derived group, never the full unitary similitude group.
 
 ([K. F. Lai — Tamagawa number of reductive algebraic groups](https://www.numdam.org/item/CM_1980__41_2_153_0.pdf), §7, Theorem 7.1 pp. 186–187 and §7.2 pp. 187–188; [R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf), §9.3 pp. 392–393.)
 
-Use the product formula and compatibility of Tamagawa measures with restriction of scalars from AA.2. For quasi-split simply connected S, Lai Theorem 7.1 pp. 186–187 expresses τ(S) through the Tamagawa number of a maximal torus in a Borel subgroup (via the Eisenstein residue computation of §§5–6), and §7.2 pp. 187–188 deduces τ(S)=1 because simple connectedness makes that torus a product of induced tori, to which Ono’s formula applies. The same conclusion for the inner forms used by rational centralizers needs the classical computation: Lai §7.2 p. 187 records that Weil’s conjecture is known for the classical groups other than the trialitarian forms (Tamagawa, Weil, Mars), and Kottwitz’s 1988 theorem on Tamagawa numbers covers every simply connected group without E₈ factors. Require the primary classical-inner-form computation independently, with the same quotient measure. No quasi-split theorem is applied to an anisotropic inner form.
+Use the product formula and compatibility of Tamagawa measures with restriction of scalars from AdelicAlgebraicGroups §2.4. For quasi-split simply connected S, Lai Theorem 7.1 pp. 186–187 expresses τ(S) through the Tamagawa number of a maximal torus in a Borel subgroup (via the Eisenstein residue computation of §§5–6), and §7.2 pp. 187–188 deduces τ(S)=1 because simple connectedness makes that torus a product of induced tori, to which Ono’s formula applies. For an inner form S of S*, prove τ(S)=τ(S*) by Kottwitz’s simple-trace comparison: proceed by induction on the semisimple rank for the derived groups of proper semisimple centralizers, use the Hasse principle and finite Fourier inversion to compare the noncentral geometric terms, and choose Euler–Poincaré functions whose orbital integrals and central values match for invariant-differential measures. At one split finite place fix a supercuspidal coefficient and at a second place an elliptic Euler–Poincaré test, so the simple trace formula applies. At a further noncompact split place vary the test function: after subtracting the noncentral terms, a nonzero difference τ(S)−τ(S*) would express evaluation at the identity as a discrete sum of unitary characters. Local Plancherel has continuous spectrum at that place, so this is impossible. Thus the coefficient is zero and the two volumes agree. This argument precedes, and does not invoke, the full endoscopic stabilization of §6.18. Its measure comparison includes singular centralizers. See [Kottwitz, *Tamagawa numbers*](https://annals.math.princeton.edu/1988/127-3/p05), Theorem 1 and §4, pp. 629–646, and [Clozel, *Nombres de Tamagawa des groupes semi-simples*](https://www.numdam.org/item/SB_1988-1989__31__61_0.pdf), Theorems 1.1, 4.1–4.2 and §§2.3, 3.3, 5, pp. 62, 66–68, 73–79. Restriction of scalars and products preserve the resulting normalization.
 
 **Checks.**
 
@@ -1920,7 +1714,7 @@ Use the product formula and compatibility of Tamagawa measures with restriction 
 - For a norm-one torus τ=2 can occur; the statement is not extended to arbitrary unitary groups.
 - The group GU(p,q) itself has a central torus and is not a simply connected semisimple input.
 
-*Needs:* `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-measure; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-number; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence.
+*Needs:* `TauCetiRoadmap.AdelicAlgebraicGroups` §2.4 (Gauge forms and Tamagawa normalization); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism).
 
 ### 6.3 A Hecke character extending the CM quadratic character
 
@@ -1939,18 +1733,18 @@ The interface consists of the following operations and identities.
 - `CMQuadraticCharacterExtension.change`: Two choices differ by a character of C_F₀/C_ℚ; downstream L-embeddings retain the chosen character.
 - `CMQuadraticCharacterExtension.artin`: Under the imported Artin reciprocity map, the Hecke character gives the W_F₀-character used in the L-embedding; the two conventions are transported together.
 
-Take the extension and its restriction identity from AA.2, using its closed-subgroup hypotheses for C_ℚ⊂C_F₀. Use local continuity to prove finite ramification and transport the imported Artin convention to the chosen L-embedding. Restrict the infinity factor to positive reals and to −1: the norm exponent is zero and the angular exponent is odd.
+Take the extension and its restriction identity from AdelicAlgebraicGroups §2.4, using its closed-subgroup hypotheses for C_ℚ⊂C_F₀. Use local continuity to prove finite ramification and transport the imported Artin convention to the chosen L-embedding. Restrict the infinity factor to positive reals and to −1: the norm exponent is zero and the angular exponent is odd.
+
+For any finite extension L/K of number fields define base change of a continuous Hecke character by χ_L=χ_K∘N_{L/K}:C_L→C_K→C×, using GlobalNumberFields Layer 8's continuous idele-class norm. This preserves unitarity and satisfies (χ_L)_M=χ_M in towers by norm transitivity. Locally, if χ_K is trivial on U_K^a and N_{L_w/K_v}(U_{L_w}^b)⊆U_{K_v}^a, then χ_L is trivial on U_{L_w}^b. This inclusion, rather than equality of conductor exponents, is the conductor bound used when enlarging S. At an unramified place a character trivial on O_v× pulls back to one trivial on O_w×. The API `HeckeCharacter.normPullback`, `.normPullback_trans` and `.conductor_le_of_normUnits` is obtained by composition and this unit inclusion. Check the trivial character stays trivial; an unramified local character stays unramified; a ramified extension need not preserve a positive conductor exponent. For algebraic infinity types this agrees with GlobalNumberFields Layer 10's base change: substitute the archimedean norm, which sums the exponents over embeddings above a given embedding.
 
 **Checks.**
 
 - `CMQuadraticCharacterExtension.negativeReal`. At the complex place ϖ∞(−1)=−1.
 - `CMQuadraticCharacterExtension.evenParity`. (z/|z|)^2 restricts trivially to ℝ× and cannot be the required infinity factor.
 - `CMQuadraticCharacterExtension.choice`. Twisting by a quotient character preserves the restriction but may change Ram_ℚ(ϖ).
-- ϖ∞(−1)=−1; an even angular exponent fails the restriction condition.
 - The trivial Hecke character is not an extension of ω_F₀/ℚ.
-- Multiplying by a character trivial on C_ℚ gives another valid choice; equality of choices is not a theorem.
 
-*Needs:* `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/central-character-extension-twist; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity; `TauCetiRoadmap.GlobalNumberFields`, layer 10 archimedean characters infinity types and cyclotomic arithmetic.
+*Needs:* `TauCetiRoadmap.GlobalNumberFields` Layer 8 (idele classes and norms) and Layer 9 (Hecke characters); `TauCetiRoadmap.AdelicAlgebraicGroups` §2.1 (Characters, logarithms and the split centre); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity); `TauCetiRoadmap.GlobalNumberFields` Layer 10 (archimedean characters, infinity types, and cyclotomic arithmetic).
 
 ### 6.4 Twisted characters of θ-stable representations
 
@@ -1968,13 +1762,13 @@ Apply Clozel 1987 Theorem 1 to the representation of the finite semidirect produ
 - If Π is not σ-stable no twisted character is defined; the statement requires Π ≅ Π∘σ.
 - Changing I_σ by an ℓ-th root of unity ζ multiplies Θ_{Π,σ} by ζ.
 
-*Needs:* §2.16; §1.16; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-of-weil-restriction.
+*Needs:* §2.16; §1.16; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.5.1 (the dual group and its Galois action).
 
 ### 6.5 Kottwitz's formula for Tamagawa numbers
 
 For the connected reductive groups G, their elliptic endoscopic groups H and connected elliptic centralizers I used in this layer, let S be the simply connected cover of the derived group. Kottwitz’s relative formula is τ(G)/τ(S)=|π₀(Z(Ĝ)^Γ)|/|ker¹(k,Z(Ĝ))|. With §1.11 and §6.2 this gives τ(G)=|π₀(Z(Ĝ)^Γ)|/|ker¹(k,G)|. For G_n⃗ with r positive blocks and d=[F⁺:ℚ], the component count |π₀(Z(Ĝ_n⃗)^Γ)| is 2^r if d is even or every block is even, and 2^(r−1) otherwise, while ker¹(ℚ,Z(Ĝ_n⃗)) embeds in a group of order 2 in the first case and of order 1 in the second. Hence τ(G_n⃗)∈{2^r,2^(r−1)}: it equals 2^r when every block is even (ker¹ trivial) and 2^(r−1) when d is odd and some block is odd. When d is even and some block is odd, |ker¹(ℚ,G_n⃗)|∈{1,2} is not determined by the cited sources, so the coefficients carry τ(G_n⃗) as this ratio rather than as a fixed power of 2. For the base-change group τ(𝒢_n⃗)=1. The same ratio must be applied to each inner centralizer with its own ker¹; it is not declared trivial merely because it is a centralizer.
 
-*Hypotheses.* Use the Tamagawa measures and split-centre quotient of AA.2. The number-one theorem applies to the simply connected derived cover, not the similitude group. The displayed absolute formula for the inner-form inputs relies on the explicitly specified classical number-one theorem, whose inner-form proof is required independently.
+*Hypotheses.* Use the Tamagawa measures and split-centre quotient of AA.2. The number-one theorem applies to the simply connected derived cover, not the similitude group. The displayed absolute formula for the inner-form inputs relies on the explicitly specified classical number-one theorem, proved for the type-A inner forms in §6.2.
 
 ([R. E. Kottwitz — Stable trace formula: cuspidal tempered terms](https://math.uchicago.edu/~drinfeld/langlands/Kottwitz.pdf), §5 pp. 625–626; §4.2 (4.2.2) pp. 623–624; [S. W. Shin — A stable trace formula for Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), §1.2, display (1.2), p. 4; [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §3.1, Lemma 3.1 with (3.3) and Remark 3.2, pp. 13–14.)
 
@@ -1987,7 +1781,7 @@ Use Kottwitz 1984 §5: pass through a z-extension to a group with simply connect
 - For n⃗ = (1) and [F^+:ℚ] odd, |π_0(Z(Ĝ_{(1)})^Γ)| = 2^{r−1} = 1 and ker^1 is trivial, so τ(G_{(1)}) = 1 (Shin 2011 Remark 3.2).
 - For d even and some odd block the sources give only τ(G_n⃗)∈{2^r,2^(r−1)}; a definition that sets ker¹(ℚ,G_n⃗)=1 for every block pattern asserts more than Shin 2011 Lemma 3.1 proves.
 
-*Needs:* `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-number; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-measure; §1.11; §1.8; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; §6.2.
+*Needs:* `TauCetiRoadmap.AdelicAlgebraicGroups` §2.4 (Gauge forms and Tamagawa normalization); §1.11; §1.8; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); §6.2.
 
 ### 6.6 Base-change groups and the L-morphisms BC and ζ̃
 
@@ -2010,7 +1804,7 @@ The interface consists of the following operations and identities.
 - `BCLMorphism_comm`: BC_N ∘ η̃_{n_1,n_2} = ζ̃_{n_1,n_2} ∘ BC_{n_1,n_2}.
 - `BaseChangeGroup.semidirect`: 𝒢_n⃗ ⋊ Gal(F_0/ℚ) ≅ 𝒢_n⃗ ⋊ {1,θ}, with c ↦ θ.
 
-Compute the dual group of R_{F_0/ℚ}(G_n⃗)_{F_0} from the Weil-restriction rule (ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction). Define BC_n⃗ and ζ̃ by the displayed formulas and check they are L-morphisms by comparing with the action of w ∉ W_{F_0} (Caraiani–Scholze non-compact §5.4, p. 69). The square (c) commutes by direct computation on Ĝ and on w* (Caraiani–Scholze non-compact (5.4.1), p. 69; Shin 2011 §3.2 and §4.4).
+Compute the dual group of R_{F_0/ℚ}(G_n⃗)_{F_0} from the Weil-restriction rule (ReductiveGroupsPartII §RG2.5.1 (the dual group and its Galois action)). Define BC_n⃗ and ζ̃ by the displayed formulas and check they are L-morphisms by comparing with the action of w ∉ W_{F_0} (Caraiani–Scholze non-compact §5.4, p. 69). The square (c) commutes by direct computation on Ĝ and on w* (Caraiani–Scholze non-compact (5.4.1), p. 69; Shin 2011 §3.2 and §4.4).
 
 **Checks.**
 
@@ -2020,9 +1814,8 @@ Compute the dual group of R_{F_0/ℚ}(G_n⃗)_{F_0} from the Weil-restriction ru
 - `BCLMorphism_comm_test`. The square BC_N ∘ η̃ = ζ̃ ∘ BC holds on W_{F_0} and on w*.
 - `BaseChangeGroup.not_base_change`. 𝒢_n⃗ is not G_n⃗ ×_ℚ F_0 viewed over F_0: it is its Weil restriction to ℚ, whose ℚ-points are G_n⃗(F_0).
 - `zetaLMorphism.parity`. For N = 3 and (n_1,n_2) = (2,1) the W_{F_0}-component of ζ̃_{2,1} twists the GL_2-block by ϖ^{ε(1)} = ϖ and the GL_1-block by ϖ^{ε(2)} = 1, and N(2,1) = [F^+:ℚ]; the even-rank exponents ε(n_i) would twist the GL_1-block instead.
-- For N = 3 and (n_1,n_2) = (2,1) the block twists are ϖ on GL_2 and trivial on GL_1; the even-rank exponents ε(n_i) would reverse them.
 
-*Needs:* §1.8; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/l-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-of-weil-restriction; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; §6.3.
+*Needs:* §1.8; `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.5.1 (the dual group and its Galois action); §6.3.
 
 ### 6.7 The stable elliptic distribution ST^H_e and the coefficient ι(G,H)
 
@@ -2054,17 +1847,17 @@ Use the central quotient, support conditions and summation convention of Shin 20
 - `StableEllipticDistribution.non_elliptic_zero`. A semisimple class that is not elliptic at infinity has zero orbital integral against h_∞ stable cuspidal. A sum of stable orbital integrals over more classes remains stable; the ellipticity test checks the selected geometric term, not stability.
 - `endoscopicCoefficient_self_test`. For the trivial triple (G,1,id), ι(G,G) = 1.
 
-*Needs:* §2.4; §1.4; §6.5; §2.10; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-measure.
+*Needs:* §2.4; §1.4; §6.5; §2.10; `TauCetiRoadmap.AdelicAlgebraicGroups` §2.4 (Gauge forms and Tamagawa normalization).
 
 ### 6.8 Unramified transfers BC*, ζ̃*, η̃* and their compatibilities
 
-With §6.6, let v be a place of ℚ outside a finite set S containing ∞, p, ℓ and the primes where F or ϖ ramifies. (a) The L-morphisms BC_n⃗, ζ̃_{n_1,n_2} and η̃_{n_1,n_2} induce, through the Satake isomorphism (SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism), algebra maps BC*_n⃗ : H^ur(𝒢_n⃗(ℚ_v)) → H^ur(G_n⃗(ℚ_v)), ζ̃*_{n_1,n_2} : H^ur(𝒢_N(ℚ_v)) → H^ur(𝒢_{n_1,n_2}(ℚ_v)) and η̃*_{n_1,n_2} : H^ur(G_N(ℚ_v)) → H^ur(G_{n_1,n_2}(ℚ_v)), and dual maps on unramified representations, with tr π(η̃*φ) = tr η̃_*(π)(φ) and the same for BC and ζ̃. (b) The squares BC*_{n_1,n_2} ∘ ζ̃*_{n_1,n_2} = η̃*_{n_1,n_2} ∘ BC*_N on Hecke algebras and the dual square on unramified representations commute. (c) Explicitly, for Q_{n_1,n_2} a parabolic of 𝒢_N with Levi 𝒢_{n_1,n_2}: ζ̃*_{n_1,n_2}(f_v) = f_v^{Q} · χ_{ϖ,v}, the normalised constant term times the character χ_ϖ(λ,g_1,g_2) = ϖ(λ^{−N(n_1,n_2)} ∏_i N_{F/F_0}(det g_i)^{ε(N−n_i)}) with N(n_1,n_2) and the parity exponents of §6.6 (for even N these are the exponents ε(n_i) printed in Caraiani–Scholze non-compact Remark 5.4.1), and ζ̃_{n_1,n_2,*}(Π_v) = n-Ind(Π_v ⊗ χ_{ϖ,v}); these formulas extend to all f_v ∈ C_c^∞ and all Π_v ∈ Rep(𝒢_{n_1,n_2}(ℚ_v)), since both groups are products of restrictions of scalars of general linear groups.
+With §6.6, let v be a place of ℚ outside a finite set S containing ∞, p, ℓ and the primes where F or ϖ ramifies. (a) The L-morphisms BC_n⃗, ζ̃_{n_1,n_2} and η̃_{n_1,n_2} induce, through the Satake isomorphism (SmoothRepresentationsOfLocalGroups §SR.4.1 (The Satake transform and isomorphism)), algebra maps BC*_n⃗ : H^ur(𝒢_n⃗(ℚ_v)) → H^ur(G_n⃗(ℚ_v)), ζ̃*_{n_1,n_2} : H^ur(𝒢_N(ℚ_v)) → H^ur(𝒢_{n_1,n_2}(ℚ_v)) and η̃*_{n_1,n_2} : H^ur(G_N(ℚ_v)) → H^ur(G_{n_1,n_2}(ℚ_v)), and dual maps on unramified representations, with tr π(η̃*φ) = tr η̃_*(π)(φ) and the same for BC and ζ̃. (b) The squares BC*_{n_1,n_2} ∘ ζ̃*_{n_1,n_2} = η̃*_{n_1,n_2} ∘ BC*_N on Hecke algebras and the dual square on unramified representations commute. (c) Explicitly, for Q_{n_1,n_2} a parabolic of 𝒢_N with Levi 𝒢_{n_1,n_2}: ζ̃*_{n_1,n_2}(f_v) = f_v^{Q} · χ_{ϖ,v}, the normalised constant term times the character χ_ϖ(λ,g_1,g_2) = ϖ(λ^{−N(n_1,n_2)} ∏_i N_{F/F_0}(det g_i)^{ε(N−n_i)}) with N(n_1,n_2) and the parity exponents of §6.6 (for even N these are the exponents ε(n_i) printed in Caraiani–Scholze non-compact Remark 5.4.1), and ζ̃_{n_1,n_2,*}(Π_v) = n-Ind(Π_v ⊗ χ_{ϖ,v}); these formulas extend to all f_v ∈ C_c^∞ and all Π_v ∈ Rep(𝒢_{n_1,n_2}(ℚ_v)), since both groups are products of restrictions of scalars of general linear groups.
 
 *Hypotheses.* v ∉ S for the unramified statements (a),(b); (c) holds at every place v.
 
 ([A. Caraiani and P. Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/abs/1909.01898v2), §5.4, (5.4.2), (5.4.3) and Remark 5.4.1, pp. 69–70; [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §3.3, Lemma 3.3, p. 15; §4.2, (4.4), p. 22; §4.4, (4.18)–(4.20), pp. 25–26.)
 
-(a): functoriality of the Satake isomorphism along L-morphisms between unramified groups (SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism, SR.4/spherical-parameter). (b): apply (a) to the commutative square of §6.6 (c) (Caraiani–Scholze non-compact (5.4.2)–(5.4.3), from Shin 2011 (4.18)). (c): the constant-term formula tr π(f^Q) = tr n-Ind(π)(f) and its unramified version (Shin 2011 Lemma 3.3), with the twist by χ_ϖ read off from ζ̃ (Caraiani–Scholze non-compact Remark 5.4.1).
+(a): functoriality of the Satake isomorphism along L-morphisms between unramified groups (SmoothRepresentationsOfLocalGroups §SR.4.1 (The Satake transform and isomorphism), §SR.4.2 (Spherical parameters)). (b): apply (a) to the commutative square of §6.6 (c) (Caraiani–Scholze non-compact (5.4.2)–(5.4.3), from Shin 2011 (4.18)). (c): the constant-term formula tr π(f^Q) = tr n-Ind(π)(f) and its unramified version (Shin 2011 Lemma 3.3), with the twist by χ_ϖ read off from ζ̃ (Caraiani–Scholze non-compact Remark 5.4.1).
 
 **Checks.**
 
@@ -2072,7 +1865,7 @@ With §6.6, let v be a place of ℚ outside a finite set S containing ∞, p, �
 - For n_2 = 0, ζ̃* is the identity.
 - tr(n-Ind(Π ⊗ χ_ϖ))(f) = tr Π(f^Q · χ_ϖ) for f ∈ C_c^∞(𝒢_N(ℚ_v)) (constant-term adjunction).
 
-*Needs:* §6.6; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/satake-isomorphism; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/spherical-parameter; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/jacquet-module; §6.3.
+*Needs:* §6.6; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.1 (The Satake transform and isomorphism); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.2 (Spherical parameters); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); §6.3.
 
 ### 6.9 Base-change transfer of test functions at every place
 
@@ -2113,7 +1906,7 @@ The interface consists of the following operations and identities.
 - `twistedLefschetzFunction.singularStableOrbital`: For a pure U(p,q) factor and semisimple δ=gθ, the stable integral is zero if I_δ has no discrete series, and otherwise e(I_δ)2^n tr ξ(gθ(g)); do not suppress the centralizer sign.
 - `twistedLefschetzFunction.regularization`: Changing the Paley–Wiener multiplier while retaining value one at the coefficient parameter leaves semisimple orbital integrals unchanged.
 
-Clozel–Labesse 2011 Theorem 2.2 computes the orbital integrals of the K-supported Lefschetz measure μ_F; the Lefschetz function is the regularization of μ_F by an Arthur multiplier with value one at the infinitesimal character of the coefficient (Labesse 1991, recalled before their Lemma 3.2). Lemma 3.2 makes its semisimple orbital integrals independent of the regularization; Proposition 3.3 gives the regular orbital formula. Theorems 4.1/5.1 descend to the stable centralizer with its Euler–Poincaré function and obtain the singular stable formula with e(I_δ). Their §4 (pp. 112–113) is the published erratum to Theorem A.1.1 of the Clozel–Labesse appendix to Astérisque 257, which omitted that sign . (b): Shin 2011 (5.11), p. 35, with the real endoscopic signs of Shin 2011 §3.6; for arbitrary signature use q(G) and the discrete-series packet of G_ℝ (Caraiani–Scholze 2017 §5.2 p. 735 and §5.3 pp. 737–738). (c): Shin 2011 (6.7), p. 43; BC-matching of f^n⃗_∞ and φ^n⃗_∞ follows termwise from (a). Use Shin §4.3 and Layer 2’s real packet transfer for the pure-unitary norm correspondence and then transport products and the common similitude split centre with the chosen central character. The required quotient-measure and real-character boundary proof inputs are required with these conventions.
+Clozel–Labesse 2011 Theorem 2.2 computes the orbital integrals of the K-supported Lefschetz measure μ_F; the Lefschetz function is the regularization of μ_F by an Arthur multiplier with value one at the infinitesimal character of the coefficient (Labesse 1991, recalled before their Lemma 3.2). Lemma 3.2 makes its semisimple orbital integrals independent of the regularization; Proposition 3.3 gives the regular orbital formula. Theorems 4.1/5.1 descend to the stable centralizer with its Euler–Poincaré function and obtain the singular stable formula with e(I_δ). Their §4 (pp. 112–113) is the published erratum to Theorem A.1.1 of the Clozel–Labesse appendix to Astérisque 257, which omitted that sign . (b): Shin 2011 (5.11), p. 35, with the real endoscopic signs of Shin 2011 §3.6; for arbitrary signature use q(G) and the discrete-series packet of G_ℝ (Caraiani–Scholze 2017 §5.2 p. 735 and §5.3 pp. 737–738). (c): Shin 2011 (6.7), p. 43; BC-matching of f^n⃗_∞ and φ^n⃗_∞ follows termwise from (a). Use Shin §4.3 and Layer 2’s real packet transfer for the pure-unitary norm correspondence and then transport products and the common similitude split centre with the chosen central character. The quotient measures are those of §2.8 and the normalized real characters those of §§2.10–2.14; transport both through the central quotient before comparing the Lefschetz traces.
 
 **Checks.**
 
@@ -2123,7 +1916,7 @@ Clozel–Labesse 2011 Theorem 2.2 computes the orbital integrals of the K-suppor
 - `twistedLefschetzFunction.wrong_weight`. On a compact real quotient choose ξ and a coefficient Ξ′ whose restriction along the base-change embedding has a different highest weight and no ξ-constituent. Schur orthogonality distinguishes their traces and prevents matching; mere inequality Ξ′≠ξ⊗ξ is insufficient.
 - `twistedLefschetzFunction.centralizerSign`. Choose a semisimple δ with e(I_δ)=−1 and nonzero coefficient trace. The pure-unitary stable orbital integral is −2^n tr ξ(gθ(g)), distinguishing the corrected formula from the unsigned one.
 
-*Needs:* §2.10; §2.15; §2.14; §6.6; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/general-euler-poincare.
+*Needs:* §2.10; §2.15; §2.14; §6.6; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.19 Real Euler–Poincaré test functions.
 
 ### 6.11 Cuspidal groups, cuspidal Levi subgroups and cuspidal Levi subsets
 
@@ -2141,7 +1934,9 @@ The interface consists of the following operations and identities.
 - `IsCuspidalSubset`: A twisted Levi subset is cuspidal iff its associated standard fixed-unitary Levi L_H is cuspidal; this property is invariant under transport to conjugate standard data.
 - `IsCuspidalGroup.resGL`: For a CM field F, R_{F/ℚ}GL_h is cuspidal iff h = 1 and [F^+:ℚ] = 1: otherwise (M/A_M)_ℝ has a non-trivial split central torus (when [F^+:ℚ] > 1) or a split part in every maximal torus (when h ≥ 2).
 
-Use CSnc Definition 5.5.2 p. 74 and Morel §8.2 p. 131: identify the standard fixed Levi L_H and apply the real anisotropic-torus criterion to L_H. AF.1/discrete-series supplies the real discrete-series criterion modulo the specified split centre. Products preserve cuspidality, whereas a surviving split central factor rules it out.
+Use CSnc Definition 5.5.2 p. 74 and Morel §8.2 p. 131: identify the standard fixed Levi L_H and apply the real anisotropic-torus criterion to L_H. AutomorphicFormsOnReductiveGroups AF.1, **Harish-Chandra’s discrete series: existence criterion and parametrization** supplies the real discrete-series criterion modulo the specified split centre. Products preserve cuspidality, whereas a surviving split central factor rules it out.
+
+Here an F-torus T is anisotropic precisely when it has no positive-dimensional F-split subtorus, equivalently X_*(T)^{Γ_F}=0. An invariant cocharacter defines a split one-dimensional image, and every split subtorus has a nonzero invariant cocharacter, proving the criterion. The API `Torus.IsAnisotropic`, `.iff_invariantCocharacters` and `.prod` uses this definition. Over ℝ, G_m fails it; the norm-one torus of ℂ/ℝ satisfies it because conjugation acts by −1 on ℤ; the trivial torus satisfies it. Thus the condition on (M/A_M)_ℝ in this section includes zero-dimensional maximal tori.
 
 **Checks.**
 
@@ -2151,11 +1946,11 @@ Use CSnc Definition 5.5.2 p. 74 and Morel §8.2 p. 131: identify the standard fi
 - `IsCuspidalGroup.trivial`. The trivial group is cuspidal; a Levi subgroup is never required to contain a non-trivial torus.
 - `IsCuspidalSubset.fullUnitary`. The full component 𝒢_n⃗θ is cuspidal because its associated fixed group G_n⃗ is cuspidal. Testing discrete series on 𝒢_n⃗(ℝ), a product of complex general linear groups, would give the wrong result.
 
-*Needs:* §6.6; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-measure; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/discrete-series.
+*Needs:* §6.6; `TauCetiRoadmap.AdelicAlgebraicGroups` §2.4 (Gauge forms and Tamagawa normalization); `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 6.12 Local cyclic base change for GL_n (Arthur–Clozel)
 
-Let E/F be a cyclic extension of non-archimedean local fields of characteristic 0 of prime degree ℓ with Gal(E/F) = ⟨σ⟩, and G = GL_n. (Definition, Shintani) For tempered representations, a σ-stable irreducible admissible representation Π of GL_n(E) is a base-change lift of an irreducible admissible π of GL_n(F) if Θ_{Π,σ}(g) = Θ_π(Ng) for every g ∈ GL_n(E) with σ-regular norm Ng, the twisted character normalised as in §6.4. Then: (a) every irreducible tempered π has a unique lift Π, which is tempered; (b) every σ-stable irreducible tempered Π lifts at least one π, and π is tempered; (c) the notion does not depend on the generator σ; (d) if Π lifts π = ind(π_1 ⊗ … ⊗ π_r) with π_i discrete series, the representations lifting to Π are exactly ind((π_1⊗χ_1)⊗…⊗(π_r⊗χ_r)) with χ_i characters of F^×/N(E^×); (e) lifting is compatible with contragredients and with twists: π⊗ω lifts to Π⊗(ω∘N_{E/F}), and ω_Π = ω_π ∘ N_{E/F}; (f) for π supercuspidal: if its lift is discrete then it is supercuspidal, otherwise the lift is a normalized induction of the full σ-orbit of a supercuspidal representation of GL_{n/ℓ}(E), with ℓ dividing n (AC Lemma 6.10); (g) the lift extends to all irreducible representations through the Langlands classification (SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification; no dependence on Layer 10) by lifting tempered data and taking Langlands quotients.
+Let E/F be a cyclic extension of non-archimedean local fields of characteristic 0 of prime degree ℓ with Gal(E/F) = ⟨σ⟩, and G = GL_n. (Definition, Shintani) For tempered representations, a σ-stable irreducible admissible representation Π of GL_n(E) is a base-change lift of an irreducible admissible π of GL_n(F) if Θ_{Π,σ}(g) = Θ_π(Ng) for every g ∈ GL_n(E) with σ-regular norm Ng, the twisted character normalised as in §6.4. Then: (a) every irreducible tempered π has a unique lift Π, which is tempered; (b) every σ-stable irreducible tempered Π lifts at least one π, and π is tempered; (c) the notion does not depend on the generator σ; (d) if Π lifts π = ind(π_1 ⊗ … ⊗ π_r) with π_i discrete series, the representations lifting to Π are exactly ind((π_1⊗χ_1)⊗…⊗(π_r⊗χ_r)) with χ_i characters of F^×/N(E^×); (e) lifting is compatible with contragredients and with twists: π⊗ω lifts to Π⊗(ω∘N_{E/F}), and ω_Π = ω_π ∘ N_{E/F}; (f) for π supercuspidal: if its lift is discrete then it is supercuspidal, otherwise the lift is a normalized induction of the full σ-orbit of a supercuspidal representation of GL_{n/ℓ}(E), with ℓ dividing n (AC Lemma 6.10); (g) the lift extends to all irreducible representations through the Langlands classification (SmoothRepresentationsOfLocalGroups §SR.3.3 (Tempered representations and the conditional Langlands classification); no dependence on Layer 10) by lifting tempered data and taking Langlands quotients.
 
 *Hypotheses.* E/F cyclic of prime degree ℓ, characteristic 0; twisted characters normalised as in §6.4; The Shintani character identity defines tempered lifting with the canonical intertwiner. The extension to all irreducibles is by Langlands standard data, not an assertion of that character identity for every non-tempered representation.
 
@@ -2169,7 +1964,7 @@ Compare twisted orbital integrals of φ on GL_n(E) with orbital integrals of f o
 - The Steinberg representation of GL_n(F) lifts to the Steinberg representation of GL_n(E).
 - An unramified principal series lifts to the unramified principal series with Satake parameters raised to the ℓ-th power when E/F is unramified.
 
-*Needs:* §6.4; §4.9; §2.16; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3/square-integrable-tempered; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3/langlands-classification; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-trace-formula.
+*Needs:* §6.4; §4.9; §2.16; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.3 (Tempered representations and the conditional Langlands classification); `TauCetiRoadmap.AutomorphicSpectralTheory` §6.16 Invariant trace formula.
 
 ### 6.13 Twisted character support and real Paley–Wiener theorem
 
@@ -2179,7 +1974,7 @@ For a component of a reductive group over a characteristic-zero local field with
 
 ([R. E. Kottwitz and J. D. Rogawski — The distributions in the invariant trace formula are supported on characters](https://doi.org/10.4153/CJM-2000-034-6), Introduction p. 804; §6 Theorem 1 and proof pp. 810–813; [P. Delorme and P. Mezo — A twisted invariant Paley–Wiener theorem for real reductive groups](https://www.i2m.univ-amu.fr/perso/patrick.delorme/reprints-delorme/2008TwistedPaley-WienerMezo.pdf), §9 Theorem 4 and proof pp. 375–377; §7 Theorem 3 pp. 364–365.)
 
-Delorme–Mezo Theorem 4: necessity follows from finite K-types, the scalar extension action and the Fourier support bound. For sufficiency convert the family to the main Theorem 3 data; normalized analytic intertwiners preserve the root-of-unity covariance and the spectral relations. Kottwitz–Rogawski §6: induct on dimension/Levi order, descend to regular elliptic elements, globalize the local group, use weak approximation and the cohomological conjugacy-separation lemmas, and isolate a positive multiple of the desired local distribution in the global trace identity. The global argument is an induction in Arthur’s formula, not a cycle using the final unitary stable comparison. Its underlying approximation/Hasse inputs are required independently at this scope.
+Delorme–Mezo Theorem 4: necessity follows from finite K-types, the scalar extension action and the Fourier support bound. For sufficiency convert the family to the main Theorem 3 data; normalized analytic intertwiners preserve the root-of-unity covariance and the spectral relations. Kottwitz–Rogawski §6: induct on dimension/Levi order, descend to regular elliptic elements, globalize the local group, use weak approximation and the cohomological conjugacy-separation lemmas, and isolate a positive multiple of the desired local distribution in the global trace identity. The global argument is an induction in Arthur’s formula, not a cycle using the final unitary stable comparison. Weak approximation for the group and the simply connected Hasse principle in §1.9 supply the conjugacy-separation step before applying the global trace induction.
 
 **Checks.**
 
@@ -2187,7 +1982,7 @@ Delorme–Mezo Theorem 4: necessity follows from finite K-types, the scalar exte
 - For θ=1, the covariance condition becomes the ordinary real trace transform condition.
 - If every twisted character vanishes on f, every I_M(γ,f) vanishes.
 
-*Needs:* §6.6; §6.4; §1.11; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-recursion; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/langlands-classification.
+*Needs:* §6.6; §6.4; §1.11; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.15 (Invariantization by Levi recursion); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 6.14 Small-level functions are base-change transfers (the level N_0)
 
@@ -2231,9 +2026,9 @@ In the same test-function and transfer normalization as §6.18, the contribution
 
 *Hypotheses.* G_der simply connected; local/global transfers and product formula fixed; same real split-centre quotient and central character on both sides.
 
-([R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf), §9.5–9.6 pp. 393–396.)
+([R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf), §9.5–9.6 pp. 393–396; [S. Morel — On the cohomology of certain non-compact Shimura varieties](https://arxiv.org/pdf/0802.4451v2), Proposition 3.3.4 and Remark 3.3.5, pp. 55–58, Remark 6.2.2, p. 93, for the unitary archimedean calculation.)
 
-Separate the noncentral classes on G and the (G,H)-regular classes on H exactly as in Kottwitz §9.5–9.6. Compute the omitted terms with the centralizer measures, ker¹ and component weights, and prove their complementary identity. A primary proof with these conventions is required for the central elliptic complement. Add this identity to Theorem 9.6; no regular approximation argument silently inserts the singular central terms.
+Compute the complements directly. For a proper H, the real transfer of the Euler–Poincaré function has zero stable orbital integral on non-(G,H)-regular semisimple elements: multiply the stable discrete-series character formula by the transfer denominator, cancel the H-roots, and the remaining G-root factors vanish on precisely this singular set. For unitary groups Morel's proposition proves the cancellation, including the singular limit; the remark applies it to the elliptic sum. Thus every proper-H complementary term is zero. For the quasi-split inner datum, match rational central elements through the common centre. Semisimple descent and the zero-nilpotent germ compare the central values of the local inner transfers, with the centralizer Haar measure and the inner-form sign retained. At the real place use the same Weyl-character limit for the Euler–Poincaré function. Multiply these local comparisons: the global product of inner-form signs is one (§1.13), and the global transfer factor is one (§2.7). The central orbital quotient is a point, so the terms are the central values multiplied by τ(G). Equality of the inner-form Tamagawa numbers (§6.5) gives the central identity term by term. Add it to Theorem 9.6. This argument uses germ coefficients and the special real transfer, rather than continuity of regular orbital integrals at a singular element.
 
 **Checks.**
 
@@ -2241,7 +2036,7 @@ Separate the noncentral classes on G and the (G,H)-regular classes on H exactly 
 - Omitting the central term cannot be justified by strong regularity of the transfer relation.
 - A zero test function gives zero on each complement.
 
-*Needs:* §6.7; §1.15; §2.7.
+*Needs:* §6.7; §1.15; §2.7; §2.15; §1.13; §6.5; §2.6; §4.7.
 
 ### 6.17 Invariant orbital and character distributions on the twisted coset
 
@@ -2270,11 +2065,8 @@ Use the component kernel and the same truncation parameter/chambers as AS.6, tra
 - `TwistedInvariantDistributions.fullLevi`. For M=𝒢, I_M=J_M; no subtraction is made.
 - `TwistedInvariantDistributions.intertwinerSign`. Replacing A by −A changes the weighted character sign, even though A²=1 in both cases.
 - `TwistedInvariantDistributions.torus`. For a torus with θ=1 the discriminant is 1 and the orbital quotient is a point.
-- For θ=1, the recursion agrees with AS.6, with the same measures and character quotient.
-- For M=𝒢 there is no proper-Levi subtraction.
-- Multiplying an order-two extension operator by −1 reverses its twisted spectral transform.
 
-*Needs:* §6.6; §6.4; §6.13; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/weighted-orbital-integral; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-recursion; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; §2.1.
+*Needs:* §6.6; §6.4; §6.13; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.10 Weighted orbital integrals; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.15 (Invariantization by Levi recursion); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); §2.1.
 
 ### 6.18 Kottwitz's stabilization of the elliptic terms
 
@@ -2284,7 +2076,7 @@ Let G be connected reductive over ℚ with G_der simply connected, f = ∏_v f_v
 
 ([R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf), §9.1 p. 391; §§9.2–9.7 pp. 392–397, especially §9.5 and Theorem 9.6 p. 393, (9.6.1)–(9.6.6) pp. 394–395 and Lemma 9.7 p. 396; [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §5.4, p. 36; [S. W. Shin — A stable trace formula for Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), §5.1, Lemma 5.1, pp. 15–16; §7, Lemma 7.1, p. 26.)
 
-Kottwitz 1986 (9.6.1)–(9.6.4): count rational classes in an adelic stable class via ker¹(I)→ker¹(G), translate the existence condition through the global Kottwitz obstruction and apply finite Fourier inversion in κ. Use Lemma 9.7 to identify pairs (stable γ,κ) with elliptic endoscopic data and transferred stable classes. Its existence/uniqueness and automorphism-orbit calculation produce the outer automorphism denominator; they are not a simple bijection before taking these orbits. Apply the transfer-factor product formula and local matching; the cohomological exact-sequence calculation in the proof produces the relative τ₁(G)/τ₁(I) coefficients. Use the number-one target to replace relative Tamagawa numbers by absolute ones. Theorem 9.6 gives T_e* = Σι ST_e** only: omit central classes on G, use (G,H)-regular classes for proper H, and omit central classes for its quasi-split inner datum. Add the separate complement theorem to obtain the full displayed T_e identity. Prove that complement independently before applying the full identity.
+Kottwitz 1986 (9.6.1)–(9.6.4): count rational classes in an adelic stable class via ker¹(I)→ker¹(G), translate the existence condition through the global Kottwitz obstruction and apply finite Fourier inversion in κ. Use Lemma 9.7 to identify pairs (stable γ,κ) with elliptic endoscopic data and transferred stable classes. Its existence/uniqueness and automorphism-orbit calculation produce the outer automorphism denominator; they are not a simple bijection before taking these orbits. Apply the transfer-factor product formula and local matching; the cohomological exact-sequence calculation in the proof produces the relative τ₁(G)/τ₁(I) coefficients. Use the number-one target to replace relative Tamagawa numbers by absolute ones. Theorem 9.6 gives T_e* = Σι ST_e** only: omit central classes on G, use (G,H)-regular classes for proper H, and omit central classes for its quasi-split inner datum. Add the central complement of §6.16 to obtain the full displayed T_e identity.
 
 **Checks.**
 
@@ -2306,17 +2098,17 @@ Use Arthur II Theorems 3.3 and 4.4 for the fine geometric/spectral expansions of
 
 **Checks.**
 
-- For θ trivial (no twist) the statement reduces to AutomorphicSpectralTheory:AS.6/invariant-trace-formula.
+- For θ trivial (no twist) the statement reduces to AutomorphicSpectralTheory §6.16 Invariant trace formula.
 - If 𝒢θ(ℚ)\𝒢(𝔸)^1 were compact the formula would reduce to the twisted Selberg trace formula.
 - For f cuspidal at ∞ with [F^+:ℚ] ≥ 2, the geometric side reduces to elliptic terms (§6.21).
 
-*Needs:* §6.17; §6.13; §6.6; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/coarse-trace-identity; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-geometric-expansion; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-spectral-expansion.
+*Needs:* §6.17; §6.13; §6.6; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.6 (Coarse trace formula); `TauCetiRoadmap.AutomorphicSpectralTheory` §6.12 Fine geometric expansion; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.13 Fine spectral expansion.
 
 ### 6.20 The archimedean invariant vanishing and character identity
 
 In Morel’s base-change component for a quasi-split cuspidal fixed group H with simply connected derived subgroup, let f∞ be a twisted pseudo-coefficient of the θ-discrete representation with parameter φ|W_ℂ, for the discrete-series packet associated with a regular algebraic coefficient of H. After splitting, a term for M can survive only when A_M=A_M,ℝ. For such M, I_M^𝒢(γ,f∞)=0 if the associated fixed Levi M_H is not cuspidal. If it is cuspidal, I_M^𝒢(γ,f∞)=|D^M(γ)|^(1/2) Φ_M^𝒢(γ,f∞), where the discriminant uses the semisimple part of γθ and Φ is the θ-discrete packet character expression of Morel §8.2. It is zero on non-θ-semisimple γ. These identities yield Morel Proposition 8.2.3; its spectral coefficients still incorporate discrete data from proper Levi subsets.
 
-*Hypotheses.* Use Morel’s hypotheses and central-character spaces; no claim for an arbitrary disconnected reductive group or arbitrary infinity function. Real θ-discrete character growth and boundary identities, and connected centralizer unipotent limits, are needed; their independent primary proofs are required.
+*Hypotheses.* Use Morel’s hypotheses and central-character spaces; no claim for an arbitrary disconnected reductive group or arbitrary infinity function. The θ-discrete characters have the infinitesimal character and central character of the chosen regular algebraic coefficient; the boundary relations and unipotent limits below are taken in that same central-character space.
 
 ([S. Morel — On the cohomology of certain non-compact Shimura varieties](https://arxiv.org/abs/0802.4451v2), §8.2 Proposition 8.2.3 and proof pp. 133–135; Lemmas 8.2.5/8.2.6 pp. 135–136; Lemma 8.1.10 p. 130.)
 
@@ -2328,7 +2120,7 @@ Apply Arthur I Proposition 9.1 and Corollary 9.2 to isolate the infinity factor 
 - A noncuspidal fixed Levi gives zero even at a singular semisimple element, not merely on the regular set.
 - At degree one a proper cuspidal fixed Levi may survive; infinity cuspidality alone does not imply the simple geometric identity.
 
-*Needs:* §6.17; §6.10; §6.11; §2.14; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/discrete-series.
+*Needs:* §6.17; §6.10; §6.11; §2.14; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 6.21 The simple twisted geometric side equals a stable elliptic sum
 
@@ -2356,7 +2148,7 @@ With f^n⃗ as in §6.21, I^{𝒢_n⃗θ}_spec(f^n⃗θ) = Σ_M |W_M| |W_{𝒢_n
 
 ([S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §4.5, Proposition 4.8 and Corollary 4.14, pp. 28–30; [A. Caraiani and P. Scholze — On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), §5.3, Proposition 5.3.3 and Remark 5.3.4, p. 738; [A. Caraiani and P. Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/abs/1909.01898v2), §5.6, proof of Lemma 5.6.2, pp. 75–76; [C. Mœglin and J.-L. Waldspurger — Le spectre résiduel de GL(n)](https://www.numdam.org/item/ASENS_1989_4_22_4_605_0.pdf), §I.1.1(3) and proof pp. 607–608; [Sug Woo Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), Proposition 4.8 and Remark 4.10, p. 28; Lemma 4.11, p. 29; Corollary 4.14, p. 30 (author copy).)
 
-Shin Proposition 4.8: start with Arthur’s spectral expansion and its chosen parameter ordering. The infinity infinitesimal character eliminates the additional Weyl terms; the surviving involution acts by −1 on the indicated quotient, giving determinant 2^dim. Shin Lemma 4.11 and Corollary 4.14: use the global functional equation and normalized intertwiner to fix A′ and its square; the ξ twist restricts to 𝒢(𝔸)¹. Proper spectral Levi terms remain. Use the number-field residual classification for GL_n, including multiplicity one for discrete Speh data. Mœglin–Waldspurger §I.1.1(3) gives irreducibility of unitary induction and holomorphic invertible normalized operators at the unitary point; its proof invokes Bernstein’s non-archimedean theorem (§6.1) and the archimedean case specified from AF.1. Nonzero Lefschetz trace forces the required cohomological infinity component. Import the invariant spectral expansion and group the regular Weyl terms. Use the Φ^(−1)θ involution to identify the single surviving regular element. Insert the residual spectrum classification into each Levi discrete summand. Transport the intertwining operator through the explicit central twist and retain its determinant coefficient.
+Shin Proposition 4.8: start with Arthur’s spectral expansion and its chosen parameter ordering. The infinity infinitesimal character eliminates the additional Weyl terms; the surviving involution acts by −1 on the indicated quotient, giving determinant 2^dim. Shin Lemma 4.11 and Corollary 4.14: use the global functional equation and normalized intertwiner to fix A′ and its square; the ξ twist restricts to 𝒢(𝔸)¹. Proper spectral Levi terms remain. Use the number-field residual classification for GL_n, including multiplicity one for discrete Speh data. Mœglin–Waldspurger §I.1.1(3) gives irreducibility of unitary induction and holomorphic invertible normalized operators at the unitary point; its proof invokes Bernstein’s non-archimedean theorem (§6.1) and the archimedean theorem of §6.1. Nonzero Lefschetz trace forces the required cohomological infinity component. Use the invariant spectral expansion and group the regular Weyl terms. Use the Φ^(−1)θ involution to identify the single surviving regular element. Insert the residual spectrum classification into each Levi discrete summand. Transport the intertwining operator through the explicit central twist and retain its determinant coefficient.
 
 **Checks.**
 
@@ -2367,7 +2159,7 @@ Shin Proposition 4.8: start with Arthur’s spectral expansion and its chosen pa
 - For a full Levi with two nonzero endoscopic blocks the determinant is 4 and its reciprocal coefficient is 1/4.
 - Absorbing the normalization operator into an unnamed scalar fails the target.
 
-*Needs:* §6.19; §6.10; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-spectral-expansion; §6.4; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.4; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1; §6.1; §5.2; §6.6; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-trace-formula.
+*Needs:* §6.19; §6.10; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.13 Fine spectral expansion; §6.4; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.AutomorphicSpectralTheory` §4 (Automorphic spectral completeness); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; §6.1; §5.2; §6.6; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.16 Invariant trace formula.
 
 ### 6.23 The simple trace formula for division-algebra unitary groups
 
@@ -2377,7 +2169,7 @@ Let F = F_0K be a CM field with F_0 totally real of even degree over ℚ and K i
 
 ([P. Scholze — The local Langlands correspondence for GL_n over p-adic fields](https://arxiv.org/abs/1010.1540v1), §8, Lemma 8.1 and Remarks 8.2–8.3, p. 19; [P. Scholze — The local Langlands correspondence for GL_n over p-adic fields](https://arxiv.org/abs/1010.1540v1), §10, Corollary 10.1, p. 26; [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §5.4, p. 36.)
 
-Existence of (D,*,h_0) with the signatures: Scholze Lemma 8.1 (Kottwitz 1992; Harris–Taylor §I.7). Compactness: D is a division algebra, so G is anisotropic modulo centre and AutomorphicSpectralTheory:AS.6/compact-trace-specialization applies. Vanishing of proper endoscopic contributions and the identity of the elliptic part with the spectral side: Kottwitz's argument for simple Shimura varieties (Kottwitz 1992, Invent. Math. 108), used by Scholze §§9–10 (Corollary 10.1); applied in §6.18 in the case of the trivial triple. The global Jacquet–Langlands step is cited by Scholze through Harris–Taylor and Clozel's base change, §6.27.
+Existence of (D,*,h_0) with the signatures: Scholze Lemma 8.1 (Kottwitz 1992; Harris–Taylor §I.7). Compactness: D is a division algebra, so G is anisotropic modulo centre and AutomorphicSpectralTheory §6.17 (Trace formula for compact quotients) applies. Vanishing of proper endoscopic contributions and the identity of the elliptic part with the spectral side: Kottwitz's argument for simple Shimura varieties (Kottwitz 1992, Invent. Math. 108), used by Scholze §§9–10 (Corollary 10.1); applied in §6.18 in the case of the trivial triple. The global Jacquet–Langlands step is cited by Scholze through Harris–Taylor and Clozel's base change, §6.27.
 
 **Checks.**
 
@@ -2385,13 +2177,13 @@ Existence of (D,*,h_0) with the signatures: Scholze Lemma 8.1 (Kottwitz 1992; Ha
 - Replacing D by a split algebra leaves the scope of this construction; no assertion that every split-algebra unitary quotient is noncompact is made.
 - For f_∞ the Euler–Poincaré function, non-cohomological π_∞ contribute zero.
 
-*Needs:* `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/compact-trace-specialization; §6.18; §2.10; `TauCetiRoadmap.PELModuli`, M0/similitude-group; `TauCetiRoadmap.PELModuli`, M5/unitary-pel-datum.
+*Needs:* `TauCetiRoadmap.AutomorphicSpectralTheory` §6.17 (Trace formula for compact quotients); §6.18; §2.10; `TauCetiRoadmap.PELModuli` §M0.7 (The similitude group); `TauCetiRoadmap.PELModuli` §M5.5 (Unitary PEL data with prescribed signatures).
 
 ### 6.24 Global cyclic base change for GL_n (Arthur–Clozel)
 
 Let E/F be a cyclic extension of number fields of prime degree ℓ with Gal(E/F) = ⟨σ⟩ and ω the character of 𝔸_F^×/F^× N(𝔸_E^×) of class field theory. An automorphic representation of GL_n is induced from cuspidal if it is ind(σ_M ⊗ 1) for a cuspidal unitary representation σ_M of a Levi M(𝔸). A σ-stable Π of GL_n(𝔸_E) is a weak lift of π if Π_w is the unramified lift of π_v at almost all places, and a strong lift if Π_w is the local lift of π_v (§6.12) at every place. Then (all representations induced from cuspidal): (a) if π is cuspidal and π ≇ π⊗ω, there is a unique σ-stable Π lifting π, and Π is cuspidal; (b) if π is cuspidal and π ≅ π⊗ω, then ℓ divides n and Π is the isobaric sum of the ℓ distinct conjugates of a cuspidal representation of GL_{n/ℓ}(𝔸_E); (c) every σ-stable cuspidal Π is the lift of some cuspidal π, unique up to twisting by powers of ω; (d) a weak lift is a strong lift; (e) ω_Π = ω_π ∘ N_{E/F}, and the lift is independent of the choice of σ; (f) two cuspidal π, π′ with the same lift differ by a power of ω. At a real place becoming complex, rec(Π_w)=rec(π_v)|W_ℂ in the AF.1 archimedean normalization; for n=1 this is χ↦χ∘N_ℂ/ℝ, with N(z)=|z|². Apply the same normalization to contragredients and algebraic central twists. For a cyclic extension L/K of number fields of prime degree r and its class-field character η, a cuspidal unitary representation π of GL_m(A_K) has a unique cyclic base change Π in the class induced from cuspidal representations. It is cuspidal if π is not isomorphic to π⊗η; in the self-twist case r divides m and Π is the isobaric sum of the r distinct conjugates of a cuspidal representation of GL_(m/r)(A_L). A Galois-stable cuspidal Π descends, and its descents differ by powers of η. Local tempered base change satisfies the Shintani character identity and sends the central character ω_π to ω_π∘N_L/K; the other tempered representations with the same lift are the inductions of the same discrete-series data twisted factorwise by powers of the local class-field character, and the lift of a supercuspidal representation is supercuspidal when it is discrete and otherwise is induced from the distinct Galois conjugates of a supercuspidal representation.
 
-*Hypotheses.* E/F cyclic of prime degree ℓ, number fields; representations induced from cuspidal (unitary cuspidal data); Every place includes archimedean places. Use AF.1/archimedean-llc-gln: at ℝ→ℂ restrict the W_ℝ-parameter to W_ℂ; at a split complex place use the identical parameter. This is the existing archimedean dictionary, not the nonarchimedean cyclic theorem. Use the induced-from-unitary-cuspidal class and prime degree for the stated global cuspidality alternative. The local statement is for cyclic nonarchimedean extensions and tempered representations.
+*Hypotheses.* E/F cyclic of prime degree ℓ, number fields; representations induced from cuspidal (unitary cuspidal data); Every place includes archimedean places. Use AutomorphicFormsOnReductiveGroups AF.1, **Langlands’ correspondence for GL_n(ℝ) and GL_n(ℂ)**: at ℝ→ℂ restrict the W_ℝ-parameter to W_ℂ; at a split complex place use the identical parameter. This is the existing archimedean dictionary, not the nonarchimedean cyclic theorem. Use the induced-from-unitary-cuspidal class and prime degree for the stated global cuspidality alternative. The local statement is for cyclic nonarchimedean extensions and tempered representations.
 
 ([J. Arthur and L. Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Ch. 3 Definitions 1.1–1.2 p. 199, Theorem 3.1 p. 201, Definition 4.1 and Theorem 4.2 pp. 202–203, Proposition 4.4 pp. 210–211, Theorem 5.1 pp. 212–213; [P. Scholze — The local Langlands correspondence for GL_n over p-adic fields](https://arxiv.org/abs/1010.1540v1), §12, p. 31; §13, pp. 32–35; [James Arthur and Laurent Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Chapter I, Definition 6.1 and Theorem 6.2, p. 51; Proposition 6.7, p. 59; Lemma 6.10, p. 62; Chapter III, Theorem 4.2, pp. 202–203.)
 
@@ -2406,7 +2198,7 @@ Compare the twisted trace formula for GL_n(E) ⋊ ⟨σ⟩ with the trace formul
 - A self-twist example has noncuspidal base change; cuspidality is not automatic.
 - For an unramified local degree-r extension the Satake eigenvalues become α_i^r.
 
-*Needs:* §6.12; §6.19; §4.9; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-trace-formula; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln; §4.10.
+*Needs:* §6.12; §6.19; §4.9; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.16 Invariant trace formula; `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; §4.10.
 
 ### 6.25 Stable–twisted identity for unitary similitude groups
 
@@ -2434,7 +2226,7 @@ Let E/F be a cyclic extension of number fields of degree ℓ (prime or not) and 
 
 ([J. Arthur and L. Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Ch. 3 Definition 6.1 and Theorem 6.2 p. 215; Corollary 6.5 p. 218; [P. Scholze — The local Langlands correspondence for GL_n over p-adic fields](https://arxiv.org/abs/1010.1540v1), §14, p. 35; [James Arthur and Laurent Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Chapter III, Definition 6.1 and Theorem 6.2, p. 215; proof, pp. 215–217; Lemma 6.4, pp. 217–218; Corollary 6.5, p. 218.)
 
-Use prime-degree cyclic base change and its cuspidal fibres to construct induction as in AC Ch. 3 §6, Theorem 6.2 p. 215; iterate along a cyclic tower. Verify the unramified induced Satake parameter at every splitting type, then apply strong multiplicity one and Rankin–Selberg pole counting. This proof does not introduce an additional unspecified character-twisted trace formula. Uniqueness from strong multiplicity one; cuspidality criterion from the Rankin–Selberg pole count (AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles) and §6.24 (AC Ch. 3 Theorem 6.2, p. 215, and Corollary 6.5, p. 218, proof to p. 219). Construct the induced Satake parameters at split and inert places. Use the cyclic base-change descent alternatives to produce the global representation. Use strong multiplicity one for uniqueness and induction by stages for transitivity. Compute the central character by the determinant of the induced local parameter, including the permutation determinant character.
+Use prime-degree cyclic base change and its cuspidal fibres to construct induction as in AC Ch. 3 §6, Theorem 6.2 p. 215; iterate along a cyclic tower. Verify the unramified induced Satake parameter at every splitting type, then apply strong multiplicity one and Rankin–Selberg pole counting. This proof does not introduce an additional unspecified character-twisted trace formula. Uniqueness from strong multiplicity one; cuspidality criterion from the Rankin–Selberg pole count (AutomorphicLFunctionsAndLocalFactors AL.3 — Rankin–Selberg theory and function-field factors) and §6.24 (AC Ch. 3 Theorem 6.2, p. 215, and Corollary 6.5, p. 218, proof to p. 219). Construct the induced Satake parameters at split and inert places. Use the cyclic base-change descent alternatives to produce the global representation. Use strong multiplicity one for uniqueness and induction by stages for transitivity. Compute the central character by the determinant of the induced local parameter, including the permutation determinant character.
 
 **Checks.**
 
@@ -2444,7 +2236,7 @@ Use prime-degree cyclic base change and its cuspidal fibres to construct inducti
 - For rank-one input and quadratic L/K, det Ind χ equals the transfer of χ times the quadratic extension character.
 - A Galois-invariant cuspidal input induces a noncuspidal isobaric sum.
 
-*Needs:* §6.24; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-global-poles.
+*Needs:* §6.24; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors.
 
 ### 6.27 Base change and descent between unitary groups and GL_n over CM fields
 
@@ -2454,7 +2246,7 @@ For exactly the division-algebra unitary similitude datum of Scholze §8 (totall
 
 ([P. Scholze — The local Langlands correspondence for GL_n over p-adic fields](https://arxiv.org/abs/1010.1540v1), §8 Lemma 8.1 and Remark 8.3 pp. 19–20; §10 Theorem 10.5 p. 27.)
 
-Apply Scholze §10 Theorem 10.5 p. 27 with all hypotheses of §8 pp. 19–20. Its proof cites Harris–Taylor VI.2.10; those internal proofs are independent primary requirements. Keep the similitude character ψ: equality of the GL_n-factor alone is not injective on representations of GL₁×GL_n. Shin 2011 Corollaries 6.5 and 6.7 concern cohomology and Hodge data and do not state this base change or descent.
+Prove the restricted assertion by comparing the compact-unitary trace identity for matching split and nonsplit test functions, isolating the fixed infinity type by its Euler–Poincaré function, and applying the simple GL trace formula and strong multiplicity one. Globalize a prescribed local essentially square-integrable factor by the cuspidal test of §6.23. The vanishing of proper parabolic terms makes the surviving base change cuspidal; the same trace isolation gives uniqueness and the stated descent image. This is the argument of Scholze §10, Theorem 10.5, p. 27, with precisely the division and infinity hypotheses of §8, pp. 19–20 (his Harris–Taylor VI.2.10 case). Keep the similitude character ψ: equality of the GL_n-factor alone is not injective on representations of GL₁×GL_n. Shin 2011 Corollaries 6.5 and 6.7 concern cohomology and Hodge data and do not state this base change or descent.
 
 **Checks.**
 
@@ -2496,7 +2288,7 @@ Labesse Theorem 5.1 compares the unitary trace to the twisted GL trace with the 
 - A residual discrete GL block does not imply actual infinity base change from infinitesimal-character compatibility alone.
 - A ramified finite inert place prevents direct application of the stated descent theorem.
 
-*Needs:* §6.25; §6.22; §6.10; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln.
+*Needs:* §6.25; §6.22; §6.10; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### Examples
 
@@ -2504,7 +2296,7 @@ With tau(G)=tau(H)=2 and an endoscopic outer-automorphism group of order two, `e
 
 ### Dependencies
 
-§2.1; §2.13; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3a/admissibility-of-irreducibles; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-measure; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/tamagawa-number; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1/z-extension-existence; `TauCetiRoadmap.AdelicAlgebraicGroups`, AA.2/central-character-extension-twist; `TauCetiRoadmap.ClassFieldTheory`, layer 11 the global class formation and global artin reciprocity; `TauCetiRoadmap.GlobalNumberFields`, layer 10 archimedean characters infinity types and cyclotomic arithmetic; §1.16; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-of-weil-restriction; §1.11; §1.8; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/langlands-dual-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/l-group; §2.4; §1.4; §2.10; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/satake-isomorphism; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4/spherical-parameter; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/jacquet-module; §4.9; §2.11; §2.15; §2.14; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/general-euler-poincare; `TauCetiRoadmap.ReductiveGroups`, layer 7 structure theory; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/discrete-series; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3/square-integrable-tempered; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3/langlands-classification; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-trace-formula; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/invariant-recursion; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/langlands-classification; §4.7; §1.15; §2.7; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/weighted-orbital-integral; §4.11; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/coarse-trace-identity; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-geometric-expansion; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/fine-spectral-expansion; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.4; §5.2; `TauCetiRoadmap.AutomorphicSpectralTheory`, AS.6/compact-trace-specialization; `TauCetiRoadmap.PELModuli`, M0/similitude-group; `TauCetiRoadmap.PELModuli`, M5/unitary-pel-datum; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln; §4.10; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-global-poles; §4.8.
+`TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; `TauCetiRoadmap.AdelicAlgebraicGroups` §2.4 (Gauge forms and Tamagawa normalization); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.5 (arithmetic invariants: π₁, z-extensions and the Kottwitz homomorphism); `TauCetiRoadmap.GlobalNumberFields` Layer 8 (idele classes and norms) and Layer 9 (Hecke characters); `TauCetiRoadmap.AdelicAlgebraicGroups` §2.1 (Characters, logarithms and the split centre); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (the global class formation and global Artin reciprocity); `TauCetiRoadmap.GlobalNumberFields` Layer 10 (archimedean characters, infinity types, and cyclotomic arithmetic); §2.16; §1.16; `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.5.1 (the dual group and its Galois action); §1.11; §1.8; `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); §2.4; §1.4; §2.10; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.1 (The Satake transform and isomorphism); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.4.2 (Spherical parameters); §4.9; §2.11; §2.15; §2.14; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.19 Real Euler–Poincaré test functions; `TauCetiRoadmap.ReductiveGroups` Layer 7 (structure theory); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.3 (Tempered representations and the conditional Langlands classification); `TauCetiRoadmap.AutomorphicSpectralTheory` §6.16 Invariant trace formula; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.15 (Invariantization by Levi recursion); §4.7; §1.15; §2.7; §1.13; §2.6; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.10 Weighted orbital integrals; §2.1; §4.11; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.6 (Coarse trace formula); `TauCetiRoadmap.AutomorphicSpectralTheory` §6.12 Fine geometric expansion; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.13 Fine spectral expansion; `TauCetiRoadmap.AutomorphicSpectralTheory` §4 (Automorphic spectral completeness); §5.2; `TauCetiRoadmap.AutomorphicSpectralTheory` §6.17 (Trace formula for compact quotients); `TauCetiRoadmap.PELModuli` §M0.7 (The similitude group); `TauCetiRoadmap.PELModuli` §M5.5 (Unitary PEL data with prescribed signatures); §4.10; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors; §4.8; Mathlib `MeasureTheory.Measure.IsHaarMeasure`.
 
 ## Layer 7: algebraic isocrystals and rational Igusa geometry
 
@@ -2516,7 +2308,7 @@ Fix unramified integral PEL data of type A or C at p, a hyperspecial p-level, an
 
 The interface consists of the following operations and identities.
 
-- `IgusaPELModel.scheme`: the scheme representing the specified PEL functor and its identification with the supplied algebraic space.
+- `IgusaPELModel.scheme`: the scheme representing the specified PEL functor and its identification with the PEL algebraic space.
 - `IgusaPELModel.universal`: the universal abelian scheme, endomorphism action, polarization and prime-to-p level transported through that identification.
 - `IgusaPELModel.hilbertPresentation`: the bounded polarized Hilbert locus, its change-of-basis action and universal family.
 - `IgusaPELModel.geometricQuotient`: prove that its level-rigidified stable-orbit quotient exists as a quasi-projective scheme, with a descended ample line and universal polarized family.
@@ -2526,7 +2318,7 @@ The interface consists of the following operations and identities.
 - `IgusaPELModel.specialFibre`: the scheme-theoretic fibre over the residue field with its universal p-divisible group.
 - `IgusaPELModel.levelChange`: prime-to-p level maps and Hecke correspondences, compatible with the representing functor.
 
-Prove separatedness and the quasi-finiteness of the forgetful map by rigidity and boundedness of endomorphisms compatible with the fixed positive Rosati involution and integral lattice. Use the algebraic-space form of Zariski's main theorem over the polarized abelian moduli scheme to obtain a scheme realization and quasi-projectivity, checking the finite-type and separated hypotheses. Pull back the universal family and the chosen ample line on the polarized base; prove the good-prime smoothness from the supplied PEL local model. Neatness removes stabilizers but is not the scheme-realization proof. Construct the polarized base by a bounded Hilbert presentation of polarized abelian varieties, with the symmetric relatively ample embedding and level rigidification, and prove that its geometric quotient is quasi-projective. Faltings–Chai, *Degeneration of Abelian Varieties*, I.4.3–4.4 and I.4.11, pp. 19 and 23–24, define the fine-level functor and recall Mumford’s quasi-projective scheme theorem; their recall does not supply that GIT proof. The independent geometric-quotient and polarization-type extension proof is required here. R09.2 supplies Hilbert presentations; it does not supply the stable-orbit quotient theorem. This target includes the quotient of this particular polarized Hilbert locus, with its free level-rigidified change-of-basis action and descended ample line. No Hodge-line ampleness theorem from a compactification is assumed. The model is used in [Shin, *Counting points on Igusa varieties*](https://math.berkeley.edu/~swshin/IgusaVar.pdf), §5, pp. 13–15. That recall supplies the intended datum and endpoint; the scheme-realization and ample-bundle argument must be proved with the lower moduli and algebraic-space results.
+Prove separatedness and the quasi-finiteness of the forgetful map by rigidity and boundedness of endomorphisms compatible with the fixed positive Rosati involution and integral lattice. Use the algebraic-space form of Zariski's main theorem over the polarized abelian moduli scheme to obtain a scheme realization and quasi-projectivity, checking the finite-type and separated hypotheses. Pull back the universal family and the chosen ample line on the polarized base; prove the good-prime smoothness from PELModuli’s local model. Neatness removes stabilizers but is not the scheme-realization proof. Construct the polarized base by a bounded Hilbert presentation of polarized abelian varieties, with the symmetric relatively ample embedding and level rigidification, and prove that its geometric quotient is quasi-projective. For the geometric quotient, take a sufficiently high tensor power of the symmetric polarization line so its higher cohomology vanishes and its sections give a fixed Hilbert polynomial. The Hilbert locus of embedded polarized group varieties with identity and full level is locally closed; translating the level frame removes stabilizers. The linearized determinant-of-sections line separates the stable orbits, so its invariant sections construct the quasi-projective geometric quotient and descend an ample power. For a fixed nonsymmetric polarization type use the symmetric tensor power and retain the original polarization as a homomorphism to the dual in the Hilbert data; the bounded degree cuts out its locus. Descent of the universal family follows from the free level-rigidified action. This is the fine polarized-moduli scheme theorem in Faltings–Chai, *Degeneration of Abelian Varieties*, I.4.3–4.4 and I.4.11, pp. 19, 23–24, specialized to this datum. The Hilbert charts are those of AlgebraicModuliForArithmeticGeometry §2.1. No compactification ampleness theorem is used. The model is used in [Shin, *Counting points on Igusa varieties*](https://math.berkeley.edu/~swshin/IgusaVar.pdf), §5, pp. 13–15. The Hilbert quotient and the separated quasi-finite forgetful map give the scheme realization and ample line for that datum.
 
 **Checks.**
 
@@ -2535,7 +2327,7 @@ Prove separatedness and the quasi-finiteness of the forgetful map by rigidity an
 - A non-neat level can have nontrivial geometric stabilizers and cannot use the fine-moduli identification above.
 - A finite étale Igusa cover of a nonproper central leaf remains nonproper; quasi-projectivity supplies neither properness nor boundary-free ordinary cohomology.
 
-*Needs:* `TauCetiRoadmap.PELModuli`, M2/representability, M2/formal-smoothness and M2/universal-family; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A1–A2 (rigidity, polarizations and symmetric relatively ample lines); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry`, R09.2 (bounded Hilbert presentations); `TauCetiRoadmap.SchemeAndStackFoundations`, SF.1 (algebraic spaces and Zariski's main theorem).
+*Needs:* `TauCetiRoadmap.PELModuli` §M2 (Representability and smooth good models); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` Layers A1 (Rigidity and normalized line bundles) and A2 (Duality, polarizations and ample classes); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §2.1 (Hilbert families and graph parameters); `TauCetiRoadmap.SchemeAndStackFoundations` §SF.1b (Algebraic spaces).
 
 ### 7.2 Algebraic G-isocrystals and sigma-conjugacy
 
@@ -2553,22 +2345,21 @@ The interface consists of the following operations and identities.
 - `GIsocrystal.aut`: Tensor automorphisms of the functor equal the sigma-centralizer functor of b.
 - `GIsocrystal.tensorIso_ext`: Two Frobenius-compatible tensor natural isomorphisms are equal if their components on every finite-dimensional algebraic representation are equal; under a trivialization these components are ρ(g).
 
-Use the pinned semilinear carrier and the representation/comodule tensor category and fibre-functor reconstruction from upstream ReductiveGroups Layer 1. Trivialize the L-valued fibre functor; changing its trivialization changes b by sigma-conjugation. Frobenius-compatible tensor isomorphisms are exactly those conjugators. Use Steinberg vanishing over L to justify the trivialization; prove the tensor-descent step independently at this scope.
+Use the pinned semilinear carrier and the representation/comodule tensor category and fibre-functor reconstruction of ReductiveGroups Layer 1. Trivialize the L-valued fibre functor; changing its trivialization changes b by sigma-conjugation. Frobenius-compatible tensor isomorphisms are exactly those conjugators. Steinberg vanishing over L trivializes the fibre functor. For tensor descent, apply ordinary faithfully flat descent to each finite-dimensional representation and its tensor morphisms; the reconstructed automorphism preserves those morphisms exactly when it lies in G. This identifies tensor descent data with b up to σ-conjugacy.
 
 **Checks.**
 
 - `rank_one`. For G=G_m the class of p^m has integral slope m and agrees with StandardOneDimIsocrystal; m=0 is the unit isocrystal.
 - `fractional_rank_two`. For GL_2, Φ(e_1)=e_2 and Φ(e_2)=p e_1 gives slope 1/2 twice, and is not a sum of two rank-one integral-slope objects.
 - `sigma_not_ordinary`. If b′=g⁻¹bσ(g), multiplication by g intertwines Frobenius. Replacing σ(g) with g makes that intertwining equation fail unless σ(g)=g.
-- For GL_n the class is the isocrystal isomorphism class, not ordinary conjugacy.
 
-*Needs:* Mathlib `WittVector.Isocrystal`; Mathlib `WittVector.IsocrystalEquiv`; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-manin-classification; `TauCetiRoadmap.ReductiveGroups`, layer 1 representations  comodules.
+*Needs:* Mathlib `WittVector.Isocrystal`; Mathlib `WittVector.IsocrystalEquiv`; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.15 (The Dieudonné–Manin classification of isocrystals); `TauCetiRoadmap.ReductiveGroups` Layer 1 (representations = comodules).
 
 ### 7.3 The early rational Igusa trace object
 
 For the CSnc split-prime quasi-split unitary PEL datum and a completely slope-divisible representative X_b, form the finite-level Mantovan Igusa varieties over its central leaf by trivializations of the slope-graded truncated p-divisible group, with the liftable-automorphism condition. The perfection of their inverse limit identifies with the perfect isomorphism torsor. The frames respect the O_F action and the paired polarizations up to one common scalar multiplier, and fppf locally lift to every larger truncation level. Define the rational alternating smooth cohomology class [H_c(Ig^b,Λ)]=Σ_i(−1)^i[H_c^i] over the finite-level tower, with J_b(Q_p)×G(A_f^p) actions. The object is not assumed positive, concentrated or integral.
 
-*Hypotheses.* Use CSnc’s unramified PEL datum, neat prime-to-p levels and completely slope-divisible X_b. Only the early central-leaf/torsor/cohomology construction moves down; compactified fibres and integral concentration stay IG. Preserve the common polarization multiplier across all paired slope factors and the seminormal/perfect-base hypotheses in the torsor construction.
+*Hypotheses.* Use CSnc’s unramified PEL datum, neat prime-to-p levels and completely slope-divisible X_b. The central-leaf/torsor/cohomology construction is used here; compactified fibres and integral concentration are downstream. Preserve the common polarization multiplier across all paired slope factors and the seminormal/perfect-base hypotheses in the torsor construction.
 
 ([Ana Caraiani and Peter Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://www.ma.imperial.ac.uk/~acaraian/papers/noncompact.pdf), §§2.2–2.3, Proposition 2.2.3, Theorem 2.2.4, Definition 2.3.5 and Remark 2.3.7, pp. 14–20; [Ana Caraiani and Peter Scholze — On the generic part of the cohomology of Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Definitions 4.3.6 and §5.2, pp. 716–718, 732–733.)
 
@@ -2588,13 +2379,12 @@ Specialize the lower PEL universal family and define the Newton class and centra
 - `IgusaRational.perfect`. The perfection map induces an ell≠p étale cohomology isomorphism.
 - `IgusaRational.truncation`. An arbitrary automorphism of X_b[p^m] not liftable to the required slope structure is not a finite Igusa level frame.
 - The scalar kernel in the group action is retained.
-- Perfection does not add or remove étale cohomology with ell≠p coefficients.
 
-*Needs:* `TauCetiRoadmap.PELModuli`, M2/representability; `TauCetiRoadmap.PELModuli`, M2/universal-family; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2; `TauCetiRoadmap.DiamondSixOperations`, S2; `TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0.
+*Needs:* `TauCetiRoadmap.PELModuli` §M2.8 (Representability and smoothness); `TauCetiRoadmap.PELModuli` §M2.6 (Formal smoothness at good primes); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory); `TauCetiRoadmap.DiamondSixOperations` Layer S2: The exceptional direct image for eligible maps of small v-stacks; `TauCetiRoadmap.AdicCoefficientsAndComparisons` Layer L0: Adic coefficients.
 
 ### 7.4 Newton and Kottwitz invariants with the PEL sign
 
-For connected reductive G/Q_p, let D be the protorus with X*(D)=Q, the upstream algebraic fundamental group π₁(G)=X_*(T)/coroot lattice with its Galois action, and N(G) the Galois-fixed geometric conjugacy classes of maps D→G. Define ν̄_G:B(G)→N(G) through rational slope decompositions in every representation, and κ_G:B(G)→π₁(G)_Γ. Both are functorial for group homomorphisms, and the image of ν̄ under abelianization equals κ⊗Q. For quasi-split G and a conjugacy class μ, B(G,−μ) means κ=−μ^natural and ν̄≤(−μ)^diamond in the dominant order (choose the dominant member before Galois averaging). This is a definition of the admissible locus, not a claim that every element occurs in a PEL special fibre. For the dual Dieudonné convention used below, BT slopes λ give ν weights −λ.
+For connected reductive G/Q_p, let D be the protorus with X*(D)=Q, the algebraic fundamental group π₁(G)=X_*(T)/coroot lattice with its Galois action, and N(G) the Galois-fixed geometric conjugacy classes of maps D→G. Define ν̄_G:B(G)→N(G) through rational slope decompositions in every representation, and κ_G:B(G)→π₁(G)_Γ. Both are functorial for group homomorphisms, and the image of ν̄ under abelianization equals κ⊗Q. For quasi-split G and a conjugacy class μ, B(G,−μ) means κ=−μ^natural and ν̄≤(−μ)^diamond in the dominant order (choose the dominant member before Galois averaging). This is a definition of the admissible locus, not a claim that every element occurs in a PEL special fibre. For the dual Dieudonné convention used below, BT slopes λ give ν weights −λ.
 
 *Hypotheses.* Fix a based root datum for dominance; μ and Galois action are specified.
 
@@ -2617,7 +2407,7 @@ Obtain the slope protorus grading from finite-dimensional isocrystals. Use the a
 - `mu_average`. For a non-Galois-invariant μ the bound uses the average of its dominant conjugates, rather than μ itself.
 - For GL_n, κ is v_p(det b) and ν̄ lists slopes; Σ of BT slopes λ_i gives κ=−Σλ_i with multiplicities.
 
-*Needs:* §7.2; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-centre-and-fundamental-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1.
+*Needs:* §7.2; `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.1 (quasi-split forms and rational tori over Ĕ).
 
 ### 7.5 Decent representatives, Newton Levi and J_b
 
@@ -2643,7 +2433,6 @@ Use Kottwitz §§4.3 and 6.2 to choose rational ν and solve the decency equatio
 - `division_basic`. GL_2 with isoclinic slope 1/2 has J_b=D^× for the quaternion division algebra; it is not GL_2(Q_p) as a rational group.
 - `ordinary`. GL_2 with distinct slopes 0 and −1 has M_b=G_m×G_m and J_b split; the two-block slope order is retained.
 - `representative_class`. Kottwitz Proposition 6.3 identifies classes in B(M); no assertion b′=gbg⁻¹ for arbitrary decent representatives is an API item.
-- If b is basic, M_b=G but J_b can be a nonsplit inner form.
 
 *Needs:* §7.2; §7.4; §1.6.
 
@@ -2657,11 +2446,13 @@ For unramified integral simple PEL data of type A or C (positive involution, spl
 
 Consume R07.2 Dieudonné full faithfulness and Cartier duality. Dualize and track the Tate twist through the pairing: all λ become −λ. Apply the concrete/tensor dictionary of Shin §4.2 and identify the automorphism functor.
 
+The relative integral classification used in the local deformation and norm constructions is also a target here. For a perfect residue field with its O/ϖ-embedding, strict O-linear Dieudonné theory classifies height-n, dimension-one ϖ-divisible O-modules by free rank-n modules over O⊗_{W(κ_O)}W(k), with relative σ-semilinear F, V and FV=VF=ϖ, the prescribed length-one Hodge quotient, and the structural O-action on Lie. In a basis over κ_r the relative F is βσ in the double coset of diag(ϖ,1,…,1). Integral changes of basis give exactly integral σ-conjugacy, and inverting ϖ gives the quasi-isogeny category. This is the strict relative specialization of the ordinary Dieudonné equivalence, with its O-action and Lie condition imposed, not an identification of relative and absolute Frobenius. For the étale O_A^op-linear rank-one object, Morita decomposition makes its contravariant endomorphism algebra O_A and writes F=β⁻¹σ₀; this gives the first classification stated above. See Scholze §2, pp. 7–8, and Proposition 4.2 with proof, pp. 11–12. Add `StrictDieudonne.relativeFrobenius`, `.integralConjugacy` and `.moritaOpposite` to the API. Check a basis change g replaces β by g⁻¹βσ(g); relative height one has Hodge length one; an étale rank-one object has invertible absolute F and needs β⁻¹, so replacing it by the dimension-one deformation coset fails. These classification statements depend only on R07's ordinary integral Dieudonné equivalence, not on the deformation-ring construction of §10.2.
+
 **Checks.**
 
 - The multiplicative BT group has slope 1 before dualization and weight −1 after it; the étale group has weight 0.
 
-*Needs:* §7.2; §7.4; §7.5; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-p-divisible; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1/p-divisible-cartier-dual; `TauCetiRoadmap.PELModuli`, M0/determinant-condition.
+*Needs:* §7.2; §7.4; §7.5; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.10 (Dieudonné classification of p-divisible groups); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1.7 (The Cartier dual of a p-divisible group); `TauCetiRoadmap.PELModuli` §M0.18 (The Kottwitz determinant condition).
 
 ### 7.7 Central leaves and completely slope-divisible families
 
@@ -2690,7 +2481,7 @@ Use M2 for the good-prime smooth algebraic space and §7.1 for its scheme realiz
 - `fibre_not_family`. A family with nontrivial extensions may have split perfect fibres; replacing H by the direct sum of grades as a family is not part of this definition.
 - Fixing an isogeny class defines the Newton stratum; fixing an isomorphism class defines the finer central leaf.
 
-*Needs:* `TauCetiRoadmap.PELModuli`, M2/representability; `TauCetiRoadmap.PELModuli`, M2/formal-smoothness; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1/p-divisible-group; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-slopes; §7.6; Mathlib `AlgebraicGeometry.Scheme`; §7.1.
+*Needs:* `TauCetiRoadmap.PELModuli` §M2.8 (Representability and smoothness); `TauCetiRoadmap.PELModuli` §M2.6 (Formal smoothness at good primes); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1.5 (The levels of a p-divisible group are its torsion, and multiplication by p is an epimorphism); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.16 (Slopes, Newton polygon and a-number of a Dieudonné module); §7.6; Mathlib `AlgebraicGeometry.Scheme`; §7.1.
 
 ### 7.8 Finite-level Igusa moduli and deck groups
 
@@ -2709,15 +2500,14 @@ The interface consists of the following operations and identities.
 - `FiniteIgusa.quotient`: Geometric points at level U=K^p×U_p(m) identify with Ig_∞(F̄_p)/U.
 - `FiniteIgusa.trivialization_ext`: Two S-points are equal iff their graded level-p^m maps j_i agree for every i; higher lifts certify liftability and are not extra chosen point data.
 
-Represent the liftable truncation trivializations and impose the closed O_B and polarization conditions. Use formal rigidity of isoclinic groups to transport fibre trivializations over completed local rings, as in Mantovan Proposition 4. The compact integral automorphism group gives the deck quotient, whose action is free and transitive on every fibre; the all-higher-level liftability and rigidity proofs are required for this torsor assertion.
+Represent the liftable truncation trivializations and impose the closed O_B and polarization conditions. Use formal rigidity of isoclinic groups to transport fibre trivializations over completed local rings, as in Mantovan Proposition 4. The compact integral automorphism group gives the deck quotient, whose action is free and transitive on every fibre; compatible lifts identify the inverse-limit frame sheaf with the compact integral automorphism torsor, and quotienting by the level kernel gives the finite étale torsor. Fibrewise automorphisms of the truncation that fail higher liftability do not enter this quotient.
 
 **Checks.**
 
 - `ordinary_elliptic`. For Σ=μ_{p∞}⊕Q_p/Z_p, Γ_b≅Z_p^××Z_p^× with the common similitude equal to the product; at m≥1 the fibre has φ(p^m)^2 points.
-- `level_reduction`. Restriction from m+1 to m reduces each unit modulo p^m and gives the quotient deck map.
+- `level_reduction`. Restriction from m+1 to m reduces each unit modulo p^m and gives the quotient deck map. At general level the torsor degree is |Γ_b/U_p(m)|.
 - `liftable_only`. A truncated automorphism not liftable to all higher m is absent from the deck group, even if it preserves the visible level-m pairing.
 - `nonproper`. If the central leaf is nonproper, its nonempty finite étale cover cannot be declared proper merely because the cover map is finite.
-- The torsor has degree |Γ_b/U_p(m)|; its finite étaleness does not make the leaf proper.
 
 *Needs:* §7.7; §7.5.
 
@@ -2744,11 +2534,10 @@ Glue the finite flat subgroup with the prescribed graded kernels using f_{i−1}
 
 - `scalar`. δ=p⁻¹ belongs, despite not being an integral automorphism; all kernel bounds equal 1.
 - `wrong_slope_order`. For two slopes λ_1>λ_2 and integral exponents a_1<a_2, δ_i=p^{−a_i} has f_1=a_1<e_2=a_2, and is excluded.
-- `frobenius`. fr^{−s} belongs because sλ_{i−1}≥sλ_i; its inverse need not belong.
+- `frobenius`. fr^{−s} belongs because sλ_{i−1}≥sλ_i; its inverse need not belong. Here e_i=f_i=sλ_i, in decreasing order.
 - `basic`. With one slope there is no successive inequality, but δ⁻¹ must still be an isogeny.
-- For δ=p⁻¹, all e_i=f_i=1; for fr^{−s}, e_i=f_i=sλ_i, in decreasing order.
 
-*Needs:* §7.8; §7.6; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A3/nonaffine-abelian-quotient; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A3/polarized-weil-pairing.
+*Needs:* §7.8; §7.6; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A3.3 (Quotients by finite locally free subgroups); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A3.7 (Polarized Weil pairings).
 
 ### 7.10 Rational Igusa cohomology and the full group action
 
@@ -2766,7 +2555,7 @@ The interface consists of the following operations and identities.
 - `IgusaCohomology.normalizedHecke`: e_g=1_{UgU}/vol(U) has the correspondence trace; 1_{UgU} has vol(U) times that trace.
 - `IgusaCohomology.transition`: Pullback along finite étale level maps composes; its normalized trace is a retraction over rational ℓ-adic coefficients, giving the stated level invariants in the colimit.
 
-Consume the algebraic étale finite-level cohomology and six operations supplier. Mantovan Lemma 6 identifies the central actions with level projection and Frobenius; rational cohomology inverts both. Admissibility follows by exact averaging for the finite deck quotient and the level-invariant identity; dimension gives the bounded alternating sum.
+Apply finite-level algebraic étale cohomology and its six operations. Mantovan Lemma 6 identifies the central actions with level projection and Frobenius; rational cohomology inverts both. Admissibility follows by exact averaging for the finite deck quotient and the level-invariant identity; dimension gives the bounded alternating sum.
 
 **Checks.**
 
@@ -2774,9 +2563,8 @@ Consume the algebraic étale finite-level cohomology and six operations supplier
 - `fixed_level`. For a fixed U, the trace factors through the finite-dimensional U-invariant subspace; the full representation is not required to be finite-dimensional.
 - `rational_inversion`. Absolute Frobenius acts invertibly on rational ℓ-adic cohomology. This assertion does not replace an integral torsion-concentration theorem.
 - `nonproper_cohomology`. For a nonproper leaf the target is H_c, not ordinary H; their traces need not agree.
-- Changing the Haar measure by a scalar changes the integrated characteristic-function trace by that scalar.
 
-*Needs:* §7.8; §7.9; §2.16; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/cohomological-correspondence-lifting; Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A4/etale-tate-module.
+*Needs:* §7.8; §7.9; §2.16; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.8 — Correspondences and the functional-equation interface; Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A4.1 (The integral Tate module).
 
 ### 7.11 A finite-field model compatible with the central Frobenius action
 
@@ -2786,7 +2574,7 @@ After enlarging a common decency integer s to contain the reflex residue field, 
 
 ([S. W. Shin — Counting points on Igusa varieties](https://math.berkeley.edu/~swshin/IgusaVar.pdf), §6, Lemma 6.3, p.19; [E. Mantovan — On the cohomology of certain PEL type Shimura varieties](https://www.its.caltech.edu/~mantovan/papers/PEL.pdf), §4, Lemma 6, p.13.)
 
-Mantovan Lemma 6 compares quotient-by-Frobenius with absolute Frobenius and level projection. Construct the compatible descent datum by the isomorphism p^{−sλ_i}F^s on each slope piece. Verify effectivity and coefficient compatibility; Shin Lemma 6.3 cites the detailed thesis §2.3, whose effective-descent proof is required independently.
+Mantovan Lemma 6 compares quotient-by-Frobenius with absolute Frobenius and level projection. Construct the compatible descent datum by the isomorphism p^{−sλ_i}F^s on each slope piece. Verify effectivity and coefficient compatibility; At a finite rigidified Igusa level the level morphisms are finite étale; on affine charts, the isomorphism above gives the semilinear cyclic descent maps on the finite étale coordinate algebras. Their cocycle identity follows from the slope decomposition and p^(−sλ_i)F^s, and finite étale descent glues these algebras. Enlarge s so the finitely many charts, overlaps and correspondence legs are defined over the same finite field; the gluing maps descend with them. The resulting Frobenius is the specified fr^(−s), not an arbitrarily chosen finite-field model. The isogeny Frobenius is interpreted together with the finite-level projections, since absolute Frobenius on a positive-dimensional scheme is not an isomorphism of schemes.
 
 **Checks.**
 
@@ -2800,7 +2588,7 @@ An ordinary p-divisible group has BT slopes (1,0). A negative Frobenius shift ha
 
 ### Dependencies
 
-Mathlib `WittVector.Isocrystal`; Mathlib `WittVector.IsocrystalEquiv`; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-manin-classification; `TauCetiRoadmap.ReductiveGroups`, layer 1 representations  comodules; `TauCetiRoadmap.PELModuli`, M2/representability; `TauCetiRoadmap.PELModuli`, M2/universal-family; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2; `TauCetiRoadmap.DiamondSixOperations`, S2; `TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.5/dual-centre-and-fundamental-group; `TauCetiRoadmap.ReductiveGroupsPartII`, RG2.1; §1.6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-p-divisible; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1/p-divisible-cartier-dual; `TauCetiRoadmap.PELModuli`, M0/determinant-condition; `TauCetiRoadmap.PELModuli`, M2/formal-smoothness; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1/p-divisible-group; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-slopes; Mathlib `AlgebraicGeometry.Scheme`; §7.1; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A3/nonaffine-abelian-quotient; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A3/polarized-weil-pairing; §2.16; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/cohomological-correspondence-lifting; Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A4/etale-tate-module.
+`TauCetiRoadmap.PELModuli` §M2 (Representability and smooth good models); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` Layers A1 (Rigidity and normalized line bundles) and A2 (Duality, polarizations and ample classes); `TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry` §2.1 (Hilbert families and graph parameters); `TauCetiRoadmap.SchemeAndStackFoundations` §SF.1b (Algebraic spaces); Mathlib `WittVector.Isocrystal`; Mathlib `WittVector.IsocrystalEquiv`; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.15 (The Dieudonné–Manin classification of isocrystals); `TauCetiRoadmap.ReductiveGroups` Layer 1 (representations = comodules); `TauCetiRoadmap.PELModuli` §M2.8 (Representability and smoothness); `TauCetiRoadmap.PELModuli` §M2.6 (Formal smoothness at good primes); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory); `TauCetiRoadmap.DiamondSixOperations` Layer S2: The exceptional direct image for eligible maps of small v-stacks; `TauCetiRoadmap.AdicCoefficientsAndComparisons` Layer L0: Adic coefficients; `TauCetiRoadmap.ReductiveGroupsPartII` §§RG2.5.1–RG2.5.2 (the dual group, its Galois action and the L-group); `TauCetiRoadmap.ReductiveGroupsPartII` §RG2.1.1 (quasi-split forms and rational tori over Ĕ); §1.6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.10 (Dieudonné classification of p-divisible groups); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1.7 (The Cartier dual of a p-divisible group); `TauCetiRoadmap.PELModuli` §M0.18 (The Kottwitz determinant condition); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1.5 (The levels of a p-divisible group are its torsion, and multiplication by p is an epimorphism); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.16 (Slopes, Newton polygon and a-number of a Dieudonné module); Mathlib `AlgebraicGeometry.Scheme`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A3.3 (Quotients by finite locally free subgroups); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A3.7 (Polarized Weil pairings); §2.16; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.8 — Correspondences and the functional-equation interface; Mathlib `MeasureTheory.Measure.IsHaarMeasure`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A4.1 (The integral Tate module).
 
 ## Layer 8: Igusa counting and stabilization
 
@@ -2834,7 +2622,6 @@ Translate the dual slope weights to the root condition, keeping ν=−λ. Use fi
 - `basic_not_geometric`. One slope makes every δ acceptable as an element, but a δ with δ⁻¹ not an isogeny is not in S_b.
 - `unit_bad_support`. With two slopes, 1_{Γ_b} fails element support acceptability because it contains the identity with equal valuations.
 - `negative_shift`. For λ=(1,0), fr^{−sN} has valuation pair (−sN,0), acceptable for N>0; the positive shift reverses the order.
-- Basic b has one slope, so element acceptability is vacuous; its function trace and monoid conditions remain.
 
 *Needs:* §7.5; §7.9; §7.10.
 
@@ -2863,9 +2650,8 @@ Use finite-level quotient maps of the monoid and the commuting away-p level maps
 - `proper_leg`. A nonproper affine leaf can have a finite étale projection leg; requiring Ig_U proper would wrongly exclude it.
 - `finite_cosets`. If UgU is the disjoint union of d right U-cosets, its action has at most d translates over each geometric point, including multiplicities through the source cover.
 - `no_pointset_lift`. A permutation of Ig_∞(F̄_p) alone supplies neither an algebraic correspondence nor u_g, and does not satisfy this construction.
-- For g=1 and V=U both legs and the coefficient lift are identities.
 
-*Needs:* §7.9; §7.8; §7.10; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/scheme-correspondence; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/cohomological-correspondence-lifting; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/cohomological-correspondence-composition.
+*Needs:* §7.9; §7.8; §7.10; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.8 — Correspondences and the functional-equation interface.
 
 ### 8.3 Finite-field Tate full faithfulness and Honda classification
 
@@ -2875,13 +2661,15 @@ For abelian varieties A,B over F_q and ℓ≠p, Hom_Fq(A,B)⊗Z_ℓ≅Hom_Gal(T_
 
 ([J. Tate — Endomorphisms of abelian varieties over finite fields](https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf), §1, Main Theorem and Lemmas 1–4, pp.134–136; §2, Propositions 1–2, pp.136–139; §3, Theorems 1–2, pp.139–141; [W. C. Waterhouse — Abelian varieties over finite fields](https://www.numdam.org/item/ASENS_1969_4_2_4_521_0.pdf), Chapter 2, the named Tate theorem, p.526, and Honda theorem, p.527; local invariants and dimension formula, pp.527–528.)
 
-Tate §2 uses polarization and finiteness of bounded-degree polarized varieties to realize stable isotropic subspaces by endomorphisms; a commutant argument proves surjectivity at split primes. Compare ranks at other primes and integral saturation, then use A×B and its matrix corners for Hom. Use the centralizer description and local division invariants for simple objects. Honda’s converse realizes each Weil number; its primary proof is unread boundary G4a. The algebraic Brauer/cohomological Brauer comparison and the index/embedding dictionary are the CSA supplier interface, not consequences of the CFT exact sequence alone.
+Tate §2 uses polarization and finiteness of bounded-degree polarized varieties to realize stable isotropic subspaces by endomorphisms; a commutant argument proves surjectivity at split primes. Compare ranks at other primes and integral saturation, then use A×B and its matrix corners for Hom. Use the centralizer description and local division invariants for simple objects. Honda’s converse realizes each Weil number; combine the existence theorem with the endomorphism-invariant computation, including real Weil numbers. The centre-sensitive module criterion below imposes additional endomorphism actions.
+
+The B-action step also needs the following centre-sensitive embedding result, rather than just equality of Brauer classes. If A is central simple over K and E/K a finite field extension, then a K-embedding E↪A exists exactly when [E:K]·ind(A⊗_K E) divides deg(A). Write A=End_Δ(V); an embedding is an E⊗_KΔ^op-module structure on V. Artin–Wedderburn computes the dimension of its simple modules and gives the divisibility condition; taking the required number of copies proves sufficiency. More generally, for a semisimple K-algebra B=∏B_i acting on V, decompose V=⊕V_i and require each V_i nonzero and divisible by the dimension of a simple module for B_i⊗_KΔ^op. This retains every centre K_i and all multiplicities. These are [C.-F. Yu, *Embeddings of fields into simple algebras*](https://arxiv.org/abs/1105.2895), Theorems 2.5 and 2.7, pp. 8–9 (the equivalent introduction statements are Theorems 1.2–1.3, pp. 2–3). Compare algebraic and cohomological field Brauer groups by SchemeAndStackFoundations §SF.2f, `brauer-field-comparison`, before applying ClassFieldTheory's local invariants. The API `CentralSimpleAlgebra.fieldEmbedding_iff`, `.semisimpleAction_iff` and `.commutantBrauerClass` feeds §8.10. Check a quadratic field embeds in M₂(K); it embeds in a quaternion division algebra exactly when it splits that algebra; a degree-three field cannot embed in M₂(K), even if it splits it. For B=K×K both summands of V must be nonzero, so an action on a one-dimensional V is not faithful.
 
 **Checks.**
 
 - For an ordinary elliptic curve, the two p-slopes are 0 and 1 and D is the imaginary quadratic field. Real π with π²=q can yield a quaternion algebra and must not be discarded as a CM-only case.
 
-*Needs:* `TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/isogeny-classification; Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A4/etale-tate-module; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/hom-is-free-of-finite-rank; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/poincare-complete-reducibility; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/characteristic-polynomial-on-tate-module; `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras`, layer 6 the brauer group and splitting fields.
+*Needs:* `TauCetiRoadmap.SchemeAndStackFoundations` §SF.2f (Brauer groups of schemes); `TauCetiRoadmap.ClassFieldTheory` Layer 10 (global carriers, the Brauer sequence, and the sum of local invariants); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.17 (Isogeny classification of p-divisible groups over a perfect field); Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A4.1 (The integral Tate module); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A6 (Arithmetic Hom and exports); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A6.10 (The characteristic polynomial and the trace); `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras` Layer 6 (the Brauer group and splitting fields).
 
 ### 8.4 The corrected adelic cohomology map used in global cancellation
 
@@ -2914,7 +2702,7 @@ Compact support gives uniform denominator bounds on all δ_i^{−1}. Choose a_0 
 - For the identity on a smooth nonproper curve, Frobenius twisting has finitely many fixed points, whereas the untwisted identity has a positive-dimensional fixed locus.
 - For Σ=μ_{p∞}⊕Q_p/Z_p and φ_p=1_{pΓ_b}, the zero-slope block of every fr^{−sN}-translated support element is p times a unit, so its inverse is nonintegral. First multiplying by p^{−a} with a≥1 removes this obstruction; increasing N then separates the two slopes.
 
-*Needs:* §8.1; §8.2; §7.11; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/fujiwara-varshavsky-trace-formula; §7.9.
+*Needs:* §8.1; §8.2; §7.11; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.8 — Correspondences and the functional-equation interface; §7.9.
 
 ### 8.6 Polarized isogeny classes and Igusa point orbits
 
@@ -2941,7 +2729,7 @@ Forget the level and graded trivializations to obtain z; rational quasi-isogenie
 - `adelic_vs_rational`. Several rational H_z-conjugacy classes can lie in one adelic class; FPAV groups them, while the preliminary orbit sum keeps them separate.
 - Changing a comparison conjugates its H_z embedding and does not change the quotient or the eventual conjugacy class.
 
-*Needs:* §7.8; §7.6; §8.3; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/localized-isogeny-category; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/weak-localized-polarization; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/rosati-positivity.
+*Needs:* §7.8; §7.6; §8.3; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A6 (Arithmetic Hom and exports); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A2 (Duality, polarizations and ample classes).
 
 ### 8.7 Effective p-adic types with common-refinement equivalence
 
@@ -2960,16 +2748,15 @@ The interface consists of the following operations and identities.
 - `PadicType.slopes`: η_x/e(x/p) is unchanged under ramified pullback.
 - `PadicType.ext`: With the same labelled fields, multiplicities and F-structure, equality of every coefficient η_{t,x} gives equality of raw types; after quotienting, equality is factorwise common-refinement equivalence.
 
-Normalize valuations of a Weil number by v(q) and account for ramification in pullback. For a simple type pass to a common Galois CM field over F and descend along the subgroup preserving the divisor. Then merge equivalent minimal simple factors by summing multiplicities. Compare types by the factorwise refinement relation, correcting the incompatible product-algebra embedding requirement in E11. Use the involution identity to pair slopes λ and 1−λ.
+Normalize valuations of a Weil number by v(q) and account for ramification in pullback. For a simple type pass to a common Galois CM field over F and descend along the subgroup preserving the divisor. Then merge equivalent minimal simple factors by summing multiplicities. Compare types by the factorwise refinement relation, requiring embeddings only on the corresponding factors after a common refinement. Use the involution identity to pair slopes λ and 1−λ.
 
 **Checks.**
 
 - `ordinary_CM`. For a split p in an imaginary quadratic field, coefficients (1,0) define slopes (1,0); (1,1) violates η+cη=[p].
-- `real_half`. For M=Q and c=id, η_p=1/2 is the allowed simple real type, not 0 or 1.
+- `real_half`. For M=Q and c=id, η_p=1/2 is the allowed simple real type, not 0 or 1. More generally at a c-fixed p-place, η_x=e(x/p)/2 and its normalized slope is 1/2.
 - `ramified_refinement`. If e(y/x)=2, a coefficient η_x=1/2 becomes η′_y=1, while the normalized slope stays unchanged.
 - `merge_factors`. Two identical minimal factors of multiplicities 2 and 3 refine to one with multiplicity 5; signed cancellation is forbidden.
 - `simple_not_minimal`. Over F=Q, the type M=Q(i), η_x=e(x/p)/2 and multiplicity 1 is simple but descends from the half type on Q, so it is not minimal.
-- At a real p-place c fixes x, hence η_x=e(x/p)/2 and the slope is 1/2.
 
 *Needs:* §8.3.
 
@@ -2997,7 +2784,6 @@ Restrict the centralizing dual datum to M_b and use the inner-form relevance con
 - `outer_cosets`. If the two outer groups coincide, I has one representative; multiplying the summand by the full outer group size is wrong.
 - `empty`. If no acceptable J_b class matches the H datum, the effective set is empty and the construction contributes zero.
 - `embedded_cone`. Two different embedding representatives may transport ν differently; testing acceptability against one fixed untransported cocharacter is not the rule.
-- Counting all embeddings without quotienting by Out_G(M_H) overcounts a stable pair.
 
 *Needs:* §7.5; §8.1; §1.4; §1.16.
 
@@ -3007,15 +2793,17 @@ For connected reductive G_0/Q_p, a rational cocharacter ν with Levi M=Z_{G_0}(�
 
 *Hypotheses.* The root acceptability sign and P(ν) convention are those fixed above; quotient Haar measures on corresponding centralizers are compatible.
 
-([S. W. Shin — A stable trace formula for Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), §1.2, p.4; §3.3–3.4, Lemmas 3.4–3.6,3.9 and Corollary 3.10, pp.11–12.)
+([S. W. Shin — A stable trace formula for Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), §1.2, p.4; §3.3–3.4, Lemmas 3.4–3.6,3.9 and Corollary 3.10, pp.11–12; [M.-F. Vignéras — Caractérisation des intégrales orbitales sur un groupe réductif p-adique](https://repository.dl.itc.u-tokyo.ac.jp/record/39626/files/jfs280338.pdf), §1.n, Theorems A–B, pp. 948–949, and §1.o(3), p. 950, for fixed central character.)
 
-Acceptable eigenvalue valuations force a conjugating Weyl element to preserve P(ν); rational conjugacy therefore stays in M. The stable rational-class bijection uses H¹(M)→H¹(G_0) through the parabolic. Set φ_0=φδ_P⁻¹ and prescribe its conjugacy-summed orbital function. Prove the germ conditions needed for realization by a compactly supported function; the general-group orbital-germ realization is a separate proof requirement. Use |D_{G_0}^M(m)|=δ_P(m), Weyl integration and Casselman’s character comparison to derive the normalized opposite-Jacquet identity.
+Acceptable eigenvalue valuations force a conjugating Weyl element to preserve P(ν); rational conjugacy therefore stays in M. The stable rational-class bijection uses H¹(M)→H¹(G_0) through the parabolic. Set φ_0=φδ_P⁻¹ and prescribe its conjugacy-summed orbital function W. Realize W by the orbital-integral characterization: it is conjugation invariant, supported compactly modulo conjugacy and locally constant on the regular set; after descent at each semisimple point its germ expansion is the one transported from M. Acceptability keeps the transverse roots away from zero on the compact support and identifies the descended centralizer with that in M. Hence the transported germ coefficients are genuine unipotent orbital coefficients; outside the acceptable conjugacy saturation they are zero. A finite cover of the support modulo conjugacy and a partition of unity patch these local realizations. Use |D_{G_0}^M(m)|=δ_P(m), Weyl integration and Casselman’s character comparison to derive the normalized opposite-Jacquet identity.
+
+The trace/constant-term compatibility used here is part of this target. For normalized induction i_P^Gσ, define f^P(m)=δ_P(m)^{1/2}∫_K∫_N f(k⁻¹mnk)dn dk with the chosen compatible Haar measures. Then tr(i_P^Gσ)(f)=tr σ(f^P). Prove it by realizing induction on K, writing its convolution kernel and integrating its diagonal; this is the induced-character calculation. For a finite-length π and m regular in a chamber strictly contracting N, the Casselman character identity is Θπ(m)=δ_P(m)^{1/2}Θ_{r_Pπ}(m) for normalized r_P. Canonical lifting of Jacquet-fixed vectors identifies the contracted Hecke operators; taking their finite-dimensional traces proves the identity. In the twisted case require θ to preserve the parabolic and include its intertwiner in both traces. Scholze LLC Lemmas 6.1–6.3, pp. 15–16, give precisely the twisted contraction and constant-term calculation used in §10.11. Add `AcceptableFunction.inducedTrace`, `.contractingJacquetCharacter` and `.twistedJacquetTrace`. Check P=G gives the K-conjugacy average of f, with the same invariant traces as f (and equality as functions when f is K-conjugation invariant); using an unnormalized Jacquet module removes the displayed half-modulus; for GL₂ a diagonal element with distinct slopes chooses one contracting chamber, and cannot justify the identity in the opposite chamber.
 
 **Checks.**
 
 - For GL_2 diagonal M and ν=(−1,0), m=(1,p) has δ_P(m)=p. The required orbital coefficient is p⁻¹; dropping the modulus fails. The regular pair (1,−1),(−1,1) is G-conjugate but not M-conjugate and is not acceptable.
 
-*Needs:* §8.1; §2.1; §2.16.
+*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §§SR.2.2–SR.2.3 (Jacquet functors, induction and canonical lifting); §8.1; §2.1; §2.16.
 
 ### 8.10 Geometric B-linear isogeny classification and division invariants
 
@@ -3025,13 +2813,13 @@ Nonzero B-linear abelian varieties over F̄_p up to B-linear isogeny correspond 
 
 ([S. W. Shin — Counting points on Igusa varieties](https://math.berkeley.edu/~swshin/IgusaVar.pdf), §8, Proposition 8.4 and Corollary 8.5 with their proofs, pp.25–26.)
 
-Choose a finite model with all endomorphisms defined and normalize its Weil numbers; finite extensions become common refinements. Apply Tate–Honda factorwise, the CFT invariant exact sequence, and the upstream semisimple-algebra Morita/centralizer and algebraic Brauer dictionary to impose the B-action. The CFT sequence alone supplies neither the algebraic Brauer comparison nor the embedding criterion. Take the commutant algebra; tensor-product invariants subtract inv B, with the real 1/2 contribution retained. Dimensions determine multiplicities and BT heights.
+Choose a finite model with all endomorphisms defined and normalize its Weil numbers; finite extensions become common refinements. Apply Tate–Honda factorwise, the CFT invariant exact sequence, and the semisimple-algebra Morita/centralizer theorem together with §8.3’s field Brauer comparison and centre-sensitive embedding criterion to impose the B-action. Take the commutant algebra; tensor-product invariants subtract inv B, with the real 1/2 contribution retained. Dimensions determine multiplicities and BT heights.
 
 **Checks.**
 
 - For B=Q and the real type η=1/2, C has the real and p-adic quaternion invariants 1/2, giving the supersingular elliptic case.
 
-*Needs:* §8.7; §8.3; `TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants; `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras`, layer 6 the brauer group and splitting fields.
+*Needs:* §8.7; §8.3; `TauCetiRoadmap.ClassFieldTheory` Layer 10 (global carriers, the Brauer sequence, and the sum of local invariants); `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras` Layer 6 (the Brauer group and splitting fields).
 
 ### 8.11 Scalar and Frobenius shifts determine finite virtual-character identities
 
@@ -3092,7 +2880,6 @@ Use separated valuations to assign each p-place of F[γ_0] to a unique BT slope;
 - `ordinary_delta`. Two σ-conjugate elements in G(L) need not be ordinary conjugate in J_b(Q_p); the triple quotient never identifies them on that basis.
 - `character_orthogonality`. For K=Z/2, summing its two characters gives 2 for α=1 and 0 for the nontrivial obstruction.
 - `refinement`. If distinct factors have identical minimal type, combine their positive multiplicities rather than claiming the first constructed type is already minimal.
-- The p-variable δ is a rational J_b-element; replacing its ordinary conjugacy relation by sigma-conjugacy gives the wrong parameter space.
 
 *Needs:* §7.4; §8.12; §8.10; §1.11; §1.15; §1.14.
 
@@ -3104,13 +2891,15 @@ For a polarized B-linear z, its polarized quasi-isogeny forms with the same real
 
 ([S. W. Shin — Counting points on Igusa varieties](https://math.berkeley.edu/~swshin/IgusaVar.pdf), §9, Lemmas 9.2–9.6, pp.28–29; §11, Lemma 11.1 and Corollary 11.3, pp.36–37; §12, Lemma 12.1, Corollary 12.2 and Lemma 12.3, pp.37–41.)
 
-Twist the structured object by H_z; positivity is the real localization condition. Local Tate and Dieudonné comparison detects near equivalence, giving exactly ker¹, not all real-trivial classes. From the effective triple build its centre and p-adic type, use the CFT invariants with the separately specified CSA embedding/index criterion to globalize the B-module, and then globalize local hermitian forms and a positive polarization. Shin’s Kottwitz 1992 realization lemmas remain primary boundary G4b.
+Twist the structured object by H_z; positivity is the real localization condition. Local Tate and Dieudonné comparison detects near equivalence, giving exactly ker¹, not all real-trivial classes. Kottwitz, *Points on some Shimura varieties over finite fields*, Lemma 9.2, p. 402, obtains a positive rational B-polarization by density of rational points in the open cone of real B-polarizations. Lemma 17.1, pp. 434–435, constructs the cocycle classification: Hilbert 90 trivializes the cocycle in the full endomorphism group, transports the symmetric isogeny, and the real-trivial condition makes a rational scalar multiple positive. Lemma 17.2, p. 435, identifies equality of the finite-place structures with ker¹.
+
+For existence with prescribed triple, follow Shin Lemma 12.3, pp. 39–41. The p-adic type and §8.3's centre-sensitive index criterion first give an unpolarized B-object and then a positive B-polarization. Subtract its local dual-centre invariants from the prescribed ones. Effectivity makes their global sum zero and their real component trivial, so the localization exact sequence of §1.11 realizes the differences by a global H¹ class; the preceding positivity criterion realizes its polarization. Repeat for the centralizer of γ₀. Compatibility of these two corrections uses the surjection between their locally trivial H¹ kernels (Shin Lemma 12.3, p. 41). The resulting isometry transports γ₀ to the required automorphism. Integral self-dual lattices and the prime-to-p level are added only after this rational construction; at p check the determinant condition on §7.6's Dieudonné module.
 
 **Checks.**
 
 - Triviality at infinity alone does not imply triviality at all finite places.
 
-*Needs:* §8.6; §8.10; §7.6; §1.11; `TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/abelian-torsor-twist; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/twist-realizations-polarizations-and-level; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/real-isometries-and-polarized-torsors; `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras`, layer 6 the brauer group and splitting fields; §8.13.
+*Needs:* §8.6; §8.10; §7.6; §1.11; `TauCetiRoadmap.ClassFieldTheory` Layer 10 (global carriers, the Brauer sequence, and the sum of local invariants); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A6 (Arithmetic Hom and exports); `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras` Layer 6 (the Brauer group and splitting fields); §8.13.
 
 ### 8.15 Adelic polarized fixed-point parameters equal effective triples
 
@@ -3190,7 +2979,7 @@ The interface consists of the following operations and identities.
 - `IgusaPFunction.leviTransfer`: Ordinary matching defines the stable orbital class of φ_{M_H}.
 - `IgusaPFunction.push`: Multiply by δ_{P(iν)}^{−1/2} and take the prescribed acceptable-Levi lift.
 - `IgusaPFunction.sum`: Sum c_{M_H} times the lifts over effective data and embedding cosets.
-- `IgusaPFunction.stableOrbital`: On (G,H)-regular semisimple classes its SO equals the defined κ-weighted O_p, and is zero on nonmatching classes. The ARCH supplier kills nonregular contributions in the global sum.
+- `IgusaPFunction.stableOrbital`: On (G,H)-regular semisimple classes its SO equals the defined κ-weighted O_p, and is zero on nonmatching classes. The singular stable Lefschetz formula of §6.10 kills the nonregular contributions in the global sum.
 - `IgusaPFunction.choice`: Changing the representatives with the matching data transported preserves stable orbital integrals; pointwise equality of functions is not required.
 - `IgusaPFunction.linear_orbital`: For fixed effective data and transfer normalization, φ_p↦h_p^H is linear in its stable orbital class on the stated regular domain. Different lifts with the same matching orbital data give the same class.
 
@@ -3201,14 +2990,13 @@ Use ordinary local endoscopic transfer J_b→M_H and the square-root modulus on 
 - `empty`. Empty E_p^eff gives h_p^H=0, including every stable orbital integral.
 - `trivial_sign`. For the quaternion basic GL_2 case and H=G*, the source transfer has the inner-form sign and the additional constant is −1, as the normalization theorem requires.
 - `ordinary_moduli`. For two one-dimensional blocks, the δ^{1/2} at the source and δ^{−1/2} before lift occur separately; deleting both changes the prescribed Jacquet trace.
-- `one_effective_coset`. If a class has one relevant embedding coset, only that summand has nonzero SO; the finite sum must not multiply it by the outer group order.
-- Taking one embedding without accounting for the coset set can omit contributions; taking all automorphisms can repeat them.
+- `one_effective_coset`. If a class has one relevant embedding coset, only that summand has nonzero SO; the finite sum must not multiply it by the outer group order. With several cosets, choosing only one can omit a nonzero contribution.
 
 *Needs:* §8.8; §8.9; §8.18; §4.7.
 
 ### 8.20 Adelic endoscopic test functions and stable choice independence
 
-For a decomposable acceptable φ=φ^pφ_p and ξ, assemble h^H=h^{H,p}h_p^Hh_∞^H. The finite away-p factors are ordinary transfers with hyperspecial units at almost all places; h_p^H is the preceding finite Levi sum; h_∞^H is the supplied Lefschetz function, compact modulo A_H(R)^0 and transforming by χ_H determined by ξ and the L-embedding. Extend linearly to finite sums of decomposable φ. The stable elliptic distribution depends only on the matching orbital data with compatible global measures, not on particular transfer functions, representatives of equivalent complete L-data, or reciprocal local rescalings Δ_v→a_vΔ_v with ∏a_v=1. Fix the full L-morphism: a different extension of η to the Weil group can change the stable orbital data. Arbitrary unrelated rescaling of one local transfer factor is not an invariance.
+For a decomposable acceptable φ=φ^pφ_p and ξ, assemble h^H=h^{H,p}h_p^Hh_∞^H. The finite away-p factors are ordinary transfers with hyperspecial units at almost all places; h_p^H is the preceding finite Levi sum; h_∞^H is the Lefschetz function of §6.10, compact modulo A_H(R)^0 and transforming by χ_H determined by ξ and the L-embedding. Extend linearly to finite sums of decomposable φ. The stable elliptic distribution depends only on the matching orbital data with compatible global measures, not on particular transfer functions, representatives of equivalent complete L-data, or reciprocal local rescalings Δ_v→a_vΔ_v with ∏a_v=1. Fix the full L-morphism: a different extension of η to the Weil group can change the stable orbital data. Arbitrary unrelated rescaling of one local transfer factor is not an invariance.
 
 *Hypotheses.* Compatible global transfer factors, split-centre quotients and Tamagawa measures; h_∞ central character retained. The full L-morphism is fixed, or transported through an equivalence of complete L-data.
 
@@ -3230,7 +3018,6 @@ Almost-all unit transfers define the restricted tensor product. Multiply the thr
 - `reciprocal_scalars`. Multiplying one finite factor by a and another by a⁻¹ leaves the global stable orbital product unchanged.
 - `split_centre`. For a group with noncompact real split centre, retain compact-mod-centre support and its central character; requiring ordinary compact support discards the Lefschetz function.
 - `different_L_extension`. Twisting a Weil-group extension of η by a nontrivial unramified central character changes the Satake pullback of a Hecke function detecting that character; this is not choice independence for fixed complete L-data.
-- An archimedean Lefschetz function need not be compactly supported on H(R); its support is compact after the prescribed split-centre quotient.
 
 *Needs:* §8.17; §8.19; §6.10; §6.7.
 
@@ -3252,13 +3039,13 @@ Multiply the three local orbital identities and identify each stable elliptic su
 
 ### 8.22 Unitary specialization and the endoscopic coefficients
 
-For the unitary similitude PEL data used by Caraiani–Scholze, localize at split p and write the quasi-split form as G_{2n}. Its elliptic data are the trivial G_{2n} datum and G_{n_1,n_2} with n_1+n_2=2n, n_1≥n_2>0, omitting the pair when both n_i and [F⁺:Q] are odd. Use the parity-twisted L-embeddings of Layer 1, not an untwisted block embedding of Weil groups. The unramified Hecke factor is pullback along that L-embedding. Evaluate ker¹(Q,G)=1 for these particular groups by the supplied global unitary duality/Hasse statement before dropping the general prefactor. For acceptable φ the result is tr(φ|[H_c])=Σ_Hι(G,H)ST_e^H(h^H). Combining the supplied stable-to-twisted identity and base-change test functions yields τ(G)Σ_H ε_H I_spec^{H̃θ}(f^{H̃}θ), with ε_H=1/2 only for equal nonzero blocks and 1 otherwise. The latter uses the Layer 6 spectral supplier rather than replanning it.
+For the unitary similitude PEL data used by Caraiani–Scholze, localize at split p and write the quasi-split form as G_{2n}. Its elliptic data are the trivial G_{2n} datum and G_{n_1,n_2} with n_1+n_2=2n, n_1≥n_2>0, omitting the pair when both n_i and [F⁺:Q] are odd. Use the parity-twisted L-embeddings of Layer 1, not an untwisted block embedding of Weil groups. The unramified Hecke factor is pullback along that L-embedding. Evaluate ker¹(Q,G)=1 for these particular groups by the unitary Hasse calculation of PELModuli §M0.9 and §1.11 before dropping the general prefactor. For acceptable φ the result is tr(φ|[H_c])=Σ_Hι(G,H)ST_e^H(h^H). Combining §6.25’s stable-to-twisted identity and base-change test functions yields τ(G)Σ_H ε_H I_spec^{H̃θ}(f^{H̃}θ), with ε_H=1/2 only for equal nonzero blocks and 1 otherwise. The determinant and central-character coefficients are those of §6.22.
 
-*Hypotheses.* Precisely the global unitary data and sufficiently divisible neat away-p principal level of CS non-compact §§5.1,5.3,5.4; p splits in the imaginary quadratic subfield. The infinity factors on proper endoscopic groups use their supplied nontrivial coefficient systems Ξ, not an assertion that every endoscopic Π_∞ is trivial-coefficient cohomological. For the displayed twisted I_spec formula impose [F⁺:Q]>1, as in CSnc Theorem 5.6.1; the general acceptable stable identity is not restricted by this spectral specialization. Trivial coefficient system for the displayed CS non-compact formula; general ξ uses the matching archimedean central character.
+*Hypotheses.* Precisely the global unitary data and sufficiently divisible neat away-p principal level of CS non-compact §§5.1,5.3,5.4; p splits in the imaginary quadratic subfield. The infinity factors on proper endoscopic groups use their nontrivial coefficient systems Ξ of §6.10, not an assertion that every endoscopic Π_∞ is trivial-coefficient cohomological. For the displayed twisted I_spec formula impose [F⁺:Q]>1, as in CSnc Theorem 5.6.1; the general acceptable stable identity is not restricted by this spectral specialization. Trivial coefficient system for the displayed CS non-compact formula; general ξ uses the matching archimedean central character.
 
 ([A. Caraiani and P. Scholze — On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), §5.2, Theorem 5.2.3, pp.734–735; [A. Caraiani and P. Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), §5.2, pp.67–68; §5.3, Theorem 5.3.2, p.68; §5.6, Theorem 5.6.1, pp.74–75.)
 
-Use Layer 1 classification and parity L-embedding formulas. The degenerate n_2=0 presentation is the trivial datum and is not counted twice. Apply the general formula and justify ker¹=1 from the global unitary supplier; preserve it until that proof is provided. Use Layer 6 compatible base change, small-level transfers, archimedean functions and stable/twisted comparison, then evaluate the outer automorphism index. Retain [F⁺:Q]>1 at the I_disc=I_spec step; it is an explicit hypothesis of the spectral supplier.
+Use Layer 1 classification and parity L-embedding formulas. The degenerate n_2=0 presentation is the trivial datum and is not counted twice. Apply the general formula and evaluate ker¹ using PELModuli §M0.9 and §1.11 before cancelling that prefactor. Use Layer 6 compatible base change, small-level transfers, archimedean functions and stable/twisted comparison, then evaluate the outer automorphism index. Retain [F⁺:Q]>1 at the I_disc=I_spec step; it is an explicit hypothesis of §6.21.
 
 **Checks.**
 
@@ -3289,7 +3076,7 @@ Let a compact support include p times a unit in the ordinary zero-slope block. N
 
 ### Dependencies
 
-§7.5; §7.9; §7.10; §7.8; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/scheme-correspondence; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/cohomological-correspondence-lifting; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/cohomological-correspondence-composition; `TauCetiRoadmap.ClassFieldTheory`, layer 10 global carriers the brauer sequence and the sum of local invariants; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/isogeny-classification; Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A4/etale-tate-module; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/hom-is-free-of-finite-rank; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/poincare-complete-reducibility; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/characteristic-polynomial-on-tate-module; `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras`, layer 6 the brauer group and splitting fields; §1.11; §7.4; §7.11; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves`, EDC.8/fujiwara-varshavsky-trace-formula; §7.6; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/localized-isogeny-category; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/weak-localized-polarization; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/rosati-positivity; §1.4; §1.16; §2.1; §2.16; Mathlib `Matrix.vandermonde`; Mathlib `Matrix.det_vandermonde`; §1.15; §1.14; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/abelian-torsor-twist; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/twist-realizations-polarizations-and-level; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli`, A6/real-isometries-and-polarized-torsors; §6.5; §1.13; §4.7; §4.6; §6.10; §1.2; §2.7; §6.7; §1.8; §6.25; §6.8; §6.15.
+§7.5; §7.9; §7.10; §7.8; `TauCetiRoadmap.EtaleDualityAndPerverseSheaves` EDC.8 — Correspondences and the functional-equation interface; `TauCetiRoadmap.SchemeAndStackFoundations` §SF.2f (Brauer groups of schemes); `TauCetiRoadmap.ClassFieldTheory` Layer 10 (global carriers, the Brauer sequence, and the sum of local invariants); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.17 (Isogeny classification of p-divisible groups over a perfect field); Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety`; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A4.1 (The integral Tate module); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A6 (Arithmetic Hom and exports); `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A6.10 (The characteristic polynomial and the trace); `TauCetiRoadmap.RepresentationTheory.SemisimpleAlgebras` Layer 6 (the Brauer group and splitting fields); §1.11; §7.4; §7.11; §7.6; `TauCetiRoadmap.AbelianSchemesAndArithmeticModuli` §A2 (Duality, polarizations and ample classes); §1.4; §1.16; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §§SR.2.2–SR.2.3 (Jacquet functors, induction and canonical lifting); §2.1; §2.16; Mathlib `Matrix.vandermonde`; Mathlib `Matrix.det_vandermonde`; §1.15; §1.14; §6.5; §1.13; §4.7; §4.6; §6.10; §1.2; §2.7; §6.7; §1.8; §6.25; §6.8; §6.14.
 
 ## Layer 9: raw compact-unitary cohomology
 
@@ -3311,9 +3098,9 @@ The interface consists of the following operations and identities.
 - `CompactUnitaryRaw.nearbyCycles`: The geometric generic-fibre complex compares with the integral-model nearby-cycle complex.
 - `CompactUnitaryRaw.commutingActions`: The Weil descent action commutes with each prime-to-p and local-level correspondence on the derived complex and on every cohomological degree.
 - `CompactUnitaryRaw.multiplicity`: For an isolated coefficient-field automorphic type π, form Hom_Hecke(π,H^i), carrying the induced Weil action. A central idempotent e, when supplied, yields eH^i with the same action.
-- `CompactUnitaryRaw.projectorCommutes`: For a supplied Hecke idempotent e and w in W_E, w(e v)=e(w v); coefficient extension and finite-level transition preserve this identity.
+- `CompactUnitaryRaw.projectorCommutes`: For a chosen Hecke idempotent e and w in W_E, w(e v)=e(w v); coefficient extension and finite-level transition preserve this identity.
 
-Import the general PEL moduli problem and universal family from PELModuli. Specialize to the compact unitary datum and construct its p-level integral models. Construct the algebraic local system and the Hecke/Weil actions on geometric cohomology. Prove compactness and the exact local-level model properties for the Harris–Taylor datum; Dat and Shin recall this global input, while its independent primary construction remains a separate proof obligation. Define the descent action before taking Hecke summands. Apply functoriality of pullback and proper trace to prove its commutation with each correspondence. Use that commutation to induce the Weil action on Hom spaces and on supplied idempotent images; finite-dimensionality at finite level follows from the coefficient cohomology supplier.
+Start with the canonical generic-fibre PEL moduli problem and universal family of PELModuli, for the compact division-unitary datum. Division of the auxiliary algebra excludes rational isotropic flags, so the valuative criterion has no semiabelian boundary and the generic fibre is proper. At a p-level use the closure of the generic Drinfeld-level condition inside the finite level-structure moduli over the no-level integral model; finite forgetful maps preserve properness. This constructs the raw integral models without a smoothness assertion at ramified p. Construct the algebraic local system from the universal abelian scheme and its idempotents. The strict completed-local comparisons needed later are the additional target §10.13, not a good-prime PEL input. Define the descent action before taking Hecke summands. Apply functoriality of pullback and proper trace to prove its commutation with each correspondence. Use that commutation to induce the Weil action on Hom spaces and on the images of chosen idempotents; finite-dimensionality at finite level follows from proper étale cohomology.
 
 **Checks.**
 
@@ -3322,11 +3109,10 @@ Import the general PEL moduli problem and universal family from PELModuli. Speci
 - `CompactUnitaryRaw.boundary`. A noncompact unitary datum requires boundary terms and cannot be substituted into the compact calculation.
 - `CompactUnitaryRaw.twoSummands`. For V=V₁⊕V₂ and e projecting to V₁, a commuting Weil action restricts to V₁; an action exchanging the two summands does not satisfy the commutation hypothesis.
 - `CompactUnitaryRaw.gradedSigns`. The same representation in adjacent cohomological degrees cancels in the Euler class; each graded multiplicity remains visible in the raw object.
-- `CompactUnitaryRaw.coefficients`. After finite coefficient extension, the supplied projector and Weil action extend together, and the multiplicity comparison requires its usual finite-presentation hypothesis.
-- For a compact generic fibre RΓ_c≅RΓ, by properness rather than by changing notation.
+- `CompactUnitaryRaw.coefficients`. After finite coefficient extension, the chosen projector and Weil action extend together, and the multiplicity comparison requires its usual finite-presentation hypothesis.
 - The construction cannot invoke the Galois representation later extracted from it.
 
-*Needs:* `TauCetiRoadmap.PELModuli`, M2/representability; `TauCetiRoadmap.PELModuli`, M2/universal-family; `TauCetiRoadmap.PELModuli`, M4/canonical-model-identification; §6.23; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1:formal-adic-comparison; `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles`, LPV.6; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4; `TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0.
+*Needs:* `TauCetiRoadmap.PELModuli` §M2.8 (Representability and smoothness); `TauCetiRoadmap.PELModuli` §M2.6 (Formal smoothness at good primes); `TauCetiRoadmap.PELModuli` §M4.3 (PEL generic fibres are canonical models); §6.23; `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles); `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles` LPV.6: Perverse nearby cycles; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.4. Algebraic weights and rational structures; `TauCetiRoadmap.AdicCoefficientsAndComparisons` Layer L0: Adic coefficients.
 
 ### Examples
 
@@ -3334,7 +3120,7 @@ At a neat finite level, two correspondences whose actions are (g,1) and (1,tau) 
 
 ### Dependencies
 
-`TauCetiRoadmap.PELModuli`, M2/representability; `TauCetiRoadmap.PELModuli`, M2/universal-family; `TauCetiRoadmap.PELModuli`, M4/canonical-model-identification; §6.23; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1:formal-adic-comparison; `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles`, LPV.6; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4; `TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0.
+`TauCetiRoadmap.PELModuli` §M2.8 (Representability and smoothness); `TauCetiRoadmap.PELModuli` §M2.6 (Formal smoothness at good primes); `TauCetiRoadmap.PELModuli` §M4.3 (PEL generic fibres are canonical models); §6.23; `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles); `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles` LPV.6: Perverse nearby cycles; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.4. Algebraic weights and rational structures; `TauCetiRoadmap.AdicCoefficientsAndComparisons` Layer L0: Adic coefficients.
 
 ## Layer 10: classical local correspondences
 
@@ -3355,7 +3141,7 @@ The interface consists of the following operations and identities.
 - `ClassicalNormalization.factorDictionary`: The imported Arithmetic L polynomial is the reciprocal of the analytic L-function after X=q^{−s}; both epsilon normalizations agree at rank one.
 - `ClassicalNormalization.reciprocity`: Art_geo(x)=Art_arith(x)^{-1} in W_F^ab; this does not define inversion as a map on nonabelian W_F.
 
-Import the local Weil group and both reciprocity normalizations from ClassFieldTheory, and the existing WD factor definitions from ArithmeticGaloisRepresentations. Compute the half-twist once: rec_un=σ⊗ω^{(n−1)/2}; compare every induction, dual and similitude factor with this equation. At rank one identify Deligne’s constant with AL.1’s Tate epsilon, including the Haar measure and s-variable.
+Use the local Weil group and both reciprocity normalizations from ClassFieldTheory, and the existing WD factor definitions from ArithmeticGaloisRepresentations. Compute the half-twist once: rec_un=σ⊗ω^{(n−1)/2}; compare every induction, dual and similitude factor with this equation. At rank one identify Deligne’s constant with AL.1’s Tate epsilon, including the Haar measure and s-variable.
 
 **Checks.**
 
@@ -3364,11 +3150,11 @@ Import the local Weil group and both reciprocity normalizations from ClassFieldT
 - `ClassicalNormalization.inductionShift`. An n_i-dimensional induction block rec_un,i enters rec_un,n with twist ω^{(n−n_i)/2}; a uniform dimension-free twist fails this identity.
 - For a rank-one χ, σ(χ)=χ∘Art_geo^{-1}; a uniformizer acts through χ(ϖ).
 
-*Needs:* `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/local-euler-factor; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/local-epsilon-factor; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.1/local-epsilon-gamma-factors; `TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors; `TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group.
+*Needs:* `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.5 (Local factors); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.7 (Local constants); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.1 — Tate zeta distributions and Hecke L-functions; `TauCetiRoadmap.ClassFieldTheory` Layer 7 (the absolute local Artin map, its normalizations, and conductors); `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group).
 
 ### 10.2 Strict O-module deformations with Drinfeld levels
 
-For r≥1 and β∈GL_n(O_r)diag(ϖ,1,…,1)GL_n(O_r), let H_β be the height-n, dimension-one strict ϖ-divisible O-module over κ_r with relative contravariant Dieudonné F=βσ. Instantiate its marked deformation ring R_β and Drinfeld level-m cover R_β,m: the n sections X_i of H[ϖ^m] satisfy the full relative Cartier-divisor identity ∑_{a∈(O/ϖ^m)^n}[∑a_iX_i]=[H[ϖ^m]]. Then R_β≃O_r[[T_1,…,T_{n−1}]] noncanonically; the finite level cover is regular and generically étale with GL_n(O/ϖ^m)-action. The formal level space may have several components. It has an equivariant finite-type algebraization along a finite special-fibre subscheme, as in Scholze Theorem 2.4.
+For r≥1 and β∈GL_n(O_r)diag(ϖ,1,…,1)GL_n(O_r), let H_β be the height-n, dimension-one strict ϖ-divisible O-module over κ_r with relative contravariant Dieudonné F=βσ. Construct its marked deformation ring R_β and Drinfeld level-m cover R_β,m: the n sections X_i of H[ϖ^m] satisfy the full relative Cartier-divisor identity ∑_{a∈(O/ϖ^m)^n}[∑a_iX_i]=[H[ϖ^m]]. Then R_β≃O_r[[T_1,…,T_{n−1}]] noncanonically; the finite level cover is regular and generically étale with GL_n(O/ϖ^m)-action. The formal level space may have several components. It has an equivariant finite-type algebraization along a finite special-fibre subscheme, as in Scholze Theorem 2.4.
 
 *Hypotheses.* The O-action on Lie H agrees with the structural O-action; κ_r has the specified κ-embedding; marked deformations preserve that strict action.
 
@@ -3379,9 +3165,9 @@ The interface consists of the following operations and identities.
 - `DrinfeldDeformationInstance.ofDieudonne`: A chosen integral σ-conjugator, hence a chosen isomorphism of H_β, transports marked deformation problems; identity and composition of isomorphisms give the corresponding transport laws. Changing the conjugator by an automorphism changes the transport by that automorphism.
 - `DrinfeldDeformationInstance.levelAction`: Changing the ordered sections gives the GL_n(O/ϖ^m)-action and commutes with reduction of level.
 - `DrinfeldDeformationInstance.forgetLevel`: Level m+1→m is induced by multiplying sections by ϖ and composes with forgetting all levels.
-- `DrinfeldDeformationInstance.genericTorsor`: The generic-level fibre is the torsor of bases of the étale O/ϖ^m-module, agreeing with the supplier’s Tate-module bases.
+- `DrinfeldDeformationInstance.genericTorsor`: The generic-level fibre is the torsor of bases of the étale O/ϖ^m-module, agreeing with the étale Tate-module bases.
 
-Apply the contravariant Dieudonné supplier with its specified strict relative O-linear extension. Relative F=βσ and the étale norm parameter F=β⁻¹σ₀ use different β conventions and opposite endomorphism algebras; both are contravariant. Use the formal O-module deformation and Cartier-level representability supplier; connected–étale splitting reduces regularity and dimension to the connected case. Use strict truncated-O-module algebraization, Artin approximation and normalization as in Theorem 2.4; request these exact deformation exports rather than duplicate their general owners.
+Use the strict relative O-linear classification in §7.6. Relative F=βσ and the étale norm parameter F=β⁻¹σ₀ use different β conventions and opposite endomorphism algebras; both are contravariant. Prove representability of the strict formal O-module deformation functor and its Cartier-divisor level covers by the Drinfeld construction of Scholze Proposition 2.3: lift the O-action and level coordinates, impose the torsion divisor equations, and use the connected–étale splitting to reduce regularity and dimension to the connected case. Use strict truncated-O-module algebraization, Artin approximation and normalization as in Theorem 2.4; the resulting equivariant algebraization is part of this target for arbitrary ramification of F/Q_p.
 
 **Checks.**
 
@@ -3390,23 +3176,23 @@ Apply the contravariant Dieudonné supplier with its specified strict relative O
 - `DrinfeldDeformationInstance.etaleBoundary`. At connected height k<n, geometric level components are indexed by surjections (O/ϖ^m)^n→H_et[ϖ^m]; they cannot be collapsed to one local component.
 - The relative deformation dimension is n−1; the GL_n(O/ϖ^m)-torsor assertion concerns the generic fibre.
 
-*Needs:* `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-p-divisible; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1.
+*Needs:* §7.6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.10 (Dieudonné classification of p-divisible groups); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1 (Finite flat group schemes and `p`-divisible groups); `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles).
 
 ### 10.3 Jacquet–Langlands for essentially square-integrable representations
 
 For D/F a central division algebra of index d and n=rd, classical JL is a bijection from essentially square-integrable irreducible GL_r(D) representations to essentially square-integrable GL_n(F) representations, characterized by Θ_{JL(π′)}(g)=(−1)^{n−r}Θ_{π′}(g′) on corresponding regular semisimple classes whose characteristic polynomials agree. In particular it has this identity on matched elliptic classes. It commutes with central-character twists. For r=1,d=n this is the division-algebra correspondence used by the local tower argument; existence is independent of the LLC constructed here.
 
-*Hypotheses.* Characters are the locally integrable Harish-Chandra functions; the normalization fixes maximal compact volumes. The independently proved all-r,D classical theorem is a primary proof obligation.
+*Hypotheses.* Characters are the locally integrable Harish-Chandra functions; the normalization fixes maximal compact volumes. The theorem is the all-r,D classical correspondence, with its fixed central character and elliptic normalization.
 
 ([Alexandru Ioan Badulescu — Correspondance de Jacquet–Langlands étendue à toutes les représentations](https://arxiv.org/pdf/math/0201142), §3.1, p.13; [Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Definition before Corollary 11.3, p.29.)
 
-Import untwisted character integrability/local constancy and elliptic character orthogonality from the character supplier extension. Use the classical Deligne–Kazhdan–Vignéras theorem, as restated with this sign and matching in Badulescu §3.1. Its proof is not replaced by Scholze’s rank-one-division tower comparison. Use character independence for uniqueness and the classical theorem for existence and surjectivity.
+Use §2.16’s untwisted character theorem and its elliptic orthogonality. Use the classical Deligne–Kazhdan–Vignéras theorem, as restated with this sign and matching in Badulescu §3.1. Its proof is not replaced by Scholze’s rank-one-division tower comparison. Use character independence for uniqueness and the classical theorem for existence and surjectivity.
 
 **Checks.**
 
 - For a quaternion division algebra and n=2,r=1, the transfer of its trivial representation is unitary St_2 and the character sign is −1.
 
-*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; §4.8; §6.23; §6.27; §6.25.
+*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); §4.8; §6.23; §6.27; §6.25.
 
 ### 10.4 The nearby-cycle test function
 
@@ -3425,6 +3211,8 @@ The interface consists of the following operations and identities.
 
 Use the formal-to-adic nearby-cycle comparison and finite-level cohomology, then pass through level invariants. Take alternating traces with the inverse-transpose h convention; transfer using §4.9's cyclic fundamental lemma and transfer. Independence of the transfer representative on representation traces uses the specified p-adic character and density theory.
 
+The cohomological input is a target at these particular strict-O algebraizations. At each finite level the formal/adic nearby-cycle comparison gives finite-dimensional cohomology, vanishing outside 0,…,n−1; formally smooth disc extensions preserve it. The finite-type algebraization of §10.2 transfers the finite-level automorphism and Weil actions to this comparison. Congruence-near-identity automorphisms act trivially at sufficiently small congruence level, giving local constancy; alternating traces of τ with a finite-order level operator are rational and independent of ℓ. Prove these assertions by algebraization, Berkovich's comparison, and the controlled-cohomology trace argument of Scholze, *Deformation spaces*, Theorem 2.8, pp. 9–10, Proposition 3.15, pp. 17–18, and Propositions 4.2–4.3, pp. 19–21. Form ℓ-adic coefficients at a fixed level before the smooth level colimit. Extend the API by `NearbyCycles.strictOAlgebraization`, `.formalDiscInvariant` and `.traceIndependentOfEll`. Check a disc factor changes neither the stalk cohomology nor its trace; changing ℓ leaves a given finite-order trace unchanged; a nontrivial level operator is retained until it belongs to the cohomologically trivial congruence subgroup.
+
 **Checks.**
 
 - `NearbyTraceFunction.zero`. h=0 gives φ=0 and a transfer class with zero traces.
@@ -3432,7 +3220,7 @@ Use the formal-to-adic nearby-cycle comparison and finite-level cohomology, then
 - `NearbyTraceFunction.dualInvolution`. For a compact-group character χ, tr(h∨|χ)=tr(h|χ∨); an unramified geometric generator does not remove this compact dual.
 - Do not replace the alternating trace by a single-degree trace.
 
-*Needs:* §10.2; §4.9; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3.
+*Needs:* §10.2; §4.9; `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length).
 
 ### 10.5 Dieudonné norms in the étale and basic cases
 
@@ -3451,6 +3239,8 @@ The interface consists of the following operations and identities.
 
 Track contravariance, the opposite endomorphism algebra and the inverse β parameter when passing from relative F=βσ to the étale F=β⁻¹σ₀ description; no covariant Dieudonné functor is used. Use integral Dieudonné classification for the étale case; conjugate marked lattices produce the same norm class. In the basic case classify geometric formal modules, identify endomorphism height with v_D, and invert the negative-height descent operator.
 
+The strict relative integral classification and Morita convention are those of §7.6; apply them before forming the descent norm.
+
 **Checks.**
 
 - `DieudonneNorm.rankOne`. For A=Q_p and β∈Z_{p^r}×, Nβ is the usual norm Z_{p^r}×→Z_p×.
@@ -3458,7 +3248,7 @@ Track contravariance, the opposite endomorphism algebra and the inverse β param
 - `DieudonneNorm.quaternionValuation`. For n=2, v_D(ϖ)=2 and a height-one basic β with r=1 has norm valuation 1; using the central-field valuation as v_D fails.
 - The arithmetic Witt Frobenius is distinct from the geometric Weil element in the trace.
 
-*Needs:* §10.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/isogeny-classification; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-p-divisible.
+*Needs:* §7.6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.17 (Isogeny classification of p-divisible groups over a perfect field); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.10 (Dieudonné classification of p-divisible groups).
 
 ### 10.6 The additive Langlands–Jacquet quotient
 
@@ -3478,6 +3268,8 @@ The interface consists of the following operations and identities.
 
 Use the standard-module basis theorem and classical JL on its essentially square-integrable blocks to define JL_add. Character compatibility of normalized induction gives its identity on matching classes and proves injectivity. Split the standard basis by divisibility of every block rank. Project along S_{n,D} and invert the transferred standard basis; character independence on inner forms proves the characterization.
 
+For these groups, take the finite-length exact subcategory of the smooth admissible category and its exact Grothendieck group. Use the existing `TauCeti.ExactK0`, `TauCeti.ExactK0.of_conflation`, `TauCeti.ExactK0.map` and `TauCeti.ExactK0.lift`: they give [V]=[V′]+[V″] for every short exact sequence and the induced homomorphism for every additive trace invariant. The finite-length subcategory is extension-closed and essentially small (use finite filtrations with admissible irreducible factors and the sets of their extension classes), so the hypotheses of this exact-category construction hold. Normalized parabolic induction and Jacquet restriction are exact and preserve finite length, hence induce the product and restriction maps on these K₀ groups. A compactly supported locally constant test function has a finite-rank operator on an admissible representation; its trace is additive along the same short exact sequences. This realizes `FiniteLengthClass.ofExact`, `ParabolicInduction.onK0`, `Jacquet.onK0` and `AdmissibleTrace.onK0`. Check a split exact sequence gives the sum of traces; the nonsplit GL₂ principal-series extension gives [St₂]+[1]; exact functors send the zero class to zero. No generic class for an infinite-length representation is used. The finite-length and exactness inputs are SmoothRepresentationsOfLocalGroups §§SR.3.1 and SR.2.2–SR.2.3; the application to the standard basis is Badulescu §3.1, pp. 13–16.
+
 **Checks.**
 
 - `LanglandsJacquet.splitAlgebra`. For d=1 the two groups coincide, S=0 and LJ_D is the identity.
@@ -3485,7 +3277,7 @@ Use the standard-module basis theorem and classical JL on its essentially square
 - `LanglandsJacquet.reduciblePrincipalSeries`. For quaternion D, [Ind_B^{GL_2}(ω^{1/2}⊠ω^{−1/2})]=[St_2]+[1] lies in S, so LJ_D([1])=−[1_{D×}] and the two constituent images cancel.
 - No assertion that JL_add sends every irreducible to an irreducible, or that LJ_D([π]) is an actual positive representation.
 
-*Needs:* §10.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0:abelian-category; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3.
+*Needs:* §10.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` SR.0: the smooth category and its basic API; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); Tau Ceti `TauCeti.ExactK0`, `TauCeti.ExactK0.of_conflation`, `TauCeti.ExactK0.map`, `TauCeti.ExactK0.lift`.
 
 ### 10.7 Rationality and local constancy of the test function
 
@@ -3501,7 +3293,7 @@ Use Berkovich comparison at the finite algebraization to establish finiteness an
 
 - Scaling h by a rational denominator scales φ by that denominator; no unconditional integer-valued claim survives this test.
 
-*Needs:* §10.4; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1.
+*Needs:* §10.4; `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles).
 
 ### 10.8 Norm comparison of orbital integrals and traces
 
@@ -3517,7 +3309,7 @@ Write both orbital integrals as sums over marked integral Dieudonné lattices mo
 
 - At n=1 this reduces to integration along the field norm with its compact normalization.
 
-*Needs:* §10.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3.
+*Needs:* §10.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length).
 
 ### 10.9 Connected–étale descent of nearby cycles
 
@@ -3533,7 +3325,7 @@ Separate connected and étale torsion and classify surjective level maps and the
 
 - k=n gives the original connected nearby cycles and a trivial étale factor; k=1<n retains the finite regular étale factor.
 
-*Needs:* §10.2; §10.4; §10.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1.
+*Needs:* §10.2; §10.4; §10.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles).
 
 ### 10.10 Induction and Jacquet compatibility of the quotient
 
@@ -3543,13 +3335,13 @@ In the graded finite-length representation ring R(F)=⊕_{n≥0}R(GL_n(F)), the 
 
 ([Alexandru Ioan Badulescu — Correspondance de Jacquet–Langlands étendue à toutes les représentations](https://arxiv.org/pdf/math/0201142), Theorem 3.6 and Lemma 3.7 with proof, pp.19–23.)
 
-Use the polynomial-ring presentation by essentially square-integrable standard generators; divisibility describes the ideal and quotient product. Compare Jacquet modules of a transferred essentially square-integrable generator, using Badulescu Lemma 3.7. Its classical DKV Lemma B.2(b) input requires an independent primary comparison proof. Extend on the standard basis through the geometric lemma; discard tensor summands with a nondivisible degree before comparing coproducts.
+Use the polynomial-ring presentation by essentially square-integrable standard generators; divisibility describes the ideal and quotient product. Compare Jacquet modules of a transferred essentially square-integrable generator, using Badulescu Lemma 3.7. For the underlying Jacquet comparison, evaluate the transferred character on sufficiently contracting regular elements of each matching Levi. Casselman’s character identity of §8.9 identifies this value with the Jacquet-module character; the classical JL character relation identifies the two ambient-group values. Matching discriminants and the normalized modulus factors give the signed Levi character relation, and character independence determines the virtual Jacquet module. Nonmatching Levis have no such inner block and give zero in the quotient. Extend on the standard basis through the geometric lemma; discard tensor summands with a nondivisible degree before comparing coproducts.
 
 **Checks.**
 
 - For n=2,d=2 the split (1,1) Jacquet tensor term vanishes in the quotient, since both factor degrees are nondivisible.
 
-*Needs:* §10.6; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5.
+*Needs:* §10.6; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks).
 
 ### 10.11 Harmonic descent and normalized induction
 
@@ -3565,7 +3357,7 @@ Use the geometric descent formula on a block diagonal β and the norm integral f
 
 - For n=2,n_1=n_2=1 both rec_un blocks have twist ω^{1/2}; multiplying by ω^{−1/2} gives the unitary parameter sum.
 
-*Needs:* §10.9; §10.8; §10.1; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; §6.23; §6.27; §6.25.
+*Needs:* §10.9; §10.8; §10.1; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); §6.23; §6.27; §6.25.
 
 ### 10.12 The auxiliary quasi-EL test-function calculation
 
@@ -3577,11 +3369,13 @@ For the local auxiliary datum O= M_n(O_F)^op×O_{D′}^op with D′ a semisimple
 
 Use the specified structured p-divisible-group carrier and identify δ_0 up to σ-conjugacy with ((β^{-1})^t,1,β′). Compare the ordered level bases to strict O-module levels and the étale generator set. Tensor nearby cycles, use the étale norm identity, and apply inverse transpose to the first factor. Track the central character through Deformations Proposition 4.10 and Remark 4.11.
 
+Define the ramified quasi-EL object used in this calculation as a strict ϖ-divisible O_F-module together with the matrix-algebra Morita action, the independent étale O_{D′}^op-linear factor and their ordered level generators. Its determinant condition is imposed on Lie through the structural O_F embedding; F/Q_p is allowed to be ramified. Morita equivalence recovers the dimension-one formal module, and étale lifting is unique, so the deformation functor is the product of that strict deformation functor with the discrete generator set. This proves the displayed factorization rather than appealing to an unramified PEL deformation theorem. The API `QuasiEL.strictMoritaDatum`, `.deformationProduct` and `.etaleGenerators` follows Scholze Definition 7.1 and Proposition 7.2, pp. 17–18. Check the étale factor has zero tangent space; replacing its generator by a different unit changes the level point; ramified F still has relative deformation dimension n−1, rather than [F:Q_p]n−1.
+
 **Checks.**
 
 - For n=1 the extra étale generator factor persists, even though the connected deformation space is zero-dimensional.
 
-*Needs:* §10.4; §10.8; §10.1; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1; `TauCetiRoadmap.PELModuli`, M2.
+*Needs:* §10.4; §10.8; §10.1; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1 (Finite flat group schemes and `p`-divisible groups); `TauCetiRoadmap.PELModuli` §M2 (Representability and smooth good models).
 
 ### 10.13 The simple unitary point count on raw cohomology
 
@@ -3593,11 +3387,13 @@ On the shared early raw compact-unitary cohomology H_ξ, specialize Scholze’s 
 
 Instantiate the raw PEL tower of Layer 9, coefficient projectors and commuting Weil/Hecke actions in the auxiliary data. Identify formal neighbourhoods and their level covers by Serre–Tate, and count fixed points with effectivity, centralizers, volumes and coefficient traces. Use only Layer 6’s independent simple compact trace comparison and the local function comparison; no the downstream local–global compatibility theorem, the downstream monodromy compatibility theorem, Layer 12 concentration, or the downstream excursion-parameter comparison agreement is an input.
 
+For these division data construct the arbitrary-ramification integral model as follows. Start with the canonical PEL generic fibre and its prime-to-p level, use the abelian-scheme moduli with the O_B action and polarization, and take its schematic flat closure over the reflex valuation ring. Properness follows from the division/anisotropy condition and the valuative extension of the polarized abelian object; flatness is imposed by the closure rather than inferred from a good-prime smooth model. The Serre–Tate equivalence identifies the completed-local problem, with the action, determinant and level conditions, with §10.12’s strict quasi-EL deformation problem. Scholze, *Deformation spaces*, Theorem 5.2, p. 24, Propositions 5.4–5.5, p. 25, and Theorem 5.7, pp. 26–27, supply this construction; Scholze LLC §8, pp. 19–22, specializes it. The API `AuxiliaryDivisionPEL.flatClosure`, `.proper` and `.completedLocalQuasiEL` fixes the model and comparison. Check flatness excludes vertical components; the ramified model is not asserted smooth; changing the marked p-divisible object transports the completed local comparison, rather than identifying all completed local rings canonically.
+
 **Checks.**
 
 - Discarding ker^1(Q,G), the similitude coset, the factor n, or the effective-triple invariant must fail the normalization check.
 
-*Needs:* §9.1; §10.12; §6.23; §6.27; §6.24; `TauCetiRoadmap.PELModuli`, M4; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1.
+*Needs:* §9.1; §10.12; §6.23; §6.27; §6.24; `TauCetiRoadmap.PELModuli` §M4 (Canonical models, twists and integral level changes); `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles).
 
 ### 10.14 Positive Weil traces from early unitary globalization
 
@@ -3607,7 +3403,7 @@ For an essentially square-integrable π of GL_n(F), or a generalized Speh repres
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Corollary 10.1, Theorem 10.2 and Corollary 10.3, pp.26–27.)
 
-Use the auxiliary geometric trace and isolate the automorphic finite part through unitary multiplicity one and restricted unitary-to-GL base change. Use Harris–Taylor VI.2.3, VI.2.5 and VI.2.11 for the essentially square-integrable and Speh cases; these are independent primary proof requirements. Take f_{τ,h} supported on determinant valuation r. If χ(ϖ)=u and τ lies over Φ^r, then tr(f∨_{τ,h}|π_w)=u^{−r}tr(f_{τ,h}|π), while tr(h∨|π_w)=tr(h|π). Multiplying Corollary 10.1 by u^r gives a⁻¹W⊗χ_sim⊗χ. Its positivity uses the common parity of W and the sign of a, without later local duality or global compatibility.
+Use the auxiliary geometric trace and isolate the automorphic finite part through unitary multiplicity one and restricted unitary-to-GL base change. In the essentially square-integrable and Speh cases, compare the Euler–Poincaré infinity trace and the finite local trace under the restricted base change of §6.27. Strong multiplicity one makes the chosen finite part a single isobaric GL constituent. The fixed infinity type gives a common cohomological parity; dividing its nonzero multiplicity yields the positive local Weil representation. These are the Harris–Taylor VI.2.3, VI.2.5 and VI.2.11 specializations used in Scholze’s proof of Theorem 10.6 and Corollary 10.7, pp. 27–28. Take f_{τ,h} supported on determinant valuation r. If χ(ϖ)=u and τ lies over Φ^r, then tr(f∨_{τ,h}|π_w)=u^{−r}tr(f_{τ,h}|π), while tr(h∨|π_w)=tr(h|π). Multiplying Corollary 10.1 by u^r gives a⁻¹W⊗χ_sim⊗χ. Its positivity uses the common parity of W and the sign of a, without later local duality or global compatibility.
 
 **Checks.**
 
@@ -3629,7 +3425,7 @@ The basic deformation tower is independent of β over the completed maximal unra
 
 - For n=1 the sign is +1. A character ρ of order greater than two distinguishes the ρ and ρ∨ projectors: averaging ρ(d)ρ(d⁻¹) gives 1, whereas averaging ρ(d)² gives 0 on a finite quotient where ρ² is nontrivial.
 
-*Needs:* §10.14; §10.8; §10.4; §10.3; §6.23; §6.27; §6.24; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3.
+*Needs:* §10.14; §10.8; §10.4; §10.3; §6.23; §6.27; §6.24; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length).
 
 ### 10.16 Integral Weil multiplicities from newvectors
 
@@ -3639,13 +3435,15 @@ For every supercuspidal π, rec_un(π) is an integral virtual W_F representation
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Corollary 11.5 and proof, p.30; [Hervé Jacquet, Ilya Piatetski-Shapiro and Joseph Shalika — Conducteur des représentations du groupe linéaire](https://www.math.columbia.edu/~hj/conducteur.pdf), §5.1 theorem and §5.2, pp.211–212; [Hervé Jacquet — A correction to Conducteur des représentations du groupe linéaire](https://msp.org/pjm/2012/260-2/pjm-v260-n2-p09-s.pdf), Theorem 1 p.517; §§2–3 pp.519–524, especially Remark 1 p.523.)
 
-Import the all-rank generic newvector theorem, with its corrected essential-vector argument, from the smooth-representation extension. Decompose the compact K-restriction: a one-dimensional K_1(c)-fixed space selects precisely one type and one multiplicity. Take the type-isotypic alternating nearby-cycle class; its integer coefficients equal (−1)^{n−1}rec_un(π).
+First prove genericity of every supercuspidal GL_n(F) representation using the nonzero highest mirabolic derivative and its one-dimensional Whittaker functional (Bernstein–Zelevinsky, *Representations of the group GL(n,F) where F is a local non-Archimedean field*, Proposition 5.15 and Theorem 5.16, pp. 49–50, and §5.18, p. 50). Prove the all-rank newvector theorem stated above by the essential Whittaker-vector construction of JPSS §5, using Jacquet’s corrected argument in §§2–3; its zeta integral has precisely the conductor exponent appearing in the local functional equation. The API `Newvector.levelSubgroup`, `.leastConductor`, `.fixedSpaceOneDimensional` and `.multiplicityOneType` records this construction. Decompose the compact K-restriction: a one-dimensional K_1(c)-fixed space selects precisely one type and one multiplicity. Take the type-isotypic alternating nearby-cycle class; its integer coefficients equal (−1)^{n−1}rec_un(π).
 
 **Checks.**
 
 - For an unramified character of GL_1, c=0 and the trivial O× type has multiplicity one.
+- A ramified GL_1 character of conductor c>0 has no K_1(c−1)-invariants and has a one-dimensional K_1(c)-fixed space.
+- Twisting ψ by a nonunit changes the epsilon exponent; the equality with c uses ψ of conductor O. An arbitrary generic representation need not have a hyperspecial fixed vector.
 
-*Needs:* §10.15; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3.
+*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.3 (Pairings, canonical lifting, Iwahori invariants and Whittaker functionals); §10.15; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors.
 
 ### 10.17 Type isolation and the trace-to-parameter reduction
 
@@ -3655,19 +3453,21 @@ Let ρ be a unitary supercuspidal representation of GL_d(F), t≥2 and n=dt. Its
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Lemmas 3.1–3.2 and their proofs, pp.9–11.)
 
-Request the Schneider–Zink type that occurs in S and in exactly the indicated properly induced tempered family, and Kazhdan density. The compact test separates S from square-integrables; it does not isolate an essentially square-integrable unramified family. For the vanishing criterion, take normalized constant terms along proper parabolics and apply Kazhdan density on their Levi factors. The alternating segment/Speh relation then treats square-integrables, followed by density on GL_n. For Lemma 3.2, import the SR.3 Bernstein centre and universal-unramified-twist APIs. The trace scalar varies regularly on each cuspidal component and descends through self twists and Weyl identifications, yielding a central multiplier. Proper induction and the compact Speh test compare its trace with f_{τ,h}; the vanishing criterion extends the identity to every constituent. Use independence of semisimple Weil characters. Positive rational coefficients become nonnegative integers only after the independent supercuspidal integrality input.
+The compact type separation and the trace-density assertion stated above are targets of this section. Construct the Schneider–Zink type attached to the repeated supercuspidal line, and use its tempered occurrence criterion ([Schneider–Zink, *K-types for the tempered components of a p-adic general linear group*](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/temtype.pdf), §5, Proposition 11, p. 30) to obtain the separator. Kazhdan’s density theorem identifies the common kernel of all irreducible characters with the orbital-integral kernel; apply it on each Levi after taking normalized constant terms. Scholze Lemma 3.1, pp. 9–10, gives the precise combination of the two assertions and the segment relation used here. The API `SpehType.separator`, `.spehTraceNonzero` and `.temperedOccurrence` records the compact test and its partition-order criterion. The compact test separates S from square-integrables; it does not isolate an essentially square-integrable unramified family. For the vanishing criterion, take normalized constant terms along proper parabolics and apply Kazhdan density on their Levi factors. The alternating segment/Speh relation then treats square-integrables, followed by density on GL_n. For Lemma 3.2, use the SR.3.2 Bernstein centre and universal-unramified-twist APIs. The trace scalar varies regularly on each cuspidal component and descends through self twists and Weyl identifications, yielding a central multiplier. Proper induction and the compact Speh test compare its trace with f_{τ,h}; the vanishing criterion extends the identity to every constituent. Use independence of semisimple Weil characters. Positive rational coefficients become nonnegative integers only after the independent supercuspidal integrality input.
 
 **Checks.**
 
-- The compact separator has nonzero trace on S and zero trace on all square-integrables. A positive rational multiplicity 1/2 still fails the actual-representation conclusion until integrality is imposed.
+- The compact separator has nonzero trace on S and zero trace on all square-integrables.
+- The separator may have nonzero trace on the specified properly induced tempered family; imposing vanishing on every tempered representation would force its Speh trace to vanish by the density criterion.
+- At t=1 the representation is square-integrable, so the asserted separator cannot exist. A positive rational multiplicity 1/2 still fails the actual-representation conclusion until integrality is imposed.
 
-*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; §10.11; §10.14; §10.16.
+*Needs:* `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.2 (Bernstein components and the centre); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); §10.11; §10.14; §10.16.
 
 ### 10.18 The character-defined semisimple Weil parameter
 
 For every irreducible smooth complex π of GL_n(F), construct the unique n-dimensional semisimple continuous W_F representation rec_un(π), with finite inertia image, satisfying tr(f_{τ,h}|π)=tr(τ|rec_un(π))tr(h|π) for all τ projecting to a positive power of geometric Frobenius and compact h on K. Its unitary normalization σ_ss(π)=rec_un(π)⊗ω^{(1−n)/2} is additive on supercuspidal support. This construction specifies a Weil representation only; it carries no operator N and does not recover the usual L-factor of an arbitrary constituent from that support.
 
-*Hypotheses.* F is finite over Q_p, n≥1; finite-length traces and transferred orbital-integral classes are defined through the character supplier.
+*Hypotheses.* F is finite over Q_p, n≥1; finite-length traces and transferred orbital-integral classes are defined by §2.16.
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Theorem 1.2(a)–(b) p.3; Lemma 3.2 pp.9–10; Corollaries 10.3 and 11.5 pp.26–30.)
 
@@ -3683,9 +3483,8 @@ Proceed by rank, using harmonic descent in lower ranks; type and density reduce 
 **Checks.**
 
 - `ClassicalWeilParameter.rankOne`. For a GL_1 character χ, the geometric Frobenius trace is χ(ϖ).
-- `ClassicalWeilParameter.sameSupport`. For unitary St_2 and trivial GL_2, σ_ss=ω^{−1/2}⊕ω^{1/2}; semisimple traces do not distinguish their monodromy.
+- `ClassicalWeilParameter.sameSupport`. For unitary St_2 and trivial GL_2, σ_ss=ω^{−1/2}⊕ω^{1/2}; semisimple traces do not distinguish their monodromy. Their full local L-functions differ, as does monodromy.
 - `ClassicalWeilParameter.rationalNotIntegral`. A rational class with a constituent of coefficient 1/2 fails the integral-multiplicity test and is not the constructed actual Weil representation.
-- The trivial and unitary Steinberg GL_2 representations have equal σ_ss but will have different full monodromy and L-functions.
 
 *Needs:* §10.17; §10.7; §10.1.
 
@@ -3703,7 +3502,7 @@ Apply the early restricted unitary-to-GL globalization to Π∨, so the split GL
 
 - An equality of semisimple Weil traces cannot be used to infer Steinberg N≠0.
 
-*Needs:* §10.18; §6.23; §6.27; §6.24; §9.1; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5.
+*Needs:* §10.18; §6.23; §6.27; §6.24; §9.1; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport.
 
 ### 10.20 Functoriality of the semisimple parameter
 
@@ -3715,59 +3514,74 @@ The maps σ_ss satisfy: rank-one geometric reciprocity; normalized-induction con
 
 Prove rank one by the height-one tower and twists by restricted global extraction; use its cyclic global comparison for prime-degree local lifting. The induction sum has already been proved. For the Iwahori criterion reduce to supercuspidals of rank ≥2 and show σ_ss(π)^I=0. Average φ_{τ,h} over inertia. Use (1−q^r)tr_ss=tr on derived inertia invariants and the specified β-independent nearby-cycle description, then compact JL orthogonality; use this exact all-F extension rather than assume it from the Q_p calculation.
 
+The inertia-average calculation is a target here for the strict-O deformation spaces. Its API is `StrictNearbyCycles.inertiaFlagCohomology`, `.basicParameterIndependence` and `.inertiaAverageTrace`. For basic β of connected height k, at finite full level m the groups H^j(RI_F RΨ_β), with their W_{F_r} descent and compact-group action, are independent of β. The connected factor, after choosing its level frame, is
+
+Ind_{P_{j,k}(O/ϖ^m)}^{GL_k(O/ϖ^m)}(St_j⊠1)(−j),  0≤j≤k,
+
+and is zero in other degrees. Here St_j is the kernel of the flag-summing maps for free direct summands over O/ϖ^m, St_0=1, and P_{0,k}=P_{k,k}=GL_k with the evident endpoint conventions. Retain the formal-disc and étale factors of §10.9. These are level-m flag representations, not in general inflations from GL_k(κ_F); their limit is the restriction of the corresponding smooth p-adic parabolic-induction representation. The flag resolution and its exactness are Scholze, *Some simple Shimura varieties*, Lemma 5.5 and Corollary 5.6, pp. 13–14. For general F replace the Q_p Shimura algebraizations in that proof by §10.2’s equivariant finite-type strict-O algebraizations; the same Cartier-level flag stratification and purity calculation use κ_F, so every p^r in the Frobenius calculation becomes q^r. Scholze LLC Theorem 12.1(v), pp. 30–31, footnote 8, makes precisely this replacement. The inertia cohomology spectral sequence gives
+
+(1−q^r) tr_ss(Φ^r×h∨ | RΨ_β)=tr(Φ^r×h∨ | RI_F RΨ_β).
+
+Since the right side is β-independent, compact JL orthogonality kills its supercuspidal rank ≥2 contribution. Check r≥1 makes 1−q^r invertible; a residue degree two field uses q=p²; n=1 has nonzero inertia-fixed parameter and is excluded from that vanishing argument. At k=2 and m>1, flags modulo ϖ^m test the full congruence-level representation, so replacing it by residue-field flags fails. This gives both the cohomology description and its all-F trace consequence.
+
 **Checks.**
 
 - Unramified σ_ss implies Iwahori invariants, not necessarily hyperspecial invariants: St_2 is the basic counterexample.
 
-*Needs:* §10.18; §10.19; §10.15; §6.23; §6.27; §6.24; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4.
+*Needs:* §10.2; §10.4; §10.9; §10.18; §10.19; §10.15; §6.23; §6.27; §6.24; `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.4 (The split Iwahori block and nonsplit components).
 
 ### 10.21 Supercuspidal local Langlands
 
 For each n≥1, π↦σ_ss(π) is a bijection from supercuspidal irreducible smooth complex GL_n(F) representations to irreducible continuous n-dimensional complex W_F representations with finite inertia image. The proof uses only the five functorial properties and local cyclic lifting; it does not use numerical LLC or the factor-compatibility theorem being proved below.
 
-*Hypotheses.* F/Q_p finite; the local lift supplier includes existence, ambiguity by cyclic characters, and nonsupercuspidal-lift decomposition.
+*Hypotheses.* F/Q_p finite; the cyclic local lifting results of §§6.12 and 6.24 give existence, ambiguity by cyclic characters, and nonsupercuspidal-lift decomposition.
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Definition 12.2 and Theorem 12.3 with proof, pp.31–32; [James Arthur and Laurent Clozel — Simple Algebras, Base Change, and the Advanced Theory of the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Chapter I Theorem 6.2 pp.51–57, Proposition 6.7 pp.59–60, Lemma 6.10 pp.62–64.)
 
-Choose a prime-cyclic tower making the parameter unramified. At its first loss of supercuspidality, Arthur–Clozel I Lemma 6.10 decomposes the lift as the orbit induction of pairwise distinct lower-rank supercuspidals. Rank induction and Clifford theory prove irreducibility. For a given irreducible Weil representation descend from the first reducible restriction: realize its orbit constituents in lower rank and lift their normalized induction. Descend through the remaining cyclic steps using I Theorem 6.2; match the unique cyclic character twist on the Weil side and use I Proposition 6.7 for uniqueness.
+For a continuous complex Weil representation with finite inertia image, first treat an irreducible representation and choose its unramified twist so that Frobenius has finite-order image: a power of Frobenius centralizes the finite inertia image and is scalar by Schur’s lemma. The twisted irreducible then factors through a finite quotient; apply this separately to the summands of a semisimple representation. Apply finite-group Clifford theory there; restriction to a normal cyclic-prime-index subgroup is a multiplicity-one orbit sum, either irreducible or the sum of the conjugate lower-rank representations. Unramified twists restore the original representation. This also proves the finite-inertia Brauer-induction reduction used in §10.28, by applying finite-group Brauer induction before restoring the twist. These are the Weil representation inputs for Scholze Theorem 12.3, pp. 31–32, and Theorem 14.1, pp. 35–36. Choose a prime-cyclic tower making the parameter unramified. At its first loss of supercuspidality, Arthur–Clozel I Lemma 6.10 decomposes the lift as the orbit induction of pairwise distinct lower-rank supercuspidals. Rank induction and Clifford theory prove irreducibility. For a given irreducible Weil representation descend from the first reducible restriction: realize its orbit constituents in lower rank and lift their normalized induction. Descend through the remaining cyclic steps using I Theorem 6.2; match the unique cyclic character twist on the Weil side and use I Proposition 6.7 for uniqueness.
 
 **Checks.**
 
 - A rank-two irreducible Weil induction from a noninvariant quadratic character corresponds to a supercuspidal; a reducible sum of two characters cannot.
 
-*Needs:* §10.20; §6.23; §6.27; §6.24; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.1; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; `TauCetiRoadmap.RepresentationTheory.InductionRestriction`, layer 5 clifford theory over a normal subgroup.
+*Needs:* `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layer 6 (Artin and Brauer induction); `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group); §10.20; §6.23; §6.27; §6.24; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §1 (continuous representations and integral models); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layer 5 (Clifford theory over a normal subgroup).
 
 ### 10.22 Potentially abelian automorphic–Weil pairs
 
 A potentially abelian pair over a number field L consists of a cuspidal automorphic Π of GL_n/L and a continuous n-dimensional global Weil representation Σ, with σ_ss(Π_v)=Σ|_{W_{L_v}} at every finite place and archimedean LLC agreement at every infinite place. The word pair retains Σ, rather than just a predicate on Π. An algebraic Σ restricts at each complex embedding to characters z^p z̄^q with integral p,q. Regular L-algebraic Π means Π_∞⊗|det|^{(n−1)/2} is regular algebraic in the cohomological convention. Algebraic global Weil representations have ℓ-adic realizations matching all v∤ℓ.
 
-*Hypotheses.* Global Weil groups, their localizations and algebraic Weil-to-ℓ-adic realizations are specified from ClassFieldTheory Part II through Arithmetic R01.1. GlobalNumberFields supplies Hecke characters and infinity types; AF.1 supplies the specified archimedean LLC target. No general global Langlands correspondence is assumed.
+*Hypotheses.* Σ is potentially abelian: its restriction to the Weil group of some finite extension is a direct sum of characters. Fix the field comparison ι and the local reciprocity convention. GlobalNumberFields gives the character carriers and infinity types; the global Weil construction and algebraic realization for these Σ are given below.
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Definition 13.1, Corollary 13.2 and Lemmas 13.3–13.4, pp. 32–34.)
 
 The interface consists of the following operations and identities.
 
-- `PotentiallyAbelianPair.finiteComparison`: Supply the equality of semisimple Weil isomorphism classes at each finite place.
-- `PotentiallyAbelianPair.infiniteComparison`: Supply the archimedean LLC association at every infinite place.
+- `PotentiallyAbelianPair.finiteComparison`: Gives equality of semisimple Weil isomorphism classes at each finite place.
+- `PotentiallyAbelianPair.infiniteComparison`: Gives the archimedean LLC association at every infinite place.
 - `PotentiallyAbelianPair.algebraicRealization`: For algebraic Σ and ι:Q̄_ℓ≃C, its ℓ-adic realization agrees at every v∤ℓ.
 - `PotentiallyAbelianPair.characterCase`: An algebraic rank-one Hecke character and its class-field Weil character give a pair.
 
-Use the already-proved local σ_ss at finite places, and the existing archimedean LLC endpoint. Construct ℓ-adic realizations for algebraic characters by global class field theory and then use finite-extension descent for Σ. Import the realization and global Hecke-character twist APIs at their owners; finite-place comparison is stable under isomorphism of either member.
+Use the already-proved local σ_ss at finite places, and the existing archimedean LLC endpoint. Construct ℓ-adic realizations for algebraic characters by global class field theory and then use finite-extension descent for Σ. Finite-place comparison is stable under isomorphism of either member; the realization and normalizing character are constructed below.
+
+Construct the global Weil group for this application from ClassFieldTheory Layer 11's global class formation. For each finite Galois M/L, form the extension 1→C_M→W_{M/L}→Gal(M/L)→1 classified by its fundamental class; compatible relative transition maps give the global group. Local fundamental classes and localization of ideles give W_{L_v}→W_L, up to inner conjugacy. The transfer and reciprocity diagrams fix the convention. This is Tate, *Number theoretic background*, §§1.1–1.6, pp. 3–9. The API `GlobalWeil.relativeExtension`, `.localization` and `.abelianization` retains the relative cocycle choices and identifies W_L^ab with C_L.
+
+For an algebraic character, construct its ℓ-adic avatar by cancelling its algebraic infinity type on principal ideles and inserting that type at places above ℓ; continuity and reciprocity descend it to Γ_L. For potentially abelian Σ, perform this construction after a finite extension where it splits into characters, then descend the finite permutation and intertwining data. The cocycle identities are retained under ι, so the descent is a representation, not just a matching collection of Frobenius polynomials. Scholze Lemmas 13.3–13.4, pp. 33–34, prove this realization and its finite-place agreement away from ℓ. Check a rank-one algebraic character gives its usual avatar; a nonintegral infinity exponent is excluded; changing a local Weil embedding by conjugacy gives an isomorphic restricted representation.
+
+The archimedean normalization uses the unitary LLC of AutomorphicFormsOnReductiveGroups §1: a character z^a z̄^b of C× corresponds to the same character of W_C, and |det|^t corresponds to the norm character |·|^t. The algebraic normalization of a rank-n parameter is the unitary parameter twisted by |·|^{(1−n)/2}; cyclic base change is restriction and automorphic induction is induction, with that rank-dependent twist restored at each endpoint. Substitution on W_C proves the infinity-type formulas, including the induced two-dimensional W_R blocks. For a CM field choose the character φ in Scholze Corollary 13.2, p. 33: φ^c=φ⁻¹ and φ_∞|·|^{(n−1)/2} is algebraic. Then twisting by φ corrects the half-integral weights while preserving conjugate self-duality. In the solvable induction of Lemma 13.6, pp. 34–35, a finite-order descent obstruction is corrected by the Artin character there, before asserting conjugate self-duality. The parity, even totally real degree and splitting assumptions of §10.24 are retained. Add `PotentiallyAbelianPair.algebraicAvatar`, `.normalizingCharacter` and `.archimedeanRestriction`. Check n=1 has no half shift; n=2 may require half-integral infinity exponents before correction; omitting φ changes the algebraicity condition even if unramified finite places agree.
 
 **Checks.**
 
 - `PotentiallyAbelianPair.rankOne`. For an algebraic Hecke character, both local endpoints equal the local reciprocal character, including ramified finite places.
 - `PotentiallyAbelianPair.almostEverywhere`. A record with finite agreement only outside a finite set fails finiteComparison at a missing place.
 - `PotentiallyAbelianPair.archimedeanIntegral`. At a complex embedding a character z↦|z|^{√2} fails the integral-weight algebraicity condition.
-- Agreement only at almost all places does not satisfy the definition; upgrading it needs the following theorem.
 
-*Needs:* §10.21; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln; `TauCetiRoadmap.GlobalNumberFields`, layer 9 hecke and ray class characters; `TauCetiRoadmap.GlobalNumberFields`, layer 10 archimedean characters infinity types and cyclotomic arithmetic; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.1.
+*Needs:* §10.21; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; `TauCetiRoadmap.GlobalNumberFields` Layer 9 (Hecke and ray class characters); `TauCetiRoadmap.GlobalNumberFields` Layer 10 (archimedean characters, infinity types, and cyclotomic arithmetic); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §1 (continuous representations and integral models).
 
 ### 10.23 The segment-to-monodromy adapter
 
 For the raw special block, `specialMonodromy` and `specialFrobenius` in Suggested.lean give N e_j=e_(j+1) and geometric Frobenius e_i↦q^(−i)e_i over ℚ. Their covariance is F N=q⁻¹N F. The matrix identity still holds at q=0 or q=1 as a numerical formula, but an invertible Weil action requires the actual residue cardinality q>1. The normalized special block is obtained by the separately specified half twist.
 
-Import the GL_n segment classification from SmoothRepresentations SR.5.3, highest-derivative-adapter, and the existing Arithmetic R01.2:wd special objects. For a segment Δ=[ρ⊗|det|^a,…,ρ⊗|det|^b], with ℓ=b−a+1 a positive integer, send its essentially square-integrable constituent D(Δ) to σ_ss(ρ)⊗ω^a⊗Sp(ℓ). Here Sp(ℓ) has weights 1,ω,…,ω^{ℓ−1} and N e_i=e_{i+1}, N e_{ℓ−1}=0, as in the imported unnormalized special object. The normalized unitary Steinberg block is ω^{(1−ℓ)/2}Sp(ℓ). This construction defines only the adapter, not another multisegment classification or WD carrier.
+Use the GL_n segment classification and endpoint-shortening formula of SmoothRepresentationsOfLocalGroups §SR.5.3 and the special objects of ArithmeticGaloisRepresentations §2.4. For a segment Δ=[ρ⊗|det|^a,…,ρ⊗|det|^b], with ℓ=b−a+1 a positive integer, send its essentially square-integrable constituent D(Δ) to σ_ss(ρ)⊗ω^a⊗Sp(ℓ). Here Sp(ℓ) has weights 1,ω,…,ω^{ℓ−1} and N e_i=e_{i+1}, N e_{ℓ−1}=0, as in the imported unnormalized special object. The normalized unitary Steinberg block is ω^{(1−ℓ)/2}Sp(ℓ). This construction defines only the adapter, not another multisegment classification or WD carrier.
 
 *Hypotheses.* a,b may include the fixed half-integral normalization; the SR segment orientation must select the essentially square-integrable constituent, independently of its Z/L naming convention.
 
@@ -3794,7 +3608,7 @@ Use the existing segment endpoint, essentially square-integrable classification 
 - `RawSpecialBlock2.sameWeilDifferentMonodromy`. The same F(t) with N and with 0 has identical trace and characteristic polynomial, but their kernels have dimensions 1 and 2.
 - The unitary GL_2 Steinberg block has N≠0, one-dimensional ker N and Frobenius weights ω^{−1/2},ω^{1/2}.
 
-*Needs:* §10.21; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/unnormalised-special-object; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-tensor-product; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5; Mathlib `Matrix.diagonal`; Mathlib `Matrix.trace`; Mathlib `Matrix.trace_diagonal`; Mathlib `Matrix.charpoly`.
+*Needs:* §10.21; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks); Mathlib `Matrix.diagonal`; Mathlib `Matrix.trace`; Mathlib `Matrix.trace_diagonal`; Mathlib `Matrix.charpoly`.
 
 ### 10.24 Harris non-Galois automorphic induction
 
@@ -3810,7 +3624,7 @@ First prove Scholze Theorem 13.5: compare ℓ-adic realizations using restricted
 
 - At n=1 this is the original Hecke character; a χ with larger stabilizer fails the irreducible x-component hypothesis.
 
-*Needs:* §10.22; §10.19; §6.23; §6.27; §6.24; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5/gl1-dictionary.
+*Needs:* §10.22; §10.19; §6.23; §6.27; §6.24; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport.
 
 ### 10.25 Full special-block factors and conductors
 
@@ -3826,7 +3640,7 @@ Take inertia invariants of ker N: only the terminal raw special weight survives.
 
 - For normalized St_2 twisted by unramified χ(ϖ)=α, L(s)=(1−αq^{−s−1/2})^{-1} and conductor 1; the zero-monodromy object with the same Weil weights has two Euler factors and conductor 0.
 
-*Needs:* §10.23; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-tensor-product; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/local-euler-factor; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/local-epsilon-factor; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.3/wd-from-monodromy.
+*Needs:* §10.23; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.5 (Local factors); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.7 (Local constants).
 
 ### 10.26 The full classical Weil–Deligne parameter
 
@@ -3844,7 +3658,7 @@ The interface consists of the following operations and identities.
 - `ClassicalWDParameter.dimension`: The WD dimension equals the rank n of GL_n.
 - `ClassicalWDParameter.concatData`: Concatenating standard block multisets, then reordering and taking their Langlands quotient, corresponds to WD direct sum; it is not a direct-sum operation on irreducible representation spaces.
 
-Import uniqueness of GL_n Langlands data from SR.3.3 and SR.5.3, and uniqueness of arithmetic WD special-block decomposition. Apply the segment adapter to each block and the imported WD direct sum; permutation of blocks changes only the isomorphism representative. Construct the inverse using the supercuspidal bijection and match both multisets. Compare forgotten Weil weights with the earlier character-parameter induction formula.
+Use uniqueness of GL_n Langlands data from SR.3.3 and SR.5.3, and uniqueness of arithmetic WD special-block decomposition. Apply the segment adapter to each block and the imported WD direct sum; permutation of blocks changes only the isomorphism representative. Construct the inverse using the supercuspidal bijection and match both multisets. Compare forgotten Weil weights with the earlier character-parameter induction formula.
 
 **Checks.**
 
@@ -3853,23 +3667,31 @@ Import uniqueness of GL_n Langlands data from SR.3.3 and SR.5.3, and uniqueness 
 - `ClassicalWDParameter.trivialGL2`. The trivial GL_2 representation maps to (ω^{−1/2}⊕ω^{1/2},0), which has the same Weil semisimplification as St_2 and is not isomorphic to its WD object.
 - Both inverse compositions preserve every special-block length; matching only the Weil semisimplification is insufficient.
 
-*Needs:* §10.23; §10.18; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/frobenius-semisimple-special-block-classification; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-direct-sum; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/frobenius-semisimplification-construction; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/categorical-semisimplification-construction; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5.
+*Needs:* §10.23; §10.18; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks).
 
 ### 10.27 Henniart’s highly ramified functional-equation argument
 
-For two local supercuspidal terms whose Weil representations are induced from characters, choose simultaneous potentially abelian cuspidal globalizations with the required local factors up to unramified twist. At the finitely many unwanted ramified places choose a global Hecke character η, trivial at the distinguished place and sufficiently ramified elsewhere. The required analytic and Weil stability contract says that, once dimensions and determinants match, the twisted pair L-factors there are 1 and their epsilon factors agree with the same ψ and Haar measures. The two global pair functional equations then isolate the L/epsilon identity at the distinguished place. Brauer induction makes this reduction available for every pair of virtual supercuspidal terms.
+For two local supercuspidal terms whose Weil representations are induced from characters, choose simultaneous potentially abelian cuspidal globalizations with the required local factors up to unramified twist. At the finitely many unwanted ramified places choose a global Hecke character η, trivial at the distinguished place and sufficiently ramified elsewhere. The analytic and Weil stability theorems below imply that, once dimensions and determinants match, the twisted pair L-factors there are 1 and their epsilon factors agree with the same ψ and Haar measures. The two global pair functional equations then isolate the L/epsilon identity at the distinguished place. Brauer induction makes this reduction available for every pair of virtual supercuspidal terms.
 
-*Hypotheses.* The simultaneous globalization and stability contract are explicit unverified primary-source inputs, requiring independent primary proofs; this construction does not claim that their proof has been read.
+*Hypotheses.* F/Q_p is finite; all local additive characters and measures agree. The conductor threshold depends on the fixed pair and ψ. Simultaneous globalization uses the solvable induced-character case of §10.24, allowing an unramified twist at the distinguished place.
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Theorem 14.1, Lemma 14.2 and proof, pp.35–36.)
 
-Use the solvable-induction theorem and the local-to-global embedding/character approximation construction for both induced Weil terms. Identify determinants by global class field theory and strong multiplicity one. Use the supplier’s local highly ramified stability and a global character with prescribed trivial distinguished component. Divide analytic and Weil global functional equations, cancel the matching unramified and archimedean factors, and separate the remaining rational L-factor and epsilon monomial with the local functional equation.
+Use the solvable-induction theorem and the local-to-global embedding/character approximation construction for both induced Weil terms. Identify determinants by global class field theory and strong multiplicity one. Use the local highly ramified stability and character approximation stated below. Divide analytic and Weil global functional equations, cancel the matching unramified and archimedean factors, and separate the remaining rational L-factor and epsilon monomial with the local functional equation.
+
+The auxiliary character has the following approximation property. Given a distinguished finite place v₀ of L, a finite set S disjoint from v₀ and integers A_v, there is a finite-order idele-class character η with η_{v₀}=1 and a(η_v)≥A_v for v∈S; ramification at additional auxiliary places is allowed. At each v∈S choose a finite-order local character of conductor at least A_v, and prescribe the trivial character at v₀. ArithmeticGaloisDuality §R02.4.6, **Grunwald–Wang with its exact dyadic obstruction**, extends this finite collection: in the exceptional case permit global order 2n instead of n, leaving all prescribed local restrictions unchanged. Global reciprocity turns the resulting finite Galois character into the required idele-class character. Thus neither bounded order nor a fixed ramification set is asserted. The local triviality is on all L_{v₀}×, not just its units. This distinction is needed when cancelling the functional equations.
+
+For fixed generic π of GL_a(F) and π′ of GL_b(F), there is A such that a(χ)≥A gives L(s,(π⊗χ)×π′)=L(1−s,(π∨⊗χ⁻¹)×π′∨)=1. Its epsilon factor depends only on a,b, the two central characters, χ and ψ. More explicitly, choose characters α_i,β_j whose products are those central characters; it is the product of the rank-one epsilon factors ε(s,χα_iβ_j,ψ). Jacquet–Shalika, [*A lemma on highly ramified ε-factors*](https://www.math.columbia.edu/~hj/Highly%20ramified.pdf), Proposition 4.1 and §4.2, pp. 326–327, and Proposition 5.1, p. 331, prove these claims: induction on ranks reduces the functional equation to essential Whittaker vectors and rank-one factors. The conductor is chosen beyond the finitely many levels fixing these vectors. The dual L-factor is included, so equality of gamma factors gives equality of epsilon factors.
+
+The corresponding Weil assertion follows from Deligne–Henniart, [*Sur la variation, par torsion, des constantes locales*](https://publications.ias.edu/sites/default/files/Number43.pdf), Theorem 4.6 and Lemma 4.7, pp. 110–111: apply the theorem to V−(dim V)·1 after choosing χ with ramification break more than twice the largest break of these constituents. The proof uses the refined Brauer decomposition and the norm/Gauss-sum comparison in §§2–3. Consequently for fixed V, sufficiently ramified χ has (V⊗χ)^I=0, and ε(V⊗χ,ψ)=ε(χ,ψ)^{dim V}det(V)(c_χ), where c_χ is fixed by the rank-one relation χ(1+x)=ψ(c_χ⁻¹x) on sufficiently deep units. The same c_χ and self-dual measure are used on both sides. Thus equal dimension and determinant give identical constants. The analytic rank-one product above has determinant ω_π^bω_π′^a, exactly det(V⊗V′) once the determinant comparison is known. Finite Brauer induction of global Weil representations gives their global functional equation from Tate's rank-one functional equation; ClassFieldTheory supplies the idelic norm and transfer, not this functional equation.
+
+The API `PairFactors.highRamificationThreshold`, `.rankOneStableProduct`, `HeckeCharacter.trivialAtAndRamifiedElsewhere` and `PotentiallyAbelianPair.globalFunctionalEquation` belongs to this argument. Check η_{v₀}(ϖ)=1 as well as triviality on units; a twist below A is not covered; unequal determinants may give different stable epsilon factors. At new auxiliary ramified places both original pairs are unramified, so their factors after a ramified rank-one twist already agree by the unramified-tensor formula and the determinant comparison. No second approximation or recursive enlargement of S is needed.
 
 **Checks.**
 
 - A character ramified at the distinguished place does not isolate the original local pair; its component must be trivial there.
 
-*Needs:* §10.24; §10.20; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.1; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-global-functional-equation; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5.
+*Needs:* `TauCetiRoadmap.ArithmeticGaloisDuality` §R02.4.6 (Grunwald–Wang with its exact dyadic obstruction); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (global reciprocity); §10.24; §10.20; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.1 — Tate zeta distributions and Hecke L-functions; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport.
 
 ### 10.28 Supercuspidal pair-factor compatibility
 
@@ -3879,13 +3701,13 @@ For supercuspidal π_1,π_2 of GL_{n_1}(F),GL_{n_2}(F), σ_ss respects duals and
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Theorem 14.1 and footnote 9, pp.35–36.)
 
-Apply Brauer induction to finite-inertia Weil classes to reduce to virtual induced-character terms; import the precise induction theorem from arithmetic representation theory. Use highly ramified isolation for pairs of such terms and multiplicativity to recover arbitrary pairs. Use the global determinant comparison for det σ_ss=ω_π; detect duality by the pole of the pair L-function.
+Apply the finite-quotient-after-unramified-twist reduction of §10.21 and finite-group Brauer induction over ℂ to reduce to virtual induced-character terms; restore the twists using their character extensions to the relevant Weil subgroups. Use highly ramified isolation for pairs of such terms and multiplicativity to recover arbitrary pairs. Use the global determinant comparison for det σ_ss=ω_π; detect duality by the pole of the pair L-function.
 
 **Checks.**
 
 - For supercuspidals of unequal ranks the pair L-function is 1; rank-one equality is Tate’s local identity.
 
-*Needs:* §10.21; §10.27; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.1; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-local-functional-equation; `TauCetiRoadmap.RepresentationTheory.InductionRestriction`, layer 6 the virtual character ring artin and brauer induction.
+*Needs:* §10.21; §10.27; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §1 (continuous representations and integral models); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors; `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layer 6 (the virtual-character ring, Artin and Brauer induction).
 
 ### 10.29 Analytic factors for segments and Langlands quotients
 
@@ -3895,19 +3717,19 @@ For essentially square-integrable segment representations δ,δ′, the analytic
 
 ([Guy Henniart — Une caractérisation de la correspondance de Langlands locale pour GL(n)](https://www.numdam.org/item/BSMF_2002__130_4_587_0.pdf), §2.6 p.595 and §2.8 p.596.)
 
-Import the exact analytic segment formulas and nongeneric Langlands-data extension from AL.3; its generic induced-factor product alone does not supply this statement. Use Henniart’s formulas in §2.6 and §2.8 to state the needed extension and provide the underlying JPSS §9 proof. Combine the supercuspidal-pair endpoint with the special-block formulas to identify every standard-data product.
+These segment formulas and the nongeneric extension are targets here. In Henniart’s uncentred convention δ=St_a(ρ), δ′=St_b(ρ′), put ν=|·|. Then L(s,δ×δ′)=∏_{j=1}^{min(a,b)}L(s,ν^{a+b−1−j}ρ×ρ′), while γ(s,δ×δ′,ψ)=∏_{i=1}^a∏_{j=1}^bγ(s,ν^{i+j−2}ρ×ρ′,ψ). Recover ε from γ=εL(1−s,dual)/L(s); translate to the centred unitary blocks by twisting ρ and ρ′ by ν^{−(a−1)/2} and ν^{−(b−1)/2}. Prove the segment L-polynomial by the essential Whittaker integrals and their functional equation (JPSS §9, as recorded in Henniart §2.6, p. 595). For a nongeneric Langlands quotient define its factors by the unique ordered essentially square-integrable data and the displayed products (Henniart §2.8, p. 596); permutation of equal exponents leaves every product unchanged. This is a definition on canonical data followed by comparison, not multiplicativity for an arbitrary subquotient. Combine the supercuspidal-pair endpoint with the special-block formulas to identify every standard-data product.
 
 **Checks.**
 
 - For the trivial GL_2 quotient, use two length-one Langlands blocks. Substituting the length-two Steinberg block incorrectly removes an Euler factor.
 
-*Needs:* §10.25; §10.28; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.2/standard-local-l-factor; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-induced-factor-product; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3.
+*Needs:* §10.25; §10.28; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.2 — Godement–Jacquet standard functions; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors.
 
 ### 10.30 Weil–Deligne local Langlands
 
 For each n≥1, LLC_WD is a bijection between irreducible smooth complex representations of GL_n(F) and n-dimensional Frobenius-semisimple WD isomorphism classes with finite inertia. It commutes with duals, character twists and field isomorphisms; det(r)=ω_π through geometric reciprocity. Standard L/epsilon and all pair L/epsilon/gamma factors agree, with full monodromy. For every generic π and ψ of conductor O, its newvector exponent equals the Artin–Deligne conductor of LLC_WD(π). Equality with a later geometric semisimple GL_n parameter is an output theorem in the downstream excursion-parameter comparison, consuming this endpoint, not an input to its construction.
 
-*Hypotheses.* Same normalization, complex square root, ψ and measures throughout; the nongeneric analytic extension is the previous supplier contract.
+*Hypotheses.* Same normalization, complex square root, ψ and measures throughout; the nongeneric analytic extension is §10.29.
 
 ([Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf), Theorem 1.2(c)–(d) and discussion, pp.3–4; [Guy Henniart — Une caractérisation de la correspondance de Langlands locale pour GL(n)](https://www.numdam.org/item/BSMF_2002__130_4_587_0.pdf), §2.9 p.596; Theorem 1.8 p.591 and Corollary 1.8 p.592, proof §4.5 p.600.)
 
@@ -3917,13 +3739,13 @@ The inverse multisets prove bijectivity. The supercuspidal dual/twist/determinan
 
 - In rank one this is reciprocity with N=0. For St_2 versus trivial GL_2 the monodromy and conductor checks distinguish parameters despite identical semisimple Weil traces.
 
-*Needs:* §10.26; §10.29; §10.16; §10.25; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-dual-object; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3.
+*Needs:* §10.26; §10.29; §10.16; §10.25; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length).
 
 ### 10.31 The inner-form parameter from standard data
 
 For irreducible π′ of GL_r(D), take its unique ordered inner Langlands standard data δ′_1,…,δ′_t, transfer each essentially square-integrable block by classical JL, and set LLC_D(π′)=⊕_i LLC_WD(JL(δ′_i)). This is a dimension-rd Frobenius-semisimple WD class. Its image consists exactly of WD classes each of whose indecomposable special-block dimensions is divisible by d, and its inverse uses the classical inverse on each essentially square-integrable block and the inner Langlands quotient. The split quotient Q(π′) of the transferred standard data has this same WD parameter. No general identity LJ_D([Q(π′)])=[π′] or equality JL_add([π′])=[Q(π′)] is asserted: Badulescu’s version explicitly treats the general Q character identity as a conjecture.
 
-*Hypotheses.* Import the all-inner-form Langlands standard-data classification as an SR.3 extension; it is stronger than a conditional general-group tempered-support contract.
+*Hypotheses.* Use §2.16’s tempered-support theorem for GL_r(D) in SmoothRepresentationsOfLocalGroups §SR.3.3 to obtain the standard-data classification without an additional tempered-support hypothesis.
 
 ([Alexandru Ioan Badulescu — Correspondance de Jacquet–Langlands étendue à toutes les représentations](https://arxiv.org/pdf/math/0201142), §3.3, definition of Q p.24 and Proposition 3.9 p.25; Proposition 3.11 p.26; §3.4.1 conjecture p.27; [Guy Henniart — Une caractérisation de la correspondance de Langlands locale pour GL(n)](https://www.numdam.org/item/BSMF_2002__130_4_587_0.pdf), §2.7–2.9 pp.595–596.)
 
@@ -3941,9 +3763,8 @@ Apply the classical essentially square-integrable bijection and the split full W
 - `InnerFormWDParameter.split`. For d=1 the construction agrees with LLC_WD on GL_r(F).
 - `InnerFormWDParameter.quaternionTrivial`. For r=1,d=2, the trivial D× representation maps to ω^{−1/2}Sp(2), through St_2.
 - `InnerFormWDParameter.totalDimensionInsufficient`. The zero-monodromy sum ω^{−1/2}⊕ω^{1/2} has total dimension 2 but two one-dimensional indecomposable blocks, so it is outside the quaternion parameter image.
-- The parameter image criterion concerns each indecomposable block, not merely divisibility of the total dimension.
 
-*Needs:* §10.30; §10.3; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/frobenius-semisimple-special-block-classification; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3.
+*Needs:* §10.30; §10.3; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length).
 
 ### 10.32 Principal-series nontransfer and virtual cancellation
 
@@ -3959,7 +3780,7 @@ Use the split Langlands data and WD block image criterion. Every rank-one standa
 
 - An assertion that every nonrelevant irreducible has zero LJ fails on trivial GL_2.
 
-*Needs:* §10.31; §10.6; §10.26; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5.
+*Needs:* §10.31; §10.6; §10.26; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks).
 
 ### 10.33 Worked classical normalization checks
 
@@ -3975,7 +3796,7 @@ Evaluate the imported rank-one Euler factor and arithmetic special block at geom
 
 - The tame example requires a noninvariant residue character; unramified quadratic induction of an unramified character is not a supercuspidal example.
 
-*Needs:* §10.30; §10.32; §10.11; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.3/wd-from-monodromy; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4.
+*Needs:* §10.30; §10.32; §10.11; `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.4 (The split Iwahori block and nonsplit components).
 
 ### Examples
 
@@ -3983,7 +3804,7 @@ For an unramified character chi with chi(varpi)=alpha, rank-one reciprocity give
 
 ### Dependencies
 
-`TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/local-euler-factor; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/local-epsilon-factor; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.1/local-epsilon-gamma-factors; `TauCetiRoadmap.ClassFieldTheory`, layer 7 the absolute local artin map its normalizations and conductors; `TauCetiRoadmap.ClassFieldTheory`, layer 9 the local weil group; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/dieudonne-p-divisible; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.3; §4.8; §6.23; §6.27; §6.24; §4.9; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2/isogeny-classification; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0:abelian-category; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5; `TauCetiRoadmap.PELModuli`, M2; §9.1; `TauCetiRoadmap.PELModuli`, M4; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.4; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.1; `TauCetiRoadmap.RepresentationTheory.InductionRestriction`, layer 5 clifford theory over a normal subgroup; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln; `TauCetiRoadmap.GlobalNumberFields`, layer 9 hecke and ray class characters; `TauCetiRoadmap.GlobalNumberFields`, layer 10 archimedean characters infinity types and cyclotomic arithmetic; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/unnormalised-special-object; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-tensor-product; Mathlib `Matrix.diagonal`; Mathlib `Matrix.trace`; Mathlib `Matrix.trace_diagonal`; Mathlib `Matrix.charpoly`; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5/gl1-dictionary; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.3/wd-from-monodromy; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/frobenius-semisimple-special-block-classification; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-direct-sum; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/frobenius-semisimplification-construction; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/categorical-semisimplification-construction; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.1; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-global-functional-equation; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-local-functional-equation; `TauCetiRoadmap.RepresentationTheory.InductionRestriction`, layer 6 the virtual character ring artin and brauer induction; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.2/standard-local-l-factor; `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-induced-factor-product; `TauCetiRoadmap.ArithmeticGaloisRepresentations`, R01.2/weil-deligne-dual-object.
+`TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.5 (Local factors); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.7 (Local constants); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.1 — Tate zeta distributions and Hecke L-functions; `TauCetiRoadmap.ClassFieldTheory` Layer 7 (the absolute local Artin map, its normalizations, and conductors); `TauCetiRoadmap.ClassFieldTheory` Layer 9 (the local Weil group); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.10 (Dieudonné classification of p-divisible groups); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.1 (Finite flat group schemes and `p`-divisible groups); `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.1 (Cuspidal support and finite length); §4.8; §6.23; §6.27; §6.25; §4.9; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.17 (Isogeny classification of p-divisible groups over a perfect field); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` SR.0: the smooth category and its basic API; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks); `TauCetiRoadmap.PELModuli` §M2 (Representability and smooth good models); §9.1; §6.24; `TauCetiRoadmap.PELModuli` §M4 (Canonical models, twists and integral level changes); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.3 (Pairings, canonical lifting, Iwahori invariants and Whittaker functionals); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.2 (Bernstein components and the centre); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.3.4 (The split Iwahori block and nonsplit components); `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layer 6 (Artin and Brauer induction); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §1 (continuous representations and integral models); `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layer 5 (Clifford theory over a normal subgroup); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; `TauCetiRoadmap.GlobalNumberFields` Layer 9 (Hecke and ray class characters); `TauCetiRoadmap.GlobalNumberFields` Layer 10 (archimedean characters, infinity types, and cyclotomic arithmetic); `TauCetiRoadmap.ArithmeticGaloisRepresentations` §2.4 (Weil-Deligne representations); Mathlib `Matrix.diagonal`; Mathlib `Matrix.trace`; Mathlib `Matrix.trace_diagonal`; Mathlib `Matrix.charpoly`; `TauCetiRoadmap.ArithmeticGaloisDuality` §R02.4.6 (Grunwald–Wang with its exact dyadic obstruction); `TauCetiRoadmap.ClassFieldTheory` Layer 11 (global reciprocity); `TauCetiRoadmap.RepresentationTheory.InductionRestriction` Layer 6 (the virtual-character ring, Artin and Brauer induction); `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.2 — Godement–Jacquet standard functions; §7.6; Tau Ceti `TauCeti.ExactK0`, `TauCeti.ExactK0.of_conflation`, `TauCeti.ExactK0.map`, `TauCeti.ExactK0.lift`.
 
 ## Layer 11: local unitary packets and global classification
 
@@ -3993,11 +3814,11 @@ These packet statements occur after the full GL local correspondence. Tempered a
 
 Let F be a number field, Π a cuspidal automorphic representation of GL_4(𝔸_F) and χ : 𝔸_F^×/F^× → ℂ^× unitary with Π ≅ Π^∨ ⊗ (χ∘det). Exactly one of L^S(s, Π, ∧² ⊗ χ^{-1}) and L^S(s, Π, Sym² ⊗ χ^{-1}) has a pole at s = 1; in the first (symplectic) case Π descends to a discrete automorphic representation π of GSp_4(𝔸_F) with central character χ, and in the second to a discrete representation of the quasi-split quadratic form GSpin_4^α prescribed by its orthogonal parameter. A discrete π of GSp_4 arising this way is of general type; it is cuspidal and stable, every π′ with π′_v in the L-packet of π_v for all v is automorphic and occurs with multiplicity one, the L-parameter of π_v composed with GSp_4 ⊂ GL_4 is rec(Π_v), and if π is algebraic then Π is algebraic (the forward implication stated in BCGP §1.8.22).
 
-*Hypotheses.* Π and χ unitary with Π cuspidal, as in Gee–Taïbi Proposition 6.1.7. The GSp_4 packet/multiplicity consequences use its Sp_4/SO_5 classification, local intertwining and twisted stabilization chain, conditional on the weighted fundamental-lemma input required by the source. Do not import the unitary-group classification as a proof for this different group. The ordinary spherical twisted fundamental lemma is not the weighted assertion.
+*Hypotheses.* Π and χ unitary with Π cuspidal, as in Gee–Taïbi Proposition 6.1.7. The GSp_4 packet/multiplicity consequences use its Sp_4/SO_5 classification, local intertwining and twisted stabilization chain, conditional on the weighted fundamental-lemma input required by the source. The ordinary spherical twisted fundamental lemma is not the weighted assertion.
 
 ([T. Gee and O. Taïbi — Arthur’s multiplicity formula for GSp4 and restriction to Sp4](https://www.numdam.org/item/10.5802/jep.99.pdf), Proposition 6.1.7 and Remark 6.1.8 pp. 507–508; Theorem 7.4.1 pp. 512–514; introduction p. 472; [G. Boxer, F. Calegari, T. Gee and V. Pilloni — Modularity theorems for abelian surfaces](https://arxiv.org/abs/2502.20645v1), §1.8.22, p. 15; [G. Boxer, F. Calegari, T. Gee and V. Pilloni — Modularity theorems for abelian surfaces](https://arxiv.org/abs/2502.20645v1), §1.6, p. 8.)
 
-Gee–Taïbi Proposition 6.1.7 pp. 507–508 uses the twisted spectral comparison and the orthogonal/symplectic pole dichotomy to isolate the unique GSpin endoscopic group. The symplectic form is GSpin_5≃GSp_4; the orthogonal form is quasi-split GSpin_4^α, not an arbitrary inner form of split GSpin_4. Remark 6.1.8 gives the trivial global component group for the general-type parameter. Theorem 7.4.1 pp. 512–514 applies the Sp_4/SO_5 local/global classification, restriction of packets and strong multiplicity-one comparison to prove the general-type multiplicity and local-parameter assertions. The exact primary inputs for twisted weighted stabilization, local packet restriction and the exterior/symmetric-square pole proof are required independently for the GSp_4 comparison; the unitary packet theorem is not an input. BCGP §1.8.22 supplies the forward algebraicity implication.
+Gee–Taïbi Proposition 6.1.7 pp. 507–508 uses the twisted spectral comparison and the orthogonal/symplectic pole dichotomy to isolate the unique GSpin endoscopic group. The symplectic form is GSpin_5≃GSp_4; the orthogonal form is quasi-split GSpin_4^α, not an arbitrary inner form of split GSpin_4. Remark 6.1.8 gives the trivial global component group for the general-type parameter. Theorem 7.4.1 pp. 512–514 applies the Sp_4/SO_5 local/global classification, restriction of packets and strong multiplicity-one comparison to prove the general-type multiplicity and local-parameter assertions. The weighted twisted stabilization assumption enters the Sp₄/SO₅ classification used in Theorem 7.4.1; packet restriction and the pole dichotomy are applied within that chain. BCGP §1.8.22 supplies the forward algebraicity implication.
 
 **Checks.**
 
@@ -4005,17 +3826,17 @@ Gee–Taïbi Proposition 6.1.7 pp. 507–508 uses the twisted spectral compariso
 - If Π is an isobaric sum the representation is not of general type.
 - The orthogonal alternative is not a GSp_4 representation: it goes through GSpin_4.
 
-*Needs:* `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-global-poles.
+*Needs:* `TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors.
 
 ### 11.2 Tempered local unitary packets with inner-twist pairings
 
 For a local field of characteristic zero, a quasi-split unitary group G*, an extended pure inner twist (G,ξ,z), and a bounded local L-parameter φ (Arthur SL₂ trivial), KMSW Theorem* 1.6.1 gives a finite relevant packet Π_φ(G,ξ) and pairing into Irr(S_φ♮,χ_z). It is empty if φ is irrelevant. Packet members are tempered, the pairing is injective, and at nonarchimedean places it is a bijection to the prescribed component characters. At real places the bijection is over the specified union of pure inner forms, not necessarily on a single form. The packet is independent of z while its pairing uses z. The normalized endoscopic character identity includes e(G) and evaluation at s_e s_φ, with transfer factors normalized by (ξ,z). At a split place this roadmap is the GL_N singleton.
 
-*Hypotheses.* Bounded L-parameters only, in the generic case of KMSW v1 Theorem* 1.6.1(5). KMSW prove it taking Mok’s quasi-split classification and the weighted fundamental lemma as inputs (Introduction p. 6); their word “unconditional” is relative to those inputs. Use the chosen Whittaker normalization and extended pure inner twist. The GL_N parameters are those of the local Langlands correspondence for GL_N: §10.30 at non-archimedean places and AF.1/archimedean-llc-gln at real and complex places. Layer 10 is a later layer of this roadmap, so this target, with the extended packets and the global classification that use it, is to be placed in Layer 13 after Layer 10.
+*Hypotheses.* Bounded L-parameters only, in the generic case of KMSW v1 Theorem* 1.6.1(5). KMSW prove it taking Mok’s quasi-split classification and the weighted fundamental lemma as inputs (Introduction p. 6); their word “unconditional” is relative to those inputs. Use the chosen Whittaker normalization and extended pure inner twist. The GL_N parameters are those of the local Langlands correspondence for GL_N: §10.30 at non-archimedean places and AutomorphicFormsOnReductiveGroups AF.1 at real and complex places, with the normalization of §10.22.
 
 ([T. Kaletha, A. Mínguez, S. W. Shin and P.-J. White — Endoscopic classification of representations: inner forms of unitary groups](https://arxiv.org/abs/1409.3731v1), §1.6.1 Theorem* 1.6.1 pp. 79–80; Proposition 1.6.2 p. 81.)
 
-Use the local classification and normalized endoscopic identity of KMSW §1.6.1; relevance and the central character χ_z determine which inner form receives each member. Use the injectivity/bijection clauses with their field-dependent scope. Proposition 1.6.2 transports a change of z without claiming that its pairing is unchanged. The proof passes through quasi-split classification and normalized local intertwining relations. Their exact primary proof chains are required for this local classification.
+Use the local classification and normalized endoscopic identity of KMSW §1.6.1; relevance and the central character χ_z determine which inner form receives each member. Use the injectivity/bijection clauses with their field-dependent scope. Proposition 1.6.2 transports a change of z without claiming that its pairing is unchanged. The proof passes through quasi-split classification and normalized local intertwining relations. Use the normalized local intertwining relation to identify the stable character distribution and its component-group pairing; elliptic endoscopic descent determines the discrete packets, and normalized parabolic induction determines the non-discrete packets. Retain the conditional scope stated in KMSW for the intertwining and global classification inputs.
 
 **Checks.**
 
@@ -4023,7 +3844,7 @@ Use the local classification and normalized endoscopic identity of KMSW §1.6.1;
 - At a split place the packet is a GL_N singleton; an independently chosen cyclic GL base-change fibre is not a unitary packet.
 - A real packet can be smaller than the full component-character set on one inner form; surjectivity is over the prescribed union.
 
-*Needs:* §1.8; §2.7; §4.10; §10.30; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln.
+*Needs:* §1.8; §2.7; §4.10; §10.30; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations.
 
 ### 11.3 Extended local unitary packets by positive-exponent induction
 
@@ -4051,11 +3872,8 @@ Separate positive real exponents from the bounded parameter and use the relevant
 - `ExtendedUnitaryPacket.irrelevantTest`. A Levi incompatible with the chosen inner form contributes no member.
 - `ExtendedUnitaryPacket.reducible`. At a reducibility point the induced module is retained; its quotient alone is not the constructed object.
 - `ExtendedUnitaryPacket.permutation`. Permuting conjugate linear Levi blocks transports to the same normalized induced representation.
-- For λ=0 and bounded φ this is the tempered packet.
-- Irrelevant Levi data give the empty packet.
-- Taking Langlands quotients of a reducible induced member changes the stated construction and needs an extra theorem.
 
-*Needs:* §11.2; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/langlands-classification; §1.8.
+*Needs:* §11.2; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; §1.8.
 
 ### 11.4 Endoscopic classification of unitary groups for generic parameters
 
@@ -4065,7 +3883,7 @@ Let U be a pure inner form of a unitary group for a CM extension F/F⁺, with it
 
 ([Y. Liu, Y. Tian, L. Xiao, W. Zhang and X. Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://par.nsf.gov/servlets/purl/10323568), Appendix C.3, Proposition C.3.1; [G. Boxer, F. Calegari, T. Gee and V. Pilloni — Modularity theorems for abelian surfaces](https://arxiv.org/abs/2502.20645v1), §1.6, p. 8; [T. Kaletha, A. Mínguez, S. W. Shin and P.-J. White — Endoscopic classification of representations: inner forms of unitary groups](https://arxiv.org/abs/1409.3731v1), §1.6.1 Theorem* 1.6.1 pp. 79–80; §1.7.1 Theorem* 1.7.1 and Remark 1.7.2 pp. 88–89; [T. Kaletha, A. Mínguez, S. W. Shin and P.-J. White — Endoscopic classification of representations: inner forms of unitary groups](https://arxiv.org/abs/1409.3731v1), §1.6.4 pp. 86–87.)
 
-Use KMSW §1.7.1 pp. 88–89 for the generic pure-inner multiplicity statement and ε_ψ=1; the paper explicitly distinguishes the case it proves, relative to its stated inputs, from the announced general theorem. Use §11.2 for the bounded Levi parameters, and §11.3 (KMSW §1.6.4 pp. 86–87) for non-tempered localizations. Construct the global packet from these local components and the stated multiplicity rule. The full stabilization and local intertwining primary proof inputs are required for this generic classification. Liu–Tian–Xiao–Zhang–Zhu Proposition C.3.1 p. 363 gives only the relevant cuspidal cohomological specialization, and cannot replace that broader packet construction.
+Use KMSW §1.7.1 pp. 88–89 for the generic pure-inner multiplicity statement and ε_ψ=1; the paper explicitly distinguishes the case it proves, relative to its stated inputs, from the announced general theorem. Use §11.2 for the bounded Levi parameters, and §11.3 (KMSW §1.6.4 pp. 86–87) for non-tempered localizations. Construct the global packet from these local components and the stated multiplicity rule. Apply the stable discrete trace formula and its endoscopic character identities with the local intertwining relation in the scope stated in KMSW; compare the component-group characters with the global ε-character. For the generic pure-inner case this gives the displayed multiplicity rule. Liu–Tian–Xiao–Zhang–Zhu Proposition C.3.1 p. 363 gives only the relevant cuspidal cohomological specialization, and cannot replace that broader packet construction.
 
 **Checks.**
 
@@ -4081,7 +3899,7 @@ At a split unitary place the local packet is the GL_N singleton, so an extended 
 
 ### Dependencies
 
-`TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors`, AL.3/rs-global-poles; §1.8; §2.7; §4.10; §10.30; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/archimedean-llc-gln; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2/parabolic-induction; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.1/langlands-classification; §6.25; §6.19.
+`TauCetiRoadmap.AutomorphicLFunctionsAndLocalFactors` AL.3 — Rankin–Selberg theory and function-field factors; §1.8; §2.7; §4.10; §10.30; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.1. Real reductive representation foundations; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); §6.25; §6.18.
 
 ## Layer 12: local towers and their cohomology
 
@@ -4089,7 +3907,7 @@ Classify the required formal-module instances, build both towers with all intege
 
 ### 12.1 The relative marked-untilt modification chart
 
-Let S be a perfectoid test space of characteristic p, equipped with its map to the residue field of the GL_n or EL datum, and let S♯ be a marked mixed-characteristic untilt over the reflex field. Construct the relative analytic period domain S dot× Spa(ℤ_p), the Cartier immersion i∞:S♯→S dot× Spa(ℤ_p), and its restriction to the relative period annuli used for the Frobenius quotient. In an affinoid chart the immersion is cut out by a primitive generator ξ of ker θ:W(R⁺)→R♯⁺. A chosen generator changes by a unit; the divisor and its ideal sheaf do not. Multiplication by ξ must be injective with closed image on every rational chart. A single global affinoid closedness assertion does not suffice.
+Let S be a perfectoid test space of characteristic p, equipped with its map to the residue field of the GL_n or EL datum, and let S♯ be a marked mixed-characteristic untilt over the reflex field. Construct the relative analytic period domain S dot× Spa(ℤ_p), the Cartier immersion i∞:S♯→S dot× Spa(ℤ_p), and its restriction to the relative period annuli used for the Frobenius quotient. In an affinoid chart the immersion is cut out by a primitive generator ξ of ker θ:W(R⁺)→R♯⁺. For general E replace W(R⁺) by the completed ramified Witt ring described below and θ by θ_E. A chosen generator changes by a unit; the divisor and its ideal sheaf do not. Multiplication by ξ must be injective with closed image on every rational chart. A single global affinoid closedness assertion does not suffice.
 
 For the tower datum b, form the corresponding Frobenius-equivariant bundle on the relative annuli and descend the bundle and the marked divisor to the relative curve chart. This is the constant-b family needed by the tower, with pullback in S. Use this chart to express the modification 0→F→E_b→i∞* Lie(X)→0: the Lie quotient has the stated μ-relative position, and a Tate-module trivialization identifies F with the trivial bundle in the tower moduli problem. In the covariant height-n, dimension-one convention used below, b∈B(GL_n,μ^(−1)), its Newton slope is −1/n and E_b has degree +1. The construction includes Frobenius transport of the marked divisor; it does not assert that a Frobenius-shifted mark is equal to the original mark.
 
@@ -4104,7 +3922,9 @@ The interface consists of the following operations and identities.
 - `TowerUntiltChart.lieQuotient`: identification of the skyscraper quotient with the Lie module of the p-divisible group.
 - `TowerUntiltChart.tateTrivialization`: the comparison of the kernel bundle with the Tate local system and its framing, retaining group actions.
 
-Use the relative analytic construction and the Cartier closedness argument in [Scholze–Weinstein, *Berkeley lectures on p-adic geometry*](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition 11.2.1 and Proposition 11.3.1, pp. 92–95, with Definitions 5.3.2 and 5.3.7 and Proposition 5.3.8, pp. 38–40. On rational charts, obtain the lower norm bound for ξ from its nonvanishing on rank-one boundary points, so division by ξ respects the complete topology. Glue the ideal and quotient sheaves, transport them under Frobenius, and apply the existing period-annulus quotient construction in families. For the bundle and modification use §22.1 and Proposition 22.3.1, pp. 207–209, and the exact sequence and period-map comparison in Theorem 24.2.5, pp. 227–229. The kernel-to-Tate comparison additionally uses [Scholze–Weinstein, *Moduli of p-divisible groups*](https://arxiv.org/abs/1211.6357), Proposition 5.1.6, pp. 49–50. These are the relative and marked constructions used by the tower comparison; the fixed-field adic curve is the existing prerequisite.
+Use the relative analytic construction and the Cartier closedness argument in [Scholze–Weinstein, *Berkeley lectures on p-adic geometry*](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition 11.2.1 and Proposition 11.3.1, pp. 92–95, with Definitions 5.3.2 and 5.3.7 and Proposition 5.3.8, pp. 38–40. On rational charts, obtain the lower norm bound for ξ from its nonvanishing on rank-one boundary points, so division by ξ respects the complete topology. Glue the ideal and quotient sheaves, transport them under Frobenius, and apply the existing period-annulus quotient construction in families. For the bundle and modification use §22.1 and Proposition 22.3.1, pp. 207–209, and the exact sequence and period-map comparison in Theorem 24.2.5, pp. 227–229. The kernel-to-Tate comparison additionally uses [Scholze–Weinstein, *Moduli of p-divisible groups*](https://arxiv.org/abs/1211.6357), Proposition 5.1.6, pp. 49–50. These are the relative and marked constructions used by the tower comparison; the finite-E coefficient construction is stated below, and only the Q_p quotient construction is taken from AdicSpaces.
+
+For a finite coefficient field E/Q_p, let E₀ be its maximal unramified subfield, q its residue cardinality and ϖ_E its uniformizer. Construct the ramified Witt period rings W_{O_E}(R⁺)=(W(R⁺)⊗_{W(κ_E)}O_E)^∧_{ϖ_E} and their rational annuli after inverting ϖ_E and a Teichmüller pseudouniformizer. The Frobenius is the q-power Frobenius, fixing O_E. Glue the annuli to Y_{S,E}, then form X_{S,E}=Y_{S,E}/φ^ℤ, with its descended structure sheaf. This reuses AdicSpaces Layer 6's quotient construction and its annular arguments after replacing p by ϖ_E and φ_p by φ_q; it does not obtain a general E-curve by merely renaming the Q_p-curve. An untilt over E gives the primitive Cartier ideal by the relative θ_E map. The coefficient-field construction is [Fargues–Scholze, *Geometrization of the local Langlands correspondence*](https://arxiv.org/pdf/2102.13459v4), §II.1.1, Propositions II.1.1–II.1.4, pp. 47–50; Definition II.1.15 and Propositions II.1.16–II.1.18, pp. 54–55. The radius function satisfies rad∘φ=q·rad, giving freeness and total discontinuity; its annuli glue the structure sheaf on the quotient. The marked E-untilt is the Cartier divisor of Proposition II.1.18. These geometric results precede the Hecke and excursion constructions. Extend the API with `TowerUntiltChart.coefficientFieldAnnuli`, `.qFrobenius` and `.coefficientFieldCurve`. Check E=Q_p recovers the existing construction; at residue degree f the acting Frobenius is φ_p^f; for ramified E the divisor uses θ_E and the structural E-untilt, not an arbitrary θ over Q_p.
 
 **Checks.**
 
@@ -4114,7 +3934,7 @@ Use the relative analytic construction and the Cartier closedness argument in [S
 - Pullback of S preserves the marked divisor and the exact sequence; a Frobenius translation carries the mark along and does not silently identify two labelled legs.
 - A trivialized Tate local system identifies the degree-zero kernel with the trivial bundle. A slope-zero assertion without that local-system comparison does not provide the framing.
 
-*Needs:* `TauCetiRoadmap.AdicSpaces`, Layer 6 (period annuli and the adic Frobenius quotient sheaf); `TauCetiRoadmap.PerfectoidSpaces`, P1–P2 and P5; `TauCetiRoadmap.DiamondsAndVStacks`, D6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2 (Dieudonné and Tate-module comparison).
+*Needs:* `TauCetiRoadmap.AdicSpaces` Layer 6 (the Fargues–Fontaine curve); `TauCetiRoadmap.PerfectoidSpaces` Layers 1–2 (perfectoid fields and tilting) and 5 (tilde-limits); `TauCetiRoadmap.DiamondsAndVStacks` §6.9 (Seminormal rigid full faithfulness); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory).
 
 ### 12.2 Tower datum and action conventions
 
@@ -4131,14 +3951,13 @@ The interface consists of the following operations and identities.
 - `TowerDatum.frobeniusConversion`: Arithmetic and geometric Frobenius elements are mutual inverses; the corresponding unramified eigenvalues are reciprocal.
 - `TowerDatum.ext`: Equality requires equality of field, frame, reciprocity, coefficient and square-root choices.
 
-Import the local field, division algebra and reciprocity convention from Layer 10. Record the chosen frame and quasi-isogeny actions before applying inverse pullback. Extend Tate twists to half-integers using the fixed square root of q; changing that root changes the unramified quadratic twist.
+Use the local field, division algebra and reciprocity convention from Layer 10. Record the chosen frame and quasi-isogeny actions before applying inverse pullback. Extend Tate twists to half-integers using the fixed square root of q; changing that root changes the unramified quadratic twist.
 
 **Checks.**
 
 - `TowerDatum.tateFrob`. Λ(1)(Frob_ar)=q and Λ(1)(Frob_geom)=q^(−1).
 - `TowerDatum.rankOne`. At n=1 the middle degree and half-Tate exponent are both zero.
 - `TowerDatum.rootChange`. Replacing q^(1/2) by −q^(1/2) multiplies an odd half-twist by the unramified quadratic character.
-- Arithmetic Frobenius acts on Λ(1) by q; geometric Frobenius acts by q^(−1).
 - Changing left/right actions also changes which contragredient an isotypic notation selects.
 
 *Needs:* §10.20; §10.30; §10.26; §10.3; §10.23; §10.25.
@@ -4159,7 +3978,9 @@ The interface consists of the following operations and identities.
 - `LubinTate.levelTorsor`: Over a fixed lower generic level, full lifts form the expected congruence torsor.
 - `LubinTate.ext`: An isomorphism respects the formal module, framing quasi-isogeny and every level vector.
 
-Use the specified formal O_E-module deformation representability and Drinfeld full-level divisibility conditions from the lower finite-flat owner. Represent each height component and pass to its rigid generic fibre. Use the étaleness of varpi-power torsion in characteristic zero to construct the finite étale level maps. Glue the components using quasi-isogenies; do not replace the infinite height union by the height-zero component.
+Use §10.2’s strict O_E deformation representability and Drinfeld full-level Cartier-divisor conditions. Represent each height component and pass to its rigid generic fibre. Use the étaleness of varpi-power torsion in characteristic zero to construct the finite étale level maps. Glue the components using quasi-isogenies; do not replace the infinite height union by the height-zero component.
+
+The period comparison also needs the O_E-linear Hodge–Tate datum. For a tower point G over O_C, the underlying p-divisible group has its Tate lattice T(G), the Hodge–Tate subspace W=Lie(G)⊗C⊂T(G)⊗C(−1), and the modification 0→T(G)⊗O_X→E(G₀)→i∞*W→0. O_E-linearity follows by functoriality; strictness forces the structural embedding on the Lie quotient. Scholze–Weinstein, *Moduli*, Theorem 5.1.4 and Proposition 5.1.6, pp. 49–50, Theorem 5.2.1, pp. 51–54, and the EL specialization in §6.5, pp. 66–68, give the classification and sequence; they are not deformation-representability theorems. Keep the underlying p-divisible sequence before passing to the O_E-relative component. The API `LubinTate.hodgeTateSubspace`, `.bundleModification` and `.strictLieComponent` retains this distinction. Check height one gives a one-dimensional Lie quotient; for E/Q_p ramified the underlying Tate module has Z_p-rank n[E:Q_p]; forgetting the Lie embedding loses strictness. The same equivariant sequence with the special Lie ranks gives the O_D version of §12.4.
 
 **Checks.**
 
@@ -4169,7 +3990,7 @@ Use the specified formal O_E-module deformation representability and Drinfeld fu
 - The level-zero ball has dimension n−1.
 - The GL_n(E) action is on the tower of correspondences; a general element need not preserve an individual integral level.
 
-*Needs:* §10.2; §12.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2.
+*Needs:* §10.2; §12.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory).
 
 ### 12.4 The special O_D-module tower
 
@@ -4187,7 +4008,7 @@ The interface consists of the following operations and identities.
 - `Drinfeld.period`: The period map lands in Ω_E^(n−1).
 - `Drinfeld.ext`: An isomorphism preserves the O_D action, framing and level structure.
 
-Use the lower formal-group deformation machinery with the specialness condition. Represent the framing functor by the formal Drinfeld model, recording the source proof as a supplier requirement. Construct level maps by forgetting O_D-torsion frames. Identify the generic period domain and its rational hyperplane complement; this identification is not the definition of the moduli functor.
+Construct the special O_D-module framed deformation functor by imposing the Lie eigenspace ranks on the O_D-linear Dieudonné display and the full Cartier-divisor level equations. The formal Drinfeld model represents it; its rigid period map identifies the level-zero domain with the rational-hyperplane complement (Dat §3.1, pp. 15–18; Scholze–Weinstein §7.3, pp. 71–73). Construct level maps by forgetting O_D-torsion frames. Identify the generic period domain and its rational hyperplane complement; this identification is not the definition of the moduli functor.
 
 **Checks.**
 
@@ -4197,7 +4018,7 @@ Use the lower formal-group deformation machinery with the specialness condition.
 - For n=2 the period domain is P¹ minus P¹(E).
 - GL_n(E) acts through the framing algebra and D× through level changes, exchanging the roles of the two groups in LT.
 
-*Needs:* §12.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2.
+*Needs:* §12.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory).
 
 ### 12.5 Period maps and their equivariance
 
@@ -4219,12 +4040,11 @@ Form the Lie quotient of the crystalline deformation and the Tate Hodge–Tate f
 **Checks.**
 
 - `TowerPeriod.rankOne`. Both targets are points at n=1.
-- `TowerPeriod.level`. Forgetting finite level leaves GM unchanged; a change of full Tate frame transforms HT by the linear-group action.
+- `TowerPeriod.level`. Forgetting finite level leaves GM unchanged; a change of full Tate frame transforms HT by the linear-group action. HT therefore requires the infinite frame.
 - `TowerPeriod.rankTwoEtale`. On an LT one-dimensional GM chart, the derivative of the period coordinate is invertible.
-- GM factors through level zero; HT requires the full infinite frame.
 - The rational hyperplane complement in the Drinfeld case is tested separately from the LT GM image.
 
-*Needs:* §12.3; §12.4; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2.
+*Needs:* §12.3; §12.4; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory).
 
 ### 12.6 The universal-cover moduli at infinite level
 
@@ -4242,17 +4062,15 @@ The interface consists of the following operations and identities.
 - `TowerInfinity.changeLattice`: Rational-frame moduli do not depend on the integral lattice.
 - `TowerInfinity.baseChange`: The triple and universal-cover descriptions commute with Huber-pair base change.
 
-Import universal covers and Tate modules from the finite-flat supplier. Translate a frame to the B-linear universal-cover map and its Lie quotient. Use local p-divisible classification to reconstruct G from the map and prove full faithfulness. Prove the geometric-point exactness condition is preserved under base change; it cannot be omitted in favor of the rank condition alone.
+Use universal covers and Tate modules from FiniteFlatGroupsAndIntegralPadicHodgeTheory §R07.2.25 and the Hodge–Tate classification of §§12.3–12.4. Translate a frame to the B-linear universal-cover map and its Lie quotient. Use local p-divisible classification to reconstruct G from the map and prove full faithfulness. Prove the geometric-point exactness condition is preserved under base change; it cannot be omitted in favor of the rank condition alone.
 
 **Checks.**
 
 - `TowerInfinity.missingExactness`. A map whose quasi-logarithm has the right rank but whose geometric kernel is larger than V fails the moduli criterion.
 - `TowerInfinity.levelRecovery`. Reduction of the integral frame modulo varpi_E^m gives the full finite level m.
 - `TowerInfinity.lattice`. Replacing the lattice by varpi_E times it changes integral framing but leaves the rational functor isomorphic.
-- The construction is independent of the lattice for the rational-frame functor.
-- The integral frame recovers the specified finite congruence levels.
 
-*Needs:* §12.3; §12.4; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1/universal-cover.
+*Needs:* §12.3; §12.4; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.25 (The Tate module sheaf and the universal cover of a p-divisible group).
 
 ### 12.7 Commuting actions and effective Weil descent
 
@@ -4286,7 +4104,7 @@ Use the universal-cover embedding into a perfectoid ambient space. Impose the ra
 - A level-zero open ball is not itself asserted perfectoid.
 - A rank-one determinant tower agrees with the height-one cyclotomic model after completion.
 
-*Needs:* §12.6; `TauCetiRoadmap.PerfectoidSpaces`, P5.
+*Needs:* §12.6; `TauCetiRoadmap.PerfectoidSpaces` §§5.1–5.12 (tilde-limits and finite-stage descent).
 
 ### 12.9 The basic minuscule modification functor
 
@@ -4310,10 +4128,9 @@ Use the marked Cartier untilt divisor of §12.1. Form the minuscule modification
 - `BasicTowerFibre.rankOneSign`. The SW20 multiplicative datum is b=p^(−1), μ=1; swapping b for p violates this convention.
 - `BasicTowerFibre.generalEHeight`. For E/Q_p of degree e, restriction of scalars has Q_p rank en while the O_E rank remains n.
 - `BasicTowerFibre.levelFrame`. Reducing the universal Tate frame gives the specified congruence-level local system.
-- For n=1, b=p^(−1) and μ=1 give the nonempty multiplicative modification.
 - The Newton sign of b and the degree sign of E_b are distinguished by the exact sequence; they cannot be copied from the FS O(−1/n) orientation.
 
-*Needs:* §12.6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2; §12.1; `TauCetiRoadmap.DiamondsAndVStacks`, D6.
+*Needs:* §12.6; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory); §12.1; `TauCetiRoadmap.DiamondsAndVStacks` §6.9 (Seminormal rigid full faithfulness).
 
 ### 12.10 Gross–Hopkins coordinates and infinitesimal operators
 
@@ -4330,7 +4147,7 @@ Use GM étaleness to establish g≠0 on the chart. Differentiate the projective 
 - The denominator is g, not g², in each f_i.
 - The bracket coefficient is 2f_3 in the chosen basis.
 
-*Needs:* §12.5; §12.3; `TauCetiRoadmap.LocallyAnalyticDistributions`, L0.
+*Needs:* §12.5; §12.3; `TauCetiRoadmap.LocallyAnalyticDistributions` §0.3 (Polydiscs, charts and compact manifolds).
 
 ### 12.11 Infinite-level EL duality
 
@@ -4365,7 +4182,13 @@ The interface consists of the following operations and identities.
 - `TowerCohomology.coefficientReduction`: Derived reduction modulo ell^r agrees with the finite coefficient tower.
 - `TowerCohomology.ext`: Maps are identified through their compatible finite-level representatives, not just equality of virtual characters.
 
-Import analytic compact-support cohomology and coefficient inverse systems from the lower étale owners. Build the finite-level complexes with pullback for level refinement and trace in the opposite direction. Take the derived smooth colimit and define the commuting Weil action by descent. Check coefficient reduction and extension of the algebraically closed base field.
+Use torsion compact-support cohomology from ClassicalAdicEtaleCohomology and the fixed-level adic coefficient systems of AdicCoefficientsAndComparisons L0, followed by the analytic comparison and smooth colimit below. Build the finite-level complexes with pullback for level refinement and trace in the opposite direction. Take the derived smooth colimit and define the commuting Weil action by descent. Check coefficient reduction and extension of the algebraically closed base field.
+
+More precisely, the equivariant category here is the localization of complexes of smooth GL_n(E)×D× representations with a commuting action of the abstract group W_E, at maps that are quasi-isomorphisms on the underlying complexes. Construct it before passing to the homotopy category: the bar resolution retains the derived W_E-invariants and higher coherence. Equivalently use homotopy-coherent functors from B(W_E^disc) into the stable derived category. An action merely on an object of the triangulated homotopy category is insufficient. The levelwise descent maps define an object of this localization; continuity on inertia is checked on each finite-level ℓ-adic object separately. No smoothness assertion for the entire Weil action is made.
+
+The proper-support comparison is a target for these finite-level smooth rigid spaces in every dimension n−1. The adic-to-diamond étale-site equivalence identifies pullback and extension by zero for open immersions. On a quasicompact compactifiable chart factor the structural map as an open immersion followed by a proper map; proper base change identifies the two proper direct images, hence their composites Rp_*j_! and the finite étale traces. Exhaust by these charts to obtain the nonquasicompact proper-support functor. This follows the construction of [Scholze, *Étale cohomology of diamonds*](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), §15, pp. 89–92, Definition 22.4, pp. 129–130, and Definitions 22.13 and 22.18, pp. 135–139 (14 April 2026 version). It proves the analytic support comparison here rather than assuming it from a curve example in DiamondSixOperations.
+
+For the tower limit, finite étale objects and their finite diagrams descend on each quasicompact chart by PerfectoidSpaces P5; proper supports are taken through those finite-level representatives. Passing to any cofinal system of levels gives the same compact-support colimit and its equivariant topos. Dat §3.3, Faits 3.3.4–3.3.5, pp. 22–24, identifies its cohomology with colim_K H_c^i(M_K,Λ) and proves compatibility with finite derived coefficient reduction. Construct integral coefficients by the fixed-level adic system in the stated order; rational scalar extension then commutes with the filtered colimit by flatness. No inverse-limit/level-colimit interchange is needed. The additional API is `TowerCohomology.analyticDiamondSupport`, `.cofinalLevels`, `.weilDescent`, `.equivariantDerived` and `.derivedWeilInvariants`. Forgetting the Weil action recovers the original smooth complex; the trivial action on Λ has derived invariants RΓ(W_E^disc,Λ), including higher group cohomology; a nontrivial equivariant extension may split after forgetting the action. For example, an unramified Frobenius acting by a nontrivial two-by-two unipotent matrix gives a nonsplit extension of the trivial Weil representation by itself. The abstract-group bar construction is distinct from continuous inertia cohomology; continuity of the geometric action is checked separately. Check a cofinal congruence-level subsequence gives the same complex; a compactly supported finite-level class retains that support after refinement; the ordinary cohomology of the full infinite union cannot replace the proper-support colimit.
 
 **Checks.**
 
@@ -4373,9 +4196,8 @@ Import analytic compact-support cohomology and coefficient inverse systems from 
 - `TowerCohomology.rankOneDegree`. The n=1 tower has its compact-support cohomology in degree zero.
 - `TowerCohomology.nonproper`. On a nonproper positive-dimensional tower, replacing RΓ_c by RΓ changes the functor and is rejected.
 - Cohomology agrees with the usual smooth tower H_c^i.
-- The trace composed with pullback equals the covering degree.
 
-*Needs:* §12.7; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0; `TauCetiRoadmap.DiamondSixOperations`, S2; `TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0.
+*Needs:* §12.7; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.0 (the smooth category and its basic API); `TauCetiRoadmap.DiamondSixOperations` Layer S2: The exceptional direct image for eligible maps of small v-stacks; `TauCetiRoadmap.AdicCoefficientsAndComparisons` Layer L0: Adic coefficients.
 
 ### 12.13 Equivariant tower cohomology comparison
 
@@ -4387,12 +4209,14 @@ There is an isomorphism C_LT,Z_ell≅C_Dr,Z_ell in the equivariant derived categ
 
 Use EL duality to identify the common infinite-level presentation. Descend equivariant finite étale objects and compact supports through cofinal finite levels. Construct the equivalence of tower topoi and show it intertwines the derived support functors. Pass through integral coefficient inverse systems and then rationalize; compare inertia continuity as well as abstract Weil equivariance.
 
+The formal-to-analytic comparison used at finite level is required with its naturality, not merely as an abstract isomorphism of vector spaces. Construct it on the algebraization of each formal chart from the same specialization map. Its naturality for étale pullback and the proper trace makes the comparison commute with the two directions of a level correspondence. Apply this also to the Frobenius descent correspondence, including its height shift. Finite diagrams of these charts descend to a common finite level, so the cocycle and commuting group actions hold before taking the colimit. Dat Theorem 3.4.1 and Corollary 3.4.2, p. 24, compare the equivariant topoi and the Γ_c functors in this form. Thus §12.12’s support comparison, the finite-level nearby-cycle comparison and the tower-topos equivalence give the announced map with coefficients, Hecke correspondences and Weil descent all retained.
+
 **Checks.**
 
 - The comparison is an isomorphism of smooth GL_n(E)×D× complexes, so it intertwines the Hecke operators of both towers; it commutes with coefficient reduction.
 - A degree-wise comparison only after forgetting W_E fails this target.
 
-*Needs:* §12.11; §12.12; `TauCetiRoadmap.PerfectoidSpaces`, P5; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1:formal-adic-comparison.
+*Needs:* §10.4; §12.11; §12.12; `TauCetiRoadmap.PerfectoidSpaces` §§5.1–5.12 (tilde-limits and finite-stage descent); `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles).
 
 ### 12.14 Central quotient and tensor sectors
 
@@ -4417,44 +4241,45 @@ Form the discrete central quotient with its cohomology action. Untwist the centr
 - `TowerSector.dualSelector`. For a constituent ρ∨⊗V, extraction by tensoring with ρ gives V.
 - `TowerSector.heightClasses`. Quotienting the height translation by varpi_E leaves n height residue classes.
 - `TowerSector.integralFailure`. Exact averaging is not asserted over integral or mod-ell coefficients when the compact quotient has ell-torsion.
-- The selector is ρ∨ in Hom notation, not ρ.
 - Changing the uniformizer is accompanied by the corresponding central-character identification.
 
-*Needs:* §12.12; §12.7; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0.
+*Needs:* §12.12; §12.7; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.0 (the smooth category and its basic API).
 
 ### 12.15 Independent nearby-cycle decomposition
 
-For the compact unitary model above, decompose the relevant Newton-stratum nearby-cycle terms into Igusa factors and local formal-module deformation cohomology, with the stratum shifts, coefficient duals, W_E descent and Hecke actions retained. Extracting the supercuspidal local sector has only the contribution yielding degree n−1. The precise Harris–Taylor and Boyer stratification and local-system statements must be read and matched before this theorem is certified; Dat’s citation is an interface witness, not its proof.
+For the compact unitary model above, decompose the relevant Newton-stratum nearby-cycle terms into Igusa factors and local formal-module deformation cohomology, with the stratum shifts, coefficient duals, W_E descent and Hecke actions retained. Extracting the supercuspidal local sector has only the contribution yielding degree n−1. For a supercuspidal block the two extreme weight bounds coincide and force its local factor into degree n−1; this uses an actual degree bound, rather than an Euler characteristic.
 
 *Hypotheses.* Use the actual compact unitary integral model and the supercuspidal sector. This target does not assert all non-supercuspidal monodromy or elliptic derived decompositions.
 
 ([Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf), Theorem 4.1.2 and its proof, pp. 28–29 (with Lemma 3.5.13, p. 27).)
 
-Construct the Newton strata and their local product charts from the moduli. Calculate the nearby-cycle restrictions and intermediate extensions with their shifts. Compare stratum cohomology with the local LT deformation complexes. Use the independently proved boundary/stratum vanishings for the supercuspidal sector; the independent primary stratum calculation and its internal proof locators must be supplied.
+Use [Boyer, *Monodromie du faisceau pervers des cycles évanescents de quelques variétés de Shimura simples*](https://www.math.univ-paris13.fr/~boyer/recherche/MP-faisceautique.pdf), §2.2, Theorems 2.2.4–2.2.6, pp. 10–11, and §5.5, Proposition 5.5.1 and Corollary 5.5.2, pp. 27–28 (author-version numbering). The Newton strata of heights tg carry Harris–Taylor local systems attached to a supercuspidal representation of GL_g; their intermediate extensions give the graded pieces of nearby cycles, with Tate shifts determined by the monodromy filtration. On a stratum of height (t+a)g the restriction has the induced Steinberg–Speh local system and the degree specified in Theorem 2.2.5. The nonzero arrows of Theorem 2.2.6 give the weight spectral sequence. Smooth duality (Proposition 5.5.1) gives opposite extreme-weight bounds on its local deformation cohomology; Corollary 5.5.2 puts all weights between the endpoints indexed 0 and s−1, where s=n/g. In the supercuspidal case s=1 these endpoints coincide: only the local degree n−1 survives. The supersingular completed stalk comparison identifies the resulting complex with the local LT tower, preserving Hecke and Weil actions (Dat §5.1, Theorem 5.1.3, pp. 35–36). This argument needs only the s=1 consequence of the strata calculation.
 
 **Checks.**
 
 - The spectral sequence must prove actual sector concentration, not just cancellation of Euler characteristics.
 - All W_E actions must be the descent actions of the same model.
 
-*Needs:* §9.1; §12.3; §12.12; `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles`, LPV.6.
+*Needs:* §9.1; §12.3; §12.12; `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles` LPV.6: Perverse nearby cycles.
 
 ### 12.16 Duality and locally analytic vectors
 
 For E=Q_p and n=2, on an affinoid perfectoid tower chart Spa(B,B+) covered as in Pan §5.3.5, the GL_2(Q_p)-locally analytic vectors in B equal the D×-locally analytic vectors. Duality exchanges the two periods and the invariant differential constructions: for the weight convention χ=(n_1,n_2), k=n_2−n_1≥0, Pan’s two order-(k+1) operators are equal up to the nonzero rational normalization constant c′ after the prescribed line-bundle identifications. The constant is not declared equal to one without normalizing coordinates.
 
-*Hypotheses.* Use Pan v1’s chart topology, analytic-vector definition, polarization and weight convention. The analytic input from Pan22 and its Higgs compatibility must be independently supplied.
+*Hypotheses.* Use Pan v1’s chart topology, analytic-vector definition, polarization and weight convention. The chart analytic-vector spaces and Higgs compatibility are constructed in this section.
 
 ([Lue Pan — On locally analytic vectors of the completed cohomology of modular curves II](https://arxiv.org/pdf/2209.06366), Theorems 5.2.8, 5.3.4, 5.3.8; Corollary 5.3.9; Theorem 5.3.20, pp. 59, 63–65, 67 (v1).)
 
 Use the explicit local series description of Pan 5.2.8 to prove the GL_2-analytic inclusion in the D×-analytic vectors. Use duality and the exchanged period map to apply the analogous description 5.3.8 for the reverse inclusion. Transport the Kodaira–Spencer line-bundle identifications under duality. Apply the uniqueness characterization of the differential operator in 5.2.15 to obtain 5.3.20, retaining c′.
+
+For either acting p-adic Lie group H, a vector b∈B is locally analytic when its orbit map on some compact open analytic subgroup H₀ is given by a convergent B-valued power series. Define B^{H-la} as the union over smaller H₀ and convergence radii of these Banach spaces, with their inductive-limit topology. Differentiate the convergent orbit series termwise to obtain the continuous Lie(H) action on each radius, compatible with restriction of radii; the bracket identity follows by differentiating the group law. Multiplication satisfies the Leibniz rule. On the charts in Pan §5.2.5 and §5.3.5, the Hodge–Tate pullback of the horizontal nilpotent line annihilates these vectors; the explicit Kodaira–Spencer computation is Pan Theorems 5.2.6 and 5.3.6, pp. 57–58 and 64. This is the Higgs compatibility used in the two series descriptions, not an assertion about arbitrary affinoid continuous actions. The API `TowerLocallyAnalytic.orbitSeries`, `.lieDerivative`, `.radiusRestriction` and `.nilpotentLineAnnihilates` belongs here. Check invariant constants have zero derivative; the derivative of a product obeys Leibniz; a continuous orbit map lacking a convergent local expansion is excluded. Restricting to smaller analytic subgroups leaves the union unchanged.
 
 **Checks.**
 
 - The result applies to locally analytic vectors, not to all continuous B.
 - The transported operator has order k+1 and a nonzero scalar; it is not a tautological renaming.
 
-*Needs:* §12.11; §12.5; §12.10; `TauCetiRoadmap.LocallyAnalyticDistributions`, L0.
+*Needs:* §12.11; §12.5; §12.10; `TauCetiRoadmap.LocallyAnalyticDistributions` §0.3 (Polydiscs, charts and compact manifolds).
 
 ### 12.17 Classical tower versus the basic Hecke fibre
 
@@ -4481,7 +4306,7 @@ Apply the independent compact-unitary trace comparison to the raw cohomology and
 
 ([Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf), §4.1, pp. 28–29.)
 
-Use independently available global test functions to isolate the chosen finite local supercuspidal factor. Compare geometric raw cohomological traces and automorphic spectral traces including component and volume factors. Use the nearby-cycle decomposition to identify the surviving local factor. Prove concentration and scalar normalization by the Harris–Taylor argument as extended by Boyer; exact theorem matching in the uncleared Harris–Taylor book and in Boyer’s freely available paper (arXiv:math/0511531) is still required.
+Use independently available global test functions to isolate the chosen finite local supercuspidal factor. Compare geometric raw cohomological traces and automorphic spectral traces including component and volume factors. Use the nearby-cycle decomposition to identify the surviving local factor. For the scalar and normalization use Boyer, *Monodromie*, Proposition 5.2.3, pp. 24–25: the Igusa/Harris–Taylor local-system Euler characteristic is the global automorphic multiplicity times the normalized local reduction. Its proof is the compact-unitary trace comparison with a discrete-series test at an auxiliary place and an unramified test at the distinguished p-adic split place. Combine this with the actual concentration of §12.15, so there is no Euler cancellation to invert. Boyer §2.3, Theorems 2.3.3 and 2.3.5, p. 12, gives the G×D×W action extension and ordinary LT representation. Apply the equivariant smooth duality of Dat Lemma 3.5.13, p. 27: compactly supported degree n−1+i is the dual of ordinary degree n−1−i, with twist (1−n). This gives exactly Dat Theorem 4.1.2, pp. 28–29, including the contragredient parameter and its half twist.
 
 **Checks.**
 
@@ -4511,11 +4336,11 @@ Compute the Frobenius height translation on the tower. Pass to the central unifo
 
 Let ρ be an irreducible smooth D× representation such that π_ρ=JL(ρ) is supercuspidal, with central character treated as above. For the full tower, or its correctly untwisted quotient model, H_c^i(M_LT)[ρ]=0 for i≠n−1 and H_c^(n−1)(M_LT)[ρ]≅π_ρ⊗rec_E(π_ρ∨)|·|^((1−n)/2) as GL_n(E)×W_E representations. The same identity holds for the Dr tower in the common Dat action convention. These are actual cohomology groups, not virtual representations. Here [ρ] is the tensor convention already defined.
 
-*Hypotheses.* Ell≠p and characteristic-zero coefficients. The independent global realization (Harris–Taylor, extended by Boyer) and its concentration proof must be supplied. Only the d_ρ=1 (supercuspidal) specialization of Dat is used.
+*Hypotheses.* Ell≠p and characteristic-zero coefficients. Use the compact-unitary realization of §§12.15 and 12.18 and the degree concentration proved in §12.15. Only the d_ρ=1 (supercuspidal) specialization of Dat is used.
 
 ([Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf), Theorem 4.1.2 (credited to Boyer), p. 28.)
 
-Specialize Dat 4.1.2 to d_ρ=1. Only i=0 is defined in its degree n−1+i indexing; the vanishing for 1≤i≤n−1 follows from Boyer’s range, with all indices outside 0≤i≤d_ρ−1 excluded. Identify the unique smooth factor with JL(ρ) and retain rec of its contragredient. Read the independent global realization through the preceding raw/nearby-cycle/extraction chain; its independent primary realization is required. Use the integral equivariant tower comparison to transfer the degree-wise result to Dr.
+Specialize Dat 4.1.2 to d_ρ=1. Only i=0 is defined in its degree n−1+i indexing; the vanishing for 1≤i≤n−1 follows from Boyer’s range, with all indices outside 0≤i≤d_ρ−1 excluded. Identify the unique smooth factor with JL(ρ) and retain rec of its contragredient. The ordinary-to-compact conversion in §12.18 fixes the contragredient and the twist, while §12.15 supplies the actual vanishing; the trace formula alone would not supply it. Use the integral equivariant tower comparison to transfer the degree-wise result to Dr.
 
 **Checks.**
 
@@ -4537,25 +4362,25 @@ Reduce by dévissage to k=1. Tilt each U_s and use Artin–Schreier plus affinoi
 **Checks.**
 
 - The i=0 argument is included; higher acyclicity alone does not settle it.
-- The exact published locator is Lemma 3.10, pp. 35–36, correcting the issue’s Lemma 3.3.
+- The exhaustion must satisfy CDN23 Lemma 3.10, pp. 35–36; a general perfectoid covering is not a substitute.
 
-*Needs:* §12.8; `TauCetiRoadmap.PerfectoidSpaces`, P5; §12.19.
+*Needs:* §12.8; `TauCetiRoadmap.PerfectoidSpaces` §§5.1–5.12 (tilde-limits and finite-stage descent); §12.19.
 
-### 12.22 Normalization contract for the two Hecke orientations
+### 12.22 The two basic Hecke orientations
 
-Export to the downstream excursion-parameter comparison the two geometric Hecke orientations of the basic tower, with standard perverse normalization Λ[n−1]((n−1)/2), and explicit action-conversion isomorphisms from the Dat complex. In the FS orientation the σ=JL^(−1)(π) input yields π⊗ρ_π on the LT leg, and the π input on the return Dr leg yields σ⊗ρ_π∨, concentrated after normalization in degree zero. Here the input is the associated smooth representation sheaf on the source stratum, and isotypic extraction is derived tensor over that source group using the right action defined by its torsor; it is not silently identified with Dat’s [ρ]. The promised conversion must specify the duals, inverse-transpose linear action, central quotient and Weil/Tate twists.
+For a supercuspidal π of GL_n(E), put σ=JL⁻¹(π) and let ρ_π be its classical Weil parameter. In the standard geometric orientation of the basic minuscule modification, the σ input has LT output π⊗ρ_π; the reverse Dr orientation with input π has output σ⊗ρ_π∨. Both statements use the perverse normalization Λ[n−1]((n−1)/2), so the supercuspidal output is in degree zero. The inputs are the smooth representation sheaves on the source strata, and extraction uses the right action of the corresponding source torsor. These statements fix the two native orientations; they do not identify their tensor selectors with Dat's notation [ρ].
 
-*Hypotheses.* Π is irreducible supercuspidal and ρ_π is the Layer 10 parameter. The explicit independent action dictionary must be proved against the Harris–Taylor action convention; the FS proof specifies the required consumer signature.
+*Hypotheses.* The basic class has invariant 1/n; π is irreducible supercuspidal; the square root and Weil convention are fixed as in §12.2.
 
-([Laurent Fargues and Peter Scholze — Geometrization of the local Langlands correspondence](https://arxiv.org/pdf/2102.13459v4), IX.7.4, p. 338; [Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf), §§3.3–3.5 and Theorem 4.1.2, pp. 21–28.)
+([Laurent Fargues and Peter Scholze — Geometrization of the local Langlands correspondence](https://arxiv.org/pdf/2102.13459v4), IX.7.4, p. 338; [Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf), §§3.3–3.5 and Theorem 4.1.2, pp. 21–29.)
 
-Use the classical tower–modification comparison to identify the two geometric orientations and their source torsor actions. Compare their right-action derived tensor functors with the literal Dat sector. Track inverse transpose, dual local systems and the shift/half-Tate twist separately; prove the resulting action-conversion maps. Check the scalar on the two-leg unit/counit composite at (1,1), leaving that composite calculation to the downstream excursion-parameter comparison.
+Identify each modification fibre with its classical tower by §12.17. Apply the classical supercuspidal realization to that fibre with its own source-torsor right action; Verdier duality exchanges the standard and reverse modifications and dualizes the Weil factor. The shift and half twist remove the middle degree and its weight. This is the geometric calculation in FS IX.7.4; the Dat realization remains the separate statement of §12.20 with its explicit inverse-pullback action. No further natural isomorphism between those conventions is part of this target.
 
 **Checks.**
 
-- At n=1 the shift and half twist vanish and the two factors are dual rank-one Weil characters.
-- The two-leg output is σ⊗ρ_π⊗ρ_π∨, with independently specified W_E actions.
-- A formula obtained by just replacing rec(π∨) in the Dat formula is rejected.
+- At n=1 both normalization exponents vanish and the two Weil factors are dual characters.
+- Applying the two orientations successively gives σ⊗ρ_π⊗ρ_π∨; the source-torsor selectors are retained in the composite.
+- Replacing rec(π∨) in the Dat formula without converting the source action does not establish either native-orientation statement.
 
 *Needs:* §12.17; §12.20; §12.2; §10.26; §10.30; §10.3; §10.18; §10.23; §10.25.
 
@@ -4565,7 +4390,7 @@ For n=1 the period target is a point and the tower still carries its level and W
 
 ### Dependencies
 
-§10.20; §10.30; §10.26; §10.3; §10.23; §10.25; §10.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory`, R07.1/universal-cover; `TauCetiRoadmap.PerfectoidSpaces`, P5; §12.1; `TauCetiRoadmap.DiamondsAndVStacks`, D6; `TauCetiRoadmap.LocallyAnalyticDistributions`, L0; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.0; `TauCetiRoadmap.DiamondSixOperations`, S2; `TauCetiRoadmap.AdicCoefficientsAndComparisons`, L0; `TauCetiRoadmap.ClassicalAdicEtaleCohomology`, H1:formal-adic-comparison; §9.1; `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles`, LPV.6; §6.23; §6.10; §10.18.
+`TauCetiRoadmap.AdicSpaces` Layer 6 (the Fargues–Fontaine curve); `TauCetiRoadmap.PerfectoidSpaces` Layers 1–2 (perfectoid fields and tilting) and 5 (tilde-limits); `TauCetiRoadmap.DiamondsAndVStacks` §6.9 (Seminormal rigid full faithfulness); `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2 (Dieudonné theory); §10.20; §10.30; §10.26; §10.3; §10.23; §10.25; §10.2; `TauCetiRoadmap.FiniteFlatGroupsAndIntegralPadicHodgeTheory` §R07.2.25 (The Tate module sheaf and the universal cover of a p-divisible group); `TauCetiRoadmap.PerfectoidSpaces` §§5.1–5.12 (tilde-limits and finite-stage descent); `TauCetiRoadmap.LocallyAnalyticDistributions` §0.3 (Polydiscs, charts and compact manifolds); `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.0 (the smooth category and its basic API); `TauCetiRoadmap.DiamondSixOperations` Layer S2: The exceptional direct image for eligible maps of small v-stacks; `TauCetiRoadmap.AdicCoefficientsAndComparisons` Layer L0: Adic coefficients; §10.4; `TauCetiRoadmap.ClassicalAdicEtaleCohomology` §4 (Formal specialization and semistable nearby cycles); §9.1; `TauCetiRoadmap.LefschetzPencilsAndVanishingCycles` LPV.6: Perverse nearby cycles; §6.23; §6.10; §10.18.
 
 ## Layer 13: pure automorphic transfer and level comparison
 
@@ -4586,17 +4411,16 @@ The interface consists of the following operations and identities.
 - `UnitaryWeakBC.unique`: Two isobaric transfers with the same almost-everywhere parameters are isomorphic.
 - `StandardPair.cohomologyWitness`: Expose the raw finite-part cohomological occurrence and the standard signatures.
 
-Import the canonical models of the abelian-type unitary Shimura varieties Sh(V,K) attached to Res_{F+/Q}U(V) (these are not PEL moduli of similitude groups) and, for definite V, the finite Shimura sets; take their raw cohomology. Define the unramified parameter-matching predicate. Use strong multiplicity one for uniqueness in the isobaric class. Record that LTXZZ attributes existence to Shin’s cohomological base change for unitary similitude groups (their reference [72], Theorem 1.1, adapted as in their Proposition D.1.3) and, for definite V, also to Labesse (their reference [42], Corollaire 5.3); both run through independent stable trace identities.
+Use the canonical models of the abelian-type unitary Shimura varieties Sh(V,K) attached to Res_{F+/Q}U(V) (these are not PEL moduli of similitude groups) and, for definite V, the finite Shimura sets; take their raw cohomology. Define the unramified parameter-matching predicate. Use strong multiplicity one for uniqueness in the isobaric class. Record that LTXZZ attributes existence to Shin’s cohomological base change for unitary similitude groups (their reference [72], Theorem 1.1, adapted as in their Proposition D.1.3) and, for definite V, also to Labesse (their reference [42], Corollaire 5.3); both run through independent stable trace identities.
 
 **Checks.**
 
 - `UnitaryWeakBC.split`. At a split place U(V)(F+_v)≅GL_N(F_w), the selected component is the corresponding GL_N representation.
 - `UnitaryWeakBC.badPlace`. Almost-everywhere equality does not certify an arbitrary chosen ramified packet member.
 - `StandardPair.definite`. For a definite space the occurrence witness is degree-zero Shimura-set cohomology.
-- Changing a ramified unitary local factor cannot be ruled out by the weak definition alone.
 - Residual Speh possibilities remain until cuspidality is separately established.
 
-*Needs:* §6.27; §6.25; §6.8; §6.6; §6.24; §5.2; `TauCetiRoadmap.ShimuraVarieties`, V6/abelian-canonical.
+*Needs:* §6.27; §6.25; §6.8; §6.6; §6.24; §5.2; `TauCetiRoadmap.ShimuraVarieties` §6.7 (Canonical models of abelian type).
 
 ### 13.2 Automorphic inputs to GSp₄ solvable descent
 
@@ -4606,7 +4430,7 @@ Export cyclic GL_4 descent and the general-type GL_4↔GSp_4 transfer contract r
 
 ([George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni — Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645), §1.8.22, p. 15; Proposition 7.5.3 and proof, p. 175 (arXiv copy).)
 
-Use cyclic descent iteratively over the solvable chain, retaining the class-field twists. Use the supplied symplectic-type/general-type transfer classification to identify the descended automorphic parameter. Check the oddness obstruction excluding orthogonal type in the regular |·|²-self-dual Q case. Leave comparison with the given Galois realization and its construction to the BCGP/AG2 consumer.
+Use cyclic descent iteratively over the solvable chain, retaining the class-field twists. Use §11.1’s symplectic-type/general-type transfer classification to identify the descended automorphic parameter. Check the oddness obstruction excluding orthogonal type in the regular |·|²-self-dual Q case. Leave comparison with the given Galois realization and its construction to the BCGP/AG2 consumer.
 
 **Checks.**
 
@@ -4636,11 +4460,11 @@ Apply the rank-one prime-degree automorphic induction theorem. Use the nontrivia
 
 For a standard pair (V,π), the independent unitary stable trace comparison and complex spectral decomposition produce the weak isobaric base change Π. At split and good unramified places the character/Satake identities use the chosen L-embedding, and at infinity Π has the corresponding cohomological infinitesimal character. The identities include the central character and normalized intertwiner coefficients. They are exported to the downstream automorphic Galois construction without using Igusa concentration or any constructed global Galois representation.
 
-*Hypotheses.* Use the independent Layer 6 stable/twisted identities and their admissible test functions. Existence is LTXZZ Proposition 3.2.8, which cites Shin’s cohomological base change (their reference [72], Theorem 1.1) and, for definite V, Labesse (their reference [42], Corollaire 5.3); the independent proofs of those cohomological existence inputs are required.
+*Hypotheses.* Use the Layer 6 stable/twisted trace identities, the regular algebraic infinity type and the admissible finite test functions of the standard pair. LTXZZ Proposition 3.2.8, p. 146, gives the cohomological specialization of Shin’s base change; for definite V the corresponding existence result is Labesse Corollaire 5.3.
 
 ([Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://doi.org/10.1007/s00222-021-01088-4), Proposition 3.2.8, p. 146; [Sug Woo Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §4, Proposition 4.8, p. 28, and Corollary 4.14, p. 30.)
 
-Use the complex spectral decomposition of raw cohomology and real Lefschetz test functions. Transfer finite test functions using Layer 4/4 and compare twisted discrete spectra. Use the residual classification and cyclic base-change steps to identify the isobaric GL_N constituents. Apply strong multiplicity one to identify the good-place character and infinity type. Read Shin’s (and, in the definite case, Labesse’s) primary existence argument before treating the theorem as independently certified.
+Use the complex spectral decomposition of raw cohomology and real Lefschetz test functions. Transfer finite test functions using Layer 4 and compare twisted discrete spectra. Use the residual classification and cyclic base-change steps to identify the isobaric GL_N constituents. Apply strong multiplicity one to identify the good-place character and infinity type. The stable comparison first identifies the unramified Hecke character in the twisted GL discrete spectrum; the regular algebraic infinity character and residual classification determine its isobaric constituents. Shin’s Proposition 4.8 and Corollary 4.14, pp. 28–30, give this comparison, and Labesse, *Changement de base CM et séries discrètes*, §5, Corollaire 5.3, pp. 45–47, gives the definite specialization with discrete infinity type.
 
 **Checks.**
 
@@ -4653,7 +4477,7 @@ Use the complex spectral decomposition of raw cohomology and real Lefschetz test
 
 For an unramified quadratic nonarchimedean extension and a unitary group U(V), write an irreducible local representation as a Langlands quotient with tempered data τ_0 on a smaller unitary group and τ_i on GL_(r_i), and strictly positive ordered unramified characters α_i. Its GL_N base change is the Langlands quotient of the symmetric list τ_t^(∨c)α_t^(−1), …, τ_1^(∨c)α_1^(−1), BC(τ_0), τ_1α_1, …, τ_tα_t. Spherical base change matches Satake via the fixed L-embedding. These are classification outputs imported from Layer 6; defining weak global transfer does not prove them.
 
-*Hypotheses.* The tempered local unitary base-change/classification theorem is an independent Layer 6 supplier. Retain the strictly positive ordering and normalized induction convention.
+*Hypotheses.* The tempered local unitary classification and base-change theorem is §11.2. Retain the strictly positive ordering and normalized induction convention.
 
 ([Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://doi.org/10.1007/s00222-021-01088-4), Appendix C.1, pp. 351–352.)
 
@@ -4664,13 +4488,13 @@ Use the Langlands classification to identify the unique standard module. Apply l
 - The GL list has total rank N_0+2Σr_i.
 - Replacing conjugate dual by ordinary dual gives a different list over a CM extension.
 
-*Needs:* §11.4; §6.8; §6.6; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5.3 highest-derivative adapter; §10.26; §10.30; §13.1.
+*Needs:* §11.4; §6.8; §6.6; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks); §10.26; §10.30; §13.1.
 
 ### 13.6 Relevant generic packet multiplicity one
 
 For a relevant GL_N(A_F) representation Π in the sense of LTXZZ 1.1.3 (cuspidal, conjugate self-dual with its specified infinity type), and a standard definite or standard indefinite V, every irreducible admissible π on U(V) whose local base change equals Π_v at every place occurs in the discrete automorphic spectrum with multiplicity one. Conversely, an automorphic π with weak base change Π matches Π at every place. At nondistinguished infinity π_v is trivial; at the distinguished indefinite infinity its allowed components are the N discrete series with Harish–Chandra set {(1−N)/2,(3−N)/2,…,(N−1)/2}.
 
-*Hypotheses.* Relevant generic cuspidal Π and the standard hermitian spaces are essential. Import the independent generic packet classification and global multiplicity formula from Layer 6; it is not claimed for arbitrary non-generic Arthur parameters.
+*Hypotheses.* Relevant generic cuspidal Π and the standard hermitian spaces are essential. Use §11.4’s generic global multiplicity formula together with the local packets of §§11.2–11.3; the assertion excludes arbitrary nongeneric Arthur parameters.
 
 ([Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://doi.org/10.1007/s00222-021-01088-4), Proposition C.3.1, p. 363.)
 
@@ -4693,7 +4517,7 @@ A compact open K_v in U(V)(F+_v) is transferable if for each endoscopic H the ch
 
 The interface consists of the following operations and identities.
 
-- `TransferableLevel.witness`: Supply associated transfer functions for every relevant H.
+- `TransferableLevel.witness`: Gives associated transfer functions for every relevant H.
 - `TransferableLevel.inertial`: Project to the selected full-rank GL transfer.
 - `TransferableLevel.spherical`: Good hyperspecial levels use the unit function under both fundamental lemmas.
 - `TransferableLevel.idempotent`: Replace 1_K by vol(K)e_K; traces scale accordingly.
@@ -4706,7 +4530,6 @@ Form the associated-test-function predicate for each elliptic endoscopic datum. 
 - `TransferableLevel.split`. Under the split GL_N identification, a chosen 1_K transfers to itself with the same Haar measure.
 - `TransferableLevel.volume`. tr π(1_K)=vol(K) dim π^K, while tr π(e_K)=dim π^K.
 - `TransferableLevel.badLevel`. An arbitrary ramified nonsplit K is not declared transferable without the required witnesses.
-- At split places any compact open is transferable.
 - At good inert places the hyperspecial transfer is the GL_N hyperspecial characteristic function.
 
 *Needs:* §6.14; §6.9; §6.8; §4.6; §4.9; §4.10; §4.7; §13.5.
@@ -4720,6 +4543,8 @@ For even N=2r, standard definite V and indefinite V′ agree outside one inert f
 ([Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://doi.org/10.1007/s00222-021-01088-4), Corollaries C.3.2 and C.3.3, p. 364; Proposition C.2.5, p. 362.)
 
 Preserve local base change at unchanged places by the fixed identifications. Apply the local packet comparison at p, including the lattice and parity hypotheses. Use the classified infinity components to preserve the global parameter. Invoke relevant packet multiplicity one for the resulting all-place matching representation.
+
+For the definite member, identify H⁰(Sh_K,Q̄_ℓ) with functions on its finite complex uniformization G(Q)\G(A_f)/K, after the fixed coefficient-field comparison. With an algebraic coefficient V, the equivariance at infinity identifies this with the algebraic automorphic forms of AutomorphicFormsOnReductiveGroups AF.5. Hecke correspondences act by the same finite double-coset sums, so the identification is equivariant, not just a dimension equality. The complex uniformization is the zero-dimensional Shimura datum, and all higher complex cohomology vanishes. This gives the definite eigenspace in LTXZZ Corollary C.3.2, p. 364, and Proposition D.2.3, pp. 368–371. Check the constant function on each point gives one basis vector; a disconnected finite set contributes one dimension per point; forgetting a nontrivial coefficient equivariance changes its automorphic multiplicity.
 
 **Checks.**
 
@@ -4738,12 +4563,18 @@ Use all the data of LTXZZ D.2: even N=2r, relevant Π, disjoint Σ_min and Σ_lr
 
 Use relevant packet classification and temperedness to restrict raw cohomology to the specified infinity components. Use the local special-maximal calculation to obtain each zero/one c_v. Sum dim π_v^K over local packet members at the remaining bad places. Prove the identity between packet sums of invariants and normalized traces by passing to an auxiliary totally real quadratic extension in which every place of Σ_min splits, every place of Σ_lr is inert and the base change of Π stays cuspidal, and by using Shin’s definite-case dimension formula there (LTXZZ pp. 370–371, citing their references [71] and [72]). Apply the transferred trace identity with normalized intertwiners; the standard infinity packet contributes 1 in the definite case and N in the indefinite case.
 
+The characteristic-zero cohomology calculation used here is a target for the specified real group U(N−1,1)×U(N)^{d−1}. At sufficiently small level the compact Shimura manifold has Matsushima decomposition
+
+H^j(Sh_K,V_ξ)⊗C ≅ ⊕_π m(π) π_f^K⊗H^j(𝔤,K_∞;π_∞⊗ξ).
+
+For the relevant tempered cohomological packet at the noncompact factor, relative rank defect is zero and the only contributing degree is N−1. Its N discrete-series members each contribute a one-dimensional relative Lie-algebra cohomology space there; the compact factors contribute in degree zero. Use AutomorphicFormsOnReductiveGroups AF.4's Matsushima and Vogan–Zuckerman theorems, compute q₀=N−1 and ℓ₀=0, and count the N Weyl cosets for this packet. This is the infinity factor in LTXZZ Proposition D.2.3, pp. 368–371. No analogous vanishing is claimed for arbitrary nontempered residual packets. Check N=2 gives two degree-one contributions; the definite member has degree zero and one infinity contribution; the trivial coefficient alone does not force every automorphic representation to be tempered. Thus the factor N used below follows from the relevant-tempered hypothesis and this real calculation.
+
 **Checks.**
 
 - If some c_v=0 both specified eigenspaces vanish.
 - For N=2 and all local factors one, the indefinite dimension is twice the definite dimension.
 
-*Needs:* §13.7; §13.6; §13.8; §11.4; §6.10; §6.14; §6.9; §6.25; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4.
+*Needs:* §13.7; §13.6; §13.8; §11.4; §6.10; §6.14; §6.9; §6.25; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.4. Algebraic weights and rational structures.
 
 ### Examples
 
@@ -4751,7 +4582,7 @@ For cyclic prime degree r, an automorphic representation without the class-field
 
 ### Dependencies
 
-§6.27; §6.25; §6.8; §6.6; §6.24; §5.2; `TauCetiRoadmap.ShimuraVarieties`, V6/abelian-canonical; §6.26; §11.1; §6.22; §6.10; §6.9; §11.4; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.5.3 highest-derivative adapter; §10.26; §10.30; §6.14; §4.6; §4.9; §4.10; §4.7; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.5; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups`, AF.4.
+§6.27; §6.25; §6.8; §6.6; §6.24; §5.2; `TauCetiRoadmap.ShimuraVarieties` §6.7 (Canonical models of abelian type); §6.26; §11.1; §6.22; §6.10; §6.9; §11.4; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.5.3 (Coefficient change, Ext and local blocks); §10.26; §10.30; §6.14; §4.6; §4.9; §4.10; §4.7; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.5. Comparison examples and transport; `TauCetiRoadmap.AutomorphicFormsOnReductiveGroups` AF.4. Algebraic weights and rational structures.
 
 ## Layer 14: rational Igusa spectral comparison
 
@@ -4780,7 +4611,6 @@ Use Layers 7–8 acceptability to construct the Newton/Levi transfer at p. Use t
 - `IgusaTests.badAuxiliary`. A principal-congruence level not satisfying the stated smallness and auxiliary-place conditions is not admitted by the source theorem.
 - `IgusaTests.characteristic`. At an auxiliary compact level K, 1_K=vol(K)e_K; its trace includes that volume.
 - All three finite parts and the infinity test function are present.
-- The case φ_p=0 is admissible and every trace vanishes.
 
 *Needs:* §7.3; §6.6; §6.8; §6.9; §6.14; §6.10; §8.1; §8.19; §8.9; §8.18; §6.22.
 
@@ -4788,7 +4618,7 @@ Use Layers 7–8 acceptability to construct the Newton/Levi transfer at p. Use t
 
 Define Red_b,vecn:Groth(G_vecn(Q_p))→Groth(J_b(Q_p)) by summing over the effective endoscopic Levi triples and allowed Levi embeddings, applying their signed normalized opposite-parabolic Jacquet functors, the specified L-map transfer (normalized induction among products of GL groups), and the Langlands–Jacquet map to the inner form. Include the transfer character and modulus factor belonging to the selected Layers 7–8 test-function normalization. In Shin’s conventions Red=(n-Red)⊗barδ_(P(ν_b))^(1/2). The untwisted three-step composite in CS17 §5.4 is Shin’s n-Red. The trace identity in CS17 Lemma 5.4.2 requires its tensor product with barδ_(P(ν_b))^(1/2); use this twisted Red also in CSnc’s spectral comparison. The conversion is a mathematical normalization requirement of that identity. A naive unsigned Jacquet-then-JL composition is insufficient.
 
-*Hypotheses.* Fix b, its Levi M_b, inner form J_b, effective endoscopic triples and transfer factors. The exact CSnc/CS17 character/modulus conversion is a Layers 7–8 supplier requirement.
+*Hypotheses.* Fix b, its Levi M_b, inner form J_b, effective endoscopic triples and transfer factors. The character/modulus conversion is the trace calculation of §§8.19 and 8.22, in the CSnc/CS17 conventions specified here.
 
 ([Ana Caraiani and Peter Scholze — On the generic part of the cohomology of Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), §5.4, Remark 5.4.1 and Lemma 5.4.2, pp. 739–740; [Sug Woo Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §5.5, (5.14)–(5.16), pp. 36–37 (author copy).)
 
@@ -4807,10 +4637,9 @@ Enumerate effective Levi triples and admissible embeddings. Apply the normalized
 - `NewtonRed.fullGroup`. For vecn=(2n), the effective endoscopy reduces to the single Levi M_b term, with its transfer sign.
 - `NewtonRed.virtualNegative`. Red(−[π])=−Red([π]); no positivity follows.
 - `NewtonRed.innerFormSign`. Omitting e_p(J_b) for a nonsplit inner form breaks the transferred trace equality.
-- For the full endoscopic group the effective set is a singleton, but the inner-form sign remains.
 - For a proper endoscopic group all allowed Levi contributions are retained.
 
-*Needs:* §8.8; §8.9; §8.18; §8.19; §6.6; §6.8; §13.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; §10.6; §10.10.
+*Needs:* §8.8; §8.9; §8.18; §8.19; §6.6; §6.8; §13.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); §10.6; §10.10.
 
 ### 14.3 Test transfer is dual to Newton reduction
 
@@ -4903,7 +4732,7 @@ In the nonbasic two-block case delta_barP^(1/2) is a nontrivial unramified chara
 
 ### Dependencies
 
-§7.3; §6.6; §6.8; §6.9; §6.14; §6.10; §8.1; §8.19; §8.9; §8.18; §6.22; §8.8; §13.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups`, SR.2; §10.6; §10.10; §8.11; §6.25; §6.7; §6.19; §8.22; §5.2; §13.4.
+§7.3; §6.6; §6.8; §6.9; §6.14; §6.10; §8.1; §8.19; §8.9; §8.18; §6.22; §8.8; §13.5; `TauCetiRoadmap.SmoothRepresentationsOfLocalGroups` §SR.2.2 (Jacquet functors and parabolic induction); §10.6; §10.10; §8.11; §6.25; §6.7; §6.19; §8.22; §5.2; §13.4.
 
 ## Layer 15: normalization calculations and coherent outputs
 
@@ -4936,8 +4765,6 @@ Use the factorization theorem to enumerate the finite terms. Store the virtual m
 - `comparisonTrace.cancellation`. Two terms with identical trace factors and multiplicities 1 and −1 have sum zero.
 - `comparisonTrace.innerForm`. A term with multiplicity 2, sign −1 and trace factors 3,5,7 evaluates to −210.
 - `comparisonTrace.matrixTrace`. For two terms with products 2 and 3 the ledger equals Matrix.trace of the diagonal matrix diag(2,3), namely 5.
-- A negative coefficient is legal and must remain negative.
-- A balanced proper endoscopic contribution includes its factor 1/2.
 
 *Needs:* §14.5; §14.4; Mathlib `Matrix.trace`; Mathlib `Matrix.trace_diagonal`.
 
@@ -4960,13 +4787,13 @@ Compute the torus conjugacy orbit, which is a point. Integrate the character ove
 
 ### 15.3 Unramified GL₂ Satake check
 
-For normalized unramified GL_2(E) principal series with Satake eigenvalues α,β, vol(GL_2(O_E))=1, the characteristic function of K diag(varpi_E,1) K has eigenvalue q^(1/2)(α+β); the central double coset of varpi_E I has eigenvalue αβ. The normalized Hecke polynomial is X²−q^(−1/2)T_1 X+T_2. Under unramified cyclic degree-r base change the eigenvalues become α^r,β^r. Geometric-Frobenius parameters invert the corresponding arithmetic-Frobenius eigenvalues; the q-half factors stay attached to the stated normalized Satake map.
+Recall the normalization of SmoothRepresentationsOfLocalGroups §§4.1 and 4.3: for normalized unramified GL_2(E) principal series with Satake eigenvalues α,β, vol(GL_2(O_E))=1, the characteristic function of K diag(varpi_E,1) K has eigenvalue q^(1/2)(α+β); the central double coset of varpi_E I has eigenvalue αβ. The normalized Hecke polynomial is X²−q^(−1/2)T_1 X+T_2. Under unramified cyclic degree-r base change the eigenvalues become α^r,β^r. Geometric-Frobenius parameters invert the corresponding arithmetic-Frobenius eigenvalues; the q-half factors stay attached to the stated normalized Satake map.
 
 *Hypotheses.* Normalized induction, fixed q^(1/2), the standard L-embedding and the stated Haar measure. T_2 is the central double coset, not the second elementary Hecke operator under a different scaling.
 
 ([James Arthur and Laurent Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf), Chapter I, §4 and the end of §5, pp. 40–50; Theorem 6.2, pp. 51–52.)
 
-Use the normalized Satake transform and its modular-character factor. Compute the two elementary symmetric functions of α,β. Apply the local cyclic norm/Satake base-change map. Invert the Weil Frobenius convention explicitly instead of changing only one coefficient.
+The target is compatibility of that existing Satake normalization with §6.24’s local cyclic base-change map. Restrict the unramified Weil character to degree-r Frobenius, giving α^r and β^r, and compute the two elementary symmetric functions. Invert the Weil Frobenius convention explicitly instead of changing only one coefficient.
 
 **Checks.**
 
@@ -4996,7 +4823,7 @@ Construct the two-block L-parameter with the source character twists. Compute th
 
 For GL_2(E) and its quaternion division inner form D×, the Jacquet–Langlands character relation on matching regular elliptic elements has sign (−1)^(2−1)=−1. The trivial D× representation transfers to the Steinberg GL_2 representation, whose elliptic character is the negative of the trivial inner-form character. In a Red trace the inner-form/Kottwitz sign must agree with the transferred test-function normalization; equality without that sign is rejected.
 
-*Hypotheses.* Matching elliptic elements and transfer measures/factors come from Layer 6/5/6. This is the nontrivial inner-form acceptance example.
+*Hypotheses.* Matching elliptic elements and transfer measures/factors come from §§4.8, 6.5 and 6.25. This is the nontrivial inner-form acceptance example.
 
 ([Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf), §2.1, pp. 6–12, in particular Remark 2.1.14, p. 10; Theorem 4.1.2, p. 28; [Sug Woo Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §5.5–§5.6, pp. 36–41.)
 
@@ -5011,7 +4838,7 @@ Use the independent local Jacquet–Langlands character theorem from Layer 10. S
 
 ### 15.6 Coherent automorphic and Igusa exports
 
-Provide separate imports for Layer 13 pure automorphic transfer and Layer 14 rational Igusa trace comparison, plus their joint export. Coherence consists of conversion theorems for arithmetic/geometric Frobenius, half Tate twists, inverse-pullback/dual Hecke action, normalized versus unnormalized induction, Haar idempotents, Kottwitz signs and virtual stable multiplicities. The five acceptance examples are the torus measure calculation, unramified GL_2 parameters, balanced proper unitary endoscopy, quaternion inner form, and CSnc’s exact trace with φ_p=0. Prove the primary transfer and action-dictionary inputs independently of these numerical checks.
+Provide separate imports for Layer 13 pure automorphic transfer and Layer 14 rational Igusa trace comparison, plus their joint export. Coherence consists of conversion theorems for arithmetic/geometric Frobenius, half Tate twists, inverse-pullback/dual Hecke action, normalized versus unnormalized induction, Haar idempotents, Kottwitz signs and virtual stable multiplicities. The five acceptance examples are the torus measure calculation, unramified GL_2 parameters, balanced proper unitary endoscopy, quaternion inner form, and CSnc’s exact trace with φ_p=0. The coherence maps are the transfer and action comparisons of §§6.25, 12.13 and 12.22; the acceptance calculations test their coefficients after those maps have been constructed.
 
 *Hypotheses.* Each branch satisfies its own hypotheses; clients need only the branch they consume. Exact coefficients require the signed identity, while the factorization alone supplies virtual support.
 
@@ -5021,7 +4848,7 @@ List the shared convention choices and compare their effects on each branch. Run
 
 **Checks.**
 
-- A pure-branch client has no the downstream integral concentration theorem prerequisite.
+- A pure-branch client has no prerequisite in the downstream integral concentration theorem.
 - A rational Igusa client receives no integral concentration assertion.
 
 *Needs:* §13.4; §13.9; §14.7; §15.2; §15.3; §15.4; §15.5; §15.1; §12.22.
@@ -5040,40 +4867,31 @@ Pure cyclic and unitary automorphic transfer, relevant-packet multiplicity and f
 
 Rational Igusa clients consume the geometry of Layer 7, the signed stable formula of Layer 8, and the virtual spectral factorization and character separation of Layer 14. Integral and torsion concentration requires additional geometry and coefficients. General local-shtuka and excursion-parameter theory consumes the particular tower fibre and normalization comparison of Layer 12; it is not an input to the classical correspondence.
 
-## Primary proof requirements
-
-The source locators below distinguish statements recalled in a secondary source from independently available primary arguments. The remaining primary obligations are mathematical inputs, not consequences of the displayed endpoints: nonabelian reductive cohomology and the adjoint Hasse principle; the Deligne–Mumford extensions of trace, purity and decomposition; inner classical Tamagawa number one and the central elliptic complement; the real singular Lefschetz identity with its centralizer sign; the full number-field residual proof; Mok/KMSW and the Sp₄/SO₅ classification with twisted weighted stabilization; structured slope-divisibility and all-level Igusa liftability; effective finite-field descent of coefficient correspondences; Honda existence and polarized CM lifting; the acceptable-Levi orbital realization and its Casselman comparison; simultaneous unitary globalization; the all-inner-form classical Jacquet–Langlands and Jacquet comparison; highly ramified stability; nongeneric analytic factor products; compact-type isolation and density; the Harris–Taylor/Boyer global realization; the independent Dat-to-Hecke action dictionary; and the level-rigidified polarized Hilbert quotient and its polarization-type extension. Their precise hypotheses and construction routes are retained at their uses. A statement cited through Scholze, Shin, Dat or LTXZZ does not certify the cited book or classification proof. In particular, the Harris–Taylor and Deligne–Kazhdan–Vignéras books are not used as independently verified proofs here.
-
-The arithmetic normalization statements used are those of the dated author copies specified in the references. Source-specific corrections appear in the relevant mathematical calculations: residue cardinality q in harmonic descent; the direct, positively twisted cohomology extraction; the Hom sector with argument rho in the compact tower trace; scalar clearing before a negative Frobenius shift; factorwise refinement of p-adic types; the inverse p-transfer pairing; and the modulus twist in Newton reduction. These comparisons do not make an assertion about inaccessible later published wording.
-
 ## References
-
 - [Bao Châu Ngô — Le lemme fondamental pour les algèbres de Lie](https://arxiv.org/abs/0801.0446v3). arXiv:0801.0446v3 (2 May 2008), 197 pp., printed page = PDF page from p. 2; published in Publ. Math. IHÉS 111 (2010), 1–169 (locators are those of v3).
 - [R. P. Langlands and D. Shelstad — On the definition of transfer factors](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0278/LOG_0030.pdf). Math. Ann. 278 (1987), 219–271; GDZ scan (no text layer), printed page = PDF page + 217.
 - [R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0275/LOG_0056.pdf). Math. Ann. 275 (1986), 365–399; GDZ scan (no text layer), printed page = PDF page + 363.
 - [R. E. Kottwitz — Base change for unit elements of Hecke algebras](https://www.numdam.org/item/CM_1986__60_2_237_0.pdf). Compositio Math. 60 (1986), 237–250; Numdam copy.
-- [R. Kottwitz and D. Shelstad — On splitting invariants and sign conventions in endoscopic transfer](https://arxiv.org/abs/1201.5658v1). arXiv:1201.5658v1 (26 January 2012), 19 pp..
+- [R. Kottwitz and D. Shelstad — On splitting invariants and sign conventions in endoscopic transfer](https://arxiv.org/abs/1201.5658v1). arXiv:1201.5658v1 (26 January 2012), 19 pp.
 - [T. C. Hales — A statement of the fundamental lemma](https://arxiv.org/abs/math/0312227v2). arXiv:math/0312227v2 (30 December 2003), 18 pp.; also Clay Math. Proc. 4 (2005), 643–658; PDF page numbers are cited.
 - [G. Laumon and B. C. Ngô — Le lemme fondamental pour les groupes unitaires](https://arxiv.org/abs/math/0404454v2). arXiv:math/0404454v2 (8 October 2004), 99 pp.; published Ann. of Math. 168 (2008); arXiv page numbers.
 - [J.-P. Labesse — Cohomologie, stabilisation et changement de base](https://www.numdam.org/item/AST_1999__257__R1_0.pdf). Astérisque 257 (1999), vi + 116 pp.; Numdam copy with text layer; printed page = PDF page − 7.
 - [J.-L. Waldspurger — Endoscopie et changement de caractéristique](https://webusers.imj-prg.fr/~jean-loup.waldspurger/endoscopie.pdf). Author's preprint (71 pp.) of J. Inst. Math. Jussieu 5 (2006), 423–525; preprint page numbers.
 - [J.-L. Waldspurger — L'endoscopie tordue n'est pas si tordue : intégrales orbitales](https://webusers.imj-prg.fr/~jean-loup.waldspurger/endoscopietordue.pdf). Author's preprint dated 15 May 2006 (83 pp.) of Mem. Amer. Math. Soc. 194 (2008), no. 908; preprint page numbers.
 - [R. E. Kottwitz — Harmonic analysis on reductive p-adic groups and Lie algebras](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf). In Harmonic Analysis, the Trace Formula, and Shimura Varieties, Clay Math. Proc. 4 (2005), 393–522; Clay Institute copy of the volume; printed page = PDF page − 13.
-- [J. Arthur — An introduction to the trace formula](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf). In Harmonic Analysis, the Trace Formula, and Shimura Varieties, Clay Math. Proc. 4 (2005), 1–263; same file as kottwitz-clay.
+- [J. Arthur — An introduction to the trace formula](https://www.claymath.org/wp-content/uploads/2022/03/cmip04c.pdf). In Harmonic Analysis, the Trace Formula, and Shimura Varieties, Clay Math. Proc. 4 (2005), 1–263; the same Clay Institute volume.
 - [S. W. Shin — Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf). Author's copy (62 pp.) of Ann. of Math. 173 (2011), 1645–1741; author-copy page numbers.
 - [S. W. Shin — A stable trace formula for Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf). Author's copy (30 pp.) of J. Inst. Math. Jussieu 9 (2010), 847–895; author-copy page numbers.
-- [A. Caraiani and P. Scholze — On the generic part of the cohomology of local and global Shimura varieties](https://arxiv.org/abs/1909.01898v2). arXiv:1909.01898v2 (22 November 2023), 90 pp..
+- [A. Caraiani and P. Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/abs/1909.01898v2). arXiv:1909.01898v2 (22 November 2023), 90 pp.; author copy noncompact.pdf has the same cited pagination. Published Ann. of Math. 199 (2024), 483–590; citations use preprint pages.
 - [S. Leslie — The endoscopic fundamental lemma for unitary Friedberg–Jacquet periods](https://arxiv.org/abs/1911.07907v3). arXiv:1911.07907v3 (13 March 2025), 89 pp.; published Ann. of Math. 201 (2025).
 - [T. Kaletha — Rigid inner forms of real and p-adic groups](https://arxiv.org/abs/1304.3292v5). arXiv:1304.3292v5 (9 February 2015); published Ann. of Math. 184 (2016), 559–632; arXiv page numbers.
 - [M. Kisin — Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf). Author's typeset preprint (99 pp., PDF dated 27 August 2016) of J. Amer. Math. Soc. 30 (2017), 819–914; page numbers of that copy.
 - [P. van Hoften — Mod p points on Shimura varieties of parahoric level](https://arxiv.org/abs/2010.10496v4). arXiv:2010.10496v4 (3 September 2024); published Forum Math. Pi 12 (2024); arXiv page numbers.
 - [D. Hansen, T. Kaletha and J. Weinstein — On the Kottwitz conjecture for local shtuka spaces](https://arxiv.org/abs/1709.06651v4). arXiv:1709.06651v4 (17 March 2022); published Forum Math. Pi 10 (2022), e13, with Appendix A.2 on pp. 71–72; other locators use arXiv page numbers.
-- [A. Caraiani and P. Scholze — On the generic part of the cohomology of compact unitary Shimura varieties](https://arxiv.org/abs/1511.02418v1). arXiv:1511.02418v1 (8 November 2015); published Ann. of Math. 186 (2017); its pages 735 and 737–738 correspond to arXiv pp. 74–76.
+- [A. Caraiani and P. Scholze — On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf). Ann. of Math. 186 (2017), 649–766; published page numbers. The preprint is arXiv:1511.02418v1; its pp. 74–76 correspond to published pp. 735–738.
 - [O. Schiffmann — Indecomposable vector bundles and stable Higgs bundles over smooth projective curves](https://arxiv.org/abs/1406.3839v2). arXiv:1406.3839v2 (4 October 2014), no printed page numbers (PDF pages cited); published Ann. of Math. 183 (2016).
 - [H. Yu — Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/abs/1807.04659v5). arXiv:1807.04659v5 (18 July 2022); published Ann. of Math. 197 (2023).
 - [Y. Liu, Y. Tian, L. Xiao, W. Zhang and X. Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://par.nsf.gov/servlets/purl/10323568). Invent. Math. 228 (2022), 107–375, the NSF Public Access Repository copy (printed page = PDF page + 106).
-- [A. Caraiani and P. Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/abs/1909.01898v2). arXiv:1909.01898v2 (22 November 2023), 90 pp.; printed page = PDF page; published Ann. of Math. 199 (2024).
-- [A. Caraiani and P. Scholze — On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf). Ann. of Math. 186 (2017), 649–766, published PDF; printed page = PDF page + 648.
 - [P. Scholze — The local Langlands correspondence for GL_n over p-adic fields](https://arxiv.org/abs/1010.1540v1). arXiv:1010.1540v1, 37 pp.; printed page = PDF page; published Invent. Math. 192 (2013), 663–715.
 - [J. Arthur and L. Clozel — Simple algebras, base change, and the advanced theory of the trace formula](https://www.claymath.org/library/cw/arthur/pdf/30.pdf). Annals of Mathematics Studies 120, Princeton University Press, 1989; scan hosted in the Arthur archive of the Clay Mathematics Institute; locators give printed pages (printed = PDF − 16).
 - [M. Tadić — Classification of unitary representations in irreducible representations of general linear group (non-Archimedean case)](https://www.numdam.org/item/ASENS_1986_4_19_3_335_0.pdf). Ann. Sci. École Norm. Sup. (4) 19 (1986), 335–382; Numdam copy, printed page = PDF page + 334.
@@ -5082,7 +4900,6 @@ The arithmetic normalization statements used are those of the dated author copie
 - [L. Clozel — Characters of non-connected reductive p-adic groups](https://doi.org/10.4153/CJM-1987-008-3). Canadian Journal of Mathematics 39 (1987), 149–167; printed = PDF + 148.
 - [R. E. Kottwitz — Stable trace formula: cuspidal tempered terms](https://math.uchicago.edu/~drinfeld/langlands/Kottwitz.pdf). Duke Mathematical Journal 51 (1984), 611–650.
 - [K. F. Lai — Tamagawa number of reductive algebraic groups](https://www.numdam.org/item/CM_1980__41_2_153_0.pdf). Compositio Mathematica 41 (1980), 153–188.
-- [R. E. Kottwitz — Stable trace formula: elliptic singular terms](https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf). Mathematische Annalen 275 (1986), 365–399; printed = PDF + 363.
 - [J. Arthur — The invariant trace formula I. Local theory](https://www.claymath.org/library/cw/arthur/pdf/26.pdf). Journal of the AMS 1 (1988), 323–383.
 - [J. Arthur — The invariant trace formula II. Global theory](https://www.claymath.org/library/cw/arthur/pdf/27.pdf). Journal of the AMS 1 (1988), 501–554.
 - [R. E. Kottwitz and J. D. Rogawski — The distributions in the invariant trace formula are supported on characters](https://doi.org/10.4153/CJM-2000-034-6). Canadian Journal of Mathematics 52 (2000), 804–814; printed = PDF + 803.
@@ -5101,26 +4918,38 @@ The arithmetic normalization statements used are those of the dated author copie
 - [S. W. Shin — Errata](https://math.berkeley.edu/~swshin/errata.pdf). Author-maintained two-page errata.
 - [J. Tate — Endomorphisms of abelian varieties over finite fields](https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf). Invent. Math. 2 (1966), 134–144; published scan.
 - [W. C. Waterhouse — Abelian varieties over finite fields](https://www.numdam.org/item/ASENS_1969_4_2_4_521_0.pdf). Ann. Sci. ENS 2 (1969), 521–560; published Numdam scan. Honda existence is stated, not proved here.
-- [A. Caraiani and P. Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2). arXiv:1909.01898v2, 22 November 2023, 90 pages; locators use preprint pages.
-- [Peter Scholze — The Local Langlands correspondence for GL_n over p-adic fields](https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf). Author PDF dated 7 October 2010, 37 pages; arXiv:1010.1540v1 pagination
 - [Peter Scholze — The Langlands–Kottwitz method and deformation spaces of p-divisible groups](https://people.mpim-bonn.mpg.de/scholze/DeformationSpaces.pdf). Author PDF titled Deformation spaces of p-divisible groups, dated 2 October 2011, 33 pages; prepublication pagination
 - [Guy Henniart — Une caractérisation de la correspondance de Langlands locale pour GL(n)](https://www.numdam.org/item/BSMF_2002__130_4_587_0.pdf). Bulletin de la Société Mathématique de France 130(4) (2002), 587–602, published Numdam PDF
 - [Alexandru Ioan Badulescu — Correspondance de Jacquet–Langlands étendue à toutes les représentations](https://arxiv.org/pdf/math/0201142). arXiv:math/0201142v2, dated 8 April 2003, 38 pages; use this version’s numbering
 - [Hervé Jacquet, Ilya Piatetski-Shapiro and Joseph Shalika — Conducteur des représentations du groupe linéaire](https://www.math.columbia.edu/~hj/conducteur.pdf). Mathematische Annalen 256 (1981), 199–214; published scan on Jacquet’s page, one cover page
 - [Hervé Jacquet — A correction to Conducteur des représentations du groupe linéaire](https://msp.org/pjm/2012/260-2/pjm-v260-n2-p09-s.pdf). Pacific Journal of Mathematics 260(2) (2012), 515–525, publisher PDF
-- [Peter Scholze and Jared Weinstein — Moduli of p-divisible groups](https://arxiv.org/abs/1211.6357). arXiv:1211.6357, cleared author PDF; printed page numbering of that file
+- [Peter Scholze and Jared Weinstein — Moduli of p-divisible groups](https://arxiv.org/abs/1211.6357). arXiv:1211.6357, author PDF; printed page numbering of that file
 - [Peter Scholze and Jared Weinstein — Berkeley lectures on p-adic geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf). Authors’ March 27, 2020 version of Annals of Mathematics Studies 207
 - [Jean-François Dat — Théorie de Lubin–Tate non-abélienne et représentations elliptiques](https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf). Author PDF of Invent. Math. 169 (2007), 75–152; internal printed pages
-- [Ana Caraiani and Peter Scholze — On the generic part of the cohomology of non-compact unitary Shimura varieties](https://www.ma.imperial.ac.uk/~acaraian/papers/noncompact.pdf). Author copy noncompact.pdf (90 pages; its text and page numbers agree with arXiv:1909.01898v2 at every place cited here); published in Annals of Mathematics 199 (2024), 483–590
-- [Ana Caraiani and Peter Scholze — On the generic part of the cohomology of Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf). Annals of Mathematics 186 (2017), 649–766, published PDF
-- [Colette Mœglin and Jean-Loup Waldspurger — Le spectre résiduel de GL(n)](https://www.numdam.org/article/ASENS_1989_4_22_4_605_0.pdf). Ann. Sci. École Norm. Sup. (4) 22 (1989), 605–674, published Numdam scan
-- [Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu — On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://doi.org/10.1007/s00222-021-01088-4). Invent. Math. 228 (2022), 107–375, cleared published NSF copy
-- [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł — Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://arxiv.org/pdf/1704.08928). arXiv:1704.08928 author copy; JAMS 33 (2020), 311–362 is the publication, whose numbering is not substituted
+- [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł — Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://arxiv.org/pdf/1704.08928). arXiv:1704.08928 author copy; published in JAMS 33 (2020), 311–362; citations use preprint numbering
 - [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł — Factorisation de la cohomologie étale p-adique de la tour de Drinfeld](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf). Forum of Mathematics, Pi 11 (2023), e16, published Cambridge PDF, 62 pages
 - [Lue Pan — On locally analytic vectors of the completed cohomology of modular curves II](https://arxiv.org/pdf/2209.06366). arXiv:2209.06366v1, 14 September 2022; preprint theorem/page numbering, not Annals 203 (2026)
-- [George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni — Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645). arXiv:2502.20645 author copy; internal printed pages
-- [Laurent Fargues and Peter Scholze — Geometrization of the local Langlands correspondence](https://arxiv.org/pdf/2102.13459v4). arXiv:2102.13459v4; IX.7.4 used solely as an output-signature witness
-
+- [Laurent Fargues and Peter Scholze — Geometrization of the local Langlands correspondence](https://arxiv.org/pdf/2102.13459v4). arXiv:2102.13459v4; geometric locators in §II.1 and the basic-Hecke calculation in IX.7.4 use this version
 - J. Cohen, *Transfer of representations and orbital integrals for inner forms of GL_n*, Canadian Journal of Mathematics 70 (2018), 595–627, [published version](https://doi.org/10.4153/CJM-2017-017-5), §8.1, Definition 8.1 and Lemma 8.2, pp. 615–617.
 - J. Adams and T. Kaletha, *Discrete series L-packets for real reductive groups*, Essential Number Theory 5 (2026), 139–219, [published version](https://msp.org/ent/2026/5-1/ent-v5-n1-p04-s.pdf), Theorem 2.7.7, p. 164, and §6.1, p. 203.
 - G. Faltings and C.-L. Chai, *Degeneration of Abelian Varieties*, Springer 1990, I.4.3–4.4 and I.4.11, pp. 19, 23–24; the fine-level quasi-projectivity statement there recalls Mumford’s geometric-quotient theorem.
+
+- [C.-F. Yu — Embeddings of fields into simple algebras over global fields](https://arxiv.org/abs/1105.2895). arXiv:1105.2895, Propositions 2.5 and 2.7, pp. 8–9.
+- [D. Vogan — The unitary dual of GL(n) over an archimedean field](https://www.math.utah.edu/~ptrapa/math-library/vogan/vogan-GLn.pdf). Invent. Math. 83 (1986), 449–505; Theorems 17.4 and 17.6, pp. 501–502.
+- [J. Bernstein and A. Zelevinsky — Representations of the group GL(n,F) where F is a local non-Archimedean field](https://doi.org/10.1070/RM1976v031n03ABEH001532). Russian Math. Surveys 31:3 (1976), 1–68; Proposition 5.15, Theorem 5.16 and §5.18, pp. 49–50.
+- [P. Schneider and E.-W. Zink — K-types for the tempered components of a p-adic general linear group](https://ivv5hpp.uni-muenster.de/u/pschnei/publ/pap/temtype.pdf). Author version, §5, Proposition 11, p. 30; published J. reine angew. Math. 517 (1999), 161–208.
+- [P. Scholze — Some simple Shimura varieties](https://arxiv.org/abs/1003.2451). arXiv:1003.2451; Lemma 5.5 and Corollary 5.6, pp. 13–14.
+- [P. Scholze — Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf). Author version dated 14 April 2026; §15 and §22 use this version’s pagination.
+- [J. Tate — Number theoretic background](https://www.math.ias.edu/~goresky/pdf/3-01Tate.pdf). Automorphic Forms, Representations and L-functions, Proc. Sympos. Pure Math. 33, part 2 (1979), 3–26; §§1.1–1.6, pp. 3–9.
+- [H. Jacquet and J. Shalika — A lemma on highly ramified ε-factors](https://www.math.columbia.edu/~hj/Highly%20ramified.pdf). Math. Ann. 271 (1985), 319–332; Proposition 4.1, §4.2 and Proposition 5.1, pp. 326–327, 331.
+- [P. Deligne and G. Henniart — Sur la variation, par torsion, des constantes locales d’équations fonctionnelles de fonctions L](https://publications.ias.edu/sites/default/files/Number43.pdf). Invent. Math. 64 (1981), 89–118; Theorem 4.6 and Lemma 4.7, pp. 110–111.
+- [P. Boyer — Monodromie du faisceau pervers des cycles évanescents de quelques variétés de Shimura simples](https://www.math.univ-paris13.fr/~boyer/recherche/MP-faisceautique.pdf). Author version, 34 pp.; locators use its numbering, in particular §§2.2–2.3 and §§5.5–5.7.
+- [R. E. Kottwitz — Tamagawa numbers](https://annals.math.princeton.edu/1988/127-3/p05). Ann. of Math. 127 (1988), 629–646; Theorem 1 and §4.
+- [L. Clozel — Nombres de Tamagawa des groupes semi-simples (d’après Kottwitz)](https://www.numdam.org/item/SB_1988-1989__31__61_0.pdf). Séminaire Bourbaki, exposé 702, Astérisque 177–178 (1989), 61–82; Theorem 1.1, §§4–5.
+- [R. Kottwitz — Points on some Shimura varieties over finite fields](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf). JAMS 5 (1992), 373–444; Lemma 9.2, p. 402, and Lemmas 17.1–17.2, pp. 434–435.
+- [D. Shelstad — Tempered endoscopy for real groups I: geometric transfer with canonical factors](https://sites.rutgers.edu/diana-shelstad/wp-content/uploads/sites/189/2019/10/shelstadtempend1.pdf). Author version, Theorem 14.3, pp. 40–42, and §15, pp. 45–46; published in Representation Theory 12 (2008), 1–40.
+- [D. Shelstad — Tempered endoscopy for real groups II: spectral transfer factors](https://sites.rutgers.edu/diana-shelstad/wp-content/uploads/sites/189/2019/10/shelstadtempend2.pdf). Author version, Theorem 5.1, pp. 7–8, proof §§13–14, pp. 31–39; published in Automorphic Forms and the Langlands Program (2010), 236–276.
+- [B. Lemaire, C. Mœglin and J.-L. Waldspurger — Le lemme fondamental pour l’endoscopie tordue: réduction aux éléments unités](https://arxiv.org/abs/1506.03383). Author version, §2.8, Theorems 1–2, p. 17; proof §§3–5, pp. 21–88.
+- [M.-F. Vignéras — Caractérisation des intégrales orbitales sur un groupe réductif p-adique](https://repository.dl.itc.u-tokyo.ac.jp/record/39626/files/jfs280338.pdf). J. Fac. Sci. Univ. Tokyo Sect. IA Math. 28 (1982), 945–961; §1.n, Theorems A–B, pp. 948–949, and §1.o(3), p. 950.
+- [J.-L. Waldspurger — La formule de Plancherel pour les groupes p-adiques, d’après Harish-Chandra](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FF540ECB59B31AFC0A7874C87F54EE0A/S1474748003000082a.pdf/div-class-title-la-formule-de-plancherel-pour-les-groupes-span-class-italic-p-span-adiques-d-apres-harish-chandra-div.pdf). J. Inst. Math. Jussieu 2 (2003), 235–333; Proposition III.4.1, p. 269, and its exponent lemmas, pp. 265–268.
+- [J. Arthur — On elliptic tempered characters](https://www.claymath.org/library/cw/arthur/pdf/40.pdf). Acta Math. 171 (1993), 73–138; Theorem 6.1 and Corollary 6.2, pp. 113–115, with the cuspidal local trace formula, Corollary 4.3, pp. 104–105.
