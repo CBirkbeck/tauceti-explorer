@@ -1861,14 +1861,14 @@
    ],
    "title": "Kummer isocrystals K_a on G_m",
    "kind": "construction",
-   "statement": "On the frame (G_m, P^1_k, P̂^1_O) with coordinate t, for a ∈ ℤ_p let K_a be the free j†O_{P^1_K}-module of rank one on a generator e with ∇(e) = a e ⊗ dt/t. Global sections of j†O are the Laurent series Σ_{n∈ℤ} c_n t^n converging on some annulus ρ < |t| < 1/ρ, ρ < 1 (written K⟨t, t^{−1}⟩†), and the sections on the tube ]G_m[ = {|t| = 1} form K⟨t, t^{−1}⟩. Then: K_a is an overconvergent isocrystal on G_m; K_a ⊗ K_b ≅ K_{a+b} and K_a^∨ ≅ K_{−a}; K_a ≅ K_b if and only if a − b ∈ ℤ (by e ↦ t^{a−b} e); the horizontal sections of K_a, over the tube or over a strict neighbourhood, are K·t^{−a} e if a ∈ ℤ and 0 otherwise; the pullback along t ↦ t^N is K_{Na}; and, for the Frobenius lift t ↦ t^p with σ = id on K, K_a admits a Frobenius structure if and only if (p − 1)a ∈ ℤ, the structure being multiplication by t^{(p−1)a}.",
+   "statement": "On the frame (G_m, P^1_k, P̂^1_O) with coordinate t, for a ∈ ℤ_p let K_a be the free j†O_{P^1_K}-module of rank one on a generator e with ∇(e) = a e ⊗ dt/t. Global sections of j†O are the Laurent series Σ_{n∈ℤ} c_n t^n converging on some annulus ρ < |t| < 1/ρ, ρ < 1 (written K⟨t, t^{−1}⟩†), and the sections on the tube ]G_m[ = {|t| = 1} form K⟨t, t^{−1}⟩. Then: K_a is an overconvergent isocrystal on G_m; K_a ⊗ K_b ≅ K_{a+b} and K_a^∨ ≅ K_{−a}; K_a ≅ K_b if and only if a − b ∈ ℤ (an isomorphism K_b → K_a is e_b ↦ t^{b−a} e_a); the horizontal sections of K_a, over the tube or over a strict neighbourhood, are K·t^{−a} e if a ∈ ℤ and 0 otherwise; the pullback along t ↦ t^N is K_{Na}; and, for the Frobenius lift t ↦ t^p with σ = id on K, K_a admits a Frobenius structure if and only if (p − 1)a ∈ ℤ, the structure being multiplication by t^{(p−1)a}.",
    "hypotheses": [
     "a ∈ ℤ_p is needed for convergence: for a ∉ ℤ_p the binomial coefficients binom(a, k) are unbounded and the connection is not even convergent.",
     "Frobenius structures are taken with σ = id on K (K ⊇ ℚ_p arbitrary) and the lift t ↦ t^p."
    ],
    "proofSteps": [
     "Overconvergence: by taylor-series-convergence-criterion on the two affine charts (overconvergence is local on P, overconvergence-is-a-property (d)), ∂^{[k]} e = binom(a, k) t^{−k} e with |binom(a, k)| ≤ 1, so on {η ≤ |t| ≤ 1/η} the decay ‖∂^{[k]}e‖ λ^k ≤ (λ/η)^k → 0 holds for η > λ; the chart at ∞ is the same with −a.",
-    "Tensor, dual and pullback are computed on generators; an isomorphism K_b → K_a sends e to g e with t g′ = (a − b) g, so g = c t^{a−b}, a unit of K⟨t, t^{−1}⟩† exactly when a − b ∈ ℤ; horizontal sections are the case b = 0, where the Laurent coefficients satisfy (n + a) g_n = 0.",
+    "Tensor, dual and pullback are computed on generators; an isomorphism K_b → K_a sends e_b to g e_a with t g′ = (b − a) g, so g = c t^{b−a}, a unit of K⟨t, t^{−1}⟩† exactly when a − b ∈ ℤ; horizontal sections are the case b = 0, where the Laurent coefficients satisfy (n + a) g_n = 0.",
     "Frobenius: a horizontal Φ: F^*K_a → K_a, F^*K_a having ∇(1) = pa dt/t, is multiplication by some h with t h′ = a(p − 1) h, so h = c t^{a(p−1)}, analytic and invertible on annuli near |t| = 1 iff a(p − 1) ∈ ℤ (Berthelot 96-03 (2.3.8)(iii))."
    ],
    "acceptance": [
@@ -2296,7 +2296,7 @@
    "roadmaps": [
     "PadicDifferentialEquationsAndRigidCohomology"
    ],
-   "detail": "RD.3 now has 22 main-packet targets and 27 targets in this continuation, falling into three blocks; one star cannot show their structure.",
+   "detail": "RD.3 has 22 targets in the main document and 27 in this part, falling into three blocks; one star cannot show their structure.",
    "proposal": "Sub-layers for the atlas, keeping the stage RD.3: RD.3a 'Tubes, strict neighbourhoods and j†' (frame, tube, strict-neighbourhood, standard-strict-neighbourhoods, etale-tube-isomorphism, etale-strict-neighbourhood-isomorphism, weak- and strong-fibration-theorem, j-dagger, j-dagger-properties, j-dagger-exactness-and-functoriality, coherent-j-dagger-modules, coherent-j-dagger-gluing); RD.3b 'Overconvergent isocrystals' (overconvergent-isocrystal and its connection form, overconvergence-is-a-property, taylor-series-convergence-criterion, frame-pullback-functor, taylor-comparison-of-pullbacks, independence-of-frame and of-compactification, isocrystals-glued-from-local-frames, zariski-stack-of-overconvergent-isocrystals, overconvergent-isocrystals-of-a-variety, overconvergent-f-isocrystal, the Monsky–Washnitzer nodes, weak-completion-henselian-descent, finite étale lifting and pushforward, Étesse's descent and direct summands, kummer-isocrystal, the Liouville nodes, affine-space-two-embeddings-acceptance); RD.3c 'Convergent and unit-root F-isocrystals' (convergent-isocrystal, convergent-f-isocrystal, f-crystal-to-convergent-f-isocrystal, convergent-f-isocrystals-are-crystalline, underlying-bundle-of-convergent-isocrystal, restriction-to-convergent, unit-root-f-isocrystal, crew-unit-root-correspondence). The planets would then be Frame and Tube (RD.3a), Berthelot's j† functor, Independence of the frame and Overconvergent F-isocrystal (RD.3b), Convergent F-isocrystal (RD.3c)."
   }
  ],
@@ -2432,7 +2432,7 @@
   },
   {
    "kind": "published",
-   "citation": "N. Tsuzuki, Morphisms of F-isocrystals and the finite monodromy theorem for unit-root F-isocrystals, Duke Math. J. 111 (2002) (NOT read: subscription only; its finite étale pushforward is replaced by the construction recorded in the continuation of RD.3/finite-etale-pushforward-of-isocrystals)",
+   "citation": "N. Tsuzuki, Morphisms of F-isocrystals and the finite monodromy theorem for unit-root F-isocrystals, Duke Math. J. 111 (2002) (NOT read: subscription only; its finite étale pushforward is replaced by the construction given for RD.3/finite-etale-pushforward-of-isocrystals)",
    "read": "2026-10-14"
   },
   {
