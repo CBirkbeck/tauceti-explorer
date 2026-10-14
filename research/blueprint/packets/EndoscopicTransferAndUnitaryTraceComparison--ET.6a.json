@@ -1,0 +1,3629 @@
+{
+  "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+  "protocol": "blueprint-v1",
+  "part": "ET.6a",
+  "scope": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+  ],
+  "status": "complete",
+  "summary": "A target-level plan for the two classical mixed-characteristic towers, their geometric and cohomological comparison and the independent supercuspidal realization; a separate pure automorphic unitary base-change and residual-spectrum branch; and the exact signed rational Igusa trace branch. Missing primary proofs and action conversions are explicit gaps. Early raw geometry and rational trace notions move below the higher Galois/concentration consumers.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.trace",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "The finite square-matrix trace, the sum of its diagonal entries, over an additive commutative monoid.",
+        "checked": "Read at Mathlib 082e2d37, lines 35–47, in the pinned lean-check build. Only finite normalization examples use this; no tower cohomology is claimed implemented."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SW13",
+      "title": "Moduli of p-divisible groups",
+      "authors": "Peter Scholze and Jared Weinstein",
+      "edition": "arXiv:1211.6357, cleared author PDF; printed page numbering of that file",
+      "readSections": [
+        "§5.1, Theorem 5.1.4 and Proposition 5.1.6, pp. 49–50; Theorem 5.2.1, p. 51",
+        "§6.3, Theorem 6.3.4 and universal-cover description, pp. 59–61",
+        "Theorem 6.4.1, pp. 64–66; §6.5, pp. 66–68",
+        "§§7.1–7.3, especially Proposition 7.2.2 and Theorem 7.2.3, pp. 69–73"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://arxiv.org/abs/1211.6357",
+      "sha256": "984411ef6c3d735a713684d4c9251fbad411a40eab33cefed8ab5c8412b09f6d",
+      "access": "Maintainer-cleared copy read in place under atlas-library; no copy or passages saved."
+    },
+    {
+      "id": "SW20",
+      "title": "Berkeley lectures on p-adic geometry",
+      "authors": "Peter Scholze and Jared Weinstein",
+      "edition": "Authors’ March 27, 2020 version of Annals of Mathematics Studies 207",
+      "readSections": [
+        "Lecture 24, §§24.2–24.3, pp. 226–231; Theorem 24.2.5 and Corollary 24.3.5 with their proofs"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
+      "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+      "access": "Maintainer-cleared copy read in place under atlas-library; no copy or passages saved."
+    },
+    {
+      "id": "Dat",
+      "title": "Théorie de Lubin–Tate non-abélienne et représentations elliptiques",
+      "authors": "Jean-François Dat",
+      "edition": "Author PDF of Invent. Math. 169 (2007), 75–152; internal printed pages",
+      "readSections": [
+        "§§2.1–2.2, pp. 8–13",
+        "§§3.1–3.5, pp. 15–26; Theorem 3.4.1 and Corollary 3.4.2",
+        "§4.1, Theorem 4.1.2 and Harris–Taylor convention dictionary, pp. 26–29"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://webusers.imj-prg.fr/~jean-francois.dat/recherche/publis/LT.pdf",
+      "sha256": "4973a260e5af4b046652956ad63e95a412fb82873cdecc6bd585c85e1aa4a04d"
+    },
+    {
+      "id": "CSnc",
+      "title": "On the generic part of the cohomology of non-compact unitary Shimura varieties",
+      "authors": "Ana Caraiani and Peter Scholze",
+      "edition": "Author noncompact.pdf; internal 76-page section numbering used here",
+      "readSections": [
+        "§§2.2–2.3, liftable automorphisms, central leaves and finite Igusa torsors, pp. 14–20",
+        "§5.6, pp. 74–76; Theorem 5.6.1, Lemma 5.6.2 and Remark 5.6.3"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://www.ma.imperial.ac.uk/~acaraian/papers/noncompact.pdf",
+      "sha256": "9c9b723d20f35af25f45c236224fb3a4d72c57379ea54759a3b609f4092d8eb5"
+    },
+    {
+      "id": "CS17",
+      "title": "On the generic part of the cohomology of Shimura varieties",
+      "authors": "Ana Caraiani and Peter Scholze",
+      "edition": "Annals of Mathematics 186 (2017), 649–766, published PDF",
+      "readSections": [
+        "§4.3, Definitions 4.3.1 and 4.3.6, Remark 4.3.7 and Proposition 4.3.8, pp. 715–718",
+        "§5.2 rational alternating cohomology, pp. 732–733",
+        "§5.4, pp. 739–740; Lemma 5.4.2",
+        "§5.5, pp. 741–743; Lemma 5.5.1, Corollary 5.5.2 and Remark 5.5.3"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
+      "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a"
+    },
+    {
+      "id": "Shin",
+      "title": "Galois representations arising from some compact Shimura varieties",
+      "authors": "Sug Woo Shin",
+      "edition": "Author StableGal.pdf of Ann. Math. 173 (2011), 1645–1741; internal 60-page numbering",
+      "readSections": [
+        "§4, Proposition 4.8, Remark 4.10 and Corollary 4.14, pp. 27–29",
+        "§5.1, compact PEL datum and component convention, pp. 29–31",
+        "§5.5–§5.6, signed reduction and trace duality, pp. 36–42"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://math.berkeley.edu/~swshin/StableGal.pdf",
+      "sha256": "93f4fe322200a646f337ae8d4aa9a036a866df1bb59ad5fe7bf09373324da75b"
+    },
+    {
+      "id": "AC",
+      "title": "Simple algebras, base change, and the advanced theory of the trace formula",
+      "authors": "James Arthur and Laurent Clozel",
+      "edition": "Annals of Mathematics Studies 120 (1989), author archive hosted by Clay; scanned printed pages",
+      "readSections": [
+        "Chapter I §§4–5, unramified base-change map and associated functions, pp. 40–50",
+        "Chapter I §6, Definition 6.1 and Theorem 6.2 with reduction/proof, pp. 51–57",
+        "Chapter III §4, Theorem 4.2 and the cyclic alternatives, pp. 202–203",
+        "Chapter III §6, Definition 6.1, Theorem 6.2 and induction-by-stages proof, pp. 214–217"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://www.claymath.org/library/cw/arthur/pdf/30.pdf",
+      "sha256": "3033d863634f5a1e8c26e48ba5b5ec9d8f95fb411b2a6d21c1580db80bc01737"
+    },
+    {
+      "id": "MW",
+      "title": "Le spectre résiduel de GL(n)",
+      "authors": "Colette Mœglin and Jean-Loup Waldspurger",
+      "edition": "Ann. Sci. École Norm. Sup. (4) 22 (1989), 605–674, published Numdam scan",
+      "readSections": [
+        "Introduction and §I.1, pp. 605–607; §I.11, pp. 640–643",
+        "§II.3 spectral decomposition and its corollary, pp. 647–649; surrounding residue argument"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://www.numdam.org/article/ASENS_1989_4_22_4_605_0.pdf",
+      "sha256": "a46e3549d05d2cd39f396ef326840f4484f3935ff3daa17e6339091962de9e94"
+    },
+    {
+      "id": "LTXZZ",
+      "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
+      "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu",
+      "edition": "Invent. Math. 228 (2022), 107–375, cleared published NSF copy",
+      "readSections": [
+        "Definitions 3.2.3 and 3.2.7; Proposition 3.2.8, pp. 144–146",
+        "Lemma 6.1.11 and proof, pp. 267–268 (consumer boundary only)",
+        "Appendix C.1 local base change, pp. 351–354; C.3, Proposition C.3.1 and Corollaries C.3.2–C.3.3, pp. 363–364",
+        "Appendix D.2, pp. 368–371, setup, Definition D.2.1, Lemma D.2.2 and Proposition D.2.3"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://doi.org/10.1007/s00222-021-01088-4",
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "access": "Maintainer-cleared copy read in place under atlas-library; no copy or passages saved."
+    },
+    {
+      "id": "CDN20",
+      "title": "Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1",
+      "authors": "Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł",
+      "edition": "arXiv:1704.08928 author copy; JAMS 33 (2020), 311–362 is the publication, whose numbering is not substituted",
+      "readSections": [
+        "§4.2, Proposition 4.8, pp. 38–39, Gross–Hopkins vector fields",
+        "§5.1, Proposition 5.1, p. 40, ell-adic dictionary (context only)"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://arxiv.org/pdf/1704.08928",
+      "sha256": "15e4868f5b11ad113e2806b5e9884d7b100f529e67c6cd6030f24cf8e3ae9073"
+    },
+    {
+      "id": "CDN23",
+      "title": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+      "authors": "Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł",
+      "edition": "Forum of Mathematics, Pi 11 (2023), e16, published Cambridge PDF, 62 pages",
+      "readSections": [
+        "§0.2.1, p. 4, central quotient and arithmetic descent",
+        "§3, Lemma 3.10 and Corollary 3.11, pp. 35–36, Stein-cover Mittag–Leffler"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf",
+      "sha256": "b007a4e37b824ca5986ac6152ed9fabcf38dde97e16d8f5f7f60756fe77d3418"
+    },
+    {
+      "id": "Pan",
+      "title": "On locally analytic vectors of the completed cohomology of modular curves II",
+      "authors": "Lue Pan",
+      "edition": "arXiv:2209.06366v1, 14 September 2022; preprint theorem/page numbering, not Annals 203 (2026)",
+      "readSections": [
+        "§§5.2.2–5.2.4, pp. 55–57, GM and HT geometry",
+        "Theorem 5.2.8 and Corollary 5.2.10, pp. 59–60",
+        "§5.3, Theorems 5.3.4 and 5.3.8, Corollary 5.3.9, pp. 63–65",
+        "§§5.3.19–5.3.21, p. 67, differential operator comparison"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://arxiv.org/pdf/2209.06366",
+      "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4"
+    },
+    {
+      "id": "BCGP",
+      "title": "Modularity theorems for abelian surfaces",
+      "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+      "edition": "arXiv:2502.20645 author copy; internal printed pages",
+      "readSections": [
+        "§1.8.22, p. 15, general-type GL4/GSp4 transfer",
+        "Proposition 7.5.3 and proof, pp. 175–176, solvable descent",
+        "Lemma 10.2.4 and proof, p. 213, quadratic Hecke-character induction"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://arxiv.org/pdf/2502.20645",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c"
+    },
+    {
+      "id": "FS",
+      "title": "Geometrization of the local Langlands correspondence",
+      "authors": "Laurent Fargues and Peter Scholze",
+      "edition": "arXiv:2102.13459v4; IX.7.4 used solely as an output-signature witness",
+      "readSections": [
+        "IX.7.3–IX.7.4, pp. 337–338, the two normalized tower outputs and consumer proof"
+      ],
+      "accessed": "2026-10-14",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
+      "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Tower datum and action conventions",
+      "kind": "definition",
+      "statement": "Fix a finite extension E/Q_p, residue cardinality q, n≥1, the central division algebra D/E with invariant 1/n, and an algebraic closure Λ of Q_ell with ell≠p. Fix q^(1/2) in Λ. Write |w|=q^(−v(w)) for v(geometric Frobenius)=1, so Λ(1) has character |w|. Towers carry the Dat left GL_n(E)×D× action; cohomology uses inverse pullback to turn this into a left action. Regard the Weil group as an abstract acting group, with ell-adic continuity checked on inertia separately. A change to right moduli actions is a named conversion, not an identification of formulas.",
+      "hypotheses": [
+        "E has characteristic zero; Λ has characteristic zero; n≥1."
+      ],
+      "proofSteps": [
+        "Import the local field, division algebra and reciprocity convention from ET.6.",
+        "Record the chosen frame and quasi-isogeny actions before applying inverse pullback.",
+        "Extend Tate twists to half-integers using the fixed square root of q; changing that root changes the unramified quadratic twist."
+      ],
+      "acceptance": [
+        "Arithmetic Frobenius acts on Λ(1) by q; geometric Frobenius acts by q^(−1).",
+        "Changing left/right actions also changes which contragredient an isotypic notation selects."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§§2.1–2.2, 3.3 and 3.5, pp. 8–13, 22–26",
+          "match": "Action and central-quotient conventions used in the literal cohomology formula."
+        },
+        {
+          "sourceId": "FS",
+          "locator": "IX.7.3–IX.7.4, p. 338",
+          "match": "The target Hecke normalization includes a shift and a half Tate twist."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "TowerDatum.qHalf",
+          "role": "data",
+          "statement": "The specified square root of q and the characters |·|^a on W_E."
+        },
+        {
+          "name": "TowerDatum.leftCohomologyAction",
+          "role": "functoriality",
+          "statement": "A left moduli action induces a left cohomology action by inverse pullback."
+        },
+        {
+          "name": "TowerDatum.frobeniusConversion",
+          "role": "compatibility",
+          "statement": "Arithmetic and geometric Frobenius elements are mutual inverses; the corresponding unramified eigenvalues are reciprocal."
+        },
+        {
+          "name": "TowerDatum.ext",
+          "role": "extensionality",
+          "statement": "Equality requires equality of field, frame, reciprocity, coefficient and square-root choices."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TowerDatum.tateFrob",
+          "kind": "computation",
+          "statement": "Λ(1)(Frob_ar)=q and Λ(1)(Frob_geom)=q^(−1)."
+        },
+        {
+          "name": "TowerDatum.rankOne",
+          "kind": "degenerate",
+          "statement": "At n=1 the middle degree and half-Tate exponent are both zero."
+        },
+        {
+          "name": "TowerDatum.rootChange",
+          "kind": "compatibility",
+          "statement": "Replacing q^(1/2) by −q^(1/2) multiplies an odd half-twist by the unramified quadratic character."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dat, Theorem 4.1.2",
+          "how": "The exponent and the contragredient in a sector formula refer to these choices."
+        },
+        {
+          "where": "FS, proof of IX.7.4",
+          "how": "The unit/counit computation requires the two Weil factors to be dual."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "The formal O_E-module tower",
+      "kind": "construction",
+      "statement": "Choose a one-dimensional formal O_E-module H of O_E-height n over the algebraic closure of the residue field. The deformation functor at level m classifies (G,ρ,α_m), where G deforms H, ρ is an O_E-linear quasi-isogeny on the special fibre and α_m is a full Drinfeld level structure on G[varpi_E^m]. Its rigid generic fibres form the Lubin–Tate tower M_LT,m over brevé E. At level zero each quasi-isogeny-height component is an (n−1)-dimensional open ball. Higher generic-fibre levels are finite étale with the specified congruence deck group.",
+      "hypotheses": [
+        "Full Drinfeld level structure is imposed integrally, not an arbitrary basis over a nonreduced base.",
+        "Fix H and a uniformizer varpi_E."
+      ],
+      "proofSteps": [
+        "Request formal O_E-module deformation representability and Drinfeld full-level divisibility conditions from the lower finite-flat owner.",
+        "Represent each height component and pass to its rigid generic fibre.",
+        "Use the étaleness of varpi-power torsion in characteristic zero to construct the finite étale level maps.",
+        "Glue the components using quasi-isogenies; do not replace the infinite height union by the height-zero component."
+      ],
+      "acceptance": [
+        "The level-zero ball has dimension n−1.",
+        "The GL_n(E) action is on the tower of correspondences; a general element need not preserve an individual integral level."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§3.2, pp. 18–21",
+          "match": "The moduli, height components and group actions of the Lubin–Tate tower."
+        },
+        {
+          "sourceId": "SW13",
+          "locator": "§6.5, Definitions 6.5.1 and 6.5.3; Theorems 6.5.2 and 6.5.4, pp. 66–68",
+          "match": "The EL moduli and rational infinite-level functor apply to O_E-linear formal groups."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Lubin–Tate tower"
+      },
+      "api": [
+        {
+          "name": "LubinTate.level",
+          "role": "constructor",
+          "statement": "Construct the space representing framed deformations with full level m."
+        },
+        {
+          "name": "LubinTate.forgetLevel",
+          "role": "functoriality",
+          "statement": "For m≥r, forget the extra level structure; compositions agree."
+        },
+        {
+          "name": "LubinTate.height",
+          "role": "projection",
+          "statement": "The quasi-isogeny height is a locally constant integer function."
+        },
+        {
+          "name": "LubinTate.levelTorsor",
+          "role": "characterisation",
+          "statement": "Over a fixed lower generic level, full lifts form the expected congruence torsor."
+        },
+        {
+          "name": "LubinTate.ext",
+          "role": "extensionality",
+          "statement": "An isomorphism respects the formal module, framing quasi-isogeny and every level vector."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LubinTate.heightOne",
+          "kind": "degenerate",
+          "statement": "For n=1 each level-zero component is zero-dimensional; the components still range over Z."
+        },
+        {
+          "name": "LubinTate.deckDegree",
+          "kind": "computation",
+          "statement": "The degree from full level m to level zero is |GL_n(O_E/varpi_E^m)| on the generic fibre."
+        },
+        {
+          "name": "LubinTate.integralLevel",
+          "kind": "non-example",
+          "statement": "On the generic fibre a linearly dependent O_E/varpi_E^m frame is not full. On the connected special fibre zero sections can be full when the Drinfeld Cartier-divisor condition holds; integral fullness cannot be defined by pointwise linear independence."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SW13, §7.2",
+          "how": "The universal-cover functor produces its dual Drinfeld moduli."
+        },
+        {
+          "where": "Dat, §3.3",
+          "how": "Finite levels supply the equivariant compact-support complex."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "The special O_D-module tower",
+      "kind": "construction",
+      "statement": "The Drinfeld formal moduli functor classifies special formal O_D-modules of dimension n and O_E-height n², with a framing quasi-isogeny. Here special means the prescribed rank-one eigenspace condition for the maximal unramified subfield of D on Lie G. Its generic fibres with full O_D level form M_Dr,m. At the bottom level the period domain is Ω_E^(n−1)=P_E^(n−1) minus all E-rational hyperplanes, with the height components retained.",
+      "hypotheses": [
+        "Use the maximal order O_D and its uniformizer Π_D; distinguish Π_D-level from varpi_E-level.",
+        "Specialness and the determinant condition are imposed on the formal moduli."
+      ],
+      "proofSteps": [
+        "Use the lower formal-group deformation machinery with the specialness condition.",
+        "Represent the framing functor by the formal Drinfeld model, recording the source proof as a supplier requirement.",
+        "Construct level maps by forgetting O_D-torsion frames.",
+        "Identify the generic period domain and its rational hyperplane complement; this identification is not the definition of the moduli functor."
+      ],
+      "acceptance": [
+        "For n=2 the period domain is P¹ minus P¹(E).",
+        "GL_n(E) acts through the framing algebra and D× through level changes, exchanging the roles of the two groups in LT."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§3.1, pp. 15–18",
+          "match": "Special O_D-modules, period domain and level actions."
+        },
+        {
+          "sourceId": "SW13",
+          "locator": "§7.3, pp. 72–73",
+          "match": "The EL duality specializes to the two classical towers, with a convention warning on the linear group."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Drinfeld tower"
+      },
+      "api": [
+        {
+          "name": "Drinfeld.level",
+          "role": "constructor",
+          "statement": "Represent the special-module deformation functor with O_D-level m."
+        },
+        {
+          "name": "Drinfeld.forgetLevel",
+          "role": "functoriality",
+          "statement": "The integral and generic level maps compose."
+        },
+        {
+          "name": "Drinfeld.specialLie",
+          "role": "characterisation",
+          "statement": "Lie eigenspaces for the unramified subfield have the prescribed ranks."
+        },
+        {
+          "name": "Drinfeld.period",
+          "role": "projection",
+          "statement": "The period map lands in Ω_E^(n−1)."
+        },
+        {
+          "name": "Drinfeld.ext",
+          "role": "extensionality",
+          "statement": "An isomorphism preserves the O_D action, framing and level structure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Drinfeld.rankTwo",
+          "kind": "computation",
+          "statement": "At n=2 the formal module has dimension 2 and height 4, while the rigid moduli has dimension 1."
+        },
+        {
+          "name": "Drinfeld.rationalHyperplane",
+          "kind": "non-example",
+          "statement": "An E-rational hyperplane point is excluded from Ω_E^(n−1)."
+        },
+        {
+          "name": "Drinfeld.rankOne",
+          "kind": "degenerate",
+          "statement": "For n=1 the period domain is a point and D=E."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dat, Corollary 3.4.2",
+          "how": "The Drinfeld complex is compared with the LT complex."
+        },
+        {
+          "where": "FS, IX.7.4",
+          "how": "The return Hecke correspondence uses the Drinfeld tower."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Period maps and their equivariance",
+      "kind": "construction",
+      "statement": "Construct the Grothendieck–Messing period map from the Dieudonné Lie quotient and the infinite-level Hodge–Tate period map from the framed Tate module. On LT the GM target is the flag variety for the frame and the HT target is the flag variety for E^n; the group acting trivially on each target is specified. On the dual Drinfeld datum these targets exchange. Period maps are maps of adic spaces or diamonds on their stated levels, and the GM map is étale on the classical generic fibre.",
+      "hypotheses": [
+        "Use the determinant condition, the chosen covariant/contravariant Dieudonné convention and fixed frames.",
+        "For general E retain the O_E action rather than silently using the Q_p height as n."
+      ],
+      "proofSteps": [
+        "Form the Lie quotient of the crystalline deformation and the Tate Hodge–Tate filtration.",
+        "Check functoriality under quasi-isogeny and level changes.",
+        "Use the universal-cover description to identify the exchanged quotients under duality.",
+        "Prove étaleness using Grothendieck–Messing deformation theory; local coordinates then have an invertible derivative."
+      ],
+      "acceptance": [
+        "GM factors through level zero; HT requires the full infinite frame.",
+        "The rational hyperplane complement in the Drinfeld case is tested separately from the LT GM image."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "SW13",
+          "locator": "§6.1; Proposition 7.2.2, pp. 56–57, 70",
+          "match": "The two period constructions and their exchange."
+        },
+        {
+          "sourceId": "Pan",
+          "locator": "§§5.2.2–5.2.4, pp. 55–57 (v1)",
+          "match": "Rank-two GM étaleness and the Hodge–Tate map."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "TowerPeriod.gm",
+          "role": "projection",
+          "statement": "Send a deformation to its Dieudonné Lie quotient."
+        },
+        {
+          "name": "TowerPeriod.ht",
+          "role": "projection",
+          "statement": "Send the infinite Tate frame to its Hodge–Tate filtration."
+        },
+        {
+          "name": "TowerPeriod.baseChange",
+          "role": "functoriality",
+          "statement": "Both maps commute with extension of the complete coefficient field."
+        },
+        {
+          "name": "TowerPeriod.dual",
+          "role": "compatibility",
+          "statement": "Duality exchanges the two period morphisms with the specified flag identifications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TowerPeriod.rankOne",
+          "kind": "degenerate",
+          "statement": "Both targets are points at n=1."
+        },
+        {
+          "name": "TowerPeriod.level",
+          "kind": "compatibility",
+          "statement": "Forgetting finite level leaves GM unchanged; a change of full Tate frame transforms HT by the linear-group action."
+        },
+        {
+          "name": "TowerPeriod.rankTwoEtale",
+          "kind": "computation",
+          "statement": "On an LT one-dimensional GM chart, the derivative of the period coordinate is invertible."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SW13, Proposition 7.2.2",
+          "how": "They identify the two flags under EL duality."
+        },
+        {
+          "where": "CDN20, Proposition 4.8; Pan, §5.3",
+          "how": "Their differentials control infinitesimal operators and analytic vectors."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-descent",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Commuting actions and effective Weil descent",
+      "kind": "theorem",
+      "statement": "The finite-level correspondences and the infinite-level towers carry commuting GL_n(E), D× and W_E actions compatible with level maps, period maps and base change. A Weil element moves the quasi-isogeny height by its valuation contribution. In Dat conventions the height-zero stabilizer is {(g,d,w): |det(g)Nrd(d)^(−1)|_E=|w|}; the full-height representation is induced from this stabilizer. The diagonal E× in GL_n(E)×D× acts trivially.",
+      "hypotheses": [
+        "Use the datum and action choices above.",
+        "Weil descent includes the height translation, not just an action on coefficients."
+      ],
+      "proofSteps": [
+        "Define the two algebraic-group actions on frames and framing quasi-isogenies.",
+        "Construct the Frobenius descent isomorphism from the special-fibre frame and check its cocycle.",
+        "Compute determinants and reduced norms on heights to obtain the stabilizer equation.",
+        "Verify the cocycles commute with level changes and induce the announced cohomology actions."
+      ],
+      "acceptance": [
+        "A uniformizer in only one group factor translates height; the diagonal central element does not.",
+        "The height-zero component alone is not invariant under the full product group."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§3.5, especially (3.5.1), pp. 24–26",
+          "match": "The central kernel and height stabilizer."
+        },
+        {
+          "sourceId": "SW13",
+          "locator": "Proposition 6.5.5, p. 68",
+          "match": "Continuity of the EL linear-group actions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "The universal-cover moduli at infinite level",
+      "kind": "construction",
+      "statement": "For an EL datum (B,V,H,μ), define M_∞ on complete Huber pairs over brevé E by triples (G,ρ,α), with α an integral full Tate frame on geometric points, equivalently the rational frame after allowing quasi-isogenies. In the universal-cover description an element is a B-linear map s:V→H̃_η whose quasi-logarithm has a locally free quotient W of the prescribed rank and such that 0→V→H̃_η→W→0 is exact on every geometric point. The determinant condition fixes the μ-type of W.",
+      "hypotheses": [
+        "Use a basic EL datum for tower duality; the moduli description itself has the hypotheses of SW13 6.5.4.",
+        "Integral and rational functors are distinguished."
+      ],
+      "proofSteps": [
+        "Import universal covers and Tate modules from the finite-flat packet.",
+        "Translate a frame to the B-linear universal-cover map and its Lie quotient.",
+        "Use local p-divisible classification to reconstruct G from the map and prove full faithfulness.",
+        "Prove the geometric-point exactness condition is preserved under base change; it cannot be omitted in favor of the rank condition alone."
+      ],
+      "acceptance": [
+        "The construction is independent of the lattice for the rational-frame functor.",
+        "The integral frame recovers the specified finite congruence levels."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/universal-cover"
+      ],
+      "sources": [
+        {
+          "sourceId": "SW13",
+          "locator": "Theorem 6.3.4 and the description following it, pp. 59–61; Theorem 6.5.4, pp. 67–68",
+          "match": "The infinite-level moduli description with exactness and quotient conditions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "TowerInfinity.ofTriple",
+          "role": "constructor",
+          "statement": "A deformation, quasi-isogeny and full Tate frame give a point."
+        },
+        {
+          "name": "TowerInfinity.toCoverMap",
+          "role": "projection",
+          "statement": "Project to the B-linear universal-cover map s."
+        },
+        {
+          "name": "TowerInfinity.pointCriterion",
+          "role": "characterisation",
+          "statement": "Rank, determinant type and the geometric exact sequence characterize the rational points."
+        },
+        {
+          "name": "TowerInfinity.changeLattice",
+          "role": "equivalence",
+          "statement": "Rational-frame moduli do not depend on the integral lattice."
+        },
+        {
+          "name": "TowerInfinity.baseChange",
+          "role": "functoriality",
+          "statement": "The triple and universal-cover descriptions commute with Huber-pair base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TowerInfinity.missingExactness",
+          "kind": "non-example",
+          "statement": "A map whose quasi-logarithm has the right rank but whose geometric kernel is larger than V fails the moduli criterion."
+        },
+        {
+          "name": "TowerInfinity.levelRecovery",
+          "kind": "compatibility",
+          "statement": "Reduction of the integral frame modulo varpi_E^m gives the full finite level m."
+        },
+        {
+          "name": "TowerInfinity.lattice",
+          "kind": "compatibility",
+          "statement": "Replacing the lattice by varpi_E times it changes integral framing but leaves the rational functor isomorphic."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SW13, Theorem 7.2.3",
+          "how": "The pairing formula defines the dual infinite-level point."
+        },
+        {
+          "where": "SW20, Theorem 24.2.5",
+          "how": "It identifies the tower with a minuscule modification functor."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/perfectoid-limit",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Preperfectoidness and completed tower limits",
+      "kind": "theorem",
+      "statement": "The infinite-level EL moduli is preperfectoid and is a tilde-limit of the finite generic levels. After base change to an algebraically closed complete extension C and the specified strong completion, the resulting infinite-level space is perfectoid. The tilde-limit assertion gives the topological inverse limit and dense colimit of affinoid rings, not an equality of uncompleted rings.",
+      "hypotheses": [
+        "Use the precise completion and Huber-pair topology of SW13.",
+        "Tilde-limit is the imported perfectoid-tower notion."
+      ],
+      "proofSteps": [
+        "Use the universal-cover embedding into a perfectoid ambient space.",
+        "Impose the rank and exactness conditions by the local chart analysis of SW13 6.3.",
+        "Identify finite-level frame quotients and the completed affinoid colimit.",
+        "Base change and complete before applying the perfectoid conclusion."
+      ],
+      "acceptance": [
+        "A level-zero open ball is not itself asserted perfectoid.",
+        "A rank-one determinant tower agrees with the height-one cyclotomic model after completion."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
+        "PerfectoidSpaces:P5"
+      ],
+      "sources": [
+        {
+          "sourceId": "SW13",
+          "locator": "Theorem 6.3.4, pp. 59–61; Theorems 6.5.4 and 6.4.1, pp. 64–68",
+          "match": "The general preperfectoid limit and the determinant calculation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/el-duality",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Infinite-level EL duality",
+      "kind": "theorem",
+      "statement": "For a basic EL datum set B̌=End_B^0(H), take the dual datum described by SW13 §7.2, and identify the two linear groups in the exchanged order. There is a G(E)×J(E)-equivariant isomorphism M_∞≅M̌_∞. Its universal-cover formula is š(f)(v)=f(s(v)). Under the identified flag varieties the GM period of one side is the HT period of the other. For the LT datum its dual is the Drinfeld datum. Standard Drinfeld linear-group conventions may require inverse transpose; this automorphism is recorded explicitly.",
+      "hypotheses": [
+        "The EL datum is basic, so the full endomorphism algebra has the needed centralizer property.",
+        "The statement is at infinite level; equal numbered finite levels are not asserted isomorphic."
+      ],
+      "proofSteps": [
+        "Compute the dual EL weights using Hom(V_0,V) and Hom(V_1,V).",
+        "Apply the pairing formula to the universal-cover map.",
+        "Use the exactness condition to identify the dual quotient and construct the inverse.",
+        "Check both period maps and group actions on the universal-cover formula."
+      ],
+      "acceptance": [
+        "Applying duality twice gives the canonical original datum.",
+        "GM and HT exchange rather than each being individually fixed."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/perfectoid-limit"
+      ],
+      "sources": [
+        {
+          "sourceId": "SW13",
+          "locator": "Proposition 7.2.2 and Theorem 7.2.3, pp. 70–71; §7.3, pp. 72–73",
+          "match": "The basic EL duality and the classical specialization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Infinite-level duality"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "The equivariant compact-support complex",
+      "kind": "definition",
+      "statement": "For T=LT or Dr, define C_T,Λ by the derived smooth level colimit of RΓ_c(M_T,K×brevé E C,Λ). Integral coefficients mean first taking the derived inverse limit over Λ/ell^r at a fixed finite level and then the smooth level colimit. Trace maps, pullback maps and the action conventions are retained in the derived category of smooth GL_n(E)×D× representations with commuting W_E action. Compact supports are the finite-level proper-support construction, not ordinary global sections of the infinite union.",
+      "hypotheses": [
+        "Use finite levels locally of finite type and the smooth representation category.",
+        "Do not commute the coefficient inverse limit and level colimit without a separate theorem."
+      ],
+      "proofSteps": [
+        "Import analytic compact-support cohomology and coefficient inverse systems from the lower étale owners.",
+        "Build the finite-level complexes with pullback for level refinement and trace in the opposite direction.",
+        "Take the derived smooth colimit and define the commuting Weil action by descent.",
+        "Check coefficient reduction and extension of the algebraically closed base field."
+      ],
+      "acceptance": [
+        "Cohomology agrees with the usual smooth tower H_c^i.",
+        "The trace composed with pullback equals the covering degree."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-descent",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "DiamondSixOperations:S2",
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§3.3, pp. 21–23",
+          "match": "The equivariant compact-support derived complex and coefficient limits."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "TowerCohomology.atLevel",
+          "role": "constructor",
+          "statement": "Construct RΓ_c at one finite level and coefficient exponent."
+        },
+        {
+          "name": "TowerCohomology.refine",
+          "role": "functoriality",
+          "statement": "Pull back along a finite étale level map."
+        },
+        {
+          "name": "TowerCohomology.trace",
+          "role": "functoriality",
+          "statement": "Trace in the reverse direction; trace∘pullback is multiplication by the degree."
+        },
+        {
+          "name": "TowerCohomology.coefficientReduction",
+          "role": "compatibility",
+          "statement": "Derived reduction modulo ell^r agrees with the finite coefficient tower."
+        },
+        {
+          "name": "TowerCohomology.ext",
+          "role": "extensionality",
+          "statement": "Maps are identified through their compatible finite-level representatives, not just equality of virtual characters."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TowerCohomology.coverDegree",
+          "kind": "computation",
+          "statement": "For a degree d level covering, trace∘pullback is d times the identity."
+        },
+        {
+          "name": "TowerCohomology.rankOneDegree",
+          "kind": "degenerate",
+          "statement": "The n=1 tower has its compact-support cohomology in degree zero."
+        },
+        {
+          "name": "TowerCohomology.nonproper",
+          "kind": "non-example",
+          "statement": "On a nonproper positive-dimensional tower, replacing RΓ_c by RΓ changes the functor and is rejected."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dat, Corollary 3.4.2 and Theorem 4.1.2",
+          "how": "The comparison and representation sectors are statements about this complex."
+        },
+        {
+          "where": "FS, IX.7.4",
+          "how": "The cohomological input must retain Weil actions, not only an Euler characteristic."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/equivariant-cohomology-comparison",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Equivariant tower cohomology comparison",
+      "kind": "theorem",
+      "statement": "There is an isomorphism C_LT,Z_ell≅C_Dr,Z_ell in the equivariant derived category, compatible with GL_n(E)×D× and W_E, finite-level pullback/trace and coefficient reduction. It induces all degree-wise cohomology comparisons after extending to Λ. The proof passes through the equivalence of the appropriate equivariant tower topoi and proper-support functors; a bare perfectoid-space isomorphism does not suffice.",
+      "hypotheses": [
+        "Use the same action convention on both complexes.",
+        "The finite-level descent theorem compares cofinal level presentations, not equal m."
+      ],
+      "proofSteps": [
+        "Use EL duality to identify the common infinite-level presentation.",
+        "Descend equivariant finite étale objects and compact supports through cofinal finite levels.",
+        "Construct the equivalence of tower topoi and show it intertwines the derived support functors.",
+        "Pass through integral coefficient inverse systems and then rationalize; compare inertia continuity as well as abstract Weil equivariance."
+      ],
+      "acceptance": [
+        "The comparison commutes with level traces and coefficient reduction.",
+        "A degree-wise comparison only after forgetting W_E fails this target."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/el-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "PerfectoidSpaces:P5",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "Theorem 3.4.1 and Corollary 3.4.2, pp. 23–24",
+          "match": "The tower-topos comparison gives the equivariant integral derived isomorphism."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Equivariant cohomology comparison"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/central-quotient-sector",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Central quotient and tensor sectors",
+      "kind": "definition",
+      "statement": "Quotient a tower by the action of varpi_E^Z in its linear group, using Dat §3.5; the remaining height classes are indexed by Z/nZ. First define the full-tower sector at central character ω: the left GL_n(E) character is ω and the left D× character is ω^(−1), while ρ has central character ω. To use the quotient model, arrange ω(varpi_E)=1 by an explicitly recorded unramified twist, and retain that twist when returning to the full tower. For an irreducible D×-representation ρ in that sector define H_c^i[ρ]=H_c^i⊗_{Λ[D×]}ρ, turning the cohomology left D× action into a right action by v·d=d^(−1)v. In this characteristic-zero, fixed-central-character quotient D×/varpi_E^Z is compact, so sector extraction is exact and agrees with Hom_D(ρ∨,H_c^i).",
+      "hypotheses": [
+        "The left D× character of the relevant cohomology summand is the inverse of the central character of ρ; the diagonal centre acts trivially.",
+        "The Λ representation is smooth; exactness uses characteristic zero and compactness modulo the fixed centre."
+      ],
+      "proofSteps": [
+        "Form the discrete central quotient with its cohomology action.",
+        "Untwist the central character, retaining the induced Weil twist.",
+        "Apply averaging on the compact quotient to establish exact sector extraction.",
+        "Identify tensor coinvariants with the multiplicity of ρ∨ by the evaluation pairing."
+      ],
+      "acceptance": [
+        "The selector is ρ∨ in Hom notation, not ρ.",
+        "Changing the uniformizer is accompanied by the corresponding central-character identification."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-descent",
+        "SmoothRepresentationsOfLocalGroups:SR.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§3.5 and the notation before Theorem 4.1.2, pp. 24–28",
+          "match": "The quotient and tensor coinvariant convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "TowerSector.centralQuotient",
+          "role": "constructor",
+          "statement": "Form the quotient tower and its fixed-character component."
+        },
+        {
+          "name": "TowerSector.tensor",
+          "role": "constructor",
+          "statement": "Tensor the right D× cohomology module with ρ."
+        },
+        {
+          "name": "TowerSector.homDual",
+          "role": "equivalence",
+          "statement": "Tensor extraction corresponds to Hom_D(ρ∨,−)."
+        },
+        {
+          "name": "TowerSector.exact",
+          "role": "instance",
+          "statement": "Sector extraction is exact over Λ in the fixed compact-mod-centre setting."
+        },
+        {
+          "name": "TowerSector.unramifiedTwist",
+          "role": "compatibility",
+          "statement": "Untwisting ω(varpi_E) transports both the smooth and Weil factors."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TowerSector.dualSelector",
+          "kind": "computation",
+          "statement": "For a constituent ρ∨⊗V, extraction by tensoring with ρ gives V."
+        },
+        {
+          "name": "TowerSector.heightClasses",
+          "kind": "computation",
+          "statement": "Quotienting the height translation by varpi_E leaves n height residue classes."
+        },
+        {
+          "name": "TowerSector.integralFailure",
+          "kind": "non-example",
+          "statement": "Exact averaging is not asserted over integral or mod-ell coefficients when the compact quotient has ell-torsion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dat, Theorem 4.1.2",
+          "how": "This notation fixes the literal supercuspidal formula."
+        },
+        {
+          "where": "FS, IX.7.4",
+          "how": "The action dictionary must translate this convention before presenting an FS isotypic formula."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/basic-modification-functor",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "The basic minuscule modification functor",
+      "kind": "construction",
+      "statement": "For the basic isocrystal of a one-dimensional height-n formal O_E-module, define the v-functor of modifications of its Fargues–Fontaine vector bundle at a marked untilt with minuscule Lie quotient and a Tate lattice/frame. For E=Q_p, the SW20 covariant convention has μ=(1,0,…,0) and b∈B(GL_n,μ^(−1)); the Newton slope of b is −1/n, while E_b in the exact sequence has degree +1 and slope +1/n in the curve convention. The modification is O^n→E_b with the Lie cokernel after the stated covariant conversion. For E≠Q_p use the O_E-linear EL datum in Res_{E/Q_p}GL_n, with its determinant condition. This is only the tower-specific fibre; general local shtukas remain HS2.",
+      "hypotheses": [
+        "Use the finite-flat local classification and distinguish the covariant Newton convention from the degree of its curve bundle.",
+        "Include the untilt divisor and full O_E-compatible Tate framing."
+      ],
+      "proofSteps": [
+        "Import the marked Cartier untilt divisor from FarguesFontaineDiamonds F4.",
+        "Form the minuscule modification using the p-divisible-group exact sequence; its positive-degree bundle is not replaced by its dual.",
+        "Impose O_E linearity and the EL determinant condition to pass from Q_p to E.",
+        "Define lattice level quotients and their universal Q_p/O_E local systems."
+      ],
+      "acceptance": [
+        "For n=1, b=p^(−1) and μ=1 give the nonempty multiplicative modification.",
+        "The Newton sign of b and the degree sign of E_b are distinguished by the exact sequence; they cannot be copied from the FS O(−1/n) orientation."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "FarguesFontaineDiamonds:F4/curve_untilt_divisor",
+        "DiamondsAndVStacks:D6"
+      ],
+      "sources": [
+        {
+          "sourceId": "SW20",
+          "locator": "Theorem 24.2.5, pp. 227–229; Corollary 24.3.5, pp. 230–231",
+          "match": "The GL_n and EL modification descriptions and their level compatibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "BasicTowerFibre.ofModification",
+          "role": "constructor",
+          "statement": "A minuscule modification with its marked untilt and Tate frame gives a point."
+        },
+        {
+          "name": "BasicTowerFibre.forgetFrame",
+          "role": "projection",
+          "statement": "Forget the full frame to a lattice-level point."
+        },
+        {
+          "name": "BasicTowerFibre.elCondition",
+          "role": "characterisation",
+          "statement": "O_E linearity and the determinant condition cut out the formal-module EL fibre."
+        },
+        {
+          "name": "BasicTowerFibre.pullback",
+          "role": "functoriality",
+          "statement": "Pull back bundles, divisors and frames along a perfectoid base map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BasicTowerFibre.rankOneSign",
+          "kind": "computation",
+          "statement": "The SW20 multiplicative datum is b=p^(−1), μ=1; swapping b for p violates this convention."
+        },
+        {
+          "name": "BasicTowerFibre.generalEHeight",
+          "kind": "compatibility",
+          "statement": "For E/Q_p of degree e, restriction of scalars has Q_p rank en while the O_E rank remains n."
+        },
+        {
+          "name": "BasicTowerFibre.levelFrame",
+          "kind": "compatibility",
+          "statement": "Reducing the universal Tate frame gives the specified congruence-level local system."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SW20, Theorem 24.2.5",
+          "how": "The classical tower is identified with this fibre."
+        },
+        {
+          "where": "ES7:GLn-comparison",
+          "how": "Only the classical basic fibre is exported; excursion operators are constructed by the consumer."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/classical-tower-fibre-comparison",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Classical tower versus the basic Hecke fibre",
+      "kind": "theorem",
+      "statement": "The diamonds of the classical LT/Dr EL tower levels are isomorphic to the corresponding basic minuscule modification functor at those levels. The isomorphism respects the universal Tate local system, the two period maps, the framing/level actions and Weil descent. The infinite-level comparison and its cohomological realization are exported from ET.6a. No general EL/PEL Rapoport–Zink representability or full Hecke/Satake construction is claimed here.",
+      "hypotheses": [
+        "At hyperspecial/parahoric level impose SW20 connectedness and local-model hypotheses; in the PEL extension p≠2.",
+        "For the required formal O_E-module case use the EL restriction-of-scalars specialization."
+      ],
+      "proofSteps": [
+        "Map a p-divisible deformation to its vector-bundle modification via the local classification theorem.",
+        "Show the Tate kernel is the trivial bundle and reconstruct the p-divisible group on geometric points.",
+        "Use the GM étale map and the universal lattice local system to promote the geometric-point comparison to a diamond isomorphism.",
+        "Match all levels by the same local system and transport actions; combine with the independent tower-cohomology comparison."
+      ],
+      "acceptance": [
+        "A pointwise bijection alone fails the diamond-isomorphism target.",
+        "The HS3 classical-comparison clauses for these towers should redirect to this node rather than create a reverse edge to ET.6a."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/basic-modification-functor",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/el-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/equivariant-cohomology-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms"
+      ],
+      "sources": [
+        {
+          "sourceId": "SW20",
+          "locator": "Theorem 24.2.5 and Corollary 24.3.5, pp. 227–231",
+          "match": "The diamond comparison and the all-level local-system argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Classical tower–Hecke fibre"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Raw compact-unitary PEL cohomology",
+      "kind": "construction",
+      "statement": "For a Harris–Taylor compact unitary PEL datum with the required split place E and local division invariant, construct the neat finite-level canonical models and their integral PEL models at p, the universal p-divisible group, and RΓ_c of the geometric generic fibre with its algebraic coefficient local system. Retain prime-to-p Hecke correspondences, local p-level correspondences and W_E descent. This raw object and its nearby cycles precede any associated global Galois representation or local–global compatibility theorem.",
+      "hypotheses": [
+        "The division algebra, involution, signatures, neatness and local level are required to satisfy the Harris–Taylor moduli hypotheses.",
+        "Compactness is a theorem of this datum, not a consequence of neatness."
+      ],
+      "proofSteps": [
+        "Import the general PEL moduli problem and universal family from PELModuli.",
+        "Specialize to the compact unitary datum and construct its p-level integral models.",
+        "Construct the algebraic local system and the Hecke/Weil actions on geometric cohomology.",
+        "Prove the exact compactness and level properties from Harris–Taylor; this proof step is blocked by the uncleared book, and is recorded as a source gap."
+      ],
+      "acceptance": [
+        "For a compact generic fibre RΓ_c≅RΓ, by properness rather than by changing notation.",
+        "The construction cannot invoke the Galois representation later extracted from it."
+      ],
+      "prerequisites": [
+        "PELModuli:M2/representability",
+        "PELModuli:M2/universal-family",
+        "PELModuli:M4/canonical-model-identification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+        "LefschetzPencilsAndVanishingCycles:LPV.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§4.1, pp. 26–29",
+          "match": "The independent Harris–Taylor input is named explicitly in the proof of the local cohomology formula."
+        },
+        {
+          "sourceId": "Shin",
+          "locator": "§5.1, pp. 29–31 (author copy)",
+          "match": "Compact unitary PEL data and the distinction between moduli and canonical-model components."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "CompactUnitaryRaw.atLevel",
+          "role": "constructor",
+          "statement": "Construct the raw compact unitary PEL model at a neat level."
+        },
+        {
+          "name": "CompactUnitaryRaw.localSystem",
+          "role": "constructor",
+          "statement": "Associate the specified algebraic coefficient representation."
+        },
+        {
+          "name": "CompactUnitaryRaw.hecke",
+          "role": "functoriality",
+          "statement": "Level correspondences act on raw cohomology with pullback and proper trace."
+        },
+        {
+          "name": "CompactUnitaryRaw.nearbyCycles",
+          "role": "compatibility",
+          "statement": "The geometric generic-fibre complex compares with the integral-model nearby-cycle complex."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CompactUnitaryRaw.properSupport",
+          "kind": "compatibility",
+          "statement": "On the compact datum, the proper-support comparison is the canonical map RΓ_c→RΓ."
+        },
+        {
+          "name": "CompactUnitaryRaw.levelTrace",
+          "kind": "computation",
+          "statement": "Trace after pullback for a finite neat covering multiplies by its degree."
+        },
+        {
+          "name": "CompactUnitaryRaw.boundary",
+          "kind": "non-example",
+          "statement": "A noncompact unitary datum requires boundary terms and cannot be substituted into the compact calculation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Harris–Taylor input as used in Dat, §4.1",
+          "how": "The local supercuspidal realization is extracted from this raw global object."
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+          "how": "Its raw compact-unitary clauses move down here; later Galois compatibility consumes them."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/unitary-nearby-cycle-decomposition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Independent nearby-cycle decomposition",
+      "kind": "theorem",
+      "statement": "For the compact unitary model above, decompose the relevant Newton-stratum nearby-cycle terms into Igusa factors and local formal-module deformation cohomology, with the stratum shifts, coefficient duals, W_E descent and Hecke actions retained. Extracting the supercuspidal local sector has only the contribution yielding degree n−1. The precise Harris–Taylor stratification and local-system statements must be read and matched before this theorem is certified; Dat’s citation is an interface witness, not its proof.",
+      "hypotheses": [
+        "Use the actual compact unitary integral model and the supercuspidal sector.",
+        "This target does not assert all non-supercuspidal monodromy or elliptic derived decompositions."
+      ],
+      "proofSteps": [
+        "Construct the Newton strata and their local product charts from the moduli.",
+        "Calculate the nearby-cycle restrictions and intermediate extensions with their shifts.",
+        "Compare stratum cohomology with the local LT deformation complexes.",
+        "Use the independently proved boundary/stratum vanishings for the supercuspidal sector; the book proof and exact internal locators are an open source-access task."
+      ],
+      "acceptance": [
+        "The spectral sequence must prove actual sector concentration, not just cancellation of Euler characteristics.",
+        "All W_E actions must be the descent actions of the same model."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "LefschetzPencilsAndVanishingCycles:LPV.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "Theorem 4.1.2 and its Harris–Taylor dictionary, pp. 27–29",
+          "match": "The cited nearby-cycle realization is essential to the theorem and is not proved by duality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/global-extraction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Automorphic trace comparison and local extraction",
+      "kind": "theorem",
+      "statement": "Apply the independent compact-unitary trace comparison to the raw cohomology and isolate the global automorphic constituents with prescribed supercuspidal local factor. The nearby-cycle decomposition then extracts the local LT Weil representation and identifies it with the ET.6 normalized parameter of the contragredient in Dat’s tensor convention, fixing the scalar and the central character. The proof must be independent of any AG2 local–global compatibility or FS agreement result.",
+      "hypotheses": [
+        "Use independent ET.4 trace identities and ET.6 classical parameter conventions.",
+        "Any cyclic base-change input used by ET.6 must first be reassigned to the proposed earlier ET.4b; ET.7a is not an input here."
+      ],
+      "proofSteps": [
+        "Use independently available global test functions to isolate the chosen finite local supercuspidal factor.",
+        "Compare geometric raw cohomological traces and automorphic spectral traces including component and volume factors.",
+        "Use the nearby-cycle decomposition to identify the surviving local factor.",
+        "Prove concentration and scalar normalization by the Harris–Taylor argument; exact theorem matching in the uncleared book is still required."
+      ],
+      "acceptance": [
+        "No edge from AG2 compatibility or ES7 agreement enters this proof.",
+        "A character identity must be upgraded to a degree-wise sector isomorphism using the independent concentration theorem."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/unitary-nearby-cycle-decomposition",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§4.1, pp. 26–29",
+          "match": "The proof imports the Harris–Taylor global calculation and translates its conventions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Actual supercuspidal cohomology in Dat conventions",
+      "kind": "theorem",
+      "statement": "Let ρ be an irreducible smooth D× representation such that π_ρ=JL(ρ) is supercuspidal, with central character treated as above. For the full tower, or its correctly untwisted quotient model, H_c^i(M_LT)[ρ]=0 for i≠n−1 and H_c^(n−1)(M_LT)[ρ]≅π_ρ⊗rec_E(π_ρ∨)|·|^((1−n)/2) as GL_n(E)×W_E representations. The same identity holds for the Dr tower in the common Dat action convention. These are actual cohomology groups, not virtual representations. Here [ρ] is the tensor convention already defined.",
+      "hypotheses": [
+        "ell≠p and characteristic-zero coefficients.",
+        "The independent Harris–Taylor realization and its concentration proof must be supplied.",
+        "Only the d_ρ=1 (supercuspidal) specialization of Dat is used."
+      ],
+      "proofSteps": [
+        "Specialize Dat 4.1.2 to d_ρ=1, leaving only i=0 in its degree n−1+i indexing.",
+        "Identify the unique smooth factor with JL(ρ) and retain rec of its contragredient.",
+        "Read the independent global realization through the preceding raw/nearby-cycle/extraction chain; it remains blocked by source access.",
+        "Use the integral equivariant tower comparison to transfer the degree-wise result to Dr."
+      ],
+      "acceptance": [
+        "The degree is exactly n−1 and the exponent is (1−n)/2.",
+        "The Weil factor is rec(π_ρ∨); replacing it by rec(π_ρ) without changing conventions fails."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/central-quotient-sector",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/global-extraction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/equivariant-cohomology-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "Theorem 4.1.2, pp. 27–28",
+          "match": "The supercuspidal specialization of the displayed degree-wise formula."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Supercuspidal tower realization"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/fs-normalization-contract",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Normalization contract for the two Hecke orientations",
+      "kind": "comparison",
+      "statement": "Export to ES7 the two geometric Hecke orientations of the basic tower, with standard perverse normalization Λ[n−1]((n−1)/2), and explicit action-conversion isomorphisms from the Dat complex. In the FS orientation the σ=JL^(−1)(π) input yields π⊗ρ_π on the LT leg, and the π input on the return Dr leg yields σ⊗ρ_π∨, concentrated after normalization in degree zero. Here the input is the associated smooth representation sheaf on the source stratum, and isotypic extraction is derived tensor over that source group using the right action defined by its torsor; it is not silently identified with Dat’s [ρ]. The promised conversion must specify the duals, inverse-transpose linear action, central quotient and Weil/Tate twists.",
+      "hypotheses": [
+        "π is irreducible supercuspidal and ρ_π is the ET.6 parameter.",
+        "The explicit independent action dictionary remains a gap until matched with the Harris–Taylor source; the FS proof is only evidence of the consumer signature."
+      ],
+      "proofSteps": [
+        "Use the classical tower–modification comparison to identify the two geometric orientations and their source torsor actions.",
+        "Compare their right-action derived tensor functors with the literal Dat sector.",
+        "Track inverse transpose, dual local systems and the shift/half-Tate twist separately; prove the resulting action-conversion maps.",
+        "Check the scalar on the two-leg unit/counit composite at (1,1), leaving that composite calculation to ES7."
+      ],
+      "acceptance": [
+        "At n=1 the shift and half twist vanish and the two factors are dual rank-one Weil characters.",
+        "The two-leg output is σ⊗ρ_π⊗ρ_π∨, with independently specified W_E actions.",
+        "A formula obtained by just replacing rec(π∨) in the Dat formula is rejected."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/classical-tower-fibre-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "IX.7.4, p. 338",
+          "match": "The two normalized cohomology outputs needed by the consumer; not an independent proof."
+        },
+        {
+          "sourceId": "Dat",
+          "locator": "§§3.3–3.5 and Theorem 4.1.2, pp. 21–28",
+          "match": "The literal input complex and sector convention that the independent dictionary must translate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/rank-two-arithmetic-descent",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Arithmetic descent of the rank-two central quotient",
+      "kind": "theorem",
+      "statement": "For the rank-two Drinfeld tower in CDN23’s conventions, the quotient M_n^varpi by the chosen central uniformizer action descends from brevé E to E with its G′ action. Its base change to a finite extension K/E is therefore the arithmetic space M_n,K^varpi, with the specified continuous Galois action on étale cohomology. Descent is obtained from the Weil cocycle including the height translation, not by discarding the descent datum after geometric base change.",
+      "hypotheses": [
+        "Restrict this additional endpoint to the rank-two setting and fields covered by CDN23.",
+        "Use the precise central quotient and quotient group G′ of that source."
+      ],
+      "proofSteps": [
+        "Compute the Frobenius height translation on the tower.",
+        "Pass to the central uniformizer quotient so that the translation is killed in the required descent cocycle.",
+        "Apply effective descent to its finite-level formal/rigid models.",
+        "Match G′ and the coefficient Galois action after finite extension."
+      ],
+      "acceptance": [
+        "Arithmetic H_et(M_n,K^varpi,−) is not confused with geometric H_et(M_n,C^varpi,−).",
+        "The central action and descent survive the group-action comparison."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-descent",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/central-quotient-sector"
+      ],
+      "sources": [
+        {
+          "sourceId": "CDN23",
+          "locator": "§0.2.1, p. 4 (published copy)",
+          "match": "The tower, its central quotient, arithmetic descent and action conventions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/stein-mittag-leffler",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Perfectoid Stein covers and Mittag–Leffler",
+      "kind": "theorem",
+      "statement": "In the rank-two LT/Dr infinite-level setting of CDN23, choose an increasing Stein affinoid perfectoid cover {U_s}. For every i and k≥1 the restriction inverse system {H_et^i(U_s,Z/p^k)} is Mittag–Leffler. Thus its derived inverse-limit obstruction R¹lim vanishes. This p-primary statement is separate from the ell≠p compact-support realization and does not assert that arbitrary perfectoid covers are Mittag–Leffler.",
+      "hypotheses": [
+        "The cover is a Stein affinoid perfectoid cover as in CDN23 3.10.",
+        "The source’s compact p-adic Lie level group acts on its standard exhaustion."
+      ],
+      "proofSteps": [
+        "Reduce by dévissage to k=1.",
+        "Tilt each U_s and use Artin–Schreier plus affinoid perfectoid acyclicity; for i≥2 the groups vanish.",
+        "For i=1 use density of the Stein restriction maps and the Artin–Schreier quotient.",
+        "For i=0 use the compact Lie-group description of components and stabilization of the ascending closed-subgroup chain."
+      ],
+      "acceptance": [
+        "The i=0 argument is included; higher acyclicity alone does not settle it.",
+        "The exact published locator is Lemma 3.10, pp. 35–36, correcting the issue’s Lemma 3.3."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/perfectoid-limit",
+        "PerfectoidSpaces:P5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/rank-two-arithmetic-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "CDN23",
+          "locator": "Lemma 3.10 and Corollary 3.11, pp. 35–36",
+          "match": "The Stein-cover Mittag–Leffler proof, including the component argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/gross-hopkins-vector-fields",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Gross–Hopkins coordinates and infinitesimal operators",
+      "kind": "theorem",
+      "statement": "In the rank-two LT chart of CDN20, write the Gross–Hopkins period coordinate as A/B and put g=AB′−A′B. Étaleness makes g invertible. The three Lie-algebra vector-field coefficients are f_1=A²/g, f_2=B²/g and f_3=AB/g, in the source’s chosen basis; their infinitesimal actions are f_i d/dz. In particular f_1 f_2′−f_2 f_1′=2f_3, so the first two vector fields have the required bracket. The formulas are coordinate-dependent and glue through the period-map transformation rule.",
+      "hypotheses": [
+        "Rank two, the coefficient field and Lie-algebra basis of CDN20 §4.2.",
+        "Derivatives are in the selected LT deformation coordinate z."
+      ],
+      "proofSteps": [
+        "Use GM étaleness to establish g≠0 on the chart.",
+        "Differentiate the projective linear action on the period coordinate.",
+        "Pull the induced vector fields back through the étale period map.",
+        "Compute the bracket using the quotient rule, then verify compatibility on chart overlaps."
+      ],
+      "acceptance": [
+        "The denominator is g, not g², in each f_i.",
+        "The bracket coefficient is 2f_3 in the chosen basis."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "CDN20",
+          "locator": "Proposition 4.8, pp. 38–39 (arXiv copy)",
+          "match": "The Gross–Hopkins coordinates and infinitesimal action."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/analytic-vectors-under-duality",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ],
+      "title": "Duality and locally analytic vectors",
+      "kind": "theorem",
+      "statement": "For E=Q_p and n=2, on an affinoid perfectoid tower chart Spa(B,B+) covered as in Pan §5.3.5, the GL_2(Q_p)-locally analytic vectors in B equal the D×-locally analytic vectors. Duality exchanges the two periods and the invariant differential constructions: for the weight convention χ=(n_1,n_2), k=n_2−n_1≥0, Pan’s two order-(k+1) operators are equal up to the nonzero rational normalization constant c′ after the prescribed line-bundle identifications. The constant is not declared equal to one without normalizing coordinates.",
+      "hypotheses": [
+        "Use Pan v1’s chart topology, analytic-vector definition, polarization and weight convention.",
+        "The analytic input from Pan22 and its Higgs compatibility must be independently supplied."
+      ],
+      "proofSteps": [
+        "Use the explicit local series description of Pan 5.2.8 to prove the GL_2-analytic inclusion in the D×-analytic vectors.",
+        "Use duality and the exchanged period map to apply the analogous description 5.3.8 for the reverse inclusion.",
+        "Transport the Kodaira–Spencer line-bundle identifications under duality.",
+        "Apply the uniqueness characterization of the differential operator in 5.2.15 to obtain 5.3.20, retaining c′."
+      ],
+      "acceptance": [
+        "The result applies to locally analytic vectors, not to all continuous B.",
+        "The transported operator has order k+1 and a nonzero scalar; it is not a tautological renaming."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/el-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/period-morphisms",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/gross-hopkins-vector-fields",
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pan",
+          "locator": "Theorems 5.2.8, 5.3.4, 5.3.8; Corollary 5.3.9; Theorem 5.3.20, pp. 59, 63–65, 67 (v1)",
+          "match": "Local series, period exchange, analytic-vector equality and operator comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET6a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Cyclic base change before classical LLC",
+      "kind": "theorem",
+      "statement": "For a cyclic extension L/K of number fields of prime degree r and its class-field character η, a cuspidal unitary representation π of GL_m(A_K) has a unique cyclic base change Π in the class induced from cuspidal representations. It is cuspidal if π is not isomorphic to π⊗η; in the self-twist case r divides m and Π is the isobaric sum of the r distinct conjugates of a cuspidal representation of GL_(m/r)(A_L). A Galois-stable cuspidal Π descends, and its descents differ by powers of η. Local tempered base change satisfies the Shintani character identity and sends the central character ω_π to ω_π∘N_L/K.",
+      "hypotheses": [
+        "Use the induced-from-unitary-cuspidal class and prime degree for the stated global cuspidality alternative.",
+        "The local statement is for cyclic nonarchimedean extensions and tempered representations."
+      ],
+      "proofSteps": [
+        "Use associated test functions and the cyclic twisted trace identity, independent of the later tower realization.",
+        "Apply strong multiplicity one to prove uniqueness of the almost-everywhere lift.",
+        "Separate the self-twist and no-self-twist cases in the discrete spectral comparison.",
+        "Prove the local tempered character identity and central-character relation by the AC local transfer argument.",
+        "Relocate this current-scope node to proposed ET.4b before ET.6; do not create an ET.7a→ET.6 edge."
+      ],
+      "acceptance": [
+        "A self-twist example has noncuspidal base change; cuspidality is not automatic.",
+        "For an unramified local degree-r extension the Satake eigenvalues become α_i^r."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "AutomorphicSpectralTheory:AS.6/invariant-trace-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "AC",
+          "locator": "Chapter I, Definition 6.1 and Theorem 6.2, pp. 51–52; Chapter III, Theorem 4.2, pp. 202–203",
+          "match": "The local Shintani lift and the global cyclic cuspidality alternatives."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Cyclic base change"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Cyclic automorphic induction",
+      "kind": "theorem",
+      "statement": "For a cyclic extension L/K of degree r and an automorphic representation Π of GL_a(A_L) induced from unitary cuspidal data, there is a unique automorphic induction AI_L/K(Π) on GL_(ar)(A_K) in that class, characterized by induction of unramified Weil parameters almost everywhere. At split places its parameter is the direct sum over the places above; at inert places it is Ind_(W_Lw)^(W_Kv). For prime degree and cuspidal Π, induction is cuspidal precisely when the Galois orbit has size r. Transitivity handles the stated cyclic towers.",
+      "hypotheses": [
+        "Use the induced-from-cuspidal class of AC III §6.",
+        "The prime-degree cuspidality criterion is distinguished from the general transitivity statement."
+      ],
+      "proofSteps": [
+        "Construct the induced Satake parameters at split and inert places.",
+        "Use the cyclic base-change descent alternatives to produce the global representation.",
+        "Use strong multiplicity one for uniqueness and induction by stages for transitivity.",
+        "Compute the central character by the determinant of the induced local parameter, including the permutation determinant character."
+      ],
+      "acceptance": [
+        "For rank-one input and quadratic L/K, det Ind χ equals the transfer of χ times the quadratic extension character.",
+        "A Galois-invariant cuspidal input induces a noncuspidal isobaric sum."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "AC",
+          "locator": "Chapter III, Definition 6.1 and Theorem 6.2 and proof, pp. 214–217",
+          "match": "Automorphic induction, its split/inert parameters and construction by cyclic descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/speh-representation",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "The global Speh datum",
+      "kind": "definition",
+      "statement": "For a unitary cuspidal representation ρ of GL_a(A_F) and an integer b≥1, put m=ab. Define Speh(ρ,b) as the unique irreducible Langlands quotient of normalized induction of ρ|det|^((b−1)/2), ρ|det|^((b−3)/2), …, ρ|det|^((1−b)/2) from the Levi GL_a^b. Its central character is ω_ρ^b because the exponents sum to zero. This global residual Speh quotient is distinguished from a local generalized Steinberg subrepresentation.",
+      "hypotheses": [
+        "F is a number field and ρ is unitary cuspidal.",
+        "Normalized upper-parabolic induction and decreasing exponents are fixed."
+      ],
+      "proofSteps": [
+        "Form the normalized standard module.",
+        "Use the local Langlands-quotient theorem at all places and restricted tensor product compatibility.",
+        "Compute the exponent sum and central character.",
+        "Retain the quotient realization when discussing global residues."
+      ],
+      "acceptance": [
+        "At b=1 it is ρ.",
+        "For b>1 it lies in the residual discrete spectrum, not the cuspidal spectrum."
+      ],
+      "prerequisites": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicSpectralTheory:AS.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "MW",
+          "locator": "Introduction and §I.1, pp. 605–607; §I.11, pp. 640–643",
+          "match": "The quotient convention, central-character class and residual representation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "Speh.ofCuspidal",
+          "role": "constructor",
+          "statement": "Construct the quotient from (ρ,b) with a≥1, b≥1."
+        },
+        {
+          "name": "Speh.standardModule",
+          "role": "projection",
+          "statement": "Expose the normalized induction and its quotient map."
+        },
+        {
+          "name": "Speh.centralCharacter",
+          "role": "compatibility",
+          "statement": "The central character is ω_ρ^b."
+        },
+        {
+          "name": "Speh.one",
+          "role": "simp",
+          "statement": "Speh(ρ,1)=ρ."
+        },
+        {
+          "name": "Speh.ext",
+          "role": "extensionality",
+          "statement": "The cuspidal datum and segment length determine the global quotient up to isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Speh.lengthOne",
+          "kind": "degenerate",
+          "statement": "b=1 gives the original cuspidal representation."
+        },
+        {
+          "name": "Speh.lengthTwo",
+          "kind": "computation",
+          "statement": "For b=2 the exponents are +1/2 and −1/2 and the central character is ω_ρ²."
+        },
+        {
+          "name": "Speh.quotientVsSub",
+          "kind": "non-example",
+          "statement": "Replacing the quotient by the local essentially square-integrable segment subrepresentation is not the global Speh definition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MW, introductory theorem, p. 606",
+          "how": "Every discrete GL_m constituent is classified by this datum."
+        },
+        {
+          "where": "Shin, Proposition 4.8",
+          "how": "The relatively discrete Levi spectrum includes residual constituents, not only cusp forms."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "The full GL_m discrete spectrum",
+      "kind": "theorem",
+      "statement": "With a fixed unitary central character over a number field, every irreducible constituent of L²_disc(GL_m(F) modulo its centre in GL_m(A_F)) is a unique Speh(ρ,b), m=ab, and occurs with multiplicity one. The cuspidal spectrum is the b=1 part and the residual spectrum is b>1. The statement uses square integrability modulo the centre; it does not replace the continuous spectrum by discrete Speh representations.",
+      "hypotheses": [
+        "Use the normalized induction and central-character convention of the Speh datum."
+      ],
+      "proofSteps": [
+        "Decompose by cuspidal support classes.",
+        "Normalize intertwining operators by the Rankin–Selberg factors.",
+        "Analyze the residue hyperplanes and the cancellation of poles at the zero differences.",
+        "Show that only equal-rank repeated-cuspidal segments survive and each gives its unique quotient once."
+      ],
+      "acceptance": [
+        "A b=2 residual constituent must appear in a discrete spectral calculation.",
+        "Continuous Eisenstein contributions remain in the full trace formula where required."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/speh-representation",
+        "AutomorphicSpectralTheory:AS.6/fine-spectral-expansion"
+      ],
+      "sources": [
+        {
+          "sourceId": "MW",
+          "locator": "Introduction, theorem (i)–(ii), pp. 605–606; §II.3 and its corollary",
+          "match": "The residual classification by repeated cuspidal support and the residue proof route."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "GL discrete spectrum"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Twisted unitary spectral coefficients",
+      "kind": "theorem",
+      "statement": "For the unitary twisted GL group and test functions of Shin §4, the invariant twisted spectral distribution is the sum over Levi M of |W_M|/|W_G| times |det(Φ^(−1)θ−1) on a_M^(Gθ)|^(−1), times traces on the relatively discrete Levi spectrum of the normalized intertwining composite. After the stated central character twist, Shin Corollary 4.14 identifies this composite with the normalized θ-intertwiner A′ on the induced representation. At the full Levi the determinant is 2^r for r nonzero endoscopic blocks, so its reciprocal spectral coefficient is 2^(−r).",
+      "hypotheses": [
+        "Use Shin’s real Lefschetz function and central-character normalization.",
+        "Convergence and the invariant trace formula come from AS.6, independently of Igusa cohomology."
+      ],
+      "proofSteps": [
+        "Import the invariant spectral expansion and group the regular Weyl terms.",
+        "Use the Φ^(−1)θ involution to identify the single surviving regular element.",
+        "Insert the residual spectrum classification into each Levi discrete summand.",
+        "Transport the intertwining operator through the explicit central twist and retain its determinant coefficient."
+      ],
+      "acceptance": [
+        "For a full Levi with two nonzero endoscopic blocks the determinant is 4 and its reciprocal coefficient is 1/4.",
+        "Absorbing the normalization operator into an unnamed scalar fails the target."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "AutomorphicSpectralTheory:AS.6/invariant-trace-formula"
+      ],
+      "sources": [
+        {
+          "sourceId": "Shin",
+          "locator": "Proposition 4.8, Remark 4.10 and Corollary 4.14, pp. 28–29 (author copy)",
+          "match": "The Levi/Weyl coefficient, determinant and normalized intertwiner."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Weak unitary base change and standard pairs",
+      "kind": "definition",
+      "statement": "Let F/F+ be CM, V a standard definite or standard one-place-indefinite hermitian space, and π an automorphic U(V) representation. A weak automorphic base change is an isobaric automorphic Π on GL_N(A_F) whose unramified local parameters match local base change at all but finitely many places of F+. A standard pair requires π_f to occur in the stated raw Shimura cohomology (degree zero in the definite case, some degree in the indefinite case). Strong multiplicity one gives uniqueness of Π when it exists; weak base change alone specifies neither every bad local factor nor every packet member.",
+      "hypotheses": [
+        "Standard means the signatures and finite-local conditions of LTXZZ Definition 3.2.7.",
+        "Use finite isobaric sums, not only cuspidal GL_N representations."
+      ],
+      "proofSteps": [
+        "Import the standard hermitian datum and raw canonical-model cohomology from lower PEL/Shimura owners.",
+        "Define the unramified parameter-matching predicate.",
+        "Use strong multiplicity one for uniqueness in the isobaric class.",
+        "Record that the existence proof is Labesse’s transfer via independent stable trace identities."
+      ],
+      "acceptance": [
+        "Changing a ramified unitary local factor cannot be ruled out by the weak definition alone.",
+        "Residual Speh possibilities remain until cuspidality is separately established."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification",
+        "PELModuli:M3/complex-points"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Definitions 3.2.3 and 3.2.7; Proposition 3.2.8, pp. 144–146",
+          "match": "Weak matching, standard pairs and base-change existence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "UnitaryWeakBC.matches",
+          "role": "characterisation",
+          "statement": "The good-place unramified parameters match the fixed L-embedding."
+        },
+        {
+          "name": "UnitaryWeakBC.isobaric",
+          "role": "data",
+          "statement": "Record the GL_N isobaric datum and its central character."
+        },
+        {
+          "name": "UnitaryWeakBC.unique",
+          "role": "extensionality",
+          "statement": "Two isobaric transfers with the same almost-everywhere parameters are isomorphic."
+        },
+        {
+          "name": "StandardPair.cohomologyWitness",
+          "role": "projection",
+          "statement": "Expose the raw finite-part cohomological occurrence and the standard signatures."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UnitaryWeakBC.split",
+          "kind": "computation",
+          "statement": "At a split place U(V)(F+_v)≅GL_N(F_w), the selected component is the corresponding GL_N representation."
+        },
+        {
+          "name": "UnitaryWeakBC.badPlace",
+          "kind": "non-example",
+          "statement": "Almost-everywhere equality does not certify an arbitrary chosen ramified packet member."
+        },
+        {
+          "name": "StandardPair.definite",
+          "kind": "degenerate",
+          "statement": "For a definite space the occurrence witness is degree-zero Shimura-set cohomology."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LTXZZ, Proposition C.3.1",
+          "how": "Weak transfer is upgraded to all-place matching only under the relevant generic packet theorem."
+        },
+        {
+          "where": "AutomorphicGaloisRepresentationsPartII:AG2.2",
+          "how": "The pure automorphic transfer is available before Igusa concentration."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Pure cohomological unitary transfer",
+      "kind": "theorem",
+      "statement": "For a standard pair (V,π), the independent unitary stable trace comparison and complex spectral decomposition produce the weak isobaric base change Π. At split and good unramified places the character/Satake identities use the chosen L-embedding, and at infinity Π has the corresponding cohomological infinitesimal character. The identities include the central character and normalized intertwiner coefficients. They are exported to AG2.2 without using Igusa concentration or any constructed global Galois representation.",
+      "hypotheses": [
+        "Use the independent ET.4 stable/twisted identities and their admissible test functions.",
+        "Existence requires the Labesse theorem cited in LTXZZ 3.2.8; its primary proof remains a source-reading gap."
+      ],
+      "proofSteps": [
+        "Use the complex spectral decomposition of raw cohomology and real Lefschetz test functions.",
+        "Transfer finite test functions using ET.3/4 and compare twisted discrete spectra.",
+        "Use the residual classification and cyclic base-change steps to identify the isobaric GL_N constituents.",
+        "Apply strong multiplicity one to identify the good-place character and infinity type.",
+        "Read Labesse’s primary existence argument before treating the theorem as independently certified."
+      ],
+      "acceptance": [
+        "The proof has no prerequisite in ET.7b or IG.5.",
+        "The theorem makes good-place and infinity assertions, not all-place packet matching."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Proposition 3.2.8, p. 146",
+          "match": "The existence theorem is attributed to Labesse, not proved in this paper."
+        },
+        {
+          "sourceId": "Shin",
+          "locator": "§4, Proposition 4.8 and Corollary 4.14, pp. 28–29",
+          "match": "The pure twisted spectral comparison machinery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Pure cohomological transfer"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Local unitary Langlands quotient compatibility",
+      "kind": "comparison",
+      "statement": "For an unramified quadratic nonarchimedean extension and a unitary group U(V), write an irreducible local representation as a Langlands quotient with tempered data τ_0 on a smaller unitary group and τ_i on GL_(r_i), and strictly positive ordered unramified characters α_i. Its GL_N base change is the Langlands quotient of the symmetric list τ_t^(∨c)α_t^(−1), …, τ_1^(∨c)α_1^(−1), BC(τ_0), τ_1α_1, …, τ_tα_t. Spherical base change matches Satake via the fixed L-embedding. These are classification outputs imported from ET.4; defining weak global transfer does not prove them.",
+      "hypotheses": [
+        "The tempered local unitary base-change/classification theorem is an independent ET.4 supplier.",
+        "Retain the strictly positive ordering and normalized induction convention."
+      ],
+      "proofSteps": [
+        "Use the Langlands classification to identify the unique standard module.",
+        "Apply local base change to tempered unitary data and the conjugate-dual paired GL blocks.",
+        "Match the dominant exponents and pass to the unique irreducible quotient.",
+        "Verify the spherical case using Satake, not a global a.e. argument."
+      ],
+      "acceptance": [
+        "The GL list has total rank N_0+2Σr_i.",
+        "Replacing conjugate dual by ordinary dual gives a different list over a CM extension."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Appendix C.1, pp. 351–354",
+          "match": "The local Langlands-quotient and tempered/spherical base-change rules."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Relevant generic packet multiplicity one",
+      "kind": "theorem",
+      "statement": "For a relevant GL_N(A_F) representation Π in the sense of LTXZZ 1.1.3 (cuspidal, conjugate self-dual with its specified infinity type), and a standard definite or standard indefinite V, every irreducible admissible π on U(V) whose local base change equals Π_v at every place occurs in the discrete automorphic spectrum with multiplicity one. Conversely, an automorphic π with weak base change Π matches Π at every place. At nondistinguished infinity π_v is trivial; at the distinguished indefinite infinity its allowed components are the N discrete series with Harish–Chandra set {(1−N)/2,(3−N)/2,…,(N−1)/2}.",
+      "hypotheses": [
+        "Relevant generic cuspidal Π and the standard hermitian spaces are essential.",
+        "Import the independent generic packet classification and global multiplicity formula from ET.4; it is not claimed for arbitrary non-generic Arthur parameters."
+      ],
+      "proofSteps": [
+        "Apply the generic global unitary packet theorem with the appropriate inner-form relevance conditions.",
+        "Use the global multiplicity formula to prove occurrence and multiplicity one for the specified standard forms.",
+        "Upgrade weak transfer to all-place matching using that same classification theorem.",
+        "Compute the infinity components from the fixed cohomological parameter."
+      ],
+      "acceptance": [
+        "There are N allowed distinguished indefinite infinity components, not an arbitrary multiplicity N for a single automorphic π.",
+        "An arbitrary weak transfer does not prove this theorem without the relevant generic hypotheses."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Proposition C.3.1, p. 363",
+          "match": "All-place matching, multiplicity one and the allowed infinity components."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Relevant packet multiplicity"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Definite and indefinite packet switches",
+      "kind": "theorem",
+      "statement": "For even N=2r, standard definite V and indefinite V′ agree outside one inert finite place p and the distinguished infinity. If π has trivial infinity, cuspidal base change and its p-component lies in the special set S of LTXZZ C.2.5, replace it by the matched S′ component and any distinguished discrete series with Harish–Chandra set {1/2−r,…,r−1/2}; the resulting π′ has discrete multiplicity one. For odd N=2r+1, the reverse switch from a cuspidal-base-change indefinite π′ with unramified p-component and infinity set {−r,…,r} to the definite unramified matching component has multiplicity one.",
+      "hypotheses": [
+        "Use the exact even S/S′ local packet comparison or the odd unramified comparison.",
+        "The spaces are fixed isomorphic at every unchanged place."
+      ],
+      "proofSteps": [
+        "Preserve local base change at unchanged places by the fixed identifications.",
+        "Apply the local packet comparison at p, including the lattice and parity hypotheses.",
+        "Use the classified infinity components to preserve the global parameter.",
+        "Invoke relevant packet multiplicity one for the resulting all-place matching representation."
+      ],
+      "acceptance": [
+        "Even and odd switches have different directions and finite-place assumptions.",
+        "Without membership in S, the even p-component cannot be freely replaced."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Corollaries C.3.2 and C.3.3, p. 364; Proposition C.2.5",
+          "match": "The two parity-specific switches."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Transferable compact levels",
+      "kind": "definition",
+      "statement": "A compact open K_v in U(V)(F+_v) is transferable if for each endoscopic H the characteristic function 1_Kv has an endoscopic transfer f_Kv^H associated to a compactly supported GL-side function φ_Kv^H under base change, and for the full-rank quasi-split H the GL-side function may be supported on a maximal compact. An inertial transfer is the selected full-rank φ_Kv. The characteristic function is unnormalized: conversion to the idempotent divides by vol(K_v).",
+      "hypotheses": [
+        "Fix transfer factors, associated-function convention and Haar measures from ET.3/4.",
+        "A transfer is a selected witness, not a unique test function."
+      ],
+      "proofSteps": [
+        "Form the associated-test-function predicate for each elliptic endoscopic datum.",
+        "Specify a witness for the full-rank transfer and its maximal-compact support.",
+        "Use split identity transfer, hyperspecial fundamental lemmas, or the small-level theorem as appropriate.",
+        "Keep the selected witnesses and prove trace independence at the packet-sum level."
+      ],
+      "acceptance": [
+        "At split places any compact open is transferable.",
+        "At good inert places the hyperspecial transfer is the GL_N hyperspecial characteristic function."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Definition D.2.1 and Lemma D.2.2, p. 369",
+          "match": "The two transfer conditions and the split, good and sufficiently small cases."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "TransferableLevel.witness",
+          "role": "constructor",
+          "statement": "Supply associated transfer functions for every relevant H."
+        },
+        {
+          "name": "TransferableLevel.inertial",
+          "role": "projection",
+          "statement": "Project to the selected full-rank GL transfer."
+        },
+        {
+          "name": "TransferableLevel.spherical",
+          "role": "example",
+          "statement": "Good hyperspecial levels use the unit function under both fundamental lemmas."
+        },
+        {
+          "name": "TransferableLevel.idempotent",
+          "role": "compatibility",
+          "statement": "Replace 1_K by vol(K)e_K; traces scale accordingly."
+        },
+        {
+          "name": "TransferableLevel.traceIndependence",
+          "role": "characterisation",
+          "statement": "Matching packet traces depend on the transfer class, not the chosen representative."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TransferableLevel.split",
+          "kind": "compatibility",
+          "statement": "Under the split GL_N identification, a chosen 1_K transfers to itself with the same Haar measure."
+        },
+        {
+          "name": "TransferableLevel.volume",
+          "kind": "computation",
+          "statement": "tr π(1_K)=vol(K) dim π^K, while tr π(e_K)=dim π^K."
+        },
+        {
+          "name": "TransferableLevel.badLevel",
+          "kind": "non-example",
+          "statement": "An arbitrary ramified nonsplit K is not declared transferable without the required witnesses."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LTXZZ, Proposition D.2.3",
+          "how": "The selected inertial transfers compute packet oldform dimensions."
+        },
+        {
+          "where": "ET.7 normalization acceptance",
+          "how": "The trace-to-dimension conversion depends on whether the source uses characteristic functions or idempotents."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/oldform-dimensions",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Packet oldform dimension identities",
+      "kind": "theorem",
+      "statement": "Use all the data of LTXZZ D.2: even N=2r, relevant Π, disjoint Σ_min and Σ_lr, Σ_min containing the bad places, both together containing the ramified places of Π, inert nonsplit places in Σ_lr with special maximal K_v, hyperspecial levels elsewhere, and transferable K_v at Σ_min. Put c_v=1 at v∈Σ_lr exactly when Π_v is normalized induction of α_r^(−1),…,α_2^(−1),St_2,α_2,…,α_r with |α_i|=1, otherwise c_v=0. Then the definite Π-eigenspace dimension is |∏_(v∈Σ_min)tr(Π_v(φ_Kv)A_Πv) ∏_(v∈Σ_lr)c_v|; the indefinite middle-degree dimension is N times this value.",
+      "hypotheses": [
+        "Use the specified normalized local intertwiners, inertial transfers and source measures.",
+        "Middle-degree concentration is the characteristic-zero relevant-tempered Matsushima calculation for this standard datum, not integral Igusa concentration."
+      ],
+      "proofSteps": [
+        "Use relevant packet classification and temperedness to restrict raw cohomology to the specified infinity components.",
+        "Use the local special-maximal calculation to obtain each zero/one c_v.",
+        "Sum dim π_v^K over local packet members at the remaining bad places.",
+        "Apply the transferred trace identity with normalized intertwiners; the standard infinity packet contributes 1 in the definite case and N in the indefinite case."
+      ],
+      "acceptance": [
+        "If some c_v=0 both specified eigenspaces vanish.",
+        "For N=2 and all local factors one, the indefinite dimension is twice the definite dimension."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "AutomorphicFormsOnReductiveGroups:AF.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Proposition D.2.3 and its setup, pp. 368–371",
+          "match": "The full hypotheses, local indicators and the two oldform dimensions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "The early rational Igusa trace object",
+      "kind": "construction",
+      "statement": "For the CSnc split-prime quasi-split unitary PEL datum and a completely slope-divisible representative X_b, form the finite-level Mantovan Igusa varieties over its central leaf by trivializations of the slope-graded truncated p-divisible group, with the liftable-automorphism condition. The perfection of their inverse limit identifies with the perfect isomorphism torsor. The frames respect the O_F action and the paired polarizations up to one common scalar multiplier, and fppf locally lift to every larger truncation level. Define the rational alternating smooth cohomology class [H_c(Ig^b,Λ)]=Σ_i(−1)^i[H_c^i] over the finite-level tower, with J_b(Q_p)×G(A_f^p) actions. The object is not assumed positive, concentrated or integral.",
+      "hypotheses": [
+        "Use CSnc’s unramified PEL datum, neat prime-to-p levels and completely slope-divisible X_b.",
+        "Only the early central-leaf/torsor/cohomology construction moves down; compactified fibres and integral concentration stay IG.",
+        "Preserve the common polarization multiplier across all paired slope factors and the seminormal/perfect-base hypotheses in the torsor construction."
+      ],
+      "proofSteps": [
+        "Specialize the lower PEL universal family and define the Newton class and central leaf by its p-divisible isomorphism type.",
+        "Use the liftable-automorphism finite-level torsors and slope decomposition to construct the Igusa level system.",
+        "Compare the perfected finite-level tower with the isomorphism torsor and construct the quasi-isogeny group correspondences.",
+        "Take rational compact-support cohomology and its alternating class with all group actions."
+      ],
+      "acceptance": [
+        "The scalar kernel in the group action is retained.",
+        "Perfection does not add or remove étale cohomology with ell≠p coefficients."
+      ],
+      "prerequisites": [
+        "PELModuli:M2/representability",
+        "PELModuli:M2/universal-family",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "DiamondSixOperations:S2",
+        "AdicCoefficientsAndComparisons:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "§§2.2–2.3, Proposition 2.2.3, Theorem 2.2.4, Definition 2.3.5 and Remark 2.3.7, pp. 14–20",
+          "match": "The finite Igusa torsors and perfection comparison."
+        },
+        {
+          "sourceId": "CS17",
+          "locator": "Definitions 4.3.6 and §5.2, pp. 716–718, 732–733",
+          "match": "The Mantovan tower and its alternating cohomology class."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Rational Igusa trace object"
+      },
+      "api": [
+        {
+          "name": "IgusaRational.atLevel",
+          "role": "constructor",
+          "statement": "Construct finite Igusa torsors with liftable truncated automorphisms."
+        },
+        {
+          "name": "IgusaRational.perfection",
+          "role": "equivalence",
+          "statement": "Identify their perfection with the full perfect torsor."
+        },
+        {
+          "name": "IgusaRational.actions",
+          "role": "functoriality",
+          "statement": "Prime-to-p and J_b correspondences act compatibly with finite level."
+        },
+        {
+          "name": "IgusaRational.eulerClass",
+          "role": "projection",
+          "statement": "Project rational cohomology to its alternating Grothendieck class."
+        },
+        {
+          "name": "IgusaRational.coefficientExtension",
+          "role": "compatibility",
+          "statement": "Scalar extension transports the trace object without imposing positivity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IgusaRational.alternating",
+          "kind": "computation",
+          "statement": "A complex with the same one-dimensional trivial representation in degrees 0 and 1 has zero Euler class but nonzero cohomology."
+        },
+        {
+          "name": "IgusaRational.perfect",
+          "kind": "compatibility",
+          "statement": "The perfection map induces an ell≠p étale cohomology isomorphism."
+        },
+        {
+          "name": "IgusaRational.truncation",
+          "kind": "non-example",
+          "statement": "An arbitrary automorphism of X_b[p^m] not liftable to the required slope structure is not a finite Igusa level frame."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CSnc, Theorem 5.6.1",
+          "how": "Its alternating character is the geometric side of the explicit trace formula."
+        },
+        {
+          "where": "IgusaVarietiesAndTorsionConcentration:IG.1 and IG.5",
+          "how": "These early rational clauses move down here; the higher stages import them and add geometric/integral consequences."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "The CSnc test-function package",
+      "kind": "definition",
+      "statement": "Use G=G_(2n) for F=F+F_0 and p split in F_0 as in CSnc §5.6. For auxiliary sets S_pf(N_0)⊂S_pf(N), write φ=φ_p φ_Spf φ^S. Initially φ_p on J_b(Q_p) is acceptable in the Newton-slope sense of ET.5; φ^S is the base-change image of an unramified GL_(2n) test function; at S_pf use the characteristic functions of the sufficiently small principal congruence levels specified in CSnc. For each elliptic endoscopic G_vecn choose the transferred finite functions and the real Lefschetz function f_vecn,∞. Retain the Haar measures, transfer-factor L-map and normalized θ-intertwiner.",
+      "hypotheses": [
+        "Use all field, split-prime, small-level and set inclusions in CSnc §5.6.",
+        "Acceptability restricts φ_p at first; the extension to arbitrary φ_p is a separate theorem."
+      ],
+      "proofSteps": [
+        "Use ET.5 acceptability to construct the Newton/Levi transfer at p.",
+        "Use the split auxiliary-place transfer and the unramified base-change map elsewhere.",
+        "Use the real Lefschetz function with the source infinity type.",
+        "Record characteristic-function volumes and the endoscopic coefficient without replacing them by normalized unit functions."
+      ],
+      "acceptance": [
+        "All three finite parts and the infinity test function are present.",
+        "The case φ_p=0 is admissible and every trace vanishes."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "§5.6 setup and Theorem 5.6.1, pp. 74–75",
+          "match": "The exact finite test functions, auxiliary sets and infinity input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "IgusaTests.ofAcceptable",
+          "role": "constructor",
+          "statement": "Assemble the test package from acceptable φ_p and the specified finite levels."
+        },
+        {
+          "name": "IgusaTests.endoscopic",
+          "role": "projection",
+          "statement": "Give the selected transfer for each elliptic endoscopic datum."
+        },
+        {
+          "name": "IgusaTests.infinity",
+          "role": "projection",
+          "statement": "Give the normalized Lefschetz test function."
+        },
+        {
+          "name": "IgusaTests.volume",
+          "role": "compatibility",
+          "statement": "Track each unnormalized characteristic function under a change to a Hecke idempotent."
+        }
+      ],
+      "tests": [
+        {
+          "name": "IgusaTests.zeroLocal",
+          "kind": "degenerate",
+          "statement": "φ_p=0 makes every endoscopic and geometric trace zero."
+        },
+        {
+          "name": "IgusaTests.badAuxiliary",
+          "kind": "non-example",
+          "statement": "A principal-congruence level not satisfying the stated smallness and auxiliary-place conditions is not admitted by the source theorem."
+        },
+        {
+          "name": "IgusaTests.characteristic",
+          "kind": "computation",
+          "statement": "At an auxiliary compact level K, 1_K=vol(K)e_K; its trace includes that volume."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CSnc, Theorem 5.6.1",
+          "how": "The geometric trace is expanded against this exact package."
+        },
+        {
+          "where": "CSnc, Lemma 5.6.2",
+          "how": "Its tensor factors separate the p, auxiliary and unramified contributions."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "Normalized Newton reduction to the inner form",
+      "kind": "construction",
+      "statement": "Define Red_b,vecn:Groth(G_vecn(Q_p))→Groth(J_b(Q_p)) by summing over the effective endoscopic Levi triples and allowed Levi embeddings, applying their signed normalized opposite-parabolic Jacquet functors, the specified L-map transfer (normalized induction among products of GL groups), and the Langlands–Jacquet map to the inner form. Include the transfer character and modulus factor belonging to the selected ET.5 test-function normalization. In Shin’s conventions Red=(n-Red)⊗barδ_(P(ν_b))^(1/2); CS17’s Red must be matched with its own φ_p before reuse. A naive unsigned Jacquet-then-JL composition is insufficient.",
+      "hypotheses": [
+        "Fix b, its Levi M_b, inner form J_b, effective endoscopic triples and transfer factors.",
+        "The exact CSnc/CS17 character/modulus conversion is an ET.5 supplier requirement."
+      ],
+      "proofSteps": [
+        "Enumerate effective Levi triples and admissible embeddings.",
+        "Apply the normalized Jacquet functor for the prescribed opposite parabolic with its transfer sign.",
+        "Apply the endoscopic GL-product map and signed Langlands–Jacquet transfer.",
+        "Insert the prescribed modulus/character twist and prove additivity on Grothendieck groups."
+      ],
+      "acceptance": [
+        "For the full endoscopic group the effective set is a singleton, but the inner-form sign remains.",
+        "For a proper endoscopic group all allowed Levi contributions are retained."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS17",
+          "locator": "§5.4, Remark 5.4.1 and Lemma 5.4.2, pp. 739–740",
+          "match": "The three-step construction and trace compatibility."
+        },
+        {
+          "sourceId": "Shin",
+          "locator": "§5.5, (5.14)–(5.16), pp. 36–37 (author copy)",
+          "match": "The signed opposite Jacquet functor and modulus twist."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Newton reduction"
+      },
+      "api": [
+        {
+          "name": "NewtonRed.apply",
+          "role": "constructor",
+          "statement": "Apply the signed sum of Jacquet, GL transfer and inner-form maps."
+        },
+        {
+          "name": "NewtonRed.add",
+          "role": "structure",
+          "statement": "Red is additive on virtual representations."
+        },
+        {
+          "name": "NewtonRed.factor",
+          "role": "characterisation",
+          "statement": "Expose its effective Levi terms, signs and normalization character."
+        },
+        {
+          "name": "NewtonRed.trace",
+          "role": "compatibility",
+          "statement": "The character pairs with the ET.5 transferred test function."
+        },
+        {
+          "name": "NewtonRed.localProduct",
+          "role": "functoriality",
+          "statement": "At split p, independent field factors factor with the specified central factor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NewtonRed.fullGroup",
+          "kind": "degenerate",
+          "statement": "For vecn=(2n), the effective endoscopy reduces to the single Levi M_b term, with its transfer sign."
+        },
+        {
+          "name": "NewtonRed.virtualNegative",
+          "kind": "computation",
+          "statement": "Red(−[π])=−Red([π]); no positivity follows."
+        },
+        {
+          "name": "NewtonRed.innerFormSign",
+          "kind": "non-example",
+          "statement": "Omitting e_p(J_b) for a nonsplit inner form breaks the transferred trace equality."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CS17, Lemma 5.4.2; CSnc, Lemma 5.6.2",
+          "how": "It gives the explicit p-local character in the spectral expansion."
+        },
+        {
+          "where": "IgusaVarietiesAndTorsionConcentration:IG.5",
+          "how": "The rational spectral support is fed to a separate residual application."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "Test transfer is dual to Newton reduction",
+      "kind": "theorem",
+      "statement": "For acceptable φ_p and the fixed transfer φ_vecn,p, every virtual π_p on G_vecn(Q_p) satisfies tr π_p(φ_vecn,p)=tr Red_b,vecn(π_p)(φ_p). This identity is exact in the chosen measures and normalization; each transfer step is dual to the corresponding representation step. The subsequent finite-character Frobenius-shift argument extends the needed character identity to arbitrary compactly supported smooth φ_p.",
+      "hypotheses": [
+        "Use the signed and normalized reduction above.",
+        "For the extension, use the ET.5 acceptable-function extension theorem."
+      ],
+      "proofSteps": [
+        "Pair normalized opposite Jacquet modules with the constant-term transfer.",
+        "Factor transfer through M_b and use the signed inner-form character identity.",
+        "Apply the GL-product induction transfer and the modulus twist.",
+        "Multiply the test by sufficiently large Frobenius powers so it is acceptable, use the finite Weil-character exponential identity, then recover power zero with the same finite-level trace distribution."
+      ],
+      "acceptance": [
+        "The equality is tested on a nontrivial inner form and a proper endoscopic datum.",
+        "An extension by simply declaring all φ_p acceptable fails."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS17",
+          "locator": "Lemma 5.4.2, p. 740",
+          "match": "The exact local trace identity."
+        },
+        {
+          "sourceId": "CSnc",
+          "locator": "Proof of Lemma 5.6.2, pp. 75–76",
+          "match": "The local reduction and acceptable-function extension input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "The signed source Igusa trace identity",
+      "kind": "theorem",
+      "statement": "For the CSnc test package, tr(φ|[H_c(Ig^b,Λ)])=τ(G)Σ_vecn ε_vecn I_spec^(G_vecn θ)(f_vecn θ), where the sum is over the source elliptic endoscopic groups and ε_vecn=1/2 for the balanced proper datum vecn=(n,n), and 1 for the other listed data. All global signs and normalization constants inside the invariant distributions are retained. This exact identity is not replaced by the unsigned linear-span statement in Lemma 5.6.2.",
+      "hypotheses": [
+        "Use the source datum, τ(G), transferred functions and real Lefschetz normalization.",
+        "The alternating class and its finite-level smooth traces are well defined."
+      ],
+      "proofSteps": [
+        "Apply the ET.5 geometric Igusa trace expression and its stabilization.",
+        "Use ET.4 to compare the stable distribution with the twisted GL distribution.",
+        "Insert the explicit endoscopic automorphism coefficient for each vecn.",
+        "Use the independent invariant geometric/spectral trace identity to replace the geometric distribution by I_spec."
+      ],
+      "acceptance": [
+        "For the balanced proper datum the coefficient is 1/2, not 1.",
+        "The zero φ_p boundary case gives zero on both sides."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "Theorem 5.6.1, pp. 74–75",
+          "match": "The exact τ(G) and ε_vecn source identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Signed Igusa trace identity"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "Finite spectral factorization with virtual coefficients",
+      "kind": "theorem",
+      "statement": "After fixing the CSnc test package, the rational alternating Igusa trace lies in the finite span of terms tr(Red_b,vecn(π_vecn,p)(φ_p)) · tr(Π_vecn,Spf(f_vecn,Spf)A_Spf) · tr(ζ_vecn,*Π_vecn^S(f_2n^S)). Here Π_vecn is a θ-stable irreducible isobaric automorphic representation with cohomological infinity component, and π_vecn,p is its split-p base-change preimage. The coefficients are virtual spectral coefficients; no sign, multiplicity or positivity is supplied merely by the span assertion.",
+      "hypotheses": [
+        "Finiteness is for fixed infinity type and fixed finite test functions/levels, not a uniform finite list over all levels.",
+        "Use split-p injectivity to define the required preimage."
+      ],
+      "proofSteps": [
+        "Insert the independent twisted spectral decomposition and residual Levi classification.",
+        "Factor the test-function tensor product and normalized intertwiner into the three finite parts.",
+        "Use local trace duality to replace the p component by Red.",
+        "Retain the exact signed identity separately; CSnc’s span proof explicitly suppresses some constants and signs."
+      ],
+      "acceptance": [
+        "A noncuspidal isobaric constituent is not discarded.",
+        "Terms with the same unramified eigencharacter are grouped with their summed virtual coefficient."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "Lemma 5.6.2 and Remark 5.6.3, pp. 75–76",
+          "match": "The finite factorization and possible repeated eigencharacters."
+        },
+        {
+          "sourceId": "CS17",
+          "locator": "Lemma 5.5.1, pp. 741–743",
+          "match": "The analogous isobaric spectral factorization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/hecke-character-separation",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "Separation of unramified Hecke characters",
+      "kind": "theorem",
+      "statement": "At fixed finite level and infinity type, the distinct unramified GL_(2n) eigencharacters appearing in the finite spectral expansion are linearly independent as functions on the spherical Hecke algebra. Thus varying f_2n^S isolates the total virtual coefficient of each eigencharacter. Distinct endoscopic or Levi contributions with the same image character need not be separated: their contributions sum in the same coefficient.",
+      "hypotheses": [
+        "Use the finite list of characters in the fixed-level expansion and characteristic-zero coefficients.",
+        "The unramified parameter map is the specified ζ_vecn,* map."
+      ],
+      "proofSteps": [
+        "Identify distinct isobaric GL representations by strong multiplicity one.",
+        "Apply linear independence of distinct algebra characters on a finite list, choosing a separating finite product of local Hecke operators.",
+        "Use this separation to isolate the coefficient distribution in φ_p.",
+        "Retain coincidences under the endoscopic parameter map as one virtual coefficient rather than assigning positivity to each term."
+      ],
+      "acceptance": [
+        "Two different characters can be separated by some finite Hecke operator combination.",
+        "Repeated copies of the same character cannot be independently separated."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/residual-spectrum-classification"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS17",
+          "locator": "Corollary 5.5.2 and Remark 5.5.3, p. 743",
+          "match": "Linear independence and the nonuniqueness of endoscopic contributions."
+        },
+        {
+          "sourceId": "CSnc",
+          "locator": "Remark 5.6.3, p. 76",
+          "match": "The same Hecke eigensystem may have multiple endoscopic origins."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Hecke character separation"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-trace-export",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+      ],
+      "title": "Rational Igusa export without concentration",
+      "kind": "application",
+      "statement": "Export to IG.5 and AG2.1b the fixed-level rational trace expansion, its unramified eigencharacter support, and the exact local Red factorization with virtual coefficients. A client may infer a rational support constraint or a localized virtual trace equality. Inferring an actual cohomology constituent, integral nonvanishing, torsion control or middle-degree concentration requires its own additional theorem; these claims are not consequences of an alternating trace identity.",
+      "hypotheses": [
+        "Use the signed identity for exact coefficients and the span theorem for support.",
+        "Higher consumers import the early rational object defined in this part."
+      ],
+      "proofSteps": [
+        "Package the three-part factorization and character-separation maps.",
+        "State the exact coefficient data needed for each rational client.",
+        "List separately the integral and concentration hypotheses a stronger client must prove.",
+        "Check that there is no return dependency from IG.5 or AG2 compatibility."
+      ],
+      "acceptance": [
+        "An acyclic two-term complex with cancellation is not declared zero in cohomology.",
+        "The export is independent of integral concentration."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/hecke-character-separation",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "§5.6, pp. 74–76",
+          "match": "The rational virtual trace supplier."
+        },
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Lemma 6.1.11, pp. 267–268",
+          "match": "The later non-Eisenstein boundary/concentration application needs independent residual Galois input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7b",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7"
+      ],
+      "title": "A finite signed coefficient ledger",
+      "kind": "definition",
+      "statement": "For a finite set s of spectral terms and rational numbers mult_i, sign_i, local_i, bad_i, unram_i, define comparisonTrace(s)=Σ_(i∈s) mult_i sign_i local_i bad_i unram_i. The fields stand respectively for virtual spectral multiplicity, the endoscopic/inner-form coefficient, local Red trace, auxiliary twisted trace and spherical eigenvalue. This finite calculation is a normalization check on a fixed test package; it is not a definition of the infinite automorphic trace formula.",
+      "hypotheses": [
+        "Every analytic/spectral finiteness and trace identity has already been proved before instantiating the ledger."
+      ],
+      "proofSteps": [
+        "Use the factorization theorem to enumerate the finite terms.",
+        "Store the virtual multiplicity separately from the sign/endoscopic constant.",
+        "Form the finite sum on the existing rational carrier.",
+        "Check additivity and invariance under merging terms with identical remaining trace factors."
+      ],
+      "acceptance": [
+        "A negative coefficient is legal and must remain negative.",
+        "A balanced proper endoscopic contribution includes its factor 1/2."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "mathlib:Matrix.trace"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "Theorem 5.6.1 and Lemma 5.6.2, pp. 74–76",
+          "match": "The exact signed and factorized trace expressions motivate separate coefficients."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "api": [
+        {
+          "name": "comparisonTrace",
+          "role": "constructor",
+          "statement": "Evaluate the finite signed coefficient sum on the existing rational carrier."
+        },
+        {
+          "name": "comparisonTrace_addMultiplicity",
+          "role": "structure",
+          "statement": "Adding multiplicity functions adds the trace."
+        },
+        {
+          "name": "comparisonTrace_zeroLocal",
+          "role": "simp",
+          "statement": "If every local factor is zero, the trace is zero."
+        },
+        {
+          "name": "comparisonTrace_merge",
+          "role": "compatibility",
+          "statement": "Terms with the same sign and three trace factors combine by adding virtual multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "comparisonTrace.balanced",
+          "kind": "computation",
+          "statement": "One term with mult=signless traces=1 and endoscopic coefficient 1/2 evaluates to 1/2."
+        },
+        {
+          "name": "comparisonTrace.cancellation",
+          "kind": "computation",
+          "statement": "Two terms with identical trace factors and multiplicities 1 and −1 have sum zero."
+        },
+        {
+          "name": "comparisonTrace.innerForm",
+          "kind": "computation",
+          "statement": "A term with multiplicity 2, sign −1 and trace factors 3,5,7 evaluates to −210."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ET.7 normalization checks",
+          "how": "Concrete coefficients catch erased signs, volumes and multiplicities."
+        },
+        {
+          "where": "Suggested.lean",
+          "how": "Only this finite existing-carrier calculation is suggested in Lean; the heavy representation objects remain reader targets."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7/torus-measure-check",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7"
+      ],
+      "title": "Torus transfer and measure conversion",
+      "kind": "theorem",
+      "statement": "For identity transfer on a local torus T with matching Haar measures, orbital integral at t is evaluation f(t), stable and ordinary conjugacy coincide, and the transfer factor is one. For a compact open K⊂T, e_K=1_K/vol(K), so for a smooth character χ trivial on K, tr χ(1_K)=vol(K) and tr χ(e_K)=1; if χ is nontrivial on K the corresponding traces are zero. Rescaling Haar measure by c rescales the characteristic-function trace by c and rescales e_K by c^(−1).",
+      "hypotheses": [
+        "Use identity endoscopy and the same quotient measure on the trivial conjugacy orbit."
+      ],
+      "proofSteps": [
+        "Compute the torus conjugacy orbit, which is a point.",
+        "Integrate the character over K and use its trivial/nontrivial alternatives.",
+        "Track the measure in the idempotent normalization.",
+        "Insert this calculation into the pure and Igusa transfer conventions."
+      ],
+      "acceptance": [
+        "At vol(K)=3 the trivial character trace of 1_K is 3, not 1.",
+        "A nontrivial character on K integrates to zero."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "AC",
+          "locator": "Chapter I, §4–§5, pp. 40–50",
+          "match": "Associated test functions and the unramified base-change homomorphism."
+        },
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Definition D.2.1, p. 369",
+          "match": "Characteristic functions, not automatically normalized idempotents, are transferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Torus transfer"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7/unramified-gl2-check",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7"
+      ],
+      "title": "Unramified GL₂ Satake check",
+      "kind": "theorem",
+      "statement": "For normalized unramified GL_2(E) principal series with Satake eigenvalues α,β, vol(GL_2(O_E))=1, the characteristic function of K diag(varpi_E,1) K has eigenvalue q^(1/2)(α+β); the central double coset of varpi_E I has eigenvalue αβ. The normalized Hecke polynomial is X²−q^(−1/2)T_1 X+T_2. Under unramified cyclic degree-r base change the eigenvalues become α^r,β^r. Geometric-Frobenius parameters invert the corresponding arithmetic-Frobenius eigenvalues; the q-half factors stay attached to the stated normalized Satake map.",
+      "hypotheses": [
+        "Normalized induction, fixed q^(1/2), the standard L-embedding and the stated Haar measure.",
+        "T_2 is the central double coset, not the second elementary Hecke operator under a different scaling."
+      ],
+      "proofSteps": [
+        "Use the normalized Satake transform and its modular-character factor.",
+        "Compute the two elementary symmetric functions of α,β.",
+        "Apply the local cyclic norm/Satake base-change map.",
+        "Invert the Weil Frobenius convention explicitly instead of changing only one coefficient."
+      ],
+      "acceptance": [
+        "For α=2, β=3 the normalized polynomial is X²−5X+6.",
+        "For r=2 it becomes X²−13X+36 at the parameter level."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "AC",
+          "locator": "Chapter I, §4 and the end of §5, pp. 40–50; Theorem 6.2, pp. 51–52",
+          "match": "The Satake base-change map raises unramified parameters to the extension degree."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Unramified GL₂ base change"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7/proper-endoscopy-check",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7"
+      ],
+      "title": "Proper unitary endoscopy and coefficient check",
+      "kind": "theorem",
+      "statement": "For the CSnc balanced elliptic endoscopic datum G_(n,n) of G_(2n), the standard parameter map is the block direct sum with the specified endoscopic character twists, and the source exact Igusa trace has coefficient ε_(n,n)=1/2. The twisted spectral normalization has its own Levi determinant factor; it is not an additional replacement for ε. The corresponding Red sum uses the effective Levi embeddings and transfer signs of this proper datum.",
+      "hypotheses": [
+        "Use the source’s fixed L-embedding and character choices from ET.4/5.",
+        "The check tests the proper datum, not only the full-rank identity endoscopy."
+      ],
+      "proofSteps": [
+        "Construct the two-block L-parameter with the source character twists.",
+        "Compute the automorphism coefficient ε for the balanced endoscopic datum.",
+        "Compare the signed Igusa identity with the normalized twisted spectral coefficient ledger.",
+        "Use local Red trace duality for the same proper datum."
+      ],
+      "acceptance": [
+        "A single normalized spectral term contributes half its unit coefficient before the other specified factors.",
+        "Dropping one effective Levi term can change the virtual local coefficient."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "Theorem 5.6.1, p. 75",
+          "match": "The balanced proper endoscopic coefficient."
+        },
+        {
+          "sourceId": "Shin",
+          "locator": "Remark 4.10 and §5.5, pp. 28, 36–37",
+          "match": "Distinct spectral determinant and local reduction factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Balanced unitary endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7/division-inner-form-check",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7"
+      ],
+      "title": "Division-algebra transfer and sign check",
+      "kind": "theorem",
+      "statement": "For GL_2(E) and its quaternion division inner form D×, the Jacquet–Langlands character relation on matching regular elliptic elements has sign (−1)^(2−1)=−1. The trivial D× representation transfers to the Steinberg GL_2 representation, whose elliptic character is the negative of the trivial inner-form character. In a Red trace the inner-form/Kottwitz sign must agree with the transferred test-function normalization; equality without that sign is rejected.",
+      "hypotheses": [
+        "Matching elliptic elements and transfer measures/factors come from ET.4/5/6.",
+        "This is the nontrivial inner-form acceptance example."
+      ],
+      "proofSteps": [
+        "Use the independent local Jacquet–Langlands character theorem from ET.6.",
+        "Specialize to the trivial D× representation and identify its Steinberg transfer.",
+        "Evaluate the elliptic character relation.",
+        "Trace the same sign through the local Red/test transfer and the finite coefficient ledger."
+      ],
+      "acceptance": [
+        "At rank two the elliptic sign is −1.",
+        "At rank one D=E and the corresponding sign is +1."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dat",
+          "locator": "§2 and Theorem 4.1.2, pp. 8–11, 27–28",
+          "match": "The Jacquet–Langlands conventions and their relation to tower factors."
+        },
+        {
+          "sourceId": "Shin",
+          "locator": "§5.5–§5.6, pp. 36–42",
+          "match": "The sign enters the inner-form trace transfer."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7",
+        "namespace": "TauCeti.Endoscopy"
+      },
+      "planet": {
+        "name": "Inner-form character sign"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7/coherent-exports",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7"
+      ],
+      "title": "Coherent automorphic and Igusa exports",
+      "kind": "application",
+      "statement": "Provide separate imports for ET.7a pure automorphic transfer and ET.7b rational Igusa trace comparison, plus their joint export. Coherence consists of conversion theorems for arithmetic/geometric Frobenius, half Tate twists, inverse-pullback/dual Hecke action, normalized versus unnormalized induction, Haar idempotents, Kottwitz signs and virtual stable multiplicities. The five acceptance examples are the torus measure calculation, unramified GL_2 parameters, balanced proper unitary endoscopy, quaternion inner form, and CSnc’s exact trace with φ_p=0. These tests do not remove the recorded primary-source and action-dictionary gaps.",
+      "hypotheses": [
+        "Each branch satisfies its own hypotheses; clients need only the branch they consume.",
+        "Exact coefficients require the signed identity, while the factorization alone supplies virtual support."
+      ],
+      "proofSteps": [
+        "List the shared convention choices and compare their effects on each branch.",
+        "Run the torus, GL_2, proper-endoscopic and division-inner-form calculations with the selected functions.",
+        "Use the zero local-function boundary case to test the signed Igusa identity.",
+        "Export the pure branch independently to AG2.2 and the rational branch to AG2.1b/IG.5 without reverse edges."
+      ],
+      "acceptance": [
+        "A pure-branch client has no IG.5 prerequisite.",
+        "A rational Igusa client receives no integral concentration assertion."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/oldform-dimensions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-trace-export",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/torus-measure-check",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/unramified-gl2-check",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/proper-endoscopy-check",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/division-inner-form-check",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/finite-coefficient-ledger",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/fs-normalization-contract"
+      ],
+      "sources": [
+        {
+          "sourceId": "CSnc",
+          "locator": "§5.6, pp. 74–76",
+          "match": "The signed rational trace export."
+        },
+        {
+          "sourceId": "LTXZZ",
+          "locator": "Appendices C.3 and D.2, pp. 363–364, 368–371",
+          "match": "The pure relevant packet and oldform comparison exports."
+        },
+        {
+          "sourceId": "FS",
+          "locator": "IX.7.4, p. 338",
+          "match": "The independent two-tower consumer normalization target."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/gsp4-solvable-descent-interface",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Automorphic inputs to GSp₄ solvable descent",
+      "kind": "application",
+      "statement": "Export cyclic GL_4 descent and the general-type GL_4↔GSp_4 transfer contract required in BCGP 1.8.22 and Proposition 7.5.3. For a χ-self-dual cuspidal GL_4 representation, symplectic type is detected by a pole at 1 of the twisted exterior-square L-function, and general-type descents have all-place standard-parameter matching and multiplicity one. The BCGP solvable-descent applications take as input a given irreducible Galois representation over Q with multiplier ε^(−1), its given automorphic realization over a solvable CM or totally real extension, and the stated Tate twist; the construction of those Galois realizations is external to this part.",
+      "hypotheses": [
+        "The packet classification/transfer is an independent ET.4 supplier, including the similitude central character.",
+        "Keep the twists and |·|² central character in BCGP 7.5.3; no descent is asserted without irreducibility over the extension."
+      ],
+      "proofSteps": [
+        "Use cyclic descent iteratively over the solvable chain, retaining the class-field twists.",
+        "Use the supplied symplectic-type/general-type transfer classification to identify the descended automorphic parameter.",
+        "Check the oddness obstruction excluding orthogonal type in the regular |·|²-self-dual Q case.",
+        "Leave comparison with the given Galois realization and its construction to the BCGP/AG2 consumer."
+      ],
+      "acceptance": [
+        "The similitude character is part of the exported parameter.",
+        "No edge from AG2 Galois construction is introduced into the pure automorphic branch."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP",
+          "locator": "§1.8.22, p. 15; Proposition 7.5.3 and proof, pp. 175–176 (arXiv copy)",
+          "match": "General-type transfer and the precise solvable-descent clients of cyclic descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/induced-character-client",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "title": "Automorphic induction of a quadratic Hecke character",
+      "kind": "application",
+      "statement": "Export the quadratic rank-one automorphic induction theorem used by BCGP Lemma 10.2.4: if a given irreducible two-dimensional potentially abelian de Rham Galois representation is not finite up to twist, the consumer identifies it as Ind_(G_K)^(G_F)ψ_p for a quadratic K/F and an algebraic Hecke character ψ with distinct conjugates. The automorphic output required here is the cuspidal AI_K/F(ψ), with the induced unramified parameters and determinant including the quadratic extension character. The classification of the given Galois representation is the consumer’s input, not a new construction here.",
+      "hypotheses": [
+        "The Hecke character and the quadratic induction identification are supplied as input.",
+        "Distinct conjugates are essential to cuspidality."
+      ],
+      "proofSteps": [
+        "Apply the rank-one prime-degree automorphic induction theorem.",
+        "Use the nontrivial Galois orbit to prove cuspidality.",
+        "Compute the induced unramified parameters and central character.",
+        "Expose the finite-up-to-twist alternative as a separate consumer case."
+      ],
+      "acceptance": [
+        "If ψ is Galois-invariant, the induced automorphic representation is an isobaric sum, not cuspidal.",
+        "The determinant includes the quadratic permutation character."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction"
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP",
+          "locator": "Lemma 10.2.4, p. 213 (arXiv copy)",
+          "match": "The quadratic Hecke-character induction client."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Automorphic/Endoscopy/ET7a",
+        "namespace": "TauCeti.Endoscopy"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "need": "Add an early local p-divisible/formal-module supplier after Dieudonné theory: deformation representability with full Drinfeld levels for one-dimensional formal O_E modules and special O_D modules; SW13 5.1.4, 5.1.6 and 5.2.1 with Hodge–Tate subspace and vector-bundle exact sequence, including the SW20 covariant conversion and O_E-linear specialization. This is an explicit scope-extension request, not a claim that R07.2 already has those local results. Move the local classification out of T2 and assign its FF bundle prerequisites below this supplier.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/basic-modification-functor",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object"
+      ]
+    },
+    {
+      "supplier": "PerfectoidSpaces:P5",
+      "need": "Finite-level étale-object descent, the tilde-limit topology and completed affinoid colimit, with compatible descent of compact supports through cofinal levels. Supply the topos-level statement required for equivariant tower cohomology; a space limit alone is insufficient.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/perfectoid-limit",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/equivariant-cohomology-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/stein-mittag-leffler"
+      ]
+    },
+    {
+      "supplier": "DiamondsAndVStacks:D6",
+      "need": "The diamond associated to a classical analytic adic space, full faithfulness and compatibility with the marked untilt and group actions for the classical tower-fibre comparison.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/basic-modification-functor",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/stein-mittag-leffler"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H1:formal-adic-comparison",
+      "need": "Comparison of formal-model generic-fibre nearby cycles with analytic cohomology on finite tower/compact-unitary levels, including pullback, proper trace and Weil descent. Do not use the higher Galois compatibility theorem.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/equivariant-cohomology-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology"
+      ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.6",
+      "need": "Nearby-cycle functors and the perverse/spectral-sequence formalism on the actual compact unitary integral model with stratum restriction, coefficient local systems and inertia. No Harris–Taylor stratum calculation is assumed to be contained in this general supplier.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/unitary-nearby-cycle-decomposition"
+      ]
+    },
+    {
+      "supplier": "DiamondSixOperations:S2",
+      "need": "Non-quasicompact compactifiable proper-support pushforward and finite étale pullback/trace in all required dimensions n−1, plus the analytic comparison of support functors. The classical H3 curve theory alone is inadequate for n>2.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object"
+      ]
+    },
+    {
+      "supplier": "AdicCoefficientsAndComparisons:L0",
+      "need": "At a fixed finite level, adic coefficient complexes as derived inverse limits over ell^r, derived reduction and scalar extension, followed by the separate smooth level colimit; no unproved interchange of these limits.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.0",
+      "need": "Smooth group representations over Λ, equivariant derived complexes with additional abstract W_E action, exact characteristic-zero compact-mod-centre sector extraction, tensor/Hom dual convention, and compatible level colimits.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/central-quotient-sector"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.2",
+      "need": "Normalized opposite-parabolic Jacquet functors, normalized induction and trace duality with constant terms, including additivity on Grothendieck groups.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction"
+      ]
+    },
+    {
+      "supplier": "LocallyAnalyticDistributions:L0",
+      "need": "Locally analytic vectors in the rank-two tower affinoid function spaces, their analytic-radius topology and continuous Lie-algebra differentiation. Pan22’s explicit local-series and Higgs compatibility input must be assigned once within this lower analytic direction.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/gross-hopkins-vector-fields",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/analytic-vectors-under-duality"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.2",
+      "need": "Cuspidal automorphic representations with unitary central character, normalized restricted tensor products and square integrability modulo the centre.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/speh-representation"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.5",
+      "need": "Matsushima/complex cohomological decomposition for the standard definite and one-place-indefinite unitary datum, the relevant tempered infinity packet, and the characteristic-zero middle-degree calculation. This is not integral or Igusa concentration.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/oldform-dimensions"
+      ]
+    },
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.4",
+      "need": "The discrete and continuous automorphic spectral decomposition with fixed unitary central character, normalized Langlands quotients, meromorphic normalized Eisenstein intertwiners, their Rankin–Selberg factors and residue calculus. These are inputs to the MW target here; the residual Speh classification in this part supplies the resulting GL discrete data.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/speh-representation"
+      ]
+    },
+    {
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+      "need": "Independent stable/twisted unitary trace identities with all L-embeddings, transfer factors, measures, Lefschetz infinity functions and normalized intertwiners. Also provide generic unitary packet relevance and multiplicity formulas (Mok/KMSW generic theorem as used in LTXZZ C.3.1), local unitary quotient base change, special-maximal packet comparisons, small-level transfer, and general-type GL4/GSp4 transfer. Relocate cyclic BC/AI to proposed ET.4b before ET.6; neither later Igusa concentration nor AG2/FS agreement may prove these inputs.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/global-extraction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/twisted-spectral-normalization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/weak-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/oldform-dimensions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/proper-endoscopy-check",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/gsp4-solvable-descent-interface"
+      ]
+    },
+    {
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+      "need": "Associated endoscopic/base-change test functions, local fundamental lemmas and normalized Satake maps for the fixed split, hyperspecial and cyclic unramified cases.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level"
+      ]
+    },
+    {
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "need": "Independent geometric Igusa trace/stabilization and the explicit effective-Levi/Newton transfer theorem, including signs, opposite Jacquet convention, modulus/character twists, factorization through the inner form and the Frobenius-shift extension from acceptable functions (Shin09 Lemma 6.4). Import the rational-Igusa object after its proposed relocation to early ET.5a before ET.5; the current ET.7b stage label must not be used as an ET.5 prerequisite. This resolves the ordering only once the maintainer applies the move.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/csnc-test-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace"
+      ]
+    },
+    {
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+      "need": "Classical characteristic-zero GL_n LLC and JL with division invariant, duality, central character, reciprocity and unramified twists. Audit the independent cyclic BC/AI input and reorder it to ET.4b. Supply elliptic JL character sign and compatibility of local unitary GL quotient parameters; no tower or FS realization is imported to define rec.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-conventions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/global-extraction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/fs-normalization-contract",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/local-unitary-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7/division-inner-form-check"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Harris–Taylor primary proof access",
+      "detail": "The full Harris–Taylor book is neither cleared in atlas-library/INDEX.md nor freely accessible from an authorized copy found in this run. Dat §4.1 expressly imports its global realization. The raw compact unitary integral model, Newton-stratum nearby-cycle decomposition, global extraction, actual supercuspidal concentration and scalar normalization have a target-level plan but no independently read book proof or precise internal theorem/page locators. Obtain/register the book, then match its exact statements and proof chain. The packet is planned, not source_decomposed or closed.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/raw-compact-unitary-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/unitary-nearby-cycle-decomposition",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/global-extraction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector"
+      ]
+    },
+    {
+      "title": "Independent Dat-to-FS action dictionary",
+      "detail": "The literal Dat sector and Weil contragredient are stated exactly. FS IX.7.4 witnesses the requested normalized Hecke outputs but cannot independently prove their convention conversion. Read the Harris–Taylor dictionary and check the source-torsor right actions, contragredient, inverse transpose, central quotient, [n−1] and ((n−1)/2) normalization before certifying the FS export. An arithmetic/geometric Frobenius substitution alone cannot invert an arbitrary nonabelian Weil representation.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/fs-normalization-contract"
+      ]
+    },
+    {
+      "title": "Early local formal-module and classification supplier",
+      "detail": "R07.2 currently plans Dieudonné theory, not the entire O_E/O_D deformation/classification interface requested here. The SW13 local classification and SW20 sign conversion must move below the tower and below relative T2. The general representation of the special O_D formal moduli also needs its primary proof (Drinfeld/Rapoport–Zink or the source explicitly proving the specialization); SW13 duality alone is not that integral representability proof.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/drinfeld-tower",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/infinite-level-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/basic-modification-functor"
+      ]
+    },
+    {
+      "title": "Primary pure-transfer and packet proofs",
+      "detail": "LTXZZ 3.2.8 cites Labesse’s existence theorem, C.3.1 cites the generic KMSW classification, and D.2.2 cites Morel/small-level transfer. Their exact consumer statements were read, but this part does not certify those independently unread primary proofs. ET.4 must supply the requested independent pure-transfer, generic packet, small-level and GSp4 classification contracts. Local LLC in ET.6 does not automatically supply all global unitary packet members.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cohomological-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/relevant-packet-multiplicity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/definite-indefinite-switches",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/transferable-level",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/oldform-dimensions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/gsp4-solvable-descent-interface"
+      ]
+    },
+    {
+      "title": "Early cyclic base-change ordering repair",
+      "detail": "The confirmed langlands red-team finding /1 identifies a classical LLC route in ET.6 that already needs cyclic base change. The current stage placement of BC/AI in ET.7a is therefore too late. These target nodes remain in this issue’s current scope but are marked for relocation to a new ET.4b after ET.3/4 and AS.6, before ET.6; there is no ET.7a→ET.6 prerequisite in this packet. This ordering proposal is not an integrated atlas change and must be applied before packaging.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-base-change",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/cyclic-automorphic-induction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/global-extraction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/supercuspidal-dat-sector"
+      ]
+    },
+    {
+      "title": "Early Igusa geometry and rational trace move",
+      "detail": "The higher IG.0/IG.1 packet already records the central leaf, liftable torsors, Mantovan/perfect tower and rational Euler class. WORKERS requires their early clauses to move down to this part and be relocated to an ET.5a supplier before ET.5. Leaving the object under ET.7b while importing the entire ET.7b stage into ET.5 would create a cycle: the signed trace target already imports ET.5. The lower PEL/finite-flat suppliers must cover the exact p-divisible isomorphism and liftable-automorphism proofs, including CSnc 2.2.7 and CS17 4.3.15 used in their construction. Redirect those higher clauses to the early node; compactified fibres, integral cohomology and concentration remain IG.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-igusa-object",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/rational-trace-export"
+      ]
+    },
+    {
+      "title": "Exact Newton-transfer conventions and acceptable extension",
+      "detail": "CS17 and Shin expose the reduction construction and trace identity. The primary transfer identities and the Frobenius-shift extension used by CSnc cite Shin09/10 and signed inner-form JL. ET.5 must match the complete CSnc normalization, including its modulus/character twist and every effective Levi embedding. The span proof intentionally drops some signs; it cannot supply the exact signed constants on its own.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/signed-igusa-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization"
+      ]
+    },
+    {
+      "title": "Analytic local-series and Higgs input",
+      "detail": "Pan v1 5.2.8 refers to Pan22 for its full local-series proof and explicitly notes an additional Higgs-field compatibility check on the toric chart. This was not independently proved here. The lower analytic supplier must provide the input and the explicit normalization constant in the operator comparison must remain nonzero but unspecified until coordinates are fixed. Publication-number correspondence for the 2026 Annals version has not been checked.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/analytic-vectors-under-duality"
+      ]
+    },
+    {
+      "title": "All-dimensional support comparison",
+      "detail": "The classical curve compact-support roadmap H3 cannot alone construct C_T for arbitrary n. The lower diamond support and coefficient bundle must provide the all-dimensional analytic/tower topos support comparison and its equivariant cofinal descent. The Dat result is a target theorem with its proof route, not a claim that generic perfectoid limit machinery already proves it.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/tower-compact-support",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/equivariant-cohomology-comparison"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EndoscopicTransferAndUnitaryTraceComparison"
+      ],
+      "detail": "Confirmed RT-AREA-langlands-1/1: ET.6 classical LLC needs cyclic BC/AI currently placed after it.",
+      "proposal": "Create ET.4b after ET.3/ET.4 and AS.6, move the cyclic-base-change and cyclic-automorphic-induction targets there, and add ET.4b→ET.6, ET.7a and the modularity-extension consumers. Keep ET.7a pure cohomological unitary transfer and residual Speh comparison. Current packet retains the assigned scope pending this decision."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+        "IntegralRelativeFarguesFontaine",
+        "EndoscopicTransferAndUnitaryTraceComparison"
+      ],
+      "detail": "Confirmed RT-AREA-padic-1/25: SW13 local classification must precede T2 and the towers.",
+      "proposal": "Add an early local p-divisible stage after R07.2, with the independent geometric FF bundle classification and the SW13 5.1.4/5.1.6/5.2.1 proof chain; route T2, IG.3 and ET.6a to it. Do not import relative T2 back into the classical tower construction."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EndoscopicTransferAndUnitaryTraceComparison",
+        "HeckeStacksAndLocalShtukas",
+        "HeckeStacksAndLocalShtukasIntegralPartII"
+      ],
+      "detail": "Confirmed RT-AREA-geomlanglands/2 and current HS3/classical-comparison overlap: tower comparison needs one owner and direction.",
+      "proposal": "ET.6a owns the narrow basic minuscule fibre and the LT/Dr specialization of SW20 24.2.5/24.3.5. Redirect HS3 tower clauses and ES7 to these nodes. General HS2 local-shtuka construction and the general EL/PEL integral comparison remain with their owners. No ET.6a→HS3 dependency; HS3 and ES7 consume ET.6a."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EndoscopicTransferAndUnitaryTraceComparison",
+        "AutomorphicGaloisRepresentationsPartII",
+        "IgusaVarietiesAndTorsionConcentration"
+      ],
+      "detail": "WORKERS upstream tier rule moves higher raw geometry and rational Igusa inputs down before ET.",
+      "proposal": "Move only the early compact-unitary raw model/cohomology clauses of AG2.1a and the central-leaf/Mantovan/perfect-tower/rational Euler-class clauses of IG.0/IG.1 needed by this part to ET.6a and a proposed early ET.5a rational-Igusa supplier before ET.5, respectively. The rational object is retained in the assigned ET.7b scope until that move is approved; the trace theorem stays ET.7b. Higher stages import these nodes; global Galois representations, boundary localization, compactified fibres, integral concentration and residual applications stay with AG2/IG."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+      "status": "planned",
+      "remaining": [
+        "Read the registered Harris–Taylor book proof and finish the independent action dictionary.",
+        "Obtain the lower formal-module/classification and all-dimensional support suppliers.",
+        "Verify the additional analytic source input."
+      ]
+    },
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+      "status": "planned",
+      "remaining": [
+        "Run the concrete branch normalization checks against implemented suppliers; no claim of formalized trace comparison."
+      ]
+    },
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+      "status": "planned",
+      "remaining": [
+        "Apply early cyclic BC/AI ownership repair.",
+        "Read/match primary Labesse, generic unitary packet and small-level transfer proofs through ET.4 suppliers."
+      ]
+    },
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+      "status": "planned",
+      "remaining": [
+        "Apply the ET.5a early rational-Igusa ownership/order move and match all ET.5 signs/twists.",
+        "Supply the independent acceptable-function extension and geometric trace proof."
+      ]
+    }
+  ],
+  "sourceIssues": [],
+  "libraryAudit": {
+    "snapshot": "data/library-coverage.json at atlas main 5f24c2ce6",
+    "result": "No reviewed row for these four ET stages; neighboring HS0–HS4 are recorded as not built, with only basic Witt/isocrystal infrastructure partial. Current TauCeti searches find no LT/Dr tower, Igusa, Speh or JL carrier. No blanket absence claim about foundational categories.",
+    "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "readRoadmaps": [
+      "TauCetiRoadmap/AdicSpaces/README.md and Suggested.lean",
+      "TauCetiRoadmap/RepresentationTheory/CompactGroups/README.md and Suggested.lean"
+    ],
+    "duplicationBoundary": "Adic geometry, normalized compact Haar averaging and compact representation characters are reused. They do not provide the noncompact smooth tower cohomology or global spectral comparison. General PEL, general local shtukas and finite-flat universal covers are imported/moved as specified, never replanned wholesale."
+  },
+  "sourceNotes": [
+    {
+      "source": "CDN23",
+      "note": "Issue route says Lemma 3.3; the read published PDF and its paper extraction identify the Stein-cover Mittag–Leffler statement as Lemma 3.10, pp. 35–36. This is an intake locator correction, not a claimed published erratum."
+    },
+    {
+      "source": "SW20",
+      "note": "Negative Newton slope of b and positive degree of E_b in the p-divisible modification sequence are distinct conventions. The FS O(−1/n) source orientation is compared separately, not substituted."
+    },
+    {
+      "source": "Pan",
+      "note": "The v1 footnote before 5.2.8 calls for an additional Higgs comparison check; this is retained as a source/proof input gap, with no claim against the uncollated 2026 published version."
+    }
+  ],
+  "provenance": {
+    "issue": 9408,
+    "job": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
+    "session": "codex-D5P0JW",
+    "model": "Codex (GPT-6)",
+    "date": "2026-10-14",
+    "detail": "Target level; proof refinements remain in sketches rather than one node per small lemma."
+  }
+}
