@@ -251,6 +251,12 @@ example (q : R) : pAnalog 2 q = 1 + q := by
 example : qInteger 3 (2 : ℤ) = 7 := by
   norm_num [qInteger, Finset.sum_range_succ]
 
+/-- The two-endomorphism cochain Koszul convention cancels the mixed term. -/
+example (m : ℤ) : 3 * (2 * m) - 2 * (3 * m) = 0 := by ring
+
+/-- Replacing subtraction by addition fails already at the integer unit. -/
+example : 3 * (2 * (1 : ℤ)) + 2 * (3 * 1) = 12 := by norm_num
+
 end QCrys
 
 /-! ## Layer 6: Étale comparisons and syntomic complexes -/
@@ -373,8 +379,8 @@ functor; The crystalline and de Rham realisations; The Breuil–Kisin and A_inf 
 Spf(O_K), and their Čech nerves; Period sheaves on the quasi-syntomic site of O_K; From filtered
 φ-modules to F-crystals over the open unit disc; The prismatic F-crystal of a crystalline lattice.
 
-Layer 8: δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free δ_log-
-rings; Exactification of δ_log-triples; Prelog prisms; Log prisms; The standard prelog prisms;
+Layer 8: δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free
+δ_log-rings; Exactification of δ_log-triples; Prelog prisms; Log prisms; The standard prelog prisms;
 Prelog prismatic envelopes; Perfectoid monoids and perfectoid log rings; Perfect log prisms; The
 relative log prismatic site; Log prismatic cohomology complexes; The absolute saturated log
 prismatic site; Čech–Alexander complexes for log prismatic cohomology; The log Hodge–Tate comparison
