@@ -84,11 +84,30 @@ This is an import of the weight part of Serre's conjecture, not an application
 of the full theorem asserting modularity of every S-type representation.
 `SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem` supplies the
 weight step; R20.4 supplies prime-to-p level and weight-two passage, and R20.6
-is requested for their uncovered small-prime cases. R15.2 and R15.5 supply the
-passage from a Katz eigenform to a characteristic-zero eigenform. R17.4 supplies
-soluble base change. One may enlarge the prime-to-p level to meet N>4; this
+is requested for their uncovered small-prime cases. The accepted R15.2 and
+R15.5 exports give a **conditional** passage from an actual integral reduction eigenvector to a characteristic-zero eigenform.
+They do not lift every Katz form at the same weight. R17.4 supplies soluble
+base change. One may enlarge the prime-to-p level to meet N>4; this
 interface makes no assertion of optimal level. KW II §8.2, p. 70, and §10.2,
 p. 92, fix these witness requirements and qualifications.
+
+The R22.5 adapter must establish the characteristic-zero witnesses at the
+specified weights and levels. If it uses R15.2/R15.5, it must supply the
+integral cusp-lattice reduction eigenvector, with the character and Hecke
+operators needed for the residual comparison. Fine-level holomorphic base
+change alone does not discharge the cusp/character condition. The R15
+invertible-level hypotheses also do not directly cover the β level Np.
+A direct classical witness argument is another possible route; a Hasse-power
+weight shift is insufficient when it changes α's required weight k(ρ̄) or β's
+weight 2. The packet adds an exact request to the R22.5 adapter for this proof
+obligation. It is not an extra hypothesis on KW Theorem 4.1.
+
+R20.6's `strong-form-case-table` is a manifest, rather than a proof export for
+all small-prime cases. Some rows cite later R27 Serre modularity. They cannot
+serve as an input to Theorem 4.1 through a proof that already uses that theorem.
+The small-prime request therefore asks for an acyclic proof of the weaker
+witness statement needed here. Enlarging prime-to-p level may help meet the
+supplier's level guards; no optimal Serre-level conclusion is demanded.
 
 **Checks of the imported definitions.** Each row is about a specified witness;
 failure of that witness does not prove nonexistence of every other witness.
@@ -101,7 +120,8 @@ failure of that witness does not prove nonexistence of every other witness.
 These are the three tests of each existing R22 predicate, exposed here for the
 consumer. Also check that at dyadic residual weight 4 the adapter does not
 promise α, and that a characteristic-p Katz form is not passed directly as a
-characteristic-zero automorphic witness. No new definition unit tests are
+characteristic-zero automorphic witness, or lifted at a changed weight and
+then treated as the prescribed α/β witness. No new definition unit tests are
 counted in this packet.
 
 ### KW I Theorem 4.1: imported theorem contract
@@ -147,7 +167,9 @@ for general potentially semistable weight two also require verification by the
 supplier. This document imports the full statement while keeping those proof
 boundaries visible. It does not reproduce or certify their proofs. No step
 in this route invokes KW II Theorem 6.1, Theorem 10.1, or the existence of a
-new global lift.
+new global lift. Elementary field selection from R23.1 may enter transitively
+through the allowable-field supplier (KW II Lemma 8.1, p. 69); that is distinct
+from the potential-modularity construction in R23.3–R23.6.
 
 **Acceptance checks of the application.**
 
@@ -223,11 +245,14 @@ proof/signature gaps. This dedicated pass adds zero nodes, zero API items,
 zero definition tests and zero planets. The six owner definition tests are
 displayed above, and the suggested file has three matrix example signatures.
 The packet remains complete with proof closure false. The remaining work is
-the R22.5 endpoint/branch verification, small-prime residual witnesses and
-realization of the arithmetic signatures by their owners.
+the R22.5 endpoint/branch verification, small-prime residual witnesses, the
+exact-weight characteristic-zero witness bridge, and realization of the
+arithmetic signatures by their owners. The independent review accepts this
+import plan with four explicit gaps and four open requests; it does not certify
+the R22 owner packet, whose review remains `needs_changes`.
 
 - Khare–Wintenberger, [*Serre's modularity conjecture (I)*](https://www.math.ucla.edu/~shekhar/papers/results.pdf), author's preprint of Invent. Math. 178 (2009), 485–504: conventions in §1, p. 2, §1.5, p. 4, and §4, pp. 6–7; Theorem 4.1, p. 7.
-- Khare–Wintenberger, [*Serre's modularity conjecture (II)*](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), author's preprint of Invent. Math. 178 (2009), 505–586: §8.2, p. 70; Theorem 9.7, pp. 89–90; §10.2 and Remark, p. 92.
+- Khare–Wintenberger, [*Serre's modularity conjecture (II)*](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), author's preprint of Invent. Math. 178 (2009), 505–586: Lemma 8.1, p. 69; §8.2, p. 70; Theorem 9.7, pp. 89–90; §10.2 and Remark, p. 92.
 
 Both copies were read on 2026-10-14. Their SHA-256 hashes and inspected
 locators are in the packet. No publisher collation or reading of Kisin's Durham

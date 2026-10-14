@@ -22,7 +22,9 @@ Full signatures omitted:
 * TauCeti.CompatibleSystems.alpha_beta_from_residual_modularity
   Import GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q. The full
   residual lattice/newform comparison and alpha/beta witness carriers are supplied
-  arithmetic interfaces. Dyadic alpha is asserted only for residual weight two.
+  arithmetic interfaces. Their characteristic-zero witnesses must have the prescribed
+  weights and levels: conditional Katz lifting or a Hasse shift alone does not
+  supply them. Dyadic alpha is asserted only for residual weight two.
 * TauCeti.CompatibleSystems.kw_theorem_4_1
   Import GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime and
   GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic. The full local Hodge,
