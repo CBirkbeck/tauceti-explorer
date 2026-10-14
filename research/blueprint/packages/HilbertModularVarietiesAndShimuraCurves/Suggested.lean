@@ -128,6 +128,10 @@ example : integralTraceFamily ℚ 1 (1, 0) (0, 1) = 1 := by
 example (x y : ℚ × ℚ) : integralTraceFamily ℚ 0 x y = 0 := by
   simp [integralTraceFamily]
 
+-- `stabilizer_nonunit`: adelic invertibility and integral entries do not imply lattice equality.
+example : Matrix.det !![(2 : ℤ), 0; 0, 1] = 2 ∧ ¬ IsUnit (2 : ℤ) := by
+  norm_num [Matrix.det_fin_two, Int.isUnit_iff]
+
 /-! ## Layer H3: polarization quotients and Hilbert Hecke maps -/
 
 section Units
@@ -200,6 +204,12 @@ abbrev HilbertTamePolarizationGroup (M : ℕ) :=
   TamePolarizationGroup F (NumberField.totallyPositiveIntegerUnits (K := F)) M
 
 /-! ## Layer H4: full levels, effective actions and connected limits -/
+
+-- `scalarKernel_collision`: a residue scalar may have a different tame-congruent lift.
+example : (-1 : ZMod 2) = 1 ∧ (-1 : ZMod 5) ≠ 1 := by decide
+
+-- `scalarKernel_tame`: the same scalar is distinguishable at the odd wild prime.
+example : (-1 : ZMod 3) ≠ 1 := by decide
 
 /-- `U_{p^n} ∩ P`, the units of the connected unit tower at `p^n`. -/
 def connectedCongruenceUnits (p n : ℕ) : Subgroup P :=

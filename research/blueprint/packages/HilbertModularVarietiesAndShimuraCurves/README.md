@@ -76,7 +76,7 @@ Trace duality and the different come from `Algebra.trace`, `Submodule.mem_traceD
 
 ### From Tau Ceti
 
-At the pinned Tau Ceti, `NumberField.IsTotallyPositive`, `NumberField.totallyPositiveIntegerUnits` and `NumberField.sq_mem_totallyPositiveIntegerUnits` supply positivity and the containment of unit squares. `NumberField.unitsMulEquivTorsionProdMultiplicative`, `NumberField.units_sq_index_eq` and `NumberField.card_elementaryTwoQuotient_units` supply the structure of the unit group and the order of its square classes. The narrow class group comes with `NumberField.NarrowClassGroup.instFinite` and `NumberField.NarrowClassGroup.exists_mk0_eq_and_isCoprime_absNorm`. `QuaternionAlgebra.normForm_coe` gives the norm z² of a central element. `TauCeti.SU2.symPower`, `TauCeti.SU2.finrank_symPower`, `TauCeti.SU2.isIrreducible_symPower` and `TauCeti.SU2.existsUnique_nonempty_equiv_symPower` give the representations of SU(2) used at the definite real places. `TauCeti.LocalCoefficientSystem`, with `pullback`, `monodromyRepresentation` and `constantFunctor`, is the fundamental-groupoid carrier of Betti coefficients. The current Tau Ceti library adds twisted cochains and cohomology of local systems; it is contravariant in coefficients, so the finite-free arithmetic coefficient W enters through its dual (§R18.4.12). None of these is redefined here.
+At the pinned Tau Ceti, `NumberField.IsTotallyPositive`, `NumberField.totallyPositiveIntegerUnits` and `NumberField.sq_mem_totallyPositiveIntegerUnits` supply positivity and the containment of unit squares. `NumberField.unitsMulEquivTorsionProdMultiplicative`, `NumberField.units_sq_index_eq` and `NumberField.card_elementaryTwoQuotient_units` supply the structure of the unit group and the order of its square classes. The narrow class group comes with `NumberField.NarrowClassGroup.instFinite` and `NumberField.NarrowClassGroup.exists_mk0_eq_and_isCoprime_absNorm`. `QuaternionAlgebra.normForm_coe` gives the norm z² of a central element. `TauCeti.SU2.symPower`, `TauCeti.SU2.finrank_symPower`, `TauCeti.SU2.isIrreducible_symPower` and `TauCeti.SU2.existsUnique_nonempty_equiv_symPower` give the representations of SU(2) used at the definite real places. `TauCeti.LocalCoefficientSystem`, with `pullback`, `monodromyRepresentation` and `constantFunctor`, is the fundamental-groupoid carrier of Betti coefficients. The current library module `TauCeti.AlgebraicTopology.Cohomology.Twisted.Basic` supplies `TauCeti.LocalCoefficientSystem.twistedCochainComplex`, `twistedCohomology` and `twistedCochainComplexCoefficientMap`; it is contravariant in coefficients, so the finite-free arithmetic coefficient W enters through its dual (§R18.4.12). None of these is redefined here. The current module `TauCeti.RingTheory.DedekindDomain.Different.DualFamily` also supplies `TauCeti.exists_trace_mul_algebraMap_eq` and `TauCeti.exists_sum_trace_mul_smul_eq` for finite projective integral closures. H0 keeps only the alternating two-summand polarization lattice and its ideal-dependent stabilizer. `TauCeti.NumberTheory.HeckeRing.GL2.Degree` supplies `HeckeRing.GL2.degree_diagCoset_prime_pow` and `HeckeRing.GL2.deg_heckeT` for the rational integral GL₂ Hecke ring; the targets here concern its local quaternionic and totally real coefficient actions, not that generic degree theory.
 
 ### From Tau Ceti roadmaps
 
@@ -241,13 +241,15 @@ In [Suggested.lean](Suggested.lean): `integralTraceFamily`, `integralTraceFamily
 
 ### H0.5 Trace-dual lattice and its stabilizer
 
-**Theorem** (`latticeDuality`). For ψ(x, y)=Tr(x₁y₂−x₂y₁), the ℤ-dual lattice of L_c is c⊕d⁻¹=c L_c. Its finite adelic row stabilizer is K_c=GL₂(A_{F, f})∩[[Ô,(cd)⁻¹Ô],[cdÔ,Ô]]. Intersecting with G*(A_f) imposes rational scalar determinant. These are equalities of lattices and groups, including nonprincipal c.
+**Theorem** (`latticeDuality`). For ψ(x, y)=Tr(x₁y₂−x₂y₁), the ℤ-dual lattice of L_c is c⊕d⁻¹=c L_c. Its finite adelic row stabilizer is the unit group K_c of the order [[Ô,(cd)⁻¹Ô],[cdÔ,Ô]]: equivalently, its matrices have these entry ideals and determinant in Ô×. Invertibility over A_{F,f} alone is insufficient. Intersecting with G*(A_f) imposes rational scalar determinant. These are equalities of lattices and groups, including nonprincipal c.
 
-*Proof route.* Dualize the two summands using the pinned fractional-ideal trace-dual formula. Use the row action: L_c γ=L_c determines the four entry ideals and invertibility of γ. Apply the calculation locally, then take restricted products.
+*Proof route.* Dualize the two summands using the pinned fractional-ideal trace-dual formula. Use the row action: L_c γ⊆L_c determines the four entry ideals, and L_c γ=L_c additionally requires determinant in Ô×. The adjugate then preserves the same order and division by the unit determinant gives its inverse. Apply the calculation locally, then take restricted products.
 
 In [Suggested.lean](Suggested.lean): `traceAlternatingDual`, `lattice_duality`.
 
-(Source: [BHW23](#references) Notation 5.1(3) and Definition 5.2(1), pp.1740–1741.)
+**Checks.** For F=ℚ and c=ℤ, K_c=GL₂(Ẑ). The matrix diag(2,1) satisfies the integral entry conditions and belongs to GL₂(A_{ℚ,f}), but contracts ℤ₂² strictly and is excluded by its nonunit determinant. The identity satisfies both conditions.
+
+(Source: [BHW23](#references) Notation 5.1(3) and Definition 5.2(1), pp.1740–1741; the displayed order is interpreted through its units to enforce lattice equality.)
 
 *Needs:* [H0.3 Polarization lattice](#h03-polarization-lattice), [H0.4 Integral trace polarization family](#h04-integral-trace-polarization-family); Mathlib `FractionalIdeal.dual_eq_mul_inv`, `FractionalIdeal.dual_dual`.
 
@@ -292,7 +294,7 @@ Its API:
 - `ordered_negative`: Multiplication by −1 is not an automorphism of the standard ordered module.
 - `ordered_nonprincipal`: An invertible nonprincipal ideal with its embedding cones is admitted without a basis.
 
-(Source: [Tay02](#references) §1, p.9, ordered invertible OM-module.)
+(Source: [Tay02](#references) §1, p.10, ordered invertible OM-module.)
 
 *Needs:* Tau Ceti `NumberField.IsTotallyPositive`; Mathlib `FractionalIdeal.dual`.
 
@@ -316,7 +318,7 @@ Its API:
 - `polModule_zero`: Zero is symmetric and is excluded from the positive cone.
 - `polModule_negative`: If λ is a polarization, −λ is symmetric but not positive.
 
-(Source: [DP94](#references) §§1.1–1.5 and 2.1, pp.60–63.)
+(Source: [DP94](#references) §§1.1–1.5 and 2.1, pp.60–64.)
 
 *Needs:* [H1.1 Ordered polarization module](#h11-ordered-polarization-module); [AbelianSchemesAndArithmeticModuli](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/AbelianSchemesAndArithmeticModuli/README.md) `A1`, `A2`, `A3`.
 
@@ -337,7 +339,7 @@ Its API:
 - `cPol_negative`: The negative symmetric map reverses the cone and is not a c-polarization.
 - `cPol_nonprincipal`: No global generator of c is required.
 
-(Source: [DP94](#references) §§1.1–1.5 and 2.1, pp.60–63.)
+(Source: [DP94](#references) §§1.1–1.5 and 2.1, pp.60–64.)
 
 *Needs:* [H1.2 Symmetric real multiplication polarizations](#h12-symmetric-real-multiplication-polarizations), [H1.1 Ordered polarization module](#h11-ordered-polarization-module); [AbelianSchemesAndArithmeticModuli](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/AbelianSchemesAndArithmeticModuli/README.md) `A3`, `A2/rosati-involution`.
 
@@ -409,7 +411,7 @@ Its API:
 
 ### H1.8 Linearized Hilbert Weil pairing
 
-**Construction** (`linearWeilPairing`). For m invertible on S and a c-polarized HBAV, define ẽ_m:A[m]×A∨[m]→d⁻¹⊗_ℤμ_m by ẽ_m(x, y)(a)=e_m(ax, y). Under the trace identification d⁻¹≅Hom_ℤ(O,ℤ), it is perfect O-bilinear and Tr∘ẽ_m=e_m. Combining λ⁻¹ with it gives an alternating pairing on A∨[m] with target c d⁻¹⊗μ_m; equivalently its first argument is twisted by c⁻¹ and the target is d⁻¹⊗μ_m. The pairing on integral finite-flat torsion is an fppf pairing, not a pairing just of geometric points.
+**Construction** (`linearWeilPairing`). For an integer m≥1 invertible on S and a c-polarized HBAV, define ẽ_m:A[m]×A∨[m]→d⁻¹⊗_ℤμ_m by ẽ_m(x, y)(a)=e_m(ax, y). Under the trace identification d⁻¹≅Hom_ℤ(O,ℤ), it is perfect O-bilinear and Tr∘ẽ_m=e_m. Combining λ⁻¹ with it gives an alternating pairing on A∨[m] with target c d⁻¹⊗μ_m; equivalently its first argument is twisted by c⁻¹ and the target is d⁻¹⊗μ_m. The pairing on integral finite-flat torsion is an fppf pairing, not a pairing just of geometric points.
 
 *Construction.* Use the A3 Weil pairing and its Rosati adjointness to make a↦e_m(ax,y) O-linear. Apply the trace-dual identification; prove perfectness by the imported Cartier-dual Weil perfectness. Transport through the actual λ and retain the c⁻¹ twist.
 
@@ -603,7 +605,7 @@ Its API:
 - `hasseDomain_dyadic`: The same rational inequality and lift comparison works at p=2.
 - `hasseDomain_endpoint`: At ε=1 the lifts 0 and p of the zero special-fibre section give respectively empty and whole inequality domains.
 
-(Source: [AIP §16](#references) §3.2, Definition 3.1, pp.10–11, formal thickenings; rational-domain comparison by AdicSpacesAndPerfectoidGeometry R2.)
+(Source: [AIP §16](#references) §3.2, Definition 3.1, pp.10–11, formal thickenings; rational-domain comparison by AdicSpacesPartII R2 (formal schemes, generic fibres and Hasse domains).)
 
 *Needs:* [H2.7 Hilbert Hasse ideal](#h27-hilbert-hasse-ideal); [AdicSpacesPartII](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/AdicSpacesPartII/README.md) `R2/section-domain-formal-model`, `R2/hasse-domain`.
 
@@ -768,7 +770,7 @@ In [Suggested.lean](Suggested.lean): `tamePolarizationGroup_finite`.
 
 ### Examples
 
-For F=ℚ the totally positive units are trivial and every Δ(M) is trivial. For a real quadratic field with a totally positive fundamental unit ε, Δ(1)=⟨ε⟩/⟨ε²⟩ has order two.
+For F=ℚ the totally positive units are trivial and every Δ(M) is trivial. For F=ℚ(√3), ε=2+√3 generates U modulo {±1} and is totally positive, so Δ(1)=⟨ε⟩/⟨ε²⟩ has order two. For F=ℚ(√2), the fundamental unit 1+√2 has norm −1; its square generates U⁺ and Δ(1) is trivial. A generator of U⁺ need not generate U modulo torsion.
 
 ### Dependencies
 
@@ -1050,8 +1052,9 @@ Its API:
 **Checks.**
 
 - `scalarKernel_Q`: For F=ℚ, N≥4, Z_n={I₂}.
-- `scalarKernel_central`: Every scalar image commutes with Γ₀.
-- `scalarKernel_tame`: A scalar global unit failing the N-congruence is not inserted into this image.
+- `scalarKernel_central`: For η∈U_N and u=[[1,1],[0,1]], both products (ηI₂)u and u(ηI₂) equal [[η,η],[0,η]] after reduction; replacing the scalar image by a noncentral diagonal subgroup fails this computation.
+- `scalarKernel_collision`: For F=ℚ, N=5, p=2 and n=1, −1 fails the tame congruence but reduces to 1. Thus the reduction of −I₂ belongs to Z₁ via the representative 1; membership is existential in the tame-congruent representative.
+- `scalarKernel_tame`: For F=ℚ, N=5, p=3 and n=1, U_N={1} and −I₂≠I₂, so −I₂ is not in Z₁. Quotienting by every residue scalar would erase a nontrivial element.
 
 (Source: [BHW23](#references) Definition 8.17 and §8.3.1, pp.1773–1775.)
 
@@ -1254,9 +1257,9 @@ Its API:
 
 **Theorem** (`hilbertFiniteLocalPoints`). For a finite place v of K_C, local nonemptiness is asserted only for explicitly constructed paired HBAVs in the selected component. Under Taylor §1’s ordinary-extension/CM-character hypotheses, construct them by the trace-polarized Tate lattice in the multiplicative case, or by the ordinary Honda–Tate HBAV followed by O-linear Serre–Tate lifting in the finite H_f extension class. At the second auxiliary characteristic use the separately specified ordinary construction. Matching both auxiliary torsion modules, pairing multipliers and component labels is part of the conclusion; arbitrary local Galois modules are not claimed realizable. Build the required structured ordinary Honda–Tate instance here: take Taylor’s ordinary Weil number α_v and its CM order, enlarge that order by the Serre tensor to O_N, transport the trace polarization so that Rosati is complex conjugation, and adjust the polarization ideal by an O_N-ideal quotient using the norm-class condition of Lemma 1.2. Check the resulting ordered O_M-polarization, both residue-prime torsion identifications, and the chosen component before invoking O_M-linear Serre–Tate lifting. The ordinary isogeny classification alone does not produce these integral structures. The local H_f class and its lift must satisfy Taylor’s actual CM-character and descent conditions.
 
-*Proof route.* For the multiplicative case choose the lattice parameter in the stated Kummer class and adjust its valuation by an auxiliary-divisible positive element to ensure trace polarization. For the ordinary case import Honda–Tate, construct the O-action and ordered polarization class, then lift the exact finite extension class by Serre–Tate with its endomorphism/polarization constraints. Check the two paired torsion identifications and the component label, then take the specified nonempty smooth local open. The exact Taylor input data and Honda–Tate supplier are explicit inputs, not an unconditional realization theorem.
+*Proof route.* For the multiplicative case choose the lattice parameter in the stated Kummer class and adjust its valuation by an auxiliary-divisible positive element to ensure trace polarization. For the ordinary case import Honda–Tate, construct the O-action and ordered polarization class, then lift the exact finite extension class by Serre–Tate with its endomorphism/polarization constraints. Check the two paired torsion identifications and the component label, then take the specified nonempty smooth local open. **Source obligation.** The complete Taylor input data must still be stated as hypotheses: the ordinary local residual extension and its H_f condition, the two chosen primes of the CM coefficient field, their CM characters and conjugation, and the ordered polarization/norm-class condition. Until that contract is written, the ordinary/CM qualification above is insufficient to use this as a local realization theorem.
 
-(Source: [Tay02](#references) Lemmas 1.2–1.3, pp.9–12.)
+(Source: [Tay02](#references) Lemmas 1.2–1.3, pp.10–12.)
 
 *Needs:* [H6.3 Selected component descent and irreducibility](#h63-selected-component-descent-and-irreducibility), [H6.1 Simultaneous torsion Isom torsor](#h61-simultaneous-torsion-isom-torsor); [AbelianSchemesAndArithmeticModuli](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/AbelianSchemesAndArithmeticModuli/README.md) `A4`, `A2`, `A3`; [FiniteFlatGroupsAndIntegralPadicHodgeTheory](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/FiniteFlatGroupsAndIntegralPadicHodgeTheory/README.md) `R07.6`.
 
@@ -1542,7 +1545,7 @@ Its API:
 
 ### R18.5.3 Standard Drinfeld formal model
 
-**Construction** (`DrinfeldFormalModel`). Start with X₀=P¹_O_K and form X_n by blowing up every smooth k-rational special-fibre point of X_{n−1}; take the π-adic completions. Remove the smooth k-rational points from X_n to form the formal open Ũ_n. Then Ũ_n⊂Ũ_{n+1}, its generic fibre is U_n, K, and Ω̂=⋃Ũ_n is a flat regular semistable formal model of Ω_K. Its components are P¹_k indexed by tree vertices and its nodes by tree edges, locally xy=π. The full GL₂(K) action factors through PGL₂(K).
+**Construction** (`DrinfeldFormalModel`). Start with X₀=P¹_O_K and form X_n by blowing up every smooth k-rational special-fibre point of X_{n−1}; take the π-adic completions. Remove the smooth k-rational points from X_n to form the formal open Ũ_n. Then Ũ_n⊂Ũ_{n+1}, its generic fibre is U_n over K, and Ω̂=⋃Ũ_n is a flat regular semistable formal model of Ω_K. Its components are P¹_k indexed by tree vertices and its nodes by tree edges, locally xy=π. The full GL₂(K) action factors through PGL₂(K).
 
 *Construction.* Use the existing admissible blow-up and generic-fibre-invariance API. Compute the exceptional and strict-transform components and edge charts. Glue formal opens, not an inverse limit of the projective blow-up models; extend the group action through lattice charts.
 
@@ -1883,7 +1886,7 @@ The comparison over K is of connected arithmetic components with their
 Galois action. If a single geometric component is selected, use its
 level-dependent component field from R18.1, not an assumed descent to K.
 
-*Proof route.* Use the connected and coefficient comparisons to identify level trivialisations. Choose finite-level tame subgroups killing the effective residual action as in Carayol Proposition 4.5.5. The named R18.1 supplier gives the geometric finite-level comparison only. Restore the exact Carayol descent field and cocycle before asserting the target over K; see the consuming-part gap.
+*Proof route.* Use the connected and coefficient comparisons to identify level trivialisations. Choose finite-level tame subgroups killing the effective residual action as in Carayol Proposition 4.5.5. The named R18.1 supplier gives the geometric finite-level comparison only. Restore the exact Carayol descent field and cocycle before asserting the target over K; at a split place the exact fields and equivariance are those of §R18.5.19; any extension to another field needs a separate descent proof.
 
 (Source: [YZ18](#references) Proposition 4.4, pp.563–564; [Car86](#references) notation following §0, p.155, §§4.5.1–4.5.5, pp.188–189.)
 
@@ -1935,7 +1938,7 @@ All local factors match BZ (6.31); sufficiently small U^v for the final stable/r
 
 (Source: [BZ22](#references) Theorem 6.7 and Corollary 6.8, pp.49–50.)
 
-*Needs:* [R18.5.7 Arithmetic Drinfeld quotient](#r1857-arithmetic-drinfeld-quotient), [R18.2.4 Connected quaternionic and PEL comparison](#r1824-connected-quaternionic-and-pel-comparison), [R18.2.1 Quaternionic auxiliary PEL instance](#r1821-quaternionic-auxiliary-pel-instance), [R18.1.3 Canonical quaternionic curve and uniformization](#r1813-canonical-quaternionic-curve-and-uniformization), [R18.1.2 Quaternionic reflex field and dimension](#r1812-quaternionic-reflex-field-and-dimension), [R18.5.13 Quaternionic transfer from basic PEL uniformisation](#r18513-quaternionic-transfer-from-basic-pel-uniformisation); [PELModuli](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/PELModuli/README.md) `M2`.
+*Needs:* [R18.5.7 Arithmetic Drinfeld quotient](#r1857-arithmetic-drinfeld-quotient), [R18.2.1 Quaternionic auxiliary PEL instance](#r1821-quaternionic-auxiliary-pel-instance), [R18.1.3 Canonical quaternionic curve and uniformization](#r1813-canonical-quaternionic-curve-and-uniformization), [R18.1.2 Quaternionic reflex field and dimension](#r1812-quaternionic-reflex-field-and-dimension), [R18.5.13 Quaternionic transfer from basic PEL uniformisation](#r18513-quaternionic-transfer-from-basic-pel-uniformisation); [PELModuli](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packages/PELModuli/README.md) `M2`.
 
 ### R18.5.16 Rational-field comparison
 
@@ -1986,7 +1989,7 @@ The finite torsion component field F_pⁿ corresponds by local class field theor
 - The theorem never assumes B_p division.
 - F_p⁰ is F_p^nr; for n positive F_pⁿ can be ramified over it.
 - The statement gives an auxiliary level for each fixed n, not one small tame level working uniformly at all n.
-- This node is the source-pinned form of the split-place comparisons [R18.2.4 Connected quaternionic and PEL comparison](#r1824-connected-quaternionic-and-pel-comparison) and [R18.2.5 Finite-level PEL comparison](#r1825-finite-level-pel-comparison); at assembly those targets take its fields (F_p^nr at level zero and for the union of level structures, F_pⁿ for a selected level-n component), so the comparison is stated once. It also supplies, at split places, the descent field left open by the H0 gap on YZ Proposition 4.4.
+- For a split place with nontrivial level-n inertia, the full union is defined over F_p^nr while a selected connected component is defined over F_pⁿ; identifying the latter with a component already defined over F_p^nr would incorrectly remove its inertia permutation.
 
 (Source: [Car86](#references) Notations, pp.155–156; §§4.2–4.5, especially Proposition 4.4.3, p.188, and §4.5.1–4.5.5, pp.188–189 (Unramified descent at level zero, torsion-level unions and the explicitly larger fields of selected finite-level components))
 
@@ -2966,7 +2969,8 @@ The algebraic sheaf/Betti comparison is imported from the arithmetic local-syste
 **Checks.**
 
 - For W rank one with monodromy a unit u, the adapted coefficient transport is u; the unadapted Hom complex has u⁻¹.
-- Current Tau Ceti twisted declarations are present in the current Tau Ceti library but not at the pinned commit.
+- For the trivial rank-one representation, the adapter gives the ordinary constant O-cochain complex and identity coefficient transport.
+- For W=0, the twisted cochains, and hence every cohomology group, are zero; no extra constant summand is inserted.
 
 (Source: [Car86a](#references) §§2.1–2.2, pp.417–420 (Arithmetic representations define local systems on quaternionic components); [Mil](#references) Theorem 21.1 and Remark 21.2, pp.129–131 (Finite local coefficient étale/Betti comparison is compatible with the sheaf interpretation))
 
@@ -2984,8 +2988,9 @@ Support comparisons, constructible extension by zero and inverse-system hypothes
 
 **Checks.**
 
-- An open Hilbert surface retains the support map and boundary contribution.
-- Generic constructible comparison is a supplier target with its stated limitations; this arithmetic adapter does not silently close them.
+- For a proper smooth finite-level variety, H_c^i→H^i is an isomorphism and inner cohomology equals ordinary cohomology.
+- For the support-comparison test Y=𝔸¹ over an algebraically closed characteristic-zero field with constant finite nonzero coefficients, H⁰ is the coefficient module whereas H_c⁰=0; their degree-zero image is zero. This tests the imported comparison before its Hilbert specialization.
+- Zero coefficients give zero ordinary, compactly supported and inner groups in every degree.
 
 (Source: [Mil](#references) Theorem 21.1 and Remark 21.2, pp.129–131 (Finite local coefficient comparison extends to constructible support calculations); [Del80](#references) Corollary 3.3.6, printed p.206 (Inner cohomology is the image between the two support theories, not the entire ordinary group))
 
@@ -3572,7 +3577,7 @@ For odd p and v∤p require either 1+q_v nonzero in k or the common residual loc
 - At p=3, q_v≡−1, γ(Frob_v)=1 or −1 gives the same unordered local residual pair {1,−1}; an unramified residual representation does not identify the sign.
 - For ψ_v(Nrd Π)=4 and coefficient root r=1/2, R_Π has eigenvalue 2 and γ(Frob_v)=2, whose square is 4. Taking the inverse right-action eigenvalue would give 1/2 and square 1/4, contradicting γ²=ψ.
 
-(Source: [KW09](#references) Lemma 7.2 and remark, pp.60–61 (Gives the level hypotheses and separates the odd-prime residual argument from the dyadic full-level argument. Its author-copy remark requires a normalization correction when the uniformizer acts by R_Π; see E-R18.3-2. The local inference qualification is E-R18.3-1); [Tay06](#references) Lemma 1.7(1), pp.744–745; arithmetic reciprocity convention, p.731 (For the corresponding Steinberg quotient character away from p, its arithmetic uniformizer value equals the U eigenvalue, consistent with the direct right-translation value after local transfer))
+(Source: [KW09](#references) Lemma 7.2 and remark, pp.60–61 (Gives the level hypotheses and separates the odd-prime residual argument from the dyadic full-level argument. The uniformizer value is computed from the declared right-translation action; the residual sign inference is restricted by the hypotheses above); [Tay06](#references) Lemma 1.7(1), pp.744–745; arithmetic reciprocity convention, p.733 (For the corresponding Steinberg quotient character away from p, its arithmetic uniformizer value equals the U eigenvalue, consistent with the direct right-translation value after local transfer))
 
 *Needs:* [R18.3.17 Division valuation and central-character extension](#r18317-division-valuation-and-central-character-extension), [R18.3.19 Finite quaternion local transfer needed by the definite comparison](#r18319-finite-quaternion-local-transfer-needed-by-the-definite-comparison), [R18.3.29 Early rank-two eigensystem realisation and local compatibility](#r18329-early-rank-two-eigensystem-realisation-and-local-compatibility), [R18.3.15 Residual quaternionic Hecke ideal](#r18315-residual-quaternionic-hecke-ideal).
 
@@ -3597,11 +3602,13 @@ For potential modularity, use H6's selected quasi-projective component, its fiel
 
 ## Points the sources leave open
 
-The plan follows its sources closely, and the following steps are not settled by the sources cited. Each stays visible at its target and must be supplied before that target is proved.
+The roadmap follows its sources closely, and the following steps are not settled by the sources cited. Each stays visible at its target and must be supplied before that target is proved.
 - The auxiliary field-degree and smallness statement that Khare–Wintenberger cite from Khare's Duke paper (Lemma 2.2, Duke 134, 2006) was not collated; neither the projective neatness argument of §R18.3.16 nor Taylor's degeneracy lemma proves it.
 - For fields of even degree with no finite discrete-series component, the congruence or pseudorepresentation argument that extends Carayol's construction (§R18.3.29), and the weight-two semistable comparison above p used there and in §R18.4.27, are not supplied by the cited sources.
 - The potentially semistable deformation quotient and its dimension, used in §R18.4.19, are proved in Kisin's *Potentially semi-stable deformation rings* (JAMS 21, 2008), which was not available; Manning–Shotton §3.2, p.14, states the result and refers to it.
 - The odd-prime sign inference of KW Lemma 7.2(i), p.61, fails as written when q_v≡−1 (mod p) at an unramified residual place, since the two signs then have the same unordered residual Frobenius data. §R18.3.32 therefore assumes 1+q_v≠0 in k, residual ramification, or the cyclotomic inertia argument above p.
+- The finite local construction of §H6.5 still needs its complete ordinary-extension and CM-character input contract from Taylor §1, rather than a reference to unspecified hypotheses.
+- The polarization-component Hecke descent of §H3.8 still needs the exact Kisin–Lai §1.9 argument and its hypotheses; the cited argument has not been transcribed into a complete proof route.
 - The global Deligne–Pappas object of §H2.2 is an algebraic space; its refinement to a scheme is a separate statement.
 - At a ramified place the saturated relative determinant comparison of §§R18.2.17–R18.2.18 is not in the sources; it must be proved from the saturated filtration and the integral determinant tensor law.
 - The separated quotient of the formal Drinfeld curve by a discrete cocompact group, its effective finite quotients and an ample line bundle on it (§§R18.5.7, R18.5.11) are stated as an extension of AdicSpacesPartII. Basic PEL uniformisation for the auxiliary datum (§R18.5.13) is stated as an extension of PELModuli.
