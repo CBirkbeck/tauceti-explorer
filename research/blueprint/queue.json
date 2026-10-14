@@ -35000,7 +35000,8 @@
    ],
    "followUpOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9413"
   },
   {
    "id": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.4",
@@ -35943,7 +35944,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.2-symbols",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.2-symbols.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9268"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.3",
@@ -46939,8 +46941,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7889",
+   "finishedAt": "2026-10-14T00:04:26Z"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47061,8 +47064,9 @@
     "PKG-AutomorphicBundles~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7917"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7917",
+   "finishedAt": "2026-10-14T00:04:32Z"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -47158,7 +47162,8 @@
     "PKG-AutomorphicGaloisRepresentations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicGaloisRepresentations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7918"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentationsPartII",
@@ -48077,8 +48082,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7462",
+   "finishedAt": "2026-10-14T00:04:36Z"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49560,7 +49566,8 @@
     "PKG-GrossZagierAndArithmeticHeights"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9217"
   },
   {
    "id": "PKG-HabiroCohomologyFoundations",
@@ -50096,8 +50103,9 @@
     "PKG-HilbertModularVarietiesAndShimuraCurves~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9219"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9219",
+   "finishedAt": "2026-10-14T00:04:43Z"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -50640,8 +50648,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7909",
+   "finishedAt": "2026-10-14T00:04:46Z"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -51058,8 +51067,9 @@
    ],
    "revisionOf": "PKG-MordellLawrenceVenkatesh",
    "prompt": "research/blueprint/prompts/PKG-MordellLawrenceVenkatesh~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7911"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7911",
+   "finishedAt": "2026-10-14T00:04:50Z"
   },
   {
    "id": "REV-PKG-MordellLawrenceVenkatesh~2",
