@@ -4,8 +4,9 @@ import Mathlib
 
 README.md is the roadmap. This file records light definitions and theorem signatures
 statable using the pinned APIs and is not exhaustive. It fixes the finite-set pairing and
-unaveraged trace, the eigenvalue labels in quotient-character recovery, and the numerical
-controls for dimension bounds. The arithmetic towers, Galois deformation conditions and
+unaveraged trace, Wiles' ordered pseudo-representations with their normalising element, the
+eigenvalue labels in quotient-character recovery, and the numerical controls for dimension
+bounds. The arithmetic towers, Galois deformation conditions and
 automorphic carriers remain README targets.
 -/
 
@@ -94,11 +95,92 @@ example : (2 : ZMod 25) ^ (5 * 4) = 1 ∧ (5 : ZMod 125) ^ 3 = 0 := by
 example : ((Polynomial.X + 1 : Polynomial ℤ) ^ 5 - 1).natDegree = 5 := by
   compute_degree!
 
-/-- The trace congruence alone does not impose the chosen ordinary quotient eigenvalue. -/
+/-- Ramanujan's congruences `τ(2) ≡ 1 + 2¹¹` and `τ(3) ≡ 1 + 3¹¹` modulo 691: the degree-one
+analogue of the Frobenius trace condition of a permissible ideal, which does not by itself
+impose the ordinary quotient eigenvalue. -/
 example : (-24 : ZMod 691) = 1 + 2 ^ 11 ∧ (252 : ZMod 691) = 1 + 3 ^ 11 := by
   decide
 
 /-! ## Layer 3: Nearly ordinary deformations and Galois–Hecke interfaces -/
+
+section PseudoRep
+
+/-- Wiles' ordered two-dimensional pseudo-representation of §3.7, normalised by an element
+`z` (a complex conjugation). For a representation with `ρ z = diag(1, −1)` and
+`ρ σ = (a_σ b_σ; c_σ d_σ)` the data are `a`, `d` and `x σ τ = b_σ c_τ`. The coefficient ring
+has `2` invertible. Traces and determinants are compared with pseudocharacters through
+TauCetiRoadmap.IntegralHeckeAndGaloisDeterminants; the ordered entries are extra data. -/
+structure PseudoRep (G A : Type*) [Group G] [TopologicalSpace G] [CommRing A]
+    [TopologicalSpace A] [Invertible (2 : A)] (z : G) where
+  /-- The upper-left entry. -/
+  a : G → A
+  /-- The lower-right entry. -/
+  d : G → A
+  /-- The product of the upper-right entry at the first argument and the lower-left entry
+  at the second. -/
+  x : G → G → A
+  continuous_a : Continuous a
+  continuous_d : Continuous d
+  continuous_x : Continuous fun p : G × G => x p.1 p.2
+  a_mul : ∀ σ τ, a (σ * τ) = a σ * a τ + x σ τ
+  d_mul : ∀ σ τ, d (σ * τ) = d σ * d τ + x τ σ
+  x_mul_x : ∀ σ τ α β, x σ τ * x α β = x σ β * x α τ
+  x_mul_mul : ∀ σ τ α β, x (σ * τ) (α * β) =
+    a σ * a β * x τ α + a β * d τ * x σ α + a σ * d α * x τ β + d τ * d α * x σ β
+  a_one : a 1 = 1
+  d_one : d 1 = 1
+  a_z : a z = 1
+  d_z : d z = -1
+  x_one_left : ∀ σ, x 1 σ = 0
+  x_one_right : ∀ σ, x σ 1 = 0
+  x_z_left : ∀ σ, x z σ = 0
+  x_z_right : ∀ σ, x σ z = 0
+
+namespace PseudoRep
+
+variable {G A : Type*} [Group G] [TopologicalSpace G] [CommRing A] [TopologicalSpace A]
+  [Invertible (2 : A)] {z : G}
+
+/-- The trace `a + d` of a pseudo-representation. -/
+def trace (ρ : PseudoRep G A z) (σ : G) : A := ρ.a σ + ρ.d σ
+
+/-- The determinant `a(σ)d(σ) − x(σ, σ)` of a pseudo-representation. -/
+def det (ρ : PseudoRep G A z) (σ : G) : A := ρ.a σ * ρ.d σ - ρ.x σ σ
+
+end PseudoRep
+
+/-- The residual pseudo-representation `{1, χ, 0}` of `1 ⊕ χ`; every nonsplit `ρ_c` has it,
+so the pseudo-deformation ring forgets the extension class (§3.7, `pseudoRep_residual`). -/
+example {G A : Type*} [Group G] [TopologicalSpace G] [CommRing A] [TopologicalSpace A]
+    [Invertible (2 : A)] (z : G) (χ : G →* A) (hχ : Continuous χ) (hz : χ z = -1) :
+    PseudoRep G A z where
+  a _ := 1
+  d := χ
+  x _ _ := 0
+  continuous_a := continuous_const
+  continuous_d := hχ
+  continuous_x := continuous_const
+  a_mul _ _ := by simp
+  d_mul _ _ := by simp
+  x_mul_x _ _ _ _ := by simp
+  x_mul_mul _ _ _ _ := by simp
+  a_one := rfl
+  d_one := map_one χ
+  a_z := rfl
+  d_z := hz
+  x_one_left _ := rfl
+  x_one_right _ := rfl
+  x_z_left _ := rfl
+  x_z_right _ := rfl
+
+/-- At the normalising element the trace is `0` and the determinant is `−1`, as for
+`diag(1, −1)`. -/
+example {G A : Type*} [Group G] [TopologicalSpace G] [CommRing A] [TopologicalSpace A]
+    [Invertible (2 : A)] (z : G) (ρ : PseudoRep G A z) :
+    ρ.trace z = 0 ∧ ρ.det z = -1 := by
+  simp [PseudoRep.trace, PseudoRep.det, ρ.a_z, ρ.d_z, ρ.x_z_left]
+
+end PseudoRep
 
 /-- Quotient recovery in the field coefficient case of §3.17: β labels the sub-character
 and α labels the quotient. The complete-local-ring version requires β−α to be a unit. -/
@@ -218,7 +300,7 @@ example : ((-23 : ℤ) : ZMod 3) = 1 := by
 The README also specifies the heavier definitions: nearly ordinary automorphic
 representations; permissible Eisenstein ideals and weight algebras; reducible and
 irreducible deformation data, deformation rings and permissible extensions; local
-ramification types; ordered Wiles pseudo-representations and universal pseudo-deformations;
+ramification types; universal pseudo-deformations;
 pseudo-to-deformation maps; deformation Iwasawa algebra structures; Hida family and integral
 Hecke Galois representations; Hecke pseudo-representations; augmented and minimal Hecke
 rings and modules; pro-modular primes; good pairs, nice primes and their properties;
@@ -227,7 +309,7 @@ The heavier API names include `stabiliserCount`, `heckeAdjoint`, `IsVGoodLine`,
 `IsNearlyOrdinary`, `IsOrdinary`, `IsPermissible`, `centralDeterminant`,
 `permissibleLambdaAlgebra`, `admissibleClasses`, `residualExtension`, `IsOfType`,
 `universalRing`, `IsPermissibleExtension`, `DeformationDatum.baseChange`,
-`RamificationType`, `PseudoRep`, `pseudoToDeformation`, `deformationLambdaAlgebra`,
+`RamificationType`, `PseudoRep.ofRep`, `pseudoToDeformation`, `deformationLambdaAlgebra`,
 `pseudoLambdaAlgebra`, `hidaGaloisRep`, `heckePseudoRep`, `pseudoToHecke`,
 `deformationLevel`, `deformationHeckeRing`, `minimalHeckeRing`, `deformationHeckeModule`,
 `IsProModular`, `IsProModularComponent`, `IsGoodPair`, `IsNiceDeformation`, `IsNiceFor`,
