@@ -4,7 +4,7 @@ This layer builds a reusable comparison between difference equations, their solu
 
 The layer is planned at target level. The packet has 48 nodes: the nine fixed-vector results from the earlier checkpoint and 39 additional targets and necessary constructions. All mathematical statements below are specifications, not implemented results. Each of the eleven definition or construction nodes has an API derived from its uses and three tests. The accompanying [suggested file](../suggested/DrinfeldModulesAndTModules--DM.8.lean) gives native Lean forms for those definitions, their 43 API items and their 33 tests. It also retains twelve acceptance examples for the fixed-vector component. Supplier-dependent theorem signatures that cannot yet be stated are listed explicitly below.
 
-The stage is **planned**, with three gaps and eight supplier requests; it is not closed. No result about algebraic independence for arbitrary higher-rank Drinfeld modules is asserted. The scope is the generic-characteristic Carlitz and dual-motive setting of Papanikolas, together with the shared difference-equation inputs used by the routed multizeta papers. Their specialized multizeta objects and independence theorems remain with their own owners.
+The stage is **planned**, with three gaps and nine supplier requests; it is not closed. No result about algebraic independence for arbitrary higher-rank Drinfeld modules is asserted. The scope is the generic-characteristic Carlitz and dual-motive setting of Papanikolas, together with the shared difference-equation inputs used by the routed multizeta papers. Their specialized multizeta objects and independence theorems remain with their own owners.
 
 ## Fields, twists and coordinate conventions
 
@@ -20,11 +20,11 @@ For a motive basis column m, the equation is σ(m)=Φm. A fundamental matrix sat
 
 Mathlib already supplies fixed submodules, submodule inclusions and their tensor base-change maps, formal and restricted power series, matrix units, generated subalgebras, intermediate fields, polynomial evaluation, ideals, Hopf algebras, algebraic independence and transcendence degree. The plan uses these objects directly. It introduces predicates and the specific solution/degree constructions, rather than parallel fixed-space, tensor, Tate-algebra or affine-group definitions.
 
-The baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 with Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The 54 cited declaration statements were checked at those commits. In particular, Mathlib's algebraic separability class forces an extension to be algebraic. The general separability required for L/K is expressed by its geometric-reducedness class, with the field-theoretic equivalence and p-basis criterion requested from FA.0. For finite-type groups, Tau Ceti supplies the implication from geometric reducedness to smoothness of the native commutative Hopf algebra. There is no corresponding assertion for arbitrary schemes.
+The baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 with Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The 56 cited declaration statements were confirmed at those commits by the independent review of 11 October 2026. The two added spectrum/closed-immersion entries support the native solution-ring construction. In particular, Mathlib's algebraic separability class forces an extension to be algebraic. The general separability required for L/K is expressed by its geometric-reducedness class, with the field-theoretic equivalence and p-basis criterion requested from FA.0. For finite-type groups, Tau Ceti supplies the implication from geometric reducedness to smoothness of the native commutative Hopf algebra. There is no corresponding assertion for arbitrary schemes.
 
-Current TauCetiRoadmap main 070dc2becd74419e76303ede84b465ed4a69461f and current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were inspected read-only. Current Tate Gauss-norm and completeness work in the MvPowerSeries/TateAlgebra library postdates the pin and is existing work, not a construction to plan again. AdicSpaces owns general preparation; JacobianChallenge owns the curve Riemann–Roch interface. Current ReductiveGroupsPartII RG2.3.7 and its Lang.lang_surjective signature own the general finite-field Lang theorem. This layer needs only its GL_r coefficient-Frobenius specialization and transport. The current GrothendieckEulerForms and JacobianChallenge readers were read in full as models for the interfaces and target density.
+The earlier continuation and independent review inspected TauCetiRoadmap main 070dc2becd74419e76303ede84b465ed4a69461f and Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 read-only. This reader revision rechecked ownership against TauCetiRoadmap main 0d144d044dacebca17b654695b6f1ad58f159b27 and the same Tau Ceti commit, also read-only. Current Tate Gauss-norm and completeness work in the MvPowerSeries/TateAlgebra library postdates the pin and is existing work, not a construction to plan again. AdicSpaces owns general preparation; JacobianChallenge owns the curve Riemann–Roch interface. Current ReductiveGroupsPartII RG2.3.7 and its Lang.lang_surjective signature own the general finite-field Lang theorem. This layer needs only its GL_r coefficient-Frobenius specialization and transport. The current GrothendieckEulerForms and JacobianChallenge readers were read in full as models for the interfaces and target density.
 
-DM.4 owns dual Anderson motives, pre-t-motives, rationalization and the abelian tensor category. MC.6 owns arbitrary-field neutral Tannakian reconstruction and tensor-generation machinery. The needed base field F_q(t) is imperfect of positive characteristic: the characteristic-zero MC.3 interface is insufficient. Existing Hopf-comodule reconstruction begins with a given Hopf algebra and does not itself construct the group of an arbitrary neutral category. DM.8 owns the rigid-triviality predicate, its Betti comparison, the particular difference torsor, the comparison with the supplied motivic group and the arithmetic specialization theorem.
+DM.4 owns dual Anderson motives, pre-t-motives, rationalization and the abelian tensor category. MC.6 already plans arbitrary-field neutral reconstruction and tensor-generator finiteness in `neutral-tannaka-reconstruction` and `tannaka-finiteness-recognition`, with `tensor-iso-torsor` supplying fibre-functor torsors after reconstruction. The remaining MC.6 exports are the generated subcategory, group-map recognition criteria and graded-category group computation specified below. The needed base field F_q(t) is imperfect of positive characteristic: the characteristic-zero MC.3 interface is insufficient. Existing Hopf-comodule reconstruction begins with a given Hopf algebra and does not itself construct the group of an arbitrary neutral category. DM.8 owns the rigid-triviality predicate, its Betti comparison, the particular difference torsor, the comparison with the supplied motivic group and the arithmetic specialization theorem.
 
 ## The target dependency chain
 
@@ -192,7 +192,7 @@ For a perfect coefficient field C of characteristic p, q=p^m with m≥1, σ_C is
 
 Proof route: Use the native iterated Frobenius equivalence and its inverse on coefficients. Apply the native power-series coefficient map and prove its inverse by coefficient extensionality. Restrictedness is preserved because coefficient norms are raised to the positive power 1/q; fraction-ring extension is by its universal property.
 
-Sources: PAP-v2, §2.2.5 pp.7–8; ABP-v1, §2.2 p.6; IKLNP-v2, §2.1 p.26.
+Sources: PAP-v2, §2.2.5 pp.7–8; ABP-v1, §2.2 p.6; IKLNP-v2, §2.1 p.26; ABP-published, §2.2 p.244.
 
 Direct inputs: `mathlib:iterateFrobeniusEquiv`, `mathlib:PowerSeries.map`.
 
@@ -222,7 +222,7 @@ Let C=C∞, k=F_q(θ), and k∞=F_q((1/θ)) with the specified embeddings. E is 
 
 Proof route: The finite coefficient-field condition is retained separately from entire convergence. A compositum of two finite coefficient fields controls sums and products. Use native restrictedness at each positive radius, and completeness plus the ultrametric summability criterion to obtain evaluation as a ring homomorphism. Algebraicity of each coefficient over k is required for ABP. The larger analytic entire ring in Papanikolas can be distinguished, but this plan uses the ABP subring throughout specialization.
 
-Sources: PAP-v2, §2.2.3–2.2.4 p.7; ABP-v1, §2.4 p.7.
+Sources: PAP-v2, §2.2.3–2.2.4 p.7; ABP-v1, §2.4 p.7; ABP-published, §2.4 p.244.
 
 Direct inputs: `DrinfeldModulesAndTModules:DM.2`, `mathlib:PowerSeries.IsRestricted.subring`, `mathlib:IntermediateField.adjoin`.
 
@@ -250,7 +250,7 @@ Target `tate-analytic-interface` (comparison); proposed declaration `TauCeti.Dif
 
 T is the existing radius-one restricted-series subring of C∞[[t]], equipped with its Gauss norm; L is its fraction field. The norm is complete, ultrametric and multiplicative. A nonzero f∈T has a finite zero divisor on |t|≤1, and f=λ·P·u with P the monic polynomial of those zeros, u=1+Σ_{n≥1}b_n t^n, sup||b_n||<1 and b_n→0. The corresponding signed divisor gives the same factorization for a nonzero element of L. Thus T is a principal ideal domain, and its maximal ideals are (t−a) with ||a||≤1. These are adaptations of existing restricted-series and Weierstrass theory, not a new Tate-algebra definition.
 
-Proof route: Import the Gauss norm and completeness already present in current Tau Ceti, and the rank-one Weierstrass preparation milestone from Adic Spaces layer 0.5. Over algebraically closed C∞, factor the distinguished polynomial into linear factors. Unit normalization isolates a constant and a strict-norm tail. Pass to fractions to obtain a finite signed zero/pole divisor. Check the pinned/current discrepancy recorded in the audit before implementation; generic restricted-series theory remains with its existing owner.
+Proof route: Reuse the current univariate TauCeti.PowerSeries restricted-series norm and its norm_eq_gaussNorm, norm_coeff_mul_pow_le and norm_le_iff API, together with multivariate completeness; these exports postdate the pin. Import the rank-one Weierstrass preparation milestone from AdicSpaces layer 0.5. Over algebraically closed C∞, factor the distinguished polynomial into linear factors. Unit normalization isolates a constant and a strict-norm tail. Pass to fractions to obtain a finite signed zero/pole divisor. Check the pinned/current discrepancy recorded in the audit before implementation; generic restricted-series theory remains with its existing owner.
 
 Sources: PAP-v2, §2.2.4 p.7.
 
@@ -410,11 +410,11 @@ Target `neutral-category` (theorem); proposed declaration `TauCeti.Difference.Pe
 
 The strictly full subcategory R of the DM.4 pre-t-motive category consisting of rigid-trivial objects is rigid, abelian and F_q(t)-linear; its unit has endomorphism field F_q(t), and ω(M)=M^B is an exact faithful F_q(t)-linear tensor functor to finite-dimensional vector spaces. Thus R is neutral Tannakian over the imperfect field F_q(t). Let T be the strictly full tensor subcategory generated by the rational images of rigid-trivial dual Anderson motives; it too has this fibre functor. T is this generated subcategory, not all effective dual motives and not an assumption that every t-module is trivial.
 
-Proof route: Import the rigid abelian motive category, its unit, tensor and dual constructions from DM.4. Closure and exactness come from betti-exact-tensor. Identify End(1) using exact constants, then use the arbitrary-field neutral-category interface of MC.6. Define T by the generic tensor-generation construction supplied with MC.6; its chosen generating family is the DM.4 rational image. The effective Frobenius modules of IKLNP are supplied by DM.4 and are not automatically Anderson-free over k̄[σ].
+Proof route: Import the rigid abelian motive category, its unit, tensor and dual constructions from DM.4. Closure and exactness come from betti-exact-tensor. Identify End(1) using exact constants. The arbitrary-field neutral reconstruction is already planned as MC.6/neutral-tannaka-reconstruction; instantiate it over F_q(t), with no characteristic-zero assumption. Define T by the generic tensor-generation construction supplied with MC.6; its chosen generating family is the DM.4 rational image. The effective Frobenius modules of IKLNP are supplied by DM.4 and are not automatically Anderson-free over k̄[σ].
 
 Sources: PAP-v2, Theorem 3.3.15 pp.16–17; Definition 3.4.10 p.19.
 
-Direct inputs: `betti-exact-tensor`, `fixed-space-finite`, `analytic-fixed-fields`, `DrinfeldModulesAndTModules:DM.4`, `MotivesAndAlgebraicCycles:MC.6`.
+Direct inputs: `betti-exact-tensor`, `fixed-space-finite`, `analytic-fixed-fields`, `DrinfeldModulesAndTModules:DM.4`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `MotivesAndAlgebraicCycles:MC.6`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -490,7 +490,7 @@ Proof route: Use native adjoin, matrix determinant, localization and spectrum; i
 
 Sources: PAP-v2, §4.2.1 p.22.
 
-Direct inputs: `fundamental-matrix`, `admissible-fields`, `mathlib:Algebra.adjoin`, `mathlib:IntermediateField.adjoin`, `mathlib:Matrix.det`, `SchemeAndStackFoundations:SF.1`.
+Direct inputs: `fundamental-matrix`, `admissible-fields`, `mathlib:Algebra.adjoin`, `mathlib:IntermediateField.adjoin`, `mathlib:Matrix.det`, `mathlib:AlgebraicGeometry.Spec`, `mathlib:AlgebraicGeometry.IsClosedImmersion.spec_of_surjective`.
 
 The API and its consumers:
 
@@ -564,7 +564,7 @@ Proof route: Translate by Ψ to turn σ_1 into coefficient σ_0. Extend a putati
 
 Sources: PAP-v2, Corollary 4.2.5 p.24.
 
-Direct inputs: `solution-ring`, `invariant-ideal-descent`, `SchemeAndStackFoundations:SF.1`.
+Direct inputs: `solution-ring`, `invariant-ideal-descent`, `SchemeAndStackFoundations:SF.1/affine-fpqc-descent`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -592,7 +592,7 @@ Proof route: Conjugate defining ideals by the translation X↦Ψ^−1X and use i
 
 Sources: PAP-v2, Propositions 4.2.4 and 4.2.8 pp.23–25; Theorem 4.2.11 p.26.
 
-Direct inputs: `comparison-algebra`, `invariant-ideal-descent`, `solution-invariant-ideal-descent`, `solution-ring-simple`, `SchemeAndStackFoundations:SF.1`, `mathlib:CommHopfAlgCat`.
+Direct inputs: `comparison-algebra`, `invariant-ideal-descent`, `solution-invariant-ideal-descent`, `solution-ring-simple`, `SchemeAndStackFoundations:SF.1/affine-fpqc-descent`, `SchemeAndStackFoundations:SF.1/torsor`, `mathlib:CommHopfAlgCat`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -610,7 +610,7 @@ Proof route: Adjoin all twists of a relatively algebraic element; the resulting 
 
 Sources: PAP-v2, Proposition 4.3.3 pp.26–27.
 
-Direct inputs: `solution-ring`, `analytic-separability`, `analytic-fixed-fields`, `FunctionFieldArithmetic:FA.0`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`, `SchemeAndStackFoundations:SF.3`.
+Direct inputs: `solution-ring`, `analytic-separability`, `analytic-fixed-fields`, `FunctionFieldArithmetic:FA.0`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`, `SchemeAndStackFoundations:SF.3/line-bundle-degree-bounds`, `SchemeAndStackFoundations:SF.3`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -624,7 +624,7 @@ Proof route: Separability and relative algebraic closure imply geometric integra
 
 Sources: PAP-v2, Theorem 4.3.1 p.26; Corollary 4.3.4 p.27.
 
-Direct inputs: `difference-torsor`, `relative-algebraic-closure`, `tauceti:TauCeti.smoothCommHopfAlgProperty_of_geometricallyReduced`, `SchemeAndStackFoundations:SF.1`.
+Direct inputs: `difference-torsor`, `relative-algebraic-closure`, `tauceti:TauCeti.smoothCommHopfAlgProperty_of_geometricallyReduced`, `SchemeAndStackFoundations:SF.1/torsor`, `SchemeAndStackFoundations:SF.0/algebraic-scheme-dimension`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -634,11 +634,11 @@ Target `difference-invariants` (theorem); proposed declaration `TauCeti.Differen
 
 Right multiplication gives Γ(F)≅Aut_σ(Σ/K)≅Aut_σ(Λ/K). For geometric fixed-field assertions choose an extension of σ to an algebraic closure of L, write F_n for its σ^n-fixed field and assume (F_n, K̄, L̄) is σ^n-admissible for every n and F̄=⋃F_n. On the corresponding geometrically integral solution field Λ̃, the elements fixed by Γ(F̄) are precisely K̄, and Λ∩Λ̃^{Γ(F̄)}=K. The analytic triple has this property. No density of Γ(F) over the imperfect F is assumed.
 
-Proof route: A σ-commuting automorphism sends Ψ to Ψγ; exact constants imply γ∈GL_r(F), and preserving the solution ring gives γ∈Γ(F). For a geometric invariant rational function, use density of geometric points of the smooth group and the torsor identity to equate its two pullbacks. It is constant. Use relative algebraic closure to descend the intersection with Λ. Do not replace the union-of-fixed-fields hypotheses by a claim about rational points over F.
+Proof route: A σ-commuting automorphism sends Ψ to Ψγ; exact constants imply γ∈GL_r(F), and preserving the solution ring gives γ∈Γ(F). For a geometric invariant rational function, use SF.0/jacobson-finite-type after extension to an algebraically closed field: closed points of this finite-type scheme are rational and dense. Reducedness and the torsor identity then equate its two pullbacks on their domain of definition, forcing it to be constant. Use relative algebraic closure to descend the intersection with Λ. Do not replace the union-of-fixed-fields hypotheses by a claim about rational points over F.
 
 Sources: PAP-v2, §4.4.1–4.4.5 pp.27–28; Theorem 4.4.6 p.28.
 
-Direct inputs: `difference-torsor`, `difference-smooth-dimension`, `analytic-fixed-fields`, `SchemeAndStackFoundations:SF.1`.
+Direct inputs: `difference-torsor`, `difference-smooth-dimension`, `analytic-fixed-fields`, `SchemeAndStackFoundations:SF.1/affine-fpqc-descent`, `SchemeAndStackFoundations:SF.0/jacobson-finite-type`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -652,7 +652,7 @@ Proof route: Construct the action using Ψ→Ψγ on Σ and the Betti basis Ψ^�
 
 Sources: PAP-v2, Lemma 4.5.2 and Theorem 4.5.3 pp.28–29; Propositions 4.5.6–4.5.9 pp.30–31; Theorem 4.5.10 p.32.
 
-Direct inputs: `neutral-category`, `difference-torsor`, `difference-invariants`, `MotivesAndAlgebraicCycles:MC.6`, `DrinfeldModulesAndTModules:DM.4`.
+Direct inputs: `neutral-category`, `difference-torsor`, `difference-invariants`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition`, `MotivesAndAlgebraicCycles:MC.6`, `DrinfeldModulesAndTModules:DM.4`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -668,9 +668,9 @@ If Φ∈Mat_r(k̄[t]), det Φ(0)≠0, and ψ∈T^r satisfies σ(ψ)=Φψ, then e
 
 Proof route: Use Lang on Φ(0) to normalize its constant term to 1. The coefficient recursion makes every coefficient algebraic over k. On the sufficiently small coefficient tail solve inverse-Frobenius differences by convergent sums of positive twists. The fixed difference is zero because it is strictly small. This bounds the coefficient field over k∞. The same recursion, multiplied by arbitrary C^n, bounds C^n||a_n|| for every C>1, giving infinite radius.
 
-Sources: ABP-v1, Proposition 3.1.3 pp.9–10; PAP-v2, Proposition 5.1.3 p.32.
+Sources: ABP-v1, Proposition 3.1.3 pp.9–10; PAP-v2, Proposition 5.1.3 p.32; ABP-published, Proposition3.1.3 pp.247–248.
 
-Direct inputs: `entire-series`, `coefficient-twist`, `tate-analytic-interface`, `SchemeAndStackFoundations:SF.1`, `FunctionFieldArithmetic:FA.0`.
+Direct inputs: `entire-series`, `coefficient-twist`, `tate-analytic-interface`, `FunctionFieldArithmetic:FA.0`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -682,7 +682,7 @@ Let k⊂K_0⊂K⊂k̄ with K_0/k finite separable of degree d, K the perfect clo
 
 Proof route: The product of conjugates of an integral element bounds its distinguished norm; perfect-closure extraction transports the estimate. Translate a polynomial by λ and use its first nonzero term for the multiplicity-sensitive Liouville bound. Riemann–Roch counts bounded integral elements in O_0 and gives the growth rate of bounded elements in O_0^{q^(−n)}. Pigeonhole produces a small nonzero kernel vector. For polynomial matrices write the bounded-degree multiplication map in coefficient bases; increase the source degree until its row/column ratio is close to r/s, then apply the matrix estimate.
 
-Sources: ABP-v1, ABP §§3.2–3.3 pp.10–13, especially Lemmas 3.3.3–3.3.6.
+Sources: ABP-v1, ABP §§3.2–3.3 pp.10–13, especially Lemmas 3.3.3–3.3.6; ABP-published, §§3.2–3.3 pp.248–252, especially Lemmas3.3.3–3.3.6.
 
 Direct inputs: `FunctionFieldArithmetic:FA.0`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`.
 
@@ -696,7 +696,7 @@ Let Φ∈Mat_r(k̄[t]) have determinant c(t−θ)^s with c∈k̄^×, s≥0. Let 
 
 Proof route: For rank 1 propagate a zero along the distinct inverse-Frobenius orbit of θ; bounded-disk analytic zero finiteness forces the entire function to vanish. For larger rank clear arithmetic denominators and use the small-kernel estimate to construct bounded-size polynomial rows with a long interval of prescribed orbit zeros. Obtain a bounded-size scalar difference equation for the auxiliary function. If the auxiliary function never vanishes identically, its leading coefficient has a uniform lower bound by Liouville; Schwarz–Jensen gives an exponentially decreasing upper bound. Contradiction. Twist a vanishing auxiliary row through adjugate matrices. Its nonzero value at θ lies on the specified ρ-line; rescale to make that value exactly ρ.
 
-Sources: ABP-v1, Theorem 3.1.1 pp.7–8; proof §3.4 pp.13–16; PAP-v2, Theorem 5.1.1 p.32; CCM-v2, Theorem 4.1.1 p.13; IKLNP-v2, Theorem 2.2 p.26.
+Sources: ABP-v1, Theorem 3.1.1 pp.7–8; proof §3.4 pp.13–16; PAP-v2, Theorem 5.1.1 p.32; CCM-v2, Theorem 4.1.1 p.13; IKLNP-v2, Theorem 2.2 p.26; ABP-published, Theorem3.1.1 pp.245–246; full proof §3.4 pp.252–256.
 
 Direct inputs: `entire-series`, `abp-estimates`, `coefficient-twist`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`.
 
@@ -752,11 +752,11 @@ Target `period-transcendence` (theorem); proposed declaration `TauCeti.Differenc
 
 Let M∈T have σ matrix Φ∈Mat_r(k̄[t])∩GL_r(k̄(t)) with det Φ=c(t−θ)^s, c≠0, s≥0. Let Ψ∈GL_r(T) have entries in E and σΨ=ΦΨ. Then trdeg_{k̄} k̄(Ψ_ij(θ))=dim_{F_q(t)}Γ_M. Equivalently this equals trdeg_{k̄(t)}k̄(t)(Ψ_ij). Polynomial determinant plus rigid triviality ensures an eligible Ψ exists by integral-trivialization and entire-from-equation. The theorem does not apply to a pre-t-motive lacking such a trivialization.
 
-Proof route: Construct the bounded tensor-monomial block system. Its determinant remains a nonzero constant times a power of t−θ; its entries are entire. Specialization-rank equates dim_K D_d(Ψ) and dim_{k̄}D_d(Ψ(θ)) for every d. The degree-growth theorem for finitely generated domains equates their Krull dimensions and field transcendence degrees. Difference-smooth-dimension and tannakian-identification identify this dimension with Γ_M. No algebraic-independence conclusion for arbitrary matrix entries is inferred merely from a dimension equality.
+Proof route: Construct the bounded tensor-monomial block system. Its determinant remains a nonzero constant times a power of t−θ; its entries are entire. Specialization-rank equates dim_K D_d(Ψ) and dim_k̄ D_d(Ψ(θ)) for every d. Use the requested SF.0 bounded-generator filtration growth theorem to identify their transcendence degrees, and SF.0/algebraic-scheme-dimension for Krull dimension and field-extension invariance. The dimension theorem alone does not imply the growth comparison. Difference-smooth-dimension and tannakian-identification identify this dimension with Γ_M. No algebraic-independence conclusion for arbitrary matrix entries is inferred merely from a dimension equality.
 
 Sources: PAP-v2, Theorem 5.2.2 p.33.
 
-Direct inputs: `degree-span`, `specialization-rank`, `entire-from-equation`, `integral-trivialization`, `tannakian-identification`, `difference-smooth-dimension`, `SchemeAndStackFoundations:SF.1`.
+Direct inputs: `degree-span`, `specialization-rank`, `entire-from-equation`, `integral-trivialization`, `tannakian-identification`, `difference-smooth-dimension`, `SchemeAndStackFoundations:SF.0/algebraic-scheme-dimension`, `SchemeAndStackFoundations:SF.0`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -832,7 +832,7 @@ For the logarithm matrices, X is an object of the chosen category T, not merely 
 
 Proof route: The explicit σ matrix gives the exact sequence and the power-annihilation condition. Import DM.4 finite generation and freeness over k̄[σ] for this lattice, including ABP Proposition 4.3.2; do not manufacture freeness from the polynomial rank alone. The fundamental matrix and integral/rational criterion give rigid triviality; tensor with C^∨ yields X.
 
-Sources: PAP-v2, Proposition 6.1.3 pp.34–35; ABP-v1, Proposition 4.3.2 p.21.
+Sources: PAP-v2, Proposition 6.1.3 pp.34–35; ABP-v1, Proposition 4.3.2 p.21; ABP-published, Proposition4.3.2 pp.262–263.
 
 Direct inputs: `logarithm-matrices`, `neutral-category`, `DrinfeldModulesAndTModules:DM.4`.
 
@@ -844,11 +844,11 @@ Target `carlitz-group` (theorem); proposed declaration `TauCeti.Difference.Perio
 
 For the Carlitz object C with σ matrix t−θ and fundamental Ω, Hom_T(C(m), C(n)) is F_q(t) for m=n and zero otherwise, and Γ_C≅G_m over F_q(t). The distinction between weights uses Ω∉C∞(t), which follows from its infinitely many zeros. In particular the Carlitz period π̃=−1/Ω(θ) is transcendental over k̄ by period-transcendence.
 
-Proof route: The one-dimensional difference equation for Hom(C(m), C(n)) has solutions constant times Ω^{m−n}. A nontrivial power of Ω has infinitely many zeros or poles, so is not rational. The generated category is the integer-weight graded finite-dimensional category; import its G_m reconstruction from MC.6. Apply period-transcendence to the eligible rank-one Carlitz matrix.
+Proof route: The one-dimensional difference equation for Hom(C(m), C(n)) has solutions constant times Ω^{m−n}. A nontrivial power of Ω has infinitely many zeros or poles, so is not rational. The generated category is the integer-weight graded finite-dimensional category over F_q(t). Instantiate MC.6/neutral-tannaka-reconstruction and the requested graded-category computation of its group as G_m. Apply period-transcendence to the eligible rank-one Carlitz matrix.
 
-Sources: PAP-v2, Lemma 3.5.3 and Theorem 3.5.4 pp.20–21; ABP-v1, §3.1.2 p.8.
+Sources: PAP-v2, Lemma 3.5.3 and Theorem 3.5.4 pp.20–21; ABP-v1, §3.1.2 p.8; ABP-published, §3.1.2 p.246.
 
-Direct inputs: `neutral-category`, `analytic-fixed-fields`, `DrinfeldModulesAndTModules:DM.2`, `MotivesAndAlgebraicCycles:MC.6`, `period-transcendence`.
+Direct inputs: `neutral-category`, `analytic-fixed-fields`, `DrinfeldModulesAndTModules:DM.2`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `MotivesAndAlgebraicCycles:MC.6`, `period-transcendence`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -862,7 +862,7 @@ Proof route: The comparison matrix places Γ_X in G; the subobject C makes π fa
 
 Sources: PAP-v2, §6.2.1–6.2.4 and Propositions 6.2.3, 6.2.5 pp.35–36.
 
-Direct inputs: `logarithm-motive-membership`, `carlitz-group`, `tannakian-identification`, `difference-smooth-dimension`, `SchemeAndStackFoundations:SF.1`.
+Direct inputs: `logarithm-motive-membership`, `carlitz-group`, `tannakian-identification`, `difference-smooth-dimension`, `SchemeAndStackFoundations:SF.1/torsor`, `SchemeAndStackFoundations:SF.1`.
 
 Acceptance: Check every field, scalar extension and twist convention in the statement.
 
@@ -912,7 +912,7 @@ Acceptance: A single nonzero Carlitz logarithm with algebraic exponential is tra
 
 Target `constant-denominator` (theorem); proposed declaration `TauCeti.Difference.Periods.constant_denominator`.
 
-Let Φ_i∈Mat_{r_i}(k̄[t]) have det Φ_i=c_i(t−θ)^{s_i}, c_i≠0, s_i≥0, i=1, 2. If B∈Mat_{r_1×r_2}(k̄(t)) satisfies σ(B)Φ_2=Φ_1B, its monic least common denominator belongs to F_q[t]. Thus a nonzero polynomial over F_q clears all entries. The matrix B is rational; the polynomial domain printed in CPY Proposition 2.2.1 is treated by the existing extraction correction.
+Let Φ_i∈Mat_{r_i}(k̄[t]) have det Φ_i=c_i(t−θ)^{s_i}, c_i≠0, s_i≥0, i=1, 2. If B∈Mat_{r_1×r_2}(k̄(t)) satisfies σ(B)Φ_2=Φ_1B, its monic least common denominator belongs to F_q[t]. Thus a nonzero polynomial over F_q clears all entries. The matrix B is rational; the polynomial domain printed in CPY Proposition 2.2.1 is corrected in source issue E-DM8-8, reusing PAPER-NGODAC-21/E10.
 
 Proof route: The denominator of σ(B) divides den(B)(t−θ)^{s_2}. If it has a pole at θ, repeated Frobenius shifts force infinitely many distinct poles, using both determinant conditions. Therefore the monic denominator is σ-fixed and lies in F_q[t]. This also proves rationalized Hom compatibility for DM.4 without redefining the motives.
 
@@ -932,7 +932,7 @@ There is one substantive source-proof verification still required in the logarit
 
 ## Supplier contracts
 
-Each request is an imported dependency, with consumers attached in the packet. Existing general theories stay with their owners. No tier move or new competing owner is proposed here.
+Each contract identifies existing targets to reuse and the remaining requested exports, with consumers attached in the packet. Existing general theories stay with their owners. No tier move or new competing owner is proposed here.
 
 ### DrinfeldModulesAndTModules:DM.2
 
@@ -948,27 +948,27 @@ Consumers: `rigid-triviality`, `fundamental-betti-basis`, `integral-trivializati
 
 ### MotivesAndAlgebraicCycles:MC.6
 
-For a rigid abelian neutral Tannakian category over an arbitrary field F (especially the imperfect positive-characteristic field F_q(t)) and an exact faithful F-linear tensor fibre functor to finite vector spaces, supply affine tensor-automorphism representability, reconstruction, tensor-generator finite type, fibre-functor isomorphism torsors, and the fully-faithful/subobject versus faithfully-flat and tensor-generation versus closed-immersion criteria. Current MC.6/tensor-automorphism-group and pro-algebraic-approximation require a specified diagram category and coalgebra; MC.3/tannakian-category assumes characteristic zero. None supplies the needed general input as stated. Reuse native Hopf-comodule reconstruction, then add the missing general interface in MC.6.
+Reuse the existing arbitrary-field MC.6/neutral-tannaka-reconstruction and tannaka-finiteness-recognition nodes, and tensor-iso-torsor after transporting along reconstruction. The remaining exports are: formation of the strictly full tensor subcategory generated by a family; for a compatible exact tensor functor between neutral categories, full faithfulness plus closure of its image under subobjects iff the induced group map is faithfully flat, and tensor generation of the target iff it is a closed immersion; and the computation of the tensor-automorphism group of integer-weight graded finite-dimensional F-vector spaces as G_m. State these over any field F, including imperfect F_q(t). The existing diagram-specific pro-algebraic-approximation and characteristic-zero connectedness criterion are insufficient for these remaining uses. Do not reconstruct an already planned neutral group again.
 
 Consumers: `neutral-category`, `tannakian-identification`, `carlitz-group`.
 
 ### FunctionFieldArithmetic:FA.0
 
-Supply the chosen rational function field F_q(θ), exact constant field and its infinite-place normalization, and the smooth projective curve corresponding to a finite separable extension of the one-variable field over the perfect constant field bar(k). Export compatibility of the field/curve correspondence with the coefficient Frobenius automorphism, as needed in Papanikolas Proposition 4.3.3. Keep the analytic completion at DM.2 and the difference-field constant calculation at DM.8. For arbitrary field extensions, supply the equivalence of separability with native geometric reducedness and the characteristic-p p-basis/linear-disjointness criterion. Algebra.IsSeparable is algebraic separability and must not replace this general extension property. Import current TauCetiRoadmap ReductiveGroupsPartII RG2.3.7 Lang.lang_surjective and export its semilinear GL_r matrix specialization; the general Lang theorem is already owned upstream.
+Supply the chosen rational function field F_q(θ), exact constant field and its infinite-place normalization, and the smooth projective curve corresponding to a finite separable extension of the one-variable field over the perfect constant field bar(k). Export compatibility of the field/curve correspondence with the coefficient Frobenius automorphism, as needed in Papanikolas Proposition 4.3.3. Keep the analytic completion at DM.2 and the difference-field constant calculation at DM.8. For arbitrary field extensions, supply the equivalence of separability with native geometric reducedness and the characteristic-p p-basis/linear-disjointness criterion. Algebra.IsSeparable is algebraic separability and must not replace this general extension property. Import current TauCetiRoadmap ReductiveGroupsPartII RG2.3.7 Lang.lang_surjective and export its semilinear GL_r matrix specialization; the general Lang theorem is already owned upstream. The current Lang.lang_surjective Lean signature is on AlgebraicClosure F for finite F. Before applying it to a matrix with entries in bar(k), export surjectivity of the Lang morphism after base extension to that larger algebraically closed field and derive the inverse-Frobenius GL_r matrix normalization there. Its entries need not be algebraic over F_q.
 
 Consumers: `twisting-limit`, `analytic-fixed-fields`, `analytic-separability`, `relative-algebraic-closure`, `entire-from-equation`, `abp-estimates`, `carlitz-deformation`, `logarithm-division`, `carlitz-logarithm-independence`.
 
 ### SchemeAndStackFoundations:SF.3
 
-Through the existing AlgebraicCurves/JacobianChallenge owner, supply Riemann–Roch for a smooth projective curve over bar(k) and a sufficiently large effective divisor above infinity: its L(D) is finite-dimensional and contains field generators. Export functorial transport by the coefficient automorphism for Papanikolas Proposition 4.3.3. Do not re-plan the underlying curve/Riemann–Roch theory in DM.8.
+Reuse SF.3/line-bundle-degree-bounds, which imports JacobianChallenge Riemann–Roch: on a smooth projective geometrically connected curve over bar(k), a sufficiently large effective divisor above infinity gives finite-dimensional L(D) containing any chosen finite set of field generators. The additional export is functorial transport of the curve, divisor and section space by the coefficient automorphism for Papanikolas Proposition 4.3.3. Generic Riemann–Roch remains with AlgebraicCurves/JacobianChallenge.
 
 Consumers: `relative-algebraic-closure`.
 
 ### SchemeAndStackFoundations:SF.1
 
-Supply effective faithfully flat descent and detection for affine morphism equality, isomorphisms and torsor action diagrams: DM.8 constructs Σ=K[Ψ,det(Ψ)^−1] and must descend the explicit Z×Z≅Z×Γ_K relation and the group structure from faithfully flat scalar extension. This is scheme-level descent over imperfect fields, not a criterion using only rational points. Generic fibre-functor torsors remain MC.6. Also export the affine-domain dimension/transcendence equality and bounded-generator degree-growth formulation, including invariance under field extension.
+Reuse SF.1/affine-fpqc-descent and SF.1/torsor for affine group diagrams, torsor isomorphisms and smoothness descent. The remaining export needed for the logarithm-group rational lift is: every fpqc torsor under the vector group G_a^r over any field F has an F-rational point (additive Hilbert 90, or faithfully flat descent for quasi-coherent modules). Apply only after the particular kernel is proved to be a vector group; this is not a splitting assertion for arbitrary unipotent groups over an imperfect field.
 
-Consumers: `solution-ring`, `solution-ring-simple`, `difference-torsor`, `difference-smooth-dimension`, `difference-invariants`, `entire-from-equation`, `period-transcendence`, `logarithm-group-linear`.
+Consumers: `logarithm-group-linear`.
 
 ### tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras
 
@@ -982,6 +982,12 @@ Use the current roadmap Riemann–Roch targets for smooth projective curves: suf
 
 Consumers: `relative-algebraic-closure`, `abp-estimates`.
 
+### SchemeAndStackFoundations:SF.0
+
+Reuse SF.0/algebraic-scheme-dimension for finite-type domain dimension versus fraction-field transcendence degree and invariance under field extension. Supply the remaining filtered growth form: for a finitely generated domain A=k[a_1,...,a_n], with A_≤d the k-span of generator monomials of total degree at most d, dim_k A_≤d is eventually a polynomial in d of degree trdeg_k Frac(A), with positive leading coefficient; include A=k, whose polynomial is the constant 1. Thus equality of these dimensions for all d implies equality of transcendence degrees even when the coefficient fields differ. This generic commutative-algebra dimension interface belongs with SF.0, not the SF.1 descent layer. It does not require extending the motives or moduli roadmaps.
+
+Consumers: `period-transcendence`.
+
 ## Suggested-file correspondence and omissions
 
 Every one of the eleven definitions/constructions, all 43 API names and all 33 test names appears in the suggested file. Tests are marked by their packet names immediately before native examples. The native fundamental-matrix predicate permits commutative coefficient rings as well as fields, so the integral T-valued condition is not forced into a nonexistent field instance. The generic solution-space construction accepts a matrix over L; matrices over K enter through the specified embedding. The comparison algebra uses the determinant of the inverse matrix, which equals the inverse determinant in its tensor ring.
@@ -993,42 +999,61 @@ The period signature states the equivalent specialization equality with t among 
 The following signatures require supplied interfaces and are omitted or limited explicitly:
 
 - The Tate Gauss-norm/preparation comparison and twisting-limit theorem require the current norm instance and the chosen residue-field identification. Analytic separability and the fraction-field/higher-power parts of exact constants require the actual analytic field and its canonical rational-function algebra tower. The restricted-series fixed-polynomial part is already stated.
-- Fundamental matrices versus motive Betti bases, the integral lattice/trivialization theorem, exact tensor Betti comparison and the neutral category require DM.4's dual-σ motive category, scalar extension and rationalization. Their category-valued parts cannot be represented by opaque motive types. MC.6 must supply reconstruction over the actual imperfect field.
-- Relative algebraic closure requires the analytic field instantiation and FA.0's curve/Frobenius transport. The geometric invariant-field theorem requires the actual σ-power algebraic-closure fields and the action on the base-changed solution field. Tannakian identification requires the actual tensor functor and its group scheme.
-- ABP's arithmetic estimates require the normalized infinite-place size and integral/perfect-closure interfaces in FA.0. The period signature supplies the specialization field equality, while its full group-dimension form still requires the motive/category interfaces.
-- Membership of the logarithm extension, the Carlitz group, its linear kernel and the linear-relations theorem require actual motives and affine groups. The kernel additionally retains the separability verification described above. The division theorem needs the normalized period and local inverse from DM.2. Denominator clearing is stated natively; its monic least-denominator refinement requires the matching polynomial denominator API.
+- Fundamental matrices versus motive Betti bases, the integral lattice/trivialization theorem, exact tensor Betti comparison and the neutral category require DM.4's dual-σ motive category, scalar extension and rationalization. Their category-valued parts cannot be represented by opaque motive types. Instantiate MC.6's existing arbitrary-field neutral reconstruction over F_q(t); only the remaining comparison and generation exports are requested below.
+- Relative algebraic closure requires the analytic field instantiation, FA.0's curve/Frobenius transport and transport of the existing finite-field Lang morphism after base change to k̄; its matrices are not confined to the algebraic closure of F_q. The geometric invariant-field theorem requires the actual σ-power algebraic-closure fields and the action on the base-changed solution field. Tannakian identification requires the actual tensor functor and its group scheme.
+- ABP's arithmetic estimates require the normalized infinite-place size and integral/perfect-closure interfaces in FA.0. The period signature supplies the specialization field equality, while its full group-dimension form still requires the motive/category interfaces, SF.0's existing algebraic-scheme dimension theorem and the distinct bounded-generator filtration growth export. Dimension alone does not supply that growth comparison.
+- Membership of the logarithm extension, the Carlitz group, its linear kernel and the linear-relations theorem require actual motives and affine groups. The kernel additionally retains the separability verification described above. Use SF.1's existing affine descent and torsor targets; its remaining splitting export concerns vector-group torsors only, after this particular kernel has been proved vectorial. The division theorem needs the normalized period and local inverse from DM.2. Denominator clearing is stated natively; its monic least-denominator refinement requires the matching polynomial denominator API.
 
 These are concrete missing interfaces, not generic proposition fields, hidden conditions or substituted characteristic-zero assumptions. All their mathematical statements, sources and proof routes are present in the target specifications. The three recorded gaps group these exact omissions and the kernel verification, and coverage.remaining identifies the work needed to close the stage. Elaboration of the signatures does not prove the mathematical results.
 
 ## Source versions and source-use audit
 
-The statements and proof routes are written for these targets in our own words. No source passages or sequential source summaries are stored in the deliverables. Page numbers refer to the downloaded preprint unless explicitly marked printed. The full Papanikolas preprint was read, and the full ABP criterion proof and restricted-to-entire argument were read, not only the criterion's citation in Papanikolas. The multizeta readings identify consumers of the shared interface; they do not transfer their specialized motives to DM.8.
+The statements and proof routes are written for these targets in our own words. No source passages or sequential source summaries are stored in the deliverables. Locators use preprint pages unless marked printed. The source readings below record the independent review of 11 October 2026; they are retained as attributed evidence. That review read the full Papanikolas preprint and ABP lifting proof, and collated the listed ABP sections with the version of record. The multizeta readings identify consumers of the shared interface; their specialized motives remain with their own owners.
 
-- **PAP-v2**: Matthew A. Papanikolas, *Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms*. arXiv math/0506078v2, 29 June 2007; preprint of Invent. Math. 171 (2008), 123–174. [PAP-v2](https://arxiv.org/pdf/math/0506078v2). Read: Entire preprint pp.1–39; target proof chain §§2–6 checked. Existing visual and source-issue audits from the checkpoint are retained as attributed evidence.. SHA-256: `6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3`.
+- **PAP-v2**: Matthew A. Papanikolas, *Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms*. arXiv math/0506078v2, 29 June 2007; preprint of Invent. Math. 171 (2008), 123–174. [PAP-v2](https://arxiv.org/pdf/math/0506078v2). Read on 2026-10-11: Independent review: entire preprint pp.1–39; all DM.8 source locators, hypotheses and proof chains checked. Rendered pp.21, 30 and 38 checked for overbars, matrix shapes and the zero-exponential case. SHA-256: `6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3`.
 
-- **ABP-v1**: G. W. Anderson, W. D. Brownawell, M. A. Papanikolas, *Determination of the algebraic relations among special Γ-values in positive characteristic*. arXiv math/0207168v1; preprint of Annals160(2004),237–313. [ABP-v1](https://arxiv.org/pdf/math/0207168v1). Read: §§2.1–2.5 pp.6–7; §3 pp.7–16, including the full proof of Theorem3.1.1 and Proposition3.1.3; Proposition4.3.2 p.21. SHA-256: `a22c328ea63a1d2d43309bc125b5f377c88d853ff0f1b21039fba14b924ff8c2`.
+- **ABP-v1**: G. W. Anderson, W. D. Brownawell, M. A. Papanikolas, *Determination of the algebraic relations among special Γ-values in positive characteristic*. arXiv math/0207168v1; preprint of Annals160(2004),237–313. [ABP-v1](https://arxiv.org/pdf/math/0207168v1). Read on 2026-10-11: Independent review: §§2.1–2.5 pp.6–7; §3 pp.7–16, including the full lifting proof and Proposition3.1.3; Proposition4.3.2 p.21. Compared with the corresponding published sections. SHA-256: `a22c328ea63a1d2d43309bc125b5f377c88d853ff0f1b21039fba14b924ff8c2`.
 
-- **NGO-HAL**: Tuan Ngo Dac, *On Zagier–Hoffman’s conjectures in positive characteristic*. HAL hal-03298790, version accessed2026-10-10. [NGO-HAL](https://hal.science/hal-03298790/document). Read: §§4.1–4.3 printedpp.17–18 and §5.2 printedpp.20–21; selected use in §6. SHA-256: `f6bf74f188aad7602293e47b2c963243a036649cb591a4dc7ca13556e90d971d`.
+- **NGO-HAL**: Tuan Ngo Dac, *On Zagier–Hoffman’s conjectures in positive characteristic*. HAL hal-03298790, version accessed2026-10-10. [NGO-HAL](https://hal.science/hal-03298790/document). Read on 2026-10-11: Independent review: §§4.1–4.3 printedpp.16–18 (PDFpp.17–19), and §5.2 printedpp.20–21 (PDFpp.21–22). Specialized multizeta results are consumers, not new DM.8 targets. SHA-256: `f6bf74f188aad7602293e47b2c963243a036649cb591a4dc7ca13556e90d971d`.
 
-- **CCM-v2**: Chieh-Yu Chang, Yen-Tsung Chen, Yoshinori Mishiba, *On Thakur’s basis conjecture for multiple zeta values in positive characteristic*. arXiv2205.09929v2. [CCM-v2](https://arxiv.org/pdf/2205.09929v2). Read: §4.1 p.13; Lemma5.1.1 proof pp.22–24. SHA-256: `05e1f6d6b1ef37068f73709928a9dcc7a0e50874aced170f0c92e07f0cd7413b`.
+- **CCM-v2**: Chieh-Yu Chang, Yen-Tsung Chen, Yoshinori Mishiba, *On Thakur’s basis conjecture for multiple zeta values in positive characteristic*. arXiv2205.09929v2. [CCM-v2](https://arxiv.org/pdf/2205.09929v2). Read on 2026-10-11: Independent review: §4.1 p.13; Lemma5.1.1 and its proof pp.22–24. SHA-256: `05e1f6d6b1ef37068f73709928a9dcc7a0e50874aced170f0c92e07f0cd7413b`.
 
-- **IKLNP-v2**: B.-H. Im, H. Kim, K. N. Le, T. Ngo Dac, L. H. Pham, *Zagier–Hoffman’s conjectures in positive characteristic*. arXiv2205.07165v2 (10June2024). [IKLNP-v2](https://arxiv.org/pdf/2205.07165v2). Read: §2.1 and Theorem2.2 p.26; selected §2.2 p.27 and proof use p.33. SHA-256: `74a40b2e45b54760765247a010811d278e48f0b30f361bf3d9ca8cb92fd4b43e`.
+- **IKLNP-v2**: B.-H. Im, H. Kim, K. N. Le, T. Ngo Dac, L. H. Pham, *Zagier–Hoffman’s conjectures in positive characteristic*. arXiv2205.07165v2 (10June2024). [IKLNP-v2](https://arxiv.org/pdf/2205.07165v2). Read on 2026-10-11: Independent review: §2.1 and Theorem2.2 p.26; §2.2.1 p.27; the uniqueness and denominator application p.33. SHA-256: `74a40b2e45b54760765247a010811d278e48f0b30f361bf3d9ca8cb92fd4b43e`.
 
-- **CPY-v2**: Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, *An effective criterion for Eulerian multizeta values in positive characteristic*. arXiv1411.0124v2. [CPY-v2](https://arxiv.org/pdf/1411.0124v2). Read: Proposition2.2.1 and proof p.6. SHA-256: `029b57501d8b37f292557044ab2789b30435ab0c8e4b6d739284ee94ec7c5549`.
+- **CPY-v2**: Chieh-Yu Chang, Matthew A. Papanikolas, Jing Yu, *An effective criterion for Eulerian multizeta values in positive characteristic*. arXiv1411.0124v2. [CPY-v2](https://arxiv.org/pdf/1411.0124v2). Read on 2026-10-11: Independent review: Proposition2.2.1 and full proof p.6, including its rendered page; adjacent Ω/period normalization was compared with the DM.8 convention. SHA-256: `029b57501d8b37f292557044ab2789b30435ab0c8e4b6d739284ee94ec7c5549`.
 
-The earlier checkpoint recorded six notation/indexing issues in the Papanikolas preprint. They remain attributed to that version and await independent review. The previous worker inspected publication metadata but did not obtain and collate the version of record; this continuation does not upgrade those findings to claims about the published paper. Their records are paraphrased and the corrections retain the dimensions or coefficient-field information needed by this plan.
+- **ABP-published**: G. W. Anderson, W. D. Brownawell, M. A. Papanikolas, *Determination of the algebraic relations among special Γ-values in positive characteristic*. Annals of Mathematics 160 (2004), 237–313; version of record. [ABP-published](https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p06.pdf). Read on 2026-10-11: §§2.1–2.5 and §3 pp.244–256, including the full lifting proof; Proposition4.3.2 pp.262–263. No change in the target hypotheses relative to ABP-v1. SHA-256: `5668a9496609eb02380d0038f0f67b200c4142eb01fadca48fef6d1f232f62ca`.
 
-- `DrinfeldModulesAndTModules/E-DM8-1`, arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16: Use Ψ_P∈GL_r(L), Ψ_Q∈GL_s(L) for the independently chosen ranks r and s; their tensor matrix has size rs. The proposition permits P and Q of different ranks; choosing ranks 1 and 2 makes the shared r annotation incorrect. The tensor/dual argument itself is unchanged.
+### Preprint and publication boundaries
 
-- `DrinfeldModulesAndTModules/E-DM8-2`, arXiv math/0506078v2 (29 June 2007), §3.4.1, p.17, and Proposition 3.4.7, p.19: The representing matrix is r×r. It multiplies the r×1 basis column, and its determinant is used immediately. For r=2 the printed matrix product and determinant have the wrong types.
+The packet keeps six source-version records. These are the independent review's records of 11 October 2026; metadata access does not imply that published full text was read.
 
-- `DrinfeldModulesAndTModules/E-DM8-3`, arXiv math/0506078v2 (29 June 2007), Theorem 3.5.4 proof, p.21: The coefficient field of the graded-vector-space category in this argument is F_q(t). Lemma 3.5.3 gives endomorphisms of each Carlitz tensor power equal to F_q(t), and the fibre functor in the same sentence takes values in Vec(F_q(t)); a bar(k)(t)-linear equivalence would change that endomorphism field.
+- **Papanikolas preprint**: [arXiv math/0506078v2](https://arxiv.org/pdf/math/0506078v2), 29 June 2007, 39 pages; read in full.
+- **Papanikolas publication**: [Invent. Math. 171 (2008), 123–174](https://link.springer.com/article/10.1007/s00222-007-0073-y). Only article metadata and correction searches were read; the PDF endpoint returned HTML. The published full text was not read or collated. All Papanikolas findings remain scoped to the preprint.
+- **ABP preprint**: [arXiv math/0207168v1](https://arxiv.org/pdf/math/0207168v1), preprint of Annals 160 (2004), 237–313; read at the scope recorded above.
+- **ABP publication**: [Annals of Mathematics 160 (2004), 237–313](https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p06.pdf). Read printed pp.244–256 and 262–263 only, including the full lifting proof; the corresponding preprint and published hypotheses agree.
+- **CPY preprint**: [arXiv 1411.0124v2](https://arxiv.org/pdf/1411.0124v2). Proposition 2.2.1 and its full proof on p.6 were read, including an independent rendered-page check.
+- **CPY publication**: [J. Eur. Math. Soc. 21 (2019), 405–440](https://ems.press/journals/jems/articles/15761). Only publisher metadata was read; the subscription PDF endpoint returned article HTML. Published full text was not read or collated, and E-DM8-8 remains scoped to arXiv v2.
 
-- `DrinfeldModulesAndTModules/E-DM8-4`, arXiv math/0506078v2 (29 June 2007), Lemma 4.5.7 proof, p.30: The displayed basis-column matrix has size s×(s−m). C has m rows and s−m columns. Stacking −C above I_{s−m} gives s rows and s−m columns and makes its product with [I_m,C] defined.
+### Eight confirmed source findings
 
-- `DrinfeldModulesAndTModules/E-DM8-5`, arXiv math/0506078v2 (29 June 2007), Theorem 5.2.2 proof, p.33: Use N=Σ_{n=0}^d r^(2n); the quotient expression is only for r≠1, and N=d+1 for r=1. The proof includes rank-one motives. At r=1 the printed quotient is 0/0, whereas the concatenated vector has d+1 entries. This changes no theorem hypothesis.
+The independent review `REV-DrinfeldModulesAndTModules--DM.8` confirmed all eight findings on 11 October 2026. E-DM8-1 through E-DM8-7 concern PAP-v2; E-DM8-8 concerns CPY-v2 and reuses the existing PAPER-NGODAC-21/E10 finding. The recorded author, publisher and arXiv correction searches found no relevant linked correction. Published Papanikolas and CPY full texts were not obtained or collated, so these findings remain scoped to the cited preprints. None weakens the target theorem statements.
 
-- `DrinfeldModulesAndTModules/E-DM8-6`, arXiv math/0506078v2 (29 June 2007), Proposition 6.1.3 proof, p.34: Use m=[m_0,m_1,…,m_r]^tr in the equation σm=(t−θ)Φm. The module has rank r+1 and Φ is an (r+1)×(r+1) matrix; the printed vector omits its first coordinate. The subsequent submodule C tensor C is generated in that coordinate.
+- `DrinfeldModulesAndTModules/E-DM8-1`, arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16: Use Ψ_P∈GL_r(L), Ψ_Q∈GL_s(L) for the independently chosen ranks r and s; their tensor matrix has size rs. The proposition permits P and Q of different ranks; choosing ranks 1 and 2 makes the shared r annotation incorrect. The tensor/dual argument itself is unchanged. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-2`, arXiv math/0506078v2 (29 June 2007), §3.4.1, p.17, and Proposition 3.4.7, p.19: The representing matrix is r×r. It multiplies the r×1 basis column, and its determinant is used immediately. For r=2 the printed matrix product and determinant have the wrong types. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-3`, arXiv math/0506078v2 (29 June 2007), Theorem 3.5.4 proof, p.21: The coefficient field of the graded-vector-space category in this argument is F_q(t). Lemma 3.5.3 gives endomorphisms of each Carlitz tensor power equal to F_q(t), and the fibre functor in the same sentence takes values in Vec(F_q(t)); a bar(k)(t)-linear equivalence would change that endomorphism field. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-4`, arXiv math/0506078v2 (29 June 2007), Lemma 4.5.7 proof, p.30: Use the vertical block column with −C above I_(s−m), of size s×(s−m), as the kernel basis matrix; its product with [I_m,C] is zero. C has m rows and s−m columns, so the stacked column has precisely the dimensions this product requires. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-5`, arXiv math/0506078v2 (29 June 2007), Theorem 5.2.2 proof, p.33: Use N=Σ_{n=0}^d r^(2n); the quotient expression is only for r≠1, and N=d+1 for r=1. The proof includes rank-one motives. At r=1 the printed quotient is 0/0, whereas the concatenated vector has d+1 entries. This changes no theorem hypothesis. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-6`, arXiv math/0506078v2 (29 June 2007), Proposition 6.1.3 proof, p.34: Use m=[m_0,m_1,…,m_r]^tr in the equation σm=(t−θ)Φm. The module has rank r+1 and Φ is an (r+1)×(r+1) matrix; the printed vector omits its first coordinate. The subsequent submodule C tensor C is generated in that coordinate. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-7`, arXiv math/0506078v2, Theorem6.4.2 proof p.38, invoking Lemma6.4.1 pp.37–38: Separate exp_C(λ)=0: the Carlitz kernel theorem gives λ in F_q[θ]·π̃. Apply division only to the nonzero exponentials, then choose a k-basis of the span of π̃ and the resulting small logarithms. The single-element family λ_1=π̃ is linearly independent over k and satisfies the theorem, but does not satisfy the division lemma’s nonzero-exponential hypothesis. DM.8/logarithm-division and carlitz-logarithm-independence already state the separate period case, so no target theorem is weakened. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`.
+
+- `DrinfeldModulesAndTModules/E-DM8-8`, arXiv1411.0124v2, Proposition2.2.1 p.6 (rendered page checked): The rationalized-motive homomorphism matrix belongs to Mat_(r1×r2)(bar(k)(t)); retain both determinant conditions and the conclusion that its monic common denominator lies in F_q[t]. On two trivial rank-one motives, multiplication by 1/t commutes with σ and is a rationalized-module homomorphism, although its matrix is not polynomial. The proof immediately treats rational denominators and proves the intended corrected statement. Confirmed by `REV-DrinfeldModulesAndTModules--DM.8`. This reuses the independently confirmed PAPER-NGODAC-21/E10 record in [the existing extraction](../papers/PAPER-NGODAC-21.result.json).
 
 ## Baseline correspondence
 
@@ -1145,6 +1170,10 @@ The declaration names below identify existing objects/results at the recorded pi
 
 | `mathlib:ringKrullDim` | Krull dimension of a commutative ring, valued in the extended natural numbers with bottom. |
 
+
+| `mathlib:AlgebraicGeometry.Spec` | The native scheme spectrum of a commutative ring; supplies Z=Spec Σ without a new scheme definition. |
+
+| `mathlib:AlgebraicGeometry.IsClosedImmersion.spec_of_surjective` | For commutative rings and a surjective ring homomorphism, Spec.map is a closed immersion; apply to the generator-evaluation map with codomain its image Σ. |
 
 ## Coverage and atlas presentation
 
