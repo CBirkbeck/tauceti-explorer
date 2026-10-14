@@ -17206,7 +17206,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DeligneWeightsAndPurityPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4584"
   },
   {
    "id": "REV-DESIGN-DeligneWeightsAndPurityPartII",
@@ -25788,8 +25789,9 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.8c.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9419"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.8c",
@@ -25945,8 +25947,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9423"
   },
   {
    "id": "REV-HodgeTateAndCanonicalSubgroups",
@@ -35024,8 +35027,9 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.4",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9384"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9384",
+   "finishedAt": "2026-10-14T01:53:53Z"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
@@ -35071,8 +35075,9 @@
    ],
    "avoidAccountOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
    "prompt": "research/blueprint/prompts/REV-GL2AutomorphicRepresentationsAndTransfer--R17.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9385"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9385",
+   "finishedAt": "2026-10-14T01:53:56Z"
   },
   {
    "id": "BP-GeometricSatakeAndFusion--GS3",
@@ -35519,7 +35524,8 @@
    ],
    "followUpOf": "BP-HeegnerPointEulerSystems--HE.0",
    "prompt": "research/blueprint/prompts/BP-HeegnerPointEulerSystems--HE.8b.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9418"
   },
   {
    "id": "REV-HeegnerPointEulerSystems--HE.8b",
@@ -35730,7 +35736,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1-2",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1-2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9263",
+   "finishedAt": "2026-10-14T01:53:59Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1-classical",
@@ -35776,7 +35784,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1-classical",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1-classical.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9264"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1-plus",
@@ -35822,7 +35831,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.1-plus",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.1-plus.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9265",
+   "finishedAt": "2026-10-14T01:54:01Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.2",
@@ -35845,8 +35856,9 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9308"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9308",
+   "finishedAt": "2026-10-14T01:54:05Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.2",
@@ -35913,8 +35925,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.2-graded-map",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.2-graded-map.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9267"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9267",
+   "finishedAt": "2026-10-14T01:54:06Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.2-symbols",
@@ -36865,8 +36878,9 @@
    ],
    "followUpOf": "BP-PotentialModularityAndCompatibleSystems--R23.1",
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9428"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9428",
+   "finishedAt": "2026-10-14T01:54:10Z"
   },
   {
    "id": "REV-PotentialModularityAndCompatibleSystems--R24.4",
@@ -40520,7 +40534,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9302"
   },
   {
    "priority": 2,
@@ -41892,8 +41907,9 @@
    ],
    "revisionOf": "BP-PerfectoidShimuraVarieties",
    "prompt": "research/blueprint/prompts/BP-PerfectoidShimuraVarieties~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9311"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9311",
+   "finishedAt": "2026-10-14T01:54:11Z"
   },
   {
    "priority": 2,
@@ -88697,8 +88713,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -90823,8 +90839,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5704"
+   "state": "external",
+   "note": "claimed on GitHub issue #5704"
   },
   {
    "id": "FIX-RT-AREA-padic-1~4",
@@ -100867,8 +100883,9 @@
    ],
    "revisionOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9303"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9303",
+   "finishedAt": "2026-10-14T01:54:13Z"
   },
   {
    "priority": 2,
