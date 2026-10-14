@@ -37013,7 +37013,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9751"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
@@ -37284,7 +37285,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9757"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R24.3",
@@ -44354,7 +44356,8 @@
    ],
    "revisionOf": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.5",
    "prompt": "research/blueprint/prompts/BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9766"
   },
   {
    "priority": 2,
@@ -47401,7 +47404,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9768"
   },
   {
    "id": "REV-PKG-AnabelianGeometryAndNonabelianChabauty",
@@ -47444,7 +47448,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArakelovGeometryAndAbelianHeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9769"
   },
   {
    "id": "REV-PKG-ArakelovGeometryAndAbelianHeights",
@@ -50425,7 +50430,8 @@
     "PKG-FreeGroupsAndLimitGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FreeGroupsAndLimitGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9736"
   },
   {
    "id": "PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -51456,7 +51462,8 @@
    ],
    "revisionOf": "PKG-HilbertModularVarietiesAndShimuraCurves",
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9761"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves~3",
@@ -52573,7 +52580,8 @@
     "PKG-ModularCurvesPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularCurvesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9740"
   },
   {
    "id": "PKG-ModularSymbolsPadicLFunctions",
