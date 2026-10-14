@@ -24606,8 +24606,9 @@
    ],
    "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9383"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9383",
+   "finishedAt": "2026-10-14T05:22:04Z"
   },
   {
    "id": "BP-EulerSystemsCyclotomicMainConjecture",
@@ -27257,8 +27258,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #460"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #460",
+   "finishedAt": "2026-10-14T05:22:08Z"
   },
   {
    "id": "BP-PadicFamilies",
@@ -46834,8 +46836,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticDirichletSeriesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9157"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9157",
+   "finishedAt": "2026-10-14T05:22:11Z"
   },
   {
    "id": "REV-PKG-ArithmeticDirichletSeriesPartII",
@@ -47822,7 +47825,9 @@
     "PKG-ColemanIntegration~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ColemanIntegration~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9204",
+   "finishedAt": "2026-10-14T05:22:16Z"
   },
   {
    "id": "PKG-ComplexComparisonPartII",
@@ -48081,8 +48086,9 @@
    ],
    "revisionOf": "PKG-ConformalMappingPartII",
    "prompt": "research/blueprint/prompts/PKG-ConformalMappingPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9163"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9163",
+   "finishedAt": "2026-10-14T05:22:19Z"
   },
   {
    "id": "REV-PKG-ConformalMappingPartII~2",
@@ -50943,7 +50949,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9180"
   },
   {
    "id": "REV-PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers",
@@ -51252,7 +51259,8 @@
     "PKG-MultiquadraticPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-MultiquadraticPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9227"
   },
   {
    "id": "PKG-NeronModelsAndSemistableAbelianVarieties",
@@ -51458,7 +51466,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PolynomialGaloisGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9186"
   },
   {
    "id": "REV-PKG-PolynomialGaloisGroupsPartII",
@@ -51820,7 +51829,8 @@
     "PKG-QuiverRepresentationsPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-QuiverRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9234"
   },
   {
    "id": "PKG-RankZeroOneBSD",
@@ -88785,8 +88795,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -89766,8 +89776,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7451"
+   "state": "external",
+   "note": "claimed on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",
