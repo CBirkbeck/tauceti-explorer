@@ -14,6 +14,8 @@ The signatures distinguish arithmetic and geometric Frobenius, coefficient
 fields from residue fields, and an intersection in the ambient vector space
 from its inverse image in a fixed lattice. Full characteristic polynomials,
 nonzero monodromy and nilpotent coefficient rings are retained in the checks.
+The nearly ordinary coefficient expression retains both finite and labelled
+algebraic unit factors; its Galois identification is a README target.
 -/
 
 namespace TauCetiRoadmap.AutomorphicGaloisRepresentations
@@ -203,6 +205,33 @@ example :
     F * N * F⁻¹ = (1 / 3 : ℚ) • N ∧ N ≠ 0 ∧
       F.charpoly = X ^ 2 - C 4 * X + C 3 :=
   sorry
+
+section NearlyOrdinaryCoefficients
+variable {ι K : Type*} [Fintype ι] [Field K]
+
+/-- The all-unit coefficient expression for a nearly ordinary refinement.
+Its local interpretation requires nonzero embedding values. The Galois
+character and its identification are targets of README §§4.10–4.11. -/
+noncomputable def nearlyOrdinaryUnitValue (finiteValue : K)
+    (embeddingValues : ι → K) (v : ι → ℤ) : K :=
+  finiteValue * ∏ τ, embeddingValues τ ^ (-v τ)
+
+/-- Parallel normalized weight has zero algebraic exponents and retains the
+finite character, including a nontrivial torsion-unit value. -/
+example (finiteValue : K) (embeddingValues : ι → K) :
+    nearlyOrdinaryUnitValue finiteValue embeddingValues (fun _ => 0) = finiteValue := by
+  simp [nearlyOrdinaryUnitValue]
+
+/-- At weights (2,4) the exponents are (1,0). At p=3, 4 is a principal
+unit. Its algebraic inverse survives; on the torsion unit −1, the
+finite value −1 and the algebraic factor −1 cancel. -/
+example :
+    nearlyOrdinaryUnitValue (1 : ℚ) ![4, 4] ![1, 0] = 1 / 4 ∧
+    nearlyOrdinaryUnitValue (-1 : ℚ) ![-1, -1] ![1, 0] = 1 ∧
+    nearlyOrdinaryUnitValue (1 : ℚ) ![4, 4] ![1, 0] ≠ 1 := by
+  norm_num [nearlyOrdinaryUnitValue, Fin.prod_univ_two]
+
+end NearlyOrdinaryCoefficients
 
 /-! ## Layer 5: Ordinary lattices and crystalline factors -/
 
