@@ -1,14 +1,15 @@
 /-
-EDC.7 / EDC.8: native-baseline statement suggestions, independently reviewed 2026-10-13.
+EDC.7 / EDC.8: native-baseline statement suggestions, revision 2026-10-14.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369.
 
-The reader document states all 57 targets, exact hypotheses, sources, APIs and diagnostic tests.
+The reader document states all 115 targets, exact hypotheses, sources, APIs and diagnostic tests.
 This file follows WORKERS.md's 2026-10-12 shape rule: no substitute sheaf categories,
 no unproved data constructions, and no development of the geometric theory. Perverse sheaves,
 weights, filtered six operations, normal-cone specialization and the coherent categorical
 Lefschetz construction are reader targets until their carriers exist at the pins.
-The two unresolved mathematical/ownership gaps are recorded in the reader and review.
+The reader supplies the transferred weight closure and the singular semisimple fixed-point proof.
+Their geometric implementation and the precise supplier requests remain open.
 
 Below are light predicates and end statements over native category-theoretic and
 finite-dimensional linear-algebra carriers. Proof holes do not claim implementation.
@@ -33,6 +34,10 @@ import Mathlib.LinearAlgebra.PerfectPairing.Basic
 import Mathlib.LinearAlgebra.BilinearForm.Properties
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.Data.Int.Interval
+import Mathlib.FieldTheory.Minpoly.Field
+import Mathlib.FieldTheory.IsAlgClosed.Classification
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 noncomputable section
 set_option linter.unusedSectionVars false
@@ -230,3 +235,52 @@ example : gradedEulerChar 1 (fun i => if i = 0 ∨ i = 2 then 1 else 0) = 2 := s
 example (s : ℚ) : s ^ (1 : ℕ) = s := by simp
 
 end TauCeti
+
+namespace TauCeti.Weights
+
+/-! EDC.7 weight predicates over native fields. Numeric hypotheses `q > 1` are
+required at every purity API theorem; zero has no weight. No adic sheaf carrier
+or geometric arithmetic model is constructed in this file. -/
+
+/-- Node `EDC.7/weight-weil-q-number`: all complex conjugates have a common modulus.
+The definition permits algebraic nonintegral numbers, as inverse Tate lines require. -/
+def IsWeilNumber {K : Type u} [Field K] [CharZero K] (q : ℝ) (w : ℤ) (α : K) : Prop :=
+  IsAlgebraic ℚ α ∧ ∀ z : ℂ,
+    ((minpoly ℚ α).map (algebraMap ℚ ℂ)).IsRoot z → ‖z‖ = q ^ ((w : ℝ) / 2)
+
+/-- Node `EDC.7/weight-iota-weight`: an explicit nonzero scalar and embedding. -/
+def iotaWeight {K : Type u} [Field K] (ι : K →+* ℂ) (q : ℝ) (α : Kˣ) : ℝ :=
+  2 * Real.log ‖ι (α : K)‖ / Real.log q
+
+/-- Numeric test: the constant eigenvalue has weight zero. -/
+example : IsWeilNumber 5 0 (1 : ℚ) := sorry
+
+/-- Numeric test: geometric Frobenius on an inverse Tate line has weight two. -/
+example : IsWeilNumber 5 2 (5 : ℚ) := sorry
+
+/-- Zero is not pure, even though logarithm is a total function. -/
+example : ¬ IsWeilNumber 5 0 (0 : ℚ) := sorry
+
+/-- Diagnostic against a missing factor of two in the logarithmic weight. -/
+example : iotaWeight (RingHom.id ℂ) 5 (Units.mk0 (5 : ℂ) (by norm_num)) = 2 := sorry
+
+/-- The unit scalar has zero logarithmic weight. -/
+example : iotaWeight (RingHom.id ℂ) 5 (1 : ℂˣ) = 0 := sorry
+
+/-- A unit scalar at the inverse norm has negative weight. -/
+example : iotaWeight (RingHom.id ℂ) 5 (Units.mk0 (5 : ℂ) (by norm_num))⁻¹ = -2 := sorry
+
+/-- End scalar arithmetic: products of Weil numbers add their integer weights. -/
+theorem IsWeilNumber.mul {K : Type u} [Field K] [CharZero K]
+    {q : ℝ} (hq : 1 < q) {w₁ w₂ : ℤ} {α β : K}
+    (hα : IsWeilNumber q w₁ α) (hβ : IsWeilNumber q w₂ β) :
+    IsWeilNumber q (w₁ + w₂) (α * β) := sorry
+
+/-- Prescribed-base isomorphism in the embedding target: using the supplied k-algebra
+structure on ℂ forces compatibility with the selected embedding of k.
+The native algebraic-closure extension theorem exposes this compatibility. -/
+theorem complex_equiv_over_countable_base (k E : Type) [Field k] [Countable k]
+    [Field E] [CharZero E] [IsAlgClosed E] [Algebra k E] [Algebra k ℂ]
+    (hcard : Cardinal.mk E = Cardinal.mk ℂ) : Nonempty (E ≃ₐ[k] ℂ) := sorry
+
+end TauCeti.Weights
