@@ -49784,8 +49784,9 @@
     "PKG-EndoscopicTransferAndUnitaryTraceComparison"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9839"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9839",
+   "finishedAt": "2026-10-14T20:29:04Z"
   },
   {
    "id": "PKG-EnhancedDerivedSheaves",
@@ -53002,7 +53003,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9854"
   },
   {
    "id": "REV-PKG-PadicDifferentialEquationsAndRigidCohomology",
