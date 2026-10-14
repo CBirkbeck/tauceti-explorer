@@ -49811,8 +49811,9 @@
    ],
    "revisionOf": "PKG-EndoscopicTransferAndUnitaryTraceComparison",
    "prompt": "research/blueprint/prompts/PKG-EndoscopicTransferAndUnitaryTraceComparison~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9867"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9867",
+   "finishedAt": "2026-10-14T23:55:35Z"
   },
   {
    "id": "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~2",
