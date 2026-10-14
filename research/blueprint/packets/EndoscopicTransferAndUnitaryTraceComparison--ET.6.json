@@ -215,7 +215,7 @@
       ],
       "uses": [
         {
-          "where": "Scholze Theorems 6.4 and 11.3",
+          "where": "Scholze Theorem 6.4 and Corollary 11.3",
           "how": "Track induction and tower duals."
         },
         {
@@ -237,7 +237,7 @@
         "The O-action on Lie H agrees with the structural O-action; κ_r has the specified κ-embedding; marked deformations preserve that strict action."
       ],
       "proofSteps": [
-        "Apply the relative contravariant Dieudonné classification supplied by R07.2, keeping F=βσ distinct from the covariant convention in the norm calculation.",
+        "Apply the contravariant Dieudonné supplier with its requested strict relative O-linear extension. Relative F=βσ and the étale norm parameter F=β⁻¹σ₀ use different β conventions and opposite endomorphism algebras; both are contravariant.",
         "Use the formal O-module deformation and Cartier-level representability supplier; connected–étale splitting reduces regularity and dimension to the connected case.",
         "Use strict truncated-O-module algebraization, Artin approximation and normalization as in Theorem 2.4; request these exact deformation exports rather than duplicate their general owners."
       ],
@@ -246,8 +246,7 @@
       ],
       "prerequisites": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
         "ClassicalAdicEtaleCohomology:H1"
       ],
       "sources": [
@@ -266,7 +265,7 @@
         {
           "name": "DrinfeldDeformationInstance.ofDieudonne",
           "role": "constructor",
-          "statement": "σ-conjugate β give canonically identified marked deformation problems."
+          "statement": "A chosen integral σ-conjugator, hence a chosen isomorphism of H_β, transports marked deformation problems; identity and composition of isomorphisms give the corresponding transport laws. Changing the conjugator by an automorphism changes the transport by that automorphism."
         },
         {
           "name": "DrinfeldDeformationInstance.levelAction",
@@ -292,8 +291,8 @@
         },
         {
           "name": "DrinfeldDeformationInstance.zeroSections",
-          "kind": "non-example",
-          "statement": "For m≥1 on a connected height-one module the zero section does not satisfy the full Cartier-divisor level condition."
+          "kind": "characterisation",
+          "statement": "For n=1,m≥1 the all-zero sections fail the level condition on the geometric generic fibre, where H[ϖ^m] has q^m distinct points. On the geometric special fibre of a connected height-one formal O-module they satisfy it: both Cartier divisors are q^m[0]."
         },
         {
           "name": "DrinfeldDeformationInstance.etaleBoundary",
@@ -456,12 +455,12 @@
       ],
       "title": "Dieudonné norms in the étale and basic cases",
       "kind": "construction",
-      "statement": "For a finite semisimple Q_p-algebra A with maximal order O_A, the integral σ-conjugacy class of β∈(O_A⊗Z_{p^r})× corresponds to an étale O_A^op-linear p-divisible group. In the covariant convention F=β^{-1}σ_0, the Frobenius descent operator γ=α∘F^{−r} has A×-conjugacy class Nβ, represented after splitting by ββ^{σ_0}⋯β^{σ_0^{r−1}}. For the relative basic case let D/F have invariant 1/n, normalize v_D(ϖ)=n, and let B_r be the basic β in the deformation coset. Marking the unique geometric height-n formal O-module gives descent in D_{−r}; invert it to obtain the class Nβ in D_r={d:v_D(d)=r}. These are correspondences of integral σ-classes and O_D×-conjugacy classes, not element-valued norm homomorphisms on a noncommutative group.",
+      "statement": "For a finite semisimple Q_p-algebra A with maximal order O_A, integral σ₀-conjugacy classes of β∈(O_A⊗Z_{p^r})× parametrize étale O_A^op-linear p-divisible groups H over F_{p^r} for which H[p] is free of rank one over O_A^op/p. The contravariant Dieudonné module is O_A⊗Z_{p^r}, with F=β⁻¹σ₀. The geometric descent operator γ=α∘Frob_H^{−r} determines an O_A×-conjugacy class Nβ. The characteristic polynomials of Nβ and ββ^{σ₀}⋯β^{σ₀^{r−1}} agree; this does not specify an element-valued norm in a noncommutative algebra. For the relative basic case let D/F have invariant 1/n, normalize v_D(ϖ)=n, and let B_r be the basic β in the deformation coset. Marking the unique geometric height-n formal O-module gives descent in D_{−r}; invert it to obtain the O_D×-conjugacy class Nβ in D_r={d:v_D(d)=r}.",
       "hypotheses": [
         "r≥1; σ_0 is arithmetic Witt Frobenius; σ is relative arithmetic Frobenius in the O-module case."
       ],
       "proofSteps": [
-        "Compare contravariant relative F=βσ with covariant F=β^{-1}σ_0 before identifying descent.",
+        "Track contravariance, the opposite endomorphism algebra and the inverse β parameter when passing from relative F=βσ to the étale F=β⁻¹σ₀ description; no covariant Dieudonné functor is used.",
         "Use integral Dieudonné classification for the étale case; conjugate marked lattices produce the same norm class.",
         "In the basic case classify geometric formal modules, identify endomorphism height with v_D, and invert the negative-height descent operator."
       ],
@@ -471,7 +470,7 @@
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-deformation-instance",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible"
       ],
       "sources": [
         {
@@ -489,7 +488,7 @@
         {
           "name": "DieudonneNorm.class",
           "role": "constructor",
-          "statement": "Send an integral σ-class to the conjugacy class of its Frobenius descent operator."
+          "statement": "Send an integral σ₀-class to its geometric Frobenius descent class up to O_A×-conjugacy; in the basic case send an integral σ-class to its inverted descent class up to O_D×-conjugacy."
         },
         {
           "name": "DieudonneNorm.changeMarking",
@@ -504,7 +503,7 @@
         {
           "name": "DieudonneNorm.splitProduct",
           "role": "compatibility",
-          "statement": "After splitting A the norm is the ordered product of Frobenius conjugates; for commutative A it agrees with the ordinary extension norm."
+          "statement": "The norm class and the ordered product ββ^{σ₀}⋯β^{σ₀^{r−1}} have equal characteristic polynomials. For commutative A the construction agrees with the ordinary extension norm."
         }
       ],
       "tests": [
@@ -530,7 +529,7 @@
           "how": "Match orbital integrals by counting marked lattices."
         },
         {
-          "where": "Scholze Theorem 11.3",
+          "where": "Scholze Corollary 11.3",
           "how": "Identify d=Nβ in the Lubin–Tate trace formula."
         }
       ]
@@ -661,17 +660,18 @@
       ],
       "title": "Type isolation and the trace-to-parameter reduction",
       "kind": "lemma",
-      "statement": "For a fixed essentially square-integrable GL_n(F) representation δ, an irreducible compact type τ_K as in Schneider–Zink Proposition 11 isolates its unramified-twist family among tempered representations. Combining the induced type trace with Bernstein density, Scholze Lemma 3.2 reduces the rank-n character construction to (i) the proper-induction trace formula, (ii) positive rational Weil traces for essentially square-integrable and associated generalized Speh representations, and (iii) integral virtual Weil multiplicities for supercuspidals. Positivity plus integer multiplicities gives an actual semisimple representation of dimension n.",
+      "statement": "Let ρ be a unitary supercuspidal representation of GL_d(F), t≥2 and n=dt. Its generalized Speh Langlands quotient S is formed from ρ[(t+1)/2−i], 1≤i≤t. There is h∈C_c^∞(GL_n(O)) with tr(h|S)≠0 and tr(h|θ)=0 for every tempered irreducible θ outside the properly induced family formed from t unitary unramified twists of ρ. In particular h has zero trace on every square-integrable representation. Separately, a test function whose traces vanish on all tempered nonsquare-integrables and all generalized Speh representations has zero trace on every irreducible smooth representation. With the lower-rank character construction, Scholze Lemma 3.2 therefore reduces rank n to proper-induction traces, positive rational Weil traces for essentially square-integrable and Speh representations, and integral virtual Weil multiplicities for supercuspidals. Positivity and integrality then give actual dimension-n semisimple Weil representations.",
       "hypotheses": [
         "Characteristic-zero admissible representations; the compact type is finite-dimensional; the density statement applies to all finite-length test traces."
       ],
       "proofSteps": [
-        "Request the precise compact-type isolation theorem and Kazhdan density in the smooth-representation character prefix.",
-        "Subtract induced contributions using harmonic descent and the fixed-rank type.",
-        "Use the linear independence of semisimple Weil characters and dimension n; do not infer integrality solely from rationality of the scalar-valued test function."
+        "Request the Schneider–Zink type that occurs in S and in exactly the indicated properly induced tempered family, and Kazhdan density. The compact test separates S from square-integrables; it does not isolate an essentially square-integrable unramified family.",
+        "For the vanishing criterion, take normalized constant terms along proper parabolics and apply Kazhdan density on their Levi factors. The alternating segment/Speh relation then treats square-integrables, followed by density on GL_n.",
+        "For Lemma 3.2, import the current SR.3 Bernstein centre and universal-unramified-twist APIs. The trace scalar varies regularly on each cuspidal component and descends through self twists and Weyl identifications, yielding a central multiplier. Proper induction and the compact Speh test compare its trace with f_{τ,h}; the vanishing criterion extends the identity to every constituent.",
+        "Use independence of semisimple Weil characters. Positive rational coefficients become nonnegative integers only after the independent supercuspidal integrality input."
       ],
       "acceptance": [
-        "A positive rational multiplicity 1/2 must fail the actual-representation conclusion until the integral input is imposed."
+        "The compact separator has nonzero trace on S and zero trace on all square-integrables. A positive rational multiplicity 1/2 still fails the actual-representation conclusion until integrality is imposed."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.3",
@@ -682,8 +682,8 @@
       "sources": [
         {
           "sourceId": "scholze-llc",
-          "locator": "Lemmas 3.1–3.2, pp.9–10",
-          "match": "States the compact-type separation and the three independent proof inputs for construction of rec."
+          "locator": "Lemmas 3.1–3.2 and their proofs, pp.9–11",
+          "match": "Separates generalized Speh from square-integrables, applies Kazhdan density, and uses Bernstein-centre regularity to pass from the three rank-induction inputs to constituent traces. The rank/supercuspidal-symbol misprints are recorded in E-ET6-5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -716,7 +716,7 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/nearby-trace-function",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/basic-norm-integrals",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/normalization-dictionary",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
         "PELModuli:M2"
       ],
       "sources": [
@@ -792,17 +792,17 @@
       ],
       "title": "Positive Weil traces from early unitary globalization",
       "kind": "theorem",
-      "statement": "For an essentially square-integrable π of GL_n(F), and for its generalized Speh partner used in Scholze Lemma 3.2(ii), after an unramified twist there is a cohomological auxiliary π_f with local factor π. Apply the globalization to π∨, so π_w=π∨⊗χ with χ unramified. Write W for the alternating cohomological multiplicity and a=dim(W)/n, the nonzero signed integer in Corollary 10.1. Then tr(f∨_{τ,h}|π_w)=a^{-1}tr(τ|W⊗χ_sim)tr(h∨|π_w). Since W occurs in a single parity, sign(a)W is effective of dimension |a|n. Therefore a^{-1}W∨⊗χ_sim^{-1}⊗χ^{-1} gives rec_un(π) as a positive rational Weil class of dimension n. Keep the GL_1 similitude character χ_sim; do not require the alternating W or its a to be positive separately.",
+      "statement": "For an essentially square-integrable π of GL_n(F), or a generalized Speh representation in Scholze Lemma 3.2(ii), globalize π∨ so that π_w=π∨⊗χ with χ unramified. Write W for the alternating cohomological multiplicity and a=dim(W)/n, a nonzero signed integer. Corollary 10.1 gives tr(f∨_{τ,h}|π_w)=a⁻¹tr(τ|W⊗χ_sim)tr(h∨|π_w). Using tr(f∨|π_w)=tr(f|π_w∨), the correct positive rational class is rec_un(π)=a⁻¹W⊗χ_sim⊗χ, where local characters are interpreted through geometric reciprocity. Since W occurs in a single parity, sign(a)W is effective of dimension |a|n. This yields a positive rational Weil class of dimension n. The dualized formula in the proof of Corollary 10.3 of the 2010 author copy is replaced by this direct trace calculation, as recorded in E-ET6-3.",
       "hypotheses": [
         "Globalization may change π by an unramified character; signed versus actual cohomology is fixed before positivity is asserted."
       ],
       "proofSteps": [
         "Use the auxiliary geometric trace and isolate the automorphic finite part through unitary multiplicity one and restricted unitary-to-GL base change.",
         "Use Harris–Taylor VI.2.3, VI.2.5 and VI.2.11 for the essentially square-integrable and Speh cases; these are explicit supplier/source-access requirements.",
-        "Divide the trace identity by the nonzero integer a(π_f) and remove the controlled unramified twist; positivity is independent of later global compatibility."
+        "Take f_{τ,h} supported on determinant valuation r. If χ(ϖ)=u and τ lies over Φ^r, then tr(f∨_{τ,h}|π_w)=u^{−r}tr(f_{τ,h}|π), while tr(h∨|π_w)=tr(h|π). Multiplying Corollary 10.1 by u^r gives a⁻¹W⊗χ_sim⊗χ. Its positivity uses the common parity of W and the sign of a, without later local duality or global compatibility."
       ],
       "acceptance": [
-        "A virtual alternating class alone does not give positivity; the parity and degree-concentration input is required."
+        "Choose u with u≠u⁻¹ in the unramified-twist trace calculation: removing u^{−r} must multiply the Weil trace by u^r. A virtual alternating class alone does not give positivity; the common-parity input is required."
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/auxiliary-geometric-trace",
@@ -813,7 +813,7 @@
         {
           "sourceId": "scholze-llc",
           "locator": "Corollary 10.1, Theorem 10.2 and Corollary 10.3, pp.26–27",
-          "match": "The required positive rational Weil trace comes from restricted early unitary globalization and isotypic isolation, with the central character retained."
+          "match": "Corollary 10.1 and globalization give positivity after explicit inversion of the automorphic trace. The printed Corollary 10.3 proof formula has the dualization error recorded in E-ET6-3."
         }
       ],
       "implementationStatus": "unchecked",
@@ -830,17 +830,17 @@
       ],
       "title": "The compact-group Lubin–Tate virtual comparison",
       "kind": "theorem",
-      "statement": "Let D/F have invariant 1/n and ρ an irreducible D× representation whose classical transfer π=JL(ρ) is supercuspidal. Extend the alternating nearby-cycle tower class from K×(D××W_F)^0 to K×D××W_F by compact induction, with K=GL_n(O) and v_D(d)=deg(τ), with arithmetic degree deg(Φ)=−1. Its ρ∨-multiplicity is (−1)^{n−1}π∨|_K⊗rec_un(π) as a virtual K×W_F representation. Here rec_un(π) initially denotes the positive rational class furnished by globalization. This identity asserts neither concentration in one degree nor a full GL_n(F)-equivariant realization.",
+      "statement": "Let D/F have invariant 1/n and ρ an irreducible D× representation whose classical transfer π=JL(ρ) is supercuspidal. Extend the alternating nearby-cycle tower class from K×(D××W_F)^0 to K×D××W_F by compact induction, with K=GL_n(O) and v_D(d)=deg(τ), with arithmetic degree deg(Φ)=−1. Define M(ρ)=Hom_{D×}(ρ,c-Ind[RΨ]). Then M(ρ)=(−1)^{n−1}π∨|_K⊗rec_un(π) as a virtual K×W_F representation. The ρ argument is fixed by the character projector in the proof of Corollary 11.3; the extra dual on ρ in its printed statement is recorded in E-ET6-4. Here rec_un(π) initially denotes the positive rational class furnished by globalization. This identity asserts neither concentration in one degree nor a full GL_n(F)-equivariant realization.",
       "hypotheses": [
         "Use 0≤i≤n−1 nearby cycles, the inverse norm action d^{-1}, and the same Haar measures as the norm identities."
       ],
       "proofSteps": [
         "The basic deformation tower is independent of β over the completed maximal unramified base; bounded finite-level cohomology gives its admissible compact action.",
         "Use local cyclic base change and its twisted character identity for π; its twisted character vanishes off the basic locus in this comparison.",
-        "Insert classical JL with sign (−1)^{n−1}, integrate over the basic norm correspondence and project to ρ∨; linear independence of compact and Weil characters identifies the virtual class."
+        "Insert classical JL with sign (−1)^{n−1} and integrate over the basic norm correspondence. The integral of tr(d⁻¹|R)Θ_ρ(d) projects to Hom_{D×}(ρ,R), not Hom_{D×}(ρ∨,R). The remaining h∨ trace then yields π∨|_K; independence of compact and Weil characters identifies the virtual class."
       ],
       "acceptance": [
-        "For n=1 the sign is +1 and the correspondence is local reciprocity; the compact restriction and dual remain present."
+        "For n=1 the sign is +1. A character ρ of order greater than two distinguishes the ρ and ρ∨ projectors: averaging ρ(d)ρ(d⁻¹) gives 1, whereas averaging ρ(d)² gives 0 on a finite quotient where ρ² is nontrivial."
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/positive-weil-traces",
@@ -854,7 +854,7 @@
         {
           "sourceId": "scholze-llc",
           "locator": "Theorem 11.1, Proposition 11.2, Corollary 11.3 and Remark 11.4, pp.28–29",
-          "match": "The argument proves a virtual compact-group comparison, sufficient for integrality but weaker than a later tower realization."
+          "match": "Proposition 11.2 and the final character integral in the proof of Corollary 11.3 prove the corrected ρ-multiplicity formula. This virtual compact comparison suffices for integrality and is weaker than a later tower realization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -871,7 +871,7 @@
       ],
       "title": "Integral Weil multiplicities from newvectors",
       "kind": "lemma",
-      "statement": "For every supercuspidal π, rec_un(π) is an integral virtual W_F representation. For an irreducible generic GL_n(F) representation with ψ of conductor O, the requested newvector theorem gives a least c≥0 with dim π^{K_1(c)}=1 and vanishing at smaller nonnegative levels; c is the exponent in its epsilon factor. Since K_1(c) is compact open in K=GL_n(O), the compact restriction π∨|_K has an irreducible K-type of multiplicity one. Projecting the preceding virtual identity to that type proves integer multiplicities, independently of positivity.",
+      "statement": "For every supercuspidal π, rec_un(π) is an integral virtual W_F representation. For an irreducible generic GL_n(F) representation with ψ of conductor O, the requested newvector theorem gives a least c≥0 with dim π^{K_1(c)}=1 and vanishing at smaller nonnegative levels; c is the exponent of q^{−s} in its epsilon monomial. Since K_1(c) is compact open in K=GL_n(O), the compact restriction π∨|_K has an irreducible K-type of multiplicity one. Projecting the preceding virtual identity to that type proves integer multiplicities, independently of positivity.",
       "hypotheses": [
         "K_1(0)=K and for c>0 K_1(c) is the integral subgroup whose last row is (0,…,0,1) modulo ϖ^c; supercuspidals are generic."
       ],
@@ -1011,8 +1011,8 @@
         "The character construction and normalized-induction formula have already been proved; use the specific auxiliary division group and retain its similitude character."
       ],
       "proofSteps": [
-        "Use the early restricted unitary-to-GL supplier to realize Π in raw cohomology; parity makes a signed multiplicity class effective after the chosen sign.",
-        "Apply the character identity at split good local factors and Chebotarev; to reach a general v choose an imaginary quadratic base change split at v and x and compare global restrictions.",
+        "Apply the early restricted unitary-to-GL globalization to Π∨, so the split GL_n component is Π_v∨. With W the resulting multiplicity class and a its signed multiplicity, set A=|a| and R(Π)=sign(a)W⊗χ_ψ. This is effective of dimension An; the positive χ_ψ follows directly from Corollary 10.1 as in E-ET6-3.",
+        "Use the established local trace identity at split places and Chebotarev. For a general v, choose a real quadratic R linearly disjoint from F, with the rational prime below x split in R and the completions of R and K at the prime below v isomorphic. Over FR/F₀R the place above v is split and its completion is still F_v. Cyclic base change preserves the hypotheses; Chebotarev compares the normalized global restrictions. This is not an imaginary quadratic extension split at v.",
         "Use the separate essentially square-integrable globalization from Harris–Taylor VI.2.6; use a conjugate-self-dual Hecke character to pass to the L-algebraic normalization."
       ],
       "acceptance": [
@@ -1136,7 +1136,7 @@
       "kind": "definition",
       "statement": "A potentially abelian pair over a number field L consists of a cuspidal automorphic Π of GL_n/L and a continuous n-dimensional global Weil representation Σ, with σ_ss(Π_v)=Σ|_{W_{L_v}} at every finite place and archimedean LLC agreement at every infinite place. The word pair retains Σ, rather than just a predicate on Π. An algebraic Σ restricts at each complex embedding to characters z^p z̄^q with integral p,q. Regular L-algebraic Π means Π_∞⊗|det|^{(n−1)/2} is regular algebraic in the cohomological convention. Algebraic global Weil representations have ℓ-adic realizations matching all v∤ℓ.",
       "hypotheses": [
-        "The existing global Weil-group and algebraic-Hecke-character carriers, plus archimedean LLC, are supplied by AF.1/ClassFieldTheory; no general global Langlands correspondence is assumed."
+        "Global Weil groups, their localizations and algebraic Weil-to-ℓ-adic realizations are requested from ClassFieldTheory Part II through Arithmetic R01.1. Current GlobalNumberFields supplies Hecke characters and infinity types; AF.1 supplies the planned archimedean LLC target. No general global Langlands correspondence is assumed."
       ],
       "proofSteps": [
         "Use the already-proved local σ_ss at finite places, and the existing archimedean LLC endpoint.",
@@ -1668,7 +1668,7 @@
         },
         {
           "sourceId": "henniart-characterization",
-          "locator": "§2.9 p.596; Theorem 1.8 and Corollary 1.8 p.592, proof §4.5 p.600",
+          "locator": "§2.9 p.596; Theorem 1.8 p.591 and Corollary 1.8 p.592, proof §4.5 p.600",
           "match": "Gives the full bijection and its factor properties; pair L-testing against lower-rank indecomposable blocks detects block lengths."
         }
       ],
@@ -1890,7 +1890,7 @@
       "sources": [
         {
           "sourceId": "badulescu-extended",
-          "locator": "§3.3, Proposition 3.9 and definition of Q pp.23–24; Proposition 3.11 p.26; §3.4.1 conjecture p.27",
+          "locator": "§3.3, definition of Q p.24 and Proposition 3.9 p.25; Proposition 3.11 p.26; §3.4.1 conjecture p.27",
           "match": "Defines the transferred Langlands quotient and distinguishes its triangular relationship from additive transfer."
         },
         {
@@ -2047,7 +2047,7 @@
   "requests": [
     {
       "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-      "need": "Make an early ET.4b prefix after AS.6, ET.3 and ET.4: AC I §6 Theorem 6.2, Proposition 6.7 and Lemma 6.10 with normalized twisted characters and all irreducible Langlands-data extensions; AC III Theorems 4.2 and 6.2 for global prime-cyclic base change/descent and cyclic automorphic induction; Harris–Taylor VI.1.1, VI.2.1, VI.2.9–VI.2.10 restricted cohomological unitary-to-GL transfer, retaining the auxiliary GL_1 character. Supply VI.2.3 isolation, VI.2.5/2.11 ESI and Speh globalization and VI.2.6 ESI globalization with a supercuspidal x-component. ET.7a consumes these exports and never supplies them to ET.6.",
+      "need": "Make an early ET.4b prefix after AS.6, ET.3 and ET.4: AC I §6 Theorem 6.2, Proposition 6.7 and Lemma 6.10 with normalized twisted character identities for tempered representations (and their essential twists), and extension to all irreducibles through Langlands quotients without asserting those identities for every non-tempered representation; AC III Theorems 4.2 and 6.2 for global prime-cyclic base change/descent and cyclic automorphic induction; Harris–Taylor VI.1.1, VI.2.1, VI.2.9–VI.2.10 restricted cohomological unitary-to-GL transfer, retaining the auxiliary GL_1 character. Supply VI.2.3 isolation, VI.2.5/2.11 ESI and Speh globalization and VI.2.6 ESI globalization with a supercuspidal x-component. ET.7a consumes these exports and never supplies them to ET.6.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/harmonic-descent-formula",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/auxiliary-geometric-trace",
@@ -2088,7 +2088,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.3",
-      "need": "In the same smooth-representation extension supply Schneider–Zink Proposition 11 tempered type isolation and Kazhdan density exactly as Scholze Lemmas 3.1–3.2 use them. Supply genericity of supercuspidals and the all-rank K_1(c) newvector theorem JPSS §5.1 with Jacquet 2012’s corrected essential-vector proof. Current SR.5 excludes all-rank newforms; AL.5’s reference to them does not establish them.",
+      "need": "In the same smooth-representation extension supply Schneider–Zink Proposition 11 in precisely the generalized-Speh versus square-integrable separation used by Scholze Lemma 3.1(i), and Kazhdan density for Lemma 3.1(ii). Import current SR.3 Bernstein-centre regular functions and universal unramified twists for Lemma 3.2. Supply genericity of supercuspidals and the all-rank K_1(c) newvector theorem JPSS §5.1 with Jacquet 2012’s corrected essential-vector proof. Current SR.5 excludes all-rank newforms; AL.5’s reference to them does not establish them.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/type-and-density-reduction",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/compact-type-integrality"
@@ -2141,8 +2141,8 @@
       ]
     },
     {
-      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
-      "need": "Extend the existing p-divisible deformation interface to strict relative O-action, dimension-one height-n marked deformations, full Cartier-divisor Drinfeld levels, regular finite covers and strict truncated-O algebraization (Scholze 2.3–2.4/Faltings). Preserve the existing R07.2 contravariant and covariant Dieudonné carriers.",
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+      "need": "Request a FiniteFlatGroups Part II after R07.1–R07.2 for strict relative O-action, dimension-one height-n marked deformations, full Cartier-divisor Drinfeld levels, regular finite covers and strict truncated-O algebraization (Scholze 2.3–2.4/Faltings). R07.1 supplies ordinary p-divisible groups and R07.2 their Dieudonné classification; neither supplies this deformation theorem. R07.3 is Fontaine–Laffaille theory and is not the deformation supplier. Preserve the existing contravariant and covariant carriers.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-deformation-instance",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/quasi-el-test-function-comparison"
@@ -2169,14 +2169,14 @@
     },
     {
       "supplier": "PELModuli:M2",
-      "need": "Import structured p-divisible groups with O_B action, twisted polarization and determinant condition; instantiate the split quasi-EL datum with its independent étale generator factor, as in Scholze §7 and Deformations 3.14.",
+      "need": "Import PELModuli M0–M2’s O_B-action, polarization and determinant framework. Extend it to the strict relative p-divisible quasi-EL datum and its Morita decomposition, with independent étale generators as in Scholze §7 and Deformations 3.14. The current M2 unitary deformation node assumes an unramified CM field at p; it does not by itself establish this arbitrary ramified local O-action case.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/quasi-el-test-function-comparison"
       ]
     },
     {
       "supplier": "PELModuli:M4",
-      "need": "Supply the auxiliary compact CM division PEL models and proper flat closures, with generic fibre the disjoint union indexed by ker^1(Q,G), sufficiently small level and Serre–Tate completed-local comparisons (Deformations 5.2, 5.4–5.8).",
+      "need": "Import M4’s ker^1-indexed canonical generic fibre and higher-level normalization contracts. Supply the auxiliary compact CM division PEL model, proper flat closure and Serre–Tate completed-local comparisons for the arbitrary local F of Scholze §8 and Deformations 5.2, 5.4–5.8. Current M4 good-prime normalization alone does not supply the ramified strict-O moduli or its level-structure interpretation.",
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/auxiliary-geometric-trace"
       ]
@@ -2271,6 +2271,22 @@
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/cuspidal-pair-factors"
       ]
+    },
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "need": "Extend the contravariant p-divisible classification to strict relative O-linear Dieudonné modules F=βσ and the étale O_A^op-linear rank-one case F=β⁻¹σ₀. Supply Morita decomposition, the opposite endomorphism algebra, integral σ-conjugacy and chosen-isomorphism transport. This is a convention adapter on the existing contravariant carrier, not an identification with its covariant counterpart.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-deformation-instance",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/etale-dieudonne-norm"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+      "need": "Import the planned real/complex GL_n archimedean LLC endpoint with the same norm convention, algebraic infinity types and compatibility with cyclic restriction/automorphic induction. The AF.1 and AF.5 packets currently have needs_changes reviews, so neither is represented here as an accepted or formalized theorem.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/potential-abelian-automorphic-pair",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6/harris-solvable-induction"
+      ]
     }
   ],
   "coverage": [
@@ -2321,7 +2337,7 @@
       "neededBy": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6/type-and-density-reduction"
       ],
-      "detail": "Schneider–Zink Proposition 11 and Kazhdan density are imported in Scholze Lemmas 3.1–3.2. Their primary proofs were not read in this pass; the character/smooth-representation prefix must establish them in the exact tempered isolation and finite-length trace generality required."
+      "detail": "Schneider–Zink Proposition 11 and Kazhdan density are imported in Scholze Lemmas 3.1–3.2. Their primary proofs were not read in this pass; the character/smooth-representation prefix must establish the precise generalized-Speh separator, its vanishing on square-integrables, and finite-length trace density. Isolation of an essentially square-integrable unramified family would be the wrong contract."
     }
   ],
   "restructure": [
@@ -2363,6 +2379,16 @@
       ],
       "detail": "Current ClassFieldTheory Layer 9 supplies local Weil groups and explicitly excludes global Weil groups; GlobalNumberFields already owns algebraic Hecke characters. Scholze §13 needs the missing global Weil localization and ℓ-adic realization bridge.",
       "proposal": "Propose ClassFieldTheory Part II for global Weil groups and algebraic Weil representation realizations, starting after existing global reciprocity and GlobalNumberFields Layers 9–10. Arithmetic R01.1 consumes its realizations and finite-extension descent; AF.5 imports existing Hecke-character carriers and the archimedean comparison. Never modify or replan current ClassFieldTheory/GlobalNumberFields."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+        "PELModuli",
+        "EndoscopicTransferAndUnitaryTraceComparison"
+      ],
+      "detail": "The existing R07.3 plans Fontaine–Laffaille theory, while M2/M4 good-prime PEL exports do not prove arbitrary ramified strict-O deformation and algebraization.",
+      "proposal": "Add a FiniteFlatGroups Part II after R07.1–R07.2 for strict O-linear deformation, Drinfeld levels and algebraization, keeping the relative/opposite-algebra convention adapters on R07.2 carriers. PELModuli imports these shared targets and supplies the auxiliary PEL instantiation. ET.6 and ET.6a import the same general deformation owner."
     }
   ],
   "sourceIssues": [
@@ -2379,7 +2405,12 @@
       "searched": [
         "Scholze’s current publication page and linked LocalLanglands.pdf (same 2010 copy), 2026-10-14",
         "arXiv:1010.1540 version record, 2026-10-14; no later arXiv version located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against Lemma 6.1 and its proof: the modulus uses |ϖ_F|=q⁻¹, so residue degree two distinguishes q from p.",
+        "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+      }
     },
     {
       "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-2",
@@ -2394,20 +2425,88 @@
       "searched": [
         "Jacquet’s publication page and published Conducteur scan",
         "Pacific Journal of Mathematics publisher correction, read 2026-10-14"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 1981 scan and Jacquet 2012 Remark 1: the older ideal argument is incomplete, while the replacement proves nonvanishing at every tuple before using the Nullstellensatz.",
+        "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-3",
+      "source": "scholze-llc",
+      "kind": "error",
+      "locator": "7 October 2010 author PDF, proof of Corollary 10.3 p.27, compared with Corollary 10.1 p.26; related proof choice in Theorem 10.6 p.27",
+      "printed": "After globalizing π∨ with π_w=π∨⊗χ, the proof proposes a⁻¹W∨⊗χ_sim⁻¹⊗χ⁻¹, although Corollary 10.1 has the trace of W⊗χ_sim.",
+      "correction": "Use rec_un(π)=a⁻¹W⊗χ_sim⊗χ. For restricted global extraction, globalize Π∨ and use the effective sign(a)W⊗χ_ψ; no later local duality theorem is needed.",
+      "reason": "With χ(ϖ)=u and f supported on determinant valuation r, tr(f∨|π_w)=u⁻ʳtr(f|π), whereas tr(h∨|π_w)=tr(h|π). Corollary 10.1 therefore gives the trace of a⁻¹W⊗χ_sim multiplied by uʳ. It cannot instead give its dual and inverse twists. This direct substitution also fixes the effective global construction.",
+      "affects": "the proof",
+      "known": "No correction located for the hashed 2010 author copy; the published 2013 text was inaccessible and is not accused of this error.",
+      "searched": [
+        "Scholze publication page and linked 2010 LocalLanglands.pdf, checked 2026-10-14",
+        "arXiv:1010.1540 version history, v1 only; no correction located, checked 2026-10-14",
+        "Springer published article page: full PDF unavailable without access; published text not collated"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by substituting π_w∨=π⊗χ⁻¹ into Corollary 10.1 and using determinant valuation r; the positive twists follow without any duality input.",
+        "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-4",
+      "source": "scholze-llc",
+      "kind": "misprint",
+      "locator": "7 October 2010 author PDF, definition of [Rψ](ρ), statement and proof of Corollary 11.3 and Remark 11.4 p.29; ensuing Corollary 11.5 proof p.30",
+      "printed": "The statement labels the multiplicity by ρ∨, while its preceding Hom definition and final proof integral use ρ.",
+      "correction": "With M(ρ)=Hom_{D×}(ρ,c-Ind[RΨ]), the identity is M(ρ)=(−1)^{n−1}π∨|_K⊗rec_un(π), π=JL(ρ). Use that same multiplicity in the ensuing integrality argument.",
+      "reason": "The proof integrates tr(d⁻¹|R)Θ_ρ(d), which is the character projector to Hom(ρ,R). On a finite cyclic quotient a character ρ of order greater than two contributes average ρ(d⁻¹)ρ(d)=1; replacing that multiplicity by ρ∨ gives average ρ(d)²=0. The h∨ trace accounts separately for π∨.",
+      "affects": "a stated result",
+      "known": "No correction located for the hashed 2010 author copy; no assertion is made about the inaccessible published text.",
+      "searched": [
+        "Scholze publication page and linked 2010 LocalLanglands.pdf, checked 2026-10-14",
+        "arXiv:1010.1540 version history, v1 only; no correction located, checked 2026-10-14",
+        "Springer published article page: full PDF unavailable without access; published text not collated"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the Hom definition and final character integral on p.29, including the finite cyclic projector check; the correction is scoped to the author copy.",
+        "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-5",
+      "source": "scholze-llc",
+      "kind": "misprint",
+      "locator": "7 October 2010 author PDF, generalized-Speh definition before Lemma 3.1 and the tempered family in Lemma 3.1(i), p.9",
+      "printed": "With n=dt fixed, the generating supercuspidal is labelled as a GL_k representation; the tempered comparison family then uses t copies of the rank-n Speh symbol instead of the rank-d supercuspidal symbol.",
+      "correction": "Take the generating supercuspidal ρ on GL_d(F), and form the tempered family from t unitary unramified twists of that ρ.",
+      "reason": "The ranks of the t inducing blocks must sum to n=dt. Reusing the rank-n Speh representation would instead produce rank tn. The compact type proof on the same page specifies the intended supercuspidal inertial support.",
+      "affects": "nothing",
+      "known": "No correction located for the hashed 2010 author copy; the published text was not collated.",
+      "searched": [
+        "Scholze publication page and linked 2010 LocalLanglands.pdf, checked 2026-10-14",
+        "arXiv:1010.1540 version history, v1 only; no correction located, checked 2026-10-14",
+        "Springer published article page: full PDF unavailable without access; published text not collated"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the two index slips at p.9; the rank count and inertial-support argument uniquely identify the intended lower-rank supercuspidal.",
+        "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
+      }
     }
   ],
   "sourceVersions": [
     {
       "sourceId": "scholze-llc",
-      "kind": "authorcopy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/LocalLanglands.pdf",
       "read": "2026-10-14",
       "sha256": "11358ca04e158f455a08d59fc31afa3dc324ad816c53eef571d5fa7dbce6f002"
     },
     {
       "sourceId": "scholze-deformations",
-      "kind": "authorcopy",
+      "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/DeformationSpaces.pdf",
       "read": "2026-10-14",
       "sha256": "baf2a72a43e12f48adb4f701ad89191df781c8ca4f8d56e85da93a803a355188"
@@ -2447,5 +2546,178 @@
       "read": "2026-10-14",
       "sha256": "98f02c2aef04bff162c1ceb0a42dd122da746d1304a90d82366a848f22713adf"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+    "date": "2026-10-14",
+    "notes": "All 33 targets and their locators, four pinned matrix declarations, 45 API items, 30 tests, six planets, supplier statements and both confirmed red-team findings checked. Corrected level-fibre, variance, type separation, cohomological twists, tower projector, base-change and ownership errors. Five source findings independently confirmed. This accepts the complete target-level planning pass with five explicit primary-proof gaps and supplier extensions; it does not claim mathematical closure or implementation.",
+    "checked": [
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/normalization-dictionary",
+        "verdict": "corrected",
+        "note": "Confirmed all half twists and the geometric reciprocity adapter at current ClassFieldTheory Layers 7/9; WD factors remain imports."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-deformation-instance",
+        "verdict": "corrected",
+        "note": "Corrected the generic/special-fibre zero-level test, chosen-conjugator transport and supplier/variance boundaries."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/nearby-trace-function",
+        "verdict": "verified",
+        "note": "Checked finite-level alternating traces, h inverse transpose, transfer-class independence and tests against Theorems 2.5–2.6."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/test-function-regularity",
+        "verdict": "verified",
+        "note": "Checked controlled cohomology and finite-type algebraization; rationality is distinct from virtual multiplicity integrality."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/etale-dieudonne-norm",
+        "verdict": "corrected",
+        "note": "Corrected contravariance, rank-one O_A^op condition, integral conjugacy and characteristic-polynomial-only product statement."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/basic-norm-integrals",
+        "verdict": "verified",
+        "note": "Checked lattice-count norm integrals and the two Weyl-integration contracts in Proposition 4.3/Corollaries 4.5 and 4.8."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/geometric-descent-formula",
+        "verdict": "verified",
+        "note": "Checked all connected–étale component indices, formal-disc variables, induced compact action and inverse norm convention in Proposition 5.1."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/harmonic-descent-formula",
+        "verdict": "verified",
+        "note": "Verified normalized induction half twists and confirmed the q-versus-p correction in source issue 1."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/type-and-density-reduction",
+        "verdict": "corrected",
+        "note": "Replaced reversed ESI isolation by generalized-Speh separation; supplied the constant-term/density and Bernstein-centre proof requirements."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/quasi-el-test-function-comparison",
+        "verdict": "corrected",
+        "note": "Checked Morita/étale generator factors and made ramified PEL/deformation extension contracts explicit."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/auxiliary-geometric-trace",
+        "verdict": "corrected",
+        "note": "Checked the auxiliary division data, n factor, central coset and ker^1 multiplicity against both geometric sources; strengthened PEL scope contract."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/positive-weil-traces",
+        "verdict": "corrected",
+        "note": "Corrected the dual/inverse-twist formula by direct trace substitution and recorded version-scoped source issue 3."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-lubin-tate-virtual-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the multiplicity from ρ∨ to Hom(ρ,−) by the source proof projector; recorded source issue 4 and a discriminating character check."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/compact-type-integrality",
+        "verdict": "corrected",
+        "note": "Verified multiplicity-one K-type extraction from the generic newvector theorem, its corrected essential-vector proof and epsilon exponent convention."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/semisimple-trace-parameter",
+        "verdict": "verified",
+        "note": "Checked the independent positivity/integrality inputs and uniqueness; semisimple Weil data is not claimed to determine N."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/restricted-global-weil-extraction",
+        "verdict": "corrected",
+        "note": "Corrected the effective dual-globalization construction and the real quadratic base change preserving the local completion."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/functorial-weil-parameter",
+        "verdict": "verified",
+        "note": "Checked all five functorial properties in Theorem 12.1, including Iwahori rather than hyperspecial invariants and the all-F inertia calculation request."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/cuspidal-weil-bijection",
+        "verdict": "verified",
+        "note": "Checked cyclic restriction/orbit arguments and the Arthur–Clozel lift fibre statements; Clifford/Brauer imports remain finite-group inputs with a requested Weil adapter."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/potential-abelian-automorphic-pair",
+        "verdict": "corrected",
+        "note": "Replaced the false existing-global-Weil supplier hypothesis by the explicit Part II/localization/realization request; exposed unaccepted AF suppliers."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/harris-solvable-induction",
+        "verdict": "verified",
+        "note": "Checked every solvable-envelope, regularity, local stabilizer and inert-place hypothesis of Theorem 13.6 and the two induction cases."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/highly-ramified-isolation",
+        "verdict": "verified",
+        "note": "Checked Theorem 14.1/Lemma 14.2 functional-equation isolation; the primary stability proof remains an explicit gap."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/cuspidal-pair-factors",
+        "verdict": "verified",
+        "note": "Checked pair-factor, determinant and dual outputs on cuspidal Brauer terms with the same measures and normalization."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/segment-wd-adapter",
+        "verdict": "verified",
+        "note": "Checked SR.5.3 as existing segment owner and raw versus unitary special-block orientation; the small matrix projection elaborates at the pins."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/special-block-factor-formulas",
+        "verdict": "verified",
+        "note": "Independently checked standard/pair Euler shifts, tensor-block decomposition and conductor arithmetic against imported R01.2/R01.3 conventions."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/langlands-quotient-factors",
+        "verdict": "verified",
+        "note": "Checked Henniart §2.6/2.8 product formulas; generic AL products are correctly distinguished from the requested nongeneric extension."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-parameter",
+        "verdict": "verified",
+        "note": "Checked inverse multiset construction and full WD/supercuspidal-support distinction against Henniart §2.7–2.9."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-correspondence",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 1.8 page locator and checked full factors, conductor and monodromy claims with explicit supplier requirements."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/esi-jacquet-langlands",
+        "verdict": "verified",
+        "note": "Checked the all-inner-form ESI bijection, character sign and early independence; the DKV primary proof remains a gap."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/additive-langlands-jacquet",
+        "verdict": "verified",
+        "note": "Checked standard-basis additive transfer, wrong-Levi kernel, signed retraction and surjectivity in Badulescu Theorem 3.6."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/jacquet-induction-quotient",
+        "verdict": "verified",
+        "note": "Checked normalized Jacquet/induction compatibility in Lemma 3.7 and retained the separate DKV B.2(b) proof obligation."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/inner-form-standard-parameter",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 3.9 pagination; checked indecomposable-block divisibility, Q construction and the explicit conjectural boundary."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/principal-series-nontransfer",
+        "verdict": "verified",
+        "note": "Checked principal-series vanishing, trivial GL_2 signed LJ value and the different actual inner-form parameter image."
+      },
+      {
+        "nodeId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6/normalization-regressions",
+        "verdict": "verified",
+        "note": "Checked all normalization regressions, including raw block covariance, terminal ker N, trivial/Steinberg distinction and rank-one reciprocity."
+      }
+    ]
+  }
 }
