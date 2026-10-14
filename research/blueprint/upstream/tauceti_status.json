@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T19:55Z",
+ "updated": "2026-10-14T20:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -464,7 +464,7 @@
   "ArithmeticLocallySymmetricSpaces": {
    "stage": "pr",
    "pr": 871,
-   "head": "93eb657",
+   "head": "93f3d18",
    "depends_on": [
     792,
     793,
@@ -597,14 +597,27 @@
   "FreeGroupsAndLimitGroups": {
    "stage": "pr",
    "pr": 914,
-   "head": "2ba8f40",
+   "head": "52b7283",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the decidability and formal-solution results are stated without executable procedures; no supplier in an open pull request; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
     "head": "a5b47fb",
     "current": false,
     "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) repaired at 7d4cbb7; first red-team pass (Sol + Astra) applied at 2ba8f40; second pass running"
+    "note": "deep review repaired at 7d4cbb7; both red-team passes applied through 52b7283; draft until a ChatGPT Pro approval"
+   }
+  },
+  "GlobalGaloisDeformations": {
+   "stage": "pr",
+   "pr": 920,
+   "head": "61ae778",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
+   "review": {
+    "recommendation": null,
+    "head": null,
+    "current": false,
+    "date": null,
+    "note": "red team (Sol + Astra) running"
    }
   }
  }
