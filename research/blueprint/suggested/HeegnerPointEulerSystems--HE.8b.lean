@@ -7,7 +7,8 @@ Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 
 The thirteen imported arithmetic targets and the two new key inputs
-primitive_greenberg_mu_vanishing and anticyclotomic_specialization_control
+primitive_greenberg_mu_vanishing (an imported analytic input with its
+denominator-clearing consequence) and anticyclotomic_specialization_control
 require the actual continuous Iwasawa cohomology, local conditions, integral
 regulators, characteristic ideals and normalized arithmetic functions absent
 at these pins. Under WORKERS.md's 2026-10-12 shape they are README targets.
