@@ -4,7 +4,7 @@ Claude (Opus 5.5), session `claude-LgrPjn`, 14 October 2026. Refs #965; the bot 
 **Status: complete.** Every stage is planned at target level; L0a is closed.
 
 **Totals.** 121 nodes (12 definitions, 41 constructions, 47 theorems, 16 lemmas, 5 comparisons), 252 API items, 194
-unit tests, 38 planets (at most six per layer), 69 baseline declarations, 13 requests, 8 gaps, 13 source issues.
+unit tests, 38 planets (at most six per layer), 69 baseline declarations, 13 requests, 8 gaps, 14 source issues.
 `check_blueprint.py`: 0 errors, 0 warnings. The pass added 49 nodes to the 72 of checkpoints 1–5.
 
 **Lean.** `suggested/PadicFamilies.lean` elaborates with `lean-check` against Mathlib 082e2d3 (shared pinned build):
@@ -86,13 +86,16 @@ IntegralHeckeAndGaloisDeterminants (TauCetiRoadmap PR #789) IHG.2 `factorial-loc
   `L2/coleman-mazur-comparison`. New gaps: Hida/Wiles big Galois representation proofs; Ochiai's Coleman map (Amer. J.
   Math. 2003); nonordinary family inputs (Liu, Kedlaya–Pottharst–Xiao, Andreatta–Iovita–Stevens).
 - New source issues: E12 (Bellaïche admits Proposition 3.6), E13 (Pilloni §2 local hypothesis applied to a semilocal
-  ring; known as PAPER-PILLONI-20/E5).
+  ring; known as PAPER-PILLONI-20/E5), E14 (Bellaïche's (10) misdescribes modular symbols as a finite sum of
+  invariants; L2/family-modular-symbols states specialisation with its Tor terms, and L2's open items ask for the
+  universal-coefficients argument).
 
 ## What a follow-up does
 
 - L2a: decompose Bosch–Lütkebohmert I Proposition 4.7 and II Theorem 5.2, Corollary 5.3 (now in the cleared library)
   and refine the slope cover to the corrected Buzzard Lemma 4.5 (E1–E4).
-- L2: plan Coleman's overconvergent modular forms or route them to an owner; read Chenevier (Duke 2005).
+- L2: plan Coleman's overconvergent modular forms or route them to an owner; read Chenevier (Duke 2005); prove the
+  specialisation of family symbols with its Tor terms (Hansen's universal coefficients), replacing Bellaïche's (10).
 - L4: read Hida (Invent. 1986), Wiles (Invent. 1988) and Ochiai (AJM 2003) when obtainable.
 - L5: Hida's control in weight > 2 (ASPM 17); the indefinite Hilbert cohomology instance (R18.4).
 
