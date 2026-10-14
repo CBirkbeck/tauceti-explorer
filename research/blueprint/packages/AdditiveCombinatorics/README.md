@@ -104,15 +104,17 @@ Szemerédi's theorem runs through the Gowers inverse theorem.
   `Nat.totient`, `primorial`, the behaviour of `riemannZeta` near `1`, affine maps, spans and
   kernels, rings of integers, fractional ideals and `Ideal.absNorm`.
 - From Tau Ceti: the Haar probability measure `TauCeti.haarProb` on a compact group, against which
-  the transform is the degree-one case of the Peter–Weyl coefficients.
+  the transform is the degree-one case of the Peter–Weyl coefficients; and the fixed-modulus prime
+  number theorem in `TauCeti/NumberTheory/Chebotarev/PrimeCounting/PrimesCongruent.lean` of the current library,
+  through the declaration and elementary rational-prime conversion specified below.
 - From TauCetiRoadmap: Lie groups, the exponential map, closed subgroups and the
   Baker–Campbell–Hausdorff formula from **RepresentationTheory/LieGroups** (Layers 0, 2, 3 and 5);
   Minkowski's second theorem from **GeometryOfNumbersAndQuadraticArithmetic** (Layer 1.5). The
   special Fourier analyses of **AlgebraicCodingTheory** (Layer 3, weight enumerators and
   MacWilliams) and **ModularForms** (Layer 0, characters of modular forms with nebentypus) stay
   with their owners.
-- From the roadmaps named in the supplier contracts below: the fixed-modulus prime number
-  theorem and the zeta zero-free region (AnalyticNumberTheory Layer AN.2), the Siegel–Walfisz
+- From the roadmaps named in the supplier contracts below: the zeta zero-free region
+  (AnalyticNumberTheory Layer AN.2), the Siegel–Walfisz
   estimate and the Möbius character sums (AN.3), number-field prime models and Hecke analytic
   normalisations (AN.4), truncated divisor sums and the ideal sieve (SieveMethodsAndPrimePatterns
   Layer SV.1), Type I/II decompositions (SV.2), simultaneous recurrence and Weyl bounds
@@ -139,7 +141,8 @@ lemma consumes (AC.2.11) is.
   `(f ∗ g)(x) = 𝔼_y f(y) g(x − y)`. A point mass has every Fourier coefficient of modulus `1/N`,
   and the convolution unit is `N · δ₀`. Additive energy `E(A, B)` is Mathlib's unnormalised count of
   quadruples `(a₁, a₂, b₁, b₂) ∈ A × A × B × B` with `a₁ + b₁ = a₂ + b₂`.
-- **Entropy.** Logarithms are natural. Random variables take values in finite types; conditioning
+- **Entropy.** Logarithms are natural. Random variables are measurable maps from probability
+  spaces to finite types with measurable singletons (the discrete measurable space); conditioning
   on an event of probability zero contributes zero weight. `H[X]`, `H[X | Y]`, `I[X : Y]`,
   `I[X : Y | Z]` and `d[X ; Y]` follow Gowers–Green–Manners–Tao, with a colon for mutual
   information and a semicolon for the distance.
@@ -204,6 +207,17 @@ lemma consumes (AC.2.11) is.
   measure; `fourier_eq_haarIntegral` (AC.0.1) records that the transform is the integral of
   `f · conj χ` against it.
 
+### From the current Tau Ceti library
+
+- `NumberField.Chebotarev.primeCount_primesCongruent_isEquivalent_logIntegral`, in
+  `TauCeti/NumberTheory/Chebotarev/PrimeCounting/PrimesCongruent.lean`: for `m ≥ 1` and a unit
+  residue `a : ZMod m`, the number of prime ideals of `O_ℚ` of norm congruent to `a` is asymptotic
+  to `Li(x)/φ(m)`. Identify those prime ideals with rational primes and apply partial summation
+  to obtain `θ(x; a,m) ∼ x/φ(m)`. AC.4.15 consumes this only for each fixed `m = W`, `a = 1`;
+  the conversion and partial summation are elementary steps of that target, not a new PNT.
+  This declaration is in Tau Ceti `a91d3aaf`, later than the pinned `f790474`; it is not imported
+  into `Suggested.lean`. No error of size `O(x (log x)^{−A})` is inferred from this asymptotic.
+
 ### From TauCetiRoadmap roadmaps
 
 - **RepresentationTheory/LieGroups**, Layer 0 (the exponential map and one-parameter subgroups),
@@ -221,18 +235,14 @@ lemma consumes (AC.2.11) is.
 These roadmaps own what this one consumes; each item is the exact statement used.
 
 - **AnalyticNumberTheory**, Layer AN.2.
-  - `fixed-progression-prime-number-theorem`: for fixed `q ≥ 1` and `a` coprime to `q`,
-    `θ(x; a, q) ∼ x/φ(q)` as `x → ∞`. Consumed by AC.4.15 at `q = W`, `a = 1`, for each fixed `w`,
-    and by the `t = 1` case of AC.5.14. (It follows from the Wiener–Ikehara theorem of
-    TauCetiRoadmap's ArithmeticDirichletSeries, Layer 9, applied to Mathlib's
-    `ArithmeticFunction.vonMangoldt.residueClass` through
-    `ArithmeticFunction.vonMangoldt.continuousOn_LFunctionResidueClassAux` and
-    `eqOn_LFunctionResidueClassAux`.)
   - For the sharp-cutoff comparison route only (AC.4.14): the classical zero-free region
     `Re s ≥ 1 − c/log(|Im s| + 2)` for `ζ` away from a bounded neighbourhood of the pole,
     logarithmic bounds for `ζ(s) − 1/(s − 1)` and for `1/ζ(s)` in that region, and the convexity
     bound used in Green–Tao, Appendix A.3.
 - **AnalyticNumberTheory**, Layer AN.3.
+  - For the one-form case of AC.5.14: for every fixed `q ≥ 1`, residue `a` coprime to `q` and
+    `B > 0`, `θ(x; a,q) = x/φ(q) + O_{q,B}(x (log x)^{−B})`. This is the fixed-modulus
+    consequence of Siegel–Walfisz, with every log-power saving; qualitative PNT does not suffice.
   - For AC.5.3: for a Dirichlet character `χ` modulo `q` and every `A > 0`,
     `|N⁻¹ ∑_{n ≤ N} μ(n) χ(n)| ≤ C_A q^{1/2} (log N)^{−A}` (Green–Tao, Möbius paper, Appendix A,
     Proposition A.1), and for every bounded `q`-periodic `b`,
@@ -586,6 +596,18 @@ The API:
   logarithms gives `1`.
 - `mutualInfo_self`: `I[X : X] = H[X]`.
 - `mutualInfo_indep`: independent `X`, `Y` (Mathlib's `IndepFun`) have `I[X : Y] = 0`.
+- `measureEntropy.test_biased`: the law `(3/4, 1/4)` on `Bool` has entropy
+  `−(3/4) log(3/4) − (1/4) log(1/4)`, strictly between `0` and `log 2`.
+- `entropy.test_pair`: two independent uniform bits, treated as one four-valued variable, have
+  entropy `2 log 2`; relabelling the four values does not change it.
+- `condEntropy.test_self`: for a uniform bit `B`, `H[B | B] = 0`.
+- `condEntropy.test_independent`: independent uniform bits have `H[B | C] = log 2`.
+- `condEntropy.test_constant_condition`: `H[B | 0] = log 2`; zero-probability fibres contribute zero.
+- `mutualInfo.test_constant`: `I[B : 0] = 0`, while `I[B : B] = log 2` for a uniform bit.
+- `condMutualInfo.test_constant_condition`: `I[B : B | 0] = log 2`.
+- `condMutualInfo.test_self_condition`: `I[B : B | B] = 0`.
+- `condMutualInfo.test_xor`: for independent uniform bits `B, C`, conditioning on `B + C` in
+  `ZMod 2` gives `I[B : C | B + C] = log 2`, although `I[B : C] = 0`.
 
 ### AC.1.2 The entropic Ruzsa distance
 
@@ -626,6 +648,11 @@ The API:
   differ: the distance is not a metric on laws.
 - `rdist_three_points`: for `X` uniform on `{0, e₁, e₂} ⊂ 𝔽₂²`, `d[X ; X] = (2/3) log(3/2) ≈ 0.2703 >
   0`: the distance of a variable from itself need not vanish.
+- `condRdist.test_constant_conditions`: constant conditioning variables give the original `rdist`.
+- `condRdist.test_revealed_both`: if both variables are revealed, each fibre is a point mass and
+  the conditional distance is `0`, even for the three-point law above with positive self-distance.
+- `condRdist.test_revealed_one`: for a uniform bit `B`, `d[B ; B | B] = (1/2) log 2`, whereas
+  `d[B ; B] = 0`; the two fibres in the conditional definition are sampled independently.
 
 ### AC.1.3 The entropic Ruzsa triangle inequality
 
@@ -793,6 +820,21 @@ The API:
 - `not_isTauMinimizer_zero`: the zero measure is not a minimiser; minimisers are probability
   measures, and on the zero measure the formula takes junk values.
 - `tau_nonneg`: `τ ≥ 0` for probability measures and `η ≥ 0`.
+- `tau.test_penalties`: with both references `δ₀` and both variable laws uniform on a subgroup
+  of order `2`, `τ = η log 2`. With variable laws `δ₀, U_H`, it is `(1 + η) log 2 / 2`.
+- `IsTauMinimizer.test_dirac`: for point-mass references and `η ≥ 0`, any pair of point masses has
+  `τ = 0` and is a minimiser.
+- `IsTauMinimizer.test_uniform_not_minimum`: with both references `δ₀` and `η > 0`, the pair
+  `U_H, U_H` for `|H| = 2` has positive `τ` and is not a minimiser.
+
+- `MinimizerSetup.test_constants`: four constant variables with point-mass references have the
+  required laws, are jointly independent and realise a minimiser of value zero.
+- `MinimizerSetup.test_shared_bit`: with both references and both minimising laws uniform on
+  `ZMod 2`, taking all four variables equal to one uniform bit has the right marginals and `τ = 0`,
+  but fails independence.
+- `MinimizerSetup.test_pairwise_only`: three independent uniform bits and their sum have uniform
+  marginals and are pairwise independent, but their four-way sum is zero. They fail the joint
+  independence required by the setup, despite their marginal pair minimising `τ` for uniform references.
 
 ### AC.1.13 The first estimate
 
@@ -1022,6 +1064,17 @@ The API:
   `0, 1, 3` are included.
 - `phaseBohrSet.test_chord_radius`: phase radius `1/32` implies chord radius `1/4`; phase radius
   `1/20` does not, since the phase `1/24` has chord `2 sin(π/24) > 1/4`.
+- `IsRegularPhaseBohr.test_stable_scale`: on `ZMod 4` at rank one and phase radius `1/8`, every
+  allowed relative perturbation has the same singleton Bohr set, so the regularity bounds hold.
+- `IsRegularPhaseBohr.test_jump`: at radius `1/4` the same set has one point, but multiplication of
+  the radius by `1 + 1/1000` gives three; `3 > 1.1` violates the upper regularity bound.
+
+**Gap.** The regular half-scale choice and its small-shift estimate require the quantitative
+proof in Schoen–Shkredov §4, not merely regularity as a predicate. Their constants and their use
+with a nonfaithful character family remain part of the proof contract.
+
+- `IsRegularPhaseBohr.test_rank_zero`: an empty frequency set is regular for every allowed
+  scale perturbation, since both sides have exactly `|G|` points and the rank term is zero.
 
 ### AC.1.23 Regular Bohr shrinking and translation
 
@@ -1134,6 +1187,10 @@ pp. 11–13).
 
 *Needs:* AC.1.22, AC.1.25; TauCetiRoadmap.GeometryOfNumbersAndQuadraticArithmetic Layer 1.5
 (`minkowski_second_upper`).
+
+**Gap.** The lattice argument must retain the integer coordinate `x` together with its phase
+coordinates; the character-value map alone need not be injective. The rank `d + 1` bound is the
+target, and the constants in its properisation still require a complete proof contract.
 
 ### AC.1.29 Properisation
 
@@ -1252,20 +1309,25 @@ The API:
   the two Fourier fourth powers `(1/2)⁴ + (1/2)⁴`.
 - `gowersNorm.test_imaginary_scalar`: on `ZMod 2` the constant `3i` has `U¹` norm `3`; taking a real part
   before the absolute value in the order-one case would give `0`.
+- `cubeVertex.test_zero`: the all-false vertex gives `0`, regardless of the directions.
+- `cubeVertex.test_two_directions`: with directions `1, 2` in `ZMod 5`, the vertices give
+  `0, 1, 2, 3`, respectively; the all-true vertex uses addition, not multiplication.
+- `parityConj.test_two_terms`: at order one, `1 + i` is unchanged at the false vertex and becomes
+  `1 − i` at the true vertex; at the all-true order-two vertex it is unchanged again.
 
 ### AC.3.2 The Gowers–Cauchy–Schwarz inequality
 
 Prove `gowers_cauchy_schwarz`: for `d ≥ 1`, `|gowersInnerProduct f| ≤ ∏_ω ‖f_ω‖_{U^d}`. Apply the
 Cauchy–Schwarz inequality successively in each direction, changing variables by translations; the
-conjugations produce diagonal nonnegative cubes (Green–Tao, §5, (5.5)–(5.7), p. 12, and the repeated
-Cauchy–Schwarz of Proposition 5.3, pp. 13–19, carried over to the conjugated complex cube).
+conjugations produce diagonal nonnegative cubes (Green–Tao, §5, (5.5)–(5.7), pp. 12–13, and the repeated
+Cauchy–Schwarz of Proposition 5.3, pp. 14–19, carried over to the conjugated complex cube).
 
 *Needs:* AC.3.1.
 
 ### AC.3.3 The triangle inequality
 
 Prove `gowersNorm_add_le`: `‖f + g‖_{U^d} ≤ ‖f‖_{U^d} + ‖g‖_{U^d}` for `d ≥ 1`. Expand the diagonal cube
-multilinearly, bound every mixed term by AC.3.2, and take roots (Green–Tao, §5, (5.5)–(5.7), p. 12).
+multilinearly, bound every mixed term by AC.3.2, and take roots (Green–Tao, §5, (5.5)–(5.7), pp. 12–13).
 
 *Needs:* AC.3.2.
 
@@ -1275,7 +1337,7 @@ Prove `gowersNorm_mono`: `‖f‖_{U^d} ≤ ‖f‖_{U^{d+1}}` for `d ≥ 1`. Wi
 multiplicative derivative in the first `d − 1` directions, `‖f‖_{U^d}^{2^d} = 𝔼_h |𝔼 Δ_h f|²` and
 `‖f‖_{U^{d+1}}^{2^{d+1}} = 𝔼_h ‖Δ_h f‖_{U²}⁴`; since `|𝔼 g|⁴ ≤ ‖g‖_{U²}⁴`, Cauchy–Schwarz on the
 average over `h` gives `‖f‖_{U^d}^{2^{d+1}} ≤ ‖f‖_{U^{d+1}}^{2^{d+1}}` (Green–Tao, §5, (5.5)–(5.7),
-p. 12).
+pp. 12–13).
 
 *Needs:* AC.3.1.
 
@@ -1283,13 +1345,13 @@ p. 12).
 
 Prove `gowersNorm_eq_zero_iff`: for `d ≥ 2`, `‖f‖_{U^d} = 0 ↔ f = 0`. At `d = 2` this is
 `∑_χ |fourier f χ|⁴ = 0` and Fourier inversion; higher `d` follow by monotonicity. At `d = 1` it fails:
-every nonzero mean-zero function has `U¹` norm `0` (Green–Tao, §5, (5.5)–(5.7), p. 12).
+every nonzero mean-zero function has `U¹` norm `0` (Green–Tao, §5, (5.5)–(5.7), pp. 12–13).
 
 *Needs:* AC.0.1, AC.3.1, AC.3.4.
 
 ### AC.3.6 Interval and box Gowers norms
 
-Define `intervalGowersNorm d N f` for `f : ℤ → ℂ`: zero-extend `f` restricted to `[N] = {1, …, N}`
+For `d ≥ 1`, define `intervalGowersNorm d N f` for `f : ℤ → ℂ`: zero-extend `f` restricted to `[N] = {1, …, N}`
 (the predicate `inInterval d N` on residues)
 into `ZMod M` with `M ≥ 2^d N`, and divide its `U^d` norm by the `U^d` norm of `1_{[N]}` computed in
 the same group; the ratio is `U^d[N](f)`. Define `boxGowersNorm d ℓ N f` for `f : ℤ^ℓ → ℂ` on the box
@@ -1299,7 +1361,7 @@ ratios do not depend on `M`. The empty interval (`N = 0`) has norm `0`; a zero-d
 single point. Values outside the interval or box are ignored. These are the norms of the integer
 inverse theorems; no finite-field norm is substituted for them (Leng–Sah–Sawhney, inverse paper,
 Definition 1.1 and the remark after it, p. 1; Kai, *Linear patterns of prime elements in number
-fields*, arXiv:2306.16983v5, Appendix A, Theorem A.1, and Appendix D.1, pp. 65–66 and 69–70, for the
+fields*, arXiv:2306.16983v5, Appendix A, Theorem A.1, and Appendix D.1, pp. 59–60 and 69–70, for the
 box).
 
 The API:
@@ -1307,7 +1369,8 @@ The API:
 - `intervalGowersNorm`, `boxGowersNorm`: the definitions, with the canonical moduli `2^d N + 1` and
   `2^d(2N + 1) + 1`.
 - `intervalGowersNorm_independent_modulus`, `boxGowersNorm_independent_modulus`: every admissible
-  modulus gives the same ratio.
+  modulus gives the same ratio, for `d ≥ 1` and a nonempty domain. The indicator norm is positive
+  because its mean is positive and the norms are monotone in the order.
 - `intervalGowersNorm_zero`: the empty interval has norm `0`.
 - `intervalGowersNorm_one`: for `N ≥ 1`, the constant `1` on `[N]` has norm `1`.
 - `boxGowersNorm_one`: the constant `1` on every nonempty box has norm `1`.
@@ -1327,6 +1390,13 @@ The API:
 - `boxGowersNorm.test_dim_zero`: at `ℓ = 0` the value `−3i` has norm `3`.
 - `boxGowersNorm.test_modulus`: for `[2]`, `d = 2` and `f = 1_{[2]}`, the moduli `8` and `9` both give
   normalised norm `1`.
+- `intervalGowersNorm.test_order_zero_excluded`: at `d = 0`, `N = M = 1`, the size inequality
+  `2^d N ≤ M` holds but the representative `1` is absent modulo `1`: that ratio is `0/0 = 0`,
+  whereas the canonical modulus `2` gives `1`. The modulus comparison requires positive order.
+- `boxGowersNorm.test_singleton`: on the singleton box `N = 0`, `ℓ = 1`, the zero function has
+  norm `0`, while the constant `2i` has norm `2`.
+- `inInterval.test_representatives`: at `d = 2`, `N = 2` (modulus `9`), representatives `1` and `2`
+  belong, and `0` and `3` do not; this distinguishes `[N]` from `{0, …, N − 1}`.
 
 ### AC.3.7 Degree filtrations
 
@@ -1394,6 +1464,16 @@ The API:
 - `filteredDerivative.test_orientation`: for `g(n) = aⁿ b`, `∂_h g(n) = a^h`; the other product order
   `g(n)⁻¹ g(n + h)` gives `b⁻¹ a^h b`, a conjugate.
 
+- `filteredDerivative.test_constant`: a constant group-valued sequence has every first derivative
+  equal to the identity; in additive notation this is zero.
+- `filteredDerivative.test_quadratic_value`: in additive `ℤ`, `∂₂(n ↦ n²)(3) = 25 − 9 = 16`.
+- `iteratedFilteredDerivative.test_empty`: the empty list returns the original sequence, not the
+  identity sequence.
+- `iteratedFilteredDerivative.test_quadratic`: in additive `ℤ`, two directions `2,3` give the
+  constant `12` for `n²`; one more derivative in any direction gives zero.
+- `iteratedFilteredDerivative.test_linear`: a nonconstant affine sequence has a possibly nonzero
+  first derivative, but every second derivative vanishes in an additive group.
+
 ### AC.3.9 Polynomial-sequence calculus and Taylor expansion
 
 Prove `polynomial_sequence_taylor`: polynomial sequences for a degree filtration form a group under
@@ -1406,6 +1486,10 @@ difference identity (Leng–Sah–Sawhney, inverse paper, §2.3, after Definitio
 polynomial-map calculus it cites).
 
 *Needs:* AC.3.8.
+
+**Gap.** The equivalence between the iterated-difference definition and the ordered binomial
+Taylor expansion needs the filtered noncommutative induction, including its finite-BCH coordinate
+bounds. The displayed expansion alone is not that proof contract.
 
 ### AC.3.10 Connected, simply connected nilpotent Lie groups
 
@@ -1430,7 +1514,7 @@ fundamental domain for `Γ`.
 ### AC.3.11 Filtered nilmanifolds
 
 Define the structure `FilteredNilmanifold`: a connected, simply connected nilpotent real Lie group `G`
-of finite dimension, a degree-`s` filtration (AC.3.7) by closed connected Lie subgroups `G_i`, and a
+of finite dimension with a Hausdorff smooth manifold structure, a degree-`s` filtration (AC.3.7) by closed connected Lie subgroups `G_i`, and a
 discrete subgroup `Γ` with `G/Γ` compact such that `Γ ∩ G_i` is cocompact in each `G_i` (the
 rationality of the filtration). `Γ` need not be normal; `G/Γ` is a homogeneous space of left cosets,
 not a group (Leng–Sah–Sawhney, inverse paper, §2.2, Definition 2.7, p. 8: rationality is in addition
@@ -1539,6 +1623,8 @@ The API:
 - `BoundedNilsequence.test_non_lipschitz`: an observable for which no finite `C` has
   `|F(x) − F(y)| ≤ C d(x, y)` for all `x, y` is not the observable of any bounded nilsequence, whatever
   value a totalised infimum of Lipschitz constants would take.
+- `malcevMetric.test_circle_value`: the circle points `1/3` and `2/3` have quotient distance
+  `1/3`; the two representatives `0` and `3` of the identity have quotient distance zero.
 
 ### AC.3.14 Horizontal characters, smoothness and equidistribution
 
@@ -1564,8 +1650,11 @@ The API:
 - `polynomialSmoothness`: the definition above.
 - `polynomialSmoothness_constant`: constant polynomials have smoothness `0`.
 - `polynomialSmoothness_integer_coeff`: integer binomial coefficients give smoothness `0`.
-- `polynomialSmoothness_monomial_comparison`: at degree `s`, the monomial and binomial norms are
-  comparable only up to constants and denominators bounded in terms of `s`; they are not equal.
+- `polynomialSmoothness_monomial_comparison`: for degree at most `s`, there are
+  positive integers `q₁, q₂ ≤ C_s` such that `‖q₁P‖_bin ≤ C_s ‖P‖_mon` and
+  `‖q₂P‖_mon ≤ C_s ‖P‖_bin`. Multiplication by these integers is essential; no two-sided
+  comparison of the unscaled norms is asserted (Green–Tao, polynomial-nilsequence erratum, Lemma 2.1, p. 4,
+  as recalled by Kai, Definition 4.7, p. 15).
 - `IsEquidistributed`, `IsTotallyEquidistributed`: the definitions above.
 - `IsTotallyEquidistributed.to_equidistributed`: total equidistribution implies equidistribution.
 
@@ -1580,6 +1669,25 @@ The API:
 - `IsEquidistributed.test_singleton_torus`: a constant orbit on the circle is not
   `δ`-equidistributed for small `δ > 0`.
 - `HorizontalCharacter.test_circle`: on `ℝ/ℤ` the horizontal characters are `x ↦ mx`, `m ∈ ℤ`.
+- `HorizontalCharacter.test_zero`: the zero homomorphism is horizontal and has size zero.
+- `HorizontalCharacter.test_nonintegral`: on `ℝ/ℤ`, the map `x ↦ x/2` fails the lattice condition,
+  since it sends the lattice element `1` to `1/2`.
+- `IsEquidistributed.test_grid`: the uniform orbit on the `q` equally spaced circle points has
+  discrepancy at most `Lip(F)/(2q)` by integrating the error on the nearest-point cells.
+- `IsEquidistributed.test_point_space`: on the trivial nilmanifold every test has exactly its
+  integral, so the discrepancy is zero.
+- `IsTotallyEquidistributed.test_point_space`: every nonempty subprogression on the trivial
+  nilmanifold likewise has zero discrepancy.
+- `IsTotallyEquidistributed.test_constant_circle`: a constant circle orbit fails total
+  equidistribution for small `δ`, already on the full progression.
+- `IsTotallyEquidistributed.test_short_arc`: the orbit `n/1000`, `1 ≤ n ≤ 1000`, is ordinarily
+  `1/2000`-equidistributed, but fails total `1/10`-equidistribution. On its first `100` points,
+  `F(x) = exp(2πix)` has average modulus `sin(π/10)/(100 sin(π/1000)) > 0.98`, exceeding
+  `(1 + 2π)/10`, while its Haar integral is zero.
+
+- `distToInt.test_integer`: every integer, including `−2`, has distance zero.
+- `distToInt.test_sign`: both `1/4` and `−1/4` have distance `1/4`.
+- `distToInt.test_half`: `1/2` and `3/2` have distance `1/2`, independently of tie-breaking in rounding.
 
 ### AC.3.15 Vertical characters
 
@@ -1618,8 +1726,9 @@ final-central frequency `ξ` of size at most `M/δ`, and a polynomial sequence `
 `|𝔼_{n ∈ ∏[N_i]} F(g(n)Γ)| ≥ δ`, either `min_i N_i ≤ (M/δ)^{C d^C}`, or there are
 `1 ≤ r ≤ dim(G/[G, G])` horizontal characters `η₁, …, η_r` of size at most `(M/δ)^{C d^C}`, with the
 multivariate smoothness of each `η_i ∘ g` at most that bound, such that
-`ξ([[⋯[w₁, w₂], w₃], …, w_s]) = 0` for all `w_j ∈ G' = ⋂ ker η_i`; consequently `G'/ker ξ` has step
-at most `s − 1`. Every `N_i > 1`. The obstruction is a set of horizontal characters together with a
+`ξ([[⋯[w₁, w₂], w₃], …, w_s]) = 0` for all `w_j ∈ G' = ⋂ ker η_i`; consequently `G'/(G' ∩ ker ξ)` has step
+at most `s − 1`. Here `ker ξ` is taken inside the final central subgroup; the intersection
+makes the quotient meaningful also at step one. Every `N_i > 1`. The obstruction is a set of horizontal characters together with a
 vertical commutator identity, not an equidistribution statement for an arbitrary observable. The
 proof runs van der Corput and a refined bracket-polynomial lemma to get simultaneous rational
 constraints on a horizontal subspace, separates the degree-one case, and controls the rational
@@ -1627,6 +1736,10 @@ kernel intersection; every loss has exponent polynomial in the dimension (Leng, 
 equidistribution, Theorem 4, pp. 4–5; proof strategy §1.3, pp. 6–7).
 
 *Needs:* AC.3.9, AC.3.14, AC.3.15.
+
+**Gap.** The quantitative vertical-frequency step reduction in Leng §4 still needs its internal
+contracts with separate dimension, rational height, frequency and Lipschitz losses; the theorem's
+external statement does not supply those intermediate interfaces.
 
 ### AC.3.17 The quasipolynomial inverse theorem on intervals
 
@@ -1650,6 +1763,11 @@ Theorem 1.2, p. 1; overview §4, pp. 15–19; §§5–12 and Appendices A–C). 
 
 *Needs:* AC.1.26, AC.3.6, AC.3.9, AC.3.13, AC.3.16.
 
+**Gap.** The inverse theorem needs the internal degree-rank and multidegree nilcharacter,
+correlation-reduction, symmetry and integration interfaces of Leng–Sah–Sawhney §§5–12 and
+Appendices A–C, with separate bounds for each complexity parameter. These are not replaced by
+a single appeal to the final inverse theorem.
+
 ### AC.3.18 The box inverse theorem
 
 Prove `box_inverse`: for `s, ℓ ≥ 1` there are `c_{s,ℓ} > 0`, `N₀(s, ℓ)` and `C_{s,ℓ}` such that for
@@ -1671,7 +1789,7 @@ Appendix A, Theorem A.1 and proof, printed pp. 59–60).
 Define `IsRationalElement`: `γ` is `M`-rational for `Γ` when `γ^r ∈ Γ` for some integer
 `1 ≤ r ≤ M`. Define `IsRationalSequence` (every value is `M`-rational) and, separately,
 `IsRationalPeriodicSequence` (pointwise `M`-rational and `γ(n + q)Γ = γ(n)Γ` for some period
-`q ≤ M`): pointwise rationality does not make an arbitrary sequence periodic. Define
+`1 ≤ q ≤ M`): pointwise rationality does not make an arbitrary sequence periodic. Define
 `IsSmoothSequence`: `ε` is `(M, N)`-smooth when `d_G(ε(n), 1) ≤ M` and
 `d_G(ε(n), ε(n − 1)) ≤ M/N` for `n ∈ [N]`, in the right-invariant metric of AC.3.13. Define
 `IsRationalSubgroup`: a connected subgroup `H` is `M`-rational when its Lie algebra has a basis of
@@ -1695,6 +1813,30 @@ The API:
   increments.
 - `IsRationalSequence.test_nonperiodic`: an arbitrary nonperiodic choice between the circle points
   `0` and `1/2` is pointwise `2`-rational but not periodic.
+- `IsRationalElement.test_identity_bound`: the identity is `1`-rational, and no element is
+  `0`-rational because a positive witness exponent is required.
+- `IsRationalElement.test_irrational`: `√2` in the additive circle has no finite rationality bound.
+- `IsRationalSequence.test_constant`: the constant `1/3` sequence is pointwise `3`-rational and
+  not pointwise `2`-rational.
+- `IsRationalSequence.test_irrational_value`: a sequence containing a single value `√2` is not
+  pointwise `M`-rational for any finite `M`.
+- `IsRationalPeriodicSequence.test_thirds`: `γ(n) = n/3` on the circle is `3`-rational with period
+  `3` in the quotient; it is not `2`-rational-periodic.
+- `IsRationalPeriodicSequence.test_constant_third`: the constant `1/3` sequence has quotient period
+  `1`, but is not `1`-rational-periodic; its pointwise rationality needs bound `3`.
+- `IsRationalPeriodicSequence.test_irrational_constant`: a constant irrational circle point has
+  period `1` but fails every finite rationality bound.
+- `IsSmoothSequence.test_linear`: in additive `ℝ` with its usual metric, `ε(n) = Mn/N` is
+  `(M,N)`-smooth for `M ≥ 0`, `N ≥ 1`; the last value is `M` and each increment is `M/N`.
+- `IsSmoothSequence.test_large_constant`: `ε(n) = M + 1` has zero increments but violates the
+  value bound, so is not `(M,N)`-smooth.
+- `IsSmoothSequence.test_jump`: for `M > 0`, `N ≥ 2`, alternating `0, M` satisfies the value bound
+  but violates the increment bound `M/N`.
+- `IsRationalSubgroup.test_zero`: the zero-dimensional subgroup is `1`-rational by its empty basis.
+- `IsRationalSubgroup.test_rational_line`: in `ℝ²/ℤ²`, the line spanned by `(2,1)` has a rational
+  basis of height `2` and a cocompact intersection with `ℤ²`.
+- `IsRationalSubgroup.test_irrational_line`: the line spanned by `(1,√2)` has zero intersection
+  with `ℤ²` and no rational basis, hence fails rationality.
 
 ### AC.3.20 Factorisation of polynomial orbits
 
@@ -1705,7 +1847,7 @@ are `M₀ ≤ M ≤ C_{A,m,d} M₀^{C_{A,m,d}}`, a connected rational subgroup `
 `g = ε g' γ`, where `ε` is `(M, N)`-smooth, `g'` takes values in `G'` and is totally
 `M^{−A}`-equidistributed there, and `γ` is `M`-rational with coset period at most `M`. This is the
 single-parameter theorem. Green and Tao's erratum shows that the multiparameter argument of the
-original paper (Lemmas 8.6 and 2.7) extends equal-side estimates to unequal boxes without the
+original paper (Theorem 8.6, p. 47) extends equal-side estimates to unequal boxes without the
 needed small-side alternative, and states that Theorems 1.19 and 2.9 are unaffected; any
 multiparameter use goes through the corrected equal-side statement or keeps the small-side
 alternative. The proof iterates the quantitative Leibman obstruction to restrict a
@@ -1787,17 +1929,35 @@ The API:
 - `intervalProgressionAverage.test_boundary`: for the indicator of `[2]` and `k = 3`, only `x = 1, 2`
   with `r = 0` contribute, giving `2/9`; dropping the zero extension would count wrapped progressions.
 - `intervalProgressionAverage.test_empty`: at `N = 0` and `k = 3` the average is `0`.
+- `cyclicProgressionAverage.test_translation`: on `ZMod 5`, replacing the singleton `{0}` in
+  each slot by `{1}` preserves its three-term average `1/25`.
+- `intervalProgressionAverage.test_empty_product`: with `k = 0`, every pair contributes the empty
+  product, so the average is `1`, including at `N = 0`.
 
 ### AC.2.2 The dense generalised von Neumann inequality
 
 Prove `dense_generalised_von_neumann`: for `k ≥ 2`, a prime `p > k` and `1`-bounded
-`f₀, …, f_{k−1} : ZMod p → ℂ`, `|cyclicProgressionAverage f| ≤ min_i ‖f_i‖_{U^{k−1}}`; for integer
-functions zero-extended from `[N]`, the interval average is at most `C_k min_i U^{k−1}[N](f_i)`. Apply
-Cauchy–Schwarz `k − 1` times, using that every nonzero difference of progression coefficients is
-invertible modulo `p`; for intervals embed in a large cyclic group and track the different counting
-denominators and the normalisation of AC.3.6 (Leng–Sah–Sawhney, Szemerédi paper, §3, the generalised
-von Neumann discussion and the proof of Lemma 3.7, pp. 7 and 9–10; Green–Tao, primes paper, §5,
-Proposition 5.3 with `ν = 1`, pp. 13–19).
+`f₀, …, f_{k−1} : ZMod p → ℂ`, `|cyclicProgressionAverage f| ≤ min_i ‖f_i‖_{U^{k−1}}`.
+Apply Cauchy–Schwarz `k − 1` times, using that every nonzero difference of progression coefficients
+is invertible modulo `p` (Green–Tao, primes paper, §5, Proposition 5.3 with `ν = 1`, pp. 14–19).
+
+Prove separately `interval_dense_generalised_von_neumann`: for `k ≥ 3`, `N ≥ 1` and `1`-bounded
+integer functions restricted to `[N]`,
+`|intervalProgressionAverage N f| ≤ C_k (min_i U^{k−1}[N](f_i))^{1/6}`.
+The one-sided condition `r ≥ 0` is a convex cutoff, so it must be kept in the estimate. Apply the
+scalar case of Kai's convex-domain generalised von Neumann argument to the forms `x + ir`, with
+domain dimension `2` and complexity `k − 2`; zero extension and AC.3.6 compare its larger box norm
+with the interval norm by constants depending only on `k`. Smoothing the convex cutoff and
+truncating its Fourier expansion gives the exponent `1/(2·2 + 2) = 1/6` (Kai, Appendix D,
+Theorem D.3 and proof, pp. 71–77, with every input `1`-bounded). This scalar specialisation is
+proved here from repeated Cauchy–Schwarz and cutoff approximation; AC.5.7 is the later general
+module version, rather than a prerequisite of this target. This polynomial
+bound suffices for the density increment. Leng–Sah–Sawhney state a linear interval bound in
+Lemma 3.3, p. 8; it cannot be extended to `k = 2` with this one-sided average.
+
+**Checks.** At `N = k = 2`, let `f₀(1) = 1`, `f₀(2) = −1` and `f₁ = 1` on `[2]`.
+Then `U¹[2](f₀) = 0`, but the three pairs `(x,r) = (1,0), (1,1), (2,0)` give interval average
+`(1 + 1 − 1)/9 = 1/9`. The cyclic estimate and the interval estimate have different hypotheses.
 
 *Needs:* AC.2.1, AC.3.2, AC.3.6.
 
@@ -1855,6 +2015,11 @@ The API:
   for every `r > 0`.
 - `IsRegularResolution.test_half_constant`: if `K h` is identically `1/2`, it is `C`-regular for
   `C ≥ 1`.
+- `IsRegularResolution.test_quarter`: if `Kh` is the constant `1/4`, its boundary proportion
+  jumps from `0` to `1` at `r = 1/4`; regularity holds exactly for `C ≥ 2` on a nonempty interval.
+- `factorAverage.test_refinement_energy`: on four points with values `0,0,1,1`, the one-cell
+  average has mean-square energy `1/4`; the refinement into the two constant pairs has energy
+  `1/2` and is fixed by a second averaging.
 
 ### AC.2.5 Approximation by a nilsequence factor
 
@@ -1879,7 +2044,7 @@ Prove `progression_density_increment`: fix `k ≥ 5`. There are `c_k, c'_k, C_k 
 `N ≤ exp(exp(C_k (log* (1/δ))^{C_k}))`; or `intervalProgressionAverage N f ≥ c_k δ^k`; or some
 nonempty progression `P ⊆ [N]` has `|P| ≥ N^{1/exp(C_k (log* (1/δ))^{C_k})}` and mean of `f` on `P` at
 least `(1 + c'_k)δ`. Approximate `f` by a regular nilsequence factor at tolerance a small multiple of
-`δ^k` and apply AC.2.2; partition into progressions on which the nilsequences are nearly constant
+`δ^{6k}` and apply AC.2.2; partition into progressions on which the nilsequences are nearly constant
 (AC.2.3); regularity bounds the bucket-boundary losses and gives a progression with large
 structured conditional mean. The progression length is a positive power of `N`: the extraction on
 p. 12 of the source prints a negative exponent, which is a misprint for the positive reciprocal
@@ -1961,6 +2126,10 @@ reference [31], p. 390).
 
 *Needs:* Mathlib `roth_3ap_theorem_nat`, `ThreeAPFree`.
 
+**Gap (primary proof).** Bennett–Siksek state this numerical threshold but give no proof of it.
+A primary proof of Rahman's numerical recurrence, with the inequalities producing `132 log 2`,
+is still needed; qualitative Roth and the secondary theorem statement do not close this gap.
+
 ### AC.2.11 The cycle removal lemma for layered graphs
 
 Prove `layered_cycle_removal`: for every `m ≥ 3` and `ε > 0` there is `δ > 0` such that for every finite
@@ -2031,7 +2200,7 @@ the relative Szemerédi theorem (AC.4.10) follows from the dense Varnavides theo
 majorant is a smooth W-tricked truncated divisor sum spliced with `1` outside a half-window
 (AC.4.11–AC.4.13); its only zeta input is Mathlib's bounded remainder `ζ(s) − 1/(s − 1)` near `1`, and
 the prime weight's mass comes from the prime number theorem in the progression `1 mod W` for each
-fixed `W` (AnalyticNumberTheory AN.2). The original Green–Tao route, with pseudorandom measures that
+fixed `W` (the current Tau Ceti PNT specified in the supplier contracts). The original Green–Tao route, with pseudorandom measures that
 also satisfy a correlation condition (AC.4.1–AC.4.5) and the sharp Goldston–Yıldırım majorant
 (AC.4.14), is kept as a separate route with its own, stronger analytic inputs; the endgame AC.4.15
 does not pass through it.
@@ -2077,6 +2246,16 @@ The API:
   reads `𝔼 ν_N² ≤ τ_{2,N}(0)`.
 - `isKPseudorandom.test_parameters`: at `k = 3` the linear-forms parameters are `(12, 5, 3)` and the
   correlation order is `4`.
+- `IsMeasureFamily.test_small_perturbation`: the nonnegative constant family `1 + 1/N` has
+  mean tending to `1`; the constant family `2` fails this limit and `−1` fails nonnegativity.
+- `LinearFormsCondition.test_zero`: the constant zero family fails already a one-form moment,
+  while `1 + 1/N` has every fixed selected moment tending to `1`.
+- `CorrelationCondition.test_two`: the constant family `2` satisfies each fixed correlation
+  order with `τ_{m,N} = 2^m`, despite failing the mean-one condition.
+- `CorrelationCondition.test_spike`: `ν_N = N 1_{0}` has mean `1`, but equal shifts require
+  `τ_{2,N}(0) ≥ N`; its second moment is then at least `N` and is not uniformly bounded.
+- `IsKPseudorandom.test_spike`: this same mean-one family fails pseudorandomness at every
+  `k ≥ 3`, detecting omission of the correlation condition from the original definition.
 
 ### AC.4.2 Pseudorandom measures are Gowers-close to `1`
 
@@ -2092,7 +2271,7 @@ Prove `pseudorandom_gowers_close`: for a `k`-pseudorandom family and `1 ≤ d �
 Prove `weighted_generalised_von_neumann`: for fixed `k ≥ 3`, a `k`-pseudorandom family and real
 functions with `|f_i| ≤ ν_N + 1`, `|cyclicProgressionAverage f| ≤ 2^{k+1} min_i ‖f_i‖_{U^{k−1}} +
 o_k(1)` uniformly in the functions. The weighted Cauchy–Schwarz scheme uses the linear-forms condition
-for the auxiliary weights (Green–Tao, primes paper, §5, Proposition 5.3, (5.11)–(5.12), pp. 13–19).
+for the auxiliary weights (Green–Tao, primes paper, §5, Proposition 5.3, (5.11)–(5.12), pp. 14–19).
 
 *Needs:* AC.2.1, AC.3.2, AC.4.1.
 
@@ -2152,6 +2331,11 @@ The API:
 - `APLinearFormsCondition.test_empty_product`: the empty selection has deviation `0` for every `ν`.
 - `APLinearFormsCondition.test_constant_two`: for `ν = 2` a single form already has deviation `1`.
 - `APLinearFormsCondition.test_constant_one`: `ν = 1` has deviation `0` for every selection.
+- `apLinearForm.test_sign`: at `k = 3`, modulus `11` and `x = (1,2,4)`, the three forms
+  are `(10,3,7)`, an arithmetic progression of difference `4`; reversing the coefficient signs
+  changes these values.
+- `APLinearFormsCondition.test_negative`: `ν = −1` has a singleton moment of `−1` and also
+  fails nonnegativity; the empty selected product still equals `1`.
 
 ### AC.4.7 Cut discrepancy
 
@@ -2180,6 +2364,10 @@ The API:
 - `arithmeticDiscrepancy.test_constants`: for constants `c, d` the discrepancy is `|c − d|`.
 - `arithmeticDiscrepancy.test_mean`: the constants `0` and `1` are not a discrepancy pair at tolerance
   `1/2`.
+- `IsDiscrepancyPair.test_self`: every function is a discrepancy pair with itself at tolerance
+  zero.
+- `IsDiscrepancyPair.test_constants`: the constants `0,1` meet tolerance `1` and fail tolerance
+  `1/2`, since their discrepancy is exactly `1`.
 
 ### AC.4.8 The dense model theorem
 
@@ -2209,6 +2397,10 @@ Theorem 6.2, Lemma 6.4 and Theorem 6.5 with the densification proof, pp. 11–16
 Lemma 4.1, pp. 4–5, specialising the relative hypergraph counting lemma they cite).
 
 *Needs:* AC.2.1, AC.4.6, AC.4.7.
+
+**Gap.** Densification needs the general relative hypergraph counting proof referred to by CFZ
+Theorem 6.5 and Zhao Lemma 4.1, preserving all selected subproducts. A full internal contract for
+that induction is still required, beyond the arithmetic specialisation stated here.
 
 ### AC.4.10 The linear-forms relative Szemerédi theorem
 
@@ -2262,6 +2454,17 @@ SieveMethodsAndPrimePatterns Layer SV.1 (the smooth truncated divisor sum and `c
 - `modifiedPrimeWeight.test_shift`: for `W = 6`, `b = 1`, `n = 1` the shifted integer `7` is prime,
   although `n` is not.
 - `modifiedPrimeWeight.test_composite`: for `W = 6`, `b = 1`, `n = 4` the shifted integer `25` gives `0`.
+- `wTrickModulus.test_no_primes`: the empty prime product at `w = 0` is `1`.
+- `wTrickModulus.test_composite_cutoff`: at `w = 4` the modulus is `6`, with no factor `4`.
+- `smoothDivisorSum.test_one`: at `n = 1`, the value is `log R`, using `χ(0) = 1`.
+- `smoothDivisorSum.test_prime_inside`: for prime `p ≤ R` the value is
+  `log R · (1 − χ(log p/log R))`, including the negative Möbius coefficient at `p`.
+- `modifiedPrimeWeight.test_normalization`: the shifted prime `7` at `W = 6, b = n = 1` has weight
+  `log 7/3`, since `φ(6)/6 = 1/3`.
+- `smoothMajorant.test_prime_value`: at a shifted prime above `R` in the half-window, its value
+  is `(φ(W)/W) log R/c_χ`.
+- `smoothMajorant.test_denominator`: at that same point, replacing the supplied positive `c_χ`
+  by `2c_χ` halves the formula; this detects omission of the cutoff normalisation.
 
 ### AC.4.12 Moments of the smooth divisor sum along linear forms
 
@@ -2284,6 +2487,10 @@ zero-free region and no Bombieri–Vinogradov theorem is used (Conlon–Fox–Zh
 proof in §9, pp. 18–23).
 
 *Needs:* AC.4.11; Mathlib `isBigO_riemannZeta_sub_one_div`.
+
+**Gap.** The smooth-moment proof requires a concrete Fourier inversion and rapid-decay interface
+for the cutoff and a uniform estimate for the discarded small boxes. These analytic interfaces
+must be supplied with the parameters used in the stated moment bound.
 
 ### AC.4.13 The smooth majorant satisfies the linear-forms condition
 
@@ -2309,8 +2516,8 @@ surviving divisor at a shifted prime larger than `R`, with constant `k⁻¹ 2^{�
 that this family is `k`-pseudorandom (AC.4.1) using exact multiple-form and repeated-shift moment
 computations, which need the zero-free region and convexity bound of AnalyticNumberTheory AN.2, a
 Siegel–Walfisz estimate (AN.3) and the maximal order of the divisor function (ClassicalArithmeticCompletion
-CA.2) (Green–Tao, primes paper, §9, Proposition 9.1 and Definitions 9.2–9.3, pp. 35–37;
-Propositions 9.5–9.6, pp. 37–43; §10, pp. 43–49; Appendix A, pp. 51–56).
+CA.2) (Green–Tao, primes paper, §9, Proposition 9.1 and Definitions 9.2–9.3, pp. 36–38;
+Propositions 9.5–9.6, pp. 38–43; §10, pp. 43–50; Appendix A, pp. 51–56).
 
 The API:
 
@@ -2333,12 +2540,25 @@ AN.3; ClassicalArithmeticCompletion Layer CA.2.
 - `modifiedVonMangoldt.test_shifted_primality`: for `W = 6`, `n = 1` the weight is nonzero because `7` is
   prime.
 - `majorantNu.test_domination_constant`: at `k = 3` the domination constant is `1/(3 · 2⁸)`, not `1`.
+- `truncatedDivisorSum.test_one`: at `n = 1` and `R > 1`, the value is `log R`.
+- `truncatedDivisorSum.test_prime_above`: at prime `p > R > 1`, the value is `log R`.
+- `truncatedDivisorSum.test_prime_below`: at prime `p ≤ R`, the two divisors give
+  `log R − log(R/p) = log p`.
+- `majorantNu.test_prime_value`: at a shifted prime `Wn + 1 > R` inside the narrow window, the
+  value is exactly `(φ(W)/W) log R`, including both the square and the division by `log R`.
+- `modifiedVonMangoldt.test_normalization`: at `W = 6`, `n = 1` the value is `log 7/3`.
+- `modifiedVonMangoldt.test_composite`: at `W = 6`, `n = 4` the value is zero.
+
+**Gap.** The sharp-cutoff comparison also requires the repeated-shift moment and every-moment
+correlation-kernel contracts from Green–Tao §10, and the unbounded-tail approximation in §8.
+Their dependence on the stated classical analytic suppliers remains to be resolved; AC.4.15's
+smooth route does not use this comparison.
 
 ### AC.4.15 The Green–Tao theorem
 
 Prove `prime_progressions`: for every `k ≥ 1` and every bound `H` there are `a > H` and `r ≥ 1` with
 `a, a + r, …, a + (k − 1) r` all prime. For each fixed `w`, the prime number theorem in the progression
-`1 mod W` (AnalyticNumberTheory AN.2, at `q = W`, `a = 1`) evaluated at `WN + 1` and `WN/2 + 1` shows that
+`1 mod W` (the current Tau Ceti declaration specified above, at `q = W`, `a = 1`) evaluated at `WN + 1` and `WN/2 + 1` shows that
 the modified prime weight has mean tending to `1/2` on the half-window; choose `w(N) → ∞` slowly by
 diagonalising this convergence together with the finitely many moment estimates of AC.4.13. No
 estimate uniform over growing moduli is used. Scale the prime weight by `δ_k`, so that it is bounded
@@ -2347,10 +2567,10 @@ cyclic difference survives. All selected points lie in one interval of length le
 consecutive differences lift uniquely to integers of absolute value less than `N/2` and are equal as
 integers; reverse the progression if the difference is negative, undo the W-trick, and let `N`
 exceed `H` (Conlon–Fox–Zhao, §8, the proof of Theorem 1.1 assuming Proposition 8.1, pp. 17–18;
-Green–Tao, primes paper, Theorem 1.1, p. 1, and the endgame of §9, pp. 35–36).
+Green–Tao, primes paper, Theorem 1.1, p. 1, and the endgame of §9, pp. 36–37).
 
-*Needs:* AC.4.10, AC.4.11, AC.4.13; AnalyticNumberTheory Layer AN.2
-(`fixed-progression-prime-number-theorem`).
+*Needs:* AC.4.10, AC.4.11, AC.4.13; the current Tau Ceti fixed-modulus PNT specified in the supplier
+contracts, with the rational-prime identification and partial summation described there.
 
 ### Examples
 
@@ -2367,7 +2587,7 @@ Green–Tao, primes paper, Theorem 1.1, p. 1, and the endgame of §9, pp. 35–3
 
 AC.2 (progression averages and the dense Varnavides theorem), AC.3 (Gowers norms); Mathlib (Möbius,
 von Mangoldt, totient, primorial, the zeta remainder near `1`); SieveMethodsAndPrimePatterns SV.1;
-AnalyticNumberTheory AN.2 (and, for AC.4.14 only, AN.3); ClassicalArithmeticCompletion CA.2 (AC.4.14
+the current Tau Ceti fixed-modulus PNT; AnalyticNumberTheory AN.2 and AN.3 (AC.4.14 only); ClassicalArithmeticCompletion CA.2 (AC.4.14
 only).
 
 ## Layer AC.5: Möbius orthogonality and linear patterns in primes
@@ -2467,6 +2687,11 @@ The API:
 - `HasCSComplexity.test_three_ap`: `x, x + r, x + 2r` (the system `threeAP`) has complexity `1` and not `0`.
 - `HasCSComplexity.test_twins`: `x, x + 2` (the system `twins`) has infinite complexity.
 - `HasCSComplexity.test_goldbach`: `x, H − x` has proportional slopes and infinite complexity.
+- `AffineSystem.test_eval`: `threeAP` at `(x,r) = (2,3)` evaluates to `(2,5,8)`.
+- `AffineSystem.test_offsets`: `twins` at `x = 5` evaluates to `(5,7)`; its equal slopes do not
+  discard its different affine offsets.
+- `AffineSystem.test_constant`: the one-form system `ψ(x) = 5` has zero slope and infinite
+  Cauchy–Schwarz complexity, since zero is in the span even of the empty class.
 
 ### AC.5.5 Integer local factors
 
@@ -2499,6 +2724,10 @@ Layer ES.3 (affine singular products).
 - `integerLocalFactor.test_parity_obstruction`: for `ψ(x) = 2x`, `β₂ = 0`.
 - `integerArchimedeanFactor.test_positive_region`: for `ψ(x) = x` and `Ω = [−N, N]`, `β_∞ = N`, not
   `2N`.
+- `integerArchimedeanFactor.test_two_coordinates`: for `ψ₁(x,y) = x`, `ψ₂(x,y) = y` on
+  `[−N,N]²`, the positivity volume is `N²` for `N ≥ 0`.
+- `integerArchimedeanFactor.test_conflicting_signs`: the two nonzero-slope forms `x, −x` have
+  empty common strict positivity region and factor zero.
 
 ### AC.5.6 Complexity for vector-valued forms
 
@@ -2509,7 +2738,7 @@ split into at most `s + 1` classes `C` such that the restriction of the linear p
 setting (targets `𝔞[S⁻¹]`) torsion cokernel replaces finite cokernel and is required for each
 individual map too; the localised module is not finitely generated over `ℤ`, so torsion does not imply
 finite. Offsets do not affect the kernels, and the condition is not the scalar pairwise
-nonproportionality (Kai, Appendix D, Definition D.1 and Lemma D.2, p. 70; Theorems 12.1 and 13.1,
+nonproportionality (Kai, Appendix D, Definition D.1 and Proposition D.2, p. 70; Theorems 12.1 and 13.1,
 pp. 54 and 56).
 
 The API:
@@ -2533,6 +2762,10 @@ The API:
 - `HasTorsionCokernel.test_localized`: `ℤ → ℤ[1/p]` has torsion but infinite cokernel.
 - `HasModuleCSComplexity.test_scalar_twins`: scalar twins still fail: the relevant restriction is
   zero.
+- `HasTorsionCokernel.test_finite`: multiplication by `2` on `ℤ` has cokernel `ℤ/2ℤ`, hence
+  torsion.
+- `HasTorsionCokernel.test_free_quotient`: `ℤ → ℤ²`, `x ↦ (x,0)`, has a free quotient and fails the
+  torsion-cokernel condition.
 
 ### AC.5.7 The vector-valued generalised von Neumann theorem
 
@@ -2549,6 +2782,10 @@ absorbed into the `f_i`, and apply repeated Cauchy–Schwarz, optimising the smo
 Appendix D, Theorem D.3, p. 71; Propositions D.5–D.7 and proof, pp. 72–77).
 
 *Needs:* AC.3.2, AC.3.6, AC.5.6.
+
+**Gap.** The full normal-form extension and convex-cutoff Fourier argument in Kai Appendix D,
+pp. 72–77, still needs intermediate interfaces, including the enlarged-box comparison used by
+AC.2.2. All bounds above retain the restored `1`-boundedness of every input.
 
 ### AC.5.8 Gowers uniformity of quadratic Hecke characters
 
@@ -2571,7 +2808,7 @@ Prove `number_field_prime_uniformity`: for a number field `K` of degree `n`, eve
 ideal `𝔞` with norm-length compatible integer basis, fixed `s ≥ 1` and large `N`, there is
 `0 < c_{s,n} < 1` such that, uniformly in convex `Ω ⊆ [−N, N]^n`, nonzero integral `𝔮` and classes
 `a₀ + 𝔮𝔞`, the normalised `U^{s+1}` box norm of `1_{Ω ∩ (a₀ + 𝔮𝔞)} · (Λ_K^𝔞 − Λ_{Siegel,𝔮}^𝔞)` is at most
-`exp(−(log N)^{c_{s,n}})`; with the Cramér model in place of the Siegel model the bound is
+`exp(−(log N)^{c_{s,n}})`; for the residual `1_Ω · (Λ_K^𝔞 − Λ_{Cramér,Q}^𝔞)`, without the extra congruence cutoff, the bound is
 `O_{s,K,A}((log N)^{−A})` for every `A > 1`. The arithmetic models and the compatible bases are
 AnalyticNumberTheory AN.4's; compatibility is what makes the constants uniform in `𝔞`. Prove
 nilsequence correlation bounds through the ideal Type I, twisted Type I and Type II decompositions of
@@ -2584,6 +2821,13 @@ decompositions §8, pp. 32–37; Type I/II estimates §§10–11, pp. 43–53).
 *Needs:* AC.3.16, AC.3.18, AC.5.8; AnalyticNumberTheory Layer AN.4; SieveMethodsAndPrimePatterns
 Layer SV.2 (Kai's ideal Vaughan decomposition).
 
+**Gap.** The Type I, twisted Type I and Type II estimates of Kai §§10–11 need explicit contracts
+in the inverse theorem's range: dimension at most `(log N)^ρ` and height and Lipschitz complexity
+at most `exp((log N)^ρ)`, for sufficiently small fixed `ρ`. In §9.4, p. 40, the large-conductor
+upper bound uses `exp(−(log N)^{2ρ})`, while the Fourier resolution is
+`M = exp((log N)^{10ρ}) > 1` with `Y` of order `M²`; the opposite signs in the printed proof
+cannot be used. These elementary repairs do not supply the Type I/II contracts.
+
 ### AC.5.10 Number-field and localised local factors
 
 Define `numberFieldLocalFactor`: for `K` of degree `n`, a fractional ideal `𝔞` and affine
@@ -2591,8 +2835,11 @@ Define `numberFieldLocalFactor`: for `K` of degree `n`, a fractional ideal `𝔞
 `ψ_i(x)` is nonzero in `𝔞/𝔭𝔞` for every prime ideal `𝔭 | p`, where `φ_K(p) = |(O_K/pO_K)^×|`. Define
 `localizedLocalFactor`: `β_{p,S}` imposes the avoidance only for `𝔭 ∉ S`, with the same multiplier
 `(p^n/φ_K(p))^t`; put `C_{S,Ψ} = ∏_p β_{p,S}`. All conditions above one rational prime use one common `x`.
-For localised maps choose a finitely generated fractional ideal containing their images (Kai,
-Appendix E); the factor does not depend on that choice. For all but finitely many `p` the full-rank
+For the localised maps with source `ℤ^d`, take the `O_K`-module generated by their affine
+images as the fractional ideal `𝔞₀`; the torsion-cokernel hypotheses give
+`𝔞₀[S⁻¹] = 𝔞[S⁻¹]`. Replacing `𝔞₀` by another fractional ideal with this same localisation
+does not change the factors: away from `S` the integral lattices agree, and the avoidance
+conditions at `S` are omitted (Kai, Appendix E.1, p. 78). For all but finitely many `p` the full-rank
 kernel restrictions bound the simultaneous vanishings; the removed prime ideals in `S` change the
 multiplier without leaving an avoidance condition (Kai, §5, Proposition 5.2 and (5.4), pp. 15–17;
 Theorem 12.1 and Remark 12.3, pp. 54–55; Theorem 13.1, pp. 56–57; Appendix E, pp. 78–83).
@@ -2621,6 +2868,13 @@ AN.4; ExponentialSumsAndCircleMethod Layer ES.3.
 - `numberFieldLocalFactor.test_common_variable`: separate witnesses for different prime ideals above
   `p` do not give positivity; one common residue vector is required.
 - `localizedLocalFactor.test_empty`: removing no prime ideals changes no factor.
+- `numberFieldLocalFactor.test_parity`: at `K = ℚ`, `ψ(x) = 2x`, the factor at `2` is zero.
+- `numberFieldLocalFactor.test_split_witnesses`: in `ℚ(i)` at the split prime `5`, the four
+  `ℤ`-affine forms `x + 2 − i, x − 2, x − 3, x − 4` avoid all zeros only at `x = 0` for the residue
+  embedding `i = 3`, and only at `x = 1` for `i = 2`. Each prime ideal separately has a witness,
+  but their common-variable rational-prime factor is zero. These maps are not `O_K`-linear.
+- `localizedLocalFactor.test_retained_obstruction`: for `K = ℚ`, `ψ(x) = 2x` and `S = {(3)}`,
+  the obstruction at `2` is retained and its factor is zero.
 
 ### AC.5.11 Prime patterns in a fractional ideal of a number field
 
@@ -2694,15 +2948,18 @@ with `β_∞` and `β_p` from AC.5.5; the implied constant may be ineffective, a
 exactly when every local factor is. No system with proportional slopes is covered: the theorem says
 nothing about twin primes or Goldbach's problem. For `t, d ≥ 2` specialise AC.5.11 to `K = ℚ`, `𝔞 = ℤ`,
 intersecting `Ω` with the positivity region; pairwise independent scalar slopes give the
-finite-cokernel restrictions. For `t = 1` use the prime number theorem in a fixed progression and
-lattice slicing; for `d = 1`, `t ≥ 2` there is no system with independent slopes. Green and Tao's
+finite-cokernel restrictions. For `t = 1` use the fixed-modulus Siegel–Walfisz estimate with every
+log-power saving (AN.3) and lattice slicing; bounded integer slopes allow only finitely many moduli,
+and its endpoint bounds are uniform in `|b_i| ≤ LN`. Residue classes not coprime to their
+modulus contribute only powers of its finitely many prime divisors; their total weight after
+slicing is `O_{d,L}(N^{d−1} (log N)^2)`, absorbed by every stated log-power error. For `d = 1`, `t ≥ 2` there is no system with independent slopes. Green and Tao's
 original theorem is conditional on the inverse theorem and on Möbius–nilsequence orthogonality, both
 targets of this roadmap, and Leng's Theorem 5 gives the saving of every fixed log power (Green–Tao,
 linear equations, Conjecture 1.2, p. 4, the Main Theorem, p. 9, and Theorem 1.8, p. 12; Leng,
 efficient equidistribution, Theorem 5, pp. 5–6, and §5).
 
-*Needs:* AC.5.4, AC.5.5, AC.5.11; AnalyticNumberTheory Layer AN.2
-(`fixed-progression-prime-number-theorem`).
+*Needs:* AC.5.4, AC.5.5, AC.5.11; AnalyticNumberTheory Layer AN.3
+(the fixed-modulus Siegel–Walfisz estimate with every log-power saving).
 
 ### Examples
 
@@ -2720,7 +2977,7 @@ efficient equidistribution, Theorem 5, pp. 5–6, and §5).
 
 AC.3 (Gowers norms, nilsequences, efficient equidistribution, the box inverse theorem, orbit
 factorisation); Mathlib (`μ`, `Λ`, affine maps, spans, kernels, rings of integers, fractional ideals,
-ideal norms); AnalyticNumberTheory AN.2, AN.3, AN.4; SieveMethodsAndPrimePatterns SV.1, SV.2;
+ideal norms); AnalyticNumberTheory AN.3, AN.4; SieveMethodsAndPrimePatterns SV.1, SV.2;
 ExponentialSumsAndCircleMethod ES.3, ES.4; FiniteFieldsAndCharacterSums FF.2.
 
 ## Worked examples
