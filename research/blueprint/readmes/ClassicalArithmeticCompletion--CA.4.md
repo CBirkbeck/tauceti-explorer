@@ -289,7 +289,7 @@ Acceptance:
 
 Depends on: [markoff-hurwitz-moves-outside-compact](#CA-4-markoff-hurwitz-moves-outside-compact), [markoff-hurwitz-exceptional](#CA-4-markoff-hurwitz-exceptional), CA.4/markoff-root-generation (first pass).
 
-Source: [Alex Gamburd, Michael Magee and Ryan Ronan, *An asymptotic formula for integer points on Markoff–Hurwitz varieties*](https://arxiv.org/pdf/1603.06267v3), §2.1, Corollary 17 and the following paragraph, p. 15 (arXiv v3); Annals, Corollary 19, p. 770. Every unexceptional tuple is reduced algorithmically to the compact set by moves that strictly decrease the maximal entry; for n = a = 3, k = 0 this is Markoff's reduction to (1, 1, 1), and Hurwitz and Baragar describe the fundamental solutions for k = 0.
+Source: [Alex Gamburd, Michael Magee and Ryan Ronan, *An asymptotic formula for integer points on Markoff–Hurwitz varieties*](https://arxiv.org/pdf/1603.06267v3), §2.1, Corollary 17 and the following paragraph, p. 15 (arXiv v3); Annals, Corollary 19, p. 770. Every unexceptional tuple is reduced algorithmically to the compact set by moves that strictly decrease the maximal entry; for n = a = 3, k = 0 this is Markoff's reduction to (1, 1, 1), Hurwitz reduced the k = 0 tuples to finitely many fundamental solutions, and Baragar characterised them for a ≥ 2(n − 1)^{1/2}.
 
 ## Markoff level surfaces and Chen's twist
 
@@ -568,7 +568,7 @@ Source: [Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic sur
 
 ## Levels, class numbers and fundamental sets
 
-A level k is admissible when it avoids the congruence obstructions k ≡ 3 (mod 4) and k ≡ ±3 (mod 9), exceptional when some integral point has a coordinate of absolute value at most 2, and generic when it is admissible and not exceptional; a Hasse failure is an admissible level with no integral point. The class number h_M(k) counts Γ-orbits. For generic k ≥ 5 and for every k < 0 the descent and the Δ-ordering identify the orbits with the explicit finite sets F⁺_k(ℤ) and F⁻_k(ℤ) (Theorem 1.1), which makes h_M(k) computable and settles the first Hasse failures 46 and −4. At exceptional levels the fundamental set still injects but misses the orbits through small coordinates, so h_M(k) is larger; the class-number bound of the source is planned at non-exceptional levels only. The Cayley cubic k = 4 has infinitely many orbits, one for each point (2, a, a).
+A level k is admissible when it avoids the congruence obstructions k ≡ 3 (mod 4) and k ≡ ±3 (mod 9), exceptional when some integral point has a coordinate of absolute value at most 2, and generic when it is admissible and not exceptional; a Hasse failure is an admissible level with no integral point. The class number h_M(k) counts Γ-orbits. For generic k ≥ 5 and for every k < 0 the descent and the Δ-ordering identify the orbits with the explicit finite sets F⁺_k(ℤ) and F⁻_k(ℤ) (Theorem 1.1), which makes h_M(k) computable and settles the first Hasse failures 46 and −4. At exceptional levels the fundamental set still injects but misses the orbits through small coordinates, so h_M(k) is larger; the class-number bound of the source is planned at non-exceptional levels only, and it is false on the levels 4 + w², whose coordinate-two lines carry ⌊w/2⌋ + 1 orbits (source issue E553). The Cayley cubic k = 4 has infinitely many orbits, one for each point (2, a, a).
 
 <a id="CA-4-markoff-level-classification"></a>
 
@@ -635,7 +635,7 @@ Source: [Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic sur
 
 `ClassicalArithmeticCompletion:CA.4/markoff-class-number` · definition · planet: Markoff class numbers.
 
-Let Γ = Γ_{3,1}(ℤ) act on ℤ³ (CA.4/markoff-hurwitz-moves). For k ∈ ℤ the orbit set of V_k(ℤ) is the set of Γ-orbits meeting V_k(ℤ) (each such orbit lies in V_k(ℤ)); h_M(k) is its cardinality, finite for k ≠ 4 (CA.4/markoff-class-number-finite) and zero exactly when V_k(ℤ) = ∅. The fundamental sets are F⁺_k(ℤ) = {u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ = k} and F⁻_k(ℤ) = {u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, u₁² + u₂² + u₃² − u₁u₂u₃ = k}, with h⁺(k) = |F⁺_k(ℤ)| and h⁻(k) = |F⁻_k(ℤ)|; both sets are finite. Two points are narrowly equivalent if one is obtained from the other by a permutation and a change of sign of two coordinates. The points (−u₁, u₂, u₃) with u ∈ F⁺_k(ℤ) form the set S⁺(k) of the descent, and S⁻(k) = F⁻_k(ℤ).
+Let Γ = Γ_{3,1}(ℤ) act on ℤ³ (CA.4/markoff-hurwitz-moves). For k ∈ ℤ the orbit set of V_k(ℤ) is the set of Γ-orbits meeting V_k(ℤ) (each such orbit lies in V_k(ℤ)); h_M(k) is its cardinality; for k ≠ 4 it is finite (CA.4/markoff-class-number-finite) and zero exactly when V_k(ℤ) = ∅, while at k = 4 the orbit set is infinite and Nat.card gives 0 by convention. The fundamental sets are F⁺_k(ℤ) = {u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ = k} and F⁻_k(ℤ) = {u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, u₁² + u₂² + u₃² − u₁u₂u₃ = k}, with h⁺(k) = |F⁺_k(ℤ)| and h⁻(k) = |F⁻_k(ℤ)|; both sets are finite. Two points are narrowly equivalent if one is obtained from the other by a permutation and a change of sign of two coordinates. The points (−u₁, u₂, u₃) with u ∈ F⁺_k(ℤ) form the set S⁺(k) of the descent, and S⁻(k) = F⁻_k(ℤ).
 
 Hypotheses and conventions:
 
@@ -662,6 +662,8 @@ API:
 | `markoffFundamentalPlus_eq_empty_of_lt` | simp | k < 54 → markoffFundamentalPlus k = ∅. |
 | `markoffClassNumber_eq_zero_iff` | characterisation | k ≠ 4 → (markoffClassNumber k = 0 ↔ markoffLevelSet ℤ k = ∅). |
 | `MarkoffNarrowEquiv` | data | x ≈ y iff y = g x for g in the narrow subgroup. |
+| `sum_card_markoffFundamentalPlus_eq` | compatibility | For K ≥ 0: Σ_{0 ≤ k ≤ K} ∣F⁺_k(ℤ)∣ = R⁺(K) = #{u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ ≤ K}, the lattice-point count of GeometryOfNumbersAndQuadraticArithmetic:GN.4/markoff-fundamental-set-count (Ghosh–Sarnak (1.6), Lemma 7.2). |
+| `sum_card_markoffFundamentalMinus_eq` | compatibility | For K ≥ 0: Σ_{−K ≤ k ≤ −1} ∣F⁻_k(ℤ)∣ = R⁻(K) = #{u ∈ ℤ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, 1 ≤ u₁u₂u₃ − u₁² − u₂² − u₃² ≤ K}, the count of GeometryOfNumbersAndQuadraticArithmetic:GN.4/markoff-fundamental-set-count (Ghosh–Sarnak, Lemma 7.3). |
 
 Unit tests:
 
@@ -674,7 +676,7 @@ Unit tests:
 
 Acceptance:
 
-- h_M(0) = 2 (CA.4/markoff-coefficient-one-zero-orbits); F⁺₅₄(ℤ) = {(3, 3, 3)}; |F⁺₃₆₈₅(ℤ)| = 6 and |F⁻₋₃₆₉₁(ℤ)| = 9 (the examples of Ghosh–Sarnak's Figures 1–4, recomputed); 3685 is exceptional ((1, 32, 70) ∈ V₃₆₈₅(ℤ)), so h_M(3685) ≥ 7 (ClassicalArithmeticCompletion/E554).
+- h_M(0) = 2 (CA.4/markoff-coefficient-one-zero-orbits); F⁺₅₄(ℤ) = {(3, 3, 3)}; |F⁺₃₆₈₅(ℤ)| = 6 and |F⁻₋₃₆₉₁(ℤ)| = 9 (the examples of Ghosh–Sarnak's Figures 1–4, recomputed); 3685 is exceptional ((1, 32, 70) ∈ V₃₆₈₅(ℤ)), and h_M(3685) = 7: the six orbits of the points (−u₁, u₂, u₃), u ∈ F⁺₃₆₈₅(ℤ), and one orbit through the points with a coordinate ±1 (ClassicalArithmeticCompletion/E554).
 - F⁺₅(ℤ) = ∅ while (0, 1, 2) ∈ V₅(ℤ), so h⁺ and h_M differ at exceptional levels.
 
 Used by:
@@ -683,6 +685,7 @@ Used by:
 - Ghosh–Sarnak, §10: the enumeration of class numbers and Hasse failures counts F^±_k(ℤ)
 - ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound: compares h_M(k) with h⁺(k) at exceptional levels
 - ArithmeticDynamics Part II: the class numbers of the integral Markoff action
+- GeometryOfNumbersAndQuadraticArithmetic:GN.4/markoff-fundamental-set-count: the averages Σ_{|k|≤K} h^±(k) of Ghosh–Sarnak (1.6) are the lattice-point counts R^±(K) that GN.4 owns
 
 Depends on: [markoff-hurwitz-moves](#CA-4-markoff-hurwitz-moves), [markoff-level-surface](#CA-4-markoff-level-surface), `mathlib:MulAction.orbitRel.Quotient`, `mathlib:Nat.card`, `mathlib:Set.Finite`.
 
@@ -824,13 +827,13 @@ Proof sketch:
 
 1. k < 0: CA.4/markoff-fundamental-sets (ii) and finiteness of F⁻_k(ℤ).
 2. k = 0: two orbits (CA.4/markoff-coefficient-one-zero-orbits); 1 ≤ k ≤ 3: CA.4/markoff-levels-one-to-three.
-3. k ≥ 5: by CA.4/markoff-descent-positive-level every orbit meets the finite set S⁺(k) or the small-coordinate locus. Points with a coordinate 0 or ±1 are finite in number (positive definite binary forms x₂² + x₃² = k and x₂² ∓ x₂x₃ + x₃² = k − 1). Points with a coordinate ±2 exist only if k − 4 = w² is a square, w > 0, and are, up to narrow equivalence, (2, t, t + w), t ∈ ℤ; the move V₂ followed by a transposition sends (2, t, t + w) to (2, t + w, t + 2w), so these points fall into at most w orbits.
+3. k ≥ 5: by CA.4/markoff-descent-positive-level every orbit meets the finite set S⁺(k) or the small-coordinate locus. Points with a coordinate 0 or ±1 are finite in number (positive definite binary forms x₂² + x₃² = k and x₂² ∓ x₂x₃ + x₃² = k − 1). Points with a coordinate ±2 exist only if k − 4 = w² is a square, w > 0, and are, up to narrow equivalence, (2, t, t + w), t ∈ ℤ; the move V₂ followed by a transposition sends (2, t, t + w) to (2, t + w, t + 2w), and a double sign change followed by a transposition sends it to (2, −t − w, −t), so these points fall into at most ⌊w/2⌋ + 1 orbits (t modulo w, up to sign).
 4. A finite set meets only finitely many orbits.
 
 Acceptance:
 
 - h_M(5) is finite although 5 − 4 = 1 is a square: the points (2, t, t + 1) lie in one orbit.
-- k = 13 = 4 + 3²: the line (2, t, t + 3) meets at most three orbits (a computation finds two).
+- k = 13 = 4 + 3²: the line (2, t, t + 3) meets exactly two orbits (⌊3/2⌋ + 1; ClassicalArithmeticCompletion/E553).
 
 Depends on: [markoff-fundamental-sets](#CA-4-markoff-fundamental-sets), [markoff-descent-positive-level](#CA-4-markoff-descent-positive-level), [markoff-levels-one-to-three](#CA-4-markoff-levels-one-to-three), CA.4/markoff-coefficient-one-zero-orbits (first pass), [markoff-class-number](#CA-4-markoff-class-number), [markoff-cayley-cubic-orbits](#CA-4-markoff-cayley-cubic-orbits).
 
@@ -905,7 +908,7 @@ Source: [Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic sur
 
 Hypotheses and conventions:
 
-- (b) is the source's bound, restricted to non-exceptional levels, which is the range its argument covers (source issue ClassicalArithmeticCompletion/E553).
+- (b) is the source's bound, restricted to non-exceptional levels, which is the range its argument covers; at the exceptional levels 4 + w² it is false (source issue ClassicalArithmeticCompletion/E553).
 - The input of (b), a bound ≪_ε N^ε for the number of unit-classes of solutions of X² − (a² − 4)Y² = 4N uniform in a, is a recorded gap.
 
 Proof sketch:
@@ -918,7 +921,7 @@ Proof sketch:
 Acceptance:
 
 - k = 9454 (generic): (a) gives h ≤ 2·9454^{2/3} ≈ 894, while h_M(9454) = 11.
-- At the exceptional levels k = 4 + w² the points (2, t, t + w) lie in ⌊w/2⌋ + 1 different orbits for w ≤ 20 (computation), so no bound of order |k|^{1/3+ε} is claimed there.
+- At the exceptional levels k = 4 + w² the points (2, t, t + w) lie in exactly ⌊w/2⌋ + 1 different orbits for every w ≥ 1 (ClassicalArithmeticCompletion/E553), so h_M(4 + w²) > √(k − 4)/2 and no bound of order |k|^{1/3+ε} holds there.
 
 Depends on: [markoff-fundamental-sets](#CA-4-markoff-fundamental-sets), [markoff-descent-negative-level](#CA-4-markoff-descent-negative-level), [markoff-class-number](#CA-4-markoff-class-number), `GeometryOfNumbersAndQuadraticArithmetic:GN.3/pell-automorph`.
 
@@ -968,7 +971,7 @@ Unit tests:
 Acceptance:
 
 - The search returns 6 points at k = 3685, 9 at k = −3691, 11 at k = 9454 and 8 at k = 9500 (the source's Table 5 rows, recomputed); it returns ∅ at k = 46 and k = 1456. At k = 3685 the exceptionality test is true, so the six points give only h⁺, not h_M (ClassicalArithmeticCompletion/E554).
-- Counting k ∈ [5, 100800] admissible, not exceptional, with empty search gives 7630 = A_HF(100800), the first entry of the source's Table 3; there are 7105 further admissible k ≤ 100800 with empty F⁺ that are exceptional and so are not Hasse failures.
+- Counting k ∈ [5, 100800] admissible, not exceptional, with empty search gives 7630 = A_HF(100800); the first entry of the source's Table 3 prints this as 12.97620% of the A(100800) = 58800 admissible k ≤ 100800; there are 7105 further admissible k ≤ 100800 with empty F⁺ that are exceptional and so are not Hasse failures.
 
 Used by:
 
@@ -1193,7 +1196,7 @@ Source: [Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic sur
 
 ## Hasse failures
 
-On V_{4+d} the identity w² − 4d = (x_j² − 4)(x_l² − 4) forces every prime factor of x_j² − 4 to see d as a square; for k = 4 ± 2ν², 4 + 12ν², 4 + 20ν² with the prime factors of ν in suitable classes this is incompatible with the shape of x_j² − 4 modulo 8, 12 or 20, although k is admissible. The family 4 + 2ℓ² with ℓ prime also needs the fundamental set, which bounds an odd coordinate below ℓ. Dirichlet's theorem gives infinitely many Hasse failures of each sign; their count up to K is of order at least √K/√log K, whose analytic input is a recorded gap.
+On V_{4+d} the identity w² − 4d = (x_j² − 4)(x_l² − 4) forces every odd prime factor of x_j² − 4 not dividing d to see d as a square (the source's restatement through the character (4d/·) fails for d < 0 at a coordinate ±1, which happens only at k = 2, source issue E555); for k = 4 ± 2ν², 4 + 12ν², 4 + 20ν² with the prime factors of ν in suitable classes this is incompatible with the shape of x_j² − 4 modulo 8, 12 or 20, although k is admissible. The family 4 + 2ℓ² with ℓ prime also needs the fundamental set, which bounds an odd coordinate below ℓ. Dirichlet's theorem gives infinitely many Hasse failures of each sign; their count up to K is of order at least √K/√log K, whose analytic input is a recorded gap.
 
 <a id="CA-4-markoff-reciprocity-obstruction"></a>
 
@@ -1201,25 +1204,26 @@ On V_{4+d} the identity w² − 4d = (x_j² − 4)(x_l² − 4) forces every pri
 
 `ClassicalArithmeticCompletion:CA.4/markoff-reciprocity-obstruction` · theorem.
 
-Let d be a nonzero integer, k = 4 + d and x ∈ V_k(ℤ). For {i, j, l} = {1, 2, 3} put w = 2x_i − x_jx_l; then w² − 4d = (x_j² − 4)(x_l² − 4). Consequently every odd prime q with q | x_j² − 4 and q ∤ d has d a nonzero square modulo q (legendreSym q d = 1). In the source's form: if n ↦ (4d/n) is a primitive real character modulo 4d and S_d = {n : (4d/n) ∈ {0, 1}}, then x_j² − 4 ∈ S_d (mod 4d) for j = 1, 2, 3; by quadratic reciprocity this is a congruence condition on x_j modulo 4d that local solubility does not impose, so strong approximation for V_k(ℤ) fails modulo 4d.
+Let d be a nonzero integer, k = 4 + d and x ∈ V_k(ℤ). For {i, j, l} = {1, 2, 3} put w = 2x_i − x_jx_l; then w² − 4d = (x_j² − 4)(x_l² − 4). Consequently every odd prime q with q | x_j² − 4 and q ∤ d has d a nonzero square modulo q (legendreSym q d = 1). In the source's form: if n ↦ (4d/n) is a primitive real character modulo 4d and S_d = {n : (4d/n) ∈ {0, 1}}, then x_j² − 4 ∈ S_d (mod 4d) for every j except when d < 0, 3 ∤ d and x_j = ±1, where x_j² − 4 = −3 and the character takes the value −1 (3 divides x_j² − 4, so d is a square modulo 3) (the source claims it for every j; it fails at k = 2, ClassicalArithmeticCompletion/E555); by quadratic reciprocity this is a congruence condition on x_j modulo 4d that local solubility does not impose, so strong approximation for V_k(ℤ) fails modulo 4d.
 
 Hypotheses and conventions:
 
 - d ≠ 0 integer, x an integral point; q odd prime not dividing d.
-- The character form needs (4d/·) to be a primitive Dirichlet character modulo 4d (a Kronecker symbol); the prime-factor form needs nothing.
+- The character form needs (4d/·) to be a primitive Dirichlet character modulo 4d (a Kronecker symbol); the prime-factor form needs nothing. A negative x_j² − 4 (x_j ∈ {0, ±1}) also brings in the sign (4d/−1) = sgn d, so the character form fails exactly when d < 0, 3 ∤ d and x_j = ±1.
 
 Proof sketch:
 
 1. The identity is (1) of CA.4/markoff-delta-differences with k − 4 = d.
 2. If q | x_j² − 4 then w² ≡ 4d (mod q); as q ∤ 2d, d ≡ (w/2)² is a nonzero square modulo q.
-3. Character form: (4d/·) is multiplicative and (4d/q) = (d/q) = 1 for the odd prime factors q ∤ d of x_j² − 4, while the prime factors dividing 4d give the value 0 or are absorbed; so the character of x_j² − 4 is 0 or 1. Quadratic reciprocity (jacobiSym.quadratic_reciprocity) rewrites (d/q) through congruences on q, hence on x_j.
+3. Character form: (4d/·) is multiplicative and (4d/q) = (d/q) = 1 for the odd prime factors q ∤ d of x_j² − 4, while a prime factor dividing 4d gives the value 0; so the character of x_j² − 4 is 0 or 1 when x_j² − 4 ≥ 0. For x_j ∈ {0, ±1} the factor (4d/−1) = sgn d enters: x_j = 0 gives the value 0 (2 ∣ −4), and x_j = ±1 gives (4d/−3) = sgn(d)·(d/3), where (d/3) = 1 when 3 ∤ d because 3 divides x_j² − 4 (the previous step), so the value is −1 when d < 0 and 3 ∤ d. Quadratic reciprocity (jacobiSym.quadratic_reciprocity, with the supplementary laws jacobiSym.at_neg_one and jacobiSym.at_two for the sign and the power of 2 in d) rewrites (d/q) through congruences on q, hence on x_j.
 
 Acceptance:
 
 - k = 46 (d = 42): the odd prime factors of x_j² − 4 not dividing 42 are quadratic-residue primes for 42; this is consistent with V₄₆(ℤ) = ∅.
 - Every point (2, t, t + w) of V_{4+w²} has x₁² − 4 = 0, the degenerate case of the statement.
+- k = 2, d = −2: (1, 1, 1) ∈ V₂(ℤ) has x₁² − 4 = −3 ≡ 5 (mod 8) and (−8/5) = −1, so the character form fails there (ClassicalArithmeticCompletion/E555), while the prime-factor form holds (3 ∣ −3 and −2 ≡ 1² (mod 3)); k = 2 is the only level where it fails, since a coordinate ±1 needs k ≥ 1, V₃(ℤ) = ∅ and 3 ∣ d at k = 1.
 
-Depends on: [markoff-delta-differences](#CA-4-markoff-delta-differences), [markoff-level-surface](#CA-4-markoff-level-surface), `mathlib:legendreSym`, `mathlib:jacobiSym.quadratic_reciprocity`.
+Depends on: [markoff-delta-differences](#CA-4-markoff-delta-differences), [markoff-level-surface](#CA-4-markoff-level-surface), `mathlib:legendreSym`, `mathlib:jacobiSym.quadratic_reciprocity`, `mathlib:jacobiSym.at_neg_one`, `mathlib:jacobiSym.at_two`.
 
 Source: [Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic surfaces*](https://arxiv.org/pdf/1706.06712v3), §8, (8.1)–(8.2), pp. 22–23. For k = 4 + d the factorisation w² − 4d = (x₁² − 4)(x₂² − 4) forces every prime factor of x_j² − 4 into the multiplicative set where the character (4d/·) takes the values 0 or 1, which by quadratic reciprocity is a congruence condition not implied by local solubility.
 
@@ -1393,7 +1397,7 @@ Source: [Amit Ghosh and Peter Sarnak, *Integral points on Markoff type cubic sur
 
 ## Negative Pell radicands
 
-Koymans–Pagano count the squarefree d for which x² − dy² = −1 is soluble among the d whose prime factors are 2 or ≡ 1 (mod 4). The containment of the first set in the second is the rational solubility criterion, which here is elementary (a sum of two squares); it is strict (d = 34). Dirichlet's theorem that every prime ≡ 1 (mod 4) is a negative-Pell radicand follows from the parity of the fundamental solution of x² − py² = 1. The comparison with units of norm −1 and with 2-parts of class groups is CA.5's.
+Koymans–Pagano count the squarefree d for which x² − dy² = −1 is soluble among the d whose prime factors are 2 or ≡ 1 (mod 4). The containment of the first set in the second is the rational solubility criterion, which here is elementary (a sum of two squares); it is strict (d = 34). Dirichlet's theorem that every prime ≡ 1 (mod 4) is a negative-Pell radicand follows from the parity of the fundamental solution of x² − py² = 1. The comparison with units of norm −1 and with 2-parts of class groups is CA.5's. ArithmeticStatistics (ST.0, ST.3), a higher tier, planned the same two sets and imports them from here.
 
 <a id="CA-4-negative-pell-radicand-sets"></a>
 
@@ -1442,7 +1446,7 @@ Acceptance:
 Used by:
 
 - Koymans–Pagano, Theorem 1.1: Stevenhagen's conjecture is the limit of |𝒟⁻(X)|/|𝒟(X)|
-- ArithmeticStatistics (ST.0, ST.3): the counting objects of the density theorem are these sets
+- ArithmeticStatistics:ST.0/negative-pell-radicands and ArithmeticStatistics:ST.3/restricted-real-quadratic-family: the counting objects of the density theorem are these sets; ST (a higher tier) plans the same 𝒟 and 𝒟⁻ and imports this node instead (moved down; ST.0 truncates at d ≤ X, ST.3 and Koymans–Pagano at d < X)
 - ClassicalArithmeticCompletion:CA.5: comparison of 𝒟⁻ with units of norm −1 and with 2-parts of class groups
 
 Depends on: `mathlib:Squarefree`, `mathlib:Finset.filter`, CA.4/generalised-pell-solution-set (first pass).
@@ -1539,7 +1543,7 @@ Acceptance:
 
 Depends on: `mathlib:PowerSeries.map`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`, `mathlib:PowerSeries.coeff_prod_one_sub_X_pow_eventually_eq`.
 
-Source: [Igor Pak, *Partition bijections, a survey*](https://www.math.ucla.edu/~pak/papers/psurvey.pdf), §2.2, generating functions, pp. 10–11. Identities of partition generating functions are identities of formal power series, proved coefficientwise; the coefficient of a given degree of an infinite product is determined by finitely many factors.
+Source: [Igor Pak, *Partition bijections, a survey*](https://www.math.ucla.edu/~pak/papers/psurvey.pdf), §2.2, generating functions, pp. 10–11. Partition generating functions written as infinite products, such as Σp(n)tⁿ = ∏(1 − tⁱ)⁻¹ and its refinements, read as formal power series; the coefficientwise justification that this node supplies is left implicit there.
 
 <a id="CA-4-jacobi-triple-product"></a>
 
@@ -1556,7 +1560,7 @@ Hypotheses and conventions:
 
 Proof sketch:
 
-1. Coefficients: the coefficient of x^m of the finite products in (a) stabilises once 2n − 1 > m, and is a Laurent polynomial c_m(a) ∈ ℤ[a, a⁻¹]; likewise in (b) once i > m.
+1. Coefficients: the coefficient of x^m of the finite products in (a) stabilises once 2n − 1 > m, and is a Laurent polynomial c_m(a) ∈ ℤ[a, a⁻¹]; likewise in (b) once i > m + 1 (the factor 1 + s⁻¹t^{i−1} with i = m + 1 still meets t^m).
 2. Complex case: (a) is J(−zx; x²) and (b) is J(−s⁻¹; t), because (−zx; x²)_∞ = ∏_{n≥1}(1 + z x^{2n−1}), (x²/(−zx); x²)_∞ = ∏(1 + z⁻¹x^{2n−1}), (x²; x²)_∞ = ∏(1 − x^{2n}) and Σ_k(−1)^k x^{k(k−1)}(−zx)^k = Σ_k z^k x^{k²}; similarly for (b) after k ↦ −k. For z ∈ ℂ^× and |x| < 1 the product converges absolutely and its expansion Σ_m c_m(z)x^m converges (majorant with |z|, |z|⁻¹, |x|), so the analytic identity and uniqueness of power-series coefficients (HasFPowerSeriesAt.eq_formalMultilinearSeries) give, for every z ∈ ℂ^× and m > 0, c_m(z) = zⁿ + z⁻ⁿ if m = n² with n > 0 and c_m(z) = 0 if m is not a square, and the analogous coefficients in (b).
 3. A Laurent polynomial over ℤ vanishing on ℂ^× is zero (multiply by a power of T and use Polynomial.eq_zero_of_infinite_isRoot), so the coefficient identities hold in ℤ[a, a⁻¹].
 4. Specialise along the ring homomorphism ℤ[a, a⁻¹] → R sending a to the given unit, by CA.4/power-series-product-specialisation; multipliability and summability are Mathlib's order criteria in the pi topology.
@@ -1597,13 +1601,13 @@ Proof sketch:
 Acceptance:
 
 - Coefficients up to x⁶: 1, −3, 0, 5, 0, 0, −7.
-- This is the identity (i) of Hirschhorn's proof of Jacobi's four-square theorem.
+- This is identity (2) of Hirschhorn's proof of Jacobi's four-square theorem.
 
 Depends on: [jacobi-triple-product](#CA-4-jacobi-triple-product), [power-series-product-specialisation](#CA-4-power-series-product-specialisation).
 
 Source: [Igor Pak, *Partition bijections, a survey*](https://www.math.ucla.edu/~pak/papers/psurvey.pdf), §6.1.4, p. 35. The identity ∏(1 − tⁱ)³ = Σ_{n≥0}(−1)ⁿ(2n + 1)t^{n(n+1)/2}, posed as a consequence of the triple product.
 
-Source: [M. D. Hirschhorn, *A simple proof of Jacobi's four-square theorem*](https://web.maths.unsw.edu.au/~mikeh/webpapers/paper25.pdf), §2, the identities used, pp. 436–437. Jacobi's identity for the cube of the product, in the form with the sum over all integers and the factor one half, used in the proof of the four-square theorem.
+Source: [M. D. Hirschhorn, *A simple proof of Jacobi's four-square theorem*](https://web.maths.unsw.edu.au/~mikeh/webpapers/paper25.pdf), §2, identities (1)–(2), p. 1 of the author's version. Identity (2): the cube of the product as one half of the two-sided sum Σ(−1)ⁿ(2n + 1)x^{(n²+n)/2}, obtained from the triple product through the a-form (1) by differentiating in a at a = 1; it is the starting point of the four-square proof.
 
 <a id="CA-4-theta-product-specialisations"></a>
 
@@ -1631,7 +1635,7 @@ Acceptance:
 
 Depends on: [jacobi-triple-product](#CA-4-jacobi-triple-product), [power-series-product-specialisation](#CA-4-power-series-product-specialisation).
 
-Source: [M. D. Hirschhorn, *A simple proof of Jacobi's four-square theorem*](https://web.maths.unsw.edu.au/~mikeh/webpapers/paper25.pdf), §2, the identities used, pp. 436–437. The three theta-type product identities and Gauss's identity used to express θ(x)⁴ and to prove Jacobi's four-square theorem.
+Source: [M. D. Hirschhorn, *A simple proof of Jacobi's four-square theorem*](https://web.maths.unsw.edu.au/~mikeh/webpapers/paper25.pdf), §2, pp. 2–3 of the author's version. The two theta products Σx^{s²} = ∏(1 + x^{2n−1})²(1 − x^{2n}) and Σx^{r²+r} = 2∏(1 + x^{2n})²(1 − x^{2n}), and the identity ∏((1 − xⁿ)/(1 + xⁿ)) = Σ(−1)ⁿx^{n²}, each taken from the triple product to express the fourth power of the theta series.
 
 Source: [Igor Pak, *Partition bijections, a survey*](https://www.math.ucla.edu/~pak/papers/psurvey.pdf), §6.1.3 and §5.5, pp. 33–35. Gauss's identities as consequences of the triple product identity.
 
@@ -1656,10 +1660,11 @@ The first pass's gap on Catalan–Mihăilescu (no owner in the atlas) is unchang
 
 ## Mistakes found in the sources
 
-- **ClassicalArithmeticCompletion/E551** (error, §2, the paragraph after Lemma 2.1, p. 10 (arXiv v3)). For k = 2 the descent leaves the point (0, 1, 1), and the source says its Γ-orbit is infinite. Correction: The Γ-orbit of (0, 1, 1) is finite: it consists of the twelve points with one coordinate 0 and the other two ±1, and the four points (±1, ±1, ±1) with an even number of minus signs, 16 points in all; it is all of V₂(ℤ), so h_M(2) = 1. Reason: V₁(0, 1, 1) = (1, 1, 1), V₂(0, 1, 1) = (0, −1, 1), V₃(0, 1, 1) = (0, 1, −1), and V_i(1, 1, 1) is (0, 1, 1) up to permutation; so the 16 points are closed under the moves, permutations and double sign changes. A search over |x_i| ≤ 40 finds no other integral point, as the descent predicts.
-- **ClassicalArithmeticCompletion/E552** (misprint, §5.1, proof of Lemma 5.1, p. 16 (arXiv v3)). The second root is written x₄ = x₁x₂ − α₃ − β₁x₂ − β₂x₁ − εx₃, with P₃P₄ = k − P₁² − P₂² − β₃P₁P₂ − α₁P₁ − α₂P₂. Correction: x₄ = ε(x₁x₂ − α₃ − β₁x₂ − β₂x₁) − x₃ and x₃x₄ = ε(x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k); for ε = 1 the printed product has the wrong sign and for ε = −1 the printed root has the wrong sign. Reason: As a quadratic in x₃, M* − k = εx₃² + (β₁x₂ + β₂x₁ + α₃ − x₁x₂)x₃ + (x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k), whose roots sum to −(coefficient)/ε and multiply to (constant)/ε, with 1/ε = ε. For M itself (ε = 1, α = β = 0) the product of the roots is x₁² + x₂² − k, not k − x₁² − x₂².
-- **ClassicalArithmeticCompletion/E554** (error, §1, the paragraph after Theorem 1.1 and the caption of Figures 1–2, p. 4 (arXiv v3)). Theorem 1.1, stated for generic k, is illustrated with k = 3685, for which the source gives h_M(3685) = 6. Correction: 3685 is exceptional, since (1, 32, 70) ∈ V₃₆₈₅(ℤ) (4·3684 = 108² + 3·32²), so Theorem 1.1 (i) does not apply. The six points are F⁺₃₆₈₅(ℤ), and by the corrected comparison of ClassicalArithmeticCompletion/E507, h_M(3685) ≥ h⁺_M(3685) + 1 = 7. Reason: M(1, 32, 70) = 1 + 1024 + 4900 − 2240 = 3685, a point with a coordinate 1; the orbit of a point with a small coordinate does not contain any (−u₁, u₂, u₃) with u ∈ F⁺ (CA.4/markoff-positive-root-orbits). The negative illustration k = −3691 is unaffected: all negative levels are generic and h_M(−3691) = |F⁻₋₃₆₉₁(ℤ)| = 9.
-- **ClassicalArithmeticCompletion/E553** (gap, §1, consequence (c) of Theorem 1.1, p. 4 (arXiv v3)). The source states h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, as a consequence of Theorem 1.1. Correction: The argument, through the fundamental sets of Theorem 1.1, covers only levels that are not exceptional (generic k ≥ 5 and all k < 0). At exceptional levels the orbits through small-coordinate points are not controlled, and on the family k = 4 + w² the points (2, t, t + w) appear to lie in ⌊w/2⌋ + 1 distinct orbits, which would contradict the bound for large w. Reason: Theorem 1.1 identifies h_M(k) with |F^±_k(ℤ)| only for generic k. On the line (2, t, t + w) ⊂ V_{4+w²} the move V₂ followed by a transposition shifts t by w and a double sign change sends t to −t − w, so the line splits into at most ⌊w/2⌋ + 1 classes; a search of the orbits up to coordinates 10⁵ finds exactly ⌊w/2⌋ + 1 orbits through the line for w = 3, 5, 10, 20, consistent with the Δ-tree structure (every large point has a unique Δ-smaller neighbour, so trees hanging from different line classes cannot join).
+- **ClassicalArithmeticCompletion/E551** (error, §2, the paragraph after Lemma 2.1, p. 10 (arXiv v3)). For k = 2 the descent leaves the point (0, 1, 1), and the source says its Γ-orbit is infinite. Correction: The Γ-orbit of (0, 1, 1) is finite: it consists of the twelve points with one coordinate 0 and the other two ±1, and the four points (±1, ±1, ±1) with an even number of minus signs, 16 points in all; it is all of V₂(ℤ), so h_M(2) = 1. Reason: V₁(0, 1, 1) = (1, 1, 1), V₂(0, 1, 1) = (0, −1, 1), V₃(0, 1, 1) = (0, 1, −1), and V_i(1, 1, 1) is (0, 1, 1) up to permutation; so the 16 points are closed under the moves, permutations and double sign changes. A search over |x_i| ≤ 40 finds no other integral point, as the descent predicts. Review: confirmed (REV-ClassicalArithmeticCompletion--CA.4). Read at §2, p. 10 (page image checked): the source says the orbit of (0, 1, 1) is infinite. The 16 points listed are closed under V₁, V₂, V₃, permutations and double sign changes, the descent inequality (valid for every k ≥ 1 at x₁ ≥ 3) reduces every point to one with a coordinate in {0, ±1, ±2}, and a coordinate ±2 is impossible at k = 2; an independent search over |x_i| ≤ 40 found exactly these 16 points (and the six points ±e_i at k = 1).
+- **ClassicalArithmeticCompletion/E552** (misprint, §5.1, proof of Lemma 5.1, p. 16 (arXiv v3)). The second root is written x₄ = x₁x₂ − α₃ − β₁x₂ − β₂x₁ − εx₃, with P₃P₄ = k − P₁² − P₂² − β₃P₁P₂ − α₁P₁ − α₂P₂. Correction: x₄ = ε(x₁x₂ − α₃ − β₁x₂ − β₂x₁) − x₃ and x₃x₄ = ε(x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k); for ε = 1 the printed product has the wrong sign and for ε = −1 the printed root has the wrong sign. Reason: As a quadratic in x₃, M* − k = εx₃² + (β₁x₂ + β₂x₁ + α₃ − x₁x₂)x₃ + (x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k), whose roots sum to −(coefficient)/ε and multiply to (constant)/ε, with 1/ε = ε. For M itself (ε = 1, α = β = 0) the product of the roots is x₁² + x₂² − k, not k − x₁² − x₂². Review: confirmed (REV-ClassicalArithmeticCompletion--CA.4). Read at §5.1, p. 16: the printed second root and product are as stated. As a quadratic in x₃ the roots of M* − k sum to ε(x₁x₂ − α₃ − β₁x₂ − β₂x₁) and multiply to ε(x₁² + x₂² + β₃x₁x₂ + α₁x₁ + α₂x₂ − k); for M itself the product is x₁² + x₂² − k. The degree count of Lemma 5.1 uses only the degree of the product and is unaffected.
+- **ClassicalArithmeticCompletion/E554** (error, §1, the paragraph after Theorem 1.1 and the caption of Figures 1–2, p. 4 (arXiv v3)). Theorem 1.1, stated for generic k, is illustrated with k = 3685, for which the source gives h_M(3685) = 6. Correction: 3685 is exceptional, since (1, 32, 70) ∈ V₃₆₈₅(ℤ) (4·3684 = 108² + 3·32²), so Theorem 1.1 (i) does not apply. The six points are F⁺₃₆₈₅(ℤ), and h_M(3685) = 7: besides the six orbits of the points (−u₁, u₂, u₃), u ∈ F⁺₃₆₈₅(ℤ), there is exactly one orbit through points with a small coordinate (3685 is not a sum of two squares and 3681 is not a square, so these are the points with a coordinate ±1, and they form one orbit). The bound h_M(3685) ≥ h⁺_M(3685) + 1 = 7 of ClassicalArithmeticCompletion/E507 is therefore an equality here. Reason: M(1, 32, 70) = 1 + 1024 + 4900 − 2240 = 3685, a point with a coordinate 1; the orbit of a point with a small coordinate does not contain any (−u₁, u₂, u₃) with u ∈ F⁺ (CA.4/markoff-positive-root-orbits). The negative illustration k = −3691 is unaffected: all negative levels are generic and h_M(−3691) = |F⁻₋₃₆₉₁(ℤ)| = 9. Review: confirmed (REV-ClassicalArithmeticCompletion--CA.4). Read at §1, p. 4 (with Figures 1–2, pp. 4–5): the source illustrates Theorem 1.1 at k = 3685 with h_M(3685) = 6. Recomputed: M(1, 32, 70) = 3685, F⁺₃₆₈₅(ℤ) = {(3, 6, 52), (4, 10, 43), (6, 18, 25), (7, 8, 38), (7, 10, 34), (8, 14, 25)}. By (4.1) a point with all coordinates of absolute value ≥ 3 has exactly one Δ-smaller neighbour and Δ-larger neighbours with all coordinates ≥ 3, so the orbit of a negative root contains no small-coordinate point and a shortest path between two small-coordinate points never leaves them; the small-coordinate points of V₃₆₈₅(ℤ) (coordinate ±1 only) form one component, so h_M(3685) = 7 exactly (correction sharpened accordingly).
+- **ClassicalArithmeticCompletion/E553** (error, §1, consequence (c) of Theorem 1.1, p. 4 (arXiv v3)). The source states h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, as a consequence of Theorem 1.1. Correction: The bound fails on the exceptional levels k = 4 + w²: for every w ≥ 1 the points (2, t, t + w) of V_{4+w²}(ℤ) form exactly ⌊w/2⌋ + 1 Γ-orbits, so h_M(4 + w²) ≥ ⌊w/2⌋ + 1 > √(k − 4)/2, which is not ≪_ε |k|^{1/3+ε}. The source's argument, through the fundamental sets of Theorem 1.1, proves the bound only at levels that are not exceptional (generic k ≥ 5 and all k < 0). Reason: On the line the move V₂ followed by a transposition shifts t by w, and a double sign change followed by a transposition sends t to −t − w, so the line points fall into at most ⌊w/2⌋ + 1 classes (t modulo w, up to sign). These classes lie in different orbits. By (4.1) a point with all coordinates of absolute value at least 3 has exactly one Δ-smaller neighbour, and its Δ-larger neighbours again have all coordinates at least 3 in absolute value; so a shortest path between two points with a coordinate in {0, ±1, ±2} passes only through such points. Besides the line, the small-coordinate points of V_{4+w²}(ℤ) are the finitely many points with a coordinate 0 (a² + b² = 4 + w²) or ±1 (a² ∓ ab + b² = 3 + w²); the moves join the coordinate-0 point (0, 2, w) only to the class t ≡ 0, join the coordinate-±1 points to the line only in the class t ≡ ±1, and join the other line points only to points of their own class (for w ≥ 9 by this case analysis, and for every w ≤ 300 by an exact computation of the small-coordinate graph). The plan's orbit search (coordinates up to 10⁵ for w = 3, 5, 10, 20) found the same count. Review: confirmed (REV-ClassicalArithmeticCompletion--CA.4). Read at §1, consequence (c), p. 4: the bound is asserted for k → ±∞ without excluding exceptional levels. The plan recorded a gap with an apparent failure; this review proved the line count ⌊w/2⌋ + 1 for every w (argument in the reason field; exact small-coordinate-graph computation for w ≤ 300, and a union-find over all points with coordinates up to 900 for w = 3, 5, 10 agreeing), so the entry is upgraded from gap to error: the stated bound is false along k = 4 + w².
+- **ClassicalArithmeticCompletion/E555** (error, §8, (8.1) and the paragraph after (8.2), pp. 22–23 (arXiv v3)). For k = 4 + d with n ↦ (4d/n) a primitive character modulo 4d, every x ∈ V_k(ℤ) is said to satisfy x_j² − 4 ∈ S_d = {n : (4d/n) ∈ {0, 1}} for j = 1, 2, 3; the proof factors x_j² − 4 into primes and does not consider its sign. Correction: The conclusion holds for every j with |x_j| ≥ 3 (then x_j² − 4 > 0), and for every j when d > 0. For d < 0 it fails at a coordinate x_j = ±1 when 3 ∤ d: then x_j² − 4 = −3, and since the character of the negative discriminant 4d is odd, its value at −3 is −(d/3), which is −1 because 3 divides x_j² − 4 and so d is a square modulo 3. The only level where this happens is k = 2. Reason: k = 2, d = −2, x = (1, 1, 1) ∈ V₂(ℤ): (−8/·) is primitive modulo 8, x₁² − 4 = −3 ≡ 5 (mod 8) and (−8/5) = (−2/5) = −1, so x₁² − 4 ∉ S_{−2}. A coordinate ±1 needs k − 1 = a² ∓ ab + b² ≥ 0, so d < 0 leaves k ∈ {1, 2, 3}; V₃(ℤ) = ∅ and 3 ∣ d = −3 at k = 1. The prime-factor form (every odd prime q ∤ d dividing x_j² − 4 has (d/q) = 1) still holds, and Proposition 8.1 uses the obstruction only through prime factors, so nothing downstream is affected. Review: confirmed (REV-ClassicalArithmeticCompletion--CA.4). Added by this review; the counterexample was checked by hand and by computing the Kronecker symbol (−8/·) on the residues modulo 8.
 
 The corrected statements used here also rely on mistakes recorded earlier: ClassicalArithmeticCompletion/E507, ClassicalArithmeticCompletion/E518, PAPER-GHOSH-SARNAK-22/E2, PAPER-GHOSH-SARNAK-22/E3, PAPER-GHOSH-SARNAK-22/E7, PAPER-GHOSH-SARNAK-22/E8, PAPER-GHOSH-SARNAK-22/E9, PAPER-GHOSH-SARNAK-22/E10, PAPER-GHOSH-SARNAK-22/E11, PAPER-GHOSH-SARNAK-22/E6, PAPER-GAMBURD-MAGEE-RONAN-19/E3 (the first pass and the paper extractions).
 
@@ -1669,7 +1674,7 @@ The first pass's review left 45 node-specific findings. Their dispositions, reco
 
 | first-pass node | disposition | note |
 |---|---|---|
-| CA.4/integer-linear-systems | library-supplier | The kernel-basis and parametrisation steps use the Smith normal form of a submodule of a free module over a PID and basis transport; the rectangular integer case is the CA.3 Smith target. Suppliers: `mathlib:Submodule.smithNormalForm`, `mathlib:Module.Basis.map`, `mathlib:Matrix.ker_diagonal_toLin'` |
+| CA.4/integer-linear-systems | library-supplier | The kernel-basis and parametrisation steps use the Smith normal form of a submodule of a free module over a PID and basis transport; the rectangular integer case is the CA.3 Smith target. The diagonal system is solved coordinatewise (no library lemma: Matrix.ker_diagonal_toLin' is stated over a semifield and does not apply over ℤ). Suppliers: `mathlib:Submodule.smithNormalForm`, `mathlib:Module.Basis.map` |
 | CA.4/fermat-right-triangle-descent-step | library-supplier | The two Pythagorean parametrisations and the coprime-square step are library facts. Suppliers: `mathlib:PythagoreanTriple.coprime_classification'`, `mathlib:Int.sq_of_gcd_eq_one`, `mathlib:exists_associated_pow_of_mul_eq_pow` |
 | CA.4/fermat-right-triangle-theorem | target-level | The integral form (zero and negative values) reduces to the positive one by signs and the zero cases; this is a step of the existing target, not a new theorem. |
 | CA.4/quartic-descent-t4-plus-v4-equals-2u2 | target-level | Uses the integral form of the right-triangle theorem from the same layer; no new supplier. |
@@ -1688,12 +1693,12 @@ The first pass's review left 45 node-specific findings. Their dispositions, reco
 | CA.4/theta-fourth-power-lambert-series | supplied-here | The Jacobi-product identities it consumes are planned here. Suppliers: [jacobi-triple-product](#CA-4-jacobi-triple-product), [theta-product-specialisations](#CA-4-theta-product-specialisations) |
 | CA.4/jacobi-four-square-theorem | target-level | The odd/even σ formula is an equivalent restatement already carried by the native signatures jacobi_four_square_odd/even. |
 | CA.4/negative-pell-solution-ordering | target-level | Lemmas 7.3 and 7.4 of Conrad are two clauses of one target; the positivity clause uses the real embedding. Suppliers: `mathlib:Zsqrtd.toReal_injective` |
-| CA.4/negative-pell-least-solution-squares-to-fundamental | library-supplier | Existence of the fundamental solution and the injective real embedding are in Mathlib. Suppliers: `mathlib:Pell.IsFundamental.exists_of_not_isSquare`, `mathlib:Zsqrtd.toReal_injective`, `mathlib:Pell.IsFundamental.eq_zpow_or_neg_zpow` |
-| CA.4/negative-pell-classification | library-supplier | Square-root injectivity and the sign/inverse reduction use the same Mathlib API. Suppliers: `mathlib:Zsqrtd.toReal_injective`, `mathlib:Pell.Solution₁.exists_pos_variant` |
+| CA.4/negative-pell-least-solution-squares-to-fundamental | library-supplier | Existence of the fundamental solution and the expression of a solution with positive coordinates as a natural power of it are in Mathlib (the node's step 1); the parity and minimality steps use negative-pell-solution-ordering. Suppliers: `mathlib:Pell.IsFundamental.exists_of_not_isSquare`, `mathlib:Pell.IsFundamental.eq_pow_of_nonneg` |
+| CA.4/negative-pell-classification | library-supplier | The norm-one solutions are ±(ε²)^j by Mathlib's Pell.IsFundamental.eq_zpow_or_neg_zpow applied to the fundamental solution ε²; positive square roots are taken through the injective real embedding. The sign and inverse reduction for norm −1 elements is a proof step through negative-pell-solution-ordering (Mathlib's Pell.Solution₁.exists_pos_variant covers norm-one solutions only). Suppliers: `mathlib:Pell.IsFundamental.eq_zpow_or_neg_zpow`, `mathlib:Zsqrtd.toReal_injective` |
 | CA.4/negative-pell-local-obstruction | target-level | The norm-n obstruction and the negative-Pell obstruction are two clauses; the mod-p criterion is ZMod.exists_sq_eq_neg_one_iff. CA.4/negative-pell-rational-solubility gives the exact rational criterion and the example d = 34. Suppliers: `mathlib:ZMod.exists_sq_eq_neg_one_iff`, [negative-pell-rational-solubility](#CA-4-negative-pell-rational-solubility) |
 | CA.4/chebyshev-bound-generalised-pell | target-level | The log-coordinate reduction and nearest-integer exponent are proof steps; the positive-n refinement is a clause of the same target. Suppliers: `mathlib:abs_sub_round` |
 | CA.4/generalised-pell-finite-classes-and-bounded-search | open | A computable certified bound is the content of this target (Conrad, Theorem 3.3); the finite representative-set statement is its first clause and stays its gap until the package states it. |
-| CA.4/small-norm-pell-decision-by-convergents | library-supplier | Denominator transport and the Fibonacci growth of denominators are in Mathlib's continued-fraction API. Suppliers: `mathlib:Real.exists_rat_eq_convergent`, `mathlib:GenContFract.succ_nth_fib_le_of_nth_den` |
+| CA.4/small-norm-pell-decision-by-convergents | library-supplier | Legendre's criterion (Real.exists_rat_eq_convergent) identifies the small-norm ratios as convergents, and the Fibonacci growth of denominators (GenContFract.succ_nth_fib_le_of_nth_den) transfers to Real.convergent by Real.convs_eq_convergent. Suppliers: `mathlib:Real.exists_rat_eq_convergent`, `mathlib:GenContFract.succ_nth_fib_le_of_nth_den`, `mathlib:Real.convs_eq_convergent` |
 | CA.4/ramanujan-nagell-ring-norm-euclidean | open | No pinned library supplies the ring ℤ[(1 + √−7)/2] with a Euclidean structure; this target constructs it (QuadraticAlgebra gives the carrier and norm), so the obligation is the target itself, not a missing supplier. Suppliers: `mathlib:QuadraticAlgebra`, `mathlib:QuadraticAlgebra.norm` |
 | CA.4/ramanujan-nagell-ring-units-and-primes | target-level | Units, the primes above 2 and their non-association are three clauses of one target; units via the norm. Suppliers: `mathlib:QuadraticAlgebra.isUnit_iff_norm_isUnit` |
 | CA.4/ramanujan-nagell-factorisation | library-supplier | The coprime-power step is Mathlib's associated-power lemma in a UFD. Suppliers: `mathlib:exists_associated_pow_of_mul_eq_pow` |
@@ -1707,9 +1712,9 @@ The first pass's review left 45 node-specific findings. Their dispositions, reco
 | CA.4/greedy-egyptian-algorithm | target-level | Termination, sum, sortedness (for r ≤ 1) and length are API items of the construction. |
 | CA.4/sylvester-sequence | target-level | Product and growth formulas are API items of the definition. |
 | CA.4/sylvester-egyptian-identity | library-supplier | Finite telescoping, convergence and the strict greedy characterisation are clauses with native signatures; convergence uses hasSum_iff_tendsto_nat_of_nonneg. Suppliers: `mathlib:hasSum_iff_tendsto_nat_of_nonneg` |
-| CA.4/primitive-zero-of-a-form | library-supplier | Primitive normalisation and denominator clearing use Finset.extract_gcd; weighted homogeneity is MvPolynomial.IsWeightedHomogeneous. Suppliers: `mathlib:Finset.extract_gcd`, `mathlib:MvPolynomial.IsWeightedHomogeneous` |
+| CA.4/primitive-zero-of-a-form | library-supplier | Primitive normalisation uses Finset.extract_gcd (for a nonzero vector, so that the gcd is nonzero); homogeneity is MvPolynomial.IsHomogeneous (the node uses ordinary, not weighted, homogeneity), whose scaling identity is a proof step. Suppliers: `mathlib:Finset.extract_gcd`, `mathlib:MvPolynomial.IsHomogeneous` |
 | CA.4/primitive-zeros-and-rational-projective-points | library-supplier | Resolved in the first pass by its third review round; the projectivisation API supplies the canonical map. Suppliers: `mathlib:Projectivization.mk_eq_mk_iff` |
-| CA.4/local-solubility-of-a-primitive-zero | target-level | The mod-9 obstruction and the real clause are clauses of the lemma; ℤ_p units via PadicInt.isUnit_iff. Suppliers: `mathlib:PadicInt.isUnit_iff` |
+| CA.4/local-solubility-of-a-primitive-zero | target-level | The mod-9 obstruction and the real clause are clauses of the lemma; a coordinate prime to p has p-adic norm 1 (PadicInt.norm_int_lt_one_iff_dvd), hence is a unit of ℤ_p (PadicInt.isUnit_iff). Suppliers: `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_int_lt_one_iff_dvd` |
 | CA.4/rational-points-of-y2-x3-plus-x | open | Weighted denominator normalisation and the coprime square-factor step are steps of this routing example; the converse (that the listed points are all) is the example's content and stays its gap. Suppliers: `mathlib:Int.sq_of_gcd_eq_one` |
 | CA.4/markoff-coefficient-one-zero-orbits | supplied-here | The ring-valued carrier, group and orbit set are planned here; its typed signature is in this part's suggested file. Suppliers: [markoff-level-surface](#CA-4-markoff-level-surface), [markoff-hurwitz-moves](#CA-4-markoff-hurwitz-moves), [markoff-class-number](#CA-4-markoff-class-number), [markoff-coefficient-three-twist](#CA-4-markoff-coefficient-three-twist) |
 | CA.4/markoff-positive-root-orbits | supplied-here | Δ, its differences, the carriers and the orbit set are planned here; typed signature in this part's suggested file. Suppliers: [markoff-delta](#CA-4-markoff-delta), [markoff-delta-differences](#CA-4-markoff-delta-differences), [markoff-class-number](#CA-4-markoff-class-number) |
@@ -1719,7 +1724,9 @@ The first pass's review left 45 node-specific findings. Their dispositions, reco
 
 CA.4 now has 77 first-pass nodes and 43 here, with six planets in each packet, so the layer would show twelve planets. Its developments are distinct: linear systems, numerical semigroups and Egyptian fractions; sums of squares, theta products and the triple product; Pell, negative Pell and generalised Pell equations; descent and exponential equations; and Markoff and Markoff–Hurwitz surfaces. Proposal: Divide CA.4 into sub-layers with CA.4 as parent: CA.4a 'Linear systems, numerical semigroups and Egyptian fractions' (integer-linear-systems, numerical-semigroup, apery-set and the semigroup and Egyptian-fraction nodes; planets integer-linear-systems, numerical-semigroup); CA.4b 'Sums of squares and theta products' (the three-square, Jacobi two- and four-square and Hirschhorn nodes, jacobi-triple-product, jacobi-cube-identity, theta-product-specialisations, power-series-product-specialisation; planets legendre-three-square-theorem, jacobi-four-square-theorem, jacobi-triple-product); CA.4c 'Pell equations' (the Pell, negative-Pell and generalised-Pell nodes with negative-pell-radicand-sets, negative-pell-rational-solubility, negative-pell-prime-one-mod-four); CA.4d 'Descent and exponential equations' (Fermat right triangle, quartic descent, Ramanujan–Nagell, powers of 2 and 3, primitive zeros and the routing example; planet ramanujan-nagell-theorem); CA.4e 'Markoff and Markoff–Hurwitz surfaces' (all markoff-* nodes of both packets; planets markoff-tree, markoff-hurwitz-variety, markoff-class-number, markoff-fundamental-sets, markoff-local-solubility, markoff-hasse-failures-two-nu-squared). Each sub-layer then shows at most six planets.
 
-Moved down from a higher roadmap: Jacobi triple product in formal power series, Jacobi's cube identity, the theta products, Gauss's identity and Euler's odd-distinct identity — from QSeriesPartitionsAndMockModularForms:QM.0 (jacobi-triple-product, theta-three-product-identity, theta-two-product-identity, gauss-theta-four-product-identity, euler-odd-distinct-product-identity) to [jacobi-triple-product](#CA-4-jacobi-triple-product), [jacobi-cube-identity](#CA-4-jacobi-cube-identity), [theta-product-specialisations](#CA-4-theta-product-specialisations). The analytic identity stays with GeometryOfNumbersAndQuadraticArithmetic GN.4 (lower tier), which CA.4 cites.
+Moved down from a higher roadmap: Jacobi triple product in formal power series, Jacobi's cube identity, the theta products, Gauss's identity and Euler's odd-distinct identity — from QSeriesPartitionsAndMockModularForms:QM.0 (jacobi-triple-product, jacobi-cube-identity, theta-three-product-identity, theta-two-product-identity, gauss-theta-four-product-identity, euler-odd-distinct-product-identity) to [jacobi-triple-product](#CA-4-jacobi-triple-product), [jacobi-cube-identity](#CA-4-jacobi-cube-identity), [theta-product-specialisations](#CA-4-theta-product-specialisations). The analytic identity stays with GeometryOfNumbersAndQuadraticArithmetic GN.4 (lower tier), which CA.4 cites.
+
+Moved down from a higher roadmap: The negative-Pell radicand sets 𝒟 and 𝒟⁻ with their truncations — from ArithmeticStatistics:ST.0 (negative-pell-radicands) and ArithmeticStatistics:ST.3 (the 𝒟, 𝒟⁻ part of restricted-real-quadratic-family) to [negative-pell-radicand-sets](#CA-4-negative-pell-radicand-sets). Recorded by the review: ArithmeticStatistics (tier 14) planned the same sets; CA (tier 5) now owns them and ST imports them. ST.0 truncates at d ≤ X, ST.3 and Koymans–Pagano at d < X.
 
 ## Coverage
 

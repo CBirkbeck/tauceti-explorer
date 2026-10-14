@@ -457,6 +457,19 @@ theorem markoffFundamentalMinus_finite (k : ℤ) : (markoffFundamentalMinus k).F
 theorem markoffFundamentalPlus_eq_empty_of_lt {k : ℤ} (hk : k < 54) :
     markoffFundamentalPlus k = ∅ := by sorry
 
+/-- The fundamental counts add up to the lattice-point count `R⁺(K)` of Ghosh–Sarnak (1.6) and
+Lemma 7.2, owned by GeometryOfNumbersAndQuadraticArithmetic GN.4/markoff-fundamental-set-count. -/
+theorem sum_card_markoffFundamentalPlus_eq (K : ℕ) :
+    ∑ k ∈ Finset.Icc (0 : ℤ) K, (markoffFundamentalPlus k).ncard =
+      {u : Fin 3 → ℤ | 3 ≤ u 0 ∧ u 0 ≤ u 1 ∧ u 1 ≤ u 2 ∧
+        u 0 ^ 2 + u 1 ^ 2 + u 2 ^ 2 + u 0 * u 1 * u 2 ≤ K}.ncard := by sorry
+
+/-- The negative counterpart, `R⁻(K)` of Ghosh–Sarnak, Lemma 7.3 (GN.4). -/
+theorem sum_card_markoffFundamentalMinus_eq (K : ℕ) :
+    ∑ k ∈ Finset.Icc (-(K : ℤ)) (-1), (markoffFundamentalMinus k).ncard =
+      {u : Fin 3 → ℤ | 3 ≤ u 0 ∧ u 0 ≤ u 1 ∧ u 1 ≤ u 2 ∧ 2 * u 2 ≤ u 0 * u 1 ∧
+        1 ≤ -markoffPoly u ∧ -markoffPoly u ≤ K}.ncard := by sorry
+
 theorem markoffClassNumber_eq_zero_iff {k : ℤ} (hk : k ≠ 4) :
     markoffClassNumber k = 0 ↔ markoffLevelSet ℤ k = ∅ := by sorry
 
@@ -547,7 +560,8 @@ theorem card_markoffFundamentalMinus_le {k : ℤ} (hk : k < 0) :
     ((markoffFundamentalMinus k).ncard : ℤ) ≤ 2 * (|k| + 9) := by sorry
 
 /-- CA.4/markoff-class-number-upper-bound (b), at non-exceptional levels. Its input, the
-unit-class count for `X² − (a² − 4)Y² = 4N`, is a recorded gap. -/
+unit-class count for `X² − (a² − 4)Y² = 4N`, is a recorded gap. The restriction is needed: on the
+exceptional levels `4 + w²` the line `(2, t, t + w)` meets `⌊w/2⌋ + 1` orbits (source issue E553). -/
 theorem markoffClassNumber_isBigO (ε : ℝ) (hε : 0 < ε) :
     ∃ C : ℝ, ∀ k : ℤ, ((5 ≤ k ∧ ¬ MarkoffExceptional k) ∨ k < 0) →
       (markoffClassNumber k : ℝ) ≤ C * |(k : ℝ)| ^ ((1 : ℝ) / 3 + ε) := by sorry
@@ -778,7 +792,8 @@ end LocalSolubility
 
 section HasseFailures
 
-/-- CA.4/markoff-reciprocity-obstruction, prime-factor form. -/
+/-- CA.4/markoff-reciprocity-obstruction, prime-factor form. (The source's character form fails
+for `d < 0` at a coordinate `±1`, e.g. `k = 2`, `x = (1, 1, 1)`: source issue E555.) -/
 theorem markoff_reciprocity_obstruction {d : ℤ} (hd : d ≠ 0) {x : Fin 3 → ℤ}
     (hx : x ∈ markoffLevelSet ℤ (4 + d)) {q : ℕ} [Fact q.Prime] (hq2 : q ≠ 2)
     (hqd : ¬ (q : ℤ) ∣ d) (hqx : (q : ℤ) ∣ x 0 ^ 2 - 4) :
