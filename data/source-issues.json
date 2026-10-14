@@ -196285,9 +196285,383 @@
    "owner": "EulerSystemsAndKolyvaginSystems",
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Corollary IV.8.1 divides P_q(Fr_q^{-1}) − P_q(N(q)Fr_q^{-1}) by [K(q) : K(1)], and for T = ℤ_p(1) this difference is (N(q) − 1)Fr_q^{-1}; [K(q) : K] = [K(q) : K(1)][K(1) : K] differs whenever the p-part of the class number of K is nontrivial. The two agree for K = ℚ."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E1",
+   "kind": "misprint",
+   "locator": "Hypothesis 4.7(ii), p. 22 of arXiv:1805.08448v1",
+   "printed": "After adjoining the representation’s trivializing field K(T) to the auxiliary infinite tower, condition(ii) asks for a Galois element whose coinvariants on T are free of rank one over R.",
+   "correction": "Take τ in G_{K_{p^∞}}, with K_{p^∞}=⋃_m K_{p^m} and K_{p^m}=K(μ_{p^m},(O_K^×)^{1/p^m})K(1), and require T/(τ−1)T≃R. The field fixed by τ must omit the additional trivializing extension K(T).",
+   "reason": "K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 asserts that Hypothesis 4.7 gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1805.08448 (only v1 exists, checked 2026-10-06)",
+    "the accepted journal version was not available to the worker and was not compared",
+    "https://arxiv.org/abs/1805.08448 submission history (v1 only)",
+    "https://davidburnsmaths.github.io/newdbpublist.html and KCL accepted-manuscript record; no accessible correction located",
+    "Web search for BSS II Hypothesis 4.7 errata, 2026-10-06; no explicit correction located",
+    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "David Burns, Ryotaro Sakamoto and Takamichi Sano, On the theory of higher rank Euler, Kolyvagin and Stark systems, II, arXiv:1805.08448v1 (22 May 2018), 51 pp., read 2026-10-14; the only version on arXiv",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 asserts that Hypothesis 4.7 gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E2",
+   "kind": "misprint",
+   "locator": "1999 course draft Chapter IX §1, p.133; also book-format author copy §9.1 p.175 (PDF p.181)",
+   "printed": "The source takes the largest abelian extension of K with ramification confined to N.",
+   "correction": "For the isolated-initial-class example take the maximal abelian extension unramified at every prime dividing N.",
+   "reason": "The printed extension contains the cyclotomic Z_p-extension because p divides N, contrary to the following parenthesis. For a nontrivial extension ramified only at N, the Euler-factor product is empty, hence is 1, and the family c_F=0 for F≠K requires c_K=0. With no ramification at N and class number one, every nontrivial finite abelian extension ramifies at a prime outside N, where the stipulated factor vanishes; the claimed arbitrary c_K family then works.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Web search for Rubin Euler systems errata Chapter IX rigidity, 2026-10-06; no explicit correction located",
+    "1999 SWC draft and https://www.wstein.org/people/rubin/book/hEulerSystems.pdf §9.1: wording persists in both author copies; publisher version not certified",
+    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The printed extension contains the cyclotomic Z_p-extension because p divides N, contrary to the following parenthesis. For a nontrivial extension ramified only at N, the Euler-factor product is empty, hence is 1, and the family c_F=0 for F≠K requires c_K=0. With no ramification at N and class number one, every nontrivial finite abelian extension ramifies at a prime outside N, where the stipulated factor vanishes; the claimed arbitrary c_K family then works."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E3",
+   "kind": "error",
+   "locator": "Archived author copy, Proposition 3.4.4(ii), p.27 (PDF p.33)",
+   "printed": "The source asserts that Γ(S) admits an isomorphism, without a canonical choice, to an ideal of R.",
+   "correction": "Evaluation identifies Γ(S) with a submodule of the cyclic hub stalk. It is isomorphic to an ideal if the hub stalk is free of rank one, or if R is principal artinian. The unrestricted complete noetherian local assertion needs such additional hypotheses.",
+   "reason": "Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Web search for Mazur Rubin Kolyvagin systems errata Proposition 3.4.4, 2026-10-06; no explicit correction located",
+    "https://sites.harvard.edu/barry-mazur/projects/ search result; direct fetch failed (502)",
+    "https://www.ams.org/memo/0799/memo0799.pdf version-of-record download attempted; HTTP 403, not collated",
+    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society168(2004), no.799; authors’ version dated20October2003,102PDFpages, printed pagination; relevant locators read2026-10-14. No comparison with the publisher’s file is asserted.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E4",
+   "kind": "error",
+   "locator": "Lemma 2.1.4, p.15; repeated use in Lemma 3.5.2, p.28, archived author copy",
+   "printed": "Residual invariant vanishing is asserted to imply invariant vanishing for every Galois-module quotient or subquotient of T.",
+   "correction": "Restrict Lemma 2.1.4 to coefficient-ideal quotients T/IT. Use the repaired arbitrary-ideal annihilator argument of BSS II Proposition 3.5 and Corollary 3.8 at their finite self-injective coefficient scope; do not deduce the unrestricted Galois-subquotient claim from residual H⁰ alone.",
+   "reason": "Over 𝔽₃ take the continuous G_ℚ-representation through S₃ from the splitting field of x³−2, generated on T=𝔽₃² by b=[[1,1],[0,1]] and a=diag(−1,1). These satisfy b³=a²=1 and aba=b⁻¹. Their common fixed space is zero, but 𝔽₃e₁ is stable and T/𝔽₃e₁ is a nonzero trivial representation. This quotient is not a coefficient-ideal quotient.",
+   "affects": "a stated result",
+   "known": "Mazur–Rubin, Controlling Selmer groups in the higher core rank case, arXiv:1312.4052v1 p.32; published JTNB28 (2016) p.182, Gomez erratum. BSS II arXiv:1805.08448v1 pp.15–17 gives the replacement annihilator proof.",
+   "searched": [
+    "MR16 arXiv v1 p.32 and published Numdam version p.182, independently read 2026-10-10",
+    "BSS II §3.2 pp.15–17, independently read 2026-10-10",
+    "AMS Memoirs version-of-record download unavailable; finding scoped to the archived author copy"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society168(2004), no.799; authors’ version dated20October2003,102PDFpages, printed pagination; relevant locators read2026-10-14. No comparison with the publisher’s file is asserted.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Over 𝔽₃ take the continuous G_ℚ-representation through S₃ from the splitting field of x³−2, generated on T=𝔽₃² by b=[[1,1],[0,1]] and a=diag(−1,1). These satisfy b³=a²=1 and aba=b⁻¹. Their common fixed space is zero, but 𝔽₃e₁ is stable and T/𝔽₃e₁ is a nonzero trivial representation. This quotient is not a coefficient-ideal quotient."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E5",
+   "kind": "error",
+   "locator": "Proposition 3.4.4(iii), p.27, archived author copy",
+   "printed": "For a locally cyclic sheaf with a hub, a nonzero section component generating m^i times the stalk at any vertex is asserted to generate m^i times every stalk.",
+   "correction": "Over a general local ring, require the starting vertex to be a hub. Generation of J times the hub stalk propagates along its surjective paths for every ideal J. The principal-artinian/DVR valuation situation used in the arithmetic applications supports the stronger arbitrary-vertex conclusion.",
+   "reason": "Let R=𝔽₃[[x,y]], with hub stalk R, one other vertex and edge stalk R/(y), and maps quotient and identity. Every vertex-to-edge map is surjective; the hub reaches the other vertex through the edge isomorphism at the endpoint, and monodromy is trivial. The section (x,x mod y) is nonzero and generates mS(u) at the other vertex, but (x)≠m=(x,y) at the hub.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Exact web searches for Mazur–Rubin Kolyvagin systems Proposition3.4.4 errata on 2026-10-10; no correction located",
+    "Barry Mazur projects page https://sites.harvard.edu/barry-mazur/projects/ indexed record; direct fetch failed",
+    "MR16 arXiv v1 Proposition9.3 and published Proposition9.3: the analogous assertion is in principal-artinian coefficient scope, not a correction at general scope",
+    "MR16 published Gomez erratum p.182 corrects Lemma2.1.4, not this proposition",
+    "AMS https://www.ams.org/memo/0799/memo0799.pdf unavailable; no claim about an uncollated publisher edition"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society168(2004), no.799; authors’ version dated20October2003,102PDFpages, printed pagination; relevant locators read2026-10-14. No comparison with the publisher’s file is asserted.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Let R=𝔽₃[[x,y]], with hub stalk R, one other vertex and edge stalk R/(y), and maps quotient and identity. Every vertex-to-edge map is surjective; the hub reaches the other vertex through the edge isomorphism at the endpoint, and monodromy is trivial. The section (x,x mod y) is nonzero and generates mS(u) at the other vertex, but (x)≠m=(x,y) at the hub."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E801",
+   "kind": "misprint",
+   "locator": "§5.3, Definition 5.3.8, p. 61, in the authors' version of 20 October 2003 (the published Memoir was not available)",
+   "printed": "For c ∈ H¹(Q, T), the source defines the principal ideal Ind(c) of Λ by Ind(c) = char((H¹(Q, T)/Λc)tors).",
+   "correction": "Ind(c) is the principal ideal generated by gcd(a_1, …, a_r) for ψ(c) = (a_1, …, a_r) under a pseudo-isomorphism ψ: H¹(Q, T) → Λ^r, as the next sentence says; in particular Ind(0) = 0. The char formula agrees with this only for c ≠ 0.",
+   "reason": "For c = 0, (H¹(Q, T)/Λ·0)_tors = H¹(Q, T)_tors = 0 because H¹(Q, T) is torsion-free (Lemma 5.3.5), so the printed formula gives Ind(0) = char(0) = Λ, while the gcd description gives gcd(0, …, 0) = 0 and the proof of Theorem 5.3.10 states 'If κ1 = 0 then Ind(κ) = 0 and there is nothing to prove.' With the printed formula, Theorem 5.3.10(i) for κ_1 = 0 would assert char(X∞) = Λ, which is false in general (X∞ need not be torsion).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Mazur–Rubin's 2003 authors' version (the text read) for remarks or corrections after the definition",
+    "arXiv and the AMS Memoir page for the publisher's text (not accessible; the AMS site returned HTTP 403)",
+    "Büyükboduk, arXiv:0706.0377v2, which uses Theorem 5.3.10 only for κ_1 ≠ 0"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Barry Mazur, Karl Rubin, Kolyvagin systems, Authors' version dated 20 October 2003 (102 pp.) of Memoirs of the American Mathematical Society 168 (2004), no. 799; the publisher's text (doi:10.1090/memo/0799) was not available.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. For c = 0, (H¹(Q, T)/Λ·0)_tors = H¹(Q, T)_tors = 0 because H¹(Q, T) is torsion-free (Lemma 5.3.5), so the printed formula gives Ind(0) = char(0) = Λ, while the gcd description gives gcd(0, …, 0) = 0 and the proof of Theorem 5.3.10 states 'If κ1 = 0 then Ind(κ) = 0 and there is nothing to prove.' With the printed formula, Theorem 5.3.10(i) for κ_1 = 0 would assert char(X∞) = Λ, which is false in general (X∞ need not be torsion)."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E802",
+   "kind": "misprint",
+   "locator": "Ch. II §3, proof of Theorem 3.8, p. 29, in the 1999 draft",
+   "printed": "The source asserts the existence of ψ : loc^s_Σp(H¹_∞(K, T)) → Λ whose cokernel is pseudo-null. It also attributes the divisibility of φ ◦ loc^s_Σp(c_K,∞) by ind_Λ(c) to the definition.",
+   "correction": "\"ind_Λ(c) divides ψ ◦ loc^s_Σp(c_K,∞)\": the functional is the ψ just chosen; φ is not defined in the proof.",
+   "reason": "The proof needs a functional on H¹_∞(K, T) whose value at c_{K,∞} lies in ind_Λ(c); ψ ∘ loc^s is one. The published version (Theorem 2.3.8, p. 43) prints ψ.",
+   "affects": "nothing",
+   "known": "Corrected in the published version, Annals of Mathematics Studies 147 (2000), proof of Theorem 2.3.8, p. 43 (read on the page image).",
+   "searched": [
+    "The published text of Rubin's book (wstein.org copy), proof of Theorem 2.3.8, page image read"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Karl Rubin, Euler systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000); 187 pp., TeX output of 4 August 1999. Numbering II.3.x etc.; the published text numbers the same results 2.3.x.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The proof needs a functional on H¹_∞(K, T) whose value at c_{K,∞} lies in ind_Λ(c); ψ ∘ loc^s is one. The published version (Theorem 2.3.8, p. 43) prints ψ."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E803",
+   "kind": "misprint",
+   "locator": "Ch. VI §2, proof of Proposition 2.1(ii), p. 91, in the 1999 draft (published: Proposition 6.2.1, p. 122)",
+   "printed": "The source chooses a place w of LK∞ away from p and calls I its decomposition group in G_L. It uses the absence of ramification outside p in K∞/K to assert ρ(I) = 1. For every n, it also describes I as the inertia subgroup at w in G_{L_n}.",
+   "correction": "\"let I denote an inertia group of w in G_L\": the argument needs ρ(I) = 1, which holds for the inertia group because K∞/K is unramified outside p, but fails for a decomposition group, on which ρ is in general nontrivial.",
+   "reason": "The next sentence uses only that ρ is trivial on I and calls I 'also an inertia group' of w in G_{L_n}; the article 'an' also points to the intended word. A decomposition group of w ∤ p in G_L surjects onto the infinite decomposition group of w in Gal(LK∞/L), on which a character ρ of infinite order is nontrivial.",
+   "affects": "nothing",
+   "known": "Corrected in the published version, Annals of Mathematics Studies 147 (2000), proof of Proposition 6.2.1, p. 122 (read on the page image, PDF page 128 of the wstein.org copy): the passage is replaced by an argument through Lemmas B.3.3 and 1.3.5(i) showing that the colimits of the H¹_f(L_{n,w}, ·) at w ∤ p vanish.",
+   "searched": [
+    "The published text of Rubin's book (wstein.org copy), Chapter 6 §2, page image read"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Karl Rubin, Euler systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000); 187 pp., TeX output of 4 August 1999. Numbering II.3.x etc.; the published text numbers the same results 2.3.x.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The next sentence uses only that ρ is trivial on I and calls I 'also an inertia group' of w in G_{L_n}; the article 'an' also points to the intended word. A decomposition group of w ∤ p in G_L surjects onto the infinite decomposition group of w in Gal(LK∞/L), on which a character ρ of infinite order is nontrivial."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E902",
+   "kind": "error",
+   "locator": "IV.Example8.2 p.78 (1999 draft), also4.8.2 p.103 (book-format author copy)",
+   "printed": "The example identifies the full local H¹ of ℤ_p(1) at q≠p with the p-completed residue-field units.",
+   "correction": "Use H¹_f=H¹_ur for the residue units. Full H¹ is the completed local multiplicative group and includes a valuation ℤ_p summand.",
+   "reason": "A uniformizer has valuation1 and a nonzero Kummer class outside the finite subgroup; residue-field units have valuation0. The Euler classes are unramified here, so the congruence computation remains valid on the finite subgroup.",
+   "affects": "a stated result",
+   "known": "No correction identified in the version comparisons and searches recorded here.",
+   "searched": [
+    "Source version and immediately surrounding argument at the stated locator (2026-10-14)",
+    "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "A uniformizer has valuation1 and a nonzero Kummer class outside the finite subgroup; residue-field units have valuation0. The Euler classes are unramified here, so the congruence computation remains valid on the finite subgroup."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E903",
+   "kind": "error",
+   "locator": "Theorem2.4.5 proof p.23, arXiv1908.09197v1",
+   "printed": "The proof uses the same finite ℤ_p-order approximation and bounded-rank argument at P=(p) as at a distinguished prime.",
+   "correction": "Separate P=(p): take Q_m=(p+T^m), an Eisenstein quotient of rank m, and use bounded normalization index and finite-quotient primitivity instead of a bounded rank.",
+   "reason": "Λ/(p)=𝔽_p[[T]] has characteristic p and is not a finite ℤ_p-order. Λ/(p+T^m) has characteristic0 and ℤ_p-rank m, so those quotients cannot be isomorphic to Λ/(p); the claimed common approximation does not justify the branch. The clean-bound branch can be repaired as in the corrected proof outline.",
+   "affects": "the proof",
+   "known": "No correction identified in the version comparisons and searches recorded here.",
+   "searched": [
+    "Source version and immediately surrounding argument at the stated locator (2026-10-14)",
+    "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Murilo Zanarella, On Howard's main conjecture and the Heegner point Kolyvagin system, arXiv:1908.09197v1, 50 pp.; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Λ/(p)=𝔽_p[[T]] has characteristic p and is not a finite ℤ_p-order. Λ/(p+T^m) has characteristic0 and ℤ_p-rank m, so those quotients cannot be isomorphic to Λ/(p); the claimed common approximation does not justify the branch. The clean-bound branch can be repaired as in the corrected proof outline."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E904",
+   "kind": "error",
+   "locator": "§7.2 p.29, author version dated2July2022",
+   "printed": "Bounded kernel and cokernel of restriction are used to assert a unique class descending p^{3ν} times the derivative.",
+   "correction": "Choose a preimage of p^ν times the derivative and multiply that preimage by p^{2ν}; prove compatibility of this selected descent with the local formulas separately.",
+   "reason": "For ℤ/p²→ℤ/p the kernel and cokernel are annihilated by p but zero has p distinct preimages. An annihilated kernel gives independence after the prescribed scaling, not uniqueness among all solutions of the restriction identity.",
+   "affects": "a stated result",
+   "known": "No correction identified in the version comparisons and searches recorded here.",
+   "searched": [
+    "Source version and immediately surrounding argument at the stated locator (2026-10-14)",
+    "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Francesc Castella, Ming-Lun Hsieh, Heegner cycles and p-adic L-functions, Author's version (dated 2 July 2022) of Mathematische Annalen 370 (2018), 567–628, from the second author's page; read 2026-10-14 (p. 30 checked from the page image)",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "For ℤ/p²→ℤ/p the kernel and cokernel are annihilated by p but zero has p distinct preimages. An annihilated kernel gives independence after the prescribed scaling, not uniqueness among all solutions of the restriction identity."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E906",
+   "kind": "error",
+   "locator": "§7.2(K2) p.30, author version dated2July2022",
+   "printed": "The scalar ε_n=χ(σ_𝔑)w_f(−1)^ω(n) is used as a conjugation sign in the finite–singular relation for general anticyclotomic χ.",
+   "correction": "Restrict this scalar eigenspace formula to χ²=1, or give the operator-valued formula transporting the χ⁻¹ and χ coefficient modules.",
+   "reason": "Conjugation sends T⊗χ⁻¹ to T⊗χ; for nonquadratic χ it is not an involution on that single coefficient module. χ(σ_𝔑) need not lie in {±1}. Nekovář’s untwisted Proposition10.2 uses actual ± eigenspaces and does not supply the displayed general-character scalar replacement.",
+   "affects": "a stated result",
+   "known": "No correction identified in the version comparisons and searches recorded here.",
+   "searched": [
+    "Source version and immediately surrounding argument at the stated locator (2026-10-14)",
+    "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Francesc Castella, Ming-Lun Hsieh, Heegner cycles and p-adic L-functions, Author's version (dated 2 July 2022) of Mathematische Annalen 370 (2018), 567–628, from the second author's page; read 2026-10-14 (p. 30 checked from the page image)",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Conjugation sends T⊗χ⁻¹ to T⊗χ; for nonquadratic χ it is not an involution on that single coefficient module. χ(σ_𝔑) need not lie in {±1}. Nekovář’s untwisted Proposition10.2 uses actual ± eigenspaces and does not supply the displayed general-character scalar replacement."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E907",
+   "kind": "error",
+   "locator": "Data6.4.2 and Proposition6.4.3 pp.38–40, archived51page author manuscript",
+   "printed": "The pairing modules X,W are not required to be finite, although the maximal-order argument decomposes W into finitely many cyclic modules.",
+   "correction": "Require finite X and W (as in the actual Galois application), or prove a suitable completed duality statement under additional topological hypotheses.",
+   "reason": "For B=ℚ_p,V=ℚ_p,T=ℤ_p,N=1,X=W=⊕_ℕ𝔽_p, the coordinate pairing is separated on both sides. Both orders are already maximal and c=d=1, but j embeds the direct sum into Hom(W,𝔽_p)=∏_ℕ𝔽_p and is not surjective. Thus Coker(j) is not killed by1.",
+   "affects": "a stated result",
+   "known": "No correction identified in the version comparisons and searches recorded here.",
+   "searched": [
+    "Source version and immediately surrounding argument at the stated locator (2026-10-14)",
+    "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Jan Nekovář, The Euler system method for CM points on Shimura curves, Archived author manuscript, 51pp.; read2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "For B=ℚ_p,V=ℚ_p,T=ℤ_p,N=1,X=W=⊕_ℕ𝔽_p, the coordinate pairing is separated on both sides. Both orders are already maximal and c=d=1, but j embeds the direct sum into Hom(W,𝔽_p)=∏_ℕ𝔽_p and is not surjective. Thus Coker(j) is not killed by1."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E905",
+   "kind": "misprint",
+   "locator": "Theorem2.3.8 proof, printed p.43 (book-format author copy hosted by W.Stein); compare draft II.3.8 p.29",
+   "printed": "The chosen map ψ from the rank-one localization image to Λ is required to have pseudo-null kernel, before its value ideal is equated with the characteristic ideal of the quotient by the Euler class.",
+   "correction": "Choose ψ with pseudo-null cokernel as in the draft; its kernel is also pseudo-null. The characteristic computation then follows from multiplicativity.",
+   "reason": "Kernel control alone does not identify the value ideal. For L=Λ, ψ multiplication by p, and c=1, the kernel is zero but ψ(c)Λ=(p), whereas char(L/Λc)=(1). A pseudo-isomorphism is the intended choice, and rank-one double duality supplies it; the theorem does not change.",
+   "affects": "the proof",
+   "known": "The 1999 draft says cokernel; the book-format copy replaces it by kernel. No further published correction was identified.",
+   "searched": [
+    "Compared the draft II.3.8 p.29 and book-format page image p.43 on2026-10-14",
+    "Public Rubin Euler Systems errata search for Theorem2.3.8 and pseudo-null ψ on2026-10-14"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Karl Rubin, Euler Systems, Published version, Annals of Mathematics Studies 147 (Princeton University Press, 2000), xi + 227 pp.; the author's file hosted by W. Stein; read 2026-10-14 from page images",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "The displayed ideal calculation needs the cokernel condition; multiplication by p is a direct counterexample to the weaker map requirement. The draft gives the required condition."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E908",
+   "kind": "error",
+   "locator": "Proposition2.6.7, published p.135",
+   "printed": "Abundance is used to claim a basis making all cross evaluations zero.",
+   "correction": "Replace the basis assertion by a scaled inverse and a diagonal family spanning a submodule containing λ^cS; it is a basis when the loss c is zero. Retain the one-sided primitive-vector consequence for rank two.",
+   "reason": "Over A=O/λ^n with n>1, rows (1,0) and (1,λ) have image containing λA². A first basis vector killed by the second row has first coordinate in λA, while a second killed by the first has first coordinate zero. Their determinant cannot be a unit. Abundance therefore does not give the claimed basis. Smith normal form gives AC=CA=λ^cI and the retained conclusion. This revalidates PAPER-LIU-ETAL-22/E2.",
+   "affects": "a stated result",
+   "known": "Previously recorded in PAPER-LIU-ETAL-22; independently revalidated here.",
+   "searched": [
+    "Read the maintainer-cleared published NSF copy at the recorded pages on2026-10-14",
+    "Compared the existing PAPER-LIU-ETAL-22 finding; its historical preprint comparisons are not claimed as reading by this reviewer",
+    "Public search for Proposition2.6.7/Lemma2.3.5 corrections on2026-10-14; no correction was identified in the results inspected"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Over A=O/λ^n with n>1, rows (1,0) and (1,λ) have image containing λA². A first basis vector killed by the second row has first coordinate in λA, while a second killed by the first has first coordinate zero. Their determinant cannot be a unit. Abundance therefore does not give the claimed basis. Smith normal form gives AC=CA=λ^cI and the retained conclusion. This revalidates PAPER-LIU-ETAL-22/E2."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E909",
+   "kind": "error",
+   "locator": "Lemma2.3.5(b), published pp.127–128",
+   "printed": "The coefficient-linear Hom vanishing is used to control a congruence quotient defined over the prime field.",
+   "correction": "Require Hom_{F_ℓ[G]}(End_k(V),V)=0, equivalently coefficient-linear vanishing for every Frobenius twist, or restrict k to F_ℓ.",
+   "reason": "Restriction of scalars splits into Frobenius twists. For ℓ=7, k=F₄₉, V=χ⁷⊕χ⁶ for k×, End_k(V) has weights 0,±1, so its k-linear Hom to V vanishes; its prime-field Hom does not, because Frobenius carries weight1 to weight7. More concretely, in GL₂(W₂(k)) take the group generated by diag([u]⁷,[u]⁶) and 1+7tE₁₂. Its congruence kernel is additive k of weight1. Inflation–restriction gives a nonzero H¹(G,V), and H⁰(G,V)=0 makes H¹(G,V) inject into H¹(G,W₂(k)²). Thus the printed finite-group vanishing argument fails under its hypotheses. This revalidates PAPER-LIU-ETAL-22/E21.",
+   "affects": "a stated result",
+   "known": "Previously recorded in PAPER-LIU-ETAL-22; independently revalidated here.",
+   "searched": [
+    "Read the maintainer-cleared published NSF copy at the recorded pages on2026-10-14",
+    "Compared the existing PAPER-LIU-ETAL-22 finding; its historical preprint comparisons are not claimed as reading by this reviewer",
+    "Public search for Proposition2.6.7/Lemma2.3.5 corrections on2026-10-14; no correction was identified in the results inspected"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Restriction of scalars splits into Frobenius twists. For ℓ=7, k=F₄₉, V=χ⁷⊕χ⁶ for k×, End_k(V) has weights 0,±1, so its k-linear Hom to V vanishes; its prime-field Hom does not, because Frobenius carries weight1 to weight7. More concretely, in GL₂(W₂(k)) take the group generated by diag([u]⁷,[u]⁶) and 1+7tE₁₂. Its congruence kernel is additive k of weight1. Inflation–restriction gives a nonzero H¹(G,V), and H⁰(G,V)=0 makes H¹(G,V) inject into H¹(G,W₂(k)²). Thus the printed finite-group vanishing argument fails under its hypotheses. This revalidates PAPER-LIU-ETAL-22/E21."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E910",
+   "kind": "error",
+   "locator": "Lemma2.6.4 and Proposition2.6.6, published pp.134–135; definitions pp.132–133",
+   "printed": "All fixed-line evaluations are asserted to be realised by associated Frobenius elements, and hence to give abundant tuples.",
+   "correction": "Use the inclusion only, and add the realised-span hypothesis. In the quadratic case use the fixed part of the Galois-closure kernel, its restriction, and the correct eigenspace sign or induced-depth bound.",
+   "reason": "Let F⁺=Q(√5), F=F⁺(i), ℓ=3, R=Z₃(1), j=2, m=1, and S the Kummer class of the fundamental unit u=(1+√5)/2. The coefficient field is F(ζ₃), and the S-extension adds a real cube root of u. Complex conjugation inverts the cyclic cubic kernel, so every lift in its coset squares to1. All associated evaluations are zero although the h_γ-fixed coefficient line and S are nonzero of rank one. The scalar criterion gives restriction injectivity and the lattice depth is zero. This directly revalidates PAPER-LIU-ETAL-22/E1 and its consequence E23; it makes no claim that an arithmetic main theorem is false.",
+   "affects": "a stated result",
+   "known": "Previously recorded in PAPER-LIU-ETAL-22; independently revalidated here.",
+   "searched": [
+    "Read the maintainer-cleared published NSF copy at the recorded pages on2026-10-14",
+    "Compared the existing PAPER-LIU-ETAL-22 finding; its historical preprint comparisons are not claimed as reading by this reviewer",
+    "Public search for Proposition2.6.7/Lemma2.3.5 corrections on2026-10-14; no correction was identified in the results inspected"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "Let F⁺=Q(√5), F=F⁺(i), ℓ=3, R=Z₃(1), j=2, m=1, and S the Kummer class of the fundamental unit u=(1+√5)/2. The coefficient field is F(ζ₃), and the S-extension adds a real cube root of u. Complex conjugation inverts the cyclic cubic kernel, so every lift in its coset squares to1. All associated evaluations are zero although the h_γ-fixed coefficient line and S are nonzero of rank one. The scalar criterion gives restriction injectivity and the lattice depth is zero. This directly revalidates PAPER-LIU-ETAL-22/E1 and its consequence E23; it makes no claim that an arithmetic main theorem is false."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E911",
+   "kind": "misprint",
+   "locator": "Lemma2.3.4, published p.127",
+   "printed": "The displayed free coefficient exponent reuses m, although the application uses a shorter quotient, and the proof appends a stray p to that quotient.",
+   "correction": "State S free over O_λ/λ^{m−m′}, 0≤m′<m, and remove the stray p.",
+   "reason": "The pairing takes values in the λ^{m−m′}-torsion of R. Apply the rank induction to that shorter coefficient quotient, retaining the reducibility-depth bound. This is the form needed by Proposition2.6.6 and revalidates PAPER-LIU-ETAL-22/E22. The error is notation, rather than a new obstruction to the saturation argument.",
+   "affects": "nothing",
+   "known": "Previously recorded in PAPER-LIU-ETAL-22; independently revalidated here.",
+   "searched": [
+    "Read the maintainer-cleared published NSF copy at the recorded pages on2026-10-14",
+    "Compared the existing PAPER-LIU-ETAL-22 finding; its historical preprint comparisons are not claimed as reading by this reviewer",
+    "Public search for Proposition2.6.7/Lemma2.3.5 corrections on2026-10-14; no correction was identified in the results inspected"
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
+   "reviewReason": "The pairing takes values in the λ^{m−m′}-torsion of R. Apply the rank induction to that shorter coefficient quotient, retaining the reducibility-depth bound. This is the form needed by Proposition2.6.6 and revalidates PAPER-LIU-ETAL-22/E22. The error is notation, rather than a new obstruction to the saturation argument."
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E1",
@@ -228054,9 +228428,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Tensor eigenvalues multiply and their valuations add; the two slope-one lines give slope two."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E2",
@@ -228075,9 +228449,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read Proposition 2.6.5 and the proof of 2.6.8: the former establishes the principality used in the latter."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E3",
@@ -228096,9 +228470,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For a constant nonzero solution, the Frobenius valuation equation forces n=0; the case being discussed has n<0."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E4",
@@ -228117,9 +228491,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "On e₂, logarithmic differentiation of u^q supplies the factor q required by horizontality; multiplication qu does not."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E5",
@@ -228138,9 +228512,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The statement and proof have only M in scope; N is an unbound identifier."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E6",
@@ -228159,9 +228533,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2 (version of 22 May 2005); Int. J. Number Theory 1 (2005) 109-154. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The trivial differential module has scalar spectral radius ω/ρ; taking the minimum with a zero matrix radius gives the wrong value."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E7",
@@ -228179,9 +228553,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2 (version of 22 May 2005); Int. J. Number Theory 1 (2005) 109-154. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The uniform radius threshold introduced in this corollary is ρ₀; a self-referential interval using ρ cannot state the intended range."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E8",
@@ -228199,9 +228573,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2 (version of 22 May 2005); Int. J. Number Theory 1 (2005) 109-154. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Expanded (1+ε)^p near a generic point and compared the linear and p-th-power terms. The corrected radii agree with Swan I Proposition 2.3.2."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E9",
@@ -228219,9 +228593,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Swan conductors for p-adic differential modules, I: A local construction, arXiv:math/0611835v3 (18 September 2007); Algebra Number Theory 1 (2007) 269-300. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "With zero derivation on both the field and a rank-two module, every second iterate is zero and no cyclic vector exists."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E10",
@@ -228239,9 +228613,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Liang Xiao, Differential modules on p-adic polyannuli, arXiv:0804.1495v4; J. Inst. Math. Jussieu 9 (2010) 155-201. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The rank-two zero-derivation counterexample applies verbatim to the claimed cyclic-vector lemma; retain the nonzero-derivation hypothesis."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E11",
@@ -228259,9 +228633,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Swan conductors for p-adic differential modules, I: A local construction, arXiv:math/0611835v3 (18 September 2007); Algebra Number Theory 1 (2007) 269-300. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The rank-one exponential example has intrinsic radius one on the outer subannulus and smaller radius inward. Linearity is only guaranteed near the boundary."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E12",
@@ -228279,9 +228653,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Swan conductors for p-adic differential modules, I: A local construction, arXiv:math/0611835v3 (18 September 2007); Algebra Number Theory 1 (2007) 269-300. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Taking y with arbitrarily large pole order makes the displayed valuation arbitrarily negative; the conductor uses an optimal representative."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E13",
@@ -228299,9 +228673,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Differentiating a horizontal pullback-to-module multiplier requires π(qx^(q−1)−1), confirming the reversed exponential sign."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E14",
@@ -228319,9 +228693,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, arXiv:math/0110124v4 (stamped 1 January 2003); Ann. of Math. 160 (2004) 93-184. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The motivating annuli compare η with η^(1/p); equal inner and outer radius one would leave no domain."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E15",
@@ -228339,9 +228713,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Notes on isocrystals, arXiv:1606.01321v6; J. Number Theory 237 (2022) 353-394. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the remark at p.9: its repeated filtration clause contributes no second mathematical assertion."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E16",
@@ -228358,9 +228732,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Notes on isocrystals, arXiv:1606.01321v6; J. Number Theory 237 (2022) 353-394. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Remark 4.9 contains the Hom-vanishing observation in question; Remark 4.10 cannot refer back to itself as the earlier observation."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E17",
@@ -228377,10 +228751,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
-   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003 (published in Geometric Aspects of Dwork Theory, Vol. II, de Gruyter 2004, 819-835; the published version was not opened; the erratum by C. Davis and P. Schneider listed on the author's papers page was read)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The ratio in the convergent logarithm must reduce to one, which uses u^q for σ=σ₀^f."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E18",
@@ -228397,10 +228771,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
-   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003 (published in Geometric Aspects of Dwork Theory, Vol. II, de Gruyter 2004, 819-835; the published version was not opened; the erratum by C. Davis and P. Schneider listed on the author's papers page was read)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Checked the semilinear coefficient action and the twist convention M(ℓ). The correction must keep σ, rather than substituting σ₀ when f>1."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E19",
@@ -228417,10 +228791,10 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
-   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003 (published in Geometric Aspects of Dwork Theory, Vol. II, de Gruyter 2004, 819-835; the published version was not opened; the erratum by C. Davis and P. Schneider listed on the author's papers page was read)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The base scheme is defined over the residue field k, not the characteristic-zero fraction field K."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E20",
@@ -228430,17 +228804,17 @@
    "correction": "Lemma 6.2: 'discrete' should be 'rank 1'. Theorem 6.7: the statement for O⟨t_1..t_n⟩† requires K to be discretely valued.",
    "reason": "Recorded by C. Davis and P. Schneider (erratum on the author's papers page); RD.3/rigid-quillen-suslin states the corrected hypothesis.",
    "affects": "a stated result",
-   "known": "Chris Davis and Peter Schneider’s author-listed erratum corrects Lemma 6.2 to rank-one valuations and restricts the integral form of Theorem 6.7 to discretely valued K.",
+   "known": "Inherited Davis–Schneider attribution not independently confirmed; see the rejected review and the separate public-preprint proof gap.",
    "searched": [
-    "Kedlaya's papers page: the Davis-Schneider erratum listed there (read)",
-    "arXiv math/0110125 (v4 read)"
+    "Inherited author-erratum claim, not independently accessible: author papers page and candidate errata URLs returned HTTP406 on 2026-10-14.",
+    "Public arXiv v4 pp.13–15 independently read."
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
-   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003 (published in Geometric Aspects of Dwork Theory, Vol. II, de Gruyter 2004, 819-835; the published version was not opened; the erratum by C. Davis and P. Schneider listed on the author's papers page was read)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "rejected",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The public preprint confirms that the integral argument invokes the discrete-valuation Lemma 6.3. The claimed necessary hypothesis and Davis–Schneider attribution could not be independently checked: the author erratum page returned HTTP406. Reject that unsupported attribution/necessity claim; record the directly visible proof gap separately."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E21",
@@ -228458,16 +228832,16 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Notes on isocrystals, arXiv:1606.01321v6; J. Number Theory 237 (2022) 353-394. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A¹_K is outside the coefficient category defined over k; the convergent/overconvergent boundary example belongs over A¹_k."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E22",
    "kind": "misprint",
    "locator": "(2.4), p. 19",
    "printed": "The source claims that properness of X over K makes rigid cohomology agree with naive cohomology.",
-   "correction": "Si X est propre sur k, ...",
+   "correction": "Require X to be proper over the residue field k.",
    "reason": "X is a k-scheme (separated of finite type over the residue field k); read from the page image.",
    "affects": "nothing",
    "known": "new",
@@ -228478,9 +228852,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Pierre Berthelot, Géométrie rigide et cohomologie des variétés algébriques de caractéristique p, Mém. Soc. Math. France (N.S.) 23 (1986) 7-32 (numdam scan; historical locators checked against page images)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read (2.4) in the corrected Numdam article: properness concerns the residue-field scheme X/k."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E23",
@@ -228499,9 +228873,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The author’s additional errata specifies a nonnegative semiunit index; this agrees with the presentation used in the proof."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E24",
@@ -228520,9 +228894,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the author correction and the valuation definition: r=0 removes the positive-radius control needed in this lemma."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E25",
@@ -228541,9 +228915,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Compared the corollary proof with the author correction: the second subscript is the radius r, not an integer n."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E26",
@@ -228562,9 +228936,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The author correction adds r∈I, or a finite right-hand side outside I; retained both permitted forms in the node."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E27",
@@ -228583,9 +228957,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the replacement division proof in the additional errata: the finite set of critical indices decreases until the valuation rises."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E28",
@@ -228604,16 +228978,16 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The coefficient valuation on O is discrete; the residue-field valuation used in analytic radii need not be."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E29",
    "kind": "gap",
    "locator": "Proof of Lemma 2.6.7, p. 22 (arXiv v4)",
    "printed": "The source further asserts that, if it drops below minn<0 {vn,r′ (ul x)}+ c, the least minimizing index n for minn {vn,r′ (ul+1x)} exceeds the least minimizing index n for minn {vn,r′ (ul x)}.",
-   "correction": "Complete the induction by proving that the first n attaining v_(n,r0)(u_(l+1)x) ≤ min_(n<0) v_(n,r0)(u_l x)+c is strictly larger than the first n attaining the same bound for u_l x.",
+   "correction": "Use r′ throughout. At iteration l, fix B_l = min_(n<0) v_(n,r′)(u_l x) + c. The first index n with v_(n,r′)(u_(l+1)x) ≤ B_l is larger than the first such index at iteration l. Below the fixed threshold only finitely many critical indices occur, so this strict increase forces the required rise in valuation.",
    "reason": "Recorded by the author.",
    "affects": "the proof",
    "known": "Kedlaya, 'Additional errata for Slope filtrations revisited' (12 Feb 13)",
@@ -228625,9 +228999,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the author correction on its second page. The moving threshold and first critical index use r′ throughout; replaced the inherited r₀ shortcut."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E30",
@@ -228646,9 +229020,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A¹ has H⁰=K and H⁰_c=0, so the claimed equality for arbitrary X fails. Properness is the needed condition."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E31",
@@ -228667,9 +229041,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The source named MSMF23 has no Proposition1.10. The surrounding comparison references point instead to Berthelot’s Finitude article."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E32",
@@ -228688,9 +229062,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Compared the complexes with Berthelot (2.3)–(2.4): forms precede the coefficient module in that degree convention."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E33",
@@ -228709,9 +229083,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A two-term complex represents the derived support object, rather than a single degree-q derived functor."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E34",
@@ -228730,9 +229104,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "On the special fibre of a positive-dimensional smooth scheme, t↦t^q is not an isomorphism; a lift cannot be an isomorphism either."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E35",
@@ -228751,9 +229125,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The displayed strongly unipotent basis has length n; no m is introduced."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E36",
@@ -228772,9 +229146,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The coefficient eliminated belongs to basis vector v_l and was integrated as e_il; the printed e_ij has the wrong index."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E37",
@@ -228793,9 +229167,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Both the statement and Definition5.2.3 use strongly unipotent bases; the stronger terminology matters in the coefficient calculation."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E38",
@@ -228814,9 +229188,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The finite set of boundary points is indexed by m under Hypothesis6.2.1."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E39",
@@ -228836,9 +229210,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Inverted the UV factorisation of Monodromy2003 Proposition6.5. The reversed order supplies the factorisation actually required here."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E40",
@@ -228857,9 +229231,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For A¹ over a quadratic constant extension, viewed over k, the source expression gives one instead of H¹=0. Geometric connectedness repairs the formula."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E41",
@@ -228879,9 +229253,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A¹ disjoint union Spec k cannot be finite étale of a single relative dimension over A¹. Apply the theorem by equidimensional components."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E42",
@@ -228900,9 +229274,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The singular locus of a product is a union of two products. The induction must use localisation on that union, not treat it as one product."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E43",
@@ -228921,9 +229295,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Compared rendered v5 §8.4 with v6 §8.4: the general strictness assertions were withdrawn, and the diagram argument lacks the required topological hypotheses."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E44",
@@ -228942,9 +229316,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Compared rendered v5 Proposition8.5.3 with v6: the argument uses strictness of the target differentials, restored by the added F-structure hypothesis."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E45",
@@ -228963,9 +229337,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Compared v5 §7.5 with v6: full cohomology is not preserved by localisation; the justified statement uses kernels and the revised reduction."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E46",
@@ -228984,9 +229358,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Compared the two §8.3 texts and their norms: quotient topology on an open image need not equal the inherited subspace topology."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E47",
@@ -229005,9 +229379,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The rendered v5 §9.3 invokes the withdrawn strictness step. The v6 Frobenius and localisation repair must replace that proof route."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E48",
@@ -229024,9 +229398,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The expansion is not a polydisc algebra unless a positive uniform convergence radius is imposed; checked against Definition3.2.1 and its uses."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E49",
@@ -229043,9 +229417,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the field-embedding argument: a nonreduced ring cannot embed in a field. Reducedness is also needed for the stated tensor-flatness route."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E50",
@@ -229062,9 +229436,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The coordinate-change restriction concerns x₀t⁻¹−1, which is the near-one ratio used by the analytic substitutions."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E51",
@@ -229081,9 +229455,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A norm on the quotient is a nonzero norm on a class modulo the finite-dimensional kernel, not a norm on an arbitrary representative in that kernel."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E52",
@@ -229100,9 +229474,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The relative Robba spaces carry a fringe inductive-limit topology; they need not be Fréchet or LF over a general base. The constant-field special case is separate."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E53",
@@ -229120,9 +229494,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The curve duality convention and top compact-support group identify the target as the Tate-twisted K-line."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E54",
@@ -229139,9 +229513,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Marius van der Put, The cohomology of Monsky and Washnitzer, Mém. Soc. Math. France (N.S.) 23 (1986) 33-59 (numdam scan; printed page = PDF page + 31).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The supersingular curve over F₇ has polynomial T²+7, whose roots have half-integral 7-adic valuation and lie outside the unramified coefficient field."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E55",
@@ -229158,9 +229532,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky-Washnitzer cohomology, arXiv:math/0105031v2; J. Ramanujan Math. Soc. 16 (2001) 323-338.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The formula introduced in §2 defines d, not the symbol m printed at that point; checked against the point-counting author errata."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E56",
@@ -229177,9 +229551,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky-Washnitzer cohomology, arXiv:math/0105031v2; J. Ramanujan Math. Soc. 16 (2001) 323-338.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "C′ removes all branch points and infinity. The explicit F₅ example has four removed rational points, so a fixed subtraction by two fails."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E57",
@@ -229198,9 +229572,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A Frobenius lift changes the fringe radius. The auxiliary base-change proposition concerns a connection on the fixed fringe module, not an endomorphism of that fringe."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E58",
@@ -229219,9 +229593,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "On x alone the printed normal-order formula already fails. Reordered ∂^i(−x)^j using ∂x=x∂+1; the corrected coefficients retain both indices."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E59",
@@ -229240,9 +229614,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The standard lift on two coordinates has μ_q² as deck group and degree q²; the higher-dimensional formula must use q^n."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E60",
@@ -229261,9 +229635,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "On the monomial x, ψ(x)=0 while ψ(F(x))=qx; the relation used is ψF=q^n, with its semilinear coefficient convention."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E61",
@@ -229283,9 +229657,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read van der Put §1: passage from infinite-dimensional analytic complexes to cohomology needs nuclear trace additivity and finite-dimensional cohomology."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E62",
@@ -229304,9 +229678,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The kernel/cokernel of the vertical connection and the claimed final conclusion concern E itself. The tensor square is not the argument being used."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E63",
@@ -229325,9 +229699,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For P¹, the degree-zero and degree-two reverse factors are 1−t and 1−qt. Duality needs t↦1/(qt), with degree and twist factors."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E64",
@@ -229346,9 +229720,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The alternating trace identity proves rationality of the zeta function, not integrality of each individual cohomological factor. Weight separation is an additional input."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E65",
@@ -229367,9 +229741,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky-Washnitzer cohomology, arXiv:math/0105031v2; J. Ramanujan Math. Soc. 16 (2001) 323-338.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Residues at the 2g+1 removed finite roots of Q give the plus-space dimension 2g+1; the omitted top numerator has an independent residue."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E66",
@@ -229388,9 +229762,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky-Washnitzer cohomology, arXiv:math/0105031v2; J. Ramanujan Math. Soc. 16 (2001) 323-338.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The functional equation gives a_(2g−i)=q^(g−i)a_i. Only the first g coefficients use the stated uniform recovery bound."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E67",
@@ -229409,9 +229783,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky-Washnitzer cohomology, arXiv:math/0105031v2; J. Ramanujan Math. Soc. 16 (2001) 323-338.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read both the hyperelliptic author errata and Harvey §3: the original positive-exponent denominator bound is replaced, not reused."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E218",
@@ -229429,9 +229803,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Laurent Fargues and Jean-Marc Fontaine; Préface by Pierre Colmez, Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author-served text dated 16 April 2017 of the book published as Astérisque 406 (2018); this copy’s printed pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the author-copy proposition. A rank-two extension with off-diagonal Teichmüller coefficient [c], |c|>1, splits after completion via Σπ^j[c^(q^j)] but not over the overconvergent ring. The claimed equivalence is too strong; retain the descending filtration."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E219",
@@ -229449,9 +229823,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Laurent Fargues and Jean-Marc Fontaine; Préface by Pierre Colmez, Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author-served text dated 16 April 2017 of the book published as Astérisque 406 (2018); this copy’s printed pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Read the following lemma and equation(7). The fixed-vector equation requires the inverse of the Frobenius matrix. The same rank-two extension with determinant π refutes the unrestricted integral-endomorphism assertion."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E68",
@@ -229469,9 +229843,9 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Daxin Xu and Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391, author preprint; printed preprint numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "At Xu–Zhu p.10, differentiated the connection d+πdt and the pullback multiplier; its logarithmic derivative has the opposite sign for the stated arrow."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E69",
@@ -229489,9 +229863,589 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Daxin Xu and Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391, author preprint; printed preprint numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "At Xu–Zhu p.10, the q-power Kummer multiplier has derivative (q−1)a dt/t, so the pullback coefficient must be qa, not pa."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E70",
+   "kind": "misprint",
+   "locator": "Corollary 2.5.7, proof, p.19, arXiv v4",
+   "printed": "The proof asks for a presentation over the larger analytic interval J before it has proved membership there.",
+   "correction": "Take the semiunit presentation over I, then use Lemma2.5.4 to extend its convergence to J.",
+   "reason": "At this point only x∈Γ_I is known; using Γ_J is circular.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "At this point only x∈Γ_I is known; using Γ_J is circular. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E71",
+   "kind": "error",
+   "locator": "Definition 2.8.1 and Lemma 2.8.2, pp.26–27, arXiv v4",
+   "printed": "The closed intervals need only cover I set-theoretically, with no compact-finiteness condition.",
+   "correction": "Require every compact subinterval to admit a finite covering by members, including suitable interval neighbourhoods for the gluing argument.",
+   "reason": "The family of all singleton intervals permits unrelated modules at each radius, with no transition compatibility between distinct radii; arbitrary such data cannot come from one finite-free Γ_I-module.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The family of all singleton intervals permits unrelated modules at each radius, with no transition compatibility between distinct radii; arbitrary such data cannot come from one finite-free Γ_I-module. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E72",
+   "kind": "error",
+   "locator": "Lemma 2.9.1, proof, p.28, arXiv v4",
+   "printed": "The slope-removal factor is said to be a unit on the entire larger interval [s′,r].",
+   "correction": "It is a unit on [s,r]; divisibility of f by the resulting g on [s′,r] follows by the separate slope argument.",
+   "reason": "A unit on [s′,r] cannot remove a zero or slope lying in [s′,s).",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A unit on [s′,r] cannot remove a zero or slope lying in [s′,s). This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E73",
+   "kind": "error",
+   "locator": "Remark 4.5.2, p.49, arXiv v4",
+   "printed": "A fixed-vector basis of H⁰([n]*M) is asserted to give a basis of every Dieudonné–Manin module.",
+   "correction": "Use eigenvectors with their individual eigenvalues; fixed vectors supply a basis only in slope zero.",
+   "reason": "A positive-slope rank-one standard module has no nonzero Frobenius-fixed vectors, although it has a standard eigenbasis.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A positive-slope rank-one standard module has no nonzero Frobenius-fixed vectors, although it has a standard eigenbasis. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E74",
+   "kind": "error",
+   "locator": "Lemma 4.5.5, statement and proof, pp.49–50, arXiv v4",
+   "printed": "Every eigenbasis after analytic scalar extension is asserted to lie in the constant module.",
+   "correction": "The constant-term extraction in the proof constructs some descending eigenbasis; arbitrary eigenbases need not descend.",
+   "reason": "For M=O[π⁻¹](−1)⊕O[π⁻¹](0), choose a nonconstant analytic x with σ(x)=πx (as in Remark3.3.6). Then e₁,e₂+xe₁ is an eigenbasis over R but its second vector is not constant. The proof’s constant-term projection produces a different basis.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For M=O[π⁻¹](−1)⊕O[π⁻¹](0), choose a nonconstant analytic x with σ(x)=πx (as in Remark3.3.6). Then e₁,e₂+xe₁ is an eigenbasis over R but its second vector is not constant. The proof’s constant-term projection produces a different basis. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E75",
+   "kind": "misprint",
+   "locator": "Proposition 5.1.2, p.54, arXiv v4",
+   "printed": "The unit-root conclusion names the rational module M as the source and target of the lattice isomorphism.",
+   "correction": "The isomorphism is σ*N→N for the chosen integral lattice N.",
+   "reason": "F:σ*M→M is already invertible by the definition of a σ-module; the added unit-root conclusion concerns its integral lattice.",
+   "affects": "nothing",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "F:σ*M→M is already invertible by the definition of a σ-module; the added unit-root conclusion concerns its integral lattice. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E76",
+   "kind": "misprint",
+   "locator": "Proposition 5.5.4, p.60, arXiv v4",
+   "printed": "The second smallness condition has a valuation but no comparison or bound.",
+   "correction": "Require w_r(AD⁻¹−I)>0 as well as w(AD⁻¹−I)>0.",
+   "reason": "The expression is not a proposition without a comparison; the subsequent matrix-lifting argument uses positivity at both valuations.",
+   "affects": "nothing",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Slope filtrations revisited, arXiv:math/0504204v4 (25 October 2005); Doc. Math. 10 (2005) 447-525. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The expression is not a proposition without a comparison; the subsequent matrix-lifting argument uses positivity at both valuations. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E77",
+   "kind": "misprint",
+   "locator": "Lemma 4.2.7, p.19, arXiv v2",
+   "printed": "For a homomorphism G→H, the displayed restriction is applied to a G-representation as though it were an H-representation.",
+   "correction": "Use Hom_G(Res_G^H V,W)≅Hom_H(V,Ind_G^H W), for coinduction identified with induction for finite groups.",
+   "reason": "Restriction maps H-representations to G-representations; the printed expression has its domain categories reversed.",
+   "affects": "nothing",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2 (version of 22 May 2005); Int. J. Number Theory 1 (2005) 109-154. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Restriction maps H-representations to G-representations; the printed expression has its domain categories reversed. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E78",
+   "kind": "error",
+   "locator": "Remark 4.4.2, p.21, arXiv v2",
+   "printed": "The snake-lemma diagram treats H⁰ and H¹ of an extension as short exact sequences.",
+   "correction": "Use the full long exact cohomology sequences, the dual connecting arrows and their residue-pairing compatibility.",
+   "reason": "An extension of trivial lines with nonzero logarithmic connection has a nonzero connecting map H⁰(quotient)→H¹(submodule), so the claimed terminal surjectivity fails.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2 (version of 22 May 2005); Int. J. Number Theory 1 (2005) 109-154. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "An extension of trivial lines with nonzero logarithmic connection has a nonzero connecting map H⁰(quotient)→H¹(submodule), so the claimed terminal surjectivity fails. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E79",
+   "kind": "error",
+   "locator": "Proposition 5.2.3, proof, pp.29–30, arXiv v2",
+   "printed": "A Taylor series with positive iterated connection derivatives, without evaluation at the centre, is described as a horizontal section.",
+   "correction": "Use parallel transport from the fibre at the centre, or the evaluated horizontal projection with the matching sign and pullback convention.",
+   "reason": "For a rank-one connection D(e)=ae with a≠0, the unevaluated positive series is exp(a(t−z))e and its covariant derivative is 2a times itself.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Local monodromy of p-adic differential equations: an overview, arXiv:math/0501361v2 (version of 22 May 2005); Int. J. Number Theory 1 (2005) 109-154. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For a rank-one connection D(e)=ae with a≠0, the unevaluated positive series is exp(a(t−z))e and its covariant derivative is 2a times itself. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E80",
+   "kind": "error",
+   "locator": "Lemma 2.3, p.14, arXiv v4",
+   "printed": "A unimodular row is said to be completable by a determinant-one matrix even in dimension one.",
+   "correction": "Require n≥2 for the SL_n assertion; in dimension one use GL₁ or require the entry to be one.",
+   "reason": "Over Q₂ the one-entry row (2) is unimodular, but SL₁ consists only of the identity and cannot have first row (2).",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, arXiv:math/0110124v4 (stamped 1 January 2003); Ann. of Math. 160 (2004) 93-184. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Over Q₂ the one-entry row (2) is unimodular, but SL₁ consists only of the identity and cannot have first row (2). This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E81",
+   "kind": "error",
+   "locator": "Lemma 2.6, p.15, arXiv v4",
+   "printed": "The G-stable ideal in the fixed-ring principality assertion is not assumed nonzero.",
+   "correction": "Add I≠0.",
+   "reason": "The zero ideal is stable under every action, but contains no nonzero fixed generator of the asserted type.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, A p-adic local monodromy theorem, arXiv:math/0110124v4 (stamped 1 January 2003); Ann. of Math. 160 (2004) 93-184. Printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The zero ideal is stable under every action, but contains no nonzero fixed generator of the asserted type. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E82",
+   "kind": "misprint",
+   "locator": "Proposition 3.3, proof, block matrix equation, p.7, arXiv v4",
+   "printed": "The off-diagonal block equation after multiplying by D⁻¹ retains the original B as its right-hand side.",
+   "correction": "For change of basis [[I,X],[0,I]], solve B+AX^σ−XD=0, hence −X+AX^σD⁻¹=−BD⁻¹.",
+   "reason": "With A=2,D=3,B=5 and σ=id, the equation has X=5; the printed right-hand side does not.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "With A=2,D=3,B=5 and σ=id, the equation has X=5; the printed right-hand side does not. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E83",
+   "kind": "misprint",
+   "locator": "Proposition 3.3, proof, change of basis z_i=y_i−ΣU_ijv_j, p.8, arXiv v4",
+   "printed": "The equation for eliminating the extension reverses the two scalar coefficients.",
+   "correction": "With F(y)=μy+Vv and F(v)=λv, require μU−λσ(U)=−V.",
+   "reason": "Substituting y−Uv into F gives the stated coefficient equation directly; the printed relation does not cancel the off-diagonal term.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Substituting y−Uv into F gives the stated coefficient equation directly; the printed relation does not cancel the off-diagonal term. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E84",
+   "kind": "gap",
+   "locator": "Lemmas 6.2–6.3 and Propositions 6.4–6.6, pp.13–15, arXiv v4",
+   "printed": "The proof uses a discrete-valuation coordinate-change lemma to establish statements for arbitrary complete nontrivially valued fields.",
+   "correction": "Supply the rank-one valued-field version of that lemma and the projective-module/free-resolution algebra before using the broader target. The integral target here is restricted to a DVR.",
+   "reason": "Lemma6.2 explicitly assumes a discrete valuation while Proposition6.4 removes it. The inherited author-erratum attribution was not independently accessible; this finding is restricted to the public proof.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Full faithfulness for overconvergent F-isocrystals, arXiv:math/0110125v4, 1 June 2003; public preprint numbering. The published de Gruyter version and the Davis–Schneider erratum were not independently accessible in this review; findings concern the public preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Lemma6.2 explicitly assumes a discrete valuation while Proposition6.4 removes it. The inherited author-erratum attribution was not independently accessible; this finding is restricted to the public proof. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E85",
+   "kind": "error",
+   "locator": "Definition 2.1.9, p.10, arXiv v6",
+   "printed": "Adjoining a bounded inverse is described as merely inverting f in a minimal affinoid algebra containing A.",
+   "correction": "A⟨f⁻¹⟩ represents maps for which the chosen inverse of f has norm at most one; allow the zero algebra and a noninjective map from A.",
+   "reason": "For f=π with |π|<1, A already contains π⁻¹ algebraically, but A⟨π⁻¹⟩=0 because 1−πT is invertible in the Tate algebra.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For f=π with |π|<1, A already contains π⁻¹ algebraically, but A⟨π⁻¹⟩=0 because 1−πT is invertible in the Tate algebra. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E86",
+   "kind": "error",
+   "locator": "Definition 2.2.2, p.11, arXiv v6",
+   "printed": "Affinoid completion is described as ideal-adic completion in the K-algebra at its topologically nilpotent elements.",
+   "correction": "Complete in the affinoid norm, or use a ring of definition and its uniformiser-adic topology before inverting the uniformiser.",
+   "reason": "The K-algebra contains the topologically nilpotent unit π. The ideal it generates is the whole algebra, whose ideal-adic completion is zero.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The K-algebra contains the topologically nilpotent unit π. The ideal it generates is the whole algebra, whose ideal-adic completion is zero. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E87",
+   "kind": "error",
+   "locator": "Remark 2.3.6, p.13, arXiv v6",
+   "printed": "The coordinate x₁ is asserted to be topologically nilpotent in each fringe algebra T_(n,ρ).",
+   "correction": "Its norm there is ρ>1; scalar constants at the unit boundary distinguish the affinoid and fringe topologies by a different example, not this assertion.",
+   "reason": "Gauss norms give ‖x₁^m‖_ρ=ρ^m, which grows rather than tends to zero. The earlier corollary in the same section also contradicts the printed example.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Gauss norms give ‖x₁^m‖_ρ=ρ^m, which grows rather than tends to zero. The earlier corollary in the same section also contradicts the printed example. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E88",
+   "kind": "error",
+   "locator": "Remark 3.2.4, p.21, arXiv v6",
+   "printed": "Absolute Frobenius of every smooth k-scheme is said to be finite flat without a restriction on k.",
+   "correction": "Use the finite-flat relative Frobenius after coefficient extension; absolute Frobenius is finite only with the relevant F-finiteness hypothesis.",
+   "reason": "For a residue field with an infinite p-basis, k/k^p is infinite and absolute Frobenius is not finite even on Spec k.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For a residue field with an infinite p-basis, k/k^p is infinite and absolute Frobenius is not finite even on Spec k. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E89",
+   "kind": "error",
+   "locator": "Lemma 5.2.7, p.32, arXiv v6",
+   "printed": "The denominator-clearing exponent is required to be positive even when its upper bound is zero; the proof divides by factors m+i which may vanish.",
+   "correction": "Permit a≥0. Use the Vandermonde expansion of binom(m+l+x,l) and bounds on coefficients of binom(x,j), including negative m.",
+   "reason": "For e=1 the upper bound is zero, so no positive a can satisfy it. For m=−1,l=1 the product is x and the printed division by m+1 is undefined.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For e=1 the upper bound is zero, so no positive a can satisfy it. For m=−1,l=1 the product is x and the printed division by m+1 is undefined. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E90",
+   "kind": "error",
+   "locator": "Lemma 6.2.6, p.38, arXiv v6",
+   "printed": "Polynomial lift degree is bounded by c times the pole degree with no additive constant.",
+   "correction": "Use c(d(r)+1), accounting for a finite basis of the constant-field extension.",
+   "reason": "A nontrivial constant-field element has pole degree zero but may require positive degree in the given k-algebra generators.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "A nontrivial constant-field element has pole degree zero but may require positive degree in the given k-algebra generators. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E91",
+   "kind": "error",
+   "locator": "Lemma 6.2.8, p.38, arXiv v6",
+   "printed": "The numerator a of the principal-parts source may be zero.",
+   "correction": "Require both a and b nonzero.",
+   "reason": "For A=K⟨t⟩† and a=0, the source is zero while the principal-parts target at infinity is infinite-dimensional, so the map is not a near-isomorphism.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For A=K⟨t⟩† and a=0, the source is zero while the principal-parts target at infinity is infinite-dimensional, so the map is not a near-isomorphism. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E92",
+   "kind": "gap",
+   "locator": "Proposition 7.2.1, p.45, arXiv v6",
+   "printed": "For a unipotent relative module the base-change proof omits flatness, relying on a filtration and the snake lemma.",
+   "correction": "Keep flat base change. To remove flatness prove the additional Frobenius constraints make the constant-matrix kernel and cokernel commute with arbitrary base change.",
+   "reason": "Cohomology is ker N and coker N of the constant nilpotent matrix. Nonflat tensor products need not preserve its kernel; the displayed filtration alone does not settle this. This is a proof gap, not a counterexample to the F-module theorem.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Cohomology is ker N and coker N of the constant nilpotent matrix. Nonflat tensor products need not preserve its kernel; the displayed filtration alone does not settle this. This is a proof gap, not a counterexample to the F-module theorem. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E93",
+   "kind": "misprint",
+   "locator": "§8.5, chain pairing after Lemma 8.5.2, p.59, arXiv v6",
+   "printed": "Integration by parts is written with the same minus sign in every cochain degree.",
+   "correction": "For v of degree i use [v,∇w]=(−1)^(i+1)[∇v,w] under the residue convention.",
+   "reason": "In two variables take v=t₁dt₂ and w=1/(t₁t₂). Both residues are one; degree-one integration by parts requires a plus sign.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Finiteness of rigid cohomology with coefficients, arXiv:math/0208027v6; Duke Math. J. 134 (2006) 15-97.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "In two variables take v=t₁dt₂ and w=1/(t₁t₂). Both residues are one; degree-one integration by parts requires a plus sign. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E94",
+   "kind": "error",
+   "locator": "§1.5, elliptic slopes and weights discussion, p.7, arXiv v3",
+   "printed": "Balanced slopes at a single p-adic place are treated as enough to make a quotient of equal-weight eigenvalues a root of unity.",
+   "correction": "For the Kronecker argument establish that quotient is an algebraic unit at every finite place and all its complex conjugates have absolute value one.",
+   "reason": "The Weil25 polynomial T⁴−4T³+35T²−100T+625 has p=5 slopes 0,1,1,2. The middle pair is balanced at that place without providing a global-unit criterion.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The Weil25 polynomial T⁴−4T³+35T²−100T+625 has p=5 slopes 0,1,1,2. The middle pair is balanced at that place without providing a global-unit criterion. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E95",
+   "kind": "error",
+   "locator": "§6.1, realisation by E⊕E∨(−w), p.40, arXiv v3",
+   "printed": "A Tate twist by −w is used when the allowed weight w is an arbitrary real number.",
+   "correction": "Use this formula for integer w. For real w, enlarge coefficients and tensor the dual with a constant line having complex Frobenius q^w, after verifying the scalar-normalisation existence.",
+   "reason": "Tate twists in the coefficient category are indexed by integers. They cannot be applied directly to a nonintegral real weight. Purity of E is also necessary for the realisation argument.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Tate twists in the coefficient category are indexed by integers. They cannot be applied directly to a nonintegral real weight. Purity of E is also necessary for the realisation argument. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E96",
+   "kind": "error",
+   "locator": "Proposition 6.3.1(i), p.45, arXiv v3",
+   "printed": "The reverse preservation of determinantal weights is asserted for an arbitrary finite morphism.",
+   "correction": "Require finite dominant (hence surjective) pullback for the equivalence.",
+   "reason": "The finite map from the empty scheme detects no weights at all; a non-dominant finite fibre likewise cannot determine a varying object on the whole base.",
+   "affects": "a stated result",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "The finite map from the empty scheme detects no weights at all; a non-dominant finite fibre likewise cannot determine a varying object on the whole base. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E97",
+   "kind": "error",
+   "locator": "Proposition 6.4.4, proof, pp.47–48, arXiv v3",
+   "printed": "The tensor of the horizontal kernel with the full unipotent module is placed inside the horizontal sections of the tensor product.",
+   "correction": "Use a justified tensor-invariant or weight-monodromy argument; this false inclusion is not a proof of the theorem.",
+   "reason": "Let Ne₂=e₁ and Ne₁=0 in a size-two Jordan block. Then e₁ is horizontal but N(e₁⊗e₂)=e₁⊗e₁≠0.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "Let Ne₂=e₁ and Ne₁=0 in a size-two Jordan block. Then e₁ is horizontal but N(e₁⊗e₂)=e₁⊗e₁≠0. This finding is scoped to the version named in the locator."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E98",
+   "kind": "error",
+   "locator": "Lemma 6.7.2, proof, p.53, arXiv v3",
+   "printed": "The proof claims compact-support H¹ vanishes for a trivial coefficient on the affine curve.",
+   "correction": "The constant coefficient has nonzero H¹_c in general. A proper-curve crystalline lattice plus localisation can supply the nonnegative-slope input, but must be planned and proved.",
+   "reason": "For G_m, H¹_c(K)=K is nonzero and has slope zero. The lemma’s conclusion survives this example; its stated vanishing proof does not.",
+   "affects": "the proof",
+   "known": "Newly recorded in this review; not asserted to be absent from published errata or later versions.",
+   "searched": [
+    "The public version and locators named here, independently read 2026-10-14.",
+    "Slope-filtration additional author errata read where relevant; the published slope erratum and overview/finiteness/full-faithfulness author errata were not accessible. No exhaustive novelty search is claimed."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology",
+   "reviewReason": "For G_m, H¹_c(K)=K is nonzero and has slope zero. The lemma’s conclusion survives this example; its stated vanishing proof does not. This finding is scoped to the version named in the locator."
   },
   {
    "id": "PadicFamilies/E1",
