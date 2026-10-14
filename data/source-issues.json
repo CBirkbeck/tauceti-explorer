@@ -187299,6 +187299,72 @@
    "reviewReason": "Checked arXiv v2 p. 7. The alternating boundary resolution carries the determinant of the set of branches. An automorphism exchanging two edges of the double-edge graph of type (1,2) acts by −1 on this line: its degree-zero twisted invariants vanish whereas the printed untwisted term is one-dimensional. This confirms the correction independently of the earlier point-count computation. No claim is made about the unread published Annals version."
   },
   {
+   "id": "DeligneWeightsAndPurityPartII/E1",
+   "kind": "misprint",
+   "locator": "§9, Proposition 9.1, p. 307 (published version)",
+   "printed": "The exponential formula for ρ(σ), σ in the open subgroup I₁, is written with the tame character evaluated at a letter g that is not bound in the statement.",
+   "correction": "ρ(σ) = exp(N·t_ℓ(σ)) for all σ ∈ I₁.",
+   "reason": "The quantifier ranges over σ ∈ I₁ and g appears nowhere else.",
+   "affects": "nothing",
+   "known": "Already recorded as PAPER-SCHOLZE-12/E1 (confirmed by REV-PAPER-SCHOLZE-12); not corrected in print.",
+   "searched": [
+    "Publications mathématiques de l'IHÉS article page on Centre Mersenne (no erratum or corrigendum listed, 2026-10-14)",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "research/blueprint/papers/PAPER-SCHOLZE-12.result.json and research/errata/REGISTER.md on main"
+   ],
+   "owner": "DeligneWeightsAndPurityPartII",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurityPartII.json",
+   "citation": "Peter Scholze, Perfectoid spaces, Published version, Publ. Math. IHÉS 116 (2012), 245–313 (open access; text of record)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DeligneWeightsAndPurityPartII/E2",
+   "kind": "misprint",
+   "locator": "§9, Lemma 9.5, p. 309 (published version)",
+   "printed": "The lemma states a criterion for gr_j^N V to be pure of weight i + j without introducing the integer i.",
+   "correction": "Begin: let V be an ℓ-adic representation of G_k on which I_k acts unipotently, and let i ∈ ℤ.",
+   "reason": "i is used in the conclusion and in the bounds ij and −ij but is not quantified; in the application V = H^i(X_{k̄}, ℚ̄_ℓ).",
+   "affects": "nothing",
+   "known": "Already recorded as PAPER-SCHOLZE-12/E8 (confirmed by REV-PAPER-SCHOLZE-12); not corrected in print.",
+   "searched": [
+    "Publications mathématiques de l'IHÉS article page on Centre Mersenne (no erratum or corrigendum listed, 2026-10-14)",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "research/blueprint/papers/PAPER-SCHOLZE-12.result.json and research/errata/REGISTER.md on main"
+   ],
+   "owner": "DeligneWeightsAndPurityPartII",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurityPartII.json",
+   "citation": "Peter Scholze, Perfectoid spaces, Published version, Publ. Math. IHÉS 116 (2012), 245–313 (open access; text of record)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DeligneWeightsAndPurityPartII/E3",
+   "kind": "gap",
+   "locator": "§9, proof of Theorem 9.6, third paragraph, p. 309, and proof of Lemma 9.9, p. 311 (published version)",
+   "printed": "Z is taken defined over a global field and geometrically irreducible, Z′ is a projective smooth alteration of Z, and the proof of Lemma 9.9 concludes that a map out of the one-dimensional H^{2 dim Y}(Y) that is not an isomorphism must vanish.",
+   "correction": "Require Z′ to be geometrically connected (indeed geometrically irreducible) over its field of definition: replace Z′ by a geometric component over a finite extension of the global field, or use the form of de Jong's theorem giving geometric irreducibility over a finite extension. Then H^{2 dim Y}(Z′_{ℂ_p♭}, ℚ̄_ℓ) is one-dimensional and the argument applies.",
+   "reason": "An alteration of a geometrically irreducible variety is integral but need not be geometrically connected: its function field may contain a nontrivial finite extension of the base field (for instance Z ×_F F′ → Z for a finite separable F′/F, viewed over F). Then H^{2 dim Y}(Z′) has dimension the number of geometric components, and a nonzero map from a one-dimensional space need not be surjective; the inference 'not an isomorphism, hence zero' requires the target to be one-dimensional too.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publications mathématiques de l'IHÉS article page on Centre Mersenne (no erratum or corrigendum listed, 2026-10-14)",
+    "the author's papers page",
+    "arXiv:1111.4914 versions (only v1)",
+    "research/blueprint/papers/PAPER-SCHOLZE-12.result.json and research/errata/REGISTER.md on main"
+   ],
+   "owner": "DeligneWeightsAndPurityPartII",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurityPartII.json",
+   "citation": "Peter Scholze, Perfectoid spaces, Published version, Publ. Math. IHÉS 116 (2012), 245–313 (open access; text of record)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DerivedDeRhamCohomology/E1",
    "kind": "misprint",
    "locator": "Proposition 2.3, printed/PDF p.5 in arXiv:1204.6560v1; checked on the rendered page",
@@ -201283,6 +201349,70 @@
    "reviewReason": "The cited prepublication remarks and the residue-root paragraph omit the prime-to-p qualification: in characteristic p no root has order divisible by p. The cyclic p-group is a direct counterexample to requiring primitive roots of the full exponent. This confirms the remarks error only, not a false Theorem 9.2.7; its characteristic-p hypothesis may be vacuous. The finite splitting-field proof here uses 9.2.6 instead of assuming a corrected theorem. The published edition was not collated."
   },
   {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E12",
+   "kind": "misprint",
+   "locator": "Published Documenta PDF, Proposition 4, p.127 (PDF page 5), oldform list immediately before the companion matrix; compared with thesis Proposition 1.3.1, pp.5–6.",
+   "printed": "Paraphrase: the list begins with f(q) and then f(q^{ℓ²}), omitting the term indexed by i=1, while the displayed defining map uses every index from 0 to r.",
+   "correction": "Use the consecutive list f(q), f(q^ℓ), …, f(q^{ℓ^r}), with r+1 entries.",
+   "reason": "For r=1 the defining map has two input copies, but the printed list would lack its second vector. The first two columns of the displayed U_ℓ matrix act on f(q) and f(q^ℓ); the q-expansion coefficient recurrence directly verifies this. The mathematical map and matrix are unchanged.",
+   "affects": "nothing",
+   "known": "Not corrected in the versions checked. It remains in thesis Proposition 1.3.1; the author’s 31 August 2005 thesis errata do not list this index.",
+   "searched": [
+    "Published EMIS PDF, Proposition 4 p.127, inspected as a page image.",
+    "Author’s thesis, Proposition 1.3.1 pp.5–6.",
+    "Author publication list https://math.uni.lu/~wiese/pub/index.html, checked 2026-10-14.",
+    "Author thesis errata https://math.uni.lu/wiese/thesis/Errata.pdf, one page, dated 31 August 2005, checked 2026-10-14."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.6.json",
+   "citation": "Gabor Wiese, Dihedral Galois representations and Katz modular forms, Documenta Mathematica 9 (2004), pp.123–133; published EMIS PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E13",
+   "kind": "misprint",
+   "locator": "Author PDF, §4.2.2 and §4.2.3, p.9; compare Theorem 1.2.4 p.2 and §1.4.2 p.4.",
+   "printed": "Paraphrase: the proof points to parts (i) and (ii) of 1.4.2 when establishing the newform Frobenius and crystalline assertions.",
+   "correction": "The references are to Theorem 1.2.4(i) and 1.2.4(ii).",
+   "reason": "Theorem 1.2.4 has exactly those two newform assertions. Section 1.4.2 instead concerns an analogous absolute-Hodge cohomology sequence, so it cannot be the intended theorem. No mathematical claim changes.",
+   "affects": "nothing",
+   "known": "The author correction note acknowledges confusing misprints in general but does not enumerate this reference. The finding is restricted to the author version read.",
+   "searched": [
+    "Author PDF https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf.pdf, sections cited below.",
+    "Author publication page and correction note https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf_corr.html, checked 2026-10-14.",
+    "The final Inventiones version was not collated; the author explicitly warns that downloadable versions need not match it."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.6.json",
+   "citation": "A. J. Scholl, Motives for modular forms, Inventiones Mathematicae 100 (1990), pp.419–430; author preprint, internally numbered pp.1–10",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E14",
+   "kind": "misprint",
+   "locator": "Author PDF, Theorem 1.2.4, p.2, coefficient-field sentence; compare §1.2.3 and §4.2.0.",
+   "printed": "Paraphrase: the theorem introduces the coefficient field L from the Fourier coefficients, then gives the motive coefficients in an undefined field E.",
+   "correction": "Use the introduced field L as the coefficient field.",
+   "reason": "The λ-adic realization in the theorem uses primes of L; §4.2.0 constructs the Hecke component after tensoring with L. There is no separate E introduced for that statement.",
+   "affects": "nothing",
+   "known": "The author correction note acknowledges misprints without enumerating this letter. This is a finding about the author PDF, not a claim about the final journal version.",
+   "searched": [
+    "Author PDF https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf.pdf, sections cited below.",
+    "Author publication page and correction note https://www.dpmms.cam.ac.uk/~ajs1005/preprints/mf_corr.html, checked 2026-10-14.",
+    "The final Inventiones version was not collated; the author explicitly warns that downloadable versions need not match it."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.6.json",
+   "citation": "A. J. Scholl, Motives for modular forms, Inventiones Mathematicae 100 (1990), pp.419–430; author preprint, internally numbered pp.1–10",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GL2ModularityLifting/E1",
    "kind": "misprint",
    "locator": "Theorem (0.9)(2), p. 4, and Theorem (3.3.5)(2), p. 45, in the author's preprint (DVI of 21 October 2008); the published version (Invent. Math. 178 (2009)) was not accessible",
@@ -211440,6 +211570,44 @@
    "reviewReason": "Confirmed as a mismatch in the served proof assumptions only. The p>3 route is supported; the p=3 conclusion is not declared false."
   },
   {
+   "id": "HeegnerPointEulerSystems/E1",
+   "kind": "misprint",
+   "locator": "Introduction(disc), arXiv v2 p.1; same text in linked author copy dated 2 January 2026 p.1; journal wording unverified",
+   "printed": "The introductory discriminant exclusion uses the negative exception after introducing a positive absolute discriminant.",
+   "correction": "Here discriminant is −D_K<0, so the positive D_K should be excluded from 3. Equivalently use signed discriminant D_K<0 and exclude −3 consistently.",
+   "reason": "The preceding line declares −D_K<0; D_K=3 otherwise passes the printed exclusion although the six-unit field Q(√−3) is the excluded exceptional case. Later sections switch to signed discriminant notation.",
+   "affects": "nothing",
+   "known": "recorded in accepted HE.7s packet",
+   "searched": [
+    "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+   ],
+   "owner": "HeegnerPointEulerSystems",
+   "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8c.json",
+   "citation": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner, Non-vanishing of Kolyvagin systems and Iwasawa theory, arXiv:2312.09301v2, dated 21 January 2026; all locators refer to this version, not a publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeegnerPointEulerSystems/E3",
+   "kind": "gap",
+   "locator": "Theorem 2.2.2, Proposition 2.2.1, Lemma 2.2.4 and proof, arXiv2312.09301v2 pp.17–19; same mismatch in linked author copy; publisher text unverified",
+   "printed": "The exact-length theorem inherits an odd-prime range wider than the stub lemma invoked in its proof.",
+   "correction": "Supply the uniform stub lemma at p=3, or restrict this proof route to p>3. No counterexample to Theorem 2.2.2 at p=3 is claimed.",
+   "reason": "Theorem 2.2.2 imports the setting of Proposition 2.2.1. Its proof invokes Lemma 2.2.4 twice to identify the uniform stub index, without disposing of p=3. The cited lemma has an explicit stronger prime assumption.",
+   "affects": "the proof",
+   "known": "recorded in accepted HE.7s packet",
+   "searched": [
+    "Re-read the served arXiv v2 and linked author copy on 2026-10-14; hashes agree with the accepted HE.7s receipts. Publisher collation is not certified in this packet."
+   ],
+   "owner": "HeegnerPointEulerSystems",
+   "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8c.json",
+   "citation": "Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner, Non-vanishing of Kolyvagin systems and Iwasawa theory, arXiv:2312.09301v2, dated 21 January 2026; all locators refer to this version, not a publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HeightsRationalPointsAndObstructions/E1",
    "kind": "misprint",
    "locator": "§3, proof of Lemma 3.1, p.2 in the undated 13-page author copy read 2026-09-27",
@@ -216626,7 +216794,7 @@
    "correction": "The assertion used here requires the intermediate group X to be perfect. The exercise’s subsequent universal-source application meets that hypothesis. Retain the existing parent central-extension-comp statement with this condition.",
    "reason": "Let Y be the upper-unitriangular 3-by-3 group over F3, rho:Y→X=F3² forget the central coordinate, and pi:X→G=F3 project onto the first coordinate. Both maps are surjective with central kernels. But b=(0,1,0) is in the composite kernel and does not commute with a=(1,0,0): their commutator is (0,0,1). Thus the composite kernel is not central.",
    "affects": "a stated result",
-   "known": "No published correction was verified; no novelty is claimed. The parent blueprint already supplies the needed perfect-intermediate hypothesis, and this supplement records the source error explicitly.",
+   "known": "No published correction was verified; no novelty is claimed. The parent blueprint already supplies the needed perfect-intermediate hypothesis, and this supplement records the source error explicitly. The parent central-extension-comp source record also points to the earlier K3BlochGroups/E2 finding of this same missing hypothesis.",
    "searched": [
     "Author K-book landing page and its linked errata PDF, accessed 2026-10-14; the errata link returned HTTP 404.",
     "The parent central-extension-comp node and the adjacent Recognition application: the corrected perfectness hypothesis is explicit in the former and follows from universality in the latter."
