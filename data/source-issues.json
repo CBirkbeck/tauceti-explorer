@@ -211622,14 +211622,15 @@
    "known": "new",
    "searched": [
     "Compared arXiv v2 with the publisher-form BCS-print.pdf on Castella’s page; the slip remains.",
-    "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search."
+    "Searched the paper title with erratum; inspected Castella’s publications page and the IMRN 2025 issue/article listings on 2026-10-14; found no linked correction. No claim of an exhaustive publisher errata search.",
+    "The same naming slip was already recorded by the confirmed RT-AREA-iwasawa-1/29 follow-up; this local finding is not a claim of first discovery. No published erratum was located."
    ],
    "owner": "HeegnerPointEulerSystems",
    "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
    "citation": "Ashay Burungale; Francesc Castella; Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, pp.1–15, DOI 10.1093/imrn/rnaf082; publisher-form PDF served by Castella",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HeegnerPointEulerSystems--HE.8b",
+   "reviewReason": "Theorem 4.1.3 supplies exactly the two-variable ordinary/Greenberg comparison invoked. The correction leaves the intended containments unchanged. Independently collated in the acquired arXiv v2 and publisher-form PDF at the stated locators."
   },
   {
    "id": "HeegnerPointEulerSystems/E12",
@@ -211647,9 +211648,9 @@
    "owner": "HeegnerPointEulerSystems",
    "file": "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
    "citation": "Ashay Burungale; Francesc Castella; Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, pp.1–15, DOI 10.1093/imrn/rnaf082; publisher-form PDF served by Castella",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HeegnerPointEulerSystems--HE.8b",
+   "reviewReason": "Both input factors in (5.5) are two-variable Λ_K-modules; π⁻ maps their product to the anticyclotomic ring. This correction leaves the intended containment unchanged. Independently collated in the acquired arXiv v2 and publisher-form PDF at the stated locators."
   },
   {
    "id": "HeegnerPointEulerSystems/E1",
