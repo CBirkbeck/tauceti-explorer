@@ -86,8 +86,11 @@ theorem exists_liouville_exponent :
         (fun n : ℕ => (p : ℚ_[p]) ^ (n + 1) / (((n + 1 : ℕ) : ℚ_[p]) + a)) := by
   sorry
 
-/-- Contrast: an exponent bounded away from the integers gives overconvergent coefficients.
-For `p` odd, `n + (-1/2)` is a unit for every `n`, so `pⁿ / (n - 1/2)` decays geometrically. -/
+/-- Contrast: a rational exponent gives overconvergent coefficients. For `p` odd,
+`v_p(n - 1/2) = v_p(2n - 1) ≤ log_p (2n)`, so `‖pⁿ / (n - 1/2)‖ ≤ 2n p⁻ⁿ` decays geometrically.
+The numbers `n - 1/2` are not all units (`p ∣ 2n - 1` for `n = (p + 1)/2`); what matters is that
+`v_p(n + a)` grows only logarithmically, whereas the Liouville exponent has
+`limsup v_p(n + a)/n = 1`. -/
 example (hp : p ≠ 2) :
     IsOverconvergentCoeffs (fun n : ℕ => (p : ℚ_[p]) ^ n / ((n : ℚ_[p]) - 1 / 2)) := by
   sorry
