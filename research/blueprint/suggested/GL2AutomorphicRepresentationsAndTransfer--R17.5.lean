@@ -8,6 +8,7 @@ Layer R17.5 of GL₂ automorphic representations and transfer, follow-up part: m
 every place for solvable Artin representations, and characteristic-zero lifts of residual
 representations with solvable image through Brauer characters and the Fong–Swan theorem.
 Pins: Mathlib 082e2d3, Tau Ceti f790474. Only Mathlib carriers are used.
+The packet records partial coverage and gaps G1–G6; these signatures do not close them.
 
 The automorphic statements of this part (stability and the local converse theorem for GL₂,
 the twisted Artin functional equation, the all-place upgrade and its tetrahedral and
@@ -381,7 +382,8 @@ section IsolatingTwist
 variable {K : Type*} [Field K] [NumberField K]
 
 /-- A quasi-character of the idele class group with prescribed component at `v₀` and
-component at each other `v ∈ S` nontrivial on the principal units of level `m v`. -/
+component at each other `v ∈ S` nontrivial on `U⁰ = Oˣ` at level zero and
+on `Uᵐ = 1 + 𝔭ᵐ` at positive levels. Both valuation conditions are needed at level zero. -/
 theorem isolating_twist_character (S : Finset (HeightOneSpectrum (𝓞 K)))
     (v₀ : HeightOneSpectrum (𝓞 K)) (hv₀ : v₀ ∈ S)
     (χ₀ : ContinuousMonoidHom (v₀.adicCompletion K)ˣ ℂˣ)
@@ -389,6 +391,7 @@ theorem isolating_twist_character (S : Finset (HeightOneSpectrum (𝓞 K)))
     ∃ ω : ContinuousMonoidHom (IdeleClassGroup (𝓞 K) K) ℂˣ,
       ω.toMonoidHom.comp (IdeleClassGroup.ofAdicCompletion (𝓞 K) K v₀) = χ₀.toMonoidHom ∧
       ∀ v ∈ S, v ≠ v₀ → ∃ u : (v.adicCompletion K)ˣ,
+        Valued.v (u : v.adicCompletion K) = 1 ∧
         Valued.v ((u : v.adicCompletion K) - 1) ≤
             ((Multiplicative.ofAdd (-(m v : ℤ)) : Multiplicative ℤ) : WithZero (Multiplicative ℤ)) ∧
           ω (IdeleClassGroup.ofAdicCompletion (𝓞 K) K v u) ≠ 1 := by
@@ -401,7 +404,7 @@ Omitted declarations (README targets whose carriers are not at the pins):
 TauCeti.GL2Transfer.gl2_twist_stability, TauCeti.GL2Transfer.gl2_local_converse
   (irreducible smooth representations of GL₂(F) with Jacquet–Langlands L-, ε- and γ-factors);
 TauCeti.GL2Transfer.artin_twisted_functional_equation
-  (global Weil group, Artin L-functions and Langlands–Deligne local constants);
+  (local Weil groups, locally twisted Artin L-functions and Langlands–Deligne local constants);
 TauCeti.GL2Transfer.artin_all_place_upgrade, TauCeti.GL2Transfer.tetrahedral_artin_all_places,
 TauCeti.GL2Transfer.octahedral_artin_all_places
   (cuspidal automorphic representations of GL₂(𝔸_F), local Langlands parameters, base change);
