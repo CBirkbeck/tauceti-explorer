@@ -1,0 +1,2852 @@
+{
+  "roadmapId": "ClassicalArithmeticCompletion",
+  "protocol": "blueprint-v1",
+  "part": "CA.6",
+  "scope": [
+    "ClassicalArithmeticCompletion:CA.6"
+  ],
+  "status": "complete",
+  "summary": "Analytic prerequisites of the nonreciprocal Mahler-measure bound and the Schinzel–Zassenhaus bound: bounded disc functions and their coefficients, transfinite diameter, radial-slit comparison, and the Hankel rationality criterion. The 45 existing CA.6 targets are imported from the reviewed parent packet; no Mahler-measure or height definition is duplicated.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.mk",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Formal series with a prescribed coefficient sequence; coeff_mk identifies those coefficients.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mul",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient of a product is the finite convolution over the antidiagonal.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_coe",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Polynomial-to-power-series coercion preserves every coefficient.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Complex.norm_deriv_le_one_of_mapsTo_ball",
+        "module": "Mathlib/Analysis/Complex/Schwarz.lean",
+        "provides": "Schwarz derivative bound at the centre, with DifferentiableOn, a MapsTo closed-ball hypothesis and positive radius.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.norm_deriv_div_one_sub_norm_sq_le",
+        "module": "TauCeti/Analysis/Complex/Conformal/SchwarzPick/Derivative.lean",
+        "provides": "Infinitesimal Schwarz–Pick for holomorphic maps from the open unit disc to itself.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:hasSum_sq_fourierCoeffOn",
+        "module": "Mathlib/Analysis/Fourier/AddCircle.lean",
+        "provides": "Parseval for MemLp functions on (a,b], normalized by 1/(b−a); coefficients indexed by integers.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:DifferentiableOn.hasFPowerSeriesOnBall",
+        "module": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+        "provides": "Cauchy power series on an open ball from complex differentiability on its closed ball and positive radius.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:IsCompact.exists_isMaxOn",
+        "module": "Mathlib/Topology/Order/Compact.lean",
+        "provides": "A continuous real-valued function attains its maximum on a nonempty compact set.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinant of a finite square matrix over a commutative ring.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Matrix.det_apply",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The Leibniz sum over permutations; supplies the determinant norm estimate.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Matrix.det_mul",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Multiplicativity of the determinant; used for monic changes of basis.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Polynomial.resultant",
+        "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
+        "provides": "Sylvester determinant with explicit size parameters; polynomial norms over a monic finite map are obtained from it.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.exists_bijOn_ball_differentiableOn_invFunOn",
+        "module": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Existence.lean",
+        "provides": "Riemann mapping for a proper simply connected open domain, together with a holomorphic inverse and both inverse identities.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.Contour.homologyCauchyTheorem",
+        "module": "TauCeti/Analysis/Contour/HomologyCauchy.lean",
+        "provides": "Contour integral vanishing for a closed piecewise C1 curve null-homologous in an open holomorphy domain.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Complex.differentiableAt_log",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean",
+        "provides": "Principal complex log is differentiable at points of slitPlane.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Complex.exp_log",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "exp(log z)=z for z≠0; used to square the chosen analytic branch.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:IsIntegral.of_pow",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegral/Basic.lean",
+        "provides": "Integrality of a positive power implies integrality of the element.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:IsIntegral.multiset_prod",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "Finite products of integral elements are integral.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots",
+        "module": "Mathlib/Analysis/Polynomial/MahlerMeasure.lean",
+        "provides": "For a complex polynomial, Mahler measure is leading-coefficient norm times the root product of max(1, root norm).",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:roots_mem_integralClosure",
+        "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+        "provides": "Every aroot of a monic polynomial lies in the integral closure of its coefficient ring.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:IsIntegral.mul",
+        "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+        "provides": "Products of two integral elements in a commutative algebra remain integral.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:StarConvex.contractibleSpace",
+        "module": "Mathlib/Analysis/Convex/Contractible.lean",
+        "provides": "A nonempty real star-convex set, as a subtype, is contractible.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.HomotopyEquiv.simplyConnectedSpace",
+        "module": "Mathlib/AlgebraicTopology/FundamentalGroupoid/SimplyConnected.lean",
+        "provides": "A homotopy equivalence transports simply connectedness; use the contraction equivalence with Unit for these star-convex domains.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.lintegral_image_eq_lintegral_abs_det_fderiv_mul",
+        "module": "Mathlib/MeasureTheory/Function/Jacobian.lean",
+        "provides": "Nonnegative change of variables for an injective differentiable map on a measurable set, using the absolute real determinant.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Polynomial.Chebyshev.leadingCoeff_T",
+        "module": "Mathlib/RingTheory/Polynomial/Chebyshev.lean",
+        "provides": "The leading coefficient of T_n is 2^(|n|−1) over a domain where 2 is nonzero.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Polynomial.Chebyshev.T_real_cos",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Basic.lean",
+        "provides": "The real polynomial T_n evaluated at cos θ is cos(nθ); gives the alternating extrema on [−1,1].",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.unitDiscMoebius",
+        "module": "TauCeti/Analysis/Complex/Conformal/Moebius.lean",
+        "provides": "The unit-disc Möbius factor (z−a)/(1−conj(a)z), on Complex.UnitDisc; its scalar formula is used off the subtype when needed.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.mapsTo_ball_unitDiscMoebiusFormula_of_norm_lt_one",
+        "module": "TauCeti/Analysis/Complex/Conformal/Moebius.lean",
+        "provides": "For |a|<1 the scalar Möbius formula maps the open unit disc into itself.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.hasDerivAt_unitDiscMoebiusFormula",
+        "module": "TauCeti/Analysis/Complex/Conformal/Moebius.lean",
+        "provides": "Derivative of the scalar disc factor at every point where its denominator is nonzero; extends holomorphy through the closed disc for |a|<1.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsNormalizedRiemannMapOn",
+        "module": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+        "provides": "Existing pointed holomorphic bijection to the unit disc with positive real derivative.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.exists_isNormalizedRiemannMapOn",
+        "module": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+        "provides": "Existence of an already normalized map on a proper simply connected open domain at a specified point.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsNormalizedRiemannMapOn.eqOn",
+        "module": "TauCeti/Analysis/Complex/Conformal/RiemannMapping/Normalization.lean",
+        "provides": "Two normalized maps on the same open pointed domain agree there; only on-domain uniqueness is asserted.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:Complex.norm_canonicalFactor_eval_circle_eq_one",
+        "module": "Mathlib/Analysis/Complex/CanonicalDecomposition.lean",
+        "provides": "Canonical factors have modulus one on a circle when their pole is strictly inside; the reciprocal at radius one is the scalar disc factor.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.norm_eq_iSup_norm",
+        "module": "Mathlib/Topology/ContinuousMap/Compact.lean",
+        "provides": "On a compact domain, the continuous-map norm equals the supremum of its pointwise norms; polynomial sup norm is this existing norm after restriction to K.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:segment_eq_image",
+        "module": "Mathlib/Analysis/Convex/Segment.lean",
+        "provides": "A real affine segment is the image of [0,1] under (1−t)x+ty; fixes compatibility of the complex radial segment with the existing real segment.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      },
+      {
+        "ref": "mathlib:RingHom.map_det",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "A ring homomorphism maps a determinant to the determinant of the entrywise image matrix.",
+        "checked": "Actual statement read at the full pinned commit on 2026-10-14."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "smyth-1971",
+      "title": "On the Product of the Conjugates outside the unit circle of an Algebraic Integer",
+      "authors": "C. J. Smyth",
+      "edition": "Bulletin of the London Mathematical Society 3 (1971), 169–175; published article in an author-uploaded scan (2014).",
+      "url": "https://www.researchgate.net/profile/Christopher-Smyth-2/publication/247044379_On_the_Product_of_the_Conjugates_outside_the_unit_circle_of_an_Algebraic_Integer/links/542c18260cf277d58e8ac7ac/On-the-Product-of-the-Conjugates-outside-the-unit-circle-of-an-Algebraic-Integer.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§2 lemma, pp. 170–171; §3 reduction and Blaschke quotient, pp. 171–172; §§4–5, pp. 172–175: prose, coefficient couplings, final quartic and cubic conditions."
+      ],
+      "note": "Read the public PDF text extraction and checked the coefficient lemma and the long-gap calculation independently. Several displayed equations, including the short-gap multipliers, are absent from that extraction. Direct PDF retrieval and page rendering were denied. The corresponding exact missing verification is a recorded gap; no scan hash or complete image reading is claimed."
+    },
+    {
+      "id": "dimitrov-2019",
+      "title": "A proof of the Schinzel–Zassenhaus conjecture on polynomials",
+      "authors": "Vesselin Dimitrov",
+      "edition": "arXiv:1912.12545v1 (28 December 2019); 27-page preprint.",
+      "url": "https://arxiv.org/pdf/1912.12545v1",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§3, Theorem 3 and its proof, pp. 12–13; §4, Theorem 4 and its proof, pp. 13–14, Corollary 5, p. 15, and the proof of Theorem 1, pp. 15–16; bibliography."
+      ],
+      "sha256": "c8a3798fe62e565838e7c4abf03e61f6c97b6801c75eff33bf7957da8def73ee"
+    },
+    {
+      "id": "bertrandias-1964",
+      "title": "Diamètre transfini dans un corps valué. Application au prolongement analytique",
+      "authors": "Françoise Bertrandias",
+      "edition": "Séminaire Delange–Pisot–Poitou 5 (1963–1964), exposé 3, printed pp. 1–13; Numdam published scan.",
+      "url": "https://www.numdam.org/item/SDPP_1963-1964__5__A3_0.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§§1.1–1.5, pp. 1–3; §2.1, p. 6; §2.6, pp. 10–12; §3.1, p. 12 and §3.2, p. 13. Selected page images checked against the text extraction."
+      ],
+      "sha256": "6bd91d97cac464fb575af622516d21b6379bfb7f54e1520f1e22bf7a2b97da22"
+    },
+    {
+      "id": "saff-2010",
+      "title": "Logarithmic Potential Theory with Applications to Approximation Theory",
+      "authors": "E. B. Saff",
+      "edition": "Surveys in Approximation Theory 5 (2010), 165–200; author preprint arXiv:1010.3760.",
+      "url": "https://arxiv.org/pdf/1010.3760",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§1, pp. 167–178, especially Definition 1.8, Theorems 1.9 and 1.18; §3, Definition 3.4, Theorem 3.5 and Example 3.6, pp. 184–185; §5, pp. 192–194 (condenser normalization only)."
+      ],
+      "sha256": "cfbeaad8cf695fc1b5528fd56295d7e3053056634c6841765a434ce9b074d862"
+    },
+    {
+      "id": "dubinin-1985",
+      "title": "On the change in harmonic measure under symmetrization",
+      "authors": "V. N. Dubinin",
+      "edition": "Mathematics of the USSR-Sbornik 52 (1985), no. 1, 267–273; English translation of Mat. Sb. 124(166) (1984), 277–286.",
+      "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=sm&paperid=2051&what=fullteng",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§1, Lemmas 1–2, Theorem 1 and the conformal-radius corollary, pp. 268–271; public PDF text extraction."
+      ],
+      "note": "The primary Math-Net translation was read through its public text extraction. No local PDF hash is claimed. Only the inequality is used; the equality characterization and Theorem A on harmonic measure are outside this part."
+    },
+    {
+      "id": "iribar-kronecker",
+      "title": "The Carlson-Pólya theorem on rational functions",
+      "authors": "Aitor Iribar López",
+      "edition": "Undated author notes hosted at ETH Zürich; 36-page PDF including an appendix; §2 checked as page images.",
+      "url": "https://people.math.ethz.ch/~airibar/Polya_Carlson.pdf",
+      "accessDate": "2026-10-14",
+      "readSections": [
+        "§2, Theorem 1 and proof, pp. 2–3."
+      ],
+      "sha256": "a030d8e64ec51300d3f1c0d3d689a782d2defe10d4331447c7f7353efdf7af88"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/real-schur-series",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Real coefficient Schur series",
+      "kind": "definition",
+      "statement": "A real coefficient sequence e : ℕ → ℝ is a real Schur series when there exists f : ℂ → ℂ holomorphic on |z|<1 such that Σ e_j z^j converges to f(z) at every point of that disc and |f(z)|≤1 there. The function is uniquely determined on the disc; no boundary extension is required. The formal series is PowerSeries.mk e.",
+      "hypotheses": [
+        "The disc is open. Real coefficients are part of the object, rather than a reality assumption on f at every complex point."
+      ],
+      "proofSteps": [
+        "Use HasSum for the coefficient expansion and DifferentiableOn for holomorphy; uniqueness of sums makes the associated function independent of its witness.",
+        "Conjugating the expansion gives f(conj z)=conj(f(z)); polynomial and rational examples use the existing Cauchy power-series API."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.mk",
+        "mathlib:DifferentiableOn.hasFPowerSeriesOnBall"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§2 lemma, pp. 170–171",
+          "match": "The coefficient estimates apply to real-coefficient bounded holomorphic functions; this definition removes the unnecessary neighbourhood-of-the-closed-disc restriction."
+        }
+      ],
+      "acceptance": [
+        "The closed bound permits constant functions ±1, while every nonconstant witness maps into the open disc."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "RealSchurSeries.function_unique",
+          "role": "characterisation",
+          "statement": "Two holomorphic witnesses with the specified HasSum expansion agree throughout the open unit disc."
+        },
+        {
+          "name": "RealSchurSeries.conj",
+          "role": "compatibility",
+          "statement": "For a witness f, f(conj z)=conj(f(z)) on the disc."
+        },
+        {
+          "name": "RealSchurSeries.constant",
+          "role": "constructor",
+          "statement": "The constant sequence e_0=c, e_j=0 for j>0 is Schur exactly when |c|≤1."
+        },
+        {
+          "name": "RealSchurSeries.mul",
+          "role": "structure",
+          "statement": "The coefficient convolution of two real Schur series is a real Schur series."
+        },
+        {
+          "name": "RealSchurSeries.coeff_zero_eq",
+          "role": "compatibility",
+          "statement": "Its constant coefficient is f(0), and its formal coefficients are exactly PowerSeries.coeff j (PowerSeries.mk e)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "realSchur_constant_boundary",
+          "kind": "degenerate",
+          "statement": "Both constant series 1 and −1 are Schur."
+        },
+        {
+          "name": "realSchur_monomial",
+          "kind": "computed",
+          "statement": "For k≥1, the coefficient sequence of z^k is Schur, with e_0=0 and e_k=1."
+        },
+        {
+          "name": "realSchur_constant_outside",
+          "kind": "non-example",
+          "statement": "The constant series 3/2 is not Schur."
+        },
+        {
+          "name": "realSchur_rational_example",
+          "kind": "compatibility",
+          "statement": "(1/2+z)/(1+z/2) is Schur and has coefficients e_0=1/2, e_1=3/4, e_2=−3/8."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Smyth §2 and §5, pp. 170–171, 174–175",
+          "how": "Supplies coefficient bounds for the numerator and denominator of the integral rational function."
+        },
+        {
+          "where": "Smyth §4, pp. 172–174",
+          "how": "Allows finite Parseval truncations after multiplication by auxiliary polynomials."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-bounded-factorization",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Smyth’s bounded holomorphic quotient",
+      "kind": "construction",
+      "statement": "Let P∈ℤ[X] be monic, P(0)=±1, with no complex root on the unit circle. Put Q=P.reverse and A=M(P). There are real-coefficient finite Blaschke products f,g, holomorphic on a neighbourhood of the closed unit disc, with f(0)=g(0)=c=A⁻¹>0 and Q(z)f(z)=P(0)P(z)g(z). On points where Q and g are nonzero, f/g=P(0)P/Q. If P is irreducible and nonreciprocal, that quotient is nonconstant and not a polynomial.",
+      "hypotheses": [
+        "P(0)=±1 excludes zero roots; no roots on the unit circle is explicit.",
+        "Irreducibility and nonreciprocity are used only for the final non-polynomial assertion."
+      ],
+      "proofSteps": [
+        "Use b_α for roots α of P inside the disc to form f, and b_(α⁻¹) for roots α of P outside the disc to form g, with multiplicities.",
+        "The inside-root product and the inverse outside-root product both have absolute value A⁻¹ because the total root product has modulus 1. Conjugation-stability makes the products real-coefficient; choose real signs to make both constants positive.",
+        "Compare the two rational functions by their zeros and poles and their value at zero. In the irreducible nonreciprocal case P and Q are coprime and have equal degree, so their nonconstant quotient is not polynomial."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/real-schur-series",
+        "ClassicalArithmeticCompletion:CA.6/smyth-integer-power-series",
+        "ClassicalArithmeticCompletion:CA.6/reciprocal-iff-reverse",
+        "tauceti:TauCeti.unitDiscMoebius",
+        "tauceti:TauCeti.hasDerivAt_unitDiscMoebiusFormula",
+        "mathlib:Complex.norm_canonicalFactor_eval_circle_eq_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§3, pp. 171–172, root-product quotient and (3)",
+          "match": "The two bounded root products have the same positive constant, the inverse Mahler measure."
+        }
+      ],
+      "acceptance": [
+        "Keep the cross-multiplied identity; dividing at a zero of g is not permitted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "smythFactorization_schur",
+          "role": "compatibility",
+          "statement": "The Taylor coefficients of f and g are real Schur series."
+        },
+        {
+          "name": "smythFactorization_constant",
+          "role": "projection",
+          "statement": "Their common constant coefficient is M(P)⁻¹."
+        },
+        {
+          "name": "smythFactorization_boundary",
+          "role": "relation",
+          "statement": "Both products have modulus 1 on the unit circle."
+        },
+        {
+          "name": "smythFactorization_coeff_mul",
+          "role": "compatibility",
+          "statement": "For the integral formal expansion F of P(0)P/Q, the real-coefficient identity F·g=f holds coefficient by coefficient."
+        },
+        {
+          "name": "smythFactorization_nonpolynomial",
+          "role": "characterisation",
+          "statement": "If P is irreducible and P.reverse≠±P, F is not the coercion of any polynomial."
+        }
+      ],
+      "tests": [
+        {
+          "name": "smythFactorization_plastic",
+          "kind": "computed",
+          "statement": "For P=X³−X−1, c=θ₀⁻¹ for both products."
+        },
+        {
+          "name": "smythFactorization_reciprocal",
+          "kind": "degenerate",
+          "statement": "For P=X²−3X+1, f=g and F=1; this is permitted by the construction but excluded by the nonreciprocal theorem."
+        },
+        {
+          "name": "smythFactorization_nonunit",
+          "kind": "non-example",
+          "statement": "P=X−2 is outside the unit-constant hypothesis; the assertion c_f=c_g=1/2 would be false for its inside-root product."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CA.6/smyth-nonreciprocal-lower-bound",
+          "how": "Transforms the arithmetic target into coefficient restrictions with c=M(P)⁻¹."
+        },
+        {
+          "where": "CA.6/smyth-schur-reduction",
+          "how": "Supplies the formal multiplication identity and real bounded coefficients."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/schur-coefficient-conditions",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Schur’s first and doubled-index coefficient conditions",
+      "kind": "theorem",
+      "statement": "If e is a real Schur series, c=e_0 and k≥1, then |e_k|≤1−c². If |c|<1, also −(1−c²)+e_k²/(1+c) ≤ e_(2k) ≤ (1−c²)−e_k²/(1−c). For c=±1 all coefficients of positive index vanish; the fractional inequalities are not stated there.",
+      "hypotheses": [
+        "e real Schur; k≥1. The doubled-index inequalities require |c|<1."
+      ],
+      "proofSteps": [
+        "Average the witness over kth-root rotations. The resulting bounded function has expansion h(w)=c+e_k w+e_(2k)w²+⋯; existence on the disc follows from the rotation-invariant series.",
+        "For |c|<1 apply the disc automorphism to h and divide by w: s(w)=(h(w)−c)/(w(1−c h(w))). Schwarz’s lemma makes s a disc map. Its first two coefficients are e_k/(1−c²) and e_(2k)/(1−c²)+c e_k²/(1−c²)².",
+        "Schwarz–Pick at zero bounds the derivative of s. A boundary value |s(0)|=1 forces s constant by the maximum principle, giving the same non-strict bounds. Rearrange to the two displayed inequalities. Treat c=±1 by the maximum principle on the original witness."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/real-schur-series",
+        "mathlib:Complex.norm_deriv_le_one_of_mapsTo_ball",
+        "tauceti:TauCeti.norm_deriv_div_one_sub_norm_sq_le",
+        "tauceti:TauCeti.mapsTo_ball_unitDiscMoebiusFormula_of_norm_lt_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§2 lemma (1)–(2), pp. 170–171",
+          "match": "The lemma bounds every positive coefficient and relates the kth and doubled-index coefficients. The Schur-transform proof here also applies without a boundary extension."
+        }
+      ],
+      "acceptance": [
+        "For (c+z^k)/(1+c z^k), the upper doubled-index bound is attained: e_k=1−c² and e_(2k)=−c(1−c²).",
+        "For −1<c<1 both denominators are positive; no multiplication by an unknown-sign denominator is used."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/schur-parseval-contract",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Finite Parseval inequalities for Schur coefficients",
+      "kind": "theorem",
+      "statement": "Let e be a real Schur series, p a finitely supported complex sequence, and N∈ℕ. Then Σ_(m=0)^N |Σ_(j=0)^m p_j e_(m−j)|² ≤ Σ_j |p_j|². In particular any selected finite set of output coefficients gives a lower bound for the squared norm of the input polynomial.",
+      "hypotheses": [
+        "The input sum on the right is finite. The output is a finite initial truncation or any finite subset."
+      ],
+      "proofSteps": [
+        "On the circle of radius r<1 the holomorphic product f(z)Σ p_j z^j is continuous and square integrable. Identify its Fourier coefficients from its absolutely convergent Taylor expansion.",
+        "Apply the pinned Parseval identity with period 2π and bound |f|≤1. The output terms carry r^(2m), while the input terms carry r^(2j).",
+        "Let r tend to 1 from below in the finite output and finite input sums. Nonnegative omitted terms justify replacing the full output sum by the chosen finite subset."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/real-schur-series",
+        "mathlib:hasSum_sq_fourierCoeffOn",
+        "mathlib:DifferentiableOn.hasFPowerSeriesOnBall"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§2 proof, pp. 170–171 and §4, pp. 172–174",
+          "match": "Parseval after multiplication by two- and three-term polynomials is the analytic mechanism for the coefficient inequalities."
+        }
+      ],
+      "acceptance": [
+        "For f=z^k the complete output norm equals the input norm; the 2π normalization must cancel.",
+        "The estimate does not assert a boundary value of an arbitrary Schur witness."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-schur-reduction",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The first two nonzero integral quotient coefficients",
+      "kind": "lemma",
+      "statement": "Let f,g have real Schur coefficient sequences u,v with u_0=v_0=c, 3/4≤c<1, and F∈ℤ⟦z⟧ satisfy F_0=1 and Fg=f. Suppose F is not a polynomial. Let 0<k<l be its first two nonzero positive indices, with coefficients a_k,a_l. Then |a_k|=|a_l|=1, |u_k|+|v_k|=c, and c/2≤1−c². Coefficient coupling gives u_k−v_k=a_k c, u_(k+i)−v_(k+i)=a_k v_i for 0<i<l−k, and u_l−v_l=a_k v_(l−k)+a_l c.",
+      "hypotheses": [
+        "F non-polynomial ensures two positive nonzero coefficients exist; it is stronger than merely nonconstant.",
+        "All equalities are formal coefficient equalities and require no division at a zero of g."
+      ],
+      "proofSteps": [
+        "Choose the first two nonzero indices using well-ordering and the non-polynomial hypothesis; apply the pinned finite coefficient convolution to Fg=f.",
+        "The Schur coefficient bound gives |a_k|c≤2(1−c²). Since c≥3/4, the integer |a_k| cannot be ≥2.",
+        "Because 1−c²<c, u_k and v_k have opposite signs, giving the absolute-value sum. At index l, |a_l|c≤3(1−c²)<2c, which rules out |a_l|≥2.",
+        "The larger of |u_k| and |v_k| is at least c/2, giving the weak quadratic condition."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/schur-coefficient-conditions",
+        "mathlib:PowerSeries.coeff_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§3, (3)–(5), p. 172",
+          "match": "The integer quotient coefficients and the Schur bounds force the two first nonzero coefficients to be signs and the kth coefficients to have opposite signs."
+        }
+      ],
+      "acceptance": [
+        "The k<l<2k branch gives u_(l−k)=v_(l−k); the long-gap branch uses the doubled-index coupling instead."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-long-gap-condition",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The cubic condition in Smyth’s long-gap case",
+      "kind": "lemma",
+      "statement": "Under the preceding Schur-pair assumptions, if F has no positive nonzero coefficient between k and 2k inclusive, then c³+c²≤1. If the second nonzero index equals 2k, replacing F by F⁻¹ and interchanging the Schur pair produces the same case after ruling out a coefficient of magnitude 2.",
+      "hypotheses": [
+        "3/4≤c<1, |a_k|=1, F_(2k)=0 in the normalized case."
+      ],
+      "proofSteps": [
+        "Put S=1−c². For a_k=1 write x=u_k≥0 and v_k=x−c≤0; then c−S≤x≤S and u_(2k)−v_(2k)=x−c.",
+        "The lower Schur bound for u_(2k) and upper bound for v_(2k) give J(x)=x²/(1+c)+(c−x)²/(1−c)+(c−x)≤2S. For a_k=−1 the same expression follows by replacing the positive-coefficient variable by its complementary value c−x.",
+        "J is decreasing on [c−S,S]: its derivative has numerator at most 3−5c²−2c<0 for c≥3/4. Thus J(S)≤2S. The identity J(S)−2S=(c³+c²−1)/(1−c) proves the conclusion.",
+        "When l=2k, the inverse quotient has coefficient a_k²−a_(2k)=1−a_(2k). The value 2 contradicts the reduction bound at its second nonzero coefficient; the value 0 gives the normalized long-gap case. Do not swap a second time just to set a_k=1, since this would restore a_(2k)=1."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/smyth-schur-reduction",
+        "ClassicalArithmeticCompletion:CA.6/schur-coefficient-conditions",
+        "mathlib:PowerSeries.coeff_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§5, (6)–(7) and the final minimization, pp. 174–175",
+          "match": "The doubled-index coefficient restrictions give the cubic condition after a one-variable minimization."
+        }
+      ],
+      "acceptance": [
+        "The exact endpoint identity uses 1−c>0.",
+        "The sign a_k=−1 is included; normalizing l>2k and then swapping again would invalidate the normalization."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-short-gap-condition",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The quartic condition in Smyth’s short-gap case",
+      "kind": "lemma",
+      "statement": "Let f,g be the bounded real-coefficient products in the Schur reduction. Assume 3/4≤c<(√17−1)/4 and k<l<2k. Then 40c⁴−93c²+40≥0. Consequently c³+c²<1 on this interval, equivalently c⁻¹>θ₀.",
+      "hypotheses": [
+        "The strict upper endpoint is the reciprocal of (1+√17)/4. Its arithmetic justification is supplied separately.",
+        "This node records the exact source-supported target; its weighted three-term multiplier verification is named in gaps."
+      ],
+      "proofSteps": [
+        "Interchange the quotient and pair to set a_k=1; because l<2k the second coefficient remains a sign and its index remains l.",
+        "Apply the finite Parseval contract to the two three-term multipliers in Smyth §4. Use u_(l−k)=v_(l−k), the couplings at k and l, and x=−a_l u_(l−k). The precise multiplier and selected-coefficient inequality must be checked from the displayed equations, not inferred from OCR.",
+        "Eliminate the two multiplier parameters by completing squares; minimize the resulting positive quadratic in x. The final necessary condition is 40c⁴−93c²+40≥0 (Smyth p. 173).",
+        "For A=c⁻¹∈((1+√17)/4,4/3], this is A⁴−(93/40)A²+1≥0. That polynomial is increasing on this interval and at θ₀ equals θ₀²(θ₀−53/40)<0. The last strict sign follows by evaluating T³−T−1 at 53/40, rather than using a decimal approximation."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/smyth-schur-reduction",
+        "ClassicalArithmeticCompletion:CA.6/schur-parseval-contract",
+        "ClassicalArithmeticCompletion:CA.6/plastic-number"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§4, pp. 172–174, final quartic condition on p. 173",
+          "match": "The first gap smaller than k forces the stated quartic condition, which excludes the plastic threshold. Intermediate displayed multiplier formulas are not legible in the obtained extraction."
+        }
+      ],
+      "acceptance": [
+        "At c=θ₀⁻¹ the quartic is negative; at c=3/4 it is positive. Both are useful signs for the elimination."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/monic-mahler-integrality",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Integrality of the Mahler measure of a monic integer polynomial",
+      "kind": "lemma",
+      "statement": "For a monic P∈ℤ[X], M(P), regarded as a real algebraic number, is integral over ℤ. In the Schur reduction for an irreducible nonreciprocal P with M(P)≤4/3, the weak bound M(P)≥(1+√17)/4 is therefore strict.",
+      "hypotheses": [
+        "P monic. The strict-bound consequence also assumes the preceding Schur reduction."
+      ],
+      "proofSteps": [
+        "Every complex root α is integral, as is its complex conjugate because P has real coefficients. Thus |α|²=α·conj(α) is integral; integrality of a positive power implies integrality of |α| in ℂ. Reflect integrality along ℝ→ℂ.",
+        "The root-product formula expresses M(P) as a finite product of 1 and |α|, hence as an integral element.",
+        "The quadratic number (1+√17)/4 has irreducible primitive polynomial 2T²−T−2 and field trace 1/2; it is not integral. Use this exclusion after the weak coefficient bound."
+      ],
+      "prerequisites": [
+        "mathlib:roots_mem_integralClosure",
+        "mathlib:IsIntegral.mul",
+        "mathlib:IsIntegral.of_pow",
+        "mathlib:IsIntegral.multiset_prod",
+        "mathlib:Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots",
+        "ClassicalArithmeticCompletion:CA.6/smyth-schur-reduction"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "§3, p. 172, strictness after the first quadratic bound",
+          "match": "The first bound is strict because a Mahler measure is integral but the quadratic endpoint is not."
+        }
+      ],
+      "acceptance": [
+        "The claim is for monic integer P; it is not asserted for arbitrary complex polynomials."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-analytic-input",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The analytic input for Smyth’s theorem",
+      "kind": "application",
+      "statement": "Let P∈ℤ[X] be monic irreducible, P(0)=±1, P.reverse≠±P, and M(P)≤4/3. Then M(P)³−M(P)−1≥0. This supplies the missing analytic dependency of CA.6/smyth-nonreciprocal-lower-bound; the parent’s reductions for non-units and the plastic-number certificate remain its arithmetic dependencies.",
+      "hypotheses": [
+        "Positive degree, irreducibility and nonreciprocity exclude unit-circle roots: conjugation followed by inversion would otherwise make P reciprocal."
+      ],
+      "proofSteps": [
+        "Use the bounded factorization and the integral quotient from the parent. Their common positive constant c=M(P)⁻¹ lies in [3/4,1); if c=1, the positive Schur coefficients vanish and F is constant.",
+        "The first-coefficient reduction and monic Mahler integrality give c<(√17−1)/4.",
+        "For k<l<2k use the short-gap quartic condition and its strict comparison with θ₀. For l≥2k use the inverse-series normalization and the long-gap cubic condition.",
+        "Translate c³+c²≤1 into M(P)³−M(P)−1≥0. The increasing cubic on [1,∞) gives the parent’s sharp bound. No equality classification or isolated-spectrum theorem is added."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/smyth-bounded-factorization",
+        "ClassicalArithmeticCompletion:CA.6/smyth-schur-reduction",
+        "ClassicalArithmeticCompletion:CA.6/monic-mahler-integrality",
+        "ClassicalArithmeticCompletion:CA.6/smyth-short-gap-condition",
+        "ClassicalArithmeticCompletion:CA.6/smyth-long-gap-condition",
+        "ClassicalArithmeticCompletion:CA.6/reciprocal-iff-reverse",
+        "ClassicalArithmeticCompletion:CA.6/plastic-number"
+      ],
+      "sources": [
+        {
+          "sourceId": "smyth-1971",
+          "locator": "Main theorem, p. 169; §§3–5, pp. 171–175",
+          "match": "The integral quotient and the two coefficient cases produce the nonreciprocal lower bound."
+        }
+      ],
+      "acceptance": [
+        "The reciprocal polynomial X²−3X+1 is excluded even though its factorization exists.",
+        "The target inherits the precise short-gap verification gap; it is not marked closed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/finite-fekete-diameter",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Finite Fekete diameters and transfinite diameter",
+      "kind": "definition",
+      "statement": "For a compact K⊆ℂ and n≥2, δ_n(K)=sup_(z∈K^n) (∏_(0≤i<j<n)|z_i−z_j|)^(2/(n(n−1))). Set δ_n(∅)=0, δ_0=δ_1=0. Define d(K)=inf_(n≥2) δ_n(K). This d is the transfinite diameter, with the usual length normalization for logarithmic capacity. Only compact sets receive mathematical assertions.",
+      "hypotheses": [
+        "K compact for the API. The total real-valued formula on other sets has no specified meaning.",
+        "Repeated tuple entries are permitted; a collision gives product zero. The infimum excludes indices 0 and 1."
+      ],
+      "proofSteps": [
+        "For nonempty K, continuity on compact K^n gives a maximizing Fekete tuple and a finite nonnegative supremum. Define the empty-set values explicitly.",
+        "Use the nonnegative real power with exponent 2/(n(n−1)). The monotonicity and limit are separate theorem targets, rather than assumptions in the definition."
+      ],
+      "prerequisites": [
+        "mathlib:IsCompact.exists_isMaxOn"
+      ],
+      "sources": [
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§1.1, p. 1; §1.4(1)–(4), p. 2",
+          "match": "The pairwise-distance supremum defines the finite diameter; its limit is monotone under inclusion and scales like length."
+        },
+        {
+          "sourceId": "saff-2010",
+          "locator": "Definition 1.8, p. 172; Theorem 1.9(a)–(b), pp. 172–173",
+          "match": "The transfinite diameter is the decreasing limit of the Fekete diameters and agrees with logarithmic capacity."
+        }
+      ],
+      "acceptance": [
+        "δ_2 is the ordinary diameter, while d is typically smaller."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "feketeDiameter_nonneg",
+          "role": "relation",
+          "statement": "δ_n(K)≥0 and d(K)≥0 for compact K."
+        },
+        {
+          "name": "feketeDiameter_attained",
+          "role": "projection",
+          "statement": "For nonempty compact K and n≥2, a tuple in K^n attains δ_n(K)."
+        },
+        {
+          "name": "feketeDiameter_mono",
+          "role": "functoriality",
+          "statement": "Compact K⊆L implies δ_n(K)≤δ_n(L) and d(K)≤d(L)."
+        },
+        {
+          "name": "transfiniteDiameter_affine",
+          "role": "functoriality",
+          "statement": "d(aK+b)=|a|d(K), including a=0; δ_n has the same rule for n≥2."
+        },
+        {
+          "name": "transfiniteDiameter_finite",
+          "role": "simp",
+          "statement": "A finite set has d=0; δ_n=0 once n exceeds its cardinality."
+        },
+        {
+          "name": "finiteFeketeDiameter_two",
+          "role": "compatibility",
+          "statement": "For nonempty compact K, the two-point Fekete diameter δ₂(K) equals the metric diameter of K; the limiting diameter is identified with the Chebyshev limit by the key theorem below."
+        }
+      ],
+      "tests": [
+        {
+          "name": "fekete_two_points",
+          "kind": "computed",
+          "statement": "For K={0,2}, δ_2=2, δ_3=0, and d=0."
+        },
+        {
+          "name": "fekete_singleton",
+          "kind": "degenerate",
+          "statement": "For K={7}, every δ_n with n≥2 and d are zero."
+        },
+        {
+          "name": "fekete_disc_scale",
+          "kind": "compatibility",
+          "statement": "For the closed radius-2 disc, δ_2=4 and d=2."
+        },
+        {
+          "name": "fekete_segment_normalization",
+          "kind": "computed",
+          "statement": "d([−1,1])=1/2 and d([0,1])=1/4, rather than the ordinary segment diameter."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dimitrov Theorem 3, pp. 12–13",
+          "how": "Measures the hedgehog containing the finite branch points."
+        },
+        {
+          "where": "Dimitrov Theorem 4, pp. 13–14",
+          "how": "Bounds the n²-growth of Hankel determinants."
+        },
+        {
+          "where": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+          "how": "Supplies the lower-tier diameter carrier and normalization to the later energy comparison."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/chebyshev-monic-norm",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Monic Chebyshev norms on a compact set",
+      "kind": "definition",
+      "statement": "For compact K⊆ℂ, let ‖p‖_K=sup_(z∈K)|p(z)|, with empty-set value 0. For n∈ℕ let t_n(K)=inf{‖p‖_K : p∈ℂ[X], p monic of degree n}. For nonempty K, t_0(K)=1. For n≥1, set T_n(K)=t_n(K)^(1/n). Minimizers need not be chosen canonically or claimed unique.",
+      "hypotheses": [
+        "K compact; degree means natDegree together with monicity."
+      ],
+      "proofSteps": [
+        "Bound the evaluation norm by compactness. The class of monic degree-n polynomials is nonempty, so its nonnegative norm infimum is finite.",
+        "For existence of a minimizer, if K has at most n points use its annihilating polynomial with a monic padding factor. Otherwise evaluation at n+1 distinct points bounds the coefficients of a norm-bounded minimizing sequence by Vandermonde inversion; take a convergent subsequence."
+      ],
+      "prerequisites": [
+        "mathlib:IsCompact.exists_isMaxOn",
+        "mathlib:Matrix.det",
+        "mathlib:ContinuousMap.norm_eq_iSup_norm"
+      ],
+      "sources": [
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§1.2–1.3, pp. 1–2",
+          "match": "The monic minimax norm supplies the same limiting constant as the finite-diameter construction."
+        },
+        {
+          "sourceId": "saff-2010",
+          "locator": "Chebyshev polynomials and Theorem 1.18, pp. 176–178",
+          "match": "Monic minimizers and their nth-root norm asymptotics are related to Fekete points."
+        }
+      ],
+      "acceptance": [
+        "At degree zero the monic polynomial is 1, so its norm on nonempty K is 1 even if K is a singleton."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "compactPolynomialNorm_eval_le",
+          "role": "projection",
+          "statement": "For z∈K, |p(z)|≤‖p‖_K."
+        },
+        {
+          "name": "compactPolynomialNorm_mul_le",
+          "role": "structure",
+          "statement": "‖pq‖_K≤‖p‖_K‖q‖_K."
+        },
+        {
+          "name": "chebyshevNorm_attained",
+          "role": "constructor",
+          "statement": "For compact K and every n, some monic degree-n polynomial attains t_n(K)."
+        },
+        {
+          "name": "chebyshevNorm_submultiplicative",
+          "role": "relation",
+          "statement": "t_(n+m)(K)≤t_n(K)t_m(K)."
+        },
+        {
+          "name": "chebyshevNorm_mono",
+          "role": "functoriality",
+          "statement": "K⊆L implies t_n(K)≤t_n(L)."
+        },
+        {
+          "name": "chebyshevNorm_affine",
+          "role": "functoriality",
+          "statement": "For a≠0, t_n(aK+b)=|a|^n t_n(K)."
+        },
+        {
+          "name": "compactPolynomialNorm_eq_continuousMap_norm",
+          "role": "compatibility",
+          "statement": "For compact K, the evaluation restriction z↦p(z) is a ContinuousMap K ℂ, and ‖p‖_K equals its existing continuous-map norm, including empty K. No second general function sup norm is planned."
+        }
+      ],
+      "tests": [
+        {
+          "name": "chebyshev_singleton",
+          "kind": "degenerate",
+          "statement": "t_0({0})=1, whereas t_n({0})=0 for every n≥1."
+        },
+        {
+          "name": "chebyshev_disc",
+          "kind": "computed",
+          "statement": "For a radius-R closed disc with R>0, t_n=R^n."
+        },
+        {
+          "name": "chebyshev_segment",
+          "kind": "computed",
+          "statement": "For [−1,1], t_1=1 and t_2=1/2, attained by X and X²−1/2."
+        },
+        {
+          "name": "compactNorm_constant",
+          "kind": "compatibility",
+          "statement": "For nonempty compact K and constant p=c, both ‖p‖_K and the existing continuous-map norm of its restriction equal |c|; on ∅ both are 0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bertrandias §1.4(6), p. 2 and §2.6, pp. 10–12",
+          "how": "Finds a lemniscate enclosure and a monic polynomial basis of exponentially bounded contour norm."
+        },
+        {
+          "where": "CA.6/monic-preimage-diameter",
+          "how": "Controls both directions of the inverse-image diameter formula."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/fekete-chebyshev-limit",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Fekete–Chebyshev equality and elementary diameter values",
+      "kind": "theorem",
+      "statement": "For nonempty compact K, δ_n(K) decreases for n≥2 and tends to d(K). Also T_n(K) tends to d(K), and d(K)=inf_(n≥1) T_n(K). For R≥0, d(closedBall(b,R))=R. For a,b∈ℂ, d([a,b])=|b−a|/4. Finite sets have d=0.",
+      "hypotheses": [
+        "K compact and nonempty for the convergence assertions; the empty-set convention is handled separately."
+      ],
+      "proofSteps": [
+        "Delete each point in a maximizing tuple and multiply the resulting pair-product inequalities to prove δ_(n+1)≤δ_n.",
+        "Use submultiplicativity of t_n and the elementary subadditive limit argument (including a zero t_n) to identify the nth-root limit with its infimum.",
+        "Removing one point of a Fekete tuple provides a monic degree-n polynomial with norm at most δ_(n+1)^n. Conversely replace the monomials in a Vandermonde determinant by monic Chebyshev polynomials and use its permutation sum: δ_(n+1)^(n(n+1)/2)≤(n+1)!∏_(j=1)^n t_j. Taking logarithms and Cesàro means gives the reverse limit comparison; the zero-capacity case follows by approximation.",
+        "The circle gives t_n=R^n by the Cauchy coefficient bound and X^n. On [−1,1], the classical real Chebyshev polynomial has leading coefficient 2^(n−1) and alternating extrema; real parts rule out a better complex monic polynomial. Thus t_n=2^(1−n), and affine transport gives the segment value."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/finite-fekete-diameter",
+        "ClassicalArithmeticCompletion:CA.6/chebyshev-monic-norm",
+        "mathlib:Matrix.det_apply",
+        "mathlib:DifferentiableOn.hasFPowerSeriesOnBall",
+        "mathlib:Polynomial.Chebyshev.leadingCoeff_T",
+        "mathlib:Polynomial.Chebyshev.T_real_cos"
+      ],
+      "sources": [
+        {
+          "sourceId": "saff-2010",
+          "locator": "Theorems 1.9(a)–(b) and 1.18, pp. 172–173, 176–178",
+          "match": "The Fekete limit and monic minimax limit coincide, with disc and interval normalizations."
+        },
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§1.3 and §1.5, pp. 2–3",
+          "match": "The same constant has the stated disc and segment values."
+        }
+      ],
+      "acceptance": [
+        "The exponent uses unordered pairs: counting ordered pairs without changing the exponent gives the wrong scaling."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/monic-preimage-diameter",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Transfinite diameter under a monic polynomial inverse image",
+      "kind": "theorem",
+      "statement": "If K⊆ℂ is nonempty compact and P∈ℂ[X] is monic of degree m≥1, then P⁻¹(K) is nonempty compact and d(P⁻¹(K))=d(K)^(1/m). In particular d({z: |P(z)|≤r^m})=r for r≥0.",
+      "hypotheses": [
+        "P monic and m≥1; inverse image means P(z)∈K, an existential membership condition."
+      ],
+      "proofSteps": [
+        "A positive-degree polynomial is proper and surjective on ℂ, so its inverse image is compact and nonempty.",
+        "Pull back a monic degree-n Chebyshev polynomial on K to obtain t_(mn)(P⁻¹K)≤t_n(K).",
+        "For a monic degree-j Q on P⁻¹K, form its polynomial norm N_Q(y)=∏_(P(z)=y)Q(z), with root multiplicities. The resultant construction gives a monic polynomial in y of degree j after its harmless sign normalization, and |N_Q(y)|≤‖Q‖_(P⁻¹K)^m. Hence t_j(K)≤t_j(P⁻¹K)^m.",
+        "Apply the Fekete–Chebyshev limit to both inequalities. This proof uses a determinant norm, rather than assuming an unplanned equilibrium measure."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/fekete-chebyshev-limit",
+        "mathlib:Polynomial.resultant",
+        "mathlib:Matrix.det_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§1.4(5), p. 2",
+          "match": "The monic degree-m inverse-image law raises the diameter to the power 1/m; the set-membership quantifier is corrected in sourceIssues."
+        }
+      ],
+      "acceptance": [
+        "For P=X^m and K=[0,R^m], the regular m-spike hedgehog has d=R·4^(−1/m).",
+        "For P=X² and K={1}, the inverse image is {−1,1} with d=0; finite Fekete diameter δ_2 need not be zero."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/lemniscate-enclosure",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "A regular lemniscate enclosing a compact set",
+      "kind": "construction",
+      "statement": "Given nonempty compact K⊆ℂ and r>d(K), there exist m≥1, a monic degree-m P, and ρ with d(K)<ρ<r such that ‖P‖_K<ρ^m and L={z:|P(z)|≤ρ^m} contains K in its interior. The level ρ^m avoids the absolute values of the nonzero critical values of P; ∂L is a finite union of smooth analytic closed curves, positively oriented with total winding number 1 about every point of L°. Also d(L)=ρ<r. For every j≥0 there is a monic degree-j Q_j and a constant C independent of j such that ‖Q_j‖_L≤Cρ^j.",
+      "hypotheses": [
+        "r>d(K)≥0 implies r>0. No positive-capacity assumption on K is imposed.",
+        "The enclosure is not asserted to lie in an arbitrarily small Euclidean neighbourhood of K; holes may be filled."
+      ],
+      "proofSteps": [
+        "Choose a degree m with t_m(K)^(1/m)<r and a monic P attaining that norm. Choose ρ strictly between its norm root and r, and above d(K), avoiding finitely many critical-value radii.",
+        "Properness and regularity of the polynomial level set give the compact enclosure, the strict interior inclusion and its finite analytic boundary. Apply the monic inverse-image formula to the radius-ρ^m disc.",
+        "For j=qm+s, 0≤s<m, use Q_j=P^q X^s. On L its norm is at most ρ^(mq) max_(z∈L)|z|^s; take C=max_(0≤s<m) max(1,max_(z∈L)|z|^s ρ^(−s))."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/chebyshev-monic-norm",
+        "ClassicalArithmeticCompletion:CA.6/fekete-chebyshev-limit",
+        "ClassicalArithmeticCompletion:CA.6/monic-preimage-diameter"
+      ],
+      "sources": [
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§1.4(6), p. 2; §2.6, pp. 10–12",
+          "match": "Lemniscate enclosures and powers of their defining polynomial supply the determinant estimate. The additive formulation here includes capacity-zero sets."
+        },
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, proof of Theorem 4, pp. 13–14",
+          "match": "Chebyshev polynomials on a boundary enclosing the singularity set provide the n²-growth estimate."
+        }
+      ],
+      "acceptance": [
+        "For K={0} and r>0, choose P=X and 0<ρ<r: a positive-capacity enclosure is needed even though d(K)=0."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "lemniscateEnclosure_subset_interior",
+          "role": "projection",
+          "statement": "K⊆L° follows from the strict polynomial-norm inequality."
+        },
+        {
+          "name": "lemniscateEnclosure_diameter",
+          "role": "relation",
+          "statement": "d(L)=ρ<r."
+        },
+        {
+          "name": "lemniscateEnclosure_boundary",
+          "role": "structure",
+          "statement": "The chosen regular boundary is a finite analytic cycle enclosing every point of K with index 1."
+        },
+        {
+          "name": "lemniscateEnclosure_monic_basis",
+          "role": "constructor",
+          "statement": "Q_(qm+s)=P^q X^s is monic of degree qm+s and obeys the common exponential bound."
+        },
+        {
+          "name": "lemniscateEnclosure_contour_bound",
+          "role": "projection",
+          "statement": "For continuous G on ∂L there is B with |(2πi)⁻¹∮_(∂L)GQ_iQ_j dz|≤Bρ^(i+j)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "lemniscate_zero_capacity",
+          "kind": "degenerate",
+          "statement": "For K={0}, P=X and ρ>0 give d(L)=ρ; no multiplicative bound (1+ε)d(K) can describe this enclosure."
+        },
+        {
+          "name": "lemniscate_two_spikes",
+          "kind": "computed",
+          "statement": "P=X² and ρ=1 give L=closedBall(0,1), d(L)=1 and Q_j=X^j."
+        },
+        {
+          "name": "lemniscate_strict_level",
+          "kind": "non-example",
+          "statement": "For K=closedBall(0,1), P=X and ρ=1, K is not contained in L°; the strict norm hypothesis is necessary."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CA.6/hankel-analytic-growth",
+          "how": "Produces a contour and monic basis with a uniform exponential entry bound."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/radial-hedgehog",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "A finite radial hedgehog",
+      "kind": "definition",
+      "statement": "For a finite index type I and endpoints a_i∈ℂ, K(a)=⋃_(i∈I)[0,a_i], where [0,a_i]={t a_i: t∈[0,1]⊆ℝ}. The empty family gives ∅; a nonempty family of zero endpoints gives {0}. Define R(a)=max_i |a_i|, with empty-family value 0. Multiplicity and repeated directions are allowed in the data.",
+      "hypotheses": [
+        "The line segment is a real affine segment in ℂ, not an order interval of complex numbers."
+      ],
+      "proofSteps": [
+        "Take the finite union of images of the compact real interval [0,1]. Compactness and the endpoint norm bound follow immediately.",
+        "For a nonempty family the set is star-shaped at 0. Its complement in the Riemann sphere is simply connected; its complement in ℂ is connected but is generally not simply connected. After inversion the sphere domain becomes a proper simply connected plane domain containing 0."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/finite-fekete-diameter",
+        "mathlib:StarConvex.contractibleSpace",
+        "mathlib:ContinuousMap.HomotopyEquiv.simplyConnectedSpace",
+        "mathlib:segment_eq_image"
+      ],
+      "sources": [
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§3, definition before Theorem 3, p. 12",
+          "match": "The singularities are enclosed in a finite union of radial segments."
+        }
+      ],
+      "acceptance": [
+        "Distinguish an empty index type from the singleton set {0}; the exterior inversion requires a nonempty hedgehog."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "radialHedgehog_mem",
+          "role": "characterisation",
+          "statement": "z∈K(a) iff some endpoint index i and t∈[0,1] satisfy z=t a_i."
+        },
+        {
+          "name": "radialHedgehog_compact",
+          "role": "structure",
+          "statement": "Every finite radial hedgehog is compact."
+        },
+        {
+          "name": "radialHedgehog_zero_mem",
+          "role": "simp",
+          "statement": "For a nonempty index type, 0∈K(a)."
+        },
+        {
+          "name": "radialHedgehog_norm_le",
+          "role": "projection",
+          "statement": "For z∈K(a), |z|≤R(a)."
+        },
+        {
+          "name": "radialHedgehog_mono_lengths",
+          "role": "functoriality",
+          "statement": "Replacing endpoints by longer endpoints on the same rays enlarges the hedgehog."
+        },
+        {
+          "name": "radialHedgehog_affine_scale",
+          "role": "functoriality",
+          "statement": "For c∈ℂ, K(ca)=cK(a) and R(ca)=|c|R(a)."
+        },
+        {
+          "name": "radialHedgehog_complement",
+          "role": "structure",
+          "statement": "For a nonempty family the plane complement is connected; its sphere complement is simply connected, and the inverted domain contains 0."
+        },
+        {
+          "name": "radialHedgehog_eq_iUnion_segment",
+          "role": "compatibility",
+          "statement": "K(a)=⋃_i segment ℝ 0 (a_i), with Mathlib’s real affine segment in ℂ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hedgehog_empty",
+          "kind": "degenerate",
+          "statement": "An empty family gives K=∅, R=0; one zero endpoint gives K={0}."
+        },
+        {
+          "name": "hedgehog_one",
+          "kind": "computed",
+          "statement": "The endpoint 4 gives [0,4], whose transfinite diameter is 1."
+        },
+        {
+          "name": "hedgehog_opposite",
+          "kind": "computed",
+          "statement": "Endpoints 1 and −1 give [−1,1], whose diameter is 1/2."
+        },
+        {
+          "name": "hedgehog_duplicate",
+          "kind": "compatibility",
+          "statement": "Endpoints 1,1 give the same set as Mathlib segment ℝ 0 1, namely [0,1]; multiplicity does not give the regular two-spike set."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dimitrov §4, pp. 14–15",
+          "how": "Contains the branch points α_i² and α_i⁴ of the normalized square root."
+        },
+        {
+          "where": "CA.6/dubinin-hedgehog-bound",
+          "how": "Allows repeated or zero endpoints to be removed and longer radial segments to be compared."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/normalized-conformal-radius",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Conformal radius using the existing normalized map",
+      "kind": "definition",
+      "statement": "For a proper simply connected open Ω⊆ℂ and p∈Ω, take any existing TauCeti.IsNormalizedRiemannMapOn φ Ω p and define cr(Ω,p)=1/|φ′(p)|>0. The pinned existence and on-domain uniqueness theorems make this independent of φ. Outside the eligible pointed-domain class use value 0. No second normalized-map predicate or Riemann-map construction is introduced.",
+      "hypotheses": [
+        "Ω is nonempty, open, simply connected and proper; p is a specified point of Ω.",
+        "Derivative positivity means its imaginary part is zero and its real part is strictly positive."
+      ],
+      "proofSteps": [
+        "Use the pinned exists_isNormalizedRiemannMapOn; its derivative is a positive real number. On-domain uniqueness from IsNormalizedRiemannMapOn.eqOn implies equality of derivatives at p and hence equality of the reciprocal moduli.",
+        "Apply Schwarz’s derivative bound to the composition of two maps and their inverses to prove conformal-radius monotonicity under inclusion.",
+        "The affine coordinate change z↦az+b gives cr(aΩ+b,ap+b)=|a|cr(Ω,p) for a≠0. For an increasing open exhaustion, the inverse image of a closed radius-q disc is compact; it lies in one exhausting domain and gives the lower bound q·cr(Ω,p)."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.IsNormalizedRiemannMapOn",
+        "tauceti:TauCeti.exists_isNormalizedRiemannMapOn",
+        "tauceti:TauCeti.IsNormalizedRiemannMapOn.eqOn",
+        "mathlib:Complex.norm_deriv_le_one_of_mapsTo_ball"
+      ],
+      "sources": [
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1, corollary and normalized slit maps, pp. 270–271",
+          "match": "The slit-domain comparison is expressed through the derivative of a disc map normalized at zero."
+        },
+        {
+          "sourceId": "saff-2010",
+          "locator": "§3, Theorem 3.5, p. 185",
+          "match": "Exterior logarithmic capacity is determined by the derivative normalization of a conformal map at infinity."
+        }
+      ],
+      "acceptance": [
+        "Normalization is at the specified base point; an arbitrary Riemann map derivative does not define a conformal radius."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "conformalRadius_pos",
+          "role": "projection",
+          "statement": "cr(Ω,p)>0 on an eligible pointed domain."
+        },
+        {
+          "name": "conformalRadius_independent",
+          "role": "compatibility",
+          "statement": "The reciprocal derivative norm is independent of the existing normalized-map witness, by the pinned IsNormalizedRiemannMapOn.eqOn theorem."
+        },
+        {
+          "name": "conformalRadius_deriv",
+          "role": "compatibility",
+          "statement": "cr(Ω,p)=1/|φ′(p)| for any biholomorphism φ with φ(p)=0, even before fixing its phase."
+        },
+        {
+          "name": "conformalRadius_mono",
+          "role": "functoriality",
+          "statement": "If Ω⊆Ω′ are eligible domains containing p, cr(Ω,p)≤cr(Ω′,p)."
+        },
+        {
+          "name": "conformalRadius_affine",
+          "role": "functoriality",
+          "statement": "cr(aΩ+b,ap+b)=|a|cr(Ω,p) for a≠0."
+        },
+        {
+          "name": "conformalRadius_exhaustion",
+          "role": "relation",
+          "statement": "If Ω_j increase to Ω and all are eligible with p∈Ω_j, then cr(Ω_j,p)→cr(Ω,p). This follows by placing the inverse image of every closed radius-q disc, q<1, inside one Ω_j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "conformalRadius_disc",
+          "kind": "computed",
+          "statement": "cr(ball(b,R),b)=R for R>0, using (z−b)/R."
+        },
+        {
+          "name": "conformalRadius_halfplane",
+          "kind": "computed",
+          "statement": "For Re z>0 at p=1, cr=2, using (z−1)/(z+1)."
+        },
+        {
+          "name": "conformalRadius_slitplane",
+          "kind": "computed",
+          "statement": "For ℂ∖(−∞,0] at p=1, cr=4, using (√z−1)/(√z+1) with the principal square root."
+        },
+        {
+          "name": "conformalRadius_wrong_point",
+          "kind": "non-example",
+          "statement": "On the unit disc, cr at p is 1−|p|²; it is not identically 1 for all base points."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dubinin §1, pp. 270–271",
+          "how": "Turns the condenser inequality into a comparison of normalized slit-map derivatives."
+        },
+        {
+          "where": "CA.6/diameter-exterior-radius",
+          "how": "Relates the capacity of a hedgehog to the radius of its inverted complement."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/slit-dirichlet-capacity",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Dirichlet capacity for radial slit condensers",
+      "kind": "definition",
+      "statement": "For closed disjoint plates E₀,E₁⊆ℂ, with E₁ compact, positive separation, and G=ℂ∖(E₀∪E₁) bounded with finitely many analytic boundary arcs, define Cap_D(E₀,E₁)=inf_u ∫_G |∇u|² dA. Admissible u are continuous on ℂ, take values in [0,1], equal 0 on E₀ and 1 on E₁, are locally Lipschitz on G and C¹ off finitely many piecewise C¹ cuts, and have finite energy. The energy is the nonnegative extended integral of the squared real derivative norm; the infimum of an empty admissible class is +∞. The norm of the real Fréchet derivative ℂ→ℝ equals the Euclidean gradient norm.",
+      "hypotheses": [
+        "This part uses E₀=ℂ∖D, E₁=closedBall(0,ε), where D is a disc with finitely many radial slits and 0<ε below the slit tips.",
+        "The area measure is Lebesgue measure on ℝ² transported by ℂ≃ℝ². No factor 1/(2π) is inserted.",
+        "Local Lipschitz regularity is imposed only in G, so gradients can be unbounded near slit endpoints on a plate."
+      ],
+      "proofSteps": [
+        "Use an infimum in ℝ≥0∞ of nonnegative integrals; totalized real integrals of a nonintegrable function must not silently give zero.",
+        "The finite cuts have area zero, so changing derivative values on them does not affect energy. Radial logarithmic test functions give a nonempty class for round annuli; the special slit-domain comparisons use conformal pullbacks and monotonicity.",
+        "Do not introduce a general Sobolev-space, Perron-solution or harmonic-measure construction: the stated elementary variational class suffices for the source argument."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/normalized-conformal-radius"
+      ],
+      "sources": [
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1, definition before Theorem 1 and proof, pp. 269–270",
+          "match": "Desymmetrization compares condenser capacities through Dirichlet integrals of admissible functions."
+        },
+        {
+          "sourceId": "saff-2010",
+          "locator": "§5, pp. 192–194, circular-annulus example",
+          "match": "The energy-normalized condenser capacity differs from the Dirichlet integral normalization by 2π."
+        }
+      ],
+      "acceptance": [
+        "For a round annulus r<|z|<R, Cap_D=2π/log(R/r). Saff’s logarithmic-energy condenser capacity is 1/log(R/r); these conventions must not be interchanged."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "dirichletCapacity_nonneg",
+          "role": "relation",
+          "statement": "Cap_D takes values in ℝ≥0∞."
+        },
+        {
+          "name": "dirichletCapacity_test_le",
+          "role": "projection",
+          "statement": "Every admissible u gives Cap_D≤energy(u)."
+        },
+        {
+          "name": "dirichletCapacity_mono_plate",
+          "role": "functoriality",
+          "statement": "Enlarging either plate, while keeping plates separated and the geometry eligible, can only increase Cap_D."
+        },
+        {
+          "name": "dirichletCapacity_conformal",
+          "role": "functoriality",
+          "statement": "A biholomorphism of condenser domains that continuously carries the corresponding plates preserves Cap_D under pullback."
+        },
+        {
+          "name": "dirichletCapacity_dihedral_average",
+          "role": "structure",
+          "statement": "A finite rotational/reflection group preserving the plates can average an admissible function without increasing its energy; the infimum over invariant functions equals the full infimum."
+        }
+      ],
+      "tests": [
+        {
+          "name": "dirichletCapacity_annulus",
+          "kind": "computed",
+          "statement": "E₀={|z|≥2}, E₁={|z|≤1} give Cap_D=2π/log 2."
+        },
+        {
+          "name": "dirichletCapacity_scale",
+          "kind": "compatibility",
+          "statement": "Scaling both annulus radii by 3 leaves Cap_D unchanged."
+        },
+        {
+          "name": "dirichletCapacity_separation",
+          "kind": "non-example",
+          "statement": "The plates {|z|≥1} and {|z|≤1} are not eligible: they meet on the circle."
+        },
+        {
+          "name": "dirichletCapacity_thin_annulus",
+          "kind": "limit",
+          "statement": "For fixed r>0, Cap_D tends to +∞ as R decreases to r; the reciprocal-log direction is essential."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Dubinin Theorem 1, pp. 269–270",
+          "how": "The rotated test function proves the slit-domain capacity inequality without solving a PDE."
+        },
+        {
+          "where": "CA.6/slit-radius-asymptotic",
+          "how": "Reads the conformal radius from a shrinking-inner-disc condenser."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dirichlet-capacity-change-variables",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Dirichlet conformal invariance and the annulus formula",
+      "kind": "theorem",
+      "statement": "For the radial slit condenser class, Cap_D is invariant under eligible conformal changes of coordinates. For round plates E₀={|z|≥R}, E₁={|z|≤r}, 0<r<R, Cap_D=2π/log(R/r). Plate monotonicity holds with the direction stated in the definition.",
+      "hypotheses": [
+        "Coordinate maps are biholomorphisms of the open condenser domains with continuous corresponding boundary values; the composed tests remain in the prescribed class."
+      ],
+      "proofSteps": [
+        "For a holomorphic conformal map the derivative multiplies real lengths by |φ′| and area by |φ′|². The chain rule and change of variables cancel the factors in the nonnegative Dirichlet integral; apply both map directions.",
+        "For an annulus, the admissible radial function log(R/|z|)/log(R/r) has energy 2π/log(R/r). On each radial line, the endpoint value difference is 1; weighted Cauchy–Schwarz gives radial energy at least 1/log(R/r). Integrate angles and discard the nonnegative angular contribution.",
+        "The larger-plate admissible class is a subset of the smaller-plate class, and gradients vanish in the plate regions. This proves monotonicity."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/slit-dirichlet-capacity",
+        "mathlib:MeasureTheory.lintegral_image_eq_lintegral_abs_det_fderiv_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1, Dirichlet integral characterization, pp. 269–270",
+          "match": "The proof uses capacity invariance and comparison of test-function energies."
+        },
+        {
+          "sourceId": "saff-2010",
+          "locator": "§5, circular-annulus example, pp. 192–194",
+          "match": "The logarithmic annulus denominator confirms the normalization after multiplication by 2π."
+        }
+      ],
+      "acceptance": [
+        "Any formula log(R/r)/(2π) would be the reciprocal capacity and fails the thin-annulus check."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/slit-radius-asymptotic",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The small-inner-disc capacity asymptotic",
+      "kind": "lemma",
+      "statement": "Let D be a bounded simply connected radial slit disc containing 0, and c_D=cr(D,0). For 0<ε sufficiently small put C_D(ε)=Cap_D(ℂ∖D,closedBall(0,ε)). Then 2π/C_D(ε)=log(1/ε)+log(c_D)+o(1) as ε→0+. In particular C_D(ε)≤C_E(ε) for all sufficiently small ε implies cr(D,0)≥cr(E,0).",
+      "hypotheses": [
+        "D and E have the specified finite slit geometry and contain 0. Capacity is finite and positive for these separated plates."
+      ],
+      "proofSteps": [
+        "Use the normalized Riemann map φ with φ′(0)=1/c_D. Its image of the small inner disc is sandwiched between concentric discs of radii ε/c_D·(1±o(1)), from uniform differentiability and the inverse-map expansion.",
+        "Conformal invariance and plate monotonicity sandwich the capacity between the two explicit annulus capacities. Taking reciprocals yields the asserted asymptotic with the plus sign in front of log(c_D).",
+        "For the comparison, take reciprocal capacities, subtract log(1/ε), and pass to the limit."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/normalized-conformal-radius",
+        "ClassicalArithmeticCompletion:CA.6/dirichlet-capacity-change-variables"
+      ],
+      "sources": [
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1 corollary proof, pp. 270–271",
+          "match": "The normalized derivative comparison is obtained from condensers with a shrinking inner boundary."
+        }
+      ],
+      "acceptance": [
+        "For D=ball(0,R), the identity is exact with c_D=R; increasing R decreases capacity and increases conformal radius."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dubinin-desymmetrization",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Dubinin’s finite rotational desymmetrization",
+      "kind": "construction",
+      "statement": "For n≥1 distinct ray directions θ_j and 0<r<1, let D(r;θ)=ball(0,1)∖⋃_j{t exp(iθ_j):r≤t<1}. Let D*(r,n) use equally spaced directions 2πj/n. There is a finite partition into angular pieces with rotations about 0 sending the regular slit configuration to the prescribed one. On identified cut boundaries, the inverse images differ by elements of the dihedral symmetry group of the regular configuration. Consequently every dihedrally invariant admissible test function on D* transfers to a continuous admissible test function on D with the same Dirichlet energy and unchanged circular inner and outer plate values.",
+      "hypotheses": [
+        "Distinct directions and positive slit tip radius; repeated rays are collapsed before applying this construction.",
+        "A partition of the plane into closed angular pieces has disjoint interiors; energy is computed on those interiors, and finite cuts have area zero."
+      ],
+      "proofSteps": [
+        "Use the angle-subdivision construction in Dubinin Lemma 1: move sectors by rotations, split a sector at every mismatch, and match cut rays by the dihedral reflections. The finite procedure reduces the remaining unmatched angular pieces.",
+        "Define the transferred function on each rotated piece by composing the original function with the inverse rotation. Dihedral invariance gives equal values on common cuts. Lemma 2 supplies local Lipschitz regularity across them; finite C1 cuts are transported to finite C1 cuts.",
+        "Rotations have area Jacobian 1 and preserve the gradient norm, so the sum of piece energies is unchanged. Rotations preserve the concentric plate circles and send the regular slits to the prescribed slit plate."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/slit-dirichlet-capacity"
+      ],
+      "sources": [
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1, Lemmas 1–2 and Theorem 1 proof, pp. 268–270",
+          "match": "A finite angular partition, its boundary matching, and the transferred symmetric test function give the desymmetrization capacity inequality."
+        }
+      ],
+      "acceptance": [
+        "Boundary matching is a mathematical condition, not an assertion that arbitrary independently rotated sectors automatically produce a continuous function."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "desymmetrization_partition",
+          "role": "projection",
+          "statement": "The angular pieces cover the plane and have pairwise disjoint interiors, both before and after rotation."
+        },
+        {
+          "name": "desymmetrization_boundary_match",
+          "role": "relation",
+          "statement": "On each common cut, the two inverse images are related by an element of the regular configuration’s dihedral group."
+        },
+        {
+          "name": "desymmetrization_transfer",
+          "role": "constructor",
+          "statement": "A dihedrally invariant admissible function transfers by the inverse rotations and agrees on all cuts."
+        },
+        {
+          "name": "desymmetrization_energy",
+          "role": "compatibility",
+          "statement": "The transferred nonnegative Dirichlet integral equals the original integral."
+        },
+        {
+          "name": "desymmetrization_capacity_le",
+          "role": "relation",
+          "statement": "Averaging first over the dihedral group and then transferring gives Cap_D(D,ε)≤Cap_D(D*,ε) for 0<ε<r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "desymmetrization_one_ray",
+          "kind": "degenerate",
+          "statement": "For n=1, a single global rotation transfers the slit domain and preserves capacity."
+        },
+        {
+          "name": "desymmetrization_regular",
+          "kind": "compatibility",
+          "statement": "For equally spaced directions the identity partition works and the capacities agree."
+        },
+        {
+          "name": "desymmetrization_two_rays",
+          "kind": "non-example",
+          "statement": "For two distinct but non-antipodal rays the construction must still cover both domains and match cuts; a single global rotation cannot supply it."
+        },
+        {
+          "name": "desymmetrization_radius",
+          "kind": "computed",
+          "statement": "Every piece rotation fixes the radius-ε inner plate; moving that plate independently violates the construction."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CA.6/dubinin-slit-radius",
+          "how": "Compares an arbitrary slit domain with its regular configuration through the capacity infimum."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dubinin-slit-radius",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Dubinin’s slit-domain conformal-radius comparison",
+      "kind": "theorem",
+      "statement": "For n≥1 distinct directions and 0<r<1, cr(D(r;θ),0)≥cr(D*(r,n),0). Equivalently the positive derivatives of their normalized disc maps satisfy φ_D′(0)≤φ_D*′(0).",
+      "hypotheses": [
+        "Exactly the radial slit domains specified in the desymmetrization construction. No equality characterization is required."
+      ],
+      "proofSteps": [
+        "Average each admissible regular-domain test over its finite dihedral group; convexity of squared gradient norm does not increase energy.",
+        "Transfer that invariant test using the finite rotational partition. Take the infimum to obtain C_D(ε)≤C_D*(ε) for every 0<ε<r.",
+        "Apply the small-inner-disc asymptotic and invert the positive conformal radii to get the derivative comparison."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/dubinin-desymmetrization",
+        "ClassicalArithmeticCompletion:CA.6/slit-radius-asymptotic",
+        "ClassicalArithmeticCompletion:CA.6/normalized-conformal-radius"
+      ],
+      "sources": [
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1, corollary after Theorem 1, pp. 270–271",
+          "match": "The arbitrary slit map has no larger derivative at zero than the regular slit map."
+        }
+      ],
+      "acceptance": [
+        "For one slit the comparison is equality under rotation.",
+        "The radius inequality is opposite to the normalized-derivative inequality."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/diameter-exterior-radius",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Transfinite diameter and the inverted exterior radius",
+      "kind": "theorem",
+      "statement": "Let K be a nontrivial finite radial hedgehog and b>0. Put U_b={0}∪{b/z:z∈ℂ∖K}. Then U_b is a proper simply connected open domain containing 0 and d(K)=b/cr(U_b,0). Equivalently the normalized exterior map Ψ:ℂ∖K→{|w|>1} has Ψ(z)=γz+O(1) at infinity with γ=1/d(K)>0.",
+      "hypotheses": [
+        "Nontrivial means K contains a nonzero endpoint; the singleton hedgehog has d=0 and its inverted domain is the entire plane, which has no disc Riemann map."
+      ],
+      "proofSteps": [
+        "The inverted domain is the plane with finitely many outward rays deleted, hence is open and star-convex at 0. Use the pinned contractibility and Riemann-mapping results. Invert its normalized map to obtain Ψ(z)=1/φ(b/z), with γ=φ′(0)/b.",
+        "For r>1 the level curve Γ_r=Ψ⁻¹({|w|=r}) encloses K. The polynomial part Q_n of γ⁻ⁿΨⁿ is monic of degree n. Its Cauchy contour representation gives ‖Q_n‖_K≤C_r(r/γ)^n. The Chebyshev limit gives d(K)≤1/γ as r decreases to 1.",
+        "For every monic degree-n p, p/Ψⁿ is holomorphic on the exterior, including infinity, and tends to γ⁻ⁿ there. The maximum principle on the exterior of Γ_r yields γ⁻ⁿ≤r⁻ⁿ‖p‖_(Γ_r). The curves approach K as r decreases to 1, yielding ‖p‖_K≥γ⁻ⁿ. Take the Chebyshev limit for the reverse inequality."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/radial-hedgehog",
+        "ClassicalArithmeticCompletion:CA.6/normalized-conformal-radius",
+        "ClassicalArithmeticCompletion:CA.6/fekete-chebyshev-limit",
+        "mathlib:DifferentiableOn.hasFPowerSeriesOnBall",
+        "tauceti:TauCeti.Contour.homologyCauchyTheorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "saff-2010",
+          "locator": "§3, Theorem 3.5 and Example 3.6, p. 185; §1, Theorem 1.9, pp. 172–173",
+          "match": "The leading coefficient of the exterior conformal map is the reciprocal capacity, and capacity equals the transfinite diameter. The displayed proof uses the already planned Chebyshev characterization instead of adding a general energy-minimization theory."
+        }
+      ],
+      "acceptance": [
+        "For [0,a], the exterior radius relation gives d=|a|/4. The scale b is retained explicitly; taking b=R in the hedgehog comparison avoids a reciprocal-scale error."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dubinin-hedgehog-bound",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Dubinin’s radial hedgehog bound",
+      "kind": "theorem",
+      "statement": "For n≥1 and endpoints a₁,…,a_n∈ℂ, with R=max_i|a_i|, d(K(a))≤R·4^(−1/n). Equivalently d(K(a))^n≤R^n/4. Zero endpoints, repeated endpoints and coincident rays are allowed. For the regular n-spike hedgehog with endpoints R exp(2πij/n), equality holds.",
+      "hypotheses": [
+        "n≥1; the bound is interpreted with the usual positive real nth root."
+      ],
+      "proofSteps": [
+        "If R=0 then K={0} and its diameter is zero. Otherwise extend every nonzero segment to length R, collapse coincident rays, and let m≤n be the resulting positive number of distinct rays. Monotonicity reduces to this equal-length hedgehog.",
+        "Invert by z↦R/z. The resulting domain U is the plane minus m outward rays starting on the unit circle. Exhaust it by U∩ball(0,L), L>1. Scaling by 1/L gives the slit discs with tip radius 1/L. Dubinin’s slit-radius comparison and conformal-radius exhaustion give cr(U,0)≥cr(U*,0).",
+        "Apply the exterior-radius identity to turn this into d(K)≤d(K*). The regular m-spike set is the inverse image of [0,R^m] under X^m, so the monic inverse-image formula and d([0,s])=s/4 give d(K*)=R4^(−1/m)≤R4^(−1/n)."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/finite-fekete-diameter",
+        "ClassicalArithmeticCompletion:CA.6/radial-hedgehog",
+        "ClassicalArithmeticCompletion:CA.6/dubinin-slit-radius",
+        "ClassicalArithmeticCompletion:CA.6/diameter-exterior-radius",
+        "ClassicalArithmeticCompletion:CA.6/normalized-conformal-radius",
+        "ClassicalArithmeticCompletion:CA.6/monic-preimage-diameter"
+      ],
+      "sources": [
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§3, Theorem 3, p. 12",
+          "match": "Dubinin’s bound for a finite union of radial segments is the analytic inequality needed by Schinzel–Zassenhaus."
+        },
+        {
+          "sourceId": "dubinin-1985",
+          "locator": "§1, corollary, pp. 270–271",
+          "match": "The normalized slit-map derivative comparison supplies the geometric inequality through inversion and exhaustion."
+        }
+      ],
+      "acceptance": [
+        "One endpoint a gives the sharp value |a|/4. Endpoints 1,−1 give the sharp value 1/2. Endpoints 1,1 give 1/4, strictly below the n=2 bound 1/2; multiplicity is not an equality hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/shifted-hankel-determinant",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The shifted leading Hankel determinant",
+      "kind": "definition",
+      "statement": "For a sequence a:ℕ→R over a commutative ring and n∈ℕ, H_n(a) is the n×n matrix with entry a_(i+j+1), 0≤i,j<n, and D_n(a)=det H_n(a). In particular D₀=1. The coefficient a₀ does not enter these determinants.",
+      "hypotheses": [
+        "The +1 shift corresponds to the Laurent coefficient extracted by ∮G(z)z^k dz; use this convention throughout."
+      ],
+      "proofSteps": [
+        "Use Matrix (Fin n) (Fin n) R and the existing determinant. Ring-hom compatibility follows from determinant naturality.",
+        "A tail recurrence makes sufficiently many columns dependent, while the exact converse needs eventual vanishing of every leading determinant, as in Kronecker’s criterion."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det",
+        "mathlib:Matrix.det_apply",
+        "mathlib:RingHom.map_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, Hankel determinant in the proof of Theorem 4, pp. 13–14",
+          "match": "The matrix uses the coefficient shift a_(i+j+1)."
+        },
+        {
+          "sourceId": "iribar-kronecker",
+          "locator": "§2, Theorem 1 and proof, pp. 2–3",
+          "match": "Kronecker’s criterion is written for the unshifted sequence; apply it to the tail a_(j+1)."
+        }
+      ],
+      "acceptance": [
+        "A single zero leading determinant does not establish rationality."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "shiftedHankelDet_zero",
+          "role": "simp",
+          "statement": "D₀(a)=1."
+        },
+        {
+          "name": "shiftedHankelDet_one",
+          "role": "simp",
+          "statement": "D₁(a)=a₁."
+        },
+        {
+          "name": "shiftedHankelDet_two",
+          "role": "example",
+          "statement": "D₂(a)=a₁a₃−a₂²."
+        },
+        {
+          "name": "shiftedHankelDet_map",
+          "role": "functoriality",
+          "statement": "A ring homomorphism φ sends D_n(a) to D_n(φ∘a)."
+        },
+        {
+          "name": "shiftedHankelDet_integer",
+          "role": "compatibility",
+          "statement": "For integer a, its complex determinant is the integer cast of D_n(a); hence a nonzero determinant has complex norm at least 1."
+        },
+        {
+          "name": "shiftedHankelDet_monic_basis",
+          "role": "compatibility",
+          "statement": "Replacing powers X^i in both rows and columns by monic degree-i polynomials leaves the determinant of the moment matrix unchanged."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hankel_empty",
+          "kind": "degenerate",
+          "statement": "D₀=1, not zero."
+        },
+        {
+          "name": "hankel_geometric",
+          "kind": "computed",
+          "statement": "For a_j=2^j, D₁=2 and D₂=0."
+        },
+        {
+          "name": "hankel_shift",
+          "kind": "compatibility",
+          "statement": "For a₀=7, a₁=2, a₂=3, a₃=5, D₂=1; changing a₀ has no effect."
+        },
+        {
+          "name": "hankel_single_zero",
+          "kind": "non-example",
+          "statement": "For a₁=0, a₂=1, a₃=0, D₁=0 but D₂=−1. One vanishing determinant is insufficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CA.6/hankel-analytic-growth",
+          "how": "The contour coefficient formula is exactly the shifted moment matrix."
+        },
+        {
+          "where": "CA.6/bertrandias-rationality",
+          "how": "Integer determinants smaller than 1 must vanish, and Kronecker converts eventual vanishing into rationality."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/exterior-laurent-continuation",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "An exterior Laurent continuation",
+      "kind": "definition",
+      "statement": "For a:ℕ→ℂ and compact nonempty K⊆ℂ, an exterior Laurent continuation is a function G:ℂ→ℂ holomorphic on ℂ∖K, together with R>0 such that K⊆closedBall(0,R) and, whenever |z|>R, HasSum(Σ_j a_j z^(−j),G(z)). Equivalently the summand is a_j(z⁻¹)^j. Values of G on K are irrelevant.",
+      "hypotheses": [
+        "Only a convergent germ at infinity is claimed; arbitrary formal series are not silently treated as analytic functions.",
+        "Connectedness of ℂ∖K is not required for the formal rationality conclusion. If the conclusion also identifies G with the rational function everywhere off K, require connectedness."
+      ],
+      "proofSteps": [
+        "Store an unbundled holomorphic witness and an exterior convergence radius. The radius can be enlarged, and the excluded compact set can be enlarged, without changing the germ.",
+        "On a connected complement the identity theorem makes the witness unique there. The formal series at infinity is PowerSeries.mk a in the variable w=1/z."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/shifted-hankel-determinant",
+        "mathlib:PowerSeries.mk",
+        "mathlib:DifferentiableOn.hasFPowerSeriesOnBall"
+      ],
+      "sources": [
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, Theorem 4 and Corollary 5, pp. 13–15",
+          "match": "A convergent integer Laurent germ extends as a single-valued holomorphic function outside a small-diameter compact set."
+        },
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§3.1, Theorem 1, pp. 12–13",
+          "match": "The extension assumption is imposed on the germ, not merely on an unrelated holomorphic function."
+        }
+      ],
+      "acceptance": [
+        "A0 may be nonzero. It is a constant term and has no effect on the shifted Hankel rationality criterion."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "exteriorContinuation_enlarge_radius",
+          "role": "functoriality",
+          "statement": "Any larger positive radius containing K is a valid convergence radius."
+        },
+        {
+          "name": "exteriorContinuation_enlarge_set",
+          "role": "functoriality",
+          "statement": "If K⊆L are compact, restrict the same witness to ℂ∖L and enlarge its radius."
+        },
+        {
+          "name": "exteriorContinuation_unique",
+          "role": "extensionality",
+          "statement": "For connected ℂ∖K, two witnesses for the same coefficients agree off K."
+        },
+        {
+          "name": "exteriorContinuation_coeff",
+          "role": "compatibility",
+          "statement": "The coefficient of z^(−j) is PowerSeries.coeff j (PowerSeries.mk a)."
+        },
+        {
+          "name": "exteriorContinuation_moment",
+          "role": "relation",
+          "statement": "For a finite smooth contour cycle enclosing K with total index 1 and lying off K, a_(k+1)=(2πi)⁻¹∮G(z)z^k dz for every k≥0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "continuation_geometric",
+          "kind": "computed",
+          "statement": "G(z)=1/(z−2), K={2}, a₀=0 and a_j=2^(j−1) for j≥1 give a continuation and a rational formal series."
+        },
+        {
+          "name": "continuation_branch",
+          "kind": "non-example",
+          "statement": "G(z)=sqrt(1−1/z) on the complement of [0,1] has the normalized branch at infinity but coefficients a₁=−1/2, so it fails integer integrality."
+        },
+        {
+          "name": "continuation_essential_infinity",
+          "kind": "non-example",
+          "statement": "G(z)=exp z is holomorphic outside {0} but has no convergent series in nonpositive powers at infinity; holomorphy alone is insufficient."
+        },
+        {
+          "name": "continuation_constant",
+          "kind": "degenerate",
+          "statement": "G=7 and a₀=7, a_j=0 for j>0 work for every nonempty compact K."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CA.6/hankel-analytic-growth",
+          "how": "Permits deformation of a large coefficient circle to a lemniscate boundary."
+        },
+        {
+          "where": "CA.6/hedgehog-square-root-continuation",
+          "how": "Records the single-valued square-root branch with its actual formal germ."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/kronecker-hankel-rationality",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Kronecker’s eventual Hankel vanishing criterion",
+      "kind": "theorem",
+      "statement": "For a sequence a over a field k, PowerSeries.mk a is rational in the sense of CA.2/rational-power-series if and only if there exists N such that D_n(a)=0 for all n≥N. The denominator may be normalized to have constant term 1; no degree bound on the numerator is assumed.",
+      "hypotheses": [
+        "k is a field; no characteristic-zero hypothesis is needed for this algebraic criterion."
+      ],
+      "proofSteps": [
+        "Rationality gives a linear recurrence for the coefficients after the numerator degree. For large n its shifted moment matrix has dependent columns, and D_n=0.",
+        "Conversely apply the source criterion to the tail b_j=a_(j+1). If all its leading determinants vanish, its first nonzero coefficient would give a nonzero anti-diagonal determinant, so the tail is zero. Otherwise take r maximal with a nonzero r×r leading determinant. Solve the unique r-term recurrence from its invertible block.",
+        "If the first later recurrence failure is at the index controlled by d≥0, a block determinant factors as det(A_r) times a nonzero anti-diagonal block of size d+1, with sign (−1)^((d+1)d/2). This contradicts maximality. The recurrence is therefore valid from a finite index onward. Multiply the series by its recurrence polynomial to get a polynomial; adding a₀ does not change rationality."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/shifted-hankel-determinant",
+        "ClassicalArithmeticCompletion:CA.2/rational-power-series",
+        "mathlib:Matrix.det"
+      ],
+      "sources": [
+        {
+          "sourceId": "iribar-kronecker",
+          "locator": "§2, Theorem 1 and proof, pp. 2–3",
+          "match": "Eventual vanishing of all leading Hankel determinants characterizes rational formal series. The proof is used with the sign, index and recurrence corrections recorded under sourceIssues."
+        },
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§2.1, Theorem 1, p. 6",
+          "match": "Kronecker’s determinant criterion links rationality to eventual determinant vanishing."
+        }
+      ],
+      "acceptance": [
+        "The +1 shift discards only the constant coefficient. A zero determinant at one size does not satisfy the eventual condition."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/hankel-analytic-growth",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Analytic n²-growth bound for Hankel determinants",
+      "kind": "theorem",
+      "statement": "If a has an exterior Laurent continuation outside a nonempty compact K, then for every r>d(K) there exists B>0 such that |D_n(a)|≤n! B^n r^(n(n−1)) for every n∈ℕ. In particular limsup_(n→∞)|D_n(a)|^(1/n²)≤d(K).",
+      "hypotheses": [
+        "r>d(K)≥0, so r>0. The limsup statement concerns n≥1."
+      ],
+      "proofSteps": [
+        "Choose a regular lemniscate enclosure L of diameter ρ with d(K)<ρ<r. Its boundary Γ lies off K and encloses K. The Laurent coefficient formula gives a_(k+1)=(2πi)⁻¹∮_ΓG(z)z^k dz, by deforming a large coefficient circle through the holomorphy region.",
+        "Change rows and columns from X^i to the monic basis Q_i supplied by the enclosure. Both change-of-basis matrices are triangular with diagonal 1, so their determinants are 1. The new moment entries obey |L(Q_iQ_j)|≤Bρ^(i+j), with B independent of i,j.",
+        "The determinant expansion has n! terms; in every term Σ_i(i+σ(i))=n(n−1). This gives the stated bound (enlarge B if needed and use ρ<r). Take n²th roots; log(n!)/n² and log(B)/n tend to zero, then let r decrease to d(K)."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/exterior-laurent-continuation",
+        "ClassicalArithmeticCompletion:CA.6/lemniscate-enclosure",
+        "ClassicalArithmeticCompletion:CA.6/shifted-hankel-determinant",
+        "mathlib:Matrix.det_apply",
+        "mathlib:Matrix.det_mul",
+        "tauceti:TauCeti.Contour.homologyCauchyTheorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§2.6, pp. 10–12; §3.1, pp. 12–13",
+          "match": "Contour coefficient formulas and Chebyshev estimates give the quadratic-exponent determinant bound."
+        },
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, proof of Theorem 4, pp. 13–14",
+          "match": "Monic row and column transformations expose the capacity bound on Hankel determinants."
+        }
+      ],
+      "acceptance": [
+        "At n=0 both sides equal 1. Factorial growth is negligible relative to any fixed r^(n²) with r<1; no unjustified uniform bound in n is imposed on G’s raw coefficients."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/bertrandias-rationality",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "Bertrandias’s integer Laurent rationality criterion",
+      "kind": "theorem",
+      "statement": "Let a:ℕ→ℤ, and suppose its complex coefficient casts have an exterior Laurent continuation outside a nonempty compact K⊆ℂ with d(K)<1. Then PowerSeries.mk (a cast to ℚ) is rational: there exist P,Q∈ℚ[X] with Q(0)≠0 and Q·PowerSeries.mk a=P in ℚ⟦X⟧. If ℂ∖K is connected, the continuation agrees there with that rational germ wherever its expression in 1/z is defined.",
+      "hypotheses": [
+        "Integer coefficients and the strict diameter bound are essential. The main conclusion is rationality over ℚ, not a claim that every allowed denominator has integer constant term ±1."
+      ],
+      "proofSteps": [
+        "Choose d(K)<r<1. The analytic estimate gives |D_n|≤n!B^n r^(n(n−1)), which tends to zero because its logarithm has a negative quadratic leading term.",
+        "Each complex determinant is the cast of an integer determinant. For sufficiently large n its norm is below 1, so the integer determinant is zero. Transfer zero to ℚ and apply Kronecker’s criterion over ℚ.",
+        "On a connected complement, the identity theorem extends the equality of the rational germ and G away from poles and z=0; removable points are interpreted through G."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/hankel-analytic-growth",
+        "ClassicalArithmeticCompletion:CA.6/kronecker-hankel-rationality",
+        "ClassicalArithmeticCompletion:CA.6/shifted-hankel-determinant",
+        "ClassicalArithmeticCompletion:CA.2/rational-power-series"
+      ],
+      "sources": [
+        {
+          "sourceId": "bertrandias-1964",
+          "locator": "§3.1, Theorem 1, pp. 12–13, with §2.6",
+          "match": "The archimedean small-diameter continuation condition forces integer Hankel determinants to vanish."
+        },
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, Theorem 4 and Corollary 5, pp. 13–15",
+          "match": "The integer-coefficient specialization is the rationality input used for the square root."
+        }
+      ],
+      "acceptance": [
+        "The criterion applies to K={2} of diameter 0 for G=1/(z−2), despite a finite pole. K=[0,1] has diameter 1/4, but the normalized square-root example is excluded by its noninteger coefficients."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/hedgehog-square-root-continuation",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The square-root branch outside a hedgehog",
+      "kind": "construction",
+      "statement": "For a nonempty finite endpoint family β_i∈ℂ, put K=K(β) and Q(w)=∏_i(1−β_i w). There is a unique complex formal series S with S(0)=1 and S²=Q. Off K define G(z)=∏_i exp((1/2)log(1−β_i/z)), using the principal log. Then G is holomorphic off K, G(z)²=Q(1/z), G tends to 1 at infinity, and G is an exterior Laurent continuation of the coefficients of S.",
+      "hypotheses": [
+        "0∈K, so z⁻¹ is well-defined at every point of the holomorphy domain. Zero and repeated β_i are allowed.",
+        "This statement produces a complex series; integer coefficients must be supplied separately by CA.6/integral-square-root-power-series."
+      ],
+      "proofSteps": [
+        "If z∉[0,β_i], then 1−β_i/z avoids the nonpositive real ray. Indeed a nonpositive real value would make z a real multiple tβ_i with 0<t≤1. Thus each principal-log factor is holomorphic outside K, and exp(log u)=u gives its square.",
+        "For |z| larger than every |β_i| the usual normalized analytic square root has a convergent expansion at infinity. The coefficient recursion 2s_m=q_m−Σ_(0<j<m)s_js_(m−j) uniquely specifies S over ℂ. Hence the analytic branch and the formal normalized square root have identical coefficients.",
+        "Multiply finitely many factors. Every factor tends to 1 at infinity; this fixes the sign of the square root."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/radial-hedgehog",
+        "ClassicalArithmeticCompletion:CA.6/exterior-laurent-continuation",
+        "mathlib:Complex.differentiableAt_log",
+        "mathlib:Complex.exp_log",
+        "mathlib:PowerSeries.coeff_mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, proof of Theorem 1, p. 15",
+          "match": "The cuts join 0 to the roots of P₂ and P₄, making the normalized square root single-valued outside their hedgehog."
+        }
+      ],
+      "acceptance": [
+        "No free choice of signs on separate factors is allowed: the value at infinity is 1."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      },
+      "api": [
+        {
+          "name": "hedgehogSqrt_square",
+          "role": "projection",
+          "statement": "G(z)²=∏_i(1−β_i/z) for z∉K."
+        },
+        {
+          "name": "hedgehogSqrt_holomorphic",
+          "role": "structure",
+          "statement": "G is holomorphic on ℂ∖K."
+        },
+        {
+          "name": "hedgehogSqrt_at_infinity",
+          "role": "projection",
+          "statement": "G tends to 1 as |z| tends to infinity."
+        },
+        {
+          "name": "hedgehogSqrt_coeff_unique",
+          "role": "characterisation",
+          "statement": "The formal square equation and constant coefficient 1 uniquely determine S."
+        },
+        {
+          "name": "hedgehogSqrt_continuation",
+          "role": "compatibility",
+          "statement": "The convergent Laurent germ of G has exactly the coefficients of that formal S."
+        },
+        {
+          "name": "hedgehogSqrt_integer_import",
+          "role": "compatibility",
+          "statement": "When the normalized square equation is supplied by the parent’s integer-series construction, the complex coefficients equal its integer casts."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hedgehogSqrt_one",
+          "kind": "computed",
+          "statement": "For β=1, G(2)=sqrt(1/2)>0 and G(−1)=sqrt 2>0."
+        },
+        {
+          "name": "hedgehogSqrt_zero",
+          "kind": "degenerate",
+          "statement": "With all β_i=0, K={0}, Q=1 and G=1."
+        },
+        {
+          "name": "hedgehogSqrt_repeated",
+          "kind": "compatibility",
+          "statement": "For endpoints 1,1 the normalized branch is G(z)=1−1/z, not its negative."
+        },
+        {
+          "name": "hedgehogSqrt_no_cut",
+          "kind": "non-example",
+          "statement": "For one β=1 there is no global single-valued holomorphic square root on ℂ∖{0,1}; a loop around the simple branch point changes its sign."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CA.6/dimitrov-analytic-input",
+          "how": "Supplies the exact continuation assumption for the integral normalized square root used in Dimitrov’s proof."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dimitrov-analytic-input",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.6",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "title": "The capacity-to-rationality input of Dimitrov’s bound",
+      "kind": "application",
+      "statement": "For n≥1, endpoints β₁,…,β_n, and an integer formal series S with S(0)=1 and S²=∏_i(1−β_i w) after casting to ℂ, if R=max_i|β_i| satisfies R^n<4, then S is rational over ℚ. In the parent Schinzel–Zassenhaus argument use β=(α_i²,α_i⁴), n=2d: if the house H>1 obeys H<2^(1/(4d)), then R≤H⁴ and R^(2d)<4, so this theorem makes the parent’s normalized integral square root rational.",
+      "hypotheses": [
+        "The integer square-root hypothesis is explicit and supplied by the existing parent construction. The displayed house substitution concerns the unit case H>1 used in the parent degree induction."
+      ],
+      "proofSteps": [
+        "The hedgehog square-root construction gives the exterior continuation of the integer coefficient casts. Dubinin’s bound and R^n<4 imply d(K)<1. Apply Bertrandias’s rationality criterion.",
+        "For a rational square root S of a polynomial, every irreducible factor of that polynomial has even valuation. The normalized reciprocal root product therefore corresponds to a square product P₂P₄ in the parent algebraic argument.",
+        "Bind this analytic result to the existing parent degree induction and corrected square-cyclotomic criterion; do not introduce a second Schinzel–Zassenhaus target."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.6/hedgehog-square-root-continuation",
+        "ClassicalArithmeticCompletion:CA.6/dubinin-hedgehog-bound",
+        "ClassicalArithmeticCompletion:CA.6/bertrandias-rationality",
+        "ClassicalArithmeticCompletion:CA.6/integral-square-root-power-series",
+        "ClassicalArithmeticCompletion:CA.6/root-power-polynomial",
+        "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-square-cyclotomic"
+      ],
+      "sources": [
+        {
+          "sourceId": "dimitrov-2019",
+          "locator": "§4, proof of Theorem 1, pp. 15–16, after Corollary 5",
+          "match": "The strict capacity bound makes the normalized integral square root rational; the algebraic part then forces cyclotomicity or a smaller-degree contradiction."
+        }
+      ],
+      "acceptance": [
+        "For d=1 the threshold in the contradiction is H<2^(1/4), and the estimate uses 2d segments, not d. A rational square-root branch does not alone prove cyclotomicity; the parent arithmetic induction is required."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Mahler/AnalyticInputs",
+        "namespace": "TauCeti.MahlerAnalytic"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.6",
+      "status": "planned",
+      "note": "All 45 parent targets are imported by their existing IDs, and all requested Smyth and Dimitrov analytic definitions and key inputs have exact target-level nodes. The potential-theory supplier contract is planned locally without an upward dependency. The sharp Smyth theorem still has the explicitly narrowed short-gap verification gap. This is a complete planning pass, not a claim of source or implementation closure.",
+      "remaining": [
+        "Verify Smyth’s exact §4 short-gap multipliers and inequalities from readable pp. 172–173; replace the narrowed gap only after that calculation is checked.",
+        "Resolve the inherited trace, stronger Dobrowolski, degree-drop-prime and dyadic-prime contracts at their existing owners.",
+        "Carry the parent’s latest assessments through assembly; resolve genuinely unsupplied mathematical interfaces, including the height point-at-infinity contract, without recreating already corrected findings.",
+        "Complete the inherited DT.0 embedding-product Siegel request and obtain independent review of this analytic plan."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Smyth short-gap multiplier verification",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6/smyth-short-gap-condition",
+        "ClassicalArithmeticCompletion:CA.6/smyth-analytic-input",
+        "ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound",
+        "ClassicalArithmeticCompletion:CA.6/plastic-number-least-pisot"
+      ],
+      "detail": "The public author-uploaded Smyth 1971 PDF extraction supplies the prose and final condition 40c⁴−93c²+40≥0, but omits the two displayed three-term multipliers and their exact selected-coefficient Parseval inequalities in §4, pp. 172–173. Obtain readable pages, verify the parameters and completing-square step giving that quartic under 3/4≤c<(√17−1)/4, k<l<2k, and record the exact inequalities in own words. The independently derived Schur bounds, quotient coupling, long-gap cubic and quartic-to-plastic comparison do not close this step."
+    },
+    {
+      "title": "Inherited trace and stronger small-height contracts",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "detail": "Retain the parent’s Smith 1–3 trace-ratio, finite-exception threshold and coprime auxiliary-resultant input; its BKK 69 contract requires an asymptotic Dobrowolski constant and uniform bounded-degree completion stronger than 1/11700; BKK 70 requires a count of degree-dropping primes. None is supplied by the present analytic input nodes. Import the exact parent gap contracts; do not reintroduce λ_SSS=2 as a current conjecture or theorem."
+    },
+    {
+      "title": "Inherited explicit dyadic prime count",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6/exists-prime-power-not-root"
+      ],
+      "detail": "For real x≥41/2, supply π(2x)−π(x)>3x/(5 log x), with the parent’s prime-count convention. This remains CA.6-owned under the tier rule; the parent records but does not verify the Rosser–Schoenfeld attribution. The already corrected Dobrowolski rounding and 1/11700 calculation are not reopened here."
+    },
+    {
+      "title": "Imported mathematical interfaces outside the analytic continuation scope",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6/salem-number",
+        "ClassicalArithmeticCompletion:CA.6/pisot-and-salem-numbers",
+        "ClassicalArithmeticCompletion:CA.6/reciprocal-iff-reverse",
+        "ClassicalArithmeticCompletion:CA.6/salem-number-conjugates",
+        "ClassicalArithmeticCompletion:CA.6/salem-number-pow",
+        "ClassicalArithmeticCompletion:CA.6/pisot-number-pow",
+        "ClassicalArithmeticCompletion:CA.6/salem-number-iff-trace",
+        "ClassicalArithmeticCompletion:CA.6/salem-number-in-field",
+        "ClassicalArithmeticCompletion:CA.6/salem-number-near-integers",
+        "ClassicalArithmeticCompletion:CA.6/pisot-number-pow-near-integer",
+        "ClassicalArithmeticCompletion:CA.6/mahler-measure-of-pisot-or-salem",
+        "ClassicalArithmeticCompletion:CA.6/reciprocal-pisot-numbers",
+        "ClassicalArithmeticCompletion:CA.6/plastic-number",
+        "ClassicalArithmeticCompletion:CA.6/plastic-number-least-pisot",
+        "ClassicalArithmeticCompletion:CA.6/lehmer-number",
+        "ClassicalArithmeticCompletion:CA.6/lehmer-number-is-salem",
+        "ClassicalArithmeticCompletion:CA.6/mahler-measure-of-unit-le-house",
+        "ClassicalArithmeticCompletion:CA.6/unit-of-mahler-measure-lt-two",
+        "ClassicalArithmeticCompletion:CA.6/smyth-integer-power-series",
+        "ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound",
+        "ClassicalArithmeticCompletion:CA.6/power-sum-frobenius-congruence",
+        "ClassicalArithmeticCompletion:CA.6/conjugate-powers-root-of-unity",
+        "ClassicalArithmeticCompletion:CA.6/exists-prime-power-not-root",
+        "ClassicalArithmeticCompletion:CA.6/degree-drop-mahler-measure",
+        "ClassicalArithmeticCompletion:CA.6/dobrowolski-auxiliary-polynomial",
+        "ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound",
+        "ClassicalArithmeticCompletion:CA.6/root-power-polynomial",
+        "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-congruence",
+        "ClassicalArithmeticCompletion:CA.6/integral-square-root-power-series",
+        "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-square-cyclotomic",
+        "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov",
+        "ClassicalArithmeticCompletion:CA.6/canonical-height-power-map"
+      ],
+      "detail": "For each historical frontier target consult the parent’s latest reviewAssessment and revisionResponse. Genuine remaining carrier, separability, embedding, recurrence, unit and height interfaces remain imported obligations; demands merely for smaller auxiliary nodes and findings explicitly resolved locally are not new gaps. This analytic pass does not certify all imported proofs or the projective point-at-infinity signature of the power-map height computation. In particular the remaining projective contract must name an actual P¹ carrier, the power map [x:y]↦[x^d:y^d] for d≥2, and ∞=[1:0]; prove that ∞ is fixed, its projective logarithmic height is 0, and its Tate-limit sequence is constantly 0. The affine constant-sequence and preperiodic signatures already in the parent are not missing suppliers, and no upward ArithmeticDynamics dependency is introduced."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DiophantineApproximationAndTranscendence:DT.0",
+      "need": "Siegel's lemma over a number field with rational-integer unknowns in product form (Berrevoets, Lemma 3.2, printed p. 11): let K be a number field of degree d with complex embeddings σ₁, …, σ_d, let N > dM, and let a_ij ∈ 𝓞_K (1 ≤ i ≤ M, 1 ≤ j ≤ N) with every row i containing a nonzero a_ij. Then Σ_j a_ij x_j = 0 (1 ≤ i ≤ M) has a solution x ∈ ℤ^N ∖ {0} with max_j |x_j| ≤ ((2√2N)^{dM} ∏_{i=1}^{M} ∏_{k=1}^{d} max_j |σ_k(a_ij)|)^{1/(N−dM)}. DT.0/siegel-lemma-number-field bounds the solution through a uniform bound A on the houses, which loses the product over the embeddings (it gives house(α)^{dN} where Dobrowolski's argument needs M(α)^N); the product form is the generalisation that node's proof gives with the same pigeonhole argument.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.6/dobrowolski-auxiliary-polynomial"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [
+    {
+      "id": "ClassicalArithmeticCompletion/ECA6-1",
+      "source": "bertrandias-1964",
+      "kind": "misprint",
+      "locator": "§1.4(5), printed p. 2, published 1963–1964 seminar scan",
+      "printed": "The set B(A,P) is written using P(x)=y for every y∈A.",
+      "correction": "Use P(x)∈A, equivalently there exists y∈A with P(x)=y.",
+      "reason": "For A={0,1} the printed universal condition gives an empty set, while the inverse image of a nonempty compact set under a positive-degree complex polynomial is nonempty. The following capacity identity concerns that inverse image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Numdam item page and served published scan on 2026-10-14; no linked correction found."
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion/ECA6-2",
+      "source": "bertrandias-1964",
+      "kind": "error",
+      "locator": "§1.4(6), printed p. 2, published 1963–1964 seminar scan",
+      "printed": "The polynomial-lemniscate approximation is bounded by (1+η)d(A) without excluding d(A)=0.",
+      "correction": "Restrict that multiplicative statement to d(A)>0, or use d(L)<r for every r>d(A), as the enclosure node does.",
+      "reason": "For A={0}, d(A)=0. Any nonempty positive-level polynomial lemniscate has positive diameter, so its diameter cannot be at most (1+η)·0. The additive enclosure follows directly from the Chebyshev infimum and includes finite sets.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Numdam item page and the current published scan on 2026-10-14; no erratum link found."
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion/ECA6-3",
+      "source": "iribar-kronecker",
+      "kind": "misprint",
+      "locator": "§2, Theorem 1 proof, PDF pp. 2–3, undated ETH-hosted author notes",
+      "printed": "The initial anti-diagonal determinant has sign (−1)^(n(n−1)); the later (d+1)-block has sign (−1)^(d(d−1)/2).",
+      "correction": "The respective reversal signs are (−1)^(n(n−1)/2) and (−1)^(d(d+1)/2).",
+      "reason": "A 2×2 zero-upper anti-diagonal matrix with entries t has determinant −t². Both printed signs give +t² in the corresponding n=2 or d=1 cases. Only vanishing, not the sign, is needed in the proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Current ETH PDF and the author’s ETH home page on 2026-10-14; no correction or revised-notes link found."
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion/ECA6-4",
+      "source": "iribar-kronecker",
+      "kind": "misprint",
+      "locator": "§2, block matrix in the proof of Theorem 1, PDF p. 3, undated ETH-hosted author notes",
+      "printed": "The repeated error entry is indexed 2n+d while the invertible leading block is H_r.",
+      "correction": "The entry is a_(2r+d)−b_(2r+d).",
+      "reason": "The first still-unmatched coefficient in this induction is 2r+d; the block is H_(r+d+1). The later determinant formula itself uses that corrected index.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Current ETH PDF and the author’s ETH home page on 2026-10-14; no correction found."
+      ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion/ECA6-5",
+      "source": "iribar-kronecker",
+      "kind": "misprint",
+      "locator": "§2, equation (5), PDF p. 3, undated ETH-hosted author notes",
+      "printed": "After setting c_r=−1, the sum Σ_(k=0)^r c_k a_(m+k) is equated to a_(m+r).",
+      "correction": "That sum equals 0. The preceding recurrence has a_(m+r)=Σ_(k<r)c_k a_(m+k).",
+      "reason": "Subtracting a_(m+r) gives zero. The corrected homogeneous recurrence is exactly what makes Q(1/z)f(z) a finite Laurent polynomial.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Current ETH PDF and the author’s ETH home page on 2026-10-14; no erratum or revision link found."
+      ]
+    }
+  ],
+  "importedTargets": [
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/pisot-number",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/pisot-and-salem-numbers",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/pisot-certificate",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/reciprocal-iff-reverse",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number-conjugates",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-minpoly-reciprocal",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number-pow",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/pisot-number-pow",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number-iff-trace",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number-in-field",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-numbers-in-field-powers",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number-near-integers",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/pisot-number-pow-near-integer",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/mahler-measure-of-pisot-or-salem",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/reciprocal-pisot-numbers",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/plastic-number",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/plastic-number-least-pisot",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/lehmer-number",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/lehmer-number-is-salem",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/house-mahler-measure-comparison",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/mahler-measure-of-unit-le-house",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/one-add-weil-height-le-house",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/unit-of-mahler-measure-lt-two",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-integer-power-series",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/frobenius-congruence-integer-polynomial",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/power-sum-frobenius-congruence",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/multiset-eq-of-power-sums-eq",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/conjugate-powers-root-of-unity",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dobrowolski-house-bound",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/norm-minpoly-pow-prime-dvd",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/exists-prime-power-not-root",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/degree-drop-mahler-measure",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dobrowolski-auxiliary-polynomial",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/root-power-polynomial",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-congruence",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/sqrt-one-add-four-integral",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/integral-square-root-power-series",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-square-cyclotomic",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/abs-log-height-pow",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/weil-height-eq-zero-iff",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/canonical-height-power-map",
+      "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+      "role": "Existing CA.6 target; imported unchanged, with the parent review assessments and unresolved contracts."
+    }
+  ],
+  "inheritedPlanets": [
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/pisot-number",
+      "planet": {
+        "name": "Pisot number"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/salem-number",
+      "planet": {
+        "name": "Salem number"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/lehmer-number",
+      "planet": {
+        "name": "Lehmer's number"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound",
+      "planet": {
+        "name": "Smyth's theorem on nonreciprocal algebraic integers"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound",
+      "planet": {
+        "name": "Dobrowolski's lower bound"
+      }
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov",
+      "planet": {
+        "name": "Schinzel–Zassenhaus conjecture (Dimitrov)"
+      }
+    }
+  ],
+  "consumerBindings": [
+    {
+      "consumer": "ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound",
+      "suppliers": [
+        "ClassicalArithmeticCompletion:CA.6/smyth-bounded-factorization",
+        "ClassicalArithmeticCompletion:CA.6/schur-coefficient-conditions",
+        "ClassicalArithmeticCompletion:CA.6/schur-parseval-contract",
+        "ClassicalArithmeticCompletion:CA.6/smyth-analytic-input"
+      ],
+      "replaces": "The parent’s broad missing-public-proof analytic gap is narrowed to verification of the short-gap multipliers, not declared closed."
+    },
+    {
+      "consumer": "ClassicalArithmeticCompletion:CA.6/plastic-number-least-pisot",
+      "suppliers": [
+        "ClassicalArithmeticCompletion:CA.6/smyth-analytic-input"
+      ],
+      "replaces": "Only the inherited nonreciprocal-bound analytic dependency; the parent’s Pisot and polynomial certificates remain required."
+    },
+    {
+      "consumer": "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov",
+      "suppliers": [
+        "ClassicalArithmeticCompletion:CA.6/finite-fekete-diameter",
+        "ClassicalArithmeticCompletion:CA.6/dubinin-hedgehog-bound",
+        "ClassicalArithmeticCompletion:CA.6/bertrandias-rationality",
+        "ClassicalArithmeticCompletion:CA.6/hedgehog-square-root-continuation",
+        "ClassicalArithmeticCompletion:CA.6/dimitrov-analytic-input"
+      ],
+      "replaces": "The parent’s unsupplied potential-theory contract, at the exact integer-series and radial-cut conventions used in its proof."
+    }
+  ],
+  "ownershipMoves": [
+    {
+      "notion": "Finite Fekete diameters, transfinite diameter and monic Chebyshev norms",
+      "owner": "ClassicalArithmeticCompletion:CA.6",
+      "consumer": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+      "reason": "CA is tier 5 and LP does not precede it in the upstream order. LP imports these notions from CA.6; it continues to own its general logarithmic-energy capacity and its equality with this diameter. This packet has no dependency on LP."
+    },
+    {
+      "notion": "Dubinin radial hedgehog inequality and Bertrandias integer Laurent rationality",
+      "owner": "ClassicalArithmeticCompletion:CA.6",
+      "consumer": "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov",
+      "reason": "These are local key inputs of the existing CA.6 target and are not already supplied by the current upstream roadmaps."
+    }
+  ],
+  "inheritedCoverage": {
+    "from": "research/blueprint/packets/ClassicalArithmeticCompletion.json",
+    "reviewFrontier": [
+      "ClassicalArithmeticCompletion:CA.6/salem-number",
+      "ClassicalArithmeticCompletion:CA.6/pisot-and-salem-numbers",
+      "ClassicalArithmeticCompletion:CA.6/reciprocal-iff-reverse",
+      "ClassicalArithmeticCompletion:CA.6/salem-number-conjugates",
+      "ClassicalArithmeticCompletion:CA.6/salem-number-pow",
+      "ClassicalArithmeticCompletion:CA.6/pisot-number-pow",
+      "ClassicalArithmeticCompletion:CA.6/salem-number-iff-trace",
+      "ClassicalArithmeticCompletion:CA.6/salem-number-in-field",
+      "ClassicalArithmeticCompletion:CA.6/salem-number-near-integers",
+      "ClassicalArithmeticCompletion:CA.6/pisot-number-pow-near-integer",
+      "ClassicalArithmeticCompletion:CA.6/mahler-measure-of-pisot-or-salem",
+      "ClassicalArithmeticCompletion:CA.6/reciprocal-pisot-numbers",
+      "ClassicalArithmeticCompletion:CA.6/plastic-number",
+      "ClassicalArithmeticCompletion:CA.6/plastic-number-least-pisot",
+      "ClassicalArithmeticCompletion:CA.6/lehmer-number",
+      "ClassicalArithmeticCompletion:CA.6/lehmer-number-is-salem",
+      "ClassicalArithmeticCompletion:CA.6/mahler-measure-of-unit-le-house",
+      "ClassicalArithmeticCompletion:CA.6/unit-of-mahler-measure-lt-two",
+      "ClassicalArithmeticCompletion:CA.6/smyth-integer-power-series",
+      "ClassicalArithmeticCompletion:CA.6/smyth-nonreciprocal-lower-bound",
+      "ClassicalArithmeticCompletion:CA.6/power-sum-frobenius-congruence",
+      "ClassicalArithmeticCompletion:CA.6/conjugate-powers-root-of-unity",
+      "ClassicalArithmeticCompletion:CA.6/exists-prime-power-not-root",
+      "ClassicalArithmeticCompletion:CA.6/degree-drop-mahler-measure",
+      "ClassicalArithmeticCompletion:CA.6/dobrowolski-auxiliary-polynomial",
+      "ClassicalArithmeticCompletion:CA.6/dobrowolski-lower-bound",
+      "ClassicalArithmeticCompletion:CA.6/root-power-polynomial",
+      "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-congruence",
+      "ClassicalArithmeticCompletion:CA.6/integral-square-root-power-series",
+      "ClassicalArithmeticCompletion:CA.6/root-power-polynomial-square-cyclotomic",
+      "ClassicalArithmeticCompletion:CA.6/schinzel-zassenhaus-dimitrov",
+      "ClassicalArithmeticCompletion:CA.6/canonical-height-power-map"
+    ],
+    "interpretation": "The 32-entry review frontier is a historical ledger, not 32 automatically unresolved gaps. Preserve the later reviewAssessment and revisionResponse for each imported target, including locally resolved norm, cyclotomic-level and root-power findings. This pass supplies only the analytic consumer bindings listed above."
+  },
+  "sourceVersions": [
+    {
+      "source": "smyth-1971",
+      "kind": "published",
+      "url": "https://www.researchgate.net/profile/Christopher-Smyth-2/publication/247044379_On_the_Product_of_the_Conjugates_outside_the_unit_circle_of_an_Algebraic_Integer/links/542c18260cf277d58e8ac7ac/On-the-Product-of-the-Conjugates-outside-the-unit-circle-of-an-Algebraic-Integer.pdf",
+      "citation": "Bulletin of the London Mathematical Society 3 (1971), 169–175; published article in an author-uploaded scan (2014).",
+      "read": "2026-10-14",
+      "scope": "Read the public PDF text extraction and checked the coefficient lemma and the long-gap calculation independently. Several displayed equations, including the short-gap multipliers, are absent from that extraction. Direct PDF retrieval and page rendering were denied. The corresponding exact missing verification is a recorded gap; no scan hash or complete image reading is claimed."
+    },
+    {
+      "source": "dimitrov-2019",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1912.12545v1",
+      "citation": "arXiv:1912.12545v1 (28 December 2019); 27-page preprint.",
+      "read": "2026-10-14",
+      "sha256": "c8a3798fe62e565838e7c4abf03e61f6c97b6801c75eff33bf7957da8def73ee"
+    },
+    {
+      "source": "bertrandias-1964",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/SDPP_1963-1964__5__A3_0.pdf",
+      "citation": "Séminaire Delange–Pisot–Poitou 5 (1963–1964), exposé 3, printed pp. 1–13; Numdam published scan.",
+      "read": "2026-10-14",
+      "sha256": "6bd91d97cac464fb575af622516d21b6379bfb7f54e1520f1e22bf7a2b97da22"
+    },
+    {
+      "source": "saff-2010",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1010.3760",
+      "citation": "Surveys in Approximation Theory 5 (2010), 165–200; author preprint arXiv:1010.3760.",
+      "read": "2026-10-14",
+      "sha256": "cfbeaad8cf695fc1b5528fd56295d7e3053056634c6841765a434ce9b074d862"
+    },
+    {
+      "source": "dubinin-1985",
+      "kind": "published",
+      "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=sm&paperid=2051&what=fullteng",
+      "citation": "Mathematics of the USSR-Sbornik 52 (1985), no. 1, 267–273; English translation of Mat. Sb. 124(166) (1984), 277–286.",
+      "read": "2026-10-14",
+      "scope": "The primary Math-Net translation was read through its public text extraction. No local PDF hash is claimed. Only the inequality is used; the equality characterization and Theorem A on harmonic measure are outside this part."
+    },
+    {
+      "source": "iribar-kronecker",
+      "kind": "author copy",
+      "url": "https://people.math.ethz.ch/~airibar/Polya_Carlson.pdf",
+      "citation": "Undated author notes hosted at ETH Zürich; 36-page PDF including an appendix; §2 checked as page images.",
+      "read": "2026-10-14",
+      "sha256": "a030d8e64ec51300d3f1c0d3d689a782d2defe10d4331447c7f7353efdf7af88"
+    }
+  ],
+  "libraryReconciliation": {
+    "existingDiscFactors": "Use TauCeti.unitDiscMoebius and its scalar formula API; no disc-factor node is planned. Mathlib canonical factors already give the boundary-modulus input.",
+    "existingNormalizedMaps": "Use TauCeti.IsNormalizedRiemannMapOn, exists_isNormalizedRiemannMapOn and eqOn. Only the conformal radius and its geometric comparison API are new.",
+    "currentRoadmapsRead": [
+      "ContourIntegration (Completed)",
+      "EffectiveBounds (Completed)",
+      "OperatorTheory",
+      "DifferentialGeometry"
+    ],
+    "currentLibrary": "The current Tau Ceti library was searched, with actual relied-on signatures then read again at the pinned commit. No transfinite diameter, monic sup-norm minimization, shifted-Hankel rationality or radial desymmetrization supplier was found."
+  }
+}
