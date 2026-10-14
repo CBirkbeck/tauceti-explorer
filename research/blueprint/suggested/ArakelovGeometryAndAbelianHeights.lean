@@ -228,7 +228,8 @@ rather than Lean declarations here.
   `HermitianBundle.quotient_metric_nonexample`, `HermitianBundle.baseChange_rank`
 * R35.1/arithmetic-degree — The Arakelov degree of a hermitian bundle:
   `HermitianBundle.arakelovDegree`, `HermitianBundle.normalizedDegree`, `HermitianBundle.slope`,
-  `HermitianBundle.arakelovDegree_eq_infinitePlace`, `HermitianBundle.arakelovDegree_trivial`,
+  `HermitianBundle.arakelovDegree_eq_infinitePlace`,
+  `HermitianBundle.arakelovDegree_eq_fractionalIdeal`, `HermitianBundle.arakelovDegree_trivial`,
   `HermitianBundle.arakelovDegree_rescale`, `HermitianBundle.arakelovDegree_ofFractionalIdeal`,
   `HermitianBundle.arakelovDegree_congr`, `HermitianBundle.arakelovDegree_trivial`,
   `HermitianBundle.arakelovDegree_ideal`, `HermitianBundle.arakelovDegree_rat`,
