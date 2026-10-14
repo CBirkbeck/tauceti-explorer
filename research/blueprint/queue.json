@@ -37788,7 +37788,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics--DY.3",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics--DY.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9275"
   },
   {
    "id": "BP-ArithmeticDynamics--DY.6",
@@ -37811,7 +37812,8 @@
    ],
    "followUpOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics--DY.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9318"
   },
   {
    "id": "REV-ArithmeticDynamics--DY.6",
@@ -39567,8 +39569,9 @@
     "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8935"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8935",
+   "finishedAt": "2026-10-14T07:18:16Z"
   },
   {
    "kind": "design",
@@ -48996,7 +48999,8 @@
     "PKG-EllipticCurveModularityWild3Adic"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityWild3Adic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9211"
   },
   {
    "id": "PKG-EnhancedDerivedSheaves",
@@ -49084,8 +49088,9 @@
     "PKG-EnriquesSurfacesAndIntegralNonexistence"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EnriquesSurfacesAndIntegralNonexistence.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9212"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9212",
+   "finishedAt": "2026-10-14T07:18:19Z"
   },
   {
    "id": "PKG-ErdosProgressionPowers",
@@ -49177,7 +49182,8 @@
     "PKG-ExponentialSumsAndCircleMethod"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ExponentialSumsAndCircleMethod.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9213"
   },
   {
    "id": "PKG-FaltingsFinitenessAndIsogenyTheorems",
@@ -50503,8 +50509,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7592",
+   "finishedAt": "2026-10-14T07:18:22Z"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -50999,8 +51006,9 @@
     "PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9224"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9224",
+   "finishedAt": "2026-10-14T07:18:28Z"
   },
   {
    "id": "PKG-MetaplecticAutomorphicForms",
@@ -52281,7 +52289,8 @@
     "PKG-SieveMethodsAndPrimePatterns"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SieveMethodsAndPrimePatterns.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9240"
   },
   {
    "id": "PKG-SmallRamificationAndAbelianVarietyBaseCases",
@@ -88830,8 +88839,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
