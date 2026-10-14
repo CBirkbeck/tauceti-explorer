@@ -1,0 +1,33 @@
+{
+ "purpose": "The atlas areas each arXiv mathematics category allows. Every Tau Ceti roadmap declares one category in its metadata.toml (`topic = \"math.NT\"`), and the Progress page passes it on as `arxiv`. A Tau Ceti roadmap sits in an area its category allows: the title and README rules of scripts/tauceti_progress.py choose among those areas only, and a roadmap they cannot place, or one the snapshot put elsewhere, goes to the category's default. A category not listed here leaves the placement to those rules alone.",
+ "categories": {
+  "math.NT": {"areas": ["algebraicnt", "arithmeticgeometry", "analytic", "automorphic", "iwasawa", "langlands", "functionfields", "padic", "elementary", "computational", "finitefields", "geomlanglands"], "default": "algebraicnt"},
+  "math.AG": {"areas": ["algebraicgeometry", "etale", "motives", "padic", "arithmeticgeometry", "geomlanglands", "functionfields"], "default": "algebraicgeometry"},
+  "math.RT": {"areas": ["representations", "automorphic", "langlands", "geomlanglands"], "default": "representations"},
+  "math.GR": {"areas": ["grouptheory"], "default": "grouptheory"},
+  "math.FA": {"areas": ["analysis"], "default": "analysis"},
+  "math.OA": {"areas": ["analysis"], "default": "analysis"},
+  "math.SP": {"areas": ["analysis"], "default": "analysis"},
+  "math.CA": {"areas": ["analysis"], "default": "analysis"},
+  "math.CV": {"areas": ["analysis"], "default": "analysis"},
+  "math.OC": {"areas": ["analysis"], "default": "analysis"},
+  "math.NA": {"areas": ["analysis"], "default": "analysis"},
+  "math.DS": {"areas": ["analysis", "probability", "topology"], "default": "analysis"},
+  "math.AP": {"areas": ["pde"], "default": "pde"},
+  "math.PR": {"areas": ["probability"], "default": "probability"},
+  "math.ST": {"areas": ["probability"], "default": "probability"},
+  "math.CO": {"areas": ["combinatorics"], "default": "combinatorics"},
+  "math.AT": {"areas": ["topology"], "default": "topology"},
+  "math.GT": {"areas": ["topology"], "default": "topology"},
+  "math.GN": {"areas": ["topology"], "default": "topology"},
+  "math.DG": {"areas": ["diffgeom"], "default": "diffgeom"},
+  "math.MG": {"areas": ["diffgeom", "topology"], "default": "diffgeom"},
+  "math.SG": {"areas": ["diffgeom", "topology"], "default": "diffgeom"},
+  "math.KT": {"areas": ["ktheory", "homological", "motives"], "default": "ktheory"},
+  "math.CT": {"areas": ["homological", "foundations"], "default": "homological"},
+  "math.AC": {"areas": ["commutative"], "default": "commutative"},
+  "math.RA": {"areas": ["commutative", "homological", "representations"], "default": "commutative"},
+  "math.QA": {"areas": ["representations", "homological"], "default": "representations"},
+  "math.LO": {"areas": ["modeltheory", "foundations"], "default": "modeltheory"}
+ }
+}
