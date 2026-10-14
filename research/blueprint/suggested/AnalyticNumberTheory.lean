@@ -233,7 +233,7 @@ end AN3
 
 section AN4
 
-open NumberField
+open _root_.NumberField
 
 variable (K : Type*) [Field K] [NumberField K]
 
@@ -384,12 +384,16 @@ def barnesG (z : ℂ) : ℂ :=
     ∏' k : ℕ, (1 + w / (k + 1)) ^ (k + 1) * Complex.exp (-w + w ^ 2 / (2 * (k + 1)))
 
 /-- API `barnesG_add_one`. -/
-theorem barnesG_add_one (z : ℂ) : barnesG (z + 1) = Complex.Gamma z * barnesG z := by
+theorem barnesG_add_one (z : ℂ) (hz : ∀ n : ℕ, z ≠ -(n : ℂ)) : barnesG (z + 1) = Complex.Gamma z * barnesG z := by
   sorry
 
 /-- API `barnesG_one`. -/
 theorem barnesG_one : barnesG 1 = 1 := by
   sorry
+
+/-- Test `barnesG_totalized_gamma_origin`: the recurrence must exclude Gamma poles. -/
+example : barnesG 1 ≠ Complex.Gamma 0 * barnesG 0 := by
+  simp [Complex.Gamma_zero, barnesG_one]
 
 /-- Test `barnesG_small_values`: `G(4) = 2` and `G(5) = 12`. -/
 example : barnesG 4 = 2 ∧ barnesG 5 = 12 := by
