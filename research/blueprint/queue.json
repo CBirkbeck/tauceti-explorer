@@ -27134,12 +27134,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #962"
+   "note": "deliverables arrived from an external worker on issue #962",
+   "finishedAt": "2026-10-14T10:08:01Z"
   },
   {
    "id": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -28692,9 +28693,10 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/BP-TorsionCohomologyInfrastructure.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #1000"
+   "note": "deliverables arrived from an external worker on issue #1000",
+   "finishedAt": "2026-10-14T10:08:03Z"
   },
   {
    "id": "REV-TorsionCohomologyInfrastructure",
@@ -37886,8 +37888,9 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9665"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9665",
+   "finishedAt": "2026-10-14T10:08:04Z"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.1",
@@ -38066,7 +38069,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9669"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.5",
@@ -38110,7 +38114,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9670"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.6",
@@ -38154,7 +38159,8 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9671"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.7",
@@ -43302,7 +43308,8 @@
    ],
    "revisionOf": "BP-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9672"
   },
   {
    "priority": 2,
@@ -45187,7 +45194,8 @@
     "REV-ModularCurvesPartII--R13.4a"
    ],
    "prompt": "research/blueprint/prompts/ASM-ModularCurvesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #246"
   },
   {
    "id": "ASM-MotivicEtaleKTheory",
@@ -49058,8 +49066,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EnhancedDerivedSheaves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9664"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9664",
+   "finishedAt": "2026-10-14T10:08:07Z"
   },
   {
    "id": "REV-PKG-EnhancedDerivedSheaves",
@@ -98146,9 +98155,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--P7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #968"
+   "note": "deliverables arrived from an external worker on issue #968",
+   "finishedAt": "2026-10-14T10:08:15Z"
   },
   {
    "id": "REV-PadicHodgeTheory--P7",
@@ -98192,9 +98202,10 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--R06.5.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #969"
+   "note": "deliverables arrived from an external worker on issue #969",
+   "finishedAt": "2026-10-14T10:08:17Z"
   },
   {
    "id": "REV-PadicHodgeTheory--R06.5",
