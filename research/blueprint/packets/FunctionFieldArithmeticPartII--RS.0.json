@@ -1,0 +1,1410 @@
+{
+  "roadmapId": "FunctionFieldArithmeticPartII",
+  "protocol": "blueprint-v1",
+  "part": "RS.0",
+  "scope": [
+    "FunctionFieldArithmeticPartII:RS.0"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level continuation of RS.0: native root pullback and its section-compatible tensor-power comparison; an equivalence between actual chosen-frame root objects and the accepted framed coordinate groupoid; full labelled-arrow realization of affine charts, fppf local normalization and stackification comparison; frame descent, arbitrary finite coefficient-chain coherence and explicit universe adapters. The accepted parent algebra and generic upstream sheaf infrastructure are reused, not replanned. The plan is complete with named supplier requests and a typed-signature boundary; it makes no implementation claim.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "provides": "The native free rank-one line on PUnit; it is the parent’s tensor unit, not a root object.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit",
+        "module": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Free.lean",
+        "provides": "Canonical free-PUnit sheaf to structure-module unit isomorphism, including its site and universe assumptions.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "tauceti:TauCeti.SheafOfModules.LocalTrivializations.ofIsInvertible",
+        "module": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Invertible/LocalTriviality.lean",
+        "provides": "An existing rank-one trivialization atlas with CoversTop and free-PUnit isomorphisms on its opens. Its existence is reused.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "Native module pullback along an arbitrary scheme morphism; rank-one and monoidal comparisons are separate supplied interfaces.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "Natural isomorphism from pullback along identity to the identity functor.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "Natural isomorphism from successive module pullbacks to pullback along their composite.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Native ring isomorphism Γ(Spec B,O)≅B, so the coordinate bridge uses an isomorphism rather than definitional equality.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "The Spec-map global-section morphism followed by the target ΓSpec comparison equals the source comparison followed by the ring map.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.affineCover",
+        "module": "Mathlib/AlgebraicGeometry/Cover/Open.lean",
+        "provides": "An actual open cover of every scheme by spectra of commutative rings, obtained from local_affine; used after intersecting the native line-frame opens.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
+        "provides": "The topology generated by jointly surjective flat locally finitely presented scheme morphisms.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.zariskiPrecoverage_le_fppfPrecoverage",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
+        "provides": "Every Zariski covering is an fppf covering; the same module records stability under composition and base change.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Limits.pullback.hom_ext",
+        "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean",
+        "provides": "Equality of morphisms into a chosen pullback follows from equality of both projections.",
+        "checked": "2026-10-14: actual statement and hypotheses read in the shared source tree at the recorded exact atlas pins; checked against the pinned declaration index. Current upstream imports below are separate."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "AGV08",
+      "title": "Gromov–Witten theory of Deligne–Mumford stacks",
+      "authors": "Dan Abramovich, Tom Graber and Angelo Vistoli",
+      "edition": "arXiv:math/0603151v2, 13 April 2008; Appendix B",
+      "url": "https://arxiv.org/pdf/math/0603151v2",
+      "sha256": "c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Appendix B.1–B.2, printed pp.52–54, full root-definition and local-quotient passages; corrected exponent from inherited E12."
+      ]
+    },
+    {
+      "id": "TV17",
+      "title": "Infinite root stacks and quasi-coherent sheaves on logarithmic schemes",
+      "authors": "Mattia Talpo and Angelo Vistoli",
+      "edition": "arXiv:1410.1164v2, 12 December 2017; published Proc. London Math. Soc. 116 (2018), 1187–1243",
+      "url": "https://arxiv.org/pdf/1410.1164v2",
+      "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "§3 opening and Remark3.1, printed pp.12–13; Proposition3.4, p.13; finite-level local models and Corollary3.13, pp.14–16. Infinite-root results are read for the finite comparison context and are not newly planned."
+      ]
+    },
+    {
+      "id": "YZ19",
+      "title": "Shtukas and the Taylor expansion of L-functions (II)",
+      "authors": "Zhiwei Yun and Wei Zhang",
+      "edition": "Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
+      "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Appendix A.1, DefinitionA.1 and A.1.1–A.1.3, printed pp.514–516; concrete section-root consumers and inherited E2/E5. No whole-paper audit."
+      ]
+    },
+    {
+      "id": "STACKS-KUMMER",
+      "title": "The Stacks Project: Kummer theory",
+      "authors": "The Stacks Project authors",
+      "edition": "Online Lemma59.28.3, Tag040N; read2026-10-14",
+      "url": "https://stacks.math.columbia.edu/tag/040N",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Complete statement and proof of Lemma59.28.3, interpreted with n≥1 in the cover proof; the rank-n argument requires positivity."
+      ]
+    },
+    {
+      "id": "STACKIFICATION",
+      "title": "The Stacks Project: stackification of categories fibred in groupoids",
+      "authors": "The Stacks Project authors",
+      "edition": "Online §8.9, Tags02ZO/02ZP; read2026-10-14",
+      "url": "https://stacks.math.columbia.edu/tag/02ZO",
+      "accessed": "2026-10-14",
+      "readSections": [
+        "Lemmas8.9.1–8.9.3, complete displayed statements and proofs; characterization, universal property and two-fibre-product compatibility. Tag04Y1, Lemma8.8.4 proof of compatibility, also read."
+      ]
+    },
+    {
+      "id": "AVB",
+      "title": "Tau Ceti roadmap: algebraic vector bundles",
+      "authors": "The Tau Ceti roadmap contributors",
+      "edition": "Current main 0d144d044dacebca17b654695b6f1ad58f159b27; read2026-10-14",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md",
+      "readSections": [
+        "Inventory and native conventions; L0A–L0B; Suggested.lean tensorSection/tensorUnitIso, native monoidal pullback and rank-one comparisons, and the pullbackSectionMap/totalSpace universal-section interface. Not a claim that these targets are implemented at the atlas pins."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Section-compatible pullback of root tensor powers",
+      "kind": "construction",
+      "statement": "For h:Y→T, an invertible sheaf M on T and n≥0, construct κ(h,M,n):(h*M)^n≅h*(M^n), natural in actual line isomorphisms. Use the inverse of the unit comparison at n=0 and the tensor comparison recursively at n+1, with M^0=O and M^(n+1)=M^n⊗M. It carries (h*t)^n to h*(t^n). Under any chosen frames its section equation is the image under the coefficient ring map of z^n; it is compatible with identity and composite pullback through the supplier’s strong monoidal comparisons.",
+      "hypotheses": [
+        "T is an arbitrary scheme; no reducedness, noetherianity or flatness of test changes is assumed.",
+        "Invertible sheaves, sections, tensor products and isomorphisms use the native Tau Ceti/Mathlib carriers.",
+        "The exponent may be zero. Global-section pullback is the map obtained from the unit of module pullback–pushforward, or equivalently from the image of a morphism O→M, not an assumed isomorphism on global sections.",
+        "Fix the imported comparison directions as β₀:h*O_T≅O_Y and β₂:h*(M⊗N)≅h*M⊗h*N. Thus κ₀=β₀⁻¹ and each successor uses β₂⁻¹; these are inverses of the strong monoidal structural maps where that convention is used."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+        "FunctionFieldArithmeticPartII:RS.0/section-power",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid",
+        "SchemeAndStackFoundations:SF.3",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullback"
+      ],
+      "proofSteps": [
+        "Import the strong monoidal module pullback and tensorSection from AlgebraicVectorBundles L0A, restricted to native rank one by L0B/SF.3. This is the existing generic operation, not a new monoidal structure.",
+        "At zero use O_Y≅h*O_T; in the successor step use κ_n⊗id followed by the inverse of the strong monoidal tensor comparison. The parent fixes parentheses and transport of line isomorphisms.",
+        "Apply the imported sectionwise tensor/pullback equation at each successor and the unit-section equation at zero. This induction supplies the root-specific section law; it does not require global sections to commute with tensor products as an isomorphism.",
+        "Identity/composition compatibility follows from the supplier’s monoidal unit and tensor diagrams, not from declaring different tensor powers equal."
+      ],
+      "acceptance": [
+        "The n=0 section is one under the actual unit comparison.",
+        "The comparison retains its direction (h*M)^n→h*(M^n)."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "Root identifications require transporting actual tensor powers across a test-scheme morphism. The displayed section equation is our recursive deduction, not a separately numbered theorem in Appendix B."
+        },
+        {
+          "sourceId": "AVB",
+          "locator": "L0A–L0B; Suggested.lean tensorSection, tensorUnitIso, pullbackModulesMonoidal and pullbackFiniteLocallyFreeObjIso (unpaginated)",
+          "match": "Imports the general tensor-section and monoidal pullback operations; only their application to the parent’s fixed root-power recursion is specified here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.powerPullbackIso",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso",
+          "role": "constructor",
+          "statement": "The recursively specified κ(h,M,n), with its forward and inverse maps."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso_zero",
+          "role": "simp",
+          "statement": "κ(h,M,0) is the inverse unit comparison O_Y≅h*O_T."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso_succ",
+          "role": "simp",
+          "statement": "κ at n+1 is κ_n⊗id followed by the comparison (h*M^n)⊗h*M≅h*(M^n⊗M)."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso_section",
+          "role": "compatibility",
+          "statement": "κ(h,M,n) sends the n-th power of the pulled section to the pullback of its n-th power."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso_naturality",
+          "role": "functoriality",
+          "statement": "κ intertwines power transport of every actual line isomorphism."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso_comp",
+          "role": "compatibility",
+          "statement": "For k:Z→Y, the direct κ for h∘k equals the iterated κ after the supplier’s monoidal pullback-composition comparisons."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso.test_zero",
+          "kind": "degenerate",
+          "statement": "For n=0 and t=0, the section comparison is 1=1; it cannot use 0 as the zero-th power."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso.test_two",
+          "kind": "compatibility",
+          "statement": "For a trivial line with coordinate z, n=2 and coefficient map ψ, both routes have coordinate ψ(z)^2=ψ(z^2)."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso.test_nonflat",
+          "kind": "non-example",
+          "statement": "For Z/4→Z/2 and z=2, the pulled section is zero; κ is still an isomorphism of line powers, with no injectivity assertion about sections."
+        },
+        {
+          "name": "TauCeti.RootStack.powerPullbackIso.test_unit",
+          "kind": "computation",
+          "statement": "For n=1, the comparison agrees with ordinary line pullback after the canonical tensor-unit identifications."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AGV Appendix B.1–B.2",
+          "how": "Pulling root data to another scheme uses both its line-power identification and its section equation."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/native-root-pullback",
+          "how": "The root identification is transported using κ, in its forward direction."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-root-pullback",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Pullback of native root objects and arrows",
+      "kind": "construction",
+      "statement": "For n≥1 and (L,s) on T, define h*:Root(T,L,s,n)→Root(Y,h*L,h*s,n). Send (M,t,φ) to (h*M,h*t,h*φ∘κ(h,M,n)); send a root arrow a to h*a. The two arrow conditions are preservation of the section and φ_target∘a^n=φ_source. The resulting functor preserves both conditions and all automorphism labels. Given an isomorphism of target pairs, transport the last identification by that isomorphism; do not change the root section.",
+      "hypotheses": [
+        "T is an arbitrary scheme; no reducedness, noetherianity or flatness of test changes is assumed.",
+        "Invertible sheaves, sections, tensor products and isomorphisms use the native Tau Ceti/Mathlib carriers.",
+        "n≥1; Root is the parent’s root-object groupoid, with only invertible line maps as arrows."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid"
+      ],
+      "proofSteps": [
+        "Use the parent root-object definition without redefining its carrier. Apply native line pullback to M and every isomorphism, and the supplier’s section pullback to t and s.",
+        "Compose κ with the pulled φ. The power-pullback section equation and functoriality give φ′(t′^n)=s′.",
+        "Apply pullback to each arrow square and use κ’s naturality; the separate pulled section equation proves the other arrow condition. Identity and composition are the inherited functor laws.",
+        "An isomorphism of target pairs gives a root functor by composing φ with the target line isomorphism; the assertion on s verifies its object equation."
+      ],
+      "acceptance": [
+        "No flatness condition is imposed on h.",
+        "A nonidentity automorphism can become identity under pullback."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The root moduli problems pull back along test morphisms; these explicit formulas spell out the native functor and the two equations which the source leaves implicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.RootObject.pullback",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback",
+          "role": "constructor",
+          "statement": "The functor on root objects and actual root arrows described above."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback_line",
+          "role": "projection",
+          "statement": "The root line is h*M, using the existing rank-one pullback."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback_section",
+          "role": "projection",
+          "statement": "The root section is h*t, through the actual section-pullback map."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback_identification",
+          "role": "projection",
+          "statement": "The identification is h*φ∘κ(h,M,n), including the indicated comparison of its domain."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback_arrow",
+          "role": "simp",
+          "statement": "The underlying line isomorphism of a pulled arrow is h*a."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.transportTarget",
+          "role": "functoriality",
+          "statement": "An isomorphism (L,s)≅(L′,s′) acts by postcomposing φ; identity and composite target transports agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback.test_identity",
+          "kind": "compatibility",
+          "statement": "Pullback by id is naturally isomorphic to the original root, via the native line-pullback identity isomorphism."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback.test_nilpotent",
+          "kind": "computation",
+          "statement": "The normalized root y=2 over Z/4, n=2, f=0 pulls to y=0 over Z/2."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback.test_stabilizer",
+          "kind": "non-example",
+          "statement": "At y=0 over Z/4, n=2, the unit −1 labels an automorphism distinct from identity; its Z/2 pullback is identity."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.pullback.test_target",
+          "kind": "compatibility",
+          "statement": "Changing the target frame by unit b multiplies the power-identification coefficient and f by b and leaves y unchanged."
+        }
+      ],
+      "uses": [
+        {
+          "where": "TV Proposition 3.4",
+          "how": "Root data vary contravariantly with the test scheme."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+          "how": "Identifies native pullback with the parent coefficient-change functor."
+        }
+      ],
+      "planet": {
+        "name": "Pullback of root objects"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Coherent root pullback on the scheme site",
+      "kind": "theorem",
+      "statement": "For a fixed scheme X and (L,s) on X, T→X maps to Root(T,L_T,s_T,n) with L_T=T*L and s_T=T*s. The root pullback functors form a groupoid-valued pseudofunctor on (Sch/X)^op. Its identity and composition natural isomorphisms have the native line-pullback identity and composition isomorphisms as underlying components, corrected on the target L_T by the same comparisons. They preserve sections and root identifications. The triangle and pentagon hold, and every finite iterated pullback agrees with direct pullback through these specified comparisons.",
+      "hypotheses": [
+        "T is an arbitrary scheme; no reducedness, noetherianity or flatness of test changes is assumed.",
+        "Invertible sheaves, sections, tensor products and isomorphisms use the native Tau Ceti/Mathlib carriers.",
+        "Fix n≥1. Coherence is equality of the specified natural transformations after associators; no strict equality of chosen pullback objects is asserted."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-root-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "SchemeAndStackFoundations:SF.3/picard-groupoid",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackId",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp"
+      ],
+      "proofSteps": [
+        "Restrict the supplier’s coherent native Picard pullback to roots using the section law and κ-composition law. Correct both the root line and the pulled target line; correcting only M gives an ill-typed φ square.",
+        "For identities use the native unit comparison. For a pair of morphisms use the native composition comparison on M and L and its compatibility with the n-th power.",
+        "Underlying line isomorphisms satisfy triangle and pentagon by the supplier’s coherence. Equality of root arrows reduces to their underlying line maps, because the two preservation conditions are properties.",
+        "Induct on a finite chain; the pentagon compares all bracketings. This is the general root-object coherence target beyond the parent’s chosen affine two- and three-step comparisons."
+      ],
+      "acceptance": [
+        "The n=1 root functor has the identity-pair groupoid behaviour.",
+        "A four-map chain has equal composite comparison arrows for all parenthesizations.",
+        "Nonflat coefficient change preserves these diagrams even when it identifies distinct arrows."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The object description is base-change compatible. Our proof uses the imported monoidal pseudofunctor coherence to make this compatibility precise."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3, Remark 3.1 and Proposition 3.4, pp. 12–13; Corollary 3.13, p. 16",
+          "match": "Proposition 3.4 gives finite root base-change compatibility in the logarithmic setting; it motivates, rather than supplies in native Lean, the pair-level comparison here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.RootObject.pullback_coherent",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-framed-category",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Native root objects with chosen line frames",
+      "kind": "definition",
+      "statement": "Fix a commutative ring B, n≥1 and a target pair (L,s) on Spec B with specified frame l:L≅O. Let f∈B be the coordinate of s through l and Scheme.ΓSpecIso. A FramedNativeRoot object is a parent root object (M,t,φ) together with e:M≅O. A morphism between (a,e_a) and (b,e_b) is any root arrow a→b: it need not preserve e_a,e_b. Composition and inverses are those of the parent root groupoid. Forgetting e is fully faithful; its essential image consists exactly of roots whose line M is globally trivializable.",
+      "hypotheses": [
+        "B may be the zero ring, or nonreduced; f is arbitrary.",
+        "The target frame l is fixed. Frames are data on objects, not an additional preservation condition on arrows."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso",
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial"
+      ],
+      "proofSteps": [
+        "Add e as object data and use the parent Hom type unchanged, so the groupoid laws are inherited.",
+        "The forgetful Hom map is the identity on actual root arrows and hence fully faithful. Essential-image membership is exactly existence of e; no affine Picard group is presumed zero.",
+        "For two frames on the same root, the identity root arrow is an isomorphism of the two framed objects. A frame-preserving arrow restriction would destroy this comparison."
+      ],
+      "acceptance": [
+        "Both e_a,e_b appear when computing the scalar label of an arrow.",
+        "The category is not the groupoid of roots with frame-preserving arrows."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "Appendix B.2 supplies the native triples. Adding a chosen line frame and retaining all root arrows is our coordinate-comparison construction, not a source definition of a globally trivial root stack."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.FramedNativeRoot",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot",
+          "role": "constructor",
+          "statement": "Pairs consisting of an actual root object and a line frame e:M≅O."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.root",
+          "role": "projection",
+          "statement": "The parent root object, with its line, section and power identification."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.frame",
+          "role": "projection",
+          "statement": "The specified line isomorphism e; it is not a quotient of choices."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.forget",
+          "role": "functoriality",
+          "statement": "Forget the chosen frame; act as identity on underlying root arrows."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.homEquiv",
+          "role": "equivalence",
+          "statement": "The Hom set is exactly the Hom set of the underlying parent roots."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.essentialImage",
+          "role": "characterisation",
+          "statement": "A root is in the forgetful essential image if and only if its root line admits a global frame."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.test_zero",
+          "kind": "non-example",
+          "statement": "For a zero section and n=2 over Z/4, the −1 automorphism remains an arrow between a framed object and itself; requiring its frame to be fixed would incorrectly delete it."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.test_two_frames",
+          "kind": "compatibility",
+          "statement": "Two frames of the same root are isomorphic by the identity root arrow, including frames differing by a unit a with a^n≠1."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.test_one",
+          "kind": "degenerate",
+          "statement": "At n=1 a root has no nonidentity automorphism, since φ is an isomorphism and φ∘h=φ forces h=id."
+        },
+        {
+          "name": "TauCeti.RootStack.FramedNativeRoot.test_nontrivial_line",
+          "kind": "non-example",
+          "statement": "If Spec B has a nontrivial invertible sheaf M with a specified isomorphism M^n≅O for n≥2, then (M,0,φ) is a root of (O,0) but is outside the forgetful essential image. An affine base and a framed target alone cannot justify a frame of M."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AGV B.2, p. 54",
+          "how": "Local trivializations give quotient descriptions but need not exist globally on every affine test."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+          "how": "The comparison can read every native root arrow as a unit label."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Equivalence of native framed roots and coordinate roots",
+      "kind": "construction",
+      "statement": "With B,f,n,l as in FramedNativeRoot, construct a groupoid equivalence E_l:FramedNativeRoot(B,L,s,n,l)≌FramedRoot(f,n,B) from the parent. For (M,t,φ,e), set y=coord(e(t)), and let u be the unit coefficient of l∘φ∘(e^{-1})^n∘c_n^{-1}:O≅O. Then u*y^n=f. For an arrow h:a→b, its label w is the unit scalar of e_b∘h∘e_a^{-1}. The label satisfies y_b=w*y_a and u_b*w^n=u_a. Conversely any such w gives exactly the root arrow e_b^{-1}∘mul(w)∘e_a. The inverse on objects uses M=O, t with coordinate y, e=id, and φ=l^{-1}∘mul(u)∘c_n. Unit and counit are actual root isomorphisms with the underlying frames; both triangles hold.",
+      "hypotheses": [
+        "n≥1, B arbitrary commutative, l a specified target line frame.",
+        "Coordinates include the canonical free-PUnit-to-unit and ΓSpec comparisons; Γ(Spec B,O) is not identified definitionally with B."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-category",
+        "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
+        "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
+        "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport",
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid",
+        "SchemeAndStackFoundations:SF.3",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso",
+        "tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit"
+      ],
+      "proofSteps": [
+        "Reuse current native line coordinates and unit-scalar automorphism equivalence; at the old pins the coordinate bridge is the parent’s freeHomEquiv/freePUnitIsoUnit route. Generic tensorSection and section/unit comparisons are imported through JAC-A-RS0.",
+        "The parent section-power-in-trivialization law turns the root equation into u*y^n=f. Its proof is induction: zero has coordinate1 and successor uses the imported pure-tensor coordinate multiplication, then c_(n+1).",
+        "The parent root-arrow scalar law gives both arrow equations. In the reverse direction, the section equation verifies h(t_a)=t_b and the coefficient equation verifies φ_b∘h^n=φ_a on the basis of O^n. Checking only a section does not verify the power-identification square.",
+        "Every automorphism of the trivial module is multiplication by a unique unit, so the two Hom maps are inverse and preserve labels, identities, composition and inverses.",
+        "Construct the inverse objects as stated. The frame e gives the native root isomorphism to the reconstructed object; the unit/counit triangles reduce to actual line-frame inverse identities."
+      ],
+      "acceptance": [
+        "Full faithfulness is a bijection of labelled arrows, including at y=0.",
+        "No n-th root of u is chosen in this equivalence.",
+        "For u=3,y=1,n=2,f=3 over Z/4 the equivalence has an object, although the normalized chart has no B-point.",
+        "For n=2,f=0 over Z/9 the roots y=3 and y=0 remain nonisomorphic."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The triple definition and local quotient calculation support this coordinate deduction. The unit coefficient and complete Hom equivalence make the implicit trivialization computation explicit. The corrected exponent d from inherited E12 is used."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.framedNativeEquiv",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv",
+          "role": "constructor",
+          "statement": "The groupoid equivalence E_l with the explicitly prescribed inverse."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv_coordinate",
+          "role": "projection",
+          "statement": "The root coordinate is coord(e(t)); the unit coefficient is that of lφ(e^{-1})^n c_n^{-1}."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv_arrow",
+          "role": "projection",
+          "statement": "The arrow label is the scalar of e_b h e_a^{-1}, satisfying both displayed equations."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv_inverse",
+          "role": "constructor",
+          "statement": "A coordinate pair gives O, the section with coordinate y and identification l^{-1} mul(u) c_n."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv_homEquiv",
+          "role": "equivalence",
+          "statement": "The unit-label formula and w↦e_b^{-1} mul(w) e_a are mutually inverse Hom maps."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv_unitCounit",
+          "role": "compatibility",
+          "statement": "The actual frame isomorphisms give unit and counit, preserving t and φ and satisfying the triangles."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv.test_nonnormalized",
+          "kind": "non-example",
+          "statement": "Over Z/4,n=2,f=3,u=3,y=1 the equivalence produces a native root despite absence of a normalized chart point."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv.test_zero_arrows",
+          "kind": "non-example",
+          "statement": "For n=2,y=0 over Z/4 the distinct unit labels1 and−1 remain distinct actual root arrows."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv.test_nilpotent",
+          "kind": "computation",
+          "statement": "For n=2,f=0 over Z/9 the native roots with coordinates3 and0 are not isomorphic."
+        },
+        {
+          "name": "TauCeti.RootStack.framedNativeEquiv.test_recovery",
+          "kind": "compatibility",
+          "statement": "Applying the coordinate equivalence to its prescribed inverse recovers the same (u,y) and every unit arrow w."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AGV B.2, pp.53–54",
+          "how": "The native line-root data must agree with affine local coordinates without discarding automorphisms."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/native-chart-realization",
+          "how": "Realizes the accepted coordinate chart as actual native root data."
+        }
+      ],
+      "planet": {
+        "name": "Root-coordinate equivalence"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-frame-change",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Coordinates under changes of source and target frames",
+      "kind": "comparison",
+      "statement": "If e′=mul(a)∘e and l′=mul(b)∘l for units a,b∈Bˣ, the same root has coordinates y′=a*y, u′=b*u*a^{-n}, f′=b*f. This induces a groupoid equivalence from the framed coordinates for l to those for l′, with object formula (u,y)↦(b*u,y) when e is retained. Changing root frames e_p,e_q by a_p,a_q changes an arrow label to w′=a_q*w*a_p^{-1}. Both arrow equations are preserved. Root-frame changes with b=1 are connected by the identity native root arrow, whose coordinate label between the two readings is a. These comparisons have inverse unit formulas and composition cocycles.",
+      "hypotheses": [
+        "Use the conventions of native-framed-equivalence. n≥1; no condition on section y.",
+        "The target unit b is common to the source and target of a root arrow."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport",
+        "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
+        "FunctionFieldArithmeticPartII:RS.0/framed-groupoid"
+      ],
+      "proofSteps": [
+        "Conjugate the scalar power identification by c_n and the two changed frames. The parent section-power transport gives (mul(a))^n=mul(a^n) under c_n, so the coefficient becomes b*u*a^{-n}.",
+        "Conjugating e_q∘h∘e_p^{-1} gives w′=a_q*w*a_p^{-1}. Substitute this into both arrow equations; cancel only the named units.",
+        "Compose frame changes by multiplying a and b. The identity native root arrow compares different readings of the same root, and its power square supplies u′*a^n=b*u.",
+        "These are calculations from the imported section/unit comparison, not new general scalar-automorphism or tensor coherence APIs."
+      ],
+      "acceptance": [
+        "At y=0 the u equation still carries information.",
+        "Over Q, n=2, u=1,y=1,f=1, a=2,b=1 gives u′=1/4,y′=2; omitting a^{-n} breaks the root equation.",
+        "For e_p changed by2 and e_q unchanged, w=1 becomes w′=1/2.",
+        "Target-frame changes require no root of b until one insists on normalized coefficient1."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The G_m quotient and power action in B.1–B.2 lead to these gauge formulas. The signs and factors are authored computations with the fixed source/target coordinate conventions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.framedNativeEquiv.changeFrames",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Native coordinates commute with arbitrary test-algebra change",
+      "kind": "comparison",
+      "statement": "Fix A,f,n≥1 and the trivial target pair on Spec A. For every A-algebra map ψ:B→C, pull chosen native root frames along Spec ψ using the canonical pulled-unit comparison. The square between E_B,E_C, native framed-root pullback and the parent framedRootChange(ψ) commutes by a specified natural isomorphism. Coordinates become (ψ(u),ψ(y)); every arrow label becomes ψ(w). The natural isomorphism preserves both section and power identification, has the native pullback comparison as underlying line map, and obeys identity/composition coherence in ψ. It is compatible with the parent normalizationBaseChangeNatIso and normalization chart triangles.",
+      "hypotheses": [
+        "A,B,C are arbitrary commutative rings, with the stated algebra maps; ψ need not be injective or flat.",
+        "The chosen target frame on every test is pulled from Spec A, so the coordinate of the target section is the image of f."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalization-change",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-iso",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-chart-factorization",
+        "mathlib:AlgebraicGeometry.Scheme.ΓSpecIso_naturality",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "proofSteps": [
+        "The supplier’s pulled-unit comparison transports e to a frame of the pulled line. The section map and ΓSpecIso_naturality identify its coordinate with ψ(y).",
+        "Transport the actual power-identification automorphism using κ; the unit and tensor coherence identify its image-of-one coefficient with ψ(u). The same argument for e_q∘h∘e_p^{-1} gives ψ(w).",
+        "Use the parent framed change functor rather than redefining ring substitution. Construct the square’s comparison as the actual pulled-line comparison and verify the two root-arrow equations.",
+        "Root pseudofunctor coherence proves identity/composition compatibility. The normalization algebra sends coefficients through ψ and T to T by the parent’s construction; its generator equations identify the normalization and chart triangles."
+      ],
+      "acceptance": [
+        "Z/4→Z/2 kills y=2 and the nonidentity label−1 while all comparison diagrams commute.",
+        "The zero-ring spectrum gives empty-site computations without a Nontrivial ring assumption.",
+        "Wild characteristic is permitted; no assertion that μ_n is etale is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "Base change of the triple is described in Appendix B; coordinate naturality is deduced using the imported section and unit comparisons."
+        },
+        {
+          "sourceId": "TV17",
+          "locator": "§3, Remark 3.1 and Proposition 3.4, pp. 12–13; Corollary 3.13, p. 16",
+          "match": "Proposition 3.4 confirms the expected finite-root base-change behaviour; our pair-level square explicitly includes all arrows."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.framedNativeEquiv.baseChange",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-chart-realization",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "The affine chart as actual native root data",
+      "kind": "construction",
+      "statement": "For A,f,n≥1 and every A-algebra B, construct C_B from the parent root-point action groupoid Q(B) to Root(Spec B,O,f,n). A point z with z^n=f becomes M=O, the section with coordinate z, and φ=c_n. An arrow labelled ζ∈μ_n(B) acts by multiplication by ζ on O. Its section and power squares give the actual root arrow. This is the composite of the parent normalized chart embedding, E_B^{-1} and forgetting the frame. It is fully faithful, but it need not be essentially surjective on B. These functors are pseudonatural on arbitrary test-algebra maps with the native comparisons of the preceding targets.",
+      "hypotheses": [
+        "Q(B) is FunctionFieldArithmeticPartII:RS.2/root-point-groupoid, retaining labelled arrows; use its actual root-point carrier.",
+        "The point z lies in the parent affine ring A[Z]/(Z^n−f) functor of points. No effective Cartier divisor hypothesis is used."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding",
+        "FunctionFieldArithmeticPartII:RS.0/framed-fully-faithful",
+        "FunctionFieldArithmeticPartII:RS.2/root-point-groupoid",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-category",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism"
+      ],
+      "proofSteps": [
+        "Apply the existing normalized chart embedding into FramedRoot; its coefficient is1 and its root coordinate is z.",
+        "Use the inverse native coordinate equivalence and forget the chosen frame. This gives the exact trivial line, section and c_n identification, with all scalar arrows intact.",
+        "Full faithfulness is the composite of the parent’s fully faithful embedding, the equivalence, and the fully faithful forgetful functor. Naturality uses native-coefficient-naturality.",
+        "The Z/4 obstruction and nontrivial root lines show why objectwise essential surjectivity is not asserted; the local normalization theorem supplies the relevant local statement."
+      ],
+      "acceptance": [
+        "The full Hom bijection retains every stabilizer label.",
+        "The construction agrees with the native O and with the parent normalized FramedRoot inclusion."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "Appendix B.2, p.54 gives the affine root equation and quotient description; this construction supplies its native root-object functor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.rootChartRealization",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RootStack.rootChartRealization",
+          "role": "constructor",
+          "statement": "The actual root-object functor C_B, with its pseudonatural comparison maps."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization_line",
+          "role": "projection",
+          "statement": "The line of every chart image is native O."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization_section",
+          "role": "projection",
+          "statement": "The section coordinate is the actual point’s root image z."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization_identification",
+          "role": "projection",
+          "statement": "Its power identification is c_n and hence has coefficient1."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization_arrow",
+          "role": "simp",
+          "statement": "A μ_n arrow is the actual line automorphism multiplication by its unit label."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization_fullyFaithful",
+          "role": "equivalence",
+          "statement": "For each pair of chart points the Hom map is bijective and preserves unit labels; it is not a quotient by their action on sections."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.rootChartRealization.test_one",
+          "kind": "degenerate",
+          "statement": "For n=1, the chart point is f and every automorphism label is1."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization.test_stabilizer",
+          "kind": "non-example",
+          "statement": "At n=2,z=0 over Z/4 the labels1 and−1 remain different native arrows."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization.test_not_surjective",
+          "kind": "non-example",
+          "statement": "Over Z/4,n=2,f=3 the native root with trivial line,u=3,y=1 exists, but z^2=3 has no solution, so C_B is not essentially surjective."
+        },
+        {
+          "name": "TauCeti.RootStack.rootChartRealization.test_nilpotent",
+          "kind": "computation",
+          "statement": "Over Z/9,n=2,f=0, z=3 and z=0 give nonisomorphic roots: a unit cannot send3 to0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AGV B.2, p.54",
+          "how": "The affine presentation has an actual map to the root moduli groupoid."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
+          "how": "Full faithfulness and local essential surjectivity identify the associated stack."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Every native root has local normalized affine coordinates",
+      "kind": "theorem",
+      "statement": "For any scheme T and native root (M,t,φ) of (L,s), n≥1, there is an fppf covering of T refining an affine Zariski covering which trivializes both M and L. On each affine member Spec B, native coordinates give (u,y) with u∈Bˣ and u*y^n=f. Refine it by the parent singleton cover Spec D→Spec B, D=B[T]/(T^n−u). The existing unit r=T in D has r^n=u, and the pulled root is isomorphic to the native chart image with coordinate r*y and coefficient1. The root isomorphism has label r. The construction retains both arrow equations and is stable under arbitrary pullback of test schemes; it asserts existence of local frames, not a functorially chosen global frame.",
+      "hypotheses": [
+        "T is an arbitrary scheme; no reducedness, noetherianity or flatness of test changes is assumed.",
+        "Invertible sheaves, sections, tensor products and isomorphisms use the native Tau Ceti/Mathlib carriers.",
+        "n≥1. The family of affine trivializing opens can have arbitrary size allowed by the site; T need not be quasi-compact.",
+        "A positive exponent is essential for the finite-free unit-root cover; zero is not a covering exponent."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.SheafOfModules.LocalTrivializations.ofIsInvertible",
+        "FunctionFieldArithmeticPartII:RS.0/native-root-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-chart-realization",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+        "FunctionFieldArithmeticPartII:RS.0/framed-fppf-cover",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalization-iso",
+        "mathlib:AlgebraicGeometry.Scheme.zariskiPrecoverage_le_fppfPrecoverage",
+        "mathlib:AlgebraicGeometry.Scheme.affineCover"
+      ],
+      "proofSteps": [
+        "Use the existing local trivialization atlases of M and L, intersect their opens, and refine by affine opens. Restriction/pullback comparison with native modules comes from AlgebraicVectorBundles, not a new general local-freeness theory.",
+        "Read the two frames through the native equivalence. Apply the parent positive-exponent finite-free, finite-presentation and singleton-cover package to the unit coefficient u.",
+        "The parent normalized framed isomorphism has label r; its equations are r*y for the section and 1*r^n=u for the identification. Transport it back to a native root isomorphism using the Hom equivalence.",
+        "Zariski covers are fppf and the fppf precoverage is closed under composition and base change. Pull chosen covers back and use the parent Cartesian normalization square; no canonical global choice or flatness of the test change is needed."
+      ],
+      "acceptance": [
+        "Z/4,n=2,u=3,y=1 normalizes over D although it cannot normalize over B.",
+        "If n=p in characteristic p, D still gives a valid fppf cover; no etale assertion is made.",
+        "At y=0 no cancellation by y occurs, so all μ_n stabilizers survive.",
+        "For a nonzero square-zero y its normalization r*y remains nonzero under the faithfully flat cover because r is a unit."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The quotient presentation relies on local trivializations; this target supplies the exact root-specific cover and isomorphism."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Lemma 59.28.3, Tag 040N, complete proof; online, no fixed pagination",
+          "match": "For positive n the unit-root algebra is finite free of rank n and gives a faithfully flat finitely presented cover. Applying that cover after line trivialization is our pair-level deduction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.RootObject.exists_fppf_chart",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "planet": {
+        "name": "Local normalization of roots"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Affine action charts stackify to native root objects",
+      "kind": "theorem",
+      "statement": "Fix A,f and n≥1. On the fppf site of affine A-schemes let Q be the parent μ_n action-groupoid prestack of points of Spec A[Z]/(Z^n−f), and R the restriction of the native root-object pseudofunctor for (O,f). The native chart realization Q→R is fully faithful on every fibre and locally essentially surjective. Using the parent root-fpqc-descent theorem and the imported stackification, its extension a_fppf(Q)→R is an equivalence of stacks in groupoids. Its unit/counit and base-change comparisons lift the actual labelled chart arrows and are pseudonatural in arbitrary coefficient maps. Restriction from the scheme site to the affine basis gives the same stack through the supplier’s site-basis comparison. This is the native comparison underlying the parent RS.1 affine-chart statement, not a new generic quotient or algebraicity theorem.",
+      "hypotheses": [
+        "A is any commutative ring, including nonreduced rings; n≥1 and f arbitrary.",
+        "Use the fppf topology and actual groupoid-valued pseudofunctors; the objectwise orbit set is not the input.",
+        "The native root stack is supplied by the parent descent target. Algebraic atlases, coarse spaces and DM criteria remain owned by RS.1 and its suppliers."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
+        "FunctionFieldArithmeticPartII:RS.0/native-chart-realization",
+        "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+        "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
+        "DiamondsAndVStacks:D0/stackification",
+        "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+        "SchemeAndStackFoundations:SF.1",
+        "mathlib:AlgebraicGeometry.Scheme.fppfTopology"
+      ],
+      "proofSteps": [
+        "Reuse the parent fpqc root-descent theorem; its restriction is an fppf stack. Its exact module-descent supplier is R09.3, so effective descent is not inferred merely from a chart.",
+        "Full faithfulness follows from native-chart-realization and the Hom equations. Local essential surjectivity is native-local-normalization on the affine basis.",
+        "Apply Stacks Lemma8.9.1 via D0’s stackification: Q has sheaf Hom sets since it embeds fully faithfully into the stack R. The morphism Q→R has the two characterizing properties, so the induced stackification comparison is an equivalence.",
+        "The universal property gives the actual equivalence and invertible modifications; it also compares the coefficient-change extensions. Use the requested affine-basis comparison to extend to test schemes, rather than equating an affine site with the full site."
+      ],
+      "acceptance": [
+        "The Z/4,f=3,n=2 root is a global object of the associated stack even though Q(B) is empty.",
+        "The zero-section automorphism sheaf is μ_n and persists after stackification.",
+        "Nonzero nilpotent root sections are not replaced by zero-section data.",
+        "The wild characteristic p dual-number unit1+ε survives as an arrow when ε^2=0 and n=p."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The root-with-section affine quotient is the motivating statement; our comparison proves that it uses native triples and their arrows."
+        },
+        {
+          "sourceId": "STACKIFICATION",
+          "locator": "Lemmas 8.9.1–8.9.3, §8.9 Tag 02ZO and Lemma 8.9.1 Tag 02ZP; online, no fixed pagination",
+          "match": "Stackification retains sheafified Hom sets and adds locally represented objects; its universal property gives the comparison. No isomorphism-class sheaf replaces it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.rootChart_stackification_isEquivalence",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "planet": {
+        "name": "Root-chart stackification"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-chart-frame-independence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Descent comparison for different target-line frames",
+      "kind": "comparison",
+      "statement": "For an affine open with two target frames l and l′=mul(b)∘l, n≥1, the associated stacks of normalized charts with equations z^n=f and z′^n=b*f are canonically equivalent through their respective native-root comparisons. Explicitly, over B[R]/(R^n−b), the comparison is z′=R*z, and its inverse is z=R^{-1}*z′. On two choices R_1,R_2 the ratio R_2/R_1 lies in μ_n and supplies the chart-arrow modification. On triple frame overlaps those modifications satisfy the root-arrow cocycle, so the associated stack glues to the native root-object stack for a nontrivial target line. No global n-th root of b, equality of the two raw affine charts or globally selected compatible frame roots is required.",
+      "hypotheses": [
+        "The frames concern the same target line with section; transitions are actual units. n≥1.",
+        "Charts are compared after fppf stackification; all comparison arrows and their cocycles are retained."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-frame-change",
+        "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
+        "FunctionFieldArithmeticPartII:RS.0/framed-normalization-iso",
+        "DiamondsAndVStacks:D0/stackification"
+      ],
+      "proofSteps": [
+        "Use native-frame-change to identify framed coordinates under l,l′. The two stackification equivalences land in the same native root groupoid, so their composite defines the canonical stack equivalence.",
+        "Normalize the changed coefficient b with the positive-exponent Kummer cover. The direct native identity-arrow comparison reads as multiplication by R on normalized chart coordinates.",
+        "Ratios of two unit roots have n-th power1. They are the invertible modification between local chart maps; at zero sections their labels must still be recorded.",
+        "On triple overlaps compose the identity native root arrows; full faithfulness recovers their coordinate cocycle, even when chosen roots do not multiply strictly. Descend the equivalence, not an arbitrary chosen global root of the transition unit."
+      ],
+      "acceptance": [
+        "Over Q,n=2,b=−1 the normalized raw chart equations f=1 and f′=−1 have different Q-points but their associated stacks describe the same native pair through the two target frames.",
+        "At z=0 two roots R_1,R_2 induce different μ_n modification labels although both section maps give0.",
+        "A four-open refinement gives the same descended comparison after the specified modifications."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "B.1–B.2 express the root moduli problem independently of trivializations. The transition-cover and ratio formulas are authored coordinate deductions."
+        },
+        {
+          "sourceId": "STACKIFICATION",
+          "locator": "Lemmas 8.9.1–8.9.3, §8.9 Tag 02ZO and Lemma 8.9.1 Tag 02ZP; online, no fixed pagination",
+          "match": "The universal comparison makes the frame-independent equivalence an equivalence of stacks, retaining the local modifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.rootChartFrameEquiv",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-finite-normalization-coherence",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Coherence of normalization covers for arbitrary finite chains",
+      "kind": "comparison",
+      "statement": "For a fixed parent framed root p and a finite chain of arbitrary test-algebra maps B_0→…→B_m, m≥0, use the parent normalization change maps to compare the normalization of the fully changed p with every parenthesization of the iterated chosen scheme pullback of its original cover. The comparison is the unique isomorphism with the prescribed projections to Spec B_m and the original normalization scheme. It agrees with the direct parent normalizationBaseChangeIso for the composite chain after each canonical pullback collapse. All forward/inverse projection formulas, naturality for every labelled framed arrow, insertion of identities and composition of chains agree; for n≥1 the normalized-chart triangle agrees as well. The scheme comparison alone allows n=0. This extends the accepted two- and three-step specifications rather than restating them.",
+      "hypotheses": [
+        "No flatness or injectivity is imposed on any B_i→B_(i+1).",
+        "Use the native chosen pullbacks and their actual associator/pasting isomorphisms; no definitional equality of different chosen limits is asserted.",
+        "For n=0 no fppf-cover or chart-normalization claim is made."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-map",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-identity",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-composition",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-base-change-natural-iso",
+        "FunctionFieldArithmeticPartII:RS.0/normalization-change-iso",
+        "mathlib:CategoryTheory.Limits.pullback.hom_ext"
+      ],
+      "proofSteps": [
+        "Compose the parent normalization-change algebra maps. Identity and composition are already specified there, so coefficients and the adjoined root identify the direct composite map.",
+        "Inductively paste the Cartesian coefficient squares and use the native pullback universal property to form the comparison to each chosen bracketing.",
+        "Every comparison has the same two composite projections. Repeated pullback.hom_ext proves equality of comparison morphisms, inverses and all rebracketing diagrams; it also proves naturality in framed arrows using the parent natural isomorphism.",
+        "For n≥1 the parent chart triangle and the same projection characterization carry the normalized chart map through the finite composite. The proof never cancels the root section."
+      ],
+      "acceptance": [
+        "m=0 gives the identity comparison, after the empty-chain convention.",
+        "m=2 and m=3 reproduce the parent comparisons on both projections and both inverse projections.",
+        "For a chain Z/4→Z/2→Z/2→Z/2→Z/2 all formulas hold although nilpotent sections and the −1 stabilizer collapse at its first map.",
+        "The n=0 algebra comparison remains valid without being a cover."
+      ],
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3, Remark 3.1 and Proposition 3.4, pp. 12–13; Corollary 3.13, p. 16",
+          "match": "Proposition 3.4 motivates coefficient compatibility. The arbitrary finite chosen-limit coherence is our induction from the parent’s ring-map universality and native pullback uniqueness, not a printed root-stack theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.normalizationFiniteBaseChange_coherent",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Root comparisons under coherent enlargement of ambient universes",
+      "kind": "construction",
+      "statement": "For a small scheme site and an enlargement u≤v, import the coherent universe-lift functor on schemes, native modules and invertible sheaves, together with section, tensor, Spec/Γ and pullback comparisons. Restrict the enlarged test site to the essential image of the original site. Applying these comparisons to the parent root data gives an equivalence between the original root groupoid and the lifted root groupoid, commuting with all arrows, frames, κ, chart realization and stackification. On a ring B this is the comparison with ULift B via the actual ring equivalence; units and root coordinates map through that equivalence. Identity and successive enlargement comparisons satisfy triangle/pentagon coherence. This statement is not an equivalence between all small and all larger test schemes.",
+      "hypotheses": [
+        "Specify u≤v and the essential-image site, or an explicit small skeleton and its induced topology.",
+        "The supplier’s lift preserves the native geometric carriers and covering families and comes with coherent operation comparisons; a scalar-point wrapper alone is insufficient."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+        "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
+        "SchemeAndStackFoundations:SF.0",
+        "DiamondsAndVStacks:D0"
+      ],
+      "proofSteps": [
+        "Request generic native scheme/module universe comparisons from SF.0 and descent transport along the resulting equivalence of sites from D0. Those generic constructions are owned there, not recreated here.",
+        "Lift M,t,φ using the section and tensor comparisons; these carry φ(t^n)=s to the identical typed root equation in the enlarged universe. Lift h and both arrow squares in the same way.",
+        "Use the inverse carrier equivalences to recover a root and every labelled arrow, giving an actual groupoid equivalence, not a bijection of point orbits.",
+        "The supplier’s pullback comparisons transport the root pseudofunctor, κ and frame equivalence; D0’s equivalent-site transport and stackification universal property transport native-stackification-equivalence.",
+        "Underlying coherent lift maps satisfy triangle/pentagon, hence so do their root restrictions. Genuine new larger test objects are handled by the formula of the native root pseudofunctor at that universe, not asserted to come from the small site."
+      ],
+      "acceptance": [
+        "The site being compared must be named, not silently enlarged.",
+        "Unit labels, including stabilizers, are transported bijectively on each matched test object."
+      ],
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, printed pp. 52–54",
+          "match": "The root datum is intrinsic line, section and isomorphism data; universe transport is an authored formalization adapter based on the requested carrier equivalences, not a theorem printed in Appendix B."
+        },
+        {
+          "sourceId": "STACKIFICATION",
+          "locator": "Lemmas 8.9.1–8.9.3, §8.9 Tag 02ZO and Lemma 8.9.1 Tag 02ZP; online, no fixed pagination",
+          "match": "The stackification universal characterization transports across equivalent sites; it does not identify sites with different objects."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RootStack.RootObject.universeEquiv",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/NativeComparison",
+        "namespace": "TauCeti.RootStack"
+      },
+      "api": [
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv",
+          "role": "constructor",
+          "statement": "The equivalence on matched native test schemes built from the supplier’s carrier lifts."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv_line",
+          "role": "projection",
+          "statement": "Its line is the lifted native invertible sheaf."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv_section",
+          "role": "compatibility",
+          "statement": "The actual lifted section is compared through the supplier’s section equivalence."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv_identification",
+          "role": "compatibility",
+          "statement": "The lifted identification uses the tensor-power comparison, with direction fixed as in κ."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv_arrow",
+          "role": "functoriality",
+          "statement": "Lift an actual line isomorphism and both root-arrow equations, preserving identities and composition."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv_comp",
+          "role": "compatibility",
+          "statement": "Two successive enlargements agree with the direct enlargement through the supplier’s coherent natural isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv.test_identity",
+          "kind": "degenerate",
+          "statement": "An identity universe enlargement gives the identity root equivalence through the stated unit comparison."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv.test_ring",
+          "kind": "compatibility",
+          "statement": "For B and ULift B the coordinates (u,y,w) become their images under the actual ring and unit equivalences; the equations are mapped literally."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv.test_stabilizer",
+          "kind": "non-example",
+          "statement": "The distinct labels1 and−1 at y=0 over Z/4 remain distinct after enlargement."
+        },
+        {
+          "name": "TauCeti.RootStack.RootObject.universeEquiv.test_site",
+          "kind": "non-example",
+          "statement": "An enlarged-universe test scheme outside the essential image is not declared equivalent to a small test scheme merely because the root formulas look the same."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0, higher-universe adapters",
+          "how": "Makes native root comparisons usable at the site universes of ordinary stack suppliers."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.2",
+          "how": "Supplies finite-level typed root comparisons; coherent infinite reindexing and genuine 2-limits remain RS.2 targets."
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "JAC-A-RS0",
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Integrate, without replanning, AlgebraicVectorBundles L0A–L0B tensorSection, the unit comparison and coherent strong symmetric monoidal module pullback on native InvertibleSheaf. Supply explicit pure-tensor coordinate multiplication, unit-section coordinate1, naturality under actual module maps and section-pullback compatibility with unit/tensor and identity/composition comparisons. Reuse current native trivializationCoordinate and unitsGlobalSectionsMulEquivAut; their generic definitions are already implemented. This refines parent JAC-A only at its still-needed section/tensor comparison boundary. Fix β₀:h*O_T≅O_Y and β₂:h*(M⊗N)≅h*M⊗h*N, so the root-power recursion uses their inverses.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality"
+      ]
+    },
+    {
+      "id": "AFFINE-BASIS-RS0",
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Supply restriction/extension equivalence for groupoid-valued stacks between the scheme fppf site over X and its affine test basis, with the topology induced by covering refinements, and compatibility with the chosen native module and section pullbacks. Reuse native fppf/fpqc topologies and effective module descent from R09.3; this is a generic site-basis adapter, not a second root-stack or quotient definition.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence"
+      ]
+    },
+    {
+      "id": "UNIVERSE-GEOMETRY-RS0",
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Coherent ambient-universe lifts of native schemes/modules/invertible sheaves on a fixed small site, with inverse equivalences on their essential images and comparison isomorphisms for sections, units, tensor, Spec/Γ and pullback. Specify actual carriers and identity/composition diagrams. Restrict any equivalence claim to the lifted site, not all genuinely larger test schemes.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter"
+      ]
+    },
+    {
+      "id": "UNIVERSE-STACKS-RS0",
+      "supplier": "DiamondsAndVStacks:D0",
+      "need": "Transport groupoid-valued pseudofunctors, covering topologies, IsStack and stackification across an equivalence with the essential-image lifted site, including strong transformations and invertible modifications. Root-specific transport uses this generic adapter; no equality between all universe levels of schemes is asserted.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "FunctionFieldArithmeticPartII:RS.0",
+      "status": "planned",
+      "remaining": [
+        "Discharge the exact section/tensor comparison, affine-basis and coherent universe adapter requests against their native supplier signatures. The target-level mathematics, API and tests in scope are specified; formal proof implementation is not the planning job.",
+        "Replace the explicit README-only signatures with native declarations when their requested carriers and comparisons are at the compilation baseline; do not introduce predicate stand-ins or data admissions."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "RS0-NATIVE-SIGNATURES",
+      "title": "Native signatures beyond the compilation baseline",
+      "detail": "The atlas pins contain native schemes and line sheaves but not the imported coherent tensorSection/monoidal pullback and concrete root-stack/stackification/universe-adapter declarations. The Suggested file therefore states coordinate end conditions over real pinned carriers and records every new target/API/test whose actual carrier is absent. The README gives their complete typed mathematical domains and codomains. This is a signature integration gap, not an unmentioned mathematical proof step or implementation claim; its exact supplier inputs are the four requests.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-root-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-root-coherence",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-category",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-frame-change",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality",
+        "FunctionFieldArithmeticPartII:RS.0/native-chart-realization",
+        "FunctionFieldArithmeticPartII:RS.0/native-local-normalization",
+        "FunctionFieldArithmeticPartII:RS.0/native-stackification-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-chart-frame-independence",
+        "FunctionFieldArithmeticPartII:RS.0/native-finite-normalization-coherence",
+        "FunctionFieldArithmeticPartII:RS.0/native-universe-adapter"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [
+    {
+      "id": "FunctionFieldArithmeticPartII/E2",
+      "kind": "error",
+      "locator": "§A.1.3, pp. 515–516 (same in arXiv v2)",
+      "printed": "The source describes the full ramified geometric fibre as a classifying stack.",
+      "correction": "The full geometric fibre is [Spec K[t]/(t²)/μ2]; only its reduced substack is Bμ2.",
+      "reason": "Trivialize the square line. A root section satisfies t²=0, so it has nonzero infinitesimal possibilities over dual numbers. The source's subsequent Cartesian squaring diagram yields this nonreduced fibre.",
+      "affects": "a stated result",
+      "known": "Inherited accepted parent finding; this pass does not claim discovery.",
+      "searched": [
+        "Annals article landing page https://annals.math.princeton.edu/2019/189-2/p02 and title+erratum/correction searches (2026-09-23): no dedicated correction located; this is not a claim of exhaustive absence.",
+        "Zhiwei Yun research publication entry https://math.mit.edu/~zyun/research.html and Wei Zhang publication page https://math.mit.edu/~wz2113/math/pub.html: inspected the paper's entries/links; no correction located.",
+        "arXiv https://arxiv.org/abs/1712.08026 version history and downloaded v2 (2020-06-13); selected collation scope is listed under source.readSections, not a claim to have read v2 in full.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the author-hosted published PDF re-fetched (SHA-256 700e0b09…, matching)."
+      ],
+      "laterVersionCheck": "Present in the selected corresponding v2 passage; not a published correction.",
+      "origin": "PAPER-YUN-ZHANG-19/E33",
+      "source": "YZ19",
+      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E5",
+      "kind": "misprint",
+      "locator": "Definition A.2, p. 515 (same in arXiv v2)",
+      "printed": "The restriction clause refers back to the restricted section itself.",
+      "correction": "In the root-section data, a_R is obtained by restricting the global section a to R×S.",
+      "reason": "Checked on the page image. a is the global section in the previous bullet.",
+      "affects": "nothing",
+      "known": "Inherited accepted parent finding; this pass does not claim discovery.",
+      "searched": [
+        "Crossref for doi:10.4007/annals.2019.189.2.2 (Ann. of Math. 189 (2019), 393–526), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2019/189-2/p02), 23 September 2026: no erratum linked",
+        "the authors' pages and the correction recorded by the extraction (see its sourceIssues), checked for the passage"
+      ],
+      "origin": "PAPER-YUN-ZHANG-19/E66",
+      "source": "YZ19",
+      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted."
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII/E12",
+      "source": "AGV08",
+      "kind": "misprint",
+      "locator": "arXiv:math/0603151v2, Appendix B.2, p.53, item (3) in the triple definition; preprint only.",
+      "printed": "The section equation uses a different exponent symbol from the preceding power-identification equation.",
+      "correction": "φ(τ^d) = σ",
+      "reason": "The same definition has φ:M^{⊗d}≅L_T and d is the root exponent. No exponent m is bound there; the displayed m makes the expression ill-typed. The rendered p.53 confirms m rather than a text-extraction artifact. The packet already uses the correct exponent.",
+      "affects": "nothing",
+      "known": "Inherited accepted parent finding; this pass does not claim discovery.",
+      "searched": [
+        "2026-10-05: arXiv version list https://arxiv.org/abs/math/0603151 has v2 as its latest version; the inspected v2 retains m.",
+        "2026-10-05: exact-title erratum search and Abramovich public paper directory https://www.math.brown.edu/dabramov/PAPERS/ did not identify a correction.",
+        "2026-10-05: attempted Project Euclid journal page for DOI 10.1353/ajm.0.0017 was not served by the browser tool. No published-version collation or assertion about the version of record is made."
+      ],
+      "reuseNote": "Inherited accepted finding from the parent; corresponding passage reread2026-10-14. No fresh erratum search or new whole-paper review is asserted."
+    }
+  ],
+  "upstreamNotes": [],
+  "upstreamImports": [
+    {
+      "ref": "UPSTREAM:AlgebraicVectorBundles:L0A",
+      "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "layer": "L0A",
+      "integrationOwner": "SchemeAndStackFoundations:SF.3",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md",
+      "need": "Use the already specified native tensorSection, unit/strong monoidal pullback and rank-one comparisons. The four requests refine integration without duplicating generic targets.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality"
+      ],
+      "snapshotBoundary": "Current main was read; the atlas compilation pins are older."
+    },
+    {
+      "ref": "UPSTREAM:AlgebraicVectorBundles:L0B",
+      "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "layer": "L0B",
+      "integrationOwner": "SchemeAndStackFoundations:SF.3",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/AlgebraicVectorBundles/README.md",
+      "need": "Use the already specified native tensorSection, unit/strong monoidal pullback and rank-one comparisons. The four requests refine integration without duplicating generic targets.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/native-power-pullback",
+        "FunctionFieldArithmeticPartII:RS.0/native-framed-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/native-coefficient-naturality"
+      ],
+      "snapshotBoundary": "Current main was read; the atlas compilation pins are older."
+    }
+  ],
+  "auditEvidence": {
+    "reviewedAudit": "data/library-coverage.json",
+    "reading": "Read SF.1 and SF.3 reviewed entries: topologies and abstract descent exist in part, but native root/quotient stacks and effective global module descent are not certified there. There is no reviewed FunctionFieldArithmeticPartII audit entry; the accepted parent supplies its baseline audit. The new packet only extends its missing native comparisons.",
+    "parentPacket": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
+    "parentReview": "REV-DESIGN-FunctionFieldArithmeticPartII~2, accepted2026-10-11",
+    "links": "No research/blueprint/links entry mentions FunctionFieldArithmeticPartII:RS.0; stage prerequisites and the accepted parent contracts supply the consumers."
+  },
+  "currentLibraryImports": {
+    "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "date": "2026-10-14",
+    "items": [
+      {
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "declarations": [
+          "AlgebraicGeometry.Scheme.Modules.trivializationCoordinateIso",
+          "AlgebraicGeometry.Scheme.Modules.trivializationCoordinate",
+          "AlgebraicGeometry.Scheme.Modules.exists_mem_trivialization"
+        ],
+        "provides": "Actual coordinate isomorphisms, scalar generator comparisons, unit transition functions and pointwise local frames. These are current imports, not baseline declarations or new targets."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Endomorphisms.lean",
+        "declarations": [
+          "AlgebraicGeometry.Scheme.Modules.globalSectionsActionRingEquiv",
+          "AlgebraicGeometry.Scheme.Modules.unitsGlobalSectionsMulEquivAut"
+        ],
+        "provides": "Existing global scalar endomorphism and unit-labelled automorphism equivalences of native invertible sheaves."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Pullback.lean",
+        "declarations": [
+          "TauCeti.AlgebraicGeometry.InvertibleSheaf.pullback"
+        ],
+        "provides": "Arbitrary line pullback, using the actual native module pullback; generic rank-one preservation is reused."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Functoriality.lean",
+        "declarations": [
+          "TauCeti.AlgebraicGeometry.InvertibleSheaf.pullbackId",
+          "TauCeti.AlgebraicGeometry.InvertibleSheaf.pullbackComp"
+        ],
+        "provides": "Ordinary native line-pullback identity/composition isomorphisms. Tensor/section comparison and its full monoidal coherence are the AVB import."
+      }
+    ]
+  },
+  "planningPass": {
+    "level": "target",
+    "newNodes": 13,
+    "parentNodesReused": "All accepted RS.0 targets remain in the parent; no parent node is copied or edited. RS.1/root-fpqc-descent and RS.2/root-point-groupoid are reused as exact suppliers.",
+    "scopeBoundary": "Infinite root towers, coherent infinite reindexing and genuine 2-limits are owned by RS.2. Algebraicity, coarse spaces, closed fibres and DM criteria are RS.1; this packet supplies their native finite-root comparison. General local frames/coordinates and monoidal module infrastructure remain their existing owners."
+  }
+}
