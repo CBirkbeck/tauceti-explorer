@@ -12,7 +12,7 @@
   "HeightsRationalPointsAndObstructions:RP.6"
  ],
  "status": "complete",
- "summary": "Revision 2 retains the 144 reviewed target IDs and their in-place corrections, and synchronizes the full reader document. The three formerly unverifiable targets now have read primary sources: Gubler’s 2002 contraction proof for local canonical metrics, Mattuck Theorem 7 for the additive open subgroup, and Katz’s Appendix Lemma′ for torsion-free reduction kernels. Three target-level inputs are added: bounded point-metric families, canonical point metrics by contraction, and the multivariate formal logarithm on a strict small ideal. Local index normalization, summable metric bounds, exact global constants and supplier interfaces are explicit. All seven stages are planned under PROTOCOL §0, with precise outstanding proof/supplier gaps; none is closed or claimed formalized. The prior review register remains unchanged for independent re-review.",
+ "summary": "Heights, rational points and obstructions over number fields and function fields. RP.0 builds heights modulo bounded functions, the Weil height machine over generalized global fields, Northcott finiteness, Tate’s limit, Néron–Tate heights of abelian varieties and their bilinear forms, bounded and canonical point metrics with local Néron functions, height estimates in families and canonical heights of subvarieties over function fields. RP.1 proves weak Mordell–Weil and Mordell–Weil by descent through Kummer maps and Selmer groups, Chow’s K/k-trace and the Lang–Néron theorem, two-coverings and W[2], formal logarithms on small ideals, local indices of multiplication by two and injectivity of reduction on torsion. RP.2 constructs adelic points, Brauer evaluation, the Brauer–Manin pairing and set, algebraic and unramified Brauer groups and the classical examples. RP.3 develops descent by torsors, Selmer sets, étale–Brauer and descent obstruction sets, universal torsors and descent along torus torsors. RP.4 treats good reduction of curves, Chevalley–Weil, de Franchis, the Kodaira–Parshin construction, Faltings’ and Siegel’s finiteness theorems. RP.5 treats subvarieties of abelian varieties: stabilizers and the Ueno locus, Manin–Mumford, Mordell–Lang, the Vojta–Bombieri proof, Bogomolov and equidistribution. RP.6 classifies rational points on curves by genus and states the open conjectures as propositions that no theorem assumes. Deep inputs that no roadmap plans yet are recorded as gaps or supplier requests.",
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -266,8 +266,8 @@
     "ref": "mathlib:IsAzumaya.matrix",
     "kind": "theorem",
     "module": "Mathlib/Algebra/Azumaya/Matrix.lean",
-    "provides": "Matrix algebras are Azumaya.",
-    "checked": "Independently read the complete declaration, hypotheses and surrounding normalization at the stated pinned Git commit on 2026-10-13 (REV-HeightsRationalPointsAndObstructions)."
+    "provides": "Matrix algebras over a commutative ring, indexed by a finite nonempty type (the instance assumes [Nonempty n]), are Azumaya.",
+    "checked": "Statement re-read at the pinned commit on 2026-10-14 (REV-HeightsRationalPointsAndObstructions~2); description corrected to the Lean hypotheses and fields."
    },
    {
     "ref": "mathlib:IsDedekindDomain.FiniteAdeleRing",
@@ -504,8 +504,8 @@
     "ref": "tauceti:TauCeti.BrauerGroup.mk_matrix",
     "kind": "theorem",
     "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
-    "provides": "Matrix algebras over a central simple algebra have the same class.",
-    "checked": "Independently read the complete declaration, hypotheses and surrounding normalization at the stated pinned Git commit on 2026-10-13 (REV-HeightsRationalPointsAndObstructions)."
+    "provides": "For a central simple algebra A and n ≠ 0 (hypothesis [NeZero n]), the matrix algebra M_n(A) has the same Brauer class as A.",
+    "checked": "Statement re-read at the pinned commit on 2026-10-14 (REV-HeightsRationalPointsAndObstructions~2); description corrected to the Lean hypotheses and fields."
    },
    {
     "ref": "tauceti:TauCeti.BrauerGroup.mk_op",
@@ -700,15 +700,15 @@
     "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
     "kind": "structure",
     "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
-    "provides": "Abelian varieties over a field as group objects that are smooth, proper and geometrically connected.",
-    "checked": "Independently read the complete declaration, hypotheses and surrounding normalization at the stated pinned Git commit on 2026-10-13 (REV-HeightsRationalPointsAndObstructions)."
+    "provides": "Abelian varieties over a field K: group objects over Spec K whose structure morphism is proper and geometrically integral (fields toOver, grpObj, isProper, geometricallyIntegral). Smoothness and geometric connectedness are derived lemmas, not fields.",
+    "checked": "Statement re-read at the pinned commit on 2026-10-14 (REV-HeightsRationalPointsAndObstructions~2); description corrected to the Lean hypotheses and fields."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
-    "provides": "Over a field with the Northcott property, the elliptic canonical height vanishes exactly at torsion points. This native elliptic specialization uses canonical-height Northcott to prove the torsion kernel, without a Mordell–Weil prerequisite.",
-    "checked": "Independently read the complete declaration, hypotheses and surrounding normalization at the stated pinned Git commit on 2026-10-13 (REV-HeightsRationalPointsAndObstructions)."
+    "provides": "For an elliptic Weierstrass curve over a field with admissible absolute values (and decidable equality), assuming a Northcott instance for the canonical height itself (an instance derives it from Northcott of the naive height), the canonical height vanishes exactly at torsion points. This native elliptic specialization uses canonical-height Northcott to prove the torsion kernel, without a Mordell–Weil prerequisite.",
+    "checked": "Statement re-read at the pinned commit on 2026-10-14 (REV-HeightsRationalPointsAndObstructions~2); description corrected to the Lean hypotheses and fields."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.neronTatePairing",
@@ -1030,12 +1030,11 @@
    "id": "mattuck-1955",
    "title": "Abelian varieties over p-adic ground fields",
    "authors": "A. Mattuck",
-   "edition": "Ann. of Math. 62 (1955), 92–119",
+   "edition": "Ann. of Math. (2) 62 (1955), no. 1, 92–119 (JSTOR stable URL; not freely available)",
    "readSections": [
-    "§13, Theorem 7 and its full proof, printed pp.114–117; §14 observations 1–3, p.118, in the university-hosted scan read 2026-10-14."
+    "Cited bibliographically for §13, Theorem 7 (printed pp.114–117) and §14 (p.118); no freely readable copy is known, and no planned proof depends on it. The open additive subgroup is obtained from the Néron model and the formal logarithm instead."
    ],
-   "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
-   "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94"
+   "url": "https://www.jstor.org/stable/2007101"
   },
   {
    "id": "katz-1981-appendix",
@@ -2880,6 +2879,16 @@
      "name": "TauCeti.PointHeightMetricFamily.height",
      "role": "relation",
      "statement": "The sum of −log norms at a rational point represents the Weil height; changing metrics changes it by at most Σ_v n_v d_v."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.ofGenerators",
+     "role": "constructor",
+     "statement": "For L generated by finitely many K-sections s_0,…,s_n, the sup metric with ‖e‖_v=1/max_i|s_i/e|_v in a local frame e, at every place, is a bounded point-metric family; for O(1) on ℙⁿ with the coordinate sections it is the metric of test_sup."
+    },
+    {
+     "name": "TauCeti.PointHeightMetricFamily.dist_ofGenerators_le",
+     "role": "compatibility",
+     "statement": "Two finite generating families of the same L give sup metrics whose distance d_v is bounded by constants vanishing at all but finitely many nonarchimedean places, so Σ_v n_v d_v<∞."
     }
    ],
    "tests": [
@@ -4359,7 +4368,7 @@
     "Combine with Lang–Néron and finite extensions (Conrad Lemma 9.16, Corollary 9.17)."
    ],
    "acceptance": [
-    "The kernel is τ(Tr(k̄)) + torsion, not (Tr ⊗ K̄)(K̄) + torsion: the latter is the source misprint recorded for Gao–Habegger §1.",
+    "The kernel is τ(Tr(k̄)) + torsion, not (Tr ⊗ K̄)(K̄) + torsion: the latter is the source misprint PAPER-GAO-HABEGGER-19/E18 (Gao–Habegger §1, p.2).",
     "A nonconstant quadratic isotrivial twist of a constant Jacobian can have zero original trace but nonzero geometric trace. Its zero-height constant points after the splitting extension distinguish the two hypotheses."
    ],
    "prerequisites": [
@@ -4693,7 +4702,7 @@
     {
      "sourceId": "mattuck-1955",
      "locator": "§13, Theorem 7 and proof, pp.114–117; §14(2), p.118",
-     "match": "Analytic additive coordinates near the identity, with identity tangent normalization and linear change between charts."
+     "match": "Classical analytic additive coordinates near the identity (bibliographic; the coefficient estimates here are self-contained)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4711,12 +4720,12 @@
    ],
    "title": "Local indices of multiplication by two",
    "kind": "lemma",
-   "statement": "Let A be an abelian variety of dimension g over F/ℚ_p finite. Mattuck gives an open finite-index subgroup U≃(O_F^g,+) of A(F). With the module absolute value |a|_F=q_F^(−ord_F(a)), #A(F)/2A(F)=|2|_F^(−g)·#A(F)[2]. Thus the factor is 2^(g[F:ℚ₂]) at p=2 and 1 otherwise; for F=ℚ₂ and full two-torsion it gives 2^(3g). This module absolute value is not the extension of the normalized ℚ_p norm without its [F:ℚ_p] power. Over ℝ the quotient has order #A(ℝ)[2]/2^g; over ℂ it is trivial.",
+   "statement": "Let A be an abelian variety of dimension g over F/ℚ_p finite. A(F) has an open subgroup U≃(O_F^g,+) of finite index: for an integer r>e/(p−1), with e=ord_F(p), the kernel of reduction modulo 𝔪^r on the points of the Néron model. With the module absolute value |a|_F=q_F^(−ord_F(a)), #A(F)/2A(F)=|2|_F^(−g)·#A(F)[2]. Thus the factor is 2^(g[F:ℚ₂]) at p=2 and 1 otherwise; for F=ℚ₂ and full two-torsion it gives 2^(3g). This module absolute value is not the extension of the normalized ℚ_p norm without its [F:ℚ_p] power. Over ℝ the quotient has order #A(ℝ)[2]/2^g; over ℂ it is trivial.",
    "hypotheses": [
     "A abelian of dimension g over a local field of characteristic 0."
    ],
    "proofSteps": [
-    "Read Mattuck Theorem 7, pp.114–117: its additive local uniformization sends an abelian subgroup into a linear subspace; projective compactness over a locally compact F makes the open subgroup finite index. An alternative implementation uses a smooth Néron identity chart, shrinks and rescales it until its formal law is integral, and applies formal-logarithm-small-ball. The model/chart comparison is an explicit supplier request, not an existing abelian-variety logarithm at the pins.",
+    "Let 𝒩 be the Néron model of A over O_F, so that A(F)=𝒩(O_F). For an integer r>e/(p−1) let U be the kernel of 𝒩(O_F)→𝒩(O_F/𝔪^r). The requested NeronModels R11.1 interface identifies U with the 𝔪^r-points of the g-dimensional formal group of 𝒩 along its identity section, and formal-logarithm-small-ball identifies these with ((𝔪^r)^g,+)≅(O_F^g,+). U is open, and it has finite index because 𝒩(O_F/𝔪^r) is finite. Katz (Appendix, proof of Lemma′, p.502) uses the same identification of the reduction kernel with formal-group points at r=1. Mattuck §13 Theorem 7 is the classical analytic form of this open additive subgroup and is cited bibliographically only.",
     "Let G=A(F), C=G/U. Since U is torsion-free, multiplication by two in 0→U→G→C→0 gives 0→G[2]→C[2]→U/2U→G/2G→C/2C→0. Both C groups are finite with equal order. Taking alternating cardinalities gives #G/2G=#G[2]·#U/2U, without assuming this group extension splits. For U≃O_F^g the last factor is q_F^(g ord_F(2))=|2|_F^(−g).",
     "Over ℂ import complex-lattice-realization: A(ℂ)≃ℂ^g/Λ, where multiplication by two is surjective. Over ℝ take conjugation invariants in that uniformization. The identity component is a real g-torus; the component group embeds in H¹(⟨conjugation⟩,Λ), hence is killed by two. In 0→G⁰→G→π₀G→0, [2] is onto on G⁰ and G⁰[2] has order 2^g. The snake lemma gives G[2]↠π₀G and G/2G≃π₀G, proving the stated real count. No splitting hypothesis is needed."
    ],
@@ -4737,7 +4746,12 @@
     {
      "sourceId": "mattuck-1955",
      "locator": "§13, Theorem 7 and proof, printed pp.114–117; §14(2), p.118",
-     "match": "Primary proof of an additive open subgroup, finite index for locally compact fields. The index is then obtained by the displayed finite-group exact sequence."
+     "match": "Classical statement of an open additive subgroup of finite index in A(F); cited bibliographically, the proof here goes through the Néron model and the formal logarithm."
+    },
+    {
+     "sourceId": "katz-1981-appendix",
+     "locator": "Appendix, proof of Lemma′, printed p.502",
+     "match": "The kernel of reduction on Néron-model points is the group of formal-group points on the maximal ideal, made additive by the logarithm; the same argument at level 𝔪^r gives U."
     }
    ],
    "implementationStatus": "unchecked",
@@ -8079,7 +8093,7 @@
    "proofSteps": [
     "Membership is an image condition, not a quotient equality.",
     "Br_nr(Y) ⊆ Br₁(Y/X): unramified classes on X_{k̄} × T_{k̄} come from X_{k̄} (Br_nr of a torus over k̄ is 0).",
-    "The edge sequence: Leray for f and Hochschild–Serre for k̄/k (Harpaz–Wittenberg 2020 (2.2))."
+    "The edge sequence: Leray for f and Hochschild–Serre for k̄/k (Harpaz–Wittenberg 2020 (2.4), p.9)."
    ],
    "acceptance": [
     "For Y = X × T (trivial torsor), Br₁(Y/X) ⊇ pr₁*Br X + pr₂*Br₁ T."
@@ -8184,7 +8198,7 @@
    "sources": [
     {
      "sourceId": "hw-20",
-     "locator": "§2, Lemma 2.4 and its proof, author-copy p.10",
+     "locator": "§2, Proposition 2.3 and Lemma 2.4 with proofs, author-copy pp.9–10",
      "match": "Twist independence of δ_σ, of the unramified edge image and of pulled-back unramified classes; the translation formula for evaluation; the torus torsor over a field."
     }
    ],
@@ -9787,7 +9801,7 @@
     "Characteristic 0; Y irreducible closed in V × A."
    ],
    "proofSteps": [
-    "Scanlon's automatic uniformity (2004 Theorem 2.4) via the model theory of algebraically closed fields with a generic automorphism (Hrushovski), as cited by Gao–Habegger Theorem 3.2 (statement misprint E1 corrected)."
+    "Scanlon's automatic uniformity (2004 Theorem 2.4) via the model theory of algebraically closed fields with a generic automorphism (Hrushovski), as cited by Gao–Habegger Theorem 3.2 (statement misprint PAPER-GAO-HABEGGER-19/E1 corrected)."
    ],
    "acceptance": [
     "For V a point this is manin-mumford."
@@ -10471,7 +10485,7 @@
    "sources": [
     {
      "sourceId": "gao-habegger-19",
-     "locator": "(C.1), Lemma C.2 and Proposition C.1 with corollary and proofs, pp. 59–61 (misprint E17)",
+     "locator": "(C.1), Lemma C.2 and Proposition C.1 with corollary and proofs, pp. 59–61 (misprint PAPER-GAO-HABEGGER-19/E17)",
      "match": "Generic hypersurface sections of abelian varieties contain no positive-dimensional coset, with codimension estimates."
     }
    ],
@@ -11419,7 +11433,7 @@
     "HeightsRationalPointsAndObstructions:RP.1/local-division-index",
     "HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective"
    ],
-   "detail": "The primary Mattuck and Katz statements and proofs have been read. The remaining implementation input is the exact general smooth formal-completion/kernel and p-adic identity-chart comparison requested from NeronModels R11.1. Its current elliptic formal-group comparison does not supply arbitrary dimension. The logarithm theorem, convergence radius and finite-group index count are planned here; this gap records the supplier interface, not an unread-source limitation."
+   "detail": "Katz's statement and proof have been read; Mattuck is cited bibliographically only. The remaining implementation input is the exact general smooth formal-completion/kernel and p-adic identity-chart comparison requested from NeronModels R11.1. Its current elliptic formal-group comparison does not supply arbitrary dimension. The logarithm theorem, convergence radius and finite-group index count are planned here; this gap records the supplier interface, not an unread-source limitation."
   }
  ],
  "sourceIssues": [
@@ -11440,8 +11454,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Lemma 3.1 on p.2 bounds the height by max|x_i| and its proof drops the logarithm; at [1:2] the height is log 2 while the displayed quotient is 2. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11461,8 +11475,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: On p.6 the (m+1)×(n+1) matrix with m≥n of maximal rank is said to have rank m+1; its rank is n+1, which is what the left inverse needs. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11482,8 +11496,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: On p.6 y=Ax need not be primitive (A=2I, x=(1,1) gives log 2 against height 0), and the maximum is printed over i=0..n; the primitive normalization repairs the bound. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11503,8 +11517,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Step 5 on p.8 adds the projective maps ϕ_K+ϕ_N=ϕ_M+ϕ_J where the heights h are meant. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11524,8 +11538,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Step 6 on p.9 cites Fact II for very ampleness of M⊗K and N⊗J; Fact III (p.7) is the statement that gives it. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11545,8 +11559,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Step 7 on p.9 applies Step 3, stated for very ample L, to globally generated L and f*L; the Step 2 comparison with a very ample twist is needed. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11566,8 +11580,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently inspected the cited source page and checked the stated counterexample/typing correction on 2026-10-13. The finding affects the proof or notation as recorded, not a new theorem.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: (15.0.1) on p.9 sums log‖1+a‖_v over all a∈K*, undefined at a=−1; the max form is the one Axiom 2 supplies. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11585,8 +11599,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Read Example 2.2 p.3 independently. The ring inclusion and finite-coordinate proof establish the reversed-name misprint; the intended topology theorem is unchanged.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Example 2.2 on p.3 says \"if R′ is closed (resp. open) in R\" for a subring R of R′; the roles are reversed. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11604,15 +11618,15 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Read printed pp.145–148 independently, including the displayed claim and proof; the stated counterexample or bad-set convention establishes the correction.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Theorem 5.2 on p.146 states de Franchis over an arbitrary field; Frobenius iterates on a curve over a finite field are infinitely many nonconstant self-maps. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
    "id": "HeightsRationalPointsAndObstructions/E10",
    "source": "milne-av",
    "kind": "misprint",
-   "locator": "Chapter IV §5, Proposition 5.3(b), printed p.147",
+   "locator": "Chapter IV §5, Lemma 5.3(b), printed p.147",
    "printed": "The source omits the qualification described below.",
    "correction": "The attached curves have good reduction outside the fixed finite set S, not at every prime in S.",
    "reason": "The construction’s possible bad places are the original bad primes and the dyadic primes, which are included in S. The surrounding argument and proof use good reduction outside S.",
@@ -11623,8 +11637,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Read printed pp.145–148 independently, including the displayed claim and proof; the stated counterexample or bad-set convention establishes the correction.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: The result is labelled Lemma 5.3 on p.147 (locator corrected from \"Proposition\"); part (b) says good reduction at the primes in S where outside S is meant. Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   },
   {
@@ -11634,7 +11648,7 @@
    "locator": "§19, proof of Theorem 19.1 after (19.1.1), printed p.172",
    "printed": "The source gives the wrong sign and boundary threshold for the coefficient in the final height estimate.",
    "correction": "For the at-least-three-boundary-points argument, use r≥3 and a positive coefficient for sufficiently large N. The leading coefficient is r(r−2)N²/2, so the displayed inequality bounds the ample height; a negative coefficient would give no contradiction.",
-   "reason": "For g=0,r=3,N=10,ε=1 the coefficient is 435−310=125>0. For r=2,g=0 it is N(1−ε), and for r=2,g≥1 the needed argument does not follow, consistent with the theorem’s stated r≥3 hypothesis.",
+   "reason": "The coefficient of h_D in the displayed final inequality is (Nr−g)(Nr−g+1)/2 − N(Nr−g+1) − Nε. For g=0, r=3, N=10, ε=1 it is 465−310−10=145>0. For r=2 and g=0 it is −Nε<0, and for r=2, g≥1 it is −g(2N−g+1)/2−Nε<0, so the argument gives no contradiction there, consistent with the theorem’s stated r≥3 hypothesis.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -11642,8 +11656,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Read pp.171–172, inspected printed p.172 visually and recomputed the coefficient. The theorem with r≥3 is unaffected.",
-    "by": "REV-HeightsRationalPointsAndObstructions"
+    "reason": "Checked at the locator in the hashed copy: Recomputed the coefficient on p.172: its leading term is r(r−2)N²/2, positive only for r≥3, so the printed \"negative (since r≥2)\" is wrong. The numerical check in the reason was corrected (145, not 125; −Nε, not N(1−ε), at r=2, g=0). Concurs with REV-HeightsRationalPointsAndObstructions.",
+    "by": "REV-HeightsRationalPointsAndObstructions~2"
    }
   }
  ],
@@ -11775,14 +11789,14 @@
    "sha256": "fdeb0c2042f8cdd694adb93b4b6c0186fb5b08ddc64cd8bf3a929cdda1bc9f0d"
   },
   {
-   "kind": "author-copy",
+   "kind": "author copy",
    "url": "https://www.mathe2.uni-bayreuth.de/stoll/papers/ellheights-arXiv-v2.pdf",
    "citation": "Computing canonical heights on elliptic curves in quasi-linear time; Author manuscript, Dec.15, 2015, 15 pages; published LMS J. Comput. Math. 19 (2016)",
    "read": "2026-10-13",
    "sha256": "778d14c7197ecef334aa5fd7b3ce96aad8d40f4fd20e85d4fa8fc56072c2018f"
   },
   {
-   "kind": "author-copy",
+   "kind": "author copy",
    "url": "https://math.berkeley.edu/~vojta/cime/cime.pdf",
    "citation": "Diophantine Approximation and Nevanlinna Theory; Author-hosted CIME chapter, printed pp.111–224; independently accessed 2026-10-13",
    "read": "2026-10-13",
@@ -11790,10 +11804,11 @@
   },
   {
    "kind": "published",
-   "url": "https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf",
+   "url": "https://www.jstor.org/stable/2007101",
    "citation": "A. Mattuck, Abelian varieties over p-adic ground fields, Ann. of Math. 62 (1955), 92–119",
    "read": "2026-10-14",
-   "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94"
+   "sha256": "9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94",
+   "note": "The file read on 2026-10-14 (hash recorded) was a JSTOR download re-hosted on a third-party course page; it is recorded for provenance only and not relied on."
   },
   {
    "kind": "published",
@@ -11803,7 +11818,7 @@
    "sha256": "eb651da43d98104bde5f86ed6f2b792b564a73cd7680742746c04ae6d3efeecc"
   },
   {
-   "kind": "author manuscript",
+   "kind": "author copy",
    "url": "https://gubler.app.uni-regensburg.de/Publikationen/habi%2B.pdf",
    "citation": "W. Gubler, Basic Properties of Heights of Subvarieties, Habilitationsschrift, 5 July 2002, author-hosted 125-page PDF, accessed 2026-10-14",
    "read": "2026-10-14",
@@ -11862,8 +11877,17 @@
    "roadmaps": [
     "HeightsRationalPointsAndObstructions"
    ],
-   "detail": "Sub-layers for the atlas: RP.0 (35 nodes) and RP.2 (35 nodes) are broad.",
-   "proposal": "RP.0 sub-layers: 'Global fields and the height machine' (generalized-global-field … northcott-ample), 'Canonical and local heights on abelian varieties' (tate-limit … local-weil-functions), 'Heights in families and over function fields' (duplication-by-quartics … good-reduction-height-formula). RP.2 sub-layers: 'Adelic points' (points-topology … adelic-points-general), 'Brauer evaluation and the Brauer–Manin set' (azumaya-base-change … effective-brauer-manin-test), 'Algebraic, unramified and cyclic Brauer classes' (algebraic-brauer-group … iskovskikh-example)."
+   "detail": "Sub-layers for the atlas: RP.0 (37 nodes) and RP.2 (35 nodes) are broad.",
+   "proposal": "RP.0 sub-layers — 'Global fields and the height machine': uniform-boundedness, height-class, equality-criterion, height-pullback, surjective-pullback, northcott-one-sided, northcott-invariance, northcott-pullback, generalized-global-field, geometric-height-field, normalized-height, extension-invariance, tuple-height-adapters, northcott-projective, linear-change-bounded, morphism-height-comparison, weil-height-machine, height-positivity-base-locus, northcott-ample; 'Canonical and local heights on abelian varieties': tate-limit, neron-tate-height, neron-tate-kernel-number-field, neron-tate-bilinear-form, bounded-point-metrics, canonical-point-metrics, local-weil-functions; 'Heights in families and over function fields': duplication-by-quartics, silverman-tate, family-duplication-estimate, fibrewise-height-model-independence, silverman-specialization-limit, silverman-dominant-map-inequality, geometric-subvariety-height, geometric-height-laws, geometric-height-base-change, model-mk-height-comparison, good-reduction-height-formula. RP.2 sub-layers — 'Adelic points': points-topology, points-topology-presentation, points-topology-base-change, adelic-points, integral-model, integral-model-exists-unique, adelic-points-restricted-product, adelic-points-nonempty-iff, rational-points-discrete, adelic-points-general; 'Brauer evaluation and the Brauer–Manin set': azumaya-base-change, brauer-evaluation, azumaya-spreading-out, azumaya-complete-dvr-split, brauer-evaluation-finite-support, brauer-manin-pairing, rational-points-in-brauer-manin-set, scheme-brauer-evaluation, brauer-local-constancy, brauer-manin-general, brauer-manin-set-closed, brauer-manin-functoriality, effective-brauer-manin-test; 'Algebraic, unramified and cyclic Brauer classes': algebraic-brauer-group, unramified-brauer-group, unramified-pairing-full-product, b-omega, zero-cycle-brauer-pairing, formal-lemma, cyclic-norm-class, cyclic-norm-one-place, product-norm-assembly, brauer-trivial-complete-intersections, conic-example, iskovskikh-example."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "HeightsRationalPointsAndObstructions",
+    "ArithmeticDynamics"
+   ],
+   "detail": "RP.0/canonical-point-metrics constructs, for a projective X, an endomorphism f and an isomorphism θ:f*L≃L^q with q>1, the unique canonical metric by contraction (Gubler 2002, Theorems 5.1.13 and 5.3.13) and its global sum. ArithmeticDynamics DY.2 (local canonical heights from the escape rate of a lift) and DY.4 (the canonical adelic metric of a rational map) plan the ℙ¹ case of the same object, and ArithmeticDynamics consumes RP.0.",
+   "proposal": "Keep the general existence, uniqueness, rescaling and summability of canonical point metrics in RP.0. DY.2 and DY.4 keep the escape-rate formula, the Berkovich extension, curvature measures and the Arakelov–Zhang pairing, and prove that for ℙ¹ with the isomorphism f*O(1)≅O(d) given by a lift F their canonical metric is that of RP.0/canonical-point-metrics, with ‖x₀‖_v=|x₀|_v·e^{−G_{F,v}(x)}."
   }
  ],
  "upstreamNotes": [
@@ -11882,730 +11906,745 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-HeightsRationalPointsAndObstructions",
-  "date": "2026-10-13",
-  "notes": "Complete independent review of every target, its sources/hypotheses/proof/API/tests, all 100 pinned baseline declarations and the cross-roadmap supplier contracts. Clear errors are repaired in this packet and the compact suggested file. Acceptance is withheld because local-weil-functions, local-division-index and reduction-torsion-injective remain unverifiable from the permitted/read sources. Other missing proof/supplier contracts are honestly recorded as gaps and do not by themselves prevent accepting a completed target-level pass with remaining refinements; see the review report and handoff. The reader document is outside this review issue’s allowed deliverables and requires synchronization before packaging.",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-HeightsRationalPointsAndObstructions~2",
+  "date": "2026-10-14",
+  "notes": "Review of revision round 2. Every correction the first review asked for is made: the three targets it could not verify (local-weil-functions, local-division-index, reduction-torsion-injective) now rest on Gubler 2002, Müller–Stoll and Katz, each re-read here in hashed public copies, and the reader agrees with the packet field by field for all 147 nodes. The three new targets (bounded-point-metrics, canonical-point-metrics, formal-logarithm-small-ball) were checked against their sources and by hand. Mattuck's paper was recorded from a JSTOR download re-hosted on a third-party course page; it is now cited bibliographically only, and local-division-index obtains its open subgroup from the Néron model and the formal logarithm. All 103 baseline declarations were checked at the pins; four descriptions were corrected to their Lean hypotheses. All 11 source issues were confirmed at their locators; E10's locator and E11's arithmetic check were corrected. Two Harpaz–Wittenberg references and three ambiguous Gao–Habegger misprint references were fixed, two API items were added, and the summary was restated in mathematical prose. The sub-layer proposal now lists its nodes explicitly (eight RP.0 nodes were in no sub-layer and the RP.2 ranges overlapped), and a rescope proposal asks ArithmeticDynamics DY.2 and DY.4 to identify their ℙ¹ canonical metrics with RP.0/canonical-point-metrics. All cross-roadmap citations point to lower tiers (SchemeAndStack 2, Diophantine 4, AbelianSchemes 6, GaloisDuality and NeronModels 8). RT-AREA-iwasawa-1/3 is handled. check_blueprint reports 0 errors and 0 warnings; the suggested file elaborates with only admitted-proof warnings. Stages stay planned with 17 recorded gaps and 39 requests. SchemeAndStackFoundations is now a Tau Ceti roadmap, so the package must map the SF requests to its merged README sections.",
   "checked": [
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/uniform-boundedness",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/height-class",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/equality-criterion",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/height-pullback",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/surjective-pullback",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/northcott-one-sided",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/northcott-invariance",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/northcott-pullback",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/generalized-global-field",
-    "verdict": "corrected",
-    "note": "Conrad Definition 8.1, pp.27–29: restored infinitude, inequivalence, nontriviality and excellence in K; separated these from the weaker native class."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/geometric-height-field",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/normalized-height",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/extension-invariance",
-    "verdict": "corrected",
-    "note": "Removed the premature line-bundle assertion from the projective adapter and placed its API after the height-machine construction; distinguished relative and absolute normalization."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/tuple-height-adapters",
-    "verdict": "corrected",
-    "note": "Tsimerman §6.2–6.4 pp.387–388: repaired the imaginary-part degree argument and the relative-height weight factor, preserving the valid degree ≤d² bound."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/northcott-projective",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/linear-change-bounded",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/morphism-height-comparison",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/weil-height-machine",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/height-positivity-base-locus",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/northcott-ample",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/tate-limit",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/neron-tate-height",
-    "verdict": "corrected",
-    "note": "Corrected the source locator to the exact arXiv version independently read; Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "verdict": "verified",
+    "note": "Tau Ceti's canonicalHeight at the pin is (1/2)·lim h_x(2ⁿP)/4ⁿ with relative log heights, so it is the (O)-height as the compatibility test states; y²=x³−2, P=(3,5) gives x(2P)=129/100. Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/neron-tate-kernel-number-field",
-    "verdict": "corrected",
-    "note": "Conrad §9: torsion of bounded degree lies in one Northcott set; removed the ineffective infinite union over finite extensions and the descent citation."
+    "verdict": "verified",
+    "note": "Read Tau Ceti canonicalHeight_eq_zero_iff_isOfFinAddOrder: it needs IsElliptic and a Northcott instance for the canonical height (derived from naive Northcott); description corrected. Proof uses Northcott only. Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/neron-tate-bilinear-form",
-    "verdict": "corrected",
-    "note": "Checked the normalized Poincaré supplier and explicitly fixed the factor-two comparison with the native elliptic pairing. The sum inequality’s test explicitly retains symmetric ampleness; the supplier edge to the normalized Poincaré comparison is present."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
+   },
+   {
+    "nodeId": "HeightsRationalPointsAndObstructions:RP.0/bounded-point-metrics",
+    "verdict": "verified",
+    "note": "Checked against Gubler 2002 §5.1.2 (p.96), Theorem 5.1.13 and its proof (pp.100–101), §5.2.15–18 (pp.108–109) and Example 5.3.20 (p.117): sup distance, completeness, M-metric summable bounds and generated-bundle presentations, specialized to points. Tests recomputed ([1:2] gives log 2; real-place rescaling gives −1; rescaling at every prime is not summable). Added the missing generated-bundle constructor ofGenerators and its presentation-change bound to the API."
+   },
+   {
+    "nodeId": "HeightsRationalPointsAndObstructions:RP.0/canonical-point-metrics",
+    "verdict": "verified",
+    "note": "Checked against Gubler Theorem 5.1.13 (|α|^{1/(n−m)} rescaling, contraction factor |n/m|), Examples 5.1.14–15, Theorem 5.3.13 with Remark 5.3.14 (dominated convergence) and Example 5.3.20. Recomputed the rescaling exponent −1/(q−1), the geometric error bound and the q=4 local shift (1/3)log|α|_v. The L²≅L⁺⊗L⁻ square root avoids Gubler's even/odd splitting, which is only unique up to 2-torsion and need not exist over K. Its ℙ¹ case overlaps ArithmeticDynamics DY.2/DY.4; a rescope proposal records the import direction."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/local-weil-functions",
-    "verdict": "unverifiable",
-    "note": "Replaced the false bare-continuity boundedness justification by proper analytic metric hypotheses. Independently checked the elliptic normalization in Müller–Stoll; the general Néron-function construction remains unverified in the uncleared book. Remaining proof/supplier contracts: General local Néron functions and admissible analytic metrics."
+    "verdict": "verified",
+    "note": "Resolves the first review's unverifiable verdict. Gubler supplies the metric construction; Müller–Stoll Remark 3.1 (p.4) gives λ^MS=2λ^Sil+(1/6)log|Δ|. Recomputed from their §3 definitions that λ^MS(2Q)=4λ^MS(Q)−2log|ψ₂(Q)|, hence ν(2P)=4ν(P)−log|ψ₂(P)|, ν+log|t|→0 and Silverman's extra (1/4)log|Δ|; the section identity gives λ̂(2P)=qλ̂(P)−log|a_D(P)|."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/duplication-by-quartics",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/silverman-tate",
-    "verdict": "corrected",
-    "note": "DGH Appendix A pp.36–40: corrected the constant-family test, which omitted the base height in the Segre embedding."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/family-duplication-estimate",
-    "verdict": "corrected",
-    "note": "DGH Appendix A pp.36–40: corrected the −3h_S constant-family defect and identified the unresolved resolution and generic-triviality contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/fibrewise-height-model-independence",
-    "verdict": "corrected",
-    "note": "Read DGH Appendix A: model comparison depends on normality, a generic-trivial line-bundle descent result and boundary domination, not the elliptic-model supplier alone. Restored normality/integrality and the precise generic-trivial line-bundle descent hypothesis in the statement."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/silverman-specialization-limit",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/silverman-dominant-map-inequality",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/geometric-subvariety-height",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/geometric-height-laws",
-    "verdict": "corrected",
-    "note": "Read Gubler §§2–3 and Thm.5.5: made the degree factor in normalized versus unnormalized pushforward explicit. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/geometric-height-base-change",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/model-mk-height-comparison",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.0/good-reduction-height-formula",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/kummer-map",
-    "verdict": "corrected",
-    "note": "Distinguished fppf Kummer theory from the finite étale/Galois formulation, which requires invertible degree. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/local-kummer-image-unramified",
-    "verdict": "corrected",
-    "note": "Poonen Thm.6.5.13: corrected Lang’s theorem to the connected abelian scheme and used integral Kummer exactness; finite A[n] need not have trivial H¹."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/selmer-group",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/descent-sequence",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/selmer-finite",
-    "verdict": "corrected",
-    "note": "Corrected the isogeny torsor A→B; checked the number-field finite-H¹ supplier and separated its scope from function fields."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/weak-mordell-weil",
-    "verdict": "corrected",
-    "note": "Replaced the unsupported global-function-field use of the number-field H¹ supplier by the proper torsor finiteness input, with its separate global-field gap. Remaining proof/supplier contracts: Global-function-field adelic and cohomology extension."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/mordell-weil",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "RT-AREA-iwasawa-1/3 respected: the height half is Mathlib CommGroup.fg_of_descent' (additive form) and the torsion kernel precedes finite generation. Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/neron-tate-positive-definite",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/kk-trace",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/lang-neron",
-    "verdict": "corrected",
-    "note": "Conrad §7, pp.23–26: removed the circular use of Thm.9.15 and identified the actual Hom/Albanese and étale-H¹ inputs. Remaining proof/supplier contracts: Lang–Néron proof contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/function-field-neron-tate-kernel",
     "verdict": "corrected",
-    "note": "Conrad §9–10 and Xie–Yuan §1.1: distinguished original trace on K-points from geometric trace on algebraic-closure points. Remaining proof/supplier contracts: Lang–Néron proof contracts."
+    "note": "The Gao–Habegger §1 misprint is now cited by its id, PAPER-GAO-HABEGGER-19/E18."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/two-coverings",
-    "verdict": "corrected",
-    "note": "BGW Prop.22 pp.11–12: separated W[2] from its H¹(J) image, corrected the Kummer classification and imposed char≠2. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/w2-odd-factorizations",
-    "verdict": "corrected",
-    "note": "BGW Prop.22(4): replaced the false irreducible-sextic test by the S₆ root-partition test."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: BGW Proposition 22(4), p.11; x⁶−2 and the S₆ test checked."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/selmer-set-two-covering",
-    "verdict": "corrected",
-    "note": "BGW intro pp.1–4: empty Sel₂(Pic¹) is Theorem 5; Theorem 10 concerns Brauer–Manin failures."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: BGW Theorems 5–6, p.3."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/elliptic-two-descent-example",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
+   },
+   {
+    "nodeId": "HeightsRationalPointsAndObstructions:RP.1/formal-logarithm-small-ball",
+    "verdict": "verified",
+    "note": "Katz Appendix Lemma′ (p.502) re-read in the author-hosted scan. Checked the coefficient estimate: closedness gives n·c_α∈O for |α|=n, so valuations are ≥−e·ord_p(n); with ord_p(n)≤(n−1)/(p−1) and integral r>e/(p−1), (n−1)r−e·ord_p(n)≥1, so log−id contracts by |π| on (𝔪^r)^g. Witnesses ζ_p−1 and −2 checked. Mattuck is cited bibliographically only."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/local-division-index",
-    "verdict": "unverifiable",
-    "note": "Checked the conditional compact-group index count and its p=2/real/complex normalizations. The cited Mattuck Theorem 7 was not available in a permitted readable source; Poonen p.138 is orientation, not that theorem. The open formal/Lie-group subgroup needed to justify the statement therefore remains unverified; do not mark this target supplied."
+    "verdict": "corrected",
+    "note": "Resolves the first review's unverifiable verdict without relying on Mattuck: the copy recorded for Mattuck is a JSTOR download re-hosted on a third-party course page. The open subgroup U≃O_F^g is now the level-𝔪^r Néron-model reduction kernel via the R11.1 interface and formal-logarithm-small-ball, with finite index from finiteness of 𝒩(O_F/𝔪^r); Katz p.502 added as source. Index count rechecked by the snake sequence; 2^{3g}, 16 versus 8 and the real component counts recomputed."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective",
-    "verdict": "unverifiable",
-    "note": "Checked the prime-to-p versus e_v<p−1 distinction and the good-reduction example at 3. The cited Katz appendix was not read from a permitted accessible source; Poonen p.184 supplies Hensel lifting, not the required torsion-free formal-group kernel theorem. The ramification-bound claim remains unverified."
+    "verdict": "verified",
+    "note": "Resolves the first review's unverifiable verdict. Katz Appendix setup (p.501), Lemma and Lemma′ with proof (p.502) re-read: torsion-free reduction kernel for e<p−1 via log/exp. The prime-to-p part follows from [n] being bijective on the formal group. Checks recomputed (y²=x³−x at 3; ζ_p−1)."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.1/two-isogeny-kummer-formula",
-    "verdict": "corrected",
-    "note": "Corrected the integral normalization and included points at infinity in local quartic-solubility tests."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/points-topology",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/points-topology-presentation",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/points-topology-base-change",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Conrad Example 2.2, p.3 (source issue E8)."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains."
+    "note": "The recorded gap is accurate: no compactness of adicCompletionIntegers at the Mathlib pin (grepped). Baseline adele declarations are number-field only, as used. Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/integral-model",
-    "verdict": "corrected",
-    "note": "Conrad §§2–3: separated finite-presentation compactness for scheme points from the native restricted-product group theorem."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/integral-model-exists-unique",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-restricted-product",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-nonempty-iff",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/rational-points-discrete",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/azumaya-base-change",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/azumaya-spreading-out",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/azumaya-complete-dvr-split",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation-finite-support",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/rational-points-in-brauer-manin-set",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-general",
-    "verdict": "corrected",
-    "note": "Conrad §4 pp.9–10 directly contradicts the original affine-gluing and open-embedding claims; replaced both with the model direct limit and continuous injection."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/scheme-brauer-evaluation",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-local-constancy",
-    "verdict": "corrected",
-    "note": "Poonen §8.2: moved the ramified quaternion example to 𝔾_m; it is not a Brauer class on ℙ¹. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-general",
-    "verdict": "corrected",
-    "note": "Fixed-class local constancy is verified by Poonen Prop.8.2.9; a discrete topology on the full Hom space is not justified for infinite Br X."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-set-closed",
-    "verdict": "corrected",
-    "note": "Made the common finite support on an integral-model neighborhood explicit in the closedness/continuity proof."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-functoriality",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/algebraic-brauer-group",
-    "verdict": "corrected",
-    "note": "Poonen §6.7 and §8.5: retained scheme-Brauer ownership and made the Azumaya/cohomological comparison hypothesis explicit. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/unramified-brauer-group",
-    "verdict": "corrected",
-    "note": "Read Česnavičius Thm.1.1–1.4 and Poonen §6.8: separated regular purity from the additional all-valuations and arbitrary-dimensional compactification proof. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts, Lefschetz, Brauer reciprocity and purity proof contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/unramified-pairing-full-product",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/b-omega",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/zero-cycle-brauer-pairing",
-    "verdict": "corrected",
-    "note": "Identified Brauer reciprocity on curves as the missing rational-equivalence contract, beyond the existing local-invariant/corestriction API. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts, Lefschetz, Brauer reciprocity and purity proof contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/formal-lemma",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required. The theorem’s primary auxiliary-place proof remains a separately recorded gap; HW20’s invocation verifies the contract, not that proof."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Harpaz–Wittenberg proof of Corollaire 2.2, p.8 (formal lemma via CTS00 Proposition 1.1; finiteness of Br X/Br₀ X from rational connectedness)."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/cyclic-norm-class",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/cyclic-norm-one-place",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/product-norm-assembly",
-    "verdict": "corrected",
-    "note": "Skorobogatov–Sofos Thm.5.8 pp.722–724: restored both displayed conditions (5.7) and (5.8), each with its correct index."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/brauer-trivial-complete-intersections",
-    "verdict": "corrected",
-    "note": "Poonen Thm.8.6.12 p.252: restored the H²(μ_n), Picard and Kummer steps; H³ vanishing alone does not kill the geometric Brauer group. Remaining proof/supplier contracts: Lefschetz, Brauer reciprocity and purity proof contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/conic-example",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/iskovskikh-example",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.2/effective-brauer-manin-test",
-    "verdict": "corrected",
-    "note": "Poonen Remark 8.2.12 pp.232–233: weakened the unsupported automatic effectivity claim to the finite-partition theorem and recorded the additional computational contracts. Remaining proof/supplier contracts: Certified computation beyond compact local evaluation fibres."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/torsor-evaluation",
-    "verdict": "corrected",
-    "note": "Poonen §8.4 and HW20 §2: fixed the inverse-torsor convention consistently; HW’s σ equals −τ. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/descent-partition",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/selmer-set-of-torsor",
-    "verdict": "corrected",
-    "note": "Poonen Thm.8.4.6: trivial-torsor Selmer set equals Ш only when the base has adelic points; global-field finite cohomology remains explicit. Remaining proof/supplier contracts: Global-function-field adelic and cohomology extension."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/local-evaluation-finite-image",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/descent-set",
-    "verdict": "corrected",
-    "note": "Poonen §8.4: retained the global-field theorem but exposed the missing function-field adelic-space supplier. Remaining proof/supplier contracts: Global-function-field adelic and cohomology extension."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/descent-brauer-comparison",
-    "verdict": "corrected",
-    "note": "Poonen Prop.8.5.3: preserved the PGL_n/Azumaya comparison and restricted the period-index specialization to number fields."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/etale-brauer-set",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/etale-brauer-equals-descent",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Deep descent comparisons and universal torsor existence."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/universal-torsor",
-    "verdict": "corrected",
-    "note": "Replaced the undefined elementary-obstruction input by the explicitly stated connecting class δ(id) in the type exact sequence. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts. Corrected the conic test: a Galois-invariant/rational Picard class need not be represented by a line bundle; δ(id), not failure of invariance, obstructs the torsor."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/torus-descent-brauer",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Deep descent comparisons and universal torsor existence."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Harpaz–Wittenberg Proposition 2.5, p.10."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/relative-algebraic-brauer",
     "verdict": "corrected",
-    "note": "Independently read HW20 §2 pp.7–11; corrected the equation/theorem and author-copy page locator."
+    "note": "Harpaz–Wittenberg 2020 re-read: the exact sequence is display (2.4) on p.9; the proof step cited (2.2), which is Theorem 2.1's inclusion. Corrected."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/edge-map-twist-independence",
     "verdict": "corrected",
-    "note": "Independently read HW20 §2 pp.7–11; corrected the equation/theorem and author-copy page locator."
+    "note": "Harpaz–Wittenberg Proposition 2.3(i)–(iv) and Lemma 2.4 are on author-copy p.9, with the proof of (ii)–(iii) continuing on p.10. Locator corrected from \"Lemma 2.4 and its proof, p.10\"."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/residual-sha-functional",
-    "verdict": "corrected",
-    "note": "Independently read HW20 §2 pp.7–11; corrected the equation/theorem and author-copy page locator. Translated the Poitou–Tate sign and specified A=(f*)⁻¹Br_nr(Y)."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Harpaz–Wittenberg definition of ε (p.10) and Proposition 2.6 (p.11), ε_σ=ε₀−⟨α′,[σ]⟩, which gives ε_τ=ε₀+⟨a,τ⟩ with σ=−τ."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/unramified-torus-descent",
-    "verdict": "corrected",
-    "note": "Independently read HW20 §2 pp.7–11; corrected the equation/theorem and author-copy page locator."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Harpaz–Wittenberg Théorème 2.1 and §2.3, pp.8–11."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/open-torus-torsor-descent",
-    "verdict": "corrected",
-    "note": "HW20 Cor.2.2: corrected the purported trivial torus torsor to a product projection."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Harpaz–Wittenberg Corollaire 2.2 and proof, p.8."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/brauer-manin-universal-torsor-existence",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Deep descent comparisons and universal torsor existence."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/genus-one-torsors",
-    "verdict": "corrected",
-    "note": "Poonen Prop.5.12.14: distinguished marked E-torsors, classified by H¹(k,E), from unmarked genus-one curves. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/bgw-hasse-failures",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Deep descent comparisons and universal torsor existence."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: BGW Corollary 9 and Theorems 10–11, p.3."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/descent-worked-example",
-    "verdict": "corrected",
-    "note": "Poonen §8.3 pp.236–239: checked the unordered source labels and fixed the explicit assignment by the quartic-to-cubic substitution; no source error is alleged."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Poonen §8.3, pp.236–238. Recomputed Jac(Y₁)≅y²=x³−4x and Jac(Y₂)≅y²=x³−x from the quartic invariants (I=12,J=0 and I=3,J=0), and the explicit map X=2(w+1)/x², Y=4(w+1)/x³."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/strong-approximation-failure",
-    "verdict": "corrected",
-    "note": "Poonen §8.4: retained the global-field theorem but exposed the missing function-field adelic-space supplier. Remaining proof/supplier contracts: Global-function-field adelic and cohomology extension."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.3/insufficiency-examples",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/good-reduction-curve",
-    "verdict": "corrected",
-    "note": "Replaced the impossible finite-S/all-places test by monotonicity under enlarging S. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/chevalley-weil",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/de-franchis",
-    "verdict": "corrected",
-    "note": "Milne IV Thm.5.2 p.146: restored characteristic zero (or separability in characteristic p), recording the omission as source finding E9. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Milne IV Theorem 5.2, p.146 (no characteristic hypothesis, source issue E9)."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/kodaira-parshin-construction",
-    "verdict": "corrected",
-    "note": "Szpiro pp.97–98 and Milne IV pp.146–148: retained the full-branch genus 41 at g=2 and corrected halving to Jac(C₁), with safe degree 2^{2g₁}. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Szpiro §5.2, pp.97–98 (2g′−2=2^{2g}(4g−3), 2g₁−2=2^{2g}(2g−2)); g=2 gives 17 and 41. The extension bound 2^{2g₁} is a safe bound, not a source claim."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/parshin-implication",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Milne IV §5 p.146 and Szpiro p.98."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/mordell-faltings",
-    "verdict": "corrected",
-    "note": "Removed upward Faltings/Lawrence–Venkatesh dependencies. The local declaration uses the independent Bombieri proof; Parshin remains explicitly conditional, with higher roadmaps importing downward."
+    "verdict": "verified",
+    "note": "Only the title changed in round 2; the unconditional declaration rests on RP.5/vojta-bombieri-mordell and the Parshin route stays conditional, with no upward citation."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/integral-points",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/siegel-theorem",
-    "verdict": "corrected",
-    "note": "Read the publicly hosted Corvaja–Zannier paper, all pp.267–271; replaced the unread-source flag and identified the number-field S-adic systems contract. Remaining proof/supplier contracts: Number-field S-adic Subspace Theorem adapter."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.4/function-field-mordell",
-    "verdict": "corrected",
-    "note": "Poonen Thm.9.5.10 pp.286–288: removed the unrelated number-field Faltings prerequisite; retained the recorded function-field proof gap."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/abelian-subvariety",
-    "verdict": "corrected",
-    "note": "Read Conrad Thm.3.7 and the A6 complement contract; corrected the characteristic-2 A[2] test and recorded the unplanned quotient-scheme supplier. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/stabilizer",
-    "verdict": "corrected",
-    "note": "Restricted the stabilizer-degree and scheme assertions to the characteristic-zero source scope; exposed reducedness/smoothness distinctions. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/generated-abelian-subvariety",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/ueno-locus",
-    "verdict": "corrected",
-    "note": "GGK Lemma 7.4 pp.43–44: restored the generating hypothesis for bounded complements; verified the at-most-dim-X intersection count."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/finite-rank-subgroup",
-    "verdict": "corrected",
-    "note": "Added the missing positive-dimension condition to the torsion nongeneration example."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/manin-mumford",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/manin-mumford-positive-characteristic",
-    "verdict": "corrected",
-    "note": "Xie–Yuan §§1.1,5 and Scanlon Thm.2.2: restored geometric trace zero. The source’s earlier convention already uses geometric trace; no source error is alleged."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/uniform-manin-mumford",
-    "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. The cited statement is verified; its already-recorded deep proof gap remains."
+    "verdict": "corrected",
+    "note": "\"Misprint E1\" referred to the Gao–Habegger extraction, not this packet's E1 (de Jong). Made explicit as PAPER-GAO-HABEGGER-19/E1."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/faltings-subvarieties",
-    "verdict": "corrected",
-    "note": "Corrected the claimed equivalence between the full coset decomposition and finiteness on X°; the latter is a consequence."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/vojta-inequality",
-    "verdict": "corrected",
-    "note": "Read Bombieri §10 Thm.1 pp.637–638, including its effective γ and two hypotheses; distinguished the unread deep product/Roth lemma from the verified statement. Remaining proof/supplier contracts: Bombieri product and Roth lemma."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Bombieri §10, Theorem 1 and proof, pp.637–638 (cosine bound 0.75)."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/mumford-gap",
-    "verdict": "corrected",
-    "note": "Read Bombieri §10 p.639 and §§1–5: supplied the actual Mumford inequality and its norm-doubling deduction, with Northcott for the bounded region."
+    "verdict": "verified",
+    "note": "Recomputed: with cosine ≥3/4 and ratio r=|w|/|z|, (1+r²)/(2g)<3r/4 for g≥2 and 1≤r<2, so the Mumford inequality forces r≥2 for large norms. Source locator verified by the first review."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/vojta-bombieri-mordell",
-    "verdict": "corrected",
-    "note": "Removed the cycle through RP.4/mordell-faltings; read Bombieri Thm.2 pp.638–639 and distinguished effective high-point counts from effective heights/enumeration. Remaining proof/supplier contracts: Bombieri product and Roth lemma."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples and tests rechecked; source locator re-opened in the hashed copy: Bombieri Theorem 2, p.638."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/mordell-lang",
-    "verdict": "corrected",
-    "note": "Corrected the claimed equivalence between the full coset decomposition and finiteness on X°; the latter is a consequence."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/faltings-zhang-map",
-    "verdict": "corrected",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/zhang-difference-lemma",
-    "verdict": "corrected",
-    "note": "DGH/GGK difference-map statements are characteristic zero; restored that scope for scheme fibres and generic finiteness."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/minimal-torsion-subvariety",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/essential-minimum",
-    "verdict": "corrected",
-    "note": "Restricted the essential-minimum torsion tests to nonempty irreducible subvarieties over number fields; constants over function fields are a counterexample without a trace correction."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/bogomolov",
-    "verdict": "corrected",
-    "note": "Corrected the coset test to require infinite order in A/B and removed the unjustified equality for an arbitrary polarization."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/szpiro-ullmo-zhang-equidistribution",
-    "verdict": "corrected",
-    "note": "Ullmo Thm.2.3–2.4 pp.6–7: restored genericity in the torsion example and identified the metric and arithmetic-model hypotheses for general X. Restored “infinite” in genericity and took Galois orbits over a field of definition of X."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.5/coset-free-hypersurface-sections",
     "verdict": "corrected",
-    "note": "Gao–Habegger Appendix C pp.59–61: restored characteristic zero and excluded identically zero forms; corrected the g=1 test. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "note": "\"Misprint E17\" made explicit as PAPER-GAO-HABEGGER-19/E17 (this packet has no E17)."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.6/local-solubility",
     "verdict": "verified",
-    "note": "Independently checked the stated hypotheses, the cited primary-source/baseline contract, proof outline and downstream role; for a definition also checked its API and discriminating tests. No mathematical correction required."
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.6/curve-in-jacobian",
-    "verdict": "corrected",
-    "note": "Checked the Jacobian supplier; added tangent separation to the immersion proof and distinguished a degree-one Picard point from a represented divisor. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.6/genus-zero-classification",
-    "verdict": "corrected",
-    "note": "Read Poonen §4.5 pp.105–108: the Châtelet local-global theorem does cover conics, so retained it and added the precise conic/point criterion locator. Remaining proof/supplier contracts: Unplanned scheme, curve and line-bundle supplier contracts."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.6/genus-one-classification",
-    "verdict": "corrected",
-    "note": "Corrected the claim that no theorem uses Ш finiteness: the Manin comparison is explicitly conditional, and its Cassels–Tate proof remains a recorded gap."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.6/higher-genus-classification",
-    "verdict": "corrected",
-    "note": "Corrected the ill-typed redundant intersection and stated the finite-extension/Pic¹ option when no degree-one class is available over K."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    },
    {
     "nodeId": "HeightsRationalPointsAndObstructions:RP.6/conjecture-register",
-    "verdict": "corrected",
-    "note": "Read Vojta Conj.14.6(b) p.160: sourced and fixed the rational-point quantifiers, support exclusion, archimedean set and error term. Read Poonen Conj.9.2.27 p.267 (nonemptiness form) and HW2024 Conj.1.1 p.787 (density form); separated their precise claims."
+    "verdict": "verified",
+    "note": "Re-read statement, hypotheses, proof outline and direct prerequisites for closure; examples, tests and acceptance checks rechecked. The source locator was verified by the first review and not re-opened in this round."
    }
   ]
  }
