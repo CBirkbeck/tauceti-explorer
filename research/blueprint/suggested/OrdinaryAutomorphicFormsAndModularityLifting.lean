@@ -8,7 +8,7 @@ import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.Tactic.ComputeDegree
 
 /-!
-# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.6: SW §§2–8, BLZ, DP p = 3, SW 2001)
+# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.6)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`OrdinaryAutomorphicFormsAndModularityLifting`) is definitive. The statements below suggest Lean
@@ -60,50 +60,54 @@ theorem quaternionicPairing_one [Field R] (f g : X → R) :
     quaternionicPairing (fun _ => 1) f g = ∑ x, f x * g x := by
   simp [quaternionicPairing]
 
+/-- Pairing test: a singleton with stabilizer order 2 and values 3,4 gives 6. -/
+example : quaternionicPairing (X := Unit) (R := ℚ) (fun _ => 2)
+    (fun _ => 3) (fun _ => 4) = 6 := by
+  norm_num [quaternionicPairing]
+
+/-- Pairing test: an empty double-coset space contributes zero. -/
+example : quaternionicPairing (X := Fin 0) (R := ℚ) (fun _ => 1)
+    (fun _ => 3) (fun _ => 4) = 0 := by
+  simp [quaternionicPairing]
+
+/-- Pairing test: the two-point unit-stabilizer case is the dot product. -/
+example : quaternionicPairing (X := Fin 2) (R := ℚ) (fun _ => 1)
+    ![2, 3] ![4, 5] = 23 := by
+  norm_num [quaternionicPairing, Fin.sum_univ_two]
+
+/-- Failure test: inverse-of-zero convention alone gives no perfect pairing. -/
+example : quaternionicPairing (X := Unit) (R := ℚ) (fun _ => 0)
+    (fun _ => 3) (fun _ => 4) = 0 := by
+  simp [quaternionicPairing]
+
+/-- Trace test: both source points in the same fiber contribute, with multiplicity. -/
+example : traceAlong (X := Unit) (Y := Fin 2) (fun _ => ())
+    (R := ℚ) ![2, 3] () = 5 := by
+  norm_num [traceAlong, Finset.sum_filter, Fin.sum_univ_two]
+
+/-- Trace test: the empty fiber is zero. -/
+example : traceAlong (X := Fin 2) (Y := Unit) (fun _ => 0)
+    (R := ℚ) (fun _ => 7) 1 = 0 := by
+  simp [traceAlong]
+
+/-- Trace test: an identity level map preserves the function. -/
+example : traceAlong (X := Fin 2) (Y := Fin 2) id
+    (R := ℚ) ![2, 3] 1 = 3 := by
+  norm_num [traceAlong, Finset.sum_filter, Fin.sum_univ_two]
+
+/-- Trace test: an empty source gives zero at every target point. -/
+example : traceAlong (X := Unit) (Y := Fin 0) (fun _ => ())
+    (R := ℚ) (fun _ => 7) () = 0 := by
+  simp [traceAlong]
+
 end FiniteSets
 
 /-!
-### R21.1 and R21.2: signatures (comment only)
-
-```
--- R21.1/quaternionic-ordinary-projector (H⁰, T₀(p) from R18.3; projector from PadicFamilies L0a)
-def ordinaryProjector (U : Level F) (a : ℕ) (R : Type) [Module 𝒪 R] [Finite R] :
-    Module.End 𝒪 (H0 (U.full a) R) := PadicFamilies.ordinaryProjector (T0p U a R)
-theorem ordinaryProjector_isIdempotentElem : IsIdempotentElem (ordinaryProjector U a R)
-theorem ordinaryProjector_comm_hecke (t : quaternionicHeckeAlgebra U a 𝒪) :
-    Commute (ordinaryProjector U a R) (t.toEnd R)
-theorem ordinaryProjector_trace (hab : a ≤ b) :
-    trace hab ∘ₗ ordinaryProjector U b R = ordinaryProjector U a R ∘ₗ trace hab
--- R21.1/ordinary-part-kills-norm-forms
-theorem ordinaryProjector_normForms (ha : 1 ≤ a) (f : normForms U a ℤ) :
-    ordinaryProjector U a R (f.toCoeff R) = 0
--- R21.1/quaternionic-nearly-ordinary-hecke-algebra
-def nearlyOrdinaryHeckeAlgebra (U a 𝒪) : Subalgebra 𝒪 (Module.End 𝒪 (ordinaryPart U a 𝒪))
-def hidaHeckeAlgebra (U 𝒪) : Type := lim_a nearlyOrdinaryHeckeAlgebra U a 𝒪
-def hidaHeckeAlgebra.lambdaAlgebra : Algebra (MvPowerSeries (Fin δ ⊕ torusVars F) 𝒪) (hidaHeckeAlgebra U 𝒪)
--- R21.1/ordinary-towers-duality
-def mInfinity (U 𝒪) := lim_a (ordinaryPart U a 𝒪)⁺   -- along traces
-def hInfinity (U 𝒪) := colim_a ordinaryPart U a (K ⧸ 𝒪)   -- along pullbacks
-def mInfinity_equiv_dual : mInfinity U 𝒪 ≃ₗ[hidaHeckeAlgebra U 𝒪] (hInfinity U 𝒪 →ₗ[𝒪] K ⧸ 𝒪)
--- R21.2/nearly-ordinary-representations
-def IsVGoodLine (π : CuspidalRep F k) (v : PrimeAbove p) (L : Submodule ℂ (π.localFixed v a)) : Prop
-def IsNearlyOrdinary (π : CuspidalRep F k) : Prop := ∀ v : PrimeAbove p, ∃ L, IsVGoodLine π v L
--- R21.2/permissible-maximal-ideal
-structure IsPermissible (χ : GaloisCharacter F k) (m : Ideal (hidaHeckeAlgebra U 𝒪)) : Prop where
-  isMaximal : m.IsMaximal
-  groupRing : m.comap (groupRingHom U 𝒪) = RingHom.ker (charMod (χ * ω⁻¹))
-  T0_sub_one_mem : ∀ i, T0 (primeAbove i) - 1 ∈ m
-  T_sub_mem : ∀ ℓ ∉ badPrimes U, T ℓ - 1 - teichmuller (χ (Frob ℓ)) ∈ m
--- R21.2/eisenstein-ideal-existence (Deligne–Ribet from AutomorphicPadicLFunctions L3)
-theorem exists_isPermissible (h : 0 < valuation π (deligneRibet F (χ * ω) (-1))) :
-    ∃ a (m : Ideal (nearlyOrdinaryHeckeAlgebra (levelChi χ) a 𝒪)), IsPermissible χ m
--- R21.2/permissible-localisation-finite
-theorem isPermissible.finite (hm : IsPermissible χ m) :
-    Module.Finite Λ (Localization.AtPrime m) ∧ Module.IsTorsionFree Λ (Localization.AtPrime m)
--- R21.2/auxiliary-level-freeness
-theorem mInfinity_free_aux (hfree : FixedPointFree (U' w)) :
-    Module.Free (MvPowerSeries _ 𝒪 ⊗ 𝒪⟦Δ w⟧) (mInfinity (U'' w) 𝒪)
-```
+The remaining targets, including arithmetic Hida control, tangent-space comparison, R=T,
+Skinner–Wiles lifting, BLGG prescribed-component lifts and the BCGP/NT refinements, require
+carriers absent from the pinned libraries. Their statements, APIs and discriminating tests
+are in the reader. The two definitions above are finite-set models of pairing and trace;
+their computations do not certify the arithmetic objects or lifting theorems.
 -/
 
 end TauCeti.OrdinaryModularity
@@ -172,44 +176,7 @@ example {K : Type*} [Field K] (s : K) (h : 1 + s ≠ 0) : (1 + s) + (1 + s)⁻¹
   rw [eq_div_iff h, sub_mul, add_mul, inv_mul_cancel₀ h]
   ring
 
-/-- `R21.5/crystalline-family-v-k-ap`: the matrix of `φ` on `D_{k,a_p}` in the basis `(e₁, e₂)` is
-`(0 −1; p^{k−1} a_p)`, with trace `a_p` and determinant `p^{k−1}` (here `p = 3`, `k = 4`). -/
-example (a : ℤ) : Matrix.trace !![(0 : ℤ), -1; 3 ^ 3, a] = a ∧ Matrix.det !![(0 : ℤ), -1; 3 ^ 3, a] = 3 ^ 3 := by
-  simp [Matrix.trace_fin_two, Matrix.det_fin_two]
-
-/-- `R21.5/reduction-of-v-k-zero`: for `2 ≤ k ≤ p + 1`, `(p + 1) ∤ (k − 1)`, so `ind(ω₂^{k−1})` is
-irreducible; at `k = p + 2` divisibility holds and `V̄_{k,0}` is reducible. -/
-example (p k : ℕ) (hk : 2 ≤ k) (hkp : k ≤ p + 1) : ¬ (p + 1) ∣ (k - 1) := by
-  intro h
-  have := Nat.le_of_dvd (by omega) h
-  omega
-
-example (p : ℕ) : (p + 1) ∣ (p + 2 - 1) := by
-  rw [show p + 2 - 1 = p + 1 by omega]
-
-/-- At `p = 3, k = 4`: `ω₂` has order `8`, `ω₂³` still has order `8` (`gcd(8, 3) = 1`) and its
-Frobenius conjugate is `ω₂⁹ = ω₂ ≠ ω₂³`. -/
-example : 3 ^ 2 - 1 = 8 ∧ Nat.gcd 8 3 = 1 ∧ 3 * 3 % 8 = 1 ∧ 3 % 8 ≠ 1 := by decide
-
-/-- `R21.5/crystalline-reducible-reduction-is-ordinary`, p-distinguishedness: `(p − 1) ∤ (k − 1)`
-for `k = 2` and for `k = p + 1` when `p ≥ 3`. -/
-example (p : ℕ) (hp : 3 ≤ p) : ¬ (p - 1) ∣ (2 - 1) := by
-  intro h
-  have := Nat.le_of_dvd (by omega) h
-  omega
-
-example (p : ℕ) (hp : 3 ≤ p) : ¬ (p - 1) ∣ (p + 1 - 1) := by
-  intro h
-  have h2 : (p - 1) ∣ (p + 1 - 1) - (p - 1) := Nat.dvd_sub h dvd_rfl
-  rw [show p + 1 - 1 - (p - 1) = 1 by omega] at h2
-  have := Nat.le_of_dvd one_pos h2
-  omega
-
-/-- The terminal cases of SmallRamificationAndAbelianVarietyBaseCases R25.5 all lie in the range
-`2 ≤ k ≤ p + 1` of the criterion. -/
-example : ∀ pk ∈ [(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)], 2 ≤ pk.2 ∧ pk.2 ≤ pk.1 + 1 := by decide
-
-/-! ### Checkpoint 7: Skinner–Wiles 2001 (irreducible residual representations) -/
+/-! ### Irreducible residual representations: Skinner–Wiles 2001 (irreducible residual representations) -/
 
 /-- `R21.5/nearly-ordinary-irreducible-lifting`: the choice of `L` in the proof of Theorem 5.1
 (`d_L/2 > 2 + 7·#Σ_L` and `d_v > 2 + 7·#Σ_L`) makes `(L, ρ₀)` a good pair, since `t + #ℳ₀ ≤ #Σ_L`. -/
@@ -254,7 +221,7 @@ example (d r : ℕ) (hr : d ≤ 2 * r) : d - r ≤ d / 2 := by
 example {K : Type*} [Field K] (δ : K) : Matrix.trace !![δ, 0; 0, δ⁻¹] = δ + δ⁻¹ := by
   simp [Matrix.trace_fin_two]
 
-/-! ### Checkpoint 8: the classical Hida family and the required examples -/
+/-! ### Classical ordinary-family examples: the classical Hida family and the required examples -/
 
 /-- `R21.6/required-examples-x0-11-at-five`: `n = numerator((11 − 1)/12) = 5` (Mazur II.9.7). -/
 example : (11 - 1) / Nat.gcd (11 - 1) 12 = 5 := by decide
