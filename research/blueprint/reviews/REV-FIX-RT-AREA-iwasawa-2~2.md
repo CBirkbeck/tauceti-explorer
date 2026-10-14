@@ -1,3 +1,47 @@
+# Scope checkpoint: REV-FIX-RT-AREA-iwasawa-2~2
+
+Codex, session `codex-bh6O5i`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Input explorer `a9232ae1fae1af64380517e6e2d9626e07351b2a`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6160429023).
+This continuation did none of the fixes and claimed no second job.
+
+The mathematical assessment is already finished in the reports below. This
+continuation reconstructed the two pending review records from the handoff;
+both input hashes and candidate hashes match exactly. Parsed comparisons
+confirm that every mathematical field is unchanged and each complete previous
+review is appended intact. Their assessment stays attributed to
+`codex-3K3sKj`, who performed it.
+
+Fresh checks establish zero blueprint-checker errors on all four queue
+packets using a declaration index rebuilt from the existing shared source
+build. L3 retains its 26 documented API warnings; the others have none.
+The index is a search aid, not a fresh whole-packet baseline review. Stock
+`issues.deliverables_complete` remains false. With exactly the two prepared
+records supplied through a read-only overlay it is true, and intake reports
+no candidate path, JSON or private-path problems. PMIA's `needs_changes`
+verdict remains a valid completed review decision.
+
+The live issue was reread after the bot confirmed the claim and again during
+validation. It still omits the L3-2 and LAD packet paths. Explicit permission
+for precisely these two metadata updates was requested in the worker
+conversation; no reply arrived. [WORKERS.md](../WORKERS.md), “Doing the work”,
+requires “Edit only the files the issue names, plus your own scratch space.”
+The queue's wider output list does not resolve that explicit restriction.
+
+Only this report and the handoff changed. All four packets and Suggested
+files remain unchanged. No Lean file was recompiled; the preceding Lean
+receipts retain their own attribution and limitations. No source assessment
+was repeated merely to rediscover the same scope gate. The current read-only
+roadmap/library revisions are unchanged, and the inspected current Fitting
+and stable-transpose declarations support the recorded PMIA reuse objection.
+
+This is a blocked checkpoint, not a completed review submission and not a
+time-limit checkpoint. Resume after the issue names both omitted paths or the
+manager authorizes the exact pending updates preserved in the handoff.
+
+---
+
 # Scope-blocked continuation: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex, session `codex-9GgzfH`, 14 October 2026. Refs

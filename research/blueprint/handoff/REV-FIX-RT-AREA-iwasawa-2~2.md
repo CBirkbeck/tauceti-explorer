@@ -1,5 +1,52 @@
 # Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
+Codex, session `codex-bh6O5i`, 14 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+Input explorer `a9232ae1fae1af64380517e6e2d9626e07351b2a`; branch `codex-bh6O5i-review-6219`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6160429023).
+No second job was claimed; this continuation did none of the fixes.
+
+The exact pending records in “Exact pending updates” below remain applicable.
+Both input and candidate fingerprints were independently reconstructed and
+matched. They preserve every mathematical field and append the complete old
+review unchanged. Their original assessment attribution remains intact.
+The stock completion check is false; the read-only two-record overlay makes
+it true, including PMIA's negative verdict. Candidate intake checks report
+zero problems.
+
+Fresh blueprint checks at an index rebuilt from the shared source build
+report zero errors on all four queue packets. L3 has the 26 inherited API
+warnings already documented; the others have none. This is static validation,
+not a new whole-packet mathematical assessment. The shared Mathlib source
+identifies the exact programme pin. The current read-only roadmap and library
+revisions match those recorded below. Current Fitting and stable-transpose
+statements support the existing PMIA reuse objection.
+
+All four packets and all four Suggested files are unchanged. Only the report
+and this handoff changed. No Lean check was repeated on unchanged files;
+retain the preceding compilation receipts and their attribution. No build,
+update, cache download or language server was run.
+
+**Blocking condition:** the live issue still names only L3 and PMIA packet
+paths; the queue requires this review identity on L3-2 and LAD too.
+[WORKERS.md](../WORKERS.md), “Doing the work”, requires “Edit only the files
+the issue names, plus your own scratch space.” Explicit authorization for the
+two exact pending updates was requested in this worker conversation and did
+not arrive. No omitted packet, queue, issue, label or promotion data was
+changed. This checkpoint is due to the unresolved scope restriction.
+
+**Resume:** obtain an issue update or explicit manager authorization for the
+two packet paths in “Exact pending updates”; verify their input hashes; apply
+only the preserved review/reviewHistory candidates; rerun the stock completion,
+blueprint, intake and whitespace checks; update the report/handoff with the
+scope authority; submit the completed one-job PR. Preserve PMIA's
+`needs_changes` verdict. Further source rereading or compilation cannot
+resolve this gate. All required records are below; scratch is disposable.
+
+---
+
+# Continuation handoff: REV-FIX-RT-AREA-iwasawa-2~2
+
 Codex, session `codex-9GgzfH`, 14 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
 Input explorer `f38524913af37d7832b550c1f09937b173f748d3`.
