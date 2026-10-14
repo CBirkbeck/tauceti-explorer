@@ -46155,8 +46155,9 @@
     "REV-ClassicalArithmeticCompletion--CA.7"
    ],
    "prompt": "research/blueprint/prompts/ASM-ClassicalArithmeticCompletion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9681"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9681",
+   "finishedAt": "2026-10-14T14:33:25Z"
   },
   {
    "id": "ASM-DiophantineApproximationAndTranscendence",
