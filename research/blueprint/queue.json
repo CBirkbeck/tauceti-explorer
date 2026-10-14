@@ -47123,7 +47123,8 @@
    ],
    "revisionOf": "PKG-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/PKG-AnabelianGeometryAndNonabelianChabauty~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9856"
   },
   {
    "id": "REV-PKG-AnabelianGeometryAndNonabelianChabauty~2",
@@ -51607,8 +51608,9 @@
     "PKG-HodgeTateAndCanonicalSubgroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeTateAndCanonicalSubgroups~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9841"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9841",
+   "finishedAt": "2026-10-14T21:01:58Z"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
@@ -54276,7 +54278,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-TorsionCohomologyInfrastructure.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9858"
   },
   {
    "id": "REV-PKG-TorsionCohomologyInfrastructure",
