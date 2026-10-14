@@ -3,19 +3,13 @@
  "protocol": "blueprint-v1",
  "part": "ET.4",
  "scope": [
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
-  "EndoscopicTransferAndUnitaryTraceComparison:ET.7b"
+  "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
  ],
- "status": "partial",
- "summary": "Independent review of the ET.4–ET.6 target-level pass. The packet records corrected stable/twisted trace conventions, the unpolarized p-adic-type classification, the early positive and integral stages of Scholze’s local correspondence, its later global Galois theorem, the exact cyclic/non-Galois induction hypotheses and the inner-form parameter through Q. Scope is partial: the current-tier algebraic/Igusa prefix, formal geometry, primary trace-formula proofs, full Weil–Deligne pair-factor extension and explicit level-zero formulas remain open. ET.6a–ET.7b are interfaces to a separate packet and are not accepted here. No target is formalised.",
- "agent": "Claude (Claude Opus 5.5)",
- "session": "claude-d0gQRk",
- "job": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
+ "status": "complete",
+ "summary": "Revision 2 plans ET.4 alone at target level: preserves all 69 reviewed IDs and their corrections, adds precise character-extension, invariant-distribution, central/Tamagawa, real vanishing, packet and public weak-base-change targets. ET.4 is planned, not closed; primary-source and supplier obligations remain explicit gaps/requests. The inherited ET.5/ET.6 nodes are unchanged and carry no coverage claim in this revision.",
+ "agent": "Codex (GPT-6)",
+ "session": "codex-tcAXQG",
+ "job": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
  "granularity": "target",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -268,6 +262,149 @@
     "§1.6.1 Theorem* 1.6.1 pp. 79–80",
     "§1.7.1 Theorem* 1.7.1 pp. 88–89"
    ]
+  },
+  {
+   "id": "clozel87",
+   "title": "Characters of non-connected reductive p-adic groups",
+   "authors": "L. Clozel",
+   "edition": "Canadian Journal of Mathematics 39 (1987), 149–167; printed = PDF + 148. Read 2026-10-14.",
+   "url": "https://doi.org/10.4153/CJM-1987-008-3",
+   "sha256": "11f4169a65a0716f162928dd4ed87995bb60cb5275cecf7896ee655cec86eb29",
+   "readSections": [
+    "§2 pp. 150–152; §3.3 Theorems 1–3 pp. 153–154; §3.4 pp. 154–156; §§3.5–3.9 pp. 156–167 (Howe support argument)."
+   ]
+  },
+  {
+   "id": "kottwitz84",
+   "title": "Stable trace formula: cuspidal tempered terms",
+   "authors": "R. E. Kottwitz",
+   "edition": "Duke Mathematical Journal 51 (1984), 611–650. Read 2026-10-14.",
+   "url": "https://math.uchicago.edu/~drinfeld/langlands/Kottwitz.pdf",
+   "sha256": "d455f209214e1ffe160042d45456a441edced95587468b4dab118a81e10e3856",
+   "readSections": [
+    "§4.2 (4.2.2) pp. 623–624; §5 pp. 625–626 (relative Tamagawa number)."
+   ]
+  },
+  {
+   "id": "lai80",
+   "title": "Tamagawa number of reductive algebraic groups",
+   "authors": "K. F. Lai",
+   "edition": "Compositio Mathematica 41 (1980), 153–188. Read 2026-10-14.",
+   "url": "https://www.numdam.org/item/CM_1980__41_2_153_0.pdf",
+   "sha256": "1b733830f36f12755ffc6c38c33bd5385fc8398fffce8d01f88b13ebb305f680",
+   "readSections": [
+    "§7 Theorems 7.1–7.2 pp. 186–188; proof references §§5–6. Only the quasi-split simply connected assertion supplies the branch used here."
+   ]
+  },
+  {
+   "id": "kottwitz86",
+   "title": "Stable trace formula: elliptic singular terms",
+   "authors": "R. E. Kottwitz",
+   "edition": "Mathematische Annalen 275 (1986), 365–399; printed = PDF + 363. Read 2026-10-14.",
+   "url": "https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf",
+   "sha256": "d3b84105bdb93dbe678666a8c2326d4f99fdffd598a0fbae94d45311cdad58d2",
+   "readSections": [
+    "§9.3–9.4 pp. 392–394 (hypotheses and coefficient); Theorem 9.6 and Lemma 9.7 pp. 394–397 (noncentral elliptic stabilization)."
+   ]
+  },
+  {
+   "id": "arthur88local",
+   "title": "The invariant trace formula I. Local theory",
+   "authors": "J. Arthur",
+   "edition": "Journal of the AMS 1 (1988), 323–383. Read 2026-10-14.",
+   "url": "https://www.claymath.org/library/cw/arthur/pdf/26.pdf",
+   "sha256": "902db792ffe113507165a252b0c1b8c59f78ab8d04def1c5c39b0372362dc3ac",
+   "readSections": [
+    "§§2–3 pp. 331–336 (invariant recursion); Corollary 8.3 and Proposition 9.1, §§8–9 (descent and splitting)."
+   ]
+  },
+  {
+   "id": "arthur88global",
+   "title": "The invariant trace formula II. Global theory",
+   "authors": "J. Arthur",
+   "edition": "Journal of the AMS 1 (1988), 501–554. Read 2026-10-14.",
+   "url": "https://www.claymath.org/library/cw/arthur/pdf/27.pdf",
+   "sha256": "42d2193dde29d159ebf757e3636f7ab3e4c0c85644cac360baffb7e0758e507b",
+   "readSections": [
+    "§1 p. 505 (original disconnected scope); Theorems 3.3 and 4.4, §§3–4 pp. 511–520; Theorem 5.1 pp. 524–529; Theorem 6.4 pp. 536–538; Theorem 7.1 and Corollary 7.4 pp. 538–541."
+   ]
+  },
+  {
+   "id": "kr00",
+   "title": "The distributions in the invariant trace formula are supported on characters",
+   "authors": "R. E. Kottwitz and J. D. Rogawski",
+   "edition": "Canadian Journal of Mathematics 52 (2000), 804–814; printed = PDF + 803. Read 2026-10-14.",
+   "url": "https://doi.org/10.4153/CJM-2000-034-6",
+   "sha256": "1ffd79c964e9536b02efc28e23720bd615193b2284b2e9974eafc15061c395b1",
+   "readSections": [
+    "Introduction p. 804; §1 Lemma 1 pp. 805–807; §6 Theorem 1 and proof pp. 810–813."
+   ]
+  },
+  {
+   "id": "dm08",
+   "title": "A twisted invariant Paley–Wiener theorem for real reductive groups",
+   "authors": "P. Delorme and P. Mezo",
+   "edition": "Duke Mathematical Journal 144 (2008), 341–380; printed = PDF + 340. Read 2026-10-14.",
+   "url": "https://www.i2m.univ-amu.fr/perso/patrick.delorme/reprints-delorme/2008TwistedPaley-WienerMezo.pdf",
+   "sha256": "4c3bf26dba14a7e3fe4ea3aa63b3a231708b6f2e674744b7a5b7813f5e51062b",
+   "readSections": [
+    "Introduction pp. 341–345; §9 Theorem 4 and proof pp. 374–377; main Theorem 3 statement pp. 364–365."
+   ]
+  },
+  {
+   "id": "cllab11",
+   "title": "Orbital integrals and distributions",
+   "authors": "L. Clozel and J.-P. Labesse",
+   "edition": "In On the stabilization of the trace formula, Clay Math. Proc. 13 (2011), 107–115; locators are volume printed pages. Read 2026-10-14.",
+   "url": "https://www.claymath.org/library/proceedings/cmip013c.pdf",
+   "sha256": "760161175f57a28d2e05de1f5638bc205d33123ae95f67ce4296b4b651fa950b",
+   "readSections": [
+    "§§2–3 Theorem 2.2, Lemma 3.2 and Proposition 3.3 pp. 109–112; §4 Theorem 4.1 p. 113; §5 Theorem 5.1 and correction to Labesse 1999 pp. 114–115."
+   ]
+  },
+  {
+   "id": "morel",
+   "title": "On the cohomology of certain non-compact Shimura varieties",
+   "authors": "S. Morel",
+   "edition": "arXiv:0802.4451v2 (2018 corrected author version); locators are its printed pages. Read 2026-10-14.",
+   "url": "https://arxiv.org/abs/0802.4451v2",
+   "sha256": "ae620158a9ff84cb82ea94607fc31b33b52b76c54388b850c0397fda19bb74b2",
+   "readSections": [
+    "Definition 3.1.1 p. 50; §8.1 Lemma 8.1.10 and Corollary 8.1.11 pp. 130–131; §8.2 Proposition 8.2.3 and proof pp. 133–135, Lemmas 8.2.5/8.2.6 pp. 135–136."
+   ]
+  },
+  {
+   "id": "labesse11",
+   "title": "Changement de base CM et séries discrètes",
+   "authors": "J.-P. Labesse",
+   "edition": "Public French author copy, 53 pp.; locators are printed pages, equal to PDF page numbers in §5. Read 2026-10-14.",
+   "url": "https://webusers.imj-prg.fr/~michael.harris/CBCM.pdf",
+   "sha256": "5df9d8fcfa158064fe362d4fdf46858648991eb32dddabc63a4a998840785865",
+   "readSections": [
+    "§5 Theorem 5.1 pp. 40–42; property (*) p. 42; Corollary 5.3 pp. 43–44; Theorem 5.4 pp. 45–46."
+   ]
+  },
+  {
+   "id": "geetaibi",
+   "title": "Arthur’s multiplicity formula for GSp4 and restriction to Sp4",
+   "authors": "T. Gee and O. Taïbi",
+   "edition": "Journal de l’École polytechnique — Mathématiques 6 (2019), 469–535; locators are printed pages. Read 2026-10-14.",
+   "url": "https://www.numdam.org/item/10.5802/jep.99.pdf",
+   "sha256": "939a72d807372e21b36004c2f7b6accf5618cad9f34677256563b4b6483e018a",
+   "readSections": [
+    "Introduction pp. 469–474; Proposition 6.1.7 and Remark 6.1.8 pp. 507–508; Theorem 7.4.1 and proof pp. 512–514."
+   ]
+  },
+  {
+   "id": "mw89",
+   "title": "Le spectre résiduel de GL(n)",
+   "authors": "C. Mœglin and J.-L. Waldspurger",
+   "edition": "Annales scientifiques de l’École normale supérieure 22 (1989), 605–674; printed = PDF + 603. Read 2026-10-14.",
+   "url": "https://www.numdam.org/item/ASENS_1989_4_22_4_605_0.pdf",
+   "sha256": "a46e3549d05d2cd39f396ef326840f4484f3935ff3daa17e6339091962de9e94",
+   "readSections": [
+    "Introduction and theorem pp. 605–606; §I.1.1 properties (1)–(4) and proof pp. 607–608; §I.1.2 p. 609. Underlying Bernstein/Vogan irreducibility proof remains a supplier request."
+   ]
   }
  ],
  "sourceVersions": [
@@ -336,6 +473,84 @@
    "url": "https://arxiv.org/abs/1409.3731v1",
    "read": "2026-10-14",
    "sha256": "0084fd8b65f3b74d0053400f2254b3ff6a0e5a5c8d6debb511eb6fad65a6d5fe"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://doi.org/10.4153/CJM-1987-008-3",
+   "read": "2026-10-14",
+   "sha256": "11f4169a65a0716f162928dd4ed87995bb60cb5275cecf7896ee655cec86eb29"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://math.uchicago.edu/~drinfeld/langlands/Kottwitz.pdf",
+   "read": "2026-10-14",
+   "sha256": "d455f209214e1ffe160042d45456a441edced95587468b4dab118a81e10e3856"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.numdam.org/item/CM_1980__41_2_153_0.pdf",
+   "read": "2026-10-14",
+   "sha256": "1b733830f36f12755ffc6c38c33bd5385fc8398fffce8d01f88b13ebb305f680"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://people.dm.unipi.it/maffei/didattica/seminario2020/Kottwitz1986.pdf",
+   "read": "2026-10-14",
+   "sha256": "d3b84105bdb93dbe678666a8c2326d4f99fdffd598a0fbae94d45311cdad58d2"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.claymath.org/library/cw/arthur/pdf/26.pdf",
+   "read": "2026-10-14",
+   "sha256": "902db792ffe113507165a252b0c1b8c59f78ab8d04def1c5c39b0372362dc3ac"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.claymath.org/library/cw/arthur/pdf/27.pdf",
+   "read": "2026-10-14",
+   "sha256": "42d2193dde29d159ebf757e3636f7ab3e4c0c85644cac360baffb7e0758e507b"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://doi.org/10.4153/CJM-2000-034-6",
+   "read": "2026-10-14",
+   "sha256": "1ffd79c964e9536b02efc28e23720bd615193b2284b2e9974eafc15061c395b1"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.i2m.univ-amu.fr/perso/patrick.delorme/reprints-delorme/2008TwistedPaley-WienerMezo.pdf",
+   "read": "2026-10-14",
+   "sha256": "4c3bf26dba14a7e3fe4ea3aa63b3a231708b6f2e674744b7a5b7813f5e51062b"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.claymath.org/library/proceedings/cmip013c.pdf",
+   "read": "2026-10-14",
+   "sha256": "760161175f57a28d2e05de1f5638bc205d33123ae95f67ce4296b4b651fa950b"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://arxiv.org/abs/0802.4451v2",
+   "read": "2026-10-14",
+   "sha256": "ae620158a9ff84cb82ea94607fc31b33b52b76c54388b850c0397fda19bb74b2"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://webusers.imj-prg.fr/~michael.harris/CBCM.pdf",
+   "read": "2026-10-14",
+   "sha256": "5df9d8fcfa158064fe362d4fdf46858648991eb32dddabc63a4a998840785865"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.numdam.org/item/10.5802/jep.99.pdf",
+   "read": "2026-10-14",
+   "sha256": "939a72d807372e21b36004c2f7b6accf5618cad9f34677256563b4b6483e018a"
+  },
+  {
+   "kind": "primary published or author copy",
+   "url": "https://www.numdam.org/item/ASENS_1989_4_22_4_605_0.pdf",
+   "read": "2026-10-14",
+   "sha256": "a46e3549d05d2cd39f396ef326840f4484f3935ff3daa17e6339091962de9e94"
   }
  ],
  "nodes": [
@@ -354,7 +569,8 @@
    ],
    "proofSteps": [
     "Finite rank of π(f) is admissibility: f is bi-invariant under some compact open K and π(f) factors through π^K.",
-    "Local integrability and local constancy on G_rs: Harish-Chandra's theorem, proved by descent to the Lie algebra and the local integrability of Fourier transforms of orbital integrals (ET.1/fourier-transform-orbital-integrals); cited as stated by Kottwitz's Clay notes, Introduction pp. 394–396.",
+    "Clozel 1987 Theorems 1–3: descend an admissible character near a semisimple element to its connected centralizer, use the exponential chart, and express the descended distribution locally by Fourier transforms of nilpotent orbital measures. The discriminant comparison in §3.4 transfers local boundedness/integrability back to the group; ET.1 supplies the orbital Fourier integrability.",
+    "The Fourier-support input is Clozel Lemma 6, proved in §§3.5–3.9 from Howe’s small-compact orbit parametrization, the intertwining criterion, the norm estimates and the Fourier coefficient formula. Its underlying Howe theorem and Cartan decomposition are exact character-prefix proof inputs recorded in the gap, not consequences of admissibility.",
     "For the group formula use the Jacobian of (T(F)\\G(F)) × T(F)_rs → G(F)_rs, (x,t) ↦ x⁻¹tx: it is |det(1−Ad(t)|𝔤/𝔱)|. Its fibre has |N_G(T)(F)/T(F)| elements. Kottwitz §7 proves the analogous Lie-algebra formula; it does not itself state the group formula.",
     "(d) combines (b) and (c); the formula for parabolically induced characters is van Dijk's, recorded with the induction functor of SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction."
    ],
@@ -374,6 +590,11 @@
     "mathlib:MeasureTheory.Measure.IsHaarMeasure"
    ],
    "sources": [
+    {
+     "sourceId": "clozel87",
+     "locator": "§3.3 Theorems 1–3 pp. 153–154; §3.4 pp. 154–156; §§3.5–3.9 pp. 156–167",
+     "match": "The primary proof works on a component of a possibly disconnected reductive group, and specializes to the connected character theorem."
+    },
     {
      "sourceId": "kottwitz-clay",
      "locator": "Introduction, pp. 394–396",
@@ -405,7 +626,7 @@
     "F of characteristic 0; Π irreducible admissible and σ-stable."
    ],
    "proofSteps": [
-    "(a): Clozel's extension of Harish-Chandra's theorem to non-connected groups, recorded as AC Ch. 1 Proposition 2.2 (pp. 11–12); the proof follows ET.4/padic-character-distributions on the coset.",
+    "Apply Clozel 1987 Theorem 1 to the representation of the finite semidirect product obtained from the chosen intertwiner. Restrict its character distribution to the σ-component; the value there is tr(Π(f)I_σ). The discriminant and descent are those of §2 and §3.4, not a formal invocation of the connected theorem.",
     "For GL_n the norm is injective on σ-conjugacy classes by AC Ch. 1 Lemma 1.1(ii), pp. 3–4. Lemma 1.4, pp. 7–8, gives the elliptic norm criterion; the general reductive-group norm correspondence is on stable classes, with rational classes tracked separately.",
     "(d): the same argument applied to the coset of a quasi-semisimple automorphism of finite order."
    ],
@@ -420,6 +641,11 @@
     "ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction"
    ],
    "sources": [
+    {
+     "sourceId": "clozel87",
+     "locator": "§2 pp. 150–152; §3.3 Theorem 1 pp. 153–154 and proof §§3.4–3.9 pp. 154–167",
+     "match": "Applying the character theorem on the nonidentity component gives the locally integrable twisted trace; regularity uses the component discriminant, not the untwisted one."
+    },
     {
      "sourceId": "ac",
      "locator": "Ch. 1 §1, Lemmas 1.1–1.5, pp. 3–9",
@@ -446,14 +672,15 @@
    ],
    "title": "Kottwitz's formula for Tamagawa numbers",
    "kind": "theorem",
-   "statement": "Let G be a connected reductive group over a number field F (here F = ℚ), Γ = Gal(F̄/F), Ĝ its dual group with Γ-action, and τ(G) the Tamagawa number of G (AdelicAlgebraicGroups:AA.2/tamagawa-number, for the Tamagawa measure on G(𝔸)/A_{G,∞}). Then τ(G) = |π_0(Z(Ĝ)^Γ)| · |ker^1(F, G)|^{-1}, where ker^1(F,G) = ker(H^1(F,G) → ∏_v H^1(F_v,G)); moreover |ker^1(F,G)| = |ker^1(F, Z(Ĝ))|. The input is Weil's conjecture τ(G_sc) = 1 for simply connected G_sc. For the unitary similitude groups G_n⃗ of ET.0/unitary-elliptic-endoscopic-data with r = number of blocks of n⃗: |π_0(Z(Ĝ_n⃗)^Γ)| = 2^r if [F^+:ℚ] is even or every n_i is even and 2^{r−1} otherwise, so τ(G_n⃗) ∈ {2^r, 2^{r−1}}; τ(G_n⃗) = 2^r when every n_i is even, τ(G_n⃗) = 2^{r−1} when [F^+:ℚ] is odd and some n_i is odd; and the base-change group 𝒢_n⃗ = R_{F_0/ℚ}(G_n⃗ ×_ℚ F_0) has τ(𝒢_n⃗) = 1. The coefficient ι(G,H) = τ(G) τ(H)^{-1} |Out(H,s,η)|^{-1} of ET.4/stable-elliptic-distribution is computed from these values.",
+   "statement": "For the connected reductive groups G, their elliptic endoscopic groups H and connected elliptic centralizers I used in this packet, let S be the simply connected cover of the derived group. Kottwitz’s relative formula is τ(G)/τ(S)=|π₀(Z(Ĝ)^Γ)|/|ker¹(k,Z(Ĝ))|. With ET.0/kottwitz-duality and ET.4/classical-simply-connected-tamagawa this gives τ(G)=|π₀(Z(Ĝ)^Γ)|/|ker¹(k,G)|. For G_n⃗ with r positive blocks, the component count is 2^r if [F⁺:ℚ] is even or all blocks are even, and 2^(r−1) otherwise; ker¹ is trivial for these groups. Thus those counts are their Tamagawa numbers, while τ(𝒢_n⃗)=1. The same ratio must be applied to each inner centralizer with its own ker¹; it is not declared trivial merely because it is a centralizer.",
    "hypotheses": [
-    "G connected reductive over a number field; Weil's conjecture τ(G_sc) = 1 for the simply connected groups that occur (the special unitary groups here, for which it is classical; the general case is Kottwitz 1988 with Chernousov's E_8 Hasse principle)."
+    "Use the Tamagawa measures and split-centre quotient of AA.2. The number-one theorem applies to the simply connected derived cover, not the similitude group.",
+    "The displayed absolute formula for the inner-form inputs relies on the explicitly planned classical number-one theorem, whose inner-form proof is a gap."
    ],
    "proofSteps": [
-    "Kottwitz 1988 (Ann. of Math. 127, p. 629): reduce to G_der simply connected by a z-extension (ReductiveGroupsPartII:RG2.1/z-extension-existence), use τ(G_sc) = 1 and Ono's formula for tori; cited here through Shin 2010 display (1.2) and Shin 2011 (3.3).",
+    "Use Kottwitz 1984 §5: pass through a z-extension to a group with simply connected derived subgroup, apply Ono’s torus formula and the relative-ratio invariance under the central extension. This supplies τ(G)/τ(S), not τ(S)=1. The absolute number-one input is the separate classical target.",
     "|ker^1(F,G)| = |ker^1(F,Z(Ĝ))| is Kottwitz 1984 (4.2.2), the duality of ET.0/kottwitz-duality.",
-    "For G_n⃗: Z(Ĝ_n⃗) = ℂ^× × ∏_{σ,i} ℂ^×; its Γ-invariants are the (λ,(g_i)) with g_i = ±1 and λ (∏ g_i^{n_i})^{[F^+:ℚ]} = 1, giving the component count; ker^1 of 𝒢_n⃗ is trivial by Shapiro's lemma and Hilbert 90 (Shin 2011 Lemma 3.1 and Remark 3.2)."
+    "Shin 2011 Lemma 3.1 pp. 13–14 computes the dual centre and its Γ-fixed component group. Its cohomological argument gives ker¹(G_n⃗)=1; for the base-change group use restriction of scalars, Shapiro and Hilbert 90. Apply the relative formula with the derived covers. Inner centralizers use ET.0 duality separately."
    ],
    "acceptance": [
     "τ(𝔾_m) = 1 and τ(R_{F_0/ℚ}𝔾_m) = 1.",
@@ -469,9 +696,15 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data",
     "ReductiveGroupsPartII:RG2.1/z-extension-existence",
-    "ReductiveGroupsPartII:RG2.5/langlands-dual-group"
+    "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/classical-simply-connected-tamagawa"
    ],
    "sources": [
+    {
+     "sourceId": "kottwitz84",
+     "locator": "§5 pp. 625–626; §4.2 (4.2.2) pp. 623–624",
+     "match": "Proves the relative Tamagawa formula using z-extensions, Ono’s torus computation and the invariance of the ratio; the duality identifies the kernel orders."
+    },
     {
      "sourceId": "shin10",
      "locator": "§1.2, display (1.2), p. 4",
@@ -610,13 +843,15 @@
     "G_der simply connected (achieved by a z-extension otherwise)",
     "f_∞ stable cuspidal (Euler–Poincaré), so only elliptic terms occur",
     "transfer factors normalised as a global product equal to 1 on rational pairs (ET.1/transfer-factor-properties)",
-    "At infinity use functions compact modulo A_{G,∞}^0 with the central character fixed by ξ, as in Shin 2010 §1.2. For transfers transport that character to the endoscopic and base-change split centres; C_c^∞ in this node denotes this central-character space, not ordinary compact support on the whole group."
+    "At infinity use functions compact modulo A_{G,∞}^0 with the central character fixed by ξ, as in Shin 2010 §1.2. For transfers transport that character to the endoscopic and base-change split centres; C_c^∞ in this node denotes this central-character space, not ordinary compact support on the whole group.",
+    "Local/global transfer, compatibility and almost-all-place fundamental lemma are supplied by ET.1/ET.3. The simply connected Hasse/Tamagawa inputs of Kottwitz §9.3 are needed for the centralizers.",
+    "The full elliptic identity includes the separate central-elliptic-stabilization target. Without that target, the primary theorem establishes only the noncentral identity."
    ],
    "proofSteps": [
-    "Rewrite each adelic orbital integral as a sum over κ ∈ 𝔎(I_0/ℚ) of κ-orbital integrals using the global obstruction (ET.0/global-kottwitz-obstruction (c)) and Fourier inversion on the finite abelian group.",
-    "Regroup pairs (γ_0, κ) by the endoscopic triples (H,s,η) with γ_H transferring to γ_0 (Kottwitz 1986 §9; Shin 2010 §5.1, Lemma 5.1).",
-    "Replace κ-orbital integrals at each place by stable orbital integrals of transfers (ET.3/local-transfer-existence, ET.3/fundamental-lemma-almost-all-places, ET.1/archimedean-pseudocoefficient-transfer); collect the Tamagawa numbers with ET.4/tamagawa-number-formula to obtain ι(G,H).",
-    "This is Kottwitz 1986 Theorem 9.6, recorded by Shin 2011 p. 36 and used for the Igusa counting formula in Shin 2010 §§5–7; its primary text is cited through those secondary statements."
+    "Kottwitz 1986 (9.6.1)–(9.6.4): count rational classes in an adelic stable class via ker¹(I)→ker¹(G), translate the existence condition through the global Kottwitz obstruction and apply finite Fourier inversion in κ.",
+    "Use Lemma 9.7 to identify pairs (stable γ,κ) with elliptic endoscopic data and transferred stable classes. Its existence/uniqueness and automorphism-orbit calculation produce the outer automorphism denominator; they are not a simple bijection before taking these orbits.",
+    "Apply the transfer-factor product formula and local matching; the cohomological exact-sequence calculation in the proof produces the relative τ₁(G)/τ₁(I) coefficients. Use the number-one target to replace relative Tamagawa numbers by absolute ones.",
+    "Theorem 9.6 gives T_e* = Σι ST_e** only: omit central classes on G, use (G,H)-regular classes for proper H, and omit central classes for its quasi-split inner datum. Add the separate complement theorem to obtain the full displayed T_e identity. Its proof remains a recorded gap."
    ],
    "acceptance": [
     "For G anisotropic with only the trivial elliptic endoscopic triple, T_e(f) = ST^G_e(f^G) with f^G = f.",
@@ -631,9 +866,16 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.3/fundamental-lemma-almost-all-places",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.1/archimedean-pseudocoefficient-transfer",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.1/transfer-factor-properties",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula"
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/central-elliptic-stabilization",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality"
    ],
    "sources": [
+    {
+     "sourceId": "kottwitz86",
+     "locator": "§9.3–9.7 pp. 392–397, especially Theorem 9.6",
+     "match": "Proves the noncentral elliptic identity by the cohomological coefficient and endoscopic orbit calculation. The full central identity is not contained in this theorem."
+    },
     {
      "sourceId": "shin11",
      "locator": "§5.4, p. 36",
@@ -710,7 +952,8 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data",
     "ReductiveGroupsPartII:RG2.5/l-group",
     "ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction",
-    "ReductiveGroupsPartII:RG2.5/langlands-dual-group"
+    "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/quadratic-character-extension"
    ],
    "api": [
     {
@@ -804,7 +1047,8 @@
     "SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism",
     "SmoothRepresentationsOfLocalGroups:SR.4/spherical-parameter",
     "SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction",
-    "SmoothRepresentationsOfLocalGroups:SR.2/jacquet-module"
+    "SmoothRepresentationsOfLocalGroups:SR.2/jacquet-module",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/quadratic-character-extension"
    ],
    "sources": [
     {
@@ -916,21 +1160,23 @@
    ],
    "title": "Archimedean Euler–Poincaré and twisted Lefschetz functions for unitary similitude groups",
    "kind": "construction",
-   "statement": "Let G be a unitary similitude group over ℚ that is an inner form of G_N at ∞ of arbitrary signature, ξ an irreducible algebraic representation of G_ℂ, and Ξ = ξ ⊗ ξ the corresponding representation of (𝒢_n⃗)_ℂ. Construct: (a) the Euler–Poincaré function φ_{G_n⃗,ξ} (ET.1/pseudocoefficients) and Labesse's twisted Lefschetz function f_{𝒢_n⃗,Ξ} ∈ C_c^∞(𝒢_n⃗(ℝ)), whose twisted traces compute twisted Lefschetz numbers of (𝔤,K)-cohomology; they are BC-matching; (b) for each elliptic endoscopic G_n⃗ of G, the function φ^n⃗_∞ = e_n⃗(Δ_∞)(−1)^{q(G)}⟨μ_h, s⟩ Σ_{φ_H} det(ω_*(φ_H)) φ_{φ_H}, the sum over discrete L-parameters φ_H of G_n⃗ with η̃_n⃗ ∘ φ_H equivalent to the parameter of ξ, φ_{φ_H} the averaged pseudo-coefficient of the packet and q(G) = ½ dim G(ℝ)/K_∞A_{G,∞}^0; (c) the twisted analogue f^n⃗_∞ = e_n⃗(Δ_∞)(−1)^{q(G)}⟨μ_h, s⟩ Σ_{φ_n⃗} det(ω_*(φ_n⃗)) f_{𝒢_n⃗,Ξ(φ_n⃗)}; then f^n⃗_∞ and φ^n⃗_∞ are BC-matching, and φ^n⃗_∞ is a transfer of the Euler–Poincaré function of G (Kottwitz's construction, ET.1/archimedean-pseudocoefficient-transfer).",
+   "statement": "Let G be a unitary similitude group over ℚ that is an inner form of G_N at ∞ of arbitrary signature, ξ an irreducible algebraic representation of G_ℂ, and Ξ = ξ ⊗ ξ the corresponding representation of (𝒢_n⃗)_ℂ. Construct: (a) the Euler–Poincaré function φ_{G_n⃗,ξ} (ET.1/pseudocoefficients) and Labesse's twisted Lefschetz function f_{𝒢_n⃗,Ξ} ∈ C_c^∞(𝒢_n⃗(ℝ)), whose twisted traces compute twisted Lefschetz numbers of (𝔤,K)-cohomology; they are BC-matching; (b) for each elliptic endoscopic G_n⃗ of G, the function φ^n⃗_∞ = e_n⃗(Δ_∞)(−1)^{q(G)}⟨μ_h, s⟩ Σ_{φ_H} det(ω_*(φ_H)) φ_{φ_H}, the sum over discrete L-parameters φ_H of G_n⃗ with η̃_n⃗ ∘ φ_H equivalent to the parameter of ξ, φ_{φ_H} the averaged pseudo-coefficient of the packet and q(G) = ½ dim G(ℝ)/K_∞A_{G,∞}^0; (c) the twisted analogue f^n⃗_∞ = e_n⃗(Δ_∞)(−1)^{q(G)}⟨μ_h, s⟩ Σ_{φ_n⃗} det(ω_*(φ_n⃗)) f_{𝒢_n⃗,Ξ(φ_n⃗)}; then f^n⃗_∞ and φ^n⃗_∞ are BC-matching, and φ^n⃗_∞ is a transfer of the Euler–Poincaré function of G (Kottwitz's construction, ET.1/archimedean-pseudocoefficient-transfer). In the pure U(p,q) factor construct the coefficient F=E⊗θE with θ acting by interchange of the two factors. With the Euler–Poincaré measure, Clozel–Labesse 2011 Theorems 4.1/5.1 give SO_δ(f_F)=0 when I_δ has no discrete series, and otherwise SO_δ(f_F)=e(I_δ)2^n tr(E(γ)) for γ=gθ(g), δ=gθ in GL_n(ℂ)θ. The centralizer sign e(I_δ) is essential, including at singular semisimple δ. For restrictions of scalars and similitude centres transport the factor formula with the split-centre measures and the ET.1 transfer normalization; the pure-unitary formula is not asserted unchanged for GU.",
    "hypotheses": [
     "G_ℝ an inner form of G_N of arbitrary signature (not only Harris–Taylor signature); ξ irreducible algebraic; the sign e_n⃗(Δ_∞) and ⟨μ_h,s⟩ fixed by the transfer-factor normalisation of ET.1/transfer-factor-properties.",
     "At infinity use functions compact modulo A_{G,∞}^0 with the central character fixed by ξ, as in Shin 2010 §1.2. For transfers transport that character to the endoscopic and base-change split centres; C_c^∞ in this node denotes this central-character space, not ordinary compact support on the whole group."
    ],
    "proofSteps": [
-    "(a): Labesse 1991 Proposition 12 gives f_{𝒢,Ξ}; BC-matching with φ_{G,ξ} is Shin 2011 §4.3 (pp. 23–24) and Caraiani–Scholze non-compact §5.4 (p. 70).",
+    "Clozel–Labesse 2011 Theorem 2.2 constructs the Lefschetz trace distribution from the K-supported distribution and a Paley–Wiener regularizing multiplier with value one at the coefficient parameter. Lemma 3.2 makes its semisimple orbital integrals independent of regularization; Proposition 3.3 gives the regular orbital formula. Theorems 4.1/5.1 use connected-centralizer Euler–Poincaré functions to obtain the singular stable formula with e(I_δ). The published correction on p. 115 repairs the omitted sign in Labesse 1999 Appendix A.",
     "(b): Shin 2011 (5.11), p. 35, with the real endoscopic signs of Shin 2011 §3.6; for arbitrary signature use q(G) and the packets of G_ℝ (Caraiani–Scholze 2017 §5.2 p. 735 and §5.3 pp. 737–738).",
-    "(c): Shin 2011 (6.7), p. 43; BC-matching of f^n⃗_∞ and φ^n⃗_∞ follows termwise from (a)."
+    "(c): Shin 2011 (6.7), p. 43; BC-matching of f^n⃗_∞ and φ^n⃗_∞ follows termwise from (a).",
+    "Use Shin §4.3 and ET.1’s real packet transfer for the pure-unitary norm correspondence and then transport products and the common similitude split centre with the chosen central character. The required quotient-measure and real-character boundary proof inputs are recorded explicitly."
    ],
    "acceptance": [
     "If G(ℝ)/A_{G,∞}^0 is compact and ξ=1 with trivial central character, its normalized constant function represents the Euler–Poincaré trace. Compactness merely modulo the full centre does not imply this assertion.",
     "For arbitrary signature recompute q(G), the Shimura cocharacter μ_h, the pairing ⟨μ_h,s⟩ and the contributing real packets. Holding μ_h fixed while changing signature need not preserve the endoscopic coefficients.",
     "For the trivial triple the coefficient is (−1)^{q(G)}.",
-    "On a compact real quotient choose ξ and a coefficient Ξ′ whose restriction along the base-change embedding has a different highest weight and no ξ-constituent. Schur orthogonality distinguishes their traces and prevents matching; mere inequality Ξ′≠ξ⊗ξ is insufficient."
+    "On a compact real quotient choose ξ and a coefficient Ξ′ whose restriction along the base-change embedding has a different highest weight and no ξ-constituent. Schur orthogonality distinguishes their traces and prevents matching; mere inequality Ξ′≠ξ⊗ξ is insufficient.",
+    "Choose a semisimple δ with e(I_δ)=−1 and nonzero coefficient trace. The pure-unitary stable orbital integral is −2^n tr ξ(gθ(g)), distinguishing the corrected formula from the unsigned one."
    ],
    "uses": [
     {
@@ -966,6 +1212,11 @@
      "name": "twistedLefschetzFunction.wrong_weight",
      "kind": "non-example",
      "statement": "On a compact real quotient choose ξ and a coefficient Ξ′ whose restriction along the base-change embedding has a different highest weight and no ξ-constituent. Schur orthogonality distinguishes their traces and prevents matching; mere inequality Ξ′≠ξ⊗ξ is insufficient."
+    },
+    {
+     "name": "twistedLefschetzFunction.centralizerSign",
+     "kind": "computation",
+     "statement": "Choose a semisimple δ with e(I_δ)=−1 and nonzero coefficient trace. The pure-unitary stable orbital integral is −2^n tr ξ(gθ(g)), distinguishing the corrected formula from the unsigned one."
     }
    ],
    "prerequisites": [
@@ -984,7 +1235,7 @@
     {
      "name": "twistedLefschetzFunction",
      "role": "constructor",
-     "statement": "f_{𝒢,Ξ}, Labesse's twisted Lefschetz function for Ξ = ξ ⊗ ξ."
+     "statement": "Construct the smooth twisted Lefschetz function with coefficient Ξ=ξ⊗θξ and the interchange extension, retaining the regularizing multiplier and split-centre normalization."
     },
     {
      "name": "twistedLefschetzFunction_trace",
@@ -1015,9 +1266,24 @@
      "name": "twistedLefschetzFunction_cuspidal",
      "role": "other",
      "statement": "f_{𝒢,Ξ} is cuspidal: its twisted orbital integrals vanish off θ-elliptic elements."
+    },
+    {
+     "name": "twistedLefschetzFunction.singularStableOrbital",
+     "role": "characterisation",
+     "statement": "For a pure U(p,q) factor and semisimple δ=gθ, the stable integral is zero if I_δ has no discrete series, and otherwise e(I_δ)2^n tr ξ(gθ(g)); do not suppress the centralizer sign."
+    },
+    {
+     "name": "twistedLefschetzFunction.regularization",
+     "role": "relation",
+     "statement": "Changing the Paley–Wiener multiplier while retaining value one at the coefficient parameter leaves semisimple orbital integrals unchanged."
     }
    ],
    "sources": [
+    {
+     "sourceId": "cllab11",
+     "locator": "Theorem 2.2 p. 109; Lemma 3.2 and Proposition 3.3 pp. 111–112; Theorems 4.1/5.1 pp. 113–115",
+     "match": "Provides the primary Lefschetz construction and singular-centralizer formula, with the published correction to Labesse 1999 Appendix A."
+    },
     {
      "sourceId": "shin11",
      "locator": "§4.3, pp. 23–24; (5.11), p. 35; (6.7), p. 43",
@@ -1044,15 +1310,15 @@
    ],
    "title": "The invariant twisted trace formula for the unitary base-change spaces",
    "kind": "theorem",
-   "statement": "Let 𝒢^+_n⃗ = 𝒢_n⃗ ⋊ {1, θ} be as in ET.4/base-change-groups and 𝒢_n⃗θ its non-identity coset. For f ∈ C_c^∞(𝒢_n⃗(𝔸)) with trivial character on A^0_{𝒢,∞}, let fθ be its translate to 𝒢_n⃗θ(𝔸). Then the invariant twisted trace formula holds: I^{𝒢θ}_geom(fθ) = I^{𝒢θ}_spec(fθ), where the geometric side is a linear combination over Levi subsets M of 𝒢_n⃗θ of invariant twisted weighted orbital integrals I^{𝒢θ}_M(δθ, fθ), and the spectral side a linear combination over Levi subsets of invariant twisted weighted characters; both are defined from the same kernel and truncation as the untwisted invariant trace formula of AutomorphicSpectralTheory:AS.6/invariant-trace-formula. The distributions satisfy the twisted splitting formula and descent formula used in ET.4/twisted-geometric-side.",
+   "statement": "On the component 𝒢_n⃗θ of 𝒢_n⃗⋊⟨θ⟩, the invariant global formula equates I_geom(fθ) and I_spec(fθ). Use fixed-central-character functions compact modulo the specified positive real split centre; restrict to 𝒢(𝔸)¹ after the central-character twist, as in Shin §4.5. The geometric expansion is the sum over Levi subsets and rational classes of Arthur’s coefficients times the invariant twisted orbital distributions; the spectral expansion is the sum over discrete inducing data and intertwiner terms of the invariant twisted character distributions. The precise distributions are ET.4/twisted-invariant-distributions. The ordered spectral limit is Arthur II Theorem 6.4; no unproved absolute convergence of a doubly indexed sum is asserted. Splitting and descent are part of the same component theory.",
    "hypotheses": [
     "𝒢^+_n⃗ is a non-connected group whose coset 𝒢θ is defined by an automorphism θ of order 2 preserving a ℚ-splitting; f has the stated central character.",
     "At infinity use functions compact modulo A_{G,∞}^0 with the central character fixed by ξ, as in Shin 2010 §1.2. For transfers transport that character to the endoscopic and base-change split centres; C_c^∞ in this node denotes this central-character space, not ordinary compact support on the whole group."
    ],
    "proofSteps": [
-    "The coarse and fine twisted expansions are obtained from the kernel and truncation of AutomorphicSpectralTheory:AS.6/coarse-trace-identity, AS.6/fine-geometric-expansion and AS.6/fine-spectral-expansion applied to the coset (Arthur 1988, as recalled in Caraiani–Scholze non-compact (5.5.1)).",
-    "Invariantisation follows AutomorphicSpectralTheory:AS.6/invariant-recursion with the twisted weighted characters; the twisted formula is unconditional by Kottwitz–Rogawski and Delorme–Mezo (Shin 2011 §4.5, p. 26).",
-    "The splitting formula and the descent formula for I^{𝒢θ}_M are those of Arthur 1988 (Proposition 9.1 and Corollary 8.3 of the second paper), in their twisted form."
+    "Use Arthur II Theorems 3.3 and 4.4 for the fine geometric/spectral expansions of the component kernel, with invariant recursion from ET.4/twisted-invariant-distributions. AS.6 supplies the connected kernel/truncation interface, not the twisted theorem.",
+    "Arthur’s original §1 scope restriction is removed by the separate Kottwitz–Rogawski character-support and Delorme–Mezo Paley–Wiener inputs. Record their approximation and real harmonic-analysis proof inputs explicitly.",
+    "Apply Arthur II Theorem 6.4 with its prescribed spectral ordering and central-character restriction. Transfer of central characters uses the base-change split-centre map; it does not require simultaneously imposing trivial and ξ-central characters on the same function."
    ],
    "acceptance": [
     "For θ trivial (no twist) the statement reduces to AutomorphicSpectralTheory:AS.6/invariant-trace-formula.",
@@ -1060,14 +1326,12 @@
     "For f cuspidal at ∞ with [F^+:ℚ] ≥ 2, the geometric side reduces to elliptic terms (ET.4/twisted-geometric-side)."
    ],
    "prerequisites": [
-    "AutomorphicSpectralTheory:AS.6/invariant-trace-formula",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-invariant-distributions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-character-support-and-paley-wiener",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
     "AutomorphicSpectralTheory:AS.6/coarse-trace-identity",
     "AutomorphicSpectralTheory:AS.6/fine-geometric-expansion",
-    "AutomorphicSpectralTheory:AS.6/fine-spectral-expansion",
-    "AutomorphicSpectralTheory:AS.6/invariant-recursion",
-    "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters"
+    "AutomorphicSpectralTheory:AS.6/fine-spectral-expansion"
    ],
    "sources": [
     {
@@ -1079,6 +1343,11 @@
      "sourceId": "shin11",
      "locator": "§4.5, p. 26",
      "match": "notes that Arthur's twisted trace formula is unconditional by Kottwitz–Rogawski and Delorme–Mezo, and uses it for unitary base change"
+    },
+    {
+     "sourceId": "arthur88global",
+     "locator": "§§3–4 Theorems 3.3/4.4 pp. 511–520; Theorem 6.4 pp. 536–538",
+     "match": "The component expansions and ordered spectral identity are the primary formula; its original hypothesis is completed by the two named theorems."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1091,19 +1360,20 @@
    ],
    "title": "Cuspidal groups, cuspidal Levi subgroups and cuspidal Levi subsets",
    "kind": "definition",
-   "statement": "(1) A connected reductive group M over ℚ is cuspidal if (M/A_M)_ℝ contains a maximal ℝ-torus that is ℝ-anisotropic, where A_M is the maximal ℚ-split torus in the centre of M. (2) A Levi subgroup M of 𝒢_n⃗ is a cuspidal Levi subgroup if M is a cuspidal group. (3) For a Levi subset M of the coset 𝒢_n⃗θ, let M° be the intersection with 𝒢_n⃗ of the subgroup of 𝒢^+_n⃗ generated by M; M is a cuspidal subset if M° is a cuspidal Levi subgroup of 𝒢_n⃗.",
+   "statement": "A connected reductive ℚ-group M is cuspidal if (M/A_M)_ℝ has an anisotropic maximal real torus, where A_M is its maximal ℚ-split central torus. A Levi subgroup of the fixed unitary similitude group G_n⃗ is cuspidal when it satisfies this condition. For a standard Levi subset Lθ of 𝒢_n⃗θ, form its associated Levi L_H=L∩G_n⃗ (equivalently the fixed group of the restricted involution); call the subset cuspidal when L_H is cuspidal. Define the property for a conjugate Levi subset by transport to a standard subset. The connected restriction-of-scalars Levi L by itself is not the group on which cuspidality is tested.",
    "hypotheses": [
     "M connected reductive over ℚ; Levi subsets in the sense of Arthur's non-connected theory."
    ],
    "proofSteps": [
-    "Cuspidality is equivalent to the existence of discrete series of M(ℝ) modulo A_M(ℝ)^0 (Harish-Chandra), which is why only cuspidal Levis carry non-zero archimedean weighted terms of a cuspidal function.",
-    "The definition is Caraiani–Scholze non-compact Definition 5.5.2."
+    "Use CSnc Definition 5.5.2 p. 74 and Morel §8.2 p. 131: identify the standard fixed Levi L_H and apply the real anisotropic-torus criterion to L_H.",
+    "AF.1/discrete-series supplies the real discrete-series criterion modulo the specified split centre. Products preserve cuspidality, whereas a surviving split central factor rules it out."
    ],
    "acceptance": [
     "𝔾_m is cuspidal (A_M = 𝔾_m and M/A_M is trivial).",
     "For [F^+:ℚ] = 2, R_{F/ℚ}GL_1 is not cuspidal: its real centre contains a split torus of rank 2 while A_M has rank 1.",
     "A unitary group U(a,b) over ℚ relative to an imaginary quadratic field is cuspidal.",
-    "The trivial group is cuspidal; a Levi subgroup is never required to contain a non-trivial torus."
+    "The trivial group is cuspidal; a Levi subgroup is never required to contain a non-trivial torus.",
+    "The full component 𝒢_n⃗θ is cuspidal because its associated fixed group G_n⃗ is cuspidal. Testing discrete series on 𝒢_n⃗(ℝ), a product of complex general linear groups, would give the wrong result."
    ],
    "uses": [
     {
@@ -1135,12 +1405,18 @@
      "name": "IsCuspidalGroup.trivial",
      "kind": "degenerate",
      "statement": "The trivial group is cuspidal; a Levi subgroup is never required to contain a non-trivial torus."
+    },
+    {
+     "name": "IsCuspidalSubset.fullUnitary",
+     "kind": "computation",
+     "statement": "The full component 𝒢_n⃗θ is cuspidal because its associated fixed group G_n⃗ is cuspidal. Testing discrete series on 𝒢_n⃗(ℝ), a product of complex general linear groups, would give the wrong result."
     }
    ],
    "prerequisites": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
     "AdelicAlgebraicGroups:AA.2/tamagawa-measure",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "AutomorphicFormsOnReductiveGroups:AF.1/discrete-series"
    ],
    "api": [
     {
@@ -1161,7 +1437,7 @@
     {
      "name": "IsCuspidalSubset",
      "role": "constructor",
-     "statement": "A Levi subset M of 𝒢θ is cuspidal iff M° ∩ 𝒢 is a cuspidal Levi subgroup."
+     "statement": "A twisted Levi subset is cuspidal iff its associated standard fixed-unitary Levi L_H is cuspidal; this property is invariant under transport to conjugate standard data."
     },
     {
      "name": "IsCuspidalGroup.resGL",
@@ -1174,6 +1450,11 @@
      "sourceId": "csnc",
      "locator": "§5.5, Definition 5.5.2, p. 74",
      "match": "defines cuspidal groups, cuspidal Levi subgroups and cuspidal Levi subsets of the twisted coset"
+    },
+    {
+     "sourceId": "morel",
+     "locator": "Definition 3.1.1 p. 50; §8.2 p. 131",
+     "match": "Cuspidality of a standard Levi subset is defined using its associated Levi M_H of the fixed group."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1191,12 +1472,12 @@
     "F = F^+F_0 CM; the statement is about the base-change coset of ET.4/base-change-groups."
    ],
    "proofSteps": [
-    "It suffices that 𝒢_n⃗ has no proper cuspidal Levi subgroup.",
-    "A proper Levi contains a direct factor R_{F/ℚ}GL_h, 0 < h ≤ n, which would have to be cuspidal.",
-    "The centre of (R_{F/ℚ}GL_h)_ℝ contains a split torus of rank [F^+:ℚ] > 1 while the maximal ℚ-split central torus has rank 1, so no maximal ℝ-torus of the quotient is anisotropic (Caraiani–Scholze non-compact Lemma 5.5.3)."
+    "For a standard proper twisted Levi subset take its associated fixed Levi M_H in G_n⃗; use the cuspidality definition from ET.4/cuspidal-levi-subsets.",
+    "A proper ℚ-Levi of G_n⃗ has a Res_F/ℚ GL_h factor. Its real split centre has rank [F⁺:ℚ], while its ℚ-split centre has rank one. The quotient by the latter still has a positive-dimensional real split centre when [F⁺:ℚ]>1, so an anisotropic maximal real torus is impossible.",
+    "This proves vanishing for proper geometric Levi terms only. It does not remove proper-Levi spectral terms, which remain in ET.4/twisted-spectral-side."
    ],
    "acceptance": [
-    "For [F^+:ℚ] = 2 and n⃗ = (2), the Levi R_{F_0/ℚ}𝔾_m × R_{F/ℚ}(GL_1 × GL_1) is not cuspidal.",
+    "For [F⁺:ℚ]=2 the proper fixed Levi factor Res_F/ℚ GL_1 has a rank-two real split centre and rank-one rational split centre, hence is not cuspidal.",
     "For F^+ = ℚ, (R_{F/ℚ}𝔾_m)^s × G_{N−2s} ⊂ G_N is a proper cuspidal Levi subgroup (non-example of the hypothesis).",
     "The lemma is used only with test functions cuspidal at ∞."
    ],
@@ -1213,6 +1494,11 @@
      "sourceId": "shin11",
      "locator": "Remark 4.6, p. 27",
      "match": "notes that for F^+ = ℚ more terms appear, citing Morel 2010 Proposition 8.2.3"
+    },
+    {
+     "sourceId": "morel",
+     "locator": "§8.2 p. 131 and Proposition 8.2.3 pp. 133–135",
+     "match": "Makes the fixed-Levi criterion and its role in geometric vanishing explicit; proper spectral Levi terms survive."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1233,9 +1519,9 @@
     "At infinity use functions compact modulo A_{G,∞}^0 with the central character fixed by ξ, as in Shin 2010 §1.2. For transfers transport that character to the endoscopic and base-change split centres; C_c^∞ in this node denotes this central-character space, not ordinary compact support on the whole group."
    ],
    "proofSteps": [
-    "By the twisted splitting formula and descent, each term I^{𝒢θ}_M(δθ, f^n⃗θ) is a multiple of the archimedean term for f_{𝒢,Ξ}; that term vanishes unless M is a cuspidal subset (Morel 2010 Proposition 8.2.3), and by ET.4/no-proper-cuspidal-subsets only M = 𝒢θ remains: the twisted analogue of Arthur 1988 Theorem 7.1(b) holds without a second cuspidal place.",
-    "Cuspidality at ∞ (Labesse 1999 Théorème A.1.1) kills non-θ-elliptic terms, giving the twisted analogue of Arthur 1988 Corollary 7.4: the geometric side is the θ-elliptic sum.",
-    "Labesse 1999 Théorème 4.3.4 identifies that θ-elliptic sum with the sum of stable orbital integrals of the BC-transfer, and Shin 2011 Corollary 4.7 (using τ(𝒢_n⃗) = 1 from ET.4/tamagawa-number-formula) rewrites it as τ(G_n⃗)^{-1}ST_e."
+    "Apply ET.4/archimedean-invariant-vanishing (Morel Proposition 8.2.3 and Lemmas 8.2.5/8.2.6). The fixed-Levi definition of cuspidality and [F⁺:ℚ]>1 leave only the full geometric term; no second finite cuspidal place is required.",
+    "Clozel–Labesse’s corrected singular-centralizer orbital formula and the real norm matching give the elliptic semisimple expression. Use the same quotient measures and transported central character; a regular-only orbital formula would not justify the singular sum.",
+    "Shin Proposition 4.5 and Corollary 4.7: T_el=J(Zθ) I_geom and T_el=(τ(𝒢)J(Zθ)/(τ(G)d(G,𝒢)))ST_e. Here τ(𝒢)=1 and d(G,𝒢)=1 because H¹(ℝ,𝒢)=0. Cancel J(Zθ) to obtain I_geom=τ(G)⁻¹ST_e. The intermediate central-volume factor is not silently set to one."
    ],
    "acceptance": [
     "For n⃗ = (1) the identity reduces to a statement about the elliptic part of the twisted trace formula of a torus.",
@@ -1249,7 +1535,8 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-transfer-of-functions",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula"
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-invariant-vanishing"
    ],
    "sources": [
     {
@@ -1271,6 +1558,16 @@
      "sourceId": "cs17",
      "locator": "§5.3, Proposition 5.3.1, p. 737",
      "match": "records the same proposition for the compact unitary groups of arbitrary rank"
+    },
+    {
+     "sourceId": "morel",
+     "locator": "Proposition 8.2.3 pp. 133–135 and Lemma 8.2.6 p. 136",
+     "match": "The primary proper-geometric-Levi vanishing proof."
+    },
+    {
+     "sourceId": "cllab11",
+     "locator": "Theorems 4.1/5.1 pp. 113–115",
+     "match": "The corrected singular stable orbital formula needed at infinity."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1283,26 +1580,30 @@
    ],
    "title": "The spectral side of the simple twisted trace formula",
    "kind": "theorem",
-   "statement": "With f^n⃗ as in ET.4/twisted-geometric-side, I^{𝒢_n⃗θ}_spec(f^n⃗θ) = Σ_M |W_M| |W_{𝒢_n⃗}|^{-1} |det(Φ_n⃗^{-1}θ − 1)_{𝔞^{𝒢θ}_M}|^{-1} Σ_{Π_M} tr(n-Ind^{𝒢_n⃗}_Q(Π_M)_ξ(f^n⃗) ∘ A′), where M runs over Levi subgroups of 𝒢_n⃗ containing a fixed minimal Levi M_0, W_M and W_{𝒢_n⃗} are Weyl groups relative to M_0 (the denominator is the Weyl group of 𝒢_n⃗, Caraiani–Scholze 2017 erratum E71), Φ_n⃗^{-1}θ acts as −1 on 𝔞^{𝒢θ}_M so the determinant is non-zero, Q is a parabolic with Levi M, Π_M runs over the irreducible Φ_n⃗^{-1}θ-stable subrepresentations of the relatively discrete spectrum R_{M,disc} (each occurring with multiplicity one by multiplicity one for general linear groups), the subscript ξ is the twist by the character of A^0_{𝒢,∞} determined by ξ, and A′ is the normalised intertwining operator on n-Ind(Π_M)_ξ composed with θ (Shin 2011 §4.5). Each n-Ind(Π_M)_ξ is a θ-stable isobaric irreducible automorphic representation, and its archimedean component is cohomological for Ξ when its trace against f_{𝒢,Ξ} is non-zero.",
+   "statement": "With f^n⃗ as in ET.4/twisted-geometric-side, I^{𝒢_n⃗θ}_spec(f^n⃗θ) = Σ_M |W_M| |W_{𝒢_n⃗}|^{-1} |det(Φ_n⃗^{-1}θ − 1)_{𝔞^{𝒢θ}_M}|^{-1} Σ_{Π_M} tr(n-Ind^{𝒢_n⃗}_Q(Π_M)_ξ(f^n⃗) ∘ A′), where M runs over Levi subgroups of 𝒢_n⃗ containing a fixed minimal Levi M_0, W_M and W_{𝒢_n⃗} are Weyl groups relative to M_0 (the denominator is the Weyl group of 𝒢_n⃗, Caraiani–Scholze 2017 erratum E71), Φ_n⃗^{-1}θ acts as −1 on 𝔞^{𝒢θ}_M so the determinant is non-zero, Q is a parabolic with Levi M, Π_M runs over the irreducible Φ_n⃗^{-1}θ-stable subrepresentations of the relatively discrete spectrum R_{M,disc} (each occurring with multiplicity one by multiplicity one for general linear groups), the subscript ξ is the twist by the character of A^0_{𝒢,∞} determined by ξ, and A′ is the normalised intertwining operator on n-Ind(Π_M)_ξ composed with θ (Shin 2011 §4.5). Each n-Ind(Π_M)_ξ is a θ-stable isobaric irreducible automorphic representation, and its archimedean component is cohomological for Ξ when its trace against f_{𝒢,Ξ} is non-zero. The quotient 𝔞_M^{𝒢θ} is by the θ-fixed full-group split space, not by the full split space. Thus even M=𝒢 can have nonzero anti-invariant dimension r, and the coefficient is 2^(−r), not automatically one. The inducing data include residual Speh representations. A′ is the global normalized intertwiner M_Q|Qs(0)ρ_Q(s,0,θ;Π_M) of Shin Lemma 4.11, with the ξ central twist; choosing an arbitrary order-two extension does not reproduce its trace sign.",
    "hypotheses": [
     "f^n⃗_∞ a twisted Lefschetz function; the discrete spectrum of the general linear Levi M as described by Mœglin–Waldspurger."
    ],
    "proofSteps": [
-    "Expand the spectral side and use that only the discrete part survives for a Lefschetz function at ∞ (Shin 2011 Proposition 4.8, p. 28).",
-    "Compute the intertwining-operator term as tr(n-Ind(Π_M)_ξ(f) ∘ A′) (Shin 2011 Corollary 4.14, p. 30), with the sign of the normalised intertwiner at ∞ as in Clozel–Harris–Labesse.",
-    "Irreducibility and isobaricity of n-Ind(Π_M)_ξ: Π_M is unitary and discrete for a product of general linear groups (Mœglin–Waldspurger 1989, Jacquet–Shalika 1981)."
+    "Shin Proposition 4.8: start with Arthur’s spectral expansion and its chosen parameter ordering. The infinity infinitesimal character eliminates the additional Weyl terms; the surviving involution acts by −1 on the indicated quotient, giving determinant 2^dim.",
+    "Shin Lemma 4.11 and Corollary 4.14: use the global functional equation and normalized intertwiner to fix A′ and its square; the ξ twist restricts to 𝒢(𝔸)¹. Proper spectral Levi terms remain.",
+    "Use the number-field residual classification for GL_n, including multiplicity one for discrete Speh data. Mœglin–Waldspurger §I.1.1(3) gives irreducibility of unitary induction and holomorphic invertible normalized operators at the unitary point; its proof invokes the real and p-adic unitary GL inputs specified in requests. Nonzero Lefschetz trace forces the required cohomological infinity component."
    ],
    "acceptance": [
-    "When M = 𝒢_n⃗ the term is tr(Π(f^n⃗) ∘ A′) for θ-stable relatively discrete Π, including residual Speh representations.",
+    "For a full Levi with anti-invariant dimension r, the term is 2^(−r) tr(Π(f)A′), including residual Speh Π; for a single GL block r=1 its determinant coefficient is 1/2.",
     "The coefficient |det(Φ^{-1}θ − 1)|^{-1} equals 1 when 𝔞^{𝒢θ}_M = 0.",
-    "Non-θ-stable discrete Π_M contribute zero."
+    "Non-θ-stable discrete Π_M contribute zero.",
+    "A proper spectral Levi can contribute even when every proper geometric Levi term is zero; the two expansions have different indexing data."
    ],
    "prerequisites": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
     "AutomorphicSpectralTheory:AS.6/fine-spectral-expansion",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters",
-    "SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction"
+    "SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction",
+    "AutomorphicSpectralTheory:AS.4",
+    "AutomorphicFormsOnReductiveGroups:AF.1",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6/tadic-unitary-dual"
    ],
    "sources": [
     {
@@ -1319,6 +1620,11 @@
      "sourceId": "csnc",
      "locator": "§5.6, proof of Lemma 5.6.2, pp. 75–76",
      "match": "uses the expansion and the isobaricity of n-Ind(Π_M)_ξ"
+    },
+    {
+     "sourceId": "mw89",
+     "locator": "§I.1.1(3) and proof pp. 607–608",
+     "match": "Unitary induction irreducibility and holomorphy/invertibility; includes residual discrete data and references the needed underlying real/p-adic input."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1490,11 +1796,11 @@
    ],
    "title": "Global cyclic base change for GL_n (Arthur–Clozel)",
    "kind": "theorem",
-   "statement": "Let E/F be a cyclic extension of number fields of prime degree ℓ with Gal(E/F) = ⟨σ⟩ and ω the character of 𝔸_F^×/F^× N(𝔸_E^×) of class field theory. An automorphic representation of GL_n is induced from cuspidal if it is ind(σ_M ⊗ 1) for a cuspidal unitary representation σ_M of a Levi M(𝔸). A σ-stable Π of GL_n(𝔸_E) is a weak lift of π if Π_w is the unramified lift of π_v at almost all places, and a strong lift if Π_w is the local lift of π_v (ET.4/local-cyclic-base-change) at every place. Then (all representations induced from cuspidal): (a) if π is cuspidal and π ≇ π⊗ω, there is a unique σ-stable Π lifting π, and Π is cuspidal; (b) if π is cuspidal and π ≅ π⊗ω, then ℓ divides n and Π is the isobaric sum of the ℓ distinct conjugates of a cuspidal representation of GL_{n/ℓ}(𝔸_E); (c) every σ-stable cuspidal Π is the lift of some cuspidal π, unique up to twisting by powers of ω; (d) a weak lift is a strong lift; (e) ω_Π = ω_π ∘ N_{E/F}, and the lift is independent of the choice of σ; (f) two cuspidal π, π′ with the same lift differ by a power of ω.",
+   "statement": "Let E/F be a cyclic extension of number fields of prime degree ℓ with Gal(E/F) = ⟨σ⟩ and ω the character of 𝔸_F^×/F^× N(𝔸_E^×) of class field theory. An automorphic representation of GL_n is induced from cuspidal if it is ind(σ_M ⊗ 1) for a cuspidal unitary representation σ_M of a Levi M(𝔸). A σ-stable Π of GL_n(𝔸_E) is a weak lift of π if Π_w is the unramified lift of π_v at almost all places, and a strong lift if Π_w is the local lift of π_v (ET.4/local-cyclic-base-change) at every place. Then (all representations induced from cuspidal): (a) if π is cuspidal and π ≇ π⊗ω, there is a unique σ-stable Π lifting π, and Π is cuspidal; (b) if π is cuspidal and π ≅ π⊗ω, then ℓ divides n and Π is the isobaric sum of the ℓ distinct conjugates of a cuspidal representation of GL_{n/ℓ}(𝔸_E); (c) every σ-stable cuspidal Π is the lift of some cuspidal π, unique up to twisting by powers of ω; (d) a weak lift is a strong lift; (e) ω_Π = ω_π ∘ N_{E/F}, and the lift is independent of the choice of σ; (f) two cuspidal π, π′ with the same lift differ by a power of ω. At a real place becoming complex, rec(Π_w)=rec(π_v)|W_ℂ in the AF.1 archimedean normalization; for n=1 this is χ↦χ∘N_ℂ/ℝ, with N(z)=|z|². Apply the same normalization to contragredients and algebraic central twists.",
    "hypotheses": [
     "E/F cyclic of prime degree ℓ, number fields",
     "representations induced from cuspidal (unitary cuspidal data)",
-    "The phrase every place in strong lifting includes archimedean places. ET.4/local-cyclic-base-change supplies only the nonarchimedean part; the archimedean component dictionary must be supplied separately (recorded as a gap)."
+    "Every place includes archimedean places. Use AF.1/archimedean-llc-gln: at ℝ→ℂ restrict the W_ℝ-parameter to W_ℂ; at a split complex place use the identical parameter. This is the existing archimedean dictionary, not the nonarchimedean cyclic theorem."
    ],
    "proofSteps": [
     "Compare the twisted trace formula for GL_n(E) ⋊ ⟨σ⟩ with the trace formula of GL_n(F) through the matching of functions (ET.3/base-change-fundamental-lemma-and-transfer) and the term-by-term comparison of AC Ch. 2 (Theorems A and B).",
@@ -1504,7 +1810,8 @@
    "acceptance": [
     "For n = 1, the lift of a Hecke character χ is χ ∘ N_{𝔸_E/𝔸_F}.",
     "For n = ℓ = 2 and π the automorphic induction of a Hecke character of E, π ≅ π⊗ω and the lift is the isobaric sum χ ⊞ χ^σ.",
-    "A cuspidal π whose base change is cuspidal is not a twist-invariant (non-example to (b))."
+    "A cuspidal π whose base change is cuspidal is not a twist-invariant (non-example to (b)).",
+    "For χ(x)=sgn(x)^ε|x|^t at a real place, its complex base change is |z|^(2t), independently of ε; restriction forgets the sign character."
    ],
    "planet": {
     "name": "Global cyclic base change"
@@ -1514,7 +1821,8 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.3/base-change-fundamental-lemma-and-transfer",
     "AutomorphicSpectralTheory:AS.6/invariant-trace-formula",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln"
    ],
    "sources": [
     {
@@ -1626,7 +1934,7 @@
    ],
    "proofSteps": [
     "Use KMSW §1.7.1 pp. 88–89 for the generic pure-inner multiplicity statement and ε_ψ=1; the paper explicitly distinguishes its unconditional case from the announced general theorem.",
-    "For tempered local parameters use KMSW §1.6.1 pp. 79–80; use unitary twisted endoscopy and the chosen L-embedding. The non-tempered extended-packet construction and full stabilization inputs must be matched in the remaining proof gap.",
+    "Use ET.4/tempered-unitary-local-packets for the bounded Levi parameters, and ET.4/extended-unitary-local-packets (KMSW §1.6.4 pp. 86–87) for non-tempered localizations. This supplies the missing construction at target level. The full stabilization and local intertwining primary proof inputs remain the explicit classification gap.",
     "Liu–Tian–Xiao–Zhang–Zhu Proposition C.3.1 p. 363 gives only the relevant cuspidal cohomological specialization, and cannot replace that broader packet construction."
    ],
    "acceptance": [
@@ -1637,7 +1945,8 @@
    "prerequisites": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/elliptic-stabilization",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer"
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/extended-unitary-local-packets"
    ],
    "sources": [
     {
@@ -1654,6 +1963,11 @@
      "sourceId": "kmsw",
      "locator": "§1.6.1 Theorem* 1.6.1 pp. 79–80; §1.7.1 Theorem* 1.7.1 and Remark 1.7.2 pp. 88–89",
      "match": "states the local packet pairing, generic pure-inner global multiplicity formula and its unconditional scope"
+    },
+    {
+     "sourceId": "kmsw",
+     "locator": "§1.6.4 pp. 86–87",
+     "match": "The positive-exponent induced-packet construction, needed when a generic global parameter is non-tempered locally."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1666,13 +1980,15 @@
    ],
    "title": "Transfer between GSp_4 and GL_4 for general-type representations",
    "kind": "theorem",
-   "statement": "Let F be a number field, Π a cuspidal automorphic representation of GL_4(𝔸_F) and χ : 𝔸_F^×/F^× → ℂ^× unitary with Π ≅ Π^∨ ⊗ (χ∘det). Exactly one of L^S(s, Π, ∧² ⊗ χ^{-1}) and L^S(s, Π, Sym² ⊗ χ^{-1}) has a pole at s = 1; in the first (symplectic) case Π descends to a discrete automorphic representation π of GSp_4(𝔸_F) with central character χ, and in the second to a discrete representation of an inner form of GSpin_4. A discrete π of GSp_4 arising this way is of general type; it is cuspidal and stable, every π′ with π′_v in the L-packet of π_v for all v is automorphic and occurs with multiplicity one, the L-parameter of π_v composed with GSp_4 ⊂ GL_4 is rec(Π_v), and if π is algebraic then Π is algebraic (the forward implication stated in BCGP §1.8.22).",
+   "statement": "Let F be a number field, Π a cuspidal automorphic representation of GL_4(𝔸_F) and χ : 𝔸_F^×/F^× → ℂ^× unitary with Π ≅ Π^∨ ⊗ (χ∘det). Exactly one of L^S(s, Π, ∧² ⊗ χ^{-1}) and L^S(s, Π, Sym² ⊗ χ^{-1}) has a pole at s = 1; in the first (symplectic) case Π descends to a discrete automorphic representation π of GSp_4(𝔸_F) with central character χ, and in the second to a discrete representation of the quasi-split quadratic form GSpin_4^α prescribed by its orthogonal parameter. A discrete π of GSp_4 arising this way is of general type; it is cuspidal and stable, every π′ with π′_v in the L-packet of π_v for all v is automorphic and occurs with multiplicity one, the L-parameter of π_v composed with GSp_4 ⊂ GL_4 is rec(Π_v), and if π is algebraic then Π is algebraic (the forward implication stated in BCGP §1.8.22).",
    "hypotheses": [
-    "general type (the descent of a cuspidal Π of GL_4); the statement depends on Arthur's classification for GSp_4 (Gee–Taïbi), whose only remaining unproved input is the twisted weighted fundamental lemma (gap 'Arthur's classification inputs')"
+    "Π and χ unitary with Π cuspidal, as in Gee–Taïbi Proposition 6.1.7. The GSp_4 packet/multiplicity consequences use its Sp_4/SO_5 classification, local intertwining and twisted stabilization chain, conditional on the weighted fundamental-lemma input recorded by the source.",
+    "Do not import the unitary-group classification as a proof for this different group. The ordinary spherical twisted fundamental lemma is not the weighted assertion."
    ],
    "proofSteps": [
-    "Gee–Taïbi Proposition 6.1.7, as recalled in Boxer–Calegari–Gee–Pilloni §1.8.22 (p. 15), deduces the transfer and multiplicity statements from Arthur's endoscopic classification for GSp_4.",
-    "The pole dichotomy is the Rankin–Selberg and exterior/symmetric square theory of AutomorphicLFunctionsAndLocalFactors (AL.3 for the poles)."
+    "Gee–Taïbi Proposition 6.1.7 pp. 507–508 uses the twisted spectral comparison and the orthogonal/symplectic pole dichotomy to isolate the unique GSpin endoscopic group. The symplectic form is GSpin_5≃GSp_4; the orthogonal form is quasi-split GSpin_4^α, not an arbitrary inner form of split GSpin_4.",
+    "Remark 6.1.8 gives the trivial global component group for the general-type parameter. Theorem 7.4.1 pp. 512–514 applies the Sp_4/SO_5 local/global classification, restriction of packets and strong multiplicity-one comparison to prove the general-type multiplicity and local-parameter assertions.",
+    "The exact primary inputs for twisted weighted stabilization, local packet restriction and the exterior/symmetric-square pole proof are recorded in the direct GSp_4 gap; the unitary packet theorem is removed as an unrelated supplier. BCGP §1.8.22 supplies the algebraicity implication as previously corrected."
    ],
    "acceptance": [
     "For a non-CM holomorphic cuspidal GL₂ form of weight at least two whose symmetric cube is cuspidal, Sym³ of its two-dimensional parameter preserves an alternating form up to det³, giving the symplectic case.",
@@ -1680,10 +1996,14 @@
     "The orthogonal alternative is not a GSp_4 representation: it goes through GSpin_4."
    ],
    "prerequisites": [
-    "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification"
+    "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles"
    ],
    "sources": [
+    {
+     "sourceId": "geetaibi",
+     "locator": "Proposition 6.1.7 and Remark 6.1.8 pp. 507–508; Theorem 7.4.1 pp. 512–514; introduction p. 472",
+     "match": "Primary transfer and general-type multiplicity chain; the orthogonal alternative is quasi-split GSpin_4^α and the source explicitly retains weighted fundamental-lemma assumptions."
+    },
     {
      "sourceId": "bcgp",
      "locator": "§1.8.22, p. 15",
@@ -4817,6 +5137,568 @@
      "kind": "computation"
     }
    ]
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/classical-simply-connected-tamagawa",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Tamagawa number one for the simply connected classical inputs",
+   "kind": "theorem",
+   "statement": "For a number field k and a simply connected semisimple group S that is a product of restrictions of scalars of the special linear or special unitary inner forms occurring as derived groups of G, H and connected elliptic centralizers I, τ(S)=1. The quasi-split branch is Lai Theorem 7.2. The inner special-unitary and inner special-linear branch is a separate primary-proof obligation; quasi-splitness is not inferred from being simply connected.",
+   "hypotheses": [
+    "Characteristic zero; S is the simply connected cover of the derived group, never the full unitary similitude group."
+   ],
+   "proofSteps": [
+    "Use the product formula and compatibility of Tamagawa measures with restriction of scalars from AA.2.",
+    "For quasi-split simply connected S, Lai §7 obtains τ=1 from the weight-lattice permutation torus, Ono’s torus formula and the Eisenstein residue computation of §§5–6.",
+    "The same conclusion for the inner forms used by rational centralizers needs the classical Weil/Kneser computation. Its precise proof supplier remains the named inner-form Tamagawa gap. No quasi-split theorem is applied to an anisotropic inner form."
+   ],
+   "acceptance": [
+    "τ(SL_n)=1, including SL_1=1.",
+    "For a norm-one torus τ=2 can occur; the statement is not extended to arbitrary unitary groups.",
+    "The group GU(p,q) itself has a central torus and is not a simply connected semisimple input."
+   ],
+   "prerequisites": [
+    "AdelicAlgebraicGroups:AA.2/tamagawa-measure",
+    "AdelicAlgebraicGroups:AA.2/tamagawa-number",
+    "ReductiveGroupsPartII:RG2.1/z-extension-existence"
+   ],
+   "sources": [
+    {
+     "sourceId": "lai80",
+     "locator": "§7 Theorem 7.2 pp. 187–188",
+     "match": "Proves Tamagawa number one for quasi-split simply connected groups; does not prove the required arbitrary inner-form branch."
+    },
+    {
+     "sourceId": "kottwitz86",
+     "locator": "§9.3 pp. 392–393",
+     "match": "Lists the simply connected Tamagawa and Hasse inputs used for the centralizers in elliptic stabilization."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/central-elliptic-stabilization",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Central contribution to elliptic stabilization",
+   "kind": "theorem",
+   "statement": "In the same test-function and transfer normalization as ET.4/elliptic-stabilization, the contribution T_e(G;central,f) of rational central elliptic classes equals the sum of ι(G,H) times the complementary stable elliptic terms omitted from Kottwitz 1986 Theorem 9.6. For a proper datum H the complement consists of classes that are not (G,H)-regular; for the quasi-split inner datum it consists of the omitted central classes. This precise complement identity is the additional target needed to pass from Theorem 9.6 to the full T_e formula; it is not asserted proved by that theorem.",
+   "hypotheses": [
+    "G_der simply connected; local/global transfers and product formula fixed; same real split-centre quotient and central character on both sides."
+   ],
+   "proofSteps": [
+    "Separate the noncentral classes on G and the (G,H)-regular classes on H exactly as in Kottwitz §9.5–9.6.",
+    "Compute the omitted terms with the centralizer measures, ker¹ and component weights, and prove their complementary identity. A primary proof with these conventions remains the central elliptic gap.",
+    "Add this identity to Theorem 9.6; no regular approximation argument silently inserts the singular central terms."
+   ],
+   "acceptance": [
+    "For a torus the noncentral sides are zero, so this target carries the full identity.",
+    "Omitting the central term cannot be justified by strong regularity of the transfer relation.",
+    "A zero test function gives zero on each complement."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/global-kottwitz-obstruction",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/transfer-factor-properties"
+   ],
+   "sources": [
+    {
+     "sourceId": "kottwitz86",
+     "locator": "§9.5–9.6 pp. 393–396",
+     "match": "The published theorem explicitly removes central classes and restricts the endoscopic classes; this target specifies the missing complement, not a theorem claimed from that source."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/quadratic-character-extension",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "A Hecke character extending the CM quadratic character",
+   "kind": "construction",
+   "statement": "For an imaginary quadratic field F₀, construct a continuous unitary Hecke character ϖ of C_F₀=F₀×\\𝔸_F₀× whose restriction along C_ℚ→C_F₀ is ω_F₀/ℚ. Retain its choice as data: it is not unique. Define Ram_ℚ(ϖ) as the finite set of rational primes below finite places where its local character is nontrivial on the units; every spherical transfer set S contains this set. At the complex place write ϖ∞(z)=(z/|z|)^m|z|^{it}; restriction to ℝ× forces m odd and t=0.",
+   "hypotheses": [
+    "F₀/ℚ imaginary quadratic; ω_F₀/ℚ uses the global Artin convention already owned by ClassFieldTheory."
+   ],
+   "proofSteps": [
+    "The idele-class inclusion is injective because F₀×∩𝔸_ℚ×=ℚ×. The norm-one idele class groups are compact; comparison of norms shows that the image is closed and C_F₀/C_ℚ is compact.",
+    "Apply AA.2/central-character-extension-twist to the closed central subgroup of the torus Res_F₀/ℚ G_m. This supplies the continuous unitary extension; its general character-extension proof is inherited from AA, not reproved here.",
+    "Local continuity gives finite ramification. Apply the existing real/complex character classification to the restriction at infinity, obtaining odd angular exponent and zero norm exponent."
+   ],
+   "acceptance": [
+    "ϖ∞(−1)=−1; an even angular exponent fails the restriction condition.",
+    "The trivial Hecke character is not an extension of ω_F₀/ℚ.",
+    "Multiplying by a character trivial on C_ℚ gives another valid choice; equality of choices is not a theorem."
+   ],
+   "prerequisites": [
+    "AdelicAlgebraicGroups:AA.2/central-character-extension-twist",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic"
+   ],
+   "sources": [
+    {
+     "sourceId": "shin11",
+     "locator": "§3.1 p. 11 (ϖ and Ram_ℚ(ϖ)); §3.2 pp. 14–16",
+     "match": "The chosen extension enters the L-embeddings and its ramified places are excluded from the spherical set. Existence is the specialization of the imported continuous character-extension theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "CMQuadraticCharacterExtension",
+     "role": "constructor",
+     "statement": "The data consist of a continuous unitary Hecke character and the equality of its restriction to ω_F₀/ℚ."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.restrict",
+     "role": "simp",
+     "statement": "For x∈C_ℚ, ϖ(x)=ω_F₀/ℚ(x)."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.ramifiedPlaces",
+     "role": "structure",
+     "statement": "Ram_ℚ(ϖ) is finite; outside it each local character is trivial on the unit subgroup."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.infinityParity",
+     "role": "characterisation",
+     "statement": "The complex angular exponent is odd and the continuous norm exponent is zero."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.change",
+     "role": "relation",
+     "statement": "Two choices differ by a character of C_F₀/C_ℚ; downstream L-embeddings retain the chosen character."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.artin",
+     "role": "compatibility",
+     "statement": "Under the imported Artin reciprocity map, the Hecke character gives the W_F₀-character used in the L-embedding; the two conventions are transported together."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ET.4/base-change-groups",
+     "how": "Supplies the actual ϖ-twist, rather than an assumed extension."
+    },
+    {
+     "where": "ET.4/unramified-transfers and small-level-transfer",
+     "how": "Pins the finite exceptional set and prevents using Satake at a ramified character place."
+    }
+   ],
+   "tests": [
+    {
+     "name": "CMQuadraticCharacterExtension.negativeReal",
+     "kind": "computation",
+     "statement": "At the complex place ϖ∞(−1)=−1."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.evenParity",
+     "kind": "non-example",
+     "statement": "(z/|z|)^2 restricts trivially to ℝ× and cannot be the required infinity factor."
+    },
+    {
+     "name": "CMQuadraticCharacterExtension.choice",
+     "kind": "compatibility",
+     "statement": "Twisting by a quotient character preserves the restriction but may change Ram_ℚ(ϖ)."
+    }
+   ]
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-invariant-distributions",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Invariant orbital and character distributions on the twisted coset",
+   "kind": "construction",
+   "statement": "For a characteristic-zero local field k and the component 𝒢θ of 𝒢⋊⟨θ⟩, use the connected group 𝒢 for conjugation and θ-stable parabolic/Levi subsets. For a Levi subset Mθ, construct the twisted weighted orbital distribution J_M(δθ,f) using the component discriminant |det(1−Ad(δ)θ on 𝔤/𝔦_δθ)|^(1/2), connected centralizer quotient measure, and Arthur’s (𝒢,M)-family weight. Construct J_M(π,X,f) from normalized intertwining operators for the corresponding induced θ-stable representation, retaining its chosen extension. Define the maps φ_L from weighted characters and the invariant distributions recursively by I_M^𝒢=J_M^𝒢−Σ_{L⊊𝒢} Ĩ_M^L∘φ_L, in both orbital and spectral variables. Ĩ denotes descent to the invariant character quotient. At M=𝒢 the orbital distribution is the discriminant-normalized twisted orbital integral and the spectral distribution is the ordinary twisted character transform. The geometric test-function transfer uses unnormalized orbital integrals; convert by the displayed discriminant rather than identifying the two normalizations.",
+   "hypotheses": [
+    "Measures, central character and normalized intertwiner are fixed; π is tempered for the initial spectral transform.",
+    "Functions are in Arthur’s smooth Hecke/almost-compact spaces on the component, K-finite at real places; the quotient is by functions whose twisted character transforms vanish.",
+    "The induction through lower-dimensional Levi subsets uses character support, provided by the separate twisted Paley–Wiener/character-support theorem."
+   ],
+   "proofSteps": [
+    "Use the component kernel and the same truncation parameter/chambers as AS.6, transporting them to θ-stable parabolics; AS.6 supplies the untwisted machinery and does not assert these coset identities.",
+    "Construct weighted orbital integrals and weighted characters with the component discriminant and global/local intertwiner conventions. Arthur I §§2–3 defines the invariant recursion simultaneously on components.",
+    "Induct on the dimension of proper Levi subsets; character support makes the hatted distributions on the quotient well-defined. Arthur I Corollary 8.3 and Proposition 9.1 give the descent and splitting identities.",
+    "Use the two completions of Arthur II §5: Kottwitz–Rogawski supplies support on characters and Delorme–Mezo the real twisted trace transform. These complete the disconnected induction."
+   ],
+   "acceptance": [
+    "For θ=1, the recursion agrees with AS.6, with the same measures and character quotient.",
+    "For M=𝒢 there is no proper-Levi subtraction.",
+    "Multiplying an order-two extension operator by −1 reverses its twisted spectral transform."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-character-support-and-paley-wiener",
+    "AutomorphicSpectralTheory:AS.6/weighted-orbital-integral",
+    "AutomorphicSpectralTheory:AS.6/invariant-recursion",
+    "SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral"
+   ],
+   "sources": [
+    {
+     "sourceId": "arthur88local",
+     "locator": "§2 (2.1) pp. 331–332; §3 (3.1) pp. 335–336; Corollary 8.3 and Proposition 9.1",
+     "match": "Defines invariantization of the two weighted families for components, with support on characters as an induction hypothesis."
+    },
+    {
+     "sourceId": "kr00",
+     "locator": "§6 Theorem 1 pp. 810–813",
+     "match": "Finishes the character-support input needed to descend through the invariant quotient."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TwistedInvariantDistributions",
+     "role": "constructor",
+     "statement": "Produce the component Hecke space, weighted families, φ_L and the two recursive invariant families with fixed measure/extension data."
+    },
+    {
+     "name": "TwistedInvariantDistributions.linear",
+     "role": "structure",
+     "statement": "J_M, I_M and φ_L are linear in f."
+    },
+    {
+     "name": "TwistedInvariantDistributions.topLevi",
+     "role": "simp",
+     "statement": "At the full Levi the proper-Levi sum is empty; the result is the normalized orbital integral or twisted character transform."
+    },
+    {
+     "name": "TwistedInvariantDistributions.recursion",
+     "role": "characterisation",
+     "statement": "For each proper Levi, I_M=J_M−Σ_{L⊊𝒢}Ĩ_M^L∘φ_L; the hatted maps factor through the twisted character quotient."
+    },
+    {
+     "name": "TwistedInvariantDistributions.conjugation",
+     "role": "relation",
+     "statement": "I_M is invariant under conjugation by the connected group, with Levi data transported accordingly."
+    },
+    {
+     "name": "TwistedInvariantDistributions.descent",
+     "role": "compatibility",
+     "statement": "Arthur I Corollary 8.3 transports a semisimple orbital term to the connected centralizer, preserving the component discriminant and quotient measures."
+    },
+    {
+     "name": "TwistedInvariantDistributions.splitting",
+     "role": "compatibility",
+     "statement": "Arthur I Proposition 9.1 splits a tensor-product term into the local invariant/constant-term terms with its d_M^𝒢 coefficients."
+    },
+    {
+     "name": "TwistedInvariantDistributions.untwisted",
+     "role": "compatibility",
+     "statement": "The identity automorphism recovers AS.6’s weighted distributions and recursion, not a second untwisted construction."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ET.4/twisted-trace-formula",
+     "how": "Supplies the distributions in the coarse/fine coset expansions."
+    },
+    {
+     "where": "ET.4/twisted-geometric-side",
+     "how": "Splitting and descent isolate the infinity factor and allow the cuspidal-Levi vanishing theorem."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TwistedInvariantDistributions.identity",
+     "kind": "compatibility",
+     "statement": "For θ=1 the orbital discriminant and recursion equal the AS.6 definitions."
+    },
+    {
+     "name": "TwistedInvariantDistributions.fullLevi",
+     "kind": "degenerate",
+     "statement": "For M=𝒢, I_M=J_M; no subtraction is made."
+    },
+    {
+     "name": "TwistedInvariantDistributions.intertwinerSign",
+     "kind": "non-example",
+     "statement": "Replacing A by −A changes the weighted character sign, even though A²=1 in both cases."
+    },
+    {
+     "name": "TwistedInvariantDistributions.torus",
+     "kind": "computation",
+     "statement": "For a torus with θ=1 the discriminant is 1 and the orbital quotient is a point."
+    }
+   ]
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-character-support-and-paley-wiener",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Twisted character support and real Paley–Wiener theorem",
+   "kind": "theorem",
+   "statement": "For a component of a reductive group over a characteristic-zero local field with rational points, each invariant orbital distribution I_M(γ) is supported on characters: it vanishes on any Hecke function whose invariant twisted character transform is zero. The real twisted trace transform is onto the Paley–Wiener families of Delorme–Mezo Theorem 4: finite K-type support, covariance under the root-of-unity change of extension, and Fourier transforms of smooth functions supported in the radius-t ball on each induced spectral parameter space. Thus the real trace Paley–Wiener assumption left in Kottwitz–Rogawski and Arthur’s original disconnected induction is supplied for the components used here.",
+   "hypotheses": [
+    "Use Delorme–Mezo’s real reductive component, chosen maximal compact group and radius convention; only representations whose restriction to the identity component is irreducible tempered enter its primary dual.",
+    "Kottwitz–Rogawski’s general support theorem assumes trace Paley–Wiener; the two results are used together, not cited as two unconditional proofs of the same statement."
+   ],
+   "proofSteps": [
+    "Delorme–Mezo Theorem 4: necessity follows from finite K-types, the scalar extension action and the Fourier support bound. For sufficiency convert the family to the main Theorem 3 data; normalized analytic intertwiners preserve the root-of-unity covariance and the spectral relations.",
+    "Kottwitz–Rogawski §6: induct on dimension/Levi order, descend to regular elliptic elements, globalize the local group, use weak approximation and the cohomological conjugacy-separation lemmas, and isolate a positive multiple of the desired local distribution in the global trace identity.",
+    "The global argument is an induction in Arthur’s formula, not a cycle using this packet’s final unitary stable comparison. Its underlying approximation/Hasse inputs remain the precise source-proof gap."
+   ],
+   "acceptance": [
+    "A family invariant under A↦−A with nonzero value cannot be the order-two twisted trace transform.",
+    "For θ=1, the covariance condition becomes the ordinary real trace transform condition.",
+    "If every twisted character vanishes on f, every I_M(γ,f) vanishes."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/base-change-groups",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality",
+    "AutomorphicSpectralTheory:AS.6/invariant-recursion",
+    "AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification"
+   ],
+   "sources": [
+    {
+     "sourceId": "kr00",
+     "locator": "Introduction p. 804; §6 Theorem 1 and proof pp. 810–813",
+     "match": "Proves character support, conditionally on the real trace Paley–Wiener statement."
+    },
+    {
+     "sourceId": "dm08",
+     "locator": "§9 Theorem 4 and proof pp. 375–377; §7 Theorem 3 pp. 364–365",
+     "match": "Gives the twisted invariant real trace transform and its three support/covariance conditions."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-invariant-vanishing",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "The archimedean invariant vanishing and character identity",
+   "kind": "theorem",
+   "statement": "In Morel’s base-change component for a quasi-split cuspidal fixed group H with simply connected derived subgroup, let f∞ be a twisted pseudo-coefficient of the θ-discrete representation with parameter φ|W_ℂ, for the discrete-series packet associated with a regular algebraic coefficient of H. After splitting, a term for M can survive only when A_M=A_M,ℝ. For such M, I_M^𝒢(γ,f∞)=0 if the associated fixed Levi M_H is not cuspidal. If it is cuspidal, I_M^𝒢(γ,f∞)=|D^M(γ)|^(1/2) Φ_M^𝒢(γ,f∞), where the discriminant uses the semisimple part of γθ and Φ is the θ-discrete packet character expression of Morel §8.2. It is zero on non-θ-semisimple γ. These identities yield Morel Proposition 8.2.3; its spectral coefficients still incorporate discrete data from proper Levi subsets.",
+   "hypotheses": [
+    "Use Morel’s hypotheses and central-character spaces; no claim for an arbitrary disconnected reductive group or arbitrary infinity function.",
+    "Real θ-discrete character growth and boundary identities, and connected centralizer unipotent limits, are needed; precise unread underlying proofs are a gap."
+   ],
+   "proofSteps": [
+    "Apply Arthur I Proposition 9.1 and Corollary 9.2 to isolate the infinity factor and force equality of rational and real split centres.",
+    "For a noncuspidal associated fixed Levi, Morel Lemma 8.2.6 first descends a regular element to a proper real Levi and uses cuspidality. Local centralizer orbital integrals and their regular density extend zero to singular and unipotent elements.",
+    "For a cuspidal M, prove the regular character identity by induction on M using the differential equations, growth estimate and boundary relations for θ-discrete characters; the full-group case is Morel Lemma 8.1.10.",
+    "Use Morel Lemma 8.2.5 and connected-centralizer unipotent orbital limits to extend from regular semisimple elements. Substitute in the split geometric expansion. The separate global no-proper-cuspidal theorem then removes the proper geometric terms when [F⁺:ℚ]>1."
+   ],
+   "acceptance": [
+    "For the full component the fixed Levi is H, which is cuspidal; testing cuspidality on complex GL_n would incorrectly erase this term.",
+    "A noncuspidal fixed Levi gives zero even at a singular semisimple element, not merely on the regular set.",
+    "At degree one a proper cuspidal fixed Levi may survive; infinity cuspidality alone does not imply the simple geometric identity."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-invariant-distributions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/cuspidal-levi-subsets",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/real-transfer",
+    "AutomorphicFormsOnReductiveGroups:AF.1/discrete-series"
+   ],
+   "sources": [
+    {
+     "sourceId": "morel",
+     "locator": "§8.2 Proposition 8.2.3 and proof pp. 133–135; Lemmas 8.2.5/8.2.6 pp. 135–136; Lemma 8.1.10 p. 130",
+     "match": "Gives the component invariant vanishing proof and corrects the spectral expansion by retaining the proper-Levi discrete data."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tempered-unitary-local-packets",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Tempered local unitary packets with inner-twist pairings",
+   "kind": "theorem",
+   "statement": "For a local field of characteristic zero, a quasi-split unitary group G*, an extended pure inner twist (G,ξ,z), and a bounded local L-parameter φ (Arthur SL₂ trivial), KMSW Theorem* 1.6.1 gives a finite relevant packet Π_φ(G,ξ) and pairing into Irr(S_φ♮,χ_z). It is empty if φ is irrelevant. Packet members are tempered, the pairing is injective, and at nonarchimedean places it is a bijection to the prescribed component characters. At real places the bijection is over the specified union of pure inner forms, not necessarily on a single form. The packet is independent of z while its pairing uses z. The normalized endoscopic character identity includes e(G) and evaluation at s_e s_φ, with transfer factors normalized by (ξ,z). At a split place the packet is the GL_N singleton.",
+   "hypotheses": [
+    "Bounded L-parameters only, in the unconditional generic local case of KMSW v1; use the chosen Whittaker normalization and extended pure inner twist.",
+    "The GL local parameter dictionary is ET.6/full-wd-local-langlands at nonarchimedean places and AF.1/archimedean-llc-gln at real/complex places; the former retains its inherited factor proof gap."
+   ],
+   "proofSteps": [
+    "Use the local classification and normalized endoscopic identity of KMSW §1.6.1; relevance and the central character χ_z determine which inner form receives each member.",
+    "Use the injectivity/bijection clauses with their field-dependent scope. Lemma 1.6.2 transports a change of z without claiming that its pairing is unchanged.",
+    "The proof passes through quasi-split classification and normalized local intertwining relations. Their exact primary proof chains are the classification gap, distinct from the packet statement itself."
+   ],
+   "acceptance": [
+    "An irrelevant parameter gives the empty packet on that form.",
+    "At a split place the packet is a GL_N singleton; an independently chosen cyclic GL base-change fibre is not a unitary packet.",
+    "A real packet can be smaller than the full component-character set on one inner form; surjectivity is over the prescribed union."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.1/transfer-factor-properties",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.3/twisted-fundamental-lemma-and-transfer",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands",
+    "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln"
+   ],
+   "sources": [
+    {
+     "sourceId": "kmsw",
+     "locator": "§1.6.1 Theorem* 1.6.1 pp. 79–80; Lemma 1.6.2 p. 80",
+     "match": "Pins the unconditional bounded-parameter packet, pairing, relevance, character identity and real-place union."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/extended-unitary-local-packets",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Extended local unitary packets by positive-exponent induction",
+   "kind": "construction",
+   "statement": "For ψ∈Ψ⁺(G*) write the KMSW §1.6.4 decomposition ψ=ψ_M·φ_λ with ψ_M bounded on a relevant Levi M* and λ in the positive chamber, giving an unramified character χ_λ. If the Levi datum is irrelevant for G, set Π_ψ(G,ξ)=∅. Otherwise transfer the extended pure inner twist to M and set Π_ψ(G,ξ)={I_P(π_M⊗χ_λ): π_M∈Π_ψM(M,ξ_M)}. Transport the pairing by Irr(S_ψ♮,χ_z)=Irr(S_ψM♮,χ_zM), using KMSW (1.6.3)–(1.6.4). These induced admissible representations may be reducible or nonunitary for a general Ψ⁺ parameter. Do not replace them by irreducible Langlands quotients without an additional theorem. For λ=0 and tempered ψ this recovers the tempered packet. Retain Weyl-conjugacy independence and the choice-sensitive pairing.",
+   "hypotheses": [
+    "In the generic global localization used here the bounded Levi packet is a tempered L-packet. A general nongeneric bounded Arthur parameter would require the broader bounded packet theorem, whose proof is not claimed in this revision.",
+    "Normalize parabolic induction and χ_λ as in KMSW; the inner twist must be relevant for that Levi."
+   ],
+   "proofSteps": [
+    "Separate positive real exponents from the bounded parameter and use the relevant Levi decomposition in KMSW §1.6.4.",
+    "Construct normalized induction from each bounded Levi packet member and transport its component-character pairing through (1.6.3)–(1.6.4). Record these as actual induced modules, preserving possible reducibility.",
+    "Weyl reordering of the linear factors and the canonical induced representation identifications give independence of the representative decomposition. A change of z transports the pairing via the central character, not literal equality of pairings."
+   ],
+   "acceptance": [
+    "For λ=0 and bounded φ this is the tempered packet.",
+    "Irrelevant Levi data give the empty packet.",
+    "Taking Langlands quotients of a reducible induced member changes the stated construction and needs an extra theorem."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tempered-unitary-local-packets",
+    "SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction",
+    "AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data"
+   ],
+   "sources": [
+    {
+     "sourceId": "kmsw",
+     "locator": "§1.6.4 pp. 86–87, equations (1.6.3)–(1.6.4); Remark 1.7.2 p. 89",
+     "match": "Defines the extended induced packets and their pairings; explains their necessity even for generic global parameters."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "ExtendedUnitaryPacket",
+     "role": "constructor",
+     "statement": "Store ψ, its relevant positive-exponent Levi decomposition, the induced members and transported component pairing."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.irrelevant",
+     "role": "simp",
+     "statement": "An irrelevant Levi decomposition gives no members."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.bounded",
+     "role": "simp",
+     "statement": "At λ=0 for a bounded L-parameter the construction is the tempered packet."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.members",
+     "role": "characterisation",
+     "statement": "Members are the normalized induced representations I_P(π_M⊗χ_λ), not silently their Langlands quotients."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.pairing",
+     "role": "structure",
+     "statement": "The component pairing is transported through KMSW (1.6.3)–(1.6.4) and retains the χ_z restriction."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.weyl",
+     "role": "relation",
+     "statement": "Weyl-conjugate decompositions give canonically identified induced packets and transported pairings."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.split",
+     "role": "compatibility",
+     "statement": "At a split place the generic localization gives the GL_N parameter representation with the same positive-exponent convention."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ET.4/unitary-endoscopic-classification",
+     "how": "Supplies non-tempered localizations of generic global parameters without assuming Ramanujan."
+    },
+    {
+     "where": "ET.7a/relevant-packet-multiplicity",
+     "how": "The local packet/pairing input is this construction and the tempered theorem, not cyclic GL lifting."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ExtendedUnitaryPacket.zero",
+     "kind": "degenerate",
+     "statement": "Zero exponents recover the bounded packet."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.irrelevantTest",
+     "kind": "non-example",
+     "statement": "A Levi incompatible with the chosen inner form contributes no member."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.reducible",
+     "kind": "non-example",
+     "statement": "At a reducibility point the induced module is retained; its quotient alone is not the constructed object."
+    },
+    {
+     "name": "ExtendedUnitaryPacket.permutation",
+     "kind": "compatibility",
+     "statement": "Permuting conjugate linear Levi blocks transports to the same normalized induced representation."
+    }
+   ]
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/cohomological-unitary-weak-base-change",
+   "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+   "realises": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4"
+   ],
+   "title": "Public cohomological unitary weak base change and descent",
+   "kind": "theorem",
+   "statement": "Let E/F be CM with [F:ℚ]≥2 and U an inner form of the quasi-split unitary group in Labesse §5. Let σ be a discrete automorphic representation with discrete-series infinity component satisfying property (*): all representations with its finite part have infinity pseudo-coefficient trace of one common sign. Labesse Corollary 5.3 gives a weak base change to an isobaric sum of θ-stable discrete GL blocks, with local matching at unramified and split finite places and compatible infinitesimal character at infinity. If every block is cuspidal, the infinity component is its actual archimedean base change. Conversely, when E/F is unramified at all finite places and U is quasi-split at finite inert places, Theorem 5.4 descends a θ-stable cuspidal cohomological GL_N representation to a discrete cohomological σ. Under its extra discrete-series, spherical-inert and (*) hypotheses a cuspidal σ has multiplicity one. This is weak unitary base change with precisely these hypotheses; it does not prove all-place transfer in the separate Harris–Taylor division-algebra setting.",
+   "hypotheses": [
+    "Use the central-character, inner-form and discrete infinity hypotheses of Labesse Theorem 5.1. Property (*) holds in the compact infinity case and with the sufficiently regular coefficients specified on p. 42; it is not assumed for every cohomological representation.",
+    "The converse retains the everywhere-finitely-unramified CM extension and finite-inert quasi-splitness hypotheses."
+   ],
+   "proofSteps": [
+    "Labesse Theorem 5.1 compares the unitary trace to the twisted GL trace with the discrete-series test function and controlled endoscopic terms.",
+    "The common-sign property isolates the finite part without cancellation. Corollary 5.3 obtains a θ-stable discrete isobaric weak lift, with the precise split/unramified and infinity compatibilities.",
+    "For the converse Theorem 5.4 uses the additional finite-place hypotheses to match the cuspidal θ-stable GL trace and recover the cohomological unitary representation. Its multiplicity-one assertion uses the additional spherical-inert and (*) assumptions."
+   ],
+   "acceptance": [
+    "At compact infinity, property (*) prevents cancellation of the finite part.",
+    "A residual discrete GL block does not imply actual infinity base change from infinitesimal-character compatibility alone.",
+    "A ramified finite inert place prevents direct application of the stated descent theorem."
+   ],
+   "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+    "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln"
+   ],
+   "sources": [
+    {
+     "sourceId": "labesse11",
+     "locator": "Theorem 5.1 pp. 40–42; property (*) p. 42; Corollary 5.3 pp. 43–44; Theorem 5.4 pp. 45–46",
+     "match": "The public source gives this wider cohomological weak lift and a descent with stronger finite-place hypotheses; neither equals the restricted all-place HT theorem."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -4901,16 +5783,39 @@
    "neededBy": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands"
    ]
+  },
+  {
+   "supplier": "AutomorphicSpectralTheory:AS.4",
+   "need": "Number-field GL_n unitary discrete residual Speh classification, its global multiplicity one, and the induced Levi data used in Shin Proposition 4.8; the existing function-field/unramified specialization does not supply it. Read Mœglin–Waldspurger 1989 main theorem pp. 605–606 and provide its full primary proof chain.",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/cohomological-unitary-weak-base-change"
+   ]
+  },
+  {
+   "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
+   "need": "For GL_n(ℝ) and GL_n(ℂ), normalized parabolic induction of arbitrary irreducible unitary GL-block representations is irreducible, and the normalized intertwiner is holomorphic/invertible at the unitary point. Mœglin–Waldspurger §I.1.1(3) pp. 607–608 invokes Vogan/Bernstein; generic-unitary classification alone does not cover residual Speh data. For nonarchimedean blocks use the existing ET.6/tadic-unitary-dual supplier.",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+   "need": "Import the already planned real/complex continuous-character classification for the infinity component of ϖ: its restriction to ℝ× forces odd angular exponent and zero norm exponent. This is an existing roadmap import, not a request to plan that classification again.",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/quadratic-character-extension"
+   ]
   }
  ],
  "gaps": [
   {
-   "title": "Arthur's classification inputs",
+   "title": "Unitary classification primary proof chain",
    "neededBy": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unitary-endoscopic-classification",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/gsp4-gl4-transfer"
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tempered-unitary-local-packets",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/extended-unitary-local-packets"
    ],
-   "detail": "KMSW arXiv:1409.3731v1 §§1.6–1.7 pp. 79–80, 88–89 was read independently: unconditional scope is generic global parameters on pure inner forms; generic global parameters need not be tempered locally (Remark 1.7.2). A precise non-tempered local-packet supplier and the stabilization prerequisites remain open. The full Mok/Gee–Taïbi proof chains were not read; BCGP §1.6 records the remaining twisted weighted fundamental lemma. This is distinct from the proved ordinary twisted spherical fundamental lemma."
+   "detail": "KMSW v1 Theorem* 1.6.1, §1.6.4 and Theorem* 1.7.1 have been read: the bounded local theorem and positive-exponent packet construction are now separate targets, and generic pure-inner global classification retains its correct scope. The complete quasi-split Mok proof, inner-form local intertwining relations and global stabilized comparison underlying these results were not traced to primary proofs in this run. Supply exact character-normalization and stabilization suppliers; ordinary twisted spherical FL does not establish a weighted FL. General nongeneric/arbitrary-inner assertions are outside this target, not silently upgraded."
   },
   {
    "title": "Harris–Taylor §VI and Kottwitz's simple Shimura varieties read only through citing papers",
@@ -4925,16 +5830,11 @@
   {
    "title": "Primary sources cited through secondary statements",
    "neededBy": [
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/elliptic-stabilization",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-trace-formula",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-geometric-side",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6/local-jacquet-langlands",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6/non-galois-automorphic-induction",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6/drinfeld-level-deformation-spaces"
    ],
-   "detail": "Still unread primary proofs: Kottwitz 1986 Theorem 9.6 and Kottwitz 1988 Tamagawa theorem; Arthur’s twisted invariant formula and Morel §8; Labesse’s twisted Lefschetz construction; full classical Deligne–Kazhdan–Vignéras JL proof; Drinfeld deformation/level theory; Berkovich and Mieda nearby-cycle comparison; Harris non-Galois induction and Henniart characterization. Badulescu 2007 §§2–3 and Scholze §12 were independently read in this review. Scholze Theorem 12.3 uses constructive cyclic descent, not Henniart’s numerical counts."
+   "detail": "Inherited ET.6 obligations: full classical Deligne–Kazhdan–Vignéras JL proof; Drinfeld deformation and level theory; Berkovich and Mieda nearby-cycle comparison; Harris non-Galois induction and Henniart characterization. Badulescu 2007 §§2–3 and Scholze §12 were read by the independent reviewer. Scholze Theorem 12.3 uses constructive cyclic descent, not numerical counts. The ET.4 primary sources are now read and their exact underlying proof obligations are recorded separately."
   },
   {
    "title": "Bushnell–Henniart level-zero formulas not read",
@@ -4990,10 +5890,9 @@
   {
    "title": "Missing archimedean base-change and Hecke-character realizations",
    "neededBy": [
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/global-cyclic-base-change",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6/non-galois-automorphic-induction"
    ],
-   "detail": "Strong cyclic base change needs all archimedean components as well as the local nonarchimedean theorem. Scholze §13 Lemmas 13.3–13.4 require the archimedean GL_n parameter dictionary and ℓ-adic realizations of algebraic Hecke characters, not just finite cyclic reciprocity. Supply those precise imports and normalization conversions."
+   "detail": "Inherited ET.6 obligation: Scholze §13 Lemmas 13.3–13.4 need ℓ-adic realizations of algebraic Hecke characters and normalization conversion. ET.4/global-cyclic-base-change now imports the exact AF.1/archimedean-llc-gln supplier for the real/complex parameter dictionary; this does not supply the ℓ-adic realization."
   },
   {
    "title": "Zelevinsky dual algorithm primary proof",
@@ -5016,83 +5915,74 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-local-langlands"
    ],
    "detail": "The supercuspidal equality of factors in Scholze §14 is insufficient for the asserted full theorem. Need the essentially-square-integrable segment-pair L/ε formula including ker N and the monodromy conductor correction, then multiplicativity over Langlands blocks and the nongeneric factor convention. AL.3/rs-local-factor is stated for generic inputs. Equality of semisimple cuspidal support cannot prove this: St₂ and 1 have different monodromy. Read and cite the relevant primary factor proof; Zelevinsky §10 is not that proof."
+  },
+  {
+   "title": "Character-theorem Howe support and real harmonic inputs",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/padic-character-distributions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-characters",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-character-support-and-paley-wiener"
+   ],
+   "detail": "Clozel 1987 Theorems 1–3 and the support proof §§3.5–3.9 were read. His Lemma 6 uses Howe’s small-compact orbit parametrization/intertwining result and Cartan estimates; their primary proofs were not read here. Delorme–Mezo Theorems 3/4 use the real tempered classification, normalized analytic intertwiners and the induction/spectral relations of their main Paley–Wiener theorem. SR.2 induction and AF.1 classification give carriers but not these full analytic support statements. Name the exact supplying results and match their extension-scalar convention before treating these proof chains as closed."
+  },
+  {
+   "title": "Classical inner-form Tamagawa and Hasse proof",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/classical-simply-connected-tamagawa",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/elliptic-stabilization",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-character-support-and-paley-wiener"
+   ],
+   "detail": "Kottwitz 1984 §5 pp. 625–626 supplies the relative formula; Lai 1980 Theorem 7.2 pp. 187–188 supplies only the quasi-split simply connected branch. Need the classical Weil/Kneser primary proof of τ=1 for the inner SL/SU covers of the elliptic centralizers, the simply connected Hasse principle and the approximation inputs used in Kottwitz–Rogawski Lemma 1. AA.2 supplies measures and Ono’s general formula interface, not this inner-form number-one computation. Do not infer that an inner centralizer is quasi-split or that its ker¹ vanishes."
+  },
+  {
+   "title": "Central elliptic complement",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/central-elliptic-stabilization",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/elliptic-stabilization"
+   ],
+   "detail": "Kottwitz 1986 Theorem 9.6 pp. 394–396 proves the noncentral formula, with (G,H)-regular endoscopic classes and omitted central classes for the inner datum. The new complement target states exactly the additional identity needed for the full displayed elliptic formula. A primary proof of the omitted central/nonregular terms with the same quotient measures and transfer normalization remains required. Regular matching alone does not close this singular identity."
+  },
+  {
+   "title": "Real character boundary and central quotient transport",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-invariant-vanishing",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-geometric-side"
+   ],
+   "detail": "Clozel–Labesse 2011 Theorems 2.2, 4.1 and 5.1 provide the pure-unitary Lefschetz construction and singular stable orbital formula, including the centralizer sign; Morel corrected v2 Proposition 8.2.3 and Lemmas 8.2.5/8.2.6 give the invariant vanishing proof. That proof uses Clozel’s real θ-discrete character growth and boundary results (Morel [Cl2] Theorems 5.1 and 7.2), Arthur’s connected-centralizer unipotent limits and differential-equation induction. These exact primary proofs, and the product/similitude quotient-measure transport to this packet’s GU central-character spaces, were not independently read. ET.1 real transfer supplies matching, not those analytic estimates."
+  },
+  {
+   "title": "Number-field residual spectrum and all-unitary induction",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/twisted-spectral-side",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/cohomological-unitary-weak-base-change"
+   ],
+   "detail": "Mœglin–Waldspurger 1989 §I.1.1(3) pp. 607–608 supplies irreducibility of unitary GL induction and regular invertible normalized operators at the unitary point, but invokes Bernstein/Vogan primary proofs. AS.4 currently supplies a function-field everywhere-unramified residual classification rather than the needed number-field discrete Speh classification and multiplicity one. The two exact supplier requests below are prerequisites of the spectral proof. Restricting to cuspidal data or generic unitary induction would lose residual Speh terms."
+  },
+  {
+   "title": "GSp4 classification and weighted twisted stabilization",
+   "neededBy": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4/gsp4-gl4-transfer"
+   ],
+   "detail": "Gee–Taïbi Proposition 6.1.7, Remark 6.1.8 and Theorem 7.4.1 pp. 507–514 were read. Their chain uses the Sp₄/SO₅ classification, local packet restriction/normalization, twisted weighted stabilization and the exterior/symmetric-square pole argument. The primary proofs of these underlying inputs were not traced here; the introduction p. 472 retains the weighted fundamental-lemma assumption. Record a precise conditional supplier for those inputs. The unitary classification is not a substitute. ML.4 should import the general-type ET.4 theorem, keeping its own full-classification application; it must not duplicate this target or be an upward dependency."
   }
  ],
  "coverage": [
   {
    "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "Arthur's classification inputs: KMSW arXiv:1409.3731v1 §§1.6–1.7 pp. 79–80, 88–89 was read independently: unconditional scope is generic global parameters on pure inner forms; generic global parameters need not be tempered locally (Remark 1.7.2). A precise non-tempered local-packet supplier and the stabilization prerequisites remain open. The full Mok/Gee–Taïbi proof chains were not read; BCGP §1.6 records the remaining twisted weighted fundamental lemma. This is distinct from the proved ordinary twisted spherical fundamental lemma.",
+    "Unitary classification primary proof chain: KMSW v1 Theorem* 1.6.1, §1.6.4 and Theorem* 1.7.1 have been read: the bounded local theorem and positive-exponent packet construction are now separate targets, and generic pure-inner global classification retains its correct scope. The complete quasi-split Mok proof, inner-form local intertwining relations and global stabilized comparison underlying these results were not traced to primary proofs in this run. Supply exact character-normalization and stabilization suppliers; ordinary twisted spherical FL does not establish a weighted FL. General nongeneric/arbitrary-inner assertions are outside this target, not silently upgraded.",
     "Harris–Taylor §VI and Kottwitz's simple Shimura varieties read only through citing papers: The base change and descent statements Harris–Taylor Lemma VI.2.10, Theorem VI.2.9 and Corollaries VI.2.7–VI.2.8, and Kottwitz's results on simple Shimura varieties (Invent. Math. 108, 1992), are planned from their statements as used in Scholze 2010 §§8–10 and Shin 2011 §6.2. The Harris–Taylor book is not freely available and is not in the cleared library (the same source-access request as the ET.6a packet). The proofs must be matched with internal locators once a copy is registered; Labesse's Changement de base CM et séries discrètes (2011) is the public alternative for the unitary base change.",
-    "Primary sources cited through secondary statements: Still unread primary proofs: Kottwitz 1986 Theorem 9.6 and Kottwitz 1988 Tamagawa theorem; Arthur’s twisted invariant formula and Morel §8; Labesse’s twisted Lefschetz construction; full classical Deligne–Kazhdan–Vignéras JL proof; Drinfeld deformation/level theory; Berkovich and Mieda nearby-cycle comparison; Harris non-Galois induction and Henniart characterization. Badulescu 2007 §§2–3 and Scholze §12 were independently read in this review. Scholze Theorem 12.3 uses constructive cyclic descent, not Henniart’s numerical counts.",
-    "Missing archimedean base-change and Hecke-character realizations: Strong cyclic base change needs all archimedean components as well as the local nonarchimedean theorem. Scholze §13 Lemmas 13.3–13.4 require the archimedean GL_n parameter dictionary and ℓ-adic realizations of algebraic Hecke characters, not just finite cyclic reciprocity. Supply those precise imports and normalization conversions."
+    "Character-theorem Howe support and real harmonic inputs: Clozel 1987 Theorems 1–3 and the support proof §§3.5–3.9 were read. His Lemma 6 uses Howe’s small-compact orbit parametrization/intertwining result and Cartan estimates; their primary proofs were not read here. Delorme–Mezo Theorems 3/4 use the real tempered classification, normalized analytic intertwiners and the induction/spectral relations of their main Paley–Wiener theorem. SR.2 induction and AF.1 classification give carriers but not these full analytic support statements. Name the exact supplying results and match their extension-scalar convention before treating these proof chains as closed.",
+    "Classical inner-form Tamagawa and Hasse proof: Kottwitz 1984 §5 pp. 625–626 supplies the relative formula; Lai 1980 Theorem 7.2 pp. 187–188 supplies only the quasi-split simply connected branch. Need the classical Weil/Kneser primary proof of τ=1 for the inner SL/SU covers of the elliptic centralizers, the simply connected Hasse principle and the approximation inputs used in Kottwitz–Rogawski Lemma 1. AA.2 supplies measures and Ono’s general formula interface, not this inner-form number-one computation. Do not infer that an inner centralizer is quasi-split or that its ker¹ vanishes.",
+    "Central elliptic complement: Kottwitz 1986 Theorem 9.6 pp. 394–396 proves the noncentral formula, with (G,H)-regular endoscopic classes and omitted central classes for the inner datum. The new complement target states exactly the additional identity needed for the full displayed elliptic formula. A primary proof of the omitted central/nonregular terms with the same quotient measures and transfer normalization remains required. Regular matching alone does not close this singular identity.",
+    "Real character boundary and central quotient transport: Clozel–Labesse 2011 Theorems 2.2, 4.1 and 5.1 provide the pure-unitary Lefschetz construction and singular stable orbital formula, including the centralizer sign; Morel corrected v2 Proposition 8.2.3 and Lemmas 8.2.5/8.2.6 give the invariant vanishing proof. That proof uses Clozel’s real θ-discrete character growth and boundary results (Morel [Cl2] Theorems 5.1 and 7.2), Arthur’s connected-centralizer unipotent limits and differential-equation induction. These exact primary proofs, and the product/similitude quotient-measure transport to this packet’s GU central-character spaces, were not independently read. ET.1 real transfer supplies matching, not those analytic estimates.",
+    "Number-field residual spectrum and all-unitary induction: Mœglin–Waldspurger 1989 §I.1.1(3) pp. 607–608 supplies irreducibility of unitary GL induction and regular invertible normalized operators at the unitary point, but invokes Bernstein/Vogan primary proofs. AS.4 currently supplies a function-field everywhere-unramified residual classification rather than the needed number-field discrete Speh classification and multiplicity one. The two exact supplier requests below are prerequisites of the spectral proof. Restricting to cuspidal data or generic unitary induction would lose residual Speh terms.",
+    "GSp4 classification and weighted twisted stabilization: Gee–Taïbi Proposition 6.1.7, Remark 6.1.8 and Theorem 7.4.1 pp. 507–514 were read. Their chain uses the Sp₄/SO₅ classification, local packet restriction/normalization, twisted weighted stabilization and the exterior/symmetric-square pole argument. The primary proofs of these underlying inputs were not traced here; the introduction p. 472 retains the weighted fundamental-lemma assumption. Record a precise conditional supplier for those inputs. The unitary classification is not a substitute. ML.4 should import the general-type ET.4 theorem, keeping its own full-classification application; it must not duplicate this target or be an upward dependency."
    ],
-   "note": "Independent review checked and corrected the targets in this pass. Mathematical closure remains open for the items listed; original coverage claims have been superseded by the review report."
-  },
-  {
-   "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
-   "status": "partial",
-   "remaining": [
-    "Missing current-tier algebraic and Igusa geometry: ET is tier 14, IG tier 19, and BG outside the 94. WORKERS.md forbids those upward imports. Plan the required B(G), representable J_b, decency, Newton/Kottwitz maps and slope pieces here, together with the required completely slope-divisible Igusa moduli, finite levels, Hecke actions and Frobenius descent. Each definition requires its own API and three discriminating tests. The review removes the illegal prerequisites but supplies no replacement proof; these nodes are not dependency-closed. Higher BG/IG plans must later import the new owner, not duplicate it.",
-    "Trace-correspondence boundary and normalization supplier: EDC.8/fujiwara-varshavsky-trace-formula requires the actual leg properness/quasi-finiteness and a compactification with invariant boundary; EDC.8/frobenius-twist-contracting is the general theorem, not the Igusa application. Supply the geometry and the correct volume-normalized double-coset trace. Ordinary Shimura triple weights in Scholze §9 also require their own Kottwitz coefficient/effectivity supplier; Shin 2009 Remark 13.3 does not identify the indexing sets."
-   ],
-   "note": "Independent review checked and corrected the targets in this pass. Mathematical closure remains open for the items listed; original coverage claims have been superseded by the review report."
-  },
-  {
-   "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
-   "status": "partial",
-   "remaining": [
-    "Harris–Taylor §VI and Kottwitz's simple Shimura varieties read only through citing papers: The base change and descent statements Harris–Taylor Lemma VI.2.10, Theorem VI.2.9 and Corollaries VI.2.7–VI.2.8, and Kottwitz's results on simple Shimura varieties (Invent. Math. 108, 1992), are planned from their statements as used in Scholze 2010 §§8–10 and Shin 2011 §6.2. The Harris–Taylor book is not freely available and is not in the cleared library (the same source-access request as the ET.6a packet). The proofs must be matched with internal locators once a copy is registered; Labesse's Changement de base CM et séries discrètes (2011) is the public alternative for the unitary base change.",
-    "Primary sources cited through secondary statements: Still unread primary proofs: Kottwitz 1986 Theorem 9.6 and Kottwitz 1988 Tamagawa theorem; Arthur’s twisted invariant formula and Morel §8; Labesse’s twisted Lefschetz construction; full classical Deligne–Kazhdan–Vignéras JL proof; Drinfeld deformation/level theory; Berkovich and Mieda nearby-cycle comparison; Harris non-Galois induction and Henniart characterization. Badulescu 2007 §§2–3 and Scholze §12 were independently read in this review. Scholze Theorem 12.3 uses constructive cyclic descent, not Henniart’s numerical counts.",
-    "Bushnell–Henniart level-zero formulas not read: The explicit level-zero composite of local Langlands and Jacquet–Langlands (Bushnell–Henniart, J. Number Theory 2011) is stated from its use in Newton–Thorne 2026 (proof of Lemma 3.6) as recorded by the accepted extraction; the twisting characters were not read and the node's statement is only as precise as that use.",
-    "Truncated constituent criterion beyond degree one: Independently checked in the published AKY 2022 §6.3 Lemma 6.6 pp. 33–34. The displayed derivative order equals the cardinality only when every cuspidal degree is one. This packet keeps precisely that type-χ form. A higher-degree consumer must replace cardinality by the sum of cuspidal degrees and prove the revised criterion; no such generalization is claimed here.",
-    "Trace-correspondence boundary and normalization supplier: EDC.8/fujiwara-varshavsky-trace-formula requires the actual leg properness/quasi-finiteness and a compactification with invariant boundary; EDC.8/frobenius-twist-contracting is the general theorem, not the Igusa application. Supply the geometry and the correct volume-normalized double-coset trace. Ordinary Shimura triple weights in Scholze §9 also require their own Kottwitz coefficient/effectivity supplier; Shin 2009 Remark 13.3 does not identify the indexing sets.",
-    "Formal geometry and Drinfeld-level representability: R07.2, LPV.6 and the requested H1 formal-adic comparison are stage-level requests, not exact supplying nodes. Plan or resolve formal deformation and level regularity, algebraization along a finite subscheme and the Berkovich comparison. PELModuli:M2/representability only gives a smooth algebraic space at good level, and M2/properness-when-division only properness at good primes; they do not prove projective Drinfeld-level representability. Name a precise projectivity/Drinfeld-level supplier with the determinant condition.",
-    "Missing archimedean base-change and Hecke-character realizations: Strong cyclic base change needs all archimedean components as well as the local nonarchimedean theorem. Scholze §13 Lemmas 13.3–13.4 require the archimedean GL_n parameter dictionary and ℓ-adic realizations of algebraic Hecke characters, not just finite cyclic reciprocity. Supply those precise imports and normalization conversions.",
-    "Zelevinsky dual algorithm primary proof: Zelevinsky 1980 §9 pp. 199–203 does not prove the later Mœglin–Waldspurger algorithm. AKY §2.3 pp. 7–8 uses the dual with references. Read a primary proof of the algorithm, state it exactly and plan its inputs before claiming the algorithm is established.",
-    "Lubin–Tate multiplicity-one newvector input: Scholze Corollary 11.5 p. 30 uses a GL_n(O)-representation occurring with multiplicity one in π∨. None of the direct suppliers states that newvector theorem. Add its precise primary statement and supplier to obtain the integrality needed by Lemma 3.2(iii).",
-    "Full Weil–Deligne segment-pair factors and conductor: The supercuspidal equality of factors in Scholze §14 is insufficient for the asserted full theorem. Need the essentially-square-integrable segment-pair L/ε formula including ker N and the monodromy conductor correction, then multiplicativity over Langlands blocks and the nongeneric factor convention. AL.3/rs-local-factor is stated for generic inputs. Equality of semisimple cuspidal support cannot prove this: St₂ and 1 have different monodromy. Read and cite the relevant primary factor proof; Zelevinsky §10 is not that proof."
-   ],
-   "note": "Independent review checked and corrected the targets in this pass. Mathematical closure remains open for the items listed; original coverage claims have been superseded by the review report."
-  },
-  {
-   "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
-   "status": "not_read",
-   "remaining": [
-    "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
-    "Repoint ET.6a/lubin-tate-tower to the finite-level spaces ET.6/drinfeld-level-deformation-spaces (it currently restates the Drinfeld-level deformation functor; ET.6 needs those spaces earlier).",
-    "Repoint ET.6a/tower-conventions and ET.6a/fs-normalization-contract from the stage id ET.6 to ET.6/full-wd-local-langlands and ET.6/segment-wd-parameter, and ET.6a/global-extraction to ET.4/stable-twisted-identity and ET.4/unitary-gl-base-change-descent."
-   ],
-   "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
-  },
-  {
-   "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
-   "status": "not_read",
-   "remaining": [
-    "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
-    "Repoint ET.7/torus-measure-check, ET.7/unramified-gl2-check and ET.7/proper-endoscopy-check from the stage id ET.4 to ET.4/stable-twisted-identity, ET.4/unramified-transfers and ET.4/elliptic-stabilization, and ET.7/division-inner-form-check from ET.6 to ET.6/local-jacquet-langlands."
-   ],
-   "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
-  },
-  {
-   "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
-   "status": "not_read",
-   "remaining": [
-    "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
-    "Replace ET.7a/cyclic-base-change and ET.7a/cyclic-automorphic-induction by imports of ET.4/global-cyclic-base-change, ET.4/local-cyclic-base-change and ET.4/cyclic-automorphic-induction (owner moved to the proposed ET.4b; RT-AREA-langlands-1/1).",
-    "Repoint ET.7a/relevant-packet-multiplicity and ET.7a/definite-indefinite-switches to ET.4/unitary-endoscopic-classification, ET.7a/gsp4-solvable-descent-interface to ET.4/gsp4-gl4-transfer, ET.7a/transferable-level to ET.4/small-level-transfer, and ET.7a/local-unitary-base-change to ET.4/local-cyclic-base-change and ET.6/full-wd-local-langlands."
-   ],
-   "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
-  },
-  {
-   "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
-   "status": "not_read",
-   "remaining": [
-    "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
-    "Repoint ET.7b/csnc-test-functions, ET.7b/newton-reduction, ET.7b/red-trace-duality and ET.7b/signed-igusa-trace from the stage ids ET.4/ET.5 to ET.5/igusa-endoscopic-test-function, ET.5/transfer-at-p, ET.5/unitary-igusa-trace-formula, ET.5/acceptable-functions-determine and ET.4/stable-twisted-identity; ET.7b/newton-reduction to ET.6/badulescu-langlands-jacquet-map."
-   ],
-   "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
+   "note": "Every ET.4 target is a node with prerequisite chains ending in the pinned libraries, current upstream/lower-tier roadmap nodes, exact supplier requests or recorded gaps. Complete is the target-level pass status of PROTOCOL §0, not mathematical closure or review acceptance. The historical needs_changes review is retained unchanged for the next independent reviewer."
   }
  ],
  "restructure": [
@@ -5103,7 +5993,7 @@
     "GL2AutomorphicRepresentationsAndTransfer"
    ],
    "detail": "Confirmed RT-AREA-langlands-1/1: Scholze's proof of the local correspondence (ET.6) needs Arthur–Clozel local cyclic base change (§12), Harris–Taylor/Clozel unitary base change (§10) and automorphic induction (§§13–14) before ET.6, but ET.7a, which held them, requires ET.6. The ET.6a packet makes the same proposal.",
-   "proposal": "Create the sub-layer ET.4b 'Cyclic base change and automorphic induction for GL_n' after ET.4 (requiring AutomorphicSpectralTheory:AS.6, ET.3 and ET.4) with the nodes ET.4/local-cyclic-base-change, ET.4/global-cyclic-base-change, ET.4/cyclic-automorphic-induction and ET.4/unitary-gl-base-change-descent of this packet; add edges ET.4b → ET.6, ET.4b → ET.7a and ET.4b → GL2AutomorphicRepresentationsAndTransfer:R17.4, which then specialises to GL_2. The ET.6a packet's ET.7a/cyclic-base-change and ET.7a/cyclic-automorphic-induction become imports of these nodes (single owner ET.4b); ET.7a keeps the unitary cohomological transfer and the residual Speh classification."
+   "proposal": "Create the sub-layer ET.4b 'Cyclic base change and automorphic induction for GL_n' after ET.4 (requiring AutomorphicSpectralTheory:AS.6, ET.3 and ET.4) with the nodes ET.4/local-cyclic-base-change, ET.4/global-cyclic-base-change, ET.4/cyclic-automorphic-induction and ET.4/unitary-gl-base-change-descent of this packet; add edges ET.4b → ET.6, ET.4b → ET.7a and ET.4b → GL2AutomorphicRepresentationsAndTransfer:R17.4, which then specialises to GL_2. The ET.6a packet's ET.7a/cyclic-base-change and ET.7a/cyclic-automorphic-induction become imports of these nodes (single owner ET.4b); ET.7a imports the unitary cohomological weak transfer from ET.4/cohomological-unitary-weak-base-change and the number-field residual classification from its AS.4 owner; it keeps only its downstream packet/descent applications."
   },
   {
    "action": "rescope",
@@ -5132,6 +6022,15 @@
    ],
    "detail": "Upward citations in research/blueprint/upstream/CaraianiNewton.md: ET.5 imports accepted IG.0–IG.1 nodes (IgusaVarietiesAndTorsionConcentration, tier 19) and BG0–BG1 nodes (BunGAndNewtonStrata, outside the 94; RT-AREA-geomlanglands/32). ET.6 no longer imports AutomorphicGaloisRepresentationsPartII:AG2.1a: the Drinfeld-level point count of Scholze §9 for the division-algebra data is planned here (ET.6/division-algebra-shimura-varieties, ET.6/drinfeld-level-point-count), a different datum from AG2.1a's compact Shin instance at good reduction. Independent review 2026-10-14: merely proposing an earlier supplier package did not satisfy the binding current-tier rule.",
    "proposal": "Under WORKERS.md the required algebraic σ-conjugacy and early Igusa-geometry notions must move down into EndoscopicTransferAndUnitaryTraceComparison. This review removes the upward prerequisites and records the missing local targets as a gap. It does not implement the ownership move or alter either higher roadmap; the revision must plan the needed prefix here, then the maintainer must repoint BG/IG consumers to the new owner."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "ModularityAndLanglandsExtensions"
+   ],
+   "detail": "ET is in the current tier and needs the general-type GSp₄ transfer before the higher ML.4 applications. The existing ML.4/gl4-symplectic-descent overlaps this target; citing it upward would violate WORKERS.md.",
+   "proposal": "ET.4/gsp4-gl4-transfer owns the conditional general-type symplectic GL₄ descent, local parameter and multiplicity-one interface. ModularityAndLanglandsExtensions:ML.4/gl4-symplectic-descent imports it; ML.4/gsp4-classification keeps its broader classification/application after that import. The maintainer repoints those higher nodes; this revision changes neither higher packet. The separate Sp₄/SO₅ and weighted-stabilization proof obligations remain explicit in ET.4."
   }
  ],
  "redTeamFindings": [
@@ -5340,6 +6239,36 @@
     "reason": "Checked arXiv:1909.01898v2 §5.5 p. 72 and Shin 2011 §4 before (4.2), p. 21. Transpose without inverse reverses a noncommuting matrix product, so cannot define the semidirect-product automorphism. Inverse transpose is multiplicative. This verdict concerns the stated preprint version only.",
     "by": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4"
    }
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E3",
+   "source": "labesse99",
+   "kind": "misprint",
+   "locator": "Appendix A.1.1, pp. 120, 122–123; correction in Clozel–Labesse 2011 §5 p. 115",
+   "printed": "Several displayed orbital-integral formulas omit the Kottwitz sign of the semisimple twisted centralizer.",
+   "correction": "Retain e(I_δ) in the stable singular formula; for GL_n(ℂ) base change from U(p,q), the nonzero value is e(I_δ)2^n times the coefficient character at the norm.",
+   "reason": "The centralizer Euler–Poincaré value depends on its real form. Clozel–Labesse Theorems 4.1/5.1 and their published correction supply the required sign.",
+   "affects": "the proof",
+   "known": "Published correction by Clozel and Labesse, Clay Mathematics Proceedings 13 (2011), p. 115, identifying the affected lines of Labesse 1999.",
+   "searched": [
+    "Read the primary published correction on p. 115 and Theorems 4.1/5.1 on pp. 113–115. No claim of a survey of later editions."
+   ],
+   "affectedTargets": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions and twisted-geometric-side"
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E4",
+   "source": "shin11",
+   "kind": "misprint",
+   "locator": "§4.5, proof of Proposition 4.5, p. 27",
+   "printed": "The prose cuspidality criterion reverses the existence of an anisotropic maximal real torus modulo the split centre.",
+   "correction": "A cuspidal connected group has such an anisotropic maximal torus modulo A_M; for a twisted Levi subset test this on its associated fixed unitary Levi.",
+   "reason": "Morel Definition 3.1.1 and §8.2 give the positive-existence criterion. Shin’s subsequent split-centre rank argument rules out proper cuspidal Levis only with that criterion.",
+   "affects": "the proof",
+   "known": "No independently verified published erratum located in this run; this record concerns only the cited primary copy.",
+   "searched": [
+    "Read Shin 2011 §4.5 p. 27 and compared Morel corrected v2 Definition 3.1.1 p. 50, §8.2 p. 131 and CSnc Definition 5.5.2 p. 74. No claim to have checked every edition."
+   ],
+   "affectedTargets": "EndoscopicTransferAndUnitaryTraceComparison:ET.4/cuspidal-levi-subsets and no-proper-cuspidal-subsets"
   }
  ],
  "provenance": {
@@ -5351,6 +6280,90 @@
    "agent": "Codex (GPT-6)",
    "issue": 395,
    "date": "2026-10-14"
+  },
+  "revision": {
+   "job": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "agent": "Codex (GPT-6)",
+   "session": "codex-tcAXQG",
+   "issue": 9758,
+   "date": "2026-10-14",
+   "claimConfirmation": "https://github.com/CBirkbeck/tauceti-explorer/issues/9758#issuecomment-6172039471",
+   "inheritedJob": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
+   "inheritedAgent": "Claude (Claude Opus 5.5)",
+   "inheritedSession": "claude-d0gQRk",
+   "inheritedCoverage": [
+    {
+     "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+     "status": "partial",
+     "remaining": [
+      "Missing current-tier algebraic and Igusa geometry: ET is tier 14, IG tier 19, and BG outside the 94. WORKERS.md forbids those upward imports. Plan the required B(G), representable J_b, decency, Newton/Kottwitz maps and slope pieces here, together with the required completely slope-divisible Igusa moduli, finite levels, Hecke actions and Frobenius descent. Each definition requires its own API and three discriminating tests. The review removes the illegal prerequisites but supplies no replacement proof; these nodes are not dependency-closed. Higher BG/IG plans must later import the new owner, not duplicate it.",
+      "Trace-correspondence boundary and normalization supplier: EDC.8/fujiwara-varshavsky-trace-formula requires the actual leg properness/quasi-finiteness and a compactification with invariant boundary; EDC.8/frobenius-twist-contracting is the general theorem, not the Igusa application. Supply the geometry and the correct volume-normalized double-coset trace. Ordinary Shimura triple weights in Scholze §9 also require their own Kottwitz coefficient/effectivity supplier; Shin 2009 Remark 13.3 does not identify the indexing sets."
+     ],
+     "note": "Independent review checked and corrected the targets in this pass. Mathematical closure remains open for the items listed; original coverage claims have been superseded by the review report."
+    },
+    {
+     "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+     "status": "partial",
+     "remaining": [
+      "Harris–Taylor §VI and Kottwitz's simple Shimura varieties read only through citing papers: The base change and descent statements Harris–Taylor Lemma VI.2.10, Theorem VI.2.9 and Corollaries VI.2.7–VI.2.8, and Kottwitz's results on simple Shimura varieties (Invent. Math. 108, 1992), are planned from their statements as used in Scholze 2010 §§8–10 and Shin 2011 §6.2. The Harris–Taylor book is not freely available and is not in the cleared library (the same source-access request as the ET.6a packet). The proofs must be matched with internal locators once a copy is registered; Labesse's Changement de base CM et séries discrètes (2011) is the public alternative for the unitary base change.",
+      "Primary sources cited through secondary statements: Still unread primary proofs: Kottwitz 1986 Theorem 9.6 and Kottwitz 1988 Tamagawa theorem; Arthur’s twisted invariant formula and Morel §8; Labesse’s twisted Lefschetz construction; full classical Deligne–Kazhdan–Vignéras JL proof; Drinfeld deformation/level theory; Berkovich and Mieda nearby-cycle comparison; Harris non-Galois induction and Henniart characterization. Badulescu 2007 §§2–3 and Scholze §12 were independently read in this review. Scholze Theorem 12.3 uses constructive cyclic descent, not Henniart’s numerical counts.",
+      "Bushnell–Henniart level-zero formulas not read: The explicit level-zero composite of local Langlands and Jacquet–Langlands (Bushnell–Henniart, J. Number Theory 2011) is stated from its use in Newton–Thorne 2026 (proof of Lemma 3.6) as recorded by the accepted extraction; the twisting characters were not read and the node's statement is only as precise as that use.",
+      "Truncated constituent criterion beyond degree one: Independently checked in the published AKY 2022 §6.3 Lemma 6.6 pp. 33–34. The displayed derivative order equals the cardinality only when every cuspidal degree is one. This packet keeps precisely that type-χ form. A higher-degree consumer must replace cardinality by the sum of cuspidal degrees and prove the revised criterion; no such generalization is claimed here.",
+      "Trace-correspondence boundary and normalization supplier: EDC.8/fujiwara-varshavsky-trace-formula requires the actual leg properness/quasi-finiteness and a compactification with invariant boundary; EDC.8/frobenius-twist-contracting is the general theorem, not the Igusa application. Supply the geometry and the correct volume-normalized double-coset trace. Ordinary Shimura triple weights in Scholze §9 also require their own Kottwitz coefficient/effectivity supplier; Shin 2009 Remark 13.3 does not identify the indexing sets.",
+      "Formal geometry and Drinfeld-level representability: R07.2, LPV.6 and the requested H1 formal-adic comparison are stage-level requests, not exact supplying nodes. Plan or resolve formal deformation and level regularity, algebraization along a finite subscheme and the Berkovich comparison. PELModuli:M2/representability only gives a smooth algebraic space at good level, and M2/properness-when-division only properness at good primes; they do not prove projective Drinfeld-level representability. Name a precise projectivity/Drinfeld-level supplier with the determinant condition.",
+      "Missing archimedean base-change and Hecke-character realizations: Strong cyclic base change needs all archimedean components as well as the local nonarchimedean theorem. Scholze §13 Lemmas 13.3–13.4 require the archimedean GL_n parameter dictionary and ℓ-adic realizations of algebraic Hecke characters, not just finite cyclic reciprocity. Supply those precise imports and normalization conversions.",
+      "Zelevinsky dual algorithm primary proof: Zelevinsky 1980 §9 pp. 199–203 does not prove the later Mœglin–Waldspurger algorithm. AKY §2.3 pp. 7–8 uses the dual with references. Read a primary proof of the algorithm, state it exactly and plan its inputs before claiming the algorithm is established.",
+      "Lubin–Tate multiplicity-one newvector input: Scholze Corollary 11.5 p. 30 uses a GL_n(O)-representation occurring with multiplicity one in π∨. None of the direct suppliers states that newvector theorem. Add its precise primary statement and supplier to obtain the integrality needed by Lemma 3.2(iii).",
+      "Full Weil–Deligne segment-pair factors and conductor: The supercuspidal equality of factors in Scholze §14 is insufficient for the asserted full theorem. Need the essentially-square-integrable segment-pair L/ε formula including ker N and the monodromy conductor correction, then multiplicativity over Langlands blocks and the nongeneric factor convention. AL.3/rs-local-factor is stated for generic inputs. Equality of semisimple cuspidal support cannot prove this: St₂ and 1 have different monodromy. Read and cite the relevant primary factor proof; Zelevinsky §10 is not that proof."
+     ],
+     "note": "Independent review checked and corrected the targets in this pass. Mathematical closure remains open for the items listed; original coverage claims have been superseded by the review report."
+    },
+    {
+     "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+     "status": "not_read",
+     "remaining": [
+      "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
+      "Repoint ET.6a/lubin-tate-tower to the finite-level spaces ET.6/drinfeld-level-deformation-spaces (it currently restates the Drinfeld-level deformation functor; ET.6 needs those spaces earlier).",
+      "Repoint ET.6a/tower-conventions and ET.6a/fs-normalization-contract from the stage id ET.6 to ET.6/full-wd-local-langlands and ET.6/segment-wd-parameter, and ET.6a/global-extraction to ET.4/stable-twisted-identity and ET.4/unitary-gl-base-change-descent."
+     ],
+     "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
+    },
+    {
+     "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+     "status": "not_read",
+     "remaining": [
+      "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
+      "Repoint ET.7/torus-measure-check, ET.7/unramified-gl2-check and ET.7/proper-endoscopy-check from the stage id ET.4 to ET.4/stable-twisted-identity, ET.4/unramified-transfers and ET.4/elliptic-stabilization, and ET.7/division-inner-form-check from ET.6 to ET.6/local-jacquet-langlands."
+     ],
+     "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
+    },
+    {
+     "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+     "status": "not_read",
+     "remaining": [
+      "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
+      "Replace ET.7a/cyclic-base-change and ET.7a/cyclic-automorphic-induction by imports of ET.4/global-cyclic-base-change, ET.4/local-cyclic-base-change and ET.4/cyclic-automorphic-induction (owner moved to the proposed ET.4b; RT-AREA-langlands-1/1).",
+      "Repoint ET.7a/relevant-packet-multiplicity and ET.7a/definite-indefinite-switches to ET.4/unitary-endoscopic-classification, ET.7a/gsp4-solvable-descent-interface to ET.4/gsp4-gl4-transfer, ET.7a/transferable-level to ET.4/small-level-transfer, and ET.7a/local-unitary-base-change to ET.4/local-cyclic-base-change and ET.6/full-wd-local-langlands."
+     ],
+     "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
+    },
+    {
+     "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b",
+     "status": "not_read",
+     "remaining": [
+      "Independent source and closure review of this stage belongs to its own ET.6a packet review.",
+      "Repoint ET.7b/csnc-test-functions, ET.7b/newton-reduction, ET.7b/red-trace-duality and ET.7b/signed-igusa-trace from the stage ids ET.4/ET.5 to ET.5/igusa-endoscopic-test-function, ET.5/transfer-at-p, ET.5/unitary-igusa-trace-formula, ET.5/acceptable-functions-determine and ET.4/stable-twisted-identity; ET.7b/newton-reduction to ET.6/badulescu-langlands-jacquet-map."
+     ],
+     "note": "Owned by the separate ET.6a packet. This review checks this packet’s interfaces and does not review or accept the other worker’s full plan."
+    }
+   ],
+   "scopeNote": "This revision plans ET.4 alone. All 69 reviewed node IDs are retained; ET.5/ET.6 nodes are unchanged inherited material with open gaps, reproduced in the reader to preserve the review corrections. They are not coverage claims of this job."
+  },
+  "upstreamCheck": {
+   "date": "2026-10-14",
+   "roadmaps": "Current read-only TauCetiRoadmap main: AdelicAlgebraicGroups, SmoothRepresentationsOfLocalGroups, ReductiveGroups, GlobalNumberFields and ClassFieldTheory; current Tau Ceti library searched for trace/endoscopy/Tamagawa/character-theorem carriers.",
+   "result": "Existing group structure, measures, induction and reciprocity are imported. No current library trace/endoscopy or Tamagawa computation was found; no Lean carrier is invented in the suggested file.",
+   "mathlibDeclaration": "MeasureTheory.Measure.IsHaarMeasure statement read at the pinned commit; unchanged baseline."
   }
  },
  "review": {
