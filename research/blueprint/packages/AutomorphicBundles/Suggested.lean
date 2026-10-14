@@ -39,7 +39,7 @@ namespace TauCetiRoadmap.AutomorphicBundles
 
 section Parabolic
 
-variable {R H : Type*} [CommSemiring R] [Semiring H] [HopfAlgebra R H]
+variable {R H : Type*} [CommRing R] [CommRing H] [HopfAlgebra R H]
 
 /-- The inverse `t ↦ l(t⁻¹)` of a cocharacter `l : 𝔾ₘ → Spec H`, written on coordinate rings: the
 cocharacter followed by the inversion `T ↦ T⁻¹` of `𝔾ₘ`. Belongs to Layer B0
@@ -52,7 +52,7 @@ theorem inverseCocharacter_inverseCocharacter (l : H →ₐc[R] LaurentPolynomia
     inverseCocharacter (inverseCocharacter l) = l := by
   sorry
 
-variable (A : Type*) [CommSemiring A] [Algebra R A]
+variable (A : Type*) [CommRing A] [Algebra R A]
 
 /-- The Hodge parabolic `P_H = P(μ⁻¹)` of the Hodge cocharacter `μ`, on `A`-points. With `μ`
 acting on `H^{p,q}` by `z^{−p}` it is the stabilizer of the Hodge filtration
@@ -87,6 +87,12 @@ example (μ : H →ₐc[R] LaurentPolynomial R) :
 example (μ : H →ₐc[R] LaurentPolynomial R) :
     TauCeti.Cocharacter.levi A μ ≤ hodgeTateParabolic A μ :=
   TauCeti.Cocharacter.levi_le_parabolic
+
+-- Test `hodgeParabolic_test_gl2`: conjugating the lower shear by `diag(2, 1)` scales
+-- its lower-left entry by `1/2`, fixing the direction of the dynamic convention.
+example : (!![(2 : ℚ), 0; 0, 1] * !![1, 0; 1, 1]) * !![(1 / 2 : ℚ), 0; 0, 1] =
+    !![1, 0; 1 / 2, 1] := by
+  norm_num [Matrix.mul_fin_two]
 
 end Parabolic
 
@@ -128,17 +134,17 @@ def changeFrame (J : AutomorphyFactor β G X R V) (u : X → (V ≃ₗ[R] V)) :
 /-- Two factors with the same coefficient maps are equal. -/
 theorem ext {J K : AutomorphyFactor β G X R V}
     (h : ∀ k g x, J.coefficient k g x = K.coefficient k g x) : J = K := by
-  cases J; cases K; congr; funext k g x; exact h k g x
+  sorry
 
 /-- Changing frame by the identity does nothing. -/
 theorem changeFrame_id (J : AutomorphyFactor β G X R V) :
     J.changeFrame (fun _ ↦ LinearEquiv.refl R V) = J := by
-  exact ext fun k g x ↦ LinearEquiv.ext fun v ↦ rfl
+  sorry
 
 /-- Changing frame by `u` and then by `v` is changing frame by `x ↦ v(x) ∘ u(x)`. -/
 theorem changeFrame_comp (J : AutomorphyFactor β G X R V) (u v : X → (V ≃ₗ[R] V)) :
     (J.changeFrame u).changeFrame v = J.changeFrame (fun x ↦ (u x).trans (v x)) := by
-  exact ext fun k g x ↦ LinearEquiv.ext fun v ↦ rfl
+  sorry
 
 end AutomorphyFactor
 
@@ -161,33 +167,21 @@ variable (J : β → G → X → (V ≃ₗ[R] V)) (hone : ∀ k x, J k 1 x = Lin
 
 /-- Evaluation of the slash adapter. -/
 theorem slashActionOfAutomorphyFactor_map_apply (k : β) (g : G) (f : X → V) (x : X) :
-    (slashActionOfAutomorphyFactor J hone hmul).map k g f x = (J k g x).symm (f (g • x)) :=
-  rfl
+    (slashActionOfAutomorphyFactor J hone hmul).map k g f x = (J k g x).symm (f (g • x)) := by
+  sorry
 
 /-- Invariance under every `g` is the transformation law `f(gx) = J(k, g, x) f(x)`; no section
 value is cancelled, so no nonvanishing hypothesis is needed. -/
 theorem slashActionOfAutomorphyFactor_invariant_iff (k : β) (f : X → V) :
     (∀ g, (slashActionOfAutomorphyFactor J hone hmul).map k g f = f) ↔
       ∀ g x, f (g • x) = J k g x (f x) := by
-  constructor
-  · intro h g x
-    have := congrFun (h g) x
-    change (J k g x).symm (f (g • x)) = f x at this
-    rw [LinearEquiv.symm_apply_eq] at this
-    exact this
-  · intro h g
-    funext x
-    change (J k g x).symm (f (g • x)) = f x
-    rw [LinearEquiv.symm_apply_eq]
-    exact h g x
+  sorry
 
 /-- The slash operator is `R`-linear on functions. -/
 theorem slashActionOfAutomorphyFactor_map_smul (k : β) (g : G) (r : R) (f : X → V) :
     (slashActionOfAutomorphyFactor J hone hmul).map k g (r • f) =
       r • (slashActionOfAutomorphyFactor J hone hmul).map k g f := by
-  funext x
-  show (J k g x).symm ((r • f) (g • x)) = r • (J k g x).symm (f (g • x))
-  simp
+  sorry
 
 /-- The operator depends only on the coefficient maps. -/
 theorem slashActionOfAutomorphyFactor_congr (K : β → G → X → (V ≃ₗ[R] V))
@@ -195,17 +189,13 @@ theorem slashActionOfAutomorphyFactor_congr (K : β → G → X → (V ≃ₗ[R]
     (kmul : ∀ k g h x, K k (g * h) x = (K k h x).trans (K k g (h • x)))
     (hJK : ∀ k g x, J k g x = K k g x) :
     slashActionOfAutomorphyFactor J hone hmul = slashActionOfAutomorphyFactor K kone kmul := by
-  have : J = K := funext fun k ↦ funext fun g ↦ funext fun x ↦ hJK k g x
-  subst this
-  rfl
+  sorry
 
 /-- For the trivial factor the operator is precomposition with the left action. -/
 theorem slashActionOfAutomorphyFactor_map_of_trivial (hJ : ∀ k g x, J k g x = LinearEquiv.refl R V)
     (k : β) (g : G) (f : X → V) :
     (slashActionOfAutomorphyFactor J hone hmul).map k g f = fun x ↦ f (g • x) := by
-  funext x
-  show (J k g x).symm (f (g • x)) = f (g • x)
-  simp [hJ]
+  sorry
 
 end AutomorphyFactor
 
@@ -215,16 +205,14 @@ action on the base; it is not the right slash action on functions. -/
 theorem inverse_base_action_cocycle {G K X : Type*} [Group G] [Group K] [MulAction G X]
     (J : G → X → K) (hmul : ∀ g h x, J (g * h) x = J g (h • x) * J h x) (g h : G) (x : X) :
     J (g * h)⁻¹ x = J h⁻¹ (g⁻¹ • x) * J g⁻¹ x := by
-  rw [mul_inv_rev, hmul]
+  sorry
 
 /-- **A section detects a scalar cocycle where it does not vanish.** If `f(gx) = J(g, x) f(x)`
 for all `g, x`, the cocycle identity holds at every `x` with `f x ≠ 0`. -/
 theorem cocycle_at_of_automorphy_of_ne_zero {G X K : Type*} [Monoid G] [MulAction G X] [Field K]
     (J : G → X → K) (f : X → K) (hf : ∀ g x, f (g • x) = J g x * f x) (g h : G) (x : X)
     (hx : f x ≠ 0) : J (g * h) x = J g (h • x) * J h x := by
-  have h1 := hf (g * h) x
-  rw [mul_smul, hf g, hf h, ← mul_assoc] at h1
-  exact (mul_right_cancel₀ hx h1).symm
+  sorry
 
 /-- The scalar coefficient `z ↦ denom(g, z)^k` of `SL₂(ℤ)` acting on the upper half-plane, as
 a linear automorphism of `ℂ`. Used only to compare the slash adapter with Mathlib. -/
@@ -247,6 +235,24 @@ example (k : ℤ) (g : SL(2, ℤ)) (f : UpperHalfPlane → ℂ) (z : UpperHalfPl
 example (k : ℤ) (g : GL (Fin 2) ℝ) (f : UpperHalfPlane → ℂ) (c : ℂ) :
     (c • f) ∣[k] g = UpperHalfPlane.σ g c • (f ∣[k] g) :=
   ModularForm.smul_slash k g f c
+
+-- Test `AutomorphyFactor_test_scalar_shift`: `S²` has denominator `−1`, whereas the
+-- unshifted product at `2i` is `−4`.
+example : let z : UpperHalfPlane := ⟨2 * Complex.I, by norm_num⟩
+    UpperHalfPlane.denom (ModularGroup.S * ModularGroup.S : SL(2, ℤ)) z = -1 ∧
+      UpperHalfPlane.denom ModularGroup.S z * UpperHalfPlane.denom ModularGroup.S z = -4 := by
+  let z : UpperHalfPlane := ⟨2 * Complex.I, by norm_num⟩
+  change UpperHalfPlane.denom (ModularGroup.S * ModularGroup.S : SL(2, ℤ)) z = -1 ∧
+    UpperHalfPlane.denom ModularGroup.S z * UpperHalfPlane.denom ModularGroup.S z = -4
+  rw [ModularGroup.denom_apply (ModularGroup.S * ModularGroup.S) z, ModularGroup.denom_S z]
+  constructor
+  · change ((↑(((ModularGroup.S : Matrix (Fin 2) (Fin 2) ℤ) * ModularGroup.S) 1 0) : ℂ) *
+      (z : ℂ) + ↑(((ModularGroup.S : Matrix (Fin 2) (Fin 2) ℤ) * ModularGroup.S) 1 1)) = -1
+    rw [ModularGroup.S_mul_S_eq]
+    norm_num
+  · change (2 * Complex.I) * (2 * Complex.I) = -4
+    rw [mul_mul_mul_comm]
+    norm_num [Complex.I_mul_I]
 
 /-- The rational shear `(a, b) ↦ (a + b, b)`. -/
 def shearX : (ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ) where
@@ -336,9 +342,7 @@ def detExponent (a : HilbertArithmeticWeight ι) (i : ι) : ℤ := (a.w - a.k i)
 /-- `2 m_τ = w − k_τ`. -/
 theorem two_mul_detExponent (a : HilbertArithmeticWeight ι) (i : ι) :
     2 * a.detExponent i = a.w - a.k i := by
-  have := a.parity i
-  unfold detExponent
-  omega
+  sorry
 
 /-- Tensor products of Hilbert coefficients add weights. -/
 def add (a b : HilbertArithmeticWeight ι) : HilbertArithmeticWeight ι where
@@ -351,7 +355,7 @@ def add (a b : HilbertArithmeticWeight ι) : HilbertArithmeticWeight ι where
 
 /-- Weights with the same `k` and `w` are equal. -/
 theorem ext {a b : HilbertArithmeticWeight ι} (hk : a.k = b.k) (hw : a.w = b.w) : a = b := by
-  cases a; cases b; simp_all
+  sorry
 
 -- Test `HilbertArithmeticWeight_test_zero`: `k = 0`, `w = 0` has every `m_τ = 0`.
 example (i : ι) :
@@ -368,6 +372,12 @@ example : ¬ ∃ a : HilbertArithmeticWeight Unit, a.k () = 3 ∧ a.w = 2 := by
   have := a.parity ()
   omega
 
+-- Test `HilbertArithmeticWeight_test_add`: two determinant exponents `−1` add to `−2`.
+example : let a : HilbertArithmeticWeight Unit := ⟨fun _ ↦ 4, 2, fun _ ↦ rfl⟩
+    let b : HilbertArithmeticWeight Unit := ⟨fun _ ↦ 2, 0, fun _ ↦ rfl⟩
+    (a.add b).k () = 6 ∧ (a.add b).w = 2 ∧ (a.add b).detExponent () = -2 := by
+  decide
+
 end HilbertArithmeticWeight
 
 /-! ## Layer B5: Hecke action and Fourier expansions -/
@@ -377,10 +387,10 @@ namespace ClassicalHecke
 /-- The weight-zero value of the normalized modular Hecke operator at an unramified prime `ℓ`:
 the correspondence has degree `ℓ + 1` and the normalization is `ν = det⁻¹`, so
 `T_ℓ(1) = ν(diag(1, ℓ)) (ℓ + 1)`. -/
-def modularNormalization (ℓ : ℕ) : ℚ := (ℓ : ℚ)⁻¹ * (ℓ + 1)
+def modularNormalization (ℓ : ℕ) (_hℓ : Nat.Prime ℓ) : ℚ := (ℓ : ℚ)⁻¹ * (ℓ + 1)
 
 -- Test `ClassicalHecke.modularNormalization`: `T_ℓ(1) = (ℓ + 1)/ℓ`, not `ℓ + 1` and not `1`.
-example : modularNormalization 2 = 3 / 2 := by
+example : modularNormalization 2 (by decide) = 3 / 2 := by
   norm_num [modularNormalization]
 
 end ClassicalHecke
@@ -401,12 +411,17 @@ def twiceTateExponents (k₁ k₂ w : ℤ) : Fin 4 → ℤ :=
 /-- Under the parity condition `k₁ + k₂ + w ≡ 0 (mod 2)` every Tate exponent is an integer. -/
 theorem twiceTateExponents_even (k₁ k₂ w : ℤ) (hpar : (k₁ + k₂ + w) % 2 = 0) (j : Fin 4) :
     ∃ a : ℤ, twiceTateExponents k₁ k₂ w j = 2 * a := by
-  fin_cases j <;> simp [twiceTateExponents] <;> exact ⟨_, (Int.mul_ediv_cancel' (by omega)).symm⟩
+  sorry
 
 -- Test `SiegelHT.weights_zero`: for `κ = 0` the coherent weights are `(0,0;0)`, `(2,0;0)`,
 -- `(3,1;0)`, `(3,3;0)` and the Tate exponents are `0, 1, 2, 3`.
 example : coherentWeights 0 0 0 = ![(0, 0, 0), (2, 0, 0), (3, 1, 0), (3, 3, 0)] ∧
     twiceTateExponents 0 0 0 = ![0, 2, 4, 6] := by
+  constructor <;> decide
+
+-- Test `SiegelHT.weights_nonzero`: the central coordinate is `−w` in every Weyl term.
+example : coherentWeights 0 (-2) 2 = ![(0, -2, -2), (2, -2, -2), (5, 1, -2), (5, 3, -2)] ∧
+    twiceTateExponents 0 (-2) 2 = ![0, 2, 8, 10] := by
   constructor <;> decide
 
 -- Test `SiegelHT.parity`: `(0, 0; 1)` fails the parity condition, and its first doubled exponent
@@ -427,15 +442,46 @@ The following targets need carriers that the pins do not have — a Shimura vari
 canonical model, the canonical principal bundle, automorphic vector bundles, toroidal and minimal
 compactifications, canonical extensions, coherent cohomology of algebraic stacks, formal
 Fourier–Jacobi charts, pro-Kummer-étale local systems — and are specified in `README.md` only:
-`centralSplitQuotient`, `ineffectiveFibreDescent`, `contractedProduct`, `compactDualCoefficient`,
-`homogeneousHodgeTorsor`, `analyticCoefficient`, `sectionsEquivariant`, `coefficientGaloisDescent`,
-`geometricAnalyticCoefficients` (Layer B0); the canonical principal bundles of Layers B1 and
-B1.general; the automorphic vector bundles and realizations of Layers B2 and B2.general; the
-boundary extensions of Layers B3 and B3.general, including `integralLeviCoefficient`; in Layer B4
-`classicalForms`, `cuspForms`, `analyticClassicalComparison`, `gl2HodgeLineComparison`,
+B0: `hodgeParabolicConvention`, `centralSplitQuotient`, `ineffectiveFibreDescent`,
+`contractedProduct`, `compactDualCoefficient`, `homogeneousHodgeTorsor`, `analyticCoefficient`,
+`sectionsEquivariant`, `coefficientGaloisDescent`, `geometricAnalyticCoefficients`.
+
+B1: `finiteTensorStabilizer`, `absoluteHodgePropagation`, `hodgeTensorRealizations`,
+`tensorFrameTorsor`, `filtrationReduction`, `hodgeCanonicalPrincipalBundle`,
+`embeddingIndependence`, `cmPrincipalNormalization`, `abelianCanonicalPrincipalBundle`,
+`principalHeckePullback`.
+
+B1.general: `connectedPrincipalConjugation`, `adjointJetRealization`, `generalConnectedReduction`,
+`generalPrincipalModel`, `generalCompactDualMap`, `generalConjugationCocycle`.
+
+B2: `automorphicVectorBundle`, `automorphicAnalyticComparison`, `leviHighestWeightConvention`,
+`bettiCoefficientLocalSystem`, `etaleCoefficientLocalSystem`, `filteredDeRhamCoefficient`,
+`realizationComparison`, `coefficientTensorHecke`, `siegelTautologicalSequence`.
+
+B2.general: `generalAssociatedModel`, `generalFlatRealizations`, `generalRealizationConjugation`.
+
+B3: `boundaryCoefficientChart`, `canonicalExtension`, `canonicalExtensionGluing`,
+`subcanonicalExtension`, `refinementCanonicalExtension`, `fanIndependentSections`,
+`logarithmicConnectionExtension`, `minimalCoherentPushforward`, `canonicalRationalDescent`,
+`integralLeviCoefficient`.
+
+B3.general: `generalCanonicalExtension`, `generalLogarithmicComparison`,
+`generalBoundaryFunctoriality`.
+
+B4: `gl2HodgeLineComparison`, `classicalForms`, `cuspForms`, `analyticClassicalComparison`,
 `hilbertCoefficient`, `hilbertCentralDescent`, `unsplitHilbertDescent`, `ramifiedHilbertLine`,
 `siegelCoefficient`, `unitaryCoefficient`, `numberFieldFormsBaseChange`, `qcqsSectionsColimit`,
-`integralForms`, `classicalVBTateNormalization`; and in Layer B5 `finiteLocallyFreeTrace`, the
-expansion principle, the Hecke operators, the vector and Hilbert expansions and the Siegel
-Hodge–Tate decompositions.
+`integralForms`, `classicalVBTateNormalization`.
+
+B5: `ClassicalHecke.operator`, `SiegelHT.decomposition`, `SiegelHT.decomposition_compactSupport`,
+`finiteLocallyFreeTrace`, `integralForms_coefficient_leftExact`,
+`FJCoefficient.invariantFamily_leftExact`, `FourierJacobi.injective_primeQuotient`,
+`FourierJacobi.injective_of_extension`, `FourierJacobi.injective_of_finite`,
+`FourierJacobi.expansionPrinciple`, `FourierJacobi.coefficientRecognition`,
+`FourierJacobi.cusp_iff_boundaryRestriction`, `ClassicalHecke.convolution`,
+`ClassicalHecke.nonNeatDescent`, `FourierJacobi.modular_qExpansion_comparison`,
+`VectorFourierJacobi.expansion`, `VectorFourierJacobi.expansionPrinciple`, `HilbertQExpansion.map`,
+`HilbertQExpansion.expansionPrinciple`, `HilbertQExpansion.cusp_iff_constantTerms`,
+`ClassicalHecke.expansion_compat`, `SiegelHT.classicalVB_equivariance`.
+
 -/
