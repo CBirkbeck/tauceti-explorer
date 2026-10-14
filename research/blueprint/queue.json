@@ -28265,9 +28265,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SerreWeightAndLevelOptimisation.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #989"
+   "note": "deliverables arrived from an external worker on issue #989",
+   "finishedAt": "2026-10-14T11:07:25Z"
   },
   {
    "id": "REV-SerreWeightAndLevelOptimisation",
@@ -37912,8 +37913,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.1",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9674"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9674",
+   "finishedAt": "2026-10-14T11:07:27Z"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.2",
@@ -37959,7 +37961,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.2",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9675"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.3",
@@ -38005,7 +38008,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.3",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9676"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.4",
@@ -38028,8 +38032,9 @@
    ],
    "followUpOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9668"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9668",
+   "finishedAt": "2026-10-14T11:07:32Z"
   },
   {
    "id": "REV-ClassicalArithmeticCompletion--CA.4",
@@ -38096,7 +38101,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalArithmeticCompletion--CA.5",
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9678"
   },
   {
    "id": "BP-ClassicalArithmeticCompletion--CA.6",
@@ -43340,7 +43346,8 @@
     "BP-HeightsRationalPointsAndObstructions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HeightsRationalPointsAndObstructions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9682"
   },
   {
    "kind": "blueprint",
@@ -44838,7 +44845,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a"
    ],
    "prompt": "research/blueprint/prompts/ASM-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #226"
   },
   {
    "id": "ASM-EtaleDualityAndPerverseSheaves",
@@ -49101,8 +49109,9 @@
     "PKG-EnhancedDerivedSheaves"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EnhancedDerivedSheaves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9683"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9683",
+   "finishedAt": "2026-10-14T11:07:35Z"
   },
   {
    "id": "PKG-EnriquesSurfacesAndIntegralNonexistence",
@@ -96402,13 +96411,14 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-CompletedCohomologyPartII--CC.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #701"
+   "note": "deliverables arrived from an external worker on issue #701",
+   "finishedAt": "2026-10-14T11:07:39Z"
   },
   {
    "id": "REV-CompletedCohomologyPartII--CC.0",
