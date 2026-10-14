@@ -1,7 +1,6 @@
 import Mathlib
 import TauCeti.GroupTheory.Perm.Partition
 import TauCeti.RingTheory.Polynomial.FactorDegrees
-import TauCeti.FieldTheory.GaloisGroups.MultipleTransitivity
 
 /-!
 # PolynomialGaloisGroupsPartII: representative target signatures
@@ -17,8 +16,6 @@ open Polynomial MulAction UniqueFactorizationMonoid
 open scoped BigOperators
 namespace TauCetiRoadmap.PolynomialGaloisGroupsPartII
 open Classical
-local instance {α : Type*} : DecidableEq α := Classical.decEq α
-local instance (p : Prop) : Decidable p := Classical.propDecidable p
 
 /-! ## Layer 0: bounded equal-part merging -/
 /-- Occurrences are grouped into nonempty equal-entry blocks of cardinality at most `y`. -/
@@ -182,6 +179,9 @@ def GoodEvent (i : Fin 5) (n : ℕ) (t κ δ α : ℝ) : Set (Nat.Partition n) :
 /-- A repeated small part fails the strict gcd cutoff at exponent zero. -/
 example (ρ : Nat.Partition 8) (h : ρ.parts = {2, 2, 4}) :
     ρ ∉ GoodEvent 0 8 1 1 1 0 := by sorry
+/-- A single small occurrence forms no pair, so the gcd condition counts occurrences. -/
+example (ρ : Nat.Partition 8) (h : ρ.parts = {2, 6}) :
+    ρ ∈ GoodEvent 0 8 1 1 1 0 := by sorry
 /-- The third event passes at log one; the fifth requires four occurrences even in small degree. -/
 example : (∀ ρ : Nat.Partition 1, ρ ∈ GoodEvent 2 1 1 1 1 0) ∧
     (∀ ρ : Nat.Partition 3, ρ ∉ GoodEvent 4 3 1 1 1 0) := by sorry
@@ -263,7 +263,7 @@ theorem generalized_luczak_pyber (C t κ δ ε : ℝ)
             σ ∈ MergePerms (α := Fin n) ((n : ℝ) ^ θ) ρ ∧ σ ∈ BadTransitive (Fin n)} ≤
               B * (Real.log n) ^ 2 * (n : ℝ) ^ (-κ * (δ / 4 - θ / 2)) := by sorry
 
-/-- A bad irreducible polynomial root group supplies a bad-transitive merging witness at any prime. -/
+/-- A bad irreducible polynomial root group contains a bad-transitive merging witness at any prime. -/
 theorem galois_merging_certificate (A : ℤ[X]) (hA : A.Monic)
     (hsep : (A.map (Int.castRingHom ℚ)).Separable)
     (hirr : Irreducible (A.map (Int.castRingHom ℚ))) (p : ℕ) [Fact p.Prime]
@@ -278,6 +278,9 @@ theorem galois_merging_certificate (A : ℤ[X]) (hA : A.Monic)
         (A.map (Int.castRingHom ℚ)).SplittingField)).range ≠ ⊤) :
     ∃ σ : Equiv.Perm ((A.map (Int.castRingHom ℚ)).rootSet
       (A.map (Int.castRingHom ℚ)).SplittingField),
+      σ ∈ (MulAction.toPermHom (A.map (Int.castRingHom ℚ)).Gal
+        ((A.map (Int.castRingHom ℚ)).rootSet
+          (A.map (Int.castRingHom ℚ)).SplittingField)).range ∧
       EqualPartMerging y (A.factorDegrees p) σ.fullCycleType ∧
       σ ∈ BadTransitive ((A.map (Int.castRingHom ℚ)).rootSet
         (A.map (Int.castRingHom ℚ)).SplittingField) := by sorry
