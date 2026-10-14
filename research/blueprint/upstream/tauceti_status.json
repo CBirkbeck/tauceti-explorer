@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T19:17Z",
+ "updated": "2026-10-14T19:29Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -54,11 +54,11 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
    "head": "2ad17a1",
    "review": {
-    "recommendation": "changes",
-    "head": "9f5058d",
+    "recommendation": "approve",
+    "head": "791e18a",
     "current": false,
     "date": "2026-10-14",
-    "note": "maintainer re-review at 9f5058d: ownership regression repaired on all three roadmaps (AA fc78e0e, RG2 e8c23e4, SR 2cbb4c0); restack in progress"
+    "note": "maintainer follow-up at 791e18a: dependency-cycle finding addressed; rebased onto the folded #785 branch as 2ad17a1"
    }
   },
   "SmoothRepresentationsOfLocalGroups": {
@@ -572,13 +572,13 @@
   "EnhancedDerivedSheaves": {
    "stage": "pr",
    "pr": 908,
-   "head": "0304690",
+   "head": "9ddc945",
    "review": {
     "recommendation": "approve",
     "head": "d4d05b1",
     "current": false,
     "date": "2026-10-14",
-    "note": "red team (Sol + Astra) and the external Astra deep review applied; deep re-review recommends approval; marked ready for review"
+    "note": "Astra deep re-review approved d4d05b1; ready for review; second red-team pass applied at 9ddc945"
    }
   },
   "ModularCurvesPartII": {
@@ -591,20 +591,20 @@
     "head": "7b250c1",
     "current": false,
     "date": "2026-10-14",
-    "note": "red team (Sol 20 + Astra 23) applied at 242a8ea; deep review (GPT-6 Astra) at 7b250c1 being repaired"
+    "note": "red team applied at 242a8ea; deep review (GPT-6 Astra) repaired and answered at 036319d; second red-team pass running"
    }
   },
   "FreeGroupsAndLimitGroups": {
    "stage": "pr",
    "pr": 914,
-   "head": "7d4cbb7",
+   "head": "2ba8f40",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the decidability and formal-solution results are stated without executable procedures; no supplier in an open pull request; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
     "head": "a5b47fb",
     "current": false,
     "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at a5b47fb repaired and answered at 7d4cbb7; red team (Sol + Astra) being applied"
+    "note": "deep review (GPT-6 Astra) repaired at 7d4cbb7; first red-team pass (Sol + Astra) applied at 2ba8f40; second pass running"
    }
   }
  }

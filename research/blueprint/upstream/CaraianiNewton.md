@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-14T19:17Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-14T19:29Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. All thirteen tier 1–4 roadmaps are open pull requests on TauCetiRoadmap: #779 SchemeAndStackFoundations, #780 PadicMeasuresIwasawaAlgebras, #785 ReductiveGroupsPartII with #792 AdelicAlgebraicGroups and #793 SmoothRepresentationsOfLocalGroups stacked on it and #789 IntegralHeckeAndGaloisDeterminants on #793, and the adic stack #817 AdicSpacesPartII ← #813 AdicSpacesPartIII ← #814 AdicEtaleGeometry ← #815 AdicSpacesPartIV, #818 PerfectoidSpaces ← #816 PerfectoidTowers and #820 DiamondsAndVStacks. The independent reviewer recommends approval of every one; after the 2026-10-12 citation sweep and its repairs, every pull request was re-reviewed on its current head; the approval recommendations stand, with #779 awaiting the pass after its latest small corrections. The remaining tier 3–4 roadmaps (GeometryOfNumbersAndQuadraticArithmetic, EnhancedDerivedSheaves, AlgebraicModuliForArithmeticGeometry, LocallyAnalyticDistributions, DiophantineApproximationAndTranscendence) have finished packages on the explorer board awaiting their Tau Ceti lane. Tier 5–9 package jobs (ComplexComparisonPartII, ClassicalArithmeticCompletion, InverseGaloisAndArithmeticFundamentalGroups, AbelianSchemesAndArithmeticModuli, ArithmeticGaloisDuality, SelmerIwasawaCohomology, CrystallineCohomology, HeightsRationalPointsAndObstructions) were queued on 2026-10-12 and the swarm is working on them.
 
@@ -24,7 +24,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 2
 
-- **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: pull request #792 open** · move down: ModularCurvesPartII (2)
+- **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: pull request #792 open** · reviewer recommends approval (at earlier head 791e18a; current head 2ad17a1) · move down: ModularCurvesPartII (2)
 - **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 3/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: merged** · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
 - **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 1/2 accepted · package not yet · CN needs 10/11 layers · **Tau Ceti: pull request #793 open** · reviewer recommends approval · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
 
@@ -40,7 +40,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 4
 
-- **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 2/2 accepted · package not yet · CN needs 7/11 layers · **Tau Ceti: pull request #908 open** · reviewer recommends approval (at earlier head d4d05b1; current head 0304690) · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
+- **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 2/2 accepted · package not yet · CN needs 7/11 layers · **Tau Ceti: pull request #908 open** · reviewer recommends approval (at earlier head d4d05b1; current head 9ddc945) · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
 - **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 8/10 accepted · package not yet · CN needs 10/12 layers · **Tau Ceti: pull request #853 open**
 - **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 4/4 accepted · package not yet · CN needs 5/5 layers · **Tau Ceti: pull request #854 open** · reviewer recommends approval (at earlier head aa2639b; current head 894b27b) · move down: PadicDifferentialEquationsAndRigidCohomology (1)
 - **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 5/5 accepted · package not yet · CN needs 2/6 layers · **Tau Ceti: merged** · move down: ClassicalArithmeticCompletion (1)
