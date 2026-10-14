@@ -49784,7 +49784,8 @@
     "PKG-EndoscopicTransferAndUnitaryTraceComparison"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EndoscopicTransferAndUnitaryTraceComparison.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9839"
   },
   {
    "id": "PKG-EnhancedDerivedSheaves",
@@ -51605,7 +51606,8 @@
     "PKG-HodgeTateAndCanonicalSubgroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeTateAndCanonicalSubgroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9841"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
