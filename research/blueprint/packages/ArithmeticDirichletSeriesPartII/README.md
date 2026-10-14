@@ -52,7 +52,7 @@ layer. `Suggested.lean` states the definitions and the main theorems in the name
   `HasLaplace` with its projection, uniqueness, linearity and dilation API.
 - The boundary predicate `PoleBoundary F a k A` for a pole of order `k + 1` on the line of
   convergence, with uniqueness of the leading coefficient and of the order, division by the
-  argument, rescaling and multiplication by regular functions.
+  argument, rescaling, multiplication by regular functions and products.
 - The normalised squared-sinc kernel `squaredSinc` and Delange's polynomial weight
   `delangeWeight`.
 - The integer Gamma model, the locally integrable boundary values of the regularised remainder,
@@ -106,7 +106,7 @@ supplier contracts*.
 | Subject | Convention |
 | --- | --- |
 | pole order | A pole of order `m = k + 1` with `k : ℕ`; `k = 0` is a simple pole. The leading coefficient `A` is the value at `a` of the holomorphic numerator `g` in `F(s) = g(s)/(s − a)^(k+1)`. It is real. |
-| abscissa | All theorems are stated at an abscissa `a > 0`. The case `a = 0` is excluded throughout. |
+| abscissa | The Tauberian and counting theorems (HP.2.3–HP.4.5) are stated at an abscissa `a > 0`, and the case `a = 0` is excluded from them (a witness is under HP.4.3). The predicates of HP.0, the Gamma model HP.2.1 and the boundary lemma HP.2.2 hold for every real `a`. |
 | coefficients | Coefficients are `c : ℕ → ℝ`. The coefficient `c 0` is ignored, as in Mathlib's `LSeries.term`, which is `0` at `n = 0`. |
 | counting function | `S_c(X) = TauCeti.summatory (fun n : ℕ ↦ n) ĉ X` with `ĉ 0 = 0` and `ĉ n = c n` for `n > 0`. The cutoff is inclusive: `S_c(X) = ∑_{1 ≤ n ≤ X} c n`, `S_c(1) = c 1`, `S_c(X) = 0` for `X < 1`. For `X ≥ 0` it equals `∑ n ∈ Finset.Icc 1 ⌊X⌋₊, c n`, the form used by Tau Ceti's Wiener–Ikehara theorems (by `TauCeti.summatory_eq_summatory_natFloor` and `TauCeti.mem_normLE_natCast`). The `Northcott` instance `northcott_natId` for the identity height on `ℕ` (finite sublevel sets `Set.Iic b`) is part of Layer HP.4. |
 | Laplace transform | The ordinary one-sided transform `∫₀^∞ e^(−st) f(t) dt` of the function `f`, never the Laplace–Stieltjes transform `∫ e^(−st) df(t)`. Integrals are Bochner integrals for Lebesgue measure restricted to `(0, ∞)`; the endpoint is a null set, so `[0, ∞)` gives the same predicate. Convergence (integrability) is part of every Laplace assertion. Real functions are cast to `ℂ` before the predicate is applied. |
@@ -168,7 +168,9 @@ Three conventions carry a witness that fixes them:
 
 ### From Tau Ceti (pinned f790474)
 
-- `TauCeti.summatory N w X` (`TauCeti/Order/Northcott.lean`): the sum of `w` over the finite set
+- `TauCeti.summatory N w X` (`TauCeti/Order/Northcott.lean`; in the current Tau Ceti the same
+  declarations live in `TauCeti/Order/Northcott/Basic.lean`): for a natural-valued height
+  `N : ι → ℕ` with a `Northcott N` instance, the sum of `w` over the finite set
   `TauCeti.normLE N X` of indices with `N i ≤ X`, inclusive. Used with
   `TauCeti.summatory_nonneg`, `TauCeti.summatory_mono` (nonnegative weights give a monotone
   function of the cutoff), `TauCeti.eventually_summatory_sub_eq` (weights equal outside a finite
@@ -277,8 +279,10 @@ ordinary Laplace integral; the predicate records exactly this kind of convergenc
   default measure (degenerate case).
 - `HasLaplace_test_constant`: the constant function `1` has transform `1/s` whenever
   `Re s > 0`. A Stieltjes-type definition gives `1` instead.
-- `HasLaplace_test_quadratic`: `t ↦ t²` has transform `2/s³` whenever `Re s > 0`. This fixes the
-  factorial in the Gamma model; a definition with a stray factor `1/k!` or with `t^(k−1)` fails.
+- `HasLaplace_test_quadratic`: `t ↦ t²` has transform `2/s³` whenever `Re s > 0`. A
+  Stieltjes-type definition gives `2/s²`. The value is also the case `a = 0`, `k = 2` of the
+  Gamma model HP.2.1, whose constant `k!` it fixes: a model with a stray factor `1/k!` or with
+  `t^(k−1)` fails it.
 - `HasLaplace_test_nonintegrable`: `HasLaplace (fun _ ↦ 1) 0 0` is false. A definition recording
   only the value of the integral would accept it, because the totalised integral of the
   non-integrable constant is `0`.
@@ -321,6 +325,8 @@ The API, in namespace `TauCeti.HigherPoleTauberian`:
   `PoleBoundary (fun s ↦ F (a * s)) 1 k (A / a^(k+1))`.
 - `PoleBoundary.mul_regular`: if `H` is analytic at every point of `{s | a ≤ s.re}` and `H a = C`
   with `C` real, then `PoleBoundary F a k A` gives `PoleBoundary (fun s ↦ F s * H s) a k (A * C)`.
+- `PoleBoundary.mul`: `PoleBoundary F a k A` and `PoleBoundary G a l B` give
+  `PoleBoundary (fun s ↦ F s * G s) a (k + l + 1) (A * B)`; the pole orders add.
 
 *Proof sketch.* `congr`: every field mentions `F` only on the open half-plane. `leading_unique`:
 two numerators `g`, `g'` agree on the half-disc where both represent `F`, a nonempty open set,
@@ -330,7 +336,10 @@ gives `B = 0`. `div_argument`: shrink the disc so that it avoids `0` (possible a
 is analytic there with value `A/a`, and every germ `g_y/s` is analytic near `a + iy ≠ 0`.
 `rescale`: `s ↦ as` maps `Re s > 1` onto `Re s > a`, the disc of radius `r/a` about `1` into the
 disc of radius `r` about `a`, and `a + iay` to the germ at `a + i(ay)`; the new numerator is
-`g(as)/a^(k+1)`. `mul_regular`: multiply the numerator and every germ by `H`. *Needs:* Mathlib
+`g(as)/a^(k+1)`. `mul_regular`: multiply the numerator and every germ by `H`. `mul`: with
+numerators `g` and `h`, on the smaller of the two discs the product is
+`g(s) h(s)/(s − a)^(k+l+2)`, with numerator value `A B`,
+and the germs multiply. *Needs:* Mathlib
 `AnalyticOnNhd`, products and compositions of analytic functions, the identity theorem.
 
 *Source.* Delange (1954), Theorem III, §5.2.1, pp. 235–236 (hypotheses) and its proof,
@@ -357,7 +366,8 @@ hypotheses.
 
 - `riemannZeta` satisfies `PoleBoundary riemannZeta 1 0 1`: the numerator is `(s − 1) ζ(s)`,
   redefined as `1` at `s = 1` (removable by `riemannZeta_residue_one`), and the germs away from
-  `1` are `ζ` itself (`analyticOn_riemannZeta`). Its powers give `PoleBoundary (ζ^m) 1 (m − 1) 1`.
+  `1` are `ζ` itself (`analyticOn_riemannZeta`). By `PoleBoundary.mul`, its powers give
+  `PoleBoundary (ζ^m) 1 (m − 1) 1` for every `m ≥ 1`.
 - The transform of `e^(at) t^k` is HP.2.1; the transform of a logarithmic counting function is
   HP.4.1.
 
@@ -472,6 +482,8 @@ The API:
 - `delangeWeight_pos`: `0 < w_k(t)` for `t > 0`.
 - `delangeWeight_normalization`: `w_k(t) tᵏ → 1` as `t → ∞`.
 - `delangeWeight_shift`: for each fixed real `h`, `w_k(t + h)/w_k(t) → 1` as `t → ∞`.
+- `delangeWeight_shift_uniform`: for each `H > 0`,
+  `sup_{|h| ≤ H} |w_k(t + h)/w_k(t) − 1| → 0` as `t → ∞`.
 - `delangeWeight_bound`: `w_k(t) tᵏ ≤ 1` for `t ≥ 0`.
 
 *Proof sketch.* Continuity: the integrand is jointly continuous and the `u`-interval is compact.
@@ -485,7 +497,8 @@ w_k(t + h)/w_k(t) = [w_k(t + h)(t + h)ᵏ] / [w_k(t) tᵏ] · (t/(t + h))ᵏ →
 ```
 
 and for a fixed `H > 0` the convergence is uniform in `|h| ≤ H`, because both normalised weights
-tend to `1` once `t − H` is large; this uniform form is what HP.3.1 uses. The explicit cases below
+tend to `1` once `t − H` is large and `(t/(t + h))ᵏ → 1` uniformly in `|h| ≤ H`; this uniform
+form, `delangeWeight_shift_uniform`, is what HP.3.1 uses. The explicit cases below
 follow by integrating a polynomial times an exponential. *Needs:* Mathlib Gamma function.
 
 *Source.* Delange (1954), §3.1–3.2, pp. 220–221 (the function `v`, its positivity and
@@ -716,8 +729,8 @@ needed at every bandwidth: one bandwidth does not suffice.
 
 1. *A bound for `J`.* Fix `h > 0` and `λ > 0` such that `K_λ` has positive mass `m` on
    `[−h/2, h/2]`. In the convolution centred at `T + h/2`, keep only `t ∈ [T, T + h]`. There
-   `α(t) ≥ α(T)`, `e^(−at) ≥ e^(−ah) e^(−aT)`, and, for `T` large, `w_k(t) ≥ (1 − η) w_k(T)` by the
-   uniform form of `delangeWeight_shift`. So the convolution is at least
+   `α(t) ≥ α(T)`, `e^(−at) ≥ e^(−ah) e^(−aT)`, and, for `T` large, `w_k(t) ≥ (1 − η) w_k(T)` by
+   `delangeWeight_shift_uniform`. So the convolution is at least
    `(1 − η) e^(−ah) m J(T)`, and its limit bounds `J(T)` for large `T`. On compact intervals `α`
    is bounded (it is monotone) and `w_k` is continuous, so `J ≤ M` on `[0, ∞)` for some `M`.
 2. *Two-sided comparison.* The same window gives `limsup J ≤ C e^(ah) / ((1 − η) m)`. For the lower
@@ -836,6 +849,9 @@ given discriminant; the bridge above is derived independently.
 - `logSummatory_test_unit_mass`: for the sequence with `c 1 = 1` and all other coefficients `0`,
   `α = 1` on `[0, ∞)` and the transform is `1/s`.
 - `logSummatory_test_endpoint`: `S_c(e^(log 2)) = c 1 + c 2`; an exclusive cutoff gives `c 1`.
+- `Re s > 0` cannot be dropped: for the sequence with only `c 1 = 1` the series converges at every
+  `s` with sum `1`, in particular at `s = 0`, but `α = 1` on `[0, ∞)` has no Laplace transform at
+  `s = 0` (`HasLaplace_test_nonintegrable`), and `F(s)/s` is undefined there.
 
 ### HP.4.2 Counting at abscissa one
 
@@ -899,6 +915,11 @@ logarithmic counting function.
 - At `a = 1` the statement is HP.4.2.
 - At `k = 0` the constant `A/a` is the constant `κ/σ` of the parent's positive-abscissa variant
   (`TauCeti.LSeries.wienerIkehara_rpow`).
+- `a = 0` is excluded (negative control): `c n = 1/n` has series `ζ(s + 1)`, convergent on
+  `Re s > 0` with a simple pole at `0` and numerator value `1`, but `S_c(X) = ∑_{1≤n≤X} 1/n ~ log X`
+  is not a constant multiple of `X^0 (log X)^0`. The transform `ζ(s + 1)/s` of `S_c(eᵗ)` has a
+  pole of order two at `0`: at `a = 0` dividing by `s` raises the order of the pole instead of
+  dividing the leading coefficient by `a`.
 
 ### HP.4.4 Finitely many altered coefficients
 
@@ -1057,7 +1078,10 @@ Layer HP.4 (HP.5.1) and Layer HP.0 (HP.5.2). Mathlib `riemannZeta` and arithmeti
 - Orbit counts that are proved through a renewal equation, such as the asymptotic for integer
   points on Markoff–Hurwitz varieties (Gamburd–Magee–Ronan 2019), use HP.3.2 with `k = 0` at a
   positive abscissa: a nondecreasing counting function whose Laplace transform has a single simple
-  pole on its line of convergence.
+  pole on its line of convergence. Such a consumer proves the convergence, the continuation across
+  the boundary line and the positivity of the residue from its own spectral data, and proves the
+  uniformity of its count in the starting point separately; HP.3.2 is a statement for one
+  function.
 
 ## References
 
