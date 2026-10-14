@@ -71,6 +71,13 @@ to Tau Ceti's **GlobalNumberFields**. Smooth representations, Hecke algebras ove
 decompositions and the Satake isomorphism belong to Tau Ceti's
 **SmoothRepresentationsOfLocalGroups**.
 
+The current Tau Ceti library supplies the description of special-fibre components on an integral
+flat scheme in `TauCeti/AlgebraicGeometry/SpecialFiber/Components.lean`, including
+`AlgebraicGeometry.Scheme.Hom.maximal_base_eq_closedPoint_iff`. That description is existing work.
+Target 2.1 adds a different conclusion: a possibly reducible ring becomes a DVR at a special minimal
+prime under a local reducedness hypothesis, and that prime has a unique generic generalization.
+Target 2.8 adds transport between two different deformation rings.
+
 These objects enter through the contracts below. Using a contract does not authorize a second
 definition: the Hecke-valued Galois representations, the local lifting rings and the patched
 complexes of this roadmap are the suppliers' objects, specialized to the data fixed here.
@@ -88,19 +95,30 @@ complexes of this roadmap are the suppliers' objects, specialized to the data fi
    an enlargement the irreducible components of every local lifting ring and of its special fibre
    are geometrically irreducible, and the component labels are unchanged by further enlargement. A
    global theorem stated over ℚ̄_p is proved after choosing an invariant lattice and a large enough
-   E; absolute irreducibility of the residual representation makes this independent of the choice.
+   E, using the geometric component stabilization contract below; absolute irreducibility of the residual representation makes this independent of the choice.
 3. Local Artin maps send uniformizers to geometric Frobenius elements. Tau Ceti's ClassFieldTheory
    uses arithmetic reciprocity, so its maps are composed with inversion. HT(ε_p)=−1: the cyclotomic
    character has Hodge–Tate weight −1, and "weight zero" means labelled Hodge–Tate weights
    {0,1,…,n−1} at every embedding; for r_ι(π) this corresponds to π_∞ having the infinitesimal
-   character of the trivial representation.
+   character of the trivial representation. For the rank-two direct sum 1⊕ε_p⁻¹ the labelled
+   weights are {0,1}; 1⊕ε_p has weights {0,−1} and is not weight zero. For an unramified rank-one
+   Hecke character taking a uniformizer to 2, the associated character takes geometric Frobenius
+   to 2 and arithmetic Frobenius to 1/2. The LocalGaloisDeformationRings and PadicHodgeTheory
+   suppliers use HT(ε_p)=+1. To consume their Hodge-type rings or classifications, replace this
+   roadmap's labelled weight multiset H by −H and sort the result. Thus {0,1} here is {−1,0}
+   there. This is a change of weight convention for the same representation: it neither dualizes
+   the representation nor replaces its determinant ε_p⁻¹ by ε_p.
 4. For a place v∉S the spherical Hecke polynomial is P_v(X)=Σ_{i=0}^n (−1)^i q_v^{i(i−1)/2} T_{v,i}
    X^{n−i} with T_{v,0}=1, where T_{v,i} is the double coset of diag(ϖ_v,…,ϖ_v,1,…,1) with i entries
    ϖ_v. Its constant term is (−1)^n q_v^{n(n−1)/2}T_{v,n}. The characteristic polynomial of
-   geometric Frobenius on the attached Galois representation is the image of P_v.
+   geometric Frobenius on the attached Galois representation is the image of P_v. With n=2,
+   q_v=9 and normalized Satake parameters 1,2, its Frobenius-normalized roots are 3,6: thus
+   P_v=X²−9X+18, T_{v,1}=9 and T_{v,2}=2. With n=3 the constant term is −q_v³T_{v,3}.
 5. Deformation problems have variable determinant and no polarization. For a nonempty set T of
    framed places, the T-framed ring is a power series ring in n²|T|−1 variables over the unframed
-   ring. A fixed-determinant variant changes both counts and is never substituted.
+   ring. Full GL_n framings have the same relative count after fixing a determinant, but the
+   deformation rings and the local and global dimension formulas change; those fixed-determinant
+   rings are not substituted in this construction.
 6. Hecke algebras act on complexes in the derived category; support of cohomology over a deformation
    ring is always defined through a surjection onto a quotient of the derived Hecke image by a
    nilpotent ideal, by transporting it along the homeomorphism of spectra that the nilpotent
@@ -166,9 +184,7 @@ Each contract states exactly what is consumed; the consuming targets cite it und
 - **AutomorphicGaloisRepresentationsPartII**: Layer AG2.0 (algebraic weights, the GL₁ dictionary
   between algebraic Hecke characters and p-adic characters, geometric reciprocity), Layer AG2.5
   (local comparison at places not above p: Varma's semisimplified comparison for r_ι(π) and its
-  monodromy bound; and, as in the contract of **PotentialAutomorphyInfrastructure** with the same
-  supplier, the inertial characteristic-polynomial comparison for Hecke-valued Galois
-  representations at places of R and of S^c∖S, ACC Theorem 3.1.1), Layer AG2.7 (maximal Hecke ideals
+  monodromy bound), Layer AG2.7 (maximal Hecke ideals
   of Galois type, their residual representations, decomposed generic residual representations).
 - **CrystallineLocalGlobalCompatibilityCM**, §7.5 (case "cr": for good level hyperspecial at the
   chosen p-places, a non-Eisenstein decomposed generic m and the weak complementary degree bound
@@ -179,7 +195,9 @@ Each contract states exactly what is consumed; the consuming targets cite it und
   representation is irreducible and decomposed generic; Caraiani–Newton, Theorem 4.3.1). Theorem
   4.2.15 is stated there for the coefficients V_λ; it is consumed here (1.1, 3.7) also for
   V_λ⊗O(χ⁻¹), whose twist factors through the levels at places not above p, and at the Taylor–Wiles
-  levels of 3.1, which differ from the hyperspecial level only away from p. The same layer supplies
+  levels of 3.1, which differ from the hyperspecial level only away from p. This additional
+  coefficient generality is an unfilled contract, specified below; it is not part of §7.5's stated
+  theorem. The same roadmap supplies
   §8.2 (the two-system patching datum), §8.3 (automorphic components propagate through the special
   fibre; Caraiani–Newton, Proposition 5.4.2) and §8.5 (support at points of automorphic components;
   Caraiani–Newton, Corollary 5.4.3), together with its Layer 6 (degree shifting for torsion
@@ -202,7 +220,8 @@ Each contract states exactly what is consumed; the consuming targets cite it und
   χ_v every component has that dimension and every special generic point has a unique generic
   generalization), §2.23 (the Taylor–Wiles block condition: scalar inertia on the generalized
   eigenspace of a selected eigenvalue, unramified complement, and the resulting O[Δ_v]-algebra
-  structure), §3.4, §3.9 and §3.10 (Kisin's crystalline lifting rings: O-flat, equidimensional of
+  structure), §3.4, §3.7, §3.9 and §3.10 (Kisin's crystalline lifting rings, coefficient extension
+  with Hodge types transported as in convention 3: O-flat, equidimensional of
   dimension 1+n²+[K:ℚ_p]n(n−1)/2 for regular weights, with formally smooth generic fibre), and §1.3,
   §1.7, §1.9, §6.1, §6.24 and §7.6 (ordinary lifting rings over a minimal-prime branch of the weight
   algebra Λ_v, their dimensions and the maximal-dimensional component through a point with distinct
@@ -224,8 +243,7 @@ Each contract states exactly what is consumed; the consuming targets cite it und
   images, the scalar witness and decomposed genericity; its image equalities do not use the
   enormous-image hypothesis), §2.5 (soluble extensions with prescribed completions at finitely many
   places, disjoint from a given field, and cyclic CM extensions split at a given set), §2.7
-  (ordinary base-change fields), §2.19 (an unramified Galois parameter forces an unramified local
-  factor, from Varma's comparison), §3.6, §3.43, §3.44 and §3.47 (ordinary Galois characters,
+  (ordinary base-change fields), §3.6, §3.43, §3.44 and §3.47 (ordinary Galois characters,
   ordinary local–global compatibility, ι-ordinary representations and their soluble base change),
   §4.6–§4.7 and §5.14–§5.16 (normalized dual completed homology over Λ, weight specialization and
   the ordinary diamond-linear maps), and §5.13 (two auxiliary places of distinct residue
@@ -247,6 +265,37 @@ Each contract states exactly what is consumed; the consuming targets cite it und
 - **ClassFieldTheory** (Tau Ceti roadmap), Layer 7 (the local Artin map, its normalizations and
   conductors) and Layer 11 (global Artin reciprocity and its compatibility with the local maps);
   **GlobalNumberFields** (Tau Ceti roadmap), Layers 9–10 (Hecke characters and infinity types).
+
+### Unfilled supplier contracts
+
+The following inputs are required below and are not supplied by the named roadmap statements.
+The conclusions depending on them are conditional on these contracts.
+
+- **Generic reducedness.** Target 2.5 requires WeightZeroCrystallineLiftingRings to supply the
+  exact p>n, arbitrary-K statement of BCGNT Theorem 2.5.5, p. 29, stated above, with
+  coefficient-extension compatibility. No named supplier layer states that contract. The rank-two Barsotti–Tate statement
+  of Caraiani–Newton Lemma 5.3.3 and Fontaine–Laffaille results do not supply it.
+- **Twisted crystalline comparison.** CrystallineLocalGlobalCompatibilityCM §7.5 states
+  Caraiani–Newton Theorem 4.2.15 for V_λ. Targets 1.1, 3.5 and 3.7 require its (cr) factorization
+  for V_λ⊗O(χ⁻¹), with χ supported away from p, at every selected-block level K₁(Q_N), after passage
+  to the O[Δ_{Q_N}]-linear derived Hecke image, with an exponent independent of χ and N. BCGNT
+  Proposition 3.2.3, p. 33, and the proof of Theorem 3.2.5, pp. 34–35, use this extension, but a
+  theorem supplying it, with its coefficient descent argument, is still needed.
+- **Torsion comparison away from p.** AG2.5 states characteristic-zero local comparisons of
+  automorphic r_ι(π), not ACC Theorem 3.1.1. Targets 1.1 and 3.4–3.7 require a Hecke-valued lift
+  modulo one ideal of bounded nilpotence, with the inertial characteristic polynomials at all R
+  and unramifiedness at S^c∖S, for the twisted coefficients and auxiliary levels. ACC Theorem
+  3.1.1 and Proposition 6.5.3, pp. 57–58 and 167–168, give the source contracts. Their residual
+  and integral determinant inputs are ACC Theorems 2.3.5 and 2.3.7. A supplier must own these
+  torsion statements and their specialization to the present coefficients; Varma's theorem does
+  not provide them.
+
+- **Geometric component stabilization.** Convention 2 and targets 2.4–2.8 use geometric
+  integrality of the component quotients of the local lifting rings and their special fibres
+  after a finite coefficient extension. Target 2.2(6) supplies this for completions of flat
+  finite-type models (BLGHT Lemma 3.3(8)–(9), pp. 48–49). The cited local-ring dimension and
+  smoothness statements do not supply such models or the stabilization property itself. The
+  local-ring supplier must provide one of these inputs, with coefficient-change compatibility.
 
 ## How to read the build
 
@@ -321,7 +370,8 @@ Provide the following interface:
   geometrically irreducible over E stay irreducible over E′.
 - `WeightZero.PreparedWeightZeroData.complementaryDegree`: certificate 2 in terms of the multiset of
   local degrees [F⁺_{v̄}:ℚ_p], as the predicate `WeightZero.complementaryDegreeCondition` of the
-  companion file.
+  companion file. That finite-set predicate allows arbitrary nonnegative degree data; the
+  arithmetic certificate uses the nonempty p-place set and its positive local degrees.
 
 **Checks.**
 
@@ -329,9 +379,13 @@ Provide the following interface:
   without trivial residual local representation violates certificate 5.
 - `WeightZero.test_profile_degree_boundary`: with four places of F⁺ above p of equal degree,
   removing two leaves exactly half of [F⁺:ℚ] and certificate 2 fails; with five equal places it
-  holds.
-- `WeightZero.test_profile_ramified_prime`: if p ramifies in F the data are still well formed:
-  certificate 4 asks only that π_v be unramified, and no Fontaine–Laffaille bound is imposed.
+  holds. For local degrees (6,1,1,1,1), the place of degree 6 fails: removing it and any other
+  leaves degree 3, with 2·3<10. Counting five places without their degrees would incorrectly pass.
+  The raw finite-set predicate is true on the empty set, whereas the arithmetic p-place set is
+  nonempty.
+- `WeightZero.test_profile_ramified_prime`: take five ramified p-places of F⁺ with local degrees 2.
+  Removing any two leaves degree 6>10/2, so certificate 2 holds. Certificate 4 asks only that π_v
+  be unramified; excluding these completions adds a condition absent from the definition.
 - `WeightZero.test_profile_no_scalar_at_two`: the data require p odd; for p=2 even a scalar residual
   value outside G_{F(ζ_p)} could not exist, since ζ₂=−1∈F.
 
@@ -418,7 +472,9 @@ Provide the following interface:
 - `WeightZero.test_coefficient_empty`: for I empty, every h acts trivially.
 - `WeightZero.test_coefficient_trivial`: the all-trivial tuple gives exactly
   `Representation.trivial`.
-- `WeightZero.test_coefficient_reduction`: if all characters reduce to one under r, then r(h·1)=1.
+- `WeightZero.test_coefficient_reduction`: over O=ℤ₅[ζ₅], let a cyclic generator act through
+  χ(h)=ζ₅. Its action on 1 is ζ₅⁻¹, and modulo ϖ=ζ₅−1 it becomes 1. Requiring the integral
+  character to be trivial would reject this nontrivial character with trivial reduction.
 
 The source is BCGNT, §3.2, the two alternatives for χ and the module O(χ⁻¹), pp. 32–33.
 
@@ -460,13 +516,17 @@ Provide the following interface:
 - `WeightZero.test_problem_empty_R`: if R=∅ then 𝒮_χ=𝒮_1 and both residual identifications are the
   identity.
 - `WeightZero.test_problem_inertia_rank_two`: for n=2 and trivial χ at v∈R, the inertial condition
-  is that every inertia element has characteristic polynomial (X−1)², not that inertia acts
-  trivially.
+  is that every inertia element has characteristic polynomial (X−1)². The matrix
+  [[1,1],[0,1]] has that polynomial and is not the identity; replacing the condition by trivial
+  inertia would reject it.
 - `WeightZero.test_problem_p_factor`: for every allowed χ the crystalline factor R_p is the same
   ring.
 - `WeightZero.test_problem_variable_determinant`: the framing count n²|S|−1 is that of the
-  variable-determinant problem; imposing a fixed determinant gives a different quotient with a
-  different count and is not substituted.
+  variable-determinant problem: n=2 and |S|=13 give 51 variables. Full GL₂ framings still add 51
+  variables after fixing a determinant. At a p-place an unramified scalar character ψ trivial
+  modulo ϖ preserves the weight-zero crystalline condition, while twisting by ψ changes the
+  determinant by ψ². A definition that silently fixes the determinant of each local factor rejects
+  such a twist when ψ²≠1, even though its framing count agrees.
 
 *Construction.* Insert the three local conditions into the variable-determinant problem of the
 supplier's §7.1 and apply its representability and framing (§7.2). Away from p the χ and trivial
@@ -479,15 +539,16 @@ The source is BCGNT, §3.1.1, the local problems D^{crys,0}_v and D^χ_v, p. 30,
 
 *Needs:* 0.1; 0.3; **ArithmeticLocallySymmetricSpaces**, §4.10 and §5b.8;
 **GlobalGaloisDeformations**, §7.1 and §7.2; **LocalGaloisDeformationRings**, §2.4, §2.13, §2.15,
-§3.4 and §3.10; **DeformationAndDerivedPatchingAlgebra**, R03.1 (`tensor-associativity`).
+§3.4, §3.7 and §3.10; **DeformationAndDerivedPatchingAlgebra**, R03.1 (`tensor-associativity`).
 
 ### Examples
 
-For n=2 and S={v₁,v₂,v₃} with S_p={v₁}, R={v₂}, A={v₃}, the framed global ring has 4·3−1=11 framing
-variables over the unframed ring, the level is GL₂(O_{v₁})×Iw_{v₂}×Iw_{v₃,1} times the hyperspecial
-group away from S, and an allowed nontrivial χ is a pair of distinct characters of k(v₂)^×, each ≡1
-mod ϖ. If F⁺ has five places above p of equal degree, certificate 2 holds for every choice of v̄;
-with four it fails.
+For n=2, let F⁺ have five p-places of degree one, all split in F, so S_p consists of ten places
+v₁,…,v₁₀. Take R={v₁₁} and A={v₁₂,v₁₃} of distinct residue characteristics, and assume the other
+certificates of 0.1. Then |S|=13 and the framed global ring adds 4·13−1=51 variables. The level is
+hyperspecial at the ten p-places, Iwahori at v₁₁ and pro-Iwahori at v₁₂,v₁₃. An allowed nontrivial χ
+has two distinct characters of k(v₁₁)^×, each ≡1 mod ϖ. Removing two of the five places of F⁺ leaves
+3>5/2. Four equal-degree places would fail the strict inequality.
 
 ### Dependencies
 
@@ -529,10 +590,12 @@ back along f_χ, is a well-defined closed subset of Spec R_{𝒮_χ}, its *suppo
    coefficients. This gives ρ_m:G_{F,T}→GL_n(T_χ/J) with the Frobenius polynomials at v∉T (ACC
    Theorem 2.3.7) whose restriction to every v|p factors through the weight-zero crystalline lifting
    ring.
-2. At v∈R use the inertial characteristic-polynomial comparison of AG2.5 (ACC Theorem 3.1.1) for the
-   twisted coefficient, at v∈A impose nothing, and at v∈S^c∖S obtain unramifiedness from the same
-   comparison. Combine the finitely many error ideals with the sum and product bounds of
-   IntegralHeckeAndGaloisDeterminants §5.1; the exponent stays bounded in terms of n and [F:ℚ] only.
+2. At v∈R use the required torsion comparison (ACC Theorem 3.1.1, the unfilled away-p contract
+   above) for the twisted coefficient, at v∈A impose nothing, and at v∈S^c∖S obtain unramifiedness from the same
+   comparison. Use the simultaneous comparison for the whole finite set of places, whose exponent
+   is independent of its cardinality, and combine it with the crystalline comparison using
+   IntegralHeckeAndGaloisDeterminants §5.1. Summing one error ideal per place would not by itself
+   prove a bound independent of |S|.
 3. The universal property of R_{𝒮_χ} gives f_χ; it is surjective because T_χ is generated by the
    T_{v,i}, which are the coefficients of the Frobenius characteristic polynomials (§3a.1 of the
    same roadmap). Transport support through the nilpotent quotient as in convention 6
@@ -549,7 +612,7 @@ The source is BCGNT, Proposition 3.2.3 and its proof, p. 33, following ACC, Prop
 167–168.
 
 *Needs:* 0.2; 0.3; 0.4; **CrystallineLocalGlobalCompatibilityCM**, §7.5;
-**AutomorphicGaloisRepresentationsPartII**, AG2.5; **ArithmeticLocallySymmetricSpaces**, §3.3, §3.11
+the torsion comparison away from p specified above; **ArithmeticLocallySymmetricSpaces**, §3.3, §3.11
 and §6.1; **IntegralHeckeAndGaloisDeterminants**, Layer 2, §3a.1 and §5.1;
 **DeformationAndDerivedPatchingAlgebra**, P9 (`nilpotent-quotient-support`); `PrimeSpectrum.comap`,
 `range_comap_of_surjective`, `Module.support` (Mathlib).
@@ -595,7 +658,8 @@ its proof, pp. 52–55.
 
 ### Examples
 
-For n=2 and F imaginary quadratic (f=1), the localized rational cohomology of a weight-zero cuspidal
+As a cohomological example independent of the preparation in 0.1, take n=2 and F imaginary
+quadratic (f=1). The localized rational cohomology of a weight-zero cuspidal
 π lives in degrees [1,2]: q₀=n(n−1)f/2=1 and ℓ₀=nf−1=1. The polynomial P_v for n=2 is
 X²−T_{v,1}X+q_vT_{v,2}.
 
@@ -643,6 +707,11 @@ does not contain ϖ, which gives characteristic zero.
   not reduced at q, and q contains the two minimal primes (x−ϖ) and (x+ϖ).
 - For A=O[[x]] and q=ϖA, the localization A_q is a discrete valuation ring with uniformizer ϖ and
   residue field the fraction field of k[[x]].
+- The local DVR conclusion also holds for O=k[[ϖ]] in equal characteristic; its generic point
+  avoids ϖ but need not have characteristic zero. The characteristic-zero consequence uses the
+  standing mixed-characteristic coefficient convention.
+- The nonzerodivisor hypothesis is essential: with A=k[x], ϖ=0 and q=(0), the localized quotient
+  is k(x), and A_q is a field rather than a DVR.
 
 The statement is the general algebra in the proof of Caraiani–Newton, Lemma 5.3.3, pp. 76–77, which
 is stated there only for a rank-two Barsotti–Tate ring; the DVR criterion is [Stacks, Tag 00PD].
@@ -673,18 +742,21 @@ local O-algebras with residue field k, and write A⊗̂B for their completed ten
 k⊗_A(A⊗̂B)=k⊗̂B; this gives 1. Geometric integrality of the factors gives integrality of each
 A/𝔭⊗̂B/𝔮, and the minimal primes are its kernels, giving 2 and 3. Part 4 combines 2 and 3 with the
 fact that a special generic point of a pair-component lies in exactly one generic pair-component.
-Parts 5 and 6 are the cases B=O[[z]] and the finiteness of the number of geometric components.
+Part 5 is the case B=O[[z]]. For part 6 use BLGHT Lemma 3.3(8) for the flat finite-type model
+and part (9) for its special fibre; enlarge E further by an unramified extension inducing the finite
+residue extension. Finiteness of the original component set alone does not establish geometric
+integrality after a coefficient extension.
 
 **Checks.**
 
 - dim O[[x]]⊗̂O[[y]]=dim O[[x,y]]=3=2+2−1.
-- Geometric integrality is needed in 2: for u∈ℤ_p^× a non-square, A=ℤ_p[[x,y]]/(x²−uy²) is an O-flat
-  domain with residue field 𝔽_p that becomes reducible over ℤ_{p²}, and A⊗̂A has two minimal primes
+- Geometric integrality is needed in 2: for p odd and u∈ℤ_p^× with nonsquare residue,
+  A=ℤ_p[[x,y]]/(x²−uy²) is an O-flat domain with residue field 𝔽_p that becomes reducible over ℤ_{p²}, and A⊗̂A has two minimal primes
   although A has one.
 - For A with two components and B=O[[z]], A⊗̂B has exactly two components, one over each component
   of A.
 
-The source is Barnet-Lamb–Geraghty–Harris–Taylor, Lemma 3.3, parts 2, 3, 5, 6, 7 and 8, pp. 48–49;
+The source is Barnet-Lamb–Geraghty–Harris–Taylor, Lemma 3.3, parts 2–9, pp. 48–49;
 it is applied to local deformation rings in ACC, Lemmas 6.2.25–6.2.26, pp. 146–148.
 
 *Needs:* 2.1; **DeformationAndDerivedPatchingAlgebra**, R03.1 (completed tensor products,
@@ -710,9 +782,12 @@ which is the claim.
 **Checks.**
 
 - ρ₁ connects to itself.
-- For n=2, weight zero (labelled weights {0,1}), ρ̄ trivial and residue field of K larger than 𝔽_p,
-  the crystalline ring has an ordinary and a non-ordinary component (Caraiani–Newton, Lemma 5.3.4,
-  p. 77); an ordinary and a non-ordinary crystalline lift do not connect.
+- For n=2 and p odd, take the nonzero fixed-determinant weight-zero ring with determinant ε_p⁻¹,
+  trivial ρ̄ and residue field of K different from 𝔽_p. It has exactly two components, ordinary
+  and non-ordinary (Caraiani–Newton, Lemma 5.3.4, p. 77). The unrestricted-determinant weight-zero
+  ring is formally smooth over this slice (the proof of Lemma 5.3.3), with a power-series
+  determinant-character parameter for p odd, so these components remain distinct. This does not
+  assert a two-component classification for residue field 𝔽_p or for a zero ring.
 - Twisting both ρ_i by the same unramified character trivial modulo the maximal ideal preserves the
   relation.
 
@@ -720,7 +795,7 @@ The source is Barnet-Lamb–Gee–Geraghty–Taylor, §1.4, pp. 25–26 of arXiv
 Remark 3.2.2, p. 32.
 
 *Needs:* **PotentialAutomorphyInfrastructurePartII**, PL.1 (`connects-relation`);
-**LocalGaloisDeformationRings**, §3.4, §3.9 and §3.10.
+**LocalGaloisDeformationRings**, §3.4, §3.7, §3.9 and §3.10.
 
 ### 2.4 Dimension and characteristic of the local tensor components
 
@@ -728,14 +803,15 @@ Prove `WeightZero.LocalTensorDimension`. For prepared data and an allowed tuple 
 O-flat and equidimensional of Krull dimension 1+n²|S|+n(n−1)[F:ℚ]/2, and every irreducible component
 has a characteristic-zero generic point. Every local factor is nonzero: the seed gives crystalline
 points at S_p, the trivial residual tame problems have lifts of every type at R, and the
-unrestricted factors at A are formally smooth. After a finite extension of E (2.2, part 6), the
-components of R^{S,loc}_χ, and of its special fibre, are indexed by the tuples of components of the
+unrestricted factors at A are formally smooth. With the geometric component stabilization input
+specified above, after a finite extension of E the components of R^{S,loc}_χ, and of its special fibre, are indexed by the tuples of components of the
 local factors. Dimensions add with a single coefficient dimension: for T⊆S, dim R^{T,loc}_χ is 1
 plus the sum of the relative dimensions of the factors at T, not |T| copies of dim O.
 
 *Proof sketch.* At v∈S_p the crystalline ring is O-flat and equidimensional of dimension
 1+n²+n(n−1)[F_v:ℚ_p]/2 (LocalGaloisDeformationRings §3.9); at v∈R and v∈A the rings are O-flat of
-dimension 1+n² (§2.15, §2.4, §2.13). Apply 2.2, parts 1, 2 and 6, and sum the local degrees
+dimension 1+n² (§2.15, §2.4, §2.13). Apply 2.2, parts 1 and 2, using part 6 if finite-type
+models have been supplied, and sum the local degrees
 [F_v:ℚ_p] over v∈S_p to [F:ℚ].
 
 **Checks.**
@@ -745,7 +821,8 @@ dimension 1+n² (§2.15, §2.4, §2.13). Apply 2.2, parts 1, 2 and 6, and sum th
 
 The source is BCGNT, Lemma 3.2.4(1) and its proof, pp. 33–34.
 
-*Needs:* 0.4; 2.2; **LocalGaloisDeformationRings**, §2.4, §2.13, §2.15, §3.9 and §3.10.
+*Needs:* 0.4; 2.2; the geometric component stabilization input specified above;
+**LocalGaloisDeformationRings**, §2.4, §2.13, §2.15, §3.9 and §3.10.
 
 ### 2.5 Unique generic generalization from the special fibre
 
@@ -757,8 +834,8 @@ regular or reduced.
 *Proof sketch.* At v∈S_p the special fibre of the weight-zero crystalline ring is generically
 reduced for p>n (the contract with WeightZeroCrystallineLiftingRings, BCGNT Theorem 2.5.5); since
 the ring is O-flat, 2.1 gives unique generalizations. At v∈R this is the supplier's §2.15 (trivial
-and distinct χ), at v∈A the ring is formally smooth. Then 2.2, part 4, after the finite extension of
-2.2, part 6, passes to the completed tensor product.
+and distinct χ), at v∈A the ring is formally smooth. Then 2.2, part 4, after the coefficient extension of
+2.4, passes to the completed tensor product.
 
 **Checks.**
 
@@ -814,7 +891,7 @@ of local components. Potential diagonalizability is not used: only a common comp
 
 The source is BCGNT, Lemma 3.2.4(4) and Remark 3.2.2, pp. 32–34.
 
-*Needs:* 0.4; 2.2; 2.3; **LocalGaloisDeformationRings**, §3.10;
+*Needs:* 0.4; 2.2; 2.3; **LocalGaloisDeformationRings**, §3.7 and §3.10;
 **DeformationAndDerivedPatchingAlgebra**, R03.1.
 
 ### 2.8 Residual component transport through distinct types
@@ -845,11 +922,13 @@ The source is BCGNT, Lemma 3.2.4(5) and its proof, and the proof of Theorem 3.2.
 
 ### Examples
 
-For n=2 and F imaginary quadratic with p split, R_p is the completed tensor product of two
-weight-zero (Barsotti–Tate) crystalline rings, each of dimension 1+4+1=6. If ρ̄ is trivial at both
-places and the residue fields are 𝔽_p, the components are not distinguished by ordinarity; for
-residue fields larger than 𝔽_p each factor has an ordinary and a non-ordinary component, so R_p has
-four components and two seeds with different ordinarity at one place do not connect.
+As a local tensor example, take two rank-two weight-zero factors over p-adic fields K₁,K₂ with
+p odd, trivial residual representations, residue fields different from 𝔽_p and nonzero
+fixed-determinant ε_p⁻¹ rings. After splitting the geometric components and adjoining the smooth
+determinant parameters, each factor has two components as in the check of 2.3, and their completed
+tensor product has four by 2.2. Points differing in ordinarity at one factor do not connect. This
+is a local example; it does not instantiate 0.1. If K_i=ℚ_p, the unrestricted factor has dimension
+1+4+1=6, but the cited two-component lemma does not apply.
 
 ### Dependencies
 
@@ -887,12 +966,14 @@ Levi Hecke algebra is transported by t_ν (Vignéras' positive-monoid embedding,
 Levi algebra because a strictly positive central element is invertible), composed with the inverse
 Satake isomorphism of the Levi and the twist by |det|^{(1−n)/2}; the generator of Δ_v acts as the
 diamond operator. In particular each block j∈{1,2} has operators V_{i,j} (1≤i≤ size of the block)
-whose action on 𝔭_v-invariants is the i-th elementary symmetric function in the Satake parameters of
-that block.
+whose action on a semisimplified ordered-partition piece of 𝔭_v-invariants is the i-th elementary
+symmetric function in that block's Frobenius-normalized parameters β_j: if a_j are the normalized
+Satake parameters, β_j=q_v^{(n−1)/2}a_j, the roots of P_v(π;X) in convention 4. The twist in the
+Hecke map is essential for this normalization.
 
 *Global part.* For a finite set S of places as in 0.1 and a non-Eisenstein maximal ideal m with
 residual representation ρ̄_m, a **Taylor–Wiles datum** of level N≥1 is a finite set Q of places of
-F, disjoint from S and from Q^c, such that q_v≡1 mod p^N, v is split over F⁺ and lies above a
+F, disjoint from S∪S^c and from Q^c, such that q_v≡1 mod p^N, v is split over F⁺ and lies above a
 rational prime split in an imaginary quadratic subfield of F, ρ̄_m is unramified at v and v^c, and a
 choice for each v∈Q of an eigenvalue α_v of ρ̄_m(Frob_v), of multiplicity d_v. The levels
 K₁(Q)⊆K₀(Q)⊆K agree with K away from Q and are 𝔭_{v,1}⊆𝔭_v at v∈Q; K₀(Q)/K₁(Q)≅Δ_Q:=∏_{v∈Q}Δ_v. Put
@@ -907,6 +988,10 @@ Provide the following interface:
 
 - `WeightZero.IsSelectedBlockParahoric`: membership in 𝔭_v, as the condition that the entries in the
   rows of the last block and the columns of the first block lie in the maximal ideal of O_{F_v}.
+  The companion's predicate is defined on arbitrary matrices over a commutative ring and an ideal;
+  membership in the arithmetic parahoric additionally restricts to invertible matrices. For d=0,
+  d≥n, n=0 or the unit ideal its entry condition is vacuous; arithmetic selected multiplicities
+  satisfy 1≤d≤n.
 - `WeightZero.SelectedBlockLevel.diamondQuotient`: 𝔭_v/𝔭_{v,1}≅Δ_v through the determinant of the
   last block, and K₀(Q)/K₁(Q)≅Δ_Q.
 - `WeightZero.SelectedBlockLevel.diamondOrder`: if q_v≡1 mod p^N then Δ_v is cyclic of order at
@@ -915,9 +1000,11 @@ Provide the following interface:
   kernel of the determinant to Δ_v.
 - `WeightZero.SelectedBlockLevel.emptyDatum`: for Q=∅, K₁(Q)=K₀(Q)=K, Δ_Q=1 and m_Q=m.
 - `WeightZero.SelectedBlockLevel.goodLevel`: if K is good (0.2), so are K₀(Q) and K₁(Q).
-- `WeightZero.SelectedBlockLevel.blockOperators`: on π^{𝔭_v} for an unramified principal series π
-  with Satake parameters (β₁,…,β_n) ordered so that the last d_v belong to the last block, V_{i,2}
-  acts by e_i(β_{n−d_v+1},…,β_n).
+- `WeightZero.SelectedBlockLevel.blockOperators`: the semisimplification of π^{𝔭_v} for a
+  characteristic-zero unramified principal series π has pieces indexed by the ordered partitions
+  of its Satake-parameter multiset into the two block sizes. On the piece with last-block
+  parameters (β_{n−d_v+1},…,β_n), V_{i,2} acts by e_i(β_{n−d_v+1},…,β_n). This is an assertion
+  about that piece, rather than scalar action on all of π^{𝔭_v}.
 
 **Checks.**
 
@@ -930,6 +1017,10 @@ Provide the following interface:
 - `WeightZero.test_selectedBlock_last`: for n=3 and d_v=1 the blocks are (2,1) and the diamond acts
   on the last rank-one block; the block order (1,2) with a last-block diamond would select a
   rank-two block and is not this level.
+- `WeightZero.test_selectedBlock_eigenspace`: for n=2, d_v=1 and a generic unramified principal
+  series with distinct parameters β₁,β₂, its two-dimensional Iwahori invariants have V_{1,2}
+  eigenvalues β₁ and β₂ on the two pieces. Ordering the parameters does not make V_{1,2} act by β₂
+  on both pieces.
 
 The sources are Miagkov–Thorne, §2 (the two-block parahoric and its operators), pp. 4–7, §3 (the
 groups 𝔭₁, Ξ_{v,1} and the maps t_μ, Proposition 3.1 and Lemma 3.2), pp. 9–11, and §7.2 (the
@@ -956,8 +1047,11 @@ V∈𝒞.
 
 *Proof sketch.* Every irreducible object of 𝒞 is a subrepresentation of an unramified principal
 series (Frobenius reciprocity with the Jacquet module). 𝒞 lies in the unipotent block, which for
-q_v≡1 mod p and p>n is equivalent to modules over the Hecke algebra of the pro-p Iwahori subgroup
-(Clozel–Harris–Taylor, Theorem B.1); it has enough injectives and exact inclusion. Injectivity for
+q_v≡1 mod p and p>n is equivalent to modules over the Hecke algebra of the kernel of
+Iw_v→T(k(v))→T(k(v))(p), where the last group is the maximal p-power quotient of the diagonal
+finite torus (Clozel–Harris–Taylor, Theorem B.1(4), p. 174). This kernel has pro-order prime to the
+coefficient prime p and contains Iw_{v,1}; it need not equal that pro-v Iwahori. The category 𝒞 has
+enough injectives and exact inclusion. Injectivity for
 irreducibles and surjectivity for principal series are Thorne's Lemma 5.10; the injectivity of the
 induced map on H¹ for irreducibles uses the description H¹(Iw,π)≅Hom(T(k(v)),π^{Iw}) and the
 explicit action of e_α on the Iwahori-fixed basis of the principal series. Induction on length and
@@ -971,6 +1065,10 @@ the five lemma conclude.
 - For n=2, d_v=1 and an unramified principal series V with distinct parameters, V^{GL₂(O)} is a line
   and V^{Iw} a plane; the inclusion alone is not surjective, while its composite with e_α is an
   isomorphism onto the α-line.
+- At q_v=11 and p=5, the prime-to-p kernel for GL₁ reduces to {1,−1}⊂𝔽₁₁^×, while the
+  pro-v Iwahori reduces to {1}. A tame quadratic character is trivial on the pro-v Iwahori but
+  takes −1 to −1, so it has no vectors fixed by the larger kernel. Replacing the larger kernel
+  by the pro-v Iwahori would incorrectly retain this nonunipotent summand.
 
 The source is Miagkov–Thorne, §2, Propositions 2.1, 2.6, 2.8 and Theorem 2.14, pp. 4–9, with Thorne
 (2012), Lemma 5.10, arXiv pp. 25–26, and Clozel–Harris–Taylor, Appendix B, Theorem B.1.
@@ -990,6 +1088,10 @@ with Σ_iE_{μ,i}=Res_μ that specialize to Res_μ times the projector onto the 
 eigenspaces of the i-th block (Miagkov–Thorne Lemma 3.7). For an irreducible admissible
 ℂ-representation π of GL_n(F_v) with π^{𝔭₁}≠0 and (r,N)=rec_{F_v}(π):
 
+In items 1–2 the Hecke algebra acts through the untwisted map t_μ∘S_μ⁻¹; item 3 transports the
+statements to Σ^T and rec^T together. Thus the Frobenius parameters in items 1–2 are the ordinary
+normalized Satake parameters, while those in the Σ^T version are the β_j of 3.1.
+
 1. either Res_{q_v,μ}^{n!} acts by zero on π^{𝔭₁}, or N=0 and r=χ₁⊕⋯⊕χ_n with χ₁,…,χ_{n−n_k}
    unramified and χ_{n−n_k+1},…,χ_n tamely ramified with equal restriction to inertia;
 2. either Res_{q_v,μ}^{n!} acts by zero on π^{𝔭₁}, or, over the image of O[Ξ_{v,1}]^{S_μ} in
@@ -1002,11 +1104,13 @@ eigenspaces of the i-th block (Miagkov–Thorne Lemma 3.7). For an irreducible a
 
 *Proof sketch.* The 𝔭₁-invariants of a parabolically induced representation decompose over double
 cosets (Mackey); the Bernstein–Zelevinsky classification writes π as a quotient of an induced
-product of twisted Steinberg representations with tamely ramified supercuspidal support. Summands in
-which a segment of length >1 meets a block of size >1, or in which the last block meets a ramified
-character twice, contribute no 𝔭₁-fixed vectors, which leaves one-dimensional pieces indexed by
-labelled partitions of the supercuspidal support; on each the block operators act by elementary
-symmetric functions. Lemma 3.7's projectors then give the identity.
+product of twisted Steinberg representations with tamely ramified supercuspidal support. In the
+Mackey intersection matrix, an entry n_{ij}>1 puts two characters from the same Steinberg segment
+in one block and contributes no 𝔭₁-fixed vectors (Lemma 3.6). The surviving semisimplified pieces
+are one-dimensional and indexed by labelled partitions separating each segment; the block
+operators act by elementary symmetric functions on each piece. Repeated occurrences of one tame
+character in the last block are allowed. Lemma 3.7's scaled projectors give the identity without
+dividing by a resultant that might vanish.
 
 **Checks.**
 
@@ -1014,8 +1118,16 @@ symmetric functions. Lemma 3.7's projectors then give the identity.
   the scalar ⟨Art⁻¹τ⟩: inertia acts through one tame character of p-power order.
 - For n=2, μ=(1,1) and π an unramified twist of the Steinberg representation, π^{𝔭₁}≠0 while N≠0, so
   Res_{q_v,μ}^{n!} acts by zero; indeed the two block parameters on π^{Iw} differ by the factor q_v.
-- For an unramified principal series, χ_{n−n_k+1},…,χ_n are unramified and the relation reduces to
-  r(τ)=1.
+- For an unramified principal series, r(τ)=1, so the polynomial identity holds, including when
+  Res_μ=0. Scalar inertia is read from normalized projectors only where Res_μ is invertible.
+- For μ=(1,1), q_v=11 and block parameters 1,2, the resultants are Res_μ=−1 and
+  Res_{q_v,μ}=−21. The scaled projector polynomials are E₁(T)=T−2 and E₂(T)=1−T. At
+  r(φ_v)=diag(1,2) they are diag(−1,0) and diag(0,−1); if r(τ)=diag(1,δ), their combination
+  E₁(r(φ_v))+δE₂(r(φ_v))=−r(τ) is exactly Res_μ·r(τ). If the two block parameters coincide,
+  Res_μ=0 and this polynomial identity cannot be cancelled to recover normalized projectors.
+- For μ=(2), a generic unramified principal series twisted by χ∘det, with χ of tame p-power order,
+  has a fixed vector under the determinant kernel 𝔭₁, and both inertia characters are χ. A rule
+  forbidding a repeated ramified character in the last block fails this example.
 
 The source is Miagkov–Thorne, §3, Proposition 3.1, Lemmas 3.2–3.7 and Propositions 3.8–3.13, pp.
 9–15.
@@ -1043,10 +1155,13 @@ bounded amplitude and bounded rank, the bounds depending only on K and V and not
 (ArithmeticLocallySymmetricSpaces §6.1). For the first it suffices to work modulo ϖ and one place
 v∈Q at a time. Write M_j for the colimit over principal congruence levels at v of the localized
 mod-ϖ cohomology in degree j; Hochschild–Serre spectral sequences for GL_n(O_{F_v}) and 𝔭_v (with
-e_α) compute the two sides. Decompose M_j into blocks (Vignéras); a nonunipotent block has no
-pro-p-Iwahori invariants, so both sides vanish on it. On the unipotent block every irreducible
-subquotient is associated to ρ̄_m(Frob_v), by local–global compatibility at Iwahori level (ACC
-Theorem 3.1.1, through AG2.5), so M_j lies in the category 𝒞 of 3.2, and 3.2 gives the isomorphism.
+e_α) compute the two sides. Decompose M_j into blocks (Vignéras). A nonunipotent block has no
+invariants under the prime-to-p Iwahori kernel described in 3.2; its quotient is T(k(v))(p).
+The cohomology of that finite p-group on zero invariants vanishes, so both sides vanish on the
+nonunipotent block. On the unipotent block every irreducible
+subquotient is associated to ρ̄_m(Frob_v), by the required torsion comparison at Iwahori level (ACC
+Theorem 3.1.1, the unfilled away-p contract), so M_j lies in the category 𝒞 of 3.2, and 3.2 gives
+the isomorphism.
 Duality turns derived invariants into derived coinvariants. Perfectness over O[Δ_Q] comes from a
 finite equivariant cell structure (ArithmeticLocallySymmetricSpaces §1.6); since O[Δ_Q] is local, a
 minimal representative has ranks equal to the dimensions of the cohomology of its reduction modulo
@@ -1064,12 +1179,13 @@ bounds do not depend on Q.
 The source is Miagkov–Thorne, Theorem 7.6 and its proof, pp. 26–27.
 
 *Needs:* 3.1; 3.2; **ArithmeticLocallySymmetricSpaces**, §1.6, §6.1 and §6.2;
-**AutomorphicGaloisRepresentationsPartII**, AG2.5; **SmoothRepresentationsOfLocalGroups**, SR.3.2.
+the torsion comparison away from p specified above; **SmoothRepresentationsOfLocalGroups**, SR.3.2.
 
 ### 3.5 Galois representations at selected-block Taylor–Wiles level
 
 Prove `WeightZero.selectedBlock_galois_representation`. Let S satisfy certificate 1 of 0.1 and
-S=S^c, K be good and hyperspecial outside S, m⊂𝕋^S(K,V) non-Eisenstein with V as in 3.4, and
+write T=S∪S^c, let K be good and hyperspecial outside S, m⊂𝕋^S(K,V) non-Eisenstein with V as in
+3.4, and
 (Q,(α_v)) a Taylor–Wiles datum. There are an ideal I of 𝕋_Q:=𝕋^{S′}_Q(K₀(Q)/K₁(Q),V)_{m_Q} whose
 nilpotence degree depends only on n and [F:ℚ], and a continuous lift ρ_{m,Q}:G_{F,S∪Q}→GL_n(𝕋_Q/I)
 of ρ̄_m, such that
@@ -1084,7 +1200,11 @@ of ρ̄_m, such that
 In the setting of 1.1 the same holds with the local conditions at S_p of
 CrystallineLocalGlobalCompatibilityCM §7.5 retained, with one nilpotence bound for all Q.
 
-*Proof sketch.* Twist by a character of odd prime order ℓ≠p, ramified away from S′, to make the
+*Proof sketch.* First use the conjugation-stable excluded set T=S∪S^c, and then remove ramification
+at T∖S using the simultaneous torsion comparison away from p specified in the unfilled supplier
+contract. Keep the deformation problem framed at S. This is the reduction of ACC Proposition
+6.5.3; enlarging the excluded Hecke set does not add framed places. Twist by a character of odd
+prime order ℓ≠p, ramified away from T∪Q∪Q^c, to make the
 characteristic polynomials of ρ̄_m at v and v^c coprime for every v∈Q; the twisted and untwisted
 Hecke algebras are identified, so it suffices to treat the twisted case, and reduce to trivial
 weight by trivializing V modulo ϖ^m at deeper p-level. Then pass to the quasi-split unitary group G̃
@@ -1113,7 +1233,8 @@ Theorems 7.1, 7.2, 7.5 and Lemma 7.4, pp. 22–25; and Theorem 7.7 with its proo
 *Needs:* 3.1; 3.3; 3.4; **CrystallineLocalGlobalCompatibilityCM**, §6.6–§6.13 (degree shifting and
 the unitary Hecke-valued determinants), §5 (the localized Siegel boundary) and §7.5;
 **IntegralHeckeAndGaloisDeterminants**, Layers 0, 1, 4 and §5.1;
-**AutomorphicGaloisRepresentationsPartII**, AG2.5 and AG2.7; **LocalGaloisDeformationRings**, §2.23;
+the torsion comparison away from p specified above; **AutomorphicGaloisRepresentationsPartII**, AG2.7;
+**LocalGaloisDeformationRings**, §2.23;
 **ArithmeticLocallySymmetricSpaces**, §3.3.
 
 ### 3.6 Adequate Taylor–Wiles primes
@@ -1121,7 +1242,8 @@ the unitary Hecke-valued determinants), §5 (the localized Siegel boundary) and 
 Prove `WeightZero.adequate_taylor_wiles_primes`. Let 𝒮 be a global deformation problem with variable
 determinant as in GlobalGaloisDeformations §7.1, with T=S framed and p∤2n. Assume F=F⁺F₀ for an
 imaginary quadratic field F₀, ζ_p∉F, and ρ̄(G_{F(ζ_p)}) adequate. Let q>h¹_{𝒮^⊥,T}(ad ρ̄(1)) (the
-dimension of the dual Selmer group). Then for every N≥1 there is a Taylor–Wiles datum
+dimension of the dual Selmer group), and assume q≥n²[F⁺:ℚ]. Then for every N≥1 there is a
+Taylor–Wiles datum
 (Q_N,(α_v)_{v∈Q_N}) of level N with
 
 1. |Q_N|=q and Q_N∩S=∅;
@@ -1150,7 +1272,7 @@ O[Δ_v]) gives g=q−n²[F⁺:ℚ].
 - The hypothesis ζ_p∉F is used; it holds whenever some σ∉G_{F(ζ_p)} has ρ̄(σ) scalar.
 
 The source is Miagkov–Thorne, Definition 6.6 and Proposition 6.7, pp. 21–22, whose proof refers to
-ACC, Proposition 6.2.32, and Thorne (2012), Proposition 4.4, arXiv pp. 23–24.
+ACC, Proposition 6.2.32, and Thorne (2012), Proposition 4.4, arXiv:1107.5989v1 pp. 17–18.
 
 *Needs:* 3.1; **GlobalGaloisDeformations**, §7.1–§7.3 and §8.5–§8.7;
 **LocalGaloisDeformationRings**, §2.23; **ArithmeticGaloisRepresentations**, §7.9 and §7.12.
@@ -1245,7 +1367,10 @@ interval; duality sends degree i to d−i, and d−(a+ℓ₀)=a+1.
 
 **Checks.**
 
-- For n=2, f=1, s=1, q=4: j=3, g=0, dim S_∞=8, dim R_∞=7, ℓ₀=1, a=1, and the dual interval is [2,3].
+- The integer identities at n=2, f=1, s=1, q=4 give j=3, g=0, dim S_∞=8, dim R_∞=7, ℓ₀=1,
+  a=1 and dual interval [2,3]. This computes only the formulas: f=1 does not satisfy 0.1. For
+  prepared data with f=5, s=13 and q=20 they give j=51, g=0, dim S_∞=72, dim R_∞=63,
+  ℓ₀=9, a=5 and dual interval [6,15].
 - No count qn from the enormous tower is used.
 - The shift convention of the dual is that of the supplier's patching datum, not an unshifted
   identification with the original degrees.
@@ -1298,6 +1423,8 @@ Provide the following interface:
   degrees [2,3].
 - `WeightZero.test_patched_residual_square`: the two actions on the common residual complex agree
   only after both error images are killed; killing one is not the specified square.
+  For endomorphisms u,v, duality sends u∘v to D(v)∘D(u), so the comparison of Hecke images
+  uses an anti-isomorphism. It does not identify composition in the same order.
 - `WeightZero.test_patched_empty_R`: if R=∅ the two coefficient systems and their identifications
   can be taken identical, with the same patching apparatus.
 - `WeightZero.test_patched_codimension`: replacing g=q−n²f by qn−n²f breaks dim R_∞=dim S_∞−ℓ₀ for
@@ -1350,8 +1477,9 @@ pp. 77–79.
 
 ### Examples
 
-For n=2 and F imaginary quadratic (f=1) with s=|S|=3: d=4, a=1, ℓ₀=1, j=11, and with q=4 one has
-g=0, dim S_∞=1+11+4=16 and dim R_∞=15. At a Taylor–Wiles place where ρ̄(Frob_v) has eigenvalues α≠β,
+For the prepared n=2 example of WZ.0 with f=5 and s=13, take q=20 and dual Selmer dimensions
+below 20. Then d=20, a=5, ℓ₀=9, j=51, g=0, dim S_∞=72 and dim R_∞=63, so the difference is 9. At a Taylor–Wiles place
+where ρ̄(Frob_v) has eigenvalues α≠β,
 choosing α gives the Iwahori level with diamond on the second diagonal entry; if instead ρ̄(Frob_v)
 is scalar α, d_v=2 and the level is GL₂(O_v) with diamond through the determinant.
 
@@ -1417,7 +1545,9 @@ change π_E of the seed, and prepared data over E (0.1) for π_E, such that:
    PotentialAutomorphyInfrastructure §2.6–§2.7 but split at p and at every rational prime below
    V₀∪V₁∪V₂, so that every rational prime below a bad place or ramified in E splits in an imaginary
    quadratic subfield. Add two auxiliary places of different residue characteristics with scalar
-   residual Frobenius and H²=0 (PotentialAutomorphyInfrastructure §5.13).
+   residual Frobenius, q_w≢1 mod p and H²=0 (PotentialAutomorphyInfrastructure §5.13). The two
+   places may be chosen outside any prescribed finite set; in particular they can avoid all places
+   above a fixed v∤p at which ρ and π are unramified.
 4. Base change the seed (PotentialAutomorphyInfrastructure §2.3), using irreducibility of the
    restriction, and verify the eight certificates. Connectedness at p is unchanged because the
    completions are unchanged.
@@ -1433,6 +1563,9 @@ Provide the following interface:
   witness.
 - `WeightZero.SolvableWeightZeroPreparation.degree`: with t>4 split copies of every place above p,
   removing two places leaves strictly more than half of [E⁺:ℚ].
+- `WeightZero.SolvableWeightZeroPreparation.avoidGoodPlace`: for any fixed v∤p at which ρ and π
+  are unramified, carry out the construction with every w|v outside S_E, by keeping these places
+  out of the bad-place set and choosing the two auxiliary places elsewhere.
 - `WeightZero.SolvableWeightZeroPreparation.seed`: the base-changed seed gives a supported point,
   and connectedness at p gives the same component labels as ρ|G_E.
 
@@ -1463,7 +1596,8 @@ Prove `WeightZero.PreparedWeightZeroRealization`. In the situation produced by 4
 cuspidal automorphic representation Π_E of GL_n(𝔸_E), regular algebraic of weight zero, with
 r_ι(Π_E)≅ρ|G_E and (Π_E^∞)^K≠0. Π_{E,w} is unramified at every place above p and every place outside
 S_E. At the auxiliary places of A no unramifiedness follows from pro-v-Iwahori-fixed vectors; any
-ramification there is controlled at the descent step, through the unramified Galois parameter.
+ramification there is treated by repeating preparation with those auxiliary places omitted when
+proving the global common-unramified conclusion.
 
 *Proof sketch.* The seed point is in the support and the lift has the same crystalline component
 labels, so 3.10 (with ζ_p∉E from the scalar witness) puts the lift in the support. Read off a
@@ -1539,9 +1673,14 @@ imposed.
 3. Descend Π_E to F by soluble descent (PotentialAutomorphyInfrastructure §2.3), using
    irreducibility of ρ|G_E, and identify the descended Galois representation with ρ. At v|p complete
    splitting identifies the local factors, so Π_v is unramified.
-4. At a finite v∤p where ρ and π are unramified, the local base change identity at every place
-   (§2.3) and Varma's comparison (AG2.5, in the form of PotentialAutomorphyInfrastructure §2.19)
-   show that the local parameter of Π_v is unramified, hence Π_v is unramified.
+4. Fix a finite v∤p where ρ and π are unramified. Repeat preparation with all w|v outside S_E
+   (4.1, `avoidGoodPlace`), so the new Π_{E,w} is unramified. The descended Π is independent of
+   these choices: its good Frobenius polynomials are those of ρ, and strong multiplicity one
+   identifies the descended automorphic representations. The local base change identity at every
+   finite place (§2.3) gives rec(Π_v)|_{W_{E_w}} unramified, so its monodromy is zero and its inertia
+   image is finite. Varma's semisimplified comparison with the unramified ρ (AG2.5) then makes that
+   finite inertia image trivial in characteristic zero. Thus Π_v is unramified. The separate pure
+   compatible-system theorem requiring purity is not needed for this argument.
 
 **Checks.**
 
@@ -1549,10 +1688,13 @@ imposed.
 - Unramifiedness at p comes from hyperspecial level and complete splitting, not from a
   Fontaine–Laffaille argument.
 - The conclusion is stated in weight zero; no other weight is carried.
+- Semisimplified inertia alone does not rule out monodromy: an unramified Steinberg parameter
+  has trivial inertia and N≠0. Step 4 first obtains N=0 by unramified base change, then uses the
+  characteristic-zero comparison to eliminate the remaining finite inertia.
 
 The source is BCGNT, Theorem 3.2.1, pp. 31–32, with its proof on p. 35; ACC, §6.5.12, pp. 175–179.
 
-*Needs:* 4.1; 4.2; 4.3; **PotentialAutomorphyInfrastructure**, §2.3 and §2.19;
+*Needs:* 4.1; 4.2; 4.3; **PotentialAutomorphyInfrastructure**, §2.3;
 **AutomorphicGaloisRepresentationsPartII**, AG2.5; **PotentialAutomorphyInfrastructurePartII**,
 PL.1.
 
@@ -1569,7 +1711,7 @@ p-adic restriction is given. The preparation keeps the ramified completion at p.
 
 **AutomorphicGaloisRepresentationsPartII**, AG2.0, AG2.5, AG2.7; **ClassFieldTheory**, Layers 7, 11;
 **GlobalNumberFields**, Layers 9–10; **PadicHodgeTheory**, R06.2;
-**PotentialAutomorphyInfrastructure**, §2.1–§2.7, §2.19, §3.44, §5.13;
+**PotentialAutomorphyInfrastructure**, §2.1–§2.7, §3.44, §5.13;
 **PotentialAutomorphyInfrastructurePartII**, PL.1.
 
 ## Layer WZ.5: The adequate ordinary companion
@@ -1658,13 +1800,14 @@ The source is Miagkov–Thorne, Theorem 1.3, pp. 2–3, and §8, pp. 28–30; AC
 179–189; it is the input of BCGNT, proof of Theorem 6.2.4, p. 60, which keeps the common unramified
 places.
 
-*Needs:* 4.3; 5.1; **PotentialAutomorphyInfrastructure**, §2.3, §2.7, §2.19, §3.44 and §3.47;
+*Needs:* 4.3; 5.1; **PotentialAutomorphyInfrastructure**, §2.3, §2.7, §3.44 and §3.47;
 **AutomorphicGaloisRepresentationsPartII**, AG2.5.
 
 ### Examples
 
-For n=2 and an elliptic curve over an imaginary quadratic F with ordinary reduction at the places
-above p, λ=(0,0) at every embedding gives diagonal inertia exponents 0 and −1 in the formula above,
+For n=2, take the dual p-adic Tate module of an elliptic curve over an imaginary quadratic F
+with ordinary reduction at the places above p. Then λ=(0,0) at every embedding gives diagonal
+inertia exponents 0 and −1 in the formula above,
 that is Hodge–Tate weights 0 and 1, and the seed may be any ι-ordinary π with the same residual
 representation, of any weight.
 
@@ -1672,7 +1815,7 @@ representation, of any weight.
 
 **ArithmeticGaloisRepresentations**, §7.9; **AutomorphicGaloisRepresentationsPartII**, AG2.5;
 **DeformationAndDerivedPatchingAlgebra**, P8, P9; **LocalGaloisDeformationRings**, §1.3, §1.7, §1.9,
-§6.1, §6.24, §7.6; **PotentialAutomorphyInfrastructure**, §2.3, §2.4, §2.7, §2.19, §3.6, §3.43,
+§6.1, §6.24, §7.6; **PotentialAutomorphyInfrastructure**, §2.3, §2.4, §2.7, §3.6, §3.43,
 §3.44, §3.47, §4.6, §4.7, §5.13–§5.16.
 
 ## Corrections to the sources
@@ -1745,7 +1888,8 @@ conjectures for Bianchi modular forms.
   [doi:10.2977/PRIMS/31](https://ems.press/journals/prims/articles/4468). Lemma 3.3, pp. 48–49.
 - **Thorne (2012)** — J. A. Thorne, *On the automorphy of l-adic Galois representations with small
   residual image*, J. Inst. Math. Jussieu 11 (2012), 855–920;
-  [arXiv:1107.5989v1](https://arxiv.org/pdf/1107.5989), Proposition 4.4 and Lemma 5.10.
+  [arXiv:1107.5989v1](https://arxiv.org/pdf/1107.5989v1), Proposition 4.4 (pp. 17–18) and
+  Lemma 5.10 (pp. 25–26).
 - **Clozel–Harris–Taylor** — L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts
   of automorphic mod l Galois representations*, Publ. Math. IHÉS 108 (2008), [published
   paper](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf); Appendix B, Theorem B.1.

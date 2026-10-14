@@ -1,26 +1,15 @@
-import Mathlib.RepresentationTheory.Basic
-import Mathlib.Algebra.Module.LinearMap.End
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Algebra.Group.Pi.Lemmas
-import Mathlib.RingTheory.Ideal.MinimalPrime.Basic
-import Mathlib.RingTheory.Localization.AtPrime.Basic
-import Mathlib.RingTheory.DiscreteValuationRing.Basic
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.Data.Rat.Defs
-import Mathlib.Tactic.NormNum
+import Mathlib
 
 /-!
-# Weight-zero crystalline automorphy lifting with p arbitrarily ramified: suggested forms
+# WeightZeroCrystallineAutomorphyLifting: representative target signatures
 
-This file is not the roadmap and is not an exhaustive checklist: the README is the specification,
-and the declarations here are suggested forms for the parts that the pinned Mathlib and Tau Ceti can
-already express. It contains the light definitions of Layers WZ.0 and WZ.3 with real bodies, the
-general commutative-algebra milestone of Layer WZ.2 and the integer core of the dimension balance of
-Layer WZ.3, each with discriminating examples. Locally symmetric spaces, Hecke-valued Galois
-representations, local lifting rings, patched complexes and automorphic representations are not
-available at the pins; every statement about them is a README target only.
+The roadmap is README.md. This file records definitions and theorem signatures statable against
+the pinned APIs and is not exhaustive. It makes explicit the strict complementary-degree bound,
+the precedence of the local-level branches, the inverse auxiliary character, the last selected
+block and integer arithmetic in the dimension balance. The local DVR milestone is over an
+arbitrary Noetherian commutative ring; its arithmetic applications use a mixed-characteristic DVR.
 
-Proofs are `sorry`. Names follow the README, with `WeightZero.X` for README target `WeightZero.X`.
+Proofs are `sorry`.
 -/
 
 noncomputable section
@@ -31,7 +20,7 @@ namespace TauCetiRoadmap.WeightZeroCrystallineAutomorphyLifting
 
 namespace WeightZero
 
-/-! ## Layer WZ.0 -/
+/-! ## Layer WZ.0: Prepared data, level and the deformation problem -/
 
 /-- README 0.1, certificate 2: for every place `v` among the places `P` of `F⁺` above `p`, with
 local degrees `deg`, some other place `v'` leaves a complementary local degree strictly larger than
@@ -87,7 +76,7 @@ example {I : Type*} [Fintype I] {G : I → Type*} [∀ i, Group (G i)] {H O : Ty
     AuxiliaryCoefficient (fun i => (1 : G i →* Oˣ)) θ = Representation.trivial O H O := by
   sorry
 
-/-! ## Layer WZ.2 -/
+/-! ## Layer WZ.2: Local tensor components and their transport -/
 
 /-- README 2.1: if `ϖ` is a nonzerodivisor of a Noetherian ring `A`, `q` is a prime minimal over
 `ϖ`, and the special fibre `A/ϖ` is reduced at `q`, then `q` contains exactly one minimal prime of
@@ -113,7 +102,7 @@ theorem isDiscreteValuationRing_localization_of_isReduced {A : Type*} [CommRing 
 example : ∃! P : Ideal ℤ, P ∈ minimalPrimes ℤ ∧ P ≤ Ideal.span {(5 : ℤ)} := by
   sorry
 
-/-! ## Layer WZ.3 -/
+/-! ## Layer WZ.3: Adequate Taylor–Wiles method, patching and prepared support -/
 
 /-- README 3.1: membership of a matrix in the selected-block parahoric of type `(n - d, d)` with
 respect to an ideal `I`: the entries in the rows of the last (selected) block and the columns of the
@@ -150,6 +139,11 @@ example : (1 + (2 ^ 2 * 1 - 1) + 4 : ℤ) = 8 ∧
 example : (1 + 2 ^ 2 * 1 + 2 * (2 - 1) * 1 + (4 * 2 - 2 ^ 2 * 1)) + (2 * 1 - 1) ≠
     (2 ^ 2 * 1 + 4 : ℤ) := by
   sorry
+
+/- README definitions whose arithmetic carriers are not available at the pins:
+PreparedWeightZeroData, CrystallineGlobalProblem, SelectedBlockLevel,
+AdequateCrystallineTower, WeightZeroPatchedSystem and SolvableWeightZeroPreparation. The first and
+third use the light complementaryDegreeCondition and IsSelectedBlockParahoric predicates above. -/
 
 end WeightZero
 
