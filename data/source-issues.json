@@ -167587,48 +167587,6 @@
    "reviewReason": "The v2 graded-piece definitions on pp.24–25 and untwisted comparison in the p.26 proof contradict the extra twist in the theorem display. No assertion is made about the unavailable published display."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-tail-truncation",
-   "kind": "error",
-   "locator": "Published Lemma 4.7, p.1136; same tail condition in arXiv:2101.01862v4, p.25.",
-   "printed": "The truncation index is constrained only at coefficient indices satisfying ord_p(F_i) + i = n.",
-   "correction": "For all i ≥ m require ord_p(F_i) + i ≥ n, using ord_p(0) = infinity; retain the convergence and multiplicity obligations of the ED.6 root-determination-precision node.",
-   "reason": "The coefficient of T^i in G(T) = p^(−k)F(pT) has valuation ord_p(F_i) + i − k. A polynomial truncation of degree below m modulo p^(n−k) therefore needs a bound for every tail index. For F(x) = p^5 − p x + x^2, m = 2, n = 5, k = 2, the only equality index is 0, whereas G(T) = p^3 − T + T^2 has a unit coefficient in degree 2. This repeats the obstruction already recorded by the ED supplier; it supplies no new root-isolation proof.",
-   "affects": "a stated result",
-   "known": "Already recorded as EffectiveDiophantineMethods/E21, confirmed by REV-EffectiveDiophantineMethods~3. Freshly checked here in the published and v4 passages; not claimed new.",
-   "searched": [
-    "Published Compositio 159 (2023), p.1136",
-    "arXiv:2101.01862v4, p.25",
-    "research/blueprint/packets/EffectiveDiophantineMethods.json, E21"
-   ],
-   "owner": "AnabelianGeometryAndNonabelianChabauty",
-   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
-   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for Modular Curves: Algorithms and Examples, Compositio Mathematica 159 (2023), 1111–1152; version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
-  },
-  {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-phi-branch",
-   "kind": "misprint",
-   "locator": "arXiv:2101.01862v4, p.24, final branch equality before Proposition 4.6; compared with published (4.21), p.1134, and branch equality, p.1136.",
-   "printed": "The eventual branch for phi(i) includes an additional c1.",
-   "correction": "The branch is phi(i) = −2 floor(log_p i). Add c1 when applying the separate splitting estimate, as in the final coefficient bound.",
-   "reason": "Substituting the eventual minimum into the published definition (4.21) gives two negative floor-log terms. The published branch agrees; c1 remains in Proposition 4.6's final bound.",
-   "affects": "nothing",
-   "known": "Corrected in the published Compositio 159 (2023), p.1136; already recorded as EffectiveDiophantineMethods/E30.",
-   "searched": [
-    "arXiv:2101.01862v4, pp.24–25",
-    "Published Compositio 159 (2023), pp.1134–1136",
-    "research/blueprint/packets/EffectiveDiophantineMethods.json, E30"
-   ],
-   "owner": "AnabelianGeometryAndNonabelianChabauty",
-   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
-   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for Modular Curves: Algorithms and Examples, arXiv:2101.01862v4; retained only for the version comparison",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
-  },
-  {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-conjugation-eigenspaces",
    "kind": "error",
    "locator": "Publ. RIMS 45 (2009), §3, proof of Proposition 2, p.123 (published version).",
@@ -167645,9 +167603,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "Checked at p.123 of the published PDF: for n odd the (−1)-eigenspace is said to have dimension d_n/2 by comparison with complex Hodge theory, with no distinction between the open and the compact case. For P¹ ∖ {0, 1, ∞} the graded piece is Q_p(n)^{d_n} and complex conjugation acts on it by (−1)^n, so for odd n the (−1)-eigenspace is the whole piece. The correction was rederived: in the affine case the graded Lie algebra is free on H₁, the character formula for the involution gives τ_n, the compact part of H₁ has trace 0 and the boundary part trace 1 − r (r real boundary points), so t = −m only for g = 0 with every boundary point real; Proposition 2 survives through the (+1)-eigenspaces."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-h1-notation",
@@ -167666,9 +167624,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "In the published PDF (sha256 b06562bc…), checked as rendered page images, pp.124–126 print the homology H₁(X̄, Q_p) with a subscript in every place the finding names: the surjection and the injection in the proof of Lemma 6, and the sequence 0 → W → H₁(X̄, Q_p) → V → 0 with W = Q_p(1)^{s−1} and V = H₁(X̄′, Q_p) in Observation 3. The cohomology H¹ appears only where it is meant: the local dual H⁰(G_w, H¹(X̄, Q_p)^{⊗n}(1)), the weight filtration of H¹ and V ≅ H¹(X̄′, Q_p)(1). A plain-text extraction of the PDF loses the distinction between the subscript and the superscript, which is the likely origin of the finding."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-purity-open",
@@ -167687,9 +167645,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "p.122 says V_n is pure of weight n − 2, while Conjecture 2 (p.121) is stated for any smooth curve. For affine X the weights of H¹ are 1 and 2 and V_n has weights in [n − 2, 2n − 2] (for P¹ ∖ {0, 1, ∞} it is pure of weight 2n − 2). The splitting argument only needs all weights of V_n to be positive, which holds for n ≥ 3, so the conclusion stands."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-rank-one",
@@ -167708,9 +167666,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "p.127 claims finiteness for CM elliptic curves over Q of rank 1 independently of any conjecture, and p.129 sets the dimension of the refined Selmer group of H₁(Ē, Q_p) equal to 1 by the rank one hypothesis. That group is the Bloch–Kato Selmer group of V_pE (the local H¹ vanishes at ℓ ≠ p and H¹_g = H¹_f at p), of dimension rank E(Q) plus the Z_p-corank of Ш(E)[p^∞]; finiteness of Ш(E)[p^∞] is needed and is not stated."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-prime-list",
@@ -167728,9 +167686,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers, A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves, arXiv:1209.0640v4; all locators use preprint pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "§1.16, p.8 of v4 lists p = 3, 5, 6; §8.2, p.49 reports the numerical check for p = 3, 5, 7 and failure from p = 11."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-congruence-or",
@@ -167748,9 +167706,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers, A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves, arXiv:1209.0640v4; all locators use preprint pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "§7.6, p.48 of v4 asks for 3 ≤ p ≤ 53 with p ≡ 3 mod 8 and p ≡ 5 mod 8, which no prime satisfies; d = 2 is a nonsquare in Q_p exactly when p ≡ ±3 mod 8, which is what the construction needs."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-bdckw-selmer-index",
@@ -167768,9 +167726,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers, A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves, arXiv:1209.0640v4; all locators use preprint pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "§6.2, p.44 of v4 says Sel_1(X) still vanishes because H¹(G_T, Q_p(2)) = 0; the following display describes X(Z_p)_2 and needs Sel_2(X) = 0, which is what the vanishing on the new graded piece Q_p(2) gives."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-stix-theorem-reference",
@@ -167788,9 +167746,9 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Jakob Stix, On cuspidal sections of algebraic fundamental groups, arXiv:0809.0017v1 (2008); published in Galois–Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math. 63 (2012), 519–563. Locators use the arXiv v1 pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "Remark 46, p.22 of v1 refers to the assumptions of Theorem B. The paper's numbered theorems are 4, 14, 17, 30, 34, 36, 41 and 45, with no lettered theorem; the remark follows Theorem 45 and discusses its divisibility hypothesis."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim2005-soule-range",
@@ -167808,9 +167766,70 @@
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
    "citation": "Minhyong Kim, The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel, arXiv:math/0409456v1 (2004); published in Invent. Math. 161 (2005), 629–656. Locators use the arXiv v1 pagination; the published version was not read.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "p.18 of v1 says H¹(G_T, Q_p(2n+1)) has dimension 1 for n ≥ 3 and ends the bound with r_{2⌊n/2⌋}. The bound itself uses r_3 and r_5, Soulé's theorem gives dimension one for every odd twist at least 3, and the graded pieces with nonzero H¹ are those of odd degree, so the last index is the largest odd integer at most n."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-pseudonull-fg",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §4, proof of Observation 4, p.131 (published version).",
+   "printed": "Pseudo-nullity of I as a Λ-module is said to imply that I is finitely generated over Z_p (with a reference to Greenberg 1978, §2), from which a Frobenius element has only finitely many eigenvalues on I ⊗ Q_p.",
+   "correction": "Pseudo-nullity gives that I ⊗ Q_p is finite-dimensional, equivalently that I modulo its Z_p-torsion is finitely generated over Z_p. This weaker statement is all the weight argument uses, since every Λ-homomorphism from I to a Q_p-vector space kills the torsion.",
+   "reason": "In the CM case with p odd, G_∞ ≅ Z_p² and Λ ≅ Z_p[[T_1, T_2]]. The module Λ/(p, T_1) ≅ F_p[[T_2]] has support of height two, so it is pseudo-null, but it is an infinite-dimensional F_p-vector space and not finitely generated over Z_p. For a finitely generated pseudo-null I, the quotient I′ = I/I[p^∞] has p as a nonzerodivisor, so dim I′/pI′ ≤ dim I′ − 1 ≤ 0; hence I′/pI′ is finite and I′ is finitely generated over Z_p by Nakayama's lemma for compact modules.",
+   "affects": "the proof",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.130–131",
+    "research/errata/REGISTER.md and the sourceIssues of the NC.0–NC.5 packets",
+    "Greenberg, Invent. Math. 47 (1978), the cited source: not freely available and not read"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "Found by the independent review at the locator; the counterexample and the corrected argument are given in the entry."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-cd2-p2",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §3, proof of Lemma 6, p.124 (published version).",
+   "printed": "The surjection from H² of the n-th tensor power of H₁ onto H² of the graded piece is justified by the p-cohomological dimension of G_T being 2.",
+   "correction": "cd_p(G_T) = 2 holds for p odd or for a totally imaginary base field. Over Q with p = 2 the real place makes cd_2(G_T) infinite; the surjection still holds with Q_p-coefficients, because H³(G_T, M) ≅ ⊕_{v real} H³(G_v, M) is killed by 2 for finite 2-primary M, so H³ vanishes after inverting p.",
+   "reason": "Conjecture 1 and Proposition 2 are over F = Q, and the paper puts no restriction on the prime p of good reduction, so p = 2 is allowed. For F = Q and p = 2, H^r(G_T, Z/2) is the cohomology of the real place for every r ≥ 3 and is nonzero (the statement planned in ArithmeticGaloisDuality R02.4/cohomological-dimension-bound).",
+   "affects": "nothing",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.120–125",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "Found by the independent review at the locator."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-kim-lemma6-open",
+   "kind": "error",
+   "locator": "Publ. RIMS 45 (2009), §3, proof of Lemma 6, p.124 (published version).",
+   "printed": "For w not dividing p the weight filtration W_0 ⊂ W_1 ⊂ W_2 is placed on H¹(X̄, Q_p) itself, coming from Raynaud's uniformisation of the Jacobian, with W_0 isomorphic to Gr_2(−1) and so dim Gr_2 ≤ g.",
+   "correction": "For an affine curve the Raynaud filtration lives on H¹ of the compactification X′. On H¹(X̄) the top graded piece also contains the boundary part, a form of Q_p(−1)^{s−1}, so W_0 ≅ Gr_2(−1) and dim Gr_2 ≤ g fail when s ≥ 2. The displayed local bound stays valid with Gr_2 taken on H¹(X̄) (of dimension at most g + s − 1), equivalently with Gr_2 of H¹(X̄′) plus the boundary term n(s − 1)g^{n−1}, and the estimate P(n)g^n of Lemma 6 is unchanged.",
+   "reason": "The Gysin sequence 0 → H¹(X̄′) → H¹(X̄) → ker(Q_p(−1)^{D(F̄)} → Q_p(−1)) → 0 adds s − 1 dimensions of weight 2. For X = P¹ ∖ {0, 1, ∞} (g = 0, s = 3), H¹(X̄) = Q_p(−1)² is pure of weight 2, so Gr_2 has dimension 2 > g and W_0 = 0 is not Gr_2(−1).",
+   "affects": "nothing",
+   "known": "new; no erratum found.",
+   "searched": [
+    "Publ. RIMS 45 (2009), pp.123–125",
+    "research/errata/REGISTER.md"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Publications of RIMS 45 (2009), 89–133; publisher PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
+   "reviewReason": "Found by the independent review at the locator."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E1",
@@ -181528,7 +181547,7 @@
   {
    "id": "ClassicalArithmeticCompletion/ECA6-1",
    "kind": "misprint",
-   "locator": "§1.4(5), printed p. 2, published 1963–1964 seminar scan",
+   "locator": "1.4.5, printed p. 2 (3-02), published 1963–1964 seminar scan",
    "printed": "The set B(A,P) is written using P(x)=y for every y∈A.",
    "correction": "Use P(x)∈A, equivalently there exists y∈A with P(x)=y.",
    "reason": "For A={0,1} the printed universal condition gives an empty set, while the inverse image of a nonempty compact set under a positive-degree complex polynomial is nonempty. The following capacity identity concerns that inverse image.",
@@ -181540,14 +181559,14 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
    "citation": "Françoise Bertrandias, Diamètre transfini dans un corps valué. Application au prolongement analytique, Séminaire Delange–Pisot–Poitou 5 (1963–1964), exposé 3, printed pp. 1–13; Numdam published scan.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.6",
+   "reviewReason": "Checked on the page image of p. 3-02: the set is printed with the universal quantifier. For A={0,1} and P=X it is empty, while the identity τ(B)=τ(A)^(1/k) and the lemniscate Application concern the inverse image {x: P(x)∈A}."
   },
   {
    "id": "ClassicalArithmeticCompletion/ECA6-2",
    "kind": "error",
-   "locator": "§1.4(6), printed p. 2, published 1963–1964 seminar scan",
+   "locator": "1.4.6, printed p. 2 (3-02), published 1963–1964 seminar scan",
    "printed": "The polynomial-lemniscate approximation is bounded by (1+η)d(A) without excluding d(A)=0.",
    "correction": "Restrict that multiplicative statement to d(A)>0, or use d(L)<r for every r>d(A), as the enclosure node does.",
    "reason": "For A={0}, d(A)=0. Any nonempty positive-level polynomial lemniscate has positive diameter, so its diameter cannot be at most (1+η)·0. The additive enclosure follows directly from the Chebyshev infimum and includes finite sets.",
@@ -181559,15 +181578,15 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
    "citation": "Françoise Bertrandias, Diamètre transfini dans un corps valué. Application au prolongement analytique, Séminaire Delange–Pisot–Poitou 5 (1963–1964), exposé 3, printed pp. 1–13; Numdam published scan.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.6",
+   "reviewReason": "Checked on the page image of p. 3-02. For A={0} in ℂ, τ(A)=0 while every lemniscate {|P|≤α} with α>0 has τ=α^(1/k)>0, so no lemniscate satisfies τ(A_η)≤(1+η)τ(A). The bound holds when τ(A)>0."
   },
   {
    "id": "ClassicalArithmeticCompletion/ECA6-3",
    "kind": "misprint",
    "locator": "§2, Theorem 1 proof, PDF pp. 2–3, undated ETH-hosted author notes",
-   "printed": "The initial anti-diagonal determinant has sign (−1)^(n(n−1)); the later (d+1)-block has sign (−1)^(d(d−1)/2).",
+   "printed": "The initial anti-diagonal determinant has sign (−1)^(n(n−1)); the (d+1)-block that follows has sign (−1)^(d(d−1)/2).",
    "correction": "The respective reversal signs are (−1)^(n(n−1)/2) and (−1)^(d(d+1)/2).",
    "reason": "A 2×2 zero-upper anti-diagonal matrix with entries t has determinant −t². Both printed signs give +t² in the corresponding n=2 or d=1 cases. Only vanishing, not the sign, is needed in the proof.",
    "affects": "nothing",
@@ -181578,9 +181597,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
    "citation": "Aitor Iribar López, The Carlson-Pólya theorem on rational functions, Undated author notes hosted at ETH Zürich; 36-page PDF including an appendix; §2 checked as page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.6",
+   "reviewReason": "Checked on the page images of PDF pp. 2–3. An n×n Hankel matrix vanishing above its anti-diagonal has determinant (−1)^(n(n−1)/2) times the n-th power of the anti-diagonal entry; for n=2 this is −a₁², while (−1)^(n(n−1)) gives +a₁². Likewise the (d+1)-block gives −e² for d=1."
   },
   {
    "id": "ClassicalArithmeticCompletion/ECA6-4",
@@ -181588,7 +181607,7 @@
    "locator": "§2, block matrix in the proof of Theorem 1, PDF p. 3, undated ETH-hosted author notes",
    "printed": "The repeated error entry is indexed 2n+d while the invertible leading block is H_r.",
    "correction": "The entry is a_(2r+d)−b_(2r+d).",
-   "reason": "The first still-unmatched coefficient in this induction is 2r+d; the block is H_(r+d+1). The later determinant formula itself uses that corrected index.",
+   "reason": "The first still-unmatched coefficient in this induction is 2r+d; the block is H_(r+d+1). The determinant formula right after the matrix uses that corrected index.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -181597,9 +181616,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
    "citation": "Aitor Iribar López, The Carlson-Pólya theorem on rational functions, Undated author notes hosted at ETH Zürich; 36-page PDF including an appendix; §2 checked as page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.6",
+   "reviewReason": "Checked on the page image of PDF p. 3: every anti-diagonal entry of the displayed matrix reads a_(2n+d)−b_(2n+d), while n is not in scope and the next display uses a_(2r+d)−b_(2r+d)."
   },
   {
    "id": "ClassicalArithmeticCompletion/ECA6-5",
@@ -181616,9 +181635,9 @@
    "owner": "ClassicalArithmeticCompletion",
    "file": "research/blueprint/packets/ClassicalArithmeticCompletion--CA.6.json",
    "citation": "Aitor Iribar López, The Carlson-Pólya theorem on rational functions, Undated author notes hosted at ETH Zürich; 36-page PDF including an appendix; §2 checked as page images.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalArithmeticCompletion--CA.6",
+   "reviewReason": "Checked on the page image of PDF p. 3: with c_r=−1, (3) gives Σ_(k≤r) c_k a_(m+k)=a_(m+r)−a_(m+r)=0, and the next line needs exactly this vanishing to conclude Q(1/z)f(z)∈ℚ[1/z]."
   },
   {
    "id": "ClassicalArithmeticCompletion/E901",
@@ -232913,7 +232932,7 @@
    "id": "PadicFamilies/E1",
    "kind": "misprint",
    "locator": "Lemma 4.5, proof, pp. 29–30 (author manuscript, 2 August 2006)",
-   "printed": "−log |rn(x)| + log |rd(x)| ≥(n −d)t for d < n < N.",
+   "printed": "The proof omits logarithms on the factors multiplying n−d in several neighbourhood inequalities.",
    "correction": "−log|r_n(x)| + log|r_d(x)| ≥ (n − d) log t for d < n < N, and likewise (n − d) log t in the reversed inequalities defining W and in the parenthetical 'for all n ≥ N' on p. 30.",
    "reason": "The preceding sentence proves the bound with (n − d) log(t), and every other quantity in the construction (γ₁, γ₂, δ₁, δ₂, log r) is logarithmic; since t > log t the printed condition is stronger than what holds on V, so V ⊂ X would fail.",
    "affects": "the proof",
@@ -232926,15 +232945,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The preceding Newton bounds are logarithmic; replace t by log(t) in the displayed inequalities. This checks the stated repair, scoped to the manuscript read."
   },
   {
    "id": "PadicFamilies/E2",
    "kind": "misprint",
    "locator": "Lemma 4.5, proof, p. 30",
-   "printed": "The source claims emptiness of X ∩W together with X ∪V = B.",
+   "printed": "The two displayed covering identities use X and V where the strict-neighbourhood construction needs V and W.",
    "correction": "V ∩ W is empty and X ∪ W = B.",
    "reason": "The definition of strict neighbourhood on p. 28 asks for a finite union of affinoids U with U ∩ S = ∅ and U ∪ T = B, here S = V, T = X, U = W. The printed identities are false in general: X ∩ W contains the boundary points where equality holds, and X ∪ V = X.",
    "affects": "the proof",
@@ -232947,15 +232966,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The construction needs V∩W=∅ and X∪W=B. Since V⊆X, X∪V=X cannot be the asserted covering identity in general."
   },
   {
    "id": "PadicFamilies/E3",
    "kind": "error",
    "locator": "Lemma 4.5, proof, p. 29",
-   "printed": "−log |rn(x)| + log |rd(x)| ≥(n −d)γ1 for 0 < n < d",
+   "printed": "The low-index Newton conditions omit the coefficient with index zero.",
    "correction": "Take 0 ≤ n < d: the n = 0 condition −log|r_d(x)| ≤ dγ₁ (r₀ = 1) is the uniform lower bound for |r_d| on X that the argument needs (equivalently impose δ₂ < dγ₂); then the text's count of N conditions is right.",
    "reason": "Without it the claim that f_s⁻¹(X) → X has constant degree d fails: for P(T) = 1 + uT over the closed unit disc, V = {|u| = 1}, r = 1, d = 1, the printed X = {|u| ≥ e^{−δ₂}} with δ₂ > γ₂ contains points over which the fibre in the disc of radius s = e^{γ₂} is empty. Found by the R1 review of the integrated decomposition (2026-09-15) and re-checked here.",
    "affects": "the proof",
@@ -232968,15 +232987,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "For P(T)=1+uT and d=1, omitting n=0 permits a chart with no root in the selected radius over some base points. Including n=0 supplies the necessary uniform lower bound on the leading coefficient."
   },
   {
    "id": "PadicFamilies/E4",
    "kind": "gap",
    "locator": "Theorem 4.6, proof, pp. 30–31",
-   "printed": "The proof asserts f −1 r (Ui) ⊆∪n(i) α=1Yα and describes ∪n(i) α=1Xα as a neighbourhood of Ui in B that is strict.",
+   "printed": "The induction hypothesis does not retain the inclusion of each old truncated inverse image in its selected spectral block.",
    "correction": "Add to H(i) that f_r⁻¹(X_α) ⊆ Y_α for every α (true because s_α > r), and use it to cover the points of U_{i−1} ∖ U_i lying in some old X_α.",
    "reason": "The induction step covers W ∩ U_{i−1} by new blocks but never checks the points of f_r⁻¹(U_{i−1}) over the old X_α; the printed H(i) does not record the needed inclusion.",
    "affects": "the proof",
@@ -232989,15 +233008,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "Record f_r⁻¹(X_α)⊆Y_α for old blocks. This inclusion follows from s_α>r and closes the uncovered old-block branch in the induction; the finding concerns the written proof bookkeeping."
   },
   {
    "id": "PadicFamilies/E5",
    "kind": "gap",
    "locator": "§5, construction of the slope factor, p. 34",
-   "printed": "The source invokes Theorem 3.3 to obtain the decomposition MA = N ⊕F.",
+   "printed": "The slope decomposition is invoked after divisibility of the polynomial factor has been shown, without recording analytic coprimality.",
    "correction": "Before invoking Theorem 3.3, prove that Q is coprime to F_A/Q: over each point x, since Y is open and closed in f⁻¹(X), the roots of Q_x are exactly the roots of F_x in Y_x with full multiplicity, so the resultant Res(Q, F_A/Q) has no zero on Max A and is a unit.",
    "reason": "Theorem 3.3 requires a factorisation F = QS with (Q, S) = 1; the text only shows Q | F_A.",
    "affects": "the proof",
@@ -233010,15 +233029,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "Full root multiplicities in an open-and-closed selected spectral block make the resultant nonvanishing at each maximal ideal, hence a unit. That supplies the hypothesis required by Theorem3.3."
   },
   {
    "id": "PadicFamilies/E6",
    "kind": "misprint",
    "locator": "Lemma 5.6, proof, p. 40",
-   "printed": "The proof cites Lemma 2.13 as establishing equality of Zφ and Z′ φ.",
+   "printed": "The link argument cites the base-change lemma for the cyclic determinant identity.",
    "correction": "By Lemma 2.12 (det(1 − Xuv) = det(1 − Xvu)), Z_φ and Z′_φ are equal.",
    "reason": "Lemma 2.13 is the base-change lemma; the equality of the Fredholm series of φ = αc and φ′ = cα is Lemma 2.12, which p. 39 cites correctly for the same step.",
    "affects": "the proof",
@@ -233031,15 +233050,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The cyclic identity is Lemma2.12, whereas Lemma2.13 concerns base change. The correction is a reference-number repair."
   },
   {
    "id": "PadicFamilies/E7",
    "kind": "misprint",
    "locator": "§5, the data of Construction 5.7, p. 41",
-   "printed": "The source uses αij for the map MXi → MXi b⊗O(Xi)O(Xj).",
+   "printed": "The restriction-link codomain has the wrong affinoid indices.",
    "correction": "α_ij : M_{X_i} → M_{X_j} ⊗̂_{O(X_j)} O(X_i) for X_i ⊆ X_j, with α₁₃ = (α₂₃ ⊗̂ 1) ∘ α₁₂.",
    "reason": "The link for X_i ⊆ X_j compares the module on the smaller affinoid with the base change of the module on the larger one (the sentence before the display defines α : M_Y → M_X ⊗̂ R_Y for Y ⊆ X); the printed target is mis-indexed and the composite law does not typecheck.",
    "affects": "a stated result",
@@ -233052,15 +233071,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "For X_i⊆X_j the map goes from the module on X_i to the base change of the module on X_j. The corrected source and target make the cocycle law type-consistent."
   },
   {
    "id": "PadicFamilies/E8",
    "kind": "gap",
    "locator": "Lemma 5.9, proof, p. 42",
-   "printed": "The proof says that separatedness of Dφ prevents problems under extension of the base to L, allowing the assumption L = K.",
+   "printed": "The proof reduces an extension-field eigensystem calculation to the base field using separatedness without recording the construction’s flat base-change comparison.",
    "correction": "Justify the reduction by the flat base change of the whole construction along R_X → R_X ⊗̂_K L (Lemmas 5.4–5.5), and prove both directions of the bijection over K, including that an eigenvector with λ(φ) ≠ 0 lies in N ⊗ K.",
    "reason": "Separatedness alone does not identify L-points of D_φ with eigensystems over L; the reduction to N ⊗ K is asserted without argument.",
    "affects": "the proof",
@@ -233073,15 +233092,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "Use Lemmas5.4–5.5 for flat coefficient extension and show a nonzero-φ eigenvector lies in the finite Riesz summand. Separatedness alone does not make that comparison."
   },
   {
    "id": "PadicFamilies/E9",
    "kind": "gap",
    "locator": "Lemma 5.5, proof, p. 37",
-   "printed": "The proof invokes Proposition 9.1.4/2 of [1] because the sets cover Zφ′, which is separated, and every member of C′ is affinoid.",
+   "printed": "The covering argument invokes the affinoid-intersection theorem as if it also established admissibility.",
    "correction": "The pulled-back blocks form an admissible cover because finitely many of them cover each truncation Z′_r (an affinoid), as in Theorem 4.6; BGR 9.1.4/2 only gives that intersections of affinoids in a separated space are affinoid.",
    "reason": "Covering a separated rigid space by affinoids does not make the cover admissible.",
    "affects": "the proof",
@@ -233094,15 +233113,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "BGR9.1.4/2 gives affinoid intersections in a separated space. Finite covering of each affinoid truncation is the additional admissibility argument."
   },
   {
    "id": "PadicFamilies/E10",
    "kind": "misprint",
    "locator": "§2.4, Lemma 2.10(2), p. 9, and Lemma 2.11(2), p. 9 (arXiv v2)",
-   "printed": "The source chooses T1 ∈EndR(M), T2 ∈EndR(M), and f ∈HomR(M, N).",
+   "printed": "The intertwining lemma declares its second endomorphism on the source module or source complex rather than on the target.",
    "correction": "T₂ ∈ End_R(N) in Lemma 2.10(2), and T₂ ∈ End_R(D•) in Lemma 2.11(2) (printed T₂ ∈ End_R(C•)).",
    "reason": "f ∈ Hom_R(M, N) intertwines T₁ and T₂ and the conclusion is about N_ord, so T₂ acts on N; the proof uses B(T₂)N_non-ord = 0.",
    "affects": "a stated result",
@@ -233114,17 +233133,17 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Chandrashekhar Khare and Jack A. Thorne, Potential automorphy and the Leopoldt conjecture, arXiv:1409.7007v2 (6 July 2016), 50 pages; published in Amer. J. Math. 139 (2017), no. 5, 1205–1273. Page numbers are those of the arXiv v2 PDF.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The equation fT₁=T₂f requires T₂ to act on N, or on the target complex D•. This is the printed domain misprint in the read arXiv version."
   },
   {
    "id": "PadicFamilies/E11",
    "kind": "gap",
    "locator": "§3.2, Proposition 3.3 and its proof, pp. 35–36 (Numdam PDF pages 32–33)",
-   "printed": "Proposition 3.3 assumes that each element of U/U∩F^× acts without fixed points on D^×\\G^D(A^f). It claims that M_∞(U) and M⁺_∞(U) are free over Λ′_𝒪, with rank rank_𝒪 eH⁰(X(U⁰_1), 𝒪) times the order of the torsion subgroup of G(U). The proof says it suffices to establish this before applying e.",
-   "correction": "The argument shows that the Pontryagin dual of eH⁰(X(U_a), K/𝒪) is projective over 𝒪[G(U_a)] and that M_∞(U), M⁺_∞(U) are projective over 𝒪[[G(U)]], hence free over Λ′_𝒪, of rank rank_𝒪(M_∞(U) ⊗_{Λ′_𝒪} 𝒪). The stated rank, and freeness over 𝒪[G(U_a)], need in addition that the ordinary parts have equal 𝒪-rank on the factors of 𝒪[G(U_a)] belonging to the different characters of the prime-to-p torsion of G(U_a).",
-   "reason": "e is an 𝒪[G(U_a)]-linear idempotent on the free 𝒪[G(U_a)]-module dual to H⁰(X(U_a), K/𝒪), so the dual of the e-part is a direct summand, i.e. projective. 𝒪[G(U_a)] is a product of local rings indexed by the (Galois orbits of) characters of the prime-to-p part of G(U_a), and a projective module is free of the stated rank only if its ranks on these factors agree; the proof's coinvariant computation sees only the trivial character. The components correspond to nearly ordinary forms with different tame characters at p, whose dimensions the argument does not compare. Corollary 3.4 and Lemmas 3.10 and 3.19 use only freeness over Λ′_𝒪, which the argument does give.",
+   "printed": "The proposition concludes freeness of the ordinary direct summand with a rank computed from only the untwisted coinvariants.",
+   "correction": "Keep finite-level projectivity factor by factor. To pass to a completed projective module and deduce Λ′-freeness, prove uniform finite generation on every torsion-character factor (or all corresponding maximal ideals), not just the augmentation factor. The constant-rank claim across finite group-ring factors needs an additional argument and is not retained. The completed finite-generation/projectivity input is a packet gap.",
+   "reason": "The ordinary idempotent gives a projective summand at a finite level. A product of character-local rings permits different ranks. Moreover, a nontrivial prime-to-p character factor can have zero untwisted coinvariants while being nonzero, so untwisted compact Nakayama cannot prove the needed global finite generation.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -233134,19 +233153,19 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "An idempotent summand of a finite group-ring free module is projective; with prime-to-p torsion there are several local character factors whose ranks need not agree. The proposed finite-generation repair was strengthened: untwisted coinvariants do not control all torsion factors, so completed projectivity/finite generation remains an explicit gap."
   },
   {
    "id": "PadicFamilies/E12",
    "kind": "gap",
    "locator": "§3.2.3, Proposition 3.6 and its proof, pp. 27–28 (arXiv v1)",
-   "printed": "Proposition 3.6 asserts a Hecke-equivariant isomorphism between modular symbols with values in V_k and the spaces of modular forms of weight k + 2 and level Γ, split by the involution into two injections whose images contain the cusp forms, with the boundary symbols corresponding to Eisenstein series; the proof states that the author could not find a complete proof in the literature and admits it.",
-   "correction": "The cuspidal part is the Eichler–Shimura isomorphism of ModularSymbolsPadicLFunctions L0 (eichler-shimura-isomorphism, with symbols-mod-eisenstein and boundary-symbols for the boundary part); the Eisenstein part is needed only for the evil-Eisenstein and sign statements (§3.2.4) and for Proposition 3.18's comparison including Eisenstein points.",
+   "printed": "The early preprint invokes the full modular-symbol/form comparison while omitting a proof of its Eisenstein part.",
+   "correction": "Import the cuspidal comparison from its existing modular-symbol owner. For the full boundary part, use the dual Eisenstein quotient convention and the later author Proposition3.15, pp.33–34, with its still-required boundary/cohomology comparison. Do not derive the full comparison from the cuspidal isomorphism alone.",
    "reason": "The proof is explicitly omitted at the locator; Corollary 3.7 and Proposition 3.18 depend on it.",
    "affects": "the proof",
-   "known": "stated by the author in the proof of Proposition 3.6",
+   "known": "Acknowledged in the early preprint; the later 2011 author version Proposition3.15, pp.33–34, gives an outline and still refers to forthcoming details. Published text not obtained.",
    "searched": [
     "the published version (Invent. Math. 189, 2012) was not read; arXiv v1 only",
     "arXiv listing of 0912.2925 (one version)"
@@ -233154,15 +233173,15 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The omitted proof is acknowledged in the early text. The later author Proposition3.15, pp.33–34, outlines a Poincaré-duality construction for the dual Eisenstein quotient but still refers to forthcoming details. The cuspidal supplier alone does not prove the full comparison."
   },
   {
    "id": "PadicFamilies/E13",
    "kind": "gap",
    "locator": "§2, standing hypothesis, p. 7, as applied to Λ = ℤ_p[[ℤ_p^×]] in Parts III–IV",
-   "printed": "Section 2 assumes the coefficient ring complete, local and noetherian with finite residue field, but the ordinary projectors are later taken over the weight algebra ℤ_p[[ℤ_p^×]], which for odd p is semi-local with p − 1 factors.",
+   "printed": "The coefficient assumptions are local in the projector section, whereas the later full weight algebra has several complete local factors for odd p.",
    "correction": "Apply §2 factor by factor over the complete local factors of the semi-local ring, reading 'perfect' as 'bounded complex of finite projective modules' (L0a/semilocal-ordinary-projector).",
    "reason": "The decomposition of ℤ_p[[ℤ_p^×]] by the characters of μ_{p−1} makes it a product of p − 1 complete local rings; a finite projective module over the product need not be free when its ranks on the factors differ.",
    "affects": "the proof",
@@ -233174,28 +233193,113 @@
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weights, Duke Math. J. 169 (2020), no. 9, 1647–1807; author's copy from the maintainer's cleared library (cite as: Pilloni, Duke Math. J. 169, 2020; author's copy), page numbers of that copy.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "Apply the argument factorwise for the finite product and retain bounded finite-projective complexes; finite projective modules of different factor ranks need not be globally free. This verifies the required semilocal extension, not a failure of the factorwise theorem."
   },
   {
    "id": "PadicFamilies/E14",
    "kind": "error",
    "locator": "§3.2.1, the isomorphism (10) and the sentence after it, p. 25; used in the proof of Proposition 3.3(i) and (iii), p. 26 (arXiv v1)",
-   "printed": "Modular symbols Symb_Γ(A) are identified with a finite direct sum ⊕_i A^{Γ_i} over representatives δ_i of Δ₀/Γ whose stabilisers Γ_i are said to be finite, and it is deduced that the formation of Symb_Γ commutes with every base change in characteristic zero.",
-   "correction": "Δ₀ is not a permutation ℤ[Γ]-module and Δ₀/Γ is not finite; the finite description is a presentation of Δ₀ by Manin relations, exhibiting Symb_Γ(A) as the kernel of an A-linear map A^a → A^b. This gives (Pr) and compatibility with flat base change; compatibility with the specialisation R → ℚ_p at a weight needs the universal-coefficients comparison for compactly supported cohomology, with Tor terms.",
+   "printed": "The early preprint treats the degree-zero divisor module as a finite direct sum of permutation orbits with finite stabilizers, and concludes unrestricted specialization.",
+   "correction": "Use the finite Manin-generators closed embedding, not a permutation direct sum. On the later author’s nice charts Lemma3.7 proves potential orthonormalisability from the PID reduction hypothesis. Theorem3.10 and Corollary3.12 retain a one-dimensional E₂ cokernel at weight0 with negative sign (slope≤ν only when ν≥1). Use the global-image convention g of Definition3.13 in eigenvariety comparisons. A closed kernel alone does not prove property(Pr).",
    "reason": "Γ preserves the coefficients of a divisor, so the divisors n({0} − {∞}), n ≥ 1, lie in pairwise different Γ-orbits and Δ₀/Γ is infinite; moreover a modular symbol is additive, Φ(nδ) = nΦ(δ), so the values at orbit representatives are not independent and Φ ↦ (Φ(δ_i))_i is not onto a direct sum of invariants. The conclusions Bellaïche draws need the presentation of Δ₀ by Manin relations instead.",
-   "affects": "the proof",
-   "known": "new: not checked against the published version (Invent. Math. 189, 2012) or Bellaïche's book The Eigenbook (2021)",
+   "affects": "a stated result",
+   "known": "Corrected in criticalbeforepublication2.pdf (51-page author copy, metadata 22 July 2011), Proposition3.6/Lemma3.7, pp.27–28, and Theorem3.10/Corollary3.12, pp.30–32. Published text not obtained.",
    "searched": [
-    "arXiv:0912.2925 (one version)"
+    "arXiv:0912.2925 (one version)",
+    "2026-10-14: read the later author version criticalbeforepublication2.pdf and attempted the Springer published PDF; the latter returned subscription HTML."
    ],
    "owner": "PadicFamilies",
    "file": "research/blueprint/packets/PadicFamilies.json",
    "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The divisors n({0}−{∞}) give infinitely many distinct orbits and their values must satisfy additivity. A finite Manin-generators embedding replaces the false direct-sum formula. The later Theorem3.10/Corollary3.12 computes a nonzero weight0 negative-sign E₂ cokernel, so the early unrestricted specialization assertion is also false."
+  },
+  {
+   "id": "PadicFamilies/E15",
+   "kind": "error",
+   "locator": "Lemma3.1(iii), §3.1.3, p.23, arXiv:0912.2925v1 (early preprint only)",
+   "printed": "The completed tensor coefficient module R⊗̂D[r] is identified with the entire continuous R-valued dual of R⊗̂A[r].",
+   "correction": "Retain its continuous evaluation pairing and construct the tensor action by bounded function multiplication, as in the later author §§3.1.2 and3.1.4. Do not identify this coefficient module with the full dual.",
+   "reason": "For R=ℚ_p⟨T⟩ and A[1]=ℚ_p⟨z⟩, evaluation z=T has moments T^n. Modulo p they span an infinite-dimensional coefficient space, whereas uniform approximation by a finite tensor sum gives moment values in a finite-dimensional coefficient space modulo p. Therefore this functional is outside R⊗̂D[1].",
+   "affects": "a stated result",
+   "known": "Corrected explicitly in the 2011 author version §3.1.2, p.23, which distinguishes these duals and constructs the action on p.26. Published text not obtained.",
+   "searched": [
+    "2026-10-14: arXiv:0912.2925 version listing and the public author versions critical.pdf and criticalbeforepublication2.pdf.",
+    "2026-10-14: Springer article page and published PDF endpoint for DOI10.1007/s00222-011-0358-z; article is subscription-only and full published text was not obtained.",
+    "The Eigenbook (2021) was not read; no assertion about its treatment is made."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "For R=ℚ_p⟨T⟩ and A[1]=ℚ_p⟨z⟩, evaluation z=T has moments T^n. Modulo p they span an infinite-dimensional coefficient space, whereas uniform approximation by a finite tensor sum gives moment values in a finite-dimensional coefficient space modulo p. Therefore this functional is outside R⊗̂D[1]."
+  },
+  {
+   "id": "PadicFamilies/E16",
+   "kind": "misprint",
+   "locator": "Proposition4.11, §4.3.1, p.39, arXiv:0912.2925v1; also Proposition4.11, p.44 of the 2011 author version",
+   "printed": "The chosen parameters are asserted to satisfy u(k)≠0 and t(x)≠0, while u has its only zero at k and t^e=u.",
+   "correction": "The uniformizers satisfy u(k)=0 and t(x)=0.",
+   "reason": "The preceding Proposition4.6 chooses uniformizers of the geometric DVRs. Evaluating t^e=u at x forces t(x)^e=u(k)=0. The printed nonvanishing signs contradict both the zero-locus assertion and the intended local normal form.",
+   "affects": "the proof",
+   "known": "Not corrected in the two author/preprint versions read; published text not obtained.",
+   "searched": [
+    "2026-10-14: arXiv:0912.2925 version listing and the public author versions critical.pdf and criticalbeforepublication2.pdf.",
+    "2026-10-14: Springer article page and published PDF endpoint for DOI10.1007/s00222-011-0358-z; article is subscription-only and full published text was not obtained.",
+    "The Eigenbook (2021) was not read; no assertion about its treatment is made."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "The preceding Proposition4.6 chooses uniformizers of the geometric DVRs. Evaluating t^e=u at x forces t(x)^e=u(k)=0. The printed nonvanishing signs contradict both the zero-locus assertion and the intended local normal form."
+  },
+  {
+   "id": "PadicFamilies/E17",
+   "kind": "error",
+   "locator": "§3.2.2, p.26 and the displayed θ sequence in §3.2.3, p.27, arXiv:0912.2925v1 (early preprint only)",
+   "printed": "After fixing a Banach radius r≤1, the text states a raw θ exact sequence for D=D[r]; it also describes Θ as transposed k-th differentiation.",
+   "correction": "Differentiation is of order k+1. A radius-loss exact sequence on global overconvergent disc functions gives a valid dagger version, but transport to the locally analytic symbol coefficients requires finite-slope radius links. The fixed-radius Banach exactness is not used.",
+   "reason": "At k=0 and r=1, the bounded functional μ with μ(1)=0 and μ(z^n)=1 for n≥1 lies in kerρ₀. The only derivative-transpose preimage has ν(z^n)=1/(n+1), unbounded at n=p^a−1. Thus it is not in D[1]. Radii<1 also introduce separate polynomial kernels on residue discs.",
+   "affects": "a stated result",
+   "known": "The later 2011 author §3.2.5, p.33, uses dagger control and does not repeat this raw exact sequence. No assertion is made about the published edition.",
+   "searched": [
+    "2026-10-14: arXiv:0912.2925 version listing and the public author versions critical.pdf and criticalbeforepublication2.pdf.",
+    "2026-10-14: Springer article page and published PDF endpoint for DOI10.1007/s00222-011-0358-z; article is subscription-only and full published text was not obtained.",
+    "The Eigenbook (2021) was not read; no assertion about its treatment is made."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "At k=0 and r=1, the bounded functional μ with μ(1)=0 and μ(z^n)=1 for n≥1 lies in kerρ₀. The only derivative-transpose preimage has ν(z^n)=1/(n+1), unbounded at n=p^a−1. Thus it is not in D[1]. Radii<1 also introduce separate polynomial kernels on residue discs."
+  },
+  {
+   "id": "PadicFamilies/E18",
+   "kind": "error",
+   "locator": "Lemma3.3 proof, §3.1.3, p.25, criticalbeforepublication2.pdf (51-page author copy, metadata 22 July 2011)",
+   "printed": "The proof exponentiates log(κ(γ)) to describe the character on all of 1+pℤ_p and asserts agreement at γ.",
+   "correction": "Choose m so κ(γ^{p^m}) is uniformly in the exponential convergence ball. Use log/exp on that deeper subgroup and multiply by the character values on finitely many cosets. This still proves existence of a sufficiently small analytic radius.",
+   "reason": "A nontrivial p-power finite-order character has κ(γ)=ζ_p but log(ζ_p)=0, so the proposed exponential character has value1 at γ. On a general affinoid log(κ(γ)) can also lie outside the exponential convergence radius. The deeper-subgroup proof avoids both problems.",
+   "affects": "the proof",
+   "known": "No correction found in the read author version; published text and The Eigenbook not obtained.",
+   "searched": [
+    "2026-10-14: arXiv:0912.2925 version listing and the public author versions critical.pdf and criticalbeforepublication2.pdf.",
+    "2026-10-14: Springer article page and published PDF endpoint for DOI10.1007/s00222-011-0358-z; article is subscription-only and full published text was not obtained.",
+    "The Eigenbook (2021) was not read; no assertion about its treatment is made."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Joël Bellaïche, Critical p-adic L-functions (later author version), 51-page author copy criticalbeforepublication2.pdf, PDF metadata 22 July 2011; internal page numbers. Distinct from arXiv:0912.2925v1 and not identified with the 60-page published edition.",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicFamilies",
+   "reviewReason": "A nontrivial p-power finite-order character has κ(γ)=ζ_p but log(ζ_p)=0, so the proposed exponential character has value1 at γ. On a general affinoid log(κ(γ)) can also lie outside the exponential convergence radius. The deeper-subgroup proof avoids both problems."
   },
   {
    "id": "PadicHodgeRegulators/E101",
@@ -253081,9 +253185,30 @@
    "owner": "SerreWeightAndLevelOptimisation",
    "file": "research/blueprint/packets/SerreWeightAndLevelOptimisation.json",
    "citation": "Kevin Buzzard, On level-lowering for mod 2 representations, Mathematical Research Letters 7 (2000), 95–110; publisher PDF.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-SerreWeightAndLevelOptimisation",
+   "reviewReason": "The reviewer read the publisher statement on p. 103 and its proof on pp. 105–106. The proof needs the unramified residual restriction at the removed prime; the full conductor gives an independent obstruction if it is ramified. Ribet–Stein Theorem 3.19, author pp. 49–51, explicitly supplies that hypothesis."
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation/E2",
+   "kind": "misprint",
+   "locator": "Published §2, p. 358, definition of ord_q before equation (3)",
+   "printed": "The verbal definition describes ord_q as the largest dividing prime power, while equation (3) uses ord_q as the integer exponent valuation.",
+   "correction": "Use ord_q(a)=v_q(a), the exponent e for which q^e is the largest q-power dividing nonzero a. Equation (3) then tests ℓ|e.",
+   "reason": "For q=3, ℓ=7 and Δ=3^7·47, exponent divisibility removes the exactly-once conductor factor 3; literal divisibility of the prime power 3^7 by 7 would not remove it. The reduced-level formula, standard local conductor criterion and the packet’s discriminating example all require the exponent.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page and journal errata searches for the exact published title",
+    "Bennett and Siksek publication listings",
+    "arXiv:1709.01022 version listing and exact-title valuation/correction search"
+   ],
+   "owner": "SerreWeightAndLevelOptimisation",
+   "file": "research/blueprint/packets/SerreWeightAndLevelOptimisation.json",
+   "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), 355–392; published PDF.",
+   "status": "confirmed",
+   "reviewedBy": "REV-SerreWeightAndLevelOptimisation",
+   "reviewReason": "The reviewer read the version of record on p. 358. This is a wording misprint: the intended valuation-exponent convention makes equation (3) and Theorem 3 consistent; the packet already uses that convention."
   },
   {
    "id": "ShimuraCompactifications/E1",
