@@ -7,12 +7,13 @@ import Mathlib.Algebra.Group.Even
 import Mathlib.Tactic.NormNum
 
 /-!
-# Endoscopic transfer and unitary trace comparison, layers ET.4–ET.6: suggested signatures
+# Endoscopic transfer and unitary trace comparison: ET.4 revision and inherited signatures
 
-This file suggests signatures for the light targets of the reviewed packet. The independent
-review records `needs_changes`: the accompanying reader still needs the repairs listed in
-`reviews/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4.md`. These numerical signatures
-do not establish the missing geometric or representation-theoretic inputs.
+This file suggests signatures for light targets of revision 2. ET.4 is planned, with explicit
+proof and supplier gaps; the historical independent review remains `needs_changes` until a
+new independent review. The reader now includes its corrected ET.5/ET.6 statements, whose
+light signatures below are inherited and whose coverage is outside this revision. These
+numerical signatures do not establish the geometric or representation-theoretic inputs.
 
 Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -238,5 +239,20 @@ example (τ : ℚ) (h : τ ≠ 0) : endoscopicCoefficient τ τ 1 = 1 := by
 -- endoscopicCoefficient_equal_blocks: |Out| = 2 halves the coefficient.
 example : endoscopicCoefficient 2 2 2 = 1 / 2 := by
   sorry
+
+/-- The inverse determinant when the spectral involution is minus identity on a quotient
+of dimension `r`. The full Levi can have positive r: the quotient is by the theta-fixed
+full-group split space, not by its entire split space (Shin 2011 Proposition 4.8). -/
+def twistedDeterminantCoefficient (r : ℕ) : ℚ := (2 ^ r : ℚ)⁻¹
+
+example : twistedDeterminantCoefficient 0 = 1 := by
+  norm_num [twistedDeterminantCoefficient]
+
+-- A single full GL block has anti-invariant dimension one, rather than zero.
+example : twistedDeterminantCoefficient 1 = 1 / 2 := by
+  norm_num [twistedDeterminantCoefficient]
+
+example : twistedDeterminantCoefficient 2 = 1 / 4 := by
+  norm_num [twistedDeterminantCoefficient]
 
 end TauCetiRoadmap.EndoscopicTransfer
