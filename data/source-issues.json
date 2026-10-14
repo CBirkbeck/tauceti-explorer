@@ -167028,7 +167028,7 @@
    "reviewReason": "Independently read arXiv v1 p. 9 and the published p. 642, including the rendered page. The same reversed gauge formula occurs in both. Direct evaluation of the C3/S4 example gives d(g)=(143), d(g^2)=(243), and d(g)g(d(g))=(123). The corrected right-torsor gauge obeys all nine C3 products in that model and follows from applying sigma to p·l."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E1",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E101",
    "kind": "misprint",
    "locator": "§15 discussion before Corollary 15.3, author-copy p. 76",
    "printed": "The finiteness argument names the relative Hom scheme without explicitly restricting the displayed Hom notation to dominant maps. Read literally as all morphisms, that scheme also contains constant maps.",
@@ -167050,7 +167050,7 @@
    "reviewReason": "Reread author-copy p. 76: H_M=Hom_M(X_M,Y_M) is called finite and unramified by the vanishing of sections of the pulled-back tangent bundle and the Hurwitz degree bound, and both arguments apply only to nonconstant maps; the constant maps form a family isomorphic to Y_M. Nonconstant maps form an open and closed subscheme because the degree is locally constant, so restricting to it repairs the argument. Agrees with the earlier review."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E2",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E102",
    "kind": "misprint",
    "locator": "§5, discussion of λ:L_r→D′_Y across pp. 593–594",
    "printed": "The argument of λ in the equality with the incidence kernel is garbled in the published PDF.",
@@ -167070,7 +167070,7 @@
    "reviewReason": "Reread published pp. 593–594: the argument of λ in the equation with K_Y is garbled in the printed text, and the author’s December 2012 comments, correction (1), state λ(L_r)=K_Y; the injectivity count that follows needs exactly this. Agrees with the earlier review."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E3",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E103",
    "kind": "misprint",
    "locator": "§3.9 node condition, author-copy p. 22",
    "printed": "The parenthetical bound on the node exponent is strict: e<d.",
@@ -167091,7 +167091,7 @@
    "reviewReason": "Reread author-copy §3.9, p. 22 (the parenthetical says e is necessarily less than d) against §3.10, p. 24, which uses e≤d to verify condition (1); the identity covering of a nodal curve has d=e=1 and is admissible. None of the three August 2017 comments concerns this bound. Agrees with the earlier review."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E4",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E104",
    "kind": "gap",
    "locator": "§5, Proposition 5.4, author-copy p. 34, applying Definition 4.3 and Proposition 4.4 of §4, whose standing hypothesis is that the curve has a K-rational point, author-copy pp. 28–31",
    "printed": "Section 4 assumes that the proper curve has a K-rational point and uses a degree-one Picard point over K to define the canonical weight-zero section with which Definition 4.3 compares. Proposition 5.4 asserts that the image section of the target curve Y is J-geometric in the sense of Definition 4.3, but §5 assumes no K-point on Y and no K-point of its degree-one Picard scheme.",
@@ -167187,7 +167187,7 @@
    "reviewReason": "Confirmed at Theorem 4.2, p. 910, against Kim Lemma 3, pp. 108–110: the prescribed input is a basepoint fibre vector. A nonconstant unit-bundle section cannot be the horizontal image of the empty word."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E4",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E304",
    "kind": "error",
    "locator": "arXiv math/0510441v4, section 4, printed p. 25; superseded by v5 section 4 p. 25 and published section 4 p. 127",
    "printed": "The v4 unramified-locus argument treats nonabelian inertia cohomology with trivial inertia action as a representable variety of continuous homomorphisms.",
@@ -167209,7 +167209,7 @@
    "reviewReason": "Compared v4 and v5 at the locator and read published p. 127. The finding is about the superseded preprint; the published argument already corrects it."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E5",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E305",
    "kind": "misprint",
    "locator": "Version of record, section 4, printed p. 129, invariant B_cr points in the central Selmer difference argument; also arXiv v5 p. 26",
    "printed": "The invariant points of the étale group over B_cr are identified with U_DR, and surjectivity of the U_DR depth map is used to lift that invariant.",
@@ -167231,7 +167231,7 @@
    "reviewReason": "The section 2 crystalline/de Rham base-change comparison and the printed p. 129 display determine the correct realization. This is a notation misprint; it does not refute the intended dimension result."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E1",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E401",
    "kind": "misprint",
    "locator": "Published version, introduction p.92, choice of v over p",
    "printed": "The chosen place over the rational prime p is described as archimedean.",
@@ -167253,7 +167253,7 @@
    "reviewReason": "The finite completion and integral/crystalline datum on pp.101–102 show that the place must be nonarchimedean."
   },
   {
-   "id": "AnabelianGeometryAndNonabelianChabauty/E2",
+   "id": "AnabelianGeometryAndNonabelianChabauty/E402",
    "kind": "misprint",
    "locator": "Published version, §3 p.121, regular annihilator in the dimension argument",
    "printed": "The quotient supporting the annihilating regular function is labelled with the étale group and its F⁰ subgroup.",
