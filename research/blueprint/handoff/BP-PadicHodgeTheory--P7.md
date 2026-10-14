@@ -1,232 +1,275 @@
-# BP-PadicHodgeTheory--P7 — handoff
+# BP-PadicHodgeTheory--P7 — completed planning pass
 
-Blueprint for **P-adic Hodge theory and geometric comparison** (`PadicHodgeTheory`), part P7, the first of
-two parts. Stages in scope:
+Agent: Codex, session codex-gqQ5AR, 14 October 2026. Refs #968.
 
-- P7:annulus-foundations, P7;
-- P8:local-rational, P8;
-- R06.1, R06.2, R06.3, R06.4.
+This is a **complete target-level planning pass at the 300-node budget**, not a
+checkpoint, accepted review or closed roadmap. The packet awaits an independent
+review. All 242 previous node ids are preserved, 58 targets are added, and every
+node retains implementationStatus unchecked. The part remains P7, covering the
+eight stages in the issue; R06.5 and R06.6 belong to the other part.
 
-The packet `part` is `"P7"`. R06.5 and R06.6 belong to part 2.
+## Deliverables and counts
 
-**Binding inputs.**
-- The restructuring **RS-01** has been accepted (REV-RS-01). It keeps all stages of this roadmap and makes
-  R06.1 the single owner of the rational period rings formerly in CP.0; this packet follows it.
-- The reviewed decomposition `data/decompositions/PadicHodgeTheory.json` has 10 accepted nodes from
-  Scholze's paper. All of their ids are kept and refined.
-- The reviewed audit AUDIT-37 has been accepted. Mathlib already has C_p, the tilt, θ with surjectivity,
-  `BDeRhamPlus` and `BDeRham`; they are baseline citations, not nodes.
+- Packet: `research/blueprint/packets/PadicHodgeTheory--P7.json`.
+- Reader: `research/blueprint/readmes/PadicHodgeTheory--P7.md`, containing every
+  target, hypothesis, proof route, prerequisite, source locator, API item, test,
+  use and acceptance check, together with the gaps and supplier contracts.
+- Companion: `research/blueprint/suggested/PadicHodgeTheory--P7.lean`, 152 lines.
+  The reader carries the full mathematics; the companion has two light,
+  real-bodied coefficient formulas and statements on genuine pinned carriers.
 
-**Deliverables.**
-- Packet: `research/blueprint/packets/PadicHodgeTheory--P7.json`, with **242 nodes**:
+| Kind | Count |
+| --- | ---: |
+| definition | 43 |
+| construction | 49 |
+| lemma | 74 |
+| theorem | 128 |
+| comparison | 4 |
+| application | 2 |
 
-  | stage | nodes |
-  | --- | --- |
-  | R06.1 | 44 |
-  | P7:annulus-foundations | 27 |
-  | P8:local-rational | 44 |
-  | P8 | 22 |
-  | R06.2 | 44 |
-  | P7 | 32 |
-  | R06.3 | 18 |
-  | R06.4 | 11 |
+There are **641 API items, 372 proposed unit tests, 44 planets, 75 baseline
+references, 24 gaps, 48 supplier requests, 20 ownership/stage proposals, 43 source
+issues and 40 source records**. The tests in the reader are specifications for
+future formalization, not 372 implemented tests.
 
-  By kind: 31 definitions, 45 constructions, 73 lemmas, 87 theorems, 4 comparisons and 2 applications.
-- Document: `research/blueprint/readmes/PadicHodgeTheory--P7.md`.
-- Suggested Lean: `research/blueprint/suggested/PadicHodgeTheory--P7.lean` (4214 lines, namespace
-  `TauCeti.PadicHodge`).
+| Stage | Targets | Coverage |
+| --- | ---: | --- |
+| R06.1 | 47 | planned |
+| P7:annulus-foundations | 27 | planned |
+| P8:local-rational | 57 | planned |
+| R06.2 | 56 | planned |
+| P7 | 37 | partial |
+| R06.3 | 25 | planned |
+| R06.4 | 11 | planned |
+| P8 | 40 | partial |
 
-**Counts.**
-- 579 API items and 324 unit tests.
-- 42 planets.
-- 73 baseline declarations.
-- 16 gaps, 28 requests and 16 restructuring proposals.
-- 39 source issues (`PadicHodgeTheory/E1`–`E39`) and 19 sources.
+No stage is closed. Planned means that its targets have nodes with prerequisite
+chains or recorded gaps; it does not mean its proofs or supplier requests are
+settled. P7 still needs complete Wach–Breuil–Kisin and normalized
+Herr–Iwasawa comparison targets. P8 still needs the full non-étale cohomological
+comparison/descent and the logarithmic boundary comparison described in coverage.
 
-## Checks run
+## Baselines, existing roadmaps and Lean
 
-- `scripts/check_blueprint.py --index <baseline declarations index>`: **0 errors, 0 warnings**.
-- `scripts/check_errata.py` on the source issues and versions: ok.
-- `research/blueprint/intake.py check-files` on the three deliverables: 0 problems.
-- **Own checks.** The stage order used is R06.1 → P7:annulus-foundations → P8:local-rational → P8 → R06.2 →
-  P7 → R06.3 → R06.4, following the atlas edges. Against it I confirmed:
-  - no dangling prerequisite and no prerequisite on a later stage;
-  - no dependency cycle, with the nodes in dependency order;
-  - excerpts at most 300 characters;
-  - every test has a kind;
-  - planets only on definitions, constructions and theorems, and at most six per layer.
-- **Lean: compiled.** I compiled with `lean` v4.34.0-rc2 against Mathlib 082e2d3. The exit code is 0, and
-  the only messages are 508 `declaration uses 'sorry'` warnings.
-  - The file imports one Tau Ceti module, `TauCeti.RingTheory.Huber.Restricted.TwoSidedSeries.Convolution`.
-    Its source is present at f790474, and it was compiled against the TauCeti-adic build. No Mathlib or
-    Tau Ceti build was run.
-  - Every definition, API item and unit test of the packet appears in the Lean file under its packet name.
-    The nodes without a declaration of their own are listed at the end of the file.
-- **Stand-in declarations.** The Lean file gives signatures with `sorry` bodies for objects Mathlib lacks:
-  - the Galois action on ℂ_p;
-  - the ℚ_p-algebra structure, filtration and θ on `BDeRhamPlus`;
-  - ε^♭ and p^♭.
+The pins remain Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and
+Tau Ceti **f790474821cf4256814db967cb154e7af3d0c369**. AUDIT-37 and the recorded
+baseline statements were checked before extending the packet. All 73 inherited
+baseline statements were reread at the pins. Two existing algebraic normalized
+trace declarations, `Algebra.normalizedTrace` and
+`Algebra.normalizedTrace_trans`, are now explicit prerequisites, bringing the
+count to 75. Tate's analytic estimates extend that algebraic input; they do not
+replan the algebraic normalized trace.
 
-  Mathlib's B_dR at the pinned commit has none of these.
+The current read-only TauCetiRoadmap and current Tau Ceti library were checked
+separately from the pinned build. The nine roadmaps newer than the atlas
+snapshot were considered. AdicSpaces and LocalGaloisGroups were read as the two
+nearby models. In particular the continuous cyclotomic character and the Artin
+normalization already planned in LocalGaloisGroups are imports. No changes to
+those roadmaps, their links, the atlas or another worker's packet are included.
 
-## What the consumers get
+`lean-check research/blueprint/suggested/PadicHodgeTheory--P7.lean` **passed** at
+the pins: exit code 0, **16 warnings, all declaration uses sorry**, no other
+warnings. Memory was checked before the run. No build, update, cache download or
+language server was started.
 
-- **ColemanIntegration** (L0 annulus nodes). The following nodes in P7:annulus-foundations serve it:
-  - `annulus-laurent-ring`, `gauss-norm*` and `frechet-topology`;
-  - `restriction-maps`, `robba-ring` and `annulus-derivation`;
-  - `identity-principle` and `newton-polygon-breaks`.
-- **PadicDifferentialEquationsAndRigidCohomology.**
-  - Request 1 (the rings for every interval, R, R^bd, R^int, O_E and E, and coefficient extension) is served
-    by P7:annulus-foundations.
-  - Request 2 (Berger's B†_rig,K = R_{F'}(π_K)) is served in **P7** by `P7/robba-ring-of-p-adic-field` and
-    `P7/berger-robba-identification`. It cannot sit in annulus-foundations: it needs the field of norms of
-    PG.0, and PG.0 consumes annulus-foundations.
-- **MordellLawrenceVenkatesh.**
-  - `R06.2/ddr-exact-strict-tensor`;
-  - `R06.2/ddr-of-tate-twists` and `R06.2/de-rham-implies-hodge-tate`;
-  - `R06.1/tate-sen-theorem`;
-  - `R06.2/induction-and-restriction-of-scalars` and `R06.2/hodge-number-tH`;
-  - `R06.2/filtered-phi-n-modules` and `R06.2/period-functors`;
-  - `R06.2/admissible-implies-weakly-admissible` and `R06.2/newton-number-tN`.
-- **FaltingsFinitenessAndIsogenyTheorems.** `R06.2/hodge-tate-decomposition-tate`, which states the
-  H⁰ and H¹ statements for C(ψ).
-- **CohomologyComparisons.**
-  - Served here: `R06.1/period-ring-invariants`, the period functors, and the rational period rings for
-    CP.0–CP.3 under RS-01.
-  - Redirected: its requests for Kisin's functor and Scholze's comparison go to R07.4 and to part 2 of this
-    roadmap (restructure 10).
+The old 4,213-line companion contained fake carriers and sorry-bodied data and
+instances. It has been replaced in the shape required by the current WORKERS.md:
 
-## Main findings
+- `laurentConvergesOn` and `gaussNorm` have real formula bodies on Z-indexed
+  coefficient families. Convolution uses Mathlib's actual discrete convolution.
+- The radius-one compatibility statement uses Tau Ceti's existing
+  `twoSidedRestrictedSubmodule`; six examples distinguish finite support,
+  geometric-series convergence and Gauss norms from point evaluation.
+- Completeness, nonunit and Frobenius statements use Mathlib's actual
+  `PadicComplexInt`. The DVR/theta milestones use `BDeRhamPlus` itself.
+- Required completeness/nonunit instances are hypotheses where used. Missing
+  Galois representations, analytic rings, sheaf categories, filtered modules and
+  comparisons remain fully specified reader targets. No missing carrier or
+  action is implemented by sorry, and there is no Lean code in the packet.
 
-**Source issues.**
-- **Scholze, Prop. 8.5 (E12).** The relative Poincaré lemma needs a completed tensor product. On T² → T¹,
-  the section Σ[T₂♭]^k X₁^k lies in the kernel but not in the image of the uncompleted one. This affects the
-  proof of Theorem 8.8, not the theorem.
-- **Brinon–Conrad, Example 8.1.3 (E20).** The characteristic polynomial is X² + 4p, not the printed X² − 4p:
-  the trace is 0 and the determinant is 4p. The conclusion about slopes is unchanged.
-- **Berger 2002.**
-  - The radius exponent e_K must be the ramification index of K_∞/F_∞ (E2).
-  - Prop. 5.15's ∇_V(N_s) ⊂ tN_s needs s enlarged (E36).
-  - Several items are known from Berger 2008 Appendix B and Berger's 2026 errata list:
-    - the coefficient field F′ versus F (E1);
-    - the normalisation N(log π) = −p/(p−1) (E3);
-    - the extension of log to Ã† (E4);
-    - the density form of ι_n(N_s) (E7).
-- **Fontaine–Ouyang.** §1.3.3 lets the geometric Frobenius act on E(−1) by q⁻¹, the opposite of Deligne's
-  relation (E37). Lemma 6.12 assumes an unproved separatedness (E29); the packet writes a repair, which a
-  reviewer should check.
-- **Tan–Tong.** The injectivity of B_cris⁺ → B_dR⁺ is omitted (E17), and there are three misprints.
-- **Berger 2008.** It does not use "de Rham ⇒ potentially semistable" (Remarque V.2.2), but it does go
-  through RD.2's monodromy theorem and R06.3/P7 constructions (E32).
+Elaboration establishes only that these statements are well typed. It proves
+none of the planned mathematics.
 
-**Ownership decisions** (recorded as restructuring proposals):
-- **Berger's Robba dictionary.** Parts A and D both drafted it. It is planned once, in P7, and R06.3 cites
-  it. This adds a stage link P7 → R06.3, which creates no cycle (restructure 15).
-- **Sen's module and Fontaine's D_dif** had no owner. They are planned in P7, from Brinon–Conrad §15
-  (restructure 14).
-- **Ax–Sen–Tate, Tate's traces and Tate–Sen** go to R06.1, and Tate's C(ψ) theorems to R06.2
-  (restructure 11).
-- **The Hodge–Tate weight convention** (HT(χ_p) = +1) is defined in R06.2, and R06.4 keeps the sign
-  dictionary for each source.
-- **The Colmez–Fontaine theorem** is stated in R06.2, with its reduction to the bigness criterion and the
-  rank-one case proved there. Its proof after Berger 2008 needs P7, PG.1–PG.2 and RD.1–RD.2, so the
-  proposal places it in R06.3 or a stage after P7 (restructure 9, gap).
-- **Owners still wanted:**
-  - for Scholze's primitive comparison theorem (restructure 5);
-  - for the crystalline comparison with coefficients, proposed as CP.2 (restructure 6);
-  - for logarithmic semistable period sheaves (restructure 7).
-- **Sub-layers:** P7 splits into the Robba dictionary and the Wach comparison; P8:local-rational and R06.1
-  are split for the atlas.
+## Main mathematical changes
 
-## What remains
+**Rational ring ownership.**
+`R06.1/bdr-plus-of-perfectoid-affinoid-algebras` imports integral theta and its
+principal nonzerodivisor kernel from PerfectoidSpaces P1, with the cyclotomic
+specialization from AI.0. It owns rational localization/completion, filtration
+and graded invertible lines on Mathlib's actual carrier. The geometric complete
+DVR is stated for arbitrary complete algebraically closed C/Q_p. General
+relative affinoids do not acquire an unspecified Galois action or canonical
+Tate trivialization. RF2 owns the relative untilt divisor and descent, importing
+this input. Reconcile the proposed R06.1 → RF2:untilts link with pending RS-20;
+this job does not apply that family decision.
 
-Every stage is `partial` except P7:annulus-foundations, which is `source_decomposed`. The coverage entries
-list the remaining items precisely.
+**Primitive comparison is early.** Twelve targets add nested strict toric
+covers, finite-image spectral-sequence propagation, local and global almost
+finiteness, mod-p primitive comparison, relative primitive comparison, integral
+perfectness, the almost A_inf and B_dR+ lifts, étale/pro-étale comparison,
+singular proper comparison and geometric Hodge–Tate pushforwards. The preserved
+`P8/affinoid-k-pi-one-for-p-torsion` id now belongs to and realizes the early
+local-rational stage. The proof chain uses AI.3, perfectoid almost theory and
+site/cohomology infrastructure, with no CP.3, CP.4, AI.4 or AI.5 dependency.
 
-**Main gaps:**
-- the transcendence of log[p̃] and H¹(H_K, W(m)) = 0, which rest on Fontaine's and Colmez's unavailable
-  papers;
-- the Wach versus Breuil–Kisin comparison, and the Herr-complex import with its normalisations;
-- the injectivity of A_cris → B_dR⁺ and of B_cris⁺ → B_dR⁺ on the pro-étale site;
-- Brinon's description of A_cris(R, R⁺)/p;
-- the packet-authored semistable period sheaves;
-- the proof of the Colmez–Fontaine theorem;
-- Fontaine–Laffaille Theorem 8.4, which rests on Fontaine's Annals 1982 ring, and the essential image of the
-  FL lattice functor;
-- the independence of the Weil–Deligne recipe from the choices, where Breuil–Mézard was not read. A
-  packet-authored proof is given.
+The finite-image rectangle and Frobenius-compatible almost-free limits remain
+explicit supplier-contract gaps. Classical Witt and BMS derived-completed
+A_inf sheaves are distinguished, including the stronger W(m_C-flat)
+annihilator in the BMS formulation. Resolution/descent is requested for the
+singular proper extension. Smooth primitive comparison alone does not supply
+resolution or the logarithmic compact-support theorem.
 
-**Follow-up for the rigid-cohomology packet** (gap "RD.2 export …").
-`PadicDifferentialEquationsAndRigidCohomology:RD.2/berger-form-of-local-monodromy` states the dimension of
-the solution space over L ∩ F^nr. It should be over the constant field F'_L, which can be larger:
-Q_3(√−6) is an example. R06.3's monodromy node reads it correctly and enlarges L. That packet is not a
-deliverable of this job, so it is left for its next revision.
+**Colmez–Fontaine has an actual proof target.** R06.2 keeps the proposition;
+R06.3 adds Berger's filtered-module modification, the slope/filtered-subobject
+criterion and `colmez-fontaine-proof-via-robba`. Finite-Q_p consumers list that
+proof in addition to the proposition. The proof imports RD.2 and PG.2 and the
+P7 period dictionary. Berger's Remark V.2.2 avoids taking de Rham ⇒ potentially
+semistable as an antecedent, but its argument still uses analytic monodromy;
+that dependence is retained. The node graph has no cycle.
 
-**Requests (28):**
+A whole-stage edge R06.3 → R06.2 would create a cycle. The required follow-up is
+a split into early filtered definitions and later essential-surjectivity
+consumers, with the proof between them. The finite-Q_p proof does not settle
+the perfect-residue-field version used over the completed maximal unramified
+field. That generality and the fixed-bound reductive-group torsor are gaps.
 
-| owner | stages |
-| --- | --- |
-| PhiGammaModulesAndIwasawaCohomology | PG.0, PG.1, PG.2 (two each), PG.3, PG.5, PG.6 |
-| FiniteFlatGroupsAndIntegralPadicHodgeTheory | R07.3 (2), R07.4 (2) |
-| CrystallineCohomology | CR.0 (2) |
-| AInfCohomology | AI.3 |
-| AdicEtaleGeometry | A1, A2 |
-| ClassicalAdicEtaleCohomology | H0 |
-| AdicSpacesPartII | R0, R2, R3 |
-| CohomologyComparisons | CP.3, CP.4 |
-| AlgebraicModuliForArithmeticGeometry | A0-extension |
-| ArithmeticGaloisRepresentations | R01.1, R01.2 |
-| Tau Ceti LocalFieldsRamification | layer 3 |
+**Classical and ordinary interfaces.** R06.2 now includes the rank-n regular
+ordinary definition, crystalline and maximal-monodromy criteria with their
+actual hypotheses, descent, crystalline characters, dual filtered modules,
+classical fundamental complexes/B-pairs and reductive-group admissibility.
+Regular weights use geometric Artin reciprocity; crystalline characters use
+arithmetic Artin reciprocity on all units. An algebraic restriction only on an
+open subgroup of units gives potential crystallinity, not crystallinity.
+The maximal-monodromy criterion needs consecutive weights; maximal N alone is
+insufficient. Fontaine's B_dR block classification includes higher-dimensional
+simple Sen blocks, not just scalar rank-one blocks. Its division-algebra
+construction remains a precise gap.
 
-## Numerical checks
+R06.4's rank-two statements use D*(V), record coefficient-field restrictions,
+and distinguish crystalline unit-root and semistable noncrystalline branches.
+All parts of **Khare–Wintenberger II Lemma 3.5(i–iii)** are included: the small
+crystalline range over unramified F, the extra Q_p endpoint, weight-two
+semistable noncrystalline ordinarity, and the weight-two representation
+crystalline over Q_p^nr(mu_p). The BLZ and BCDT integral suppliers are explicit
+gaps/requests; the global Skinner–Wiles argument stays in R21.5. R08.5, R08.6
+and R21.5 import the local implications.
 
-All were run in PARI/GP; the roadmap document lists them.
-- **Robba rings:**
-  - the valuations of the coefficients of t = log(1+π);
-  - a series in E but not in R;
-  - Newton slopes of Φ_{p^n}(1+x).
-- **Period sheaves and rings:**
-  - γ − 1 on the power-series model;
-  - θ(φ(ξ)) ≠ 0;
-  - Nφ = pφN.
-- **Frobenius and filtrations:**
-  - a_p and T² − a_pT + p for ordinary and supersingular curves;
-  - t_N = t_H = −n for Q_p(n);
-  - a filtered module that is not weakly admissible, and a rank-2 module whose weak admissibility depends
-    on N;
-  - Brinon–Conrad's Example 8.1.3.
-- **Tate curve:** the Weil–Deligne normalisation on 11a1 at p = 11 and 15a1 at p = 3.
+**Relative objects and consumers.** The P8 additions specify completed de Rham
+lattices, associated filtered-connection local systems, relative primitive and
+Hodge–Tate comparison, completion descent for horizontal morphisms, de Rham-pair
+proper pushforward, relative Witt/overconvergent rings, phi-modules, relative
+Fargues–Fontaine bundles, B-pairs, pure loci, analytic-family fibers and their
+cohomology. All-module equivalences are kept distinct from étale objects/local
+systems. KL's pure-locus theorem is stated for its actual C-tilde coefficient
+ring; arbitrary bounded-ring assertions are not inferred. Its local-system
+cohomology theorem is not cited as the all-module theorem. The latter uses
+8.7.13 and 8.9.6(a) chartwise and still requires derived descent.
 
-## Sources
+Betts–Stix requires completion descent before proper pushforward. Heuer's
+coherent-coefficient higher-direct-image statement is pro-étale, not a v-site
+claim. The relative Hodge–Tate filtration retains the lissity hypotheses.
+Howe–Klevdal's diamond comparison has explicit diamond suppliers. Disegni–Liu's
+completed Breuil/Tsuji rings and edge comparison are targets with their missing
+presentation proof recorded. The unresolved open factorization in Remark B.15
+is not asserted as a theorem.
 
-All sources were read from public copies on 25 September 2026. The packet has the URLs, full hashes and
-sections read.
+## Source reading and discrepancies
 
-| id | edition | SHA-256 |
-| --- | --- | --- |
-| brinon-conrad | CMI notes, 2009 preliminary version | `f27d508b…` |
-| fontaine-ouyang | book draft (Université Paris-Saclay page) | `56590ae4…` |
-| berger-intro | arXiv:math/0210184v1 | `fac038cb…` |
-| berger-2002 | arXiv:math/0102179v3 (Invent. Math. 148) | `142e7948…` |
-| berger-2004 | Compos. Math. 140 (2004), author PDF | `52e18821…` |
-| berger-2008 | arXiv:math/0406601v1 (Astérisque 319) | `72559978…` |
-| berger-errata | author's errata list, May 2026 | `3a8db18e…` |
-| kedlaya-liu | arXiv:1301.0792v5 | `a6a11742…` |
-| kedlaya-overview | arXiv:math/0501361v2 | `31d9e39e…` |
-| lazard-1962 | Publ. Math. IHÉS 14, numdam | `8d18aea9…` |
-| sch13-padic-hodge | author's version, 3 Nov 2012 | `73dded06…` |
-| sch16-erratum | author's erratum | `3cfa56b9…` |
-| scholze-arxiv | arXiv:1205.3463v2 | `ed9187b3…` |
-| tan-tong | arXiv:1510.05543v2 | `1de1a71b…` |
-| colmez-2002 | J. Inst. Math. Jussieu 1, author PDF | `3675d316…` |
-| fontaine-laffaille | Ann. Sci. ÉNS 15 (1982), numdam | `c049a7bf…` |
-| breuil-schneider-2007 | arXiv:math/0603499v1 | `82f3f514…` |
-| allen-2016 | arXiv:1411.7661v2 | `3674da65…` |
-| kw-serre-modularity-I | Khare–Wintenberger I, author's copy | `3c389dc3…` |
+Sources were read to the extent needed for these target statements and proof
+routes; this is not a claim to have reconstructed every imported proof.
+The new records give exact copy/version hashes and locators. Public copies
+were used for the newly routed papers; cleared library papers were read in
+place. No library file or passage was copied. No source excerpt or verbatim
+quotation remains in the packet or reader. All source-issue descriptions,
+including the inherited ones, are paraphrases.
 
-**Not accessible, and never cited as read:**
-- Fontaine's Astérisque 223 and 295 papers, and his Annals 1982 paper;
-- Colmez–Fontaine;
-- Cherbonnier–Colmez;
-- Brinon's Mémoire SMF 112;
-- Breuil–Mézard.
+This pass checked the relevant primitive proof and integral lift in Scholze
+and BMS; KL I's relative objects, equivalences and cohomology, including the
+8.7.13/8.9.6 chart inputs; Berger's finite-Q_p Colmez–Fontaine route; the cited
+classical filtered-object sections of Colmez–Niziol; Qian, BLGHT and BIP's
+ordinary/character statements; KW II Lemma 3.5; Ding and Fontaine's B-pair/B_dR
+interfaces; and the routed statements of Disegni–Liu, Gleason–Lim–Xu,
+Betts–Stix, Caraiani–Scholze, Heuer, Howe–Klevdal, Zavyalov, Fargues–Fontaine,
+BCGP and CDN. Pan and Dospinescu–Le Bras's differential-module consumers were
+checked against the preserved P7/R06.3 dictionary. Their results beyond the
+present scope are not newly planned here.
+
+Inherited source readings retain their earlier dates; a record dated this run
+identifies the portions newly checked. Unread proof dependencies remain gaps,
+including Brinon's memoir, Fontaine's Barsotti–Tate construction, the precise
+transcendence input, full Herr/Liu duality normalization, the simple-Sen division
+algebra construction, the labelled crystalline-character classification and
+the general fixed-bound torsor theorem. The DOR book is not cleared by the
+maintainer's library index and was not obtained from another copy.
+
+Four findings were added, subject to independent verification:
+
+- **E40:** Brinon–Conrad Example 4.4.4 claims the cyclotomic element mu
+  generates the theta kernel at p=2. The BMS Example 3.16 factorization has
+  a nonunit multiplier, so mu is not a generator at any prime. The integral
+  theorem remains imported from P1/AI.0; this is a source-discrepancy record.
+- **E41:** KL I Lemma 9.3.4's blanket acyclicity claim for the positive Witt
+  sheaf fails on a cyclic p-cover: H² detects a trace quotient, and reduction
+  modulo p contradicts almost acyclicity. The actual de Rham period-sheaf
+  calculations are not replaced by this claim.
+- **E42:** Qian's Dwork preprint arXiv:2103.00106v1, Lemma 4.2, omits the
+  consecutive-weight condition present in BLGHT Lemma 2.2(2). Rank-two
+  semistable noncrystalline representations of weight spread greater than one
+  give the recorded obstruction. This is a different paper from Qian's
+  published Potential automorphy for GL_n.
+- **E43:** KL I Corollary 9.3.14's all-module B-pair argument cannot use only
+  the étale equivalence 9.3.13. The all-module route uses 9.3.12 with 8.7.8 and
+  9.3.10. The correction is a proof-reference repair, not a restriction of the
+  corollary to étale objects.
+
+E1–E39 and their known errata/convention records remain, with wording and
+ownership corrections. In particular E32 retains Berger's analytic-monodromy
+dependency. No new finding is presented as an author-confirmed erratum.
+
+## Review and ownership work still needed
+
+The old handoff claimed that acceptance of REV-RS-01 settled the family. The
+latest independent REV-FIX-RT-RS-01 instead returned needs_changes on /30 on
+10 October 2026. This packet does not inherit certification from that review
+or the 242-node checkpoint.
+
+The independent reviewer should prioritize the following:
+
+1. The finite-Q_p Colmez–Fontaine proof chain and its supplier hypotheses;
+   resolve the global stage split and the perfect-residue-field extension.
+2. RT-RS-01/30: decide where Fontaine–Laffaille's rational admissibility proof
+   belongs relative to R07.3/R06.4 and which general CF supplier R07.4 imports.
+   Existing stage ordering prevents silently reversing the import direction.
+3. Reconcile rational de Rham ownership with RS-20 and the proposed
+   R06.1 → RF2:untilts link. Integral theta-kernel theory stays with P1/AI.0.
+4. Close the exact almost finite-image/Frobenius contracts, affinoid
+   crystalline injectivity and PD presentation, and semistable/logarithmic
+   sheaf descent. The 24 gap entries name every affected node.
+5. Read the remaining full Herr/Liu and Fontaine simple-Sen inputs, and finish
+   the P7 Wach–Breuil–Kisin/Herr–Iwasawa and P8 all-module derived comparison
+   targets. The proposed T6:log-primitive cut needs DLLZ Theorem 6.2.1 and its
+   proof; it is not an existing supplier stage.
+6. Check the new source discrepancies independently and the ordinary
+   normalization on finite coefficient extensions. In particular the Q_p-only
+   slope parity shortcut must not be generalized to arbitrary E.
+
+Other existing handoffs are retained in the packet: RD.2's solution-space
+constant field is F'_L, possibly larger than L intersect F^nr; Kisin's functor
+belongs to R07.4; constant-coefficient de Rham comparison belongs to CP.3.
+Only the owning workers/family lead should apply those cross-packet changes.
+
+## Validation
+
+- `scripts/check_blueprint.py` on this packet: **0 errors, 0 warnings**.
+- Source-issue schema and source-version checks: **passed**.
+- Intake check on the four allowed paths: **passed**.
+- Custom consistency checks: all 242 previous ids retained; 300 unique ids;
+  acyclic internal node graph; complete reader/API/test coverage; at most six
+  planets in each scoped stage; no quote/excerpt fields or source quotation
+  blocks; only the four authorized paths changed.
+- `git diff --check`: **passed**.
+- Lean: **elaborated, only the 16 expected sorry warnings**, as detailed above.
+
+The scratch directory contains no necessary continuation artifact and is deleted
+after submission checks. Resume from this handoff, the packet's coverage/gaps and
+the exact supplier contracts, not from an alleged closed status.
