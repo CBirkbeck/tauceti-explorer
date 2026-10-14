@@ -153,6 +153,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -180,6 +186,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -208,6 +220,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -219,14 +237,14 @@
       "sha256": "3053d04310d379844d0ccac2ae078124492730a116e63343014d276169fb4c24",
       "accessDate": "2026-10-14",
       "readSections": [
-        "§9.2, Theorem 9.2.6 and proof, p. 143; scalar-extension exercises p. 144",
+        "§9.2, Theorem 9.2.6 and proof, p. 143; scalar-extension remarks p. 144 and §9.8 Exercises 4, 8(a), pp. 165–166; Artin–Wedderburn 2.1.3, pp. 15–16; projective tensor product 8.1.4, pp. 121–122",
         "§9.2, Theorem 9.2.7 and the following remarks, p. 144",
         "§9.4, pp. 148–156 (Lemma 9.4.6 through Theorem 9.4.12, including 9.4.11)",
         "§10.2, Proposition 10.2.1, p. 174",
         "§10.1, Lemma 10.1.1, Example 10.1.2 and Proposition 10.1.3, pp. 170–171",
         "§10.2, Theorem 10.2.2 and Corollary 10.2.3, pp. 176–177",
         "§9.3, Theorem 9.3.6 and proof, p. 147",
-        "9.3.1–9.3.6 pp. 145–147; 9.4.3–9.4.5 pp. 149–151; 9.6.2 pp. 163–164; full 10.2.1 proof pp. 174–175"
+        "9.3.1–9.3.6 pp. 145–147; 9.4.3–9.4.5 pp. 149–152; 9.6.2 pp. 163–164; full 10.2.1 proof pp. 174–175"
       ],
       "independentReview": {
         "date": "2026-10-14",
@@ -239,6 +257,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -250,7 +274,7 @@
       "sha256": "413add693a05e715bbe9dd480feab658ebd2ff180fce71dbd73d099fec8bdc29",
       "accessDate": "2026-10-14",
       "readSections": [
-        "Definition 1.1, p. 171; cyclotomic Galois notation, §2, p. 172",
+        "Definition 1.1, p. 171; cyclotomic Galois notation, §4, p. 177",
         "§1, Definition 1.1, Theorems 1.2 and 1.4, pp. 171–172",
         "statements of Theorem 3.1, Lemma 4.1, Theorem 4.2 and Lemma 5.1, pp. 174–179",
         "§5, Theorem 5.4 and its proof, pp. 179–180",
@@ -267,6 +291,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -292,6 +322,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Cited locators read independently in the maintainer-cleared library copy; no file or passage copied."
       }
     },
     {
@@ -316,6 +352,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -341,6 +383,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -367,6 +415,14 @@
         "note": "All three printed pages collated as page images and text; hash matches the original AMS record. The earlier independentReview is retained as historical evidence.",
         "url": "https://web.archive.org/web/20231206042832id_/https://www.ams.org/journals/bull/1981-05-02/S0273-0979-1981-14936-3/S0273-0979-1981-14936-3.pdf",
         "sha256": "fc276270d09ea11b98d750deeba26193e07d5aac2d30ffe16dbf0f7f576ffc5c"
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical.",
+        "url": "https://web.archive.org/web/20231206042832id_/https://www.ams.org/journals/bull/1981-05-02/S0273-0979-1981-14936-3/S0273-0979-1981-14936-3.pdf",
+        "sha256": "fc276270d09ea11b98d750deeba26193e07d5aac2d30ffe16dbf0f7f576ffc5c"
       }
     },
     {
@@ -391,6 +447,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -415,6 +477,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     },
     {
@@ -439,6 +507,12 @@
         "by": "codex-rDSlGM",
         "status": "read",
         "note": "Cited passages read in the stated source version for this revision."
+      },
+      "independentRevision2Review": {
+        "date": "2026-10-14",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
+        "status": "read",
+        "note": "Every node locator and associated sourceIssue read independently in the stated version. Earlier review and revision records are historical."
       }
     }
   ],
@@ -882,7 +956,7 @@
       "sources": [
         {
           "sourceId": "webb16",
-          "locator": "§9.2, splitting-field definition pp. 140–141 and Exercise 2, p. 144; Wedderburn theorem 7.1.2, pp. 106–107",
+          "locator": "§9.2, splitting-field definition p. 142 and remarks p. 144; §9.8, Exercises 4 and 8(a), pp. 165–166; Artin–Wedderburn Theorem 2.1.3, pp. 15–16",
           "match": "The split block description gives scalar-extension stability. The radical comparison here is proved under the split hypothesis and needs no general perfect-field radical theorem."
         }
       ],
@@ -922,7 +996,7 @@
       "sources": [
         {
           "sourceId": "webb16",
-          "locator": "Theorem 9.2.6, p. 143; §9.2 Exercise 2, p. 144",
+          "locator": "Theorem 9.2.6, p. 143; §9.2 remarks p. 144; §9.8, Exercises 4 and 8(a), pp. 165–166",
           "match": "The finite splitting extension and split scalar-extension classification imply descent of simples for arbitrary algebraically closed coefficients."
         }
       ],
@@ -1006,7 +1080,7 @@
       "sources": [
         {
           "sourceId": "webb16",
-          "locator": "Propositions 9.4.3 and 9.4.5, pp. 149–151; Hom reduction Lemma 9.4.11, p. 155",
+          "locator": "Propositions 9.4.3 and 9.4.5, pp. 149–152; projective Hom comparison in the proof of Proposition 10.2.1, p. 175",
           "match": "Completeness lifts idempotents and projectives; projective Hom reduction is an idempotent-summand argument."
         }
       ],
@@ -1047,7 +1121,7 @@
       "sources": [
         {
           "sourceId": "webb16",
-          "locator": "Theorem 8.1.1 and Lemma 8.1.2, pp. 118–119; Lemma 9.6.2, pp. 163–164",
+          "locator": "Theorem 8.1.1, Lemma 8.1.2 and Corollary 8.1.3, pp. 120–121; Lemma 9.6.2, pp. 163–164",
           "match": "A projective’s degree has the Sylow divisibility and its character is zero whenever the element’s order is divisible by p."
         }
       ],
@@ -1076,7 +1150,7 @@
         "P projective; U arbitrary, not assumed to lift or be semisimple. Choose a complete splitting system and compatible τ for the finite-field case."
       ],
       "proofSteps": [
-        "P⊗U∨ with diagonal action is projective: tensor a free k₀Γ-module with U∨ and untwist the action on the second tensor factor to exhibit a free module; pass to summands.",
+        "P⊗U∨ with diagonal action is projective: tensor a free k₀Γ-module with U∨ and untwist the action on the second tensor factor to exhibit a free module; pass to summands. Current Tau Ceti already exposes the Hom formulation as Representation.instProjectiveAsModuleLinHom in RepresentationTheory/LinHom.lean; consume it when porting instead of replanning this helper. This current-library observation is not a pinned-baseline citation.",
         "Lift this projective module to Q̂. Projective-modular-lift with target the trivial lattice R shows dim Hom_k₀Γ(P⊗U∨,k₀)=rank Hom_RΓ(Q̂,R). The ordinary characteristic-zero character inner product computes that rank.",
         "projective-character-vanishing deletes the p-singular terms. On p-regular elements the ordinary character of Q̂ is φ_P(g)φ_U(g⁻¹), by the root reduction and tensor/dual Brauer API. Replace g by g⁻¹ and use Hom(P⊗U∨,k₀)≅Hom(P,U).",
         "For arbitrary algebraically closed k, projectives and simples are obtained by scalar extension from a finite splitting field. The formula is additive in U, by exactness of Hom(P,−) and the Brauer short-exact-sequence API. A composition series therefore reduces the calculation to simple U; use split-simple-scalar-extension and Hom base change. No arbitrary-k lift of U is asserted."
@@ -1093,7 +1167,7 @@
       "sources": [
         {
           "sourceId": "webb16",
-          "locator": "Lemma 8.1.4, p. 119; Proposition 10.2.1 and proof, pp. 174–175",
+          "locator": "Proposition 8.1.4, pp. 121–122; Proposition 10.2.1 and proof, pp. 174–175",
           "match": "The projective tensor-dual lifts even when U does not; characteristic-zero averaging and p-singular vanishing give the Hom formula."
         }
       ],
@@ -1174,7 +1248,7 @@
       "sources": [
         {
           "sourceId": "isaacs74",
-          "locator": "Definition 1.1, p. 171; cyclotomic Galois notation in §2, p. 172",
+          "locator": "Definition 1.1, p. 171; cyclotomic Galois notation in §4, p. 177",
           "match": "p-rational ordinary characters have values in a cyclotomic field of conductor prime to p. The fixed-field formulation is the one used by the extension and uniqueness proofs."
         }
       ],
@@ -2240,8 +2314,8 @@
       "sources": [
         {
           "sourceId": "webb16",
-          "locator": "§9.2, Theorem 9.2.6, p. 143 (PDF p. 150); splitting-field discussion and Exercises 4, 8, p. 144; Theorem 9.2.7, p. 144, in characteristic zero only",
-          "match": "A finite extension of any field splits a finite-dimensional algebra. Semisimple matrix-algebra descriptions explain descent of simple modules up to isomorphism; the cyclotomic criterion supplies the characteristic-zero splitting field. G5 retains the algebra/base-change proof target, which the original residual-descent citation did not supply."
+          "locator": "§9.2, Theorem 9.2.6, p. 143 (PDF p. 150); splitting-field discussion p. 144 and §9.8 Exercises 4, 8(a), pp. 165–166; Theorem 9.2.7, p. 144, in characteristic zero only",
+          "match": "A finite extension of any field splits a finite-dimensional algebra. Semisimple matrix-algebra descriptions explain descent of simple modules up to isomorphism; the cyclotomic criterion supplies the characteristic-zero splitting field. The explicit finite-algebra-splitting-field and split-simple-scalar-extension targets supply the algebra/base-change argument missing from the original residual-descent citation; G5 is resolved at target level."
         },
         {
           "sourceId": "webb16",
@@ -2465,7 +2539,7 @@
         },
         {
           "sourceId": "ds74",
-          "locator": "§4, Théorème 4.1, pp. 513–514; Théorème 4.6, p. 514; Théorème 4.10 and 4.11, pp. 516–517",
+          "locator": "§4, Théorème 4.1, pp. 513–514; Théorème 4.6, p. 514; Théorème 4.10, pp. 516–517, and Remark 4.11, p. 517",
           "match": "Deligne and Serre attach an odd two-dimensional Artin representation to a weight-one eigenform and, conversely, show that an odd irreducible representation with entire twisted L-functions comes from a primitive weight-one form of level its conductor and nebentypus its determinant."
         }
       ],
@@ -2498,7 +2572,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
-      "need": "Brauer's induction theorem: every complex character of a finite group is a Z-linear combination of characters induced from linear characters of (elementary) subgroups, with the projection formula for induction and twisting. Also use its characteristic-zero cyclotomic splitting theorem for Q(ζ_e), without asserting a prime-to-p splitting theorem in characteristic p. For p-rational-character, use character values in Q(ζ_|Γ|) and the finite cyclotomic Galois fixed-field description of Q(ζ_r), r the prime-to-p part of |Γ|. If that character-field adapter is absent, add it as InductionRestriction Part II.",
+      "need": "Brauer's induction theorem: every complex character of a finite group is a Z-linear combination of characters induced from linear characters of (elementary) subgroups, with the projection formula for induction and twisting. Also use its characteristic-zero cyclotomic splitting theorem for Q(ζ_e), without asserting a prime-to-p splitting theorem in characteristic p. For p-rational-character, use character values in Q(ζ_|Γ|) and the finite cyclotomic Galois fixed-field description of Q(ζ_r), r the prime-to-p part of |Γ|. The character-field adapter is absent from current Layer 6 and remains the InductionRestriction Part II obligation G7.",
       "neededBy": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/artin-twisted-functional-equation",
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-integral-lift",
@@ -2607,9 +2681,10 @@
       "status": "planned",
       "remaining": [
         "Complete the induction-constant product proof G2; retarget R01.2/local-epsilon-factor to the preliminary prefix and integrate the owner moves listed in restructure.",
-        "R17.3’s inherited GL₃/JPSS proof work, classical Hilbert weight-one dictionary and finite-order multi-place prescription retain their own supplier obligations; this part does not retire their gaps."
+        "R17.3’s inherited GL₃/JPSS proof work, classical Hilbert weight-one dictionary and finite-order multi-place prescription retain their own supplier obligations; this part does not retire their gaps.",
+        "Supply the three exact ordinary-character refinements in G7 through InductionRestriction Part II: cyclic-quotient extension, relative-degree divisibility, and the cyclotomic fixed-field/intersection adapter."
       ],
-      "note": "All targets in this follow-up have explicit prerequisite chains ending in pinned declarations, checked supplier nodes or exact owner requests. G1, G3, G4, G5 and G6 are discharged at target level; G2 has an explicit preliminary prefix and retains the induction-constant product gap. This is a plan, not an implementation or acceptance of upstream packets."
+      "note": "All 39 targets have explicit prerequisite chains ending in pinned declarations, checked supplier nodes, or exact recorded owner obligations. G1, G3, G5 and G6 are discharged at target level. The modular induction of G4 is explicit; its additional ordinary-character inputs remain G7. G2 retains the noncircular induction-constant product calculation. Coverage is planned, not closed; no implementation or upstream-packet acceptance is claimed."
     }
   ],
   "gaps": [
@@ -2621,6 +2696,19 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/artin-twisted-functional-equation"
       ],
       "detail": "The preliminary Brauer/Hecke FE is now explicit and independent of local epsilon existence. What remains is a noncircular proof of ∏_v λ_v(K/F,ψ)=1 with trace characters, all archimedean places and Tamagawa measures, or a collated source proving the required local-to-global comparison. Deligne 5.11 p. 551 states the final product formula but its brief proof refers to known arguments; this revision has not established the induction-constant calculation from the cited Poisson target. Keep this exact R01.2 Part II obligation. Do not replace it by unrestricted local inductivity or use the final FE as its proof."
+    },
+    {
+      "id": "G7",
+      "title": "Ordinary-character refinements in InductionRestriction Part II",
+      "neededBy": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/p-rational-character",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/coprime-index-lift-correspondence",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/p-group-index-lift-comparison",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/determinant-order-extension",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/p-rational-p-group-extension",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/equivariant-fong-swan"
+      ],
+      "detail": "Current InductionRestriction Layer 5 supplies ordinary Clifford correspondence but does not state cyclic-quotient extension of an invariant complex irreducible or the relative-degree theorem χ(1)/θ(1) dividing [Γ:N]. Layer 6 supplies cyclotomic splitting but does not state the fixed-field/intersection adapter equating prime-to-p cyclotomic value membership with Isaacs p-rationality and Galois invariance. The exact statements are already in requests and the modular Part II owner proposal. Keep them as pending refinements, rather than attributing them to current Layers 5–6; the new modular targets and strengthened induction are conditional on these inputs."
     }
   ],
   "restructure": [
@@ -2730,13 +2818,12 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "IHÉS article page at Centre Mersenne, 2026-10-14: no erratum linked.",
-        "arXiv:1812.09269 abstract page, 2026-10-14: versions v1–v3 listed, no erratum noted."
+        "Publisher article page (DOI 10.1007/s10240-021-00128-2) and arXiv:1812.09269 abstract/version page, 2026-10-14: no erratum for this claim noted."
       ],
       "review": {
         "verdict": "rejected",
-        "reason": "The printed argument invokes the subgroup classification together with Tate, not Tate alone. A reduction-compatible finite lift needs explanation, but the packet has not ruled out that combined standard argument. Fong–Swan supplies a reusable proof expansion; this does not establish an error or genuine gap in the published proposition. The asserted implication from Tate alone is too weak, but is not what the source claims.",
-        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5"
+        "reason": "Collated the published Proposition 10.1.3, pp. 473–474. Its solvable argument combines subgroup classification with Tate and asserts a lift of the residual representation itself. The allegation only shows that Tate alone does not specify reduction; it does not refute the combined argument. The explicit Fong–Swan expansion is useful but does not establish a source error.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
       }
     },
     {
@@ -2754,8 +2841,8 @@
       ],
       "review": {
         "verdict": "rejected",
-        "reason": "The proof asserts an odd complex lift of the residual representation itself; it does not replace it by an arbitrary projective lift and does not cite Tate for this step. In this context lift includes compatibility with reduction. Supplying Fong–Swan expands a standard input, rather than contradicting the source.",
-        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5"
+        "reason": "Read DP21 Theorem 1.3 and proof, p. 3. The assertion is an odd complex lift of the given residual representation, whose meaning includes reduction compatibility. The source does not substitute an arbitrary projective lift. Expanding the finite-group lifting input does not establish a false claim.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
       }
     },
     {
@@ -2769,13 +2856,13 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Webb's book page (Typos section), 2026-10-14: no entry for these remarks.",
-        "The published Cambridge edition was not consulted; the author states the prepublication version has the same mathematical content."
+        "Author book page and linked Typos file, 2026-10-14: no listed correction for this specific item. The Typos list uses published-edition pagination.",
+        "Only the prepublication PDF dated 23 February 2016 was collated; the published Cambridge edition was not consulted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The cited prepublication remarks and the residue-root paragraph omit the prime-to-p qualification: in characteristic p no root has order divisible by p. The cyclic p-group is a direct counterexample to requiring primitive roots of the full exponent. This confirms the remarks error only, not a false Theorem 9.2.7; its characteristic-p hypothesis may be vacuous. The finite splitting-field proof here uses 9.2.6 instead of assuming a corrected theorem. The published edition was not collated.",
-        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5"
+        "reason": "Read the prepublication remarks after 9.2.7, p. 144, and the residue-root paragraph, p. 148. In characteristic p the full exponent need not be prime to p, and a primitive root of that order need not exist. A cyclic p-group splits over F_p. The remarks need the prime-to-p qualification; 9.2.7 itself has a potentially vacuous hypothesis and is not disproved. Published edition not collated.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
       }
     },
     {
@@ -2789,9 +2876,14 @@
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Webb’s linked Typos file on the book page, read 2026-10-14: no entry for Proposition 9.4.5(5).",
-        "The published Cambridge edition was not collated; the claim concerns only the linked prepublication PDF."
-      ]
+        "Author book page and linked Typos file, 2026-10-14: no listed correction for this specific item. The Typos list uses published-edition pagination.",
+        "Only the prepublication PDF dated 23 February 2016 was collated; the published Cambridge edition was not consulted."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read 9.4.5(5), p. 151, and its proof on p. 152. The displayed criterion repeats L₁ on both sides; free modules of different ranks disprove that criterion. Reduction of L₂ is the intended right-hand term, as also follows from 9.4.2. Claim limited to the dated author PDF.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E20",
@@ -2804,9 +2896,14 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-        "Finding is scoped to the author PDF/version read; no later printed edition was collated."
-      ]
+        "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+        "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Theorem 2.1.10, p. 3. The extension must take values in the divisible target and therefore use the chosen y. The displayed equality of two source expressions forces k′−k, rather than k−k′, to be the chosen multiple of l. The corrected well-definedness calculation in the packet is valid.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E21",
@@ -2819,9 +2916,14 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-        "Finding is scoped to the author PDF/version read; no later printed edition was collated."
-      ]
+        "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+        "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Corollary 8.1.5, p. 52. Compactness passes to both product factors, the vector part and lattice part; the repeated vector-part symbol is a misprint. This affects no theorem statement.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E22",
@@ -2834,9 +2936,14 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-        "Finding is scoped to the author PDF/version read; no later printed edition was collated."
-      ]
+        "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+        "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Lemma 8.2.1, p. 53. The compared fractional parts must use coordinates of h; the basis-vector tuple cannot yield the required small nonzero element of H. The packet uses the corrected coordinates.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E23",
@@ -2849,9 +2956,14 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-        "Finding is scoped to the author PDF/version read; no later printed edition was collated."
-      ]
+        "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+        "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Lemma 8.2.3 and Exercise 8.2.4, pp. 53–54. Only H∩L is cyclic; H may have higher rank. The lifted generators must be indexed by the projected generating family, ending at m. Both corrections are justified by the stated induction.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E24",
@@ -2864,9 +2976,14 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
-        "Finding is scoped to the author PDF/version read; no later printed edition was collated."
-      ]
+        "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+        "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Lemma 8.2.5, p. 54. Membership is known for the integer multiples of λ_n u_n, not the expression using u₀ before the limit. Closedness applied to the actual elements proves the intended conclusion; the revised small-vector sketch is independent of this misprint.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     },
     {
       "id": "GL2AutomorphicRepresentationsAndTransfer/E25",
@@ -2879,9 +2996,14 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Author source page and linked teaching notes checked on 2026-10-14; no correction for this item found.",
-        "Only the dated author PDF was collated; no later printed version is claimed."
-      ]
+        "Author home page and Teaching Activities page (Did.html), 2026-10-14: the dated ITG.pdf is linked; no correction list for these notes was found.",
+        "Search of the author domain for ITG corrections, 2026-10-14: no correction for this item found. The claim concerns only the collated 26 February 2018 PDF."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Lemma 8.0.7, p. 51. Without the extra openness hypothesis q=0 into R gives a singleton local image, so the early openness assertion is false. In the final paragraph the containment must be in the quotient image p(W₁). The stated lifting lemma survives both proof corrections.",
+        "by": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
+      }
     }
   ],
   "sourceVersions": [
@@ -3068,88 +3190,216 @@
     {
       "roadmap": "RepresentationTheory/QuiverRepresentations",
       "note": "Current Layer 3A already owns finite-dimensional-algebra primitive idempotents, semiperfectness and projective covers; these are imported for kΓ. General finite splitting and split simple scalar-extension targets extend that owner’s direction, rather than replacing its covers or Cartan matrix."
+    },
+    {
+      "roadmap": "RepresentationTheory/InductionRestriction",
+      "note": "Independent review collated current main: cyclic-quotient extension, ordinary relative-degree divisibility and the cyclotomic fixed-field/intersection adapter are missing from the cited layers. They are precise Part II requests, retained as G7."
+    },
+    {
+      "roadmap": "TauCeti current library",
+      "note": "RepresentationTheory/LinHom.lean already contains Representation.instProjectiveAsModuleLinHom and instFiniteAsModuleLinHom for the finite projective Hom carrier. Consume those helpers for projective-brauer-hom; the Brauer character pairing itself remains new. This is a current-library note, not a claim at the pinned baseline."
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
     "date": "2026-10-14",
-    "notes": "All 15 nodes, all original 42 distinct external node prerequisites, nine baseline declarations, supplier scopes, API/tests, planets and handed red-team findings checked. Clear corrections are applied in place. Coverage is partial with six precise gaps; R17.3 gaps are not retired. E16/E17 rejected as unsupported source-error allegations; E18 confirmed for the prepublication remarks. The unresolved independent collation of Tunnell is recorded as unverifiable, so the acceptance criterion is not met. Missing proof contracts G1–G5 also require explicit planning before closure. No nodes added. See the review report for evidence and validation.",
+    "notes": "Independent revision-2 review of all 39 nodes, 41 distinct direct external node suppliers, 16 pinned baseline declarations, 16 requests, 14 API items, 8 tests, planets and both handed red-team findings. Corrected source locators and current-library attribution, added exact owner gap G7, and independently judged all ten sourceIssues (eight confirmed, two rejected). No nodes or baseline declarations added or removed. Complete target-level pass accepted with planned, not closed, coverage; G2/G7 and inherited supplier gaps remain. Suggested file independently elaborates with only proof-placeholder warnings. See the revision-2 review report.",
     "checked": [
       {
-        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/gl2-twist-stability",
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/open-subgroup-character-extension",
+        "verdict": "verified",
+        "note": "Divisibility/Zorn gives extension; continuity follows on the open subgroup. Checked Dikranjan 2.1.10 and 12.3.5(b)."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/closed-euclidean-subgroup-structure",
+        "verdict": "verified",
+        "note": "Small vectors produce a line; a maximal vector part has a discrete orthogonal complement. Checked 8.1.2 and §8.2."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/euclidean-character-extension",
+        "verdict": "verified",
+        "note": "Angles on a lattice basis and real linear extension give the continuous character; checked 8.0.7 and 12.2.4."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/compact-character-extension",
+        "verdict": "verified",
+        "note": "Current Peter–Weyl separation plus Stone–Weierstrass and character orthogonality supplies the compact restriction-surjectivity argument."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/real-compact-open-character-extension",
+        "verdict": "verified",
+        "note": "Compact-kernel projection is closed; factor off a compact-character extension and extend the real quotient, then the open subgroup."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/idele-character-extension",
+        "verdict": "verified",
+        "note": "The ideles have an open real-times-compact subgroup from current GlobalNumberFields; closed character extension is the preceding explicit target."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/isolation-subgroup-topology",
+        "verdict": "verified",
+        "note": "Norm slabs are compact, principal ideles are discrete, and the supported-on-S product embeds properly; checked JL70 12.5."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/preliminary-artin-functional-equation",
+        "verdict": "verified",
+        "note": "Deligne 3.12 gives the Brauer/Hecke preliminary exponential before local epsilon existence; this avoids the previous cycle."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/global-induction-constant-product",
+        "verdict": "verified",
+        "note": "The target keeps trace characters, infinity and measures explicit; the noncircular comparison is honestly retained as G2."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-algebra-splitting-field",
+        "verdict": "verified",
+        "note": "Webb 9.2.6 and 9.2.5 support finite splitting; existing radical/block/idempotent owners supply the algebra inputs."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/split-simple-scalar-extension",
         "verdict": "corrected",
-        "note": "Read JL70 Proposition 3.8; make the high-conductor bound depend on π as well as the auxiliary characters."
+        "note": "Corrected splitting-field, scalar-extension exercises and Artin–Wedderburn locators; the split-block/radical argument is sound."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-field-simple-descent",
+        "verdict": "corrected",
+        "note": "Corrected the scalar-extension exercise locator; finite-field descent is up to isomorphism for arbitrary algebraically closed coefficients."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/complete-splitting-modular-system",
+        "verdict": "verified",
+        "note": "Finite unramified residue extension and cyclotomic compositum give a complete system; only prime-to-p roots are identified on reduction."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/projective-modular-lift",
+        "verdict": "corrected",
+        "note": "Replaced nonexistent Hom reduction Lemma 9.4.11 citation with the projective comparison proof; read 9.4.3/9.4.5 in full."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/projective-character-vanishing",
+        "verdict": "corrected",
+        "note": "Corrected 8.1.1–8.1.3 pagination; cyclic restriction and projective-lift vanishing match 9.6.2."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/projective-brauer-hom",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 8.1.4 name/pages and noted current Tau Ceti projective Hom helper; 10.2.1 supports the pairing with arbitrary U."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/brauer-class-count",
+        "verdict": "verified",
+        "note": "Checked Webb 9.3.1–9.3.6, including cyclic-word Frobenius modulo commutators and p-regular independence."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/p-rational-character",
+        "verdict": "corrected",
+        "note": "Corrected cyclotomic notation to Isaacs §4 p.177 and recorded the absent fixed-field adapter as G7."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/modular-clifford-correspondence",
+        "verdict": "verified",
+        "note": "Isaacs 5.1 and characteristic-free restriction semisimplicity give the inertia argument; no Maschke correspondence is imported."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/coprime-index-lift-correspondence",
+        "verdict": "corrected",
+        "note": "Verified Isaacs 2.2/3.1/5.2; explicitly retained the extra ordinary-character interfaces in G7."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/p-group-index-lift-comparison",
+        "verdict": "corrected",
+        "note": "Verified Isaacs 4.1; G7 records the remaining ordinary-character refinements rather than attributing them to current Clifford theory."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/determinant-order-extension",
+        "verdict": "corrected",
+        "note": "Verified Isaacs 4.2/4.7 for all primes; cyclic extension remains an explicit Part II obligation G7."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/p-rational-p-group-extension",
+        "verdict": "corrected",
+        "note": "Verified Isaacs 4.3–4.5 and the odd-prime hypothesis; G7 exposes the ordinary/cyclotomic inputs."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/equivariant-fong-swan",
+        "verdict": "corrected",
+        "note": "Verified the full 5.4 induction, automorphism stabilizer and degree alternative; ordinary relative-degree divisibility remains G7."
+      },
+      {
+        "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/gl2-twist-stability",
+        "verdict": "verified",
+        "note": "JL70 3.8 gives the required conductor bounds depending on each representation and equality under equal central characters."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/gl2-local-converse",
         "verdict": "verified",
-        "note": "Read JL70 Theorem 2.18/Corollary 2.19 and the cleared BH06 §§27.1–27.2, 27.8; hypotheses and norm-shift reduction agree."
+        "note": "JL70 2.18/2.19 and cleared BH06 27.1–27.2,27.8 confirm the stated local converse and real norm-shift reduction."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/isolating-twist-character",
-        "verdict": "corrected",
-        "note": "Correct U^0 and the Lean witness; read JL70 Lemma 12.5; character extension is missing from the cited supplier (G1)."
+        "verdict": "verified",
+        "note": "JL70 12.5 supports the supported-on-S construction with U⁰=O× and the strict conductor inequality."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/artin-twisted-functional-equation",
-        "verdict": "corrected",
-        "note": "Use finite global reciprocity and local twists; correct pole example and quasi-character shifts; retain preliminary-FE/product-formula target G2."
+        "verdict": "verified",
+        "note": "Finite reciprocity plus Brauer/Hecke and local constants give the final equation conditional on G2; quasi-characters use a real norm shift."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/artin-all-place-upgrade",
-        "verdict": "corrected",
-        "note": "Use unitary rec with geometric reciprocity; undo the global conductor completion before cancelling raw local factors; dependencies retain G1/G2."
+        "verdict": "verified",
+        "note": "Checked JL70 12.2 cancellation of raw local factors, unitary geometric rec, determinant equality and the finite-place isolation."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/tetrahedral-artin-all-places",
         "verdict": "verified",
-        "note": "Read Langlands §§2–3 and JL70 12.1; cubic split archimedean argument is sound conditional on the imported weak theorem and the upgrade."
+        "note": "Langlands §2 A–C and §3(i), with JL70 12.1, give archimedean matching through cyclic cubic split places."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/octahedral-artin-all-places",
-        "verdict": "unverifiable",
-        "note": "Archimedean determinant argument checked against the supplier; Tunnell source unavailable (HTTP 403), so G6 prevents full independent verification."
+        "verdict": "verified",
+        "note": "All three archived Tunnell pages were independently collated; the weak cubic comparison and real odd/determinant argument support this refinement."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/brauer-character",
-        "verdict": "corrected",
-        "note": "Read Webb 10.1.1–10.1.3; add the split-spectrum condition to the general-domain reduction API and explain the Lean totalisation."
+        "verdict": "verified",
+        "note": "Webb 10.1.1–10.1.3 supports compatible root lifts and the API; general-domain reduction retains split spectrum."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/brauer-character-recognition",
-        "verdict": "corrected",
-        "note": "Read Webb 9.4.8 and 10.2.1–10.2.3; the projective pairing does not supply the modular Hom formula or class count (G3)."
+        "verdict": "verified",
+        "note": "Projective Hom pairing and class count explicitly supply Webb 10.2.2–10.2.3; 9.4.8 supplies lattice independence."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/fong-swan",
-        "verdict": "corrected",
-        "note": "Read Isaacs 1.2, 1.4, 3.1, 4.1, 4.2, 5.1 and 5.4; state strengthened induction and record modular, rather than Maschke, inputs (G4)."
+        "verdict": "verified",
+        "note": "Isaacs 5.4 supplies existence for every prime and §6 proves odd-prime uniqueness with its simultaneous restriction assertion; owner gaps remain explicit."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-integral-lift",
         "verdict": "corrected",
-        "note": "Correct arbitrary-k descent to isomorphism over a finite splitting field; reuse characteristic-zero cyclotomic splitting; record G5."
+        "note": "Corrected Webb exercise locators; cyclotomic splitting, lattice reduction, irreducibility and exact kernel follow under the stated lifting input."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/involution-oddness-under-reduction",
         "verdict": "verified",
-        "note": "Domain determinant argument and p=2 counterexample verified; suggested file provides the elementary determinant proof."
+        "note": "The determinant has square one; a domain and nonzero 2 make reduction distinguish the signs. The real Lean proof agrees."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/odd-solvable-residual-lift",
         "verdict": "verified",
-        "note": "Finite-image quotient, same-kernel construction, irreducibility and oddness follow from the stated integral-lift target, whose G5 remains explicit."
+        "note": "Finite quotient, same-kernel integral lift, absolute irreducibility and involution lemma supply the target; odd p is necessary."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-residual-modularity",
-        "verdict": "corrected",
-        "note": "Apply geometric automorphy to ρ∨ so the arithmetic residual representation is ρ; oddness and ramification are preserved."
+        "verdict": "verified",
+        "note": "Apply geometric automorphy to ρ∨ to attach arithmetic ρ; π₁ at each real place is RT83 weight one. Supplier gaps remain."
       },
       {
         "nodeId": "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-solvable-residual-weight-one",
         "verdict": "corrected",
-        "note": "Check DS74 4.1, 4.6, 4.10–4.11 and DP21 1.3; use arithmetic factors through the dual adapter; retain prerequisite gaps."
+        "note": "Corrected DS74 4.11 to a remark; 4.1/4.6/4.10 and DP21 1.3 support the arithmetic convention and conductor-level form."
       }
     ]
   },
@@ -3180,7 +3430,7 @@
     },
     {
       "id": "G4",
-      "resolution": "Explicit modular Clifford and extension targets retain the full Isaacs strengthened induction; ordinary degree divisibility is an exact Part II request.",
+      "resolution": "The modular Clifford, comparison and extension targets make the full Isaacs strengthened induction explicit. Its three additional ordinary-character Part II inputs are recorded separately in G7, not asserted to be present in current InductionRestriction.",
       "nodes": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/modular-clifford-correspondence",
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/coprime-index-lift-correspondence",
