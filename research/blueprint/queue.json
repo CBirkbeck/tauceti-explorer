@@ -22353,9 +22353,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ArakelovGeometryAndAbelianHeights.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #674"
+   "note": "claimed on GitHub issue #674"
   },
   {
    "id": "REV-ArakelovGeometryAndAbelianHeights",
@@ -24322,9 +24322,10 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #717"
+   "note": "deliverables arrived from an external worker on issue #717",
+   "finishedAt": "2026-10-14T07:47:13Z"
   },
   {
    "id": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0",
@@ -29661,14 +29662,15 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicLFunctionsAndLocalFactors",
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9433"
   },
   {
    "id": "REV-AnalyticNumberTheory",
@@ -31639,7 +31641,8 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--RS.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8916"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--RS.0",
@@ -31727,7 +31730,8 @@
    ],
    "followUpOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmeticPartII--RS.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8918"
   },
   {
    "id": "REV-FunctionFieldArithmeticPartII--RS.2",
@@ -37720,8 +37724,9 @@
    ],
    "followUpOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics--DY.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9316"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9316",
+   "finishedAt": "2026-10-14T07:47:14Z"
   },
   {
    "id": "REV-ArithmeticDynamics--DY.2",
@@ -37788,8 +37793,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics--DY.3",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics--DY.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9275"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9275",
+   "finishedAt": "2026-10-14T07:47:16Z"
   },
   {
    "id": "BP-ArithmeticDynamics--DY.6",
@@ -49182,8 +49188,9 @@
     "PKG-ExponentialSumsAndCircleMethod"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9213"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9213",
+   "finishedAt": "2026-10-14T07:47:20Z"
   },
   {
    "id": "PKG-FaltingsFinitenessAndIsogenyTheorems",
@@ -50536,7 +50543,8 @@
     "PKG-InductionRestrictionPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-InductionRestrictionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7606"
   },
   {
    "id": "PKG-IntegralHeckeAndGaloisDeterminants",
@@ -50648,8 +50656,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7593",
+   "finishedAt": "2026-10-14T07:47:24Z"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -52289,8 +52298,9 @@
     "PKG-SieveMethodsAndPrimePatterns"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9240"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9240",
+   "finishedAt": "2026-10-14T07:47:29Z"
   },
   {
    "id": "PKG-SmallRamificationAndAbelianVarietyBaseCases",
@@ -52578,8 +52588,9 @@
     "PKG-WeightZeroCrystallineAutomorphyLifting"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9241"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9241",
+   "finishedAt": "2026-10-14T07:47:33Z"
   },
   {
    "id": "PKG-WeightsInEtaleCohomology",
@@ -102546,7 +102557,8 @@
    ],
    "revisionOf": "BP-DrinfeldModulesAndTModules--DM.8",
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9314"
   },
   {
    "priority": 2,
