@@ -587,7 +587,7 @@
       "status": "planned",
       "remaining": [
         "Fulfil the six precisely stated supplier contracts (norm-building import, square-zero extension, T-adic image extension, torsion Selmer comparison, completed-tensor local geometry, equivariant patching); all PL.6 targets are represented here or in the accepted parent.",
-        "Resolve the one coefficient-descent gap for the literal arbitrary finite-k generic theorem; geometric weak primitivity and the common-splitting-field form are supplied. At assembly replace the strong-only generic restriction/R=T consumer references by the weak nodes here, and replace the existing Generic R=T planet rather than adding a seventh. PL.7 consumes the weak image-preserving bridge and retains its separate E32 numerical refinement."
+        "Resolve the one coefficient-descent gap for the literal arbitrary finite-k generic theorem; geometric weak primitivity and the common-splitting-field form are supplied. PL.7 consumes the weak image-preserving bridge and retains its separate E32 numerical refinement."
       ]
     }
   ],
@@ -818,6 +818,15 @@
         "verdict": "verified",
         "note": "The complete ANT arithmetic/level setup supplies finite automorphic modules and the scalar auxiliary Frobenius. Twisting preserves the relevant minimal primes; completed nilpotence descends faithfully flatly. The statement expressly assumes weak primitivity over the normalization residue field and leaves arbitrary finite-k descent as E76."
       }
+    ]
+  },
+  "assembly": {
+    "job": "ASM-PotentialAutomorphyInfrastructurePartII",
+    "date": "2026-10-14",
+    "changes": [
+      "Carried out this part’s assembly instructions: the strong-only consumers of generic restriction and generic R = T in the PL.7 part now cite PL.6/weak-primitive-generic-restriction and PL.6/weak-primitive-generic-hecke-kernel, the main packet’s strong theorems name these as their weak forms, and the Generic R = T theorem planet moved here from PL.6/generic-prime-r-equals-t. The coverage record no longer lists these instructions.",
+      "The coefficient-descent gap of this part is shared with the main packet’s gap on the coefficient field and the PL.7 part’s gap on the finite-coefficient source theorems.",
+      "No node, statement, source issue or review is changed."
     ]
   }
 }
