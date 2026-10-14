@@ -1,0 +1,13 @@
+# Handoff: REV-PadicDifferentialEquationsAndRigidCohomology--RD.5
+
+Issue #9755; reviewer Codex, session `codex-6bOT78`; 2026-10-14. The independent review is complete and accepts the corrected target-level pass. This run takes no second job.
+
+The [review report](../reviews/REV-PadicDifferentialEquationsAndRigidCohomology--RD.5.md) records all 35 verdicts, the source checks, pinned baseline, corrections and assembly actions. The packet has 19 corrected and 16 verified nodes; no nodes added or removed; 50 API items, 29 tests and 5 planets. E501 (Kedlaya preprint line-bundle powers) and E502 (Crew's published strictness image condition) have independent confirmed verdicts. The reader and Lean inventory agree with the packet.
+
+Validation: packet checker 0 errors/0 warnings; pinned `lean-check` exit 0, only the 13 expected sorry warnings; reader fields/API/test inventory and internal links checked; combined first-pass/follow-up target graph after consumer retargets has no cycle; `git diff --check` clean. Suggested file: 316 lines, light real definitions and honest theorem placeholders only.
+
+Seven gaps and four supplier requests remain explicitly recorded; they do not make the finished pass mathematically closed. Resume future proof planning from those entries, not from this run's scratch directory. The three added gaps are Berkovich analytic foundations, relative log-convergent sites with rational crystalline realisation, and proper comparison over imperfect Cohen fields. CR.5 must supply proper log crystalline perfectness for locally free isocrystals without assuming an integral locally free lattice. L0 must supply the analytic inverse-limit exactness used in the boundary-disc argument, as well as its earlier requested duality inputs.
+
+At assembly, apply the twelve consumer retargets and remove the duplicate Hahn–Banach target. Move the existing proper rigid–crystalline comparison with its tube/envelope support before RD.5, preserving stable ids and proof gaps; keep later q-linear Frobenius normalisation in its existing later block. The five reader groups are not an established stage order: separate early functional analysis from final duality/Künneth/base change and build an acyclic ordered sublayer graph, at most six planets each. Do not duplicate current TauCetiRoadmap targets or create an upward CR.6 → RD.5 Stein-exhaustion dependency.
+
+No other packet, atlas data or upstream checkout was changed. Public source digests were checked for 16 PDFs; Berthelot was read through the web rendering without recomputing its inherited digest. The cleared van der Put source was read in place, with no copied file or text. The AMS formula remains unverified: E501 is scoped to arXiv v3.
