@@ -5,9 +5,10 @@ ideal classes, genera and integral binary quadratic forms in a real quadratic
 field. Its targets are the exact narrow-to-wide kernel, unique descent of real
 class characters, the number of narrow classes in each genus, arithmetic
 criteria for the distinguished principal class to lie in the principal genus,
-and agreement of fundamental form and ideal genus characters. These interfaces
-supply the algebraic normalizations used in real quadratic period and trace
-formulas.
+the genus character of an integral binary quadratic form, and its agreement
+with the narrow ideal genus character at a positive fundamental discriminant.
+These interfaces supply the algebraic normalizations used in real quadratic
+period and trace formulas.
 
 ## Scope and ownership
 
@@ -21,30 +22,40 @@ construction of those objects or proofs of those two results.
 
 The precise ownership boundaries are as follows.
 
-- **Multiquadratic, Part II** owns the nine theorem targets in Layers 0–3:
-  two narrow-defect interfaces, the genus-fibre cardinality, five sign and
-  arithmetic interfaces, and the fundamental form/ideal character comparison.
-- **IntegralLattices, Layers B1–B3** owns integral binary forms and content,
-  proper equivalence, the oriented form–ideal dictionary, and its composition,
-  inverse and genus-coset compatibilities. The dictionary for positive
-  nonsquare discriminant takes values in a narrow Picard group. Its orientation
-  clause at negative leading coefficient is essential.
-- **GlobalNumberFields, Layer 11** owns number-field orders, invertible proper
+- **Multiquadratic, Part II** owns one definition and nine theorem targets in
+  Layers 0–3: two narrow-defect interfaces, the genus-fibre cardinality, five
+  sign and arithmetic interfaces, and the comparison of form and ideal genus
+  characters. The definition is the genus character `binaryFormGenusChar` of
+  an integral binary quadratic form, with its evaluation and zero laws.
+- **[IntegralLattices, Layer B](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md#layer-b-binary-lattices-and-quadratic-orders)**
+  (B1–B3) owns integral binary forms and their content, proper equivalence,
+  the oriented form–ideal bijection into GlobalNumberFields' `NarrowPic` for
+  positive nonsquare discriminants, and its composition, inverse and
+  genus-coset compatibilities. This roadmap does not use that bijection.
+  Layer 3 compares characters on one form at a time, using the explicit
+  coefficient ideal of that form and the library's
+  `NumberField.NarrowClassGroup`. The ideal it uses is the one B2 attaches to
+  the form, including the B2 sign clause for a negative leading coefficient.
+- **[GlobalNumberFields, Layer 11](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalNumberFields/README.md#layer-11-orders-and-picard-groups)** owns number-field orders, invertible proper
   fractional ideals, `Pic`, `NarrowPic`, the forgetful homomorphism and its
   maximal-order specialization. No second narrow quotient is constructed here.
-- **GeometryOfNumbersAndQuadraticArithmetic, GN.2** supplies the general
-  integral binary-form genus character, including its zero branch and proper
-  invariance. **GN.3** supplies the remaining fundamental/maximal-order and
-  Duke–Imamoḡlu–Tóth convention adapters, and positive coprime norm witnesses,
-  consuming the IntegralLattices dictionary. These are the exact contracts
-  below, rather than a request for another form theory.
+  Nothing here needs `NarrowPic` of the maximal order to be identified with the
+  library's narrow class group.
+- **GeometryOfNumbersAndQuadraticArithmetic** plans positive definite binary
+  forms of negative discriminant and their ideal correspondence. It plans no
+  genus character on forms. The character, in the generality of Gross–Kohnen–Zagier
+  and of Duke–Imamoḡlu–Tóth §9 (any discriminant divisible by a fundamental
+  one, with its zero branch on forms whose content meets the character's
+  modulus), is therefore defined and specified in Layer 3 here. The analytic
+  consumers listed at the end use it.
 - Form reduction, composition algorithms and general representation theory
   stay with their lattice and quadratic-arithmetic owners. Hecke periods,
   gamma factors, spectral formulas, Weyl sums, subconvexity and asymptotic
   errors stay with the analytic and modular roadmaps.
 
-There are no new definition or construction targets. The notation below names
-existing objects and ordinary fibres. The distinction between narrow and wide
+The one new definition is the form character of Layer 3, a light definition
+on integer coefficient triples. Otherwise the notation below names existing
+objects and ordinary fibres. The distinction between narrow and wide
 classes is retained throughout; the full prime-discriminant compositum is not
 identified with a totally real, all-place-unramified genus field.
 
@@ -116,17 +127,24 @@ Write $q:C\to C/C^2$ for the existing elementary-two quotient map. Its target
 `NumberField.NarrowClassGroup.ElementaryTwoQuotient K` is additive, so the
 principal genus is its zero fibre. The quotient $C/C^2$, its square-subgroup
 fibres, and $C[2]=\{A:A^2=1\}$ play different roles. Use $h^+(D)=\#C$ for
-the narrow class number and $h(D)=\#W$ for the wide class number.
+the narrow class number and $h(D)=\#W$ for the wide class number. Beware
+that Duke–Imamoḡlu–Tóth write $h(D)$ for the *narrow* class number (§2,
+p.950); their formula (4.2) is the narrow count of Layer 1.
 
 Binary forms have the polynomial convention
 
 $$Q(x,y)=[a,b,c](x,y)=ax^2+bxy+cy^2,\qquad \operatorname{disc}(Q)=b^2-4ac.$$
 
-All coefficients are integers. Primitive means $\gcd(a,b,c)=1$. Proper
+All coefficients are integers, and a form is its coefficient triple; the
+content is $\gcd(a,b,c)$, and primitive means content one. Proper
 equivalence uses determinant-one integral substitutions, equivalently
 $\mathrm{PSL}_2(\mathbb Z)$ because $(-I)$ acts trivially. A full
 $\mathrm{GL}_2(\mathbb Z)$ orbit loses orientation. These conventions do not
 identify the classical discriminant with an unnormalized bilinear determinant.
+A fundamental discriminant $\delta$ (possibly $1$) is a *fundamental divisor*
+of a discriminant $\Delta$ when $\Delta=\delta\delta'$ with
+$\delta'\equiv0,1\pmod4$; for $t\subseteq s$ as above, $\delta$ is a
+fundamental divisor of $D$ with $\delta'=\prod_{P\in s\setminus t}P$.
 
 ## Exact supplier contracts
 
@@ -143,18 +161,25 @@ multiplicative quotient when applying these group-theoretic interfaces.
 `Nat.eq_sq_add_sq_iff`, in `Mathlib.NumberTheory.SumTwoSquares`, is the full
 two-square theorem: primes congruent to three modulo four must have even
 valuation. Layer 2 specializes this to positive fundamental discriminants.
-`QuadraticForm ℤ (Fin 2 → ℤ)` is the existing carrier for the
-conditional binary-form comparison; it is not a new integral-lattice theory.
+`FractionalIdeal`, its membership predicate, `Ideal.absNorm`, `Int.gcd` and
+`IsCoprime` are the carriers of Layer 3. Binary forms enter only through
+their integer coefficient triples. Mathlib's `QuadraticForm ℤ (Fin 2 → ℤ)`
+is not used: its discriminant passes through the associated bilinear form and
+needs $2$ to be invertible.
 
 ### From Tau Ceti and Multiquadratic
 
 Use Tau Ceti at `f790474821cf4256814db967cb154e7af3d0c369`. The declarations
 below are the starting interfaces, not targets of the build.
 
-- `NumberField.NarrowClassGroup`, its `mkPrincipal`, `mk0`, `toClassGroup`,
+- `NumberField.NarrowClassGroup`, its `mk` (the narrow class of an invertible
+  fractional ideal), `mkPrincipal`, `mk0`, `mk_mk0`, `toClassGroup`,
   `toClassGroup_ker` and `toClassGroup_surjective` supply the existing carrier,
   representatives, kernel-as-principal-range and surjective forgetful map.
-  `NumberField.coe_gen_ne_zero` supplies the field unit used in $J$.
+  `NumberField.coe_gen_ne_zero` supplies the field unit used in $J$, and
+  `NumberField.NarrowClassGroup.mkPrincipal_neg` and
+  `mkPrincipal_eq_one_of_isTotallyPositive` give the triviality of a principal
+  class with a generator of positive norm in the real quadratic case.
 - `NumberField.NarrowClassGroup.mkPrincipal_sq` proves principal classes have
   square one. `NumberField.mkPrincipal_eq_one_or_eq_mkPrincipal_gen` supplies
   the quadratic principal-class dichotomy, and
@@ -190,112 +215,36 @@ below are the starting interfaces, not targets of the build.
   `genusCharFunNarrowClassGroupHom_mk0` identify the class character with the
   arithmetic character on a nonzero integral ideal of coprime absolute norm.
   Nonzeroness and coprimality are required before using that evaluation law.
+  The membership condition is coprimality of the absolute norm with the
+  product $\delta$ of the indexing subset, not with all of $D$.
+- `genusCharFun` is the product over $t$ of `primeDiscriminantCharFun`, a
+  total function on all integers. `genusCharFun_mul_right`,
+  `genusCharFun_eq_zero_iff`, `genusCharFun_eq_one_or_eq_neg_one` and
+  `primeDiscriminantCharFun_neg_one` (the value at $-1$ is the sign of the
+  prime discriminant) are the arithmetic laws Layer 3 uses, including at
+  negative arguments.
 
 These interfaces are in `NumberField/NarrowClassGroup`,
 `NumberField/Quadratic/Conjugation/NarrowClassGroup`,
 `Multiquadratic/Quadratic/TwoRank`, and
-`Multiquadratic/Quadratic/GenusCharacter/{CoprimeIdeal,NarrowClassGroup,PrincipalGenus,OrdinaryTwoRank}`,
-together with the discriminant files.
-
-### From IntegralLattices and GlobalNumberFields
-
-Consume [IntegralLattices, Layer B](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md#layer-b-binary-lattices-and-quadratic-orders),
-specifically B1 for forms and content, B2 for the oriented primitive-form/ideal
-bijection, and B3 for composition and inverse compatibility. Consume
-[GlobalNumberFields, Layer 11](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalNumberFields/README.md#layer-11-orders-and-picard-groups)
-for its order and Picard carriers and maximal-order comparison. In particular,
-`NumberFieldOrder.narrowToPic` and the maximal-order `narrowClassToClass`
-comparison must respect forgetting positivity. These are roadmap interfaces,
-not declarations asserted to be present in the pinned library.
-
-For a nonsquare positive discriminant the B2 coefficient ideal is
-
-$$\mathfrak a_Q=a\mathbb Z+\frac{-b+\sqrt D}{2}\mathbb Z.$$
-
-The oriented narrow class is that of $\mathfrak a_Q$ for $a>0$, and that of
-$\sqrt D\,\mathfrak a_Q$ for $a<0$. A form of nonsquare discriminant has
-$a\ne0$. Keep this sign clause when specializing to a fundamental
-discriminant and the maximal order. The positive-norm definition of narrow
-equivalence in this quadratic dictionary agrees with the totally positive
-one by the two-sign argument in the conventions.
-
-The witness is $D=12$: $Q=x^2-3y^2$ and $-Q=-x^2+3y^2$ yield the same
-unoriented coefficient ideal $\mathcal O_{12}$. Their oriented classes differ
-by $J$. Rotating $-Q$ by $(x,y)\mapsto(y,-x)$ gives $3x^2-y^2$, whose
-coefficient ideal is $(3,\sqrt3)=\sqrt3\mathcal O_{12}$. Moreover $Q$
-does not represent $(-1)$ modulo three, so a proper equivalence with $-Q$
-would be impossible. This distinguishes the needed dictionary from both a
-wide dictionary and an unoriented map into a narrow group.
-
-### From GeometryOfNumbersAndQuadraticArithmetic, GN.2
-
-For a nonsquare discriminant $\Delta=\delta\delta'$ with $\delta$ fundamental
-and $\delta'$ a discriminant, supply the integer-valued character
-$\chi_\delta$ on integral binary forms of discriminant $\Delta$. Its content
-law is $\chi_\delta([a,b,c])=0$ when $\gcd(a,b,c,\delta)>1$. Otherwise it
-evaluates at an integer represented by the form and coprime to $\delta$ as
-the Kronecker symbol $(\delta/m)$. Supply existence of such a represented
-integer, independence of its choice, and proper invariance. The normalization
-must agree with `genusCharFun t m` for the subset factorization used here,
-including even and empty factors. Supply also
-$\chi_\delta(-Q)=\operatorname{sign}(\delta)\chi_\delta(Q)$.
-
-The consumer in Layer 3 specifically uses evaluation at a **positive**
-represented integer $m$ coprime to $\delta$. Its canonical comparison is
-restricted to primitive forms of positive fundamental discriminant; the
-general character's zero branch remains part of this supplier contract. GN.2
-consumes the IntegralLattices binary carrier, content and proper action rather
-than creating alternatives. This is the same character used by the
-Bruinier–Ehlen–Yang direction. (Duke–Imamoḡlu–Tóth, §9, pp.977–978, definition
-preceding Proposition 5.)
-
-### From GeometryOfNumbersAndQuadraticArithmetic, GN.3
-
-Supply only the following adapters to the preceding owners. For positive
-fundamental $D>1$, specialize the quadratic order to $\mathcal O_K$ and
-identify its `NarrowPic` with `NumberField.NarrowClassGroup K`, respecting
-principal classes and the forgetful map. Use GlobalNumberFields' maximal-order
-comparison whenever it already supplies this compatibility.
-
-After a proper change to $a>0$, match the source's fractional norm form:
-
-$$
-w=\frac{-b+\sqrt D}{2a},\qquad w^\sigma<w,\qquad
-\mathfrak a=w\mathbb Z+\mathbb Z,\qquad
-Q(x,y)=\frac{N(x-wy)}{N(\mathfrak a)}.
-$$
-
-Here the coefficient ideal is the positive rational multiple
-$\mathfrak a_Q=a\mathfrak a$, with the same narrow class. Retain the B2 sign
-clause for a representative with $a<0$. Provide the source's coefficient
-actions
-
-| Form, when $Q$ represents $A$ | Associated narrow class |
-| --- | --- |
-| $[a,-b,c]$ | $A^{-1}$ |
-| $[-a,b,-c]$ | $JA$ |
-| $[-a,-b,-c]=-Q$ | $JA^{-1}$ |
-
-For each primitive form and factor $\delta$ used in Layer 3, supply a positive
-represented $m$ coprime to $\delta$ and a nonzero integral ideal
-$\mathfrak b=(\alpha)\mathfrak a^{-1}$ with absolute norm $m$ and narrow
-class $A^{-1}$. This includes integrality and proper-basis compatibility,
-not just an equality of absolute norms. These are specialization, convention
-and witness adapters; they do not include another construction of proper
-equivalence, reduction, composition or the oriented dictionary.
-(Duke–Imamoḡlu–Tóth, §2, p.952, norm-form paragraph and (2.3)–(2.5).)
+`Multiquadratic/Quadratic/GenusCharacter/{Basic,CoprimeIdeal,NarrowClassGroup,PrincipalGenus,OrdinaryTwoRank}`,
+together with the discriminant files and
+`Multiquadratic/Legendre/PrimeDiscriminant/Character`.
 
 ## How to read the build
 
 Layer 0 identifies the narrow defect and makes character descent unique.
 Layer 1 counts the elements in an arbitrary genus using the existing quotient.
 Layer 2 translates the value on the distinguished class into signed
-prime-discriminant and two-square criteria. Layer 3 compares the canonical
-form character with the ideal character using the exact supplier contracts.
-`Suggested.lean` states the nine representative endpoints on existing
-carriers; its last theorem is the explicit witness version of the comparison.
-The canonical supplier instantiation and the general form character's zero
-test are specified here, rather than typed using an invented supplier API.
+prime-discriminant and two-square criteria. Layer 3 defines the genus
+character of an integral binary form, proves that it is well defined, and
+shows that at a positive fundamental discriminant it is the narrow ideal genus
+character of the class of the form's coefficient ideal. Layers 0–2 consume
+only the pinned Tau Ceti narrow-class and genus-character theory; Layer 3
+consumes the same theory and the sign theorem of Layer 2.
+`Suggested.lean` states the nine theorem endpoints, the form character as a
+real-bodied definition with its evaluation and zero laws, and checks on
+explicit values.
 
 ## Layer 0: the quadratic narrow defect
 
@@ -500,7 +449,10 @@ $$
 
 No field carrier is required, and $D=1,s=\varnothing$ is allowed.
 Divisibility on the right uses the integer cast of the natural prime.
-(Duke–Imamoḡlu–Tóth, §4, p.960, paragraph after (4.4).)
+This is the elementary step that turns Tau Ceti's sign criterion
+`isSquare_mkPrincipal_gen_iff` into the prime-divisor form in which
+Duke–Imamoḡlu–Tóth state when $J$ lies in the principal genus (§4, p.960,
+paragraph after (4.4)).
 
 For an odd prime-discriminant factor, negativity is exactly the condition
 $p\equiv3\pmod4$ on its underlying prime. A prime dividing the product
@@ -652,139 +604,228 @@ Multiquadratic character and principal-genus interfaces; prime-discriminant
 arithmetic; Mathlib's sum-of-two-squares theorem. The sign and arithmetic
 targets do not need form reduction or analytic inputs.
 
-## Layer 3: fundamental form and ideal characters
+## Layer 3: genus characters of binary forms
 
-### 3.1 Agreement at positive fundamental discriminant
+### 3.1 The genus character of a binary form
 
-Under the real quadratic conventions and $t\subseteq s$, let $Q=[a,b,c]$
-be an integral primitive form with $b^2-4ac=D>1$, associated to $A\in C$
-by the oriented dictionary in the supplier contracts. Prove the canonical
-target `formCharacter_eq_idealCharacter`:
-
-$$\chi_\delta(Q)=(\chi_t(A):\mathbb Z).$$
-
-The form character is the GN.2 Kronecker-normalized character, and the
-association is IntegralLattices' oriented dictionary specialized to the
-maximal order and transported to the existing narrow class group. A positive
-fundamental discriminant forces primitive content, but content one is retained
-as an explicit hypothesis to expose the dictionary's domain. The general form
-character can have value zero; the right side is always a unit. The restricted
-domain is therefore part of the statement.
-(Duke–Imamoḡlu–Tóth, §2, p.952, norm-form paragraph and (2.3)–(2.5);
-§9, p.978, paragraph before Proposition 5.)
-
-Take a positive represented integer $m$ coprime to $\delta$, as supplied
-by GN.3. After proper normalization to $a>0$, use
-$\mathfrak a=w\mathbb Z+\mathbb Z$ and a representation
-$\alpha=x-wy\in\mathfrak a$. Then
+Let $t$ be a finite set of prime discriminants with at most one even member,
+and put $\delta=\prod_{P\in t}P$, a fundamental discriminant (possibly $1$).
+Define `binaryFormGenusChar t a b c`, written $\chi_\delta(Q)$ for
+$Q=[a,b,c]$:
 
 $$
-\mathfrak b=(\alpha)\mathfrak a^{-1},\qquad
-N(\mathfrak b)=\frac{N(\alpha)}{N(\mathfrak a)}=m,\qquad
-[\mathfrak b]^+=A^{-1}.
+\chi_\delta(Q)=\begin{cases}
+\texttt{genusCharFun}\ t\ m & \text{if $Q$ represents some $m\in\mathbb Z$ coprime to $\delta$,}\\
+0 & \text{otherwise,}
+\end{cases}
 $$
 
-Integrality follows from $\alpha\in\mathfrak a$. Nonzeroness follows from
-$m>0$. Because the absolute ideal norm $N(\mathfrak a)$ is positive,
-$N(\alpha)>0$, so its principal ideal is trivial in the real quadratic
-narrow group. This gives the inverse class in the last equality. Using a
-negative represented value and retaining only its absolute norm would instead
-introduce $J$. The witness therefore includes positivity, integrality, norm
-and narrow class, rather than only a represented absolute value.
+where in the first case $m$ is any such represented integer. The
+definition is total on integer triples and takes no discriminant hypothesis.
+In Lean the represented integer is picked by choice, so the definition has a
+real body. That the choice does not matter is the first API theorem, and it
+needs $\delta$ to be a fundamental divisor of $\operatorname{disc}Q$. The
+represented integer may be negative. `genusCharFun` is the Kronecker
+character $(\delta/\cdot)$ on all integers, so its value at $-1$ is
+$\operatorname{sign}\delta$. This is the generalized genus character of
+Duke–Imamoḡlu–Tóth (§9, p.978, definition preceding Proposition 5) and the
+classical genus character for a fundamental divisor, together with its
+extension to imprimitive forms (Gross–Kohnen–Zagier, Ch. I §2, p.508, the
+paragraph opening the section; Proposition 1 there is the level-$N$
+generalization, which is not needed here).
 
-GN.2 evaluates the left side as `genusCharFun t m`. The coprime ideal
-evaluation law evaluates $\chi_t([\mathfrak b]^+)$ by the same arithmetic
-character. Establish membership of $\mathfrak b$ in the existing nonzero
-coprime-ideal submonoid before invoking this law. Finally
-$\chi_t(A^{-1})=\chi_t(A)$, since every unit of $\mathbb Z$ is its own inverse.
-This proves the comparison without any new genus character or form quotient.
+Its API:
 
-Proper changes of basis preserve the supplied form character. Coprime
-integral representatives preserve the ideal class character. Together with
-the supplier's proper-basis compatibility, these laws make the equality
-independent of the norm-form representative.
+- `binaryFormGenusChar_eq_of_represents` (evaluation law). Suppose
+  $b^2-4ac=\delta\delta'$ with $\delta'\equiv0,1\pmod4$, and suppose
+  $Q(x,y)$ is coprime to $\delta$. Then
+  $\chi_\delta(Q)=\texttt{genusCharFun}\ t\ (Q(x,y))$. The form may be
+  imprimitive, definite, indefinite or of square discriminant, and the value
+  may be negative. Compare the factor at one $P\in t$, lying over the prime
+  $p$. Since $Q(x,y)$ is prime to $p$ and $p$ divides the discriminant, $p$
+  cannot divide both $a$ and $c$. When $p\nmid a$, the identity
+  $4a\,Q(x,y)=(2ax+by)^2-\operatorname{disc}(Q)\,y^2$ shows that
+  $a\,Q(x,y)$ is a nonzero square modulo $p$ for odd $p$, so the factor
+  equals the character of $P$ at $a$. For $p=2$, write $b=2b'$; then
+  $a\,Q(x,y)=(ax+b'y)^2-(\operatorname{disc}Q/4)\,y^2$, and
+  $\operatorname{disc}Q/P=(\delta/P)\,\delta'\equiv0,1\pmod4$ makes this
+  odd value $\equiv1\pmod4$ for $P=-4$, $\equiv\pm1\pmod8$ for $P=8$ and
+  $\equiv1,3\pmod8$ for $P=-8$. When $p\nmid c$ argue the same way with
+  $c$. Either way the factor does not depend on $(x,y)$
+  (Gross–Kohnen–Zagier, Ch. I §2, proof of Proposition 1, p.509).
+- `binaryFormGenusChar_eq_zero_iff` (zero law): $\chi_\delta(Q)=0$ exactly
+  when $\gcd(a,b,c)$ is not coprime to $\delta$. If a prime divides both
+  the content and $\delta$, it divides every represented value. Conversely,
+  when the content is prime to $\delta$, for each prime $p\mid\delta$ one of
+  $Q(1,0)=a$, $Q(0,1)=c$, $Q(1,1)=a+b+c$ is prime to $p$. The Chinese
+  remainder theorem combines these choices into one pair $(x,y)$ with
+  $Q(x,y)$ coprime to $\delta$, and `genusCharFun` is $\pm1$ there
+  (Gross–Kohnen–Zagier, p.509, the representation fact quoted in the proof).
+  No discriminant hypothesis is needed.
+- `binaryFormGenusChar_empty`: for $t=\varnothing$ the value is $1$ on
+  every form, the zero form included.
+- `binaryFormGenusChar_smul`: under the hypotheses of the evaluation law,
+  $\chi_\delta(\mu Q)=\texttt{genusCharFun}\ t\ \mu\cdot\chi_\delta(Q)$
+  for every integer $\mu$, by multiplicativity of `genusCharFun`.
+- `binaryFormGenusChar_comp`: $\chi_\delta(Q\circ g)=\chi_\delta(Q)$ for
+  every $g\in\mathrm{GL}_2(\mathbb Z)$, because both forms represent the
+  same integers. In particular $\chi_\delta$ is a class function for proper
+  equivalence, and $\chi_\delta([a,-b,c])=\chi_\delta([a,b,c])$.
+- `binaryFormGenusChar_neg`: under the hypotheses of the evaluation law,
+  $\chi_\delta(-Q)=\operatorname{sign}(\delta)\,\chi_\delta(Q)$, because
+  $-Q$ represents $-m$ and `genusCharFun` at $-1$ is
+  $\operatorname{sign}\delta$ (`primeDiscriminantCharFun_neg_one`). The
+  same holds for $[-a,b,-c]$, which is $-Q$ composed with
+  $\operatorname{diag}(1,-1)$.
 
-The representative Lean theorem states this witness argument on the existing
-`QuadraticForm` carrier. It takes the coefficients and discriminant/content
-equations, a function `formChar` with the positive represented-value law, a
-positive natural $m$, a vector representing it, and a nonzero integral ideal
-of absolute norm $m$ in $A^{-1}$. It does not assume the comparison as a
-hypothesis. The canonical theorem requires instantiating this function and
-these witnesses with GN.2/GN.3 and the imported oriented dictionary. Their
-precise laws are the supplier contracts above; no unnamed canonical API is
-claimed by the signature.
-
-*Needs:* GN.2's evaluation and invariance; GN.3's specialization and positive
-coprime norm witness; IntegralLattices B1–B3 and GlobalNumberFields Layer 11;
-Tau Ceti's coprime ideal character, membership and evaluation laws.
+`Suggested.lean` states the definition with the evaluation and zero laws.
+The current Tau Ceti library, after the pinned commit, has a coefficient
+carrier `TauCeti.BinaryQuadraticForm` with `eval`, `discrim` and the
+$\mathrm{SL}_2$ action; it has no genus character on forms. A formalization
+at a later pin should define the character on that carrier rather than on
+bare triples.
 
 **Checks.**
 
-- The principal form $[1,0,-3]$ of discriminant twelve represents $1$,
-  giving character $1$ for either singleton factor. Its negative represents
-  $3$ at $(0,1)$. For $\delta=-4$ the Kronecker value at $3$ is $(-1)$,
-  agreeing with the narrow ideal character on $J$.
-- The principal form $[1,1,-1]$ of discriminant five has trivial genus
-  character for either factor $1$ or $5$. A factor $1$ is valid input.
-- The imprimitive form $[2,0,-6]$ has discriminant
-  $48=(-4)(-12)$ and content two. GN.2's $\chi_{-4}$ must be zero there,
-  because the content shares a factor with $(-4)$. The nonfundamental
-  discriminant excludes it from the comparison; assigning a unit value to
-  every integral form would fail this check. This is a canonical supplier
-  test in the README; the Lean example checks its discriminant, content and
-  nonfundamentality without inventing a canonical character declaration.
-- The coefficient actions must retain their complete class labels:
-  $[a,-b,c]\leftrightarrow A^{-1}$,
-  $[-a,b,-c]\leftrightarrow JA$, and $-Q\leftrightarrow JA^{-1}$.
-  Swapping the last two labels is wrong even when real characters do not
-  distinguish them.
+- $Q=[1,0,-3]$ has discriminant $12=(-4)(-3)$. With $\delta=-4$ it represents
+  $1$ at $(1,0)$, so the value is $1$. It also represents $-3$ at $(0,1)$,
+  and the character of $-4$ at $-3$ is again $1$. A definition that
+  evaluated at $|m|$ would give $-1$ at the value $-3$ and fail
+  well-definedness here.
+- $-Q=[-1,0,3]$ represents $3$ at $(0,1)$, giving $-1=\operatorname{sign}(-4)
+  \cdot\chi_{-4}(Q)$, as the sign law requires.
+- The imprimitive form $[2,0,-6]$ has discriminant $48=(-4)(-12)$ with
+  $-12\equiv0\pmod4$. Its content $2$ shares the prime $2$ with $-4$, so
+  $\chi_{-4}$ is $0$ on it. A definition giving every form a unit value fails
+  this test.
+- $x^2+2y^2$ has discriminant $-8=(-4)\cdot2$, and $2\not\equiv0,1\pmod4$.
+  It represents $1$ and $3$, where the character of $-4$ takes the values
+  $1$ and $-1$. So the congruence condition on $\delta'$ cannot be dropped
+  from the evaluation law.
+- At discriminant $-15=5\cdot(-3)$ with $\delta=5$, the form $[2,1,2]$
+  represents $2$ and $(5/2)=-1$, while the principal form $[1,1,4]$
+  represents $1$. The character separates these two proper classes.
+- With $\delta=1$ the value is $1$ for every form.
 
-### 3.2 Sign consequences of the comparison
+### 3.2 Agreement with the narrow ideal genus character
 
-The coefficient actions in the supplier contract imply that reversing the
-middle coefficient preserves the character, while changing $[a,b,c]$ to
-either $[-a,b,-c]$ or $[-a,-b,-c]$ multiplies it by
-$\chi_t(J)=\operatorname{sign}(\delta)$. In particular,
+Under the real quadratic conventions, let $t\subseteq s$ and $\delta=\prod_{P\in
+t}P$. Fix $\omega\in K$ with $\omega^2=D$, and let $Q=[a,b,c]$ have
+$b^2-4ac=D$. Let $\mathfrak a$ be an invertible fractional ideal of
+$\mathcal O_K$ whose elements are exactly the integral combinations of $a$
+and $(-b+\omega)/2$. Prove `formCharacter_eq_idealCharacter`:
 
-$$\chi_\delta(-Q)=\operatorname{sign}(\delta)\chi_\delta(Q).$$
+$$
+\chi_\delta(Q)=\begin{cases}
+\chi_t\bigl([\mathfrak a]^+\bigr) & a>0,\\
+\chi_t\bigl(J\,[\mathfrak a]^+\bigr) & a<0,
+\end{cases}
+$$
 
-This recovers the supplier's parity law on the fundamental domain and tests
-agreement of the two normalizations. For a positive factor the value is
-unchanged; for a negative factor its sign reverses. These are consequences
-of the comparison and supplied coefficient actions, not additional
-construction targets. (Duke–Imamoḡlu–Tóth, §2, p.952, (2.3)–(2.5);
-§7, p.971, before (7.8); §9, p.978, before Proposition 5.)
+with $\chi_t$ read in $\mathbb Z$. Since $D$ is fundamental and greater than
+one, $Q$ is primitive and $a\neq0$ (Duke–Imamoḡlu–Tóth, §2, p.951).
+The class on the right is the narrow class, in the library group, of the
+ideal that IntegralLattices B2 attaches to $Q$: $\mathfrak a_Q=\mathfrak a$
+when $a>0$, and $\sqrt D\,\mathfrak a_Q$ when $a<0$, where $[\sqrt D]^+=J$.
+(B2 takes that class in GlobalNumberFields' `NarrowPic`; no comparison of the
+two groups is used here.) For $a>0$ it is
+also the class that Duke–Imamoḡlu–Tóth attach to $Q$. Their ideal is
+$w\mathbb Z+\mathbb Z$ with $w=(-b+\sqrt D)/(2a)$ and $w^\sigma<w$, and
+$Q(x,y)=N(x-wy)/N(w\mathbb Z+\mathbb Z)$. That ideal is
+$a^{-1}\mathfrak a$, in the same narrow class because $a>0$ (§2, p.952).
+The statement is theirs for $D>0$ fundamental (§9, p.978, sentence before
+Proposition 5). Either square root $\omega$ may be used. Replacing $\omega$
+by $-\omega$ replaces $\mathfrak a$ by its conjugate, whose class is the
+inverse class, and $\chi_t$ takes the same value on a class and its inverse.
 
-*Needs:* 3.1, 2.1 and the GN.3 coefficient actions, with the orientation
-convention fixed in the supplier contracts.
+Proof. Write $\beta=(-b+\omega)/2$. It is a root of $X^2+bX+ac$, so it is
+integral. Also $\mathcal O_K=\mathbb Z+\beta\mathbb Z$, because $(D+\omega)/2-\beta=(D+b)/2$
+is an integer. Hence $\mathfrak a=a\mathbb Z+\beta\mathbb Z$ is an
+integral ideal of index and absolute norm $|a|$. For integers $u,v$,
+$N(ua+v\beta)=a\,Q(u,-v)$. Take any $m=Q(x,y)$ coprime to $\delta$; one
+exists by the zero law of 3.1, and $\chi_\delta(Q)=\texttt{genusCharFun}\
+t\ m$ by the evaluation law. Put $\alpha=xa-y\beta\in\mathfrak a$, so
+$N(\alpha)=am\neq0$. The ideal $\mathfrak b=\alpha\mathfrak a^{-1}$ is
+integral of absolute norm $|m|$, coprime to $\delta$. So $\mathfrak b$ lies
+in the coprime-ideal submonoid, and
+$\chi_t([\mathfrak b]^+)=\texttt{genusCharFun}\ t\ |m|$
+(`genusCharFunNarrowClassGroupHom_mk0`, `genusCharFunCoprimeIdealHom_apply`).
+In the real quadratic field a principal ideal with a generator of positive norm
+has trivial narrow class, and one with a generator of negative norm has class
+$J$. So $[\mathfrak b]^+=[\mathfrak a]^{-1}$ when $am>0$, and
+$J[\mathfrak a]^{-1}$ when $am<0$. Finally
+$\chi_t(J)=\operatorname{sign}\delta$ (2.1),
+$\texttt{genusCharFun}\ t\ m=(\operatorname{sign}\delta)^{[m<0]}\,
+\texttt{genusCharFun}\ t\ |m|$, and $\chi_t$ is $\pm1$-valued, so
+$\chi_t(A^{-1})=\chi_t(A)$. The exponents of $\operatorname{sign}\delta$ that
+occur are $[m<0]+[am<0]$ on one side and $[a<0]$ on the other, and these have
+the same parity. This gives the displayed equality in all four sign cases.
+Choosing $m>0$ when $a>0$ (possible by moving $(x,y)$ by multiples of
+$\delta$) reduces the main case to $[\mathfrak b]^+=[\mathfrak a]^{-1}$ and
+$N(\mathfrak b)=m$. That is the norm-form computation of Duke–Imamoḡlu–Tóth
+§2, p.952.
+
+*Needs:* 3.1 (evaluation and zero laws), 2.1; Tau Ceti `NarrowClassGroup.mk`,
+`mk_mk0`, `mkPrincipal_eq_mkPrincipal_gen_of_norm_neg`,
+`mkPrincipal_eq_one_of_isTotallyPositive`, `mkPrincipal_neg`, the
+coprime-ideal submonoid and evaluation law, `genusCharFunNarrowClassGroupHom_mk0`,
+`primeDiscriminantCharFun_neg_one`; Mathlib's absolute ideal norm of a
+principal ideal and the index of a sublattice given by a basis change.
+
+**Checks.**
+
+- $D=12$, $\omega^2=12$, so $\omega/2=\pm\sqrt3$. For $Q=[1,0,-3]$,
+  $\mathfrak a=\mathbb Z+\sqrt3\,\mathbb Z=\mathcal O_K$, of trivial class.
+  Every $\chi_t$ is $1$, and $\chi_\delta(Q)=1$ at the represented value $1$.
+- For $Q=[3,0,-1]$, $\mathfrak a=3\mathbb Z+\sqrt3\,\mathbb Z=\sqrt3\,
+  \mathcal O_K$, of class $J$ since $N(\sqrt3)=-3$. Then
+  $\chi_{\{-4\}}(J)=-1$, and $Q$ represents $3$ with character $-1$.
+- For $-Q=[-1,0,3]$ the set $\mathfrak a$ is again $\mathcal O_K$. The
+  unoriented class would give $1$, but the oriented class $J$ gives $-1$,
+  which agrees with $\chi_{-4}(-Q)=-1$ from 3.1. Moreover $x^2-3y^2$ does not
+  represent $-1$ modulo $3$, so $Q$ and $-Q$ are not equivalent. This is the
+  orientation witness of IntegralLattices B2.
+- $D=5$, $Q=[1,1,-1]$: $\mathfrak a=\mathbb Z+\frac{-1+\sqrt5}2\mathbb Z=
+  \mathcal O_K$, and $\chi_t$ is $1$ for $t=\varnothing$ and $t=\{5\}$; the
+  empty factor is valid input.
+- Duke–Imamoḡlu–Tóth's table (§2, p.952, (2.3)–(2.5)) says that if $Q$
+  corresponds to $A$, then $[a,-b,c]$ corresponds to $A^{-1}$, $[-a,b,-c]$ to
+  $JA$ and $-Q$ to $JA^{-1}$. Under $\chi_t$ these labels become the
+  invariance and sign laws of 3.1. The comparison must reproduce all three.
+  Swapping $JA$ and $JA^{-1}$ is invisible to real characters, but it is
+  still a wrong statement about classes; this roadmap uses only the
+  character values.
 
 ### Examples
 
-For $D=12$ and $\delta=-4$, the pair $Q=x^2-3y^2$ and $-Q$ has character
-values $1,-1$, computed at the positive represented values $1,3$.
-Their unoriented coefficient ideals coincide, so an unoriented comparison
-would force an incorrect equality. After the proper rotation of $-Q$ to
-$3x^2-y^2$, its ideal $(3,\sqrt3)=\sqrt3\mathcal O_K$ gives exactly $J$.
-This checks the orientation, positivity of the represented value, dyadic
-Kronecker normalization and the sign factor simultaneously.
+For $D=12$ and $\delta=-4$, the forms $Q=x^2-3y^2$ and $-Q$ have character
+values $1$ and $-1$. They are computed at the represented values $1$ and $3$,
+or equally at $-3$ and $-1$. Their unoriented coefficient ideals coincide, so
+an unoriented comparison would force an incorrect equality. After the proper
+rotation of $-Q$ to $3x^2-y^2$, its ideal $(3,\sqrt3)=\sqrt3\,\mathcal O_K$
+gives exactly $J$. This checks the orientation, the sign of the represented
+value, the dyadic Kronecker normalization and the sign factor
+$\chi_t(J)=\operatorname{sign}\delta$ at once.
 
 ### Dependencies
 
-The canonical comparison consumes IntegralLattices B1–B3,
-GlobalNumberFields Layer 11, GN.2 and the GN.3 adapters. Its algebraic witness
-version consumes only the supplied evaluation and norm/class equations and
-the pinned ideal-character theory. Layer 2 supplies the sign consequences;
-Layer 0 explains which of these narrow characters descend to wide classes.
+Layer 2 (2.1) and the pinned Tau Ceti narrow class group, coprime-ideal
+genus character and prime-discriminant characters. No binary-form supplier is
+consumed. The oriented form–ideal bijection of IntegralLattices B2 and the
+order and Picard carriers of GlobalNumberFields Layer 11 are not needed. Layer
+0 explains which of these narrow characters descend to wide classes.
 
 ## Downstream consumers
 
-AnalyticNumberTheory, AN.4, uses even and odd class characters in Hecke-period
-interfaces and L-function factorization. The plus-space trace direction of
-the modular programme uses the same general form character supplied by GN.2.
-GeometryOfNumbersAndQuadraticArithmetic, GN.4, uses the exact $h^+/2^{r-1}$
-normalization when averaging over one narrow genus. This roadmap provides
-those algebraic interfaces; their analytic conclusions belong to those
-consumers.
+AnalyticNumberTheory, Layer AN.4, uses even and odd class characters, the
+value $\chi(J)=\operatorname{sign}\delta$ and the genus Euler factorization in
+its Hecke-period interfaces. The proposed Fuchsian orbifolds Part II (Nielsen
+cores $F_A$ of narrow classes) uses the genus signs of Layers 0 and 2. The
+genus averages of Duke–Imamoḡlu–Tóth (Theorem 2 and (4.4)) average over one
+narrow genus with the normalization $h^+/2^{r-1}$ of Layer 1. Their twisted
+traces (§9) weight forms by $\chi_\delta$ of Layer 3, including imprimitive
+forms and nonfundamental discriminants. This roadmap provides those algebraic
+interfaces; the analytic conclusions belong to the consumers.
 
 ## References
 
@@ -795,10 +836,15 @@ consumers.
   The locators above use printed page numbers: §2, pp.950–952; §4,
   pp.959–960; §7, pp.970–972; §9, pp.977–978. The complementary-sign
   assertion from p.971 is used with the explicit real-discriminant qualifier.
+- B. Gross, W. Kohnen and D. Zagier, *Heegner points and derivatives of
+  L-series. II*, Mathematische Annalen **278** (1987), 497–562,
+  [DOI: 10.1007/BF01458081](https://doi.org/10.1007/BF01458081),
+  [author-hosted copy](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01458081/fulltext.pdf).
+  Ch. I §2, pp.508–510: the genus character on forms, its well-definedness
+  and its extension to imprimitive forms.
 - Mathlib, `GroupTheory.Coset`, `GroupTheory.QuotientGroup`,
-  `NumberTheory.SumTwoSquares` and `LinearAlgebra.QuadraticForm`, at the
-  commit specified in the supplier contracts.
+  `NumberTheory.SumTwoSquares`, `RingTheory.FractionalIdeal` and
+  `RingTheory.Ideal.Norm`, at the commit specified in the supplier contracts.
 - Tau Ceti, narrow class groups and quadratic genus characters, at the
   commit specified in the supplier contracts; the completed Multiquadratic
-  roadmap; IntegralLattices, Layers B1–B3; GlobalNumberFields, Layer 11;
-  GeometryOfNumbersAndQuadraticArithmetic, GN.2/GN.3.
+  roadmap; IntegralLattices, Layer B; GlobalNumberFields, Layer 11.
