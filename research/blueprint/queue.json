@@ -9834,8 +9834,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FGFO.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9801"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9801",
+   "finishedAt": "2026-10-14T17:25:37Z"
   },
   {
    "id": "REV-DESIGN-FGFO",
@@ -34896,7 +34897,8 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9763"
   },
   {
    "id": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
@@ -34942,7 +34944,8 @@
    ],
    "avoidAccountOf": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9764"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
@@ -37016,8 +37019,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.0",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9750"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9750",
+   "finishedAt": "2026-10-14T17:25:40Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
@@ -37111,8 +37115,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9752"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9752",
+   "finishedAt": "2026-10-14T17:25:44Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
@@ -37158,8 +37163,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9753"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9753",
+   "finishedAt": "2026-10-14T17:25:49Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
@@ -37205,8 +37211,9 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9754"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9754",
+   "finishedAt": "2026-10-14T17:25:52Z"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
@@ -37299,7 +37306,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9756"
   },
   {
    "id": "BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
@@ -41147,8 +41155,9 @@
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.7",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9799"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9799",
+   "finishedAt": "2026-10-14T17:25:56Z"
   },
   {
    "priority": 2,
@@ -42937,7 +42946,8 @@
    ],
    "revisionOf": "BP-TorsionCohomologyInfrastructure",
    "prompt": "research/blueprint/prompts/BP-TorsionCohomologyInfrastructure~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9776"
   },
   {
    "priority": 2,
@@ -44288,7 +44298,8 @@
     "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9762"
   },
   {
    "kind": "blueprint",
@@ -47511,8 +47522,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArakelovGeometryAndAbelianHeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9769"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9769",
+   "finishedAt": "2026-10-14T17:25:58Z"
   },
   {
    "id": "REV-PKG-ArakelovGeometryAndAbelianHeights",
@@ -51409,8 +51421,9 @@
     "PKG-HeightsRationalPointsAndObstructions"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9738"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9738",
+   "finishedAt": "2026-10-14T17:26:04Z"
   },
   {
    "id": "PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -51558,7 +51571,8 @@
     "PKG-HilbertModularVarietiesAndShimuraCurves~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9765"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -51749,7 +51763,8 @@
     "PKG-HodgeTateAndCanonicalSubgroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeTateAndCanonicalSubgroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9773"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
@@ -53257,7 +53272,8 @@
     "PKG-PerfectoidShimuraVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidShimuraVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9775"
   },
   {
    "id": "PKG-PolynomialGaloisGroupsPartII",
