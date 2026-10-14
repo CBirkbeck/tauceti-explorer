@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-14T20:51Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-14T21:01Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. All thirteen tier 1–4 roadmaps are open pull requests on TauCetiRoadmap: #779 SchemeAndStackFoundations, #780 PadicMeasuresIwasawaAlgebras, #785 ReductiveGroupsPartII with #792 AdelicAlgebraicGroups and #793 SmoothRepresentationsOfLocalGroups stacked on it and #789 IntegralHeckeAndGaloisDeterminants on #793, and the adic stack #817 AdicSpacesPartII ← #813 AdicSpacesPartIII ← #814 AdicEtaleGeometry ← #815 AdicSpacesPartIV, #818 PerfectoidSpaces ← #816 PerfectoidTowers and #820 DiamondsAndVStacks. The independent reviewer recommends approval of every one; after the 2026-10-12 citation sweep and its repairs, every pull request was re-reviewed on its current head; the approval recommendations stand, with #779 awaiting the pass after its latest small corrections. The remaining tier 3–4 roadmaps (GeometryOfNumbersAndQuadraticArithmetic, EnhancedDerivedSheaves, AlgebraicModuliForArithmeticGeometry, LocallyAnalyticDistributions, DiophantineApproximationAndTranscendence) have finished packages on the explorer board awaiting their Tau Ceti lane. Tier 5–9 package jobs (ComplexComparisonPartII, ClassicalArithmeticCompletion, InverseGaloisAndArithmeticFundamentalGroups, AbelianSchemesAndArithmeticModuli, ArithmeticGaloisDuality, SelmerIwasawaCohomology, CrystallineCohomology, HeightsRationalPointsAndObstructions) were queued on 2026-10-12 and the swarm is working on them.
 
@@ -136,7 +136,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 - **Merged package:** AutomorphicBundles + ShimuraCompactifications
   - **AutomorphicBundles** — Automorphic bundles and classical automorphic forms. Plan 2/2 accepted · package not yet · CN needs 4/9 layers · move down: HodgeTateAndCanonicalSubgroups (3)
   - **ShimuraCompactifications** — Toroidal compactifications and boundary geometry. Plan 2/3 accepted · package not yet · CN needs 7/9 layers · move down: HodgeTateAndCanonicalSubgroups (2), AutomorphicGaloisRepresentationsPartII (1)
-- **GL2AutomorphicRepresentationsAndTransfer** — GL₂ Automorphic Representations And Transfer. Plan 5/5 accepted · package not yet · CN needs 12/12 layers · move down: AutomorphicGaloisRepresentations (4) · cites outside the 94: MetaplecticAutomorphicForms (1)
+- **GL2AutomorphicRepresentationsAndTransfer** — GL₂ Automorphic Representations And Transfer. Plan 5/5 accepted · package not yet · CN needs 12/12 layers · **Tau Ceti: pull request #931 open** · move down: AutomorphicGaloisRepresentations (4) · cites outside the 94: MetaplecticAutomorphicForms (1)
 
 ## Tier 16
 
