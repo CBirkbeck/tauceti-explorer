@@ -162,6 +162,8 @@ signatures at the atlas pins:
   transitionRoot_ratio states only the μ_n equation for the transition label.
 * native-finite-normalization-coherence: its whole signature needs the accepted parent's actual
   normalization and chosen-pullback maps. Native pullback uniqueness is a baseline import.
+  For n=0 use the parent's all-exponent ring-map arrow square; its bundled normalization
+  natural isomorphism and normalized-chart triangle are positive-exponent inputs only.
 * native-universe-adapter: needs SF.0 native universe lifts and D0 equivalent-site transport;
   all six API items and four tests are README targets. No equivalence to all larger tests is asserted.
 
