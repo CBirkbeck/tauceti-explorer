@@ -1442,6 +1442,63 @@ Higher-quantifier decidability papers are sources for the separate proof project
 
 """
 
+FGFO_BRIEF = """Topic: the first-order theory of free groups, Tarski's problems, as a roadmap built on FreeGroupsAndLimitGroups (the maintainer's own scope specification follows; it is binding: keep its seven milestones FO1–FO7 as the layers with keys FO1, …, FO7 and their titles, record FreeGroupsAndLimitGroups as "parent" and consume its layers FG1–FG11 by stage id, never re-planning them, and state the endpoints as theorems with hypotheses, sources and Checks rather than as executable implementations, certificates or complexity bounds). The final targets are the decidability of the elementary theory of a nonabelian free group of finite rank and the elementary equivalence of nonabelian free groups of finite rank (FO7), reached through the two-block normal form (FO1), the non-regular implicit function and parametrisation theorems (FO2), induced NTQ systems, tight envelopes and configurations (FO3), MAX-equivalence and reducing systems (FO4), the existential–universal decision trees (FO5) and the outer quantifier-elimination procedure with its termination measure (FO6). Check the pinned Mathlib first for first-order syntax and semantics (`FirstOrder.Language`, structures, satisfaction, elementary equivalence), free groups and computability, and FreeGroupsAndLimitGroups for every supplier carrier; cite whatever exists rather than planning it again; choose one of Sela's and Kharlampovich–Myasnikov's routes as the proof plan and record the other as an alternative.
+
+The maintainer's specification:
+
+# The first-order theory of free groups
+
+**Proposed roadmap area:** `FreeGroupsFirstOrderTheory`
+**Parent roadmap:** `FreeGroupsAndLimitGroups` (its layers FG1–FG11 are suppliers; never re-plan them).
+**Subjects:** combinatorial and geometric group theory; algebraic geometry over groups; model theory of groups; effective mathematics.
+**Status:** scope specification by the maintainer (2026-10-14). Source-to-declaration tasks and existing-library ownership must be checked before implementation.
+
+## Purpose and scope
+
+Build the roadmap for Tarski's problems on free groups: the elementary theory of a nonabelian free group of finite rank is decidable, and all nonabelian free groups of finite rank are elementarily equivalent. This is exactly the material that `FreeGroupsAndLimitGroups` lists as out of scope; everything that roadmap owns (equations over free groups, Makanin–Razborov diagrams, limit groups, ordinary NTQ towers, regular implicit function theorems, effective JSJ decompositions) is consumed from it by stage id and is not restated here.
+
+The endpoints are theorems: existence of a computable decision procedure with its correctness and termination on the stated input class, stated and proved as mathematics on Mathlib's first-order syntax, free groups and computability framework. Do not specify executable implementations, data structures, certificates or running-time bounds; small worked examples (specific sentences over F₂, specific NTQ systems) are welcome as Checks.
+
+## Conventions and shared infrastructure
+
+Use Mathlib's `FreeGroup`, `FirstOrder.Language` and its structures and satisfaction, `Primcodable`/`Computable`, and the carriers fixed by `FreeGroupsAndLimitGroups` (its first-order group syntax FG3, generalised equations FG7, limit groups and NTQ towers FG8, length functions FG9, effective structure FG10, regular implicit function theorems FG11). Adopt one shared definition rather than a private replacement; inspect Mathlib and Tau Ceti before introducing a carrier. State abstract results at their natural generality; restrict algorithms to finite, effectively encoded data (finite rank, words over a fixed finite basis, finite systems).
+
+## Milestones
+
+### FO1. Formulas over free groups and the two-block normal form
+Boolean combinations of ∀∃-sentences; the reduction of an arbitrary sentence of the language of groups (with constants from the free group) to a Boolean combination of two-block (∀∃) sentences; the general and the positive case; the statement that quantifier elimination down to ∀∃ is the target, with the precise sense in which equivalence over a free group is meant.
+
+### FO2. Non-regular implicit function theorems and the parametrisation theorem
+Implicit function theorems for non-regular NTQ systems; the parametrisation theorem for arbitrary NTQ systems with correcting embeddings; lifts of ∀∃-formulas over arbitrary (not necessarily regular) systems. Consumes FG11 for the regular case and FG8 for NTQ towers.
+
+### FO3. Induced NTQ systems, tight envelopes, projective images and configurations
+Induced NTQ systems and their enlargement; tight envelopes; projective images and the configuration machinery used to control solutions of ∀∃-sentences along a tower; the finiteness statements these constructions provide.
+
+### FO4. MAX-equivalence, algebraic-solution bounds and complete reducing systems
+MAX-equivalence of solutions, the bounds on algebraic solutions, and the complete reducing systems specific to the decision procedure; the finiteness and effectivity statements for each.
+
+### FO5. Existential–universal decision trees
+The decision trees for ∃∀- and ∀∃-sentences: their construction from the Makanin–Razborov diagram (FG10) and the implicit function theorems, their finiteness, and the decidability of the ∀∃-theory of a nonabelian free group.
+
+### FO6. The outer quantifier-elimination procedure and its termination
+The procedure that lowers quantifier complexity of an arbitrary sentence using FO1–FO5; the well-founded measure proving its termination; correctness of positive and negative answers.
+
+### FO7. Tarski's theorems
+The elementary theory of a nonabelian free group of finite rank is decidable; nonabelian free groups of finite rank are elementarily equivalent (Sela; Kharlampovich–Myasnikov); the consequences the sources state (for instance, elementary equivalence of a free group and the fundamental group of a closed surface of genus ≥ 2, where the sources prove it) as separate targets with their own hypotheses.
+
+## Completion standard and separate proof boundary
+
+Every milestone's targets are theorems with hypotheses, sources and at least three discriminating Checks; the roadmap is complete when FO7 is a node whose prerequisite chain ends in the libraries, in `FreeGroupsAndLimitGroups` nodes or stages, or in recorded gaps. Where Sela's and Kharlampovich–Myasnikov's routes differ, choose one route as the proof plan and record the other as an alternative in the node's notes rather than planning both.
+
+## Source register (starting points; verify and extend)
+
+- O. Kharlampovich, A. Myasnikov, *Elementary theory of free non-abelian groups*, J. Algebra 302 (2006), 451–552.
+- O. Kharlampovich, A. Myasnikov, *Implicit function theorem over free groups*, J. Algebra 290 (2005), 1–203.
+- O. Kharlampovich, A. Myasnikov, *Effective JSJ decompositions*, Contemp. Math. 378 (2005), 87–212 (supplier side, via FreeGroupsAndLimitGroups FG10).
+- Z. Sela, *Diophantine geometry over groups I–VI* (Publ. Math. IHÉS 93 (2001); Israel J. Math. 134 (2003); Israel J. Math. 147 (2005); GAFA 16 (2006), parts V₁, V₂ and VI).
+- O. Kharlampovich, A. Myasnikov, *Decidability of the elementary theory of a torsion-free hyperbolic group* (arXiv 1303.0760), for the shape of the decision procedure where it is cleaner than the free-group original.
+"""
+
 LV_BRIEF = """Topic: the Mordell conjecture (Faltings's theorem) as proved by Brian Lawrence and Akshay Venkatesh, "Diophantine problems and p-adic period mappings", Invent. Math. 221 (2020), 893–999, arXiv:1807.02721 (fetch the arXiv version; record provenance). The final target: a smooth projective geometrically connected curve of genus at least 2 over a number field has finitely many rational points. Follow the paper's own route and its intermediate results: the S-unit equation as the first worked instance of the method; the Kodaira–Parshin family attached to the curve; Gauss–Manin connections, the complex and p-adic period maps on residue disks and their analytic properties; crystalline comparison and the Frobenius-semilinear structure on de Rham cohomology of the fibres; semisimplicity of the relevant Galois representations and Faltings's finiteness lemma for representations of bounded dimension, restricted ramification and fixed weights; the monodromy / Zariski-density input for the period map and the dimension estimate on Frobenius-centralizer orbits that makes the counting work; and the final assembly. Identify every place where the paper cites an outside result, and decide for each whether an existing roadmap supplies it (candidates include PadicHodgeTheory, CrystallineCohomology, CohomologyComparisons, DeligneWeightsAndPurity, FaltingsFinitenessAndIsogenyTheorems, HeightsRationalPointsAndObstructions, tauceti:TauCetiRoadmap/HodgeStructures, tauceti:TauCetiRoadmap/Chebotarev, tauceti:TauCetiRoadmap/AlgebraicCurves, AlgebraicModuliForArithmeticGeometry, LefschetzPencilsAndVanishingCycles, PadicDifferentialEquationsAndRigidCohomology) or must be a layer of this roadmap. Lawrence–Venkatesh is an alternative to Faltings's height-based proof; do not route through FaltingsFinitenessAndIsogenyTheorems' Mordell corollary."""
 
 ZAGIER_BRIEF = """Topic: Zagier's conjecture on special values of Dedekind zeta functions via polylogarithms, with the proved cases carried out in full. Layers should include:
@@ -1706,6 +1763,7 @@ def main():
                 calls.append((route, paper, origin))
     # Priority 1: the new roadmaps and the Zagier suppliers.
     designs = [("DESIGN-FGLG", "FreeGroupsAndLimitGroups", "grouptheory", FGLG_BRIEF, "Free groups, equations over groups, and limit groups"),
+               ("DESIGN-FGFO", "FreeGroupsFirstOrderTheory", "grouptheory", FGFO_BRIEF, "The first-order theory of free groups"),
                ("DESIGN-LV", "MordellLawrenceVenkatesh", "arithmeticgeometry", LV_BRIEF, None),
                ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "ktheory", ZAGIER_BRIEF, None),
                ("DESIGN-BCGP18", "AbelianSurfacesPotentialModularity", "langlands", BCGP18_BRIEF, None),
