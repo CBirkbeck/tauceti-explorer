@@ -44,7 +44,7 @@ The map kills E(A) on fundamental groups and preserves homology with all local c
 
 ## The normalised comparison
 
-The new construction is `K2SymbolsBrauer:T.1:plus/normalised-comparison`. Its mathematical content refines the inherited comparison target `K2SymbolsBrauer:T.1/k2-pi2` by specifying the map, rather than planning that isomorphism theorem again.
+The new construction is `K2SymbolsBrauer:T.1:plus/normalised-comparison`. It realises the existence-and-naturality statement of the inherited comparison target `K2SymbolsBrauer:T.1/k2-pi2` by Weibel's fibre route, with an explicit normalisation, rather than planning that isomorphism theorem again. The Hurewicz composite named in that target is described at the end of this document and is kept separate from χ_A.
 
 Use the homotopy fibre F_A of i_A over x_A. Its points are pairs (z,γ) where γ runs **from i_A(z) to x_A**, and its basepoint is (*,constant). This is the convention of `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`. Weibel's IV.1.2 uses paths in the other direction. Reversing the path coordinate relates the two models; it is not an instruction to silently identify their boundary maps.
 
@@ -75,6 +75,8 @@ Apply the same universal-central-extension kernel/H₂ construction to ε_A to o
  \operatorname{Additive}(\pi_2(X_A,x_A)).
 \]
 
+Written additively, ρ_A is the equivalence `TauCeti.plusConstruction.pi2Equiv` of `StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension` for G = GL(A) and P = E(A). That node builds it from this connecting map and the kernel/H₂ identification of the fibre extension, so this layer uses it and does not construct a second equivalence. What this layer adds is the composite with κ_A and the fixed choice of boundary.
+
 Thus the comparison is classical-to-topological. Its inverse is κ_A⁻¹∘ρ_A. The defining equation is
 
 \[
@@ -103,6 +105,7 @@ The proposed names share the namespace `TauCeti.K2Comparison`.
 | `fromHomology_symm` | Evaluate the inverse as κ_A⁻¹(ρ_A(v)). |
 | `fromHomology_unique` | If an additive homomorphism c satisfies ρ_A∘c=κ_A, then c=χ_A. |
 | `fromHomology_fibre` | Equation (2), with the unique isomorphism over E(A). |
+| `fromHomology_pi2Equiv` | For a ring, ρ_A is the additive form of H.3's `pi2Equiv` for GL(A) ⊇ E(A). |
 | `fromHomology_add` | Preserve zero, addition and negation; expose the corresponding laws for the inverse through its additive equivalence. |
 
 These interfaces serve the inherited comparison target and the consumers `GeneralAlgebraicKTheory:K.2:low-degree-comparisons`, `GeneralAlgebraicKTheory:KU-pluscomparison` and `K2SymbolsBrauer:T.7`. This layer supplies the identification of objects; compatibility with particular residue or boundary maps requires their own squares in those consuming layers.
@@ -126,9 +129,9 @@ The new theorem `K2SymbolsBrauer:T.1:plus/comparison-naturality` states that for
 
 All maps in (3) are written additively. The map C(f) is the restriction of the inherited Steinberg map to the kernel. The homology map is for **E(f)**, not GL(f).
 
-The first square is the GL/E specialisation of `StableHomotopyKTheory:H.3/plus-pi2-natural`, using the selected connecting map. Naturality of the universal-central-extension kernel comparison gives κ_B C(f)=\(\mathcal H_2(E(f))\)κ_A. Substituting the definition of χ and cancelling the injective ρ_B gives the second square. This proof imports generic plus naturality; it does not give a second construction of plus functoriality.
+The plus map f⁺ comes from `StableHomotopyKTheory:H.3/plus-construction-functoriality`, whose target must be abelian; that holds for ring plus models by the block-sum H-space structure below. The first square is the GL/E specialisation of `StableHomotopyKTheory:H.3/plus-pi2-natural`, using the selected connecting map. The naturality clause of the inherited `k2-h2-elementary`, that is, naturality of the universal-central-extension kernel comparison for the Steinberg maps, gives κ_B C(f)=\(\mathcal H_2(E(f))\)κ_A. Substituting the definition of χ and cancelling the injective ρ_B gives the second square. This proof imports generic plus naturality; it does not give a second construction of plus functoriality.
 
-A plus map comes with a homotopy between its composite with i_A and i_B∘BGL(f). If the square is based, it induces the displayed based group maps directly. For a free homotopy one first retains the track of the basepoint. The existing `TauCeti.homotopyGroupTransport_map` identifies the maps only after transport along that track. The early ring/plus model is a connected H-space, and `StableHomotopyKTheory:H.3/hspace-is-abelian` makes the target π₁-action on π₂ trivial. Only then can the transported group map be treated as independent of the track.
+A plus map comes with a homotopy between its composite with i_A and i_B∘BGL(f). If the square is based, it induces the displayed based group maps directly. For a free homotopy one first retains the track of the basepoint. The existing `TauCeti.homotopyGroupTransport_map` identifies the maps only after transport along that track. The block-sum H-space structure of `StableHomotopyKTheory:H.4/plus-hspace-block-sum` makes the ring plus model a connected H-space on which π₁ = K₁(B) acts trivially, as `StableHomotopyKTheory:H.3/hspace-is-abelian` also gives. Only then can the transported group map be treated as independent of the track.
 
 The group maps obey identity and composition. The space maps need only obey these laws up to the supplied homotopies. A strictly functorial choice of point-set plus construction is not a hypothesis. This follows the distinction in Weibel IV.1, Functoriality 1.1.2, p. IV.3. The explicit squares are the authored consequence of natural fibre boundaries and the inherited UCE naturality.
 
@@ -145,7 +148,7 @@ The new theorem `K2SymbolsBrauer:T.1:plus/comparison-model-independence` takes t
 
 These are equations through specified carrier comparisons. They are not literal equalities of elements in different homotopy groups. The same rule applies when changing the classifying-space or fibre model, or the free presentation used for the inherited Hopf formula.
 
-Apply (3) to the identity map on E(A), allowing different plus models. The fibre maps are morphisms of universal central extensions over the identity. Their uniqueness fixes the map on kernels; the boundary and homology comparisons give (4). The uniqueness of the ring plus models under their source comes from `StableHomotopyKTheory:H.3/plus-construction-uniqueness`, applied to the abelian ring targets. This uses the actual permitted target class, not an unrestricted uniqueness theorem for nonabelian targets.
+Apply (3) to the identity map on E(A), allowing different plus models. The fibre maps are morphisms of universal central extensions over the identity. Their uniqueness fixes the map on kernels; the boundary and homology comparisons give (4). The uniqueness of the ring plus models under their source comes from `StableHomotopyKTheory:H.3/plus-construction-uniqueness`, applied to the ring targets, which are abelian by `StableHomotopyKTheory:H.4/plus-hspace-block-sum`. Weibel's Theorem 1.5 is used here in its up-to-homotopy form. Part (2) as printed asks for an equality of maps, which fails already for the plus construction [0,1] → point and the identity of [0,1]; the packet records this as a misprint. This uses the actual permitted target class, not an unrestricted uniqueness theorem for nonabelian targets.
 
 For u homotopic to the identity under BGL(A), (4) returns χ_A itself. An arbitrary automorphism of the bare group π₂X_A, or an arbitrary self-equivalence of the bare space X_A, is not a permitted model comparison. The map under BGL(A) and normalisation equation remain part of the contract. The sources for this deduction are Weibel III.5, Definition 5.3.1 and Lemma 5.3.3, p. III.37, and IV.1, Definition 1.1, p. IV.2, Theorem 1.5, p. IV.5, and Corollary 1.7.1, p. IV.6.
 
@@ -209,10 +212,10 @@ The construction has four unit tests.
 | Classifying spaces and π₂BGL=0 | `StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1`. |
 | Fibre, positive boundary and exactness | `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`, `connecting-map`, and `long-exact-sequence`. |
 | Fibre UCE and its naturality | `StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension` and `plus-pi2-natural`. |
-| Plus maps, compatible model equivalences and trivial action | H.3 `plus-construction-functoriality`, `plus-construction-uniqueness`, `hspace-is-abelian`, and the early ring/plus H-space structure. |
+| Plus maps, compatible model equivalences and trivial action | H.3 `plus-construction-functoriality`, `plus-construction-uniqueness` and `hspace-is-abelian`, with the block-sum H-space structure and trivial π₁-action of `StableHomotopyKTheory:H.4/plus-hspace-block-sum`. |
 | Projective-module K-space and natural zero component | `GeneralAlgebraicKTheory:K.2:plus`, including the component inclusion on π₂ and its ring-map square. |
 
-The packet requests the last supplier interface explicitly, including the ring-model H-space structure, and imports the existing upstream Hurewicz interface for the retained cover proof below. These are early-model outputs. The inherited classical and topological suppliers retain responsibility for their own recorded proof gaps; this supplement does not certify their implementation or erase those boundaries.
+The packet requests the last supplier interface explicitly, and imports the existing upstream Hurewicz interface for the retained cover proof below. The H-space structure of the ring plus model is not part of that request: StableHomotopyKTheory owns it. These are early-model outputs. The inherited classical and topological suppliers retain responsibility for their own recorded proof gaps; this supplement does not certify their implementation or erase those boundaries.
 
 The inherited comparison target also has its stated **cover/Hurewicz proof**. This proof remains attached to the inherited node, with its exact inputs recorded in the packet's `inheritedTargets`; it does not become another node. Take the actual universal cover p_A:Y_A→X_A and the map q_A:BE(A)→Y_A furnished by the H=P case of `StableHomotopyKTheory:H.3/plus-universal-cover`. The pullback description and the regular quotient local system ℤ[GL(A)/E(A)], using H.3 `twisted-homology-via-cover`, make H₂(q_A) an isomorphism. Ordinary integral preservation on the base alone would not justify that assertion.
 
@@ -227,16 +230,16 @@ Let b_A:H₂(BE(A);ℤ)≃H₂(E(A);ℤ) be `StableHomotopyKTheory:H.1/bar-compl
 
 For based ring-map squares, covering lifts and homotopy lifting give the corresponding squares upstairs. Natural Hurewicz and the natural bar comparison then give the naturality of this composite; the ring H-space argument handles free basepoint tracks. The bar comparison uses its supplier's coordinatewise inversion convention for `SingleObj`, not reversal of the tuple. This fulfils the inherited Hurewicz route without re-planning its topology. Hurewicz is applied on Y_A, not on the possibly nonsimply connected X_A: the torus, with π₂=0 but H₂ nonzero, detects the latter mistake. Covering isomorphisms are used only in degree at least two.
 
-The source locators are Weibel IV.1, Lemma 1.6 with proof, pp. IV.5–6 and Exercise 1.8, pp. IV.14–15; Hatcher §4.1, Proposition 4.1, p. 342; §4.2, Theorem 4.32 and proof, pp. 366–367, and the absolute Hurewicz map and its naturality, p. 370. The packet's second request names the existing upstream Hurewicz stage and its precise interface. No new Hurewicz or covering theory is owned here. Equality of this composite with the independently normalised fibre map χ_A is not asserted: such an equality would require matching the two boundary and orientation conventions, beyond the inherited natural-isomorphism target.
+The source locators are Weibel IV.1, Lemma 1.6 with proof, p. IV.5 and Exercise 1.8, pp. IV.14–15; Hatcher §4.1, Proposition 4.1, p. 342; §4.2, Theorem 4.32 and proof, pp. 366–367, the absolute Hurewicz map and its naturality, p. 370, and Theorem 4.37, p. 371. Theorem 4.32 gives an abstract isomorphism; the absolute case of Theorem 4.37 says that the Hurewicz map itself is the isomorphism. The packet's second request names the existing upstream Hurewicz stage and its precise interface. No new Hurewicz or covering theory is owned here. Equality of this composite with the independently normalised fibre map χ_A is not asserted: such an equality would require matching the two boundary and orientation conventions, beyond the inherited natural-isomorphism target.
 
 The pinned libraries are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. They already provide kernel subgroups, additive transports, integral group homology, cubical homotopy groups, based induced maps, homotopy-equivalence maps and the basepoint-track formula. The current Tau Ceti library and current roadmap tree also preserve ownership of those general constructions. They do not provide this stable Steinberg/plus comparison.
 
-The suggested file therefore contains only real-bodied light compositions over actual kernel, homology and homotopy-group carriers, the normalisation and naturality composition milestones, and representative checks. Its parameters κ and ρ are the precise equivalences constructed above, not substitute definitions of the missing theories. The full ring naturality proof, UCE/fibre compatibility, model independence, zero-ring tests and nonflat Q-space test are reader targets because their ring and space carriers are absent at the pins. The final comment of the suggested file enumerates these omissions. No carrier is replaced by an unspecified proposition or an unconstructed data definition.
+The suggested file therefore contains only real-bodied light compositions over actual kernel, homology and homotopy-group carriers, the normalisation, fibre-description and naturality composition milestones, and representative checks, including the negated-comparison non-example. Its parameters κ and ρ are the precise equivalences constructed above, not substitute definitions of the missing theories. The full ring naturality proof, the ring-level UCE/fibre compatibility (the file states only its algebraic step, with the fibre maps as inputs), model independence, zero-ring tests and nonflat Q-space test are reader targets because their ring and space carriers are absent at the pins. The final comment of the suggested file enumerates these omissions. No carrier is replaced by an unspecified proposition or an unconstructed data definition.
 
-The two planets are **Classical and homotopy K₂** and **The plus and Q comparison**.
+The planet of this supplement is **Classical K₂ as Quillen's K₂**. The comparison χ_A itself is shown under the existing planet of the inherited target for the second homotopy group.
 
 ## Sources
 
-- Allen Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), Proposition 4.1, p. 342; Theorem 4.32 and proof, pp. 366–367; absolute Hurewicz and naturality, p. 370.
+- Allen Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), Proposition 4.1, p. 342; Theorem 4.32 and proof, pp. 366–367; absolute Hurewicz and naturality, p. 370; Theorem 4.37, p. 371.
 - Charles A. Weibel, [*The K-book*, Chapter III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf), §5, pp. III.36–38, with the precise locators above. The stable theorem is the input; no finite-rank conclusion from Proposition 5.5.1 is used.
 - Charles A. Weibel, [*The K-book*, Chapter IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), §1, pp. IV.2–7 and Exercise 1.8, pp. IV.14–15; §4, pp. IV.44–45; §7, pp. IV.61–64. Pagination is the author-hosted chapter pagination. The packet records the downloaded versions' hashes and access date.
