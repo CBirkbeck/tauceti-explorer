@@ -48,7 +48,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 5
 
 - **ComplexComparisonPartII** — Complex Comparison PartII. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #848 open** · reviewer recommends approval
-- **ClassicalArithmeticCompletion** — Classical arithmetic, sequences, polynomials and reciprocity. Plan 5/8 accepted · package not yet · CN needs 3/8 layers · cites outside the 94: ArithmeticDynamics (1), KTheoryLowDegrees (1)
+- **ClassicalArithmeticCompletion** — Classical arithmetic, sequences, polynomials and reciprocity. Plan 8/8 accepted · package not yet · CN needs 3/8 layers · cites outside the 94: ArithmeticDynamics (1), KTheoryLowDegrees (1)
 
 ## Tier 6
 
@@ -142,9 +142,9 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **Merged package:** ModularSymbolsPadicLFunctions + PadicFamilies
   - **ModularSymbolsPadicLFunctions** — Modular symbols and analytic p-adic L-functions of modular forms. Plan 1/1 accepted · package not yet · CN needs 2/5 layers
-  - **PadicFamilies** — Hida and Coleman families, period modules, and family L-functions. Plan 0/1 accepted · package not yet · CN needs 4/8 layers · move down: GL2AutomorphicRepresentationsAndTransfer (5), AutomorphicGaloisRepresentations (1), HodgeTateAndCanonicalSubgroups (1) · cites outside the 94: KatoEulerSystems (8)
-- **ArakelovGeometryAndAbelianHeights** — Arakelov geometry and heights of abelian varieties. Plan 0/1 accepted · package not yet · CN needs 6/6 layers
-- **AnabelianGeometryAndNonabelianChabauty** — Anabelian geometry and nonabelian Chabauty. Plan 6/8 accepted · package not yet · CN needs 5/7 layers · move down: EffectiveDiophantineMethods (6) · cites outside the 94: MotivesAndAlgebraicCycles (11), StableReductionPartII (3), JacobianChallengePartII (3), FunctionFieldArithmetic (2)
+  - **PadicFamilies** — Hida and Coleman families, period modules, and family L-functions. Plan 1/1 accepted · package not yet · CN needs 4/8 layers · move down: GL2AutomorphicRepresentationsAndTransfer (5), AutomorphicGaloisRepresentations (1), HodgeTateAndCanonicalSubgroups (1) · cites outside the 94: KatoEulerSystems (8)
+- **ArakelovGeometryAndAbelianHeights** — Arakelov geometry and heights of abelian varieties. Plan 1/1 accepted · package not yet · CN needs 6/6 layers
+- **AnabelianGeometryAndNonabelianChabauty** — Anabelian geometry and nonabelian Chabauty. Plan 8/8 accepted · package not yet · CN needs 5/7 layers · move down: EffectiveDiophantineMethods (6) · cites outside the 94: MotivesAndAlgebraicCycles (11), StableReductionPartII (3), JacobianChallengePartII (3), FunctionFieldArithmetic (2) …
 - **HodgeTateAndCanonicalSubgroups** — Hodge–Tate theory, canonical subgroups, and automorphic period maps. Plan 3/3 accepted · package not yet · CN needs 5/9 layers
 
 ## Tier 17
@@ -162,11 +162,11 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 19
 
 - **IgusaVarietiesAndTorsionConcentration** — Igusa varieties, compactified period fibers and torsion concentration. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · cites outside the 94: BunGAndNewtonStrata (29), VectorBundlesAndIsocrystals (16), ExcursionOperatorsAndSpectralAction (9), HeckeStacksAndLocalShtukas (5) …
-- **SerreWeightAndLevelOptimisation** — Weight and level optimisation of residual modular representations. Plan 0/1 accepted · package not yet · CN needs 6/6 layers
+- **SerreWeightAndLevelOptimisation** — Weight and level optimisation of residual modular representations. Plan 1/1 accepted · package not yet · CN needs 6/6 layers
 
 ## Tier 20
 
-- **OrdinaryAutomorphicFormsAndModularityLifting** — Ordinary automorphic forms and ordinary modularity lifting. Plan 0/1 accepted · package not yet · CN needs 6/6 layers · cites outside the 94: IntegralIwasawaTheory (1)
+- **OrdinaryAutomorphicFormsAndModularityLifting** — Ordinary automorphic forms and ordinary modularity lifting. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · cites outside the 94: IntegralIwasawaTheory (1)
 
 ## Tier 21
 
