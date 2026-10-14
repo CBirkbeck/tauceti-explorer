@@ -21,20 +21,22 @@ The distinction between a Jacobian and its degree-one torsor is the point of the
 
 **Owned here.** For a smooth projective curve X/S with geometrically connected fibres of genus g > 0 over a noetherian base: local constancy of the fibre degree and the degree components Picᵈ_{X/S}; representability of the relative Picard sheaf by a smooth separated group scheme with quasi-projective degree pieces; the torsor structure of Picᵈ_{X/S} under Pic⁰_{X/S} and its intrinsic difference; the relative Jacobian as an abelian scheme of relative dimension g, its properness, its base change and its canonical principal polarization defined without a degree-one bundle; the section-free Abel map, the degree-d Abel–Jacobi morphisms, their local pointed factorization, the degree-one closed immersion and finiteness for d ≠ 0; the curve difference morphism and its description as an Abel map over X; the Jacobian Poincaré bundle in Yuan's sign, the theta divisor of an arbitrary degree-one divisor over an arbitrary field and the identities of Yuan's Theorem A.3 (theta pullbacks, Poincaré addition, curve-square and diagonal identities); the identification of the canonical twice-theta bundle with the graph bundle of λ_X, and its geometric-fibre class; actual Picard subgroups of projective flat families (fibrewise algebraically trivial classes, the two-projection version and the axis-normalized subgroup), relative curve autoduality with Abel pullback, the actual-to-relative comparison for the curve and its Jacobian, Yuan's torsion-cokernel theorems and the pointed square Picard comparison; the canonical Abel morphism of ω_{X/S}, the universal shift, the Faltings–Zhang and shifted Faltings–Zhang morphisms, the triangular coordinate change on fibre powers of a group scheme and the tail-isogeny factorization; for stable curves, the Lie algebra of the semi-abelian generalized Jacobian, the curve–Jacobian Hodge bundle comparison and its determinant; and the specialization of Layers 0–5 to a curve family with a full symplectic level structure on its Jacobian.
 
-**Built in Tau Ceti and cited.** At the pinned Tau Ceti: `TauCeti.AlgebraicGeometry.InvertibleSheaf`, `InvertibleSheaf.tensorProduct`, `LineBundleClass` (isomorphism classes of line bundles, a commutative monoid under tensor product), `SchemeWeilDivisor.relativeDegree`, `Scheme.Modules.Cohomology` and the field carrier `AbelianVariety`. At the pin `LineBundleClass` has no inverses and no pullback, and there is no Picard functor; the current Tau Ceti library adds duals and pullbacks of line bundles, inverses on `LineBundleClass` and the section-rigidified Picard functor `rigidifiedPicardFunctor`. Those later declarations supply the actual-class operations of Layer 4 once the pin moves; nothing below depends on them being present at the pin.
+**Built in Tau Ceti and cited.** At the pinned Tau Ceti: `TauCeti.AlgebraicGeometry.InvertibleSheaf`, `InvertibleSheaf.tensorProduct`, `LineBundleClass` (isomorphism classes of line bundles, a commutative monoid under tensor product), `SchemeWeilDivisor.relativeDegree`, `Scheme.Modules.Cohomology` and the field carrier `AbelianVariety`. At the pin `LineBundleClass` has no inverses and no pullback, and there is no Picard functor; the current Tau Ceti library adds duals and pullbacks of line bundles, inverses on `LineBundleClass` and the section-rigidified Picard functor `rigidifiedPicardFunctor`. The current library also has `InvertibleSheaf.eulerDegree` and `LineBundleClass.eulerDegree` in `TauCeti/AlgebraicGeometry/LineBundle/Degree.lean` (the fieldwise χ-below-2 difference; curve finiteness and vanishing make it the usual degree), and `AbelianVariety.IsAlbanese` in `TauCeti/AlgebraicGeometry/AbelianVariety/Albanese.lean` (the field pointed universal-property predicate). The later actual-class operations supply Layer 4 once the pin moves; their group, pullback, rigidification and field-degree definitions are not targets here. Nothing below depends on them being present at the pin.
 
 **Built in TauCetiRoadmap roadmaps and cited.**
 
 - *JacobianChallenge.* Layer A (line bundles, divisors, the Picard group of actual classes and the degree deg L = χ(L) − χ(O)); Layer B (coherent cohomology of a curve over a field, genus, Riemann–Roch, Serre duality, deg ω = 2g − 2); Layer C (relative coherent cohomology with cohomology and base change, relative effective Cartier divisors and symmetric powers); Layer D (the Picard functor and Jacobian of a curve over a field); Layer E (abelian varieties, tangent space T₀Pic⁰ = H¹(O), cube, dual, the theta polarization of a Jacobian, [n] as an isogeny); Layer F (the pointed Abel–Jacobi morphism and its Albanese universal property, base change along field extensions). This roadmap consumes those field and pointed results and owns their family and section-free extensions.
 - *StableReduction.* Layer 2 (coherent curve theory over locally noetherian bases: cohomology and base change, `HasGenus`, the invertible relative dualizing sheaf of a nodal family and its base change, relative ampleness from fibrewise ampleness on proper finitely presented families, polarized étale descent); Layer 3 (prestable, semistable and stable families).
 - *AlgebraicVectorBundles.* L0B (finite locally free sheaves, duals, rank-one objects are the invertible sheaves) and L0C (exterior powers and the fixed-rank determinant functor with pullback comparisons).
-- *SchemeAndStackFoundations.* §0.11 (fpqc-locality on the base of affine, separated, finite-type, proper and smooth morphisms); §2.20 (relative dualizing complexes and Serre duality, with the curve comparison); §3.6 (`picardComponent`, the Picard torsors of a single curve without a rational point, with the genus-one period checks); §3.7 (`abelMaps_highDegree`, Abel maps of a single curve without a base point); §3.8 (`invariant_differentials`, Ω¹_{G/S} ≅ f^\*e^\*Ω¹_{G/S} for a group scheme over any base); §4.14 (`hilbert_quot_schemes`). Its §3.6–§3.7 are the field-base specializations of Layers 0 and 2 here: over S = Spec k the objects below are those objects.
+- *[SchemeAndStackFoundations](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779).* §0.11 (fpqc-locality on the base of affine, separated, finite-type, proper and smooth morphisms); §2.20 (relative dualizing complexes and Serre duality, with the curve comparison); §3.6 (`picardComponent`, the Picard torsors of a single curve without a rational point, with the genus-one period checks); §3.7 (`abelMaps_highDegree`, Abel maps of a single curve without a base point); §3.8 (`invariant_differentials`, Ω¹_{G/S} ≅ f^\*e^\*Ω¹_{G/S} for a group scheme over any base); §4.14 (`hilbert_quot_schemes`). Its §3.6–§3.7 are the field-base specializations of Layers 0 and 2 here: over S = Spec k the objects below are those objects.
+
+- *ModularCurves*, §2D: relative Picard representability and normalized Poincaré for an elliptic curve with its identity over an arbitrary base. Here the family has arbitrary positive genus over a noetherian base and can have no degree-one class. The elliptic comparisons use that existing package; its divisor-class map P ↦ O([P]−[0]) equals −λ_X in the positive Mumford-map convention used here.
 
 **Built in open roadmap pull requests and cited.**
 
-- *AbelianSchemesAndArithmeticModuli* (abelian schemes over arbitrary bases). A0.1 `AbelianScheme`; A1.1 `relativeProductsAndDimension`; A1.2 `relativeRigidity`; A1.4 `relativeSeesaw`; A1.5 `relativeCube` (including [2]^\*L ≅ L³ ⊗ [−1]^\*L); A2.1 `raynaudRepresentability`; A2.2 `AbelianScheme.dual`, `AbelianScheme.poincare`, `normalizedPoincare`; A2.3 `mumfordMap`; A2.5 `Polarization`; A2.6 `Polarization.graphBundle` with `graphBundle_spec`; A3.2 `multiplicationAndDensity`; A3.7 `polarizedWeilPairing`; A3.8 `FullLevel`.
-- *AlgebraicModuliForArithmeticGeometry* (Picard theory over arbitrary bases). §7.3 `relative_picard_algebraicSpace`, `relative_picard_separated`, `picard_infinitesimal_lifting`, `picard_brauer_obstruction`; §7.6.1 `relativePicardSheaf`, `relativePicardBaseChange`, `relativePicardKernel`, `sectionPicardSplit`; §7.9 `picardZeroSheaf`, `picardZeroCriterion`; Layer 3 `fpqcQuasicoherentDescent` and `finiteLocallyFreeDescent`.
-- *NeronModelsAndSemistableAbelianVarieties.* §4.13 `StableFamilyPicard` (Pic⁰ of a stable curve of genus g > 1 over an integral noetherian base is a smooth separated semi-abelian group scheme).
+- *[AbelianSchemesAndArithmeticModuli](https://github.com/TauCetiProject/TauCetiRoadmap/pull/849)* (abelian schemes over arbitrary bases). A0.1 `AbelianScheme`; A1.1 `relativeProductsAndDimension`; A1.2 `relativeRigidity`; A1.4 `relativeSeesaw`; A1.5 `relativeCube` (including [2]^\*L ≅ L³ ⊗ [−1]^\*L); A2.1 `raynaudRepresentability`; A2.2 `AbelianScheme.dual`, `AbelianScheme.poincare`, `normalizedPoincare`; A2.3 `mumfordMap`; A2.5 `Polarization`; A2.6 `Polarization.graphBundle` with `graphBundle_spec`; A3.2 `multiplicationAndDensity`; A3.7 `polarizedWeilPairing`; A3.8 `FullLevel`.
+- *[AlgebraicModuliForArithmeticGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/pull/853)* (Picard theory over arbitrary bases). §7.3 `relative_picard_algebraicSpace`, `relative_picard_separated`, `picard_infinitesimal_lifting`, `picard_brauer_obstruction`; §7.6.1 `relativePicardSheaf`, `relativePicardBaseChange`, `relativePicardKernel`, `sectionPicardSplit`; §7.9 `picardZeroSheaf`, `picardZeroCriterion`; Layer 3 `fpqcQuasicoherentDescent` and `finiteLocallyFreeDescent`.
+- *[NeronModelsAndSemistableAbelianVarieties](https://github.com/TauCetiProject/TauCetiRoadmap/pull/852).* §4.13 `StableFamilyPicard` (Pic⁰ of a stable curve of genus g > 1 over an integral noetherian base is a smooth separated semi-abelian group scheme).
 
 **Not built here.** The fine moduli scheme of smooth curves with full symplectic level and its universal curve: StableReductionPartII builds them, using Layer 1 for the curve Jacobian, and then applies Layer 7 to its universal curve; no layer here depends on a curve moduli space. General Picard theory over arbitrary bases (algebraic-space representability, the Brauer obstruction, identity components) is AlgebraicModuliForArithmeticGeometry's; general abelian-scheme theory (duality, cube and seesaw, polarizations, the graph bundle, torsion, Weil pairings, level structures) is AbelianSchemesAndArithmeticModuli's; this roadmap applies both to the relative Jacobian of a curve and adds only what is specific to curves. Compactified Jacobians of singular curves are not built: Layer 6 uses only the semi-abelian identity component. Adelic line bundles, admissible metrics, heights, Betti maps and nondegeneracy (the arithmetic halves of Yuan and of Dimitrov–Gao–Habegger) belong to the Arakelov and height roadmaps and to AbelianSchemesAndArithmeticModuliPartII; a variation hypothesis is needed by some of those applications, never by the algebraic morphisms here.
 
@@ -99,7 +101,7 @@ The algebraic-space representability, separatedness and infinitesimal lifting of
 
 ### 0.1 Local constancy of relative degree
 
-Prove `RelativeJacobian.degreeLocallyConstant`. For a test scheme T → S and an invertible sheaf L on X_T, the function t ↦ deg(L_t) = χ(L_t) − χ(O_{X_t}) is locally constant on T and unchanged by any extension of residue fields. (Bosch–Lütkebohmert–Raynaud, §9.3 Theorem 1, proof p. 252, invoking §9.1/2; [Kleiman](https://arxiv.org/pdf/math/0504020v1), proof of Theorem 4.8, pp. 28–29, for the openness of the loci of fixed Hilbert polynomial.)
+Prove `RelativeJacobian.degreeLocallyConstant`. For a test scheme T → S and an invertible sheaf L on X_T, the function t ↦ deg(L_t) = χ(L_t) − χ(O_{X_t}) is locally constant on T and unchanged by any extension of residue fields. ([Kleiman](https://arxiv.org/pdf/math/0504020v1), proof of Theorem 4.8, pp. 28–29, for the openness of the loci of fixed Hilbert polynomial.)
 
 Apply constancy of Euler characteristics in the proper flat finitely presented family X_T → T to L and to O; the difference is the degree, and on a fibre it agrees with the divisor degree by JacobianChallenge Layer A.
 
@@ -107,7 +109,7 @@ Apply constancy of Euler characteristics in the proper flat finitely presented f
 
 ### 0.2 Relative degree components
 
-Define `RelativeJacobian.RelativeDegreeComponents`. For every d ∈ ℤ, Picᵈ_{X/S} is the subsheaf of Pic_{X/S} of sections whose geometric-fibre classes have degree d. A locally varying integer degree gives the disjoint union of these constant-degree pieces, not a single integer on a disconnected T. (Bosch–Lütkebohmert–Raynaud, §9.3 Theorem 1 and proof p. 252; [Dimitrov–Gao–Habegger](https://arxiv.org/pdf/2001.10276v3), §6.1 p. 24; [Kleiman](https://arxiv.org/pdf/math/0504020v1), proof of Theorem 4.8, p. 29, for the decomposition into open and closed pieces.)
+Define `RelativeJacobian.RelativeDegreeComponents`. For every d ∈ ℤ, Picᵈ_{X/S} is the subsheaf of Pic_{X/S} of sections whose geometric-fibre classes have degree d. A locally varying integer degree gives the disjoint union of these constant-degree pieces, not a single integer on a disconnected T. ([Dimitrov–Gao–Habegger](https://arxiv.org/pdf/2001.10276v3), §6.1 p. 24; [Kleiman](https://arxiv.org/pdf/math/0504020v1), proof of Theorem 4.8, p. 29, for the decomposition into open and closed pieces.)
 
 Use the fibre degree on each geometric fibre and §0.1 to make it locally constant. The condition is fppf local, so it cuts out a subsheaf; do not replace sheafification by actual global representatives.
 
@@ -128,7 +130,7 @@ The API of `RelativeJacobian.RelativeDegreeComponents` gives membership, tensor 
 
 ### 0.3 Relative curve Picard scheme
 
-Prove `RelativeJacobian.picardRepresentability`. Pic_{X/S} is represented by a smooth separated S-group scheme, locally of finite presentation, whose pieces Picᵈ_{X/S} (d ∈ ℤ) are open and closed and quasi-projective over S. Its degree-zero piece is the identity component `picardZeroSheaf`. Representability commutes with arbitrary change of base. (Bosch–Lütkebohmert–Raynaud, §9.3 Theorem 1 and proof p. 252; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Theorem 4.8, pp. 27–29, Proposition 5.19, p. 47, and Exercise 5.23, p. 50.)
+Prove `RelativeJacobian.picardRepresentability`. Pic_{X/S} is represented by a smooth separated S-group scheme, locally of finite presentation, whose pieces Picᵈ_{X/S} (d ∈ ℤ) are open and closed and quasi-projective over S. Its degree-zero piece is the identity component `picardZeroSheaf`. Representability commutes with arbitrary change of base. ([Kleiman](https://arxiv.org/pdf/math/0504020v1), Theorem 4.8, pp. 27–29, Proposition 5.19, p. 47, and Exercise 5.23, p. 50.)
 
 The hypotheses of AlgebraicModuliForArithmeticGeometry §7.3 hold: X/S is proper, flat, finitely presented, with O_T ≅ (π_T)_\*O_{X_T} universally because the fibres are geometrically integral. So Pic_{X/S} is a quasi-separated algebraic space locally of finite presentation (`relative_picard_algebraicSpace`), separated because the geometric fibres are integral (`relative_picard_separated`). Scheme representability with quasi-projective fixed-Hilbert-polynomial pieces is Grothendieck's theorem for projective flat families with integral geometric fibres over a noetherian base (Kleiman, Theorem 4.8(2)); for a curve the Hilbert polynomial of L⁻¹(n) determines the degree, so these pieces are the Picᵈ. Each Picᵈ is of finite type: étale locally on S the smooth family X/S has a section, and translation by d times that section identifies Picᵈ with Pic⁰, which is of finite type by `picardZeroCriterion` (Kleiman, Exercise 5.23); finite type descends, and a quasi-compact open of Kleiman's increasing union of quasi-projective opens lies in one of them. Smoothness: H²(O_{X_s}) = 0 on curve fibres, so `picard_infinitesimal_lifting` (equivalently Kleiman, Proposition 5.19) gives smoothness over every base. On a geometric fibre the identity component of Pic is the degree-zero part (JacobianChallenge Layer D), which identifies Pic⁰_{X/S} with `picardZeroSheaf`. Do not infer smoothness of the Hilbert parameter scheme from flatness of its universal family.
 
@@ -136,7 +138,7 @@ The hypotheses of AlgebraicModuliForArithmeticGeometry §7.3 hold: X/S is proper
 
 ### 0.4 Picard degree torsors
 
-Define `RelativeJacobian.PicardTorsors`. Tensoring by degree-zero classes makes Picᵈ_{X/S} an fppf torsor under Pic⁰_{X/S}; Picᵈ need not have an S-point. Its difference morphism Picᵈ ×_S Picᵈ → Pic⁰ sends (L, M) to M ⊗ L⁻¹. (Bosch–Lütkebohmert–Raynaud, §9.3 Theorem 1 and proof p. 252; over a field, SchemeAndStackFoundations §3.6, `picardComponent_torsor`.)
+Define `RelativeJacobian.PicardTorsors`. Tensoring by degree-zero classes makes Picᵈ_{X/S} an fppf torsor under Pic⁰_{X/S}; Picᵈ need not have an S-point. Its difference morphism Picᵈ ×_S Picᵈ → Pic⁰ sends (L, M) to M ⊗ L⁻¹. ([Kleiman](https://arxiv.org/pdf/math/0504020v1), Exercise 5.23, p. 50, together with the tensor law and étale-local section argument below; over a field, SchemeAndStackFoundations §3.6, `picardComponent_torsor`.)
 
 Obtain local sections after an fppf cover of S, using relative effective divisors of degree d (and their inverses for negative d); smooth X/S has sections étale locally. Translate Pic⁰ to Picᵈ by such a local section, and descend the action and the difference, which are defined intrinsically by tensor product.
 
@@ -167,11 +169,11 @@ JacobianChallenge Layers A–D supply actual degrees, Euler characteristics, rel
 
 Properness is proved before the degree-zero Picard scheme is called an abelian scheme; its tensor law is already commutative. The tangent and cohomology comparison on geometric fibres gives relative dimension g. The carrier is AbelianSchemesAndArithmeticModuli A0.1's `AbelianScheme`. Restriction of the Picard sheaf under base change identifies these objects even over nilpotent test bases.
 
-The principal polarization is obtained after an fppf cover on which a degree-one bundle exists. Translation independence gives the overlap comparison and the descent cocycle. The descended polarization is canonical although the local theta bundle used to construct it is not. The general dual abelian scheme and polarization API is AbelianSchemesAndArithmeticModuli A2.
+Relative Abel pullback gives a canonical autoduality isomorphism u:J^∨→J, constructed without a global degree-one bundle. Define λ_X=−u⁻¹. On geometric fibres the field theta theorem identifies this with the positive theta polarization; positivity is the fibrewise condition of A2.5. Independence and base change of u hold for families, including nilpotent bases. The general dual abelian scheme and polarization API is AbelianSchemesAndArithmeticModuli A2.
 
 ### 1.1 Properness of the relative Jacobian
 
-Prove `RelativeJacobian.jacobianProper`. For X/S as in the conventions, Pic⁰_{X/S} → S is proper. With the relatively ample twice-theta bundle of §3.13 it is projective over S. (Bosch–Lütkebohmert–Raynaud, §9.4 Proposition 4 and proof p. 260, invoking §8.4/3; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Proposition 5.20, pp. 47–48, and Exercise 5.23, p. 50.)
+Prove `RelativeJacobian.jacobianProper`. For X/S as in the conventions, Pic⁰_{X/S} → S is proper. With the relatively ample twice-theta bundle of §3.13 it is projective over S. ([Kleiman](https://arxiv.org/pdf/math/0504020v1), Proposition 5.20, pp. 47–48, and Exercise 5.23, p. 50.)
 
 Apply `picardZeroCriterion`: Pic_{X/S} is separated (§0.3) and its geometric identity components are the Jacobians of the geometric fibres, which are proper (JacobianChallenge Layers D–E), so the identity component is closed in Pic_{X/S} and proper over S. Do not infer properness from algebraic-space representability alone.
 
@@ -179,7 +181,7 @@ Apply `picardZeroCriterion`: Pic_{X/S} is separated (§0.3) and its geometric id
 
 ### 1.2 Relative Jacobian
 
-Define `RelativeJacobian.RelativeJacobian`. J(X/S) := Pic⁰_{X/S}, with the tensor group law, is an abelian scheme (A0.1 `AbelianScheme`) of relative dimension g. No section of X/S is part of its data. ([Yuan](https://arxiv.org/pdf/2108.05625v4), §2.2.1 p. 29; Bosch–Lütkebohmert–Raynaud, §9.4 Proposition 4 p. 260; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Remark 5.26, p. 51.)
+Define `RelativeJacobian.RelativeJacobian`. J(X/S) := Pic⁰_{X/S}, with the tensor group law, is an abelian scheme (A0.1 `AbelianScheme`) of relative dimension g. No section of X/S is part of its data. ([Yuan](https://arxiv.org/pdf/2108.05625v4), §2.2.1 p. 29; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Remark 5.26, p. 51.)
 
 Use the represented identity component of §0.3, smooth over S, its properness from §1.1 and the geometric connectedness of its fibres; then it is an abelian scheme in the sense of A0.1. Its relative dimension is g by the tangent comparison T₀Pic⁰ = H¹(O) on geometric fibres (JacobianChallenge Layer E).
 
@@ -208,21 +210,24 @@ Restrict the represented fppf sheaves to Sch/T (`relativePicardBaseChange`), ide
 
 ### 1.4 Canonical principal polarization
 
-Define `RelativeJacobian.PrincipalPolarization`. There is a canonical principal polarization λ_X : J → J^∨ (A2.5 `Polarization`, principal), compatible with base change and defined without a global degree-one bundle on X. After an fppf cover carrying a degree-one bundle it is the classical theta polarization φ_{O(θ)} of JacobianChallenge Layer E, with the positive sign of the conventions. ([Yuan](https://arxiv.org/pdf/2108.05625v4), §2.2.1 p. 29, citing Mumford–Fogarty–Kirwan §6.1 Proposition 6.9; Bosch–Lütkebohmert–Raynaud, §9.4 Proposition 4, proof pp. 260–261.)
+Define `RelativeJacobian.PrincipalPolarization`. There is a canonical principal polarization λ_X : J → J^∨ (A2.5 `Polarization`, principal), compatible with base change and defined without a global degree-one bundle on X. On a field fibre with a degree-one divisor α it is φ_{O(θ_α)} of JacobianChallenge Layer E, with the positive sign of the conventions. ([Yuan](https://arxiv.org/pdf/2108.05625v4), §2.2.1 p. 29; [Esteves–Gagné–Kleiman](https://arxiv.org/pdf/math/9911071), Theorem (2.1), pp. 4–6, Proposition (2.2), pp. 6–7, Proposition (3.7), pp. 15–16, and proof (4.1), p. 16, restricted to smooth curves; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Remark 5.26, p. 51.)
 
-Construct the local theta polarization on a cover acquiring a degree-one bundle. Two local origins differ by a translation, and φ_{t_a^\*L} = φ_L (A2.3), so the local polarizations agree on overlaps as morphisms. Descend the morphism and its inverse along the cover: representable functors are fppf sheaves (Mathlib's `fppfTopology.Subcanonical`), so morphisms J → J^∨ that agree on the overlap glue uniquely; the agreement is checked on all test schemes, and fibre equality alone is insufficient over a nonreduced S.
+On a cover carrying an actual degree-one bundle β, the positive Abel map sends x to O(Γ_x)⊗β⁻¹. Its pullback on the relative identity components gives u_β:J^∨→J. This map is an isomorphism independent of β over the entire base: apply the smooth-curve case of Esteves–Gagné–Kleiman's family autoduality theorem. Their Abel map A_β sends x to β⊗O(−Γ_x), so A_β=−i_β and their isomorphism is −u_β. Their determinant-of-cohomology right inverse and its overlap comparison (Proposition (2.2)) give base-change compatibility; Proposition (3.7) proves independence over a locally noetherian base, not just on geometric points. Thus the u_β glue to a canonical isomorphism u:J^∨→J even without β. For arbitrary non-noetherian pullbacks, pull back this isomorphism and its comparisons.
+
+Set λ_X=−u⁻¹. On every geometric fibre the classical theta theorem gives u∘φ_{O(θ_β)}=−id_J, so λ_X is the positive theta polarization on that fibre. A2.5 defines positivity fibrewise, while the inverse of u proves principality over S itself. Only field theta divisors enter the positivity check. Fppf descent glues u and its inverse as morphisms on all test schemes; the family independence theorem supplies the overlap equality even when S is nonreduced.
 
 The API of `RelativeJacobian.PrincipalPolarization` makes the family construction an isomorphism that agrees with the field theta convention after every base change:
 
 - `RelativeJacobian.PrincipalPolarization.isIso`: λ_X is an isomorphism of abelian schemes (A2.5 `Polarization.principal_iff`).
 - `RelativeJacobian.PrincipalPolarization.baseChange`: λ_{X_T} is the base change of λ_X under the canonical comparisons of J (§1.3) and of the dual (A2.2 `AbelianScheme.dual_baseChange`).
 - `RelativeJacobian.PrincipalPolarization.theta`: on a field fibre with a degree-one divisor α, λ_X = φ_{O(θ_α)} with the convention of A2.3.
+- `RelativeJacobian.PrincipalPolarization.abelPullback`: u:J^∨≅J is the canonical relative degree-one positive Abel pullback, independent of the local degree-one bundle, compatible with base change, and u∘λ_X=−id_J.
 
 **Checks.**
 
 - `RelativeJacobian.PrincipalPolarization.test_elliptic` (computation): for genus one, λ_X is the principal polarization φ_{O(0)} of A2.3, a ↦ O([−a] − [0]); the divisor-class map a ↦ O([a] − [0]) differs from it by [−1].
 - `RelativeJacobian.PrincipalPolarization.test_noTheta` (non-example): the construction exists when X has no global degree-one bundle; it cannot require a global theta divisor.
-- `RelativeJacobian.PrincipalPolarization.test_dualNumbers` (characterisation): for S = Spec(k[ε]/ε²), the overlap comparisons are equal as S-morphisms, not only on the reduced fibre.
+- `RelativeJacobian.PrincipalPolarization.test_dualNumbers` (characterisation): for S = Spec(k[ε]/ε²) and degree-one β, β′ whose quotient is an infinitesimal Pic⁰ class, i_β^\*=i_β′^\* on Pic⁰_{J/S}, and both compositions u_β∘λ_X equal −id_J over S. Merely selecting a lift of the reduced-fibre polarization does not meet this test.
 
 *Needs:* §1.2; §1.3; AbelianSchemesAndArithmeticModuli A2.2 (`AbelianScheme.dual`, `AbelianScheme.dual_baseChange`); AbelianSchemesAndArithmeticModuli A2.3 (`mumfordMap`); AbelianSchemesAndArithmeticModuli A2.5 (`Polarization`); Mathlib `fppfTopology` (subcanonical); JacobianChallenge, Layer E.
 
@@ -232,7 +237,7 @@ An elliptic curve with its identity gives J(E/k) ≅ E as a group, with its usua
 
 ### Dependencies
 
-Layer 0 supplies the represented degree-zero group. JacobianChallenge Layers D–E supply the field Picard scheme and the theta polarization. AlgebraicModuliForArithmeticGeometry §7.6.1 and §7.9 supply base change and the identity-component criterion; Mathlib's subcanonical fppf topology glues the local polarizations. AbelianSchemesAndArithmeticModuli A0.1 supplies the carrier, and A2.2–A2.5 the dual, the Mumford map and polarizations. The ampleness result of §3.13 strengthens properness to a global projective presentation.
+Layer 0 supplies the represented degree-zero group. JacobianChallenge Layers D–E supply the field Picard scheme and the theta polarization. AlgebraicModuliForArithmeticGeometry §7.6.1 and §7.9 supply base change and the identity-component criterion; Esteves–Gagné–Kleiman Theorem (2.1), Proposition (2.2) and Proposition (3.7) give relative Abel autoduality with its independence and base change; Mathlib's subcanonical fppf topology glues those isomorphisms. AbelianSchemesAndArithmeticModuli A0.1 supplies the carrier, and A2.2–A2.5 the dual, the Mumford map and polarizations. The ampleness result of §3.13 strengthens properness to a global projective presentation.
 
 ## Layer 2: Abel maps and section-free differences
 
@@ -277,7 +282,7 @@ The properties of `RelativeJacobian.DegreeAbelMap` make the degree-d class expli
 
 - `RelativeJacobian.DegreeAbelMap.test_zero` (degenerate): For d=0 the map is the constant section −[α]; it is not finite on a nonempty positive-dimensional curve fibre.
 - `RelativeJacobian.DegreeAbelMap.test_one` (compatibility): For d=1 and α=O(x₀), i_α(x₀)=0.
-- `RelativeJacobian.DegreeAbelMap.test_inseparable` (non-example): For d=p in characteristic p, no étaleness of [p] is assumed in defining i_α.
+- `RelativeJacobian.DegreeAbelMap.test_inseparable` (non-example): On an elliptic E in characteristic p with α=O_E(p[0]), i_α=[p] under the divisor-class identification J≅E: it is finite but has a nonzero differential kernel and is not étale. With α=O_E(−[0]) and d=−1, the map is [−1], not the degree-one identity.
 
 *Needs:* §2.1; §0.4; §1.2.
 
@@ -451,7 +456,7 @@ Import the parent symmetric power and theta-divisor theorem. Translate its degre
 
 - `RelativeJacobian.DegreeOneTheta.test_genusOne` (degenerate): For g=1 θ_α is the origin divisor on the elliptic Jacobian.
 - `RelativeJacobian.DegreeOneTheta.test_genusTwo` (computation): For g=2 θ_α is the Abel image of C.
-- `RelativeJacobian.DegreeOneTheta.test_notSymmetric` (non-example): An arbitrary θ_α is not assumed symmetric; inversion changes it unless the relevant canonical-class condition holds.
+- `RelativeJacobian.DegreeOneTheta.test_notSymmetric` (non-example): On a genus-two curve over an algebraically closed field, choose α=[P] with 2[P] not linearly equivalent to ω_C. Then θ_α and [−1]^\*θ_α are distinct: in the hyperelliptic involution description their equality would force 2[P]∼ω_C. A definition that symmetrizes θ_α fails this test.
 
 *Needs:* §2.2; JacobianChallenge, Layer C; JacobianChallenge, Layer E.
 
@@ -648,7 +653,7 @@ Intersect the two fibrewise algebraic-triviality subgroups. Check that tensor an
 
 Prove `RelativeJacobian.relativeAutodualityPullback`. There is a canonical base-change-compatible identification u:Pic⁰_{J/S}≅Pic⁰_{X/S} such that, for the actual degree-d α, i_α\*= [d]∘u as morphisms of fppf group sheaves. The sign of u is characterized by degree-one Abel pullback. ([Yuan](https://arxiv.org/pdf/2108.05625v4), Proposition 2.6 proof p. 31; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Remark 5.26, p. 51, for the autoduality isomorphism, independent of the degree-one bundle and existing without one. Kleiman's Abel map sends t to L_T ⊗ O(−Γ_t), the negative of i_α for d = 1, so his autoduality is −u.)
 
-Over a cover with a section use the parent Abel pullback autoduality. Translation has trivial pullback action on Pic⁰ of an abelian scheme. Use the degree-d factorization and dual multiplication. Descend the natural identity on all T-points; an equality on geometric fibres is not used as a proof over nilpotent bases.
+Use the canonical family isomorphism u=`PrincipalPolarization.abelPullback` of §1.4. On a cover with a section x₀, §2.3 gives i_α=[d]∘i_{O(x₀)}+b for a base section b of J. Translation acts trivially on the relative Pic⁰ of an abelian scheme (A2.3), and the pullback of [d] on its dual is [d] (A2.2). Consequently i_α^\*=[d]∘u on every test scheme. The equality descends along the cover, including nilpotent bases.
 
 **Checks.**
 
@@ -658,7 +663,7 @@ Over a cover with a section use the parent Abel pullback autoduality. Translatio
 
 ### 4.4 Actual Picard classes and the Brauer obstruction
 
-Prove `RelativeJacobian.actualToRelativeObstruction`. For proper flat Y/S with O_S≅f_\*O_Y universally, the exact sequence 0→Pic(S)→Pic(Y)→Pic_{Y/S}(S)→H²_fppf(S,G_m)→H²_fppf(Y,G_m) is AlgebraicModuliForArithmeticGeometry §7.3's `picard_brauer_obstruction` (cohomological Brauer groups, no identification with Azumaya classes; the boundary is the Leray differential d₂^{0,1}). The target here is its restriction to the algebraically trivial parts: for J/S the identity section kills the obstruction, so Pic⁰(J/S)/Pic(S)≅Pic⁰_{J/S}(S); for X/S the same map is only injective without a section. (Bosch–Lütkebohmert–Raynaud, §8.1 Leray discussion p. 203 and Proposition 4 pp. 204–205; [Kleiman](https://arxiv.org/pdf/math/0504020v1), Remark 2.11, pp. 20–21, sequence (2.11.4).)
+Prove `RelativeJacobian.actualToRelativeObstruction`. For proper flat Y/S with O_S≅f_\*O_Y universally, the exact sequence 0→Pic(S)→Pic(Y)→Pic_{Y/S}(S)→H²_fppf(S,G_m)→H²_fppf(Y,G_m) is AlgebraicModuliForArithmeticGeometry §7.3's `picard_brauer_obstruction` (cohomological Brauer groups, no identification with Azumaya classes; the boundary is the Leray differential d₂^{0,1}). The target here is its restriction to the algebraically trivial parts: for J/S the identity section kills the obstruction, so Pic⁰(J/S)/Pic(S)≅Pic⁰_{J/S}(S); for X/S the same map is only injective without a section. ([Kleiman](https://arxiv.org/pdf/math/0504020v1), Remark 2.11, pp. 20–21, sequence (2.11.4).)
 
 Here Y→S is proper, flat and finitely presented, with O_T≅(f_T)_\*O_{Y_T} for every T→S. For the Pic⁰ restrictions, use the smooth geometrically connected curve X/S and its abelian-scheme Jacobian J/S in the standing scope.
 
@@ -688,13 +693,17 @@ Prove `RelativeJacobian.bizeroLiftOneFactor`. In the arithmetic normal-base scop
 
 Here the arithmetic normal-base scope means S is normal, integral, quasi-projective and flat over Z or over a field, the standing smooth curve hypotheses hold, α is an actual relative degree-d line bundle, and d>0.
 
-Apply the actual Picard pullback statement to the curve after base change to the other factor. Check that the lift retains algebraic triviality along the second projection, correcting any base pullback. The second condition is a separate lifting obligation; a surjection on unrestricted Pic⁰ groups does not imply it.
+Apply the actual Picard pullback statement to the curve after base change to the other factor. The other projection condition follows from connectedness, as follows. The new bases X and J are normal integral and quasi-projective: they are smooth with geometrically integral fibres over S, and X is projective while J is projective by §3.13. They are flat over the same arithmetic base. Thus §4.5 applies to both.
+
+First take L∈Pic⁰⁰(X×X). Over base X, §4.5 gives an actual M on X×J, algebraically trivial on the J fibres over X, with (id_X×i_α)^\*M=L^d. Fix a geometric s. The degree of M restricted to X_s×{a} is locally constant as a varies through the connected J_s. At a=i_α(x) it is zero because this restriction is L|_{X_s×{x}}^d. Hence it is zero everywhere, so M lies in Pic⁰⁰(X×J).
+
+Next, for M∈Pic⁰⁰(X×J), apply §4.5 over base J (with the factors reordered) to obtain N on J×J with (i_α×id_J)^\*N=M^d and algebraically trivial restrictions on the first-J fibres. For fixed geometric s, the restrictions N|_{{a}×J_s} define a morphism from connected J_s to Pic_{J_s/s}. At a=i_α(x) the class is M|_{{x}×J_s}^d, which belongs to Pic⁰. The connected image therefore lies entirely in the identity component (Kleiman, Proposition 5.10 and proof, pp. 41–42). This proves the second condition on N. The actual equalities include the base-line correction from §4.5, so no extra twist is made after this argument.
 
 **Checks.**
 
 - A lift that acquires a positive-degree restriction on the other axis fails this lemma.
 
-*Needs:* §4.5; §4.2; §1.3; AbelianSchemesAndArithmeticModuli A1.4 (`relativeSeesaw`); AbelianSchemesAndArithmeticModuli A2.2 (`normalizedPoincare`).
+*Needs:* §4.5; §4.2; §0.1; §1.3; §3.13; AlgebraicModuliForArithmeticGeometry §7.9 (`picardZeroSheaf`); AbelianSchemesAndArithmeticModuli A2.2 (`AbelianScheme.dual`).
 
 ### 4.7 Bi-Picard pullback torsion cokernel
 
@@ -702,7 +711,7 @@ Prove `RelativeJacobian.bizeroPullbackTorsionCokernel`. Under the same S, X, α 
 
 Here the arithmetic normal-base scope means S is normal, integral, quasi-projective and flat over Z or over a field, the standing smooth curve hypotheses hold, α is an actual relative degree-d line bundle, and d>0.
 
-Factor the pullback through X×_S J. Use the two one-factor lifting assertions and multiply their class-dependent exponents. Do not assume a uniform exponent without verifying its separate proof.
+Factor the pullback through X×_S J. Each one-factor argument of §4.6 lifts the d-th power with the other fibre condition intact. Their composition lifts L^{d²}, so d² kills the cokernel. This is a bound from the actual lifting construction, not an assertion that multiplication by d is surjective on S-points.
 
 *Needs:* §4.6; §4.2.
 
@@ -936,11 +945,11 @@ Both sheaves have rank g. Apply the determinant functor and its coherent pullbac
 
 ### 6.1 Picard Lie algebra and coherent cohomology
 
-Prove `RelativeJacobian.picardLieCohomology`. For an integral noetherian S and a stable genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group scheme of NeronModelsAndSemistableAbelianVarieties §4.13. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_\*O_X, compatible with base change. (Bosch–Lütkebohmert–Raynaud, §8.4 Theorem 1(a) and proof pp. 231–232; §9.4 Theorem 1 p. 259; [Yuan](https://arxiv.org/pdf/2108.05625v4), Lemma 3.4 proof p. 44.)
+Prove `RelativeJacobian.picardLieCohomology`. For an integral noetherian S and a stable genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group scheme of NeronModelsAndSemistableAbelianVarieties §4.13. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_\*O_X, compatible with base change. ([Kleiman](https://arxiv.org/pdf/math/0504020v1), Theorem 5.11 and proof, pp. 42–44, and its relative version, Remark 5.12, p. 44; [Yuan](https://arxiv.org/pdf/2108.05625v4), Lemma 3.4 proof p. 44.)
 
 Here S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of Layer 6 are fixed.
 
-Verify O_S≅π_\*O_X universally for the stable connected reduced fibres. For the dual-number extension use 1+εO_X to identify the infinitesimal Picard kernel with H¹(O_X) (the framed-lift description of AlgebraicModuliForArithmeticGeometry §7.3, `picard_infinitesimal_lifting`, over a field). Apply Bosch–Lütkebohmert–Raynaud 8.4/1 to the represented Picard space over S and restrict to its open identity component.
+Verify O_S≅π_\*O_X universally for the stable geometrically connected reduced fibres. On an affine test open U⊆S put U_ε=Spec_U(O_U[ε]/ε²). The split sequence of units on X_{U_ε}, with kernel 1+εO_{X_U}≅O_{X_U}, identifies the kernel of Pic(X_{U_ε})→Pic(X_U) with H¹(X_U,O_{X_U}). Sheafify this comparison over U and pass to the relative Picard sheaf; base classes are removed and the result is R¹π_\*O_X. Multiplication of units adds ε-coefficients, and ε↦aε gives scalar multiplication by a∈O_U, so the identification is O_U-linear. The infinitesimal kernel is supported at the identity and hence belongs to the open G, even if the whole Picard object is an algebraic space. Gluing gives the Lie isomorphism of Kleiman Remark 5.12. Its construction is natural under pullback, and StableReduction Layer 2's coherent base-change comparison identifies the pulled-back R¹ with that of the new family. The field deformation theorem alone is not used as a relative sheaf comparison.
 
 **Checks.**
 
@@ -1044,7 +1053,7 @@ The generic construction of Layers 0–5 uses no curve moduli space; Layer 6 com
 
 - Xinyi Yuan, [*Arithmetic bigness and a uniform Bogomolov-type result*, arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), 125 pages; printed page numbers equal PDF page numbers. Locators used: §2.2.1, Definition 2.4, Proposition 2.6 and its proof, pp. 29–32; Theorem 2.10 and its proof, pp. 37–39; Lemma 3.4 and its proof, pp. 43–44; §4.6.2 and Theorem 4.17 with its proof, pp. 96–98; §A.3, p. 108; §A.4, Theorem A.3 and its proof, pp. 109–110. Published in Annals of Mathematics 203 (2026); the arXiv page numbers are not publisher page numbers.
 - Vesselin Dimitrov, Ziyang Gao and Philipp Habegger, [*Uniformity in Mordell–Lang for curves*, arXiv:2001.10276v3](https://arxiv.org/pdf/2001.10276v3), §6.1, pp. 23–25, with equations (6.1), (6.3) and (6.5).
-- Steven L. Kleiman, [*The Picard scheme*, arXiv:math/0504020v1](https://arxiv.org/pdf/math/0504020v1) (in *Fundamental Algebraic Geometry: Grothendieck's FGA Explained*, AMS 2005). Locators use the arXiv pagination: Remark 2.11, pp. 20–21; Definition 4.6 and Theorem 4.8 with its proof, pp. 27–29; Propositions 5.19–5.20, pp. 47–48; Exercise 5.23, p. 50; Remark 5.26, p. 51.
-- Siegfried Bosch, Werner Lütkebohmert and Michel Raynaud, *Néron Models*, Ergebnisse der Mathematik 21, Springer, 1990 (not freely available; Layers 0, 1 and 4 also give free locators in Kleiman or Milne for most of its uses). Printed pages: §8.1, Proposition 4, pp. 204–205; §8.4, Theorem 1 and proof, pp. 231–232; §9.3, Theorem 1 and proof, p. 252; §9.4, Theorem 1, p. 259, and Proposition 4 with its proof, pp. 260–261.
+- Steven L. Kleiman, [*The Picard scheme*, arXiv:math/0504020v1](https://arxiv.org/pdf/math/0504020v1) (in *Fundamental Algebraic Geometry: Grothendieck's FGA Explained*, AMS 2005). Locators use the arXiv pagination: Remark 2.11, pp. 20–21; Definition 4.6 and Theorem 4.8 with its proof, pp. 27–29; Proposition 5.10, pp. 41–42; Theorem 5.11 and Remark 5.12, pp. 42–44; Propositions 5.19–5.20, pp. 47–48; Exercise 5.23, p. 50; Remark 5.26, p. 51.
+- Eduardo Esteves, Mathieu Gagné and Steven L. Kleiman, [*Autoduality of the compactified Jacobian*, arXiv:math/9911071](https://arxiv.org/pdf/math/9911071), Theorem (2.1), pp. 4–6; Proposition (2.2) and proof, pp. 6–7; Proposition (3.7), pp. 15–16; proof (4.1), p. 16. Only the smooth-curve family specialization is consumed, not the singular compactified Jacobian construction. Locators use the arXiv pagination; the published theorem starts on p. 595 in Journal of the London Mathematical Society 65 (2002), 591–610.
 - J. S. Milne, [*Jacobian Varieties*, notes](https://www.jmilne.org/math/xnotes/JVs.pdf), §8, Theorem 8.1 and the following discussion, pp. 27–28.
 - The Stacks Project: [Lemma 35.23.21 (02L6)](https://stacks.math.columbia.edu/tag/02L6), [Lemma 35.23.25 (02LA)](https://stacks.math.columbia.edu/tag/02LA), [Lemma 41.7.2 (04XV)](https://stacks.math.columbia.edu/tag/04XV).
