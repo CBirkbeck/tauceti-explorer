@@ -568,6 +568,12 @@
         "date": null,
         "note": "opened 2026-10-13 16:30Z as a draft; awaiting first review"
       }
+    },
+    "EnhancedDerivedSheaves": {
+      "stage": "pr",
+      "pr": 908,
+      "head": "a157533",
+      "review": "draft; red team pending"
     }
   }
 }
