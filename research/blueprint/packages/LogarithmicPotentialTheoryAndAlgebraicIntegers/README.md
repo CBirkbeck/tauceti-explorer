@@ -40,8 +40,8 @@ Moduli, Part II. Abelian Weil estimates and Frobenius point counts belong to
 Deligne Weights and Purity; Layer 12 supplies their real-polynomial optimization
 adapter.
 
-The coupling with Classical Arithmetic Completion is by layers: its CA.6
-consumes the early complex foundations, while the classical name λSSS is
+The required coupling with Classical Arithmetic Completion is by layers: CA.6
+can consume the early complex foundations, while the classical name λSSS is
 imported only after cofinite optimization has been constructed here. The two
 roadmaps use a coupled boundary for these contracts. The mathematical build
 order is Layers 0–10, the CA.6 indexing interface, then the classical trace
@@ -171,24 +171,32 @@ dilations. Import the following polynomial specializations from GN.1 and GN.4:
    approximation, the gcd bound and realization. (Smith, Theorem 3.2,
    pp.12–13.)
 
-### From Classical Arithmetic Completion, CA.3, CA.6 and Part II
+### Required extensions of Classical Arithmetic Completion, CA.3 and CA.6
 
-CA.3 supplies primitive gcd/Gauss interfaces. Its additional bounded-combination
-contract says: for a nonempty list of nonzero integer Q1,…,Qk of degrees ≤n, at least one of degree
+The arithmetic construction requires an additional CA.3 primitive gcd/Gauss
+interface and bounded-combination theorem. Their required contract says: for a
+nonempty list of nonzero integer Q1,…,Qk of degrees ≤n, at least one of degree
 n, and their positive-leading primitive rational gcd G, there are integers
 `0≤bi≤2(n−deg G)` for i≥2 such that
 `(Q1+Σi≥2 bi Qi)/G` has degree n−deg G and is squarefree over ℚ. The degree-zero
 case includes nonunit integral constants; for example 4(X+1) gives quotient 4.
-The discriminant/grid proof belongs to that supplier. Consumers are the gcd
+The discriminant/grid proof and native gcd normalization belong to this
+Classical Arithmetic Completion extension. Consumers are the gcd
 norm bound and small-squarefree construction. (Smith, Lemma 2.10, p.9.)
 
-CA.6 supplies the identification of its classical Schur–Siegel–Smyth constant
+The late trace corollaries require an additional CA.6 identification of the
+classical Schur–Siegel–Smyth constant
 with the cofinite nonnegative trace problem `cofiniteMean [0,∞) id`, including
 the equivalence between counting minimal polynomials and conjugacy classes of
 algebraic integers. Its constant is a supremum of cofinite lower bounds. Layers
 11–12 consume this bridge; Layers 0–2 and the exact witness do not. The optimal
 admissible trace law itself follows from Layer 10 here. (Smith, Example 5.9,
 p.37 and Theorem 5.11, pp.39–40.)
+
+These are additional supplier targets, not consequences of CA.3's matrix
+normal forms or CA.6's Pisot, Salem and Mahler-measure results. The bounded
+combination and the trace-indexing bridge must be supplied before their
+respective consumers can be built.
 
 ### From Abelian Schemes and Arithmetic Moduli, Part II, F3
 
@@ -527,6 +535,11 @@ monotone limits. Saff's survey states the full theorem but gives only a proof
 sketch; Levenberg's Proposition 2.7, p.12 proves the continuous comparison form.
 A proof of the approximation passage is part of this target and must retain
 atomic ν. No stronger continuity hypothesis is substituted for it.
+
+**Checks.**
+
+- With μ=ν=0 and c=−1 the almost-everywhere premise holds but the global
+  conclusion would be 0≤−1. This witnesses the positive-mass hypothesis.
 
 The intended names are `domination`.
 
@@ -930,14 +943,17 @@ E ⊂ [−1,1] of length at least `2−m⁻²`, prove
 Remez estimate with factor `Tm((4−|E|)/|E|)`. At a maximum point rotate p by a
 unit complex scalar and apply the real theorem to its real part. The displayed
 factor is bounded by exp(5) in this range. The target includes a proof of that
-sharp measurable-set input: Smith invokes Erdélyi's Theorem 1 rather than
-proving it, and the sharp proof is a separate analytic obligation. Continuous
+sharp measurable-set input. Erdélyi's Theorem 3.1 gives the real estimate;
+Corollary 3.2 bounds it by `exp(5 m sqrt(s))` when the omitted length s is at
+most one. Substituting s=m⁻² gives exp(5). The sharp proof is a separate
+analytic obligation. Continuous
 extension theorems do not supply it. Length, rather than an interval contained
 in E, is the hypothesis.
 
 The intended names are `remez`.
 
-(Smith, Lemma 2.8 proof, p.8 (special case of Erdélyi Theorem 1).)
+(Smith, Lemma 2.8 proof, p.8; Erdélyi, *Remez-type inequalities and
+applications*, Theorem 3.1 and Corollary 3.2, p.173.)
 
 *Needs:* native real and complex polynomial evaluation, Lebesgue measure and `Polynomial.Chebyshev.T`; the sharp measurable-set estimate is proved within this target.
 
@@ -2183,8 +2199,9 @@ Layers 3–4 and 9–11; Abelian Schemes and Arithmetic Moduli Part II F3/honda-
 Arithmetic Algebraization and Holonomy Bounds consumes the complex energy,
 capacity, domination and weighted-equilibrium foundation, with its own
 holonomy and arithmetic rationality arguments. Classical Arithmetic Completion
-CA.6 consumes the same early foundation and supplies the classical constant
-identification to the late trace results. The early exports and late imports
+CA.6 can consume the same early foundation; its required trace-indexing
+extension supplies the classical constant identification to the late trace
+results. The early exports and late imports
 are kept separate at the coupled boundary.
 
 The real distribution theorem is a reusable interface for conjugate constraints:
@@ -2223,3 +2240,7 @@ proof obligations stated in the domination and Remez subsections.
   (2017), 217–245,
   [author PDF](https://math.caltech.edu/SimonPapers/336.pdf), Theorems 1.1,
   1.4 and 2.2–2.6, §§2 and 4.
+- Tamás Erdélyi, *Remez-type inequalities and applications*, *Journal of
+  Computational and Applied Mathematics* 47 (1993), 167–209,
+  [author PDF](https://people.tamu.edu/~terdelyi/papers-online/JCAM.pdf),
+  Theorem 3.1 and Corollary 3.2, p.173.

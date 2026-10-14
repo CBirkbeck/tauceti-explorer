@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+    "date": "2026-10-14",
+    "notes": "Reviewed all 69 targets and 86 API names, 26 definition/construction test sets, 15 random public-source locators plus G1–G3, all 22 pinned baselines, current TauCeti/roadmap duplication and all 18 Lean theorem signatures. Corrected unsupplied CA.3/CA.6 claims, added a direct Erdélyi Remez locator and domination/weighted-energy controls. Final 476-line Suggested.lean elaborates: exit 0, only sorry warnings. needs_changes: CA R3 bounded squarefree-combination/native gcd contract and R4 trace-constant indexing bridge have no supplier nodes; inherited G1/G2 full-proof boundaries and G3 native application adapters remain, with exact resume points in the report."
+  }
+}
