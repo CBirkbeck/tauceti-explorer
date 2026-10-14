@@ -1,102 +1,397 @@
-/-
-This file is not the roadmap and is not exhaustive. README.md is definitive.
-These statements suggest Lean forms so that contributors and reviewers can
-converge on names and signatures. They claim no implementation.
+import Mathlib
 
-Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
-Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The concrete signatures below use individual Mathlib modules. Comparisons
-with Tau Ceti and interfaces requiring other roadmap objects are described
-in the mathematical catalogue at the end. Those comments are specifications,
-not Lean declarations or checked examples. No unavailable condition is
-replaced by an arbitrary proposition or an assumed theorem field.
+/-!
+# MordellLawrenceVenkatesh: representative target signatures
+
+This file is not the roadmap: `README.md` is definitive, and the declarations below are not
+exhaustive. They suggest Lean forms for the definitions and theorems of the roadmap that can be
+stated with what the pinned Mathlib provides, so that contributors and reviewers converge on names
+and signatures. Families of abelian varieties, period maps, Galois representations, surfaces and
+mapping class groups, Hurwitz spaces and Pryms have no carriers at the pins: they are targets of
+the README and do not appear here. What remains is the linear algebra, finite group theory and
+number theory that the arithmetic and topological theorems reduce to, together with the S-unit
+theorem, placed in the layer of the README to which each belongs.
+
+Design choices made explicit here:
+* the centralizer of a semilinear map is an `F`-subalgebra of `Module.End E V` for a field `F` fixed
+  by the automorphism, so that its dimension over the fixed field can be stated;
+* the affine group of `𝔽_q` is used through its faithful permutation action, as the subgroup of
+  `Equiv.Perm (ZMod q)` of maps `x ↦ a * x + b` with `a` a unit; this is the permutation image of
+  Tau Ceti's `AffineGroup (ZMod q)` (current library), and statements about cycle types,
+  centralizers and normalizers in `Sym(𝔽_q)` are made there;
+* symplectic transvections are Mathlib's `LinearEquiv.transvection` of the form `r • ω v`, with the
+  convention `T_v^r x = x + r * ω v x • v`;
+* the short-orbit proportion `size_v` is a function of a permutation of a finite set (the Frobenius
+  acting on geometric points), so that it is independent of any scheme carrier;
+* integer-indexed finite filtrations keep negative jumps.
+
+Names are relative to the namespace `TauCetiRoadmap.MordellLawrenceVenkatesh`.
 -/
-import Mathlib.LinearAlgebra.AffineSpace.AffineEquiv
-import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
-import Mathlib.RingTheory.AdjoinRoot
-import Mathlib.Data.ZMod.Basic
-import Mathlib.LinearAlgebra.Transvection.Basic
-import Mathlib.LinearAlgebra.BilinearForm.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.NumberTheory.NumberField.CMField
-import Mathlib.Dynamics.PeriodicPts.Defs
-import Mathlib.GroupTheory.Perm.Cycle.Basic
-import Mathlib.LinearAlgebra.Prod
-import Mathlib.LinearAlgebra.Dual.Defs
-import Mathlib.GroupTheory.FreeGroup.Basic
-import Mathlib.LinearAlgebra.ExteriorPower.Basis
-import Mathlib.RepresentationTheory.Basic
-import Mathlib.RingTheory.SimpleModule.Basic
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.GroupTheory.SemidirectProduct
 
-noncomputable section
-open scoped Affine
+namespace TauCetiRoadmap.MordellLawrenceVenkatesh
 
-namespace TauCeti.LawrenceVenkatesh
+/-! ## Layer LV.0: semilinear centralizers, the affine group and symplectic generation -/
 
-private instance : Fact (Nat.Prime 3) := ⟨by decide⟩
-private instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+section SemilinearCentralizer
 
--- LV.0/affine-group: the permutation image of the existing affine equivalences.
-def affineGroup (q : ℕ) [Fact q.Prime] : Subgroup (Equiv.Perm (ZMod q)) where
-  carrier := {f | ∃ e : ZMod q ≃ᵃ[ZMod q] ZMod q, e.toEquiv = f}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
+variable (F : Type*) {E V : Type*} [Field F] [Field E] [Algebra F E]
+  [AddCommGroup V] [Module E V] [Module F V] [IsScalarTower F E V]
 
-namespace affineGroup
-variable {q : ℕ} [Fact q.Prime]
+/-- The centralizer `Z(φ)` of a `σ`-semilinear map `φ : V → V`: the `E`-linear endomorphisms of `V`
+commuting with `φ`, as an `F`-subalgebra of `End_E(V)` for a subfield `F` of `E` fixed by `σ`.
+README 0.3. -/
+def semilinearCentralizer (σ : E →+* E) (hσ : ∀ a : F, σ (algebraMap F E a) = algebraMap F E a)
+    (φ : V →ₛₗ[σ] V) : Subalgebra F (Module.End E V) where
+  carrier := {f | ∀ v, f (φ v) = φ (f v)}
+  mul_mem' := by
+    intro f g hf hg v
+    change f (g (φ v)) = φ (f (g v))
+    rw [hg v, hf]
+  add_mem' := by
+    intro f g hf hg v
+    change f (φ v) + g (φ v) = φ (f v + g v)
+    rw [hf v, hg v, map_add]
+  algebraMap_mem' := by
+    intro a v
+    sorry
 
-def mk (a : (ZMod q)ˣ) (b : ZMod q) : affineGroup q := by sorry
+theorem mem_semilinearCentralizer (σ : E →+* E)
+    (hσ : ∀ a : F, σ (algebraMap F E a) = algebraMap F E a) (φ : V →ₛₗ[σ] V)
+    (f : Module.End E V) :
+    f ∈ semilinearCentralizer F σ hσ φ ↔ ∀ v, f (φ v) = φ (f v) := Iff.rfl
 
-theorem mk_apply (a : (ZMod q)ˣ) (b x : ZMod q) :
-    (mk a b).val x = (a : ZMod q) * x + b := by sorry
+/-- For the identity automorphism and the identity map the centralizer is everything. README 0.3. -/
+example : semilinearCentralizer F (RingHom.id E) (fun _ => rfl) (LinearMap.id : V →ₗ[E] V) = ⊤ := by
+  sorry
 
-theorem mk_inj (a a' : (ZMod q)ˣ) (b b' : ZMod q) :
-    mk a b = mk a' b' ↔ a = a' ∧ b = b' := by sorry
+/-- Dimension of the centralizer (Lawrence–Venkatesh, Lemma 2.1): if `σ` has finite order with
+fixed field exactly `F` and `φ` is bijective, then `dim_F Z(φ) ≤ (dim_E V)²`. README 0.4. -/
+theorem finrank_semilinearCentralizer_le [FiniteDimensional E V] (σ : E →+* E)
+    (hσ : ∀ a : F, σ (algebraMap F E a) = algebraMap F E a)
+    (hfix : ∀ x : E, σ x = x → x ∈ (algebraMap F E).range) (e : ℕ) (he : 0 < e)
+    (hord : ∀ x : E, (σ ^ e) x = x) (φ : V →ₛₗ[σ] V) (hφ : Function.Bijective φ) :
+    Module.finrank F (semilinearCentralizer F σ hσ φ) ≤ Module.finrank E V ^ 2 := by
+  sorry
 
-def mulEquivAffineEquiv : affineGroup q ≃* (ZMod q ≃ᵃ[ZMod q] ZMod q) := by sorry
+end SemilinearCentralizer
 
-def linearPart : affineGroup q →* (ZMod q)ˣ := by sorry
+section AffineGroup
 
-theorem linearPart_mk (a : (ZMod q)ˣ) (b : ZMod q) :
-    linearPart (mk a b) = a := by sorry
+variable (q : ℕ) [Fact q.Prime]
 
-theorem ker_linearPart (f : affineGroup q) :
-    f ∈ linearPart.ker ↔ ∃ b, f = mk 1 b := by sorry
+/-- The affine group `Aff(q)` of the prime field, as the group of permutations `x ↦ a * x + b` of
+`ZMod q` with `a` a unit: the permutation image of Tau Ceti's `AffineGroup (ZMod q)` (current
+library), which acts faithfully. README 0.7. -/
+def affinePermGroup : Subgroup (Equiv.Perm (ZMod q)) where
+  carrier := {σ | ∃ a : (ZMod q)ˣ, ∃ b : ZMod q, ∀ x, σ x = a * x + b}
+  one_mem' := ⟨1, 0, fun x => by simp⟩
+  mul_mem' := by
+    rintro σ τ ⟨a, b, hσ⟩ ⟨a', b', hτ⟩
+    refine ⟨a * a', a * b' + b, fun x => ?_⟩
+    simp only [Equiv.Perm.coe_mul, Function.comp_apply, hσ, hτ, Units.val_mul]
+    ring
+  inv_mem' := by
+    sorry
 
-theorem mk_mul_mk (a a' : (ZMod q)ˣ) (b b' : ZMod q) :
-    mk a b * mk a' b' = mk (a * a') ((a : ZMod q) * b' + b) := by sorry
+variable {q}
 
-theorem inv_mk (a : (ZMod q)ˣ) (b : ZMod q) :
-    (mk a b)⁻¹ = mk a⁻¹ (-((a⁻¹ : (ZMod q)ˣ) : ZMod q) * b) := by sorry
+/-- The linear part `λ : Aff(q) → 𝔽_q^×`, read off as `σ 1 - σ 0`. README 0.7. -/
+noncomputable def affineLinearPart : affinePermGroup q →* (ZMod q)ˣ where
+  toFun σ := Units.mk0 ((σ : Equiv.Perm (ZMod q)) 1 - (σ : Equiv.Perm (ZMod q)) 0) (by sorry)
+  map_one' := by sorry
+  map_mul' := by sorry
 
-theorem card : Nat.card (affineGroup q) = q * (q - 1) := by sorry
+theorem affineLinearPart_apply (σ : affinePermGroup q) (a : (ZMod q)ˣ) (b : ZMod q)
+    (h : ∀ x, (σ : Equiv.Perm (ZMod q)) x = a * x + b) : affineLinearPart σ = a := by
+  sorry
 
-theorem stabilizer_zero (f : affineGroup q) :
-    f.val 0 = 0 ↔ ∃ a, f = mk a 0 := by sorry
+theorem affineLinearPart_surjective : Function.Surjective (affineLinearPart (q := q)) := by
+  sorry
 
-theorem commutator_eq (a a' : (ZMod q)ˣ) (b b' : ZMod q) :
-    mk a b * mk a' b' * (mk a b)⁻¹ * (mk a' b')⁻¹ =
-      mk 1 (b * (1 - (a' : ZMod q)) - b' * (1 - (a : ZMod q))) := by sorry
+/-- The kernel of the linear part is the group of translations. README 0.7. -/
+theorem mem_ker_affineLinearPart (σ : affinePermGroup q) :
+    σ ∈ (affineLinearPart (q := q)).ker ↔
+      ∃ b : ZMod q, ∀ x, (σ : Equiv.Perm (ZMod q)) x = x + b := by
+  sorry
 
-theorem example_three : affineGroup 3 = ⊤ := by sorry
+theorem card_affinePermGroup : Nat.card (affinePermGroup q) = q * (q - 1) := by
+  sorry
 
--- affineGroup.reviewTest1: (2,1)(3,4)=(1,4) in Aff(5).
-example (a a' : (ZMod 5)ˣ) (ha : (a : ZMod 5) = 2)
-    (ha' : (a' : ZMod 5) = 3) : mk a 1 * mk a' 4 = mk 1 4 := by sorry
+/-- Cycle types (README 0.8): an affine permutation with linear part `a ≠ 1` has one fixed point,
+and its other cycles all have length the order of `a`. -/
+theorem cycleType_of_affineLinearPart_ne_one (σ : affinePermGroup q)
+    (h : affineLinearPart σ ≠ 1) :
+    (σ : Equiv.Perm (ZMod q)).cycleType =
+      Multiset.replicate ((q - 1) / orderOf (affineLinearPart σ)) (orderOf (affineLinearPart σ)) := by
+  sorry
 
--- affineGroup.reviewTest2: identity and inverse, including the translation term.
-example (a : (ZMod q)ˣ) (b : ZMod q) :
-    mk (1 : (ZMod q)ˣ) 0 = 1 ∧
-    (mk a b)⁻¹ = mk a⁻¹ (-((a⁻¹ : (ZMod q)ˣ) : ZMod q) * b) := by sorry
+/-- A nontrivial translation is a `q`-cycle. README 0.8. -/
+theorem cycleType_of_affineLinearPart_eq_one (σ : affinePermGroup q)
+    (h : affineLinearPart σ = 1) (hσ : σ ≠ 1) :
+    (σ : Equiv.Perm (ZMod q)).cycleType = {q} := by
+  sorry
 
--- affineGroup.reviewTest3: the faithful action is the whole six-element S₃.
-example : affineGroup 3 = ⊤ ∧ Nat.card (affineGroup 3) = 6 := by sorry
-end affineGroup
+/-- For `q ≥ 3` the centralizer of `Aff(q)` in `Sym(𝔽_q)` is trivial. README 0.9. -/
+theorem centralizer_affinePermGroup (hq : 3 ≤ q) :
+    Subgroup.centralizer (affinePermGroup q : Set (Equiv.Perm (ZMod q))) = ⊥ := by
+  sorry
 
--- LV.6/legendre-family: reuse the existing Weierstrass carrier over any ring.
+/-- For `q ≥ 3` the group `Aff(q)` is self-normalizing in `Sym(𝔽_q)`. README 0.9. -/
+theorem normalizer_affinePermGroup (hq : 3 ≤ q) :
+    Subgroup.normalizer (affinePermGroup q : Set (Equiv.Perm (ZMod q))) = affinePermGroup q := by
+  sorry
+
+/-- Sharp two-transitivity. README 0.7. -/
+theorem existsUnique_affinePermGroup_pair {x₁ x₂ y₁ y₂ : ZMod q} (hx : x₁ ≠ x₂) (hy : y₁ ≠ y₂) :
+    ∃! σ : affinePermGroup q, (σ : Equiv.Perm (ZMod q)) x₁ = y₁ ∧ (σ : Equiv.Perm (ZMod q)) x₂ = y₂ := by
+  sorry
+
+instance : Fact (Nat.Prime 3) := ⟨by norm_num⟩
+
+/-- `Aff(3)` is all of `Sym(𝔽₃)`. -/
+example : affinePermGroup 3 = ⊤ := by
+  sorry
+
+/-- Order of `Aff(5)` is `20`; a wrong carrier (all of `Sym(𝔽₅)`, of order `120`) fails. -/
+example [Fact (Nat.Prime 5)] : Nat.card (affinePermGroup 5) = 20 := by
+  sorry
+
+end AffineGroup
+
+section Counting
+
+/-- The `k`-tuples of `ℤ/N` whose entries generate `ℤ/N`. README 0.11. -/
+def generatingTuples (N k : ℕ) : Set (Fin k → ZMod N) :=
+  {y | AddSubgroup.closure (Set.range y) = ⊤}
+
+/-- Jordan's totient: the number of generating `k`-tuples. README 0.11. -/
+theorem card_generatingTuples (N k : ℕ) (hN : 1 ≤ N) :
+    (Nat.card (generatingTuples N k) : ℚ) =
+      (N : ℚ) ^ k * ∏ ℓ ∈ N.primeFactors, (1 - ((ℓ : ℚ) ^ k)⁻¹) := by
+  sorry
+
+/-- At least half of all `k`-tuples generate, for `k ≥ 2`. README 0.11. -/
+theorem two_mul_card_generatingTuples_ge (N k : ℕ) (hN : 1 ≤ N) (hk : 2 ≤ k) :
+    N ^ k ≤ 2 * Nat.card (generatingTuples N k) := by
+  sorry
+
+/-- `J₂(6) = 24`. -/
+example : Nat.card (generatingTuples 6 2) = 24 := by
+  sorry
+
+/-- Isotropic subgroups of a perfect `ℚ/ℤ`-valued pairing on a finite abelian group satisfy
+`|B|² ≤ |A|`; no symmetry of the pairing is assumed. README 0.12. -/
+theorem card_sq_le_of_isotropic {A : Type*} [AddCommGroup A] [Finite A]
+    (P : A →+ A →+ AddCircle (1 : ℚ)) (hP : Function.Bijective P) (B : AddSubgroup A)
+    (hB : ∀ x ∈ B, ∀ y ∈ B, P x y = 0) : Nat.card B ^ 2 ≤ Nat.card A := by
+  sorry
+
+end Counting
+
+section MinimalSubrepresentation
+
+/-- A minimal nonzero subrepresentation of a reducible representation preserving a nondegenerate
+symmetric or alternating form up to a similitude character has at most half the dimension.
+README 0.13. -/
+theorem finrank_le_half_of_minimal {k G V : Type*} [Field k] [Group G] [AddCommGroup V]
+    [Module k V] [FiniteDimensional k V] (ρ : Representation k G V) (B : LinearMap.BilinForm k V)
+    (hB : B.Nondegenerate) (hsym : B.IsSymm ∨ B.IsAlt) (χ : G →* kˣ)
+    (hχ : ∀ g x y, B (ρ g x) (ρ g y) = (χ g : k) * B x y) (W : Submodule k V) (hW0 : W ≠ ⊥)
+    (hWinv : ∀ g, W.map (ρ g) ≤ W)
+    (hred : ∃ U : Submodule k V, U ≠ ⊥ ∧ U ≠ ⊤ ∧ ∀ g, U.map (ρ g) ≤ U)
+    (hmin : ∀ U : Submodule k V, U ≠ ⊥ → (∀ g, U.map (ρ g) ≤ U) →
+      Module.finrank k W ≤ Module.finrank k U) :
+    2 * Module.finrank k W ≤ Module.finrank k V := by
+  sorry
+
+end MinimalSubrepresentation
+
+section Transvections
+
+variable {k V : Type*} [Field k] [AddCommGroup V] [Module k V]
+
+/-- The symplectic transvection `T_v^r x = x + r * ω v x • v` of an alternating form `ω`.
+README 0.14. -/
+def symplecticTransvection (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V) (r : k) :
+    V ≃ₗ[k] V :=
+  LinearEquiv.transvection (f := r • ω v) (v := v) (by simp [hω v])
+
+theorem symplecticTransvection_apply (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V)
+    (r : k) (x : V) : symplecticTransvection ω hω v r x = x + (r * ω v x) • v := by
+  sorry
+
+theorem symplecticTransvection_isometry (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V)
+    (r : k) (x y : V) :
+    ω (symplecticTransvection ω hω v r x) (symplecticTransvection ω hω v r y) = ω x y := by
+  sorry
+
+theorem symplecticTransvection_add (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V)
+    (r s : k) :
+    symplecticTransvection ω hω v r * symplecticTransvection ω hω v s =
+      symplecticTransvection ω hω v (r + s) := by
+  sorry
+
+theorem symplecticTransvection_smul (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V)
+    (c r : k) :
+    symplecticTransvection ω hω (c • v) r = symplecticTransvection ω hω v (c ^ 2 * r) := by
+  sorry
+
+/-- Conjugating a transvection by an isometry moves its centre. README 0.14. -/
+theorem conj_symplecticTransvection (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V) (r : k)
+    (g : V ≃ₗ[k] V) (hg : ∀ x y, ω (g x) (g y) = ω x y) :
+    g * symplecticTransvection ω hω v r * g⁻¹ = symplecticTransvection ω hω (g v) r := by
+  sorry
+
+/-- A transvection is unipotent of class two. -/
+theorem symplecticTransvection_sub_one_sq (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (v : V)
+    (r : k) :
+    ((symplecticTransvection ω hω v r : V →ₗ[k] V) - LinearMap.id) ^ 2 = 0 := by
+  sorry
+
+/-- For `ω e f = 1`, `T_e^2 f = f + 2e` and `T_e^2 e = e`. -/
+example (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (e f : V) (h : ω e f = 1) :
+    symplecticTransvection ω hω e 2 f = f + (2 : k) • e ∧ symplecticTransvection ω hω e 2 e = e := by
+  sorry
+
+/-- The symplectic Lie algebra of a nondegenerate alternating form in characteristic zero and
+dimension at least two is simple. README 0.16. -/
+theorem isSimple_skewAdjointLieSubalgebra [CharZero k] [FiniteDimensional k V]
+    (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt) (hnd : ω.Nondegenerate)
+    (hdim : 2 ≤ Module.finrank k V) :
+    LieAlgebra.IsSimple k (skewAdjointLieSubalgebra ω) := by
+  sorry
+
+end Transvections
+
+section Goursat
+
+variable {k s t : Type*} [Field k] [LieRing s] [LieAlgebra k s] [LieRing t] [LieAlgebra k t]
+
+/-- Two-factor Goursat for simple Lie algebras: a Lie subalgebra of `s × t` projecting onto both
+factors is everything or the graph of an isomorphism. README 0.22. -/
+theorem lieSubalgebra_prod_eq_top_or_graph [LieAlgebra.IsSimple k s] [LieAlgebra.IsSimple k t]
+    (h : LieSubalgebra k (s × t))
+    (h₁ : Function.Surjective (fun x : h => (x : s × t).1))
+    (h₂ : Function.Surjective (fun x : h => (x : s × t).2)) :
+    h = ⊤ ∨ ∃ e : s ≃ₗ⁅k⁆ t, ∀ x : s × t, x ∈ h ↔ x.2 = e x.1 := by
+  sorry
+
+end Goursat
+
+
+/-! ## Layer LV.1: Galois representations, friendly places and Hodge weights -/
+
+section CMSubfield
+
+open NumberField
+
+/-- The largest subfield of a number field `K` that is totally real or CM. Its existence and its
+description through complex conjugations are README 1.2–1.3; this definition is the supremum of
+all such subfields. README 1.3. -/
+noncomputable def largestCMSubfield (K : Type*) [Field K] [NumberField K] : IntermediateField ℚ K :=
+  sSup {F : IntermediateField ℚ K | IsTotallyReal F ∨ IsCMField F}
+
+/-- The largest CM-or-totally-real subfield is itself totally real or CM. README 1.3. -/
+theorem largestCMSubfield_isTotallyReal_or_isCMField (K : Type*) [Field K] [NumberField K] :
+    IsTotallyReal (largestCMSubfield K) ∨ IsCMField (largestCMSubfield K) := by
+  sorry
+
+/-- A CM field is its own largest CM subfield. -/
+example (K : Type*) [Field K] [NumberField K] [IsCMField K] : largestCMSubfield K = ⊤ := by
+  sorry
+
+/-- A totally real field is its own largest CM-or-totally-real subfield. -/
+example (K : Type*) [Field K] [NumberField K] [IsTotallyReal K] : largestCMSubfield K = ⊤ := by
+  sorry
+
+/-- A cubic field that is not totally real has no CM or totally real subfield other than `ℚ`. -/
+example (K : Type*) [Field K] [NumberField K] (h3 : Module.finrank ℚ K = 3)
+    (hnr : ¬ IsTotallyReal K) : largestCMSubfield K = ⊥ := by
+  sorry
+
+end CMSubfield
+
+section Filtrations
+
+variable (k D : Type*) [Field k] [AddCommGroup D] [Module k D]
+
+/-- A finite, exhaustive, separated, decreasing `ℤ`-indexed filtration with explicit bounds:
+`F i = ⊤` for `i ≤ lo` and `F i = ⊥` for `i ≥ hi`. Negative jumps are allowed. README 1.12. -/
+structure FiniteFiltration where
+  /-- The filtration steps. -/
+  step : ℤ → Submodule k D
+  /-- The filtration is decreasing. -/
+  antitone : Antitone step
+  /-- A lower bound below which the filtration is everything. -/
+  lo : ℤ
+  /-- An upper bound from which the filtration is zero. -/
+  hi : ℤ
+  step_of_le : ∀ i ≤ lo, step i = ⊤
+  step_of_ge : ∀ i ≥ hi, step i = ⊥
+
+variable {k D}
+
+/-- The Hodge degree `t_H(D) = Σ_j j · dim gr^j D`. README 1.12. -/
+noncomputable def FiniteFiltration.hodgeDegree (Fil : FiniteFiltration k D) : ℤ :=
+  ∑ j ∈ Finset.Ico Fil.lo Fil.hi,
+    j * ((Module.finrank k (Fil.step j) : ℤ) - Module.finrank k (Fil.step (j + 1)))
+
+/-- The weight `t_H(D) / dim D` of a filtration of a nonzero space. README 1.12. -/
+noncomputable def FiniteFiltration.filtrationWeight (Fil : FiniteFiltration k D) : ℚ :=
+  (Fil.hodgeDegree : ℚ) / Module.finrank k D
+
+/-- The Hodge degree does not depend on the chosen bounds. -/
+theorem FiniteFiltration.hodgeDegree_eq_of_step_eq [FiniteDimensional k D]
+    (Fil Fil' : FiniteFiltration k D) (h : Fil.step = Fil'.step) :
+    Fil.hodgeDegree = Fil'.hodgeDegree := by
+  sorry
+
+/-- Shifting a filtration by `n` adds `n · dim D` to the Hodge degree. README 1.12. -/
+theorem FiniteFiltration.hodgeDegree_shift [FiniteDimensional k D] (Fil Fil' : FiniteFiltration k D)
+    (n : ℤ) (h : ∀ i, Fil'.step i = Fil.step (i - n)) :
+    Fil'.hodgeDegree = Fil.hodgeDegree + n * Module.finrank k D := by
+  sorry
+
+/-- A two-step filtration with `F⁰ = D` of dimension `2`, `F¹` a line and `F² = 0` has weight `1/2`. -/
+example (L : Submodule k (Fin 2 → k)) (hL : Module.finrank k L = 1) (Fil : FiniteFiltration k (Fin 2 → k))
+    (h0 : ∀ i ≤ 0, Fil.step i = ⊤) (h1 : Fil.step 1 = L) (h2 : ∀ i ≥ 2, Fil.step i = ⊥) :
+    Fil.filtrationWeight = 1 / 2 := by
+  sorry
+
+end Filtrations
+
+/-! ## Layer LV.3: Lagrangian period varieties and the two period maps -/
+
+section Lagrangian
+
+variable {k V : Type*} [Field k] [AddCommGroup V] [Module k V] [FiniteDimensional k V]
+
+/-- Isotropic subspaces of a nondegenerate alternating form have at most half the dimension, and
+exactly half exactly when they are Lagrangian. README 3.1. -/
+theorem two_mul_finrank_le_of_isotropic (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt)
+    (hnd : ω.Nondegenerate) (L : Submodule k V) (hL : ∀ x ∈ L, ∀ y ∈ L, ω x y = 0) :
+    2 * Module.finrank k L ≤ Module.finrank k V := by
+  sorry
+
+theorem isLagrangian_iff_finrank (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt)
+    (hnd : ω.Nondegenerate) (L : Submodule k V) (hL : ∀ x ∈ L, ∀ y ∈ L, ω x y = 0) :
+    ω.orthogonal L = L ↔ 2 * Module.finrank k L = Module.finrank k V := by
+  sorry
+
+/-- Every basis of a Lagrangian extends to a symplectic basis whose second half spans a
+Lagrangian complement, in every characteristic. README 3.2. -/
+theorem exists_lagrangian_complement (ω : LinearMap.BilinForm k V) (hω : ω.IsAlt)
+    (hnd : ω.Nondegenerate) (L : Submodule k V) (hL : ω.orthogonal L = L) :
+    ∃ L' : Submodule k V, IsCompl L L' ∧ ω.orthogonal L' = L' := by
+  sorry
+
+end Lagrangian
+
+/-! ## Layer LV.6: the S-unit theorem -/
+
+section Legendre
+
+/-- The Legendre curve `y² = x(x - 1)(x - t)` over any commutative ring. README 6.4. -/
 def legendreCurve {R : Type*} [CommRing R] (t : R) : WeierstrassCurve R where
   a₁ := 0
   a₂ := -(1 + t)
@@ -104,881 +399,324 @@ def legendreCurve {R : Type*} [CommRing R] (t : R) : WeierstrassCurve R where
   a₄ := t
   a₆ := 0
 
-theorem legendreCurve.discriminant {R : Type*} [CommRing R] (t : R) :
-    (legendreCurve t).Δ = 16 * t ^ 2 * (t - 1) ^ 2 := by sorry
-
-theorem legendreCurve.isElliptic {R : Type*} [CommRing R] (t : R)
-    (h₂ : IsUnit (2 : R)) (ht : IsUnit t) (ht₁ : IsUnit (t - 1)) :
-    (legendreCurve t).IsElliptic := by sorry
-
-theorem legendreCurve.j_eq {K : Type*} [Field K] (t : K)
-    [(legendreCurve t).IsElliptic] :
-    (legendreCurve t).j = 256 * (t ^ 2 - t + 1) ^ 3 / (t ^ 2 * (t - 1) ^ 2) := by sorry
-
-theorem legendreCurve.j_one_seven_two_eight
-    [(legendreCurve (-1 : ℚ)).IsElliptic]
-    [(legendreCurve (2 : ℚ)).IsElliptic]
-    [(legendreCurve (1 / 2 : ℚ)).IsElliptic] :
-    (legendreCurve (-1 : ℚ)).j = 1728 ∧ (legendreCurve (2 : ℚ)).j = 1728 ∧
-    (legendreCurve (1 / 2 : ℚ)).j = 1728 := by sorry
-
--- legendreCurve.reviewTest1: the actual coefficients determine both invariants.
-example (t : ℚ) [(legendreCurve t).IsElliptic] :
-    (legendreCurve t).Δ = 16 * t ^ 2 * (t - 1) ^ 2 ∧
-    (legendreCurve t).j = 256 * (t ^ 2 - t + 1) ^ 3 / (t ^ 2 * (t - 1) ^ 2) := by sorry
-
--- legendreCurve.reviewTest2: the two roots give distinct rational components.
--- The scheme-theoretic disjoint-family identification awaits legendreVariant.
-example : Nonempty (AdjoinRoot (Polynomial.X ^ 2 - Polynomial.C (4 : ℚ)) ≃ₐ[ℚ]
-    (ℚ × ℚ)) := by sorry
-
--- legendreCurve.reviewTest3: the excluded singular parameters.
-example : (legendreCurve (0 : ℚ)).Δ = 0 ∧ (legendreCurve (1 : ℚ)).Δ = 0 ∧
-    ¬ (legendreCurve (0 : ℚ)).IsElliptic ∧
-    ¬ (legendreCurve (1 : ℚ)).IsElliptic := by sorry
-
-
--- LV.0: the carrier is explicit, and semilinearity is over E, not over F.
-section Centralizer
-variable {F E V : Type*} [Field F] [Field E] [Algebra F E]
-  [AddCommGroup V] [Module E V] [Module F V] [IsScalarTower F E V]
-variable (σ : E ≃+* E) (hσ : ∀ a : F, σ (algebraMap F E a) = algebraMap F E a)
-  (φ : V →ₛₗ[σ.toRingHom] V)
-
-def semilinearCentralizer (σ : E ≃+* E)
-    (_hσ : ∀ a : F, σ (algebraMap F E a) = algebraMap F E a)
-    (φ : V →ₛₗ[σ.toRingHom] V) : Subalgebra F (Module.End E V) where
-  carrier := {f | ∀ v, f (φ v) = φ (f v)}
-  mul_mem' := by sorry
-  add_mem' := by sorry
-  algebraMap_mem' := by sorry
-
-theorem mem_semilinearCentralizer (f : Module.End E V) :
-    f ∈ semilinearCentralizer σ hσ φ ↔ ∀ v, f (φ v) = φ (f v) := by sorry
-
-theorem semilinearCentralizer_le_pow (m : ℕ) (f : Module.End E V)
-    (hf : f ∈ semilinearCentralizer σ hσ φ) :
-    ∀ v, f ((φ : V → V)^[m] v) = (φ : V → V)^[m] (f v) := by sorry
-
-def units_semilinearCentralizer (u : (semilinearCentralizer σ hσ φ)ˣ) :
-    V ≃ₗ[E] V := by sorry
-
-theorem units_semilinearCentralizer_apply (u : (semilinearCentralizer σ hσ φ)ˣ) (v : V) :
-    units_semilinearCentralizer σ hσ φ u v = u.val.val v := by sorry
-
-theorem semilinearCentralizer_fixedScalar (a : F) :
-    algebraMap F (Module.End E V) a ∈ semilinearCentralizer σ hσ φ := by sorry
-
-theorem semilinearCentralizer_conj (e : V ≃ₗ[E] V) (ψ : V →ₛₗ[σ.toRingHom] V)
-    (h : ∀ v, ψ (e v) = e (φ v)) (f : Module.End E V) :
-    f ∈ semilinearCentralizer σ hσ φ ↔
-      e.toLinearMap ∘ₗ f ∘ₗ e.symm.toLinearMap ∈ semilinearCentralizer σ hσ ψ := by sorry
-
-theorem semilinearCentralizer_linear (φ : Module.End E V) :
-    semilinearCentralizer (F := F) (RingEquiv.refl E) (fun _ => rfl) φ =
-      { carrier := {f | f * φ = φ * f}
-        mul_mem' := by sorry
-        add_mem' := by sorry
-        algebraMap_mem' := by sorry } := by sorry
-
--- semilinearCentralizer.reviewTest1: scalar semilinear action on E.
-def scalarSemilinear : E →ₛₗ[σ.toRingHom] E where
-  toFun := σ
-  map_add' := σ.map_add
-  map_smul' := by sorry
-
-example (a : E) :
-    LinearMap.mulLeft E a ∈ semilinearCentralizer σ hσ (scalarSemilinear σ) ↔ σ a = a := by sorry
-
--- semilinearCentralizer.zeroTest: an additional zero-space test.
-example [Subsingleton V] :
-    semilinearCentralizer σ hσ φ = ⊤ ∧
-    Module.finrank F (semilinearCentralizer σ hσ φ) = 0 := by sorry
-
--- semilinearCentralizer.diagonalTest: distinct diagonal eigenvalues constrain off-diagonals.
-def diagonalEnd : Module.End ℚ (ℚ × ℚ) :=
-  { toFun := fun v => (v.1, 2 * v.2)
-    map_add' := by sorry
-    map_smul' := by sorry }
-example (f : Module.End ℚ (ℚ × ℚ)) :
-    f ∈ semilinearCentralizer (F := ℚ) (RingEquiv.refl ℚ) (fun _ => rfl) diagonalEnd ↔
-      (f (1,0)).2 = 0 ∧ (f (0,1)).1 = 0 := by sorry
-end Centralizer
-
--- semilinearCentralizer.reviewTest2: the identity on E² commutes with every matrix.
-example {E : Type*} [Field E] :
-    semilinearCentralizer (F := E) (RingEquiv.refl E) (fun _ => rfl)
-      (LinearMap.id : Module.End E (E × E)) = ⊤ := by sorry
-
--- LV.0: reuse the existing arbitrary-module transvection.
-section Transvection
-variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
-  (B : LinearMap.BilinForm K V) (hB : ∀ x, B x x = 0)
-
-def symplecticTransvection (B : LinearMap.BilinForm K V) (_hB : ∀ x, B x x = 0) (v : V) (r : K) : V ≃ₗ[K] V :=
-  LinearEquiv.transvection (f := r • B v) (v := v) (by sorry)
-
-theorem symplecticTransvection_apply (v x : V) (r : K) :
-    symplecticTransvection B hB v r x = x + (r * B v x) • v := by sorry
-
-theorem symplecticTransvection_preserves (v x y : V) (r : K) :
-    B (symplecticTransvection B hB v r x) (symplecticTransvection B hB v r y) = B x y := by sorry
-
-theorem symplecticTransvection_add (v : V) (r s : K) :
-    (symplecticTransvection B hB v s).trans (symplecticTransvection B hB v r) =
-      symplecticTransvection B hB v (r+s) ∧
-      symplecticTransvection B hB v 0 = LinearEquiv.refl K V ∧
-      (symplecticTransvection B hB v r).symm = symplecticTransvection B hB v (-r) := by sorry
-
-theorem symplecticTransvection_smul (v : V) (r c : K) :
-    symplecticTransvection B hB (c • v) r = symplecticTransvection B hB v (r*c^2) := by sorry
-
-theorem conj_symplecticTransvection (e : V ≃ₗ[K] V)
-    (he : ∀ x y, B (e x) (e y) = B x y) (v : V) (r : K) :
-    e.symm.trans ((symplecticTransvection B hB v r).trans e) =
-      symplecticTransvection B hB (e v) r := by sorry
-
-theorem isUnipotent_symplecticTransvection (v : V) (r : K) :
-    ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id).comp
-      ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id) = 0 := by sorry
-
-theorem fixedPoints_symplecticTransvection_apply (v : V) (hv : v ≠ 0) (r : K) (hr : r ≠ 0) (x : V) :
-    symplecticTransvection B hB v r x = x ↔ B v x = 0 := by sorry
-
-theorem fixedPoints_symplecticTransvection [FiniteDimensional K V]
-    (hnd : ∀ z, (∀ w, B z w = 0) → z = 0)
-    (v : V) (hv : v ≠ 0) (r : K) (hr : r ≠ 0) :
-    LinearMap.ker ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id) = (B v).ker ∧
-      Module.finrank K (B v).ker + 1 = Module.finrank K V ∧
-      LinearMap.range ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id) =
-        Submodule.span K {v} := by sorry
-
-theorem symplecticTransvection_eq_transvection (v : V) (r : K) :
-    (symplecticTransvection B hB v r).toLinearMap = LinearMap.transvection (r • B v) v := by sorry
-
--- Concrete rank-two tests retain the order B(v,x).
-def planeForm : LinearMap.BilinForm ℚ (ℚ × ℚ) where
-  toFun v :=
-    { toFun := fun x => v.1*x.2 - v.2*x.1
-      map_add' := by sorry
-      map_smul' := by sorry }
-  map_add' := by sorry
-  map_smul' := by sorry
-theorem planeForm_alt : ∀ v, planeForm v v = 0 := by sorry
-
-theorem symplecticTransvection_sl2 (r : ℚ) (x : ℚ × ℚ) :
-    symplecticTransvection planeForm planeForm_alt (1,0) r x = (x.1+r*x.2,x.2) := by sorry
-
--- symplecticTransvection.reviewTest1
-example :
-    symplecticTransvection planeForm planeForm_alt (1,0) 2 (0,1) = (2,1) ∧
-    symplecticTransvection planeForm planeForm_alt (1,0) 2 (1,0) = (1,0) := by sorry
--- symplecticTransvection.reviewTest2
-example (v x : ℚ × ℚ) (r : ℚ) :
-    symplecticTransvection planeForm planeForm_alt 0 r x = x ∧
-    symplecticTransvection planeForm planeForm_alt v 0 x = x := by sorry
--- symplecticTransvection.reviewTest3: inverse uses the negative parameter.
-example (v : V) (r : K) :
-    (symplecticTransvection B hB v r).toLinearMap = LinearMap.transvection (r • B v) v ∧
-    (symplecticTransvection B hB v r).symm = symplecticTransvection B hB v (-r) := by sorry
-end Transvection
-
--- LV.1: an actual subfield, using Mathlib's existing CM predicate.
-section CM
-variable (K : Type*) [Field K] [NumberField K]
-def largestCMSubfield : Subfield K :=
-  sSup {L : Subfield K | NumberField.IsCMField L ∨ NumberField.IsTotallyReal L}
-
-def largestTotallyRealSubfield : Subfield K := NumberField.maximalRealSubfield K
-
-theorem largestTotallyRealSubfield_eq_maximalRealSubfield :
-    largestTotallyRealSubfield K = NumberField.maximalRealSubfield K := by sorry
-
--- The class of CM-or-totally-real subfields is closed under compositum.
-theorem largestCMSubfield_cm_or_real :
-    NumberField.IsCMField (largestCMSubfield K) ∨
-    NumberField.IsTotallyReal (largestCMSubfield K) := by sorry
-
-theorem le_largestCMSubfield_iff (L : Subfield K) :
-    L ≤ largestCMSubfield K ↔ NumberField.IsCMField L ∨ NumberField.IsTotallyReal L := by sorry
-
-theorem isCMField_largestCMSubfield_iff :
-    NumberField.IsCMField (largestCMSubfield K) ↔
-      ∃ L : Subfield K, NumberField.IsCMField L := by sorry
-
-theorem largestCMSubfield_map {K' : Type*} [Field K'] [NumberField K'] (e : K ≃+* K') :
-    (largestCMSubfield K).map e.toRingHom = largestCMSubfield K' := by sorry
-
--- largestCMSubfield.reviewTest1: includes every imaginary quadratic field.
-example [NumberField.IsCMField K] : largestCMSubfield K = ⊤ := by sorry
--- largestCMSubfield.reviewTest2: includes ℚ(√2).
-example [NumberField.IsTotallyReal K] :
-    largestCMSubfield K = ⊤ ∧ largestTotallyRealSubfield K = ⊤ := by sorry
--- largestCMSubfield.reviewTest3: the real cube-root field is not totally real.
-example (hdeg : Module.finrank ℚ K = 3) (hreal : ¬ NumberField.IsTotallyReal K) :
-    largestCMSubfield K = ⊥ := by sorry
-end CM
-
--- LV.7: the permutation core, before the arithmetic Frobenius adapter.
-section Size
-variable {E : Type*} [Fintype E] [Nonempty E]
-def sizeV (f : Equiv.Perm E) : ℚ :=
-  (Nat.card {x : E // Function.minimalPeriod f x < 8} : ℚ) / Fintype.card E
-
-theorem sizeV_mem_Icc (f : Equiv.Perm E) : 0 ≤ sizeV f ∧ sizeV f ≤ 1 := by sorry
-
-theorem sizeV_indep (f : Equiv.Perm E) (e : Equiv.Perm E) :
-    sizeV (e * f * e⁻¹) = sizeV f := by sorry
-
-theorem sizeV_le_of_fibres {E' : Type*} [Fintype E'] [Nonempty E']
-    (f : Equiv.Perm E) (f' : Equiv.Perm E') (π : E → E')
-    (he : ∀ x, π (f x) = f' (π x)) (c : ℕ) (hc : 0 < c)
-    (hcard : ∀ y, Nat.card {x // π x = y} = c) : sizeV f ≤ sizeV f' := by sorry
-
-theorem sizeV_cycle (f : Equiv.Perm E) (h : ∀ x, Function.minimalPeriod f x = Fintype.card E) :
-    sizeV f = if Fintype.card E < 8 then 1 else 0 := by sorry
-
-def cyclicShift (n : ℕ) [NeZero n] : Equiv.Perm (ZMod n) where
-  toFun := fun x => x+1
-  invFun := fun x => x-1
-  left_inv := by sorry
-  right_inv := by sorry
-
--- sizeV.reviewTest1: strict boundary at eight.
-example : sizeV (cyclicShift 7) = 1 ∧ sizeV (cyclicShift 8) = 0 := by sorry
--- sizeV.reviewTest2: eight-cycles contribute no points; a fixed point contributes one.
-def fixedPlusEight : Equiv.Perm (Unit ⊕ ZMod 8) := Equiv.sumCongr (Equiv.refl Unit) (cyclicShift 8)
-example : sizeV fixedPlusEight = 1/9 := by sorry
--- sizeV.identityTest: an additional identity check.
-example (e : Equiv.Perm E) : sizeV (1 : Equiv.Perm E) = 1 ∧ sizeV (e*e⁻¹) = 1 := by sorry
--- sizeV.reviewTest3: an eight-cycle maps equivariantly to a singleton.
-example : sizeV (cyclicShift 8) ≤ sizeV (1 : Equiv.Perm Unit) := by sorry
-end Size
-
--- LV.9: a genuine linear kernel; topology supplies p and the transfer later.
-section Primitive
-variable {K Z Y : Type*} [Field K] [AddCommGroup Z] [Module K Z]
-  [AddCommGroup Y] [Module K Y]
-def primitiveHomology (p : Z →ₗ[K] Y) : Submodule K Z := p.ker
-
-def primitiveProjection (p : Z →ₗ[K] Y) (t : Y →ₗ[K] Z) (q : K) : Module.End K Z :=
-  LinearMap.id - q⁻¹ • (t ∘ₗ p)
-
-theorem primitiveProjection_mem (p : Z →ₗ[K] Y) (t : Y →ₗ[K] Z) (q : K)
-    (hq : q ≠ 0) (hpt : p ∘ₗ t = q • LinearMap.id) (z : Z) :
-    primitiveProjection p t q z ∈ primitiveHomology p := by sorry
-
-theorem isCompl_primitiveHomology (p : Z →ₗ[K] Y) (t : Y →ₗ[K] Z) (q : K)
-    (hq : q ≠ 0) (hpt : p ∘ₗ t = q • LinearMap.id) :
-    IsCompl (primitiveHomology p) t.range := by sorry
-
-theorem primitiveHomology_eq_orthogonal (p : Z →ₗ[K] Y) (t : Y →ₗ[K] Z)
-    (BZ : LinearMap.BilinForm K Z) (BY : LinearMap.BilinForm K Y)
-    (hBY : ∀ y, (∀ y', BY y y' = 0) → y = 0)
-    (hproj : ∀ z y, BZ z (t y) = BY (p z) y) :
-    ∀ z, z ∈ primitiveHomology p ↔ ∀ y, BZ z (t y) = 0 := by sorry
-
-theorem primitiveHomology.finrank [FiniteDimensional K Z] [FiniteDimensional K Y]
-    (p : Z →ₗ[K] Y) (hp : Function.Surjective p) :
-    Module.finrank K (primitiveHomology p) = Module.finrank K Z - Module.finrank K Y := by sorry
-
--- primitiveHomology.reviewTest1: the identity cover has zero primitive part.
-example : primitiveHomology (LinearMap.id : Y →ₗ[K] Y) = ⊥ ∧
-    primitiveProjection (LinearMap.id : Y →ₗ[K] Y) LinearMap.id (1 : K) = 0 := by sorry
--- primitiveHomology.normalizationTest: the transfer normalization cannot be omitted.
-example (q : K) (hq : q ≠ 0) :
-    primitiveProjection (LinearMap.id : Y →ₗ[K] Y) (q • LinearMap.id) q = 0 := by sorry
--- primitiveHomology.rankTest: linear ranks ten and four give six.
-example [FiniteDimensional K Z] [FiniteDimensional K Y] (p : Z →ₗ[K] Y)
-    (hp : Function.Surjective p) (hZ : Module.finrank K Z = 10) (hY : Module.finrank K Y = 4) :
-    Module.finrank K (primitiveHomology p) = 6 := by sorry
-end Primitive
-
--- LV.1: finite exhaustive separated decreasing filtrations with integer jumps.
--- Bounds certify finiteness; they do not contain a Hodge-weight theorem.
-structure FiniteFiltration (K V : Type*) [Field K] [AddCommGroup V] [Module K V] where
-  step : ℤ → Submodule K V
-  antitone : Antitone step
-  lower : ℤ
-  upper : ℤ
-  bounds : lower ≤ upper
-  lower_full : ∀ j ≤ lower, step j = ⊤
-  upper_zero : ∀ j, upper < j → step j = ⊥
-
-namespace FiniteFiltration
-variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
-
-def tH [FiniteDimensional K V] (F : FiniteFiltration K V) : ℚ :=
-  ∑ j ∈ Finset.Icc F.lower F.upper,
-    (j : ℚ) * ((Module.finrank K (F.step j) : ℚ) - Module.finrank K (F.step (j+1)))
-
-def shift (F : FiniteFiltration K V) (n : ℤ) : FiniteFiltration K V where
-  step j := F.step (j-n)
-  antitone := by sorry
-  lower := F.lower+n
-  upper := F.upper+n
-  bounds := by sorry
-  lower_full := by sorry
-  upper_zero := by sorry
-
-def directSum {W : Type*} [AddCommGroup W] [Module K W]
-    (F : FiniteFiltration K V) (G : FiniteFiltration K W) : FiniteFiltration K (V × W) where
-  step j := (F.step j).prod (G.step j)
-  antitone := by sorry
-  lower := min F.lower G.lower
-  upper := max F.upper G.upper
-  bounds := by sorry
-  lower_full := by sorry
-  upper_zero := by sorry
-
-def onSubmodule (F : FiniteFiltration K V) (W : Submodule K V) : FiniteFiltration K W where
-  step j := (F.step j).comap W.subtype
-  antitone := by sorry
-  lower := F.lower
-  upper := F.upper
-  bounds := F.bounds
-  lower_full := by sorry
-  upper_zero := by sorry
-
-def onQuotient (F : FiniteFiltration K V) (W : Submodule K V) : FiniteFiltration K (V ⧸ W) where
-  step j := (F.step j).map W.mkQ
-  antitone := by sorry
-  lower := F.lower
-  upper := F.upper
-  bounds := F.bounds
-  lower_full := by sorry
-  upper_zero := by sorry
-
-end FiniteFiltration
-
-section FiltrationWeight
-variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
-
-def filtrationWeight (F : FiniteFiltration K V) : ℚ := F.tH / Module.finrank K V
-
-theorem filtrationWeight_eq (F : FiniteFiltration K V) (h : 0 < Module.finrank K V) :
-    filtrationWeight F * Module.finrank K V = F.tH := by sorry
-
-theorem filtrationWeight_indep_bounds (F G : FiniteFiltration K V) (h : F.step = G.step) :
-    filtrationWeight F = filtrationWeight G := by sorry
-
-theorem filtrationWeight_directSum {W : Type*} [AddCommGroup W] [Module K W]
-    [FiniteDimensional K W] (F : FiniteFiltration K V) (G : FiniteFiltration K W)
-    (hV : 0 < Module.finrank K V) (hW : 0 < Module.finrank K W) :
-    filtrationWeight (F.directSum G) =
-      (Module.finrank K V * filtrationWeight F + Module.finrank K W * filtrationWeight G) /
-        (Module.finrank K V + Module.finrank K W) := by sorry
-
-theorem filtrationWeight_sub_quotient (F : FiniteFiltration K V) (W : Submodule K V) :
-    F.tH = (F.onSubmodule W).tH + (F.onQuotient W).tH := by sorry
-
-theorem filtrationWeight_twist (F : FiniteFiltration K V) (n : ℤ) (h : 0 < Module.finrank K V) :
-    filtrationWeight (F.shift n) = filtrationWeight F + n := by sorry
-
-def lineFiltration (k : ℤ) : FiniteFiltration ℚ ℚ where
-  step j := if j ≤ k then ⊤ else ⊥
-  antitone := by sorry
-  lower := k
-  upper := k
-  bounds := le_refl k
-  lower_full := by sorry
-  upper_zero := by sorry
-
-theorem filtrationWeight_line (k : ℤ) : filtrationWeight (lineFiltration k) = k := by sorry
-
-def twoStepFiltration (L : Submodule K V) : FiniteFiltration K V where
-  step j := if j ≤ 0 then ⊤ else if j = 1 then L else ⊥
-  antitone := by sorry
-  lower := 0
-  upper := 1
-  bounds := by decide
-  lower_full := by sorry
-  upper_zero := by sorry
-
-theorem filtrationWeight_example (L : Submodule K V) (h : 0 < Module.finrank K V) :
-    filtrationWeight (twoStepFiltration L) =
-      (Module.finrank K L : ℚ) / Module.finrank K V := by sorry
-
--- filtrationWeight.reviewTest1
-example : filtrationWeight ((lineFiltration 0).directSum (lineFiltration 1)) = 1/2 := by sorry
--- filtrationWeight.reviewTest2
-example : filtrationWeight (lineFiltration 0) = 0 := by sorry
--- filtrationWeight.reviewTest3: negative jumps survive the definition.
-example : filtrationWeight (lineFiltration (-1)) = -1 ∧
-    filtrationWeight ((lineFiltration (-1)).directSum (lineFiltration 1)) = 0 := by sorry
-end FiltrationWeight
-
--- LV.8: abstract group carrier; continuity is the separately requested adapter.
-def singlyRamifiedSurjections (Γ G : Type*) [Group Γ] [Group G] (c : Set Γ) :=
-  {φ : Γ →* G // Function.Surjective φ ∧ ∀ x ∈ c, φ x ≠ 1}
-
-namespace singlyRamifiedSurjections
-variable {Γ G : Type*} [Group Γ] [Group G] {c : Set Γ}
-
-def targetConjugate (g : G) (φ : singlyRamifiedSurjections Γ G c) :
-    singlyRamifiedSurjections Γ G c :=
-  ⟨{ toFun := fun x => g * φ.val x * g⁻¹
-     map_one' := by sorry
-     map_mul' := by sorry }, by sorry⟩
-
-def actLeft (hc : ∀ a b, b ∈ c → a*b*a⁻¹ ∈ c) (γ : Γ)
-    (φ : singlyRamifiedSurjections Γ G c) : singlyRamifiedSurjections Γ G c :=
-  ⟨{ toFun := fun x => φ.val (γ⁻¹*x*γ)
-     map_one' := by sorry
-     map_mul' := by sorry }, by sorry⟩
-
-def actRight (h : G) (φ : singlyRamifiedSurjections Γ G c) :
-    singlyRamifiedSurjections Γ G c := targetConjugate h⁻¹ φ
-
-theorem actions_commute (hc : ∀ a b, b ∈ c → a*b*a⁻¹ ∈ c)
-    (γ : Γ) (h : G) (φ : singlyRamifiedSurjections Γ G c) :
-    actLeft hc γ (actRight h φ) = actRight h (actLeft hc γ φ) := by sorry
-
-def conjugacySetoid : Setoid (singlyRamifiedSurjections Γ G c) where
-  r φ ψ := ∃ g : G, targetConjugate g φ = ψ
-  iseqv := by sorry
-
-def quotient := Quotient (conjugacySetoid (Γ := Γ) (G := G) (c := c))
-
-theorem target_stabilizer_eq (φ : singlyRamifiedSurjections Γ G c) (g : G) :
-    targetConjugate g φ = φ ↔ ∀ h : G, g*h=h*g := by sorry
-
-theorem stabilizer_eq (hc : ∀ a b, b ∈ c → a*b*a⁻¹ ∈ c)
-    (hcentre : ∀ g : G, (∀ h, g*h=h*g) → g=1)
-    (φ : singlyRamifiedSurjections Γ G c) (γ : Γ) (h : G) :
-    actRight h (actLeft hc γ φ) = φ ↔ h⁻¹ = φ.val γ := by sorry
-
-def comapEquiv {Γ' : Type*} [Group Γ'] (e : Γ' ≃* Γ) (φ : singlyRamifiedSurjections Γ G c) :
-    singlyRamifiedSurjections Γ' G (e ⁻¹' c) := ⟨φ.val.comp e.toMonoidHom, by sorry⟩
-
--- Descent is exactly the kernel hypothesis, not merely an isomorphism of groups.
-def comap {Γ' : Type*} [Group Γ'] (f : Γ' →* Γ) (hf : Function.Surjective f)
-    (hfactor : ∀ φ : singlyRamifiedSurjections Γ' G (f ⁻¹' c),
-      ∀ x ∈ f.ker, φ.val x = 1) :
-    singlyRamifiedSurjections Γ G c ≃ singlyRamifiedSurjections Γ' G (f ⁻¹' c) := by sorry
-
-theorem quotient_mk_actLeft (hc : ∀ a b, b ∈ c → a*b*a⁻¹ ∈ c)
-    (γ : Γ) (φ : singlyRamifiedSurjections Γ G c) :
-    Quotient.mk conjugacySetoid (actLeft hc γ φ) = Quotient.mk conjugacySetoid φ := by sorry
-
-def peripheralGenusTwo : FreeGroup (Fin 4) :=
-  let a := FreeGroup.of (0 : Fin 4)
-  let b := FreeGroup.of (1 : Fin 4)
-  let d := FreeGroup.of (2 : Fin 4)
-  let e := FreeGroup.of (3 : Fin 4)
-  (a*b*a⁻¹*b⁻¹) * (d*e*d⁻¹*e⁻¹)
-
-def peripheralClass : Set (FreeGroup (Fin 4)) :=
-  {x | ∃ a, x = a*peripheralGenusTwo*a⁻¹}
-
-theorem aff3 :
-    Nat.card (singlyRamifiedSurjections (FreeGroup (Fin 4)) (affineGroup 3) peripheralClass) = 810 ∧
-    Nat.card (quotient (Γ := FreeGroup (Fin 4)) (G := affineGroup 3) (c := peripheralClass)) = 135 := by sorry
-
--- singlyRamifiedSurjections.reviewTest1
-example :
-    Nat.card (singlyRamifiedSurjections (FreeGroup (Fin 4)) (affineGroup 3) peripheralClass) = 810 ∧
-    Nat.card (quotient (Γ := FreeGroup (Fin 4)) (G := affineGroup 3) (c := peripheralClass)) = 135 := by sorry
--- singlyRamifiedSurjections.reviewTest2
-example : IsEmpty (singlyRamifiedSurjections Γ G ({1} : Set Γ)) := by sorry
--- singlyRamifiedSurjections.reviewTest3: centrelessness is required for a free action.
-example (φ : singlyRamifiedSurjections Γ G c) (z : G) (hz : z ≠ 1)
-    (hc : ∀ h : G, z*h=h*z) : actRight z φ = φ := by sorry
-end singlyRamifiedSurjections
-
-theorem generatingPairs_mod_six :
-    Nat.card {v : Fin 2 → ZMod 6 // AddSubgroup.closure (Set.range v) = ⊤} = 24 := by sorry
-
-section MoreCentralizer
-variable {F E V : Type*} [Field F] [Field E] [Algebra F E]
-  [AddCommGroup V] [Module E V] [Module F V] [IsScalarTower F E V]
-theorem semilinearCentralizer_identity :
-    semilinearCentralizer (F := F) (RingEquiv.refl E) (fun _ => rfl)
-      (LinearMap.id : Module.End E V) = ⊤ := by sorry
-
-def complexConjugation : ℂ ≃+* ℂ := Complex.conjAe.toRingEquiv
-theorem complexConjugation_real (a : ℝ) :
-    complexConjugation (algebraMap ℝ ℂ a) = algebraMap ℝ ℂ a := by sorry
--- semilinearCentralizer.reviewTest3: a genuinely semilinear non-example.
-example :
-    LinearMap.mulLeft ℂ Complex.I ∉
-      semilinearCentralizer complexConjugation complexConjugation_real (scalarSemilinear complexConjugation) ∧
-    LinearMap.mulLeft ℂ 1 ∈
-      semilinearCentralizer complexConjugation complexConjugation_real (scalarSemilinear complexConjugation) := by sorry
-end MoreCentralizer
-
-section MoreTransvection
-variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
-theorem eq_symplecticTransvection_of_codim_one
-    (B : LinearMap.BilinForm K V) (hB : ∀ x, B x x = 0)
-    (hnd : ∀ x, (∀ y, B x y = 0) → x = 0)
-    (v : V) (hv : v ≠ 0) (e : V ≃ₗ[K] V)
-    (he : ∀ x y, B (e x) (e y) = B x y)
-    (hfix : ∀ x, e x = x ↔ B v x = 0) :
-    ∃ r : K, r ≠ 0 ∧ e = symplecticTransvection B hB v r := by sorry
-end MoreTransvection
-
-namespace FiniteFiltration
-variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
-def restrictScalars {L : Type*} [Field L] [Algebra K L] [Module L V]
-    [IsScalarTower K L V] (F : FiniteFiltration L V) : FiniteFiltration K V where
-  step j := (F.step j).restrictScalars K
-  antitone := by sorry
-  lower := F.lower
-  upper := F.upper
-  bounds := F.bounds
-  lower_full := by sorry
-  upper_zero := by sorry
-
-open scoped BigOperators
-def determinant [FiniteDimensional K V] (F : FiniteFiltration K V) :
-    FiniteFiltration K (⋀[K]^(Module.finrank K V) V) where
-  step j := Submodule.span K {z | ∃ (v : Fin (Module.finrank K V) → V)
-      (w : Fin (Module.finrank K V) → ℤ),
-      (∀ i, v i ∈ F.step (w i)) ∧ j ≤ ∑ i, w i ∧ z = exteriorPower.ιMulti K _ v}
-  antitone := by sorry
-  lower := (Module.finrank K V : ℤ) * F.lower
-  upper := (Module.finrank K V : ℤ) * F.upper
-  bounds := by sorry
-  lower_full := by sorry
-  upper_zero := by sorry
-end FiniteFiltration
-
-section MoreFiltration
-variable {K L V : Type*} [Field K] [Field L] [Algebra K L]
-  [AddCommGroup V] [Module K V] [Module L V] [IsScalarTower K L V]
-  [FiniteDimensional K L] [FiniteDimensional L V] [FiniteDimensional K V]
-theorem filtrationWeight_restrictScalars (F : FiniteFiltration L V) :
-    (F.restrictScalars (K := K)).tH = (Module.finrank K L : ℚ) * F.tH ∧
-      filtrationWeight (F.restrictScalars (K := K)) = filtrationWeight F := by sorry
-
-theorem filtrationWeight_det {k W : Type*} [Field k] [AddCommGroup W] [Module k W]
-    [FiniteDimensional k W] (F : FiniteFiltration k W) :
-    F.determinant.tH = F.tH := by sorry
-end MoreFiltration
-
-section MorePrimitive
-variable {K Y : Type*} [Field K] [AddCommGroup Y] [Module K Y]
-def doublePush : Y × Y →ₗ[K] Y where
-  toFun z := z.1+z.2
-  map_add' := by sorry
-  map_smul' := by sorry
-def doubleTransfer : Y →ₗ[K] (Y × Y) where
-  toFun y := (y,y)
-  map_add' := by sorry
-  map_smul' := by sorry
--- primitiveHomology.reviewTest2: the trivial disconnected double cover.
-example (B : LinearMap.BilinForm K Y) (z : Y × Y) (x y : Y) :
-    (z ∈ primitiveHomology (doublePush (K := K)) ↔ z.2 = -z.1) ∧
-    B x y + B (-x) (-y) = 2*B x y := by sorry
-
-theorem primitiveHomology.equivariant {Z : Type*} [AddCommGroup Z] [Module K Z]
-    (p : Z →ₗ[K] Y) (eZ : Z ≃ₗ[K] Z) (eY : Y ≃ₗ[K] Y)
-    (h : ∀ z, p (eZ z) = eY (p z)) (z : Z) :
-    z ∈ primitiveHomology p ↔ eZ z ∈ primitiveHomology p := by sorry
-
-theorem primitiveHomology.symplectic {Z : Type*} [AddCommGroup Z] [Module K Z]
-    (p : Z →ₗ[K] Y) (t : Y →ₗ[K] Z) (q : K) (hq : q ≠ 0)
-    (hpt : p ∘ₗ t = q • LinearMap.id)
-    (BZ : LinearMap.BilinForm K Z) (BY : LinearMap.BilinForm K Y)
-    (hnd : ∀ z, (∀ w, BZ z w = 0) → z = 0)
-    (hAlt : ∀ z, BZ z z = 0)
-    (hproj : ∀ z y, BZ z (t y) = BY (p z) y) :
-    (∀ z ∈ primitiveHomology p, BZ z z = 0) ∧
-      ∀ z ∈ primitiveHomology p, (∀ w ∈ primitiveHomology p, BZ z w = 0) → z = 0 := by sorry
--- primitiveHomology.reviewTest3: the genus-two Aff(3) ranks and normalized transfer.
-example {Z : Type*} [AddCommGroup Z] [Module ℚ Z] [FiniteDimensional ℚ Z]
-    {Y : Type*} [AddCommGroup Y] [Module ℚ Y] [FiniteDimensional ℚ Y]
-    (p : Z →ₗ[ℚ] Y) (t : Y →ₗ[ℚ] Z)
-    (hpt : p ∘ₗ t = 3 • LinearMap.id)
-    (hZ : Module.finrank ℚ Z = 10) (hY : Module.finrank ℚ Y = 4) :
-    Module.finrank ℚ (primitiveHomology p) = 6 ∧
-      primitiveProjection p t 3 ∘ₗ t = 0 := by sorry
-
-def sumPush (I : Type*) [Fintype I] : (I → Y) →ₗ[K] Y where
-  toFun z := ∑ i, z i
-  map_add' := by sorry
-  map_smul' := by sorry
-
-theorem primitiveHomology.trivialCover (I : Type*) [Fintype I] (z : I → Y) :
-    z ∈ primitiveHomology (sumPush (K := K) I) ↔ ∑ i, z i = 0 := by sorry
-
-end MorePrimitive
-
--- Generic trace criterion, on the existing group-algebra module carrier.
-theorem traceDeterminesSemisimple
-    {k Γ V W : Type*} [Field k] [CharZero k] [Group Γ]
-    [AddCommGroup V] [Module k V] [FiniteDimensional k V]
-    [AddCommGroup W] [Module k W] [FiniteDimensional k W]
-    (ρ : Representation k Γ V) (τ : Representation k Γ W)
-    [IsSemisimpleModule (MonoidAlgebra k Γ) ρ.asModule]
-    [IsSemisimpleModule (MonoidAlgebra k Γ) τ.asModule]
-    (htrace : ∀ g, LinearMap.trace k V (ρ g) = LinearMap.trace k W (τ g)) :
-    ∃ e : V ≃ₗ[k] W, ∀ g v, e (ρ g v) = τ g (e v) := by sorry
-
--- The rank bound is part of the statement; the rank-one counterexample is real.
-theorem primitiveIntegralLift (r N : ℕ) (hr : 2 ≤ r) (hN : 0 < N)
-    (f : (Fin r → ℤ) →+ ZMod N) (hf : Function.Surjective f) :
-    ∃ ℓ : (Fin r → ℤ) →+ ℤ, Function.Surjective ℓ ∧ ∀ v, (ℓ v : ZMod N) = f v := by sorry
-
-theorem signedPrimitiveSpanning (r : ℕ) (hr : 2 ≤ r)
-    (repr : (Fin r → ℤ) → (Fin r → ℤ))
-    (h : ∀ v, AddSubgroup.closure (Set.range v) = ⊤ → repr v = v ∨ repr v = -v) :
-    Submodule.span ℚ {x : Fin r → ℚ | ∃ v w : Fin r → ℤ,
-      AddSubgroup.closure (Set.range v) = ⊤ ∧
-      AddSubgroup.closure (Set.range w) = ⊤ ∧
-      x = fun i => (repr v i : ℚ) - (repr w i : ℚ)} = ⊤ := by sorry
-
-theorem primitiveIntersectionAvoidance (r : ℕ) (hr : 2 ≤ r)
-    (ℓ₁ ℓ₂ : (Fin r → ℚ) →ₗ[ℚ] ℚ) (h₁ : ℓ₁ ≠ 0) (h₂ : ℓ₂ ≠ 0) (B : ℚ) :
-    ∃ v : Fin r → ℤ, AddSubgroup.closure (Set.range v) = ⊤ ∧
-      B < |ℓ₁ (fun i => (v i : ℚ))| ∧ B < |ℓ₂ (fun i => (v i : ℚ))| := by sorry
-
-namespace affineGroup
-variable {q : ℕ} [Fact q.Prime]
-def unitsLinearAction : (ZMod q)ˣ →* MulAut (Multiplicative (ZMod q)) := by sorry
-theorem unitsLinearAction_apply (a : (ZMod q)ˣ) (x : Multiplicative (ZMod q)) :
-    (unitsLinearAction a x).toAdd = (a : ZMod q) * x.toAdd := by sorry
-
-def mulEquivSemidirect : affineGroup q ≃*
-    (Multiplicative (ZMod q) ⋊[unitsLinearAction] (ZMod q)ˣ) := by sorry
-
-theorem mulEquivSemidirect_mk (a : (ZMod q)ˣ) (b : ZMod q) :
-    mulEquivSemidirect (mk a b) = ⟨Multiplicative.ofAdd b, a⟩ := by sorry
-
-theorem isPretransitive (x y : ZMod q) : ∃ g : affineGroup q, g.val x = y := by sorry
-
--- Sharp two-transitivity is stronger than ordinary transitivity above.
-theorem existsUnique_pair (x₁ x₂ y₁ y₂ : ZMod q)
-    (hx : x₁ ≠ x₂) (hy : y₁ ≠ y₂) :
-    ∃! g : affineGroup q, g.val x₁ = y₁ ∧ g.val x₂ = y₂ := by sorry
-end affineGroup
-
-section MoreCM
-variable (K : Type*) [Field K] [NumberField K]
-theorem finrank_largestCMSubfield_dvd :
-    Module.finrank ℚ (largestCMSubfield K) ∣ Module.finrank ℚ K := by sorry
-
-theorem finrank_largestCMSubfield_div :
-    Module.finrank ℚ (largestCMSubfield K) = Module.finrank ℚ (largestTotallyRealSubfield K) ∨
-    Module.finrank ℚ (largestCMSubfield K) = 2 * Module.finrank ℚ (largestTotallyRealSubfield K) := by sorry
-end MoreCM
-
-end TauCeti.LawrenceVenkatesh
-
-/-
-Signatures requiring the supplier interfaces described in the roadmap.
-LV.0/affine-group: linearPart, ker_linearPart, stabilizer_zero, commutator_eq
-and mulEquivAffineEquiv state partial comparisons. Surjectivity, translation
-and stabilizer group equivalences, index/coset action, derived subgroup equality
-(q ≥ 3), and evaluation/linear-part compatibility remain as specified in the
-roadmap specification. Ordinary transitivity and sharp two-transitivity have separate signatures.
-
-The omitted LV.3 monodromy and period-map interfaces use backward transport
-on the opposite of Mathlib's fundamental group, with the left deck action by
-prepending loops. The underlying forward local-system representation is on
-the ordinary fundamental group; the image subgroup is the same.
-The following entries are mathematical targets in the roadmap. They are omitted
-from executable Lean where their named owner interfaces are required. These comments
-are not declarations and do not certify the missing definitions or conditions.
-
-MordellLawrenceVenkatesh:LV.0/semilinear-centralizer
-Fixed-field module descent and the full unit-group/tensor-descent comparisons (LV.0 semilinear bound); no theorem result is included as a structure field.
-Gap: Suggested signatures — semilinear-centralizer
-Omitted: semilinearCentralizer_scalar
-Partial adapters: semilinearCentralizer, units_semilinearCentralizer, semilinearCentralizer_linear
-
-MordellLawrenceVenkatesh:LV.0/symplectic-transvection
-The pinned Tau isometry-group coercion and the full codimension-one/dual-hyperplane and arbitrary-field SL₂ comparisons for the explicit Mathlib linear-equivalence core.
-Gap: Suggested signatures — symplectic-transvection
-Partial adapters: symplecticTransvection, eq_symplecticTransvection_of_codim_one, symplecticTransvection_sl2
-
-MordellLawrenceVenkatesh:LV.1/largest-cm-subfield
-The absolute-closure embedding/orbit interface for H, and an explicit cyclotomic-field carrier connected to NumberField.IsCMField, including the real-subfield tower.
-Gap: Suggested signatures — largest-cm-subfield
-Omitted: embeddings_eq_on_largestCMSubfield_iff, largestCMSubfield_cyclotomic
-Partial adapters: isCMField_largestCMSubfield_iff
-
-MordellLawrenceVenkatesh:LV.1/friendly-place
-Finite places with unramified Galois closure, restriction to E_K and E_K⁺, inertness/splitting, and the Frobenius/complex-conjugation orbit criterion of LV Definition 2.7. This needs the ClassFieldTheory/Chebotarev and ArithmeticGalois place interfaces.
-Gap: Suggested signatures — friendly-place
-Omitted: IsFriendly, IsFriendly.isUnramified, isFriendly_iff_of_not_hasCMSubfield, isFriendly_iff_exists_decomposition, isFriendly_of_frobenius, isFriendly_map, isFriendly_rat, IsFriendly.reviewTest1, IsFriendly.reviewTest2, IsFriendly.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/abelian-by-finite-family
-A diagram of schemes with finite étale base, polarized AbelianScheme over that base, relative dimension and finite-étale fibre-algebra comparisons; requires SchemeAndStackFoundations and AbelianSchemesAndArithmeticModuli:A1–A2.
-Gap: Suggested signatures — abelian-by-finite-family
-Omitted: AbelianByFiniteFamily, AbelianByFiniteFamily.relDim, AbelianByFiniteFamily.total, AbelianByFiniteFamily.baseChange, AbelianByFiniteFamily.fibreAlgebra, AbelianByFiniteFamily.fibre, AbelianByFiniteFamily.ofAbelianScheme, AbelianByFiniteFamily.restrictScalars, AbelianByFiniteFamily.reviewTest1, AbelianByFiniteFamily.reviewTest2, AbelianByFiniteFamily.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/good-model
-Spread-out polarized abelian-by-finite diagrams over O_S, generic-fibre isomorphisms and good-reduction specializations; requires SchemeAndStackFoundations:SF.0 and integral point/base-change interfaces.
-Gap: Suggested signatures — good-model
-Omitted: IsGoodModel, IsGoodModel.baseChange, IsGoodModel.integralPoints, IsGoodModel.fibre_goodReduction, IsGoodModel.deRham_locallyFree, IsGoodModel.of_polarizedAbelianScheme, IsGoodModel.reviewTest1, IsGoodModel.reviewTest2, IsGoodModel.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/de-rham-bundle
-Relative H¹_dR as a locally free O_Y-module with the finite étale algebra action, Hodge subbundle, polarization pairing, integrable connection and fibre/base-change comparisons; requires AbelianSchemesAndArithmeticModuli:A4 and ComplexComparisonPartII:C5.
-Gap: Suggested signatures — de-rham-bundle
-Omitted: deRhamBundle, deRhamBundle.hodge, deRhamBundle.pairing, deRhamBundle.gaussManin, deRhamBundle.fibreEquiv, deRhamBundle.fibreDecomp, deRhamBundle.baseChange, deRhamBundle.eq_gaussManin_total, deRhamBundle.legendre, deRhamBundle.reviewTest1, deRhamBundle.reviewTest2, deRhamBundle.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/residue-disk
-Integral points reducing to a fixed smooth special-fibre point, analytic parameter equivalences, finite cover by disks and finite-étale product decomposition over K_v; requires formal/completed-local and p-adic analytic owner APIs.
-Gap: Suggested signatures — residue-disk
-Omitted: residueDisk, residueDisk.coords, residueDisk.coords_germ, residueDisk.mem_iff, residueDisk.coords_change, residueDisk.finiteEtale, residueDisk.cover, residueDisk.affineLine, residueDisk.reviewTest1, residueDisk.reviewTest2, residueDisk.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-padic
-Horizontal analytic parallel transport on a full residue disk with integrability, convergence, inverse, algebra action and pairing; requires the connection/analytic formalism and the LV convergence result.
-Gap: Suggested signatures — gauss-manin-transport-padic
-Omitted: gaussManinTransport, gaussManinTransport_self, gaussManinTransport_trans, gaussManinTransport_algebra, gaussManinTransport_pairing, gaussManinTransport_matrix, gaussManinTransport_indep, gaussManinTransport_pairs, gaussManinTransport_constant, gaussManinTransport.reviewTest1, gaussManinTransport.reviewTest2, gaussManinTransport.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/gauss-manin-transport-complex
-Complex analytic parallel transport and Riemann–Hilbert comparison with the rational/Betti local system, continued on the universal cover; requires ComplexComparisonPartII and owner local-system APIs.
-Gap: Suggested signatures — gauss-manin-transport-complex
-Omitted: gaussManinTransportComplex, gaussManinTransportComplex_eq_parallel, gaussManinTransportComplex_series, gaussManinTransportComplex_trans, gaussManinTransportComplex_pairing, gaussManinTransportComplex_monodromy, gaussManinTransportComplex_legendre, gaussManinTransportComplex.reviewTest1, gaussManinTransportComplex.reviewTest2, gaussManinTransportComplex.reviewTest3
-
-MordellLawrenceVenkatesh:LV.2/crystalline-frobenius-on-fibres
-Actual crystalline H¹ of the special fibre, its invertible semilinear Frobenius and crystalline–de Rham/parallel-transport comparison, including similitude pairing; requires CrystallineCohomology:CR.1–CR.3, CR.7 and PadicHodgeTheory:R06.5.
-Gap: Suggested signatures — crystalline-frobenius-on-fibres
-Omitted: crystallineFrobenius, crystallineFrobenius_semilinear, crystallineFrobenius_bijective, crystallineFrobenius_transport, crystallineFrobenius_factor, crystallineFrobenius_pairing, crystallineFrobenius_example, crystallineFrobenius.reviewTest1, crystallineFrobenius.reviewTest2, crystallineFrobenius.reviewTest3
-
-MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian
-The representing Grassmannian scheme, tautological subbundle, closed isotropy section, symmetric graph charts, Plücker embedding and symplectic group action; Mathlib supplies the functor, not this representing-scheme package.
-Gap: Suggested signatures — lagrangian-grassmannian
-Omitted: LagrangianGrassmannian, LagrangianGrassmannian.functor, LagrangianGrassmannian.mem_points_iff, LagrangianGrassmannian.chart, LagrangianGrassmannian.chart_cover, LagrangianGrassmannian.plucker, LagrangianGrassmannian.action, LagrangianGrassmannian.baseChange, LagrangianGrassmannian.dimOne, LagrangianGrassmannian.reviewTest1, LagrangianGrassmannian.reviewTest2, LagrangianGrassmannian.reviewTest3
-
-MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety
-Finite-étale componentwise-rank Grassmannian, trace pairing, E-stable isotropic closed locus and semilinear algebraic-group action; ambient E-stability must be combined with isotropy and componentwise rank d (AlgebraicModuliForArithmeticGeometry:R09.1).
-Gap: Suggested signatures — lagrangian-period-variety
-Omitted: periodVariety, periodVariety.mem_iff, periodVariety.mem_points_iff_free, periodVariety.traceForm, periodVariety.baseChange, periodVariety.prodEquiv, periodVariety.semilinearAction, periodVariety.plucker, periodVariety.stableGrassmannian, periodVariety.dimOne, periodVariety.reviewTest1, periodVariety.reviewTest2, periodVariety.reviewTest3
-
-MordellLawrenceVenkatesh:LV.3/algebraic-monodromy-group
-Betti local-system monodromy, algebraic subgroup closure and its de Rham tensor/algebra normalizer comparison; requires ReductiveGroups/3 and the actual comparison isomorphisms.
-Gap: Suggested signatures — algebraic-monodromy-group
-Omitted: monodromyRep, algebraicMonodromyGroup, HasFullMonodromy, algebraicMonodromyGroup_le_normalizer, hasFullMonodromy_iff_basepoint, algebraicMonodromyGroup_deRham, HasFullMonodromy.orbit_eq, hasFullMonodromy_legendre, monodromyRep.reviewTest1, monodromyRep.reviewTest2, monodromyRep.reviewTest3, monodromyRep.reviewTest4
-
-MordellLawrenceVenkatesh:LV.3/padic-period-map
-Analytic Grassmannian-valued map obtained from the actual Hodge subbundle and horizontal transport, with the E-linear/isotropic and rebase comparisons.
-Gap: Suggested signatures — padic-period-map
-Omitted: padicPeriodMap, padicPeriodMap_base, padicPeriodMap_mem, padicPeriodMap_transport, padicPeriodMap_rebase, padicPeriodMap_constant, padicPeriodMap.reviewTest1, padicPeriodMap.reviewTest2, padicPeriodMap.reviewTest3
-
-MordellLawrenceVenkatesh:LV.3/complex-period-map
-Holomorphic lifted Grassmannian map on the universal cover, with rational monodromy equivariance and the local power-series comparison to the p-adic map.
-Gap: Suggested signatures — complex-period-map
-Omitted: complexPeriodMap, complexPeriodMap.lift, complexPeriodMap.lift_base, complexPeriodMap.lift_equivariant, complexPeriodMap.lift_holomorphic, complexPeriodMap.lift_eq, complexPeriodMap.mem, complexPeriodMap.legendre, complexPeriodMap.reviewTest1, complexPeriodMap.reviewTest2, complexPeriodMap.reviewTest3
-
-MordellLawrenceVenkatesh:LV.5/surface
-Bare compact oriented topological two-manifold-with-boundary and its punctured interior complement, with collars and tame cutting; requires GeometricTopology Part II. Genus, homology and classification are separate results.
-Gap: Suggested signatures — surface
-Omitted: Surface, Surface.numPunctures, Surface.cut, Surface.examples, Surface.reviewTest1, Surface.reviewTest2, Surface.reviewTest3
-
-MordellLawrenceVenkatesh:LV.5/mapping-class-group
-Ambient-isotopy quotient of orientation-preserving homeomorphisms fixing boundary and preserving marked points, plus forgetful, homology, curve and covering actions; requires GeometricTopology Part II.
-Gap: Suggested signatures — mapping-class-group
-Omitted: MappingClassGroup, MappingClassGroup.marked, MappingClassGroup.homologyRep, MappingClassGroup.actCurves, MappingClassGroup.actCovers, MappingClassGroup.forget, MappingClassGroup.examples, MappingClassGroup.reviewTest1, MappingClassGroup.reviewTest2, MappingClassGroup.reviewTest3
-
-MordellLawrenceVenkatesh:LV.5/dehn-twist
-Annulus collar construction and isotopy independence, supported multitwists, boundary behaviour and intersection-form convention; requires the surface/isotopy/collar interface.
-Gap: Suggested signatures — dehn-twist
-Omitted: dehnTwist, dehnTwist_conj, dehnTwist_commute, dehnTwist_eq_one, dehnTwist_support, multitwist, dehnTwist_torus, dehnTwist.reviewTest1, dehnTwist.reviewTest2, dehnTwist.reviewTest3
-
-MordellLawrenceVenkatesh:LV.5/point-push
-Isotopy extension of a marked point, endpoint mapping class and its based-loop action with Mathlib multiplication; the exact Birman sequence requires centrelessness/isotopy-control gaps.
-Gap: Suggested signatures — point-push
-Omitted: pointPush, pointPush_apply, forget_pointPush, pointPush_action, pointPush_homology, pointPush_torus, pointPush.reviewTest1, pointPush.reviewTest2, pointPush.reviewTest3
-
-MordellLawrenceVenkatesh:LV.5/simple-closed-curve
-Oriented smooth/tame embedding and its ambient-isotopy quotient, homology orientation, complement separation and collar-cutting data; requires the smoothing/isotopy comparison.
-Gap: Suggested signatures — simple-closed-curve
-Omitted: SimpleClosedCurve, SimpleClosedCurve.homologyClass, SimpleClosedCurve.IsSeparating, SimpleClosedCurve.reverse, SimpleClosedCurve.map, SimpleClosedCurve.cut, SimpleClosedCurve.reviewTest1, SimpleClosedCurve.reviewTest2, SimpleClosedCurve.reviewTest3
-
-MordellLawrenceVenkatesh:LV.6/legendre-family
-Finite-étale parameter-cover scheme u↦u^m and relative Legendre abelian scheme, compared with the concrete Weierstrass/AdjoinRoot cores.
-Gap: Suggested signatures — legendre-family
-Omitted: legendreVariant, legendreVariant.isGoodModel, legendreVariant.fibreAlgebra, legendreVariant.analytic
-Partial adapters: legendreCurve, legendreCurve.reviewTest2
-
-MordellLawrenceVenkatesh:LV.7/size-v
-Unramified finite G_K-set and Frobenius-place adapter, followed by finite-étale geometric-point and completed-field-degree comparisons (LocalFieldsRamification/2).
-Gap: Suggested signatures — size-v
-Omitted: sizeV_scheme, sizeV_eq_places
-Partial adapters: sizeV, sizeV_indep
-
-MordellLawrenceVenkatesh:LV.8/singly-ramified-surjections
-Profinite continuous homomorphism and quotient-factorization comparisons for the abstract-group carrier; the centreless stabilizer convention is already stated.
-Gap: Suggested signatures — singly-ramified-surjections
-Partial adapters: singlyRamifiedSurjections, singlyRamifiedSurjections.comap
-
-MordellLawrenceVenkatesh:LV.8/hurwitz-cover-complex
-Actual finite analytic covering of the base with surjection-class fibres and universal branched covering family, including local z↦z^n models, from the exact Riemann-existence/configuration interfaces.
-Gap: Suggested signatures — hurwitz-cover-complex
-Omitted: hurwitzComplex, hurwitzComplex.fibre, hurwitzComplex.torsor, hurwitzComplex.localForm, hurwitzComplex.relativeCurve, hurwitzComplex.configuration, hurwitzComplex.aff3, hurwitzComplex.reviewTest1, hurwitzComplex.reviewTest2, hurwitzComplex.reviewTest3
-
-MordellLawrenceVenkatesh:LV.8/reduced-prym
-Relative identity component of the integral-endomorphism kernel on Jacobians, its polarization and H¹ projector comparison, requiring AbelianSchemesAndArithmeticModuli:A1 and the generic-projector gap.
-Gap: Suggested signatures — reduced-prym
-Omitted: reducedPrym, reducedPrym.isAbelianScheme, reducedPrym.polarization, reducedPrym.fibre, reducedPrym.baseChange, reducedPrym.dim, reducedPrym.example, reducedPrym.reviewTest1, reducedPrym.reviewTest2, reducedPrym.reviewTest3
-
-MordellLawrenceVenkatesh:LV.8/kodaira-parshin-family
-Finite étale Hurwitz scheme and smooth proper branched-curve diagram, followed by the reduced-Prym abelian scheme, spreading model and primitive-homology comparison.
-Gap: Suggested signatures — kodaira-parshin-family
-Omitted: kodairaParshinCurves, kodairaParshin, kodairaParshin.relDim, kodairaParshin.exists_goodModel, kodairaParshin.fibreEquiv, kodairaParshin.fibreHomology, kodairaParshin.example, kodairaParshinCurves.reviewTest1, kodairaParshinCurves.reviewTest2, kodairaParshinCurves.reviewTest3
-
-MordellLawrenceVenkatesh:LV.9/affine-cover
-Covering-space classification with a labelled Aff(q) monodromy representation, compactification at a single puncture and ramification/genus comparisons; not a structure containing these theorems as assumptions.
-Gap: Suggested signatures — affine-cover
-Omitted: AffineCover, AffineCover.cov, AffineCover.iso_iff, AffineCover.cycleType, SinglyRamified, SinglyRamified.genus, SinglyRamified.finite, SinglyRamified.modAction, SinglyRamified.example, AffineCover.reviewTest1, AffineCover.reviewTest2, AffineCover.reviewTest3
-
-MordellLawrenceVenkatesh:LV.9/primitive-homology
-Singular H₁ pushforward and rational branched transfer with the projection formula, surface pairing and genus computation; linear-map kernels alone do not supply these identities.
-Gap: Suggested signatures — primitive-homology
-Omitted: transfer
-Partial adapters: primitiveHomology, isCompl_primitiveHomology, primitiveHomology_eq_orthogonal, primitiveHomology.symplectic, primitiveHomology.equivariant, primitiveHomology.finrank, primitiveHomology.trivialCover
-
-MordellLawrenceVenkatesh:LV.9/lifted-monodromy
-Unique lift of a mapping class preserving a covering class, its rational H₁ representation and compatibility with transfer, products and the lifted Dehn multitwist.
-Gap: Suggested signatures — lifted-monodromy
-Omitted: liftMappingClass, liftMappingClass_unique, monodromyMap, stabilizerAll, pushSubgroup, monodromyMap.prod, monodromyMap_push_transfer, monodromyMap_twist, monodromyMap.example, liftMappingClass.reviewTest1, liftMappingClass.reviewTest2, liftMappingClass.reviewTest3
-
-MordellLawrenceVenkatesh:LV.9/liftable-curve
-Actual embedded curve, monodromy linear part, unique degree-one lift and primitive class; its computation is now the separate liftable-curve-transvection theorem.
-Gap: Suggested signatures — liftable-curve
-Omitted: IsLiftable, IsLiftable.nonseparating, IsLiftable.liftPlus, IsLiftable.primitiveClass, IsLiftable.mon_twist, IsLiftable.inner_eq, IsLiftable.example, IsLiftable.reviewTest1, IsLiftable.reviewTest2, IsLiftable.reviewTest3
-
-Named theorem interfaces — LV.0:
-MordellLawrenceVenkatesh:LV.0/galois-tensor-splitting, MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-finrank, MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-unramified, MordellLawrenceVenkatesh:LV.0/affine-group-cycle-type, MordellLawrenceVenkatesh:LV.0/affine-group-centralizer, MordellLawrenceVenkatesh:LV.0/commutator-product-map, MordellLawrenceVenkatesh:LV.0/generating-tuples-card, MordellLawrenceVenkatesh:LV.0/isotropic-subgroup-card, MordellLawrenceVenkatesh:LV.0/minimal-subrepresentation-half, MordellLawrenceVenkatesh:LV.0/zariski-closure-transvection-powers, MordellLawrenceVenkatesh:LV.0/transvection-pair-closure, MordellLawrenceVenkatesh:LV.0/transvection-graph-closure, MordellLawrenceVenkatesh:LV.0/lie-algebra-goursat, MordellLawrenceVenkatesh:LV.0/symplectic-pair-lemma, MordellLawrenceVenkatesh:LV.0/symplectic-goursat, MordellLawrenceVenkatesh:LV.0/galois-module-splitting, MordellLawrenceVenkatesh:LV.0/two-factor-lie-goursat, MordellLawrenceVenkatesh:LV.0/ideals-of-simple-products
-
-Named theorem interfaces — LV.1:
-MordellLawrenceVenkatesh:LV.1/weil-polynomials-finite, MordellLawrenceVenkatesh:LV.1/frobenius-test-set, MordellLawrenceVenkatesh:LV.1/faltings-finiteness, MordellLawrenceVenkatesh:LV.1/cm-or-totally-real-criterion, MordellLawrenceVenkatesh:LV.1/infinity-type-factorization, MordellLawrenceVenkatesh:LV.1/friendly-exponent-half, MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic, MordellLawrenceVenkatesh:LV.1/pure-character-conjugation-relation, MordellLawrenceVenkatesh:LV.1/pure-character-friendly, MordellLawrenceVenkatesh:LV.1/hodge-weight-pure-representation, MordellLawrenceVenkatesh:LV.1/de-rham-of-induced, MordellLawrenceVenkatesh:LV.1/hodge-weight-sum-over-places, MordellLawrenceVenkatesh:LV.1/abelian-variety-cohomology-properties
-
-Named theorem interfaces — LV.2:
-MordellLawrenceVenkatesh:LV.2/good-model-exists, MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections, MordellLawrenceVenkatesh:LV.2/horizontal-sections-padic-convergence, MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence
-
-Named theorem interfaces — LV.3:
-MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis, MordellLawrenceVenkatesh:LV.3/isotropic-dimension, MordellLawrenceVenkatesh:LV.3/lagrangian-transitivity, MordellLawrenceVenkatesh:LV.3/lagrangian-transverse-chart, MordellLawrenceVenkatesh:LV.3/arnold-chart-cover, MordellLawrenceVenkatesh:LV.3/lagrangian-grassmannian-geometry, MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety-splitting, MordellLawrenceVenkatesh:LV.3/period-maps-common-series, MordellLawrenceVenkatesh:LV.3/complex-period-closure-contains-orbit, MordellLawrenceVenkatesh:LV.3/convergent-series-vanishing, MordellLawrenceVenkatesh:LV.3/power-series-zariski-closure, MordellLawrenceVenkatesh:LV.3/padic-period-image-dense, MordellLawrenceVenkatesh:LV.3/strassmann, MordellLawrenceVenkatesh:LV.3/padic-period-preimage-finite
-
-Named theorem interfaces — LV.4:
-MordellLawrenceVenkatesh:LV.4/fibre-representation-crystalline, MordellLawrenceVenkatesh:LV.4/fibre-filtered-phi-transport, MordellLawrenceVenkatesh:LV.4/filtered-phi-orbit, MordellLawrenceVenkatesh:LV.4/finiteness-criterion, MordellLawrenceVenkatesh:LV.4/proposition-3-4
-
-Named theorem interfaces — LV.5:
-MordellLawrenceVenkatesh:LV.5/surface-classification, MordellLawrenceVenkatesh:LV.5/change-of-coordinates, MordellLawrenceVenkatesh:LV.5/dehn-twist-homology, MordellLawrenceVenkatesh:LV.5/primitive-classes-simple, MordellLawrenceVenkatesh:LV.5/birman-exact-sequence, MordellLawrenceVenkatesh:LV.5/capping-surjective, MordellLawrenceVenkatesh:LV.5/symplectic-representation-surjective, MordellLawrenceVenkatesh:LV.5/fadell-neuwirth-sequence, MordellLawrenceVenkatesh:LV.5/covering-dehn-twist-lift, MordellLawrenceVenkatesh:LV.5/configuration-family-monodromy, MordellLawrenceVenkatesh:LV.5/surface-homology
-
-Named theorem interfaces — LV.6:
-MordellLawrenceVenkatesh:LV.6/s-unit-reductions, MordellLawrenceVenkatesh:LV.6/kummer-cyclic-field, MordellLawrenceVenkatesh:LV.6/inert-auxiliary-place, MordellLawrenceVenkatesh:LV.6/legendre-monodromy, MordellLawrenceVenkatesh:LV.6/closed-subgroup-with-factor-unipotents, MordellLawrenceVenkatesh:LV.6/variant-family-full-monodromy, MordellLawrenceVenkatesh:LV.6/legendre-generic-simplicity, MordellLawrenceVenkatesh:LV.6/s-unit-residue-disk-finite, MordellLawrenceVenkatesh:LV.6/s-unit-theorem
-
-Named theorem interfaces — LV.7:
-MordellLawrenceVenkatesh:LV.7/frobenius-orbits-places, MordellLawrenceVenkatesh:LV.7/lagrangian-general-position, MordellLawrenceVenkatesh:LV.7/frobenius-stable-lagrangian-avoidance, MordellLawrenceVenkatesh:LV.7/generic-simplicity-sublemma, MordellLawrenceVenkatesh:LV.7/generic-simplicity-family, MordellLawrenceVenkatesh:LV.7/representations-vary, MordellLawrenceVenkatesh:LV.7/proposition-5-3
-
-Named theorem interfaces — LV.8:
-MordellLawrenceVenkatesh:LV.8/curve-topological-genus, MordellLawrenceVenkatesh:LV.8/surjection-action-extension, MordellLawrenceVenkatesh:LV.8/hurwitz-descent, MordellLawrenceVenkatesh:LV.8/hurwitz-space, MordellLawrenceVenkatesh:LV.8/affine-group-idempotents, MordellLawrenceVenkatesh:LV.8/reduced-prym-homology, MordellLawrenceVenkatesh:LV.8/kodaira-parshin-fibre-map
-
-Named theorem interfaces — LV.9:
-MordellLawrenceVenkatesh:LV.9/preimage-classes-independent, MordellLawrenceVenkatesh:LV.9/twist-rank-detects-cycle-type, MordellLawrenceVenkatesh:LV.9/liftable-curve-transvection, MordellLawrenceVenkatesh:LV.9/boundary-fixing-symplectic-surjective, MordellLawrenceVenkatesh:LV.9/affine-cover-normal-form, MordellLawrenceVenkatesh:LV.9/normal-form-curves, MordellLawrenceVenkatesh:LV.9/primitive-homology-decomposition
-
-Named theorem interfaces — LV.10:
-MordellLawrenceVenkatesh:LV.10/push-monodromy-noncentral, MordellLawrenceVenkatesh:LV.10/covers-distinguished-by-curve, MordellLawrenceVenkatesh:LV.10/liftable-curve-system, MordellLawrenceVenkatesh:LV.10/lifted-monodromy-dense-factor, MordellLawrenceVenkatesh:LV.10/lifted-monodromy-dense-product, MordellLawrenceVenkatesh:LV.10/normal-subgroups-of-symplectic-products, MordellLawrenceVenkatesh:LV.10/push-monodromy-dense, MordellLawrenceVenkatesh:LV.10/kodaira-parshin-full-monodromy
-
-Named theorem interfaces — LV.11:
-MordellLawrenceVenkatesh:LV.11/admissible-prime, MordellLawrenceVenkatesh:LV.11/friendly-auxiliary-place, MordellLawrenceVenkatesh:LV.11/weil-pairing-frobenius, MordellLawrenceVenkatesh:LV.11/small-orbit-count, MordellLawrenceVenkatesh:LV.11/size-bound, MordellLawrenceVenkatesh:LV.11/faltings-theorem
+theorem legendreCurve.Δ_eq {R : Type*} [CommRing R] (t : R) :
+    (legendreCurve t).Δ = 16 * t ^ 2 * (t - 1) ^ 2 := by
+  sorry
+
+theorem legendreCurve.isElliptic {R : Type*} [CommRing R] (t : R) (h₂ : IsUnit (2 : R))
+    (ht : IsUnit t) (ht₁ : IsUnit (t - 1)) : (legendreCurve t).IsElliptic := by
+  sorry
+
+theorem legendreCurve.j_eq {K : Type*} [Field K] (t : K) [(legendreCurve t).IsElliptic] :
+    (legendreCurve t).j = 256 * (t ^ 2 - t + 1) ^ 3 / (t ^ 2 * (t - 1) ^ 2) := by
+  sorry
+
+/-- `j(−1) = 1728`. -/
+example [(legendreCurve (-1 : ℚ)).IsElliptic] : (legendreCurve (-1 : ℚ)).j = 1728 := by
+  sorry
+
+/-- At `t = 0` and `t = 1` the discriminant vanishes. -/
+example : (legendreCurve (0 : ℚ)).Δ = 0 ∧ (legendreCurve (1 : ℚ)).Δ = 0 := by
+  sorry
+
+end Legendre
+
+section SUnits
+
+open IsDedekindDomain NumberField
+
+/-- The S-unit theorem: for a number field `K` and a finite set `S` of finite places, there are only
+finitely many `S`-units `t` such that `1 - t` is also an `S`-unit. The declaration belongs to
+DiophantineApproximationAndTranscendence (Layer DT.2, the two-term unit equation); this roadmap
+proves it along Layers LV.0–LV.6. README 6.10. -/
+theorem sUnit_equation_finite (K : Type*) [Field K] [NumberField K]
+    (S : Set (HeightOneSpectrum (𝓞 K))) (hS : S.Finite) :
+    {t : Kˣ | t ∈ S.unit K ∧ ∃ u ∈ S.unit K, (u : K) = 1 - t}.Finite := by
+  sorry
+
+end SUnits
+
+/-! ## Layer LV.7: rational points on the base of an abelian-by-finite family -/
+
+section SizeV
+
+variable {X : Type*} [Fintype X] [DecidableEq X]
+
+/-- The proportion of points of a finite set lying in orbits of length less than `8` of a
+permutation (the Frobenius at `v` acting on geometric points). README 7.1. -/
+noncomputable def sizeV (σ : Equiv.Perm X) : ℚ :=
+  ((Finset.univ.filter fun x => Function.minimalPeriod σ x < 8).card : ℚ) / Fintype.card X
+
+theorem sizeV_mem_Icc (σ : Equiv.Perm X) : sizeV σ ∈ Set.Icc (0 : ℚ) 1 := by
+  sorry
+
+/-- Monotonicity under equivariant maps with fibres of constant cardinality. README 7.1. -/
+theorem sizeV_le_of_fibres {Y : Type*} [Fintype Y] [DecidableEq Y] [Nonempty Y]
+    (σ : Equiv.Perm X) (τ : Equiv.Perm Y) (f : X → Y) (hf : ∀ x, f (σ x) = τ (f x))
+    (c : ℕ) (hc : 0 < c) (hfib : ∀ y, (Finset.univ.filter fun x => f x = y).card = c) :
+    sizeV σ ≤ sizeV τ := by
+  sorry
+
+/-- A `7`-cycle has `size_v = 1`. -/
+example : sizeV (finRotate 7) = 1 := by
+  sorry
+
+/-- An `8`-cycle has `size_v = 0`. -/
+example : sizeV (finRotate 8) = 0 := by
+  sorry
+
+/-- A fixed point together with an `8`-cycle has `size_v = 1/9`, not `1/2`. -/
+example : sizeV (Equiv.sumCongr (Equiv.refl (Fin 1)) (finRotate 8)) = 1 / 9 := by
+  sorry
+
+end SizeV
+
+/-! ## Layer LV.8: Hurwitz spaces and the Kodaira–Parshin family -/
+
+section Surjections
+
+/-- Surjections onto `G` that are nontrivial on every element of a set `c` (a peripheral
+conjugacy class). README 8.2. -/
+def singlyRamifiedSurjections (Γ G : Type*) [Group Γ] [Group G] (c : Set Γ) : Set (Γ →* G) :=
+  {φ | Function.Surjective φ ∧ ∀ γ ∈ c, φ γ ≠ 1}
+
+/-- Conjugation by `G` acts freely on these surjections when `G` has trivial centre. README 8.2. -/
+theorem singlyRamifiedSurjections_conj_free {Γ G : Type*} [Group Γ] [Group G]
+    (hG : Subgroup.center G = ⊥) (c : Set Γ) (φ : Γ →* G)
+    (hφ : φ ∈ singlyRamifiedSurjections Γ G c) (h : G)
+    (hh : (MulAut.conj h).toMonoidHom.comp φ = φ) : h = 1 := by
+  sorry
+
+/-- For the free group of rank four, its product of commutators and `G = Aff(3) = Sym(3)` there are
+`810` such surjections, hence `135` conjugacy classes. README 8.2, 8.13. -/
+example : Nat.card (singlyRamifiedSurjections (FreeGroup (Fin 4)) (Equiv.Perm (Fin 3))
+    {FreeGroup.of (0 : Fin 4) * FreeGroup.of 1 * (FreeGroup.of 0)⁻¹ * (FreeGroup.of 1)⁻¹ *
+      (FreeGroup.of 2 * FreeGroup.of 3 * (FreeGroup.of 2)⁻¹ * (FreeGroup.of 3)⁻¹)}) = 810 := by
+  sorry
+
+end Surjections
+
+section Idempotents
+
+variable {G : Type*} [Group G] [Fintype G] [DecidableEq G]
+
+/-- The averaging idempotent `e_H = |H|⁻¹ Σ_{h ∈ H} h` of a subgroup in `ℚ[G]`. README 8.8. -/
+noncomputable def averagingIdempotent (H : Subgroup G) [Fintype H] : MonoidAlgebra ℚ G :=
+  ((Fintype.card H : ℚ)⁻¹) • ∑ h : H, MonoidAlgebra.of ℚ G h
+
+theorem isIdempotentElem_averagingIdempotent (H : Subgroup G) [Fintype H] :
+    IsIdempotentElem (averagingIdempotent H) := by
+  sorry
+
+theorem averagingIdempotent_top_mul (H : Subgroup G) [Fintype H] [Fintype (⊤ : Subgroup G)] :
+    averagingIdempotent (⊤ : Subgroup G) * averagingIdempotent H = averagingIdempotent ⊤ := by
+  sorry
+
+/-- `e = e_H − e_G` is idempotent; `#G · (1 − e)` has integral coefficients. README 8.8. -/
+theorem isIdempotentElem_averagingIdempotent_sub (H : Subgroup G) [Fintype H]
+    [Fintype (⊤ : Subgroup G)] :
+    IsIdempotentElem (averagingIdempotent H - averagingIdempotent (⊤ : Subgroup G)) := by
+  sorry
+
+end Idempotents
+
+/-! ## Layer LV.9: Aff(q)-covers of surfaces -/
+
+section PrimitiveHomology
+
+variable {HZ HY : Type*} [AddCommGroup HZ] [Module ℚ HZ] [AddCommGroup HY] [Module ℚ HY]
+
+/-- Linear algebra of primitive homology: if `π_* ∘ π^* = q` with `q ≠ 0`, the transfer image and
+the kernel of pushforward are complementary, with projection `x ↦ x − q⁻¹ π^* π_* x`. README 9.3. -/
+theorem isCompl_primitiveHomology (p : HZ →ₗ[ℚ] HY) (t : HY →ₗ[ℚ] HZ) (q : ℕ)
+    (hq : q ≠ 0) (h : p ∘ₗ t = (q : ℚ) • LinearMap.id) :
+    IsCompl (LinearMap.range t) (LinearMap.ker p) := by
+  sorry
+
+/-- With the projection formula `⟨t a, x⟩ = ⟨a, p x⟩`, the two summands are orthogonal and the
+restricted form on the kernel is nondegenerate when the form on `HZ` is. README 9.3. -/
+theorem primitiveHomology_orthogonal_transfer (p : HZ →ₗ[ℚ] HY) (t : HY →ₗ[ℚ] HZ) (q : ℕ) (hq : q ≠ 0)
+    (h : p ∘ₗ t = (q : ℚ) • LinearMap.id) (ωZ : LinearMap.BilinForm ℚ HZ)
+    (ωY : LinearMap.BilinForm ℚ HY) (hproj : ∀ a x, ωZ (t a) x = ωY a (p x)) :
+    ∀ a, ∀ x ∈ LinearMap.ker p, ωZ (t a) x = 0 := by
+  sorry
+
+/-- A surjection `ℤ^r → ℤ/N` with `r ≥ 2` lifts to a surjection `ℤ^r → ℤ`. README 9.10. -/
+theorem exists_surjective_lift (r N : ℕ) (hr : 2 ≤ r) (f : (Fin r → ℤ) →+ ZMod N)
+    (hf : Function.Surjective f) :
+    ∃ g : (Fin r → ℤ) →+ ℤ, Function.Surjective g ∧ ∀ x, ((g x : ℤ) : ZMod N) = f x := by
+  sorry
+
+end PrimitiveHomology
+
+/-! ## Layer LV.10: the monodromy theorem for Kodaira–Parshin families -/
+
+section Lattices
+
+/-- A vector of `ℤ^r` is primitive when its entries have greatest common divisor one. -/
+def IsPrimitiveVector {r : ℕ} (v : Fin r → ℤ) : Prop :=
+  Finset.univ.gcd v = 1
+
+/-- Choosing one of `±v` for every primitive `v`, the differences of the chosen vectors span `ℚ^r`
+when `r ≥ 2`. README 10.3. -/
+theorem span_sub_signedPrimitive (r : ℕ) (hr : 2 ≤ r) (ε : (Fin r → ℤ) → ℤˣ) :
+    Submodule.span ℚ {w : Fin r → ℚ | ∃ v v' : Fin r → ℤ, IsPrimitiveVector v ∧
+      IsPrimitiveVector v' ∧ w = fun i => ((ε v : ℤ) * v i - (ε v' : ℤ) * v' i : ℚ)} = ⊤ := by
+  sorry
+
+/-- For two nonzero rational linear forms on `ℤ^r`, `r ≥ 2`, some primitive vector makes both
+large. README 10.4. -/
+theorem exists_primitive_large (r : ℕ) (hr : 2 ≤ r) (ℓ₁ ℓ₂ : (Fin r → ℚ) →ₗ[ℚ] ℚ)
+    (h₁ : ℓ₁ ≠ 0) (h₂ : ℓ₂ ≠ 0) (B : ℚ) :
+    ∃ v : Fin r → ℤ, IsPrimitiveVector v ∧ B < |ℓ₁ (fun i => (v i : ℚ))| ∧
+      B < |ℓ₂ (fun i => (v i : ℚ))| := by
+  sorry
+
+/-- The vector `(1, 0)` is primitive and `(2, 4)` is not. -/
+example : IsPrimitiveVector ![(1 : ℤ), 0] ∧ ¬ IsPrimitiveVector ![(2 : ℤ), 4] := by
+  sorry
+
+end Lattices
+
+/-! ## Layer LV.11: Faltings's theorem -/
+
+section Auxiliary
+
+/-- The auxiliary prime of Lawrence–Venkatesh: given a degree `n`, a discriminant `D`, a genus `g ≥ 2`
+and a bound `B`, there is a prime `q > B` with `4 ∤ q − 1`, no odd prime below `8n` dividing `q − 1`,
+no odd prime factor of `q − 1` dividing `D`, and `8 · 2^(g+1) / (q − 1)^g < 1 / ((g − 1/2)(q − 1) + 1)`.
+README 11.1. -/
+theorem exists_admissible_prime (n : ℕ) (D : ℤ) (hD : D ≠ 0) (g : ℕ) (hg : 2 ≤ g) (B : ℕ) :
+    ∃ q : ℕ, q.Prime ∧ B < q ∧ ¬ 4 ∣ q - 1 ∧
+      (∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → ℓ < 8 * n → ¬ ℓ ∣ q - 1) ∧
+      (∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → ℓ ∣ q - 1 → ¬ (ℓ : ℤ) ∣ D) ∧
+      (8 * 2 ^ (g + 1) : ℝ) / ((q : ℝ) - 1) ^ g < 1 / (((g : ℝ) - 1 / 2) * ((q : ℝ) - 1) + 1) := by
+  sorry
+
+/-- `q = 107` is admissible for `K = ℚ` and `g = 2`: `64 / 106² < 1 / 160`. -/
+example : (8 * 2 ^ 3 : ℝ) / (106 : ℝ) ^ 2 < 1 / ((2 - 1 / 2) * 106 + 1) := by
+  sorry
+
+/-- Few elements lie in short Frobenius orbits (README 11.4): on a free `ℤ/N`-module of rank `2g`,
+`N = 2m'` with `m'` odd, with a perfect alternating pairing into `ℤ/N` multiplied by `u` under `T`,
+where `u^i − 1` is prime to `m'` for `1 ≤ i ≤ 7`, each fixed module
+`ker(T^i − 1)`, `1 ≤ i ≤ 7`, has at most `2^g N^g` elements. -/
+theorem card_fixed_le (g N : ℕ) (hN : N % 4 = 2) (M : Type*) [AddCommGroup M] [Module (ZMod N) M]
+    [Module.Free (ZMod N) M] [Module.Finite (ZMod N) M] (hrank : Module.finrank (ZMod N) M = 2 * g)
+    (P : LinearMap.BilinForm (ZMod N) M) (hP : P.IsAlt) (hperf : Function.Bijective P)
+    (T : M ≃ₗ[ZMod N] M) (u : ℕ) (hT : ∀ x y, P (T x) (T y) = (u : ZMod N) * P x y)
+    (hu : ∀ i, 1 ≤ i → i ≤ 7 → Nat.Coprime (u ^ i - 1) (N / 2))
+    (i : ℕ) (hi₁ : 1 ≤ i) (hi₇ : i ≤ 7) :
+    Nat.card {x : M // (T ^ i) x = x} ≤ 2 ^ g * N ^ g := by
+  sorry
+
+end Auxiliary
+
+/-!
+The remaining targets of the README have no carriers at the pins, or concern objects that do not
+exist there, and are stated in the README only:
+
+Layer LV.0: 0.1 Splitting of a finite separable extension after base change to a splitting field;
+0.2 Idempotent decomposition of a module over a split étale algebra; 0.5 The unit group of a
+finite-dimensional algebra as an algebraic group; 0.6 Frobenius centralizers over unramified
+extensions of a p-adic field; 0.10 The commutator-product map on Aff(q)^{2s}; 0.15 Zariski closures
+of abstract subgroups; 0.17 Centre, normal subgroups and generators of the symplectic group; 0.18
+Orbit maps, transporters and dimensions of orbit closures; 0.19 The Zariski closure of the powers of
+a transvection; 0.20 Two transvections with nonzero pairing; 0.21 Transvections along a connected
+intersection graph; 0.23 Ideals in a finite product of nonabelian simple Lie algebras; 0.24
+Goursat's lemma for simple Lie algebras (Ribet); 0.25 A closed subgroup of Sp(V) × Sp(V) with
+surjective projections and an unbalanced unipotent pair; 0.26 Zariski-closed subgroups of Sp(V)^N.
+
+Layer LV.1: 1.1 Faltings's finiteness lemma; 1.4 Friendly places; 1.5 Functions on embeddings with
+constant conjugate sum factor through the largest CM subfield (Artin–Weil); 1.6 The local Artin map
+on units is onto inertia; 1.7 Continuous Galois characters as idele class characters; 1.8 At a
+friendly place a place-constant function with the conjugation relation takes the value w/2; 1.9 De
+Rham ℚ_p-valued characters are locally algebraic; 1.10 Global purity forces the conjugation relation
+on Hodge–Tate exponents; 1.11 Pure characters at friendly places; 1.13 Hodge weight of a pure
+representation at a friendly place; 1.14 D_dR of an induced representation at a place; 1.15 Hodge
+weights summed over places above a friendly place; 1.16 The Galois representation on H¹ of an
+abelian variety.
+
+Layer LV.2: 2.1 Abelian-by-finite families; 2.2 Good models over rings of S-integers; 2.3 Existence
+of good models after enlarging S; 2.4 The de Rham bundle of an abelian-by-finite family; 2.5 Residue
+disks and their coordinates; 2.6 Formal horizontal sections of an integrable connection with
+integral coefficients; 2.7 p-adic convergence of formal horizontal sections on the residue disk; 2.8
+Complex convergence of formal horizontal sections (majorants); 2.9 p-adic Gauss–Manin transport on a
+residue disk; 2.10 Complex Gauss–Manin transport and Betti parallel transport; 2.11 Crystalline
+Frobenius on the de Rham cohomology of the fibres and its compatibility with Gauss–Manin transport.
+
+Layer LV.3: 3.3 Transitivity on Lagrangian subspaces; 3.4 Symmetric graph charts; 3.5 Arnold chart
+cover; 3.6 The Lagrangian Grassmannian; 3.7 The Lagrangian Grassmannian is smooth, projective and
+geometrically irreducible of dimension d(d+1)/2; 3.8 The Lagrangian period variety of a symplectic
+module over a finite étale algebra; 3.9 Geometry of the period variety; 3.10 Complex points of a
+geometrically connected variety are connected; 3.11 The algebraic monodromy group of an
+abelian-by-finite family and full monodromy; 3.12 The p-adic period map on a residue disk; 3.13 The
+complex period map and its equivariant continuation to the universal cover; 3.14 The complex and
+p-adic period maps are given by one tuple of power series over K; 3.15 The Zariski closure of the
+complex period image contains the monodromy orbit; 3.16 A power series vanishing on an open polydisk
+is zero; 3.17 Complex and v-adic Zariski closures of a power-series map descend to one K-subscheme;
+3.18 Zariski closure of the p-adic period image (LV20 Lemma 3.3) and density under full monodromy;
+3.19 On a curve, the p-adic period map meets a closed subset not containing its image in finitely
+many points.
+
+Layer LV.4: 4.1 The fibre representations are crystalline with the de Rham cohomology of the fibre
+as filtered φ-module; 4.2 The filtered φ-module of a fibre read off from the period map; 4.3
+Filtrations with isomorphic filtered φ-modules form a Frobenius-centralizer orbit of bounded
+dimension; 4.4 Finiteness criterion on a residue disk of a curve; 4.5 Fibres with good reduction and
+semisimple Galois representation.
+
+Layer LV.5: 5.1 Surfaces with boundary and punctures; 5.2 The Jordan–Schönflies theorem; 5.3 Every
+compact surface can be triangulated (Radó); 5.4 Classification of compact surfaces; 5.5 Duality and
+the intersection form on a compact oriented surface; 5.6 Homology, type and intersection form of an
+oriented surface; 5.7 Collars, annular neighbourhoods and cutting; 5.8 Oriented simple closed
+curves; 5.9 The mapping class group; 5.10 Change of coordinates for simple closed curves; 5.11 Dehn
+twists; 5.12 Action of Dehn twists and multitwists on homology; 5.13 Primitive homology classes are
+represented by simple closed curves; 5.14 The homotopy exact sequence of a fibre bundle; 5.15
+Surfaces of nonpositive Euler characteristic are aspherical; 5.16 Surface groups of negative Euler
+characteristic have trivial centre; 5.17 The evaluation fibration of the homeomorphism group; 5.18
+Contractibility of the identity component (Hamstrom); 5.19 The point-pushing homomorphism; 5.20 The
+Birman exact sequence and pushes of simple loops; 5.21 Capping boundary circles and forgetting
+points are surjective on mapping class groups; 5.22 Surjectivity of the symplectic representation;
+5.23 The configuration fibration of a surface and its fundamental groups; 5.24 Lifting
+homeomorphisms to covers; 5.25 Lifting powers of Dehn twists to finite coverings; 5.26 Monodromy of
+families of branched covers over configuration spaces.
+
+Layer LV.6: 6.1 Reductions for the S-unit equation; 6.2 The Kummer fields of non-square S-unit
+solutions; 6.3 An auxiliary place inert in a cyclic extension; 6.5 Monodromy of the Legendre family;
+6.6 A closed subgroup of a product of SL₂'s with surjective projections and factorwise unipotents is
+everything; 6.7 Big monodromy for the cyclic variant of the Legendre family; 6.8 Generic simplicity
+of the Legendre curves; 6.9 Finiteness in a residue disk.
+
+Layer LV.7: 7.2 Frobenius orbits on geometric points are the places above v; 7.3 Finite surjective
+morphisms preserve dimension; 7.4 General position for tuples of Lagrangians; 7.5 Lagrangians
+meeting a Frobenius-stable subspace in half its dimension; 7.6 Bad points produce a Frobenius-stable
+subspace with large Hodge filtration; 7.7 Generic simplicity along the family; 7.8 Galois
+representations really vary in the family; 7.9 Rational points on the base of an abelian-by-finite
+family.
+
+Layer LV.8: 8.1 The complex points of a curve form a closed surface of the same genus; 8.3 Unique
+extension of the action to an overgroup; 8.4 Normalization, finite covers and analytification; 8.5
+The complex Hurwitz space of G-covers branched at one point; 8.6 Descent of the Hurwitz covering to
+K; 8.7 Hurwitz spaces of G-covers branched at one point; 8.9 The connected kernel of an endomorphism
+of an abelian scheme; 8.10 The reduced relative Prym of a family of Aff(q)-covers; 8.11 Homology of
+the Jacobian of a compact Riemann surface; 8.12 Homology of the reduced Prym is the primitive
+homology of the degree-q cover; 8.14 The map from Kodaira–Parshin fibres to H¹(Y, ℤ/(q − 1)).
+
+Layer LV.9: 9.1 Aff(q)-covers and singly ramified Aff(q)-covers; 9.2 Primitive homology of a
+covering; 9.4 Lifted mapping classes and the monodromy maps Mon; 9.5 Classes of the preimage
+circles; 9.6 The rank of a lifted twist detects the cycle type; 9.7 Liftable curves and their
+transvections; 9.8 Liftable-curve monodromy and primitive intersection; 9.9 Mapping classes of a
+surface with two boundary circles realize Sp(V, b); 9.11 Normal form of a singly ramified
+Aff(q)-cover; 9.12 Curves on the torus part of the normal form.
+
+Layer LV.10: 10.1 Point-pushing acts non-centrally on each factor; 10.2 Distinct covers are
+distinguished by the cycle type along a simple closed curve; 10.5 A connected spanning system of
+liftable curves; 10.6 Zariski density on one factor; 10.7 Zariski density on the product; 10.8
+Closed normal subgroups of products of symplectic groups; 10.9 Zariski density of the point-pushing
+monodromy; 10.10 The Kodaira–Parshin family has full monodromy.
+
+Layer LV.11: 11.2 Choice of the friendly place v; 11.3 The Weil pairing on H¹(Y, ℤ/(q − 1)) and the
+Frobenius at v; 11.5 The size bound; 11.6 Faltings's theorem.
 -/
 
-/- Surface-homology API omitted under Named theorem interfaces — LV.5:
-Surface.genus, Surface.numBoundary, Surface.eulerChar_eq, Surface.intersectionForm, Surface.intersectionForm_perfect
--/
+end TauCetiRoadmap.MordellLawrenceVenkatesh
