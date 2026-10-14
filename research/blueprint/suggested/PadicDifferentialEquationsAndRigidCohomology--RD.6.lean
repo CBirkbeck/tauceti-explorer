@@ -8,6 +8,14 @@ import Mathlib.RingTheory.PowerSeries.Substitution
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.LinearAlgebra.Eigenspace.Basic
+import Mathlib.CategoryTheory.Abelian.Basic
+import Mathlib.CategoryTheory.Linear.LinearFunctor
+import Mathlib.CategoryTheory.Monoidal.Braided.Basic
+import Mathlib.CategoryTheory.Monoidal.Linear
+import Mathlib.CategoryTheory.Monoidal.Rigid.Basic
+import Mathlib.Algebra.Category.FGModuleCat.Basic
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Rigid
+import TauCeti.Algebra.Coalgebra.Comodule.Finite.Symmetric
 
 /-!
 # P-adic differential equations and rigid cohomology, layer RD.6 (follow-up part)
@@ -18,11 +26,12 @@ the statements below suggest Lean forms so that contributors and reviewers conve
 signatures. Everything is proved by `sorry`; nothing here claims an implementation.
 
 Only statements whose carriers exist at the pins (Mathlib 082e2d3, Tau Ceti f790474) appear:
-additive characters, norms and traces of finite fields, Kloosterman sums, power series, and
-linear algebra of Frobenius eigenvalues. Overconvergent F-isocrystals, rigid cohomology, Robba
-rings, the Weyl algebra, Tannakian categories of coefficients and the Christol–Mebkhout index
-theorems have no carrier at the pins; they are targets of the roadmap document, not declarations
-here.
+additive characters, norms and traces of finite fields, Kloosterman sums, power series,
+linear algebra of Frobenius eigenvalues, and the neutral Tannakian recognition theorem, stated
+against Mathlib's rigid symmetric monoidal categories and Tau Ceti's finite comodules
+(`TauCeti.FGComoduleCat`). Overconvergent F-isocrystals, rigid cohomology, Robba rings, the Weyl
+algebra, the Tannakian categories of coefficients and the Christol–Mebkhout index theorems have no
+carrier at the pins; they are targets of the roadmap document, not declarations here.
 
 Conventions (RD.6/dwork-kummer-sign-dictionary): a Frobenius structure goes from the Frobenius
 pullback to the module; the linear Frobenius at a closed point plays the role of geometric
@@ -142,7 +151,10 @@ example (ψ : AddChar F K) (z : Fˣ) : kloostermanSum ψ 0 z = ψ z := sorry
 example (ψ : AddChar F K) (z : Fˣ) :
     kloostermanSum ψ 1 z = ∑ x : Fˣ, ψ ((x : F) + (z : F) * ((x⁻¹ : Fˣ) : F)) := sorry
 
-/-- Weil's bound, the consequence of purity of weight `1` of `Kl_2`. -/
+/-- Weil's bound, the consequence of purity of weight `1` of `Kl_2`. (Over the quadratic extension
+the sums satisfy `Kl_2(z; q^2) = 2q - Kl_2(z; q)^2`, the eigenvalue relation of
+RD.6/kloosterman-f-isocrystal; that statement needs a pair of nested finite fields and is a
+document target.) -/
 theorem kloostermanSum_one_bound (ψ : AddChar F ℂ) (hψ : ψ ≠ 1) (z : Fˣ) :
     ‖kloostermanSum ψ 1 z‖ ≤ 2 * Real.sqrt (Fintype.card F) := sorry
 
@@ -182,6 +194,33 @@ theorem dwork_multiplier_horizontal {K : Type*} [Field K] [CharZero K] (π : K) 
       PowerSeries.C π * (PowerSeries.C (q : K) * PowerSeries.X ^ (q - 1) - 1) *
         (PowerSeries.exp K).subst (PowerSeries.C π * (PowerSeries.X ^ q - PowerSeries.X)) :=
   sorry
+
+/-! ## Neutral Tannakian recognition (RD.6/neutral-tannakian-recognition) -/
+
+section Tannakian
+
+open CategoryTheory MonoidalCategory
+
+universe u
+
+/-- The neutral Tannakian recognition theorem (Deligne–Milne Theorem 2.11): a `K`-linear abelian
+rigid symmetric monoidal category with `End(𝟙) = K` and an exact faithful `K`-linear symmetric
+monoidal functor to finite-dimensional vector spaces is equivalent to the finite-dimensional
+comodules over a commutative Hopf algebra (Tau Ceti's `FGComoduleCat`, whose rigid and symmetric
+structures are `TauCeti.FGComoduleCat.instRigidCategory` and `instSymmetricCategory`).
+Omitted: that the equivalence is symmetric monoidal and carries `ω` to the forgetful functor, and
+part (c) (a tensor generator gives a Hopf algebra of finite type); these are document targets. -/
+theorem neutralTannakian_recognition (K : Type u) [Field K]
+    (C : Type (u + 1)) [Category.{u} C] [Abelian C] [Linear K C]
+    [MonoidalCategory C] [MonoidalPreadditive C] [MonoidalLinear K C] [SymmetricCategory C]
+    [RigidCategory C]
+    (hEnd : Function.Bijective (fun c : K => c • 𝟙 (𝟙_ C)))
+    (ω : C ⥤ FGModuleCat K) [ω.Braided] [ω.Additive] [ω.Linear K] [ω.Faithful]
+    [Limits.PreservesFiniteLimits ω] [Limits.PreservesFiniteColimits ω] :
+    ∃ (H : Type u) (_ : CommRing H) (_ : HopfAlgebra K H),
+      Nonempty (C ≌ TauCeti.FGComoduleCat.{u, u, u} K H) := sorry
+
+end Tannakian
 
 /-! ## Weights (RD.6/weight-normalising-constant-line, RD.6/middle-cohomology-is-pure) -/
 
