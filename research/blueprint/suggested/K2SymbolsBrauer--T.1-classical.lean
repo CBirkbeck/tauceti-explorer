@@ -35,6 +35,7 @@ theorem central_iff_inducesAction (htriv : ∀ (g : G) (a : A), g • a = a) :
 both markings. Normalized sections are set-theoretic sections. -/
 theorem central_extensions_equiv_iff
     {E' : Type} [Group E'] (S' : GroupExtension A E' G)
+    (htriv : ∀ (g : G) (a : A), g • a = a)
     (σ : S.Section) (σ' : S'.Section) (hσ : σ 1 = 1) (hσ' : σ' 1 = 1)
     (hact : TauCeti.GroupExtension.InducesAction S)
     (hact' : TauCeti.GroupExtension.InducesAction S') :
@@ -54,6 +55,7 @@ theorem every_class_has_central_representative
 
 /-- Splitting is a property of the actual marked extension. -/
 theorem central_splits_iff_zero
+    (htriv : ∀ (g : G) (a : A), g • a = a)
     (σ : S.Section) (hσ : σ 1 = 1)
     (hact : TauCeti.GroupExtension.InducesAction S) :
     Nonempty S.Splitting ↔
@@ -96,7 +98,7 @@ def IsSuperperfect (G : Type) [Group G] : Prop :=
     Subsingleton (groupHomology.H2 (Rep.trivial ℤ G ℤ))
 
 /-- Weibel III Recognition Theorem 5.4, inherited from T.1. -/
-theorem recognition (p : X →* G) (hp : Function.Surjective p)
+theorem recognition (hG : Group.IsPerfect G) (p : X →* G) (hp : Function.Surjective p)
     (hc : p.ker ≤ Subgroup.center X) :
     (IsUniversalCentralExtension p ↔ IsSuperperfect X) ∧
     (IsUniversalCentralExtension p ↔
