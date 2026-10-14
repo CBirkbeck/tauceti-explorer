@@ -1374,10 +1374,10 @@
       "title": "Arithmetic and geometric formulations of Isom",
       "statement": "For these number-field curves, restriction identifies relative outer arithmetic isomorphisms over G_K with geometric group isomorphisms Δ_X≃Δ_Y modulo target Δ_Y inner automorphisms whose outer classes intertwine the two G_K outer actions. The fixed G_K is not allowed to vary.",
       "hypotheses": [
-        "Proper hyperbolic curves; centre-free geometric kernels; fixed arithmetic extensions."
+        "Proper hyperbolic curves; centre-free topologically finitely generated profinite geometric kernels; fixed profinite arithmetic extensions over G_K."
       ],
       "proofSteps": [
-        "Centre-freeness of the geometric kernels identifies each arithmetic extension with the pullback of its outer-action extension.",
+        "Use the additional centre-free extension reconstruction requested in G4 from ProfiniteArithmetic, Part II: the map to Aut(Δ) ×_{Out(Δ)} G_K is an isomorphism of topological groups, with a continuous inverse. Current §2.3 supplies only the outer action used in that map.",
         "An intertwining geometric equivalence therefore extends over the identity of G_K, uniquely up to geometric inner equivalence.",
         "Restrict back and check the two identifications, using the existing generic continuous outer-action interfaces."
       ],
@@ -1392,6 +1392,11 @@
           "sourceId": "M96",
           "locator": "Theorem 7.4, p. 607; Theorem 10.2, p. 626",
           "match": "For these number-field curves, restriction identifies relative outer arithmetic isomorphisms over G_K with geometric group isomorphisms Δ_X≃Δ_Y modulo target Δ_Y inner automorphisms whose outer classes intertwine the two G_K outer actions. The fixed G_K is not allowed to vary."
+        },
+        {
+          "sourceId": "T97",
+          "locator": "§7A, Lemma 7.1 and its pullback proof, p. 188",
+          "match": "Centre-free kernels let an outer-equivariant geometric isomorphism extend uniquely to an arithmetic isomorphism over the identity of the fixed base."
         }
       ],
       "acceptance": [
@@ -3040,7 +3045,7 @@
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.1",
       "status": "planned",
       "remaining": [
-        "Discharge the geometric typing, integral/relative comparison, continuous-coefficient and supplier-extension gaps before packaging. Synchronize the reader document with the corrected packet and complete a fresh independent consistency check before promotion."
+        "Resolve the integral/relative comparison, continuous-coefficient and supplier-extension gaps for implementation and enforce the owner/tier obligations before packaging. Geometric targets absent at the pins remain reader targets under the 2026-10-12 shape. A fresh independent reviewer must check the synchronized reader, packet and compact Suggested file before promotion; the prior needs_changes review remains unchanged."
       ]
     }
   ],
@@ -3090,7 +3095,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-centre-free",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/punctured-elliptic-isom"
       ],
-      "detail": "The pinned libraries provide no arithmetic étale curve group, stable log-cover category, relative Hodge–Tate family, Picard arithmetic extension or completed differential multiplication with these comparison maps. Suggested therefore gives native relative group prototypes and the kernel-of-actual-multiplication adapter, then a named omission ledger for geometric definitions, APIs, tests and theorems. No opaque carrier or proposition-valued stand-in claims that these signatures have been typed. The mathematical target statements and tests are specified in the corrected packet; type them against the listed suppliers before packaging."
+      "detail": "The pinned libraries provide no arithmetic étale curve group, stable log-cover category, relative Hodge–Tate family, Picard arithmetic extension or completed differential multiplication with these comparison maps. Suggested therefore contains only light relative group and stabilizer definitions, the kernel of supplied multiplication, native milestones and a few examples. Its named omission ledger points to the complete reader contracts. No opaque carrier or proposition-valued stand-in claims that the geometric signatures have been typed. Under the 2026-10-12 roadmap shape, targets whose carriers are absent at the pins stay in the reader at packaging; implementation must construct them using the listed suppliers. Native composition and chosen quotient lifts also remain API targets rather than a development of theory in Suggested."
     },
     {
       "title": "G2: integral and relative comparison closure",
@@ -3132,7 +3137,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-outer-comparison"
       ],
-      "detail": "Cofinal hyperbolic Artin-neighborhood models and their exact sequences, exact dominant Hom/Isom representability and finite-étale spreading, fine universal-family base-change compatibility, generalized-Jacobian integral comparison and the surface-group centre theorem are supplier requests, not blanket conclusions of generic moduli/Picard/profinite stages. ProfiniteProPGroups centre extension is proposed as Part II. The function-field reciprocity supplier is outside the 94-roadmap Caraiani–Newton tier list; the maintainer must place that existing supplier below this packet before upstream packaging. The IG.5 extension distinguishes invertible local node indices from invertible total group order. The NC.2 two-step Malcev foundation is requested independently of reconstruction and must be split before assembly to keep stage-level dependencies acyclic. Current StableReduction Layer 4 does not state the geometrically regular disk-completion comparison, and smooth Jacobian Layer D does not state the point-pinched generalized-Jacobian extension; both requests are extensions, not existing contracts. Current ProfiniteArithmetic §2.3 is the exact generic continuous outer-action/pullback supplier for geometric-outer-comparison, but it has no stage id in this atlas snapshot; assembly must index it and add that edge, using the recorded upstreamReuse contract."
+      "detail": "Cofinal hyperbolic Artin-neighborhood models and their exact sequences, exact dominant Hom/Isom representability and finite-étale spreading, fine universal-family base-change compatibility, generalized-Jacobian integral comparison and the surface-group centre theorem are supplier requests, not blanket conclusions of generic moduli/Picard/profinite stages. ProfiniteProPGroups centre extension is proposed as Part II. The function-field reciprocity supplier is outside the 94-roadmap Caraiani–Newton tier list; the maintainer must place that existing supplier below this packet before upstream packaging. The IG.5 extension distinguishes invertible local node indices from invertible total group order. The NC.2 two-step Malcev foundation is requested independently of reconstruction and must be split before assembly to keep stage-level dependencies acyclic. Current StableReduction Layer 4 does not state the geometrically regular disk-completion comparison, and smooth Jacobian Layer D does not state the point-pinched generalized-Jacobian extension; both requests are extensions, not existing contracts. Current ProfiniteArithmetic §§2.1–2.3 supply continuous inner/outer automorphisms and the outer action of an extension, but do not state centre-free extension reconstruction as a pullback. Request that additional generic theorem, including a continuous inverse and the restriction bijection for isomorphisms over the fixed base, from ProfiniteArithmetic, Part II. T97 §7A, Lemma 7.1, p. 188 supplies the mathematical pullback argument. Reuse the existing Out and outer-action interfaces; no second generic Out theory belongs in NC.1. The supplier is absent from the atlas stage index, so assembly must index the existing roadmap and its extension before adding the exact edge."
     }
   ],
   "sourceIssues": [
@@ -3392,7 +3397,7 @@
         "2.3 outer actions from extensions",
         "3 closed lower central series"
       ],
-      "use": "Import these current interfaces when typing geometric outer equivariance. The arithmetic formulation uses native continuous homomorphisms and their relative kernel quotient; no generic Out, characteristic quotient or central-series definition is replanned. In particular §2.3 identifies a centre-free arithmetic extension with the pullback along its outer action. The current atlas stage index has no ProfiniteArithmetic entry, so this upstream interface is recorded here and in G4 rather than invented as a pinned baseline declaration."
+      "use": "Import these current interfaces for geometric outer equivariance: §§2.1–2.3 supply ContinuousOut, its topology and continuous extension outer actions, and Layer 3 supplies the closed lower-central Lie ring. No generic Out, characteristic quotient or central series is replanned. Section 2.3 does not state the centre-free extension pullback or its restriction bijection; that extra theorem is requested from ProfiniteArithmetic, Part II, as recorded in G4 and restructure. This roadmap has no stage id in the atlas snapshot, so the reuse and missing extension are recorded here rather than presented as pinned baseline declarations."
     },
     {
       "roadmap": "AlgebraicCurves",
@@ -3449,12 +3454,20 @@
       ],
       "proposal": "ProfiniteCohomology, Part II: continuous integral and completed coefficient comparison, derived p-power inverse limits and arithmetic Hochschild–Serre, preserving the existing canonical carrier and cup/Kummer maps.",
       "detail": "The current main explicitly excludes non-discrete coefficients and the spectral sequence. NC.1 requests these general tools from that owner, rather than planning another continuous cohomology theory."
+    },
+    {
+      "action": "extend",
+      "roadmaps": [
+        "ProfiniteArithmetic"
+      ],
+      "proposal": "ProfiniteArithmetic, Part II: for a profinite extension with centre-free topologically finitely generated kernel, identify the extension continuously with Aut(kernel) ×_{Out(kernel)} base. Restriction identifies continuous isomorphisms over the fixed base with geometric isomorphisms intertwining the outer actions, and descends modulo target-kernel inner automorphisms.",
+      "detail": "Reuse current §§2.1–2.3 for Aut, Inn, Out, characteristic-quotient topology and continuous outer actions. Prove the pullback map and its continuous inverse; centre-freeness gives uniqueness. Source: T97 §7A, Lemma 7.1, p. 188; M96 Theorems 7.4 and 10.2, pp. 607 and 626. Proper hyperbolic geometric kernels meet the finiteness/topology hypotheses. The atlas snapshot must index this existing owner and the extension; no new generic group theory is assigned to NC.1."
     }
   ],
   "upstreamNotes": [
     {
       "roadmap": "ProfiniteArithmetic",
-      "detail": "Its current main supplies generic ContinuousOut and extension outer actions, absent from the atlas snapshot. No change to that roadmap is made here. The actual current anchor is #layer-2-continuous-automorphisms-and-outer-automorphisms; §2.3 supplies the centre-free extension pullback. Assembly must index this supplier before converting the recorded reuse into a graph edge."
+      "detail": "Current main supplies generic ContinuousOut and continuous extension outer actions, absent from the atlas snapshot. The actual anchor is #layer-2-continuous-automorphisms-and-outer-automorphisms. Section 2.3 constructs the outer action but does not identify centre-free extensions with its pullback. Request that generic reconstruction/restriction theorem as ProfiniteArithmetic, Part II and index both contracts before assembly. No upstream file is changed in this job."
     },
     {
       "roadmap": "AlgebraicCurves",
