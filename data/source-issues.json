@@ -197079,27 +197079,28 @@
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
    "citation": "A. Caraiani and P. Scholze, On the generic part of the cohomology of non-compact unitary Shimura varieties, arXiv:1909.01898v2 (22 November 2023), 90 pp.; printed page = PDF page; published Ann. of Math. 199 (2024). Read 2026-10-14.",
    "status": "confirmed",
-   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4",
-   "reviewReason": "Checked arXiv:1909.01898v2 §5.5 p. 72 and Shin 2011 §4 before (4.2), p. 21. Transpose without inverse reverses a noncommuting matrix product, so cannot define the semidirect-product automorphism. Inverse transpose is multiplicative. This verdict concerns the stated preprint version only."
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "reviewReason": "Re-read arXiv:1909.01898v2 §5.5 p. 72: θ(λ,g)θ⁻¹=(λ^c, λ^c g^♯) with g^♯ = Φ ᵗg^c Φ⁻¹, no inverse. Transpose reverses products of noncommuting matrices, so this is an anti-automorphism; Shin 2011 §4 (p. 21) and the fixed-point requirement (θ-fixed points equal G_n⃗) need ᵗ(g^c)⁻¹. The earlier independent review reached the same verdict for this version."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E3",
-   "kind": "misprint",
-   "locator": "Appendix A.1.1, pp. 120, 122–123; correction in Clozel–Labesse 2011 §5 p. 115",
-   "printed": "Several displayed orbital-integral formulas omit the Kottwitz sign of the semisimple twisted centralizer.",
-   "correction": "Retain e(I_δ) in the stable singular formula; for GL_n(ℂ) base change from U(p,q), the nonzero value is e(I_δ)2^n times the coefficient character at the norm.",
-   "reason": "The centralizer Euler–Poincaré value depends on its real form. Clozel–Labesse Theorems 4.1/5.1 and their published correction supply the required sign.",
-   "affects": "the proof",
-   "known": "Published correction by Clozel and Labesse, Clay Mathematics Proceedings 13 (2011), p. 115, identifying the affected lines of Labesse 1999.",
+   "kind": "error",
+   "locator": "Appendice A, Théorème A.1.1, p. 121, Astérisque 257 (1999) (Numdam copy); the sign is dropped in the computations on p. 120, lines 14 and 16, p. 122, lines −8 and −6, and p. 123, line 6, as the 2011 erratum identifies",
+   "printed": "Théorème A.1.1 states that the stable θ-orbital integral of a Lefschetz function at a θ-semisimple element whose stable θ-centralizer has discrete series equals d(G(ℝ)), with no sign depending on that centralizer; it assumes the stable centralizers connected.",
+   "correction": "The stable orbital integral is e(I_δ)·d(G)·trace F(δ), with e(I_δ) Kottwitz’s sign of the stable centralizer (e(I_δ)·d(G) for trivial coefficients); for base change from U(p,q) to GL_n(ℂ) the nonzero value is e(I_δ)·2^n·trace E(γ), γ = gθ(g).",
+   "reason": "Descent to the stable centralizer replaces the Lefschetz function by the centralizer’s Euler–Poincaré function, whose value at 1 is (−1)^{q(I_δ)} d(I_δ); its sign depends on the real form of I_δ. The printed computation drops this sign at the lines listed, so the stated formula is wrong for singular δ with e(I_δ) = −1 (Clozel–Labesse 2011 §4).",
+   "affects": "a stated result",
+   "known": "Clozel–Labesse, Orbital integrals and distributions, Clay Mathematics Proceedings 13 (2011), §4 “Erratum and complements to [CL]”, pp. 112–113, with the corrected Theorem 4.1 (p. 113) and Theorem 5.1 (pp. 113–114).",
    "searched": [
-    "Read the primary published correction on p. 115 and Theorems 4.1/5.1 on pp. 113–115. No claim of a survey of later editions."
+    "Read the Numdam copy of Appendice A of Astérisque 257 (pp. 119–133) at Théorème A.1.1, p. 121, and p. 120.",
+    "Read Clozel–Labesse 2011 §§4–5, pp. 112–114, in the Clay Mathematics Proceedings 13 volume PDF; no claim of a survey of other corrections."
    ],
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
-   "citation": "J.-P. Labesse, Cohomologie, stabilisation et changement de base, Astérisque 257 (1999), vi + 116 pp.; Numdam copy. Read 2026-10-14.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "L. Clozel and J.-P. Labesse, Appendice A. Changement de base pour les représentations cohomologiques de certains groupes unitaires, Appendix to J.-P. Labesse, Cohomologie, stabilisation et changement de base, Astérisque 257 (1999), pp. 119–133; Numdam copy. Read 2026-10-14 for Théorème A.1.1.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "reviewReason": "Confirmed at Théorème A.1.1 p. 121 of the appendix (unsigned value d(G(ℝ))) against Clozel–Labesse 2011 Theorem 4.1(iv) p. 113, which has e(I_δ)d(G)trace F(δ), and their §4 erratum. Corrected in this review: the mistake is in the Clozel–Labesse appendix (Astérisque 257, pp. 119–133), not in Labesse’s main text (pp. 1–116), the erratum is §4 pp. 112–113 rather than §5 p. 115, and the published authors call it an incorrect result, so it is an error affecting a stated result."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E4",
@@ -197108,17 +197109,17 @@
    "printed": "The prose cuspidality criterion reverses the existence of an anisotropic maximal real torus modulo the split centre.",
    "correction": "A cuspidal connected group has such an anisotropic maximal torus modulo A_M; for a twisted Levi subset test this on its associated fixed unitary Levi.",
    "reason": "Morel Definition 3.1.1 and §8.2 give the positive-existence criterion. Shin’s subsequent split-centre rank argument rules out proper cuspidal Levis only with that criterion.",
-   "affects": "the proof",
-   "known": "No independently verified published erratum located in this run; this record concerns only the cited primary copy.",
+   "affects": "nothing",
+   "known": "new",
    "searched": [
-    "Read Shin 2011 §4.5 p. 27 and compared Morel corrected v2 Definition 3.1.1 p. 50, §8.2 p. 131 and CSnc Definition 5.5.2 p. 74. No claim to have checked every edition."
+    "Read Shin 2011 §4.5 p. 27 in the author copy and compared Morel corrected v2 Definition 3.1.1 p. 50, §8.2 p. 131 and CSnc Definition 5.5.2 p. 74; no published erratum for this passage was found, and the record concerns the author copy only."
    ],
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
    "citation": "S. W. Shin, Galois representations arising from some compact Shimura varieties, Author's copy (StableGal.pdf, 62 pp.) of Ann. of Math. 173 (2011), 1645–1741; printed page = PDF page. Read 2026-10-14.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2",
+   "reviewReason": "Confirmed in the author copy, proof of Proposition 4.5, p. 27: cuspidality is recalled as M_ℝ having no maximal torus anisotropic modulo (A_M)_ℝ, the negation of Morel Definition 3.1.1 p. 50 and CSnc Definition 5.5.2 p. 74. The next sentences prove non-cuspidality with the correct definition (a split central torus of rank [F⁺:ℚ] > 1 against rank-one A_D), so the intended meaning is clear; this review changes affects from the proof to nothing."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E6",
@@ -197137,14 +197138,14 @@
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
    "citation": "S. W. Shin, Counting points on Igusa varieties, Author copy of Duke Math. J. 146 (2009), 509–568; 44 pages, locators below use author-copy printed pages, equal to PDF pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "reviewReason": "The independently read author errata p.1 explicitly substitutes functorial unquotiented adelic H¹. The diagonal-torus inclusion in GL_2 verifies the obstruction for the central quotient."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E7",
    "kind": "error",
-   "locator": "Author copy, §3.2, p.10, paragraph invoking Kottwitz Proposition 6.3",
+   "locator": "Author copy, §3.2, p.10, paragraph invoking Kottwitz Proposition 6.3; also Counting points author copy, §4.1, p.9, paragraph before Lemma 4.2",
    "printed": "Decent representatives of the same class in B(G), with their rational Newton Levi, are described as rationally conjugate as actual elements.",
    "correction": "Kottwitz Proposition 6.3 compares the rational conjugacy orbits of (M,[b]_M), with [b]_M in B(M). It does not compare arbitrary actual decent elements by ordinary rational conjugacy.",
    "reason": "For G_m, take b=1 and b′=x⁻¹σ(x)≠1 for a Teichmüller unit x in an unramified extension L_s. Both have ν=0, are σ-conjugate and satisfy the decency norm-one equation; ordinary torus conjugacy cannot change either element.",
@@ -197158,9 +197159,9 @@
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
    "citation": "S. W. Shin, A stable trace formula for Igusa varieties, Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "reviewReason": "Kottwitz Proposition 6.3, printed pp.218–219, concerns (M,[b]_M). The two decent torus elements 1 and x⁻¹σ(x) have norm one and the same σ-class but cannot be ordinarily conjugate. Both identified author-copy passages were checked."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E8",
@@ -197179,15 +197180,15 @@
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
    "citation": "S. W. Shin, A stable trace formula for Igusa varieties, Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "reviewReason": "The SL_2 norm-one torus counterexample gives nontrivial H¹(T) and trivial H¹(SL_2). Lemma 3.6 supplies the acceptable rational-conjugacy comparison actually needed; connectedness alone does not."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E9",
    "kind": "misprint",
-   "locator": "Author copy, §6.4, p.26, last displayed equality of the general-case perturbation argument",
-   "printed": "The final transfer-factor equality has the pairing ⟨α̃_p,κ̃⟩ without inversion.",
+   "locator": "Author copy, §6.4, p.25, penultimate displayed equality of the general-case perturbation argument (conclusion continues on p.26)",
+   "printed": "The penultimate general-case transfer-factor display uses the pairing ⟨α̃_p,κ̃⟩ without inversion.",
    "correction": "Use ⟨α̃_p,κ̃⟩⁻¹, consistently with equation (6.9) and the regular-case cocycle comparison.",
    "reason": "The perturbation preserves κ(b_δ) and the centralizer cocycle. Its limit must have the same inverse character as the regular identity; changing the exponent would not prove Lemma 6.3.",
    "affects": "the proof",
@@ -197200,9 +197201,51 @@
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
    "citation": "S. W. Shin, A stable trace formula for Igusa varieties, Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "reviewReason": "Equation (6.9), p.21, and the regular cocycle calculation carry the inverse pairing. The penultimate display on p.25 omits it; the unchanged κ and perturbation limit require the same inverse."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E10",
+   "kind": "error",
+   "locator": "Author copy, §6, Lemma 6.3 and first proof paragraph (i), p.19",
+   "printed": "Every compactly supported function is asserted to have support in S_b after a sufficiently large negative central Frobenius shift, without an additional scalar translation.",
+   "correction": "First translate by the negative central scalar p^{−a} for every sufficiently large a to clear inverse denominators. For each fixed a, a sufficiently large negative Frobenius power gives the monoid/kernel and slope conditions, and further powers give the fixed-point trace. Apply finite-character separation twice to remove Frobenius and then the scalar.",
+   "reason": "For the ordinary Σ=μ_{p∞}⊕Q_p/Z_p and support pΓ_b, the zero-slope block is p times a unit after every Frobenius shift, so its inverse is never integral. The scalar preserves the polarized similitude structures, with multiplier p². Mantovan §4, p.12 explicitly adjoins p as well as Frobenius to S_b.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independently checked the author publication page https://math.berkeley.edu/~swshin/ and its two-page errata.pdf on 2026-10-14; the listed Counting points correction is Lemma 2.4 and does not address these two assertions.",
+    "Targeted web searches on 2026-10-14 for Igusa p-adic-type refinement and Lemma 6.3 scalar/Frobenius errata found no correction. This is a limited search, not a claim that no correction exists.",
+    "The version-of-record DOI https://doi.org/10.1215/00127094-2009-004 could not be opened on 2026-10-14. E10–E11 are scoped to the hash-identified author copy, not asserted against the published text."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+   "citation": "S. W. Shin, Counting points on Igusa varieties, Author copy of Duke Math. J. 146 (2009), 509–568; 44 pages, locators below use author-copy printed pages, equal to PDF pages.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "reviewReason": "The ordinary zero-slope counterexample falsifies the printed monoid claim. Uniform compact-support denominator bounds, both central generators of Mantovan p.12, and two finite Vandermonde arguments give the repair recorded in nodes 12 and 30."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E11",
+   "kind": "error",
+   "locator": "Author copy, §8, equivalence paragraph after Remark 8.3, p.24; minimality assertion, p.25; Proposition 8.4, p.26",
+   "printed": "Common refinement is required to use F-linear embeddings of product algebras, while the following factor partitions and multiplicity sums are intended to combine repeated equivalent factors.",
+   "correction": "Use embeddings of each individual field factor into its assigned common field, with the divisor pullback and F-action preserved and multiplicities summed over each assigned block. Do not require a product-algebra embedding for merging. Keep simplicity separate from minimality.",
+   "reason": "Take F=Q, two copies of the half type (Q,η_p=1/2) of multiplicities 2 and 3, and the merged half type of multiplicity 5. A common refinement of the latter has only one factor because its singleton index must partition into nonempty blocks. But Q×Q cannot embed as a unital algebra into a field: its two nonzero orthogonal idempotents would both have to map to 1. Thus the printed relation prevents merging and has no minimal representative for this repeated-factor type, contrary to the following assertion and the semisimple classification.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independently checked the author publication page https://math.berkeley.edu/~swshin/ and its two-page errata.pdf on 2026-10-14; the listed Counting points correction is Lemma 2.4 and does not address these two assertions.",
+    "Targeted web searches on 2026-10-14 for Igusa p-adic-type refinement and Lemma 6.3 scalar/Frobenius errata found no correction. This is a limited search, not a claim that no correction exists.",
+    "The version-of-record DOI https://doi.org/10.1215/00127094-2009-004 could not be opened on 2026-10-14. E10–E11 are scoped to the hash-identified author copy, not asserted against the published text."
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+   "citation": "S. W. Shin, Counting points on Igusa varieties, Author copy of Duke Math. J. 146 (2009), 509–568; 44 pages, locators below use author-copy printed pages, equal to PDF pages.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+   "reviewReason": "The two orthogonal idempotents in Q×Q forbid its embedding into a field, while the singleton index of the merged type forces a one-factor common refinement. Factorwise embeddings with summed multiplicities remove the contradiction; the existing merge-factors test now has an exact relation to test."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-1",
@@ -197220,9 +197263,9 @@
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
    "citation": "Peter Scholze, The Local Langlands correspondence for GL_n over p-adic fields, Author PDF dated 7 October 2010, 37 pages; arXiv:1010.1540v1 pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "reviewReason": "Confirmed against Lemma 6.1 and its proof: the modulus uses |ϖ_F|=q⁻¹, so residue degree two distinguishes q from p."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-2",
@@ -197240,9 +197283,72 @@
    "owner": "EndoscopicTransferAndUnitaryTraceComparison",
    "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
    "citation": "Hervé Jacquet, Ilya Piatetski-Shapiro and Joseph Shalika, Conducteur des représentations du groupe linéaire, Mathematische Annalen 256 (1981), 199–214; published scan on Jacquet’s page, one cover page",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "reviewReason": "Confirmed in the 1981 scan and Jacquet 2012 Remark 1: the older ideal argument is incomplete, while the replacement proves nonvanishing at every tuple before using the Nullstellensatz."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-3",
+   "kind": "error",
+   "locator": "7 October 2010 author PDF, proof of Corollary 10.3 p.27, compared with Corollary 10.1 p.26; related proof choice in Theorem 10.6 p.27",
+   "printed": "After globalizing π∨ with π_w=π∨⊗χ, the proof proposes a⁻¹W∨⊗χ_sim⁻¹⊗χ⁻¹, although Corollary 10.1 has the trace of W⊗χ_sim.",
+   "correction": "Use rec_un(π)=a⁻¹W⊗χ_sim⊗χ. For restricted global extraction, globalize Π∨ and use the effective sign(a)W⊗χ_ψ; no later local duality theorem is needed.",
+   "reason": "With χ(ϖ)=u and f supported on determinant valuation r, tr(f∨|π_w)=u⁻ʳtr(f|π), whereas tr(h∨|π_w)=tr(h|π). Corollary 10.1 therefore gives the trace of a⁻¹W⊗χ_sim multiplied by uʳ. It cannot instead give its dual and inverse twists. This direct substitution also fixes the effective global construction.",
+   "affects": "the proof",
+   "known": "No correction located for the hashed 2010 author copy; the published 2013 text was inaccessible and is not accused of this error.",
+   "searched": [
+    "Scholze publication page and linked 2010 LocalLanglands.pdf, checked 2026-10-14",
+    "arXiv:1010.1540 version history, v1 only; no correction located, checked 2026-10-14",
+    "Springer published article page: full PDF unavailable without access; published text not collated"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+   "citation": "Peter Scholze, The Local Langlands correspondence for GL_n over p-adic fields, Author PDF dated 7 October 2010, 37 pages; arXiv:1010.1540v1 pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "reviewReason": "Confirmed by substituting π_w∨=π⊗χ⁻¹ into Corollary 10.1 and using determinant valuation r; the positive twists follow without any duality input."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-4",
+   "kind": "misprint",
+   "locator": "7 October 2010 author PDF, definition of [Rψ](ρ), statement and proof of Corollary 11.3 and Remark 11.4 p.29; ensuing Corollary 11.5 proof p.30",
+   "printed": "The statement labels the multiplicity by ρ∨, while its preceding Hom definition and final proof integral use ρ.",
+   "correction": "With M(ρ)=Hom_{D×}(ρ,c-Ind[RΨ]), the identity is M(ρ)=(−1)^{n−1}π∨|_K⊗rec_un(π), π=JL(ρ). Use that same multiplicity in the ensuing integrality argument.",
+   "reason": "The proof integrates tr(d⁻¹|R)Θ_ρ(d), which is the character projector to Hom(ρ,R). On a finite cyclic quotient a character ρ of order greater than two contributes average ρ(d⁻¹)ρ(d)=1; replacing that multiplicity by ρ∨ gives average ρ(d)²=0. The h∨ trace accounts separately for π∨.",
+   "affects": "a stated result",
+   "known": "No correction located for the hashed 2010 author copy; no assertion is made about the inaccessible published text.",
+   "searched": [
+    "Scholze publication page and linked 2010 LocalLanglands.pdf, checked 2026-10-14",
+    "arXiv:1010.1540 version history, v1 only; no correction located, checked 2026-10-14",
+    "Springer published article page: full PDF unavailable without access; published text not collated"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+   "citation": "Peter Scholze, The Local Langlands correspondence for GL_n over p-adic fields, Author PDF dated 7 October 2010, 37 pages; arXiv:1010.1540v1 pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "reviewReason": "Confirmed from the Hom definition and final character integral on p.29, including the finite cyclic projector check; the correction is scoped to the author copy."
+  },
+  {
+   "id": "EndoscopicTransferAndUnitaryTraceComparison/E-ET6-5",
+   "kind": "misprint",
+   "locator": "7 October 2010 author PDF, generalized-Speh definition before Lemma 3.1 and the tempered family in Lemma 3.1(i), p.9",
+   "printed": "With n=dt fixed, the generating supercuspidal is labelled as a GL_k representation; the tempered comparison family then uses t copies of the rank-n Speh symbol instead of the rank-d supercuspidal symbol.",
+   "correction": "Take the generating supercuspidal ρ on GL_d(F), and form the tempered family from t unitary unramified twists of that ρ.",
+   "reason": "The ranks of the t inducing blocks must sum to n=dt. Reusing the rank-n Speh representation would instead produce rank tn. The compact type proof on the same page specifies the intended supercuspidal inertial support.",
+   "affects": "nothing",
+   "known": "No correction located for the hashed 2010 author copy; the published text was not collated.",
+   "searched": [
+    "Scholze publication page and linked 2010 LocalLanglands.pdf, checked 2026-10-14",
+    "arXiv:1010.1540 version history, v1 only; no correction located, checked 2026-10-14",
+    "Springer published article page: full PDF unavailable without access; published text not collated"
+   ],
+   "owner": "EndoscopicTransferAndUnitaryTraceComparison",
+   "file": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+   "citation": "Peter Scholze, The Local Langlands correspondence for GL_n over p-adic fields, Author PDF dated 7 October 2010, 37 pages; arXiv:1010.1540v1 pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
+   "reviewReason": "Confirmed the two index slips at p.9; the rank count and inertial-support argument uniquely identify the intended lower-rank supercuspidal."
   },
   {
    "id": "EndoscopicTransferAndUnitaryTraceComparison/E2",
@@ -203556,9 +203662,9 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "HYP Remark 1, p. 12, says the fundamental sequences of [21] (KM06) had properties 1–2 and should also have had property 3; QE-FREE Definition 1, p. 3, states property 3 with isolators. (HYP Definition 5 states property 3 without isolators, a weaker condition; this roadmap uses QE-FREE's.)"
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E2",
@@ -203578,14 +203684,14 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "QE-FREE footnote 3, p. 35, calls the choice in KM06 §11.2 an easy-to-fix error and gives the correction recorded here."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E3",
    "kind": "error",
-   "locator": "Definition 20 (reducing quotients), p. 483 of the journal version, as described in KM-RESPONSE item (3) and SELA-REPORT item (3); KM06 itself not read",
+   "locator": "Definition 20 (reducing quotients), p. 483 of the journal version, as described in KM-RESPONSE item (3) and SELA-REPORT §3 item (3), p. 7; KM06 itself not read",
    "printed": "a reducing quotient is defined by three alternative conditions",
    "correction": "the third condition is removed: a reducing quotient has a non-trivial free decomposition modulo the image of H or a new elementary abelian splitting modulo it (QE-FREE Definition 4)",
    "reason": "SELA-REPORT item (3): K = ⟨a₁,a₂⟩ ∗ ⟨b₁,b₂⟩ ∗ ⟨c₁,c₂⟩ amalgamated along commutators, H the genus-2 subgroup and τ : c_i ↦ b_i make H a reducing quotient under the printed definition and contradict Lemma 19; under the two-item definition H is not reducing (FO4/reducing-quotient test)",
@@ -203600,9 +203706,9 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "KM-RESPONSE item (3), p. 2, says item (3) of Definition 20 was removed after N. Touikan's remark (the authors call it a misprint); SELA-REPORT §3 item (3), p. 7, gives the example recorded here; QE-FREE Definition 4, p. 22, has the two-item definition."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E4",
@@ -203622,9 +203728,9 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "KM-RESPONSE item (2), p. 2, supplies the missing word 'non-transcendental' and says the lemma is only used for such solutions; SELA-REPORT §3 item (2), p. 6, gives the counterexample to the printed statement."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E5",
@@ -203644,9 +203750,9 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "KM-RESPONSE items (6)–(8), pp. 2–3, concede that the sentence is missing on p. 506; QE-FREE §3.3, pp. 9–10, adds the conjugating elements."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E6",
@@ -203666,16 +203772,16 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "KM-RESPONSE item (35), pp. 5–6, gives the omitted sentence for p. 529, line 8."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E7",
    "kind": "gap",
    "locator": "Theorem 11 (the bound on the number of MAX-classes of algebraic solutions), effectiveness of the bound, as described in KM-RESPONSE item (5) and QE-FREE §4.2; KM06 itself not read",
    "printed": "the bound N(K, H) is asserted to be effectively computable with a sketched proof",
-   "correction": "N(K, H) is found by deciding, for m = 1, 2, …, an existential sentence (rigid case) or an ∃∀-sentence (solid case) until it is false (QE-FREE Theorem 7 and proof, pp. 24–25; FO5/effective-bound)",
+   "correction": "N(K, H) is found by deciding, for m = 1, 2, …, an existential sentence (rigid case) or an ∃∀-sentence (solid case) until it is false (QE-FREE Theorem 7 and its proof, p. 25; FO5/effective-bound)",
    "reason": "the authors agree the proof of effectiveness was sketchy (KM-RESPONSE item (5)) and give it in QE-FREE; the algorithm uses the decidability of the ∀∃-theory, which does not use the bound",
    "affects": "the proof",
    "known": "QE-FREE v4, §4.2",
@@ -203688,14 +203794,14 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "KM-RESPONSE item (5), p. 2, agrees the proof of effectiveness was sketchy; QE-FREE Theorem 7, p. 25, gives the search; SELA-REPORT §3 items (4)–(5), p. 7, dispute the argument for the bound itself, which this roadmap keeps under the gap 'KM06 not read directly'."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E8",
    "kind": "error",
-   "locator": "Theorem 7 (classification of finitely generated groups elementarily equivalent to a non-abelian free group) with the definition of hyperbolic ω-residually free towers, pp. 8–9 of the author's copy; also SELA-ICM Theorem 6, p. 90",
+   "locator": "Theorem 7 (classification of finitely generated groups elementarily equivalent to a non-abelian free group), p. 14 of the author's copy, with the definition of hyperbolic ω-residually free towers on pp. 8–9; also SELA-ICM Theorem 6, p. 90",
    "printed": "a finitely generated group is elementarily equivalent to a non-abelian free group iff it is a non-elementary hyperbolic ω-residually free tower, where the first level may contain any closed hyperbolic surface group other than the non-orientable one of genus 2",
    "correction": "the base surfaces must have Euler characteristic ≤ −2 and the floors must be allowed to be extended hyperbolic floors: a finitely generated group is a model iff it is an extended hyperbolic tower over the trivial subgroup (LPS Theorem 3.6)",
    "reason": "the closed non-orientable surface group of genus 3 (χ = −1) is a tower under the printed definition, but Vaught's sentence ∀x∀y∀z (x²y²z² = 1 → [x, y] = [x, z] = [y, z] = 1) holds in free groups (Lyndon) and fails in it (KM-RESPONSE item (57)(a)); LPS p. 8 records that the definition was slightly too restrictive in other respects and that some results were misstated",
@@ -203709,9 +203815,9 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Zlil Sela, Diophantine geometry over groups VI: the elementary theory of a free group, Geom. Funct. Anal. 16 (2006), 707–730; the author's copy (24 pp., page numbers 1–24 of that copy cited), read as page images because its fonts do not extract",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "SELA-VI p. 8 admits every closed hyperbolic surface except the non-orientable one of genus 2 at the first level, so the genus-3 non-orientable surface group is a tower; Vaught's sentence separates it from F (KM-RESPONSE item (57)(a), p. 7); Theorem 7 is on p. 14, not pp. 8–9 (locator corrected); LPS Theorem 3.6 and PERIN p. 17 give the corrected statement."
   },
   {
    "id": "FreeGroupsFirstOrderTheory/E9",
@@ -203731,9 +203837,109 @@
    "owner": "FreeGroupsFirstOrderTheory",
    "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
    "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "KM-RESPONSE item (1), p. 2, concedes the inaccuracy and states only the commutation is used; SELA-REPORT §3 item (1), p. 6, attributes the counterexample to Levitt."
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E10",
+   "kind": "misprint",
+   "locator": "p. 518, lines 20–22 of the journal version, as described in SELA-REPORT §3 item (12), pp. 9–10, and KM-RESPONSE item (12), p. 3; KM06 itself not read",
+   "printed": "in the construction of the ∀∃-tree, if F_{R(U₀)} splits as a free product one continues with each freely indecomposable factor separately",
+   "correction": "the free factors are treated together, never one at a time",
+   "reason": "SELA-REPORT calls the factor-by-factor reduction a crucial mistake; the authors reply that it is a regrettable misprint, that everything after line 22 treats the factors together and that the wrong statement is never used; QE-FREE §3.4 (p. 12) works modulo the images of all the free factors at once",
+   "affects": "the proof",
+   "known": "acknowledged as a misprint in KM-RESPONSE item (12)",
+   "searched": [
+    "QE-FREE arXiv:1207.1900v4 (the latest version)",
+    "KM-RESPONSE arXiv:1402.0482v3",
+    "SELA-REPORT arXiv:1401.5711v1"
+   ],
+   "owner": "FreeGroupsFirstOrderTheory",
+   "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+   "citation": "Olga Kharlampovich, Alexei Myasnikov, Elementary theory of free non-abelian groups, J. Algebra 302 (2006), 451–552",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "added by the review from SELA-REPORT §3 item (12) and KM-RESPONSE item (12), both read at their locators; scoped to these descriptions"
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E11",
+   "kind": "misprint",
+   "locator": "§4.1, Theorem 6, p. 23; §5.2, after Corollary 1, p. 33; §5.4, last paragraph, p. 37 (arXiv:1207.1900v4)",
+   "printed": "the Boolean combinations produced are said to consist of formulas 'of type (4)'",
+   "correction": "of type (1): the conjunctive ∃∀-formulas ∃X∀Y(U = 1 ∧ V ≠ 1) of p. 1",
+   "reason": "formula (4) of the paper, on p. 4, is the quadratic relation added at a QH vertex in the construction of canonical NTQ systems; Theorem 6 itself names the class as conjunctive ∃∀-formulas, which are formula (1)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "QE-FREE arXiv:1207.1900v4 (the latest version; earlier versions not compared)"
+   ],
+   "owner": "FreeGroupsFirstOrderTheory",
+   "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+   "citation": "Olga Kharlampovich, Alexei Myasnikov, Quantifier elimination algorithm to boolean combination of ∃∀-formulas in the theory of a free group, arXiv:1207.1900v4 (12 September 2019), 40 pp.; PDF page numbers cited",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "added by the review after reading pp. 1, 4, 23, 33 and 37"
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E12",
+   "kind": "misprint",
+   "locator": "§3.2, p. 8 (arXiv:1207.1900v4); the same in HYP §4.2, p. 28 (arXiv:1303.0760v8)",
+   "printed": "the level maps are written π_i : F_{R(Q_i,…,Q_n)} ∗ F(t₁,…,t_{k_{i−1}}) → F_{R(Q_{i+1},…,Q_n)} ∗ F(t₁,…,t_{k_i}), indexing the free variables cumulatively, while the dimension is defined as k₁ + ⋯ + k_n",
+   "correction": "k_i is the number of free variables added at level i (as the tree construction uses it: 'top dimension component k₁', 'the sum of the first two dimensions k₁ + k₂', QE-FREE p. 13, HYP p. 33); the free factor at level i + 1 has k₁ + ⋯ + k_i variables, and the dimension k₁ + ⋯ + k_n is the total number of free variables",
+   "reason": "with the cumulative reading the sum would count the variables of the upper levels repeatedly; with the per-level reading the index notation is wrong; the uses on p. 13 fix the per-level reading",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "QE-FREE arXiv:1207.1900v4",
+    "HYP arXiv:1303.0760v8"
+   ],
+   "owner": "FreeGroupsFirstOrderTheory",
+   "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+   "citation": "Olga Kharlampovich, Alexei Myasnikov, Quantifier elimination algorithm to boolean combination of ∃∀-formulas in the theory of a free group, arXiv:1207.1900v4 (12 September 2019), 40 pp.; PDF page numbers cited",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "added by the review after reading QE-FREE pp. 8 and 12–13 and HYP pp. 28 and 33"
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E13",
+   "kind": "misprint",
+   "locator": "§4.4, Definition 13, p. 26, and the proof of Theorem 4, p. 27 (arXiv:math/0312509v2)",
+   "printed": "Definition 13 says that G freely lifts φ when φ₀(x₁, q₁, …) '= 1' holds in F[X]; the proof of Theorem 4 obtains the words q_i 'from the argument in Theorem 4'",
+   "correction": "F freely lifts φ when the quantifier-free formula φ₀(x₁, q₁, …, x_k, q_k) holds in F[X] (no '= 1'); the words q_i come from the argument of Merzljakov's theorem (p. 25)",
+   "reason": "the definition concerns the free group F, whose words q_i it uses, and Theorem 4 is stated for F; the proof of Theorem 4 cannot rest on Theorem 4, and the construction cited is the one of Merzljakov's theorem on p. 25, with the same words g_i",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "IFT arXiv:math/0312509v2"
+   ],
+   "owner": "FreeGroupsFirstOrderTheory",
+   "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+   "citation": "Olga Kharlampovich, Alexei Myasnikov, Implicit function theorem over free groups, J. Algebra 290 (2005), 1–203; arXiv:math/0312509v2 (printed page numbers of the arXiv version cited)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "added by the review after reading pp. 25–27"
+  },
+  {
+   "id": "FreeGroupsFirstOrderTheory/E14",
+   "kind": "misprint",
+   "locator": "§3.3, before Theorem 3.6, p. 8 (arXiv:1208.2858v1)",
+   "printed": "the classification of finitely generated models is attributed to Theorem 6 of [Sel06], Sela's Diophantine geometry VI",
+   "correction": "it is Theorem 7 of Diophantine geometry VI (p. 14 of the author's copy); Theorem 6 is its numbering in Sela's ICM survey",
+   "reason": "SELA-VI has no Theorem 6 (Proposition 6 on p. 9 is the necessity half, Theorem 7 on p. 14 the classification); SELA-ICM labels the statement Theorem 6 ([Se7], 7)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "LPS arXiv:1208.2858v1",
+    "SELA-VI author's copy",
+    "SELA-ICM arXiv:math/0304209v1"
+   ],
+   "owner": "FreeGroupsFirstOrderTheory",
+   "file": "research/blueprint/packets/FreeGroupsFirstOrderTheory.json",
+   "citation": "Larsen Louder, Chloé Perin, Rizos Sklinos, Hyperbolic towers and independent generic sets in the theory of free groups, Notre Dame J. Formal Logic 54 (2013), 521–539; arXiv:1208.2858v1 (PDF page numbers cited)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-FGFO",
+   "reviewReason": "added by the review after reading LPS p. 8, SELA-VI pp. 9 and 14 and SELA-ICM p. 90"
   },
   {
    "id": "FunctionFieldArithmetic/E1",
@@ -204641,6 +204847,146 @@
    "status": "confirmed",
    "reviewedBy": "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5",
    "reviewReason": "The cited prepublication remarks and the residue-root paragraph omit the prime-to-p qualification: in characteristic p no root has order divisible by p. The cyclic p-group is a direct counterexample to requiring primitive roots of the full exponent. This confirms the remarks error only, not a false Theorem 9.2.7; its characteristic-p hypothesis may be vacuous. The finite splitting-field proof here uses 9.2.6 instead of assuming a corrected theorem. The published edition was not collated."
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E19",
+   "kind": "misprint",
+   "locator": "Proposition 9.4.5(5), final equivalence, p. 151, author prepublication PDF dated 23 February 2016",
+   "printed": "The criterion for two projective RG-modules L₁,L₂ to be isomorphic compares the reduction of L₁ with itself.",
+   "correction": "The right-hand reduction must be L₂/πL₂.",
+   "reason": "As printed, the right-hand condition is always true, even for free RG-modules of different ranks. The preceding unique-lift assertion proves the intended comparison.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Webb’s linked Typos file on the book page, read 2026-10-14: no entry for Proposition 9.4.5(5).",
+    "The published Cambridge edition was not collated; the claim concerns only the linked prepublication PDF."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Peter Webb, A Course in Finite Group Representation Theory, Cambridge Studies in Advanced Mathematics 161 (2016); the author's prepublication version of 23 February 2016, which he states has the same mathematical content (printed page = PDF page − 7)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E20",
+   "kind": "misprint",
+   "locator": "Theorem 2.1.10 proof, p. 3, author notes version 26 February 2018",
+   "printed": "In adjoining x to the domain, the extension formula adds kx to g(h), although x is in the source group, and the subsequent multiple of l has its sign reversed.",
+   "correction": "Choose ly=g(lx) in the divisible target and set the extension value to g(h)+ky. If h+kx=h′+k′x, use k′−k=sl, hence h−h′=slx.",
+   "reason": "The target sum must lie in D. With the corrected sign, g(h)−g(h′)=(k′−k)y proves well-definedness.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
+    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E21",
+   "kind": "misprint",
+   "locator": "Corollary 8.1.5 proof, p. 52, author notes version 26 February 2018",
+   "printed": "The compact-product argument repeats V when listing the two compact factors.",
+   "correction": "Both V and the lattice factor D are compact.",
+   "reason": "Projection from the topological product makes each factor compact; this forces both its vector dimension and lattice rank to be zero.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
+    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E22",
+   "kind": "misprint",
+   "locator": "Lemma 8.2.1 proof, pigeonhole comparison on p. 53, author notes version 26 February 2018",
+   "printed": "One fractional-part tuple uses the basis vectors vᵢ instead of the coordinates hᵢ of the element under consideration.",
+   "correction": "Compare the two tuples ({mh₁},…, {mh_n}) and ({lh₁},…, {lh_n}).",
+   "reason": "Only these tuples yield a small nonzero vector (m−l)h−z in H, the contradiction used immediately after the comparison.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
+    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E23",
+   "kind": "misprint",
+   "locator": "Lemma 8.2.3 and Exercise 8.2.4 proofs, pp. 53–54, author notes version 26 February 2018",
+   "printed": "The cyclic intersection H₁=H∩L is written as H in the cyclicity assertion; the subsequent lift range runs to n rather than the number of projected generators.",
+   "correction": "Use H₁ for the cyclic subgroup and index the lifted projected generators over their displayed generating family.",
+   "reason": "A discrete H in Rⁿ can have rank greater than one; only its nonzero subgroup in the line L is cyclic. A lift exists for each displayed projected generator, not for extra ambient-coordinate indices.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
+    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E24",
+   "kind": "misprint",
+   "locator": "Lemma 8.2.5 proof, limit line in Case 2, p. 54, author notes version 26 February 2018",
+   "printed": "The approximating vector in the membership/limit line uses the limiting direction u₀ rather than the chosen direction u_n.",
+   "correction": "Use k_n λ_n u_n∈H, with k_nλ_n→ξ and u_n→u₀; closedness then gives ξu₀∈H.",
+   "reason": "Membership is known for λ_nu_n. Replacing its direction before taking the limit is not justified. The packet’s small-vector proof takes the limit of the actual elements of H.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author source page and linked correction list checked on 2026-10-14; no correction for this item found.",
+    "Finding is scoped to the author PDF/version read; no later printed edition was collated."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GL2AutomorphicRepresentationsAndTransfer/E25",
+   "kind": "error",
+   "locator": "Lemma 8.0.7 proof, p. 51, author notes version 26 February 2018",
+   "printed": "The local lift ξ∘q is said to have open image before openness of q is assumed. In the final paragraph q(U₁) is placed in W₁, a subset of the source of the quotient map.",
+   "correction": "Before the additional open-map hypothesis conclude only continuity and local additivity. In the open-map paragraph use q(U₁)⊆p(W₁).",
+   "reason": "Take H=R, D=0 and q=0: the local lift has singleton image, which is not open. The lemma remains valid; openness is required only for its additional conclusion, where the quotient-domain notation must be respected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author source page and linked teaching notes checked on 2026-10-14; no correction for this item found.",
+    "Only the dated author PDF was collated; no later printed version is claimed."
+   ],
+   "owner": "GL2AutomorphicRepresentationsAndTransfer",
+   "file": "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.5.json",
+   "citation": "Dikran Dikranjan, Introduction to Topological Groups, Author lecture notes, version 26 February 2018, printed pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E20",
@@ -232017,12 +232363,54 @@
    "reviewReason": "The corrected remark and Proposition 11.7.3 explicitly require splitness to construct the simplicial proper completion. The remark also explains that descent itself has another proof without splitness; the omission concerns this proof route."
   },
   {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E501",
+   "kind": "misprint",
+   "locator": "Lemma 6, proof, p. 4, arXiv:math/0303382v3; published version not inspected",
+   "printed": "With β_i in L^{j_i} and γ_i in L^l, the numerator is written β_i α^{l−2j_i} + γ_i², while the denominator and target power are L^{2l}.",
+   "correction": "Use δ_i = β_i α^{2l−j_i} + γ_i² ∈ Γ(L^{2l}); then δ_i/α^{2l} = f_i + (γ_i/α^l)².",
+   "reason": "The two printed summands have degrees l−j_i and 2l and cannot be added as sections of the stated bundle. The corrected powers give degree 2l in both terms and preserve the differential on S because γ_i vanishes there.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "https://arxiv.org/abs/math/0303382 (latest is v3; version history checked)",
+    "https://kskedlaya.org/papers/ (entry for More étale covers; no linked correction found)",
+    "https://doi.org/10.1090/S1056-3911-04-00381-8 (publisher access refused; published formula unverified)"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.5.json",
+   "citation": "Kiran S. Kedlaya, More étale covers of affine spaces in positive characteristic, arXiv:math/0303382v3 (J. Algebraic Geom. 14 (2005))",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+   "reviewReason": "Checked both line-bundle degrees and the corrected quotient/differential identity in the inspected preprint. No claim is made about the inaccessible published formula."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E502",
+   "kind": "error",
+   "locator": "Proposition 3.10, printed p. 726, published Numdam article; compare proof of Proposition 3.11, p. 727",
+   "printed": "The lifting criterion for strictness of the transpose tests every bounded convex linearly compact subset of the entire codomain W.",
+   "correction": "Test only bounded convex linearly compact subsets C of f(V), with the topology induced from W.",
+   "reason": "The inclusion K → K², x ↦ (x,0), is strict and has strict transpose (a,b) ↦ a. The bounded linearly compact set O_K·(0,1) in W has no inverse image under f. The condition on subsets of f(V) passes this example and is the image in which the subsequent proof lifts null sequences.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "https://www.numdam.org/item/ASENS_1998_4_31_6_717_0/ (published article and item metadata; no linked corrigendum found)",
+    "https://people.clas.ufl.edu/rcrew/ (author page; no linked correction found)",
+    "Web search for Crew Finiteness theorems Proposition 3.10 strictness erratum; no existing correction located"
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.5.json",
+   "citation": "Richard Crew, Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve, Ann. Sci. École Norm. Sup. (4) 31 (1998), 717–763; Numdam",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5",
+   "reviewReason": "Read the published criterion and its subsequent use; the finite-dimensional strict inclusion gives a direct counterexample to the unrestricted codomain condition."
+  },
+  {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD6-1",
    "kind": "error",
    "locator": "Section 2.1.5 (ii), p. 10, arXiv:1910.13391v2",
-   "printed": "The Kummer F-isocrystal is the connection d − a dx/x, and its Frobenius structure (in the direction F^*K_a → K_a fixed in (i)) is multiplication by t^{(q−1)a}.",
+   "printed": "The Kummer F-isocrystal is the connection d − a dx/x, and its Frobenius structure (in the direction F^*K_a → K_a fixed in §2.1.4 and used in (i)) is multiplication by t^{(q−1)a}.",
    "correction": "In the direction F^*K_a → K_a, the horizontal multiplier for ∇ = d − a dx/x is t^{−(q−1)a}; the printed multiplier t^{(q−1)a} is horizontal for the reverse direction K_a → F^*K_a (or, in the printed direction, for ∇ = d + a dx/x). The trace function χ ∘ Norm with χ(x) = x̃^{(q−1)a} belongs to the printed multiplier; in the pullback-to-module convention of this roadmap it corresponds to ∇e = a·e ⊗ dx/x (RD.6/kummer-isocrystal).",
-   "reason": "For F(σ^*e) = h·e with ∇e = −a e dt/t and σ^*(dt/t) = q dt/t, horizontality gives dh/h − a dt/t = −qa dt/t, so dh/h = −(q − 1)a dt/t. The parent packet's E69 corrects the misprint p for q in the pulled-back coefficient but states the logarithmic derivative with the opposite sign; the Kummer part has the same direction issue as the Dwork part recorded in E68.",
+   "reason": "For F(σ^*e) = h·e with ∇e = −a e dt/t and σ^*(dt/t) = q dt/t, horizontality gives dh/h − a dt/t = −qa dt/t, so dh/h = −(q − 1)a dt/t. The parent packet's E69 corrects the misprint p for q in the pulled-back coefficient, but its horizontality inference (dh/h = (q − 1)a dt/t for ∇ = d − a dt/t) holds only in the module-to-pullback direction, not in the pullback-to-module direction Xu–Zhu fix in §2.1.4; the Kummer part has the same direction issue as the Dwork part recorded in E68.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -232032,9 +232420,68 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.6.json",
    "citation": "Daxin Xu, Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391v2 (19 December 2019); Invent. Math. 227 (2022). Printed preprint numbering.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "reviewReason": "Read Xu–Zhu §2.1.4–2.1.5 (pp. 9–10): φ goes from F^*K_a to K_a, and for ∇ = d − a dt/t horizontality forces the multiplier t^{−(q−1)a}; t^{(q−1)a} is horizontal for the reverse arrow or for d + a dt/t. Their trace function χ ∘ Norm with χ(x) = x̃^{(q−1)a} belongs to the printed multiplier."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD6-2",
+   "kind": "misprint",
+   "locator": "(10.6.3), p. 759 (Numdam scan of Ann. Sci. École Norm. Sup. 31, 1998)",
+   "printed": "For an F-isocrystal unipotent at η, with Frobenius structure Φ : F^*M → M and a Frobenius lift t ↦ t^{q_y}, the endomorphism F of the fibre M_η induced by Φ and the monodromy operator N are said to satisfy F N = q_y N F. (The line before (10.6.2) also prints the connection as N ⊗ d/t for N ⊗ dt/t.)",
+   "correction": "N F = q_y F N.",
+   "reason": "On M_η ⊗ A(y) the connection is N ⊗ dt/t and its pullback along t ↦ t^{q_y} is q_y N ⊗ dt/t, so horizontality of the map induced by F reads N F = q_y F N; Kedlaya, Weil II Proposition 6.4.4, p. 48, writes EF = qFE. The printed relation would make N raise Frobenius weights by 2, whereas Theorem 10.8 (gr^M_i of weight β + i, with N mapping M_i into M_{i−2}) needs N to lower them by 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page of the article (ASENS_1998_4_31_6_717_0), checked 2026-10-14: no erratum or corrigendum linked.",
+    "Kedlaya, Weil II §6.4 states the correct relation without comment on Crew."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.6.json",
+   "citation": "Richard Crew, Finiteness theorems for the cohomology of an overconvergent isocrystal on a curve, Ann. Sci. École Norm. Sup. (4) 31 (1998) 717-763 (Numdam scan; printed page = PDF page + 715).",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "reviewReason": "Added by this review; read on the page image of p. 759 and re-derived from the horizontality of Φ."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD6-3",
+   "kind": "error",
+   "locator": "(1.5.1), p. 11, with the Dwork F-isocrystal of p. 10 (Numdam scan of Compositio Math. 91, 1994)",
+   "printed": "The trace of Φ^k on the fibre of Kl(n, ψ) at a fixed point a of the q^k-power Frobenius equals the trace on the ℓ-adic Kloosterman sheaf R^{n−1}p_*f^*L_{ψ_ℓ}, and both equal the sum of ψ ∘ Tr(x_1 + ⋯ + x_n) over x_1⋯x_n = a, x_i ∈ F_{q^k}.",
+   "correction": "Both traces carry the factor (−1)^{n−1}. With the Frobenius structure Crew gives the Dwork F-isocrystal on p. 10 (F(1) = exp(πx^p − πx), in the pullback-to-module direction of §1.1) the p-adic side is moreover the sum for ψ^{-1}: (−1)^{n−1} Σ ψ^{-1} ∘ Tr(x_1 + ⋯ + x_n), which is the ℓ-adic trace for ψ_ℓ^{-1}. For even n the sums for ψ and ψ^{-1} agree; for odd n the sum for ψ^{-1} at a is the sum for ψ at −a.",
+   "reason": "Only H^{n−1}_c of the fibre G_m^{n−1} is nonzero, so the Lefschetz trace formula gives the sign (−1)^{n−1} (for n = 2 the trace is −Σ_x ψ(x + a/x)). The q-power multiplier of Crew's L_ψ is exp(π(x^q − x)) = ∏_{i<s} θ(x^{p^i})^{-1} with θ(t) = exp(π(t − t^p)), and Dwork's identity ∏_{j<s} θ(x̃^{p^j}) = θ(1)^{Tr x}, θ(1) = ψ(1) ≡ 1 + π, gives the trace ψ(Tr x)^{-1} of L_ψ at x (this packet's RD.6/dwork-kummer-sign-dictionary (ii)).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Numdam item page of the article (CM_1994__91_1_1_0), checked 2026-10-14: no erratum or corrigendum linked.",
+    "Fresán–Sabbah–Yu §3.2.2 cite Crew §1.5 for the rigid Kloosterman F-isocrystal but state no trace formula for it."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.6.json",
+   "citation": "Richard Crew, Kloosterman sums and monodromy of a p-adic hypergeometric equation, Compositio Math. 91 (1994) 1-36 (Numdam scan CM_1994__91_1_1_0; printed page = PDF page - 1).",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "reviewReason": "Added by this review; formula read on the page image of p. 11, the Dwork F-isocrystal on p. 10, the direction of Φ on p. 4."
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E-RD6-4",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.4.1, pp. 33-34, arXiv:math/0210149v3",
+   "printed": "Removing a single rational point of the curve is said to increase both sides of (4.4.2) by rank(E).",
+   "correction": "Both sides decrease by rank(E).",
+   "reason": "Removing a rational point x adds rank(E) to dim H^1_rig (the residues at x) and lowers χ(C/K, O_C) by 1, while Swan_x(E) = 0; for E = O and C = A^1, χ(A^1) = 1 and χ(G_m) = 0. The argument only needs the two changes to be equal.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Kedlaya's papers page (kskedlaya.org/papers/), checked 2026-10-14: no erratum listed for this paper; the published version (Compositio Math. 142, 2006) was not collated."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology--RD.6.json",
+   "citation": "Kiran S. Kedlaya, Fourier transforms and p-adic 'Weil II', arXiv:math/0210149v3; Compositio Math. 142 (2006) 1426-1450. Printed page = PDF page; theorem numbers are those of the arXiv version (the published version renumbers some statements, e.g. Fresán–Sabbah–Yu cite its Proposition 5.1.4 for the weights of local invariants).",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6",
+   "reviewReason": "Added by this review; read at pp. 33–34 and checked on E = O."
   },
   {
    "id": "PadicDifferentialEquationsAndRigidCohomology/E701",
@@ -259832,10 +260279,10 @@
   {
    "id": "TorsionCohomologyInfrastructure/E17",
    "kind": "misprint",
-   "locator": "Lemma 2.1.1 proof, p.954, gluing the reductions of the sections",
-   "printed": "The proof attributes agreement of the reduced sections to condition (i) alone.",
-   "correction": "Condition (ii) gives the overlap congruence; condition (i) supplies the unit frame used to divide by it.",
-   "reason": "Condition (i) says only that a distinguished section frames the line. The inequality in (ii) is what makes differences vanish modulo ϖ on overlaps.",
+   "locator": "Lemma 2.1.1 proof, p.954, choosing the function defining an intersection unit locus",
+   "printed": "The choice of f with U_J′={x∈U_J:|f(x)|=1} is attributed only to condition (i).",
+   "correction": "Use (i) for bounded section ratios and (ii) for the unit-locus description of overlaps. For i∈J and J⊂J′, take the product of s_j^(i)/s_i^(i) over j∈J′\\J.",
+   "reason": "Condition (i) bounds the ratios; (ii) identifies where they have absolute value one. Later on the page the reduced-section gluing already correctly cites the overlap bound (iii). There are three numbered hypotheses in the published lemma.",
    "affects": "nothing",
    "known": "PAPER-SCHOLZE-15/E13 in the reviewed extraction",
    "searched": [
