@@ -137,6 +137,12 @@ theorem domination (μ ν : Measure ℂ) [IsFiniteMeasure μ] [IsFiniteMeasure �
     ∀ z : ℂ, logPotential μ z ≤ logPotential ν z + (c : EReal) := by
   sorry
 
+/-- Without positive mass the almost-everywhere premise is vacuous. -/
+example : (∀ᵐ z ∂(0 : Measure ℂ),
+    logPotential 0 z ≤ logPotential 0 z + (-1 : EReal)) ∧
+    ¬ (∀ z : ℂ, logPotential 0 z ≤ logPotential 0 z + (-1 : EReal)) := by
+  sorry
+
 /-! ## Layer 2: External fields and weighted equilibrium -/
 
 /-- Admissibility is lower semicontinuity, a finite lower bound and nonpolar finite locus. -/
@@ -170,6 +176,10 @@ example : fieldWeight (fun _ => ⊤) 0 = 0 := by sorry
 example : fieldWeight (fun _ => 0) 0 = 1 := by sorry
 example : weightedEnergy 0 (fun _ => 0) = 0 := by sorry
 example : weightedEnergy (Measure.dirac (0 : ℂ)) (fun _ => 1) = ⊤ := by sorry
+/-- A constant field shifts a probability's energy by twice that constant. -/
+example (μ : ProbabilityMeasure ℂ) :
+    weightedEnergy (μ : Measure ℂ) (fun _ => 1) = logEnergy (μ : Measure ℂ) + 2 := by
+  sorry
 example (w : ℝ → ℝ) (t : ℝ) (p : ℝ[X]) : weightedNorm ∅ w t p = 0 := by sorry
 example : weightedNorm (Icc (0 : ℝ) 1) (fun _ => 2) 3 1 = 8 := by sorry
 example : potentialWeight 0 0 = 1 := by sorry
@@ -441,7 +451,7 @@ theorem serre_witness_numerics :
       (1898303 / 1000000 : ℝ) < m ∧ m < (1898304 / 1000000 : ℝ) := by
   sorry
 
-/-- CA.6 identifies this cofinite trace quantity with its classical λSSS. -/
+/-- The classical λSSS interpretation requires CA.6's trace-indexing extension. -/
 theorem trace_constant_bound :
     cofiniteMean (Ici (0 : ℝ)) id < ((189831 / 100000 : ℝ) : EReal) := by
   sorry
