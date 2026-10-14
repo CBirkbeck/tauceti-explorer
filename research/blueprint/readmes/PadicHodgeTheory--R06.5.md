@@ -1,798 +1,1518 @@
-# P-adic Hodge theory and geometric comparison — part R06.5
+# P-adic Hodge theory: geometric periods and arithmetic consequences
 
-## Purpose
+This part specifies R06.5 and R06.6. Its outputs are the rational period realizations of proper smooth and
+proper semistable spaces over p-adic fields, their dual and twist conventions, and the arithmetic consequences
+for abelian varieties and Tate curves. The period rings, admissible categories and potential-period descent of
+R06.1–R06.4, and the coefficient comparison of P8, are suppliers. This part turns those interfaces into
+geometric and arithmetic realizations.
 
-This is part 2 of 2 of the roadmap `PadicHodgeTheory`. Part 1 (`PadicHodgeTheory--P7`: stages P7, P7:annulus-foundations, P8, P8:local-rational and R06.1–R06.4) plans the period rings, the period functors, the p-adic monodromy theorem and the small-weight interface. This part plans the two remaining stages:
+A contributor should be able to identify each target’s carrier, hypotheses, actual comparison map, proof route
+and supplier without guessing. The packet has 18 targets: 15 theorems, one application, one construction and
+one definition. Both layers are planned; their supplier contracts and the single unread-source proof boundary
+prevent a claim of closure. Every implementation status is unchecked.
 
-- R06.5, geometric comparison theorems: the comparison of CohomologyComparisons CP.2 read through the period functor D_cris, its applications to abelian varieties (D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, ordinary and supersingular elliptic curves), and to modular curves and Kuga–Sato varieties (the de Rham realisation of a newform, crystallinity at primes not dividing the level, weight two, and the endpoint weights k = p and k = p + 1);
-- R06.6, arithmetic consequences: Kummer extensions and the Tate curve, the p-adic criterion of good reduction, semistable reduction, elliptic curves with v(j) < 0, local–global compatibility at good places, and the inputs of AutomorphicGaloisRepresentations R19: compatibility at p with local Langlands for modular forms (Scholl, Saito) and for Hilbert modular forms through Shimura curves (Saito).
+## Ownership and inputs
 
-This document is the third checkpoint. Its sources are public:
+R06.5 owns rational proper smooth de Rham and good-reduction crystalline realizations, proper semistable
+period assembly, geometric potential admissibility, and the abelian consequences below. A_inf and crystalline
+cohomology own their sites, complexes and specialization maps. Integral comparison diagrams, integral lattices
+in higher cohomology and general integral correspondence diagrams belong to CohomologyComparisons. Finite flat
+groups owns Dieudonné and Barsotti–Tate classifications; Néron models owns the reduction geometry and Raynaud
+uniformization. Modular-curve, Kuga–Sato and Shimura-curve applications belong to
+AutomorphicGaloisRepresentations R19.5; higher-rank cases belong to its Part II AG2.6.
 
-- Berger, *An introduction to the theory of p-adic representations* (arXiv:math/0210184), II.3–II.5, for the Tate curve and the Kummer extensions;
-- Brinon–Conrad, *CMI Summer School notes on p-adic Hodge theory* (2009), §§7–9, for Grothendieck's criterion, the filtered φ-module of a smooth proper O_K-scheme, the ordinary/supersingular example and the Kummer classes;
-- Coleman–Iovita, *The Frobenius and monodromy operators for curves and abelian varieties* (arXiv:math/9701229), Introduction, for the statement of the good-reduction criterion;
-- Diamond–Flach–Guo, *Adjoint motives of modular forms and the Tamagawa number conjecture* (arXiv:2512.02348v2, the revised version of their Ann. Sci. ÉNS 2004 article), for the motive of a newform, its Hodge filtration, Scholl's crystalline Frobenius and the compatibility with local Langlands;
-- T. Saito, *Hilbert modular forms and p-adic Hodge theory* (arXiv:math/0612077), §2, for the Hilbert case and the method;
-- Darmon–Diamond–Taylor, *Fermat's Last Theorem* (revision of 2007), Theorem 3.1, for weight two;
-- Khare–Wintenberger, *Serre's modularity conjecture (I)* (authors' copy), Theorem 4.1, for the crystalline weights up to p + 1 that the lifting theorems consume.
+The rational comparison targets in this part use the tier-13 bundle AInfCohomology, PadicHodgeTheory,
+PerfectoidQuotients and PrismaticCohomology, and lower-tier inputs. They do not require the tier-14
+CohomologyComparisons plan. The exact ownership and supplier-reference updates are recorded in the handoff.
+Néron R11.5 consumes these period conclusions and is never an input to the good-reduction proof.
 
-The heavy inputs are imported, not rebuilt: the proper-smooth comparison isomorphisms from CohomologyComparisons CP.2 and PadicHodgeTheory P8, Tsuji's semistable comparison from CP.4, Katz–Messing from PadicDifferentialEquationsAndRigidCohomology RD.7, p-divisible groups and Kisin's classification from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1–R07.6, the modular abelian varieties and Eichler–Shimura from ModularCurvesPartII R14.5–R14.6, and Berger's theorem on de Rham extensions of semistable representations from PadicHodgeTheory R06.4.
+### Checked library baseline
 
-## Scope and boundaries
+The compilation pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369. Each declaration below was read with its hypotheses at those pins.
+The reviewed library-coverage file contains no coverage record for these two layers; AUDIT-37 is an unreviewed
+lead, not accepted evidence of implementation.
 
-- Sites, crystals and the geometric comparison morphisms are not constructed here (stage text). The crystalline comparison is CohomologyComparisons CP.2; the de Rham comparison and its compatibilities are PadicHodgeTheory P8/proper-smooth-de-rham-comparison-application.
-- Tate modules of abelian varieties are ArithmeticGaloisRepresentations R01.6, the Weil pairing AbelianSchemesAndArithmeticModuli A3, relative de Rham cohomology A4, Néron models and Raynaud's uniformisation NeronModelsAndSemistableAbelianVarieties R11.1 and R11.3, the Tate curve the Tau Ceti EllipticCurves Layer 4, and Kummer theory in continuous cohomology ArithmeticGaloisDuality R02.1.
-- The Galois representations of modular forms and their Kuga–Sato construction are AutomorphicGaloisRepresentations R19.1, Carayol's theorem R19.4, local Langlands for GL_2 GL2AutomorphicRepresentationsAndTransfer R16.3, Deligne–Rapoport models ModularCurvesPartII R13.5 and Shimura curves HilbertModularVarietiesAndShimuraCurves R18.2. Each enters through a request.
-- Néron–Ogg–Shafarevich for ℓ ≠ p and the relation between N and the monodromy pairing are NeronModelsAndSemistableAbelianVarieties R11.5.
-- The stage text's two warnings are respected: the Tate curve is the stage's de Rham representation that is not crystalline, and the local–global statements concern newforms and Tate modules, never a compatible system without the extra hypothesis of its source.
+`mathlib:cyclotomicCharacter` — cyclotomicCharacter L p : (L ≃+* L) →* Z_p×. Its spec describes the action on
+p^n-th roots when L has enough p-power roots of unity; without that hypothesis its definition can default to
+the trivial character. Restrict to K-algebra automorphisms of Kbar for the G_K action. Module:
+`Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean`.
+
+`mathlib:WeierstrassCurve.HasGoodReduction` — HasGoodReduction R W extends IsMinimal R W with valuation of Δ
+equal to 1; hasGoodReduction_iff_isElliptic_reduction. Module:
+`Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean`.
+
+`mathlib:WeierstrassCurve.HasMultiplicativeReduction` — HasMultiplicativeReduction R W extends IsMinimal R W:
+v(Δ) < 1 and v(c₄) = 1. Module: `Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean`.
+
+`mathlib:WeierstrassCurve.HasSplitMultiplicativeReduction` — HasSplitMultiplicativeReduction R W extends
+HasMultiplicativeReduction R W: the tangent quadratic at the node splits over the residue field. Module:
+`Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean`.
+
+`tauceti:TauCeti.AlgebraicGeometry.AbelianVariety` — AbelianVariety K is a proper geometrically integral group
+object in schemes over Spec K. Smoothness, geometric connectedness and commutativity are derived properties;
+dim is topological Krull dimension. It does not supply an abelian scheme, Tate representation or period
+comparison. Module: `TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean`.
+
+`tauceti:TauCeti.kummerCocycle` — For a∈K× and α^n=a in the separable closure, the finite-level Kummer cocycle
+of AbsoluteGaloisGroup K with values in KummerCoeff K n. Module:
+`TauCeti/FieldTheory/GaloisCohomology/Kummer.lean`.
+
+`tauceti:TauCeti.kummerCocycle_mem_Z1` — The finite Kummer cocycle is continuous and satisfies the continuous
+degree-one cocycle identity. Module: `TauCeti/FieldTheory/GaloisCohomology/Kummer.lean`.
+
+`mathlib:Representation` — Representation k G V is G →* (V →ₗ[k] V) for a k-module V; continuity is an
+additional assertion, not included in this algebraic carrier. Module:
+`Mathlib/RepresentationTheory/Basic.lean`.
+
+`mathlib:Matrix.det_fin_two` — For a 2×2 matrix A over a commutative ring, det A=A₀₀A₁₁−A₀₁A₁₀. Module:
+`Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean`.
+
+### Existing current work
+
+Current Tau Ceti was checked separately at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Its elliptic Tate
+representation, inverse-limit Weil pairing and determinant theorem are existing library work. They are
+imported, and this part supplies their period realizations. Their presence at current main is not a claim that
+those same modules are present at the older compilation pin.
+
+`WeierstrassCurve.tateModuleGaloisRepresentation` — The actual elliptic Z_p Tate-module representation on
+K-algebra automorphisms, assembled from point actions at each level.
+
+`WeierstrassCurve.tateModuleWeilPairing` — The bilinear inverse-limit Weil pairing with target PadicTateTwist
+p K over a separably closed field with p invertible.
+
+`TauCeti.det_tateModuleGaloisRepresentation` — The basis-independent determinant of the elliptic Tate
+representation equals the cyclotomic character; this packet only realizes that statement under period
+functors.
+
+`padicCompletionUnits`, `padicCompletionUnitsOf`, `torsion_padicCompletionUnits`,
+`padicCompletionUnits_quotient_torsion_linearEquiv` — The completed multiplicative carrier, its finite
+p-power-root torsion, and its free quotient; import these rather than introduce a second completion.
+
+The current LocalGaloisGroups roadmap Layer 7 owns padicCompletionUnits and its torsion/free quotient. Its
+Suggested.lean and reader were inspected. The atlas snapshot does not yet give that newer roadmap a stage id,
+so the R02.1 Kummer adapter names the actual imported carrier rather than introducing a fictional pinned
+declaration. LocalFieldsRamification supplies the principal-unit logarithm and valuation calculation.
+
+The current roadmaps absent from the older snapshot were also checked for overlap: AlgebraicVectorBundles,
+DifferentialGeometry, IntegralLattices, LocalGaloisGroups, OperatorTheory, OrthogonalSpinGroups,
+PeripheralActions, ProfiniteArithmetic and RealAlgebraicGeometry. Their geometric/linear/cohomological
+groundwork is imported; this part creates none of those theories.
 
 ## Conventions
 
-K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], v_p(p) = 1, and log_K is the Iwasawa logarithm (log_K(p) = 0). Period functors are covariant, D_B(V) = (B ⊗ V)^{G_K}; the monodromy operator on B_st is N = −d/du (Fontaine–Ouyang, Berger; Brinon–Conrad use −N), so Nφ = pφN and a geometric Frobenius F satisfies FNF^{−1} = q^{−1}N on Weil–Deligne representations; for crystalline V it acts through φ^f. Hodge–Tate weights follow HT(χ_p) = +1: they are the negatives of the jumps of D_dR, so V_p(A) has weights 0 and 1 while H^1_et(A_K̄, Q_p) has weights 0 and −1. For a newform g of weight k, M_{g,λ} is the cohomological realisation (weights 0 and 1 − k, geometric Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} at p ∤ Nℓ, in Diamond–Flach–Guo's normalisation) and V_g its dual. Examples use 11a1 (y² + y = x³ − x² − 10x − 20), 15a1 (y² + xy + y = x³ + x² − 10x − 10) and Δ.
-
-## R06.5 Geometric comparison theorems
-
-The stage identifies the R06.2 period functors with geometric cohomology and recovers Hodge filtrations, weights, duals and twists: for smooth proper O_K-schemes, abelian varieties, modular curves and Kuga–Sato varieties.
-
-### Theorems, comparisons and applications
-
-#### Theorem. Crystalline comparison for smooth proper O_K-schemes, read through D_cris
-
-*Node* `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let 𝔛 be a smooth proper O_K-scheme with generic fibre X and special fibre 𝔛_k, and i ≥ 0. Then V^i := H^i_et(X_K̄, Q_p) is a crystalline G_K-representation, and there are natural isomorphisms of filtered φ-modules D_cris(V^i) ≅ H^i_cris(𝔛_k/W(k))[1/p], where the right side carries the crystalline Frobenius and the filtration on K ⊗_{K_0} H^i_cris(𝔛_k/W(k))[1/p] ≅ H^i_dR(X/K) (Berthelot–Ogus) given by the Hodge filtration. Moreover D_dR(V^i) ≅ H^i_dR(X/K) as filtered K-spaces, the isomorphisms are functorial in 𝔛 and compatible with cup products, and gr^a D_dR(V^i) ≅ H^{i−a}(X, Ω^a), so the Hodge–Tate weight −a of V^i has multiplicity h^{a,i−a}: V^i has its weights in [−i, 0].
-
-*Hypotheses.* The comparison itself is CohomologyComparisons:CP.2 (Bhatt–Morrow–Scholze, Integral p-adic Hodge theory, Theorems 14.5(i) and 14.6(i)) applied to the p-adic completion of 𝔛. This node supplies the item that CP.2 lists as remaining: the identification of its isomorphism with the R06.2 period functor D_cris through B_cris^{G_K} = K_0. The algebraic–analytic comparison H^i_et(X_K̄, Z/p^n) ≅ H^i_et(X^ad_C, Z/p^n) for proper X is requested from ClassicalAdicEtaleCohomology H5 (Huber). CP.2 records the G_K- and Frobenius-compatibility of its isomorphism as remaining work; this node inherits that dependency.
-
-*Proof outline.*
-
-1. Apply CP.2/crystalline-comparison-over-discretely-valued-base to the p-adic completion of 𝔛, a proper smooth formal O_K-scheme with rigid generic fibre X^ad, and transport along Huber's comparison (H5 request): H^i_et(X_K̄, Q_p) ⊗_{Q_p} B_cris ≅ H^i_cris(𝔛_k/W(k)) ⊗_{W(k)} B_cris, G_K- and φ-equivariant and filtered after ⊗_{K_0} K.
-2. Take G_K-invariants. G_K acts trivially on H^i_cris(𝔛_k/W(k)) and B_cris^{G_K} = K_0 (PadicHodgeTheory:R06.1/crystalline-semistable-invariants), so D_cris(V^i) ≅ H^i_cris(𝔛_k/W(k))[1/p]; both sides of the comparison are free of rank dim V^i, so dim_{K_0} D_cris(V^i) = dim_{Q_p} V^i and V^i is crystalline (PadicHodgeTheory:R06.2/admissibility-dimension-bound).
-3. Filtration: K ⊗_{K_0} D_cris(V^i) = D_dR(V^i) for crystalline V^i (PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications), and D_dR(V^i) ≅ H^i_dR(X/K) with its Hodge filtration (PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application (a)); CP.2's filtered compatibility identifies this filtration with the Berthelot–Ogus transport of the crystalline side.
-4. Functoriality and cup products: on D_dR from P8/proper-smooth-de-rham-comparison-application (b); on φ from the naturality of CP.2 (inherited remaining item).
-5. Weights: the Hodge–de Rham spectral sequence degenerates (P8 application (a)), so gr^a H^i_dR(X/K) ≅ H^{i−a}(X, Ω^a), and a jump a is the Hodge–Tate weight −a (PadicHodgeTheory:R06.2/hodge-tate-weight-convention).
-
-*Acceptance.*
-
-- 𝔛 = P^1_{O_K}, i = 2: V^2 = Q_p(−1), D_cris(V^2) = K_0 t with φ = p and single jump 1, matching H^2_cris(P^1_k/W(k)) = W(k) with φ = p; weight −1.
-- 𝔛 an abelian scheme, i = 1: PadicHodgeTheory:R06.5/abelian-scheme-dcris.
-- An elliptic curve with good reduction: PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular.
-
-*Uses.* `CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base`, `ClassicalAdicEtaleCohomology:H5`, `PadicHodgeTheory:R06.1/crystalline-semistable-invariants`, `PadicHodgeTheory:R06.2/admissibility-dimension-bound`, `PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications`, `PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application`, `PadicHodgeTheory:R06.2/hodge-tate-weight-convention`, `PadicHodgeTheory:R06.2/period-functors`.
-
-*Planet:* Crystalline comparison for smooth proper models.
-
-*Sources.*
-
-- CMI Summer School notes on p-adic Hodge theory, §7.3, display (7.3.1), p. 97: “The comparison isomorphism between crystalline and de Rham cohomology” The Berthelot–Ogus isomorphism H^i_dR(X/K) ≅ K ⊗_{K_0} H^i_cris(X_0/W(k))[1/p] and the filtered φ-module attached to a smooth proper O_K-scheme.
-- An introduction to the theory of p-adic representations, II.5.1, p. 19: “After that, Fontaine and Messing proved the comparison theorem for the” History of the crystalline comparison (Fontaine–Messing, then Kato, Hyodo, Tsuji); the proof used here is CP.2's.
-
-#### Application. The filtered φ-module of an abelian scheme: D_cris(V_p(A)) is dual to H^1_cris
-
-*Node* `PadicHodgeTheory:R06.5/abelian-scheme-dcris`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let 𝒜/O_K be an abelian scheme of relative dimension g with generic fibre A and special fibre A_0. (a) V_p(A) is crystalline and D_cris(V_p(A)) ≅ H^1_cris(A_0/W(k))[1/p]^∨ as filtered φ-modules (dual object), because V_p(A) = H^1_et(A_K̄, Q_p)^∨. (b) Its filtration has jumps −1 and 0, each with multiplicity g: dualising the Hodge exact sequence 0 → H^0(A, Ω^1) → H^1_dR(A/K) → H^1(A, O_A) → 0 gives Fil^0 D_dR(V_p(A)) = H^1(A, O_A)^∨ ≅ Lie(A^∨)^∨ and gr^{−1} D_dR(V_p(A)) ≅ H^0(A, Ω^1)^∨ = Lie(A); hence t_H = t_N = −g. (c) (Dieudonné module) H^1_cris(A_0/W(k)) ≅ D(A_0[p^∞])^{(p)} Frobenius-compatibly (Berthelot–Breen–Messing), so the slopes of D_cris(V_p(A)) are the negatives of the Newton slopes of A_0 and lie in [−1, 0]. For g = 1 and W(k) this answers the request of MordellLawrenceVenkatesh LV.4.
-
-*Hypotheses.* Part (c) is quoted from Brinon–Conrad Remark 7.3.3 (Berthelot–Breen–Messing, not read here); (a) and (b) do not use it. The identification T_p(A) = Hom(H^1_et(A_K̄, Z_p), Z_p) is requested from ArithmeticGaloisRepresentations R01.6; the Hodge exact sequence from AbelianSchemesAndArithmeticModuli A4.
-
-*Proof outline.*
-
-1. PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction with i = 1 gives D_cris(H^1_et(A_K̄, Q_p)) ≅ H^1_cris(A_0/W(k))[1/p] with the Hodge filtration.
-2. V_p(A) is the Q_p-dual of H^1_et(A_K̄, Q_p) (R01.6 request; Brinon–Conrad p. 97), and D_cris commutes with duals on crystalline representations (PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful).
-3. The dual filtration is Fil^i(D^∨) = (Fil^{1−i} D)^⊥; with Fil^1 H^1_dR = H^0(A, Ω^1) of dimension g (A4 request) this gives the jumps −1 and 0.
-4. t_H = −g is the sum of the jumps; t_N = t_H because D_cris of a crystalline representation is weakly admissible (PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible).
-5. (c): Brinon–Conrad Remark 7.3.3 and FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible for D(A_0[p^∞]).
-
-*Acceptance.*
-
-- g = 1: PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular.
-- A_0 ordinary: the slopes of D_cris(V_p(A)) are −1 and 0, each with multiplicity g.
-- A_0 supersingular elliptic: a single slope −1/2 with multiplicity 2.
-
-*Uses.* `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`, `ArithmeticGaloisRepresentations:R01.6`, `AbelianSchemesAndArithmeticModuli:A4`, `PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful`, `PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible`.
-
-*Sources.*
-
-- CMI Summer School notes on p-adic Hodge theory, §7.3, p. 97: “this Tate module is the Zp -linear dual of” T_p(A) is the Z_p-linear dual of H^1_et, so D_cris(V_p(A)) is the dual of the filtered φ-module of H^1.
-- CMI Summer School notes on p-adic Hodge theory, Remark 7.3.3, pp. 97–98: “By work of Berthelot–Breen–Messing” Part (c): D(A[p^∞])^{(p)} ≅ H^1_cris(A/W(k)) ≅ H^1_dR(𝒜/W(k)), Hodge filtration matching Fontaine's module of logarithms.
-
-#### Theorem. Tate modules of abelian varieties are de Rham with Hodge–Tate weights 0 and 1
-
-*Node* `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let A/K be an abelian variety of dimension g, with no hypothesis on its reduction. Then V_p(A) is de Rham, D_dR(V_p(A)) ≅ H^1_dR(A/K)^∨ with the dual Hodge filtration, and V_p(A) has Hodge–Tate weights 0 and 1, each with multiplicity g. Equivalently (Hodge–Tate decomposition) C_K ⊗_{Q_p} V_p(A) ≅ (C_K(1) ⊗_K Lie(A)) ⊕ (C_K ⊗_K H^1(A, O_A)^∨). When A has good reduction this is Tate's decomposition for the p-divisible group of its Néron model.
-
-*Hypotheses.* Étale cohomology of the algebraic variety is compared with that of its analytification through the H5 request (Huber).
-
-*Proof outline.*
-
-1. A^an is proper smooth over K; PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application (a) makes H^1_et(A_K̄, Q_p) de Rham with D_dR ≅ H^1_dR(A/K) and its Hodge filtration (H5 request for the comparison with the analytification).
-2. V_p(A) = H^1_et(A_K̄, Q_p)^∨ (R01.6 request) is de Rham with D_dR(V_p(A)) = D_dR(H^1)^∨ (PadicHodgeTheory:R06.2/ddr-exact-strict-tensor).
-3. dim H^0(A, Ω^1) = dim H^1(A, O_A) = g (A4 request) gives jumps −1 and 0 of multiplicity g; weights are negatives of jumps (PadicHodgeTheory:R06.2/hodge-tate-weight-convention), and de Rham implies Hodge–Tate with gr D_dR = D_HT (PadicHodgeTheory:R06.2/de-rham-implies-hodge-tate), which is the decomposition.
-4. Good reduction cross-check: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/hodge-tate-p-divisible for 𝒜[p^∞] gives the same multiplicities (dim 𝒜[p^∞] = g, dim of its Cartier dual = g).
-
-*Acceptance.*
-
-- det V_p(E) = Q_p(1) has weight 1 = 0 + 1 (PadicHodgeTheory:R06.5/weil-pairing-duality).
-- Tate curve: weights {0, 1} (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module).
-- Non-example: H^1_et(A_K̄, Q_p) itself has weights 0 and −1; confusing it with V_p(A) flips the sign (see sourceIssue PadicHodgeTheory/E45).
-
-*Uses.* `PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application`, `ClassicalAdicEtaleCohomology:H5`, `ArithmeticGaloisRepresentations:R01.6`, `AbelianSchemesAndArithmeticModuli:A4`, `PadicHodgeTheory:R06.2/ddr-exact-strict-tensor`, `PadicHodgeTheory:R06.2/hodge-tate-weight-convention`, `PadicHodgeTheory:R06.2/de-rham-implies-hodge-tate`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/hodge-tate-p-divisible`.
-
-*Planet:* Hodge–Tate weights of abelian varieties.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.5.1, p. 19: “It was shown early on by Fontaine that the Tate modules” Fontaine: V_p(A) is de Rham for every abelian variety A, with D_dR(V_p(A)) dual to H^1_dR(A/K).
-- CMI Summer School notes on p-adic Hodge theory, §7.2, after Theorem 7.2.8, p. 94: “for abelian varieties A over K with good reduction, and to then” Tate's Hodge–Tate decomposition in the good-reduction case.
-
-#### Theorem. Weil-pairing duality, Tate twists and the determinant test
-
-*Node* `PadicHodgeTheory:R06.5/weil-pairing-duality`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let A/K be an abelian variety with dual A^∨. (a) The Weil pairing T_p(A) × T_p(A^∨) → Z_p(1) is perfect and G_K-equivariant, so V_p(A^∨) ≅ V_p(A)^∨(1) and H^1_et(A_K̄, Q_p) ≅ V_p(A)^∨ ≅ V_p(A^∨)(−1). (b) For B ∈ {B_cris, B_st, B_dR} with V_p(A) B-admissible, D_B(V_p(A^∨)) ≅ D_B(V_p(A))^∨ ⊗ D_B(Q_p(1)) compatibly with φ, N and filtrations, where D_cris(Q_p(1)) = K_0 t^{−1} with φ = p^{−1} and single jump −1. A polarization A → A^∨ gives a G_K-equivariant perfect alternating pairing V_p(A) × V_p(A) → Q_p(1), hence an alternating pairing D_B(V_p(A)) × D_B(V_p(A)) → D_B(Q_p(1)) compatible with φ, N and the filtrations. (c) For an elliptic curve E, det V_p(E) ≅ Q_p(1), so det D_st(V_p(E)) ≅ K_0 t^{−1}: for K_0 = Q_p the linear map φ has determinant p^{−1}, and the two filtration jumps sum to −1. This is the determinant test of the roadmap: with HT(χ) = +1 the determinant has weight +1 and Frobenius p^{−1} on D_cris.
-
-*Hypotheses.* The Weil pairing and polarization pairings are AbelianSchemesAndArithmeticModuli A3 (request); the Tate-module determinant is ArithmeticGaloisRepresentations R01.6 (request).
-
-*Proof outline.*
-
-1. (a): the pairings A[p^n] × A^∨[p^n] → μ_{p^n} are perfect and compatible in n (A3 request); pass to the limit. H^1_et(A_K̄, Q_p) = V_p(A)^∨ (R01.6 request), and V_p(A)^∨ ≅ V_p(A^∨)(−1) by (a).
-2. (b): D_B is an exact tensor functor commuting with duals on B-admissible representations (PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful, PadicHodgeTheory:R06.2/ddr-exact-strict-tensor), and D_cris(Q_p(1)) is computed in PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified (1).
-3. (c): a perfect alternating pairing on a rank-two V with values in Q_p(1) identifies Λ²V with Q_p(1); D_B commutes with Λ².
-
-*Acceptance.*
-
-- Tate curve D_q (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module): det φ = p^{−1}·1 and jumps −1 + 0 = −1.
-- 11a1 at p = 19 (supersingular): the linear φ on D_cris(V_19(E)) has characteristic polynomial X² + 1/19, determinant 1/19.
-- Sign test: in Brinon–Conrad's covariant weight convention the determinant has weight −1; the dictionary is PadicHodgeTheory:R06.2/hodge-tate-weight-convention.
-
-*Uses.* `AbelianSchemesAndArithmeticModuli:A3`, `ArithmeticGaloisRepresentations:R01.6`, `PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful`, `PadicHodgeTheory:R06.2/ddr-exact-strict-tensor`, `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`, `PadicHodgeTheory:R06.2/hodge-tate-weight-convention`.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.5.1, p. 19: “One should remember that for an abelian variety A,” Berger states the duality between T_p(A) and H^1_et; as printed the Tate twist is misplaced (sourceIssue PadicHodgeTheory/E45), corrected in (a).
-
-#### Theorem. Good ordinary and good supersingular elliptic curves: same Hodge filtration, different Frobenius
-
-*Node* `PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let E/K be an elliptic curve with good reduction E_0 over k = F_q, q = p^f, and a := q + 1 − #E_0(k). Let D = D_cris(V_p(E)), a filtered φ-module of rank 2 over K_0 with jumps −1 and 0. (a) The K_0-linear map φ^f on D has characteristic polynomial X² − (a/q)X + 1/q. (b) E_0 is ordinary (p ∤ a) iff D has slopes −1 and 0; then D = D_{−1} ⊕ D_0 into φ-stable lines, (D_{−1})_K ≠ Fil^0 D_K, and D_{−1} is a weakly admissible subobject, so V_p(E) has a G_K-stable line that is an unramified twist of Q_p(1) (from the formal group); it is the only G_K-stable line unless Fil^0 D_K = (D_0)_K, in which case V_p(E) is the direct sum of it and an unramified line (as for a canonical lift). (c) E_0 is supersingular (p | a) iff D is isoclinic of slope −1/2; then D has no φ-stable K_0-line and V_p(E) is irreducible. (d) Hence good ordinary and good supersingular curves have the same Hodge–Tate weights {0, 1} and the same Hodge polygon, but non-isomorphic φ-modules.
-
-*Hypotheses.* The comparison with Dieudonné modules (Brinon–Conrad Example 8.1.10 via Berthelot–Breen–Messing) is a consistency check; the proof uses Katz–Messing on H^1_cris.
-
-*Proof outline.*
-
-1. D ≅ H^1_cris(E_0/W(k))[1/p]^∨ (PadicHodgeTheory:R06.5/abelian-scheme-dcris) ≅ H^1_cris(E_0/W(k))[1/p] ⊗ D_cris(Q_p(1)) by PadicHodgeTheory:R06.5/weil-pairing-duality (a) with E = E^∨.
-2. Katz–Messing (PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective): φ^f on H^1_cris(E_0/W(k)) ⊗ K_0 has characteristic polynomial X² − aX + q; tensoring with D_cris(Q_p(1)), where φ^f = q^{−1}, gives (a).
-3. Newton polygon of X² − aX + q: root valuations {0, f} if p ∤ a and {f/2, f/2} if p | a (|a| ≤ 2√q); divide by f and shift by −1. The slope decomposition (PadicHodgeTheory:R06.2/slope-decomposition) gives D = D_{−1} ⊕ D_0 in the ordinary case; a φ-stable line has integral slope (PadicHodgeTheory:R06.2/newton-number-tN), so none exists in the supersingular case.
-4. Subrepresentations of a crystalline V correspond to weakly admissible φ-stable subobjects with the induced filtration (PadicHodgeTheory:R06.2/crystalline-subobjects-strict). For D_{−1}: t_N = −1, and t_H(D_{−1}) = −1 unless (D_{−1})_K = Fil^0, which weak admissibility of D excludes (t_H would be 0 > t_N). D_0 is a subobject with t_H = t_N only if Fil^0 = (D_0)_K (the split case); otherwise it is not a subrepresentation.
-5. Consistency with Dieudonné theory: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/elliptic-dieudonne (ordinary ⇔ M1, supersingular ⇔ M2).
-
-*Acceptance.*
-
-- 11a1, p = 3: a_3 = −1 (ordinary); X² + X/3 + 1/3 has root valuations −1 and 0 (point count by script).
-- 11a1, p = 19: a_19 = 0 (supersingular); X² + 1/19 has both roots of valuation −1/2.
-- 11a1, p = 2: a_2 = −2 (supersingular); X² + X + 1/2 has both roots of valuation −1/2.
-- All three have jumps −1 and 0: the required example "same Hodge weights, different Frobenius structures".
-
-*Uses.* `PadicHodgeTheory:R06.5/abelian-scheme-dcris`, `PadicHodgeTheory:R06.5/weil-pairing-duality`, `PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective`, `PadicHodgeTheory:R06.2/slope-decomposition`, `PadicHodgeTheory:R06.2/newton-number-tN`, `PadicHodgeTheory:R06.2/crystalline-subobjects-strict`, `PadicHodgeTheory:R06.2/weak-admissibility`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/elliptic-dieudonne`, `mathlib:WeierstrassCurve.HasGoodReduction`.
-
-*Planet:* Ordinary and supersingular elliptic curves.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.3.2, p. 14: “curve over F with good ordinary reduction, then Dcris (V ) is a 2-dimensional F” The ordinary case: φ(x) = α_0p^{−1}x, φ(y) = β_0y with α_0, β_0 ∈ O_F^×, and Fil^0 = F(y + λx).
-- An introduction to the theory of p-adic representations, II.3.2, p. 14: “the operator ϕ : Dcris (V ) → Dcris (V ) is irreducible” The supersingular case: no φ-stable line.
-- CMI Summer School notes on p-adic Hodge theory, Example 8.1.10, p. 107: “In contrast, the structure of D as an isocrystal depends on whether the reduction E0” Same Hodge polygon, Newton polygon depending on ordinary versus supersingular.
-
-#### Theorem. The p-adic realisation of a modular form is de Rham, with Hodge–Tate weights 0 and 1 − k
-
-*Node* `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`.
-
-Throughout: a newform g of weight k ≥ 2, level N and character ψ has coefficients in a number field K ⊂ C; λ is a place of K above the prime p, and M_g is the rank-two premotivic structure over K cut out of the parabolic cohomology of the modular curve with coefficients in Sym^{k−2} of the relative H^1 of the universal elliptic curve (equivalently of a Kuga–Sato variety) by the Hecke ideal of g, in the normalisation of Diamond–Flach–Guo (arXiv v2): ∧²M_g ≅ M_ψ(1 − k) and Frob_p denotes a geometric Frobenius. Its λ-adic realisation M_{g,λ} is the cohomological representation, and V_g := M_{g,λ}^∨ is the covariant one (det V_g = ψ^{−1}χ^{k−1}). Period functors are covariant and Hodge–Tate weights follow HT(χ) = +1. For every prime p and λ | p, M_{g,λ}|_{G_{Q_p}} is de Rham, and the comparison isomorphism identifies D_dR(M_{g,λ}) ≅ K_λ ⊗_K M_{g,dR} as filtered K_λ-spaces: Fil^0 = D_dR, Fil^{k−1} = K_λ·g (the line of g) and Fil^k = 0. Hence M_{g,λ} has Hodge–Tate weights 0 and 1 − k, V_g has Hodge–Tate weights 0 and k − 1, and the perfect alternating pairing ∧²M_{g,λ} ≅ K_λ(ψ)(1 − k) is compatible with D_dR (the filtration jumps add up to k − 1). For k = 2 the weights of V_g are {0, 1}, those of a Tate module.
-
-*Hypotheses.* The construction of M_g (Hecke projector, parabolic cohomology with coefficients, its Kuga–Sato model and the rank-two statement) belongs to AutomorphicGaloisRepresentations R19.1 (request); Diamond–Flach–Guo Lemma 5.7 is quoted for rank two and Fil^{k−1} M_{g,dR} = Kg. Diamond–Flach–Guo obtain the λ-adic–de Rham comparison from Faltings' theorem with coefficients; the proof below uses the smooth proper Kuga–Sato model instead, through the de Rham comparison of part P7.
-
-*Proof outline.*
-
-1. M_{g,λ} is the image of a Hecke idempotent (a correspondence) acting on H^{k−1}_et of a smooth proper Kuga–Sato variety over Q (Scholl; R19.1 request), and M_{g,dR} is the image of the same correspondence on H^{k−1}_dR.
-2. The de Rham comparison for smooth proper varieties is compatible with correspondences (PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application (a), (b)), so it restricts to the summands: M_{g,λ} is de Rham and D_dR(M_{g,λ}) ≅ K_λ ⊗_K M_{g,dR} with the induced Hodge filtration.
-3. Rank two and Fil^{k−1} M_{g,dR} = Kg (Diamond–Flach–Guo Lemma 5.7); the jumps are therefore 0 and k − 1, since the graded pieces of the Hodge filtration of the Kuga–Sato summand sit in degrees 0 and k − 1 only.
-4. Weights are the negatives of the jumps (PadicHodgeTheory:R06.2/hodge-tate-weight-convention); V_g = M_{g,λ}^∨ has the negated weights (PadicHodgeTheory:R06.2/ddr-exact-strict-tensor).
-5. The pairing ∧²M_g ≅ M_ψ(1 − k) respects the comparison isomorphisms (Diamond–Flach–Guo §3, pairings against Faltings' comparison), and D_dR(K_λ(ψ)(1 − k)) has its single jump at k − 1 = 0 + (k − 1).
-
-*Acceptance.*
-
-- k = 2: M_{g,λ} ⊆ H^1_et(X_1(N)_{Q̄}, K_λ), weights 0 and −1, dual weights {0, 1} (PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties).
-- Δ (k = 12, N = 1): V_Δ has Hodge–Tate weights {0, 11}.
-- Non-example: a representation with Hodge–Tate weights {0, 1} and determinant of weight 2 is not a V_g (the determinant of V_g has weight k − 1 = 0 + (k − 1)).
-
-*Uses.* `AutomorphicGaloisRepresentations:R19.1`, `PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application`, `PadicHodgeTheory:R06.2/hodge-tate-weight-convention`, `PadicHodgeTheory:R06.2/ddr-exact-strict-tensor`, `PadicHodgeTheory:R06.2/period-functors`.
-
-*Planet:* de Rham comparison for modular forms.
-
-*Sources.*
-
-- Adjoint motives of modular forms and the Tamagawa number conjecture, Lemma 5.7, p. 58 (arXiv v2): “Mg is a premotivic structure of rank 2 over K and Filk−1 Mg,dR = Kg.” Rank two and the Hodge line of g.
-- Adjoint motives of modular forms and the Tamagawa number conjecture, §0.2, p. 4 (arXiv v2): “the comparison between ℓ-adic and de Rham cohomology being” The λ-adic–de Rham comparison for M_{N,k} is Faltings' theorem; Scholl's Kuga–Sato construction allows Tsuji's.
-
-#### Theorem. Modular forms are crystalline at primes not dividing the level, with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1}
-
-*Node* `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`.
-
-Throughout: a newform g of weight k ≥ 2, level N and character ψ has coefficients in a number field K ⊂ C; λ is a place of K above the prime p, and M_g is the rank-two premotivic structure over K cut out of the parabolic cohomology of the modular curve with coefficients in Sym^{k−2} of the relative H^1 of the universal elliptic curve (equivalently of a Kuga–Sato variety) by the Hecke ideal of g, in the normalisation of Diamond–Flach–Guo (arXiv v2): ∧²M_g ≅ M_ψ(1 − k) and Frob_p denotes a geometric Frobenius. Its λ-adic realisation M_{g,λ} is the cohomological representation, and V_g := M_{g,λ}^∨ is the covariant one (det V_g = ψ^{−1}χ^{k−1}). Period functors are covariant and Hodge–Tate weights follow HT(χ) = +1. Let p ∤ N and λ | p. Then M_{g,λ}|_{G_{Q_p}} is crystalline, and the K_λ-linear map φ on D_cris(M_{g,λ}) has characteristic polynomial X² − a_p(g)X + ψ(p)p^{k−1}; D_cris(M_{g,λ}) is weakly admissible with t_H = t_N = k − 1. M_{g,λ}|_{G_{Q_p}} is ordinary iff a_p(g) is a λ-adic unit: then D_cris = D_0 ⊕ D_{k−1} into φ-stable lines of slopes 0 and k − 1, D_0 is a subobject, and M_{g,λ}|_{G_{Q_p}} has an unramified subrepresentation on which the geometric Frobenius acts by the unit root α of X² − a_pX + ψ(p)p^{k−1}; dually V_g|_{G_{Q_p}} has an unramified quotient. If a_p(g) is not a unit, both slopes are positive and M_{g,λ}|_{G_{Q_p}} has no unramified subrepresentation.
-
-*Hypotheses.* Crystallinity and the Frobenius polynomial are Scholl's theorem, quoted from Diamond–Flach–Guo (arXiv v2, proof of Lemma 8.13) and not read in Scholl's paper; for p > k Diamond–Flach–Guo obtain the crystalline realisation from Faltings' comparison with coefficients. The Eichler–Shimura relation used to compare with the ℓ-adic side is ModularCurvesPartII R14.6 (weight two) and R19.1 (request) for higher weight.
-
-*Proof outline.*
-
-1. A Kuga–Sato variety of level N has a smooth proper model over Z[1/N] on which the Hecke idempotent of g acts (Scholl; R19.1 request); PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction for this model, restricted to the summand, makes M_{g,λ}|_{G_{Q_p}} crystalline with D_cris equal to the g-part of H^{k−1}_cris of the special fibre.
-2. Frobenius: Katz–Messing (PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective) identifies the characteristic polynomial of φ on the crystalline summand with that of a geometric Frobenius on the ℓ-adic summand, which is X² − a_pX + ψ(p)p^{k−1} by Eichler–Shimura (ModularCurvesPartII:R14.6/special-fibre-eichler-shimura for k = 2; R19.1 request).
-3. t_N = v_p(ψ(p)p^{k−1}) = k − 1 = t_H (PadicHodgeTheory:R06.5/modular-form-de-rham-realisation).
-4. Newton polygon: the root valuations are {0, k − 1} iff a_p is a unit and are both positive otherwise; the slope decomposition (PadicHodgeTheory:R06.2/slope-decomposition) and weak admissibility force (D_0)_{K} ≠ Fil^{k−1}, so D_0 has t_H = 0 = t_N and is a subobject, i.e. an unramified subrepresentation (PadicHodgeTheory:R06.2/crystalline-subobjects-strict, PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified (2)); a geometric Frobenius acts on it through φ, by α.
-5. Consistency with local Langlands: PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p with π_p(g) unramified.
-
-*Acceptance.*
-
-- Δ (k = 12, N = 1): at p = 11, τ(11) = 534612 ≡ 1 mod 11, ordinary; at p = 2, τ(2) = −24, non-ordinary; at p = 2411, τ(2411) ≡ 0 mod 2411, non-ordinary (τ(p) mod p computed from the product formula by script).
-- 11a1 (k = 2): ordinary at 3 (a_3 = −1), not at 2 or 19 (PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular).
-- Slopes: X² − a_pX + ψ(p)p^{k−1} has root valuations summing to k − 1 = t_H.
-
-*Uses.* `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`, `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`, `PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective`, `ModularCurvesPartII:R14.6/special-fibre-eichler-shimura`, `AutomorphicGaloisRepresentations:R19.1`, `PadicHodgeTheory:R06.2/slope-decomposition`, `PadicHodgeTheory:R06.2/crystalline-subobjects-strict`, `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`, `PadicHodgeTheory:R06.2/weak-admissibility`.
-
-*Planet:* Crystalline at primes not dividing the level.
-
-*Sources.*
-
-- Adjoint motives of modular forms and the Tamagawa number conjecture, Proof of Lemma 8.13, p. 104 (arXiv v2): “By [Scho2] we know that the characteristic polynomial of ϕ on M := Mf,λ-crys is” X² − a_ℓX + ψ(ℓ)ℓ^{k−1} on the crystalline realisation (ℓ ∤ N, ℓ > k), after Scholl.
-- Fermat's Last Theorem, Theorem 3.1(f) and its proof, pp. 86–87 (revision of 9 September 2007): “Moreover ρ|G` is ordinary if and only if a` is” Weight two: ordinary iff a_ℓ is a unit, with the unramified quotient given by the unit root.
-
-#### Application. Weight two: the Tate modules of modular abelian varieties at p
-
-*Node* `PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties`.
-
-Let f be a newform of weight 2, level N and character ψ with coefficient field K_f, A_f = J_1(N)/p_fJ_1(N) the modular abelian variety (ModularCurvesPartII R14.5), λ | p a place of K_f and ρ_f = K_{f,λ} ⊗_{K_f ⊗ Q_p} V_p(A_f) its λ-adic representation (arithmetic Frobenius at ℓ ∤ Np of characteristic polynomial X² − a_ℓX + ℓψ(ℓ); Darmon–Diamond–Taylor Theorem 3.1). (a) If p ∤ N, A_f has good reduction at p, so ρ_f|_{G_{Q_p}} is crystalline with Hodge–Tate weights {0, 1} and comes from the p-divisible group of the Néron model: it is Barsotti–Tate. (b) Then ρ_f|_{G_{Q_p}} is ordinary iff a_p is a λ-adic unit, with unramified quotient on which the arithmetic Frobenius acts by the unit root of X² − a_pX + pψ(p). (c) If p ∥ N, p is odd and p does not divide the conductor of ψ, A_f has semistable reduction at p, ρ_f|_{G_{Q_p}} is semistable and not crystalline (N ≠ 0), ordinary, with unramified quotient on which Frobenius acts by a_p. (d) In general ρ_f|_{G_{Q_p}} is potentially semistable, and potentially Barsotti–Tate iff N = 0 on its Weil–Deligne representation.
-
-*Hypotheses.* The comparison V_p(A_f) ≅ ⊕_{λ|p} ρ_{f,λ} and the characteristic polynomials are R19.1 and ModularCurvesPartII R14.5–R14.6; Darmon–Diamond–Taylor Theorem 3.1 is quoted for their form. Their "good" and "ordinary" are the finite flat and ordinary conditions of Wiles; (a)–(c) translate them into p-adic Hodge theory. Semistable reduction of A_f at p ∥ N (Deligne–Rapoport) is requested from ModularCurvesPartII R13.5.
-
-*Proof outline.*
-
-1. (a): A_f has good reduction over Z[1/N] (ModularCurvesPartII:R14.5/modular-quotient); PadicHodgeTheory:R06.6/good-reduction-iff-crystalline (a) gives crystallinity with weights {0, 1}, and FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat gives T_p(A_f) = T_p(𝒜_f[p^∞]); the K_f ⊗ Z_p-action splits it along λ | p (ModularCurvesPartII:R14.5/quotient-tate-exact).
-2. (b): the Frobenius polynomial of D_cris is that of PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction (b) applied to A_f; the slope argument of PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular (b) applies λ-componentwise.
-3. (c): as ψ is unramified at p, A_f is a quotient of the Jacobian of the modular curve of level Γ_1(N/p) ∩ Γ_0(p), which has semistable reduction at p (Deligne–Rapoport; R13.5 request); PadicHodgeTheory:R06.6/semistable-reduction-semistable gives semistability; N ≠ 0 because π_p(f) is a twist of Steinberg (PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p), and the ordinary form is Darmon–Diamond–Taylor 3.1(g).
-4. (d): PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p and PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion (b).
-
-*Acceptance.*
-
-- 11a1 = A_f for the newform of level 11: good at 3 (crystalline, ordinary), split multiplicative at 11 (case (c), PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module).
-- 15a1 at 3: p ∥ 15, ψ trivial, case (c) with a_3 = −1 (non-split).
-
-*Uses.* `ModularCurvesPartII:R14.5/modular-quotient`, `ModularCurvesPartII:R14.5/quotient-tate-exact`, `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat`, `PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction`, `PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`, `PadicHodgeTheory:R06.6/semistable-reduction-semistable`, `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`, `PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion`, `ModularCurvesPartII:R13.5`, `AutomorphicGaloisRepresentations:R19.1`.
-
-*Sources.*
-
-- Fermat's Last Theorem, Theorem 3.1(a), p. 86 (revision of 9 September 2007): “has characteristic poly-” ρ_f unramified outside Nℓ with Frobenius polynomial X² − a_pX + pψ(p).
-- Fermat's Last Theorem, Proof of Theorem 3.1, p. 87: “The first assertion of (f) follows from the fact that Af has good reduction” Good reduction of A_f at ℓ ∤ N; (g) from Deligne–Rapoport.
-
-#### Application. Newforms at the endpoint weights k = p and k = p + 1: which integral theory applies
-
-*Node* `PadicHodgeTheory:R06.5/modular-form-endpoint-weights`.
-
-Let p ≥ 3, let g be a newform of weight k, level N with p ∤ N and character ψ, let λ | p, and let V_g = M_{g,λ}^∨ as in PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes, so that V_g|_{G_{ℚ_p}} is crystalline with Hodge–Tate weights {0, k − 1} (HT(χ) = +1) and Frobenius polynomial X² − a_p(g)X + ψ(p)p^{k−1}. (a) If k ≤ p − 1, the weights lie in [0, p − 2] and the rational and lattice statements of Fontaine–Laffaille apply (PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences). This is the range p ∤ k! in which Diamond–Flach–Guo use Faltings' comparison. (b) If k = p, the weights {0, p − 1} lie in the endpoint interval [0, p − 1]. Rationally V_g is still given by Fontaine–Laffaille, but its lattices are classified only under the restrictions of PadicHodgeTheory:R06.4/weight-p-endpoint-branch (b). If a_p(g) is a λ-adic unit, V_g is ordinary, V_g ≅ (ψ₁χ^{p−1} ∗; 0 ψ₂) with ψ₁ and ψ₂ unramified, and every reduction has a constituent of weight 0 and one of weight p − 1, both unramified on I_p since χ^{p−1} ≡ ω^{p−1} = 1 there. This is the configuration of PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example, and branch (c) of the endpoint node assigns these lattices to the Breuil–Kisin classification (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4) rather than to Fontaine–Laffaille. If a_p(g) is not a unit, V_g has no unramified quotient. (c) If k = p + 1, the weights {0, p} lie outside the Fontaine–Laffaille range (PadicHodgeTheory:R06.4/weight-p-plus-one-branch). V_g is ordinary iff a_p(g) is a λ-adic unit, and then its reductions are extensions of an unramified character by an unramified twist of ω^p = ω. If a_p(g) is not a unit, its lattices and reductions come from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and are computed in LocalGaloisDeformationRings R08.5. In every case (a)–(c) the Frobenius polynomial and the ordinarity criterion are those of the good-prime node; these are the local inputs of Khare–Wintenberger I Theorem 4.1(2)(i) (crystalline of weight 2 ≤ k ≤ p + 1) for the lifts that come from newforms.
-
-*Hypotheses.* P ≥ 3; for p = 2 the only weight used in the lifting theorems is k = 2, which is PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties with PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion. Crystallinity at p ∤ N holds for every k (the good-prime node, Scholl through Diamond–Flach–Guo); what changes at k = p and k = p + 1 is only which integral theory describes the lattices, since Faltings' category MF^∇_{[0,a]} needs a ≤ p − 2, that is k ≤ p − 1. No residual representation is computed here: the reductions in the non-ordinary cases, and in the ordinary case at k = p beyond the unramified semisimplification, belong to FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and LocalGaloisDeformationRings R08.5 (request).
-
-*Used by.*
-
-- AutomorphicGaloisRepresentations R19.5 — the coefficient-prime behaviour of newforms at the endpoint weights, for the lifting cases
-- LocalGaloisDeformationRings R08.5 — the crystalline representations of weights p and p + 1 whose reductions it computes
-
-*Proof outline.*
-
-1. Hodge–Tate weights {0, k − 1} and crystallinity: PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes.
-2. (a): k − 1 ≤ p − 2, so PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences applies.
-3. (b): k − 1 = p − 1; apply PadicHodgeTheory:R06.4/weight-p-endpoint-branch (a)–(b). In the ordinary case PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion (a) with r = p − 1 gives V_g ≅ (ψ₁χ^{p−1} ∗; 0 ψ₂); reducing, χ^{p−1} ≡ ω^{p−1} = 1 on I_p, so both constituents are unramified there, which is the collision of PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example, handled by branch (c) of the endpoint node.
-4. (c): k − 1 = p; apply PadicHodgeTheory:R06.4/weight-p-plus-one-branch (a)–(c), with ω^p = ω as ω has order p − 1.
-
-*Acceptance.*
-
-- Δ (k = 12, N = 1) at p = 11 is case (c): τ(11) = 534612 ≡ 1 mod 11, so V_Δ|_{G_{ℚ_{11}}} is ordinary and its reductions are extensions of an unramified character by an unramified twist of ω; at p = 13 it is case (a), as 12 ≤ p − 1.
-- The newform η(z)⁴η(2z)²η(4z)⁴ of weight 5, level 4 and character χ₋₄ (LMFDB 4.5.b.a) at p = 5 is case (b) with a₅ = −14, a 5-adic unit: V_g is ordinary and its reductions have both constituents unramified on I₅ (checked in the suggested Lean file).
-- The newform η(z)³η(7z)³ of weight 3, level 7 and character (−7/·) (LMFDB 7.3.b.a) at p = 3 is case (b) with a₃ = 0, as 3 is inert in ℚ(√−7): V_g is not ordinary and has no unramified quotient.
-
-*Uses.* `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`, `PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences`, `PadicHodgeTheory:R06.4/weight-p-endpoint-branch`, `PadicHodgeTheory:R06.4/weight-p-plus-one-branch`, `PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example`, `PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`.
-
-*Sources.*
-
-- Adjoint motives of modular forms and the Tamagawa number conjecture, §0.2, p. 5 (arXiv v2): “we will only be applying Faltings’ comparison theorem in the “easy” case of crystalline representations” Diamond–Flach–Guo stay below the endpoint: their set of primes excludes p | Nk!.
-- Adjoint motives of modular forms and the Tamagawa number conjecture, §2, p. 18 (arXiv v2): “For each integer a with 0 ≤ a ≤ ℓ − 2, Faltings” Faltings' Fontaine–Laffaille categories stop at a = p − 2, i.e. k ≤ p − 1.
-- Serre's modularity conjecture (I), Theorem 4.1(2), p. 7: “crystalline of weight k at p with 2 ≤ k ≤ p + 1” The lifting theorem that consumes the crystalline representations of weights up to p + 1.
-
-### What is missing
-
-- The semistable geometric branch for general semistable models (CP.4 Hyodo–Kato; WeightsInEtaleCohomology R34.3) is used only through requests; the Shimura-curve de Rham realisation (Hodge filtration of Carayol's coefficient systems) is quoted from Saito at statement level.
-- Berthelot–Breen–Messing (Dieudonné module versus H^1_cris) is quoted from Brinon–Conrad Remark 7.3.3, not read.
-- Scholl's crystalline theorem and Frobenius polynomial are quoted through Diamond–Flach–Guo; Scholl's paper is not read.
-- CP.2's remaining G_K- and Frobenius-compatibility is inherited by PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction.
-- At the endpoint weights only the representation-theoretic branch is planned (PadicHodgeTheory:R06.5/modular-form-endpoint-weights); the lattices and reductions in the ordinary weight-p case and the non-ordinary cases are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and LocalGaloisDeformationRings R08.5.
-
-## R06.6 Arithmetic consequences
-
-The stage deduces the good-reduction and semistable-reduction statements for Tate modules, computes the Tate curve, and supplies the local–global compatibility inputs used by R19.
-
-### Objects
-
-#### Construction. The Kummer representation V(q) of an element q ∈ K^×
-
-*Module* `TauCeti/PadicHodge/Geometric/Kummer.lean`. *Node* `PadicHodgeTheory:R06.6/kummer-representation`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Fix a compatible system ε = (ε^{(n)})_n of primitive p^n-th roots of unity. For q ∈ K^× choose q̃ = (q^{(n)})_n with q^{(0)} = q and (q^{(n+1)})^p = q^{(n)}, and define c_q: G_K → Z_p by g(q^{(n)}) = q^{(n)}(ε^{(n)})^{c_q(g)} for all n. Then c_q is a continuous 1-cocycle, c_q(gh) = c_q(g) + χ(g)c_q(h), and T(q) = Z_p e ⊕ Z_p f with g e = χ(g)e, g f = f + c_q(g)e is a continuous Z_p[G_K]-module; V(q) := Q_p ⊗ T(q). (i) 0 → Z_p(1) → T(q) → Z_p → 0 is exact and its class in H^1(K, Z_p(1)) is the Kummer class δ(q). (ii) Another choice of q̃ changes c_q by a coboundary, so V(q) is well defined up to isomorphism of extensions. (iii) V(q) ≅ V(q^a) as representations for every integer a ≠ 0. (iv) V(q) is split iff q is a root of unity. (v) The classes δ(q), q ∈ K^×, span H^1(K, Q_p(1)) ≅ Q_p ⊗ K̂^× (K̂^× the p-adic completion) over Q_p, and q ↦ (v_p(q), log_K(q)) induces an isomorphism Q_p ⊗ K̂^× ≅ Q_p ⊕ K.
-
-*Hypotheses.* Continuous cohomology with Z_p(1) and Q_p(1) coefficients and the Kummer isomorphism are requested from ArithmeticGaloisDuality R02.1; the construction itself uses only the explicit cocycle.
-
-*API.*
-
-- `CompatibleRoots` (*structure*) — A compatible system of p-power roots of q in a field L: root : ℕ → L with root 0 = q and root (n+1) ^ p = root n.
-- `KummerCocycle` (*structure*) — For χ : G →* ℤ_[p]ˣ, a map c : G → ℤ_[p] with c (g * h) = c g + χ g * c h.
-- `KummerCocycle.IsCoboundary` (*other*) — ∃ b, ∀ g, c g = (χ g − 1) * b.
-- `kummerCocycleOf` (*constructor*) — The cocycle c_q attached to q and a compatible system of p-power roots, for L with all p-power roots of unity and χ = cyclotomicCharacter L p.
-- `kummerRep` (*data*) — The representation G →* Matrix (Fin 2) (Fin 2) ℚ_[p], g ↦ !![χ g, c g; 0, 1] in the basis (e, f).
-- `kummerRep_apply` (*simp*) — kummerRep c g = !![χ g, c g; 0, 1].
-- `kummerCocycleOf_pow` (*functoriality*) — c_{q^a} = a • c_q for the system (q^{(n)})^a, a ∈ ℕ.
-
-*Used by.*
-
-- `PadicHodgeTheory:R06.6/kummer-representations-semistable` — D_st(V(q)) is computed from the periods t and λ_st(q̃).
-- `PadicHodgeTheory:R06.6/tate-curve-tate-module` — T_p(E_q) ≅ T(q) through Tate's uniformisation.
-- `PadicHodgeTheory:R06.6/tate-curve-l-invariant` — the L-invariant classifies the non-crystalline V(q) up to isomorphism.
-- `PadicHodgeTheory:R06.4/ordinary-implies-semistable` — acceptance item "Kummer extensions 0 → Q_p(1) → V → Q_p → 0".
-- Berger survey II.4.4 — every extension of Q_p by Q_p(1) is a Kummer extension.
-
-*Unit tests.* A wrong definition fails one of these.
-
-- `kummerRep_one` (degenerate) — kummerRep c 1 = 1 (the cocycle identity forces c 1 = 0).
-- `kummerRep_zero` (degenerate) — For the zero cocycle, kummerRep 0 g = diag(χ g, 1): the split extension Q_p(1) ⊕ Q_p.
-- `kummerRep_sub` (compatibility) — The (0,0) entry of kummerRep c g is χ g and the (1,0) entry is 0: e spans Q_p(1) with Mathlib's cyclotomicCharacter.
-- `kummerCocycleOf_root_of_unity` (value) — For q a root of unity of p-power order, kummerCocycleOf q is a coboundary.
-- `kummerCocycleOf_p_not_isCoboundary` (non-example) — For L an algebraic closure of ℚ_p and q = p, the cocycle is not a coboundary: V(p) does not split.
-
-*Construction.*
-
-1. c_q(g) mod p^n is well defined: g(q^{(n)})/q^{(n)} is a p^n-th root of unity, and the compatibility of q̃ and ε under p-th powers makes the residues compatible, so c_q(g) ∈ Z_p = lim Z/p^n.
-2. Cocycle: gh(q^{(n)}) = g(q^{(n)}(ε^{(n)})^{c_q(h)}) = q^{(n)}(ε^{(n)})^{c_q(g) + χ(g)c_q(h)}. Continuity: c_q mod p^n factors through Gal(K(ε^{(n)}, q^{(n)})/K).
-3. (ii): replacing q̃ by q̃·ε^b (b ∈ Z_p) changes c_q by g ↦ (χ(g) − 1)b; f ↦ f + be identifies the two modules.
-4. (iii): with the system (q^{(n)})^a one has c_{q^a} = a c_q, and e ↦ ae, f ↦ f is a G_K-isomorphism V(q) → V(q^a).
-5. (i), (iv), (v): Kummer theory (R02.1 request): the connecting map of 0 → μ_{p^n} → K̄^× → K̄^× → 0 sends q to the class of g ↦ g(q^{(n)})/q^{(n)}, i.e. c_q mod p^n; on Q_p ⊗ K^× its kernel is the image of the roots of unity; K^× = π_K^Z × μ(K) × (1 + m_K) with 1 + m_K a Z_p-module, so every element of Q_p ⊗ K̂^× is p^{−n}(a ⊗ π_K) + p^{−n} ⊗ u with u ∈ 1 + m_K, and log: Q_p ⊗ (1 + m_K) ≅ K (Brinon–Conrad Lemma 8.3.9, proof).
-
-*Acceptance.*
-
-- q = p, K = Q_p: T(p) is the Tate module of the Tate curve E_p (PadicHodgeTheory:R06.6/tate-curve-tate-module).
-- q a root of unity: c_q is a coboundary and V(q) ≅ Q_p(1) ⊕ Q_p.
-- q = 1 + p, K = Q_p, p odd: V(q) is the non-split crystalline extension of Brinon–Conrad Example 9.2.8.
-
-*Uses.* `mathlib:cyclotomicCharacter`, `ArithmeticGaloisDuality:R02.1`.
-
-*Sources.*
-
-- CMI Summer School notes on p-adic Hodge theory, Example 9.2.8, p. 142: “This is exactly the extension class in H1 (GK , Qp (1)) arising from u, and its isomorphism” The matrix (χ η_u; 0 1) realises the Kummer class of u.
-- CMI Summer School notes on p-adic Hodge theory, Proof of Lemma 8.3.9, p. 125: “Kummer theory provides a concrete description of H1 (GK , Qp (1)) for any p-adic field” H^1(K, Q_p(1)) = Q_p ⊗ K̂^×, an extension of Q_p by Q_p ⊗ (1 + m_K) ≅ K.
-- An introduction to the theory of p-adic representations, II.4.4, p. 18: “described by Kummer theory” All extensions of Q_p by Q_p(1) come from Kummer theory.
-
-#### Definition. The L-invariant of a semistable non-crystalline extension of Q_p by Q_p(1)
-
-*Module* `TauCeti/PadicHodge/Geometric/TateCurve.lean`. *Node* `PadicHodgeTheory:R06.6/tate-curve-l-invariant`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Call D ∈ MF^{φ,N,wa}_K of Tate type if dim_{K_0} D = 2, N ≠ 0, the filtration jumps are −1 and 0, and D^{φ=1} contains an element y with N(y) ≠ 0; by Colmez–Fontaine and PadicHodgeTheory:R06.6/kummer-representations-semistable these are the D_st(V) of the non-crystalline extensions V of Q_p by Q_p(1). The L-invariant L(D) ∈ K is the unique element with y + L(D)·N(y) ∈ Fil^0 D_K for y ∈ D^{φ=1} ∖ {0}. It does not depend on y (D^{φ=1} is a Q_p-line and y ↦ ay scales N(y) by a), and it exists because Fil^0 D_K ≠ K·N(y) by weak admissibility. For V = V(q) with v_p(q) ≠ 0: L(V) := L(D_st(V)) = log_K(q)/v_p(q); in particular the Tate curve has L(E_q) = log_K(q)/v_p(q), which for K = Q_p is log_p(q)/ord_p(q). Classification: for v_p(q), v_p(q′) ≠ 0, V(q) ≅ V(q′) iff L(q) = L(q′); E_q and its isogenous curve E_{q^n} have the same L.
-
-*Hypotheses.* The name follows Mazur–Tate–Teitelbaum's invariant log_p(q)/ord_p(q) (not read here). Berger calls log_p(q/p^{v_p(q)}) itself the ℓ-invariant of V and Brinon–Conrad give c_q = −λ(q); neither is an isomorphism invariant (sourceIssues PadicHodgeTheory/E44 and PadicHodgeTheory/E46); both are corrected here.
-
-*API.*
-
-- `TateTypeModule` (*structure*) — Normal form over ℚ_[p] (K = Q_p): v ∈ ℚ, v ≠ 0 (the value v_p(q)) and ℓ ∈ ℚ_[p] (the value log_p(q)), with φ = diag(p^{−1}, 1), N = !![0, v; 0, 0] and Fil^0 spanned by (ℓ, 1) in the basis (x, y).
-- `TateTypeModule.phi` (*data*) — The matrix of φ, !![p⁻¹, 0; 0, 1].
-- `TateTypeModule.mono` (*data*) — The matrix of N, !![0, v; 0, 0].
-- `TateTypeModule.mono_phi` (*relation*) — mono * phi = p • (phi * mono), i.e. Nφ = pφN.
-- `TateTypeModule.lInvariant` (*data*) — L := ℓ / v.
-- `TateTypeModule.ofKummer` (*constructor*) — The module D_q from (v_p(q), log_p(q)).
-- `TateTypeModule.Iso` (*other*) — Isomorphism of the normal forms: a pair of nonzero scalars (α, β) with x ↦ αx, y ↦ βy carrying N and Fil^0 to N′ and Fil^0′.
-- `TateTypeModule.iso_iff_lInvariant` (*characterisation*) — Iso D D′ ↔ D.lInvariant = D′.lInvariant.
-
-*Used by.*
-
-- `GrossZagierAndArithmeticHeights:GZ.9` — the Tate-period/L-invariant term of the multiplicative exceptional-zero formula.
-- `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module` — the filtration line of D_q is y + L·N(y).
-- Brinon–Conrad Proposition 8.3.8 — classification of two-dimensional semistable non-crystalline representations of G_{Q_p} by c.
-
-*Unit tests.* A wrong definition fails one of these.
-
-- `TateTypeModule.lInvariant_ofKummer_p` (degenerate) — For q = p (v = 1, ℓ = 0) the L-invariant is 0.
-- `TateTypeModule.lInvariant_pow` (compatibility) — Replacing (v, ℓ) by (n v, n ℓ) (the curve E_{q^n}) leaves L unchanged.
-- `TateTypeModule.lInvariant_11a1` (value) — For 11a1 at 11, v = 5 and L ≡ 11·10225 mod 11^5 (needs the 11-adic logarithm).
-- `TateTypeModule.not_wa_of_fil_eq_ker` (non-example) — The module with Fil^0 = ker N = span(x) is not weakly admissible: t_H(span x) = 0 > −1 = t_N(span x).
-- `TateTypeModule.ell_not_invariant` (non-example) — ℓ alone is not an isomorphism invariant: (v, ℓ) and (2v, 2ℓ) are isomorphic but have different ℓ when ℓ ≠ 0.
-
-*Construction.*
-
-1. In D_st(V(q)) take y as in PadicHodgeTheory:R06.6/kummer-representations-semistable: φ(y) = y, N(y) = v_p(q)x and Fil^0 = K(y + log_K(q)x) = K(y + (log_K(q)/v_p(q))N(y)).
-2. Independence of y: D^{φ=1} = Q_p y (φ is σ-semilinear, (K_0)^{σ=1} = Q_p), and replacing y by ay replaces N(y) by aN(y).
-3. Existence: if Fil^0 D_K = K·N(y) then the subobject K_0N(y) = ker N has t_H = 0 > −1 = t_N, contradicting weak admissibility (PadicHodgeTheory:R06.2/weak-admissibility; Brinon–Conrad p. 124).
-4. Classification: V(q) ≅ V(q′) iff δ(q′) ∈ Q_p^× δ(q) (a non-split extension of Q_p by Q_p(1) determines its class up to Q_p^×) iff (v_p(q′), log_K(q′)) is proportional to (v_p(q), log_K(q)) (PadicHodgeTheory:R06.6/kummer-representation (v)) iff L(q) = L(q′). Equivalently D_st is fully faithful (PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful) and Tate-type modules are isomorphic iff their L agree (scale x, y).
-5. E_q → E_{q^n}, induced by x ↦ x^n on K̄^×, is an isogeny, and L(q^n) = n log_K(q)/(n v_p(q)) = L(q).
-
-*Acceptance.*
-
-- 11a1 at p = 11: v_11(q) = 5, v_11(L) = 1 and L ≡ 11·10225 mod 11^5 (computed from the q-expansion of j and log_11(u) = log_11(u^{10})/10 for the unit part u).
-- q = p: L = 0 (log_p(p) = 0).
-
-*Uses.* `PadicHodgeTheory:R06.6/kummer-representations-semistable`, `PadicHodgeTheory:R06.6/kummer-representation`, `PadicHodgeTheory:R06.2/weak-admissibility`, `PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful`, `PadicHodgeTheory:R06.2/colmez-fontaine-theorem`, `ArithmeticGaloisDuality:R02.1`.
-
-*Planet:* L-invariant of the Tate curve.
-
-*Sources.*
-
-- CMI Summer School notes on p-adic Hodge theory, Proof of Proposition 8.3.8, p. 124: “Thus, c is intrinsic to D.” The line Fil = Q_p(ce_1 + e_2) with e_1 = N(e_2) defines a parameter c intrinsic to D; up to sign and duality it is L(D).
-- CMI Summer School notes on p-adic Hodge theory, §8.3, end, p. 126: “one finds that cq = −λ(q)” Brinon–Conrad's value for the Tate curve, missing the factor 1/ord_p(q) (sourceIssue PadicHodgeTheory/E46).
-- An introduction to the theory of p-adic representations, II.4.3, p. 18: “is canonically attached to V and is” Berger's "ℓ-invariant", corrected to log_p(q)/v_p(q) (sourceIssue PadicHodgeTheory/E44).
-
-### Theorems, comparisons and applications
-
-#### Theorem. Extensions of Q_p by Q_p(1) are semistable, with an explicit filtered (φ,N)-module
-
-*Node* `PadicHodgeTheory:R06.6/kummer-representations-semistable`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let q ∈ K^× and V = V(q) (PadicHodgeTheory:R06.6/kummer-representation). (a) V is semistable: with u_q := λ_st(q̃) ∈ B_st^+ (so g(u_q) = u_q + c_q(g)t, φ(u_q) = pu_q, N(u_q) = −v_p(q)), the elements x = t^{−1} ⊗ e and y = −u_q t^{−1} ⊗ e + 1 ⊗ f form a K_0-basis of D_st(V) with φ(x) = p^{−1}x, φ(y) = y, N(x) = 0, N(y) = v_p(q)x. (b) In D_dR(V) = K ⊗_{K_0} D_st(V) (embedding with log_K(p) = 0): Fil^{−1} = D_dR(V), Fil^0 = K(y + log_K(q)x), Fil^1 = 0; so V has Hodge–Tate weights 0 and 1 and t_H = t_N = −1. (c) V is crystalline iff v_p(q) = 0, and then D_cris(V) = D_st(V). (d) Every extension of Q_p by Q_p(1) is semistable, and the crystalline classes form the Q_p-hyperplane Q_p ⊗ Ô_K^× (≅ K via log) of H^1(K, Q_p(1)) ≅ Q_p ⊗ K̂^×, which has dimension [K : Q_p] + 1.
-
-*Hypotheses.* For K = Q_p this is Berger's computation (survey II.4.3–II.4.4); for ramified K the same formulas hold with v_p(q) ∈ (1/e)Z and λ_st of PadicHodgeTheory:R06.1/semistable-period-ring in place of Berger's log[q̃] = v_p(q)Y + log[q̃/p̃^{v_p(q)}]. Brinon–Conrad's monodromy operator is −N; with their N the sign of N(y) changes.
-
-*Proof outline.*
-
-1. Invariance: g(x) = χ(g)^{−1}t^{−1} ⊗ χ(g)e = x and g(y) = −(u_q + c_q(g)t)χ(g)^{−1}t^{−1} ⊗ χ(g)e + 1 ⊗ (f + c_q(g)e) = y (Berger II.4.3).
-2. x and y are B_st-linearly independent (triangular coordinates), so dim_{K_0} D_st(V) ≥ 2 = dim V; B_st is regular (PadicHodgeTheory:R06.2/period-rings-are-regular), so V is semistable and x, y is a basis (PadicHodgeTheory:R06.2/admissibility-dimension-bound).
-3. φ(t) = pt and φ(u_q) = pu_q give φ(x) = p^{−1}x and φ(y) = y; N(t) = 0 and N(u_q) = −v_p(q) give N(y) = v_p(q)x.
-4. Filtration: ι(u_q) = log_dR([q̃]/q) + log_K(q) with [q̃]/q ≡ 1 mod ker θ (PadicHodgeTheory:R06.1/bst-embedding-into-bdr), so ι(u_q) − log_K(q) ∈ tB_dR^+ and y + log_K(q)x = −(ι(u_q) − log_K(q))t^{−1} ⊗ e + 1 ⊗ f ∈ B_dR^+ ⊗ V. x ∉ Fil^0 since t^{−1} ∉ B_dR^+, and y + log_K(q)x ∉ Fil^1 since its f-coordinate is 1 ∉ tB_dR^+.
-5. (c): D_cris(V) = D_st(V)^{N=0} (PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications) is K_0x when v_p(q) ≠ 0; when q ∈ O_K^×, u_q = λ(q̃) lies in B_cris^+ (PadicHodgeTheory:R06.1/crystalline-logarithm).
-6. (d): semistable representations are closed under direct sums and subquotients (PadicHodgeTheory:R06.2/admissible-category-tannakian); a Baer sum of extensions is a subquotient of their direct sum, and the δ(q) span H^1(K, Q_p(1)) (PadicHodgeTheory:R06.6/kummer-representation (v)). The crystalline classes are those of units by (c) (Brinon–Conrad Lemma 8.3.9).
-
-*Acceptance.*
-
-- q = p, K = Q_p: φ = diag(p^{−1}, 1), N(y) = x, Fil^0 = Q_p y (log_p(p) = 0).
-- q = 1 + p, K = Q_p, p odd: crystalline, Fil^0 = Q_p(y + log_p(1 + p)x) with v_p(log_p(1 + p)) = 1.
-- Non-example: a non-split extension of Q_p(1) by Q_p (the opposite order) is not de Rham (Brinon–Conrad Example 6.3.5, recorded under PadicHodgeTheory:R06.2), so (d) does not extend to it.
-
-*Uses.* `PadicHodgeTheory:R06.6/kummer-representation`, `PadicHodgeTheory:R06.1/semistable-period-ring`, `PadicHodgeTheory:R06.1/crystalline-logarithm`, `PadicHodgeTheory:R06.1/bst-embedding-into-bdr`, `PadicHodgeTheory:R06.1/log-extension-to-kbar`, `PadicHodgeTheory:R06.1/fontaine-element-t`, `PadicHodgeTheory:R06.2/period-functors`, `PadicHodgeTheory:R06.2/admissibility-dimension-bound`, `PadicHodgeTheory:R06.2/period-rings-are-regular`, `PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications`, `PadicHodgeTheory:R06.2/admissible-category-tannakian`, `ArithmeticGaloisDuality:R02.1`.
-
-*Planet:* Kummer extensions are semistable.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.4.4, p. 19: “It is now easy to show that every extension of Qp by Qp (1) is semi-stable” Statement (d), with the basis x, y, φ and Fil^0 = F(y + log_p(q)x) for K = F unramified.
-- An introduction to the theory of p-adic representations, II.4.3, p. 18: “the action of Frobenius on Dst (V ) is therefore given by” φ(x) = p^{−1}x and φ(y) = y.
-- CMI Summer School notes on p-adic Hodge theory, Lemma 8.3.9, p. 125: “a semistable GK -representation and there is a Qp -hyperplane consisting of the crystalline” Statement (d) for any p-adic field K.
-
-#### Theorem. The Tate module of the Tate curve is the Kummer lattice of q
-
-*Node* `PadicHodgeTheory:R06.6/tate-curve-tate-module`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let q ∈ K^× with 0 < |q| < 1 and E_q the Tate curve over K (y² + xy = x³ + a_4(q)x + a_6(q), split multiplicative reduction, j(E_q) = 1/q + 744 + 196884q + ⋯). Tate's G_K-equivariant uniformisation α: K̄^×/q^Z ≅ E_q(K̄) restricts to isomorphisms {x ∈ K̄^×/q^Z : x^{p^n} ∈ q^Z} ≅ E_q[p^n](K̄), whose source consists of the p^{2n} classes (ε^{(n)})^i(q^{(n)})^j, 0 ≤ i, j ≤ p^n − 1. In the limit, T_p(E_q) ≅ T(q) (PadicHodgeTheory:R06.6/kummer-representation), G_K-equivariantly, with lim α(ε^{(n)}) ↦ e and lim α(q^{(n)}) ↦ f; so 0 → Z_p(1) → T_p(E_q) → Z_p → 0 is exact with class δ(q), the sub Z_p(1) being the image of μ_{p^∞}.
-
-*Hypotheses.* Tate's uniformisation and its Galois equivariance are the Tau Ceti EllipticCurves Layer 4 target (request); the Tate module as a G_K-module is ArithmeticGaloisRepresentations R01.6 (request).
-
-*Proof outline.*
-
-1. If x^{p^n} = q^m then x = (q^{(n)})^m ζ with ζ^{p^n} = 1, and modulo q^Z only m mod p^n matters; so the p^n-torsion of K̄^×/q^Z is free over Z/p^n on the classes of ε^{(n)} and q^{(n)}, with p^{2n} elements (Berger II.4.2, index range corrected: sourceIssue PadicHodgeTheory/E42).
-2. α is G_K-equivariant, so g acts on α(ε^{(n)}) through χ(g) and on α(q^{(n)}) by q^{(n)} ↦ q^{(n)}(ε^{(n)})^{c_q(g)}.
-3. α is a homomorphism, so p·α(q^{(n+1)}) = α(q^{(n)}) and p·α(ε^{(n+1)}) = α(ε^{(n)}); the two systems give a Z_p-basis of T_p(E_q) with the Galois action of T(q).
-
-*Acceptance.*
-
-- 11a1 at p = 11 (split multiplicative, a_11 = 1): the q ∈ Q_11 with j(E_q) = −122023936/161051 has v_11(q) = 5 = v_11(Δ) (inverting j = 1/q + 744 + 196884q + ⋯ in a script; j(q) agrees with j(E) to 11^60).
-- p-torsion: E_q[p](K̄) ≅ (Z/p)² generated by α(ζ_p) and α(q^{1/p}).
-
-*Uses.* `PadicHodgeTheory:R06.6/kummer-representation`, `ArithmeticGaloisRepresentations:R01.6`.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.4.2, p. 17: “therefore form a basis of” ε^{(n)} and q^{(n)} give a basis of E_q[p^n] and of T_p(E_q), with g(f) = f + c(g)e.
-- CMI Summer School notes on p-adic Hodge theory, Example 9.2.9, p. 143: “Vp (Eq ) is Bst -admissible” The Tate-curve representation realised inside B_st.
-
-#### Theorem. The filtered (φ,N)-module of the Tate curve
-
-*Node* `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). With q and E_q as in PadicHodgeTheory:R06.6/tate-curve-tate-module, V = V_p(E_q) is semistable and not crystalline, and D_st(V) ≅ D_q := K_0x ⊕ K_0y with φ(x) = p^{−1}x, φ(y) = y, N(x) = 0, N(y) = v_p(q)x, and on D_{q,K}: Fil^{−1} = D_{q,K}, Fil^0 = K(y + log_K(q)x), Fil^1 = 0. Consequently V has Hodge–Tate weights {0, 1}; D_q is weakly admissible with t_H = t_N = −1, its only nonzero proper subobject being K_0x = ker N; V is not potentially crystalline (N ≠ 0 on WD(V)), hence not potentially Barsotti–Tate although its weights are {0, 1}; V is ordinary with ordinary filtration Q_p(1) ⊂ V. For K = Q_p, D_q is the module that PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example takes as given; this node discharges that hypothesis. V is the stage's example of a de Rham representation that is not crystalline.
-
-*Hypotheses.* q ∈ K^× with 0 < |q| < 1, so v_p(q) > 0; log_K(p) = 0 fixes the filtration (another choice of log_K(p) ∈ K_0 moves the line by a K_0-multiple of x).
-
-*Proof outline.*
-
-1. T_p(E_q) ≅ T(q) (PadicHodgeTheory:R06.6/tate-curve-tate-module); apply PadicHodgeTheory:R06.6/kummer-representations-semistable (a)–(c) with v_p(q) > 0.
-2. Weak admissibility: t_H(D_q) = −1 + 0 = −1 and t_N(D_q) = −1 + 0 = −1. A (φ, N)-stable line lies in ker N = K_0x (a φ-stable line through y + cx is not N-stable); t_H(K_0x) = −1 because Fil^0 is not K·x, and t_N(K_0x) = −1 (PadicHodgeTheory:R06.2/weak-admissibility).
-3. Not potentially crystalline: N ≠ 0 on WD(V) (PadicHodgeTheory:R06.3/weil-deligne-descent (b)); hence not potentially Barsotti–Tate (PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion (b)).
-4. Ordinary: the filtration Q_p(1) = V(1)-part ⊂ V with quotient Q_p (PadicHodgeTheory:R06.4/ordinary-representation).
-
-*Acceptance.*
-
-- 11a1 at p = 11: φ = diag(1/11, 1), N = (0 5; 0 0), Fil^0 = Q_11(y + log_11(q)x) with log_11(q) = 5L, L ≡ 11·10225 mod 11^5 (PadicHodgeTheory:R06.6/tate-curve-l-invariant).
-- Weil–Deligne check (PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example): r(Φ) = φ^{−1} = diag(11, 1) with characteristic polynomial (X − 11)(X − a_11), a_11 = 1.
-- Non-example for "de Rham ⇒ crystalline": V_p(E_q) is de Rham, even semistable, but not crystalline.
-
-*Uses.* `PadicHodgeTheory:R06.6/tate-curve-tate-module`, `PadicHodgeTheory:R06.6/kummer-representations-semistable`, `PadicHodgeTheory:R06.2/weak-admissibility`, `PadicHodgeTheory:R06.3/weil-deligne-descent`, `PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion`, `PadicHodgeTheory:R06.4/ordinary-representation`.
-
-*Planet:* Filtered (φ,N)-module of the Tate curve.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.4.3, p. 18: “This implies that V is semi-stable” D_dR(V) with basis x, y, Fil^0 = (y + log_p(q)x)F and semistability via u = v_p(q)Y + log[q̃/p̃^{v_p(q)}].
-- An introduction to the theory of p-adic representations, II.4.3, p. 18: “the action of Frobenius on Dst (V ) is therefore given by” φ(x) = p^{−1}x, φ(y) = y.
-- CMI Summer School notes on p-adic Hodge theory, Example 9.2.9, p. 143: “Vp (Eq ) is Bst -admissible” Semistability for general K.
-
-#### Theorem. The p-adic criterion of good reduction: good reduction iff V_p(A) is crystalline
-
-*Node* `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let A/K be an abelian variety of dimension g. (a) A has good reduction (it extends to an abelian scheme 𝒜 over O_K) iff V_p(A) is crystalline; then T_p(A) = T_p(𝒜[p^∞]), V_p(A) has Hodge–Tate weights 0 and 1 with multiplicity g, and D_cris(V_p(A)) is PadicHodgeTheory:R06.5/abelian-scheme-dcris. (b) A has potentially good reduction iff V_p(A) is potentially crystalline iff N = 0 on WD(V_p(A)). (c) For an elliptic curve E/K with minimal Weierstrass equation W over O_K: W.HasGoodReduction (Mathlib) iff V_p(E) is crystalline, and E has potentially good reduction (v(j(E)) ≥ 0) iff N = 0 on WD(V_p(E)). V_p(A) is never unramified for g ≥ 1 (weight 1 occurs), so unramifiedness, the ℓ ≠ p criterion of Néron–Ogg–Shafarevich (NeronModelsAndSemistableAbelianVarieties R11.5), is not the criterion at p.
-
-*Hypotheses.* Grothendieck's criterion (A has good reduction iff A[p^∞] extends to a p-divisible group over O_K; SGA 7 IX Theorem 5.13 as quoted in Brinon–Conrad Theorem 7.1.13) is requested from NeronModelsAndSemistableAbelianVarieties R11.3. Coleman–Iovita state (a) (arXiv version, Introduction); their proof (Chapter II) is not in the arXiv version, and the proof here follows the route of Brinon–Conrad p. 84: Grothendieck's criterion plus Fontaine, Breuil and Kisin.
-
-*Proof outline.*
-
-1. (a) ⇒: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat gives 𝒜[p^∞] over O_K of height 2g with T_p(A) = T_p(𝒜[p^∞]); for every p-divisible group G over O_K, T_p(G)[1/p] is crystalline with weights in {0, 1} (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt); the multiplicities are dim 𝒜[p^∞] = g and the dimension of its Cartier dual 𝒜^∨[p^∞], also g (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/hodge-tate-p-divisible).
-2. (a) ⇐: V_p(A) has weights in {0, 1} (PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights); if it is crystalline, the lattice form of R07.4/crystalline-01-is-bt gives a p-divisible group G over O_K with T_p(G) ≅ T_p(A). Finite étale K-group schemes are Galois modules, so G_K ≅ A[p^∞]: A[p^∞] extends to O_K, and Grothendieck's criterion (R11.3 request) gives good reduction.
-3. (b): potentially good reduction means good reduction over some finite L/K; by (a) over L this is crystallinity of V_p(A)|_{G_L}, and for de Rham V (PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights) potentially crystalline ⇔ N = 0 on WD(V) (PadicHodgeTheory:R06.3/weil-deligne-descent (b)).
-4. (c): HasGoodReduction of a minimal equation says the minimal model is an elliptic curve over O_K (Mathlib hasGoodReduction_iff_isElliptic_reduction), i.e. an abelian scheme of relative dimension 1 (NeronModels R11.1 request); potentially good reduction ⇔ v(j) ≥ 0 is the EllipticCurves Layer 4 statement (request).
-
-*Acceptance.*
-
-- 11a1 at p = 3: good ordinary reduction, V_3(E) crystalline (PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular).
-- 11a1 at p = 11: split multiplicative, V_11(E) semistable, not crystalline (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module).
-- Non-example: V_p(E) is ramified even for good reduction (its Hodge–Tate weight 1), unlike V_ℓ(E), ℓ ≠ p.
-
-*Uses.* `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/hodge-tate-p-divisible`, `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`, `PadicHodgeTheory:R06.3/weil-deligne-descent`, `PadicHodgeTheory:R06.2/admissible-representations`, `NeronModelsAndSemistableAbelianVarieties:R11.3`, `NeronModelsAndSemistableAbelianVarieties:R11.1`, `ArithmeticGaloisRepresentations:R01.6`, `mathlib:WeierstrassCurve.HasGoodReduction`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`.
-
-*Planet:* p-adic criterion of good reduction.
-
-*Sources.*
-
-- CMI Summer School notes on p-adic Hodge theory, §7.1, p. 84: “a necessary and sufficient condition for A to” Good reduction iff V_p(A) is crystalline, via Grothendieck's criterion and the work of Fontaine, Breuil and Kisin.
-- CMI Summer School notes on p-adic Hodge theory, Theorem 7.1.13, p. 90: “Then A has good reduction if and only if A[ℓn ] admits an integral model Gn for” Grothendieck's criterion, including ℓ = p.
-- The Frobenius and monodromy operators for curves and abelian varieties, Introduction, p. 3 (arXiv v1): “crystalline if and only if A has good reduction.” Statement (a).
-
-#### Theorem. Abelian varieties with semistable reduction have semistable Tate modules
-
-*Node* `PadicHodgeTheory:R06.6/semistable-reduction-semistable`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let A/K be an abelian variety with semistable reduction (the identity component of the special fibre of its Néron model is an extension of an abelian variety by a torus). Then V_p(A) is semistable, and N = 0 on D_st(V_p(A)) iff A has good reduction. Explicitly, Raynaud's uniformisation A^an = G^an/Γ, with 0 → T → G → B → 0 (T a torus of rank r split by an unramified extension, B an abelian variety with good reduction, Γ ≅ Z^r a lattice with unramified G_K-action), gives a G_K-stable filtration 0 ⊆ V_t ⊆ V_f ⊆ V_p(A) with V_t ≅ V_p(T) (an unramified twist of Q_p(1)^r), V_f/V_t ≅ V_p(B) and V_p(A)/V_f ≅ Γ ⊗ Q_p (unramified), all graded pieces crystalline. Since every abelian variety acquires semistable reduction over a finite extension, V_p(A) is potentially semistable in general.
-
-*Hypotheses.* Raynaud's uniformisation and Grothendieck's semistable reduction theorem are requested from NeronModelsAndSemistableAbelianVarieties R11.3. That N has rank r (Grothendieck's monodromy pairing; Coleman–Iovita identify Fontaine's N with it) belongs to NeronModelsAndSemistableAbelianVarieties R11.4–R11.5 and is not claimed here.
-
-*Proof outline.*
-
-1. V_p(A) is de Rham (PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights).
-2. The graded pieces are crystalline: unramified twists of Q_p(1)^r and unramified representations by PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified; V_p(B) by PadicHodgeTheory:R06.6/good-reduction-iff-crystalline (a).
-3. V_f is de Rham, as a subrepresentation of a de Rham representation (PadicHodgeTheory:R06.2/admissible-category-tannakian), and an extension of V_p(B) by V_t, so it is semistable by PadicHodgeTheory:R06.4/ordinary-implies-semistable (a); V_p(A) is a de Rham extension of V_p(A)/V_f by V_f, hence semistable by the same theorem.
-4. N = 0 iff V_p(A) is crystalline (D_cris = D_st^{N=0}, PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications) iff A has good reduction (PadicHodgeTheory:R06.6/good-reduction-iff-crystalline (a)).
-5. Potential semistability: semistable reduction over a finite L/K (R11.3 request) and the above over L.
-
-*Acceptance.*
-
-- Elliptic curves: r = 1 for multiplicative reduction, B = 0, V_t = Q_p(1) up to the unramified quadratic twist (PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves).
-- A = E × E′ with E of good reduction and E′ split multiplicative: D_st(V_p(A)) = D_cris(V_p(E)) ⊕ D_{q′} and N has rank 1.
-
-*Uses.* `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`, `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`, `PadicHodgeTheory:R06.4/ordinary-implies-semistable`, `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`, `PadicHodgeTheory:R06.2/admissible-category-tannakian`, `PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications`, `NeronModelsAndSemistableAbelianVarieties:R11.3`.
-
-*Planet:* Semistable reduction and semistable Tate modules.
-
-*Sources.*
-
-- The Frobenius and monodromy operators for curves and abelian varieties, Introduction, p. 1 (arXiv v1): “Suppose for example that A is an Abelian variety with split semi-stable” The p-adic uniformisation cross T → G → B, Γ → G → A used to describe D_st(V(A)).
-- The Frobenius and monodromy operators for curves and abelian varieties, Introduction, p. 2 (arXiv v1): “nius Monodromy module Dst (V (A))∗ provided by Fontaine’s theory, where” D_st(V(A)) for split semistable A is compared with the Hyodo–Kato structure of H^1_dR(A).
-- An introduction to the theory of p-adic representations, II.5.1, p. 19: “they were potentially semi-stable” Fontaine: Tate modules of abelian varieties are potentially semistable.
-
-#### Theorem. Elliptic curves with potentially multiplicative reduction
-
-*Node* `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`.
-
-Throughout: K/Q_p is finite with residue field k = F_{p^f}, K_0 = W(k)[1/p], K̄ an algebraic closure, G_K = Gal(K̄/K), χ the p-adic cyclotomic character, v_p the valuation with v_p(p) = 1 and log_K the Iwasawa logarithm on K̄^× (log_K(p) = 0, PadicHodgeTheory:R06.1/log-extension-to-kbar). Period functors are covariant, D_B(V) = (B ⊗_{Q_p} V)^{G_K}, N = −d/du on B_st (PadicHodgeTheory:R06.1/semistable-period-ring), and Hodge–Tate weights follow HT(χ) = +1 (weights are the negatives of the jumps of D_dR). Let E/K be an elliptic curve with v(j(E)) < 0 and W a minimal Weierstrass equation over O_K; let q ∈ K^× be the unique element with 0 < |q| < 1 and j(E_q) = j(E). (a) If W.HasSplitMultiplicativeReduction (Mathlib), E ≅ E_q over K, V_p(E) ≅ V(q) and D_st(V_p(E)) ≅ D_q (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module). (b) If W.HasMultiplicativeReduction but not split, E is the twist of E_q by the unramified quadratic character η of G_K, V_p(E) ≅ V(q) ⊗ η is semistable and not crystalline, and D_st(V_p(E)) ≅ D_q ⊗ D_cris(η); for K = Q_p: φ(x) = −p^{−1}x, φ(y) = −y, N(y) = v_p(q)x, same filtration. (c) If W has additive reduction, E is the twist of E_q by a ramified quadratic character ψ, and V_p(E) ≅ V(q) ⊗ ψ is potentially semistable, not semistable, with WD(V_p(E)) ≅ WD(V(q)) ⊗ rec(ψ) (inertia acting through ψ, N ≠ 0). In all three cases V_p(E) is not potentially crystalline.
-
-*Hypotheses.* Tate's theorem and the twist description (for v(j) < 0: E ≅ E_q over K iff split multiplicative; otherwise the quadratic twist by a character that is unramified iff the reduction is multiplicative) are requested from the Tau Ceti EllipticCurves Layer 4 (Tate curve, ATAEC V); Silverman's text is not read here.
-
-*Proof outline.*
-
-1. Tate's theorem (EllipticCurves Layer 4 request) gives the unique q and the twist; V_p of a quadratic twist by γ is V_p ⊗ γ.
-2. (a): PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module.
-3. (b): D_st is a tensor functor (PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful); D_cris(η) = K_0e with φe = λe, λ = −1 for K = Q_p (PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified (3)); a semistable representation tensored with a crystalline one is semistable; N is unchanged, so V is not crystalline.
-4. (c): ψ is trivial on G_L for the quadratic extension L it cuts out, so V|_{G_L} ≅ V(q)|_{G_L} is semistable (PadicHodgeTheory:R06.2/crystalline-semistable-base-change); V is not semistable because WD(V)|_{I_K} contains ψ|_{I_K} ≠ 1 (PadicHodgeTheory:R06.3/weil-deligne-descent (b)).
-5. Twisting by a character does not change N ≠ 0, so no case is potentially crystalline (R06.3/weil-deligne-descent (b)).
-
-*Acceptance.*
-
-- 11a1 at p = 11: a_11 = 1, split; case (a) with v_11(q) = 5.
-- 15a1 at p = 3: a_3 = −1, non-split (point count by script); case (b): φ = −diag(1/3, 1), N = (0 4; 0 0), v_3(q) = v_3(Δ) = 4 (Δ(15a1) = 15^4).
-- 15a1 at p = 5: a_5 = 1, split; case (a).
-- Case (c): the twist of 11a1 by the quadratic character of Q_11(√−11) has additive reduction at 11 and v_11(j) < 0.
-
-*Uses.* `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`, `PadicHodgeTheory:R06.6/kummer-representation`, `ArithmeticGaloisRepresentations:R01.6`, `PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful`, `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`, `PadicHodgeTheory:R06.2/crystalline-semistable-base-change`, `PadicHodgeTheory:R06.3/weil-deligne-descent`, `mathlib:WeierstrassCurve.HasSplitMultiplicativeReduction`, `mathlib:WeierstrassCurve.HasMultiplicativeReduction`.
-
-*Sources.*
-
-- An introduction to the theory of p-adic representations, II.4.1, p. 17: “then there exists q such that E is isomorphic to Eq over F” Stated for all bad semistable reduction; true only for split multiplicative reduction (sourceIssue PadicHodgeTheory/E43); case (b) is the correction.
-
-#### Theorem. p-adic local–global compatibility for abelian varieties at places of good reduction
-
-*Node* `PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction`.
-
-Let F be a number field, A/F an abelian variety of dimension g, v a place of F above p at which A has good reduction A_v over k_v = F_{q_v} (q_v = p^{f_v}), and ℓ ≠ p. Let P_v(X) = det(X − Frob_v | V_ℓ(A)) for an arithmetic Frobenius Frob_v; it lies in Z[X], is independent of ℓ ≠ p and is the characteristic polynomial of the Frobenius endomorphism of A_v. Then V_p(A)|_{G_{F_v}} is crystalline and: (a) the K_0-linear map φ^{f_v} on D_cris(H^1_et(A_{F̄_v}, Q_p)) ≅ H^1_cris(A_v/W(k_v))[1/p] has characteristic polynomial P_v(X); (b) WD(V_p(A)|_{G_{F_v}}) is unramified with N = 0 and arithmetic Frobenius of characteristic polynomial P_v(X), so WD(V_p(A)|_{G_{F_v}})^{F-ss} ≅ WD(V_ℓ(A)|_{G_{F_v}})^{F-ss} after any field isomorphism Q̄_p ≅ Q̄_ℓ; (c) for an elliptic curve with multiplicative reduction at v the p-adic and ℓ-adic Weil–Deligne representations agree as well, with N ≠ 0. These are the coefficient-prime inputs consumed by AutomorphicGaloisRepresentations R19.5 and by the local-factor comparisons of NeronModelsAndSemistableAbelianVarieties R11.5.
-
-*Hypotheses.* Nothing here determines the Weil–Deligne parameter at a place above the coefficient prime for a general (almost strictly) compatible system without the extra hypothesis of the source; the node is about Tate modules of abelian varieties. ℓ-adic inputs (unramifiedness at good places, P_v, smooth proper base change) are requested from ArithmeticGaloisRepresentations R01.6.
-
-*Proof outline.*
-
-1. Crystalline: PadicHodgeTheory:R06.6/good-reduction-iff-crystalline (a) over F_v.
-2. (a): D_cris(H^1) ≅ H^1_cris(A_v/W(k_v))[1/p] (PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction); Katz–Messing (PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective) gives det(1 − tφ^{f_v} | H^1_cris ⊗ K_0) = det(1 − t·Frob_geom | H^1_et(A_{v,k̄_v}, Q_ℓ)); smooth proper base change identifies the latter with H^1_et(A_{F̄_v}, Q_ℓ) = V_ℓ(A)^∨, on which geometric Frobenius has the eigenvalues of arithmetic Frobenius on V_ℓ(A) (R01.6 request).
-3. (b): for crystalline V, Fontaine's recipe (PadicHodgeTheory:R06.3/weil-deligne-parameter, PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor) gives WD(V) = D_cris(V) with N = 0, trivial inertia and arithmetic Frobenius the linearisation of φ^{−f}; on D_cris(V_p(A)) = D_cris(H^1)^∨ (PadicHodgeTheory:R06.5/abelian-scheme-dcris) its eigenvalues are those of φ^f on D_cris(H^1), the roots of P_v. V_ℓ(A) is unramified at v with the same characteristic polynomial, so the Frobenius-semisimplifications agree.
-4. (c): split case by PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example with D_st(V_p(E)) ≅ D_q (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module); non-split by twisting both sides by η (PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves (b)).
-
-*Acceptance.*
-
-- 11a1, v = 3: P_3 = X² + X + 3 (a_3 = −1); on D_cris(V_3(E)) the linear φ has characteristic polynomial X² + X/3 + 1/3, and the arithmetic Frobenius of WD has X² + X + 3.
-- 11a1 at 11 (multiplicative): characteristic polynomial (X − 11)(X − 1) on both sides (PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example).
-
-*Uses.* `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`, `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`, `PadicHodgeTheory:R06.5/abelian-scheme-dcris`, `PadicDifferentialEquationsAndRigidCohomology:RD.7/ell-adic-comparison-smooth-projective`, `PadicHodgeTheory:R06.3/weil-deligne-parameter`, `PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor`, `PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example`, `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`, `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`, `ArithmeticGaloisRepresentations:R01.6`.
-
-*Sources.*
-
-- CMI Summer School notes on p-adic Hodge theory, §7, p. 83: “The Néron-Ogg-Shafarevich criterion is extremely useful” The ℓ ≠ p side at good places (Néron–Ogg–Shafarevich) against which the p-adic side is compared.
-
-#### Theorem. Local–global compatibility at p for modular forms (Scholl, Saito)
-
-*Node* `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`.
-
-Throughout: a newform g of weight k ≥ 2, level N and character ψ has coefficients in a number field K ⊂ C; λ is a place of K above the prime p, and M_g is the rank-two premotivic structure over K cut out of the parabolic cohomology of the modular curve with coefficients in Sym^{k−2} of the relative H^1 of the universal elliptic curve (equivalently of a Kuga–Sato variety) by the Hecke ideal of g, in the normalisation of Diamond–Flach–Guo (arXiv v2): ∧²M_g ≅ M_ψ(1 − k) and Frob_p denotes a geometric Frobenius. Its λ-adic realisation M_{g,λ} is the cohomological representation, and V_g := M_{g,λ}^∨ is the covariant one (det V_g = ψ^{−1}χ^{k−1}). Period functors are covariant and Hodge–Tate weights follow HT(χ) = +1. For every prime p and λ | p, M_{g,λ}|_{G_{Q_p}} is potentially semistable, and the Frobenius-semisimplification of its Weil–Deligne representation WD(M_{g,λ}|_{G_{Q_p}}) is K-rational and corresponds to π_p(g) under the local Langlands correspondence normalised as in Carayol. Hence the p-adic and ℓ-adic Frobenius-semisimple Weil–Deligne representations of g at p agree for every ℓ, and: (a) M_{g,λ}|_{G_{Q_p}} is crystalline iff π_p(g) is unramified (p ∤ N), recovering PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes; (b) it is semistable iff π_p(g) has nonzero Iwahori-fixed vectors (an unramified principal series or an unramified twist of Steinberg), for instance p ∥ N with ψ unramified at p, where N ≠ 0; (c) it is potentially crystalline iff π_p(g) is not a twist of Steinberg; (d) the inertial type of M_{g,λ}|_{G_{Q_p}} is that of π_p(g).
-
-*Hypotheses.* Scholl proved the case p ∤ N and T. Saito (Invent. Math. 129, 1997) the general case; Saito's 1997 paper is not public and is not read here. The statement is quoted from Diamond–Flach–Guo (arXiv v2, §5.5) and the proof outline follows Saito's Hilbert-modular paper, which uses the same method (PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p). This is a statement about newforms. It does not make an almost strictly compatible system strict, and it does not fix the Weil–Deligne parameter at the coefficient prime of a compatible system that is not known to come from a newform.
-
-*Proof outline.*
-
-1. Potential semistability: M_{g,λ} is a summand of the étale cohomology of a smooth proper Kuga–Sato variety, hence de Rham (PadicHodgeTheory:R06.5/modular-form-de-rham-realisation) and potentially semistable by the p-adic monodromy theorem (PadicHodgeTheory:R06.3/p-adic-monodromy-theorem).
-2. Saito's method: over Z_p[ζ_{p^r}] the Kuga–Sato variety of full level p^r acquires a semistable model; Tsuji's C_st (CohomologyComparisons CP.4, request) identifies D_st with its log-crystalline (Hyodo–Kato) cohomology, and the Lefschetz trace formula, which has the same shape for log-crystalline and ℓ-adic cohomology, gives Tr WD_p(σ) = Tr WD_ℓ(σ) for σ in the positive part of the Weil group.
-3. Monodromy: the weight spectral sequence (WeightsInEtaleCohomology R34.3, request) and the Weil conjectures show that the monodromy filtration is pure; with equal traces this forces N_p = 0 iff N_ℓ = 0, and then the Frobenius-semisimple representations agree (Saito's Lemma 1).
-4. ℓ-adic side: Carayol's theorem (AutomorphicGaloisRepresentations R19.4, request) matches WD_ℓ with π_p(g) under local Langlands (GL2AutomorphicRepresentationsAndTransfer R16.3, request).
-5. (a)–(c) from PadicHodgeTheory:R06.3/weil-deligne-descent (b): semistable iff inertia acts trivially on WD, crystalline iff moreover N = 0, potentially crystalline iff N = 0; π_p(g) has nonzero Iwahori-fixed vectors iff its parameter is unramified on inertia.
-
-*Acceptance.*
-
-- Δ at any p: π_p(Δ) is unramified, so V_Δ|_{G_{Q_p}} is crystalline for every p.
-- 11a1 at 11 (weight two, p ∥ N): π_11 is Steinberg, WD has N ≠ 0: the Tate curve D_q (PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module).
-- A newform with supercuspidal π_p: WD irreducible, inertia acts through a nonabelian finite quotient, V_g is potentially crystalline but not semistable.
-
-*Uses.* `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`, `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`, `PadicHodgeTheory:R06.3/p-adic-monodromy-theorem`, `PadicHodgeTheory:R06.3/weil-deligne-parameter`, `PadicHodgeTheory:R06.3/weil-deligne-descent`, `CohomologyComparisons:CP.4`, `WeightsInEtaleCohomology:R34.3`, `AutomorphicGaloisRepresentations:R19.4`, `GL2AutomorphicRepresentationsAndTransfer:R16.3`, `AutomorphicGaloisRepresentations:R19.1`.
-
-*Planet:* Local–global compatibility at p for modular forms.
-
-*Sources.*
-
-- Adjoint motives of modular forms and the Tamagawa number conjecture, §5.5, p. 60 (arXiv v2): “This is due to Eichler, Shimura and Igusa for λ not dividing pNg , by Langlands, Deligne” D_pst(M_λ|G_p)^ss corresponds to π_p via local Langlands for all p and λ.
-- Adjoint motives of modular forms and the Tamagawa number conjecture, §5.5, p. 60 (arXiv v2): “and Carayol [Ca0] for λ ∤ p, and by Scholl [Scho2] and Saito [Sai] in general.” Attribution: Scholl at good primes, Saito in general.
-- Hilbert modular forms and p-adic Hodge theory, Abstract, p. 1 (arXiv v2): “as is shown for an elliptic” Saito's Hilbert paper refers to his 1997 paper for elliptic modular forms.
-
-#### Theorem. Saito's theorem for Hilbert modular forms: potential semistability and compatibility with local Langlands
-
-*Node* `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`.
-
-Let F be a totally real field of degree g > 1, f a normalised Hilbert eigen-newform of multiweight k = (k_1, …, k_g, w) (w ≥ k_i ≥ 2, k_i ≡ w mod 2) with coefficient field L(f), and assume, when g is even, that π_{f,v} is in the discrete series at some finite place v (Carayol's hypothesis). Let 𝔭 be a place of F above p and μ a place of L(f) above p, and ρ_{f,μ} the associated μ-adic representation (geometric Frobenius at 𝔭 ∤ nℓ with characteristic polynomial the Euler factor of f). Then (Theorem 1) ρ_{f,μ}|_{G_{F_𝔭}} is potentially semistable and its Frobenius-semisimple Weil–Deligne representation is isomorphic to σ̌_h(π_{f,𝔭}), the dual of the Hecke-normalised local Langlands parameter; and (Theorem 2) the monodromy filtration of the Weil–Deligne representations of ρ_{f,λ}|_{G_{F_𝔭}} (λ ∤ p) and of ρ_{f,μ}|_{G_{F_𝔭}} is pure of weight w − 1: an eigenvalue of a Frobenius lift has weight w − 1 if N = 0, and weight w − 2 on ker N and w on coker N if N ≠ 0. With the Weil–Deligne relation normalised as F N F^{−1} = N𝔭^{−1}·N for a geometric Frobenius F (not Saito's printed sign; sourceIssue PadicHodgeTheory/E50).
-
-*Hypotheses.* The Shimura curves and their semistable models are HilbertModularVarietiesAndShimuraCurves R18.2 (request); Carayol's ℓ-adic theorem (Saito's Theorem 0) is AutomorphicGaloisRepresentations R19.4 (request). Saito's proof of Proposition 1 (§10) and the construction of §§6–7 were read at statement level only.
-
-*Proof outline.*
-
-1. Carayol's construction: ρ_{f,λ} is cut out of H^1 of a Shimura curve with coefficients (§3), and Saito realises it in the étale cohomology of a Kuga–Sato analogue over the Shimura curve by algebraic correspondences (§§4–6).
-2. The construction extends to semistable models (§7); Tsuji's semistable comparison (CohomologyComparisons CP.4, request) and the weight spectral sequence (WeightsInEtaleCohomology R34.3, request) compute traces and monodromy in terms of the reduction.
-3. The Lefschetz trace formula, of the same form for ℓ-adic and crystalline cohomology, gives Claim 1(1): equal traces of the p-adic and ℓ-adic Weil–Deligne representations on the positive part of the Weil group; this includes potential semistability (Claim 1(0)).
-4. Theorem 2 (purity) follows from the Weil conjectures and a vanishing of global sections; with equal traces it distinguishes N = 0 from N ≠ 0 by absolute values (Claim 1(2)), and Saito's Lemma 1 gives the isomorphism of Frobenius-semisimplifications.
-5. Transport to local Langlands: Carayol's Theorem 0 on the ℓ-adic side (R19.4 request), normalised by σ̌_h (GL2AutomorphicRepresentationsAndTransfer R16.3, request); the Weil–Deligne functor is PadicHodgeTheory:R06.3/weil-deligne-parameter.
-
-*Acceptance.*
-
-- Unramified π_{f,𝔭}: ρ_{f,μ}|_{G_{F_𝔭}} is crystalline (N = 0, trivial inertia; PadicHodgeTheory:R06.3/weil-deligne-descent (b)).
-- Special π_{f,𝔭} (unramified twist of Steinberg): semistable, N ≠ 0, Frobenius weights w − 2 and w.
-- Sign check with the Tate curve over Q_p (w = 2): on H^1 = V_p(E_q)^∨ a geometric Frobenius acts by 1 on ker N and by p on coker N (weights 0 = w − 2 and 2 = w, as in Theorem 2), and N maps the p-eigenline to the 1-eigenline, so F N F^{−1} = p^{−1}N.
-
-*Uses.* `HilbertModularVarietiesAndShimuraCurves:R18.2`, `AutomorphicGaloisRepresentations:R19.4`, `GL2AutomorphicRepresentationsAndTransfer:R16.3`, `CohomologyComparisons:CP.4`, `WeightsInEtaleCohomology:R34.3`, `PadicHodgeTheory:R06.3/weil-deligne-parameter`, `PadicHodgeTheory:R06.3/weil-deligne-descent`, `PadicHodgeTheory:R06.3/p-adic-monodromy-theorem`.
-
-*Sources.*
-
-- Hilbert modular forms and p-adic Hodge theory, Theorem 1, p. 12 (arXiv v2): “is potentially semi-stable and there is an isomorphism” Theorem 1.
-- Hilbert modular forms and p-adic Hodge theory, Theorem 2, p. 13 (arXiv v2): “the monodromy filtration of” Theorem 2: purity of the monodromy filtration, weight w − 1.
-- Hilbert modular forms and p-adic Hodge theory, Introduction, p. 1 (arXiv v2): “We prove the compatibility by comparing the p-adic and ℓ-adic representations” The method: comparison with the ℓ-adic side through traces and the monodromy-weight conjecture.
-
-### What is missing
-
-- T. Saito's 1997 paper (the elliptic case of the compatibility at p | N) is not public; the statement is quoted from Diamond–Flach–Guo and the proof follows the Hilbert-modular paper.
-- Rank of N on D_st(V_p(A)) equal to the toric rank is left to NeronModelsAndSemistableAbelianVarieties R11.4–R11.5.
-- The converse semistable criterion (V_p(A) semistable ⇒ semistable reduction) is not planned.
-- Weil–Deligne comparison at p for abelian varieties with bad reduction other than multiplicative elliptic curves is not planned.
-
-## Required examples and checks
-
-The roadmap asks for Q_p, Q_p(1), an unramified twist and the Tate curve, for a good ordinary and a good supersingular curve with the same Hodge weights but different Frobenius, and for a duality-sign test against the determinant. Where each is met:
-
-- Q_p(1) and unramified twists: PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified (part P7), used in the determinant test of `PadicHodgeTheory:R06.5/weil-pairing-duality`.
-- Tate curve: `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`; for 11a1 at 11, v_11(q) = 5 and the L-invariant is ≡ 11·10225 mod 11^5 (script: q from the q-expansion of j, j(q) checked against j(E) to 11^60).
-- Good ordinary versus good supersingular: `PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`, with 11a1 at 3 (a_3 = −1), at 19 (a_19 = 0) and at 2 (a_2 = −2), point counts by script.
-- Determinant: `PadicHodgeTheory:R06.5/weil-pairing-duality` (c); det D_q has φ = p^{−1} and jump −1.
-- Non-split multiplicative reduction: 15a1 at 3 (a_3 = −1), `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves` (b).
-- Higher weight: Δ is ordinary at 11 (τ(11) ≡ 1 mod 11) and not at 2 or 2411 (τ(2411) ≡ 0 mod 2411), `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`; τ(p) mod p computed from the product formula by script.
-- Endpoint weights: Δ at 11 (k = p + 1, ordinary), η(z)⁴η(2z)²η(4z)⁴ at 5 (k = p, ordinary, a₅ = −14) and η(z)³η(7z)³ at 3 (k = p, a₃ = 0), `PadicHodgeTheory:R06.5/modular-form-endpoint-weights`.
-- Weil–Deligne sign: the Tate curve fixes FNF^{−1} = q^{−1}N for a geometric Frobenius (`PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`, acceptance; sourceIssue PadicHodgeTheory/E50).
-
-## Requests
-
-- **tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv** — For K complete discretely valued (in particular K/Q_p finite) and q ∈ K^× with 0 < |q| < 1: the Tate curve E_q: y² + xy = x³ + a_4(q)x + a_6(q), with j(E_q) = 1/q + 744 + 196884q + ⋯ and split multiplicative reduction; the G_K-equivariant uniformisation K̄^×/q^Z ≅ E_q(K̄), compatible with finite extensions; Tate's theorem: for E/K with v(j(E)) < 0 there is a unique such q with j(E_q) = j(E), E ≅ E_q over K iff E has split multiplicative reduction, and otherwise E is the quadratic twist of E_q by a quadratic character that is unramified iff E has multiplicative reduction; E has potentially good reduction iff v(j(E)) ≥ 0. Needed by: `PadicHodgeTheory:R06.6/tate-curve-tate-module`, `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`, `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`.
-- **ArithmeticGaloisRepresentations:R01.6** — For an abelian variety A over a field F of characteristic 0 (K/Q_p finite, or a number field) and any prime ℓ: T_ℓ(A) = lim A[ℓ^n](F̄) as a continuous Z_ℓ[G_F]-module, free of rank 2 dim A, and V_ℓ(A); the identification T_ℓ(A) = Hom_{Z_ℓ}(H^1_et(A_F̄, Z_ℓ), Z_ℓ); det V_ℓ(E) ≅ Q_ℓ(1) for elliptic curves (Weil pairing); for A with good reduction at v ∤ ℓ: V_ℓ(A) is unramified at v, det(X − Frob_v | V_ℓ(A)) (arithmetic Frobenius) is the characteristic polynomial P_v of the Frobenius endomorphism of the reduction, lies in Z[X] and is independent of ℓ, and smooth proper base change H^1_et(A_{F̄_v}, Q_ℓ) ≅ H^1_et(A_{v,k̄_v}, Q_ℓ) holds. Needed by: `PadicHodgeTheory:R06.6/tate-curve-tate-module`, `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`, `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`, `PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction`, `PadicHodgeTheory:R06.5/abelian-scheme-dcris`, `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`, `PadicHodgeTheory:R06.5/weil-pairing-duality`.
-- **AbelianSchemesAndArithmeticModuli:A3** — The Weil pairing A[n] × A^∨[n] → μ_n of an abelian scheme: perfect, compatible in n and with base change (hence G_K-equivariant over a field); for a polarization λ, the induced alternating pairing on A[n] and T_p(A). Needed by: `PadicHodgeTheory:R06.5/weil-pairing-duality`.
-- **AbelianSchemesAndArithmeticModuli:A4** — For an abelian scheme f: A → S of relative dimension g: relative H^1_dR(A/S) locally free of rank 2g with the Hodge exact sequence 0 → f_*Ω^1 → H^1_dR(A/S) → R^1f_*O_A → 0 (ranks g, 2g, g), f_*Ω^1 = Lie(A)^∨ and R^1f_*O_A ≅ Lie(A^∨), compatible with base change. Needed by: `PadicHodgeTheory:R06.5/abelian-scheme-dcris`, `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`.
-- **NeronModelsAndSemistableAbelianVarieties:R11.1** — Néron models of abelian varieties over O_K; A has good reduction iff its Néron model is an abelian scheme iff A extends to an abelian scheme over O_K; for elliptic curves, agreement with Mathlib's HasGoodReduction of a minimal Weierstrass equation. Needed by: `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`.
-- **NeronModelsAndSemistableAbelianVarieties:R11.3** — (i) Grothendieck's criterion for ℓ = p (SGA 7 IX Theorem 5.13, as in Brinon–Conrad Theorem 7.1.13): A/K has good reduction iff A[p^∞] extends to a p-divisible group over O_K; (ii) the semistable reduction theorem (after a finite extension); (iii) Raynaud's uniformisation for semistable A, with the G_K-equivariant exact sequences 0 → G[p^n](K̄) → A[p^n](K̄) → Γ/p^nΓ → 0 and 0 → T[p^n](K̄) → G[p^n](K̄) → B[p^n](K̄) → 0, compatible in n (T a torus split by an unramified extension, B with good reduction, Γ a lattice with unramified action). Needed by: `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`, `PadicHodgeTheory:R06.6/semistable-reduction-semistable`.
-- **ClassicalAdicEtaleCohomology:H5** — For X proper smooth over K (K/Q_p finite; not only curves): Huber's comparison H^i_et(X_K̄, Z/p^n) ≅ H^i_et(X^ad_C, Z/p^n) (Hub96 3.7.2/3.8.1), G_K-equivariant and compatible with cup products, so that the algebraic étale cohomology is the one compared in CohomologyComparisons CP.2–CP.4 and PadicHodgeTheory P8. Needed by: `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`, `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`.
-- **ArithmeticGaloisDuality:R02.1** — Continuous cohomology of G_K with coefficients Z_p(1), Q_p(1) and the Kummer isomorphism lim K^×/(K^×)^{p^n} ≅ H^1(G_K, Z_p(1)) (hence Q_p ⊗ K̂^× ≅ H^1(G_K, Q_p(1))), with the explicit cocycle g ↦ c_q(g); Ext^1(Q_p, Q_p(1)) in continuous representations ≅ H^1(G_K, Q_p(1)). Needed by: `PadicHodgeTheory:R06.6/kummer-representation`, `PadicHodgeTheory:R06.6/kummer-representations-semistable`, `PadicHodgeTheory:R06.6/tate-curve-l-invariant`.
-- **AutomorphicGaloisRepresentations:R19.1** — For a newform g of weight k ≥ 2, level N, character ψ: the rank-two premotivic structure M_g (Betti, de Rham with Hodge filtration, λ-adic realisations) cut out of parabolic cohomology with Sym^{k−2} coefficients by the Hecke ideal of g, with Fil^{k−1}M_{g,dR} = Kg and ∧²M_g ≅ M_ψ(1 − k); its realisation as a summand of H^{k−1} of a smooth proper Kuga–Sato variety over Q with a smooth proper model over Z[1/N] and the Hecke idempotent as a correspondence (Scholl); the Eichler–Shimura relation giving the characteristic polynomial X² − a_pX + ψ(p)p^{k−1} of a geometric Frobenius at p ∤ Nℓ; and for k = 2 the identification V_p(A_f) ≅ ⊕_{λ|p} ρ_{f,λ}. Needed by: `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`, `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`, `PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties`, `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`.
-- **AutomorphicGaloisRepresentations:R19.4** — Carayol's theorem: for elliptic and Hilbert newforms (with his discrete-series hypothesis when [F : Q] is even), the Frobenius-semisimple Weil–Deligne representation of ρ_{f,λ}|_{G_{F_𝔭}}, 𝔭 ∤ ℓ, corresponds to π_{f,𝔭} under local Langlands (Hecke normalisation σ̌_h). Needed by: `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`, `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`.
-- **GL2AutomorphicRepresentationsAndTransfer:R16.3** — The local Langlands correspondence for GL_2 over p-adic fields with its normalisations (Hecke σ_h, Carayol), matching unramified principal series with unramified parameters, twists of Steinberg with N ≠ 0, and supercuspidals with irreducible parameters; compatibility with twists and central characters. Needed by: `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`, `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`.
-- **ModularCurvesPartII:R13.5** — Deligne–Rapoport: for p ∥ N the modular curve of level Γ_1(N/p) ∩ Γ_0(p) has a semistable model over Z_p, so its Jacobian and the quotients A_f of weight-two newforms of level N with character unramified at p have semistable reduction at p. Needed by: `PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties`.
-- **HilbertModularVarietiesAndShimuraCurves:R18.2** — Shimura curves attached to a quaternion algebra over a totally real F split at one real place, Carayol's integral models and the semistable models at primes of level p used by T. Saito (Hilbert modular forms and p-adic Hodge theory, §§4–7). Needed by: `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`.
-- **CohomologyComparisons:CP.4** — Tsuji's C_st: for a proper semistable scheme over O_K, H^i_et(X_K̄, Q_p) is semistable and D_st(H^i) ≅ the Hyodo–Kato cohomology with φ, N and the filtration from de Rham cohomology, compatibly with correspondences. Needed by: `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`, `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`.
-- **WeightsInEtaleCohomology:R34.3** — The Rapoport–Zink/Mokrane weight spectral sequences (ℓ-adic and log-crystalline) for semistable models and the Weil-conjecture purity input used to prove that the monodromy filtration of the modular-form summand is pure (Saito's Theorem 2). Needed by: `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`, `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`.
-- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4** — The Breuil–Kisin classification of G_{ℚ_p}-stable lattices in two-dimensional crystalline representations with Hodge–Tate weights {0, p − 1} whose reduction has constituents of weights 0 and p − 1 (modular weight p, ordinary), and with Hodge–Tate weights {0, p} (modular weight p + 1), for p ≥ 3, as PadicHodgeTheory:R06.4/weight-p-endpoint-branch (c) and PadicHodgeTheory:R06.4/weight-p-plus-one-branch (c) assign them. Needed by: `PadicHodgeTheory:R06.5/modular-form-endpoint-weights`.
-- **LocalGaloisDeformationRings:R08.5** — The reductions of crystalline representations of G_{ℚ_p} of Hodge–Tate weights {0, p − 1} and {0, p} (modular weights p and p + 1) used by Khare–Wintenberger I Theorem 4.1(2)(i), in particular for the non-ordinary representations attached to newforms. Needed by: `PadicHodgeTheory:R06.5/modular-form-endpoint-weights`.
-
-
-## Coverage
-
-- **PadicHodgeTheory:R06.5** (partial). The abelian-variety applications and the modular-curve and Kuga–Sato applications are planned: CP.2 read through D_cris, D_cris of abelian schemes, Hodge–Tate weights, Weil-pairing duality, the ordinary/supersingular example, the de Rham realisation of modular forms with weights 0 and 1 − k, crystallinity at p ∤ N with Frobenius polynomial X² − a_pX + ψ(p)p^{k−1} and the ordinary criterion, and the weight-two Barsotti–Tate and ordinary cases. Checkpoint 3 adds the endpoint weights k = p and k = p + 1 for newforms at p ∤ N, assigning each case to the Fontaine–Laffaille endpoint branch or to the Breuil–Kisin theory as R06.4 prescribes.
-  - Remaining: The semistable geometric branch for general semistable models (CP.4 Hyodo–Kato; WeightsInEtaleCohomology R34.3) is used only through requests; the Shimura-curve de Rham realisation (Hodge filtration of Carayol's coefficient systems) is quoted from Saito at statement level.
-  - Remaining: Berthelot–Breen–Messing (Dieudonné module versus H^1_cris) is quoted from Brinon–Conrad Remark 7.3.3, not read.
-  - Remaining: Scholl's crystalline theorem and Frobenius polynomial are quoted through Diamond–Flach–Guo; Scholl's paper is not read.
-  - Remaining: CP.2's remaining G_K- and Frobenius-compatibility is inherited by PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction.
-  - Remaining: At the endpoint weights only the representation-theoretic branch is planned (PadicHodgeTheory:R06.5/modular-form-endpoint-weights); the lattices and reductions in the ordinary weight-p case and the non-ordinary cases are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and LocalGaloisDeformationRings R08.5.
-- **PadicHodgeTheory:R06.6** (partial). Kummer extensions and the Tate curve, the p-adic criterion of good reduction, semistable reduction, elliptic curves with v(j) < 0, local–global compatibility at good places for abelian varieties, and the R19 inputs for modular forms (Scholl, Saito) and Hilbert modular forms (Saito) are planned.
-  - Remaining: T. Saito's 1997 paper (the elliptic case of the compatibility at p | N) is not public; the statement is quoted from Diamond–Flach–Guo and the proof follows the Hilbert-modular paper.
-  - Remaining: Rank of N on D_st(V_p(A)) equal to the toric rank is left to NeronModelsAndSemistableAbelianVarieties R11.4–R11.5.
-  - Remaining: The converse semistable criterion (V_p(A) semistable ⇒ semistable reduction) is not planned.
-  - Remaining: Weil–Deligne comparison at p for abelian varieties with bad reduction other than multiplicative elliptic curves is not planned.
-
-
-## Gaps
-
-- **Coleman–Iovita Chapter II is not in the arXiv version** (needed by `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`, `PadicHodgeTheory:R06.6/semistable-reduction-semistable`). arXiv:math/9701229v1 contains only the Introduction and Chapter I; the proof that T_p(A) crystalline implies good reduction and the comparison of D_st(V(A))^* with the Hyodo–Kato lattice are in Chapter II (Duke 1999, not available). The packet proves the good-reduction criterion through Grothendieck's criterion and Kisin's lattice classification instead; the D_st comparison for semistable abelian varieties is not used. NEXT ACTION: find a public copy of the Duke version or Iovita's thesis if the explicit Hyodo–Kato description is wanted by R11.5.
-- **Berthelot–Breen–Messing not read** (needed by `PadicHodgeTheory:R06.5/abelian-scheme-dcris`). Part (c) of the abelian-scheme node quotes Brinon–Conrad Remark 7.3.3 for H^1_cris(A_0/W(k)) ≅ D(A_0[p^∞])^{(p)}; the Lecture Notes volume is not public. The ordinary/supersingular example uses Katz–Messing instead, so no conclusion depends on it.
-- **Tate's twist theorem cited through a request** (needed by `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`, `PadicHodgeTheory:R06.6/tate-curve-tate-module`). Silverman, Advanced Topics V.3–V.5, is not public; the Tate-curve facts are requested from the Tau Ceti EllipticCurves Layer 4, which plans them. Berger II.4.1 states the isomorphism with E_q without the split hypothesis (sourceIssue PadicHodgeTheory/E43).
-- **Saito 1997 not public** (needed by `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`). The elliptic case of compatibility at p | N (T. Saito, Invent. Math. 129 (1997), 607–620) is behind a paywall. The statement is quoted from Diamond–Flach–Guo §5.5 and Saito's Hilbert paper states that the method is the same; the node's proof outline follows the Hilbert paper. NEXT ACTION: look for an author copy on T. Saito's page (ms.u-tokyo.ac.jp/~t-saito/pp/).
-- **Scholl's Kuga–Sato motives not read** (needed by `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`, `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`). Scholl, Motives for modular forms (Invent. Math. 100, 1990) supplies the smooth proper Kuga–Sato model over Z[1/N] and the crystalline Frobenius polynomial; both are quoted through Diamond–Flach–Guo and requested from R19.1.
-
-## Source issues
-
-Mistakes found in the sources (PROTOCOL.md §18). The nodes use the corrected statements.
-
-- **PadicHodgeTheory/E40** (misprint; An introduction to the theory of p-adic representations, II.3.3, p. 14 (arXiv v1); checked on the page image; affects nothing; known: partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap "Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new). Printed: “Bst = Bcris [Y ], where we have decided that ϕ(Y ) = Y^p and g(Y ) = Y + c(g)t” Correction: φ(Y) = pY. Reason: Y is mapped to log[p̃] and φ(log[x]) = p·log[x] (Berger's own p. 18: φ(t) = pt, φ(u) = pu). With φ(Y) = Y^p the relation Nφ = pφN fails on Y: for N = −d/dY, N(φ(Y)) = −pY^{p−1} while pφ(N(Y)) = −p.
-- **PadicHodgeTheory/E41** (misprint; An introduction to the theory of p-adic representations, II.3.3, p. 15 (arXiv v1); checked on the page image; affects nothing; known: partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap "Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new). Printed: “log[p̃] = logp(p) − Σ_{n=1}^{+∞} (1 − [p̃]/p)^{n−1} / n” Correction: The exponent is n: log[p̃] = log_p(p) − Σ_{n≥1} (1 − [p̃]/p)^n/n. Reason: log(1 − z) = −Σ z^n/n; as printed the n = 1 term is the constant 1, so θ(log[p̃]) would be log_p(p) − 1 instead of log_p(p). The analogous series for u on p. 18 has exponent n.
-- **PadicHodgeTheory/E42** (misprint; An introduction to the theory of p-adic representations, II.4.2, p. 17 (arXiv v1); checked on the page image; affects nothing; known: partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap "Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new). Printed: “{x ∈ F̄*/⟨q⟩, x^{p^n} ∈ ⟨q⟩} = {(ε^(n))^i (q^(n))^j, 0 ≤ i, j < p^n − 1}” Correction: 0 ≤ i, j ≤ p^n − 1 (equivalently 0 ≤ i, j < p^n). Reason: E_q[p^n](F̄) has p^{2n} elements; the printed range lists only (p^n − 1)^2 of them.
-- **PadicHodgeTheory/E43** (error; An introduction to the theory of p-adic representations, II.4.1, p. 17 (arXiv v1); checked on the page image; affects a stated result; known: new). Printed: “Furthermore, if E is an elliptic curve over F with bad semi-stable reduction, then there exists q such that E is isomorphic to Eq over F.” Correction: This holds iff E has split multiplicative reduction. If the reduction is non-split multiplicative, E is the quadratic twist of E_q by the unramified quadratic character, isomorphic to E_q only over the unramified quadratic extension of F. Reason: E_q has split multiplicative reduction (its reduction y² + xy = x³ has node tangents y = 0 and y = −x, both rational), and the reduction type of the minimal model is an isomorphism invariant. For example 15a1 over Q_3 has non-split multiplicative reduction (a_3 = −1, point count mod 3), so it is isomorphic over Q_3 to no E_q. The conclusion of II.4 (V semistable) survives, since the twist is by an unramified character (PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves (b)).
-- **PadicHodgeTheory/E44** (error; An introduction to the theory of p-adic representations, II.4.3, p. 18 (arXiv v1); checked on the page image; affects a stated result; known: new). Printed: “The p-adic number logp(q^(0)/p^{vp(q^(0))}) is canonically attached to V and is called the ℓ-invariant of V.” Correction: The isomorphism invariant of V is log_p(q)/v_p(q) (with log_p(p) = 0, equal to log_p(q/p^{v_p(q)})/v_p(q)), the Mazur–Tate–Teitelbaum L-invariant; log_p(q/p^{v_p(q)}) itself depends on q, not only on V. Reason: E_q and E_{q²} are isogenous (x ↦ x² on F̄^×), so V_p(E_q) ≅ V_p(E_{q²}), but log_p(q²/p^{2v_p(q)}) = 2 log_p(q/p^{v_p(q)}). In D_st(V) the rescaling y ↦ ay (and hence N(y) ↦ aN(y)) keeps only the ratio of log_p(q) to v_p(q) (PadicHodgeTheory:R06.6/tate-curve-l-invariant).
-- **PadicHodgeTheory/E45** (misprint; An introduction to the theory of p-adic representations, II.5.1, p. 19 (arXiv v1); checked on the page image; affects nothing; known: partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap "Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new). Printed: “One should remember that for an abelian variety A, we have Hom_{G_K}(T_pA, Z_p(1)) ≃ H^1_ét(A_K̄, Z_p).” Correction: Hom_{Z_p}(T_pA, Z_p) ≃ H^1_ét(A_K̄, Z_p), equivalently Hom_{Z_p}(T_pA, Z_p(1)) ≃ H^1_ét(A_K̄, Z_p(1)). Reason: For an elliptic curve E, Hom_{Z_p}(T_pE, Z_p(1)) ≅ T_pE by the Weil pairing and has determinant Z_p(1), while H^1_ét(E_K̄, Z_p) = Hom(T_pE, Z_p) has determinant Z_p(−1); their Hodge–Tate weights are {0, 1} and {0, −1}. Read literally, Hom_{G_K} (G_K-equivariant maps) would be a finite group.
-- **PadicHodgeTheory/E46** (error; CMI Summer School notes on p-adic Hodge theory, §8.3, last paragraph, pp. 125–126 (2009 preliminary version); checked on the page image; affects a stated result; known: new). Printed: “D*st(Vp(Eq)) is classified by some parameter cq ∈ Q×p in terms of our preceding description of crystalline classes in H1(GQp, Qp(1)) … If one does a direct calculation with Bst using the contravariant functors, one finds that cq = −λ(q).” Correction: c_q = −λ(q)/ord_p(q), an element of Q_p that can be 0 (for q = p when λ(p) = 0). Reason: By Brinon–Conrad's own proof of Proposition 8.3.8 (p. 124) c is intrinsic to D, hence an isomorphism invariant of V_p(E_q). E_q and E_{q²} are isogenous, so V_p(E_q) ≅ V_p(E_{q²}), whereas −λ(q²) = −2λ(q). Directly: with their N = v_0·d/dX (p. 139) the covariant D_st(V_p(E_q)) has N(y) = −ord_p(q)x and Fil^0 = Q_p(y + λ(q)x); in the dual, e_2 = x^*, e_1 = N(e_2) = ord_p(q)y^* and Fil^1 = Q_p(x^* − λ(q)y^*) = Q_p(ce_1 + e_2) with c = −λ(q)/ord_p(q).
-- **PadicHodgeTheory/E47** (misprint; The Frobenius and monodromy operators for curves and abelian varieties, Introduction, p. 3 (arXiv v1); affects nothing; known: partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap "Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new). Printed: “Theorem. Let A be an Abelian variety over the local field K. Then Tp (A) is crystalline if and only if A has good reduction. … The only if part of this statement is known by work of J.-M.Fontaine [Fo-BT] and the if part was conjectured by J.-M.Fontaine in [Fo-MGF].” Correction: Swap "if" and "only if": the "if" part (good reduction ⇒ T_p(A) crystalline) is Fontaine's; the "only if" part (crystalline ⇒ good reduction) was conjectured in [Fo-MGF] and proved there when e < p − 1. Reason: In "T_p(A) is crystalline if A has good reduction" the known direction is good ⇒ crystalline, which is Fontaine's work on p-divisible groups (Brinon–Conrad p. 84 credit Fontaine for linking Grothendieck's criterion to crystallinity), and the next sentence says "The conjecture was proved in [Fo-MGF] if the ramification index of K is less then p − 1", which only makes sense for the converse, the new result of the paper.
-- **PadicHodgeTheory/E48** (misprint; The Tamagawa number conjecture of adjoint motives of modular forms, §1.1.1, p. 669 (Ann. Sci. ÉNS 2004); checked on the page image; affects nothing; known: corrected in the authors' arXiv version 2512.02348v2 (11 Dec 2025), §1.1, p. 6: Frob_p is geometric, φ_p = Frob_p^{−1}, and (ρ, N) with ρ(g) = gφ^{ν(g)}). Printed: “We recall that Mλ|Gp is crystalline if and only if WDp(Mλ) is unramified …, in which case WDp(Mλ) = Q_p^ur ⊗Qp Dcrys(Mλ) with Frobp acting via 1 ⊗ φ^{−1}.” Correction: With Frob_p the geometric Frobenius (p. 668), it acts via 1 ⊗ φ; equivalently the arithmetic Frobenius acts via 1 ⊗ φ^{−1}. Reason: For V = Q_p(1), D_crys = Q_p t^{−1} with φ = p^{−1}, and the geometric Frobenius acts on the ℓ-adic Q_ℓ(1) by p^{−1}; with 1 ⊗ φ^{−1} it would act by p. For M_f, (18) gives the geometric Frobenius the characteristic polynomial X² − ψ(p)^{−1}a_pX + ψ(p)^{−1}p^{k−1}; with φ^{−1} this would make det φ of valuation 1 − k, while the Hodge jumps 0 and k − 1 force t_N = k − 1.
-- **PadicHodgeTheory/E49** (misprint; The Tamagawa number conjecture of adjoint motives of modular forms, §1.6.3, p. 684 (Ann. Sci. ÉNS 2004); checked on the page image; affects nothing; known: corrected in arXiv:2512.02348v2, §5.5, p. 60: "by Langlands, Deligne and Carayol [Ca0] for λ ∤ p, and by Scholl [Scho2] and Saito [Sai] in general"). Printed: “For λ not dividing p and p not dividing N, this is the Eichler–Shimura relation (18); for λ dividing p and p dividing N, this is due to Deligne, Langlands and Carayol [9]; for λ|p, p ∉ S, this is due to Scholl [75].” Correction: "for λ not dividing p and p dividing N, this is due to Deligne, Langlands and Carayol". Reason: Carayol's theorem concerns λ ∤ p; and λ | p with p | N lies in the excluded set S = S_N (primes dividing Nk!, p. 673), so the printed case is outside the statement.
-- **PadicHodgeTheory/E50** (misprint; Hilbert modular forms and p-adic Hodge theory, §2, p. 9 and p. 12 (arXiv v2); checked on the page images; affects nothing; known: partly known: the reviewer of the AutomorphicGaloisRepresentations decomposition flagged the Weil–Deligne half (gap "Hecke normalizations and Weil-Deligne sign conventions across Carayol, Saito and Deligne are not reconciled", with a computation agreeing with Deligne, LNM 349, 8.2); the φN = pNφ half and the conflict with Saito's own Theorem 2 are new). Printed: “p. 9: "a nilpotent endomorphism N of V satisfying ρ(σ)Nρ(σ)^{−1} = N𝔭^{n(σ)}N. … n : W(F̄_𝔭/F_𝔭) → Z is the canonical surjection sending a geometric Frobenius … to 1." p. 12: "satisfying σN = N𝔭^{n(σ)}Nσ since φN = pNφ."” Correction: ρ(σ)Nρ(σ)^{−1} = N𝔭^{−n(σ)}N, and σN = N𝔭^{−n(σ)}Nσ since Nφ = pφN. Reason: Fontaine's B_st satisfies Nφ = pφN (on u = log[p̃]: N(φu) = −p = pφ(Nu)), which gives F N F^{−1} = N𝔭^{−1}N for a geometric Frobenius F; this is Deligne's relation and the one forced by Grothendieck's ℓ-adic monodromy theorem. Saito's own Theorem 2 (p. 13: weight w − 2 on ker N, w on coker N; N: Gr_1^W(1) ≅ Gr_{−1}^W) also requires F N F^{−1} = N𝔭^{−1}N. The two printed relations are reversed consistently, so the construction and the theorems are unaffected.
-
-## Sources
-
-- **An introduction to the theory of p-adic representations**, L. Berger. arXiv:math/0210184v1 (12 Oct 2002), the only arXiv version; published in Geometric Aspects of Dwork Theory, 255–292, de Gruyter 2004 (not seen). Printed page = PDF page. https://arxiv.org/abs/math/0210184v1 (SHA-256 fac038cb2e7a3c939f7b0c85d1060985876abc5d55407d7172fc1f6f2cc16ecc, accessed 2026-09-29). Read: II.3.2–II.3.3 (pp. 14–15): good ordinary and supersingular elliptic curves, B_st, N = −d/dY, log[p̃]; II.4.1–II.4.4 (pp. 16–19): Tate's elliptic curve, its p-adic representation and periods, Kummer theory; II.5.1 (p. 19): comparison theorems.
-- **CMI Summer School notes on p-adic Hodge theory**, O. Brinon and B. Conrad. Preliminary version (PDF dated 26 June 2009), the only version posted; printed page = PDF page. https://math.stanford.edu/~conrad/papers/notes.pdf (SHA-256 f27d508bc64b3c9e2e9de5041429b2cb6a909b2cd72ff8096c20493f27b5a187, accessed 2026-09-29). Read: §7 opening and §7.1 through Theorem 7.1.13 and the following paragraphs (pp. 83–90); Theorem 7.2.8 and §7.3 through Remark 7.3.3 and Definition 7.3.4 (pp. 94–98); Example 8.1.10 (p. 107); §8.3 from the proof of Proposition 8.3.8 to the end (pp. 124–126); §9.2: the monodromy operator N = v_0·d/dX and Remark 9.2.5 (p. 139); Examples 9.2.8–9.2.9 and Theorem 9.2.10 (pp. 142–143).
-- **The Frobenius and monodromy operators for curves and abelian varieties**, R. Coleman and A. Iovita. arXiv:math/9701229v1 (2 Jan 1997), 22 pages: the Introduction and Chapter I only (Chapter II, with the proof of the good-reduction theorem, is not in this file); published in Duke Math. J. 97 (1999), 171–215 (not seen). https://arxiv.org/abs/math/9701229v1 (SHA-256 797d8361ffdb5db2460a5830ef913a8ea7d9cefc6803ae4b8265d651fa039530, accessed 2026-09-29). Read: Introduction (pp. 1–3); Chapter I, opening paragraphs (p. 3).
-- **Adjoint motives of modular forms and the Tamagawa number conjecture**, F. Diamond, M. Flach and L. Guo. arXiv:2512.02348v2 (11 Dec 2025), the authors' revised version of the Ann. Sci. ÉNS 37 (2004) article; printed page = PDF page. https://arxiv.org/abs/2512.02348v2 (SHA-256 0f4984acdabd2efd542aae932850da83c36ec023185a47f40c8ef5813bd21898, accessed 2026-09-29). Read: Abstract and §0.2 (pp. 1–5); §1.1 (pp. 6–8): conventions for Frobenius, D_crys, D_st, D_pst and Weil–Deligne representations; §5.4, Lemma 5.7 with proof (pp. 58–59); §5.5 through Lemma 5.9 (pp. 59–61); Lemma 8.13 with proof (p. 104); §2, Faltings' categories MF^∇_{[0,a]} (p. 18).
-- **The Tamagawa number conjecture of adjoint motives of modular forms**, F. Diamond, M. Flach and L. Guo. Ann. Sci. École Norm. Sup. (4) 37 (2004), 663–727, the Numdam copy (65 pages; printed page = PDF page + 662). https://www.numdam.org/item/ASENS_2004_4_37_5_663_0/ (SHA-256 385dc212a14bf884a29564375cf6308f310feac2c0b634c418e7bb46d50472a3, accessed 2026-09-29). Read: §1.1.1 (pp. 668–669); §1.6.2–1.6.3 (pp. 683–684).
-- **Hilbert modular forms and p-adic Hodge theory**, T. Saito. arXiv:math/0612077v2 (11 Dec 2006); published in Compositio Math. 145 (2009), 1081–1113 (not seen). https://arxiv.org/abs/math/0612077v2 (SHA-256 fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7, accessed 2026-09-29). Read: Introduction (pp. 1–2); §1 opening (p. 2); §2 with Theorems 0, 1, 2, Claim 1 and the remarks (pp. 8–13).
-- **Fermat's Last Theorem**, H. Darmon, F. Diamond and R. Taylor. Authors' revised version dated 9 September 2007 (167 pages) of the article in Current Developments in Mathematics 1995; printed page = PDF page. https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf (SHA-256 254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3, accessed 2026-09-29). Read: §3.1: Theorem 3.1 with its proof and the paragraph after it (pp. 85–87).
-- **Serre's modularity conjecture (I)**, Chandrashekhar Khare and Jean-Pierre Wintenberger. author's copy from the first author's web page (the published version is Invent. Math. 178 (2009)); the same file as PadicHodgeTheory--P7 (same SHA-256). The UCLA server's TLS chain is incomplete, so it was fetched without certificate verification and checked against that hash. https://www.math.ucla.edu/~shekhar/papers/results.pdf (SHA-256 3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82, accessed 2026-09-29). Read: §4, Theorem 4.1 (p. 7).
+Fix a prime p, a finite extension K/Q_p, its algebraic closure Kbar and completion C, residue field k=F_(p^f),
+K0=W(k)[1/p], sigma the Witt Frobenius and G_K=Gal(Kbar/K). All representations are continuous and finite
+dimensional unless a lattice is named.
+
+Use covariant D_B(V)=(B tensor_Qp V)^(G_K). On B_st use N=-d/du and N phi=p phi N. Normalize v_p(p)=1 and
+log_K(p)=0. The filtration on K tensor_K0 D_st is transported through this specified embedding B_st into B_dR.
+
+HT(Q_p(1))=+1. Thus gr^a D_dR contributes weight -a; H^i_et of a smooth proper variety has weights in [-i,0],
+whereas its first homology V_p(A) has weights 0 and 1.
+
+For k=F_(p^f), phi is sigma-semilinear and only phi^f has a characteristic polynomial over K0. Arithmetic
+Frobenius on a Tate module is compared with geometric Frobenius on H^1 and with phi^f on crystalline H^1. The
+arithmetic Weil-Deligne Frobenius on D_st is phi^(-f), with the R06.3 descent factor for potentially
+semistable objects.
+
+Mathlib reduction predicates include minimality; use a minimal equation. No integral lattice equality is
+inferred from a rational comparison. Good, semistable and potentially semistable are three different
+hypotheses.
+
+For Hodge filtrations, Fil^r(D∨) consists of functionals annihilating Fil^{1−r}D. The tensor filtration sums
+Fil^aD⊗Fil^{r−a}B. Distinguish raw uniformizer HK monodromy, period-normalized N, and the N on a dual: on dual
+bases N is minus transpose. With ramification index e and v_K(π_K)=1, v_p(q)=v_K(q)/e.
+
+| Realization | Weight of the cyclotomic line | Elliptic Hodge jumps | Frobenius determinant over F_q |
+|---|---|---|---|
+| H¹_et and its crystalline realization | Q_p(−1) has weight −1 | 0, 1 | det φ^f = q |
+| Covariant V_p(E) and D_cris | Q_p(1) has weight +1 | −1, 0 | det φ^f = q⁻¹ |
+| Arithmetic WD of V_p(E) at good reduction | Arithmetic F = φ^(−f) | Filtration belongs to D_dR | det F = q |
+
+## R06.5 — geometric comparison theorems
+
+Milestone: identify rational geometric cohomology with the period functors, including its filtration and φ,N;
+prove admissibility; recover duals, twists and the abelian examples. The nine targets below also provide the
+general inputs consumed by R19.5, AG2.6, nonabelian Chabauty and Hodge–Tate/canonical-subgroup theory.
+
+### Proper smooth de Rham comparison and Hodge–Tate weights
+
+Target `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison` (theorem).
+
+Let X/K be a proper smooth rigid space, i≥0, and Vᶦ=Hᶦ_et(X_C,Q_p). There is a natural G_K-equivariant strict
+filtered B_dR-isomorphism Vᶦ⊗B_dR ≅ Hᶦ_dR(X/K)⊗_K B_dR, with trivial filtration on Vᶦ and the tensor
+Hodge/period filtration on the right. Thus Vᶦ is de Rham, D_dR(Vᶦ)≅Hᶦ_dR(X/K) as filtered K-spaces, the
+Hodge–de Rham spectral sequence degenerates at E₁, and C⊗Vᶦ≅⊕_a C(−a)⊗_K H^{i−a}(X,Ω^a). In particular gr^a
+D_dR≅H^{i−a}(X,Ω^a) and weight −a occurs with that dimension. The same statements hold for proper smooth
+schemes after the algebraic/analytic comparison.
+
+**Proof route.**
+
+1. Instantiate P8/de-rham-comparison-for-de-rham-lisse-sheaves with the constant Q_p-sheaf and (O_X,d) with
+   its trivial filtration. Scholze Remark 7.12 identifies its graded de Rham complex with Ω^a[−a]. This uses
+   the existing comparison morphism, not a second construction of period sheaves.
+2. The P8 comparison is strict and G_K-equivariant. Take invariants using B_dR^{G_K}=K and the dimension bound
+   of R06.2; its inverse identifies the full Hodge filtration. The degeneration and C-decomposition are
+   conclusions of the same P8 theorem, rather than deductions from an arbitrary unfiltered isomorphism.
+3. For a scheme, use H5 algebraic/analytic étale comparison and coherent/de Rham GAGA. Pullback is induced by
+   the natural maps in P8.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:P8/de-rham-comparison-for-de-rham-lisse-sheaves`
+- `PadicHodgeTheory:R06.1/de-rham-invariants`
+- `PadicHodgeTheory:R06.2/admissibility-dimension-bound`
+- `PadicHodgeTheory:R06.2/de-rham-implies-hodge-tate`
+- `ClassicalAdicEtaleCohomology:H5`
+- `DerivedDeRhamCohomology:DD.2`
+
+**Checks.**
+
+- X=Spec K, i=0 gives Q_p, D_dR=K, Fil⁰=K, Fil¹=0 and weight 0.
+- X=P¹, i=2 gives Q_p(−1), one jump at 1 and weight −1; it is not Q_p(1).
+- A proper smooth genus-g curve has weights 0 and −1, each g; no good-reduction hypothesis is needed.
+
+**Sources.**
+
+- [P. Scholze, Theorem 7.11 and Remark 7.12, pp.46–47; Theorem 8.4 and proof, pp.48–49 (arXiv
+  v2)](https://arxiv.org/abs/1205.3463v2) — Filtered comparison, degeneration and the constant-coefficient
+  Hodge–Tate decomposition.
+- [K. Česnavičius and T. Koshikawa, §6.7, (6.7.2), p.66 (arXiv v3)](https://arxiv.org/abs/1710.06145v3) — The
+  descended comparison agrees with Scholze and preserves the Hodge/period filtration.
+
+### Crystalline periods of a smooth proper model
+
+Target `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction` (theorem).
+
+Let 𝔛/O_K be a proper smooth scheme or p-adic formal scheme, with smooth proper generic fibre X. For every
+i≥0, Vᶦ=Hᶦ_et(X_C,Q_p) is crystalline and D_cris(Vᶦ)≅Hᶦ_cris(𝔛_k/W(k))[1/p], preserving σ-semilinear φ. The
+underlying B_cris-comparison is G_K-equivariant. Tensoring with K gives D_dR(Vᶦ)≅Hᶦ_dR(X/K); its filtration is
+the Hodge filtration under Berthelot–Ogus. Hence gr^a D_dR≅H^{i−a}(X,Ω^a) and the Hodge–Tate weights lie in
+[−i,0]. No bound i<p−1, unramifiedness of K, or torsion-freeness of integral crystalline cohomology is
+assumed. This is a rational statement.
+
+**Proof route.**
+
+1. Combine AI.5/global-acrys and global-etale over B_cris with AI.5/rational-crystalline-frobenius, the
+   residue-field bridge of BMS §13.21. The bridge is not by itself the crystalline comparison: composing the
+   three actual maps is the rational crystalline comparison assembly.
+2. Functoriality of AΩ and the residue bridge supplies G_K- and φ-equivariance. For schemes first pass to
+   their p-adic formal completion and use H5. Take invariants using B_cris^{G_K}=K₀; equality of period ranks
+   gives crystallinity.
+3. The B_dR-extension of this assembly is the proper smooth de Rham comparison, by BMS Theorem 14.6 and the
+   existing AI.6 smooth comparison agreement. Identify the crystalline-to-de Rham map with Berthelot–Ogus,
+   then apply the preceding node to its filtration and gradeds.
+
+**Direct prerequisites.**
+
+- `AInfCohomology:AI.5/global-acrys`
+- `AInfCohomology:AI.5/global-etale`
+- `AInfCohomology:AI.5/rational-crystalline-frobenius`
+- `AInfCohomology:AI.6/smooth-integral-bdr-agreement`
+- `CrystallineCohomology:CR.3`
+- `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`
+- `ClassicalAdicEtaleCohomology:H5`
+- `PadicHodgeTheory:R06.1/crystalline-semistable-invariants`
+- `PadicHodgeTheory:R06.2/admissibility-dimension-bound`
+
+**Checks.**
+
+- For P¹ and i=2, D_cris(Q_p(−1)) has φ=p and Hodge jump 1.
+- For an abelian scheme, i=1 gives rank 2g; dualizing changes both φ and filtration as in the next
+  application.
+- The rational theorem applies to p=2 and to arbitrary i; it does not identify an integral lattice when
+  special-fibre crystalline cohomology has torsion.
+
+**Sources.**
+
+- [B. Bhatt, M. Morrow and P. Scholze, Theorem 1.1(i), p.2; Theorem 14.6(i) and proof, pp.121–122 (arXiv
+  v3)](https://arxiv.org/abs/1602.03148v3) — The rational crystalline comparison over O_K and its Frobenius
+  and de Rham compatibility.
+- [O. Brinon and B. Conrad, §7.3, (7.3.1), p.97](https://math.stanford.edu/~conrad/papers/notes.pdf) —
+  Berthelot–Ogus identifies the crystalline and de Rham realizations.
+
+### Proper semistable periods and Hyodo–Kato realization
+
+Target `PadicHodgeTheory:R06.5/proper-semistable-period-comparison` (theorem).
+
+Let 𝔛 be proper p-adic formal over O_K, with the divisorial log structure, and an étale affine cover with
+étale maps to Spf(O_K{t₀,…,t_d}/(t₀⋯t_r−a)) for nonzero nonunits a∈O_K; a may vary between charts. Put X=𝔛_η
+and Hᶦ_HK=Hᶦ_logcrys(𝔛_k/W(k))[1/p] over the standard log point ℕ→W(k), 1↦0. There is a natural
+G_K-equivariant B_st-comparison Hᶦ_et(X_C,Q_p)⊗B_st≅Hᶦ_HK⊗_{K₀}B_st preserving φ and total N=N_HK⊗1+1⊗N_Bst.
+Thus Vᶦ is semistable and D_st(Vᶦ)≅Hᶦ_HK as (φ,N)-modules. With the fixed embedding B_st→B_dR, its extension
+agrees with the preceding de Rham comparison, and K⊗D_st carries the Hodge filtration via the compatible
+Hyodo–Kato map. Use the period-normalized HK monodromy: raw uniformizer monodromy is adjusted under the CR.6
+ramification normalization. Smooth reduction is the N=0 crystalline case. The statement also applies to
+schemes satisfying these model hypotheses.
+
+**Proof route.**
+
+1. Use AI.6/hyodo-kato-interface over B_st⁺, including arithmetic W(k)-descent and total monodromy; then
+   invert μ and apply AI.6/etale-comparison. This is exactly the rational assembly in CK Theorem 9.5. Neither
+   the integral AΩ complex nor the log site is rebuilt here.
+2. CR.6 supplies finite-dimensional HK cohomology and its φ,N. Check its monodromy convention against CK §9.1:
+   N_Bst(log[p̃])=−1. A log base change of ramification index e scales raw monodromy; use
+   CR.6/ramified-hk-base-change to divide by e before comparing with the p-normalized period operator. This
+   check is part of the named supplier contract.
+3. Take G_K-invariants using B_st^{G_K}=K₀ and the dimension bound. AI.6/etale-bdr-agreement (CK Proposition
+   6.8) identifies the B_dR-extension with the strict filtered de Rham comparison. Changes of uniformizer act
+   through CR.6/uniformizer-change and its compatible period embedding; no choice-free filtration on B_st is
+   asserted.
+
+**Direct prerequisites.**
+
+- `AInfCohomology:AI.6/hyodo-kato-interface`
+- `AInfCohomology:AI.6/etale-comparison`
+- `AInfCohomology:AI.6/etale-bdr-agreement`
+- `CrystallineCohomology:CR.6/hk-finiteness`
+- `CrystallineCohomology:CR.6/hk-comparison`
+- `CrystallineCohomology:CR.6/ramified-hk-base-change`
+- `CrystallineCohomology:CR.6/uniformizer-change`
+- `PadicHodgeTheory:R06.1/crystalline-semistable-invariants`
+- `PadicHodgeTheory:R06.2/admissibility-dimension-bound`
+- `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`
+
+**Checks.**
+
+- A smooth proper model gives N=0 and the preceding crystalline realization.
+- A split Tate elliptic curve gives a nonzero rank-one N in H¹, and dualizing it gives the Tate module
+  computed in R06.6; an N=0 substitute fails.
+- After a ramified extension of degree e, raw uniformizer N scales by e, but the period-normalized realization
+  is the scalar extension of the original one.
+- For a Tate curve over a field of ramification index e, CR.6 raw cohomological N(e₁)=v_K(q)e₀ becomes
+  (v_K(q)/e)e₀. In the dual of the covariant period basis, map e₀ to −y* and e₁ to x*: N(x*)=−v_p(q)y*. The
+  sign and the divisor e are both necessary.
+
+**Sources.**
+
+- [K. Česnavičius and T. Koshikawa, §9.1, p.75; Proposition 9.2 and Theorem 9.5, p.76; Remark 9.6, p.77; §6.7
+  and Proposition 6.8, pp.66–68 (arXiv v3)](https://arxiv.org/abs/1710.06145v3) — Actual rational semistable
+  comparison, its total monodromy and agreement with the filtered de Rham map.
+
+### Potential semistability without a semistable model hypothesis
+
+Target `PadicHodgeTheory:R06.5/proper-smooth-potential-semistability` (theorem).
+
+For X/K proper smooth rigid (or a proper smooth scheme), every Vᶦ=Hᶦ_et(X_C,Q_p) is potentially semistable.
+There is a finite Galois L/K such that dim_{L₀}D_st,L(Vᶦ)=dim_Qp Vᶦ, and D_pst(Vᶦ) is the scalar extension of
+this module to K₀^{nr} with its semilinear G_K-descent action. If X_L has a proper semistable model of the
+preceding kind, the semistable node identifies D_st,L with that model’s normalized HK cohomology and
+transports its filtration. Different such models or splitting fields give the same period object and descent
+data. This assertion does not posit a finite semistable model for every proper rigid space, nor does it assert
+semistability over K.
+
+**Proof route.**
+
+1. Apply the proper smooth de Rham node, then R06.3/p-adic-monodromy-theorem. Enlarge a finite splitting
+   extension to its Galois closure using R06.2 base change.
+2. Use the existing R06.3 potential-period/descent construction, independent of the finite splitting
+   extension, to obtain D_pst. If a semistable model is available, apply the preceding comparison over L; its
+   identification is canonical through D_st,L and compatible with further extensions.
+3. Colmez–Nizioł Theorem 6.4 proves a stronger analytic HK period comparison. Only its potential-admissibility
+   consequence is needed here. The full analytic HK construction and its syntomic/descent proof are not
+   silently substituted for the model-based CR.6 input.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`
+- `PadicHodgeTheory:R06.5/proper-semistable-period-comparison`
+- `PadicHodgeTheory:R06.3/p-adic-monodromy-theorem`
+- `PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module`
+- `PadicHodgeTheory:R06.2/crystalline-semistable-base-change`
+
+**Checks.**
+
+- For an elliptic curve with potentially good additive reduction, V_p becomes crystalline after extension but
+  need not be semistable over K.
+- A ramified quadratic twist of a Tate curve is potentially semistable with nonzero N; it is not potentially
+  crystalline.
+- Replacing L by a larger finite Galois field preserves rank and descends to the same D_pst.
+
+**Sources.**
+
+- [P. Colmez and W. Nizioł, Theorem 6.4 and proof, pp.40–42 (author manuscript CN5, 24 Nov
+  2024)](https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf) — The stronger proper smooth rigid C_st theorem
+  implies the potential-admissibility conclusion; this node uses p-adic monodromy for its proof.
+- [L. Berger, II.5.1, p.19](https://arxiv.org/abs/math/0210184v1) — Geometric representations are de Rham and
+  potentially semistable.
+
+### Geometric functoriality, cohomological duals and Tate twists
+
+Target `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists` (theorem).
+
+The preceding rational comparison maps commute with pullback between the indicated proper smooth
+spaces/models, with cup products, and with finite base extension. For an algebraic proper smooth geometrically
+connected X/K of pure dimension d, the perfect pairing Hᶦ_et(X_Kbar,Q_p)×H^{2d−i}_et(X_Kbar,Q_p)(d)→Q_p
+induces Vᶦ∨≅V^{2d−i}(d). For B=B_dR, and B=B_cris or B_st under the corresponding model hypothesis,
+D_B(V∨(m))≅D_B(V)∨⊗D_B(Q_p(m)). Thus D_cris(Q_p(m)) has φ=p^{−m}σ and N=0, the de Rham filtration shifts by
+−m, and Hodge–Tate weights shift by +m. Under the geometric comparisons the dual pairing is the transported
+geometric cohomological pairing. A G_K-equivariant cohomological projector that also acts on the matched
+geometric realization can be applied to the comparisons; admissibility, filtration and φ,N restrict to its
+image. A compatible system alone does not provide such a projector.
+
+**Proof route.**
+
+1. Naturality follows from the actual P8/AInf maps. Cup compatibility is carried through their multiplicative
+   period-sheaf/AΩ morphisms and CR.6/hk-products; it is requested explicitly where those supplier nodes do
+   not yet state it.
+2. Import rational étale Poincaré duality from EDC.2:pairings/adic-and-rational-poincare-duality. Apply the
+   already monoidal, dual-compatible R06.2 period functors to its evaluation and coevaluation maps, obtaining
+   the displayed dual identification. This transports a pairing without requiring a new independently defined
+   crystalline trace.
+3. R06.2 gives the period line of Q_p(m) and the dual filtration Fil^rD∨={λ:λ(Fil^{1−r}D)=0}. The geometric
+   comparison identifies the transported pairing with cup product and the normalized top-degree Tate line; a
+   cycle/trace normalization is an explicit supplier contract. An idempotent commutes with a natural
+   comparison when its action has been supplied on both sides; then use exactness on admissible
+   representations.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`
+- `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`
+- `PadicHodgeTheory:R06.5/proper-semistable-period-comparison`
+- `EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality`
+- `CrystallineCohomology:CR.6/hk-products`
+- `PadicHodgeTheory:R06.2/ddr-exact-strict-tensor`
+- `PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful`
+- `PadicHodgeTheory:R06.2/ddr-of-tate-twists`
+- `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`
+- `AInfCohomology:AI.5`
+- `ClassicalAdicEtaleCohomology:H5`
+- `AInfCohomology:AI.6`
+
+**Checks.**
+
+- For P¹, V²=Q_p(−1) and V⁰(1)=Q_p(1) are dual; twisting H² by 1 removes its Hodge jump and Frobenius p.
+- For a curve, H¹∨≅H¹(1); for V_p(A)=H¹∨ the weights change from {0,−1} to {0,1}.
+- The identity and zero projectors give the entire realization and the zero space. An ℓ-adic polynomial match
+  without a geometric operator does not imply a p-adic filtered projector.
+
+**Sources.**
+
+- [P. Scholze, Theorem 7.11 and its filtered-complex construction, pp.46–47; Theorem 8.4,
+  pp.48–49](https://arxiv.org/abs/1205.3463v2) — Functorial period maps; dual and twist conclusions use the
+  existing tensor functors.
+- [K. Česnavičius and T. Koshikawa, §4.7–4.8, p.27; §6.7, p.66; Theorem 9.5,
+  p.76](https://arxiv.org/abs/1710.06145v3) — Cup structures, natural maps and the rational semistable
+  comparison.
+- [O. Brinon and B. Conrad, Definition 7.3.4 and the preceding dual-filtration convention,
+  p.98](https://math.stanford.edu/~conrad/papers/notes.pdf) — The dual Hodge filtration needed by the
+  covariant period functors.
+
+### The covariant crystalline realization of an abelian scheme
+
+Target `PadicHodgeTheory:R06.5/abelian-scheme-dcris` (application).
+
+Let 𝔄/O_K be an abelian scheme of relative dimension g with fibres A/K and A₀/k. Write V_p(A)=T_p(A)⊗Q_p,
+covariantly. Then D_cris(V_p(A))≅H¹_cris(A₀/W(k))[1/p]∨ with inverse-dual σ-semilinear Frobenius. Over K its
+filtered realization is H¹_dR(A/K)∨; Fil⁰ is the annihilator of H⁰(A,Ω¹), canonically H¹(A,O_A)∨, and
+gr^{−1}≅H⁰(A,Ω¹)∨≅Lie(A). Both graded ranks are g, the weights are 0 and 1, and t_H=t_N=−g. The integral
+crystalline H¹ is identified with the Frobenius pullback of the contravariant Dieudonné module of A₀[p^∞] by
+the imported degree-one comparison; that pullback is retained until its semilinear convention has been
+matched. No integral equality with the dual Tate lattice follows from this rational statement.
+
+**Proof route.**
+
+1. A4/realization-conventions gives V_p(A)=H¹_et(A_Kbar,Q_p)∨. Apply the crystalline comparison, then the
+   dual-compatible R06.2 functor. Frobenius on a dual is the inverse transpose, not the transpose.
+2. Dualize A4/abelian-h1-de-rham: 0→H⁰Ω¹→H¹_dR→H¹O→0. Use the dual filtration formula to obtain Fil⁰ and
+   gr^{−1}, and weak admissibility to compute t_N=t_H=−g.
+3. Import the H¹_cris/contravariant Dieudonné comparison from R07.2/A4 pd-first-cohomology. Brinon–Conrad
+   Remark 7.3.3 uses a σ-pullback; an identification omitting it must provide its explicit semilinear
+   untwisting. Its Fontaine–Honda discussion over unramified K is not used to restrict the geometric
+   comparison to that case.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`
+- `AbelianSchemesAndArithmeticModuli:A4/realization-conventions`
+- `AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham`
+- `AbelianSchemesAndArithmeticModuli:A4/pd-first-cohomology`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`
+- `PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible`
+- `PadicHodgeTheory:R06.2/ddr-exact-strict-tensor`
+- `PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful`
+
+**Checks.**
+
+- For g=0 the realization is zero and t_H=t_N=0.
+- For a good ordinary elliptic curve the covariant slopes are −1 and 0; for a supersingular one they are
+  −1/2,−1/2.
+- For a product A×B the dimensions and t_H add. A polarization of degree divisible by p still gives rational
+  duality, without an integral perfect pairing.
+
+**Sources.**
+
+- [O. Brinon and B. Conrad, (7.3.1), Remark 7.3.3 and dual-filtration convention,
+  pp.97–98](https://math.stanford.edu/~conrad/papers/notes.pdf) — The degree-one crystalline/Dieudonné
+  comparison includes a Frobenius pullback; dualizing gives the covariant realization.
+- [L. Berger, II.5.1, p.19, with correction E45](https://arxiv.org/abs/math/0210184v1) — The abelian
+  comparison must use the ordinary linear dual of the Tate module.
+
+### Abelian Tate modules are de Rham of weights zero and one
+
+Target `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights` (theorem).
+
+For every abelian variety A/K of dimension g, without a reduction hypothesis, V_p(A) is de Rham and
+D_dR(V_p(A))≅H¹_dR(A/K)∨ with filtration jumps −1 and 0 of multiplicity g. There is a natural G_K-equivariant
+Hodge–Tate decomposition C⊗V_p(A)≅(C(1)⊗_K Lie(A))⊕(C⊗_K H¹(A,O_A)∨). Consequently its Hodge–Tate weights are
+0 and 1, each g. The rational statement is independent of a choice of good or semistable model.
+
+**Proof route.**
+
+1. Apply the proper smooth de Rham comparison to A, then A4/realization-conventions and dual compatibility.
+   Properness and smoothness are supplied by the existing abelian-variety carrier and A4 realization.
+2. The Hodge exact sequence of A4 has two rank-g terms. Dualize it using Fil⁰=ann(Fil¹), and dualize the
+   canonical C-decomposition from the de Rham comparison; H⁰Ω¹∨=Lie(A).
+3. Read the sign using R06.2/hodge-tate-weight-convention: a jump −1 contributes +1. This proof does not
+   invoke the good-reduction criterion and hence cannot form a cycle with it.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`
+- `AbelianSchemesAndArithmeticModuli:A4/realization-conventions`
+- `AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham`
+- `ArithmeticGaloisRepresentations:R01.6/field-tate-realization`
+- `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`
+- `PadicHodgeTheory:R06.2/hodge-tate-weight-convention`
+- `PadicHodgeTheory:R06.2/ddr-exact-strict-tensor`
+
+**Checks.**
+
+- The zero abelian variety has no weights.
+- A Tate elliptic curve has weights 0 and 1 despite N≠0; these weights alone do not force crystallinity.
+- Good ordinary and supersingular elliptic curves have the same two weights; Frobenius slopes distinguish them
+  instead.
+
+**Sources.**
+
+- [P. Scholze, Theorem 8.4, pp.48–49](https://arxiv.org/abs/1205.3463v2) — Constant-coefficient Hodge–Tate
+  comparison on every proper smooth abelian variety.
+- [O. Brinon and B. Conrad, Following Theorem 7.2.8, p.94; §7.3,
+  p.98](https://math.stanford.edu/~conrad/papers/notes.pdf) — The abelian weights and the dual filtration; our
+  weight sign follows the covariant convention.
+
+### Period realization of the Weil pairing
+
+Target `PadicHodgeTheory:R06.5/weil-pairing-duality` (theorem).
+
+For an abelian variety A/K, the Weil pairing yields V_p(A^∨)≅V_p(A)∨(1). A polarization λ gives a
+nondegenerate alternating pairing V_p(A)×V_p(A)→Q_p(1); its integral version on T_p(A) is perfect when p∤deg
+λ. Applying D_dR, or D_cris/D_st when admissible, gives the corresponding perfect filtered pairing into the
+rank-one period line of Q_p(1). That line has φ=p^{−1}σ, N=0 and a single jump at −1. Thus for g=1, det
+D_cris(V_p(A)) is that line; if k=F_{p^f}, det(φ^f)=p^{−f}. In dimension g, det(φ^f)=p^{−fg}. The rational
+determinant character det V_p(A)=Q_p(g) is imported from arithmetic Tate theory, rather than defined again
+here.
+
+**Proof route.**
+
+1. Import the finite Weil pairing and its compatible inverse limit from A3 and
+   R01.6/arithmetic-polarized-pairing. For elliptic curves current Tau Ceti already defines the Tate pairing
+   and proves its determinant character; this part supplies their period realizations.
+2. Use the tensor/dual period functors and the period Tate line. Evaluate the pairing on determinant top
+   exterior powers, or import R01.6/tate-determinant-character and then apply D_cris.
+3. Only φ^f is K₀-linear when f>1. For integral perfectness restrict to p∤deg λ; after tensoring Q_p every
+   polarization is invertible, so rational perfectness has no such restriction.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`
+- `ArithmeticGaloisRepresentations:R01.6/arithmetic-polarized-pairing`
+- `ArithmeticGaloisRepresentations:R01.6/tate-determinant-character`
+- `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`
+
+**Checks.**
+
+- For g=1 over Q_p, det φ=p^{−1}, not p; the latter belongs to cohomological H¹.
+- For g=2 over F_{p²}, det(φ²)=p^{−4}; using p^{−2} confuses dimension or residue degree.
+- A polarization with p dividing its degree can have a degenerate mod-p pairing even though its rational
+  period pairing is perfect.
+
+**Sources.**
+
+- [O. Brinon and B. Conrad, Dual-filtration convention, p.98; Example 9.2.8,
+  p.142](https://math.stanford.edu/~conrad/papers/notes.pdf) — Dual filtrations and the crystalline period
+  t^{−1} of Q_p(1).
+- [L. Berger, II.4.3, p.18; II.5.1, p.19, with correction E45](https://arxiv.org/abs/math/0210184v1) — The
+  determinant of the covariant Tate representation and the duality convention.
+
+### Good ordinary and supersingular elliptic realizations
+
+Target `PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular` (theorem).
+
+Let E/K have good reduction E₀/F_q, q=p^f, and let a=q+1−#E₀(F_q). The rank-two D=D_cris(V_p(E)) has
+filtration jumps −1,0 and det(X−φ^f|D)=X²−(a/q)X+1/q. If p∤a, E₀ is ordinary: D has slopes −1,0 and its slope
+−1 submodule is weakly admissible, giving a G_K-stable Q_p(1) times unramified character line in V_p(E). If
+p|a, E₀ is supersingular: D has slopes −1/2,−1/2, no rank-one φ-stable K₀-submodule, and V_p(E) is irreducible
+over Q_p. This is not absolute irreducibility after enlarging coefficient fields. φ^f may be scalar when f>1
+without producing a φ-stable line.
+
+**Proof route.**
+
+1. Apply the abelian-scheme realization. Import the common finite-field H¹ Frobenius polynomial from the
+   lower-tier crystalline/étale Frobenius comparison; dualize φ^f to obtain the displayed reciprocal
+   polynomial.
+2. Use R07.2 height-two Dieudonné/isocrystal classification: ordinary has slopes 0,1 on H¹, supersingular has
+   1/2,1/2. The Hasse bound and the trace alone are not the proof of the slope assertion over every F_{p^f}.
+3. In the ordinary case weak admissibility forces Fil⁰D_K not to equal the slope −1 line: otherwise that line
+   would have t_H=0>−1=t_N. Its induced jump is −1 and it is weakly admissible. Full faithfulness/exactness of
+   admissible period functors gives the Galois subrepresentation.
+4. A rank-one σ-isocrystal over the unramified K₀ has integral slope: write φ(e)=b e, and v_p(det φ^f)=f
+   v_p(b) with v_p(b)∈Z. Thus a half-slope rank-two object has no φ-stable K₀-line. Any Q_p subrepresentation
+   would supply one.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/abelian-scheme-dcris`
+- `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`
+- `ArithmeticGaloisRepresentations:R01.6/finite-field-frobenius-conventions`
+- `PadicDifferentialEquationsAndRigidCohomology:RD.7`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`
+- `PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible`
+
+**Checks.**
+
+- Over F₅, y²=x³+x has #E=4 and a=2; the reciprocal polynomial is X²−(2/5)X+1/5 and the two slopes are −1,0.
+- Over F₃, y²=x³−x has #E=4 and a=0; its slopes are both −1/2 and V₃ is Q₃-irreducible.
+- Base-change the latter curve to F₉: φ² on its covariant isocrystal is scalar −1/3. Nevertheless φ is
+  semilinear and there is still no K₀ φ-stable line.
+
+**Sources.**
+
+- [L. Berger, II.3.2, p.14](https://arxiv.org/abs/math/0210184v1) — The ordinary and supersingular elliptic
+  examples.
+- [O. Brinon and B. Conrad, Example 8.1.10, p.107; Lemma 8.1.11,
+  p.108](https://math.stanford.edu/~conrad/papers/notes.pdf) — Half-slope supersingular modules and rank-one
+  slope restrictions.
+- [N. Katz and W. Messing, Theorem 1 and proof, printed pp.74–75 (PDF
+  pp.3–4)](https://web.math.princeton.edu/~nmk/old/katzmessing.pdf) — Equality of crystalline and étale
+  Frobenius polynomials for smooth projective varieties.
+
+## R06.6 — arithmetic consequences
+
+Milestone: compute the Tate-curve extension class and period module, prove good iff crystalline and semistable
+reduction implies semistable periods, and give the coefficient-prime compatibility input at good abelian
+reduction. The good-reduction proof uses the actual lattice T_p(A); a rational isogeny classification alone
+cannot supply compatible finite-flat torsion models. The rank-N/toric-rank theorem and the converse
+semistable-reduction criterion are targets of Néron R11.4–R11.5.
+
+### Kummer lattices and rational extensions
+
+Target `PadicHodgeTheory:R06.6/kummer-representation` (construction).
+
+For q∈K× choose compatible p-power roots q_n in Kbar with q₀=q, and compatible primitive roots ε_n with ε₀=1.
+For g∈G_K, g(q_n)/q_n=ε_n^{c_q(g) mod p^n} defines a continuous c_q:G_K→Z_p(1), with coordinates
+c_q(gh)=c_q(g)+χ_p(g)c_q(h). On the existing rank-two Z_p-module let T(q)=Z_p e⊕Z_p f with g(e)=χ_p(g)e and
+g(f)=f+c_q(g)e; let V(q)=Q_p⊗T(q). It is an extension 0→Q_p(1)→V(q)→Q_p→0 with Kummer class δ(q). Changes of
+roots change c_q by a coboundary. Import the completed multiplicative module K̂×=lim K×/(K×)^{p^n} from
+LocalGaloisGroups Layer 7; its rationalization maps isomorphically to H¹_cont(G_K,Q_p(1)) and hence to this
+continuous representation Ext¹. The pair (v_p,log_K) identifies it with Q_p⊕K. V(q) splits iff q is a root of
+unity. Integrally, T(q) splits iff q∈∩_n(K×)^{p^n}, which for finite K is the subgroup of roots of unity of
+order prime to p; nontrivial p-power roots can survive as torsion Kummer classes. No action of all ring
+automorphisms of Kbar is used: G_K fixes q.
+
+**Proof route.**
+
+1. At each finite level use the pinned TauCeti.kummerCocycle and kummerCocycle_mem_Z1, with the actual
+   K-algebra Galois action and the same root choices. The finite cocycle classes agree under transition maps;
+   the continuous inverse-limit dictionary in R02.1 identifies their limit with H¹_cont(G_K,Z_p(1)).
+2. The cocycle equation is exactly the upper-right entry of the multiplication law for [[χ,c],[0,1]].
+   Invertibility follows from χ∈Z_p× and continuity from its two entries. Interpret the action as Mathlib
+   Representation on the existing free module; a separate KummerCocycle carrier is unnecessary.
+3. Changing q_n by ε_n^b changes the coordinate cocycle by (χ−1)b. Conjugation by a unipotent matrix gives an
+   isomorphism of extensions. Tensor the completed Kummer map with Q_p, using the imported
+   valuation/principal-unit logarithm calculation, to obtain Q_p⊕K.
+4. LocalGaloisGroups separates finite p-power torsion from the free completed module. Its image vanishes
+   rationally but may be nonzero integrally. The free part is detected by valuation and log, so rational
+   splitting occurs exactly for roots of unity. This separates integral and rational splitting.
+
+**Direct prerequisites.**
+
+- `tauceti:TauCeti.kummerCocycle`
+- `tauceti:TauCeti.kummerCocycle_mem_Z1`
+- `mathlib:cyclotomicCharacter`
+- `mathlib:Representation`
+- `mathlib:Matrix.det_fin_two`
+- `ArithmeticGaloisDuality:R02.1`
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`
+- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group`
+
+**Checks.**
+
+- The matrix action has determinant χ_p and contains its prescribed Q_p(1) line.
+- q=p has nonzero valuation class, so its rational extension is nonsplit.
+- Over Q₃(ζ₃), q=ζ₃ gives a nonzero order-three integral Kummer class but zero rational class.
+
+**Uses that determine the API.**
+
+- `PadicHodgeTheory:R06.6/kummer-representations-semistable` — Its exact sequence and cocycle determine the
+  invariant period basis.
+- `PadicHodgeTheory:R06.6/tate-curve-tate-module` — The p-power torsion uniformization identifies the actual
+  Tate lattice with T(q).
+- `PadicHodgeTheory:R06.6/tate-curve-l-invariant` — Valuation and logarithm coordinates give the normalized
+  isomorphism invariant.
+
+**API.**
+
+- `TauCeti.PadicHodge.kummerCocycleFromRoots` (constructor): Compatible finite root choices over K give a
+  continuous Z_p(1)-valued 1-cocycle in the imported continuous cocycle space; its mod-p^n class is the pinned
+  finite Kummer class.
+- `TauCeti.PadicHodge.kummerRepOfCocycle` (constructor): A continuous χ_p-cocycle defines a Representation on
+  Z_p² and, by scalar extension, Q_p²; its submodule and quotient are Z_p(1) and Z_p.
+- `TauCeti.PadicHodge.kummerClass_eq_delta` (compatibility): The exact-sequence class is δ(q), compatible with
+  finite-level Kummer and the imported completed multiplicative module.
+- `TauCeti.PadicHodge.kummerChoice_iso` (functoriality): Changing roots by b adds (χ_p−1)b and gives the
+  unipotent basis-change isomorphism, with identity/composition laws for b=0 and b+b′.
+- `TauCeti.PadicHodge.kummerClass_pow` (relation): δ(q^a)=aδ(q) for a∈Z. For a≠0, V(q^a)≅V(q) as unframed
+  rational representations; this need not identify their integral lattices.
+- `TauCeti.PadicHodge.kummerSplit_iff` (characterisation): Rational splitting is (v_p(q),log_K(q))=(0,0),
+  equivalently q torsion; integral splitting is q in the intersection of all p^n-power subgroups.
+- `TauCeti.PadicHodge.kummerMatrix` (data): For a commutative ring R, kummerMatrix(a,c)=[[a,c],[0,1]] on the
+  existing Matrix (Fin 2) (Fin 2) R carrier.
+- `TauCeti.PadicHodge.kummerMatrix_mul` (relation): kummerMatrix(a,c)·kummerMatrix(b,d)=kummerMatrix(ab,c+ad).
+- `TauCeti.PadicHodge.kummerMatrix_det` (simp): det(kummerMatrix(a,c))=a; specialization a=χ_p(g) gives the
+  cyclotomic determinant.
+- `TauCeti.PadicHodge.kummerMatrix_coboundary` (compatibility): U(−b)M(a,c)U(b)=M(a,c+(a−1)b), where
+  U(b)=kummerMatrix(1,b); this fixes the root-change conjugation sign.
+
+**Definition tests.**
+
+- `TauCeti.PadicHodge.kummerMatrix_identity` (degenerate): kummerMatrix(1,0)=1; a nonzero identity cocycle
+  fails this test.
+- `TauCeti.PadicHodge.kummerMatrix_split` (degenerate): kummerMatrix(a,0)=diag(a,1); c=0 gives the split
+  extension.
+- `TauCeti.PadicHodge.kummerMatrix_subline` (compatibility): kummerMatrix(a,c)e₁=a e₁, and the induced action
+  on the e₂ quotient is 1; transposing the matrix fails.
+- `TauCeti.PadicHodge.kummerMatrix_cocycle` (relation): The upper-right entry of the product is c+ad, not c+d;
+  for a=2,c=3,b=5,d=7 over Q it is 17.
+- `TauCeti.PadicHodge.kummerRoots_base_fixed` (non-example): The cocycle is defined for G_K fixing q;
+  permitting an automorphism moving q makes g(q_n)/q_n fail to be a p^n-th root of unity.
+- `TauCeti.PadicHodge.kummerRootOfUnity_integral` (non-example): For K=Q₃(ζ₃) and q=ζ₃, T(q) is nonsplit and
+  V(q) is split: integral coboundary and rational coboundary are distinct predicates.
+- `TauCeti.PadicHodge.kummerUniformizer_nonsplit` (value): q=p has v_p(q)=1 and log_K(q)=0, so V(p) does not
+  split.
+- `TauCeti.PadicHodge.kummerMatrix_rootChange` (compatibility): Over Q, with a=2,c=3,b=5, the conjugated
+  upper-right entry is 8. Changing either conjugation sign gives the wrong coboundary.
+
+**Sources.**
+
+- [O. Brinon and B. Conrad, Example 9.2.8, p.142; proof of Lemma 8.3.9,
+  p.125](https://math.stanford.edu/~conrad/papers/notes.pdf) — Continuous Kummer extensions and
+  valuation/logarithm coordinates on their rational classes.
+- [L. Berger, II.4.4, pp.18–19, especially p.19](https://arxiv.org/abs/math/0210184v1) — Kummer classes and
+  extensions of Q_p by Q_p(1).
+
+### The semistable period basis of a Kummer extension
+
+Target `PadicHodgeTheory:R06.6/kummer-representations-semistable` (theorem).
+
+Every continuous extension of Q_p by Q_p(1) over G_K is semistable. For V(q) there is u_q∈B_st⁺ with
+g(u_q)=u_q+c_q(g)t, φ(u_q)=p u_q, N(u_q)=−v_p(q), and image u_q in B_dR giving log_K(q) modulo the filtration.
+In the invariant basis x=t^{−1}e, y=−u_q t^{−1}e+f of D_st(V(q)), one has φ(x)=p^{−1}x, φ(y)=y, N(x)=0,
+N(y)=v_p(q)x. The Hodge filtration is Fil^{−1}=D_K, Fil⁰=K(y+log_K(q)x), Fil¹=0. Thus t_H=t_N=−1, and V(q) is
+crystalline iff v_p(q)=0. The logarithm branch is log_K(p)=0; changing the branch changes the period embedding
+and the filtration coordinates together.
+
+**Proof route.**
+
+1. Build u_q from the compatible roots using R06.1/crystalline-logarithm and the semistable logarithm
+   variable. Its Galois and Frobenius transformations make x,y invariant; their independence yields full
+   period rank. N=−d/du gives the positive sign in N(y).
+2. Embed into B_dR with log_K(p)=0; u_q−log_K(q) belongs to Fil¹, so y+log_K(q)x belongs to Fil⁰. The line and
+   jumps follow by dimension and the underlying Q_p(1),Q_p extension.
+3. For general H¹(Q_p(1)) classes use the rationalized completed Kummer isomorphism: every class is a finite
+   Q_p-linear combination of classes of elements of K×. Baer sums are subquotients of direct sums of their
+   semistable representations; the category is closed under direct sums and subquotients. This does not assert
+   that arbitrary extensions of semistable representations are semistable.
+4. The crystalline subspace is ker N=D_cris(V); it has full rank precisely when v_p(q)=0. Read filtration and
+   determinant to get t_H=t_N=−1.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.6/kummer-representation`
+- `PadicHodgeTheory:R06.1/crystalline-logarithm`
+- `PadicHodgeTheory:R06.1/semistable-period-ring`
+- `PadicHodgeTheory:R06.1/bst-embedding-into-bdr`
+- `PadicHodgeTheory:R06.2/crystalline-semistable-de-rham-implications`
+- `PadicHodgeTheory:R06.2/admissibility-dimension-bound`
+- `PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible`
+
+**Checks.**
+
+- q=p gives φ=diag(p^{−1},1), N(y)=x and Fil⁰=Ky: semistable, nonsplit, noncrystalline.
+- For p odd and q=1+p, valuation is zero but log_K(q)≠0; the representation is crystalline and nonsplit.
+- For a root of unity, both coordinates vanish and V(q)=Q_p(1)⊕Q_p; integral torsion can remain as in the
+  construction test.
+
+**Sources.**
+
+- [L. Berger, II.4.3, p.18; II.4.4, pp.18–19, with corrections E40–E44](https://arxiv.org/abs/math/0210184v1)
+  — The explicit invariant basis, φ,N and Kummer extension calculation.
+- [O. Brinon and B. Conrad, Lemma 8.3.9 and proof, p.125; Example 9.2.8, p.142; Theorem 9.2.10,
+  p.143](https://math.stanford.edu/~conrad/papers/notes.pdf) — All rational Kummer extensions are semistable.
+  Their +d/dX monodromy convention must be changed to our −d/du convention.
+
+### The p-adic Tate lattice of a Tate curve
+
+Target `PadicHodgeTheory:R06.6/tate-curve-tate-module` (theorem).
+
+For q∈K× with 0<|q|<1, import the Tate curve E_q and the G_K-equivariant uniformization Kbar×/q^Z≅E_q(Kbar),
+compatible over finite extensions. At level p^n, the classes ε_n^i q_n^j with 0≤i,j<p^n are exactly E_q[p^n],
+each occurring once. Their multiplication-by-p transitions give a G_K-equivariant isomorphism T_p(E_q)≅T(q),
+compatible with the injection Z_p(1) and quotient Z_p, and hence V_p(E_q)≅V(q). The extension class is the
+Kummer class of q. This is the residue-characteristic p adapter; R01.6 already owns the analogous ℓ≠p
+arithmetic statement.
+
+**Proof route.**
+
+1. Apply the imported analytic uniformization at each finite extension containing the finite torsion. A class
+   z modulo q^Z is p^n-torsion iff z^{p^n}=q^j for some j; reducing j modulo p^n gives the displayed
+   representatives and uniqueness.
+2. Compute multiplication by p on these representatives using q_{n+1}^p=q_n and ε_{n+1}^p=ε_n. Transition maps
+   are surjective, and the inverse-limit basis is (ε_n),(q_n).
+3. The G_K action on the first basis vector is χ_p and on the second is the Kummer cocycle from the preceding
+   construction. The finite-level exact sequences therefore give precisely its lattice, including the
+   extension class.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.6/kummer-representation`
+- `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`
+- `ArithmeticGaloisRepresentations:R01.6/field-tate-realization`
+
+**Checks.**
+
+- At level p^n the count is p^{2n}, not (p^n−1)²; both index endpoints are <p^n.
+- The roots of unity supply the Z_p(1) sublattice, rather than the trivial quotient.
+- Replacing q by q^p multiplies the extension class by p: the rational representations are isomorphic, but the
+  natural isogeny need not identify integral lattices.
+
+**Sources.**
+
+- [L. Berger, II.4.2, p.17, with correction E42](https://arxiv.org/abs/math/0210184v1) — Torsion
+  representatives and their Kummer Galois action.
+- [O. Brinon and B. Conrad, Example 9.2.9, p.143](https://math.stanford.edu/~conrad/papers/notes.pdf) — The
+  Tate curve realizes the Kummer extension.
+
+### The filtered Frobenius–monodromy module of a Tate curve
+
+Target `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module` (theorem).
+
+For 0<|q|<1 put v=v_p(q)>0 and ℓ=log_K(q). Then V_p(E_q) is semistable and noncrystalline, with D_st basis x,y
+satisfying φ=diag(p^{−1},1) semilinearly, N(y)=v x, N(x)=0, and Fil⁰D_K=K(y+ℓx), Fil^{−1}=D_K, Fil¹=0. N has
+rank one and remains nonzero after every finite extension, so E_q is not potentially good and V_p(E_q) is not
+potentially crystalline or potentially Barsotti–Tate. It is ordinary with weights 0,1 and t_H=t_N=−1. Over Q_p
+the arithmetic WD Frobenius is diag(p,1) in this basis and satisfies F N F^{−1}=pN; the convention with
+geometric Frobenius uses p^{−1}.
+
+**Proof route.**
+
+1. Identify V_p(E_q) with V(q), then apply its explicit period calculation. Positivity of v gives rank-one N.
+2. The only nonzero proper φ,N-stable line is K₀x; its induced filtration has the jump −1, so its t_H=t_N=−1.
+   The full object also has equality; this is the weak-admissibility check, not a proof for all arbitrary
+   filtrations.
+3. R06.2 finite base change preserves the normalized nonzero monodromy. Good iff crystalline below, and
+   R07.4’s crystalline weights-0,1 lattice criterion, rule out potential good reduction and potential
+   Barsotti–Tate.
+4. Apply the already planned R06.3 Tate WD convention. At K=Q_p its arithmetic F=φ^{−1}; conjugating the
+   upper-right N entry multiplies it by p.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.6/kummer-representations-semistable`
+- `PadicHodgeTheory:R06.6/tate-curve-tate-module`
+- `PadicHodgeTheory:R06.3/tate-curve-weil-deligne-example`
+- `PadicHodgeTheory:R06.2/crystalline-semistable-base-change`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt`
+- `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`
+
+**Checks.**
+
+- q=p has ℓ=0 but N(y)=x≠0. A zero L-invariant does not mean good reduction.
+- For q=p^m and m≥1, N(y)=m x and Fil⁰=Ky; φ,N,fil satisfy Nφ=pφN.
+- After a ramified extension the raw integer valuation grows, but normalized N stays nonzero; an argument
+  declaring it zero after extension is invalid.
+
+**Sources.**
+
+- [L. Berger, II.4.3, p.18, with corrections E40–E44](https://arxiv.org/abs/math/0210184v1) — Period normal
+  form of the Tate curve.
+- [O. Brinon and B. Conrad, Example 9.2.9 and Theorem 9.2.10,
+  p.143](https://math.stanford.edu/~conrad/papers/notes.pdf) — Tate-curve semistability and choice of period
+  embedding.
+
+### The normalized Tate L-invariant
+
+Target `PadicHodgeTheory:R06.6/tate-curve-l-invariant` (definition).
+
+Use the existing weakly admissible filtered (φ,N)-module carrier of R06.2. A Tate-type object here is a
+rank-two D over K₀ with a one-dimensional Q_p-space D^{φ=1}, generated by y, such that N(y)≠0, φ(Ny)=p^{−1}Ny,
+and y,Ny span D. Its Hodge filtration has Fil^{−1}=D_K, Fil¹=0 and a one-dimensional Fil⁰ transverse to ker N.
+Define L(D)∈K by Fil⁰D_K=K(y+L(D)Ny). This is independent of the choice of nonzero y∈D^{φ=1}. For the Kummer
+normal form with v_p(q)≠0, L(V(q))=log_K(q)/v_p(q). Two such unframed filtered (φ,N)-modules are isomorphic
+iff their L-invariants agree; by the existing admissible equivalence, the corresponding rational
+representations are isomorphic iff the invariants agree. The statement concerns this exact Tate-type class,
+not arbitrary semistable rank-two objects or framed extension classes.
+
+**Proof route.**
+
+1. Weak admissibility forces Fil⁰≠ker N because the slope −1 line would otherwise have t_H=0>t_N=−1. Decompose
+   a generator of Fil⁰ in the basis (Ny,y); its y coefficient is nonzero, so normalize it to 1.
+2. Every other φ-fixed generator is a Q_p× multiple of y and scales Ny by the same factor. This proves
+   independence. In the basis (x,y) with Ny=v x and Fil⁰=K(y+ℓx), the coefficient relative to Ny is ℓ/v.
+3. A φ,N isomorphism scales y and Ny together and hence preserves L. Conversely mapping these canonical bases
+   with the same L preserves all structures. For normal forms (v,ℓ),(v′,ℓ′), a diagonal map x↦αx′, y↦βy′ works
+   exactly when vα=βv′ and ℓα=βℓ′.
+4. The branch change log′(p)=b adds b v_p(q) to ℓ, hence adds b to L; its comparison uses the corresponding
+   changed period embedding. This is not invariance under an unrecorded logarithm choice.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`
+- `PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible`
+- `mathlib:Matrix.det_fin_two`
+
+**Checks.**
+
+- q=p has L=0 and remains noncrystalline.
+- Replacing q by q^a, a≠0, scales (v,ℓ) together and leaves L fixed.
+- Using raw log_K(q) instead of the quotient fails the isogeny test q↦q² whenever log_K(q)≠0.
+
+**Uses that determine the API.**
+
+- `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module` — The filtration records an invariant not
+  determined by the rank of N.
+- `Tate isogenies q↦q^a, via PadicHodgeTheory:R06.6/tate-curve-tate-module` — The rational isomorphism class
+  is unchanged while valuation and logarithm both scale.
+- `NeronModelsAndSemistableAbelianVarieties:R11.5` — Supplies the rank-two period normal form;
+  higher-dimensional monodromy remains that roadmap’s target.
+
+**API.**
+
+- `TauCeti.PadicHodge.tateLInvariantOfModule` (constructor): For a Tate-type admissible D, the unique
+  coefficient L with Fil⁰=K(y+L Ny), independent of nonzero φ-fixed y.
+- `TauCeti.PadicHodge.tateLInvariant_spec` (characterisation): Fil⁰ is exactly K(y+L Ny); uniqueness requires
+  transversality to ker N.
+- `TauCeti.PadicHodge.tateLInvariantOfModule_iso` (equivalence): The Tate-type unframed modules are isomorphic
+  iff their L-invariants agree; extension framings and integral lattices are excluded.
+- `TauCeti.PadicHodge.tateLInvariant` (data): On a field R, the coordinate formula tateLInvariant(v,ℓ)=ℓ/v,
+  used only with v≠0 to describe a Tate-type object.
+- `TauCeti.PadicHodge.tateLInvariant_scale` (functoriality): For c≠0 and v≠0,
+  tateLInvariant(cv,cℓ)=tateLInvariant(v,ℓ); successive scalings and c=1 give composition and identity.
+- `TauCeti.PadicHodge.tateLInvariant_branch` (compatibility): Replacing ℓ by ℓ+bv replaces the L-invariant by
+  L+b.
+- `TauCeti.PadicHodge.tatePhiMatrix` (data): On a field R with r≠0, tatePhiMatrix(r)=diag(r^{−1},1); for r=p
+  this is the Q_p period Frobenius matrix.
+- `TauCeti.PadicHodge.tateMonodromyMatrix` (data): tateMonodromyMatrix(v)=[[0,v],[0,0]]; its square is zero
+  and it is nonzero iff v≠0.
+- `TauCeti.PadicHodge.tateFiltrationVector` (data): tateFiltrationVector(ℓ)=(ℓ,1); its span is Fil⁰ in the
+  specified coordinate normal form.
+- `TauCeti.PadicHodge.tateMonodromy_frobenius` (relation): For r≠0, N(v)Φ(r)=r·Φ(r)N(v).
+- `TauCeti.PadicHodge.tateNormalForm_iso` (characterisation): For v,v′≠0, diagonal scalars α,β∈R× satisfying
+  vα=βv′ and ℓα=βℓ′ exist iff ℓ/v=ℓ′/v′.
+
+**Definition tests.**
+
+- `TauCeti.PadicHodge.tateLInvariant_uniformizer` (degenerate): tateLInvariant(1,0)=0; q=p is the
+  noncrystalline zero-invariant example.
+- `TauCeti.PadicHodge.tateLInvariant_power` (functoriality): For v≠0, (2v,2ℓ) gives the same invariant as
+  (v,ℓ), in characteristic zero.
+- `TauCeti.PadicHodge.tateLInvariant_branch_test` (value): For v≠0, replacing ℓ by ℓ+bv changes L by b.
+- `TauCeti.PadicHodge.tateLInvariant_raw_log` (non-example): Over Q, (v,ℓ)=(1,2) and (2,4) are isomorphic
+  normal forms with invariant 2; raw ℓ differs.
+- `TauCeti.PadicHodge.tateFiltrationVector_second` (characterisation): The second coordinate is 1, so this
+  line is transverse to the x-axis; using (1,ℓ) fails at ℓ=0.
+- `TauCeti.PadicHodge.tateMonodromy_square` (relation): N(v)²=0 and N(1)≠0; nilpotence alone does not mean
+  N=0.
+- `TauCeti.PadicHodge.tatePhiMatrix_det` (compatibility): det Φ(r)=r^{−1}; det Φ(p) is p^{−1}, not p.
+- `TauCeti.PadicHodge.tateMonodromy_orientation` (non-example): For r=3,v=1 over Q, the upper-right N
+  satisfies NΦ=3ΦN; transposing N fails.
+- `TauCeti.PadicHodge.tateType_bad_filtration` (non-example): Fil⁰=ker N violates weak admissibility on the
+  slope −1 line; an arbitrary filtration is not a Tate-type admissible object.
+
+**Sources.**
+
+- [L. Berger, II.4.3, p.18, with correction E44](https://arxiv.org/abs/math/0210184v1) — The filtration
+  coefficient must be divided by valuation to be a module-isomorphism invariant.
+- [O. Brinon and B. Conrad, Proposition 8.3.8 and proof, pp.123–125; final paragraph p.126, with correction
+  E46](https://math.stanford.edu/~conrad/papers/notes.pdf) — Classification of the noncrystalline extension
+  modules; signs are translated from the source’s contravariant/+monodromy convention.
+
+### The p-adic good-reduction criterion
+
+Target `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline` (theorem).
+
+An abelian variety A/K has good reduction iff V_p(A) is crystalline, for every p including 2 and every finite
+K/Q_p. Equivalently, its covariant rational Tate representation is crystalline of weights 0,1. A has
+potentially good reduction iff V_p(A) is potentially crystalline; since this representation is always de Rham
+and potentially semistable, this is also equivalent to N=0 on D_pst(V_p(A)). For a minimal Weierstrass model
+this agrees with Mathlib WeierstrassCurve.HasGoodReduction. No good reduction over K is inferred from
+crystallinity only after extension.
+
+**Proof route.**
+
+1. Good reduction gives an abelian O_K-model by Néron R11.1. Apply the abelian-scheme crystalline realization;
+   it works without a ramification bound.
+2. Conversely V_p(A) has weights 0,1 by the arbitrary-reduction de Rham node. Use R07.4/crystalline-01-is-bt
+   in its lattice form: the actual stable lattice T_p(A) comes from a p-divisible group G/O_K, not just a
+   rational isogeny class.
+3. At every n, G[p^n](Kbar)≅T_p(A)/p^n≅A[p^n](Kbar), compatibly in n. The finite étale
+   generic-fibre/Galois-module equivalence identifies G_K with A[p^∞] over K. Invoke the requested
+   Grothendieck compatible finite-flat model criterion in Néron R11.3 (Brinon–Conrad Theorem 7.1.13) to get
+   good reduction. An unrelated finite flat model at one level would not suffice.
+4. Apply the equivalence over finite extensions to obtain potential good iff potential crystalline. On a
+   finite semistable splitting extension, D_cris=ker N in D_st; full rank is equivalent to N=0. Use R06.3
+   descent for independence of the splitting field.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/abelian-scheme-dcris`
+- `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`
+- `PadicHodgeTheory:R06.5/proper-smooth-potential-semistability`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt`
+- `NeronModelsAndSemistableAbelianVarieties:R11.1`
+- `NeronModelsAndSemistableAbelianVarieties:R11.3`
+- `mathlib:WeierstrassCurve.HasGoodReduction`
+- `PadicHodgeTheory:R06.2/crystalline-semistable-base-change`
+- `PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module`
+
+**Checks.**
+
+- A good supersingular elliptic curve is crystalline although its rational Tate representation is irreducible.
+- A split Tate curve is semistable with N≠0 and fails both good and potentially good reduction.
+- A potentially good curve with additive reduction need only become crystalline over an extension; the theorem
+  does not claim its original representation is crystalline.
+
+**Sources.**
+
+- [O. Brinon and B. Conrad, §7 opening, pp.83–84; Theorem 7.1.13 and its p-divisible reformulation,
+  p.90](https://math.stanford.edu/~conrad/papers/notes.pdf) — Good reduction is characterized by a compatible
+  system of finite flat torsion models.
+- [R. Coleman and A. Iovita, Introduction, Theorem on p.3 (arXiv v1)](https://arxiv.org/abs/math/9701229v1) —
+  The good-reduction/crystallinity theorem is stated here; its omitted Chapter II is not used as a proof
+  input.
+
+### Semistable abelian reduction gives semistable periods
+
+Target `PadicHodgeTheory:R06.6/semistable-reduction-semistable` (theorem).
+
+If A/K has semistable reduction, V_p(A) is semistable. Every abelian variety acquires semistable reduction
+over a finite extension and hence has a potentially semistable rational Tate module. For the Raynaud
+uniformization A^an=G^an/Γ, with 0→T→G→B→0, its covariant Tate representation has a filtration
+V_p(T)⊂V_p(G)⊂V_p(A), with graded terms V_p(T), V_p(B), Γ⊗Q_p. B has good reduction and the actions on X_*(T)
+and Γ are unramified; the outer terms are unramified representations twisted by 1 and 0 respectively. They are
+crystalline, but their successive extensions need not be. For a semistable A, N=0 iff A has good reduction by
+the preceding criterion. This part does not claim the converse semistable-reduction criterion or the
+rank-N/toric-rank formula; their owner is Néron R11.4–R11.5.
+
+**Proof route.**
+
+1. Import Néron R11.3 Raynaud uniformization with its Galois descent and compatible exact torsion sequences.
+   Inverse limits give the stated filtration; a merely ℓ≠p inertia filtration is insufficient for this step.
+2. The unramified lattice and cocharacter actions give crystalline outer terms; the good-reduction theorem
+   gives crystalline V_p(B). The entire V_p(A) and all its subquotients are de Rham by the arbitrary-reduction
+   abelian node and the de Rham category’s closure properties.
+3. Apply R06.4/ordinary-implies-semistable(a) twice: a de Rham extension of semistable representations is
+   semistable. Alternatively split the unramified torus/lattice action over a finite unramified field and
+   descend by R06.2. De Rham is an essential hypothesis; semistable representations are not asserted closed
+   under all extensions.
+4. Néron finite-separable-semistable-extension gives potential semistability. The N=0 criterion then uses good
+   iff crystalline, not a downstream Néron period comparison.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`
+- `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`
+- `NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation`
+- `NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension`
+- `NeronModelsAndSemistableAbelianVarieties:R11.3`
+- `PadicHodgeTheory:R06.4/ordinary-implies-semistable`
+- `PadicHodgeTheory:R06.2/crystalline-semistable-base-change`
+- `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`
+
+**Checks.**
+
+- Good reduction has T=Γ=0 and recovers a crystalline representation.
+- A Tate curve has B=0 and two crystalline graded lines, but its extension has N≠0.
+- A nonsplit multiplicative curve has nontrivial unramified quadratic action on both graded lines and is still
+  semistable over K.
+
+**Sources.**
+
+- [R. Coleman and A. Iovita, Introduction, pp.1–3](https://arxiv.org/abs/math/9701229v1) — Semistable abelian
+  varieties and the role of their Frobenius/monodromy realization; the actual proof here uses Raynaud and the
+  imported extension theorem.
+- [L. Berger, II.5.1, p.19](https://arxiv.org/abs/math/0210184v1) — Semistable geometric Tate representations.
+
+### Split, nonsplit and potentially multiplicative elliptic periods
+
+Target `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves` (theorem).
+
+Let E/K be elliptic with v_p(j(E))<0. The imported Tate twist theorem supplies q∈K× with 0<|q|<1 and E≅E_q⊗η
+for a quadratic character η. E is split multiplicative iff η=1, nonsplit multiplicative iff η is nontrivial
+unramified, and additive potentially multiplicative iff η is ramified. Then V_p(E)≅V(q)⊗η. In the first two
+cases it is semistable with nonzero rank-one N; in the third it is potentially semistable with N≠0 and
+nontrivial inertial descent, but is not semistable over K. All three fail potential crystallinity and
+potential good reduction. For K=Q_p in the nonsplit case, D_st has φ=diag(−p^{−1},−1), N(y)=v_p(q)x and the
+same filtration normal form after choosing a generator of the unramified period line. The minimal-equation
+predicates agree with Mathlib HasMultiplicativeReduction and HasSplitMultiplicativeReduction.
+
+**Proof route.**
+
+1. Import the Tate j-parameter and quadratic twist classification from EllipticCurves Layer 4 (and its
+   reduction algorithm). This node does not construct that curve or classify reduction again.
+2. Tensor the Tate period realization by the finite character. An unramified η is crystalline of weight 0 and
+   multiplies Frobenius by its unramified eigenvalue; at Q_p a nontrivial quadratic value is −1. The nilpotent
+   N is unchanged up to the tensor line.
+3. For ramified η, choose a finite splitting extension. Its WD inertial descent is η|I_K, and remains
+   nontrivial even after Frobenius semisimplification. R06.3’s descent criterion for semistability excludes
+   semistability over K; nonzero N excludes potential crystallinity.
+4. Use a minimal Weierstrass equation when relating this conclusion to Mathlib predicates. A scaled nonminimal
+   equation cannot test good or multiplicative reduction.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.6/tate-curve-tate-module`
+- `PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`
+- `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`
+- `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`
+- `mathlib:WeierstrassCurve.HasMultiplicativeReduction`
+- `mathlib:WeierstrassCurve.HasSplitMultiplicativeReduction`
+- `PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module`
+- `PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified`
+
+**Checks.**
+
+- E_q itself is the split case: determinant φ=p^{−1} and N≠0.
+- The unramified quadratic twist of E_p/Q_p is nonsplit multiplicative, has arithmetic WD F=diag(−p,−1), and
+  remains semistable.
+- A ramified quadratic twist of E_p has nontrivial WD inertia and is not semistable over K, though its
+  restriction to the splitting field is the Tate representation.
+
+**Sources.**
+
+- [L. Berger, II.4.1, p.17, with correction E43](https://arxiv.org/abs/math/0210184v1) — The printed
+  Tate-curve assertion requires the split hypothesis; the other cases use the imported quadratic twist
+  theorem.
+- [O. Brinon and B. Conrad, Example 9.2.9, p.143](https://math.stanford.edu/~conrad/papers/notes.pdf) — The
+  semistable period of the split Tate curve; twisting and descent use the existing rational period functors.
+
+### Coefficient-prime compatibility at good abelian reduction
+
+Target `PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction` (theorem).
+
+Let A/F be an abelian variety over a number field, v|p a good-reduction place, k_v=F_q and q=p^f. Let
+P_v(X)∈Z[X] be the common arithmetic Frobenius polynomial on V_ℓ(A), ℓ≠p, imported from R01.6. Then
+D_cris(H¹_et(A_Fbar,Q_p)|G_{F_v}) has charpolynomial det(X−φ^f)=P_v(X). On D_cris(V_p(A)) the eigenvalues of
+φ^f are their reciprocals. The arithmetic WD Frobenius is φ^{−f}, so det(X−F|WD_p(V_p(A)))=P_v(X), inertia is
+trivial and N=0. After Frobenius semisimplification and a common algebraically closed characteristic-zero
+coefficient field, WD_p(V_p(A))≅WD_ℓ(V_ℓ(A)) for every ℓ≠p. This is deduced from the actual common reduction,
+not inferred for arbitrary almost strictly compatible systems. Endomorphisms and supplied projectors preserve
+this comparison only when they act compatibly on both realizations. The bad-place Tate-curve parameter is
+supplied by the preceding explicit nodes, not by its good-place polynomials.
+
+**Proof route.**
+
+1. R01.6 supplies good reduction specialization and the integral Frobenius polynomial. Apply the
+   abelian-scheme comparison to the good O_{F_v}-model and the lower-tier Katz–Messing crystalline/étale
+   Frobenius theorem to H¹ of its projective special fibre.
+2. Dualize to V_p(A) and invert φ^f as prescribed by the arithmetic WD convention of R06.3. The two inversions
+   cancel, yielding P_v. Crystallinity gives trivial inertia and N=0.
+3. The ℓ≠p representation is unramified with the same P_v. Over an algebraically closed coefficient field,
+   equality of polynomials identifies the semisimple Frobenius operators and therefore their unramified
+   Frobenius-semisimple WD representations. No stronger nonsemisimple claim follows from a polynomial alone.
+4. For endomorphism summands use actual geometric functoriality on both sides, as above. A common rational
+   polynomial on the whole space alone does not identify each coefficient-field factor.
+
+**Direct prerequisites.**
+
+- `PadicHodgeTheory:R06.5/abelian-scheme-dcris`
+- `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`
+- `ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization`
+- `ArithmeticGaloisRepresentations:R01.6/integral-good-frobenius-polynomial`
+- `ArithmeticGaloisRepresentations:R01.6/finite-field-frobenius-conventions`
+- `PadicDifferentialEquationsAndRigidCohomology:RD.7`
+- `PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor`
+
+**Checks.**
+
+- For y²+y=x³−x²−10x−20 (11a1) at p=3, #E(F₃)=5 and a₃=−1, so P₃=X²+X+3; the covariant D_cris polynomial is
+  X²+X/3+1/3.
+- For P¹ in cohomological degree 2, crystalline φ^f has eigenvalue q; the covariant dual has eigenvalue
+  q^{−1}, and arithmetic WD returns q.
+- For a split Tate curve over Q_p the bad-place arithmetic WD polynomial is (X−p)(X−1) and N≠0. Replacing it
+  by a crystalline good-place parameter discards genuine monodromy.
+
+**Sources.**
+
+- [N. Katz and W. Messing, Theorem 1 and proof, printed pp.74–75 (PDF
+  pp.3–4)](https://web.math.princeton.edu/~nmk/old/katzmessing.pdf) — Equality of the crystalline and étale
+  Frobenius polynomials for smooth projective special fibres.
+- [O. Brinon and B. Conrad, §7.3, (7.3.1), p.97](https://math.stanford.edu/~conrad/papers/notes.pdf) — The
+  crystalline realization underlying the good-reduction parameter.
+
+## Worked comparisons
+
+### Tate curve and its cohomological dual
+
+Take K=Q_p and q=p^m u with m>0 and u a unit. Put ℓ=log_K(u). On the covariant module choose x,y with
+φ(x)=p⁻¹x, φ(y)=y, N(y)=m x, Fil⁰=K(y+ℓx). Then t_H=t_N=−1 and L=ℓ/m. If u=1, L=0 while N is nonzero. Raising
+q to a positive power a scales both m and ℓ, preserving L and the rational isomorphism class, while the
+isogeny need not identify integral lattices.
+
+On the cohomological dual, φ(x*)=p x*, φ(y*)=y* and N(x*)=−m y*. Its Fil¹ is K(x*−ℓy*). Thus the cohomological
+slopes are 0,1 and the covariant slopes are −1,0. For the positive right-wedge CR.6 HK convention, map the
+normalized e₀ to −y* and e₁ to x*. Over a ramified K first divide raw v_K(q) by e(K/Q_p); omitting the sign or
+the divisor gives the wrong comparison.
+
+Arithmetic WD uses F=φ⁻¹=diag(p,1) on the covariant object. Hence FNF⁻¹=pN. A geometric Frobenius convention
+uses the inverse relation; the nilpotent operator has not changed, only the Frobenius convention has.
+
+### Finite-field and good-place examples
+
+For y²=x³+x over F₅, the point count is 4 and trace 2. Crystalline H¹ has polynomial X²−2X+5; the covariant
+period polynomial is X²−(2/5)X+1/5. For y²=x³−x over F₃, the count is 4 and trace 0. Over F₉, the
+cohomological squared Frobenius is −3 and the covariant one is −1/3. A scalar φ² still supplies no rank-one
+φ-submodule: the actual φ is semilinear, and a rank-one slope over K₀ is integral.
+
+For y²+y=x³−x²−10x−20 over F₃, there are five points. Therefore a₃=−1 and P₃=X²+X+3. The covariant D_cris
+polynomial is X²+X/3+1/3. Inverting its Frobenius for arithmetic WD returns P₃. The determinant q and the two
+reciprocal operations are visible in this calculation.
+
+## Exact supplier contracts
+
+A named node is used when its statement already supplies the input. The following stage contracts cover
+statements that require an explicit extension or adapter. They are mathematical inputs, not implementation
+tickets. Reading a supplier name is not evidence that its requested comparison has been proved.
+
+### ClassicalAdicEtaleCohomology:H5
+
+For proper smooth schemes over finite K/Q_p, identify algebraic and rigid/adic geometric étale cohomology with
+Q_p coefficients, G_K-equivariantly and compatibly with pullback, cup products and Tate twists. This is the
+Huber comparison adapter; no integral torsion-freeness is assumed.
+
+Consumed by: `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`,
+`PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`,
+`PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`.
+
+### DerivedDeRhamCohomology:DD.2
+
+For proper smooth X/K, use the actual de Rham complex and Hodge filtration; identify algebraic and analytic
+coherent/de Rham cohomology under proper GAGA. No derived p-completion or prismatic reconstruction is
+requested.
+
+Consumed by: `PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison`.
+
+### CrystallineCohomology:CR.3
+
+Provide rational crystalline cohomology of a smooth proper k-scheme, Berthelot–Ogus comparison to a smooth
+O_K-lift, and the natural Frobenius-compatible realization used by the A_inf residue bridge.
+
+Consumed by: `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`.
+
+### AInfCohomology:AI.5
+
+The global crystalline/étale assembly is natural and multiplicative and normalizes the top cohomological Tate
+line on projective space. Supply these precise cup/line compatibilities for geometric duality and projector
+restrictions; this is not a general integral correspondence diagram.
+
+Consumed by: `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`.
+
+### AInfCohomology:AI.6
+
+State naturality and cup compatibility of the underlying semistable global crystalline, étale and HK maps,
+including their B_dR agreement after descent to K. The target geometric-period-functoriality-duality-twists
+assembles these maps; the old bdr-comparison-map target explicitly does not assert arbitrary-model naturality
+or multiplicativity. Use CR.6/hk-products for HK products and track the normalized top-degree Tate line.
+Replace the four inherited CP.3 inputs by the existing canonical-bdr-* nodes and the new R06.5 de Rham
+comparison as specified in the handoff, without importing the later integral CP diagrams.
+
+Consumed by: `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`.
+
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
+
+In addition to its p-divisible Dieudonné carrier, supply the degree-one contravariant comparison
+H¹_cris(A₀/W(k))≅D(A₀[p^∞])^{(p)} for abelian A₀/k, with its σ-pullback and explicit Frobenius convention.
+Supply height-two ordinary/supersingular slope classification over every finite residue field. The comparison
+is imported here; the unread proof is not reconstructed from a name search.
+
+Consumed by: `PadicHodgeTheory:R06.5/abelian-scheme-dcris`,
+`PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`.
+
+### NeronModelsAndSemistableAbelianVarieties:R11.1
+
+Good reduction means extension of A/K to an abelian scheme over O_K, equivalently its Néron model is abelian.
+For elliptic curves identify this with Mathlib’s minimal HasGoodReduction predicate.
+
+Consumed by: `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`.
+
+### NeronModelsAndSemistableAbelianVarieties:R11.3
+
+Add Grothendieck’s p-divisible good-reduction criterion: A/K is good iff there are finite flat O_K-models G_n
+of A[p^n] with G_n=G_{n+1}[p^n] compatibly with generic fibres (equivalently A[p^∞] extends). For the existing
+Raynaud uniformization, state the G_K-equivariant compatible p^n-torsion exact sequences for T,G,B,Γ, and that
+X_*(T) and Γ have unramified action in the semistable case. These geometric contracts are needed before R11.5,
+which consumes the present period conclusions.
+
+Consumed by: `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`,
+`PadicHodgeTheory:R06.6/semistable-reduction-semistable`.
+
+### ArithmeticGaloisDuality:R02.1
+
+Use continuous cohomology for compact Z_p(1) and locally compact Q_p(1): the inverse-limit finite Kummer
+classes yield H¹_cont(G_K,Z_p(1))≅lim K×/(K×)^{p^n}; rationalization yields H¹_cont(G_K,Q_p(1)). Identify this
+H¹ with Ext¹ in continuous finite-dimensional Q_p representations and split iff zero, compatible with root
+changes and Baer sums. The discrete-module Ext dictionary in R02.4 is not sufficient.
+
+Consumed by: `PadicHodgeTheory:R06.6/kummer-representation`.
+
+### PadicDifferentialEquationsAndRigidCohomology:RD.7
+
+Katz–Messing for smooth projective geometrically connected X/F_q: the characteristic polynomial of φ^f on
+rational crystalline Hᶦ equals that of geometric Frobenius on Hᶦ_et for every ℓ≠p. In degree one this is the
+arithmetic Frobenius polynomial on the covariant Tate module. Track f and dual inversions explicitly.
+
+Consumed by: `PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`,
+`PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction`.
+
+### tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality
+
+Use the existing finite Kummer isomorphism and local cohomology conventions as the inputs to the R02.1
+continuous inverse-limit adapter. No reconstruction of local class field theory is requested.
+
+Consumed by: `PadicHodgeTheory:R06.6/kummer-representation`.
+
+### tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group
+
+The principal-unit p-adic logarithm, with kernel the roots of unity after rationalization, and the
+valuation/logarithm isomorphism Q_p⊗_{Z_p} padicCompletionUnits p K ≅ Q_p⊕K, v_p(p)=1 and log_K(p)=0. The
+completion itself is already owned by current LocalGaloisGroups Layer 7.
+
+Consumed by: `PadicHodgeTheory:R06.6/kummer-representation`.
+
+### tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
+
+For 0<|q|<1 supply the existing Tate curve and the G_K-equivariant Kbar×/q^Z uniformization compatible over
+finite extensions, with its p-power torsion. For v(j(E))<0 supply the unique Tate parameter and quadratic
+twist: trivial iff split multiplicative, nontrivial unramified iff nonsplit multiplicative, ramified iff
+additive potentially multiplicative. Relate this to the minimal Mathlib reduction predicates. These are
+existing EllipticCurves targets; this part owns only their period adapter.
+
+Consumed by: `PadicHodgeTheory:R06.6/tate-curve-tate-module`,
+`PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`.
+
+## Suggested Lean signatures
+
+The suggested file elaborates at the recorded pins. It contains five real-bodied coordinate operations, eight
+named end identities and ten examples, in 148 lines. No cohomology, period ring, cocycle, Tate lattice or
+admissible-module carrier is introduced there. The complete construction/definition API and all seventeen
+discriminating tests are above; tests requiring the missing geometric or continuous-cohomology carriers remain
+mathematical reader targets. The matrices specialize to K=Q_p and do not stand in for semilinear Frobenius
+over a larger K₀.
+
+| Reader target | Suggested names |
+|---|---|
+| Kummer action coordinates | `kummerMatrix`, `kummerMatrix_mul`, `kummerMatrix_det`, `kummerMatrix_coboundary` |
+| Tate normal form and L-invariant | `tateLInvariant`, `tatePhiMatrix`, `tateMonodromyMatrix`, `tateFiltrationVector`, `tateLInvariant_scale`, `tateLInvariant_branch`, `tateNormalForm_iso` |
+| Period and arithmetic Frobenius conventions | `tateMonodromy_frobenius`, `tateMonodromy_arithmeticFrobenius` |
+
+## Coverage and atlas planets
+
+`PadicHodgeTheory:R06.5` — planned. Complete target-level pass of proper smooth de Rham, good-reduction
+crystalline, proper semistable HK and general potential-admissibility consequences,
+functoriality/duals/twists, and abelian/elliptic period realizations. All nine targets and their suppliers are
+explicit. Six automorphic targets are routed to R19.5/AG2.6 by the confirmed finding. Rational higher-tier
+inputs needed here move down; integral CP diagrams are outside scope.
+
+- Supplier proof/normalization contracts in requests, especially H¹ Dieudonné and multiplicative comparison
+  maps, await their owners. This is planned coverage, not closed coverage or formalization.
+- The full analytic HK period comparison over C and arbitrary integral correspondence diagrams remain in their
+  own plans; they are not required to prove this part’s potential-admissibility theorem.
+
+`PadicHodgeTheory:R06.6` — planned. Complete target-level pass of Kummer lattices, all rational Kummer
+extensions, the Tate-curve period and L-invariant, good iff crystalline, semistable reduction implies
+semistable, twists with potentially multiplicative reduction, and good-place abelian coefficient-prime
+compatibility. Nine targets with explicit lattice/descent contracts; no automorphic geometric realization is
+owned here.
+
+- Néron R11.3 must state the compatible p-divisible good-reduction criterion and its p-power Raynaud exact
+  sequences before this part can be closed.
+- Néron R11.4–R11.5 own the converse semistable reduction criterion and rank-N/toric-rank result. General
+  bad-place abelian WD comparison and automorphic local Langlands compatibility are downstream targets, not
+  silently inferred from good-place polynomials.
+
+The atlas displays six R06.5 planets and five R06.6 planets; the other targets support those milestones.
+Definition tests and API remain part of the roadmap regardless of whether their node is a planet.
+
+| Layer | Planet | Target |
+|---|---|---|
+| R06.5 | Proper smooth de Rham comparison | `proper-smooth-de-rham-comparison` |
+| R06.5 | Crystalline comparison for smooth proper models | `crystalline-comparison-good-reduction` |
+| R06.5 | Semistable Hyodo–Kato realization | `proper-semistable-period-comparison` |
+| R06.5 | Geometric duals and Tate twists | `geometric-period-functoriality-duality-twists` |
+| R06.5 | Hodge–Tate weights of abelian varieties | `abelian-variety-hodge-tate-weights` |
+| R06.5 | Ordinary and supersingular elliptic curves | `elliptic-curve-ordinary-supersingular` |
+| R06.6 | Semistable Kummer extensions | `kummer-representations-semistable` |
+| R06.6 | Tate curve periods and monodromy | `tate-curve-filtered-phi-n-module` |
+| R06.6 | Tate L-invariant | `tate-curve-l-invariant` |
+| R06.6 | Good reduction iff crystalline | `good-reduction-iff-crystalline` |
+| R06.6 | Semistable reduction and Tate modules | `semistable-reduction-semistable` |
+
+## Source-proof boundary
+
+The degree-one crystalline/Dieudonné proof is a supplier boundary. Brinon–Conrad Remark 7.3.3 gives the
+Frobenius-pullback convention, but the Berthelot–Breen–Messing proof has not been read and that volume is not
+in the cleared library. The target uses an exact request to R07.2 and the A4 pd-first-cohomology interface.
+NEXT ACTION: the R07.2/A4 supplier should establish the stated σ-pullback comparison from a lawful source and
+verify its semilinear convention before closing this part.
+
+Coleman–Iovita’s public arXiv v1 omits Chapter II. Its introductory good-reduction theorem is used as a
+statement locator, not as a proof. The proof route here uses the lower-tier Barsotti–Tate lattice equivalence
+and the exact Grothendieck criterion, so access to Chapter II is not needed to finish this target-level pass.
+No uncleared copy of Berthelot–Breen–Messing or an elliptic-curve book is used.
+
+## Source corrections
+
+E40–E47 are retained source-finding identifiers, rechecked against the versions below. The accounts are in our
+own words. They do not assert an independent review verdict, and they do not assert that the unseen published
+versions retain the preprint errors.
+
+`PadicHodgeTheory/E40` — II.3.3, p. 14 (arXiv v1); checked on the page image. The preprint gives a nonlinear
+p-th-power formula for Frobenius on its logarithmic polynomial variable.
+
+Correction: Use φ(Y)=pY. Check: For N=−d/dY, a p-th-power formula gives Nφ(Y)=−pY^{p−1}, whereas pφN(Y)=−p.
+The linear formula satisfies the relation and matches the logarithmic period.
+
+Correction search: No correction located for this survey in the author errata contents checked 2026-10-14;
+this finding concerns arXiv v1, not the unseen published version.
+
+`PadicHodgeTheory/E41` — II.3.3, p. 15 (arXiv v1); checked on the page image. The displayed logarithmic series
+starts with the power n−1 of its increment.
+
+Correction: Use the power n, with coefficient (−1)^{n+1}/n and n≥1. Check: A logarithm vanishes at zero
+increment and begins with that increment. The stated power gives a nonzero constant term and fails both tests.
+
+Correction search: No correction located for this survey in the author errata contents checked 2026-10-14;
+this finding concerns arXiv v1, not the unseen published version.
+
+`PadicHodgeTheory/E42` — II.4.2, p. 17 (arXiv v1); checked on the page image. The stated Tate-torsion index
+ranges exclude the last residue class.
+
+Correction: Both exponents range over 0≤i,j<p^n. Check: There must be p^{2n} distinct p^n-torsion points. The
+shorter ranges give (p^n−1)² and omit points.
+
+Correction search: No correction located for this survey in the author errata contents checked 2026-10-14;
+this finding concerns arXiv v1, not the unseen published version.
+
+`PadicHodgeTheory/E43` — II.4.1, p. 17 (arXiv v1); checked on the page image. The preprint identifies every
+semistable elliptic curve with bad reduction over the base field with a Tate curve.
+
+Correction: Restrict that base-field identification to split multiplicative reduction; nonsplit multiplicative
+curves are unramified quadratic twists. Check: The Tate curve’s nodal tangent directions are split. A nonsplit
+node does not become a split Tate curve over the original field.
+
+Correction search: No correction located for this survey in the author errata contents checked 2026-10-14;
+this finding concerns arXiv v1, not the unseen published version.
+
+`PadicHodgeTheory/E44` — II.4.3, p. 18 (arXiv v1); checked on the page image. The coefficient described as an
+L-invariant is the unnormalized logarithm of the unit part of q.
+
+Correction: The unframed period-module invariant is log_K(q)/v_p(q), with the specified logarithm branch.
+Check: The isogeny q↦q² scales the logarithm and monodromy together. The raw logarithm changes; its ratio to
+valuation does not.
+
+Correction search: No correction located for this survey in the author errata contents checked 2026-10-14;
+this finding concerns arXiv v1, not the unseen published version.
+
+`PadicHodgeTheory/E45` — II.5.1, p. 19 (arXiv v1); checked on the page image. The displayed cohomology
+identification uses G_K-equivariant homomorphisms from the Tate module to the twisted coefficient line.
+
+Correction: Use H¹_et(A_Kbar,Z_p)=Hom_Zp(T_p(A),Z_p) with its induced G_K action. Hom_Zp(T_p(A),Z_p(1)) is the
+corresponding twist, and taking G_K-equivariant maps takes invariants. Check: The full H¹ has rank 2g and a
+nontrivial Galois action. Taking equivariant maps instead extracts a fixed subspace; changing the target to
+Z_p(1) also changes the weight convention.
+
+Correction search: No correction located for this survey in the author errata contents checked 2026-10-14;
+this finding concerns arXiv v1, not the unseen published version.
+
+`PadicHodgeTheory/E46` — §8.3, last paragraph, pp. 125–126 (2009 preliminary version); checked on the page
+image. The final contravariant normal-form coefficient is given without its valuation divisor and is treated
+as necessarily nonzero.
+
+Correction: In the source’s contravariant/sign convention the coefficient is −log_K(q)/v_p(q); it may be zero.
+Our covariant L-invariant is the positive ratio. Check: For q=p^m the logarithm is zero although the monodromy
+is nonzero. Rescaling to normalize N divides the filtration coefficient by v_p(q), as the diagonal isomorphism
+equations show.
+
+Correction search: Inherited finding rechecked against the listed version; no independently verified later
+correction in this run.
+
+`PadicHodgeTheory/E47` — Introduction, p. 3 (arXiv v1). The historical explanation reverses which direction of
+the good-reduction/crystallinity equivalence had already been established.
+
+Correction: The previously known direction is good reduction implies crystalline; the new converse detects
+good reduction from crystallinity. Check: The theorem states the equivalence; the preceding description of the
+new criterion is the crystalline-to-good direction. This affects the historical attribution, not the
+mathematical equivalence.
+
+Correction search: Inherited finding rechecked against the listed version; no independently verified later
+correction in this run.
+
+## Sources and versions
+
+Every locator above is tied to the listed edition. Public PDFs downloaded for this pass were kept only in
+scratch. Cleared-library copies were read in place; neither their files nor passages were copied into the
+repository. Hashes identify the actual bytes read.
+
+[L. Berger, An introduction to the theory of p-adic representations](https://arxiv.org/abs/math/0210184v1).
+arXiv:math/0210184v1 (12 Oct 2002), the only arXiv version; published in Geometric Aspects of Dwork Theory,
+255–292, de Gruyter 2004 (not seen). Printed page = PDF page.
+
+SHA-256: `fac038cb2e7a3c939f7b0c85d1060985876abc5d55407d7172fc1f6f2cc16ecc`.
+
+[O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge
+theory](https://math.stanford.edu/~conrad/papers/notes.pdf). Preliminary notes, posted PDF of June 2009;
+locators use its PDF/printed page numbers. No published replacement was used.
+
+SHA-256: `f27d508bc64b3c9e2e9de5041429b2cb6a909b2cd72ff8096c20493f27b5a187`.
+
+[R. Coleman and A. Iovita, The Frobenius and monodromy operators for curves and abelian
+varieties](https://arxiv.org/abs/math/9701229v1). arXiv:math/9701229v1 (2 Jan 1997), 22 pages: the
+Introduction and Chapter I only (Chapter II, with the proof of the good-reduction theorem, is not in this
+file); published in Duke Math. J. 97 (1999), 171–215 (not seen).
+
+SHA-256: `797d8361ffdb5db2460a5830ef913a8ea7d9cefc6803ae4b8265d651fa039530`.
+
+[P. Scholze, p-adic Hodge theory for rigid-analytic varieties](https://arxiv.org/abs/1205.3463v2).
+arXiv:1205.3463v2, 2013; page numbers in that PDF. The published Forum of Mathematics Pi version has different
+pagination.
+
+SHA-256: `ed9187b3269adb7e9964369470073ce8760ef56ef0c0b89538c0a1509f811959`.
+
+[B. Bhatt, M. Morrow and P. Scholze, Integral p-adic Hodge theory](https://arxiv.org/abs/1602.03148v3).
+arXiv:1602.03148v3, 2018; all locators use that PDF’s pages.
+
+SHA-256: `285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a`.
+
+[K. Česnavičius and T. Koshikawa, The A_inf-cohomology in the semistable
+case](https://arxiv.org/abs/1710.06145v3). arXiv:1710.06145v3; all locators use the 81-page preprint, not
+published pagination.
+
+SHA-256: `47000db58599c20831223f43df1d13466c913fdda617070f5cc3458631d36c57`.
+
+[P. Colmez and W. Nizioł, On the cohomology of p-adic analytic spaces, II: the
+C_st-conjecture](https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf). Author manuscript CN5, dated 24 Nov
+2024, journal publication 2025; locators use manuscript pagination.
+
+SHA-256: `bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a`.
+
+[N. Katz and W. Messing, Some consequences of the Riemann hypothesis for varieties over finite
+fields](https://web.math.princeton.edu/~nmk/old/katzmessing.pdf). Inventiones mathematicae 23 (1974), 73–77;
+author-hosted published scan, cover is PDF page 1.
+
+SHA-256: `9283138c8620fe8570f217c41d9a077f0b5fbc7d793ea97f4aed12396c2afa53`.
+
+Primary source and library checks were performed on 2026-10-14 by Codex, session codex-O96Omm. The reader
+follows the target density and supplier conventions of the current AdicSpaces and EllipticCurves roadmaps. AI
+assistance is attributed in the handoff and pull request; mathematical implementation remains unchecked.

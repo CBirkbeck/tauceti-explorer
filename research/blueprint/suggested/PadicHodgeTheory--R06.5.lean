@@ -1,294 +1,148 @@
 /-
-Suggested Lean prototypes for the roadmap "P-adic Hodge theory and geometric comparison"
-(PadicHodgeTheory), part R06.5: stages R06.5 (geometric comparison theorems) and R06.6 (arithmetic
-consequences).
+Suggested signatures for PadicHodgeTheory, part R06.5 (layers R06.5 and R06.6).
+This file is an aid, not an exhaustive checklist or the specification. The reader
+research/blueprint/readmes/PadicHodgeTheory--R06.5.md states the complete targets,
+hypotheses, proof routes, supplier contracts, API and definition tests.
 
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/PadicHodgeTheory--R06.5.md` is definitive. The statements below suggest Lean
-forms so that contributors and reviewers converge on names and signatures. Every proof of a planned
-result is `sorry`, and definitions of objects the pinned libraries lack are signatures with `sorry`
-bodies; nothing here is claimed to be formalised (implementationStatus = unchecked). Mathlib
-082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Only Mathlib
-is imported.
+Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
+Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 
-Names are relative to the namespace `TauCeti.PadicHodge` and agree with the `api` and `tests` names of
-the packet `research/blueprint/packets/PadicHodgeTheory--R06.5.json`. Unit tests are `example`s whose
-docstring begins "Test `<name>`". Objects of other roadmaps are never invented here: the Tate module
-`V_p(A)` (ArithmeticGaloisRepresentations R01.6), the period functors `D_cris`, `D_st`, `D_dR` and
-filtered `(φ, N)`-modules (PadicHodgeTheory R06.2, part P7), the Tate curve (Tau Ceti EllipticCurves
-Layer 4) and crystalline cohomology (CrystallineCohomology, CohomologyComparisons CP.2) are not
-available at the pinned commits, so the theorems that need them are comments naming the missing object.
+Current WORKERS requires light real-bodied definitions on existing carriers and
+end statements easily expressible at these pins. Thus the five definitions below
+are coordinate operations on Mathlib matrices, vectors and fields. They do not
+construct a period ring, continuous cocycle space, Tate lattice, cohomology group
+or admissible filtered module. Those carriers are imported mathematical targets
+in the reader, and no substitute carrier or proof-placeholder data is introduced.
 
-What is prototyped is the linear algebra those theorems compute:
-* the Kummer cocycle `c_q` and the representation `g ↦ !![χ g, c_q g; 0, 1]` of R06.6;
-* the normal form of the Tate curve's filtered `(φ, N)`-module and its L-invariant;
-* the ordinary/supersingular dichotomy of the Frobenius trace used in R06.5, for elliptic curves and for Δ;
-* the crystalline Frobenius polynomial of a newform and the sign of the Weil–Deligne relation.
+The generic matrix identities specialize to the period normal forms at K = Q_p.
+For a ramified K, Frobenius is semilinear over K₀ and only its f-th iterate has a
+characteristic polynomial. The matrices do not encode that semilinear structure.
+Proof placeholders are intentional; no statement is claimed formalized.
 -/
 
-import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
-import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.LinearAlgebra.Matrix.Notation
-import Mathlib.Algebra.Polynomial.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 namespace TauCeti.PadicHodge
 
 open Matrix
 
-variable (p : ℕ) [Fact p.Prime]
+/-! R06.6/kummer-representation: the coordinate matrix of the imported action. -/
 
-/-! ## R06.6 — Kummer representations (`PadicHodgeTheory:R06.6/kummer-representation`) -/
+/-- Coordinates of an extension action with character `a` and cocycle value `c`. -/
+def kummerMatrix {R : Type*} [CommRing R] (a c : R) : Matrix (Fin 2) (Fin 2) R :=
+  !![a, c; 0, 1]
 
-/-- A compatible system of `p`-power roots of `q` in `L`: `root 0 = q` and `root (n+1) ^ p = root n`. -/
-structure CompatibleRoots (L : Type*) [CommRing L] (q : L) where
-  /-- The chosen `p^n`-th root of `q`. -/
-  root : ℕ → L
-  root_zero : root 0 = q
-  root_pow : ∀ n, root (n + 1) ^ p = root n
-
-/-- The system `(q^{(n)})^a` of `p`-power roots of `q ^ a`. -/
-def CompatibleRoots.pow {L : Type*} [CommRing L] {q : L} (r : CompatibleRoots p L q) (a : ℕ) :
-    CompatibleRoots p L (q ^ a) where
-  root n := r.root n ^ a
-  root_zero := by rw [r.root_zero]
-  root_pow n := sorry
-
-/-- A `1`-cocycle of `G` with values in `ℤ_[p]` for the action through `χ`:
-`c (g * h) = c g + χ g * c h`. -/
-structure KummerCocycle (G : Type*) [Monoid G] (χ : G →* ℤ_[p]ˣ) where
-  /-- The underlying function. -/
-  toFun : G → ℤ_[p]
-  map_mul' : ∀ g h, toFun (g * h) = toFun g + (χ g : ℤ_[p]) * toFun h
-
-namespace KummerCocycle
-
-variable {p} {G : Type*} [Monoid G] {χ : G →* ℤ_[p]ˣ}
-
-instance : CoeFun (KummerCocycle p G χ) (fun _ => G → ℤ_[p]) := ⟨KummerCocycle.toFun⟩
-
-/-- `c` is a coboundary: `c g = (χ g − 1) * b` for some `b`. -/
-def IsCoboundary (c : KummerCocycle p G χ) : Prop :=
-  ∃ b : ℤ_[p], ∀ g, c g = ((χ g : ℤ_[p]) - 1) * b
-
-/-- The zero cocycle (the split extension `ℚ_p(1) ⊕ ℚ_p`). -/
-noncomputable def zero : KummerCocycle p G χ := ⟨fun _ => 0, fun _ _ => by simp⟩
-
-theorem map_one (c : KummerCocycle p G χ) : c 1 = 0 := sorry
-
-end KummerCocycle
-
-/-- The Kummer cocycle `c_q` of `q` and a compatible system of `p`-power roots, for the cyclotomic
-character of `L`: `g (root n) = root n * ζ_{p^n} ^ (c_q g)`. -/
-noncomputable def kummerCocycleOf (L : Type*) [Field L] [∀ i, HasEnoughRootsOfUnity L (p ^ i)]
-    {q : L} (r : CompatibleRoots p L q) : KummerCocycle p (L ≃+* L) (cyclotomicCharacter L p) :=
+/-- The cocycle equation is precisely this multiplication formula. -/
+theorem kummerMatrix_mul {R : Type*} [CommRing R] (a c b d : R) :
+    kummerMatrix a c * kummerMatrix b d = kummerMatrix (a * b) (c + a * d) := by
   sorry
 
-/-- `c_{q^a} = a • c_q` for the system `(q^{(n)})^a`. -/
-theorem kummerCocycleOf_pow (L : Type*) [Field L] [∀ i, HasEnoughRootsOfUnity L (p ^ i)]
-    {q : L} (r : CompatibleRoots p L q) (a : ℕ) (g : L ≃+* L) :
-    kummerCocycleOf p L (r.pow p a) g = (a : ℤ_[p]) * kummerCocycleOf p L r g :=
+/-- The determinant realizes the cyclotomic character when `a = χ_p(g)`. -/
+theorem kummerMatrix_det {R : Type*} [CommRing R] (a c : R) :
+    (kummerMatrix a c).det = a := by
   sorry
 
-variable {p}
+/-- Changing the cocycle by a coboundary is a unipotent change of basis. -/
+theorem kummerMatrix_coboundary {R : Type*} [CommRing R] (a c b : R) :
+    kummerMatrix 1 (-b) * kummerMatrix a c * kummerMatrix 1 b =
+      kummerMatrix a (c + (a - 1) * b) := by
+  sorry
 
-/-- The Kummer representation in the basis `(e, f)`: `g ↦ !![χ g, c g; 0, 1]`. -/
-noncomputable def kummerRep {G : Type*} [Monoid G] {χ : G →* ℤ_[p]ˣ} (c : KummerCocycle p G χ) :
-    G →* Matrix (Fin 2) (Fin 2) ℚ_[p] where
-  toFun g := !![(((χ g : ℤ_[p]ˣ) : ℤ_[p]) : ℚ_[p]), ((c g : ℤ_[p]) : ℚ_[p]); 0, 1]
-  map_one' := sorry
-  map_mul' := sorry
+/-- Test `kummerMatrix_identity`: the identity has zero cocycle. -/
+example {R : Type*} [CommRing R] : kummerMatrix (1 : R) 0 = 1 := by
+  sorry
 
-theorem kummerRep_apply {G : Type*} [Monoid G] {χ : G →* ℤ_[p]ˣ} (c : KummerCocycle p G χ) (g : G) :
-    kummerRep c g = !![(((χ g : ℤ_[p]ˣ) : ℤ_[p]) : ℚ_[p]), ((c g : ℤ_[p]) : ℚ_[p]); 0, 1] :=
+/-- Test `kummerMatrix_split`: the zero cocycle is diagonal. -/
+example {R : Type*} [CommRing R] (a : R) :
+    kummerMatrix a 0 = !![a, 0; 0, 1] := by
   rfl
 
-/-- Test `kummerRep_one`: the identity acts trivially. -/
-example {G : Type*} [Monoid G] {χ : G →* ℤ_[p]ˣ} (c : KummerCocycle p G χ) : kummerRep c 1 = 1 :=
-  map_one _
+/-- Test `kummerMatrix_subline`: the first basis line is the character line. -/
+example {R : Type*} [CommRing R] (a c : R) :
+    kummerMatrix a c 0 0 = a ∧ kummerMatrix a c 1 0 = 0 := by
+  simp [kummerMatrix]
 
-/-- Test `kummerRep_zero`: the zero cocycle gives the split extension `diag(χ, 1)`. -/
-example {G : Type*} [Monoid G] {χ : G →* ℤ_[p]ˣ} (g : G) :
-    kummerRep (KummerCocycle.zero : KummerCocycle p G χ) g =
-      !![(((χ g : ℤ_[p]ˣ) : ℤ_[p]) : ℚ_[p]), 0; 0, 1] :=
+/-- Test `kummerMatrix_cocycle`: the character acts on the second cocycle term. -/
+example : kummerMatrix (2 : ℚ) 3 * kummerMatrix 5 7 = kummerMatrix 10 17 := by
   sorry
 
-/-- Test `kummerRep_sub`: `e` spans a copy of `ℚ_p(1)`, on which `G` acts by `χ`. -/
-example {G : Type*} [Monoid G] {χ : G →* ℤ_[p]ˣ} (c : KummerCocycle p G χ) (g : G) :
-    kummerRep c g 0 0 = (((χ g : ℤ_[p]ˣ) : ℤ_[p]) : ℚ_[p]) ∧ kummerRep c g 1 0 = 0 := by
-  simp [kummerRep_apply]
-
-/-- Test `kummerCocycleOf_root_of_unity`: a root of unity of `p`-power order has a coboundary
-Kummer cocycle. -/
-example (L : Type*) [Field L] [∀ i, HasEnoughRootsOfUnity L (p ^ i)] {ζ : L} {m : ℕ}
-    (hζ : ζ ^ p ^ m = 1) (r : CompatibleRoots p L ζ) : (kummerCocycleOf p L r).IsCoboundary :=
-  sorry
-
-/-- Test `kummerCocycleOf_p_not_isCoboundary`: over an algebraically closed field containing `ℚ_[p]`,
-the Kummer cocycle of `p` is not a coboundary (`V(p)` does not split). -/
-example (L : Type*) [Field L] [Algebra ℚ_[p] L] [IsAlgClosed L] [∀ i, HasEnoughRootsOfUnity L (p ^ i)]
-    (r : CompatibleRoots p L (algebraMap ℚ_[p] L p)) : ¬ (kummerCocycleOf p L r).IsCoboundary :=
-  sorry
-
-/-! ## R06.6 — the Tate curve (`PadicHodgeTheory:R06.6/tate-curve-filtered-phi-n-module`,
-`PadicHodgeTheory:R06.6/tate-curve-l-invariant`)
-
-Normal form over `ℚ_[p]` (the case `K = ℚ_p`) in the basis `(x, y)`: `φ = diag(p⁻¹, 1)`,
-`N = !![0, v; 0, 0]`, `Fil⁰ = ℚ_p (y + ℓ x)`, with `v = v_p(q)` and `ℓ = log_p(q)` (`log_p(p) = 0`). -/
-
-variable (p) in
-/-- A Tate-type filtered `(φ, N)`-module in normal form: the valuation `v ≠ 0` and the value `ℓ`. -/
-structure TateTypeModule where
-  /-- `v_p(q)`. -/
-  v : ℚ
-  v_ne_zero : v ≠ 0
-  /-- `log_p(q)`. -/
-  ell : ℚ_[p]
-
-namespace TateTypeModule
-
-/-- The matrix of `φ`. -/
-noncomputable def phi (_ : TateTypeModule p) : Matrix (Fin 2) (Fin 2) ℚ_[p] :=
-  !![(p : ℚ_[p])⁻¹, 0; 0, 1]
-
-/-- The matrix of `N`. -/
-noncomputable def mono (D : TateTypeModule p) : Matrix (Fin 2) (Fin 2) ℚ_[p] :=
-  !![0, (D.v : ℚ_[p]); 0, 0]
-
-/-- Coordinates of the generator `y + ℓ x` of `Fil⁰`. -/
-noncomputable def fil0 (D : TateTypeModule p) : Fin 2 → ℚ_[p] := ![D.ell, 1]
-
-/-- `Nφ = pφN`. -/
-theorem mono_phi (D : TateTypeModule p) : D.mono * D.phi = (p : ℚ_[p]) • (D.phi * D.mono) :=
-  sorry
-
-/-- The L-invariant `ℓ / v`. -/
-noncomputable def lInvariant (D : TateTypeModule p) : ℚ_[p] := D.ell / (D.v : ℚ_[p])
-
-/-- The module `D_q` from `v_p(q)` and `log_p(q)`. -/
-def ofKummer (v : ℚ) (hv : v ≠ 0) (logq : ℚ_[p]) : TateTypeModule p := ⟨v, hv, logq⟩
-
-/-- Isomorphism of normal forms: `x ↦ αx`, `y ↦ βy` carrying `N` and `Fil⁰` to those of `D'`. -/
-def Iso (D D' : TateTypeModule p) : Prop :=
-  ∃ α β : ℚ_[p], α ≠ 0 ∧ β ≠ 0 ∧ (D.v : ℚ_[p]) * α = β * (D'.v : ℚ_[p]) ∧ D.ell * α = β * D'.ell
-
-theorem iso_iff_lInvariant (D D' : TateTypeModule p) : Iso D D' ↔ D.lInvariant = D'.lInvariant :=
-  sorry
-
-/-- Test `lInvariant_ofKummer_p`: for `q = p` (`v = 1`, `ℓ = 0`) the L-invariant is `0`. -/
-example : (ofKummer 1 one_ne_zero (0 : ℚ_[p])).lInvariant = 0 := by
-  simp [lInvariant, ofKummer]
-
-/-- Test `lInvariant_pow`: the isogenous curve `E_{q^n}` has the same L-invariant. -/
-example (D : TateTypeModule p) (n : ℕ) (hn : n ≠ 0) :
-    (⟨n * D.v, mul_ne_zero (Nat.cast_ne_zero.mpr hn) D.v_ne_zero, n * D.ell⟩ :
-      TateTypeModule p).lInvariant = D.lInvariant :=
-  sorry
-
--- Test `lInvariant_11a1`: not stated; needs the 11-adic logarithm of the Tate parameter of 11a1
--- (v = 5, L ≡ 11·10225 mod 11^5, computed in the packet's acceptance data).
-
--- Test `not_wa_of_fil_eq_ker`: not stated; needs weak admissibility of filtered (φ, N)-modules
--- (PadicHodgeTheory R06.2, `FilteredPhiNModule` of part P7).
-
-/-- Test `ell_not_invariant`: `(v, ℓ)` and `(2v, 2ℓ)` are isomorphic, yet `ℓ ≠ 2ℓ` when `ℓ ≠ 0`. -/
-example (D : TateTypeModule p) (h : D.ell ≠ 0) :
-    Iso D ⟨2 * D.v, mul_ne_zero two_ne_zero D.v_ne_zero, 2 * D.ell⟩ ∧ D.ell ≠ 2 * D.ell :=
-  sorry
-
-end TateTypeModule
-
-/-! ## R06.5 — good ordinary and supersingular elliptic curves
-(`PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`) -/
-
-/-- The characteristic polynomial `X² − (a/q) X + 1/q` of the linear `φ^f` on `D_cris(V_p(E))`. -/
-noncomputable def frobCharpolyDcris (a : ℤ) (q : ℕ) : Polynomial ℚ :=
-  Polynomial.X ^ 2 - Polynomial.C ((a : ℚ) / q) * Polynomial.X + Polynomial.C (1 / (q : ℚ))
-
-/-- Ordinary trace at the prime `ℓ`: `ℓ ∤ a`. -/
-abbrev IsOrdinaryTrace (ℓ : ℕ) (a : ℤ) : Prop := ¬ (ℓ : ℤ) ∣ a
-
-/-- Acceptance: 11a1 at `p = 3` has `a_3 = -1`, ordinary. -/
-example : IsOrdinaryTrace 3 (-1) := by decide
-
-/-- Acceptance: 11a1 at `p = 19` has `a_19 = 0`, supersingular. -/
-example : ¬ IsOrdinaryTrace 19 0 := by decide
-
-/-- Acceptance: 11a1 at `p = 2` has `a_2 = -2`, supersingular. -/
-example : ¬ IsOrdinaryTrace 2 (-2) := by decide
-
-/-! ## R06.5 — modular forms (`PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`) and the
-Weil–Deligne sign (`PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`) -/
-
-/-- The crystalline Frobenius polynomial `X² − a_p X + ψ(p) p^{k−1}` of `D_cris(M_{g,λ})` at `p ∤ N`. -/
-noncomputable def frobCharpolyModular (a ψp : ℚ) (p k : ℕ) : Polynomial ℚ :=
-  Polynomial.X ^ 2 - Polynomial.C a * Polynomial.X + Polynomial.C (ψp * (p : ℚ) ^ (k - 1))
-
-/-- Acceptance: `Δ` is ordinary at `11` (`τ(11) = 534612 ≡ 1 mod 11`). -/
-example : IsOrdinaryTrace 11 534612 := by decide
-
-/-- Acceptance: `Δ` is not ordinary at `2` (`τ(2) = -24`). -/
-example : ¬ IsOrdinaryTrace 2 (-24) := by decide
-
-/-- Acceptance (Weil–Deligne sign): for the Tate curve, a geometric Frobenius `diag(p⁻¹, 1)` in the basis
-`(e, f)` and `N = !![0, 1; 0, 0]` satisfy `F N F⁻¹ = p⁻¹ N`, the relation Saito's §2 prints with `p` in place
-of `p⁻¹`. -/
-example (p : ℕ) [Fact p.Prime] :
-    !![(p : ℚ)⁻¹, 0; 0, 1] * !![(0 : ℚ), 1; 0, 0] * !![(p : ℚ), 0; 0, 1] =
-      (p : ℚ)⁻¹ • !![(0 : ℚ), 1; 0, 0] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
-
-/-! ## R06.5 — the endpoint weights (`PadicHodgeTheory:R06.5/modular-form-endpoint-weights`) -/
-
-/-- Acceptance, case (b): for `k = p` an ordinary `V_g` reduces to constituents unramified on inertia, since
-`ω^{p−1} = 1`: every unit of `𝔽₅` satisfies `x⁴ = 1`. -/
-example : ∀ x : ZMod 5, x ≠ 0 → x ^ 4 = 1 := by decide
-
-/-- Acceptance, case (b): the weight-5 newform `η(z)⁴η(2z)²η(4z)⁴` of level 4 has `a₅ = −14`, a 5-adic unit. -/
-example : (-14 : ZMod 5) ≠ 0 := by decide
-
-/-- Acceptance, case (b): `a₃ = 0` for `η(z)³η(7z)³` because `3` is inert in `ℚ(√−7)`: `−7` is not a square
-modulo `3`. -/
-example : ∀ x : ZMod 3, x ^ 2 ≠ -7 := by decide
-
-/-- Acceptance, case (c): for `k = p + 1` the ordinary reductions are extensions by unramified twists of
-`ω^p = ω`, as `x^{11} = x` on `𝔽₁₁`; `Δ` at `11` is such a case (`τ(11) = 534612 ≡ 1 mod 11`). -/
-example : (∀ x : ZMod 11, x ^ 11 = x) ∧ 534612 % 11 = 1 := by decide
-
-/-! ## Theorems needing objects of other roadmaps
-
-* `PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction`: not stated; needs étale and
-  crystalline cohomology of a smooth proper `𝒪_K`-scheme (CohomologyComparisons CP.2,
-  CrystallineCohomology) and `D_cris` (R06.2).
-* `PadicHodgeTheory:R06.5/abelian-scheme-dcris`: not stated; needs `V_p(A)` (ArithmeticGaloisRepresentations
-  R01.6), abelian schemes over `𝒪_K` and `H¹_cris`.
-* `PadicHodgeTheory:R06.5/abelian-variety-hodge-tate-weights`: not stated; needs `V_p(A)` for
-  `TauCeti.AlgebraicGeometry.AbelianVariety` and `D_dR`.
-* `PadicHodgeTheory:R06.5/weil-pairing-duality`: not stated; needs the Weil pairing
-  (AbelianSchemesAndArithmeticModuli A3).
-* `PadicHodgeTheory:R06.5/elliptic-curve-ordinary-supersingular`: only the trace dichotomy above; the
-  slope statement needs `D_cris(V_p(E))`.
-* `PadicHodgeTheory:R06.6/kummer-representations-semistable`: not stated; needs `B_st` and `D_st` (R06.1–R06.2).
-* `PadicHodgeTheory:R06.6/tate-curve-tate-module`: not stated; needs the Tate curve and its
-  uniformisation (Tau Ceti EllipticCurves Layer 4).
-* `PadicHodgeTheory:R06.6/good-reduction-iff-crystalline`: not stated; needs `V_p(A)` and crystalline
-  representations; its elliptic form would use `WeierstrassCurve.HasGoodReduction`.
-* `PadicHodgeTheory:R06.6/semistable-reduction-semistable`: not stated; needs Raynaud's uniformisation
-  (NeronModelsAndSemistableAbelianVarieties R11.3).
-* `PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves`: not stated; would use
-  `WeierstrassCurve.HasSplitMultiplicativeReduction` and `WeierstrassCurve.HasMultiplicativeReduction`
-  with `V_p(E)` and `D_st`.
-* `PadicHodgeTheory:R06.6/local-global-compatibility-good-reduction`: not stated; needs Weil–Deligne
-  representations (R06.3, ArithmeticGaloisRepresentations R01.2) and `V_ℓ(A)`.* `PadicHodgeTheory:R06.5/modular-form-de-rham-realisation`: not stated; needs the premotive `M_g` and its
-  Kuga–Sato realisation (AutomorphicGaloisRepresentations R19.1) and `D_dR`.
-* `PadicHodgeTheory:R06.5/modular-form-crystalline-good-primes`: only `frobCharpolyModular` and the ordinarity
-  tests above; the statement needs `M_{g,λ}` and `D_cris`.
-* `PadicHodgeTheory:R06.5/weight-two-modular-abelian-varieties`: not stated; needs `A_f` (ModularCurvesPartII R14.5)
-  with its Tate module.
-* `PadicHodgeTheory:R06.6/modular-form-local-global-compatibility-at-p`: not stated; needs local Langlands for
-  `GL_2` (GL2AutomorphicRepresentationsAndTransfer R16.3) and Weil–Deligne representations.
-* `PadicHodgeTheory:R06.6/hilbert-modular-form-compatibility-at-p`: not stated; needs Shimura curves
-  (HilbertModularVarietiesAndShimuraCurves R18.2) and Carayol's representations.
+/-! R06.6/tate-curve-l-invariant and tate-curve-filtered-phi-n-module.
+The coordinate pair is `(v_p(q), log_K(q))`, with `log_K(p) = 0`.
+The module-level L-invariant is defined in the reader on the existing R06.2
+admissible carrier; this quotient is only its coordinate formula for `v ≠ 0`.
 -/
+
+/-- The coordinate formula for the normalized Tate L-invariant. -/
+noncomputable def tateLInvariant {R : Type*} [Field R] (v ell : R) : R := ell / v
+
+/-- The Frobenius matrix in the covariant Tate normal form. -/
+noncomputable def tatePhiMatrix {R : Type*} [Field R] (r : R) :
+    Matrix (Fin 2) (Fin 2) R := !![r⁻¹, 0; 0, 1]
+
+/-- The monodromy matrix with `N(y) = v x`. -/
+def tateMonodromyMatrix {R : Type*} [CommRing R] (v : R) :
+    Matrix (Fin 2) (Fin 2) R := !![0, v; 0, 0]
+
+/-- The generator `y + ell x` of the filtration line. -/
+def tateFiltrationVector {R : Type*} [CommRing R] (ell : R) : Fin 2 → R := ![ell, 1]
+
+/-- A common nonzero scaling preserves the invariant. -/
+theorem tateLInvariant_scale {R : Type*} [Field R] (v ell c : R)
+    (hv : v ≠ 0) (hc : c ≠ 0) :
+    tateLInvariant (c * v) (c * ell) = tateLInvariant v ell := by
+  sorry
+
+/-- A changed logarithm branch shifts the invariant by its value on `p`. -/
+theorem tateLInvariant_branch {R : Type*} [Field R] (v ell b : R) (hv : v ≠ 0) :
+    tateLInvariant v (ell + b * v) = tateLInvariant v ell + b := by
+  sorry
+
+/-- Isomorphisms of the unframed normal forms are classified by the ratio. -/
+theorem tateNormalForm_iso {R : Type*} [Field R] (v ell v' ell' : R)
+    (hv : v ≠ 0) (hv' : v' ≠ 0) :
+    (∃ a b : R, a ≠ 0 ∧ b ≠ 0 ∧ v * a = b * v' ∧ ell * a = b * ell') ↔
+      tateLInvariant v ell = tateLInvariant v' ell' := by
+  sorry
+
+/-- The orientation of the period Frobenius–monodromy relation. -/
+theorem tateMonodromy_frobenius {R : Type*} [Field R] (r v : R) (hr : r ≠ 0) :
+    tateMonodromyMatrix v * tatePhiMatrix r =
+      r • (tatePhiMatrix r * tateMonodromyMatrix v) := by
+  sorry
+
+/-- Arithmetic Weil–Deligne Frobenius is the inverse of period Frobenius. -/
+theorem tateMonodromy_arithmeticFrobenius {R : Type*} [Field R] (r v : R)
+    (hr : r ≠ 0) :
+    !![r, 0; 0, 1] * tateMonodromyMatrix v =
+      r • (tateMonodromyMatrix v * !![r, 0; 0, 1]) := by
+  sorry
+
+/-- Test `tateLInvariant_uniformizer`: zero logarithm gives zero invariant. -/
+example {R : Type*} [Field R] : tateLInvariant (1 : R) 0 = 0 := by
+  simp [tateLInvariant]
+
+/-- Test `tateLInvariant_raw_log`: the invariant is unchanged by a Tate isogeny. -/
+example : tateLInvariant (1 : ℚ) 2 = tateLInvariant 2 4 := by
+  sorry
+
+/-- Test `tateFiltrationVector_second`: the line is transverse to `ker N`. -/
+example {R : Type*} [CommRing R] (ell : R) :
+    tateFiltrationVector ell 0 = ell ∧ tateFiltrationVector ell 1 = 1 := by
+  simp [tateFiltrationVector]
+
+/-- Test `tateMonodromy_square`: nilpotent does not mean zero. -/
+example : tateMonodromyMatrix (1 : ℚ) * tateMonodromyMatrix 1 = 0 ∧
+    tateMonodromyMatrix (1 : ℚ) ≠ 0 := by
+  sorry
+
+/-- Test `tatePhiMatrix_det`: covariant Frobenius has reciprocal determinant. -/
+example {R : Type*} [Field R] (r : R) : (tatePhiMatrix r).det = r⁻¹ := by
+  sorry
+
+/-- Test `tateMonodromy_orientation`: the transposed operator fails the relation. -/
+example : (!![(0 : ℚ), 0; 1, 0] * tatePhiMatrix (3 : ℚ)) ≠
+    (3 : ℚ) • (tatePhiMatrix (3 : ℚ) * !![(0 : ℚ), 0; 1, 0]) := by
+  sorry
 
 end TauCeti.PadicHodge
