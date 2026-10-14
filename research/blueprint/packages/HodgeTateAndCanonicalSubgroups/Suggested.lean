@@ -24,18 +24,20 @@ namespace HodgeTate
 
 The p-level tower `ShimuraTower.pLevel` is indexed by the compact open subgroups of
 G(ℚ_p), ordered by inclusion. The index poset and its cofilteredness are statable at
-the pins; the tower, its action and its limit diamond are README targets. -/
+the pins; the tower, its action and its limit diamond are README targets. A level is a
+Mathlib `OpenSubgroup` that is compact, so the order is the one of `OpenSubgroup`. -/
 
-/-- Compact open subgroups of a topological group, the index of the p-level tower. -/
+/-- Compact open subgroups of a topological group, the index of the p-level tower: the
+compact members of Mathlib's `OpenSubgroup G`. -/
 def CompactOpenSubgroup (G : Type u) [Group G] [TopologicalSpace G] : Type u :=
-  {H : Subgroup G // IsOpen (H : Set G) ∧ IsCompact (H : Set G)}
+  {K : OpenSubgroup G // IsCompact (K : Set G)}
 
 namespace CompactOpenSubgroup
 
 variable {G : Type u} [Group G] [TopologicalSpace G]
 
 instance : PartialOrder (CompactOpenSubgroup G) :=
-  inferInstanceAs (PartialOrder {H : Subgroup G // IsOpen (H : Set G) ∧ IsCompact (H : Set G)})
+  inferInstanceAs (PartialOrder {K : OpenSubgroup G // IsCompact (K : Set G)})
 
 /-- The level poset is cofiltered (milestone of Layer 2). -/
 theorem isCofiltered [IsTopologicalGroup G] [T2Space G] [Nonempty (CompactOpenSubgroup G)] :
@@ -43,9 +45,9 @@ theorem isCofiltered [IsTopologicalGroup G] [T2Space G] [Nonempty (CompactOpenSu
   sorry
 
 example [CompactSpace G] : Nonempty (CompactOpenSubgroup G) :=
-  ⟨⟨⊤, isOpen_univ, isCompact_univ⟩⟩
+  ⟨⟨⊤, by simpa using isCompact_univ⟩⟩
 
-example (H K : CompactOpenSubgroup G) : H ≤ K ↔ H.1 ≤ K.1 := Iff.rfl
+example (H K : CompactOpenSubgroup G) : H ≤ K ↔ (H.1 : Set G) ⊆ K.1 := Iff.rfl
 
 end CompactOpenSubgroup
 
@@ -131,6 +133,16 @@ theorem autFactor_mul (γ δ : GL (Fin 2) K) (z : K) (hδ : autFactor δ z ≠ 0
     autFactor (γ * δ) z = autFactor γ (coordAction δ z) * autFactor δ z := by
   sorry
 
+/-- On the invertible-denominator domain `coordAction` is Mathlib's action of `GL (Fin 2) K` on
+the projective line `OnePoint K` (`OnePoint.smul_some_eq_ite`); the chart value ∞ is the
+excluded point cz + d = 0. -/
+theorem coordAction_eq_smul [DecidableEq K] (γ : GL (Fin 2) K) (z : K) (h : autFactor γ z ≠ 0) :
+    γ • (z : OnePoint K) = ((coordAction γ z : K) : OnePoint K) := by
+  rw [OnePoint.smul_some_eq_ite]
+  split_ifs with h'
+  · exact absurd h' h
+  · rfl
+
 /-- The action is a left action on the invertible-denominator domain. -/
 theorem coordAction_mul (γ δ : GL (Fin 2) K) (z : K) (hδ : autFactor δ z ≠ 0)
     (hγδ : autFactor (γ * δ) z ≠ 0) :
@@ -155,8 +167,8 @@ example :
 
 On the Hasse neighbourhood of radius ε the AIP structure group B_m is contained in
 𝒪_p^×(1 + p^x Res 𝔾̂_a), where x = m − ε p^m/(p − 1). This is the corrected direction
-of BHW (7.1), recorded in Layers 0–5. Membership of cz + d in B_m follows
-from the ratio of two lifts in the actual torsor (Layer 5/aip-automorphy-factor). -/
+of BHW (7.1), recorded in 5.8. Membership of cz + d in B_m follows
+from the ratio of two lifts in the actual torsor (5.11). -/
 
 /-- x = m − ε p^m/(p − 1). -/
 def aipExponent (p m : ℕ) (ε : ℚ) : ℚ := m - ε * (p : ℚ) ^ m / ((p : ℚ) - 1)
@@ -211,31 +223,42 @@ example : ¬ (⟨PUnit, 1⟩ : PrelogRing ℚ).IsLog := by
 end LogAdic
 
 
-/-! The geometric definitions remain README targets with their full interfaces:
-`TauCeti.LogAdic.LogAdicData`,
-`TauCeti.LogAdic.IntegralChart`,
-`TauCeti.LogAdic.ContinuousLogDerivation`,
-`TauCeti.LogAdic.KummerEtale`,
-`TauCeti.LogAdic.RamificationIndex`,
-`TauCeti.LogAdic.ProKummerPresentation`,
-`TauCeti.LogAdic.CorrectedProKummerCover`,
-`TauCeti.LogAdic.LogAffinoidPerfectoid`,
-`TauCeti.LogAdic.KummerLisse`,
-`TauCeti.LogAdic.BoundaryMonodromy`,
-`TauCeti.LogAdic.FilteredLogConnection`,
-`TauCeti.HodgeTate.conormal`,
-`TauCeti.HodgeTate.farguesDegree`,
-`TauCeti.HodgeTate.farguesDivisor`,
-`TauCeti.HodgeTate.harderNarasimhanFiltration`,
-`TauCeti.HodgeTate.ExactTensorFiltration`,
-`TauCeti.HodgeTate.hasseNeighbourhood`,
-`TauCeti.HodgeTate.canonicalSubgroup`,
-`TauCeti.HodgeTate.canonicalLocus`,
-`TauCeti.HodgeTate.hodgeTateCoordinate`,
-`TauCeti.HodgeTate.flagBall`,
-`TauCeti.HodgeTate.modifiedPlusSheaf`.
-They require group schemes, sheaf modules, adic spaces, sites or geometric torsors
-beyond the light carriers used here. -/
+/-! The definitions and constructions of the README that need group schemes, sheaves of
+modules, adic spaces, sites, diamonds or geometric torsors are README targets and are not
+declared here:
+
+Layer 0: `TauCeti.HodgeTate.conormal`, `TauCeti.HodgeTate.hodgeTateMap`,
+`TauCeti.HodgeTate.pDivisibleHodgeTateMap`, `TauCeti.HodgeTate.farguesDegree`,
+`TauCeti.HodgeTate.farguesDivisor`, `TauCeti.HodgeTate.isogenyDivisor`,
+`TauCeti.HodgeTate.semiAbelianTorsion`, `TauCeti.HodgeTate.semiAbelianHasse`,
+`TauCeti.HodgeTate.harderNarasimhanFiltration`.
+Layer 2: `ShimuraTower.pLevel`, `ShimuraTower.translate`, `ShimuraTower.infiniteLevel`,
+`TauCeti.HodgeTate.hodgeTateFlagPoint`, `TauCeti.HodgeTate.hodgeTateParabolicReduction`,
+`TauCeti.HodgeTate.ExactTensorFiltration`, `TauCeti.HodgeTate.openTowerHodgeTateMap`.
+Layer 3: `TauCeti.HodgeTate.hasseNeighbourhood`, `TauCeti.HodgeTate.canonicalSubgroup`.
+Layer 4: `TauCeti.HodgeTate.canonicalLocus`, `TauCeti.HodgeTate.hodgeTateCoordinate`,
+`TauCeti.HodgeTate.flagBall`.
+Layer 5: `TauCeti.HodgeTate.igusaTorsor`, `TauCeti.HodgeTate.integralDifferentialLattice`,
+`TauCeti.HodgeTate.modifiedHodgeBundle`, `TauCeti.HodgeTate.modifiedMinimalModel`,
+`TauCeti.HodgeTate.modifiedPlusSheaf`, `TauCeti.HodgeTate.aipTorsor`.
+Layer 6: `TauCeti.LogAdic.LogAdicData`, `TauCeti.LogAdic.MonoidAlgebraLog`,
+`TauCeti.LogAdic.IntegralChart`, `TauCeti.LogAdic.DivisorialLog`,
+`TauCeti.LogAdic.FsAdicPullback`, `TauCeti.LogAdic.ContinuousLogDerivation`,
+`TauCeti.LogAdic.ContinuousLogDifferentials`, `TauCeti.LogAdic.AnalyticLogDR`,
+`TauCeti.LogAdic.KummerEtale`, `TauCeti.LogAdic.RootCover`,
+`TauCeti.LogAdic.RamificationIndex`, `TauCeti.LogAdic.KummerEtaleSite`,
+`TauCeti.LogAdic.ProKummerPresentation`, `TauCeti.LogAdic.CorrectedProKummerCover`,
+`TauCeti.LogAdic.ProKummerEtaleSite`, `TauCeti.LogAdic.AllRootTower`,
+`TauCeti.LogAdic.LogAffinoidPerfectoid`, `TauCeti.LogAdic.CompletedLogStructure`,
+`TauCeti.LogAdic.KummerLisse`, `TauCeti.LogAdic.CompletedKummerLisse`,
+`TauCeti.LogAdic.BoundaryMonodromy`.
+Layer 7: `TauCeti.LogAdic.LogConstantPeriods`, `TauCeti.LogAdic.StructuralLogPeriodPlus`,
+`TauCeti.LogAdic.StructuralLogPeriod`, `TauCeti.LogAdic.StructuralLogConnection`,
+`TauCeti.LogAdic.BdRCoefficientSheaf`, `TauCeti.LogAdic.FilteredLogConnection`,
+`TauCeti.LogAdic.LogRH`, `TauCeti.LogAdic.LogHiggs`, `TauCeti.LogAdic.ArithmeticLogDR`,
+`TauCeti.LogAdic.CanonicalLogRealizations`, `TauCeti.LogAdic.TwoDeRhamLattices`,
+`TauCeti.LogAdic.LatticeHTFiltration`, `TauCeti.LogAdic.HodgeTateReduction`,
+`TauCeti.LogAdic.FiniteLeviComparison`. -/
 
 end
 
