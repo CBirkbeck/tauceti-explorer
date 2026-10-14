@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-PrismaticCohomology",
+    "date": "2026-10-14",
+    "notes": "Completed independent fixing review of all 369 accepted targets and 835 API entries. Corrected completed q-de Rham cokernels, boundary versus global log cohomology, logarithmic chart scope and coordinate-map controls, derived discreteness inferences, source locators, examples and supplier ownership. All 127 definition/construction targets retain at least three Checks. Lean elaborated with exit 0 and 25 sorry warnings only. Unfixed defects: section 2.14 needs survival through derived completed colimits and a separate proof of unreduced nondiscreteness; section 8.40 needs an integral model for arbitrary submonoids and coherent coordinate-merging comparison maps. The full comparisons also retain precise supplier extensions, including P0, E-infinity decalage, period-theoretic range and full Witt-Frobenius Riemann-Hilbert. Descendability and the basic Beilinson t-structure are already supplied by E5 and DD.1 and are no longer marked missing. See REV-PKG-PrismaticCohomology.md for source sample, adversarial checks and limits."
+  }
+}
