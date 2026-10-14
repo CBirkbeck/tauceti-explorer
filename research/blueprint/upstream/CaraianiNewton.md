@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-14T20:33Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-14T20:36Z; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. All thirteen tier 1–4 roadmaps are open pull requests on TauCetiRoadmap: #779 SchemeAndStackFoundations, #780 PadicMeasuresIwasawaAlgebras, #785 ReductiveGroupsPartII with #792 AdelicAlgebraicGroups and #793 SmoothRepresentationsOfLocalGroups stacked on it and #789 IntegralHeckeAndGaloisDeterminants on #793, and the adic stack #817 AdicSpacesPartII ← #813 AdicSpacesPartIII ← #814 AdicEtaleGeometry ← #815 AdicSpacesPartIV, #818 PerfectoidSpaces ← #816 PerfectoidTowers and #820 DiamondsAndVStacks. The independent reviewer recommends approval of every one; after the 2026-10-12 citation sweep and its repairs, every pull request was re-reviewed on its current head; the approval recommendations stand, with #779 awaiting the pass after its latest small corrections. The remaining tier 3–4 roadmaps (GeometryOfNumbersAndQuadraticArithmetic, EnhancedDerivedSheaves, AlgebraicModuliForArithmeticGeometry, LocallyAnalyticDistributions, DiophantineApproximationAndTranscendence) have finished packages on the explorer board awaiting their Tau Ceti lane. Tier 5–9 package jobs (ComplexComparisonPartII, ClassicalArithmeticCompletion, InverseGaloisAndArithmeticFundamentalGroups, AbelianSchemesAndArithmeticModuli, ArithmeticGaloisDuality, SelmerIwasawaCohomology, CrystallineCohomology, HeightsRationalPointsAndObstructions) were queued on 2026-10-12 and the swarm is working on them.
 
@@ -94,7 +94,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 12
 
-- **AutomorphicLFunctionsAndLocalFactors** — Automorphic L-functions and local factors. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · move down: ModularSymbolsPadicLFunctions (4), AutomorphicGaloisRepresentations (2), AnalyticNumberTheory (1) · cites outside the 94: GlobalShtukasAndFunctionFieldLanglands (6), FunctionFieldArithmetic (4)
+- **AutomorphicLFunctionsAndLocalFactors** — Automorphic L-functions and local factors. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: pull request #924 open** · move down: ModularSymbolsPadicLFunctions (4), AutomorphicGaloisRepresentations (2), AnalyticNumberTheory (1) · cites outside the 94: GlobalShtukasAndFunctionFieldLanglands (6), FunctionFieldArithmetic (4)
 - **ShimuraData** — Shimura data, Hermitian domains, and adelic level structures. Plan 0/1 accepted · package not yet · CN needs 6/6 layers · cites outside the 94: ComplexMultiplicationAndExplicitReciprocity (1)
 - **AlgebraicModularFormsAndSerreWeights** — Algebraic modular forms, reduction and Serre weights. Plan 1/1 accepted · package accepted · CN needs 6/6 layers · move down: AutomorphicGaloisRepresentations (8), AutomorphicBundles (1)
 - **CompletedCohomologyPartII** — Completed cohomology, homology and arithmetic towers — Part II. Plan 3/3 accepted · package not yet · CN needs 9/9 layers · move down: EtaleDualityAndPerverseSheaves (2), ShimuraVarieties (1), HilbertModularVarietiesAndShimuraCurves (1) · cites outside the 94: NoncommutativeAndEquivariantIwasawa (6)
@@ -104,7 +104,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 13
 
-- **AutomorphicSpectralTheory** — Automorphic spectral theory and trace distributions. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · move down: EndoscopicTransferAndUnitaryTraceComparison (3) · cites outside the 94: QSeriesPartitionsAndMockModularForms (13), EllipticRegulators (3)
+- **AutomorphicSpectralTheory** — Automorphic spectral theory and trace distributions. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: pull request #925 open** · move down: EndoscopicTransferAndUnitaryTraceComparison (3) · cites outside the 94: QSeriesPartitionsAndMockModularForms (13), EllipticRegulators (3)
 - **Merged package:** AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology
   - **AInfCohomology** — Integral A_inf cohomology and Breuil–Kisin–Fargues structures. Plan 3/3 accepted · package not yet · CN needs 9/10 layers · move down: CohomologyComparisons (7) · cites outside the 94: RefinedTraceMethods (7)
   - **PadicHodgeTheory** — P-adic Hodge theory and geometric comparison. Plan 3/3 accepted · package not yet · CN needs 9/10 layers · move down: CohomologyComparisons (8), GL2AutomorphicRepresentationsAndTransfer (1) · cites outside the 94: PhiGammaModulesAndIwasawaCohomology (40), VectorBundlesAndIsocrystals (5), BunGAndNewtonStrata (1)
