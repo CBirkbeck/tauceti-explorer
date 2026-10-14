@@ -141,15 +141,23 @@ variable {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [Complete
 
 /-- The functions on the open disc `D⁻(a, r)` given by one convergent power series on the whole
 disc (stronger than `AnalyticOnNhd`, which only asks for local power series). -/
-def discAnalytic (a : K) (r : ENNReal) : Subalgebra K (Metric.eball a r → K) where
+def discAnalytic (a : K) (r : ENNReal) (hr : 0 < r) :
+    Subalgebra K (Metric.eball a r → K) where
   carrier := {f | ∃ (F : K → K) (P : FormalMultilinearSeries K K K),
     HasFPowerSeriesOnBall F P a r ∧ ∀ z : Metric.eball a r, f z = F z}
   mul_mem' := by sorry
   add_mem' := by sorry
   algebraMap_mem' := by sorry
 
-/-- Constants are analytic on every disc, including `r = ∞`. -/
-example (a c : K) (r : ENNReal) : (fun _ : Metric.eball a r => c) ∈ discAnalytic a r := by sorry
+/-- Constants are analytic on every disc of positive radius, including `r = ∞`. -/
+example (a c : K) (r : ENNReal) (hr : 0 < r) :
+    (fun _ : Metric.eball a r => c) ∈ discAnalytic a r hr := by sorry
+
+/-- Radius zero is excluded by the analytic-series predicate, even for a constant function. -/
+example (a c : K) :
+    ¬ ∃ P : FormalMultilinearSeries K K K, HasFPowerSeriesOnBall (fun _ => c) P a 0 := by
+  rintro ⟨P, hP⟩
+  exact (lt_irrefl (0 : ENNReal)) hP.r_pos
 
 /-- Non-example: the indicator of a smaller disc is locally analytic but not given by one power
 series on `D⁻(0, 1)`. -/
