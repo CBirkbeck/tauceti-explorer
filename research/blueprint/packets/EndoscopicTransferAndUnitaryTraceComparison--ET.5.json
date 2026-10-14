@@ -1,0 +1,2872 @@
+{
+  "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+  "protocol": "blueprint-v1",
+  "part": "ET.5",
+  "scope": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+  ],
+  "status": "complete",
+  "granularity": "target",
+  "agent": "Codex (GPT-6)",
+  "session": "codex-IZB9fK",
+  "job": "BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5",
+  "summary": "Completed target-level planning pass for ET.5: 32 targets cover the early algebraic/finite Igusa prefix, geometric Frobenius trace, effective polarized triples, mass counting, ordinary endoscopic stabilization, unitary specialization and finite-character removal of acceptability. Seven explicit primary-proof/supplier boundaries and five requests prevent a claim of dependency closure. Heavy objects are reader targets; the suggested file contains only genuine pinned-carrier signatures and elementary valuation/character milestones. No target is implemented.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:WittVector.Isocrystal",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "A module over Frac(W(k)) with a bijective Frobenius-semilinear operator, for perfect integral-domain k. Finite dimension is an additional hypothesis.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:WittVector.IsocrystalEquiv",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "A linear equivalence commuting with the two isocrystal Frobenius operators.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:WittVector.StandardOneDimIsocrystal",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "The one-dimensional carrier with Frobenius p^m times Witt Frobenius, m an integer.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:WittVector.isocrystal_classification",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "For algebraically closed k, every isocrystal of finrank one is equivalent to a standard integral-slope isocrystal. This does not classify arbitrary finite rank or G-structure.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Locally ringed spaces locally isomorphic to an affine spectrum; a scheme carrier, without an Igusa moduli functor or l-adic six operations.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.IsHaarMeasure",
+        "kind": "class",
+        "module": "Mathlib/MeasureTheory/Group/Measure.lean",
+        "provides": "Left invariance, finiteness on compact sets and positivity on nonempty open sets. Quotient and Tamagawa measures are separate; regularity is separate unless supplied by local-group hypotheses.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:Matrix.vandermonde",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+        "provides": "Finite matrix whose (i,j)-entry is v_i^j.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "mathlib:Matrix.det_vandermonde",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+        "provides": "The product formula det(V)=product over i<j of (v_j-v_i), over a commutative ring.",
+        "checked": "Declaration and hypotheses read in the source tree at the pinned commit."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+        "provides": "A proper geometrically integral group scheme over a field, with derived smoothness, commutativity and geometric connectedness. This is an existing carrier, not finite-field Tate full faithfulness or Honda existence.",
+        "checked": "Statement and fields read by git show at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369."
+      }
+    ],
+    "checkedUpstream": {
+      "detail": "Current upstream roadmaps and current Tau Ceti were read only; existing abelian-variety, reductive-group and class-field targets are cited. Searches found no Igusa, polarized effective-triple or endoscopic trace carriers at the pins. The reviewed library audit has no ET record; no existing target is being declared absent merely on that basis."
+    }
+  },
+  "sources": [
+    {
+      "id": "shin09",
+      "title": "Counting points on Igusa varieties",
+      "authors": "S. W. Shin",
+      "edition": "Author copy of Duke Math. J. 146 (2009), 509–568; 44 pages, locators below use author-copy printed pages, equal to PDF pages.",
+      "url": "https://math.berkeley.edu/~swshin/IgusaVar.pdf",
+      "sha256": "022defdc0ebd913cdfd96d6c37b0f583dc9dc73716c23d1577c18035ff74eff8",
+      "readSections": [
+        "§2, pp.4–6; §3, pp.6–8",
+        "§4, pp.8–13; §5, pp.13–17",
+        "§6, pp.17–20; §7, pp.20–24",
+        "§8, pp.24–27; §9, pp.27–29",
+        "§10, pp.29–34; §§11–12, pp.34–41; §13, pp.41–42"
+      ]
+    },
+    {
+      "id": "shin10",
+      "title": "A stable trace formula for Igusa varieties",
+      "authors": "S. W. Shin",
+      "edition": "Author copy of J. Inst. Math. Jussieu 9 (2010), 847–895; 30 pages, locators use author-copy printed pages, equal to PDF pages.",
+      "url": "https://math.berkeley.edu/~swshin/StableIgusa.pdf",
+      "sha256": "e74cbbe4463f003b8ae2eb10636744c7ae032d25a566f8b441004c7f14e2faf0",
+      "readSections": [
+        "§1.2, pp.3–4",
+        "§3.1–3.4, pp.10–12",
+        "§4, pp.12–15; §5, pp.15–17",
+        "§6, pp.17–26; §7, pp.26–27; §8, pp.27–29"
+      ]
+    },
+    {
+      "id": "mantovan05",
+      "title": "On the cohomology of certain PEL type Shimura varieties",
+      "authors": "E. Mantovan",
+      "edition": "Author copy of Duke Math. J. 129 (2005), 573–610; locators use author-copy pages.",
+      "url": "https://www.its.caltech.edu/~mantovan/papers/PEL.pdf",
+      "sha256": "6172cd3ac7579f6115356a9112d1721efe24387e1d168ab99755dca9cfbd4a2e",
+      "readSections": [
+        "§3, pp.6–10, central leaves and slope filtration",
+        "§4, pp.10–14, finite Igusa moduli, monoid, Frobenius and rational cohomology"
+      ]
+    },
+    {
+      "id": "kot85",
+      "title": "Isocrystals with additional structure",
+      "authors": "R. E. Kottwitz",
+      "edition": "Compositio Math. 56 (1985), 201–220; published Numdam scan; locators use printed journal pages.",
+      "url": "https://www.numdam.org/article/CM_1985__56_2_201_0.pdf",
+      "sha256": "51fe79cbe6798ea061128fd294c2459046572fcf5f7ed150c75d50e974819171",
+      "readSections": [
+        "§3, pp.211–212; §4, pp.212–215",
+        "§5.1–5.2, pp.215–216; §6.1–6.5, pp.218–220"
+      ]
+    },
+    {
+      "id": "rr96",
+      "title": "On the classification and specialization of F-isocrystals with additional structure",
+      "authors": "M. Rapoport and M. Richartz",
+      "edition": "Compositio Math. 103 (1996), 153–181; published Numdam scan.",
+      "url": "https://www.numdam.org/item/CM_1996__103_2_153_0.pdf",
+      "sha256": "86acb9e18422e641d85f799262e1793614f705029a9cbd70dc0b03f74bcb13d8",
+      "readSections": [
+        "§1.3–1.15, pp.156–162: statements, examples and algebraic functors; results cited there from Kottwitz and Rapoport–Zink are not primary proofs read here."
+      ]
+    },
+    {
+      "id": "var07",
+      "title": "Lefschetz–Verdier trace formula and a generalization of a theorem of Fujiwara",
+      "authors": "Y. Varshavsky",
+      "edition": "arXiv:math/0505564v2, author preprint of Geom. Funct. Anal. 17 (2007), 271–319.",
+      "url": "https://arxiv.org/pdf/math/0505564v2",
+      "sha256": "8b4cb7ee9b1726cc998fc4d952a2542576e85ebe21e70b0f5c9f31c4682b8ac6",
+      "readSections": [
+        "§2.2, pp.19–20, Frobenius contraction statements",
+        "§2.3, pp.20–21, Theorem 2.3.2 and its proof; general trace machinery supplied by EDC.8"
+      ]
+    },
+    {
+      "id": "shin-errata",
+      "title": "Errata",
+      "authors": "S. W. Shin",
+      "edition": "Author-maintained two-page errata; read 2026-10-14.",
+      "url": "https://math.berkeley.edu/~swshin/errata.pdf",
+      "sha256": "0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be",
+      "readSections": [
+        "p.1, first entry, correcting Counting points on Igusa varieties Lemma 2.4"
+      ]
+    },
+    {
+      "id": "tate66",
+      "title": "Endomorphisms of abelian varieties over finite fields",
+      "authors": "J. Tate",
+      "edition": "Invent. Math. 2 (1966), 134–144; published scan.",
+      "url": "https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf",
+      "sha256": "47f284526522fb48840e1a1383b9bfc0bfc3f6aded39db6119a34a6e02214b87",
+      "readSections": [
+        "§1, pp.134–136; §2, pp.136–139; §3 Theorems 1–2, pp.139–140"
+      ]
+    },
+    {
+      "id": "waterhouse69",
+      "title": "Abelian varieties over finite fields",
+      "authors": "W. C. Waterhouse",
+      "edition": "Ann. Sci. ENS 2 (1969), 521–560; published Numdam scan. Honda existence is stated, not proved here.",
+      "url": "https://www.numdam.org/item/ASENS_1969_4_2_4_521_0.pdf",
+      "sha256": "7be2bf9dde45454afa3dd9a0ea1ba05acbe952b6b573a0c37c2b1b8f0cccbb47",
+      "readSections": [
+        "Chapter 2, pp.526–528, Weil numbers, endomorphism invariants and Honda classification"
+      ]
+    },
+    {
+      "id": "cs17",
+      "title": "On the generic part of the cohomology of compact unitary Shimura varieties",
+      "authors": "A. Caraiani and P. Scholze",
+      "edition": "Ann. of Math. 186 (2017), 649–766; published PDF; printed page = PDF page + 648.",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
+      "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
+      "readSections": [
+        "§5.2, pp.732–735, definitions and stable formula",
+        "§5.5, pp.741–743, finite-character extension of acceptability"
+      ]
+    },
+    {
+      "id": "csnc",
+      "title": "On the generic part of the cohomology of non-compact unitary Shimura varieties",
+      "authors": "A. Caraiani and P. Scholze",
+      "edition": "arXiv:1909.01898v2, 22 November 2023, 90 pages; locators use preprint pages.",
+      "url": "https://arxiv.org/pdf/1909.01898v2",
+      "sha256": "803fc16ab30fa37fa1ce08c683885040c2034bbefc6ca6567e73026006229f2e",
+      "readSections": [
+        "§5.2, pp.67–68; §5.3, p.68",
+        "§5.6, pp.74–76, construction and finite-character extension"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+      "title": "Algebraic G-isocrystals and sigma-conjugacy",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For connected reductive G/Q_p, k=F̄_p, L=Frac W(k), and Witt Frobenius σ, define B(G) as G(L) modulo b′=g⁻¹bσ(g). A G-isocrystal is an exact faithful Q_p-linear tensor functor Rep_Qp(G)→Isoc(k); its underlying L-valued fibre functor is isomorphic to scalar extension of the usual one. The functor attached to b sends (V,ρ) to (V⊗L,ρ(b)σ). Isomorphism classes identify with B(G); the automorphism functor of this tensor functor gives J_b. Finite rank is separate from the pinned isocrystal carrier; the full slope classification comes from R07.2, not its rank-one Mathlib special case.",
+      "hypotheses": [
+        "Connected reductive G; algebraically closed residue field; rational, not integral, coefficients."
+      ],
+      "proofSteps": [
+        "Use the pinned semilinear carrier and the tensor/representation dictionary supplied by reductive groups.",
+        "Trivialize the L-valued fibre functor; changing its trivialization changes b by sigma-conjugation. Frobenius-compatible tensor isomorphisms are exactly those conjugators.",
+        "Use Steinberg vanishing over L to justify the trivialization; record the tensor-descent primary-proof boundary G1."
+      ],
+      "acceptance": [
+        "For GL_n the class is the isocrystal isomorphism class, not ordinary conjugacy."
+      ],
+      "prerequisites": [
+        "mathlib:WittVector.Isocrystal",
+        "mathlib:WittVector.IsocrystalEquiv",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-manin-classification",
+        "ReductiveGroupsPartII:RG2.5/langlands-dual-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "kot85",
+          "locator": "§§3–4.2, pp.211–213",
+          "match": "Constructs the tensor slope functor from b."
+        },
+        {
+          "sourceId": "shin09",
+          "locator": "§4.2, Definition 4.5 and Lemmas 4.6–4.7, pp.10–11",
+          "match": "Identifies the tensor category with concrete PEL isocrystals and their automorphisms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "GIsocrystal.ofElement",
+          "role": "constructor",
+          "statement": "(V,ρ)↦(V⊗L,ρ(b)σ), preserving tensor products, duals and exact sequences."
+        },
+        {
+          "name": "GIsocrystal.changeTrivialization",
+          "role": "compatibility",
+          "statement": "The change by g identifies b with g⁻¹bσ(g)."
+        },
+        {
+          "name": "GIsocrystal.classification",
+          "role": "equivalence",
+          "statement": "The quotient of elements by sigma-conjugacy equals isomorphism classes of these tensor functors."
+        },
+        {
+          "name": "GIsocrystal.aut",
+          "role": "characterisation",
+          "statement": "Tensor automorphisms of the functor equal the sigma-centralizer functor of b."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one",
+          "statement": "For G=G_m the class of p^m has integral slope m and agrees with StandardOneDimIsocrystal; m=0 is the unit isocrystal."
+        },
+        {
+          "name": "fractional_rank_two",
+          "statement": "For GL_2, Φ(e_1)=e_2 and Φ(e_2)=p e_1 gives slope 1/2 twice, and is not a sum of two rank-one integral-slope objects."
+        },
+        {
+          "name": "sigma_not_ordinary",
+          "statement": "If b′=g⁻¹bσ(g), multiplication by g intertwines Frobenius. Replacing σ(g) with g makes that intertwining equation fail unless σ(g)=g."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+          "how": "Relates quasi-isogenies to the tensor centralizer."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+          "how": "Supplies the domain of both invariants."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/AlgebraicGIsocrystals.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "planet": {
+        "name": "G-isocrystals"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+      "title": "Newton and Kottwitz invariants with the PEL sign",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For connected reductive G/Q_p, let D be the protorus with X*(D)=Q, π₁(G)=X_*(T)/coroot lattice with its Galois action, and N(G) the Galois-fixed geometric conjugacy classes of maps D→G. Define ν̄_G:B(G)→N(G) through rational slope decompositions in every representation, and κ_G:B(G)→π₁(G)_Γ. Both are functorial for group homomorphisms, and the image of ν̄ under abelianization equals κ⊗Q. For quasi-split G and a conjugacy class μ, B(G,−μ) means κ=−μ^natural and ν̄≤(−μ)^diamond in the dominant order (choose the dominant member before Galois averaging). This is a definition of the admissible locus, not a claim that every element occurs in a PEL special fibre. For the dual Dieudonné convention used below, BT slopes λ give ν weights −λ.",
+      "hypotheses": [
+        "Fix a based root datum for dominance; μ and Galois action are specified."
+      ],
+      "proofSteps": [
+        "Obtain the slope protorus grading from finite-dimensional isocrystals.",
+        "Use the algebraic fundamental group and the torus valuation map; extend by reductive-group descent as in RR Theorem 1.15.",
+        "Pin the duality and sign at the PEL comparison, and retain the primary general κ construction as G1."
+      ],
+      "acceptance": [
+        "For GL_n, κ is v_p(det b) and ν̄ lists slopes; Σ of BT slopes λ_i gives κ=−Σλ_i with multiplicities."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+        "ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "rr96",
+          "locator": "§§1.7–1.15, pp.156–162",
+          "match": "Gives Newton, the algebraic fundamental group and their compatible functorial invariants."
+        },
+        {
+          "sourceId": "shin09",
+          "locator": "§4.1, pp.8–10; Definition 4.11, p.12",
+          "match": "Uses B(G,−μ) for the dual Dieudonné convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "NewtonMap.representation",
+          "role": "characterisation",
+          "statement": "For any representation, ν acts with precisely the slopes of its isocrystal."
+        },
+        {
+          "name": "KottwitzMap.functorial",
+          "role": "functoriality",
+          "statement": "For f:G→H, κ_H(f_*b)=π₁(f)_Γ κ_G(b), and ν_H=f∘ν_G up to conjugacy."
+        },
+        {
+          "name": "AdmissibleClass.mem",
+          "role": "characterisation",
+          "statement": "Membership is the simultaneous κ equality and dominant Newton inequality."
+        },
+        {
+          "name": "Invariants.innerTwist",
+          "role": "compatibility",
+          "statement": "Inner forms have the canonical common π₁ with its Galois action; no arbitrary map of dual centres is assumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gm",
+          "statement": "G_m: κ(p^m)=m and ν(p^m)=m; the admissible locus for −μ consists of the single class −μ."
+        },
+        {
+          "name": "gl2half",
+          "statement": "The rank-two slope-1/2 example has κ=1. Its dual has slope −1/2 twice and κ=−1."
+        },
+        {
+          "name": "basic_not_zero",
+          "statement": "For GL_n a central slope r is basic even when nr≠0; basic means central ν, not trivial κ."
+        },
+        {
+          "name": "mu_average",
+          "statement": "For a non-Galois-invariant μ the bound uses the average of its dominant conjugates, rather than μ itself."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+          "how": "Defines the Levi and decency equation."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triples-and-invariant",
+          "how": "κ on the centralizer computes the local invariant at p."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/NewtonKottwitzInvariants.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+      "title": "Decent representatives, Newton Levi and J_b",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For quasi-split connected reductive G/Q_p and [b]∈B(G), choose a representative whose Newton map ν_b is rational and an integer s>0 with bσ(b)⋯σ^{s−1}(b)=(sν_b)(p) and sν_b integral. Then b∈G(L_s), M_b=Z_G(ν_b) is a Q_p-Levi and b is basic in M_b. The functor R↦{g∈G(L⊗_Qp R):g=bσ(g)b⁻¹} is represented by a reductive Q_p-group J_b, an inner form of M_b with descent cocycle Int(b). Fix an L_s-inner isomorphism ψ:J_b→M_b; transport stable classes to G geometrically. Changing b by sigma-conjugation changes J_b by an isomorphism canonical up to inner automorphism. The pair (M_b,[b] in B(M_b)) has a rational-conjugacy orbit independent of these choices. This last statement concerns classes in B(M_b), not rational conjugacy of every pair of actual representatives.",
+      "hypotheses": [
+        "Quasi-split G for rational Newton Levi; decency integer can be enlarged."
+      ],
+      "proofSteps": [
+        "Use Kottwitz §§4.3 and 6.2 to choose rational ν and solve the decency equation after finite unramified extension.",
+        "Descend the Levi by Int(b); centrality of the decency product makes the cocycle valid.",
+        "Identify the fixed functor with the descended group, and prove its independence using sigma-conjugators. The general representability argument is source boundary G1."
+      ],
+      "acceptance": [
+        "If b is basic, M_b=G but J_b can be a nonsplit inner form."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/inner-twist"
+      ],
+      "sources": [
+        {
+          "sourceId": "kot85",
+          "locator": "§4.3, pp.213–214; §§5.2 and 6.2–6.5, pp.215–216,219–220",
+          "match": "Constructs decency and the inner form, with invariance of the Levi class."
+        },
+        {
+          "sourceId": "rr96",
+          "locator": "§1.11–1.12, pp.158–159",
+          "match": "States representability of the centralizer functor and its basic criterion."
+        },
+        {
+          "sourceId": "shin10",
+          "locator": "§3.2, p.10",
+          "match": "Fixes the decent representative and inner isomorphism for transfer."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Jb.points",
+          "role": "characterisation",
+          "statement": "The displayed Frobenius-commuting equation describes R-points for every Q_p-algebra R."
+        },
+        {
+          "name": "Jb.innerNewtonLevi",
+          "role": "equivalence",
+          "statement": "ψ identifies J_b and M_b only after splitting the inner twist."
+        },
+        {
+          "name": "Jb.sigmaConjugacy",
+          "role": "functoriality",
+          "statement": "If b′=g⁻¹bσ(g), conjugation by g⁻¹ identifies the point functors, up to inner automorphism for another choice."
+        },
+        {
+          "name": "DecentRepresentative.enlarge",
+          "role": "compatibility",
+          "statement": "Replacing s by a positive multiple preserves decency and makes all slope products integral."
+        },
+        {
+          "name": "NewtonLevi.classIndependence",
+          "role": "compatibility",
+          "statement": "The rational-conjugacy class of the pair (M_b,[b]_M) is independent of a rational Newton representative."
+        }
+      ],
+      "tests": [
+        {
+          "name": "trivial",
+          "statement": "b=1 gives ν=0, M_b=G and J_b=G."
+        },
+        {
+          "name": "division_basic",
+          "statement": "GL_2 with isoclinic slope 1/2 has J_b=D^× for the quaternion division algebra; it is not GL_2(Q_p) as a rational group."
+        },
+        {
+          "name": "ordinary",
+          "statement": "GL_2 with distinct slopes 0 and −1 has M_b=G_m×G_m and J_b split; the two-block slope order is retained."
+        },
+        {
+          "name": "representative_class",
+          "statement": "Kottwitz Proposition 6.3 identifies classes in B(M); no assertion b′=gbg⁻¹ for arbitrary decent representatives is an API item."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+          "how": "Identifies quasi-isogenies and the central Frobenius element."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-levi-endoscopy",
+          "how": "Provides the inner twist on the p-adic endoscopic side."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/DecentLeviAndJb.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+      "title": "PEL Dieudonné comparison and quasi-isogeny groups",
+      "kind": "comparison",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For unramified integral simple PEL data of type A or C (positive involution, split matrix B_p over unramified centres, self-dual O_B-stable lattice and positive h), use the dual of the usual contravariant rational Dieudonné module. It sends μ_{p∞} to L(−1), and a polarized BT group with B_p-action to a hermitian isocrystal with pairing valued in L(−1). The determinant condition cuts out the classes in B(G,−μ) that arise from these BT groups. For Σ of class b, rational quasi-isogenies preserving the action and polarization up to scalar identify with J_b(Q_p), canonically up to inner automorphism. Quasi-isogenies to another such BT group are exactly its Frobenius-compatible hermitian isocrystal isomorphisms.",
+      "hypotheses": [
+        "The comparison is over F̄_p in the isogeny category; the pairing is nondegenerate and its similitude scalar is retained.",
+        "Type D is excluded. The membership condition does not assert nonemptiness of every Shimura Newton stratum."
+      ],
+      "proofSteps": [
+        "Consume R07.2 Dieudonné full faithfulness and Cartier duality.",
+        "Dualize and track the Tate twist through the pairing: all λ become −λ.",
+        "Apply the concrete/tensor dictionary of Shin §4.2 and identify the automorphism functor."
+      ],
+      "acceptance": [
+        "The multiplicative BT group has slope 1 before dualization and weight −1 after it; the étale group has weight 0."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual",
+        "PELModuli:M0/determinant-condition"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§4.2–4.3, Lemmas 4.7 and 4.14, pp.10–13",
+          "match": "The hermitian and tensor comparisons identify J_b with polarized quasi-isogenies."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-leaf-slope-data",
+      "title": "Central leaves and completely slope-divisible families",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "Fix the good-reduction PEL special fibre X_K over F̄_p and a polarized O_B-BT group Σ=⊕Σ_i with slopes 1≥λ_1>⋯>λ_r≥0. Its central leaf C_Σ is the reduced locus where the geometric BT group with all additional structures is isomorphic to Σ, inside the Newton stratum with class b. It is smooth and closed in that stratum, not necessarily closed in X_K. A BT group H is completely slope divisible if it has a filtration whose graded pieces have slopes λ_i and, for one common s>0, p^{−sλ_i}F^s is an isomorphism on each graded piece and induces the required isogenies on the filtered pieces; use the exact filtration/isogeny condition of Mantovan §3. For a completely slope-divisible Σ, H=A[p∞]|C_Σ has this filtration, equivariant for O_B, and the polarization pairs grade i with the complementary slope 1−λ_i. Over a perfect field the filtration splits; it need not split over C_Σ.",
+      "hypotheses": [
+        "Unramified integral PEL type A or C, hyperspecial level at p and neat prime-to-p level; reduced schemes, all geometric fibres.",
+        "Choose Σ satisfying the determinant condition."
+      ],
+      "proofSteps": [
+        "Use the PEL representable smooth model and its universal BT group.",
+        "Apply the central-leaf and slope-filtration results quoted in Mantovan §3; retain their primary proof boundary G2.",
+        "Morphisms preserve slopes, and duality exchanges λ and 1−λ; this gives the inherited action and graded pairings."
+      ],
+      "acceptance": [
+        "Fixing an isogeny class defines the Newton stratum; fixing an isomorphism class defines the finer central leaf."
+      ],
+      "prerequisites": [
+        "PELModuli:M2/representability",
+        "PELModuli:M2/formal-smoothness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+        "mathlib:AlgebraicGeometry.Scheme"
+      ],
+      "sources": [
+        {
+          "sourceId": "mantovan05",
+          "locator": "§3, Proposition 1 and Proposition 2, pp.7–10",
+          "match": "Defines structured central leaves, their smoothness and the graded slope condition."
+        },
+        {
+          "sourceId": "shin09",
+          "locator": "§5, pp.15–16",
+          "match": "Chooses a completely slope-divisible group and its central leaf."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "CentralLeaf.geometricPoints",
+          "role": "characterisation",
+          "statement": "x lies in C_Σ iff A_x[p∞]≅Σ with O_B-action and polarization up to a common unit."
+        },
+        {
+          "name": "CentralLeaf.newton",
+          "role": "coercion",
+          "statement": "C_Σ→X^b is a closed immersion into its Newton stratum, with reduced structure."
+        },
+        {
+          "name": "SlopeFiltration.functorial",
+          "role": "functoriality",
+          "statement": "BT morphisms preserve the filtration; O_B acts on its pieces and duality pairs complementary slopes."
+        },
+        {
+          "name": "SlopeFiltration.perfectFibre",
+          "role": "equivalence",
+          "statement": "Over a perfect field the completely slope-divisible group is the sum of its graded pieces; this is not imposed on the entire family."
+        },
+        {
+          "name": "CentralLeaf.level",
+          "role": "compatibility",
+          "statement": "Prime-to-p level projections and Hecke maps preserve the central-leaf system."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ordinary",
+          "statement": "For an ordinary elliptic BT group over F̄_p the pieces are μ_{p∞} and Q_p/Z_p, of slopes 1 and 0."
+        },
+        {
+          "name": "basic",
+          "statement": "For a single slope the filtration has one graded piece; the leaf still remembers the integral BT group, not just its rational isocrystal."
+        },
+        {
+          "name": "duality",
+          "statement": "If the polarization is principal, the multiplicities at λ and 1−λ agree; an isolated slope 0 without a slope 1 partner cannot be such a polarized datum."
+        },
+        {
+          "name": "fibre_not_family",
+          "statement": "A family with nontrivial extensions may have split perfect fibres; replacing H by the direct sum of grades as a family is not part of this definition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+          "how": "Supplies the graded BT groups to trivialize."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+          "how": "The slope gaps control gluing of kernel subgroups."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/CentralLeafSlopeData.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+      "title": "Finite-level Igusa moduli and deck groups",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For m≥1 define Ig_{K^p,m} over C_{Σ,K^p} by O_B-equivariant isomorphisms j_i:Σ_i[p^m]→gr_i(A[p∞])[p^m], compatible with the graded polarization up to one common unit modulo p^m, which extend étale locally to every higher truncation. With Γ_b=Aut_O_B,λ(Σ)⊂J_b(Q_p) and U_p(m)=ker(Γ_b→Aut(Σ[p^m])), this functor is a finite étale Γ_b/U_p(m)-torsor over the leaf. It is smooth, finite type and usually nonproper. Higher level maps are finite étale and are restriction of the j_i. The U_p(m) form a basis of compact open subgroups of Γ_b. Ig_∞ denotes the inverse system and its inverse-limit geometric points, not a new finite-type scheme.",
+      "hypotheses": [
+        "The central leaf and slope-divisible Σ of the preceding target; m≥1.",
+        "The lifting condition is part of the moduli problem; arbitrary truncated isomorphisms are not substituted for it."
+      ],
+      "proofSteps": [
+        "Represent the liftable truncation trivializations and impose the closed O_B and polarization conditions.",
+        "Use formal rigidity of isoclinic groups to transport fibre trivializations over completed local rings, as in Mantovan Proposition 4.",
+        "The compact integral automorphism group gives the deck quotient, whose action is free and transitive on every fibre; primary liftability/rigidity proof inputs remain G2."
+      ],
+      "acceptance": [
+        "The torsor has degree |Γ_b/U_p(m)|; its finite étaleness does not make the leaf proper."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-leaf-slope-data",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb"
+      ],
+      "sources": [
+        {
+          "sourceId": "mantovan05",
+          "locator": "§4, Definition 3 and Proposition 4, pp.10–11",
+          "match": "The all-higher-level liftability condition and finite étale Galois property."
+        },
+        {
+          "sourceId": "shin09",
+          "locator": "§5, pp.15–16",
+          "match": "Uses the structured finite-level moduli and compact deck subgroups."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "FiniteIgusa.points",
+          "role": "characterisation",
+          "statement": "Its S-points consist of the liftable structured graded trivializations, including a single common similitude unit."
+        },
+        {
+          "name": "FiniteIgusa.torsor",
+          "role": "universal-property",
+          "statement": "The moduli functor is represented by a finite étale Γ_b/U_p(m)-torsor."
+        },
+        {
+          "name": "FiniteIgusa.transition",
+          "role": "functoriality",
+          "statement": "For m′≥m, restrict j_i to p^m; transitions compose and commute with deck transformations."
+        },
+        {
+          "name": "FiniteIgusa.deckKernel",
+          "role": "characterisation",
+          "statement": "The kernel of the Γ_b-action is U_p(m), not every automorphism of the truncated group."
+        },
+        {
+          "name": "FiniteIgusa.quotient",
+          "role": "equivalence",
+          "statement": "Geometric points at level U=K^p×U_p(m) identify with Ig_∞(F̄_p)/U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ordinary_elliptic",
+          "statement": "For Σ=μ_{p∞}⊕Q_p/Z_p, Γ_b≅Z_p^××Z_p^× with the common similitude equal to the product; at m≥1 the fibre has φ(p^m)^2 points."
+        },
+        {
+          "name": "level_reduction",
+          "statement": "Restriction from m+1 to m reduces each unit modulo p^m and gives the quotient deck map."
+        },
+        {
+          "name": "liftable_only",
+          "statement": "A truncated automorphism not liftable to all higher m is absent from the deck group, even if it preserves the visible level-m pairing."
+        },
+        {
+          "name": "nonproper",
+          "statement": "If the central leaf is nonproper, its nonempty finite étale cover cannot be declared proper merely because the cover map is finite."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/rational-igusa-cohomology",
+          "how": "Computes level invariants and finite traces."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+          "how": "The projection leg is finite étale."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/FiniteIgusaModuli.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "planet": {
+        "name": "Finite Igusa varieties"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+      "title": "The slope-separated quasi-isogeny monoid",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "Order the BT slopes decreasingly. For δ∈J_b(Q_p) with δ⁻¹ an integral isogeny, let e_i be the least integer such that ker δ_i⁻¹⊂Σ_i[p^{e_i}], and f_i the largest integer such that Σ_i[p^{f_i}]⊂ker δ_i⁻¹. Define S_b by these isogeny conditions and f_{i−1}≥e_i for i≥2. Kernel gluing gives δ:Ig_{K^p,m}→Ig_{K^p,m−e_1} for m≥e_1 and compatible prime-to-p Hecke maps. Γ_b, p⁻¹ and fr^{−s} lie in S_b, where fr^{−s} acts with valuations −sλ_i; J_b(Q_p)=⟨S_b,p,fr^s⟩. This is an action of a monoid on a level system; it does not assert geometric actions of arbitrary J_b-elements at a fixed level.",
+      "hypotheses": [
+        "Σ split into completely slope-divisible components with additional structures; common s integral on all slopes."
+      ],
+      "proofSteps": [
+        "Glue the finite flat subgroup with the prescribed graded kernels using f_{i−1}≥e_i, then take the abelian quotient and its induced structures.",
+        "Functoriality of quotients yields the monoid law after enough level has been chosen.",
+        "Negative scalar and Frobenius powers put each quasi-isogeny into this cone; retain the general kernel-gluing proof boundary G2."
+      ],
+      "acceptance": [
+        "For δ=p⁻¹, all e_i=f_i=1; for fr^{−s}, e_i=f_i=sλ_i, in decreasing order."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+        "AbelianSchemesAndArithmeticModuli:A3/nonaffine-abelian-quotient",
+        "AbelianSchemesAndArithmeticModuli:A3/polarized-weil-pairing"
+      ],
+      "sources": [
+        {
+          "sourceId": "mantovan05",
+          "locator": "§4, Lemma 5 and discussion before and after it, pp.11–13",
+          "match": "Gives the separated kernel bounds and finite-level quotient maps."
+        },
+        {
+          "sourceId": "shin09",
+          "locator": "§5, pp.16–17",
+          "match": "Defines S_b and its relation with the whole quasi-isogeny group."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IgusaMonoid.mem",
+          "role": "characterisation",
+          "statement": "Membership is integral δ⁻¹ together with all successive kernel inequalities."
+        },
+        {
+          "name": "IgusaMonoid.levelMap",
+          "role": "constructor",
+          "statement": "For m≥e_1, quotient by the glued subgroup and descend the remaining j_i to level m−e_1."
+        },
+        {
+          "name": "IgusaMonoid.comp",
+          "role": "compatibility",
+          "statement": "Compositions agree after passing to a common sufficiently large source level."
+        },
+        {
+          "name": "IgusaMonoid.centralGenerators",
+          "role": "structure",
+          "statement": "Γ_b,p⁻¹,fr^{−s} belong; adjoining inverse central powers generates J_b(Q_p)."
+        },
+        {
+          "name": "IgusaMonoid.awayp",
+          "role": "compatibility",
+          "statement": "The S_b and G(A_f^p) actions commute on the level system."
+        }
+      ],
+      "tests": [
+        {
+          "name": "scalar",
+          "statement": "δ=p⁻¹ belongs, despite not being an integral automorphism; all kernel bounds equal 1."
+        },
+        {
+          "name": "wrong_slope_order",
+          "statement": "For two slopes λ_1>λ_2 and integral exponents a_1<a_2, δ_i=p^{−a_i} has f_1=a_1<e_2=a_2, and is excluded."
+        },
+        {
+          "name": "frobenius",
+          "statement": "fr^{−s} belongs because sλ_{i−1}≥sλ_i; its inverse need not belong."
+        },
+        {
+          "name": "basic",
+          "statement": "With one slope there is no successive inequality, but δ⁻¹ must still be an isogeny."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+          "how": "Constructs algebraic Hecke legs."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/rational-igusa-cohomology",
+          "how": "Extends the monoid action by invertible central actions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/IgusaMonoid.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/rational-igusa-cohomology",
+      "title": "Rational Igusa cohomology and the full group action",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For ℓ≠p and an algebraic representation ξ of G, let L_ξ be its rational ℓ-adic coefficient system on the PEL model and its pullback to finite Igusa varieties. Define H_c^k(Ig_b,L_ξ)=colim_{K^p,m}H_c^k(Ig_{K^p,m},L_ξ), using finite étale level pullbacks. The S_b×G(A_f^p) action extends uniquely to J_b(Q_p)×G(A_f^p), since p⁻¹ and fr^{−s} act invertibly on rational cohomology. These are smooth admissible representations, vanish for k>2dim C_Σ, and their K^p×U_p(m) invariants equal finite-level cohomology. Set [H_c]=Σ_k(−1)^k[H_c^k], and evaluate test functions by Haar integration with compatible quotient measures. This uses finite-dimensional invariant spaces, not finite-dimensionality of the full infinite-level representation.",
+      "hypotheses": [
+        "Neat level, ℓ≠p, rational ℓ-adic coefficients, and ξ algebraic.",
+        "Choose an identification Q̄_ℓ≅C when discussing complex characters."
+      ],
+      "proofSteps": [
+        "Consume the algebraic étale finite-level cohomology and six operations supplier.",
+        "Mantovan Lemma 6 identifies the central actions with level projection and Frobenius; rational cohomology inverts both.",
+        "Admissibility follows by exact averaging for the finite deck quotient and the level-invariant identity; dimension gives the bounded alternating sum."
+      ],
+      "acceptance": [
+        "Changing the Haar measure by a scalar changes the integrated characteristic-function trace by that scalar."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/padic-character-distributions",
+        "EtaleDualityAndPerverseSheaves:EDC.8/cohomological-correspondence-lifting",
+        "mathlib:MeasureTheory.Measure.IsHaarMeasure",
+        "AbelianSchemesAndArithmeticModuli:A4/etale-tate-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "mantovan05",
+          "locator": "§4, Lemma 6 and Proposition 7, pp.13–14",
+          "match": "Inverts the central monoid actions and proves admissibility."
+        },
+        {
+          "sourceId": "shin09",
+          "locator": "§5, p.17 and §6, equation (11), p.17",
+          "match": "Defines coefficient cohomology, level invariants and Haar normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IgusaCohomology.levelInvariants",
+          "role": "equivalence",
+          "statement": "H_c^k(Ig_b,L_ξ)^{K^p×U_p(m)}≅H_c^k(Ig_{K^p,m},L_ξ)."
+        },
+        {
+          "name": "IgusaCohomology.extendAction",
+          "role": "universal-property",
+          "statement": "The J_b-action is the unique extension that inverts p⁻¹ and fr^{−s}."
+        },
+        {
+          "name": "IgusaCohomology.virtual",
+          "role": "constructor",
+          "statement": "Take the finite alternating sum in the smooth admissible Grothendieck group."
+        },
+        {
+          "name": "IgusaCohomology.normalizedHecke",
+          "role": "compatibility",
+          "statement": "e_g=1_{UgU}/vol(U) has the correspondence trace; 1_{UgU} has vol(U) times that trace."
+        }
+      ],
+      "tests": [
+        {
+          "name": "degree_zero_torsor",
+          "statement": "On a finite étale zero-dimensional fibre of size d, the identity correspondence has trace d, whereas 1_U has integrated trace vol(U)d."
+        },
+        {
+          "name": "fixed_level",
+          "statement": "For a fixed U, the trace factors through the finite-dimensional U-invariant subspace; the full representation is not required to be finite-dimensional."
+        },
+        {
+          "name": "rational_inversion",
+          "statement": "Absolute Frobenius acts invertibly on rational ℓ-adic cohomology. This assertion does not replace an integral torsion-concentration theorem."
+        },
+        {
+          "name": "nonproper_cohomology",
+          "statement": "For a nonproper leaf the target is H_c, not ordinary H; their traces need not agree."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+          "how": "Provides the finite-level trace to compare with stalks."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations",
+          "how": "Provides the left-hand distribution."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/RationalIgusaCohomology.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/frobenius-descent-model",
+      "title": "A finite-field model compatible with the central Frobenius action",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "After enlarging a common decency integer s to contain the reflex residue field, each finite Igusa level admits a model J_{K^p,m}/F_{p^s} whose absolute p^s-Frobenius, transported to F̄_p and interpreted with the level-transition identifications, is fr^{−s}. For a finite family of S_b-Hecke correspondences, enlarge the field and source levels so the schemes, both legs and coefficient lifts descend to one finite field. This is a descent theorem, stronger than the elementary fact that a finite-type F̄_p-scheme has some finite-field model.",
+      "hypotheses": [
+        "Use the central fr^{−s} defined by the fixed slope-divisible Σ, and compatible levels and polarization."
+      ],
+      "proofSteps": [
+        "Mantovan Lemma 6 compares quotient-by-Frobenius with absolute Frobenius and level projection.",
+        "Construct the compatible descent datum by the isomorphism p^{−sλ_i}F^s on each slope piece.",
+        "Verify effectivity and coefficient compatibility; Shin Lemma 6.3 cites the detailed thesis §2.3, which is the precise unread primary boundary G3."
+      ],
+      "acceptance": [
+        "An arbitrary finite-field model is insufficient: its Frobenius must be the specified central fr^{−s}, with the negative sign."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§6, Lemma 6.3, p.19",
+          "match": "Uses the finite-field model with absolute Frobenius equal to fr^{−s}, referring to the thesis for descent details."
+        },
+        {
+          "sourceId": "mantovan05",
+          "locator": "§4, Lemma 6, p.13",
+          "match": "Identifies the Frobenius quotient map and level transition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry",
+      "title": "Acceptable support and acceptable functions",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For δ∈J_b(Q_p) write δ_i on the BT slope λ_i. It is acceptable when every pair of eigenvalues satisfies v_p(e_i)<v_p(e_j) for i<j. Equivalently transport its semisimple stable class through the inner twist to M_b and require v_p(α(δ_s))>0 iff ⟨α,ν_b⟩>0 for every root outside M_b, with ν_i=−λ_i. The parabolic P(ν_b) has positive roots with ⟨α,ν_b⟩<0. A locally constant compactly supported φ on G(A_f^p)×J_b(Q_p) is acceptable if its support is in G(A_f^p)×S_b with acceptable δ and it admits a finite double-coset expansion at neat level U whose algebraic correspondences have finite fixed-point sets and satisfy the compact-support stalk-trace formula. Support acceptability alone is weaker than this definition. The normalized function e_g=1_{UgU}/vol(U) is used when comparing with a correspondence.",
+      "hypotheses": [
+        "The finite moduli, geometric monoid and rational coefficient correspondences constructed here.",
+        "Eigenvalues are computed after algebraic closure and by semisimplification for nonsemisimple δ."
+      ],
+      "proofSteps": [
+        "Translate the dual slope weights to the root condition, keeping ν=−λ.",
+        "Use finite double-coset expansions and include the geometric trace conditions as data of the predicate.",
+        "The large-Frobenius theorem proves these conditions for shifted functions; it is not used circularly in their definition."
+      ],
+      "acceptance": [
+        "Basic b has one slope, so element acceptability is vacuous; its function trace and monoid conditions remain."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/rational-igusa-cohomology"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§6, Definitions 6.1–6.2, p.19",
+          "match": "Separates valuation support, finite fixed points and the trace identity."
+        },
+        {
+          "sourceId": "shin10",
+          "locator": "§3.3, Definitions 3.1–3.2 and Lemma 3.4, p.11",
+          "match": "Root acceptability, inner transfer, openness and modulus identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AcceptableElement.slopeCriterion",
+          "role": "characterisation",
+          "statement": "For decreasing BT slopes, all valuations on an earlier block are less than all on a subsequent block."
+        },
+        {
+          "name": "AcceptableElement.rootCriterion",
+          "role": "equivalence",
+          "statement": "The root criterion through the inner twist agrees with the slope criterion for ν=−λ."
+        },
+        {
+          "name": "AcceptableElement.centralShift",
+          "role": "compatibility",
+          "statement": "Multiplication by fr^{−sN} sends v_i to v_i−sNλ_i; multiplication by a uniform scalar adds the same valuation to every block."
+        },
+        {
+          "name": "AcceptableFunction.mem",
+          "role": "characterisation",
+          "statement": "Support in S_b and acceptable elements, a finite neat double-coset presentation, fixed-point finiteness and the stalk-trace identity are all required."
+        },
+        {
+          "name": "AcceptableFunction.linear",
+          "role": "structure",
+          "statement": "Sums and scalar multiples of acceptable functions are acceptable after common refinement of their levels."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ordinary_pair",
+          "statement": "For slopes (1,0), δ=(1,p) is acceptable and δ=(p,1) is not."
+        },
+        {
+          "name": "basic_not_geometric",
+          "statement": "One slope makes every δ acceptable as an element, but a δ with δ⁻¹ not an isogeny is not in S_b."
+        },
+        {
+          "name": "unit_bad_support",
+          "statement": "With two slopes, 1_{Γ_b} fails element support acceptability because it contains the identity with equal valuations."
+        },
+        {
+          "name": "negative_shift",
+          "statement": "For λ=(1,0), fr^{−sN} has valuation pair (−sN,0), acceptable for N>0; the positive shift reverses the order."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+          "how": "Restricts the counting formula to its verified geometric domain."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function",
+          "how": "Provides the open cone needed to push a Levi function to H."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/AcceptableFunctionsWithGeometry.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "planet": {
+        "name": "Acceptable test functions"
+      },
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-test-functions"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+      "title": "Finite-level Hecke correspondences and coefficient lifts",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For U=K^p×U_p(m), g in G(A_f^p)×S_b and a sufficiently small source level V, construct c_g=(c_1,c_2):Ig_V→Ig_U×Ig_U: c_1 is the level projection and c_2 the quotient quasi-isogeny followed by level restriction. The first leg is finite étale, hence proper. The second has finite geometric fibres, by the finite double-coset decomposition of UgU on Ig_∞/U, and is quasi-finite because it is finite type. The universal quasi-isogeny identifies the rational coefficient pullbacks and supplies u_g:c_{2!}c_1^*L_ξ→L_ξ. Compose with the finite étale trace when changing V. After normalization, the induced operator on H_c equals that of e_g=1_{UgU}/vol(U). No properness of Ig_U or of the second leg is asserted.",
+      "hypotheses": [
+        "g has its p-component in S_b; source levels exceed the kernel-loss bound.",
+        "The coefficient lift and its finite-field descent must be constructed, not inferred from point-set equivariance alone."
+      ],
+      "proofSteps": [
+        "Use finite-level quotient maps of the monoid and the commuting away-p level maps.",
+        "Express the second fibre as finitely many coset translates on Ig_∞/U; finite type gives quasi-finiteness.",
+        "Transport ξ along the universal rational quasi-isogeny and descend its sheaf morphism; combine with the proper-support trace. The explicit coefficient construction is G3."
+      ],
+      "acceptance": [
+        "For g=1 and V=U both legs and the coefficient lift are identities."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/rational-igusa-cohomology",
+        "EtaleDualityAndPerverseSheaves:EDC.8/scheme-correspondence",
+        "EtaleDualityAndPerverseSheaves:EDC.8/cohomological-correspondence-lifting",
+        "EtaleDualityAndPerverseSheaves:EDC.8/cohomological-correspondence-composition"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§6, equations (12)–(14) and proof of Lemma 6.3, pp.18–20",
+          "match": "Finite Hecke legs, finite fibres and correspondence normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IgusaCorrespondence.ofMonoid",
+          "role": "constructor",
+          "statement": "Choose a sufficiently high source level; projection and quotient give the two algebraic legs."
+        },
+        {
+          "name": "IgusaCorrespondence.firstProper",
+          "role": "characterisation",
+          "statement": "c_1 is finite étale; this is a property of the leg, not properness of its target."
+        },
+        {
+          "name": "IgusaCorrespondence.secondQuasiFinite",
+          "role": "characterisation",
+          "statement": "Finite geometric fibres and finite type give quasi-finiteness of c_2."
+        },
+        {
+          "name": "IgusaCorrespondence.coefficient",
+          "role": "constructor",
+          "statement": "The universal quasi-isogeny and finite étale trace give a morphism c_{2!}c_1^*L_ξ→L_ξ."
+        },
+        {
+          "name": "IgusaCorrespondence.refine",
+          "role": "compatibility",
+          "statement": "After refinement of V the integrated normalized Hecke operator is unchanged."
+        }
+      ],
+      "tests": [
+        {
+          "name": "identity",
+          "statement": "For g=1, the identity coefficient lift gives the identity operator and fixed locus Ig_U before Frobenius twisting."
+        },
+        {
+          "name": "proper_leg",
+          "statement": "A nonproper affine leaf can have a finite étale projection leg; requiring Ig_U proper would wrongly exclude it."
+        },
+        {
+          "name": "finite_cosets",
+          "statement": "If UgU is the disjoint union of d right U-cosets, its action has at most d translates over each geometric point, including multiplicities through the source cover."
+        },
+        {
+          "name": "no_pointset_lift",
+          "statement": "A permutation of Ig_∞(F̄_p) alone supplies neither an algebraic correspondence nor u_g, and does not satisfy this construction."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+          "how": "Supplies Varshavsky’s proper first leg, quasi-finite second leg and coefficient correspondence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/FiniteCorrespondenceGeometry.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+      "title": "Large negative Frobenius shifts give the compact-support fixed-point trace",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For any φ∈C_c^∞(G(A_f^p)×J_b(Q_p)), define φ^(N)(x)=φ(x(fr^s)^N). There is N_0 such that for every N≥N_0 its support is in S_b and consists of acceptable elements; a common finite-level expansion then has finite fixed-point sets and tr(φ^(N)|[H_c]) equal to the sum of coefficient-stalk traces at its Frobenius–Hecke fixed points, with the Haar/coset normalization above. Thus φ^(N) is an acceptable function in the full geometric sense. For each finite family of descended correspondences, q^N>d suffices once support enters the cone, where q=p^s and d is a correspondence-dependent contraction/ramification bound; no bound uniform over all test functions is claimed.",
+      "hypotheses": [
+        "Finite-field model and coefficient lifts as in the preceding targets; ℓ≠p, finite-dimensional rational stalks."
+      ],
+      "proofSteps": [
+        "Compact support gives finitely many valuation and kernel bounds. Multiplying by fr^{−sN} subtracts sNλ_i, eventually making every earlier/subsequent slope gap negative and every kernel inequality valid.",
+        "Descend the finite family to the compatible q-model and identify its central shift with c_1 composed with F^N.",
+        "Apply EDC.8 Fujiwara–Varshavsky: c_1 proper, c_2 quasi-finite, U=X, q^N>d. Fixed points are isolated and local terms equal stalk traces. Sum the finite coset expansion."
+      ],
+      "acceptance": [
+        "For the identity on a smooth nonproper curve, Frobenius twisting has finitely many fixed points, whereas the untwisted identity has a positive-dimensional fixed locus."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/frobenius-descent-model",
+        "EtaleDualityAndPerverseSheaves:EDC.8/fujiwara-varshavsky-trace-formula"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§6, Lemma 6.3 and its proof, pp.19–20",
+          "match": "Eventually shifts every function into the geometric acceptable domain."
+        },
+        {
+          "sourceId": "var07",
+          "locator": "§2.3, Theorem 2.3.2(a),(b), pp.20–21",
+          "match": "The proper/quasi-finite hypotheses and large-Frobenius trace theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-fixed-point-formula"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-isogeny-points",
+      "title": "Polarized isogeny classes and Igusa point orbits",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "Let PIC be the set of B-linear polarized abelian varieties z=(A,λ,ι) over F̄_p up to B-linear quasi-isogeny carrying λ to a positive rational multiple, whose prime-to-p hermitian Tate module is V⊗A_f^p and whose polarized rational BT group is Σ up to quasi-isogeny. Put H_z=Aut_B^0(A,λ), the rational quasi-isogeny similitude group. After fixing comparison isomorphisms, the fibre of Ig_∞ geometric points over z is H_z(Q)\\(G(A_f^p)×J_b(Q_p)). A fixed point of a coset operator determines a rational acceptable element a∈H_z(Q), modulo rational conjugacy at this intermediate orbit step. For the final effective-triple parameter set, define FPAV to consist instead of a near-equivalence class of z and an H_z(A)-conjugacy class [a] of an acceptable rational a. Near equivalence requires isometry of the structured Tate spaces at every ℓ≠p and of the polarized rational BT modules at p, not merely the same unpolarized Newton polygon.",
+      "hypotheses": [
+        "PIC has the PEL determinant and positivity conditions; all comparisons retain the similitude scalar.",
+        "H_z is reductive and compact modulo centre at infinity by the Rosati positivity."
+      ],
+      "proofSteps": [
+        "Forget the level and graded trivializations to obtain z; rational quasi-isogenies are the stabilizers of the comparison choices.",
+        "Tate and Dieudonné full faithfulness identify the automorphism groups and the double quotient.",
+        "Separate rational orbits, needed for local orbital integrations, from adelic orbits, used to aggregate the final mass."
+      ],
+      "acceptance": [
+        "Changing a comparison conjugates its H_z embedding and does not change the quotient or the eventual conjugacy class."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+        "AbelianSchemesAndArithmeticModuli:A6/localized-isogeny-category",
+        "AbelianSchemesAndArithmeticModuli:A6/weak-localized-polarization",
+        "AbelianSchemesAndArithmeticModuli:A6/rosati-positivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§7, pp.20–24; §9, Definition 9.3, pp.28–29",
+          "match": "The point fibre, quasi-isogeny groups and adelic FPAV equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "PIC.points",
+          "role": "characterisation",
+          "statement": "The stated additional structures, determinant and rational comparison conditions define membership."
+        },
+        {
+          "name": "PIC.fibre",
+          "role": "equivalence",
+          "statement": "A chosen comparison identifies the fibre with the displayed rational double quotient."
+        },
+        {
+          "name": "NearEquivalence.local",
+          "role": "characterisation",
+          "statement": "Compare polarized hermitian structures at every finite place, not just rational slopes."
+        },
+        {
+          "name": "FPAV.pair",
+          "role": "constructor",
+          "statement": "A near-equivalence class and an adelic conjugacy class containing an acceptable rational a form a parameter."
+        },
+        {
+          "name": "PIC.changeComparison",
+          "role": "compatibility",
+          "statement": "Changing comparisons conjugates H_z and transports every orbit parameter."
+        }
+      ],
+      "tests": [
+        {
+          "name": "level_free",
+          "statement": "The same z can have many Igusa points at a finite level; PIC is not a point-level moduli set."
+        },
+        {
+          "name": "polarization",
+          "statement": "Isomorphic unpolarized rational BT modules with inequivalent hermitian pairings do not automatically define the same near-equivalence class."
+        },
+        {
+          "name": "adelic_vs_rational",
+          "statement": "Several rational H_z-conjugacy classes can lie in one adelic class; FPAV groups them, while the preliminary orbit sum keeps them separate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection",
+          "how": "Defines the domain of the final classification."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+          "how": "Separates orbit integration from near-equivalence multiplicities."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/PolarizedIsogenyPoints.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+      "title": "Finite-field Tate full faithfulness and Honda classification",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For abelian varieties A,B over F_q and ℓ≠p, Hom_Fq(A,B)⊗Z_ℓ≅Hom_Gal(T_ℓA,T_ℓB). Their rational endomorphism algebras are semisimple, Frobenius acts semisimply, and equal Frobenius characteristic polynomials are equivalent to F_q-isogeny. Simple F_q-isogeny classes correspond to conjugacy classes of q-Weil algebraic integers π. If K=Q(π) and D=End_Fq^0(A), then Z(D)=K; inv_v D is 1/2 at real places, 0 at complex places and finite places away from p, and [K_v:Q_p]v(π)/v(q) modulo Z at v|p. If e is the index of D, then 2dim A=e[K:Q]. Honda existence, including the real Weil-number cases, is a separate proof input from Tate full faithfulness.",
+      "hypotheses": [
+        "Finite base field; integral Tate modules for full faithfulness, rational isogeny category for the classification."
+      ],
+      "proofSteps": [
+        "Tate §2 uses polarization and finiteness of bounded-degree polarized varieties to realize stable isotropic subspaces by endomorphisms; a commutant argument proves surjectivity at split primes.",
+        "Compare ranks at other primes and integral saturation, then use A×B and its matrix corners for Hom.",
+        "Use the centralizer description and local division invariants for simple objects. Honda’s converse realizes each Weil number; its primary proof is unread boundary G4a."
+      ],
+      "acceptance": [
+        "For an ordinary elliptic curve, the two p-slopes are 0 and 1 and D is the imaginary quadratic field. Real π with π²=q can yield a quaternion algebra and must not be discarded as a CM-only case."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "AbelianSchemesAndArithmeticModuli:A4/etale-tate-module",
+        "AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank",
+        "AbelianSchemesAndArithmeticModuli:A6/poincare-complete-reducibility",
+        "AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "tate66",
+          "locator": "§2, Propositions 1–2, pp.136–139; §3, Theorems 1–2, pp.139–140",
+          "match": "Full faithfulness, semisimplicity and isogeny detection."
+        },
+        {
+          "sourceId": "waterhouse69",
+          "locator": "Chapter 2, Theorems 1–2, pp.526–528",
+          "match": "Weil numbers, real and p-adic invariants, and the Honda existence statement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-padic-types",
+      "title": "Effective p-adic types with common-refinement equivalence",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For a CM field or totally real field M with involution c, a p-adic type is an effective rational divisor η on its p-places such that η+cη=[p], where [p] has coefficient e(x/p). A simple type is minimal under descent through involution-preserving subfields. A type with multiplicities is (M=∏M_t,η,(n_t)_{t},κ:F→M), with n_t positive integers and κ compatible with involutions. Pullback to M′ multiplies η_x by e(y/x) at y|x; equal simple factors are combined by adding n_t. Identify two data only after a common refinement respecting η, multiplicities and κ, and select their unique minimal representative. The associated BT slopes are η_x/e(x/p). This normalized divisor records a geometric isogeny class over F̄_p after a finite field of definition and all endomorphisms have been chosen; it is not merely a fixed-F_q Frobenius polynomial.",
+      "hypotheses": [
+        "F=Z(B); η rational effective; multiplicities nonzero, not signed."
+      ],
+      "proofSteps": [
+        "Normalize valuations of a Weil number by v(q) and account for ramification in pullback.",
+        "Descend to the smallest involution-stable field that supports η; compare any two models by finite-field extension and common refinement.",
+        "Use the involution identity to pair slopes λ and 1−λ."
+      ],
+      "acceptance": [
+        "At a real p-place c fixes x, hence η_x=e(x/p)/2 and the slope is 1/2."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§8, definitions and Lemmas 8.1–8.3, pp.24–25",
+          "match": "Normalized types, refinement equivalence and minimal representatives."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "PadicType.mem",
+          "role": "characterisation",
+          "statement": "All η_x≥0 and η_x+η_cx=e(x/p)."
+        },
+        {
+          "name": "PadicType.pullback",
+          "role": "functoriality",
+          "statement": "At y|x set η′_y=e(y/x)η_x; iterated pullbacks compose."
+        },
+        {
+          "name": "PadicType.refinement",
+          "role": "equivalence",
+          "statement": "Common-refinement equivalence respects the F-action and adds multiplicities of repeated simple factors."
+        },
+        {
+          "name": "PadicType.minimal",
+          "role": "universal-property",
+          "statement": "Every class has a minimal representative, unique up to compatible field isomorphism."
+        },
+        {
+          "name": "PadicType.slopes",
+          "role": "compatibility",
+          "statement": "η_x/e(x/p) is unchanged under ramified pullback."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ordinary_CM",
+          "statement": "For a split p in an imaginary quadratic field, coefficients (1,0) define slopes (1,0); (1,1) violates η+cη=[p]."
+        },
+        {
+          "name": "real_half",
+          "statement": "For M=Q and c=id, η_p=1/2 is the allowed simple real type, not 0 or 1."
+        },
+        {
+          "name": "ramified_refinement",
+          "statement": "If e(y/x)=2, a coefficient η_x=1/2 becomes η′_y=1, while the normalized slope stays unchanged."
+        },
+        {
+          "name": "merge_factors",
+          "statement": "Two identical minimal factors of multiplicities 2 and 3 refine to one with multiplicity 5; signed cancellation is forbidden."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+          "how": "Classifies geometric B-linear isogeny classes."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-centralizer-identity",
+          "how": "The acceptability inequalities force the type to descend to F[a]."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/FiniteFieldPadicTypes.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-adic-type"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+      "title": "Geometric B-linear isogeny classification and division invariants",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "B-linear abelian varieties over F̄_p up to B-linear isogeny correspond to the minimal effective p-adic types with multiplicities and compatible κ, subject to the Morita dimensions of B. For a simple factor of centre M_t the B-linear endomorphism division algebra C_t has inv_x C_t=1/2−inv_x(B⊗_F M_t) at real x, −inv_x(B⊗_F M_t) at finite x∤p, and η_x f(x/p) modulo Z at x|p under the standing split B_p hypothesis. Its p-component has slope η_x/e(x/p) and height [M_{t,x}:Q_p]sqrt([B:F])sqrt([C_t:M_t]); multiply by n_t and sum for the full type. This classifies unpolarized B-linear objects. A principal polarization and the prescribed hermitian local forms are not supplied by the divisor alone.",
+      "hypotheses": [
+        "Simple central B over F with the PEL involution; p-adically split B; admissible B-action dimensions.",
+        "Work over F̄_p, permitting finite-field extension containing all endomorphisms."
+      ],
+      "proofSteps": [
+        "Choose a finite model with all endomorphisms defined and normalize its Weil numbers; finite extensions become common refinements.",
+        "Apply Tate–Honda factorwise and use Brauer invariants plus Morita equivalence to impose the B-action.",
+        "Take the commutant algebra; tensor-product invariants subtract inv B, with the real 1/2 contribution retained. Dimensions determine multiplicities and BT heights."
+      ],
+      "acceptance": [
+        "For B=Q and the real type η=1/2, C has the real and p-adic quaternion invariants 1/2, giving the supersingular elliptic case."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-padic-types",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§8, Lemmas 8.4–8.5, pp.25–26",
+          "match": "B-linear type classification and local endomorphism/height formulas."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-adic-types"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-realization-near-equivalence",
+      "title": "Polarized realizations, global cohomology and near-equivalence fibres",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For a polarized B-linear z, its polarized quasi-isogeny forms with the same real positivity are classified by ker(H¹(Q,H_z)→H¹(R,H_z)). Those forms near equivalent to z are the locally trivial subset ker¹(Q,H_z), defined as the kernel of localization at every place. Their H-groups have the common inner-form identification induced by central cocycles. For an admissible effective triple below, its prescribed B-action, positive real pairing and finite-place hermitian/isocrystal data admit a polarized realization; this existence uses global Brauer embeddings and the hermitian Hasse principle, not unpolarized Tate–Honda alone. Any conversion to an integral lattice or prime-to-p level separately respects the PEL determinant and self-dual local conditions.",
+      "hypotheses": [
+        "The quasi-isogeny category permits positive rational polarization similitudes; integral principal-polarization assertions need the indicated lattice step."
+      ],
+      "proofSteps": [
+        "Twist the structured object by H_z; positivity is the real localization condition.",
+        "Local Tate and Dieudonné comparison detects near equivalence, giving exactly ker¹, not all real-trivial classes.",
+        "Build the centre and p-adic type from the triple, globalize the B-module by the Brauer sequence, then globalize its local hermitian forms and polarization. Shin’s Kottwitz 1992 realization lemmas are unread boundary G4b."
+      ],
+      "acceptance": [
+        "Triviality at infinity alone does not imply triviality at all finite places."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-isogeny-points",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+        "AbelianSchemesAndArithmeticModuli:A6/abelian-torsor-twist",
+        "AbelianSchemesAndArithmeticModuli:A6/twist-realizations-polarizations-and-level",
+        "AbelianSchemesAndArithmeticModuli:A6/real-isometries-and-polarized-torsors"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§9, pp.27–29; §12, Lemmas 12.1–12.2, pp.38–40",
+          "match": "Polarized H¹ classification, locally trivial fibre, and global realization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-centralizer-identity",
+      "title": "Acceptability recovers the endomorphism centre and adelic centralizers",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For z∈PIC and an acceptable rational a∈H_z(Q), let M_z be the centre of End_B^0(A) and F[a] the B-central field algebra generated by a. Then M_z⊂F[a]. Under the chosen Tate and Dieudonné comparisons, Z_{G(A_f^p)×J_b(Q_p)}(a)=ι(Z_{H_z}(a)(A_f)). In particular the finite-place centralizer used in the orbit integral is the adelic group of a rational reductive centralizer; an isomorphism of the unpolarized BT groups alone would not provide this conclusion.",
+      "hypotheses": [
+        "a acceptable, semisimple in the counting formula, with all PEL structures retained."
+      ],
+      "proofSteps": [
+        "The strictly separated eigenvalue valuations determine which embeddings of F[a] carry each slope.",
+        "Hence the normalized p-divisor descends to F[a]; minimality of the type forces M_z⊂F[a].",
+        "Tate/Dieudonné commutants now identify the local centralizers at all finite places, with compatible hermitian structure."
+      ],
+      "acceptance": [
+        "If two slope blocks have equal eigenvalue valuations, the recovery argument fails; regularity by itself cannot replace acceptability."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-padic-types",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-isogeny-points",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§8, Lemma 8.6 and its proof, pp.26–27",
+          "match": "The separated valuations recover the centre and give the finite-adelic centralizer identity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triples-and-invariant",
+      "title": "Igusa triples, centralizer isocrystals and the effective obstruction",
+      "kind": "definition",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "An Igusa triple of type b is (γ_0;γ,δ), where γ_0∈G(Q) is semisimple and R-elliptic, γ∈G(A_f^p) is geometrically conjugate to γ_0 place by place, and δ∈J_b(Q_p) is acceptable and geometrically conjugate to γ_0 through the fixed inner identification. Identify γ_0 by rational stable conjugacy, γ by ordinary G(A_f^p)-conjugacy, and δ by ordinary J_b(Q_p)-conjugacy. Write I_0=Z_G(γ_0), connected for these type A/C groups with simply connected derived group, and I_δ=Z_{J_b}(δ), its p-adic inner form. Transport the hermitian isocrystal while identifying γ_0 with δ to obtain a basic b_δ∈B((I_0)_Qp). Define α_p=κ_{I_0}(b_δ), α_v from the rational-class cocycle for γ_v at v≠p,∞, and α_∞ from μ on an elliptic real torus. For this elliptic I_0 set K(I_0/Q)=(⋂_v Z(Î_0)^{Γ_v}Z(Ĝ))/Z(Ĝ). Extend the local characters to Z(Î_0)^{Γ_v}Z(Ĝ), with restrictions −μ on Z(Ĝ) at p, +μ at infinity and zero elsewhere. Their product descends to α∈K(I_0/Q)^D. The triple is effective iff α=1. The induced minimal p-adic type includes positive integral multiplicities determined by Morita heights; its construction respects this equivalence relation.",
+      "hypotheses": [
+        "Standing simple unramified PEL type A/C, b∈B(G,−μ); local and global dual-centre dictionaries supplied by ET.0.",
+        "K is the finite obstruction group defined here, not the entire group π₀Z(Î_0)^Γ."
+      ],
+      "proofSteps": [
+        "Use separated valuations to assign each p-place of F[γ_0] to a unique BT slope; descend the normalized divisor to its minimal centre.",
+        "Use local module dimensions, Brauer invariants and the real symplectic parity to show the multiplicities are positive integers independent of p-place.",
+        "Transport Frobenius into I_0 and compute κ; the restrictions at p and infinity cancel on Z(Ĝ), so the local product defines the obstruction on K. Prove independence from all transport choices."
+      ],
+      "acceptance": [
+        "The p-variable δ is a rational J_b-element; replacing its ordinary conjugacy relation by sigma-conjugacy gives the wrong parameter space."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-centralizer-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/global-kottwitz-obstruction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/rational-classes-in-stable-class"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§10, Definitions 10.1,10.3,10.7; Lemmas 10.4 and 10.8–10.10, pp.29–34",
+          "match": "The equivalence relation, centralizer isocrystal, integral type and local/global obstruction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IgusaTriple.mem",
+          "role": "characterisation",
+          "statement": "The three semisimple/stable matching conditions and p-acceptability define membership."
+        },
+        {
+          "name": "IgusaTriple.equiv",
+          "role": "equivalence",
+          "statement": "Stable rational conjugacy of γ_0 and ordinary adelic/p-adic conjugacy of γ,δ are the three relations."
+        },
+        {
+          "name": "IgusaTriple.centralizerIsocrystal",
+          "role": "constructor",
+          "statement": "Transport gives basic b_δ in B(I_0) and its inner automorphism group is I_δ."
+        },
+        {
+          "name": "IgusaTriple.localInvariant",
+          "role": "constructor",
+          "statement": "κ(b_δ), away-p rational cocycles and the μ-character define the local components."
+        },
+        {
+          "name": "IgusaTriple.effective",
+          "role": "characterisation",
+          "statement": "Their descended product α is trivial precisely for an effective triple."
+        },
+        {
+          "name": "IgusaTriple.type",
+          "role": "compatibility",
+          "statement": "The normalized divisor and Morita heights define a refinement-invariant type with positive integral multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "sign_cancellation",
+          "statement": "The p-component restricts to −μ and the infinite component to +μ on Z(Ĝ); choosing +μ twice prevents descent."
+        },
+        {
+          "name": "ordinary_delta",
+          "statement": "Two σ-conjugate elements in G(L) need not be ordinary conjugate in J_b(Q_p); the triple quotient never identifies them on that basis."
+        },
+        {
+          "name": "character_orthogonality",
+          "statement": "For K=Z/2, summing its two characters gives 2 for α=1 and 0 for the nontrivial obstruction."
+        },
+        {
+          "name": "refinement",
+          "statement": "If distinct factors have identical minimal type, combine their positive multiplicities rather than claiming the first constructed type is already minimal."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection",
+          "how": "Defines the effective target set."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+          "how": "Finite character orthogonality removes the effective restriction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/EffectiveTriplesAndInvariant.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "planet": {
+        "name": "Effective Igusa triples"
+      },
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-kottwitz-triples"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection",
+      "title": "Adelic polarized fixed-point parameters equal effective triples",
+      "kind": "comparison",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "The map FPAV_b→KT_b sending (z,[a]) to the stable rational class γ_0 matching a and the ordinary adelic classes (γ,δ) induced by its Tate/Dieudonné comparisons is a bijection onto effective triples. Its domain uses near-equivalence classes of z and adelic H_z(A)-conjugacy of a. Rational H_z(Q)-conjugacy classes within this adelic class, and the ker¹(Q,H_z) polarized twists, are counted subsequently in the orbit mass. A triple without vanishing α has no polarized fixed-point realization.",
+      "hypotheses": [
+        "All additional structures and the definition of FPAV above; acceptable semisimple a."
+      ],
+      "proofSteps": [
+        "Use the centralizer identity to match local classes, and the CM-lift/global obstruction cancellation of Shin Lemma 11.3 to prove effectivity of geometric pairs.",
+        "Construct a B-linear type from the triple, globalize the endomorphism embedding and positive polarization, then obtain z and a with the prescribed finite local data.",
+        "The hermitian Hasse principle and local full faithfulness make realizations near equivalent and identify a adelically, proving injectivity. The CM lifting and polarized existence primaries remain G4b."
+      ],
+      "acceptance": [
+        "A rational-conjugacy domain would generally have several elements over one triple; it is not the bijection asserted here."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-isogeny-points",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-realization-near-equivalence",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triples-and-invariant"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§11, Lemma 11.3, pp.36–38; §12, Lemma 12.3, pp.40–41",
+          "match": "Obstruction cancellation, realization, and the precise FPAV/effective-triple bijection."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/fixed-points-and-effective-triples"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+      "title": "Unstabilized Igusa counting with centralizer masses",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For an acceptable φ and algebraic ξ, tr(φ|[H_c(Ig_b,L_ξ)])=Σ_{(γ_0;γ,δ) effective} vol(I_∞(R)^1)⁻¹ |A_Q(I_0)| tr ξ(γ_0) O^{G(A_f^p)×J_b(Q_p)}_{(γ,δ)}(φ). Here A_Q(I_0) is the Pontryagin dual of π₀(Z(Î_0)^Γ); I_∞ is the inner form of I_0 compact modulo the real split centre; I_∞(R)^1 is its character-norm-one subgroup. The measures come from the Tamagawa measure on I_0(A)^1, descend to the finite adeles by the real-volume quotient, and are transported compatibly to the inner centralizers of γ and δ. The sum is finite for the fixed acceptable support. The displayed coefficient aggregates near-equivalence twists and rational orbits; it is not the reciprocal of a finite automorphism group.",
+      "hypotheses": [
+        "Compatible Haar quotient measures, algebraic coefficient representation and fixed finite double-coset expansion."
+      ],
+      "proofSteps": [
+        "Apply the compact-support fixed-point trace and the PIC double-quotient description.",
+        "Sum rational a-orbits to get centralizer quotient volumes; use the acceptable-centralizer identity to obtain rational reductive groups.",
+        "Aggregate the ker¹ polarized twists, apply the effective-triple bijection, and use the Tamagawa/dual-component identities from ET.4."
+      ],
+      "acceptance": [
+        "Rescaling a centralizer Haar measure rescales its orbital integral inversely and its associated volume directly, leaving their product unchanged."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-centralizer-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§13, Theorem 13.1 and proof, pp.41–42",
+          "match": "The exact mass coefficient, inner centralizer measures and coefficient trace."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-counting-formula"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/corrected-cohomological-functoriality",
+      "title": "The corrected adelic cohomology map used in global cancellation",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For a number field F and connected reductive G, the canonical map H¹(F,G(A_F))→A_F(G), expressed through the algebraic fundamental group and global duality, is functorial for homomorphisms of reductive groups. The separate map β_G from H¹(F,G(A_F)/Z(G)(F)) is used for a fixed G and its exact-sequence arguments; no functoriality under arbitrary homomorphisms is asserted for it. In particular an inclusion of groups need not carry the centre of the source into the centre of the target and need not induce the required map on these quotients.",
+      "hypotheses": [
+        "Global cohomology with the standard adelic Galois action; A_F(G) is the dual-component group in ET.0."
+      ],
+      "proofSteps": [
+        "Use the functorial map on algebraic fundamental groups, not a nonexistent functor on central quotients.",
+        "Apply global duality to the adelic cohomology map.",
+        "In the cancellation proof use β only within each fixed group, and the corrected unquotiented map for cross-group comparison."
+      ],
+      "acceptance": [
+        "The diagonal torus of GL_2 has centre equal to itself, whose image is not central in GL_2; it defeats the uncorrected quotient functoriality claim."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§2, Lemma 2.4, p.5",
+          "match": "The original functoriality sentence requires the published author correction."
+        },
+        {
+          "sourceId": "shin-errata",
+          "locator": "p.1, first entry",
+          "match": "Replaces the unsupported β functoriality by functoriality of unquotiented adelic H¹."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection",
+          "how": "The global obstruction cancellation uses the corrected cross-group comparison."
+        }
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+      "title": "Finite obstruction Fourier expansion and transfer away from p",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For each triple, 1_{α=1}=|K(I_0/Q)|⁻¹Σ_{κ∈K(I_0/Q)}⟨α,κ⟩. The dual-component/Tamagawa identity |A_Q(I_0)|/|K(I_0/Q)|=τ(G)|ker¹(Q,G)| rewrites the counting formula as a sum over stable rational pairs (γ_0,κ). With local transfer factors satisfying ∏_vΔ_v(γ_H,γ_0)=1, invert the κ-characters when grouping rational classes into the three factors O^p, O_p and O_∞ of Shin (5.5). For effective triples the product of local Kottwitz signs is 1. Ordinary Langlands–Shelstad transfer of φ_v for v≠p,∞ gives h_v^H; hyperspecial unit functions transfer to unit functions at almost all unramified places with unit Haar normalization. The archimedean Lefschetz function h_∞^H realizes O_∞, is compact modulo A_H(R)^0 with its specified central character, and kills nonelliptic or nontransfer classes. These supplied identities stabilize the two factors away from p, leaving the acceptable J_b factor.",
+      "hypotheses": [
+        "Standing type A/C data; compatible global/local measures and transfer-factor normalization; decomposable φ followed by linear extension.",
+        "General ker¹(Q,G) is retained. No twisted fundamental lemma is needed in this route."
+      ],
+      "proofSteps": [
+        "Use finite-character orthogonality and ET.4 Tamagawa identities.",
+        "Parametrize (γ_0,κ) by elliptic endoscopic data and matching γ_H via ET.0 norm correspondence.",
+        "Apply ordinary local transfer and ordinary group fundamental lemma; use ET.4 archimedean transfer and the product-sign identity from the realized rational centralizer."
+      ],
+      "acceptance": [
+        "The Fourier expansion vanishes for α≠1; omitting it would incorrectly count ineffective triples."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/corrected-cohomological-functoriality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/norm-correspondence",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-sign",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/group-fundamental-lemma",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/tamagawa-number-formula",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§5, equations (5.2)–(5.7), Lemma 5.1, pp.15–17",
+          "match": "Fourier expansion, product signs and transfers away from p."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stabilization-away-from-p"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-levi-endoscopy",
+      "title": "Effective Levi endoscopy for the Igusa p-factor",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For a local endoscopic datum (H,s,η) of G at p, let E_p^eff(J_b,G;H) be the isomorphism classes of endoscopic data (M_H,s_H,η_H) for the inner form J_b of M_b whose associated acceptable semisimple stable pairs (δ,κ) occur, and whose extension through M_b⊂G gives (H,s,η). Realize M_H as a Q_p-Levi of H with a cocharacter ν_{M_H} mapping geometrically to ν_b; choose compatible L-morphisms and fix representatives of the finite coset set Out(H,s,η)/Out_G(M_H,s_H,η_H), giving embeddings I(M_H,H). For each effective stable pair there is a unique embedding coset, up to the permitted automorphism of the Levi datum, carrying its M_H-class to the given H-class. Its elements are acceptable for every embedded cocharacter iν_{M_H}. Empty effective Levi sets contribute zero.",
+      "hypotheses": [
+        "Fix the decency inner twist, the global datum localized at p, and compatible based dual embeddings.",
+        "The quotient is a set of cosets with representatives, not an assertion that the subgroup is normal."
+      ],
+      "proofSteps": [
+        "Restrict the centralizing dual datum to M_b and use the inner-form relevance condition for J_b.",
+        "Construct the Levi in H and compare the two dual/L-group diagrams.",
+        "Inject Out_G(M_H) into Out(H), choose coset representatives, and prove uniqueness from the corresponding stable-pair parametrization. Acceptability follows from inclusion of root systems."
+      ],
+      "acceptance": [
+        "Counting all embeddings without quotienting by Out_G(M_H) overcounts a stable pair."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/endoscopic-datum",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/norm-correspondence"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§6.1–6.2, equations (6.1)–(6.7) and Lemma 6.2, pp.17–21",
+          "match": "Effective inner-form Levi data, outer automorphism cosets and uniqueness."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "EffectiveLevi.relevance",
+          "role": "characterisation",
+          "statement": "Existence of an acceptable J_b stable pair and extension to the chosen H datum determines relevance."
+        },
+        {
+          "name": "EffectiveLevi.embeddingCosets",
+          "role": "constructor",
+          "statement": "Choose one embedding for each Out(H)/Out_G(M_H) coset."
+        },
+        {
+          "name": "EffectiveLevi.uniqueContribution",
+          "role": "characterisation",
+          "statement": "A relevant H-class has one contributing embedding coset modulo permitted Levi automorphisms."
+        },
+        {
+          "name": "EffectiveLevi.cocharacter",
+          "role": "compatibility",
+          "statement": "ν_{M_H} transports ν_b; every chosen embedding carries acceptable elements to its own acceptable cone."
+        },
+        {
+          "name": "EffectiveLevi.empty",
+          "role": "compatibility",
+          "statement": "No relevant datum implies a zero p-function."
+        }
+      ],
+      "tests": [
+        {
+          "name": "trivial_datum",
+          "statement": "For H=G* the Newton Levi datum is M_H=M_b; the inner relevance still depends on J_b, not on whether H is quasi-split."
+        },
+        {
+          "name": "outer_cosets",
+          "statement": "If the two outer groups coincide, I has one representative; multiplying the summand by the full outer group size is wrong."
+        },
+        {
+          "name": "empty",
+          "statement": "If no acceptable J_b class matches the H datum, the effective set is empty and the construction contributes zero."
+        },
+        {
+          "name": "embedded_cone",
+          "statement": "Two different embedding representatives may transport ν differently; testing acceptability against one fixed untransported cocharacter is not the rule."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function",
+          "how": "Indexes the finite sum of transferred and pushed Levi functions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/EffectiveLeviEndoscopy.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/jb-endoscopic-levi-data"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-levi-pushforward",
+      "title": "Acceptable Levi functions, ordinary orbital integrals and normalized Jacquet modules",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For connected reductive G_0/Q_p, a rational cocharacter ν with Levi M=Z_{G_0}(ν), and φ∈C_c^∞(M(Q_p)) supported on ν-acceptable elements, assume O_m^M(φ)=0 for semisimple m with disconnected centralizer. There exists a lift φ̃∈C_c^∞(G_0(Q_p)) with O_g^{G_0}(φ̃)=δ_{P(ν)}(m)⁻¹O_m^M(φ) if g is rationally conjugate to an acceptable m, and zero otherwise. Such m is unique up to M(Q_p)-conjugacy. Its stable version is SO_g(φ̃)=δ_{P(ν)}(m)⁻¹SO_m(φ) when g is stably conjugate to an acceptable m, and zero otherwise. For irreducible admissible π, tr π(φ̃)=tr J_{P(ν)^op}^{G_0}(π)(φ), where J_P=Jac_P⊗δ_P^{−1/2}. This is the specified normalized lift, including the full δ_P⁻¹ orbital factor; it is not arbitrary parabolic induction.",
+      "hypotheses": [
+        "The root acceptability sign and P(ν) convention are those fixed above; quotient Haar measures on corresponding centralizers are compatible."
+      ],
+      "proofSteps": [
+        "Acceptable eigenvalue valuations force a conjugating Weyl element to preserve P(ν); rational conjugacy therefore stays in M. The stable rational-class bijection uses H¹(M)→H¹(G_0) through the parabolic.",
+        "Set φ_0=φδ_P⁻¹ and prescribe its conjugacy-summed orbital function. Prove the germ conditions needed for realization by a compactly supported function; the source omits this general-group step, boundary G5.",
+        "Use |D_{G_0}^M(m)|=δ_P(m), Weyl integration and Casselman’s character comparison to derive the normalized opposite-Jacquet identity."
+      ],
+      "acceptance": [
+        "For GL_2 diagonal M and ν=(−1,0), m=(1,p) has δ_P(m)=p. The required orbital coefficient is p⁻¹; dropping the modulus fails. The regular pair (1,−1),(−1,1) is G-conjugate but not M-conjugate and is not acceptable."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1/orbital-integral",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/padic-character-distributions"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§1.2, p.4; §3.3–3.4, Lemmas 3.4–3.6,3.9 and Corollary 3.10, pp.11–12",
+          "match": "Exact opposite normalized Jacquet and full-modulus orbital normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-factor-constant",
+      "title": "The Igusa p-invariant equals the inner-transfer cocycle pairing",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "Normalize Δ_{M_H}^{M_b}(γ_H,γ_0)=|D_G^{M_b}(γ_0)|_p^{−1/2}|D_H^{M_H}(γ_H)|_p^{1/2}Δ_H^G(γ_H,γ_0). For each effective Levi datum there is a nonzero constant c_{M_H}, independent of the matching acceptable semisimple elements, such that c_{M_H}Δ_{M_H}^{J_b}(γ_H,δ)=⟨α̃_p(γ_0,δ),κ̃⟩⁻¹Δ_{M_H}^{M_b}(γ_H,γ_0). The lifts α̃_p,κ̃ are the extended dual-centre characters used in prestabilization. The identity includes singular semisimple matches by descent. For H=G*, M_H=M_b and the trivial datum, c_{M_b}=e(J_b). Split J_b does not force all c_{M_H}=1 for nontrivial data.",
+      "hypotheses": [
+        "Compatible L-embeddings, inner twists, Haar measures and local transfer-factor conventions fixed throughout."
+      ],
+      "proofSteps": [
+        "For regular matches express the ratio of inner transfer factors by Tate–Nakayama duality for (T_0^der×T_0′^der)/anti-diagonal Z(G^der).",
+        "Lift b and the conjugator to the derived group and compute its cocycle; functoriality of κ identifies the cocycle pairing with α̃_p and the same κ̃, leaving a constant independent of elements.",
+        "For a singular centralizer, lift its basic b_δ through an elliptic torus and perturb by a sufficiently close regular t. Compare κ under the torus map and use transfer-factor descent; retain the inverse in the pairing."
+      ],
+      "acceptance": [
+        "For basic GL_2 with J_b the quaternion multiplicative group, the trivial datum has c=e(J_b)=−1; setting every constant to +1 changes the trace."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-levi-endoscopy",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triples-and-invariant",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/tate-nakayama-tori",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1/transfer-factor-properties"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§6.3, equations (6.8)–(6.9), Lemma 6.3, pp.21–22; §6.4, pp.23–26; §8.1, p.27",
+          "match": "Compares the cocycle and κ pairing, proves the constant, and extends to singular matches."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function",
+      "title": "The Igusa endoscopic function at p",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For acceptable φ_p∈C_c^∞(J_b(Q_p)) and each effective Levi datum set φ_p^0=φ_p·δ̄_{P(ν_b)}^{1/2}, where the modulus is transported to J_b through its inner identification. Choose its ordinary endoscopic transfer φ_{M_H} to M_H supported on the intersection of the open iν_{M_H}-acceptable cones, using Shin’s cutoff argument; its regular orbital integrals retain matching. For each i∈I(M_H,H), multiply by δ_{P(iν_{M_H})}^{−1/2} and apply the acceptable-Levi lift to H, obtaining φ̃_{M_H,i}. Define h_p^H=Σ_{M_H}Σ_i c_{M_H}φ̃_{M_H,i}; use zero when the effective set is empty. Its stable orbital integral at every (G,H)-regular semisimple γ_H equals the κ-weighted O_p factor of prestabilization for matching effective data, and vanishes for ineffective/nonmatching classes. The character identity of the Levi lift fixes the normalized opposite Jacquet functor used in subsequent spectral reduction.",
+      "hypotheses": [
+        "Acceptable support, effective data, and transfer factors normalized by the preceding constant theorem.",
+        "Choose the acceptable-cone support cutoff. Verify the disconnected-centralizer vanishing required by the Levi lift; this general-group applicability check is included in G5."
+      ],
+      "proofSteps": [
+        "Use ordinary local endoscopic transfer J_b→M_H and the square-root modulus on its source.",
+        "The two modulus corrections and discriminant relation convert the stable Levi orbital identity to the required O_p term.",
+        "Uniqueness of the contributing embedding coset prevents overcounting. The constant theorem supplies exactly the inverse κ character."
+      ],
+      "acceptance": [
+        "Taking one embedding without accounting for the coset set can omit contributions; taking all automorphisms can repeat them."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-levi-endoscopy",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-levi-pushforward",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-factor-constant",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3/local-transfer-existence"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§6.3, equations (6.10)–(6.11) and Lemma 6.5, pp.22–23",
+          "match": "Both square-root moduli, the embedding sum and stable orbital identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IgusaPFunction.sourceModulus",
+          "role": "constructor",
+          "statement": "Multiply φ_p by the transported δ_P^{1/2} before transfer."
+        },
+        {
+          "name": "IgusaPFunction.leviTransfer",
+          "role": "constructor",
+          "statement": "Ordinary matching defines the stable orbital class of φ_{M_H}."
+        },
+        {
+          "name": "IgusaPFunction.push",
+          "role": "constructor",
+          "statement": "Multiply by δ_{P(iν)}^{−1/2} and take the prescribed acceptable-Levi lift."
+        },
+        {
+          "name": "IgusaPFunction.sum",
+          "role": "structure",
+          "statement": "Sum c_{M_H} times the lifts over effective data and embedding cosets."
+        },
+        {
+          "name": "IgusaPFunction.stableOrbital",
+          "role": "characterisation",
+          "statement": "On (G,H)-regular semisimple classes its SO equals the defined κ-weighted O_p, and is zero on nonmatching classes. The ARCH supplier kills nonregular contributions in the global sum."
+        },
+        {
+          "name": "IgusaPFunction.choice",
+          "role": "compatibility",
+          "statement": "Changing the representatives with the matching data transported preserves stable orbital integrals; pointwise equality of functions is not required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "empty",
+          "statement": "Empty E_p^eff gives h_p^H=0, including every stable orbital integral."
+        },
+        {
+          "name": "trivial_sign",
+          "statement": "For the quaternion basic GL_2 case and H=G*, the source transfer has the inner-form sign and the additional constant is −1, as the normalization theorem requires."
+        },
+        {
+          "name": "ordinary_moduli",
+          "statement": "For two one-dimensional blocks, the δ^{1/2} at the source and δ^{−1/2} before lift occur separately; deleting both changes the prescribed Jacquet trace."
+        },
+        {
+          "name": "one_effective_coset",
+          "statement": "If a class has one relevant embedding coset, only that summand has nonzero SO; the finite sum must not multiply it by the outer group order."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/global-test-function",
+          "how": "Supplies the p-component of the adelic endoscopic test function."
+        },
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+          "how": "Its source modulus and normalized opposite Jacquet identity fix the downstream reduction trace; the reduction functor remains ET.7b’s target."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/PTestFunction.lean",
+        "namespace": "TauCeti.Igusa"
+      },
+      "planet": {
+        "name": "Igusa endoscopic test function"
+      },
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/global-test-function",
+      "title": "Adelic endoscopic test functions and stable choice independence",
+      "kind": "construction",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For a decomposable acceptable φ=φ^pφ_p and ξ, assemble h^H=h^{H,p}h_p^Hh_∞^H. The finite away-p factors are ordinary transfers with hyperspecial units at almost all places; h_p^H is the preceding finite Levi sum; h_∞^H is the supplied Lefschetz function, compact modulo A_H(R)^0 and transforming by χ_H determined by ξ and the L-embedding. Extend linearly to finite sums of decomposable φ. The stable elliptic distribution depends only on the matching orbital data with compatible global measures, not on particular transfer functions, representative L-data, or reciprocal local rescalings Δ_v→a_vΔ_v with ∏a_v=1. Arbitrary unrelated rescaling of one local transfer factor is not an invariance.",
+      "hypotheses": [
+        "Compatible global transfer factors, split-centre quotients and Tamagawa measures; h_∞ central character retained."
+      ],
+      "proofSteps": [
+        "Almost-all unit transfers define the restricted tensor product.",
+        "Multiply the three orbital identities to recover the prestabilized summand.",
+        "Apply the global product constraint to the local scalars; datum isomorphisms transport both embeddings and orbital classes."
+      ],
+      "acceptance": [
+        "An archimedean Lefschetz function need not be compactly supported on H(R); its support is compact after the prescribed split-centre quotient."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/archimedean-lefschetz-functions",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§5.2, pp.16–17; §7, equation (7.1), Lemma 7.1, pp.26–27",
+          "match": "Global tensor assembly and invariance of the stable orbital data."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "IgusaGlobalFunction.tensor",
+          "role": "constructor",
+          "statement": "Use ordinary away-p transfer, the p-Levi sum and h_∞ with the ξ-central character."
+        },
+        {
+          "name": "IgusaGlobalFunction.linear",
+          "role": "functoriality",
+          "statement": "Extend from decomposable functions by finite linear combinations."
+        },
+        {
+          "name": "IgusaGlobalFunction.unramified",
+          "role": "compatibility",
+          "statement": "At almost all unramified places a normalized hyperspecial unit supplies the factor."
+        },
+        {
+          "name": "IgusaGlobalFunction.rescale",
+          "role": "compatibility",
+          "statement": "Reciprocal local transfer-factor rescalings with product one preserve global stable orbital integrals."
+        },
+        {
+          "name": "IgusaGlobalFunction.datumIso",
+          "role": "compatibility",
+          "statement": "Transport an isomorphism of data, all embeddings and local factors before comparing stable distributions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "one_local_scalar",
+          "statement": "Scaling only Δ_p by a≠1 without compensating elsewhere changes the normalization; it is not a permitted invariant operation."
+        },
+        {
+          "name": "reciprocal_scalars",
+          "statement": "Multiplying one finite factor by a and another by a⁻¹ leaves the global stable orbital product unchanged."
+        },
+        {
+          "name": "split_centre",
+          "statement": "For a group with noncompact real split centre, retain compact-mod-centre support and its central character; requiring ordinary compact support discards the Lefschetz function."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations",
+          "how": "Defines its right-hand test functions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Endoscopy/Igusa/GlobalTestFunction.lean",
+        "namespace": "TauCeti.Igusa"
+      }
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations",
+      "title": "Stable elliptic Igusa trace formula with all mass factors",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For acceptable φ and ξ as above, tr(φ|[H_c(Ig_b,L_ξ)])=|ker¹(Q,G)|Σ_{(H,s,η)∈E_ell(G)}ι(G,H)ST_e^H(h^H), with ι(G,H)=τ(G)/(τ(H)|Out(H,s,η)|). The stable elliptic distribution is the ET.4 one, with the component-centralizer coefficient, Tamagawa measures and real split-centre quotient; on the contributing connected regular centralizers the component coefficient is 1. Functions h^H use the fixed global transfer normalization and the c_{M_H} p-constants. The formula is a distributional equality on the geometric acceptable domain, independent of matching function choices. It makes no claim that this geometric construction of h^H works for all compactly supported functions without the acceptable support.",
+      "hypotheses": [
+        "Type A/C PEL data, b∈B(G,−μ), rational ℓ-adic cohomology identified with complex coefficients."
+      ],
+      "proofSteps": [
+        "Multiply the three local orbital identities and identify each stable elliptic summand.",
+        "Count datum automorphisms to obtain |Out|⁻¹, and divide the prefactor τ(G)|ker¹| by the τ(H) built into ST_e.",
+        "Use global stable choice independence and extend from decomposable acceptable functions by linearity."
+      ],
+      "acceptance": [
+        "For H=G* the outer factor is 1, but the ker¹ prefactor and Tamagawa ratio still have to be evaluated, rather than silently dropped."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/global-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-elliptic-distribution"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin10",
+          "locator": "§7, Theorem 7.2 and proof, p.27",
+          "match": "The complete stable elliptic coefficient and acceptable-function trace identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Stable Igusa trace formula"
+      },
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-igusa-trace-formula"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-shift-character-separation",
+      "title": "Central Frobenius shifts determine finite virtual-character identities",
+      "kind": "theorem",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "Let Π_1,Π_2 be finite virtual complex smooth admissible representations of G(A_f^p)×J_b(Q_p), or the finite families of irreducible constituents visible after fixing the other test functions and a p-level. If their traces agree for every acceptable function, they agree for every compactly supported locally constant function. More locally, for fixed φ suppose the difference on φ^(N) is Σ_{j=1}^r c_j z_j^{−N}, where z_j are distinct nonzero eigenvalues of the central fr^s after grouping constituents with equal eigenvalues. If it vanishes for every sufficiently large integer N, then all c_j vanish and the difference at N=0 vanishes. No diagonalizability of a central action on arbitrary extensions is assumed: compute traces in the finite Grothendieck decomposition, where the central element acts by scalars on irreducibles.",
+      "hypotheses": [
+        "Finite number of constituents for the fixed-level/test-function family; scalar central action on each irreducible.",
+        "The shifted φ^(N) is eventually acceptable by the geometric theorem."
+      ],
+      "proofSteps": [
+        "Group the finite virtual-character difference by equal central characters.",
+        "For r consecutive large N, the equations have matrix diag(z_j^{−N_0}) times a Vandermonde matrix on z_j⁻¹.",
+        "Nonzero, pairwise distinct scalars give nonzero determinant, so every grouped coefficient is zero, including their sum at N=0."
+      ],
+      "acceptance": [
+        "With eigenvalues 2 and 3, two consecutive equations c_1·2^{−N}+c_2·3^{−N}=0 have nonzero determinant. A single equation would not suffice. Equal eigenvalues must first be grouped."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/padic-character-distributions",
+        "mathlib:Matrix.vandermonde",
+        "mathlib:Matrix.det_vandermonde"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§6, Lemma 6.4 and proof, pp.20–21",
+          "match": "Finite irreducible expansion and central-shift separation."
+        },
+        {
+          "sourceId": "cs17",
+          "locator": "§5.5, Lemma 5.5.1, pp.741–743",
+          "match": "Applies the separation to a fixed finite spectral expression."
+        },
+        {
+          "sourceId": "csnc",
+          "locator": "§5.6, Lemma 5.6.2, pp.75–76",
+          "match": "Extends the fixed finite linear combination to N=0."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-stable-specialization",
+      "title": "Unitary specialization and the endoscopic coefficients",
+      "kind": "application",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "For the unitary similitude PEL data used by Caraiani–Scholze, localize at split p and write the quasi-split form as G_{2n}. Its elliptic data are the trivial G_{2n} datum and G_{n_1,n_2} with n_1+n_2=2n, n_1≥n_2>0, omitting the pair when both n_i and [F⁺:Q] are odd. Use the parity-twisted L-embeddings of ET.0, not an untwisted block embedding of Weil groups. The unramified Hecke factor is pullback along that L-embedding. Evaluate ker¹(Q,G)=1 for these particular groups by the supplied global unitary duality/Hasse statement before dropping the general prefactor. For acceptable φ the result is tr(φ|[H_c])=Σ_Hι(G,H)ST_e^H(h^H). Combining the supplied stable-to-twisted identity and base-change test functions yields τ(G)Σ_H ε_H I_spec^{H̃θ}(f^{H̃}θ), with ε_H=1/2 only for equal nonzero blocks and 1 otherwise. The latter uses the ET.4 spectral supplier rather than replanning it.",
+      "hypotheses": [
+        "Precisely the global unitary data and sufficiently divisible neat away-p principal level of CS non-compact §§5.1,5.3,5.4; p splits in the imaginary quadratic subfield. The infinity factors on proper endoscopic groups use their supplied nontrivial coefficient systems Ξ, not an assertion that every endoscopic Π_∞ is trivial-coefficient cohomological.",
+        "Trivial coefficient system for the displayed CS non-compact formula; general ξ uses the matching archimedean central character."
+      ],
+      "proofSteps": [
+        "Use ET.0 classification and parity L-embedding formulas. The degenerate n_2=0 presentation is the trivial datum and is not counted twice.",
+        "Apply the general formula and justify ker¹=1 from the global unitary supplier (request U); preserve it until that proof is provided.",
+        "Use ET.4 compatible base change, small-level transfers, archimedean functions and stable/twisted comparison, then evaluate the outer automorphism index."
+      ],
+      "acceptance": [
+        "For equal blocks the outer swap gives the coefficient 1/2; for unequal positive blocks it gives no extra half."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/unitary-elliptic-endoscopic-data",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/stable-twisted-identity",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.4/small-level-transfer",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality"
+      ],
+      "sources": [
+        {
+          "sourceId": "cs17",
+          "locator": "§5.2, Theorem 5.2.3, pp.734–735",
+          "match": "Compact unitary stable Igusa trace specialization."
+        },
+        {
+          "sourceId": "csnc",
+          "locator": "§5.2, pp.67–68; §5.3, Theorem 5.3.2, p.68; §5.6, Theorem 5.6.1, pp.74–75",
+          "match": "Unitary indexing, the acceptable stable formula and twisted coefficient."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-igusa-trace-formula"
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/normalization-acceptance-examples",
+      "title": "Worked normalization tests for assembly",
+      "kind": "application",
+      "parentStageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "realises": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5"
+      ],
+      "statement": "The assembled layer must pass the following simultaneous checks: ordinary two-block slopes (1,0) require negative Frobenius shifts; the rank-one basic element condition is vacuous but geometric acceptability is not; quaternion basic GL_2 has c=e(J_b)=−1 for the trivial datum; the acceptable GL_2 Levi lift has δ_P⁻¹ orbital scaling and opposite normalized Jacquet trace; a nonzero K-obstruction cancels under finite Fourier summation; n_2=0 is counted only as the trivial unitary datum; equal positive blocks give the outer-swap half; and character extension groups repeated central eigenvalues before taking a Vandermonde determinant.",
+      "hypotheses": [
+        "All functions and Haar measures use the conventions fixed in this reader."
+      ],
+      "proofSteps": [
+        "Compute the slope valuations, the upper-triangular GL_2 modulus and the quaternion sign.",
+        "Evaluate the two characters of Z/2, and the equal-block swap quotient.",
+        "Use the explicit determinant for central eigenvalues 2 and 3 and check what changes if they coincide."
+      ],
+      "acceptance": [
+        "For slopes (1,0), a_i−Nλ_i for a=(5,0) is separated only for N>5. For ν=(−1,0), m=(1,p), δ_P=p and the orbital lift coefficient is p⁻¹. For eigenvalues 2,3 the determinant of rows N,N+1 is −2^{−N−1}3^{−N−1}, nonzero."
+      ],
+      "prerequisites": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-factor-constant",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-levi-pushforward",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triples-and-invariant",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-stable-specialization",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-shift-character-separation"
+      ],
+      "sources": [
+        {
+          "sourceId": "shin09",
+          "locator": "§6, Definitions 6.1–6.2 and Lemma 6.4, pp.19–21",
+          "match": "Slope and central-shift tests."
+        },
+        {
+          "sourceId": "shin10",
+          "locator": "§3.4, Lemma 3.9, p.12; §6.3, Remark 6.4, p.22",
+          "match": "Modulus and inner-sign checks."
+        },
+        {
+          "sourceId": "csnc",
+          "locator": "§5.6, Theorem 5.6.1, p.75",
+          "match": "Equal-block half."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptance-examples"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "CFT",
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "need": "The existing Brauer local invariant exact sequence: local invariants sum to zero, and vanishing denominator multiples characterize splitting and global embeddings. Consume the upstream layer, never replan it.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-realization-near-equivalence"
+      ]
+    },
+    {
+      "id": "TRACE",
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "need": "The existing coefficient correspondence c_2!c_1*L→L and compact-support trace theorem for a finite-type finite-field scheme with c_1 proper, c_2 quasi-finite, and sufficiently large Frobenius power. Its ramification/contraction bound is coefficient-independent for the fixed correspondence. The generic compactification and local-term machinery remain EDC.8.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace"
+      ]
+    },
+    {
+      "id": "UNITARY",
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "need": "In the precise CS unitary similitude data, prove ker¹(Q,G)=1 using the simply connected derived group and the determinant/similitude torus with its global norm local-to-global theorem. This is the necessary evaluation before specializing the general |ker¹| prefactor to 1.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-stable-specialization"
+      ]
+    },
+    {
+      "id": "MASS",
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+      "need": "The specified Tamagawa identity |A_Q(I_0)|/|K(I_0/Q)|=τ(G)|ker¹(Q,G)| and compatible inner-centralizer/real norm-one quotient measures. Preserve the existing primary-source proof gaps in ET.4 rather than inferring the mass from a finite stabilizer count.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp"
+      ]
+    },
+    {
+      "id": "ARCH",
+      "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+      "need": "Lefschetz functions compact modulo A_H(R)^0, with ξ and L-embedding central character, and stable orbital integrals zero for nonelliptic, nontransfer and non-(G,H)-regular classes, sufficient to restrict the stable sum to the domain of Shin Lemma 6.5.",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/global-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "status": "planned",
+      "remaining": [
+        "G1: Primary general tensor/κ/centralizer proof chain",
+        "G2: Primary completely slope-divisible, liftable-moduli and kernel-gluing proofs",
+        "G3: Compatible finite-field descent and the actual coefficient lift",
+        "G4a: Honda existence primary proof",
+        "G4b: Polarized existence and CM-lift cancellation primary proofs",
+        "G5: General acceptable-Levi orbital realization and applicability",
+        "G6: Inherited global measure, archimedean and spectral supplier proof boundaries",
+        "Resolve TRACE, UNITARY, MASS and ARCH exact supplier interfaces; apply the recorded ownership/supersession mapping during assembly."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Primary general tensor/κ/centralizer proof chain",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb"
+      ],
+      "detail": "Kottwitz 1985 §§3–4.5 and 5.1–5.2,6.2–6.5 were read, including the descent construction. RR §1.3–1.15 supplies the general invariant statements, but its cited Kottwitz 1997 general κ construction and Rapoport–Zink Proposition 1.12 representability proof were not read. Steinberg fibre-functor vanishing and the general tensor-descent proof must be located before source-decomposed status; rank-one Mathlib classification does not fill this boundary."
+    },
+    {
+      "id": "G2",
+      "title": "Primary completely slope-divisible, liftable-moduli and kernel-gluing proofs",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-leaf-slope-data",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid"
+      ],
+      "detail": "Mantovan 2005 §§3–4 states and uses the precise structured central-leaf, liftability and finite étale torsor results and includes the two-slope gluing argument. Primary Oort–Zink leaf/slope filtration and Mantovan 2004 Proposition 3.3, Lemma 3.4 and general Lemma 3.6 induction were not read. Supply the structured, scheme-representable PEL form, all-higher-level liftability and general equivariant kernel gluing. Arbitrary truncated automorphisms cannot substitute for liftability."
+    },
+    {
+      "id": "G3",
+      "title": "Compatible finite-field descent and the actual coefficient lift",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/frobenius-descent-model",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace"
+      ],
+      "detail": "Shin 2009 Lemma 6.3 identifies its model Frobenius with fr^{−s} but cites the unread thesis §2.3 for descent details. Complete the effective descent datum on the chosen finite levels and the universal quasi-isogeny morphism c_2!c_1*L_ξ→L_ξ over that field. The proper first leg and finite-fibre/quasi-finite second leg are established in this plan; point-set equivariance alone cannot close the coefficient gap. Varshavsky’s large-Frobenius theorem is imported, not reproved here."
+    },
+    {
+      "id": "G4a",
+      "title": "Honda existence primary proof",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification"
+      ],
+      "detail": "Tate 1966 proof §§1–3 and Waterhouse Chapter 2 statements were read. Honda’s existence converse is only read as stated by Waterhouse, not at its primary CM-lifting proof. Supply that primary chain, including real Weil numbers. The existing Brauer/class-field roadmap supplies its invariants; a proof over F_q must be related to the geometric common-refinement classification rather than identifying the two."
+    },
+    {
+      "id": "G4b",
+      "title": "Polarized existence and CM-lift cancellation primary proofs",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-realization-near-equivalence",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection"
+      ],
+      "detail": "Shin 2009 §§11–12 gives the exact construction/cancellation route, but cites unread Kottwitz 1992 §13 CM lifting and Lemma 9.2 with §17.1 for polarization and local hermitian realization. Locate their primary proofs, track the positive polarization and self-dual lattice/determinant conditions, and use corrected adelic cohomological functoriality. Unpolarized Honda–Tate does not prove effective polarized realization."
+    },
+    {
+      "id": "G5",
+      "title": "General acceptable-Levi orbital realization and applicability",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-levi-pushforward",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function"
+      ],
+      "detail": "Shin 2010 Lemma 3.9 omits its main general-group orbital germ-realization step, referring to Harris–Taylor V.5.2 and Vignéras Theorem B. Harris–Taylor is not in the cleared library and no other copy was used. Supply an accessible primary general-group germ proof or obtain the cleared source, plus Casselman’s exact normalized character comparison. Verify the support cutoff and disconnected-centralizer vanishing required when applying the lemma to effective Levi transfer; do not extend Lemma 6.5 beyond (G,H)-regular classes."
+    },
+    {
+      "id": "G6",
+      "title": "Inherited global measure, archimedean and spectral supplier proof boundaries",
+      "neededBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/global-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-stable-specialization"
+      ],
+      "detail": "The existing ET.4 packet has an independent review with needs_changes and primary-proof gaps for Tamagawa identities, archimedean Lefschetz transfer and stable/twisted comparison. This pass records exact interfaces MASS and ARCH and imports those targets; it does not certify their proofs. The UNITARY evaluation ker¹=1 also needs its exact global unitary norm/Hasse proof. These supplier checks are required before ET.5 is dependency-closed."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E6",
+      "source": "shin09",
+      "kind": "error",
+      "locator": "Author copy, §2 Lemma 2.4, p.5; corrected author errata p.1",
+      "printed": "The adelic β_G map using the quotient by Z(G)(F) is asserted functorial for homomorphisms of reductive groups.",
+      "correction": "Use the functorial map H¹(F,G(A_F))→A_F(G). Keep β_G only in its fixed-group exact-sequence arguments.",
+      "reason": "A group inclusion need not carry its source centre into the target centre; the diagonal torus in GL_2 prevents the claimed map of quotients.",
+      "affects": "the proof",
+      "known": "Shin author-maintained errata.pdf, p.1, first entry",
+      "searched": [
+        "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+        "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+        "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E7",
+      "source": "shin10",
+      "kind": "error",
+      "locator": "Author copy, §3.2, p.10, paragraph invoking Kottwitz Proposition 6.3",
+      "printed": "Decent representatives of the same class in B(G), with their rational Newton Levi, are described as rationally conjugate as actual elements.",
+      "correction": "Kottwitz Proposition 6.3 compares the rational conjugacy orbits of (M,[b]_M), with [b]_M in B(M). It does not compare arbitrary actual decent elements by ordinary rational conjugacy.",
+      "reason": "For G_m, take b=1 and b′=x⁻¹σ(x)≠1 for a Teichmüller unit x in an unramified extension L_s. Both have ν=0, are σ-conjugate and satisfy the decency norm-one equation; ordinary torus conjugacy cannot change either element.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+        "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+        "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E8",
+      "source": "shin10",
+      "kind": "error",
+      "locator": "Author copy, §3.3, proof of Corollary 3.8, p.11, parenthetical explanation",
+      "printed": "Connectedness of the semisimple centralizer is used to identify stable and rational conjugacy classes by definition.",
+      "correction": "Connected centralizers can have several rational classes in a stable class. Use the acceptable rational-conjugacy uniqueness and the stable rational-class comparison of Lemmas 3.5–3.6.",
+      "reason": "An elliptic regular element of SL_2(Q_p) has connected norm-one torus T. H¹(Q_p,T)=Q_p×/N(E×) is nontrivial for a quadratic E, while H¹(Q_p,SL_2)=1; its stable class therefore contains distinct rational classes.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+        "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+        "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+      ]
+    },
+    {
+      "id": "EndoscopicTransferAndUnitaryTraceComparison/E9",
+      "source": "shin10",
+      "kind": "misprint",
+      "locator": "Author copy, §6.4, p.26, last displayed equality of the general-case perturbation argument",
+      "printed": "The final transfer-factor equality has the pairing ⟨α̃_p,κ̃⟩ without inversion.",
+      "correction": "Use ⟨α̃_p,κ̃⟩⁻¹, consistently with equation (6.9) and the regular-case cocycle comparison.",
+      "reason": "The perturbation preserves κ(b_δ) and the centralizer cocycle. Its limit must have the same inverse character as the regular identity; changing the exponent would not prove Lemma 6.3.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author page and author-maintained errata.pdf checked 2026-10-14: the Counting points correction is listed, no StableIgusa correction found.",
+        "Web searches for StableIgusa/Igusa trace formula errata and the specific disputed assertions, 2026-10-14.",
+        "Cambridge version-of-record DOI 10.1017/S1474748010000046 attempted; text could not be served, so findings about Shin 2010 are scoped to the author copy read."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "shin09",
+      "kind": "author copy",
+      "url": "https://math.berkeley.edu/~swshin/IgusaVar.pdf",
+      "read": "2026-10-14",
+      "sha256": "022defdc0ebd913cdfd96d6c37b0f583dc9dc73716c23d1577c18035ff74eff8"
+    },
+    {
+      "sourceId": "shin10",
+      "kind": "author copy",
+      "url": "https://math.berkeley.edu/~swshin/StableIgusa.pdf",
+      "read": "2026-10-14",
+      "sha256": "e74cbbe4463f003b8ae2eb10636744c7ae032d25a566f8b441004c7f14e2faf0",
+      "note": "The DOI version-of-record text could not be served; E7–E9 concern only this 30-page author copy, not a claim about the published text."
+    },
+    {
+      "sourceId": "mantovan05",
+      "kind": "author copy",
+      "url": "https://www.its.caltech.edu/~mantovan/papers/PEL.pdf",
+      "read": "2026-10-14",
+      "sha256": "6172cd3ac7579f6115356a9112d1721efe24387e1d168ab99755dca9cfbd4a2e"
+    },
+    {
+      "sourceId": "kot85",
+      "kind": "published",
+      "url": "https://www.numdam.org/article/CM_1985__56_2_201_0.pdf",
+      "read": "2026-10-14",
+      "sha256": "51fe79cbe6798ea061128fd294c2459046572fcf5f7ed150c75d50e974819171"
+    },
+    {
+      "sourceId": "rr96",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/CM_1996__103_2_153_0.pdf",
+      "read": "2026-10-14",
+      "sha256": "86acb9e18422e641d85f799262e1793614f705029a9cbd70dc0b03f74bcb13d8"
+    },
+    {
+      "sourceId": "var07",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0505564v2",
+      "read": "2026-10-14",
+      "sha256": "8b4cb7ee9b1726cc998fc4d952a2542576e85ebe21e70b0f5c9f31c4682b8ac6"
+    },
+    {
+      "sourceId": "shin-errata",
+      "kind": "author copy",
+      "url": "https://math.berkeley.edu/~swshin/errata.pdf",
+      "read": "2026-10-14",
+      "sha256": "0c84c8d54cbfd222e6810677f4e765eac9b27c6070ac4df5572b64780ab782be"
+    },
+    {
+      "sourceId": "tate66",
+      "kind": "published",
+      "url": "https://pazuki.perso.math.cnrs.fr/index_fichiers/Tate66.pdf",
+      "read": "2026-10-14",
+      "sha256": "47f284526522fb48840e1a1383b9bfc0bfc3f6aded39db6119a34a6e02214b87"
+    },
+    {
+      "sourceId": "waterhouse69",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/ASENS_1969_4_2_4_521_0.pdf",
+      "read": "2026-10-14",
+      "sha256": "7be2bf9dde45454afa3dd9a0ea1ba05acbe952b6b573a0c37c2b1b8f0cccbb47"
+    },
+    {
+      "sourceId": "cs17",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
+      "read": "2026-10-14",
+      "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a"
+    },
+    {
+      "sourceId": "csnc",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1909.01898v2",
+      "read": "2026-10-14",
+      "sha256": "803fc16ab30fa37fa1ce08c683885040c2034bbefc6ca6567e73026006229f2e"
+    }
+  ],
+  "restructure": [
+    {
+      "kind": "ownership-move",
+      "title": "Early algebraic G-isocrystals and finite Igusa prefix",
+      "fromRoadmaps": [
+        "BunGAndNewtonStrata",
+        "IgusaVarietiesAndTorsionConcentration"
+      ],
+      "toStage": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "nodes": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-leaf-slope-data",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-igusa-moduli",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-monoid",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/rational-igusa-cohomology",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/frobenius-descent-model"
+      ],
+      "reason": "ET is tier 14; IG is tier 19 and BG is outside the 94. Move only the algebraic prefix required by ET downward. IG keeps analytic towers, period maps and boundary geometry; BG keeps stacks and geometric Langlands."
+    },
+    {
+      "kind": "ownership-move",
+      "title": "Early finite-field isogeny and p-adic type foundation",
+      "fromRoadmaps": [
+        "AbelianSchemesAndArithmeticModuliPartII"
+      ],
+      "toStage": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "nodes": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-padic-types",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification"
+      ],
+      "reason": "The general finite-field supplier is outside the current 94-tier order; WORKERS requires its needed foundation to move down. Repoint that Part II, AG2.1a and the relevant consumers after review. Ordinary c-polarized virtual abelian varieties and F_{p^r} Shimura triples remain distinct targets, not supplied by the Igusa bijection."
+    },
+    {
+      "kind": "supersession",
+      "title": "Reconcile the overlapping ET.5 targets in the older ET.4 packet",
+      "fromPacket": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.4.json",
+      "toPacket": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
+      "mapping": [
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-test-functions",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-fixed-point-formula",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-adic-type",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-padic-types"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-adic-types",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-kottwitz-triples",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triples-and-invariant"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/fixed-points-and-effective-triples",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-counting-formula",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stabilization-away-from-p",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/jb-endoscopic-levi-data",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-levi-endoscopy"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/transfer-at-p",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-levi-pushforward"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/igusa-endoscopic-test-function",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-igusa-trace-formula",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-determine",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-shift-character-separation"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-igusa-trace-formula",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unitary-stable-specialization"
+        },
+        {
+          "old": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptance-examples",
+          "new": "EndoscopicTransferAndUnitaryTraceComparison:ET.5/normalization-acceptance-examples"
+        }
+      ],
+      "reason": "The follow-up issue names ET.0, whose accepted scope stops at ET.3. The older ET.4 pass contains fifteen ET.5 nodes with review needs_changes. New refined identifiers avoid duplicate IDs; assembly must supersede those targets using this mapping rather than publish parallel definitions. The older packet is outside this job’s editable paths."
+    },
+    {
+      "kind": "shared-supplier",
+      "title": "EDC.8 owns the general Fujiwara–Varshavsky theorem",
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.8/fujiwara-varshavsky-trace-formula",
+      "consumers": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a"
+      ],
+      "reason": "RT-AREA-langlands-1/2: keep Igusa leg, Frobenius and coefficient checks here; AG2.1a/ET.6 must import the same generic EDC owner. No duplicate generic theorem is planned."
+    },
+    {
+      "kind": "downstream-contract",
+      "title": "ET.7b imports the ET.5 shift theorem and p-normalization",
+      "supplierNodes": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/p-test-function",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-shift-character-separation"
+      ],
+      "consumers": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/red-trace-duality",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/local-factorization"
+      ],
+      "reason": "The ET.6a packet already owns the normalized Red functor and finite spectral expression. ET.5 exports its normalization and finite-character extension to these targets; it does not add a backward prerequisite or replan their spectral formula."
+    }
+  ],
+  "inheritedSourceCorrections": [
+    {
+      "ref": "EndoscopicTransferAndUnitaryTraceComparison/E4",
+      "owner": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
+      "use": "Downstream Red is n-Red tensored with the transported δ_P^{1/2}; ET.5 p-transfer retains the matching source modulus."
+    },
+    {
+      "ref": "EndoscopicTransferAndUnitaryTraceComparison/E5",
+      "owner": "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
+      "use": "Proper unitary endoscopic infinity types are cohomological for Ξ, not generally for the trivial algebraic representation; ET.5 preserves the supplied Lefschetz factor."
+    }
+  ],
+  "redTeamFindings": [
+    {
+      "id": "RT-AREA-langlands-1/2",
+      "handledBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-correspondence-geometry",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace"
+      ],
+      "resolution": "Import the exact EDC.8 generic theorem. Here c_1 is finite étale/proper, c_2 finite-fibre/quasi-finite, and the compatible finite-field model identifies the negative central Frobenius; use U=X in Varshavsky, so the complement is empty. General compactification and contraction stay with EDC.8. Record AG2.1a repoint in restructure."
+    },
+    {
+      "id": "RT-AREA-langlands-1/5",
+      "handledBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-padic-types",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/unpolarized-padic-type-classification",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/polarized-realization-near-equivalence",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/effective-triple-bijection"
+      ],
+      "resolution": "Plan the common finite-field foundation once in the current-tier early prefix, with local division invariants and real cases; separate geometric B-linear types, polarized realization and the Igusa effective bijection. Repoint the existing outside-tier Abelian Part II to that prefix. Honda CM lifting and Kottwitz polarized existence remain exact gaps; ordinary c-polarized virtual abelian varieties/F_q Shimura point triples stay with their own supplier and cannot be inferred from the Igusa bijection."
+    },
+    {
+      "id": "RT-AREA-langlands-1/10",
+      "handledBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/orbit-mass-counting",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/stable-trace-with-normalizations"
+      ],
+      "resolution": "Use ET.4/tamagawa-number-formula as the sole owner, with the exact MASS interface, real volume, dual components, |ker¹| and iota. Its primary-proof boundary is inherited G6, not silently closed."
+    },
+    {
+      "id": "RT-AREA-langlands-1/13",
+      "handledBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/prestabilization-awayp"
+      ],
+      "resolution": "The Igusa route uses ordinary local endoscopic transfer and ordinary group FL. It does not need twisted FL and makes no assertion that it is unproved. ET.3’s independent twisted/spherical bookkeeping remains outside this job."
+    },
+    {
+      "id": "RT-AREA-geomlanglands/32",
+      "handledBy": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/algebraic-g-isocrystals",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/newton-kottwitz-invariants",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/decent-levi-and-jb",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.5/pel-isocrystal-comparison"
+      ],
+      "resolution": "WORKERS tier rule overrides an upward BG import: move the purely algebraic prefix into this tier, defining B(G,−μ), the averaged dominance condition, representable J_b, decency and inner Newton Levi. BG and IG import it after the recorded owner change; no analytic hypotheses gate the prefix."
+    }
+  ],
+  "suggestedSignatures": {
+    "namespace": "TauCetiRoadmap.EndoscopicTransferAndUnitaryTraceComparison.Igusa",
+    "definitions": [
+      "IsSlopeSeparated",
+      "frobeniusShift"
+    ],
+    "milestones": [
+      "eventually_slope_separated",
+      "finite_character_separation"
+    ],
+    "targets": [
+      "EndoscopicTransferAndUnitaryTraceComparison:ET.5/acceptable-functions-with-geometry",
+      "EndoscopicTransferAndUnitaryTraceComparison:ET.5/large-frobenius-fixed-point-trace",
+      "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-shift-character-separation"
+    ],
+    "detail": "Finite rational valuation sets and complex finite sums already have pinned carriers. The finite valuation shift body and the Vandermonde milestone are statable; none asserts the absent geometric or representation-theoretic constructions. Heavy definitions, all their API items and tests are specified in the reader."
+  }
+}
