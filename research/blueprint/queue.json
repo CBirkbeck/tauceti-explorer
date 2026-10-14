@@ -108018,8 +108018,8 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #222"
+   "state": "superseded",
+   "note": "superseded by the whole-roadmap blueprint BP-DeformationAndDerivedPatchingAlgebra (#9405, reviewed in #9373): the legacy P7/R03.x part assembly would overwrite the reviewed whole-roadmap reader; maintainer decision 2026-10-14"
   },
   {
    "id": "ASM-AInfCohomology",
