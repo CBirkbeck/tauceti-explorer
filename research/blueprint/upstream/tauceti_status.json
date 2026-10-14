@@ -100,13 +100,13 @@
         813
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-      "head": "219ef4d",
+      "head": "8c306f2",
       "review": {
-        "recommendation": "changes",
-        "head": "765202a",
-        "current": false,
-        "date": "2026-10-13",
-        "note": "maintainer review repairs at d26e262; head 11225f3 differs only by re-stacks on the parents | re-stacked on #817 b45e54c at 1e08962"
+        "recommendation": "approve",
+        "head": "8c306f2",
+        "current": true,
+        "date": "2026-10-14",
+        "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the A3.2/A3.3 corrections; awaiting the adic stack below it"
       }
     },
     "AdicSpacesPartII": {
