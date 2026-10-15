@@ -72,6 +72,13 @@ example (κ : Multiplicative (ZMod 2) →* ℂˣ)
     kappaSum κ O = O 1 - O (Multiplicative.ofAdd 1) := by
   sorry
 
+/-- An order-three class distinguishes the positive character weight from its inverse. -/
+example (κ : Multiplicative (ZMod 3) →* ℂˣ) :
+    kappaSum κ (fun d => if d = Multiplicative.ofAdd 1 then 1 else 0) =
+      (κ (Multiplicative.ofAdd 1) : ℂ) := by
+  classical
+  simp [kappaSum]
+
 /-- With one class and trivial character the sum is evaluation. -/
 example (O : Unit → ℂ) : kappaSum (1 : Unit →* ℂˣ) O = O () := by
   simp [kappaSum]
@@ -180,10 +187,15 @@ example : AcceptableValuations (r := 2) ![{0}, {1}] := by
 example : ¬ AcceptableValuations (r := 2) ![{0}, {0}] := by
   sorry
 
+/-- At residue cardinality four, the relative Weyl factor and half-modulus orbital factor
+agree with the normalized opposite Jacquet character of the trivial representation. -/
+example : (4 : ℚ) * (1 / 2) = 2 ∧ (4 : ℚ) * (1 / 4) ≠ 2 := by
+  norm_num
+
 /-! ## Layer 9: raw compact-unitary cohomology
 The geometric complex, its graded pieces and its commuting actions are README targets. -/
 
-/-! ## Layer 10: classical local correspondences -/
+/-! ## Layer 10: trace parameters and classical comparison -/
 
 /-- Subdiagonal monodromy of the raw special block: N e_j=e_(j+1). -/
 def specialMonodromy (k : ℕ) : Matrix (Fin k) (Fin k) ℚ :=
@@ -269,10 +281,10 @@ example : comparisonTrace ({false, true} : Finset Bool)
 /-
 Further objects and constructions are specified in README.md:
 NonabelianH1, CrossedModuleCohomology, AbelianizedCohomology, InnerTwist,
-IsStronglyRegular, stableCentralizer, StablyConj, EndoscopicDatum and its ZPair/classMap,
-orbitalIntegral, normalizedOrbitalIntegral, kappaOrbitalIntegral, stableOrbitalIntegral,
+IntegralZExtension, IsStronglyRegular, stableCentralizer, StablyConj, EndoscopicDatum and its ZPair/classMap,
+kappaOrbitalIntegral, stableOrbitalIntegral, globalStableObstruction, UnitaryLieCentralizer,
 AData, ChiData, TransferFactor, TwistedTransferFactor, LieTransferFactor, IsTransfer,
-pseudoCoefficient, eulerPoincareFunction, CurveBundles, LocalLoopGrassmannian,
+eulerPoincareFunction, CurveBundles, LocalLoopGrassmannian,
 ChevalleyQuotient, kostantSection, RegularCentralizer, HitchinStack, HitchinBase,
 cameralCover, spectralCurve, HitchinPicard, AffineSpringerFibre, WeakAbelianFibration,
 Speh, StableEllipticDistribution, BaseChangeGroup, BCLMorphism, zetaLMorphism,
@@ -281,14 +293,18 @@ CMQuadraticCharacterExtension, TwistedInvariantDistributions, IgusaPELModel,
 GIsocrystal, NewtonMap, KottwitzMap, AdmissibleClass, Jb, DecentRepresentative,
 NewtonLevi, CentralLeaf, SlopeFiltration, FiniteIgusa, IgusaMonoid, IgusaCohomology,
 IgusaRational, AcceptableElement, AcceptableFunction, IgusaCorrespondence, PIC,
-NearEquivalence, FPAV, PadicType, IgusaTriple, EffectiveLevi, IgusaPFunction,
+NearEquivalence, FPAV, PadicType, CMIsogenyLift, IgusaTriple, EffectiveLevi, IgusaPFunction,
 IgusaGlobalFunction, CompactUnitaryRaw, ClassicalNormalization,
 DrinfeldDeformationInstance, NearbyTraceFunction, DieudonneNorm, LanglandsJacquet,
 ClassicalWeilParameter, PotentiallyAbelianPair, SegmentWDAdapter, RawSpecialBlock2,
 ClassicalWDParameter, InnerFormWDParameter, ExtendedUnitaryPacket, TowerDatum,
 TowerUntiltChart, LubinTate, Drinfeld, TowerPeriod, TowerInfinity,
 TowerCohomology, TowerSector, BasicTowerFibre, UnitaryWeakBC, TransferableLevel,
-IgusaTests and NewtonRed. Their geometry and representation categories are needed
+IgusaTests, NewtonRed, HiggsSections, RegularCentralizerPicard,
+SemisimpleCentralizer, TowerLocallyAnalytic, StandardPair, AdmissibleTrace,
+AuxiliaryDivisionPEL, FiniteLengthClass, GLIntertwiner, GlobalWeil, InnerGL,
+Invariants, IsAssociated, IsStableDistribution, NearbyCycles, Newvector, PairFactors,
+ParabolicInduction, QuasiEL, SpehType, StrictDieudonne and StrictNearbyCycles. Their geometry and representation categories are needed
 before their signatures can be stated in Lean.
 -/
 
