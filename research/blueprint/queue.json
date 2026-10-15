@@ -49839,8 +49839,9 @@
     "PKG-EndoscopicTransferAndUnitaryTraceComparison~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9868"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9868",
+   "finishedAt": "2026-10-15T01:06:47Z"
   },
   {
    "id": "PKG-EnhancedDerivedSheaves",
