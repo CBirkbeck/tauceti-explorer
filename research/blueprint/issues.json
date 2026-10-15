@@ -4859,5 +4859,7 @@
  "PKG-TorsionCohomologyInfrastructure": 9858,
  "REV-PKG-TorsionCohomologyInfrastructure": 9859,
  "PKG-EndoscopicTransferAndUnitaryTraceComparison~2": 9867,
- "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~2": 9868
+ "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~2": 9868,
+ "PKG-EndoscopicTransferAndUnitaryTraceComparison~3": 9872,
+ "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~3": 9873
 }
