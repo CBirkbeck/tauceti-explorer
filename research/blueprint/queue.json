@@ -49863,8 +49863,8 @@
    "revisionOf": "PKG-EndoscopicTransferAndUnitaryTraceComparison",
    "prompt": "research/blueprint/prompts/PKG-EndoscopicTransferAndUnitaryTraceComparison~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9872",
-   "finishedAt": "2026-10-15T03:06:49Z"
+   "finishedAt": "2026-10-15T03:06:49Z",
+   "note": "deliverables arrived from an external worker on issue #9872"
   },
   {
    "id": "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~3",
@@ -49892,8 +49892,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9873",
-   "finishedAt": "2026-10-15T03:40:51Z"
+   "finishedAt": "2026-10-15T03:40:51Z",
+   "note": "deliverables arrived from an external worker on issue #9873"
   },
   {
    "id": "PKG-EnhancedDerivedSheaves",
