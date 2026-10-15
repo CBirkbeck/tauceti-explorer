@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-15T19:02Z",
+ "updated": "2026-10-15T19:05Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -129,13 +129,13 @@
     818
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "cb5f4d4",
+   "head": "6433ad2",
    "review": {
     "recommendation": "approve",
-    "head": "c67b635",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves c67b635; the current head carries only the second red-team pass"
+    "head": "6433ad2",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep review (ChatGPT Pro) approve; ready for review"
    }
   },
   "PerfectoidSpaces": {
@@ -263,11 +263,11 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
-    "head": "62c0620",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "maintainer review at 62c0620: one further correction, repair in progress"
+    "recommendation": "approve",
+    "head": "047eb0d",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep review (ChatGPT Pro) approve; ready for review"
    }
   },
   "NeronModelsAndSemistableAbelianVarieties": {
