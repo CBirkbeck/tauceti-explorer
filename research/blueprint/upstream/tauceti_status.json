@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-15T19:05Z",
+ "updated": "2026-10-15T19:09Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -219,7 +219,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "2bcc740",
+   "head": "7d89041",
    "depends_on": [
     779,
     848,
@@ -227,11 +227,11 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: ChatGPT Pro third pass at 22af69f accepted all repairs; marked ready for review",
    "review": {
-    "recommendation": "changes",
-    "head": "a23979f",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at a23979f: complex-torus construction assigned twice, resolved to the ComplexTori supplier at 9754553; awaiting re-review"
+    "recommendation": "approve",
+    "head": "7d89041",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    }
   },
   "InverseGaloisAndArithmeticFundamentalGroups": {
@@ -472,11 +472,11 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "head": "93f3d18",
     "current": true,
-    "date": "2026-10-14",
-    "note": "deep re-review (GPT-6 Astra) at 93f3d18: approve; marked ready for review"
+    "date": "2026-10-15",
+    "note": "deep re-review (ChatGPT Pro) changes needed; reverted to draft; repair running"
    }
   },
   "DeformationAndDerivedPatchingAlgebraPartII": {
