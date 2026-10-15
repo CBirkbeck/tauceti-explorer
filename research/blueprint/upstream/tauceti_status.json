@@ -800,6 +800,12 @@
    "pr": 965,
    "head": "1ec0bfd",
    "note": "ported 2026-10-15 from the accepted explorer package (tier 10); red team running"
+  },
+  "PELModuli": {
+   "stage": "pr",
+   "pr": 966,
+   "head": "8d86eda",
+   "note": "ported 2026-10-15 from the accepted explorer package (tier 13); red team running"
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
