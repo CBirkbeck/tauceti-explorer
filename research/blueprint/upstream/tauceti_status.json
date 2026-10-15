@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-15T01:05Z",
+ "updated": "2026-10-15T19:02Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -36,13 +36,13 @@
    "stage": "pr",
    "pr": 785,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); since 2026-10-14 19:16Z the #785 branch also carries SmoothRepresentationsOfLocalGroups and IntegralHeckeAndGaloisDeterminants",
-   "head": "85b9dab",
+   "head": "b88426d",
    "review": {
-    "recommendation": "changes",
-    "head": "85b9dab",
+    "recommendation": "approve",
+    "head": "b88426d",
     "current": true,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) of the bundled head (RG2 + SmoothRepresentations + IntegralHecke): Weil–Deligne construction ownership; repair in progress"
+    "date": "2026-10-15",
+    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    }
   },
   "AdelicAlgebraicGroups": {
@@ -113,13 +113,13 @@
    "stage": "pr",
    "pr": 817,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 32 + 4 targets cite RigidAnalyticGeometry/PadicFunctionalAnalysis (W. Coram) as suppliers",
-   "head": "c37a0c3",
+   "head": "d5b8d6d",
    "review": {
-    "recommendation": "changes",
-    "head": "2f1f3c6",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 2f1f3c6: two items (pro-constructible image ownership, annulus squaring), repaired and answered at ee74c10; awaiting re-review"
+    "recommendation": "approve",
+    "head": "d5b8d6d",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    }
   },
   "DiamondsAndVStacks": {
@@ -196,7 +196,7 @@
     "head": "a538081",
     "current": true,
     "date": "2026-10-15",
-    "note": "deep review (ChatGPT Pro) approve"
+    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    }
   },
   "ComplexComparisonPartII": {
