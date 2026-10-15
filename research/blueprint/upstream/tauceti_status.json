@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-15T20:01Z",
+ "updated": "2026-10-15T20:08Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -15,7 +15,14 @@
     "note": "approved and merged by the review bot after the maintainer rounds"
    },
    "merged": "2026-10-14T04:47:45Z",
-   "merge_commit": "d23fdaf38"
+   "merge_commit": "d23fdaf38",
+   "followup_pr": 943,
+   "followup_review": {
+    "recommendation": "approve",
+    "head": "3101509",
+    "date": "2026-10-15",
+    "note": "#943 (étale invariance §0.23a + scheme Frobenius §0.29) approved by deep re-review; ready for review"
+   }
   },
   "PadicMeasuresIwasawaAlgebras": {
    "stage": "main",
@@ -760,7 +767,14 @@
    "stage": "pr",
    "pr": 940,
    "head": "ed4b5e3",
-   "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running"
+   "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running",
+   "review": {
+    "recommendation": "changes",
+    "head": "2817055",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep re-review changes needed (ownership of §0.1, §4.3 fixed-field fact, metadata); repair running"
+   }
   },
   "DerivedModuleAlgebra": {
    "stage": "pr",
