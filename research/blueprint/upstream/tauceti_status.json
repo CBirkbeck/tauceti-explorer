@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-15T20:28Z",
+ "updated": "2026-10-15T20:33Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -793,7 +793,7 @@
    "stage": "pr",
    "pr": 964,
    "head": "f572e3a",
-   "note": "ported 2026-10-15 from the accepted explorer package (tier 14); red team running"
+   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro deep review CHANGES NEEDED at f572e3a (no ownership defects; interface corrections); red-team first pass finished, fix running; draft"
   },
   "AdicCoefficientsAndComparisons": {
    "stage": "pr",
@@ -805,7 +805,8 @@
    "stage": "pr",
    "pr": 966,
    "head": "8d86eda",
-   "note": "ported 2026-10-15 from the accepted explorer package (tier 13); red team running"
+   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro deep review APPROVE at 8d86eda; ready for review; red-team first pass running",
+   "review": "APPROVE 2026-10-15"
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
