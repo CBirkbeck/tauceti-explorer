@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-15T21:18Z",
+ "updated": "2026-10-15T21:59Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -804,21 +804,21 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "60b71c6",
-   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda, but the author-side red team found 11 P1 defects on that head; repairs pushed, back to draft pending a fresh deep review; second pass running",
+   "head": "037a79e",
+   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review",
    "review": "APPROVE 2026-10-15 at 8d86eda (superseded by red-team repairs)"
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
-   "head": "3575b41",
-   "note": "ported 2026-10-15 (tier 23); red-team first pass found 27 items (7 P1); fix running; draft"
+   "head": "68a6288",
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review"
   },
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "stage": "pr",
    "pr": 970,
-   "head": "6995faf",
-   "note": "ported 2026-10-15 (tier 23); red-team first pass applied; second pass running; draft"
+   "head": "374d853",
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review"
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
