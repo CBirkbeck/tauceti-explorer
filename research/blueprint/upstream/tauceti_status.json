@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-14T23:07Z",
+ "updated": "2026-10-15T00:36Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -610,27 +610,27 @@
   "GlobalGaloisDeformations": {
    "stage": "pr",
    "pr": 920,
-   "head": "877f07b",
+   "head": "92e676a",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
    "review": {
-    "recommendation": "changes",
-    "head": "61ae778",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 61ae778 repaired and answered at 4541144; red team (Sol + Astra) being applied"
+    "recommendation": "approve",
+    "head": "92e676a",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep re-review (ChatGPT Pro) approve; marked ready for review"
    }
   },
   "ClassicalArithmeticCompletion": {
    "stage": "pr",
    "pr": 921,
-   "head": "f281fea",
+   "head": "f1ef94c",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass",
    "review": {
-    "recommendation": "changes",
-    "head": "2af33bf",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 2af33bf: §7.47 coefficient-ring claim and two ownership issues; red-team repair running, deep-review fix queued"
+    "recommendation": "approve",
+    "head": "f1ef94c",
+    "current": true,
+    "date": "2026-10-15",
+    "note": "deep re-review (ChatGPT Pro) approve; marked ready for review"
    }
   },
   "DiamondEtaleCohomology": {
