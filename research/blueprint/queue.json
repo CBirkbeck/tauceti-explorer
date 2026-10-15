@@ -47152,8 +47152,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnabelianGeometryAndNonabelianChabauty~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9857",
-   "finishedAt": "2026-10-14T22:50:38Z"
+   "finishedAt": "2026-10-14T22:50:38Z",
+   "note": "deliverables arrived from an external worker on issue #9857"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -49812,8 +49812,8 @@
    "revisionOf": "PKG-EndoscopicTransferAndUnitaryTraceComparison",
    "prompt": "research/blueprint/prompts/PKG-EndoscopicTransferAndUnitaryTraceComparison~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9867",
-   "finishedAt": "2026-10-14T23:55:35Z"
+   "finishedAt": "2026-10-14T23:55:35Z",
+   "note": "deliverables arrived from an external worker on issue #9867"
   },
   {
    "id": "REV-PKG-EndoscopicTransferAndUnitaryTraceComparison~2",
@@ -53085,8 +53085,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicDifferentialEquationsAndRigidCohomology.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9855",
-   "finishedAt": "2026-10-14T22:50:41Z"
+   "finishedAt": "2026-10-14T22:50:41Z",
+   "note": "deliverables arrived from an external worker on issue #9855"
   },
   {
    "id": "PKG-PadicFamilies",
