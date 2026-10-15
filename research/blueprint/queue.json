@@ -50474,8 +50474,8 @@
    ],
    "revisionOf": "PKG-GeneralizedHeegnerCycles",
    "prompt": "research/blueprint/prompts/PKG-GeneralizedHeegnerCycles~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9171"
+   "state": "pending",
+   "note": "released on GitHub issue #9171"
   },
   {
    "id": "REV-PKG-GeneralizedHeegnerCycles~2",
@@ -52212,8 +52212,8 @@
    ],
    "revisionOf": "PKG-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/PKG-KatoEulerSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9178"
+   "state": "pending",
+   "note": "released on GitHub issue #9178"
   },
   {
    "id": "REV-PKG-KatoEulerSystems~2",
@@ -53585,8 +53585,8 @@
    ],
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9188"
+   "state": "pending",
+   "note": "released on GitHub issue #9188"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~2",
