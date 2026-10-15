@@ -1457,8 +1457,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 39550149,
-  "htmlSha256": "bef932dcbdcf122746376b0cda463a9537d80af497a8eb2a182f091fbc09445c",
+  "htmlBytes": 39576975,
+  "htmlSha256": "dba5670e9dcb34c271d0103c4b94a456e4e948599b222caaa36742d003ebdd62",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1478,8 +1478,8 @@
     "src/app.js": "023fff175da52325cb61545cf6930d609e5f0aab7d1d3c752e03d4df5dee1713",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "e53c16194578447eaeac637a40a1ed141918d9c1d267b65c4f75d533004362ce",
-    "data/tauceti-new-roadmaps.json": "21ee5cb1d6ab787a29ae331ef8d8580de4cbd2a1966f0d1d1e1f2ad66995bd6a",
+    "data/tauceti-progress.json": "840361c6ddcec9f6f9abc16fa8410d06a6c282496fdf5c9e2b750eb186f1ea6c",
+    "data/tauceti-new-roadmaps.json": "0a88b7ee29aaccdaffc4f349be6b9a5f7f7a7ff6f09b6a23fdbd2b417fc181ca",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -2083,9 +2083,9 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-14T18:00:46Z",
+    "exportedAt": "2026-10-15T05:28:45Z",
     "roadmaps": 86,
-    "unplaced": 4,
+    "unplaced": 7,
     "layers": {
       "done": 325,
       "partial": 197,
