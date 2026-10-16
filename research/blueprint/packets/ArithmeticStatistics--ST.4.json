@@ -649,7 +649,7 @@
         "ArithmeticStatistics:ST.4/average-over-a-height-ordered-family",
         "ArithmeticStatistics:ST.0/constant-rescaling-of-a-height",
         "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
-        "ArithmeticStatistics:ST.2",
+        "ArithmeticStatistics:ST.2/refinement-pencil-infinite-weight-upper-bound",
         "ArithmeticStatistics:ST.4/refinement-odd-residue-field-models",
         "HeightsRationalPointsAndObstructions:RP.1"
       ],
@@ -693,7 +693,6 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
         "mathlib:Set.ncard",
         "JacobianChallengePartII:JC2/section-free-abel-map",
-        "ArithmeticStatistics:ST.1",
         "JacobianChallengePartII:JC0/picard-torsors"
       ],
       "sources": [
@@ -980,7 +979,8 @@
         "ArithmeticStatistics:ST.4/refinement-real-effective-divisor-image",
         "ArithmeticStatistics:ST.4/refinement-odd-component-bound",
         "ProbabilisticAndMetricNumberTheory:PM.1",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
+        "ArithmeticStatistics:ST.0/coefficient-box"
       ],
       "sources": [
         {
@@ -1020,7 +1020,7 @@
         "ArithmeticStatistics:ST.4/refinement-restricted-selmer-set",
         "ArithmeticStatistics:ST.4/refinement-order-k-vanishing-average",
         "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/density-denominator-comparisons"
       ],
       "sources": [
         {
@@ -1220,7 +1220,7 @@
         "NeronModelsAndSemistableAbelianVarieties:R11.4/normalization-exact-sequence",
         "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity",
         "NeronModelsAndSemistableAbelianVarieties:R11.4/graph-monodromy",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
         "WeilConjectures:WC.5"
       ],
       "sources": [
@@ -1301,8 +1301,9 @@
         "ArithmeticStatistics:ST.4/refinement-admissibility",
         "ArithmeticStatistics:ST.4/refinement-four-twist-local-parity",
         "ArithmeticStatistics:ST.4/refinement-odd-residue-field-models",
-        "ArithmeticStatistics:ST.0",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
+        "ArithmeticStatistics:ST.0/coefficient-box",
+        "ArithmeticStatistics:ST.2/refinement-large-coefficient-family-tail"
       ],
       "sources": [
         {
@@ -1766,7 +1767,7 @@
         "Check all local places and the exact height denominator; retain every displayed hypothesis."
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.1",
+        "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
         "NeronModelsAndSemistableAbelianVarieties:R11.1/local-existence",
         "SelmerIwasawaCohomology:L2"
       ],
@@ -1807,8 +1808,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.4/refinement-local-five-quotient-comparison",
         "ArithmeticStatistics:ST.2/refinement-quinary-acceptable-count",
-        "ArithmeticStatistics:ST.5/average-size-of-the-5-selmer-group",
-        "ArithmeticStatistics:ST.5"
+        "ArithmeticStatistics:ST.5/average-size-of-the-5-selmer-group"
       ],
       "sources": [
         {
@@ -1972,7 +1972,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.4/refinement-positive-simultaneous-rank-one",
         "ArithmeticStatistics:ST.5/average-size-of-the-3-selmer-group",
-        "ArithmeticStatistics:ST.1",
+        "ArithmeticStatistics:ST.1/ternary-cubic-forms-and-their-invariants",
+        "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
         "SelmerIwasawaCohomology:L2"
       ],
       "sources": [
@@ -2013,7 +2014,6 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.1/ternary-cubic-forms-and-their-invariants",
         "ArithmeticStatistics:ST.1/invariance-of-ternary-cubic-invariants",
-        "ArithmeticStatistics:ST.1",
         "ArithmeticStatistics:ST.0/arithmetic-family"
       ],
       "sources": [
@@ -2056,7 +2056,7 @@
         "ArithmeticStatistics:ST.4/refinement-soluble-generic-three-selmer-elements",
         "ArithmeticStatistics:ST.4/refinement-plane-cubic-height-and-orbit-transfer",
         "ArithmeticStatistics:ST.2/refinement-ternary-cubic-finite-count",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-ternary-cubic-acceptable-count"
       ],
       "sources": [
         {

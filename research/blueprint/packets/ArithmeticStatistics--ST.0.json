@@ -356,10 +356,7 @@
           "match": "Coefficient maximum and fixed-degree integral models."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Coefficient-height families"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticStatistics:ST.0/monic-weighted-height",
@@ -813,7 +810,7 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.0/binary-discriminant",
-        "ArithmeticStatistics:ST.1",
+        "ArithmeticStatistics:ST.1/refinement-binary-form-order",
         "ArithmeticStatistics:ST.0/strong-weak-discriminant"
       ],
       "library": {
@@ -880,10 +877,7 @@
           "match": "The correctly simplified squarefree-discriminant local factor."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Monic discriminant densities"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticStatistics:ST.0/local-maximality",
@@ -991,7 +985,7 @@
         "ArithmeticStatistics:ST.0/binary-local-proportion",
         "ArithmeticStatistics:ST.0/monic-density-formulas",
         "ArithmeticStatistics:ST.0/local-maximality",
-        "ArithmeticStatistics:ST.1"
+        "ArithmeticStatistics:ST.1/refinement-binary-form-order"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/Families",
@@ -2163,10 +2157,7 @@
           "match": "Finite quotient, parity and the Jacobian denominator."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Finite Picard quotient"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticStatistics:ST.0/picard-representatives-and-carry",
@@ -3181,8 +3172,7 @@
         }
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.0/monic-density-formulas",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.0/monic-density-formulas"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/Families",
@@ -3334,6 +3324,16 @@
         "ArithmeticStatistics:ST.0/wood-average-normalizations"
       ],
       "detail": "The IG.4 prime-to group is insufficient. Its full extension, chosen infinity marking, actual normal-closure image and finite rigid fibers must be supplied before the arithmetic averages specialize the typed finite multiplicity transfer."
+    },
+    {
+      "id": "G-assembly-cross-part",
+      "title": "Unbound cross-part refinements",
+      "detail": "Stage references below name a required refinement, not a proved export. ArithmeticStatistics:ST.0/local-maximality: The monic Dedekind ideal criterion needs its quotient-order interpretation in ST.1. The general binary-form order alone does not give this monic comparison. ArithmeticStatistics:ST.0/hyperelliptic-model-family: The coefficient carrier is supplied here; its smooth projective hyperelliptic curve/genus comparison needs the geometric covering interface, with JacobianChallenge as the curve/Picard owner. ST.1 has no independent exact export for this adapter. ArithmeticStatistics:ST.0/odd-root-criterion: The general projective root-multiplicity equivalence, including the binary root at infinity and exceptional prime 2, is not separately exported by the reviewed ST.1 nodes. Its weak-locus specialization is not a proof of the full equivalence.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.0/local-maximality",
+        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
+        "ArithmeticStatistics:ST.0/odd-root-criterion"
+      ]
     }
   ],
   "sourceIssues": [

@@ -2194,7 +2194,7 @@
         "ArithmeticStatistics:ST.5/rational-p-torsion-has-density-zero",
         "SelmerIwasawaCohomology:L2",
         "ArithmeticStatistics:ST.4/count-of-curves-in-a-large-family",
-        "ArithmeticStatistics:ST.4"
+        "ArithmeticStatistics:ST.4/average-over-a-height-ordered-family"
       ],
       "sources": [
         {
@@ -2280,7 +2280,8 @@
         "ArithmeticStatistics:ST.5/refinement-balanced-three-rank-one",
         "ArithmeticStatistics:ST.0/density-denominator-comparisons",
         "ArithmeticStatistics:ST.4/count-of-curves-in-a-large-family",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/relative-density",
+        "ArithmeticStatistics:ST.0/elliptic-families-defined-by-congruence-conditions"
       ],
       "sources": [
         {
@@ -2488,7 +2489,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/average-size-of-the-5-selmer-group",
         "ArithmeticStatistics:ST.5/rational-p-torsion-has-density-zero",
-        "ArithmeticStatistics:ST.4"
+        "ArithmeticStatistics:ST.4/average-over-a-height-ordered-family"
       ],
       "sources": [
         {
@@ -2571,7 +2572,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.4/count-of-curves-in-a-large-family",
         "ArithmeticStatistics:ST.0/density-denominator-comparisons",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/elliptic-families-defined-by-congruence-conditions",
+        "ArithmeticStatistics:ST.0/constant-rescaling-of-a-height"
       ],
       "sources": [
         {
@@ -2739,9 +2741,9 @@
         "ArithmeticStatistics:ST.1/binary-quartic-parametrization-of-two-selmer",
         "ArithmeticStatistics:ST.1/refinement-symmetric-pencil",
         "ArithmeticStatistics:ST.2/refinement-smoothed-quaternary-count",
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
+        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
+        "ArithmeticStatistics:ST.0/density-denominator-comparisons"
       ],
       "sources": [
         {
@@ -2787,8 +2789,7 @@
         "ArithmeticStatistics:ST.5/selmer-ratio-of-an-isogeny",
         "AbelianSchemesAndArithmeticModuli:A3",
         "SelmerIwasawaCohomology:L0",
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.1"
       ],
       "sources": [
         {
@@ -2956,7 +2957,7 @@
         "ArithmeticStatistics:ST.5/isogeny-factorisation-selmer-exact-sequence",
         "ArithmeticStatistics:ST.5/selmer-ratio-classes-are-locally-defined",
         "ArithmeticStatistics:ST.5/finitely-many-twists-with-rational-p-torsion",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-number-field-twist-orbit-count"
       ],
       "sources": [
         {
@@ -2999,8 +3000,8 @@
         "ArithmeticStatistics:ST.5/refinement-elliptic-explicit-twist-rank",
         "ArithmeticStatistics:ST.5/positive-proportions-of-three-selmer-ranks-in-local-subfamilies",
         "ArithmeticStatistics:ST.5/three-isogeny-selmer-parity",
-        "ArithmeticStatistics:ST.2",
-        "ArithmeticStatistics:ST.4"
+        "ArithmeticStatistics:ST.2/refinement-number-field-twist-orbit-count",
+        "ArithmeticStatistics:ST.4/local-selmer-mass-ratios"
       ],
       "sources": [
         {
@@ -3043,7 +3044,7 @@
         "ArithmeticStatistics:ST.5/selmer-ratio-of-an-isogeny",
         "ArithmeticStatistics:ST.5/cassels-isogeny-selmer-ratio-formula",
         "ArithmeticStatistics:ST.5/isogeny-factorisation-selmer-exact-sequence",
-        "ArithmeticStatistics:ST.4"
+        "ArithmeticStatistics:ST.4/archimedean-selmer-ratio-is-one-half"
       ],
       "sources": [
         {
@@ -3499,6 +3500,18 @@
         "ArithmeticStatistics:ST.5/refinement-elliptic-explicit-twist-rank",
         "ArithmeticStatistics:ST.5/refinement-signature-positive-twists",
         "ArithmeticStatistics:ST.5/refinement-complex-place-obstruction"
+      ]
+    },
+    {
+      "id": "G-assembly-cross-part",
+      "title": "Unbound cross-part refinements",
+      "detail": "Stage references below name a required refinement, not a proved export. ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture: ST.0’s integral even-degree coefficient family does not supply the fixed-global-field PR/BKLPR family, odd-degree models, or long Weierstrass characteristic-2/3 regimes. Retain G-source-family and R-family-adapters; no minimal-height isomorphism-class substitution is valid. ArithmeticStatistics:ST.5/refinement-odd-degree-jacobian-conjecture: ST.0’s integral even-degree coefficient family does not supply the fixed-global-field PR/BKLPR family, odd-degree models, or long Weierstrass characteristic-2/3 regimes. Retain G-source-family and R-family-adapters; no minimal-height isomorphism-class substitution is valid. ArithmeticStatistics:ST.5/refinement-even-genus-two-selmer-conjecture: ST.0’s integral even-degree coefficient family does not supply the fixed-global-field PR/BKLPR family, odd-degree models, or long Weierstrass characteristic-2/3 regimes. Retain G-source-family and R-family-adapters; no minimal-height isomorphism-class substitution is valid. ArithmeticStatistics:ST.5/refinement-global-image-splitting-conjecture: ST.0’s integral even-degree coefficient family does not supply the fixed-global-field PR/BKLPR family, odd-degree models, or long Weierstrass characteristic-2/3 regimes. Retain G-source-family and R-family-adapters; no minimal-height isomorphism-class substitution is valid. ArithmeticStatistics:ST.5/refinement-abelian-three-isogeny-average: The general-abelian three-isogeny locally soluble orbit dictionary is not supplied by the low-degree ring parametrizations; R-bklos-orbit-adapter remains open.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-odd-degree-jacobian-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-even-genus-two-selmer-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-global-image-splitting-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-abelian-three-isogeny-average"
       ]
     }
   ],

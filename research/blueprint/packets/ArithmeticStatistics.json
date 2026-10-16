@@ -4629,9 +4629,6 @@
           "statement": "For (ℤ/3)ˣ acting on ℤ/3 the orbit weights add up to 3/2 = #V/#Γ; the reciprocal-orbit-length weighting (which would give 2) fails."
         }
       ],
-      "planet": {
-        "name": "Weighted orbit count"
-      },
       "prerequisites": [
         "ArithmeticStatistics:ST.0/arithmetic-family",
         "mathlib:MulAction.orbitRel.Quotient",
@@ -4802,9 +4799,6 @@
           "statement": "With every condition the whole local space, the family is everything."
         }
       ],
-      "planet": {
-        "name": "Family defined by congruence conditions"
-      },
       "prerequisites": [
         "ArithmeticStatistics:ST.0/arithmetic-family",
         "mathlib:MeasureTheory.Measure"
@@ -5700,9 +5694,6 @@
         "(1, 2) is eligible and (1, 0) is not (Bhargava–Shankar's cases (b) and none).",
         "Eligibility depends only on (I mod 9, J mod 27) and is therefore decidable; the eligible residues are exactly nine (ST.0/eligible-pairs-are-nine-lattice-translates)."
       ],
-      "planet": {
-        "name": "Eligibility criterion for quartic invariants"
-      },
       "prerequisites": [
         "ArithmeticStatistics:ST.0/eligible-invariant-pairs-satisfy-the-congruences",
         "ArithmeticStatistics:ST.0/congruence-pairs-are-eligible"
@@ -15167,10 +15158,7 @@
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/DavenportHeilbronn/ThreeTorsion",
         "namespace": "ArithmeticStatistics"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Mean 3-torsion in quadratic class groups"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticStatistics:ST.3/acceptable-local-specifications-for-cubic-orders",
@@ -15431,7 +15419,8 @@
         "ArithmeticStatistics:ST.3/davenport-heilbronn-count-of-cubic-fields",
         "ArithmeticStatistics:ST.3/number-field-counting-function",
         "ArithmeticStatistics:ST.2/binary-cubic-counts-with-congruence-conditions",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-congruence-count",
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-sieve-error"
       ],
       "sources": [
         {
@@ -15474,7 +15463,8 @@
         "ArithmeticStatistics:ST.3/torsion-count-of-class-groups",
         "ArithmeticStatistics:ST.3/count-of-quadratic-fields",
         "ArithmeticStatistics:ST.2/binary-cubic-counts-with-congruence-conditions",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-congruence-count",
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-sieve-error"
       ],
       "sources": [
         {
@@ -15516,7 +15506,8 @@
         "ArithmeticStatistics:ST.3/density-of-cubic-orders-with-local-specifications",
         "ArithmeticStatistics:ST.3/acceptable-local-specifications-for-cubic-orders",
         "ArithmeticStatistics:ST.3/p-adic-density-of-a-local-specification",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-congruence-count",
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-sieve-error"
       ],
       "sources": [
         {
@@ -15704,7 +15695,8 @@
         "ArithmeticStatistics:ST.1/bhargava-parametrization-of-quartic-rings",
         "ArithmeticStatistics:ST.1/existence-and-number-of-cubic-resolvents",
         "ArithmeticStatistics:ST.1/maximality-of-quartic-rings-at-p",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-quartic-finite-congruence-count",
+        "ArithmeticStatistics:ST.2/refinement-quartic-nonmaximal-overramified-tail"
       ],
       "sources": [
         {
@@ -15727,10 +15719,7 @@
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldCounts/QuarticQuintic",
         "namespace": "ArithmeticStatistics"
       },
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Bhargava's count of quartic fields"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "ArithmeticStatistics:ST.3/bhargava-count-of-quintic-fields",
@@ -15758,7 +15747,8 @@
         "ArithmeticStatistics:ST.3/number-field-counting-function",
         "ArithmeticStatistics:ST.1/bhargava-parametrization-of-quintic-rings",
         "ArithmeticStatistics:ST.1/maximality-of-quintic-rings-at-p",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-quintic-finite-congruence-count",
+        "ArithmeticStatistics:ST.2/refinement-quintic-nonmaximal-tail"
       ],
       "sources": [
         {
@@ -15854,7 +15844,7 @@
         "ArithmeticStatistics:ST.3/davenport-heilbronn-count-of-cubic-fields",
         "ArithmeticStatistics:ST.1/bhargava-parametrization-of-quartic-rings",
         "ArithmeticStatistics:ST.1/existence-and-number-of-cubic-resolvents",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-quartic-fixed-reducible-resolvent"
       ],
       "sources": [
         {
@@ -21414,7 +21404,7 @@
         "ArithmeticStatistics:ST.3/torsion-count-of-class-groups",
         "ArithmeticStatistics:ST.3/davenport-heilbronn-mean-of-three-torsion",
         "ArithmeticStatistics:ST.3/bhargava-mean-of-two-torsion-in-cubic-class-groups",
-        "ArithmeticStatistics:ST.3",
+        "ArithmeticStatistics:ST.3/number-field-counting-function",
         "mathlib:ClassGroup",
         "mathlib:IsGalois"
       ],
@@ -21509,7 +21499,7 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/cohen-martinet-predicted-surjection-moment",
-        "ArithmeticStatistics:ST.3"
+        "ArithmeticStatistics:ST.3/number-field-counting-function"
       ],
       "sources": [
         {
@@ -21719,7 +21709,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/cohen-martinet-prediction-for-three-torsion-of-two-extensions",
         "ArithmeticStatistics:ST.5/cohen-martinet-prediction-for-relative-three-torsion",
-        "ArithmeticStatistics:ST.3"
+        "ArithmeticStatistics:ST.3/relative-three-torsion-propagation",
+        "ArithmeticStatistics:ST.3/two-extension-three-torsion-means"
       ],
       "sources": [
         {
@@ -22120,7 +22111,8 @@
           "where": "Kane, §2; Swinnerton-Dyer",
           "how": "the 2-Selmer group of a twist is an intersection of two Lagrangian subspaces"
         }
-      ]
+      ],
+      "assemblyOwnership": "Use Mathlib QuadraticForm for the field-valued form. For the finite prime-field model, the current TauCeti.FiniteQuadraticModule.IsIsotropic and IsLagrangian supply the quadratic-isotropic and self-orthogonal predicates; transport the p-torsion values through F_p ≃ (1/p)Z/Z. This target is the finite-vector-space/Poonen–Rains specialization and its uniform law interface, rather than a second finite quadratic-module carrier."
     },
     {
       "id": "ArithmeticStatistics:ST.5/isotropic-reduction-map",
@@ -22233,7 +22225,8 @@
           "where": "BKLPR, proof of Theorem 5.10",
           "how": "maximal isotropic Z containing im(h) correspond to I of im(h)^⊥/im(h)"
         }
-      ]
+      ],
+      "assemblyOwnership": "In the finite prime-field case import the current TauCeti.FiniteQuadraticModule.orthogonalQuotient, orthogonalQuotientMk and their quadratic-value/nondegeneracy API. The new interface here is the Poonen–Rains map W ↦ ((W∩X^perp)+X)/X on maximal-isotropic parameter sets, its compatibility under iterated reduction, and the fibre counts below; do not reconstruct the native quotient. For general fields retain Mathlib quadratic forms and linear subquotients."
     },
     {
       "id": "ArithmeticStatistics:ST.5/fibres-of-the-isotropic-reduction-map",
@@ -23994,8 +23987,8 @@
         "ArithmeticStatistics:ST.5/height-moments-in-an-arithmetic-family",
         "ArithmeticStatistics:ST.1/ternary-cubic-forms-and-their-invariants",
         "ArithmeticStatistics:ST.1/invariance-of-ternary-cubic-invariants",
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2",
+        "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
+        "ArithmeticStatistics:ST.2/refinement-ternary-cubic-acceptable-count",
         "ArithmeticStatistics:ST.4/average-size-of-the-2-selmer-group-is-three"
       ],
       "sources": [
@@ -24091,8 +24084,8 @@
         "ArithmeticStatistics:ST.0/family-defined-by-local-conditions",
         "ArithmeticStatistics:ST.0/invariants-height-and-eligible-pairs",
         "ArithmeticStatistics:ST.5/height-moments-in-an-arithmetic-family",
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2",
+        "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
+        "ArithmeticStatistics:ST.2/refinement-quaternary-acceptable-count",
         "ArithmeticStatistics:ST.4/average-size-of-the-2-selmer-group-is-three"
       ],
       "sources": [
@@ -24139,8 +24132,8 @@
         "ArithmeticStatistics:ST.0/family-defined-by-local-conditions",
         "ArithmeticStatistics:ST.0/invariants-height-and-eligible-pairs",
         "ArithmeticStatistics:ST.5/height-moments-in-an-arithmetic-family",
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
+        "ArithmeticStatistics:ST.2/refinement-quinary-acceptable-count"
       ],
       "sources": [
         {
@@ -24190,7 +24183,7 @@
         "ArithmeticStatistics:ST.4/average-size-of-the-2-selmer-group-is-three",
         "ArithmeticStatistics:ST.1/binary-quartic-parametrization-of-two-selmer",
         "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-smoothed-quaternary-count"
       ],
       "sources": [
         {
@@ -25032,7 +25025,7 @@
         "ArithmeticStatistics:ST.0/family-defined-by-local-conditions",
         "ArithmeticStatistics:ST.1/binary-cubic-forms-and-the-twisted-action",
         "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-number-field-twist-orbit-count"
       ],
       "sources": [
         {
@@ -26003,7 +25996,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/local-density-of-a-form-modulo-q",
         "ArithmeticStatistics:ST.5/coefficient-vector-form",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set"
       ],
       "sources": [
         {
@@ -26049,7 +26043,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/coefficient-vector-form",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set"
       ],
       "sources": [
         {
@@ -26095,7 +26090,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/coefficient-vector-form",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
       ],
       "sources": [
@@ -26137,7 +26133,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/veronese-minor-valuation",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set"
       ],
       "sources": [
         {
@@ -26223,7 +26220,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/local-density-first-moment",
         "ArithmeticStatistics:ST.5/local-density-second-moment",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set"
       ],
       "sources": [
         {
@@ -26269,7 +26267,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/coefficient-vector-form",
         "ArithmeticStatistics:ST.5/local-density-of-a-form-modulo-q",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set",
         "mathlib:Nat.findGreatest",
         "mathlib:MvPolynomial.pderiv"
       ],
@@ -26398,7 +26397,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/coefficient-vector-form",
         "ArithmeticStatistics:ST.5/gradient-valuation-strata",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "ArithmeticStatistics:ST.0/finite-local-hypersurface-set"
       ],
       "sources": [
         {
@@ -26679,7 +26679,8 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/weighted-square-concentration",
         "ArithmeticStatistics:ST.0/arithmetic-family",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/principally-polarized-count",
+        "ArithmeticStatistics:ST.0/polarization-fiber-count",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "AbelianSchemesAndArithmeticModuli:A2",
@@ -27047,7 +27048,8 @@
         "ArithmeticStatistics:ST.5/zero-gap-mass-from-repeated-angles",
         "ArithmeticStatistics:ST.5/normalized-eigenangle-spacing-measure",
         "ArithmeticStatistics:ST.5/kolmogorov-distance-lower-bound-from-an-atom",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/principally-polarized-count",
+        "ArithmeticStatistics:ST.0/polarization-fiber-count",
         "AbelianSchemesAndArithmeticModuliPartII:F0",
         "AbelianSchemesAndArithmeticModuliPartII:F3",
         "AbelianSchemesAndArithmeticModuliPartII:F5",
@@ -27099,7 +27101,8 @@
         "ArithmeticStatistics:ST.5/zero-cokernel-probability-lower-bound-at-odd-primes",
         "ArithmeticStatistics:ST.5/enhanced-cohen-lenstra-conjecture",
         "ArithmeticStatistics:ST.5/cohen-lenstra-measure",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/principally-polarized-count",
+        "ArithmeticStatistics:ST.0/polarization-fiber-count",
         "AbelianSchemesAndArithmeticModuliPartII:F0",
         "AbelianSchemesAndArithmeticModuliPartII:F3",
         "AbelianSchemesAndArithmeticModuliPartII:F5",
@@ -27332,7 +27335,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/odd-degree-quadratic-function-field-family",
         "ArithmeticStatistics:ST.4/count-of-squarefree-monic-polynomials-over-a-finite-field",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter"
       ],
       "sources": [
         {
@@ -27373,7 +27376,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/odd-degree-quadratic-function-field-family",
         "ArithmeticStatistics:ST.4/count-of-squarefree-monic-polynomials-over-a-finite-field",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter"
       ],
       "sources": [
         {
@@ -29134,7 +29137,8 @@
         "ArithmeticStatistics:ST.5/eventual-degree-large-q-limit",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/wood-average-normalizations",
+        "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter"
       ],
       "sources": [
         {
@@ -29181,7 +29185,8 @@
         "ArithmeticStatistics:ST.5/eventual-degree-large-q-limit",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/wood-average-normalizations",
+        "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter"
       ],
       "sources": [
         {
@@ -29222,7 +29227,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/imaginary-per-component-unit-moment",
         "ArithmeticStatistics:ST.5/eventual-degree-large-q-limit",
-        "ArithmeticStatistics:ST.3",
+        "ArithmeticStatistics:ST.3/nonabelian-quadratic-moment-interface",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
         "InductionRestrictionPartII:RS.4"
       ],
@@ -29274,7 +29279,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/real-per-component-unit-moment",
         "ArithmeticStatistics:ST.5/eventual-degree-large-q-limit",
-        "ArithmeticStatistics:ST.3",
+        "ArithmeticStatistics:ST.3/nonabelian-quadratic-moment-interface",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
         "InductionRestrictionPartII:RS.4"
       ],
@@ -29395,7 +29400,8 @@
         "ArithmeticStatistics:ST.5/eventual-degree-large-q-limit",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.4",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
-        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.0/wood-average-normalizations",
+        "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter",
         "InductionRestrictionPartII:RS.4"
       ],
       "sources": [
@@ -29433,8 +29439,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/bad-type-lower-bound",
-        "ArithmeticStatistics:ST.3",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.3/nonabelian-quadratic-moment-interface",
+        "ArithmeticStatistics:ST.0/wood-average-normalizations"
       ],
       "sources": [
         {
@@ -29472,7 +29478,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/eventual-degree-large-q-limit",
-        "ArithmeticStatistics:ST.0"
+        "ArithmeticStatistics:ST.0/wood-average-normalizations",
+        "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter"
       ],
       "sources": [
         {
@@ -31053,14 +31060,18 @@
         "ArithmeticStatistics:ST.2/uniformity-estimate-for-infinitely-many-congruence-conditions",
         "ArithmeticStatistics:ST.2/squarefree-sieve-for-binary-quartic-forms"
       ],
-      "detail": "Needed: for W_ℤ = pairs (A, B) of integral ternary quadratic forms with GL_2(ℤ) × SL_3(ℤ) acting and the discriminant Δ(A, B) = Disc(4 Det(Ax − By)), the number of GL_2(ℤ) × SL_3(ℤ)-orbits on W_p^(2)(W) (Δ divisible by p^2 but not strongly) with |Δ| < X is O(X/p^2), the constant independent of p and X. Source: M. Bhargava, 'The density of discriminants of quartic rings and fields', Annals of Mathematics 162 (2005), 1031-1063, Proposition 23; the predecessor had not read it; this review acquired and read the public Annals text, but the full counting argument remains undecomposed. Its proof uses the geometry of numbers for GL_2 × SL_3 on the 12-dimensional space W (reduction theory, the cusp analysis and the count of quartic rings of bounded discriminant) together with a switching map γ ∈ G(ℚ) dividing Δ by p^2 (Bhargava's geometric-sieve paper, Section 1.5, Condition 6). By RS-07, uniform orbit counts and tail estimates belong to ArithmeticStatistics:ST.2, so this geometry of numbers is ST.2 work; a public route is Bhargava-Shankar-Wang, 'Geometry-of-numbers methods over global fields I' (arXiv:1512.03035), which reproves the quartic counts over global fields. Resolution: use the now-read Annals source and plan the count of GL_2(ℤ) × SL_3(ℤ)-orbits on W_ℤ and Proposition 23."
+      "detail": "Needed: for W_ℤ = pairs (A, B) of integral ternary quadratic forms with GL_2(ℤ) × SL_3(ℤ) acting and the discriminant Δ(A, B) = Disc(4 Det(Ax − By)), the number of GL_2(ℤ) × SL_3(ℤ)-orbits on W_p^(2)(W) (Δ divisible by p^2 but not strongly) with |Δ| < X is O(X/p^2), the constant independent of p and X. Source: M. Bhargava, 'The density of discriminants of quartic rings and fields', Annals of Mathematics 162 (2005), 1031-1063, Proposition 23; the predecessor had not read it; this review acquired and read the public Annals text, but the full counting argument remains undecomposed. Its proof uses the geometry of numbers for GL_2 × SL_3 on the 12-dimensional space W (reduction theory, the cusp analysis and the count of quartic rings of bounded discriminant) together with a switching map γ ∈ G(ℚ) dividing Δ by p^2 (Bhargava's geometric-sieve paper, Section 1.5, Condition 6). By RS-07, uniform orbit counts and tail estimates belong to ArithmeticStatistics:ST.2, so this geometry of numbers is ST.2 work; a public route is Bhargava-Shankar-Wang, 'Geometry-of-numbers methods over global fields I' (arXiv:1512.03035), which reproves the quartic counts over global fields. Resolution: use the now-read Annals source and plan the count of GL_2(ℤ) × SL_3(ℤ)-orbits on W_ℤ and Proposition 23.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.2/refinement-quartic-finite-congruence-count and refinement-quartic-nonmaximal-overramified-tail now plan the S4 generic count and per-prime bound. The latter is restricted to absolutely irreducible S4 orbits; it does not supply the old unrestricted W assertion. Retain the stronger representation-wide contract where a consumer needs it."
     },
     {
       "title": "The bound O(X^{1/4}) for pairs of ternary quadratic forms with a fixed reducible cubic resolvent ([4, proof of Lemma 12])",
       "neededBy": [
         "ArithmeticStatistics:ST.2/orbits-with-large-stabilizer-are-negligible"
       ],
-      "detail": "Needed in the proof of Bhargava-Shankar Lemma 2.4: if g is a reducible integral binary cubic form of height X, the number of GL_2(ℤ) × SL_3(ℤ)-orbits on W_ℤ whose cubic resolvent form 4 Det(Ax − By) is GL_2(ℤ)-equivalent to g is O(X^{1/4}). Source: Bhargava, 'The density of discriminants of quartic rings and fields', proof of Lemma 12; the review read the Annals text, but this proof still needs declaration-level decomposition. It is a count of quartic rings with a given cubic resolvent ring and lives with the geometry of numbers of W_ℤ (see the previous gap). Lemma 2.4 is used only to show that orbits with a nontrivial stabiliser in PGL_2(ℚ) are negligible (error O(X^{3/4+ε})); without it the averaged count of ArithmeticStatistics:ST.2/averaged-count-of-binary-quartic-orbits still has the stated main term, but the passage to the unweighted class count and ST.4's replacement of n(f) by m(f) need it."
+      "detail": "Needed in the proof of Bhargava-Shankar Lemma 2.4: if g is a reducible integral binary cubic form of height X, the number of GL_2(ℤ) × SL_3(ℤ)-orbits on W_ℤ whose cubic resolvent form 4 Det(Ax − By) is GL_2(ℤ)-equivalent to g is O(X^{1/4}). Source: Bhargava, 'The density of discriminants of quartic rings and fields', proof of Lemma 12; the review read the Annals text, but this proof still needs declaration-level decomposition. It is a count of quartic rings with a given cubic resolvent ring and lives with the geometry of numbers of W_ℤ (see the previous gap). Lemma 2.4 is used only to show that orbits with a nontrivial stabiliser in PGL_2(ℚ) are negligible (error O(X^{3/4+ε})); without it the averaged count of ArithmeticStatistics:ST.2/averaged-count-of-binary-quartic-orbits still has the stated main term, but the passage to the unweighted class count and ST.4's replacement of n(f) by m(f) need it.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.2/refinement-quartic-fixed-reducible-resolvent now supplies the planned bound with exponent 1/4+epsilon. The older exponent 1/4 is superseded; every large-stabilizer application must retain this loss."
     },
     {
       "title": "Class-group statistics: sources now read, but the proofs of the quoted moment theorems are not decomposed",
@@ -31068,7 +31079,9 @@
         "ArithmeticStatistics:ST.3/fouvry-kluners-moments-of-four-ranks",
         "ArithmeticStatistics:ST.3/bhargava-mean-of-two-torsion-in-cubic-class-groups"
       ],
-      "detail": "This narrows the decomposition's gap 'No source read for class-group statistics (the COHEN-LENSTRA half of this roadmap)'. Read and cited: Bhargava-Shankar-Tsimerman arXiv:1005.0672v3 (the Davenport-Heilbronn 3-torsion theorem, decomposed down to its class-field-theory inputs), Fouvry-Kluners (Invent. Math. 2007, authors' preprint: the Cohen-Lenstra-Gerth moment conjecture, Theorems 1 and 3), Bhargava-Shankar-Wang arXiv:1512.03035v2 (Theorem 6: 3-torsion in quadratic and 2-torsion in cubic extensions of any global field) and Wood's survey (the Cohen-Lenstra heuristic, Conjecture 5.4). The Cohen-Lenstra prediction is recorded as an explicit conjectural hypothesis (ArithmeticStatistics:ST.3/cohen-lenstra-moment-prediction) and never assumed. Not decomposed: the proof of the Fouvry-Kluners theorem (Rédei matrices, character sums over factorizations of D, Siegel-Walfisz, FK Sections 2-10 and the moments-to-distribution Theorem 2 from their companion paper) and Bhargava's proof of the 2-torsion mean (class field theory for quartic fields with a given cubic resolvent plus the quartic-ring count). Cohen-Lenstra's LNM 1068 is not public; it is cited through Fouvry-Kluners and Wood, which state the conjecture."
+      "detail": "This narrows the decomposition's gap 'No source read for class-group statistics (the COHEN-LENSTRA half of this roadmap)'. Read and cited: Bhargava-Shankar-Tsimerman arXiv:1005.0672v3 (the Davenport-Heilbronn 3-torsion theorem, decomposed down to its class-field-theory inputs), Fouvry-Kluners (Invent. Math. 2007, authors' preprint: the Cohen-Lenstra-Gerth moment conjecture, Theorems 1 and 3), Bhargava-Shankar-Wang arXiv:1512.03035v2 (Theorem 6: 3-torsion in quadratic and 2-torsion in cubic extensions of any global field) and Wood's survey (the Cohen-Lenstra heuristic, Conjecture 5.4). The Cohen-Lenstra prediction is recorded as an explicit conjectural hypothesis (ArithmeticStatistics:ST.3/cohen-lenstra-moment-prediction) and never assumed. Not decomposed: the proof of the Fouvry-Kluners theorem (Rédei matrices, character sums over factorizations of D, Siegel-Walfisz, FK Sections 2-10 and the moments-to-distribution Theorem 2 from their companion paper) and Bhargava's proof of the 2-torsion mean (class field theory for quartic fields with a given cubic resolvent plus the quartic-ring count). Cohen-Lenstra's LNM 1068 is not public; it is cited through Fouvry-Kluners and Wood, which state the conjecture.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "The four-rank proof now has exact ST.3 targets quadratic-four-rank-conic-formula, quadratic-four-rank-jacobi-expansion, fk-maximal-unlinked-support, fk-main-coefficient, fk-narrow-wide-moment-comparison and rank-moments-determine-rank-law. Low-degree class-group mass ratios and quartic resolvent fibres are also specified in ST.3. These are planned proof chains, with their analytic and narrow-norm supplier obligations; the Cohen–Lenstra conjecture is still a conjecture and no original restricted source has been verified by assembly."
     },
     {
       "title": "Proofs of Bhargava's quartic and quintic field counts are not decomposed",
@@ -31078,7 +31091,9 @@
         "ArithmeticStatistics:ST.3/bhargava-shankar-wang-counts-over-number-fields",
         "ArithmeticStatistics:ST.3/bhargava-mean-of-two-torsion-in-cubic-class-groups"
       ],
-      "detail": "The statements are taken from the public Bhargava-Shankar-Wang arXiv:1512.03035v2 (Theorems 1, 2 and 6), the predecessor had not acquired Bhargava's Annals papers; this review read the quartic paper, while the quintic count still rests on the quoted BSW statement. A decomposition needs: the parametrizations of quartic rings by pairs of ternary quadratic forms and of quintic rings by quadruples of alternating 5 x 5 forms (Higher composition laws III and IV; ArithmeticStatistics:ST.1), the corresponding orbit counts with cusp and reducibility analysis and the uniformity estimates for nonmaximality (ArithmeticStatistics:ST.2), the local mass formulas, and the sieves to maximal S_n-fields; for the global-field version, BSW Sections 2-9."
+      "detail": "The statements are taken from the public Bhargava-Shankar-Wang arXiv:1512.03035v2 (Theorems 1, 2 and 6), the predecessor had not acquired Bhargava's Annals papers; this review read the quartic paper, while the quintic count still rests on the quoted BSW statement. A decomposition needs: the parametrizations of quartic rings by pairs of ternary quadratic forms and of quintic rings by quadruples of alternating 5 x 5 forms (Higher composition laws III and IV; ArithmeticStatistics:ST.1), the corresponding orbit counts with cusp and reducibility analysis and the uniformity estimates for nonmaximality (ArithmeticStatistics:ST.2), the local mass formulas, and the sieves to maximal S_n-fields; for the global-field version, BSW Sections 2-9.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "The missing planning interfaces now have ST.1 quartic/quintic multiplication and resolvent targets; ST.2/refinement-quartic-finite-congruence-count, refinement-quintic-finite-congruence-count and their nonmaximality tails; and ST.3/low-degree-s-integral-parametrization, low-degree-maximal-sieve, low-degree-jacobian-mass and quartic-quintic-density-constants. The global-field version keeps the six coregular-counting axioms. This resolves the absence of target names, not their formal proofs."
     },
     {
       "title": "Second-order terms (BST Sections 6, 7 and 9) are not decomposed",
@@ -31087,7 +31102,9 @@
         "ArithmeticStatistics:ST.3/second-order-term-for-the-mean-of-three-torsion",
         "ArithmeticStatistics:ST.3/second-order-term-for-cubic-orders-with-local-specifications"
       ],
-      "detail": "BST Theorems 3, 4 and 7 are recorded as statements. Their proofs need: the slicing-and-smoothing count of binary cubic forms in the cusp with the Mellin-transform evaluation of the second main term (Theorem 27, Section 6), the second-order p-adic densities (Section 7), the identities of Proposition 33, the three-range sieve with the uniformity estimates of Belabas-Bhargava-Pomerance [1, Lemma 2.7] and the equidistribution argument of Section 9.4, and Lemma 37. The form-counting part (Theorem 27) belongs with ST.2's uniform lattice counts; the sieve and the densities belong here."
+      "detail": "BST Theorems 3, 4 and 7 are recorded as statements. Their proofs need: the slicing-and-smoothing count of binary cubic forms in the cusp with the Mellin-transform evaluation of the second main term (Theorem 27, Section 6), the second-order p-adic densities (Section 7), the identities of Proposition 33, the three-range sieve with the uniformity estimates of Belabas-Bhargava-Pomerance [1, Lemma 2.7] and the equidistribution argument of Section 9.4, and Lemma 37. The form-counting part (Theorem 27) belongs with ST.2's uniform lattice counts; the sieve and the densities belong here.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "The secondary-term plan now uses ST.2/refinement-cubic-secondary-congruence-count and refinement-cubic-secondary-sieve-error, followed by ST.3/secondary-cubic-lattice-coefficient, cubic-secondary-local-factor-evaluation, cubic-root-weighted-sieve-identity, refined-cubic-sieve and cubic-secondary-orbit-integral. Lattice/translate averaging and dyadic sieve factors remain explicit; none is a proved baseline declaration."
     },
     {
       "title": "Siegel's indefinite count has no public proof in the sources read",
@@ -31104,7 +31121,9 @@
         "ArithmeticStatistics:ST.3/davenport-heilbronn-mean-of-three-torsion",
         "ArithmeticStatistics:ST.3/density-of-cubic-orders-with-local-specifications"
       ],
-      "detail": "BST Proposition 29 says N(Y_p; X) = O(X/p^2) 'follows easily from class field theory' and refers to Datskovsky-Wright, J. reine angew. Math. 386 (1988), p. 15, which is not public. The node reconstructs the standard argument for the maximal part (cubic fields totally ramified at p): the Galois closure of an S3-cubic field lies in a ring class field of its quadratic resolvent, Disc(K) = D_2 f^2 with f the conductor, p | f iff p is totally ramified, the 3-rank of Pic(O_f) is at most omega(f) + 2 more than that of Cl(K_2), and the sum of h_3 over quadratic fields is O(Y). The facts 'Disc(K) = D_2 f^2 with f the ring-class conductor' (Hasse) and the 3-rank bound for Pic(O_f) are not stated in any source read; they need their own nodes (or supplier contracts) consuming ClassFieldTheory Layer 13 and GlobalNumberFields Layer 11. The non-maximal part of Y_p, needed by BST Theorem 8 for acceptable specifications that allow non-maximal orders, is left to the uniform tail estimates of ArithmeticStatistics:ST.2 (for example Bhargava's geometric sieve applied to the codimension-2 locus of forms with a triple root)."
+      "detail": "BST Proposition 29 says N(Y_p; X) = O(X/p^2) 'follows easily from class field theory' and refers to Datskovsky-Wright, J. reine angew. Math. 386 (1988), p. 15, which is not public. The node reconstructs the standard argument for the maximal part (cubic fields totally ramified at p): the Galois closure of an S3-cubic field lies in a ring class field of its quadratic resolvent, Disc(K) = D_2 f^2 with f the conductor, p | f iff p is totally ramified, the 3-rank of Pic(O_f) is at most omega(f) + 2 more than that of Cl(K_2), and the sum of h_3 over quadratic fields is O(Y). The facts 'Disc(K) = D_2 f^2 with f the ring-class conductor' (Hasse) and the 3-rank bound for Pic(O_f) are not stated in any source read; they need their own nodes (or supplier contracts) consuming ClassFieldTheory Layer 13 and GlobalNumberFields Layer 11. The non-maximal part of Y_p, needed by BST Theorem 8 for acceptable specifications that allow non-maximal orders, is left to the uniform tail estimates of ArithmeticStatistics:ST.2 (for example Bhargava's geometric sieve applied to the codimension-2 locus of forms with a triple root).",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.3/cubic-conductor-discriminant, quadratic-order-three-torsion-bound and cubic-large-total-ramification-bound now state the maximal-field route. The ring-class estimate retains the extra wild factor at 3: 3^(omega(f)+1) in general, with 3^omega(f) only away from 3. The all-order nonmaximal contribution and exact class-field adapters remain separate contracts."
     },
     {
       "title": "Wright's theorem (Malle's conjecture for abelian groups) is quoted",
@@ -31149,7 +31168,9 @@
         "ArithmeticStatistics:ST.5/average-size-of-the-4-selmer-group",
         "ArithmeticStatistics:ST.5/average-size-of-the-5-selmer-group"
       ],
-      "detail": "The parametrisations of n-Selmer elements of E_{A,B}/ℚ by locally soluble orbits (n = 3: SL_3 on ternary cubic forms; n = 4: pairs of quaternary quadratic forms; n = 5: SL_5 × SL_5 on 5 ⊗ ∧²5), with integral representatives and stabilisers E[n], and the corresponding geometry-of-numbers counts and sieves, are in the scope of ArithmeticStatistics:ST.1 and ST.2 but are not among the source-scoped parametrisations those stages select (binary quartics for 2-Selmer). ST.5 states the theorems with their proof outlines; the decomposition of Bhargava–Shankar arXiv 1007.0052, 1312.7333 and 1312.7859 into ST.1/ST.2 nodes is missing."
+      "detail": "The parametrisations of n-Selmer elements of E_{A,B}/ℚ by locally soluble orbits (n = 3: SL_3 on ternary cubic forms; n = 4: pairs of quaternary quadratic forms; n = 5: SL_5 × SL_5 on 5 ⊗ ∧²5), with integral representatives and stabilisers E[n], and the corresponding geometry-of-numbers counts and sieves, are in the scope of ArithmeticStatistics:ST.1 and ST.2 but are not among the source-scoped parametrisations those stages select (binary quartics for 2-Selmer). ST.5 states the theorems with their proof outlines; the decomposition of Bhargava–Shankar arXiv 1007.0052, 1312.7333 and 1312.7859 into ST.1/ST.2 nodes is missing.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.1/refinement-genus-one-stabilizer-schemes now identifies the degree-3,4,5 geometric groups and their theta stabilizers. ST.2 now has finite, prime-tail and acceptable-weight counts for ternary, quaternary and quinary genus-one models. This is not the missing integral local Selmer parametrization: rational/integral orbit multiplicities, invariant scalars and arithmetic covering dictionaries still require the ST.1 group-scheme/integral-model contract."
     },
     {
       "title": "Second-moment proof of Bhargava–Shankar–Swaminathan",
@@ -31170,7 +31191,9 @@
       "neededBy": [
         "ArithmeticStatistics:ST.5/bklos-average-size-of-three-isogeny-selmer-groups"
       ],
-      "detail": "BKLOS §§3–8: the correspondence between φ-coverings and SL_2(F)-orbits of binary cubic forms (Theorems 4.2, 5.3), integral models (Theorem 6.2, Proposition 6.1, Corollary 7.1), and the count via Bhargava–Shankar–Wang, 'Geometry-of-numbers methods over global fields I' (BKLOS ref. [7], Theorem 13) with the uniformity estimate of ref. [8], Theorem 17. Not decomposed; the counting theorem over number fields has no accepted owner (the Bhargava–Shankar–Wang routes to ST.0–ST.3 were not accepted). This includes squareclass-height equidistribution in finite local rectangles and positive limiting densities; ST.0 defines such families but does not prove this counting theorem. Level sets of the product of local Selmer ratios require finite disjoint unions of rectangles."
+      "detail": "BKLOS §§3–8: the correspondence between φ-coverings and SL_2(F)-orbits of binary cubic forms (Theorems 4.2, 5.3), integral models (Theorem 6.2, Proposition 6.1, Corollary 7.1), and the count via Bhargava–Shankar–Wang, 'Geometry-of-numbers methods over global fields I' (BKLOS ref. [7], Theorem 13) with the uniformity estimate of ref. [8], Theorem 17. Not decomposed; the counting theorem over number fields has no accepted owner (the Bhargava–Shankar–Wang routes to ST.0–ST.3 were not accepted). This includes squareclass-height equidistribution in finite local rectangles and positive limiting densities; ST.0 defines such families but does not prove this counting theorem. Level sets of the product of local Selmer ratios require finite disjoint unions of rectangles.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.2/refinement-number-field-twist-orbit-count now specifies the nonidentity counting input, conditional on the coregular theorem, its six axioms and a compatible archimedean representative window. ST.0 fixes the squareclass denominator. The normalized SL2 binary-cubic mirror-algebra/isogeny dictionary remains absent, and the window compatibility is still G-twist. A global-field discriminant count alone supplies neither contract."
     },
     {
       "title": "Cassels–Tate pairing and its isogeny adjointness",
@@ -31200,14 +31223,18 @@
         "ArithmeticStatistics:ST.5/bklpr-random-isotropic-intersection-law",
         "ArithmeticStatistics:ST.5/bklpr-alternating-cokernel-limit"
       ],
-      "detail": "BKLPR Proposition 2.1 (the measure on X(ℤ_p) for a finite-type ℤ_p-scheme as the limit of normalised counts modulo p^e, and the vanishing on lower-dimensional subschemes, after Oesterlé and Serre), Proposition 4.4 (OGr_n is smooth projective of relative dimension n(n−1)/2) and Propositions 4.5, 4.9 (components and Schubert loci). No atlas owner was found for the Oesterlé–Serre measure."
+      "detail": "BKLPR Proposition 2.1 (the measure on X(ℤ_p) for a finite-type ℤ_p-scheme as the limit of normalised counts modulo p^e, and the vanishing on lower-dimensional subschemes, after Oesterlé and Serre), Proposition 4.4 (OGr_n is smooth projective of relative dimension n(n−1)/2) and Propositions 4.5, 4.9 (components and Schubert loci). No atlas owner was found for the Oesterlé–Serre measure.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.5/refinement-smooth-cylinder-measure, refinement-ogr-smooth-projective, refinement-ogr-components, refinement-ogr-prime-power-count and refinement-ogr-schubert-dimension now state the required targets. The generic Oesterlé–Serre cylinder comparison is requested once from AdelicAlgebraicGroups Part II; the orthogonal Grassmannian specialization belongs here. The supplier extension remains a proposal, not an existing theorem."
     },
     {
       "title": "p-rank marginal of A_1",
       "neededBy": [
         "ArithmeticStatistics:ST.5/bklpr-conjecture-implies-rank-and-selmer-laws"
       ],
-      "detail": "The identity Σ_{G : dim G[p] = 2n} A_1(G) = Prob(X_{Ш[p],1} = 2n) (the p-rank marginal of BKLPR's A_1 is Delaunay's rank-one law) is used in the (r = 1)-part of the consequence (iii); BKLPR Theorem 1.6(c) (T_r equals Delaunay's distribution) implies it but its proof through [Del01] was not read. The r = 0 part is proved in ST.5 through the alternating kernel law."
+      "detail": "The identity Σ_{G : dim G[p] = 2n} A_1(G) = Prob(X_{Ш[p],1} = 2n) (the p-rank marginal of BKLPR's A_1 is Delaunay's rank-one law) is used in the (r = 1)-part of the consequence (iii); BKLPR Theorem 1.6(c) (T_r equals Delaunay's distribution) implies it but its proof through [Del01] was not read. The r = 0 part is proved in ST.5 through the alternating kernel law.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.5/refinement-all-rank-delaunay now states the model identity for every rank, including rank one, using the corrected symplectic mass and rank parameter. It does not prove an arithmetic frequency statement."
     },
     {
       "title": "Generic mod-p image of E_{A,B}",
@@ -31228,7 +31255,9 @@
       "neededBy": [
         "ArithmeticStatistics:ST.5/moments-determine-cohen-lenstra-limits-for-all-p-and-u"
       ],
-      "detail": "ST.5/moments-determine-cohen-lenstra-limits-for-all-p-and-u cites Wood, Random integral matrices (Amer. J. Math. 2019) Theorem 3.1, whose proof is Theorem 8.3 of Wood, 'The distribution of sandpile groups of random graphs' (J. Amer. Math. Soc. 30 (2017), arXiv 1402.5149, §8). That proof (moments bounded by |∧²G| determine the limit, via an inclusion–exclusion over subgroups with explicit convergence) was not read or decomposed. It is needed for p = 2 and for u ≥ 1; for p odd and u = 0 the EVW route (ST.5/moment-convergence-implies-distribution-convergence) is complete. Owner: ST.5 (random-group distributions); decompose arXiv 1402.5149 §8."
+      "detail": "ST.5/moments-determine-cohen-lenstra-limits-for-all-p-and-u cites Wood, Random integral matrices (Amer. J. Math. 2019) Theorem 3.1, whose proof is Theorem 8.3 of Wood, 'The distribution of sandpile groups of random graphs' (J. Amer. Math. Soc. 30 (2017), arXiv 1402.5149, §8). That proof (moments bounded by |∧²G| determine the limit, via an inclusion–exclusion over subgroups with explicit convergence) was not read or decomposed. It is needed for p = 2 and for u ≥ 1; for p odd and u = 0 the EVW route (ST.5/moment-convergence-implies-distribution-convergence) is complete. Owner: ST.5 (random-group distributions); decompose arXiv 1402.5149 §8.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.5/refinement-wood-grid-separator, refinement-wood-coefficient-bound, refinement-wood-subgroup-bound, refinement-wood-grid-uniqueness and refinement-wood-bounded-moment-limit now plan the multivariate determinacy proof. The last gives probability-one laws for bounded-exponent quotients X_n/aX_n. A full finite-group limiting law still needs the separately recorded tail/tightness contract; scalar moment determinacy is already native and is not replanned."
     },
     {
       "title": "Certified D_4 comparison",
@@ -31321,7 +31350,9 @@
         "ArithmeticStatistics:ST.3/second-order-term-for-the-mean-of-three-torsion",
         "ArithmeticStatistics:ST.3/second-order-term-for-cubic-orders-with-local-specifications"
       ],
-      "detail": "Missing from ST.2: BST Theorem 27, the count of GL2(Z)-classes of irreducible integral binary cubic forms in a translate v_0 + mU_Z with two main terms c_1 m^{-4} X + c_2(m) X^{5/6} and error O(X^{5/6-1/48+eps}) uniformly in m (Shintani's second term, obtained by slicing and smoothing in the cusp, BST Section 6), and the uniformity input of the refined sieve over large squarefree n (Belabas-Bhargava-Pomerance; BST Section 9). ST.2's coverage states these would be planned in ST.2 if ST.3 states Roberts' conjecture. The second-order p-adic densities and Lemma 37 (BST Section 7) are ST.3's own gap 'Second-order terms (BST Sections 6, 7 and 9) are not decomposed'."
+      "detail": "Missing from ST.2: BST Theorem 27, the count of GL2(Z)-classes of irreducible integral binary cubic forms in a translate v_0 + mU_Z with two main terms c_1 m^{-4} X + c_2(m) X^{5/6} and error O(X^{5/6-1/48+eps}) uniformly in m (Shintani's second term, obtained by slicing and smoothing in the cusp, BST Section 6), and the uniformity input of the refined sieve over large squarefree n (Belabas-Bhargava-Pomerance; BST Section 9). ST.2's coverage states these would be planned in ST.2 if ST.3 states Roberts' conjecture. The second-order p-adic densities and Lemma 37 (BST Section 7) are ST.3's own gap 'Second-order terms (BST Sections 6, 7 and 9) are not decomposed'.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "Use the exact ST.2/refinement-cubic-secondary-congruence-count and refinement-cubic-secondary-sieve-error exports, with their translate dependence and strong acceptability restrictions. Their ST.3 arithmetic assembly is the secondary-density and refined-sieve chain. The statement that ST.2 has no such target is superseded."
     },
     {
       "title": "Geometry of numbers for pairs of integral ternary quadratic forms (quartic rings) is not an ST.2 node",
@@ -31329,14 +31360,18 @@
         "ArithmeticStatistics:ST.3/bhargava-count-of-quartic-fields",
         "ArithmeticStatistics:ST.3/bhargava-mean-of-two-torsion-in-cubic-class-groups"
       ],
-      "detail": "Missing from ST.2: the asymptotic count of GL3(Z) x GL2(Z)-orbits of irreducible integral pairs (A, B) of ternary quadratic forms with 0 < +-Disc < X, by signature (Bhargava, Annals 162 (2005): averaging over a fundamental domain, cusp analysis), its version with finitely many congruence conditions, the uniformity estimate O(X/p^2) for quartic rings non-maximal at p needed for the sieve to maximal orders, and (for the 2-torsion mean) the count of those orbits whose cubic resolvent is a given maximal cubic ring. ST.2 counts only binary quartic and binary cubic forms; its existing gaps (Proposition 23 = BS Theorem 2.19, and the O(X^{1/4}) bound for a fixed reducible resolvent) concern the same representation."
+      "detail": "Missing from ST.2: the asymptotic count of GL3(Z) x GL2(Z)-orbits of irreducible integral pairs (A, B) of ternary quadratic forms with 0 < +-Disc < X, by signature (Bhargava, Annals 162 (2005): averaging over a fundamental domain, cusp analysis), its version with finitely many congruence conditions, the uniformity estimate O(X/p^2) for quartic rings non-maximal at p needed for the sieve to maximal orders, and (for the 2-torsion mean) the count of those orbits whose cubic resolvent is a given maximal cubic ring. ST.2 counts only binary quartic and binary cubic forms; its existing gaps (Proposition 23 = BS Theorem 2.19, and the O(X^{1/4}) bound for a fixed reducible resolvent) concern the same representation.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.2 now plans the quartic finite-condition count and nonmaximal/overramified prime bound on the generic S4 locus. ST.3/quartic-class-group-two-torsion-fibre and low-degree-class-group-mass-ratios supply the corresponding arithmetic fibres and mass comparison. The generic S4 count cannot be used as a count of every reducible-resolvent or étale quartic orbit; retain each stricter fibre contract separately."
     },
     {
       "title": "Geometry of numbers for quadruples of quinary alternating forms (quintic rings) is not an ST.2 node",
       "neededBy": [
         "ArithmeticStatistics:ST.3/bhargava-count-of-quintic-fields"
       ],
-      "detail": "Missing from ST.2: the asymptotic count of GL4(Z) x SL5(Z)-orbits of irreducible integral A in Z^4 (x) wedge^2 Z^5 with |Disc| < X by signature, its congruence version, and the uniformity estimate for quintic rings non-maximal at p (Bhargava, Annals 172 (2010))."
+      "detail": "Missing from ST.2: the asymptotic count of GL4(Z) x SL5(Z)-orbits of irreducible integral A in Z^4 (x) wedge^2 Z^5 with |Disc| < X by signature, its congruence version, and the uniformity estimate for quintic rings non-maximal at p (Bhargava, Annals 172 (2010)).",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.2/refinement-quintic-finite-congruence-count and refinement-quintic-nonmaximal-tail now provide the exact proposed quintic interfaces. They use the 40-dimensional quintic-ring representation, not the 50-dimensional genus-one degree-five model."
     },
     {
       "title": "Orbit parametrisations of 3-, 4- and 5-Selmer elements are not ST.1 nodes",
@@ -31345,7 +31380,9 @@
         "ArithmeticStatistics:ST.5/average-size-of-the-4-selmer-group",
         "ArithmeticStatistics:ST.5/average-size-of-the-5-selmer-group"
       ],
-      "detail": "Missing from ST.1: (3) the bijection between Sel_3(E_{A,B}) and SL3(Q)-classes of locally soluble ternary cubic forms whose invariants (c4, c6) match (A, B) up to fixed scalars, with integral representatives and stabiliser E[3] (ST.1 has only the forms and their invariants: ternary-cubic-forms-and-their-invariants, invariance-of-ternary-cubic-invariants); (4) the representation 2 (x) Sym^2(4) of G = {(g2, g4) : det g2 det g4 = 1}/{(lambda^{-2} I2, lambda I4)} (pairs of quaternary quadratic forms), its invariants and the parametrisation of 4-Selmer elements by locally soluble orbits; (5) SL5 x SL5 acting on quintuples of 5 x 5 alternating matrices and the parametrisation of 5-Selmer elements (ST.1's quadruples under GL4 x SL5 are the quintic-ring representation). Same content as ST.5's gap 'Orbit parametrisations of 3-, 4- and 5-Selmer elements'."
+      "detail": "Missing from ST.1: (3) the bijection between Sel_3(E_{A,B}) and SL3(Q)-classes of locally soluble ternary cubic forms whose invariants (c4, c6) match (A, B) up to fixed scalars, with integral representatives and stabiliser E[3] (ST.1 has only the forms and their invariants: ternary-cubic-forms-and-their-invariants, invariance-of-ternary-cubic-invariants); (4) the representation 2 (x) Sym^2(4) of G = {(g2, g4) : det g2 det g4 = 1}/{(lambda^{-2} I2, lambda I4)} (pairs of quaternary quadratic forms), its invariants and the parametrisation of 4-Selmer elements by locally soluble orbits; (5) SL5 x SL5 acting on quintuples of 5 x 5 alternating matrices and the parametrisation of 5-Selmer elements (ST.1's quadruples under GL4 x SL5 are the quintic-ring representation). Same content as ST.5's gap 'Orbit parametrisations of 3-, 4- and 5-Selmer elements'.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.1/refinement-genus-one-stabilizer-schemes now fixes the geometric degree-3,4,5 groups, scalar kernels and theta extensions. It does not by itself give integral Selmer orbit dictionaries, local solubility descent or invariant-normalized arithmetic multiplicities. Those remain the group-scheme/genus-one integral-model contract; degree-five genus-one models remain distinct from quintic rings."
     },
     {
       "title": "Orbit counts for the 3-, 4- and 5-Selmer representations are not ST.2 nodes",
@@ -31354,21 +31391,27 @@
         "ArithmeticStatistics:ST.5/average-size-of-the-4-selmer-group",
         "ArithmeticStatistics:ST.5/average-size-of-the-5-selmer-group"
       ],
-      "detail": "Missing from ST.2: the counts of integral orbits of bounded height (averaging over a fundamental domain, cutting off the cusp, main term vol * X^{5/6}) and the tail estimates for infinitely many congruence conditions, for SL3(Z) on ternary cubic forms, for G(Z) on 2 (x) Sym^2(Z^4), and for SL5(Z) x SL5(Z) on quintuples of 5 x 5 alternating matrices. ST.2's tail estimate (uniformity-estimate-for-infinitely-many-congruence-conditions) and counts are for binary quartic forms only."
+      "detail": "Missing from ST.2: the counts of integral orbits of bounded height (averaging over a fundamental domain, cutting off the cusp, main term vol * X^{5/6}) and the tail estimates for infinitely many congruence conditions, for SL3(Z) on ternary cubic forms, for G(Z) on 2 (x) Sym^2(Z^4), and for SL5(Z) x SL5(Z) on quintuples of 5 x 5 alternating matrices. ST.2's tail estimate (uniformity-estimate-for-infinitely-many-congruence-conditions) and counts are for binary quartic forms only.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.2/refinement-ternary-cubic-finite-count, refinement-quaternary-finite-count and refinement-quinary-finite-count, together with each representation’s prime-tail and acceptable-count targets, now specify these counts. They must be paired with the matching arithmetic orbit dictionary and the exact groups, heights and multiplicities; they do not repair a missing ST.1 dictionary."
     },
     {
       "title": "Parametrisation and counting for the second moment of Sel_2 (Bhargava-Shankar-Swaminathan) are not ST.1/ST.2 nodes",
       "neededBy": [
         "ArithmeticStatistics:ST.5/second-moment-of-the-2-selmer-group"
       ],
-      "detail": "Missing from ST.1: the parametrisation of 2-Selmer elements of Jacobians of genus-one curves z^2 = f(x, y) (and hyperelliptic Jacobians) by orbits on pairs of n-ary quadratic forms 2 (x) Sym^2(n) (BGW 2017, BSW 2022/2025 items, listed as not decomposed in ST.1's coverage). Missing from ST.2: the count of special integral orbits of SL4 and PSO_A on quadratic forms with equidistribution (BSS Sections 5-7). ST.1/binary-quartic-parametrization-of-two-selmer (attaching z^2 = f(x, y) to sigma) is cited by id. Matches ST.5's gap 'Second-moment proof of Bhargava-Shankar-Swaminathan'."
+      "detail": "Missing from ST.1: the parametrisation of 2-Selmer elements of Jacobians of genus-one curves z^2 = f(x, y) (and hyperelliptic Jacobians) by orbits on pairs of n-ary quadratic forms 2 (x) Sym^2(n) (BGW 2017, BSW 2022/2025 items, listed as not decomposed in ST.1's coverage). Missing from ST.2: the count of special integral orbits of SL4 and PSO_A on quadratic forms with equidistribution (BSS Sections 5-7). ST.1/binary-quartic-parametrization-of-two-selmer (attaching z^2 = f(x, y) to sigma) is cited by id. Matches ST.5's gap 'Second-moment proof of Bhargava-Shankar-Swaminathan'.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.2/refinement-section-kernel, refinement-smoothed-orbit-unfolding and refinement-smoothed-quaternary-count now plan the special smoothing/counting inputs. ST.1’s odd-degree BGW pencil dictionary does not supply BSS’s even-degree monicization, Selmer injection or fixed integral scale. Those remain R-bss-monicization; a separate local-equidistribution/leading-coefficient tail contract remains necessary."
     },
     {
       "title": "BKLOS parametrisation and counting over number fields are not ST.1/ST.2 nodes",
       "neededBy": [
         "ArithmeticStatistics:ST.5/bklos-average-size-of-three-isogeny-selmer-groups"
       ],
-      "detail": "Missing from ST.1: the parametrisation of phi-coverings / phi-Selmer elements of E^s for a 3-isogeny phi by SL2(F)-orbits of binary cubic forms with discriminant in a fixed class, integral representatives over O_F, squarefreeness away from a finite set (BKLOS Theorems 4.2, 5.3, 6.2, Proposition 6.1, Corollary 7.1). Missing from ST.2: geometry of numbers over a number field for SL2(O_F) on binary cubic forms (Bhargava-Shankar-Wang, Theorem 13) and the uniformity estimate (Theorem 17). Matches ST.5's gap 'BKLOS binary-cubic parametrisation and counting over number fields'."
+      "detail": "Missing from ST.1: the parametrisation of phi-coverings / phi-Selmer elements of E^s for a 3-isogeny phi by SL2(F)-orbits of binary cubic forms with discriminant in a fixed class, integral representatives over O_F, squarefreeness away from a finite set (BKLOS Theorems 4.2, 5.3, 6.2, Proposition 6.1, Corollary 7.1). Missing from ST.2: geometry of numbers over a number field for SL2(O_F) on binary cubic forms (Bhargava-Shankar-Wang, Theorem 13) and the uniformity estimate (Theorem 17). Matches ST.5's gap 'BKLOS binary-cubic parametrisation and counting over number fields'.",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "The counting side is now ST.2/refinement-number-field-twist-orbit-count, with its conditional coregular and archimedean-window hypotheses. The normalized binary-cubic isogeny dictionary and compatible integral representatives are still R-bklos-orbit-adapter; keep that ST.1 request open."
     },
     {
       "title": "Lemke Oliver-Wang-Wood and Datskovsky-Wright results are not ST.3 nodes",
@@ -31377,7 +31420,9 @@
         "ArithmeticStatistics:ST.5/cohen-martinet-surjection-moment-conjecture",
         "ArithmeticStatistics:ST.5/dihedral-quartic-proven-average-versus-prediction"
       ],
-      "detail": "Missing from ST.3 (its coverage lists PAPER-LEMKEOLIVER-WANG-WOOD-25 route 1 as not decomposed): relative class groups Cl_{K/k} with their G-action and the families of G-extensions with fixed infinity data (LOWW Section 7, used by the Cohen-Martinet surjection-moment conjecture); LOWW Theorem 1.1 (average of h_3 over extensions with a transitive 2-group containing a transposition); LOWW Theorem 6.1 (the proven D4 averages C_{G,Sigma} = (1 + 3^{-u(K/F)}) A_w). Also missing: Datskovsky-Wright's 3-torsion averages over quadratic extensions of a number field k != Q (a proved case of Cohen-Lenstra-Martinet; ST.5/cohen-lenstra-heuristic-for-quadratic-fields mentions it only as a remark)."
+      "detail": "Missing from ST.3 (its coverage lists PAPER-LEMKEOLIVER-WANG-WOOD-25 route 1 as not decomposed): relative class groups Cl_{K/k} with their G-action and the families of G-extensions with fixed infinity data (LOWW Section 7, used by the Cohen-Martinet surjection-moment conjecture); LOWW Theorem 1.1 (average of h_3 over extensions with a transitive 2-group containing a transposition); LOWW Theorem 6.1 (the proven D4 averages C_{G,Sigma} = (1 + 3^{-u(K/F)}) A_w). Also missing: Datskovsky-Wright's 3-torsion averages over quadratic extensions of a number field k != Q (a proved case of Cohen-Lenstra-Martinet; ST.5/cohen-lenstra-heuristic-for-quadratic-fields mentions it only as a remark).",
+      "assemblyStatus": "partial",
+      "assemblyResolution": "ST.3 now includes rigid-embedded-field-family, relative-torsion-splitting, relative-three-torsion-propagation, quadratic-tower-torsion-tail, two-extension-three-torsion-means and relative-wreath-three-torsion-mean. Its low-degree-class-group-mass-ratios gives the number-field means with absolute base-class factors and matching resolvent restrictions. Narrow norm maps, the relative base-character annihilator filter and certified D4 numerical comparisons remain explicit supplier gaps."
     },
     {
       "title": "Shared carrier/API for Wood rigidification multiplicities",
@@ -31386,7 +31431,9 @@
         "ArithmeticStatistics:ST.5/real-normalized-nonabelian-moment",
         "ArithmeticStatistics:ST.5/bad-type-normalization-transfer"
       ],
-      "detail": "The conversion equations already appear in ST.5/imaginary-normalized-nonabelian-moment, real-normalized-nonabelian-moment and bad-type-normalization-transfer. The outstanding work is their shared construction and proof: Aut_{G′}(G), the real multiplicity A(G,G′), the quotient-fiber counting equivalences and Wood Lemma 2.1. Reuse these ST.5 consumer statements when placing the basic family API in ST.0 and the arithmetic multiplicity proof in ST.3; do not plan a second incompatible normalization."
+      "detail": "The conversion equations already appear in ST.5/imaginary-normalized-nonabelian-moment, real-normalized-nonabelian-moment and bad-type-normalization-transfer. The outstanding work is their shared construction and proof: Aut_{G′}(G), the real multiplicity A(G,G′), the quotient-fiber counting equivalences and Wood Lemma 2.1. Reuse these ST.5 consumer statements when placing the basic family API in ST.0 and the arithmetic multiplicity proof in ST.3; do not plan a second incompatible normalization.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.0/wood-type-automorphisms, wood-continuous-surjections, wood-infinity-and-type-adapter and wood-average-normalizations now give the single shared rigidification and denominator interface. ST.3’s embedded-type/nonabelian moment chain and ST.5’s normalization comparisons consume it. The original missing-carrier claim is superseded; the quotient-fibre counting proofs remain planned mathematics."
     },
     {
       "title": "Shared arithmetic-family interface for Wood exact discriminant slices",
@@ -31399,7 +31446,9 @@
         "ArithmeticStatistics:ST.5/bad-type-normalization-transfer",
         "ArithmeticStatistics:ST.5/printed-bad-type-ordinary-limit-assertion"
       ],
-      "detail": "ST.5/odd-degree-quadratic-function-field-family and the imaginary/real-exact-slice-parametrization nodes already specify the quotient, infinity types and exact cardinalities, including the n=1 exception. The remaining ST.0 work is to connect these existing carriers to ArithmeticFamily, its bounded-height union and exact-slice weighted averages, together with the typed G′-extension and rigidification data. The formulas and slice parametrizations are not missing targets."
+      "detail": "ST.5/odd-degree-quadratic-function-field-family and the imaginary/real-exact-slice-parametrization nodes already specify the quotient, infinity types and exact cardinalities, including the n=1 exception. The remaining ST.0 work is to connect these existing carriers to ArithmeticFamily, its bounded-height union and exact-slice weighted averages, together with the typed G′-extension and rigidification data. The formulas and slice parametrizations are not missing targets.",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.0/wood-infinity-and-type-adapter and wood-average-normalizations now connect marked extensions, exact slices and finite-height families. ST.5’s exact-slice parametrizations depend on the infinity/type adapter; the averaging adapter depends on those parametrizations. This direction avoids a cycle and retains the empty-slice and n=1 conventions."
     },
     {
       "title": "The family of principally polarized abelian varieties over F_p is not an ST.0 node",
@@ -31408,7 +31457,9 @@
         "ArithmeticStatistics:ST.5/spacing-measure-discrepancy-for-ppavs",
         "ArithmeticStatistics:ST.5/enhanced-cohen-lenstra-fails-for-ppavs"
       ],
-      "detail": "Missing from ST.0 (Lipnowski-Tsimerman items unpolarized-count, ppav-count, polarization-fiber, listed as not decomposed): the finite set of isomorphism classes of g-dimensional ppavs over F_p with the uniform measure, A(p, g) = #{ppav classes}, B(p, g) = #{abelian variety classes}, n_A = #(Aut(A)-orbits of principal polarizations on A) and A(p, g) = sum_A n_A. The generic fibre formula is ST.0/arithmetic-family's comap multiplicity formula (cited by id where step 4 uses it)."
+      "detail": "Missing from ST.0 (Lipnowski-Tsimerman items unpolarized-count, ppav-count, polarization-fiber, listed as not decomposed): the finite set of isomorphism classes of g-dimensional ppavs over F_p with the uniform measure, A(p, g) = #{ppav classes}, B(p, g) = #{abelian variety classes}, n_A = #(Aut(A)-orbits of principal polarizations on A) and A(p, g) = sum_A n_A. The generic fibre formula is ST.0/arithmetic-family's comap multiplicity formula (cited by id where step 4 uses it).",
+      "assemblyStatus": "refined",
+      "assemblyResolution": "ST.0/unpolarized-abelian-count, principally-polarized-count and polarization-fiber-count now define the three carriers/counts, including A(p,g)=sum_A n_A and the polarization automorphism quotient. These are unweighted class counts, not inverse-automorphism masses or coarse-moduli rational-point counts. Their asymptotic inputs remain with AbelianSchemesAndArithmeticModuli Part II."
     },
     {
       "title": "Projection and spreading interfaces for the corrected geometric-sieve proof",
@@ -31427,6 +31478,15 @@
         "ArithmeticStatistics:ST.2/binary-quartic-lattice-points-in-the-cusp"
       ],
       "detail": "The matrix-set Haar average and finite-fibre multiset count are explicit, but the native semialgebraic predicate and multiset projection-volume interface requested from GeometryOfNumbersAndQuadraticArithmetic:GN.4 are not supplied by a checked pinned declaration. The previous Lean cusp theorem omitted semialgebraicity, compared a support count and support volume despite the packet requiring multiplicities, and lacked C_0>0; that misleading signature is removed pending the supplier interface. The target statement and corrected proof remain in the packet."
+    },
+    {
+      "id": "G-assembly-cross-part",
+      "title": "Unbound cross-part refinements",
+      "detail": "Stage references below name a required refinement, not a proved export. ArithmeticStatistics:ST.5/second-moment-of-the-2-selmer-group: BSS even-degree monicization, its Selmer injection and fixed integral scaling are not the odd-degree BGW pencil dictionary; R-bss-monicization remains open. ArithmeticStatistics:ST.5/bklos-average-size-of-three-isogeny-selmer-groups: The normalized SL₂ binary-cubic mirror-algebra/isogeny dictionary is absent from the reviewed ST.1 exports; R-bklos-orbit-adapter remains open.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.5/second-moment-of-the-2-selmer-group",
+        "ArithmeticStatistics:ST.5/bklos-average-size-of-three-isogeny-selmer-groups"
+      ]
     }
   ],
   "sourceIssues": [
