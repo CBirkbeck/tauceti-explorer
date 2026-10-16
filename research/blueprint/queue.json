@@ -22353,8 +22353,9 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9912"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7d",
@@ -22885,10 +22886,11 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9924"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII",
@@ -23264,8 +23266,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.6.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9930"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.6",
@@ -23689,8 +23692,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9918"
   },
   {
    "id": "REV-DeligneWeightsAndPurity",
@@ -23796,8 +23800,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9919"
   },
   {
    "id": "REV-DiamondEtaleCohomology",
@@ -24481,8 +24486,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9913"
   },
   {
    "id": "REV-EnhancedDerivedSheaves",
@@ -25225,10 +25231,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.6.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9926"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.6",
@@ -33738,7 +33745,8 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9911"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7c",
@@ -34166,7 +34174,8 @@
    ],
    "followUpOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9928"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.4",
@@ -34210,7 +34219,8 @@
    ],
    "followUpOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9929"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.5",
@@ -48613,7 +48623,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CompletedCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9922"
   },
   {
    "id": "REV-PKG-CompletedCohomologyPartII",
