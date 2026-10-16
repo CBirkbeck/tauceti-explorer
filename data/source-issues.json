@@ -179113,8 +179113,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "BLGGT arXiv v4 §2.1 p.32 uses χ in the automorphic definition; the displayed μ belongs to the preceding Galois definition. Confirmed in this version, independently of the parity issue."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "BLGGT arXiv v4 p.32: the automorphic definition introduces the pair (π,χ) and then imposes the infinity sign on µ_v(−1), the symbol of the Galois definition on p.31."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-2",
@@ -179137,8 +179137,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "BLGGT arXiv v4 §2.1 pp.32–34 and Appendix A.2 p.87 give μ(c_v)=(−1)^(n−1+w)χ_v(−1). A rank-one CM elliptic character with w=1 detects the missing weight factor. Patrikis Proposition 4.1 p.8 independently retains it. This fresh verdict certifies these versions, not a newly inspected publisher edition."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "BLGGT p.32 imposes χ_v(−1)=(−1)^n with no dependence on w, and the justification after Theorem 2.1.1 (p.34) says that ε^{1−n}r(χ) takes every complex conjugation to −1. With |χ|=‖·‖^{−w} one has r(χ)(c_v)=(−1)^wχ_v(−1), so the multiplier is −1 only for even w; the CM elliptic-curve character (n=1, w=1) gives +1."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-3",
@@ -179158,8 +179158,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular, Publications Mathématiques de l’IHÉS 134 (2021), 153–501; published PDF",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "BCGP21 Lemma 2.5.1 p.189 makes an unrestricted maximal-rank uniqueness assertion. Exact rational 6×6 calculations with q=4, F=diag(8,2,2,1/2,1/2,1/8) give FNF⁻¹=N/4 and N-power ranks (4,2,1,0) versus (4,2,0,0), both with maximal rank 4. Only the length-(4,2) strings are pure of weight zero. Use TY Lemma 1.4 uniqueness up to equivalence in the pure range."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "BCGP21 p.189 asserts that the pure N is the unique maximizer of rank N. Recomputed the recorded q=4 example by hand: both chain structures satisfy FNF⁻¹=N/4 and have rank 4, the maximum allowed by the graded dimensions (1,2,2,1); N³ has rank 1 for the pure (4,2) strings and 0 for the (3,3) strings, which are centred at ±1."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-4",
@@ -179179,8 +179179,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "CH author copy p.12 names the full GL_{n(n−1)/2} as target of ∧². At n=4 dimensions 16 and 36 preclude an isogeny onto that group. Finite kernel onto the image is different. The first de Rham proof remains the route used here."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "CH author copy p.12 calls ∧²: GL(n)→GL(n(n−1)/2) an isogeny for n≥4; at n=4 the dimensions 16 and 36 rule out surjectivity, so it is at best an isogeny onto its image."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-5",
@@ -179200,8 +179200,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles, arXiv:1010.2188v1, 11 October 2010 (published Duke Math. J. 161 (2012)); read from references/text/SS_CaraianiMonodromyAway.txt. Locators give the arXiv version's page numbers",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "Caraiani away-prime preprint p.84 assigns the doubled tensor weight to the individual normalized factor. Its weight is n−1, so the tensor has weight 2n−2. The surrounding tensor-square purity argument distinguishes the two."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "Caraiani arXiv p.84 (and the published copy, p.2409) says L_n(Π_y) is pure of weight 2n−2. Tempered Π_y gives Frobenius absolute values q^{(n−1)/2}, weight n−1, and the published proof itself goes on to show the factor pure of weight n−1."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-6",
@@ -179221,8 +179221,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "ACC+ printed pp.922,927,938: n=1 forces X−T in the GL_n polynomial. A degree-2n unitary polynomial requires X^(2n−j) in the first sum and X^(2n−i) in the second; the printed expressions lose these degrees. The two later sourceIssues preserve the separate extraction provenance."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "ACC+ p.922: (2.2.6) ends with +q^{n(n−1)/2}T_{v,n}; the general term of (2.2.7) carries no power of X; the σ-polynomial below it, and Lemma 2.2.13(2) on p.927, use X^{n−i} with i up to 2n."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-7",
@@ -179242,8 +179242,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "CH author copy p.4 requires nonnegative coordinates for both conjugate tuples while imposing negative reversed conjugacy. Together these force all coordinates to vanish; dominant integer tuples such as (1,0) and (0,−1) must be allowed."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "CH author copy p.4 calls both highest weights non-increasing tuples of non-negative integers and then imposes µ_i(σ̃c)=−µ_{n−i+1}(σ̃), which forces all entries to vanish."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-8",
@@ -179262,8 +179262,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne, On the rigid cohomology of certain Shimura varieties, Author's copy rigcoh.pdf (published in Res. Math. Sci. 3 (2016)); read from the supplied extracted text references/text/SS_HLTT.txt. Locators give the article's own page numbers and result numbers",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "HLTT Appendix A.1 p.231 displays a zero lower-left block. It cannot be the Std invertible block map; the lower-right block is invertible and agrees with the stated ν×Std decomposition."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "HLTT p.231 assigns to Std the lower-left n×n block of a Levi matrix displayed with zero off-diagonal blocks; the lower-right block is the invertible factor in ν×Std."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-9",
@@ -179282,8 +179282,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Ila Varma, Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p, arXiv:1411.2520v1, 10 November 2014; read from the supplied extracted text references/text/SS_VarmaLocalGlobal.txt. Locators give the arXiv version's own page numbers",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "Varma arXiv v1 pp.19,27: the preceding trace corollary is 8.3, the dominance result is Proposition 9.1, and final bounded compatibility is Theorem 10.2. The cited 9.3/11.1/7.13 references do not identify these results in this version."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "Varma v1 p.19 cites a Corollary 9.3, and p.27 a Corollary 11.1 and a Theorem 7.13. The paper has a Lemma 9.3 on inertia, no section 11 and no Theorem 7.13, while Corollary 8.3, Proposition 9.1 and Theorem 10.2 supply the cited content."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-3",
@@ -179304,8 +179304,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "ACC+ printed p.922 has the wrong final GL_n sign; n=1 requires X−T. Theorem 2.3.5 p.938 gives the correctly signed form. This overlaps EAG20-6 and is retained for provenance."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "ACC+ p.922 (2.2.6): the final term lacks (−1)^n, so n=1 gives X+T_{v,1} rather than X−T_{v,1}."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-4",
@@ -179325,8 +179325,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "ACC+ printed pp.922 and 927 lose X^(2n−j) and print X^(n−i) instead of X^(2n−i). Degree and nonnegative-exponent checks confirm both errors in the identified copy. This overlaps EAG20-6."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "ACC+ p.922 (2.2.7) loses X^{2n−j} in its general term, and the σ-polynomial on p.922 and Lemma 2.2.13(2) on p.927 print X^{n−i} for X^{2n−i}."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-5",
@@ -179347,8 +179347,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "ACC+ pp.972–973: local genericity includes trivial inertia. Over Q₂ and F₃, 1⊕1 and a ramified quadratic scalar twist have the same projectivization but different inertia. The global existential conclusion survives by avoiding finitely many ramified places; only the unrestricted local formulation is corrected."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "ACC+ p.972: the note after Definition 4.3.1 says representations with the same projectivization are generic together; local genericity includes unramifiedness, which a ramified scalar twist destroys."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-6",
@@ -179368,8 +179368,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Caraiani, Monodromy and local-global compatibility for l = p (published version), Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "Caraiani published §3A pp.1609–1611 has two independent boundary families. The second log structure must use j₂ and U₂; repeating j₁ and U₁ discards the Y-boundary."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "Caraiani ANT p.1611 (page image): M̃₂ is defined with j_{1,j} and U_{1,j}, repeating M̃₁; the combined M̃ on the same page uses j_{2,j} and U_{2,j}."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-7",
@@ -179389,8 +179389,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Caraiani, Monodromy and local-global compatibility for l = p (published version), Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "Caraiani published §3A pp.1609–1611 uses s second-boundary factors. The repeated j_r and Y_r in that part of the local chart must be j_s and Y_s. Taking r=1,s=2 detects the loss of the second boundary."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "Caraiani ANT p.1609 ends the Y_{2,j} membership list at j_r, and the Lemma 3.2 chart on p.1611 has Y₁⋯Y_r−ϖ, although the local model has s second-boundary factors."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-8",
@@ -179410,8 +179410,8 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Caraiani, Monodromy and local-global compatibility for l = p (published version), Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "Caraiani published p.1610 includes m free Z-coordinates. The stratum has dimension 2n+m−i−j. Taking n=r=s=i=j=m=1 gives an affine line, whereas the printed dimension gives zero."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "Caraiani ANT p.1610 gives Y^{(i,j)} dimension 2n−i−j, omitting the m coordinates Z₁,…,Z_m of the model X_{r,s,m} displayed on the same page."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-9",
@@ -179431,8 +179431,29 @@
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
    "status": "confirmed",
-   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
-   "reviewReason": "CH author copy p.4: conjugate negative reversal together with nonnegativity forces zero weights. Dominant integral weights, including negative entries, give the intended condition. This overlaps EAG20-7 and retains its separate provenance."
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "CH author copy p.4, as for EAG20-7: non-negativity of both tuples together with the reversed-negative relation forces zero weights."
+  },
+  {
+   "id": "AutomorphicGaloisRepresentationsPartII/EAG27-1",
+   "kind": "misprint",
+   "locator": "Identified author copy, §4, Theorem 4.2(c)–(d) and its proof, p.13",
+   "printed": "In the section on totally real fields, parts (c) and (d) speak of a prime of K and of GL(n, K_v), and the proof deduces the theorem from a Theorem 3.2.5.",
+   "correction": "Parts (c) and (d) concern finite primes v of the totally real field F and the groups GL(n, F_v). The deduction is from Theorem 3.2.3, by the argument of CHT Proposition 4.3.1; Proposition 3.2.5 is the coefficient-field statement invoked in the next sentence.",
+   "reason": "Section 4 treats cuspidal Π on GL(n, A_F) for totally real F under Hypotheses 4.1, so Π_v is a representation of GL(n, F_v); the CM field K of §§1–3 does not occur in the statement, and part (a′) is correctly stated for primes of F. The paper has a Theorem 3.2.3 (existence) and a Proposition 3.2.5 (field of definition) but no Theorem 3.2.5.",
+   "affects": "nothing",
+   "known": "new in the identified version; no correction located",
+   "searched": [
+    "The author copy at the recorded URL, which carries no appended corrections (read 2026-10-16)",
+    "Michael Harris home page, 2026-10-16: no erratum link for this paper found",
+    "The searches recorded for EAG20-4 and EAG20-7 (Harris publication list and annotated errata, Chenevier publication list) found no correction to this paper"
+   ],
+   "owner": "AutomorphicGaloisRepresentationsPartII",
+   "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
+   "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII~2",
+   "reviewReason": "Found and checked by this review on p.13 of the identified author copy; the totally real setting of §4 and the absence of a Theorem 3.2.5 settle both slips."
   },
   {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
@@ -207593,8 +207614,8 @@
    "kind": "gap",
    "locator": "Proposition 2.5 and the paragraph after it, physical p.14 (arXiv v2)",
    "printed": "The proposition asserts the lattice-point estimate for images R′ = uR of a bounded semialgebraic multiset under triangular unipotent u, with the error measured by projection volumes of R rather than of R′, and says Davenport's proof adapts without significant change.",
-   "correction": "Davenport's slicing argument applied to R′ produces projection volumes of R′, which can be much larger than those of R (a shear stretches the first-coordinate projection). The estimate as stated holds, but needs a reorganised induction: fibre along the coordinate sheared by the others, so each fibre of uR is a translate of a fibre of R, and count the main term through the superlevel sets of the fibre-length function; the error terms then integrate to projection volumes of R (unipotent-davenport-transfer). The superlevel sets need the interval condition uniformly, which holds for semialgebraic R (semialgebraic-interval-condition).",
-   "reason": "For R = [0, ε] × [0, T] and u(x, y) = (x + ay, y) the projection of R′ to the first axis has length ε + aT, unbounded in a, while the count of R′ ∩ ℤ² stays ≤ 2(⌊T⌋ + 1); so the statement is true but does not follow from Davenport's lemma applied to R′.",
+   "correction": "The shear example only rules out substituting projection volumes of uR for those of R in a naive argument. It does not establish a source erratum. The atlas now proves the asserted estimate by applying Barroero–Widmer Theorem 1.3 to u⁻¹ℤⁿ: the last nonzero integral coordinate proves that every successive minimum is at least one. The rejected fibre-volume induction is removed.",
+   "reason": "A shear can enlarge a coordinate projection arbitrarily while u⁻¹ℤⁿ still has shortest Euclidean vector length at least one. This explains why the lattice-uniform theorem gives the original projection-volume bound.",
    "affects": "the proof",
    "known": "new",
    "searched": [
