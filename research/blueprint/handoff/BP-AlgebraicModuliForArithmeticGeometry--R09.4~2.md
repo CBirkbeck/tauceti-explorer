@@ -1,248 +1,145 @@
 # Blocked checkpoint: BP-AlgebraicModuliForArithmeticGeometry--R09.4~2
 
-Latest continuation: **Codex (GPT-6), codex-FHZIvJ**, 16 October 2026,
-issue [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
-**The revision remains unfinished; no mathematical correction is claimed.**
-
-## Current blocker and evidence
+**Codex (GPT-6), session codex-3yGI2W, 16 October 2026.** Issue
+[#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
+**The revision is unfinished. No mathematical correction is claimed.**
 
 The bot confirmed this session's claim in
-[comment 6223868837](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6223868837),
-responding to [claim 6223865876](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6223865876).
-This was the first eligible available issue in the manager's list. No second
-job was claimed.
+[comment 6224491684](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224491684),
+responding to [claim 6224489184](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224489184).
+This was the first eligible available issue in the manager's ordered list.
+No second job was claimed.
 
-The [maintainer's instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6146996689)
-still stops further atlas blueprint rounds and makes the upstream README
-authoritative. Rechecked upstream [PR #853](https://github.com/TauCetiProject/TauCetiRoadmap/pull/853):
-it is **open**, now at **ceba5c798ace9c7aaa13b4f1732828187c904ce5**, superseding
-the head inspected by both previous checkpoints. Its current
-[Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/ceba5c798ace9c7aaa13b4f1732828187c904ce5/TauCetiRoadmap/AlgebraicModuliForArithmeticGeometry/README.md#scope-and-ownership)
-still excludes generalized elliptic and polarized abelian applications.
-The changed head therefore does not remove the blocker. The broad list of
-other roadmaps there is an ownership boundary, not proof that all integral
-moduli targets have exact supplier contracts; retain the preceding
-checkpoint's more precise supplier limitations below.
+## Blocker and required disposition
 
-PROTOCOL section 15 counts open Tau Ceti roadmap PRs as existing work.
-Continuing this superseded atlas assignment would duplicate that work, and
-editing upstream is outside this issue's deliverable paths. The required
-next action remains a maintainer retirement or rescoping of this assignment,
-or explicit authorization of historical corrections with the current
-ownership reconciled. Availability and checkpoint intake have not supplied
-that disposition. Do not interpret this checkpoint as permission to resume
-the old arithmetic development.
+The maintainer's [13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6146996689)
+stops further atlas blueprint rounds for this roadmap and directs changes to
+the authoritative upstream pull request. Re-read the complete issue discussion
+and that comment directly; no subsequent comment rescinds it. The checkpoint
+merges [#9968](https://github.com/CBirkbeck/tauceti-explorer/pull/9968),
+[#10015](https://github.com/CBirkbeck/tauceti-explorer/pull/10015) and
+[#10058](https://github.com/CBirkbeck/tauceti-explorer/pull/10058) released the
+issue without resolving that instruction.
 
-## Changes and validation in this continuation
+Rechecked upstream PRs and fetched the README at each immutable head below.
+All three PRs remain open. The main roadmap's head is unchanged from the
+preceding checkpoint; both supplier heads have advanced, retaining these
+ownership boundaries:
 
-Only the first coverage `remaining` entry and this handoff change. The packet
-and R09.4 coverage remain **partial**. All 33 nodes (10 constructions,
-3 definitions, 20 theorems), 68 API items, 43 definition/construction tests,
-one planet, 12 pinned baseline declarations, 14 gaps, 21 requests and the
-independent `needs_changes` review are preserved. Reader and suggested Lean
-file are unchanged. The eight corrections in the independent review remain
-outstanding; no source proof or inherited supplier was recertified.
-
-Read the worker rules, protocols, full issue and comments, independent
-review, previous checkpoint, reviewed R09.4 library audit, the current
-upstream README's introduction and ownership boundary, and the read-only
-ModularCurves and StableReduction introductions. Read-only upstream main
-remains `0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti remains
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; neither tree was modified or built.
-No mathematical source or private reference was newly certified, and no
-source passage is copied into this submission.
-
-The packet checker passes with **0 errors and 0 warnings**. Structural
-comparison confirms that the first coverage obligation is the packet's only
-changed value; permitted-file and whitespace checks pass. **Lean was not
-compiled in this continuation:** its file is unchanged and mathematical work
-is stopped by the upstream-only instruction. The earlier review's pinned
-elaboration report remains historical evidence. No scratch file is needed
-to resume after disposition.
-
-## Previous checkpoint and mathematical resume worklist
-
-The following previous handoff is retained as historical context; its
-upstream PR #853 head is superseded by the one above.
-
-Issue [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
-Latest continuation: **Codex (GPT-6)**, session **codex-Efn3Di**, 16 October
-2026. Previous checkpoint: session **codex-K4T4aK**, [PR
-#9968](https://github.com/CBirkbeck/tauceti-explorer/pull/9968).
-**This revision is unfinished. No mathematical correction is claimed.**
-
-## Current continuation and corrected ownership map
-
-The bot confirmed session codex-Efn3Di's claim in
-[comment 6218851034](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6218851034),
-responding to [claim comment
-6218848298](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6218848298).
-The manager's first eligible available issue was still #9301. No second job
-was claimed. The previous checkpoint's merge explicitly made the job
-available again; it did not resolve the maintainer's upstream-only instruction.
-
-Rechecked the instruction and the upstream pull requests directly. PR #853
-is still open at the same head recorded below. Two current supplier READMEs
-show that the old checkpoint's broad assignment of all arithmetic targets to
-two owners is insufficient:
-
-| Current source, pinned to the inspected head | Boundary that a resumed assignment must respect |
+| Upstream README inspected | Relevant ownership boundary |
 | --- | --- |
-| [AlgebraicModuliForArithmeticGeometry #853, Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c/TauCetiRoadmap/AlgebraicModuliForArithmeticGeometry/README.md#scope-and-ownership) | Generalized elliptic applications and polarized abelian applications are outside its scope. Its generic representability and gerbe targets do not authorize another arithmetic moduli development here. |
-| [ModularCurvesPartII #913, Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/139737f36f595d55e3276e952795775255eee643/TauCetiRoadmap/ModularCurvesPartII/README.md#scope-and-ownership), Layer 2 and its AdicSpacesPartIII supplier contract | The generalized elliptic carrier, standard polygons, Tate family and fine compactified moduli on the stated representable range are imported from AdicSpacesPartIII R2.11. ModularCurvesPartII supplies their integral stack applications and polygon operations. The distinction applies already to `arith-standard-ngon` and `arith-generalized-elliptic`, not only to the final stack theorems. |
-| [AbelianSchemesAndArithmeticModuli #849, Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/7d89041bb709cb2cdb1935f9f1ad23d9c913751f/TauCetiRoadmap/AbelianSchemesAndArithmeticModuli/README.md#scope-and-ownership), A0–A3 and A6 | This roadmap owns the relative abelian carrier, duality, polarizations, graph bundle, ample cohomology, full levels and polarized automorphism rigidity. It expressly excludes the polarized moduli stacks, their level covers and compactifications, directing those to PELModuli, ShimuraVarieties and ShimuraCompactifications. Its reference to ShimuraVarieties §5.0 is expressly a characteristic-zero interface; it does not by itself supply all the integral `A_{g,d}` targets in this packet. |
+| [AlgebraicModuliForArithmeticGeometry #853, ceba5c798ace9c7aaa13b4f1732828187c904ce5, Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/ceba5c798ace9c7aaa13b4f1732828187c904ce5/TauCetiRoadmap/AlgebraicModuliForArithmeticGeometry/README.md#scope-and-ownership) | This roadmap excludes the generalized elliptic and polarized abelian applications assigned to the historical R09.4 packet. Its generic representability and gerbe theory does not authorize continuing those applications here. |
+| [ModularCurvesPartII #913, 0cfa5c512482c8155e5b9ed1bb711cb152bf6198, Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0cfa5c512482c8155e5b9ed1bb711cb152bf6198/TauCetiRoadmap/ModularCurvesPartII/README.md#scope-and-ownership) | AdicSpacesPartIII R2.11 supplies the generalized elliptic carrier, standard polygons, Tate family and fine compactified moduli on its stated representable range. ModularCurvesPartII supplies integral stack applications, contractions and bad-characteristic level structures. The carrier and its stack applications have distinct existing owners. |
+| [AbelianSchemesAndArithmeticModuli #849, abd7847d2c511273d97a075e563de6608ec5a0f9, Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/abd7847d2c511273d97a075e563de6608ec5a0f9/TauCetiRoadmap/AbelianSchemesAndArithmeticModuli/README.md#scope-and-ownership) | This roadmap owns relative abelian schemes, duality, polarizations, graph bundles, ample cohomology, full levels and polarized automorphisms. It excludes polarized moduli stacks, their level covers and compactifications, directing those to PELModuli, ShimuraVarieties and ShimuraCompactifications. Its characteristic-zero ShimuraVarieties reference does not establish an exact supplier for every integral stack target in the packet. |
 
-These are verified ownership statements in existing roadmap documents, not
-proofs of the mathematical targets. In particular #849 A2.4 now explicitly
-names ample cohomology, Riemann–Roch and the degree-square formula. A resumed
-job must compare that export with G-field-ample before requesting another
-copy of the theory. This continuation does not discharge that proof gap or
-assert that the full integral stack has an audited supplier.
+These are verified roadmap ownership statements, not proofs or implementation
+claims. In particular, the upstream list of other roadmaps is insufficient
+to discharge all historical supplier obligations. PROTOCOL section 15 treats
+open Tau Ceti roadmap PRs as existing work. Continuing the old arithmetic
+assignment would contradict both its ownership rule and the maintainer's
+instruction. Editing those authoritative upstream files is outside this
+issue's deliverable paths.
 
-The read-only upstream main inspected in this run is
-`0d144d044dacebca17b654695b6f1ad58f159b27`; the current Tau Ceti source tree is
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the ModularCurves and
-StableReduction introductions and boundaries and the existing field-valued
-AbelianVariety carrier. No environment was built or modified. The upstream
-PRs are separate existing work, not additions to the packet's pinned
-formalization baseline.
+**Next action:** the maintainer must retire or rescope this obsolete atlas
+assignment, or explicitly authorize historical corrections with the current
+upstream ownership reconciled. An available label or another merged checkpoint
+does not establish that disposition. Workers may not change the queue, labels,
+other packets or upstream roadmap files to resolve it themselves.
 
-Only the first coverage `remaining` entry and this handoff change in this
-continuation. The packet was already partial. Every other packet field,
-including its independent review, is preserved exactly; the reader and
-suggested file are untouched. The numerical frontier below is unchanged.
-The eight reader corrections below remain outstanding. No source proof or
-pinned baseline citation was newly certified.
+## Changes and preserved frontier
 
-**Required disposition:** retire or rescope the obsolete atlas assignment,
-or explicitly authorize a historical correction with the upstream ownership
-boundary reconciled. WORKERS.md forbids workers to change labels or the
-queue; this continuation cannot prevent checkpoint intake from releasing
-the same issue again. An available label or another merged checkpoint is
-not that disposition. Changes to the authoritative roadmap belong to its
-upstream PR, outside this job's permitted files.
-
-Current validation: the packet checker reports **0 errors and 0 warnings**;
-the permitted-file and whitespace checks pass. Structural comparison with
-the input confirms that only the ownership blocker changes in the packet.
-**Lean was not compiled in this continuation**: the file is unchanged and
-the assignment remains blocked before mathematical revision. No new source
-error is asserted, no private reference was used and no scratch file is
-needed to resume. The previous checkpoint's evidence and mathematical
-worklist follow for continuity.
-
-## Blocking instruction and current ownership
-
-In the previous checkpoint, the issue had `state:available` and was the first
-eligible issue in the manager's ordered list. The bot confirmed that session's claim in its
-[reply](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6214958170)
-to claim comment 6214955858. No other issue was claimed.
-
-The issue also contains a [maintainer instruction dated 13 October
-2026](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6146996689)
-that stops further blueprint rounds for this roadmap: the upstream pull
-request's README is authoritative and changes belong there. The available
-label therefore disagrees with the maintainer's explicit disposition.
-
-Checked [TauCetiProject/TauCetiRoadmap PR
-#853](https://github.com/TauCetiProject/TauCetiRoadmap/pull/853), which is still
-open, at head **6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c**. The authoritative
-[README, Scope and
-ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c/TauCetiRoadmap/AlgebraicModuliForArithmeticGeometry/README.md#scope-and-ownership)
-assigns generalized elliptic curves and their levels to
-**ModularCurvesPartII**, and polarized abelian schemes, their moduli and the
-abelian instances of level rigidity to
-**AbelianSchemesAndArithmeticModuli**. Those are precisely the arithmetic
-applications retained in this packet. Continuing the old assignment would
-conflict with both the maintainer's instruction and PROTOCOL section 15.
-The current continuation above refines this broad source/consumer map using
-the suppliers' own explicit boundaries.
-
-This checkpoint records that conflict for disposition. It does not modify an
-upstream roadmap, propose a competing arithmetic owner or treat the
-upstream README as proof that a theorem has been formalized.
-
-## Changes and retained frontier
-
-Only the packet's administrative status and its sole coverage record change.
-The revision has `status: partial`; **AlgebraicModuliForArithmeticGeometry:R09.4**
-has coverage **partial**, with the exact ownership blocker prepended to
-`remaining`. Its historical target-level plan remains intact, but the
-unfinished revision is not advertised as complete by the intake.
-
-All 33 node IDs, statements, sources, source findings, proof sketches, APIs,
-tests, supplier requests and the independent `needs_changes` review are
-preserved. The reader and suggested Lean file are unchanged. No mathematical
-target is closed or added. The retained inventory is:
+Only the first coverage `remaining` entry and this handoff change. The coverage
+entry records this session's verification and the two updated supplier heads.
+The packet and its sole stage, **AlgebraicModuliForArithmeticGeometry:R09.4**,
+remain **partial**. The independent review remains **needs_changes**.
+Every mathematical packet field, node ID and source finding is preserved;
+the reader and suggested Lean file are unchanged.
 
 | Item | Count |
 | --- | ---: |
+| Nodes | 33 |
 | Constructions | 10 |
 | Definitions | 3 |
 | Theorems | 20 |
 | API items | 68 |
 | Definition/construction unit tests | 43 |
-| Planets | 1 |
-| Pinned baseline declarations cited | 12 |
+| Planets in this packet | 1 |
+| Pinned baseline declarations | 12 |
 | Mathematical gaps | 14 |
 | Supplier requests | 21 |
 
-The accepted A0-extension packet, its gerbe frontier and all other packets
-remain untouched. No source proof, baseline declaration or inherited
-ownership rewiring was independently recertified in this run.
+The accepted A0-extension packet and its gerbe frontier remain untouched.
+Neither its proofs nor this packet's inherited baseline citations were
+recertified in this continuation.
 
-## Resume only after disposition
+## Mathematical resume worklist after disposition
 
-The next action is a maintainer decision to retire or rescope this obsolete
-atlas assignment, or explicitly authorize a historical reader correction
-consistent with the authoritative upstream ownership. Do not infer such a
-decision from the available label or from a checkpoint being merged. No
-worker should resume the old arithmetic planning solely from this handoff.
+The eight corrections in [the independent review](../reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.4.md)
+remain outstanding. They are historical correction targets, conditional on
+resolving the ownership conflict above:
 
-If a historical correction is authorized, first reconcile the packet's
-ownership with the current upstream READMEs, then follow the eight items in
-[the independent review](../reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.4.md):
+1. In `arith-standard-ngon`, synchronize arbitrary-ring smooth points with
+   units times locally constant spectrum labels. Include the four-point
+   control over F₂ × F₂ for n = 2, and distinguish connected-base labels.
+2. Use the cyclic coequalizer and étale-local node charts, retaining both
+   normalization flags and the irreducible-one-gon control; the split crossing
+   is not a Zariski neighborhood of that node.
+3. In `arith-contraction`, require Deligne–Rapoport semistability, including
+   trivial relative dualizing bundle on the geometric genus-one fibres.
+   Include the elliptic-core/rational-tail counterexample and synchronize
+   the supplier request, theorem and bare-divisor example.
+4. In `arith-elliptic-proper`, include singular generic polygons: after a
+   finite extension split the polygon and extend it as a constant polygon.
+   Keep the smooth-generic prescribed-component model obligation explicit.
+5. In `arith-relative-dual`, use A0-extension's `relative-picard-sheaf`,
+   `relative-picard-base-change` and `section-rigidified-picard`, rather than
+   the nonexistent R09.1 Picard target. Keep arbitrary-base representability,
+   Poincaré universality, biduality and base change separate from field results.
+6. In `arith-local-ample-representatives`, distinguish the field square-root
+   torsor from extending a chosen representative on an étale neighborhood.
+   Preserve the exact approximation, compatible lifting and effectivity input.
+7. Reconcile the field ample-cohomology, Riemann–Roch, degree-square and cubic
+   very-ampleness obligations with the current existing owner. The historical
+   JacobianChallenge reference did not state the required exports; #849 A2.4
+   now expressly plans ample cohomology, Riemann–Roch and the degree formula.
+   Check the exact supplier statements before replacing requests or gaps.
+8. Synchronize source locators, source versions, the ledger of 14 gaps and
+   21 requests, ownership, and validation statements throughout all files.
 
-1. Correct arbitrary-ring polygon points to units and locally constant
-   component labels, including the disconnected-base control.
-2. Use the cyclic coequalizer construction and etale-local node charts,
-   including the irreducible one-gon control.
-3. Restrict positive-divisor contraction to Deligne--Rapoport semistable
-   genus-one families, including the rational-tail counterexample.
-4. Include singular generic polygons in the properness argument.
-5. Replace the nonexistent R09.1 Picard supplier by the three exact
-   A0-extension nodes already named in the reviewed packet; distinguish
-   their output from the open relative-dual theorem.
-6. Separate the field square-root torsor from the approximation/effectivity
-   needed to extend a chosen polarization representative.
-7. Preserve the explicit missing field ample-cohomology, degree and very
-   ampleness exports rather than crediting them to an insufficient supplier.
-8. Synchronize the corrected source locators, source versions, supplier
-   ledger, current-upstream boundary and validation statements.
+The review gives the exact statements, counterexamples, locators and node
+verdicts. It did not require closing all fourteen openly recorded mathematical
+gaps before synchronizing the reader. Its verification belongs to its author.
 
-The review report supplies the exact node suffixes, counterexamples and
-locators. It does not require closing all fourteen honest mathematical gaps
-as a condition of its reader correction. Its source-verification claims
-belong to the reviewing session, not this checkpoint. The confirmed
-RT-AREA-algebraicgeometry/1 and /17 ownership findings remain unchanged and
-must be reconciled against the current upstream owners when the maintainer
-disposes of this job.
+The confirmed RT-AREA-algebraicgeometry/1 and /17 findings remain unchanged.
+Reconcile their single-owner stack and stable-pointed-moduli interfaces against
+current upstream ownership before composing suppliers. In particular, the
+historical StableReductionPartII references to generic R09.4 must be rewired
+to the generic stack owner, and R09.5's requested finite surjective scheme
+cover carries the pulled-back universal family without asserting étaleness
+at wild primes. This checkpoint edits none of those suppliers.
 
-## Validation and source boundary
+## Evidence and validation
 
-Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the full issue and its
-comments, the independent review, the previous handoff, packet status and
-inventory, and the upstream PR's current introduction and ownership section.
-No mathematical source was newly read or copied. No private book, PDF,
-extracted source text or machine-specific path enters this checkpoint.
+Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the complete issue and
+comments, the independent review, prior handoff, packet status and inventory,
+and the reviewed R09.4 entry in `data/library-coverage.json`. Read the current
+upstream READMEs' introductions and ownership sections above, and the read-only
+main ModularCurves and StableReduction introductions, conventions and boundaries.
+The inspected upstream main is `0d144d044dacebca17b654695b6f1ad58f159b27`;
+the current Tau Ceti source tree is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Neither tree was modified or built. No mathematical source proof or private
+reference was newly certified, and no source passage is copied here.
 
-`python3 scripts/check_blueprint.py
-research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.4.json`
-passes with **0 errors and 0 warnings** after the administrative changes.
-The permitted-file and whitespace checks also pass.
+The three fetched README SHA-256 digests are, respectively:
 
-**Lean was not compiled in this run:** its file is unchanged and the
-assignment is blocked before mathematical work. The 9 October independent
-review reports successful pinned elaboration with only admission warnings;
-this run makes no new elaboration claim. No library build or language server
-was started. The checkpoint needs no scratch files after submission.
+- AlgebraicModuliForArithmeticGeometry: `b4a7ca317a09dac2fd62fa702c2c58fed7602069472ba6b58b3ff08adf0651a9`.
+- ModularCurvesPartII: `6f98748841c20ca0c898849b3293adf8f08650f5c44384671811c41737012c9b`.
+- AbelianSchemesAndArithmeticModuli: `dc4a3d5d305fb7c0df8d7e0ea21357457c53397d0e62e664af4ffa4eabec97b2`.
+
+The packet checker reports **0 errors and 0 warnings**. Structural comparison
+confirms the first coverage obligation is the packet's only changed value;
+reader and Lean hashes are unchanged. Allowed-deliverable and whitespace checks
+pass. **Lean was not compiled in this continuation:** its file is unchanged
+and the assignment is stopped before mathematical revision. The earlier
+review's pinned elaboration result remains historical evidence only.
+No scratch artifact is needed after submission.
