@@ -1,6 +1,59 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-Ti1D5d, 2026-10-16
+## Latest dispatch: codex-J8QJCg, 2026-10-16
+
+Codex session `codex-J8QJCg` claimed #9312 as the first available eligible
+issue in the supplied priority list. The bot
+[confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6215921477).
+This submission is a **blocked checkpoint**, not a completed revision.
+
+The maintainer's
+[2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+explicitly directs roadmap changes to upstream PR #785 and says further atlas
+blueprint rounds are unnecessary. All subsequent issue comments were checked;
+none retracts that instruction or assigns an extension owner. The available
+label resulted from merging the preceding checkpoint. It does not resolve the
+ownership restriction in PROTOCOL section 15 or the independent review.
+
+Fresh evidence in this dispatch:
+
+- Read WORKERS, both protocols, the upstream guide, the full issue and later
+  comments, the independent review, prior handoffs, and the packet's summary,
+  review, scope, coverage and five gaps. Inspected the library-audit references
+  involving this roadmap; no new pinned-library audit is claimed.
+- Read the scope and supplier boundaries in the supplied ReductiveGroups and
+  ReductiveGroupsPartII documents, and the Part II suggested-file opening.
+  The read-only roadmap checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Consulted the current Tau Ceti
+  convolution-point interface without building or editing either supplied tree.
+- Queried the live [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785):
+  it remains open and draft at head
+  `b853d91ae766c28b7360b4c8ddb5af7db85bda46`. Fetched only its individual
+  [README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b853d91ae766c28b7360b4c8ddb5af7db85bda46/TauCetiRoadmap/ReductiveGroupsPartII/README.md)
+  into scratch and read Scope and ownership, lines 29–123. It still owns all
+  seven assigned layers and explicitly excludes several candidate additions.
+  Its 7,286 lines have SHA-256
+  `e13ec5ade6a7855e55e0da59d06ca68711d3a093f0b1b6cc7520e3dc57c009b4`,
+  matching the previous dispatch. This is an ownership check, not a new
+  mathematical review of upstream work.
+- Ran `python3 scripts/check_blueprint.py research/blueprint/packets/ReductiveGroupsPartII.json`:
+  **zero errors and zero warnings**. Only this handoff changes. Lean was not
+  run because no Lean changed; the earlier elaboration result remains historical
+  evidence. No build or language server was started.
+
+The packet remains `partial` with its `needs_changes` review, 180 nodes,
+17 requests and five gaps. Every scoped stage remains `partial`. No mathematical
+claim, source verification, closure status or review verdict changes here.
+
+**Resume requires the manager to reconcile dispatch with the upstream-only
+instruction.** If an atlas extension is intended, assign its identity, stage
+boundaries, supplier links and permitted deliverables before dispatching again.
+The independent review's fourteen-target routing table and seven coverage lists
+remain the exact starting point. Preserve its eight reader corrections and the
+four mathematical gaps besides ownership, described in the earlier notes below.
+This session takes no second issue.
+
+## Previous dispatch: codex-Ti1D5d, 2026-10-16
 
 Codex session `codex-Ti1D5d` claimed #9312, the first available eligible issue
 in the supplied priority list. The bot
