@@ -49672,8 +49672,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EffectiveDiophantineMethods.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10086"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10086",
+   "finishedAt": "2026-10-16T23:39:30Z"
   },
   {
    "id": "REV-PKG-EffectiveDiophantineMethods",
@@ -130952,8 +130953,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-HigherHidaAndColemanTheory.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-HigherHidaAndColemanTheory.md",
+   "note": "claimed on GitHub issue #10100"
   }
  ]
 }
