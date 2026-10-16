@@ -22377,7 +22377,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9916",
+   "finishedAt": "2026-10-16T11:59:58Z"
   },
   {
    "id": "BP-ArakelovGeometryAndAbelianHeights",
@@ -22887,11 +22889,12 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "claimed on GitHub issue #9924"
+   "note": "deliverables arrived from an external worker on issue #9924",
+   "finishedAt": "2026-10-16T12:00:02Z"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII",
@@ -23267,9 +23270,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9930"
+   "note": "deliverables arrived from an external worker on issue #9930",
+   "finishedAt": "2026-10-16T12:00:04Z"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.6",
@@ -23693,9 +23697,10 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9918"
+   "note": "deliverables arrived from an external worker on issue #9918",
+   "finishedAt": "2026-10-16T12:00:05Z"
   },
   {
    "id": "REV-DeligneWeightsAndPurity",
@@ -23825,7 +23830,8 @@
    ],
    "avoidAccountOf": "BP-DiamondEtaleCohomology",
    "prompt": "research/blueprint/prompts/REV-DiamondEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9921"
   },
   {
    "id": "BP-DiamondSixOperations",
@@ -24488,9 +24494,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9913"
+   "note": "deliverables arrived from an external worker on issue #9913",
+   "finishedAt": "2026-10-16T12:00:07Z"
   },
   {
    "id": "REV-EnhancedDerivedSheaves",
@@ -25233,11 +25240,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra"
    ],
-   "note": "claimed on GitHub issue #9926"
+   "note": "deliverables arrived from an external worker on issue #9926",
+   "finishedAt": "2026-10-16T12:00:09Z"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.6",
@@ -28628,7 +28636,9 @@
    ],
    "avoidAccountOf": "BP-SmoothRepresentationsOfLocalGroups",
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9909",
+   "finishedAt": "2026-10-16T12:00:11Z"
   },
   {
    "id": "BP-SpecialValuesBirchTate",
@@ -33726,7 +33736,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9914",
+   "finishedAt": "2026-10-16T12:00:14Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
@@ -33772,7 +33784,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9915",
+   "finishedAt": "2026-10-16T12:00:18Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--G7",
@@ -34179,8 +34193,9 @@
    ],
    "followUpOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9928"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9928",
+   "finishedAt": "2026-10-16T12:00:22Z"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.4",
@@ -34224,8 +34239,9 @@
    ],
    "followUpOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9929"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9929",
+   "finishedAt": "2026-10-16T12:00:24Z"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.5",
@@ -38683,7 +38699,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -43716,7 +43733,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.1",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9300"
   },
   {
    "priority": 2,
@@ -43765,7 +43783,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9301"
   },
   {
    "priority": 2,
@@ -47695,8 +47714,9 @@
     "PKG-AutomorphicBundles~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9883"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9883",
+   "finishedAt": "2026-10-16T12:00:26Z"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -48629,8 +48649,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CompletedCohomologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9922"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9922",
+   "finishedAt": "2026-10-16T12:00:30Z"
   },
   {
    "id": "REV-PKG-CompletedCohomologyPartII",
@@ -53773,8 +53794,8 @@
     "PKG-PotentialModularityAndCompatibleSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9232"
+   "state": "external",
+   "note": "claimed on GitHub issue #9232"
   },
   {
    "id": "PKG-PrismaticCohomology",
@@ -129402,8 +129423,8 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra~2.md",
-   "state": "pending",
-   "note": "superseded by the whole-roadmap blueprint BP-DeformationAndDerivedPatchingAlgebra (#9405, reviewed in #9373): the legacy P7/R03.x part assembly would overwrite the reviewed whole-roadmap reader; maintainer decision 2026-10-14"
+   "state": "external",
+   "note": "claimed on GitHub issue #9942"
   },
   {
    "id": "PKG-HeightsRationalPointsAndObstructions~codex",
@@ -129421,8 +129442,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~codex.md",
+   "note": "claimed on GitHub issue #9943"
   }
  ]
 }
