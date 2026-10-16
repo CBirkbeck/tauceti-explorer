@@ -1853,7 +1853,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/auslander-buchsbaum",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-finite-pd",
         "SchemeAndStackFoundations:SF.0/depth",
-        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-algebra-completion-product",
         "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-domain",
         "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-free",
@@ -2102,7 +2102,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-tensor-depth",
-        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion",
         "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
         "mathlib:AdicCompletion.flat_of_isNoetherian",
         "mathlib:AdicCompletion.residueField_map_bijective"
@@ -2414,7 +2415,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal-faithfully-flat",
         "SchemeAndStackFoundations:SF.0/cohen-structure",
         "DeformationAndDerivedPatchingAlgebra:R03.1",
-        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion",
         "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
       ],
       "sources": [
@@ -2455,7 +2457,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/complete-presentation-independence",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal-faithfully-flat",
         "DeformationAndDerivedPatchingAlgebra:R03.3/complete-intersection-local",
-        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion",
         "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
       ],
       "sources": [
@@ -2701,7 +2704,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/flat-fibre-regular-lift",
         "DeformationAndDerivedPatchingAlgebra:R03.3/complete-intersection-local",
         "DeformationAndDerivedPatchingAlgebra:R03.1",
-        "DeformationAndDerivedPatchingAlgebra:R03.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion",
         "mathlib:Ideal.height_eq_height_add_of_liesOver_of_hasGoingDown",
         "DeformationAndDerivedPatchingAlgebra:R03.3/ci-conormal-criterion"
       ],
@@ -2743,7 +2747,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-ci",
         "DeformationAndDerivedPatchingAlgebra:R03.3/ci-regular-quotient",
         "mathlib:RingTheory.Sequence.IsWeaklyRegular.isRegular_of_isLocalization_of_mem",
-        "DeformationAndDerivedPatchingAlgebra:R03.2"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion"
       ],
       "sources": [
         {
@@ -2822,7 +2827,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay",
         "SchemeAndStackFoundations:SF.0/cohen-macaulay",
         "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-cm",
-        "DeformationAndDerivedPatchingAlgebra:R03.2"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion"
       ],
       "sources": [
         {
@@ -3103,8 +3109,8 @@
       ]
     },
     {
-      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.2",
-      "need": "Noetherianity of the native local completion; natural ring identification R̂/I R̂≅completion(R/I); extension of a local map to completions and preservation of flatness; finite-algebra completion decomposes into the finite product of completions at primes over a fixed maximal ideal, compatibly for finite modules. Native finite-module completion/tensor comparison, flatness and residue-field comparison are already baseline and must be reused.",
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "need": "The exact R03.1/completion-noetherian, R03.1/finite-ideal-quotient-after-completion and R03.1/finite-algebra-completion-product contracts now supply Noetherianity, ideal-quotient comparison and finite-algebra decomposition, subject to their existing gaps. Remaining interface: extend an arbitrary local map to maximal-adic completions, preserve locality and flatness, and identify the closed fibre with the completion of the original closed fibre in the required regular-source squares. Do not infer this map-level theorem from flatness of a single completion or from the finite-module tensor comparison.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/completion-depth",
         "DeformationAndDerivedPatchingAlgebra:R03.3/kisin-projective-module",
@@ -3152,7 +3158,7 @@
       "detail": "At lemma level, prove Stacks10.58.10: for d>0 a nonzero homogeneous relation in κ[X₁,…,X_d] forces eventual degree-piece growth strictly smaller than degree d−1 (including the eventual-zero d=1 case). Use injective multiplication by that relation and exact piece dimensions, with the P7 native grading; handle d=0 separately. This combines with the inherited Hilbert–Samuel degree/dimension gap, not with an assumed CM or domain theorem."
     },
     {
-      "title": "Supplier contracts not yet closed",
+      "title": "Imported depth and independent maximal-depth freeness",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-generators-iff-dimension-drop",
         "DeformationAndDerivedPatchingAlgebra:R03.3/cm-parameter-element",
@@ -3172,7 +3178,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-cm",
         "DeformationAndDerivedPatchingAlgebra:R03.3/ci-cohen-macaulay"
       ],
-      "detail": "SF.0 depth, CM, Cohen structure and the induction proof of maximal-depth freeness are imported mathematical contracts. SF.0 currently has needs_changes review; its statement-level imports are not completed implementations. In particular the depth Ext comparison, CM localization and regular-parameter inputs must survive its independent repair. The accepted P7 maximal-depth-free node uses bundled AB, so this packet uses SF.0’s induction proof to avoid an AB/finite-pd cycle. Assembly should redirect the P7 consumer to the noncircular supplier."
+      "detail": "Use SF.0/depth, its CM and regular-parameter interfaces, and SF.0/free-maximal-depth-regular-local. The latter must have its independent parameter-induction proof; neither it nor regular-local finite projective dimension can be deduced circularly from Auslander–Buchsbaum. The P7 maximal-depth consumer now names this independent supplier. The imported statements remain mathematical contracts, not claims of implementation."
     },
     {
       "title": "Inherited graded-module and numerical-polynomial induction",
@@ -3212,6 +3218,23 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/ci-localization"
       ],
       "detail": "For a Noetherian regular local R and prime p, prove that the native Localization.AtPrime p is regular local (Stacks10.110.6, tag0AFS, p.267). The current ModularCurves4D README explicitly owns completion regularity and dimension invariance, but does not explicitly state this general ring localization theorem; its scheme-level regularity definition alone is not its proof. A route is localization of finite projective resolutions and the finite-residue-pd characterization of regularity (Stacks10.110.3–10.110.5); the converse characterization and its comparison with the native regular-local class still need a contract. Do not treat them as consequences of AB alone or as already supplied by upstream4D."
+    },
+    {
+      "title": "Completion maps and flat regular-source squares",
+      "detail": "The R03.1 completion objects, quotient comparison and finite-algebra product are exact suppliers. An arbitrary local map still needs a natural local completed map, flatness preservation and its closed-fibre comparison. These are not consequences of the R03.2 deformation-functor layer; retain this obligation alongside the inseparable Cohen-square request.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/complete-presentation-independence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-ci",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ci-localization"
+      ]
+    },
+    {
+      "title": "Unresolved exact supplier from R03.1",
+      "detail": "No node in the eleven accepted Part I packets supplies the full interface cited by this whole-stage edge. Retain the existing request and its hypotheses; the stage reference is a routing placeholder, not a closure claim. Consumers require: Independence of a regular presentation; Avramov’s flat local CI criterion.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/complete-presentation-independence",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-ci"
+      ]
     }
   ],
   "sourceIssues": [

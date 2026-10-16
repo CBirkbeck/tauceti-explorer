@@ -10,14 +10,27 @@ import Mathlib.RingTheory.Localization.AtPrime.Basic
 import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.Data.Nat.Factorial.Basic
 import TauCeti.Algebra.Module.Injective.Envelope
+import Mathlib.Algebra.Homology.DerivedCategory.Linear
+import Mathlib.Algebra.Homology.DerivedCategory.HomologySequence
+import Mathlib.RingTheory.Finiteness.Cardinality
+import Mathlib.RingTheory.Ideal.Quotient.Index
+import Mathlib.RingTheory.AdicCompletion.LocalRing
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.IntegralClosure.IsIntegralClosure.Basic
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.Order.Filter.Germ.Basic
+import Mathlib.Order.Filter.Ultrafilter.Basic
 
 /-!
 # Deformation and derived patching algebra: suggested end statements
 
 This file is not the roadmap and is not exhaustive. The reader document is
- definitive. These forms suggest names and signatures; they claim no implementation.
+definitive. These forms suggest names and signatures so contributors and reviewers
+converge on an interface; they claim no implementation.
 Heavy coefficient categories, enhancements, dualizing objects and patching-system
-carriers are reader targets. The definitions below have ordinary library carriers
+carriers, Schlessinger hulls and the signed tensor–Hom comparison of P7-2
+are reader targets. So are the full P8 patching and P9 length/support-transport
+statements; the selection and concentration statements here are their native milestones. The definitions below have ordinary library carriers
 and real bodies. Theorems have placeholder proofs. No data is supplied by a placeholder.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
@@ -51,7 +64,8 @@ def traceIdeal : Ideal A :=
 def NearlyFaithful : Prop :=
   ∃ n : ℕ, 0 < n ∧ (Module.annihilator A M) ^ n = ⊥
 
-/-- Extended depth; weak regularity gives infinite depth to the zero module. -/
+/-- Local formula adapter for SF.0 depth, not a second generic depth owner.
+Weak regularity gives infinite depth to the zero module. -/
 def moduleDepth [IsLocalRing A] : ℕ∞ :=
   ⨆ (s : List A) (_ : ∀ a ∈ s, a ∈ maximalIdeal A)
     (_ : RingTheory.Sequence.IsWeaklyRegular M s), (s.length : ℕ∞)
@@ -180,5 +194,134 @@ example : multiplicityCoefficient 3 (0 : Polynomial ℚ) = 0 := by
 example [Subsingleton M] (I : Ideal A) (n : ℕ) :
     hilbertSamuelFunction A M I n = 0 := by
   simp [hilbertSamuelFunction]
+
+-- R03.4: no patching carrier is needed to state these finiteness milestones.
+theorem finite_of_finite_residual_fibre
+    {B : Type w} [IsLocalRing A]
+    [IsAdicComplete (maximalIdeal A) A]
+    [CommRing B] [IsLocalRing B] [IsNoetherianRing B]
+    [Algebra A B] [IsLocalHom (algebraMap A B)]
+    [Module.Finite A (B ⧸ (maximalIdeal A).map (algebraMap A B))] :
+    Module.Finite A B := by
+  sorry
+
+theorem finite_of_faithful_module
+    {S R N : Type*} [CommRing S] [IsNoetherianRing S] [CommRing R]
+    [Algebra S R] [AddCommGroup N] [Module S N] [Module R N]
+    [IsScalarTower S R N] [SMulCommClass R S N]
+    [Module.Finite S N] [FaithfulSMul R N] : Module.Finite S R := by
+  sorry
+
+theorem dimension_ge_one_iff_not_nilpotent
+    {O B : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [CommRing B] [IsLocalRing B] [Algebra O B] [Module.Finite O B]
+    [IsLocalHom (algebraMap O B)] (π : O) (hπ : Irreducible π) :
+    (1 ≤ ringKrullDim B) ↔ ¬ IsNilpotent (algebraMap O B π) := by
+  sorry
+
+-- Characteristic zero gives separability and hence finite normalization over the DVR.
+theorem exists_integral_point_of_not_nilpotent
+    {O K B Ω : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [Field K] [CharZero K] [Algebra O K] [IsFractionRing O K]
+    [Field Ω] [Algebra K Ω] [Algebra O Ω] [IsScalarTower O K Ω] [IsAlgClosed Ω]
+    [CommRing B] [IsLocalRing B] [Algebra O B] [Module.Finite O B]
+    [IsLocalHom (algebraMap O B)] (π : O) (hπ : Irreducible π)
+    (h : ¬ IsNilpotent (algebraMap O B π)) :
+    ∃ E : IntermediateField K Ω, Module.Finite K E ∧
+      (letI : Algebra O E := ((algebraMap K E).comp (algebraMap O K)).toAlgebra;
+       Module.Finite O (integralClosure O E) ∧
+         ∃ f : B →ₐ[O] integralClosure O E, IsLocalHom f.toRingHom) := by
+  sorry
+
+-- R03.5: the square-presentation characterization of balance uses existing linear maps.
+/-- A finite square presentation, allowing a zero number of generators. -/
+def HasSquarePresentation : Prop :=
+  ∃ d : ℕ, ∃ f : (Fin d → A) →ₗ[A] (Fin d → A),
+    ∃ g : (Fin d → A) →ₗ[A] M,
+      Function.Surjective g ∧ LinearMap.range f = LinearMap.ker g
+
+theorem square_presentation_iff_generator_relation_inequality
+    [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M] :
+    HasSquarePresentation A M ↔
+      ∃ d e : ℕ, e ≤ d ∧
+        ∃ f : (Fin e → A) →ₗ[A] (Fin d → A),
+          ∃ g : (Fin d → A) →ₗ[A] M,
+            Function.Surjective g ∧ LinearMap.range f = LinearMap.ker g := by
+  sorry
+
+example : HasSquarePresentation A A := by
+  sorry
+
+example (a : A) : HasSquarePresentation A (A ⧸ Ideal.span {a}) := by
+  sorry
+
+example [Subsingleton M] : HasSquarePresentation A M := by
+  sorry
+
+-- Native finite quotients, used by R03.5 and P8, are already a library theorem.
+example [IsLocalRing A] [IsNoetherianRing A]
+    [Finite (A ⧸ maximalIdeal A)] (n : ℕ) :
+    Finite (A ⧸ (maximalIdeal A) ^ n) := by
+  exact Ideal.finite_quotient_pow (IsNoetherian.noetherian _) n
+
+-- P8: selection is a theorem about existing germ carriers, never a sorry'd equivalence.
+theorem finite_germ_equivalence (F : Ultrafilter ℕ)
+    (B : Type u) [CommRing B] [Finite B] :
+    ∃ e : Filter.Germ (F : Filter ℕ) B ≃+* B,
+      (∀ b : B, e (Filter.Germ.const b) = b) ∧
+      (∀ f : ℕ → B, ∀ᶠ n in (F : Filter ℕ),
+        f n = e (Filter.Germ.ofFun f)) := by
+  sorry
+
+-- P9: native support and a finite-projective representative, with no invented tensor functor.
+open CategoryTheory CategoryTheory.Limits
+open scoped ZeroObject
+attribute [local instance] HasDerivedCategory.standard
+
+abbrev Der (R : Type u) [CommRing R] := DerivedCategory (ModuleCat.{u} R)
+abbrev Cpx (R : Type u) [CommRing R] := CochainComplex (ModuleCat.{u} R) ℤ
+abbrev H {R : Type u} [CommRing R] (i : ℤ) (C : Der R) :=
+  (DerivedCategory.homologyFunctor (ModuleCat R) i).obj C
+
+/-- Support of cohomology; it forgets the derived action and its ghost kernel. -/
+def derivedSupport {R : Type u} [CommRing R] (C : Der R) : Set (PrimeSpectrum R) :=
+  ⋃ i : ℤ, Module.support R (H i C)
+
+/-- A predicate on existing native representatives, not a construction of perfect complexes. -/
+def PerfectInterval {R : Type u} [CommRing R] (C : Der R) (a b : ℤ) : Prop :=
+  ∃ P : Cpx R, (∀ i, i < a ∨ b < i → IsZero (P.X i)) ∧
+    (∀ i, Module.Finite R (P.X i) ∧ Module.Projective R (P.X i)) ∧
+    Nonempty ((DerivedCategory.Q.obj P) ≅ C)
+
+theorem codimension_amplitude_inequality
+    {R : Type u} [CommRing R] [IsRegularLocalRing R]
+    (C : Der R) (n l : ℕ) (a : ℤ)
+    (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
+    (hC : ¬ IsZero C) (hinterval : PerfectInterval C a (a + l)) :
+    ∃ p : PrimeSpectrum R, p ∈ derivedSupport C ∧
+      (n - l : WithBot ℕ∞) ≤ ringKrullDim (R ⧸ p.asIdeal) := by
+  sorry
+
+theorem balanced_dimension_concentration
+    {R : Type u} [CommRing R] [IsRegularLocalRing R]
+    (C : Der R) (n l : ℕ) (a : ℤ)
+    (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
+    (hC : ¬ IsZero C) (hinterval : PerfectInterval C a (a + l))
+    (hsupport : ∀ p ∈ derivedSupport C,
+      ringKrullDim (R ⧸ p.asIdeal) ≤ (n - l : WithBot ℕ∞)) :
+    (∀ i : ℤ, i ≠ a + l → IsZero (H i C)) ∧ ¬ IsZero (H (a + l) C) := by
+  sorry
+
+example {R : Type u} [CommRing R] : derivedSupport (0 : Der R) = ∅ := by
+  sorry
+
+example {R : Type u} [CommRing R] (I : Ideal R) (i : ℤ) :
+    derivedSupport ((DerivedCategory.singleFunctor (ModuleCat R) i).obj
+      (ModuleCat.of R (R ⧸ I))) = PrimeSpectrum.zeroLocus I := by
+  sorry
+
+example {R : Type u} [CommRing R] (C : Der R) :
+    PerfectInterval C 0 0 → (∀ i : ℤ, i ≠ 0 → IsZero (H i C)) := by
+  sorry
 
 end TauCeti.DeformationAndDerivedPatchingAlgebra

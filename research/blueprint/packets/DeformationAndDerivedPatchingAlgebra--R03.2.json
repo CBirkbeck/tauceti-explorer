@@ -228,8 +228,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/labelled-local-algebra",
         "DeformationAndDerivedPatchingAlgebra:R03.1/residue-preserving-morphism",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
         "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-pullback",
         "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-quotient-limit",
         "DeformationAndDerivedPatchingAlgebra:R03.1/cotangent-dual-derivations",

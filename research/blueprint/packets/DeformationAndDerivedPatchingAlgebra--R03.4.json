@@ -737,7 +737,6 @@
         "mathlib:AdicCompletion.isLocalRing_of_fg",
         "mathlib:AdicCompletion.maximalIdeal_eq_map",
         "mathlib:AdicCompletion.isAdicComplete_of_fg",
-        "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
         "mathlib:isNoetherian_def"
       ],
@@ -813,7 +812,7 @@
       }
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finiteness-of-deformation-rings-criteria",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-of-faithful-finite-module",
       "title": "Finiteness from a faithful finite patched module",
       "kind": "theorem",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
@@ -990,7 +989,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.4/dimension-one-iff-nonnilpotent-uniformizer",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+        "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point"
       ],
       "proofSteps": [
         "Use the preceding dimension equivalence and apply the accepted point theorem without altering its carrier or scalar towers.",
@@ -1025,7 +1024,7 @@
         "The coefficient map O→A is local, as in the inherited point theorem."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point",
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
         "mathlib:isLocalHom_of_comp",
         "mathlib:WithIdeal.uniformContinuous_of_map_le",
@@ -1099,11 +1098,10 @@
         "A starting residue map and compatibility with f are supplied. Bare algebraic formal smoothness without these inputs is not the asserted hypothesis."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/compatible-artinian-limit-is-local",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness",
         "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness",
         "DeformationAndDerivedPatchingAlgebra:R03.1/compatible-lift-tower",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/compatible-artinian-limit-is-local",
         "mathlib:WithIdeal.uniformContinuous_of_map_le",
         "mathlib:IsLocalRing.map_maximalIdeal_le"
       ],
@@ -1278,7 +1276,7 @@
       "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
     },
     {
-      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point",
       "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
     },
     {
@@ -1320,7 +1318,7 @@
   },
   "inheritedPlanets": [
     {
-      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point",
       "name": "Characteristic-zero points",
       "reason": "Reuse the accepted P7 display; no second planet for the nonnilpotent reformulation."
     }

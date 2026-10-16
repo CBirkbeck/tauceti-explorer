@@ -2972,7 +2972,7 @@
         "P is an associated prime of M."
       ],
       "proofSteps": [
-        "The sequence r₁, …, r_n lies in 𝔪 and is M-regular, so depth_A M ≥ n = dim A. The associated-prime bound of DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds (Stacks 0BK4: depth M ≤ dim A/P for P ∈ Ass M, M ≠ 0 finite over a Noetherian local ring) gives dim A ≤ dim A/P.",
+        "The sequence r₁, …, r_n lies in 𝔪 and is M-regular, so depth_A M ≥ n = dim A. The associated-prime bound of SchemeAndStackFoundations:SF.0/depth, API IsLocalRing.depth_le_of_mem_associatedPrimes (Stacks 0BK4: depth M ≤ dim A/P for P ∈ Ass M, M ≠ 0 finite over a Noetherian local ring) gives dim A ≤ dim A/P.",
         "Mathlib ringKrullDim_quotient_le gives dim A/P ≤ dim A, hence dim A/P = dim A.",
         "dim A is finite (Mathlib ringKrullDim_lt_top, with the FiniteRingKrullDim instance for Noetherian local rings in Mathlib's Ideal/KrullsHeightTheorem). Mathlib ringKrullDim_quotient identifies dim A/P with the Krull dimension of V(P), so there is a chain of primes P = P₀ ⊊ ⋯ ⊊ P_d with d = dim A. If a prime Q were strictly contained in P, then Q ⊊ P₀ ⊊ ⋯ ⊊ P_d would be a chain of length dim A + 1 in Spec A, which is impossible. So P is a minimal prime of A (Mathlib minimalPrimes)."
       ],
@@ -2996,7 +2996,7 @@
         }
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds",
+        "SchemeAndStackFoundations:SF.0/depth",
         "mathlib:associatedPrimes",
         "mathlib:RingTheory.Sequence.IsRegular",
         "mathlib:IsLocalRing.maximalIdeal",
@@ -5179,7 +5179,7 @@
       "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
       "printed": "The source assumes formal smoothness of R∞ over O, gives R ≃ O[x1, . . . , xq+j−l0], and concludes that H is free as an R-module.",
       "correction": "If R∞ is formally smooth over O, so R∞ ≃ O[[x1, …, x_{q+j−l0}]], then H is a free R-module.",
-      "reason": "Formal smoothness is a hypothesis on R∞, and dim R∞ = 1 + j + q − l0 matches O[[x1,…,x_{q+j−l0}]]. The proof begins 'Suppose first of all that R∞ ≃ O[x1,…,x_{j+q−l0}]'. R (the quotient) is not formally smooth in general.",
+      "reason": "Formal smoothness is a hypothesis on R∞, and dim R∞ = 1 + j + q − l0 matches O[[x1,…,x_{q+j−l0}]]. The first proof case uses a formally smooth power-series presentation of R∞. R (the quotient) is not formally smooth in general.",
       "affects": "nothing",
       "known": "Not corrected in print. The bracket part (single brackets for power-series brackets) is item (2) of the authors' Correction, Invent. Math. 227 (2022) 855–856, DOI 10.1007/s00222-021-01095-5; the slip R for R∞ is not in it. The same slip is already recorded in this atlas's register as PAPER-CALEGARI-GERAGHTY-18/E141, confirmed by REV-PAPER-CALEGARI-GERAGHTY-18; this entry records it for the blueprint that uses Theorem 6.4(1).",
       "searched": [
