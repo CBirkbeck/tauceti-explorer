@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T03:07Z",
+ "updated": "2026-10-16T03:19Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -509,7 +509,7 @@
   "LefschetzPencilsAndVanishingCycles": {
    "stage": "pr",
    "pr": 873,
-   "head": "171a973",
+   "head": "469a2c2",
    "depends_on": [
     779,
     792,
@@ -528,7 +528,8 @@
     "current": false,
     "date": "2026-10-14",
     "note": "maintainer fresh review at 5e2c874 (two zero-case corrections) repaired and answered at 171a973; awaiting re-review"
-   }
+   },
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 469a2c2 (§5.11 profinite degree, continuous powers); ready for re-review"
   },
   "ClassicalAdicEtaleCohomology": {
    "stage": "pr",
@@ -617,7 +618,7 @@
     "date": "2026-10-14",
     "note": "deep review repaired at 7d4cbb7; both red-team passes applied through 52b7283; draft until a ChatGPT Pro approval"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at add519e (NTQ raw vs normalized towers; Mathlib #42677 coordination); ready for re-review"
+   "maintainer": "second review 2026-10-16 03:10Z (P1: fixed-depth twist families not generic); fix running; draft"
   },
   "GlobalGaloisDeformations": {
    "stage": "pr",
@@ -649,7 +650,7 @@
   "DiamondEtaleCohomology": {
    "stage": "pr",
    "pr": 922,
-   "head": "4e92b6b",
+   "head": "ee31f87",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); consumes the adic stack, EnhancedDerivedSheaves and ClassicalAdicEtaleCohomology; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "approve",
@@ -658,7 +659,7 @@
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math): C8.48a relative tautness; §§0.1–0.4 from EnhancedDerivedSheaves; fix running; draft"
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at ee31f87 (C8.48a relative tautness; §§0.1–0.4 from EnhancedDerivedSheaves); ready for re-review"
   },
   "LocalGaloisDeformationRings": {
    "stage": "pr",
@@ -689,7 +690,7 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "2126757",
+   "head": "5ad7671",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
     "recommendation": "approve",
@@ -698,7 +699,7 @@
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math): §7.1 cyclic twisted comparison/transfer; §7.2 auxiliary-extension + multiplicity-one targets; fix running; draft"
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 5ad7671 (§§7.0a–7.0c cyclic transfer; §§7.1a–7.1d quantitative/auxiliary targets); ready for re-review"
   },
   "DiamondSixOperations": {
    "stage": "pr",
@@ -717,7 +718,7 @@
   "AlgebraicModularFormsAndSerreWeights": {
    "stage": "pr",
    "pr": 928,
-   "head": "6633768",
+   "head": "1509f4f",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
     "recommendation": "approve",
@@ -726,7 +727,7 @@
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math): R15.4 twist bound at p=2; R15.5A.1 coefficient places; fix running; draft"
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 1509f4f (R15.4 dyadic twists; R15.5A.1 coefficient places; pairing-based char poly); ready for re-review"
   },
   "DeligneWeightsAndPurity": {
    "stage": "pr",
@@ -789,7 +790,7 @@
   "DerivedModuleAlgebra": {
    "stage": "pr",
    "pr": 944,
-   "head": "e2e3045",
+   "head": "fbe1d3c",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (module-level derived algebra, position 0); not an explorer package; red team running",
    "review": {
     "recommendation": "approve",
@@ -798,7 +799,7 @@
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    },
-   "maintainer": "second review 2026-10-16 03:02Z (§1.5 splitting category); fix running; draft"
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at fbe1d3c (M2: §1.5 splitting only in D(ℤ_p)); ready for re-review"
   },
   "FarguesFontaineDiamonds": {
    "stage": "pr",
