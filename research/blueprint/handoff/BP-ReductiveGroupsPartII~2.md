@@ -1,5 +1,71 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
+## Latest dispatch: codex-cXs3jp, 2026-10-16
+
+This remains a **blocked checkpoint**, not a completed revision. Codex session
+`codex-cXs3jp` selected #9312 as the first available eligible issue in the
+manager's supplied priority list. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6214411798).
+The previous checkpoint's merger made the issue available again without
+resolving the maintainer's
+[instruction of 2026-10-13](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072):
+the upstream README is authoritative and roadmap changes belong on upstream
+PR #785. No subsequent issue comment rescinds that instruction or assigns a
+successor extension. The manager must reconcile this dispatch conflict before
+another mathematical revision can proceed.
+
+The following evidence was checked afresh in this session:
+
+- Read the worker rules, blueprint protocol, expansion protocol, upstream
+  guide, full issue and all its comments, previous checkpoint, independent
+  review, and the packet's summary, gaps, coverage and node inventory.
+- Read the supplied ReductiveGroups and ReductiveGroupsPartII introductions,
+  scope and supplier boundaries, and the Part II suggested file's opening
+  declarations. The read-only integration checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`.
+- Queried [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  through the GitHub API: it is open and draft, now at head
+  `b853d91ae766c28b7360b4c8ddb5af7db85bda46`. This is newer than the public
+  head recorded in the previous checkpoint below. Retrieved only its two
+  individual ReductiveGroupsPartII files, into scratch, and inspected the
+  README's Scope and ownership section, lines 29–123. Both the supplied
+  checkout and the current public README assign the seven requested layers
+  to this existing upstream roadmap. The public README still has exact
+  italicized parenthesized identifiers for 166 of the atlas packet's 180
+  nodes. This is an overlap check, not a mathematical review of those targets.
+- The current public
+  [README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b853d91ae766c28b7360b4c8ddb5af7db85bda46/TauCetiRoadmap/ReductiveGroupsPartII/README.md)
+  has 7,286 lines and SHA-256
+  `e13ec5ade6a7855e55e0da59d06ca68711d3a093f0b1b6cc7520e3dc57c009b4`.
+  Its
+  [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b853d91ae766c28b7360b4c8ddb5af7db85bda46/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean)
+  has 1,607 lines and SHA-256
+  `26c61b5ea8d9e393e1c25e9adb5e96924e9b61d3671d9df4ae71dad281484f2b`.
+  These hashes identify the inspected public files, not the supplied checkout.
+- Read the current Tau Ceti `AlgHom.mapValue`, `mapValue_apply`,
+  `mapValue_id`, `mapValue_injective` and `mapValue_comp` statements in
+  `TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean`. They provide
+  postcomposition on convolution points and its functor laws. This limited
+  inspection supplies no new claim about the packet's pinned library audit.
+
+Only this handoff changed. The packet, reader and suggested file retain their
+previous state; no upstream roadmap was edited or reviewed. The packet checker
+passed again with **zero errors and zero warnings**. The inherited inventory
+remains 180 nodes (23 definitions, 36 constructions, 110 theorems,
+2 comparisons, 9 applications), 368 API items, 249 tests, 38 planets,
+62 baseline declarations, 17 requests and 5 gaps. Packet status is `partial`;
+RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 are all `partial`.
+Lean was not compiled in this session because no Lean changed. No background
+build or language server was started, and no source passage was copied.
+
+Resume only after the manager has reconciled availability with the maintainer
+instruction, or assigned an extension owner and permitted files. The earlier
+resume instructions below retain the unresolved mathematical work. Releasing
+another identical checkpoint to the available queue does not resolve this
+blocker. This session takes no second job.
+
+## Previous checkpoint: codex-EKNrjE
+
 Codex, session `codex-EKNrjE`, 2026-10-16. Refs #9312.
 
 This is a blocked checkpoint, not a completed revision. No mathematical target
