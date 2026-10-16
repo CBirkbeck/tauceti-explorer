@@ -13,6 +13,7 @@ Theorems marked `sorry` specify mathematical obligations; elaboration does not p
 
 noncomputable section
 open CategoryTheory CategoryTheory.Limits Opposite
+open scoped TensorProduct
 
 namespace TauCetiRoadmap.CompletedCohomologyPartII
 
@@ -43,6 +44,14 @@ example : Nonempty (torsionColimit
 #check TauCeti.moduleCat_ab5OfSize
 
 end Diagrams
+
+/-- A trivial C₂ action on a point has geometric degree one. At p = 3, normalizing that trace
+by the raw index two changes its value; at p = 2 the raw index is not invertible (README 1.4). -/
+example : (2 : ZMod 3)⁻¹ * 1 = 2 ∧ (2 : ZMod 3)⁻¹ * 1 ≠ 1 ∧
+    (2 : ZMod 2) = 0 := by
+  have hi : (2 : ZMod 3)⁻¹ = 2 := inv_eq_of_mul_eq_one_right (by decide)
+  rw [hi]
+  decide
 
 /-! ## Layer 2: coefficient limits and complete torsion-free complexes -/
 
@@ -138,9 +147,25 @@ example (φ : ZMod 2 →ₗ[ℤ] ℤ) : φ = 0 := by
 
 end Contragredient
 
+/-- README 3.1: the inverse of a product reverses order. These integral shears distinguish
+the correct inverse-precomposition value one from the reversed value two. -/
+example :
+    let Ainv : Matrix (Fin 2) (Fin 2) ℤ := !![1, -1; 0, 1]
+    let Binv : Matrix (Fin 2) (Fin 2) ℤ := !![1, 0; -1, 1]
+    let x : Fin 2 → ℤ := ![1, 0]
+    ((Binv * Ainv).mulVec x) 0 = 1 ∧ ((Ainv * Binv).mulVec x) 0 = 2 := by
+  decide
+
 /-! ## Layer 4: completed finite-cell models
 
 The arithmetic finite-cell milestones require carriers supplied by the README. -/
+
+/-- README 4.4 and 6.3: a coefficient twist starts with the scalar model. Twisting an already
+rank-two coefficient space again gives the wrong rank. -/
+example :
+    Module.finrank ℚ ((Fin 1 → ℚ) ⊗[ℚ] (Fin 2 → ℚ)) = 2 ∧
+    Module.finrank ℚ ((Fin 2 → ℚ) ⊗[ℚ] (Fin 2 → ℚ)) = 4 := by
+  simp [Module.finrank_tensorProduct]
 
 /-! ## Layer 5: finiteness and admissibility
 
