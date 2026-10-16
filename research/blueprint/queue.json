@@ -32913,8 +32913,9 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9294"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9294",
+   "finishedAt": "2026-10-16T19:15:42Z"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L4",
