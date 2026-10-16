@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-15T21:57:46Z",
- "exported_at": "2026-10-15T21:57:46Z",
+ "cutoff": "2026-10-16T05:10:15Z",
+ "exported_at": "2026-10-16T05:10:15Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 429,
-  "recent": 9285,
-  "total": 15330,
+  "open": 386,
+  "recent": 9423,
+  "total": 15496,
   "unattributed": {
-   "no_label": 1497,
+   "no_label": 1502,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    1649,
    2267,
    2827,
-   1644
+   1810
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "04ccda3516b1e56c2271e9ef4ae1f6b310449ef3",
+ "roadmap_head": "d2081398eedfbd4153d3067aa98a21b5a5270957",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-15T20:02:09Z",
-    "open": 9,
-    "recent": 280,
-    "since_report": 59,
-    "total": 573,
+    "last": "2026-10-16T03:39:16Z",
+    "open": 8,
+    "recent": 284,
+    "since_report": 65,
+    "total": 579,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      42,
      61,
      83,
-     77
+     83
     ]
    },
    "arxiv": "math.AG",
@@ -145,12 +145,52 @@
    "topic": "Algebraic Geometry"
   },
   {
+   "activity": null,
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/AdicSpacesPartII",
+   "layer_ids": [
+    "Layer R0",
+    "Layer R1"
+   ],
+   "layer_lines": [
+    514,
+    8399
+   ],
+   "layers": [
+    "Layer R0: morphisms and admissible affinoid products",
+    "Layer R1: analytification and algebraic correspondences"
+   ],
+   "links": [],
+   "name": "AdicSpacesPartII",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/AdicSpacesPartII/README.md",
+   "readme_sha": "63ef7252bd74856f163f4262b99fc0f390076b24f6270414d27ecedc707f7698",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "foundations of adic spaces, part II — morphisms and analytification",
+   "topic": "Algebraic Geometry"
+  },
+  {
    "activity": {
-    "last": "2026-10-15T21:16:17Z",
-    "open": 16,
-    "recent": 223,
-    "since_report": 49,
-    "total": 290,
+    "last": "2026-10-16T03:39:19Z",
+    "open": 13,
+    "recent": 227,
+    "since_report": 54,
+    "total": 295,
     "weekly": [
      0,
      0,
@@ -167,7 +207,7 @@
      25,
      48,
      70,
-     60
+     65
     ]
    },
    "arxiv": "math.AG",
@@ -290,11 +330,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T17:01:06Z",
-    "open": 4,
-    "recent": 220,
-    "since_report": 52,
-    "total": 223,
+    "last": "2026-10-16T03:38:58Z",
+    "open": 5,
+    "recent": 222,
+    "since_report": 55,
+    "total": 226,
     "weekly": [
      0,
      0,
@@ -311,7 +351,7 @@
      22,
      39,
      72,
-     70
+     73
     ]
    },
    "arxiv": "math.AT",
@@ -414,11 +454,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:56:38Z",
+    "last": "2026-10-16T03:15:29Z",
     "open": 3,
-    "recent": 96,
-    "since_report": 32,
-    "total": 96,
+    "recent": 98,
+    "since_report": 34,
+    "total": 98,
     "weekly": [
      0,
      0,
@@ -435,7 +475,7 @@
      16,
      28,
      26,
-     18
+     20
     ]
    },
    "arxiv": "math.AG",
@@ -533,11 +573,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:54:54Z",
+    "last": "2026-10-16T03:38:35Z",
     "open": 3,
-    "recent": 99,
-    "since_report": 29,
-    "total": 112,
+    "recent": 101,
+    "since_report": 31,
+    "total": 114,
     "weekly": [
      0,
      0,
@@ -554,7 +594,7 @@
      21,
      29,
      26,
-     11
+     13
     ]
    },
    "arxiv": "math.AG",
@@ -656,11 +696,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T14:45:02Z",
+    "last": "2026-10-16T03:14:03Z",
     "open": 1,
-    "recent": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -677,7 +717,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.FA",
@@ -708,11 +748,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:17:34Z",
+    "last": "2026-10-16T03:15:52Z",
     "open": 5,
-    "recent": 132,
-    "since_report": 34,
-    "total": 138,
+    "recent": 135,
+    "since_report": 38,
+    "total": 142,
     "weekly": [
      0,
      0,
@@ -729,7 +769,7 @@
      18,
      47,
      31,
-     13
+     17
     ]
    },
    "arxiv": "math.AG",
@@ -976,7 +1016,7 @@
    "activity": {
     "last": "2026-10-15T10:12:40Z",
     "open": 1,
-    "recent": 63,
+    "recent": 62,
     "since_report": 6,
     "total": 104,
     "weekly": [
@@ -1108,11 +1148,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:56:06Z",
+    "last": "2026-10-15T23:47:39Z",
     "open": 12,
-    "recent": 412,
-    "since_report": 111,
-    "total": 427,
+    "recent": 413,
+    "since_report": 112,
+    "total": 428,
     "weekly": [
      0,
      0,
@@ -1129,7 +1169,7 @@
      84,
      104,
      140,
-     64
+     65
     ]
    },
    "arxiv": "math.NT",
@@ -1261,11 +1301,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T17:00:44Z",
-    "open": 1,
-    "recent": 1,
+    "last": "2026-10-16T03:15:31Z",
+    "open": 2,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -1282,7 +1322,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.AT",
@@ -1333,11 +1373,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:16:14Z",
-    "open": 3,
-    "recent": 168,
-    "since_report": 19,
-    "total": 266,
+    "last": "2026-10-16T03:38:13Z",
+    "open": 4,
+    "recent": 169,
+    "since_report": 20,
+    "total": 267,
     "weekly": [
      5,
      4,
@@ -1354,7 +1394,7 @@
      19,
      65,
      42,
-     22
+     23
     ]
    },
    "arxiv": "math.GT",
@@ -1444,7 +1484,31 @@
    "topic": "Geometric Topology"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.FA",
    "assessment": {
     "detail": null,
@@ -1753,11 +1817,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:44:00Z",
-    "open": 11,
-    "recent": 81,
+    "last": "2026-10-16T03:37:43Z",
+    "open": 7,
+    "recent": 87,
     "since_report": null,
-    "total": 81,
+    "total": 87,
     "weekly": [
      0,
      0,
@@ -1774,7 +1838,7 @@
      0,
      0,
      52,
-     29
+     35
     ]
    },
    "arxiv": "math.SG",
@@ -1857,11 +1921,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:18:11Z",
+    "last": "2026-10-16T03:38:11Z",
     "open": 1,
-    "recent": 78,
-    "since_report": 7,
-    "total": 129,
+    "recent": 79,
+    "since_report": 8,
+    "total": 130,
     "weekly": [
      0,
      0,
@@ -1878,7 +1942,7 @@
      32,
      18,
      7,
-     12
+     13
     ]
    },
    "arxiv": "math.CO",
@@ -1991,11 +2055,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T19:24:46Z",
-    "open": 12,
-    "recent": 53,
+    "last": "2026-10-16T03:38:59Z",
+    "open": 11,
+    "recent": 57,
     "since_report": null,
-    "total": 53,
+    "total": 57,
     "weekly": [
      0,
      0,
@@ -2012,7 +2076,7 @@
      0,
      0,
      18,
-     35
+     39
     ]
    },
    "arxiv": "math.DG",
@@ -2103,11 +2167,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T16:19:18Z",
-    "open": 11,
-    "recent": 6,
+    "last": "2026-10-16T02:35:33Z",
+    "open": 3,
+    "recent": 14,
     "since_report": null,
-    "total": 6,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -2124,7 +2188,7 @@
      0,
      0,
      0,
-     6
+     14
     ]
    },
    "arxiv": "math.NT",
@@ -2183,11 +2247,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:54:56Z",
-    "open": 10,
-    "recent": 247,
-    "since_report": 27,
-    "total": 590,
+    "last": "2026-10-16T03:39:20Z",
+    "open": 13,
+    "recent": 249,
+    "since_report": 29,
+    "total": 592,
     "weekly": [
      0,
      0,
@@ -2204,7 +2268,7 @@
      36,
      48,
      78,
-     64
+     66
     ]
    },
    "arxiv": "math.NT",
@@ -2324,11 +2388,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T17:00:40Z",
+    "last": "2026-10-16T03:37:00Z",
     "open": 5,
-    "recent": 104,
-    "since_report": 14,
-    "total": 326,
+    "recent": 106,
+    "since_report": 16,
+    "total": 328,
     "weekly": [
      29,
      19,
@@ -2345,7 +2409,7 @@
      37,
      23,
      13,
-     16
+     18
     ]
    },
    "arxiv": "math.PR",
@@ -2486,11 +2550,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T16:18:29Z",
-    "open": 2,
-    "recent": 124,
-    "since_report": 32,
-    "total": 129,
+    "last": "2026-10-16T03:14:02Z",
+    "open": 1,
+    "recent": 126,
+    "since_report": 4,
+    "total": 131,
     "weekly": [
      0,
      0,
@@ -2507,7 +2571,7 @@
      24,
      46,
      27,
-     14
+     16
     ]
    },
    "arxiv": "math.CV",
@@ -2517,9 +2581,8 @@
     "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 2": "Poincare polygon theorem, finite-sided Dirichlet polygons for cofinite groups, presentations, triangle groups",
-     "Layer 3": "compactness of the complement of the cusp horodiscs in a finite-area fundamental polygon",
-     "Layer 4": "compactness for general cofinite groups; orbifold signature with Euler-characteristic and area formula",
+     "Layer 2": "Poincare polygon theorem with presentation, finite-sided Dirichlet polygons for cofinite groups, triangle groups from polygon reflections",
+     "Layer 4": "a cuspidal fundamental polygon for a general cofinite group; orbifold signature with Euler-characteristic and area formula",
      "Layer 5": "genus via finite CW Euler characteristic, branched-cover Euler-characteristic formula, Riemann-Hurwitz and its Fuchsian form",
      "Layer 6": "the orbifold signature of X(1) as a stated theorem"
     },
@@ -2565,7 +2628,7 @@
     "done",
     "done",
     "partial",
-    "partial",
+    "done",
     "partial",
     "partial",
     "partial"
@@ -2573,44 +2636,44 @@
    "status": {
     "frontier": [
      {
-      "name": "The Poincaré polygon theorem",
-      "text": "— local tiling along paired sides is done, and discreteness follows from interior no-overlap for compact polygons. What remains is the tiling at vertex cycles, global no-overlap of translates, the fundamental-set theorem and the presentation. The ideal-vertex case also needs parabolic cycle transformations."
-     },
-     {
       "name": "Finite-sided Dirichlet polygons",
-      "text": "— for a cofinite group, show that the Dirichlet domain is a finite-sided convex polygon with paired sides. This gives Layer 2's converse direction and a fundamental polygon to truncate."
+      "text": "— bounded Dirichlet domains are finite intersections of half-planes, and finitely many constraints describe the domain high in each cusp. What remains is to assemble these into a finite-sided convex polygon for every cofinite group, with its sides and vertices enumerated."
      },
      {
       "name": "Compactness for every cofinite group",
-      "text": "— feed the compact truncation of such a polygon to `compactSpace_of_compact_truncations`. The same step closes Layer 3."
+      "text": "— feed that polygon to the cuspidal-polygon compactness theorem."
+     },
+     {
+      "name": "The Poincaré polygon theorem",
+      "text": "— covering, generation and the local tilings are in the source. What remains is that the side and cycle relators generate the whole kernel, and assembling the theorem from its separate hypotheses."
      },
      {
       "name": "Triangle groups",
-      "text": "— after the Poincaré theorem, build the (p, q, r) groups from polygon reflections using the typed finite-or-cusp parameter."
+      "text": "— after Poincaré's theorem, build the (p, q, r) groups from polygon reflections using the typed finite-or-cusp parameter."
      },
      {
       "name": "Genus and Riemann–Hurwitz",
       "text": "— the README defines genus through the finite-CW Euler characteristic of a compact surface. `compactManifoldFiniteCWType` does not appear in Tau Ceti's source, so this waits on the AlgebraicTopology roadmap. The orbifold signatures, including that of X(1), wait on genus."
      }
     ],
-    "glance": "Layers 0 and 1 are done, and the level-one application has reached X(1) ≃ P¹ through the descended `j` and its degree. For every discrete Γ, the compactified quotient is a Riemann surface with meromorphic descent and extension, but compactness is proved only at level one. Polygon theory now has Gauss–Bonnet with ideal vertices and most of the local input to the Poincaré theorem. The theorem itself is not proved, and genus and Riemann–Hurwitz have not begun.",
+    "glance": "Layers 0, 1 and 3 are done, and the level-one application has reached X(1) ≃ P¹ through the descended `j` and its degree. For every discrete Γ the compactified quotient is a Riemann surface, and it is now compact whenever a cuspidal polygon meets every orbit, but no such polygon is yet built for a general cofinite group. Much of the Poincaré polygon theorem is in place without the theorem itself. Genus and Riemann–Hurwitz have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/FuchsianOrbifolds/STATUS.md",
     "progress_path": "TauCetiRoadmap/FuchsianOrbifolds/PROGRESS.md",
-    "report_sha": "77325812b3d8af4484655626294fc9d3ec7e07a4a7cfecf97dd5ded9dd60065f",
-    "to_sha": "66f3330c1cbabafd0f5b3ea4a646c43e23105ee2",
-    "ts": "2026-10-07T14:16:40Z"
+    "report_sha": "cba44588f464607775aa5496ed4fe3e52ad61991cc357362d944671791a684b4",
+    "to_sha": "a6b14527398558b7ba0ed9b5f45267918bbbf569",
+    "ts": "2026-10-15T11:39:27Z"
    },
    "title": "Fuchsian groups and orbifold Riemann surfaces",
    "topic": "Complex Variables"
   },
   {
    "activity": {
-    "last": "2026-10-15T21:41:35Z",
-    "open": 5,
-    "recent": 3,
+    "last": "2026-10-16T03:13:38Z",
+    "open": 6,
+    "recent": 4,
     "since_report": null,
-    "total": 3,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -2627,7 +2690,7 @@
      0,
      0,
      0,
-     3
+     4
     ]
    },
    "arxiv": "math.MG",
@@ -2686,11 +2749,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:41:37Z",
+    "last": "2026-10-16T02:34:45Z",
     "open": 11,
-    "recent": 362,
-    "since_report": 163,
-    "total": 461,
+    "recent": 366,
+    "since_report": 167,
+    "total": 465,
     "weekly": [
      5,
      3,
@@ -2707,7 +2770,7 @@
      19,
      80,
      214,
-     27
+     31
     ]
    },
    "arxiv": "math.GT",
@@ -2831,11 +2894,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T14:44:59Z",
-    "open": 1,
+    "last": "2026-10-15T23:47:37Z",
+    "open": 0,
     "recent": 127,
-    "since_report": 7,
-    "total": 140,
+    "since_report": 8,
+    "total": 141,
     "weekly": [
      0,
      0,
@@ -2852,7 +2915,7 @@
      41,
      37,
      30,
-     9
+     10
     ]
    },
    "arxiv": "math.NT",
@@ -2955,11 +3018,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-13T20:14:16Z",
+    "last": "2026-10-16T03:12:25Z",
     "open": 1,
     "recent": 45,
-    "since_report": 0,
-    "total": 51,
+    "since_report": 1,
+    "total": 52,
     "weekly": [
      0,
      0,
@@ -2976,7 +3039,7 @@
      11,
      10,
      10,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -3089,11 +3152,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T16:20:08Z",
-    "open": 3,
-    "recent": 130,
-    "since_report": 50,
-    "total": 173,
+    "last": "2026-10-16T02:07:25Z",
+    "open": 4,
+    "recent": 131,
+    "since_report": 51,
+    "total": 174,
     "weekly": [
      0,
      0,
@@ -3110,7 +3173,7 @@
      20,
      32,
      34,
-     28
+     29
     ]
    },
    "arxiv": "math.RT",
@@ -3212,11 +3275,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T12:54:29Z",
-    "open": 6,
-    "recent": 168,
-    "since_report": 74,
-    "total": 296,
+    "last": "2026-10-16T03:15:14Z",
+    "open": 3,
+    "recent": 173,
+    "since_report": 5,
+    "total": 301,
     "weekly": [
      9,
      4,
@@ -3233,7 +3296,7 @@
      33,
      31,
      56,
-     38
+     43
     ]
    },
    "arxiv": "math.SG",
@@ -3248,7 +3311,7 @@
      "Lane F2": "local theory, the rest of Gromov compactness, transversality and gluing",
      "Lane F3": "strip moduli in T*M, d^2 = 0, continuation maps, invariance and the T*S^1 computation",
      "Lane F4": "spin^c structures in general, nearly-symmetric J, energy equals domain area, the HF-hat complex and its invariance",
-     "Lane M": "Morse-Smale genericity, compactness and gluing, the Morse complex and its homology, and the passage from a vector space to a manifold"
+     "Lane M": "Morse-Smale genericity, compactness and gluing, the Morse complex and its homology, and the stable-manifold theory for pseudo-gradient flows on manifolds"
     },
     "source": "marker"
    },
@@ -3301,43 +3364,43 @@
     "frontier": [
      {
       "name": "Morse–Smale genericity",
-      "text": "— show that after a generic perturbation every unstable set meets every stable set transversally, so the connecting-trajectory manifolds above exist for all pairs of critical points. Sard–Smale from Lane F0 is available for this."
+      "text": "— show that a generic small perturbation makes every unstable set transverse to every stable set, removing the hypothesis from the trajectory-space results. Sard–Smale and the perturbation family are available."
      },
      {
       "name": "The Morse complex",
-      "text": "— prove broken-trajectory compactness and gluing to get `∂² = 0`, then move the whole construction from a vector space to a compact manifold, with spheres and tori as the acceptance check."
+      "text": "— prove compactness of the index-one trajectory spaces, so the count is finite, then broken-trajectory compactness and gluing for `∂² = 0`."
+     },
+     {
+      "name": "Morse theory on manifolds",
+      "text": "— run the stable-manifold and trajectory-space theory for the flow of an adapted pseudo-gradient on a compact manifold, with spheres and tori as the acceptance check."
      },
      {
       "name": "The strip operator",
-      "text": "— show that `d/ds + A(s)` with invertible asymptotics is Fredholm, so the section package has its first real application. This needs Lane F1's Sobolev spaces on strips."
-     },
-     {
-      "name": "The Cauchy–Riemann elliptic package",
-      "text": "— `W^{k,p}` on strips, trace, Calderón–Zygmund, boundary regularity for varying totally real boundary conditions, and the Maslov index for paths with Riemann–Roch. It remains the long pole."
+      "text": "— show that `d/ds + A(s)` with invertible asymptotics is Fredholm, the first real application of the section package. This needs Lane F1's Sobolev spaces on strips, still the long pole."
      },
      {
       "name": "Spin^c structures and energy in `Sym^g(Σ)`",
-      "text": "— identify the group where `ε` lives with `H₁(Y)` in general, define `s_z`, and prove that a holomorphic disk's energy is the area of its domain. Admissibility finiteness then becomes Ozsváth–Szabó's energy bound."
+      "text": "— identify the group where `ε` lives with `H₁(Y)` in general, define `s_z`, and prove that a holomorphic disk's energy is the area of its domain."
      }
     ],
-    "glance": "Lane F0 is done except for the strip operator: it has Morse–Sard, Sard–Smale, and generic manifolds of zeros of Fredholm sections. Lane M now has global stable and unstable manifolds and their transverse intersections, in a vector space. Every lane from M to F4 is partial. No chain complex has been built: Morse homology, Floer homology, holomorphic `HF̂`, Lane F5 and the reconciliations have not begun.",
+    "glance": "Lane F0 is done except for the strip operator: it has Morse–Sard, Sard–Smale, and generic manifolds of zeros of Fredholm sections. Lane M has global stable and unstable manifolds and the dimension of trajectory spaces in a vector space, and adapted pseudo-gradients on compact manifolds. Every lane from M to F4 is partial. No chain complex has been built: Morse homology, Floer homology, holomorphic `HF̂`, Lane F5 and the reconciliations have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/HeegaardFloer/STATUS.md",
     "progress_path": "TauCetiRoadmap/HeegaardFloer/PROGRESS.md",
-    "report_sha": "f5c4c786c126c68b82665dd9534108a01de2af7f2eda2d38404e0adb03a7c3f9",
-    "to_sha": "66f3330c1cbabafd0f5b3ea4a646c43e23105ee2",
-    "ts": "2026-10-07T14:16:40Z"
+    "report_sha": "3d5597b1390e90f85f63e517c8d9a6388c3995dbb3a83315eb12865796afd70b",
+    "to_sha": "24235056b6507147b26a23ebc76a66597cefa0b9",
+    "ts": "2026-10-15T16:37:23Z"
    },
    "title": "Heegaard Floer homology, analytically",
    "topic": "Symplectic Geometry"
   },
   {
    "activity": {
-    "last": null,
-    "open": 8,
-    "recent": 0,
+    "last": "2026-10-16T03:14:37Z",
+    "open": 5,
+    "recent": 4,
     "since_report": null,
-    "total": 0,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -3354,7 +3417,7 @@
      0,
      0,
      0,
-     0
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -3410,8 +3473,8 @@
   {
    "activity": {
     "last": "2026-10-15T08:17:24Z",
-    "open": 0,
-    "recent": 66,
+    "open": 1,
+    "recent": 65,
     "since_report": 5,
     "total": 101,
     "weekly": [
@@ -3503,11 +3566,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:44:01Z",
+    "last": "2026-10-16T02:07:44Z",
     "open": 6,
-    "recent": 135,
-    "since_report": 87,
-    "total": 197,
+    "recent": 136,
+    "since_report": 88,
+    "total": 198,
     "weekly": [
      0,
      0,
@@ -3524,7 +3587,7 @@
      0,
      40,
      68,
-     26
+     27
     ]
    },
    "arxiv": "math.NT",
@@ -3640,11 +3703,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T12:13:54Z",
-    "open": 3,
-    "recent": 3,
+    "last": "2026-10-16T02:34:44Z",
+    "open": 4,
+    "recent": 5,
     "since_report": null,
-    "total": 3,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -3661,7 +3724,7 @@
      0,
      0,
      0,
-     3
+     5
     ]
    },
    "arxiv": "math.MG",
@@ -3720,11 +3783,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T10:32:19Z",
-    "open": 5,
-    "recent": 120,
-    "since_report": 38,
-    "total": 207,
+    "last": "2026-10-16T03:38:12Z",
+    "open": 7,
+    "recent": 126,
+    "since_report": 44,
+    "total": 213,
     "weekly": [
      9,
      8,
@@ -3741,7 +3804,7 @@
      28,
      31,
      21,
-     24
+     30
     ]
    },
    "arxiv": "math.AG",
@@ -3836,11 +3899,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T17:01:40Z",
-    "open": 3,
-    "recent": 142,
-    "since_report": 6,
-    "total": 151,
+    "last": "2026-10-15T23:11:07Z",
+    "open": 2,
+    "recent": 143,
+    "since_report": 7,
+    "total": 152,
     "weekly": [
      0,
      0,
@@ -3857,7 +3920,7 @@
      33,
      60,
      24,
-     9
+     10
     ]
    },
    "arxiv": "math.NT",
@@ -3930,11 +3993,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:41:38Z",
-    "open": 7,
-    "recent": 126,
-    "since_report": 56,
-    "total": 126,
+    "last": "2026-10-16T01:32:56Z",
+    "open": 6,
+    "recent": 128,
+    "since_report": 58,
+    "total": 128,
     "weekly": [
      0,
      0,
@@ -3951,7 +4014,7 @@
      1,
      55,
      42,
-     28
+     30
     ]
    },
    "arxiv": "math.NT",
@@ -4058,11 +4121,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:43:10Z",
-    "open": 5,
-    "recent": 178,
-    "since_report": 60,
-    "total": 178,
+    "last": "2026-10-16T03:38:57Z",
+    "open": 2,
+    "recent": 182,
+    "since_report": 64,
+    "total": 182,
     "weekly": [
      0,
      0,
@@ -4079,7 +4142,7 @@
      0,
      5,
      95,
-     78
+     82
     ]
    },
    "arxiv": "math.NT",
@@ -4195,11 +4258,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T10:11:31Z",
-    "open": 6,
-    "recent": 174,
-    "since_report": 41,
-    "total": 561,
+    "last": "2026-10-15T23:11:04Z",
+    "open": 5,
+    "recent": 175,
+    "since_report": 42,
+    "total": 562,
     "weekly": [
      0,
      0,
@@ -4216,7 +4279,7 @@
      48,
      37,
      34,
-     20
+     21
     ]
    },
    "arxiv": "math.NT",
@@ -4344,7 +4407,31 @@
    "topic": "Number Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-16T03:38:14Z",
+    "open": 0,
+    "recent": 2,
+    "since_report": null,
+    "total": 2,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2
+    ]
+   },
    "arxiv": "math.NT",
    "assessment": {
     "detail": null,
@@ -4405,11 +4492,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:17:35Z",
-    "open": 2,
-    "recent": 3,
+    "last": "2026-10-16T03:13:40Z",
+    "open": 3,
+    "recent": 4,
     "since_report": null,
-    "total": 3,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -4426,7 +4513,7 @@
      0,
      0,
      0,
-     3
+     4
     ]
    },
    "arxiv": "math.OA",
@@ -4457,11 +4544,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-14T13:13:14Z",
-    "open": 4,
-    "recent": 121,
-    "since_report": 15,
-    "total": 147,
+    "last": "2026-10-16T02:07:46Z",
+    "open": 3,
+    "recent": 122,
+    "since_report": 17,
+    "total": 149,
     "weekly": [
      0,
      0,
@@ -4478,7 +4565,7 @@
      42,
      28,
      10,
-     5
+     7
     ]
    },
    "arxiv": "math.NT",
@@ -4655,11 +4742,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:56:41Z",
+    "last": "2026-10-16T03:16:08Z",
     "open": 17,
-    "recent": 114,
+    "recent": 115,
     "since_report": null,
-    "total": 114,
+    "total": 115,
     "weekly": [
      0,
      0,
@@ -4676,7 +4763,7 @@
      0,
      0,
      39,
-     75
+     76
     ]
    },
    "arxiv": "math.FA",
@@ -5079,11 +5166,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:04:15Z",
-    "open": 6,
-    "recent": 197,
-    "since_report": 30,
-    "total": 241,
+    "last": "2026-10-16T01:33:22Z",
+    "open": 4,
+    "recent": 199,
+    "since_report": 32,
+    "total": 243,
     "weekly": [
      0,
      0,
@@ -5100,7 +5187,7 @@
      18,
      29,
      64,
-     73
+     75
     ]
    },
    "arxiv": "math.OC",
@@ -5241,11 +5328,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T19:24:47Z",
-    "open": 1,
-    "recent": 145,
-    "since_report": 48,
-    "total": 145,
+    "last": "2026-10-16T03:37:02Z",
+    "open": 2,
+    "recent": 148,
+    "since_report": 51,
+    "total": 148,
     "weekly": [
      0,
      0,
@@ -5262,7 +5349,7 @@
      33,
      41,
      57,
-     14
+     17
     ]
    },
    "arxiv": "math.NT",
@@ -5346,11 +5433,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:02:10Z",
-    "open": 10,
-    "recent": 243,
-    "since_report": 53,
-    "total": 351,
+    "last": "2026-10-16T03:39:00Z",
+    "open": 6,
+    "recent": 248,
+    "since_report": 59,
+    "total": 357,
     "weekly": [
      13,
      4,
@@ -5367,7 +5454,7 @@
      34,
      36,
      86,
-     73
+     79
     ]
    },
    "arxiv": "math.AP",
@@ -5460,7 +5547,31 @@
    "topic": "Analysis of PDEs"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-16T03:12:24Z",
+    "open": 1,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
    "arxiv": "math.NT",
    "assessment": {
     "detail": null,
@@ -5517,11 +5628,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T16:59:55Z",
-    "open": 7,
-    "recent": 2,
+    "last": "2026-10-16T02:35:17Z",
+    "open": 4,
+    "recent": 5,
     "since_report": null,
-    "total": 2,
+    "total": 5,
     "weekly": [
      0,
      0,
@@ -5538,7 +5649,7 @@
      0,
      0,
      0,
-     2
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -5813,11 +5924,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-14T09:32:02Z",
+    "last": "2026-10-16T03:15:01Z",
     "open": 1,
     "recent": 89,
-    "since_report": 2,
-    "total": 110,
+    "since_report": 3,
+    "total": 111,
     "weekly": [
      0,
      0,
@@ -5834,7 +5945,7 @@
      18,
      36,
      15,
-     2
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -6013,11 +6124,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:56:39Z",
-    "open": 9,
-    "recent": 238,
-    "since_report": 24,
-    "total": 282,
+    "last": "2026-10-16T03:36:59Z",
+    "open": 5,
+    "recent": 244,
+    "since_report": 30,
+    "total": 288,
     "weekly": [
      0,
      0,
@@ -6034,7 +6145,7 @@
      51,
      65,
      78,
-     29
+     35
     ]
    },
    "arxiv": "math.GR",
@@ -6167,8 +6278,8 @@
   {
    "activity": {
     "last": "2026-10-15T04:23:23Z",
-    "open": 2,
-    "recent": 275,
+    "open": 3,
+    "recent": 274,
     "since_report": 6,
     "total": 296,
     "weekly": [
@@ -6292,11 +6403,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T12:13:14Z",
-    "open": 3,
-    "recent": 161,
-    "since_report": 53,
-    "total": 179,
+    "last": "2026-10-16T02:35:32Z",
+    "open": 2,
+    "recent": 162,
+    "since_report": 54,
+    "total": 180,
     "weekly": [
      0,
      0,
@@ -6313,7 +6424,7 @@
      40,
      50,
      43,
-     19
+     20
     ]
    },
    "arxiv": "math.NT",
@@ -6479,11 +6590,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T16:18:31Z",
-    "open": 12,
-    "recent": 175,
-    "since_report": 53,
-    "total": 175,
+    "last": "2026-10-16T03:15:54Z",
+    "open": 9,
+    "recent": 181,
+    "since_report": 59,
+    "total": 181,
     "weekly": [
      0,
      0,
@@ -6500,7 +6611,7 @@
      5,
      53,
      102,
-     15
+     21
     ]
    },
    "arxiv": "math.AG",
@@ -6602,11 +6713,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:54:53Z",
-    "open": 47,
-    "recent": 651,
-    "since_report": 290,
-    "total": 1468,
+    "last": "2026-10-16T03:47:07Z",
+    "open": 40,
+    "recent": 668,
+    "since_report": 307,
+    "total": 1485,
     "weekly": [
      4,
      9,
@@ -6623,7 +6734,7 @@
      69,
      132,
      273,
-     120
+     137
     ]
    },
    "arxiv": "math.AG",
@@ -6734,11 +6845,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:43:08Z",
-    "open": 34,
-    "recent": 838,
-    "since_report": 254,
-    "total": 1656,
+    "last": "2026-10-16T03:38:35Z",
+    "open": 33,
+    "recent": 845,
+    "since_report": 264,
+    "total": 1666,
     "weekly": [
      0,
      0,
@@ -6755,7 +6866,7 @@
      150,
      247,
      293,
-     99
+     109
     ]
    },
    "arxiv": "math.RT",
@@ -8093,11 +8204,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 4,
-    "recent": 0,
+    "last": "2026-10-16T03:14:35Z",
+    "open": 1,
+    "recent": 4,
     "since_report": null,
-    "total": 0,
+    "total": 4,
     "weekly": [
      0,
      0,
@@ -8114,7 +8225,7 @@
      0,
      0,
      0,
-     0
+     4
     ]
    },
    "arxiv": "math.AG",
@@ -8137,12 +8248,12 @@
     "Layer 5"
    ],
    "layer_lines": [
-    552,
-    1768,
-    2920,
-    4225,
-    4589,
-    5985
+    461,
+    1885,
+    3063,
+    4445,
+    4838,
+    6340
    ],
    "layers": [
     "Layer 0: schemes and morphisms",
@@ -8157,7 +8268,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/SchemeAndStackFoundations/README.md",
-   "readme_sha": "6d9164347faadbf6c877db2acb7c13cc4b2ff4b310c4abd54873c31b1149f784",
+   "readme_sha": "121062fb15b9c0bd67de1eb3ff53fd370ecaf441cbfa22aefaffb5d53cf0d176",
    "retired": null,
    "states": [
     "unassessed",
@@ -8173,11 +8284,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T20:03:48Z",
+    "last": "2026-10-16T03:14:36Z",
     "open": 2,
     "recent": 123,
-    "since_report": 21,
-    "total": 123,
+    "since_report": 23,
+    "total": 125,
     "weekly": [
      0,
      0,
@@ -8194,7 +8305,7 @@
      21,
      30,
      22,
-     30
+     32
     ]
    },
    "arxiv": "math.RT",
@@ -8303,11 +8414,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:43:09Z",
-    "open": 5,
-    "recent": 107,
-    "since_report": 31,
-    "total": 118,
+    "last": "2026-10-16T02:35:18Z",
+    "open": 4,
+    "recent": 108,
+    "since_report": 33,
+    "total": 120,
     "weekly": [
      0,
      0,
@@ -8324,7 +8435,7 @@
      24,
      23,
      27,
-     16
+     18
     ]
    },
    "arxiv": "math.AG",
@@ -8446,7 +8557,7 @@
    "activity": {
     "last": "2026-10-14T12:12:22Z",
     "open": 1,
-    "recent": 78,
+    "recent": 75,
     "since_report": 8,
     "total": 188,
     "weekly": [
@@ -8546,11 +8657,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T14:46:10Z",
-    "open": 5,
-    "recent": 181,
-    "since_report": 99,
-    "total": 220,
+    "last": "2026-10-16T03:39:18Z",
+    "open": 2,
+    "recent": 185,
+    "since_report": 105,
+    "total": 226,
     "weekly": [
      0,
      0,
@@ -8567,7 +8678,7 @@
      20,
      33,
      72,
-     38
+     44
     ]
    },
    "arxiv": "math.RT",
@@ -8677,7 +8788,7 @@
    "activity": {
     "last": "2026-10-13T00:23:08Z",
     "open": 1,
-    "recent": 88,
+    "recent": 87,
     "since_report": 1,
     "total": 88,
     "weekly": [
@@ -9103,7 +9214,7 @@
    "activity": {
     "last": "2026-10-13T09:53:42Z",
     "open": 0,
-    "recent": 42,
+    "recent": 41,
     "since_report": 6,
     "total": 75,
     "weekly": [
@@ -9199,11 +9310,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T21:44:01Z",
+    "last": "2026-10-16T02:07:44Z",
     "open": 6,
-    "recent": 135,
-    "since_report": 110,
-    "total": 197,
+    "recent": 136,
+    "since_report": 111,
+    "total": 198,
     "weekly": [
      0,
      0,
@@ -9220,7 +9331,7 @@
      0,
      40,
      68,
-     26
+     27
     ]
    },
    "arxiv": "math.NT",

@@ -1,7 +1,7 @@
 {
-  "roadmaps": 258,
-  "stages": 5881,
-  "originalStages": 2289,
+  "roadmaps": 259,
+  "stages": 5883,
+  "originalStages": 2291,
   "sourceRefinements": 3592,
   "reviewedDecompositions": [
     {
@@ -152,7 +152,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 2217,
+  "terminalTargets": 2219,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -169,18 +169,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 258,
+  "mathematicalSummaries": 259,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5780,
+  "mathematicalStars": 5782,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 16,
   "bibliographicSources": 46,
   "roadmapEdges": 2396,
-  "stageEdges": 15259,
+  "stageEdges": 15260,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1457,8 +1457,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 39872026,
-  "htmlSha256": "14e464932bf87570331606ea4626a5531a7d87e0367efd3d91a3e7d8bb65ccb6",
+  "htmlBytes": 40840305,
+  "htmlSha256": "35276a89f08df7fac0a274dd14350cc53af054b6674a19a0a2e18abb211c2b3c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1478,8 +1478,8 @@
     "src/app.js": "023fff175da52325cb61545cf6930d609e5f0aab7d1d3c752e03d4df5dee1713",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "5943d5c04dbea13b5997b7746aaab83bf34b378ad36daa53253ba7f1228c378a",
-    "data/tauceti-new-roadmaps.json": "6aafdb3a66b7ae8182e21a23c162501541ca5c2751da8aaac58a164b97c64333",
+    "data/tauceti-progress.json": "bb76a2ea6ec681874f2234bf80688082537a2f74d5a27fec1f3b57d0ecd2558c",
+    "data/tauceti-new-roadmaps.json": "c210f593f9733a14fd3ba18d626e5a692bb7f4fa2dcaa93ec176381e587097c5",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -2083,17 +2083,18 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-15T21:57:46Z",
-    "roadmaps": 89,
+    "exportedAt": "2026-10-16T05:10:15Z",
+    "roadmaps": 90,
     "unplaced": 7,
     "layers": {
-      "done": 325,
-      "partial": 197,
+      "done": 326,
+      "partial": 196,
       "untouched": 57,
-      "unassessed": 120,
-      "total": 699
+      "unassessed": 122,
+      "total": 701
     },
     "added": [
+      "tauceti:TauCetiRoadmap/AdicSpacesPartII",
       "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
       "tauceti:TauCetiRoadmap/ClassifyingSpaces",
       "tauceti:TauCetiRoadmap/CompactOperators",
