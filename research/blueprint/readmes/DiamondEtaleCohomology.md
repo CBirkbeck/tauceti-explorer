@@ -6,7 +6,7 @@ The main categorical object is the enhanced étale category of a small v-stack, 
 
 The finiteness results culminate in a conditional compact-generation theorem. If \(Y\) is a spatial diamond, \(\Lambda\) is commutative, and one finite bound controls the cohomology of every étale \(\Lambda\)-module sheaf on \(Y\), then the same bound holds on every quasicompact separated étale test object. The étale derived category is then compactly generated, and its compact objects are the perfect-constructible complexes. For \(\Lambda=\mathbf F_\ell\), these are the bounded constructible complexes. C8 supplies geometric hypotheses that establish such a bound; the hypotheses must be checked in each application. The complete statements, prerequisite chains and remaining source obligations are specified in C8 and C9 below.
 
-The declaration catalogue covers C0–C9 and contains 184 named nodes, with 256 API items and 176 unit tests. Each definition or construction has an interface derived from its uses, together with tests chosen to distinguish it from plausible incorrect definitions. These are specifications for a library. The gaps and supplier contracts collected after the catalogue remain part of the work, and every node retains unchecked implementation status. The suggested Lean file records signatures and explicit interface omissions; the mathematical document is definitive.
+The declaration catalogue covers C0–C9 and contains 186 named nodes, with 256 API items and 176 unit tests. Each definition or construction has an interface derived from its uses, together with tests chosen to distinguish it from plausible incorrect definitions. These are specifications for a library. The gaps and supplier contracts collected after the catalogue remain part of the work, and every node retains unchecked implementation status. The compact suggested Lean file states field-theoretic milestones over the pinned library’s actual carriers. The full definitions, APIs, tests and geometric targets are specified here.
 
 ## Scope and boundaries
 
@@ -74,13 +74,29 @@ Every comparison has its source and target stated explicitly. In particular, an 
 
 There are two shared results with a single proof owner. The acyclicity theorem is `C0/std-etale-acyclic`; the stable identifier `C8/strictly-disconnected-acyclic` exports it, and the C8 direct-image proof cites C0 directly. The finite-field statement `C9/bounded-filtered-compactness` is the specialization of `C7/perfect-constructible-restricted-compactness` through `C7/perfect-constructible-over-field`.
 
-The displayed layer order is a reading order. Before the C7 filtration proofs, establish the three early C8 nodes `point-quotient`, `specialization-stabilizers` and `point-sheaf-equivalence`. Their prerequisites use C0 and the geometric and profinite suppliers, with no return through C7. The later support reduction in C8 can therefore use the C7 filtration without a cycle. The one remaining request within this roadmap promotes the dualizability API of `C7/perfect-local-system` to a named prerequisite lemma for C9. It records an interface-granularity obligation, not an additional assumed theorem.
+The displayed layer order is a reading order. Before the C7 filtration proofs, establish the three early C8 nodes `point-quotient`, `specialization-stabilizers` and `point-sheaf-equivalence`. Their prerequisites use C0 and the geometric and profinite suppliers, with no return through C7. The subsequent support reduction in C8 can therefore use the C7 filtration without a cycle. The named lemma `C7/perfect-local-system-dualizable` supplies C9’s tensor–Hom comparison. Its proof uses C5’s compatibility of internal Hom with étale restriction; it does not assume that internal Hom commutes with arbitrary pullback.
 
 ## Sources and library interface
 
 ECD locators throughout refer to [arXiv:1709.07343v4](https://arxiv.org/pdf/1709.07343v4), dated 14 April 2026. The C8 dimension comparison also uses Caraiani–Scholze's *On the generic part of the cohomology of compact unitary Shimura varieties*, §4.2; Temkin's *Topological transcendence degree*; Conrad's *Completion of algebraic closure*; and the stated Stacks Project results. Kelly–Saito–Tamme's specialization-chain argument explains the route to Scheiderer's spectral-space theorem, while the missing quasi-augmented descent proof remains explicitly recorded. Fargues–Scholze Problem I.11.1 is treated as a question and motivation, not as a proved dimension comparison. The full version and locator register follows the catalogue.
 
-The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The library register below identifies the exact generic declarations used by the plan. The category and topology vocabulary follows the upstream [AdicSpaces](../../../content/tau-ceti/AdicSpaces/README.md) and [DGAInfinity](../../../content/tau-ceti/DGAInfinity/README.md) roadmaps. The domain-specific sites, cohomology comparisons and enhanced diamond operations are the targets or named imports of this roadmap.
+The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The library register below identifies the exact generic declarations used by the plan. The category and topology vocabulary follows current upstream [AdicSpaces](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/AdicSpaces) and [DGAInfinity](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/DGAInfinity). [ProfiniteArithmetic](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ProfiniteArithmetic), Layers 0–1, owns profinite powers and the general procyclic subgroup calculus. C8’s compact-action lemma supplies the field-specific extension of the orbit maps. The domain-specific sites, cohomology comparisons and enhanced diamond operations are the targets or named imports of this roadmap.
+
+## Target and source crosswalk
+
+The following targets include the additional source assignments in the scope. The remaining layer targets are the declarations in the catalogue, with their sources and direct prerequisites.
+
+| Layer | Target | Supplier and locator |
+| --- | --- | --- |
+| C2 | D⁺ formula for étale coreflection | `DiamondEtaleCohomology:C2/etale-coreflection-bounded-formula`; ECD, Running text after 17.2, p.97 |
+| C3 | Comparison with left-completed étale pushforward | `DiamondEtaleCohomology:C3/pushforward-locally-spatial`; ECD, Running text after 17.5, p.98 |
+| C4 | Proper maps of locally compact Hausdorff spaces | `DiamondEtaleCohomology:C4/locally-compact-hausdorff-proper`; ECD, Remark 18.2(b), p.101 |
+| C7 | Restricted compactness of perfect-constructible objects | `DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness`; ECD, Proposition 20.14, p.119; common lower bound required; coefficient typo corrected as in E1 |
+| C8 | General analytic dimension and valuative criterion | `DiamondEtaleCohomology:C8/partially-proper-dimension`; CS17, Proposition 4.2.19 and Remark 4.2.20, pp.711–712; supporting C8/partially-proper-closure-dimension |
+| C8 | Relative closure dimension formula | `DiamondEtaleCohomology:C8/partially-proper-fibre-dimension`; CS17, Proposition 4.2.21, p.712 |
+| C8 | Dimension question for closed subsets of perfectoid balls | Open question; no theorem node; FS, Problem I.11.1, pp.41–42; recorded as an open question, never a theorem or premise |
+
+CS17’s closure formulas retain the general analytic partial-properness hypothesis and the residue-field extension over the base residue field. Their geometric valuation-space comparison remains a supplier obligation. Fargues–Scholze Problem I.11.1 and ECD Question 21.4 supply no comparison theorem used by a proof.
 
 ## C0. Sites and bounded comparison
 
@@ -3301,6 +3317,35 @@ Sources:
 
 - ECD, Proposition 20.16(iii), p. 120.
 
+### `perfect-local-system-dualizable` — Duality for perfect local systems
+
+Declaration `DiamondEtaleCohomology:C7/perfect-local-system-dualizable` (lemma).
+
+Let Λ be a commutative ring, U a locally spatial diamond and L in D_ét(U,Λ) an étale-locally constant complex with perfect Λ-module values. Then L is dualizable, its dual is L^∨ = Rℋom_Λ(L,Λ_U), this dual is again a perfect local system, and the evaluation-induced map L^∨ ⊗^L_Λ A → Rℋom_Λ(L,A) is an equivalence naturally for every A in D_ét(U,Λ). Evaluation and coevaluation satisfy the two triangle identities. This statement requires neither a cohomological-dimension bound nor noetherian coefficients.
+
+Hypotheses and conventions:
+
+- Use the enhanced closed symmetric monoidal étale category, at a sufficient fixed cutoff, and its homotopy category.
+- Local constancy means an étale covering trivializes L with perfect values; no single global perfect value is required.
+
+Construction and proof:
+
+1. Form the dual using C3/internal-hom and the canonical evaluation comparison. C5/etale-extension-by-zero supplies the projection formula, hence compatibility of internal Hom with étale restriction; arbitrary pullback compatibility is not assumed.
+2. Choose an étale trivializing cover. On each member the constant-complex functor is symmetric monoidal. Import perfect-module duality and the perfect tensor–Hom equivalence from P7; this makes the canonical comparison an equivalence on each member, including with arbitrary A.
+3. Use C2/v-hyperdescent (and its étale specialization) to reflect the equivalence on the cover. The dual restricts to the constant perfect module dual, so is itself a perfect local system. The adjunction and this natural comparison give evaluation and coevaluation, with the triangle identities checked on the same conservative cover.
+4. For C9 use j! ⊣ j* to obtain derived Hom(j!L,B) ≃ RΓ(U,L^∨ ⊗^L j*B). Tensor and pullback preserve coproducts; the uniform cohomological bound is needed only for the RΓ factor.
+
+Acceptance:
+
+- For L=Λ_U the comparison is the unit constraint A≃Rℋom(Λ_U,A).
+- For constant finite projective complexes, recover the supplier’s tensor–Hom map, including its Koszul convention.
+- The constant complex Q over Z is excluded: local constancy without perfect values cannot replace the hypothesis.
+- The proof does not depend on general-coefficient perfect-constructible v-descent (E11), a spatiality assumption on U, or a finite cohomological bound.
+
+Depends on: `DiamondEtaleCohomology:C7/perfect-local-system`, `DiamondEtaleCohomology:C3/internal-hom`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C5/etale-extension-by-zero`, `DiamondEtaleCohomology:C2/v-hyperdescent`, `DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-dual-perfect`, `DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-tensor-hom`.
+
+Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Proposition 20.17, last paragraph, pp.121–122; Proposition 20.16(iii), pp.120–121. The compactness argument uses the dual of an étale local system with perfect values. Étale-local perfect-module duality and conservative descent give the tensor–Hom comparison required here; this consequence is not stated as a separately numbered theorem in ECD.
+
 ### `perfect-constructible-std` — Perfect-constructible complexes on a strictly totally disconnected space
 
 Declaration `DiamondEtaleCohomology:C7/perfect-constructible-std` (definition).
@@ -3623,7 +3668,7 @@ Objects: topological fibre dimension, the generating and independent topological
 
 Theorems: ECD 21.3 and its modified form, 21.6–21.17, including the finite case of Question 21.4, field-point tests for topological dimension, the spatial bound with arbitrary open vanishing locus, and the prime-to-p geometric bound at maximal points. The analytic branch contains Caraiani–Scholze 4.2.19 and 4.2.21. General monotonicity in ECD Question 21.4 and Fargues–Scholze Problem I.11.1 remain questions.
 
-The early point-quotient, specialization-stabilizer and sheaf-comparison declarations are available before C7's filtrations. They depend only on the geometric suppliers and C0, while the later support-sensitive bound uses C7. Acyclicity is proved once in C0/std-etale-acyclic; the older C8 identifier remains an export for existing references.
+The early point-quotient, specialization-stabilizer and sheaf-comparison declarations are available before C7's filtrations. They depend only on the geometric suppliers and C0, while the support-sensitive bound uses C7. Acyclicity is proved once in C0/std-etale-acyclic; the older C8 identifier remains an export for existing references.
 
 Other roadmaps: DiamondsAndVStacks supplies the actual spaces, presentations, point-localization geometry and ordinary topos interfaces; EnhancedDerivedSheaves supplies generic derived-category and cosimplicial interfaces. ProfiniteCohomology and ProfiniteProPGroups supply all-degree continuous cohomology, cohomological dimension and Sylow theory. Accepted RS-05 assigns all-degree Hochschild–Serre to ArithmeticGaloisDuality R02.1 and the coefficient/convergence compatibility to R02.2. AdicEtaleGeometry A2's general-analytic extension remains requested for the partially proper branch.
 
@@ -3747,7 +3792,7 @@ Acceptance:
 
 - The case n=0 is compatible with a complete algebraically closed base. Complete and algebraically closed are both retained.
 
-Depends on: `DiamondEtaleCohomology:C8/topological-trdeg`, `mathlib:spectralNorm.normedField`, `mathlib:spectralNorm_extends`.
+Depends on: `PerfectoidSpaces:P4` (the characteristic-independent completion contract below), `DiamondEtaleCohomology:C8/topological-trdeg`, `mathlib:spectralNorm.normedField`, `mathlib:spectralNorm_extends`.
 
 Source: [ECD](https://arxiv.org/pdf/1709.07343v4), After Definition21.2 and proof of Lemma21.3, p.122; [CONRAD](https://math.stanford.edu/~conrad/248APage/handouts/algclosurecomp.pdf), Theorem 1.1 and §2, pp.1–3.
 
@@ -4025,8 +4070,8 @@ For a morphism f of analytic adic spaces, fibreDimension(f)≤analyticDimTrg(f).
 
 Construction and proof:
 
-1. Use the valuative chain/rationalized-value-group estimate from Huber1.8.5(i).
-2. Rationalized value groups do not change on passing to completed algebraic closure and embed under extension; combine with the minimum defining modifiedTopologicalTrdeg. The full Huber proof and the completion comparison remain explicit proof inputs to establish.
+1. Apply Huber Lemma 1.8.5(i): each specialization chain in a fibre is bounded by the rational rank of its relative value group, and the valuative transcendence estimate bounds this rank by the complete-field transcendence invariant. Huber cites Bourbaki VI.10.3 Corollary 1 for the latter estimate; its proof remains a source obligation.
+2. Pass to completed algebraic closures: completion preserves the value group and algebraic extension changes it only by torsion, so rational ranks agree. Under compatible valued extensions they can only increase. Establish these comparisons and apply the minimum defining modifiedTopologicalTrdeg, then take the supremum over point presentations.
 
 Acceptance:
 
@@ -4034,7 +4079,7 @@ Acceptance:
 
 Depends on: `DiamondEtaleCohomology:C8/fibre-dimension`, `DiamondEtaleCohomology:C8/analytic-dim-trg`.
 
-Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Lemma21.6 and proof, p.123.
+Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Lemma 21.6 and proof, p.123; [HUBER96](https://doi.org/10.1007/978-3-663-09991-8), §1.8, Definitions 1.8.1–1.8.4 and Lemma 1.8.5(i) with proof, pp.90–91. Huber supplies the chain/rank reduction, with its stated Bourbaki input; the completion and modified-degree comparisons remain explicit obligations.
 
 ### `diamond-dim-trg` — Geometric transcendence dimension of a diamond map ★
 
@@ -4420,6 +4465,37 @@ Depends on: `ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.2`, `t
 
 Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Proposition21.16, final inequality, p.127.
 
+### `compact-procyclic-field-action` — Compact closure of a recurrent field automorphism
+
+Declaration `DiamondEtaleCohomology:C8/compact-procyclic-field-action` (lemma).
+
+Let C be a complete nonarchimedean normed field and γ a norm-preserving field automorphism. Suppose that for every x in C, γ^(n!)(x) tends to x as n tends to infinity. Give the automorphisms the topology induced by their underlying functions in C^C. The integer action n↦γ^n extends uniquely to a continuous action of the profinite completion of Z by norm-preserving field automorphisms. Its image is precisely the pointwise closure of the integer powers, and this image is a compact procyclic profinite group. The closure of the nonnegative powers is the same set. In particular it is compact as a subset of C^C.
+
+Hypotheses and conventions:
+
+- Completeness is for the given norm, which satisfies the ultrametric inequality.
+- The factorial-power convergence is pointwise, for every field element; convergence at a chosen generating subset is not substituted.
+- Algebraic closedness and positive characteristic are not required for this compactness lemma.
+
+Construction and proof:
+
+1. For x in a finite set F and ε>0 choose N≥1 such that ‖γ^(N!)(x)−x‖<ε for every x in F. Telescoping, the ultrametric inequality and isometry give ‖γ^(mN!)(x)−x‖≤‖γ^(N!)(x)−x‖ for every integer m; negative m follow by applying the inverse isometry. If a−b is divisible by N!, the same estimate bounds ‖γ^a(x)−γ^b(x)‖.
+2. Give Z the profinite group uniformity. The preceding estimate says every orbit map Z→C is uniformly continuous. Use the existing completion and extension API to extend the orbit maps to the profinite completion. In this specialization the inverse limit of Z/dZ is the separated uniform completion: residues modulo N! form a cofinal basis and make the integers totally bounded. Completeness of C supplies the limits; no compactness of norm-bounded subsets of C is assumed.
+3. Extend the ring laws and the norm equality by density. To establish the action law, for a,b in the completion approximate both by integers. Isometry bounds the error from moving the input of γ^a separately from the pointwise error at the fixed input; this proves joint continuity of evaluation and passes γ^(a+b)=γ^a∘γ^b to the limit. The values at a and −a are inverses, so a limit is a surjective automorphism, not merely an isometric field embedding.
+4. The image is compact in the Hausdorff product C^C. Density identifies it with the closure of integer powers. The kernel is closed; the quotient of the existing profinite completion by this closed normal subgroup is profinite by the pinned quotient theorem. The compact-to-Hausdorff bijection identifies that quotient topology with the image topology. Nonnegative integers are also dense modulo every positive integer, so the same image is the closure of nonnegative powers.
+5. In Lemma 21.17, triviality on leading terms first implies norm preservation. Its condition ‖γ(x)/x−1‖<1 for every x≠0 passes to the image because open ultrametric balls are closed. The general procyclic power and Sylow calculus is imported, not reconstructed as a field-specific group theory.
+
+Acceptance:
+
+- For γ=id the image is a singleton and is compact.
+- For a norm-preserving finite-order automorphism, the image is its finite cyclic group; the factorial hypothesis holds.
+- Account explicitly for inverse automorphisms and the continuity of composition on the isometry image.
+- Retain the given pointwise topology and distinguish the compact closure from an infinite abstract cyclic subgroup.
+
+Depends on: `mathlib:ProfiniteGrp.ProfiniteCompletion.completion`, `mathlib:ProfiniteGrp.ProfiniteCompletion.denseRange`, `mathlib:UniformSpace.Completion.extension_coe`, `mathlib:UniformSpace.Completion.continuous_extension`, `tauceti:TauCeti.QuotientGroup.instTotallyDisconnectedSpace`, `mathlib:IsUltrametricDist.isClosed_ball`.
+
+Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Lemma 21.17, first paragraph of proof, p.127. ECD needs a procyclic profinite group attached to the recurrent automorphism. This supplies the compactness and topology argument omitted in the text; its slightly more general hypotheses isolate exactly what that step uses.
+
 ### `wild-automorphism` — Wild continuous automorphisms in characteristic p
 
 Declaration `DiamondEtaleCohomology:C8/wild-automorphism` (lemma).
@@ -4428,15 +4504,16 @@ Let C be complete algebraically closed nonarchimedean of characteristic p. If a 
 
 Construction and proof:
 
-1. The source passes to the procyclic profinite closure of γ. Establishing the required topology and compactness is an explicit proof obligation in the gap list.
-2. Using profinite Sylow, reduce a non-pro-p factor to a pro-ℓ cyclic group for ℓ≠p.
-3. If γ(x)≠x, choose y with the size of γ(x)/x−1. The residue of (g(x)/x−1)/y is a nonzero continuous homomorphism to the additive residue field. Triviality on leading terms proves its additivity. A pro-ℓ group has no nontrivial continuous map to this discrete p-torsion group, a contradiction.
+1. The leading-term assumption implies that γ is an isometry. Apply compact-procyclic-field-action; its last step passes all the leading-term congruences to the compact closure. If this procyclic profinite group is not pro-p, take a nontrivial pro-ℓ Sylow subgroup H, with ℓ≠p, using the existing profinite supplier.
+2. Choose x≠0 moved by H. The continuous function h↦‖h(x)/x−1‖ attains a maximum δ on compact H. Since all leading-term congruences hold, 0<δ<1. Choose h0 attaining δ and set y=h0(x)/x−1, so y≠0 and ‖y‖=δ. For every h, d_h=h(x)/x−1 satisfies ‖d_h/y‖≤1; the residue map c(h)=res(d_h/y) is defined on all of H and c(h0)≠0.
+3. For g,h∈H use d_(gh)=d_g+g(d_h)+d_g g(d_h). Every g acts trivially on the residue field and has g(y)/y≡1. Therefore res(g(d_h)/y)=res(d_h/y). The cross term divided by y has norm at most δ<1, so c(gh)=c(g)+c(h). The residue field is discrete because its maximal ideal is open, hence c is continuous.
+4. The pinned IsProP.isPGroup_range says the image of c is an ℓ-group even for an infinite discrete residue field. Its elements are killed by p. IsPGroup.orderOf_coprime and ℓ≠p force that image to be trivial, contradicting c(h0)≠0. Thus the compact procyclic group is pro-p; finite p-group quotients show its p^n powers tend to the identity, and point evaluation gives the result.
 
 Acceptance:
 
 - Both pointwise factorial-power convergence and the leading-term action hypothesis are retained.
 
-Depends on: `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`.
+Depends on: `DiamondEtaleCohomology:C8/compact-procyclic-field-action`, `tauceti:TauCeti.IsProP.isPGroup_range`, `mathlib:IsPGroup.orderOf_coprime`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`.
 
 Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Lemma21.17 and proof, p.127.
 
@@ -4824,7 +4901,7 @@ For the general coefficient theorem Λ is commutative, matching C7's coefficient
 
 Bounded filtered compactness is retained as the finite-field export of C7/perfect-constructible-restricted-compactness, with the perfect-constructible field comparison. C5 supplies exact étale extension by zero; C3 supplies tensor and internal Hom. The finite closure of the compact generators is imported from Tau Ceti DGAInfinity Layer 6, with Layer 5's DG interpretation, and is expressed using Mathlib's ObjectProperty.triangEnvelope. The E2 Postnikov and finite-window nodes are separate from the remaining category-level completeness request, and E3 supplies coproduct/compactness and cutoff compatibility.
 
-Coverage: planned. The same finite cohomological bound is preserved at each step. The accepted E46 source gap inherited through the ordinary/enhanced comparison, the non-noetherian E11 gap inherited through the general-Λ filtration, the external E2/E3/DGAInfinity interfaces, and the omitted suggested signatures remain explicit. Dualizability of perfect local systems is already in C7's API and still needs promotion to a prerequisite lemma under PROTOCOL §4.
+Coverage: planned. The same finite cohomological bound is preserved at each step. The E46 source gap inherited through the ordinary/enhanced comparison, the non-noetherian E11 gap inherited through the general-Λ filtration, and the external E2/E3/DGAInfinity interfaces remain explicit. C7/perfect-local-system-dualizable supplies the named duality prerequisite, with the precise common bound stated in perfect-local-system-compact.
 
 Planets: **Compact generators** (`compact-generators`); **Compact étale complexes** (`compact-iff-perfect-constructible`).
 
@@ -5005,7 +5082,7 @@ Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Proposition20.17, p.121; [STA
 
 Declaration `DiamondEtaleCohomology:C9/perfect-local-system-compact` (lemma).
 
-Under the same bounded-cohomological-dimension hypotheses, j!L is compact when j:U→Y is quasicompact separated étale and L∈D_et(U,Λ) is locally constant with perfect values.
+Let Y be spatial, Λ commutative, and N a single finite upper bound for H^i(Y,F) for every étale Λ-module sheaf F and every i>N. For a quasicompact separated étale map j:U→Y and a perfect local system L on U, the object j!L is compact in D_ét(Y,Λ). The same N bounds cohomology on U by C9/uniform-test-bound.
 
 Construction and proof:
 
@@ -5017,7 +5094,7 @@ Acceptance:
 
 - Retain every stated hypothesis; verify each proof step against its named input.
 
-Depends on: `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C7/perfect-local-system`, `DiamondEtaleCohomology:C7`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `DiamondEtaleCohomology:C5/etale-extension-by-zero`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C3/internal-hom`.
+Depends on: `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C7/perfect-local-system`, `DiamondEtaleCohomology:C7/perfect-local-system-dualizable`, `DiamondEtaleCohomology:C9/uniform-test-bound`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `DiamondEtaleCohomology:C5/etale-extension-by-zero`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C3/internal-hom`.
 
 Source: [ECD](https://arxiv.org/pdf/1709.07343v4), Proposition20.17, end of proof, pp.121–122.
 
@@ -5158,7 +5235,7 @@ Consumers: `DiamondEtaleCohomology:C8/point-cd`, `DiamondEtaleCohomology:C8/clos
 
 Consumers: `DiamondEtaleCohomology:C8/wild-automorphism`.
 
-**C8.5 — `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`.** The finite-quotient characterization of pro-p and its closed-subgroup/quotient stability; exclude continuous homomorphisms from a pro-ℓ group to discrete p-torsion groups for distinct primes.
+**C8.5 — `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation`.** Use the existing pinned TauCeti.IsProP predicate and IsProP.isPGroup_range for the finite-quotient criterion and discrete images. The remaining contract is closed-subgroup stability in the stated profinite scope and the pro-p Sylow detection used for the wild kernel. No new discrete-image theorem is requested.
 
 Consumers: `DiamondEtaleCohomology:C8/wild-automorphism`, `DiamondEtaleCohomology:C8/wild-kernel-pro-p`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`.
 
@@ -5202,87 +5279,93 @@ Consumers: `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`.
 
 Consumers: `DiamondEtaleCohomology:C8/tame-cd-bound`, `DiamondEtaleCohomology:C8/residue-cd-bound`.
 
-**C8.16 — `DiamondEtaleCohomology:C7`.** Promote the already planned IsPerfectLocalSystem.dualizable API item of C7/perfect-local-system to a named prerequisite lemma, as PROTOCOL §4 requires: for a commutative coefficient ring Λ and a locally spatial diamond U, every étale locally constant complex L with perfect values is dualizable, with dual RHom_Λ(L,Λ_U), and RHom_Λ(L,A) ≃ L^∨ ⊗^L_Λ A naturally in A. The carrier and proof outline already appear in C7/perfect-local-system; this is an API-granularity task, not a new assertion or an unresolved mathematical theorem.
+**C8.16 — `PerfectoidSpaces:P4`.** Promote the characteristic-independent completion-of-algebraic-closure input already used by P4/algebraically-closed-extension-of-affinoid-field to a general complete nonarchimedean valued-field helper. For an algebraically closed dense subfield of a complete nonarchimedean normed field, prove algebraic closedness in every characteristic. Conrad Theorem 1.1 and §2 give the coefficient/root approximation proof; Mathlib IsAlgClosed.of_denseRange at the pin covers characteristic zero only. C8 imports this generic helper, and retains its field-generating-degree application.
 
-Consumers: `DiamondEtaleCohomology:C9/perfect-local-system-compact`.
+Consumers: `DiamondEtaleCohomology:C8/finite-topological-generators`.
 
 
 ## Source and interface obligations
 
-Every layer is planned at target level. The following exact obligations prevent the corresponding prerequisite chains from being closed. A reference to a supplier node preserves that node's unresolved cases; it does not discharge them. In particular, the higher-degree v-comparison boundary propagates through its C2 comparison, and the general-coefficient perfect-constructibility boundary propagates through the relevant C7 filtration. A noetherian or finite-field specialization may use its separately stated proof route.
+All ten layers are planned at target level. These eleven obligations prevent closure. An imported node retains its unresolved cases: E46 propagates through the v-derived comparisons, and E11 through general-coefficient constructible descent and filtration. The compact-closure and dualizability arguments above do not discharge those separate gaps.
 
-### C0.1. Vanishing of R^iλ_Y∗λ_Y^∗F for i ≥ 2 (ECD Proposition 14.7, PAPER-SCHOLZE-17/E46)
+### G1. Vanishing of R^iλ_Y∗λ_Y^∗F for i ≥ 2 (ECD Proposition 14.7, PAPER-SCHOLZE-17/E46)
 
 ECD represents a minimal nonzero class α ∈ H^i(X_v, λ^∗F) by a Čech cocycle on fibre powers of an affinoid perfectoid v-cover X′ → X. For i ≥ 2 this needs the vanishing of the intermediate v-cohomology of the fibre powers of X′, which the source does not establish (minimality gives vanishing only on strictly totally disconnected spaces, and Proposition 14.8 only identifies those groups with étale cohomology). The case i = 1, hence the statement for sheaves of groups and the quasi-pro-étale comparison, is complete. Repair routes: (a) choose X′ so that the relevant étale groups of its fibre powers vanish; (b) a hypercover version of the approximation-and-splitting step, which needs an input not in ECD: compatibility of λ∘_X with the finite limits forming the matching objects of a strictly totally disconnected v-hypercover, or a hypercover for which λ∘_X(X_•) is a quasi-pro-étale hypercover of X. Lemma 14.5(ii) alone does not suffice, since (cosk_1 X_•)_2 is a limit over X_0 ×_X X_0, which is not strictly totally disconnected (over X = Spa(C, O_C), X_0 = Spa(C_0, O_{C_0}), λ∘(X_2) → (cosk_1 λ∘X_•)_2 can fail to be surjective). The v-part of the bounded-below comparison (14.10) in degrees ≥ 2 depends on this gap.
 
 Consumers: `DiamondEtaleCohomology:C0/v-pullback-higher-vanishing`, `DiamondEtaleCohomology:C0/bounded-below-comparison`, `DiamondEtaleCohomology:C0/unbounded-comparison-std`, `DiamondEtaleCohomology:C2/v-local-etaleness`, `DiamondEtaleCohomology:C2/left-completion-comparison`, `DiamondEtaleCohomology:C2/etale-coreflection-bounded-formula`.
 
-### C0.2. v-descent of perfect-constructibility for non-noetherian Λ (ECD Proposition 20.13, DiamondEtaleCohomology/E11)
+### G2. v-descent of perfect-constructibility for non-noetherian Λ (ECD Proposition 20.13, DiamondEtaleCohomology/E11)
 
-ECD reduces 20.13 to an affinoid pro-étale cover by replacing Ỹ with Y ×_{|Y|} |Ỹ|, which is not affinoid pro-étale in general (Corollary 7.22 needs |Ỹ| → |Y| ×_{π0} π0 Ỹ to be an embedding; it fails for Y = Spa(C, O_C), Ỹ = Spa(C′, C′⁺) of rank 2), and the final 'is already an isomorphism there' needs the comparison cone to vanish on all of |Ỹ_j|. For noetherian Λ the packet proves 20.13 from 20.5 and 20.12. For general commutative Λ the missing input is descent of perfect-constructibility along X̃ → λ°_X(X̃) for strictly totally disconnected X̃ → X (a homeomorphism on π0, surjective and monotone on each component chain); after it ECD's argument applies to the affinoid pro-étale λ°_X(X̃). The E61 repair of 20.16 (i) ⇒ (ii) ends with this v-descent, so the general-Λ case of 20.15–20.16 depends on it.
+ECD reduces 20.13 to an affinoid pro-étale cover by replacing Ỹ with Y ×_{|Y|} |Ỹ|, which is not affinoid pro-étale in general (Corollary 7.22 needs |Ỹ| → |Y| ×_{π0} π0 Ỹ to be an embedding; it fails for Y = Spa(C, O_C), Ỹ = Spa(C′, C′⁺) of rank 2), and the final comparison-isomorphism assertion needs the comparison cone to vanish on all of |Ỹ_j|. For noetherian Λ the packet proves 20.13 from 20.5 and 20.12. For general commutative Λ the missing input is descent of perfect-constructibility along X̃ → λ°_X(X̃) for strictly totally disconnected X̃ → X (a homeomorphism on π0, surjective and monotone on each component chain); after it ECD's argument applies to the affinoid pro-étale λ°_X(X̃). The E61 repair of 20.16 (i) ⇒ (ii) ends with this v-descent, so the general-Λ case of 20.15–20.16 depends on it.
 
 Consumers: `DiamondEtaleCohomology:C7/perfect-constructible-v-descent`, `DiamondEtaleCohomology:C7/perfect-constructible-filtration`, `DiamondEtaleCohomology:C7/perfect-constructible-limit-equivalence`, `DiamondEtaleCohomology:C7/perfect-constructible-ring-colimit`.
 
-### C8.1. Characteristic-independent completion argument
+### G3. Characteristic-independent completion argument
 
-Conrad's coefficient/root-approximation proof has been read and works in every characteristic for the closure of a dense algebraically closed subfield. The norm on the finite splitting extension is Mathlib's spectralNorm.normedField, restricting to the original norm by spectralNorm_extends (both read at the pinned commit), so no separate valued-extension construction is needed. What remains is the adapted root-approximation lemma itself. The pinned IsAlgClosed.of_denseRange requires CharZero and cannot be cited in characteristic p.
+The generic completion input overlaps PerfectoidSpaces:P4/algebraically-closed-extension-of-affinoid-field and is requested there, not planned again in C8. Conrad’s proof is read and the finite-extension spectral norm is available. For a monic polynomial approximate its coefficients in the dense algebraically closed subfield; bounded roots of the approximants make the values of the fixed polynomial tend to zero. In a finite splitting extension, one root is approached along a subsequence; completeness puts that root in the original field. This works in positive characteristic, whereas pinned IsAlgClosed.of_denseRange assumes CharZero. The general supplier statement and its application to C8 remain to be discharged.
 
 Consumers: `DiamondEtaleCohomology:C8/finite-topological-generators`.
 
-### C8.2. Universe bounds, valued amalgamation and point choices
+### G4. Universe bounds, valued amalgamation and point choices
 
 Prove finite extension-witness size reduction using the read D0 completion-cardinality bound; construct compatible complete algebraically closed valued amalgams for the two modified21.3 inequalities; prove independence of completed residue-field closures and of quasi-pro-étale point representatives; prove cutoff independence for representable v-stack tests. Split these into individual lemmas before closure. No universal monotonicity answer to Question21.4 is assumed.
 
 Consumers: `DiamondEtaleCohomology:C8/modified-topological-trdeg`, `DiamondEtaleCohomology:C8/modified-trdeg-tower`, `DiamondEtaleCohomology:C8/modified-trdeg-base-change`, `DiamondEtaleCohomology:C8/analytic-dim-trg`, `DiamondEtaleCohomology:C8/diamond-dim-trg`.
 
-### C8.3. Huber valuative dimension and completion lemmas
+### G5. Huber valuative dimension and completion lemmas
 
-Read Huber1.8.5(i), prove the chain/rational-value-group estimate, and separately prove the completion/algebraic-closure comparisons and their compatibility with maps on the existing adic carrier. General analytic completed residue fields must be constructed from the upstream stalkwise fields; A0 tensor products do not supply them.
+Huber §1.8, Definitions 1.8.1–1.8.4 and Lemma 1.8.5(i), pp.90–91, including its proof, have been read. A fibre specialization chain is bounded by the rational rank of the relative value group, which is bounded by Huber’s complete-field transcendence invariant through Bourbaki VI.10.3 Corollary 1. Establish that chain/rank input and the comparison with the modified generating degree, including completion and algebraic-closure invariance and compatibility with maps. Bourbaki’s cited proof remains unread. General analytic completed residue fields must be constructed from the upstream stalkwise fields; A0 tensor products do not supply them.
 
 Consumers: `DiamondEtaleCohomology:C8/analytic-dimension-bound`, `DiamondEtaleCohomology:C8/analytic-dim-trg`.
 
-### C8.4. Temkin primitive perturbation source boundary
+### G6. Temkin primitive perturbation source boundary
 
 Temkin §§2–3 and ECD's finite-degree paragraph were read. Temkin's independent degree and his comparison theorem are explicit nodes (topological-independence-degree, independent-le-generating-degree), through which finite intermediate-degree monotonicity and finite modified/original equality are proved. Temkin Theorem 3.1.9 uses Lemma 3.1.6, imported from Temkin 2010 Lemma 6.3.2, whose primitive-field perturbation proof has not been read. Refine that input before claiming source closure; retain the distinction between independent and generating degree for infinite extensions.
 
 Consumers: `DiamondEtaleCohomology:C8/independent-le-generating-degree`, `DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity`, `DiamondEtaleCohomology:C8/modified-trdeg-finite-equality`.
 
-### C8.5. Wild, residue and tame proof interiors
+### G7. Wild, residue and tame proof interiors
 
-In 21.17 justify the topology and compactness of the procyclic closure and split the leading-term residue homomorphism computation. For 21.16 prove the infinite-Galois identification; for the residue bound, the criterion that Brauer vanishing for all finite separable extensions gives cd_ℓ≤1 (Serre, Galois Cohomology, II.3.1), which has not been read, while Tsen's theorem is read in Stacks 03RD/03RF; the tame character topology and finite-adele identification; and the cohomological bound on its compact lattices. These are owned field/Kummer arguments, not supplied by a bare five-term sequence or discrete local-field inertia.
+The compact procyclic closure is now C8/compact-procyclic-field-action. The wild-automorphism argument supplies the uniform normalization, residue additivity and continuity argument. The remaining obligations in 21.16 are the infinite-Galois identification, the Brauer-vanishing-to-cd≤1 criterion for every finite separable extension, the tame character topology and finite-adele identification, and the cohomological bound on compact lattices. The Tsen statement is an inherited verified input; Serre II.3.1 remains an unread supplier source. These general valued-field arguments cannot be replaced by discrete local-field inertia.
 
 Consumers: `DiamondEtaleCohomology:C8/wild-automorphism`, `DiamondEtaleCohomology:C8/residue-galois-identification`, `DiamondEtaleCohomology:C8/residue-cd-bound`, `DiamondEtaleCohomology:C8/tame-character-embedding`, `DiamondEtaleCohomology:C8/tame-cd-bound`.
 
-### C8.6. Valuation rank and completion comparisons
+### G8. Valuation rank and completion comparisons
 
 The polynomial leading-term proof is now explicit in valuation-transcendence-bound. Refine residue independence, rational value-group independence, cardinal-to-ENat conversion, algebraic-extension torsion and completion immediacy. Bourbaki VI.10.3 Corollary 1 has not been read; no claim of an independently closed library proof is made.
 
 Consumers: `DiamondEtaleCohomology:C8/valuation-transcendence-bound`.
 
-### C8.7. Scheiderer quasi-augmented descent proof
+### G9. Scheiderer quasi-augmented descent proof
 
 The1992 article, DOI10.1016/0022-4049(92)90062-K, was located on its open-archive publisher page, but the PDF endpoint returned403. The author bibliography has no PDF link. Read §§2–4, especially Remark2.5, Theorem4.1 and Corollary4.6. Construct the quasi-augmentation adjunction and prove descent with the precise hypotheses; then separate normalization into a named lemma. KST Lemma6.6 supplies the specialization-chain and normalized-support argument only. Stacks0A3G proves the desired bound by another method and does not close this required source route.
 
 Consumers: `DiamondEtaleCohomology:C8/specialization-chain-space`, `DiamondEtaleCohomology:C8/chain-cohomology-comparison`, `DiamondEtaleCohomology:C8/spectral-cohomological-bound`.
 
-### C8.8. CS17 valuation-space comparison in general analytic scope
+### G10. CS17 valuation-space comparison in general analytic scope
 
 Read and prove the Zariski–Riemann description of a rank-one closure and its transcendence-degree dimension formula, and establish the supplier’s partial-properness criterion beyond noetherian analytic spaces. The generic algebraic tower equality is already in the pinned library; only its ENat/infinite-rank conversion and geometric application are new.
 
 Consumers: `DiamondEtaleCohomology:C8/partially-proper-closure-dimension`, `DiamondEtaleCohomology:C8/partially-proper-dimension`, `DiamondEtaleCohomology:C8/partially-proper-fibre-dimension`.
 
-### C8.9. Finite-window and generation interfaces
+### G11. Finite-window and generation interfaces
 
-Object-wise Postnikov convergence and the uniform window are cited from the E2 nodes; the category-level left completion and the coproduct argument remain open requests to E2, the cutoff comparison to E3, and the thick-closure description of compact objects to Tau Ceti DGAInfinity Layer 6. For detect-zero spell out the stalk/derived-section argument using the uniform bound; do not use a cohomology presheaf as though it were already a sheaf. The C7 perfect-local-system carrier and its dualizability API are available, but the API item must be promoted to a named prerequisite lemma before C9/perfect-local-system-compact can cite it; the residual C7 request records this exact granularity obligation.
+The named C7/perfect-local-system-dualizable now supplies the exact duality comparison used by C9. Still required are the E2 category-level left-completion and uniform-window/coproduct arguments, the E3 enhanced compactness and cutoff comparisons, and the current DGAInfinity Layers 5–6 compact/thick-generator result on the supplied DG model. The detect-zero step must pass from derived sections on every étale test object to stalks using the uniform bound; a cohomology presheaf cannot be treated as a sheaf without proof.
 
 Consumers: `DiamondEtaleCohomology:C9/left-completeness`, `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C9/etale-generators-detect-zero`, `DiamondEtaleCohomology:C9/compact-generators`, `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`, `DiamondEtaleCohomology:C9/perfect-local-system-compact`.
 
-### C8.10. Suggested signatures remain incomplete
+## Suggested Lean scope
 
-The suggested file states all signatures/API/tests representable with the pinned topology and normed-field carriers, including the modified invariant with genuine extension data. Analytic, diamond, site and enhanced-category declarations need the absent owning supplier types; these conditions are omitted under PROTOCOL §13, with a per-node inventory. Group cohomological dimension and the tame character/value-group topology likewise need their imported interfaces. No arbitrary proposition field or assumed theorem package fills these omissions.
+The suggested file is a compact set of milestones over real pinned carriers. The catalogue above carries every definition’s full API and at least three distinguishing unit tests. A target whose geometric or enhanced carrier is absent is specified here, with its supplier; no surrogate category or field of assumed propositions represents it. Heavy field-degree and chain-space constructions are also specified here, rather than developed in the prototype.
 
-Consumers: `DiamondEtaleCohomology:C8/analytic-dim-trg`, `DiamondEtaleCohomology:C8/analytic-dimension-bound`, `DiamondEtaleCohomology:C8/diamond-dim-trg`, `DiamondEtaleCohomology:C8/diamond-dim-base-change`, `DiamondEtaleCohomology:C8/diamond-dim-composition`, `DiamondEtaleCohomology:C8/locally-finite-dim-trg`, `DiamondEtaleCohomology:C8/strictly-disconnected-acyclic`, `DiamondEtaleCohomology:C8/qpetale-direct-image`, `DiamondEtaleCohomology:C8/injection-direct-image`, `DiamondEtaleCohomology:C8/point-quotient`, `DiamondEtaleCohomology:C8/point-quotient-unique`, `DiamondEtaleCohomology:C8/point-sheaf-equivalence`, `DiamondEtaleCohomology:C8/point-cohomology`, `DiamondEtaleCohomology:C8/point-cd`, `DiamondEtaleCohomology:C8/specialization-stabilizers`, `DiamondEtaleCohomology:C8/closed-point-cohomology`, `DiamondEtaleCohomology:C8/closed-point-bound`, `DiamondEtaleCohomology:C8/extension-cd-bound`, `DiamondEtaleCohomology:C8/prime-to-p-wild-removal`, `DiamondEtaleCohomology:C8/residue-galois-identification`, `DiamondEtaleCohomology:C8/residue-cd-bound`, `DiamondEtaleCohomology:C8/tame-character-embedding`, `DiamondEtaleCohomology:C8/tame-cd-bound`, `DiamondEtaleCohomology:C8/valuation-transcendence-bound`, `DiamondEtaleCohomology:C8/point-cd-geometric-bound`, `DiamondEtaleCohomology:C8/chain-cohomology-comparison`, `DiamondEtaleCohomology:C8/spectral-cohomological-bound`, `DiamondEtaleCohomology:C8/boundary-dimension-drop`, `DiamondEtaleCohomology:C8/constructible-support-reduction`, `DiamondEtaleCohomology:C8/local-stalk-bound`, `DiamondEtaleCohomology:C8/spatial-cohomological-bound`, `DiamondEtaleCohomology:C8/partially-proper-closure-dimension`, `DiamondEtaleCohomology:C8/partially-proper-dimension`, `DiamondEtaleCohomology:C8/partially-proper-fibre-dimension`, `DiamondEtaleCohomology:C9/bounded-filtered-compactness`, `DiamondEtaleCohomology:C9/uniform-test-bound`, `DiamondEtaleCohomology:C9/left-completeness`, `DiamondEtaleCohomology:C9/ordinary-derived-comparison`, `DiamondEtaleCohomology:C9/global-sections-coproducts`, `DiamondEtaleCohomology:C9/etale-constant-compact`, `DiamondEtaleCohomology:C9/etale-generators-detect-zero`, `DiamondEtaleCohomology:C9/compact-generators`, `DiamondEtaleCohomology:C9/compact-implies-perfect-constructible`, `DiamondEtaleCohomology:C9/perfect-local-system-compact`, `DiamondEtaleCohomology:C9/perfect-constructible-implies-compact`, `DiamondEtaleCohomology:C9/compact-iff-perfect-constructible`, `DiamondEtaleCohomology:C9/finite-field-compact-objects`, `DiamondEtaleCohomology:C8/topological-dimension-field-tests`, `DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds`.
-
+| Layers | Targets retained in the reader |
+| --- | --- |
+| C0–C1 | Diamond sites, cutoff categories, geometric stalks, comparison morphisms, repleteness and base-change transformations; require the perfectoid and diamond carriers. |
+| C2–C3 | Enhanced étale categories, left completion, coreflection and the four operations; require the genuine enhanced supplier. |
+| C4–C6 | Properness, canonical compactification, extension by zero, proper base change and field invariance; require the geometric carriers and their valuative interfaces. |
+| C7 | Constructibility, perfect local systems, named dualizability and filtrations; require those categories and the imported perfect-module theory. |
+| C8 | Field dimension invariants, analytic/diamond dimension, spectral chain descent, point quotients, cohomological comparisons and bounds. The compact-closure, wild-automorphism and faithful wild-action milestones use actual normed fields, product topology, group actions and TauCeti.IsProP in Lean. |
+| C9 | Uniform bounds, enhanced compact generators and the compact-object characterization; require the étale enhancement, not a finite-presentation surrogate. |
 
 ## Pinned library register
 
@@ -5367,9 +5450,27 @@ These are the exact declarations cited by the packets at Mathlib `082e2d37e8b046
 - [`tauceti:TauCeti.IsProP`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean): The actual pro-p predicate: every quotient by an open normal subgroup is a p-group. On a profinite group this equals the finite continuous quotient criterion used in the suggested signature.
 
 
+### Additional field-action inputs
+
+- [`mathlib:ProfiniteGrp.ProfiniteCompletion.completion`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Category/ProfiniteGrp/Completion.lean): The existing profinite completion as the inverse limit of finite group quotients; use it for the multiplicative presentation of the additive group of integers.
+
+- [`mathlib:ProfiniteGrp.ProfiniteCompletion.denseRange`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Category/ProfiniteGrp/Completion.lean): The canonical etaFn from a group to its profinite completion has dense range. This identifies the image of the extended integer action with the closure of its powers.
+
+- [`mathlib:UniformSpace.Completion.extension_coe`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/UniformSpace/Completion.lean): A uniformly continuous map into a complete separated uniform space extends to its completion and agrees on the original space. Apply after giving the integers their profinite uniformity.
+
+- [`mathlib:UniformSpace.Completion.continuous_extension`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/UniformSpace/Completion.lean): The completion extension to a complete target is continuous; the agreement statement separately requires uniform continuity.
+
+- [`tauceti:TauCeti.QuotientGroup.instTotallyDisconnectedSpace`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Group/Profinite/Basic.lean): For a compact totally disconnected topological group and a closed normal subgroup, its topological quotient is totally disconnected. Use the kernel of the extended action, not an arbitrary continuous image of a totally disconnected space.
+
+- [`mathlib:IsUltrametricDist.isClosed_ball`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/MetricSpace/Ultra/Basic.lean): Open metric balls in an ultrametric space are also closed. Thus each leading-term congruence is a closed pointwise condition and passes to the compact closure.
+
+- [`tauceti:TauCeti.IsProP.isPGroup_range`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean): The range of a continuous group homomorphism from a pro-p group to a discrete group is a p-group. Apply to the additive residue field, expressed multiplicatively, without requiring the residue field to be finite.
+
+- [`mathlib:IsPGroup.orderOf_coprime`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/PGroup.lean): In a p-group the order of each element is coprime to every integer coprime to p. An element of the image in an additive field of distinct prime characteristic also has order dividing that characteristic, hence is zero.
+
 ## Reference versions and passages
 
-Source identifiers used in the catalogue resolve as follows. `Stacks` and `STACKS` retain the identifiers of their respective sections and refer to the same project. Detailed verification excerpts remain in the packets; this reader gives the locators and mathematical specifications.
+Source identifiers used in the catalogue resolve as follows. `Stacks` and `STACKS` retain the identifiers of their respective sections and refer to the same project. The catalogue gives locators and mathematical specifications in the roadmap’s own words. The complete section ranges below record the accepted parts’ readings. On 16 October 2026 the continuation rechecked ECD 20.14, 20.17, 21.16–21.17 and the assigned running-text statements, CS17 4.2.19–4.2.21, Conrad’s handout and FS I.11 at these checksums. Huber’s separate in-place reading is recorded below.
 
 ### ECD
 
@@ -5413,7 +5514,7 @@ Version checksum (SHA-256): `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f
 
 ### KST
 
-Shane Kelly, Shuji Saito and Georg Tamme. [On pro-cdh descent on derived schemes](https://arxiv.org/pdf/2407.04378v3). arXiv:2407.04378v3, 22 May 2025. The author-hosted copy read in the planning pass (https://www.lcv.ne.jp/~smaki/articles/Derived-pro-cdh.pdf, sha256 3557f642cdee65e4942230dd5781dc7e8c45aeaca804d1843af3594647ed9273) has the identical Lemma 6.6 and proof, also on p.24..
+Shane Kelly, Shuji Saito and Georg Tamme. [On pro-cdh descent on derived schemes](https://arxiv.org/pdf/2407.04378v3). arXiv:2407.04378v3, 22 May 2025. The author-hosted copy read in the planning pass (https://www.lcv.ne.jp/~smaki/articles/Derived-pro-cdh.pdf, sha256 3557f642cdee65e4942230dd5781dc7e8c45aeaca804d1843af3594647ed9273) has the identical Lemma 6.6 and proof, also on p.24.
 
 - Lemma6.6 and proof, p.24. This describes the specialization-chain argument but imports Scheiderer Remark2.5 and Theorem4.1; those imported proofs have not been read.
 
@@ -5451,6 +5552,10 @@ Laurent Fargues and Peter Scholze. [Geometrization of the local Langlands corres
 
 Version checksum (SHA-256): `1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027`.
 
+
+### HUBER96
+
+Roland Huber. *Étale cohomology of rigid analytic varieties and adic spaces*, Aspects of Mathematics E30 (1996). [Publisher edition](https://doi.org/10.1007/978-3-663-09991-8). The maintainer-cleared edition was read in place on 2026-10-16: §1.8, Definitions 1.8.1–1.8.4 and Lemma 1.8.5 with proof, pp.90–91. Its chain/rank reduction is used above; the cited Bourbaki proof and the modified-degree comparison remain source obligations.
 
 ## Source corrections used by the specifications
 
@@ -5530,7 +5635,7 @@ Effect: nothing.
 
 Location: proof of Proposition 20.13, p. 118 (arXiv:1709.07343v4).
 
-Correction: The replacement is not affinoid pro-étale in general: Definition 7.20 and Corollary 7.22 need |Ỹ| → |Y| ×_{π0 Y} π0 Ỹ to be an embedding. For noetherian Λ, deduce 20.13 from 20.5 and 20.12; in general pass first to λ°_Y(Ỹ) (Lemma 14.5) and supply descent along Ỹ → λ°_Y(Ỹ). The later 'is already an isomorphism there' also needs the comparison cone to vanish on all of |Ỹ_j|, not only on the image of |Ỹ|.
+Correction: The replacement is not affinoid pro-étale in general: Definition 7.20 and Corollary 7.22 need |Ỹ| → |Y| ×_{π0 Y} π0 Ỹ to be an embedding. For noetherian Λ, deduce 20.13 from 20.5 and 20.12; in general pass first to λ°_Y(Ỹ) (Lemma 14.5) and supply descent along Ỹ → λ°_Y(Ỹ). The final comparison-isomorphism assertion also needs the comparison cone to vanish on all of |Ỹ_j|, not only on the image of |Ỹ|.
 
 Reason: For Y = Spa(C, O_C) and Ỹ = Spa(C′, C′⁺) with C′ ⊃ C algebraically closed and C′⁺ of rank 2 (both strictly totally disconnected, Ỹ → Y a v-cover), |Ỹ| has two points over the one point of |Y| ×_{π0 Y} π0 Ỹ, so Corollary 7.22 does not apply; the v-sheaf Y ×_{|Y|} |Ỹ| has 2 points over Spa(K, O_K) and 3 over a rank-2 Spa(K, K⁺), unlike any Y × S with S profinite. In this example 20.13 itself holds, so this is a gap in the proof.
 
@@ -5563,6 +5668,8 @@ Location: arXiv1709.07343v4, proof of Lemma 21.17, p.127, first sentence; identi
 Correction: Let G be the closure of the subgroup generated by γ in the continuous automorphisms of C with the topology of pointwise convergence. Because γ^(n!)→1 pointwise and γ is an isometry (it acts trivially on C×/(1+C°°)), the powers γ^a extend to a ∈ Ẑ, and G is a procyclic profinite group, a quotient of Ẑ.
 
 Reason: When γ has infinite order the subgroup it generates is countably infinite, and an infinite profinite group is uncountable, so the printed G is not profinite. The argument needs the closure, and its compactness is asserted without proof; the isometry and factorial-convergence hypotheses supply it.
+
+The compactness and topology argument is C8/compact-procyclic-field-action. The residue homomorphism is normalized by the maximum displacement over the compact subgroup, as specified in C8/wild-automorphism.
 
 Effect: nothing.
 
