@@ -9,8 +9,9 @@ definitive. These statements suggest Lean forms so contributors and reviewers ca
 on names and signatures; they do not claim implementations.
 
 The current TauCetiRoadmap smooth-representation roadmap supplies the existing theory.
-The new cosheaf, Schwartz, Bernstein-completion and geometric-action targets need carriers
-not present at the pins and are stated precisely in the reader document. Following the
+Compact sections already have a carrier at the pins; their natural cosheaf diagram needs
+new development. Schwartz, Bernstein-block and geometric-action carriers are reader targets.
+Following the
 2026-10-12 shape rule, this file contains only the light finite-centre interface on existing
 Mathlib carriers and its three examples. It does not redeclare the imported roadmap.
 

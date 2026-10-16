@@ -12,13 +12,16 @@ none is closed. There are eight explicit gaps and three supplier requests.
 `implementationStatus` is `unchecked` throughout. The new packet has 11 nodes:
 4 constructions, 2 definitions and 5 theorems, with 18 API items, 21 discriminating
 tests and 8 planets. Existing upstream targets are imports and are excluded from
-these counts.
+these counts. Independent review [REV-SmoothRepresentationsOfLocalGroups](../reviews/REV-SmoothRepresentationsOfLocalGroups.md)
+accepted this planning pass on 16 October 2026 after the corrections recorded
+there. The eight gaps and three requests remain implementation obligations.
 
 ## Existing work and scope
 
-The base is the [current smooth-representation roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md) at commit
-`0d144d044dacebca17b654695b6f1ad58f159b27`. It already has 157 named target
-headings. It includes the early category, Hecke theory, derived duals and derived
+The base is the [merged smooth-representation roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+PR #793, at commit `10432b146c0828ab379e76f9c630a76578b98430` (14 October 2026).
+It has 166 named target headings. The supplied read-only snapshot had 157;
+the nine additions are imported below. It includes the early category, Hecke theory, derived duals and derived
 Hecke algebra, induction, the early uniform bound, complex Bernstein theory,
 characteristic-zero second adjointness, Satake and its explicit examples, integral
 GL_n families, finite-wild cocycles, parameter finiteness, depth generators and the
@@ -34,11 +37,17 @@ targets retain their old IDs, with the qualified contracts below. This is not
 acceptance of every claim or proof in the second packet.
 
 The packet's `roadmapImports` gives an entry for all 170 IDs; its
-`upstreamTargetInventory` links all 157 current upstream targets to immutable
-source lines. Five upstream targets have no same-named old ID:
+`upstreamTargetInventory` links all 166 current upstream targets to immutable
+source lines. Fourteen upstream targets have no same-named imported old ID:
 `compact-induction-criterion`, `harish-chandra-tempered-support`,
-`iwahori-components`, `classical-llc-normalization` and `integral-llc-centre`.
-They are imported directly from the base. Proposed restructuring is **Smooth
+`iwahori-components`, `classical-llc-normalization`, `integral-llc-centre`,
+`unitary-spherical-coefficients`, `finite-discrete-cup-comparison`,
+`distinguished-cuspidal-types`, `type-projective-construction`,
+`integral-second-adjointness`, `modular-generic-segments`,
+`segment-representations`, `cuspidal-stable-lattice` and
+`stable-contracting-hecke-operator`. They are imported directly from the base.
+The SR.5.2 `integral-second-adjointness` target is for GL_n over W(k); the
+same-named old SR.6 ID retains the general DHKM theorem below. Proposed restructuring is **Smooth
 representations of local groups, Part II**, with the eleven current stage IDs
 preserved. No other roadmap, stage edge or packet is edited by this job.
 
@@ -60,8 +69,9 @@ of the upstream roadmap's supplier section, not consequences of abstract
 group-theoretic axioms alone.
 
 Smooth representations use an algebraic A-module: every vector has open
-stabilizer. Putting the discrete topology on it gives the comparison with Tau
-Ceti's existing smooth discrete carrier. It is not a Banach or locally analytic
+stabilizer. Putting the discrete topology on both A and the module gives the comparison
+with Tau Ceti's existing smooth discrete carrier, including its continuous
+scalar-action requirement. It is not a Banach or locally analytic
 representation. A is any commutative ring until a theorem states a restriction.
 Averaging and the locally unital Hecke-module equivalence require a cofinal
 family of compact open subgroups whose pro-orders are invertible in A. For a
@@ -95,7 +105,7 @@ the Frobenius action and the similitude in comparisons of spherical parameters.
 
 ### SR.0: Smooth category
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L498) (source lines 498–925).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L540) (source lines 540–967).
 
 Import the arbitrary-ring smoothness predicate, smooth vectors, invariants, admissibility, coefficient change and smooth dual. Smoothness is closure under open stabilizers, not continuity for an unspecified module topology. Compare the discrete carrier with TauCeti.DiscreteRep through the existing equivalence.
 
@@ -103,7 +113,7 @@ Import the arbitrary-ring smoothness predicate, smooth vectors, invariants, admi
 
 ### SR.0:abelian-category: Early abelian category
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L498) (source lines 498–925).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L540) (source lines 540–967).
 
 Import the full subcategory of smooth objects, its intertwining maps, kernels, cokernels, sums, filtered colimits and the smooth-vector adjunction. The unqualified SR.0 export is this early category. Countable-coset Schur over C is independent of reductive admissibility.
 
@@ -111,7 +121,7 @@ Import the full subcategory of smooth objects, its intertwining maps, kernels, c
 
 ### SR.0:derived-extension: Derived extension
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1494) (source lines 1494–1724).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1587) (source lines 1587–1830).
 
 Upstream SR.0d supplies the derived category, derived smooth dual, tensor/internal Hom, derived invariants and the graded Hecke Ext algebra. FS Corollary V.1.4, pp. 170–171, identifies RHom with the derived smooth dual in its sheaf comparison regime. This imports an actual derived-functor target; it does not make the ordinary scalar dual exact over arbitrary rings.
 
@@ -119,15 +129,15 @@ Upstream SR.0d supplies the derived category, derived smooth dual, tensor/intern
 
 ### SR.1: Integral Hecke algebras and the Lambda-centre
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L926) (source lines 926–1493).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L968) (source lines 968–1586).
 
 Import compact test functions, integral finite-sum integration and Fubini, convolution and support bounds, the opposite involution, local units and corner/module equivalences. Import the positive Iwahori/G-cover and Bernstein-presentation interfaces with their subgroup and index hypotheses. Add only the compact-section cosheaf below.
 
-**Checks and boundary.** Upstream SR.1.3 owns Z(G,Λ)=π₀End(id_D(G,Λ)) and the inverse-limit description lim_K Z(e_K H e_K), for cofinal pro-p K and p invertible. For Λ=Z_ell[√q], the corners and their inverse limit are ell-adically separated. Construct the enhanced-to-abelian comparison before identifying ordinary CatCenter with π₀End(id); see G-DERIVED-ENHANCEMENT. This centre is the target of excursion maps for torsion and nonfield coefficients; the complex Bernstein variety does not replace it.
+**Checks and boundary.** SR.1.3 owns the ordinary Lambda-linear CatCenter and its inverse-limit description lim_K Z(e_K H e_K), for cofinal pro-p K and p invertible. For Λ=Z_ell[√q], the corners and their inverse limit are ell-adically separated. These ordinary-centre targets do not require SR.0d. The additional upstream description Z(G,Λ)=π₀End(id_D(G,Λ)) needs the enhanced-to-abelian comparison in G-DERIVED-ENHANCEMENT. The ordinary centre is already the target of excursion maps for torsion and nonfield coefficients; the complex Bernstein variety does not replace it.
 
 ### SR.2: Induction and Jacquet functors
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1725) (source lines 1725–2166).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1831) (source lines 1831–2280).
 
 Import smooth induction from a closed subgroup as smooth sections, compact induction with compact support modulo the subgroup, Frobenius reciprocity in its valid direction, induction in stages, and the p-adic Mackey/geometric-lemma filtrations. Import parabolic induction, Jacquet coinvariants, normalization, canonical lifting, admissible contragredient comparisons and the first adjunction.
 
@@ -135,7 +145,7 @@ Import smooth induction from a closed subgroup as smooth sections, compact induc
 
 ### SR.2a: Second adjointness over C
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2825) (source lines 2825–2950).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2944) (source lines 2944–3078).
 
 Import the characteristic-zero stabilizing Hecke-operator proof, the canonical pairing, the natural Hom equivalence, unit, counit and both triangle identities. This branch is independent of geometric local Langlands and is available before the late integral theorem.
 
@@ -143,7 +153,7 @@ Import the characteristic-zero stabilizing Hecke-operator proof, the canonical p
 
 ### SR.3a: Early uniform admissibility
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2167) (source lines 2167–2372).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2281) (source lines 2281–2491).
 
 Import Harish–Chandra compactness, the Bernstein/Burnside Hecke bound and uniform admissibility. For fixed compact open U, one bound B(G,U) controls dim_C V^U for every irreducible smooth V. Its early proof precedes the full Bernstein-centre construction.
 
@@ -151,7 +161,7 @@ Import Harish–Chandra compactness, the Bernstein/Burnside Hecke bound and unif
 
 ### SR.3: Complex Bernstein and tempered theory
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2373) (source lines 2373–2824).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2492) (source lines 2492–2943).
 
 Import cuspidal support, the Bernstein product decomposition, centres and finite-type block/corner algebras, unramified characters, rational intertwining targets, tempered matrix coefficients, square-integrable and Steinberg tests, and the split Iwahori comparisons. Irreducibles are admissible and have scalar endomorphisms. For compact centre the cuspidal summands have the imported semisimplicity/projectivity theorem.
 
@@ -159,7 +169,7 @@ Import cuspidal support, the Bernstein product decomposition, centres and finite
 
 ### SR.4: Classical Satake
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2951) (source lines 2951–3437).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3079) (source lines 3079–3609).
 
 Import normalized and integral unnormalized Satake, relative Weyl/Frobenius invariants, pseudoroots and C-group normalization, the GL_n generators and Hall–Littlewood/Macdonald comparisons, Levi descent, paired unitary parameters and genericity, the explicit even/odd unitary counts, and the GSp₄ spin-polynomial comparison. Derived Satake stays at its stated Taylor–Wiles congruence and Weyl-order hypotheses.
 
@@ -167,17 +177,17 @@ Import normalized and integral unnormalized Satake, relative Weyl/Frobenius inva
 
 ### SR.5: Integral GL_n families
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3438) (source lines 3438–3929).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3610) (source lines 3610–4565).
 
-Import twisted coinvariants, Bernstein–Zelevinsky derivatives and the early complex highest-derivative adapter independently of the late family branch. For the specified noetherian Witt-coefficient rings with ell≠p, import derivative exactness/base change, integral blocks and generic projectives, co-Whittaker modules, dominance and centre action, tensor endomorphisms, and the distinct-block/Ext adapters.
+Import twisted coinvariants, Bernstein–Zelevinsky derivatives and the early complex highest-derivative adapter independently of the late family branch. For the specified noetherian Witt-coefficient rings with ell≠p, import derivative exactness/base change, integral blocks and generic projectives, co-Whittaker modules, dominance and centre action, tensor endomorphisms, and the distinct-block/Ext adapters. The merged base also owns distinguished cuspidal types, their projectives, modular generic segments, complex Z/L segment conventions, stable lattices and the GL_n W(k) type-theoretic second-adjointness theorem. Its generic stable-operator algebra is at SR.5.2; the application to contracting Hecke operators stays at SR.6.5.
 
 **Checks and boundary.** Co-Whittaker means the actual admissibility, top-derivative and fibre conditions of the upstream target, not any arbitrary family with a chosen functional. Integral LLC interpolation is conditional where the source is conditional. Scalar-dual and invariants base change need their own flatness/averaging/projectivity conditions. The canonical integral essential-vector gap remains G-ESSENTIAL.
 
 ### SR.6: Late integral finiteness
 
-**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3930) (source lines 3930–4245).
+**Status: planned.** [Base target block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4566) (source lines 4566–4905).
 
-Import the existing integral finite-wild cocycle and excursion-algebra suppliers, finite Frobenius restriction, parameter finiteness, Z-finiteness, bounded-depth generators, cuspidal embedding and stable-operator algebra. No second cocycle scheme or ell-adic reconstruction is introduced.
+Import the existing integral finite-wild cocycle and excursion-algebra suppliers, finite Frobenius restriction, parameter finiteness, Z-finiteness, bounded-depth generators, cuspidal embedding and stable-operator algebra. The stable-contracting-hecke-operator target applies the imported SR.5.2 stable-operator algebra. No second cocycle scheme or ell-adic reconstruction is introduced.
 
 **Checks and boundary.** Retain the existing late atlas IDs under the contracts in the next section. The finiteness theorem over noetherian Z_ell-algebras and second adjointness over all Z[1/p]-algebras have different coefficient scopes. The geometric action, some Dat consequences and the ownership reconciliation remain explicit gaps.
 
@@ -338,8 +348,8 @@ For a Hausdorff locally compact totally disconnected space X, a commutative ring
 
 **Sources.**
 
-- [Tau Ceti roadmap contributors](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md), SR.1.1, locally-constant-compact-support and open-closed-sequence. The existing indicator expansion and common refinement supply the carrier and the finite gluing argument; the cosheaf and arbitrary module coefficient-change API extend those targets.
-- [Xuhua He](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf), §1.1–§1.2, pp. 5–7. Integral compact-section and Haar conventions fix the setting. The module-valued cosheaf is deduced here from the imported compact-open partition theorem, rather than attributed as a theorem of this paper.
+- [Tau Ceti roadmap contributors](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md), SR.1.1, locally-constant-compact-support and open-closed-sequence. The existing indicator expansion and common refinement supply the carrier and the finite gluing argument; the cosheaf and arbitrary module coefficient-change API extend those targets.
+- [Xuhua He](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf), §1.1–§1.2, pp. 6–7. Integral compact-section and Haar conventions fix the setting. The module-valued cosheaf is deduced here from the imported compact-open partition theorem, rather than attributed as a theorem of this paper.
 
 ### SR.3/part-ii-schwartz-algebra: The Harish–Chandra Schwartz algebra
 
@@ -357,7 +367,7 @@ For G the rational points of a connected reductive group over a nonarchimedean l
 **Proof/construction route.**
 
 1. Construct σ from the supplied enlarged building and Ξ from the spherical matrix coefficient in normalized unitary induction.
-2. Prove the Harish–Chandra estimates needed for convolution and completeness on each K-corner.
+2. Prove the Harish–Chandra estimates needed for convolution and completeness on each K-corner, and compare the displayed Ξ-weighted supremum seminorms with the weighted L² model in Opdam–Solleveld §3.
 3. Compare nested K-corners and form their directed union; transfer the normalized Hecke idempotents.
 4. Prove independence of auxiliary good points and equivalent proper lengths by comparison of the defining seminorms.
 
@@ -383,7 +393,7 @@ For G the rational points of a connected reductive group over a nonarchimedean l
 
 **Sources.**
 
-- [Eric Opdam and Maarten Solleveld](https://arxiv.org/pdf/1203.1237v2), §3, p. 9; introduction, pp. 1–3. The Schwartz algebra is the union of its Fréchet compact-open corners. The stated seminorm model requires Harish–Chandra estimates, recorded as a gap rather than inferred from compact convolution.
+- [Eric Opdam and Maarten Solleveld](https://arxiv.org/pdf/1203.1237v2), §3, p. 9; introduction, pp. 1–3. Opdam–Solleveld §3 defines the Schwartz corners by weighted L² seminorms and forms their union. The displayed Ξ-weighted supremum model, its topology comparison with that definition, and the Harish–Chandra estimates are explicit obligations of G-SCHWARTZ-ANALYSIS.
 - [Peter Schneider and Ernst-Wilhelm Zink](https://www.uni-muenster.de/FB10/u/pschnei/publ/pap/smod2-II.pdf), §1–§2, pp. 1–5. The nondegenerate Schwartz-module category and its local units are the algebraic setting for the discrete-component argument.
 
 ### SR.3/part-ii-tempered-schwartz-modules: Tempered Schwartz modules
@@ -664,6 +674,7 @@ For a commutative ring R and a unital, possibly noncommutative R-algebra H, defi
 
 - DHKM Theorem 1.1 and Lemma 3.2: Gives a precise endpoint for each unital level Hecke ring, distinct from smooth Z-finiteness.
 - DHKM Corollary 1.4: Separates the generic algebraic implication from the stronger theorem over all noetherian p-invertible coefficient rings.
+- `SR.6/integral-center-finiteness`: Proves this predicate for the permitted level Hecke algebras, using it as an endpoint rather than supplying its definition.
 
 **Proof/construction route.**
 
@@ -671,7 +682,10 @@ For a commutative ring R and a unital, possibly noncommutative R-algebra H, defi
 2. Define the conjunction of existing finite-module and finite-type predicates.
 3. For noetherian R apply the finite-type Hilbert basis theorem to the centre and then IsNoetherianRing.of_finite to H.
 
-**Direct prerequisites:** `mathlib:Subalgebra.center`, `mathlib:Module.Finite`, `mathlib:Algebra.FiniteType`, `mathlib:IsNoetherianRing.of_finite`, `SR.6/integral-center-finiteness`, `mathlib:Algebra.FiniteType.isNoetherianRing`.
+The existing `SR.6/integral-center-finiteness` theorem consumes this predicate;
+it is not a prerequisite of the generic algebraic definition.
+
+**Direct prerequisites:** `mathlib:Subalgebra.center`, `mathlib:Module.Finite`, `mathlib:Algebra.FiniteType`, `mathlib:IsNoetherianRing.of_finite`, `mathlib:Algebra.FiniteType.isNoetherianRing`.
 
 **API.**
 
@@ -765,21 +779,21 @@ the outgoing consumers include automorphic forms and local factors, completed
 cohomology, GL₂ local theory, Hecke stacks, geometric Satake and the excursion
 centre. The SR.1 Lambda-centre must serve both the ES0 and ES7 parabolic returns.
 
-**Request to SchemeAndStackFoundations:SF.1.** For an affine finite-type E-torus with a finite constant-group action in characteristic zero, construct the affine invariant quotient, prove finiteness, and prove that at an E-rational point with trivial stabilizer its completed local ring is isomorphic to the completed local ring of its image, with residue-field and permutation naturality stated. Needed by `SR.3/part-ii-principal-series-centre`, `SR.3/part-ii-principal-series-completion`.
+**Request to SchemeAndStackFoundations:SF.1.** For an affine finite-type E-torus with a finite constant-group action in characteristic zero, construct the affine invariant quotient, prove finiteness, and prove that at an E-rational point with trivial stabilizer its completed local ring is isomorphic to the completed local ring of its image, with residue-field and permutation naturality stated. Supplier inspected: SchemeAndStackFoundations package T187, SF.1/finite-group-quotient, already owns finite-group quotients. This request asks for its free-orbit completed-local-ring specialization, not another quotient construction. Needed by `SR.3/part-ii-principal-series-centre`, `SR.3/part-ii-principal-series-completion`.
 
-**Request to SchemeAndStackFoundations:SF.4.** For a finite-type E-algebra at an E-rational point identify tangent vectors with local maps to E[ε]/ε², identify the smooth n-torus completion with E[[u₁,…,uₙ]], and transport the derivative and source-reordering identities through completion. Needed by `SR.3/part-ii-principal-series-completion`, `SR.3/part-ii-principal-series-tangent`.
+**Request to SchemeAndStackFoundations:SF.4.** For a finite-type E-algebra at an E-rational point identify tangent vectors with local maps to E[ε]/ε², identify the smooth n-torus completion with E[[u₁,…,uₙ]], and transport the derivative and source-reordering identities through completion. Supplier inspected: SchemeAndStackFoundations package T365–T370, SF.4 Artin coefficient categories, tangent spaces and hulls. This request refines that deformation interface to the completed torus and its natural derivative maps. Needed by `SR.3/part-ii-principal-series-completion`, `SR.3/part-ii-principal-series-tangent`.
 
-**Request to ReductiveGroupsPartII:RG2.2.** Expose the enlarged affine building, its split-central Euclidean factor, oriented facets, finite facet-orbit representatives and proper length used by Opdam–Solleveld. Import the existing RG2.3–RG2.4 good compact-open filtration/factorisation contracts; the cellular coefficient system and analytic contraction remain Smooth Part II targets. Needed by `SR.3/part-ii-schwartz-algebra`, `SR.3/part-ii-schneider-stuhler-comparison-resolution`.
+**Request to ReductiveGroupsPartII:RG2.2.** Expose the enlarged affine building, its split-central Euclidean factor, oriented facets, finite facet-orbit representatives and proper length used by Opdam–Solleveld. Import the existing RG2.3–RG2.4 good compact-open filtration/factorisation contracts; the cellular coefficient system and analytic contraction remain Smooth Part II targets. Supplier inspected: ReductiveGroupsPartII RG2.2 building/apartments/facets and cocompact action; RG2.3.6 moy-prasad-filtration; RG2.4 iwahori-factorization. This request exposes their enlarged-building interface; it does not assign the analytic contraction to the reductive-group supplier. Needed by `SR.3/part-ii-schwartz-algebra`, `SR.3/part-ii-schneider-stuhler-comparison-resolution`.
 
 ### G-DERIVED-ENHANCEMENT: Enhanced smooth centre and equivariant derived tensor comparison
 
-The upstream derived category and Lambda-centre contracts are imported. Realizing π₀End(id_D) requires a specified stable enhancement and a proof that its degree-zero centre agrees with the abelian/corner centre, with equivariant K-flat replacements for the derived tensor and internal Hom comparison. Ordinary CatCenter is not that enhancement. Keep this foundational construction at SR.0d/SR.1; no upward EnhancedDerivedSheaves prerequisite is introduced.
+The ordinary Lambda-linear CatCenter and its inverse Hecke-corner description are SR.1 targets independent of a derived enhancement. The additional upstream π₀End(id_D) description requires a specified stable enhancement and a comparison with that abelian/corner centre; equivariant K-flat replacements are also needed for the derived tensor/internal Hom comparison. Keep that comparison at SR.0d/SR.1; it is not a prerequisite of the ordinary centre, and no upward EnhancedDerivedSheaves prerequisite is introduced.
 
 Needed by `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`, `SmoothRepresentationsOfLocalGroups:SR.1`.
 
 ### G-SCHWARTZ-ANALYSIS: Analytic supplier interfaces for the Schwartz comparison
 
-The source-level targets and proof routes are specified, but the imported building does not by itself supply the Harish–Chandra Ξ convolution estimates, completed cellular coefficient modules or the bounded contraction. These must be constructed as the analytic content of the two named targets, using Opdam–Solleveld §3–§4 and its analytic references; neither flatness nor a tuple of assumed operators closes this interface.
+The source-level targets and proof routes are specified, but the imported building does not by itself supply the Harish–Chandra Ξ convolution estimates, the comparison of Ξ-weighted supremum and the source’s weighted L² seminorms, completed cellular coefficient modules or the bounded contraction. These must be constructed as the analytic content of the two named targets, using Opdam–Solleveld §3–§4 and its analytic references; neither flatness nor a tuple of assumed operators closes this interface.
 
 Needed by `SR.3/part-ii-schwartz-algebra`, `SR.3/part-ii-schneider-stuhler-comparison-resolution`.
 
@@ -849,7 +863,9 @@ on 16 October 2026. These are not claims about later unexamined texts.
 - **SmoothRepresentationsOfLocalGroups/E1** (misprint; affects nothing), Version of record, Proposition 3.3(2), proof, p. 36; same formula in arXiv v2, p. 39. The source writes J_w₂=(w₂w₁⁻¹)∘J_w₁ while declaring that the permutation is a map between the two ordered source spectra. Writing p:X_w₁→X_w₂ for that source permutation, the typed identity is J_w₂∘p=J_w₁, or J_w₂=J_w₁∘p⁻¹. J_w₁ has codomain Spec H, on which the declared source permutation cannot be composed. The corrected identity gives exactly the stated tangent diagram ζ_w₂∘dp=ζ_w₁.
 - **SmoothRepresentationsOfLocalGroups/E2** (misprint; affects nothing), Version of record, Proposition 3.3 proof, p. 36, and §3.6, p. 57; arXiv v2 pp. 39–40 and 61. The coordinate Bernstein centre H_i is identified with G_m while H_i is used as the algebra inside Spec H_i. H_i is the Laurent algebra E[T_i,T_i⁻¹] after choosing an unramified coordinate; Spec H_i is G_m. The algebra and its affine scheme have different types. With this conventional notational correction the source’s maps and completions have the intended meaning.
 
-The published misprints do not change Proposition 3.3 as intended. The target
+Independent review REV-SmoothRepresentationsOfLocalGroups confirmed both entries
+in the published source and arXiv v2. The published misprints do not change
+Proposition 3.3 as intended. The target
 uses the correctly typed identity before completing or differentiating. The
 Clozel–Thorne quadratic-sign and BCGP Iwahori-preimage corrections were already
 recorded in the existing route/base; no new finding is asserted for them here.
@@ -857,15 +873,18 @@ recorded in the existing route/base; no new finding is asserted for them here.
 ## Lean prototype and acceptance boundary
 
 The [suggested file](../suggested/SmoothRepresentationsOfLocalGroups.lean) has
-61 lines. It contains the real-bodied light predicate `FiniteCentralAlgebra`,
+62 lines. It contains the real-bodied light predicate `FiniteCentralAlgebra`,
 its three API signatures and the field, polynomial and rational-algebra examples.
 It elaborates with `lean-check` against the pinned Mathlib with six permitted
 proof-placeholder warnings and no other warnings. It imports individual
 modules and develops no representation-theoretic infrastructure.
 
-The other ten nodes require carriers beyond the pins: compact sections as a
-cosheaf, Schwartz algebras/modules and their resolutions, smooth E-linear blocks,
-or Bernstein spectra and their deformation comparisons. Their exact statements,
+The other ten nodes require new constructions and interfaces. Compact sections
+already have a baseline carrier: `CompactlySupportedContinuousMap` with discrete
+target. The natural open-set cosheaf diagram, gluing and coefficient-change maps
+remain construction targets. Schwartz algebras/modules and their resolutions,
+smooth E-linear blocks, and Bernstein spectra need carriers beyond the pins;
+`AdicCompletion` supplies only the generic completion carrier. Their exact statements,
 APIs, checks and uses are in this document. The binding 12 October 2026 shape
 rule requires that placement; an assumed smooth category, arbitrary action
 record or opaque scheme variable would not be a prototype of those targets.
@@ -881,170 +900,170 @@ IDs shown have prefix `SmoothRepresentationsOfLocalGroups:`.
 
 | Existing ID | Supplier |
 | --- | --- |
-| `SR.0:abelian-category/van-dantzig` | [van-dantzig](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L507) |
-| `SR.0:abelian-category/is-smooth` | [is-smooth](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L525) |
-| `SR.0:abelian-category/smooth-vectors` | [smooth-vectors](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L545) |
-| `SR.0:abelian-category/smooth-rep-category` | [smooth-rep-category](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L580) |
-| `SR.0:abelian-category/smooth-rep-abelian` | [smooth-rep-abelian](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L603) |
-| `SR.0:abelian-category/smooth-discrete-comparison` | [smooth-discrete-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L621) |
-| `SR.0:abelian-category/compact-open-invariants` | [compact-open-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L648) |
-| `SR.0:abelian-category/unit-pro-order` | [unit-pro-order](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L674) |
-| `SR.0:abelian-category/averaging-projector` | [averaging-projector](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L710) |
-| `SR.0:abelian-category/invariants-exact` | [invariants-exact](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L736) |
-| `SR.0:abelian-category/admissible` | [admissible](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L752) |
-| `SR.0:abelian-category/finiteness-conditions` | [finiteness-conditions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L787) |
-| `SR.0:abelian-category/smooth-character` | [smooth-character](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L813) |
-| `SR.0:abelian-category/smooth-dual` | [smooth-dual](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L842) |
-| `SR.0:abelian-category/coefficient-change` | [coefficient-change](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L870) |
-| `SR.0:abelian-category/smooth-centre` | [smooth-centre](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L891) |
-| `SR.0:abelian-category/countable-schur` | [admissibility-of-irreducibles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2259) |
-| `SR.0:derived-extension/grothendieck-abelian` | [grothendieck-abelian](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1504) |
-| `SR.0:derived-extension/derived-smooth-category` | [derived-smooth-category](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1518) |
-| `SR.0:derived-extension/derived-invariants` | [derived-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1566) |
-| `SR.0:derived-extension/k-injective-resolutions` | [k-injective-resolutions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1545) |
-| `SR.0:derived-extension/dg-enhancement` | [dg-enhancement](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1593) |
-| `SR.0:derived-extension/compact-generation` | [compact-generation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1618) |
-| `SR.0:derived-extension/derived-smooth-dual` | [derived-smooth-dual](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1635) |
-| `SR.0:derived-extension/central-ext-vanishing` | [central-ext-vanishing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1675) |
-| `SR.0:derived-extension/derived-hecke-algebra` | [derived-hecke-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1687) |
-| `SR.1/locally-constant-compact-support` | [locally-constant-compact-support](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L936) |
-| `SR.1/open-closed-sequence` | [open-closed-sequence](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L961) |
-| `SR.1/a-valued-haar-measure` | [a-valued-haar-measure](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L987) |
-| `SR.1/integration` | [integration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1018) |
-| `SR.1/convolution-algebra` | [convolution-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1050) |
-| `SR.1/hecke-idempotent` | [hecke-idempotent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1081) |
-| `SR.1/hecke-triple-compact-open` | [Existing supplier contract; see packet note](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L228) |
-| `SR.1/permutation-hecke-algebra` | [permutation-hecke-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1110) |
-| `SR.1/hecke-ring-comparison` | [hecke-ring-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1152) |
-| `SR.1/locally-unital-algebra` | [locally-unital-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1185) |
-| `SR.1/hecke-module-equivalence` | [hecke-module-equivalence](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1215) |
-| `SR.1/corner-irreducibles` | [corner-irreducibles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1235) |
-| `SR.1/bernstein-centre-corners` | [bernstein-centre-corners](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1257) |
-| `SR.1/l-adic-separatedness` | [l-adic-separatedness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1289) |
-| `SR.1/iwahori-decomposition` | [iwahori-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1313) |
-| `SR.1/positive-hecke-homomorphism` | [positive-hecke-homomorphism](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1339) |
-| `SR.1/strongly-positive-localisation` | [strongly-positive-localisation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1366) |
-| `SR.1/pro-iwahori-torus` | [pro-iwahori-torus](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1379) |
-| `SR.1/klingen-positive-hecke` | [klingen-positive-hecke](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1403) |
-| `SR.1/iwahori-matsumoto` | [iwahori-matsumoto](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1422) |
-| `SR.1/bernstein-presentation` | [bernstein-presentation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1442) |
-| `SR.1/iwahori-hecke-centre` | [iwahori-hecke-centre](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1465) |
-| `SR.2/smooth-induction` | [smooth-induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1735) |
-| `SR.2/compact-induction` | [compact-induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1757) |
-| `SR.2/frobenius-reciprocity` | [frobenius-reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1777) |
-| `SR.2/induction-exactness` | [induction-exactness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1808) |
-| `SR.2/induction-in-stages` | [induction-in-stages](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1819) |
-| `SR.2/induced-invariants` | [induced-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1796) |
-| `SR.2/l-sheaf-model` | [l-sheaf-model](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1833) |
-| `SR.2/mackey-filtration` | [mackey-filtration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1860) |
-| `SR.2/modulus-character` | [modulus-character](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1877) |
-| `SR.2/jacquet-module` | [jacquet-module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1921) |
-| `SR.2/jacquet-lemma` | [jacquet-lemma](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1945) |
-| `SR.2/parabolic-induction` | [parabolic-induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1957) |
-| `SR.2/first-adjointness` | [first-adjointness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1979) |
-| `SR.2/induced-contragredient` | [induced-contragredient](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1994) |
-| `SR.2/geometric-lemma` | [geometric-lemma](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2012) |
-| `SR.2/principal-series-jacquet` | [principal-series-jacquet](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2031) |
-| `SR.2/casselman-pairing` | [casselman-pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2074) |
-| `SR.2/jacquet-invariants` | [jacquet-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2045) |
-| `SR.2/borel-casselman-invariants` | [borel-casselman-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2089) |
-| `SR.2/whittaker-functionals` | [whittaker-functionals](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2107) |
-| `SR.3a/compact-representations` | [compact-representations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2176) |
-| `SR.3a/cuspidal-representations` | [cuspidal-representations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2205) |
-| `SR.3a/harish-chandra-compactness` | [harish-chandra-compactness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2231) |
-| `SR.3a/jacquet-subrepresentation` | [jacquet-subrepresentation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2249) |
-| `SR.3a/admissibility-of-irreducibles` | [admissibility-of-irreducibles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2259) |
-| `SR.3a/hecke-algebra-decomposition` | [hecke-algebra-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2303) |
-| `SR.3a/commutative-subalgebra-bound` | [commutative-subalgebra-bound](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2325) |
-| `SR.3a/uniform-admissibility` | [uniform-admissibility](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2334) |
-| `SR.3a/finitely-many-cuspidals` | [finitely-many-cuspidals](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2350) |
-| `SR.3/unramified-characters` | [unramified-characters](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2386) |
-| `SR.3/cuspidal-support` | [cuspidal-support](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2442) |
-| `SR.3/finite-length` | [finite-length](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2426) |
-| `SR.3/generic-irreducibility` | [generic-irreducibility](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2472) |
-| `SR.3/bernstein-components` | [bernstein-components](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2486) |
-| `SR.3/cuspidal-splitting` | [cuspidal-splitting](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2519) |
-| `SR.3/bernstein-decomposition` | [bernstein-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2551) |
-| `SR.3/noetherian` | [noetherian](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2563) |
-| `SR.3/bernstein-centre-blocks` | [bernstein-centre-blocks](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2575) |
-| `SR.3/finite-type-corners` | [finite-type-corners](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2592) |
-| `SR.3/universal-unramified-twist` | [universal-unramified-twist](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2605) |
-| `SR.3/centre-compatibilities` | [centre-compatibilities](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2633) |
-| `SR.3/square-integrable-tempered` | [square-integrable-tempered](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2648) |
-| `SR.3/casselman-criterion` | [casselman-criterion](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2672) |
-| `SR.3/langlands-classification` | [langlands-classification](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2711) |
-| `SR.3/borel-casselman-block` | [borel-casselman-block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2731) |
-| `SR.3/steinberg` | [steinberg](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2774) |
-| `SR.3/isotypic-quotient-regular` | [isotypic-quotient-regular](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2795) |
-| `SR.2a/stabilization` | [stabilization](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2836) |
-| `SR.2a/jacquet-lemma-smooth` | [jacquet-lemma-smooth](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2857) |
-| `SR.2a/jacquet-duality` | [jacquet-duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2869) |
-| `SR.2a/second-adjunction-unit` | [second-adjunction-unit](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2883) |
-| `SR.2a/second-adjointness` | [second-adjointness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2917) |
-| `SR.4/satake-transform` | [satake-transform](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2960) |
-| `SR.4/twisted-weyl-invariance` | [twisted-weyl-invariance](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2987) |
-| `SR.4/satake-isomorphism` | [satake-isomorphism](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3020) |
-| `SR.4/torus-character-dictionary` | [torus-character-dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3030) |
-| `SR.4/frobenius-component-invariants` | [frobenius-component-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3040) |
-| `SR.4/pseudoroot` | [pseudoroot](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3053) |
-| `SR.4/spherical-parameter` | [spherical-parameter](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3085) |
-| `SR.4/c-group-formulation` | [c-group-formulation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3099) |
-| `SR.4/gln-generators` | [gln-generators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3124) |
-| `SR.4/hall-littlewood` | [hall-littlewood](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3137) |
-| `SR.4/macdonald-formula` | [macdonald-formula](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3181) |
-| `SR.4/parabolic-descent` | [parabolic-descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3188) |
-| `SR.4/paired-unitary-parameter` | [paired-unitary-parameter](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3227) |
-| `SR.4/unitary-genericity` | [unitary-genericity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3244) |
-| `SR.4/unitary-weyl-traces` | [unitary-weyl-traces](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3272) |
-| `SR.4/unitary-triangular-transform` | [unitary-triangular-transform](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3283) |
-| `SR.4/unitary-isotropic-counts` | [unitary-isotropic-counts](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3299) |
-| `SR.4/unitary-even-formulas` | [unitary-even-formulas](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3313) |
-| `SR.4/unitary-odd-formulas` | [unitary-odd-formulas](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3330) |
-| `SR.4/gsp4-spin-polynomial` | [gsp4-spin-polynomial](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3349) |
-| `SR.4/gsp4-galois-comparison` | [gsp4-galois-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3375) |
-| `SR.4/derived-satake` | [derived-satake](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3385) |
-| `SR.4/unitary-iwahori-center` | [unitary-iwahori-center](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3399) |
-| `SR.4/geometric-trace-contract` | [Existing supplier contract; see packet note](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L228) |
-| `SR.5/twisted-coinvariants` | [twisted-coinvariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3449) |
-| `SR.5/mirabolic-derivatives` | [mirabolic-derivatives](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3485) |
-| `SR.5/derivative-exactness` | [derivative-exactness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3536) |
-| `SR.5/schwartz-submodule` | [schwartz-submodule](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3551) |
-| `SR.5/essentially-aig` | [essentially-aig](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3575) |
-| `SR.5/integral-blocks` | [integral-blocks](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3606) |
-| `SR.5/type-projectives` | [type-projectives](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3618) |
-| `SR.5/universal-whittaker` | [universal-whittaker](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3626) |
-| `SR.5/co-whittaker` | [co-whittaker](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3682) |
-| `SR.5/universal-domination` | [universal-domination](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3722) |
-| `SR.5/reduced-family-reconstruction` | [reduced-family-reconstruction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3731) |
-| `SR.5/llc-family-conditional` | [llc-family-conditional](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3807) |
-| `SR.5/tensor-endomorphisms` | [tensor-endomorphisms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3849) |
-| `SR.5/invariants-duality-base-change` | [coefficient-change](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L870) |
-| `SR.5/ext-support-orthogonality` | [ext-support-orthogonality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3859) |
-| `SR.5/cg-distinct-block` | [cg-distinct-block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3875) |
-| `SR.5/cg-derived-projector` | [cg-derived-projector](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3888) |
-| `SR.5/highest-derivative-adapter` | [highest-derivative-adapter](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3899) |
+| `SR.0:abelian-category/van-dantzig` | [van-dantzig](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L549) |
+| `SR.0:abelian-category/is-smooth` | [is-smooth](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L567) |
+| `SR.0:abelian-category/smooth-vectors` | [smooth-vectors](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L587) |
+| `SR.0:abelian-category/smooth-rep-category` | [smooth-rep-category](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L622) |
+| `SR.0:abelian-category/smooth-rep-abelian` | [smooth-rep-abelian](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L645) |
+| `SR.0:abelian-category/smooth-discrete-comparison` | [smooth-discrete-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L663) |
+| `SR.0:abelian-category/compact-open-invariants` | [compact-open-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L690) |
+| `SR.0:abelian-category/unit-pro-order` | [unit-pro-order](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L716) |
+| `SR.0:abelian-category/averaging-projector` | [averaging-projector](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L752) |
+| `SR.0:abelian-category/invariants-exact` | [invariants-exact](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L778) |
+| `SR.0:abelian-category/admissible` | [admissible](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L794) |
+| `SR.0:abelian-category/finiteness-conditions` | [finiteness-conditions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L829) |
+| `SR.0:abelian-category/smooth-character` | [smooth-character](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L855) |
+| `SR.0:abelian-category/smooth-dual` | [smooth-dual](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L884) |
+| `SR.0:abelian-category/coefficient-change` | [coefficient-change](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L912) |
+| `SR.0:abelian-category/smooth-centre` | [smooth-centre](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L933) |
+| `SR.0:abelian-category/countable-schur` | [admissibility-of-irreducibles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2373) |
+| `SR.0:derived-extension/grothendieck-abelian` | [grothendieck-abelian](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1597) |
+| `SR.0:derived-extension/derived-smooth-category` | [derived-smooth-category](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1611) |
+| `SR.0:derived-extension/derived-invariants` | [derived-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1660) |
+| `SR.0:derived-extension/k-injective-resolutions` | [k-injective-resolutions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1638) |
+| `SR.0:derived-extension/dg-enhancement` | [dg-enhancement](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1687) |
+| `SR.0:derived-extension/compact-generation` | [compact-generation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1718) |
+| `SR.0:derived-extension/derived-smooth-dual` | [derived-smooth-dual](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1735) |
+| `SR.0:derived-extension/central-ext-vanishing` | [central-ext-vanishing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1780) |
+| `SR.0:derived-extension/derived-hecke-algebra` | [derived-hecke-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1792) |
+| `SR.1/locally-constant-compact-support` | [locally-constant-compact-support](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L978) |
+| `SR.1/open-closed-sequence` | [open-closed-sequence](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1003) |
+| `SR.1/a-valued-haar-measure` | [a-valued-haar-measure](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1029) |
+| `SR.1/integration` | [integration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1060) |
+| `SR.1/convolution-algebra` | [convolution-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1092) |
+| `SR.1/hecke-idempotent` | [hecke-idempotent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1123) |
+| `SR.1/hecke-triple-compact-open` | [Existing supplier contract; see packet note](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L243) |
+| `SR.1/permutation-hecke-algebra` | [permutation-hecke-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1152) |
+| `SR.1/hecke-ring-comparison` | [hecke-ring-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1203) |
+| `SR.1/locally-unital-algebra` | [locally-unital-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1236) |
+| `SR.1/hecke-module-equivalence` | [hecke-module-equivalence](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1268) |
+| `SR.1/corner-irreducibles` | [corner-irreducibles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1291) |
+| `SR.1/bernstein-centre-corners` | [bernstein-centre-corners](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1313) |
+| `SR.1/l-adic-separatedness` | [l-adic-separatedness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1345) |
+| `SR.1/iwahori-decomposition` | [iwahori-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1369) |
+| `SR.1/positive-hecke-homomorphism` | [positive-hecke-homomorphism](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1395) |
+| `SR.1/strongly-positive-localisation` | [strongly-positive-localisation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1449) |
+| `SR.1/pro-iwahori-torus` | [pro-iwahori-torus](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1462) |
+| `SR.1/klingen-positive-hecke` | [klingen-positive-hecke](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1486) |
+| `SR.1/iwahori-matsumoto` | [iwahori-matsumoto](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1505) |
+| `SR.1/bernstein-presentation` | [bernstein-presentation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1535) |
+| `SR.1/iwahori-hecke-centre` | [iwahori-hecke-centre](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1558) |
+| `SR.2/smooth-induction` | [smooth-induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1841) |
+| `SR.2/compact-induction` | [compact-induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1863) |
+| `SR.2/frobenius-reciprocity` | [frobenius-reciprocity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1883) |
+| `SR.2/induction-exactness` | [induction-exactness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1914) |
+| `SR.2/induction-in-stages` | [induction-in-stages](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1925) |
+| `SR.2/induced-invariants` | [induced-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1902) |
+| `SR.2/l-sheaf-model` | [l-sheaf-model](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1939) |
+| `SR.2/mackey-filtration` | [mackey-filtration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1966) |
+| `SR.2/modulus-character` | [modulus-character](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L1983) |
+| `SR.2/jacquet-module` | [jacquet-module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2035) |
+| `SR.2/jacquet-lemma` | [jacquet-lemma](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2059) |
+| `SR.2/parabolic-induction` | [parabolic-induction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2071) |
+| `SR.2/first-adjointness` | [first-adjointness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2093) |
+| `SR.2/induced-contragredient` | [induced-contragredient](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2108) |
+| `SR.2/geometric-lemma` | [geometric-lemma](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2126) |
+| `SR.2/principal-series-jacquet` | [principal-series-jacquet](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2145) |
+| `SR.2/casselman-pairing` | [casselman-pairing](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2188) |
+| `SR.2/jacquet-invariants` | [jacquet-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2159) |
+| `SR.2/borel-casselman-invariants` | [borel-casselman-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2203) |
+| `SR.2/whittaker-functionals` | [whittaker-functionals](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2221) |
+| `SR.3a/compact-representations` | [compact-representations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2290) |
+| `SR.3a/cuspidal-representations` | [cuspidal-representations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2319) |
+| `SR.3a/harish-chandra-compactness` | [harish-chandra-compactness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2345) |
+| `SR.3a/jacquet-subrepresentation` | [jacquet-subrepresentation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2363) |
+| `SR.3a/admissibility-of-irreducibles` | [admissibility-of-irreducibles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2373) |
+| `SR.3a/hecke-algebra-decomposition` | [hecke-algebra-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2422) |
+| `SR.3a/commutative-subalgebra-bound` | [commutative-subalgebra-bound](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2444) |
+| `SR.3a/uniform-admissibility` | [uniform-admissibility](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2453) |
+| `SR.3a/finitely-many-cuspidals` | [finitely-many-cuspidals](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2469) |
+| `SR.3/unramified-characters` | [unramified-characters](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2505) |
+| `SR.3/cuspidal-support` | [cuspidal-support](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2561) |
+| `SR.3/finite-length` | [finite-length](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2545) |
+| `SR.3/generic-irreducibility` | [generic-irreducibility](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2591) |
+| `SR.3/bernstein-components` | [bernstein-components](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2605) |
+| `SR.3/cuspidal-splitting` | [cuspidal-splitting](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2638) |
+| `SR.3/bernstein-decomposition` | [bernstein-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2670) |
+| `SR.3/noetherian` | [noetherian](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2682) |
+| `SR.3/bernstein-centre-blocks` | [bernstein-centre-blocks](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2694) |
+| `SR.3/finite-type-corners` | [finite-type-corners](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2711) |
+| `SR.3/universal-unramified-twist` | [universal-unramified-twist](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2724) |
+| `SR.3/centre-compatibilities` | [centre-compatibilities](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2752) |
+| `SR.3/square-integrable-tempered` | [square-integrable-tempered](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2767) |
+| `SR.3/casselman-criterion` | [casselman-criterion](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2791) |
+| `SR.3/langlands-classification` | [langlands-classification](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2830) |
+| `SR.3/borel-casselman-block` | [borel-casselman-block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2850) |
+| `SR.3/steinberg` | [steinberg](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2893) |
+| `SR.3/isotypic-quotient-regular` | [isotypic-quotient-regular](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2914) |
+| `SR.2a/stabilization` | [stabilization](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2955) |
+| `SR.2a/jacquet-lemma-smooth` | [jacquet-lemma-smooth](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2976) |
+| `SR.2a/jacquet-duality` | [jacquet-duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L2988) |
+| `SR.2a/second-adjunction-unit` | [second-adjunction-unit](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3002) |
+| `SR.2a/second-adjointness` | [second-adjointness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3036) |
+| `SR.4/satake-transform` | [satake-transform](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3088) |
+| `SR.4/twisted-weyl-invariance` | [twisted-weyl-invariance](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3115) |
+| `SR.4/satake-isomorphism` | [satake-isomorphism](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3148) |
+| `SR.4/torus-character-dictionary` | [torus-character-dictionary](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3158) |
+| `SR.4/frobenius-component-invariants` | [frobenius-component-invariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3168) |
+| `SR.4/pseudoroot` | [pseudoroot](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3184) |
+| `SR.4/spherical-parameter` | [spherical-parameter](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3216) |
+| `SR.4/c-group-formulation` | [c-group-formulation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3231) |
+| `SR.4/gln-generators` | [gln-generators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3256) |
+| `SR.4/hall-littlewood` | [hall-littlewood](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3269) |
+| `SR.4/macdonald-formula` | [macdonald-formula](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3315) |
+| `SR.4/parabolic-descent` | [parabolic-descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3322) |
+| `SR.4/paired-unitary-parameter` | [paired-unitary-parameter](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3361) |
+| `SR.4/unitary-genericity` | [unitary-genericity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3378) |
+| `SR.4/unitary-weyl-traces` | [unitary-weyl-traces](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3406) |
+| `SR.4/unitary-triangular-transform` | [unitary-triangular-transform](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3417) |
+| `SR.4/unitary-isotropic-counts` | [unitary-isotropic-counts](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3434) |
+| `SR.4/unitary-even-formulas` | [unitary-even-formulas](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3470) |
+| `SR.4/unitary-odd-formulas` | [unitary-odd-formulas](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3487) |
+| `SR.4/gsp4-spin-polynomial` | [gsp4-spin-polynomial](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3499) |
+| `SR.4/gsp4-galois-comparison` | [gsp4-galois-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3525) |
+| `SR.4/derived-satake` | [derived-satake](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3554) |
+| `SR.4/unitary-iwahori-center` | [unitary-iwahori-center](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3571) |
+| `SR.4/geometric-trace-contract` | [Existing supplier contract; see packet note](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L243) |
+| `SR.5/twisted-coinvariants` | [twisted-coinvariants](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3621) |
+| `SR.5/mirabolic-derivatives` | [mirabolic-derivatives](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3658) |
+| `SR.5/derivative-exactness` | [derivative-exactness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3709) |
+| `SR.5/schwartz-submodule` | [schwartz-submodule](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3724) |
+| `SR.5/essentially-aig` | [essentially-aig](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3748) |
+| `SR.5/integral-blocks` | [integral-blocks](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4136) |
+| `SR.5/type-projectives` | [type-projectives](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4194) |
+| `SR.5/universal-whittaker` | [universal-whittaker](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4217) |
+| `SR.5/co-whittaker` | [co-whittaker](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4279) |
+| `SR.5/universal-domination` | [universal-domination](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4322) |
+| `SR.5/reduced-family-reconstruction` | [reduced-family-reconstruction](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4331) |
+| `SR.5/llc-family-conditional` | [llc-family-conditional](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4439) |
+| `SR.5/tensor-endomorphisms` | [tensor-endomorphisms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4481) |
+| `SR.5/invariants-duality-base-change` | [coefficient-change](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L912) |
+| `SR.5/ext-support-orthogonality` | [ext-support-orthogonality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4491) |
+| `SR.5/cg-distinct-block` | [cg-distinct-block](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4507) |
+| `SR.5/cg-derived-projector` | [cg-derived-projector](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4520) |
+| `SR.5/highest-derivative-adapter` | [highest-derivative-adapter](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4531) |
 | `SR.5/essential-vector-contract` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
-| `SR.6/crossed-cocycles` | [crossed-cocycles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3940) |
-| `SR.6/finite-wild-discretization` | [finite-wild-discretization](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3978) |
-| `SR.6/finite-wild-representability` | [finite-wild-representability](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3992) |
-| `SR.6/ell-adic-extension` | [ell-adic-extension](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4015) |
-| `SR.6/wild-strata` | [wild-strata](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4028) |
-| `SR.6/twisted-component-finiteness` | [twisted-component-finiteness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4047) |
-| `SR.6/tame-torus-engine` | [tame-torus-engine](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4058) |
-| `SR.6/frobenius-quotient-finite` | [frobenius-quotient-finite](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4093) |
-| `SR.6/excursion-algebra` | [excursion-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4104) |
-| `SR.6/excursion-invariant-comparison` | [excursion-invariant-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4131) |
+| `SR.6/crossed-cocycles` | [crossed-cocycles](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4576) |
+| `SR.6/finite-wild-discretization` | [finite-wild-discretization](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4615) |
+| `SR.6/finite-wild-representability` | [finite-wild-representability](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4629) |
+| `SR.6/ell-adic-extension` | [ell-adic-extension](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4652) |
+| `SR.6/wild-strata` | [wild-strata](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4665) |
+| `SR.6/twisted-component-finiteness` | [twisted-component-finiteness](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4684) |
+| `SR.6/tame-torus-engine` | [tame-torus-engine](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4695) |
+| `SR.6/frobenius-quotient-finite` | [frobenius-quotient-finite](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4730) |
+| `SR.6/excursion-algebra` | [excursion-algebra](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4741) |
+| `SR.6/excursion-invariant-comparison` | [excursion-invariant-comparison](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4768) |
 | `SR.6/geometric-hecke-action` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/excursion-center-action` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/torus-central-compatibility` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/parabolic-excursion-compatibility` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
-| `SR.6/z-finite` | [z-finite](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4149) |
-| `SR.6/depth-generators` | [depth-generators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4177) |
-| `SR.6/cuspidal-embedding` | [cuspidal-embedding](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4189) |
+| `SR.6/z-finite` | [z-finite](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4786) |
+| `SR.6/depth-generators` | [depth-generators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4814) |
+| `SR.6/cuspidal-embedding` | [cuspidal-embedding](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4854) |
 | `SR.6/cuspidal-excursion-finiteness` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/integral-center-finiteness` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/parabolic-center-map` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
-| `SR.6/stable-operator` | [stable-operator](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L4200) |
+| `SR.6/stable-operator` | [stable-operator](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#L3949) |
 | `SR.6/ell-adic-stability` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/cogenerators` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
 | `SR.6/jacquet-cogenerator-duality` | [Existing Part II target; qualified above](https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.4.json) |
@@ -1060,7 +1079,7 @@ for the new targets and the qualified residual chain; imported bibliography
 remains with the upstream targets. Public file hashes and versions are in the
 packet. No restricted library book was used.
 
-- **upstream-smooth**: Tau Ceti roadmap contributors, [Roadmap: smooth representations of local groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md). TauCetiRoadmap main, commit 0d144d044dacebca17b654695b6f1ad58f159b27. Read 16 October 2026: Scope and ownership; conventions; exact supplier contracts; target inventories SR.0–SR.6; SR.1.1 and SR.1.3; SR.0d; SR.2.3; SR.3.3–SR.3.4; SR.5.3; SR.6.1–SR.6.5; Suggested.lean import and end-theorem inventory.
+- **upstream-smooth**: Tau Ceti roadmap contributors, [Roadmap: smooth representations of local groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/10432b146c0828ab379e76f9c630a76578b98430/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md). TauCetiRoadmap merged PR #793, commit 10432b146c0828ab379e76f9c630a76578b98430 (14 October 2026). Read 16 October 2026: Scope and ownership; conventions; exact supplier contracts; target inventories SR.0–SR.6; SR.1.1 and SR.1.3; SR.0d; SR.2.3; SR.3.3–SR.3.4; SR.5.2 types, projectives, GL_n second adjointness and segments; SR.5.3; SR.6.1–SR.6.5; Suggested.lean import and end-theorem inventory.
 - **dhkm**: Jean-François Dat, David Helm, Robert Kurinczuk and Gilbert Moss, [Finiteness for Hecke algebras of p-adic groups](https://arxiv.org/pdf/2203.04929v2). arXiv:2203.04929v2, 22 April 2022. Read 16 October 2026: Theorems 1.1, 1.2, 1.7; Corollaries 1.3–1.9, pp. 1–4; §2, especially Theorem 2.3 and Corollary 2.6, pp. 4–9; §3, Lemmas 3.1–3.4 and Corollary 3.5, pp. 9–11; §4, Theorems 4.1 and 4.3, Lemmas 4.4–4.10, Corollaries 4.11–4.12, pp. 11–16.
 - **fs**: Laurent Fargues and Peter Scholze, [Geometrization of the local Langlands correspondence](https://arxiv.org/pdf/2102.13459v4). arXiv:2102.13459v4, 2024 revision. Read 16 October 2026: Corollary V.1.4, pp. 170–171, derived smooth duality; VIII.4.1, pp. 291–292; IX.0.1–IX.0.3, pp. 317–319; IX.5.1–IX.5.2, pp. 327–329; IX.6.1–IX.6.5, pp. 330–333; IX.7.2–IX.7.3, pp. 335–338.
 - **ding**: Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://link.springer.com/content/pdf/10.1007/s10240-025-00156-2.pdf). Publications mathématiques de l’IHÉS 142 (2025), 1–74, published 10 July 2025. Read 16 October 2026: §3.1.1, pp. 33–34, smooth character and induction conventions; Proposition 3.3 and proof, pp. 35–36, smooth part of the tangent comparison; §3.6, discussion after (3.55), p. 57, completed centres and first-order quotients.
@@ -1068,7 +1087,7 @@ packet. No restricted library book was used.
 - **gs**: Wee Teck Gan and Gordan Savin, [Howe duality and dichotomy for exceptional theta correspondences](https://arxiv.org/pdf/2102.00372v1). arXiv:2102.00372v1, 31 January 2021. Read 16 October 2026: Introduction, pp. 3–4, cuspidal summands; Proposition 5.3 and proof, pp. 17–18, use of discrete-series projectivity in the tempered category.
 - **os**: Eric Opdam and Maarten Solleveld, [Resolutions of tempered representations of reductive p-adic groups](https://arxiv.org/pdf/1203.1237v2). arXiv:1203.1237v2, 1 October 2012; PDF bears 21 November 2018 date. Read 16 October 2026: Introduction, pp. 1–3; §1 and Theorem 2.2, pp. 3–8, building resolution and contraction; §3, pp. 9–12, Schwartz algebras and module categories; Theorem 4.2, pp. 14–16; Proposition 4.3, pp. 16–17.
 - **sz**: Peter Schneider and Ernst-Wilhelm Zink, [The algebraic theory of tempered representations of p-adic groups, Part II: Projective generators](https://www.uni-muenster.de/FB10/u/pschnei/publ/pap/smod2-II.pdf). Author PDF, 53 pages; accessed 16 October 2026. Read 16 October 2026: §1, centres of idempotented rings; §2, pp. 4–9, discrete components and Proposition 2.3; Corollary 3.5, pp. 17–18, unramified families versus individual discrete series.
-- **he**: Xuhua He, [Cocenters of p-adic groups, I: Newton decomposition](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf). Forum of Mathematics, Pi 6 (2018), e2, published open-access PDF. Read 16 October 2026: §1.1–§1.2, pp. 5–7, compactly supported functions and integral Haar normalization.
+- **he**: Xuhua He, [Cocenters of p-adic groups, I: Newton decomposition](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf). Forum of Mathematics, Pi 6 (2018), e2, published open-access PDF. Read 16 October 2026: §1.1–§1.2, pp. 6–7, compactly supported functions and integral Haar normalization.
 
 ## Stage coverage
 
