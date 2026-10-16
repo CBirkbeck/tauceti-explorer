@@ -44,7 +44,7 @@ variable [Fact (¬ IsUnit (p : PadicComplexInt p))]
     [IsAdicComplete (Ideal.span {(p : PadicComplexInt p)}) (PadicComplexInt p)]
 
 /-- The de Rham positive ring of C_p is a complete discrete valuation ring.
-The README also specifies its complete algebraically closed field form. -/
+Its residue field is C_p; the README identifies B_dR with its fraction field. -/
 theorem bdrPlus_complete_dvr :
     ∃ h : IsDomain (BDeRhamPlus (PadicComplexInt p) p),
       @IsDiscreteValuationRing (BDeRhamPlus (PadicComplexInt p) p) inferInstance h := by
@@ -82,6 +82,13 @@ example : thetaDR p 1 = 1 := by
 
 /-- The scalar p remains a unit in the de Rham residue algebra. -/
 example : IsUnit (thetaDR p (p : BDeRhamPlus (PadicComplexInt p) p)) := by
+  sorry
+
+/-- Adding p to a theta-kernel element destroys kernel membership.
+In the integral source, reduction modulo p cannot detect this change. -/
+example (x : BDeRhamPlus (PadicComplexInt p) p) (hx : thetaDR p x = 0) :
+    thetaDR p (x + p) = (p : Localization.Away (p : PadicComplexInt p)) ∧
+      thetaDR p (x + p) ≠ 0 := by
   sorry
 
 end GeometricPeriodRing
@@ -216,6 +223,12 @@ and d1(a,b) = 2a-b kills that vector. -/
 example : (((2 : ℚ) - 1) * 1, ((3 : ℚ) - 1) * 1) = (1, 2) ∧
     ((3 : ℚ) - 1) * (((2 : ℚ) - 1) * 1) -
       ((2 : ℚ) - 1) * (((3 : ℚ) - 1) * 1) = 0 := by
+  norm_num
+
+/-- Swapping the degree-one coordinates changes d1 by minus one in Liu's
+convention; the degree-two comparison must include that sign. -/
+example : ((3 : ℚ) - 1) * 1 - ((2 : ℚ) - 1) * 0 = 2 ∧
+    ((2 : ℚ) - 1) * 0 - ((3 : ℚ) - 1) * 1 = -2 := by
   norm_num
 
 /-- With arithmetic Artin and character first, the normalized cup value is +1;
@@ -410,7 +423,8 @@ example : tatePhiMatrix (3 : ℚ) * !![3, 0; 0, 1] = 1 := by
 
 /-
 The remaining targets require the heavier carriers and constructions specified in README.md:
-Layer 0: galoisActionCp and its transported actions; pFlat, filAffinoid,
+Layer 0: galoisActionCp and its transported actions; normalized traces R_n;
+I^[r], Fil_p^r and B'_cris; pFlat, filAffinoid,
 bdRPlusAffinoid, filBdR, naturalTopologyAinfInvP, naturalTopologyBdRPlus,
 fontaineT, logTeichmuller, BHT, acrisToBdRPlus, acrisFrobenius, BcrisPlus,
 Bcris, Amax, BmaxPlus, logCris, Bst, bstToBdR, breuilMin and completedBstPlus.
