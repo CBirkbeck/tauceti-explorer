@@ -1,5 +1,65 @@
 # Checkpoint: SR.4–SR.6 revision blocked by upstream ownership
 
+## Current checkpoint: codex-RoeB2o
+
+Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
+session `codex-RoeB2o`; 16 October 2026. **Blocked checkpoint; the revision
+remains unfinished.** No second issue was claimed.
+
+The bot confirmed this session's claim in
+[comment 6215477946](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6215477946).
+The job was again labelled available after the preceding
+[checkpoint PR #9964](https://github.com/CBirkbeck/tauceti-explorer/pull/9964).
+Re-reading the issue confirmed that the maintainer's
+[stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6146993445)
+still applies. No subsequent comment supplies a replacement scope or authorizes
+another atlas blueprint round. An availability label does not reconcile that
+instruction with the prohibition on duplicating upstream roadmaps in
+[WORKERS.md](../WORKERS.md) and
+[PROTOCOL.md §15](../PROTOCOL.md#15-build-on-existing-roadmaps-never-duplicate).
+
+Live GitHub metadata was rechecked: upstream
+[PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785) remains
+open at `b853d91ae766c28b7360b4c8ddb5af7db85bda46`, and
+[PR #793](https://github.com/TauCetiProject/TauCetiRoadmap/pull/793) remains
+merged into its bundle branch. The public
+[README at that head](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b853d91ae766c28b7360b4c8ddb5af7db85bda46/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+“Scope and ownership”, SR.4.1–SR.4.5, SR.5.1–SR.5.3 and SR.6.1–SR.6.5,
+still assigns these targets upstream. Its general reductive geometric-action
+exclusion and its separate GL_n integral second-adjointness target agree with
+the blocker described below. The fetched public README's SHA-256 is
+`8ad83c1c93c6f7dca2843d59e832a372d069f05db86040e36a364f98fa538d99`;
+access date: 16 October 2026.
+
+The supplied upstream working tree's scope and suggested-file opening were
+also inspected read-only. That checkout has local modifications, so its HEAD
+is not used as an identifier of the text inspected; the public immutable
+README above supplies the reproducible ownership evidence. Nothing in the
+shared upstream checkout was changed, and no build was run there.
+
+This session changes only this handoff and the packet summary. The summary
+previously described all stages as planned although their coverage records
+were partial; it now describes the unfinished revision and ownership blocker.
+The 70 node IDs and all mathematical statements, APIs, tests, sources,
+baseline declarations, requests, gaps, coverage records and the existing
+`needs_changes` review are unchanged. The reader and suggested file are
+unchanged. No mathematical source or baseline declaration was newly audited.
+
+Validation: the blueprint checker reports 0 errors and 0 warnings; the
+submission file check and whitespace check pass. A comparison with the input
+packet confirms that only its summary changed. The suggested Lean file was
+**not compiled in this session**, because this checkpoint changes no Lean or
+mathematical contract. All three stage statuses remain partial. The inherited
+inventory below remains accurate.
+
+The remaining action is a maintainer decision about the issue's availability
+and scope. Under the existing instruction, roadmap changes belong in upstream
+PR #785. Releasing this checkpoint does not authorize another atlas revision;
+the same blocker should not be treated as a fresh mathematical task. All
+resumption evidence is in this handoff; no scratch file is needed.
+
+## Previous checkpoint: codex-g0EsK3
+
 Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
 session `codex-g0EsK3`; 16 October 2026. **Blocked checkpoint; the revision
 is unfinished.** No second issue was claimed.

@@ -8,7 +8,7 @@
     "SmoothRepresentationsOfLocalGroups:SR.6"
   ],
   "status": "partial",
-  "summary": "Classical spherical Satake with its integral normalization, integral generic GL_n families, and the finite-wild excursion route to integral finiteness and second adjointness. All three stages are planned; substantial geometric and modular-type prerequisites remain explicit gaps, so no stage is claimed closed.",
+  "summary": "Inherited target-level plan for classical spherical Satake, integral generic GL_n families, and the finite-wild excursion route to integral finiteness and second adjointness. Revision round 2 and all three stages remain partial: the maintainer stopped further atlas blueprint rounds because the upstream roadmap is authoritative. The inherited mathematical contracts and research gaps are preserved pending reconciliation of this issue's scope with upstream ownership.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
