@@ -1,6 +1,6 @@
 # Roadmap: potential modularity and compatible systems
 
-This roadmap builds the field-selection and compatible-family machinery that turns residual modularity into global lifts and transports modularity between coefficient primes. Its geometric core is Moret–Bailly's integral-point theorem with local splitting, completion and avoidance conditions. Its arithmetic core separates residual modular witnesses, finiteness of a global deformation ring, extraction of a characteristic-zero point, modularity of a given lift and construction of a family through that lift. The resulting interfaces support the Khare–Wintenberger proof of Serre's conjecture and the later potential-automorphy arguments that use compatible systems of higher rank.
+**Summary.** This roadmap builds the field-selection and compatible-family machinery that turns residual modularity into global lifts and transports modularity between coefficient primes. Its geometric core is Moret–Bailly's integral-point theorem with local splitting, completion and avoidance conditions. Its arithmetic core separates residual modular witnesses, finiteness of a global deformation ring, extraction of a characteristic-zero point, modularity of a given lift and construction of a family through that lift. The resulting interfaces support the Khare–Wintenberger proof of Serre's conjecture and the potential-automorphy arguments that use compatible systems of higher rank. The auxiliary modularity is proved through Skinner–Wiles level adjustment, Taylor's crystalline lifting theorem and soluble descent, and the ordinary finiteness applications rest on a rank-two ordinary R=T on definite unitary groups planned here.
 
 The generic family objects and their operations are developed independently of potential modularity. They contain actual continuous semisimple representations at coefficient places, common Frobenius polynomials and labeled Hodge data. Automorphic and geometric families then instantiate those objects. In rank two, keep the Khare–Wintenberger local compatibility conditions separate from the BLGGT conditions: an assertion away from the coefficient characteristic cannot replace an assertion at that characteristic.
 
@@ -12,19 +12,24 @@ A prerequisite written `Roadmap:Layer/target` denotes that owner's mathematical 
 
 | Owner | Interface used here |
 | --- | --- |
-| SchemeAndStackFoundations SF.1–SF.4; AlgebraicModuliForArithmeticGeometry R09.3 | Smooth and geometrically connected schemes, finite étale torsors, Chow and Bertini reductions, relative Cartier divisors, curve cohomology, Picard representability and compactified Picard schemes |
-| AbelianSchemesAndArithmeticModuli A6; HilbertModularVarietiesAndShimuraCurves H6 | Representable twisted Hilbert moduli, descended geometrically connected components, torsion identifications respecting pairings, local points and Weil restriction |
-| GlobalNumberFields Layers 9–10; ClassFieldTheory Layers 11–12 and ClassFieldTheoryPartII | Algebraic Hecke characters, units and approximation, reciprocity and l-adic character realization; Chebotarev supplies the prime-selection results |
-| ArithmeticGaloisRepresentations R01.1/G7; PadicHodgeTheory R06.3; LocalGaloisDeformationRings R08.2/R08.6/L8 | Continuous arithmetic representations and their operations, finite residual image, stable lattices, local WD and Hodge comparisons, definite local types and their deformation rings |
-| GlobalGaloisDeformations R04.6; DeformationAndDerivedPatchingAlgebra R03.3–R03.4 | Global local-condition rings, framed/unframed comparison, presentations and finite-image criteria, finite-flat complete intersections and characteristic-zero integral points |
-| GL2AutomorphicRepresentationsAndTransfer R17.3/R17.4/R17.6 | Jacquet–Langlands, soluble base change and descent, with invariance and cuspidality conditions |
-| AutomorphicGaloisRepresentations R19.2–R19.6 | Galois realizations of Hilbert forms, common-coefficient eigenform families, away-coefficient comparison and the full Skinner coefficient-prime theorem |
-| OrdinaryAutomorphicFormsAndModularityLifting R21.4/R21.5; PadicFamilies L5 | Ordinary R=T, the exceptional CM lifting/base-change interfaces and Hida specializations |
-| GL2ModularityLifting R22.4–R22.6 and R32.6 | Allowable base change, full odd-prime and dyadic KW lifting, and the modern residually reducible de Rham transfer |
+| SchemeAndStackFoundations SF.1–SF.4; AlgebraicModuliForArithmeticGeometry R09.3 and §7.3; ReductiveGroupsPartII RG2.0.1, RG2.0a.2 | Smooth and geometrically connected schemes, finite étale torsors, Chow's lemma and smooth hyperplane sections, relative Cartier divisors, curve cohomology and Abel maps (SF.1–SF.4); effective descent and Weil restriction (R09.3); relative Picard sheaves and their representability (§7.3); the topology on local points of schemes, openness of smooth maps on them, and smoothness and points of Weil restrictions (RG2.0.1, RG2.0a.2) |
+| AbelianSchemesAndArithmeticModuli A6; HilbertModularVarietiesAndShimuraCurves H2.2, H2.6, H6, R18.3 | Integral Hilbert models at good primes, openness of the ordinary locus, definite quaternionic class sets and pairings, representable twisted Hilbert moduli, descended geometrically connected components, torsion identifications respecting pairings, local points and Weil restriction |
+| GlobalNumberFields Layers 9–10; ClassFieldTheory Layers 7, 11–12; AutomorphicGaloisRepresentationsPartII AG2.0; AutomorphicGaloisRepresentations §3.13 | Algebraic Hecke characters, units and approximation, local and global reciprocity, the l-adic character of an algebraic Hecke character (AG2.0) and the converse for geometric characters (§3.13); Chebotarev supplies the prime-selection results |
+| ArithmeticGaloisRepresentations R01.1–R01.5/G7; PadicHodgeTheory R06.2–R06.4; LocalGaloisDeformationRings R08.2/R08.6/L7/L8 | Continuous arithmetic representations and their operations, local Euler and ε-factors, finite residual image, stable lattices, polarized representations with their multipliers and signs (§7.4), Zariski closures of one representation (§7.6), adequacy, local WD and Hodge comparisons, Fontaine–Laffaille and ordinary local deformation rings |
+| GlobalGaloisDeformations R04.2–R04.6, G7, §§5.1, 5.7, 6.4, 8.5; DeformationAndDerivedPatchingAlgebra R03.3–R03.6 | Carayol trace theorem, Taylor–Wiles data and primes, polarized deformation problems, finiteness of restriction, global local-condition rings, framed/unframed comparison, presentations and finite-image criteria, finite-flat complete intersections and characteristic-zero integral points |
+| GL2AutomorphicRepresentationsAndTransfer R16.1, R17.3–R17.6 | Finite Hecke characters with prescribed local components, Jacquet–Langlands, soluble base change and descent, quadratic automorphic induction and potential-modularity interfaces, with invariance and cuspidality conditions |
+| WeightsInEtaleCohomology; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3, R07.5 | The Riemann hypothesis for curves over finite fields and the Lefschetz trace formula (2.11); Fontaine–Laffaille filtered modules and their torsion functor (4.3); Savitt's residual types (12.4) |
+| AutomorphicGaloisRepresentations R19.2–R19.6, §3.13, §7.1 | The compatible-system carrier with its weak, strict and almost-strict predicates and operations (§7.1), geometric characters (§3.13), Galois realizations of Hilbert forms and of quaternionic Hecke algebras (§6.10), common-coefficient eigenform families, away-coefficient comparison and the full Skinner coefficient-prime theorem |
+| OrdinaryAutomorphicFormsAndModularityLifting §§1.4–2.10, R21.2, R21.6; PadicFamilies L0a/L5 | The definite-quaternion pairing, traces and Ihara lemmas behind level adjustment; Hilbert ordinary weight change and ordinary lifts; ordinary projectors and Hida control |
+| GL2ModularityLifting R22.1, R22.4–R22.6 and R32.6 | Allowable base change (R22.1), integral R=T for smooth local conditions (R22.4), full odd-prime and dyadic KW lifting, and the modern residually reducible de Rham transfer |
+| NeronModelsAndSemistableAbelianVarieties §§5.1, 5.3; ShimuraVarieties §§5.3–5.10 | Néron–Ogg–Shafarevich and the crystalline comparison for good reduction; CM abelian varieties, their models and the main theorem of complex multiplication |
+| InverseGaloisAndArithmeticFundamentalGroups IG.1–IG.2; GL2AutomorphicRepresentationsAndTransfer R16.1; SerreWeightAndLevelOptimisation §6.6; EndoscopicTransferAndUnitaryTraceComparison §6.29; AutomorphicFormsOnReductiveGroups AF.4–AF.5 | Étale fundamental groups and specialization of finite quotients; finite Hecke characters with prescribed local components; the Khare–Wintenberger optimisation field; Labesse's base change and descent for unitary groups; algebraic modular forms on groups compact at infinity |
 
-In particular, Layer 1 precedes AutomorphicGaloisRepresentations R19.3/R19.4, AutomorphicGaloisRepresentationsPartII AG2.2/AG2.6/AG2.7 and ComplexMultiplicationAndExplicitReciprocity CM.4. It takes no eigenform or potential-modularity theorem as a premise. The construction of an eigenform family belongs to R19; proving that a supplied lift becomes automorphic belongs to Layer 5; assembling its descended family belongs to Layer 12.
+Layer 1 builds on the compatible-system carrier of AutomorphicGaloisRepresentations §7.1: `CompatibleSystemData` with its weak, strict and almost-strict predicates and the operations of coefficient extension, direct sum, dual, tensor product, algebraic-character twist, finite restriction and conjugation. It also builds on the polarized representations of ArithmeticGaloisRepresentations §7.4 and on the algebraic Hecke characters of AutomorphicGaloisRepresentationsPartII AG2.0 and AutomorphicGaloisRepresentations §3.13. It adds what those do not contain: the Khare–Wintenberger rank-two predicates, very weak and extremely weak data, induction and symmetric and exterior powers of families, polarized families, regularity and purity, Artin and character families, L-functions, the arithmetic representation ring, monodromy and density-one irreducibility. It takes no eigenform or potential-modularity theorem as a premise. The construction of an eigenform family belongs to R19; proving that a supplied lift becomes automorphic belongs to Layer 5; assembling its descended family belongs to Layer 12.
 
-The current Tau Ceti library supplies line-bundle classes and their tensor group; AlgebraicVectorBundles Layer 0 supplies their geometric tensor/dual infrastructure, and JacobianChallenge Layer D supplies the ordinary relative Picard functor. The variant here rigidifies along an arbitrary finite flat boundary, rather than one section. LocalGaloisGroups' tame frame and ProfiniteArithmetic supply local Galois and profinite primitives; Completed RestrictedProducts supplies the adelic carrier. Those objects are imported. RepresentationTheory/InductionRestriction Layer 6 owns finite-group virtual characters and Brauer induction. Here the additional ring is for continuous, finitely ramified representations of the infinite arithmetic group G_F, with arithmetic induction and local Euler factors.
+The current Tau Ceti library supplies line-bundle classes and their tensor group, arbitrary-morphism rigidified line bundles, their isomorphism classes, pullback, forgetting and the global-unit criterion for equality. AlgebraicVectorBundles Layer 0 supplies geometric tensor/dual infrastructure, and JacobianChallenge Layer D supplies the ordinary relative Picard functor. Layer 2 uses these objects for a finite flat boundary and adds the relative group-sheaf, representability, degree and divisor-fibration results. LocalGaloisGroups' tame frame and ProfiniteArithmetic supply local Galois and profinite primitives; Completed RestrictedProducts supplies the adelic carrier. Those objects are imported. The current library's `HeckeCharacter/Purity.lean` supplies the purity of infinity types of algebraic Hecke characters. RepresentationTheory/InductionRestriction Layer 6 owns finite-group virtual characters and Brauer induction. Here the additional ring is for continuous, finitely ramified representations of the infinite arithmetic group G_F, with arithmetic induction and local Euler factors.
+
+Layer 8 plans the rank-two ordinary theory on definite unitary groups in two variables (ordinary Hecke algebras, ordinary R=T for adequate residual image, ordinary automorphy lifting and finiteness) that the ordinary finiteness and Newton–Thorne applications use; the n-dimensional versions belong to PotentialAutomorphyInfrastructurePartII. The level adjustment of Skinner–Wiles and Taylor's crystalline lifting theorem, used for the auxiliary modularity in Layer 4, are planned here as well.
 
 ## Conventions
 
@@ -43,7 +48,7 @@ A Skolem point must satisfy every local embedding condition. Splitting after ten
 Use the following library primitives at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
 - `IntermediateField.LinearDisjoint` supplies tensor-based field disjointness. `LinearDisjoint.inf_eq_bot` gives trivial intersection; `LinearDisjoint.iff_inf_eq_bot` has finite-dimensional hypotheses on both fields and a Galois hypothesis on the left one.
-- `AlgebraicGeometry.Spec` and `Scheme.Modules.pullback` supply scheme points and restriction of module sheaves. Tau Ceti's `InvertibleSheaf` and `InvertibleSheaf.trivial` supply the line bundles and trivial bundle. `LineBundleClass.mk_eq_mk_iff` recognizes equality of unrigidified classes by a sheaf isomorphism. Layer 2 adds rigidifications, their compatible isomorphisms and the relative curve construction.
+- `AlgebraicGeometry.Spec` and `Scheme.Modules.pullback` supply scheme points and restriction of module sheaves. Tau Ceti's `InvertibleSheaf` and `InvertibleSheaf.trivial` supply the line bundles and trivial bundle. `LineBundleClass.mk_eq_mk_iff` recognizes equality of unrigidified classes by a sheaf isomorphism. Layer 2 adds the relative curve construction over the current library’s rigidified line-bundle classes. The latter are cited below as current-library prerequisites, without private substitutes in Suggested.lean.
 - `NumberField.Chebotarev.frobeniusPrimeSet` defines the set of unramified primes of an Artin conjugacy class. Prime existence and density are theorems of the Chebotarev roadmap.
 - `Field.absoluteGaloisGroup`, `Representation`, `Representation.IsSemisimpleRepresentation`, `Representation.IsIrreducible` and `Representation.dual` provide the Krull-topological Galois group and algebraic representation interfaces. Continuity, finite ramification and absolute irreducibility are additional arithmetic conditions. `NumberField.FinitePlace` and `FinitePlace.embedding` provide coefficient places and completion embeddings. `LinearMap.charpoly` applies to finite free modules.
 - `Representation.ind` and `Rep.indResAdjunction` give algebraic induction and its restriction adjunction for groups over a commutative ring. Arithmetic continuity and finite-dimensionality are supplied by R01.1/G7. `Finsupp` gives an additive irreducible-multiplicity lattice; tensor product needs its own structure constants.
@@ -60,7 +65,7 @@ Use `TauCetiRoadmap.PotentialModularityAndCompatibleSystems` for the names below
 
 ## How to read the build
 
-Layer 1 builds compatible-system infrastructure independently of potential modularity. Layers 2–7 select fields, construct the auxiliary moduli points, prove residual and given-lift potential modularity and record their exports. Layers 8–11 establish ring finiteness, extract points and apply the lifting theorems. Layers 12–13 assemble and compare the resulting families. Within a layer, prerequisites precede their consumers; each construction lists its sources and exact needs.
+Layer 1 builds compatible-system infrastructure independently of potential modularity. Layers 2–7 select fields, construct the auxiliary moduli points, prove the auxiliary modularity by level adjustment, crystalline lifting and descent, prove residual and given-lift potential modularity and record their exports. Layers 8–11 establish ring finiteness, including the rank-two ordinary R=T on definite unitary groups and its finiteness theorem, extract points and apply the lifting theorems. Layers 12–13 assemble and compare the resulting families. Within a layer, prerequisites precede their consumers; each construction lists its sources and exact needs.
 
 <a id="layer-r24-5-operations"></a>
 ## Layer 1: Compatible-family infrastructure
@@ -71,13 +76,13 @@ Construct the carrier and its arithmetic operations before invoking any automorp
 <a id="target-weakly-compatible-system-rank-n"></a>
 ### 1.1 Weakly compatible families of arbitrary rank
 
-Fix number fields F,M and rank n. A weakly compatible system consists of a finite exceptional set S, monic Q_v∈M[X] of degree n for v∉S, continuous semisimple r_λ:G_F→GL_n(M̄_λ) at every finite place λ of M, and n-element Hodge multisets H_τ for every τ:F↪M̄. At λ of residue characteristic l and v∉S with v∤l, require unramifiedness and geometric-Frobenius characteristic polynomial ι_λ(Q_v). At every v|l require de Rham behavior, and crystallinity if v∉S. Every coefficient embedding extending λ must identify the labeled Hodge multiset with H_τ.
+Fix number fields F,M and rank n. A weakly compatible system is an element of the carrier `CompatibleSystemData` of AutomorphicGaloisRepresentations §7.1 satisfying its predicate `IsWeaklyCompatible`: a finite exceptional set S, monic Q_v∈M[X] of degree n for v∉S, continuous semisimple r_λ:G_F→GL_n(M̄_λ) at every finite place λ of M, and n-element Hodge multisets H_τ for every τ:F↪M̄, such that at λ of residue characteristic l and v∉S with v∤l the member is unramified with geometric-Frobenius characteristic polynomial ι_λ(Q_v), at every v|l it is de Rham, and crystalline if v∉S, and every coefficient embedding extending λ identifies the labeled Hodge multiset with H_τ. That carrier and predicate are imported; this target adds the comparisons with the other definitions this roadmap uses.
 
 These are data and axioms of the carrier, including the actual representations; common traces alone are insufficient. Taylor's rank-d contract over ℚ asks instead for fixed Hodge–Tate weights at all λ and crystallinity outside S, without separately requiring de Rham behavior at exceptional coefficient primes. The KW rank-two carrier also contains all-place WD parameters. Its comparison with this weak carrier therefore checks the additional all-member de Rham and outside-S crystalline conditions.
 
 The construction has the following API:
 
-- `WeaklyCompatibleSystem`: (M, S, Q_v, r_λ, H_τ) with the compatibility conditions.
+- `WeaklyCompatibleSystem`: the elements of `CompatibleSystemData` (AutomorphicGaloisRepresentations §7.1) satisfying `IsWeaklyCompatible`.
 - `WeaklyCompatibleSystem.rank`: The rank n.
 - `WeaklyCompatibleSystem.charpoly_frob`: For v ∉ S, v ∤ l: r_λ unramified at v with charpoly r_λ(Frob_v) = Q_v.
 - `WeaklyCompatibleSystem.deRham`: r_λ|_{G_{F_v}} de Rham for v | l, crystalline for v ∉ S.
@@ -95,7 +100,7 @@ Use `WeaklyCompatibleSystem` for this construction.
 
 The sources are [BLGGT v1][blggt-2014], §5.1, definition of a weakly compatible system, p. 51 (arXiv v1; printed page = PDF page); [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §6, rank d weakly compatible systems over ℚ, p. 773 (PDF page 45).
 
-*Needs:* `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `PadicHodgeTheory:R06.2`; `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`; `mathlib:LinearMap.charpoly`; `mathlib:NumberField.FinitePlace`; `mathlib:NumberField.FinitePlace.embedding`.
+*Needs:* `AutomorphicGaloisRepresentations` §7.1 (`CompatibleSystemData`, `IsWeaklyCompatible`); `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `PadicHodgeTheory:R06.2`; `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`; `mathlib:LinearMap.charpoly`; `mathlib:NumberField.FinitePlace`; `mathlib:NumberField.FinitePlace.embedding`.
 
 <a id="target-compatible-system"></a>
 ### 1.2 Rank-two plain, almost-strict and strict families
@@ -106,10 +111,12 @@ KW strictness requires every member to be geometric of these weights and compare
 
 Dieulefait–Pacetti use a different almost-strict contract: every member is de Rham at its coefficient prime. Compare their five-tuple only after identifying coefficient embeddings and normalizations. Keep this additional condition explicit when translating between the two definitions.
 
+AutomorphicGaloisRepresentations §7.1 defines on `CompatibleSystemData` the all-place strict predicate `IsStrictlyCompatible` and the Dieulefait–Pacetti almost-strict predicate `IsAlmostStrictlyCompatible`, which at an odd coefficient prime with unramified common parameter still requires the full comparison. Use them. The Khare–Wintenberger family here is the rank-two specialization of that carrier indexed by embeddings ι with fixed integer weights a≥b; KW strictness is AGR's strict predicate for it, and KW almost strictness, which at such a prime asks only for crystallinity of the common weights, is the separate predicate below.
+
 The construction has the following API:
 
 - `CompatibleSystem`: E, the family ρ_ι, the Weil–Deligne data r_𝔮 and the weights (a, b)
-- `CompatibleSystem.IsStrict`: compatibility with r_𝔮 at every 𝔮, including 𝔮 above ℓ
+- `CompatibleSystem.IsStrict`: compatibility with r_𝔮 at every 𝔮, including 𝔮 above ℓ; it is `IsStrictlyCompatible` of AutomorphicGaloisRepresentations §7.1 for the underlying data
 - `CompatibleSystem.IsAlmostStrict`: the two conditions at 𝔮 | ℓ (irreducible residual, or ℓ ≠ 2 and r_𝔮 unramified)
 - `CompatibleSystem.IsRegular`: a ≠ b
 - `CompatibleSystem.IsStrict.isAlmostStrict`: strict ⇒ almost strict ⇒ compatible
@@ -126,7 +133,7 @@ Use `CompatibleSystem` for this construction.
 
 The sources are [KW I][kw-serre-modularity-I], §5, p. 7 of the preprint, §5, p. 8 of the preprint; [Dieulefait–Pacetti v2][dieulefait-pacetti], Definition 1.10 and after, p. 7 of the arXiv version.
 
-*Needs:* `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`.
+*Needs:* `AutomorphicGaloisRepresentations` §7.1 (`IsStrictlyCompatible`, `IsAlmostStrictlyCompatible`); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `mathlib:Representation`; `mathlib:Field.absoluteGaloisGroup`.
 
 <a id="target-weakened-compatible-data"></a>
 ### 1.3 Very weak and extremely weak families
@@ -159,7 +166,7 @@ The sources are [ACC+][acc-2023], §7.1, pp.1084–1085.
 <a id="target-system-operations"></a>
 ### 1.4 Twisting, restriction and induction
 
-Construct twists by strict character systems, restrictions to finite base-field extensions and inductions from finite extensions, applying representation, WD and Hodge operations together. Enlarge S by ramification of the extension for induction, and at each local place use the sum of locally induced WD parameters. Plain compatibility is preserved; all-place strictness is preserved for the de Rham input systems using the local operations of R06.3.
+Twists by algebraic-character families, restrictions to finite base-field extensions, coefficient extension and conjugation are the operations of AutomorphicGaloisRepresentations §7.1, with its transport of the weak and strict predicates and its rank-two almost-strict transport rule; import them. Construct here the induction from a finite extension, applying representation, WD and Hodge operations together. Enlarge S by ramification of the extension for induction, and at each local place use the sum of locally induced WD parameters. At a place above the coefficient prime this requires that D_pst of an induced representation is the induced Weil–Deligne representation; prove it here from the compatibility of Fontaine's functor with restriction and the Mackey description of induction. Plain compatibility is preserved; all-place strictness is preserved for the de Rham input systems using the local operations of R06.3.
 
 For an almost-strict system the unconditional output is plain. Retaining almost strictness requires checking every newly irreducible residual output against the source's coefficient-prime comparison cases and every unramified coefficient-prime output for crystallinity. A strict character twist preserves the residual irreducibility test in rank two; restriction or induction can change it. A virtual Brauer combination is still a class in a representation ring until genuineness is proved.
 
@@ -182,12 +189,12 @@ Use `twist` for this construction.
 
 The sources are [KW II][kw-serre-modularity-II], §10.3.2, p. 93 of the preprint.
 
-*Needs:* [Layer 1, Rank-two plain, almost-strict and strict families](#target-compatible-system); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:G7`; `mathlib:Representation.ind`; `mathlib:Representation.dual`.
+*Needs:* [Layer 1, Rank-two plain, almost-strict and strict families](#target-compatible-system); `AutomorphicGaloisRepresentations` §7.1 (`twist`, `restrict`, `coefficientExtension`, `conjugate`); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor`; `PadicHodgeTheory:R06.2` (induction and restriction of scalars); `ArithmeticGaloisRepresentations:R01.2`; `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:G7`; `mathlib:Representation.ind`; `mathlib:Representation.dual`.
 
 <a id="target-polarized-system"></a>
 ### 1.5 Polarized weakly compatible families
 
-For CM F/F⁺ and a weak system ℛ, take a rank-one multiplier system ℳ of G_(F⁺) over the same coefficient field, with ramification below that of ℛ. A polarization includes, for every λ and real place v, an actual perfect pairing B with B(x,y)=ε_vB(y,x), B(r_λ(g)x,r_λ(c_vgc_v)y)=μ_λ(g)B(x,y), and ε_v=−μ_λ(c_v). Total oddness means ε_v=+1 at every real place. Forgetting the pairing gives essential conjugate self-duality, not a polarization witness. For totally real fields use the orthogonal/symplectic convention of BLGGT §2.1 instead of imposing the CM sign equation without a CM extension.
+For CM F/F⁺ and a weak system ℛ, take a rank-one multiplier system ℳ of G_(F⁺) over the same coefficient field, with ramification below that of ℛ. A polarization includes, for every λ and real place v, an actual perfect pairing B with B(x,y)=ε_vB(y,x), B(r_λ(g)x,r_λ(c_vgc_v)y)=μ_λ(g)B(x,y), and ε_v=−μ_λ(c_v). Total oddness means ε_v=+1 at every real place. Forgetting the pairing gives essential conjugate self-duality, not a polarization witness. For totally real fields use the orthogonal/symplectic convention of BLGGT §2.1 instead of imposing the CM sign equation without a CM extension. The representation-level pairing, multiplier, sign and total oddness are those of ArithmeticGaloisRepresentations §7.4 (`PolarizedRep`); this target assembles them over a family.
 
 The construction has the following API:
 
@@ -208,7 +215,7 @@ Use `PolarizedSystem` for this construction.
 
 The sources are [BLGGT v4][blggt-2014-v4], §2.1, p.31; §5.1, p.62.
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7`.
+*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7` (§7.4, `PolarizedRep`, `IsTotallyOdd`).
 
 <a id="target-compatible-system-predicates"></a>
 ### 1.6 Regularity, purity, strictness and automorphy
@@ -245,7 +252,7 @@ The sources are [BLGGT v1][blggt-2014], §5.1, the subsidiary definitions, p. 51
 <a id="target-linear-algebra-operations-on-systems"></a>
 ### 1.7 Linear-algebra operations on families
 
-Over a common coefficient field construct direct sums, semisimplified tensor products, contragredients, symmetric powers and exterior powers. At a good place, sum multiplies the polynomials, tensor multiplies every pair of roots, and the dual polynomial is X^n Q_v(0)⁻¹Q_v(X⁻¹). Symmetric powers use repeated products, exterior powers distinct products. Hodge data are the corresponding disjoint unions, pairwise sums, negatives and repeated/distinct sums.
+Over a common coefficient field use the direct sums, semisimplified tensor products and contragredients of AutomorphicGaloisRepresentations §7.1, and construct symmetric and exterior powers, using the characteristic-polynomial identities of ArithmeticGaloisRepresentations §7.1. At a good place, sum multiplies the polynomials, tensor multiplies every pair of roots, and the dual polynomial is X^n Q_v(0)⁻¹Q_v(X⁻¹). Symmetric powers use repeated products, exterior powers distinct products. Hodge data are the corresponding disjoint unions, pairwise sums, negatives and repeated/distinct sums.
 
 These operations, restriction and induction preserve weak and away-coefficient strict compatibility with the appropriate enlargement of S. Pure direct sums require equal weights; tensor weights add, duality negates weight, and the k-th powers have weight kw. Restriction and induction preserve weight with their canonical transported Hodge data; local strict purity uses the analogous WD preservation. Duality and restriction preserve regularity. The other operations can create Hodge collisions. Duality preserves irreducibility, while arbitrary sums, tensors, restrictions and inductions need not. Cuspidal automorphy is asserted only through a theorem establishing it for the particular operation.
 
@@ -282,7 +289,7 @@ The sources are [BLGGT v1][blggt-2014], §5.1, operations, p. 51 (arXiv v1; prin
 <a id="target-polarized-operations"></a>
 ### 1.8 Operations with polarization witnesses
 
-Write δ=δ_(F/F⁺) in the CM setting. Duality has multiplier μ⁻¹ and the same sign. Tensor product has multiplier μμ′δ and sign εε′; the quadratic factor corrects the value at complex conjugation while restricting trivially to G_F. For nonzero k-th symmetric or exterior powers in characteristic zero use sign ε^k and multiplier μ^kδ^(k−1). At k=0 the unit has multiplier δ and sign +1, consistent with the integer exponent in that formula.
+Apply the multiplier and sign formulas of ArithmeticGaloisRepresentations §7.4 memberwise. Write δ=δ_(F/F⁺) in the CM setting. Duality has multiplier μ⁻¹ and the same sign. Tensor product has multiplier μμ′δ and sign εε′; the quadratic factor corrects the value at complex conjugation while restricting trivially to G_F. For nonzero k-th symmetric or exterior powers in characteristic zero use sign ε^k and multiplier μ^kδ^(k−1). At k=0 the unit has multiplier δ and sign +1, consistent with the integer exponent in that formula.
 
 Direct sums require the same multiplier and signs. A character twist uses μ times the extension of χχ^c having value +1 at complex conjugation. Restriction requires compatible CM fields and real subfields. Induction requires a specified extension of the multiplier and a check of the induced perfect pairing and sign. Check regularity and irreducibility independently of these pairing constructions.
 
@@ -312,7 +319,7 @@ The sources are [BLGGT v4][blggt-2014-v4], §2.1, p.31; §5.1, p.62; tensor-prod
 
 Use a type-A₀ algebraic Hecke character χ of F, with a number field M containing its algebraic finite values, to assemble the common-coefficient rank-one family of its l-adic realizations. It is de Rham at every coefficient place and crystalline outside the finite conductor set. If its connected-infinity character is ∏_τ(τx)^(−a_τ), its labeled Hodge multiset is {a_τ}. The good geometric-Frobenius polynomial comes from the common algebraic character value and the fixed reciprocity convention.
 
-Conversely, the classification of finitely ramified algebraic/de Rham l-adic characters supplies such a Hecke character. Import Hecke characters and their infinity-type purity from GlobalNumberFields Layers 9–10, reciprocity from ClassFieldTheory Layers 11–12, and the l-adic realization/classification comparison from ClassFieldTheory Part II. This target assembles their realizations into a system.
+Conversely, a finitely ramified de Rham l-adic character is the avatar of such a Hecke character after enlarging the coefficient field. Import Hecke characters and their infinity types from GlobalNumberFields Layers 9–10 and reciprocity from ClassFieldTheory Layer 11, whose arithmetic normalization is composed with inversion for geometric Frobenius. The l-adic character of an algebraic Hecke character, its Hodge–Tate numbers and its weight are AutomorphicGaloisRepresentationsPartII AG2.0 (`AlgHeckeChar.galoisChar`); the converse is AutomorphicGaloisRepresentations §3.13 (`geometricCharacter_isHeckeAvatar`). This target assembles these realizations over one coefficient field into a family.
 
 The construction has the following API:
 
@@ -332,18 +339,18 @@ Use `characterSystem` for this construction.
 
 The sources are [BLGGT v4][blggt-2014-v4], Appendix A.2, p.87, before Lemma A.2.1; [ACC+][acc-2023], §7.1, pp.1085,1092.
 
-*Needs:* `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic`; [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:R01.1`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
+*Needs:* `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic`; `AutomorphicGaloisRepresentationsPartII:AG2.0` (`AlgHeckeChar.galoisChar`, `hodgeTate_galoisChar`, `AlgHeckeChar.wt`); `AutomorphicGaloisRepresentations` §3.13; [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:R01.1`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
 
 <a id="target-rank-one-purity"></a>
 ### 1.10 Rank-one purity
 
-Every rank-one weak system is pure of some integer weight w, and the same holds for rank-one extremely weak data with their determinant Hodge condition. Character classification gives a single w with a_(cτ)+a_τ=w and |ιr(Frob_v)|²=q_v^w at every good v and complex embedding. Algebraic Hecke-character theory also supplies pure local WD parameters. The algebraicity/Hodge hypothesis is necessary; arbitrary continuous character data do not carry this purity assertion.
+Every rank-one weak system is pure of some integer weight w, and the same holds for rank-one extremely weak data with their determinant Hodge condition. Character classification (AutomorphicGaloisRepresentations §3.13) gives a single w with a_(cτ)+a_τ=w and |ιr(Frob_v)|²=q_v^w at every good v and complex embedding; the infinity-type identity is the purity of algebraic Hecke characters (`HeckeCharacter/Purity.lean` in the current Tau Ceti library, and GlobalNumberFields Layer 10), and the Galois-side weight is AG2.0's `AlgHeckeChar.wt`. Algebraic Hecke-character theory also supplies pure local WD parameters. The algebraicity/Hodge hypothesis is necessary; arbitrary continuous character data do not carry this purity assertion.
 
 Use `rank_one_purity` for this construction.
 
 The sources are [BLGGT v4][blggt-2014-v4], Appendix A.2, p.87, items (1),(2),(8); [ACC+][acc-2023], §7.1, p.1092, purity paragraph.
 
-*Needs:* [Layer 1, Algebraic character families](#target-character-system); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); [Layer 1, Very weak and extremely weak families](#target-weakened-compatible-data); `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
+*Needs:* [Layer 1, Algebraic character families](#target-character-system); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); [Layer 1, Very weak and extremely weak families](#target-weakened-compatible-data); `AutomorphicGaloisRepresentations` §3.13; `AutomorphicGaloisRepresentationsPartII:AG2.0`; `tauceti:TauCeti.HeckeCharacter` (purity of infinity types); `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
 
 <a id="target-induced-character-purity"></a>
 ### 1.11 Purity of induced character families
@@ -395,13 +402,13 @@ The sources are [ACC+][acc-2023], §7.1, pp.1086,1092.
 <a id="target-rank-two-reducibility-independent-of-lambda"></a>
 ### 1.14 Independence of characteristic-zero reducibility
 
-For a rank-two weak system over ℚ in Taylor's sense, absolute reducibility of a characteristic-zero member implies absolute reducibility of every member. Classify its two one-dimensional Hodge–Tate constituents as finite-order characters times cyclotomic powers, extend them to algebraic Hecke-character systems, and compare their direct sum with the original family by good Frobenius polynomials. This is a theorem about characteristic-zero members, not the exceptional primes of residual reducibility.
+For a rank-two weak system over ℚ in Taylor's sense, absolute reducibility of a characteristic-zero member implies absolute reducibility of every member. Classify its two one-dimensional Hodge–Tate constituents as finite-order characters times cyclotomic powers (AutomorphicGaloisRepresentations §3.13, `geometricCharacter_totallyReal`), extend them to algebraic Hecke-character systems, and compare their direct sum with the original family by good Frobenius polynomials. This is a theorem about characteristic-zero members, not the exceptional primes of residual reducibility.
 
 Use `rank_two_reducibility_independent_of_lambda` for this construction.
 
 The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §6, before Lemma 6.5, p. 773 (PDF page 45), §6, after Lemma 6.5, p. 774 (PDF page 46).
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); `ArithmeticGaloisRepresentations:R01.5`; [Layer 1, Algebraic character families](#target-character-system); [Layer 1, Very weak and extremely weak families](#target-weakened-compatible-data).
+*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); `ArithmeticGaloisRepresentations:R01.5`; `AutomorphicGaloisRepresentations` §3.13; [Layer 1, Algebraic character families](#target-character-system); [Layer 1, Very weak and extremely weak families](#target-weakened-compatible-data).
 
 <a id="target-system-l-functions"></a>
 ### 1.15 L-functions and archimedean factors
@@ -445,7 +452,7 @@ Use `partialLFunction` for this construction.
 
 The sources are [BLGGT v1][blggt-2014], §5.1, pp. 52–53 (arXiv v1); [BLGGT v4][blggt-2014-v4], §5.1, pp. 63–64 (arXiv v4).
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `EndoscopicTransferAndUnitaryTraceComparison:ET.6`; `mathlib:Complex.Gammaℝ`; `mathlib:Complex.Gammaℂ`; `mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one`.
+*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); [Layer 1, Regularity, purity, strictness and automorphy](#target-compatible-system-predicates); `PadicHodgeTheory:R06.3/weil-deligne-parameter`; `ArithmeticGaloisRepresentations:R01.2/local-euler-factor`; `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`; `mathlib:Complex.Gammaℝ`; `mathlib:Complex.Gammaℂ`; `mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one`.
 
 <a id="target-galois-grothendieck-ring"></a>
 ### 1.16 The arithmetic representation ring
@@ -459,7 +466,7 @@ The construction has the following API:
 - `RepRing`: Rep_{F,l} with ⊗ as multiplication.
 - `RepRing.trace`: tr σ : Rep_{F,l} → ℚ̄_l, a ring homomorphism.
 - `RepRing.pairing`: (A, B) = dim Hom, extended bilinearly.
-- `RepRing.eq_irreducible_of_pairing_eq_one`: Positive dimension and (A,A)=1 imply A is the class of one genuine irreducible; expand A in the irreducible basis and use Σn_i²=1.
+- `RepRing.eq_irreducible_of_pairing_eq_one`: Positive dimension and (A,A)=1 imply A is the class of one genuine irreducible; expand A in the irreducible basis and use Σn_i²=1. The coordinate statement is `RepRing.eq_single_one_of_norm_one` in Suggested.lean.
 - `RepRing.res`: Restriction, a ring homomorphism.
 - `RepRing.ind`: Induction with trace formula, projection formula, Frobenius reciprocity and Mackey.
 - `RepRing.brauer_transport`: Inflate the supplied finite-quotient Brauer decomposition and use the arithmetic projection formula to obtain A = Σ n_i ind([ı^{−1}ψ_i] res A).
@@ -481,20 +488,20 @@ The sources are [BLGGT v1][blggt-2014], §5.4, items (1)–(9), pp. 61–63 (arX
 <a id="target-monodromy-component-field"></a>
 ### 1.17 The common monodromy component field
 
-For any weak system there is a single finite Galois F¹/F identifying Gal(F¹/F) with G_λ/G_λ⁰ for every λ. If the system is regular, constituents restricted to an open subgroup have multiplicity one. After one finite extension of the coefficient field, every such constituent is defined over the corresponding completed coefficient field and admits a stable integral lattice. The result guarantees existence and coefficient descent; it chooses no canonical lattice. The split-eigenvalue descent criterion is part of its proof.
+For any weak system there is a single finite Galois F⁰/F identifying Gal(F⁰/F) with G_λ/G_λ⁰ for every λ. If the system is regular, constituents restricted to an open subgroup have multiplicity one. After one finite extension of the coefficient field, every such constituent is defined over the corresponding completed coefficient field and admits a stable integral lattice. The result guarantees existence and coefficient descent; it chooses no canonical lattice. The split-eigenvalue descent criterion is part of its proof.
 
 Use `monodromy_component_field` for this construction.
 
 The sources are [BLGGT v4][blggt-2014-v4], Lemma 5.3.1, pp.70–71, Appendix A.1 Lemma A.1.5, p.85.
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7`; `ArithmeticGaloisRepresentations:R01.5`.
+*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:G7` (§7.6: Zariski closure, identity component and component field of one representation); `ArithmeticGaloisRepresentations:R01.5`; `ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices`.
 
 <a id="target-larsen-rational-system-groups"></a>
 ### 1.18 Rational-system monodromy data
 
 For a rational weak system r_l:G_F→GL_n(ℚ_l), form its algebraic monodromy group G_l, reductive identity component G_l⁰, image Γ_l, and Γ_l⁰=Γ_l∩G_l⁰(ℚ_l). Include the common component field F⁰/F with Gal(F⁰/F)≅Γ_l/Γ_l⁰. Let Z_l, G_l^der, G_l^ad, C_l and G_l^sc be respectively the centre, derived group, adjoint quotient, abelian quotient and simply connected cover, and let H_l=G_l^sc×Z_l→G_l⁰.
 
-Define Γ_l^Z, Γ_l^C, Γ_l⁰⁰ and Γ_l^H by intersection, projection and preimage. Choose maximal tori and constants A(n),B(n): the central-cover kernel order divides A(n); X*(T^ad)⊆X*(T^der)⊆X*(T^sc)⊆A(n)⁻¹X*(T^ad); and B(n) bounds the relevant representation weights. Supply Serre's θ_l:S_(F⁰,l)→C_l, agreeing with (r_l mod G_l^der)∘Art_(F⁰) on an open subgroup of O_(F⁰,l)^×. The group constructions depend on the actual rational members and their Zariski closures.
+Define Γ_l^Z, Γ_l^C, Γ_l⁰⁰ and Γ_l^H by intersection, projection and preimage. Choose maximal tori and constants A(n),B(n): the central-cover kernel order divides A(n); X*(T^ad)⊆X*(T^der)⊆X*(T^sc)⊆A(n)⁻¹X*(T^ad); and B(n) bounds the relevant representation weights. Supply Serre's θ_l:S_(F⁰,l)→C_l, agreeing with (r_l mod G_l^der)∘Art_(F⁰) on an open subgroup of O_(F⁰,l)^×. Construct it from the abelian representation r_l mod G_l^der of G_(F⁰) into the torus C_l: after a finite extension splitting C_l, every character of C_l composed with it is a geometric character, hence the avatar of an algebraic Hecke character (AutomorphicGaloisRepresentations §3.13), and the infinity types of these characters define the algebraic homomorphism θ_l. The group constructions depend on the actual rational members and their Zariski closures.
 
 The construction has the following API:
 
@@ -515,7 +522,7 @@ Use `LarsenData.G` for this construction.
 
 The sources are [BLGGT v4][blggt-2014-v4], §5.2, pp. 65–66 (arXiv v4).
 
-*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); [Layer 1, The common monodromy component field](#target-monodromy-component-field); `ArithmeticGaloisRepresentations:G7`.
+*Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); [Layer 1, The common monodromy component field](#target-monodromy-component-field); `ArithmeticGaloisRepresentations:G7` (§7.6); `tauceti:TauCetiRoadmap/ReductiveGroups` (Layer 6: centre, derived group, adjoint quotient, simply connected cover and central isogenies); `AutomorphicGaloisRepresentations` §3.13.
 
 <a id="target-serre-theta-uniform-bounds"></a>
 ### 1.19 Uniform bounds for Serre's torus map
@@ -544,7 +551,7 @@ The sources are [BLGGT v4][blggt-2014-v4], §5.2, Proposition 5.2.2 and proof, p
 <a id="target-residual-irreducibility-density-one"></a>
 ### 1.21 Density-one residual irreducibility
 
-For a regular weakly compatible system over any number field, there is a Dirichlet-density-one set L of rational primes such that, for every λ over l∈L and every irreducible subrepresentation s of r_λ, the semisimplified reduction s̄ remains irreducible on G_(F(ζ_l)). Apply the monodromy and integral-lattice results below after the coefficient-field reduction needed for the general system. The assertion concerns every irreducible constituent, and density one rather than a cofinite set of primes.
+For a regular weakly compatible system over any number field, there is a Dirichlet-density-one set L of rational primes such that, for every λ over l∈L and every irreducible subrepresentation s of r_λ, the semisimplified reduction s̄ remains irreducible on G_(F(ζ_l)). Apply the monodromy and integral-lattice results above after the coefficient-field reduction needed for the general system. The assertion concerns every irreducible constituent, and density one rather than a cofinite set of primes.
 
 Use `residual_irreducibility_density_one` for this construction.
 
@@ -557,7 +564,7 @@ The sources are [BLGGT v1][blggt-2014], §5.2, Lemma 5.2.1 and Proposition 5.2.2
 
 Let F be imaginary CM and (ℛ,ℳ) a pure, extremely regular polarized weak system. For finite F′/F and any subrepresentation s of r_λ|G_F′, find a CM intermediate field F⊆F″⊆F′ over which s is invariant and polarized with multiplier μ_λ|G_(F″⁺). Total oddness is inherited when the original pair is totally odd. Purity and extreme regularity make the constituent's Hodge subset stable under polarized duality. Use the CM-base statement of BLGGT v4 Lemma 5.4.5; it applies to reducible subrepresentations as well as irreducible constituents.
 
-Both the actual polarization witness and irreducibility of the selected constituent are required; essential self-duality alone does not replace the signed pairing.
+The actual polarization witness is required; essential self-duality alone does not replace the signed pairing. Irreducibility of s is not a hypothesis.
 
 Use `constituents_essentially_self_dual` for this construction.
 
@@ -588,7 +595,7 @@ Call the datum complete when Σ ∪ Max R contains every place of K. An integral
 
 The construction has the following API:
 
-- `SkolemDatum`: (f : X → B, Σ, (L_v), (Ω_v)) with the conditions of 1.1
+- `SkolemDatum`: (f : X → B, Σ, (L_v), (Ω_v)) with the conditions above
 - `SkolemDatum.IsComplete`: every place of K lies in Σ or Max(R)
 - `SkolemDatum.IntegralPoint`: an irreducible closed Y ⊆ X, finite surjective over B, L_v-split and inside Ω_v for v ∈ Σ
 - `SkolemDatum.integralPoint_iff`: Integral points correspond to finite extensions K′/K with K′ ⊗_K L_v a product of copies of L_v, and an integral point all of whose K-embeddings into L_v land in Ω_v. Completions can be proper subfields of L_v.
@@ -612,7 +619,7 @@ Use `SkolemDatum` for this construction.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], 1.1 and Définition 1.2, p. 181, Définition 1.2, p. 181, Remarque 1.8, p. 184.
 
-*Needs:* `mathlib:AlgebraicGeometry.Spec`; `mathlib:AlgebraicGeometry.GeometricallyIrreducible`; `mathlib:AlgebraicGeometry.Smooth`; `SchemeAndStackFoundations:SF.4` (the canonical topology on local scheme points and smooth base-compatible points).
+*Needs:* `mathlib:AlgebraicGeometry.Spec`; `mathlib:AlgebraicGeometry.GeometricallyIrreducible`; `mathlib:AlgebraicGeometry.Smooth`; `ReductiveGroupsPartII` RG2.0.1 (the topology on points of schemes over topological rings, `scheme-point-topology`, and openness of smooth maps on local points, `smooth-morphism-open-map`); `SchemeAndStackFoundations:SF.4` (models over the ring of integers).
 
 <a id="target-density-of-algebraic-and-separable-local-points"></a>
 ### 2.2 Local density and integral points
@@ -623,7 +630,7 @@ Use `densityOfAlgebraicLocalPoints` for this construction.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 1.6.1 and proof, p. 183, Lemme 2.1, p. 185.
 
-*Needs:* `SchemeAndStackFoundations:SF.4` (analytic local-point topology and étale charts); `mathlib:NumberField.FinitePlace`; `mathlib:Algebra.IsAlgebraic`; `mathlib:Algebra.IsSeparable`.
+*Needs:* `ReductiveGroupsPartII` RG2.0.1 (the topology on local points, local compactness over local fields, openness of smooth maps; the local inverse function theorem for étale maps on points over a complete field is proved here, as in Moret-Bailly's proof of Lemme 1.6.1); `SchemeAndStackFoundations:SF.4`; `mathlib:NumberField.FinitePlace`; `mathlib:Algebra.IsAlgebraic`; `mathlib:Algebra.IsSeparable`.
 
 <a id="target-elementary-reductions-of-skolem-data"></a>
 ### 2.3 Shrinking and enlarging Skolem data
@@ -634,42 +641,40 @@ Use `elementaryReductions` for this construction.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], Remarque 1.4, p. 182, Remarque 1.10, p. 184, Exemple 1.10.1, p. 184.
 
-*Needs:* [Layer 2, Local density and integral points](#target-density-of-algebraic-and-separable-local-points); `SchemeAndStackFoundations:SF.4`.
+*Needs:* [Layer 2, Local density and integral points](#target-density-of-algebraic-and-separable-local-points); `SchemeAndStackFoundations:SF.4` (`chow-lemma`); `ReductiveGroupsPartII` RG2.0.1; `tauceti:TauCetiRoadmap/GlobalNumberFields` (finiteness of the class group).
 
 <a id="target-reduction-to-relative-dimension-one"></a>
 ### 2.4 Reduction to curves
 
-For quasi-projective X → B with smooth generic fibre, construct a one-dimensional closed subset T ⊆ X that is quasi-finite and surjective over B and meets every Ω_v. When dim X_K ≥ 2, a geometrically irreducible hypersurface through T_K, regular at its points, gives a closed model X′ with generic dimension one less. Intersecting Ω_v with the smooth locus of X′_K gives another Skolem datum. Its integral points map to integral points of X; its completeness condition is unchanged. Iterate to relative dimension one. The reductions themselves do not assume incompleteness. Import the geometrically irreducible Bertini statement from the scheme foundations.
+For quasi-projective X → B with smooth generic fibre, construct a one-dimensional closed subset T ⊆ X that is quasi-finite and surjective over B and meets every Ω_v. When dim X_K ≥ 2, a geometrically irreducible hypersurface through T_K, regular at its points, gives a closed model X′ with generic dimension one less. Intersecting Ω_v with the smooth locus of X′_K gives another Skolem datum. Its integral points map to integral points of X; its completeness condition is unchanged. Iterate to relative dimension one. The reductions themselves do not assume incompleteness. The geometric irreducibility of a general hypersurface section through T_K is Jouanolou's Bertini irreducibility theorem, in the form of the [Stacks Project, Lemma 37.32.3 (Tag 0G4F)](https://stacks.math.columbia.edu/tag/0G4F); its smoothness on the smooth locus is the Bertini smoothness theorem of the scheme foundations.
 
 Use `reductionToCurves` for this construction.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 2.2, p. 185, Proof of Lemme 2.3, p. 185, 2.4, p. 186.
 
-*Needs:* [Layer 2, Local density and integral points](#target-density-of-algebraic-and-separable-local-points); [Layer 2, Shrinking and enlarging Skolem data](#target-elementary-reductions-of-skolem-data); `SchemeAndStackFoundations:SF.4`.
+*Needs:* [Layer 2, Local density and integral points](#target-density-of-algebraic-and-separable-local-points); [Layer 2, Shrinking and enlarging Skolem data](#target-elementary-reductions-of-skolem-data); `SchemeAndStackFoundations:SF.4` (`bertini-smoothness`, `chow-lemma`); Stacks Project Lemma 37.32.3 (Bertini irreducibility).
 
 <a id="target-generalized-picard-functor-and-effective-divisor-fibration"></a>
 ### 2.5 Rigidified Picard functors and divisor fibrations
 
 In the smooth quasi-projective curve case, compactify X in a normal projective curve X̄ over B and let Z be the reduced boundary. After shrinking B and adding the removed places to Σ, require X̄ regular, all fibres geometrically integral, and Z regular, finite flat and surjective over B. Thus Z is a Cartier divisor. Write g = h¹(X̄_K, O) and z = deg Z_K > 0.
 
-Define PG(X̄,Z) from invertible sheaves on X̄_T equipped with a trivialization along Z_T, modulo isomorphisms respecting that trivialization. Its degree-d part is PG_d. Tensor product and duality supply the group law. As relative sheaves the sequence is 1 → G_m,B → (π_Z)_*G_m,Z → PG(X̄,Z) → Pic_(X̄/B) → 1. PG is represented by a smooth separated group scheme locally of finite presentation; generic-fibre representability is sufficient for the approximation argument.
+Use `RigidifiedLineBundleClass (Z_T ⟶ X̄_T)` as the objectwise classes and form their relative fppf sheaf PG(X̄,Z). The current library already defines the representatives, compatible-isomorphism quotient and pullback for an arbitrary morphism. The relative sheafification and its degree-d part PG_d are the additional constructions here. Tensor product and duality supply the group law. As relative sheaves the sequence is 1 → G_m,B → (π_Z)_*G_m,Z → PG(X̄,Z) → Pic_(X̄/B) → 1. PG is represented by a smooth separated group scheme locally of finite presentation; generic-fibre representability is sufficient for the approximation argument.
 
-The symmetric power X^(d) parametrizes effective Cartier divisors finite flat of degree d and disjoint from Z. Its étale-divisor open U_d contains the local set Ω_v^[d] of L_v-split divisors supported in Ω_v. This set is open and is nonempty when [L_v:K_v] divides d. Sending D to (O(D),s_D|_Z) defines φ_d : X^(d) → PG_d. For **d ≥ 2g + z − 1**, it is locally an affine-space bundle of dimension d + 1 − g − z. Keep the relative divisor, sheaf and degree constructions separate from the underlying set of line-bundle isomorphism classes.
+The symmetric power X^(d) parametrizes effective Cartier divisors finite flat of degree d and disjoint from Z. Its étale-divisor open U_d contains the local set Ω_v^[d] of L_v-split divisors supported in Ω_v. This set is open and is nonempty when [L_v:K_v] divides d. For the convention that the trivialization goes from the restricted line bundle to O_Z, invert the nowhere-vanishing section s_D|_Z. Sending D to (O(D),(s_D|_Z)⁻¹) defines φ_d : X^(d) → PG_d. For **d ≥ 2g + z − 1**, it is locally an affine-space bundle of dimension d + 1 − g − z. Keep the relative divisor, sheaf and degree constructions separate from the underlying set of line-bundle isomorphism classes.
 
 The construction has the following API:
 
-- `Picard.generalizedPicard`: PG(X̄, Z): line bundles on X̄_S with a trivialisation on Z_S, up to isomorphism
-- `Picard.generalizedPicard_forget_kernel`: on objectwise classes, the kernel of forgetting consists of trivial line bundles with arbitrary boundary trivialization. This is separate from the relative sheaf statement.
-- `generalizedPicard_exact`: 1 → G_m → (π_Z)_*G_{m,Z} → PG(X̄, Z) → Pic_{X̄/B} → 1
-- `divisorClassMap`: φ_d : X^{(d)} → PG_d, D ↦ (𝒪(D), s_D|_Z)
-- `divisorClassMap_affineFibration`: Lemme 3.6: for d ≥ 2g + z − 1, φ_d is a locally trivial fibration in affine spaces of dimension d + 1 − g − z
-- `omegaDivisors_open`: Lemme 3.3: Ω_v^{[d]} is open in U_d(K_v), and nonempty when [L_v : K_v] divides d
-- `Picard.generalizedPicard_forget`: Forget the rigidification to the Tau Ceti line-bundle class. This is bijective when Z is empty; for nonempty Z equality additionally requires compatibility with the boundary trivialization.
-- `Picard.generalizedPicard_mk_eq_iff`: Two rigidified line bundles represent the same class exactly when a line-bundle isomorphism intertwines the boundary trivializations.
-- `Picard.generalizedPicard_lift`: A function on rigidified line bundles invariant under compatible isomorphism descends uniquely to their quotient, with evaluation on a representative.
-- `Picard.generalizedPicard_lift_mk`: Evaluation of the descended function on a rigidified representative equals the original function on that representative.
-- `generalizedPicard_group`: In the relative curve setting the rigidified Picard functor is a commutative group sheaf, with tensor multiplication, the trivial rigidified unit and dual inverse.
-- `generalizedPicard_pullback`: For a Cartesian base change of (X̄,Z)/B, pull back the line bundle and its boundary trivialization; preserve unit, product and inverse, satisfy identity/composition, and commute with forgetting to the relative Picard functor and with the divisor class map.
+- `Picard.generalizedPicard`: The relative fppf sheaf of the existing rigidified line-bundle classes on (X̄_T,Z_T); define its degree grading and the base-change comparison.
+- `generalizedPicard_exact`: The relative fppf sequence 1 → G_m,B → (π_Z)_*G_m,Z → PG(X̄,Z) → Pic_(X̄/B) → 1, with the maps induced by boundary units and forgetting.
+- `generalizedPicard_representable`: Under the relative curve and boundary hypotheses above, a smooth separated group scheme locally of finite presentation represents PG; its degree-d component represents PG_d.
+- `divisorClassMap`: φ_d : X^(d) → PG_d, sending D to the class of (O(D),(s_D|_Z)⁻¹).
+- `divisorClassMap_affineFibration`: For d ≥ 2g + z − 1, φ_d is locally an affine-space bundle of dimension d + 1 − g − z.
+- `omegaDivisors_open`: Ω_v^[d] is open in U_d(K_v) and nonempty when [L_v:K_v] divides d.
+- `generalizedPicard_group`: In the relative curve setting the rigidified Picard functor is a commutative group sheaf. The product is (L⊗M,α⊗β) through the monoidal pullback comparison; the unit is (O_X,id), and the inverse is (Lᵛ,αᵛ) through the duality comparison. Establish representative evaluation, independence of compatible isomorphisms, associativity, commutativity, unit and inverse laws.
+- `generalizedPicard_forget_mul` and `generalizedPicard_forget_inv`: The forgetful morphism preserves the tensor product and dual, rather than merely mapping representatives to their classes.
+- `generalizedPicard_boundary_units`: Use the existing boundary-unit action and `RigidifiedLineBundleClass.mk_mk_eq_mk_mk_iff`. In the proper geometrically integral relative curve setting their fppf sheafifications identify (π_Z)_*G_m/G_m with the kernel sheaf. Objectwise lifting of an arbitrary Picard class is not asserted: exactness is after fppf sheafification.
+- `generalizedPicard_pullback`: Extend `RigidifiedLineBundleClass.pullback` to the relative sheaf, preserve unit, product and inverse, and commute with forgetting to the relative Picard functor and with the divisor class map. Import the objectwise identity, composition and forgetful naturality laws.
 
 **Checks.**
 
@@ -678,41 +683,44 @@ The construction has the following API:
 - `pg_small_degree`: g = 1, z = 1, d = 1 < 2g + z − 1 = 2: Lemme 3.6 does not apply
 - `pg_trivial_Z`: The empty boundary recovers the Picard functor; the curve approximation construction instead arranges z>0.
 - `pg_rigidified_iso`: A boundary-compatible line-bundle isomorphism gives equal rigidified classes; literal equality of representatives is unnecessary.
-- `pg_boundary_matters`: Two rigidified representatives without any boundary-compatible line-bundle isomorphism have different classes even when their unrigidified classes agree.
+- `pg_boundary_matters`: Over ℚ let X̄=ℙ¹ and Z={0,∞}. Give O_X̄ the two trivializations (1,1) and (1,2), directed toward O_Z. They have the same forgotten class and different rigidified classes: every global bundle automorphism is one scalar c∈ℚ×, whereas compatibility would require both c=1 and 2c=1. This detects a quotient that forgets the boundary.
+- `pg_tensor_dual`: On the same pair, normalize a trivialization (a₀,a_∞) by its ratio a_∞/a₀. Classes of ratios 2 and 3 multiply to ratio 6; the dual of ratio 2 has ratio 1/2; ratio 1 is the unit. This fixes both the tensor law and the direction of the trivialization.
+- `pg_base_change`: Base change from ℚ to ℚ(√2) sends the ratio-2 class to ratio 2, preserves the product 2·3=6, and commutes with forgetting. For a ring-valued test with unit a, specialization a↦1 can identify two classes, so no unconditional injectivity of base change is required.
+- `pg_divisor_trivialization`: For an effective divisor disjoint from Z, its canonical section has no zero on Z. Its inverse trivializes O(D)|_Z and the resulting class has degree deg(D). A divisor through 0 is excluded for Z={0,∞}; using its zero section as a trivialization is impossible.
 - `pg_whole_boundary`: rigidification along the identity of X gives one class; forgetting it gives the trivial line-bundle class. These are objectwise checks, distinct from relative fppf exactness.
 - `pg_forget_representative`: For (L,α), the forgotten class is LineBundleClass.mk L.
 
-Use `Picard.generalizedPicard` for this construction.
+Use `Picard.generalizedPicard` for the relative construction. Import `RigidifiedLineBundle`, `RigidifiedLineBundleClass.mk_eq_mk_iff`, `lift`, `lift_mk`, `pullback`, `pullback_id`, `pullback_comp`, `toLineBundleClass` and `toLineBundleClass_pullback` from the current Tau Ceti library (`LineBundle/Rigidified/Basic.lean`), and `mk_mk_eq_mk_mk_iff`, `stabilizer_eq_range` and `range_toLineBundleClass` from `LineBundle/Rigidified/Automorphisms.lean`, all in the `TauCeti.AlgebraicGeometry` namespace. These declarations are imported prerequisites and are not new targets.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], 3.1, p. 187, 3.2.4 and Lemme 3.3, p. 187, 3.4, p. 188, Lemme 3.6, p. 189.
 
-*Needs:* [Layer 2, Shrinking and enlarging Skolem data](#target-elementary-reductions-of-skolem-data); `SchemeAndStackFoundations:SF.3`; `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`; `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`; `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial`; `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff`; `AlgebraicModuliForArithmeticGeometry:R09.3`.
+*Needs:* [Layer 2, Shrinking and enlarging Skolem data](#target-elementary-reductions-of-skolem-data); `SchemeAndStackFoundations:SF.3`; `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`; `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`; `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial`; `tauceti:TauCeti.AlgebraicGeometry.LineBundleClass.mk_eq_mk_iff`; `AlgebraicModuliForArithmeticGeometry` §7.3 (`relativePicardSheaf`, `rigidification_gm_torsor`, `relative_picard_algebraicSpace`); `SchemeAndStackFoundations:SF.3` (`picard-stack-curve`, `abel-maps-high-degree`); `NeronModelsAndSemistableAbelianVarieties` §4.9 (the generalized Jacobian of a modulus as an extension of the Jacobian by a torus).
 
 <a id="target-local-picard-open-sets-and-strong-approximation"></a>
 ### 2.6 Local Picard opens and approximation
 
 Set W_v^[d] = φ_d(Ω_v^[d]) in PG_d(K_v). For d ≥ 2g + z − 1 this is open, and it is nonempty if [L_v:K_v] divides d. If d ≥ 2g + z and d′ ≥ 0, multiplication of rigidified classes sends W_v^[d] × W_v^[d′] into W_v^[d+d′]. The multiplication bound is one larger than the affine-bundle bound.
 
-Let an invertible sheaf M of degree d ≥ 2g + z − 1 and a boundary trivialization α have class in every W_v^[d]. If the Skolem datum is incomplete, strong approximation in the torsor of global sections s with s|_Z = α gives a section whose local divisor belongs to each Ω_v^[d]. Every irreducible component of div(s) is an integral point. Use strong approximation for torsors under finite projective R-modules, together with the section/base-change and vanishing results for this relative curve.
+Let an invertible sheaf M of degree d ≥ 2g + z − 1 and a boundary trivialization α have class in every W_v^[d]. If the Skolem datum is incomplete, strong approximation in the torsor of global sections s with α(s|_Z)=1 gives a section whose local divisor belongs to each Ω_v^[d]. Every irreducible component of div(s) is an integral point. Use strong approximation for torsors under finite projective R-modules: a finite projective R-module is a direct summand of a free one, so this reduces to additive strong approximation for the adeles away from one omitted place, which is where incompleteness enters. Use it together with the section/base-change and vanishing results for this relative curve.
 
 Use `localPicardOpensAndApproximation` for this construction.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 3.7.2(ii), p. 190, Proof of Lemme 3.8, p. 191.
 
-*Needs:* [Layer 2, Rigidified Picard functors and divisor fibrations](#target-generalized-picard-functor-and-effective-divisor-fibration).
+*Needs:* [Layer 2, Rigidified Picard functors and divisor fibrations](#target-generalized-picard-functor-and-effective-divisor-fibration); `tauceti:TauCetiRoadmap/GlobalNumberFields` (additive strong approximation for finite adeles); `SchemeAndStackFoundations:SF.3` (cohomology and base change for the relative curve).
 
 <a id="target-quasi-compactness-of-the-generalized-jacobian-quotient"></a>
 ### 2.7 The compact generalized-Jacobian quotient
 
 For an incomplete datum and any ample line bundle M₀ on X̄, find a positive tensor power M₀^⊗n and a trivialization along Z satisfying the preceding local Picard conditions. Normalize a starting power so its degree d is at least 2g + z, divisible by all [L_v:K_v], and its restriction to Z is trivial.
 
-The controlling quotient PG₀(K_Σ)/im Γ(Z,O_Z^×), with K_Σ = ∏_(v∈Σ) K_v and the product topology, is quasi-compact. Consequently the powers of each element have the identity as an accumulation point. Prove the constituent compactness statements: J(F) is compact for a proper regular geometrically integral curve over a locally compact F; (R_Z ⊗_R K_Σ)^×/(R_Z^× K_Σ^×) is quasi-compact; and K_Σ^×/R^× is quasi-compact under incompleteness. The first uses the compactified Picard scheme; the last uses the S-unit logarithm lattice. Moret–Bailly prints the Jacobian lemma as 3.30.2, although its position and references identify it as 3.10.2.
+The controlling quotient PG₀(K_Σ)/im Γ(Z,O_Z^×), with K_Σ = ∏_(v∈Σ) K_v and the product topology, is quasi-compact. Consequently the powers of each element have the identity as an accumulation point. Prove the constituent compactness statements: J(F) is compact for a proper regular geometrically integral curve over a locally compact F; (R_Z ⊗_R K_Σ)^×/(R_Z^× K_Σ^×) is quasi-compact; and K_Σ^×/R^× is quasi-compact under incompleteness. The first holds because Pic⁰ of such a curve is a proper group scheme over F, so its F-points are compact for the point topology; the last uses the S-unit logarithm lattice of Dirichlet's S-unit theorem. Moret–Bailly prints the Jacobian lemma as 3.30.2, although its position and references identify it as 3.10.2.
 
 Use `compactGeneralizedJacobianQuotient` for this construction.
 
 The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 3.9, proof, p. 191, Lemme 3.9.2, p. 192, Lemme 3.10.2 (printed 3.30.2), p. 192, Proof of Lemme 3.10.4, p. 193.
 
-*Needs:* [Layer 2, Local Picard opens and approximation](#target-local-picard-open-sets-and-strong-approximation); `SchemeAndStackFoundations:SF.3`.
+*Needs:* [Layer 2, Local Picard opens and approximation](#target-local-picard-open-sets-and-strong-approximation); `SchemeAndStackFoundations:SF.3`; `AlgebraicModuliForArithmeticGeometry` §7.3 (`PicardZeroSheaf`, `picard_zero_criterion`); `ReductiveGroupsPartII` RG2.0.1 (`points-locally-compact-hausdorff`; points of projective schemes over a local field are compact); `tauceti:TauCetiRoadmap/GlobalNumberFields` (Dirichlet's S-unit theorem).
 
 <a id="target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points"></a>
 ### 2.8 The integral-point theorem
@@ -747,21 +755,40 @@ The sources are [KW II][kw-serre-modularity-II], Proof of Theorem 6.1, ordinary 
 
 *Needs:* [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 2, From integral points to split-field density](#target-theorem-g-from-moret-bailly).
 
-<a id="target-frobenius-primes-generate"></a>
-### 2.11 Generating Frobenius primes
+<a id="target-function-field-chebotarev"></a>
+### 2.11 Chebotarev density for global function fields
 
-For a finite Galois D/K, choose finitely many unramified primes outside any finite forbidden set with representatives of Frobenius conjugacy classes generating Gal(D/K). Use Chebotarev prime existence and, where the geometric application requires it, local nonemptiness at the selected primes. In the function-field case incorporate the image in the constant-field quotient rather than silently imposing a degree restriction that excludes needed Frobenius classes. Mathlib’s Frobenius-prime-set definition supplies the carrier; prime existence is the Chebotarev theorem imported from its owner.
+Let K be a global function field with constant field F_q, D/K a finite Galois extension with group G and constant field F_(q^d), and C⊆G a conjugacy class whose image in Gal(F_(q^d)/F_q)=ℤ/d is the class of the n-th power of the q-Frobenius. Then for every sufficiently large integer m≡n mod d there is an unramified place of K of degree m whose Frobenius class is C, and the number of such places is (#C/#G)·d·q^m/m+O(q^(m/2)) for m≡n mod d; for m≢n mod d there is none. Fix a finite set of forbidden places; the places produced can avoid it.
+
+Prove it by twisting and the Lang–Weil estimate. Let Y→X be the finite étale Galois cover of smooth geometrically connected curves over F_q, after removing the ramified places, attached to D/K, with Y geometrically disconnected into d components over F_(q^d). For σ∈C the degree-m places of X with Frobenius conjugate to σ correspond, up to the action of the centralizer, to the F_(q^m)-points of the twist of Y by σ; this twist is a geometrically irreducible curve exactly when σ maps to the m-th power of Frobenius in ℤ/d, and then Lang–Weil counts its points as q^m+O(q^(m/2)). Removing the points of smaller degree and dividing by the centralizer gives the count.
+
+**Checks.**
+
+- `ffcheb_constant_extension`: for D=K·F_(q^d) and C={φ^n}, the places of degree m have Frobenius φ^m, so the class φ^n occurs exactly in degrees m≡n mod d; no place of degree m≢n mod d has that Frobenius.
+- `ffcheb_trivial_extension`: for D=K the statement is the existence of places of every large degree, with count q^m/m+O(q^(m/2)).
+- `ffcheb_number_field_contrast`: in a number field there is no constant-field quotient and every conjugacy class occurs; the function-field statement must retain the congruence condition on the degree.
+
+Use `functionFieldChebotarev` for this construction.
+
+The sources are [Poonen, rational points][poonen-qpoints], Theorem 7.7.1 (Lang–Weil) and its proof, pp. 222–223; [BHKT][bhkt-published], proof of Proposition 9.2, published p. 78, where the result is applied with two coprime degrees.
+
+*Needs:* `WeightsInEtaleCohomology` (the Riemann hypothesis for curves over finite fields and the Lefschetz trace formula, through which Lang–Weil is proved); `SchemeAndStackFoundations:SF.1` (finite étale Galois covers and twists of torsors); `InverseGaloisAndArithmeticFundamentalGroups` IG.1.1 (the arithmetic exact sequence of étale fundamental groups).
+
+<a id="target-frobenius-primes-generate"></a>
+### 2.12 Generating Frobenius primes
+
+For a finite Galois D/K, choose finitely many unramified primes outside any finite forbidden set with representatives of Frobenius conjugacy classes generating Gal(D/K). Use Chebotarev prime existence and, where the geometric application requires it, local nonemptiness at the selected primes. In the function-field case incorporate the image in the constant-field quotient rather than silently imposing a degree restriction that excludes needed Frobenius classes; use the function-field Chebotarev theorem of §2.11. Mathlib’s Frobenius-prime-set definition supplies the carrier; prime existence in number fields is the Chebotarev theorem imported from its owner.
 
 Use `frobeniusPrimesGenerate` for this construction.
 
 The sources are [Snowden v1][snowden], §5.2, proof of Proposition 5.2.2, p. 16.
 
-*Needs:* `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; `tauceti:NumberField.Chebotarev.frobeniusPrimeSet`.
+*Needs:* `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; `tauceti:NumberField.Chebotarev.frobeniusPrimeSet`; `ArithmeticGaloisRepresentations` §5.1 (every element of a finite Galois image is a Frobenius at a set of positive density); [Layer 2, Chebotarev density for global function fields](#target-function-field-chebotarev).
 
 <a id="target-forcing-linear-disjointness-by-extra-split-places"></a>
-### 2.12 Avoidance by extra split primes
+### 2.13 Avoidance by extra split primes
 
-Given a finite Galois avoidance field D/K, add finitely many unramified places outside the forbidden set whose Frobenius elements generate Gal(D/K), and at which the variety has local points. Alternatively, select a nonsplit place for each simple Galois subextension. A finite **Galois** K′/K split at these places is linearly disjoint from D. Indeed K′ ∩ D is normal over K, and all chosen Frobenius elements act trivially on it. They generate the quotient, so the intersection is K. For non-Galois avoidance data, first take the normal closure. Prime selection must preserve all originally prescribed local conditions.
+Given a finite Galois avoidance field D/K, add finitely many unramified places outside the forbidden set whose Frobenius elements generate Gal(D/K), and at which the variety has local points. Alternatively, select a nonsplit place for each simple Galois subextension. A finite **Galois** K′/K split at these places is linearly disjoint from D. Indeed K′ ∩ D is normal over K, and all chosen Frobenius elements act trivially on it. They generate the quotient, so the intersection is K; this Galois-theoretic step is `Fields.eq_bot_of_fixed_by_generators` in Suggested.lean. For non-Galois avoidance data, first take the normal closure. Prime selection must preserve all originally prescribed local conditions.
 
 Use `disjointnessByExtraSplitPlaces` for this construction.
 
@@ -770,20 +797,20 @@ The sources are [KW II][kw-serre-modularity-II], Proof of Theorem 6.1, last para
 *Needs:* [Layer 2, Generating Frobenius primes](#target-frobenius-primes-generate); [Layer 2, Split-field density](#target-taylor-theorem-g-split-completely-points-are-dense); `mathlib:IntermediateField.LinearDisjoint.iff_inf_eq_bot`.
 
 <a id="target-tower-linear-disjointness"></a>
-### 2.13 Disjointness through towers
+### 2.14 Disjointness through towers
 
 Work inside a common overfield with C⊆B⊆A and C⊆D. If A and D are linearly disjoint over C, then A and BD are linearly disjoint over B and A∩BD=B. Use tensor injectivity and the tower algebra structures to prove the transport. A converse from intersection alone requires the finite Galois hypotheses of Mathlib's `IntermediateField.LinearDisjoint.iff_inf_eq_bot`.
 
-Use `towerLinearDisjoint` for this construction.
+Use `Fields.towerLinearDisjoint` for this construction; Suggested.lean states its intersection conclusion, with D finite over C.
 
 The sources are [Qian][qian], §2 opening facts, preceding Lemma 2.1, p. 5 (arXiv v1).
 
 *Needs:* `mathlib:IntermediateField.LinearDisjoint`; `mathlib:IntermediateField.LinearDisjoint.inf_eq_bot`.
 
 <a id="target-cht-character-extension"></a>
-### 2.14 Extending finite local characters
+### 2.15 Extending finite local characters
 
-Extend the given finite-order characters at a finite set of completions of a number field, including its infinite places when prescribed, to a continuous finite-order idele class character. Use an open subgroup of finite index in the idele class group and extension into the discrete group of algebraic roots of unity. The resulting character may have larger order than the local characters. The p-primary refinement preserves p-primary values, without fixing an exact exponent.
+Extend the given finite-order characters at a finite set of completions of a number field, including its infinite places when prescribed, to a continuous finite-order idele class character. The extension with trivial behaviour at infinity is GL2AutomorphicRepresentationsAndTransfer R16.1 (`finite_hecke_full_local_prescription`, the same Lemma 4.1.1); this target adds prescribed components at the infinite places and the p-primary refinement. Use an open subgroup of finite index in the idele class group and extension into the discrete group of algebraic roots of unity. The resulting character may have larger order than the local characters. The p-primary refinement preserves p-primary values, without fixing an exact exponent.
 
 Give the finite-image character target the discrete topology. Include all infinite places in S, extending the local data trivially at newly added ones.
 
@@ -791,10 +818,10 @@ Use `chtCharacterExtension` for this construction.
 
 The sources are [CHT][cht], Lemma 4.1.1 and proof, p. 116; finite-order and p-primary refinements of the proof.
 
-*Needs:* `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`.
+*Needs:* `GL2AutomorphicRepresentationsAndTransfer:R16.1` (`finite_hecke_full_local_prescription`); `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`.
 
 <a id="target-cht-soluble-prescribed-completions"></a>
-### 2.15 Soluble prescribed-completion extensions
+### 2.16 Soluble prescribed-completion extensions
 
 Given a finite set S of places of a number field F and finite Galois local extensions E_v/F_v with soluble groups, construct a finite soluble Galois E/F, linearly disjoint from a specified finite avoidance field, whose completion at each chosen place is isomorphic to the prescribed E_v. Real completions can be required to remain real, giving a totally real E when F is totally real. The construction is allowed to enlarge the global degree; it does not promise a cyclic extension of a specified degree. Retain the precise local-extension hypotheses of the CHT lemma when invoking the character-extension construction.
 
@@ -805,7 +832,7 @@ The sources are [CHT][cht], Lemma 4.1.2, statement p. 116 and proof p. 117.
 *Needs:* [Layer 2, Extending finite local characters](#target-cht-character-extension); [Layer 2, Generating Frobenius primes](#target-frobenius-primes-generate); `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`.
 
 <a id="target-moret-bailly-three-local-conditions"></a>
-### 2.16 Three kinds of local conditions
+### 2.17 Three kinds of local conditions
 
 For a smooth geometrically connected variety over a number field K, handle three finite sets of local opens: K_v-valued opens prescribing complete splitting, K_v^nr-valued opens prescribing unramified extensions, and K̄_v-valued opens allowing finite local extension. Require the relevant local Galois invariance and nonemptiness. Obtain a finite Galois K′/K, disjoint from a specified finite extension, and a point with every local embedding satisfying the corresponding open. The first set splits in K′ and the second is unramified. Keep these three conditions distinct when auxiliary moduli points are available only after a local extension.
 
@@ -816,18 +843,18 @@ The sources are [Qian][qian], Proposition 4.2, statement and application, §4, p
 *Needs:* [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); [Layer 2, Avoidance by extra split primes](#target-forcing-linear-disjointness-by-extra-split-places); [Layer 2, Local density and integral points](#target-density-of-algebraic-and-separable-local-points).
 
 <a id="target-moret-bailly-over-a-preliminary-extension"></a>
-### 2.17 Approximation above a preliminary field
+### 2.18 Approximation above a preliminary field
 
-Let M/K be finite Galois, split at S₁ and unramified at S₂, and take a smooth geometrically connected T/M with the three kinds of nonempty invariant local opens at every place above S. Let L/K be finite Galois and disjoint from M/K. Obtain finite Galois K′/K containing M, disjoint from L, and a point in T(K′) satisfying all local conditions. Local invariance is over M_w; no extra equivariance of the opens under Gal(M/K) is required.
+Let M/K be finite Galois, split at S₁ and unramified at S₂, and take a smooth geometrically connected T/M with the three kinds of nonempty invariant local opens at every place above S. Let L/K be finite Galois and disjoint from M/K. Obtain finite Galois K′/K containing M, disjoint from L, and a point in T(K′) satisfying all local conditions. Local invariance is over M_w; no extra equivariance of the opens under Gal(M/K) is required. Smoothness and geometric connectedness of the Weil restriction follow from the splitting of its base change to K̄ into the product of the conjugates of T, and its local points are the product of the local points of T over the places above v.
 
 Use `moretBaillyAbovePreliminaryField` for this construction.
 
 The sources are [BLGHT][blght], Proposition 6.2, pp. 40–41.
 
-*Needs:* [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); [Layer 2, Disjointness through towers](#target-tower-linear-disjointness); `AbelianSchemesAndArithmeticModuli:A6`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`.
+*Needs:* [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); [Layer 2, Disjointness through towers](#target-tower-linear-disjointness); `AbelianSchemesAndArithmeticModuli:A6`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`; `ReductiveGroupsPartII` RG2.0a.2 (`weil-restriction-smoothness-and-immersions`, `weil-restriction-points-topology`); `AlgebraicModuliForArithmeticGeometry:R09.3` (`r093-restriction-algebraicity`, `r093-restriction-base-change`).
 
 <a id="target-snowden-soluble-preliminary-field"></a>
-### 2.18 Soluble preliminary fields and split extensions
+### 2.19 Soluble preliminary fields and split extensions
 
 For a smooth geometrically connected number-field variety with finite local Galois extensions L_v and compatible nonempty invariant opens, choose a finite soluble Galois F₁/F and a finite Galois F₂/F. Arrange F₁ ⊗_F L_v split, F₂ split at the separately prescribed set S and after extension to each L_v, and F₂ disjoint from F₁ and the avoidance field. A point over F₁F₂ lies in every Ω_v under every F-embedding into L_v. Splitting over L_v is a scalar-extension condition; it does not identify the completions of F₂ with L_v.
 
@@ -835,21 +862,21 @@ Use `snowdenSolublePreliminaryField` for this construction.
 
 The sources are [Snowden v1][snowden], Proposition 8.2.2 and proof, p. 26.
 
-*Needs:* [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `AbelianSchemesAndArithmeticModuli:A6`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`.
+*Needs:* [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `AbelianSchemesAndArithmeticModuli:A6`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`; `ReductiveGroupsPartII` RG2.0a.2 (`weil-restriction-smoothness-and-immersions`, `weil-restriction-points-topology`); `AlgebraicModuliForArithmeticGeometry:R09.3` (`r093-restriction-algebraicity`, `r093-restriction-base-change`).
 
 <a id="target-surjective-specialisation-finite-quotient"></a>
-### 2.19 Surjective specialization of finite quotients
+### 2.20 Surjective specialization of finite quotients
 
-Let F be imaginary CM and Galois over ℚ, and let T/F be smooth and geometrically irreducible. Fix a finite avoidance extension and a finite set S₀ of rational primes. For every v|l with l∈S₀, give finite Galois L_v/F_v, compatible under the G_(ℚ_l)-action by σ(L_v)=L_(σv), and a nonempty open Gal(L_v/F_v)-invariant Ω_v⊆T(L_v). Choose a CM F′/F, Galois over ℚ and disjoint from the avoidance field, with F′_w≅L_v and P_w∈Ω_v for every w|v. For any surjective finite quotient f:π₁^ét(T)→G, require also f∘P_*:G_F′→G surjective. The finite étale torsor combines this quotient condition with the completion conditions.
+Let F be imaginary CM and Galois over ℚ, and let T/F be smooth and geometrically irreducible. Fix a finite avoidance extension and a finite set S₀ of rational primes. For every v|l with l∈S₀, give finite Galois L_v/F_v, compatible under the G_(ℚ_l)-action by σ(L_v)=L_(σv), and a nonempty open Gal(L_v/F_v)-invariant Ω_v⊆T(L_v). Choose a CM F′/F, Galois over ℚ and disjoint from the avoidance field, and a point P∈T(F′), with F′_w≅L_v and P_w∈Ω_v for every w|v. For any surjective finite quotient f:π₁^ét(T)→G, require also f∘P_*:G_F′→G surjective. The finite étale torsor combines this quotient condition with the completion conditions.
 
 Use `surjectiveSpecialisation` for this construction.
 
 The sources are [Bianchi potential automorphy][bianchi], Proposition 4.5.1 and proof, pp. 48–49.
 
-*Needs:* [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); `AbelianSchemesAndArithmeticModuli:A6`; `SchemeAndStackFoundations:SF.2`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`.
+*Needs:* [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); `AbelianSchemesAndArithmeticModuli:A6`; `InverseGaloisAndArithmeticFundamentalGroups` IG.1.1 (étale fundamental groups and the arithmetic exact sequence) and IG.2.6 (full-group specialization of finite quotients); `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`; `ReductiveGroupsPartII` RG2.0a.2 (`weil-restriction-smoothness-and-immersions`, `weil-restriction-points-topology`); `AlgebraicModuliForArithmeticGeometry:R09.3` (`r093-restriction-algebraicity`, `r093-restriction-base-change`).
 
 <a id="target-function-field-isomorphism-torsor"></a>
-### 2.20 The function-field isomorphism torsor
+### 2.21 The function-field isomorphism torsor
 
 Let X,Y be smooth geometrically connected curves over F_q, K=F_q(X), F=F_q(Y), H finite, and φ:π₁(X)→H and ψ:π₁(Y)→H. On Y_K construct Z=Isom_(Y_K,H)(X_φ,X_ψ), finite étale over Y_K. If ψ is surjective on the geometric fundamental group, Z is geometrically connected. It is a K-curve, not a finite K-scheme. For finite separable K′/K and z∈Z(K′) whose image does not come from Y(F̄_q∩K′), the nonconstant image defines an F_q-embedding β:F→K′, and β*ψ is conjugate to φ|G_K′. Include this nonconstant-image condition in the specialization API.
 
@@ -857,10 +884,10 @@ Use `functionFieldIsomTorsor` for this construction.
 
 The sources are [BHKT][bhkt-published], Lemma 9.1 and diagram (9.1), published pp. 76–77; [Beuzart-Plessis–Harris–Thorne][bhkt-correction], p. 28, Isom-scheme paragraph.
 
-*Needs:* `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.2`.
+*Needs:* `SchemeAndStackFoundations:SF.1` (finite étale torsors and Isom schemes); `InverseGaloisAndArithmeticFundamentalGroups` IG.1.1 (étale fundamental groups, the geometric fundamental group and the arithmetic exact sequence).
 
 <a id="target-function-field-point-with-fixed-constants"></a>
-### 2.21 Function-field points with fixed constants
+### 2.22 Function-field points with fixed constants
 
 Apply the function-field approximation construction with a proper closed subset excluded, preserving the constant field F_q and disjointness from a finite Galois avoidance extension. Obtain a finite Galois K′/K with the stated local splitting and a nonconstant specialization β such that β*ψ is conjugate to φ. Require geometric connectedness of the relevant torsor and the constant-field conditions separately; the embedding of the function field comes from the nonconstant image. Use the corrected BHKT statement rather than a zero-dimensional interpretation of its Isom torsor.
 
@@ -870,10 +897,10 @@ Use `fixedConstantField` for this construction.
 
 The sources are [BHKT][bhkt-published], Proposition 9.2 and proof, published p. 78.
 
-*Needs:* [Layer 2, The function-field isomorphism torsor](#target-function-field-isomorphism-torsor); [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 2, Generating Frobenius primes](#target-frobenius-primes-generate).
+*Needs:* [Layer 2, The function-field isomorphism torsor](#target-function-field-isomorphism-torsor); [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 2, Generating Frobenius primes](#target-frobenius-primes-generate); [Layer 2, Chebotarev density for global function fields](#target-function-field-chebotarev).
 
 <a id="target-potential-global-galois-local-data"></a>
-### 2.22 Potential realization of local Galois data
+### 2.23 Potential realization of local Galois data
 
 Let K be a global field, S a finite set of places, H a finite group, and M_v/K_v finite Galois extensions with embeddings Gal(M_v/K_v) ↪ H. There is a finite K′/K split at S and an H-Galois extension M/K′ realizing these completions and decomposition-group embeddings up to conjugacy. At real places prescribe elements of order dividing two. For totally real number fields, Calegari's refinement permits K′/K to be totally real and Galois and the resulting M to avoid a prescribed finite field over K. The function-field assertion here is BHKT Theorem 9.3; its conclusion does not include these extra Galois, avoidance or fixed-constant-field properties of K′.
 
@@ -881,7 +908,7 @@ Use `potentialGlobalGaloisLocalData` for this construction.
 
 The sources are [BHKT][bhkt-published], Theorem 9.3, published pp. 78–79; [Calegari][calegari], Proposition 3.2 and proof, author pp. 5–6.
 
-*Needs:* [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `SchemeAndStackFoundations:SF.1`.
+*Needs:* [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); [Layer 2, The function-field isomorphism torsor](#target-function-field-isomorphism-torsor); [Layer 2, Function-field points with fixed constants](#target-function-field-point-with-fixed-constants); `SchemeAndStackFoundations:SF.1`; `InverseGaloisAndArithmeticFundamentalGroups` IG.1.1.
 
 ### Examples
 
@@ -913,18 +940,20 @@ The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], Lemma 1.
 
 Let l be odd, k/F_l finite and F totally real. Assume continuous ρ̄:G_F→GL₂(k) has insoluble image, determinant ε̄_l, and shape (ε̄_lχ_v⁻¹,*;0,χ_v) at each v|l. Let F̃_v/F_v be the smallest totally tamely ramified extension making χ_v unramified. For ζ of order #k−1 set N₀=ℚ(ζ,√(1−4l)); choose λ₀|l with residue field k at which a=(1+√(1−4l))/2 is a unit, reducing to 1. Write q_v=l^[k(v):F_l] and choose β_v=ζ^(b_v)a^[k(v):F_l] reducing to χ_v(φ_v) for a Frobenius lift in G_F̃_v. If χ_v²≠1, define χ̃_v with this Frobenius value and Teichmüller inertia; if χ_v²=1 take the Teichmüller character.
 
-Choose odd p≠l such that ρ̄ is unramified at w|p with distinct Frobenius eigenvalues, p splits completely in the Hilbert class field of N₀ and the field cutting out ε̄_l⁻¹det ρ̄, and p avoids every β_v−β_v^c. In the χ_v²=1 branch also exclude p dividing q_v−1. Fix ℘₀|p and, for w|p, choose α′_w in ℤ[a] of norm p using its ℘₀-unit conjugate; multiply by ζ^(a_w) to get α_w reducing to a residual Frobenius eigenvalue at λ₀.
+Choose a prime p>3, p≠l, such that ρ̄ is unramified at every w|p with distinct Frobenius eigenvalues, p splits completely in the Hilbert class field of N₀ and in the field cutting out ε̄_l⁻¹det ρ̄, and p avoids every β_v−β_v^c. In the χ_v²=1 branch also exclude p dividing q_v−1. The field cut out by ε̄_l⁻¹det ρ̄ contains F, so p splits completely in F and F_w=ℚ_p for every w|p. Fix ℘₀|p and, for w|p, choose α′_w in the ring of integers of ℚ(a) of norm p and prime to ℘₀; multiply by ζ^(a_w) to get α_w reducing to a residual Frobenius eigenvalue at λ₀. These are exactly the conditions (C2)–(C3) of the input contract of HilbertModularVarietiesAndShimuraCurves H6.5, together with p>3, which the crystalline lifting theorem of §4.5 needs when §4.6 applies it.
+
+Such primes exist and have positive density. Let M₁ be the Galois closure over ℚ of the compositum of F, the Hilbert class field of N₀ and the field cut out by ε̄_l⁻¹det ρ̄, and M′ its compositum with the Galois closure of the field cut out by ρ̄. By Chebotarev it suffices to find σ∈Gal(M′/M₁) such that ρ̄(gσg⁻¹) has distinct eigenvalues for every g∈Gal(M′/ℚ); the finitely many primes p≤3, p=l, p|β_v−β_v^c and p|q_v−1 are then discarded. An element of GL₂ has a repeated eigenvalue exactly when its image in PGL₂ is trivial or unipotent. The projective image P of ρ̄ is insoluble, hence almost simple with nonabelian simple socle S (Dickson). Its image P₁=proj ρ̄(Gal(M′/M₁)) is normal in P, and it is nontrivial. Otherwise the projective field lies in M₁; the subgroup Gal(M₁/F^gal) is soluble (M₁ is generated over F^gal by conjugates of soluble and abelian extensions) and normal in Gal(M₁/F), so it acts on the projective field through a soluble normal subgroup of the almost simple group P, hence trivially. The projective field would then lie in the totally real field F^gal, on which every complex conjugation acts trivially, contradicting total oddness of ρ̄. Hence P₁⊇S. The map σ↦(proj ρ̄(gσg⁻¹))_g on the finite-index normal subgroup of Gal(M′/M₁) landing in S in every coordinate has image a subdirect product of copies of S, hence a product of diagonal copies twisted by automorphisms; an element whose components in each diagonal copy are semisimple, nontrivial and of order prime to l has every coordinate of order prime to l and different from 1, so all ρ̄(gσg⁻¹) have distinct eigenvalues.
 
 Choose a totally imaginary quadratic L/F, split at every v|l and w|p and not contained in F(ζ_p). Construct ψ with det Ind ψ=ε_p, reduction χ̃_v at the chosen v₁|v, and unramified local character at each w₁|p with Frobenius value lifting α_w. The reductions of ψ and ψ^c differ on the full local decomposition groups above l; inertia alone need not distinguish them. Enlarge N₀ to a Galois CM N in which its l-adic places split and its p-adic places are unramified, large enough for the chosen ψ̄-values at a place ℘|℘₀. Choose λ|λ₀ and let M be the maximal totally real subfield. The norm β_vβ_v^c is q_v, not the auxiliary prime p.
 
 The construction has the following API:
 
 - `TaylorAuxiliaryData`: The data (p, ℘₀, α_w, L, ψ, N, ℘, λ, M) with the stated properties, for a ρ̄ satisfying Taylor's standing hypotheses.
-- `TaylorAuxiliaryData.exists`: Such data exist (Chebotarev for p, then Lemma 1.1 for ψ, then a CM extension N/N₀).
+- `TaylorAuxiliaryData.exists`: Such data exist, with p>3 (the Chebotarev argument above for p, then Lemma 1.1 for ψ, then a CM extension N/N₀). They satisfy the input contract (C1)–(C6) of H6.5; (C6) is arranged by enlarging N so that N/M is ramified at a finite place.
 - `TaylorAuxiliaryData.det_ind`: det Ind_{G_L}^{G_F} ψ = ε_p.
 - `TaylorAuxiliaryData.psi_ne_conj`: ψ̄|G_{v₁} ≠ ψ̄^c|G_{v₁} for v | l: β_vβ_v^c=q_v when χ_v²≠1, with p∤β_v−β_v^c; when χ_v²=1 use the additional exclusion p∤q_v−1. The full decomposition group is required; the inertia characters may agree.
 - `TaylorAuxiliaryData.split`: Every place of F above l and above p splits in L; L is totally imaginary and not contained in F(ζ_p).
-- `TaylorAuxiliaryData.prime_ne_l`: The chosen auxiliary prime p is different from the original residual prime l.
+- `TaylorAuxiliaryData.prime_ne_l`: The chosen auxiliary prime p is different from the original residual prime l, and p>3.
 - `TaylorAuxiliaryData.conj_conj`: Conjugating the auxiliary character twice gives the original character; the involution is the nontrivial element of Gal(L/F).
 - `TaylorAuxiliaryData.det_ind_apply`: For g∈G_F, det(Ind ψ(g))=ε_p(g); this is a pointwise evaluation of the determinant identity.
 
@@ -936,23 +965,32 @@ The construction has the following API:
 - `taylorAux_not_in_cyclotomic`: L ⊄ F(ζ_p) is part of the data; a quadratic subfield of F(ζ_p) is not allowed.
 - `taylorAux_local_decomposition`: The auxiliary object has a full local decomposition-group element on which ψ̄ and ψ̄^c differ; distinction need not hold on inertia.
 - `taylorAux_beta_norm`: With l=5, residue degree one and a²−a+5=0, a^c=1−a and aa^c=5, which differs from the auxiliary p≠5.
+- `taylorAux_oddness_used`: if ρ̄ were even, its projective field could lie in the totally real Galois closure of F, and every prime splitting completely in F would have scalar projective Frobenius; total oddness is what makes the prime choice possible.
 
 Use `TaylorAuxiliaryData` for this construction.
 
 The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], section 1, standing hypotheses, printed p. 6, choice of p, printed p. 7, choice of L, psi, N, M, printed p. 9, choice of N, printed p. 9; [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], Corrections to [Tay4], first bullet, p. 776.
 
-*Needs:* [Layer 3, CM characters with simultaneous local reductions](#target-taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions); [Layer 2, Generating Frobenius primes](#target-frobenius-primes-generate).
+*Needs:* [Layer 3, CM characters with simultaneous local reductions](#target-taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions); [Layer 2, Generating Frobenius primes](#target-frobenius-primes-generate); `HilbertModularVarietiesAndShimuraCurves` H6.5 (the input contract (C1)–(C6) that these data satisfy); `ArithmeticGaloisRepresentations` Layer 4 (Dickson's classification of subgroups of PGL₂); `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
 <a id="target-local-points-at-l-p-infinity-and-the-point-over-e"></a>
 ### 3.3 The twisted Hilbert moduli application
 
-Use the Hilbert moduli scheme supplied by H6, with the prescribed endomorphisms, polarization and identifications of A[λ] with ρ̄ and A[℘] with Ind ψ̄. Choose a smooth geometrically connected component and nonempty invariant local opens at l, p and infinity. At places where the construction produces F_v-points require splitting; where it produces points only over an unramified or unrestricted finite extension use the corresponding local condition of Layer 2. Moret–Bailly gives the auxiliary abelian variety over a controlled totally real field E. Representability, component descent and the local torsion/pairing constructions are inputs from H6 and A6.
+Use the twisted Hilbert torsion moduli space X/K supplied by H6, with the prescribed real multiplication, ordered polarization module and identifications of A[λ] with ρ̄ and A[℘] with Ind ψ̄ carrying the fixed alternating forms to the Weil pairings; X is smooth and geometrically connected. Take the nonempty local opens at the places above l, p and infinity built from the explicit local points of H6.4 and H6.5. At the places above p (where K_w=ℚ_p) choose the open inside the locus of points whose abelian variety has good ordinary reduction; it contains the good ordinary point of H6.5 (O3). Where the construction gives K_v-points require splitting; where it gives points only over an unramified or a finite ramified extension (the places above l in cases (O1) and (O2) of H6.5) use the corresponding local condition of Layer 2. The integral-point theorem then gives a finite Galois totally real E/K, split at every place above p and with the prescribed behaviour at l and at infinity, linearly disjoint from the avoidance field, and an M-Hilbert–Blumenthal abelian variety A/E with A[λ]≅ρ̄|G_E and A[℘]≅Ind ψ̄|G_E, having good ordinary reduction at every place above p. In particular p splits completely in E.
+
+The good-reduction locus at w|p is open. Forgetting the ℘-level structure gives a finite étale map from X⊗K_w to the moduli space with only the λ-level structure, which is prime to p and rigidifies the problem. That space has a smooth model over ℤ_p, because p is unramified in M; its ℤ_p-points form an open subset of its ℚ_p-points, and they are exactly the points whose abelian variety has good reduction (Néron–Ogg–Shafarevich, with the polarization, the O_M-action and the prime-to-p level structure extending by the Néron property). The reduction map on ℤ_p-points is locally constant and the ordinary locus is open in the special fibre, so the good ordinary locus is open; its preimage in X(K_w) is open.
 
 Use `localPointsTwistedHilbertModuli` for this construction.
 
-The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], printed p. 13.
+**Checks.**
 
-*Needs:* [Layer 3, Auxiliary primes, characters and coefficient fields](#target-taylor-auxiliary-data-p-l-psi-n-m); `HilbertModularVarietiesAndShimuraCurves:H6`; [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions).
+- `aux_points_good_reduction_open`: a point of X(K_w) whose abelian variety has multiplicative reduction lies outside the chosen open; the Tate-HBAV points of H6.5 (O1) occur only at places above l, never at the auxiliary places above p.
+- `aux_points_split_at_p`: because the local points at w|p are K_w-rational and K_w=ℚ_p, the field E is split at every place above p and p splits completely in E.
+- `aux_points_forget_level`: the ℘-level structure has p-power level and is not étale over ℤ_p; the openness argument forgets it before using the integral model.
+
+The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], the moduli space and its local points, printed p. 13; [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], the analogous twisted moduli space and the application of Moret-Bailly's theorem at the end of the proof of Proposition 4.1, p. 762.
+
+*Needs:* [Layer 3, Auxiliary primes, characters and coefficient fields](#target-taylor-auxiliary-data-p-l-psi-n-m); `HilbertModularVarietiesAndShimuraCurves` H6.2 (twisted Hilbert torsion moduli), H6.3 (component descent), H6.4 (real points), H6.5 (finite local points) and H6.9 (the geometric and local input export); `HilbertModularVarietiesAndShimuraCurves` H2.2 (the integral Hilbert model at good primes) and H2.6 (the ordinary locus is open); `NeronModelsAndSemistableAbelianVarieties` §5.1 (Néron–Ogg–Shafarevich); `ReductiveGroupsPartII` RG2.0.1 (the topology on local points, integral points open); [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions).
 
 <a id="target-restriction-of-scalars-moduli-application"></a>
 ### 3.4 The Weil-restricted moduli application
@@ -963,11 +1001,11 @@ Use `restrictedAuxiliaryModuli` for this construction.
 
 The sources are [Boxer–Calegari–Gee–Pilloni][bcgp-published], Proof of Proposition 9.1.11, p. 458.
 
-*Needs:* `HilbertModularVarietiesAndShimuraCurves:H6`; `AbelianSchemesAndArithmeticModuli:A6`; [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`.
+*Needs:* `HilbertModularVarietiesAndShimuraCurves:H6`; `AbelianSchemesAndArithmeticModuli:A6`; [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`; `ReductiveGroupsPartII` RG2.0a.2 (`weil-restriction-smoothness-and-immersions`, `weil-restriction-points-topology`); `AlgebraicModuliForArithmeticGeometry:R09.3` (`r093-restriction-algebraicity`, `r093-restriction-base-change`).
 
 ### Examples
 
-The p=2 character checks and the separate points at l, p and infinity constrain the auxiliary construction.
+The checks on the auxiliary prime, the conjugate character and the separate local points at l, p and infinity constrain the auxiliary construction.
 
 ### Dependencies
 
@@ -990,21 +1028,100 @@ The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], Lemma 1.
 
 *Needs:* [Layer 3, The twisted Hilbert moduli application](#target-local-points-at-l-p-infinity-and-the-point-over-e).
 
+<a id="target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"></a>
+### 4.2 Quaternionic forms and Hecke–Galois realizations
+
+Take F totally real of even degree, D ramified exactly at infinity, weights k_σ≥2 with w=k_σ−1+2w_σ independent of σ, and continuous central character ψ agreeing with (Na)^(1−w) on an open subgroup of F_l^×. The quaternionic form space is a semisimple admissible representation of GL₂(A_F^(∞,l)); its U^l-invariants are the specified finite-level form space. After extending coefficients to ℂ, its quotient by reduced-norm functions decomposes into the regular algebraic cuspidal π of these weights and central character. Reduced-norm functions occur only in parallel weight two; at that weight the full decomposition also contains characters χ with χ²=ψ.
+
+The corresponding Hecke algebra has a continuous Galois representation unramified at x∤𝔫l, with trace T_x and determinant ε_l(ψ∘Art⁻¹). At a non-Eisenstein maximal ideal it has an integral Carayol realization over the localized Hecke algebra. This algebra is generated by the U_(ϖ_x) for x|𝔫, x∤l and T_x at almost all other primes. The definite class sets and the fixed-central-character forms are HilbertModularVarietiesAndShimuraCurves R18.3.1–R18.3.3, the Jacquet–Langlands realization is R18.3.22, and the Galois representation over the localized quaternionic Hecke algebra is AutomorphicGaloisRepresentations §6.10; this target fixes Taylor's weight and central-character normalization on them.
+
+Use `quaternionicHeckeGaloisRealisation` for this construction.
+
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §1, Lemma 1.3, p. 740 (PDF page 12), §1, proof of Lemma 1.3, p. 741 (PDF page 13), §1, the representations ρ and ρ_𝔪, p. 742 (PDF page 14).
+
+*Needs:* `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `HilbertModularVarietiesAndShimuraCurves` R18.3.1, R18.3.3 and R18.3.22; `AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic` (§6.10); `AutomorphicGaloisRepresentations:R19.2`; `GlobalGaloisDeformations:R04.2/carayol-trace-theorem`.
+
+<a id="target-taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l"></a>
+### 4.3 Fontaine–Laffaille shapes of quaternionic forms
+
+Let x∤𝔫 be a split place above l with 2≤k_x≤l−1, and let 𝔪 be non-Eisenstein in the quaternionic Hecke algebra. For an open ideal I of h_𝔪, identify ((ρ_𝔪⊗ε_l^(−w_x)) mod I)|G_x with the Fontaine–Laffaille realization of D in the specified local category, with D≠D⁰ and D⁰≠0. Consequently residual inertia is either ω₂^(k_x−1+(l+1)w_x)⊕ω₂^(l(k_x−1)+(l+1)w_x), or triangular (ω^(k_x+w_x−1),*;0,ω^(w_x)). Preserve the explicit twist and the split-place Fontaine–Laffaille interval. The torsion statement follows from the characteristic-zero one: (ρ_𝔪⊗ε_l^(−w_x)) mod I is a subquotient of a G_x-stable lattice in a direct sum of the representations attached to the eigenforms of the localized space, each crystalline at the split place x with weights in [0,l−2] (Hilbert local behaviour at l), and the essential image of the Fontaine–Laffaille functor is stable under subquotients.
+
+Use `localResidualInertialShape` for this construction.
+
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §1, proof of Corollary 1.5, p. 743 (PDF page 15).
+
+*Needs:* [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations); `PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-filtered-modules`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-functor-torsion`; `AutomorphicGaloisRepresentations:R19.5/hilbert-local-behaviour-at-p`; `AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`; `PadicHodgeTheory:R06.4`; `AutomorphicGaloisRepresentations:R19.5`.
+
+<a id="target-skinner-wiles-level-adjustment"></a>
+### 4.4 Level adjustment after a soluble totally real base change
+
+Let p be odd, F totally real and ρ̄:G_F→GL₂(F̄_p) irreducible and associated with a Hilbert newform f of parallel weight two and level n_f, written n_f=n_f^(p)n_f′ with n_f^(p) supported above p and n_f′ prime to p. Then there is a finite soluble Galois totally real F′/F in which every place above p splits completely, such that ρ̄|G_F′ is still irreducible and is associated with a weight-two newform g over F′ whose level divides n_f^(p)∏_(q∈S)q, where S is the set of places of F′ not above p at which ρ̄|G_F′ is ramified. If f is ordinary, or nearly ordinary, at the places above p, g can be taken with the same property; if moreover ρ̄ is D_v-distinguished at every v|p and f is χ₂-good, then so are ρ̄|G_F′ and g. The field F′ can also be required to have prescribed splitting and ramification at a finite set of places of F outside the level of f, and to have even degree. In applications S is made empty first: a soluble totally real base change with prescribed completions kills the finite residual inertia away from p, and the level of g then divides n_f^(p).
+
+The proof is the Skinner–Wiles argument. After an even-degree cyclic base change in which the places above p split, and further cyclic base changes, the local components of f at the primes of n_f′ are special of conductor q with unramified central character and Nq≡1 mod p. Transfer to the definite quaternion algebra D ramified exactly at the infinite places by the level-by-level Jacquet–Langlands–Shimizu isomorphism. At a prime q of n_f′ where ρ̄ is unramified, the exactness of the two-copy degeneracy sequence (Ihara's lemma for D), the stabiliser-weighted pairing and the trace maps between levels give a congruence to a form of level n_f/q. Induction on the number of such primes, with a soluble base change at each step making Nq≡1 mod p, removes them. Base change preserves cuspidality because ρ̄ stays irreducible over every field of the tower.
+
+**Checks.**
+
+- `sw_level_already_minimal`: if ρ̄ is ramified at every prime of n_f′, then S contains all of them and the bound is n_f itself; no level is removed.
+- `sw_level_one`: for the CM seed of §4.6, whose level is prime to p and whose residual representation is unramified away from p over F, the bound n_f^(p)∏_(q∈S)q equals 1, so g has level one.
+- `sw_prescribed_splitting_outside_level`: prescribed splitting at a place in the level of f is not part of the conclusion; such a place can stay ramified in the residual representation over F′.
+
+Use `skinnerWilesLevelAdjustment` for this construction.
+
+The sources are [Skinner–Wiles, base change][sw-base-change], main theorem and the remark following it, p. 17; reduction steps, p. 18; the definite quaternion algebra, Jacquet–Langlands–Shimizu and the pairing, pp. 18–20; Lemma 1 and the level-lowering congruence, pp. 20–25.
+
+*Needs:* `GL2AutomorphicRepresentationsAndTransfer:R17.3` (global Jacquet–Langlands with the level-by-level Hecke compatibility); `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/prescribed-local-base-change`; `OrdinaryAutomorphicFormsAndModularityLifting` §1.4 (the stabiliser-weighted pairing and Hecke adjoints), §1.5 (trace maps between levels), §2.9 (Ihara's lemma for definite quaternionic forms) and §2.10 (exactness at deeper level); `HilbertModularVarietiesAndShimuraCurves:R18.3` (definite class sets); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions).
+
+<a id="target-taylor-crystalline-lifting"></a>
+### 4.5 Crystalline lifting in the Fontaine–Laffaille range
+
+Let l>3 be prime, 2≤k≤l−1, and F a totally real field of even degree in which l splits completely. Let ρ:G_F→GL₂(O) be continuous, irreducible and unramified outside finitely many places, with O the integers of a finite extension of ℚ_l inside Q̄_l, such that ρ|G_x is crystalline with Hodge–Tate numbers 0 and 1−k at every place x above l. Assume that ρ̄ restricted to G_F(√l*), l*=(−1)^((l−1)/2)l, is irreducible, and that there are a regular algebraic cuspidal π of GL₂(A_F) of weight k, unramified at every finite place, and an embedding λ of its coefficient field into Q̄_l with ρ̄_(π,λ)≅ρ̄. Then ρ≅ρ_(π′,λ′) for a regular algebraic cuspidal π′ of weight k and an embedding λ′.
+
+The proof first twists: det ρ/det ρ_(π,λ) has finite l-power order, so after twisting π (l>2) the determinants agree. Then it is the minimal R=T theorem: for every finite set Σ of finite places not above l, the map from the deformation ring R_Σ to the quaternionic Hecke algebra h_Σ is an isomorphism of complete intersections and the space of forms S_Σ is free over h_Σ. Here R_Σ classifies deformations of ρ̄ with the fixed determinant, Fontaine–Laffaille at the places above l (each F_x=ℚ_l, weights 0 and k−1 with k−1≤l−2) and unrestricted at Σ; h_Σ acts on forms on the definite quaternion algebra ramified exactly at infinity, of the corresponding weight and level. Prove it by the Taylor–Wiles method with Diamond's and Fujiwara's simplification: Taylor–Wiles sets of size h¹ exist because ρ̄|G_F(√l*) is irreducible and l>3; the Fontaine–Laffaille local conditions are formally smooth; patching gives a free module over a power-series ring, hence the isomorphism and freeness. The irreducibility hypothesis is on F(√l*), which is the field the Taylor–Wiles prime argument needs in this setting.
+
+**Checks.**
+
+- `taylor33_l_three_excluded`: l=3 is excluded; the prime-selection step uses l>3.
+- `taylor33_weight_range`: k=l lies outside the hypothesis 2≤k≤l−1: the Fontaine–Laffaille window [0,l−2] does not contain the weights {0,l−1}.
+- `taylor33_split_needed`: an inert place above l (F_x≠ℚ_l) is outside the hypothesis, so the theorem is not applied over a field in which l does not split completely.
+- `taylor33_semistable_excluded`: a member with nonzero monodromy at a place above l, such as the Tate module of a Tate curve, is not crystalline, so the theorem does not apply to it.
+
+Use `taylorCrystallineLifting` for this construction.
+
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], Theorem 3.2 and Theorem 3.3 with its proof, p. 755; §2, the deformation rings and Hecke algebras with Lemmas 2.1–2.5 (Lemma 2.5 gives the Taylor–Wiles primes), pp. 745–750; §3, Lemma 3.1 and the argument for Theorem 3.2, pp. 751–755.
+
+*Needs:* [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations); [Layer 4, Fontaine–Laffaille shapes of quaternionic forms](#target-taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l); `LocalGaloisDeformationRings:L7/fontaine-laffaille-deformation-condition`; `LocalGaloisDeformationRings:L7/fontaine-laffaille-tangent-space-and-smoothness`; `GlobalGaloisDeformations` §5.7 (existence of Taylor–Wiles primes for odd p, in Taylor's setting); `GlobalGaloisDeformations` §5.1 (Taylor–Wiles data) and §6.4 (the Taylor–Wiles system of deformation rings); `DeformationAndDerivedPatchingAlgebra:R03.5`; `DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-of-free`; `GL2ModularityLifting:R22.4/integral-r-equals-t-when-smooth`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`.
+
 <a id="target-modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar"></a>
-### 4.2 Modularity transfer through the auxiliary variety
+### 4.6 Modularity transfer through the auxiliary variety
 
-Prove modularity of the auxiliary variety using its ℘-adic realization, whose residual representation is induced from the prescribed CM character. Apply the appropriate ordinary modularity lifting theorem, with its auxiliary-image and exceptional-CM hypotheses checked, and identify the compatible λ-adic realization. Reduction at λ then gives a modular witness for ρ̄ restricted to the selected field. The exceptional CM alternative needs a theorem covering this induced residual representation; it must not be replaced by a generic ordinary-lifting slogan.
+Let E be a totally real field, M a number field and A/E an abelian variety of dimension [M:ℚ] with O_M↪End_E(A), so that every Tate module T_μA is free of rank two over O_(M,μ); for M totally real this is an M-Hilbert–Blumenthal abelian variety (Taylor 2002), and Taylor 2006 uses a CM coefficient field. Let p>3 be a prime that splits completely in E, ℘|p a prime of M unramified over p, and suppose: A has good reduction at every place of E above p; A[℘]≅Ind_(G_E′)^(G_E)ψ̄ for a quadratic CM extension E′/E in which every place above p splits, with ψ̄ a character of G_E′; at each place w|p of E the two characters of A[℘]|G_w are one unramified and one of the form ε̄_p times an unramified character; and the CM form attached to the algebraic Hecke character lifting ψ̄ (by automorphic induction from E′) has weight two and level prime to p. Then T_℘A is modular over E: there is a regular algebraic cuspidal π of GL₂(A_E) of parallel weight two with ρ_(π,℘)≅T_℘A⊗ℚ. Consequently ρ_(π,μ)≅T_μA⊗ℚ for every prime μ of M, and for every μ the residual representation A[μ] is modular over E. This is the step that turns the auxiliary point of Layer 3 into a residual modular witness for ρ̄=A[λ].
 
-**Gap.** The available R21.5 Skinner–Wiles contract excludes the residual CM case split at the auxiliary prime used here (its E11 restriction). Taylor’s cited Theorem 5.1 therefore does not give this supplier contract. A corrected residually dihedral lifting theorem, or the exact base-change/crystalline-lifting/descent alternative, is required. The generic R17.4 base-change theorem alone does not supply Taylor’s level adjustment. The local ordinary Tate-module statement supplies the other required hypothesis.
+Prove it by the base change, crystalline lifting and descent argument that Taylor gives as the alternative at the end of the proof of his Proposition 4.1; it does not use a nearly ordinary lifting theorem whose residual-image hypothesis excludes residual representations induced from a CM extension split above p.
+
+1. Crystallinity. Good reduction at w|p makes T_℘A|G_w crystalline, with Hodge–Tate numbers 0 and −1 in Taylor's convention.
+2. Residual irreducibility over E(√p*). The extension E′/E is split above p, whereas E(√p*)/E is ramified there, so the two are distinct and E′E(√p*) is a biquadratic extension. On inertia at a place of E(√p*) above p, which has index two in the inertia of ℚ_p, the ratio of the two local characters is ε̄_p restricted to that subgroup, of order (p−1)/2. This is nontrivial exactly because p>3, so ψ̄≠ψ̄^c on G_(E′E(√p*)) and the induced representation stays irreducible on G_(E(√p*)). The same argument works over every totally real extension of E in which p splits completely.
+3. The seed. Choose a finite soluble Galois totally real E₁/E, split at every place above p, killing the finite residual inertia of Ind ψ̄ at the finitely many ramified places away from p (Layer 2). Base change the CM form to E₁; it stays cuspidal because the residual representation is irreducible over E₁, and its level stays prime to p. Apply the level adjustment of §4.4 to it: over a soluble Galois totally real E₂/E₁ of even degree in which p splits completely, ρ̄_℘ is the residual representation of a weight-two form of level one, because the residual representation is unramified away from p over E₁ and the p-part of the level is trivial.
+4. Lifting. Over E₂ the representation T_℘A satisfies the hypotheses of the crystalline lifting theorem with l=p and k=2: p>3, 2≤2≤p−1, E₂ has even degree and p splits completely in it, T_℘A is crystalline of Hodge–Tate numbers 0 and −1 above p, its residual representation is irreducible on G_(E₂(√p*)) by step 2, and the seed of step 3 is unramified at every finite place. Hence T_℘A|G_E₂ is modular.
+5. Descent. The tower E₂/E is soluble and Galois, and T_℘A is irreducible on G_E₂ (its residual representation is). Descend through the cyclic steps: at each step the automorphic representation upstairs is invariant under the Galois group, since its Galois representation is the restriction of T_℘A, so it descends to a cuspidal representation whose Galois representation is T_℘A twisted by a character of the step; choose the twist that recovers T_℘A.
+6. Other primes. The traces of Frobenius on T_μA lie in M and do not depend on μ (for an abelian variety of this type the O_M-linear characteristic polynomial of Frobenius has coefficients in M independent of μ); by Chebotarev and Brauer–Nesbitt, ρ_(π,μ)≅T_μA⊗ℚ for every μ, and reducing modulo μ gives the residual witnesses.
+
+The descent returns to E. The intermediate fields E₁ and E₂ may fail the splitting conditions at the starting prime of Layer 3, whereas E, produced by the approximation step there, has them; the output is therefore stated over E.
+
+**Checks.**
+
+- `aux_transfer_p_three`: for p=3 the ratio ε̄₃ restricted to the index-two inertia subgroup is trivial, so step 2 fails and p=3 is excluded (`Auxiliary.half_order_gt_one` in Suggested.lean records the order (p−1)/2>1 for p>3).
+- `aux_transfer_tate_curve`: a member with multiplicative reduction at a place above p, such as the Tate module of a Tate curve, has nonzero monodromy and is not crystalline, so step 1 fails without good reduction.
+- `aux_transfer_level_one`: for the CM seed with level prime to p and a residual representation unramified away from p after the first base change, the level bound of §4.4 is 1.
+- `aux_transfer_descent_field`: the conclusion is over E, not over E₂, so the splitting conditions imposed on E in Layer 3 are retained.
 
 Use `auxiliaryModularityTransfer` for this construction.
 
-The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], remarks after the Moret-Bailly application, printed p. 13, same paragraph, printed p. 13, paragraph before Theorem 1.6, printed p. 15, same sentence, printed p. 15.
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], end of the proof of Proposition 4.1 (the alternative through the main theorem of Skinner–Wiles' base change paper, Theorem 3.3 and descent), pp. 762–763; [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], the auxiliary variety and its torsion, printed pp. 13–15; [Skinner–Wiles, base change][sw-base-change], main theorem, p. 17.
 
-*Needs:* [Layer 3, The twisted Hilbert moduli application](#target-local-points-at-l-p-infinity-and-the-point-over-e); [Layer 3, Auxiliary primes, characters and coefficient fields](#target-taylor-auxiliary-data-p-l-psi-n-m); `GL2AutomorphicRepresentationsAndTransfer:R17.5`; `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting`.
+*Needs:* [Layer 4, Level adjustment after a soluble totally real base change](#target-skinner-wiles-level-adjustment); [Layer 4, Crystalline lifting in the Fontaine–Laffaille range](#target-taylor-crystalline-lifting); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent`; `GL2AutomorphicRepresentationsAndTransfer:R17.6/potential-modularity-interface`; `GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction` (automorphic induction of the CM Hecke character); `AutomorphicGaloisRepresentationsPartII:AG2.0` (the ℘-adic character of an algebraic Hecke character); `NeronModelsAndSemistableAbelianVarieties` §5.1 (Néron–Ogg–Shafarevich) and §5.3 (the p-adic comparison at the residue prime: good reduction gives a crystalline Tate module); `ArithmeticGaloisRepresentations` Layer 6 (Tate modules of abelian varieties with real multiplication) and §5.3 (recognition by Frobenius polynomials); `AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family`.
 
 <a id="target-taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l"></a>
-### 4.3 Ordinary residual potential modularity
+### 4.7 Ordinary residual potential modularity
 
 Let l be odd, k/F_l finite, F totally real, and ρ̄:G_F→GL₂(k) continuous irreducible and totally odd. Suppose at every v|l it has shape (ε̄_lχ_v⁻¹,*;0,χ_v). Obtain finite Galois totally real E/F split at every v|l and a regular algebraic cuspidal π with residual member ρ̄|G_E. At an unramified x|l with nonscalar residual inertia, χ_x²|I_x=ε̄_l^n, 0≤n<l−1 and n≠1 in the semisimple case, require the characteristic-zero ordinary shape with a tamely ramified lift of χ_x. Use Taylor's corrected auxiliary construction and its determinant normalization where that construction is applied.
 
@@ -1017,42 +1134,20 @@ The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], Theorem 
 *Needs:* [Layer 4, Modularity transfer through the auxiliary variety](#target-modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar); [Layer 4, The ordinary auxiliary Tate module](#target-taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l); `GL2AutomorphicRepresentationsAndTransfer:R17.5`.
 
 <a id="target-taylor-2006-potential-modularity-when-residually-irreducible-at-l"></a>
-### 4.4 The niveau-two potential-modularity theorem
+### 4.8 The niveau-two potential-modularity theorem
 
-Let l>2 and ρ̄:G_ℚ→GL₂(F̄_l) be continuous odd with inertia ω₂^(k−1)⊕ω₂^(l(k−1)), 2≤k≤l. Obtain a totally real Galois F/ℚ of even degree split at l and a regular algebraic cuspidal weight-two π with residual representation ρ̄|G_F. At x|l its tame WD inertia is ω₂^(k−(l+1))⊕ω₂^(lk−(l+1)). Corollary 4.6 permits its central character away from l to be unramified. In the exceptional CM case check the supplied Skinner–Wiles alternative, or base change together with Taylor's crystalline §3.3 result and admissible descent.
+Let l>2 and ρ̄:G_ℚ→GL₂(F̄_l) be continuous odd with inertia ω₂^(k−1)⊕ω₂^(l(k−1)), 2≤k≤l. Obtain a totally real Galois F/ℚ of even degree split at l and a regular algebraic cuspidal weight-two π with residual representation ρ̄|G_F. At x|l its tame WD inertia is ω₂^(k−(l+1))⊕ω₂^(lk−(l+1)). Taylor's Corollary 4.6 permits its central character away from l to be unramified.
+
+In Taylor's construction choose the two auxiliary primes p₁,p₂ by his Chebotarev conditions, which have positive density, and take p₁>3. The twisted moduli space X_ρ has a ℚ_(p₁)-point through its isomorphism with X_Dih over ℚ_(p₁) and the CM point of his Lemma 4.5; that abelian variety has good reduction above p₁, since the CM characters are unramified there and Néron–Ogg–Shafarevich applies. As in §3.3 the good-reduction locus of X_ρ(ℚ_(p₁)) is open, so the Moret-Bailly step can prescribe a local open inside it. The resulting abelian variety B over F, with B[λ] realising ρ̄ and B[℘_i] realising Ind(χ_(℘_i) mod ℘_i), then has good reduction above p₁. Since p₁ splits in the imaginary quadratic M and completely in F, the residual representation B[℘₁] is induced from the CM extension FM, split above p₁, with one unramified and one cyclotomic-times-unramified character above p₁. §4.6 with E=F, coefficient field EM (Taylor's notation), ℘=℘₁ and E′=FM gives the modularity of T_(℘₁)B and then of T_λB; reduction modulo λ gives the witness for ρ̄|G_F, and its WD inertial type at x|l is read from the action of I_x on T_(℘₁)B computed by Taylor. The descent in §4.6 returns to F, so the l-splitting and the inertial type are asserted over F.
 
 Use `taylorNiveauTwoPotentialResidual` for this construction.
 
-The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], Proposition 4.1 and following remark, pp. 755-756, end of proof of Proposition 4.1, pp. 762-763, Corollary 4.6, p. 763.
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], Proposition 4.1 and following remark, pp. 755–756; the choice of p₁,p₂ and the twisted moduli spaces, pp. 756–760; Lemmas 4.4 and 4.5, pp. 761–762; end of the proof of Proposition 4.1, pp. 762–763; Corollary 4.6, p. 763.
 
-*Needs:* `HilbertModularVarietiesAndShimuraCurves:H6`; `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting`; `GL2AutomorphicRepresentationsAndTransfer:R17.4`.
-
-<a id="target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations"></a>
-### 4.5 Quaternionic forms and Hecke–Galois realizations
-
-Take F totally real of even degree, D ramified exactly at infinity, weights k_σ≥2 with w=k_σ−1+2w_σ independent of σ, and continuous central character ψ agreeing with (Na)^(1−w) on an open subgroup of F_l^×. The quaternionic form space is a semisimple admissible representation of GL₂(A_F^(∞,l)); its U^l-invariants are the specified finite-level form space. After extending coefficients to ℂ, its quotient by reduced-norm functions decomposes into the regular algebraic cuspidal π of these weights and central character. Reduced-norm functions occur only in parallel weight two; at that weight the full decomposition also contains characters χ with χ²=ψ.
-
-The corresponding Hecke algebra has a continuous Galois representation unramified at x∤𝔫l, with trace T_x and determinant ε_l(ψ∘Art⁻¹). At a non-Eisenstein maximal ideal it has an integral Carayol realization over the localized Hecke algebra. This algebra is generated by the U_(ϖ_x) for x|𝔫, x∤l and T_x at almost all other primes. Import Jacquet–Langlands and the Hilbert Galois realization separately.
-
-Use `quaternionicHeckeGaloisRealisation` for this construction.
-
-The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §1, Lemma 1.3, p. 740 (PDF page 12), §1, proof of Lemma 1.3, p. 741 (PDF page 13), §1, the representations ρ and ρ_𝔪, p. 742 (PDF page 14).
-
-*Needs:* `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `AutomorphicGaloisRepresentations:R19.2`; `GlobalGaloisDeformations:R04.2/carayol-trace-theorem`.
-
-<a id="target-taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l"></a>
-### 4.6 Fontaine–Laffaille shapes of quaternionic forms
-
-Let x∤𝔫 be a split place above l with 2≤k_x≤l−1, and let 𝔪 be non-Eisenstein in the quaternionic Hecke algebra. For an open ideal I of h_𝔪, identify ((ρ_𝔪⊗ε_l^(−w_x)) mod I)|G_x with the Fontaine–Laffaille realization of D in the specified local category, with D≠D⁰ and D⁰≠0. Consequently residual inertia is either ω₂^(k_x−1+(l+1)w_x)⊕ω₂^(l(k_x−1)+(l+1)w_x), or triangular (ω^(k_x+w_x−1),*;0,ω^(w_x)). Preserve the explicit twist and the split-place Fontaine–Laffaille interval; the crystalline and torsion comparison inputs are supplied by the automorphic and p-adic Hodge owners.
-
-Use `localResidualInertialShape` for this construction.
-
-The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §1, proof of Corollary 1.5, p. 743 (PDF page 15).
-
-*Needs:* [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations); `PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison`; `AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`; `PadicHodgeTheory:R06.4`; `AutomorphicGaloisRepresentations:R19.5`.
+*Needs:* `HilbertModularVarietiesAndShimuraCurves` H6.1–H6.3 (twisted Hilbert torsion moduli with paired torsion and component descent), H2.2 and H2.6; [Layer 3, The twisted Hilbert moduli application](#target-local-points-at-l-p-infinity-and-the-point-over-e) (the openness of the good-reduction locus); [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 4, Modularity transfer through the auxiliary variety](#target-modularity-of-the-auxiliary-abelian-variety-transfers-to-rho-bar); `NeronModelsAndSemistableAbelianVarieties` §5.1; `AutomorphicGaloisRepresentations` §3.13 (CM characters as avatars of algebraic Hecke characters); `ShimuraVarieties` §5.3, §5.5 and §5.10 (CM abelian varieties, their number-field models and the main theorem of complex multiplication, for the CM point of Lemma 4.5); `GL2AutomorphicRepresentationsAndTransfer:R17.4`.
 
 <a id="target-taylor-2006-lemma-5-1-corollary-5-2-weight-reduction"></a>
-### 4.7 Quaternionic weight reduction
+### 4.9 Quaternionic weight reduction
 
 Let l>3 split completely in the even-degree totally real F, and 0≤i≤l−2. For character η̄^i of U₀(𝔫,l)/U₁(𝔫,l), use the local induced coefficient filtration 0→Sym^i→I_x^i→Sym^(l−1−i)⊗det^i→0. Its global subspaces S_T satisfy S_∅≅S_(i+2)(U_H(𝔫)). For x∉T construct an injection κ_x:S_(T∪{x})/S_T↪S_(T∪{x}), equivariant for good T_y,S_y and the required U_(ϖ_x), whose composite with the quotient projection is V_(ϖ_x).
 
@@ -1062,10 +1157,10 @@ Use `weightReductionHeckeSurjection` for this construction.
 
 The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §5, the pairing and the operators 𝐔, 𝐕, p. 764 (PDF page 36), §5, Lemma 5.1, p. 765 (PDF page 37), §5, Corollary 5.2, p. 767 (PDF page 39).
 
-*Needs:* [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations); `AutomorphicGaloisRepresentations:R19.2`.
+*Needs:* [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations); `AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic`; `HilbertModularVarietiesAndShimuraCurves` R18.3.5 (perfect quaternionic pairing).
 
 <a id="target-taylor-2006-lemma-5-3-weight-shift"></a>
-### 4.8 The weight shift by l+1
+### 4.10 The weight shift by l+1
 
 For k≥2, construct the weight shift from k to k+l+1 with the prescribed cyclotomic twist. Track the Hecke normalization: T_y is multiplied by N(y), while S_y is multiplied by N(y)². Retain the level and central-character conditions needed for Taylor's coefficient injection; the result transports the chosen residual system of eigenvalues, rather than identifying untwisted characteristic-zero representations of different weights.
 
@@ -1076,7 +1171,7 @@ The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continu
 *Needs:* [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations).
 
 <a id="target-taylor-2006-lemmas-5-4-5-6-weight-and-level"></a>
-### 4.9 Weight and level removal
+### 4.11 Weight and level removal
 
 For l>3 and continuous odd ρ̄ of G_ℚ with inertia ω₂^(k−1)⊕ω₂^(l(k−1)), 2≤k≤l, obtain a totally real Galois F split at l and a weight-two regular algebraic cuspidal witness whose conductor at x|l divides x. Next make it unramified at finite places away from l. Finally choose F of even degree and a weight-k witness unramified at every finite place. Establish respectively Lemma 5.4, Corollary 5.5 and Lemma 5.6 using the CDT type/Jordan–Hölder interfaces and the specified Skinner–Wiles base change.
 
@@ -1084,10 +1179,10 @@ Use `weightAndLevelPotentialResidual` for this construction.
 
 The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §5, Corollary 5.5, p. 769 (PDF page 41), §5, proof of Lemma 5.6, p. 770 (PDF page 42).
 
-*Needs:* [Layer 4, The niveau-two potential-modularity theorem](#target-taylor-2006-potential-modularity-when-residually-irreducible-at-l); [Layer 4, Fontaine–Laffaille shapes of quaternionic forms](#target-taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l); [Layer 4, Quaternionic weight reduction](#target-taylor-2006-lemma-5-1-corollary-5-2-weight-reduction); [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations).
+*Needs:* [Layer 4, The niveau-two potential-modularity theorem](#target-taylor-2006-potential-modularity-when-residually-irreducible-at-l); [Layer 4, Level adjustment after a soluble totally real base change](#target-skinner-wiles-level-adjustment); [Layer 4, Fontaine–Laffaille shapes of quaternionic forms](#target-taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l); [Layer 4, Quaternionic weight reduction](#target-taylor-2006-lemma-5-1-corollary-5-2-weight-reduction); [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations).
 
 <a id="target-taylor-2006-theorem-5-7-serre-weight-at-level-one"></a>
-### 4.10 The Serre-weight level-one witness
+### 4.12 The Serre-weight level-one witness
 
 Let l>3 and ρ̄:G_ℚ→GL₂(F̄_l) be continuous irreducible odd with irreducible restriction to G_(ℚ_l). Obtain a totally real Galois F of even degree split at l and a regular algebraic cuspidal π with residual member ρ̄|G_F, infinity weight k_(ρ̄) and no finite ramification. Combine the niveau-two construction, weight changes and level removal. The prime-three case required for the larger KW theorem uses a separate Khare input and is not covered by l>3.
 
@@ -1098,7 +1193,7 @@ The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continu
 *Needs:* [Layer 4, Weight and level removal](#target-taylor-2006-lemmas-5-4-5-6-weight-and-level); [Layer 4, The weight shift by l+1](#target-taylor-2006-lemma-5-3-weight-shift); [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations).
 
 <a id="target-kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-f"></a>
-### 4.11 Controlled residual potential modularity
+### 4.13 Controlled residual potential modularity
 
 For an S-type residual ρ̄ of G_ℚ, assume 2 ≤ k(ρ̄) ≤ p+1 and absolute irreducibility on G_(ℚ(ζ_p)) when p>2, and nonsoluble image when p=2. Construct a totally real Galois F/ℚ of even degree, unramified at p and split there if ρ̄|D_p is irreducible, preserving the residual image. Over F the representation has a cuspidal Hilbert modular witness of weight k(ρ̄), unramified at every place above p (at p=2 this witness requires k=2), and a second witness of weight two with conductor dividing each v|p, unramified there when the residual representation is finite flat. Include the extension controls of Layer 6. This is a theorem about ρ̄; a characteristic-zero lift is not an input.
 
@@ -1109,7 +1204,7 @@ The sources are [KW II][kw-serre-modularity-II], section 6, Theorem 6.1, pp. 53-
 *Needs:* [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 2, Avoidance by extra split primes](#target-forcing-linear-disjointness-by-extra-split-places); `GL2AutomorphicRepresentationsAndTransfer:R17.5`; `OrdinaryAutomorphicFormsAndModularityLifting:R21.6`; [Layer 4, Ordinary residual potential modularity](#target-taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l); [Layer 4, The niveau-two potential-modularity theorem](#target-taylor-2006-potential-modularity-when-residually-irreducible-at-l); [Layer 4, The Serre-weight level-one witness](#target-taylor-2006-theorem-5-7-serre-weight-at-level-one); `AutomorphicGaloisRepresentations:R19.2`; `GL2ModularityLifting:R22.6/kw-dyadic-lifting`; `GL2ModularityLifting:R22.5/kw-odd-prime-lifting`; `GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts`; `PadicFamilies:L5/hida-control-nearly-ordinary`; `PadicFamilies:L5`; `SerreWeightAndLevelOptimisation:R20.3`; `HilbertModularVarietiesAndShimuraCurves:R18.3`; [Layer 3, The twisted Hilbert moduli application](#target-local-points-at-l-p-infinity-and-the-point-over-e).
 
 <a id="target-kw-annals-theorem-2-1-taylor-potential-modularity-with-ordinarity"></a>
-### 4.12 The ordinary Annals variant
+### 4.14 The ordinary Annals variant
 
 Let ρ̄ be S-type in odd characteristic p, irreducible on G_(ℚ(μ_p)), with 2≤k(ρ̄)≤p+1 and k(ρ̄)≠p. Obtain totally real Galois F/ℚ of even degree, unramified at p and split there if the local residual representation is irreducible. Preserve im ρ̄ and absolute irreducibility on G_(F(μ_p)). The first cuspidal Hilbert witness is everywhere unramified and has weight k; the second has weight two, is unramified away from p and has conductor dividing v at each v|p, with unramifiedness in the finite-flat case. Both are ordinary above p when ρ̄ is ordinary. Import the Hida and soluble base-change inputs giving these local properties. The supersingular cases use Taylor's l>3 theorem and the separate prime-three input.
 
@@ -1120,18 +1215,18 @@ The sources are [KW Annals][kw-annals-2009], Theorem 2.1, p. 234, proof of Theor
 *Needs:* [Layer 4, The niveau-two potential-modularity theorem](#target-taylor-2006-potential-modularity-when-residually-irreducible-at-l); [Layer 4, The ordinary auxiliary Tate module](#target-taylor-lemma-1-5-ordinary-shape-of-the-lambda-adic-tate-module-at-l); [Layer 4, The Serre-weight level-one witness](#target-taylor-2006-theorem-5-7-serre-weight-at-level-one); `HilbertModularVarietiesAndShimuraCurves:H6`; `GL2AutomorphicRepresentationsAndTransfer:R17.4`; `HilbertModularVarietiesAndShimuraCurves:R18.3`; `PadicFamilies:L5/hida-control-nearly-ordinary`; `PadicFamilies:L5`; [Layer 3, The twisted Hilbert moduli application](#target-local-points-at-l-p-infinity-and-the-point-over-e).
 
 <a id="target-snowden-totally-real-potential-residual-modularity"></a>
-### 4.13 Residual modularity over totally real fields
+### 4.15 Residual modularity over totally real fields
 
-Let F be totally real, p odd, and ρ̄ : G_F → GL₂(F̄_p) continuous and odd. Fix finite-order ψ with det ρ̄ = ψ̄χ̄_p, a finite M/F and a definite A/B/C type function t above p. Choose finite Galois M′/F containing M and a totally real Galois F′/F disjoint from M′ so that, for every further totally real F″/F′ disjoint from M′, ρ̄|G_F″ is the residual representation of a cuspidal parallel-weight-two form f with determinant ψχ_p and t_f=t|F″. One may require F′ to split at a finite S when its prescribed p-types are compatible with the residual local representations there. Ordinary type A is included. Snowden's conditions (A1),(A2) apply to the auxiliary and given-lift arguments; they are not assumptions on the original ρ̄ in this residual theorem.
+Let F be totally real, p odd, and ρ̄ : G_F → GL₂(F̄_p) continuous and odd. Fix finite-order ψ with det ρ̄ = ψ̄χ̄_p, a finite M/F and a definite A/B/C type function t above p. Here Snowden's local types of a weight-two representation of G_(F_v) with determinant χ_p times a finite-order character are: A, potentially crystalline and ordinary; B, potentially crystalline and not ordinary; C, potentially an extension of the trivial character by χ_p. A type function assigns one letter to each v|p, and definite excludes the ambiguous A/C; for a parallel weight-two eigenform the type at v is A or B exactly when π_v is principal series or supercuspidal, and C exactly when π_v is special. Choose finite Galois M′/F containing M and a totally real Galois F′/F disjoint from M′ so that, for every further totally real F″/F′ disjoint from M′, ρ̄|G_F″ is the residual representation of a cuspidal parallel-weight-two form f with determinant ψχ_p and t_f=t|F″. One may require F′ to split at a finite S when its prescribed p-types are compatible with the residual local representations there. Ordinary type A is included. Snowden's conditions (A1),(A2) apply to the auxiliary and given-lift arguments; they are not assumptions on the original ρ̄ in this residual theorem.
 
 Use `snowdenPotentialResidual` for this construction.
 
-The sources are [Snowden v1][snowden], Theorem 5.1.1 and Proposition 8.2.1, pp. 15, 26.
+The sources are [Snowden v1][snowden], §2.1 and Remark 2.1.1 (the local types), p. 4; Theorem 5.1.1 and Proposition 8.2.1, pp. 15, 26.
 
 *Needs:* [Layer 3, The Weil-restricted moduli application](#target-restriction-of-scalars-moduli-application); [Layer 2, Soluble preliminary fields and split extensions](#target-snowden-soluble-preliminary-field); `AutomorphicGaloisRepresentations:R19.2`; `AutomorphicGaloisRepresentations:R19.6`; `GL2AutomorphicRepresentationsAndTransfer:R17.6`; `GL2ModularityLifting:R22.5`.
 
 <a id="target-bcgp-controlled-residual-modularity"></a>
-### 4.14 The two-prime ordinary refinement
+### 4.16 The two-prime ordinary refinement
 
 Let F₁/F be finite totally real, and let distinct p,q>2 split completely in F₁. Suppose r : G_F₁ → GL₂(F̄_q) has determinant ε̄_q⁻¹, is unramified above p, and at every v|q has shape diag(λ_(α_v), ε̄_q⁻¹λ_(α_v)⁻¹), where λ_α is the unramified character taking arithmetic Frobenius to α. There is a totally real Galois F′/F, split above p and q and disjoint from F₁F_avoid, and a q-ordinary weight-zero cuspidal π over F₁F′ with trivial central character, unramified above pq, whose residual representation is r|G_F₁F′.
 
@@ -1158,7 +1253,7 @@ Take the lift as data and use the residual modular witnesses in the appropriate 
 <a id="target-potential-modularity-of-a-given-lift"></a>
 ### 5.1 Potential modularity of a given lift
 
-Take an S-type ρ̄ satisfying the KW I Theorem 5.1 hypotheses, and an odd finitely ramified lift ρ, minimal away from p as required by its lifting data, with one of the A/B/C p-types. At p=2 allow crystalline weight two, or semistable weight two when ρ̄ is not finite at 2. Select a totally real Galois F preserving the residual image and cyclotomic irreducibility, unramified at p and split there when the residual local restriction is irreducible or k=p+1. The residual witnesses and allowable base change give (α),(β); the R22.5/R22.6 lifting theorem makes the **given ρ|G_F** the representation of a holomorphic cuspidal form. Existence of ρ is a separate premise. General regular de Rham lifts require a lifting theorem of that wider scope.
+Take an S-type ρ̄ satisfying the KW I Theorem 5.1 hypotheses, and an odd finitely ramified lift ρ, minimal away from p as required by its lifting data, with one of the A/B/C p-types. At p=2 allow crystalline weight two, or semistable weight two when ρ̄ is not finite at 2. Select a totally real Galois F preserving the residual image and cyclotomic irreducibility, unramified at p and split there when the residual local restriction is irreducible or k=p+1. The residual witnesses and allowable base change give (α),(β); the equivalence of modularity over F and over a soluble extension is GL2ModularityLifting R22.5, and the soluble extension with the prescribed completions is that of Layer 2; the R22.5/R22.6 lifting theorem makes the **given ρ|G_F** the representation of a holomorphic cuspidal form. Existence of ρ is a separate premise. General regular de Rham lifts require a lifting theorem of that wider scope.
 
 Use `potentialModularityGivenLift` for this construction.
 
@@ -1202,7 +1297,7 @@ Use `bcgpLocalData` for this construction.
 
 The sources are [Boxer–Calegari–Gee–Pilloni][bcgp-published], Proposition 9.1.12 and proof, pp. 458–459.
 
-*Needs:* [Layer 2, Potential realization of local Galois data](#target-potential-global-galois-local-data); `AbelianSchemesAndArithmeticModuli:A6`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`; [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `SchemeAndStackFoundations:SF.2`.
+*Needs:* [Layer 2, Potential realization of local Galois data](#target-potential-global-galois-local-data); `AbelianSchemesAndArithmeticModuli:A6`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`; `ReductiveGroupsPartII` RG2.0a.2 (`weil-restriction-smoothness-and-immersions`, `weil-restriction-points-topology`); `AlgebraicModuliForArithmeticGeometry:R09.3` (`r093-restriction-algebraicity`, `r093-restriction-base-change`); [Layer 2, Three kinds of local conditions](#target-moret-bailly-three-local-conditions); `InverseGaloisAndArithmeticFundamentalGroups` IG.1.1 and IG.2.6.
 
 ### Examples
 
@@ -1244,7 +1339,7 @@ Use residual modularity over an auxiliary totally real field to prove module fin
 <a id="target-auxiliary-totally-real-field-for-the-finiteness-argument"></a>
 ### 8.1 The auxiliary field for global finiteness
 
-Construct the auxiliary totally real F/ℚ for the fixed-determinant global deformation problem. Preserve nonsolubility at p=2 or cyclotomic absolute irreducibility at p>2; arrange splitting at p when the local residual restriction is irreducible and unramifiedness otherwise. Require ψ_F unramified away from p and trivial local residual restrictions above p when the original restriction is unramified.
+Construct the auxiliary totally real F/ℚ for the fixed-determinant global deformation problem. The field with its preserved image, splitting or unramifiedness at p, the character ψ_F and the two residual witnesses is SerreWeightAndLevelOptimisation §6.6 (`kwOptimisationData`, the Khare–Wintenberger II §8.1 field); this target adds the requirement on the universal residual representation τ and the type-A/B/C projections below. Preserve nonsolubility at p=2 or cyclotomic absolute irreducibility at p>2; arrange splitting at p when the local residual restriction is irreducible and unramifiedness otherwise. Require ψ_F unramified away from p and trivial local residual restrictions above p when the original restriction is unramified.
 
 Supply the weight-k(ρ̄), everywhere-unramified cuspidal witness of central character ψ_F for type A only under p≠2 or k(ρ̄)=2. Supply the weight-two witness of the same central character, unramified away from p and of conductor dividing v at v|p, for types B/C; at p=2,k=4 it must arise from the specified semistable local quotient. Arrange splitting at p for the weight-p+1 lifting argument. Finally require the mod-p universal representation τ|G_F to be unramified away from p and infinity. This last condition is part of the finiteness construction, not a consequence of the existence of a single modular witness.
 
@@ -1269,12 +1364,12 @@ Use `AuxiliaryField` for this construction.
 
 The sources are [KW II][kw-serre-modularity-II], proof of Theorem 10.1, p. 90, proof of Theorem 10.1, first bullet, p. 90, proof of Theorem 10.1, third bullet, p. 91, proof of Theorem 10.1, fourth bullet, p. 91.
 
-*Needs:* [Layer 4, Controlled residual potential modularity](#target-kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-f); [Layer 6, Local control and avoidance](#target-control-of-the-extension); `GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts`; `LocalGaloisDeformationRings:R08.2`.
+*Needs:* `SerreWeightAndLevelOptimisation` §6.6 (`kwOptimisationData`); [Layer 4, Controlled residual potential modularity](#target-kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-f); [Layer 6, Local control and avoidance](#target-control-of-the-extension); `GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts`; `LocalGaloisDeformationRings:R08.2`.
 
 <a id="target-kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring"></a>
 ### 8.2 Finiteness of the KW unframed ring
 
-Under the residual-image, determinant and A/B/C local-condition hypotheses of KW II Theorem 10.1, prove that the fixed-determinant **unframed** global ring R̄_S^ψ is finite as a ℤ_p-module. Restrict its universal mod-p representation to the auxiliary F, apply the appropriate R=T finiteness over F, and deduce that the universal residual image over ℚ is finite. The finite-image criterion then yields module finiteness. Do not replace this last step by an unproved finiteness assertion for the restriction map between global rings. The framed ring is a formal power-series enlargement by 4|S|−1 variables and is not asserted module-finite.
+Under the residual-image, determinant and A/B/C local-condition hypotheses of KW II Theorem 10.1, prove that the fixed-determinant **unframed** global ring R̄_S^ψ is finite as a ℤ_p-module. Restrict its universal mod-p representation to the auxiliary F, apply the appropriate R=T finiteness over F, and deduce that the universal residual image over ℚ is finite. The finite-image criterion then yields module finiteness. Equivalently, since ρ̄|G_F is absolutely irreducible, restriction makes the global ring over ℚ a finite module over the ring over F (GlobalGaloisDeformations §4.2), and the latter is finite over ℤ_p by the R=T theorem over F. The framed ring is a formal power-series enlargement by 4|S|−1 variables and is not asserted module-finite.
 
 Assume S-type, the odd-prime weight interval 2≤k≤p+1 and cyclotomic absolute irreducibility, or nonsoluble image at p=2. The local conditions are those of KW II Theorem 3.1; for p>2 condition C is used only when k=p+1. Over F use minimal odd deformations unramified away from p with determinant ψ_Fχ_p and the uniform A/B/C condition at p.
 
@@ -1282,31 +1377,125 @@ Use `kwGlobalFiniteness` for this construction.
 
 The sources are [KW II][kw-serre-modularity-II], proof of Theorem 10.1, p. 91, proof of Theorem 10.1, pp. 91-92, end of proof of Theorem 10.1, p. 92, Theorem 10.1, p. 90.
 
-*Needs:* `GlobalGaloisDeformations:R04.6/kw-deformation-data`; `GlobalGaloisDeformations:R04.6/trace-subring-universal-representation`; [Layer 8, The auxiliary field for global finiteness](#target-auxiliary-totally-real-field-for-the-finiteness-argument); `DeformationAndDerivedPatchingAlgebra:R03.4`; `GL2ModularityLifting:R22.5/kw-odd-prime-lifting`; `GL2ModularityLifting:R22.6/kw-dyadic-lifting`; `GL2ModularityLifting:R22.3/minimal-ring-finite`; `AutomorphicGaloisRepresentations:R19.6`.
+*Needs:* `GlobalGaloisDeformations:R04.6/kw-deformation-data`; `GlobalGaloisDeformations:R04.6/trace-subring-universal-representation`; [Layer 8, The auxiliary field for global finiteness](#target-auxiliary-totally-real-field-for-the-finiteness-argument); `DeformationAndDerivedPatchingAlgebra:R03.4`; `GL2ModularityLifting:R22.5/kw-odd-prime-lifting`; `GL2ModularityLifting:R22.6/kw-dyadic-lifting`; `GL2ModularityLifting:R22.3/minimal-ring-finite`; `AutomorphicGaloisRepresentations:R19.6`; `GlobalGaloisDeformations:R04.4/restriction-finiteness`.
+
+<a id="target-rank-two-definite-unitary-ordinary-hecke-algebra"></a>
+### 8.3 Definite unitary groups in two variables and their ordinary Hecke algebras
+
+Let L be an imaginary CM field with maximal totally real subfield L⁺ such that L/L⁺ is unramified at every finite place (so [L⁺:ℚ] is even), let l be odd with every place of L⁺ above l split in L, and let G/O_(L⁺) be the unitary group in two variables of the standard hermitian form, quasi-split at every finite place and compact at every infinite place, with its integral model and the isomorphisms ι_w:G(L⁺_v)≅GL₂(L_w) at split places v=ww^c. For a finite extension K/ℚ_l with integers O containing every embedding of L, a weight λ indexed by the embeddings above the chosen places ṽ|l, characters χ_v of Iwahori quotients at a finite set R of split places, and an open compact U, let S_(λ,{χ_v})(U,A) be the O-module of functions f:G(L⁺)\G(A^∞_(L⁺))→M_(λ,{χ_v})⊗A with f(gu)=u_(l,R)⁻¹f(g). Define:
+
+- the Hecke operators T_w^j (j=1,2) at split places outside a finite set T and the Hecke algebra T^T_(λ,{χ_v})(U,A), a finite O-algebra, reduced for A=O;
+- the Iwahori levels U(l^(b,c)), the normalized operators U^j_(λ,ϖ) and diamond operators ⟨u⟩ for u in the diagonal torus T(O_(L⁺,l)), and the ordinary idempotent e=lim U(l)^(r!) with S^ord=eS;
+- the big ordinary Hecke algebra T^(T,ord)_({χ_v})(U(l^∞),O)=lim_c T^(T,ord)(U(l^(c,c)),O), an algebra over Λ=O⟦T(l)⟧, T(l) the pro-l part of T(O_(L⁺,l)).
+
+The construction has the following API:
+
+- `DefiniteUnitaryTwo.group`: G with ι_w at split places; it exists under the parity of [L⁺:ℚ] above.
+- `DefiniteUnitaryTwo.forms`: S_(λ,{χ_v})(U,A); exact in A when no t⁻¹G(L⁺)t∩U has an element of order l, and free over O[U/V] for normal V⊆U with U/V an abelian l-group.
+- `DefiniteUnitaryTwo.heckeAlgebra`: T^T_(λ,{χ_v})(U,A), commutative and finite over O.
+- `DefiniteUnitaryTwo.ordinaryIdempotent`: e on S(U(l^(b,c)),A); S^ord is the largest submodule on which every U^j is bijective.
+- `DefiniteUnitaryTwo.ordinaryHeckeAlgebra`: T^(T,ord)(U(l^∞),O) over Λ.
+- `DefiniteUnitaryTwo.ordinary_free_over_lambda`: at a level with no element of order l in any t⁻¹G(L⁺)t∩U, the Pontryagin dual of eS(U(l^∞),K/O) is free of finite rank over Λ; hence T^(T,ord) is finite over Λ.
+- `DefiniteUnitaryTwo.hida_classicality`: at an arithmetic prime ℘_(λ,α) of Λ the specialization of the dual ordinary module is the dual of the classical ordinary forms of weight λ and nebentypus α, compatibly with the Hecke algebras up to a nilpotent kernel.
+
+**Checks.**
+
+- `unitaryTwo_ordinary_zero`: if S(U(l^(b,c)),A)=0 then eS=0.
+- `unitaryTwo_weight_zero_functions`: for λ=0 and no characters χ_v, S_0(U,O) is the module of O-valued functions on the finite set G(L⁺)\G(A^∞)/U, of rank its cardinality when the level is l-torsion free.
+- `unitaryTwo_rank_one_comparison`: the determinant of G is the norm-one torus of L/L⁺; for n=1 the same constructions give functions on a finite quotient of the norm-one idele class group, U^1 is invertible and e=1.
+- `unitaryTwo_parity`: a CM extension L/L⁺ unramified at every finite place has [L⁺:ℚ] even; for instance no imaginary quadratic field is unramified over ℚ at every finite place, so L⁺=ℚ never occurs.
+
+Use `DefiniteUnitaryTwo.ordinaryHeckeAlgebra` for this construction.
+
+The sources are [Thorne][thorne], §6, the group, Definition 6.1, Proposition 6.2 and Lemmas 6.3–6.4, pp. 30–35; §8, the Iwahori levels, the operators U^j and ⟨u⟩, Definition 8.1, Proposition 8.2 and Definition 8.3, pp. 44–46; [Geraghty, ordinary][geraghty-ordinary], §2.2–§2.6 (Definitions 2.2.1–2.2.4, 2.3.1, 2.4.1–2.4.5, Lemma 2.5.2, Propositions 2.5.3 and 2.6.1, Lemma 2.6.4), pp. 6–22.
+
+*Needs:* `AutomorphicFormsOnReductiveGroups:AF.5/algebraic-modular-forms` and `AutomorphicFormsOnReductiveGroups:AF.4/coefficient-lattices` (algebraic modular forms on groups compact at infinity, and the coefficient lattices); `tauceti:TauCetiRoadmap/AdelicAlgebraicGroups`; `PadicFamilies:L0a/finite-ordinary-projector`; `PadicFamilies:L0a/ordinary-part-bijective`; `LocalGaloisDeformationRings:L8/ordinary-coefficient-ring` (the ring Λ).
+
+<a id="target-rank-two-unitary-galois-representations"></a>
+### 8.4 Galois representations on the rank-two ordinary Hecke algebra
+
+With the notation of §8.3: (1) Every irreducible constituent π of S_(λ,{χ_v})(Q̄_l) has a continuous semisimple r_l(π):G_L→GL₂(Q̄_l) with r_l(π)^c≅r_l(π)^∨(−1), local–global compatibility up to semisimplification at split places outside S_l∪R, the prescribed Iwahori character on inertia at R, and de Rham (crystalline at unramified π_v) restrictions at the places above l of the corresponding weight. (2) For a maximal ideal m of T^T_λ(U,O) there is a residual r̄_m:G_L→GL₂(T/m) whose Frobenius characteristic polynomials at split w∉T are X²−T_w^1X+(Nw)T_w^2 modulo m; m is non-Eisenstein when r̄_m is absolutely irreducible. For non-Eisenstein m, r̄_m extends to r̄_m:G_(L⁺)→𝒢₂(T/m) with multiplier ε^(−1)δ_(L/L⁺)^(μ_m), and lifts uniquely up to strict equivalence to r_m:G_(L⁺)→𝒢₂(T^T_λ(U,O)_m) with the same Frobenius polynomials. (3) The same holds for the big ordinary Hecke algebra: r_m:G_(L⁺)→𝒢₂(T^(ord)_m), and at each v|l its restriction factors through Geraghty's ordinary lifting ring over Λ_ṽ, so every specialization is upper triangular with diagonal characters the push-forward of the universal ones. (4) Base change and descent: a RACSDC π of GL₂(A_L) of weight ι_*λ descends to an automorphic representation of G(A_(L⁺)) with the same split-place components, and conversely every automorphic representation of G whose Galois representation is irreducible has a RACSDC base change whose Galois representation is r_l(π); an O-algebra map from the ordinary Hecke algebra whose restriction to Λ is arithmetic factors through a classical algebra and comes from such a π.
+
+Use `DefiniteUnitaryTwo.heckeGaloisRepresentation` for this construction.
+
+The sources are [Thorne][thorne], §6, Theorem 6.5 and Propositions 6.6–6.7, pp. 35–36; §8, Propositions 8.4–8.5, p. 47; [Geraghty, ordinary][geraghty-ordinary], §2.7, Propositions 2.7.2–2.7.4, pp. 24–26, and §3.1, Corollary 3.1.4, pp. 32–33; [BLGGT v4][blggt-2014-v4], §2.2 (polarized automorphic representations and their Galois representations), pp. 35–37.
+
+*Needs:* [Layer 8, Definite unitary groups in two variables and their ordinary Hecke algebras](#target-rank-two-definite-unitary-ordinary-hecke-algebra); `EndoscopicTransferAndUnitaryTraceComparison` §6.29 (Labesse's base change and descent between unitary groups and GL_n over CM fields); `AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline`; `AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime`; `AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type`; `AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal`; `ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group`; `GlobalGaloisDeformations:R04.2/carayol-trace-theorem`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants` (pseudocharacters and Cayley–Hamilton reconstruction); `LocalGaloisDeformationRings:L7/ordinary-flag-scheme`.
+
+<a id="target-rank-two-ordinary-r-equals-t"></a>
+### 8.5 Rank-two ordinary R=T for adequate residual image
+
+With the notation of §8.3 and §8.4, with L/L⁺ unramified at all finite places, and let T=R∪S_l∪{v₁} be split places with v₁∤l. Assume r̄_m(G_(L_ṽ)) is trivial for v∈R∪S_l; Nv≡1 mod l for v∈R, with l^N>2 when l^N exactly divides Nv−1; r̄_m unramified above v₁ with Nv₁≢1 mod l; U_v the Iwahori subgroup at R∪{v₁}, so that no t⁻¹G(L⁺)t∩U has an element of order l; m non-Eisenstein in the big ordinary Hecke algebra; ζ_l∉L and ρ̄=r̄_m|G_L with ρ̄(G_(L(ζ_l))) adequate. Let 𝒮 be the polarized deformation problem over Λ with the Ihara-avoidance rings at R (inertia acting with characteristic polynomial given by characters trivial mod λ), Geraghty's ordinary rings over Λ_ṽ at S_l and the unipotent ring at v₁. Then r_m is of type 𝒮, and every lifting r of r̄_m of type 𝒮 (with trivial characters at R) that is unramified above v₁, for which some Hecke specialization is also unramified there, is conjugate to a specialization of r_m. Moreover μ_m≡0 mod 2, and with the unramified ring at v₁ the universal ring R^univ is a finite Λ-module.
+
+In rank two the adequacy notion of Thorne's 2012 paper and the corrected one of his 2017 paper agree because l∤2, and Thorne's 2017 Proposition 7.2 replaces the Taylor–Wiles prime proposition, which needs ζ_l∉L, so the theorem is stated with that hypothesis. By the rank-two classification, adequacy of ρ̄(G_(L(ζ_l))) means absolute irreducibility, except that projective image PSL₂(F₃) for l=3 and PSL₂(F₅) for l=5 are not adequate.
+
+The proof is Thorne's: Taylor–Wiles data of size q exist with the generator count q−[L⁺:ℚ]−[L⁺:ℚ](1−(−1)^(μ_m)) (adequate Taylor–Wiles primes); the Taylor–Wiles level structures with the parahoric projections identify the patched modules; the ordinary forms are free over Λ[Δ_Q]; patching gives a module over a power-series ring whose support is the union of the components of the Ihara-avoidance rings; Taylor's comparison of the unipotent and the distinct-character problems modulo λ forces the support to be everything, and the reduced-ness of the Hecke algebra concludes.
+
+**Checks.**
+
+- `rankTwoRT_adequacy_l3`: for l=3 a residual representation with projective image PSL₂(F₃) is absolutely irreducible on G_(L(ζ₃)) but not adequate, so the theorem does not apply.
+- `rankTwoRT_zeta_in_L`: if ζ_l∈L the corrected Taylor–Wiles prime argument is unavailable; the hypothesis ζ_l∉L is part of the statement.
+- `rankTwoRT_v1`: the auxiliary place v₁ with Nv₁≢1 mod l is what makes the level l-torsion free; dropping it, finite stabilizers of order l can occur.
+
+Use `rankTwoOrdinaryRT` for this construction.
+
+The sources are [Thorne][thorne], §4, Definition 4.1, Lemma 4.3 and Proposition 4.4, pp. 15–18; §5, the parahoric operators and Propositions 5.8–5.12, pp. 19–30; §8, 'Another patching argument', Theorem 8.6 and its proof and Corollary 8.7, pp. 48–53; [Thorne, adequacy][thorne-2017], §7, Propositions 7.1–7.2 and Corollary 7.3, pp. 30–32; [Geraghty, ordinary][geraghty-ordinary], §4.3, Theorem 4.3.1, p. 51.
+
+*Needs:* [Layer 8, Galois representations on the rank-two ordinary Hecke algebra](#target-rank-two-unitary-galois-representations); `GlobalGaloisDeformations:G7/polarized-deformation-problem`; `GlobalGaloisDeformations:G7/polarized-presentation`; `GlobalGaloisDeformations:G7/polarized-tangent-obstruction`; `GlobalGaloisDeformations` §8.5 (Taylor–Wiles places in rank n); `ArithmeticGaloisRepresentations:G7/adequate-subgroup`; `ArithmeticGaloisRepresentations` Layer 4 (rank-two adequacy, `isAdequate_rank_two`); `ArithmeticGaloisDuality:R02.4`; `LocalGaloisDeformationRings:R08.2/ihara-avoidance-components`; `LocalGaloisDeformationRings:L7/trivial-residual-flag-ring`; `LocalGaloisDeformationRings:L7/ordinary-flag-scheme`; `DeformationAndDerivedPatchingAlgebra:R03.5`; `DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components`; `DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-support-theorem`; `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
+
+<a id="target-rank-two-ordinary-automorphy-and-finiteness"></a>
+### 8.6 Rank-two ordinary automorphy lifting and ordinary finiteness
+
+Let F be CM or totally real and l odd with ζ_l∉F. (1) Lifting. Let (r,μ) be a two-dimensional algebraic polarized l-adic representation of G_F with r̄ irreducible and r̄(G_(F(ζ_l))) adequate, r ordinary at every place above l, and (r̄,μ̄) ordinarily automorphic. Then (r,μ) is ordinarily automorphic, of level prime to l if r is crystalline above l. (2) Finiteness. Let F be imaginary CM, S a finite set of places of F⁺ containing those above l and split in F, (π,χ) an ι-ordinary RAECSDC representation of GL₂(A_F) unramified outside S with adequate r̄_(l,ι)(π)(G_(F(ζ_l))), μ an algebraic character of G_(F⁺) with μ̄=r̄_(l,ι)(χ)ε̄^(−1) and HT_τ(μ)={w}, and for every τ a pair H_τ of distinct integers with H_(τc)={w−h:h∈H_τ}. With unrestricted local conditions away from l and the semistable ordinary rings of Hodge type {H_τ} above l, the universal ring of the polarized deformation problem of r̄ with multiplier μ is a finite O-module. The weights H_τ need not be those of π.
+
+For (1) with F totally real, make a quadratic CM base change disjoint from the field cut out by r̄ over F(ζ_l) and descend at the end. For F imaginary, twist so that, in Thorne's normalization, the Hecke multiplier is δ_(F/F⁺)^n, which is trivial for n=2, make soluble CM base changes over which the hypotheses of the rank-two ordinary R=T hold (places above l and the ramified places split, r̄ trivial there, Iwahori-fixed vectors, the congruences Nv≡1 mod l with l^N>2, and an auxiliary place v₁), apply it, and descend by soluble descent. For (2), make the analogous soluble CM base change M/F, use the finiteness of the restriction map of global rings to reduce to M, and specialize the Λ-finiteness of the rank-two ordinary R=T at the arithmetic prime of the chosen weight.
+
+**Checks.**
+
+- `rankTwoLift_totally_real`: for F totally real and a weight-two ordinary r with adequate residual image, (1) applies after quadratic CM base change; the output is a cuspidal Hilbert form over F.
+- `rankTwoFinite_weights_free`: the Hodge type {H_τ} in (2) may differ from that of π, but must satisfy H_(τc)=w−H_τ for the same w as μ: a polarized lift with multiplier μ has Hodge–Tate numbers with this symmetry, so a type violating it carries no characteristic-zero point.
+- `rankTwoFinite_framed`: the conclusion is for the unframed polarized universal ring; a framed ring adds formal variables and is not finite over O.
+
+Use `rankTwoOrdinaryAutomorphyAndFiniteness` for this construction.
+
+The sources are [BLGGT v4][blggt-2014-v4], §2.4, Theorems 2.4.1 and 2.4.2, pp. 39–40; [Thorne][thorne], §9, Theorem 9.1 and its proof, pp. 53–54, and §10, Theorem 10.2 and its proof, pp. 56–58; [Gee–Geraghty][gee-geraghty], Lemma 3.2.5 and its proof, p. 14.
+
+*Needs:* [Layer 8, Rank-two ordinary R=T for adequate residual image](#target-rank-two-ordinary-r-equals-t); [Layer 8, Galois representations on the rank-two ordinary Hecke algebra](#target-rank-two-unitary-galois-representations); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent`; `AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation`; `OrdinaryAutomorphicFormsAndModularityLifting` §2.1 (nearly ordinary automorphic representations, the rank-two ι-ordinary notion); `GlobalGaloisDeformations:R04.4/restriction-finiteness`; `GlobalGaloisDeformations:G7/polarized-representability`; `LocalGaloisDeformationRings:L7/semistable-ordinary-quotient`.
 
 <a id="target-ordinary-global-ring-finiteness"></a>
-### 8.3 Ordinary unframed-ring finiteness
+### 8.7 Ordinary unframed-ring finiteness
 
-For p>2 and totally real F, fix a totally odd absolutely irreducible ρ̄, adequate on G_(F(ζ_p)), with ζ_p∉F. Fix a determinant and S containing p and all ramification, and assume an ordinary regular algebraic cuspidal lift of that determinant exists. At p use Thorne's semistable ordinary local quotient of fixed regular Hodge type; away from p use unrestricted fixed-determinant conditions. With the polarized CM-extension adapter and finite restriction-map comparison of Thorne Theorem 10.2, the unframed GL₂ global ring is finite over O. Further away-p quotients remain finite. Applying this conclusion to an ordinary flag ring, R† or a different potentially crystalline component requires an actual local-ring/base-change comparison.
+For p>2 and totally real F, fix a totally odd absolutely irreducible ρ̄, adequate on G_(F(ζ_p)), with ζ_p∉F. Let O be the integers of a finite p-adic coefficient field containing all labeled embeddings used below. Fix a continuous determinant d lifting det ρ̄ and S containing p and all ramification. Require an ordinary RAESDC cuspidal seed π with residual representation ρ̄ and **characteristic-zero determinant d**. At p fix regular labeled Hodge multisets H_τ={h_(τ,1),h_(τ,2)}, with sum HT_τ(d), and use the reduced O-flat semistable ordinary local quotient of this type. Away from p use unrestricted fixed-determinant local conditions. The fixed-determinant **unframed** global GL₂ ring R_F is finite over O; further away-p quotients remain finite.
 
-**Gap.** Thorne’s Theorem 10.2 is polarized over a CM field with fixed semistable ordinary local rings. A totally real GL₂ adapter and a finite restriction map for those exact local conditions are required; absolute irreducibility and the name “ordinary ring” do not establish either assertion.
+The polarized input is the finiteness statement (2) of §8.6, the rank-two case of Thorne's Theorem 10.2: for a CM extension K/F, a polarized residual prolongation r̄:G_F→𝒢₂(k) and a fixed multiplier, an ordinary RAECSDC seed over K, adequacy on G_(K(ζ_p)), ζ_p∉K, a finite S split in K, unrestricted away-p lifting rings and the fixed symmetric regular Hodge-type semistable ordinary rings at p, the unframed polarized ring R_K is finite over O. The fixed Hodge type need not equal the seed's weight, but its symmetry must use the same multiplier.
+
+Construct the totally real adapter as follows.
+
+1. Choose a CM quadratic K/F split at every v∈S and disjoint from the residual-kernel/cyclotomic field. Quadratic weak approximation allows negative signs at all real places and local squares at S; an additional split-place avoidance prescription prevents containment in the finite avoidance field. Disjointness preserves the required residual image on G_(K(ζ_p)), hence adequacy, and ensures ζ_p∉K. Soluble base change of π is cuspidal because its restricted residual representation is absolutely irreducible.
+2. Use the alternating determinant pairing of a rank-two representation to prolong every GL₂ deformation ρ of determinant d to 𝒢₂, with fixed multiplier ν=d. Explicitly, put J=(0,1;−1,0), send g∈G_K to (ρ(g),d(g)), and a complex conjugation c to (ρ(c)J⁻¹,1)j. Oddness and p>2 give det ρ(c)=−1 and ρ(c)²=1; ρ(c)J⁻¹ is symmetric, so the square of this last element is 1. The identity Jρ(g)^−tJ⁻¹=ρ(g)/d(g) checks conjugation. The multiplier at c is −1, and μ=dε is even: this is the κ=0 prolongation. This construction, up to strict equivalence, is natural in the coefficient algebra; it is not a separately chosen polarization for each point.
+3. At each chosen w|v∈S, K_w=F_v. Restriction therefore identifies the selected local quotients, including their labeled Hodge types and the ordinary condition. The equality of the two Hodge sums with HT(d) gives the conjugate symmetry required by the multiplier. At nonsplit places outside S only the fixed CM component character is allowed to ramify; the underlying GL₂ representation is unramified. Thorne's G_(F,S) is Gal(K(S)/F), not the absolute Galois group of a totally real extension unramified outside S.
+4. Universality gives R_K→R_F. The composite of the forgetful map from the unframed GL₂ ring of ρ̄|G_K to R_K with R_K→R_F is restriction of GL₂ deformations from F to K, and R_F is finite over the GL₂ ring of ρ̄|G_K because ρ̄|G_K is absolutely irreducible (GlobalGaloisDeformations §4.2, the argument of Gee–Geraghty Lemma 3.2.5: the closed fibre has finite image, traces generate, Nakayama). Hence R_F is a finite R_K-module, in the direction **extension-field ring → original-field ring**. Finiteness of R_K over O concludes the argument.
+
+**Checks.** The identity extension gives the identity ring map. A free framing variable produces O[[x]], whose reduction k[[x]] is infinite: the argument does not prove finiteness of a framed ring. A local quotient selected by an ordinary flag with variable Hodge characters fails step 3; fixed regular type and a comparison of quotients are indispensable. A seed with the same residual determinant but a different characteristic-zero determinant fails the fixed-multiplier input. Absolute irreducibility alone also does not supply adequacy at the small primes.
 
 Use `ordinaryGlobalFiniteness` for this construction.
 
-The sources are [Thorne][thorne], Theorem 10.2, setup and proof, author pp. 56–58.
+The sources are [Thorne][thorne], §3, pp. 7–8, Theorem 10.2, setup and proof, author pp. 56–58, and Corollary 8.7, p. 53; [Gee–Geraghty][gee-geraghty], Lemma 3.2.5 and proof, p. 14. The rank-two determinant pairing gives the explicit prolongation formula above.
 
-*Needs:* `OrdinaryAutomorphicFormsAndModularityLifting:R21.4`; `GlobalGaloisDeformations:R04.6`; `LocalGaloisDeformationRings:L8`; [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions).
+*Needs:* [Layer 8, Rank-two ordinary automorphy lifting and ordinary finiteness](#target-rank-two-ordinary-automorphy-and-finiteness); `GlobalGaloisDeformations:R04.4/restriction-finiteness`; `GlobalGaloisDeformations:G7/polarized-deformation-problem`; `ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group`; `LocalGaloisDeformationRings:L7/semistable-ordinary-quotient`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`; [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions).
 
 <a id="target-cg-ordinary-ring-finiteness"></a>
-### 8.4 The Calegari–Geraghty finiteness application
+### 8.8 The Calegari–Geraghty finiteness application
 
-In Calegari–Geraghty Theorem 4.8's setting, take p≥3 and an absolutely irreducible modular ρ̄ of G_ℚ, twist-minimal away from p. For each harmless-prime character φ fix χ_φ = ε det(ρ̄) ε̄⁻¹φ, use the framed ordinary R† at p and unrestricted fixed-determinant local rings at the other ramified places. Prove finiteness over O of the corresponding unframed R_φ, including the scalar unramified-at-p branch. Its framed enlargement remains a power-series ring over it. This theorem supplies the finiteness input to the multiplicity argument; the ordinary-ring comparison is a prerequisite.
+In the scalar branch of Calegari–Geraghty Theorem 4.8, take p≥3 and an absolutely irreducible modular ρ̄ of G_ℚ, twist-minimal away from p, **unramified at p with scalar Frobenius**, whose restriction to G_ℚ(ζ_p) is adequate: by the rank-two classification this is absolute irreducibility on G_ℚ(ζ_p) except for projective image PSL₂(F₃) when p=3 and PSL₂(F₅) when p=5. Those two residual images are the part of the Calegari–Geraghty statement outside this target, whose finiteness input is the adequate one. For each harmless-prime character φ fix χ_φ = ε⟨det(ρ̄) ε̄⁻¹⟩φ, where the brackets denote the finite Teichmüller lift. Use the framed ordinary R† at p and unrestricted fixed-determinant local rings at the other ramified places. Prove finiteness over O of the corresponding unframed R_φ. Its framed enlargement remains a power-series ring over it. The version adjoining the Frobenius eigenvalue is a finite quadratic algebra over R_φ, so it is finite as well. This supplies the finiteness input to the multiplicity argument.
+
+After twisting the local residual scalar to 1, Theorem 3.19 with n=2 gives generic local matrices (εω⁻¹ λ(α⁻¹),*;0,λ(α)), with fixed determinant εω⁻¹. Kill the finite tame character ω by a soluble local extension, and spread these extensions into a soluble totally real field as in Layer 2. Restriction then lands in the fixed weight-two semistable ordinary quotient; prove this factorization as a map of complete local rings, using reduced O-flatness and the generic-point characterization, before applying finite restriction. The global seed must also be twisted by the half-power of its congruent-to-one finite determinant discrepancy, exactly as in the proof on PDF p. 67. For p odd that half-power exists on the pro-p finite character group. It is not a square root of ω.
 
 Use `cgRingFiniteness` for this construction.
 
-The sources are [Calegari–Geraghty][cg], Theorem 4.8 proof, PDF pp. 65–68, especially the finiteness paragraph on p. 68.
+The sources are [Calegari–Geraghty][cg], Theorem 3.19, PDF p. 39, and Theorem 4.8 proof, PDF pp. 65–68, especially the determinant twist and component patching on p. 67 and the finiteness paragraph on p. 68.
 
-*Needs:* [Layer 8, Ordinary unframed-ring finiteness](#target-ordinary-global-ring-finiteness); `OrdinaryAutomorphicFormsAndModularityLifting:R21.4`; `LocalGaloisDeformationRings:L8`.
+*Needs:* [Layer 8, Ordinary unframed-ring finiteness](#target-ordinary-global-ring-finiteness); `LocalGaloisDeformationRings:L8` (ordinary rings with a Frobenius eigenvalue, `L7/ordinary-ring-with-frobenius-eigenvalue`); `ArithmeticGaloisRepresentations` Layer 4 (rank-two adequacy); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions).
 
 ### Examples
 
@@ -1320,7 +1509,7 @@ This layer uses `AutomorphicGaloisRepresentations`, `DeformationAndDerivedPatchi
 ## Layer 9: Characteristic-zero points
 
 
-Combine a dimension lower bound and finiteness to obtain an integral coefficient-extension point. The representation is then specialized from the universal one; modularity is a later application.
+Combine a dimension lower bound and finiteness to obtain an integral coefficient-extension point. The representation is then specialized from the universal one; modularity is a separate, subsequent application.
 
 <a id="target-characteristic-zero-points-of-r-bar-s-psi-give-lifts-of-required-type"></a>
 ### 9.1 Points give lifts with the required local type
@@ -1338,13 +1527,19 @@ The sources are [KW II][kw-serre-modularity-II], proof of Proposition 4.5, p. 43
 
 Use Newton–Thorne Lemma 3.1 with p≥5, π RAESDC over totally real F, determinant ε⁻¹, weight zero and Steinberg at p, tame dihedral order p at v₀ with q_(v₀)≡−1 mod p, potential unramifiedness away from p, and residual image containing SL₂(F_(p^a)) for a>a₀(p). Select the ordinary potentially crystalline components at p, the Steinberg component at v₀, and the specified regular components elsewhere. Hida specialization and the explicit unipotently ramified lift establish local nonemptiness. The chosen global lift has determinant ε⁻²ω and Hodge–Tate weights {0,2}.
 
+Use the Hida specialization π′ of the proof of Lemma 3.1 as the ordinary seed of §8.7: its characteristic-zero determinant is ε⁻²ω and its local weights are {0,2}. The original π has determinant ε⁻¹ and cannot itself serve as that seed. At each v|p, choose the unique regular potentially crystalline component through r_(π′,ι)|G_(F_v). Its ordinary locus is a union of components, as the source checks by dimension and the fixed Hodge type. After a single soluble extension killing all the finite p-adic inertial types, the universal restrictions factor through the semistable ordinary local quotients of the same transported weights. Use the reduced O-flat quotient characterization to prove the ring maps, not just membership of one characteristic-zero point. Choose this extension disjoint from the residual-kernel/cyclotomic field. The SL₂(F_(p^a)) image and a>a₀(p) condition supply the required adequacy; the nonordinary Steinberg component at v₀ is permitted by the unrestricted away-p ring in §8.7. Finite restriction and §8.7 then give module finiteness of the original selected-component global quotient. Its dimension bound gives a characteristic-zero point.
+
+The automorphy of the extracted point is the lifting statement (1) of §8.6 (Thorne's Theorem 9.1 in rank two, after soluble CM base change and descent), applied with the ordinary seed π′; its residual image condition is the adequacy supplied by SL₂(F_(p^a))⊆ image with a>a₀(p).
+
+**Checks.** The determinants ε⁻¹ and ε⁻²ω have the same residual reduction but different characteristic-zero Hodge sums; this detects the wrong seed. A Steinberg p-adic point has nonzero N and does not belong to the selected potentially crystalline component. The Steinberg component at v₀ is allowed because v₀∤p; requiring ordinarity at every place would discard the needed local lift.
+
 The dimension bound gives dim R≥1 for the unframed global ring of these components, and the applicable finiteness comparison gives R finite over O. Hence R[1/p]≠0 and an integral characteristic-zero point exists over a finite coefficient extension. Its representation lies on the prescribed local components. Automorphy is obtained by a subsequent lifting application; it is not used as a premise for extracting this point.
 
 Use `newtonThornePoint` for this construction.
 
-The sources are [Newton–Thorne][newton-thorne], §3, p. 14, Khare–Wintenberger paragraph.
+The sources are [Newton–Thorne][newton-thorne], Lemma 3.1 and proof, §3, pp. 13–14 of arXiv:2212.03595v2; [Thorne][thorne], Theorem 9.1, pp. 53–54, and Theorem 10.2, pp. 56–58.
 
-*Needs:* [Layer 8, Ordinary unframed-ring finiteness](#target-ordinary-global-ring-finiteness); `DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension`; `GlobalGaloisDeformations:R04.6`; `LocalGaloisDeformationRings:R08.6`; `PadicFamilies:L5/hida-control-nearly-ordinary`; `PadicFamilies:L5`.
+*Needs:* [Layer 8, Ordinary unframed-ring finiteness](#target-ordinary-global-ring-finiteness); [Layer 8, Rank-two ordinary automorphy lifting and ordinary finiteness](#target-rank-two-ordinary-automorphy-and-finiteness); `DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension`; `GlobalGaloisDeformations:R04.3/global-dimension-lower-bound`; `GlobalGaloisDeformations:R04.6`; `LocalGaloisDeformationRings:R08.6/newton-thorne-local-quotients`; `OrdinaryAutomorphicFormsAndModularityLifting:R21.2/hilbert-ordinary-weight-change` (the Hida specialization π′); `OrdinaryAutomorphicFormsAndModularityLifting:R21.6/ordinary-steinberg-lift`.
 
 ### Examples
 
@@ -1641,7 +1836,7 @@ The sources are [KW II][kw-serre-modularity-II], §10.3.2, pp.93–94; [Skinner]
 <a id="target-kw-theorem-5-1-systems"></a>
 ### 12.4 Families through the four required lifts
 
-For an S-type residual representation satisfying the common KW I Theorem 5.1 hypotheses, and for each of the four lift types with its extra local conditions, obtain an E-rational odd irreducible almost-strict family whose selected p-member lifts ρ̄ with that type. In type 3, an irreducible residual q-member has weight i+2 or q+1−i up to twist. In type 4 for odd q, it has weight q+1−(i−j) or i−j when i>j+1, and weight q when i=j+1. These computations use Savitt's reductions of tame potentially Barsotti–Tate types.
+For an S-type residual representation satisfying the common KW I Theorem 5.1 hypotheses, and for each of the four lift types with its extra local conditions, obtain an E-rational odd irreducible almost-strict family whose selected p-member lifts ρ̄ with that type. In type 3, an irreducible residual q-member has weight i+2 or q+1−i up to twist. In type 4 for odd q, it has weight q+1−(i−j) or i−j when i>j+1, and weight q when i=j+1. These computations use Savitt's reductions of tame potentially Barsotti–Tate types (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5, `savitt-residual-types`).
 
 The q=2 order-three application has its separate KW argument giving residual weight two; Savitt's theorem is not applied there. Diamond's allowed pairs j=m(q+1)/p^r−1 and i=q−1−j, 0<m<p^r/2, exclude i=j+1 in that selection. The good polynomials lie in one finite coefficient field. For these constructed families, the full coefficient-prime theorem upgrades almost strictness to strictness and supplies purity with the stated geometric normalization.
 
@@ -1649,7 +1844,7 @@ Use `kw_theorem_5_1_systems` for this construction.
 
 The sources are [KW I][kw-serre-modularity-I], Theorem 5.1, p. 9 of the preprint, Remark after Theorem 5.1, p. 10, Proof of Theorem 9.1, p. 19 of the preprint; [KW II][kw-serre-modularity-II], §10.3.2, p. 94.
 
-*Needs:* [Layer 10, Minimal crystalline lifts](#target-theorem-5-1-part-1-minimal-crystalline); [Layer 10, Minimal weight-two lifts](#target-theorem-5-1-part-2-weight-two); [Layer 10, A level-one type at q](#target-theorem-5-1-part-3-level-one-type-at-q); [Layer 10, A level-two type at q](#target-theorem-5-1-part-4-level-two-type-at-q); [Layer 12, Genuine families from Brauer induction](#target-brauer-induction-system); [Layer 12, The historical almost-strict comparison](#target-almost-strict-compatibility); `AlgebraicModularFormsAndSerreWeights:R15.4`; [Layer 12, All-place strictness of the Hilbert–Brauer family](#target-strict-brauer-system).
+*Needs:* [Layer 10, Minimal crystalline lifts](#target-theorem-5-1-part-1-minimal-crystalline); [Layer 10, Minimal weight-two lifts](#target-theorem-5-1-part-2-weight-two); [Layer 10, A level-one type at q](#target-theorem-5-1-part-3-level-one-type-at-q); [Layer 10, A level-two type at q](#target-theorem-5-1-part-4-level-two-type-at-q); [Layer 12, Genuine families from Brauer induction](#target-brauer-induction-system); [Layer 12, The historical almost-strict comparison](#target-almost-strict-compatibility); `AlgebraicModularFormsAndSerreWeights:R15.4`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/savitt-residual-types`; [Layer 12, All-place strictness of the Hilbert–Brauer family](#target-strict-brauer-system).
 
 <a id="target-dieulefait-families"></a>
 ### 12.5 Families through given lifts
@@ -1685,7 +1880,7 @@ For an E-rational odd irreducible rank-two almost-strict family over ℚ, take s
 
 For q≠l the residual Artin conductor divides that of r_q. Finite inertia of order prime to l reduces injectively, preserving its shape, including the dihedral case of order 2t^a with l∤2t. At an odd l outside ramification, the member is crystalline. If the residual member is S-type and **1≤a−b≤l−2**, its normalized Serre weight is a−b+1 after twisting. Equal weights are excluded: an odd absolutely irreducible unramified Artin residual member has normalized weight l, not one. The general-rank regular-system theorem gives the cyclotomic restriction statement for every constituent on a density-one set, rather than this rank-two cofinite conclusion.
 
-Use `residual_members` for this construction.
+Use `residual_members` for this construction; the weight inequality is `ResidualMembers.weight_ne_half_weights` in Suggested.lean.
 
 The sources are [KW I][kw-serre-modularity-I], Proof of Theorem 10.1, p. 20 of the preprint, §8.4, p. 17 of the preprint, Lemma 6.2(ii), p. 11 of the preprint, §1, p. 2 of the preprint; §10.1, p. 20; [Swinnerton-Dyer][swinnerton-dyer-1973], §2, Corollary 1, p. 15; §4, corollary to Theorem 4 and the weight-12 congruences, pp. 31–33; [Dieulefait–Pacetti v2][dieulefait-pacetti], Lemma 1.14, proof, p. 9 of arXiv:2108.07577v2.
 
@@ -1723,7 +1918,7 @@ This layer uses `AlgebraicModularFormsAndSerreWeights`, `ArithmeticGaloisReprese
 
 ## Downstream consumers
 
-ClassicalSerreModularity R27 consumes the required lifts, good-dihedral-prime prescriptions and linked-family transfers. PotentialAutomorphyInfrastructure PA.5 and ModularityAndLanglandsExtensions ML.2 consume the field-selection and higher-rank compatible-system interfaces. These are applications, not suppliers to this roadmap.
+ClassicalSerreModularity R26–R27 and R33 consume the presentations, required lifts, good-dihedral-prime prescriptions, Brauer families and linked-family transfers. PotentialAutomorphyInfrastructure PA.5 and ModularityAndLanglandsExtensions ML.2 consume the field-selection and higher-rank compatible-system interfaces, and EllipticCurveModularityPartIIGL2TypeAbelianVarieties the rank-two families. These are applications, not suppliers to this roadmap.
 
 ## References
 
@@ -1741,7 +1936,7 @@ Page numbers below follow the indicated edition. BLGGT v1 and v4 have different 
 
 - **[Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation]** — Richard Taylor. *On the meromorphic continuation of degree two L-functions*. Documenta Math., Coates volume (2006), 729–779; printed journal pages (PDF page +728).
 
-- **[Qian][qian]** — Lie Qian. *Potential automorphy for GL_n*. arXiv:2104.09761v1 (19 April 2021), later Invent. Math. 231 (2023); arXiv v1 printed pagination.
+- **[Qian][qian]** — Lie Qian. *Potential automorphy for GL_n*. arXiv:2104.09761v1 (19 April 2021), published in Invent. Math. 231 (2023); arXiv v1 printed pagination.
 
 - **[CHT][cht]** — Laurent Clozel, Michael Harris, Richard Taylor. *Automorphy for some l-adic lifts of automorphic mod l Galois representations*. Publ. Math. IHES 108 (2008), 1–181; printed journal pages.
 
@@ -1758,6 +1953,16 @@ Page numbers below follow the indicated edition. BLGGT v1 and v4 have different 
 - **[Calegari][calegari]** — Frank Calegari. *Even Galois representations and the Fontaine–Mazur conjecture II*. arXiv:1012.4819, author preprint of JAMS 25 (2012); author pagination.
 
 - **[Thorne][thorne]** — Jack Thorne. *On the automorphy of l-adic Galois representations with small residual image*. Author copy of JIMJ 11 (2012); author pagination.
+
+- **[Skinner–Wiles, base change][sw-base-change]** — Christopher Skinner and Andrew Wiles. *Base change and a problem of Serre*. Duke Math. J. 107 (2001), 15–25; printed journal pages.
+
+- **[Gee–Geraghty][gee-geraghty]** — Toby Gee and David Geraghty. *Companion forms for unitary and symplectic groups*. Final author preprint of Duke Math. J. 161 (2012); author page numbers.
+
+- **[Geraghty, ordinary][geraghty-ordinary]** — David Geraghty. *Modularity lifting theorems for ordinary Galois representations*. Author preprint of 12 March 2010 of Math. Ann. 373 (2019); the preprint numbering, which BLGGT and Thorne cite.
+
+- **[Thorne, adequacy][thorne-2017]** — Jack Thorne. *A 2-adic automorphy lifting theorem for unitary groups over CM fields*. Accepted manuscript (16 March 2016) of Math. Z. 285 (2017); manuscript pages.
+
+- **[Poonen, rational points][poonen-qpoints]** — Bjorn Poonen. *Rational points on varieties*. Graduate Studies in Mathematics 186, AMS (2017); the author's online version, printed page numbers.
 
 - **[Calegari–Geraghty][cg]** — Frank Calegari, David Geraghty. *Modularity lifting beyond the Taylor–Wiles method*. Published Invent. Math. 211 (2018) PDF; locators using its PDF page numbers are marked explicitly.
 
@@ -1819,3 +2024,9 @@ Page numbers below follow the indicated edition. BLGGT v1 and v4 have different 
 [khare-level-one]: https://arxiv.org/pdf/math/0504080v1
 [dieulefait-2004]: https://arxiv.org/pdf/math/0304433v1
 [swinnerton-dyer-1973]: http://gaetan.chenevier.perso.math.cnrs.fr/GT/swinnerton_dyer.pdf
+
+[sw-base-change]: https://citeseerx.ist.psu.edu/document?doi=78be3e19b2caf9a472352165d0685620cf710b2f&repid=rep1&type=pdf
+[gee-geraghty]: https://www.ma.imperial.ac.uk/~tsg/Index_files/cfug.pdf
+[geraghty-ordinary]: https://web.archive.org/web/2id_/https://www2.bc.edu/david-geraghty/files/oml.pdf
+[thorne-2017]: https://www.repository.cam.ac.uk/handle/1810/254922
+[poonen-qpoints]: https://math.mit.edu/~poonen/papers/Qpoints.pdf

@@ -1,19 +1,27 @@
-import Mathlib
-import TauCeti.AlgebraicGeometry.LineBundle.Class
+import Mathlib.Algebra.Polynomial.Reverse
+import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
+import Mathlib.Analysis.SpecialFunctions.Pow.Complex
+import Mathlib.FieldTheory.Galois.Basic
+import Mathlib.FieldTheory.LinearDisjoint
+import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.MvPowerSeries.Inverse
+import Mathlib.RingTheory.Regular.RegularSequence
+import Mathlib.Tactic.NormNum.Prime
 
 /-!
-# PotentialModularityAndCompatibleSystems: representative target signatures
+# Potential modularity and compatible systems: suggested statements
 
-The roadmap is README.md. This file records definitions and theorem signatures statable
-against the pinned APIs and is not exhaustive. Archimedean expressions distinguish
-meromorphic cancellation from pointwise division in the total Gamma functions. Picard
-classes below are objectwise rigidified classes; relative representability remains a
-separate construction. Lift parameters below encode numerical character restrictions,
-while arithmetic lift types also require representations and local deformation conditions.
+The roadmap is `README.md`; this file states the light definitions and the milestones whose carriers
+exist at the pinned Mathlib and Tau Ceti. The compatible-system carriers, Skolem data, rigidified Picard
+functors, moduli applications, deformation rings, Hecke algebras and modularity theorems are README
+targets. Archimedean expressions distinguish meromorphic cancellation from pointwise division in the
+total Gamma functions; lift parameters encode only the numerical restrictions of the four
+Khare–Wintenberger lift types.
 -/
 
-open CategoryTheory AlgebraicGeometry
-open TauCeti.AlgebraicGeometry
 set_option autoImplicit false
 
 universe u
@@ -79,9 +87,6 @@ example : archimedeanD 0 0 1 = (0, 0) ∧ archimedeanD 2 1 (-1) = (1, 1) ∧
 /-- The geometric cyclotomic character has weight `-2` and odd determinant. -/
 example : archimedeanD 1 (-2) (-1) = (1, 0) := by sorry
 
-/-- Even weight is necessary to interpret the odd-rank expression as Hodge multiplicities. -/
-example : ¬ Even (1 : ℤ) := by sorry
-
 /-- The trivial real character fixes the Gamma and epsilon normalizations. -/
 example (s : ℂ) :
     archimedeanGammaFactor true {0} {0} 0 1 0 s = Complex.Gammaℝ s ∧
@@ -118,81 +123,70 @@ example : archimedeanGammaFactor true {0, 1} {0, 1} 1 1 1 (1 / 2) = 0 ∧
 
 end Factors
 
+namespace RepRing
+
+/-- The genuineness criterion behind the Brauer construction of Layer 12, in coordinates: a virtual
+class `Σ nᵢ [Vᵢ]` in the basis of irreducibles has norm `Σ nᵢ²`; norm one and positive dimension
+force it to be the class of a single irreducible (BLGGT v1 §5.4, item (9), p. 63). -/
+theorem eq_single_one_of_norm_one {ι : Type*} (n : ι →₀ ℤ) (d : ι → ℤ) (hd : ∀ i, 0 < d i)
+    (hnorm : (n.sum fun _ a => a ^ 2) = 1) (hdim : 0 < n.sum fun i a => a * d i) :
+    ∃ i, n = Finsupp.single i 1 := by
+  sorry
+
+/-- For the cyclic group of order two, `3·1 − ε` has degree two but norm ten, so degree alone does not
+make a virtual class genuine. -/
+example : ((Finsupp.single (0 : Fin 2) (3 : ℤ) + Finsupp.single 1 (-1)).sum fun _ a => a ^ 2) = 10 := by
+  sorry
+
+/-- The class `2[V₁] − [V₂]` has norm five. -/
+example : ((Finsupp.single (0 : Fin 2) (2 : ℤ) + Finsupp.single 1 (-1)).sum fun _ a => a ^ 2) = 5 := by
+  sorry
+
+end RepRing
+
 /-! ## Layer 2: Integral points and controlled fields -/
 
-namespace Picard
+namespace Fields
 
-/-- A line bundle on `X` with a trivialization of its restriction to the boundary `Z`
-(Moret-Bailly II 3.4). -/
-structure Rigidified (X Z : Scheme.{u}) (i : Z ⟶ X) where
-  line : InvertibleSheaf X
-  trivialization : (Scheme.Modules.pullback i).obj line.obj ≅ (InvertibleSheaf.trivial Z).obj
-
-/-- Isomorphisms of line bundles must intertwine the boundary trivializations. -/
-def rigidifiedSetoid (X Z : Scheme.{u}) (i : Z ⟶ X) : Setoid (Rigidified X Z i) where
-  r A B := Nonempty {e : A.line.obj ≅ B.line.obj //
-    (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom}
-  iseqv := by sorry
-
-/-- Objectwise rigidified isomorphism classes; relative fppf representability is separate. -/
-def generalizedPicard (X Z : Scheme.{u}) (i : Z ⟶ X) : Type _ :=
-  Quotient (rigidifiedSetoid X Z i)
-
-/-- Equality of classes is witnessed by a boundary-compatible isomorphism. -/
-theorem generalizedPicard_mk_eq_iff (X Z : Scheme.{u}) (i : Z ⟶ X)
-    (A B : Rigidified X Z i) :
-    (Quotient.mk _ A : generalizedPicard X Z i) = Quotient.mk _ B ↔
-      Nonempty {e : A.line.obj ≅ B.line.obj //
-        (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom} := by
+/-- Disjointness through towers (Qian §2, opening facts, p. 5): if `A` and `D` are linearly disjoint
+over `C`, `D` is finite over `C` and `B ≤ A`, then `A ∩ BD = B`. -/
+theorem towerLinearDisjoint {C Ω : Type*} [Field C] [Field Ω] [Algebra C Ω]
+    (A B D : IntermediateField C Ω) [FiniteDimensional C D] (hBA : B ≤ A)
+    (h : A.LinearDisjoint D) : A ⊓ (B ⊔ D) = B := by
   sorry
 
-/-- Descend an invariant function through the rigidified quotient. -/
-def generalizedPicard_lift (X Z : Scheme.{u}) (i : Z ⟶ X) (T : Type*)
-    (f : Rigidified X Z i → T)
-    (hf : ∀ A B, (rigidifiedSetoid X Z i).r A B → f A = f B) :
-    generalizedPicard X Z i → T := Quotient.lift f hf
-
-/-- Evaluation of the descended function on a representative. -/
-theorem generalizedPicard_lift_mk (X Z : Scheme.{u}) (i : Z ⟶ X) (T : Type*)
-    (f : Rigidified X Z i → T)
-    (hf : ∀ A B, (rigidifiedSetoid X Z i).r A B → f A = f B)
-    (A : Rigidified X Z i) :
-    generalizedPicard_lift X Z i T f hf (Quotient.mk _ A) = f A := by
+/-- The Galois-theoretic core of avoidance by extra split places (§2.13): if elements fixing every
+point of `E` generate `Gal(D/K)`, then `E = K`. -/
+theorem eq_bot_of_fixed_by_generators {K D : Type*} [Field K] [Field D] [Algebra K D]
+    [FiniteDimensional K D] [IsGalois K D] (E : IntermediateField K D) (S : Set (D ≃ₐ[K] D))
+    (hS : Subgroup.closure S = ⊤) (hfix : ∀ σ ∈ S, ∀ x ∈ E, σ x = x) : E = ⊥ := by
   sorry
 
-/-- Forgetting is well-defined on rigidified isomorphism classes, into the pinned class type. -/
-def generalizedPicard_forget (X Z : Scheme.{u}) (i : Z ⟶ X) :
-    generalizedPicard X Z i → LineBundleClass X :=
-  Quotient.lift (fun A ↦ LineBundleClass.mk A.line) (by sorry)
+/-- Linear disjointness from the base field is automatic. -/
+example {C Ω : Type*} [Field C] [Field Ω] [Algebra C Ω] (A : IntermediateField C Ω) :
+    A.LinearDisjoint (⊥ : IntermediateField C Ω) :=
+  IntermediateField.LinearDisjoint.bot_right A
 
-/-- The kernel of forgetting the rigidification on objectwise classes.
-Relative fppf exactness is a separate statement. -/
-theorem generalizedPicard_forget_kernel (X Z : Scheme.{u}) (i : Z ⟶ X)
-    (P : generalizedPicard X Z i) :
-    generalizedPicard_forget X Z i P = LineBundleClass.mk (InvertibleSheaf.trivial X) ↔
-      ∃ α : (Scheme.Modules.pullback i).obj (InvertibleSheaf.trivial X).obj ≅
-          (InvertibleSheaf.trivial Z).obj,
-        P = Quotient.mk _ (Rigidified.mk (InvertibleSheaf.trivial X) α) := by
-  sorry
+end Fields
 
-/-- Rigidifying on the whole scheme leaves exactly one isomorphism class. -/
-example (X : Scheme.{u}) (A B : Rigidified X X (𝟙 X)) :
-    (Quotient.mk _ A : generalizedPicard X X (𝟙 X)) = Quotient.mk _ B := by sorry
-
-/-- Forgetting a rigidification on the whole scheme gives the trivial class. -/
-example (X : Scheme.{u}) (A : Rigidified X X (𝟙 X)) :
-    generalizedPicard_forget X X (𝟙 X) (Quotient.mk _ A) =
-      LineBundleClass.mk (InvertibleSheaf.trivial X) := by sorry
-
-/-- A sheaf isomorphism identifies rigidified classes only when it respects the boundary. -/
-example (X Z : Scheme.{u}) (i : Z ⟶ X) (A B : Rigidified X Z i)
-    (h : ¬ Nonempty {e : A.line.obj ≅ B.line.obj //
-      (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom}) :
-    (Quotient.mk _ A : generalizedPicard X Z i) ≠ Quotient.mk _ B := by sorry
-
-end Picard
 
 /-! ## Layer 3: Auxiliary characters and moduli -/
+
+namespace Auxiliary
+
+/-- For `l = 5`, the discriminant `1 − 4l = −19` of Taylor's Weil number is prime to `5`, so `5` is
+unramified in `ℚ(√(1 − 4l))` (Taylor, Fontaine–Mazur, p. 7). -/
+example : ¬ (5 : ℤ) ∣ 1 - 4 * 5 := by decide
+
+/-- The auxiliary prime is taken larger than `3`: the index-two subgroup of the inertia of `ℚ_p` sees
+the mod-`p` cyclotomic character with order `(p − 1)/2`, which is `1` exactly for `p = 3`. -/
+theorem half_order_gt_one {p : ℕ} (hp : 3 < p) (hodd : Odd p) : 1 < (p - 1) / 2 := by
+  sorry
+
+example : (3 - 1) / 2 = 1 := by decide
+
+end Auxiliary
+
 /-! ## Layer 4: Residual potential modularity -/
 /-! ## Layer 5: Potential modularity of a given lift -/
 /-! ## Layer 6: Control of extensions -/
@@ -321,21 +315,25 @@ end LiftParameters
 /-! ## Layer 12: Families through potentially modular lifts -/
 /-! ## Layer 13: Residual members and linked systems -/
 
-/- The following definitions require the arithmetic supplier APIs specified in README.md:
-WeaklyCompatibleSystem, CompatibleSystem, ExtremelyWeaklyCompatibleSystem,
-VeryWeaklyCompatibleSystem, WeaklyCompatibleSystem.IsRegular, IsExtremelyRegular,
-IsStrictlyCompatible, IsPure, IsStrictlyPure, IsIrreducible, IsAutomorphic,
-directSum, tensor, dual, symmetricPower, exteriorPower, twist, restrict, induce,
-PolarizedSystem, PolarizedSystem.IsTotallyOdd, PolarizedSystem.tensor, PolarizedSystem.dual,
-PolarizedSystem.twist, PolarizedSystem.power, characterSystem, artinSystem,
-partialLFunction, lFunction, completedLFunction, RepRing, LarsenData, componentGroup,
-SkolemDatum, SkolemDatum.IntegralPoint, SkolemDatum.IsComplete, SkolemDatum.FieldPoint,
-SkolemDatum.enlargeSigma, generalizedPicard_exact, generalizedPicard_group, generalizedPicard_pullback, divisorClassMap, CurveCompactification,
-splitField, DetectsSubextensions, TaylorAuxiliaryData, IsKWField, HasKWWitnesses,
-IsLiftOfType, AuxiliaryField, OrdinaryGlobalRing, CGRing, LocalConditions,
-RequiredLiftType, RequiredLiftType.localCondition, RequiredLiftType.ring,
-RequiredLiftType.liftOfPoint, KWHypotheses, KWApplication, theorem_5_1_application_table,
-LiftingProblem, brauerSystem, residualMember and linkedSystem.
-Their existence, comparison, finiteness and density theorems are stated in README.md. -/
+namespace ResidualMembers
+
+/-- The weight argument of §13.1: outside the small primes, the normalized weight `a − b + 1` of a
+regular member is neither of the two weights `(l + 1)/2`, `(l + 3)/2` forced by a reducible
+restriction to `ℚ(ζ_l)` (KW I, proof of Theorem 10.1, p. 20). -/
+theorem weight_ne_half_weights {l a b : ℕ} (hodd : Odd l) (hab : b < a) (hl : 2 * (a - b) + 1 < l) :
+    a - b + 1 ≠ (l + 1) / 2 ∧ a - b + 1 ≠ (l + 3) / 2 := by
+  sorry
+
+/-- For `a − b = 1` and `l = 3` the inequality fails and the weights collide: `2 = (3 + 1)/2`; for even
+`l = 2(a − b) + 2` they would collide as well, which is why `l` is odd. -/
+example : (1 : ℕ) + 1 = (3 + 1) / 2 := by decide
+
+end ResidualMembers
+
+
+/-! The other definitions and theorems are README targets: their carriers (compatible-system data,
+Skolem data, relative Picard functors, twisted Hilbert moduli, deformation rings, quaternionic and
+definite-unitary Hecke algebras, automorphic representations) are not available at the pinned
+libraries. -/
 
 end TauCetiRoadmap.PotentialModularityAndCompatibleSystems
