@@ -1,21 +1,24 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex, session `codex-mHWZtV`, 16 October 2026. Issue [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
+Codex, session `codex-vPZRrq`, 16 October 2026. Issue [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint; revision blocked by upstream ownership.** The bot confirmed this
-session's [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6214477278)
-on 16 October. The issue was available, but its requested
+session's [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6215204589)
+on 16 October at 12:10:11 UTC. This was the first available eligible issue on
+the manager's priority list, but its requested
 blueprint revision has been superseded by a merged Tau Ceti roadmap. This note
 records the obstruction; it does not complete or approve the mathematical
 revision. No second issue was claimed.
 
-This continues the checkpoint merged in [#9894](https://github.com/CBirkbeck/tauceti-explorer/pull/9894)
-by session `codex-wbDnMI`. The reopened queue entry still carries the maintainer's
+This continues the checkpoints merged in [#9894](https://github.com/CBirkbeck/tauceti-explorer/pull/9894)
+and [#9951](https://github.com/CBirkbeck/tauceti-explorer/pull/9951).
+The reopened queue entry still carries the maintainer's
 explicit 13 October instruction that further atlas blueprint rounds are
 unnecessary. This run independently re-read the issue, review, previous handoff,
-live GitHub merge metadata and current upstream ownership clauses. The blocking
-instruction has not been withdrawn; availability of the queue entry does not
-authorize a competing plan. No mathematical revision was attempted.
+live GitHub merge metadata and current upstream ownership clauses after the
+claim. No subsequent issue comment withdraws that instruction; availability of
+the queue entry does not authorize a competing plan. No mathematical revision
+was attempted.
 
 ## Authoritative upstream work
 
@@ -27,7 +30,8 @@ Its Layer 0 is the schemes-and-morphisms direction assigned to this issue.
 
 The current upstream files were separately inspected at main commit
 `4c4f8f52238b8ead04f806021f79201c6d499982`, rather than assuming the merge
-version was still current:
+version was still current. A fresh API check in this session confirms that
+main commit and the latest file changes below:
 
 - [README, scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c4f8f52238b8ead04f806021f79201c6d499982/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership).
 - [README, Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c4f8f52238b8ead04f806021f79201c6d499982/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms).
@@ -48,6 +52,13 @@ the roadmap remains unplanned. Individual upstream files and GitHub merge
 metadata establish the current owner. No repository was cloned or copied,
 and neither shared checkout was modified or built.
 
+The current Tau Ceti tree at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` was also read. Its
+`RelativeSpec/Functor.lean` defines `QuasicoherentAlgebra`, `AffineSchemeOver`
+and the contravariant `relativeSpec` functor; `RelativeSpec/Affine.lean`
+supplies its affine normalization. These are current-library ownership
+evidence, not baseline citations at the historical packet's older pins.
+
 The maintainer's [13 October comment on this issue](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6147006432)
 already directed changes to the upstream roadmap instead of additional atlas
 blueprint rounds. The subsequent merge strengthens that boundary.
@@ -62,7 +73,8 @@ independent `needs_changes` verdict remains in place, packet status is
 `partial`, and `SchemeAndStackFoundations:SF.0` coverage remains `partial`.
 Nothing is newly closed, planned or claimed implemented by this checkpoint.
 
-The preserved inventory is 139 nodes: 26 definitions, 26 constructions,
+The preserved inventory was recounted from the packet in this session:
+139 nodes, comprising 26 definitions, 26 constructions,
 75 theorems, six comparisons, three lemmas and three applications. Definitions
 and constructions have 383 API items and 226 tests; across all nodes there are
 462 API items and 283 tests. There are six planets, 492 baseline declarations,
@@ -105,7 +117,7 @@ the Lawrence–Sawin route.
 
 The maintainer should reconcile the stale atlas job with the merged upstream
 owner before another worker is sent to this blueprint revision. In particular,
-repeating a checkpoint releases the same issue again: the queue needs a
+checkpoint intake has already released this same issue twice. The queue needs a
 maintainer disposition rather than another attempt at the superseded plan.
 Any mathematical
 correction belongs against the current upstream roadmap, with a separately
