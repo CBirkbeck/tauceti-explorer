@@ -193582,7 +193582,7 @@
    "reviewReason": "Independently read the complete published145 and v2physical33 page images. The previous defining expression has normalization −1/G(eta inverse), and root averaging adds1/p; neither operation changes the argument of the Gauss sum to its inverse value. The next line uses the correct inverse-character Gauss sum. For quadratic conductor3, G(eta)^2=−3 distinguishes the two scalars."
   },
   {
-   "id": "DirichletPadicLFunctions/E34",
+   "id": "DirichletPadicLFunctions/E38",
    "kind": "misprint",
    "locator": "Published printed144/PDF45, after equation(5-3), explanation that epsilon_D^c−1 is an integral unit; arXivv2physical32 has the same wording.",
    "printed": "The source gives divisibility of its norm by D as the justification.",
@@ -193604,7 +193604,7 @@
    "reviewReason": "Complete affected published144 and v2physical32 images independently read. The reduction-of-finite-geometric-sum proof supplies the intended tame unit argument and separates root order from its always-one norm. No failure of the integral series theorem is claimed."
   },
   {
-   "id": "DirichletPadicLFunctions/E35",
+   "id": "DirichletPadicLFunctions/E39",
    "kind": "gap",
    "locator": "Published printed145/PDF46, proof of Lemma5.10, the geometric series proving equation(5-4); arXivv2physical33 identical.",
    "printed": "The source expands the summands individually into geometric series.",
