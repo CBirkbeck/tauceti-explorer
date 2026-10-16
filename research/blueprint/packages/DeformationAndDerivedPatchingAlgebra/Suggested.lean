@@ -1,5 +1,4 @@
 import Mathlib
-import TauCeti.Algebra.Module.Injective.Envelope
 
 /-!
 # DeformationAndDerivedPatchingAlgebra: representative target signatures
@@ -73,10 +72,6 @@ def multiplicityCoefficient (d : ℕ) (P : Polynomial ℚ) : ℚ :=
 def traceIdeal : Ideal A :=
   Ideal.span {a : A | ∃ (f : M →ₗ[A] A) (m : M), f m = a}
 
-/-- Local regular-sequence formula for the supplied depth; the zero module has infinite depth. -/
-def moduleDepth [IsLocalRing A] : ℕ∞ :=
-  ⨆ (s : List A) (_ : ∀ a ∈ s, a ∈ maximalIdeal A)
-    (_ : RingTheory.Sequence.IsWeaklyRegular M s), (s.length : ℕ∞)
 
 /-- The symbolic square is localization at a prime followed by contraction. -/
 def symbolicSquare (p : Ideal A) [p.IsPrime] : Ideal A :=
@@ -111,13 +106,6 @@ theorem hilbertSamuel_degree_and_positive_integral_coefficient
     P.natDegree = d ∧ ∃ e : ℕ, 0 < e ∧ multiplicityCoefficient d P = (e : ℚ) := by
   sorry
 
-/-- Auslander–Buchsbaum, with nonzero finite M and finite projective dimension. -/
-theorem finite_projective_dimension_depth
-    [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M] [Nontrivial M]
-    (hpd : CategoryTheory.projectiveDimension (ModuleCat.of A M) ≠ ⊤) :
-    CategoryTheory.projectiveDimension (ModuleCat.of A M) +
-      (moduleDepth A M : WithBot ℕ∞) = (moduleDepth A A : WithBot ℕ∞) := by
-  sorry
 
 /-- A finite module over a regular local ring has projective dimension at most its dimension. -/
 theorem regular_local_finite_module_dimension_bound
@@ -136,14 +124,6 @@ theorem symbolicSquare_membership (p : Ideal A) [p.IsPrime] (a : A) :
     a ∈ symbolicSquare A p ↔ ∃ s : A, s ∉ p ∧ s * a ∈ p ^ 2 := by
   sorry
 
-/-- For complete Noetherian local A, finite M is naturally its Matlis bidual. -/
-theorem matlis_finite_bidouble
-    [IsLocalRing A] [IsNoetherianRing A] [IsAdicComplete (maximalIdeal A) A]
-    [Module.Finite A M]
-    (E : Type w) [AddCommGroup E] [Module A E]
-    (i : ResidueField A →ₗ[A] E) (hi : TauCeti.IsInjectiveEnvelope i) :
-    ∃ e : M ≃ₗ[A] ((M →ₗ[A] E) →ₗ[A] E), ∀ m f, e m f = f m := by
-  sorry
 
 example : multiplicityCoefficient 0 (Polynomial.C (5 : ℚ)) = 5 := by
   sorry
@@ -179,14 +159,8 @@ example [Subsingleton M] : traceIdeal A M = ⊥ := by
 example : traceIdeal ℤ (ZMod 2) = ⊥ := by
   sorry
 
-example [IsLocalRing A] [Subsingleton M] : moduleDepth A M = ⊤ := by
-  sorry
 
-example (K : Type*) [Field K] : moduleDepth K K = 0 := by
-  sorry
 
-example [IsLocalRing (ZMod 4)] : moduleDepth (ZMod 4) (ZMod 4) = 0 := by
-  sorry
 
 example [IsDomain A] : symbolicSquare A (⊥ : Ideal A) = ⊥ := by
   sorry
@@ -339,12 +313,6 @@ def IsMinimal {R : Type u} [CommRing R] [IsLocalRing R] (P : Cpx R) : Prop :=
   ∀ i : ℤ, LinearMap.range (P.d i (i + 1)).hom ≤
     maximalIdeal R • (⊤ : Submodule R (P.X (i + 1)))
 
-/-- The native finite-projective-model version of all-module Tor amplitude. -/
-def PerfectInterval {R : Type u} [CommRing R] (C : Der R) (a b : ℤ) : Prop :=
-  ∃ P : Cpx R, (∀ i, i < a ∨ b < i → IsZero (P.X i)) ∧
-    (∀ i, Module.Finite R (P.X i) ∧ Module.Projective R (P.X i)) ∧
-    Nonempty ((DerivedCategory.Q.obj P) ≅ C)
-
 /-- Residual exactness of three finite free terms forces middle exactness, with no endpoint assertion. -/
 theorem three_term_residue_exactness [IsLocalRing A]
     (F₀ F₁ F₂ : Type v)
@@ -378,20 +346,6 @@ example {R : Type u} [CommRing R] [IsLocalRing R] (P : Cpx R) (i : ℤ)
       maximalIdeal R • (⊤ : Submodule R (P.X (i + 1)))) : ¬ IsMinimal P := by
   sorry
 
-example {R : Type u} [CommRing R] (a b : ℤ) :
-    PerfectInterval (0 : Der R) a b := by
-  sorry
-
-example {R : Type u} [CommRing R] (i : ℤ) :
-    PerfectInterval ((DerivedCategory.singleFunctor (ModuleCat R) i).obj
-      (ModuleCat.of R R)) i i := by
-  sorry
-
-example {R : Type u} [CommRing R] [Nontrivial R] :
-    ¬ PerfectInterval ((DerivedCategory.singleFunctor (ModuleCat R) 0).obj
-      (ModuleCat.of R R)) 1 1 := by
-  sorry
-
 -- The differential of the rational 2-disk dual is +2; its bidual is -2.
 example : (-1 : ℚ) ^ ((-1 : ℤ) + 1) * 2 = 2 := by
   sorry
@@ -404,9 +358,20 @@ example : (-2 : ℚ) * 1 = (-1) * 2 := by
 example : (-2 : ℚ) * 1 ≠ 1 * 2 := by
   sorry
 
--- Tensoring by the degree-one stalk signs the shifted cone summand by -1.
-example : (-1 : ℚ) * 1 = 1 * (-1) := by
-  sorry
+-- The source cross differential is -1, the target is +1, and the signed map is diagonal.
+example :
+    (!![(0 : ℚ), 0; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) * !![-1, 0; 0, 1] =
+      !![-1, 0; 0, 1] * !![(0 : ℚ), 0; -1, 0] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+
+-- An unsigned comparison fails the same chain equation.
+example :
+    (!![(0 : ℚ), 0; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) * (1 : Matrix (Fin 2) (Fin 2) ℚ) ≠
+      (1 : Matrix (Fin 2) (Fin 2) ℚ) * !![(0 : ℚ), 0; -1, 0] := by
+  intro h
+  have hentry := congrArg (fun m : Matrix (Fin 2) (Fin 2) ℚ => m 1 0) h
+  norm_num at hentry
 
 -- In characteristic two the same signs agree, so it cannot detect this error.
 example : (-1 : ZMod 2) = 1 := by
@@ -438,7 +403,10 @@ theorem codimension_amplitude_inequality
     {R : Type u} [CommRing R] [IsRegularLocalRing R]
     (C : Der R) (n l : ℕ) (a : ℤ)
     (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
-    (hC : ¬ IsZero C) (hinterval : PerfectInterval C a (a + l)) :
+    (hC : ¬ IsZero C) (P : Cpx R)
+    (hbound : ∀ i, i < a ∨ a + l < i → IsZero (P.X i))
+    (hfinite : ∀ i, Module.Finite R (P.X i) ∧ Module.Projective R (P.X i))
+    (e : DerivedCategory.Q.obj P ≅ C) :
     ∃ p : PrimeSpectrum R, p ∈ derivedSupport C ∧
       (n - l : WithBot ℕ∞) ≤ ringKrullDim (R ⧸ p.asIdeal) := by
   sorry
@@ -448,7 +416,10 @@ theorem balanced_dimension_concentration
     {R : Type u} [CommRing R] [IsRegularLocalRing R]
     (C : Der R) (n l : ℕ) (a : ℤ)
     (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
-    (hC : ¬ IsZero C) (hinterval : PerfectInterval C a (a + l))
+    (hC : ¬ IsZero C) (P : Cpx R)
+    (hbound : ∀ i, i < a ∨ a + l < i → IsZero (P.X i))
+    (hfinite : ∀ i, Module.Finite R (P.X i) ∧ Module.Projective R (P.X i))
+    (e : DerivedCategory.Q.obj P ≅ C)
     (hsupport : ∀ p ∈ derivedSupport C,
       ringKrullDim (R ⧸ p.asIdeal) ≤ (n - l : WithBot ℕ∞)) :
     (∀ i : ℤ, i ≠ a + l → IsZero (H i C)) ∧ ¬ IsZero (H (a + l) C) := by
@@ -460,10 +431,6 @@ example {R : Type u} [CommRing R] : derivedSupport (0 : Der R) = ∅ := by
 example {R : Type u} [CommRing R] (I : Ideal R) (i : ℤ) :
     derivedSupport ((DerivedCategory.singleFunctor (ModuleCat R) i).obj
       (ModuleCat.of R (R ⧸ I))) = PrimeSpectrum.zeroLocus I := by
-  sorry
-
-example {R : Type u} [CommRing R] (C : Der R) :
-    PerfectInterval C 0 0 → (∀ i : ℤ, i ≠ 0 → IsZero (H i C)) := by
   sorry
 
 example {R : Type u} [CommRing R] (C D : Der R) :
@@ -488,18 +455,17 @@ example {R : Type u} [CommRing R] (C D : Der R) :
 README definitions requiring the stated further carriers or substantial constructions:
 
 Layer 1: ordinary adic Rees quotient and homogeneous module adapters, initial ideal,
-labelled local/Artinian/complete coefficient adapters and residue actions, nilpotent
+labelled local/Artinian/complete coefficient adapters and Cohen choices and residue actions, nilpotent
 and square-zero extensions, truncation tower, relative coefficient cotangent space,
 residue-extension and coefficient-hull choices, complete-local tensor adapter,
 formal smoothness lift adapter, local completion maps and regular-source squares, pro-Hom comparison and parameter quotient system.
 
-Layer 2: relative minimal presentation, relation space, relation obstruction and its
+Layer 2: relative minimal presentation, relation space, full-socle obstruction interface, relation obstruction and its
 universal Artinian test, finite matrix equation algebra, continuous framed functor,
 principal-unit orbit functor and its hull.
 
 Layer 3: regular-sequence ideal and local complete-intersection presentation adapter and conormal comparisons,
-residue injective hull choice and Matlis functor, Cech comparison, normalized
-ring-dualizing complex and canonical CM dual, canonical module, Gorenstein predicate,
+finite resolution/depth comparison, top local-cohomology tensor comparison, explicit Cohen-presentation and noncomplete bounded-complex duality comparisons and canonical CM dual, canonical module, Gorenstein predicate,
 type, graded Hilbert
 polynomial and intrinsic/ambient multiplicities, Koszul parameter Euler comparison,
 F-finiteness and local-locus adapters, total jets, shifted jet multiplication,
@@ -515,21 +481,20 @@ cotangent patch datum, Sylow projectivity and norm/dual comparisons.
 
 Layer 6: componentwise support, maximal coefficient-flat quotient, connectedness
 dimension and arithmetic rank adapters, generic/special component correspondence,
-specialization cycles, completed component products and determinant trivialization.
+specialization cycles, completed component products, determinant trivialization and CI parafactoriality.
 
-Layer 7: native K-flat, perfect, pseudo-coherent, finite-order pseudo-coherent and
-all-module Tor-amplitude comparisons, complete flat basis and continuous matrix
+Layer 7: native Tor indexing, finite-order pseudo-coherent comparisons, complete flat basis and continuous matrix
 comparison, complete flat complex, signed dual functor,
-E/O dual, strict quotient tower and linear derived limit, strict tower action,
-complete finite model system, derived action and isolated block comparison,
-coefficient spectral sequence and its finite abutment filtration.
+E/O dual, strict tower action and quotient action,
+finite derived Hom completion, derived action and isolated block comparison,
+coefficient spectral sequence, its finite abutment filtration and derived right edge.
 
 Layer 8: based matrix complex presentation, finite germ evaluation construction,
 finite complex patch datum, paired patch datum, finite decorated coefficient types,
 complete simultaneous patch, genuine derived deformation lift, augmentation and
 paired comparison, cohomology-action patch datum.
 
-Layer 9: complex dimension and Fitting comparison, patched CM functor and duality,
+Layer 9: complex dimension and Fitting comparison, patched CM functor and finite-action canonical duality,
 spectral deformation support, generic and special action blocks, local length
 defect, normalization coefficient and derived divisor length comparison, paired
 support transport and localized derived specialization.

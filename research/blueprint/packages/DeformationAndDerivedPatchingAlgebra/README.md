@@ -4,18 +4,18 @@
 
 ## Scope and ownership
 
-This is Part I. It owns coefficient-category adapters, relative local presentations and their relation spaces; the commutative algebra needed to use finite actions; ring-level Matlis and canonical duality; ordinary adic Hilbert functions and multiplicities; the algebraic finiteness and point arguments for complete local rings; balanced module patching; component and specialization comparisons; module-derived finiteness and coefficient comparisons; and the simultaneous patching and support arguments themselves.
+This is Part I. It owns coefficient-category adapters, relative local presentations and their relation spaces; the commutative algebra needed to use finite actions; canonical CM duals and explicit duality comparisons; ordinary adic Hilbert functions and multiplicities; the algebraic finiteness and point arguments for complete local rings; balanced module patching; component and specialization comparisons; finite-order approximation and coefficient comparisons; and the simultaneous patching and support arguments themselves.
 
 The following boundaries are part of the specification. They prevent two constructions with the same mathematical meaning from acquiring incompatible APIs.
 
-- `SchemeAndStackFoundations`, Layer 0, owns depth, grade, Cohen–Macaulay modules and rings, regular local freeness at maximal depth, Serre conditions, catenarity, excellence, Cohen structure and their general scheme forms. Layer 4 owns abstract deformation functors, smooth transformations, hulls and Schlessinger's criterion. Here the new content is their labelled coefficient comparison, presentations, relation-obstruction bound and concrete framed matrix realization. Layer 2 owns scheme cohomology and scheme duality; Layer 5 owns fixed-dimensional cycles and Cartier specialization.
+- `SchemeAndStackFoundations` §0.17 owns depth, its residue-Ext comparison, Cohen–Macaulay modules and rings, Serre conditions and flat-local depth formulas; its geometric layers own catenarity, excellence and their scheme forms. Layer 4 owns abstract deformation functors, smooth transformations, hulls and Schlessinger's criterion. Here the new content is their labelled coefficient comparison, presentations, relation-obstruction bound and concrete framed matrix realization. Layer 2 owns scheme cohomology and both affine and scheme dualizing complexes: its coherent-duality targets `Coherent.DualizingComplex` and `Coherent.NormalizedDualizing` include homothety, biduality, normalization and finite-local pushforward. Layer 5 owns fixed-dimensional cycles and Cartier specialization.
 - `ModularCurves`, §§4D and 7D, owns its completion/regularity and finite-map miracle-flatness statements, and its Witt-vector test algebras and elliptic deformation problem. Only adapters to the more general finite-module or arbitrary labelled-coefficient setting occur here.
 - `AdicSpacesPartII`, Layer F0, owns general completed tensor products and their topological universal property. The construction here identifies the complete-local coproduct, its joint formal presentation, residue field, cotangent space and finite-module comparisons. `PadicMeasuresIwasawaAlgebras`, Layers 0–1, owns completed free DVR modules, completed group algebras and their augmentation maps; Layer 6 owns the finite group-algebra coefficient pairing. The extension here is the complete-flat argument over an arbitrary complete Noetherian local coefficient ring and its application to finite complexes.
-- `SmoothRepresentationsOfLocalGroups`, §SR0d, owns the generic unbounded derived tensor and Hom constructions. `EnhancedDerivedSheaves`, Layers E1–E2 and E4, owns their enhancement, coherent limits, K-flat/K-injective replacements and derived completion. `DerivedDeRhamCohomology`, Layer DD1, owns the general cotangent complex, Koszul and derived-completion interfaces. This roadmap adds comparisons with native module complexes and strict coefficient towers; it does not construct a second enhanced derived category or a second derived completion.
+- `DerivedModuleAlgebra` §§0.2, 1.1.1, 1.3–1.5, 1.E.0–1.E.1, 0.K.1 and 1.T owns native module-derived tensor and Hom, K-flat replacements, perfectness, pseudo-coherence, all-module Tor amplitude, cotangent and Koszul complexes, strict linear towers, Milnor sequences, derived completion and effectivity of compatible perfect systems. Its §§1.M.1–1.M.2 own Matlis duality, including arbitrary residue fields and completion. Here the extra content is finite-order approximation, chosen minimal chain representatives, signed representative comparisons and compatible actions on those towers. `EnhancedDerivedSheaves` supplies the geometric enhancement and affine comparison, rather than a second module construction.
 - `IntegralHeckeAndGaloisDeterminants`, Layer 2, supplies bounded finite-cohomology Hom finiteness, ghost nilpotence, derived idempotent splitting and finite complete-local factor decomposition, as well as finite derived Hecke images. We consume those actions. We neither reconstruct Hecke operators nor turn an action in a derived category into an unproved strict chain action.
 - `AlgebraicVectorBundles`, Layers 0B–0C, owns finite locally free duals, exterior powers and determinants. The extra assertion here is the trivialization of a line bundle admitting a finite free resolution. `GrothendieckEulerForms`, Layer 5, owns finite-support Euler characteristics and their triangle additivity. The extra assertions here concern local multiplicity and finite-action specialization.
 - `DGAInfinity` owns its dg perfect envelope and idempotent completion. Only the comparison with bounded finite module complexes and isolated blocks for a finite action is needed here. `LocalFieldsRamification`, Layer 0, supplies integer rings and topologies of finite valued extensions. A ring-theoretic integral point is first constructed algebraically, before making this comparison.
-- `DeformationAndDerivedPatchingAlgebraPartII` owns p-standard and secant sequences for Macaulayfication, annihilators of local cohomology used to choose blowup centres, Cohen–Macaulay blowups, strict transforms and Macaulayfication. None of those is rebuilt. Ordinary associated graded rings and ordinary Rees-module quotients here serve lengths and completion, rather than blowup constructions.
+- `DeformationAndDerivedPatchingAlgebraPartII` owns p-standard and secant sequences for Macaulayfication, annihilators of local cohomology used to choose blowup centres, Cohen–Macaulay blowups, strict transforms and Macaulayfication. Its §§K0.1, K0.4–K0.7 also own the Čech/local-cohomology comparison, CM concentration, regularity of CM secants, normalized local duality for finite modules and the Matlis annihilator comparison. Its §K3.1 owns ordinary Rees modules. `ArithmeticGaloisDuality` §D7.1 owns local duality for bounded finite complexes over complete local rings. The extension here is its noncomplete bounded-complex comparison and the ordinary graded quotient of the supplied Rees module.
 - Galois deformation conditions, Selmer groups, arithmetic tangent and obstruction computations, Taylor–Wiles primes, locally symmetric spaces and automorphy lifting are downstream uses. An obstruction space below is an algebraic lifting interface, not an assertion that a particular Selmer group supplies it.
 
 ## Conventions
@@ -58,7 +58,7 @@ Use native `Ultrafilter`, germs, localization, finite products and cofiltered fi
 
 ### From Tau Ceti
 
-At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, use `TauCeti.ArtinRees.exists_controlled_lift`, the finite-length comparisons in `TauCeti.RingTheory.Length`, finite integral dimension comparison `TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul`, and `TauCeti.RingTheory.MvPowerSeries.Evaluation` for adic evaluation bounds. The existing injective-envelope predicate and uniqueness theorem are consumed when selecting the residue injective hull. `TauCeti.linearHomComplexEnrichedCategory` supplies the linear Hom-complex enrichment and its actual composition signs.
+At the package pin Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, and with the following additions checked against current `a91d3aaf`, use `TauCeti.ArtinRees.exists_controlled_lift`, the finite-length comparisons in `TauCeti.RingTheory.Length`, finite integral dimension comparison `TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul`, and `TauCeti.RingTheory.MvPowerSeries.Evaluation` for adic evaluation bounds. The existing injective-envelope predicate and uniqueness theorem are consumed when selecting the residue injective hull. `TauCeti.linearHomComplexEnrichedCategory` supplies the linear Hom-complex enrichment and its actual composition signs.
 
 The current Tau Ceti library also supplies `TauCeti.IsRegularLocalRing.isDomain`, `TauCeti.IsRegularLocalRing.quotient_span_singleton`, `TauCeti.IsRegularLocalRing.quotient_span_singleton_iff`, and `TauCeti.IsRegularLocalRing.isDiscreteValuationRing_iff_ringKrullDim_eq_one` in `RingTheory.RegularLocalRing.Basic`. Their hypotheses include regular locality, and the quotient equivalence requires a nonzero element in `m`. These are supplier statements, including the regular-parameter example, rather than new goals.
 
@@ -70,9 +70,10 @@ The current `RingTheory.Length` also supplies `Ideal.isFiniteLength_quotient_of_
 
 The named boundaries above are used with the following precise contracts. A missing extension of a supplier is a prerequisite theorem with the stated mathematical content, never a hypothesis saying that the final conclusion is already true.
 
-- `SchemeAndStackFoundations` §0.17 supplies depth by regular sequences and by residue Ext, its depth lemma, associated-prime dimension bound `depth_A M≤dim(A/p)` for `p∈Ass M`, parameter/grade comparisons, CM localization and flat-local formulas, `S_n`, `R_n`, formal unmixedness, catenarity and excellence. Its independent parameter-induction proof of maximal-depth freeness over a regular local ring is used before deducing finite projective dimension. Layer 4 supplies the classical coefficient deformation category, H1–H4, hull existence and prorepresentability. For the relation bound its obstruction interface must handle every finite-dimensional socle kernel `I`, use values `V⊗_k I`, detect lifting exactly, and be natural for arbitrary linear kernel pushouts, including zero kernels.
-- `EnhancedDerivedSheaves` E1 gives the enhanced module specialization of tensor and Hom and K-flat replacements; E2 gives derived limits, countable Mittag–Leffler exactness, cofinal invariance, finite-product comparison and the pro-zero criterion. E4 gives derived completion. `SmoothRepresentationsOfLocalGroups` SR0d supplies the generic unbounded derived tensor/Hom with associativity, symmetry, adjunction and scalar-extension coherence; use its trivial-group module comparison. `DerivedDeRhamCohomology` DD1 supplies the full cotangent and Koszul complexes and the derived-complete comparison. A bounded-above complex of projectives computes the supplied operations, not a new bifunctor.
-- For the CI punctured-spectrum applications, `SchemeAndStackFoundations` SF.3 must additionally supply parafactoriality of a local complete intersection of dimension at least four: every line bundle on its punctured spectrum is trivial. Its generic Picard carrier and restriction maps are used. The regular-local finite-resolution case of §6.9 has the independent determinant proof; the full CI case requires this additional supplier theorem (SGA 2, Exposé XI, Theorem 3.13(ii), new-edition p. 105, old p. 132). SF.4 must supply the geometric lci and syntomic predicates and affine comparisons used in §3.15; the ring-level complete-intersection predicates are constructed here.
+- `SchemeAndStackFoundations` §0.17 supplies `Module.depth`, its weak-regular-sequence and residue-Ext comparisons, the depth lemma, associated-prime bound, CM localization and flat-local depth formulas, and Serre conditions. Regular-local maximal-depth freeness is a new prerequisite target in §3.1, not an unstated supplier. Layer 4 supplies the classical coefficient deformation category, H1–H4, hull existence and prorepresentability. Its `ObstructionTheory` tests nonzero one-dimensional small kernels; the all-finite-socle interface used here is defined in §2.3.
+- `DerivedModuleAlgebra` §0.2 and §1.1.1 supply tensor and Hom on the native `DerivedCategory (ModuleCat A)`, K-flat/K-injective models, symmetry, adjunction, base change and product Hom comparisons. Its §0.K.1 supplies the Koszul complex and its exterior algebra signs. Its §§1.E.0–1.E.1 supply `IsPerfect`, `IsPseudoCoherent`, `HasTorAmplitude`, their isomorphism/shift/triangle/retract/base-change API, the residue-amplitude criterion over local rings, `PerfectSystem`, `FiniteFreeSystemModel`, compatible based models and perfect inverse-system effectivity. Its §1.T supplies native linear `lim`, `lim¹`, strict-tower `Cone(1-shift)[-1]`, natural linear Milnor sequences and cofinal comparison; §§1.3–1.5 supply derived completion and the Noetherian finite-cohomology comparison. All towers used here live in that strict diagram category.
+- `DerivedModuleAlgebra` §§1.M.1–1.M.2 supply a chosen residue injective hull `E_A`, its canonical completion action, exact contravariant `D_A=Hom_A(-,E_A)`, `End_A(E_A)≃Â`, the Artinian `A`/finite `Â` equivalence and biduality, and the completion restriction/extension adjunction. No finite-residue hypothesis is used in these contracts. `DeformationAndDerivedPatchingAlgebraPartII` §K0.1 supplies its native Čech comparison and support operations, §K0.4 its CM/local-cohomology criterion, §K0.5 regularity of CM secants, and §K0.7 normalized finite-module local duality and the Matlis annihilator comparison. `ArithmeticGaloisDuality` §D7.1 supplies the complete-local bounded-finite-complex local-duality equivalence with its naturality. Part II §K3.1 supplies `reesModule I M=⊕_n I^nM` with its graded Rees action and monomials.
+- `SchemeAndStackFoundations` §§2.18–2.21 supply native affine coherent duality, `Coherent.DualizingComplex`, `Coherent.NormalizedDualizing`, finite-map derived Hom, finite-local normalization and shift/localization comparisons. They also supply the geometric lci predicate in §2.19 and Picard/restriction carriers. The CI parafactorial theorem itself is a target here in §6.9. Current Tau Ceti `RingTheory.Syntomic.StandardSyntomic` supplies `Algebra.IsStandardSyntomicOfRelativeDimension`, its finite-presentation constructor, base change and finite presentation; `Syntomic.Smooth` and `Syntomic.Localization` supply the smooth and localization charts. The extra relative comparison in §3.14 specifies how continuous formal regular presentations relate to those algebraic charts.
 - `SchemeAndStackFoundations` SF.2 supplies affine comparison, uniformly bounded-below filtered colimits in `D_qc`, and finite perfect approximations. SF.5 supplies `Z_D(M)=Σ length_(A_p)(M_p)[p]` at primes with `dim A/p=D`, and Cartier specialization when the uniformizer is regular on the modules. `GrothendieckEulerForms` Layer 5 supplies the alternating finite-length Euler characteristic, its triangle additivity and its Grothendieck-group descent.
 - `ModularCurves` §4D supplies its regularity/completion/dimension and finite equal-dimensional regular-base flatness results. Its §7D test-algebra data are compared by identity on rings and the labelled residue map. `AlgebraicVectorBundles` 0B–0C supplies duals, determinant multiplicativity in short exact sequences and trivial determinants of free bundles.
 - `PadicMeasuresIwasawaAlgebras` L0 supplies the adic completion of an algebraic direct sum over a complete DVR and its restricted coefficient expansion. L1 supplies `O[[Z_p^q]]`, finite group-ring quotients and the augmentation. Its L6 coefficient-of-identity pairing identifies the finite group algebra with its coefficient dual. Here no general Pontryagin duality is inferred over a ramified coefficient ring.
@@ -116,7 +117,7 @@ For a ring map `f:A→B`, use `J=I.map f`. The map on Rees polynomials applies `
 
 ### 1.3 Ordinary graded modules and their coordinates
 
-For any `A`-module `M`, define `adicGradedModule I M` as the ordinary Rees-module quotient with degree `n` equal to `I^nM/I^(n+1)M`. Use the same graded ring from §1.1; its degree `r` scalar times a degree `s` vector has degree `r+s`. The Rees-module monomial sends an actual element of `I^nM` to that coefficient and degree. Its zero criterion is membership in `I^(n+1)M`. Constants embed `M` in the Rees module and their images generate the graded module in degree zero. A chosen finite family generating `M` gives chosen generators of both modules; hence a finite `M` has finite associated graded module (Stacks Algebra §10.58 and the Hilbert polynomial argument in §10.59).
+For any `A`-module `M`, use the supplied ordinary Rees module and define `adicGradedModule I M` as its quotient by the degree-zero action of `I`, with degree `n` equal to `I^nM/I^(n+1)M`. Use the same graded ring from §1.1; its degree `r` scalar times a degree `s` vector has degree `r+s`. The Rees-module monomial sends an actual element of `I^nM` to that coefficient and degree. Its zero criterion is membership in `I^(n+1)M`. Constants embed `M` in the Rees module and their images generate the graded module in degree zero. A chosen finite family generating `M` gives chosen generators of both modules; hence a finite `M` has finite associated graded module (Stacks Algebra §10.58 and the Hilbert polynomial argument in §10.59).
 
 The intended `adicModuleExpansion`, `adicModuleCoeff`, `adicModuleInclusion` and `adicModuleProjection` compare the **actual quotient carriers**, not unrelated abstract copies of their dimensions. State additivity, scalar compatibility, the same-degree identity, the other-degree zero law, finite recomposition and both inverse equations. The image submodule of each inclusion is the registered homogeneous component; membership there is equivalent to being fixed by its projection. A zero projection is exactly a zero quotient coefficient, and equality follows from equality of every projection. For `M=A`, the regular-module comparison agrees with the ring adapter and its multiplication, not just its additive group.
 
@@ -221,17 +222,17 @@ A coefficient morphism is surjective if and only if its relative cotangent is ze
 
 ### 1.10 Coefficient choices and residue extension
 
-Use Cohen structure from the supplier. The additional `residueExtensionData` records an actual faithfully flat local map `R→R'`, a specified compatible residue extension `k→K`, completeness and Noetherianity of `R'`, and **equality** `m_R R'=m_R'`. Such data exist for every field extension: lift one residue generator by a monic polynomial or a localized polynomial variable, pass through the required directed/transfinite extensions, and complete using §1.5. No canonical functor or Noetherianity before completion is asserted. Finite generation of an `R`-module is equivalent to finite generation after this faithfully flat extension (Stacks Lemma 10.159.1, tag [03C3](https://stacks.math.columbia.edu/tag/03C3); Lemma 10.97.5, tag 05GH).
+The coefficient choices below require the named Cohen-structure targets, with their actual maps. The adapter `residueExtensionData` records an actual faithfully flat local map `R→R'`, a specified compatible residue extension `k→K`, completeness and Noetherianity of `R'`, and **equality** `m_R R'=m_R'`. Such data exist for every field extension: lift one residue generator by a monic polynomial or a localized polynomial variable, pass through the required directed/transfinite extensions, and complete using §1.5. No canonical functor or Noetherianity before completion is asserted. Finite generation of an `R`-module is equivalent to finite generation after this faithfully flat extension (Stacks Lemma 10.159.1, tag [03C3](https://stacks.math.columbia.edu/tag/03C3); Lemma 10.97.5, tag 05GH).
 
-A `strictCohenRing` adapter records a characteristic-zero complete DVR with maximal ideal `(p)` and a labelled residue map to a characteristic-`p` field. Existence, truncated formal smoothness over `Z/p^n` and compatible coefficient lifts are the supplier's Cohen theorems. The additional comparisons retain the chosen coefficient map in finite series presentations and in separable residue extensions. Over perfect `k` use the existing `W(k)`; over imperfect `k` keep a Cohen ring. A coefficient map into a ring with `p`-torsion need not be injective. A chosen embedding `C(k)→W(k^perf)` gives a faithfully flat completed coefficient change with residue `k^perf`; perfection is not called separable. Preservation of reducedness under that operation is a separate geometric-regularity theorem, not a consequence of faithful flatness (Stacks Definition 10.160.5 and Theorem 10.160.8; André §4.2 and §4.4(1), printed pp. 86–88; Anscombe–Jahnke, Theorem 4.1, pp. 8–9 and Corollary 6.5, p. 14).
+A `strictCohenRing` adapter records a characteristic-zero complete DVR with maximal ideal `(p)` and a labelled residue map to a characteristic-`p` field. The targets `strictCohenRing_exists`, `cohenTruncatedFormalSmooth` and `cohenCompatibleLift` assert existence, truncated formal smoothness over `Z/p^n`, and a compatible coefficient map into a prescribed complete local target, respectively. For `cohenCompatibleLift`, fix a unital residue map `C/p→R/m_R` and construct compatible maps `C/p^n→R/m_R^n`: truncated formal smoothness lifts across each square-zero transition, and the limit gives `C→R`. The lift may be noninjective and is a choice. This works with `p`-torsion in R; it uses Stacks Lemmas 10.160.6–10.160.7 and the proof of Theorem 10.160.8, tag [0323](https://stacks.math.columbia.edu/tag/0323), rather than a Cohen-to-Cohen embedding alone. The additional comparisons retain the chosen coefficient map in finite series presentations and in separable residue extensions. Over perfect `k` use the existing `W(k)`; over imperfect `k` keep a Cohen ring. A coefficient map into a ring with `p`-torsion need not be injective. A chosen embedding `C(k)→W(k^perf)` gives a faithfully flat completed coefficient change with residue `k^perf`; perfection is not called separable. Preservation of reducedness under that operation is a separate geometric-regularity theorem, not a consequence of faithful flatness (Stacks Definition 10.160.5 and Theorem 10.160.8; André §4.2 and §4.4(1), printed pp. 86–88; Anscombe–Jahnke, Theorem 4.1, pp. 8–9 and Corollary 6.5, p. 14).
 
 **Checks.**
 
 - The identity is residue-extension data, and `k[[X]]→K[[X]]` has extended maximal ideal `(X)` and the required residue.
 - A ramified DVR extension with `π=u(π')^e`, `e>1`, is flat local but fails equality of maximal ideals. It is not this kind of residue extension.
-- `C/(p²)` is not a strict Cohen ring. For a perfect residue field, its untruncated Witt ring is; for an imperfect field no claim identifies its Cohen ring with `W(k)`.
+- `C/(p²)` is not a strict Cohen ring; `Z_p` is one with labelled residue `F_p`; a ramified extension with `p=uπ^e`, `e>1`, fails the maximal-ideal condition. For a perfect residue field the untruncated Witt ring is strict; for an imperfect field no identification with `W(k)` is asserted. The lift `C→C/(p²)` reduces to the identity on residue and is noninjective, testing the torsion-target case.
 
-*Needs:* §§1.5–1.9, native faithfully flat descent, Witt vectors and the supplier's Cohen structure.
+*Needs:* §§1.5–1.9, native faithfully flat descent, Witt vectors and the three Cohen targets with the truncated lifting proof just stated.
 
 ### 1.11 Formal smoothness with labelled complete lifts
 
@@ -291,7 +292,7 @@ For faithfulness state the sufficient assumptions explicitly: `S` faithfully fla
 - If `I=R`, the completion is zero. Flatness survives but faithfulness fails for a nonzero base.
 - For `R=O` and a polynomial algebra `S` of arbitrarily many variables, the flat-completion conclusion still applies although no Noetherian hypothesis on `S` is available.
 
-*Needs:* §1.5, native Artin–Rees, finite presentations, Mittag–Leffler exactness and cofinal invariance from `EnhancedDerivedSheaves` E2.
+*Needs:* §1.5, native Artin–Rees, finite presentations, the supplied native Mittag–Leffler exactness and cofinal comparison from `DerivedModuleAlgebra` §1.T.
 
 ### 1.14 Quotients, finite algebras and cofinal completions
 
@@ -358,7 +359,7 @@ For `A=k[t]/t⁴`, the extension to `k[t]/t²` has square-zero kernel `(t²,t³)
 
 ### Dependencies
 
-This layer uses native adic completion, series, modules, Rees and grading machinery; the labelled comparisons consume the coefficient and Cohen interfaces from `SchemeAndStackFoundations` and `ModularCurves`; completed tensor uses `AdicSpacesPartII` F0. Limit and pro-tower exactness comes from `EnhancedDerivedSheaves` E2. No multiplicity, Auslander–Buchsbaum, patching or higher arithmetic theorem enters the Noetherian completion proof.
+This layer uses native adic completion, series, modules, Rees and grading machinery; the labelled comparisons consume the coefficient and Cohen interfaces from `SchemeAndStackFoundations` and `ModularCurves`; completed tensor uses `AdicSpacesPartII` F0. Limit and pro-tower exactness uses the `DerivedModuleAlgebra` §1.T contract in the boundaries. No multiplicity, Auslander–Buchsbaum, patching or higher arithmetic theorem enters the Noetherian completion proof.
 
 ## Layer 2: Minimal equations and deformation hulls
 
@@ -410,7 +411,7 @@ The API proves independence from all variable lifts, the formula on each relatio
 - For `R=k` over a DVR `Λ`, the extension `Λ/(π²)→k` sends the relation class of `π` to its nonzero kernel class.
 - Without minimality, evaluation is not independent: for `k[[Y]]→k`, lifts `Y↦0` and `Y↦ε` into `k[ε]` give different values.
 
-**Targets.** Prove the lift criterion and tensor-valued naturality for kernels of every finite dimension. The principal-small-extension detector alone is insufficient for §2.5. Source: Stacks, More on Morphisms of Stacks, Definition 98.22.1 and Example 98.22.4, tags [07YG](https://stacks.math.columbia.edu/tag/07YG), [07YI](https://stacks.math.columbia.edu/tag/07YI); Gee, Lemma 3.13, p. 13. Needs: §§1.7, 2.2 and the SchemeAndStackFoundations obstruction interface with this explicitly specified enlargement.
+Define `CompleteSocleObstruction F V` to consist of obstructions in `V⊗_k I` for every finite-dimensional kernel `I` with `m_B I=0`, vanishing exactly when the specified point lifts, and natural under every commuting extension square and linear kernel pushout, including the zero pushout. Its API includes restriction to one-dimensional small extensions, transport by a linear equivalence of `V`, and the presentation instance `V=E(q)*`. The four computations above test that instance: the relation-free zero case, the quadratic obstruction, the coefficient obstruction and the nonminimal failure. This is stronger than a small-kernel-only detector; no automatic extension of such a detector is assumed. **Targets.** Prove the lift criterion and tensor-valued naturality for kernels of every finite dimension. The principal-small-extension detector alone is insufficient for §2.5. Source: Stacks, More on Morphisms of Stacks, Definition 98.22.1 and Example 98.22.4, tags [07YG](https://stacks.math.columbia.edu/tag/07YG), [07YI](https://stacks.math.columbia.edu/tag/07YI); Gee, Lemma 3.13, p. 13. Needs: §§1.7, 2.2 and the new `CompleteSocleObstruction` interface.
 
 ### 2.4 An Artinian extension testing all relations
 
@@ -439,7 +440,7 @@ In particular `V=0` implies that the hull is a power-series ring. A nonzero, non
 
 The smooth-transformation comparison identifies smooth `h_S→h_R` with formally smooth `R→S` in §1.11. Such `S` is a finite-variable power-series algebra over `R`, with the number of variables its relative cotangent dimension. For a hull, surjectivity of `F(B)→F(A)` on all Artinian surjections is equivalent to formal smoothness of `Λ→R`. These are coefficient-specific transports of SchemeAndStackFoundations' criterion, rather than a second representability theorem.
 
-Source: Khare–Wintenberger II, Lemma 4.6, pp. 43–45; Gee, Proposition 3.24(2), p. 18; Schlessinger, Definition 2.2, Proposition 2.5, Theorem 2.11, pp. 210–215. Needs: §§2.1–2.4 and the exact SchemeAndStackFoundations, Layer 4 contracts above. The higher-dimensional kernel naturality is an explicit prerequisite.
+Source: Khare–Wintenberger II, Lemma 4.6, pp. 43–45; Gee, Proposition 3.24(2), p. 18; Schlessinger, Definition 2.2, Proposition 2.5, Theorem 2.11, pp. 210–215. Needs: §§2.1–2.4 and the exact SchemeAndStackFoundations, Layer 4 contracts above. The hypothesis is `CompleteSocleObstruction F V` of §2.3, including its higher-dimensional pushout maps.
 
 ### 2.6 Fixed-basis matrix equations
 
@@ -490,19 +491,13 @@ The characteristic-two involution combines a tangent direction and one quadratic
 
 ### Dependencies
 
-Layer 1; SchemeAndStackFoundations, Layer 4, with the finite-socle obstruction enlargement stated in §2.3; the profinite interfaces of LocalGaloisGroups; native matrices, free groups, power series, quotient modules and Artin–Rees. No arithmetic deformation condition is used.
+Layer 1; SchemeAndStackFoundations, Layer 4, and the new finite-socle obstruction interface of §2.3; the profinite interfaces of LocalGaloisGroups; native matrices, free groups, power series, quotient modules and Artin–Rees. No arithmetic deformation condition is used.
 
 ## Layer 3: Homological dimension, local duality and multiplicity
 
 ### 3.1 Finite resolutions and depth
 
-Use the supplier's depth, grade, parameters, secant sequences and CM predicates. The light adapter `moduleDepth A M` is the supremum of lengths of weakly M-regular lists contained in `m_A`; it agrees with supplied depth for finite modules over Noetherian local rings. Its API includes equivalence invariance, zero depth `∞`, field depth zero for nonzero modules and the resolution formula below.
-
-**Checks.**
-
-- The zero module admits weakly regular zero lists of every length, so its depth is `∞`.
-- A nonzero vector space over a field has depth zero: the only maximal-ideal element is zero and acts noninjectively.
-- Over `Z/4`, multiplication by 2 kills 2; every maximal-ideal element is a zerodivisor and the ring has depth zero.
+Use the supplied depth and CM predicates. First prove `regularLocal_maximalDepth_free`: a finite module of depth `d` over a regular local ring of dimension `d` is free. This precedes Auslander–Buchsbaum. A regular parameter is module-regular: the associated-prime depth bound and the regular local dimension formula force every associated prime of a nonzero maximal-depth module to be zero. Reduce by that parameter, apply induction and lift a basis of the free quotient; Nakayama and regularity of the parameter kill the relation kernel. This proof also works over finite residue fields. The base case is a field, the zero module is free independently, and the residue module over a positive-dimensional DVR fails the maximal-depth hypothesis. Source: Stacks Algebra, Lemma 10.106.6, tag [00NT](https://stacks.math.columbia.edu/tag/00NT). Needs: regular-local parameters, supplied depth/Ext, finite local Nakayama and the regular-local dimension formula.
 
 The **resolution comparison** identifies `pd_A M≤n`, for finite `M` over a Noetherian local `A` and `n≥0`, with a native projective resolution whose terms are finite free and vanish above `n`. For every finite module, first construct its minimal bounded-above finite-free resolution by successively resolving finite syzygies, even when projective dimension is infinite. Its differential images lie in the maximal ideal times their targets. Under the displayed projective-dimension bound this resolution stops at that degree. For nonzero `M`, its last nonzero degree is its projective dimension. The API compares this resolution with the native categorical projective dimension, tensors it to the residue field, and equips native `Tor_j(M,k)` with its actual residue-field vector-space structure. Identify the term ranks with these finite residue Tor dimensions in every degree. In particular the first two ranks compute generator and relation counts without any finite-projective-dimension hypothesis.
 
@@ -517,7 +512,7 @@ The **resolution comparison** identifies `pd_A M≤n`, for finite `M` over a Noe
 
 `pd_A M + depth_A M = depth A`.
 
-The proof uses the supplier's depth–Ext comparison, annihilation of `Ext_A^i(k,N)` by `m`, vanishing of the maps on residue Ext induced by minimal matrices, and the depth drop in a minimal free injection. State also the syzygy bound `depth K_j≥min(depth A,depth M+j)` for every finite segment `0→K_(j+1)→F_j→K_j→0`, without finite-projective-dimension assumptions. Killing an element in `m` regular on both `A` and `M` preserves this projective dimension after quotienting. Source: Stacks, Algebra §§10.102, 10.109, Proposition 10.111.1, tags 00MT, 0CXE, 0CXF, 065R, [090V](https://stacks.math.columbia.edu/tag/090V), pp. 243–244, 262–268. Needs: native projective resolutions and the independent regular-local freeness supplied by SchemeAndStackFoundations §0.17; the proof must not use this formula to justify that input.
+The proof uses the supplier's depth–Ext comparison, annihilation of `Ext_A^i(k,N)` by `m`, vanishing of the maps on residue Ext induced by minimal matrices, and the depth drop in a minimal free injection. State also the syzygy bound `depth K_j≥min(depth A,depth M+j)` for every finite segment `0→K_(j+1)→F_j→K_j→0`, without finite-projective-dimension assumptions. Killing an element in `m` regular on both `A` and `M` preserves this projective dimension after quotienting. Source: Stacks, Algebra §§10.102, 10.109, Proposition 10.111.1, tags 00MT, 0CXE, 0CXF, 065R, [090V](https://stacks.math.columbia.edu/tag/090V), pp. 243–244, 262–268. Needs: native projective resolutions and `regularLocal_maximalDepth_free` above; the proof must not use this formula to justify that input.
 
 ### 3.2 Regular local homological comparisons
 
@@ -525,7 +520,7 @@ For regular local `A` of dimension `d`, show that every finite module has projec
 
 For a finite module of finite projective dimension over a Noetherian local ring, the alternating ranks of a finite free resolution give an integer rank independent of the resolution. At every associated prime of `A`, the localization is free of this rank, by Auslander–Buchsbaum at depth zero. This allows zero rank and does not imply global projectivity. When `A` is regular local of dimension `d`, the residue Koszul comparison gives `RHom_A(k,A)≃k[-d]` and `Ext_A^*(k,k)≃∧^*((m/m²)*)`, with generators in degree one. For general Noetherian local `A`, Lescot's criterion says that the map `Ext_A^n(k,A)→Ext_A^n(k,k)` is nonzero for some `n` exactly when `A` is regular; `n=d` works in the regular case. Its finite-projective-dimension module version replaces `A→k` by `M→M/mM` and requires nonzero induced map.
 
-Source: Stacks, Algebra Propositions 10.110.1, 10.110.5, Lemma 10.110.6, tags 00O7, 00OC, [0AFS](https://stacks.math.columbia.edu/tag/0AFS), pp. 265–267; André, §0.1, p. 72, footnote 1; Avramov–Iyengar, Theorems 2.1 and 2.4, PDF pp. 2–4; Iyengar–Khare–Manning, Lemma 2.6 and §6.6, pp. 15–16, 29. Needs: §3.1, supplier Koszul complexes and native Ext. In dimension zero a field has `Ext^0(k,A)→Ext^0(k,k)` equal to the identity. A hypersurface singularity has infinite residue projective dimension and cannot be admitted by a depth equality alone.
+Source: Stacks, Algebra Propositions 10.110.1, 10.110.5, Lemma 10.110.6, tags 00O7, 00OC, [0AFS](https://stacks.math.columbia.edu/tag/0AFS), pp. 265–267; André, §0.1, p. 72, footnote 1; Avramov–Iyengar, Theorems 2.1 and 2.4, PDF pp. 2–4; Iyengar–Khare–Manning, Lemma 2.6 and §6.6, pp. 15–16, 29. **Source gap:** the stable-cohomology comparison used by Avramov–Iyengar invokes Martsinkovsky, Theorem 6, J. Pure Appl. Algebra 110 (1996), pp. 9–13; its primary proof has not been verified here. The criterion is stated as a target, not as a theorem supplied by the cotangent complex. Needs: §3.1, supplier Koszul complexes and native Ext. In dimension zero a field has `Ext^0(k,A)→Ext^0(k,k)` equal to the identity. A hypersurface singularity has infinite residue projective dimension and cannot be admitted by a depth equality alone.
 
 ### 3.3 Finite actions and flat fibres
 
@@ -552,7 +547,7 @@ Source: Kisin, Lemma 3.3.4, p. 1159; EGA IV₂, Proposition 5.7.9 and Corollary 
 
 ### 3.4 Regular-sequence ideals and complete intersections
 
-Define a **regular-sequence ideal** by existence of a finite native regular list generating it. The list has nonzero final quotient. Its API includes the empty-list zero ideal in a nonzero ring, exclusion of the unit ideal, transport by equivalences, faithfully flat base change and descent, and replacement by any minimal local generating list. Over a CM Noetherian local ring, a list of `c` elements in `m` is regular exactly when its quotient has dimension `dim A-c`. A secant element of a nonzero finite CM module is therefore regular.
+Define a **regular-sequence ideal** by existence of a finite native regular list generating it. The list has nonzero final quotient. Its API includes the empty-list zero ideal in a nonzero ring, exclusion of the unit ideal, transport by equivalences, and faithfully flat base change. Descent of the existence of a generating regular list is asserted for faithfully flat **local maps of Noetherian local rings** and proper extended ideals. There one can choose minimal generators downstairs, compare their number after the residue extension, and descend exactness of their Koszul complex. Replacement by any minimal local generating list has the same local hypotheses. Over a CM Noetherian local ring, a list of `c` elements in `m` is regular exactly when its quotient has dimension `dim A-c`.
 
 **Checks.**
 
@@ -560,6 +555,7 @@ Define a **regular-sequence ideal** by existence of a finite native regular list
 - A unit generates the unit ideal but is excluded by the nonzero-quotient convention.
 - `(X²,XY)⊂k[[X,Y]]` has height one and two minimal generators; that generating pair is not regular.
 - `(X²,Y²)` is regular, even in characteristic two, whereas repeating `X` is not.
+- Global existence does not have the unrestricted faithfully flat descent property: the nonprincipal invertible ideal `(2,1+√(-5))` in `Z[√(-5)]` becomes principal on a finite principal-open trivializing cover. The product of the corresponding localization rings is faithfully flat. Its extended ideal has a one-element regular generating list, whereas the original ideal has none: a nonzero proper regular-sequence ideal in this Dedekind domain must be principal. Its norm is two, and `a²+5b²=2` has no integral solution, which detects nonprincipality.
 
 An **absolute local complete intersection** is a Noetherian local ring whose completion is a quotient of a regular local ring by such an ideal. A **locally complete-intersection ring** is Noetherian and has that property at every prime. The API compares complete presentations, tests a chosen regular-local surjection, localizes at primes, and detects the global property at maximal ideals. A surjection of regular local rings has kernel generated by a prefix of a regular parameter system. Changing between two regular local presentations preserves the regular-ideal condition. Complete intersections are CM. These absolute predicates differ from the supplier's relative lci morphism predicate.
 
@@ -576,7 +572,7 @@ The named prerequisite `regularGenerators_iff_koszulAcyclic` identifies regulari
 
 The conormal injection requires the finite-variable Tate resolution and its divided-power derivation argument: construct the resolution with finitely many generators in each degree, extend degree `-2` derivations compatibly with divided powers, and use a nonzero relation to force nonzero Tor in arbitrarily high even degrees. Mere existence of a cotangent complex does not supply this proof. The generic Koszul, divided powers and cotangent carriers are imported.
 
-Source: Stacks, More on Algebra §15.31, tags 09CC, 066A, pp. 78–81; Divided Power Algebra §§23.6–23.8, Lemmas 23.6.9, 23.7.1–23.7.6, 23.8.1–23.8.9, tags 09PS–09PX, 09PZ–09Q7, pp. 16–22. Needs: §3.1, Layer 1, DerivedDeRhamCohomology DD1 and the native divided-power algebra.
+Source: Stacks, More on Algebra §15.31, tags 09CC, 066A, pp. 78–81; Divided Power Algebra §§23.6–23.8, Lemmas 23.6.9, 23.7.1–23.7.6, 23.8.1–23.8.9, tags 09PS–09PX, 09PZ–09Q7, pp. 16–22. Needs: §3.1, Layer 1, the supplied Koszul complex and the native divided-power algebra.
 
 ### 3.5 Dimension criteria for formal equations
 
@@ -596,61 +592,47 @@ Define `symbolicSquare p`, the **second symbolic power** of a prime `p`, as the 
 
 Source: Iyengar–Khare–Manning, before Lemma 3.4, p. 18, and Lemma 7.5, p. 33; Stacks, Algebra §§10.63, 10.157, tags 05BW–05DZ, 0311, 031T. Needs: native support/associated primes/localization and the SchemeAndStackFoundations normality contract. No duplicate definition of associated primes or Serre conditions is introduced.
 
-### 3.7 Residue injective hulls and Matlis duality
 
-Choose the native injective envelope `k↪E_A` for Noetherian local `A`. The **residue-hull adapter** exposes its essential socle `k`, maximal-ideal-power torsion of every element, and its unique extending action by `Â`. Generic injective-envelope existence and uniqueness are supplied by Tau Ceti. Define the **Matlis dual** by native linear Hom `D_A(M)=Hom_A(M,E_A)`. Its API is contravariant transport, evaluation, exactness, faithfulness on all modules, `End_A(E_A)≃Â`, and the finite-module bidual comparison `D_A D_A M≃M̂`. For complete `A`, it exchanges finite and Artinian modules and gives their biduality.
 
-**Checks for the hull.**
+### 3.7 Dimension and top local cohomology
 
-- For a field, take `E=k` and its socle is all of `E`.
-- For a complete DVR, `E=E_frac/O`; its elements are killed by some `π^n`, with no uniform exponent.
-- For `A=k[ε]/ε²`, `E≃A` and the socle is `(ε)`, rather than the quotient copy of `k` embedded by `1`.
+For a nonzero finite module `M` over a Noetherian local ring `(A,m)`, prove `localCohomology_top_nonzero`: `H_m^i(M)=0` for `i>dim Supp M` and `H_m^(dim Supp M)(M)≠0`. The zero module has zero cohomology in every degree and is excluded from the nonvanishing statement. This is the dimension/nonvanishing assertion beyond the supplied depth and CM criteria.
 
-**Checks for the dual.**
-
-- `D(0)=0` and over a field it is ordinary algebraic duality; biduality is asserted only in the specified finite/Artinian classes.
-- Over a complete DVR, `D(O)=E_frac/O`, `D(k)=k`, and `D(E_frac/O)=O`.
-- For a noncomplete local `A`, `D D A=Â`; replacing it by `A` is false in general.
-
-Source: Hochster's local cohomology notes, Proposition 1.6 and Theorem 5.1, pp. 7–8, 19; Bhatt–Ma–Patakfalvi, §2.1, pp. 10–11. Needs: native linear Hom and the envelope supplier; §1.13 for completion. The algebraic dual here does not require or define a topological character into `Q_p/Z_p`.
-
-### 3.8 Supported derived cohomology
-
-Compare the supplied derived torsion object `RΓ_I K` with the native local cohomology functors. For `I=(f₁,…,f_r)` and a module `M`, the comparison is the alternating Čech complex
-
-`M → ⊕ M_fi → ⊕ M_fifj → …`
-
-in degrees `0,…,r`. The **Čech comparison** API includes its maps on localizations, augmentation, independence of generators, support triangle, flat base change and `H^i≃localCohomology I i`. Radical invariance of existing groups is consumed. The enhanced construction and its limit/coherence machinery come from the suppliers.
+For a parameter system of a `d`-dimensional Noetherian local ring, construct `topLocalCohomology_tensor`: the natural isomorphism `H_m^d(A)⊗_A N≃H_m^d(N)` for **every** module `N`. Use the supplied Čech complex: its last cohomology is a cokernel, so right exactness of tensor gives the comparison; this does not assert that lower local cohomology commutes with arbitrary tensor. Its API includes the formula on the final localization classes, identity/scalar naturality and agreement with finite direct sums.
 
 **Checks.**
 
-- For `I=(0)`, `RΓ_I M=M[0]`; for `I=A`, it is zero.
-- For a DVR with `I=(π)`, the complex `O→E_frac` has `H^0=0` and `H^1=E_frac/O`.
-- For `M=k` over that DVR, `M[1/π]=0`, so the cohomology is in degree zero.
+- Over a field `d=0`, the comparison is `k⊗N≃N`, including `N=0`; for a nonzero finite vector space the top group is in degree zero.
+- Over a DVR, `H_m^1(A)=E_frac/A≠0`, while its tensor with `k` is zero, agreeing with `H_m^1(k)=0`. The lower group `H_m^0(k)=k` does not arise from tensoring `H_m^0(A)=0`.
+- For `A=k[[x,y]]/(xy)`, the top group is degree one and nonzero; the class of `x^(-1)` in the punctured Čech quotient survives. Its tensor with `A/(x,y)` is zero, although that module has nonzero degree-zero cohomology.
 
-**Targets.** For finite nonzero `M` and `IM≠M`, compare grade with the first nonzero local cohomology degree. At the maximal ideal, cohomology vanishes above `dim Supp M` and is nonzero at that dimension. CM is equivalent to concentration there. For parameters of a `d`-dimensional local ring, `H_m^d(N)≃H_m^d(A)⊗N` for every module `N`. Also prove `grade(I,M)=inf_(p∈Supp M∩V(I)) depth M_p`; in particular depth at least two along `V(I)` kills `H_I^0,H_I^1` and gives a regular pair when `IM≠M`. Source: Stacks, Dualizing Complexes, Lemmas 10.1–10.3, 11.1, tags 0955–0957, 0AVZ, pp. 17–19; Hochster, Theorem 11.5 and Remark 11.6, pp. 40–41. Needs: §3.7, supplier grade and derived torsion. These targets concern the comparison and its applications, not a second definition of grade or local cohomology.
+Also prove `grade_eq_inf_localDepth`: for finite `M`, grade is the infimum of local depths on `Supp M∩V(I)`, with the empty infimum `∞`. In particular depth at least two there kills `H_I^0,H_I^1`. Source: Stacks Local Cohomology, Lemmas 51.4.7 and 51.4.9, tag [0DX6](https://stacks.math.columbia.edu/tag/0DX6), and Dualizing Complexes Lemma 47.11.1, tag [0AVZ](https://stacks.math.columbia.edu/tag/0AVZ), together with the final-term cokernel argument just specified; Hochster, Theorem 11.5 and Remark 11.6, pp. 40–41. Needs: the exact local-cohomology, Čech and Matlis contracts in the boundaries, supplied depth and finite support dimension.
 
-### 3.9 Normalized ring duality
+### 3.8 Explicit Cohen models and noncomplete complex local duality
 
-A **ring dualizing complex** `ω_A` over Noetherian `A` has bounded finite cohomology, finite injective dimension, and invertible homothety `A→RHom_A(ω_A,ω_A)`. Its API is duality `D^ω=RHom(-,ω)`, the natural bidual equivalence on bounded finite cohomology, scalar compatibility and independence under the usual invertible twist/shift. For local `A` choose the normalization `RHom_A(k,ω_A)≃k[0]`. This normalization gives `ω_A≃A[d]` for a Gorenstein ring of dimension `d`.
+For complete Noetherian local `A` with a **chosen** regular complete local Cohen presentation `Q↠A`, construct `cohenDualizingModel`: the signed representative comparison, obtained by dualizing a bounded finite-free Q-resolution of A, of the supplied normalized dualizing object with `RHom_Q(A,Q[dim Q])`. The resulting A-action is derived; this does not assert a finite-free A-model for a non-Gorenstein ring. The extra assertion specifies the Q-chain representative and its signed evaluation under change of presentation; abstract affine duality, finite-local normalization and their adjunctions are inputs. Its API retains the coefficient map, compares the residue-normalizing map, and gives the change-of-presentation cocycle. A prime localization uses the supplier's recalculated normalized shift.
 
 **Checks.**
 
-- For a field, the normalized complex is `k[0]`.
-- For a DVR, it is `O[1]`, in cohomological degree `-1`.
-- For `A=Q/(f)` with `Q` regular of dimension `d+1` and `f` regular, `RHom_Q(A,Q[d+1])≃A[d]`; the shift decreases by one after quotienting.
+- For a field with its identity presentation, the representative is degree zero and evaluation on `1` is `1`.
+- For a DVR with its identity presentation, it is `O[1]` in degree `-1`; the unshifted model fails residue normalization.
+- For `A=Q/(f)`, `Q` regular of dimension `d+1` and `f` regular, the two-term model gives `A[d]`, decreasing the shift by one. For two successive regular quotients the two normalization maps compose to the same map, with the cochain signs of §7.6.
 
-**Targets.** Complete local rings admit the normalized complex `RHom_Q(A,Q[dim Q])` from a Cohen presentation. Finite local `A→B` has normalized complex `RHom_A(B,ω_A)`, with coherent transitivity for two finite maps. Localization preserves dualizing complexes but need not preserve the chosen normalization. Compare this ring construction with affine scheme duality from SchemeAndStackFoundations SF.2; geometric existence is not rebuilt.
+For a Noetherian local `A` admitting a supplied normalized dualizing complex `ω_A`, and `K` with bounded finite cohomology, construct `noncompleteComplexLocalDuality`:
 
-Local duality is the natural equivalence
+`LΛ_m RHom_A(K,ω_A) ≃ RHom_A(RΓ_m K,E_A)`.
 
-`LΛ_m RHom_A(K,ω_A) ≃ RHom_A(RΓ_m K,E_A)`
+Unlike the supplied complete-local bounded-complex theorem, this retains the completion for noncomplete `A`. Extend the supplied finite-module comparison by finite smart-truncation triangles; specify the natural comparison maps first, then prove they are isomorphisms, so arbitrary choices of triangles do not define the functor. The reverse comparison is `RΓ_m K≃RHom_A(RHom_A(K,ω_A),E_A)`. Its API includes triangle compatibility, scalar restriction and agreement with the finite-module and complete-local comparisons.
 
-for `K` with bounded finite cohomology. In particular `D_A H_m^i(M)≃(H^(-i) RHom_A(M,ω_A))̂` for finite `M`. Over complete `A` the completion can be omitted. The other direction is `RΓ_m K≃RHom_A(RHom_A(K,ω_A),E_A)` in this bounded finite setting. The DVR check in §3.8 gives `D H_m^1(O)=O` in degree `-1` of `ω`; an unshifted normalization fails it.
+**Checks.**
 
-Source: Stacks, Dualizing Complexes, Definition 15.1, Lemmas 15.3, 15.6, 15.8–15.10, Proposition 15.11, §§16, 18, tags 0A7B, 0A7C, 0A7G, 0AX0, 0A7K, 0AX1, [0A84](https://stacks.math.columbia.edu/tag/0A84), pp. 26–35; Česnavičius, Lemma 3.6(a), PDF p. 11. Needs: §§3.7–3.8, Cohen structure and enhanced derived Hom/completion.
+- Over an incomplete DVR the left coefficient dual of `A[1]` is `Â[1]`, not `A[1]`; omitting completion fails.
+- For a field and `K=k[0]⊕k[-1]`, the two sides have the corresponding dual degrees `0,-1`, with the same signed maps.
+- For `K=A/(π)[0]` over a DVR the comparison gives the residue Matlis dual in degree zero, whereas ordinary `Hom_A(k,A)` vanishes. Zero gives the zero comparison.
 
-### 3.10 Canonical modules, type and trace
+Source: Stacks Dualizing Complexes Lemmas 47.15.8–47.15.10, Proposition 47.15.11, §§47.16, 47.18, tags 0AX0, 0A7K, 0AX1, [0A84](https://stacks.math.columbia.edu/tag/0A84); Česnavičius, Lemma 3.6(a), PDF p. 11; the finite-truncation construction above. Needs: §3.7 and the exact dualizing, Matlis and local-duality supplier contracts in the boundaries, and §1.10 for the chosen Cohen presentation.
+
+### 3.9 Canonical modules, type and trace
 
 For local `A` of dimension `d` with normalized `ω`, its **canonical module** is `K_A=H^(-d)(ω)`. For a finite nonzero CM module of support dimension `s`, its **CM dual** is `M^∨=H^(-s) RHom_A(M,ω)`. The API identifies the full derived Hom with `M^∨[s]`, gives natural biduality, preserves support dimension and is exact on short exact sequences of CM modules of the same dimension. For a CM ring, `K_A` is MCM.
 
@@ -676,9 +658,9 @@ A **Gorenstein local ring** is Noetherian local with finite self-injective dimen
 - Over a DVR, `tr(k)=0` although `k≠0`.
 - For the ideal `(x,y)` in `k[[x,y]]`, the trace is `(x,y)`, so it has no free rank-one summand.
 
-Source: Stacks, Dualizing Complexes §§19–21, tags 0AWR, 0AWS, 0DW7, 0AWX, 0BJJ, 0DWA, pp. 35–39; Iyengar–Khare–Manning, (4.2)–(4.3), Proposition 4.4 and Lemma 9.3, pp. 21–22, 38; Calegari–Geraghty, Lemmas 4.1–4.2, pp. 355–356. Needs: §§3.4, 3.9 and the finite-order/group-algebra suppliers.
+Source: Stacks, Dualizing Complexes §§19–21, tags 0AWR, 0AWS, 0DW7, 0AWX, 0BJJ, 0DWA, pp. 35–39; Iyengar–Khare–Manning, (4.2)–(4.3), Proposition 4.4 and Lemma 9.3, pp. 21–22, 38; Calegari–Geraghty, Lemmas 4.1–4.2, pp. 355–356. Needs: §§3.4, 3.8 and the finite-order/group-algebra suppliers.
 
-### 3.11 Abelian group-ring complete intersections
+### 3.10 Abelian group-ring complete intersections
 
 Let `O` be a complete DVR with residue characteristic `p`, and let `Δ=∏_i Z/p^(n_i)` be finite abelian. Compare the supplied group algebra with
 
@@ -692,9 +674,9 @@ The API sends `T_i` to the selected generator minus one, compares augmentation i
 - For `C₂` in residue characteristic two the relation is `T²+2T`; modulo `π` it has a repeated root and is not an étale equation.
 - For `C_p×C_p` the residue ring is `k[T₁,T₂]/(T₁^p,T₂^p)`, with one-dimensional socle generated by `T₁^(p-1)T₂^(p-1)`.
 
-Source: Calegari–Geraghty, §4.1 and proof of Lemma 4.11, pp. 356, 364. Needs: §§3.4, 3.10 and PadicMeasuresIwasawaAlgebras L1, L6.
+Source: Calegari–Geraghty, §4.1 and proof of Lemma 4.11, pp. 356, 364. Needs: §§3.4, 3.9 and PadicMeasuresIwasawaAlgebras L1, L6.
 
-### 3.12 Hilbert polynomials from graded modules
+### 3.11 Hilbert polynomials from graded modules
 
 For finite `M` over Noetherian local `A` and an ideal `I⊆m_A` with `M/IM` of finite length, define its **graded Hilbert series** by the lengths of `I^nM/I^(n+1)M`; its cumulative coefficients are `hilbertSamuelFunction A M I n=length(M/I^(n+1)M)`. The API relates the two series by division by `1-t`, compares graded pieces with §1.3, commutes with finite direct sums and keeps the coefficient ring explicit. For a finite graded module over an Artinian degree-zero ring with finitely many degree-one generators, prove eventual polynomiality of its degree lengths by induction on the number of generators. The exact kernel/cokernel sequence of §1.4 yields `P_Q(n)-P_K(n-1)` for the first difference; the cutoff is enlarged before taking differences. The cumulative polynomial has degree `dim Supp M` for `M≠0`.
 
@@ -707,7 +689,7 @@ For finite `M` over Noetherian local `A` and an ideal `I⊆m_A` with `M/IM` of f
 
 **Targets.** Identify the degree with support dimension through prime filtrations, Artin–Rees for induced filtrations, and the dimension bound from generators. Prove invariance of top coefficients under bounded shifts of a good filtration. A nonzero homogeneous relation in `k[X₁,…,X_d]` lowers eventual growth degree; include `d=0` and `d=1` separately. This proves the polynomial tangent-cone comparison for a regular local ring, rather than assuming it from the domain theorem. The map sends each polynomial variable to its chosen parameter's initial class and is a graded isomorphism. Source: Stacks, Algebra §10.58, especially Lemma 10.58.10, tag 00K3, pp. 137–138; §10.60 and Lemma 10.106.1, tag 00NO, pp. 140–145, 253; Stone, §§1.2–2, pp. 4–10. Needs: §§1.1–1.4 and the native graded suppliers.
 
-### 3.13 Intrinsic and ambient multiplicities
+### 3.12 Intrinsic and ambient multiplicities
 
 The raw extraction `multiplicityCoefficient d P=d!·coeff_d(P)` is defined for every rational polynomial, including zero. Define **intrinsic multiplicity** `e_I(M)` for nonzero dimension `d` by `d!` times the leading coefficient of the cumulative polynomial, and set it to zero for `M=0`. Separately define **ambient multiplicity** `e_I^[D](M)` by extracting the coefficient in degree `D`, for a specified dimension bound. The API proves positivity and integrality in the nonzero intrinsic case, vanishing of ambient multiplicity below `D`, `e_(I^r)(M)=r^d e_I(M)` for `r≥1`, and additivity of ambient multiplicity in short exact sequences with a common bound `D`.
 
@@ -722,15 +704,15 @@ The raw extraction `multiplicityCoefficient d P=d!·coeff_d(P)` is defined for e
 
 `e_I(M)=Σ_(dim A/p=d) length_(A_p)(M_p) e_I(A/p)`.
 
-The sum ranges only over the finitely many top-dimensional minimal support primes, and all localized lengths are finite before conversion to integers. Completion preserves Hilbert functions and multiplicities. A flat local map with `m_B=m_A B` preserves them under scalar extension, with lengths measured in their own residue fields. For a finite local map use the factor `[k_B:k_A]` in length and multiplicity, and retain the ideal `m_A B` rather than substituting `m_B` without equality. Source: Stone, Lemma 8, Theorem 10 and Proposition 14, pp. 9–10, 13–14, 18–20; Emerton–Gee, Lemma 2.2.8, p. 6; Stacks, Algebra §§10.52, 10.97. Needs: §3.12, native finite-length additivity and completion.
+The sum ranges only over the finitely many top-dimensional minimal support primes, and all localized lengths are finite before conversion to integers. Completion preserves Hilbert functions and multiplicities. A flat local map with `m_B=m_A B` preserves them under scalar extension, with lengths measured in their own residue fields. For a finite local map use the factor `[k_B:k_A]` in length and multiplicity, and retain the ideal `m_A B` rather than substituting `m_B` without equality. Source: Stone, Lemma 8, Theorem 10 and Proposition 14, pp. 9–10, 13–14, 18–20; Emerton–Gee, Lemma 2.2.8, p. 6; Stacks, Algebra §§10.52, 10.97. Needs: §3.11, native finite-length additivity and completion.
 
-### 3.14 Parameters and initial-form inequalities
+### 3.13 Parameters and initial-form inequalities
 
 For nonzero finite `M` of dimension `d` and a parameter list `x` of length `d`, its Koszul homologies have finite length and
 
 `e_(x)(M)=Σ_i (-1)^i length H_i(x;M)`.
 
-The partial Euler characteristic inequality gives `length(M/(x)M)≥e_(x)(M)`, with equality exactly when `M` is CM. It concerns the parameter ideal, which need not be the maximal ideal. If `A` is formally unmixed and contains a field, multiplicity one for `m` implies regularity; regular local rings have multiplicity one in every characteristic. The general mixed-characteristic converse is a separate theorem requiring its general proof, rather than a consequence of the cited equal-characteristic reduction.
+The partial Euler characteristic inequality gives `length(M/(x)M)≥e_(x)(M)`, with equality exactly when `M` is CM. It concerns the parameter ideal, which need not be the maximal ideal. If `A` is formally unmixed and contains a field, multiplicity one for `m` implies regularity; regular local rings have multiplicity one in every characteristic. **Source gap:** the general formally-unmixed mixed-characteristic converse `multiplicityOne_regular` still needs a primary proof; Stone Theorem 16 states the broader theorem but its displayed reduction proves the field-containing case. The equal-characteristic argument cannot justify the remaining case.
 
 For `x∈m^r`, `r≥1`, let `C_A(t)=H_A(t)/(1-t)`. Prove coefficientwise
 
@@ -745,9 +727,9 @@ Equality in every degree forces `x` regular and the exact filtered multiplicatio
 - For `x=0` in a nonzero ring, equality fails; for a field there is no nonzero maximal-ideal parameter.
 - In a one-dimensional CM ring the parameter length equals its parameter-ideal multiplicity; adding a finite-length embedded summand to the module can increase that length without its dimension-one multiplicity.
 
-Source: Hochster, April 17–18 lectures, pp. 165–169; Stone, Theorem 16, p. 20, for the equal-characteristic multiplicity-one proof; Calegari–Geraghty, Lemma 4.4 and its counterexample, pp. 357–358, and Lemma 4.6, pp. 359–360. Needs: §§3.12–3.13 and the supplied Koszul complex. The first equivalence printed in Lemma 4.4 is used only with the corrected initial-form/filtered condition.
+Source: Hochster, April 17–18 lectures, pp. 165–169; Stone, Theorem 16, p. 20, for the equal-characteristic multiplicity-one proof; Calegari–Geraghty, Lemma 4.4 and its counterexample, pp. 357–358, and Lemma 4.6, pp. 359–360. Needs: §§3.11–3.12 and the supplied Koszul complex. The first equivalence printed in Lemma 4.4 is used only with the corrected initial-form/filtered condition.
 
-### 3.15 Frobenius and local loci
+### 3.14 Frobenius and local loci
 
 Use excellence, catenarity, Serre conditions, formal fibres and regular-locus openness from SchemeAndStackFoundations and ModularCurves. The additional ring-module comparison identifies the CM locus of a finite module, when a dualizing complex exists, with the appropriate vanishing conditions on localized dual cohomology; it is open in its support. Completion preserves depth, support dimension and CM. Ascent of `S_n` along a flat map requires the base and every relevant fibre to satisfy `S_n`; a hypothesis only at the closed fibre does not give the assertion at all points.
 
@@ -760,9 +742,9 @@ For prime characteristic `p`, define **F-finite** to mean that the native Froben
 - A field with infinitely many independent `p`-basis elements has flat Frobenius but is not F-finite.
 - On `k[ε]/ε²`, Frobenius kills `ε` and is not flat; a finite Frobenius alone does not give regularity.
 
-**Targets.** Supply these affine Frobenius comparisons and the regular-source/regular-target relative lci comparison in the essentially finite-type or continuous formal-presentation setting. Syntomic means locally finitely presented, flat and lci; a flat local map has the CI-fibre criterion only with the stated local-presentation hypotheses. Source: Stacks, Dualizing Complexes Lemma 20.4, tag 0EHS, p. 37; Local Cohomology Lemma 51.17.6, tag 0EC0; tags 0E9K, 069I, 07D3, 09Q7; Clausen–Mathew–Morrow, Definition 5.1 and Example 6.7, pp. 38, 53; Bhatt–Mathew, §4.4, PDF pp. 20–21. Needs: §§3.4, 3.9 and the generic affine lci/excellence suppliers.
+**Targets.** Supply the affine Frobenius comparisons and `formalRegularPresentation_lciComparison`: under an essentially finite-type presentation compare the regular-source/regular-target ring criterion with the supplied geometric lci predicate, and under a continuous complete-local presentation state its formal analogue. The continuous statement does not assert algebraic finite presentation of a formal series map. The standard syntomic chart predicates and their algebraic constructors are supplied in the boundaries; here compare their relation-count/fibre-dimension hypotheses with this regular-sequence presentation. A flat local CI-fibre criterion requires the stated local-presentation hypotheses. Source: Stacks, Dualizing Complexes Lemma 20.4, tag 0EHS, p. 37; Local Cohomology Lemma 51.17.6, tag 0EC0; tags 0E9K, 069I, 07D3, 09Q7; Clausen–Mathew–Morrow, Definition 5.1 and Example 6.7, pp. 38, 53; Bhatt–Mathew, §4.4, PDF pp. 20–21. Needs: §§3.4, 3.8 and the generic affine lci/excellence suppliers.
 
-### 3.16 Formal jets and a plane-curve calibration
+### 3.15 Formal jets and a plane-curve calibration
 
 Let `R=k[[X_i]]` with finitely many variables, and `v` the ideal algebraically generated by them. Compare `g∈v^r` with `order(g)≥r`, including `r=0`, the empty variable set and zero-divisor coefficient rings. The **total-jet comparison** descends the existing `MvPowerSeries.truncTotalAlgHom` to `R/v^r≃k[X_i]/(X_i)^r`. Its API gives both representative formulas, equality detected by coefficients of total degree below `r`, and a basis indexed by those monomials, whose coordinate is the native coefficient. For two variables the basis cardinal is `choose(r+1,2)`. The residue equivalence comes from constant coefficient, so for a field `k` the native `R`-length of this finite quotient equals its `k`-dimension. Generic residue-field length restriction is supplied by native local-ring length, not rebuilt.
 
@@ -801,7 +783,7 @@ For the domain and exact-order statement, these maps assemble through `DirectSum
 
 The length adapters also cover scalar restriction along surjections, with actual quotient representatives preserved. Enlarging an ideal `I` to `I+ann M` changes neither `I^nM`, the adic quotients, graded pieces nor any Hilbert coefficient. For finite nonzero local modules this preserves the ideal-of-definition criterion; for zero modules treat the unit annihilator separately. Finite length is equivalent to annihilation by a maximal-ideal power; once `I^sM=0`, the cumulative function is `length M` and positive graded pieces vanish from that cutoff. The principal quotient maps, monotonicity as the equation ideal grows, and the case of an equation already below the cutoff are included in these representative comparisons.
 
-Source: the elementary jet count from native `MvPowerSeries.truncTotalAlgHom`, `MvPowerSeries.order_mul` and local length restriction; Stacks, Algebra §§10.52, 10.58 and 10.106, tags 00K3, 00NO, pp. 137–138, 253; Stone, §§1.2–2, pp. 4–10, for the Hilbert-polynomial framework. The displayed short exact sequence, count and defect calculation give the proof of this particular calibration. Needs: §§1.1–1.3, 3.12–3.13 and native formal-series homogeneous components. The jet and tangent-cone comparisons are additional to generic homogeneous quotient grading.
+Source: the elementary jet count from native `MvPowerSeries.truncTotalAlgHom`, `MvPowerSeries.order_mul` and local length restriction; Stacks, Algebra §§10.52, 10.58 and 10.106, tags 00K3, 00NO, pp. 137–138, 253; Stone, §§1.2–2, pp. 4–10, for the Hilbert-polynomial framework. The displayed short exact sequence, count and defect calculation give the proof of this particular calibration. Needs: §§1.1–1.3, 3.11–3.12 and native formal-series homogeneous components. The jet and tangent-cone comparisons are additional to generic homogeneous quotient grading.
 
 ### Examples
 
@@ -809,7 +791,7 @@ The DVR computes every shift in local duality and separates intrinsic from ambie
 
 ### Dependencies
 
-Layer 1; the depth, CM, Serre and excellence contracts of SchemeAndStackFoundations; ModularCurves §4D; DerivedDeRhamCohomology DD1; enhanced module tensor/Hom/completion; native projective resolutions, Ext, local cohomology and finite length; Tau Ceti injective envelopes, Artin–Rees and current regular-local results. Part II's Macaulayfication remains a consumer.
+Layer 1; the depth, CM, Serre and excellence contracts of SchemeAndStackFoundations; ModularCurves §4D; the supplied native Koszul and module tensor/Hom/completion interfaces; native projective resolutions, Ext, local cohomology and finite length; Tau Ceti injective envelopes, Artin–Rees and current regular-local results. Part II's Macaulayfication remains a consumer.
 
 ## Layer 4: Finiteness, integral points and completed local coordinates
 
@@ -877,9 +859,9 @@ The target `genericSeriesRegular` gives the regularity input for §5.7. If `B` i
 
 ### 4.5 Diagonal completed local coordinates
 
-For a finite-type `A` over a complete local coefficient algebra and a point `p`, put `F=κ(p)`. Select the coefficient object appropriate to `F`: `F` itself for finite generic-field extensions; the unramified complete DVR over `O` for a finite residue extension; and a compatible Cohen DVR over `O` with residue `F` for a characteristic-`p` local field. Form `B=Λ_F⊗_O A` and its diagonal prime, the kernel of multiplication into `F`.
+For the comparisons proved in this subsection, let `O` be the integer ring of a finite extension of `Q_p`; the equal-characteristic diagonal calculation uses a finite field `k`. For a finite-type `A` over the indicated complete local coefficient algebra and a point `p`, put `F=κ(p)`. Select the coefficient object appropriate to `F`: `F` itself for finite generic-field extensions; the unramified complete DVR over `O` for a finite residue extension; and a compatible Cohen DVR over `O` with residue `F` for a characteristic-`p` local field. Form `B=Λ_F⊗_O A` and its diagonal prime, the kernel of multiplication into `F`.
 
-The **diagonal coordinate comparison** gives the completed local isomorphism `B̂_q≃Â_p` in the finite-field-extension cases, and `B̂_q≃Â_p[[T]]` in the characteristic-`p` local-field case. In equal characteristic the latter is the diagonal completion of `F⊗_k A`. Its API specifies both coefficient maps and the diagonal residue equation, compares maximal ideals, preserves regularity and CI, and records the dimension increment of one. For the punctured-base application, require `F` finite over `κ(p∩R)`; finite type alone does not imply that condition.
+The **diagonal coordinate comparison** gives the completed local isomorphism `B̂_q≃Â_p` in the finite-field-extension cases, and `B̂_q≃Â_p[[T]]` in the characteristic-`p` local-field case. In equal characteristic the latter is the diagonal completion of `F⊗_k A`. Its API specifies both coefficient maps and the diagonal residue equation, compares maximal ideals, preserves regularity and CI, and records the dimension increment of one. For the punctured-base application, require `F` finite over `κ(p∩R)`; finite type alone does not imply that condition. The local-field assertions use a finite base residue field and `O` the integer ring of a finite extension of `Q_p` (or the equal-characteristic field case). **Source gap:** for an arbitrary complete DVR the corresponding diagonal theorem still requires a proof with explicit residue-field hypotheses; the arithmetic sources below do not establish that generalization. The coefficient lift of §1.10 supplies a map, not the diagonal isomorphism.
 
 **Checks.**
 
@@ -887,8 +869,9 @@ The **diagonal coordinate comparison** gives the completed local isomorphism `B�
 - For `F=k((t))`, the diagonal completion of `F⊗_k k[[t]]` has the formal parameter measuring the difference between the two copies of `t`.
 - That additional variable raises dimension by one, even though regularity and CI are equivalent on the two sides.
 - In ramified mixed characteristic, the compatible coefficient ring over `O` need not be an absolutely unramified Cohen ring with uniformizer `p`.
+- A finite purely inseparable extension `L/K` in characteristic p has nonreduced `L⊗_K L` at the diagonal (for degree p, `L[ε]/ε^p`); its completion is not L. Thus a general-DVR extension of the finite-generic-field case must require separability, which is automatic in the stated characteristic-zero setting.
 
-**Targets.** Construct the coefficient square and comparison with its actual maps. The local-field case needs the `p`-basis calculation, topological Nakayama and exactness for the kernel/cokernel in the complete topology; a bare appeal to Cohen existence does not identify this diagonal. Source: Böckle–Iyengar–Paškūnas, Lemmas 3.35–3.37, PDF pp. 27–28, published pp. 24–25. Needs: §§1.10–1.14, 3.4, 4.4 and the relative Cohen comparison of §1.10.
+**Targets.** Construct the coefficient square and comparison with its actual maps. For `F=k′((t))` with finite `k′/k`, first prove `localFieldDiagonalCompletion`: the completion of `F⊗_k F` at the multiplication kernel is `F[[T]]`, with `T↦t⊗1-1⊗t` and the second F-coefficient map fixed. Böckle–Juschka, Corollary 3.3.4 and Lemma 3.3.5, published pp. 17–19, give this map and the subsequent localization/completion comparison. In mixed characteristic, flatness over `Â_p` and the chosen lift of T give a map `Â_p[[T]]→B̂_q` that is an isomorphism modulo the coefficient uniformizer. Topological Nakayama kills its cokernel and, using flatness, its kernel. These are the named diagonal proof leaves; Cohen existence alone does not identify the map. Source: Böckle–Iyengar–Paškūnas, Lemmas 3.35–3.37, PDF pp. 27–28, published pp. 24–25; Böckle–Juschka, Corollary 3.3.4 and Lemma 3.3.5, published pp. 17–19. Needs: §§1.10–1.14, 3.4, 4.4 and the relative Cohen comparison of §1.10.
 
 ### 4.6 Pointed tensor domains and components
 
@@ -962,7 +945,7 @@ Use `S=O[[z₁,…,z_q]]`, its augmentation ideal `a`, and finite quotients `T=S
 
 ### 5.3 Cofinal cutoffs and diagonal extraction
 
-The group-ring quotients are supplied by PadicMeasuresIwasawaAlgebras and §3.11:
+The group-ring quotients are supplied by PadicMeasuresIwasawaAlgebras and §3.10:
 
 `S/((1+z_i)^(p^N)-1)_i ≃ O[(Z/p^N)^q]`.
 
@@ -1048,7 +1031,7 @@ and `M_n` is finite free over `S/b_n`. The specialized `S₀`-action is fixed in
 
 Put `Λ=O[[w₁,…,w_s]]`, `T=Λ[[z₁,…,z_t]]`, `S_N=T[Δ_N]` and `S_∞=T[[Z_p^q]]`, where the kernels defining `Δ_N` are contained in `p^N Z_p^q`. Supply complete local `S_N`-algebras `R_N`, compatible **maps** from one complete Noetherian local `Λ`-algebra `R_∞`, and modules `F_N` free of one rank `r` over `S_N`. The `R_N`-action restricts to the given scalar action. Supply `F_N/(z,augmentation)≃M`, with `M` free of rank `r` over `Λ`, compatible quotient maps to a fixed ring `R` acting on `M`, and all marked integral points. Stabilizing matrices, ring jets, coefficient maps, actions and augmentation at cofinal open cutoffs gives `M_∞≃S_∞^r`, a patched ring `R_patch` acting on it, maps `S_∞→R_patch`, `R_∞→R_patch→R`, and `M_∞/(z,augmentation)≃M`. In the stronger case that all ring jets are quotients of a fixed finite jet of `R_∞`, the limit is a quotient of `R_∞`. Without that extra condition the map need not be surjective. This distinction matters in the source's pointwise argument.
 
-Let the point kernels be `q_N,q_∞,q_patch`. Assume one fixed `c` kills `q_N/(q_N²+q_∞R_N)`, and supply the uniform finite generation and image-of-squares comparisons that identify the patched cotangent with the limit of these images. Then `π^c` kills `q_patch/(q_patch²+q_∞R_patch)`. The proof must show separately that products of the point ideals and their squares have precisely these images, and that the image of the product of `q_∞/q_∞²` equals the diagonal image. A generator bound alone is not a substitute for these image comparisons. After inverting `π`, the relative cotangent vanishes. At equal residue fields the complete-local cotangent criterion gives **surjectivity** of the completed map at the point. If its source is regular of the appropriate localized `S_∞`-dimension and the finite patched module has that depth, Auslander–Buchsbaum gives freeness over the source completion; the supplied augmentation then gives the characteristic-zero freeness statement for `M`.
+Let the point kernels be `q_N,q_∞,q_patch`. Assume one fixed `c` kills `q_N/(q_N²+q_∞R_N)`, and supply the uniform finite generation and image-of-squares comparisons that identify the patched cotangent with the limit of these images. Then `π^c` kills `q_patch/(q_patch²+q_∞R_patch)`. Prove the following image comparisons for the marked-point construction. `patchedPointIdeal_image` requires the uniform bound `v_π(f_N(q_N))≤c₀` for the elements inverted at the finite levels. A tuple whose point values tend to zero along the chosen cofinal filter can then be lifted into the completion kernel by choosing depth m whenever its valuation is at least `m(c₀+1)`; this identifies the image of `∏q_N` with `q_patch`. `pointIdealPower_product` uses a uniform bound g on generators of every `q_N`, supplied by presentations `O[[x₁,…,x_g]]↠R_N` with variables mapping into `q_N`; the finitely many degree-m monomials give `∏q_N^m=(∏q_N)^m`, hence the image is `q_patch^m`. Finally `finiteModule_diagonal_product` states that for finite O-module L and a ring map `∏O→O`, the composite `L→∏L→O⊗_(∏O)∏L` is surjective: check a finite free cover and right exactness. Apply it to `L=q_∞/q_∞²` to identify the diagonal image. The cotangent-annihilator conclusion uses all three leaves, not the generator bound alone. After inverting `π`, the relative cotangent vanishes. At equal residue fields the complete-local cotangent criterion gives **surjectivity** of the completed map at the point. If its source is regular of the appropriate localized `S_∞`-dimension and the finite patched module has that depth, Auslander–Buchsbaum gives freeness over the source completion; the supplied augmentation then gives the characteristic-zero freeness statement for `M`.
 
 **Checks.**
 
@@ -1057,7 +1040,7 @@ Let the point kernels be `q_N,q_∞,q_patch`. Assume one fixed `c` kills `q_N/(q
 - At rank zero the patched module is zero and cannot prove faithfulness of a ring map.
 - At `q=t=0`, the construction retains the fixed coefficient module and its actual ring actions.
 
-Source: Boxer–Calegari–Gee–Pilloni (2025), Hypothesis 7.2.1, Lemma 7.2.2 and Proposition 7.2.3, pp. 161–163; the image-of-squares and diagonal-image arguments cited in Lemma 7.2.2 are prerequisite proof leaves, not consequences of formal smoothness. Needs: §§1.9, 3.1, 5.2–5.4 and the marked-point diagrams. Arithmetic hypotheses proving the source's regularity and dimension are downstream inputs.
+Source: Boxer–Calegari–Gee–Pilloni (2025), Hypothesis 7.2.1, Lemma 7.2.2 and Proposition 7.2.3, pp. 161–163; Newton–Thorne, Lemmas 4.16–4.17, Proposition 4.18 and Lemma 4.19, published pp. 1955–1957, prove the three image comparisons just specified. Their valuation and generator bounds remain explicit hypotheses; formal smoothness does not replace them. Needs: §§1.9, 3.1, 5.2–5.4 and the marked-point diagrams. Arithmetic hypotheses proving the source's regularity and dimension are downstream inputs.
 
 ### 5.9 Sylow projectivity and norm comparisons
 
@@ -1155,7 +1138,7 @@ For nonzero Noetherian local `A`, define **connectedness dimension** `c(A)` as t
 - A `d`-dimensional domain has the capped value `d`; an empty component partition contributes no extra candidate.
 - `(x²,y³)` and `(x,y)` have the same arithmetic rank two in `k[[x,y]]`, while `(x^n)` has arithmetic rank one for `n≥1`.
 
-**Target.** For complete Noetherian local `A` and proper `I`, prove the bound `c(A/I)≥c(A)-ara(I)-1`, with these finite conventions. The irreducible case is part of the theorem, not an argument using an infinite value of `c(A)`. Source: Thorne, Definition 1.7 and Proposition 1.8, p. 8, referring to Brodmann–Rung, Theorem 2.4. Needs: component dimension theory and the connectedness theorem with this normalization. The primary connectedness argument remains an explicit prerequisite to this application.
+**Target.** For complete Noetherian local `A` and proper `I`, prove `connectedness_arithmeticRank_bound`: `c(A/I)≥c(A)-ara(I)-1`. Use Stacks, Algebraic and Formal Geometry, Lemma 52.14.1, tag [0ECR](https://stacks.math.columbia.edu/tag/0ECR), with its convention that connected spaces are nonempty. Its minimum closed-disconnector dimension therefore equals the finite component-partition definition above, including the candidate obtained by deleting all of `Spec A`. Write d for the smallest component dimension. If there is more than one component, intersect a d-dimensional component with the union of the others: this gives `c(A)≤d-1`. In the irreducible case `c(A)=d`. Thus `min(c(A),d-1)≥c(A)-1`; the source's bound and `cd(A,I)≤ara(I)` give the target. This also treats an irreducible quotient via the empty-complement candidate. The field case is immediate. Needs: component dimension theory, the supplied Čech bound on cohomological dimension and the cited complete-local connectedness theorem. For the domain `k[[x,y]]` and `I=(xy)`, the result reads `0≥2-1-1=0`; using an infinite value for the domain would fail this check.
 
 ### 6.7 Generic and special components
 
@@ -1165,7 +1148,7 @@ Use the supplier's cycle `Z_D`. For complete equidimensional `O`-flat `A` of dim
 
 `Z_d(M/πM)=Σ_(p∈Min A) length_(A_p)(M_p) Z_d((A/p)/π)`.
 
-The coefficient is a generic length; it becomes a rank only when `A` is generically reduced. Disjoint special-cycle supports and coefficient-one specializations make equality to a full-support special cycle detect positive generic coefficients. Smaller-dimensional terms contribute zero to ambient multiplicity. Source: Thorne, Proposition 1.6 and Lemma 1.10, pp. 7–9; Boxer–Calegari–Gee–Pilloni, (7.12.1), Lemmas 7.12.2–7.12.3 and Remarks 7.12.6–7.12.7, pp. 427–430; Emerton–Gee, Proposition 2.2.10 and Lemma 2.2.13, pp. 8–9. Needs: §§3.13, 6.1 and SchemeAndStackFoundations SF.5 Cartier specialization. A special fibre with repeated components would have coefficients greater than one.
+The coefficient is a generic length; it becomes a rank only when `A` is generically reduced. Disjoint special-cycle supports and coefficient-one specializations make equality to a full-support special cycle detect positive generic coefficients. Smaller-dimensional terms contribute zero to ambient multiplicity. Source: Thorne, Proposition 1.6 and Lemma 1.10, pp. 7–9; Boxer–Calegari–Gee–Pilloni, (7.12.1), Lemmas 7.12.2–7.12.3 and Remarks 7.12.6–7.12.7, pp. 427–430; Emerton–Gee, Proposition 2.2.10 and Lemma 2.2.13, pp. 8–9. Needs: §§3.12, 6.1 and SchemeAndStackFoundations SF.5 Cartier specialization. A special fibre with repeated components would have coefficients greater than one.
 
 ### 6.8 Completed products and monomial cycles
 
@@ -1179,7 +1162,7 @@ For a square-free monomial ideal in a finite-variable formal series ring, the mi
 - The ideal `(x²)` is not square-free and has a generic length-two component, so the component count alone would fail.
 - In `k[[a,b,c,d,e,f]]`, `I=(ab,ac,ae,bc,bd,cf)` has precisely the minimal primes `(a,b,c)`, `(a,b,f)`, `(a,c,d)`, `(b,c,e)`. Each quotient has dimension three and generic length one, so the reduced quotient has multiplicity four.
 
-The last calculation applies after the invertible coordinate change `a=c12-c13c32`, `b=κc31-c21c32`, `c=c23`, `d=c13`, `e=c21`, `f=c32`, requiring `κ≠0`. Radicality or equidimensionality of a square-free monomial quotient does not imply CM. Source: Le–Le Hung–Levin–Morra, Lemma 3.6.13, pp. 70–71, and Corollary 3.5.5, p. 39; Emerton–Gee, Lemma 2.2.14, arXiv v3 p. 9. Needs: §§3.12–3.13, 4.6 and native monomial ideals.
+The last calculation applies after the invertible coordinate change `a=c12-c13c32`, `b=κc31-c21c32`, `c=c23`, `d=c13`, `e=c21`, `f=c32`, requiring `κ≠0`. Radicality or equidimensionality of a square-free monomial quotient does not imply CM. Source: Le–Le Hung–Levin–Morra, Lemma 3.6.13, pp. 70–71, and Corollary 3.5.5, p. 39; Emerton–Gee, Lemma 2.2.14, arXiv v3 p. 9. Needs: §§3.11–3.12, 4.6 and native monomial ideals.
 
 ### 6.9 Extending maps from a regular locus
 
@@ -1187,7 +1170,15 @@ Let `U=Spec A\Z`, `M,N` finite, with depth at least two along `Z`. The local-coh
 
 For `A[[t₁,…,t_r]]`, compare crossing complements when components extend from `A`. A finite depth-two extension of an ideal commutes with this formal-variable extension. Radicality in a completed tensor requires geometric reducedness; an imperfect field is not silently treated as perfect. Determinant multiplicativity from AlgebraicVectorBundles trivializes the determinant of any locally free module admitting a finite free resolution. On a punctured regular local spectrum, a line bundle admitting a finite coherent extension thus has trivial restriction, using the finite resolution of that extension.
 
-Finally, a strict surjection of finite good filtered modules, or of finite graded modules, with equal Hilbert series is an isomorphism. A surjection of nonzero finite local modules `M↠N` with `M` CM, common support dimension and equal intrinsic multiplicity is likewise an isomorphism: every nonzero kernel submodule would have the same dimension and positive ambient multiplicity. Dropping CM permits an invisible lower-dimensional kernel, for example `O⊕k↠O`. Source: Le–Le Hung–Levin–Morra, Lemmas 5.2.1–5.2.2, Theorem 5.2.3, Remark 5.2.4, pp. 119–120, Theorem 5.3.5, p. 126, and Lemma 3.6.11, p. 69; SGA 2, Exposé XI, Lemma 3.15, new-edition p. 106, old p. 134. Needs: §§3.8, 3.13–3.14, 4.7 and AlgebraicVectorBundles 0B–0C.
+The additional target `localCI_parafactorial` states: for a Noetherian local complete intersection `A` of dimension at least four, every line bundle on `Spec A\{m}` is trivial. Use the supplied Picard and restriction carriers, but prove the CI theorem here by the local Lefschetz/parafactorial argument (SGA 2, Exposé XI, Theorem 3.13(ii), new-edition p. 105, old p. 132, proof pp. 107–108). Its API gives Picard-group vanishing and uniqueness of a line-bundle extension up to the specified restriction isomorphism; it does not assert a canonical trivializing section.
+
+**Checks.**
+
+- A regular local ring of dimension four has zero punctured Picard group.
+- The four-dimensional complete hypersurface `k[[x,y,z,w,t]]/(xy-zw)` is CI and has zero punctured Picard group, although it is singular.
+- The three-dimensional node `k[[x,y,z,w]]/(xy-zw)` is excluded: the rank-one ideal `(x,z)` is a nontrivial line bundle off the closed point. It is locally principal there, while its two minimal generators prevent a free rank-one extension; the depth-two extension comparison recovers the ideal. Thus lowering the dimension bound is false.
+
+Finally, a strict surjection of finite good filtered modules, or of finite graded modules, with equal Hilbert series is an isomorphism. A surjection of nonzero finite local modules `M↠N` with `M` CM, common support dimension and equal intrinsic multiplicity is likewise an isomorphism: every nonzero kernel submodule would have the same dimension and positive ambient multiplicity. Dropping CM permits an invisible lower-dimensional kernel, for example `O⊕k↠O`. Source: Le–Le Hung–Levin–Morra, Lemmas 5.2.1–5.2.2, Theorem 5.2.3, Remark 5.2.4, pp. 119–120, Theorem 5.3.5, p. 126, and Lemma 3.6.11, p. 69; SGA 2, Exposé XI, Lemma 3.15, new-edition p. 106, old p. 133. Needs: §§3.7, 3.12–3.13, 4.7 and AlgebraicVectorBundles 0B–0C.
 
 ### Examples
 
@@ -1199,45 +1190,31 @@ Layers 1, 3–5; native module support, annihilators, ideal radicals and localiz
 
 ## Layer 7: Finite complexes, signed duality and coefficient towers
 
-### 7.1 Native module comparisons for the supplied derived operations
+### 7.1 Comparing native homological and cohomological Tor
 
-Transport the suppliers' tensor, internal Hom, scalar extension and K-flat predicate to `DerivedCategory (ModuleCat A)`, through the trivial-group module equivalence. The new API is the comparison with native cochain tensor, `TauCeti.linearHomComplexEnrichedCategory`, localization and the native `Tor` conventions. A complex is K-flat when tensoring **every acyclic complex** with it is acyclic; termwise flatness alone is not the definition. Flat stalks, bounded-above flat complexes, cones with two K-flat vertices, filtered colimits and tensor products are K-flat. Arbitrary scalar extension preserves K-flatness. Tensor by a K-flat complex preserves quasi-isomorphisms; a quasi-isomorphism between K-flat complexes remains one after tensoring with an arbitrary complex.
-
-For a K-flat `P`, `Q(E⊗P)≃QE⊗ᴸQP`, naturally in both variables. A bounded-above projective `P` also computes `RHom(QP,QE)` by the native product Hom complex. The scalar-extension comparison retains the target algebra's action, respects identity and composition, and agrees with restriction of scalars. The supplied unit, associativity, Koszul symmetry, tensor-Hom adjunction and triangle/shift compatibilities must commute with these comparisons. For modules, identify native `Tor_n(M,N)` and `Tor'_n(M,N)` with `H^(-n)(M⊗ᴸN)`; identify native Ext with `H^n RHom`. The two Tor conventions compare through the supplied symmetry, rather than by an untyped equality of carriers. The ideal sequence yields `Tor₁(M,A/I)→M⊗I→M`, exact at the middle; flatness is equivalent to vanishing of Tor one against all modules.
+Construct `nativeTorCohomologyComparison`: for native modules `M,N` and `n≥0`, identify both Mathlib `Tor_n(M,N)` and `Tor'_n(M,N)` with `H^(-n)(M⊗ᴸN)` in the supplied native module-derived category. The extra content is the comparison between the two existing homological conventions and cohomological indexing, with their actual scalar structures. Compare native Ext with `H^n RHom(M,N)`. The API gives module-map naturality, agreement with the projective-resolution models, symmetry between the two Tor conventions through the supplied Koszul braid, and compatibility with coefficient restriction and the ideal-sequence boundary `Tor₁(M,A/I)→M⊗I→M`. The tensor, Hom, K-flat and linear Hom-complex constructions themselves are inputs listed in the boundaries.
 
 **Checks.**
 
-- Zero and an arbitrary-rank free stalk are K-flat.
-- The stalk `Z/2` over `Z` is not K-flat: tensor the acyclic sequence `Z --2→ Z→Z/2`.
-- Its derived self-tensor has `Z/2` in degrees `-1,0`; its derived Hom to `Z` has `Z/2` in degree `1` and zero degree-zero Hom.
-- These examples test the direction of both comparisons.
-- Scalar extension along the identity retains the original action, while reduction `Z→Z/2` must retain the negative-degree Tor term.
+- For a free stalk, Tor is zero in positive homological degree, and degree zero is the ordinary tensor product.
+- For `M=N=Z/2` over `Z`, self-tensor has `Z/2` in degrees `-1,0`, whereas derived Hom from `Z/2` to `Z` has `Z/2` in degree `1`.
+- Zero gives zero groups in all degrees. Ordinary tensor of the `Z/2` stalk would miss degree `-1`, so it cannot be substituted for derived tensor.
+- On two shifted free stalks of odd degree the symmetry is multiplication by `-1`; characteristic two alone would not distinguish it.
 
-Source: Stacks More on Algebra §15.60, tags [06XY](https://stacks.math.columbia.edu/tag/06XY), [064J](https://stacks.math.columbia.edu/tag/064J), Lemmas 15.60.2–12; §15.75, tags [0A5W](https://stacks.math.columbia.edu/tag/0A5W), [0A66](https://stacks.math.columbia.edu/tag/0A66); §15.63, Examples 15.63.1–4, tag [061Y](https://stacks.math.columbia.edu/tag/061Y). Needs: the exact enhanced-derived and SR0d contracts, native K-projective comparisons and linear Hom enrichment. These are adapter theorems, not new generic derived bifunctors.
+Source: Stacks More on Algebra §15.60, tags [06XY](https://stacks.math.columbia.edu/tag/06XY), [064J](https://stacks.math.columbia.edu/tag/064J), and §15.63, Examples 15.63.1–4, tag [061Y](https://stacks.math.columbia.edu/tag/061Y). Needs: native projective resolutions, the supplied module-derived tensor/Hom and signed enrichment, and the two native Tor bifunctors.
 
-### 7.2 Perfectness, finite approximations and amplitude
+### 7.2 Finite-order approximations
 
-Use the affine module realization of the suppliers' predicates. **Perfect** means isomorphic in the derived category to a bounded finite projective complex. **Pseudo-coherent** means admitting a bounded-above finite free representative, with no lower bound or Noetherian hypothesis. For `m∈Z`, **m-pseudo-coherent** means that an actual derived map from a bounded finite free complex is an isomorphism on `H^i` for `i>m` and surjective on `H^m`. This last predicate is a finite-order adapter needed for the construction of successive approximations. Its API includes transport by isomorphism, weakening the order (`n≤m`), shifts `m↦m-t` under `[t]`, and the actual approximation morphism. Pseudo-coherence is equivalent to all finite orders. Prove this by descending attachment of finitely many generators to the current cone, with compatible truncations; do not merely choose unrelated approximations at each order. All three predicates are closed under direct summands; perfectness and pseudo-coherence satisfy two-out-of-three in triangles. At finite order, extensions preserve the same order, and the cone of an `(m+1)`-approximate source and an `m`-approximate target has order `m`. Arbitrary coefficient extension preserves perfectness and pseudo-coherence.
+For `m∈Z`, define `IsMPseudoCoherent m X` to mean an actual derived map from a bounded finite free complex to `X` inducing isomorphisms on `H^i` for `i>m` and a surjection on `H^m`. Unlike the supplied pseudo-coherent predicate this records one finite approximation order. Its API includes transport by isomorphism, weakening from order `n` to `m` when `n≤m`, shift of order to `m-t` under `[t]`, and recovery of the actual approximation map. Prove equivalence of pseudo-coherence with all finite orders by descending attachment of finite generators to the cone, retaining compatible truncations. Finite-order approximations are stable under retracts and extensions; the cone of an `(m+1)`-approximate source and an `m`-approximate target has order `m`.
 
 **Checks.**
 
 - Zero satisfies every order.
-- `M[0]` is `0`-pseudo-coherent exactly when `M` is finitely generated, and `(-1)`-pseudo-coherent exactly when it is finitely presented; these differ over a non-Noetherian ring.
-- Over a field, a vector-space stalk is perfect or pseudo-coherent exactly when it is finite-dimensional.
-- A bounded finite projective model need not itself be free globally; its bounded-above free replacement may extend indefinitely to the left.
+- A stalk `M[0]` is `0`-pseudo-coherent exactly when `M` is finitely generated, and `(-1)`-pseudo-coherent exactly when it is finitely presented. Over a noncoherent ring a cyclic quotient by a non-finitely-generated ideal distinguishes these orders.
+- An infinite-dimensional vector-space stalk over a field fails order zero; a finite-dimensional one satisfies all orders.
+- Shifting a finitely generated but non-finitely-presented stalk by `[1]` gives order `-1`, but not `-2`, fixing the sign of the order shift.
 
-The light predicate `PerfectInterval C a b` records an isomorphism to a native finite projective representative strictly zero outside `[a,b]`. Its API gives isomorphism transport, interval enlargement and the equivalence with perfectness plus all-module amplitude proved below.
-
-The **all-module Tor-amplitude** predicate tests `H^i(X⊗ᴸM)=0` outside `[a,b]` for every module `M`. Do not impose `a≤b` in its definition: for a reversed interval it forces zero. Its API gives interval enlargement, shifts `[a-t,b-t]`, cohomology bounds by testing `M=A`, arbitrary coefficient extension, retracts and triangle extension. For a triangle `X→Y→Z`, amplitudes `[a+1,b+1]` for `X` and `[a,b]` for `Y` give `[a,b]` for `Z`. For `a≤b`, amplitude is equivalent to a flat representative strictly supported there. The proof truncates a bounded-above flat resolution and proves its bottom cokernel flat by dimension shifting and Tor one. Pseudo-coherence plus amplitude `[a,b]` improves that representative to finite projective with the **same endpoints**. Consequently perfectness is pseudo-coherence plus finite Tor dimension.
-
-**Checks.**
-
-- A nonzero free stalk in degree `j` has amplitude `[a,b]` precisely when `a≤j≤b`.
-- Zero has every interval, including reversed ones.
-- The stalk `Z/2` has cohomology only in degree zero but Tor-amplitude `[-1,0]`, not `[0,0]`.
-- A flat coefficient extension kills the extra Tor column, whereas an arbitrary quotient need not.
-
-Over a Noetherian ring, pseudo-coherence is equivalent to finite cohomology in each degree with a common upper bound. Perfectness is equivalent to bounded finite cohomology and finite Tor dimension. These statements do not identify bounded finite cohomology alone with perfectness over a singular ring. Source: Stacks §15.66, tags [064Q](https://stacks.math.columbia.edu/tag/064Q), [064N](https://stacks.math.columbia.edu/tag/064N), [064V](https://stacks.math.columbia.edu/tag/064V), [064X](https://stacks.math.columbia.edu/tag/064X); §15.68, tag [0651](https://stacks.math.columbia.edu/tag/0651), Lemmas 15.68.2–7 and 15.68.13; Lemmas 15.76.2–5, tags [0658](https://stacks.math.columbia.edu/tag/0658), [0656](https://stacks.math.columbia.edu/tag/0656). Needs: §7.1, finite presentation and flatness/projectivity comparisons. The general sheaf-level predicates remain owned by SchemeAndStackFoundations.
+Source: Stacks §15.66, tags [064Q](https://stacks.math.columbia.edu/tag/064Q), [064N](https://stacks.math.columbia.edu/tag/064N), [064V](https://stacks.math.columbia.edu/tag/064V), [064X](https://stacks.math.columbia.edu/tag/064X); §15.68, tag [0651](https://stacks.math.columbia.edu/tag/0651), and §15.76, tags [0658](https://stacks.math.columbia.edu/tag/0658), [0656](https://stacks.math.columbia.edu/tag/0656). Needs: §7.1, the exact supplied perfect/pseudo-coherent/amplitude API, native finite presentation and flat/projective comparison.
 
 ### 7.3 Minimal finite free representatives and residual detection
 
@@ -1247,7 +1224,7 @@ For minimal complexes, homotopic maps agree after residue reduction. A homotopy 
 
 `rank_A C^i=dim_k H^i(C⊗ᴸk)`.
 
-Thus a pseudo-coherent object over any local ring is perfect of amplitude `[a,b]` exactly when its derived residue cohomology is supported in `[a,b]`. Derived residue zero detects zero in this class, and detects isomorphisms of maps using the pseudo-coherent cone. No completeness is required. For bounded finite projective complexes, a residue quasi-isomorphism is a homotopy equivalence; residual acyclicity gives an actual contraction.
+The cancellation comparison realizes the supplied residue-amplitude criterion by an actual minimal chain representative, with exactly these ranks. In particular a residue quasi-isomorphism between bounded finite projective models is realized by a homotopy equivalence, and residual acyclicity by an actual contraction. The extra output is the chain maps and contraction, not another derived Nakayama criterion.
 
 **Checks.**
 
@@ -1285,7 +1262,7 @@ Consume native finite local projective freeness. The extension needed for comple
 - Rank zero and `n=1` give the exact base cases.
 - These arguments concern quotients; residue lifts need not be an algebraic basis of a complete infinite-rank module itself.
 
-For a set `J`, compare the native completion of `A^(J)`, the **free direct sum**, with restricted coefficient families `(a_j)` such that for every `n` only finitely many coefficients are outside `m^n`. For a flat separated complete `A`-module `M`, any chosen basis of `M/mM` and any lifts give `completeFlatBasis:completion(A^(J))≃M`. The map sends a restricted family to its convergent sum. Prove its reduction is an isomorphism modulo every `m^n`, using flatness to identify successive graded pieces; pass to the complete limit. No finite residue field is needed. Finite `J` gives the ordinary finite-free equivalence.
+Let `(A,m)` now be a complete Noetherian local ring. For a set `J`, compare the native completion of `A^(J)`, the **free direct sum**, with restricted coefficient families `(a_j)` such that for every `n` only finitely many coefficients are outside `m^n`. For a flat separated complete `A`-module `M`, any chosen basis of `M/mM` and any lifts give `completeFlatBasis:completion(A^(J))≃M`. The map sends a restricted family to its convergent sum. Prove its reduction is an isomorphism modulo every `m^n`, using flatness to identify successive graded pieces; pass to the complete limit. No finite residue field is needed. Finite `J` gives the ordinary finite-free equivalence.
 
 The API `completeFlatMatrix` identifies continuous linear maps with matrices whose **individual columns** are restricted coefficient families: modulo every `m^n`, each column has finite support. There is no finite row-support condition. Composition is the convergent matrix product, and identity is the Kronecker matrix. A map inducing an isomorphism modulo `m` is an isomorphism: lift the inverse, and invert the remaining `1+u` by its convergent geometric series, where `u(M)⊆mM`. These comparisons justify the convergent basis changes used to split the invertible residue block. Source: Stacks More on Algebra §15.28, Lemmas 15.28.1–2, tag [06LD](https://stacks.math.columbia.edu/tag/06LD), for the restricted completion and flatness; the residue-basis comparison follows from the graded-piece induction just specified; CG Lemmas 7.5–7.7 and Pilloni §2.2 for the cancellation application.
 
@@ -1330,67 +1307,42 @@ For a DVR with fraction field `E`, put `D_O(M)=Hom_O(M,E/O)` on the native oppos
 
 For a finite projective model supported in `[0,l]`, `H⁰(P*)=coker((d⁰)*: (P¹)*→(P⁰)*)`. Its ordinary coefficient extension is the corresponding adjoint cokernel over **any** algebra. At a field point it is the dual of `H⁰(P⊗F)`. At an `O`-point it is `D_O(H⁰(P⊗E/O))`. The latter follows from exact `E/O`-duality of the finite free kernel sequence. The nonnegative term bound is essential: shifting a complex changes which cokernel computes `H⁰`.
 
-Source: Stacks Lemma 15.76.15 and Remark 15.76.16, tag 0656; Lemma 15.100.3, tag [0ATK](https://stacks.math.columbia.edu/tag/0ATK); Boxer–Calegari–Gee–Pilloni (2021), Lemmas 7.8.5–7.8.6 and Remark 7.8.7, author PDF pp. 213–214. Needs: §§3.8–3.10, 7.1–7.3, the native signed enrichment and the supplier's tensor-Hom coherence.
+Source: Stacks Lemma 15.76.15 and Remark 15.76.16, tag 0656; Lemma 15.100.3, tag [0ATK](https://stacks.math.columbia.edu/tag/0ATK); Boxer–Calegari–Gee–Pilloni (2021), Lemmas 7.8.5–7.8.6 and Remark 7.8.7, author PDF pp. 213–214. Needs: §§3.7–3.9, 7.1–7.3, the native signed enrichment and the supplier's tensor-Hom coherence.
 
-### 7.7 Strict quotients, completion and the linear Milnor sequence
+### 7.7 Compatible actions on strict coefficient towers
 
-For any ideal `I` and native complex `C`, define its **coefficient quotient tower** by `(C/I^(n+1)C)_n`, restricted to `A` in the common tower category. Differentials and transitions are the actual quotient maps. Its API gives the formula on representatives, termwise surjectivity, every projection chain map, strict functoriality in `C`, identity/composition and descent of chain homotopies. Each level retains its quotient-ring action. If `C` is K-flat it represents the supplied derived coefficient extension; this comparison commutes with every transition. For a bounded finite-module complex over an **I-adically complete Noetherian ring**, finite-module completeness gives a natural **chain isomorphism** `C≃lim C/I^(n+1)C`. In the local applications take `I⊆m`; a nonzero ring is not complete for the unit ideal.
+For a strict countable complex tower in the supplied native linear diagram category, define `StrictTowerAction T C` to be ring maps `T→End_chain(C_n)` commuting with every transition. The ring `T` may be noncommutative; there is no implicit topology. Unlike an action on each individual derived object, this retains the actual commuting chain maps. Its API gives extensionality, restriction along ring maps, the unique action on the chain limit, and equivariance of the supplied linear Milnor sequence. A compatible family of actual chain homotopies induces a homotopy on the limit; unrelated levelwise homotopies do not.
 
-**Checks.**
-
-- Zero has the zero tower.
-- The tower of `A[0]` consists of the usual quotient stalks beginning at `A/I`.
-- For `C=(Z/2)[0]`, ordinary reduction modulo 2 has no negative cohomology whereas derived reduction has `H^(-1)=Z/2`; K-flatness cannot be omitted from the model comparison.
-- For `I=A`, every quotient term is zero, so the limit cannot recover a nonzero complex. The completeness hypothesis is with respect to the displayed ideal.
-
-Construct the native `A`-linear derived limit of a **strict countable complex tower** by
-
-`Rlim_str C=Q(Cone(1-shift: ∏C_n→∏C_n)[-1])`,
-
-where the `n`th component is `x_n-t_n(x_(n+1))`. Strict natural transformations induce maps respecting identity and composition; objectwise quasi-isomorphisms induce isomorphisms because module products are exact. Do not claim a functor from arbitrary diagrams in the ordinary triangulated category. For termwise-surjective transitions compare it naturally with `Q(lim C_n)` and prove the linear Milnor sequence
-
-`0→lim¹ H^(j-1)(C_n)→H^j(lim C_n)→lim H^j(C_n)→0`.
-
-The kernel and cokernel of `1-shift` on module products are the native `lim` and `lim¹`, and agree with the supplier after forgetting. Finite-length cohomology makes the image chains stabilize, so `lim¹=0`. Thus cohomology of a bounded finite projective complex over a complete local ring equals the inverse limit of its finite coefficient cohomologies. Compare this strict model with the supplier's derived completion; for a perfect complex over a complete Noetherian base the completion unit is an isomorphism. Pseudo-coherent objects are also derived complete in this local setting; use the bounded-above finite model and the supplier's completeness theorem, not exactness of an arbitrary inverse limit.
+For an ideal `I`, a chain action on `C` induces `quotientTowerAction` on the supplied ordinary tower `C/I^(n+1)C`, with the representative formula `[x]↦[t x]`. It preserves identities and products, and homotopies descend. With K-flatness, identify this action with the derived coefficient action at every stage and transition. For a bounded finite-module complex over an I-adically complete Noetherian ring the action on its ordinary limit agrees under the supplied chain comparison with the original action.
 
 **Checks.**
 
-- A constant identity tower has the original derived limit.
-- A tower with every proper transition zero has zero derived limit, although its terms may be nonzero.
-- The `A/I^(n+1)` tower over a complete ring recovers `A`.
-- A non-Mittag–Leffler tower cannot simply have the `lim¹` term erased.
+- Scalar actions on `A/I^(n+1)` commute with all transitions and give scalar multiplication on the complete limit.
+- Zero has its unique action, with zero limit action.
+- On an identity tower of nonzero `Q`-stalks, alternating `Q[x]` actions `x=0` and `x=1` fail transition compatibility, even though each level separately has an action.
+- For the `Z/2` stalk, ordinary reduction modulo two misses the derived negative Tor group, so the action comparison requires a K-flat representative.
+- For `I=A` the entire quotient tower is zero; a nonzero original complex is not recovered, since the ring is not complete for that ideal.
 
-A **strict tower action** is a family of ring maps `T→End_chain(C_n)` whose maps commute with every transition. `T` may be noncommutative; no topology is implicit. Its API has extensionality, restriction along ring maps, descent of a chain action to quotient towers and the unique chain action on the limit. The Milnor sequence is `T`-equivariant. Homotopies pass to the limit when their actual components commute with transitions.
+Source: Stacks §15.96, Proposition 15.96.2, tag [0922](https://stacks.math.columbia.edu/tag/0922), and §20.37, Lemma 20.37.1, tag [0BKN](https://stacks.math.columbia.edu/tag/0BKN), for the underlying supplied comparison; BCGP (2025), §7.2, pp. 161–163, for the retained action diagrams. The equivariant extension is proved by componentwise equality and the universal property of the supplied limit. Needs: §§1.15, 7.1–7.3 and the exact native strict-tower contract.
 
-**Checks.**
+### 7.8 Completion of finite derived Hom
 
-- Scalar quotient actions commute with every quotient transition and induce ordinary scalar multiplication on the limit.
-- The zero tower has the unique action and zero limit action.
-- On an identity tower of nonzero `Q`-stalks, alternating `Q[x]` actions `x=0` and `x=1` fail transition compatibility.
+Let `(A,m)` be complete Noetherian local and `P,Q` bounded finite free native complexes. Construct `finiteDerivedHomCompletion`, the natural A-linear equivalence
 
-Unrelated levelwise homotopies do not satisfy this hypothesis.
+`Hom_D(A)(P,Q) ≃ lim_n Hom_D(A/m^(n+1))(P_n,Q_n)`.
 
-Source: Stacks Proposition 15.96.2, tag [0922](https://stacks.math.columbia.edu/tag/0922), Lemmas 15.93.8 and 15.93.20, tag [091N](https://stacks.math.columbia.edu/tag/091N), and §20.37, Lemma 20.37.1, tag [0BKN](https://stacks.math.columbia.edu/tag/0BKN), specialized to modules on a point; BCGP (2025), §7.2, pp. 161–163 for action diagrams. Needs: §1.15, §§7.1–7.3 and EnhancedDerivedSheaves E2/E4. The native linear comparison, not general enhanced limit existence, is the target here.
+Its API preserves identities, composition and coefficient projections, so the endomorphism case is a ring isomorphism. Unlike the supplied effectivity of perfect systems, this asserts completeness of the **derived Hom module**, rather than effectivity of its objects. Use the finite Hom complex and the supplied Milnor comparison on its cohomology; finite-length images stabilize and kill `lim¹`. Chain maps need not lift uniquely, and the limit is not a limit of sets of chosen chain representatives.
 
-### 7.8 Complete finite models and their derived endomorphisms
-
-For a compatible tower of bounded finite free models over `A/m^(n+1)`, with fixed finite ranks and **based reduction equalities**, lift all matrix entries through completeness. The square-zero equations hold because their images vanish in every quotient. The resulting bounded finite free `P` reduces to each chosen model. To obtain such a strict tower from derived coefficient identifications, first choose minimal models and bases, then lift adjacent chain isomorphisms and adjust bases inductively. Retain the cocycle for composite reductions. Equality of ranks or existence of unrelated isomorphisms is insufficient.
-
-For bounded finite free `P,Q`, prove
-
-`Hom_D(A)(P,Q) ≃ lim_n Hom_D(A/m^(n+1))(P_n,Q_n)`
-
-as `A`-modules, preserving identity and composition. Use the finite Hom complex and §7.7 on its cohomology; chain maps need not have unique lifts, nor does the result assert a limit of sets of chain representatives. The endomorphism case is an isomorphism of rings. Uniformly bounded finite cohomology towers over a complete local ring admit the corresponding enhanced-limit comparisons through the supplied coherent diagram; do not form a homotopy limit from unspecified triangulated comparisons. Cofiltered inverse limits of finite modules over a complete Noetherian local ring are exact by their linearly compact adic topology. Finite residue is unnecessary for this statement, unlike finiteness of matrix codes in Layer 8.
+Also prove `finiteModule_inverseLimit_exact` for arbitrary small cofiltered systems of finite modules over a complete Noetherian local ring. This extends the supplied countable Mittag–Leffler result. Apply the exact contravariant Matlis functor to an objectwise short exact diagram, take the exact filtered colimit, and apply the Matlis functor again. Since Hom into the injective hull converts colimits into limits and finite modules identify naturally with their Matlis biduals, the result is the original inverse-limit sequence. This proof uses the supplied Matlis equivalence and exactness on all modules; no new linearly compact carrier or finite residue field is required.
 
 **Checks.**
 
-- A constant free tower gives its original free module.
-- A constant relation `π` gives the two-term complex with that differential, not a free stalk.
-- The zero rank profile produces zero terms.
-- A derived endomorphism whose every quotient is zero is zero, whereas two homotopic chain maps can be distinct.
-- Infinite residue fields are allowed here; they do not make the finite coefficient ring in Layer 8 finite.
+- For the pair `A[0],A[0]`, the Hom comparison is the ring completeness isomorphism `A≃lim A/m^(n+1)`.
+- For `P=[O --π→ O]` in degrees `-1,0` and `Q=O[0]`, derived Hom in degree zero is zero; one cannot replace it by the free Hom between degree-zero terms.
+- Zero in either slot gives zero Hom. Two distinct homotopic chain maps have the same image, so the comparison cannot assert uniqueness of chain lifts.
+- A constant cofiltered exact sequence stays exact on inverse limits. Infinite residue fields are allowed; this is not finite-code selection for Layer 8.
 
-Source: Khare–Thorne, Lemma 2.13(1),(3) and Lemma 2.14, pp. 11–12; Allen et al., Definition 6.4.11, Proposition 6.4.12 and Remark 6.4.13, pp. 1057–1059; Stacks tag 0922. Needs: §§7.3, 7.7, matrix completeness, and the linearly compact finite-module limit theorem extending the supplier's countable Mittag–Leffler interface.
+Source: Khare–Thorne, Lemma 2.13(1),(3) and Lemma 2.14, pp. 11–12; Allen et al., Definition 6.4.11, Proposition 6.4.12 and Remark 6.4.13, pp. 1057–1059; Stacks tag 0922, together with the finite Hom-complex argument. Needs: §§7.3, 7.7, finite-module completeness, exact filtered module colimits and the supplied Matlis biduality.
 
 ### 7.9 Finite actions, isolated blocks and cohomologically trivial maps
 
@@ -1417,13 +1369,16 @@ and `d_r:(p,q)→(p+r,q-r+1)`. Its API identifies page two with the native Tor c
 
 On the **actual** `H^n(C⊗ᴸB)`, construct a decreasing finite filtration with `F^p=H^n` for `p≤n-b` and `F^p=0` for `p>0`. Its associated graded is `E_∞^(p,n-p)`. Every entry on this diagonal stabilizes by `r≥max(2,b-n+2)`, since possible incoming and outgoing terms then lie outside the indicated region. This proves finite, separated, exhaustive strong convergence; it does not give a canonical direct-sum decomposition. Flat `B` leaves only the `p=0` column and gives ordinary cohomology base change. In general the highest nonzero cohomological degree gives the natural right-edge isomorphism `H^b(C)⊗B≃H^b(C⊗ᴸB)` when `H^i(C)=0` for `i>b`; lower degrees need not commute.
 
+For `X∈D(A)` with `H^i(X)=0` above `b`, construct `derivedRightEdge` as the natural isomorphism `H^b(X)⊗B≃H^b(X⊗ᴸB)`. Define its map from the canonical smart-truncation triangle `τ_(≤b-1)X→X→H^b(X)[-b]`. Derived tensor is right t-exact, so the first term has cohomology at most `b-1`; its two adjacent groups give the displayed isomorphism. This construction is natural for **all derived morphisms** and therefore equivariant for any derived ring action, without choosing a strict chain lift. Its API includes identity/composition, coefficient-map naturality and compatibility with isolated derived idempotent blocks. This is the additional right-edge action comparison; full-page equivariance above still requires strict actions.
+
 **Checks.**
 
 - `A[0]` gives only `E₂^(0,0)=B`.
 - For `(Z/2)[0]` and `B=Z/2`, the terms `(-1,0),(0,0)` survive and give degrees `-1,0`.
 - The free complex `[Z --2→ Z]` in degrees `-1,0` has the same two residue cohomology groups, checking the model and the direction of the Tor index.
 - Zero gives zero pages and filtration.
-- A strict scalar action preserves all filtration steps; a derived action is treated by separate derived naturality of the right edge in Layer 9, rather than an unproved strict lift.
+- For the `π`-disk in degrees `0,1`, `b=1` and `B=k`, the right edge is `k⊗k≃k` in degree one, while the additional degree-zero group is Tor. A derived idempotent acting on a direct sum preserves the right edge on its chosen block. Zero gives the zero isomorphism.
+- A strict scalar action preserves every filtration step; an arbitrary derived action preserves the canonical right edge by the smart-truncation construction.
 
 Source: Stacks §15.63, Examples 15.63.1 and 15.63.4, tag 061Y; Homology Lemmas 12.24.11 and 12.25.3, tags [012W](https://stacks.math.columbia.edu/tag/012W), [0132](https://stacks.math.columbia.edu/tag/0132). Needs: §§7.1–7.3, native filtered double complexes and their finite-diagonal spectral sequences. Construction of the native page/filtration comparison is a prerequisite proof task, not an axiom asserting convergence.
 
@@ -1433,7 +1388,7 @@ The `π`-disk distinguishes term bounds, cohomology bounds and Tor amplitude. Th
 
 ### Dependencies
 
-Layer 1 for adic limits, Layer 3 for finite modules and duality; native complex localization, homotopies, Ext/Tor, spectral sequences and completion; the precise SR0d, EnhancedDerivedSheaves, DerivedDeRhamCohomology, SchemeAndStackFoundations, IntegralHeckeAndGaloisDeterminants and DGAInfinity contracts above. No higher-tier completed-cohomology or six-functor roadmap is used to supply module-complex algebra. Those applications import these comparisons.
+Layer 1 for adic limits, Layer 3 for finite modules and duality; native complex localization, homotopies, Ext/Tor, spectral sequences and completion; the precise DerivedModuleAlgebra, SchemeAndStackFoundations, IntegralHeckeAndGaloisDeterminants and DGAInfinity contracts in the boundaries. No higher-tier completed-cohomology or six-functor roadmap is used to supply module-complex algebra. Those applications import these comparisons.
 
 ## Layer 8: Simultaneous patching of complexes, rings and actions
 
@@ -1555,7 +1510,7 @@ Finite decorated compactness yields a bounded free `P_∞` over `S_∞`, support
 - An action supplied only at the original level lacks the lower quotient diagrams needed for compactness.
 - The `π`-disk shows why ordinary cohomology cannot simply be moved through a nonflat quotient.
 
-Source: Calegari–Geraghty, Theorem 6.3 and construction, current author PDF pp. 90–93; corrigendum, items (1),(10), published pp. 855–856. Needs: §§5.2–5.4, 7.3, 7.8, 8.1. This variant is kept separate from §8.4's derived-action statement.
+Source: Calegari–Geraghty, Theorem 6.3 and construction, author journal-layout PDF pp. 90–93; correction, published pp. 855–856. **Source gap:** the correction’s bibliographic identity is verified, but its contents and the claimed items (1),(10) have not been checked against the quotient-action input above; this input still requires comparison with the corrected theorem before this variant is ready. Needs: §§5.2–5.4, 7.3, 7.8, 8.1. This variant is kept separate from §8.4's derived-action statement.
 
 ### Examples
 
@@ -1622,7 +1577,7 @@ Put `Λ_N=Λ[Δ_N]`. For the dual system use `C_N†=RHom(C_N,Λ_N)[-(a+b)]` wit
 
 `C_∞† ≃ RHom_(S_∞)(C_∞,S_∞)[-(a+b)]`.
 
-Identify its top cohomology with the canonical CM dual `M_∞^∨=H^(-dim R_∞)RHom_(R_∞)(M_∞,ω_(R_∞))`, using §3.9's normalized dualizing **complex**. Thus patching commutes contravariantly with CM duality, naturally for system maps. The comparison uses the finite faithful action quotient and normalized local duality; it does not assume `R_∞` finite over `S_∞` or replace the canonical complex of a possibly non-CM ring by a module without justification. The API includes the involution, bidual evaluation and the compatibility of specialization and adjoints.
+Identify its top cohomology with the canonical CM dual `M_∞^∨=H^(-dim R_∞)RHom_(R_∞)(M_∞,ω_(R_∞))`, using §3.8's normalized dualizing **complex**. Thus patching commutes contravariantly with CM duality, naturally for system maps. The comparison uses the finite faithful action quotient and normalized local duality; it does not assume `R_∞` finite over `S_∞` or replace the canonical complex of a possibly non-CM ring by a module without justification. The API includes the involution, bidual evaluation and the compatibility of specialization and adjoints.
 
 **Checks.**
 
@@ -1632,7 +1587,13 @@ Identify its top cohomology with the canonical CM dual `M_∞^∨=H^(-dim R_∞)
 - The integral `π`-disk retains residue Tor under augmentation.
 - A perfect system lacking compatible dual augmentation is not an input to this theorem.
 
-Source: Iyengar–Khare–Manning, Theorem 10.6 and Lemma 10.7, pp. 43–48; §§11.1–11.2 and Theorem 11.3, pp. 49–51. Needs: §§3.9–3.10, 7.6, 8.4–8.5, 9.2. The canonical-duality comparison through the finite action quotient is a prerequisite theorem here; arithmetic self-duality is supplied downstream.
+Source: Iyengar–Khare–Manning, Theorem 10.6 and Lemma 10.7, pp. 43–48; §§11.1–11.2 and Theorem 11.3, pp. 49–51. Needs: §§3.8–3.9, 7.6, 8.4–8.5, 9.2. The canonical-duality comparison through the finite action quotient is the named target below; arithmetic self-duality is supplied downstream.
+
+The prerequisite `finiteActionCanonicalDuality` has the following exact contract. Let `S` be complete regular local of dimension `d`, `R` complete Noetherian local with normalized `ω_R`, and `M≠0` finite over both, with compatible local actions and `dim_R M=dim R=r`. Put `B=R/ann_R M`. Assume the `S`-action factors through `B`; the finite-action theorem makes `B` finite over `S`. The two finite local maps `S→B` and `R→B` identify the same normalized `ω_B`. The supplied finite-map adjunctions then give the natural comparison
+
+`RHom_R(M,ω_R) ≃ RHom_S(M,S[d])`.
+
+It respects bidual evaluation and contravariant composition. Taking degree `-r` gives `M^∨≃Ext_S^(d-r)(M,S)`, and the calculation `d-r=l=b-a` identifies that Ext group with `H^b(C_∞†)`. The finite map is to `B`, not an assumed finite map to `R`. **Checks:** `S=R=k` gives ordinary dual; `S=O`, `R=M=k` gives `Ext_O^1(k,O)=k`, whereas ordinary Hom is zero; `R=S[[t]]` acting on `M=S` by `t=0` has `B=S`, so the comparison uses a finite quotient although `R/S` is not finite (this example checks the comparison without the additional full-dimension hypothesis). Source: the supplied finite-local normalization/adjunction together with IKM Lemma 10.7 and Theorem 11.3, pp. 47–48, 50–51. Needs: §§3.3, 3.8–3.9 and the exact normalized-duality supplier contract.
 
 ### 9.4 Spectral support and equivariant local blocks
 
@@ -1737,18 +1698,19 @@ Layers 3, 6, 7 and 8; native module support, local cohomology, finite integral d
 
 ## References
 
-Page numbers below refer to the versions specified here. Stacks tags are the stable locators; its PDF chapter page numbers can change. An elementary adapter proved from native operations is identified as such beside its statement. The two general proof prerequisites isolated in §§3.14 and 6.6 are not attributed to a stronger result than the cited text supplies.
+Page numbers below refer to the versions specified here. Stacks tags are the stable locators; its PDF chapter page numbers can change. An elementary adapter proved from native operations is identified as such beside its statement. The proof prerequisites isolated in the layers are not attributed to a stronger result than the cited text supplies.
 
 - Sylvy Anscombe and Franziska Jahnke, [*The model theory of Cohen rings*](https://www.numdam.org/item/10.5802/cml.84.pdf), *Confluentes Mathematici* 14 (2022), no. 2, pp. 1–28, Theorem 4.1 and Corollary 6.5.
 
+- G. Böckle and A.-K. Juschka, [*Equidimensionality of universal pseudodeformation rings in characteristic p for absolute Galois groups of p-adic fields*](https://doi.org/10.1017/fms.2023.82), Forum Math. Sigma 11 (2023), e102, Corollary 3.3.4 and Lemma 3.3.5, pp. 17–19.
 - The Stacks Project, [Formal deformation theory](https://stacks.math.columbia.edu/download/formal-defos.pdf), [Commutative algebra](https://stacks.math.columbia.edu/download/algebra.pdf), [More on Algebra](https://stacks.math.columbia.edu/download/more-algebra.pdf), [Dualizing Complexes](https://stacks.math.columbia.edu/download/dualizing.pdf), [Local Cohomology](https://stacks.math.columbia.edu/download/local-cohomology.pdf), [Divided Power Algebra](https://stacks.math.columbia.edu/download/dpa.pdf) and [Homology](https://stacks.math.columbia.edu/download/homology.pdf). Individual sections, lemmas and tags are given in the layers.
 - M. Schlessinger, [*Functors of Artin rings*](https://math.uchicago.edu/~amathew/schlessingerdef.pdf), Trans. Amer. Math. Soc. 130 (1968), 208–222, especially §§1–2 and Theorem 2.11.
 - T. Gee, [*Modularity lifting theorems*](https://arxiv.org/pdf/2202.05818v2), 2022 author version, §3; PDF pagination.
 - C. Khare and J.-P. Wintenberger, [*Serre's modularity conjecture (II)*](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), author copy dated 30 May 2009, 98 pages. All citations use this copy's pages and numbering: §§2.1–2.3, Lemmas 4.4 and 4.6, Corollary 4.7, and §9.
 - M. Kisin, [*Lectures on deformations of Galois representations*, Lecture 1](https://people.math.harvard.edu/~kisin/notes/notes.pdf), pp. 1–4; and [*Moduli of finite flat group schemes, and modularity*](https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf), Ann. of Math. 170 (2009), 1085–1180, especially Proposition 3.3.1 and Lemma 3.3.4.
-- F. Calegari and D. Geraghty, [*Modularity lifting beyond the Taylor–Wiles method*](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), Invent. Math. 211 (2018), 297–433. Citations marked PDF use the 137-page author journal-layout copy; the first printed page is 297. See also their [correction](https://doi.org/10.1007/s00222-021-01095-5), Invent. Math. 227 (2022), 855–856, particularly items (1) and (10). The initial-form condition in §3.14 is stated explicitly.
+- F. Calegari and D. Geraghty, [*Modularity lifting beyond the Taylor–Wiles method*](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), Invent. Math. 211 (2018), 297–433. Citations marked PDF use the 137-page author journal-layout copy; the first printed page is 297. See also their [correction](https://doi.org/10.1007/s00222-021-01095-5), Invent. Math. 227 (2022), 855–856, whose effect on §8.6 remains a stated source gap. The initial-form condition in §3.13 is stated explicitly.
 - R. Taylor, [*Automorphy for some l-adic lifts of automorphic mod l Galois representations. II*](https://www.numdam.org/article/PMIHES_2008__108__183_0.pdf), Publ. Math. IHÉS 108 (2008), 183–239, Definition 2.1 and Theorem 4.1.
-- J. Thorne, [*Automorphy lifting for residually reducible l-adic Galois representations*](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf), author copy, §1, pp. 5–9. Proposition 1.8 cites the connectedness theorem of Brodmann–Rung; §6.6 records the required normalization and proof prerequisite separately.
+- J. Thorne, [*Automorphy lifting for residually reducible l-adic Galois representations*](https://www.dpmms.cam.ac.uk/~jat58/reducible_lifting.pdf), author copy, §1, pp. 5–9. For the finite connectedness convention, §6.6 instead uses Stacks Lemma 52.14.1, tag 0ECR.
 - G. Boxer, F. Calegari, T. Gee and V. Pilloni, [*Abelian surfaces over totally real fields are potentially modular*](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf), Publ. Math. IHÉS 134 (2021), 153–501, §§7.8, 7.11–7.12. The duality locators marked author PDF use [arXiv:1812.09269v3](https://arxiv.org/pdf/1812.09269v3), pp. 213–214; published component locators use pp. 425–430.
 - G. Boxer, F. Calegari, T. Gee and V. Pilloni, [*Modularity theorems for abelian surfaces*](https://arxiv.org/pdf/2502.20645v1), arXiv:2502.20645v1 (2025), §7, especially pp. 160–165 and 172.
 - G. Boxer and V. Pilloni, [*Higher Hida theory for Siegel modular forms*](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf), author version dated 5 November 2025, §§2.3 and 2.6, pp. 17, 21–22. The date and pages here specify the author version, independently of its later publication.
@@ -1762,9 +1724,9 @@ Page numbers below refer to the versions specified here. Stacks tags are the sta
 - D. Le, B. V. Le Hung, B. Levin and S. Morra, [*Serre weights and Breuil's lattice conjecture in dimension three*](https://math.rice.edu/~bl70/LLHLMlattices.pdf), author copy, §§3.5–3.6 and 5, pp. 39, 69–71, 119–126.
 - M. Emerton and T. Gee, [*A geometric perspective on the Breuil–Mézard conjecture*](https://arxiv.org/pdf/1109.4226v3), arXiv:1109.4226v3, §2.2, pp. 6–9.
 - A. Grothendieck and J. Dieudonné, [*Éléments de géométrie algébrique IV*, deuxième partie](https://www.numdam.org/item/PMIHES_1965__24__5_0/), Publ. Math. IHÉS 24 (1965), §§5.7; and [troisième partie](https://www.numdam.org/item/PMIHES_1966__28__5_0/), Publ. Math. IHÉS 28 (1966), §11.3.
-- A. Grothendieck, [*Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz locaux et globaux*](https://arxiv.org/pdf/math/0511279v1), SGA 2, new edition by Y. Laszlo, Exposé XI, Theorem 3.13(ii), new-edition p. 105, old p. 132, and Lemma 3.15, new-edition p. 106, old p. 134.
+- A. Grothendieck, [*Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz locaux et globaux*](https://arxiv.org/pdf/math/0511279v1), SGA 2, new edition by Y. Laszlo, Exposé XI, Theorem 3.13(ii), new-edition p. 105, old p. 132, and Lemma 3.15, new-edition p. 106, old p. 133.
 - M. Hochster, [*Local cohomology*](https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W2011.LocCoh.pdf), 2011 lecture notes, pp. 7–8, 19, 40–41; and [*Commutative algebra*](https://sites.lsa.umich.edu/hochster/wp-content/uploads/sites/1337/2024/10/615W12.pdf), 2012 lecture notes, April 17–18, pp. 165–169.
-- C. Huneke, notes by A. Banerjee, A. De Stefani and B. Stone, [*Commutative algebra III*](https://home.adelphi.edu/~bstone/commalg-notes/commalg-3/algebra-notes-iii.pdf), §§1.2–2 and the numbered multiplicity results cited in §§3.12–3.14. Theorem 16's displayed proof is the equal-characteristic proof used here.
+- C. Huneke, notes by A. Banerjee, A. De Stefani and B. Stone, [*Commutative algebra III*](https://home.adelphi.edu/~bstone/commalg-notes/commalg-3/algebra-notes-iii.pdf), §§1.2–2 and the numbered multiplicity results cited in §§3.11–3.13. Theorem 16's displayed proof is the equal-characteristic proof used here.
 - L. Avramov and S. Iyengar, [*Bass numbers over local rings via stable cohomology*](https://arxiv.org/pdf/1208.4458v1), arXiv:1208.4458v1, Theorems 2.1 and 2.4, pp. 2–4.
 - Y. André, [*La conjecture du facteur direct*](https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf), Publ. Math. IHÉS 127 (2018), 71–93, §0.1 and §3.4, pp. 72, 84.
 - B. Bhatt, [*On the direct summand conjecture and its derived variant*](https://arxiv.org/pdf/1608.08882v2), arXiv:1608.08882v2, Lemma 5.3, pp. 9–10.

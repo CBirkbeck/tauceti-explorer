@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-DeformationAndDerivedPatchingAlgebra~adv",
+    "date": "2026-10-16",
+    "notes": "Completed independent fixing review of all 88 original subsections and 19 Lean theorem signatures. Corrected local regular-sequence descent; full-socle obstruction; Cohen lifting; capped connectedness; parafactorial and cotangent-image prerequisites; signed cone witness; derived right-edge and finite-action duality. Removed duplicate targets owned by current DerivedModuleAlgebra, SchemeAndStackFoundations, Part II and Tau Ceti syntomic modules. Final lean-check exits 0 with only sorry warnings. Needs changes for exactly: arbitrary-complete-DVR diagonal extension with correct residue/separability hypotheses; Martsinkovsky Theorem 6 primary stable-cohomology proof input; formally-unmixed mixed-characteristic multiplicity-one converse; comparison of the cohomology-action patch datum with the unread 2022 Calegari-Geraghty correction. See the review report for source audit, random 15-locator sample, all-subsection adversarial table and exact remaining work."
+  }
+}
