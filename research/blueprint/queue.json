@@ -130591,8 +130591,9 @@
     "BP-EffectiveDiophantineMethods~3",
     "BP-EffectiveDiophantineMethods~4"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #10052"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10052",
+   "finishedAt": "2026-10-16T21:50:14Z"
   },
   {
    "id": "REV-PKG-DeformationAndDerivedPatchingAlgebra~adv",
@@ -130611,8 +130612,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-DeformationAndDerivedPatchingAlgebra~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-DeformationAndDerivedPatchingAlgebra~adv.md",
+   "note": "claimed on GitHub issue #10067"
   },
   {
    "id": "REV-PKG-PadicHodgeTheory~adv",
@@ -130631,8 +130633,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeTheory~adv.md",
+   "note": "claimed on GitHub issue #10068"
   }
  ]
 }
