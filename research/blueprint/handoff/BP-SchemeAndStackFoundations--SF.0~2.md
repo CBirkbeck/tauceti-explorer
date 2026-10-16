@@ -1,56 +1,65 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-## Current run: codex-E0Z9OT, 16 October 2026
+## Current run: codex-FU436l, 16 October 2026
 
-**Checkpoint; the upstream-ownership blocker persists.** The bot confirmed
-[this run's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6217264142)
-at 14:06:38 UTC. Issue #9295 was the first eligible issue labelled
-`state:available` in the manager's ordered list. Only this job was claimed.
-This run continues the checkpoint merged in
-[#9995](https://github.com/CBirkbeck/tauceti-explorer/pull/9995).
+**Checkpoint; blocked by the existing upstream owner and the maintainer's scope
+instruction.** The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6220960175)
+at 17:23:55 UTC. Issue #9295 was the first eligible available issue in the
+manager's ordered list. Only this job was claimed. This run continues the
+checkpoint merged in [#10002](https://github.com/CBirkbeck/tauceti-explorer/pull/10002).
 
-Fresh authenticated GitHub API reads confirmed that upstream
+Fresh authenticated GitHub API reads confirm that upstream
 [PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
-is merged, at `d23fdaf388733bd9bcb0dc9b7963cc336f21461d` on
-14 October 2026 at 04:47:45 UTC. Current upstream main remains
-`a46641603eb2cce60cea86900e44c3a5d856f91f`. I separately fetched and read
-its README scope/ownership clauses and Layer 0, and the corresponding
-Suggested.lean imports and Layer 0 interfaces. The upstream specification
-covers the schemes-and-morphisms direction of this issue and imports the
-AlgebraicVectorBundles carriers. The supplied read-only roadmap checkout
-remains at `0d144d044dacebca17b654695b6f1ad58f159b27`, without the new
-directory; the current GitHub files establish ownership despite that older
-checkout. The current Tau Ceti checkout remains at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; its relative-Spec functor
-source and the SF.0 reviewed library audit were inspected as context.
-No current-library declaration is newly asserted to exist at the historical
-packet pins.
+merged on 14 October 2026 at 04:47:45 UTC, at
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. Upstream main has advanced to
+`f6780b173b0ee486636c58667d191d4814a77f90` (16 October, 16:39:28 UTC).
+I fetched the individual README and Suggested.lean at that exact commit and
+read the scope/ownership and Layer 0 interfaces:
 
-The [maintainer's scope instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6147006432)
-still directs changes upstream and says further atlas blueprint rounds are
-unnecessary. No subsequent issue comment withdraws it. Automatic intake
-released the issue again after #9995 at 14:01:49 UTC. That release leaves
-the conflict between the queue and the maintainer's instruction unresolved.
-WORKERS.md and PROTOCOL.md section 15 prohibit a second plan of this
-existing upstream roadmap. Completing the historical revision requires a
-maintainer disposition of that conflict; changing the queue or upstream
-roadmap is outside this issue's editable deliverables.
+- [README: scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership).
+- [README: Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms).
+- [Suggested.lean: imports and Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean).
 
-Only this handoff changes. The packet, reader and suggested file retain their
-previous state: `partial` packet, `partial` SF.0 coverage, `needs_changes`
-review, 139 nodes, six gaps and 11 requests. This run adds no mathematical
-nodes, API, tests, planets, baseline citations or ownership transfers.
-The six unresolved review groups and the existing handling of
-`RT-AREA-algebraicgeometry/11` are preserved below. Their correctness has
-not been newly certified by this checkpoint.
+These files retain the schemes-and-morphisms scope assigned to this issue and
+import AlgebraicVectorBundles' carriers. The supplied read-only roadmap tree
+remains at `0d144d044dacebca17b654695b6f1ad58f159b27`, without this new
+directory. I also read the supplied AlgebraicVectorBundles and ModularCurves
+scope statements, the reviewed SF.0 library audit, and the current Tau Ceti
+relative-Spec functor and affine-comparison declarations. The Tau Ceti tree
+remains at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These current-library
+reads establish ownership context; they add no baseline claim at the packet's
+historical pins. No shared checkout was modified or built.
 
-Validation: `check_blueprint.py` reports zero errors and zero warnings for
-the unchanged packet. The handoff passes `intake.py check-files`.
-No Lean file changed or was compiled. No book or source passage was copied
-into the repository, and no shared build or checkout was changed. The
-historical checkpoint below retains the detailed source links and resumption
-instructions; no scratch file is needed. This is the sixth submission of the
-same ownership blocker, after #9894, #9951, #9972, #9988 and #9995.
+The [maintainer's 13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6147006432)
+still directs roadmap changes upstream and says further atlas blueprint
+rounds are unnecessary. I re-read every issue comment; none withdraws that
+instruction. The automated availability reset after #10002 does not resolve
+this scope conflict. WORKERS.md and PROTOCOL.md section 15 forbid replanning
+an existing Tau Ceti roadmap. Completing the historical revision here would
+produce a competing specification. Changing the queue or upstream roadmap is
+outside this issue's permitted deliverables.
+
+Only this handoff changes. The packet remains `partial`, SF.0 coverage remains
+`partial`, and the independent review remains `needs_changes`. The preserved
+inventory is 139 nodes (26 definitions, 26 constructions, 75 theorems, six
+comparisons, three lemmas and three applications), 383 definition/construction
+API items, 226 definition/construction unit tests, six planets, 492 baseline
+declarations, six gaps and 11 requests. This run adds no mathematical nodes,
+API, tests, planets, source issues or ownership transfers. The six unresolved
+review groups and the existing handling of `RT-AREA-algebraicgeometry/11`
+remain recorded below; their repair is not certified by this checkpoint.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings on the
+unchanged packet. The changed handoff passes `intake.py check-files`. No Lean
+file changed or was compiled. No source passage or external source file was
+copied into the repository. No scratch file is needed to resume.
+
+**Resumption requires a maintainer disposition of the stale atlas assignment.**
+This is the seventh submission of the same ownership blocker, following
+#9894, #9951, #9972, #9988, #9995 and #10002. A mathematical follow-up must
+start from the current upstream specification with a separately authorized
+scope. The historical review remains unapproved. This run stops after its
+checkpoint pull request and claims no second job.
 
 ## Previous checkpoint and preserved mathematical state
 
