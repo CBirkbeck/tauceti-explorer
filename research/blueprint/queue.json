@@ -32868,7 +32868,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9293"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L3",
@@ -38715,8 +38716,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9330"
+   "state": "external",
+   "note": "claimed on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -43868,8 +43869,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9301"
+   "state": "external",
+   "note": "claimed on GitHub issue #9301"
   },
   {
    "priority": 2,
