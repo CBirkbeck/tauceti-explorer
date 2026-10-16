@@ -166439,8 +166439,8 @@
    "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
    "citation": "Alexander Grothendieck, Techniques de construction et théorèmes d’existence en géométrie algébrique IV: Les schémas de Hilbert, Séminaire Bourbaki, exposé 221, 1961, pp.249–276",
    "status": "confirmed",
-   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
-   "reviewReason": "Confirmed directly against GR Theorem 2.1, collected p.254, its sufficiency proof, and the published GE correction p.302. The theorem must be an equivalence."
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Reconfirmed in the same hash-identified artifact on 2026-10-16. Confirmed directly against GR Theorem 2.1, collected p.254, its sufficiency proof, and the published GE correction p.302. The theorem must be an equivalence."
   },
   {
    "id": "AlgebraicModuliForArithmeticGeometry/E2",
@@ -166458,8 +166458,8 @@
    "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
    "citation": "Jarod Alper, Stacks and Moduli, Author draft, 19 August 2024",
    "status": "confirmed",
-   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
-   "reviewReason": "Confirmed on AL p.58 and compared with AL26 p.58: χ=h⁰−h¹ forces subtraction. The January 2026 version repairs this sign."
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Reconfirmed in the same hash-identified artifact on 2026-10-16. Confirmed on AL p.58 and compared with AL26 p.58: χ=h⁰−h¹ forces subtraction. The January 2026 version repairs this sign."
   },
   {
    "id": "AlgebraicModuliForArithmeticGeometry/E3",
@@ -166477,8 +166477,8 @@
    "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
    "citation": "Jarod Alper, Stacks and Moduli, Author draft, 5 January 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
-   "reviewReason": "Confirmed on AL26 pp.57–58. Embed O_P¹(-2) in O_P¹ using a nonzero quadratic and choose a hyperplane point outside its zeros. The restriction is 0-regular, but the proposed m₂=1 leaves H¹(O(-2)) nonzero. The final displayed bound already restores the missing 1."
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Reconfirmed in the same hash-identified artifact on 2026-10-16. Confirmed on AL26 pp.57–58. Embed O_P¹(-2) in O_P¹ using a nonzero quadratic and choose a hyperplane point outside its zeros. The restriction is 0-regular, but the proposed m₂=1 leaves H¹(O(-2)) nonzero. The final displayed bound already restores the missing 1."
   },
   {
    "id": "AlgebraicModuliForArithmeticGeometry/E4",
@@ -166496,8 +166496,8 @@
    "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
    "citation": "The Stacks Project Authors, The Stacks Project: Commutative Algebra, PDF accessed 2026-10-09",
    "status": "confirmed",
-   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
-   "reviewReason": "Confirmed in the current SA p.134/tag 00JT: homogeneous-part q⊆p, as the next lemma uses. The example p=(x−1) in k[x] makes the printed reverse containment false. Comments 11304 and 11474 on section 10.57 confirm the previously reported status and the reply; they do not override the calculation."
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Reconfirmed in the same hash-identified artifact on 2026-10-16. Confirmed in the current SA p.134/tag 00JT: homogeneous-part q⊆p, as the next lemma uses. The example p=(x−1) in k[x] makes the printed reverse containment false. Comments 11304 and 11474 on section 10.57 confirm the previously reported status and the reply; they do not override the calculation."
   },
   {
    "id": "AlgebraicModuliForArithmeticGeometry/E5",
@@ -166517,8 +166517,68 @@
    "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
    "citation": "Nitin Nitsure, Construction of Hilbert and Quot Schemes, arXiv:math/0504590v1, 29 April 2005",
    "status": "confirmed",
-   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1",
-   "reviewReason": "Independently verified the O(-2) counterexample and the exact final polynomial on NI p.13. Regularity needs H¹ at index m−1; vanishing beginning at m does not suffice."
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Reconfirmed in the same hash-identified artifact on 2026-10-16. Independently verified the O(-2) counterexample and the exact final polynomial on NI p.13. Regularity needs H¹ at index m−1; vanishing beginning at m does not suffice."
+  },
+  {
+   "id": "AlgebraicModuliForArithmeticGeometry/E6",
+   "kind": "misprint",
+   "locator": "Definition 1.3.1, p.54, author draft 19 August 2024; also AL26 Definition 2.3.1, p.54, author draft 5 January 2026",
+   "printed": "After defining m-regularity by vanishing of H^i(F(m−i)), the draft defines regularity using the least m for which the already twisted F(m) is m-regular.",
+   "correction": "Use the least m for which F itself is m-regular, equivalently F(m) is 0-regular, when such a least integer exists. For sheaves regular in every integer, use an explicit minus-infinity convention or retain only the m-regular predicate.",
+   "reason": "On P¹, F=O(-2) is m-regular exactly when m≥2. The double-twisted condition instead holds when 2m−2≥0, giving 1. The zero sheaf and sheaves of zero-dimensional support have no least regular integer. This packet uses the correctly indexed predicate rather than that numerical definition.",
+   "affects": "a stated result",
+   "known": "new in this review for the two checked author drafts; no claim about unread versions",
+   "searched": [
+    "Alper author lecture-notes/version index, accessed 16 October 2026: January 5, 2026 remains listed as current; compared the August 19, 2024 and January 5, 2026 PDFs.",
+    "Primary-source searches for an Alper regularity-definition or regularity-proof correction did not locate a separate correction. No conclusion is claimed for unread intervening versions."
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
+   "citation": "Jarod Alper, Stacks and Moduli, Author draft, 19 August 2024",
+   "status": "confirmed",
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Compared both definitions on printed p.54 and computed H¹(O(a+m−1)): it vanishes exactly when a+m≥0 on P¹. The printed additional twist changes this threshold."
+  },
+  {
+   "id": "AlgebraicModuliForArithmeticGeometry/E7",
+   "kind": "misprint",
+   "locator": "Lemma 2.1 proof of (c), p.11; arXiv:math/0504590v1, 29 April 2005",
+   "printed": "The last paragraph attributes generation by global sections to the vector spaces H⁰(Pⁿ,F(r+p)) and H⁰(Pⁿ,F(r)).",
+   "correction": "The globally generated objects in these two sentences are the sheaves F(r+p) and F(r). Use the section multiplication surjection and evaluate at every point to descend generation from the high twist.",
+   "reason": "Global generation is surjectivity of evaluation onto a sheaf; the section vector space alone is not that target. Surjective multiplication onto the high-twist sections forces the evaluation of the lower-twist sections to span every fibre, since sections vanishing at a point still vanish after multiplication. The lemma survives this notation repair.",
+   "affects": "the proof",
+   "known": "new in this review for the checked arXiv v1 artifact; AL Proposition 1.3.5 and AL26 Proposition 2.3.5 give the sheaf-evaluation argument correctly",
+   "searched": [
+    "The arXiv version history lists v1 only; the Romagny Hilbert seminar corrections page supplies no correction of these two sentences.",
+    "Compared Alper 2024 Proposition 1.3.5, p.56, and Alper 2026 Proposition 2.3.5, p.56, which use sheaf evaluation maps explicitly."
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
+   "citation": "Nitin Nitsure, Construction of Hilbert and Quot Schemes, arXiv:math/0504590v1, 29 April 2005",
+   "status": "confirmed",
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Read the final paragraph on NI p.11 and checked the pointwise evaluation argument. This is a sheaf/vector-space notation slip, with no change to the global-generation conclusion."
+  },
+  {
+   "id": "AlgebraicModuliForArithmeticGeometry/E8",
+   "kind": "misprint",
+   "locator": "Proposition 1.3.5 proof of (2), p.56, author draft 19 August 2024; also AL26 Proposition 2.3.5 proof of (2), p.56, author draft 5 January 2026",
+   "printed": "The proof justifies surjectivity of the degree-d restriction map by vanishing of H¹(F(d)).",
+   "correction": "Use H¹(F(d−1))=0. For d≥m, the d-regularity proved in part (1) supplies exactly this vanishing.",
+   "reason": "The hyperplane sequence for the degree-d restriction is 0→F(d−1)→F(d)→F|H(d)→0. Its connecting obstruction lies in H¹(F(d−1)). Vanishing of H¹(F(d)) alone does not remove it: take F=O_P¹(-1) and d=0. The regularity hypotheses of the proposition already give the stronger, correct vanishing, so the result is unaffected.",
+   "affects": "the proof",
+   "known": "new in this review for the two checked author drafts; the subsequent restriction-map paragraph on AL p.56 already uses the correct d−1 index",
+   "searched": [
+    "Alper author lecture-notes/version index, accessed 16 October 2026: January 5, 2026 remains listed as current; compared the August 19, 2024 and January 5, 2026 PDFs.",
+    "Primary-source searches for an Alper regularity-definition or regularity-proof correction did not locate a separate correction. No conclusion is claimed for unread intervening versions."
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "file": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.1.json",
+   "citation": "Jarod Alper, Stacks and Moduli, Author draft, 19 August 2024",
+   "status": "confirmed",
+   "reviewedBy": "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2",
+   "reviewReason": "Both p.56 proofs have the same index slip. The adjacent exact sequence and the O(-1) example distinguish the two degrees; part (1) repairs the justification without any stronger hypothesis."
   },
   {
    "id": "AlgebraicModuliForArithmeticGeometry/E19",
@@ -179052,9 +179112,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "BLGGT arXiv v4 §2.1 p.32 uses χ in the automorphic definition; the displayed μ belongs to the preceding Galois definition. Confirmed in this version, independently of the parity issue."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-2",
@@ -179076,9 +179136,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, arXiv:1010.2561v4, 9 December 2013, the last arXiv version (published Annals of Math. 179 (2014), 501–609). Printed page = PDF page. R. Taylor's copy pa3.pdf has the same text in §2.1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "BLGGT arXiv v4 §2.1 pp.32–34 and Appendix A.2 p.87 give μ(c_v)=(−1)^(n−1+w)χ_v(−1). A rank-one CM elliptic character with w=1 detects the missing weight factor. Patrikis Proposition 4.1 p.8 independently retains it. This fresh verdict certifies these versions, not a newly inspected publisher edition."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-3",
@@ -179097,9 +179157,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular, Publications Mathématiques de l’IHÉS 134 (2021), 153–501; published PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "BCGP21 Lemma 2.5.1 p.189 makes an unrestricted maximal-rank uniqueness assertion. Exact rational 6×6 calculations with q=4, F=diag(8,2,2,1/2,1/2,1/8) give FNF⁻¹=N/4 and N-power ranks (4,2,1,0) versus (4,2,0,0), both with maximal rank 4. Only the length-(4,2) strings are pure of weight zero. Use TY Lemma 1.4 uniqueness up to equivalence in the pure range."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-4",
@@ -179118,9 +179178,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "CH author copy p.12 names the full GL_{n(n−1)/2} as target of ∧². At n=4 dimensions 16 and 36 preclude an isogeny onto that group. Finite kernel onto the image is different. The first de Rham proof remains the route used here."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-5",
@@ -179139,9 +179199,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles, arXiv:1010.2188v1, 11 October 2010 (published Duke Math. J. 161 (2012)); read from references/text/SS_CaraianiMonodromyAway.txt. Locators give the arXiv version's page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "Caraiani away-prime preprint p.84 assigns the doubled tensor weight to the individual normalized factor. Its weight is n−1, so the tensor has weight 2n−2. The surrounding tensor-square purity argument distinguishes the two."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-6",
@@ -179160,9 +179220,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "ACC+ printed pp.922,927,938: n=1 forces X−T in the GL_n polynomial. A degree-2n unitary polynomial requires X^(2n−j) in the first sum and X^(2n−i) in the second; the printed expressions lose these degrees. The two later sourceIssues preserve the separate extraction provenance."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-7",
@@ -179181,9 +179241,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "CH author copy p.4 requires nonnegative coordinates for both conjugate tuples while imposing negative reversed conjugacy. Together these force all coordinates to vanish; dominant integer tuples such as (1,0) and (0,−1) must be allowed."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-8",
@@ -179201,9 +179261,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne, On the rigid cohomology of certain Shimura varieties, Author's copy rigcoh.pdf (published in Res. Math. Sci. 3 (2016)); read from the supplied extracted text references/text/SS_HLTT.txt. Locators give the article's own page numbers and result numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "HLTT Appendix A.1 p.231 displays a zero lower-left block. It cannot be the Std invertible block map; the lower-right block is invertible and agrees with the stated ν×Std decomposition."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG20-9",
@@ -179221,9 +179281,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Ila Varma, Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p, arXiv:1411.2520v1, 10 November 2014; read from the supplied extracted text references/text/SS_VarmaLocalGlobal.txt. Locators give the arXiv version's own page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "Varma arXiv v1 pp.19,27: the preceding trace corollary is 8.3, the dominance result is Proposition 9.1, and final bounded compatibility is Theorem 10.2. The cited 9.3/11.1/7.13 references do not identify these results in this version."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-3",
@@ -179243,9 +179303,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "ACC+ printed p.922 has the wrong final GL_n sign; n=1 requires X−T. Theorem 2.3.5 p.938 gives the correctly signed form. This overlaps EAG20-6 and is retained for provenance."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-4",
@@ -179264,9 +179324,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "ACC+ printed pp.922 and 927 lose X^(2n−j) and print X^(n−i) instead of X^(2n−i). Degree and nonnegative-exponent checks confirm both errors in the identified copy. This overlaps EAG20-6."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-5",
@@ -179286,9 +179346,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields, Annals of Mathematics 197 (2023), 897–1113; the authors' copy Ramanujan.pdf, which carries the journal pagination (printed page = PDF page + 896)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "ACC+ pp.972–973: local genericity includes trivial inertia. Over Q₂ and F₃, 1⊕1 and a ramified quadratic scalar twist have the same projectivization but different inertia. The global existential conclusion survives by avoiding finitely many ramified places; only the unrestricted local formulation is corrected."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-6",
@@ -179307,9 +179367,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Caraiani, Monodromy and local-global compatibility for l = p (published version), Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "Caraiani published §3A pp.1609–1611 has two independent boundary families. The second log structure must use j₂ and U₂; repeating j₁ and U₁ discards the Y-boundary."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-7",
@@ -179328,9 +179388,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Caraiani, Monodromy and local-global compatibility for l = p (published version), Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "Caraiani published §3A pp.1609–1611 uses s second-boundary factors. The repeated j_r and Y_r in that part of the local chart must be j_s and Y_s. Taking r=1,s=2 detects the loss of the second boundary."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-8",
@@ -179349,9 +179409,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Caraiani, Monodromy and local-global compatibility for l = p (published version), Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "Caraiani published p.1610 includes m free Z-coordinates. The stratum has dimension 2n+m−i−j. Taking n=r=s=i=j=m=1 gives an affine line, whereas the printed dimension gives zero."
   },
   {
    "id": "AutomorphicGaloisRepresentationsPartII/EAG26-9",
@@ -179370,9 +179430,9 @@
    "owner": "AutomorphicGaloisRepresentationsPartII",
    "file": "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
    "citation": "Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II, Author's copy ConstructionII.pdf (published in Camb. J. Math. 1 (2013), 53-73); read from the supplied extracted text references/text/SS_ChenevierHarris.txt. Locators give the article's own page and result numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicGaloisRepresentationsPartII",
+   "reviewReason": "CH author copy p.4: conjugate negative reversal together with nonnegativity forces zero weights. Dominant integral weights, including negative entries, give the intended condition. This overlaps EAG20-7 and retains its separate provenance."
   },
   {
    "id": "AutomorphicLFunctionsAndLocalFactors/E1",
@@ -184369,9 +184429,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (I), Author preprint results.pdf; locators use its own pp.1–23, not Inventiones 178 (2009), 485–504.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed in KW author p.19: the construction is at the mod-three member and its local type at two is supplied by 5.1(4), not 5.1(2). Flatness of the dyadic member also uses compatibility and the e=3 comparison."
   },
   {
    "id": "ClassicalSerreModularity/E4",
@@ -184389,9 +184449,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre’s conjecture, arXiv:2108.07577v2, 3 May 2022; body pp.1–15 and bibliography pp.15–17.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed in DP v2 p.11; compared published p.11, which gives the correct residue-field cardinality N². This issue applies to v2, not that corrected published phrase."
   },
   {
    "id": "ClassicalSerreModularity/E5",
@@ -184409,9 +184469,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre’s conjecture, arXiv:2108.07577v2, 3 May 2022; body pp.1–15 and bibliography pp.15–17.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed on both DP p.11 page versions: the local character lives at N, so its niveau-two inertial restriction is at N. The barred coefficient-ring notation was checked on the page image and is not an additional error."
   },
   {
    "id": "ClassicalSerreModularity/E6",
@@ -184429,9 +184489,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre’s conjecture, arXiv:2108.07577v2, 3 May 2022; body pp.1–15 and bibliography pp.15–17.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed in both Remark 6 versions p.13: existence of flatness over one even-index field does not exclude flatness over an odd-index field. The required universal odd-index obstruction is recorded as an open supplier contract."
   },
   {
    "id": "ClassicalSerreModularity/E7",
@@ -184449,9 +184509,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre’s conjecture, arXiv:2108.07577v2, 3 May 2022; body pp.1–15 and bibliography pp.15–17.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed by comparing the weak DP minimality definition (v2 p.6; published p.6) with Pasos 3–4 (pp.12–13). That definition alone does not preserve the ramified N-type. The packet explicitly imports stronger KW minimality/prescribed local type and includes N in the bound."
   },
   {
    "id": "ClassicalSerreModularity/E8",
@@ -184469,9 +184529,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre’s conjecture, arXiv:2108.07577v2, 3 May 2022; body pp.1–15 and bibliography pp.15–17.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed in DP Paso 2 p.11 in both versions: finite full decomposition image cannot have determinant ψ(N)N at arithmetic Frobenius. Distinguish finite inertial image, finite dihedral projective image, and the infinite arithmetic decomposition image."
   },
   {
    "id": "ClassicalSerreModularity/E9",
@@ -184489,9 +184549,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (I), Author preprint results.pdf; locators use its own pp.1–23, not Inventiones 178 (2009), 485–504.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed as an omitted proof step, not a false theorem: KW author §3.2 p.6 proves qualitative modularity and does not spell out the stated exact weight/conductor refinement. The conditional argument must separate dihedral inputs before minimal lifting and include scalar dyadic optimisation."
   },
   {
    "id": "ClassicalSerreModularity/E15",
@@ -184509,9 +184569,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (I), Author preprint results.pdf; locators use its own pp.1–23, not Inventiones 178 (2009), 485–504.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed in KW author Theorem 5.1(2), p.9: a nonzero nilpotent operator lies in End, not GL₂, since its determinant vanishes. No claim about the unexamined Inventiones version."
   },
   {
    "id": "ClassicalSerreModularity/E16",
@@ -184529,9 +184589,9 @@
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (I), Author preprint results.pdf; locators use its own pp.1–23, not Inventiones 178 (2009), 485–504.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.6",
+   "reviewReason": "Confirmed in KW author p.19 against Theorem 1.2 on p.2: the dyadic weight-two clause is numbered (2), not (ii). No mathematical change is needed."
   },
   {
    "id": "CohomologyComparisons/E1",
@@ -190104,6 +190164,65 @@
    "status": "confirmed",
    "reviewedBy": "REV-DeligneWeightsAndPurity--DWP.7",
    "reviewReason": "Checked arXiv v2 p. 7. The alternating boundary resolution carries the determinant of the set of branches. An automorphism exchanging two edges of the double-edge graph of type (1,2) acts by −1 on this line: its degree-zero twisted invariants vanish whereas the printed untwisted term is one-dimensional. This confirms the correction independently of the earlier point-count computation. No claim is made about the unread published Annals version."
+  },
+  {
+   "id": "DeligneWeightsAndPurity/E9",
+   "kind": "misprint",
+   "locator": "Corollary 1.2, p. 2, in arXiv:1404.6345v1 (25 April 2014)",
+   "printed": "The estimate sums the Frobenius measure of γ over all places P of K over k, with main term (q + 1)/#N and error 2g√q/#N.",
+   "correction": "The sum runs over the rational places P ∈ 𝒫¹_{K/k} only, as in Theorem 1.1, whose parametrisation concerns rational places.",
+   "reason": "With the sum over all places the left side diverges whenever γ is the Frobenius of places of every degree, e.g. for a geometric extension (h = 1), where every place contributes; the proof counts the rational places of the twisted field M_γ and so proves the statement for rational places.",
+   "affects": "nothing",
+   "known": "Corrected in arXiv:1404.6345v2 (27 June 2016), Corollary 1.3, which sums over 𝒫¹_{K/k}.",
+   "searched": [
+    "arXiv listing of 1404.6345 (versions v1 and v2)",
+    "Crossref bibliographic search for a journal version (none found)"
+   ],
+   "owner": "DeligneWeightsAndPurity",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurity.json",
+   "citation": "Michiel Kosters, A short proof of a Chebotarev density theorem for function fields, arXiv:1404.6345v2 (27 June 2016), which renumbers the results; read with v1 (25 April 2014). Locators give v2 numbering with v1’s after it.",
+   "status": "confirmed",
+   "reviewedBy": "REV-DeligneWeightsAndPurity",
+   "reviewReason": "Checked on the v1 page image (p. 2) and against v2 Corollary 1.3 and the proofs of both versions."
+  },
+  {
+   "id": "DeligneWeightsAndPurity/E10",
+   "kind": "misprint",
+   "locator": "Lemma 27.10, proof, p. 158 (version 2.21)",
+   "printed": "After excluding reciprocal roots c_i with |c_i|_ℓ > 1, the proof concludes that every |c_i|_ℓ is strictly less than 1.",
+   "correction": "The argument gives |c_i|_ℓ ≤ 1, which is what integrality of h needs.",
+   "reason": "Equality occurs: f = 1/(1 − t) ∈ 1 + tℤ_ℓ[[t]] has g = 1, h = 1 − t with reciprocal root 1. Excluding |c_i| > 1 leaves |c_i| ≤ 1, and elementary symmetric functions of elements of absolute value at most 1 lie in the closed unit ball.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. S. Milne, errata page for the course notes (https://www.jmilne.org/math/CourseNotes/errata.html), LEC v2.21 entries",
+    "LEC version history on its title page (v2.21 of 22 March 2013 is the current version)"
+   ],
+   "owner": "DeligneWeightsAndPurity",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurity.json",
+   "citation": "J. S. Milne, Lectures on Étale Cohomology, Version 2.21, 22 March 2013 (PDF page = printed page)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DeligneWeightsAndPurity",
+   "reviewReason": "Read on the page image of p. 158; the counterexample to the strict inequality is immediate."
+  },
+  {
+   "id": "DeligneWeightsAndPurity/E11",
+   "kind": "gap",
+   "locator": "Summary 27.14(c) and the argument after it, p. 159 (version 2.21)",
+   "printed": "Statement (c) asserts that if, for one ℓ, the factors P_{r,ℓ} are pairwise coprime then each has integer coefficients; the argument deduces this from the fact that their reciprocal roots are algebraic integers. The proof of (d) then cites (c) for integrality.",
+   "correction": "Algebraic-integer reciprocal roots only make the coefficients of P_{r,ℓ} algebraic integers lying in ℚ_ℓ. Rationality needs a Galois-stable description of the roots of P_{r,ℓ} among those of the reduced numerator or denominator, which purity gives (the roots of absolute value q^{r/2}, Weil I, proof of (1.7) ⇒ (1.6), p. 277); then Gauss's lemma gives integer coefficients. So (d) holds by that argument, and (c) is established only once purity is known.",
+   "reason": "A factorisation over ℚ_ℓ of an integer polynomial into coprime factors need not be defined over ℚ: for ℓ = 7, 1 − 2t² = (1 − √2 t)(1 + √2 t) with √2 ∈ ℚ_7, and both factors have algebraic-integer reciprocal roots. Coprimality of the P_{r,ℓ} for one ℓ does not exclude such a splitting of the numerator or denominator.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J. S. Milne, errata page for the course notes (https://www.jmilne.org/math/CourseNotes/errata.html), LEC v2.21 entries"
+   ],
+   "owner": "DeligneWeightsAndPurity",
+   "file": "research/blueprint/packets/DeligneWeightsAndPurity.json",
+   "citation": "J. S. Milne, Lectures on Étale Cohomology, Version 2.21, 22 March 2013 (PDF page = printed page)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DeligneWeightsAndPurity",
+   "reviewReason": "Read on the page image of p. 159; the ℚ_7 example shows the deduction fails as written, while Deligne's Galois-stability argument repairs (d)."
   },
   {
    "id": "DeligneWeightsAndPurityPartII/E1",
