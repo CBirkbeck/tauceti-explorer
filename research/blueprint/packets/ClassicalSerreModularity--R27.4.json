@@ -1,0 +1,352 @@
+{
+  "roadmapId": "ClassicalSerreModularity",
+  "protocol": "blueprint-v1",
+  "part": "R27.4",
+  "scope": [
+    "ClassicalSerreModularity:R27.4"
+  ],
+  "status": "complete",
+  "summary": "Scoped target-level completion of removing the good-dihedral condition: refine the integrated Theorem 3.4 node and import the three existing R27.4 auxiliary-choice, exact-refinement and Theorem 1.2 nodes. Spell out both dyadic conductor inequalities and the conditional Buzzard/Wiese versus scalar branches. No supplier or sibling declaration is replanned; this is a mathematical plan, not an implementation.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:HeckeRing.GL2.Newform",
+        "kind": "structure",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+        "provides": "At positive level N and integer weight k: a nonzero good-Hecke eigen cusp form on Γ1(N), with nebentypus, newspace membership and first q-coefficient one. It is the existing analytic target carrier; an attached arithmetic Galois representation is additional R19 mathematics.",
+        "checked": "Read at f790474, lines 79–106, including the inherited EigenformAwayFromLevel hypotheses and namespace."
+      },
+      {
+        "ref": "mathlib:padicValNat_dvd_iff_le",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For a prime p, nonzero natural a and natural n: p^n divides a iff n≤padicValNat p a. With p=2,n=r+1 this identifies the positive conductor bound with v₂(a)≤r. The nonzero hypothesis matters.",
+        "checked": "Read at 082e2d3, lines 466–482, with Fact p.Prime and a≠0 explicit."
+      }
+    ],
+    "audit": {
+      "reviewed": "data/library-coverage.json, ClassicalSerreModularity:R27.4, AUDIT-31: all targets not built, no duplicate layer.",
+      "currentUpstream": "Checked current Tau Ceti and current TauCetiRoadmap Suggested.lean files, including LocalGaloisGroups, ProfiniteArithmetic, IntegralHeckeAndGaloisDeterminants and ModularForms. Consume local Galois, Chebotarev, determinants and analytic newforms from those owners; they do not supply the R27.4 modularity results. No upstream file is changed."
+    }
+  },
+  "sources": [
+    {
+      "id": "kw-serre-modularity-I",
+      "title": "Serre’s modularity conjecture (I)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "Author preprint results.pdf of Invent. Math. 178 (2009), 485–504; all locators use the preprint running pages.",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "readSections": [
+        "2026-10-16: Theorem 1.2 and §1.1, pp. 2–3; S-type and conventions, §§2–3, pp. 4–6; Theorems 4.1 and 5.1 and compatibility/minimality definitions, pp. 6–10; Lemmas 6.1–6.3, pp. 10–12; §8.4 including Lemma 8.2 and proof of Theorem 3.4, pp. 17–18; §10.1 residual-irreducibility paragraph, pp. 19–20."
+      ]
+    },
+    {
+      "id": "buzzard2000",
+      "title": "On level-lowering for mod 2 representations",
+      "authors": "Kevin Buzzard",
+      "edition": "Published version, Mathematical Research Letters 7 (2000), 95–110; downloaded publisher PDF with watermark.",
+      "url": "https://intlpress.com/api/bgcloud-front/resource/pdf/volume/1806606767503077378-1806606767503077378-04d9b46249cfb494c852bbd118844447.pdf",
+      "sha256": "66bb521bc083ccbc876463a2a8f004bb443700fa536095d594e0361d69a638ac",
+      "readSections": [
+        "2026-10-16: definitions and multiplicity-one criterion, pp. 100–102; Theorem 2.8, remarks and complete proof, pp. 103–107; Theorems 3.1–3.2 and proofs, pp. 107–109."
+      ]
+    },
+    {
+      "id": "wiese2004",
+      "title": "Dihedral Galois representations and Katz modular forms",
+      "authors": "Gabor Wiese",
+      "edition": "Documenta Mathematica 9 (2004), 123–133, published version.",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf",
+      "sha256": "1dcd4bb30b64a19cb1335a7442b6704ff9c0a3dd0ad96d97d6b37a04d0aa3b06",
+      "readSections": [
+        "2026-10-16: introduction and Theorem 1, pp. 123–124; Theorem 9 and proof, pp. 130–131; Theorem 10, proof of Theorem 1 and Lemma 11, pp. 131–132."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+      "parentStageId": "ClassicalSerreModularity:R27.4",
+      "realises": [
+        "ClassicalSerreModularity:R27.4"
+      ],
+      "title": "Removing the good-dihedral hypothesis",
+      "kind": "theorem",
+      "statement": "Fix r≥0 and assume HypD r, imported from R27.2: every S-type good-dihedral residual representation of odd characteristic with 2^(r+1) not dividing its prime-to-characteristic conductor is modular. Then every S-type ρ̄ of any characteristic p with 2^(r+1) not dividing N(ρ̄) is modular, subject only to k(ρ̄)=2 when p=2 and r=0. For r≥1, both classical dyadic weights two and four are admitted. No good-dihedral hypothesis is imposed on the conclusion's input.",
+      "hypotheses": [
+        "S-type means continuous, odd and absolutely irreducible of dimension two over a finite field. N is the positive prime-to-p Artin conductor, retaining wild exponents.",
+        "For odd p first apply a cyclotomic twist to normalize the weight to [2,p+1]. This preserves N away from p, dihedrality and modularity under untwisting. Deal with the cyclotomic-reducible case by induction from a character and solvable residual modularity. At p=2 deal with solvable image by R17.6 qualitative residual modularity.",
+        "Theorem 5.1(2) at the original characteristic, Theorem 5.1(4) at p′, and the two exact KW I Theorem 4.1 exports are the lifting inputs. Hypothesis (H), Theorem 9.1 and the final modularity characterization of all compatible systems are not inputs."
+      ],
+      "proofSteps": [
+        "Build the first type-(2) system C and use auxiliary-characteristic-choice to terminate in modularity or choose p′. Apply the imported prime-field Lemma 8.2 to C̄_p′ and insert an auxiliary odd prime q with the imported type-(4) construction, giving C′ linked to C at p′. Choose q>p′ by deleting the finitely many smaller primes; in particular q differs from the final characteristic s<p′.",
+        "Track the dyadic exponent A=a(WD_2(C)). If p is odd, minimality at 2 gives A=v₂(N(ρ̄))≤r. If p=2 and k=2, its inertial WD parameter is (1⊕1,0), so A=0. If p=2 and k=4, it is (id,N_mon≠0), so A=2−dim ker N_mon=1; the theorem’s weight restriction excludes r=0 in that case.",
+        "Put b=v₂(N(C̄_p′)) and A′=a(WD_2(C′)). Reduction gives b≤A. Minimality of the second lift at 2 gives A′=b, since 2 differs from p′ and q. Let s be the largest prime below p′; reduction gives v₂(N(C̄′_s))≤A′=b≤A≤r. These are bounds; residual conductor can drop.",
+        "The type at q has nontrivial p′-power order, retained modulo s≠p′. All support other than q and s is below p′, and Lemma 8.2 provides the required congruences at every prime ≤p′−1. Hence C̄′_s is good-dihedral at q, with t=p′>max(5,s,Q(N(C̄′_s)/q²)). In particular it is nonsolvable and s>2.",
+        "HypD r makes C̄′_s modular. Its cyclotomic restriction is absolutely irreducible, so odd-prime Theorem 4.1 makes C′_s modular; compatible-family transfer makes C′ modular. At the shared nonsolvable C̄_p′, Theorem 4.1 makes C_p′ modular and family transfer returns to ρ̄."
+      ],
+      "acceptance": [
+        "At p=2,k=4,r=1 the original N is odd but A=1. This case passes HypD 1 after switching; it cannot be justified using HypD 0.",
+        "At p=2,k=2,r=0, A=0 and both reductions keep dyadic exponent zero.",
+        "For r=2 an exponent-two conductor is allowed; for r=1 it is forbidden. Replacing conductor by its radical would fail this check.",
+        "Use 0≤b≤A rather than equality at reduction, and use the intermediate C̄_p′, not the original ρ̄, to define the second minimal lift."
+      ],
+      "prerequisites": [
+        "ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr",
+        "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice",
+        "ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes",
+        "ClassicalSerreModularity:R27.1/good-dihedral-prime-insertion",
+        "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+        "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+        "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation",
+        "ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor",
+        "ArithmeticGaloisRepresentations:R01.4/dihedral-projective-image-iff-induced",
+        "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/recipe-well-definedness-and-twisting",
+        "SerreWeightAndLevelOptimisation:R20.3/ribet-twist-to-small-weight",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-solvable-residual-weight-one",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6/qualitative-residual-modularity",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SerreConjecture/KhareWintenberger",
+        "namespace": "TauCeti.SerreConjecture"
+      },
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "Theorem 3.4 and following Remark, preprint p. 6; §8.4, pp. 17–18",
+          "match": "The level-raising implication removes good-dihedrality through two compatible systems and returns modularity along their shared residual representation."
+        },
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "Theorem 5.1(2),(4), pp. 9–10; §5 almost strict compatibility, p. 8",
+          "match": "The prescribed local parameters and minimality control the full dyadic exponent through both reductions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Raising levels"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "need": "Consume the existing Chebotarev Layer 10 split-completely corollary, including the non-Galois case via normal closure and finite-prime exclusion. For the normal closure of E(i), identity Frobenius has positive density, so arbitrarily large p′ split in E and satisfy p′≡1 mod 4. This is an upstream interface request, not a new Chebotarev plan.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.6",
+      "need": "Use the existing S-type/modularity interface: continuity, absolute irreducibility, oddness, positive prime-to-p conductor, classical Serre weight and finite determinant factor, residual realization through coefficient embeddings and lattices. No finer single node covers this full interface.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+        "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts"
+      ],
+      "status": "open"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalSerreModularity:R27.4",
+      "status": "planned",
+      "remaining": [
+        "Discharge the two imported stage interfaces (Chebotarev Layer 10 and the R15.6 residual-modularity conventions) through their owners. All R27.4 target statements and proof routes are specified; implementation waits on the cited supplier mathematics."
+      ],
+      "notes": "The integrated Theorem 3.4 ID is retained. The three sibling-only target IDs are imported and clarified, not redeclared. D_r is imported from R27.2. RS-06 ownership of conditional dyadic optimization and the late scalar completion is retained."
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "sourceNotes": [
+    "Use the corrected unramified-at-the-removed-prime hypothesis of Buzzard Theorem 2.8, already recorded and independently confirmed as SerreWeightAndLevelOptimisation/E1. This packet creates no duplicate source issue.",
+    "KW I Theorems 4.1 and 5.1 are imported through the R22 and R24 theorem nodes, whose KW II proofs remain with those suppliers. Theorem 10.1’s modularity characterization is not used.",
+    "The scalar finite-flat justification uses the actual local scalar character and local reciprocity (R20.6); an arbitrary assertion of being unramified up to twist would not suffice."
+  ],
+  "restructure": [],
+  "provenance": {
+    "job": "BP-ClassicalSerreModularity--R27.4",
+    "issue": 9928,
+    "agent": "Codex",
+    "session": "codex-uTyLwY",
+    "date": "2026-10-16",
+    "carriedIds": [
+      "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice",
+      "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+      "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
+      "ClassicalSerreModularity:R27.4/theorem-1-2"
+    ],
+    "scopeDecision": "R26.1 has no R27.4 coverage record in this checkout. Preserve the integrated Theorem 3.4 ID. Import the three additional R27.4 nodes already present only in the R27.3 sibling packet; their interface explanations in imports guide the reader and assembly without duplicate node ownership."
+  },
+  "imports": [
+    {
+      "title": "Auxiliary characteristic with prime-field coefficients",
+      "statement": "Let ρ̄ be an S-type representation in characteristic p, normalized to 2≤k(ρ̄)≤p+1 if p is odd. Assume cyclotomic absolute irreducibility if p is odd and nonsolvable image if p=2. Let C be the E-rational irreducible odd almost strictly compatible weight-two system supplied by KW I Theorem 5.1(2), with common ramification supported on S∪{p}, where S is the ramification of ρ̄ away from p. Either ρ̄ is modular, or for every bound B there is a prime p′>max(B,5,p,max S), with p′≡1 modulo 4 and splitting completely in E, and a place λ′|p′, such that C̄_λ′ is absolutely irreducible, defined over F_p′, of classical Serre weight two, with nonsolvable image and absolutely irreducible restriction to G_Q(μ_p′). Coefficient extensions and lattice reductions are understood up to common residue-field extension.",
+      "hypotheses": [
+        "The common support S∪{p} is finite. Almost strict compatibility, rather than unconditional strict compatibility at every coefficient prime, suffices. Set max ∅=0 when S is empty.",
+        "Use the cofinite residual absolute-irreducibility conclusion of R24.6/residual-members for these fixed-weight bounded-conductor systems. A density-one conclusion alone cannot be intersected with an arbitrary splitting condition without further justification.",
+        "Complete splitting means residue degree one. Apply Chebotarev to the normal closure of E(i); no assumption that E/Q is Galois is made."
+      ],
+      "proofSteps": [
+        "Exclude the finite exceptional set of residual reducibility and the common support. At an odd unramified coefficient prime p′>5, almost strict compatibility gives a crystalline member of weights {0,1}; the Fontaine–Laffaille comparison gives residual weight two.",
+        "The ordinary inertia ratio has order p′−1; the niveau-two ratio has order p′+1. Thus the projective image contains an element of order at least six, excluding solvable exceptional projective groups A4 and S4. Dickson leaves the dihedral solvable case.",
+        "If restriction to Q(μ_p′) were reducible, the normalized bad-dihedral weight constraint would give weight (p′+1)/2 or (p′+3)/2, incompatible with two for p′>5.",
+        "Any dihedral candidate is already modular by the R17.5 solvable residual theorem. The odd-prime KW I Theorem 4.1 makes its crystalline weight-two lift modular. Equality of good Frobenius polynomials then makes C, and hence ρ̄, modular. This proves the first alternative without invoking the final Serre theorem.",
+        "Otherwise all eligible candidates are nonsolvable. Chebotarev supplies infinitely many completely split primes of the normal closure of E(i); remove the finite excluded primes and choose above B."
+      ],
+      "acceptance": [
+        "The smallest prime satisfying p′>5 and p′≡1 modulo 4 is 13, with inertia-ratio orders 12 or 14. The candidate 7 tests only the order estimate, not the congruence condition.",
+        "A coefficient prime of residue degree greater than one is insufficient for the prime-field version of Lemma 8.2. Complete splitting must precede that application.",
+        "Trace and determinant congruences are transported through a common coefficient embedding and stable lattice, not an identification of unrelated residue fields."
+      ],
+      "prerequisites": [
+        "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+        "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/fontaine-laffaille-weight-comparison",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/bad-dihedral-normalized-weight-application",
+        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-solvable-residual-weight-one",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "§8.4, preprint p. 17; §10.1 proof, p. 20",
+          "match": "The first characteristic switch uses weight two, the dihedral termination, prime-field descent and removal of finitely many reducible residual members. The p. 20 bounded-conductor argument is used only for residual irreducibility, not Theorem 10.1’s modularity conclusion."
+        }
+      ],
+      "ref": "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice",
+      "ownerPacket": "ClassicalSerreModularity--R27.3.json",
+      "role": "Imported target: exact statement and proof-interface clarification, not a second declaration."
+    },
+    {
+      "title": "Exact weight and conductor from modularity",
+      "statement": "Let ρ̄ be modular and of S-type in characteristic p. Suppose p is odd, or p=2 and its classical Serre weight k(ρ̄) is two. Then there is a normalized primitive characteristic-zero cuspidal eigenform f of exact level N(ρ̄) and exact weight k(ρ̄), a coefficient place λ|p, a stable lattice and a residue-field embedding such that (ρ_f,λ mod λ)^ss≅ρ̄. The reduction of the nebentypus is the finite-order factor ε(ρ̄) of det ρ̄=ε(ρ̄)χ̄_p^(k(ρ̄)−1). The p=2 conclusion includes an actually scalar restriction to the full decomposition group at 2, irrespective of dihedrality. No claim of general Katz weight-one realization or exact Teichmüller nebentypus is made.",
+      "hypotheses": [
+        "A modularity witness is an existing eigenform with the stated residual representation, of some weight and level; minimality of that witness is not assumed.",
+        "The actual scalar local restriction, rather than its semisimplification or a repeated Frobenius polynomial, is the scalar case. Its finite-image scalar character has odd order and is unramified at 2 by the imported local reciprocity lemma; finite étale implies finite flat and classical weight two.",
+        "Use the source notion of minimal lift, including its special characteristic-two induced case at odd primes. Conductor preservation is a property of those local conditions, not a consequence of retaining the same ramified-prime set.",
+        "Only the Lemma 6.2(i) dihedral exact-weight/level projection of the pre-existing R27.1 mixed-source node is used. Its supplier mathematics remains R17.5/R17.6, R20.5 and R15; no second dihedral theorem is planned here."
+      ],
+      "proofSteps": [
+        "For dihedral projective image import KW I Lemma 6.2(i). At p=2 its source is Wiese: the unramified branch supplies a Katz weight-one form at N and det character, followed by the Hasse/classicality and eigenvalue-lifting bridge in weight two. The ramified branch uses dihedral automorphy and the nonscalar dyadic optimization. Representations induced from Q(i) use the separate dihedral branch, never Buzzard Theorem 2.8.",
+        "For a nondihedral representation in odd characteristic, choose i with 2≤k(ρ̄⊗χ̄_p^i)≤p+1. The prime-to-p conductor stays N(ρ̄). Its cyclotomic restriction is absolutely irreducible. In characteristic two set i=0; nondihedral image is nonsolvable by the finite classification.",
+        "Type-(1) minimal crystalline lifting gives ρ_p of that normalized weight, minimal at all q≠p. Apply exactly KW I Theorem 4.1: the odd-prime crystalline branch, or its dyadic crystalline weight-two branch. The latter imposes no local nonscalar condition, so it covers the scalar nondihedral case.",
+        "Choose the primitive newform for this modular lift. Full local–global compatibility away from p gives its local conductor at every q≠p equal to the lift’s minimal conductor. At p use the coefficient-prime WD comparison and newvector conductor: crystallinity has trivial inertial WD type and zero monodromy, forcing a spherical local component, hence p∤level. Hodge weights fix the classical weight. These facts give exact level N, not just its support.",
+        "For odd p untwist via the theta-operator realization of cyclotomic twisting, using a nonnegative power representing −i modulo p−1. This preserves tame level. Apply the imported Edixhoven theorem to recover the original classical Serre weight at level N. Lift the resulting mod-p eigencharacter in weight at least two through the integral/Deligne–Serre interface. A primitive associate has level M|N, while conductor comparison gives N|M, hence M=N. At p=2 there is no untwisting step.",
+        "For comparison with the earlier dyadic route: if the full local restriction is nonscalar, R20.5 supplies Buzzard multiplicity one and Theorem 3.2; for non-Q(i) induction its conductor descent uses Theorem 2.8 with residual unramifiedness at each removed odd prime. The scalar branch uses the minimal-lift argument above instead of supplying an unsupported multiplicity-one hypothesis."
+      ],
+      "acceptance": [
+        "A nontrivial Jordan block with equal diagonal entries is nonscalar. It is admitted by the nonscalar multiplicity-one branch; a test based only on distinct eigenvalues is rejected.",
+        "A scalar dyadic representation with nonsolvable global image uses type-(1) lifting and dyadic Theorem 4.1 without any multiplicity-one premise.",
+        "At p=2 a dihedral unramified representation exceptional at 2 may have only a Katz weight-one witness at N. The conclusion is still classical weight two at N, with the weight-two lifting criterion made explicit.",
+        "Odd-p weights above p+1 require normalization and untwisting. A conclusion only for the normalized twist is insufficient.",
+        "In a Q(i)-induced example the proof never applies Buzzard Theorem 2.8, which excludes that family. Classical dyadic weight four is outside this theorem."
+      ],
+      "prerequisites": [
+        "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic",
+        "AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical",
+        "AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2/newvector-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor",
+        "AlgebraicModularFormsAndSerreWeights:R15.6",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/recipe-well-definedness-and-twisting",
+        "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
+        "SerreWeightAndLevelOptimisation:R20.3/ribet-twist-to-small-weight",
+        "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+        "SerreWeightAndLevelOptimisation:R20.5/buzzard-multiplicity-one",
+        "SerreWeightAndLevelOptimisation:R20.5/nonscalar-dyadic-multiplicity-one",
+        "SerreWeightAndLevelOptimisation:R20.5/buzzard-mod-two-level-lowering",
+        "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two",
+        "SerreWeightAndLevelOptimisation:R20.5/wiese-dihedral-weight-one",
+        "SerreWeightAndLevelOptimisation:R20.6/scalar-dyadic-restriction-is-unramified",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6/unramified-katz",
+        "tauceti:HeckeRing.GL2.Newform"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "Theorem 1.2 and §1.1, pp. 2–3; Theorems 4.1 and 5.1(1), pp. 7, 9; Lemma 6.2(i), pp. 10–11",
+          "match": "The crystalline minimal-lift route supplies the refined classical conclusion, with the dihedral branch imported separately."
+        },
+        {
+          "sourceId": "buzzard2000",
+          "locator": "Definition 2.2 and Proposition 2.4, pp. 100–102; Theorem 2.8 and Remark (c), pp. 103–104; Theorems 3.1–3.2, pp. 107–109",
+          "match": "The conditional multiplicity-one route and separate Q(i) argument explain which dyadic cases the earlier optimization handles."
+        },
+        {
+          "sourceId": "wiese2004",
+          "locator": "Theorem 9 and proof, pp. 130–131; Theorem 10 and proof of Theorem 1, pp. 131–132",
+          "match": "The Katz dihedral input covers scalar unramified restrictions; classicality is used in weight at least two, without asserting a characteristic-zero weight-one lift."
+        }
+      ],
+      "planet": {
+        "name": "Weight and level from minimal lifts"
+      },
+      "ref": "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
+      "ownerPacket": "ClassicalSerreModularity--R27.3.json",
+      "role": "Imported target: exact statement and proof-interface clarification, not a second declaration."
+    },
+    {
+      "title": "Khare–Wintenberger Theorem 1.2",
+      "statement": "For any odd prime p, every S-type ρ̄ with odd prime-to-p conductor N(ρ̄) arises from a normalized characteristic-zero cuspidal newform of exact weight k(ρ̄) and exact level N(ρ̄). In characteristic two, every S-type ρ̄ with classical Serre weight two arises from such a newform of weight two and exact level N(ρ̄); its prime-to-two conductor is automatically odd. A coefficient place, stable lattice and residual coefficient embedding realize the residual isomorphism. The scalar dyadic local case is included.",
+      "hypotheses": [
+        "Import HypD 0 from R27.3/d0-from-all-lr; do not reprove the double induction.",
+        "Odd-p even conductor and dyadic weight four are outside Theorem 1.2 and belong to R27.5. The theorem uses classical weights at least two; it does not assert the minimum-Katz-weight-one refinement for arbitrary scalar dyadic representations."
+      ],
+      "proofSteps": [
+        "HypD 0 and the level-raising implication with r=0 give qualitative modularity in precisely the two stated ranges.",
+        "Apply strong-form-by-minimal-lifts to obtain the exact weight and level, including the dyadic scalar branch."
+      ],
+      "acceptance": [
+        "The r=0 conductor predicate is oddness of N. In characteristic two it puts no new restriction on N, but the weight-two requirement remains essential.",
+        "A hypothetical input at p odd with v₂(N)=1, or at p=2 with k=4, cannot be passed to this theorem solely from HypD 0.",
+        "Do not replace the classical weight-two conclusion by Katz weight one in the scalar dyadic case."
+      ],
+      "prerequisites": [
+        "ClassicalSerreModularity:R27.3/d0-from-all-lr",
+        "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+        "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
+        "mathlib:padicValNat_dvd_iff_le"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "Theorem 1.2, p. 2; Remark after Theorem 3.4, p. 6",
+          "match": "HypD 0 yields exactly odd conductor in odd characteristic and weight two in characteristic two; the weight-and-level refinement completes these conclusions."
+        }
+      ],
+      "planet": {
+        "name": "Khare–Wintenberger Theorem 1.2"
+      },
+      "ref": "ClassicalSerreModularity:R27.4/theorem-1-2",
+      "ownerPacket": "ClassicalSerreModularity--R27.3.json",
+      "role": "Imported target: exact statement and proof-interface clarification, not a second declaration."
+    }
+  ],
+  "importedPlanets": [
+    {
+      "ref": "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
+      "name": "Weight and level from minimal lifts"
+    },
+    {
+      "ref": "ClassicalSerreModularity:R27.4/theorem-1-2",
+      "name": "Khare–Wintenberger Theorem 1.2"
+    }
+  ]
+}
