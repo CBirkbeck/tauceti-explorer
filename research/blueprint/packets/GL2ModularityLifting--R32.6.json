@@ -1,0 +1,393 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "GL2ModularityLifting",
+  "part": "R32.6",
+  "status": "complete",
+  "scope": [
+    "GL2ModularityLifting:R32.6"
+  ],
+  "agent": "Codex — codex-uMJFd9",
+  "summary": "Continuation of the seven R32.6 targets already owned by the accepted R32.3 packet. Adds their directed application to two polynomial-compatible families, with separate ramified reducible and exceptional ordinary-three branches. Reuses local transfer and recognition nodes without copying them. Plans the whole stage, while recording the unresolved independence audit and the arithmetic-carrier elaboration boundary.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.det_smul",
+        "module": "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "provides": "For a square matrix over a commutative ring, det(c • A)=c^card(n) det(A); the rank-two inverse-character twist check uses exponent two.",
+        "checked": "2026-10-16"
+      },
+      {
+        "ref": "mathlib:Matrix.det_fin_two",
+        "module": "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "provides": "The two-by-two determinant is A00 A11 − A01 A10; checks characteristic-zero oddness and its loss under reduction modulo two.",
+        "checked": "2026-10-16"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DIEULEFAIT-PACETTI",
+      "title": "A simplified proof of Serre's conjecture",
+      "authors": "Luis Victor Dieulefait and Ariel Martín Pacetti",
+      "edition": "arXiv:2108.07577v2 (3 May 2022); printed page = PDF page. The same file as ClassicalSerreModularity and OrdinaryAutomorphicFormsAndModularityLifting.",
+      "url": "https://arxiv.org/pdf/2108.07577v2",
+      "read": "2026-10-16",
+      "readSections": [
+        "Theorems 1.4–1.7 and Remark 2, pp.4–5",
+        "Definition 1.10, almost-strict modification, Theorem 1.11 and Remark 4, pp.6–7",
+        "Lemma 1.13, pp.7–8; congruence-chain applications in §2, pp.9–14"
+      ],
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
+    },
+    {
+      "id": "PAN-2022",
+      "title": "The Fontaine–Mazur conjecture in the residually reducible case",
+      "authors": "Lue Pan",
+      "edition": "J. Amer. Math. Soc. 35 (2022); arXiv:1901.07166v2. The arXiv version was read; locators give its PDF pages.",
+      "url": "https://arxiv.org/pdf/1901.07166v2",
+      "read": "2026-10-16",
+      "readSections": [
+        "Conjecture 1.0.1 and Theorem 1.0.2, pp.2–3",
+        "Theorem 8.0.1 and Remark 8.0.4, pp.124–125"
+      ],
+      "sha256": "590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824"
+    },
+    {
+      "id": "TUNG-2021-DYADIC",
+      "title": "On the modularity of 2-adic potentially semi-stable deformation rings",
+      "authors": "Shen-Ning Tung",
+      "edition": "Math. Z. 298 (2021), 107–159; arXiv:1908.06174v3. The arXiv version was read.",
+      "url": "https://arxiv.org/pdf/1908.06174v3",
+      "read": "2026-10-16",
+      "readSections": [
+        "Introduction, Theorem A, pp.1–2",
+        "§4.3 Definition 4.3.2 and Lemmas 4.3.3–4.3.4, pp.20–21"
+      ],
+      "sha256": "a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8"
+    },
+    {
+      "id": "TUNG-2021-P3",
+      "title": "On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}",
+      "authors": "Shen-Ning Tung",
+      "edition": "Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021). The arXiv version was read; printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/1803.07451v4",
+      "read": "2026-10-16",
+      "readSections": [
+        "Proposition 3.9 and proof, p.12; Proposition 4.4 proof and Corollary 4.6, pp.13–14",
+        "Theorem 4.7 and Remark 4.8, p.15"
+      ],
+      "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2"
+    },
+    {
+      "id": "SKINNER-WILES-1999",
+      "title": "Residually reducible representations and modular forms",
+      "authors": "C. M. Skinner and A. J. Wiles",
+      "edition": "Publ. Math. IHÉS 89 (1999), 5–126; Numdam scan (OCR text layer poor; the main theorem was read on the page image; printed page = PDF page + 3). The same file as OrdinaryAutomorphicFormsAndModularityLifting and AutomorphicGaloisRepresentations.",
+      "url": "https://www.numdam.org/item/PMIHES_1999__89__5_0.pdf",
+      "read": "2026-10-16",
+      "readSections": [
+        "Introduction main theorem, printed p.6 / PDF p.3, read on page image"
+      ],
+      "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
+    },
+    {
+      "id": "PASKUNAS-2016",
+      "title": "On 2-dimensional 2-adic Galois representations of local and global fields",
+      "authors": "Vytautas Paškūnas",
+      "edition": "Algebra Number Theory 10 (2016), no. 6, 1301–1358; arXiv:1509.00332v2, dated 25 April 2016 on its first page and version record. The arXiv version was read; printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/1509.00332v2",
+      "read": "2026-10-16",
+      "readSections": [
+        "Theorem 1.1, pp.1–2; §1.1.2, p.5",
+        "§3.6 Lemma 3.29 and proof, p.43"
+      ],
+      "sha256": "727addeb49ee302052a493cf097a868a70c340286981598b5e7382fcd8f86749"
+    },
+    {
+      "id": "EMERTON-LGC-2011",
+      "title": "Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ",
+      "authors": "Matthew Emerton",
+      "edition": "Preprint, draft of 23 March 2011, 119 pages, on Emerton's University of Chicago page; not published in a journal. Printed page = PDF page. The same file as GL2ModularityLifting part R22.1.",
+      "url": "https://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+      "read": "2026-10-16",
+      "readSections": [
+        "§7.3 proof of Theorem 1.2.3, p.96",
+        "§7.4 completion of Theorem 3.3.22, pp.96–97"
+      ],
+      "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13"
+    },
+    {
+      "id": "HU-TAN-2015",
+      "title": "The Breuil–Mézard conjecture for non-scalar split residual representations",
+      "authors": "Yongquan Hu and Fucheng Tan",
+      "edition": "Ann. Sci. Éc. Norm. Supér. (4) 48 (2015), no. 6, 1383–1421; arXiv:1309.1658v2 (13 November 2014). The arXiv version was read; printed page = PDF page. The same file as GL2ModularityLifting part R22.1.",
+      "url": "https://arxiv.org/pdf/1309.1658v2",
+      "read": "2026-10-16",
+      "readSections": [
+        "Theorem 6.3 and its proof, p.35"
+      ],
+      "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2"
+    },
+    {
+      "id": "CALEGARI-2012",
+      "title": "Even Galois representations and the Fontaine–Mazur conjecture II",
+      "authors": "Frank Calegari",
+      "edition": "arXiv:1012.4819v2; printed pages used",
+      "url": "https://arxiv.org/pdf/1012.4819v2",
+      "sha256": "8c95a021afd8fb5b7479f248bac5366389b6dd93b33f272f95f3ae3cbbda126b",
+      "read": "2026-10-16",
+      "readSections": [
+        "§3 Proposition 3.2 and proof, pp.5–6; Theorem 3.1 as its geometric input"
+      ]
+    },
+    {
+      "id": "SNOWDEN-2009",
+      "title": "On two dimensional weight two odd representations of totally real fields",
+      "authors": "Andrew Snowden",
+      "edition": "Author preprint wt2-052609.pdf, 26 May 2009; printed pages used",
+      "url": "https://websites.umich.edu/~asnowden/papers/wt2-052609.pdf",
+      "sha256": "bd1efdc925a2e2413ea6f49c55d3e535697cd77b4cf7262444137362b10cd679",
+      "read": "2026-10-16",
+      "readSections": [
+        "§8 Propositions 8.1.1, 8.2.1 and 8.2.2, p.26; dependency references to Theorems 4.4.2, 5.1.1 and 7.6.1"
+      ]
+    },
+    {
+      "id": "GEE-PRESCRIBED",
+      "title": "Automorphic lifts of prescribed types",
+      "authors": "Toby Gee",
+      "edition": "Author PDF identified by downloaded hash; printed pagination, not a claimed version-of-record collation",
+      "url": "https://www.ma.imperial.ac.uk/~tsg/Index_files/prescribedlifts.pdf",
+      "sha256": "d9cba984e173c30c2a502ce9fffb068d79be89e401ea8115b7a5ba993074db5b",
+      "read": "2026-10-16",
+      "readSections": [
+        "Theorem 4.6.9 and proof, p.26; preceding Lemma 4.6.8 proof, pp.25–26; this edition does not have Theorem 4.4.12"
+      ]
+    },
+    {
+      "id": "BLGG-2013",
+      "title": "Serre weights for rank two unitary groups",
+      "authors": "Thomas Barnet-Lamb, Toby Gee and David Geraghty",
+      "edition": "Author PDF identified by downloaded hash; printed pagination, not a claimed version-of-record collation",
+      "url": "https://www.ma.imperial.ac.uk/~tsg/Index_files/U2.pdf",
+      "sha256": "31838df42505245f32079aa3b3d4ba9ee81525079aa415daab05bfa17cf1eb96",
+      "read": "2026-10-16",
+      "readSections": [
+        "Theorem A.4.1 and proof, pp.36–42; in particular the existing potentially automorphic residual seed hypothesis"
+      ]
+    },
+    {
+      "id": "CEG-2016",
+      "title": "Patching and the p-adic local Langlands correspondence",
+      "authors": "Ana Caraiani, Matthew Emerton, Toby Gee, David Geraghty, Vytautas Paškūnas and Sug Woo Shin",
+      "edition": "Author PDF identified by downloaded hash; printed pagination, not a claimed version-of-record collation",
+      "url": "https://www.ma.imperial.ac.uk/~tsg/Index_files/Gpatching.pdf",
+      "sha256": "08556076ad01f855f7e1b7b6db53c10cac29553744b26c8a1e2cbf086b03b1b3",
+      "read": "2026-10-16",
+      "readSections": [
+        "§2.1 globalisation and Lemma 2.2, pp.15–17",
+        "Corollary 5.4 and proof, pp.78–79"
+      ]
+    },
+    {
+      "id": "EMERTON-PASKUNAS-2020",
+      "title": "On the density of supercuspidal points of fixed regular weight in local deformation rings and global Hecke algebras",
+      "authors": "Matthew Emerton and Vytautas Paškūnas",
+      "edition": "arXiv:1809.06598v3",
+      "url": "https://arxiv.org/pdf/1809.06598v3",
+      "sha256": "1fbab3f4f4f195d2960723cc8c23ce2a55e9f7c81fa5cb4cd366fbec911336c5",
+      "read": "2026-10-16",
+      "readSections": [
+        "Theorem 6.3 and proof, Remark 6.4, Theorem 6.5 and its recalled inputs, pp.26–28"
+      ]
+    }
+  ],
+  "continues": "research/blueprint/packets/GL2ModularityLifting--R32.3.json",
+  "reusedNodes": [
+    {
+      "id": "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Modularity transfer along a congruence at an odd prime with cyclotomically irreducible residual representation"
+    },
+    {
+      "id": "GL2ModularityLifting:R32.6/transfer-dyadic",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Modularity transfer along a congruence at 2 with non-solvable residual image"
+    },
+    {
+      "id": "GL2ModularityLifting:R32.6/transfer-residually-reducible",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Modularity of residually reducible representations at a ramified coefficient prime"
+    },
+    {
+      "id": "GL2ModularityLifting:R32.6/de-rham-lifting-and-almost-strict-systems",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Why de Rham lifting suffices when an almost strictly compatible system lacks the Weil–Deligne comparison at the coefficient prime"
+    },
+    {
+      "id": "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Dependency audit: which globalisations in the lifting theorems use the general Serre theorem"
+    },
+    {
+      "id": "GL2ModularityLifting:R32.6/ramified-reducible-coefficient-prime",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Transfer at a ramified reducible coefficient prime"
+    },
+    {
+      "id": "GL2ModularityLifting:R32.6/transfer-ordinary-three",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "role": "Ordinary congruence transfer at three"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer",
+      "parentStageId": "GL2ModularityLifting:R32.6",
+      "realises": [
+        "GL2ModularityLifting:R32.6"
+      ],
+      "title": "Directed modularity transfer between families linked by one residual congruence",
+      "kind": "theorem",
+      "implementationStatus": "unchecked",
+      "statement": "For i=A,B let E_i be a number field and (ρ_i,λ) a family of continuous semisimple two-dimensional representations of G_Q, each defined over a finite extension of (E_i)_λ. Give a finite set S_i and polynomials P_i,q in E_i[X] whose images are the characteristic polynomials of arithmetic Frobenius on ρ_i,λ whenever q is outside S_i and q differs from the residue characteristic of λ; every such member is unramified there. Choose λ_A and λ_B above the same rational prime p, coefficient embeddings into Q̄_p, and stable lattices with isomorphic residual semisimplifications over F̄_p. Both selected characteristic-zero representations are irreducible, odd, finitely ramified and de Rham, of weights {0,k_A−1} and {0,k_B−1}, with k_A,k_B≥2. If one A-member is attached to a normalized cuspidal newform of weight at least two, and the relevant branch hypothesis below holds, then every B-member is attached, after common coefficient extension with compatible algebraic embeddings, to one normalized cuspidal newform g of weight k_B. Under the reducible Pan or ordinary-three branch, the same conclusion follows from the B-family data alone, without a modular A-family or a residual congruence.",
+      "hypotheses": [
+        "Odd irreducible branch: p is odd and the common residual representation restricted to G_Q(ζ_p) is absolutely irreducible. A known modular A-member is the modularity seed; congruence supplies residual modularity for B.",
+        "Dyadic branch: p=2 and the common residual image is nonsolvable. Oddness is imposed on the characteristic-zero representations; reduction modulo two cannot detect its determinant sign.",
+        "Reducible Pan branch: p≥5 and the selected B-residual semisimplification is χ̄_1⊕χ̄_2; also allow p=3 if (χ̄_1χ̄_2^−1)|G_Q3 differs from ω_3. Characteristic-zero irreducibility remains required. No ordinarity, residual modularity or coefficient-prime Weil–Deligne comparison is assumed.",
+        "Exceptional ordinary-three branch: p=3; a specified finite-order character η gives τ=ρ_B,λB⊗η^−1 with residual semisimplification 1⊕ω_3 globally, τ|I_3 upper triangular with quotient 1, and det τ=ψ ε_3^(k_B−1) for ψ of finite order. The normalization is justified by the actual ordinary quotient. Congruence does not establish these hypotheses.",
+        "For all good-prime identities, enlarge coefficient number fields and local fields before comparing. No isomorphism between different-characteristic coefficient fields is asserted. Frobenius recognition is applied separately in each fixed residue characteristic.",
+        "The family hypotheses are ordinary indexed representation and polynomial data, not an invocation of a compatible-system carrier, existence theorem, strict compatibility or all-member de Rham predicate. Only the selected members need the stated de Rham condition."
+      ],
+      "proofSteps": [
+        "If a modular A-member is supplied, identify its good Frobenius polynomials with those of its newform. In the algebraic compositum of coefficient fields the equality is an equality of algebraic numbers, since the chosen local embedding is injective. Embed that identity at λ_A and apply the R01.5 characteristic-polynomial recognition theorem. Thus the selected A-member is modular; no lifting theorem or bad-prime compatibility is used for this propagation.",
+        "In the odd irreducible and dyadic cases apply the existing R32.6 transfer-residually-irreducible-odd or transfer-dyadic theorem to the selected congruent pair. In the Pan case apply transfer-residually-reducible to the B-member without a modularity seed. In the exceptional ordinary-three case apply R32.5/p-three-residually-reducible-branch to τ and untwist by η.",
+        "The R32.1 weight-of-modular-twist convention identifies the modular witness with a weight-k_B newform g, absorbing the finite-order twist. The selected B-member therefore has g’s good Frobenius polynomials after common algebraic coefficient extension.",
+        "Repeat the algebraic-number comparison with P_B,q and use the all-λ newform realizations and R01.5 recognition separately for each B-member. Intersect the two cofinite good-prime sets, also removing its own residue characteristic. Semisimplicity upgrades the resulting semisimplification isomorphism to an isomorphism of the given member. No equality of Weil–Deligne parameters at p is used."
+      ],
+      "prerequisites": [
+        "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
+        "GL2ModularityLifting:R32.6/transfer-dyadic",
+        "GL2ModularityLifting:R32.6/transfer-residually-reducible",
+        "GL2ModularityLifting:R32.5/p-three-residually-reducible-branch",
+        "GL2ModularityLifting:R32.5/ordinary-character-normalisation",
+        "GL2ModularityLifting:R32.1/weight-of-modular-twist",
+        "ArithmeticGaloisRepresentations:R01.1/coefficient-extension",
+        "ArithmeticGaloisRepresentations:R01.1/reduction-and-residual-semisimplification",
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+      ],
+      "sources": [
+        {
+          "sourceId": "DIEULEFAIT-PACETTI",
+          "locator": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, pp.6–7; §2, pp.9–14 (arXiv v2)",
+          "match": "The local lifting alternatives and the good-prime modularity propagation used in congruence chains; the directed family statement is their composition, not a separately numbered source theorem."
+        },
+        {
+          "sourceId": "PAN-2022",
+          "locator": "Theorem 1.0.2, p.3 (arXiv v2)",
+          "match": "Supplies the reducible branch including the precise local exclusion at three."
+        },
+        {
+          "sourceId": "SKINNER-WILES-1999",
+          "locator": "Introduction main theorem, printed p.6 / PDF p.3",
+          "match": "Supplies the ordinary branch with finite-order determinant factor and nontrivial local residual ratio."
+        }
+      ],
+      "acceptance": [
+        "A bridge at p=5 may have p in S_B and reducible residual B-member. Given characteristic-zero irreducibility, oddness and de Rham weights {0,3}, Pan produces a weight-four witness without coefficient-prime WD data or a modular A-family.",
+        "At p=3 a normalized residual sum 1⊕ω_3 has excluded Pan ratio ω_3 in either ordering. The ordinary-three branch works only after the inertia-quotient and finite-order determinant hypotheses have been checked on B.",
+        "At p=2 an isomorphism of residual representations with solvable image does not enter the dyadic branch; nor does residual determinant 1 establish characteristic-zero oddness.",
+        "A modular A-family and a residual congruence alone do not enter any branch when B is missing the required local or residual-image conditions.",
+        "Within one family, modularity of a member propagates using only good polynomials and semisimplicity, without de Rham conditions at the other coefficient primes. A claimed equality of good polynomials must be checked after specified coefficient embeddings.",
+        "A finite chain is handled edge by edge, recording the prime, embeddings, lattices, selected weights and the applicable branch for each directed edge. Reverse traversal requires hypotheses for its new target; a reducible branch can instead start modularity without a seed."
+      ],
+      "uses": [
+        {
+          "where": "ClassicalSerreModularity R33 congruence chains",
+          "how": "Provides the directed edge statement, with residual-image and local hypotheses checked at the new coefficient prime."
+        },
+        {
+          "where": "PotentialModularityAndCompatibleSystems R24.6",
+          "how": "Consumes this lower-tier transfer theorem after supplying good-polynomial and congruence data; there is no reverse dependency."
+        }
+      ],
+      "planet": {
+        "name": "Modularity transfer between linked families"
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GL2ModularityLifting:R32.6",
+      "status": "planned",
+      "notes": "The four selected-member transfer targets and the two system applications retain their existing seven R32.6 node ids in R32.3, including the globalisation audit. This continuation gives the directed family application, exact branch conditions, ramified-prime specialization and reader-level target map. No node id is duplicated.",
+      "remaining": [
+        "Complete the exact R31.6/R20.6 source-independence obligations before claiming an independent Serre proof.",
+        "Elaborate the arithmetic target once the imported p-adic representation, de Rham, residual, and newform-realization interfaces exist at the pins.",
+        "At assembly, reconcile the two existing system wrappers with the polynomial-data theorem and the tier order; do not add a dependency on higher-tier R24.5 or R24.6."
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
+      "need": "Complete the existing R32.6/globalisation-dependency-audit export, not a second audit: for Tung 4.3.3 audit Calegari 3.2→Moret–Bailly (the immediate proof was read here), Snowden 8.2.1→8.2.2, 8.1.1, 5.1.1, 7.6.1 and 4.4.2 (immediate §8 proofs read here), and the dyadic extension via published KW II Theorem 6.1. For Tung 4.3.4 retain the given-automorphic hypothesis of Paškūnas 3.29 (proof read here) and audit KW II Lemma 3.5. For the odd-prime path, CEG+16 §2.1 pp.15–17 was read and reduces suitable globalisation to EG14 Proposition A.2/Corollary A.7 and BLGGT14 potential automorphy: certify those precise leaves and the remaining patching inputs. Emerton–Paškūnas Theorem 6.3 p.26 gives support a union of components, not unconditional full support; retain Tung Proposition 3.9 p.12 extra irreducibility/reducedness and density inputs in its faithfulness deduction. BLGG13 A.4.1 pp.36–42 was read and assumes a potentially automorphic residual seed in addition to adequacy and potentially diagonalizable regular local lifts; certify that seed and its BLGGT change-of-weight/descent inputs rather than treating A.4.1 as unconditional globalisation. A residual-modularity hypothesis on the final theorem is insufficient to certify these local globalisations.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    },
+    {
+      "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+      "need": "Audit the restricted weight-part theorem for Emerton Theorem 3.3.22 §7.4, applied to a specifically constructed CM-induced modular residual representation, without using §7.3 Theorem 1.2.3 or full Serre. Also collate the exact edition of Gee, Automorphic lifts of prescribed types, Theorem 4.4.12 as consumed by Kisin (2.2.17), then audit its proof. The current author PDF read here instead numbers the weight-part statement Theorem 4.6.9, p.26: p>2 split in a totally real field, assumed residual modularity and irreducibility on the cyclotomic subgroup. Its proof uses Proposition 4.6.6 and Lemma 4.6.8. Do not identify the two numbered results without that collation. Return exact source versions, locators and dependency paths.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Globalisation independence remains a conditional audit",
+      "detail": "The immediate Calegari 3.2, Snowden §8, Paškūnas 3.29, CEG+16 §2.1/Corollary 5.4, EP 6.3 and BLGG A.4.1 proof paths were read, but their whole transitive cone is not certified. Exact remaining leaves include published KW II 6.1/3.5, EG14 A.2/A.7 and BLGGT potential automorphy/change of weight, the local reducedness/density inputs in Tung 3.9, and restricted Emerton weight-part dependencies. Gee author-edition 4.6.9 was read but is not collated with the cited 4.4.12. The existing audit target is planned with the named requests; no independent proof of full Serre is claimed.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    },
+    {
+      "title": "Arithmetic signatures require supplier carriers",
+      "detail": "The pinned libraries do not expose the combined geometric p-adic representation, residual congruence, de Rham and attached-newform interfaces needed to state the transfer theorem. Its exact statement and checks are README targets. Suggested Lean contains only four statable determinant/residue convention examples and no surrogate predicates or data definitions.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    }
+  ],
+  "sourceIssues": [],
+  "sourceIssueReferences": [
+    {
+      "id": "GL2ModularityLifting/E10",
+      "fromPacket": "GL2ModularityLifting--R32.3.json",
+      "handling": "Retain finite-order ψ in the ordinary-three branch, as in Skinner–Wiles printed p.6; DP Theorem 1.7 leaves that qualification implicit. No new erratum is asserted."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "title": "Current-library and roadmap boundary",
+      "detail": "Read current TauCetiRoadmap at 0d144d044dacebca17b654695b6f1ad58f159b27 and current TauCeti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. ProfiniteArithmetic and LocalGaloisGroups already plan profinite/cyclotomic infrastructure; ModularForms already plans analytic Hecke and newform theory. Import those developments and the R01/R19 arithmetic suppliers. The current IntegralHeckeAndGaloisDeterminants roadmap already covers determinant reconstruction; none is replanned here."
+    },
+    {
+      "title": "Tier order for compatible-system wrappers",
+      "detail": "GL2ModularityLifting is tier 21 and PotentialModularityAndCompatibleSystems tier 22 in upstream/CaraianiNewton.md. The new theorem has no R24 dependency: it accepts indexed representations and their good polynomials explicitly. The two pre-existing R32.6 wrappers in R32.3 use R24.5; assembly should apply the lower-tier theorem to data, keeping compatible-system packaging in R24.5/R24.6. No generic carrier is duplicated or moved by this part."
+    }
+  ],
+  "libraryAudit": {
+    "reviewedFile": "data/library-coverage.json",
+    "verdict": "No direct GL2ModularityLifting record was found; do not infer a positive coverage verdict. Reviewed R31.6 and R33.5 records route the same source-independence obligation to R32.6.",
+    "checked": "2026-10-16",
+    "searchBoundary": "Pinned and current source trees searched for geometric p-adic representation, compatible-system, de Rham lifting and Brauer–Nesbitt interfaces. Arithmetic R01 and automorphic R19 nodes remain planned inputs, not library declarations."
+  }
+}
