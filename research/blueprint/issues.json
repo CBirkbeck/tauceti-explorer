@@ -4906,5 +4906,9 @@
  "REV-ClassicalSerreModularity--R27.5": 9932,
  "REV-ClassicalSerreModularity--R27.6": 9933,
  "ASM-DeformationAndDerivedPatchingAlgebra~2": 9942,
- "PKG-HeightsRationalPointsAndObstructions~codex": 9943
+ "PKG-HeightsRationalPointsAndObstructions~codex": 9943,
+ "BP-AutomorphicGaloisRepresentationsPartII~2": 10007,
+ "REV-AutomorphicGaloisRepresentationsPartII~2": 10008,
+ "PKG-PotentialModularityAndCompatibleSystems~3": 10009,
+ "REV-PKG-PotentialModularityAndCompatibleSystems~3": 10010
 }
