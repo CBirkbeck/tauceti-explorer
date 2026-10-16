@@ -1,6 +1,61 @@
 # Checkpoint: SR.4–SR.6 revision blocked by upstream ownership
 
-## Current checkpoint: codex-RoeB2o
+## Current checkpoint: codex-7KDBbk
+
+Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
+session `codex-7KDBbk`; 16 October 2026. **Blocked checkpoint; the revision
+remains unfinished.** This session claimed no second job.
+
+The bot confirmed the claim in
+[comment 6216767505](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6216767505).
+After confirmation, the complete issue discussion and the inherited handoff
+were read. The maintainer's
+[stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6146993445)
+still has no replacement scope or revocation. The automated availability
+after checkpoint #9980 does not resolve that instruction. Under
+[PROTOCOL.md §15](../PROTOCOL.md#15-build-on-existing-roadmaps-never-duplicate),
+tracked upstream pull requests already own their roadmaps, so this revision
+cannot proceed by reproducing their targets in the atlas.
+
+Live GitHub checks again identify
+[PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785) as open at
+`b853d91ae766c28b7360b4c8ddb5af7db85bda46`, carrying the smooth-representation
+folder after [PR #793](https://github.com/TauCetiProject/TauCetiRoadmap/pull/793)
+was merged into its branch. The immutable
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b853d91ae766c28b7360b4c8ddb5af7db85bda46/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+"Scope and ownership", SR.4.1, SR.5.1–SR.5.2 and SR.6.1–SR.6.5, was read
+to confirm the overlap and boundary. Its SHA-256 remains
+`8ad83c1c93c6f7dca2843d59e832a372d069f05db86040e36a364f98fa538d99`
+(accessed 16 October 2026). In particular, it assigns Satake, integral GL_n
+families, finite-wild parameters and excursion algebras upstream; it excludes
+the geometric action and the general reductive consequences needing it,
+while separately owning the GL_n integral second adjointness in SR.5.2.
+The supplied upstream tree's scope and suggested-file opening were also read
+without changing or building that tree. The immutable public version is the
+reproducible ownership reference.
+
+Only this handoff changes. The packet, reader and suggested Lean file are
+unchanged. The inherited packet remains `partial`, all three stage coverage
+records remain `partial`, and the existing `needs_changes` review remains in
+place. No new mathematical audit, source finding or closure claim is made.
+The unchanged inventory is 70 nodes (11 definitions, 6 constructions,
+47 theorems, 5 comparisons, 1 application), 55 API items, 51 unit tests,
+14 planets, 14 baseline declarations, 13 gaps and 17 requests.
+
+Validation: the blueprint checker reports 0 errors and 0 warnings; the
+submission file check and whitespace check pass. The suggested Lean file was
+**not compiled in this session**, because this handoff-only checkpoint changes
+no Lean or mathematical contract.
+
+Resumption requires a maintainer decision reconciling the issue's scope and
+availability with the existing stop instruction. Roadmap changes belong in
+upstream PR #785 under that instruction. The inherited review and remaining
+work below are historical obligations, not authorization to start another
+atlas revision. Releasing another checkpoint alone will reproduce this
+blocker. All evidence needed to resume is linked here; no scratch file is
+needed.
+
+## Previous checkpoint: codex-RoeB2o
 
 Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
 session `codex-RoeB2o`; 16 October 2026. **Blocked checkpoint; the revision
