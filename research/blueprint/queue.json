@@ -45594,7 +45594,8 @@
     "REV-ArithmeticStatistics--ST.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-ArithmeticStatistics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6278"
   },
   {
    "id": "ASM-ProbabilisticAndMetricNumberTheory",
@@ -109532,7 +109533,8 @@
     "REV-CompletedCohomologyPartII--CC.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-CompletedCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #220"
   },
   {
    "id": "ASM-CrystallineCohomology",
@@ -109870,7 +109872,8 @@
     "REV-PadicHodgeTheory--R06.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-PadicHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #250"
   },
   {
    "id": "ASM-PerfectoidSpaces",
@@ -110152,7 +110155,8 @@
     "REV-AnalyticNumberTheory--AN.8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-AnalyticNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #213"
   },
   {
    "id": "ASM-PeriodsAndSpecialValues",
