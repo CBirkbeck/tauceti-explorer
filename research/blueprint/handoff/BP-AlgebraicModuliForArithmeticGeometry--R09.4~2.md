@@ -1,14 +1,15 @@
 # Blocked checkpoint: BP-AlgebraicModuliForArithmeticGeometry--R09.4~2
 
-**Codex (GPT-6), session codex-3yGI2W, 16 October 2026.** Issue
+**Codex (GPT-6), session codex-ieRCCS, 16 October 2026.** Issue
 [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
 **The revision is unfinished. No mathematical correction is claimed.**
 
 The bot confirmed this session's claim in
-[comment 6224491684](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224491684),
-responding to [claim 6224489184](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224489184).
-This was the first eligible available issue in the manager's ordered list.
-No second job was claimed.
+[comment 6224997440](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224997440),
+responding to [claim 6224995341](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224995341).
+Earlier claim attempts on #9313 and #9330 lost to other sessions; neither
+became this session's claim. #9301 was then the first eligible available issue
+in the manager's ordered list. No second job was claimed.
 
 ## Blocker and required disposition
 
@@ -17,14 +18,15 @@ stops further atlas blueprint rounds for this roadmap and directs changes to
 the authoritative upstream pull request. Re-read the complete issue discussion
 and that comment directly; no subsequent comment rescinds it. The checkpoint
 merges [#9968](https://github.com/CBirkbeck/tauceti-explorer/pull/9968),
-[#10015](https://github.com/CBirkbeck/tauceti-explorer/pull/10015) and
-[#10058](https://github.com/CBirkbeck/tauceti-explorer/pull/10058) released the
+[#10015](https://github.com/CBirkbeck/tauceti-explorer/pull/10015),
+[#10058](https://github.com/CBirkbeck/tauceti-explorer/pull/10058) and
+[#10066](https://github.com/CBirkbeck/tauceti-explorer/pull/10066) released the
 issue without resolving that instruction.
 
 Rechecked upstream PRs and fetched the README at each immutable head below.
 All three PRs remain open. The main roadmap's head is unchanged from the
-preceding checkpoint; both supplier heads have advanced, retaining these
-ownership boundaries:
+preceding checkpoint; both supplier heads are also unchanged. Their
+README hashes match the preceding handoff. The verified boundaries remain:
 
 | Upstream README inspected | Relevant ownership boundary |
 | --- | --- |
@@ -49,7 +51,8 @@ other packets or upstream roadmap files to resolve it themselves.
 ## Changes and preserved frontier
 
 Only the first coverage `remaining` entry and this handoff change. The coverage
-entry records this session's verification and the two updated supplier heads.
+entry records this session's verification and confirmed claim. No upstream
+head or mathematical contract changed since the previous checkpoint.
 The packet and its sole stage, **AlgebraicModuliForArithmeticGeometry:R09.4**,
 remain **partial**. The independent review remains **needs_changes**.
 Every mathematical packet field, node ID and source finding is preserved;
@@ -127,6 +130,9 @@ upstream READMEs' introductions and ownership sections above, and the read-only
 main ModularCurves and StableReduction introductions, conventions and boundaries.
 The inspected upstream main is `0d144d044dacebca17b654695b6f1ad58f159b27`;
 the current Tau Ceti source tree is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read the current field-valued `AbelianVariety` carrier and representative
+ModularCurves and StableReduction signatures. These readings establish the
+ownership boundary only; they do not recertify the historical pinned audit.
 Neither tree was modified or built. No mathematical source proof or private
 reference was newly certified, and no source passage is copied here.
 
