@@ -1,10 +1,12 @@
 # R09.1. Projective parameter spaces, positivity and boundedness
 
-This layer supplies the projective geometry needed to put arithmetic moduli conditions into finite parameter spaces. Its quotient convention, twist cohomology and coherent regularity connect the Grassmannian constructions to Hilbert and Quot schemes in R09.2. Its incidence equations and the two distinct Frobenius operations serve arithmetic linear-algebra moduli. The numerical bounds also supply the boundedness arguments of Charles and Gao–Klingler.
+This reader records the reviewed R09.1 blueprint and its supplier/gap ledger. The authoritative roadmap is maintained in [TauCetiRoadmap PR #853](https://github.com/TauCetiProject/TauCetiRoadmap/pull/853); roadmap changes belong in that pull request.
+
+This layer supplies the projective geometry needed to put arithmetic moduli conditions into finite parameter spaces. Its quotient convention, twist cohomology and coherent regularity connect the Grassmannian constructions to Hilbert and Quot schemes in R09.2. Its incidence equations and the two distinct Frobenius operations serve arithmetic linear-algebra moduli. The numerical bounds also supply the boundedness arguments of Charles and Gao–Ge–Kühne.
 
 The finite locally free quotient Grassmannian and its projectivity already belong to ModularCurves 0G. Relative Proj, projective morphisms and relative ampleness belong to StableReduction Layer 2. AlgebraicVectorBundles L0B/L0C already supply finite locally free rank, symmetric/exterior powers and determinants. SchemeAndStackFoundations SF.5 supplies finite locally free projective bundles, complete flags, absolute very ampleness, the big-line predicate and numerical intersection theory. This layer gives applications, broader coherent/relative extensions and the necessary comparisons with those owners.
 
-The three explicit open inputs are the atlas registration of the existing AlgebraicVectorBundles layers, a readable corrected algebraic proof of numerical very ampleness, and the positive-characteristic relative bounded-degree input. All targets below are specified; those inputs prevent mathematical closure. The numerical theorem and the full arbitrary-characteristic boundedness statement remain conditional on their stated inputs.
+The four explicit open inputs are the atlas registration of the existing AlgebraicVectorBundles layers, a readable corrected algebraic proof of numerical very ampleness, the positive-characteristic relative bounded-degree input, and an algebraic generic-birational-system argument for fibrewise big families. All targets below are specified; those inputs prevent mathematical closure. The numerical theorem, the full arbitrary-characteristic boundedness statement and the big-family birational bounds remain conditional on their stated inputs.
 
 ## Conventions and interfaces
 
@@ -21,7 +23,7 @@ The absolute Frobenius operation sends a graph coefficient t to t^p. The arithme
 | AlgebraicVectorBundles L0B/L0C | Finite locally free rank, symmetric/exterior powers, determinants and pullback coherence. These existing upstream layers need atlas registry entries. |
 | JacobianChallenge Layers B and C, with the requested broader exports | Affine QC acyclicity and Čech comparison in all dimensions; proper coherent cohomology/base change, semicontinuity and high-degree locally free pushforward. |
 | SchemeAndStackFoundations SF.4 | Generic flatness; smooth cotangent rank and generic geometric-reducedness spreading requested in the same foundational direction. |
-| SchemeAndStackFoundations SF.5 | Its existing projective bundle, complete flags, absolute positivity and first-Chern/degree calculus; the proper multivariable Euler polynomial and mixed-intersection comparison requested in that direction. |
+| SchemeAndStackFoundations SF.5 | Its existing projective bundle, complete flags, absolute positivity and first-Chern/degree calculus; the proper multivariable Euler polynomial, mixed-intersection comparison and Kodaira/divisible birational-system exports requested in that direction. The fixed-family algebraic bridge is an explicit gap. |
 
 Hilbert/Quot representability, Hom/Isom schemes, the Chow lemma and proper modification are R09.2 targets. Polarized descent is R09.3. The analytic comparison roadmap consumes the algebraic twists and cohomology here; it is not a prerequisite of this layer. No numerical intersection calculus, absolute big-line definition or general Proj construction is recreated.
 
@@ -50,12 +52,15 @@ Compare the finite locally free special case with SF.5/projective-bundle by its 
 - `projectiveBundle.quotient_characterisation`: A map g over S is the classifying map of q exactly when pulling back the tautological quotient gives q up to an isomorphism of its line target.
 - `projectiveBundle.baseChange`: P_T(f*E)≅P_S(E)×_S T, preserving the quotient.
 - `projectiveBundle.rankOne`: P_S(L)≅S for invertible L, with O(1) identified with L.
+- `projectiveBundle.fromQuotient`: Construct the classifying map of an invertible quotient of f*E.
+- `projectiveBundle.fromQuotient_over`: The classifying map composed with the projection is f.
+- `projectiveBundle.universalQuotient_epi`: The universal quotient is an epimorphism of native module sheaves.
 
 **Unit tests.**
 
-- `ProjectiveBundleTests.rankOne` (compatibility): For every invertible L, P(L)≅S and the quotient convention identifies O(1) with L.
+- `ProjectiveBundleTests.rankOne` (compatibility): For every invertible L, P(L)≅S; the O(1)=L comparison is additionally tested under TwistingSheafTests.rankOne.
 - `ProjectiveBundleTests.zero` (degenerate): P(0)≅∅.
-- `ProjectiveBundleTests.rankTwo` (computation): P(O_S²)=P¹_S.
+- `ProjectiveBundleTests.rankTwo` (computation): Over Spec R, points over the identity of P(O²) correspond to native rank-one quotient Grassmannian data for R².
 - `ProjectiveBundleTests.baseChange` (compatibility): A nonflat base change also gives P(f*E)≅P(E)×_S T.
 
 **Consumers.** ComplexComparisonPartII C1–C3 and R09.2 Hilbert embeddings: Fix the projective-space and quotient convention before constructing twists, classifying maps and section spaces.
@@ -64,7 +69,7 @@ Compare the finite locally free special case with SF.5/projective-bundle by its 
 
 **Prerequisites.** `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `mathlib:SymmetricAlgebra`, `mathlib:AlgebraicGeometry.Scheme.Modules`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`, `SchemeAndStackFoundations:SF.5/projective-bundle`.
 
-**Sources.** [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §21, Definition 21.1, Example 21.3, pp.45–46. Degree-one relative Proj supplies the invertible quotient and its exact functor of points.
+**Sources.** [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §21, Definition 21.1 and following unnumbered quotient universal property, p.45. Degree-one relative Proj supplies the invertible quotient and its exact functor of points.
 
 #### Integer twisting sheaves
 
@@ -94,7 +99,7 @@ Tensor multiplication and duality give coherent O(a)⊗O(b)≅O(a+b). Pullback r
 
 **Prerequisites.** [Projective bundles from relative Proj](#projective-bundles-from-relative-proj), `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`, `tauceti:AlgebraicGeometry.Scheme.Modules.tensorProduct`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`.
 
-**Sources.** [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §21, Lemma 21.5, pp.46–47. All integer twists of a degree-one generated projective bundle are invertible and tensor-compatible.
+**Sources.** [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §16, Lemmas 16.10–16.11, p.40; §21, Definition 21.1, p.45 (absolute twist comparison: §10, Lemma 10.3, p.18). All integer twists of a degree-one generated projective bundle are invertible and tensor-compatible.
 
 #### The rank-one quotient comparison
 
@@ -110,13 +115,13 @@ Proposed theorem interface: `rankOneGrassmannComparison`.
 
 **Prerequisites.** [Projective bundles from relative Proj](#projective-bundles-from-relative-proj), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients).
 
-**Sources.** [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §21, Example 21.3, pp.45–46. The projective bundle represents the same rank-one quotient functor.
+**Sources.** [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §21, Definition 21.1 and following unnumbered quotient universal property, p.45. The projective bundle represents the same rank-one quotient functor.
 
 #### All cohomology of projective-space twists
 
 For any commutative ring A and n≥1, H⁰(Pⁿ_A,O(m)) is free on nonnegative exponent vectors of sum m when m≥0, and zero otherwise. Hⁿ is free on all-negative exponent vectors of sum m when m≤-n-1, and zero otherwise. All other H^q vanish. For n=0, H⁰(P⁰_A,O(m))≅A for every m and higher cohomology vanishes. The identifications and their coefficient maps commute with arbitrary A→B.
 
-Proposed theorem interface: `projectiveSpaceTwistCohomology`.
+Proposed theorem interfaces: `projectiveSpaceTwistCohomology`, `projectiveTwistBasis`.
 
 **Hypotheses.** A arbitrary, including nonreduced rings; q≥0 and m any integer.
 
@@ -125,6 +130,12 @@ Proposed theorem interface: `projectiveSpaceTwistCohomology`.
 For each exponent vector, the permitted localizations form a simplex complex. Contract the mixed-sign complexes; retain a degree-zero class for all nonnegative exponents and a top class for all negative exponents.
 
 Read the resulting free-module descriptions after tensoring with B; handle n=0 as its own single-chart computation.
+
+**Unit tests.**
+
+- `ProjectiveTwistCohomologyTests.pointNegative` (computation): H⁰(P⁰_A,O(-7)) is additively equivalent to A over every commutative ring A.
+- `ProjectiveTwistCohomologyTests.topLine` (computation): H¹(P¹_A,O(-2)) is additively equivalent to A.
+- `ProjectiveTwistCohomologyTests.lineBoundary` (non-example): H¹(P¹_A,O(-1)) is zero.
 
 **Acceptance.** H¹(P¹_A,O(-2))≅A, H¹(P¹_A,O(-1))=0, and H⁰(P⁰_A,O(-7))≅A.
 
@@ -147,6 +158,8 @@ Compute on Laurent monomials. Top cohomology kills every term admitting a nonneg
 - `twistMultiplication.zero_left`: The cup map is zero when its first input is zero.
 - `twistMultiplication.add_left`: The cup map is additive in each argument.
 - `twistMultiplication.section_product`: Via the native H⁰/global-section equivalence, degree-zero cup product is the tensor product of sections.
+- `twistMultiplication.sectionProduct`: Canonical tensor product of global sections through O(a)⊗O(b)≅O(a+b).
+- `twistMultiplication.unit`: The H⁰(O(0)) class obtained from the actual section 1 through O(0)≅O and the native H⁰≅Γ equivalence.
 
 **Unit tests.**
 
@@ -251,7 +264,7 @@ Compare affine S-points with Module.Grassmannian R M d, whose parameter is quoti
 
 **Acceptance.** For E=O/(t), Gr_1(E)=V(t), which can fail to be smooth over S; for E=0 and d>0 it is empty.
 
-**Prerequisites.** `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:AlgebraicGeometry.Scheme.Modules`, `mathlib:Module.Grassmannian`, `mathlib:Module.Grassmannian.functor`, `mathlib:AlgebraicGeometry.tilde`, [Projective bundles from relative Proj](#projective-bundles-from-relative-proj).
+**Prerequisites.** `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:AlgebraicGeometry.Scheme.Modules`, `mathlib:Module.Grassmannian`, `mathlib:Module.Grassmannian.functor`, `mathlib:AlgebraicGeometry.tilde`, [Projective bundles from relative Proj](#projective-bundles-from-relative-proj), `mathlib:SheafOfModules.IsFiniteType`, `mathlib:SheafOfModules.IsFinitePresentation`, `mathlib:SheafOfModules.IsLocallyFree`.
 
 **Sources.** [AL](https://sites.math.washington.edu/~jarod/moduli-versions/moduli-8-19-24.pdf), §1.4.3, proof of Theorem 1.4.5, pp.61–62 (relation-vanishing argument). The kernel-to-universal-quotient zero equation cuts out quotients factoring through a fixed coherent quotient; the relative-dimension-zero specialization is exactly the extension here.
 
@@ -269,7 +282,7 @@ A first-order graph perturbation is a map K→Q, giving the canonical tangent co
 
 **Acceptance.** Gr_1(O²) has relative dimension 1; Gr_1(O/(t)) need not be smooth.
 
-**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:AlgebraicGeometry.SmoothOfRelativeDimension`.
+**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:AlgebraicGeometry.SmoothOfRelativeDimension`, `mathlib:SheafOfModules.IsLocallyFree`, `mathlib:SheafOfModules.IsFinitePresentation`.
 
 **Sources.** [GO](https://math.ug/alggeom3-ws2324/pdf/AG3-WS2324-Goertz-20240526.pdf), §5, Lemma 5.8 and Theorem 5.9, pp.58–59. Graph charts give smoothness and dimension; convert the source kernel rank r to quotient rank d=n-r.
 
@@ -323,52 +336,56 @@ For the complete type compare the universal flag with SF.5/flag-bundle, rather t
 - `flagBundle.projection`: The structure map of the flag scheme.
 - `flagBundle.toGrassmann`: The ith flag step gives the quotient of rank n-a_i; the universal kernels are nested.
 - `flagBundle.baseChange`: Flags and universal steps commute with arbitrary base change.
+- `flagBundle.affinePoints`: For the free rank-n sheaf over Spec R and a strictly increasing admissible list a, points over the identity correspond to tuples of native quotient-rank n−aᵢ Grassmannian data with nested kernels.
 
 **Unit tests.**
 
 - `FlagTests.empty` (degenerate): Flag(E;[])≅S.
 - `FlagTests.single` (compatibility): Flag(E;[a])≅Gr_(n-a)(E).
-- `FlagTests.nested` (non-example): In k³, a line U not contained in a plane V fails the flag incidence condition.
+- `FlagTests.nested` (non-example): For the free rank-three sheaf over a field, nonnested native kernels of quotient ranks two and one are not the two components of any point of flagBundle with type [1,2].
 
 **Consumers.** R05 Frobenius-stable filtrations and R09.7 filtration parameter spaces: Use a projective parameter scheme for genuinely nested subbundles with locally free quotients.
 
 **Acceptance.** Empty flag is S; a one-step flag is a Grassmannian; line-in-plane flags in rank three have relative dimension three.
 
-**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), [Smoothness and dimension for locally free Grassmannians](#smoothness-and-dimension-for-locally-free-grassmannians), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `SchemeAndStackFoundations:SF.5/flag-bundle`.
+**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), [Smoothness and dimension for locally free Grassmannians](#smoothness-and-dimension-for-locally-free-grassmannians), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `SchemeAndStackFoundations:SF.5/flag-bundle`, `mathlib:SheafOfModules.IsLocallyFree`, `mathlib:SheafOfModules.IsFinitePresentation`.
 
 **Sources.** [GO](https://math.ug/alggeom3-ws2324/pdf/AG3-WS2324-Goertz-20240526.pdf), §5, Propositions 5.16–5.17, pp.61–62. Nestedness gives the closed flag scheme and graph charts give smoothness and dimension.
 
 #### Relative very ampleness
 
-An invertible L on X is very ample relative to f:X→S when there are a quasi-coherent E on S and an immersion i:X→P_S(E) over S with L≅i*O(1). The immersion convention includes nonproper X. For quasi-compact f, the evaluation criterion requires f quasi-separated (so f_*L is quasi-coherent), surjective evaluation f* f_*L→L, and immersion of the complete classifying map into P(f_*L). This property is local on S and stable under arbitrary base change. If f is proper, a representing immersion is closed. Over a field, for projective X, this agrees with SF.5/very-ample; that absolute notion and its power/restriction API are imported.
+An invertible L on X is very ample relative to f:X→S when there are a quasi-coherent E on S and an immersion i:X→P_S(E) over S with L≅i*O(1). The immersion convention includes nonproper X. For quasi-compact f, the evaluation criterion requires f quasi-separated (so f_*L is quasi-coherent), surjective evaluation f* f_*L→L, and immersion of the complete classifying map into P(f_*L). For quasi-compact f this property is local on S. It is stable under arbitrary base change without that hypothesis. If f is proper, a representing immersion is closed. Over a field, for projective X, this agrees with SF.5/very-ample; that absolute notion and its power/restriction API are imported.
 
-**Hypotheses.** S and X arbitrary for the definition; quasi-compactness for the evaluation criterion and implication very ample⇒ample.
+**Hypotheses.** S and X arbitrary for the definition; quasi-compactness of f for locality on S and very ample⇒ample; quasi-compactness and quasi-separatedness for the complete evaluation criterion.
 
 **Proof route.** Define the property using native invertible sheaves and native immersions into the already defined P(E).
 
-Use the quotient property for the evaluation map and factor a chosen embedding through complete sections; the corresponding projective affine-open charts prove the criterion.
+For quasi-compact and quasi-separated f, f_*L is quasi-coherent. Use its surjective evaluation and the quotient property to obtain the canonical classifying map; compare a chosen embedding on projective affine charts. For quasi-compact f, Stacks Lemma 39.7 gives locality on S.
 
 Apply base change to the immersion and O(1). A proper immersion into the separated projective bundle is closed.
 
 **API.**
 
 - `IsRelativelyVeryAmple.of_embedding`: A specified immersion over S and pullback isomorphism witness relative very ampleness.
-- `IsRelativelyVeryAmple.evaluation_criterion`: For quasi-compact and quasi-separated f, surjective complete evaluation and immersion of the classifying map are equivalent to relative very ampleness.
+- `IsRelativelyVeryAmple.evaluation_criterion`: For quasi-compact quasi-separated f with quasi-coherent f_*L and epimorphic native evaluation, relative very ampleness is equivalent to the canonical completeMap being an immersion.
 - `IsRelativelyVeryAmple.closed_of_proper`: A witnessing immersion is closed when f is proper.
+- `IsRelativelyVeryAmple.evaluation_epi`: For quasi-compact quasi-separated f, relative very ampleness makes the actual adjunction counit f*f_*L→L an epimorphism.
+- `IsRelativelyVeryAmple.evaluationQuotient`: Given epimorphic evaluation, form the invertible quotient using the native adjunction counit and L.
+- `IsRelativelyVeryAmple.completeMap`: Classify the actual evaluation quotient, with the quasi-coherent pushforward supplied under quasi-compact/quasi-separated hypotheses.
 
 **Unit tests.**
 
 - `VeryAmpleTests.projectiveSpace` (computation): O(1) on every Pⁿ_S is relatively very ample.
-- `VeryAmpleTests.veronese` (computation): O(2) on P¹_k gives a conic Veronese closed embedding.
+- `VeryAmpleTests.veronese` (computation): O(2) on P¹_k is relatively very ample; the positive-power case differs from the globally generated trivial line.
 - `VeryAmpleTests.trivialNotVeryAmple` (non-example): O on P¹_k is globally generated but not very ample.
 
 **Consumers.** R09.2 Hilbert embeddings; Benoist19 §5.1 and §6.2: Separate global generation, ampleness and actual embeddings; keep the proper/immersion distinction.
 
 **Acceptance.** O(1) and O(2) on P¹ are very ample; globally generated O on P¹ is not.
 
-**Prerequisites.** [Projective bundles from relative Proj](#projective-bundles-from-relative-proj), [Integer twisting sheaves](#integer-twisting-sheaves), `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `mathlib:AlgebraicGeometry.IsImmersion`, `mathlib:AlgebraicGeometry.IsClosedImmersion`, `mathlib:AlgebraicGeometry.IsProper`, `SchemeAndStackFoundations:SF.5/very-ample`.
+**Prerequisites.** [Projective bundles from relative Proj](#projective-bundles-from-relative-proj), [Integer twisting sheaves](#integer-twisting-sheaves), `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, `mathlib:AlgebraicGeometry.IsImmersion`, `mathlib:AlgebraicGeometry.IsClosedImmersion`, `mathlib:AlgebraicGeometry.IsProper`, `SchemeAndStackFoundations:SF.5/very-ample`, `mathlib:AlgebraicGeometry.QuasiCompact`, `mathlib:AlgebraicGeometry.QuasiSeparated`, `mathlib:AlgebraicGeometry.Scheme.Modules.pushforward`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackPushforwardAdjunction`.
 
-**Sources.** [SM](https://stacks.math.columbia.edu/download/morphisms.pdf), §39, Definition 39.1, Lemmas 39.7–39.8, pp.86–89; tags 01VM,01VR,0B3F. Relative very ampleness is an immersion with a specified line-bundle pullback; its evaluation criterion needs quasi-compactness.
+**Sources.** [SM](https://stacks.math.columbia.edu/download/morphisms.pdf), §39, Definition 39.1, Lemmas 39.7–39.8, pp.86–89; tags 01VM,01VR,0B3F. The immersion definition is general; Lemma 39.7 assumes quasi-compact f for locality and complete evaluation. The evaluation construction uses quasi-separatedness to ensure quasi-coherent pushforward; Lemma 39.8 gives arbitrary base change.
 
 #### Very ample high powers and fixed twists
 
@@ -386,7 +403,7 @@ Relative Serre A makes B⊗A^b globally generated for large b. Tensoring a globa
 
 **Prerequisites.** [Relative very ampleness](#relative-very-ampleness), [Relative Serre A and B](#relative-serre-a-and-b), `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-**Sources.** [SM](https://stacks.math.columbia.edu/download/morphisms.pdf), §40, Lemmas 40.4–40.5, pp.91–92; tags 01VT,01VU. Ample high powers yield immersions; the fixed-twist consequence is proved here with Serre generation and the explicit Segre construction.
+**Sources.** [SM](https://stacks.math.columbia.edu/download/morphisms.pdf), §40, Lemmas 40.4–40.5, pp.91–92; tags 01VT,01VU. Ample high powers yield immersions; the fixed-twist consequence is proved here with Serre generation and the explicit Segre construction. [SM](https://stacks.math.columbia.edu/download/morphisms.pdf), §40, Lemma 40.3 and proof, pp.90–91; Lemmas 40.4–40.5, pp.91–92. The proof of relative ampleness constructs sufficiently positive fixed twists as very ample on affine base charts; quasi-compactness permits a common bound. [SC](https://stacks.math.columbia.edu/download/constructions.pdf), §13, Lemma 13.6, p.29. The tensor product of a fixed very ample system with a sufficiently high globally generated twist is very ample through the Segre closed immersion.
 
 ### Hilbert polynomials and coherent regularity
 
@@ -504,7 +521,7 @@ Use 0→F(t−1)→F(t)→F|_H(t)→0 and induction on n to propagate the vanish
 
 **Prerequisites.** [All cohomology of projective-space twists](#all-cohomology-of-projective-space-twists), [Absolute Serre A and B](#absolute-serre-a-and-b), [Multiplication on twist cohomology](#multiplication-on-twist-cohomology), `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`.
 
-**Sources.** [NI](https://arxiv.org/pdf/math/0504590), §2, Definition 2.1 and Lemma 2.1, pp.9–10. Regularity gives higher vanishings, generation and multiplication surjectivity over all fields.
+**Sources.** [NI](https://arxiv.org/pdf/math/0504590), §2, unnumbered regularity definition preceding Lemma 2.1, p.9; Lemma 2.1 and proof, pp.10–11. Regularity gives higher vanishings, generation and multiplication surjectivity over all fields.
 
 #### Uniform regularity for fixed quotients
 
@@ -524,7 +541,7 @@ Use the corrected index m₂=m₁+h¹(J(m₁))+1 to obtain regularity, then the 
 
 **Prerequisites.** [Castelnuovo–Mumford regularity](#castelnuovomumford-regularity), [The geometric Hilbert polynomial](#the-geometric-hilbert-polynomial), [Absolute Serre A and B](#absolute-serre-a-and-b).
 
-**Sources.** [NI](https://arxiv.org/pdf/math/0504590), §2, Theorem 2.3 and proof, pp.10–13. Fixed polynomial subsheaves of a fixed free sheaf have uniform regularity; twisting and kernels give the quotient formulation. [AL](https://sites.math.washington.edu/~jarod/moduli-versions/moduli-8-19-24.pdf), §1.3, Theorem 1.3.8 proof, pp.57–58, with recorded sign correction. The numerical h¹ bound is corrected before it is used.
+**Sources.** [NI](https://arxiv.org/pdf/math/0504590), §2, Theorem 2.3 and proof, pp.11–13, with the auxiliary-index correction recorded in E5. Fixed polynomial subsheaves of a fixed free sheaf have uniform regularity; twisting and kernels give the quotient formulation. [AL](https://sites.math.washington.edu/~jarod/moduli-versions/moduli-8-19-24.pdf), §1.3, Theorem 1.3.8 proof, pp.57–58, with recorded sign correction. The numerical h¹ bound is corrected before it is used.
 
 #### Uniform relative regularity and high-twist base change
 
@@ -542,7 +559,7 @@ Apply this to F and use the imported coherent cohomology/base-change theorem: fi
 
 **Prerequisites.** [Uniform regularity for fixed quotients](#uniform-regularity-for-fixed-quotients), [Hilbert polynomials in a Noetherian family](#hilbert-polynomials-in-a-noetherian-family), [Castelnuovo–Mumford regularity](#castelnuovomumford-regularity), [Relative Serre A and B](#relative-serre-a-and-b), `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`.
 
-**Sources.** [NI](https://arxiv.org/pdf/math/0504590), §2, Theorem 2.3, pp.10–13; §4, Theorem 4.2, p.19. Uniform field regularity combines with finitely many Noetherian family polynomials. [GR](https://www.numdam.org/item/SB_1960-1961__6__249_0.pdf), §2, Theorem 2.1 corrected by the 1962 erratum, exposé p.6 and erratum p.302. Fixed quotients and finitely many polynomials are the exact bounded-family conditions.
+**Sources.** [NI](https://arxiv.org/pdf/math/0504590), §2, Theorem 2.3 and proof, pp.11–13, with the auxiliary-index correction recorded in E5. Uniform field regularity combines with finitely many Noetherian family polynomials. [GR](https://www.numdam.org/item/SB_1960-1961__6__249_0.pdf), §2, Theorem 2.1 corrected by the 1962 erratum, exposé p.6 and erratum p.302. Fixed quotients and finitely many polynomials are the exact bounded-family conditions.
 
 ### Cycle parameters and numerical boundedness
 
@@ -581,7 +598,7 @@ For universal support use Satz 3: parameterize hyperplanes through a point by sk
 
 #### Bounded degree gives finitely many Hilbert polynomials
 
-For a fixed projective complex scheme X with a fixed very ample embedding in Pⁿ and integers r,D, only finitely many Hilbert polynomials occur among reduced pure r-dimensional closed subschemes Y⊂X of degree at most D. More generally Grothendieck Lemma 2.4 gives this finiteness for reduced equidimensional geometric-fibre subschemes of a fixed projective Noetherian family with a fixed relatively very ample embedding. Reducedness and purity are part of the assertion; the Chow cycle does not record arbitrary embedded structure.
+For a fixed projective complex scheme X with a fixed very ample embedding in Pⁿ and integers r,D, finitely many finite-type projective families contain all the reduced supports, and hence only finitely many Hilbert polynomials occur among reduced pure r-dimensional closed subschemes Y⊂X of degree at most D. More generally Grothendieck Lemma 2.4 gives this finiteness for reduced equidimensional geometric-fibre subschemes of a fixed projective Noetherian family with a fixed relatively very ample embedding. Reducedness and purity are part of the assertion; the Chow cycle does not record arbitrary embedded structure.
 
 Proposed theorem interface: `boundedDegreeHilbertPolynomials`.
 
@@ -597,7 +614,7 @@ Apply family Hilbert-polynomial finiteness to these families. For the full arbit
 
 **Prerequisites.** [Chow parameters and their universal support](#chow-parameters-and-their-universal-support), [Hilbert polynomials in a Noetherian family](#hilbert-polynomials-in-a-noetherian-family), `SchemeAndStackFoundations:SF.4/generic-flatness`, [The geometric Hilbert polynomial](#the-geometric-hilbert-polynomial), `SchemeAndStackFoundations:SF.4`.
 
-**Sources.** [GR](https://www.numdam.org/item/SB_1960-1961__6__249_0.pdf), §2, Lemma 2.4, exposé p.7 (collected p.255). Reduced equidimensional geometric-fibre subschemes of bounded degree form a bounded family; the exposé states the Chow input without a proof. [GG](https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf), §3.1, p.198. A Noetherian projective family has only finitely many such polynomials for bounded-degree reduced irreducible subschemes. [MM](https://stacks.math.columbia.edu/download/more-morphisms.pdf), §24, Lemmas 24.4,24.6, pp.68–70 and §26, Lemma 26.4, pp.75–76. Generic reduction and scheme-theoretic density spread to geometrically reduced fibres after shrinking; characteristic zero makes a reduced generic support geometrically reduced.
+**Sources.** [GR](https://www.numdam.org/item/SB_1960-1961__6__249_0.pdf), §2, Lemma 2.4, exposé p.7 (collected p.255). Reduced equidimensional geometric-fibre subschemes of bounded degree form a bounded family; the exposé states the Chow input without a proof. [GG](https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf), §3.1, p.198. For a fixed complex abelian variety A, bounded-degree reduced irreducible subschemes have finitely many Hilbert polynomials. The general family assertion is sourced to GR, not inferred from this application. [MM](https://stacks.math.columbia.edu/download/more-morphisms.pdf), §24, Lemmas 24.4,24.6, pp.68–70 and §26, Lemma 26.4, pp.75–76. Generic reduction and scheme-theoretic density spread to geometrically reduced fibres after shrinking; characteristic zero makes a reduced generic support geometrically reduced.
 
 #### Open Chow loci and embedding-independent degree bounds
 
@@ -615,7 +632,7 @@ For very ample L₁,L₂, choose m so A=L₁^m tensor L₂ inverse is very ample
 
 **Prerequisites.** [Chow parameters and their universal support](#chow-parameters-and-their-universal-support), [Very ample high powers and fixed twists](#very-ample-high-powers-and-fixed-twists), [The geometric Hilbert polynomial](#the-geometric-hilbert-polynomial), `SchemeAndStackFoundations:SF.5`, `SchemeAndStackFoundations:SF.5/first-chern`, `SchemeAndStackFoundations:SF.5/chern-commutation`, `SchemeAndStackFoundations:SF.5/degree`.
 
-**Sources.** [DM](https://arxiv.org/pdf/2405.17343v3), §2.5, p.7. The open support-meets-Y Chow locus and the change-of-embedding boundedness are the routed inputs. [FL](https://math.berkeley.edu/~scanlon/papers/differential-chow-varieties-22apr15.pdf), §3, Proposition 3.4, p.15. The affine-cycle condition requires no component supported at infinity, a different condition from merely meeting the open. [SV](https://stacks.math.columbia.edu/download/varieties.pdf), §45, Definition 45.3 and Lemmas 45.4–45.9 and Definition 45.10, pp.103–104. Integer mixed intersections are multilinear and positive for ample bundles.
+**Sources.** [DM](https://arxiv.org/pdf/2405.17343v3), §2.5, p.10. The open support-meets-Y Chow locus and the change-of-embedding boundedness are the routed inputs. [FL](https://math.berkeley.edu/~scanlon/papers/differential-chow-varieties-22apr15.pdf), §3, Proposition 3.4, p.15. The affine-cycle condition requires no component supported at infinity, a different condition from merely meeting the open. [SV](https://stacks.math.columbia.edu/download/varieties.pdf), §45, Definition 45.3 and Lemmas 45.4–45.9 and Definition 45.10, pp.103–104. Integer mixed intersections are multilinear and positive for ample bundles.
 
 #### Numerical very-ampleness bound
 
@@ -637,7 +654,7 @@ Siu Theorem 0.1 confirms the numerical scope but its analytic proof is not impor
 
 #### Bounded smooth polarizations with trivial canonical bundle
 
-Fix n≥1 and r>0. Smooth projective complex varieties X of dimension 2n with K_X trivial and an ample L satisfying L^(2n)=r form a bounded family of underlying varieties. A uniform power L^m embeds them into one fixed P^N with bounded degree, hence only finitely many Hilbert polynomials and finitely many finite-type parameter families are required. The Hilbert-scheme representation producing the final parameter families is imported by the consumer from R09.2, not constructed here.
+Fix n≥1 and r>0. Smooth projective complex varieties X of dimension 2n with K_X trivial and an ample L satisfying L^(2n)=r form a bounded family of underlying varieties. A uniform power L^m embeds them into one fixed P^N with degree m^(2n)r. The characteristic-zero Chow-support families of the bounded-degree target then supply finitely many finite-type projective parameter families, and finitely many Hilbert polynomials. These families need no Hilbert-functor representability; R09.2 imports the polynomial finiteness for its Hilbert construction.
 
 Proposed theorem interface: `smoothPolarizedBoundedness`.
 
@@ -645,13 +662,13 @@ Proposed theorem interface: `smoothPolarizedBoundedness`.
 
 **Proof route.** Apply the numerical theorem with w=0 to get a uniform very ample exponent and section-dimension bound. Increase the ambient dimension to one N by padding the section basis. The degree becomes m^(2n)r.
 
-Apply the reduced bounded-degree polynomial theorem. The remaining passage from finitely many polynomials to Hilbert families is the R09.2 target, and no circular dependence on R09.2 is needed for the polynomial conclusion here.
+Apply the complex reduced bounded-degree target, including its finite Chow-support-family construction, to the fixed P^N and degree bound. Its generic reduction, spreading and Noetherian induction produce the finite-type projective families of underlying reduced varieties. No R09.2 prerequisite is used.
 
 **Acceptance.** The degree of the embedding by L^m is m^(2n)r; forgetting this exponent gives the wrong bound.
 
 **Prerequisites.** [Numerical very-ampleness bound](#numerical-very-ampleness-bound), [Bounded degree gives finitely many Hilbert polynomials](#bounded-degree-gives-finitely-many-hilbert-polynomials), [The geometric Hilbert polynomial](#the-geometric-hilbert-polynomial).
 
-**Sources.** [CH](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §3, Lemma 3.5 and proof, pp.507–508. Fixed dimension and polarization intersection for trivial canonical bundle yield bounded embeddings and a bounded family.
+**Sources.** [CH](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §3, Lemma 3.5 and proof, pp.507–508. The intermediate K-trivial ample-polarization argument in the proof gives this algebraic boundedness consequence. The full Lemma 3.5 additionally asserts deformation equivalence for holomorphic symplectic pairs; that stronger conclusion is outside this layer.
 
 #### Birational degree bounds in a fixed big family
 
@@ -661,7 +678,7 @@ Proposed theorem interface: `bigFamilyBirationalBounds`.
 
 **Hypotheses.** Fixed finite-type complex family; geometrically integral fibres and fibrewise bigness; no arbitrary numerical boundedness inference for big L.
 
-**Proof route.** On an irreducible reduced base, fibrewise bigness supplies a countable union of loci where some section system is birational. Uncountability of C, proved algebraically by induction on dimension using finite morphisms to affine space, implies one such system works generically. Spread the rational inverse and finitely many section relations to a dense open.
+**Proof route.** Use the recorded algebraic generic-birational-system input to bridge the SF.5 section-growth definition to sufficiently divisible birational systems. Its constructibility and complex uncountability argument give one fixed exponent on a dense open; spread the rational inverse and finite section relations. These are not consequences of section-growth alone.
 
 Choose an exponent all of whose positive multiples give a birational map on that open; generic freeness and cohomological base change control sections. Induct on the proper closed complement, then choose a common positive multiple of the exponents for the finitely many strata.
 
@@ -671,7 +688,7 @@ Upper semicontinuity bounds h⁰ globally. On each stratum spread the graph of t
 
 **Prerequisites.** [Hilbert polynomials in a Noetherian family](#hilbert-polynomials-in-a-noetherian-family), `SchemeAndStackFoundations:SF.4/generic-flatness`, `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`, `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`, [The geometric Hilbert polynomial](#the-geometric-hilbert-polynomial), `SchemeAndStackFoundations:SF.5/big-line`.
 
-**Sources.** [CH](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §3, Lemma 3.6 and proof, p.508. In a Noetherian complex projective family with fibrewise big L, a fixed exponent gives birational maps and bounded sections/image degree; this plan supplies an algebraic uncountability step instead of an upward analytic import.
+**Sources.** [CH](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §3, Lemma 3.6 and proof, p.508. The source states the fixed-family result and invokes Baire’s theorem for generic bigness. The desired purely algebraic replacement, compatible with the lower-tier boundary, is a separately recorded proof gap.
 
 ### Rank, incidence and semilinear equations
 
@@ -719,19 +736,21 @@ Over a field, exactness of 0→U∩W→U→E/W identifies kernel dimension a−r
 
 - `incidenceLocus.inclusion`: The inclusion into the relative product of the two Grassmann schemes.
 - `incidenceLocus.isClosedImmersion`: The incidence inclusion retains the defining determinantal ideals.
-- `incidenceLocus.baseChange`: Pullback carries the incidence scheme and its inclusion to the corresponding scheme for the pulled-back E.
+- `incidenceLocus.baseChange`: The incidence scheme for f*E is isomorphic to the actual pullback of the incidence scheme over S, preserving its closed inclusion.
+- `incidenceLocus.projection`: Compose the actual closed inclusion, the first relative-product projection and the Grassmannian structure map.
+- `incidenceLocus.fieldPoints`: For the free rank-n sheaf over a field, points over the identity correspond to pairs of native quotient kernels whose intersection has dimension at least k.
 
 **Unit tests.**
 
 - `IncidenceTests.zeroBound` (degenerate): k=0 gives the entire relative product.
-- `IncidenceTests.lines` (computation): Two lines in k² meet in dimension at least one exactly when equal.
+- `IncidenceTests.lines` (computation): For two rank-one quotient kernels U,W in k², a point of incidenceLocus of type (n,a,b,k)=(2,1,1,1) over (U,W) exists exactly when U=W.
 - `IncidenceTests.impossible` (non-example): k>min(a,b) gives the empty scheme.
 
 **Consumers.** Lawrence–Venkatesh parameter positions and R09.7 flag/rank constraints: Replace pointwise inequalities by projective closed incidence correspondences.
 
 **Acceptance.** For two lines in k², dim intersection≥1 iff the lines agree.
 
-**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), [Scheme-theoretic determinantal rank loci](#scheme-theoretic-determinantal-rank-loci), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`.
+**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), [Scheme-theoretic determinantal rank loci](#scheme-theoretic-determinantal-rank-loci), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:SheafOfModules.IsLocallyFree`, `mathlib:SheafOfModules.IsFinitePresentation`.
 
 **Sources.** [GO](https://math.ug/alggeom3-ws2324/pdf/AG3-WS2324-Goertz-20240526.pdf), §5, Proposition 5.16, pp.61–62; graph coordinates pp.58–59. Nested flags are the zero-map incidence case; general intersection dimension is the associated determinantal rank condition.
 
@@ -765,7 +784,7 @@ On a line graph (1,t) and Φ the identity in a trivialized Frobenius pullback, t
 
 **Acceptance.** The zero operator stabilizes every subbundle; identity semilinear coefficients on line graphs impose t^p=t.
 
-**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp`, `mathlib:AlgebraicGeometry.IsClosedImmersion`, [Scheme-theoretic determinantal rank loci](#scheme-theoretic-determinantal-rank-loci).
+**Prerequisites.** [Grassmannians of finite-type coherent quotients](#grassmannians-of-finite-type-coherent-quotients), `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullback`, `mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp`, `mathlib:AlgebraicGeometry.IsClosedImmersion`, [Scheme-theoretic determinantal rank loci](#scheme-theoretic-determinantal-rank-loci), `mathlib:SheafOfModules.IsLocallyFree`, `mathlib:SheafOfModules.IsFinitePresentation`, `mathlib:SheafOfModules.IsFiniteType`.
 
 **Sources.** [GO](https://math.ug/alggeom3-ws2324/pdf/AG3-WS2324-Goertz-20240526.pdf), §5, Lemma 5.8, pp.58–59. Graph coordinates make the semilinear pullback formula an explicit polynomial zero-map condition; this is an extension of the graph method, not a quoted Frobenius theorem.
 
@@ -773,7 +792,7 @@ On a line graph (1,t) and Φ the identity in a trivialized Frobenius pullback, t
 
 For the arithmetic operation on R((u)) that fixes every coefficient of R and sends u to u^p, a finite lattice cutoff expresses stability by the ordinary coefficient-linear composite U→V→V/U, after choosing a sufficiently large target cutoff. It is represented by the imported 0G invariant/zero-map locus, with relations for the changed u-exponents. This operation is not absolute Frobenius on R: the graph coefficient t is fixed, rather than sent to t^p. Determinantal bounds on the cutoff and nestedness use the rank and flag constructions separately.
 
-Proposed theorem interface: `coefficientFrobeniusLattice`.
+Proposed theorem interfaces: `coefficientFrobeniusLattice`, `coefficientFrobeniusCutoff`.
 
 **Hypotheses.** Finite truncations with explicit source and target bounds ensuring τ maps source to target; base R has characteristic p for the arithmetic use but τ|R=id. No claim of a single cutoff representing all unbounded lattices.
 
@@ -781,31 +800,39 @@ Proposed theorem interface: `coefficientFrobeniusLattice`.
 
 Apply the imported 0G O-linear invariant-locus construction when the same cutoff is preserved. Use larger target quotients otherwise; no new Grassmann representability is required.
 
+**Unit tests.**
+
+- `CoefficientFrobeniusTests.zero` (degenerate): The native coefficient-linear cutoff map carries the zero vector to zero.
+- `CoefficientFrobeniusTests.monomial` (computation): A coefficient t at exponent j is carried unchanged to exponent pj in the larger target cutoff.
+- `CoefficientFrobeniusTests.nonFixedCoefficient` (non-example): In characteristic p with t^p≠t, the constant coefficient of the cutoff image is t and differs from t^p.
+
 **Acceptance.** Over R with t^p≠t the coefficient-fixing operation does not replace t by t^p; confusing it with absolute Frobenius gives the wrong family.
 
-**Prerequisites.** `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, [Closed intersection-dimension incidences](#closed-intersection-dimension-incidences), [Partial flag bundles](#partial-flag-bundles), [Scheme-theoretic determinantal rank loci](#scheme-theoretic-determinantal-rank-loci).
+**Prerequisites.** `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`, [Closed intersection-dimension incidences](#closed-intersection-dimension-incidences), [Partial flag bundles](#partial-flag-bundles), [Scheme-theoretic determinantal rank loci](#scheme-theoretic-determinantal-rank-loci), `mathlib:Matrix.mulVecLin`.
 
 **Sources.** [GO](https://math.ug/alggeom3-ws2324/pdf/AG3-WS2324-Goertz-20240526.pdf), §5, Lemma 5.8 and Proposition 5.16, pp.58–59,61–62. Graph matrices and zero-map incidence provide the finite coefficient-linear construction; the u-exponent comparison is the explicit arithmetic specialization.
 
 ## Prototype scope
 
-The companion suggested file uses the native scheme, sheaf, invertible-sheaf, cohomology, polynomial, cycle, ideal and module-Grassmannian carriers. Every definition, API item and test named above has a signature or example there. Some supplier hypotheses cannot yet be written with the pinned APIs; their omission is explicitly documented in the file and in this table. The mathematical statements above retain them.
+The companion suggested file uses the native scheme, sheaf, invertible-sheaf, cohomology, polynomial, cycle, ideal and module-Grassmannian carriers. Every definition, API item and test named above has a signature or example there. Available native finiteness, properness and separation hypotheses are included. Some supplier hypotheses cannot yet be written with the pinned APIs; their omission is explicitly documented in the file and in this table. The mathematical statements above retain them. The packet has 31 nodes, 58 API entries and 47 tests or acceptance examples, with every implementation status still `unchecked`; the layer remains planned, not closed.
 
 | Interface family | Prototype omission or restriction |
 | --- | --- |
-| Projective bundles, twists and quotients | Native quasi-coherence and invertible quotient maps are present. Finite-type/finite-presentation and supplier tensor-power/coherence conditions are omitted where absent. The rank-two test compares actual points over the base with the native quotient Grassmannian. |
-| Projective twist cohomology | The proposed all-degree comparison uses an explicitly supplied basis type; its identification with the Laurent exponent set is omitted. The higher-direct-image/symmetric-power interface is unavailable, so relativeBundleCohomology prototypes only the rank-one actual sheaf comparison. Cup-product unit and polynomial identifications require supplier comparisons. |
-| Coherent Grassmannians, Plücker and flags | Quotient rank, local freeness, finite presentation, exterior/determinant identifications and admissible flag types are omitted. The six Plücker chart coordinates are actual ordered determinants, and the graph test checks their signs and quadratic relation. The global-map/coordinate identification awaits the exterior-power API. Full flags must compare with the imported SF.5 object. |
-| Relative very ampleness | The embedding definition uses actual immersions and pullback sheaf isomorphisms. Complete pushforward/evaluation identification and quasi-compact/quasi-separated supplier conditions are omitted from its criterion. Properness in the closed-immersion API is native. |
-| Hilbert polynomial and CM regularity | The Hilbert polynomial is an admitted polynomial-valued construction with native cohomology Euler evaluation and exact-sequence interfaces; properness, coherence, ampleness and the identification Ftw(m)=F tensor L^m require supplier APIs. CM regularity itself is the actual vanishing condition. Its projective/coherent twist conditions are omitted. Family and uniform-quotient statements omit the family/ambient constraints, never replace them by an unspecified proposition. Graded compatibility and Artinian finite-length hypotheses are similarly omitted from Hilbert–Serre. |
+| Projective bundles, twists and quotients | Native quasi-coherence, invertible quotient maps, the epimorphic universal quotient and its classifying map are present. Supplier tensor-power/coherence comparisons and the general construction's finite-type/projectivity laws remain mathematical targets. The rank-two test compares actual points over the identity of Spec R with the native rank-one quotient Grassmannian of R². |
+| Projective twist cohomology | `projectiveTwistBasis` is the actual Laurent-exponent set: sum m, with the degree-zero nonnegative and positive-dimension top-degree all-negative cases, including the separate n=0 rule. Examples test H⁰(P⁰,O(-7)), H¹(P¹,O(-2)) and H¹(P¹,O(-1)). The higher-direct-image/symmetric-power interface is unavailable, so `relativeBundleCohomology` prototypes only the rank-one actual sheaf comparison. `twistMultiplication.unit` transports the actual section 1 through O(0) and the native H⁰ equivalence; `sectionProduct` specifies the canonical tensor-section product. Polynomial and higher-degree cup comparisons retain their supplier limitations. |
+| Coherent Grassmannians, Plücker and flags | Native quasi-coherence, local freeness and finite presentation are included for locally free Grassmann smoothness, flags and their quotient targets. Fixed sheaf ranks and exterior/determinant identifications remain supplier limitations. Affine comparisons explicitly assume free-tilde finiteness instances unavailable at the pin. `flagBundle.affinePoints` compares actual points with admissible increasing flag types and nested native quotient kernels; the nonnested example tests actual flag points. The six Plücker chart coordinates are actual ordered determinants, and the graph test checks their signs and quadratic relation. The global-map/coordinate identification awaits the exterior-power API. Full flags must compare with the imported SF.5 object. |
+| Relative very ampleness | The embedding definition uses actual immersions and pullback sheaf isomorphisms. `evaluation_epi` uses the native pullback/pushforward adjunction counit; `evaluationQuotient` and `completeMap` construct and classify that same quotient. The criterion includes native quasi-compactness/quasi-separatedness, quasi-coherent pushforward and epimorphic evaluation. Properness in the closed-immersion API is native. The general Proj and O(1) comparisons remain construction targets. |
+| Serre, Hilbert polynomial and CM regularity | Absolute Serre and the Hilbert-polynomial laws include native properness and sheaf finite presentation; relative Serre includes an affine Noetherian base, properness and finite presentation of every twist. The admitted Hilbert polynomial uses native cohomology Euler evaluation and exact sequences, with finite dimensions and a genuine vanishing cutoff required for the Euler comparison. Ampleness and Ftw(m)=F tensor L^m remain supplier identifications. The point/line tests fix the identity/standard ground-field structure map. CM regularity is the actual vanishing condition, and its APIs include finite presentation of the twists; the projective and genuine-twist identifications remain mathematical hypotheses. Family and uniform-quotient statements omit the family/ambient constraints, never replace them by an unspecified proposition. Hilbert–Serre includes native Artinian coefficients and finite graded pieces; graded-module compatibility remains omitted. |
 | Chow and boundedness | Native cycles are used, but purity, dimension, degree, characteristic-zero admissibility and the coefficient-locus identification are omitted. The support inclusion is into the absolute product, with the relative product included through the separated base; its fibre-support comparison is omitted. The open-locus prototype proves the complement of a specified closed immersion is open; identifying it with the boundary-supported Chow locus remains an omitted comparison. Degree, canonical bundle, smoothness and tensor-power constraints in numerical bounds are mathematical conditions above. The smooth-polarized interface concerns the chosen embedding powers. |
-| Big families | The prototype keeps the uniform positive exponent and native section-dimension bound. The family, bigness, rational-map, birationality and image-degree signatures are omitted; they are all required by the mathematical target. |
-| Determinantal and incidence loci | Minor ideals and arbitrary coefficient-ring base change are native. Incidence has a native relative product; universal finite locally free subbundle/rank identifications are omitted. Its tests use native submodule dimensions as chart computations. |
-| Frobenius and lattice cutoffs | The scheme zero-map equation and unique factorisation are native. Identifying the supplied endomorphism with absolute Frobenius and U,Q with universal locally free data is omitted. The graphEquation formula is explicit, with omitted chart/global identification. The coefficient-Frobenius comparison states the finite monomial matrix action; its cutoff and global stability comparison are omitted. |
+| Big families | The prototype keeps the uniform positive exponent and native section-dimension bound. The family, bigness, rational-map, birationality and image-degree signatures are omitted; they are all required by the mathematical target. The generic birational-system proof is a recorded gap, not supplied by the prototype. |
+| Determinantal and incidence loci | Minor ideals and arbitrary coefficient-ring base change are native. Incidence has a native relative product, its structure projection, an actual pullback isomorphism for base change and a field-point comparison with quotient kernels satisfying the intersection bound. Native local freeness/finite presentation and explicit free-tilde instances are included. Universal subbundle and fixed-rank identifications remain omitted. The equal-lines test concerns actual incidence points, rather than an unrelated submodule calculation. |
+| Frobenius and lattice cutoffs | The scheme zero-map equation and unique factorisation are native, with quasi-coherent finite-type U and locally free finitely presented Q. Identifying the supplied endomorphism with absolute Frobenius and U,Q with the universal finite-rank data remains omitted. The `graphEquation` formula is explicit, with omitted chart/global identification. `coefficientFrobeniusCutoff` is a native `Matrix.mulVecLin` map from degrees <N into degrees ≤pN; it sends a coefficient at j unchanged to pj. Zero, exponent-movement and t^p≠t examples test that actual map. The lattice/Grassmann stability identification remains a mathematical target. |
 
 No omitted hypothesis is represented by a new unspecified proposition or an admitted proposition-valued definition. All constructions and proofs remain implementation targets.
 
 ## Open inputs and supplier exports
+
+These are the inputs recorded by the packet's independent review. Developments in the authoritative roadmap are maintained in the upstream pull request linked above.
 
 ### Register the existing AlgebraicVectorBundles sheaf-operation imports
 
@@ -819,18 +846,22 @@ Obtain and read Kollár–Matsusaka, Riemann–Roch type inequalities, AJM 105 (
 
 The complex fixed-embedding case has an explicit characteristic-zero support-spreading proof. Grothendieck exposé 221 Lemma 2.4 states the more general arbitrary-characteristic geometric-fibre bounded-family input without proving it. Supply a read proof of relative Chow coefficient descent and geometric generic reduction in positive characteristic, or an independent reduced equidimensional ideal bound; the characteristic-zero argument is not asserted to prove this extension.
 
+### Algebraic generic birational system for a fibrewise big family
+
+SF.5/big-line defines section growth and proves power/ample laws, but supplies neither Kodaira’s ample-plus-effective criterion nor birationality of sufficiently divisible systems. Establish that criterion for geometrically integral projective varieties; construct algebraic constructible strata for fixed-exponent birational systems using coherent base change; prove that a finite-type irreducible complex variety cannot be a countable union of proper closed subvarieties; then deduce a fixed birational system on a dense open and spread its inverse. Charles Lemma 3.6, p.508, uses Baire’s theorem instead. Its statement was read, but the proposed purely algebraic substitute is a key missing proof input, not a routine step. The final h⁰ and image-degree bounds remain conditional on this bridge.
+
 The supplier requests make the prerequisite endpoints explicit:
 
 - `tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`: Export the finite locally free quotient Grassmann scheme, universal exact sequence, arbitrary base change, graph charts and projectivity, with quotient-rank convention, plus zero-map closed invariant loci; identify affine points with the pinned Module.Grassmannian.
 - `tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`: Export relative Proj and degree-one O(1), projective morphisms, integer tensor powers, relative ampleness, proper coherent finiteness, projection formula and coherent higher pushforward. Extend relative Proj from finite generated graded algebras to arbitrary degree-one Sym(E) when E is quasi-coherent, as needed for the nonproper complete-evaluation very-ampleness criterion; this is a StableReduction Part II extension, not a second R09.1 Proj construction.
 - `tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality`: Affine quasicoherent acyclicity and comparison of separated finite affine-cover Čech complexes with native sheaf Cohomology in every dimension; proper finite-dimensional cohomology and a vanishing cutoff over a field.
 - `tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`: Proper coherent cohomology/base change over locally Noetherian bases in arbitrary relative dimension; upper semicontinuity and finite locally free degree-zero pushforward with arbitrary base change when flat fibres have all higher cohomology zero.
-- `SchemeAndStackFoundations:SF.5`: Import the existing finite locally free projective bundle, complete flags, field-projective very ampleness, componentwise big-line predicate, first Chern operators and proper degree. Extend the same intersection-theory direction with the proper-scheme multivariable Euler polynomial of Stacks Varieties Lemma 45.1 (all integer powers, degree ≤ support dimension), its generic-length top coefficient, integral symmetric multilinear mixed intersection degrees, positivity for ample factors, and r! times leading-coefficient comparison (45.2–45.10). R09.1 specialises this input to Hilbert polynomials and embedding degree bounds; it constructs no competing intersection calculus.
+- `SchemeAndStackFoundations:SF.5`: Import the existing finite locally free projective bundle, complete flags, field-projective very ampleness, componentwise big-line predicate, first Chern operators and proper degree. Extend the same intersection-theory direction with the proper-scheme multivariable Euler polynomial of Stacks Varieties Lemma 45.1 (all integer powers, degree ≤ support dimension), its generic-length top coefficient, integral symmetric multilinear mixed intersection degrees, positivity for ample factors, and r! times leading-coefficient comparison (45.2–45.10). R09.1 specialises this input to Hilbert polynomials and embedding degree bounds; it constructs no competing intersection calculus. Export Kodaira’s ample-plus-effective criterion and the consequence that sufficiently divisible powers of a big line on a geometrically integral projective variety are birational onto their image. Fixed-family generic birationality also needs the separately recorded algebraic constructibility/uncountability proof input.
 - `SchemeAndStackFoundations:SF.4`: Export smooth cotangent finite locally free rank (Stacks Morphisms Lemma 35.12) for the canonical determinant, and generic reduction plus spreading geometrically reduced fibres after shrinking an irreducible finite-type base (More on Morphisms 24.4,24.6,26.4). This is a same-direction extension of the existing deformation/generic-flatness foundations, not a second R09.1 flatness theorem.
 
 ## Source corrections
 
-These corrections are stated in our own words and distinguish an author correction, a previously reported issue and a newly identified auxiliary index. They do not reproduce source passages.
+These corrections are stated in our own words and distinguish an author correction, a previously reported issue and auxiliary index errors. The [independent review](../reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.1.md) confirmed all five; the version scopes and correction searches below are its recorded findings. A status of “new” refers to the original extraction or that review, not this synchronization.
 
 ### E1. GR — Theorem 2.1, exposé p.6 (collected p.254), 1961 printed version
 
@@ -838,7 +869,11 @@ The statement presents the fixed-quotient and finite-polynomial conditions as ne
 
 The following argument explicitly proves sufficiency; the author’s erratum inserts it into the theorem. This affects a stated result.
 
-Grothendieck, Erratum à l’exposé n°221, 1962, p.302
+**Version/status.** Grothendieck, Erratum à l’exposé n°221, 1962, p.302.
+
+**Correction search.** Numdam original exposé and the published 1962 erratum
+
+**Independent review.** confirmed by `REV-AlgebraicModuliForArithmeticGeometry--R09.1`: Confirmed directly against GR Theorem 2.1, collected p.254, its sufficiency proof, and the published GE correction p.302. The theorem must be an equivalence.
 
 ### E2. AL — Theorem 1.3.8 proof, p.58, author draft 19 August 2024
 
@@ -846,7 +881,11 @@ The upper bound for the auxiliary H¹ dimension adds the subsheaf Hilbert polyno
 
 Above the hyperplane bound, χ=h⁰−h¹ and h⁰ of the subsheaf is at most the free-sheaf dimension. Solving for h¹ gives subtraction. This affects the proof.
 
-Sign corrected in Alper author draft 5 January 2026, Theorem 2.3.8 proof, p.58
+**Version/status.** Sign corrected in Alper author draft 5 January 2026, Theorem 2.3.8 proof, p.58.
+
+**Correction search.** Author versions index, 19 August 2024 and 5 January 2026 drafts; Nitsure Theorem 2.3 proof
+
+**Independent review.** confirmed by `REV-AlgebraicModuliForArithmeticGeometry--R09.1`: Confirmed on AL p.58 and compared with AL26 p.58: χ=h⁰−h¹ forces subtraction. The January 2026 version repairs this sign.
 
 ### E3. AL26 — Theorem 2.3.8 proof, pp.57–58, author draft 5 January 2026
 
@@ -854,7 +893,11 @@ The proof takes m₂=m₁+h¹(F(m₁)) and claims H¹(F(m₂−1))=0. Take m₂=
 
 F=O_P¹(-2) as a quadratic ideal subsheaf of O, with m₁=0, has h¹(F(0))=1. The printed m₂=1 still requires the nonzero H¹(F(0)) to vanish. One more strict-decrease step is needed. This affects the proof.
 
-new
+**Version/status.** new.
+
+**Correction search.** Alper author versions index and current January 2026 draft; the August 2024 draft has the correct extra 1; Nitsure Theorem 2.3 pp.11–13
+
+**Independent review.** confirmed by `REV-AlgebraicModuliForArithmeticGeometry--R09.1`: Confirmed on AL26 pp.57–58. Embed O_P¹(-2) in O_P¹ using a nonzero quadratic and choose a hyperplane point outside its zeros. The restriction is 0-regular, but the proposed m₂=1 leaves H¹(O(-2)) nonzero. The final displayed bound already restores the missing 1.
 
 ### E4. SA — Commutative Algebra §57, Lemma 57.7, p.134, tag 00JT, accessed 9 October 2026
 
@@ -862,7 +905,23 @@ The proof describes the prime p as contained in its homogeneous-part ideal q. Th
 
 q is defined by retaining the homogeneous elements of p, so q⊆p. For S=k[x] and p=(x−1), no nonzero homogeneous polynomial belongs to p, hence q=0 and p is not contained in q. The next lemma uses q⊆p. This affects the proof.
 
-Previously reported by Martin Orr, Stacks §10.57 comment #11304 (17 March 2026); the text remains unchanged. The Stacks Project reply #11474 (23 May 2026) declines that correction. The containment correction here is independently justified and previously reported, not a new discovery.
+**Version/status.** Previously reported by Martin Orr, Stacks §10.57 comment #11304 (17 March 2026); the text remains unchanged. The Stacks Project reply #11474 (23 May 2026) declines that correction. The containment correction here is independently justified and previously reported, not a new discovery.
+
+**Correction search.** Current Stacks tag 00JT and chapter PDF; section 10.57 comments #11304 and #11474; the tag history endpoint did not serve a page.
+
+**Independent review.** confirmed by `REV-AlgebraicModuliForArithmeticGeometry--R09.1`: Confirmed in the current SA p.134/tag 00JT: homogeneous-part q⊆p, as the next lemma uses. The example p=(x−1) in k[x] makes the printed reverse containment false. Comments 11304 and 11474 on section 10.57 confirm the previously reported status and the reply; they do not override the calculation.
+
+### E5. NI — §2, Theorem 2.3 proof, final choice of the auxiliary polynomial, p.13; arXiv:math/0504590v1, 29 April 2005
+
+The last auxiliary polynomial is chosen as G+P after proving H¹(F(m))=0 only for m≥G+P; this does not imply (G+P)-regularity. Include one more step: use G+P+1 for the H¹ regularity index, with a nonnegative hyperplane bound chosen in the induction. Preserve the higher-degree regularity estimates in the hyperplane argument.
+
+For p=n=1 choose the permitted zero polynomial at the n=0 base step. The subsheaf F=O_P¹(-2)⊂O_P¹ has Hilbert polynomial t−1 and hyperplane restriction 0-regular, so G=0 and P=1. The printed output 1 is not a regularity index because H¹(F(0)) has dimension one. The existence theorem survives the auxiliary-index repair. This affects the proof.
+
+**Version/status.** new (for the checked arXiv v1 artifact; no claim about an unread published edition).
+
+**Correction search.** The [arXiv abstract/version history](https://arxiv.org/abs/math/0504590) lists v1 only. Author drafts AL 19 August 2024 and AL26 5 January 2026, and [Alper’s version index](https://sites.math.washington.edu/~jarod/lecture-notes.html). Primary-source search for a Nitsure Theorem 2.3 erratum; [Romagny’s Hilbert seminar page](https://imag.umontpellier.fr/~romagny/GT_Hilb/index.html) notes other preprint corrections but supplies no correction of this index. No such correction located in this search.
+
+**Independent review.** confirmed by `REV-AlgebraicModuliForArithmeticGeometry--R09.1`: Independently verified the O(-2) counterexample and the exact final polynomial on NI p.13. Regularity needs H¹ at index m−1; vanishing beginning at m does not suffice.
 
 ## Library design compatibility
 
@@ -870,21 +929,21 @@ The [scheme Grassmannian PR #14686](https://github.com/leanprover-community/math
 
 ## Baseline and sources
 
-The substrate was inspected at Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The packet records the exact module and line of each native declaration and the source artifact hashes. The numerical very-ampleness originals remain unread; no inaccessible or uncleared copy is used.
+The substrate was inspected at Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The packet records the exact module and line of each native declaration and the source artifact hashes. The reading ledger below records the independent review's 9 October source readings; this revision synchronizes its identities and locators. The numerical very-ampleness originals remain unread; no inaccessible or uncleared copy is used.
 
-- **SC**: [The Stacks Project: Constructions](https://stacks.math.columbia.edu/download/constructions.pdf), The Stacks Project Authors; PDF accessed 2026-10-09. Read: §21, Definition 21.1, Example 21.3 and Lemmas 21.4–21.5, pp.45–47.
+- **SC**: [The Stacks Project: Constructions](https://stacks.math.columbia.edu/download/constructions.pdf), The Stacks Project Authors; PDF accessed 2026-10-09. Read: §21, Definition 21.1 and following quotient universal property, p.45; Lemmas 21.4–21.5, pp.46–47; §16, Lemmas 16.10–16.11, p.40; §10, Lemmas 10.2–10.3, p.18; §13, Lemma 13.6 (Segre embedding), p.29.
 - **CC**: [The Stacks Project: Cohomology of Schemes](https://stacks.math.columbia.edu/download/coherent.pdf), The Stacks Project Authors; PDF accessed 2026-10-09. Read: §8, Lemmas 8.1–8.4, pp.16–22; §14, Lemma 14.1, pp.34–36; §16, Lemmas 16.1–16.2, pp.42–43.
-- **SM**: [The Stacks Project: Morphisms of Schemes](https://stacks.math.columbia.edu/download/morphisms.pdf), The Stacks Project Authors; PDF accessed 2026-10-09. Read: §39, Definition 39.1 and Lemmas 39.7–39.8, pp.86–89; §40, Lemmas 40.4–40.5, pp.91–92; §35, Lemma 35.12 and Definition 35.13, p.70, smooth cotangent rank.
+- **SM**: [The Stacks Project: Morphisms of Schemes](https://stacks.math.columbia.edu/download/morphisms.pdf), The Stacks Project Authors; PDF accessed 2026-10-09. Read: §39, Definition 39.1 and Lemmas 39.7–39.8, pp.86–89; §40, Lemmas 40.4–40.5, pp.91–92; §35, Lemma 35.12 and Definition 35.13, p.70, smooth cotangent rank; §40, Lemma 40.3, pp.90–91, fixed-twist very-ampleness proof.
 - **SA**: [The Stacks Project: Commutative Algebra](https://stacks.math.columbia.edu/download/algebra.pdf), The Stacks Project Authors; PDF accessed 2026-10-09. Read: §57, Lemma 57.7, p.134 (incidental misprint recorded); §58, Lemmas 58.5–58.6 and Proposition 58.7, pp.136–137.
 - **GO**: [Algebraic Geometry III: Grassmannians](https://math.ug/alggeom3-ws2324/pdf/AG3-WS2324-Goertz-20240526.pdf), Ulrich Görtz; Lecture notes, 26 May 2024. Read: §5, Definition 5.1, Lemma 5.8, Theorems 5.9–5.10 and Propositions 5.16–5.17, pp.56–62.
-- **NI**: [Construction of Hilbert and Quot Schemes](https://arxiv.org/pdf/math/0504590), Nitin Nitsure; arXiv:math/0504590, 2005. Read: §2, Definition 2.1, Lemma 2.1 and Theorem 2.3, pp.9–13; §4, Lemma 4.1 and Theorem 4.2, pp.18–19.
+- **NI**: [Construction of Hilbert and Quot Schemes](https://arxiv.org/pdf/math/0504590), Nitin Nitsure; arXiv:math/0504590v1, 29 April 2005. Read: §2, unnumbered regularity definition preceding Lemma 2.1, p.9; Lemma 2.1, pp.10–11; Theorem 2.3 and proof, pp.11–13; §4, Lemma 4.1 and Theorem 4.2, pp.18–19.
 - **GR**: [Techniques de construction et théorèmes d’existence en géométrie algébrique IV: Les schémas de Hilbert](https://www.numdam.org/item/SB_1960-1961__6__249_0.pdf), Alexander Grothendieck; Séminaire Bourbaki, exposé 221, 1961, pp.249–276. Read: §2, Euler polynomial preamble and Theorems 2.1–2.2, Corollary 2.3 and Lemmas 2.4–2.5, exposé pp.5–9 (collected pp.253–257).
 - **GE**: [Erratum à l’exposé n°221](https://www.numdam.org/item/SB_1961-1962__7__302_1.pdf), Alexander Grothendieck; Séminaire Bourbaki, 1962, p.302. Read: p.302, correction of Theorem 2.1 on exposé p.6.
-- **AL**: [Stacks and Moduli](https://sites.math.washington.edu/~jarod/moduli-versions/moduli-8-19-24.pdf), Jarod Alper; Author draft, 19 August 2024. Read: §1.3, Proposition 1.3.5, Theorem 1.3.8 and proof, pp.54–58; §1.4.5, Chow varieties and other variants, p.64.
+- **AL**: [Stacks and Moduli](https://sites.math.washington.edu/~jarod/moduli-versions/moduli-8-19-24.pdf), Jarod Alper; Author draft, 19 August 2024. Read: §1.3, Proposition 1.3.5, Theorem 1.3.8 and proof, pp.54–58; §1.4.5, Chow varieties and other variants, p.64; §1.4, p.62, equations for the coherent quotient extension.
 - **AL26**: [Stacks and Moduli](https://sites.math.washington.edu/~jarod/moduli-versions/moduli-1-5-26.pdf), Jarod Alper; Author draft, 5 January 2026. Read: §2.3, Theorem 2.3.8 proof, pp.57–58; comparison of the sign and auxiliary regularity index.
 - **CH**: [Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), François Charles; Annals of Mathematics 184 (2016), 487–531. Read: §3, Lemmas 3.5–3.6 and proofs, pp.507–508; Proof of Theorem 2.10, p.504 (boundary: Brauer obstruction is external).
-- **GG**: [The geometric André–Grothendieck period conjecture](https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf), Ziyang Gao, Bruno Klingler; Published IHÉS version, 2026. Read: §3.1, p.198 (bounded-degree irreducible reduced subschemes); §3.2, p.200 (Hilbert-scheme boundary).
-- **DM**: [Uniform Manin–Mumford for a family of genus 2 curves](https://arxiv.org/pdf/2405.17343v3), Laura DeMarco, Niki Myrto Mavraki, Hexi Ye; arXiv:2405.17343v3, 2026. Read: §2.5, p.7, bounded Chow parameters and support-meets-open condition.
+- **GG**: [The Uniform Mordell–Lang Conjecture](https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf), Ziyang Gao, Tangli Ge, Lars Kühne; Publications Mathématiques de l’IHÉS 143 (2026), 189–235. Read: §3.1, p.198 (bounded-degree irreducible reduced subschemes); §3.2, p.200 (Hilbert-scheme boundary).
+- **DM**: [Bounded geometry for PCF-special subvarieties](https://arxiv.org/pdf/2405.17343v3), Laura DeMarco, Niki Myrto Mavraki, Hexi Ye; arXiv:2405.17343v3, 10 January 2026. Read: §2.5, p.10, bounded Chow parameters and support-meets-open condition.
 - **FL**: [Differential Chow varieties exist](https://math.berkeley.edu/~scanlon/papers/differential-chow-varieties-22apr15.pdf), James Freitag, Wei Li, Thomas Scanlon; Author copy, 22 April 2015. Read: §3, Definition 3.1 and Proposition 3.4, pp.13–15; cycle multiplicities and the different affine-open condition.
 - **SI**: [An effective Matsusaka big theorem](https://www.numdam.org/item/AIF_1993__43_5_1387_0.pdf), Yum-Tong Siu; Annales de l’Institut Fourier 43 (1993), 1387–1405. Read: Introduction and Theorem 0.1, pp.1387–1388, scope checked; analytic proof not imported.
 - **CW**: [Zur algebraischen Geometrie IX: Über zugeordnete Formen und algebraische Systeme von algebraischen Mannigfaltigkeiten](https://gdz.sub.uni-goettingen.de/id/PPN235181684_0113?tify={%22pages%22:[696]}), Wei-Liang Chow, B. L. van der Waerden; Mathematische Annalen 113 (1937), 692–704; original German scan. Read: §1, pp.692–699, Sätze 1–3 and their proofs; §2 first paragraphs, p.700, support in a fixed closed subvariety.
