@@ -1,13 +1,13 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex, session `codex-0j9UV9`, 16 October 2026. Issue
+Codex, session `codex-MmEJ5v`, 16 October 2026. Issue
 [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint; blocked by upstream ownership and the maintainer's scope instruction.**
 This was the first eligible available issue on the manager's ordered list. The
-bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6222283285)
-at 18:38:48 UTC. Only this job was claimed. This continues the checkpoint
-merged in [#10034](https://github.com/CBirkbeck/tauceti-explorer/pull/10034).
+bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6222893615)
+at 19:15:27 UTC. Only this job was claimed. This continues the checkpoint
+merged in [#10038](https://github.com/CBirkbeck/tauceti-explorer/pull/10038).
 
 ## Verified ownership boundary
 
@@ -20,17 +20,17 @@ withdraws that instruction.
 A fresh authenticated GraphQL read confirms that upstream
 [PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
 merged on 14 October 2026 at 04:47:45 UTC, with merge commit
-`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. An authenticated GitHub commit API read resolves
-current main to `cde5445caf8dbc48364bbe1902b7aa3007e0ffb5`. This session fetched
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. The same authenticated GraphQL read resolves
+current main to `cc8501ac47d864b56634cb1ba6094197bf60e6b7`. This session fetched
 and inspected the individual README and Suggested.lean at that commit:
 
-- [README, scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cde5445caf8dbc48364bbe1902b7aa3007e0ffb5/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership)
+- [README, scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership)
   assigns the shared scheme foundations to this upstream roadmap and imports
   quasi-coherent algebras, relative Spec and graded algebras from their existing owners.
-- [README, Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cde5445caf8dbc48364bbe1902b7aa3007e0ffb5/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms)
+- [README, Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms)
   contains the schemes-and-morphisms direction assigned to SF.0, including
   direct-image algebras, general relative Proj, henselization, excellence and perfection.
-- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cde5445caf8dbc48364bbe1902b7aa3007e0ffb5/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
   imports AlgebraicVectorBundles and provides the upstream Layer 0 interfaces.
 
 The supplied read-only roadmap checkout is still at
@@ -55,7 +55,7 @@ atlas revision would produce a competing specification. This issue permits
 only its packet, reader, suggested file and handoff; it does not authorize
 upstream roadmap or queue edits. Automatic checkpoint intake has restored
 availability without resolving that boundary. The latest such release is the
-[18:34:39 UTC intake comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6222210473);
+[19:14:21 UTC intake comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6222876239);
 it reports a checkpoint merge and contains no new mathematical scope or
 withdrawal of the maintainer's instruction.
 
@@ -112,8 +112,11 @@ files or Lawrence–Sawin routing were changed.
 The maintainer must dispose of or explicitly redirect the stale atlas
 assignment before another mathematical revision can proceed. Previous
 ownership checkpoints merged in #9894, #9951, #9972, #9988, #9995, #10002,
-#10029 and #10034: this is the ninth submission of the same unresolved boundary.
-Reissuing the unchanged assignment cannot resolve it. A redirected task needs
+#10029, #10034 and #10038: this is the tenth submission of the same unresolved boundary.
+Reissuing the unchanged assignment cannot resolve it. The queue needs a
+maintainer disposition that prevents automatic checkpoint intake from making
+this upstream-owned assignment available again; changing that queue or its
+labels is outside this job's permitted deliverables. A redirected task needs
 an explicit scope against the current upstream roadmap; the old atlas review
 remains unapproved. This run submits this checkpoint and stops without
 claiming a second issue.
