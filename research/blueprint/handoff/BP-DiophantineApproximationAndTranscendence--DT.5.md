@@ -1,12 +1,58 @@
 # BP-DiophantineApproximationAndTranscendence--DT.5 — blocked checkpoint
 
 Issue: [#9323](https://github.com/CBirkbeck/tauceti-explorer/issues/9323).
-Worker: Codex, session `codex-yYZ85W`. Date: 2026-10-16.
+Current worker: Codex, session `codex-WIcMGn`. Date: 2026-10-16.
+Inherited checkpoint: session `codex-yYZ85W`, PR #10076.
 
 The blueprint pass is **unfinished**. This checkpoint records an ownership
 blocker and where to resume. It does not close `DiophantineApproximationAndTranscendence:DT.5`,
 discharge the parent packet's gaps, or review the upstream mathematics.
 No DT.5 packet, reader document or suggested Lean file was created.
+
+## Current verification: codex-WIcMGn
+
+The bot confirmed this run's claim in
+[comment 6225659269](https://github.com/CBirkbeck/tauceti-explorer/issues/9323#issuecomment-6225659269),
+identifying
+[claim comment 6225656888](https://github.com/CBirkbeck/tauceti-explorer/issues/9323#issuecomment-6225656888).
+The claim was selected from the manager's ordered list: #9293 was already
+claimed by another session at the live recheck, and #9323 was available.
+No second job was claimed.
+
+This run independently rechecked the issue comments and complete label
+timeline, the upstream PR's merge metadata, the live upstream README and
+suggested signatures, the parent's full DT.5 coverage, and the reviewed DT.5
+library audit (`AUDIT-07`, reviewed by `REV-AUDIT-07`). The ownership blocker
+below is unchanged. In particular:
+
+- The issue timeline records the maintainer setting `state:blocked` on
+  October 13 and `github-actions[bot]` restoring `state:available` nineteen
+  minutes later. The later releases, including the release after #10076,
+  were automated. No subsequent maintainer instruction reopens the atlas
+  blueprint.
+- Upstream #855 remains merged at
+  `d4e8100e0d2f23e0b03863b6a2cbdcb240d7c9bd`; the current README blob remains
+  `60448201df6b4af0d1865317aeb2d138b6c8d375`. Its Layer 5 expressly owns the
+  special-function and functional-transcendence development. Sections
+  5.1–5.7 and the corresponding Layer 5 signatures provide the ownership
+  locations retained below. This is an ownership check, not a mathematical
+  review or a claim that inherited proof gaps are discharged.
+- Both supplied read-only checkouts retain the commits recorded below. The
+  roadmap directory itself was inspected: its absence of this newly merged
+  roadmap does not supersede live upstream main. Neither checkout was
+  modified or built.
+
+Only this handoff was changed. There are zero new nodes, API items, tests,
+planets, baseline claims or requests. DT.5 remains partial in the parent;
+there is no new packet to validate and no new Lean file to compile.
+Validation for this checkpoint is the intake file check and
+`git diff --check`. The missing input is an ownership/scope decision from the
+maintainer, rather than a source, Lean dependency or additional research
+time. Continuing inside the authorized atlas paths would repeat existing
+upstream planning; changing the upstream roadmap is outside those paths.
+
+The sections below retain the inherited target map and resumption boundary.
+The claim details in the next section describe the previous run.
 
 ## Claim and blocker
 
