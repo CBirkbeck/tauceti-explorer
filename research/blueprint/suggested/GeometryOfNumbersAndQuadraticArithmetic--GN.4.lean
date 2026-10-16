@@ -27,6 +27,8 @@ The statements below suggest Lean forms so that contributors and reviewers conve
 and signatures. Unproved theorem statements use `sorry`; light definitions have real bodies.
 Revision 2 adds the restricted representation-pair count and the marked-poset predicate and
 measure estimate. Owner-dependent Chevalley and highest-weight constructions remain README targets.
+The independent revision review makes the prescribed-ball covering bound explicit and supplies
+the interval adapter needed for the exact one-dimensional recurrence coefficient.
 
 Conventions. Lattices are Mathlib's discrete full `Submodule ℤ E` (`DiscreteTopology`,
 `IsZLattice ℝ`) in a finite-dimensional real inner-product space; Euclidean successive minima
@@ -485,11 +487,27 @@ example {S : Type*} [PartialOrder S] [DecidableEq S] (a b : S)
     (ε ρ : ℝ) (hε : 0 < ε) (hερ : ε < ρ) :
     IsMarked (fun s : S ↦ fun _ : Unit ↦ if s = a then ε else 0) ε ρ () := sorry
 
+/-- A prescribed open-interval subcover with multiplicity at most two.
+The README derives this by pruning the finite-multiplicity cover available at the pins.
+The assertion concerns open intervals; it does not require two disjoint closed-ball families. -/
+theorem exists_interval_cover_multiplicity_two (A : Set ℝ) (r : ℝ → ℝ) (R : ℝ)
+    (hA : Bornology.IsBounded A) (hR : 0 < R)
+    (hr : ∀ x ∈ A, 0 < r x ∧ r x ≤ R) :
+    ∃ T : Set ℝ, T ⊆ A ∧ T.Countable ∧ A ⊆ ⋃ x ∈ T, ball x (r x) ∧
+      ∀ y, {x ∈ T | y ∈ ball x (r x)}.encard ≤ 2 := sorry
+
 /-- KM Theorem 4.1, specialized to the countable posets used here.
 The sup lower bound is expressed by approximation, so it need not be attained on the open ball.
-The Besicovitch constant comes from the prescribed-ball covering theorem at the pins. -/
-theorem volume_unmarked_le {S : Type*} [PartialOrder S] [Countable S] {d k : ℕ}
-    (hd : 1 ≤ d) (ψ : S → EuclideanSpace ℝ (Fin d) → ℝ)
+Any bound for the specified open-ball subcover may be used. Mathlib provides one in all
+dimensions; the interval adapter gives two in dimension one. -/
+theorem volume_unmarked_le {S : Type*} [PartialOrder S] [Countable S] {d k N : ℕ}
+    (hd : 1 ≤ d) (hN : 1 ≤ N)
+    (hcover : ∀ (A : Set (EuclideanSpace ℝ (Fin d)))
+      (r : EuclideanSpace ℝ (Fin d) → ℝ) (R : ℝ),
+      Bornology.IsBounded A → 0 < R → (∀ x ∈ A, 0 < r x ∧ r x ≤ R) →
+      ∃ T : Set (EuclideanSpace ℝ (Fin d)), T ⊆ A ∧ T.Countable ∧
+        A ⊆ ⋃ x ∈ T, ball x (r x) ∧ ∀ y, {x ∈ T | y ∈ ball x (r x)}.encard ≤ N)
+    (ψ : S → EuclideanSpace ℝ (Fin d) → ℝ)
     (x₀ : EuclideanSpace ℝ (Fin d)) (r₀ C α ρ ε : ℝ)
     (hr : 0 < r₀) (hC : 0 < C) (hα : 0 < α) (hρ : 0 < ρ)
     (hε : 0 < ε) (hερ : ε ≤ ρ)
@@ -499,8 +517,7 @@ theorem volume_unmarked_le {S : Type*} [PartialOrder S] [Countable S] {d k : ℕ
     (hlower : ∀ s q, 0 < q → q < ρ → ∃ y ∈ ball x₀ r₀, q ≤ |ψ s y|)
     (hfinite : ∀ x ∈ ball x₀ (3 ^ k * r₀), {s | |ψ s x| < ρ}.Finite) :
     (volume {x ∈ ball x₀ r₀ | ¬ IsMarked ψ ε ρ x}).toReal ≤
-      (k : ℝ) * C * ((3 : ℝ) ^ d *
-        (Besicovitch.multiplicity (EuclideanSpace ℝ (Fin d)) : ℝ)) ^ k *
+      (k : ℝ) * C * ((3 : ℝ) ^ d * (N : ℝ)) ^ k *
           (ε / ρ) ^ α * (volume (ball x₀ r₀)).toReal := sorry
 
 /-- unipotent-quantitative-recurrence (Kleinbock–Margulis, Theorem 5.3), for a continuous
@@ -782,7 +799,8 @@ abs_card_smul_inter_sub_le_vanDerCorput (fixed-domain constant),
 abs_card_smul_inter_sub_le_huxley (the all-ellipses improvement is an explicit open input),
 isAdmissibleExponent_of_two_thirds_lt.
 
-§4.11 Explicit counts in applications: markoffFibreCount_eq. The restricted
+§4.11 Explicit counts in applications: markoffFibreCount_eq (the simplified strip has error
+O(√K + a²); the exact antiderivative has error O(√K)). The restricted
 card_two_representations_le is stated above; no unrestricted all-d target is retained.
 
 §4.13 The space of lattices, its measure and its flows: UnimodularLattices.range_toLattice,
