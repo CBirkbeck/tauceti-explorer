@@ -1,6 +1,62 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-1AKKYJ, 2026-10-16
+## Latest dispatch: codex-wpzQqK, 2026-10-16
+
+Codex session `codex-wpzQqK` selected #9312 as the first available eligible
+issue on the manager's priority list. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217212996).
+This is a **blocked checkpoint**, not a completed blueprint revision.
+
+The maintainer's
+[upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and the independent review's ownership objection remain unresolved. Read all
+later issue comments through this claim: none assigns an atlas extension or
+retracts that instruction. PROTOCOL section 15 includes tracked open upstream
+roadmap PRs as existing work. This job's availability does not supply the
+missing ownership assignment.
+
+Fresh checks in this dispatch:
+
+- Read the worker rules, both protocols, upstream guidance, the complete issue
+  and comments, the independent review and prior handoffs. Inspected the
+  packet's summary, review, coverage, gaps and inventory, and the reviewed
+  library audit's algebraic-space Weil-restriction boundary.
+- Read the supplied ReductiveGroups and ReductiveGroupsPartII introductions
+  and ownership boundaries, the latter's suggested-file opening, and the
+  current Tau Ceti convolution-point interface. The supplied roadmap checkout
+  remains at `0d144d044dacebca17b654695b6f1ad58f159b27`. Neither supplied tree
+  was edited or built; no new pinned-library audit is claimed.
+- Queried [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785):
+  it remains open and draft at `b853d91ae766c28b7360b4c8ddb5af7db85bda46`.
+  Fetched only its individual README into scratch and read Scope and ownership,
+  lines 29–123. It still owns all seven assigned layers and distinguishes the
+  excluded additions. Its 7,286 lines have SHA-256
+  `e13ec5ade6a7855e55e0da59d06ca68711d3a093f0b1b6cc7520e3dc57c009b4`,
+  unchanged from the previous checkpoint. This checks ownership, not the
+  mathematical correctness of the upstream roadmap.
+- The packet checker reports **zero errors and zero warnings**. Only this
+  handoff changes. Lean was not run because no Lean changed; no compilation or
+  language server was started. No new mathematical source verification or
+  source-issue verdict is claimed.
+
+Inherited inventory: 180 nodes (23 definitions, 36 constructions, 110 theorems,
+two comparisons, nine applications), 368 API items, 249 tests, 38 planets,
+62 baseline declarations, 17 requests and five gaps. Packet status and all
+seven stages (RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4, RG2.5) remain
+`partial`; the `needs_changes` review stays in place. No stage is closed and
+no request is added. RT-AREA-algebraicgeometry/11 retains the independent
+review's disposition, including the ModularCurves 0F import.
+
+**Resume requires a manager decision on ownership.** Changes within the
+existing roadmap belong on upstream PR #785. An atlas extension needs an
+assigned identity, stage boundaries, supplier links and permitted deliverables.
+Then resume at the independent review's fourteen-target routing table and seven
+coverage lists, preserving its eight corrections and four mathematical gaps
+besides ownership. Repeated checkpoint intake has returned this issue to the
+available queue without resolving that decision; another unchanged dispatch
+cannot complete the revision. This session takes no second issue.
+
+## Previous dispatch: codex-1AKKYJ, 2026-10-16
 
 Codex session `codex-1AKKYJ` selected #9312 as the first available eligible
 issue in the manager's priority list. The bot
