@@ -38197,8 +38197,8 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.5.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9323"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.5",
@@ -38219,7 +38219,8 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.5",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.1",
@@ -42197,7 +42198,8 @@
     "BP-ReductiveGroupsPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ReductiveGroupsPartII~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -43574,8 +43576,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9295"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "priority": 2,
@@ -43600,7 +43602,8 @@
     "BP-SchemeAndStackFoundations--SF.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -43650,7 +43653,8 @@
     "BP-SchemeAndStackFoundations--SF.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.1~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -43700,7 +43704,8 @@
     "BP-SchemeAndStackFoundations--SF.2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -43724,8 +43729,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9298"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "priority": 2,
@@ -43750,7 +43755,8 @@
     "BP-SchemeAndStackFoundations--SF.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -43800,7 +43806,8 @@
     "BP-SchemeAndStackFoundations--SF.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.4~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -109980,8 +109987,8 @@
    ],
    "revisionOf": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9313"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "priority": 2,
@@ -110006,7 +110013,8 @@
     "BP-SmoothRepresentationsOfLocalGroups--SR.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups--SR.4~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — the roadmap is already merged upstream or is an open TauCetiRoadmap pull request of ours; plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
