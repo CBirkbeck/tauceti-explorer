@@ -162,7 +162,8 @@
           "match": "Semicoherent maximal strata give compatible smooth centres; the labelled boundary and the treatment of incomparable maximal Hilbert–Samuel values determine the global choice"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "scopeClarification": "The prescribed closed unresolved locus is invariant-saturated for the selected variant, as in Remarks 10.3: an invariant equality stratum meeting it lies in it. This is not a smooth-centre assertion for an arbitrary closed subset of a stratum."
     },
     {
       "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
@@ -209,11 +210,12 @@
       "sources": [
         {
           "sourceId": "BM1997",
-          "locator": "Proposition 11.4, p. 288; Propositions 11.9 and 11.11, p. 289; Proposition 11.13, p. 290; Theorem 11.14, pp. 290–291",
+          "locator": "Theorem 11.4, p. 288; Corollary 11.9 and Lemma 11.11, p. 289; Proposition 11.13, p. 290; Theorem 11.14, pp. 290–291",
           "match": "The dimension and component analysis turns the general invariant algorithm into embedded resolution of a reduced scheme, with centres over its original singular locus"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "scopeClarification": "The nonreduced extension in Theorem 11.14 has smooth reduction and locally constant Hilbert–Samuel function of the possibly nonreduced endpoint at closed points. The native embedded tower here has reduced input."
     },
     {
       "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
@@ -238,7 +240,8 @@
           "match": "Simultaneous normal crossings is equivalent to every boundary-subset intersection having the expected smooth dimension; embedding-dimension defects define the closed unresolved locus"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "scopeClarification": "The embedding-dimension inequality uses closed points, as on p. 213. On all scheme points define the closed defect loci by failure of independence of the restricted boundary differentials in the relative cotangent space on a smooth component. Its relative dimension is locally constant; local-ring dimension on all scheme points is not."
     },
     {
       "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
@@ -272,7 +275,8 @@
           "match": "The normalized invariant removes dependence on local smooth embeddings and glues a resolution that lifts isomorphisms between open subschemes"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "scopeClarification": "Whole-tower isomorphisms concern the intrinsic strict transforms. Ambient-pair isomorphisms induce ambient-tower isomorphisms; closed smooth ambient enlargements induce compatible ambient embeddings, with isomorphisms on the intrinsic transforms."
     },
     {
       "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
@@ -324,7 +328,8 @@
           "match": "The finite embedded witness carries iterative strict transforms and prescribed-open preservation; local isomorphisms lift through the entire towers."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "scopeClarification": "Theorem 13.2 compares the intrinsic strict-transform towers under open isomorphisms. Ambient towers are compared by isomorphisms only for ambient-pair isomorphisms; changing the smooth ambient embedding can instead give comparison embeddings."
     }
   ],
   "importedSupport": [
@@ -674,5 +679,58 @@
       "Whole-tower local-isomorphism comparison and empty-step reindexing"
     ],
     "note": "Those are explicit imported README targets, not proposition-valued placeholders. The native existence consequence alone is weaker than the full target."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7c",
+    "date": "2026-10-16",
+    "notes": "Independent target-level review by Codex, session codex-4uIbCq (#9915), distinct from input author codex-gsFaGv. Read the full consolidated reader and canonical contracts, all BM1997 target locators and ten pinned baseline declarations. Verified two accepted import hashes, all target/API/test mappings, direct edges and the acyclic 40-node reachable closure with 14 boundary references. Corrected source labels and clarified invariant-saturated bad loci, closed-point dimension conventions, nonreduced Hilbert–Samuel scope and intrinsic versus ambient tower comparisons in this packet and reader. No canonical supplier was edited. Current roadmaps/library and the reviewed audit were checked for reuse. Nine imported targets remain planned, all implementations unchecked; three inherited supplier requests and the accepted 1989 stabilization source boundary remain explicit. Packet checker passes; unchanged compact suggested file elaborates with five unfinished-proof warnings only.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "verdict": "corrected",
+        "note": "Read Remarks 1.15–1.16, 10.3 and the global algorithm. Made explicit that the prescribed closed bad locus is invariant-saturated for the selected variant; arbitrary closed subsets are not allowed. Checked coherent centre gluing, chronological labels, all incomparable maxima and the three API/tests."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "verdict": "verified",
+        "note": "Theorem 1.14(2),(4), pp. 219–220, terminal monomial calculation pp. 259–260 and algorithm pp. 284–285 support the finite quasi-compact algorithm. Imported realized Hilbert–Samuel stabilization is retained as an accepted boundary, not replaced by well-foundedness of arbitrary functions."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "verdict": "verified",
+        "note": "Theorem 1.10, pp. 216–217, Remark 1.18, p. 225, and §6 support the empty-boundary, generically nonzero coherent ideal contract, invertible monomial total transform, unit weak transform and preservation outside the initial support. No resolution theorem is supplied by the ordinary-blowup owner."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "verdict": "corrected",
+        "note": "Read Theorem 11.4 through Theorem 11.14, pp. 288–291. Fixed Theorem/Corollary/Lemma labels for 11.4/11.9/11.11. Clarified that local constancy concerns the Hilbert–Samuel function of the possibly nonreduced endpoint at closed points, while its reduction is smooth. Reduced native tower and original regular-open preservation remain explicit."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "verdict": "corrected",
+        "note": "Read Theorem 12.4, Lemma 12.5 and Remarks 12.6, p. 293. Restricted the local embedding-dimension formula to closed points and supplied the relative cotangent/Jacobian-minor formulation for all scheme points; relative dimension, rather than all local-ring dimensions, is locally constant. Checked every-subset criterion and all three API/tests."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "verdict": "verified",
+        "note": "Read Theorems 12.2/12.4, Lemmas 12.7/12.8 and Example 12.9, pp. 292–296. Residual-product induction plus the stronger new-exceptional monomial procedure stays in the pair bad locus and preserves initially resolved points. The two-step z=xy example and ordinary regular-open distinction are correct."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "verdict": "corrected",
+        "note": "Read Remarks 13.1 and Theorem 13.2 with proof, pp. 296–298. Clarified that the intrinsic towers are isomorphic; ambient enlargements yield ambient comparison embeddings. Checked normalized invariant independence, overlap ideals, unique lifts, empty-step reindexing and cocycles. No arbitrary smooth functoriality is claimed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+        "verdict": "verified",
+        "note": "Finite witness imports the accepted finite-blowup-tower and principalization nodes. Verified the four APIs and three tests, native contravariant pullback, total/weak distinction, and nonempty Cartier identity steps with retained labels. The coordinate-monomial certificate is an output witness, not a claim about the selected algorithm."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output",
+        "verdict": "corrected",
+        "note": "Read Theorem 11.14 and Theorems 12.2/12.4/13.2. Clarified intrinsic versus ambient tower comparisons. Verified native kernel strict-closure convention with quasi-compactness, permissible centres, commuting squares, endpoint/preserved-open APIs and the three tests distinguishing strict from total inverse image."
+      }
+    ]
   }
 }
