@@ -22355,8 +22355,8 @@
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9912",
-   "finishedAt": "2026-10-16T11:18:08Z"
+   "finishedAt": "2026-10-16T11:18:08Z",
+   "note": "deliverables arrived from an external worker on issue #9912"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7d",
@@ -22378,8 +22378,8 @@
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9916",
-   "finishedAt": "2026-10-16T11:59:58Z"
+   "finishedAt": "2026-10-16T11:59:58Z",
+   "note": "deliverables arrived from an external worker on issue #9916"
   },
   {
    "id": "BP-ArakelovGeometryAndAbelianHeights",
@@ -22893,8 +22893,8 @@
    "suppliers": [
     "BP-LocallyAnalyticDistributions"
    ],
-   "note": "deliverables arrived from an external worker on issue #9924",
-   "finishedAt": "2026-10-16T12:00:02Z"
+   "finishedAt": "2026-10-16T12:00:02Z",
+   "note": "deliverables arrived from an external worker on issue #9924"
   },
   {
    "id": "REV-AutomorphicGaloisRepresentationsPartII",
@@ -23272,8 +23272,8 @@
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.6.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9930",
-   "finishedAt": "2026-10-16T12:00:04Z"
+   "finishedAt": "2026-10-16T12:00:04Z",
+   "note": "deliverables arrived from an external worker on issue #9930"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.6",
@@ -23699,8 +23699,8 @@
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9918",
-   "finishedAt": "2026-10-16T12:00:05Z"
+   "finishedAt": "2026-10-16T12:00:05Z",
+   "note": "deliverables arrived from an external worker on issue #9918"
   },
   {
    "id": "REV-DeligneWeightsAndPurity",
@@ -23808,8 +23808,8 @@
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9919",
-   "finishedAt": "2026-10-16T11:18:09Z"
+   "finishedAt": "2026-10-16T11:18:09Z",
+   "note": "deliverables arrived from an external worker on issue #9919"
   },
   {
    "id": "REV-DiamondEtaleCohomology",
@@ -24496,8 +24496,8 @@
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9913",
-   "finishedAt": "2026-10-16T12:00:07Z"
+   "finishedAt": "2026-10-16T12:00:07Z",
+   "note": "deliverables arrived from an external worker on issue #9913"
   },
   {
    "id": "REV-EnhancedDerivedSheaves",
@@ -25244,8 +25244,8 @@
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra"
    ],
-   "note": "deliverables arrived from an external worker on issue #9926",
-   "finishedAt": "2026-10-16T12:00:09Z"
+   "finishedAt": "2026-10-16T12:00:09Z",
+   "note": "deliverables arrived from an external worker on issue #9926"
   },
   {
    "id": "REV-GL2ModularityLifting--R32.6",
@@ -28614,8 +28614,8 @@
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #9908",
-   "finishedAt": "2026-10-16T11:18:11Z"
+   "finishedAt": "2026-10-16T11:18:11Z",
+   "note": "deliverables arrived from an external worker on issue #9908"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups",
@@ -28637,8 +28637,8 @@
    "avoidAccountOf": "BP-SmoothRepresentationsOfLocalGroups",
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9909",
-   "finishedAt": "2026-10-16T12:00:11Z"
+   "finishedAt": "2026-10-16T12:00:11Z",
+   "note": "deliverables arrived from an external worker on issue #9909"
   },
   {
    "id": "BP-SpecialValuesBirchTate",
@@ -33714,8 +33714,8 @@
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9910",
-   "finishedAt": "2026-10-16T11:18:12Z"
+   "finishedAt": "2026-10-16T11:18:12Z",
+   "note": "deliverables arrived from an external worker on issue #9910"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7b",
@@ -33737,8 +33737,8 @@
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9914",
-   "finishedAt": "2026-10-16T12:00:14Z"
+   "finishedAt": "2026-10-16T12:00:14Z",
+   "note": "deliverables arrived from an external worker on issue #9914"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
@@ -33762,8 +33762,8 @@
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9911",
-   "finishedAt": "2026-10-16T11:18:14Z"
+   "finishedAt": "2026-10-16T11:18:14Z",
+   "note": "deliverables arrived from an external worker on issue #9911"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7c",
@@ -33785,8 +33785,8 @@
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9915",
-   "finishedAt": "2026-10-16T12:00:18Z"
+   "finishedAt": "2026-10-16T12:00:18Z",
+   "note": "deliverables arrived from an external worker on issue #9915"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--G7",
@@ -34194,8 +34194,8 @@
    "followUpOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9928",
-   "finishedAt": "2026-10-16T12:00:22Z"
+   "finishedAt": "2026-10-16T12:00:22Z",
+   "note": "deliverables arrived from an external worker on issue #9928"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.4",
@@ -34240,8 +34240,8 @@
    "followUpOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R27.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9929",
-   "finishedAt": "2026-10-16T12:00:24Z"
+   "finishedAt": "2026-10-16T12:00:24Z",
+   "note": "deliverables arrived from an external worker on issue #9929"
   },
   {
    "id": "REV-ClassicalSerreModularity--R27.5",
@@ -47715,8 +47715,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9883",
-   "finishedAt": "2026-10-16T12:00:26Z"
+   "finishedAt": "2026-10-16T12:00:26Z",
+   "note": "deliverables arrived from an external worker on issue #9883"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -48650,8 +48650,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CompletedCohomologyPartII.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9922",
-   "finishedAt": "2026-10-16T12:00:30Z"
+   "finishedAt": "2026-10-16T12:00:30Z",
+   "note": "deliverables arrived from an external worker on issue #9922"
   },
   {
    "id": "REV-PKG-CompletedCohomologyPartII",
@@ -53320,8 +53320,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicFamilies.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9889",
-   "finishedAt": "2026-10-16T11:18:16Z"
+   "finishedAt": "2026-10-16T11:18:16Z",
+   "note": "deliverables arrived from an external worker on issue #9889"
   },
   {
    "id": "PKG-PadicHodgeTheory",
@@ -54364,8 +54364,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ShimuraCompactifications.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9887",
-   "finishedAt": "2026-10-16T11:18:21Z"
+   "finishedAt": "2026-10-16T11:18:21Z",
+   "note": "deliverables arrived from an external worker on issue #9887"
   },
   {
    "id": "PKG-ShimuraVarieties",
@@ -72223,6 +72223,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 723,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--R09.7d: Algebraic moduli and representability for arithmetic geometry",
+   "target": "BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.result.json",
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7d"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+   "kind": "review",
+   "priority": 2,
+   "order": 723,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--R09.7d: Algebraic moduli and representability for arithmetic geometry",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md"
+   ],
+   "after": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d"
+   ],
+   "avoidAccountOf": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+   "independentOf": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7d"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-ArakelovGeometryAndAbelianHeights",
    "kind": "redteam",
    "priority": 2,
@@ -74584,6 +74631,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-SmoothRepresentationsOfLocalGroups",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 840,
+   "name": "blueprint BP-SmoothRepresentationsOfLocalGroups: Smooth representations of local groups",
+   "target": "BP-SmoothRepresentationsOfLocalGroups",
+   "roadmapIds": [
+    "SmoothRepresentationsOfLocalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-SmoothRepresentationsOfLocalGroups.result.json",
+    "research/blueprint/redteam/RT-BP-SmoothRepresentationsOfLocalGroups.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-SmoothRepresentationsOfLocalGroups",
+    "REV-SmoothRepresentationsOfLocalGroups"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-SmoothRepresentationsOfLocalGroups.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-SmoothRepresentationsOfLocalGroups",
+   "kind": "review",
+   "priority": 2,
+   "order": 840,
+   "name": "blueprint BP-SmoothRepresentationsOfLocalGroups: Smooth representations of local groups",
+   "roadmapIds": [
+    "SmoothRepresentationsOfLocalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-SmoothRepresentationsOfLocalGroups.review.json",
+    "research/blueprint/reviews/REV-RT-BP-SmoothRepresentationsOfLocalGroups.md"
+   ],
+   "after": [
+    "RT-BP-SmoothRepresentationsOfLocalGroups"
+   ],
+   "avoidAccountOf": "RT-BP-SmoothRepresentationsOfLocalGroups",
+   "independentOf": [
+    "RT-BP-SmoothRepresentationsOfLocalGroups",
+    "BP-SmoothRepresentationsOfLocalGroups",
+    "REV-SmoothRepresentationsOfLocalGroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-SmoothRepresentationsOfLocalGroups.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-HabiroNahmSeries",
    "kind": "redteam",
    "priority": 2,
@@ -76790,6 +76884,100 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.7a"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 940,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--R09.7b: Algebraic moduli and representability for arithmetic geometry",
+   "target": "BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.result.json",
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7b"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+   "kind": "review",
+   "priority": 2,
+   "order": 940,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--R09.7b: Algebraic moduli and representability for arithmetic geometry",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md"
+   ],
+   "after": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b"
+   ],
+   "avoidAccountOf": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+   "independentOf": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7b"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 941,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--R09.7c: Algebraic moduli and representability for arithmetic geometry",
+   "target": "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.result.json",
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7c"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+   "kind": "review",
+   "priority": 2,
+   "order": 941,
+   "name": "blueprint BP-AlgebraicModuliForArithmeticGeometry--R09.7c: Algebraic moduli and representability for arithmetic geometry",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md"
+   ],
+   "after": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c"
+   ],
+   "avoidAccountOf": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+   "independentOf": [
+    "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+    "BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
+    "REV-AlgebraicModuliForArithmeticGeometry--R09.7c"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
    "state": "pending"
   },
   {
@@ -94663,6 +94851,9 @@
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6.lean",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.5.lean",
@@ -94747,6 +94938,7 @@
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.0.json",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6.json",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
     "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
     "research/blueprint/packets/ArithmeticGaloisRepresentations--R01.3.json",
@@ -94765,6 +94957,7 @@
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.0.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6.lean",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.5.lean",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations.lean",
     "research/blueprint/suggested/ArithmeticGaloisRepresentations--R01.3.lean",
@@ -94915,6 +95108,9 @@
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/readmes/FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R27.6.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.6.lean",
     "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
     "research/blueprint/readmes/ModularityAndLanglandsExtensions.md",
     "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean",
@@ -94953,7 +95149,13 @@
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.5.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R27.5.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.5.lean",
+    "research/blueprint/packets/GL2ModularityLifting--R32.6.json",
+    "research/blueprint/readmes/GL2ModularityLifting--R32.6.md",
+    "research/blueprint/suggested/GL2ModularityLifting--R32.6.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2"
@@ -94986,6 +95188,7 @@
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.4.json",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
     "research/blueprint/packets/ModularityAndLanglandsExtensions.json",
     "research/blueprint/packets/ModularCurvesPartII--R13.4b.json",
     "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.5.json",
@@ -94998,12 +95201,15 @@
     "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.5.json",
+    "research/blueprint/packets/GL2ModularityLifting--R32.6.json",
     "research/blueprint/suggested/ClassicalSerreModularity--R26.1.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R23.1.lean",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.4.lean",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.6.lean",
     "research/blueprint/suggested/ModularityAndLanglandsExtensions.lean",
     "research/blueprint/suggested/ModularCurvesPartII--R13.4b.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R24.5.lean",
@@ -95015,7 +95221,9 @@
     "research/blueprint/suggested/OrdinaryAutomorphicFormsAndModularityLifting.lean",
     "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.5.lean",
+    "research/blueprint/suggested/GL2ModularityLifting--R32.6.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2~2"
@@ -95219,6 +95427,9 @@
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
     "research/blueprint/readmes/FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R27.6.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.6.lean",
     "research/blueprint/handoff/BP-ModularityAndLanglandsExtensions~2.md",
     "research/blueprint/packets/ModularCurvesPartII--R13.4b.json",
     "research/blueprint/readmes/ModularCurvesPartII--R13.4b.md",
@@ -95242,7 +95453,13 @@
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
     "research/blueprint/readmes/HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.5.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R27.5.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.5.lean",
+    "research/blueprint/packets/GL2ModularityLifting--R32.6.json",
+    "research/blueprint/readmes/GL2ModularityLifting--R32.6.md",
+    "research/blueprint/suggested/GL2ModularityLifting--R32.6.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2~3"
@@ -95285,6 +95502,7 @@
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R16.1.json",
     "research/blueprint/packets/GL2AutomorphicRepresentationsAndTransfer--R17.4.json",
     "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.6.json",
     "research/blueprint/packets/ModularCurvesPartII--R13.4b.json",
     "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.5.json",
     "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.4.json",
@@ -95292,6 +95510,8 @@
     "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.3.json",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.5.json",
+    "research/blueprint/packets/GL2ModularityLifting--R32.6.json",
     "research/blueprint/suggested/ClassicalSerreModularity--R26.1.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R23.1.lean",
@@ -95308,13 +95528,16 @@
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R16.1.lean",
     "research/blueprint/suggested/GL2AutomorphicRepresentationsAndTransfer--R17.4.lean",
     "research/blueprint/suggested/FiniteFlatGroupsAndIntegralPadicHodgeTheory.lean",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.6.lean",
     "research/blueprint/suggested/ModularCurvesPartII--R13.4b.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R24.5.lean",
     "research/blueprint/suggested/PotentialModularityAndCompatibleSystems--R24.4.lean",
     "research/blueprint/suggested/OrdinaryAutomorphicFormsAndModularityLifting.lean",
     "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
-    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean"
+    "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--R18.3.lean",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.5.lean",
+    "research/blueprint/suggested/GL2ModularityLifting--R32.6.lean"
    ],
    "after": [
     "FIX-RT-AREA-langlands-2~4"
@@ -96210,6 +96433,9 @@
     "research/blueprint/packets/AdicSpacesPartII.json",
     "research/blueprint/readmes/AdicSpacesPartII.md",
     "research/blueprint/suggested/AdicSpacesPartII.lean",
+    "research/blueprint/packets/DiamondEtaleCohomology.json",
+    "research/blueprint/readmes/DiamondEtaleCohomology.md",
+    "research/blueprint/suggested/DiamondEtaleCohomology.lean",
     "research/blueprint/packets/DiamondSixOperations.json",
     "research/blueprint/readmes/DiamondSixOperations.md",
     "research/blueprint/suggested/DiamondSixOperations.lean",
@@ -96279,6 +96505,7 @@
     "research/blueprint/packets/AdicEtaleGeometry.json",
     "research/blueprint/packets/FarguesFontaineDiamonds.json",
     "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/packets/DiamondEtaleCohomology.json",
     "research/blueprint/packets/DiamondSixOperations.json",
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/packets/PadicHodgeTheory.json",
@@ -96297,6 +96524,7 @@
     "research/blueprint/suggested/AdicEtaleGeometry.lean",
     "research/blueprint/suggested/FarguesFontaineDiamonds.lean",
     "research/blueprint/suggested/AdicSpacesPartII.lean",
+    "research/blueprint/suggested/DiamondEtaleCohomology.lean",
     "research/blueprint/suggested/DiamondSixOperations.lean",
     "research/blueprint/suggested/AInfCohomology.lean",
     "research/blueprint/suggested/PadicHodgeTheory.lean",
@@ -96602,6 +96830,9 @@
     "research/blueprint/packets/HodgeTateAndCanonicalSubgroups.json",
     "research/blueprint/readmes/HodgeTateAndCanonicalSubgroups.md",
     "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean",
+    "research/blueprint/packets/DiamondEtaleCohomology.json",
+    "research/blueprint/readmes/DiamondEtaleCohomology.md",
+    "research/blueprint/suggested/DiamondEtaleCohomology.lean",
     "research/blueprint/handoff/BP-DiamondSixOperations~2.md",
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/readmes/AInfCohomology.md",
@@ -96668,6 +96899,7 @@
     "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json",
     "research/blueprint/packets/ShimuraCompactifications--C6.json",
     "research/blueprint/packets/HodgeTateAndCanonicalSubgroups.json",
+    "research/blueprint/packets/DiamondEtaleCohomology.json",
     "research/blueprint/packets/AInfCohomology.json",
     "research/blueprint/packets/PadicHodgeTheory.json",
     "research/blueprint/packets/TorsionCohomologyInfrastructure.json",
@@ -96697,6 +96929,7 @@
     "research/blueprint/suggested/HilbertModularVarietiesAndShimuraCurves--H0.lean",
     "research/blueprint/suggested/ShimuraCompactifications--C6.lean",
     "research/blueprint/suggested/HodgeTateAndCanonicalSubgroups.lean",
+    "research/blueprint/suggested/DiamondEtaleCohomology.lean",
     "research/blueprint/suggested/AInfCohomology.lean",
     "research/blueprint/suggested/PadicHodgeTheory.lean",
     "research/blueprint/suggested/TorsionCohomologyInfrastructure.lean",
@@ -96849,6 +97082,9 @@
     "research/blueprint/readmes/AutomorphicGaloisRepresentations.md",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/handoff/BP-AutomorphicGaloisRepresentations~2.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
     "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
     "research/blueprint/readmes/PadicDifferentialEquationsAndRigidCohomology.md",
     "research/blueprint/suggested/PadicDifferentialEquationsAndRigidCohomology.lean",
@@ -96891,6 +97127,7 @@
     "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
     "research/blueprint/packets/DerivedDeRhamCohomology.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
     "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
     "research/blueprint/packets/AdicSpacesPartII.json",
     "research/blueprint/suggested/AInfCohomology.lean",
@@ -96902,6 +97139,7 @@
     "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
     "research/blueprint/suggested/DerivedDeRhamCohomology.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
     "research/blueprint/suggested/PadicDifferentialEquationsAndRigidCohomology.lean",
     "research/blueprint/suggested/AdicSpacesPartII.lean"
    ],
@@ -97047,6 +97285,9 @@
     "research/blueprint/readmes/AutomorphicGaloisRepresentations.md",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
     "research/blueprint/handoff/BP-AutomorphicGaloisRepresentations~2.md",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
+    "research/blueprint/readmes/AutomorphicGaloisRepresentationsPartII.md",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
     "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
     "research/blueprint/readmes/PadicDifferentialEquationsAndRigidCohomology.md",
     "research/blueprint/suggested/PadicDifferentialEquationsAndRigidCohomology.lean"
@@ -97088,6 +97329,7 @@
     "research/blueprint/packets/PrismaticCohomology.json",
     "research/blueprint/packets/DerivedDeRhamCohomology.json",
     "research/blueprint/packets/AutomorphicGaloisRepresentations.json",
+    "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII.json",
     "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
     "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
     "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
@@ -97100,6 +97342,7 @@
     "research/blueprint/suggested/PrismaticCohomology.lean",
     "research/blueprint/suggested/DerivedDeRhamCohomology.lean",
     "research/blueprint/suggested/AutomorphicGaloisRepresentations.lean",
+    "research/blueprint/suggested/AutomorphicGaloisRepresentationsPartII.lean",
     "research/blueprint/suggested/PadicDifferentialEquationsAndRigidCohomology.lean"
    ],
    "after": [
@@ -97303,6 +97546,9 @@
    ],
    "outputs": [
     "research/blueprint/redteam/RT-AREA-etale.fixes-2.md",
+    "research/blueprint/packets/DeligneWeightsAndPurity.json",
+    "research/blueprint/readmes/DeligneWeightsAndPurity.md",
+    "research/blueprint/suggested/DeligneWeightsAndPurity.lean",
     "research/blueprint/packets/SchemeAndStackFoundations.json",
     "research/blueprint/readmes/SchemeAndStackFoundations.md",
     "research/blueprint/suggested/SchemeAndStackFoundations.lean",
@@ -97385,6 +97631,7 @@
    ],
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-etale~2.md",
+    "research/blueprint/packets/DeligneWeightsAndPurity.json",
     "research/blueprint/packets/SchemeAndStackFoundations.json",
     "research/blueprint/packets/SchemeAndStackFoundations--SF.2.json",
     "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.0.json",
@@ -97402,6 +97649,7 @@
     "research/blueprint/packets/HabiroRings.json",
     "research/blueprint/packets/HabiroRings--HR.4.json",
     "research/blueprint/packets/PrismaticCohomology.json",
+    "research/blueprint/suggested/DeligneWeightsAndPurity.lean",
     "research/blueprint/suggested/SchemeAndStackFoundations.lean",
     "research/blueprint/suggested/SchemeAndStackFoundations--SF.2.lean",
     "research/blueprint/suggested/EtaleDualityAndPerverseSheaves--EDC.0.lean",
@@ -98200,6 +98448,9 @@
     "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean",
     "research/blueprint/handoff/BP-ExcursionOperatorsAndSpectralAction--ES0~2.md",
     "research/blueprint/handoff/BP-ExcursionOperatorsAndSpectralAction--ES0~3.md",
+    "research/blueprint/packets/SmoothRepresentationsOfLocalGroups.json",
+    "research/blueprint/readmes/SmoothRepresentationsOfLocalGroups.md",
+    "research/blueprint/suggested/SmoothRepresentationsOfLocalGroups.lean",
     "research/blueprint/packets/BunGAndNewtonStrata.json",
     "research/blueprint/readmes/BunGAndNewtonStrata.md",
     "research/blueprint/suggested/BunGAndNewtonStrata.lean",
@@ -98279,6 +98530,7 @@
     "research/blueprint/packets/HeckeStacksAndLocalShtukas.json",
     "research/blueprint/packets/LanglandsParameterStacks.json",
     "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
+    "research/blueprint/packets/SmoothRepresentationsOfLocalGroups.json",
     "research/blueprint/packets/BunGAndNewtonStrata.json",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.0.json",
     "research/blueprint/packets/AdelicAlgebraicGroups.json",
@@ -98297,6 +98549,7 @@
     "research/blueprint/suggested/HeckeStacksAndLocalShtukas.lean",
     "research/blueprint/suggested/LanglandsParameterStacks.lean",
     "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean",
+    "research/blueprint/suggested/SmoothRepresentationsOfLocalGroups.lean",
     "research/blueprint/suggested/BunGAndNewtonStrata.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.0.lean",
     "research/blueprint/suggested/AdelicAlgebraicGroups.lean",
