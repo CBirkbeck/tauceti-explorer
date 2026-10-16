@@ -1,6 +1,59 @@
 # Checkpoint: SR.4–SR.6 revision blocked by upstream ownership
 
-## Current checkpoint: codex-KT4Wed
+## Current checkpoint: codex-Nydyyj
+
+Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
+session `codex-Nydyyj`; 16 October 2026. **Blocked checkpoint; revision
+unfinished.** This run claimed no second issue.
+
+The bot confirmed this claim in
+[comment 6223799351](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6223799351).
+The claim was posted before the complete issue discussion was inspected;
+that ordering was an error. Despite `state:available`, the manager's
+[16 October stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6217693686)
+explicitly forbids further claims until an upstream-owner extension request.
+The earlier [13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6146993445)
+also directs roadmap changes upstream. No subsequent discussion supplies an
+extension request or replacement scope. Automated release after checkpoint
+#10047 did not resolve this blocker.
+
+Live GitHub checks identify
+[upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+as open at `f24efef61443870dd47b64fd4de9828b0a685501` and
+[PR #793](https://github.com/TauCetiProject/TauCetiRoadmap/pull/793) as merged.
+The immutable [upstream README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f24efef61443870dd47b64fd4de9828b0a685501/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+Scope and ownership, SR.4.1, SR.5.2 and SR.6.1–SR.6.5, assigns Satake,
+integral GL_n families, finite-wild parameters, excursion algebras, center
+images and stable operators upstream. It excludes general reductive
+consequences requiring the geometric action, while separately owning integral
+GL_n second adjointness in SR.5.2. README SHA-256:
+`8ad83c1c93c6f7dca2843d59e832a372d069f05db86040e36a364f98fa538d99`
+(accessed 16 October 2026). The supplied read-only roadmap's ownership section
+and suggested-file opening were also inspected. No shared upstream file was
+changed and no build was run there.
+
+Only this handoff changes. The packet and SR.4/SR.5/SR.6 coverage remain
+`partial`; the `needs_changes` review remains. The unchanged inventory is
+70 nodes (11 definitions, 6 constructions, 47 theorems, 5 comparisons,
+1 application), 55 API items, 51 unit tests, 14 planets, 14 baseline
+references, 13 gaps and 17 requests. No primary mathematical source or
+baseline declaration was newly audited, and no inherited research gap is
+resolved.
+
+Validation: the blueprint checker reports 0 errors and 0 warnings; the
+submission file check and whitespace check pass. The suggested Lean file was
+**not compiled in this session**, because no Lean or mathematical contract
+changed. No Lean process was started.
+
+Resume only after an upstream-owner extension request and a maintainer scope
+decision. Under the existing instruction, roadmap changes go through #785.
+The manager must reconcile automated availability with the stop instruction;
+another checkpoint release alone does not authorize another atlas revision.
+If a new scope is authorized, reconcile it with the upstream README before
+applying the inherited review. All resumption evidence is linked here;
+no scratch file is needed.
+
+## Previous checkpoint: codex-KT4Wed
 
 Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
 session `codex-KT4Wed`; 16 October 2026. **Blocked checkpoint; revision
