@@ -1,0 +1,695 @@
+{
+  "roadmapId": "ClassicalSerreModularity",
+  "protocol": "blueprint-v1",
+  "part": "R27.5",
+  "scope": [
+    "ClassicalSerreModularity:R27.5"
+  ],
+  "status": "complete",
+  "summary": "Target-level completion of the characteristic-two weight-four and even-conductor reductions in KW I Theorem 9.1. Reuse the three existing R27.5 internal milestones from part R27.3; add their two unrestricted residual conclusions and narrow the integrated aggregate to qualitative modularity. Hypothesis (H), including its derivation from Kisin, has the sole owner GL2ModularityLifting R22.6. Three precise supplier interfaces remain open; complete describes the planning pass, not proof closure or implementation.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:ZMod",
+        "kind": "definition",
+        "module": "Mathlib/Data/ZMod/Defs.lean",
+        "provides": "The coefficient rings of the finite-matrix acceptance fragments. ZMod 0 is the integers; ZMod (n+1) is Fin (n+1).",
+        "checked": "Definition read at the Mathlib pin, line 142; only ZMod 2 and ZMod 3 are used."
+      },
+      {
+        "ref": "mathlib:Matrix.mul_fin_two",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Notation.lean",
+        "provides": "Entrywise formula for multiplication of two-by-two matrices; computes the order-three matrix and the tame Frobenius relation.",
+        "checked": "Statement read at the Mathlib pin, line 479, with AddCommMonoid and Mul hypotheses."
+      },
+      {
+        "ref": "mathlib:Matrix.det_fin_two",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Over a commutative ring the determinant of a two-by-two matrix is a*d-b*c.",
+        "checked": "Statement read at the Mathlib pin, line 806."
+      },
+      {
+        "ref": "mathlib:Matrix.mulVec",
+        "kind": "definition",
+        "module": "Mathlib/Data/Matrix/Mul.lean",
+        "provides": "Matrix action on a vector by row dot products; tests that the nontrivial order-three action in characteristic two has no fixed vector.",
+        "checked": "Definition read at the Mathlib pin, line 698, including finite column index and the matrix multiplication notation scope."
+      },
+      {
+        "ref": "tauceti:HeckeRing.GL2.Newform",
+        "kind": "definition",
+        "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+        "provides": "Existing classical newform carrier, indexed by a nonzero natural level N and integer weight k. It extends EigenformAwayFromLevel, with new-cuspidal membership and normalisation of the first Fourier coefficient; the character comes through the parent. It supplies the modular-form side, not the residual Galois witness.",
+        "checked": "Definition and parent fields read from the Tau Ceti pinned git object, lines 1–110. No character parameter is invented."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "kw-i",
+      "title": "Serre’s modularity conjecture (I)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "edition": "Public author copy, own printed pages 2–23; published in Invent. Math. 178 (2009), 485–504. Published pagination was not compared.",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "readDate": "2026-10-16",
+      "readSections": [
+        "§§1–6, especially Theorem 3.4 p. 6, Theorem 4.1 p. 7, definitions of §5 pp. 7–8, Theorem 5.1(2),(4) pp. 9–10 and Lemmas 6.1–6.3 pp. 10–12.",
+        "§8.4 pp. 17–18 and all of §9 pp. 18–19."
+      ]
+    },
+    {
+      "id": "kw-ii",
+      "title": "Serre’s modularity conjecture (II)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "edition": "Public author copy dated 30 May 2009, 98 pages; locators are its own pages. Published in Invent. Math. 178 (2009), 505–586; published pagination was not compared.",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "readDate": "2026-10-16",
+      "readSections": [
+        "§3.3.1 pp. 32–33: minimal local lifts away from the coefficient prime.",
+        "§3.3.3 pp. 35–36: the prescribed level-two type, including the lattice for a nonsplit unipotent residual representation.",
+        "§10.3.1–10.3.2 pp. 92–94: the compatible-system conclusions of Theorem 5.1."
+      ]
+    },
+    {
+      "id": "serre-1987",
+      "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+      "authors": "Jean-Pierre Serre",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "edition": "Duke Math. J. 54 (1987), 179–230, public scan. Locators are printed pages.",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+      "readDate": "2026-10-16",
+      "readSections": [
+        "§2.4.6–§2.4.9 pp. 186–187, including the Kummer criterion in §2.4.7.",
+        "§2.6 p. 188 (dyadic weight 2 or 4 and examples), §2.7 pp. 188–189 (normalising a cyclotomic twist), §2.8 Proposition 4 pp. 189–190 (finite flatness)."
+      ]
+    },
+    {
+      "id": "fontaine-1985",
+      "title": "Il n’y a pas de variété abélienne sur Z",
+      "authors": "Jean-Marc Fontaine",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/varabZ.pdf",
+      "edition": "Invent. Math. 81 (1985), 515–538, public author scan. Locators are printed pages.",
+      "sha256": "c10642fb8e66929af2c60352abfdbf394bab1438b12c91fadf141bebf901fdd3",
+      "readDate": "2026-10-16",
+      "readSections": [
+        "§§1.1–1.2 pp. 517–518, especially §1.2(i) comparing the upper numberings.",
+        "Theorem 1 in §2.1 p. 525 and its proof pp. 525–526; page images checked because the text layer loses the bound."
+      ]
+    },
+    {
+      "id": "kisin-dyadic",
+      "title": "Modularity of 2-adic Barsotti–Tate representations",
+      "authors": "Mark Kisin",
+      "url": "https://people.math.harvard.edu/~kisin/dvifiles/serre2.dvi",
+      "edition": "Public author DVI, TeX date 21 October 2008; Theorem 0.1 on own p. 2. Published in Invent. Math. 178 (2009), 587–634.",
+      "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d",
+      "readDate": "2026-10-16",
+      "readSections": [
+        "Introduction, Theorem 0.1 p. 2: statement read from the DVI. Requires potential Barsotti–Tate at 2, determinant cyclotomic times an even finite-order character, and modular nonsolvable residual representation. Used to check R22.6’s interface, not to reconstruct its proof."
+      ]
+    }
+  ],
+  "reusedNodes": [
+    {
+      "id": "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim",
+      "from": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+      "use": "The internal weight-two claim for the specially constructed dyadic residual representation. Import check IC-2 supplies the complete odd-ramification-index argument and the chosen-lattice condition; request Q1 is its general supplier interface."
+    },
+    {
+      "id": "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+      "from": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+      "use": "The good-dihedral D1 milestone, not a second new declaration. IC-1 and IC-2 specify the lift of the characteristic-three residual member and all modularity transfers; source issue E3 is inherited and corrected."
+    },
+    {
+      "id": "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two",
+      "from": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+      "use": "The good-dihedral Dr milestone for r at least 2. IC-3 supplies the scalar-unipotent split and finite-inertia check. It uses the already established characteristic-two conclusion, never conversely."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+      "parentStageId": "ClassicalSerreModularity:R27.5",
+      "realises": [
+        "ClassicalSerreModularity:R27.5"
+      ],
+      "title": "Characteristic-two modularity, including weight four",
+      "kind": "theorem",
+      "statement": "Assume the imported dyadic Hypothesis (H). Let F be any finite field of characteristic 2 and let r̄:G_Q→GL₂(F) be continuous, absolutely irreducible and odd in the residual determinant convention. Then r̄ is modular: after finite coefficient extension it is the semisimplified reduction at a place above 2 of the Galois representation of a normalised cuspidal characteristic-zero newform of some weight at least 2 and some positive level. Both possible Serre weights 2 and 4 are included, with no good-dihedral hypothesis on r̄. No prescribed level or weight is asserted.",
+      "hypotheses": [
+        "S-type, Serre conductor and modularity witness are the existing R01.3/R15.4/R15.6 notions. At characteristic 2, det r̄(c)=−1 is vacuous; nontrivial action of c is not an added condition.",
+        "Use H only with coefficient prime 2, finite ramification, odd irreducible characteristic-zero lift, Hodge–Tate weights {0,1}, potential crystallinity, and modular nonsolvable residual image.",
+        "The source proof of D1 uses only the weight-two characteristic-two case of Theorem 1.2, not this conclusion."
+      ],
+      "proofSteps": [
+        "Import D1 by its existing node ID, with the corrected dependency checks IC-1–IC-2. For the first system C, its characteristic-three residual member has a₂≤1; distinguish unramified inertia from an actual nonsplit tame-unipotent action, without semisimplifying the local restriction (request Q2).",
+        "In the ramified branch, Theorem 5.1(4) is applied to r̄₃, with coefficient prime 3 and local prime 2. The order-three niveau-two character gives a second almost strictly compatible system C′ with Weil–Deligne type (τ,0); τ is irreducible as a Weil representation, whereas its inertia restriction is the sum of two conjugate characters. Good-dihedral preservation protects the residual members at both 2 and 3.",
+        "Almost strict compatibility at coefficient 2 is applicable because r̄′₂ is globally absolutely irreducible. Over a tame extension of ramification index 3 killing the type, C′₂ is crystalline of weights {0,1}. Apply R07.4 to the chosen stable lattice and R07.1 to its finite flat subquotient, obtaining the finite flat model for that residual member. If its Serre weight were 4, the odd-index obstruction Q1 would contradict finite flatness. Thus it has weight 2.",
+        "Apply Theorem 1.2(2) to r̄′₂, then H to C′₂. The same newform supplies C′₃ by equality of good-prime characteristic polynomials and R01.5 recognition, using the newform representations of R19.1. Its residual member is the same r̄₃ that C₃ lifts. The odd-prime Theorem 4.1(2)(ii) at 3 now makes C₃ modular, hence the original residual representation in D1 is modular. The nonsolvable image supplies the needed absolute irreducibility on G_Q(μ₃); the local image at 2 need not be nonsolvable.",
+        "Apply the existing Theorem 3.4 with r=1 to D1. A characteristic-two Serre conductor is prime to 2, hence is not divisible by 4; this application imposes no k=2 condition (that restriction belongs only to r=0). It removes the good-dihedral condition and proves the stated result even when the original r̄ has weight 4."
+      ],
+      "acceptance": [
+        "A characteristic-two input of Serre weight 4 must reach the conclusion without being passed to Theorem 1.2(2); only the newly constructed r̄′₂ has weight 2.",
+        "For e=3 the très-ramifiée Kummer quotient has discriminant exponent 7 and Serre upper break 6, while finite flat 2-torsion is trivial above break 5. The contradiction must retain the shift of one in the numbering.",
+        "The type-killing field can have degree 6 over Q₂; only its ramification index, 3, is used.",
+        "Over F₂, the matrix with rows (0,1),(1,1) has order 3, determinant 1 and no nonzero fixed vector. The three corresponding suggested examples check this concrete inertial model.",
+        "Over F₃, D=diag(−1,1) and U with rows (1,1),(0,1) satisfy DUD⁻¹=U² and U has order 3. These two suggested examples retain the nonsplit extension rather than its semisimplification.",
+        "Deleting the characteristic-two conclusion from the proof of D1 leaves its proof intact; reversing this dependency is a cycle and fails acceptance."
+      ],
+      "prerequisites": [
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim",
+        "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+        "ClassicalSerreModularity:R27.4/theorem-1-2",
+        "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+        "GL2ModularityLifting:R22.6/hypothesis-h",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+        "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+        "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-bound",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+        "ArithmeticGaloisRepresentations:R01.3",
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/dyadic-weight-two-or-four",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/recipe-well-definedness-and-twisting",
+        "AlgebraicModularFormsAndSerreWeights:R15.6",
+        "mathlib:ZMod",
+        "mathlib:Matrix.mul_fin_two",
+        "mathlib:Matrix.det_fin_two",
+        "mathlib:Matrix.mulVec"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-i",
+          "locator": "Theorem 9.1 and its proof, §9 pp. 18–19; Theorem 3.4 p. 6",
+          "match": "D1 gives the unrestricted characteristic-two conclusion via r=1. The weight-four input is handled by this reduction, not by applying the weight-two base case to it."
+        },
+        {
+          "sourceId": "kw-ii",
+          "locator": "§3.3.3 pp. 35–36; §10.3.2 pp. 93–94",
+          "match": "The prescribed type admits the required lattice and the system has the conditional coefficient-prime compatibility used here."
+        },
+        {
+          "sourceId": "serre-1987",
+          "locator": "§2.4.7 p. 186; §2.6 p. 188; Proposition 4 in §2.8 pp. 189–190",
+          "match": "Weight four detects the très-ramifiée branch, whose Kummer class has a nonzero valuation obstruction."
+        },
+        {
+          "sourceId": "fontaine-1985",
+          "locator": "§1.2(i) p. 518 and Theorem 1 in §2.1 p. 525",
+          "match": "The ramification bound for finite flat 2-torsion and its shift to Serre numbering give the odd-index obstruction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SerreConjecture/Classical/DyadicClosure",
+        "namespace": "TauCeti.SerreConjecture"
+      },
+      "planet": {
+        "name": "Characteristic-two modularity"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalSerreModularity:R27.5/even-conductor-closure",
+      "parentStageId": "ClassicalSerreModularity:R27.5",
+      "realises": [
+        "ClassicalSerreModularity:R27.5"
+      ],
+      "title": "Modularity with even Serre conductor",
+      "kind": "theorem",
+      "statement": "Assume the imported dyadic Hypothesis (H). Let F have odd prime characteristic p and r̄:G_Q→GL₂(F) be of S-type with even prime-to-p Serre conductor N(r̄). Then r̄ is modular in the qualitative R15.6 sense, with no bound on v₂(N), no initial weight normalisation and no good-dihedral assumption. Together with the earlier odd-conductor case this covers every odd residual characteristic.",
+      "hypotheses": [
+        "The conductor N is the actual positive prime-to-p Artin conductor, not a product of its distinct prime factors.",
+        "The good-dihedral assertion D_r has r≥0 and v₂(N)≤r; it quantifies over odd coefficient characteristic only.",
+        "Cyclotomic normalisation is an operation on arbitrary residual representations from R15.4. Modularity under twisting and untwisting is Q3, not the already-modular weight-reduction theorem R20.3."
+      ],
+      "proofSteps": [
+        "For the good-dihedral reduction, first normalise weight to 2≤k≤p+1 using the recipe, preserving N away from p and the auxiliary good-dihedral prime. Record the finite residual twist and use Q3 to recover the original representation after modularity is proved.",
+        "Use D1 when v₂(N)≤1. For r≥2 import Dr by its existing ID and check its proof by IC-3. If inertia at 2 is scalar times unipotent, Q2 provides a finite global character unramified outside 2 that removes the scalar. Wild inertia is pro-2, so its image in an odd-characteristic unipotent p-group is trivial; tame unipotent inertia has conductor at most one. D1 applies to the twist, and Q3 untwists the conclusion.",
+        "In the other branch the minimal weight-two lift of Theorem 5.1(2) has finite inertia at 2, by KW II §3.3.1. The almost strict system gives the same full Weil–Deligne parameter at its dyadic member because its residual is good-dihedral and absolutely irreducible. Finite inertia excludes the Steinberg monodromy branch, so that member is potentially crystalline of weights {0,1}.",
+        "Apply characteristic-two-closure to the dyadic residual member, which may have either Serre weight. Its image is nonsolvable by good-dihedral preservation; H applies to the dyadic characteristic-zero member. Recognise the same newform at every member using good-prime characteristic polynomials and R01.5, then reduce at the original place. This proves Dr for every r≥2 in one argument, without asserting that v₂(N) decreases at each iteration.",
+        "For an arbitrary input of even N, take the finite integer r=v₂(N)≥1. Use D1 if r=1, otherwise Dr, then the existing Theorem 3.4 to remove good-dihedral ramification. The solvable and dihedral cases within that theorem retain their earlier component owners; H is never applied to a solvable residual image. Undo the initial weight-normalising twist."
+      ],
+      "acceptance": [
+        "At v₂(N)=1 the D1 branch suffices; at v₂(N)=2 the second branch already applies, and the argument also handles arbitrarily large exponents.",
+        "A scalar-unipotent inertia action can have large conductor before twisting; its local semisimplification cannot be used to claim the original conductor is at most one.",
+        "The scalar-removing global character is unramified outside 2, so it does not alter the good-dihedral local representation at its odd auxiliary prime, except for an unramified twist.",
+        "A Tate/Steinberg parameter with nonzero monodromy is excluded from the finite-inertia branch. Potential semistability alone does not meet H.",
+        "Coefficient extensions and stable lattices are tracked at each shared residual member; equality of conductors of different members is not assumed at their coefficient primes.",
+        "For an input with k>p+1, normalise the local recipe before invoking Theorem 5.1(2), and recover modularity using the independent finite-character twist interface; no prior modularity of the input is used."
+      ],
+      "prerequisites": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two",
+        "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+        "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+        "GL2ModularityLifting:R22.6/hypothesis-h",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+        "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+        "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+        "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "ArithmeticGaloisRepresentations:R01.3",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria",
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/recipe-well-definedness-and-twisting",
+        "AlgebraicModularFormsAndSerreWeights:R15.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-i",
+          "locator": "Theorem 9.1, last paragraph of proof, §9 p. 19; Theorem 3.4 p. 6",
+          "match": "After characteristic two is established, the scalar-unipotent case reduces to D1 and the remaining minimal lift permits H at 2."
+        },
+        {
+          "sourceId": "kw-ii",
+          "locator": "§3.3.1 pp. 32–33 and §10.3.1–§10.3.2 pp. 92–94",
+          "match": "The local minimality conditions distinguish the unipotent case and finite inertial type; the system provides the required coefficient-prime geometry under residual irreducibility."
+        },
+        {
+          "sourceId": "serre-1987",
+          "locator": "§2.7 pp. 188–189",
+          "match": "Some cyclotomic twist of an arbitrary residual representation has weight at most p+1, independent of modularity."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SerreConjecture/Classical/DyadicClosure",
+        "namespace": "TauCeti.SerreConjecture"
+      },
+      "planet": {
+        "name": "Even-conductor modularity"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+      "parentStageId": "ClassicalSerreModularity:R27.5",
+      "realises": [
+        "ClassicalSerreModularity:R27.5"
+      ],
+      "title": "Serre modularity from the dyadic reductions (KW Theorem 9.1)",
+      "kind": "theorem",
+      "statement": "Assume Hypothesis (H) at coefficient prime 2 in exactly the form supplied by GL2ModularityLifting R22.6. For every prime p, every finite field F of characteristic p and every continuous absolutely irreducible odd r̄:G_Q→GL₂(F), r̄ is modular in the qualitative R15.6 sense. Using the R22.6 theorem discharges H. The conclusion is the existence of a normalised cuspidal newform and a residual isomorphism after common finite coefficient extension; the exact Serre level, weight and nebentypus are not specified here.",
+      "hypotheses": [
+        "Oddness is det r̄(c)=−1 and absolute irreducibility is over an algebraic closure of F. A modularity witness includes the coefficient field, a place above p, a stable lattice and an isomorphism of semisimplified residual representations over a common finite field.",
+        "Only the qualitative conclusion of Theorem 3.4 is used. R27.6 owns the passage to the prescribed Serre N,k,epsilon.",
+        "H includes all finite ramification, irreducibility, determinant and potential Barsotti–Tate normalisation checks at its R22.6 owner; no proof of H or Breuil–Kisin equivalence is created in R27.5."
+      ],
+      "proofSteps": [
+        "In characteristic 2 apply characteristic-two-closure; the Serre conductor is automatically odd, but the weight-four case still requires this new reduction.",
+        "In odd characteristic with odd N, use the existing D0 and Theorem 3.4 with r=0 (or the qualitative part of Theorem 1.2(1)). With even N use even-conductor-closure. Thus every conductor and residual characteristic is covered.",
+        "Insert the proved H theorem from GL2ModularityLifting:R22.6/hypothesis-h. Its owner derives H from Kisin’s full dyadic theorem, including the even finite-order determinant factor and potential-crystalline-to-potential-Barsotti–Tate conversion. This is a single imported theorem, not a second derivation.",
+        "Return the existing modularity witness over the common coefficient extension and the existing Tau Ceti newform carrier. Do not replace the witness by a predicate named modular or claim the strong level-and-weight optimisation of R27.6."
+      ],
+      "acceptance": [
+        "The p=2, k=4 case follows from the characteristic-two endpoint; the p odd, N odd case follows from D0; the p odd, N even case follows from the even-conductor endpoint. These cases exhaust positive prime-to-p conductors.",
+        "The conclusion supplies a newform, a place above the actual residual p and an isomorphism of semisimplifications after finite scalar extension; it is stronger than matching a few traces.",
+        "The proof dependency order is D1 → characteristic two → Dr≥2 → arbitrary even conductor → Theorem 9.1. There is no edge back from characteristic two to its own D1 input.",
+        "Removing the imported H theorem leaves a theorem conditional on H, exactly as KW I Theorem 9.1 states. The classical proof does not import a modern R33 endpoint.",
+        "A request for the newform to have level N(r̄) and weight k(r̄) is routed to R27.6, not silently appended to this theorem."
+      ],
+      "prerequisites": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "ClassicalSerreModularity:R27.3/d0-from-all-lr",
+        "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
+        "ClassicalSerreModularity:R27.4/theorem-1-2",
+        "GL2ModularityLifting:R22.6/hypothesis-h",
+        "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
+        "AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-witness",
+        "tauceti:HeckeRing.GL2.Newform"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-i",
+          "locator": "Hypothesis (H), Remark and Theorem 9.1, §9 pp. 18–19",
+          "match": "The theorem is conditional on H; the proof combines D1, characteristic two and Dr for r>1 with Theorem 3.4."
+        },
+        {
+          "sourceId": "kisin-dyadic",
+          "locator": "Theorem 0.1, author DVI p. 2",
+          "match": "The precise dyadic potentially Barsotti–Tate theorem is the supplier from which R22.6 derives H, with its determinant hypothesis."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SerreConjecture/Classical/DyadicClosure",
+        "namespace": "TauCeti.SerreConjecture"
+      },
+      "planet": {
+        "name": "Serre modularity theorem"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "importChecks": [
+    {
+      "id": "IC-1",
+      "imports": [
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
+        "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
+        "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+      ],
+      "contract": "D1 applies to odd-characteristic good-dihedral S-type representations with v₂(N)≤1, after weight normalisation. Theorem 5.1(4) lifts the characteristic-three residual of the first system, with local q=2, not the original characteristic-p residual. A nontrivial order-three tame character of niveau 2 has conjugate θ², θθ²=1, and Frobenius interchanges its two lines. Its Weil representation is irreducible and monodromy is zero. The explicit local lattice in KW II §3.3.3 retains the original nonsplit residual extension. Good-dihedral protection applies to 2 and 3 within B=max(Q(N/q₀²),p), where p≥3 and q₀ is the preserved auxiliary prime. Fixed support outside the moving coefficient prime is essential. Almost strict compatibility at coefficient 2 uses residual absolute irreducibility; at 3 use the potentially semistable weight-two branch of the odd-prime lifting theorem. For transfer within a system, only common good-prime characteristic polynomials, newform representations at every finite place, and characteristic-zero semisimple recognition are used; no modern strictness theorem or general residual-modularity propagation is assumed.",
+      "sourceLocators": [
+        "KW I Theorem 5.1(2),(4) pp. 9–10, Lemma 6.3 pp. 11–12, §9 p. 19",
+        "KW II §3.3.3 pp. 35–36 and §10.3.2 pp. 93–94"
+      ],
+      "checks": [
+        "At coefficient 3 the nonsolvable global image implies the needed cyclotomic-restriction absolute irreducibility; the local D₂ image may be solvable.",
+        "The system members are odd and irreducible by the actual Theorem 5.1 contract. No statement that an arbitrary compatible family is irreducible at 2 or 3 is used.",
+        "Do not use R22.6/kw-i-theorem-4-1-dyadic to replace H: its narrower local hypotheses do not supply the new cubic potential-crystalline case."
+      ]
+    },
+    {
+      "id": "IC-2",
+      "imports": [
+        "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim",
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-bound",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/dyadic-weight-two-or-four"
+      ],
+      "contract": "The local weight-two claim concerns only the specially constructed r̄′₂. The tame type is killed over the field cut out by θ over the unramified quadratic extension of Q₂, with ramification index 3 (possibly total degree 6). The WD crystalline criterion gives crystallinity over that field, and the integral R07.4 equivalence covers every chosen stable Z₂-lattice. Extend its O_E action by full faithfulness; pass from 2-torsion to the required O_E/π residual module using finite flat schematic closure and quotient. Thus the actual residual member, not merely an unrelated lattice, is finite flat after this base change. For a très-ramifiée representation, kill the finite diagonal unramified characters over a finite unramified F/Q₂ and detect an odd-valuation quadratic Kummer quotient in its image. For any K of odd absolute ramification e, M=KF has the same e, the Kummer class still has odd valuation, and multiplying by a square makes v_M(d)=1. The Eisenstein quadratic extension M(√d) has discriminant exponent 2e+1, hence unique Serre upper break 2e. Fontaine’s killed-2 bound says finite flat points have trivial action for Serre upper v>2e−1, because his u=v+1. The quotient action contradicts that bound at 2e. Base change and upper-filtration compatibility with quotients suffice; no false assertion about ramified descent of finite flat models is used. The general result is requested at R07.6 (Q1), above the existing Kummer and Fontaine inputs.",
+      "sourceLocators": [
+        "Serre §2.4.7 p. 186, §2.6 p. 188",
+        "Fontaine §1.2(i) p. 518; Theorem 1 §2.1 p. 525",
+        "KW I §9 p. 19; KW II §3.3.3 pp. 35–36"
+      ],
+      "checks": [
+        "At e=1 the quadratic quotient has break 2 and the finite flat bound is 1. At e=3 they are 6 and 5.",
+        "No obstruction for even e is claimed: an even-index extension can kill the offending quadratic Kummer class.",
+        "The claim concerns finite flat commutative group schemes killed by 2 on the underlying F₂-module; no semisimplification of the local extension class is taken."
+      ]
+    },
+    {
+      "id": "IC-3",
+      "imports": [
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two",
+        "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+        "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+        "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
+        "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+        "GL2ModularityLifting:R22.6/hypothesis-h",
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure"
+      ],
+      "contract": "For odd residual p, scalar-unipotent inertia at 2 is handled before taking the minimal lift. A finite global character supported at 2 removes the scalar; pro-2 wild inertia cannot act nontrivially through the remaining unipotent p-group, so the conductor exponent is at most one. In every other case, KW II §3.3.1 supplies a minimal lift with finite inertial image and no Steinberg monodromy. Almost strict compatibility at coefficient 2 is available because the good-dihedral residual is absolutely irreducible; its dyadic lift is potentially crystalline of weights {0,1}. The characteristic-two endpoint already proved from D1 makes its residual modular, and H gives modularity of the lift. This proves Dr for all r≥2 without an induction asserting smaller conductor at each switch.",
+      "sourceLocators": [
+        "KW I §9 p. 19, final paragraph",
+        "KW II §3.3.1 pp. 32–33 and §10.3.2 pp. 93–94"
+      ],
+      "checks": [
+        "Twisting preserves S-type, since a character at c has square 1, and preserves good-dihedral type at the odd auxiliary prime up to unramified twist.",
+        "Theorem 5.1(2) is invoked after independent Serre-weight normalisation, not via a theorem whose hypothesis already assumes modularity.",
+        "The special scalar-unipotent case cannot be fed to H merely because the chosen lift is potentially semistable."
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "id": "Q1",
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "status": "open",
+      "need": "Export the following dyadic consequence of the existing Kummer and Fontaine nodes: for every finite coefficient field of characteristic 2, a très-ramifiée two-dimensional local representation of G_Q₂ remains non-finite-flat on restriction to every finite K/Q₂ of odd ramification index, on its underlying finite F₂-module. The actual extension class is retained. Proof: after finite unramified base change a quadratic Kummer quotient has odd valuation; over absolute ramification e its unique Serre upper break is 2e, contradicting the killed-2 finite flat bound 2e−1. Include compatibility with finite coefficient extension and detection on a quotient of the image. Do not assign this consequence to R07.5 with an upward prerequisite on R07.6.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+        "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre-1987",
+          "locator": "§2.4.7 p. 186 and §2.6 p. 188",
+          "match": "The très-ramifiée Kummer valuation obstruction."
+        },
+        {
+          "sourceId": "fontaine-1985",
+          "locator": "§1.2(i) p. 518 and Theorem 1 §2.1 p. 525",
+          "match": "Finite flat ramification bound and numbering conversion."
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "supplier": "ArithmeticGaloisRepresentations:R01.3",
+      "status": "open",
+      "need": "Provide the dyadic conductor adapter for odd coefficient characteristic p. (a) For a continuous finite-image two-dimensional residual local representation at Q₂ with a₂≤1, a₂=0 means unramified; if ramified, wild inertia is trivial, inertia is nontrivial unipotent and, when p=3, the whole D₂-representation is an unramified twist of [[χ̄₃,*],[0,1]]. Derive the Frobenius ratio from FUF⁻¹=U². (b) If the inertia action is scalar times unipotent, show that its scalar character factors through Q₂ local reciprocity and is the inertia restriction of a finite global character unramified outside 2; twisting removes the scalar and gives a₂≤1. Import the existing ClassFieldTheory local/global reciprocity and Dirichlet-character material rather than reconstructing it. Keep actual inertia invariants, finite coefficient extensions, and the original untwisted conductor distinct.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-i",
+          "locator": "Theorem 9.1 proof, §9 p. 19",
+          "match": "The two conductor assertions used in D1 and the reduction to the finite-inertia branch."
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.6",
+      "status": "open",
+      "need": "For the existing qualitative residual modularity witness and any finite-order residual character η:G_Q→F×, export Modular(r̄⊗η) iff Modular(r̄), after common finite coefficient extension. Import the current TauCetiRoadmap ModularForms Layer 9 twisting API (modularity, cuspidality, character χη² and good-prime coefficient formula), and its Layer 4A primitive associate. Add only the arithmetic compatibility: use the Teichmüller lift of η, compare the twisted newform Galois polynomials with the tensor twist, choose compatible lattices, and reduce; apply η⁻¹ for the converse. Include powers of the residual cyclotomic character and characters supported at 2 in Q2. No fixed level or Serre weight is asserted. Pair this with R15.4/recipe-well-definedness-and-twisting, which normalises arbitrary residual weights independently of modularity; the already-modular R20.3 small-weight theorem cannot replace it.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-i",
+          "locator": "Theorem 5.1 introductory weight hypotheses pp. 8–9; §9 p. 19",
+          "match": "The proof uses weight normalisation and scalar twists before modularity is known."
+        },
+        {
+          "sourceId": "serre-1987",
+          "locator": "§2.7 pp. 188–189",
+          "match": "The residual numerical normalisation exists without assuming modularity."
+        }
+      ],
+      "existingRoadmapContracts": [
+        "TauCetiRoadmap/ModularForms, Layer 9 Inner twists: classical twisting, nebentypus and good-prime coefficient formula",
+        "TauCetiRoadmap/ModularForms, Layer 4A: primitive associate"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Odd-index finite-flat obstruction needs its owning export",
+      "detail": "The source-based argument is specified in IC-2, but the existing R07.5 dyadic dichotomy is only over Q₂ and does not supply the arbitrary odd-index base change required here. Q1 asks R07.6 for that exact consequence of its Fontaine bound. No new local finite-flat declaration is duplicated in R27.5.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+        "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim"
+      ],
+      "request": "Q1"
+    },
+    {
+      "id": "G2",
+      "title": "Dyadic conductor and global scalar-removal adapter",
+      "detail": "The conductor nodes supply the numerical formula and vanishing criteria but no existing node packages both the p=3 Frobenius shape and the global character supported at 2. Q2 gives the exact statements and proof reductions; it must be supplied and its ClassFieldTheory prerequisites checked.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two"
+      ],
+      "request": "Q2"
+    },
+    {
+      "id": "G3",
+      "title": "Independent qualitative modularity twist interface",
+      "detail": "The residual weight recipe normalises arbitrary representations, but the existing already-modular small-weight theorem is not a noncircular replacement for witness-level twist invariance. Q3 requests only the finite-character residual-witness compatibility from R15.6; the form twist and primitive associate already belong to current ModularForms Layers 9 and 4A. Supply the tensor/Galois-polynomial, lattice and coefficient-field comparison there, importing those existing form contracts.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two"
+      ],
+      "request": "Q3"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalSerreModularity:R27.5",
+      "status": "planned",
+      "realisedBy": [
+        "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1"
+      ],
+      "reused": [
+        "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim",
+        "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
+        "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two"
+      ],
+      "remaining": [
+        "Supply Q1/G1 at R07.6, with the Serre/Fontaine numbering conversion and actual residual extension.",
+        "Supply Q2/G2 at R01.3, importing existing ClassFieldTheory for the character supported at 2.",
+        "Supply Q3/G3 at R15.6, independent of any already-modular weight-reduction assumption.",
+        "Apply the proposed RS-06 owner reconciliation at assembly; preserve the R22.6 H owner and the three existing R27.5 milestone IDs."
+      ],
+      "notes": "All R27.5 targets have statements, proofs and acceptance properties. Coverage is planned, not closed; no new definition or construction belongs to this consumer layer. The internal milestone proofs are import checks rather than duplicate nodes."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ClassicalSerreModularity/E3",
+      "source": "kw-i",
+      "kind": "misprint",
+      "locator": "Author copy results.pdf, proof of Theorem 9.1, §9 p. 19; published version not compared.",
+      "printed": "The second system is described as lifting the original residual representation, and the later finite-flat sentence points to the minimal-lift item of Theorem 5.1. This is a paraphrase of the two cross-reference slips.",
+      "correction": "The second system lifts the characteristic-three residual member of the first system. Its order-three type comes from Theorem 5.1(4); crystallinity after killing that type also uses coefficient-prime almost strict compatibility, and finite flatness uses the integral Barsotti–Tate theorem for the chosen lattice.",
+      "reason": "The prescribed local input is at coefficient 3 and local prime 2; it is not a condition on the original characteristic-p representation. Item (2) alone cannot prescribe the new order-three type or identify the required residual lattice.",
+      "affects": "nothing",
+      "known": "Existing finding ClassicalSerreModularity/E3 in part R27.3, confirmed by its independent review. Reused identity, without copying that review as a review of this packet. No published correction was established in this run.",
+      "searched": [
+        "The public author copy of KW I, §9 p. 19.",
+        "The existing part R27.3 source issue E3 and its recorded confirmed review.",
+        "KW II §3.3.3 and §10.3.2 for the corrected lift and compatibility. The journal copy was not obtained for comparison."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ClassicalSerreModularity",
+        "GL2ModularityLifting"
+      ],
+      "detail": "RT-AREA-langlands-2/20: accepted RS-06 and RS-08 disagree on the derivation of Hypothesis (H). The integrated aggregate ID survives, but only as the final residual modularity theorem.",
+      "proposal": "Amend RS-06 layers.ClassicalSerreModularity:R27.5.keeps to the text in layers below, matching RS-08. R22.6 alone derives H from Kisin, including the potential-crystalline to potential-Barsotti–Tate conversion and the even finite-order determinant factor. R27.5 imports that finished result and owns the weight-four/even-conductor reductions. No upstream roadmap changes.",
+      "owners": [
+        {
+          "target": "KW I Hypothesis (H) at p=2, including its derivation from Kisin and the Breuil–Kisin and determinant normalisations",
+          "owner": "GL2ModularityLifting:R22.6",
+          "formerly": [
+            "ClassicalSerreModularity:R27.5"
+          ]
+        }
+      ],
+      "layers": {
+        "ClassicalSerreModularity:R27.5": {
+          "action": "narrow",
+          "keeps": "Theorem 9.1’s characteristic-two weight-four and arbitrary even-conductor reductions. Import the proved Hypothesis (H), including potential Barsotti–Tate and determinant conversion, from GL2ModularityLifting R22.6. Do not derive H here.",
+          "reason": "One owner for the verified duplicate RT-AREA-langlands-2/20."
+        }
+      },
+      "links": [
+        {
+          "source": "GL2ModularityLifting:R22.6",
+          "target": "ClassicalSerreModularity:R27.5",
+          "reason": "The weight-two potential-crystalline dyadic lift meets the imported H theorem; all derivation and normalisation belongs to the supplier."
+        }
+      ]
+    }
+  ],
+  "suggestedCoverage": {
+    "form": "Compact statement-only file under current WORKERS.md shape; five finite-matrix examples, no new definitions or constructions.",
+    "omittedTargets": [
+      {
+        "node": "ClassicalSerreModularity:R27.5/characteristic-two-closure",
+        "reason": "The pinned libraries do not supply the continuous arithmetic Galois representation, Serre-weight/conductor, compatible-system and modularity-witness interfaces needed to state this target honestly. The existing Newform carrier supplies only its modular-form side. The exact mathematical statement, hypotheses, proof and acceptance checks are in the reader document."
+      },
+      {
+        "node": "ClassicalSerreModularity:R27.5/even-conductor-closure",
+        "reason": "The pinned libraries do not supply the continuous arithmetic Galois representation, Serre-weight/conductor, compatible-system and modularity-witness interfaces needed to state this target honestly. The existing Newform carrier supplies only its modular-form side. The exact mathematical statement, hypotheses, proof and acceptance checks are in the reader document."
+      },
+      {
+        "node": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
+        "reason": "The pinned libraries do not supply the continuous arithmetic Galois representation, Serre-weight/conductor, compatible-system and modularity-witness interfaces needed to state this target honestly. The existing Newform carrier supplies only its modular-form side. The exact mathematical statement, hypotheses, proof and acceptance checks are in the reader document."
+      }
+    ],
+    "fragments": [
+      {
+        "examples": [
+          1,
+          2,
+          3
+        ],
+        "purpose": "The nontrivial order-three inertial action over F₂: order, determinant and fixed vectors.",
+        "baseline": [
+          "mathlib:ZMod",
+          "mathlib:Matrix.mul_fin_two",
+          "mathlib:Matrix.det_fin_two",
+          "mathlib:Matrix.mulVec"
+        ]
+      },
+      {
+        "examples": [
+          4,
+          5
+        ],
+        "purpose": "The tame Frobenius relation at local 2 in coefficient characteristic 3 and the actual nontrivial unipotent action.",
+        "baseline": [
+          "mathlib:ZMod",
+          "mathlib:Matrix.mul_fin_two"
+        ]
+      }
+    ],
+    "definitionApiItems": 0,
+    "definitionUnitTests": 0
+  },
+  "libraryAudit": {
+    "reviewed": "data/library-coverage.json, ClassicalSerreModularity:R27.5, AUDIT-31",
+    "verdict": "not built; overlap of H with R22.6",
+    "checked": "Pinned source statements read and current Tau Ceti searched for residual modularity, Serre weight, potential crystallinity and Barsotti–Tate interfaces. No existing theorem supplies either new endpoint. Current upstream roadmap documents and suggested files were read before choosing boundaries.",
+    "currentRoadmapsRead": [
+      {
+        "roadmap": "ModularForms",
+        "sections": "Purpose/conventions; Layers 4–5 and Layer 9 inner twists; worked acceptance examples",
+        "use": "Existing modular forms, newforms and twists remain upstream; do not reconstruct them."
+      },
+      {
+        "roadmap": "LocalGaloisGroups",
+        "sections": "Scope/conventions/supplier contracts; worked acceptance tests; suggested-file opening",
+        "use": "Local Galois groups, Kummer theory and local reciprocity are upstream inputs."
+      },
+      {
+        "roadmap": "ProfiniteArithmetic",
+        "sections": "Scope, conventions and initial supplier contracts",
+        "use": "Profinite group and Galois foundations are existing plans."
+      },
+      {
+        "roadmap": "LocalFieldsRamification",
+        "sections": "Scope; Layer 3 Eisenstein, tame/wild and upper numbering; different and discriminant contracts",
+        "use": "Import the Eisenstein quadratic integral basis, different/discriminant and upper-break formulas; do not create parallel local-field theory."
+      },
+      {
+        "roadmap": "IntegralHeckeAndGaloisDeterminants",
+        "sections": "Purpose and initial ownership contracts",
+        "use": "Hecke determinant reconstruction is not a residual modularity theorem."
+      }
+    ]
+  },
+  "upstreamNotes": []
+}
