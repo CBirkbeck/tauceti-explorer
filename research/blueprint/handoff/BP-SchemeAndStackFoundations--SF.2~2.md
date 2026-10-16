@@ -201,3 +201,36 @@ items remain recorded in the packet and review report; they must not be
 re-planned here solely to finish this obsolete revision. No second issue was
 claimed. This checkpoint follows the user's explicit resumed submission
 request and does not establish that another identical checkpoint is needed.
+
+## Blocked checkpoint — Codex session codex-U4zom7, 2026-10-16
+
+The bot confirmed this session's claim in
+[comment 6221669368](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6221669368).
+I inspected the issue body before claiming but read its full comment history
+afterward. That was a selection error: the
+[manager's prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+still applies despite the available label. This checkpoint follows the run's
+explicit instruction to submit a handoff when blocked; it does not complete
+the revision or authorize another attempt at the same scope.
+
+Fresh GraphQL reads confirm the recorded merge timestamps and commits of
+[upstream #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943).
+The current upstream README and Suggested.lean were also fetched and inspected.
+Layer 2 owns this job's scope: sites and topology comparisons, the Nisnevich
+site, derived quasi-coherent categories and coherent duality (§§2.18–2.21),
+Azumaya classes (§2.22), and semilinear equivariant cohomology (§2.23).
+The distinction between abelian boundaries (§2.4) and the specific
+Azumaya splitting-gerbe class (§2.22) remains explicit. These existing targets
+cannot be re-planned under WORKERS.md and PROTOCOL.md §15.
+
+Only this handoff changed. The packet, reader, suggested file and review
+remain as received; their partial status, gaps, requests and outstanding
+review corrections are preserved. No ownership move or supplier request was
+added. The packet checker reports **0 errors and 0 warnings**; whitespace
+validation passes. No Lean file was changed or compiled. No second issue
+was claimed.
+
+Resume mathematical work only with an explicitly specified extension beyond
+the upstream roadmap. Reconcile the queue with the manager's block before
+selecting this issue again; the available label alone is insufficient.
