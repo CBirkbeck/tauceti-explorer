@@ -40277,8 +40277,9 @@
     "BP-AutomorphicGaloisRepresentationsPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10008"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10008",
+   "finishedAt": "2026-10-16T17:15:43Z"
   },
   {
    "kind": "blueprint",
@@ -42165,8 +42166,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9312"
+   "state": "external",
+   "note": "claimed on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -44612,8 +44613,9 @@
    ],
    "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10022"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10022",
+   "finishedAt": "2026-10-16T17:15:46Z"
   },
   {
    "priority": 2,
@@ -51595,8 +51597,9 @@
     "PKG-HeightsRationalPointsAndObstructions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9837"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9837",
+   "finishedAt": "2026-10-16T17:15:48Z"
   },
   {
    "id": "PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -130331,9 +130334,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-PadicHodgeTheory~codex.md",
-   "note": "claimed on GitHub issue #10019"
+   "note": "deliverables arrived from an external worker on issue #10019",
+   "finishedAt": "2026-10-16T17:15:52Z"
   }
  ]
 }
