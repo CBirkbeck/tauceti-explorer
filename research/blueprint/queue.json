@@ -130455,8 +130455,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EffectiveDiophantineMethods~adv.md"
+   "state": "superseded",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EffectiveDiophantineMethods~adv.md",
+   "note": "wrong job type (no package yet); replaced by BP-EffectiveDiophantineMethods~4"
   },
   {
    "id": "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv",
@@ -130476,6 +130477,63 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv.md"
+  },
+  {
+   "id": "BP-EffectiveDiophantineMethods~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EffectiveDiophantineMethods.json",
+    "research/blueprint/readmes/EffectiveDiophantineMethods.md",
+    "research/blueprint/suggested/EffectiveDiophantineMethods.lean",
+    "research/blueprint/handoff/BP-EffectiveDiophantineMethods~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~4.md",
+   "scope": [
+    "EffectiveDiophantineMethods:ED.0",
+    "EffectiveDiophantineMethods:ED.1",
+    "EffectiveDiophantineMethods:ED.2",
+    "EffectiveDiophantineMethods:ED.3",
+    "EffectiveDiophantineMethods:ED.4",
+    "EffectiveDiophantineMethods:ED.5",
+    "EffectiveDiophantineMethods:ED.6"
+   ],
+   "after": [
+    "REV-EffectiveDiophantineMethods~3"
+   ],
+   "revisionOf": "BP-EffectiveDiophantineMethods"
+  },
+  {
+   "id": "REV-EffectiveDiophantineMethods~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 414600,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EffectiveDiophantineMethods~4.md",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json",
+    "research/blueprint/readmes/EffectiveDiophantineMethods.md",
+    "research/blueprint/suggested/EffectiveDiophantineMethods.lean"
+   ],
+   "after": [
+    "BP-EffectiveDiophantineMethods~4"
+   ],
+   "avoidAccountOf": "BP-EffectiveDiophantineMethods~4",
+   "independentOf": [
+    "BP-EffectiveDiophantineMethods",
+    "BP-EffectiveDiophantineMethods~2",
+    "BP-EffectiveDiophantineMethods~3",
+    "BP-EffectiveDiophantineMethods~4"
+   ],
+   "state": "pending"
   }
  ]
 }
