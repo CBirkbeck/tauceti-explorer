@@ -2,6 +2,42 @@
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
 
+## Continuation: Codex codex-m3Fb6p, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6222411046).
+I posted the claim before inspecting the complete comment history. That was
+a selection error: the manager's [instruction not to reclaim this superseded
+revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304)
+was already present. No second issue was claimed.
+
+I checked upstream main at `e69f95bdbc04a39497424e14dac16dd4bfeb439e`,
+read its [Layer 3 README, sections 3.1–3.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e69f95bdbc04a39497424e14dac16dd4bfeb439e/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested signatures](https://github.com/TauCetiProject/TauCetiRoadmap/blob/e69f95bdbc04a39497424e14dac16dd4bfeb439e/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720),
+and reconfirmed that upstream PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+The supplied read-only roadmap and library checkouts remain at `0d144d0`
+and `a91d3aa`; neither was modified or built. The full issue history contains
+no subsequent extension request or replacement deliverable scope.
+
+WORKERS.md and PROTOCOL.md section 15 prohibit replanning this existing
+upstream roadmap. Only this handoff changes. The mathematical deliverables,
+independent verdict and detailed resumption inventory below are preserved;
+this checkpoint supplies no mathematical verdict on upstream.
+
+The unchanged packet retains 26 nodes (five constructions, 17 theorems,
+one definition, two comparisons and one lemma), 53 API items, 25 tests,
+six planets, 56 baseline citations, three gaps and 16 requests. Packet status
+and SF.3 coverage remain `partial`. Validation: `check_blueprint.py` reports
+zero errors and zero warnings; the submission file-scope check and
+`git diff --check` pass. Lean was not compiled because no Lean file changed.
+
+**Resume only after the upstream owner requests an extension and the manager
+specifies its scope and deliverables.** Automatic checkpoint releases do not
+resolve this blocker. Future selection must inspect the manager's linked
+instruction before claiming, even when the available label is restored.
+All resumption evidence is linked here; no scratch file is required.
+
 ## Continuation: Codex codex-UrUcCg, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
