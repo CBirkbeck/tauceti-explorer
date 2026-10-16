@@ -53489,7 +53489,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicHodgeTheory.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "duplicate of PKG-PadicHodgeTheory~codex (done)"
   },
   {
    "id": "REV-PKG-PadicHodgeTheory",
@@ -53514,7 +53515,8 @@
     "PKG-PadicHodgeTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeTheory.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "replaced by REV-PKG-PadicHodgeTheory~adv"
   },
   {
    "id": "PKG-PerfectoidQuotients",
@@ -130591,6 +130593,46 @@
    ],
    "state": "external",
    "note": "claimed on GitHub issue #10052"
+  },
+  {
+   "id": "REV-PKG-DeformationAndDerivedPatchingAlgebra~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-DeformationAndDerivedPatchingAlgebra~adv.md",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/review.json",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/README.md",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/Suggested.lean",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-DeformationAndDerivedPatchingAlgebra~adv.md"
+  },
+  {
+   "id": "REV-PKG-PadicHodgeTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PadicHodgeTheory~adv.md",
+    "research/blueprint/packages/PadicHodgeTheory/review.json",
+    "research/blueprint/packages/PadicHodgeTheory/README.md",
+    "research/blueprint/packages/PadicHodgeTheory/Suggested.lean",
+    "research/blueprint/packages/PadicHodgeTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeTheory~adv.md"
   }
  ]
 }
