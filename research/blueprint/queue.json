@@ -23164,8 +23164,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "superseded",
+   "suppliers": [],
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology",
@@ -23186,7 +23187,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-ClassicalSerreModularity--R26.1",
@@ -23647,8 +23649,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "superseded",
+   "suppliers": [],
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-CrystallineCohomology",
@@ -23669,7 +23672,8 @@
    ],
    "avoidAccountOf": "BP-CrystallineCohomology",
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-DeligneWeightsAndPurity",
@@ -26677,8 +26681,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "superseded",
+   "suppliers": [],
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-LefschetzPencilsAndVanishingCycles",
@@ -26699,7 +26704,8 @@
    ],
    "avoidAccountOf": "BP-LefschetzPencilsAndVanishingCycles",
    "prompt": "research/blueprint/prompts/REV-LefschetzPencilsAndVanishingCycles.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-LocalGaloisDeformationRings",
@@ -27712,8 +27718,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidSpaces.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "superseded",
+   "suppliers": [],
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-PerfectoidSpaces",
@@ -27734,7 +27741,8 @@
    ],
    "avoidAccountOf": "BP-PerfectoidSpaces",
    "prompt": "research/blueprint/prompts/REV-PerfectoidSpaces.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-PhiGammaModulesAndIwasawaCohomology",
@@ -32868,8 +32876,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9293"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L3",
@@ -32890,7 +32898,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L3",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L4",
@@ -38723,8 +38732,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9330"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -38745,7 +38754,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.0",
@@ -43884,8 +43894,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9301"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "priority": 2,
@@ -43910,7 +43920,8 @@
     "BP-AlgebraicModuliForArithmeticGeometry--R09.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "kind": "blueprint",
@@ -66783,7 +66794,8 @@
     "REV-DESIGN-FGLG"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-DESIGN-FGLG.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-DESIGN-FGFO",
@@ -67723,7 +67735,8 @@
     "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-DESIGN-CrystallineLocalGlobalCompatibilityCM",
@@ -69826,7 +69839,8 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-04.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-RS-05",
@@ -70305,7 +70319,8 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-09~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-RS-10~2",
@@ -72098,7 +72113,8 @@
     "REV-LocallyAnalyticDistributions"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-SchemeAndStackFoundations",
@@ -72239,7 +72255,8 @@
     "REV-AbelianSchemesAndArithmeticModuli"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AdicCoefficientsAndComparisons",
@@ -72286,7 +72303,8 @@
     "REV-AdicCoefficientsAndComparisons"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AdicCoefficientsAndComparisons.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AdicEtaleGeometry",
@@ -72333,7 +72351,8 @@
     "REV-AdicEtaleGeometry"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AdicEtaleGeometry.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AdicSpacesPartII",
@@ -72427,7 +72446,8 @@
     "REV-AlgebraicModularFormsAndSerreWeights"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -72474,7 +72494,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d",
@@ -72521,7 +72542,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.7d"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArakelovGeometryAndAbelianHeights",
@@ -72568,7 +72590,8 @@
     "REV-ArakelovGeometryAndAbelianHeights"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArakelovGeometryAndAbelianHeights.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisDuality",
@@ -72615,7 +72638,8 @@
     "REV-ArithmeticGaloisDuality"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisDuality.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.6",
@@ -72662,7 +72686,8 @@
     "REV-ClassicalSerreModularity--R27.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R27.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ColemanIntegration",
@@ -72850,7 +72875,8 @@
     "REV-ComplexComparisonPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ComplexComparisonPartII.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DeligneWeightsAndPurity",
@@ -72897,7 +72923,8 @@
     "REV-DeligneWeightsAndPurity"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DeligneWeightsAndPurity.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DiamondEtaleCohomology",
@@ -72944,7 +72971,8 @@
     "REV-DiamondEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DiamondEtaleCohomology.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DiamondsAndVStacks",
@@ -72991,7 +73019,8 @@
     "REV-DiamondsAndVStacks"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DiamondsAndVStacks.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DirichletPadicLFunctions--L0",
@@ -73516,7 +73545,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a",
@@ -73563,7 +73593,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6a"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EnhancedDerivedSheaves",
@@ -73610,7 +73641,8 @@
     "REV-EnhancedDerivedSheaves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EnhancedDerivedSheaves.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-FaltingsFinitenessAndIsogenyTheorems",
@@ -73657,7 +73689,8 @@
     "REV-FaltingsFinitenessAndIsogenyTheorems"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-FaltingsFinitenessAndIsogenyTheorems.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-FarguesFontaineDiamonds",
@@ -73704,7 +73737,8 @@
     "REV-FarguesFontaineDiamonds"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-FarguesFontaineDiamonds.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -73751,7 +73785,8 @@
     "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
@@ -73798,7 +73833,8 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GL2AutomorphicRepresentationsAndTransfer--R16.1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.6",
@@ -73845,7 +73881,8 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R17.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GL2ModularityLifting--R32.6",
@@ -73989,7 +74026,8 @@
     "FIX-RT-BP-GlobalGaloisDeformations"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-GlobalGaloisDeformations.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GrossZagierAndArithmeticHeights",
@@ -74224,7 +74262,8 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--H0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--H0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
@@ -74271,7 +74310,8 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--R18.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HodgeTateAndCanonicalSubgroups",
@@ -74412,7 +74452,8 @@
     "REV-ModularCurvesPartII--R12.1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R12.1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ModularCurvesPartII--R13.4b",
@@ -74459,7 +74500,8 @@
     "REV-ModularCurvesPartII--R13.4b"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.4b.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ModularSymbolsPadicLFunctions",
@@ -74506,7 +74548,8 @@
     "REV-ModularSymbolsPadicLFunctions"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularSymbolsPadicLFunctions.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-MotivicEtaleKTheory--M.1",
@@ -74600,7 +74643,8 @@
     "REV-NeronModelsAndSemistableAbelianVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -74694,7 +74738,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicFamilies",
@@ -74741,7 +74786,8 @@
     "REV-PadicFamilies"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicFamilies.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicHodgeTheory",
@@ -74929,7 +74975,8 @@
     "REV-SelmerIwasawaCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-SelmerIwasawaCohomology.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-SerreWeightAndLevelOptimisation",
@@ -74976,7 +75023,8 @@
     "REV-SerreWeightAndLevelOptimisation"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-SerreWeightAndLevelOptimisation.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ShimuraCompactifications",
@@ -75070,7 +75118,8 @@
     "REV-ShimuraVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ShimuraVarieties.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-SmallRamificationAndAbelianVarietyBaseCases",
@@ -75117,7 +75166,8 @@
     "REV-SmallRamificationAndAbelianVarietyBaseCases"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-SmoothRepresentationsOfLocalGroups",
@@ -75164,7 +75214,8 @@
     "REV-SmoothRepresentationsOfLocalGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-SmoothRepresentationsOfLocalGroups.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HabiroNahmSeries",
@@ -75258,7 +75309,8 @@
     "REV-InverseGaloisAndArithmeticFundamentalGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty",
@@ -75305,7 +75357,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnalyticNumberTheory",
@@ -76856,7 +76909,8 @@
     "REV-LocallyAnalyticDistributions--L0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions--L0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-LocallyAnalyticDistributions--L1",
@@ -76903,7 +76957,8 @@
     "REV-LocallyAnalyticDistributions--L1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions--L1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-LocallyAnalyticDistributions--L2",
@@ -76950,7 +77005,8 @@
     "REV-LocallyAnalyticDistributions--L2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions--L2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-LocallyAnalyticDistributions--L4",
@@ -76997,7 +77053,8 @@
     "REV-LocallyAnalyticDistributions--L4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LocallyAnalyticDistributions--L4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-SchemeAndStackFoundations--SF.5",
@@ -77138,7 +77195,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.2",
@@ -77185,7 +77243,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.3",
@@ -77232,7 +77291,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.5",
@@ -77279,7 +77339,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.6",
@@ -77326,7 +77387,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7",
@@ -77373,7 +77435,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -77420,7 +77483,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.7a"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b",
@@ -77467,7 +77531,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.7b"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c",
@@ -77514,7 +77579,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.7c"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--G7",
@@ -77561,7 +77627,8 @@
     "REV-ArithmeticGaloisRepresentations--G7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--G7.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--R01.1",
@@ -77608,7 +77675,8 @@
     "REV-ArithmeticGaloisRepresentations--R01.1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--R01.1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--R01.2",
@@ -77655,7 +77723,8 @@
     "REV-ArithmeticGaloisRepresentations--R01.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--R01.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--R01.3",
@@ -77702,7 +77771,8 @@
     "REV-ArithmeticGaloisRepresentations--R01.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--R01.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--R01.4",
@@ -77749,7 +77819,8 @@
     "REV-ArithmeticGaloisRepresentations--R01.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--R01.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--R01.5",
@@ -77796,7 +77867,8 @@
     "REV-ArithmeticGaloisRepresentations--R01.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--R01.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations--R01.6",
@@ -77843,7 +77915,8 @@
     "REV-ArithmeticGaloisRepresentations--R01.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations--R01.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
@@ -77989,7 +78062,8 @@
     "REV-ClassicalSerreModularity--R27.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R27.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.5",
@@ -78036,7 +78110,8 @@
     "REV-ClassicalSerreModularity--R27.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R27.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ColemanPowerSeries--L0",
@@ -78553,7 +78628,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6",
@@ -78600,7 +78676,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EtaleDualityAndPerverseSheaves--EDC.5",
@@ -78741,7 +78818,8 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R17.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.4",
@@ -78788,7 +78866,8 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R17.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HabiroRings--HR.1",
@@ -79164,7 +79243,8 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
@@ -79211,7 +79291,8 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--R18.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
@@ -79258,7 +79339,8 @@
     "REV-HilbertModularVarietiesAndShimuraCurves--R18.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-K2SymbolsBrauer--T.1-2",
@@ -79970,7 +80052,8 @@
     "REV-ModularCurvesPartII--R13.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ModularCurvesPartII--R13.4",
@@ -80017,7 +80100,8 @@
     "REV-ModularCurvesPartII--R13.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ModularCurvesPartII--R13.4a",
@@ -80064,7 +80148,8 @@
     "REV-ModularCurvesPartII--R13.4a"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R13.4a.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PotentialModularityAndCompatibleSystems--R24.4",
@@ -80487,7 +80572,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.2",
@@ -80534,7 +80620,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.3",
@@ -80581,7 +80668,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.4",
@@ -80628,7 +80716,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.5",
@@ -80675,7 +80764,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.6",
@@ -80722,7 +80812,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticDynamics--DY.2",
@@ -81239,7 +81330,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
@@ -81286,7 +81378,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
@@ -81333,7 +81426,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
@@ -81380,7 +81474,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
@@ -81427,7 +81522,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticStatistics--ST.0",
@@ -81944,7 +82040,8 @@
     "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII~2",
@@ -82226,7 +82323,8 @@
     "REV-AdelicAlgebraicGroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AdelicAlgebraicGroups~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticGaloisRepresentations~3",
@@ -82273,7 +82371,8 @@
     "REV-ArithmeticGaloisRepresentations~3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticGaloisRepresentations~3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ArithmeticLocallySymmetricSpaces~2",
@@ -82320,7 +82419,8 @@
     "REV-ArithmeticLocallySymmetricSpaces~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AutomorphicGaloisRepresentations~2",
@@ -82367,7 +82467,8 @@
     "REV-AutomorphicGaloisRepresentations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicGaloisRepresentations~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AutomorphicGaloisRepresentationsPartII~2",
@@ -82414,7 +82515,8 @@
     "REV-AutomorphicGaloisRepresentationsPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicGaloisRepresentationsPartII~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AutomorphicLFunctionsAndLocalFactors~2",
@@ -82461,7 +82563,8 @@
     "REV-AutomorphicLFunctionsAndLocalFactors~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicLFunctionsAndLocalFactors~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AutomorphicSpectralTheory~2",
@@ -82508,7 +82611,8 @@
     "REV-AutomorphicSpectralTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicSpectralTheory~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-BunGAndNewtonStrata~3",
@@ -82602,7 +82706,8 @@
     "REV-ClassicalSerreModularity--R26.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R26.1~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-CohomologyComparisons~2",
@@ -82696,7 +82801,8 @@
     "REV-DerivedDeRhamCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DerivedDeRhamCohomology~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DiamondSixOperations~2",
@@ -82743,7 +82849,8 @@
     "REV-DiamondSixOperations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DiamondSixOperations~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EtaleDualityAndPerverseSheaves--EDC.0~2",
@@ -83072,7 +83179,8 @@
     "REV-IntegralHeckeAndGaloisDeterminants~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-IntegralHeckeAndGaloisDeterminants~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-KTheoryFiniteLocalFields~2",
@@ -83309,7 +83417,8 @@
     "REV-LocalGaloisDeformationRings~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LocalGaloisDeformationRings~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PELModuli~2",
@@ -83356,7 +83465,8 @@
     "REV-PELModuli~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PELModuli~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PerfectoidShimuraVarieties~3",
@@ -83779,7 +83889,8 @@
     "REV-WeightsInEtaleCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-WeightsInEtaleCohomology~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ComplexMultiplicationAndExplicitReciprocity~2",
@@ -83969,7 +84080,8 @@
     "REV-ClassicalArithmeticCompletion~3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion~3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DiophantineApproximationAndTranscendence~2",
@@ -84063,7 +84175,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HeightsRationalPointsAndObstructions~2",
@@ -84110,7 +84223,8 @@
     "REV-HeightsRationalPointsAndObstructions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-HeightsRationalPointsAndObstructions~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ModularityAndLanglandsExtensions~2",
@@ -84251,7 +84365,8 @@
     "REV-AlgebraicModuliForArithmeticGeometry--R09.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AlgebraicModuliForArithmeticGeometry--R09.1~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EllipticRegulators--ER.7~2",
@@ -84345,7 +84460,8 @@
     "REV-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EndoscopicTransferAndUnitaryTraceComparison--ET.4~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2",
@@ -84392,7 +84508,8 @@
     "REV-GL2AutomorphicRepresentationsAndTransfer--R17.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GL2AutomorphicRepresentationsAndTransfer--R17.5~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-GeometricSatakeAndFusion--GS3~2",
@@ -84674,7 +84791,8 @@
     "REV-AnabelianGeometryAndNonabelianChabauty--NC.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AnabelianGeometryAndNonabelianChabauty--NC.1~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-FiniteFieldsAndCharacterSums--FF.1~2",
@@ -84768,7 +84886,8 @@
     "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DirichletPadicLFunctions--L3-2",
@@ -84862,7 +84981,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1",
@@ -84909,7 +85029,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2",
@@ -84956,7 +85077,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3",
@@ -85003,7 +85125,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4",
@@ -85050,7 +85173,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5",
@@ -85097,7 +85221,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6",
@@ -85144,7 +85269,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7",
@@ -85191,7 +85317,8 @@
     "REV-PadicDifferentialEquationsAndRigidCohomology--RD.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PadicDifferentialEquationsAndRigidCohomology--RD.7.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.1",
@@ -85238,7 +85365,8 @@
     "REV-ClassicalArithmeticCompletion--CA.1"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.1.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.2",
@@ -85285,7 +85413,8 @@
     "REV-ClassicalArithmeticCompletion--CA.2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.3",
@@ -85332,7 +85461,8 @@
     "REV-ClassicalArithmeticCompletion--CA.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.4",
@@ -85379,7 +85509,8 @@
     "REV-ClassicalArithmeticCompletion--CA.4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.5",
@@ -85426,7 +85557,8 @@
     "REV-ClassicalArithmeticCompletion--CA.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.6",
@@ -85473,7 +85605,8 @@
     "REV-ClassicalArithmeticCompletion--CA.6"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalArithmeticCompletion--CA.7",
@@ -85520,7 +85653,8 @@
     "REV-ClassicalArithmeticCompletion--CA.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalArithmeticCompletion--CA.7.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PotentialAutomorphyInfrastructurePartII--PL.6",
@@ -86143,7 +86277,8 @@
     "REV-ClassicalAdicEtaleCohomology--H0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalAdicEtaleCohomology--H0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalAdicEtaleCohomology--H4",
@@ -86190,7 +86325,8 @@
     "REV-ClassicalAdicEtaleCohomology--H4"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R33.5",
@@ -86430,7 +86566,8 @@
     "REV-DeligneWeightsAndPurity--DWP.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DeligneWeightsAndPurity--DWP.7.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DiamondEtaleCohomology--C0",
@@ -86477,7 +86614,8 @@
     "REV-DiamondEtaleCohomology--C0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DiamondEtaleCohomology--C0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DiamondEtaleCohomology--C8",
@@ -86524,7 +86662,8 @@
     "REV-DiamondEtaleCohomology--C8"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DiamondEtaleCohomology--C8.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EnhancedDerivedSheaves--E0",
@@ -86571,7 +86710,8 @@
     "REV-EnhancedDerivedSheaves--E0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EnhancedDerivedSheaves--E0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EnhancedDerivedSheaves--E5",
@@ -86618,7 +86758,8 @@
     "REV-EnhancedDerivedSheaves--E5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EnhancedDerivedSheaves--E5.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-EulerSystemsAndKolyvaginSystems--ES.8",
@@ -86900,7 +87041,8 @@
     "REV-LefschetzPencilsAndVanishingCycles--LPV.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LefschetzPencilsAndVanishingCycles--LPV.7.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ModularCurvesPartII--R14.3",
@@ -86947,7 +87089,8 @@
     "REV-ModularCurvesPartII--R14.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ModularCurvesPartII--R14.3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-PadicHodgeRegulators--L3",
@@ -87135,7 +87278,8 @@
     "REV-PerfectoidSpaces--P8"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-PerfectoidSpaces--P8.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ShimuraCompactifications--C6",
@@ -87229,7 +87373,8 @@
     "REV-SmoothRepresentationsOfLocalGroups--SR.0"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-SmoothRepresentationsOfLocalGroups--SR.0.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-WeilConjectures--WC.0",
@@ -87981,7 +88126,8 @@
     "REV-ClassicalAdicEtaleCohomology--H1-valuation-exports"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
@@ -88028,7 +88174,8 @@
     "REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ClassicalAdicEtaleCohomology--H3",
@@ -88075,7 +88222,8 @@
     "REV-ClassicalAdicEtaleCohomology--H3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalAdicEtaleCohomology--H3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.3",
@@ -88263,7 +88411,8 @@
     "REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
@@ -88310,7 +88459,8 @@
     "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-CrystallineCohomology--CR.0~2",
@@ -88357,7 +88507,8 @@
     "REV-CrystallineCohomology--CR.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-CrystallineCohomology--CR.0~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-CrystallineCohomology--CR.5~3",
@@ -88404,7 +88555,8 @@
     "REV-CrystallineCohomology--CR.5~3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-CrystallineCohomology--CR.5~3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-DeligneWeightsAndPurity--DWP.0~2",
@@ -88451,7 +88603,8 @@
     "REV-DeligneWeightsAndPurity--DWP.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-DeligneWeightsAndPurity--DWP.0~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ExcursionOperatorsAndSpectralAction--ES5~2",
@@ -88921,7 +89074,8 @@
     "REV-LefschetzPencilsAndVanishingCycles--LPV.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-LefschetzPencilsAndVanishingCycles--LPV.0~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-MetaplecticAutomorphicForms--MP.0~2",
@@ -89391,7 +89545,8 @@
     "REV-ShimuraVarieties--V0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ShimuraVarieties--V0~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-ShimuraVarieties--V8~2",
@@ -89438,7 +89593,8 @@
     "REV-ShimuraVarieties--V8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ShimuraVarieties--V8~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-BP-VectorBundlesAndIsocrystals--VB0~2",
@@ -93566,7 +93722,8 @@
     "FIX-RT-AREA-algebraicnt-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicnt-1~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-algebraicnt-2",
@@ -93765,7 +93922,8 @@
     "FIX-RT-AREA-arithmeticgeometry-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-arithmeticgeometry-1~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-2",
@@ -93906,7 +94064,8 @@
     "FIX-RT-AREA-arithmeticgeometry-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-arithmeticgeometry-2~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-arithmeticgeometry-3",
@@ -94850,7 +95009,8 @@
     "FIX-RT-AREA-automorphic-1~6"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~6.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -96180,8 +96340,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -96372,8 +96532,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7451"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -97126,7 +97286,8 @@
     "FIX-RT-AREA-algebraicgeometry~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~3.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -97553,8 +97714,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5704"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "FIX-RT-AREA-padic-1~4",
@@ -97771,7 +97932,8 @@
     "FIX-RT-AREA-padic-1~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~4.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-padic-2",
@@ -99714,7 +99876,8 @@
     "RT-AREA-homological"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-homological.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "RT-AREA-analysis",
@@ -123502,9 +123665,10 @@
     "SRC-AbelianSchemesAndArithmeticModuli"
    ],
    "avoidAccountOf": "SRC-AbelianSchemesAndArithmeticModuli",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-SRC-AbelianSchemesAndArithmeticModuli.md"
+   "prompt": "research/blueprint/prompts/REV-SRC-AbelianSchemesAndArithmeticModuli.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "SRC-AdicEtaleGeometry",
@@ -123539,9 +123703,10 @@
     "SRC-AdicEtaleGeometry"
    ],
    "avoidAccountOf": "SRC-AdicEtaleGeometry",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-SRC-AdicEtaleGeometry.md"
+   "prompt": "research/blueprint/prompts/REV-SRC-AdicEtaleGeometry.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "SRC-AdicSpaces",
@@ -124020,9 +124185,10 @@
     "SRC-ClassicalAdicEtaleCohomology"
    ],
    "avoidAccountOf": "SRC-ClassicalAdicEtaleCohomology",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-SRC-ClassicalAdicEtaleCohomology.md"
+   "prompt": "research/blueprint/prompts/REV-SRC-ClassicalAdicEtaleCohomology.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "SRC-ClassicalGroups",
@@ -124875,9 +125041,10 @@
     "SRC-NeronModelsAndSemistableAbelianVarieties"
    ],
    "avoidAccountOf": "SRC-NeronModelsAndSemistableAbelianVarieties",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-SRC-NeronModelsAndSemistableAbelianVarieties.md"
+   "prompt": "research/blueprint/prompts/REV-SRC-NeronModelsAndSemistableAbelianVarieties.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "SRC-NumberFieldArithmetic",
@@ -125619,9 +125786,10 @@
     "ATT-AdelicAlgebraicGroups"
    ],
    "avoidAccountOf": "ATT-AdelicAlgebraicGroups",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AdelicAlgebraicGroups.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AdelicAlgebraicGroups.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-AdicCoefficientsAndComparisons",
@@ -125656,9 +125824,10 @@
     "ATT-AdicCoefficientsAndComparisons"
    ],
    "avoidAccountOf": "ATT-AdicCoefficientsAndComparisons",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AdicCoefficientsAndComparisons.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AdicCoefficientsAndComparisons.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-AdicEtaleGeometry",
@@ -125693,9 +125862,10 @@
     "ATT-AdicEtaleGeometry"
    ],
    "avoidAccountOf": "ATT-AdicEtaleGeometry",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AdicEtaleGeometry.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AdicEtaleGeometry.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-AdicSpacesPartII",
@@ -125804,9 +125974,10 @@
     "ATT-AlgebraicModularFormsAndSerreWeights"
    ],
    "avoidAccountOf": "ATT-AlgebraicModularFormsAndSerreWeights",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AlgebraicModularFormsAndSerreWeights.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AlgebraicModularFormsAndSerreWeights.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-AlgebraicTopology",
@@ -125878,9 +126049,10 @@
     "ATT-AnabelianGeometryAndNonabelianChabauty"
    ],
    "avoidAccountOf": "ATT-AnabelianGeometryAndNonabelianChabauty",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AnabelianGeometryAndNonabelianChabauty.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AnabelianGeometryAndNonabelianChabauty.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-ArakelovGeometryAndAbelianHeights",
@@ -125915,9 +126087,10 @@
     "ATT-ArakelovGeometryAndAbelianHeights"
    ],
    "avoidAccountOf": "ATT-ArakelovGeometryAndAbelianHeights",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-ArakelovGeometryAndAbelianHeights.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-ArakelovGeometryAndAbelianHeights.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-ArithmeticDirichletSeries",
@@ -126026,9 +126199,10 @@
     "ATT-ArithmeticGaloisRepresentations"
    ],
    "avoidAccountOf": "ATT-ArithmeticGaloisRepresentations",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticGaloisRepresentations.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticGaloisRepresentations.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-ArithmeticKTheory",
@@ -126100,9 +126274,10 @@
     "ATT-ArithmeticLocallySymmetricSpaces"
    ],
    "avoidAccountOf": "ATT-ArithmeticLocallySymmetricSpaces",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticLocallySymmetricSpaces.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-ArithmeticLocallySymmetricSpaces.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-AutomorphicBundles",
@@ -126211,9 +126386,10 @@
     "ATT-AutomorphicGaloisRepresentations"
    ],
    "avoidAccountOf": "ATT-AutomorphicGaloisRepresentations",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicGaloisRepresentations.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicGaloisRepresentations.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-AutomorphicSpectralTheory",
@@ -126248,9 +126424,10 @@
     "ATT-AutomorphicSpectralTheory"
    ],
    "avoidAccountOf": "ATT-AutomorphicSpectralTheory",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicSpectralTheory.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-AutomorphicSpectralTheory.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-BorelRegulators",
@@ -126507,9 +126684,10 @@
     "ATT-ClassicalAdicEtaleCohomology"
    ],
    "avoidAccountOf": "ATT-ClassicalAdicEtaleCohomology",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-ClassicalAdicEtaleCohomology.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-ClassicalAdicEtaleCohomology.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-ClassicalGroups",
@@ -126729,9 +126907,10 @@
     "ATT-CrystallineCohomology"
    ],
    "avoidAccountOf": "ATT-CrystallineCohomology",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-CrystallineCohomology.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-CrystallineCohomology.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-DerivedDeRhamCohomology",
@@ -126766,9 +126945,10 @@
     "ATT-DerivedDeRhamCohomology"
    ],
    "avoidAccountOf": "ATT-DerivedDeRhamCohomology",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-DerivedDeRhamCohomology.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-DerivedDeRhamCohomology.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-DiamondEtaleCohomology",
@@ -126803,9 +126983,10 @@
     "ATT-DiamondEtaleCohomology"
    ],
    "avoidAccountOf": "ATT-DiamondEtaleCohomology",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-DiamondEtaleCohomology.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-DiamondEtaleCohomology.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-DiamondSixOperations",
@@ -126840,9 +127021,10 @@
     "ATT-DiamondSixOperations"
    ],
    "avoidAccountOf": "ATT-DiamondSixOperations",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-DiamondSixOperations.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-DiamondSixOperations.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-DiamondsAndVStacks",
@@ -126877,9 +127059,10 @@
     "ATT-DiamondsAndVStacks"
    ],
    "avoidAccountOf": "ATT-DiamondsAndVStacks",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-DiamondsAndVStacks.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-DiamondsAndVStacks.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-EffectiveBounds",
@@ -126988,9 +127171,10 @@
     "ATT-EllipticCurveModularity"
    ],
    "avoidAccountOf": "ATT-EllipticCurveModularity",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-EllipticCurveModularity.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-EllipticCurveModularity.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-EllipticKTheory",
@@ -127062,9 +127246,10 @@
     "ATT-EnhancedDerivedSheaves"
    ],
    "avoidAccountOf": "ATT-EnhancedDerivedSheaves",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-EnhancedDerivedSheaves.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-EnhancedDerivedSheaves.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-Exchangeability",
@@ -127173,9 +127358,10 @@
     "ATT-FarguesFontaineDiamonds"
    ],
    "avoidAccountOf": "ATT-FarguesFontaineDiamonds",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-FarguesFontaineDiamonds.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-FarguesFontaineDiamonds.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-GL2AutomorphicRepresentationsAndTransfer",
@@ -127210,9 +127396,10 @@
     "ATT-GL2AutomorphicRepresentationsAndTransfer"
    ],
    "avoidAccountOf": "ATT-GL2AutomorphicRepresentationsAndTransfer",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-GL2AutomorphicRepresentationsAndTransfer.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-GL2AutomorphicRepresentationsAndTransfer.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-GeneralAlgebraicKTheory",
@@ -127654,9 +127841,10 @@
     "ATT-HeightsRationalPointsAndObstructions"
    ],
    "avoidAccountOf": "ATT-HeightsRationalPointsAndObstructions",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-HeightsRationalPointsAndObstructions.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-HeightsRationalPointsAndObstructions.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-IgusaVarietiesAndTorsionConcentration",
@@ -127765,9 +127953,10 @@
     "ATT-IntegralHeckeAndGaloisDeterminants"
    ],
    "avoidAccountOf": "ATT-IntegralHeckeAndGaloisDeterminants",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-IntegralHeckeAndGaloisDeterminants.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-IntegralHeckeAndGaloisDeterminants.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-InverseGaloisAndArithmeticFundamentalGroups",
@@ -127802,9 +127991,10 @@
     "ATT-InverseGaloisAndArithmeticFundamentalGroups"
    ],
    "avoidAccountOf": "ATT-InverseGaloisAndArithmeticFundamentalGroups",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-InverseGaloisAndArithmeticFundamentalGroups.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-InverseGaloisAndArithmeticFundamentalGroups.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-JacobianChallenge",
@@ -128172,9 +128362,10 @@
     "ATT-ModularSymbolsPadicLFunctions"
    ],
    "avoidAccountOf": "ATT-ModularSymbolsPadicLFunctions",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-ModularSymbolsPadicLFunctions.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-ModularSymbolsPadicLFunctions.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-MotivicEtaleKTheory",
@@ -128431,9 +128622,10 @@
     "ATT-PELModuli"
    ],
    "avoidAccountOf": "ATT-PELModuli",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-PELModuli.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-PELModuli.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-PadicFamilies",
@@ -128468,9 +128660,10 @@
     "ATT-PadicFamilies"
    ],
    "avoidAccountOf": "ATT-PadicFamilies",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-PadicFamilies.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-PadicFamilies.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-PadicLocalLanglandsForGL2Qp",
@@ -128579,9 +128772,10 @@
     "ATT-PerfectoidSpaces"
    ],
    "avoidAccountOf": "ATT-PerfectoidSpaces",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-PerfectoidSpaces.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-PerfectoidSpaces.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-PhiGammaModulesAndIwasawaCohomology",
@@ -128727,9 +128921,10 @@
     "ATT-ReductiveGroupsPartII"
    ],
    "avoidAccountOf": "ATT-ReductiveGroupsPartII",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-ReductiveGroupsPartII.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-ReductiveGroupsPartII.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-RefinedTraceMethods",
@@ -129023,9 +129218,10 @@
     "ATT-SmoothRepresentationsOfLocalGroups"
    ],
    "avoidAccountOf": "ATT-SmoothRepresentationsOfLocalGroups",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-SmoothRepresentationsOfLocalGroups.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-SmoothRepresentationsOfLocalGroups.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-StableHomotopyKTheory",
@@ -129282,9 +129478,10 @@
     "ATT-WeightsInEtaleCohomology"
    ],
    "avoidAccountOf": "ATT-WeightsInEtaleCohomology",
-   "state": "pending",
+   "state": "superseded",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-ATT-WeightsInEtaleCohomology.md"
+   "prompt": "research/blueprint/prompts/REV-ATT-WeightsInEtaleCohomology.md",
+   "note": "superseded — this roadmap is an open TauCetiRoadmap pull request of ours; the pull request is the living document and plan revisions here are moot (manager, 2026-10-16)"
   },
   {
    "id": "ATT-WeilConjectures",
