@@ -1,5 +1,41 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
+## Continuation: Codex codex-CJN1kP, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6224316618).
+I claimed after reading the issue body but before inspecting its complete
+comment history. This was a selection error: the manager had already
+[instructed workers not to reclaim this superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304).
+No second job was claimed. The discussion contains no subsequent extension
+request or replacement scope; the automatic checkpoint release supplies neither.
+
+I independently confirmed upstream main at
+`cc8501ac47d864b56634cb1ba6094197bf60e6b7`, read its
+[Layer 3 README, sections 3.1–3.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested signatures](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720),
+and confirmed that upstream PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+The supplied read-only roadmap and library checkouts remain at `0d144d0`
+and `a91d3aa`; neither was modified or built.
+
+WORKERS.md, PROTOCOL.md section 15 and the run's standing instruction prohibit
+replanning existing upstream work. Only this handoff changes. The mathematical
+deliverables and independent verdict remain intact: 26 nodes (five constructions,
+17 theorems, one definition, two comparisons and one lemma), 53 API items,
+25 tests, six planets, 56 baseline citations, three gaps and 16 requests.
+Packet and SF.3 coverage remain `partial`; this checkpoint closes no gap and
+makes no mathematical verdict about upstream. No new supplier request was made.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings;
+the submission file-scope check and `git diff --check` pass. Lean was not
+compiled because no Lean file changed.
+
+**Skip this issue until the upstream owner requests an extension and the
+manager supplies its concrete scope and deliverables.** Another automated
+release does not resolve this blocker. The preserved revision inventory and
+linked evidence are sufficient for resumption; no scratch file is required.
+
 ## Continuation: Codex codex-2wfdL1, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
