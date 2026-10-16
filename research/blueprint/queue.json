@@ -22353,9 +22353,10 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7d.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9912"
+   "note": "deliverables arrived from an external worker on issue #9912",
+   "finishedAt": "2026-10-16T11:18:08Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7d",
@@ -23800,9 +23801,10 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-DiamondEtaleCohomology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9919"
+   "note": "deliverables arrived from an external worker on issue #9919",
+   "finishedAt": "2026-10-16T11:18:09Z"
   },
   {
    "id": "REV-DiamondEtaleCohomology",
@@ -28602,9 +28604,10 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9908"
+   "note": "deliverables arrived from an external worker on issue #9908",
+   "finishedAt": "2026-10-16T11:18:11Z"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups",
@@ -33700,8 +33703,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9910"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9910",
+   "finishedAt": "2026-10-16T11:18:12Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7b",
@@ -33745,8 +33749,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7c.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9911"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9911",
+   "finishedAt": "2026-10-16T11:18:14Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7c",
@@ -47690,7 +47695,8 @@
     "PKG-AutomorphicBundles~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9883"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -53292,8 +53298,9 @@
     "PKG-PadicFamilies"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicFamilies.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9889"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9889",
+   "finishedAt": "2026-10-16T11:18:16Z"
   },
   {
    "id": "PKG-PadicHodgeTheory",
@@ -54335,8 +54342,9 @@
     "PKG-ShimuraCompactifications"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ShimuraCompactifications.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9887"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9887",
+   "finishedAt": "2026-10-16T11:18:21Z"
   },
   {
    "id": "PKG-ShimuraVarieties",
