@@ -5,7 +5,7 @@
   "scope": [
     "AlgebraicModuliForArithmeticGeometry:R09.4"
   ],
-  "status": "complete",
+  "status": "partial",
   "summary": "Arithmetic applications of the SF.1 stack carrier: fixed-polygon generalized elliptic moduli and fixed-degree polarized abelian moduli. Stable pointed curves are imported from their existing Part II owner. General stack theory and the inherited gerbe targets are not redeclared.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2919,8 +2919,9 @@
   "coverage": [
     {
       "stageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
+        "Revision-round ownership blocker (2026-10-16): the maintainer stopped further atlas blueprint rounds in issue #9301, comment 6146996689, because TauCetiRoadmap PR #853 is authoritative. Its README at commit 6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c, Scope and ownership, assigns generalized elliptic curves to ModularCurvesPartII and polarized abelian moduli to AbelianSchemesAndArithmeticModuli. A maintainer disposition of this stale job and its ownership is required before continuing the eight reader corrections in REV-AlgebraicModuliForArithmeticGeometry--R09.4. Existing nodes and the needs_changes review are preserved; this revision does not certify the historical planned coverage.",
         "Discharge the fourteen recorded gaps and satisfy the twenty-one precise supplier requests. No existing target-level node remains unwritten; new proof inputs are recorded as exact open supplier obligations.",
         "Apply the single-owner rewiring for SF.1, StableReductionPartII and the higher arithmetic suppliers. This packet does not modify those packets or close their reviews.",
         "Retain the accepted A0-extension R09.4 gerbe frontier and its open gaps; this arithmetic completion is not a certificate for it."
