@@ -4921,5 +4921,7 @@
  "BP-EffectiveDiophantineMethods~4": 10051,
  "REV-EffectiveDiophantineMethods~4": 10052,
  "REV-PKG-DeformationAndDerivedPatchingAlgebra~adv": 10067,
- "REV-PKG-PadicHodgeTheory~adv": 10068
+ "REV-PKG-PadicHodgeTheory~adv": 10068,
+ "PKG-EffectiveDiophantineMethods": 10086,
+ "REV-PKG-EffectiveDiophantineMethods": 10087
 }
