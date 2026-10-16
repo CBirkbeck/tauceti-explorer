@@ -207605,9 +207605,9 @@
    "owner": "GeometryOfNumbersAndQuadraticArithmetic",
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
    "citation": "Manjul Bhargava, Arul Shankar, Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves, arXiv:1006.1002v2, 50 pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
+   "reviewReason": "The shear example disproves applying the unsheared projection bound naively to uR, not the source assertion that Davenport’s proof adapts. It establishes neither a paper error nor adequacy of the proposed replacement induction. The latter is recorded as an atlas closure gap."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E402",
@@ -207619,14 +207619,15 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv:math/0310402 (the only version; the printed book was not collated and the author's errata page was not checked)"
+    "arXiv:math/0310402 (the only version; the printed book was not collated and the author's errata page was not checked)",
+    "Current author-hosted Ratner.pdf, Theorem 3.2.9, printed p.109, and web search for Morris Ratner 3.2.9 errata (2026-10-16); no correction found in those inspected results."
    ],
    "owner": "GeometryOfNumbersAndQuadraticArithmetic",
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
    "citation": "Dave Witte Morris, Ratner's theorems on unipotent flows, arXiv:math/0310402 (Chicago Lectures in Mathematics, 2005); printed = physical − 10",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
+   "reviewReason": "At printed p.103 the arXiv statement uses L² norms; indicator functions and a negative constant contradict that formula. The proof and Remark 3.2.8 give the product of integrals. Also checked the current author-hosted edition, Theorem 3.2.9, printed p.109, which retains the display; this finding is scoped to those copies, not an uncollated printed edition."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
