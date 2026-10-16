@@ -1,0 +1,444 @@
+import Mathlib
+import TauCeti.RingTheory.Huber.Restricted.TwoSidedSeries.Convolution
+
+/-!
+# PadicHodgeTheory: representative target signatures
+
+The roadmap is README.md. This file records definitions and theorem signatures
+statable against the pinned APIs and is not exhaustive. Laurent coefficients
+use genuine discrete convolution; theta uses Mathlib's de Rham completion.
+Coordinate matrices fix covariant Tate periods, negative-derivative monodromy
+and arithmetic Weil Frobenius. Rational supremum estimates carry convergence
+and positive-radius hypotheses. No matrix formula asserts existence of a
+period representation.
+-/
+
+noncomputable section
+
+open Filter Matrix
+open scoped Topology DiscreteConvolution
+
+namespace TauCetiRoadmap.PadicHodgeTheory
+
+/-! ## Layer 0: Rational period rings -/
+
+section GeometricPeriodRing
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The prime is a nonunit in the integers of C_p. -/
+theorem cpIntegers_p_not_unit : ¬ IsUnit (p : PadicComplexInt p) := by
+  sorry
+
+/-- The integers of C_p are complete for the principal ideal (p). -/
+theorem cpIntegers_complete :
+    IsAdicComplete (Ideal.span {(p : PadicComplexInt p)}) (PadicComplexInt p) := by
+  sorry
+
+/-- Frobenius on the quotient of the integers of C_p by p is surjective. -/
+theorem cpIntegers_frobenius_surjective : Function.Surjective
+    (fun x : (PadicComplexInt p) ⧸ Ideal.span {(p : PadicComplexInt p)} => x ^ p) := by
+  sorry
+
+variable [Fact (¬ IsUnit (p : PadicComplexInt p))]
+    [IsAdicComplete (Ideal.span {(p : PadicComplexInt p)}) (PadicComplexInt p)]
+
+/-- The de Rham positive ring of C_p is a complete discrete valuation ring.
+The README also specifies its complete algebraically closed field form. -/
+theorem bdrPlus_complete_dvr :
+    ∃ h : IsDomain (BDeRhamPlus (PadicComplexInt p) p),
+      @IsDiscreteValuationRing (BDeRhamPlus (PadicComplexInt p) p) inferInstance h := by
+  sorry
+
+/-- θ_dR is evaluation at level one followed by the map
+that θ[1/p] induces on the quotient by its kernel. Its target `Localization.Away p` of 𝓞_ℂ_[p]
+is ℂ_[p]; the identification is not restated here. -/
+def thetaDR : BDeRhamPlus (PadicComplexInt p) p →+* Localization.Away (p : PadicComplexInt p) :=
+  (RingHom.kerLift (fontaineThetaInvertP (PadicComplexInt p) p)).comp
+    (AdicCompletion.evalOneₐ (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p))).toRingHom
+
+/-- θ_dR extends θ[1/p]. -/
+theorem thetaDR_coe
+    (x : Localization.Away (p : WittVector p (PreTilt (PadicComplexInt p) p))) :
+    thetaDR p (AdicCompletion.of (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p)) _ x) =
+      fontaineThetaInvertP (PadicComplexInt p) p x := by
+  sorry
+
+/-- The de Rham residue map is surjective. -/
+theorem thetaDR_surjective : Function.Surjective (thetaDR p) := by
+  sorry
+
+/-- Test thetaDR_teichmuller: θ_dR([x]) = x^♯ for x in the tilt. -/
+example (x : PreTilt (PadicComplexInt p) p) :
+    thetaDR p (AdicCompletion.of (RingHom.ker (fontaineThetaInvertP (PadicComplexInt p) p)) _
+      (algebraMap (WittVector p (PreTilt (PadicComplexInt p) p)) _ (WittVector.teichmuller p x))) =
+      algebraMap (PadicComplexInt p) (Localization.Away (p : PadicComplexInt p))
+        (PreTilt.untilt x) := by
+  sorry
+
+/-- The quotient map preserves the constant one. -/
+example : thetaDR p 1 = 1 := by
+  sorry
+
+/-- The scalar p remains a unit in the de Rham residue algebra. -/
+example : IsUnit (thetaDR p (p : BDeRhamPlus (PadicComplexInt p) p)) := by
+  sorry
+
+end GeometricPeriodRing
+
+/-- The first two logarithm terms fix the negative polynomial-derivative convention. -/
+example : -Polynomial.derivative
+    (Polynomial.X - Polynomial.C (1/2 : ℚ) * Polynomial.X ^ 2) =
+    -1 + Polynomial.X := by
+  sorry
+
+/-- On a two-term truncation, u maps to xi/p minus xi squared over twice p squared. -/
+example : Polynomial.derivative
+    (Polynomial.C (1/2 : ℚ) * Polynomial.X -
+      Polynomial.C (1/8 : ℚ) * Polynomial.X ^ 2) =
+    Polynomial.C (1/2 : ℚ) - Polynomial.C (1/4 : ℚ) * Polynomial.X := by
+  sorry
+
+/-! ## Layer 1: Analytic annuli -/
+
+section AnalyticCoefficients
+
+variable {K : Type*} [NormedField K]
+
+/-- The coefficient convergence condition for analytic Laurent series on I. -/
+def laurentConvergesOn (I : Set ℝ) (a : ℤ → K) : Prop :=
+  ∀ ρ ∈ I, Tendsto (fun n : ℤ => ‖a n‖ * ρ ^ n) cofinite (𝓝 0)
+
+/-- The real Gauss supremum; its norm properties require convergence and ρ > 0. -/
+def gaussNorm (ρ : ℝ) (a : ℤ → K) : ℝ := ⨆ n : ℤ, ‖a n‖ * ρ ^ n
+
+/-- Cauchy's coefficient bound. -/
+theorem norm_coeff_mul_le_gaussNorm {I : Set ℝ} {a : ℤ → K}
+    (ha : laurentConvergesOn I a) {ρ : ℝ} (hρ : 0 < ρ) (hρI : ρ ∈ I) (n : ℤ) :
+    ‖a n‖ * ρ ^ n ≤ gaussNorm ρ a := by
+  sorry
+
+/-- definiteness on convergent coefficients. -/
+theorem gaussNorm_eq_zero_iff {I : Set ℝ} {a : ℤ → K}
+    (ha : laurentConvergesOn I a) {ρ : ℝ} (hρ : 0 < ρ) (hρI : ρ ∈ I) :
+    gaussNorm ρ a = 0 ↔ a = 0 := by
+  sorry
+
+/-- Compatibility with the existing two-sided restricted-series submodule at radius one. -/
+theorem laurentConvergesOn_singleton_one (a : ℤ → K) :
+    laurentConvergesOn {1} a ↔ a ∈ TauCeti.Huber.twoSidedRestrictedSubmodule K K := by
+  sorry
+
+/-- Test: finite Laurent support converges on every set of positive radii. -/
+example (I : Set ℝ) (m : ℤ) (c : K) :
+    laurentConvergesOn I (fun n => if n = m then c else 0) := by
+  sorry
+
+/-- Test: geometric series converges strictly inside the unit circle. -/
+example {ρ : ℝ} (hρ : 0 < ρ) (hρ1 : ρ < 1) :
+    laurentConvergesOn {ρ} (fun n : ℤ => if 0 ≤ n then (1 : K) else 0) := by
+  sorry
+
+/-- Test: the same coefficients fail the unit-circle convergence condition. -/
+example : ¬ laurentConvergesOn {1} (fun n : ℤ => if 0 ≤ n then (1 : K) else 0) := by
+  sorry
+
+/-- Test gaussNorm.test_one_add_T. -/
+example {ρ : ℝ} (hρ : 0 < ρ) :
+    gaussNorm ρ (fun n : ℤ => if n = 0 ∨ n = 1 then (1 : K) else 0) = max 1 ρ := by
+  sorry
+
+/-- Test gaussNorm.test_constant. -/
+example {ρ : ℝ} (hρ : 0 < ρ) (c : K) :
+    gaussNorm ρ (fun n : ℤ => if n = 0 then c else 0) = ‖c‖ := by
+  sorry
+
+/-- Test gaussNorm.test_not_pointwise: vanishing at T = c does not kill the norm. -/
+example (c : K) (hc : c ≠ 0) :
+    gaussNorm ‖c‖ (fun n : ℤ => if n = 0 then c else if n = 1 then -1 else 0) = ‖c‖ := by
+  sorry
+
+variable [CompleteSpace K] [IsUltrametricDist K]
+
+/-- convergence of the genuine discrete convolution. -/
+theorem laurentConvergesOn_convolution {I : Set ℝ} (hI : ∀ ρ ∈ I, 0 < ρ)
+    {a b : ℤ → K} (ha : laurentConvergesOn I a) (hb : laurentConvergesOn I b) :
+    laurentConvergesOn I (a ⋆ᵣ₊ b) := by
+  sorry
+
+/-- The Gauss norm is multiplicative for convergent nonarchimedean convolution. -/
+theorem gaussNorm_convolution {I : Set ℝ} {a b : ℤ → K}
+    (ha : laurentConvergesOn I a) (hb : laurentConvergesOn I b)
+    {ρ : ℝ} (hρ : 0 < ρ) (hρI : ρ ∈ I) :
+    gaussNorm ρ (a ⋆ᵣ₊ b) = gaussNorm ρ a * gaussNorm ρ b := by
+  sorry
+
+end AnalyticCoefficients
+
+/-! ## Layer 2: Local period sheaves -/
+
+/-- The toric logarithm of the ordered quotient has positive translation. -/
+example : Polynomial.comp (Polynomial.X : Polynomial ℚ) (Polynomial.X + 1) -
+    Polynomial.X = 1 := by
+  sorry
+
+/-- The boundary attached to a two-line connection is minus its connection matrix. -/
+example : (- (!![(0 : ℚ), 0; 1, 0])) *ᵥ ![1, 0] = ![0, -1] := by
+  sorry
+
+/-! ## Layer 3: Filtered period functors -/
+
+/-- A Tate-line period of exponent minus one has filtration jump minus one. -/
+example : ((-1 : ℤ) + 1 = 0) ∧ -(-1 : ℤ) = 1 := by
+  decide
+
+/-- The dual filtration uses the annihilator of step one minus the index. -/
+example (i r : ℤ) : ¬ (1 - i ≤ r) ↔ i ≤ -r := by
+  omega
+
+/-- Shifting the filtration by one lowers its jump by one. -/
+example (i r : ℤ) : i + 1 ≤ r ↔ i ≤ r - 1 := by
+  omega
+
+/-- Arithmetic Artin inverts units under the cyclotomic character;
+the coefficient 2 becomes one half, and geometric Artin inverts again. -/
+example : (2 : ℚ)⁻¹ = 1/2 ∧ ((2 : ℚ)⁻¹)⁻¹ = 2 := by
+  norm_num
+
+/-! ## Layer 4: Robba realizations and Herr signs -/
+
+/-- Swapping two degree-one classes has negative Koszul sign. -/
+example : (-1 : ℚ) ^ ((1 : ℕ) * 1) = -1 := by
+  norm_num
+
+/-- For scalar phi = 2 and gamma = 3, Herr's d0 sends 1 to (1,2),
+and d1(a,b) = 2a-b kills that vector. -/
+example : (((2 : ℚ) - 1) * 1, ((3 : ℚ) - 1) * 1) = (1, 2) ∧
+    ((3 : ℚ) - 1) * (((2 : ℚ) - 1) * 1) -
+      ((2 : ℚ) - 1) * (((3 : ℚ) - 1) * 1) = 0 := by
+  norm_num
+
+/-- With arithmetic Artin and character first, the normalized cup value is +1;
+the scalar Koszul coefficient for the reversed order is -1. -/
+example : (!![(0 : ℚ), 1; -1, 0]) *ᵥ ![0, 1] = ![1, 0] ∧
+    (!![(0 : ℚ), 1; -1, 0]) *ᵥ ![1, 0] = ![0, -1] := by
+  sorry
+
+/-! ## Layer 5: Monodromy and admissibility -/
+
+/-- With the corrected Berger logarithm at p=3, N(X) is minus three halves. -/
+example : (- Polynomial.C (3/2 : ℚ) * Polynomial.derivative Polynomial.X) =
+    Polynomial.C (-3/2 : ℚ) := by
+  sorry
+
+/-- A uniformizer of absolute valuation one half requires scaled monodromy. -/
+example : - Polynomial.C (1/2 : ℚ) * Polynomial.derivative Polynomial.X =
+    Polynomial.C (-1/2 : ℚ) := by
+  sorry
+
+/-- The rejected rank-one input m = 1, h = 0 has invariant difference +1.
+This is not an assertion of a period torsor for nonadmissible data. -/
+example : (1 : ℤ) - 0 = 1 ∧ (0 : ℤ) - 1 = -1 := by
+  norm_num
+
+/-! ## Layer 7: Relative period cohomology -/
+
+/-- The B-pair differential annihilates a diagonal section. -/
+example : (LinearMap.fst ℚ ℚ ℚ - LinearMap.snd ℚ ℚ ℚ) (1, 1) = 0 := by
+  sorry
+
+/-- The Frobenius complex uses phi minus one. -/
+example : ((2 : ℚ) - 1) * 1 = 1 ∧ ((1 : ℚ) - 2) * 1 = -1 := by
+  norm_num
+
+/-- At d = 1, positive analytic degree and geometric degree have opposite signs. -/
+example : (1 : ℤ) - 0 = 1 ∧ -((1 : ℤ) - 0) = -1 ∧ -(-1 : ℤ) = 1 := by
+  decide
+
+/-! ## Layer 8: Rational geometric comparison -/
+
+/-- For P3 = X squared + X + 3, dualizing gives roots of determinant one third;
+arithmetic Weil Frobenius inverts again. These are coefficient computations. -/
+example : (1/3 : ℚ)⁻¹ = 3 ∧ (-1/3 : ℚ) / (1/3) = -1 := by
+  norm_num
+
+/-! ## Layer 9: Kummer and Tate coordinates -/
+
+/-- Coordinates of an extension action with character `a` and cocycle value `c`. -/
+def kummerMatrix {R : Type*} [CommRing R] (a c : R) : Matrix (Fin 2) (Fin 2) R :=
+  !![a, c; 0, 1]
+
+/-- The cocycle equation is precisely this multiplication formula. -/
+theorem kummerMatrix_mul {R : Type*} [CommRing R] (a c b d : R) :
+    kummerMatrix a c * kummerMatrix b d = kummerMatrix (a * b) (c + a * d) := by
+  sorry
+
+/-- The determinant realizes the cyclotomic character when `a = χ_p(g)`. -/
+theorem kummerMatrix_det {R : Type*} [CommRing R] (a c : R) :
+    (kummerMatrix a c).det = a := by
+  sorry
+
+/-- Changing the cocycle by a coboundary is a unipotent change of basis. -/
+theorem kummerMatrix_coboundary {R : Type*} [CommRing R] (a c b : R) :
+    kummerMatrix 1 (-b) * kummerMatrix a c * kummerMatrix 1 b =
+      kummerMatrix a (c + (a - 1) * b) := by
+  sorry
+
+/-- Test `kummerMatrix_identity`: the identity has zero cocycle. -/
+example {R : Type*} [CommRing R] : kummerMatrix (1 : R) 0 = 1 := by
+  sorry
+
+/-- Test `kummerMatrix_split`: the zero cocycle is diagonal. -/
+example {R : Type*} [CommRing R] (a : R) :
+    kummerMatrix a 0 = !![a, 0; 0, 1] := by
+  rfl
+
+/-- Test `kummerMatrix_subline`: the character subline and trivial quotient. -/
+example {R : Type*} [CommRing R] (a c : R) :
+    kummerMatrix a c 0 0 = a ∧ kummerMatrix a c 1 0 = 0 ∧
+      kummerMatrix a c 1 1 = 1 := by
+  simp [kummerMatrix]
+
+/-- Test `kummerMatrix_cocycle`: the character acts on the second cocycle term. -/
+example : kummerMatrix (2 : ℚ) 3 * kummerMatrix 5 7 = kummerMatrix 10 17 := by
+  sorry
+
+/-- Test `kummerMatrix_rootChange`: the coboundary has the prescribed sign. -/
+example : kummerMatrix (1 : ℚ) (-5) * kummerMatrix 2 3 * kummerMatrix 1 5 =
+    kummerMatrix 2 8 := by
+  sorry
+
+/-- The coordinate formula for the normalized Tate L-invariant. -/
+noncomputable def tateLInvariant {R : Type*} [Field R] (v ell : R) : R := ell / v
+
+/-- The Frobenius matrix in the covariant Tate normal form. -/
+noncomputable def tatePhiMatrix {R : Type*} [Field R] (r : R) :
+    Matrix (Fin 2) (Fin 2) R := !![r⁻¹, 0; 0, 1]
+
+/-- The monodromy matrix with `N(y) = v x`. -/
+def tateMonodromyMatrix {R : Type*} [CommRing R] (v : R) :
+    Matrix (Fin 2) (Fin 2) R := !![0, v; 0, 0]
+
+/-- The generator `y + ell x` of the filtration line. -/
+def tateFiltrationVector {R : Type*} [CommRing R] (ell : R) : Fin 2 → R := ![ell, 1]
+
+/-- A common nonzero scaling preserves the invariant. -/
+theorem tateLInvariant_scale {R : Type*} [Field R] (v ell c : R)
+    (hv : v ≠ 0) (hc : c ≠ 0) :
+    tateLInvariant (c * v) (c * ell) = tateLInvariant v ell := by
+  sorry
+
+/-- A changed logarithm branch shifts the invariant by its value on `p`. -/
+theorem tateLInvariant_branch {R : Type*} [Field R] (v ell b : R) (hv : v ≠ 0) :
+    tateLInvariant v (ell + b * v) = tateLInvariant v ell + b := by
+  sorry
+
+/-- Isomorphisms of the unframed normal forms are classified by the ratio. -/
+theorem tateNormalForm_iso {R : Type*} [Field R] (v ell v' ell' : R)
+    (hv : v ≠ 0) (hv' : v' ≠ 0) :
+    (∃ a b : R, a ≠ 0 ∧ b ≠ 0 ∧ v * a = b * v' ∧ ell * a = b * ell') ↔
+      tateLInvariant v ell = tateLInvariant v' ell' := by
+  sorry
+
+/-- The orientation of the period Frobenius–monodromy relation. -/
+theorem tateMonodromy_frobenius {R : Type*} [Field R] (r v : R) (hr : r ≠ 0) :
+    tateMonodromyMatrix v * tatePhiMatrix r =
+      r • (tatePhiMatrix r * tateMonodromyMatrix v) := by
+  sorry
+
+/-- Arithmetic Weil–Deligne Frobenius is the inverse of period Frobenius. -/
+theorem tateMonodromy_arithmeticFrobenius {R : Type*} [Field R] (r v : R)
+    (hr : r ≠ 0) :
+    !![r, 0; 0, 1] * tateMonodromyMatrix v =
+      r • (tateMonodromyMatrix v * !![r, 0; 0, 1]) := by
+  sorry
+
+/-- Test `tateLInvariant_uniformizer`: zero logarithm gives zero invariant. -/
+example {R : Type*} [Field R] : tateLInvariant (1 : R) 0 = 0 := by
+  simp [tateLInvariant]
+
+/-- Test `tateLInvariant_raw_log`: the invariant is unchanged by a Tate isogeny. -/
+example : tateLInvariant (1 : ℚ) 2 = tateLInvariant 2 4 := by
+  sorry
+
+/-- Test `tateLInvariant_branch_test`: a branch shift adds its value on `p`. -/
+example : tateLInvariant (2 : ℚ) (4 + 3 * 2) = tateLInvariant 2 4 + 3 := by
+  sorry
+
+/-- Test `tateFiltrationVector_second`: the line is transverse to `ker N`. -/
+example {R : Type*} [CommRing R] (ell : R) :
+    tateFiltrationVector ell 0 = ell ∧ tateFiltrationVector ell 1 = 1 := by
+  simp [tateFiltrationVector]
+
+/-- Test `tateMonodromy_square`: nilpotent does not mean zero. -/
+example : tateMonodromyMatrix (1 : ℚ) * tateMonodromyMatrix 1 = 0 ∧
+    tateMonodromyMatrix (1 : ℚ) ≠ 0 := by
+  sorry
+
+/-- Test `tatePhiMatrix_det`: covariant Frobenius has reciprocal determinant. -/
+example {R : Type*} [Field R] (r : R) : (tatePhiMatrix r).det = r⁻¹ := by
+  sorry
+
+/-- Test `tateMonodromy_orientation`: the transposed operator fails the relation. -/
+example : (!![(0 : ℚ), 0; 1, 0] * tatePhiMatrix (3 : ℚ)) ≠
+    (3 : ℚ) • (tatePhiMatrix (3 : ℚ) * !![(0 : ℚ), 0; 1, 0]) := by
+  sorry
+
+/-- Zero logarithm gives the second basis vector. -/
+example : tateFiltrationVector (0 : ℚ) = ![0, 1] := by
+  sorry
+
+/-- Opposite logarithms change the first coordinate and retain transversality. -/
+example : tateFiltrationVector (2 : ℚ) ≠ tateFiltrationVector (-2 : ℚ) := by
+  sorry
+
+/-- Zero valuation gives zero monodromy. -/
+example {R : Type*} [CommRing R] : tateMonodromyMatrix (0 : R) = 0 := by
+  sorry
+
+/-- Monodromy sends the second coordinate to the first. -/
+example : tateMonodromyMatrix (2 : ℚ) *ᵥ ![3, 5] = ![10, 0] := by
+  sorry
+
+/-- The prime two has reciprocal period Frobenius. -/
+example : tatePhiMatrix (2 : ℚ) = !![1/2, 0; 0, 1] := by
+  sorry
+
+/-- Inverting period Frobenius gives arithmetic Weil Frobenius. -/
+example : tatePhiMatrix (3 : ℚ) * !![3, 0; 0, 1] = 1 := by
+  sorry
+
+/-
+The remaining targets require the heavier carriers and constructions specified in README.md:
+Layer 0: galoisActionCp and its transported actions; pFlat, filAffinoid,
+bdRPlusAffinoid, filBdR, naturalTopologyAinfInvP, naturalTopologyBdRPlus,
+fontaineT, logTeichmuller, BHT, acrisToBdRPlus, acrisFrobenius, BcrisPlus,
+Bcris, Amax, BmaxPlus, logCris, Bst, bstToBdR, breuilMin and completedBstPlus.
+Layer 1: AnnulusRing and its topology, restriction, evaluation and derivative;
+RobbaRing, AmiceRing, their bounded/integral subrings and CycRing operations.
+Layer 2: UncompletedStructureSheaf, CompletedStructureSheaf, InfinitesimalPeriodSheaf,
+DeRhamPlusSheaf, DeRhamSheaf, StructuralDeRhamPlusSheaf, PowerSeriesStructure,
+StructuralDeRhamSheaf, CrystallinePeriodSheaf, StructuralCrystallineSheaf,
+SemistablePeriodSheaf, StructuralSemistableSheaf and primitiveCover.
+Layer 3: IsRegularPeriodRing, FilteredSpace, DHT, DdR, Dcris, Dst, Vcris, Vst,
+IsHodgeTate, IsDeRham, IsCrystalline, IsSemistable, hodgeNumber,
+FilteredPhiNModule, FilteredPhiModule, newtonNumber, IsWeaklyAdmissible,
+FilteredPhiNGaloisModule, filtrationMultiplicity, hodgeTateWeights,
+RegularOrdinary, filteredGFunctor, admissiblePair and classicalStComplex.
+Layer 4: RobbaK, ExtRobba, tLog, LogExtendedRobba, RobbaRealisation,
+RobbaCrystal, IsUnipotentConnection, senModule, senOperator, difPlus, dif,
+wachModule, wachLattice, Wach.dcrisLattice, BPair, WdRPlus, herrComplex and simpleSenBlock.
+Layer 5: deRhamDiffEq, bergerModification, stL, pst, fontaineWD,
+weilDeligneParameter, inertialType, IsPure, rankTwoSupercuspidal, rankTwoSpecial,
+sigmaConjugacy, kottwitzInvariant, tensor Newton invariants and period torsors.
+Layer 6: Fontaine–Laffaille realization functors and IsOrdinary.
+Layer 7: BdRPlusLocalSystem, OBdRPlusConnection, FilteredConnection,
+associatedLocalSystem, LisseZpSheaf, DeRhamPair, relativePeriodSheaf,
+RelativePhiModule, RelativeBPair, relativePhiComplex, relativeBPairComplex,
+scheme-Proj/chartwise curve patching and all-module derived comparison.
+Layers 8 and 9: geometric comparison maps and cohomology, Kummer lattice/Ext
+realizations, tateLInvariantOfModule and the geometric reduction criteria.
+Their exact APIs and discriminating Checks remain in the README.
+-/
+
+end TauCetiRoadmap.PadicHodgeTheory
