@@ -1,0 +1,1767 @@
+{
+  "roadmapId": "LocallyAnalyticDistributions",
+  "protocol": "blueprint-v1",
+  "part": "L4",
+  "scope": [
+    "LocallyAnalyticDistributions:L4"
+  ],
+  "status": "complete",
+  "summary": "Reconcile the inherited L4 follow-up with its already existing upstream owner, TauCetiRoadmap PR #854. All in-scope targets and the compact-complex red-team addition are imported from that roadmap and its named suppliers. The index accounts for the 221 inherited L4 node IDs without creating parallel mathematical declarations. Solid functional analysis is excluded under the explicit issue boundary. Completion means the ownership pass is finished, not that the planned mathematics is implemented or independently verified.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": []
+  },
+  "sources": [
+    {
+      "id": "LAD-854-README",
+      "title": "Locally analytic distributions, growth and character spaces — README.md",
+      "authors": "TauCetiProject/TauCetiRoadmap contributors",
+      "edition": "Open PR #854, commit fc6c8ae8b306e6d02566d030d5efcd56cef86cfe",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md",
+      "sha256": "86fa5aa60b2e1a059aa7b7feffb44d2d7d1c836e8ccfda00b9e61b6305d0777c",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "Layer 4, §§4.1–4.17 and its supplier contracts",
+        "Layer 0 tensor and analytic-stage interfaces"
+      ]
+    },
+    {
+      "id": "LAD-854-SUGGESTED",
+      "title": "Locally analytic distributions, growth and character spaces — Suggested.lean",
+      "authors": "TauCetiProject/TauCetiRoadmap contributors",
+      "edition": "Open PR #854, commit fc6c8ae8b306e6d02566d030d5efcd56cef86cfe",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/Suggested.lean",
+      "sha256": "33f9094d56685c59d8fc6924bb82760bc3496be23855229ff88c69e58f0a38f0",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "Layer 4 prototypes and imported native carriers"
+      ]
+    }
+  ],
+  "nodes": [],
+  "upstreamImports": [
+    {
+      "owner": "TauCetiRoadmap/LocallyAnalyticDistributions, Layer 4",
+      "pullRequest": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/854",
+      "commit": "fc6c8ae8b306e6d02566d030d5efcd56cef86cfe",
+      "sourceId": "LAD-854-README",
+      "locator": "Layer 4, §§4.1–4.17; supporting tensor and analytic-stage contracts in Layer 0",
+      "supplies": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "implementationStatus": "unchecked",
+      "authority": "PROTOCOL §15 includes open upstream roadmap pull requests. The maintainer identified this roadmap as already upstream in the comment on issue #9294 dated 2026-10-13.",
+      "authorityUrl": "https://github.com/CBirkbeck/tauceti-explorer/issues/9294#issuecomment-6147007852",
+      "obligations": [
+        {
+          "id": "inherited-1",
+          "need": "Entire spectral resultants, quantitative convergence, Coleman transport, finite-module topology and finite-rank determinants with nilpotents retained.",
+          "locators": [
+            "§4.1, lines 1381–1445",
+            "§§4.3–4.4",
+            "§§4.9–4.14"
+          ],
+          "boundary": "Use every-radius Gauss convergence and the zero constant coefficient on the functional input where required. Finite determinant size is supplied rank, even when polynomial degree drops. General entire and compact-operator constructions retain their named suppliers.",
+          "sourceLineage": "As located by the upstream README: Coleman, Appendix A3, pp. 432–436, Lemma A3.8 and Theorem A3.9, pp. 435–436."
+        },
+        {
+          "id": "inherited-2",
+          "need": "Completed scalar tensors, analytic base change, the image of dual scalar extension and constructed specialization.",
+          "locators": [
+            "§0.0, projective tensor and separated completion",
+            "§4.2, completed scalar extension",
+            "§4.15, lines 2521–2590"
+          ],
+          "boundary": "Analytic stages use a c0 model; the dual has bounded coefficient families and need not be c0. The canonical dual scalar-extension map is not assumed surjective. Bounded coefficient maps carry norm constants, and ring-general dual specialization needs explicit coefficient bounds. A distribution stage used in Fredholm theory needs its own (Pr) justification.",
+          "sourceLineage": "As located by the upstream README: Urban, §3.4, Lemmas 3.4.6–3.4.7, pp. 43–44; the completed-tensor supplier contracts in §0.0."
+        },
+        {
+          "id": "inherited-3",
+          "need": "Universal-character semigroup charts, multipliers, common radii and destination-tail estimates.",
+          "locators": [
+            "§4.15, lines 2592–2617",
+            "§4.17, lines 2838–2860"
+          ],
+          "boundary": "The character exponential has a strict convergence condition, also at p=2. Operators are constructed from chart maps and cocycles before compactness is deduced from the destination estimates. Arithmetic semigroup data and roots remain supplier inputs.",
+          "sourceLineage": "As located by the upstream README: Urban, Lemmas 3.4.6–3.4.7 and Corollary 3.4.10, pp. 43–45; BCGP II §1.8.5 and (1.8.6), p. 9, and §§4.6.46–4.6.48, pp. 93–95."
+        },
+        {
+          "id": "inherited-4-and-RT-AREA-iwasawa-2/5",
+          "need": "Compact homotopy endomorphisms of Banach complexes, numerical slope fibres, functorial finite perfect windows and derived base change.",
+          "locators": [
+            "§4.16, lines 2649–2786",
+            "§4.17, lines 2820–2836"
+          ],
+          "boundary": "Compactness of a homotopy class is witnessed by a degreewise compact representative. Its nonalternating characteristic product depends on that representative. Homotopy invariance concerns the selected finite-slope complex. Derived tensor comparison does not imply underived cohomology base change without the stated flatness hypotheses. Geometric numerical slope fibres have rank one.",
+          "sourceLineage": "As located by the upstream README: Pilloni, §13.1, pp. 84–85; BCGP I §6.1.1, p. 139, and Theorem 6.3.16, pp. 152–153; Urban, Lemma 2.3.13, pp. 27–28."
+        },
+        {
+          "id": "inherited-5",
+          "need": "Exact rational-slope rank and finite-slope Euler characteristic over general affinoids.",
+          "locators": [
+            "§4.16, lines 2788–2806"
+          ],
+          "boundary": "The geometric points are rank one and the exact cutoff is rational. The conclusions concern module rank and the alternating rank of a finite perfect complex. They do not imply that each cohomology dimension is locally constant.",
+          "sourceLineage": "As located by the upstream README: Coleman, Appendix A5, Proposition A5.5 and Corollary A5.5.1, pp. 441–442, together with the explicit local Fredholm-window targets of §4.16."
+        },
+        {
+          "id": "inherited-6-classical-part",
+          "need": "Frechet and Stein comparison for the compact-operator finite-window construction.",
+          "locators": [
+            "§4.17, lines 2820–2836 and 2862–2868"
+          ],
+          "boundary": "Use the current AdicSpacesPartIII §R3.4 supplier, replacing the older PartII R3 pointer. The transition factorization and compactness in the actual coefficient norms are extra hypotheses. Closure-proper and Kiehl criteria require the stated comparison. Solid localization and reconstruction are outside this job.",
+          "sourceLineage": "As located by the upstream README: Urban, §2.3.12 and Lemma 2.3.13, pp. 27–28; BCGP II Definition 2.2.17, p. 21, and §§4.6.46–4.6.49, pp. 93–95."
+        }
+      ]
+    }
+  ],
+  "inheritedPacket": "research/blueprint/packets/LocallyAnalyticDistributions.json",
+  "inheritedNodeDisposition": [
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/completely-continuous",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1339",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1339"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/c0-lift",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1355",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1355"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1373",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1373"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-module-topology",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1381",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1381"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-injection",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1437",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1437"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1397",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1397"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1405",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1405"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1461",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1461"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-series",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1469",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1469"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/minor-tail-estimate",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1477",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1477"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/coefficient-continuity",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1485",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1485"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/gauss-convergence",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1493",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1493"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-determinant",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1501",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1501"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/determinant-invariance",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1509",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1509"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1517",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1517"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/completed-base-change",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1525",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1525"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1541",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1541"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/projective-lifting",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1549",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1549"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-pr-projective",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1557",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1557"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1565",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1565"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/fredholm-direct-sum",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1573",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1573"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/evaluated-product-on",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1581",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1581"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/evaluated-product-pr",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1589",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1589"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-division",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-resultants",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1792",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1792"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resultant-unit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1816",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1816"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-series",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.5, target at line 1832",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1832"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.14, target at line 2493",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2493"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/compact-identity-finite",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1445",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1445"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.14, target at line 2501",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2501"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.14, target at line 2509",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2509"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-image-range-comparison",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1413",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1413"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/completely-continuous-norm-approximation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1421",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1421"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/c0-scalar-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1429",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1429"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-detection",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1437",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1437"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-series",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.5, target at line 1840",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1840"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-polynomial-comparison",
+      "disposition": "supplier-import",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.5, target at line 1840",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1840",
+      "detail": "The formal Hasse API is imported from RestrictedPowerSeries §2.3, including polynomial compatibility and the ordered product rule."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-product",
+      "disposition": "supplier-import",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.5, target at line 1840",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1840",
+      "detail": "The formal Hasse API is imported from RestrictedPowerSeries §2.3, including polynomial compatibility and the ordered product rule."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-coefficient-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.5, target at line 1848",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1848"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-entire",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.5, target at line 1858",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1858"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1944",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1944"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1952",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1952"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968",
+      "detail": "These are steps in the existing projector construction, its closure property and its complementary inverse, rather than additional target declarations. Read together with §§4.7 and 4.14 and the named CompactOperators suppliers."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968",
+      "detail": "These are steps in the existing projector construction, its closure property and its complementary inverse, rather than additional target declarations. Read together with §§4.7 and 4.14 and the named CompactOperators suppliers."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-root-unit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1956",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1956"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-lower-annihilation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1964",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1964"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968",
+      "detail": "These are steps in the existing projector construction, its closure property and its complementary inverse, rather than additional target declarations. Read together with §§4.7 and 4.14 and the named CompactOperators suppliers."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-projector-formula",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968",
+      "detail": "These are steps in the existing projector construction, its closure property and its complementary inverse, rather than additional target declarations. Read together with §§4.7 and 4.14 and the named CompactOperators suppliers."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1976",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1976"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-topological-splitting",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1986",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1986"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-regular-inverse",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968",
+      "detail": "These are steps in the existing projector construction, its closure property and its complementary inverse, rather than additional target declarations. Read together with §§4.7 and 4.14 and the named CompactOperators suppliers."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-projector-closure",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1968",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1968",
+      "detail": "These are steps in the existing projector construction, its closure property and its complementary inverse, rather than additional target declarations. Read together with §§4.7 and 4.14 and the named CompactOperators suppliers."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-commuting-stability",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.7, target at line 1994",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1994"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-projection",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1347",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1347"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+      "disposition": "api-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1347",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1347",
+      "detail": "The coordinate formula and norm bound belong to the finite-coordinate truncation API."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound",
+      "disposition": "api-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1347",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1347",
+      "detail": "The coordinate formula and norm bound belong to the finite-coordinate truncation API."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/c0-operator-norm-criterion",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.1, target at line 1365",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1365"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-adjugate-recurrence",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1876",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1876"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1886",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1886"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1890",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1890"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-output-resolvent-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1898",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1898"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1902",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1902"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-coefficient-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1906",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1906"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-tail-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1914",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1914"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-retraction-comparison",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1918",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1918"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-recurrence-entire",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.6, target at line 1922",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1922"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-geometric-factor",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2010",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2010"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-kernel-operator-equiv",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2014",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2014"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/pr-continuous-retract",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2025",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2025"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-kernel-pr",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2033",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2033"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-compressed-approximation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2037",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2037"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2041",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2041"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-kernel-finite",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2045",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2045"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/riesz-kernel-projective",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.8, target at line 2053",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2053"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/ultrametric-product-perturbation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1597",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1597"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/ultrametric-determinant-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1603",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1603"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/ultrametric-determinant-perturbation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1611",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1611"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/fixed-degree-minors-null",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1615",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1615"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/distinct-column-product-tail",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.2, target at line 1623",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1623"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-tail-summable",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1635",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1635"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-quotient",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1639",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1639"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1651",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1651"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1655",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1655"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-quotient-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1659",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1659"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire",
+      "disposition": "supplier-import",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1639",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1639",
+      "detail": "Entireness is part of the imported linear-division construction from RestrictedPowerSeries §7.2; it is not an extra local construction."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-division",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1663",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1663"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-product-constant",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1671",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1671"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-division-unique",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1679",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1679"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+      "disposition": "library-through-upstream",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1755",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1755",
+      "detail": "The upstream plan uses native polynomial restrictedness from Tau Ceti; this packet introduces no polynomial-entireness target."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-quotient-polynomial",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1683",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1683"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-linear-root-factor",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1687",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1687"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/monic-reciprocal-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1695",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1695"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741",
+      "detail": "Explicit monic division, its entire quotient, polynomial remainder and uniqueness are owned by RestrictedPowerSeries §7.2 and the adapters in upstream §4.3. The former proof route does not create separate targets here."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1699",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1699"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1707",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1707"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1717",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1717"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741",
+      "detail": "Explicit monic division, its entire quotient, polynomial remainder and uniqueness are owned by RestrictedPowerSeries §7.2 and the adapters in upstream §4.3. The former proof route does not create separate targets here."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741",
+      "detail": "Explicit monic division, its entire quotient, polynomial remainder and uniqueness are owned by RestrictedPowerSeries §7.2 and the adapters in upstream §4.3. The former proof route does not create separate targets here."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741",
+      "detail": "Explicit monic division, its entire quotient, polynomial remainder and uniqueness are owned by RestrictedPowerSeries §7.2 and the adapters in upstream §4.3. The former proof route does not create separate targets here."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-product-low-degree",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741",
+      "detail": "Explicit monic division, its entire quotient, polynomial remainder and uniqueness are owned by RestrictedPowerSeries §7.2 and the adapters in upstream §4.3. The former proof route does not create separate targets here."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-division-unique",
+      "disposition": "proof-step-subsumed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1741",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1741",
+      "detail": "Explicit monic division, its entire quotient, polynomial remainder and uniqueness are owned by RestrictedPowerSeries §7.2 and the adapters in upstream §4.3. The former proof route does not create separate targets here."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1721",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1721"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-linear",
+      "disposition": "renamed-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.3, target at line 1731",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1731",
+      "detail": "The monic-to-linear comparison is already an upstream target."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1755",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1755"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-polynomial-divisibility",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1765",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1765"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-quotient-class",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1769",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1769"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-quotient-class-kernel",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1780",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1780"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-quotient-class-surjective",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1784",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1784"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-quotient-class-linear",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1788",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1788"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-resultant-polynomial",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1800",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1800"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-resultant-bezout",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.4, target at line 1808",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1808"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2069",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2069"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2073",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2073"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2081",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2081"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-polynomial-constant",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2085",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2085"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-right-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2089",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2089"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-linear-factor",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2097",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2097"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-factor-product",
+      "disposition": "supplier-import",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2129",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2129",
+      "detail": "Finite root products and multiplication at prescribed ranks come from CompactOperators §3.3, used by upstream §§4.9 and 4.13."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-zero-padding",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2101",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2101"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-padding-stability",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2109",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2109"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-scalar-extension",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2117",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2117"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-quotient-norm",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2125",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2125"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-split-factors",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.9, target at line 2129",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2129"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-matrix-reflection",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2141",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2141"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-matrix-degree",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2143",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2143"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-matrix-coefficients",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2147",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2147"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-matrix-conjugation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2151",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2151"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-triangular-diagonal-product",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation-diagonal",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-triangular-characteristic",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-triangular-comparison",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2177",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2177"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-evaluation-conjugation",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-similarity-comparison",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-faithful-comparison",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-universal-polynomial",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-universal-degree",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-specialization",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-specialization-matrix",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-specialization-polynomial",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-generic-discriminant",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-generic-separability",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-eigenbasis",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-universal-comparison",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-finite-specialization",
+      "disposition": "proof-route-replaced",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159",
+      "detail": "The general finite spectral-mapping theorem is imported from CompactOperators §§1.1 and 3.3 over arbitrary commutative coefficient rings. The local fixed-rank resultant adapter follows it. The old generic-matrix, splitting and eigenbasis proof route is not replanned; matrix size, rather than actual characteristic-polynomial degree, remains the rank parameter."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-characteristic-reindex",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2188",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2188"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-evaluation-reindex",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2192",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2192"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-matrix-comparison",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.10, target at line 2159",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2159"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-sylvester-reflection",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2204",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2204"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-resultant-reflection",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2208",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2208"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2212",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2212"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2223",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2223"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/resultant-coordinate-continuity",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2231",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2231"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2235",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2235"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2243",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2243"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2247",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2247"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-reciprocal-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2257",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2257"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-simultaneous-truncation-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.11, target at line 2265",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2265"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-native-restricted",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2281",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2281"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-native-gauss",
+      "disposition": "library-through-upstream",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2285",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2285",
+      "detail": "The native Gauss norm is already the norm being used; no second norm or comparison construction is introduced."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2295",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2295"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-convergence",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2302",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2302"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-bounded-coefficient-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2310",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2310"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-bounded-gauss-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2318",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2318"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-bounded",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2326",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2326"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-complete",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2330",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2330"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-gauss-uniform-evaluation",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2338",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2338"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-gauss-multiplication-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2348",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2348"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-bound",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2356",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2356"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.12, target at line 2364",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2364"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-reduce-functional-polynomial",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2376",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2376"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-output-degree",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2380",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2380"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-coefficient-coordinate-continuity",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2384",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2384"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/bounded-degree-gauss-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2388",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2388"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-polynomial-spectral",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2392",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2392"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-polynomial-compatibility",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2405",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2405"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2409",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2409"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-gauss-limit",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2413",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2413"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-simultaneous-fixed-polynomial-gauss",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2417",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2417"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-padding",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2421",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2421"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-factor-product",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2425",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2425"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-linear-input",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.13, target at line 2429",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2429"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/affinoid-analytic-stage",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2523",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2523"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/affinoid-distribution-stage",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2533",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2533"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/family-integral-lattice",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2543",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2543"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/analytic-completed-tensor",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2553",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2553"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/dual-scalar-extension-map",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2557",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2557"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/family-specialization",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2578",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2578"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/universal-character-coefficient-action",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2601",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2601"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/coefficient-action-cocycle",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2612",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2612"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/uniform-family-radius",
+      "disposition": "renamed-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2592",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2592",
+      "detail": "The common-radius target explicitly imposes strict exponential convergence, including the dyadic boundary."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/contracting-family-compactness",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2617",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2617"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/pan-tate-compactness",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2625",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2625"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/pan-formal-compactness",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.15, target at line 2629",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2629"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/banach-cochain-complex",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2639",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2639"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/compact-complex-representative",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2649",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2649"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/compact-homotopy-endomorphism",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2661",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2661"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/representative-fredholm-product",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2671",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2671"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/complex-product-entire",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2681",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2681"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/representative-product-dependence",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2685",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2685"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/numerical-slope-decomposition",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2709",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2709"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/slope-functoriality",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2729",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2729"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/slope-uniqueness",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2733",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2733"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/slope-subcomplex",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2737",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2737"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-slope-perfect-complex",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2756",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2756"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/cohomology-slope-comparison",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2776",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2776"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-slope-homotopy-invariance",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2780",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2780"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/derived-slope-base-change",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2784",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2784"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/exact-slope-rank-local-constancy",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2788",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2788"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-slope-euler-local-constancy",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2798",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2798"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/factorized-finite-slope-extension",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2808",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2808"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/factorized-extension-independence",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.16, target at line 2812",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2812"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/compact-frechet-factorization",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.17, target at line 2820",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2820"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/frechet-finite-slope",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.17, target at line 2830",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2830"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/stein-frechet-interface",
+      "disposition": "existing-upstream-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.17, target at line 2834",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2834"
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/torus-slope-order",
+      "disposition": "renamed-target",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.17, target at line 2854",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2854",
+      "detail": "Read with the character-valuation adapter and positive-monoid spanning target immediately before it in §4.17. The root and apartment supplier is ReductiveGroupsPartII §RG2.1.2."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/classical-solid-finite-window",
+      "disposition": "scope-narrowed",
+      "sourceId": "LAD-854-README",
+      "locator": "§4.17, target at line 2862",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2862",
+      "detail": "Only the classical finite-projective window and its Frechet comparison are imported. Solid-module localization and reconstruction are excluded by the issue; this entry does not claim that the original solid comparison has been provided."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "LocallyAnalyticDistributions:L4",
+      "status": "planned",
+      "remaining": [],
+      "notes": "All in-scope inherited targets are supplied by the existing upstream plan. This packet changes neither the inherited packet nor the upstream roadmap and does not declare proof closure. The import index distinguishes direct targets, supplier APIs, replaced proof routes, native library inputs and the excluded solid portion."
+    }
+  ],
+  "requests": [],
+  "gaps": [],
+  "sourceIssues": [],
+  "scopeExclusions": [
+    {
+      "target": "Solid-module localization and reconstruction, including the full solid f_*f^* comparison",
+      "reason": "Issue #9294 explicitly excludes this formulation unless the atlas takes ownership of solid functional analysis. Upstream §4.17 also restricts its output to classical finite windows. Neither inversion nor a union of finite windows is a substitute for the solid theorem.",
+      "inheritedNode": "LocallyAnalyticDistributions:L4/classical-solid-finite-window",
+      "effect": "Only its classical compact-operator part is imported; no claim is made about supplying or proving its solid part."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "LocallyAnalyticDistributions"
+      ],
+      "detail": "The proposed L4 stage has acquired an upstream owner since the original packet was reviewed. Continuing its old blueprint round would duplicate the upstream roadmap.",
+      "proposal": "Treat LocallyAnalyticDistributions:L4 as an import of TauCetiRoadmap/LocallyAnalyticDistributions Layer 4, using the immutable PR #854 reference in this packet. Preserve current stage IDs pending maintainer integration. No other layer or upstream document is changed."
+    }
+  ],
+  "boundaryAudit": {
+    "reviewedAudit": "data/library-coverage.json, LocallyAnalyticDistributions:L4, AUDIT-25",
+    "auditUse": "The reviewed audit does not establish that the analytic-family or p-adic Fredholm targets are already formalized. Its shared slope-summand overlap is handled by upstream importing RigidAnalyticGeometry §7.2, not by planning another supplier.",
+    "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "currentMathlibCommit": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+    "method": "Read the authoritative open roadmap and its suggested file. Inspect current-main Suggested files for the nine roadmaps named in WORKERS and read the OperatorTheory boundary. Read native restricted-series, resultant-norm and compact-Riesz interfaces in the current library. These current-head checks are ownership checks, not replacements for baseline citations.",
+    "nearbyRoadmapsRead": [
+      "OperatorTheory/OperatorIdeals",
+      "Completed/RestrictedProducts"
+    ],
+    "baselineUse": "No mathematical declarations are added or cited as pinned baseline results. The suggested file checks only a native module import."
+  },
+  "validation": {
+    "inheritedNodes": 221,
+    "directUpstreamTargetMatches": 177,
+    "otherDispositions": 44,
+    "newNodes": 0,
+    "newApiItems": 0,
+    "newUnitTests": 0,
+    "newPlanets": 0,
+    "baselineDeclarations": 0,
+    "mathematicalReview": "No review or red-team verdict on upstream PR #854; source lineage is reported through that roadmap, without claiming a new reading of the underlying papers."
+  }
+}
