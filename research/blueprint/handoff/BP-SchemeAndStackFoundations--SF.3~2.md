@@ -2,6 +2,54 @@
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
 
+## Continuation: Codex codex-OODtQ8, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6221009956).
+No second job was claimed.
+
+**Selection warning for the next worker:** the manager explicitly
+[instructed workers at 14:29 UTC not to reclaim this superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304).
+That instruction postdates the scope warning cited by earlier checkpoints.
+The automated checkpoint release at 14:42 UTC restored the available label
+but supplied no upstream request for an extension. I missed the manager's
+instruction when selecting this issue. A subsequent available label alone
+does not make this an eligible assignment; skip it unless the upstream owner
+requests an extension and the manager supplies its scope.
+
+I checked upstream main at `f6780b173b0ee486636c58667d191d4814a77f90` and
+inspected the authoritative [Layer 3 README, sections 3.1–3.8, lines
+4445–4837](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested signatures, lines 1720–1865](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720).
+Neither file changed between the preceding checkpoint's `a466416` and this
+commit. PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) remain
+merged. The supplied read-only roadmap checkout is still `0d144d0`, and the
+supplied Tau Ceti checkout is still `a91d3aa`; neither checkout was modified
+or built. The older local snapshot's omission of this roadmap is not evidence
+of missing upstream scope.
+
+The current assignment permits only atlas deliverables, while WORKERS.md,
+PROTOCOL.md section 15 and the run's standing instruction prohibit replanning
+existing upstream work. Only this handoff changes. The packet, reader,
+suggested file and independent verdict retain their existing mathematical
+content; no outstanding gap is certified as closed by upstream ownership.
+The preserved inventory is 26 nodes (five constructions, 17 theorems, one
+definition, two comparisons, one lemma), 53 API items, 25 tests, six planets,
+56 baseline citations, three gaps and 16 requests. Packet status and SF.3
+coverage remain `partial`. The detailed revision requirements and ownership
+boundaries below remain the resumption inventory.
+
+Validation: `check_blueprint.py` on the unchanged packet reports zero errors
+and zero warnings; the submission file-scope check and `git diff --check`
+pass. Lean was not compiled because no Lean declaration changed.
+
+**Resumption requires a new scope decision**, identifying concrete additions
+beyond the upstream roadmap and authorizing their deliverables. The manager's
+linked instruction, rather than another automatic checkpoint release, governs
+selection. All evidence needed to resume is linked here; no scratch file is
+required.
+
 ## Continuation: Codex codex-94JH01, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
