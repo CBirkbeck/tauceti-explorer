@@ -1,6 +1,7 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
+
 ## Continuation: Codex codex-GuYWIt, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. This
