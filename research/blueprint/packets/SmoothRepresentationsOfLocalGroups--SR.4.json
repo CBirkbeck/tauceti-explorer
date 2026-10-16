@@ -7,7 +7,7 @@
     "SmoothRepresentationsOfLocalGroups:SR.5",
     "SmoothRepresentationsOfLocalGroups:SR.6"
   ],
-  "status": "complete",
+  "status": "partial",
   "summary": "Classical spherical Satake with its integral normalization, integral generic GL_n families, and the finite-wild excursion route to integral finiteness and second adjointness. All three stages are planned; substantial geometric and modular-type prerequisites remain explicit gaps, so no stage is claimed closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3924,24 +3924,27 @@
   "coverage": [
     {
       "stageId": "SmoothRepresentationsOfLocalGroups:SR.4",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
+        "Revision round 2 is blocked by upstream ownership: the maintainer stopped further atlas blueprint rounds on issue #9313, and the authoritative SmoothRepresentationsOfLocalGroups roadmap is carried by TauCetiRoadmap PR #785 (formerly #793). Obtain a maintainer scope decision before resuming these inherited revision tasks; see handoff/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md.",
         "Resolve G-SATAKE-CARRIER and G-HL-COUNT; elaborate the full reductive Satake and descent signatures.",
         "Resolve G-RAMIFIED-HECKE; supply Weyl-module trace refinement and synchronize reader normalization corrections; fulfill G-FULL-SIGNATURES."
       ]
     },
     {
       "stageId": "SmoothRepresentationsOfLocalGroups:SR.5",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
+        "Revision round 2 is blocked by upstream ownership: the maintainer stopped further atlas blueprint rounds on issue #9313, and the authoritative SmoothRepresentationsOfLocalGroups roadmap is carried by TauCetiRoadmap PR #785 (formerly #793). Obtain a maintainer scope decision before resuming these inherited revision tasks; see handoff/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md.",
         "Resolve G-MODULAR-TYPES, G-ESSENTIAL and G-INTERPOLATION; elaborate prime-fiber co-Whittaker/absolute AIG signatures on the smooth carrier.",
         "Resolve G-MODULAR-FIELD and any requested G-COEFFICIENT-GENERALITY extension; retain sourced coefficient hypotheses; fulfill G-FULL-SIGNATURES."
       ]
     },
     {
       "stageId": "SmoothRepresentationsOfLocalGroups:SR.6",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
+        "Revision round 2 is blocked by upstream ownership: the maintainer stopped further atlas blueprint rounds on issue #9313, and the authoritative SmoothRepresentationsOfLocalGroups roadmap is carried by TauCetiRoadmap PR #785 (formerly #793). Obtain a maintainer scope decision before resuming these inherited revision tasks; see handoff/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md.",
         "Resolve G-GEOMETRIC-ACTION, G-INTEGRAL-GIT and G-DEPTH; elaborate actual geometric action and integral quotient signatures.",
         "Separate excursion algebra/datum and finite-wild scheme APIs/tests; resolve G-DAT-CONSEQUENCES; synchronize corrected full connected-center, inverse-limit, coefficient and source-locator contracts; fulfill G-FULL-SIGNATURES."
       ]
