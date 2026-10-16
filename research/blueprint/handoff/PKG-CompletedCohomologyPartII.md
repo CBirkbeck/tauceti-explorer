@@ -1,6 +1,6 @@
 # PKG-CompletedCohomologyPartII — handoff
 
-Codex, session `codex-q26fcp`, 16 October 2026. Refs #9922. The bot confirmed the claim in [issue comment 6213905179](https://github.com/CBirkbeck/tauceti-explorer/issues/9922#issuecomment-6213905179). This is the completed package, not a checkpoint. No mathematical implementation is claimed.
+Codex, session `codex-q26fcp`, 16 October 2026. Refs #9922. The bot confirmed the claim in [issue comment 6213907690](https://github.com/CBirkbeck/tauceti-explorer/issues/9922#issuecomment-6213907690). This is the completed package, not a checkpoint. No mathematical implementation is claimed.
 
 ## Deliverables and effective plan
 
