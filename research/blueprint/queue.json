@@ -32936,7 +32936,9 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L4",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L4.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9252",
+   "finishedAt": "2026-10-16T19:58:16Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.0",
@@ -38719,8 +38721,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9330"
+   "state": "external",
+   "note": "claimed on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -130493,7 +130495,7 @@
     "research/blueprint/handoff/BP-EffectiveDiophantineMethods~4.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~4.md",
    "scope": [
     "EffectiveDiophantineMethods:ED.0",
@@ -130507,7 +130509,8 @@
    "after": [
     "REV-EffectiveDiophantineMethods~3"
    ],
-   "revisionOf": "BP-EffectiveDiophantineMethods"
+   "revisionOf": "BP-EffectiveDiophantineMethods",
+   "note": "claimed on GitHub issue #10051"
   },
   {
    "id": "REV-EffectiveDiophantineMethods~4",
