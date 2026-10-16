@@ -1,15 +1,16 @@
 # Blocked checkpoint: BP-AlgebraicModuliForArithmeticGeometry--R09.4~2
 
-**Codex (GPT-6), session codex-ieRCCS, 16 October 2026.** Issue
+**Codex, session codex-R4V1qI, 16 October 2026.** Issue
 [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
 **The revision is unfinished. No mathematical correction is claimed.**
 
 The bot confirmed this session's claim in
-[comment 6224997440](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224997440),
-responding to [claim 6224995341](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6224995341).
-Earlier claim attempts on #9313 and #9330 lost to other sessions; neither
-became this session's claim. #9301 was then the first eligible available issue
-in the manager's ordered list. No second job was claimed.
+[comment 6225599098](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6225599098),
+responding to [claim 6225596999](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6225596999).
+The earlier claim attempt on #9330 lost to `codex-QGEMCt`; that issue was
+never this session's claim. #9301 was then the first eligible available issue
+in the manager's ordered list. No second job was claimed. Continued the
+checkpoint merged in [#10073](https://github.com/CBirkbeck/tauceti-explorer/pull/10073).
 
 ## Blocker and required disposition
 
@@ -19,8 +20,9 @@ the authoritative upstream pull request. Re-read the complete issue discussion
 and that comment directly; no subsequent comment rescinds it. The checkpoint
 merges [#9968](https://github.com/CBirkbeck/tauceti-explorer/pull/9968),
 [#10015](https://github.com/CBirkbeck/tauceti-explorer/pull/10015),
-[#10058](https://github.com/CBirkbeck/tauceti-explorer/pull/10058) and
-[#10066](https://github.com/CBirkbeck/tauceti-explorer/pull/10066) released the
+[#10058](https://github.com/CBirkbeck/tauceti-explorer/pull/10058),
+[#10066](https://github.com/CBirkbeck/tauceti-explorer/pull/10066) and
+[#10073](https://github.com/CBirkbeck/tauceti-explorer/pull/10073) released the
 issue without resolving that instruction.
 
 Rechecked upstream PRs and fetched the README at each immutable head below.
@@ -50,9 +52,9 @@ other packets or upstream roadmap files to resolve it themselves.
 
 ## Changes and preserved frontier
 
-Only the first coverage `remaining` entry and this handoff change. The coverage
-entry records this session's verification and confirmed claim. No upstream
-head or mathematical contract changed since the previous checkpoint.
+Only this handoff changes. It records this session's verification and confirmed
+claim. No upstream head or mathematical contract changed since the previous
+checkpoint.
 The packet and its sole stage, **AlgebraicModuliForArithmeticGeometry:R09.4**,
 remain **partial**. The independent review remains **needs_changes**.
 Every mathematical packet field, node ID and source finding is preserved;
@@ -130,22 +132,25 @@ upstream READMEs' introductions and ownership sections above, and the read-only
 main ModularCurves and StableReduction introductions, conventions and boundaries.
 The inspected upstream main is `0d144d044dacebca17b654695b6f1ad58f159b27`;
 the current Tau Ceti source tree is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Read the current field-valued `AbelianVariety` carrier and representative
-ModularCurves and StableReduction signatures. These readings establish the
-ownership boundary only; they do not recertify the historical pinned audit.
-Neither tree was modified or built. No mathematical source proof or private
-reference was newly certified, and no source passage is copied here.
+Read the current field-valued `AbelianVariety` carrier and its derived interfaces.
+These readings establish the ownership boundary only; they do not recertify
+the historical pinned audit. Neither tree was modified or built. No mathematical
+source proof or private reference was newly certified, and no source passage
+is copied here.
 
-The three fetched README SHA-256 digests are, respectively:
+The three fetched README SHA-256 digests match the preceding checkpoint:
 
 - AlgebraicModuliForArithmeticGeometry: `b4a7ca317a09dac2fd62fa702c2c58fed7602069472ba6b58b3ff08adf0651a9`.
 - ModularCurvesPartII: `6f98748841c20ca0c898849b3293adf8f08650f5c44384671811c41737012c9b`.
 - AbelianSchemesAndArithmeticModuli: `dc4a3d5d305fb7c0df8d7e0ea21357457c53397d0e62e664af4ffa4eabec97b2`.
 
-The packet checker reports **0 errors and 0 warnings**. Structural comparison
-confirms the first coverage obligation is the packet's only changed value;
-reader and Lean hashes are unchanged. Allowed-deliverable and whitespace checks
-pass. **Lean was not compiled in this continuation:** its file is unchanged
-and the assignment is stopped before mathematical revision. The earlier
-review's pinned elaboration result remains historical evidence only.
-No scratch artifact is needed after submission.
+The first README was downloaded from its immutable raw URL and its Git blob
+hash checked against GitHub's contents metadata:
+`aeef09f2ca4bc05a30aefc3b8dcbd2146c0d02a6` (1,364,322 bytes).
+
+Validation for this continuation: the packet checker reports **0 errors and
+0 warnings**; the allowed-deliverable and whitespace checks pass. The packet,
+reader and suggested file are unchanged. **Lean was not compiled in this
+continuation:** its file is unchanged and the assignment is stopped before
+mathematical revision. The earlier review's pinned elaboration result remains
+historical evidence only. No scratch artifact is needed after submission.
