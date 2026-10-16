@@ -115,7 +115,7 @@ the pinned source trees (Mathlib 082e2d37e8, Tau Ceti f790474821). Current TauCe
 ## Checks run
 
 - `python3 scripts/check_blueprint.py` on the new packet and both part packets with the pinned index
-  (`--index /home/chris/tauceti-swarm/workers/baseline/declarations.tsv`): 0 errors, 0 warnings each.
+  (`--index "$TAUCETI_BASELINE/declarations.tsv"`): 0 errors, 0 warnings each.
 - `lean-check research/blueprint/suggested/EnhancedDerivedSheaves.lean`: exit 0; 645 warnings, all
   placeholder-proof warnings (589 from the part sections, 56 new); no errors, no other warnings. The new
   sections state 62 of the new declarations' API, test and theorem names; the rest need carriers that are
