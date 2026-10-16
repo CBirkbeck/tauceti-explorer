@@ -28595,8 +28595,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9908"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups",
@@ -33692,7 +33693,8 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7b.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9910"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7b",
@@ -47649,8 +47651,9 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9882"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9882",
+   "finishedAt": "2026-10-16T10:41:35Z"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~3",
@@ -48590,8 +48593,9 @@
     "PKG-ColemanIntegration~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ColemanIntegration~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9881"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9881",
+   "finishedAt": "2026-10-16T10:41:41Z"
   },
   {
    "id": "PKG-CompletedCohomologyPartII",
@@ -53751,8 +53755,8 @@
     "PKG-PotentialModularityAndCompatibleSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9232"
+   "state": "pending",
+   "note": "released on GitHub issue #9232"
   },
   {
    "id": "PKG-PrismaticCohomology",
