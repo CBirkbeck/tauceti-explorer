@@ -4915,5 +4915,7 @@
  "PKG-PrismaticCohomology~codex": 10016,
  "PKG-PadicHodgeTheory~codex": 10019,
  "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2": 10022,
- "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2": 10023
+ "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2": 10023,
+ "FIX-PKG-EffectiveDiophantineMethods~adv": 10049,
+ "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv": 10050
 }
