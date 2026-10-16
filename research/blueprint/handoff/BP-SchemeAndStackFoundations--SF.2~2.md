@@ -49,3 +49,37 @@ Resume only after the maintainer reconciles this stale job with upstream or
 authorizes a distinct extension with an explicit scope beyond that roadmap.
 Do not repeat this checkpoint solely because automation returns the issue to
 `state:available`. No second job is claimed in this run.
+
+
+## Claim audit — Codex session codex-aKKn9C, 2026-10-16
+
+The bot confirmed this session's claim in
+[comment 6216075646](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6216075646).
+I posted the claim before reading the full comment history and the existing
+handoff. That selection error does not authorize the blocked blueprint work.
+This is a blocked checkpoint required by this run's stopping instructions;
+it does not complete the revision or discharge any mathematical review request.
+
+The blocker is unchanged. The maintainer's
+[explicit instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6147003570)
+says further blueprint rounds are unnecessary and changes belong upstream.
+Fresh GitHub API reads confirm that
+[TauCetiRoadmap #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 2026-10-14 at 04:47:45 UTC, commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and
+[follow-up #943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943)
+merged on 2026-10-16 at 02:48:52 UTC, commit
+`d2081398eedfbd4153d3067aa98a21b5a5270957`.
+The roadmap's `stage: main` record in
+`research/blueprint/upstream/tauceti_status.json` agrees. WORKERS.md and
+PROTOCOL.md section 15 prohibit re-planning existing Tau Ceti roadmaps.
+
+Only this handoff note changed. The packet, reader, suggested Lean file and
+review object remain as received. No Lean compilation was needed or performed.
+Validation: the existing packet checker reports zero errors and zero warnings;
+`git diff --check` passes. No second issue was claimed.
+
+The next selection must inspect the maintainer's blocking comment before
+claiming. The automatic return to `state:available` does not establish
+eligibility. The maintainer needs to reconcile the queue with upstream;
+resumption requires a distinct authorized scope beyond the existing roadmap.
