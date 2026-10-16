@@ -1749,6 +1749,21 @@
         "module": "Mathlib/Data/ZMod/Basic.lean",
         "provides": "For NeZero n, casting a.val back to ZMod n gives a.",
         "checked": "Independent reviewer read statement and ambient NeZero hypotheses at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 205–208."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_iterate_derivative",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "The constant coefficient of the kth ordinary formal derivative is k! times the kth original coefficient; used to distinguish ordinary differentiation from the imported Mahler derivation in the concrete test.",
+        "checked": "Full statement and surrounding commutative-semiring hypotheses read at pinned Mathlib082e2d3 on27 September2026, lines49–79; exact name checked in the unmodified index.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
+      },
+      {
+        "ref": "mathlib:Nat.add_choose_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Choose/Vandermonde.lean",
+        "provides": "Finite Vandermonde identity on the native antidiagonal, used for the particular translation by D.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d3 on 27 September 2026 and matched to the unchanged declaration index."
       }
     ]
   },
@@ -9839,6 +9854,172 @@
       "acceptance": [
         "The statement concerns the actual finiteProjection of the actual extended measure and divides by2 only in K."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Analytic and formal smoothing derivatives",
+      "kind": "comparison",
+      "statement": "For natural a with unit image in ℚ and every k≥0, h_a^(k)(0)=algebraMap ℚ ℝ c_(a,k).",
+      "hypotheses": [
+        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
+        "a,k are natural numbers and the rational image of a is a unit. No analytic convergence of a p-adic exponential series is assumed."
+      ],
+      "proofSteps": [
+        "Specialize smoothed-series-euler-values to R=ℚ. The result identifies c_(a,k) with the rational smoothed Bernoulli expression.",
+        "Apply the actual real derivative theorem smoothed-kernel-origin-derivatives at the real image of a. Native ring-map laws transport the rational expression, including its nonzero integer denominator, to exactly that real derivative.",
+        "This is the source equation(4-1) with the right-hand value interpreted as the constant coefficient of the formal iterate. All real derivatives are derivatives of the actual smooth kernel, not formal derivatives relabelled as analytic ones.",
+        "For the derivative-operator control at a=2, the existing coefficient recurrence gives coefficient2(F_2)=1/8. Native ordinary-formal-derivative normalization yields constantCoeff(D²F_2)=1/4, while ∂² gives0 and the actual real second derivative is0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives",
+        "DirichletPadicLFunctions:L1/smoothed-series-euler-values",
+        "DirichletPadicLFunctions:L1/series-coefficient-recurrence",
+        "mathlib:PowerSeries.constantCoeff_iterate_derivative"
+      ],
+      "acceptance": [
+        "This compares every finite origin derivative. It makes no assertion of evaluating the formal series globally or identifying an arbitrary formal series with an analytic function. Native analyticity of the actual h_a is already supplied."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_iteratedDeriv_eq_formal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
+          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedJetTests.ordinary_derivative_control",
+          "kind": "non-example",
+          "statement": "At a=2 the actual second real derivative is0, but constantCoeff(D²F_2)=1/4. Replacing ∂ by D in the comparison is false."
+        }
+      ],
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+      "notes": "Placed in L1 by the assembly (ASM-DirichletPadicLFunctions): it cites the L1 smoothed-series exports, so it cannot sit in L0 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L0 prefix."
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-formal-values",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Mellin and formal smoothing values",
+      "kind": "comparison",
+      "statement": "For natural a>0 with rational unit certificate and every k≥0, L_a(−k)=(−1)^k algebraMap ℚ ℂ c_(a,k).",
+      "hypotheses": [
+        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
+        "a,k are natural numbers, a>0, and the rational image of a is a unit. The parameter inequality supplies the actual kernel decay and continuation hypotheses."
+      ],
+      "proofSteps": [
+        "Apply smoothed-kernel-mellin-values to the positive real image of a. This gives (−1)^k times the complex smoothed Bernoulli value.",
+        "Use smoothed-series-euler-values over ℚ and native rational-to-complex ring-map laws. The resulting expression is (−1)^k times the complex image of c_(a,k).",
+        "The complex continuation and the real derivative use opposite signs at odd k: the former includes the factor (−1)^k. Both are compared independently through the same rational number."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-values",
+        "DirichletPadicLFunctions:L1/smoothed-series-euler-values"
+      ],
+      "acceptance": [
+        "The value at k=0 is included. For a=2,k=3 the real derivative/formal constant is+1/8 and the normalized Mellin value is−1/8."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "smoothedMellinKernel_mellin_neg_nat_eq_formal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
+          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedSmoothedJetTests.mellin_odd_sign",
+          "kind": "computation",
+          "statement": "L_2(−3)=−1/8, whereas c_(2,3)=+1/8."
+        }
+      ],
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+      "notes": "Placed in L1 by the assembly (ASM-DirichletPadicLFunctions): it cites the L1 smoothed-series exports, so it cannot sit in L0 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L0 prefix."
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-translation-sum",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "A finite translation identity for the smoothing measure",
+      "kind": "lemma",
+      "statement": "Σ_(i<a)(τ_i)_*(I_Kμ_a)=Σ_(i<a)Σ_(j<i)δ_j in D(Z,K).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "For a natural i and every Mahler degree k, native Nat.add_choose_eq and mahler_natCast_eq give the finite binomial translation formula at natural inputs. Density of naturals in Z and continuity extend it to every p-adic input.",
+        "Using native map_apply and coeff_amiceTransform, finite linearity gives A((τ_i)_*(I_Kμ_a))=Y^i A(I_Kμ_a). The same coefficient formula and dirac_apply give A(δ_j)=Y^j. A complete native proof verifies the translation formula on the actual measure and coefficient carriers.",
+        "The earlier smoothed-extension-amice identifies A(I_Kμ_a) with F_a over K. The needed unit certificate for a is the image of its integral unit certificate.",
+        "The two sides therefore have transforms Q_a(Y)F_a and B_a(Y). The preceding finite geometric cancellation equates them, and native general Amice injectivity gives the displayed equality of actual measures."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothing-geometric-cancellation",
+        "DirichletPadicLFunctions:L1/smoothed-extension-amice",
+        "mathlib:AbstractMeasure.amiceTransform",
+        "mathlib:AbstractMeasure.injective_amiceTransform",
+        "mathlib:IsUnit.map",
+        "mathlib:Nat.add_choose_eq",
+        "mathlib:mahler_natCast_eq",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:Polynomial.coeff_one_add_X_pow",
+        "mathlib:Polynomial.coeff_coe",
+        "mathlib:Polynomial.coe_pow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_smoothedMeasure_translation_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.translation_two",
+          "kind": "computation",
+          "statement": "At p=3,a=2,K=Q_3, I_Kμ_2+(τ_1)_*I_Kμ_2=δ_0."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.translation_three",
+          "kind": "computation",
+          "statement": "At p=2,a=3,K=Q_2, the sum of translates at0,1,2 is2δ_0+δ_1."
+        }
+      ],
+      "acceptance": [
+        "The identity is for the actual arithmetic measure. The generic finite Mahler calculation is a native proof ingredient, not a second Amice or convolution theory."
+      ],
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L2.json",
+      "notes": "Placed in L1 by the assembly (ASM-DirichletPadicLFunctions): it cites only L1 nodes and is consumed by L1/smoothed-translation-difference, so it cannot sit in L2 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L2 prefix."
     }
   ],
   "requests": [
@@ -9897,7 +10078,7 @@
         "Normalized odd-prime sign quotient: For p≠2, supply the native closed sign quotient U/{±1}, the actual completed-algebra quotient map, corners A⁺=e⁺A and A⁻=e⁻A with their own identities e⁺,e⁻, the product decomposition, and the normalized isomorphism A⁺≃completedGroupAlgebra p (U/{±1}) sending e⁺[g] to [q(g)]. Derive this on compatible finite quotients before passage to the limit. The unscaled orbit sum maps to twice the quotient basis vector; make that normalization explicit. This generic source Lemma 11.2 interface is owned by PMIA, not duplicated in L1.",
         "Finite-extension bounded measure coefficients: Extend the existing actual integral coefficient-extension maps to compatible finite complete valued extensions K⊂L of Q_p on bounded continuous-dual measures over U and Z_p. Supply identity/composition, integral-test evaluation, convolution/Dirac compatibility, and commuting squares for intrinsic restriction, unit inclusion, psi, Frobenius and inverse weighting on their stated domains. Preserve bounded scalar hypotheses. This is the finite-extension measure carrier, not the unrestricted inverse limit of field-valued finite measures.",
         "Finite-extension admissible pseudomeasure evaluation: For those actual bounded finite-extension coefficient maps, prove preservation of regular elements needed for localization (in particular θ_(p+1)), construct the corresponding native total-quotient and pseudomeasure maps, and the admissible continuous K-valued character evaluator with its numerator ratio and base-change law. Prove nonzero scalar denominators persist under the injective coefficient embedding. The current Q_p-valued integral-character evaluator is reused in its scope; a finite-extension evaluator or entire-total-quotient ring evaluator is not silently inferred.",
-        "Elaborate the exact L1 suggested file against a matching current PMIA artifact; supply its four explicitly omitted comparison signatures when the owned carriers and maps exist. Current compilation is unavailable, not successful.",
+        "The assembled suggested file research/blueprint/suggested/DirichletPadicLFunctions.lean joins all layers and elaborates at the pins, with the PadicMeasuresIwasawaAlgebras definitions it uses restated in its first section. Supply the four explicitly omitted comparison signatures when the owned carriers and maps exist.",
         "Finite cyclic recurrence uniqueness: For q>0, a unit u∈(ZMod q)^×, a characteristic-zero field K and f,g:ZMod q→K, if f(r−u)−f(r)=g(r−u)−g(r) for every r and Σ_r f(r)=Σ_r g(r), prove f=g. The difference is constant because translation by a unit generates the additive cyclic group; cancel the nonzero scalar q using CharZero K. Supply this native finite-function uniqueness lemma once, at PMIA L1, without defining another finite-measure carrier."
       ]
     }

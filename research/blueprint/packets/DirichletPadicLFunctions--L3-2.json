@@ -351,8 +351,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_test"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_test"
       },
       "implementationStatus": "unchecked",
       "planet": {
@@ -366,17 +366,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.rjw_test_apply",
+          "name": "DirichletPadic.rjw_test_apply",
           "role": "characterisation",
           "statement": "κ_s(u)=ν(u)κ_r((1−s)h(u))."
         },
         {
-          "name": "DirichletL3.rjw_test_one",
+          "name": "DirichletPadic.rjw_test_one",
           "role": "simp",
           "statement": "κ_1=ν."
         },
         {
-          "name": "DirichletL3.rjw_test_mul",
+          "name": "DirichletPadic.rjw_test_mul",
           "role": "structure",
           "statement": "If ν(uv)=ν(u)ν(v) and h(uv)=h(u)+h(v), then κ_s(uv)=κ_s(u)κ_s(v)."
         }
@@ -435,8 +435,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_test_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_test_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -471,8 +471,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_test_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_test_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -507,8 +507,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_test_mul"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_test_mul"
       },
       "implementationStatus": "unchecked"
     },
@@ -545,8 +545,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_numerator"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_numerator"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -557,17 +557,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.rjw_numerator_apply",
+          "name": "DirichletPadic.rjw_numerator_apply",
           "role": "characterisation",
           "statement": "N_μ(s)=μ(κ_s)."
         },
         {
-          "name": "DirichletL3.rjw_numerator_one",
+          "name": "DirichletPadic.rjw_numerator_one",
           "role": "compatibility",
           "statement": "N_μ(1)=μ(ν)."
         },
         {
-          "name": "DirichletL3.rjw_numerator_add",
+          "name": "DirichletPadic.rjw_numerator_add",
           "role": "structure",
           "statement": "N_(μ+η)(s)=N_μ(s)+N_η(s)."
         }
@@ -621,8 +621,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_numerator_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_numerator_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -657,8 +657,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_numerator_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_numerator_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -693,8 +693,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_numerator_add"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_numerator_add"
       },
       "implementationStatus": "unchecked"
     },
@@ -733,8 +733,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_cleared"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_cleared"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -745,17 +745,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.rjw_cleared_apply",
+          "name": "DirichletPadic.rjw_cleared_apply",
           "role": "characterisation",
           "statement": "Q_a(s)=N_μ(s)/(κ_s(a)−1)."
         },
         {
-          "name": "DirichletL3.rjw_cleared_one",
+          "name": "DirichletPadic.rjw_cleared_one",
           "role": "compatibility",
           "statement": "If ν(a)≠1, Q_a(1)=μ(ν)/(ν(a)−1)."
         },
         {
-          "name": "DirichletL3.rjw_cleared_cancel",
+          "name": "DirichletPadic.rjw_cleared_cancel",
           "role": "relation",
           "statement": "If κ_s(a)≠1, (κ_s(a)−1)Q_a(s)=N_μ(s)."
         }
@@ -809,8 +809,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_cleared_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_cleared_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -845,8 +845,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_cleared_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_cleared_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -881,8 +881,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_cleared_cancel"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_cleared_cancel"
       },
       "implementationStatus": "unchecked"
     },
@@ -927,8 +927,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_numerator"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_numerator"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -939,17 +939,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.rjw_analytic_numerator_apply",
+          "name": "DirichletPadic.rjw_analytic_numerator_apply",
           "role": "characterisation",
           "statement": "N_F(s)=E(F,exp((1−s)L)−1)."
         },
         {
-          "name": "DirichletL3.rjw_analytic_numerator_one",
+          "name": "DirichletPadic.rjw_analytic_numerator_one",
           "role": "simp",
           "statement": "N_F(1)=coeff_0 F."
         },
         {
-          "name": "DirichletL3.rjw_analytic_numerator_zero",
+          "name": "DirichletPadic.rjw_analytic_numerator_zero",
           "role": "simp",
           "statement": "The zero power series gives zero numerator."
         }
@@ -1008,8 +1008,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_numerator_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_numerator_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -1044,8 +1044,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_numerator_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_numerator_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -1080,8 +1080,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_numerator_zero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_numerator_zero"
       },
       "implementationStatus": "unchecked"
     },
@@ -1118,8 +1118,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_denominator"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_denominator"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -1130,17 +1130,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.rjw_analytic_denominator_apply",
+          "name": "DirichletPadic.rjw_analytic_denominator_apply",
           "role": "characterisation",
           "statement": "d(s)=c exp((1−s)A)−1."
         },
         {
-          "name": "DirichletL3.rjw_analytic_denominator_one",
+          "name": "DirichletPadic.rjw_analytic_denominator_one",
           "role": "simp",
           "statement": "d(1)=c−1."
         },
         {
-          "name": "DirichletL3.rjw_analytic_denominator_zero_log",
+          "name": "DirichletPadic.rjw_analytic_denominator_zero_log",
           "role": "example",
           "statement": "If A=0 the denominator is constantly c−1."
         }
@@ -1199,8 +1199,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_denominator_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_denominator_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -1235,8 +1235,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_denominator_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_denominator_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -1271,8 +1271,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_denominator_zero_log"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_denominator_zero_log"
       },
       "implementationStatus": "unchecked"
     },
@@ -1309,8 +1309,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_branch"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_branch"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -1321,17 +1321,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.rjw_analytic_branch_apply",
+          "name": "DirichletPadic.rjw_analytic_branch_apply",
           "role": "characterisation",
           "statement": "Q(s)=N_F(s)/d(s)."
         },
         {
-          "name": "DirichletL3.rjw_analytic_branch_one",
+          "name": "DirichletPadic.rjw_analytic_branch_one",
           "role": "compatibility",
           "statement": "If c≠1, Q(1)=coeff_0 F/(c−1)."
         },
         {
-          "name": "DirichletL3.rjw_analytic_branch_cancel",
+          "name": "DirichletPadic.rjw_analytic_branch_cancel",
           "role": "relation",
           "statement": "At d(s)≠0, d(s)Q(s)=N_F(s)."
         }
@@ -1390,8 +1390,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_branch_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_branch_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -1426,8 +1426,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_branch_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_branch_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -1462,8 +1462,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.rjw_analytic_branch_cancel"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.rjw_analytic_branch_cancel"
       },
       "implementationStatus": "unchecked"
     },
@@ -1502,8 +1502,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.inverse_teichmuller"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.inverse_teichmuller"
       },
       "implementationStatus": "unchecked"
     },
@@ -1542,8 +1542,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.integral_character_integers"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integral_character_integers"
       },
       "implementationStatus": "unchecked"
     },
@@ -1584,8 +1584,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.arithmetic_evaluation"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.arithmetic_evaluation"
       },
       "implementationStatus": "unchecked"
     },
@@ -1622,8 +1622,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.clearing_independence"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.clearing_independence"
       },
       "implementationStatus": "unchecked"
     },
@@ -1668,8 +1668,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.branch_interpolation"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.branch_interpolation"
       },
       "implementationStatus": "unchecked",
       "planet": {
@@ -1709,8 +1709,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.zeta_congruence"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.zeta_congruence"
       },
       "implementationStatus": "unchecked"
     },
@@ -1753,8 +1753,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.dyadic_sign_zero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.dyadic_sign_zero"
       },
       "implementationStatus": "unchecked"
     },
@@ -1797,8 +1797,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.analytic_coordinate_agreement"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.analytic_coordinate_agreement"
       },
       "implementationStatus": "unchecked"
     },
@@ -1839,8 +1839,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.analytic_numerator_convergence"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.analytic_numerator_convergence"
       },
       "implementationStatus": "unchecked"
     },
@@ -1877,8 +1877,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.denominator_derivative"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.denominator_derivative"
       },
       "implementationStatus": "unchecked"
     },
@@ -1916,8 +1916,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.principal_denominator_simple_zero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principal_denominator_simple_zero"
       },
       "implementationStatus": "unchecked"
     },
@@ -1959,8 +1959,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.nonprincipal_analytic"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.nonprincipal_analytic"
       },
       "implementationStatus": "unchecked"
     },
@@ -2000,8 +2000,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.principal_numerator_value"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principal_numerator_value"
       },
       "implementationStatus": "unchecked"
     },
@@ -2038,8 +2038,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.principal_log_nonzero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principal_log_nonzero"
       },
       "implementationStatus": "unchecked"
     },
@@ -2082,8 +2082,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.principal_pole"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principal_pole"
       },
       "implementationStatus": "unchecked",
       "planet": {
@@ -2125,8 +2125,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.principal_residue"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principal_residue"
       },
       "implementationStatus": "unchecked"
     },
@@ -2166,8 +2166,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.residue_coordinate_change"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.residue_coordinate_change"
       },
       "implementationStatus": "unchecked"
     },
@@ -2214,8 +2214,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.tame_trace_euler"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tame_trace_euler"
       },
       "implementationStatus": "unchecked"
     },
@@ -2261,8 +2261,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.tame_value_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tame_value_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -2303,8 +2303,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.power_smoothed_log_sum"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.power_smoothed_log_sum"
       },
       "implementationStatus": "unchecked"
     },
@@ -2345,8 +2345,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.power_trace_zero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.power_trace_zero"
       },
       "implementationStatus": "unchecked"
     },
@@ -2388,8 +2388,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.power_value_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.power_value_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -2439,8 +2439,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.mixed_value_one"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.mixed_value_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -2483,8 +2483,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.leopoldt"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.leopoldt"
       },
       "implementationStatus": "unchecked",
       "planet": {
@@ -2526,8 +2526,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.gk_root_ideals"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.gk_root_ideals"
       },
       "implementationStatus": "unchecked"
     },
@@ -2565,8 +2565,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.gk_root_congruence"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.gk_root_congruence"
       },
       "implementationStatus": "unchecked"
     },
@@ -2606,8 +2606,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.gk_dyadic_root"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.gk_dyadic_root"
       },
       "implementationStatus": "unchecked"
     },
@@ -2648,8 +2648,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_gamma_sum"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_gamma_sum"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -2660,17 +2660,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.fg_gamma_sum_apply",
+          "name": "DirichletPadic.fg_gamma_sum_apply",
           "role": "characterisation",
           "statement": "S is the literal finite weighted Gamma-log sum, with no inverse character and no normalization by N."
         },
         {
-          "name": "DirichletL3.fg_gamma_sum_zero_log",
+          "name": "DirichletPadic.fg_gamma_sum_zero_log",
           "role": "example",
           "statement": "If the supplied logarithm is the zero function, the sum is0."
         },
         {
-          "name": "DirichletL3.fg_gamma_sum_congr",
+          "name": "DirichletPadic.fg_gamma_sum_congr",
           "role": "functoriality",
           "statement": "Two scalar logarithms agreeing at every displayed Gamma value give the same sum."
         }
@@ -2730,8 +2730,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_gamma_sum_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_gamma_sum_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -2767,8 +2767,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_gamma_sum_zero_log"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_gamma_sum_zero_log"
       },
       "implementationStatus": "unchecked"
     },
@@ -2804,8 +2804,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_gamma_sum_congr"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_gamma_sum_congr"
       },
       "implementationStatus": "unchecked"
     },
@@ -2843,8 +2843,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_count"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_count"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -2855,17 +2855,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.fg_count_apply",
+          "name": "DirichletPadic.fg_count_apply",
           "role": "characterisation",
           "statement": "C_p(x)=x−1−((x−1−a0(x−1))/p)."
         },
         {
-          "name": "DirichletL3.fg_count_nat",
+          "name": "DirichletPadic.fg_count_nat",
           "role": "example",
           "statement": "For n≥1, C_p(n)=n−1−floor((n−1)/p)."
         },
         {
-          "name": "DirichletL3.fg_count_step",
+          "name": "DirichletPadic.fg_count_step",
           "role": "relation",
           "statement": "C_p(x+1)−C_p(x) is1 on Z_p^× and0 on pZ_p."
         }
@@ -2920,8 +2920,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_count_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_count_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -2957,8 +2957,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_count_nat"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_count_nat"
       },
       "implementationStatus": "unchecked"
     },
@@ -2995,8 +2995,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_count_step"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_count_step"
       },
       "implementationStatus": "unchecked"
     },
@@ -3036,8 +3036,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_permutation"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_permutation"
       },
       "implementationStatus": "unchecked",
       "uses": [
@@ -3048,17 +3048,17 @@
       ],
       "api": [
         {
-          "name": "DirichletL3.fg_permutation_apply",
+          "name": "DirichletPadic.fg_permutation_apply",
           "role": "characterisation",
           "statement": "For a=m%N if nonzero and N otherwise, ι(m)=(m−a)/N+1+(N−a)((B−1)/N)."
         },
         {
-          "name": "DirichletL3.fg_permutation_congruence",
+          "name": "DirichletPadic.fg_permutation_congruence",
           "role": "relation",
           "statement": "Nι(m)≡m modB."
         },
         {
-          "name": "DirichletL3.fg_permutation_filtration",
+          "name": "DirichletPadic.fg_permutation_filtration",
           "role": "compatibility",
           "statement": "For0≤a≤N, m_N^sharp>a iff Nι(m)<(N−a)B."
         }
@@ -3113,8 +3113,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_permutation_apply"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_permutation_apply"
       },
       "implementationStatus": "unchecked"
     },
@@ -3150,8 +3150,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_permutation_congruence"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_permutation_congruence"
       },
       "implementationStatus": "unchecked"
     },
@@ -3188,8 +3188,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_permutation_filtration"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_permutation_filtration"
       },
       "implementationStatus": "unchecked"
     },
@@ -3226,8 +3226,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_permutation_range"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_permutation_range"
       },
       "implementationStatus": "unchecked"
     },
@@ -3264,8 +3264,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_permutation_injective"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_permutation_injective"
       },
       "implementationStatus": "unchecked"
     },
@@ -3309,8 +3309,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_log_antidifference"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_log_antidifference"
       },
       "implementationStatus": "unchecked"
     },
@@ -3351,8 +3351,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_tame_period"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_tame_period"
       },
       "implementationStatus": "unchecked"
     },
@@ -3393,8 +3393,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_sum_expression"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_sum_expression"
       },
       "implementationStatus": "unchecked",
       "suggestedBoundary": "Native scalar consequence only; the full target is the packet statement. The actual arithmetic supplier identification and its exact hypotheses are unavailable and remain the listed request/gap."
@@ -3438,8 +3438,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_log_reindex_limit"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_log_reindex_limit"
       },
       "implementationStatus": "unchecked",
       "suggestedBoundary": "Native scalar consequence only; the full target is the packet statement. The actual arithmetic supplier identification and its exact hypotheses are unavailable and remain the listed request/gap."
@@ -3485,8 +3485,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_differentiation"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_differentiation"
       },
       "implementationStatus": "unchecked",
       "suggestedBoundary": "Native scalar consequence only; the full target is the packet statement. The actual arithmetic supplier identification and its exact hypotheses are unavailable and remain the listed request/gap."
@@ -3527,8 +3527,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_count_character_sum"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_count_character_sum"
       },
       "implementationStatus": "unchecked"
     },
@@ -3569,8 +3569,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.ferrero_greenberg"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.ferrero_greenberg"
       },
       "implementationStatus": "unchecked",
       "planet": {
@@ -3612,8 +3612,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_exceptional_zero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_exceptional_zero"
       },
       "implementationStatus": "unchecked"
     },
@@ -3651,8 +3651,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_exceptional_derivative"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_exceptional_derivative"
       },
       "implementationStatus": "unchecked"
     },
@@ -3695,8 +3695,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_gauss_log_projection"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_gauss_log_projection"
       },
       "implementationStatus": "unchecked"
     },
@@ -3737,8 +3737,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_nonvanishing"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_nonvanishing"
       },
       "implementationStatus": "unchecked",
       "suggestedBoundary": "Native scalar consequence only; the full target is the packet statement. The actual arithmetic supplier identification and its exact hypotheses are unavailable and remain the listed request/gap."
@@ -3782,8 +3782,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.fg_simple_zero"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.fg_simple_zero"
       },
       "implementationStatus": "unchecked"
     },
@@ -3828,8 +3828,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.tame_log_realization"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tame_log_realization"
       },
       "implementationStatus": "unchecked"
     },
@@ -3870,8 +3870,8 @@
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
-        "namespace": "DirichletL3",
-        "declaration": "DirichletL3.mixed_log_constant"
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.mixed_log_constant"
       },
       "implementationStatus": "unchecked"
     }

@@ -3919,101 +3919,6 @@
       ]
     },
     {
-      "id": "DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives",
-      "parentStageId": "DirichletPadicLFunctions:L0",
-      "realises": [
-        "DirichletPadicLFunctions:L0"
-      ],
-      "title": "Analytic and formal smoothing derivatives",
-      "kind": "comparison",
-      "statement": "For natural a with unit image in ℚ and every k≥0, h_a^(k)(0)=algebraMap ℚ ℝ c_(a,k).",
-      "hypotheses": [
-        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
-        "a,k are natural numbers and the rational image of a is a unit. No analytic convergence of a p-adic exponential series is assumed."
-      ],
-      "proofSteps": [
-        "Specialize smoothed-series-euler-values to R=ℚ. The result identifies c_(a,k) with the rational smoothed Bernoulli expression.",
-        "Apply the actual real derivative theorem smoothed-kernel-origin-derivatives at the real image of a. Native ring-map laws transport the rational expression, including its nonzero integer denominator, to exactly that real derivative.",
-        "This is the source equation(4-1) with the right-hand value interpreted as the constant coefficient of the formal iterate. All real derivatives are derivatives of the actual smooth kernel, not formal derivatives relabelled as analytic ones.",
-        "For the derivative-operator control at a=2, the existing coefficient recurrence gives coefficient2(F_2)=1/8. Native ordinary-formal-derivative normalization yields constantCoeff(D²F_2)=1/4, while ∂² gives0 and the actual real second derivative is0."
-      ],
-      "prerequisites": [
-        "DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives",
-        "DirichletPadicLFunctions:L1/smoothed-series-euler-values",
-        "DirichletPadicLFunctions:L1/series-coefficient-recurrence",
-        "mathlib:PowerSeries.constantCoeff_iterate_derivative"
-      ],
-      "acceptance": [
-        "This compares every finite origin derivative. It makes no assertion of evaluating the formal series globally or identifying an arbitrary formal series with an analytic function. Native analyticity of the actual h_a is already supplied."
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
-        "namespace": "DirichletPadic",
-        "declaration": "smoothedMellinKernel_iteratedDeriv_eq_formal"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
-          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "tests": [
-        {
-          "name": "SuggestedSmoothedJetTests.ordinary_derivative_control",
-          "kind": "non-example",
-          "statement": "At a=2 the actual second real derivative is0, but constantCoeff(D²F_2)=1/4. Replacing ∂ by D in the comparison is false."
-        }
-      ]
-    },
-    {
-      "id": "DirichletPadicLFunctions:L0/smoothed-mellin-formal-values",
-      "parentStageId": "DirichletPadicLFunctions:L0",
-      "realises": [
-        "DirichletPadicLFunctions:L0"
-      ],
-      "title": "Mellin and formal smoothing values",
-      "kind": "comparison",
-      "statement": "For natural a>0 with rational unit certificate and every k≥0, L_a(−k)=(−1)^k algebraMap ℚ ℂ c_(a,k).",
-      "hypotheses": [
-        "F_a is the existing smoothedSeries, with its specified unit certificate. The operator ∂ is the imported PowerSeries.mahlerDerivation=(1+T)d/dT, not ordinary formal differentiation. Write c_(a,k)=constantCoeff(∂^[k]F_a) over ℚ; this is notation for an expression, not a new scalar or series carrier. The actual real kernel is h_a=smoothedMellinKernel(a), g_a is its complex inclusion, and L_a is the existing normalizedMellinContinuation(g_a).",
-        "a,k are natural numbers, a>0, and the rational image of a is a unit. The parameter inequality supplies the actual kernel decay and continuation hypotheses."
-      ],
-      "proofSteps": [
-        "Apply smoothed-kernel-mellin-values to the positive real image of a. This gives (−1)^k times the complex smoothed Bernoulli value.",
-        "Use smoothed-series-euler-values over ℚ and native rational-to-complex ring-map laws. The resulting expression is (−1)^k times the complex image of c_(a,k).",
-        "The complex continuation and the real derivative use opposite signs at odd k: the former includes the factor (−1)^k. Both are compared independently through the same rational number."
-      ],
-      "prerequisites": [
-        "DirichletPadicLFunctions:L0/smoothed-kernel-mellin-values",
-        "DirichletPadicLFunctions:L1/smoothed-series-euler-values"
-      ],
-      "acceptance": [
-        "The value at k=0 is included. For a=2,k=3 the real derivative/formal constant is+1/8 and the normalized Mellin value is−1/8."
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothedComparison",
-        "namespace": "DirichletPadic",
-        "declaration": "smoothedMellinKernel_mellin_neg_nat_eq_formal"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "Lemma4.3 and equation(4-1), printed136/PDF37, together with Proposition4.6, printed137/PDF38; full surrounding134–139 read27 September2026.",
-          "match": "This compares actual real origin derivatives, the formal smoothed-series operator and the arithmetic moment through the same rational value. The generic formal exponential conjugacy and moment theorem are imported from their PMIA owner. Equality of all origin derivatives realizes the displayed analytic/formal comparison without asserting global convergence of a formal series or an embedding from real/complex numbers into a p-adic field. Existing E1–E3 normalization/domain corrections remain in force."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "tests": [
-        {
-          "name": "SuggestedSmoothedJetTests.mellin_odd_sign",
-          "kind": "computation",
-          "statement": "L_2(−3)=−1/8, whereas c_(2,3)=+1/8."
-        }
-      ]
-    },
-    {
       "id": "DirichletPadicLFunctions:L0/smoothed-kernel-zero",
       "parentStageId": "DirichletPadicLFunctions:L0",
       "realises": [
@@ -4932,131 +4837,6 @@
         "status": "omitted",
         "reason": "G-rational-dictionary: the shared GN rational normal-form equivalence and its component evaluation exports are planned, not pinned native declarations; no duplicate idele or Hecke-character type is inserted in Lean."
       }
-    },
-    {
-      "id": "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
-      "parentStageId": "DirichletPadicLFunctions:L0",
-      "realises": [
-        "DirichletPadicLFunctions:L0"
-      ],
-      "title": "Algebraic inputs to the cyclotomic logarithms",
-      "kind": "lemma",
-      "statement": "Every α_c is nonzero algebraic overℚ and every β_c is algebraic overℚ.",
-      "hypotheses": [
-        "N>1; χ is a primitive nonprincipal native complex Dirichlet character of conductorN; ζ is a primitive Nth complex root. Put G=gaussSum(χ⁻¹,AddChar.zmodChar N ζ) with its native root certificate and G≠0.",
-        "For c∈(ZMod N)ˣ put α_c=1−ζ^(c.val) and β_c=−G⁻¹χ⁻¹(c). Logs are the native principal Complex.log. The cyclotomic log sum is S=∑_c β_c log(α_c). These are local expressions, not definitions of a second logarithm or L-function."
-      ],
-      "proofSteps": [
-        "Primitive-root nontriviality at0<c.val<N proves α_c≠0; ζ is algebraic because ζ^N=1 with N>0.",
-        "On units, χ takes roots-of-unity values by native MulChar.pow_card_eq_one. They and their inverses are algebraic; nonunit weights, if introduced in a reindexing, are zero and algebraic.",
-        "Use native algebraicClosure ℚ ℂ as an intermediate field, closed under sums, products and inverses. The finite Gauss sum is algebraic, and G≠0 permits its inverse.",
-        "This supplies Baker’s algebraic arguments and coefficients. It says nothing about independence of the original log family."
-      ],
-      "prerequisites": [
-        "mathlib:MulChar.pow_card_eq_one",
-        "mathlib:IsAlgebraic.of_pow",
-        "mathlib:mem_algebraicClosure_iff",
-        "mathlib:gaussSum",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
-        "mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt",
-        "mathlib:AddChar.zmodChar",
-        "mathlib:AddChar.zmodChar_primitive_of_primitive_root"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/DirichletPadic/ClassicalComparison",
-        "namespace": "DirichletPadic",
-        "declaration": "cyclotomic_log_algebraic_inputs"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§6, Theorem6.1(i) and footnote10, printed149–150 / physical50–51.",
-          "match": "Worker algebraic-input decomposition of the terminal corollary; Baker’s theorem itself is imported."
-        }
-      ],
-      "acceptance": [
-        "Repeated or multiplicatively dependent arguments are allowed. Principal logarithms of algebraic numbers need not be algebraic."
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application",
-      "parentStageId": "DirichletPadicLFunctions:L0",
-      "realises": [
-        "DirichletPadicLFunctions:L0"
-      ],
-      "title": "Baker’s theorem for the cyclotomic log sum",
-      "kind": "lemma",
-      "statement": "If the above S is nonzero, then S is transcendental overℚ.",
-      "hypotheses": [
-        "N>1; χ is a primitive nonprincipal native complex Dirichlet character of conductorN; ζ is a primitive Nth complex root. Put G=gaussSum(χ⁻¹,AddChar.zmodChar N ζ) with its native root certificate and G≠0.",
-        "For c∈(ZMod N)ˣ put α_c=1−ζ^(c.val) and β_c=−G⁻¹χ⁻¹(c). Logs are the native principal Complex.log. The cyclotomic log sum is S=∑_c β_c log(α_c). These are local expressions, not definitions of a second logarithm or L-function."
-      ],
-      "proofSteps": [
-        "The preceding node makes every log(α_c) a logarithm of a nonzero algebraic number.",
-        "Use the requested DT.3 arbitrary-finite-linear-form corollary: a nonzero algebraic linear combination of logarithms of algebraic numbers is transcendental.",
-        "Its supplier proof chooses a ℚ-basis of the finite logarithm span, rewrites the coefficients, removes zero transformed coefficients, and applies the existing Baker independent-logarithm theorem. Nonzero S ensures some coefficient survives; no independence of the displayed cyclotomic logs is assumed."
-      ],
-      "prerequisites": [
-        "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
-        "DiophantineApproximationAndTranscendence:DT.3/baker-linear-independence-of-logarithms",
-        "DiophantineApproximationAndTranscendence:DT.3"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/DirichletPadic/ClassicalComparison",
-        "namespace": "DirichletPadic",
-        "declaration": "cyclotomic_log_baker_application"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§6, footnote10, printed149 / physical50.",
-          "match": "Domain-specific application; generic basis reduction is requested from the existing transcendence owner, not redefined here."
-        }
-      ],
-      "acceptance": [
-        "The original logarithm family may have repetitions and rational dependencies; only the resulting linear form must be nonzero."
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "DirichletPadicLFunctions:L0/dirichlet-one-transcendental",
-      "parentStageId": "DirichletPadicLFunctions:L0",
-      "realises": [
-        "DirichletPadicLFunctions:L0"
-      ],
-      "title": "Transcendence of the Dirichlet value at one",
-      "kind": "theorem",
-      "statement": "For every primitive nonprincipal complex Dirichlet character χ of positive conductorN>1, χ.LFunction(1) is transcendental overℚ.",
-      "hypotheses": [
-        "The character and L-function are native pinned carriers. N is the primitive conductor, not an arbitrary imprimitive level."
-      ],
-      "proofSteps": [
-        "Use the canonical primitive Nth root and the imported modular-forms primitive Gauss nonvanishing contract.",
-        "The exact existing L3/complex-lvalue-one-log formula identifies χ.LFunction(1) with S; its ownership-consistent placement is an explicit gap. No backward L3→L0 edge or duplicate log-formula node is added.",
-        "Native LFunction_apply_one_ne_zero makes S nonzero after that equality. Apply cyclotomic-log-baker-application."
-      ],
-      "prerequisites": [
-        "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application",
-        "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
-        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/DirichletPadic/ClassicalComparison",
-        "namespace": "DirichletPadic",
-        "declaration": "dirichlet_one_transcendental"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "§6, footnote10 and Theorem6.1(i), printed149–150 / physical50–51.",
-          "match": "Terminal source obligation with an explicitly unresolved routing gap; neither its proof nor L0 closure is claimed."
-        }
-      ],
-      "acceptance": [
-        "For the primitive odd quadratic character modulo4, the target specializes to the transcendence of π/4. This is a target instance, not a completed proof or a backward L3 import."
-      ],
-      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -5066,9 +4846,7 @@
         "DirichletPadicLFunctions:L0/generalized-bernoulli-nonprincipal",
         "DirichletPadicLFunctions:L0/generalized-bernoulli-principal",
         "DirichletPadicLFunctions:L0/normalized-value-complex-embedding",
-        "DirichletPadicLFunctions:L0/normalized-value-padic-embedding",
-        "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
-        "DirichletPadicLFunctions:L0/dirichlet-one-transcendental"
+        "DirichletPadicLFunctions:L0/normalized-value-padic-embedding"
       ],
       "need": "Canonical generalized Bernoulli finite-sum normalization1,…,D for n≥1, coefficient-field extension, principal-character Euler-factor identity, and primitive composite-modulus Gauss norm/nonvanishing with positive modulus and primitive additive character. Keep these objects in ModularForms Layer0, as accepted RS14 requires."
     },
@@ -5109,13 +4887,6 @@
         "DirichletPadicLFunctions:L0/rational-idele-parity"
       ],
       "need": "Complex-exponent positive-real character classification, finite-order triviality on the connected positive-real group, parity χ(−1) and finite-order infinity-type comparison on the same GN character carrier."
-    },
-    {
-      "supplier": "DiophantineApproximationAndTranscendence:DT.3",
-      "neededBy": [
-        "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application"
-      ],
-      "need": "Named arbitrary-family corollary of the existing Baker independent-logarithm theorem: a nonzero finite algebraic linear combination of logarithms of nonzero algebraic numbers is transcendental. Expose the finite-span rational basis reduction and removal of zero transformed coefficients; no independence assumption on the original logarithms."
     }
   ],
   "coverage": [
@@ -5125,11 +4896,7 @@
       "remaining": [
         "G-Bernoulli-carrier — canonical supplier and comparison refinements",
         "G-Tate-instance — standard test function and archimedean clearing",
-        "G-rational-dictionary — native GN evaluations",
-        "G-primitive-Gauss — composite modulus nonvanishing",
-        "G-Baker-arbitrary-form — independent-basis corollary",
-        "G-terminal-placement — no backward L3 import",
-        "G-inherited-formal-stage-order"
+        "G-rational-dictionary — native GN evaluations"
       ],
       "targetMap": {
         "Mellin/decay/Bernoulli/smoothing": "Retained63 declaration-level targets.",
@@ -5137,7 +4904,8 @@
         "Canonical generalized Bernoulli and chosen embeddings": "generalized-bernoulli-nonprincipal, generalized-bernoulli-principal, normalized-value-complex-embedding, normalized-value-padic-embedding.",
         "Dedekind class-number germ": "dedekind-series-comparison through dedekind-complex-residue.",
         "Rational idelic dictionary": "rational-idele-finite-normalization through rational-idele-euler-normalization.",
-        "Terminal L(χ,1) transcendence": "cyclotomic-log-algebraic-inputs, cyclotomic-log-baker-application, dirichlet-one-transcendental; placement gap is explicit."
+        "Terminal L(χ,1) transcendence": "cyclotomic-log-algebraic-inputs, cyclotomic-log-baker-application and dirichlet-one-transcendental are placed in L3 by the assembly, after the L3 logarithmic formula they use; their gaps G-primitive-Gauss and G-Baker-arbitrary-form moved with them.",
+        "Analytic/formal smoothing comparisons": "smoothed-kernel-formal-derivatives and smoothed-mellin-formal-values are placed in L1 by the assembly, after the L1 smoothed-series exports they compare with."
       }
     }
   ],
@@ -5169,36 +4937,6 @@
         "DirichletPadicLFunctions:L0/rational-idele-euler-normalization"
       ],
       "detail": "GN Layers6,9,10 supply shared carriers, rational dictionary and infinity-type classification. Required normal-form and component evaluation exports are precise requests, not pinned built declarations. RJW2.11 cites [34] PropositionI.4.6; that proof reference was not read here. Confirm the units topology, inverse-character convention and real connectedness theorem at the owner before closure."
-    },
-    {
-      "title": "G-primitive-Gauss — composite modulus nonvanishing",
-      "neededBy": [
-        "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
-        "DirichletPadicLFunctions:L0/dirichlet-one-transcendental"
-      ],
-      "detail": "Native primitive Gauss inversion is built, including nonunits, but the search found only finite-field Gauss nonvanishing, not the full composite-modulus norm identity. MF Layer0 retains its Gauss/Fourier ownership. Require primitive χ and primitive additive root at positive N, norm²(G)=N or its nonvanishing consequence; the principal character at N>1 is imprimitive. No theorem for a finite field is applied to composite ZMod N."
-    },
-    {
-      "title": "G-Baker-arbitrary-form — independent-basis corollary",
-      "neededBy": [
-        "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application"
-      ],
-      "detail": "The existing DT.3 Baker theorem has linearly independent logarithms as hypotheses. Its arbitrary-finite-family nonzero-linear-form corollary needs a named export; request the basis reduction and removal of zero transformed coefficients from the same owner. DT’s primary proof source was not reread here. Do not assume cyclotomic logarithms are independent."
-    },
-    {
-      "title": "G-terminal-placement — no backward L3 import",
-      "neededBy": [
-        "DirichletPadicLFunctions:L0/dirichlet-one-transcendental"
-      ],
-      "detail": "The precise formula already exists at DirichletPadicLFunctions:L3/complex-lvalue-one-log, whose chain explicitly uses L0’s normalized Mellin theorem through L2. Adding it as an L0 prerequisite creates a cycle. Resolve the extracted footnote10 terminal placement with the accepted L0→L1→L2→L3 order, without redefining the formula. The target is planned with this explicit missing source input; its unconditional proof is not closed."
-    },
-    {
-      "title": "G-inherited-formal-stage-order",
-      "neededBy": [
-        "DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives",
-        "DirichletPadicLFunctions:L0/smoothed-mellin-formal-values"
-      ],
-      "detail": "The two retained analytic/formal comparison nodes cite exact L1 scalar-series exports. Their fine declaration chains are checked separately, but accepted stage ordering is L0→L1. Resolve the placement of these joint comparisons without moving ownership of the L1 smoothing series or duplicating it. This inherited issue must not be hidden by a successful Lean skeleton replay or a fine-DAG check."
     }
   ],
   "sourceIssues": [
@@ -5496,7 +5234,7 @@
   "upstreamNotes": [
     {
       "where": "Reviewed RS14 classical ownership and RJW extraction204/246",
-      "note": "The negative-value finite Bernoulli formula is already planned at QM.5/periodic-l-value-bernoulli and L2/tame-complex-special-values; L2/tame-special-value-comparison handles its explicit two embeddings. L0 must compare to the existing ModularForms generalized Bernoulli carrier rather than construct another. Extraction246 currently names L0 for a terminal consequence of the later L3 logarithmic formula; its placement must respect the accepted stage order."
+      "note": "The negative-value finite Bernoulli formula is already planned at QM.5/periodic-l-value-bernoulli and L2/tame-complex-special-values; L2/tame-special-value-comparison handles its explicit two embeddings. L0 must compare to the existing ModularForms generalized Bernoulli carrier rather than construct another. Extraction246 names L0 for a terminal consequence of the later L3 logarithmic formula; the assembly placed it in L3, after that formula."
     },
     {
       "where": "DirichletPadicLFunctions:L0/rational-idele-euler-normalization",
@@ -5504,7 +5242,7 @@
     },
     {
       "where": "DirichletPadicLFunctions:L0/smoothed-kernel-formal-derivatives",
-      "note": "Retained exact L1 comparison imports need stage-order reconciliation. They are not duplicated or silently moved; G-inherited-formal-stage-order records the remaining placement."
+      "note": "The two analytic/formal smoothing comparisons cite exact L1 exports; the assembly placed them in L1 (same identifiers), so L0 no longer cites a later layer."
     }
   ],
   "review": {
