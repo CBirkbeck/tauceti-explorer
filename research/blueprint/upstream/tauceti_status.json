@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T09:02Z",
+ "updated": "2026-10-16T09:39Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -43,8 +43,8 @@
   "ReductiveGroupsPartII": {
    "stage": "pr",
    "pr": 785,
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); since 2026-10-14 19:16Z the #785 branch also carries SmoothRepresentationsOfLocalGroups and IntegralHeckeAndGaloisDeterminants",
-   "head": "b88426d",
+   "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR); draft",
+   "head": "4ac746a",
    "review": {
     "recommendation": "approve",
     "head": "b88426d",
@@ -75,8 +75,8 @@
    "depends_on": [
     785
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); merged into #785 branch 2026-10-14 19:12Z",
-   "head": "74400cd",
+   "note": "carries IHG (#789 merged into this branch by the maintainer 10-14); companion SR.3a.2 repair 10-16; maintainer re-look requested",
+   "head": "2880329",
    "review": {
     "recommendation": "approve",
     "head": "74400cd",
@@ -139,8 +139,8 @@
    "depends_on": [
     818
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "855cfe5",
+   "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
+   "head": "c312881",
    "review": {
     "recommendation": "approve",
     "head": "6433ad2",
@@ -200,7 +200,7 @@
    "depends_on": [
     818
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "note": "ChatGPT Pro N3 APPROVE 10-16 (two non-blocking suggestions); ready",
    "head": "1f4f1bf",
    "review": {
     "recommendation": "approve",
@@ -213,12 +213,12 @@
   "ComplexComparisonPartII": {
    "stage": "pr",
    "pr": 848,
-   "head": "3f267f8",
+   "head": "697aa9c",
    "depends_on": [
     779,
     853
    ],
-   "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918; draft",
    "review": {
     "recommendation": "changes",
     "head": "6a5b452",
@@ -236,7 +236,7 @@
     848,
     853
    ],
-   "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: ChatGPT Pro third pass at 22af69f accepted all repairs; marked ready for review",
+   "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
     "recommendation": "approve",
     "head": "7d89041",
@@ -267,12 +267,12 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "047eb0d",
+   "head": "c98015e",
    "depends_on": [
     792,
     785
    ],
-   "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "note": "companion repoint of moved EDS names 10-16",
    "review": {
     "recommendation": "approve",
     "head": "047eb0d",
@@ -284,12 +284,12 @@
   "NeronModelsAndSemistableAbelianVarieties": {
    "stage": "pr",
    "pr": 852,
-   "head": "edf9df5",
+   "head": "1426bc7",
    "depends_on": [
     779,
     785
    ],
-   "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
     "recommendation": "approve",
     "head": "47e3459",
@@ -308,7 +308,7 @@
     817,
     813
    ],
-   "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines",
+   "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "changes",
     "head": "be92167",
@@ -320,13 +320,13 @@
   "LocallyAnalyticDistributions": {
    "stage": "pr",
    "pr": 854,
-   "head": "9971f07",
+   "head": "b2f2beb",
    "depends_on": [
     780,
     813,
     785
    ],
-   "note": "ported 2026-10-13 (Opus, claude5); Lean 1,642 lines (from 3,807), README 2,242 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it); 2026-10-13: 45 target groups of Layers 0–1, 4 cite CompactOperators/PadicFunctionalAnalysis (W. Coram); nine local restatements",
+   "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
     "head": "aa2639b",
@@ -354,12 +354,12 @@
   "ArithmeticGaloisRepresentations": {
    "stage": "pr",
    "pr": 856,
-   "head": "572dfc5",
+   "head": "9e07e3c",
    "depends_on": [
     789,
     785
    ],
-   "note": "ported 2026-10-13 (Opus, claude1); Lean 3,657 lines (from 11,966), README 3,550 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
     "head": "4f207a3",
@@ -371,7 +371,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "cb8f0cb",
+   "head": "0ee4cab",
    "depends_on": [
     779,
     789,
@@ -385,7 +385,7 @@
     854,
     868
    ],
-   "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
+   "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
    "review": {
     "recommendation": "approve",
     "head": "7ea842d",
@@ -425,7 +425,7 @@
     779,
     789
    ],
-   "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port",
+   "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "changes",
     "head": "10a113c",
@@ -475,13 +475,13 @@
   "ArithmeticLocallySymmetricSpaces": {
    "stage": "pr",
    "pr": 871,
-   "head": "93f3d18",
+   "head": "93e1b3a",
    "depends_on": [
     792,
     793,
     785
    ],
-   "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
+   "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
     "head": "93f3d18",
@@ -560,7 +560,7 @@
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
    "stage": "pr",
    "pr": 879,
-   "head": "2477ea6",
+   "head": "d941741",
    "depends_on": [
     849,
     857,
@@ -572,7 +572,7 @@
     856,
     793
    ],
-   "note": "ported 2026-10-13 (Opus, claude3); Lean 841 lines, README 6,532 lines",
+   "note": "N2 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "changes",
     "head": "a124119",
@@ -584,20 +584,21 @@
   "EnhancedDerivedSheaves": {
    "stage": "pr",
    "pr": 908,
-   "head": "9ddc945",
+   "head": "05a14c5",
    "review": {
     "recommendation": "changes",
     "head": "752e6e2",
     "current": true,
     "date": "2026-10-15",
     "note": "deep re-review changes needed (E1.9 pullback formula, spectra handoff); repair running"
-   }
+   },
+   "note": "N2 CHANGES answered 10-16: generic foundations consumed from kim-em BordismFormalGroups #947; draft"
   },
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "976af72",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); Lean 449 lines (17 real-bodied definitions, 11 theorems, 39 examples), README 4,536 lines; draft until the red team and a deep review pass",
+   "head": "f86659a",
+   "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
     "head": "976af72",
@@ -609,8 +610,8 @@
   "FreeGroupsAndLimitGroups": {
    "stage": "pr",
    "pr": 914,
-   "head": "add519e",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); the decidability and formal-solution results are stated without executable procedures; no supplier in an open pull request; draft until the red team and a deep review pass",
+   "head": "bf2a6d8",
+   "note": "maintainer-ordered: no dependency on #271 (§§2.2–2.2a, 6.0a–6.1a) 10-16; N3 fix running; draft",
    "review": {
     "recommendation": "changes",
     "head": "a5b47fb",
@@ -637,7 +638,7 @@
    "stage": "pr",
    "pr": 921,
    "head": "e1b812b",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
     "head": "f1ef94c",
@@ -650,8 +651,8 @@
   "DiamondEtaleCohomology": {
    "stage": "pr",
    "pr": 922,
-   "head": "ee31f87",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); consumes the adic stack, EnhancedDerivedSheaves and ClassicalAdicEtaleCohomology; draft until the red team and a deep review pass",
+   "head": "ed27340",
+   "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
    "review": {
     "recommendation": "approve",
     "head": "4e92b6b",
@@ -690,8 +691,8 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "5ad7671",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "head": "25b5954",
+   "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
     "head": "2126757",
@@ -704,8 +705,8 @@
   "DiamondSixOperations": {
    "stage": "pr",
    "pr": 927,
-   "head": "f9bb79c",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); consumes DiamondEtaleCohomology; draft until the red team and a deep review pass",
+   "head": "cb57bfd",
+   "note": "N4 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
     "head": "e4c01a5",
@@ -719,7 +720,7 @@
    "stage": "pr",
    "pr": 928,
    "head": "1509f4f",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
     "head": "6633768",
@@ -791,7 +792,7 @@
    "stage": "pr",
    "pr": 944,
    "head": "fbe1d3c",
-   "note": "foundation roadmap created 2026-10-14 by the de-cycling (module-level derived algebra, position 0); not an explorer package; red team running",
+   "note": "foundation roadmap created 2026-10-14 by the de-cycling (module-level derived algebra, position 0); not an explorer package; red team running; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
     "head": "62aff3f",
@@ -835,8 +836,8 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "9809938",
-   "note": "ported 2026-10-15 from the accepted explorer package (tier 14); red team running"
+   "head": "2dcdfa9",
+   "note": "companion: consumes AutomorphicSpectralTheory §4.14a; red team first pass finished, fix running"
   },
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
