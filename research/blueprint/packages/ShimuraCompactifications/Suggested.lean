@@ -157,6 +157,22 @@ theorem changeLattice_finite_rankOne (e : ℕ) (he : 0 < e) :
 example : AddMonoidAlgebra.single 0 (2 : ZMod 4) ∉ Ideal.span {boundaryProduct (ZMod 4) 1 0} := by
   sorry
 
+-- Positivity only in the interior does not define the boundary ideal: `x ∉ (xy)` (C3.5).
+example :
+    (AddMonoidAlgebra.single ((fun i : Fin 2 => if i = 0 then 1 else 0), 0) (1 : ℤ) :
+      RegularChart ℤ 2 0) ∉ Ideal.span {boundaryProduct ℤ 2 0} := by
+  sorry
+
+-- With no boundary rays the boundary equation is a unit and its ideal is the whole ring (C0.18).
+example : Ideal.span {boundaryProduct ℤ 0 0} = ⊤ := by
+  sorry
+
+-- Lan's support-function convention is superadditive (C0.15): the inequality is strict here.
+example :
+    let pol : ℝ × ℝ → ℝ := fun v => v.1 + v.2 + min v.1 v.2
+    pol (1, 1) = 3 ∧ pol (1, 0) + pol (0, 1) = 2 := by
+  sorry
+
 end ToricBoundary
 
 /-! ## Layer C6: Hilbert cusp arithmetic -/
@@ -331,7 +347,8 @@ Layer C4: `SemiAbelianScheme` with `characterSheaf_spec`, `hodgeBundle`, `hom_ex
 `SemiAbelianTateModule`; `KlingenToroidalCorrespondence` with `t1_acyclic`; `GroupScheme.verschiebung`.
 Layer C5: `GoodCuspModel` with `etaleRelation`; `IntegralToroidalModel` with `formalCompletion`,
 `proper`, `boundaryIntersection_smooth`, `exactStratum_fiberwiseDense`, `stratumComponent_eq`,
-`stratumClosure_proper`, `strata_detect_geometricComponents`, `nonneat_descent`, `logKodairaSpencer`,
+`stratumClosure_proper`, `stein_factor_finiteEtale`, `strata_detect_geometricComponents`,
+`nonneat_descent`, `logKodairaSpencer`,
 `hodgeLine_semiample`, `hodgeSectionAlgebra_fg`, `formallyCanonical`, `koecher`, `siegel_koecher`,
 `ordinary_koecher`, `cyclicLevel_extend`, `siegel_canonicalBundle`, `goodReduction_geometry`;
 `HodgeLineFJ`; `IntegralMinimalModel` with `hodgeLine_ample`, `moduli_quasiProjective`;
