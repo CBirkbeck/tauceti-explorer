@@ -1,0 +1,678 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "part": "R09.7c",
+  "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7c"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level consolidation of global centres, termination, principalization, embedded resolution and resolved-open/local-isomorphism compatibility. Seven accepted aggregate targets and two accepted native finite-output constructions already own this mathematics. They are imported by canonical IDs and packet hashes, with eleven direct support nodes, rather than planned again. The reader specifies all nine targets, fourteen inherited API items and twelve inherited tests. R09.7c is planned, not closed: three inherited supplier contracts and the finite-tower/pair/comparison implementation obligations remain. No new node or implementation claim is made.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "provides": "Quasi-coherent ideal data on the affine opens of an actual scheme, compatible with localization.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "provides": "Native pullback of an ideal along a scheme morphism; its subscheme is the corresponding fibre product.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "provides": "For f:X→Y, g:Y→Z and an ideal I on Z, pullback along f followed by g equals pullback along g and then f.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_id",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "provides": "Pullback of an ideal along the identity morphism equals that ideal.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.ker",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "provides": "Largest quasi-coherent ideal in the componentwise kernel of a scheme morphism. For quasi-compact morphisms it agrees with the section kernels and defines the scheme-theoretic image; the Noetherian strict-transform open maps here are quasi-compact.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Smooth",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+        "provides": "Smoothness of a native scheme morphism, expressed on affine restriction ring maps.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.smoothLocus",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+        "provides": "Open subset where the stalk map is formally smooth, for a locally finitely presented morphism. Over a characteristic-zero field its identification with the regular locus of a finite-type scheme is part of the imported geometric theorem.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "provides": "Separated, universally closed and locally finite-type native scheme morphism.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsReduced",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Properties.lean",
+        "provides": "Every ring of sections of the scheme is reduced.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Polynomial substitution as a ring homomorphism, with a specified coefficient homomorphism and images of the variables.",
+        "checked": "Declaration body and hypotheses personally read at the pinned Mathlib source on 2026-10-16."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BM1997",
+      "title": "Canonical desingularization in characteristic zero by blowing up the maximum strata of a local invariant",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "edition": "Inventiones mathematicae 128 (1997), 207–302; full 96-page published article, printed pagination",
+      "url": "https://mahalex.net/teaching/seminars/gabber/Bierstone-Milman%20Canonical%20desingularization%20in%20characteristic%20zero.pdf",
+      "sha256": "f01ebbb0591fa62f9b65c16ab54f35e7409cf4fb0abd1f01bf3bf9b59d87ecaf",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "Closed-point convention and simultaneous-coordinate condition, p. 213; principalization Theorem 1.10 and its setup, pp. 216–217; Theorem 1.14 and Remarks 1.15–1.16, pp. 219–221; Remark 1.18, p. 225.",
+        "Terminal monomial descent and Remark 6.17, pp. 259–260; global maximum algorithm and 10.3, pp. 283–285; higher-codimension geometric lemmas and Theorem 11.14, pp. 288–291.",
+        "Theorems 12.2 and 12.4, subset-intersection bad locus, Lemmas 12.5, 12.7–12.8, their proof and Example 12.9, pp. 292–296; embedding comparisons and Theorem 13.2 with its proof, pp. 296–298."
+      ]
+    }
+  ],
+  "nodes": [],
+  "imports": [
+    {
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "sha256": "34c2d5e03f0094347d74f1b089b2cee90404c0331eceb7c1060e09446b1be1bb",
+      "review": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7",
+      "accepted": "2026-10-09",
+      "nodeIds": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution"
+      ]
+    },
+    {
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7a.json",
+      "sha256": "791776a32e7ef56d52750a9537ce3200b3a0b0ed20a253a7eb2a37b60836f06e",
+      "review": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
+      "accepted": "2026-10-11",
+      "nodeIds": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output"
+      ]
+    }
+  ],
+  "importedTargets": [
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "construction",
+      "role": "canonical-target",
+      "apiNames": [
+        "maximumCentre_local",
+        "maximumCentre_closed",
+        "maximumCentre_localIso"
+      ],
+      "testNames": [
+        "maximum_is_not_multiplicity",
+        "maximum_incomparable_union",
+        "maximum_empty_unresolved"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Remarks 1.15–1.16, pp. 220–221; 10.3 and algorithm, pp. 284–285; Theorem 11.14, pp. 290–291; closed-point convention, p. 213",
+          "match": "Semicoherent maximal strata give compatible smooth centres; the labelled boundary and the treatment of incomparable maximal Hilbert–Samuel values determine the global choice"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "theorem",
+      "role": "canonical-target",
+      "apiNames": [],
+      "testNames": [],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Theorem 1.14(2),(4), p. 220; algorithm§10, pp. 284–285; 11.14, p. 291",
+          "match": "Stabilization of the invariant, bounded positive denominators, finite dimension and monomial mass descent prove termination of the algebraic algorithm"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "theorem",
+      "role": "canonical-target",
+      "apiNames": [],
+      "testNames": [],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Theorem 1.10, pp. 216–217; Remark 1.18, p. 225; §6, pp. 254–260",
+          "match": "Starting from empty boundary, admissible blowups turn an ideal into an invertible normal-crossings monomial ideal and preserve the complement of its support"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "theorem",
+      "role": "canonical-target",
+      "apiNames": [],
+      "testNames": [],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Proposition 11.4, p. 288; Propositions 11.9 and 11.11, p. 289; Proposition 11.13, p. 290; Theorem 11.14, pp. 290–291",
+          "match": "The dimension and component analysis turns the general invariant algorithm into embedded resolution of a reduced scheme, with centres over its original singular locus"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "definition",
+      "role": "canonical-target",
+      "apiNames": [
+        "resolvedLocus_subsetCriterion",
+        "resolvedLocus_open",
+        "resolvedLocus_restrict"
+      ],
+      "testNames": [
+        "resolved_transverse_axes",
+        "resolved_tangency",
+        "resolved_empty_boundary"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Definition of Σ* and subset-intersection criterion, pp. 292–293; Theorem 12.4, Lemma 12.5 and Remarks 12.6, p. 293",
+          "match": "Simultaneous normal crossings is equivalent to every boundary-subset intersection having the expected smooth dimension; embedding-dimension defects define the closed unresolved locus"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "theorem",
+      "role": "canonical-target",
+      "apiNames": [],
+      "testNames": [],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Theorem 12.2, p. 292; Theorem 12.4 and proof, pp. 293–295; Lemmas 12.7–12.8, p. 294; Example 12.9, pp. 295–296",
+          "match": "The second resolution phase cleans up a smooth pair using centres in its unresolved locus; it preserves resolved points even when ordinary multiplicity alone would choose unsuitable centres"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "kind": "theorem",
+      "role": "canonical-target",
+      "apiNames": [],
+      "testNames": [],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Remarks 13.1, p. 296; Theorem 13.2 and proof, pp. 297–298",
+          "match": "The normalized invariant removes dependence on local smooth embeddings and glues a resolution that lifts isomorphisms between open subschemes"
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7a.json",
+      "kind": "construction",
+      "role": "canonical-target",
+      "apiNames": [
+        "PrincipalizationTower.totalIdeal",
+        "PrincipalizationTower.weakIdeal",
+        "PrincipalizationTower.preservedOpen",
+        "PrincipalizationTower.ofUnit"
+      ],
+      "testNames": [
+        "PrincipalizationTowerTests.unit",
+        "PrincipalizationTowerTests.coordinateMonomial",
+        "PrincipalizationTowerTests.nativePullback"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Theorem 1.10 and Remark 1.18, pp. 216, 225; §10, pp. 283–287",
+          "match": "Principalization supplies a finite centre-by-centre witness, an invertible total ideal with normal-crossings support, and a unit weak transform."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7a.json",
+      "kind": "construction",
+      "role": "canonical-target",
+      "apiNames": [
+        "EmbeddedTower.strictIdeal",
+        "EmbeddedTower.square",
+        "EmbeddedTower.smoothEndpoint",
+        "EmbeddedTower.preservedOpen"
+      ],
+      "testNames": [
+        "EmbeddedTowerTests.identity",
+        "EmbeddedTowerTests.avoidsCentre",
+        "EmbeddedTowerTests.containsCentre"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM1997",
+          "locator": "Theorem 11.14 and following paragraph, pp. 290–291; Theorems 12.2, 12.4, 13.2, pp. 292–294, 297–298",
+          "match": "The finite embedded witness carries iterative strict transforms and prescribed-open preservation; local isomorphisms lift through the entire towers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "importedSupport": [
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+      "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7a.json",
+      "role": "direct-prerequisite-outside-stage-targets"
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Permissible globally compatible centres from full maximum loci",
+      "suppliedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres"
+      ]
+    },
+    {
+      "target": "Decrease of the complete invariant and finite termination including residual monomials",
+      "suppliedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease"
+      ]
+    },
+    {
+      "target": "Finite principalization tower, invertible total transform with SNC support",
+      "suppliedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output"
+      ]
+    },
+    {
+      "target": "Embedded resolution with actual strict transforms and SNC endpoint",
+      "suppliedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output"
+      ]
+    },
+    {
+      "target": "Isomorphism over the prescribed regular or resolved-pair open",
+      "suppliedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output"
+      ]
+    },
+    {
+      "target": "Source-supported local-isomorphism and whole-tower compatibility",
+      "suppliedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output"
+      ]
+    }
+  ],
+  "dependencyBoundary": {
+    "directPrerequisites": {
+      "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.0/jacobson-finite-type"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7/termination": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7/principalization": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary"
+      ],
+      "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ker"
+      ]
+    },
+    "acceptedSupportBoundary": [
+      "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+      "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+      "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower"
+    ],
+    "otherNodePointers": [
+      "SchemeAndStackFoundations:SF.0/jacobson-finite-type",
+      "SchemeAndStackFoundations:SF.0/etale-coordinates"
+    ],
+    "note": "Imported support nodes retain the prerequisite graphs, baseline ledgers and requests of their accepted owners. The numerical, Hilbert–Samuel and marked-transform developments belong to R09.7a–b. No new incoming edge or higher-tier supplier is introduced."
+  },
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "Reuse Layer 4 ordinary Rees/relative-Proj blowups with native finite-type quasi-coherent centre ideals, universal property, projectivity/properness, complement isomorphism, exceptional ideal, scheme-theoretic strict transform, standard charts and flat base change. Identify a regular-pivot chart with R[I/x] inside R[1/x]. This requests the existing general blowup interface, not another blowup or characteristic-zero resolution from the arithmetic-surface theorem.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower"
+      ],
+      "inheritedFrom": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "newRequest": false
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Supply the residual finite-type coherent ideal localization/completion/quotient comparisons, regular-to-completed coordinate and Jacobian calculus over the actual closed-point residue field, local smooth embeddings and scheme open gluing. The existing SF.0/jacobson-finite-type and SF.0/etale-coordinates nodes give exact target pointers for those two subcontracts; their supplier packet has review status needs_changes, so they are not credited as accepted or implemented here. No existing node was found that supplies this whole remaining comparison/gluing contract.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates"
+      ],
+      "inheritedFrom": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "newRequest": false
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "For the imported SNC-boundary input, reuse the current native Scheme.IdealSheafData.IsEffectiveCartier and supply the remaining unrestricted-scheme additive Cartier-divisor/ideal-product dictionary, with pullback under regularity of the pulled-back local equations. A blowup need not be flat; use regular-pivot chart embeddings for its exceptional and transformed divisor equations.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary"
+      ],
+      "inheritedFrom": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "newRequest": false
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "status": "planned",
+      "targets": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output"
+      ],
+      "remaining": [
+        "Discharge the inherited ordinary-blowup, local algebra/gluing and Cartier supplier contracts recorded in requests; exact existing owner nodes are preserved.",
+        "Implement the imported R09.7a finite-tower carrier and populate both output constructions from the finite algorithm, retaining native centre ideals, coordinate permissibility, total/weak/strict transforms, all surviving and born labels and the prescribed-open identifications.",
+        "Prove the smooth-pair resolved-open refinement and unique comparisons through every restricted tower, including centre-ideal overlap equations, ambient-embedding independence, deletion of empty-centre steps and the identity/composition/cocycle laws. A final proper smooth endpoint alone does not discharge these contracts.",
+        "Carry out the Lean proofs of the canonical R09.7 and R09.7a targets and their API/tests. The compact suggested file states only a native endpoint consequence and elementary chart/pullback checks; it does not implement the invariant, SNC predicates or finite towers."
+      ],
+      "notes": "All stage targets have canonical accepted owners. Completing this consolidation does not close their supplier requests or formalize their constructions."
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "inheritedSourceBoundaries": [
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+      "owner": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "source": "Bierstone–Milman, Uniformization of analytic spaces (JAMS 2, 1989), Theorem 5.2.1, pp. 820–821.",
+      "status": "Accepted target imported; this run read its statement and its use in BM1997 Theorem 1.14, p. 220, but did not reread the 1989 article. No fresh source-reading claim or independent re-proof is made."
+    }
+  ],
+  "inheritedSourceIssues": [
+    {
+      "owner": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "ids": [
+        "AlgebraicModuliForArithmeticGeometry/E1901",
+        "AlgebraicModuliForArithmeticGeometry/E1902"
+      ],
+      "note": "The accepted local-invariant and monomial suppliers retain their source corrections. This consolidation reports no new source finding and does not re-register inherited findings."
+    }
+  ],
+  "ownershipAudit": {
+    "newNodes": 0,
+    "reason": "The A0-extension follow-up description predates the accepted R09.7 and R09.7a packets. A0-extension has no R09.7c coverage record; its aggregate R09.7 record does not supersede those exact owners.",
+    "audit": "Reviewed AUDIT-01 in data/library-coverage.json marks all four R09.7c target groups not built at the pins.",
+    "incomingStage": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+    "outgoingStage": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+    "linkScreen": "All blueprint link records and the atlas stage edges mentioning R09.7c were screened. Its explicit edges are R09.7b → R09.7c → R09.7d. Compactification, finite covers and meridians remain owned by R09.7d."
+  },
+  "currentLibraryAudit": {
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "documentsRead": [
+      "TauCetiRoadmap/StableReduction/README.md",
+      "TauCetiRoadmap/AlgebraicVectorBundles/README.md"
+    ],
+    "screen": "Read current nearby documents and searched the current Tau Ceti tree and current roadmaps, including the nine newer roadmaps named by WORKERS.md, for principalization, desingularization, maximum centres and normal-crossings resolution. No replacement for these nine targets was found.",
+    "reuse": [
+      {
+        "module": "TauCeti/AlgebraicGeometry/EffectiveCartierDivisor/Basic.lean",
+        "declarations": [
+          "AlgebraicGeometry.Scheme.IdealSheafData.IsEffectiveCartier"
+        ],
+        "provides": "Native effective-Cartier ideal predicate on unrestricted schemes; reuse it rather than introduce a smooth-only substitute."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/Blowup/AffineCharts.lean",
+        "declarations": [
+          "TauCeti.AlgebraicGeometry.affineBlowupι",
+          "TauCeti.AlgebraicGeometry.iSup_opensRange_affineBlowupι",
+          "TauCeti.AlgebraicGeometry.affineBlowupι_toSpecZero"
+        ],
+        "provides": "Current affine blowup charts as open immersions into the Rees Proj, their cover and structural-map compatibility. These are newer reuse inputs, not credited at the pinned baseline and not full finite resolution towers."
+      }
+    ]
+  },
+  "planetImports": [
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+      "name": "Embedded resolution of singularities",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+      "name": "Principalization tower",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c"
+    },
+    {
+      "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output",
+      "name": "Embedded resolution tower",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c"
+    }
+  ],
+  "statistics": {
+    "newNodes": 0,
+    "newApiItems": 0,
+    "newUnitTests": 0,
+    "newPlanets": 0,
+    "importedStageTargets": 9,
+    "importedTargetKinds": {
+      "definition": 1,
+      "construction": 3,
+      "theorem": 5
+    },
+    "importedApiItems": 14,
+    "importedUnitTests": 12,
+    "importedPlanets": 3,
+    "importedSupportNodes": 11,
+    "baselineDeclarations": 10,
+    "newRequests": 0,
+    "inheritedRequests": 3,
+    "gaps": 0
+  },
+  "suggestedFile": {
+    "path": "research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.7c.lean",
+    "shape": "Compact pin-native statements in the 2026-10-12 WORKERS shape. No new data definition or theory development; the reader is definitive.",
+    "omittedCarriers": [
+      "Full recursive/history invariant and globally selected centre construction",
+      "SNC and simultaneous-coordinate predicates with all label/subset conditions",
+      "Ordinary finite BlowupTower and the PrincipalizationTower/EmbeddedTower outputs",
+      "Whole-tower local-isomorphism comparison and empty-step reindexing"
+    ],
+    "note": "Those are explicit imported README targets, not proposition-valued placeholders. The native existence consequence alone is weaker than the full target."
+  }
+}
