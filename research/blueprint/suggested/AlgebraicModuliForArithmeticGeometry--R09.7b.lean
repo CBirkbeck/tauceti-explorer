@@ -78,7 +78,7 @@ example (d : ℕ) :
 example : Ideal.span ({y ^ 3, y ^ 2} : Set S) =
     Ideal.span ({y ^ 2} : Set S) := by sorry
 
-/-! The strict derivative bound in the Samuel presentation (Check S3).
+/-! The strict derivative bound in the Samuel presentation (E1902 example).
 These test the already recorded correction E1902, not a new erratum. -/
 example : Ideal.span
     ({(PowerSeries.X : PowerSeries ℚ) ^ 2,
