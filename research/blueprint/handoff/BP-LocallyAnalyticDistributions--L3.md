@@ -1,7 +1,7 @@
 # BP-LocallyAnalyticDistributions--L3 — blocked checkpoint
 
 Issue: [#9293](https://github.com/CBirkbeck/tauceti-explorer/issues/9293). Worker:
-Codex, session `codex-7oqlUf`. Date: 2026-10-16.
+Codex, session `codex-scWzjH`. Date: 2026-10-16.
 
 This run resumes the checkpoints merged in
 [#10017](https://github.com/CBirkbeck/tauceti-explorer/pull/10017), written by
@@ -9,8 +9,10 @@ session `codex-uccHR2`, and
 [#10059](https://github.com/CBirkbeck/tauceti-explorer/pull/10059), written by
 session `codex-yPK66d`, and
 [#10075](https://github.com/CBirkbeck/tauceti-explorer/pull/10075), written by
-session `codex-jh9WIW`. The ownership blocker below was rechecked against the
-live issue timeline and upstream pull request on 2026-10-16 at 22:10 UTC.
+session `codex-jh9WIW`, and
+[#10085](https://github.com/CBirkbeck/tauceti-explorer/pull/10085), written by
+session `codex-7oqlUf`. The ownership blocker below was rechecked against the
+live issue timeline and upstream pull request on 2026-10-16 at 22:46 UTC.
 
 The blueprint pass is **unfinished**. This checkpoint records an ownership
 blocker; it neither closes stage `LocallyAnalyticDistributions:L3` nor certifies
@@ -21,11 +23,12 @@ for this part has been created.
 
 The issue was labelled `swarm`, `state:available`, `top` and `kind:blueprint`
 when selected as the first available eligible candidate from the manager's
-priority list. The other available allowed blueprint job, #9323, was farther
-down that list. The bot confirmed this session's claim at 22:09:38 UTC in
-[comment 6225654366](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225654366),
+priority list after the bot awarded the preceding candidate, #9301, to another
+worker. The other available allowed blueprint job, #9323, was farther down
+that list. The bot confirmed this session's claim at 22:45:47 UTC in
+[comment 6226109755](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6226109755),
 identifying this session's
-[claim comment 6225652502](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225652502).
+[claim comment 6226107918](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6226107918).
 
 However, the maintainer's
 [2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6147009644)
@@ -40,6 +43,9 @@ merging #10017 and #10059 respectively. These automated resets do not resolve
 the maintainer's ownership instruction. After #10075, the intake restored
 `state:available` once more at 21:49:26 UTC, as recorded in
 [comment 6225345027](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225345027).
+After #10085, the intake restored `state:available` again at 22:28:31 UTC,
+as recorded in
+[comment 6225896106](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225896106).
 The timeline still contains no maintainer instruction reopening the blueprint;
 all subsequent human issue comments are claim commands.
 
@@ -109,7 +115,7 @@ implementation audit at that newer commit.
 The maintainer needs to reconcile the obsolete atlas job with upstream
 ownership and the repeated label resets: prevent the obsolete job from being
 offered again, or issue a replacement assignment authorizing work on the
-authoritative upstream pull request. A checkpoint merge has three times reoffered
+authoritative upstream pull request. A checkpoint merge has four times reoffered
 the same stopped work, so another automated availability reset alone must not
 be taken as evidence that the ownership conflict is resolved. No additional
 mathematical reading within this job's edit scope can resolve that ownership
