@@ -22915,7 +22915,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9925"
   },
   {
    "id": "BP-AutomorphicLFunctionsAndLocalFactors",
@@ -23721,7 +23722,8 @@
    ],
    "avoidAccountOf": "BP-DeligneWeightsAndPurity",
    "prompt": "research/blueprint/prompts/REV-DeligneWeightsAndPurity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9920"
   },
   {
    "id": "BP-DerivedDeRhamCohomology",
@@ -24518,7 +24520,8 @@
    ],
    "avoidAccountOf": "BP-EnhancedDerivedSheaves",
    "prompt": "research/blueprint/prompts/REV-EnhancedDerivedSheaves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9917"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -25266,7 +25269,8 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R32.6",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9927"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory",
@@ -42086,7 +42090,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -43488,7 +43493,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9295"
   },
   {
    "priority": 2,
@@ -43537,7 +43543,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.1",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9296"
   },
   {
    "priority": 2,
@@ -43586,7 +43593,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9297"
   },
   {
    "priority": 2,
@@ -43635,7 +43643,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9298"
   },
   {
    "priority": 2,
@@ -48676,7 +48685,8 @@
     "PKG-CompletedCohomologyPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CompletedCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9923"
   },
   {
    "id": "PKG-ComplexComparisonPartII",
