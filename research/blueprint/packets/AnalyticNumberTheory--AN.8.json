@@ -460,6 +460,27 @@
         "provides": "A ring homomorphism into a possibly noncommutative semiring defines an algebra when all image elements commute with the target. Supplies the central rational scalar algebra on the complex Hecke core.",
         "checked": "Codex — codex-qE3U5d, 2026-10-10: actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.",
         "independentReviewChecked": "REV-AnalyticNumberTheory--AN.8~2, 2026-10-10: exact declaration, surrounding hypotheses and conventions read at the recorded pinned Git object; citing nodes and narrower adapter obligations checked. Source audit, separately from elaboration."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_mul_Gamma_one_sub",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "provides": "For every complex z, Gamma(z) Gamma(1-z) = pi/sin(pi z), with Mathlib totalization on both sides. Cancellation in a meromorphic normalization is performed off the poles before continuation.",
+        "checked": "ASM-AnalyticNumberTheory, Codex codex-toEQra, 2026-10-16: full declaration statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; names also checked by temporary #check commands in the authorized combined suggested file."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_mul_Gamma_add_half",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "provides": "For every complex s, Gamma(s) Gamma(s+1/2) = Gamma(2s) 2^(1-2s) sqrt(pi), with Mathlib totalization. This is duplication, not a claim that every multiplication formula or cubic Fourier normalization is already implemented.",
+        "checked": "ASM-AnalyticNumberTheory, Codex codex-toEQra, 2026-10-16: full declaration statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; names also checked by temporary #check commands in the authorized combined suggested file."
+      },
+      {
+        "ref": "mathlib:PhragmenLindelof.vertical_strip",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/PhragmenLindelof.lean",
+        "provides": "A function differentiable in a vertical strip and continuous on its closure, with common constant boundary norm bound C and an eventual O(exp(B exp(c |Im z|))) growth bound for some c < pi/(b-a), has norm at most C on the closed strip. Converting polynomial boundary estimates to this normalized statement is a separate adapter.",
+        "checked": "ASM-AnalyticNumberTheory, Codex codex-toEQra, 2026-10-16: full declaration statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; names also checked by temporary #check commands in the authorized combined suggested file."
       }
     ],
     "currentSourceAudit": {
@@ -4371,7 +4392,7 @@
         "Check the specified domain and normalization before using this result."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.2"
+        "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem"
       ],
       "sources": [
         {
@@ -8143,7 +8164,7 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/double-local-reflection-ratio",
-        "AnalyticNumberTheory:AN.5"
+        "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling"
       ],
       "sources": [
         {
@@ -8391,7 +8412,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.0",
         "ArithmeticStatistics:ST.1",
-        "AnalyticNumberTheory:AN.4",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
         "mathlib:LSeries"
       ],
       "sources": [
@@ -9737,7 +9758,8 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/cubic-archimedean-matrix",
         "AnalyticNumberTheory:AN.8/local-measure-normalization",
-        "AnalyticNumberTheory:AN.7"
+        "mathlib:Complex.Gamma_mul_Gamma_one_sub",
+        "mathlib:Complex.Gamma_mul_Gamma_add_half"
       ],
       "sources": [
         {
@@ -9897,7 +9919,7 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/cubic-adelic-unfolding",
         "AnalyticNumberTheory:AN.8/local-orbital-euler-factor",
-        "AnalyticNumberTheory:AN.4",
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue",
         "AnalyticNumberTheory:AN.8/cubic-adelic-meromorphic-equation",
         "AnalyticNumberTheory:AN.8/cubic-class-group-components",
         "AnalyticNumberTheory:AN.8/local-finite-fourier-dual",
@@ -9940,7 +9962,8 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/cubic-meromorphic-continuation",
         "AnalyticNumberTheory:AN.8/cubic-continuation-data",
-        "AnalyticNumberTheory:AN.5"
+        "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling",
+        "AnalyticNumberTheory:AN.2/entire-order-at-most"
       ],
       "sources": [
         {
@@ -10174,7 +10197,7 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/local-orbital-euler-factor",
         "ArithmeticStatistics:ST.1",
-        "AnalyticNumberTheory:AN.4"
+        "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
       ],
       "sources": [
         {
@@ -10257,7 +10280,7 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound",
         "AnalyticNumberTheory:AN.8/cubic-global-functional-equation",
-        "AnalyticNumberTheory:AN.5"
+        "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling"
       ],
       "sources": [
         {
@@ -10296,7 +10319,9 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.8/cubic-reflected-bound",
         "AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound",
-        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.2/entire-order-at-most",
+        "mathlib:PhragmenLindelof.vertical_strip",
+        "AnalyticNumberTheory:AN.8/cubic-entire-order-bound",
         "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance"
       ],
       "sources": [
@@ -11084,7 +11109,7 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/scalar-heat-trace-formula",
-        "AnalyticNumberTheory:AN.7"
+        "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
       ],
       "sources": [
         {
@@ -11276,7 +11301,7 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/identity-barnes-transform",
-        "AnalyticNumberTheory:AN.7"
+        "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
       ],
       "sources": [
         {
@@ -11467,7 +11492,7 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.9/selberg-identity-germ",
-        "AnalyticNumberTheory:AN.7"
+        "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
       ],
       "sources": [
         {
@@ -11619,7 +11644,7 @@
         "Check the specified domain and normalization before using this result."
       ],
       "prerequisites": [
-        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem",
         "AnalyticNumberTheory:AN.9/bc-prime-progression-divergence"
       ],
       "sources": [
@@ -12682,7 +12707,14 @@
         "AnalyticNumberTheory:AN.9/identity-barnes-transform",
         "AnalyticNumberTheory:AN.9/selberg-identity-germ",
         "AnalyticNumberTheory:AN.9/selberg-identity-nonvanishing"
-      ]
+      ],
+      "assemblyResolution": {
+        "status": "supplied-by-accepted-plan",
+        "targets": [
+          "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
+        ],
+        "note": "The full-plan Barnes product target supplies the requested contract. Its proof-acquisition gap remains; it does not supply the cubic ordinary-Gamma calculation."
+      }
     },
     {
       "supplier": "ArithmeticLocallySymmetricSpaces:ALS.0",
@@ -12749,7 +12781,14 @@
         "AnalyticNumberTheory:AN.8/double-gamma-quotient-growth",
         "AnalyticNumberTheory:AN.8/cubic-entire-order-bound",
         "AnalyticNumberTheory:AN.8/cubic-reflected-bound"
-      ]
+      ],
+      "assemblyResolution": {
+        "status": "supplied-by-accepted-plan",
+        "targets": [
+          "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling"
+        ],
+        "note": "The uniform Gamma/Stirling contract is AN.3 in the accepted full plan. The quantitative cubic entire-order proof remains the separate gap below."
+      }
     }
   ],
   "coverage": [
@@ -12811,7 +12850,7 @@
     },
     {
       "title": "Local distribution functional equations: external original proofs",
-      "detail": "The complete DW five-factor valuation proof and complex-place Fourier proof have been read. DW Theorem 3.2, p.47 invokes Igusa for nonarchimedean distribution continuation/functional equations; Theorem 4.1, p.48 invokes Shintani for the real matrix. Those two original proofs remain to acquire. Residue characteristics 2 and 3 are retained through characteristic-zero local fields, the different, discriminant and |3| normalization; no invented separate tame formula is used.",
+      "detail": "The complete DW five-factor valuation proof and complex-place Fourier proof have been read. DW Theorem 3.2, p.47 invokes Igusa for nonarchimedean distribution continuation/functional equations; Theorem 4.1, p.48 invokes Shintani for the real matrix. Those two original proofs remain to acquire. Residue characteristics 2 and 3 are retained through characteristic-zero local fields, the different, discriminant and |3| normalization; no invented separate tame formula is used. Assembly clarification: ordinary Gamma reflection and duplication are the pinned Mathlib declarations listed in baseline. Any additional multiplication identity and the transport to the arithmetic-normalized cubic Fourier matrix must still be justified in cubic-archimedean-fourier-comparison; Barnes G supplies none of these.",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/pvs-local-zeta",
         "AnalyticNumberTheory:AN.8/local-orbital-euler-factor",
@@ -12831,7 +12870,7 @@
     },
     {
       "title": "Cubic entire order-one quantitative estimate",
-      "detail": "DW Theorem 6.2(ii), p.71 states the order-one clearance; its discussion does not furnish the complete quantitative entire-plane growth estimate. The node cubic-entire-order-bound states the ε formulation explicitly, separate from pole removal. Supply that original quantitative argument and the AN.5 uniform Gamma/Stirling contract before certifying this growth leaf.",
+      "detail": "DW Theorem 6.2(ii), p.71 states the order-one clearance; its discussion does not furnish the complete quantitative entire-plane growth estimate. The node cubic-entire-order-bound states the ε formulation explicitly, separate from pole removal. Supply that original quantitative argument and the AN.5 uniform Gamma/Stirling contract before certifying this growth leaf. Assembly clarification: the uniform Gamma/Stirling target is now AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling. Neither that target nor the AN.2 entire-order predicate proves the missing global adelic growth estimate.",
       "neededBy": [
         "AnalyticNumberTheory:AN.8/cubic-entire-order-bound",
         "AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance",
@@ -12885,7 +12924,7 @@
     },
     {
       "title": "Barnes G original normalization and asymptotic proof",
-      "detail": "AN.7 must extend beyond its Hurwitz/Lerch pass to the normalized Barnes G of JSS §2.5, (2.8)–(2.9), p.9: G(1)=1, functional equation, zeros, logarithmic derivative and the uniform asymptotic used to fix C. JSS cites Adamchik; that primary proof remains unread. The single-valued integer-power identity factor and zero/pole divisor have explicit contracts.",
+      "detail": "AN.7 must extend beyond its Hurwitz/Lerch pass to the normalized Barnes G of JSS §2.5, (2.8)–(2.9), p.9: G(1)=1, functional equation, zeros, logarithmic derivative and the uniform asymptotic used to fix C. JSS cites Adamchik; that primary proof remains unread. The single-valued integer-power identity factor and zero/pole divisor have explicit contracts. Assembly clarification: AnalyticNumberTheory:AN.7/plan/barnes-g-function now specifies the product, pointwise recurrence away from Gamma poles, divisor and asymptotic API. The inherited primary-proof/formal-adapter gap is retained; it is no longer an unassigned-definition request.",
       "neededBy": [
         "AnalyticNumberTheory:AN.9/identity-barnes-transform",
         "AnalyticNumberTheory:AN.9/selberg-identity-germ",
@@ -12936,6 +12975,14 @@
         "AnalyticNumberTheory:AN.9/bc-ratio-factor-type",
         "AnalyticNumberTheory:AN.9/bc-full-corner-type"
       ]
+    },
+    {
+      "title": "Cubic convexity: normalized vertical-strip adapter",
+      "detail": "Apply the pinned PhragmenLindelof.vertical_strip only after multiplying by the pole-clearing factors and normalizing the discriminant and polynomial-height boundary bounds on a slightly wider strip. Prove DiffContOnCl, the double-exponential growth hypothesis from cubic-entire-order-bound, and common constant boundary bounds for the normalized function. Recover the displayed closed-strip exponents by interpolation and absorb the epsilon loss. LOWW Lemma 3.11, pp.13–14 gives the intended bound; the Mathlib bounded-strip theorem alone does not assert this field-uniform polynomial convexity estimate.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity"
+      ],
+      "addedBy": "ASM-AnalyticNumberTheory"
     }
   ],
   "sourceIssues": [
@@ -16089,5 +16136,133 @@
     "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "report": "research/blueprint/reviews/REV-AnalyticNumberTheory--AN.8~2.md",
     "handoff": "research/blueprint/handoff/REV-AnalyticNumberTheory--AN.8~2.md"
+  },
+  "assembly": {
+    "job": "ASM-AnalyticNumberTheory",
+    "issue": 213,
+    "agent": "Codex",
+    "session": "codex-toEQra",
+    "date": "2026-10-16",
+    "reviewedInputSha256": "0cf9a3f7afb3a8210ee0f64ecae160292c72df70499dd7e1a244286ccb7bd43e",
+    "canonicalPacket": "research/blueprint/packets/AnalyticNumberTheory.json",
+    "canonicalPacketSha256": "a45e364fd8f869dc68d9850c4e2ef712c5a51c124d502c6a5059c0075e6924d9",
+    "canonicalReview": "REV-AnalyticNumberTheory (accepted, 2026-10-14)",
+    "policy": "The accepted whole-roadmap packet continues every part node as a target, a proof ingredient, or an import from current Tau Ceti. Its imports hashes identify the original accepted part snapshots, before this prerequisite-only assembly. Use its predecessorTargets, proofDependencies and supersededTargets concordance for current consumers. This assembly changes no node statement, hypotheses, proof steps, API, tests, planet, implementation status or review verdict. Changed prerequisite contracts and the added adapter gap are listed for independent follow-up in the assembly handoff.",
+    "nodeDispositionCounts": {
+      "continuedTargets": 73,
+      "proofIngredients": 167,
+      "importedFromCurrentTauCeti": 0
+    },
+    "prerequisiteChanges": [
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-prime-progression-divergence",
+        "replaces": "AnalyticNumberTheory:AN.2",
+        "with": [
+          "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem"
+        ],
+        "reason": "Use the fixed-modulus progression asymptotic, not the whole prime-distribution layer."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/double-gamma-quotient-growth",
+        "replaces": "AnalyticNumberTheory:AN.5",
+        "with": [
+          "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling"
+        ],
+        "reason": "The accepted full plan assigns uniform complex Stirling to AN.3, with bounded-height continuation handled separately."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-shintani-series",
+        "replaces": "AnalyticNumberTheory:AN.4",
+        "with": [
+          "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
+        ],
+        "reason": "Name the actual Dedekind continuation/comparison supplied by the earlier part."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-meromorphic-continuation",
+        "replaces": "AnalyticNumberTheory:AN.4",
+        "with": [
+          "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
+        ],
+        "reason": "Name the actual Dedekind continuation/comparison supplied by the earlier part."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-orders-generating-series",
+        "replaces": "AnalyticNumberTheory:AN.4",
+        "with": [
+          "AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue"
+        ],
+        "reason": "Name the actual Dedekind continuation/comparison supplied by the earlier part."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-archimedean-fourier-comparison",
+        "replaces": "AnalyticNumberTheory:AN.7",
+        "with": [
+          "mathlib:Complex.Gamma_mul_Gamma_one_sub",
+          "mathlib:Complex.Gamma_mul_Gamma_add_half"
+        ],
+        "reason": "Ordinary Gamma reflection/duplication belongs to Mathlib, not Barnes G; the local Fourier theorem and any remaining multiplication/normalization adapter remain proof gaps."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-entire-order-bound",
+        "replaces": "AnalyticNumberTheory:AN.5",
+        "with": [
+          "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling",
+          "AnalyticNumberTheory:AN.2/entire-order-at-most"
+        ],
+        "reason": "Separate uniform Gamma estimates and the finite-order predicate from the still-open quantitative adelic growth proof."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-reflected-bound",
+        "replaces": "AnalyticNumberTheory:AN.5",
+        "with": [
+          "AnalyticNumberTheory:AN.3/plan/uniform-complex-stirling"
+        ],
+        "reason": "Use uniform complex Stirling directly; Barnes G is not a cubic archimedean input."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity",
+        "replaces": "AnalyticNumberTheory:AN.2",
+        "with": [
+          "AnalyticNumberTheory:AN.2/entire-order-at-most",
+          "mathlib:PhragmenLindelof.vertical_strip",
+          "AnalyticNumberTheory:AN.8/cubic-entire-order-bound"
+        ],
+        "reason": "State the actual entire-order and vertical-strip inputs; pole clearance alone does not establish the growth hypothesis."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/identity-barnes-transform",
+        "replaces": "AnalyticNumberTheory:AN.7",
+        "with": [
+          "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
+        ],
+        "reason": "The accepted full-plan Barnes target supplies the normalized product, divisor and asymptotic contract."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-identity-germ",
+        "replaces": "AnalyticNumberTheory:AN.7",
+        "with": [
+          "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
+        ],
+        "reason": "The accepted full-plan Barnes target supplies the normalized product, divisor and asymptotic contract."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/selberg-identity-nonvanishing",
+        "replaces": "AnalyticNumberTheory:AN.7",
+        "with": [
+          "AnalyticNumberTheory:AN.7/plan/barnes-g-function"
+        ],
+        "reason": "The accepted full-plan Barnes target supplies the normalized product, divisor and asymptotic contract."
+      },
+      {
+        "nodeId": "AnalyticNumberTheory:AN.9/bc-prime-pairs-congruence",
+        "replaces": "AnalyticNumberTheory:AN.2",
+        "with": [
+          "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem"
+        ],
+        "reason": "Use PNT in one fixed coprime progression; no uniform growing-modulus estimate is needed."
+      }
+    ],
+    "supersededNodes": []
   }
 }

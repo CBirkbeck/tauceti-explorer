@@ -12,6 +12,12 @@ layer milestones whose statements use only those carriers, and a few unit tests 
 Hecke, Artin and Tate-continued L-functions, the canonical product, zero multisets, the Dickman
 function, the Shintani and double Dirichlet series, Selberg zeta functions and the Bost–Connes
 C*-dynamical system have no carrier at the pins; they are specified in the reader document only.
+
+Assembly concordance: the reader's "Interfaces between the reviewed parts" gives the shared
+contracts. AN.3 supplies uniform ordinary-Gamma estimates to AN.8; AN.7 supplies Barnes G to the
+AN.9 identity factor and AN.5 moment constants; AN.2 imports the qualitative prime asymptotics
+used by the Bost-Connes arguments. Their native names here all use TauCeti.AnalyticNumberTheory.
+The accepted whole-roadmap signatures are retained, including the review's Barnes pole exclusions.
 -/
 
 import Mathlib.NumberTheory.Chebyshev
@@ -404,6 +410,14 @@ example : barnesG 0 = 0 := by
   sorry
 
 end AN7
+
+/-! ## AN.8: several-variable and cubic zeta functions
+
+The double-series continuation, cubic functional equation, residues and pole-cleared convexity
+are reader targets. Their canonical arithmetic, Schwartz and quotient-measure carriers are not
+available at the pins. The AN.3 Stirling statement above is their shared quantitative Gamma input;
+the separate entire-order and normalized strip-interpolation obligations remain in the reader.
+-/
 
 /-! ## AN.9: spectral zeta functions -/
 

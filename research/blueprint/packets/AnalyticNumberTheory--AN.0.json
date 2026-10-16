@@ -15281,7 +15281,19 @@
     {
       "supplier": "AnalyticNumberTheory:AN.8",
       "need": "If [F : ℚ] ≥ 2 then ξ_{F,α}(0) = 0, since each c_{αβ}(s) vanishes to order [F : ℚ] at s = 1 (Lemma 3.8). For a cubic étale algebra A/F, the orders O ⊂ A with [O_A : O]² = n have Dirichlet series f_A(s) = ζ_F(4s)ζ_F(6s − 1)ζ_A(2s)/ζ_A(4s) (Datskovsky–Wright, Lemma 3.9). For σ > 3/2, ξ_{F,α}(σ + it) ≪_{[F:ℚ],σ,ε} Disc(F)^{1/2+ε}h₂(F) (Lemma 3.10), and for −1/2 ≤ σ ≤ 3/2 away from the poles at s = 1 and 5/6 (for example for |t| ≥ 1; the paper states it for all t, E9), ξ_{F,α}(σ + it) = O(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}) by Phragmén–Lindelöf (Lemma 3.11).",
-      "neededBy": []
+      "neededBy": [],
+      "assemblyResolution": {
+        "status": "supplied-by-accepted-plan",
+        "targets": [
+          "AnalyticNumberTheory:AN.8/plan/cubic-zero-at-origin",
+          "AnalyticNumberTheory:AN.8/plan/cubic-orders-generating-series",
+          "AnalyticNumberTheory:AN.8/plan/cubic-pole-cleared-convexity"
+        ],
+        "note": "The accepted full-plan continuations specify the zero, orders series and pole-aware convexity; its retained cubic-reducible-and-field-coefficient-bound ingredient supplies the positive-real right-edge estimate, extended to complex height by the triangle inequality for the positive Dirichlet series. This was a packet-level routing request with no local consumer; no fictitious dependency is added.",
+        "proofIngredients": [
+          "AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound"
+        ]
+      }
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
@@ -15345,14 +15357,28 @@
       "need": "Shiu’s bound for nonnegative multiplicative functions: for fixed κ,ε>0, x^ε≤z≤x, q≤z^(1−ε), reduced a modq, Σ_{x−z≤n≤x,n≡a modq}|f(n)|≪_{κ,ε} z/(φ(q)log x) exp(Σ_{p≤x,p∤q}|f(p)|/p), for f∈C(κ). Supply the exact range used by GHS Lemma2.3. This is an exact requested extension of SV.1 upper-bound sieve applications; its current packet has no Shiu node. SV.4 plans Maynard bounded gaps and cannot be its supplier.",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/halasz-integral-bound"
-      ]
+      ],
+      "assemblyResolution": {
+        "status": "supplied-by-accepted-plan",
+        "targets": [
+          "AnalyticNumberTheory:AN.5/plan/shiu-short-interval-bound"
+        ],
+        "note": "Owned locally by the accepted 14 October review; the sieve proof adapter remains open."
+      }
     },
     {
       "supplier": "ProbabilisticAndMetricNumberTheory:PM.5",
       "need": "Canonical random-matrix zeta/L moment and correlation models, their arithmetic factor, averaging measure, symmetry type and conjectural-status predicates. AN.5 supplies proved analytic moments and compares constants; it does not define a second random model.",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/moment-model-comparison"
-      ]
+      ],
+      "assemblyResolution": {
+        "status": "supplied-by-accepted-plan",
+        "targets": [
+          "AnalyticNumberTheory:AN.5/plan/zeta-moment-constants"
+        ],
+        "note": "The arithmetic/Barnes normalization is local. A general moment asymptotic remains conjectural; this does not supply arbitrary correlation models."
+      }
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
@@ -15454,7 +15480,14 @@
       "need": "For T≥1 and m≥T², bound the Mangoldt-weighted window ∑_{n≥1, |log(n/m)|≤c₀/T}Λ(n)≤C(c₀)m/T for each fixed c₀>0. State and prove the prime-power contribution separately; the prime-only Brun–Titchmarsh count is not the complete Λ window. This supplies GHS Lemma2.6, after the Fourier kernel’s support constant is fixed.",
       "neededBy": [
         "AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square"
-      ]
+      ],
+      "assemblyResolution": {
+        "status": "supplied-by-accepted-plan",
+        "targets": [
+          "AnalyticNumberTheory:AN.5/plan/mangoldt-short-window-bound"
+        ],
+        "note": "Owned locally by the accepted 14 October review; Fourier/Plancherel adapters remain open."
+      }
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
@@ -21768,6 +21801,56 @@
         "nodeId": "AnalyticNumberTheory:AN.5/beurling-zeta",
         "verdict": "verified",
         "note": "Beurling zeta uses indexed generalized integers and an absolutely convergent principal-series domain; its logarithm is normalized analytically."
+      }
+    ]
+  },
+  "assembly": {
+    "job": "ASM-AnalyticNumberTheory",
+    "issue": 213,
+    "agent": "Codex",
+    "session": "codex-toEQra",
+    "date": "2026-10-16",
+    "reviewedInputSha256": "87f6c864518da3931eb9960ad4ed1429c93aeb073bac5b8a1e93980d959ceeef",
+    "canonicalPacket": "research/blueprint/packets/AnalyticNumberTheory.json",
+    "canonicalPacketSha256": "a45e364fd8f869dc68d9850c4e2ef712c5a51c124d502c6a5059c0075e6924d9",
+    "canonicalReview": "REV-AnalyticNumberTheory (accepted, 2026-10-14)",
+    "policy": "The accepted whole-roadmap packet continues every part node as a target, a proof ingredient, or an import from current Tau Ceti. Its imports hashes identify the original accepted part snapshots, before this prerequisite-only assembly. Use its predecessorTargets, proofDependencies and supersededTargets concordance for current consumers. This assembly changes no node statement, hypotheses, proof steps, API, tests, planet, implementation status or review verdict. Changed prerequisite contracts and the added adapter gap are listed for independent follow-up in the assembly handoff.",
+    "nodeDispositionCounts": {
+      "continuedTargets": 153,
+      "proofIngredients": 96,
+      "importedFromCurrentTauCeti": 5
+    },
+    "prerequisiteChanges": [],
+    "supersededNodes": [
+      {
+        "id": "AnalyticNumberTheory:AN.2/rational-prime-number-theorem",
+        "replacement": "AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems",
+        "reason": "Current Tau Ceti main proves this qualitative statement through the Tau Ceti roadmaps ArithmeticDirichletSeries (Layer 10.4, unconditional prime ideal theorem) and Chebotarev (Layers 11-14, with the arithmetic-progression specialization over the cyclotomic field). It is imported, not planned again; the main packet keeps only the comparison to Mathlib vocabulary in AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems.",
+        "from": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json"
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem",
+        "replacement": "AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems",
+        "reason": "Current Tau Ceti main proves this qualitative statement through the Tau Ceti roadmaps ArithmeticDirichletSeries (Layer 10.4, unconditional prime ideal theorem) and Chebotarev (Layers 11-14, with the arithmetic-progression specialization over the cyclotomic field). It is imported, not planned again; the main packet keeps only the comparison to Mathlib vocabulary in AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems.",
+        "from": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json"
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer",
+        "replacement": "AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems",
+        "reason": "The ψ→θ→π transfer is ArithmeticDirichletSeries Layers 6.2 and 10.2-10.3; the three conclusions are part of AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems.",
+        "from": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json"
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.2/rational-mangoldt-boundary",
+        "replacement": "AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems",
+        "reason": "The residue-one von Mangoldt boundary package for K = ℚ is the K = ℚ case of the Tau Ceti export primeIdealVonMangoldtBoundary (ArithmeticDirichletSeries 10.4); this proof ingredient served only the superseded qualitative PNT targets.",
+        "from": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json"
+      },
+      {
+        "id": "AnalyticNumberTheory:AN.2/progression-mangoldt-boundary",
+        "replacement": "AnalyticNumberTheory:AN.2/plan/qualitative-prime-number-theorems",
+        "reason": "The progression boundary package is supplied inside Tau Ceti Chebotarev (Layers 5 and 11-12 over the cyclotomic field); this proof ingredient served only the superseded fixed-progression target.",
+        "from": "research/blueprint/packets/AnalyticNumberTheory--AN.0.json"
       }
     ]
   }

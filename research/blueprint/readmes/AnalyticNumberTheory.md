@@ -26,6 +26,14 @@ construction, its uses, API and unit tests. Smaller steps are proof ingredients,
 statements and the targets that use them. The [suggested Lean file](../suggested/AnalyticNumberTheory.lean) states the
 part of this roadmap that the pinned libraries can already express; the statements below are definitive.
 
+This document assembles the two reviewed parts through the later accepted
+[whole-roadmap packet](../packets/AnalyticNumberTheory.json). Its concordance retains all 494 predecessor nodes:
+226 continue as targets, 263 are proof ingredients and five are imported from current Tau Ceti. The resulting
+239 targets include the 13 additions made by the whole-roadmap planning and review passes. The
+[assembly handoff](../handoff/ASM-AnalyticNumberTheory.md) records the prerequisite reconciliation and the requests
+that remain open. Historical part identifiers remain traceable through `predecessorTargets`, `proofDependencies`
+and `supersededTargets`; they do not introduce second owners of the same mathematics.
+
 ## Scope and boundaries
 
 **Imported, never planned here.**
@@ -74,6 +82,26 @@ a Mangoldt-weighted window estimate and the arithmetic/Barnes normalization of t
 - **gamma.** Real and complex gamma factors are Mathlib Complex.Gammaℝ s = π^{−s/2}Γ(s/2) and Complex.Gammaℂ s = 2(2π)^{−s}Γ(s).
 - **buildOrder.** Layer numbers are stable atlas identifiers, not a strict build sequence. AN.7 Barnes G depends on the AN.3 gamma estimates and is built before the AN.5 moment-factor construction, which depends on it. The rest of AN.5 can proceed earlier. Implement the node prerequisite DAG, not an increasing-number order.
 
+## Sources and how they enter the plan
+
+The [bibliography](#sources) and each target give the selected versions and exact locators. The shared analytic
+inputs have the following roles; the proof gaps recorded below remain part of their contracts.
+
+- The prime-distribution comparison uses Kedlaya, §1.3, Lemma 1.7, p.6 and §4.4, Theorem 4.12, p.27.
+  Its supplier is current Tau Ceti's prime ideal theorem and prime-counting Chebotarev. The effective estimates
+  in AN.2 require their separate zero-free and exceptional-zero arguments.
+- The common Gamma estimates are [DLMF §5.11, (5.11.1), (5.11.9)](https://dlmf.nist.gov/5.11).
+  The normalized Barnes product and asymptotic are [DLMF §5.17, (5.17.3)–(5.17.5)](https://dlmf.nist.gov/5.17).
+  These are the AN.3 and AN.7 inputs shared by the later layers.
+- For the two several-variable examples, the relevant seams are Blomer, Lemma 2, (32)–(35), pp.362–364;
+  Datskovsky–Wright, Theorems 4.1–4.2, pp.48–51 and Theorem 6.2(ii), p.71; and
+  Lemke Oliver–Wang–Wood, Proposition 3.7 and Lemmas 3.8–3.11, pp.12–14. Their precise local measure,
+  Fourier and quantitative growth obligations appear in AN.8.
+- The prime-distribution input to AN.9 is visible in [Neshveyev's ergodicity argument, Proposition proof,
+  pp.2–3](https://arxiv.org/pdf/math/0002141v1) and in [his prime-pair argument, Lemma 2.3, p.4](https://arxiv.org/pdf/0907.1456v1).
+  The scalar spectral determinant uses Jorgenson–Smajlović–Spilioti v2, §4, (4.2)–(4.6), pp.13–15 and
+  §8.2, (8.4), p.27. Its Barnes normalization and its geometric trace-formula suppliers are distinct inputs.
+
 ## Layer index
 
 | Layer | Title | Status | Targets | Planets |
@@ -88,6 +116,35 @@ a Mangoldt-weighted window estimate and the arithmetic/Barnes normalization of t
 | AN.7 | Hurwitz, Lerch and parameter-dependent zeta functions | planned | 15 | Lerch transcendent; Lerch analytic continuation; Lerch special values; Hurwitz zeta functions; Lerch monodromy and solvable cover |
 | AN.8 | Several-variable and prehomogeneous zeta functions | planned | 25 | Quadratic double Dirichlet series; Double-series functional equations; Double-series continuation; Prehomogeneous local zeta integral; Cubic Shintani zeta function; Shintani matrix functional equation |
 | AN.9 | Spectral zeta and arithmetic noncommutative systems | planned | 48 | Bost–Connes Hecke algebra; Bost–Connes C*-algebra; Bost–Connes phase transition; Spectral zeta function; Selberg zeta function; Regularized determinant |
+
+## Interfaces between the reviewed parts
+
+In this table, an `AN.k/...` identifier abbreviates `AnalyticNumberTheory:AN.k/...`. Identifiers containing
+`/plan/` name targets of the accepted whole-roadmap packet; the other identifiers name retained part nodes or
+proof ingredients. The parts keep their accepted mathematical statements, while their prerequisite lists now
+name the following inputs explicitly.
+
+| Input | Supplier and consumers | Contract at the boundary |
+|---|---|---|
+| Fixed-progression prime distribution | `AN.2/fixed-progression-prime-number-theorem` is continued by [`AN.2/plan/qualitative-prime-number-theorems`](#target-analyticnumbertheory-an-2-plan-qualitative-prime-number-theorems); AN.9 uses it in `bc-prime-progression-divergence`, `bc-nontrivial-character-projection` and `bc-prime-pairs-congruence`. | Fix a positive modulus and a coprime class. Partial summation gives divergent reciprocal prime weights; proportional intervals give the prime pairs. Neither step requires Siegel–Walfisz or a growing modulus. The unrestricted `bc-prime-pair-ratio` uses the rational PNT from the same imported target. |
+| Dedekind comparison | `AN.4/dedekind-zeta-continuation-and-residue`, continued by [`AN.4/plan/dedekind-zeta-continuation-and-residue`](#target-analyticnumbertheory-an-4-plan-dedekind-zeta-continuation-and-residue), supplies `cubic-shintani-series`, `cubic-meromorphic-continuation` and `cubic-orders-generating-series`. | Use the canonical continued Dedekind function and its agreement with the norm-indexed series on Re s>1. Do not evaluate a totalized divergent series as a continuation. |
+| Uniform ordinary-Gamma estimates | [`AN.3/plan/uniform-complex-stirling`](#target-analyticnumbertheory-an-3-plan-uniform-complex-stirling) supplies `double-gamma-quotient-growth`, `cubic-reflected-bound` and the archimedean component of `cubic-entire-order-bound`. | Uniformity is on a fixed closed real strip; bound removable points separately on compact height intervals. The former AN.5 request has this precise AN.3 owner. The global quantitative adelic growth proof remains open. |
+| Cubic Fourier normalization | `cubic-archimedean-fourier-comparison` imports Mathlib `Complex.Gamma_mul_Gamma_one_sub` and `Complex.Gamma_mul_Gamma_add_half`. | These give ordinary Gamma reflection and duplication. The real local Fourier theorem, any additional multiplication identity and the transport of measures and constants remain the AN.8 local-normalization obligations. They do not depend on Barnes G. |
+| Polynomial convexity on a strip | `cubic-pole-cleared-convexity` uses `AN.2/entire-order-at-most`, `AN.8/cubic-entire-order-bound` and Mathlib `PhragmenLindelof.vertical_strip`. | The order predicate is vocabulary; the quantitative order bound is a theorem still requiring its recorded proof. Pole clearance, normalization of both boundary estimates and the polynomial-height interpolation adapter must precede the displayed convexity estimate. The part packet records this adapter explicitly. |
+| Barnes identity factor | [`AN.7/plan/barnes-g-function`](#target-analyticnumbertheory-an-7-plan-barnes-g-function) supplies `identity-barnes-transform`, `selberg-identity-germ` and `selberg-identity-nonvanishing`; it also supplies [`AN.5/plan/zeta-moment-constants`](#target-analyticnumbertheory-an-5-plan-zeta-moment-constants). | The product fixes the normalization; the pointwise Gamma recurrence excludes nonpositive integers. Retain the origin logarithmic-derivative value and the stated asymptotic proof obligation. Build this part of AN.7 before the moment constants in AN.5. |
+
+The former packet-level AN.0 request to AN.8 is supplied by `AN.8/plan/cubic-zero-at-origin`,
+`AN.8/plan/cubic-orders-generating-series`, `AN.8/plan/cubic-pole-cleared-convexity` and the retained
+`AN.8/cubic-reducible-and-field-coefficient-bound` ingredient. The last gives the positive-real right-edge bound;
+the positive series and triangle inequality extend it to complex height. The request has no consuming
+AN.0–AN.7 node and creates no reverse build edge.
+These are planned contracts, with the source-proof gaps stated in AN.8; assembly does not turn them into
+implemented library results.
+
+The combined suggested file uses the single namespace `TauCeti.AnalyticNumberTheory` and one import block.
+Only the signatures expressible over the pinned carriers are present. In particular, AN.8's arithmetic and
+adelic objects and AN.9's completed operator-algebra objects remain full reader targets. Reintroducing their
+older prototype structures or admitted data definitions would not satisfy the current roadmap shape.
 
 ## AN.0 — Dirichlet series and summation
 
@@ -8745,7 +8802,7 @@ If the AC.4 owner selects the Conlon–Fox–Zhao route, narrow the link AN.2 �
 
 - **Qualitative prime number theorem ψ(x) ~ x, θ(x) ~ x, π(x) ~ Li(x).** Import `tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-10-generic-prime-number-theorem-transfer`; current declaration `TauCeti.primeIdealTheorem (K = ℚ)`. Evidence: TauCetiRoadmap ArithmeticDirichletSeries/STATUS.md at 1d09589; current Tau Ceti a91d3aa. Consumer: [`AN.2/plan/qualitative-prime-number-theorems`](#target-analyticnumbertheory-an-2-plan-qualitative-prime-number-theorems).
 - **Primes in a fixed coprime progression: ψ, ϑ and π asymptotics with constant 1/φ(q).** Import `tauceti:TauCetiRoadmap/Chebotarev#layer-13-ϑ_c-and-π_c`; current declaration `NumberField.Chebotarev.frobeniusVonMangoldtCoeff_galEquivZMod_symm, frobeniusPrimeCount and tendsto_frobeniusPrimeCount over ℚ(ζ_q)`. Evidence: TauCetiRoadmap Chebotarev/STATUS.md at 8334df2; current Tau Ceti a91d3aa. Consumer: [`AN.2/plan/qualitative-prime-number-theorems`](#target-analyticnumbertheory-an-2-plan-qualitative-prime-number-theorems).
-- **Line-one nonvanishing of continued L-functions of unitary weights whose square has cancellation.** Import `tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity`; current declaration `TauCeti.continuedLFunctionOfWeight_ne_zero_of_hasCancellation_sq`. Evidence: TauCetiRoadmap ArithmeticDirichletSeries/STATUS.md at 1d09589. Consumer: [`AN.4/plan/hecke-nonvanishing-on-line-one (non-quadratic characters; the quadratic case at s = 1, which the Tau Ceti status lists as its frontier, stays here)`](#target-analyticnumbertheory-an-4-plan-hecke-nonvanishing-on-line-one-non-quadratic-characters-the-quadratic-case-at-s-1-which-the-tau-ceti-status-lists-as-its-frontier-stays-here).
+- **Line-one nonvanishing of continued L-functions of unitary weights whose square has cancellation.** Import `tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-8-landau-type-positivity`; current declaration `TauCeti.continuedLFunctionOfWeight_ne_zero_of_hasCancellation_sq`. Evidence: TauCetiRoadmap ArithmeticDirichletSeries/STATUS.md at 1d09589. Consumer: [`AN.4/plan/hecke-nonvanishing-on-line-one (non-quadratic characters; the quadratic case at s = 1, which the Tau Ceti status lists as its frontier, stays here)`](#target-analyticnumbertheory-an-4-plan-hecke-nonvanishing-on-line-one).
 - Chebotarev README, boundary section and Layer8.7 reference: Effective Chebotarev is explicitly owned by Zeros of L-functions, but no stage endpoint for that roadmap exists in this atlas snapshot. Supply the named theorem endpoint before importing KP item249. No upstream file is edited.
 - README Layer12.1, finite deleted factors at s=1: While checking the supplier boundary, noticed “same residue” for Dedekind zeta with Euler factors deleted. In general the residue is multiplied by ∏_{p deleted}(1−Np^−1); the logarithmic derivative still has residue1. Record for the maintainer only, without reviewing/fixing the upstream roadmap. No AN consumer may infer equality of uncompleted residues from this sentence.
 - Current README boundary section and Suggested.lean Layer6.5; current main070dc2becd74419e76303ede84b465ed4a69461f: General Artin conductor/integrality/conductor–discriminant is assigned to future ArtinRepresentations, explicitly excluded from this roadmap. The current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already contains global lower-ramification and fixed-field discriminant formulas; import them through NFA rather than re-plan them. These post-baseline implementations are ownership evidence, not citations falsely added to the pinned baseline.
