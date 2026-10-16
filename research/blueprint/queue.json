@@ -129092,6 +129092,63 @@
    "prompt": "research/blueprint/prompts/PKG-DiophantineApproximationAndTranscendence~codex.md",
    "note": "deliverables arrived from an external worker on issue #8075",
    "finishedAt": "2026-10-09T21:07:21Z"
+  },
+  {
+   "id": "FIX-PKG-PerfectoidQuotients~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PerfectoidQuotients"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PerfectoidQuotients~adv.md",
+    "research/blueprint/packages/PerfectoidQuotients/review.json",
+    "research/blueprint/packages/PerfectoidQuotients/README.md",
+    "research/blueprint/packages/PerfectoidQuotients/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidQuotients~adv.md"
+  },
+  {
+   "id": "FIX-PKG-IgusaVarietiesAndTorsionConcentration~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "IgusaVarietiesAndTorsionConcentration"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-IgusaVarietiesAndTorsionConcentration~adv.md",
+    "research/blueprint/packages/IgusaVarietiesAndTorsionConcentration/review.json",
+    "research/blueprint/packages/IgusaVarietiesAndTorsionConcentration/README.md",
+    "research/blueprint/packages/IgusaVarietiesAndTorsionConcentration/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-IgusaVarietiesAndTorsionConcentration~adv.md"
+  },
+  {
+   "id": "FIX-PKG-PotentialAutomorphyInfrastructure~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PotentialAutomorphyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PotentialAutomorphyInfrastructure~adv.md",
+    "research/blueprint/packages/PotentialAutomorphyInfrastructure/review.json",
+    "research/blueprint/packages/PotentialAutomorphyInfrastructure/README.md",
+    "research/blueprint/packages/PotentialAutomorphyInfrastructure/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PotentialAutomorphyInfrastructure~adv.md"
   }
  ]
 }
