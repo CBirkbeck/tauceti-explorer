@@ -12,7 +12,12 @@ that its output solution list is complete. Geometric Chabauty/QC carriers
 and raw certificate records remain README targets, not arbitrary-type
 stand-ins. All theorem bodies are planning placeholders, not proofs.
 -/
-import Mathlib
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan
+import Mathlib.NumberTheory.Height.NumberField
+import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.Algebra.Polynomial.Eval.Defs
+import Mathlib.Data.Finset.Prod
+import Mathlib.Algebra.Order.Floor.Ring
 import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight
 
 noncomputable section
