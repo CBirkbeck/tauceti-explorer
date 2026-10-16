@@ -1,12 +1,14 @@
 # BP-LocallyAnalyticDistributions--L3 — blocked checkpoint
 
 Issue: [#9293](https://github.com/CBirkbeck/tauceti-explorer/issues/9293). Worker:
-Codex, session `codex-yPK66d`. Date: 2026-10-16.
+Codex, session `codex-jh9WIW`. Date: 2026-10-16.
 
-This run resumes the checkpoint merged in
+This run resumes the checkpoints merged in
 [#10017](https://github.com/CBirkbeck/tauceti-explorer/pull/10017), written by
-session `codex-uccHR2`. The ownership blocker below was rechecked against the
-live issue timeline and upstream pull request on 2026-10-16 at 20:16 UTC.
+session `codex-uccHR2`, and
+[#10059](https://github.com/CBirkbeck/tauceti-explorer/pull/10059), written by
+session `codex-yPK66d`. The ownership blocker below was rechecked against the
+live issue timeline and upstream pull request on 2026-10-16 at 21:32 UTC.
 
 The blueprint pass is **unfinished**. This checkpoint records an ownership
 blocker; it neither closes stage `LocallyAnalyticDistributions:L3` nor certifies
@@ -16,12 +18,13 @@ for this part has been created.
 ## Why work stopped
 
 The issue was labelled `swarm`, `state:available`, `top` and `kind:blueprint`
-when selected from the manager's priority list. Issue #9301, the preceding
-available candidate, had been claimed by another session before selection
-finished. The bot confirmed this session's claim at 20:15:48 UTC in
-[comment 6223883234](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6223883234),
+when selected as the first available eligible candidate from the manager's
+priority list. The other available allowed job, #9323, was farther down that
+list. The bot confirmed this session's claim at 21:31:31 UTC in
+[comment 6225091060](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225091060),
 identifying this session's
-[claim comment 6223879504](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6223879504).
+[claim comment 6225088713](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225088713).
+Another session's concurrent claim was subsequently refused by the bot.
 
 However, the maintainer's
 [2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6147009644)
@@ -31,8 +34,10 @@ the maintainer replaced `state:available` with `state:blocked` at 13:46 UTC on
 2026-10-13; automation removed `state:blocked` and restored `state:available`
 at 14:04 UTC that day. The timeline contains no subsequent maintainer
 instruction reopening this blueprint. The checkpoint intake then restored
-`state:available` again at 15:58:18 UTC on 2026-10-16. Neither automated reset
-resolves the maintainer's ownership instruction.
+`state:available` again at 15:58:18 UTC and 20:36:42 UTC on 2026-10-16, after
+merging #10017 and #10059 respectively. These automated resets do not resolve
+the maintainer's ownership instruction. The current run's only human issue
+comments after those resets are claim commands.
 
 The upstream roadmap is
 [TauCetiRoadmap PR #854](https://github.com/TauCetiProject/TauCetiRoadmap/pull/854),
@@ -60,7 +65,8 @@ verdict or a claim that these targets are implemented.
 | Coefficient extension, local weight differentiation and the rigid/adic sheaf comparison | Section 3.3: finite coefficient base change, local weight analyticity and logarithmic differentiation. Section 3.4: compatibility of rigid and adic sections, importing AdicSpacesPartII section R1.7. |
 | Genuine pseudomeasure numerators, overlap gluing and local poles | Section 3.2: admissible clearing domains and agreement of quotient expressions. Section 3.4: gluing via the numerator cross-products supplied by PadicMeasuresIwasawaAlgebras section 3.1, and local pole order with the denominator's zero locus retained. |
 
-The current supplied TauCetiRoadmap main was also inspected: it does not yet
+The supplied read-only TauCetiRoadmap main at
+`0d144d044dacebca17b654695b6f1ad58f159b27` was also inspected: it does not
 contain a `LocallyAnalyticDistributions` directory. The open pull request,
 rather than an absent main-branch directory or the older atlas snapshot,
 therefore determines ownership here.
@@ -81,16 +87,20 @@ therefore determines ownership here.
 - Lean was **not compiled**: no suggested Lean file was created or changed.
   The blueprint checker has no new packet to validate. Validation of this
   checkpoint is the submission path/content check and `git diff --check`.
-- Reading completed for this blocker: the issue and its timeline, parent L3
-  coverage and target inventory, reviewed L3 audit, upstream status material,
+- Reading completed for this blocker: the issue and its full timeline, the
+  preceding checkpoint's handoff, parent L3 coverage and target inventory,
+  reviewed L3 audit, upstream status material,
   and PR #854's metadata and README sections 3.1–3.4. No paper or book was
   used to assert a new mathematical result; no source passage was copied.
 
 The maintainer needs to reconcile the obsolete atlas job with upstream
-ownership and the label reset: prevent the obsolete job from being offered
-again, or issue a replacement assignment authorizing work on the authoritative
-upstream pull request. No additional mathematical reading within this job's
-edit scope can resolve that ownership decision. A worker resuming this issue
+ownership and the repeated label resets: prevent the obsolete job from being
+offered again, or issue a replacement assignment authorizing work on the
+authoritative upstream pull request. A checkpoint merge has twice reoffered
+the same stopped work, so another automated availability reset alone must not
+be taken as evidence that the ownership conflict is resolved. No additional
+mathematical reading within this job's edit scope can resolve that ownership
+decision. A worker resuming this issue
 should first read
 the maintainer's instruction and current PR #854, rather than start another
 L3 blueprint. Any mathematical changes belong in that authoritative pull
