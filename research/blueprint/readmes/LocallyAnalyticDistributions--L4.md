@@ -18,11 +18,24 @@ completed ownership pass with coverage **planned**, without a claim that the
 mathematics is implemented or independently verified.
 
 The companion packet's `inheritedNodeDisposition` accounts for all 221 L4 node
-IDs in the original packet. There are 177 direct upstream target matches and
-44 other dispositions: renamed targets, supplier APIs, proof steps absorbed
-into larger targets, a replaced proof route, existing library inputs and one
-explicit scope restriction. Those IDs remain references to the original
-packet; they are not redeclared here.
+IDs in the original packet. There are 175 direct upstream target matches and
+46 other dispositions: renamed targets, supplier APIs, proof steps absorbed
+into larger targets, a replaced proof route, existing library inputs, qualified
+contracts and the solid scope restriction. Those IDs remain references to the
+original packet; they are not redeclared here. Independent review corrected
+six mappings or contract descriptions and recorded the limits below.
+
+The import does not establish every inherited statement in its greatest
+generality. Coordinate detection is imported for finite submodules of the
+upstream Banach c₀ model, rather than arbitrary full products over any
+commutative Noetherian ring. Polynomial invertibility is imported for monic
+polynomials with unit constant coefficient. The prescribed-rank finite product
+law is supplied by
+[CompactOperators §3.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/724243bd565643c1367ea557271b8de4b572c8ec/TauCetiRoadmap/CompactOperators/README.md#L683)
+in its Banach-ring setting; this import does not certify an explicit supplier
+statement for every commutative ring. The packet records these three contract
+boundaries without adding a competing plan or changing the inherited packet.
+Coverage refers to the authoritative upstream stage within these boundaries.
 
 ## Disposition of the inherited obligations
 
@@ -49,6 +62,14 @@ specified; coefficientwise convergence alone does not supply convergence in
 every Gauss radius. The original smaller proof steps are indexed against the
 target that absorbs them, without asserting that upstream declares each as a
 separate lemma.
+
+The finite-coordinate norm bound is located at upstream §4.1, line 1389;
+injectivity alone does not supply that bound. The resolvent import combines
+the coefficient recurrence of §4.6, line 1832, with analytic entireness and
+evaluation in §4.7, line 1936. The evaluated product identity for a potentially
+orthonormalizable module uses chart independence and the (Pr) adapter in
+§4.2, line 1589, beyond the c₀-only formula. These are corrections to the
+local import index, without a review verdict on the upstream proofs.
 
 For the second and third obligations, the analytic Banach stage uses a c₀
 coefficient model, while its dual uses bounded coefficient families. The
@@ -105,8 +126,10 @@ general-affinoid exact-slope assertion.
 The packet fixes the upstream commit and content hashes, records each
 inherited node's disposition and identifies the excluded solid portion.
 Its acceptance checks require that every inherited L4 ID appear exactly
-once, that its upstream target locator exist at the recorded commit, and
-that all six obligations and the compact-complex finding be accounted for.
+once, that its upstream target locator exist at the recorded commit, that
+qualified contracts be identified, and that all six obligations and the
+compact-complex finding be accounted for. The independent review is recorded
+in the packet and [review report](../reviews/REV-LocallyAnalyticDistributions--L4.md).
 Mathematical definitions, their API tests and the roadmap's acceptance
 examples remain at their upstream owner. The companion Lean file therefore
 contains only an individual native module import and an ownership note. Its
