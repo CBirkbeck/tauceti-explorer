@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T23:18Z",
+ "updated": "2026-10-16T23:23Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -938,7 +938,7 @@
    "stage": "pr",
    "pr": 1017,
    "head": "12b388a",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 9); red team running",
+   "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round; draft",
    "review": {
     "recommendation": null,
     "current": false,
@@ -951,6 +951,42 @@
    "pr": 1020,
    "head": "e040b45",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "EllipticCurveModularity": {
+   "stage": "pr",
+   "pr": 1018,
+   "head": "bec0035",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied; draft",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "PadicFamilies": {
+   "stage": "pr",
+   "pr": 1019,
+   "head": "e3db3e8",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
+  },
+  "AnabelianGeometryAndNonabelianChabauty": {
+   "stage": "pr",
+   "pr": 1021,
+   "head": "f20b55f",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": null,
     "current": false,
