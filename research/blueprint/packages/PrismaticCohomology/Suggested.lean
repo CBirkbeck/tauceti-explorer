@@ -204,6 +204,27 @@ end Delta
 /-! ## Layer 1: Relative prismatic cohomology and smooth comparisons -/
 /-! The prismatic sites, their sheaves, totalisations and comparisons are README targets. -/
 
+/-- The completion counterexample uses a right shift: the first coordinate becomes zero,
+and the next coordinate is multiplied by the distinguished parameter. -/
+example {R : Type*} [CommRing R] (d : R) :
+    (fun n : ℕ => match n with
+      | 0 => 0
+      | k + 1 => d * ((Pi.single 0 (1 : R) : ℕ → R) k)) =
+      (Pi.single 1 d : ℕ → R) := by
+  funext n
+  cases n with
+  | zero => simp
+  | succ k =>
+    cases k <;> simp
+
+/-- The shifted torsion class survives one step: X is not divisible by X squared.
+These are the first two F₂[d]/dⁿ components of the completed-localisation control. -/
+example : ¬ (Polynomial.X : Polynomial (ZMod 2)) ^ 2 ∣ Polynomial.X := by
+  sorry
+
+/-- In the next torsion component, the second power is killed, not the first. -/
+example : (Polynomial.X : Polynomial (ZMod 2)) ^ 2 ∣ Polynomial.X ^ 2 := dvd_refl _
+
 /-! ## Layer 2: Animated inputs and perfectoidization -/
 /-! Completed left Kan extensions and perfectoidization require the derived carriers
 specified in the README. Ordinary derived categories alone do not state these constructions. -/
@@ -214,6 +235,11 @@ Hodge–Tate objects are kept distinct in the README. -/
 
 /-! ## Layer 4: Absolute prismatic cohomology and Cartier–Witt geometry -/
 /-! Formal stacks and their quasi-coherent infinity categories are README targets. -/
+
+/-- The divided Frobenius has target exponent m minus n: the first two stages at n=1
+have exponents zero and one. The opposite index would add an extra factor four. -/
+example : (1 : ℤ) - 1 = 0 ∧ (2 : ℤ) - 1 = 1 ∧ (6 : ℤ) / 2 = 3 := by
+  norm_num
 
 /-! ## Layer 5: q-crystalline and q-de Rham comparison -/
 
@@ -257,6 +283,14 @@ example (m : ℤ) : 3 * (2 * m) - 2 * (3 * m) = 0 := by ring
 /-- Replacing subtraction by addition fails already at the integer unit. -/
 example : 3 * (2 * (1 : ℤ)) + 2 * (3 * 1) = 12 := by norm_num
 
+/-- In the dyadic derivative thickening, the epsilon-square term changes the coefficient.
+This pins the Frobenius formula without cancelling the coordinate. -/
+example (t x e : R) (he : e ^ 2 = t * x * e) :
+    (x + e) ^ 2 = x ^ 2 + (2 + t) * x * e := by
+  calc
+    (x + e) ^ 2 = x ^ 2 + 2 * x * e + e ^ 2 := by ring
+    _ = x ^ 2 + (2 + t) * x * e := by rw [he]; ring
+
 end QCrys
 
 /-! ## Layer 6: Étale comparisons and syntomic complexes -/
@@ -266,6 +300,10 @@ Their prismatic and syntomic carriers remain README targets. -/
 /-! ## Layer 7: Prismatic F-crystals and crystalline lattices -/
 /-! Crystals, their period realizations, and the equivalence with crystalline lattices
 require the sites and period rings specified in the README. -/
+
+/-- The modification degree is Hodge degree minus Newton degree. A rank-one module
+with Frobenius p and filtration jump one has degree zero; jump zero gives degree minus one. -/
+example : (1 : ℤ) - 1 = 0 ∧ (0 : ℤ) - 1 = -1 := by norm_num
 
 /-! ## Layer 8: Logarithmic prismatic cohomology -/
 
@@ -318,6 +356,23 @@ example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
 example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
     (hm : d.logDelta m = 1) : unitFactor d m = 3 := by
   simp [unitFactor, hm]
+
+/-- The product correction is nine, fixing the multiplicative rather than additive law. -/
+example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
+    (hm : d.logDelta m = 1) : unitFactor d (m * m) = 9 := by
+  rw [unitFactor_mul]
+  norm_num [unitFactor, hm]
+
+/-- The first two dyadic PD coefficients have valuations one and three. -/
+example : (Nat.factorial 2 : ℤ) = 2 ∧ (Nat.factorial 4 : ℤ) = 2 ^ 3 * 3 := by
+  norm_num [Nat.factorial]
+
+/-- A nonfree saturated chart retains its relation between the three generators. -/
+example : ((1, 1) : ℕ × ℕ) + (1, 1) = (1, 0) + (1, 2) := by decide
+
+/-- Killing a period parameter modulo p does not kill its value in characteristic zero. -/
+example {K : Type*} [Field K] (a : K) (ha : a ≠ 0) (n : ℕ) :
+    a ^ (2 ^ n) ≠ 0 := pow_ne_zero _ ha
 
 end Log
 
@@ -379,7 +434,8 @@ functor; The crystalline and de Rham realisations; The Breuil–Kisin and A_inf 
 Spf(O_K), and their Čech nerves; Period sheaves on the quasi-syntomic site of O_K; From filtered
 φ-modules to F-crystals over the open unit disc; The prismatic F-crystal of a crystalline lattice.
 
-Layer 8: δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free
+Layer 8: Algebraic Witt–Frobenius modules; Bounded algebraic Frobenius derived category;
+δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free
 δ_log-rings; Exactification of δ_log-triples; Prelog prisms; Log prisms; The standard prelog prisms;
 Prelog prismatic envelopes; Perfectoid monoids and perfectoid log rings; Perfect log prisms; The
 relative log prismatic site; Log prismatic cohomology complexes; The absolute saturated log
@@ -395,7 +451,18 @@ systems; p-Kummer local systems; Laurent F-crystals on the absolute saturated lo
 Additional definitions in README.md: formal completed quasi-coherent pullback and quotient
 descent; arc and arc_p sites and their formal variants; general complete delta-base framings
 and their cochain Koszul models; the graded prismatic Beilinson square and filtered
-Frobenius bundle dictionary.
+Frobenius bundle dictionary; the skew q-de Rham differential graded algebra and its
+semicosimplicial multiplicative comparison; completed untilt ring sheaves and constant
+condensed coefficient sheaves on diamond sites; formal integral logarithmic charts,
+smooth and étale formal logarithmic geometry, completed logarithmic cotangent sheaves,
+completed log PD envelopes and the big formal log crystalline site.
+The pointwise categories QCohPrestack, PerfPrestack and PicPrestack; the finite free
+delta derivative thickening and its q-PD ideal; the absolute trace comparison, TC, HH, HC,
+HCMinus and HP with their filtrations; the schematic Fargues–Fontaine curve, its Robba
+ring and Frobenius modules, and filtered-isocrystal modifications are README constructions.
+The completed-localisation prism with nonzero p-torsion, the augmented monoid log PD
+deformation base, and its proper Cartier-type log crystalline complex are also README
+constructions; the Frobenius rigidity and nonzero-parameter scalar comparison use them.
 -/
 
 end TauCetiRoadmap.PrismaticCohomology
