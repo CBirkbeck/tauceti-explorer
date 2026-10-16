@@ -468,6 +468,18 @@ B3: `boundaryCoefficientChart`, `canonicalExtension`, `canonicalExtensionGluing`
 B3.general: `generalCanonicalExtension`, `generalLogarithmicComparison`,
 `generalBoundaryFunctoriality`.
 
+B3.Hilbert: `ramifiedHilbertBoundaryModel`, `ramifiedBoundaryCoefficientLines`,
+`ramifiedHilbertFormalDescent`, `ramifiedHilbertCuspDetection`.
+
+B3.log: `horizontalLogSites`, `canonicalKummerCoefficient`, `unipotentLogPeriodComparison`,
+`ordinaryLogCohomologyComparison`, `boundaryPeriodKernel`.
+
+B3.BGG: `siegelRelativeBGG`, `siegelDualBGGComplex`, `siegelBGGGradedComparison`.
+
+B3.HT: `smallHasseCanonicalSubgroups`, `siegelAnticanonicalTower`, `siegelBoundaryHebbarkeit`,
+`siegelPerfectoidPeriodTower`, `siegelPerfectoidToroidalTower`,
+`hodgeTypePerfectoidToroidalTower`, `rationalHTLeviTorsor`, `algebraicVBZero`.
+
 B4: `gl2HodgeLineComparison`, `classicalForms`, `cuspForms`, `analyticClassicalComparison`,
 `hilbertCoefficient`, `hilbertCentralDescent`, `unsplitHilbertDescent`, `ramifiedHilbertLine`,
 `siegelCoefficient`, `unitaryCoefficient`, `numberFieldFormsBaseChange`, `qcqsSectionsColimit`,
