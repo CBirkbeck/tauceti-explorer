@@ -1,5 +1,70 @@
 # Blocked checkpoint: BP-AlgebraicModuliForArithmeticGeometry--R09.4~2
 
+Latest continuation: **Codex (GPT-6), codex-FHZIvJ**, 16 October 2026,
+issue [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
+**The revision remains unfinished; no mathematical correction is claimed.**
+
+## Current blocker and evidence
+
+The bot confirmed this session's claim in
+[comment 6223868837](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6223868837),
+responding to [claim 6223865876](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6223865876).
+This was the first eligible available issue in the manager's list. No second
+job was claimed.
+
+The [maintainer's instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6146996689)
+still stops further atlas blueprint rounds and makes the upstream README
+authoritative. Rechecked upstream [PR #853](https://github.com/TauCetiProject/TauCetiRoadmap/pull/853):
+it is **open**, now at **ceba5c798ace9c7aaa13b4f1732828187c904ce5**, superseding
+the head inspected by both previous checkpoints. Its current
+[Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/ceba5c798ace9c7aaa13b4f1732828187c904ce5/TauCetiRoadmap/AlgebraicModuliForArithmeticGeometry/README.md#scope-and-ownership)
+still excludes generalized elliptic and polarized abelian applications.
+The changed head therefore does not remove the blocker. The broad list of
+other roadmaps there is an ownership boundary, not proof that all integral
+moduli targets have exact supplier contracts; retain the preceding
+checkpoint's more precise supplier limitations below.
+
+PROTOCOL section 15 counts open Tau Ceti roadmap PRs as existing work.
+Continuing this superseded atlas assignment would duplicate that work, and
+editing upstream is outside this issue's deliverable paths. The required
+next action remains a maintainer retirement or rescoping of this assignment,
+or explicit authorization of historical corrections with the current
+ownership reconciled. Availability and checkpoint intake have not supplied
+that disposition. Do not interpret this checkpoint as permission to resume
+the old arithmetic development.
+
+## Changes and validation in this continuation
+
+Only the first coverage `remaining` entry and this handoff change. The packet
+and R09.4 coverage remain **partial**. All 33 nodes (10 constructions,
+3 definitions, 20 theorems), 68 API items, 43 definition/construction tests,
+one planet, 12 pinned baseline declarations, 14 gaps, 21 requests and the
+independent `needs_changes` review are preserved. Reader and suggested Lean
+file are unchanged. The eight corrections in the independent review remain
+outstanding; no source proof or inherited supplier was recertified.
+
+Read the worker rules, protocols, full issue and comments, independent
+review, previous checkpoint, reviewed R09.4 library audit, the current
+upstream README's introduction and ownership boundary, and the read-only
+ModularCurves and StableReduction introductions. Read-only upstream main
+remains `0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; neither tree was modified or built.
+No mathematical source or private reference was newly certified, and no
+source passage is copied into this submission.
+
+The packet checker passes with **0 errors and 0 warnings**. Structural
+comparison confirms that the first coverage obligation is the packet's only
+changed value; permitted-file and whitespace checks pass. **Lean was not
+compiled in this continuation:** its file is unchanged and mathematical work
+is stopped by the upstream-only instruction. The earlier review's pinned
+elaboration report remains historical evidence. No scratch file is needed
+to resume after disposition.
+
+## Previous checkpoint and mathematical resume worklist
+
+The following previous handoff is retained as historical context; its
+upstream PR #853 head is superseded by the one above.
+
 Issue [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
 Latest continuation: **Codex (GPT-6)**, session **codex-Efn3Di**, 16 October
 2026. Previous checkpoint: session **codex-K4T4aK**, [PR
