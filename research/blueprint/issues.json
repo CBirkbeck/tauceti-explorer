@@ -4913,5 +4913,7 @@
  "REV-PKG-PotentialModularityAndCompatibleSystems~3": 10010,
  "PKG-DeformationAndDerivedPatchingAlgebra~codex": 10011,
  "PKG-PrismaticCohomology~codex": 10016,
- "PKG-PadicHodgeTheory~codex": 10019
+ "PKG-PadicHodgeTheory~codex": 10019,
+ "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2": 10022,
+ "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2": 10023
 }
