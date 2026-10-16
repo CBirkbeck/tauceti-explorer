@@ -14,8 +14,8 @@
     "AutomorphicGaloisRepresentationsPartII:AG2.6",
     "AutomorphicGaloisRepresentationsPartII:AG2.7"
   ],
-  "status": "complete",
-  "summary": "Full-scope continuation of the two independently accepted target-level parts. Reuses their stable target ids and full checked import contracts, adds lower-tier compact geometry and compatible-family primitives, imports the newer upstream generic Hecke/ideal theory, and reconciles source hypotheses, normalizations and arithmetic exports. All mathematical targets are planned; precise proof, supplier and historical-graph redirect gaps remain. No formalization or independent acceptance of this continuation is claimed. Independent review corrected normalization and comparison contracts but withholds acceptance because the production merge does not install the reconciled import contracts or exclusions.",
+  "status": "partial",
+  "summary": "Revision 2 checkpoint: all 124 proposed mathematical contracts and the independent review corrections are retained and verified; the required production integration repair is blocked by the issue's four-file edit scope. The current merger still installs 129 declarations and 54 planets, leaving 35 contracts unapplied and five excluded targets present. An in-memory execution of the desired contracts gives 124 declarations and 46 planets with acyclic internal target and layer graphs. Six downstream references to two excluded generic ideal targets also need executable redirects to existing upstream IHG. All mathematical layers remain planned, with precise supplier and proof gaps; no formalization, closure or independent acceptance of this continuation is claimed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -9360,7 +9360,7 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.7/dual-and-character-twist-hecke-comparison",
         "AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export"
       ],
-      "detail": "The two independently accepted part packets are immutable deliverables of other jobs. Their ids are reused here, not duplicated in nodes. importChecks gives the reconciled full contract, and dependencyReconciliation enumerates every old/new prerequisite list. The atlas promoter does not interpret those metadata as edits: the maintainer must redirect the historical consumer edges when promoting this full-scope plan. Until that happens, the old graph retains upward tier edges and the old generic ideal duplicates; this packet does not claim that the historical live graph is already repaired. Independent review reproduced the production merge: 129 declarations and 54 planets, rather than the proposed 124 and 46. Five excluded historical nodes persist and 35 retained contracts differ in statement, hypotheses, prerequisites, parent, API or tests. Neither importChecks nor the reconciliation/exclusion metadata is applied by scripts/blueprints.py. Acceptance must wait for an executable, scoped supersession/redirect mechanism and verification of the resulting graph; recording the desired edits does not install the reviewed specification. This is a promotion blocker, separate from the openly recorded mathematical proof gaps. Contracting the effective production prerequisites to owning layers yields AG2.2 ↔ AG2.3: the AG2.3 polarized-existence milestone uses the AG2.2 character twist, while the historical CS discrete normalization stays in AG2.2 and uses that milestone. The proposed move of the CS target to AG2.3 is not applied."
+      "detail": "The two independently accepted part packets are immutable deliverables of other jobs. Their ids are reused here, not duplicated in nodes. importChecks gives the reconciled full contract, and dependencyReconciliation enumerates every old/new prerequisite list. The atlas promoter does not interpret those metadata as edits: the maintainer must redirect the historical consumer edges when promoting this full-scope plan. Until that happens, the old graph retains upward tier edges and the old generic ideal duplicates; this packet does not claim that the historical live graph is already repaired. Independent review reproduced the production merge: 129 declarations and 54 planets, rather than the proposed 124 and 46. Five excluded historical nodes persist and 35 retained contracts differ in statement, hypotheses, prerequisites, parent, API or tests. Neither importChecks nor the reconciliation/exclusion metadata is applied by scripts/blueprints.py. Acceptance must wait for an executable, scoped supersession/redirect mechanism and verification of the resulting graph; recording the desired edits does not install the reviewed specification. This is a promotion blocker, separate from the openly recorded mathematical proof gaps. Contracting the effective production prerequisites to owning layers yields AG2.2 ↔ AG2.3: the AG2.3 polarized-existence milestone uses the AG2.2 character twist, while the historical CS discrete normalization stays in AG2.2 and uses that milestone. The proposed move of the CS target to AG2.3 is not applied. Revision 2 also found six prerequisite references to the two excluded generic ideal targets in three external consumers: IG.7/cs-generic-maximal-ideal, IG.7/cohomologically-generic and PL.2/unitary-hecke-algebra. Each consumer uses both obsolete ids, in both its research and promoted packet. Their generic predicate supplier is IntegralHeckeAndGaloisDeterminants IHG.3, current upstream Layer 3b (Spherical.IsGaloisType and Spherical.IsNonEisenstein). Resolve these edges in the same executable repair before removing the obsolete targets. No external reference to the three excluded GSp4 targets was found in the physical nodes scanned; this is not a global graph certificate. The issue permits only this packet, its reader, suggested file and revision handoff; the merger, checker and historical/consumer packets are outside that scope. The revision therefore remains partial pending authorized integration work, rather than claiming that descriptive metadata repairs the production graph."
     }
   ],
   "sourceIssues": [
@@ -9939,7 +9939,7 @@
   "completion": {
     "level": "target",
     "scope": "All ten named stages; mathematical targets in the accepted parts are imported, not copied under duplicate ids.",
-    "closure": "Planned with explicit gaps and open requests. Historical part edges require the recorded redirection on promotion; neither the original graph nor this plan is called closed. Independent review needs_changes: the proposed 124-target specification is not the graph that the current promoter installs. Do not promote this continuation until the 35 contract overrides and five exclusions are applied and verified."
+    "closure": "Revision 2 is a blocked checkpoint. The mathematical planning pass and all independent-review corrections are retained, but the production integration requirement cannot be completed within the issue's named deliverables. Resume by authorizing and implementing scoped supersession/redirect support, including the six external consumer edges recorded in revisionProgress. Verify all 124 complete contracts, all five exclusions and the resulting graph before setting status to complete. The independent review remains needs_changes. No mathematical stage is closed or implemented."
   },
   "review": {
     "status": "needs_changes",
@@ -10567,6 +10567,90 @@
         "verdict": "verified",
         "note": "Rank-two residual comparison is conditional on independently supplied normalized members; it compares semisimplified reductions at the same residue embedding, without R19 existence as an input."
       }
+    ]
+  },
+  "revisionProgress": {
+    "job": "BP-AutomorphicGaloisRepresentationsPartII~2",
+    "agent": "Codex",
+    "session": "codex-1KTNLb",
+    "date": "2026-10-16",
+    "status": "blocked_checkpoint",
+    "handoff": "research/blueprint/handoff/BP-AutomorphicGaloisRepresentationsPartII~2.md",
+    "completed": [
+      "Re-read the independent review and verified its five source/contract corrections at the cited primary-source locators; retained the independent review object unchanged.",
+      "Re-read all 15 pinned baseline declaration statements, the ten-stage library audit, accepted RS-12 boundaries and the 11 assigned red-team dispositions.",
+      "Reproduced the production 129-declaration/54-planet result and all 35 unapplied semantic contracts; verified all 124 desired contracts and both internal DAGs in an in-memory execution.",
+      "Checked that the reader contains all 124 complete statements; the complete-contract checker probe returned zero errors and zero warnings.",
+      "Found six external consumer references requiring redirects before two obsolete generic ideal targets can be removed.",
+      "Elaborated the unchanged suggested Lean file with lean-check: exit 0, 31 permitted proof-placeholder warnings, no errors."
+    ],
+    "integrationProbe": {
+      "production": {
+        "declarations": 129,
+        "planets": 54,
+        "unappliedContracts": 35,
+        "retainedExcludedTargets": 5
+      },
+      "proposedInMemory": {
+        "declarations": 124,
+        "planets": 46,
+        "completeContractEquality": true,
+        "internalTargetDAG": true,
+        "internalLayerDAG": true
+      },
+      "checker": {
+        "physicalNodes": 16,
+        "completeContracts": 124,
+        "errors": 0,
+        "warnings": 0
+      },
+      "limitation": "Read-only simulation using in-memory historical-packet copies. No production resolver, exclusion or consumer redirect was installed. The complete-contract checker context omits historical same-roadmap duplicates and does not use a declaration index; the 15 baseline statements were read directly. These checks do not certify the global atlas graph."
+    },
+    "redirectsRequired": [
+      {
+        "consumer": "IgusaVarietiesAndTorsionConcentration:IG.7/cs-generic-maximal-ideal",
+        "obsoletePrerequisites": [
+          "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type",
+          "AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal"
+        ],
+        "supplierStage": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "upstreamLayer": "Layer 3b",
+        "supplierDeclarations": [
+          "Spherical.IsGaloisType",
+          "Spherical.IsNonEisenstein"
+        ]
+      },
+      {
+        "consumer": "IgusaVarietiesAndTorsionConcentration:IG.7/cohomologically-generic",
+        "obsoletePrerequisites": [
+          "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type",
+          "AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal"
+        ],
+        "supplierStage": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "upstreamLayer": "Layer 3b",
+        "supplierDeclarations": [
+          "Spherical.IsGaloisType",
+          "Spherical.IsNonEisenstein"
+        ]
+      },
+      {
+        "consumer": "PotentialAutomorphyInfrastructurePartII:PL.2/unitary-hecke-algebra",
+        "obsoletePrerequisites": [
+          "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type",
+          "AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal"
+        ],
+        "supplierStage": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "upstreamLayer": "Layer 3b",
+        "supplierDeclarations": [
+          "Spherical.IsGaloisType",
+          "Spherical.IsNonEisenstein"
+        ]
+      }
+    ],
+    "remaining": [
+      "Obtain scope for executable merger/checker support and focused regression tests, or maintainer-owned coordinated historical/consumer updates; none of those files is a deliverable of this issue.",
+      "Install full import contracts and exclusions while preserving stable ids and all four intended parent moves; redirect the six external consumer references to their existing IHG supplier.",
+      "Verify the real promotion path, complete-contract equality, absence of obsolete targets and dangling references, and internal/global graph and tier order. Only then mark the revision complete for independent review."
     ]
   }
 }
