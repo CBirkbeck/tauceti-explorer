@@ -130438,6 +130438,44 @@
    "prompt": "research/blueprint/prompts/PKG-PadicHodgeTheory~codex.md",
    "note": "deliverables arrived from an external worker on issue #10019",
    "finishedAt": "2026-10-16T17:15:52Z"
+  },
+  {
+   "id": "FIX-PKG-EffectiveDiophantineMethods~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EffectiveDiophantineMethods~adv.md",
+    "research/blueprint/packages/EffectiveDiophantineMethods/review.json",
+    "research/blueprint/packages/EffectiveDiophantineMethods/README.md",
+    "research/blueprint/packages/EffectiveDiophantineMethods/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EffectiveDiophantineMethods~adv.md"
+  },
+  {
+   "id": "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticCurveModularityImaginaryQuadratic"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv.md",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/review.json",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/README.md",
+    "research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv.md"
   }
  ]
 }
