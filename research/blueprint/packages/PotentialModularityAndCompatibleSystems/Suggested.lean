@@ -1,18 +1,7 @@
-import Mathlib.Algebra.Polynomial.Reverse
-import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
-import Mathlib.Analysis.SpecialFunctions.Pow.Complex
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.FieldTheory.LinearDisjoint
-import Mathlib.RingTheory.AdicCompletion.Basic
-import Mathlib.RingTheory.DiscreteValuationRing.Basic
-import Mathlib.RingTheory.Flat.Basic
-import Mathlib.RingTheory.MvPowerSeries.Basic
-import Mathlib.RingTheory.MvPowerSeries.Inverse
-import Mathlib.RingTheory.Regular.RegularSequence
-import Mathlib.Tactic.NormNum.Prime
+import Mathlib
 
 /-!
-# Potential modularity and compatible systems: suggested statements
+# PotentialModularityAndCompatibleSystems: representative target signatures
 
 The roadmap is `README.md`; this file states the light definitions and the milestones whose carriers
 exist at the pinned Mathlib and Tau Ceti. The compatible-system carriers, Skolem data, rigidified Picard
@@ -192,6 +181,21 @@ end Auxiliary
 /-! ## Layer 6: Control of extensions -/
 /-! ## Layer 7: Exports and their direction of use -/
 /-! ## Layer 8: Finiteness of global rings -/
+
+namespace PolarizedAdapter
+
+/-- At an odd involution, the matrix used in the rank-two prolongation is symmetric. -/
+example : Matrix.transpose (!![(0 : ℤ), -1; -1, 0]) = !![(0 : ℤ), -1; -1, 0] := by
+  decide
+
+/-- At the even involution, the skew matrix instead gives square `-1` in the prolongation. -/
+example : (!![(0 : ℤ), -1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) *
+    !![(0 : ℤ), -1; 1, 0] = -1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+
+end PolarizedAdapter
+
 /-! ## Layer 9: Characteristic-zero points -/
 /-! ## Layer 10: Prescribed lifts -/
 
@@ -331,9 +335,24 @@ example : (1 : ℕ) + 1 = (3 + 1) / 2 := by decide
 end ResidualMembers
 
 
-/-! The other definitions and theorems are README targets: their carriers (compatible-system data,
-Skolem data, relative Picard functors, twisted Hilbert moduli, deformation rings, quaternionic and
-definite-unitary Hecke algebras, automorphic representations) are not available at the pinned
-libraries. -/
+/-! The following named targets are stated in README.md. Their arithmetic, geometric or
+automorphic carriers require the supplier theories described there.
+Layer 1: `weakCompatibility_ofKW`, `CompatibleSystem`, `ExtremelyWeaklyCompatibleSystem`, `induce`, `PolarizedSystem`, `WeaklyCompatibleSystem.IsRegular`, `symmetricPower`, `PolarizedSystem.tensor`, `characterSystem`, `rank_one_purity`, `induced_character_purity`, `artinSystem`, `artin_twist_purity`, `rank_two_reducibility_independent_of_lambda`, `partialLFunction`, `RepRing`, `monodromy_component_field`, `LarsenData.G`, `serre_theta_uniform_bounds`, `larsen_good_primes`, `residual_irreducibility_density_one`, `constituents_essentially_self_dual`.
+Layer 2: `SkolemDatum`, `densityOfAlgebraicLocalPoints`, `elementaryReductions`, `reductionToCurves`, `Picard.generalizedPicard`, `localPicardOpensAndApproximation`, `compactGeneralizedJacobianQuotient`, `moretBailly`, `theoremGFromMoretBailly`, `taylorTheoremG`, `functionFieldChebotarev`, `frobeniusPrimesGenerate`, `disjointnessByExtraSplitPlaces`, `Fields.towerLinearDisjoint`, `chtCharacterExtension`, `chtSolublePrescribedCompletions`, `moretBaillyThreeLocalConditions`, `moretBaillyAbovePreliminaryField`, `snowdenSolublePreliminaryField`, `surjectiveSpecialisation`, `functionFieldIsomTorsor`, `fixedConstantField`, `potentialGlobalGaloisLocalData`.
+Layer 3: `taylorLemma11`, `TaylorAuxiliaryData`, `localPointsTwistedHilbertModuli`, `restrictedAuxiliaryModuli`.
+Layer 4: `taylorLemma15`, `quaternionicHeckeGaloisRealisation`, `localResidualInertialShape`, `skinnerWilesLevelAdjustment`, `taylorCrystallineLifting`, `auxiliaryModularityTransfer`, `taylorOrdinaryPotentialResidual`, `taylorNiveauTwoPotentialResidual`, `weightReductionHeckeSurjection`, `weightShift`, `weightAndLevelPotentialResidual`, `taylorSerreWeightPotentialResidual`, `kwPotentialResidual`, `kwOrdinaryPotentialResidual`, `snowdenPotentialResidual`, `bcgpPotentialResidual`.
+Layer 5: `potentialModularityGivenLift`.
+Layer 6: `controlledExtension`, `bcgpLocalData`.
+Layer 8: `AuxiliaryField`, `kwGlobalFiniteness`, `DefiniteUnitaryTwo.ordinaryHeckeAlgebra`, `DefiniteUnitaryTwo.heckeGaloisRepresentation`, `rankTwoOrdinaryPatching`, `rankTwoOrdinaryAutomorphyAndFiniteness`, `ordinaryGlobalFiniteness`, `cgRingFiniteness`.
+Layer 9: `requiredTypeLiftExists`, `newtonThornePoint`.
+Layer 10: `bockle_presentation`, `Presentations.finite_presentation_complete_intersection`, `bockle_minimal_r_equals_t`, `kw_annals_minimal_lifts`, `RequiredLiftType`, `theorem_5_1_part_1_minimal_crystalline`, `theorem_5_1_part_2_weight_two`, `theorem_5_1_part_3_level_one_type_at_q`, `theorem_5_1_part_4_level_two_type_at_q`, `theorem_5_1_application_table`, `modern_prescribed_type_lifts`.
+Layer 11: `alpha_beta_from_residual_modularity`, `kw_theorem_4_1`.
+Layer 12: `brauerSystem`, `brauerOverlapHomCharacters`, `almost_strict_compatibility`, `strict_brauer_system`, `kw_theorem_5_1_systems`, `dieulefait_families`.
+Layer 13: `residual_members`, `local_compatibility_at_the_coefficient_prime`, `linked_systems_modularity_transfer`.
+The family predicates and operations are on the imported `CompatibleSystemData`:
+`WeaklyCompatibleSystem`, `CompatibleSystem`, `PolarizedSystem`, `VeryWeakSystem`,
+`ExtremelyWeakSystem`, with the regularity, purity, strictness and automorphy predicates of §1.6.
+The full `cgRingFiniteness` and `dieulefait_families` retain the hypotheses in §§8.8 and 12.5;
+their adequate-image and KW-type milestones do not discharge the remaining cases. -/
 
 end TauCetiRoadmap.PotentialModularityAndCompatibleSystems

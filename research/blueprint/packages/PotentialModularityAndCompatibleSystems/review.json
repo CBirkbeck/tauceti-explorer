@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-PotentialModularityAndCompatibleSystems",
-    "date": "2026-10-09",
-    "notes": "Completed independent fixing review of all 92 targets. Converted README/Suggested.lean to upstream form, repaired Gamma cancellation domain, CM subrepresentation quantifier, general-DVR presentation tests, dyadic lift parameters and current-upstream ownership. Checked a reproducible random sample of 15 source blocks. lean-check exits 0 with only sorry warnings. Cannot accept: the split-CM auxiliary lifting supplier excludes the required case; ordinary finiteness still needs the exact polarized CM/GL2 and finite restriction/local-ring adapters; full arithmetic/geometric supplier objects and their discriminating Lean examples are absent. The report inventories all 29 inherited source/adapter gaps and gives target-by-target adversarial checks. No packet changed."
+    "reviewer": "independent-review-REV-PKG-PotentialModularityAndCompatibleSystems~2",
+    "date": "2026-10-16",
+    "notes": "Completed independent fixing review of all 92 accepted targets and seven additions. Corrected function-field constant-component counting, regular-curve Picard compactness, polarized multiplier/signs, ordinary patching scope, existing ownership, source locators and full CG/DP endpoint fidelity. Added explicit missing Brauer overlap, determinant/S-unit, Snowden and source contracts. Current Tau Ceti/roadmap audit and 15-source sample recorded in the report. Not ready upstream: regular-curve compactification, exact level adjustment/Geraghty/Snowden suppliers, small-prime CG branches, Brauer overlap Hom characters and general regular de Rham potential modularity remain open, with cross-tier ownership to coordinate. Suggested.lean: lean-check exit 0, 33 sorry-only warnings, 358 lines, no sorry-bodied data. See REV-PKG-PotentialModularityAndCompatibleSystems~2.md for all 29 inherited gap dispositions and continuation."
   }
 }

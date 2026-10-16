@@ -1,6 +1,6 @@
 # Roadmap: potential modularity and compatible systems
 
-**Summary.** This roadmap builds the field-selection and compatible-family machinery that turns residual modularity into global lifts and transports modularity between coefficient primes. Its geometric core is Moret–Bailly's integral-point theorem with local splitting, completion and avoidance conditions. Its arithmetic core separates residual modular witnesses, finiteness of a global deformation ring, extraction of a characteristic-zero point, modularity of a given lift and construction of a family through that lift. The resulting interfaces support the Khare–Wintenberger proof of Serre's conjecture and the potential-automorphy arguments that use compatible systems of higher rank. The auxiliary modularity is proved through Skinner–Wiles level adjustment, Taylor's crystalline lifting theorem and soluble descent, and the ordinary finiteness applications rest on a rank-two ordinary R=T on definite unitary groups planned here.
+**Summary.** This roadmap builds the field-selection and compatible-family machinery that turns residual modularity into global lifts and transports modularity between coefficient primes. Its geometric core is Moret–Bailly's integral-point theorem with local splitting, completion and avoidance conditions. Its arithmetic core separates residual modular witnesses, finiteness of a global deformation ring, extraction of a characteristic-zero point, modularity of a given lift and construction of a family through that lift. The resulting interfaces support the Khare–Wintenberger proof of Serre's conjecture and the potential-automorphy arguments that use compatible systems of higher rank. The auxiliary modularity is proved through Skinner–Wiles level adjustment, Taylor's crystalline lifting theorem and soluble descent, and the ordinary finiteness applications rest on a rank-two ordinary patching and weight-algebra finiteness on definite unitary groups planned here.
 
 The generic family objects and their operations are developed independently of potential modularity. They contain actual continuous semisimple representations at coefficient places, common Frobenius polynomials and labeled Hodge data. Automorphic and geometric families then instantiate those objects. In rank two, keep the Khare–Wintenberger local compatibility conditions separate from the BLGGT conditions: an assertion away from the coefficient characteristic cannot replace an assertion at that characteristic.
 
@@ -27,9 +27,9 @@ A prerequisite written `Roadmap:Layer/target` denotes that owner's mathematical 
 
 Layer 1 builds on the compatible-system carrier of AutomorphicGaloisRepresentations §7.1: `CompatibleSystemData` with its weak, strict and almost-strict predicates and the operations of coefficient extension, direct sum, dual, tensor product, algebraic-character twist, finite restriction and conjugation. It also builds on the polarized representations of ArithmeticGaloisRepresentations §7.4 and on the algebraic Hecke characters of AutomorphicGaloisRepresentationsPartII AG2.0 and AutomorphicGaloisRepresentations §3.13. It adds what those do not contain: the Khare–Wintenberger rank-two predicates, very weak and extremely weak data, induction and symmetric and exterior powers of families, polarized families, regularity and purity, Artin and character families, L-functions, the arithmetic representation ring, monodromy and density-one irreducibility. It takes no eigenform or potential-modularity theorem as a premise. The construction of an eigenform family belongs to R19; proving that a supplied lift becomes automorphic belongs to Layer 5; assembling its descended family belongs to Layer 12.
 
-The current Tau Ceti library supplies line-bundle classes and their tensor group, arbitrary-morphism rigidified line bundles, their isomorphism classes, pullback, forgetting and the global-unit criterion for equality. AlgebraicVectorBundles Layer 0 supplies geometric tensor/dual infrastructure, and JacobianChallenge Layer D supplies the ordinary relative Picard functor. Layer 2 uses these objects for a finite flat boundary and adds the relative group-sheaf, representability, degree and divisor-fibration results. LocalGaloisGroups' tame frame and ProfiniteArithmetic supply local Galois and profinite primitives; Completed RestrictedProducts supplies the adelic carrier. Those objects are imported. The current library's `HeckeCharacter/Purity.lean` supplies the purity of infinity types of algebraic Hecke characters. RepresentationTheory/InductionRestriction Layer 6 owns finite-group virtual characters and Brauer induction. Here the additional ring is for continuous, finitely ramified representations of the infinite arithmetic group G_F, with arithmetic induction and local Euler factors.
+The current Tau Ceti library supplies line-bundle classes and their tensor group, arbitrary-morphism rigidified line bundles, their isomorphism classes, pullback, forgetting and the global-unit criterion for equality. AlgebraicVectorBundles Layer 0 supplies geometric tensor/dual infrastructure, and JacobianChallenge Layer D supplies the ordinary relative Picard functor. Layer 2 uses these objects for a finite flat boundary and adds the relative group-sheaf, representability, degree and divisor-fibration results. LocalGaloisGroups' tame frame and ProfiniteArithmetic supply local Galois and profinite primitives; Completed RestrictedProducts supplies the adelic carrier. Those objects are imported. The current library's `HeckeCharacter/Purity.lean` supplies the purity of infinity types of algebraic Hecke characters. RepresentationTheory/InductionRestriction Layer 6 owns finite-group Brauer induction. The current library also supplies `TauCeti.repRing` for arbitrary monoids, its character homomorphism `repRingCharacter`, restriction `repRingRes`, and finite-index induction `repRingInd` in `RepresentationTheory/RepresentationRing/{Basic,Restriction,Induction}.lean`. This is the split Grothendieck ring of all algebraic finite-dimensional representations, without continuity or ramification conditions. The additional arithmetic carrier restricts to continuous, finitely ramified representations of G_F and imposes semisimplification relations; its trace recognition and arithmetic Euler factors require these additional conditions. It reuses the tensor, restriction and induction infrastructure rather than constructing another generic representation ring.
 
-Layer 8 plans the rank-two ordinary theory on definite unitary groups in two variables (ordinary Hecke algebras, ordinary R=T for adequate residual image, ordinary automorphy lifting and finiteness) that the ordinary finiteness and Newton–Thorne applications use; the n-dimensional versions belong to PotentialAutomorphyInfrastructurePartII. The level adjustment of Skinner–Wiles and Taylor's crystalline lifting theorem, used for the auxiliary modularity in Layer 4, are planned here as well.
+Layer 8 plans the rank-two ordinary theory on definite unitary groups in two variables (ordinary Hecke algebras, ordinary patching for adequate residual image, ordinary automorphy lifting and finiteness) that the ordinary finiteness and Newton–Thorne applications use; the n-dimensional versions belong to PotentialAutomorphyInfrastructurePartII. The level adjustment of Skinner–Wiles and Taylor's crystalline lifting theorem, used for the auxiliary modularity in Layer 4, are planned here as well.
 
 ## Conventions
 
@@ -65,38 +65,33 @@ Use `TauCetiRoadmap.PotentialModularityAndCompatibleSystems` for the names below
 
 ## How to read the build
 
-Layer 1 builds compatible-system infrastructure independently of potential modularity. Layers 2–7 select fields, construct the auxiliary moduli points, prove the auxiliary modularity by level adjustment, crystalline lifting and descent, prove residual and given-lift potential modularity and record their exports. Layers 8–11 establish ring finiteness, including the rank-two ordinary R=T on definite unitary groups and its finiteness theorem, extract points and apply the lifting theorems. Layers 12–13 assemble and compare the resulting families. Within a layer, prerequisites precede their consumers; each construction lists its sources and exact needs.
+Layer 1 builds compatible-system infrastructure independently of potential modularity. Layers 2–7 select fields, construct the auxiliary moduli points, prove the auxiliary modularity by level adjustment, crystalline lifting and descent, prove residual and given-lift potential modularity and record their exports. Layers 8–11 establish ring finiteness, including the rank-two ordinary patching on definite unitary groups and its finiteness theorem, extract points and apply the lifting theorems. Layers 12–13 assemble and compare the resulting families. Within a layer, prerequisites precede their consumers; each construction lists its sources and exact needs.
 
 <a id="layer-r24-5-operations"></a>
 ## Layer 1: Compatible-family infrastructure
 
 
-Construct the carrier and its arithmetic operations before invoking any automorphic-family existence theorem. Character and Artin families give basic examples. Monodromy and density-one results use this same carrier, together with the reductive-group and local arithmetic inputs listed at each target.
+Use the imported carrier and its arithmetic operations before invoking any automorphic-family existence theorem. Character and Artin families give basic examples. Monodromy and density-one results use this same carrier, together with the reductive-group and local arithmetic inputs listed at each target.
 
 <a id="target-weakly-compatible-system-rank-n"></a>
 ### 1.1 Weakly compatible families of arbitrary rank
 
-Fix number fields F,M and rank n. A weakly compatible system is an element of the carrier `CompatibleSystemData` of AutomorphicGaloisRepresentations §7.1 satisfying its predicate `IsWeaklyCompatible`: a finite exceptional set S, monic Q_v∈M[X] of degree n for v∉S, continuous semisimple r_λ:G_F→GL_n(M̄_λ) at every finite place λ of M, and n-element Hodge multisets H_τ for every τ:F↪M̄, such that at λ of residue characteristic l and v∉S with v∤l the member is unramified with geometric-Frobenius characteristic polynomial ι_λ(Q_v), at every v|l it is de Rham, and crystalline if v∉S, and every coefficient embedding extending λ identifies the labeled Hodge multiset with H_τ. That carrier and predicate are imported; this target adds the comparisons with the other definitions this roadmap uses.
+Compare the imported weak-family predicate with Taylor's rank-d convention over ℚ and the rank-two Khare–Wintenberger convention. The additional target is the comparison, with the normalizations and coefficient-prime hypotheses made explicit. Taylor's contract fixes the labeled Hodge data at all members and crystallinity outside S but does not separately require de Rham behavior at exceptional coefficient primes. A Taylor family therefore satisfies the imported weak predicate once those exceptional members are also de Rham of the stated weights. A rank-two KW plain or almost-strict family likewise requires all-member de Rham comparison and crystallinity outside one fixed enlarged S; neither follows just by forgetting its WD data.
 
-These are data and axioms of the carrier, including the actual representations; common traces alone are insufficient. Taylor's rank-d contract over ℚ asks instead for fixed Hodge–Tate weights at all λ and crystallinity outside S, without separately requiring de Rham behavior at exceptional coefficient primes. The KW rank-two carrier also contains all-place WD parameters. Its comparison with this weak carrier therefore checks the additional all-member de Rham and outside-S crystalline conditions.
+The comparison API is:
 
-The construction has the following API:
-
-- `WeaklyCompatibleSystem`: the elements of `CompatibleSystemData` (AutomorphicGaloisRepresentations §7.1) satisfying `IsWeaklyCompatible`.
-- `WeaklyCompatibleSystem.rank`: The rank n.
-- `WeaklyCompatibleSystem.charpoly_frob`: For v ∉ S, v ∤ l: r_λ unramified at v with charpoly r_λ(Frob_v) = Q_v.
-- `WeaklyCompatibleSystem.deRham`: r_λ|_{G_{F_v}} de Rham for v | l, crystalline for v ∉ S.
-- `WeaklyCompatibleSystem.ofCompatibleSystem`: Convert a rank-two KW system only with additional hypotheses: every coefficient member is de Rham of the common weights at every place above ℓ and crystalline outside an enlarged fixed finite S. Plain or almost strict compatibility alone does not imply these.
-- `WeaklyCompatibleSystem.enlargeRamificationSet`: For finite S⊆S′, keep every r_λ and H_τ, restrict Q_v to v∉S′, obtaining a weakly compatible system.
+- `weakCompatibility_ofTaylor`: For Taylor's rank-d family over ℚ, add de Rham behavior of the common Hodge type at every exceptional coefficient prime; the resulting data satisfy the weak-family predicate.
+- `weakCompatibility_ofKW`: For a rank-two KW family, identify coefficient embeddings, dualize its arithmetic member when changing the Frobenius convention, and assume the all-member de Rham and outside-S crystalline conditions. The transported data satisfy the weak-family predicate.
+- `weakCompatibility_comparison_members`: Both comparisons preserve the specified representations, polynomials and weights after the stated normalization, rather than choosing representations from their traces.
 
 **Checks.**
 
-- `wcs_cyclotomic`: With geometric Frobenius and HT(ε_ℓ)=−1, ε has rank 1, S=∅, Q_p(X)=X−p⁻¹, H={−1} and weight −2. X−p would be the arithmetic-Frobenius polynomial.
-- `wcs_newform_delta`: Use the cohomological member of the Δ family in BLGGT convention: rank 2, H={0,11}, Q_p(X)=X²−τ(p)X+p¹¹; Q₂=X²+24X+2048. The KW arithmetic member is its contragredient, with their HT(ε)=+1 convention.
-- `wcs_not_just_traces`: Two systems with the same Q_v are isomorphic member by member only up to conjugation; the carrier stores the r_λ themselves.
-- `wcs_S_enlarge`: Enlarging S gives an equivalent system (fewer polynomials, same representations).
+- `wcs_cyclotomic`: The geometric-Frobenius realization of ε has Q_p=X−p⁻¹ and H={−1}. The reciprocal convention gives X−p and H={1}; a comparison retaining X−p in the geometric convention fails.
+- `wcs_newform_delta`: For the cohomological Δ family, Q₂=X²+24X+2048 and H={0,11}. Its dual has Q₂=X²+(3/256)X+1/2048 and H={0,−11}; changing the member without changing the polynomial fails.
+- `wcs_artin_weight_one`: An Artin family of a weight-one form has H={0,0}; the weak comparison applies, while regularity is false. Thus the comparison must not require regularity.
+- `wcs_exceptional_deRham`: Plain or KW almost-strict axioms supply no de Rham comparison in the residually reducible ramified coefficient-prime branch; that branch needs the additional hypothesis of `weakCompatibility_ofKW`.
 
-Use `WeaklyCompatibleSystem` for this construction.
+Use `weakCompatibility_ofKW` for this comparison.
 
 The sources are [BLGGT v1][blggt-2014], §5.1, definition of a weakly compatible system, p. 51 (arXiv v1; printed page = PDF page); [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §6, rank d weakly compatible systems over ℚ, p. 773 (PDF page 45).
 
@@ -113,14 +108,13 @@ Dieulefait–Pacetti use a different almost-strict contract: every member is de 
 
 AutomorphicGaloisRepresentations §7.1 defines on `CompatibleSystemData` the all-place strict predicate `IsStrictlyCompatible` and the Dieulefait–Pacetti almost-strict predicate `IsAlmostStrictlyCompatible`, which at an odd coefficient prime with unramified common parameter still requires the full comparison. Use them. The Khare–Wintenberger family here is the rank-two specialization of that carrier indexed by embeddings ι with fixed integer weights a≥b; KW strictness is AGR's strict predicate for it, and KW almost strictness, which at such a prime asks only for crystallinity of the common weights, is the separate predicate below.
 
-The construction has the following API:
+The additional API specializes the supplied carrier without reconstructing its all-place strict predicate or its coefficient extension:
 
-- `CompatibleSystem`: E, the family ρ_ι, the Weil–Deligne data r_𝔮 and the weights (a, b)
-- `CompatibleSystem.IsStrict`: compatibility with r_𝔮 at every 𝔮, including 𝔮 above ℓ; it is `IsStrictlyCompatible` of AutomorphicGaloisRepresentations §7.1 for the underlying data
-- `CompatibleSystem.IsAlmostStrict`: the two conditions at 𝔮 | ℓ (irreducible residual, or ℓ ≠ 2 and r_𝔮 unramified)
-- `CompatibleSystem.IsRegular`: a ≠ b
-- `CompatibleSystem.IsStrict.isAlmostStrict`: strict ⇒ almost strict ⇒ compatible
-- `CompatibleSystem.enlargeCoefficients`: Extend E to a finite number-field extension E′ and reindex embeddings; preserve the same members and local data after extension. Eigenform constructors are imported from R19.3 and are not defined here.
+- `CompatibleSystem`: the rank-two specialization with fixed weights a≥b and the KW plain compatibility predicate.
+- `CompatibleSystem.IsAlmostStrict`: the separate KW coefficient-prime conditions (irreducible residual, or ℓ≠2 and unramified common parameter).
+- `CompatibleSystem.IsRegular`: a≠b.
+- `CompatibleSystem.strict_implies_kwAlmostStrict`: the supplied all-place strict predicate implies KW almost strictness, which implies KW plain compatibility.
+- `CompatibleSystem.dpAlmostStrict_implies_kwAlmostStrict`: after identifying embeddings and conventions, DP's full odd-unramified comparison implies the weaker KW crystallinity clause. No converse is asserted.
 
 **Checks.**
 
@@ -164,7 +158,7 @@ The sources are [ACC+][acc-2023], §7.1, pp.1084–1085.
 *Needs:* [Layer 1, Weakly compatible families of arbitrary rank](#target-weakly-compatible-system-rank-n); `ArithmeticGaloisRepresentations:R01.1`; `PadicHodgeTheory:R06.2`.
 
 <a id="target-system-operations"></a>
-### 1.4 Twisting, restriction and induction
+### 1.4 Induction of families
 
 Twists by algebraic-character families, restrictions to finite base-field extensions, coefficient extension and conjugation are the operations of AutomorphicGaloisRepresentations §7.1, with its transport of the weak and strict predicates and its rank-two almost-strict transport rule; import them. Construct here the induction from a finite extension, applying representation, WD and Hodge operations together. Enlarge S by ramification of the extension for induction, and at each local place use the sum of locally induced WD parameters. At a place above the coefficient prime this requires that D_pst of an induced representation is the induced Weil–Deligne representation; prove it here from the compatibility of Fontaine's functor with restriction and the Mackey description of induction. Plain compatibility is preserved; all-place strictness is preserved for the de Rham input systems using the local operations of R06.3.
 
@@ -172,10 +166,8 @@ For an almost-strict system the unconditional output is plain. Retaining almost 
 
 The construction has the following API:
 
-- `twist`: Memberwise tensor with a strict character system; local WD tensor and Hodge shifts.
-- `restrict`: Restrict to G_F′; Q roots raised to residue degrees and H_τ pulled back.
 - `induce`: For finite F′/F induce each member, rank multiplied by [F′:F], enlarge S by ramified primes, local WD induction and Hodge multiset union.
-- `restrict_charpoly`: At w|v outside S, roots of Q_w are α^[k(w):k(v)] for roots α of Q_v.
+- `induce_coefficientPrime`: The coefficient-prime WD parameter is the local induction of the input parameters, with Fontaine’s functor and Mackey decomposition identified.
 - `induce_rank`: Rank Ind_F′^F ℛ=[F′:F] rank ℛ; induction need not preserve regularity or irreducibility.
 
 **Checks.**
@@ -185,7 +177,7 @@ The construction has the following API:
 - `induce_quadratic_trivial`: Induce the trivial character across a quadratic extension: rank 2, H={0,0}, polynomial (X−1)² at split good primes and X²−1 at inert good primes.
 - `induced_regular_nonexample`: The induced quadratic trivial character is a sum of trivial and quadratic characters and is not regular; generic induction is not an irreducibility theorem.
 
-Use `twist` for this construction.
+Use `induce` for this construction.
 
 The sources are [KW II][kw-serre-modularity-II], §10.3.2, p. 93 of the preprint.
 
@@ -260,9 +252,7 @@ For the dual characteristic polynomial, define `Factors.dualPolynomial Q=C(Q(0)�
 
 The construction has the following API:
 
-- `directSum`: Members r⊕s; Q_v=Q_r Q_s; H disjoint union; common pure weight required for purity.
-- `tensor`: Members (r⊗s)^ss; roots αβ; H all pairwise sums; pure weight w+w′.
-- `dual`: Members r∨; normalized reciprocal Q_v; H=−H; pure weight −w.
+- `Factors.dualPolynomial`: The normalized reciprocal of a monic polynomial with nonzero constant term, for the supplied contragredient operation.
 - `symmetricPower`: Sym^k members and repeated k-fold weight sums; rank binomial(n+k−1,k).
 - `exteriorPower`: ∧^k members and distinct k-fold weight sums; rank binomial(n,k), zero if k>n.
 - `dual_charpoly`: The normalized reciprocal polynomial is monic of rank n; for rank 2, X²−aX+b becomes X²−(a/b)X+1/b.
@@ -280,7 +270,7 @@ The construction has the following API:
 - `direct_sum_mixed_weights`: 1⊕ε has geometric-Frobenius roots 1,p⁻¹ and weights 0,−2, so is not pure of one weight.
 - `exterior_above_rank`: ∧³ of a rank-two system is the rank-zero system with Q_v=1 and H empty.
 
-Use `directSum` for this construction.
+Use `symmetricPower` and `Factors.dualPolynomial` for these constructions.
 
 The sources are [BLGGT v1][blggt-2014], §5.1, operations, p. 51 (arXiv v1; printed page = PDF page), §5.1, restriction, p. 53 (arXiv v1; printed page = PDF page).
 
@@ -457,7 +447,7 @@ The sources are [BLGGT v1][blggt-2014], §5.1, pp. 52–53 (arXiv v1); [BLGGT v4
 <a id="target-galois-grothendieck-ring"></a>
 ### 1.16 The arithmetic representation ring
 
-For a number field F and prime l, form the additive Grothendieck group Rep_(F,l) of finite-dimensional semisimple continuous Q̄_l-representations of G_F, unramified almost everywhere. Semisimplified tensor product gives its commutative ring structure. Cancellation follows from trace recognition. Trace at σ is a ring homomorphism; dim=tr(1) takes integral values. The symmetric Hom pairing satisfies ([U],[V])=dim Hom_(G_F)(U,V), and for a virtual class A=Σn_i[V_i] in the irreducible basis, (A,A)=Σn_i². Hence (A,A)=1 and dim A>0 force A to be a genuine irreducible class.
+For a number field F and prime l, form the arithmetic specialization Rep_(F,l) by retaining continuous, finitely ramified objects and identifying each representation with its semisimplification. These conditions and relations distinguish it from the ambient split Grothendieck ring: a nontrivial unipotent extension of 1 by 1 has class 2[1] here, whereas the split ring does not impose that relation. Equivalently use the additive Grothendieck group of finite-dimensional semisimple continuous Q̄_l-representations of G_F, unramified almost everywhere. Semisimplified tensor product gives its commutative ring structure. Cancellation follows from trace recognition. Trace at σ is a ring homomorphism; dim=tr(1) takes integral values. The symmetric Hom pairing satisfies ([U],[V])=dim Hom_(G_F)(U,V), and for a virtual class A=Σn_i[V_i] in the irreducible basis, (A,A)=Σn_i². Hence (A,A)=1 and dim A>0 force A to be a genuine irreducible class.
 
 Supply the product formula along a Zariski-dense map into G₁×G₂, conjugation, restriction as a ring map, and induction with its trace and dimension formulas. Include the arithmetic projection formula, Frobenius reciprocity, Mackey decomposition and the pairing identity obtained by inflating the finite-group Brauer decomposition. For an unramified-outside-S virtual class, with S containing places above l, define L^S multiplicatively on the irreducible multiplicities; induction gives L^S(Ind A)=L^(S′)(A). The additive multiplicity lattice can use `Finsupp`; its pointwise multiplication is not the tensor-product ring law.
 
@@ -598,7 +588,7 @@ The construction has the following API:
 - `SkolemDatum`: (f : X → B, Σ, (L_v), (Ω_v)) with the conditions above
 - `SkolemDatum.IsComplete`: every place of K lies in Σ or Max(R)
 - `SkolemDatum.IntegralPoint`: an irreducible closed Y ⊆ X, finite surjective over B, L_v-split and inside Ω_v for v ∈ Σ
-- `SkolemDatum.integralPoint_iff`: Integral points correspond to finite extensions K′/K with K′ ⊗_K L_v a product of copies of L_v, and an integral point all of whose K-embeddings into L_v land in Ω_v. Completions can be proper subfields of L_v.
+- `SkolemDatum.integralPoint_iff`: Existence of a closed integral point is equivalent to existence of a finite extension K′/K and an integral field point with K′ ⊗_K L_v split and every local embedding landing in Ω_v. This is an equivalence of existence statements, not a bijection of presentations: pass from a field point to its scheme-theoretic image, and from a closed point to its normalization. Completions can be proper subfields of L_v.
 - `SkolemDatum.enlargeSigma`: After removing a finite set of closed places from B, prescribe nonempty integral local opens over finite Galois L_v; closure of an integral point for the enlarged datum is an integral point for the original datum (II 1.10).
 - `SkolemDatum.split_iff_algEquiv`: The generic splitting condition means that the multiplication/base-change algebra K′⊗_K L_v is isomorphic as an L_v-algebra to a finite product of L_v, not that K′⊗_K K_v has prescribed factors L_v.
 - `SkolemDatum.fieldPoint_split`: An integral field point is split after scalar extension to every L_v in Σ; expose this without unfolding FieldPoint.
@@ -612,12 +602,13 @@ The construction has the following API:
 - `skolem_incomplete_Z_half`: R = ℤ[1/2], Σ = {∞}: the place 2 lies neither in Σ nor in Max(R), so the datum is incomplete
 - `skolem_trivial_X`: X = B and Ω_v the unique local point: K′ = K gives an integral point for every finite Galois L_v/K_v, including a nontrivial L_v. This distinguishes splitting over L_v from requiring completions equal L_v.
 - `skolem_geometric_irreducibility`: take X=Spec O_E[1/2] for a real quadratic E/ℚ and select one real embedding as Ω_∞. Every extension point contains E and hence has both real embeddings; this datum fails the required conclusion. The generic fibre is irreducible over ℚ but not geometrically irreducible.
+- `skolem_field_presentation_redundancy`: for X=B and Σ empty, K′=K and any quadratic K′/K both present the same closed integral point Y=B. A bijection between closed points and arbitrary field presentations is false.
 - `skolem_open_required`: a single point {x} ⊂ X(ℚ_p) of a curve is not v-adically open, so it cannot serve as Ω_v
 - `skolem_fieldPoint_local`: For an integral field point, every K-embedding of its generic field into every L_v with v∈Σ gives a local point in Ω_v; a definition checking only one embedding fails this test.
 
 Use `SkolemDatum` for this construction.
 
-The sources are [Moret–Bailly II][moret-bailly-1989-II], 1.1 and Définition 1.2, p. 181, Définition 1.2, p. 181, Remarque 1.8, p. 184.
+The sources are [Moret–Bailly II][moret-bailly-1989-II], 1.1 and Définition 1.2, p. 181, Remarque 1.5, p. 182, Définition 1.2, p. 181, Remarque 1.8, p. 184.
 
 *Needs:* `mathlib:AlgebraicGeometry.Spec`; `mathlib:AlgebraicGeometry.GeometricallyIrreducible`; `mathlib:AlgebraicGeometry.Smooth`; `ReductiveGroupsPartII` RG2.0.1 (the topology on points of schemes over topological rings, `scheme-point-topology`, and openness of smooth maps on local points, `smooth-morphism-open-map`); `SchemeAndStackFoundations:SF.4` (models over the ring of integers).
 
@@ -714,11 +705,19 @@ The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 3.7.2(ii), p. 1
 
 For an incomplete datum and any ample line bundle M₀ on X̄, find a positive tensor power M₀^⊗n and a trivialization along Z satisfying the preceding local Picard conditions. Normalize a starting power so its degree d is at least 2g + z, divisible by all [L_v:K_v], and its restriction to Z is trivial.
 
-The controlling quotient PG₀(K_Σ)/im Γ(Z,O_Z^×), with K_Σ = ∏_(v∈Σ) K_v and the product topology, is quasi-compact. Consequently the powers of each element have the identity as an accumulation point. Prove the constituent compactness statements: J(F) is compact for a proper regular geometrically integral curve over a locally compact F; (R_Z ⊗_R K_Σ)^×/(R_Z^× K_Σ^×) is quasi-compact; and K_Σ^×/R^× is quasi-compact under incompleteness. The first holds because Pic⁰ of such a curve is a proper group scheme over F, so its F-points are compact for the point topology; the last uses the S-unit logarithm lattice of Dirichlet's S-unit theorem. Moret–Bailly prints the Jacobian lemma as 3.30.2, although its position and references identify it as 3.10.2.
+The controlling quotient PG₀(K_Σ)/im Γ(Z,O_Z^×), with K_Σ = ∏_(v∈Σ) K_v and the product topology, is quasi-compact. Consequently the powers of each element have the identity as an accumulation point. Prove the constituent compactness statements: J(F) is compact for a proper regular geometrically integral curve over a locally compact F; (R_Z ⊗_R K_Σ)^×/(R_Z^× K_Σ^×) is quasi-compact; and K_Σ^×/R^× is quasi-compact under incompleteness. For the first, pass to a finite separable extension giving the curve a rational point and use the proper compactified Picard space Y of degree-zero rank-one torsion-free sheaves. Regularity of the curve makes every such sheaf over F invertible, so Y(F)=J(F); compactness follows from properness of Y and descends along the finite extension. This does not assert that J itself is proper over an imperfect local field. The last assertion uses the S-unit logarithm lattice of Dirichlet's S-unit theorem. Moret–Bailly prints the Jacobian lemma as 3.30.2, although its position and references identify it as 3.10.2.
+
+**Gap.** The relative Picard supplier must include this proper compactification and its rational-point comparison for regular curves that are not geometrically smooth. Properness of an abelian variety alone does not supply this case.
+
+**Checks.**
+
+- For a smooth proper curve, J is an abelian variety and its local points are compact directly.
+- Over F=𝔽₂((t)), the projective cubic y²z=x³+tz³ is regular and geometrically integral, but becomes a cuspidal cubic over an algebraic closure. Its geometric Pic⁰ is the additive group, so Pic⁰ is not proper; the compactified-Picard argument is essential.
+- With an empty set Σ the product and its quotient are trivial, hence compact; no extra nonemptiness hypothesis is needed for this quotient statement.
 
 Use `compactGeneralizedJacobianQuotient` for this construction.
 
-The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 3.9, proof, p. 191, Lemme 3.9.2, p. 192, Lemme 3.10.2 (printed 3.30.2), p. 192, Proof of Lemme 3.10.4, p. 193.
+The sources are [Moret–Bailly II][moret-bailly-1989-II], Lemme 3.9, proof, p. 191, Lemme 3.9.2, p. 192, Lemme 3.10.2 (printed 3.30.2), pp. 192–193, and proof of Lemme 3.10.4, p. 193.
 
 *Needs:* [Layer 2, Local Picard opens and approximation](#target-local-picard-open-sets-and-strong-approximation); `SchemeAndStackFoundations:SF.3`; `AlgebraicModuliForArithmeticGeometry` §7.3 (`PicardZeroSheaf`, `picard_zero_criterion`); `ReductiveGroupsPartII` RG2.0.1 (`points-locally-compact-hausdorff`; points of projective schemes over a local field are compact); `tauceti:TauCetiRoadmap/GlobalNumberFields` (Dirichlet's S-unit theorem).
 
@@ -736,11 +735,11 @@ The sources are [Moret–Bailly II][moret-bailly-1989-II], Théorème 1.3, p. 18
 <a id="target-theorem-g-from-moret-bailly"></a>
 ### 2.9 From integral points to split-field density
 
-Derive the split-field density statement from the integral-point theorem: for a chosen nonempty open U ⊆ X, spread U to a smooth surjective model over an appropriate ring of integers with finitely many primes inverted. Enlarge the inverted set until the prescribed places and opens form a Skolem datum, while leaving a place outside both Σ and the closed places. An integral point gives a finite K′ split at S and a point of U(K′) in every prescribed open. Taking all U gives Zariski density. This construction explains why the integral theorem applies even when the conclusion concerns points on a variety over a field.
+Derive the split-field density statement from the integral-point theorem: for a chosen nonempty open U ⊆ X, spread U to a smooth surjective model with geometrically integral fibres over an appropriate ring of integers with finitely many primes inverted. Uniform Lang–Weil supplies a rational point on each fibre of sufficiently large residue cardinality; smooth Hensel lifting makes the local integral-point sets nonempty. Invert the finitely many remaining bad primes. Thus nonemptiness outside the prescribed places is a proved input to the Skolem datum, rather than an automatic consequence of spreading out. Enlarge the inverted set until the prescribed places and opens form a Skolem datum, while leaving a place outside both Σ and the closed places. An integral point gives a finite K′ split at S and a point of U(K′) in every prescribed open. Taking all U gives Zariski density. This construction explains why the integral theorem applies even when the conclusion concerns points on a variety over a field.
 
 Use `theoremGFromMoretBailly` for this construction.
 
-The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], Introduction, Theorem G, p. 5.
+The sources are [Taylor, Fontaine–Mazur][taylor-2002-fontaine-mazur], Introduction, Theorem G, p. 5; [Poonen][poonen-qpoints], Theorem 7.7.1(ii), p. 222 (uniform Lang–Weil), Theorem 7.7.2, p. 223 (local points outside finitely many places), and Theorem 3.5.63(a), p. 83 (smooth Hensel lifting).
 
 *Needs:* [Layer 2, The integral-point theorem](#target-moret-bailly-theorem-incomplete-skolem-data-have-integral-points); [Layer 2, Skolem data and integral points](#target-skolem-datum-and-integral-point); `SchemeAndStackFoundations:SF.4`.
 
@@ -760,12 +759,13 @@ The sources are [KW II][kw-serre-modularity-II], Proof of Theorem 6.1, ordinary 
 
 Let K be a global function field with constant field F_q, D/K a finite Galois extension with group G and constant field F_(q^d), and C⊆G a conjugacy class whose image in Gal(F_(q^d)/F_q)=ℤ/d is the class of the n-th power of the q-Frobenius. Then for every sufficiently large integer m≡n mod d there is an unramified place of K of degree m whose Frobenius class is C, and the number of such places is (#C/#G)·d·q^m/m+O(q^(m/2)) for m≡n mod d; for m≢n mod d there is none. Fix a finite set of forbidden places; the places produced can avoid it.
 
-Prove it by twisting and the Lang–Weil estimate. Let Y→X be the finite étale Galois cover of smooth geometrically connected curves over F_q, after removing the ramified places, attached to D/K, with Y geometrically disconnected into d components over F_(q^d). For σ∈C the degree-m places of X with Frobenius conjugate to σ correspond, up to the action of the centralizer, to the F_(q^m)-points of the twist of Y by σ; this twist is a geometrically irreducible curve exactly when σ maps to the m-th power of Frobenius in ℤ/d, and then Lang–Weil counts its points as q^m+O(q^(m/2)). Removing the points of smaller degree and dividing by the centralizer gives the count.
+Prove it by twisting and the Lang–Weil estimate. Let X be a smooth geometrically connected curve over F_q with function field K, and remove the ramified places so that D defines a finite étale Galois cover Y→X. The curve Y has d geometric components. For σ∈C count the fixed points of σ⁻¹Frob_q^m on Y over an algebraic closure. This operator fixes a geometric component exactly when σ and Frob_q^m have the same action on the constant field; in that case it fixes all d components. Each component, with this twisted descent datum over F_(q^m), is geometrically connected and contributes q^m+O(q^(m/2)) points. Twisting the whole cover does not make it geometrically connected. Over a point of X(F_(q^m)) whose Frobenius is conjugate to σ, the number of fixed lifts is #Z_G(σ). Thus the leading term before passing to places is d·q^m/#Z_G(σ). Remove the O(q^(m/2)) points of degree properly dividing m and divide by m to obtain the asserted coefficient d·#C/#G. If the constant-field actions differ, there are no fixed lifts and no places of the required class.
 
 **Checks.**
 
 - `ffcheb_constant_extension`: for D=K·F_(q^d) and C={φ^n}, the places of degree m have Frobenius φ^m, so the class φ^n occurs exactly in degrees m≡n mod d; no place of degree m≢n mod d has that Frobenius.
 - `ffcheb_trivial_extension`: for D=K the statement is the existence of places of every large degree, with count q^m/m+O(q^(m/2)).
+- `ffcheb_two_components`: for a quadratic constant extension the cover and every twist still have two geometric components. In even degree the identity class has count q^m/m+O(q^(m/2)), rather than q^m/(2m); in odd degree it has count zero.
 - `ffcheb_number_field_contrast`: in a number field there is no constant-field quotient and every conjugacy class occurs; the function-field statement must retain the congruence condition on the degree.
 
 Use `functionFieldChebotarev` for this construction.
@@ -927,7 +927,9 @@ Choose the arithmetic data before applying the geometric theorem. The moduli sch
 <a id="target-taylor-lemma-1-1-characters-of-cm-extensions-with-prescribed-local-reductions"></a>
 ### 3.1 CM characters with simultaneous local reductions
 
-Let O be the integers in a finite extension of ℚ_p, with residue field k. Let K be totally real and L/K totally imaginary quadratic, split at all places above p. Take a finite set S of finite places containing those above p and split in L, and choose S_L with exactly one place above each member of S. Let φ:G_K→O^× be continuous and odd, equal to ε_p^n times a finite-order character for n∈ℤ, and choose continuous ψ̄_x:G_L_x→k^× for x∈S_L. Over a finite coefficient extension with integers O′, construct continuous ψ:G_L→O′^×, finitely ramified at the prescribed places, reducing to every ψ̄_x, and satisfying det Ind_(G_L)^(G_K)ψ=φ. The algebraic character and reciprocity construction is supplied by its owner; this theorem imposes the simultaneous local reductions needed by auxiliary torsion.
+Let O be the integers in a finite extension of ℚ_p, with residue field k. Let K be totally real and L/K totally imaginary quadratic, split at all places above p. Take a finite set S of finite places containing those above p and split in L, and choose S_L with exactly one place above each member of S. Let φ:G_K→O^× be continuous and odd, equal to ε_p^n times a finite-order character for n∈ℤ, and choose continuous ψ̄_x:G_L_x→k^× for x∈S_L. Over a finite coefficient extension with integers O′, construct continuous ψ:G_L→O′^×, unramified outside finitely many places, with finite inertia image at every chosen x∈S_L, reducing there to ψ̄_x, and satisfying det Ind_(G_L)^(G_K)ψ=φ. The construction may introduce ramification outside S; it does not promise an extension supported only on S. The algebraic character and reciprocity construction is supplied by its owner; this theorem imposes the simultaneous local reductions needed by auxiliary torsion.
+
+**Gap.** The passage from the algebraic character to these simultaneous reductions needs the S-unit congruence input invoked as [Ta2, Lemma 2.1] in Taylor's proof. Finite local-character extension and existence of a Hecke avatar do not supply that congruence. Its exact statement and supplier comparison remain required.
 
 Use `taylorLemma11` for this construction.
 
@@ -1055,6 +1057,8 @@ The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continu
 <a id="target-skinner-wiles-level-adjustment"></a>
 ### 4.4 Level adjustment after a soluble totally real base change
 
+**Source gap.** The simultaneous prescribed-place and ordinarity refinements below require the exact Skinner–Wiles main theorem and its following remark. Taylor's use on pp. 762–763 supplies the level-one application, but does not by itself establish all these refinements.
+
 Let p be odd, F totally real and ρ̄:G_F→GL₂(F̄_p) irreducible and associated with a Hilbert newform f of parallel weight two and level n_f, written n_f=n_f^(p)n_f′ with n_f^(p) supported above p and n_f′ prime to p. Then there is a finite soluble Galois totally real F′/F in which every place above p splits completely, such that ρ̄|G_F′ is still irreducible and is associated with a weight-two newform g over F′ whose level divides n_f^(p)∏_(q∈S)q, where S is the set of places of F′ not above p at which ρ̄|G_F′ is ramified. If f is ordinary, or nearly ordinary, at the places above p, g can be taken with the same property; if moreover ρ̄ is D_v-distinguished at every v|p and f is χ₂-good, then so are ρ̄|G_F′ and g. The field F′ can also be required to have prescribed splitting and ramification at a finite set of places of F outside the level of f, and to have even degree. In applications S is made empty first: a soluble totally real base change with prescribed completions kills the finite residual inertia away from p, and the level of g then divides n_f^(p).
 
 The proof is the Skinner–Wiles argument. After an even-degree cyclic base change in which the places above p split, and further cyclic base changes, the local components of f at the primes of n_f′ are special of conductor q with unramified central character and Nq≡1 mod p. Transfer to the definite quaternion algebra D ramified exactly at the infinite places by the level-by-level Jacquet–Langlands–Shimizu isomorphism. At a prime q of n_f′ where ρ̄ is unramified, the exactness of the two-copy degeneracy sequence (Ihara's lemma for D), the stabiliser-weighted pairing and the trace maps between levels give a congruence to a form of level n_f/q. Induction on the number of such primes, with a soluble base change at each step making Nq≡1 mod p, removes them. Base change preserves cuspidality because ρ̄ stays irreducible over every field of the tower.
@@ -1123,6 +1127,8 @@ The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continu
 <a id="target-taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l"></a>
 ### 4.7 Ordinary residual potential modularity
 
+**Gap.** The quadratic extension and square-root character that normalize the determinant, preserve total reality and retain the specified l-adic conditions still require a proof contract. Taylor’s correction on p. 777 identifies the obstruction but does not replace this adapter.
+
 Let l be odd, k/F_l finite, F totally real, and ρ̄:G_F→GL₂(k) continuous irreducible and totally odd. Suppose at every v|l it has shape (ε̄_lχ_v⁻¹,*;0,χ_v). Obtain finite Galois totally real E/F split at every v|l and a regular algebraic cuspidal π with residual member ρ̄|G_E. At an unramified x|l with nonscalar residual inertia, χ_x²|I_x=ε̄_l^n, 0≤n<l−1 and n≠1 in the semisimple case, require the characteristic-zero ordinary shape with a tamely ramified lift of χ_x. Use Taylor's corrected auxiliary construction and its determinant normalization where that construction is applied.
 
 Corollary 1.7 treats an arbitrary continuous irreducible totally odd residual representation. Choose finite Galois totally real E/F whose l-adic places are unramified of residue degree at most two, with the residual modular witness. For its local ordinary conclusion, at the specified unramified v|l require nonscalar inertia and shape (χ_(v,1),*;0,χ_(v,2)) with **χ_(v,2)χ_(v,1)⁻¹|I_v=ε̄_l^n**. The lifted lower-right character is a tamely ramified lift of χ_(v,2). This ratio condition is on inertia; it does not normalize the determinant on all G_v. The quadratic-field and square-root-character construction must preserve total reality and the stated l-adic conditions.
@@ -1177,7 +1183,7 @@ For l>3 and continuous odd ρ̄ of G_ℚ with inertia ω₂^(k−1)⊕ω₂^(l(k
 
 Use `weightAndLevelPotentialResidual` for this construction.
 
-The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §5, Corollary 5.5, p. 769 (PDF page 41), §5, proof of Lemma 5.6, p. 770 (PDF page 42).
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §5, Corollary 5.5, p. 769 (PDF page 41), §5, proof of Lemma 5.6, p. 770 (PDF page 42). [Conrad–Diamond–Taylor][cdt], author manuscript Lemmas 3.1.1 and 4.2.4, PDF pp. 13 and 18, supplies the reductions of Θ(χ_k) and the type-to-Hecke passage used on Taylor p. 769.
 
 *Needs:* [Layer 4, The niveau-two potential-modularity theorem](#target-taylor-2006-potential-modularity-when-residually-irreducible-at-l); [Layer 4, Level adjustment after a soluble totally real base change](#target-skinner-wiles-level-adjustment); [Layer 4, Fontaine–Laffaille shapes of quaternionic forms](#target-taylor-2006-lemma-1-4-corollary-1-5-local-shape-at-l); [Layer 4, Quaternionic weight reduction](#target-taylor-2006-lemma-5-1-corollary-5-2-weight-reduction); [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations).
 
@@ -1188,7 +1194,7 @@ Let l>3 and ρ̄:G_ℚ→GL₂(F̄_l) be continuous irreducible odd with irreduc
 
 Use `taylorSerreWeightPotentialResidual` for this construction.
 
-The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §5, Theorem 5.7, p. 770 (PDF page 42), §5, proof of Theorem 5.7, p. 771 (PDF page 43).
+The sources are [Taylor, degree-two L-functions][taylor-2006-meromorphic-continuation], §5, Theorem 5.7, p. 770 (PDF page 42), §5, proof of Theorem 5.7, p. 771 (PDF page 43). The small-prime input quoted as Khare’s Duke Lemma 2.2 remains a source gap: the verified Taylor theorem has l>3, so it does not supply l=3.
 
 *Needs:* [Layer 4, Weight and level removal](#target-taylor-2006-lemmas-5-4-5-6-weight-and-level); [Layer 4, The weight shift by l+1](#target-taylor-2006-lemma-5-3-weight-shift); [Layer 4, Quaternionic forms and Hecke–Galois realizations](#target-taylor-2006-lemma-1-3-quaternionic-forms-and-galois-representations).
 
@@ -1219,9 +1225,11 @@ The sources are [KW Annals][kw-annals-2009], Theorem 2.1, p. 234, proof of Theor
 
 Let F be totally real, p odd, and ρ̄ : G_F → GL₂(F̄_p) continuous and odd. Fix finite-order ψ with det ρ̄ = ψ̄χ̄_p, a finite M/F and a definite A/B/C type function t above p. Here Snowden's local types of a weight-two representation of G_(F_v) with determinant χ_p times a finite-order character are: A, potentially crystalline and ordinary; B, potentially crystalline and not ordinary; C, potentially an extension of the trivial character by χ_p. A type function assigns one letter to each v|p, and definite excludes the ambiguous A/C; for a parallel weight-two eigenform the type at v is A or B exactly when π_v is principal series or supercuspidal, and C exactly when π_v is special. Choose finite Galois M′/F containing M and a totally real Galois F′/F disjoint from M′ so that, for every further totally real F″/F′ disjoint from M′, ρ̄|G_F″ is the residual representation of a cuspidal parallel-weight-two form f with determinant ψχ_p and t_f=t|F″. One may require F′ to split at a finite S when its prescribed p-types are compatible with the residual local representations there. Ordinary type A is included. Snowden's conditions (A1),(A2) apply to the auxiliary and given-lift arguments; they are not assumptions on the original ρ̄ in this residual theorem.
 
+**Gap.** The auxiliary lifting step needs Snowden's Theorem 4.4.2 over arbitrary totally real fields, with (A1) cyclotomic absolute irreducibility and (A2) the p=5 projective-PGL₂ condition, and with matching definite types above p. The rational-field KW lifting contract alone does not cover it. The prescribed-lift input of Theorem 7.6.1, when used for soluble descent, must be supplied independently of the later rational-field extraction in Layers 9–10; its determinant, compatible-type and (A1)/(A2) hypotheses must be retained.
+
 Use `snowdenPotentialResidual` for this construction.
 
-The sources are [Snowden v1][snowden], §2.1 and Remark 2.1.1 (the local types), p. 4; Theorem 5.1.1 and Proposition 8.2.1, pp. 15, 26.
+The sources are [Snowden v1][snowden], §2.1 and Remark 2.1.1 (the local types), p. 4; §3.1, p. 6; Theorem 4.4.2, p. 13; Theorem 5.1.1 and Proposition 8.2.1, pp. 15, 26; Theorem 7.6.1 and its proof in §7.9, pp. 23, 25.
 
 *Needs:* [Layer 3, The Weil-restricted moduli application](#target-restriction-of-scalars-moduli-application); [Layer 2, Soluble preliminary fields and split extensions](#target-snowden-soluble-preliminary-field); `AutomorphicGaloisRepresentations:R19.2`; `AutomorphicGaloisRepresentations:R19.6`; `GL2AutomorphicRepresentationsAndTransfer:R17.6`; `GL2ModularityLifting:R22.5`.
 
@@ -1382,6 +1390,8 @@ The sources are [KW II][kw-serre-modularity-II], proof of Theorem 10.1, p. 91, p
 <a id="target-rank-two-definite-unitary-ordinary-hecke-algebra"></a>
 ### 8.3 Definite unitary groups in two variables and their ordinary Hecke algebras
 
+**Source gap.** The arithmetic-prime classicality comparison and its nilpotent-kernel assertion require the exact Geraghty §§2.2–2.6 statements in addition to Thorne's ordinary-module results. Their supplier contract remains to be established in this generality.
+
 Let L be an imaginary CM field with maximal totally real subfield L⁺ such that L/L⁺ is unramified at every finite place (so [L⁺:ℚ] is even), let l be odd with every place of L⁺ above l split in L, and let G/O_(L⁺) be the unitary group in two variables of the standard hermitian form, quasi-split at every finite place and compact at every infinite place, with its integral model and the isomorphisms ι_w:G(L⁺_v)≅GL₂(L_w) at split places v=ww^c. For a finite extension K/ℚ_l with integers O containing every embedding of L, a weight λ indexed by the embeddings above the chosen places ṽ|l, characters χ_v of Iwahori quotients at a finite set R of split places, and an open compact U, let S_(λ,{χ_v})(U,A) be the O-module of functions f:G(L⁺)\G(A^∞_(L⁺))→M_(λ,{χ_v})⊗A with f(gu)=u_(l,R)⁻¹f(g). Define:
 
 - the Hecke operators T_w^j (j=1,2) at split places outside a finite set T and the Hecke algebra T^T_(λ,{χ_v})(U,A), a finite O-algebra, reduced for A=O;
@@ -1414,6 +1424,8 @@ The sources are [Thorne][thorne], §6, the group, Definition 6.1, Proposition 6.
 <a id="target-rank-two-unitary-galois-representations"></a>
 ### 8.4 Galois representations on the rank-two ordinary Hecke algebra
 
+**Source gap.** The Geraghty propositions and Labesse input cited below remain separate prerequisite theorems. Thorne's Propositions 8.4–8.5 give the ordinary Galois factorization, but do not alone establish the base-change/descent and arithmetic-specialization assertions in (4); the exact supplier comparison for those assertions remains required.
+
 With the notation of §8.3: (1) Every irreducible constituent π of S_(λ,{χ_v})(Q̄_l) has a continuous semisimple r_l(π):G_L→GL₂(Q̄_l) with r_l(π)^c≅r_l(π)^∨(−1), local–global compatibility up to semisimplification at split places outside S_l∪R, the prescribed Iwahori character on inertia at R, and de Rham (crystalline at unramified π_v) restrictions at the places above l of the corresponding weight. (2) For a maximal ideal m of T^T_λ(U,O) there is a residual r̄_m:G_L→GL₂(T/m) whose Frobenius characteristic polynomials at split w∉T are X²−T_w^1X+(Nw)T_w^2 modulo m; m is non-Eisenstein when r̄_m is absolutely irreducible. For non-Eisenstein m, r̄_m extends to r̄_m:G_(L⁺)→𝒢₂(T/m) with multiplier ε^(−1)δ_(L/L⁺)^(μ_m), and lifts uniquely up to strict equivalence to r_m:G_(L⁺)→𝒢₂(T^T_λ(U,O)_m) with the same Frobenius polynomials. (3) The same holds for the big ordinary Hecke algebra: r_m:G_(L⁺)→𝒢₂(T^(ord)_m), and at each v|l its restriction factors through Geraghty's ordinary lifting ring over Λ_ṽ, so every specialization is upper triangular with diagonal characters the push-forward of the universal ones. (4) Base change and descent: a RACSDC π of GL₂(A_L) of weight ι_*λ descends to an automorphic representation of G(A_(L⁺)) with the same split-place components, and conversely every automorphic representation of G whose Galois representation is irreducible has a RACSDC base change whose Galois representation is r_l(π); an O-algebra map from the ordinary Hecke algebra whose restriction to Λ is arithmetic factors through a classical algebra and comes from such a π.
 
 Use `DefiniteUnitaryTwo.heckeGaloisRepresentation` for this construction.
@@ -1423,13 +1435,13 @@ The sources are [Thorne][thorne], §6, Theorem 6.5 and Propositions 6.6–6.7, p
 *Needs:* [Layer 8, Definite unitary groups in two variables and their ordinary Hecke algebras](#target-rank-two-definite-unitary-ordinary-hecke-algebra); `EndoscopicTransferAndUnitaryTraceComparison` §6.29 (Labesse's base change and descent between unitary groups and GL_n over CM fields); `AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline`; `AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime`; `AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type`; `AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal`; `ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group`; `GlobalGaloisDeformations:R04.2/carayol-trace-theorem`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants` (pseudocharacters and Cayley–Hamilton reconstruction); `LocalGaloisDeformationRings:L7/ordinary-flag-scheme`.
 
 <a id="target-rank-two-ordinary-r-equals-t"></a>
-### 8.5 Rank-two ordinary R=T for adequate residual image
+### 8.5 Rank-two ordinary patching for adequate residual image
 
-With the notation of §8.3 and §8.4, with L/L⁺ unramified at all finite places, and let T=R∪S_l∪{v₁} be split places with v₁∤l. Assume r̄_m(G_(L_ṽ)) is trivial for v∈R∪S_l; Nv≡1 mod l for v∈R, with l^N>2 when l^N exactly divides Nv−1; r̄_m unramified above v₁ with Nv₁≢1 mod l; U_v the Iwahori subgroup at R∪{v₁}, so that no t⁻¹G(L⁺)t∩U has an element of order l; m non-Eisenstein in the big ordinary Hecke algebra; ζ_l∉L and ρ̄=r̄_m|G_L with ρ̄(G_(L(ζ_l))) adequate. Let 𝒮 be the polarized deformation problem over Λ with the Ihara-avoidance rings at R (inertia acting with characteristic polynomial given by characters trivial mod λ), Geraghty's ordinary rings over Λ_ṽ at S_l and the unipotent ring at v₁. Then r_m is of type 𝒮, and every lifting r of r̄_m of type 𝒮 (with trivial characters at R) that is unramified above v₁, for which some Hecke specialization is also unramified there, is conjugate to a specialization of r_m. Moreover μ_m≡0 mod 2, and with the unramified ring at v₁ the universal ring R^univ is a finite Λ-module.
+With the notation of §8.3 and §8.4, with L/L⁺ unramified at all finite places, and let T=R∪S_l∪{v₁} be split places with v₁∤l. Assume r̄_m(G_(L_ṽ)) is trivial for v∈R∪S_l; Nv≡1 mod l for v∈R, with l^N>2 when l^N exactly divides Nv−1 and O containing an l^N-th root of unity; r̄_m unramified above v₁ with Nv₁≢1 mod l; U_v the Iwahori subgroup at R∪{v₁}, so that no t⁻¹G(L⁺)t∩U has an element of order l; m non-Eisenstein in the big ordinary Hecke algebra; ζ_l∉L and ρ̄=r̄_m|G_L with ρ̄(G_(L(ζ_l))) adequate. Let 𝒮 be the polarized deformation problem over Λ with the Ihara-avoidance rings at R (inertia acting with characteristic polynomial given by characters trivial mod λ), Geraghty's ordinary rings over Λ_ṽ at S_l and the unipotent ring at v₁. Then r_m is of type 𝒮, and every lifting r of r̄_m of type 𝒮 (with trivial characters at R) that is unramified above v₁, for which some Hecke specialization is also unramified there, is conjugate to a specialization of r_m. Moreover μ_m≡0 mod 2, and with the unramified ring at v₁ the universal ring R^univ is a finite Λ-module.
 
 In rank two the adequacy notion of Thorne's 2012 paper and the corrected one of his 2017 paper agree because l∤2, and Thorne's 2017 Proposition 7.2 replaces the Taylor–Wiles prime proposition, which needs ζ_l∉L, so the theorem is stated with that hypothesis. By the rank-two classification, adequacy of ρ̄(G_(L(ζ_l))) means absolute irreducibility, except that projective image PSL₂(F₃) for l=3 and PSL₂(F₅) for l=5 are not adequate.
 
-The proof is Thorne's: Taylor–Wiles data of size q exist with the generator count q−[L⁺:ℚ]−[L⁺:ℚ](1−(−1)^(μ_m)) (adequate Taylor–Wiles primes); the Taylor–Wiles level structures with the parahoric projections identify the patched modules; the ordinary forms are free over Λ[Δ_Q]; patching gives a module over a power-series ring whose support is the union of the components of the Ihara-avoidance rings; Taylor's comparison of the unipotent and the distinct-character problems modulo λ forces the support to be everything, and the reduced-ness of the Hecke algebra concludes.
+The proof is Thorne's: Taylor–Wiles data of size q exist with the generator count q−[L⁺:ℚ]−[L⁺:ℚ](1−(−1)^(μ_m)) (adequate Taylor–Wiles primes); the Taylor–Wiles level structures with the parahoric projections identify the patched modules; the ordinary forms are free over Λ[Δ_Q]; patching gives a module over a power-series ring whose support is the union of the components of the Ihara-avoidance rings; Taylor's comparison of the unipotent and the distinct-character problems modulo λ forces the support to be everything, and reducedness of the Hecke algebra gives the characteristic-zero factorization. The comparison is nearly faithful and yields Λ-finiteness; no isomorphism between the entire universal ring and the Hecke algebra is asserted.
 
 **Checks.**
 
@@ -1437,7 +1449,7 @@ The proof is Thorne's: Taylor–Wiles data of size q exist with the generator co
 - `rankTwoRT_zeta_in_L`: if ζ_l∈L the corrected Taylor–Wiles prime argument is unavailable; the hypothesis ζ_l∉L is part of the statement.
 - `rankTwoRT_v1`: the auxiliary place v₁ with Nv₁≢1 mod l is what makes the level l-torsion free; dropping it, finite stabilizers of order l can occur.
 
-Use `rankTwoOrdinaryRT` for this construction.
+Use `rankTwoOrdinaryPatching` for this construction.
 
 The sources are [Thorne][thorne], §4, Definition 4.1, Lemma 4.3 and Proposition 4.4, pp. 15–18; §5, the parahoric operators and Propositions 5.8–5.12, pp. 19–30; §8, 'Another patching argument', Theorem 8.6 and its proof and Corollary 8.7, pp. 48–53; [Thorne, adequacy][thorne-2017], §7, Propositions 7.1–7.2 and Corollary 7.3, pp. 30–32; [Geraghty, ordinary][geraghty-ordinary], §4.3, Theorem 4.3.1, p. 51.
 
@@ -1448,7 +1460,7 @@ The sources are [Thorne][thorne], §4, Definition 4.1, Lemma 4.3 and Proposition
 
 Let F be CM or totally real and l odd with ζ_l∉F. (1) Lifting. Let (r,μ) be a two-dimensional algebraic polarized l-adic representation of G_F with r̄ irreducible and r̄(G_(F(ζ_l))) adequate, r ordinary at every place above l, and (r̄,μ̄) ordinarily automorphic. Then (r,μ) is ordinarily automorphic, of level prime to l if r is crystalline above l. (2) Finiteness. Let F be imaginary CM, S a finite set of places of F⁺ containing those above l and split in F, (π,χ) an ι-ordinary RAECSDC representation of GL₂(A_F) unramified outside S with adequate r̄_(l,ι)(π)(G_(F(ζ_l))), μ an algebraic character of G_(F⁺) with μ̄=r̄_(l,ι)(χ)ε̄^(−1) and HT_τ(μ)={w}, and for every τ a pair H_τ of distinct integers with H_(τc)={w−h:h∈H_τ}. With unrestricted local conditions away from l and the semistable ordinary rings of Hodge type {H_τ} above l, the universal ring of the polarized deformation problem of r̄ with multiplier μ is a finite O-module. The weights H_τ need not be those of π.
 
-For (1) with F totally real, make a quadratic CM base change disjoint from the field cut out by r̄ over F(ζ_l) and descend at the end. For F imaginary, twist so that, in Thorne's normalization, the Hecke multiplier is δ_(F/F⁺)^n, which is trivial for n=2, make soluble CM base changes over which the hypotheses of the rank-two ordinary R=T hold (places above l and the ramified places split, r̄ trivial there, Iwahori-fixed vectors, the congruences Nv≡1 mod l with l^N>2, and an auxiliary place v₁), apply it, and descend by soluble descent. For (2), make the analogous soluble CM base change M/F, use the finiteness of the restriction map of global rings to reduce to M, and specialize the Λ-finiteness of the rank-two ordinary R=T at the arithmetic prime of the chosen weight.
+For (1) with F totally real, make a quadratic CM base change disjoint from the field cut out by r̄ over F(ζ_l) and descend at the end. For F imaginary, twist so that Thorne's automorphic polarization character χ is δ_(F/F⁺)^n. For n=2 this character is trivial, whereas the 𝒢₂ multiplier is ε⁻¹ (with the κ=0 prolongation); the cyclotomic factor is retained. Make soluble CM base changes over which the hypotheses of the rank-two ordinary patching hold (places above l and the ramified places split, r̄ trivial there, Iwahori-fixed vectors, the congruences Nv≡1 mod l with l^N>2, and an auxiliary place v₁), apply it, and descend by soluble descent. For (2), make the analogous soluble CM base change M/F, use the finiteness of the restriction map of global rings to reduce to M, and specialize the Λ-finiteness of the rank-two ordinary patching theorem at the arithmetic prime of the chosen weight.
 
 **Checks.**
 
@@ -1460,7 +1472,7 @@ Use `rankTwoOrdinaryAutomorphyAndFiniteness` for this construction.
 
 The sources are [BLGGT v4][blggt-2014-v4], §2.4, Theorems 2.4.1 and 2.4.2, pp. 39–40; [Thorne][thorne], §9, Theorem 9.1 and its proof, pp. 53–54, and §10, Theorem 10.2 and its proof, pp. 56–58; [Gee–Geraghty][gee-geraghty], Lemma 3.2.5 and its proof, p. 14.
 
-*Needs:* [Layer 8, Rank-two ordinary R=T for adequate residual image](#target-rank-two-ordinary-r-equals-t); [Layer 8, Galois representations on the rank-two ordinary Hecke algebra](#target-rank-two-unitary-galois-representations); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent`; `AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation`; `OrdinaryAutomorphicFormsAndModularityLifting` §2.1 (nearly ordinary automorphic representations, the rank-two ι-ordinary notion); `GlobalGaloisDeformations:R04.4/restriction-finiteness`; `GlobalGaloisDeformations:G7/polarized-representability`; `LocalGaloisDeformationRings:L7/semistable-ordinary-quotient`.
+*Needs:* [Layer 8, Rank-two ordinary patching for adequate residual image](#target-rank-two-ordinary-r-equals-t); [Layer 8, Galois representations on the rank-two ordinary Hecke algebra](#target-rank-two-unitary-galois-representations); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions); `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-base-change`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/solvable-descent`; `AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-automorphic-representation`; `OrdinaryAutomorphicFormsAndModularityLifting` §2.1 (nearly ordinary automorphic representations, the rank-two ι-ordinary notion); `GlobalGaloisDeformations:R04.4/restriction-finiteness`; `GlobalGaloisDeformations:G7/polarized-representability`; `LocalGaloisDeformationRings:L7/semistable-ordinary-quotient`.
 
 <a id="target-ordinary-global-ring-finiteness"></a>
 ### 8.7 Ordinary unframed-ring finiteness
@@ -1476,7 +1488,7 @@ Construct the totally real adapter as follows.
 3. At each chosen w|v∈S, K_w=F_v. Restriction therefore identifies the selected local quotients, including their labeled Hodge types and the ordinary condition. The equality of the two Hodge sums with HT(d) gives the conjugate symmetry required by the multiplier. At nonsplit places outside S only the fixed CM component character is allowed to ramify; the underlying GL₂ representation is unramified. Thorne's G_(F,S) is Gal(K(S)/F), not the absolute Galois group of a totally real extension unramified outside S.
 4. Universality gives R_K→R_F. The composite of the forgetful map from the unframed GL₂ ring of ρ̄|G_K to R_K with R_K→R_F is restriction of GL₂ deformations from F to K, and R_F is finite over the GL₂ ring of ρ̄|G_K because ρ̄|G_K is absolutely irreducible (GlobalGaloisDeformations §4.2, the argument of Gee–Geraghty Lemma 3.2.5: the closed fibre has finite image, traces generate, Nakayama). Hence R_F is a finite R_K-module, in the direction **extension-field ring → original-field ring**. Finiteness of R_K over O concludes the argument.
 
-**Checks.** The identity extension gives the identity ring map. A free framing variable produces O[[x]], whose reduction k[[x]] is infinite: the argument does not prove finiteness of a framed ring. A local quotient selected by an ordinary flag with variable Hodge characters fails step 3; fixed regular type and a comparison of quotients are indispensable. A seed with the same residual determinant but a different characteristic-zero determinant fails the fixed-multiplier input. Absolute irreducibility alone also does not supply adequacy at the small primes.
+**Checks.** For an odd involution ρ(c)=diag(1,−1), the matrix ρ(c)J⁻¹=(0,−1;−1,0) is symmetric, so ((ρ(c)J⁻¹,1)j)²=1 and its multiplier is −1. For the even involution ρ(c)=1, the matrix is skew-symmetric and the same square is −1; this rejects the prolongation when oddness is omitted. The identity extension gives the identity ring map. A free framing variable produces O[[x]], whose reduction k[[x]] is infinite: the argument does not prove finiteness of a framed ring. A local quotient selected by an ordinary flag with variable Hodge characters fails step 3; fixed regular type and a comparison of quotients are indispensable. A seed with the same residual determinant but a different characteristic-zero determinant fails the fixed-multiplier input. Absolute irreducibility alone also does not supply adequacy at the small primes.
 
 Use `ordinaryGlobalFiniteness` for this construction.
 
@@ -1487,13 +1499,15 @@ The sources are [Thorne][thorne], §3, pp. 7–8, Theorem 10.2, setup and proof,
 <a id="target-cg-ordinary-ring-finiteness"></a>
 ### 8.8 The Calegari–Geraghty finiteness application
 
-In the scalar branch of Calegari–Geraghty Theorem 4.8, take p≥3 and an absolutely irreducible modular ρ̄ of G_ℚ, twist-minimal away from p, **unramified at p with scalar Frobenius**, whose restriction to G_ℚ(ζ_p) is adequate: by the rank-two classification this is absolute irreducibility on G_ℚ(ζ_p) except for projective image PSL₂(F₃) when p=3 and PSL₂(F₅) when p=5. Those two residual images are the part of the Calegari–Geraghty statement outside this target, whose finiteness input is the adequate one. For each harmless-prime character φ fix χ_φ = ε⟨det(ρ̄) ε̄⁻¹⟩φ, where the brackets denote the finite Teichmüller lift. Use the framed ordinary R† at p and unrestricted fixed-determinant local rings at the other ramified places. Prove finiteness over O of the corresponding unframed R_φ. Its framed enlargement remains a power-series ring over it. The version adjoining the Frobenius eigenvalue is a finite quadratic algebra over R_φ, so it is finite as well. This supplies the finiteness input to the multiplicity argument.
+In the scalar branch of Calegari–Geraghty Theorem 4.8, take p≥3 and an absolutely irreducible modular ρ̄ of G_ℚ, twist-minimal away from p, **unramified at p with scalar Frobenius**, whose restriction to G_ℚ(ζ_p) is adequate: by the rank-two classification this is absolute irreducibility on G_ℚ(ζ_p) except for projective image PSL₂(F₃) when p=3 and PSL₂(F₅) when p=5. This is the adequate-image milestone `cgRingFinitenessAdequate`. The full target `cgRingFiniteness` retains absolute irreducibility on G_ℚ(ζ_p) without replacing it by adequacy, including the two exceptional projective images. **Gap.** The adequate ordinary finiteness theorem of §8.7 does not provide either exceptional branch. Their local R†-to-global-ring comparison and a finiteness argument applicable to the corresponding residual image are still required; no consumer may use the full target on the strength of the adequate milestone alone. For each harmless-prime character φ fix χ_φ = ε⟨det(ρ̄) ε̄⁻¹⟩φ, where the brackets denote the finite Teichmüller lift. Use the framed ordinary R† at p and unrestricted fixed-determinant local rings at the other ramified places. Prove finiteness over O of the corresponding unframed R_φ. Its framed enlargement remains a power-series ring over it. The version adjoining the Frobenius eigenvalue is a finite quadratic algebra over R_φ, so it is finite as well. This supplies the finiteness input to the multiplicity argument.
 
 After twisting the local residual scalar to 1, Theorem 3.19 with n=2 gives generic local matrices (εω⁻¹ λ(α⁻¹),*;0,λ(α)), with fixed determinant εω⁻¹. Kill the finite tame character ω by a soluble local extension, and spread these extensions into a soluble totally real field as in Layer 2. Restriction then lands in the fixed weight-two semistable ordinary quotient; prove this factorization as a map of complete local rings, using reduced O-flatness and the generic-point characterization, before applying finite restriction. The global seed must also be twisted by the half-power of its congruent-to-one finite determinant discrepancy, exactly as in the proof on PDF p. 67. For p odd that half-power exists on the pro-p finite character group. It is not a square root of ω.
 
+Here absolute irreducibility on G_ℚ(ζ_p) follows from global absolute irreducibility and unramifiedness at p; it is not an extra restriction on the scalar branch. A reducible cyclotomic restriction would make the rank-two representation induced from a quadratic subfield of ℚ(ζ_p), which is ramified at p, contradicting unramifiedness. Adequacy is the additional restriction used only by the milestone.
+
 Use `cgRingFiniteness` for this construction.
 
-The sources are [Calegari–Geraghty][cg], Theorem 3.19, PDF p. 39, and Theorem 4.8 proof, PDF pp. 65–68, especially the determinant twist and component patching on p. 67 and the finiteness paragraph on p. 68.
+The sources are [Calegari–Geraghty][cg], Theorem 3.19, PDF p. 39, and Theorem 4.8 proof, PDF pp. 65–68, especially the determinant twist and component patching on p. 67 and the finiteness paragraph on p. 68; [Barnet-Lamb–Gee–Geraghty][rank-two-adequacy], Proposition A.2.1, author pp. 30–31 (the classification applied to the cyclotomic-restricted image).
 
 *Needs:* [Layer 8, Ordinary unframed-ring finiteness](#target-ordinary-global-ring-finiteness); `LocalGaloisDeformationRings:L8` (ordinary rings with a Frobenius eigenvalue, `L7/ordinary-ring-with-frobenius-eigenvalue`); `ArithmeticGaloisRepresentations` Layer 4 (rank-two adequacy); [Layer 2, Soluble prescribed-completion extensions](#target-cht-soluble-prescribed-completions).
 
@@ -1784,6 +1798,8 @@ Start with a given potentially modular lift. Automorphic families over soluble i
 <a id="target-brauer-induction-system"></a>
 ### 12.1 Genuine families from Brauer induction
 
+**Gap.** Construct `brauerOverlapHomCharacters`: for every pair of soluble descent fields F_i,F_j, every Mackey double coset and every coefficient embedding, the overlap Hom-character used in the pairing is the realization of common algebraic character data. Its hypotheses must be the descended automorphic families and their base-change identifications, rather than the desired norm-one conclusion. This λ-independent pairing comparison is not yet supplied by the cited Frobenius recognition contract. The norm-one step below remains conditional on it.
+
 Suppose a given two-dimensional lift ρ becomes the representation of a holomorphic cuspidal Hilbert form over a finite totally real Galois F/ℚ, and remains absolutely irreducible over F. Write the trivial character of G=Gal(F/ℚ) as Σn_i Ind_(G_i)^Gχ_i with soluble G_i and fixed fields F_i. Soluble base change gives the corresponding cuspidal forms π_i over F_i. In every coefficient characteristic define the virtual class A_ι=Σn_i Ind_(G_F_i)^(G_ℚ)(χ_i⊗ρ_(π_i,ι)).
 
 Assume the automorphic members at these soluble intermediate fields are absolutely irreducible and their overlaps are identified by Frobenius recognition. The dimension-two, norm-one pairing calculation then proves A_ι is a genuine absolutely irreducible representation. Its good traces agree with the given lift, it is independent of Brauer choices, and restriction to any F′⊆F with F/F′ soluble gives the member of the descended automorphic form. Put all automorphic families and characters over one finite coefficient field before forming the family; unrelated coefficient fields at different primes do not define a system.
@@ -1838,11 +1854,13 @@ The sources are [KW II][kw-serre-modularity-II], §10.3.2, pp.93–94; [Skinner]
 
 For an S-type residual representation satisfying the common KW I Theorem 5.1 hypotheses, and for each of the four lift types with its extra local conditions, obtain an E-rational odd irreducible almost-strict family whose selected p-member lifts ρ̄ with that type. In type 3, an irreducible residual q-member has weight i+2 or q+1−i up to twist. In type 4 for odd q, it has weight q+1−(i−j) or i−j when i>j+1, and weight q when i=j+1. These computations use Savitt's reductions of tame potentially Barsotti–Tate types (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5, `savitt-residual-types`).
 
+Use the corrected version of Savitt's Corollary 6.15: its lattice reduction has scalar endomorphisms, as holds for the absolutely irreducible local residual members in this application. Remark 6.17 separately explains the semisimplified calculation. In the boundary case i=1 of Theorem 6.12, the two displayed characters in part (4) coincide and have niveau one; the nonsplit lattice needed for the scalar-endomorphism assertion comes from the added part (5). A test that treats those equal characters as a niveau-two irreducible pair fails.
+
 The q=2 order-three application has its separate KW argument giving residual weight two; Savitt's theorem is not applied there. Diamond's allowed pairs j=m(q+1)/p^r−1 and i=q−1−j, 0<m<p^r/2, exclude i=j+1 in that selection. The good polynomials lie in one finite coefficient field. For these constructed families, the full coefficient-prime theorem upgrades almost strictness to strictness and supplies purity with the stated geometric normalization.
 
 Use `kw_theorem_5_1_systems` for this construction.
 
-The sources are [KW I][kw-serre-modularity-I], Theorem 5.1, p. 9 of the preprint, Remark after Theorem 5.1, p. 10, Proof of Theorem 9.1, p. 19 of the preprint; [KW II][kw-serre-modularity-II], §10.3.2, p. 94.
+The sources are [KW I][kw-serre-modularity-I], Theorem 5.1, p. 9 of the preprint, Remark after Theorem 5.1, p. 10, Proof of Theorem 9.1, p. 19 of the preprint; [KW II][kw-serre-modularity-II], §10.3.2, p. 94; [Savitt, corrected][savitt-corrected], Corollary 6.15, pp. 38–39, Remark 6.17, p. 39; [Savitt's corrigendum][savitt-corrigendum], pp. 1–3.
 
 *Needs:* [Layer 10, Minimal crystalline lifts](#target-theorem-5-1-part-1-minimal-crystalline); [Layer 10, Minimal weight-two lifts](#target-theorem-5-1-part-2-weight-two); [Layer 10, A level-one type at q](#target-theorem-5-1-part-3-level-one-type-at-q); [Layer 10, A level-two type at q](#target-theorem-5-1-part-4-level-two-type-at-q); [Layer 12, Genuine families from Brauer induction](#target-brauer-induction-system); [Layer 12, The historical almost-strict comparison](#target-almost-strict-compatibility); `AlgebraicModularFormsAndSerreWeights:R15.4`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/savitt-residual-types`; [Layer 12, All-place strictness of the Hilbert–Brauer family](#target-strict-brauer-system).
 
@@ -1851,7 +1869,7 @@ The sources are [KW I][kw-serre-modularity-I], Theorem 5.1, p. 9 of the preprint
 
 Take an odd irreducible continuous finitely ramified p-adic lift over ℚ, de Rham with Hodge–Tate weights {0,k−1}, k>1, whose residual restriction to ℚ(ζ_p) is absolutely irreducible, or whose residual image is nonsoluble at p=2. Construct a family for the following scope: after twisting, the residual representation satisfies the KW hypotheses, and the given lift has p-type A/B/C of Layer 5; at p=2 it is crystalline weight two or semistable weight two with non-finite residual local representation. This includes the minimal crystalline cases and the weight-two cases that are crystalline, Steinberg or KW type B at p. Potential modularity of the **given** lift and the Brauer construction, followed by the strict upgrade, give the de Rham condition at every member required by the Dieulefait–Pacetti definition.
 
-The broader de Rham statement of DP Theorem 1.11 requires additional potential modularity: other potentially Barsotti–Tate inertial types need their lifting theorem, and k>p+1 or potentially semistable weight greater than two need a regular de Rham lifting theorem. These are boundaries of Layer 5. Dieulefait's 2004 Theorem 1.1 assumes crystallinity at an odd q, weights {0,w} with w odd, and q≥2w+1; it is not the source of the unrestricted statement.
+The full target `dieulefait_families` has exactly the opening odd, irreducible, finitely ramified, regular de Rham and residual-image hypotheses, without the A/B/C restriction. Its output is an almost strictly compatible family in DP Definition 1.10, so every member is de Rham at its own coefficient prime. The construction above is the milestone `dieulefait_families_kwTypes`. **Gap.** The full de Rham target requires additional potential modularity: other potentially Barsotti–Tate inertial types need their lifting theorem, and k>p+1 or potentially semistable weight greater than two need a regular de Rham lifting theorem. These cases are not supplied by Layer 5. They remain part of the target, with their lifting and potential-modularity contracts to be supplied. Dieulefait's 2004 Theorem 1.1 assumes crystallinity at an odd q, weights {0,w} with w odd, and q≥2w+1; it is not the source of the unrestricted statement.
 
 Use `dieulefait_families` for this construction.
 
@@ -2030,3 +2048,8 @@ Page numbers below follow the indicated edition. BLGGT v1 and v4 have different 
 [geraghty-ordinary]: https://web.archive.org/web/2id_/https://www2.bc.edu/david-geraghty/files/oml.pdf
 [thorne-2017]: https://www.repository.cam.ac.uk/handle/1810/254922
 [poonen-qpoints]: https://math.mit.edu/~poonen/papers/Qpoints.pdf
+
+[cdt]: https://math.stanford.edu/~conrad/papers/cdtmaster.pdf
+[savitt-corrected]: https://math.jhu.edu/~savitt/papers/pdfs/cdt_corrected.pdf
+[savitt-corrigendum]: https://math.jhu.edu/~savitt/papers/pdfs/cdt_erratum.pdf
+[rank-two-adequacy]: https://www.ma.imperial.ac.uk/~tsg/Index_files/U2.pdf
