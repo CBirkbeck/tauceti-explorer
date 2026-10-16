@@ -1,17 +1,18 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex, session `codex-vPZRrq`, 16 October 2026. Issue [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
+Codex, session `codex-5uNL4z`, 16 October 2026. Issue [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint; revision blocked by upstream ownership.** The bot confirmed this
-session's [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6215204589)
-on 16 October at 12:10:11 UTC. This was the first available eligible issue on
+session's [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6215939252)
+on 16 October at 12:54:11 UTC. This was the first available eligible issue on
 the manager's priority list, but its requested
 blueprint revision has been superseded by a merged Tau Ceti roadmap. This note
 records the obstruction; it does not complete or approve the mathematical
 revision. No second issue was claimed.
 
-This continues the checkpoints merged in [#9894](https://github.com/CBirkbeck/tauceti-explorer/pull/9894)
-and [#9951](https://github.com/CBirkbeck/tauceti-explorer/pull/9951).
+This continues the checkpoints merged in [#9894](https://github.com/CBirkbeck/tauceti-explorer/pull/9894),
+[#9951](https://github.com/CBirkbeck/tauceti-explorer/pull/9951)
+and [#9972](https://github.com/CBirkbeck/tauceti-explorer/pull/9972).
 The reopened queue entry still carries the maintainer's
 explicit 13 October instruction that further atlas blueprint rounds are
 unnecessary. This run independently re-read the issue, review, previous handoff,
@@ -29,13 +30,13 @@ Suggested.lean and metadata for `TauCetiRoadmap/SchemeAndStackFoundations/`.
 Its Layer 0 is the schemes-and-morphisms direction assigned to this issue.
 
 The current upstream files were separately inspected at main commit
-`4c4f8f52238b8ead04f806021f79201c6d499982`, rather than assuming the merge
+`a46641603eb2cce60cea86900e44c3a5d856f91f`, rather than assuming the merge
 version was still current. A fresh API check in this session confirms that
-main commit and the latest file changes below:
+main commit (committed 16 October at 12:52:21 UTC) and the latest file changes below:
 
-- [README, scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c4f8f52238b8ead04f806021f79201c6d499982/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership).
-- [README, Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c4f8f52238b8ead04f806021f79201c6d499982/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms).
-- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4c4f8f52238b8ead04f806021f79201c6d499982/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean).
+- [README, scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership).
+- [README, Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms).
+- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean).
 
 Both files' latest change at that main commit is
 [upstream PR #943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943),
@@ -61,7 +62,10 @@ evidence, not baseline citations at the historical packet's older pins.
 
 The maintainer's [13 October comment on this issue](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6147006432)
 already directed changes to the upstream roadmap instead of additional atlas
-blueprint rounds. The subsequent merge strengthens that boundary.
+blueprint rounds. The subsequent merge strengthens that boundary. The present issue comments
+contain no later maintainer instruction authorizing a fresh atlas specification.
+The `state:available` label was restored by automatic checkpoint intake after
+#9972; it does not withdraw the explicit scope instruction.
 [WORKERS.md](../WORKERS.md) and [PROTOCOL.md section 15](../PROTOCOL.md#15-build-on-existing-roadmaps-never-duplicate)
 prohibit replanning existing Tau Ceti roadmaps. Applying the old review's
 requested development here would create a competing specification.
@@ -117,7 +121,9 @@ the Lawrence–Sawin route.
 
 The maintainer should reconcile the stale atlas job with the merged upstream
 owner before another worker is sent to this blueprint revision. In particular,
-checkpoint intake has already released this same issue twice. The queue needs a
+checkpoint intake has already released this same issue three times, after #9894,
+#9951 and #9972. This is the fourth ownership-blocked submission; repeating the
+same blueprint assignment cannot resolve the obstruction. The queue needs a
 maintainer disposition rather than another attempt at the superseded plan.
 Any mathematical
 correction belongs against the current upstream roadmap, with a separately
