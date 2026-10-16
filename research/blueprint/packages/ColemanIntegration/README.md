@@ -16,7 +16,7 @@ This roadmap owns:
 1. **Elementary p-adic analysis** (Layer L0): the normalized formal primitive of a power series over a ℚ-algebra and its radius estimates; functions analytic on a whole open disc and their primitives; the logarithm series over a general complete ultrametric field of characteristic zero; residues and logarithmic primitives on open annuli and on the end germ of a residue disc; the branches log_a of the p-adic logarithm on ℂ_p^×, their change and Galois compatibility, and the Iwasawa branch; the rational polylogarithm coefficient series q_k ∈ ℚ[[X]] (L0.F).
 2. **Coleman integration** (Layer L1): good-reduction pairs, wide opens, locally analytic functions with logarithmic ends, Frobenius lifts and Teichmüller points, Frobenius-structured unipotent data and their existence, Dwork's principle, the word algebra, Coleman functions and integrals, the uniqueness principle, independence of the Frobenius lift and of the branch, functoriality, and the explicit punctured lines ℙ¹ ∖ ({0, ∞} ∪ μ_N) and the four-punctured lines used by the five-term relation.
 3. **Coleman's polylogarithms** (Layer L2): Li_k^a, their residue-disc expansions, tangential base point, distribution and inversion relations, branch dependence, the value at 1, Frobenius relation and integral modified polylogarithm, Galois equivariance, the dilogarithm identities, values at roots of unity, the complex boundary values (L2.Fa), the scalar five-term relation and its projective and Bloch-group forms over an arbitrary field (L2.Fb, L2.70).
-4. **L-values and regulators** (Layer L3): geometric and smoothed measures and their negative moments, Coleman's formula and its comparisons, the complex formula, the modified polylogarithm L^mod_n, and the motivic and regulator foundations L3.Fa.1–L3.Fd.2: rational K-theory with Adams weights as an interface, multi-relative K-theory of cubes, de Jeu's symbols and complexes, Beilinson's cyclotomic elements, Besser's modified syntomic cohomology and syntomic regulator, the relative rigid complexes and the integration-down computation, the Gros regulator, the complex regulator pairings and determinants, the rank criterion, Zagier's single-valued polylogarithms, and Artin L-functions with coefficients, complex and p-adic.
+4. **L-values and regulators** (Layer L3): geometric and smoothed measures and their negative moments, Coleman's formula and its comparisons, the complex formula, the modified polylogarithm L^mod_n, and the motivic and regulator foundations L3.Fa.1–L3.Fd.2: rational Quillen K-theory and its Adams operations, multi-relative K-theory of cubes, de Jeu's symbols and complexes, Beilinson's cyclotomic elements, Besser's modified syntomic cohomology and syntomic regulator, the relative rigid complexes and the integration-down computation, the Gros regulator, the complex regulator pairings and determinants, the rank criterion, Zagier's single-valued polylogarithms, and Artin L-functions with coefficients, complex and p-adic.
 
 It leaves to other roadmaps, and imports:
 
@@ -28,6 +28,8 @@ It leaves to other roadmaps, and imports:
 - **DirichletPadicLFunctions** Layers L0–L3, the other roadmap of this arithmetic bundle together with ComputationalNumberTheory: Gauss-sum conventions, smoothing measures, character measures and the Kubota–Leopoldt normalization (RJW Definition 5.18). It imports the logarithm branches of Layer L0 and supplies measures and L-functions to Layer L3.
 - **TauCetiRoadmap AdelicAlgebraicGroups** §2.4 (convergence factors): finite-image complex Artin factors on inertia invariants, their induction formula and the Euler product, consumed by L3.Fd.1.
 - **TauCetiRoadmap RepresentationTheory**, the induction–restriction roadmap, Layer 6: the virtual character ring and Brauer's induction theorem, consumed by L3.Fd.2.
+- **TauCetiRoadmap GrothendieckEulerForms** Layers 0–1 and **AlgebraicVectorBundles** L0A–L0C: exact structures and K₀, finite locally free sheaves and their polynomial operations, consumed by L3.Fa.1. Higher K-theory and Adams operations are constructed here.
+- **TauCetiRoadmap IntegralHeckeAndGaloisDeterminants** §6.4: the linear-functional Koszul complex, its functorial maps and regular-sequence exactness, used for the homogeneous Koszul pieces in L3.Fa.1.
 - **TauCetiRoadmap JacobianChallenge** Layer B: genus, Riemann–Roch and Serre duality for curves over a field, with the identification of relative differentials with the canonical sheaf, consumed by L1.9.
 
 The current Tau Ceti library has, beyond the pinned commit, a principal-unit logarithm and exponential on local fields (`TauCeti/NumberTheory/LocalField/Logarithm.lean`), a Teichmüller lift `TauCeti.teichmullerLift` and the splitting of ℤ_p^× into torsion and principal units. These are local-field statements; the branches log_a of L0.15 live on ℂ_p, which is not a local field, and agree with the local-field logarithm on principal units of every finite extension of ℚ_p (L0.17). General Tannakian path torsors and nonabelian Chabauty belong to AnabelianGeometryAndNonabelianChabauty, which builds on the direct word algebra of L1; comparisons with abelian integration on Jacobians belong to EffectiveDiophantineMethods. Both are consumers of this roadmap, not suppliers.
@@ -78,6 +80,8 @@ Each is used with its stated hypotheses only. In particular Mathlib has no polyl
 
 - **AdelicAlgebraicGroups**, §2.4 (convergence factors): for a finite-image complex Galois representation, the local factor on inertia invariants, its induction formula and the Euler product of the global L-function on Re s > 1 with its continuation. L3.Fd.1 assembles these over the embeddings of a coefficient field.
 - **RepresentationTheory**, induction and restriction, Layer 6: the ring of virtual characters and Brauer's induction theorem (every character is a ℤ-combination of characters induced from one-dimensional characters of elementary subgroups). L3.Fd.2 uses the version that keeps the fixed fields totally real when the kernel field is totally real.
+- **GrothendieckEulerForms**, Layers 0–1: the essentially small exact-category infrastructure and exact Grothendieck group, with universal properties and equivalence invariance. **AlgebraicVectorBundles**, L0A–L0C: finite locally free sheaves and their exact pullback, tensor, symmetric and exterior powers. L3.Fa.1 imports these objects before constructing higher K-groups.
+- **IntegralHeckeAndGaloisDeterminants**, §6.4: the Koszul complex of a linear functional and its maps; exactness locally for a regular sequence. L3.Fa.1 uses the tautological functional over Sym(E), takes homogeneous components and glues them for a vector bundle E.
 - **JacobianChallenge**, Layer B: genus, Riemann–Roch and Serre duality for a smooth proper geometrically integral curve over a field with a rational point (the current library has `SchemeWeilDivisor.eulerCharBelow_sheaf_eq_relativeDegree_add_one_sub_genus` and `SchemeWeilDivisor.cohomologyOneDualEquivCohomologyZero`), together with the identification of relative differentials with the canonical sheaf. L1.9 extends scalars to supply a rational point and uses geometric integrality for the constant field.
 
 ### From other roadmaps (lower tiers, and this bundle)
@@ -91,7 +95,7 @@ Each is used with its stated hypotheses only. In particular Mathlib has no polyl
 
 ## How to read the build
 
-The layers are built in the order L0 → L1 → L2 → L3, and within a layer targets are numbered in dependency order. L0 is pure p-adic analysis over Mathlib and the logarithm series of Tau Ceti. L1 needs L0 and the rigid-geometric suppliers, and delivers Coleman integration in general and explicitly on punctured lines. L2 needs L1 only through the punctured lines and the uniqueness principle, and delivers the polylogarithms and the five-term relation. L3 has two halves: the scalar half (L3.1–L3.13, L3.17–L3.35) needs L2, the measure suppliers and DirichletPadicLFunctions, and delivers Coleman's formula; the regulator half (L3.14–L3.16, L3.36–L3.37) also needs the motivic and regulator foundations L3.Fa.1–L3.Fd.2, which are self-contained apart from Coleman integration (L1) and the polylogarithms (L2). Proof sketches cite targets by number; locators refer to the editions listed under References, with published page numbers marked as such.
+The layers are built in the order L0 → L1 → L2 → L3, and within a layer the *Needs* clauses give the dependency order. In the regulator foundations first construct K-theory (L3.Fa.1), the syntomic complexes and regulator (L3.Fb.1–L3.Fb.2) and the complex regulator and Borel theorem (L3.Fc.1). The number-field vanishing consequence of Borel supplies L3.Fa.1 before constructing the symbol complexes (L3.Fa.2–L3.Fa.4), then the cyclotomic classes of L3.Fa.5. Construct the regulator maps and rank criterion (L3.Fb, L3.Fc.1–L3.Fc.2) before using the cyclotomic calculations of L3.Fc.3 to prove the basis and spanning claims of L3.Fa.5; the definitions of those classes do not use their independence. L0 is pure p-adic analysis over Mathlib and the logarithm series of Tau Ceti. L1 needs L0 and the rigid-geometric suppliers, and delivers Coleman integration in general and explicitly on punctured lines. L2 needs L1 only through the punctured lines and the uniqueness principle, and delivers the polylogarithms and the five-term relation. L3 has two halves: the scalar half (L3.1–L3.13, L3.17–L3.35) needs L2, the measure suppliers and DirichletPadicLFunctions, and delivers Coleman's formula; the regulator half (L3.14–L3.16, L3.36–L3.37) also needs the motivic and regulator foundations L3.Fa.1–L3.Fd.2, which are self-contained apart from Coleman integration (L1) and the polylogarithms (L2). Proof sketches cite targets by number; locators refer to the editions listed under References, with published page numbers marked as such.
 
 ## Layer L0: Power series, residues and logarithm branches
 
@@ -326,7 +330,6 @@ Standing hypotheses of this target: ℂ_p is Mathlib's `PadicComplex` p; its nor
 
 *Proof sketch.* Value group: on the algebraic closure (Mathlib `PadicAlgCl`) the norm is the spectral norm (Mathlib `spectralNorm`), ||y|| = |N(y)|^(1/[ℚ_p(y):ℚ_p]) in p^Q; since the algebraic closure is dense in ℂ_p and ||x|| = ||y|| whenever ||x - y|| < ||x||, every nonzero x has ||x|| in p^Q. Choose N_0 with ||x^(N_0)|| = p^(-m_0); u = x^(N_0) p^(-m_0) is a unit of the valuation ring Mathlib `PadicComplexInt`. Choose y algebraic with ||u - y|| < 1; y is a unit in a finite extension of ℚ_p whose residue field is finite of order q, so y^(q-1) and hence u^(q-1) lie in 1 + m. Take N = N_0 (q - 1), m = m_0 (q - 1); the identity m/N = v_p(x) is immediate from ||x^N p^(-m)|| = 1.
 
-*In `Suggested.lean`:* `exists_norm_eq_rpow`, `exists_pow_mul_zpow_mem_principal`, `padicValC`.
 
 *Needs:* `PadicComplex`, `PadicAlgCl`, spectralNorm, `PadicComplexInt`, `Real.logb`, PadicHodgeTheory P7.
 
@@ -350,7 +353,7 @@ Standing hypotheses of this target: p prime; a in ℂ_p. As a Lean function on a
 
 *Construction.* Well defined: if (N, m) and (N', m') both work then m/N = m'/N' = v_p(x), and (x^N p^(-m))^(N') = (x^(N') p^(-m'))^N, so N' log(x^N p^(-m)) = N log(x^(N') p^(-m')) by L0.13; the two formulas agree. Homomorphism: for x, y take a common N; then (xy)^N p^(-(m+m')) is the product of the two principal units, and L0.13 applies. Agreement with the series on 1 + m_{ℂ_p}: take N = 1, m = 0. log_a(p) = a: take N = 1, m = 1. Uniqueness: a homomorphism h with the two properties satisfies N h(x) = h(x^N p^(-m)) + m h(p) = log(x^N p^(-m)) + m a. Roots of unity map to 0 because the target is torsion free; log_a(-x) = log_a(-1) + log_a(x) = log_a(x).
 
-*In `Suggested.lean`:* `padicLogBranch`, `IsLogBranch`, `isLogBranch_padicLogBranch`, `padicLogBranch_unique`.
+*In `Suggested.lean`:* `IsLogBranch`, `existsUnique_logBranch`.
 
 *Needs:* L0.10, L0.13, L0.14, `NormedSpace.logOneAdd`, `PadicComplex`.
 
@@ -368,7 +371,7 @@ Standing hypotheses of this target: p prime; a in ℂ_p. As a Lean function on a
 
 *Proof sketch.* With (N, m) as in L0.15, log_b(x) - log_a(x) = (m b - m a)/N = (b - a) m/N, and m/N = v_p(x) by L0.14.
 
-*In `Suggested.lean`:* `padicLogBranch_sub`.
+*In `Suggested.lean`:* `logBranch_sub`.
 
 *Needs:* L0.15, L0.14, `Real.logb`.
 
@@ -380,7 +383,6 @@ Standing hypotheses of this target: a in ℂ_p; for (b) and (c), K and L are fin
 
 *Proof sketch.* (a) σ is an isometry (the absolute value of ℂ_p is the unique extension of that of ℚ_p and σ is continuous), so it commutes with the series on 1 + m; σ o log_a o σ^(-1) is a homomorphism agreeing with the series and sending p to σ(a), so it is log_(σ(a)) by the uniqueness in L0.15. (b) For x in K^x choose (N, m) inside K (value group (1/e)Z, finite residue field), so x^N p^(-m) lies in 1 + m_K and its logarithm, a convergent series of elements of K, lies in the complete field K. (c) Both sides are computed by the same formula on K^x.
 
-*In `Suggested.lean`:* `padicLogBranch_map`.
 
 *Needs:* L0.15, L0.14, L0.10.
 
@@ -399,7 +401,6 @@ Standing hypotheses of this target: p prime.
 
 *Construction.* Specialise L0.15 at a = 0. Galois equivariance and values in finite extensions: L0.17 with σ(0) = 0. Relation to other branches: L0.16.
 
-*In `Suggested.lean`:* `iwasawaLog`, `iwasawaLog_mem_of_finite`.
 
 *Needs:* L0.15, L0.16, L0.17.
 
@@ -653,7 +654,7 @@ Standing hypotheses of this target: (X,D) good-reduction over O_K; φ K-linear. 
 
 *Construction.* Record the data and the four hypotheses; no construction is involved. Basis change: replacing ω by P ω (P in GL_r(K)) replaces M by P M P^(-1) and g by P g; (H1) and (Hw) are preserved.
 
-*In `Suggested.lean`:* `FrobeniusDatum`, `FrobeniusDatum.H0`, `FrobeniusDatum.H1`, `FrobeniusDatum.Hw`, `FrobeniusDatum.coords_frobenius`, `FrobeniusDatum.changeBasis`, `FrobeniusDatum.pow`, `FrobeniusDatum.powG`, `FrobeniusDatum.hw_changeBasis_iff`.
+*In `Suggested.lean`:* `FrobeniusDatum`, `FrobeniusDatum.H0`, `FrobeniusDatum.H1`, `FrobeniusDatum.Hw`.
 
 *Needs:* L1.2, L1.5, `Module.End.HasEigenvalue`, Derivation, `Module.Free`.
 
@@ -735,7 +736,6 @@ Standing hypotheses of this target: A commutative K-algebra with a derivation d 
 
 *Construction.* Define the underlying module as finitely supported functions from words to A (Mathlib `Finsupp` over Mathlib `FreeMonoid` on Fin r). Define the shuffle of two words recursively, (a u) sh (b v) = a (u sh (b v)) + b ((a u) sh v), and extend A-bilinearly; associativity and commutativity are the standard shuffle identities. Define D on basis vectors by D(L_(e_i w')) = L_w' (x) ω_i and extend by the Leibniz rule; check that D is a derivation for the shuffle product by induction on word lengths (the shuffle recursion matches the removal of the first letter). Filtration and graded pieces are immediate from the formula for D (it lowers length by one on the ω-part).
 
-*In `Suggested.lean`:* `shuffle`, `WordAlgebra`, `WordAlgebra.L`, `WordAlgebra.D`, `WordAlgebra.depth`.
 
 *Needs:* `FreeMonoid`, Finsupp, Derivation, `Module.Free`.
 
@@ -752,7 +752,6 @@ Standing hypotheses of this target: A commutative K-algebra with a derivation d 
 
 *Proof sketch.* (a) Induction on the length of w using the recursion (c), which uses only (H1). (b) If D(sum f_w L_w) = 0 with maximal word length n, the coefficient of L_v (|v| = n) is d f_v = 0, so f_v is constant by (H0). The coefficient of L_v for |v| = n - 1 is d f_v + sum_i f_(e_i v) ω_i = 0, so sum_i f_(e_i v) [ω_i] = 0 in H^1_dR+ and f_(e_i v) = 0 by (H1); descend in n.
 
-*In `Suggested.lean`:* `WordAlgebra.D_surjective`, `WordAlgebra.D_eq_zero_iff`.
 
 *Needs:* L1.7, L1.12.
 
@@ -1212,7 +1211,7 @@ Normalize the iterated integrals tangentially at zero, continue them onto the re
 - `complexPolylog_hasSum`: for k ≥ 2 and |z| ≤ 1, or k = 1 and |z| < 1, the series Σ z^m/m^k sums to Li_k^ℂ(z).
 - `complexPolylog_continuousOn`: for k ≥ 2, continuity on the closed unit disc.
 - `complexPolylog_one`: Li_1^ℂ(z) = −Log(1 − z) on the closed disc minus 1.
-- `complexPolylog_rootOfUnity_one`: for ζ^N = 1, ζ ≠ 1, the series Σ ζ^m/m converges (conditionally) to −Log(1 − ζ).
+- `complexPolylog_rootOfUnity_one`: for ζ^N = 1, ζ ≠ 1, the partial sums Σ_(m=1)^M ζ^m/m tend to −Log(1 − ζ) as M → ∞. This is ordered convergence (`Tendsto` of partial sums), not `HasSum` or `tsum`, which require unconditional convergence in ℂ.
 - `complexPolylog_eq_expZeta`: for k ≥ 2 and a ∈ ℝ, Li_k^ℂ(e^(2πia)) = `HurwitzZeta.expZeta` a k.
 - `complexPolylog_distribution`: the distribution relation for k ≥ 2.
 - `complexPolylog_inversion_rootOfUnity`: for 0 < x < 1 and k ≥ 1, Li_k^ℂ(e^(2πix)) + (−1)^k Li_k^ℂ(e^(−2πix)) = −(2πi)^k B_k(x)/k!, from Mathlib's `HurwitzZeta.cosZeta_two_mul_nat` and `HurwitzZeta.sinZeta_two_mul_nat_add_one` for k ≥ 2 and from the Fourier series of x − 1/2 for k = 1.
@@ -1225,7 +1224,7 @@ Normalize the iterated integrals tangentially at zero, continue them onto the re
 **Checks.**
 
 - Li_2^ℂ(1) = π²/6 and Li_2^ℂ(−1) = −π²/12.
-- Li_1^ℂ(−1) = −Log 2: the boundary series Σ (−1)^m/m converges to −log 2, while Σ |(−1)^m/m| diverges, so a definition requiring absolute convergence at weight one excludes this value.
+- Li_1^ℂ(−1) = −Log 2: the boundary series Σ (−1)^m/m converges to −log 2, while Σ |(−1)^m/m| diverges. Mathlib's unordered `tsum` of this series is therefore 0 and cannot define the weight-one boundary value; the explicit principal-logarithm definition gives the required value.
 - Li_k^ℂ(0) = 0 for every k ≥ 1.
 - Inversion at k = 1, x = 1/4: Li_1^ℂ(i) − Li_1^ℂ(−i) = 2πi(1/2 − 1/4) = πi/2, whereas p-adically Li_1(ζ) − Li_1(ζ⁻¹) = 0 at roots of unity (L2.9).
 - For k = 2 the distribution relation with m = 2 at z = 1 gives Li_2^ℂ(1) = 2(Li_2^ℂ(1) + Li_2^ℂ(−1)), i.e. π²/6 = 2(π²/6 − π²/12).
@@ -1250,7 +1249,7 @@ For the projective form, `Point K = Projectivization K (Fin 2 → K)`, with `fin
 - `coordinateMap_injective`, `fieldMap_finite`, `fieldMap_infinity`, `fieldMap_injective`, `fieldMap_id`, `fieldMap_comp`, `crossRatio_fieldMap`.
 - `normalizedFive_injective_iff`, `normalize_five`, `normalizedFive_crossRatios`, `normalized_cyclic_sum`, `cyclic_relation_of_scalar`, `dilogD_cyclic`, `dilogD_cyclic_field`, `dilogEvaluation_cyclic_field`.
 
-*In `Suggested.lean`:* `BlochAlgebra.Symbols`, `BlochAlgebra.FiveTermParameters`, `BlochAlgebra.fiveTermRelation`, `BlochAlgebra.PreBlochGroup`, `BlochAlgebra.preBlochMap`, `BlochAlgebra.AntisymmetricSquare`, `BlochAlgebra.boundary`, `BlochAlgebra.BlochGroup`, `BlochAlgebra.dilogEvaluation`, `ProjectiveAlgebra.crossRatio`, `ProjectiveAlgebra.normalizedFive`, `ProjectiveAlgebra.cyclic_relation_of_scalar`.
+*In `Suggested.lean`:* `ProjectiveAlgebra.Point`, `ProjectiveAlgebra.finitePoint`, `ProjectiveAlgebra.infinity`, `ProjectiveAlgebra.detPair`, `ProjectiveAlgebra.crossRatio`, `ProjectiveAlgebra.normalizedFive`, `ProjectiveAlgebra.crossRatio_finite`, `ProjectiveAlgebra.cyclic_relation_of_scalar`.
 
 *Needs:* L0.15, L0.16, L2.18, L2.69; Mathlib `FreeAbelianGroup.of`, `FreeAbelianGroup.lift`, `QuotientAddGroup.mk'`, `QuotientAddGroup.lift`, `TensorProduct`, `Submodule.span`, `Submodule.mkQ`, `Projectivization.mk`, `Projectivization.rep`, `Projectivization.mk_rep`, `Projectivization.mk_eq_mk_iff'`, `Projectivization.map`, `Projectivization.map_mk`.
 
@@ -1315,7 +1314,6 @@ Standing hypotheses of this target: a∈ℂ_p, p prime, k≥1; L1 integration on
 
 *Proof sketch.* j = 1: 1 − z is a rigid-analytic unit on the wide open neighbourhoods of U, so log_a(1 − z) is a Coleman function with d log_a(1 − z) = d(1 − z)/(1 − z) (L1.31: the Coleman integral of df/f for a rigid unit f is log_a f). On D⁻(0,1), 1 − z ∈ 1 + m_{ℂ_p}, so −log_a(1 − z) = Li_1^ser(z) for every a (L0.15). Inductive step j ≥ 2: ω := Li^a_{j−1}·dz/z lies in A^a_Col(U)·Ω†(U); Coleman integration gives F ∈ A^a_Col(U) with dF = ω, unique up to an additive constant (L1.31). On the residue annulus of 0 the restriction of Li^a_{j−1} is Li_{j−1}^ser (induction), so ω = Σ_{n≥1} z^{n−1}/n^{j−1} dz = d(Li_j^ser) there; hence F − Li_j^ser ∈ A(annulus)[log_a z] has zero differential and is a constant c (the kernel of d on log-Laurent series on an annulus is ℂ_p: L0.22). Put Li^a_j := F − c. Uniqueness: two solutions differ by a Coleman function with zero differential, which is a global constant (L1.18); it vanishes on the residue annulus of 0, hence everywhere. Independence of the Frobenius lift: A^a_Col(U) and its integration do not depend on the lift (L1.22), and (i)-(iii) do not mention it.
 
-*In `Suggested.lean`:* `existsUnique_isPolylogFamily`.
 
 *Needs:* L2.1, L0.15, L1.30, L1.31, L1.19, L1.18, L1.22, L0.21, L0.22.
 
@@ -1353,7 +1351,6 @@ Standing hypotheses of this target: p prime; a∈ℂ_p; k≥0. At 1, Li_0 has a 
 
 *Construction.* The existence theorem gives the Coleman function on U with the normalisation at 0; the continuation lemma extends it to all of ℂ_p ∖ {1}; on D⁻(0,1) it is Li_k^ser by (iii) of the existence theorem. The value at 1 for k ≥ 2 is the constant term λ_k(1) of the analytic function λ_k of the continuation lemma. Li^{(p),a}_k is a combination of two values of Li^a_k.
 
-*In `Suggested.lean`:* `padicPolylog`, `padicModPolylog`, `padicZeta`, `padicPolylog_one_index`, `padicPolylog_eq_polylogSer`.
 
 *Needs:* L2.3, L2.4, L2.1, L0.15.
 
@@ -1392,7 +1389,6 @@ Standing hypotheses of this target: a ∈ ℂ_p; k ≥ 0; m ≥ 1; z ∈ ℂ_p w
 
 *Proof sketch.* k = 0: Σ_{ζ∈μ_m} ζz/(1 − ζz) = m·z^m/(1 − z^m), an identity of rational functions (both sides equal Σ_{n: m|n} m z^n on |z| < 1, since Σ_{ζ∈μ_m} ζ^n = m·[m | n]; Mathlib `IsPrimitiveRoot`). k = 1: Π_{ζ∈μ_m}(1 − ζz) = 1 − z^m and log_a is a homomorphism (L0.15), so Σ_ζ −log_a(1 − ζz) = −log_a(1 − z^m). On D⁻(0,1) for all k: the power series identity Σ_ζ Σ_n (ζz)^n/n^k = m Σ_j z^{mj}/(mj)^k = m^{1−k}Li_k^ser(z^m). Reduction of m: if the relation holds for m_1 and m_2 then it holds for m_1m_2 (write μ_{m_1m_2} as a union of cosets ημ_{m_2}, apply the relation for m_2 at ηz, then for m_1 at z^{m_2}, using that η ↦ η^{m_2} maps μ_{m_1m_2} onto μ_{m_1} with fibres of size m_2); so it suffices to treat m prime to p and m = p. m prime to p: G_k(z) := Σ_ζ Li^a_k(ζz) − m^{1−k}Li^a_k(z^m) is a Coleman function on P¹ ∖ ({0, ∞} ∪ μ_m), a curve with good reduction because μ_m has distinct reductions, obtained by pullback of Li^a_k along z ↦ ζz and z ↦ z^m (L1.43). m = p: the maps z ↦ ζz (ζ ∈ μ_p ⊂ D⁻(1,1)) are rigid automorphisms of the wide open neighbourhoods U_λ of U for λ > |ζ − 1|, and z ↦ z^p is the Frobenius lift, so G_k is a Coleman function on U_λ (L1.43, change of variables). dG_k = G_{k−1}dz/z, because d(z^m)/z^m = m·dz/z and m·m^{1−k} = m^{1−(k−1)} (L2.7); G_0 = 0 by the first step, and G_k = 0 on D⁻(0,1). By induction and the uniqueness principle (L1.18) G_k ≡ 0 on the wide open. Extension to the punctured discs of 1 and ∞ (L2.4). On D⁻(1,1) ∖ μ_m write m = p^r m' with p ∤ m': the terms with ζ ∉ μ_{p^r} are analytic on D⁻(1,1); for ξ ∈ μ_{p^r}, Li^a_k(ξz) = λ_k(ξz) − log(z)^{k−1}log_a(1 − ξz)/(k−1)!, and since Π_{ξ∈μ_{p^r}}(1 − ξz) = 1 − z^{p^r} and 1 − z^m = (1 − z^{p^r})·Π_{η∈μ_{m'}∖{1}}(1 − ηz^{p^r}) with the last product a unit analytic on D⁻(1,1), the logarithmic terms of G_k cancel, so G_k is analytic on D⁻(1,1) off μ_m and extends analytically across it; it vanishes on the outer annulus, hence on the disc (uniqueness of power series expansions: Mathlib `HasFPowerSeriesAt.eq_zero_of_eventually` with Mathlib `HasFPowerSeriesOnBall.changeOrigin`). On {|z| > 1}, G_k is a polynomial in log_a(1/z) with coefficients analytic in 1/z on the whole disc; it vanishes on the outer annulus, so all coefficients vanish. For a general tame-root residue disc D(α,1), α in μ_(m'), first rotate z=α u: the relevant p-power roots and the same logarithmic cancellation are transported from the disc of1. Ordinary discs are covered by the Coleman identity, and these rotated end discs together with0 and ∞ exhaust the omitted components. Logarithmic-polynomial vanishing at ∞ uses L0.21, not an analytic identity principle for a formal log variable. The modified version for p ∤ m: ζ ↦ ζ^p permutes μ_m, so Σ_ζ Li^a_k(ζ^pz^p) = m^{1−k}Li^a_k(z^{pm}); subtract p^{−k} times this from the relation at z.
 
-*In `Suggested.lean`:* `padicPolylog_distribution`.
 
 *Needs:* L2.5, L2.7, L2.4, L2.3, L2.1, L0.15, L1.30, L1.17, L1.43, L1.18, `IsPrimitiveRoot`, `HasFPowerSeriesAt.eq_zero_of_eventually`, `HasFPowerSeriesOnBall.changeOrigin`, L0.21.
 
@@ -1402,7 +1398,6 @@ Standing hypotheses of this target: a ∈ ℂ_p; k ≥ 0; m ≥ 1; z ∈ ℂ_p w
 
 *Proof sketch.* F_k(z) := Li^a_k(z) + (−1)^k Li^a_k(1/z) + log_a(z)^k/k! is a Coleman function on U: z ↦ 1/z is an automorphism of (P¹, {0,1,∞}) over ℤ_p commuting with the Frobenius lift z ↦ z^p, so pullback preserves Coleman functions (L1.43). F_0 = z/(1 − z) + 1/(z − 1) + 1 = 0, and dF_k = F_{k−1}dz/z because d(1/z)/(1/z) = −dz/z (L2.7); by induction F_k has zero differential, so it is a constant C_k (L1.18). C_k = 0 for k ≥ 1: F_k satisfies the distribution relation Σ_{ζ∈μ_m}F_k(ζz) = m^{1−k}F_k(z^m) (L2.8 for both Li-terms; for the logarithm, Σ_ζ log_a(ζz)^k = m·log_a(z)^k = m^{1−k}log_a(z^m)^k); for the constant this reads m·C_k = m^{1−k}C_k with m = 2, so C_k = 0. Extension to the punctured discs: on D⁻(0,1) ∖ {0} and on {|z| > 1}, F_k is a polynomial in log_a z with coefficients analytic on the whole punctured disc and extending across its centre (L2.4); it vanishes on the outer annulus, hence identically; on D⁻(1,1) ∖ {1} both z and 1/z lie in D⁻(1,1), the logarithmic terms cancel (log_a(1 − 1/z) = log_a(1 − z) − log(z) because 1 − 1/z = (z − 1)/z and log_a(−1) = 0, and log(1/z) = −log z), leaving λ_k(z) + (−1)^kλ_k(1/z) − log(z)^k/(k−1)! + log(z)^k/k!, analytic on D⁻(1,1); it vanishes on the outer annulus, hence on the disc. (i) is the case z ↦ 1/z with |1/z| < 1, using Li^a_k = Li_k^ser on D⁻(0,1); (ii) uses log_a ζ = 0; (iii) subtract p^{−k} times the relation at z^p, using log_a(z^p)^k = p^k log_a(z)^k.
 
-*In `Suggested.lean`:* `padicPolylog_inversion`.
 
 *Needs:* L2.8, L2.5, L2.7, L2.4, L2.1, L0.15, L1.30, L1.18, L1.43, L0.21.
 
@@ -1414,7 +1409,6 @@ Standing hypotheses of this target: a, b ∈ ℂ_p arbitrary; k ≥ 1; z ≠ 1 (
 
 *Proof sketch.* log_a(z) − log_b(z) = v(z)β: both are homomorphisms agreeing on units and differing by β on p (L0.15). On D⁻(0,1) both functions equal Li_k^ser; on each residue disc of U the Coleman functions with branches a and b coincide, since the transport ι_{a,b} of ColemanIntegration L1 changes only log_a of the local parameters at 0, 1, ∞ and maps Li^a_k to Li^b_k (both satisfy the characterisation of L2.3). There v(1 − z) = 0, which gives (i). On D⁻(1,1) ∖ {1}: Li^c_k = λ_k − log(z)^{k−1}log_c(1 − z)/(k−1)! with λ_k independent of c (L2.4); subtract and use log_a(1 − z) − log_b(1 − z) = v(1 − z)β; since log_a z = log_b z = log z there, the sum in the formula is k·log(z)^{k−1}, which gives (ii). On {|z| > 1}: Li^c_k(z) = (−1)^{k+1}Li_k^ser(1/z) − log_c(z)^k/k! (L2.9); subtract, factor log_a^k − log_b^k = (log_a − log_b)Σ_j log_a^{k−1−j}log_b^j and use v(z) = v(1 − z) for |z| > 1. (iv): log_a ζ = 0 for roots of unity, which kills the sum for k ≥ 2; for k = 1 the formula is −β·v(1 − ζ), and v(1 − ζ) = 1/(p^{r−1}(p−1)) for ζ of order p^r and 0 otherwise (L2.2). (v): from (ii) and (iii) at z and z^p, using v(1 − z^p) = p·v(1 − z) when p^{−1/(p−1)} < |z − 1| < 1 and log(z^p) = p·log z.
 
-*In `Suggested.lean`:* `padicPolylog_sub_padicPolylog`.
 
 *Needs:* L2.9, L2.4, L2.5, L2.3, L2.2, L0.15, L1.30, L0.16, L1.23.
 
@@ -1426,7 +1420,6 @@ Standing hypotheses of this target: k ≥ 2 in (a)-(d); L ⊂ ℂ_p with e(L/ℚ
 
 *Proof sketch.* (a) On D⁻(1,1) ∖ {1}, Li^a_k(z) − λ_k(z) = −log(z)^{k−1}log_a(1 − z)/(k−1)! (L2.4). For z ∈ L near 1, |log z| = |z − 1|, and writing 1 − z = u·π_L^n with u ∈ O_L^×, log_a(1 − z) = n·log_a(π_L) + log(u) where |log(u)| is bounded on O_L^× because L is finitely ramified (a power u^{s p^c} with p ∤ s, p^c > e_L, is ≡ 1 mod p). Hence |log(z)^{k−1}log_a(1 − z)| ≤ C_L·|z − 1|·(1 + |n|) → 0 (k − 1 ≥ 1), and λ_k is continuous at 1. Independence of a: L2.10. k = 1: −log_a(p^n) = −na and log_a(−1) = 0; log(1 + p) ≠ 0 because 1 + p is not a root of unity (for p = 2 use 1 + 4). (b) Let z → 1 in ℚ_p in the inversion relation Li^a_k(z) + (−1)^k Li^a_k(1/z) = −log_a(z)^k/k! (L2.9): both Li-terms tend to ζ_p(k) and the right side to 0, so (1 + (−1)^k)ζ_p(k) = 0. (c) Given z_0 with z_0^m = 1, approach z_0 by z ∈ ℚ_p(z_0) with z^m ≠ 1 and apply L2.8; every term is continuous at z_0 along ℚ_p(z_0) (terms with ζz_0 ≠ 1 are locally analytic there, the others by (a)). Put z_0 = 1; for p odd take m = 2 and use that −1 is not in the residue disc of 1. (d) λ_2(z) = λ_2(1) − Li_2^ser(1 − z) (continuation lemma) and λ_2(1) = ζ_p(2) = 0 by (b).
 
-*In `Suggested.lean`:* `tendsto_padicPolylog_one`.
 
 *Needs:* L2.4, L2.5, L2.8, L2.9, L2.10, L0.15.
 
@@ -1488,7 +1481,6 @@ Standing hypotheses of this target: a ∈ ℂ_p; k ≥ 0; |z − 1| > p^{−1/(p
 
 *Proof sketch.* Put F_k(z) := Li^a_k(z) − p^{−k}Li^a_k(z^p) and G_k(z) := g_k(1/(1 − z)) on W := {|z − 1| > p^{−1/(p−1)}} ∖ {∞}. On D⁻(0,1), F_k = Σ_{p∤n}z^n/n^k = ℓ_k = G_k (L2.1, L2.13, L2.14). z·dF_k/dz = F_{k−1} (L2.7 and the chain rule: z·d/dz[p^{−k}Li^a_k(z^p)] = p^{−k}·p·Li^a_{k−1}(z^p)) and z·dG_k/dz = G_{k−1} (the recursion for g_k with dz/z = dv/(v(v − 1))); F_0 = G_0 (explicit). Proceed by induction on k: the previous-depth identity F_(k-1)=G_(k-1) is what makes the differential of F_k-G_k vanish. Differential recursion alone is not the zero-derivative conclusion. F_k − G_k is locally constant on W: on each residue disc of U and on D⁻(0,1) it is a power series with zero derivative; on the annulus p^{−1/(p−1)} < |z − 1| < 1 and on {|z| > 1} it is an element of A(annulus)[log_a] with zero differential (L2.4; z^p lies in the residue disc of 1 when z does), hence constant (L0.22). So F_k − G_k = c(z̄) depends only on the residue class, with c(0̄) = 0. Coleman's theory removes the ambiguity: F_k is a Coleman function on a wide open neighbourhood of U, being a combination of Li^a_k and its pullback by the Frobenius lift (L1.30; the choice of lift is immaterial by L1.22), and G_k is rigid analytic on the wide open W, hence a Coleman function; their difference has zero differential and is a global constant (L1.18), equal to c(0̄) = 0. Each residue class of W meets the wide open, so c ≡ 0 on W. Branch independence follows because G_k does not involve a; the remaining assertions are the properties of g_k and ℓ_k.
 
-*In `Suggested.lean`:* `padicModPolylog_overconvergent`.
 
 *Needs:* L2.13, L2.14, L2.5, L2.4, L2.7, L2.1, L1.30, L1.18, L1.22, L0.21, L0.22, L1.15.
 
@@ -1500,7 +1492,6 @@ Standing hypotheses of this target: a ∈ ℂ_p; k ≥ 0; the class 𝒞^a depen
 
 *Proof sketch.* Existence: Li^a_k lies in 𝒞^a by L2.4 and satisfies (i)-(iv) by L2.5, L2.7 and L2.15. Uniqueness by induction on k: if (f_k) also satisfies (i)-(iv) and f_{k−1} = Li^a_{k−1}, then c := f_k − Li^a_k has zero derivative and lies in 𝒞^a, so it is constant on each residue disc, on the punctured disc of 1 and on {|z| > 1} (L0.22), with c = 0 near 0 by (ii). By (iv) for f_k and for Li^a_k, the function z ↦ c(z) − p^{−k}c(z^p) is, in the coordinate v = 1/(1 − z), the difference of two power series converging on the open disc |v| < p^{1/(p−1)}, hence a power series h on that disc; it is constant (= 0) on the subdisc |v − 1| < 1 corresponding to z ∈ D⁻(0,1), so all derivatives of h at v = 1 vanish and h ≡ 0 on the disc (uniqueness of expansions after re-centring: Mathlib `HasFPowerSeriesOnBall.changeOrigin`, Mathlib `HasFPowerSeriesAt.eq_zero_of_eventually`). Hence c(x) = p^{−k}c(x^p) for every residue class x ≠ 1̄ and also on the part of the residue disc of 1 where |z − 1| > p^{−1/(p−1)}; since x^{p^f} = x for some f ≥ 1, c(x) = p^{−kf}c(x), so c = 0 (k ≥ 1).
 
-*In `Suggested.lean`:* `IsPolylogFamily`, `InPolylogClass`, `IsLogLaurentNear`, `IsLogLaurentAtInfty`.
 
 *Needs:* L2.15, L2.4, L2.5, L2.7, L2.12, L0.21, L0.22, `HasFPowerSeriesOnBall.changeOrigin`, `HasFPowerSeriesAt.eq_zero_of_eventually`, L0.7.
 
@@ -1512,7 +1503,6 @@ Standing hypotheses of this target: σ a continuous ring automorphism of ℂ_p; 
 
 *Proof sketch.* Transport of structure: for a function F on (a subset of) ℂ_p put (σ·F)(z) := σ(F(σ^{−1}z)). Then σ·(log_a) = log_{σ(a)}: both are homomorphisms ℂ_p^× → ℂ_p, they agree on 1 + m_{ℂ_p} because σ is continuous and fixes the rational coefficients of the logarithm series, and σ(log_a p) = σ(a) with σ(p) = p (L0.17). σ· maps the class 𝒞^a of L2.16 onto 𝒞^{σ(a)}: σ is an isometric field automorphism, so it maps residue discs to residue discs and a power series in z − x converging on D⁻(x,1) to the power series in z − σ(x) with coefficients transformed by σ, converging on D⁻(σ(x),1); likewise Laurent series on the punctured discs of 1 and ∞, while log_a(z − 1) and log_a(1/z) become log_{σ(a)}(z − 1) and log_{σ(a)}(1/z) by the first step. The operation commutes with z·d/dz, and a power series g(v) converging for |v| < p^{1/(p−1)} goes to the series σ(g) with the same radius. σ·Li^a_k satisfies (i)-(iv) of L2.16 for the branch σ(a): σ·Li_0 = Li_0 because z/(1 − z) has rational coefficients, σ·Li^a_k(0) = 0, d(σ·Li^a_{k+1}) = (σ·Li^a_k)dz/z, and σ·Li^a_k − p^{−k}(σ·Li^a_k)(z^p) = σ(g_k)(1/(1 − z)) because σ(z^p) = σ(z)^p. By the uniqueness in that characterisation σ·Li^a_k = Li^{σ(a)}_k on ℂ_p ∖ {1}. ζ_p(k) = λ_k(1) is independent of the branch (L2.10), so σ(ζ_p(k)) = λ_k^{σ(a)}(1) = ζ_p(k); the statement for Li^{(p)} follows since σ(z^p) = σ(z)^p.
 
-*In `Suggested.lean`:* `padicPolylog_map`.
 
 *Needs:* L2.4, L2.5, L2.10, L2.1, L0.15, L2.16, L0.17.
 
@@ -1524,7 +1514,6 @@ Standing hypotheses of this target: a, b ∈ ℂ_p; z ∉ {0, 1}; v = v_p.
 
 *Proof sketch.* (a) F(z) := Li^a_2(z) + Li^a_2(1 − z) + log_a(z)log_a(1 − z) is a Coleman function on U (pullback of Li^a_2 by the automorphism z ↦ 1 − z of (P¹, {0,1,∞}); Coleman functions are functorial for morphisms of wide opens and independent of the Frobenius lift: L1.43, L1.22). dF = −log_a(1 − z)dz/z + log_a(z)dz/(1 − z) + log_a(1 − z)dz/z − log_a(z)dz/(1 − z) = 0, so F is constant (L1.18). As z → 0 in ℚ_p: Li^a_2(z) → 0, log_a(z)log(1 − z) → 0 (L2.11, estimate (a)), and Li^a_2(1 − z) → ζ_p(2) = 0 (L2.11 (b)); so F ≡ 0; the identity extends to the punctured discs of 0, 1, ∞ as in the inversion relation. (b) From (a): D(1 − z) = Li_2(1 − z) + ½log(1 − z)log z = −Li_2(z) − ½log z·log(1 − z) = −D(z). From the inversion relation with k = 2 (L2.9) and log_a(1 − 1/z) = log_a(1 − z) − log_a(z): D(1/z) = −Li_2(z) − ½log_a(z)² − ½log_a(z)(log_a(1 − z) − log_a(z)) = −D(z). (c) Direct computation with d Li^a_2 = −log_a(1 − z)dz/z (L2.7). (d) L2.10 with k = 2 gives Li^a_2 − Li^b_2 = −½β·v(1 − z)(log_a z + log_b z); add ½(log_a z·log_a(1 − z) − log_b z·log_b(1 − z)) using log_a = log_b + v(·)β and simplify. (e) Subtract p^{−2} times the definition at z^p, use log_a(z^p) = p·log_a(z) and Li^{(p),a}_1(z) = −log_a(1 − z) + p^{−1}log_a(1 − z^p); then L2.15 for k = 1, 2. For ζ of order prime to p, log ζ = 0. (f) L2.17 and σ(log_a w) = log_{σ(a)}(σ w).
 
-*In `Suggested.lean`:* `dilogD`, `dilogD_one_sub`, `dilogD_inv`.
 
 *Needs:* L2.9, L2.10, L2.11, L2.17, L2.15, L2.5, L2.7, L1.30, L1.18, L1.22, L0.15, L1.43.
 
@@ -1598,7 +1587,6 @@ Standing hypotheses of this target: p prime; x,u nonzero with norms below 1; log
 
 *Proof sketch.* ζ and all ζ^{p^i} are special units (L2.2), so |ζ^{p^i} − 1| = 1 > p^{−1/(p−1)} and L2.15 gives Li^a_k(ζ^{p^i}) − p^{−k}Li^a_k(ζ^{p^{i+1}}) = ℓ_k(ζ^{p^i}) for every i. Telescoping f times and using ζ^{p^f} = ζ: (1 − p^{−kf})Li^a_k(ζ) = Σ_{i<f} p^{−ik}ℓ_k(ζ^{p^i}). The right side involves only ℓ_k, which does not depend on a. (b) ℓ_k(ζ^{p^i}) ∈ ℤ_p[ζ] by L2.13 (i) (ζ^{p^i} ∈ ℤ_p[ζ] with |ζ^{p^i} − 1| = 1), and p^k(p^{kf} − 1)^{−1} ∈ p^k ℤ_p^×. (c) Modulo p only the term i = f − 1 survives in p^{−k}Li_k(ζ) = (p^{kf} − 1)^{−1}Σ_i p^{(f−1−i)k}ℓ_k(ζ^{p^i}), and p^{kf} − 1 ≡ −1; by L2.13 (ii), ℓ_k(σ(ζ)) ≡ li_k(σ(ζ))/(1 − σ(ζ)^p) = li_k(σ(ζ))/(1 − ζ). The second form: apply the first to ζ^p, with σ(ζ^p) = ζ and 1 − ζ^p ≡ (1 − ζ)^p mod p. (d) L2.9 (ii). Values in ℚ_p(ζ): ℓ_k has an expansion with ℤ_p-coefficients in t and (1 − t)^{−1}.
 
-*In `Suggested.lean`:* `padicPolylog_inv_of_isPrimitiveRoot`.
 
 *Needs:* L2.15, L2.13, L2.2, L2.9, L2.5, `TauCeti.teichmuller`.
 
@@ -1616,7 +1604,6 @@ Standing hypotheses of this target: p prime; x,u nonzero with norms below 1; log
 
 *Proof sketch.* |ζ − 1| = p^{−1/(p^{r−1}(p−1))} (L2.2), so ζ ∈ D⁻(1,1) ∖ {1}, v(1 − ζ) = 1/(p^{r−1}(p−1)), and Π_{c}(1 − ζ^c) = Φ_{p^r}(1) = p. (a) Li^a_1 = −log_a(1 − z); the branch difference is −v(1 − ζ)(a − b) (L2.10); the sum is −log_a(Π_c(1 − ζ^c)) = −log_a(p); for θ nontrivial the branch difference Σ_cθ^{−1}(c)·v(1 − ζ^c)(a − b) vanishes since v(1 − ζ^c) = v(1 − ζ) for all c and Σ_cθ^{−1}(c) = 0. (b) On D⁻(1,1), Li^a_k = λ_k − log(z)^{k−1}log_a(1 − z)/(k−1)! and log ζ = 0 (a root of unity), so for k ≥ 2 the second term vanishes at ζ; λ_k is branch-free. (c) For r ≥ 2, |ζ − 1| > p^{−1/(p−1)} and L2.15 applies; ζ^p has order p^{r−1}. For the sums use L2.11 (c) with m = p^r and m = p. (d) L2.9 (ii). (e) L2.17 with σ_c ∈ Gal(ℚ_p(ζ)/ℚ_p) ≅ (Z/p^r)^× extended continuously to ℂ_p; values in ℚ_p(ζ) by L2.26.
 
-*In `Suggested.lean`:* `padicPolylog_primePow_rootOfUnity_branch`.
 
 *Needs:* L2.2, L2.4, L2.10, L2.15, L2.14, L2.11, L2.9, L2.17, L2.26, `Polynomial.eval_one_cyclotomic_prime_pow`, L0.15.
 
@@ -1672,7 +1659,6 @@ Standing hypotheses of this target: (C6), (C7).
 
 *Construction.* Form the five values of the existing D and take their signed sum. No vanishing property is part of this definition. Unfolding gives the evaluation API. The lemmas L2.33–L2.43 prove its covariance and reduction API from the two-term identities and the nested-disc result; no API item is assumed by the definition.
 
-*In `Suggested.lean`:* `fiveTermDefect`.
 
 *Needs:* L2.18.
 
@@ -2091,7 +2077,6 @@ Standing hypotheses of this target: p is any prime, including2; a∈ℂ_p; x,y�
 
 *Proof sketch.* For each algebraic special unitv use L2.68 to obtain one constant for all admissible first coordinates. In particular restrict it to algebraic first coordinates. Apply L2.62: its geometric boundary limit forces the constant to0; the open-locus algebraic density and continuity extend this to everyC_p special-unit pair; the signed scalar norm reduction gives every admissible pair. This dependency chain uses no field-general projective five-point identity; the projective and Bloch forms are L2.Fb and L2.70.
 
-*In `Suggested.lean`:* `fiveTermDefect_eq_zero`.
 
 *Needs:* L2.68, L2.62.
 
@@ -2106,7 +2091,6 @@ Standing hypotheses of this target: p is any prime, including2; a∈ℂ_p; x,y�
 
 Standing hypotheses of this target: a ∈ ℂ_p; x, y ∉ {0, 1}, x ≠ y; p prime.
 
-*In `Suggested.lean`:* the projective relation for injective five-tuples of ℙ¹(ℂ_p), `ProjectiveAlgebra.dilogD_cyclic`.
 
 *Needs:* L2.18, L2.11, L2.4, L2.9, L1.17, L1.43, L1.18, L2.24, L2.Fb, L2.44, L1.39, L1.40, L2.46, L2.53, L2.62, L2.69.
 
@@ -2118,7 +2102,6 @@ Standing hypotheses of this target: θ nontrivial modulo N ≥ 2 (primitive wher
 
 *Proof sketch.* (a) For k ≥ 2 each Li^a_k(ε^c) is branch-free (L2.10 (iv)); for k = 1 the branch difference is −(a − b)Σ_cθ^{−1}(c)v(1 − ε^c), and v(1 − ε^c) is independent of c (L2.2) while Σ_cθ^{−1}(c) = 0. (b) Reindex c ↦ b^{−1}c. For the Gauss sum with primitive θ and non-unit b, Mathlib `gaussSum_mulShift_of_isPrimitive` (applied to χ = θ^{−1} and the additive character determined by ε). (c) Reindex c ↦ −c and use Li_k(ζ^{−1}) = (−1)^{k+1}Li_k(ζ) (L2.9 (ii)). (d) Li^{(p)}_k(ε^c) = Li_k(ε^c) − p^{−k}Li_k(ε^{pc}). If p ∤ N, c ↦ pc permutes (Z/N)^× and Σ_cθ^{−1}(c)Li_k(ε^{pc}) = θ(p)S_k. If p | N and N ≠ p, ε^p is a primitive (N/p)-th root and Σ_cθ^{−1}(c)Li_k(ε^{pc}) = Σ_{d∈(Z/(N/p))^×}Li_k(ε^{pd})·Σ_{c≡d}θ^{−1}(c); each inner sum runs over a coset of ker((Z/N)^× → (Z/(N/p))^×), on which θ is nontrivial because θ is primitive of conductor N, so it vanishes. If N = p and k ≥ 2, ε^{pc} = 1 and Σ_cθ^{−1}(c)ζ_p(k) = 0 (L2.11). (e) L2.17 and the definition of the Gauss sum.
 
-*In `Suggested.lean`:* `twistedPolylogSum`, `twistedModPolylogSum_eq`, `twistedPolylogSum_parity`.
 
 *Needs:* L2.10, L2.9, L2.11, L2.17, L2.2, L2.5, `DirichletCharacter`, `DirichletCharacter.IsPrimitive`, gaussSum, gaussSum_mulShift_of_isPrimitive, L3.9.
 
@@ -2140,25 +2123,41 @@ Use geometric measures away from the disc of one, and pole-cancelled smoothing o
 
 ### L3.F Motivic and regulator foundations: how they are organised
 
-The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests on four groups of foundations that no lower-tier roadmap and neither library provides: rational algebraic K-theory with Adams weights together with the de Jeu symbol complexes and Beilinson's cyclotomic elements (L3.Fa.1–L3.Fa.5); Besser's rigid syntomic regulator, the relative rigid complexes with their integration functional and the integration-down computation of the regulator on symbols (L3.Fb.1–L3.Fb.6); the complex Beilinson regulator pairing, the rank criterion and the cyclotomic determinants (L3.Fc.1–L3.Fc.3); and Artin L-functions with coefficients, complex and p-adic (L3.Fd.1–L3.Fd.2). They are owned here because the roadmaps that would naturally own them (polylogarithms, Borel and p-adic Hodge regulators, automorphic p-adic L-functions) sit above this one in the upstream order; those roadmaps import these targets. Algebraic K-theory itself enters only through the explicit interface of L3.Fa.1, whose construction (Quillen's K-theory of exact categories with the λ-operations of Gillet–Soulé) is the standard one and is not re-derived here. Throughout, K denotes a complete discretely valued field of characteristic zero with valuation ring R and residue field κ algebraic over F_p, and q is the cardinality of the residue field over which the chosen Frobenius is defined (BDJ §1 Notation, p. 874; §4, p. 889).
+The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests on four groups of foundations that no lower-tier roadmap and neither library provides: rational algebraic K-theory with Adams weights together with the de Jeu symbol complexes and Beilinson's cyclotomic elements (L3.Fa.1–L3.Fa.5); Besser's rigid syntomic regulator, the relative rigid complexes with their integration functional and the integration-down computation of the regulator on symbols (L3.Fb.1–L3.Fb.6); the complex Beilinson regulator pairing, the rank criterion and the cyclotomic determinants (L3.Fc.1–L3.Fc.3); and Artin L-functions with coefficients, complex and p-adic (L3.Fd.1–L3.Fd.2). They are owned here because the roadmaps that would naturally own them (polylogarithms, Borel and p-adic Hodge regulators, automorphic p-adic L-functions) sit above this one in the upstream order; those roadmaps import these targets. L3.Fa.1 constructs the higher K-groups and their Adams operations, consuming the exact-category and finite-vector-bundle infrastructure named in the supplier contracts. Its properties are targets to prove for this construction. Throughout, K denotes a complete discretely valued field of characteristic zero with valuation ring R and residue field κ algebraic over F_p, and q is the cardinality of the residue field over which the chosen Frobenius is defined (BDJ §1 Notation, p. 874; §4, p. 889).
 
 ### L3.Fa.1 Rational K-groups with Adams weights
 
-**Definition.** For a regular noetherian separated scheme B (and more generally for the pairs and multi-relative pairs of L3.Fa.2), write K_m(B)_ℚ = K_m(B) ⊗ ℚ for Quillen's K-groups tensored with ℚ and K_m^(j)(B) ⊆ K_m(B)_ℚ for the common eigenspace of the Adams operations ψ^k on which ψ^k acts by k^j for all k ≥ 1, so that K_m(B)_ℚ = ⊕_j K_m^(j)(B). The interface consumed by this layer is: contravariant functoriality, compatible with the decomposition; the cup product K_m^(i) × K_n^(j) → K_(m+n)^(i+j); homotopy invariance K_m^(j)(B) ≅ K_m^(j)(𝔸¹_B); for a regular closed subscheme Z ⊂ B of pure codimension c the localization sequence ⋯ → K_m^(j−c)(Z) → K_m^(j)(B) → K_m^(j)(B∖Z) → K_(m−1)^(j−c)(Z) → ⋯, with the shift of weight by the codimension; and K-theory with supports for the spectral sequences of L3.Fa.2. A scheme B has *no low weight K-theory* if K_m^(j)(B) = 0 whenever 2j ≤ m and m > 0 (the Beilinson–Soulé vanishing), and a ring has it if its spectrum has (BDJ §3, Definition 3.2, p. 881; the localization sequences, p. 880).
+**Construction.** Work with regular noetherian separated schemes B of finite Krull dimension having an ample family of line bundles; these include the affine schemes and open cubes used below. Start with the essentially small exact category P(B) of finite locally free sheaves, with conflations the sheaf-exact sequences. Import its vector-bundle operations from AlgebraicVectorBundles L0A–L0C and its exact-category structure from GrothendieckEulerForms Layer 0. Define `QuillenQ` on a small equivalent category: objects are those of P(B), and an arrow E → F is an isomorphism class of spans E ← H → F whose left arrow is an admissible epimorphism and whose right arrow is an admissible monomorphism; composition is by pullback. Form its nerve and geometric realization, pointed by the zero object, and define `higherKGroup m B = π_(m+1)(|N QuillenQ(P(B))|, 0)` for m ≥ 0. Prove independence of the small model and zero object, the abelian group laws and exact-functor maps, and the comparison at m = 0 with the exact Grothendieck group imported from GrothendieckEulerForms Layer 1 (Quillen, §2, construction and Theorem 1, published pp. 100–104). For the relative pairs of L3.Fa.2 use the homotopy fibre of the restriction map of pointed K-spaces, iterated for multi-relative cubes; construct the resulting long exact sequences. For these schemes (and the pairs and multi-relative pairs of L3.Fa.2), write K_m(B)_ℚ = K_m(B) ⊗ ℚ for Quillen's K-groups tensored with ℚ and K_m^(j)(B) ⊆ K_m(B)_ℚ for the common eigenspace of the Adams operations ψ^k on which ψ^k acts by k^j for all k ≥ 1, so that K_m(B)_ℚ = ⊕_j K_m^(j)(B). The required theorems for these groups are: contravariant functoriality, compatible with the decomposition; the cup product K_m^(i) × K_n^(j) → K_(m+n)^(i+j); homotopy invariance K_m^(j)(B) ≅ K_m^(j)(𝔸¹_B); for a regular closed subscheme Z ⊂ B of pure codimension c with trivial normal bundle (the coordinate divisors and the closed point of a discrete valuation ring used here), the localization sequence ⋯ → K_m^(j−c)(Z) → K_m^(j)(B) → K_m^(j)(B∖Z) → K_(m−1)^(j−c)(Z) → ⋯, with the shift of weight by the codimension; and K-theory with supports for the spectral sequences of L3.Fa.2. A scheme B has *no low weight K-theory* if K_m^(j)(B) = 0 whenever 2j ≤ m and m > 0 (the Beilinson–Soulé vanishing), and a ring has it if its spectrum has (BDJ §3, Definition 3.2, p. 881; the localization sequences, p. 880).
 
+The realization used here is the quotient of the disjoint union of the spaces N_nQ × Δⁿ by the face and degeneracy identifications, with the quotient topology. Its basepoint is the vertex of the zero object. The pointed K-space is its loop space. For a pointed map f : V → W use the homotopy fibre of pairs (v, γ), where γ is a path from f(v) to the basepoint of W; the path-space topology, functoriality, invariance under pointed homotopy equivalence and the fibre long exact sequence are part of this construction. Only the realization of these category nerves and its homotopy properties are needed (Quillen §1, published pp. 89–99, especially Theorem B, p. 97).
+
+The Adams operations are another construction target, not fields of an assumed K-theory object. Starting from exterior powers of vector bundles, construct the normalized complex of exact cubes: an n-cube is a diagram on {0, 1, 2}^n exact in each coordinate, its differential is Σ_(i=1)^n Σ_(j=0)^2 (−1)^(i+j) ∂ᵢʲ, and degenerate cubes are quotiented out. Construct the rational comparison with higher K-groups and the transgression to cubes split in each direction. For the chain operations use the linear-functional Koszul complex imported from IntegralHeckeAndGaloisDeterminants §6.4, locally for the tautological functional Sym(E) ⊗ E → Sym(E); glue by its functoriality. Its homogeneous part of positive total degree k has terms Symᵖ(E) ⊗ Λ^(k−p)(E), 0 ≤ p ≤ k, with differential given by multiplication in the symmetric factor and alternating deletion in the exterior factor. Prove exactness, compatibility with pullback and its direct-sum decomposition for E ⊕ F (Feliu, Definition 2.15 and Lemma 2.16, p. 15). These homogeneous parts yield the chain operations Ψ^k. Prove that the induced ψ^k agree on K₀ with the Newton polynomials in the exterior-power operations, are natural, satisfy ψ^k ψ^l = ψ^(kl), respect products, and give the simultaneous rational eigenspace decomposition used here (Feliu, §1.2–§1.5, pp. 4–8; Proposition 3.17, p. 37; Corollary 4.1, Theorem 4.2 and Corollary 4.3, p. 40; BDJ §3, pp. 879–881 for the weight decomposition and localization convention). For arbitrary supports use K(B on Z), the homotopy fibre of K(B) → K(B∖Z), and its Adams operations. The uncorrected pushforward from Z shifts pure weights by c only under the trivial-normal-bundle hypothesis above; no such pure-weight statement is imposed on a general regular immersion.
+
+- `QuillenQ`, `higherKGroup`, `higherKGroup.map`: the category, its K-groups and exact-functor maps, including composition, identity and invariance under natural isomorphism.
+- `higherKGroup.zeroEquiv`: K₀ identified with the exact Grothendieck group by the class of each object.
+- `relativeKSpace`, `higherKGroupWithSupports`: homotopy-fibre constructions, their functorial maps and long exact sequences.
+- `exactCubeComplex`, `exactCubeComplex.homologyEquivK`, `adamsOnExactCubes`: the normalized cube complex, its rational comparison and the chain operations whose induced endomorphisms are ψ^k.
+- `homogeneousKoszul`, `homogeneousKoszul.exact`, `homogeneousKoszul.directSum`: the positive homogeneous pieces of the imported Koszul complex, their exactness, pullback maps and direct-sum decomposition.
 - `KTheoryQ.adams`: the decomposition K_m(B)_ℚ = ⊕_j K_m^(j)(B), natural in B.
 - `KTheoryQ.adams_one_one`: K_1^(1)(A) ≅ A^× ⊗ ℚ for a local ring (in particular a discrete valuation ring or a field) A, and K_1^(j)(A) = 0 for j ≠ 1.
 - `KTheoryQ.adams_cup`: the cup product respects weights.
-- `KTheoryQ.localization`: the localization sequence with the weight shift by the codimension.
+- `KTheoryQ.localization`: localization with supports; the displayed weight shift under the trivial-normal-bundle hypothesis.
 - `NoLowWeightKTheory`: the predicate K_m^(j)(B) = 0 for 2j ≤ m, m > 0.
 - `noLowWeightKTheory_of_algebraic_over_Fp`: a field algebraic over F_p has no low weight K-theory, because its higher K-groups are torsion (BDJ Remark 3.5, p. 881).
 - `noLowWeightKTheory_numberField`: a number field, and more generally a subfield of ℚ̄, has no low weight K-theory (BDJ Remark 3.6, p. 881; Remark 3.21, p. 886, via Borel's theorem).
 - `KTheoryQ.dvr_localization_iso`: for a discrete valuation ring O of characteristic zero whose residue field is algebraic over F_p and n ≥ 2, the localization map K_(2n−1)^(n)(O) → K_(2n−1)^(n)(Frac O) is an isomorphism (BDJ §1, p. 868; Remark 1.9, p. 871).
 
-*Needs:* the construction of Quillen K-theory with λ-operations for regular schemes (Quillen; Gillet–Soulé), which is assumed with exactly the properties listed; Mathlib `CommRing`, `AlgebraicGeometry.Scheme`.
+*Needs:* TauCetiRoadmap GrothendieckEulerForms Layers 0–1 (exact structures, admissible maps, conflation-exact functors and exact K₀); TauCetiRoadmap AlgebraicVectorBundles L0A–L0C (finite locally free sheaves, tensor, symmetric and exterior powers); TauCetiRoadmap IntegralHeckeAndGaloisDeterminants §6.4 (the linear-functional Koszul complex, its maps and regular-sequence exactness); Mathlib categories, nerves, topological homotopy groups, tensor products and cochain complexes. The Q-construction, its realization as a pointed K-space, the homotopy-fibre comparisons and higher Adams theory are targets of this subsection, built from that infrastructure.
 
 **Checks.**
 
+- For the zero exact category, QuillenQ has one object and its realization is contractible, hence all K-groups vanish. For finite-dimensional vector spaces over a field, the K₀ comparison sends a vector space to its dimension in ℤ and the split sequence F → F² → F gives 2 = 1 + 1.
+- A zero-cube is a vector bundle E. The boundary of the split one-cube F → F² → F is −[F] + [F²] − [F]; the degenerate cube F → F → 0 is zero in the normalized quotient; the two-coordinate face identities give d² = 0 for a split square. Taking only two of the three faces would fail the K₀ relation.
+- The homogeneous Koszul complex at k = 1 is E → E by the identity. For a line bundle L and k ≥ 1 its only nonzero terms are L^⊗k → L^⊗k, also by the identity. For E = 0 every positive homogeneous piece vanishes. The k = 0 piece is O in one degree and is not claimed exact.
+- For a pointed identity map the homotopy fibre is contractible; for V → {*} it is V; for {*} → W it is the based loop space of W. An ordinary set-theoretic fibre would miss the third test.
+- ψ¹ is the identity, and for a rank-two trivial bundle E the Newton formula gives ψ²[E] = [E]² − 2[Λ²E] = 2 in K₀ of the field. Replacing ψ² by squaring would instead give 4.
+- For a line bundle L, ψ^k[L] = [L^⊗k]; for a unit u in K₁(F), ψ^k[u] = k[u], not [u]. Thus the rank-one class has weight zero on Spec F but the class of a unit has weight one.
+- A nontrivial normal bundle prevents a naive weight shift: on ℙ² put h = 1 − [O(−1)] = i_*[O_(ℙ¹)]. Then ψ²(h) = 2h − h² with h² ≠ 0 in K₀(ℙ²)_ℚ. So i_* does not take weight zero purely to weight one for this hyperplane, whose normal bundle is O(1). The coordinate divisors of the cubes have trivial normal bundles and are within the stated localization contract.
 - For a field F, K_1^(1)(F) = F^× ⊗ ℚ, so for F = ℚ the class of 2 is nonzero and the class of −1 is zero.
 - For a finite field F_q, K_m(F_q)_ℚ = 0 for every m ≥ 1, so F_q has no low weight K-theory and every K_m^(j)(F_q) with m ≥ 1 vanishes.
 - For a number field k with r₁ real and r₂ complex places and n ≥ 2, dim K_(2n−1)(k)_ℚ is r₁ + r₂ for n odd and r₂ for n even (Borel; BBdJR Theorem 2.2, p. 5); for k = ℚ and n = 2 the group is zero, and for k = ℚ(μ_N), N > 2, it has dimension φ(N)/2 for every n ≥ 2 (BBdJR Example 4.10, p. 19).
@@ -2186,7 +2185,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 
 ### L3.Fa.3 Universal symbols and the symbolic part of K-theory
 
-**Construction.** Let G = Spec ℤ[S, S⁻¹, (1 − S)⁻¹]. For n ≥ 2 there are universal symbols [S]_n ∈ K_n^(n)(X^(n−1)_(G,loc); □^(n−1)), localized only along the divisors t_i = S, whose boundary in the spectral sequence of L3.Fa.2 is Σ_(i=1)^(n−1) (−1)^i [S]_(n−1)|_(t_i=S) (de Jeu, cited in BDJ (3.10), p. 883). For a discrete valuation ring O of characteristic zero and u ∈ O^♭ (u and 1 − u units), [u]_n is the pullback of [S]_n along S ↦ u (BDJ Definition 3.11, p. 883). The weight-one part (1 + I)^* = K_1^(1)(X¹_(O,loc); □¹) consists of the products ∏_j ((t − u_j)/(t − 1))^(n_j) with u_j ∈ O^× and ∏_j u_j^(n_j) = 1 (BDJ (3.12), p. 883). The symbolic part is defined inductively by Symb_1(O) = O^× ⊗ ℚ and Symb_(k+1)(O) = ⟨[u]_(k+1) : u ∈ O^♭⟩_ℚ + (1 + I)^* ∪̃ Symb_k(O), the second summand being spanned by the k cup products along the k coordinate projections (BDJ p. 883).
+**Construction.** Let G = Spec ℤ[S, S⁻¹, (1 − S)⁻¹]. For n ≥ 2 there are universal symbols [S]_n ∈ K_n^(n)(X^(n−1)_(G,loc); □^(n−1)), localized only along the divisors t_i = S, whose boundary in the spectral sequence of L3.Fa.2 is Σ_(i=1)^(n−1) (−1)^i [S]_(n−1)|_(t_i=S) (de Jeu, cited in BDJ (3.10), p. 883). For a discrete valuation ring O of characteristic zero and u ∈ O^♭ (u and 1 − u units), [u]_n is the pullback of [S]_n along S ↦ u (BDJ Definition 3.11, p. 883). The weight-one part (1 + I)^* = K_1^(1)(X¹_(O,loc); □¹) is the ℚ-span of the products ∏_j ((t − u_j)/(t − 1))^(n_j) with u_j in the set U ⊆ O^♭ of removed sections and ∏_j u_j^(n_j) = 1, followed by the direct limit over U (BDJ (3.12), p. 883, with the localization set fixed as on p. 881). The symbolic part is defined inductively by Symb_1(O) = O^× ⊗ ℚ and Symb_(k+1)(O) = ⟨[u]_(k+1) : u ∈ O^♭⟩_ℚ + (1 + I)^* ∪̃ Symb_k(O), the second summand being spanned by the k cup products along the k coordinate projections (BDJ p. 883).
 
 - `universalSymbol`: [S]_n over G and its boundary formula.
 - `deJeuSymbol`: [u]_n ∈ K_n^(n)(X^(n−1)_(O,loc); □^(n−1)) for u ∈ O^♭, natural in O for local homomorphisms of discrete valuation rings.
@@ -2200,7 +2199,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 
 - Weight one: for n = 2 the element [u]_2 has boundary (1 − u)⁻¹, read in K_1^(1)(O) = O^× ⊗ ℚ (BDJ p. 881); a definition with boundary 1 − u has the opposite sign.
 - If the residue field of O is F_2 then O^♭ is empty, every [u]_n is absent and Symb_k(O) for k ≥ 2 reduces to the cup-product part (BDJ Lemma 3.19, p. 886).
-- The product condition is the triviality on □¹: the function ∏_j ((t − u_j)/(t − 1))^(n_j) is 1 at t = ∞ and ∏_j u_j^(n_j) at t = 0. So the single factor (t − u)/(t − 1) with u ≠ 1 is not in (1 + I)^*, while ((t − u)/(t − 1))·((t − u⁻¹)/(t − 1)) is.
+- For u ∈ O^♭ (and after removing u and u⁻¹), the product condition is the triviality on □¹: the function ∏_j ((t − u_j)/(t − 1))^(n_j) is 1 at t = ∞ and ∏_j u_j^(n_j) at t = 0. So the single factor (t − u)/(t − 1) with u ≠ 1 is not in (1 + I)^*, while ((t − u)/(t − 1))·((t − u⁻¹)/(t − 1)) is. The removed-section condition matters too: over ℤ₂ the set O^♭ is empty, and the expression with u = 3 and u⁻¹ = 1/3 has zeros on the unremoved generic-fibre sections, so is not a unit of X_O despite satisfying the product condition.
 
 ### L3.Fa.4 The de Jeu complexes and their map to K-theory
 
@@ -2212,7 +2211,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 - `deJeuComplex.toKTheory`: H^r(M̃•(n)(O)) → K_(2n−r)^(n)(O), natural in O; for O a localization of the ring of integers of a number field at a nonzero prime no hypothesis is needed (BDJ Theorem 1.10(1), p. 871).
 - `deJeuComplex.localization_injective`: M_n(O) → M_n(F) and M̃_n(O) → M̃_n(F) are injective under the stated weight hypotheses (BDJ Proposition 3.18, p. 885; Remark 3.22, p. 887).
 - `deJeuComplex.map_of_extension`: for F'/F and a discrete valuation ring O' ⊂ F' with O ⊂ O' ∩ F, maps M̃•(n)(O) → M̃•(n)(O') and M̃•(n)(F) → M̃•(n)(F'), injective when F' is algebraic over ℚ (BDJ Remark 3.25, pp. 887–888).
-- `deJeuComplex.distribution`: if F contains the m-th roots of unity then [x^m]_n = m^(n−1) Σ_(α^m=1) [αx]_n in M_n(F) and M̃_n(F) (BDJ Proposition 2.11, p. 879).
+- `deJeuComplex.distribution`: for m ≥ 1, x ∈ F^× with x^m ≠ 1, if F contains the m-th roots of unity then [x^m]_n = m^(n−1) Σ_(α^m=1) [αx]_n in M_n(F) and M̃_n(F) (BDJ Proposition 2.11, p. 879).
 - `deJeuComplex.H1_iso_cyclotomic`: for F a cyclotomic field, and for every number field when n = 2 or 3, H¹(M̃•(n)(F)) → K_(2n−1)^(n)(F) is an isomorphism (BDJ p. 871, citing de Jeu).
 
 *Needs:* L3.Fa.1, L3.Fa.2, L3.Fa.3; Mathlib `ExteriorAlgebra`, `TensorProduct`, `CochainComplex`.
@@ -2222,7 +2221,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 - n = 2: d[x]_2 = (1 − x) ∧ x in Λ²F^×_ℚ, so for x = 2 the image is (−1) ∧ 2 = 0 in Λ²ℚ^×_ℚ (since −1 is torsion) and [2]_2 is a cocycle, while for x = 3 the image is 2 ∧ 3 ≠ 0. In the unreduced complex M•(2) the differential lands in O^×_ℚ ⊗ O^×_ℚ and sends [x]_2 + [1/x]_2 to x ⊗ x; only after dividing by N_2, whose image is Sym² (BDJ Lemma 3.19, p. 886), does the inversion relation hold, which is why the last term of M̃•(n) is an exterior power.
 - n = 3: d([x]_3) = [x]_2 ⊗ x, so [−1]_3 is a cocycle in M̃•(3)(ℚ) (−1 is torsion in ℚ^×_ℚ), while [3]_3 is not: [3]_2 ≠ 0 because its own differential 2 ∧ 3 is nonzero, so [3]_2 ⊗ 3 ≠ 0.
 - Inversion: [x]_2 + [1/x]_2 = 0 in M̃_2(F), and [x]_3 − [1/x]_3 = 0 in M̃_3(F) (the sign (−1)^k); a quotient using the same sign in every weight is wrong in odd weight.
-- Distribution with m = 2, F ⊇ ℚ: [x²]_n = 2^(n−1)([x]_n + [−x]_n); at x = −1 this gives [1]_n = 2^(n−1)([−1]_n + [1]_n), the identity recalled in BDJ p. 869.
+- Distribution with m = 2, F ⊇ ℚ and x² ≠ 0, 1: [x²]_n = 2^(n−1)([x]_n + [−x]_n); at x = 2 this gives [4]_n = 2^(n−1)([2]_n + [−2]_n). The input x = −1 is excluded: [1]_n is not a generator of this complex. The extended cyclotomic class at 1 is specified in L3.Fa.5.
 
 ### L3.Fa.5 Cyclotomic elements and their spanning property
 
@@ -2231,7 +2230,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 - `cyclotomicElement`: [ζ]_n ∈ K_(2n−1)(ℚ(μ_N))_ℚ for ζ ∈ μ_N ∖ {1}, n ≥ 2.
 - `cyclotomicElement_galois`: σ_a[ζ]_n = [ζ^a]_n.
 - `cyclotomicElement_span`: the [ζ]_n, ζ primitive, span K_(2n−1)(ℚ(μ_N))_ℚ; for N > 2 the [ζ^j]_n with 1 ≤ j < N/2 and gcd(j, N) = 1 form a basis (the printed range 1 < j < N/2 of BBdJR Example 4.10 omits j = 1 and has one element too few).
-- `cyclotomicElement_distribution`: [ζ^m]_n = m^(n−1) Σ_(α^m=1) [αζ]_n in an extension containing μ_m (L3.Fa.4).
+- `cyclotomicElement_distribution`: for m ≥ 1 and ζ^m ≠ 1, [ζ^m]_n = m^(n−1) Σ_(α^m=1) [αζ]_n in an extension containing μ_m (L3.Fa.4). Define the extended class [1]_n in K_(2n−1)(ℚ)_ℚ, n ≥ 2, by [1]_n = 2^(n−1)/(1 − 2^(n−1)) [−1]_n and transport it by field extension. This is a K-class, not an extra symbol generator. Its distribution at −1 is [1]_n = 2^(n−1)([−1]_n + [1]_n), and its regulator is the endpoint limit in L2.11 (BDJ §1, p. 869; BBdJR proof of Proposition 4.17, pp. 22–23). The denominator is nonzero because n ≥ 2.
 - `cyclotomicElement_inversion`: [ζ⁻¹]_n = (−1)^(n−1) [ζ]_n, so [ζ]_n and [ζ⁻¹]_n give the same line, consistent with dimension φ(N)/2.
 - `cyclotomicElement_isotypic_basis`: π(1 ⊗ [ζ]_n) spans the χ-part when χ(−1) = (−1)^(n−1), and that part is zero otherwise.
 
@@ -2260,7 +2259,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 
 - Spec R, i = 1, n ≥ 1, with φ* = id on K: H̃¹_ms(Spec R, n) ≅ K and (0, ε) ↦ ε/(1 − q^(−n)); taking [ε] itself, without the factor (1 − q^(−n))⁻¹, is the wrong normalization and changes every regulator value in L3.Fb.5 by 1 − q^(−n).
 - The excluded weight: for n = 0 and φ* = id the map 1 − φ*/q⁰ is zero on H⁰_rig, so no normalized identification exists; the hypothesis n ≥ i ≥ 1 is necessary.
-- Cone sign: with d(a, b) = (da, f(a) − db) the pair (0, ε) is a cocycle exactly when dε = 0. The complex with d(a, b) = (da, −f(a) + db) is isomorphic to it through (a, b) ↦ (a, −b), and under that isomorphism the same formula (0, ε) ↦ (1 − φ*/q^n)⁻¹[ε] changes sign; every regulator value inherits the sign, so the convention is part of the definition.
+- Cone sign: with d(a, b) = (da, f(a) − db) the pair (0, ε) is a cocycle exactly when dε = 0. The complex with d(a, b) = (da, −f(a) − db) is isomorphic to it through (a, b) ↦ (a, −b), and under that isomorphism the same formula (0, ε) ↦ (1 − φ*/q^n)⁻¹[ε] changes sign; every regulator value inherits the sign, so the convention is part of the definition. Merely changing the sign of −db to +db while leaving −f(a) produces d²(a, b) = (0, −2f(da)), which is not a differential in characteristic zero when f(da) ≠ 0.
 
 ### L3.Fb.2 The syntomic Chern character and its value in weight one
 
@@ -2314,7 +2313,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 **Checks.**
 
 - n = 1 and Y = ℙ¹ ∖ {1, u}: the form dt/(t − u) − dt/(t − 1) is Coleman integrable, and Π_Col of it is log((∞ − u)/(∞ − 1)) − log((0 − u)/(0 − 1)) = 0 − log(u) = −log u, branch independent since u is a unit; this is the weight-one shadow of L3.Fb.5.
-- Frobenius invariance: replacing a Coleman-integrable form x by φ*x leaves Π_Col unchanged because 0^q = 0 and ∞^q = ∞ (BDJ Lemma 5.12, p. 900); a functional normalized at a point other than 0 and ∞ is not Frobenius invariant.
+- Frobenius invariance: replacing a Coleman-integrable form x by φ*x leaves Π_Col unchanged because 0^q = 0 and ∞^q = ∞ (BDJ Lemma 5.12, p. 900); using an endpoint not fixed by Frobenius can break invariance. For q = 3 and G(t) = −1/(t − 1), the endpoint functional ∫_0^2 dG gives −2, whereas ∫_0^2 φ*dG = G(8) − G(0) = −8/7 for φ(t) = t³. Other Frobenius-fixed endpoints are not excluded by this test.
 - On H^n_rig(X_n; □^n) itself, Π̃ = Π, so on forms extending to U^n the Coleman and ordinary iterated integrals agree.
 
 ### L3.Fb.5 The regulator of special symbols by integration down
@@ -2331,7 +2330,7 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 
 **Checks.**
 
-- n = 2: L_2(z) = Li_2(z) − Li_1(z) log z, and L^mod_2(z) = Li_2(z) − (1/2) log(z) Li_1(z); they differ by −(1/2) log(z) Li_1(z), which is a function of the image of [z]_2 under the differential (1 − z) ∧ z, as the proof requires.
+- n = 2: L_2(z) = Li_2(z) − Li_1(z) log z, and L^mod_2(z) = Li_2(z) − (1/2) log(z) Li_1(z); their difference is (1/2) log(1 − z) log z. It factors through the unreduced differential (1 − z) ⊗ z by the symmetric pairing a ⊗ b ↦ (1/2) log(a) log(b), so it vanishes on H¹(M•(2)). This pairing does not factor through the alternating exterior square: on ℂ₃, 4 ⊗ 4 maps to (log 4)²/2 ≠ 0, while 4 ∧ 4 = 0. Comparisons on M̃ therefore use the H¹-isomorphism from M, rather than a termwise descent of this pairing.
 - At a root of unity ζ of order prime to p (a special unit), log ζ = 0 and ℛ([ζ]_n) = (−1)^n (n − 1)! Li_n(ζ).
 - Distribution: the difference E_n(z) of the two sides of (b) is constant on residue discs and satisfies (1/m)Σ_(ζ^m=1) E_n(ζz) = E_n(z^m)/m^n; with m = p on the residue disc of a special unit this forces the constant to vanish (BDJ proof of Proposition 7.10, p. 908). A putative formula with a nonzero additive constant fails this check.
 
@@ -2352,21 +2351,22 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 
 ### L3.Fc.1 Regulator pairings, discriminant determinants and regulator determinants
 
-**Definition.** Let k/ℚ be finite Galois with group G, E a number field and π ∈ E[G] an idempotent; put M^E_π = π(E ⊗ k) and K_(2n−1)(M^E_π) = πK_(2n−1)(k)_E (BBdJR Definition 3.1, p. 10). Fix φ_∞ : k → ℂ and φ_p : k → ℚ̄_p, and let F ⊂ ℚ̄_p be the closure of φ_p(k). The pairings (σ, a) ↦ φ_*(σa) give E-bilinear pairings (·,·)_∞ : E[G]π × M^E_π → E ⊗ ℂ and (·,·)_p : E[G]π × M^E_π → E ⊗ F. With Φ_∞ = reg_∞ ∘ (φ_∞)_* the Beilinson regulator of K_(2n−1)(k)_ℚ → K_(2n−1)(ℂ)_ℚ → ℝ(n − 1) ⊂ ℂ and Φ_p = reg ∘ (φ_p)_* the syntomic regulator of L3.Fb.2 through K_(2n−1)(k)_ℚ ≅ K_(2n−1)(O_k)_ℚ → K_(2n−1)(O_F)_ℚ → F, the pairings (σ, α) ↦ Φ_*(σα) give [·,·]_∞ and [·,·]_p on E[G]π × K_(2n−1)(M^E_π) (BBdJR (3.2), (3.4), pp. 10–11). After fixing ordered E-bases, D(M^E_π)^(1/2)_* is the determinant of (·,·)_* and, when dim_E E[G]π = dim_E K_(2n−1)(M^E_π), R_(n,*)(M^E_π) is the determinant of [·,·]_* (BBdJR Definitions 3.5–3.6, pp. 10–11). The complex regulator reg_∞ and Borel's theorem (the image of K_(2n−1)(k)_ℚ under (Φ_∞ ∘ σ)_σ is a lattice in the (−1)^(n−1)-eigenspace of complex conjugation on ⊕_σ ℝ(n − 1)) are consumed with exactly these properties (BBdJR Theorem 2.2, p. 5).
+**Definition.** Let n ≥ 2, k/ℚ be finite Galois with group G, E a number field and π ∈ E[G] an idempotent; put M^E_π = π(E ⊗ k) and K_(2n−1)(M^E_π) = πK_(2n−1)(k)_E (BBdJR Definition 3.1, p. 10). Fix φ_∞ : k → ℂ and φ_p : k → ℚ̄_p, and let F ⊂ ℚ̄_p be the closure of φ_p(k). The pairings (σ, a) ↦ φ_*(σa) give E-bilinear pairings (·,·)_∞ : E[G]π × M^E_π → E ⊗ ℂ and (·,·)_p : E[G]π × M^E_π → E ⊗ F. With Φ_∞ = reg_∞ ∘ (φ_∞)_* the Beilinson regulator of K_(2n−1)(k)_ℚ → K_(2n−1)(ℂ)_ℚ → ℝ(n − 1) ⊂ ℂ and Φ_p = reg ∘ (φ_p)_* the syntomic regulator of L3.Fb.2 through K_(2n−1)(k)_ℚ ≅ K_(2n−1)(O_k)_ℚ → K_(2n−1)(O_F)_ℚ → F, the pairings (σ, α) ↦ Φ_*(σα) give [·,·]_∞ and [·,·]_p on E[G]π × K_(2n−1)(M^E_π) (BBdJR (3.2), (3.4), pp. 10–11). After fixing ordered E-bases, D(M^E_π)^(1/2)_* is the determinant of (·,·)_* and, when dim_E E[G]π = dim_E K_(2n−1)(M^E_π), R_(n,*)(M^E_π) is the determinant of [·,·]_* (BBdJR Definitions 3.5–3.6, pp. 10–11). Construct the complex regulator reg_∞ with these pairings and prove Borel's theorem: the image of the integral group K_(2n−1)(k) modulo torsion under (Φ_∞ ∘ σ)_σ is a full lattice in {(a_σ) ∈ ⊕_σ ℝ(n − 1) : a_(σ̄) = overline(a_σ)}, the invariant space for the simultaneous action on embeddings and values, and the rational regulator is injective with image the ℚ-span of that lattice. The image of the rational K-group itself is not asserted to be a lattice (BBdJR Theorem 2.2, p. 5).
 
 - `regulatorPairing`: [·,·]_∞ and [·,·]_p.
 - `periodPairing`: (·,·)_∞ and (·,·)_p.
 - `discriminantDet`, `regulatorDet`: D^(1/2)_* and R_(n,*).
-- `discriminantDet_ne_zero`: D^(1/2)_* ≠ 0, which also gives dim_E M^E_π = dim_E E[G]π (BBdJR Lemma 3.3, p. 10).
+- `discriminantDet_ne_zero`: every component of D^(1/2)_* is nonzero, so it is a unit in the coefficient algebra; this also gives dim_E M^E_π = dim_E E[G]π (BBdJR Lemma 3.3, p. 10).
 - `regulatorDet_div_discriminantDet_indep`: R_(n,*)/D^(1/2)_* is independent of the basis of E[G]π and of φ_*, and lies in E ⊗ ℝ, respectively E ⊗ ℚ_p (BBdJR Lemma 3.7, p. 11).
 - `regulatorPairing_componentwise`: an identity in E ⊗ ℂ (or E ⊗ ℚ̄_p) holds if and only if it holds after every embedding E → ℂ (or E → ℚ̄_p) (BBdJR Remark 3.19(2), p. 14).
 
-*Needs:* L3.Fa.1, L3.Fb.2, L3.Fc.2 for the dimension equality; Mathlib `Matrix.det`, `MonoidAlgebra`, `TensorProduct`.
+*Needs:* L3.Fa.1 for the K-group construction (its number-field vanishing is a consequence here), L3.Fb.2; L3.Fc.2 only for the subsequent criterion for dimension equality, not for constructing the pairings and proving Borel's theorem; Mathlib `Matrix.det`, `MonoidAlgebra`, `TensorProduct`.
 
 **Checks.**
 
 - k = ℚ, G trivial, π = 1, E = ℚ: (·,·)_∞ is the 1 × 1 pairing 1 × (1 ⊗ 1) ↦ 1, so D^(1/2)_∞ = 1 for the basis 1 ⊗ 1.
-- Changing the basis of E[G]π by a matrix A multiplies both D^(1/2)_* and R_(n,*) by det A, so their quotient is unchanged (BBdJR Lemma 3.7); a definition normalizing only one of them fails this.
+- For k = ℚ the regulator target is zero when n = 2 and a real line when n = 3: the unique embedding is real, so a = overline(a) forces an imaginary value to vanish. For n = 3 the image of K₅(ℚ)/torsion is a lattice, while the image of K₅(ℚ)_ℚ is its dense rational span; the latter is not a lattice. For one pair of complex embeddings, a_(σ̄) = overline(a_σ) leaves one real coordinate in either parity.
+- Changing the basis of E[G]π by a matrix A multiplies both D^(1/2)_* and R_(n,*) by det A, so their quotient is unchanged (BBdJR Lemma 3.7); a definition normalizing only one of them fails this. Nonzero and invertible must be distinguished in the coefficient algebra: (1, 0) ≠ 0 in ℂ × ℂ but is not a unit, so one nonzero component cannot justify dividing by D^(1/2)_*.
 - k = ℚ(i), π = (1 + c)/2, n = 2: dim_E E[G]π = 1 but πK_3(ℚ(i))_E = K_3(ℚ)_E = 0, so R_(2,*) is not defined; any definition producing a value here is wrong.
 
 ### L3.Fc.2 The rank criterion for an idempotent
@@ -2388,10 +2388,10 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 
 ### L3.Fc.3 Zagier's single-valued polylogarithms and the cyclotomic determinants
 
-**Theorem.** For n ≥ 1 let P_n(z) = π_(n−1)(Σ_(j=0)^(n−1) (b_j/j!)(2 log|z|)^j Li_(n−j)(z)) on ℂ ∖ {0, 1}, with b_j the Bernoulli numbers and π_(n−1) the projection ℂ = ℝ(n − 1) ⊕ ℝ(n) → ℝ(n − 1); it is single valued, P_n(z̄) = P_n(z), P_n(z) + (−1)^n P_n(1/z) = 0, and P_n(z^m) = m^(n−1) Σ_(ζ^m=1) P_n(ζz) for z^m ≠ 1 (BBdJR (4.2)–(4.4), pp. 17–18). The complex regulator of the cyclotomic element is Φ_∞([ζ]_n) = (n − 1)! P_n(φ_∞ ζ) with the sign normalized as in L3.Fb.5 (BBdJR Theorem 4.7, p. 19, and Remark 4.16, p. 21). For k = ℚ(μ_N), N > 2, χ primitive of conductor N with χ(−1) = (−1)^(n−1), its idempotent π = |G|⁻¹ Σ'_a χ⁻¹(a) ⊗ ψ_a and the bases π, π(1 ⊗ ζ), π(1 ⊗ [ζ]_n): writing η = φ_∞(ζ), for every embedding σ : E → ℂ the σ-components are D^(1/2)_(∞,σ) = |G|⁻¹ Σ'_a χ_σ⁻¹(a) η^a = N|G|⁻¹ (Σ'_a χ_σ(a) η^(−a))⁻¹ and R_(n,∞,σ) = (n − 1)! |G|⁻¹ Σ'_a χ_σ⁻¹(a) Li_n(η^a); the p-adic components are D^(1/2)_(p,τ) = N|G|⁻¹(Σ'_a χ_τ(a) η_p^(−a))⁻¹ and R_(n,p,τ) = (n − 1)! |G|⁻¹ Σ'_a χ_τ⁻¹(a) L^mod_n(η_p^a) with η_p = φ_p(ζ) (BBdJR proof of Proposition 4.17, p. 22).
+**Theorem.** For n ≥ 1 let P_n(z) = π_(n−1)(Σ_(j=0)^(n−1) (b_j/j!)(2 log|z|)^j Li_(n−j)(z)) on ℂ ∖ {0, 1}, with b_j = `bernoulli j` (in particular b₁ = −1/2) and π_(n−1) the projection ℂ = ℝ(n − 1) ⊕ ℝ(n) → ℝ(n − 1); it is single valued, P_n(z̄) = overline(P_n(z)) = (−1)^(n−1) P_n(z), for n ≥ 2 it satisfies P_n(z) + (−1)^n P_n(1/z) = 0, and for m ≥ 1 it satisfies P_n(z^m) = m^(n−1) Σ_(ζ^m=1) P_n(ζz) for z^m ≠ 1 (BBdJR (4.2)–(4.4), pp. 17–18). For n ≥ 2 the complex regulator of the cyclotomic element is Φ_∞([ζ]_n) = (n − 1)! P_n(φ_∞ ζ) with the sign normalized as in L3.Fb.5 (BBdJR Theorem 4.7, p. 19, and Remark 4.16, p. 21). For k = ℚ(μ_N), N > 2, χ primitive of conductor N with χ(−1) = (−1)^(n−1), its idempotent π = |G|⁻¹ Σ'_a χ⁻¹(a) ⊗ ψ_a and the bases π, π(1 ⊗ ζ), π(1 ⊗ [ζ]_n): writing η = φ_∞(ζ), for every embedding σ : E → ℂ the σ-components are D^(1/2)_(∞,σ) = |G|⁻¹ Σ'_a χ_σ⁻¹(a) η^a = N|G|⁻¹ (Σ'_a χ_σ(a) η^(−a))⁻¹ and R_(n,∞,σ) = (n − 1)! |G|⁻¹ Σ'_a χ_σ⁻¹(a) Li_n(η^a); the p-adic components are D^(1/2)_(p,τ) = N|G|⁻¹(Σ'_a χ_τ(a) η_p^(−a))⁻¹ and R_(n,p,τ) = (n − 1)! |G|⁻¹ Σ'_a χ_τ⁻¹(a) L^mod_n(η_p^a) with η_p = φ_p(ζ) (BBdJR proof of Proposition 4.17, p. 22).
 
 - `zagierPolylog`: P_n on ℂ ∖ {0, 1}.
-- `zagierPolylog_inv`, `zagierPolylog_distribution`, `zagierPolylog_conj`: the three relations.
+- `zagierPolylog_inv` (n ≥ 2), `zagierPolylog_distribution` (m ≥ 1, z^m ≠ 1), `zagierPolylog_conj`: the three relations.
 - `zagierPolylog_rootOfUnity`: for a root of unity η ≠ 1 and χ(−1) = (−1)^(n−1), Σ'_a χ⁻¹(a) P_n(η^a) = Σ'_a χ⁻¹(a) Li_n(η^a), using P_n(η^a) = (Li_n(η^a) + χ⁻¹(−1)Li_n(η^(−a)))/2.
 - `cyclotomicDiscriminantDet`, `cyclotomicRegulatorDet`: the displayed components.
 
@@ -2400,7 +2400,9 @@ The regulator half of this layer (targets L3.14–L3.16, L3.36 and L3.37) rests 
 **Checks.**
 
 - n = 2, |z| = 1: P_2(z) is i times the imaginary part of Li_2(z) (the term with 2 log|z| vanishes), the Bloch–Wigner function on the unit circle; at z = −1 it vanishes because Li_2(−1) = −π²/12 is real, consistent with K_3(ℚ)_ℚ = 0.
-- N = 2, n odd: P_n(−1) = (2^(1−n) − 1)ζ(n) ≠ 0, and L(n, 1, ℚ) = ζ(n) = 2^(n−1)(1 − 2^(n−1))⁻¹ P_n(−1) (BBdJR proof of Proposition 4.17, p. 22).
+- n = 1: P_1(z) = −log|1 − z|, so P_1(2) = 0 while P_1(1/2) = log 2. The inversion relation is restricted to n ≥ 2; the weight-one definition and its conjugation and distribution laws still apply.
+- n = 2, z = i: P_2(i) = i Σ_(r≥0)(−1)^r/(2r+1)² is nonzero, while P_2(−i) = −P_2(i). Thus conjugation negates the value in the imaginary line ℝ(1); the equality P_2(z̄) = P_2(z) fails. For n = 3 the values lie in ℝ(2) = ℝ and conjugation preserves them.
+- N = 2, odd n ≥ 3: P_n(−1) = (2^(1−n) − 1)ζ(n) ≠ 0, and L(n, 1, ℚ) = ζ(n) = 2^(n−1)(1 − 2^(n−1))⁻¹ P_n(−1) (BBdJR proof of Proposition 4.17, p. 22).
 - The Gauss-sum identity behind the two forms of D^(1/2)_(∞,σ): for χ primitive of conductor N, Σ'_a χ⁻¹(a) η^a · Σ'_b χ(b) η^(−b) = N; a normalization with |G| in place of N in the second form fails it.
 
 ### L3.Fd.1 Artin L-functions with coefficients
@@ -2520,7 +2522,6 @@ Standing hypotheses of this target: |w|≤1, |w−1|=1, k≥0. The image of |t|<
 
 *Construction.* L2.4: the restriction of Li_k to a residue disc not meeting 0, 1, ∞ is a single power series convergent on the whole disc; for |w| < 1, Li_k(z) = sum z^n/n^k (L2.5). This gives (a). Li_0(z) = z/(1-z) and L3.3 give (b). z d/dz Li_k = Li_{k-1} (L2.7) with z = w(1+T), so z d/dz = (1+T) d/dT; this gives (c). RJW Lemma 3.29 extended to distributions (RJW Remark 3.45; LocallyAnalyticDistributions L1): A_{x λ} = (1+T) d/dT A_λ. By (c) and injectivity of the Amice transform on D^la (RJW Theorem 3.43), x mutilde^{(k)} = mutilde^{(k-1)}; mutilde^{(0)}_w is μ_w viewed as a distribution (RJW Remark 3.44).
 
-*In `Suggested.lean`:* `polylogPrimitive`, `HasResidueDiscExpansions`.
 
 *Needs:* L2.5, L2.4, L3.3, LocallyAnalyticDistributions L1, `PowerSeries.derivative`, `PowerSeries.IsRestricted`, L2.7, L2.28, L0.17, L2.26.
 
@@ -2548,7 +2549,6 @@ Standing hypotheses of this target: |w|≤1, |w−1|=1, k≥0. The image of |t|<
 
 *Proof sketch.* L3.5 gives Ftilde^{(k)}_w in R^+ with ((1+T) d/dT)^k Ftilde^{(k)}_w = A_{μ_w} and Ftilde^{(k)}_w(t) = Li_k(w(1+t)) for |t| < 1. L3.6 gives ∫_(ℤ_p^×) x^{-k} . μ_w = Ftilde^{(k)}_w(0) - p^{-1} sum_{ξ in μ_p} Ftilde^{(k)}_w(ξ - 1) = Li_k(w) - p^{-1} sum_{ξ in μ_p} Li_k(ξ w). w^p ≠ 1, because the reduction of w^p is the p-th power of a residue class different from 1 (or w^p = 0); L2.8 at z = w gives p^{-1} sum_{ξ in μ_p} Li_k(ξ w) = p^{-k} Li_k(w^p). Branch independence: Li_k depends on the branch only on the residue discs of 1 and ∞ (Besser-de Jeu, proof of Proposition 2.6), which contain neither w nor w^p.
 
-*In `Suggested.lean`:* the moment identity for every prime p, for a measure with Amice transform `geometricTransform w` and any family Li with the properties of Layer L2, `negMoment_geometric`, `SatisfiesPolylogODE`, `SatisfiesDistributionRelation`.
 
 *Needs:* L3.5, L3.6, L3.3, L2.8, L2.5.
 
@@ -2618,9 +2618,8 @@ Standing hypotheses of this target: k≥2 (for k = 1 the series converges only c
 - `padicRegulatorPolylog_galois`: For a branch with λ in ℚ_p and σ a continuous automorphism of ℂ_p over ℚ_p, L^mod_n(σ z) = σ(L^mod_n(z)) (Besser-de Jeu Remark 2.3).
 - `padicRegulatorPolylog_specialUnit_branch`: On special units (|z| = |1 - z| = 1) L^mod_n(z) does not depend on the branch.
 
-*Construction.* Definition from Besser-de Jeu (Remark 1.5) and BBdJR ((4.12) with c_j = B_j). Inversion: Li_m(z) + (-1)^m Li_m(1/z) = -log(z)^m/m! (Coleman; Besser-de Jeu (1.2), supplied by L2.9) and sum_{j=0}^{n-1} B_j/(j!(n-j)!) = 0 for n ≥ 2 give the functional equation (Besser-de Jeu, before Remark 1.5). Distribution: from L2.8 for each Li_m and log(ζ z) = log z for ζ a root of unity. At roots of unity log(ζ) = 0 and B_0 = 1.
+*Construction.* Definition from Besser-de Jeu (Remark 1.5) and BBdJR (4.12), taking c_j = B_j/j! in that parametrization. Inversion: Li_m(z) + (-1)^m Li_m(1/z) = -log(z)^m/m! (Coleman; Besser-de Jeu (1.2), supplied by L2.9) and sum_{j=0}^{n-1} B_j/(j!(n-j)!) = 0 for n ≥ 2 give the functional equation (Besser-de Jeu, before Remark 1.5). Distribution: from L2.8 for each Li_m and log(ζ z) = log z for ζ a root of unity. At roots of unity log(ζ) = 0 and B_0 = 1.
 
-*In `Suggested.lean`:* for any family Li and logarithm with the stated relations, `padicRegulatorPolylog`, `padicRegulatorPolylog_inv`, `padicRegulatorPolylog_distribution`.
 
 *Needs:* L2.5, L2.8, L0.18, bernoulli, L2.9.
 
@@ -2819,7 +2818,6 @@ Standing hypotheses of this target: p odd (RJW's L_p is defined for odd p). θ n
 
 *Proof sketch.* Case D > 1. L3.1 gives L_p(θ ω^{1-k}, k) = ∫_(ℤ_p^×) x^{-k} . μ_θ, and L3.4 rewrites it as G(θ^{-1})^{-1} sum_c θ^{-1}(c) ∫_(ℤ_p^×) x^{-k} . μ_{ε_N^c}. L3.7 (|ε_N^c| = |ε_N^c - 1| = 1) gives ∫_(ℤ_p^×) x^{-k} . μ_{ε^c} = Li_k(ε^c) - p^{-k} Li_k(ε^{pc}); L3.10 turns the sum into (1 - θ(p) p^{-k}) sum_c θ^{-1}(c) Li_k(ε^c). Case D = 1, N = p^n, θ = χ. Choose b > 1 prime to p with χ(b) b^{1-k} ≠ 1. L3.2 and L3.24 give L_p(χ ω^{1-k}, k) = (χ(b) b^{1-k} - 1)^{-1} G(χ^{-1})^{-1} sum_c χ^{-1}(c) ∫_(ℤ_p^×) x^{-k} . ((ε^c)^x μ_b). L3.27: the inner integral is Φ^{(k)}_b(ε^c) - p^{-k} Φ^{(k)}_b(ε^{pc}). The second terms sum to 0 against χ^{-1} (L3.9: ε^{pc} depends only on c mod p^{n-1}, and equals 1 when n = 1). ε^c ≠ 1, ε^{bc} ≠ 1 and log ε^c = 0, so Φ^{(k)}_b(ε^c) = -Li_k(ε^c) + b^{1-k} Li_k(ε^{bc}) (L3.25); reindexing c → b^{-1} c gives sum_c χ^{-1}(c) Li_k(ε^{bc}) = χ(b) sum_c χ^{-1}(c) Li_k(ε^c). The total is -(1 - χ(b) b^{1-k}) sum_c χ^{-1}(c) Li_k(ε^c); dividing by χ(b) b^{1-k} - 1 gives G(χ^{-1})^{-1} sum_c χ^{-1}(c) Li_k(ε^c), the claim since χ(p) = 0. The right side does not depend on ε_N (L3.11).
 
-*In `Suggested.lean`:* the moment form of the case D > 1, valid for every prime p (the identification of the moment with L_p is L3.1), `rjwThetaTransform`, `negMoment_muTheta_eq_colemanSum`.
 
 *Needs:* L3.1, L3.2, L3.4, L3.24, L3.7, L3.27, L3.10, L3.9, L3.11, L3.25, L2.5, L0.18, `PadicComplex`, L2.25, L2.27, L2.26, L2.18.
 
@@ -2893,11 +2891,12 @@ Standing hypotheses of this target: θ nontrivial primitive, k≥1.
 
 ### L3.36 Parts (1)–(3) of the p-adic Beilinson conjecture for Dirichlet motives
 
-**Theorem.** (BBdJR Proposition 4.17.) Let N ≥ 2, k = ℚ(μ_N), G = (ℤ/Nℤ)^×, E a number field containing a root of unity of order the exponent of G, χ an irreducible character of G with idempotent π, and n ≥ 2 with χ(−1) = (−1)^(n−1). Then dim_E E[G]π = dim_E πK_(2n−1)(k)_E = 1, with bases π, π(1 ⊗ ζ_N) and π(1 ⊗ [ζ_N]_n), and parts (1), (2) and (3) of PBC(k, E, π, n, p) hold with e(n, M^E_π) = e_p(n, M^E_π) ∈ ℚ^×.
+**Theorem.** (BBdJR Proposition 4.17.) Let N ≥ 2, k = ℚ(μ_N), G = (ℤ/Nℤ)^×, E a number field containing a root of unity of order the exponent of G, χ an irreducible character of G with idempotent π, and n ≥ 2 with χ(−1) = (−1)^(n−1). Then dim_E E[G]π = dim_E πK_(2n−1)(k)_E = 1, and parts (1), (2) and (3) of PBC(k, E, π, n, p) hold with e(n, M^E_π) = e_p(n, M^E_π) ∈ ℚ^×.
+For nontrivial χ, reduce first to its primitive character of conductor f and the field ℚ(μ_f), using the fixed-field and idempotent transport of BBdJR Remark 3.23(1), p. 16. The explicit bases π, π(1 ⊗ ζ_f) and π(1 ⊗ [ζ_f]_n) and the Gauss-sum determinant calculation of L3.Fc.3 are used in this conductor field; their compatible images give bases after transport. For trivial χ use ℚ and the bases 1, 1 ⊗ 1 and 1 ⊗ [−1]_n, with n odd. The algebraic vector π(1 ⊗ ζ_N) need not be nonzero for an imprimitive character.
 (a) For p odd this follows from L3.28, L3.13 and the regulator computations, in the normalization of L3.Fd.2.
-(b) For p = 2 the same statement holds with the dyadic normalization: ω_2 is the character of conductor 4 with values ±1 (L3.Fd.2), the p-adic L-function lives on the ball of radius 4·2^(−1) = 2, and the required input is Coleman's formula L_2(χω_2^(1−n), n) = (1 − χ(2)2^(−n)) G(χ⁻¹)⁻¹ Σ_c χ⁻¹(c) Li_n(ε_N^c) at p = 2, together with the trivial-character case L_2(ω_2^(1−n), n) = (1 − 2^(−n)) Li_n(1) for n odd. BBdJR quote this formula from Coleman for all primes (proof of Proposition 4.17, p. 22, and p. 23 for N = 2). The measure-theoretic proof of L3.28 is written for odd p; at p = 2 its steps must be redone with principal units 1 + 4ℤ_2, the conductor-4 Teichmüller character and the smoothing of L3.2 with b odd, and the trivial-character case uses the limit Li_n(1) of L2.11 (BBdJR Prop. 4.17, p. 22; BBdJR Rem. 4.19, p. 23).
+(b) For p = 2 the same statement holds with the dyadic normalization: ω_2 is the character of conductor 4 with values ±1 (L3.Fd.2), the p-adic L-function lives on the ball of radius 4·2^(−1) = 2, and the required input for the primitive character of conductor f is Coleman's formula L_2(χω_2^(1−n), n) = (1 − χ(2)2^(−n)) G(χ⁻¹)⁻¹ Σ_(c∈(ℤ/fℤ)^×) χ⁻¹(c) Li_n(ε_f^c) at p = 2, together with the trivial-character case L_2(ω_2^(1−n), n) = (1 − 2^(−n)) Li_n(1) for n odd. BBdJR quote this formula from Coleman for all primes (proof of Proposition 4.17, p. 22, and p. 23 for N = 2). The measure-theoretic proof of L3.28 is written for odd p; at p = 2 its steps must be redone with principal units 1 + 4ℤ_2, the conductor-4 Teichmüller character and the smoothing of L3.2 with b odd, and the trivial-character case uses the limit Li_n(1) of L2.11 (BBdJR Prop. 4.17, p. 22; BBdJR Rem. 4.19, p. 23).
 
-Standing hypotheses of this target: N ≥ 2; χ(−1) = (−1)^(n−1); E contains the values of χ; p odd in (a) and p = 2 in (b).
+Standing hypotheses of this target: N ≥ 2; χ(−1) = (−1)^(n−1); E contains the values of χ; p odd in (a) and p = 2 in (b). The unit assertions are part (4) of L3.16 and remain separate conjectural conditions; BBdJR Remark 4.19, p. 23, reports numerical verifications of them.
 
 *Needs:* L3.28, L3.29, L3.13, L3.15, L3.16, L3.Fa.5, L3.Fc.1, L3.Fc.3, L3.Fd.1, L3.Fd.2, DirichletPadicLFunctions L0.
 
@@ -2905,6 +2904,7 @@ Standing hypotheses of this target: N ≥ 2; χ(−1) = (−1)^(n−1); E contai
 
 - N = 3, n = 2: χ the nontrivial character mod 3 has χ(−1) = −1 = (−1)^(2−1), so the χ-part of K_3(ℚ(μ_3))_E is one-dimensional and the proposition applies.
 - N = 3, n = 3: χ(−1) = −1 ≠ (−1)^(3−1) = 1, so πK_5(ℚ(μ_3))_E = 0 and the proposition does not apply to χ; the trivial character applies instead (n odd).
+- N = 4, χ trivial, n = 3: π = (1 + c)/2 satisfies π(1 ⊗ i) = 0 although dim πK_5(ℚ(i))_E = 1. Reduce to ℚ and use 1 ⊗ 1 and 1 ⊗ [−1]_3; using i as an algebraic basis would make the discriminant determinant zero. This does not invalidate the cyclotomic K-class basis: distribution gives [−1]_3 = 8[i]_3.
 - N = 2: χ trivial, π = 1, n odd; then e(n) = e_p(n) is computed from ζ(n) = 2^(n−1)(1 − 2^(n−1))⁻¹ P_n(−1) and its p-adic analogue.
 
 ### L3.37 Coleman's formula as a formula for syntomic regulators
@@ -2919,7 +2919,7 @@ Standing hypotheses of this target: p odd; n≥2; the sign is the one of L3.15.
 
 ### Examples
 
-- p = 5, θ = χ_(−3) (conductor 3, odd), k = 2: θω^(−1) is even, so L_5(θω^(−1), 2) is the twisted value of Coleman's formula, a 5-adic unit, while the untwisted L_5(θ, 2) vanishes by parity (Summary; L3.28, L3.30).
+- p = 5, θ = χ_(−3) (conductor 3, odd), k = 2: θω^(−1) is even, so L_5(θω^(−1), 2) is the twisted value of Coleman's formula, while the untwisted L_5(θ, 2) vanishes by parity (L3.28, L3.30). The twisted value is a unit: for ζ³ = 1, ζ ≠ 1, the measure (μ_ζ − μ_(ζ²))/(ζ − ζ²) has masses 2/3, −1/3, −1/3, 2/3 on the cosets 1 + 5ℤ₅, …, 4 + 5ℤ₅ by L3.3. Multiplying these by a^(−2) modulo 5 gives 2/3 − 4/3 − 4/3 + 2/3 = −4/3 ≡ 2 mod 5.
 - k = 1 recovers Leopoldt's formula L_p(θ, 1) = −(1 − θ(p)/p) G(θ⁻¹)⁻¹ Σ_c θ⁻¹(c) log_p(1 − ε_N^c) (L3.31).
 - Trivial character: L_p(ω^(1−k), k) = (1 − p^(−k)) Li_k(1) for k ≥ 2 (L3.29).
 - For p = 3 the geometric measure μ_(−1) has total mass −1/2 and values −1/2, 1/2, −1/2 on 1 + 3ℤ_3, 2 + 3ℤ_3, 3ℤ_3 (L3.3).
@@ -2942,6 +2942,8 @@ Layers L0–L2; DirichletPadicLFunctions L0–L3; PadicMeasuresIwasawaAlgebras L
 
 Locators give theorem, section and page in the edition listed; published page numbers are marked as such.
 
+- **Quillen:** Daniel Quillen, [Higher algebraic K-theory I](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), Lecture Notes in Mathematics 341 (1973), 85–147; locators use the published pagination.
+- **Feliu:** Elisenda Feliu, [A chain morphism for Adams operations on rational algebraic K-theory](https://arxiv.org/abs/0808.3882v2), arXiv:0808.3882v2.
 - **RJW:** Joaquin Rodrigues Jacinto, Chris Williams, [An introduction to p-adic L-functions](https://arxiv.org/abs/2309.15692v2), arXiv:2309.15692v2.
 - **F:** Hidekazu Furusho, [p-adic multiple zeta values I: p-adic multiple polylogarithms and the p-adic KZ equation](https://arxiv.org/abs/math/0304085v2), arXiv:math/0304085v2 (published Invent. Math. 155 (2004)).
 - **BT:** Amnon Besser, [Coleman integration using the Tannakian formalism](https://arxiv.org/abs/math/0011269v1), arXiv:math/0011269v1 (published Math. Ann. 322 (2002)).
