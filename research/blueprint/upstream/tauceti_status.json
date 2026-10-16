@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T15:44Z",
+ "updated": "2026-10-16T16:42Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -44,7 +44,7 @@
    "stage": "pr",
    "pr": 785,
    "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR); draft",
-   "head": "b853d91",
+   "head": "f24efef",
    "review": {
     "recommendation": "approve",
     "head": "b88426d",
@@ -60,7 +60,7 @@
     785
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-   "head": "bf7d895",
+   "head": "241d5d6",
    "review": {
     "recommendation": "approve",
     "head": "791e18a",
@@ -108,7 +108,7 @@
     813
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "e8ef37a",
+   "head": "b7ed078",
    "review": {
     "recommendation": "approve",
     "head": "8c306f2",
@@ -140,7 +140,7 @@
     818
    ],
    "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
-   "head": "c312881",
+   "head": "5ce5911",
    "review": {
     "recommendation": "approve",
     "head": "6433ad2",
@@ -153,7 +153,7 @@
    "stage": "pr",
    "pr": 818,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "1d7b81e",
+   "head": "3a308c7",
    "review": {
     "recommendation": "approve",
     "head": "67a02f4",
@@ -185,7 +185,7 @@
     814
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "c560e75",
+   "head": "c3504c8",
    "review": {
     "recommendation": "approve",
     "head": "36cf6e6",
@@ -213,7 +213,7 @@
   "ComplexComparisonPartII": {
    "stage": "pr",
    "pr": 848,
-   "head": "b192968",
+   "head": "3c097d3",
    "depends_on": [
     779,
     853
@@ -230,7 +230,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "7d89041",
+   "head": "86e76f3",
    "depends_on": [
     779,
     848,
@@ -248,7 +248,7 @@
   "InverseGaloisAndArithmeticFundamentalGroups": {
    "stage": "pr",
    "pr": 850,
-   "head": "ce09f92",
+   "head": "4e6abef",
    "depends_on": [
     779,
     785,
@@ -267,7 +267,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "7945b2a",
+   "head": "67ab216",
    "depends_on": [
     792,
     785
@@ -301,7 +301,7 @@
   "AlgebraicModuliForArithmeticGeometry": {
    "stage": "pr",
    "pr": 853,
-   "head": "6f3a90d",
+   "head": "ceba5c7",
    "depends_on": [
     779,
     785,
@@ -371,7 +371,7 @@
   "CrystallineCohomology": {
    "stage": "pr",
    "pr": 857,
-   "head": "1702735",
+   "head": "f0e48b3",
    "depends_on": [
     779,
     789,
@@ -397,7 +397,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "60d7f16",
+   "head": "e62d69e",
    "depends_on": [
     779,
     856,
@@ -418,7 +418,7 @@
   "DerivedDeRhamCohomology": {
    "stage": "pr",
    "pr": 868,
-   "head": "d64ea62",
+   "head": "08978fa",
    "depends_on": [
     857,
     818,
@@ -456,7 +456,7 @@
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
    "stage": "pr",
    "pr": 870,
-   "head": "33ddc21",
+   "head": "642af16",
    "depends_on": [
     852,
     779,
@@ -509,7 +509,7 @@
   "LefschetzPencilsAndVanishingCycles": {
    "stage": "pr",
    "pr": 873,
-   "head": "469a2c2",
+   "head": "4c7deab",
    "depends_on": [
     779,
     792,
@@ -597,7 +597,7 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "139737f",
+   "head": "0cfa5c5",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
@@ -651,7 +651,7 @@
   "DiamondEtaleCohomology": {
    "stage": "pr",
    "pr": 922,
-   "head": "6cd4952",
+   "head": "f96ef01",
    "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
    "review": {
     "recommendation": "approve",
@@ -665,7 +665,7 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "4dd4fc8",
+   "head": "3d519c4",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -719,7 +719,7 @@
   "AlgebraicModularFormsAndSerreWeights": {
    "stage": "pr",
    "pr": 928,
-   "head": "7ff32e4",
+   "head": "b9a769d",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
@@ -746,7 +746,7 @@
   "GL2AutomorphicRepresentationsAndTransfer": {
    "stage": "pr",
    "pr": 931,
-   "head": "59cc182",
+   "head": "e118f3b",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 7035f1c; draft awaiting re-review",
    "review": {
     "recommendation": null,
@@ -759,7 +759,7 @@
   "ShimuraVarieties": {
    "stage": "pr",
    "pr": 933,
-   "head": "ef61044",
+   "head": "1dd09ed",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 6cc4f59; draft awaiting re-review",
    "review": {
     "recommendation": null,
@@ -772,13 +772,13 @@
   "EtaleCohomologyFoundations": {
    "stage": "pr",
    "pr": 938,
-   "head": "406bcba",
+   "head": "d56a157",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running"
   },
   "PadicPeriodRings": {
    "stage": "pr",
    "pr": 940,
-   "head": "3ed1fc3",
+   "head": "ef7f47c",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 3ed1fc3; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -805,7 +805,7 @@
   "FarguesFontaineDiamonds": {
    "stage": "pr",
    "pr": 964,
-   "head": "fc48e79",
+   "head": "22570cb",
    "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at cd66f9e; draft awaiting re-review"
   },
   "AdicCoefficientsAndComparisons": {
@@ -817,7 +817,7 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "0ebc667",
+   "head": "3ffb741",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -872,25 +872,25 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "f249952",
+   "head": "4ababd2",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft"
   },
   "AutomorphicGaloisRepresentationsPartII": {
    "stage": "pr",
    "pr": 1006,
-   "head": "b91c03c",
+   "head": "4a36810",
    "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft"
   },
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "c49011f",
+   "head": "66d89e9",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft"
   },
   "SerreWeightAndLevelOptimisation": {
    "stage": "pr",
    "pr": 1013,
-   "head": "76e1daa",
+   "head": "cad2a3c",
    "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received; draft"
   }
  },
