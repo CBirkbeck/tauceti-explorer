@@ -1,5 +1,53 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
+## Continuation: Codex codex-rPc60F, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6224904353)
+at 21:19:24 UTC. Issue 9295 was awarded to another session; 9298 was this
+session's only successful claim. I missed the manager's
+[instruction against reclaiming this superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304)
+before claiming. The full comment history, reread after confirmation, contains
+no subsequent extension request or replacement scope.
+
+A fresh authenticated upstream check resolves main to
+`cc8501ac47d864b56634cb1ba6094197bf60e6b7` and confirms that
+[PR 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[PR 943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+I read the authoritative
+[Layer 3 README, §§3.1–3.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and its
+[suggested interfaces](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720).
+They assign the curve degree, Picard, norm-stack and Abel–Jacobi integration
+targets to that existing upstream roadmap. README-only targets retain their
+owner even when the suggested file omits them. This ownership check does not
+establish that the historical review's proof obligations have been discharged.
+
+The supplied read-only roadmap checkout remains `0d144d0`; the Tau Ceti
+checkout remains `a91d3aa`. I read the relevant AlgebraicVectorBundles and
+JacobianChallenge owner statements, the reviewed SF.3 audit and the current
+library's principal-parts boundary and Weil-functional evaluation statements.
+Neither shared checkout was modified or built. No source passage was copied.
+
+WORKERS.md and PROTOCOL.md §15 prohibit replanning existing upstream work.
+The four authorized atlas deliverables do not include the authoritative
+upstream files. Only this handoff changes. The packet, reader, suggested
+file and independent review remain intact: 26 nodes (five constructions,
+17 theorems, one definition, two comparisons and one lemma), 53 API items,
+25 tests, six planets, 56 baseline citations, three gaps and 16 requests.
+Packet and SF.3 coverage remain `partial`; no gap is closed or supplier
+request added. The three revision requirements and red-team ownership
+boundaries preserved below remain the resumption inventory.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings;
+`intake.py check-files` and `git diff --check` pass. Lean was not compiled
+because no Lean file changed. No scratch file is needed to resume.
+
+**Skip this assignment until the manager provides a concrete extension scope
+requested by the upstream owner.** The automatic release after #10063 did
+not supply that scope. This run submits a checkpoint and stops; it holds no
+second job.
+
 ## Continuation: Codex codex-CJN1kP, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
