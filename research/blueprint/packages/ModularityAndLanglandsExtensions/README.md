@@ -311,7 +311,7 @@ BCGP25 Lemma 10.4.1: the regular-weight residual Serre hypothesis implies modula
 
 Use the [C-AUTOMORPHIC contract](#contract-c-automorphic) above.
 
-Export the complete Adams–Johnson parameter definition, cohomological induction A_𝔮(λ), standard-module resolutions and the Whittaker-normalized stable/twisted character maps needed by AMR Theorem 1.1. AMR §8.1 supplies necessary consequences only.
+Export the complete Adams–Johnson parameter definition, cohomological induction A_𝔮(λ), standard-module resolutions and the Whittaker-normalized stable/twisted character maps needed by AMR Theorem 1.1. The required induction, root-positivity and Weyl-orbit data are specified in [the real-packet comparison](#adams-johnson-packets), using AJ87 §§2–3, pp. 277–286, and its unequal-rank extension in §10, pp. 305–308. AMR §8.1 supplies necessary consequences only; it is not the carrier definition.
 
 #### From ExcursionOperatorsAndSpectralAction, Layer ES5
 
@@ -322,11 +322,11 @@ Use the [C-CATEGORICAL contract](#contract-c-categorical) above.
 <a id="blggt-normalization-register"></a>
 #### Polarization and the automorphic realization
 
-Import polarized regular algebraic cuspidal automorphic pairs (π,χ) from AutomorphicGaloisRepresentationsPartII, Layers AG2.0 and AG2.2. For imaginary CM F, πᶜ ≅ π∨ ⊗ (χ∘N_{F/F⁺}∘det), with χ a character of (F⁺)×\𝔸_{F⁺}× and its archimedean sign independent of the real place. If the dominant weight a satisfies a_{τ,i}+a_{τc,n+1−i}=w, use χ_v(−1)=(−1)^{n+w}. The infinitesimal character is that of Ξ_a∨. The associated representation has Hodge–Tate multiset {a_{ιτ,1}+n−1,…,a_{ιτ,n}}, multiplier ε_ℓ^{1−n}r_{ℓ,ι}(χ), and is totally odd. For v∤ℓ its Frobenius-semisimplified Weil–Deligne parameter is rec(π_v⊗|det|_v^{(1−n)/2}); the same comparison at v|ℓ requires the stated Iwahori hypothesis. Independence of the coefficient isomorphism uses Clozel, Theorem 3.13. These are the imported conventions of BLGGT §2.1, pp. 32–34.
+Import polarized regular algebraic cuspidal automorphic pairs (π,χ) from AutomorphicGaloisRepresentationsPartII, Layers AG2.0 and AG2.2. For imaginary CM F, πᶜ ≅ π∨ ⊗ (χ∘N_{F/F⁺}∘det), with χ a character of (F⁺)×\𝔸_{F⁺}× and its archimedean sign independent of the real place. If the dominant weight a satisfies a_{τ,i}+a_{τc,n+1−i}=w, use χ_v(−1)=(−1)^{n+w}. The infinitesimal character is that of Ξ_a∨. The associated representation has Hodge–Tate multiset {a_{ιτ,1}+n−1,…,a_{ιτ,n}}, multiplier ε_ℓ^{1−n}r_{ℓ,ι}(χ), and is totally odd. For v∤ℓ its Frobenius-semisimplified Weil–Deligne parameter is rec(π_v⊗|det|_v^{(1−n)/2}); the same comparison at v|ℓ requires the stated Iwahori hypothesis. Changing the coefficient isomorphism uses Clozel's conjugate representation σπ, with σ acting on the finite part and permuting the archimedean weights, followed by the AG2.2 compatibility and Chebotarev comparison. Changing ι need not preserve π. These are the imported conventions of BLGGT §2.1, pp. 32–34.
 
 For imaginary CM F, n = 2 and pure weight w = 0, χ_v(−1) = +1 and ε_l^{−1}r_{l,ı}(χ) is −1 at complex conjugation. Repeat with w = 1: χ_v(−1) = −1, while r_{l,ı}(χ)(c_v) = (−1)^wχ_v(−1) = +1, so the multiplier is again −1. At weight 0, HT_τ = {n − 1, …, 0}; at pure weight w the signs must use n+w rather than n alone.
 
-([BLGGT](#ref-blggt-2014-v4), §2.1, p. 32 (arXiv v4); [BLGGT](#ref-blggt-2014-v4), §2.1, Theorem 2.1.1, pp. 33–34 (arXiv v4).)
+([BLGGT](#ref-blggt-2014-v4), §2.1, p. 32 (arXiv v4); [BLGGT](#ref-blggt-2014-v4), §2.1, Theorem 2.1.1, pp. 33–34 (arXiv v4); [Clozel](#ref-clozel-1990), Theorem 3.13, p. 112, proof pp. 112–129.)
 
 *Needs:* AutomorphicGaloisRepresentationsPartII, Layer AG2.0; AutomorphicGaloisRepresentationsPartII, Layer AG2.2; [C-GALOIS](#contract-c-galois).
 
@@ -646,7 +646,7 @@ Import cyclic automorphic induction from EndoscopicTransferAndUnitaryTraceCompar
 
 ### Source boundaries for the imported methods
 
-Clozel 1990 Theorem 3.13 (independence of the coefficient isomorphism) and Lemme 4.9 (purity), Khare’s weight-one descent with its 1999 corrigendum, Blasius–Harris–Ramakrishnan Proposition 5.3.7, Henniart’s 2009 finite-place exterior-square comparison, Kim’s 2003 symmetric-fourth proof and 2004 icosahedral symmetric powers, and the complete Adams–Johnson conditions are explicit primary-source gaps. Their endpoint citations specify the requested assertions; they do not replace the missing proof and exact primary locator. Arthur–Clozel cyclic induction has the separate boundary above.
+Khare’s weight-one descent with its 1999 corrigendum, Blasius–Harris–Ramakrishnan Proposition 5.3.7, Henniart’s 2009 finite-place exterior-square comparison, and Kim’s 2003 symmetric-fourth proof and 2004 icosahedral symmetric powers remain explicit primary-source gaps. Their endpoint citations specify the requested assertions; they do not replace the missing proof and exact primary locator. Arthur–Clozel cyclic induction has the separate boundary above. Clozel's conjugation and archimedean purity statements have the primary locators given in [the normalization convention](#blggt-normalization-register) and [the weight comparison](#parallel-weight-and-clozel-purity). The AJ87 induction and parameter data have primary locators in [the real-packet comparison](#adams-johnson-packets); constructing their AF.1 carrier and the required transfer maps remains a separate dependency.
 
 The unitary method additionally needs the precise level-raising hypotheses of Anastassiades–Thorne Theorem 5.1, author pp. 19–20; the residually reducible lifting hypotheses of Allen–Newton–Thorne Theorem 1.1, arXiv 1912.11269v2 pp. 1–2; and the enormous-image adjoint Selmer vanishing of Newton–Thorne Theorem A, arXiv 1912.11265v2 p. 2. These are inputs to the absent method owners, not consequences of the symmetric-power endpoint. Buzzard–Kilford Theorem A, author p. 2, includes the ordinary component of the full eigencurve; the cuspidal restriction used here has positive indices, as in Newton–Thorne I Theorem 3.2, pp. 53–54 (arXiv v3).
 
@@ -1253,7 +1253,7 @@ Weak compatibility, purity, regularity, the stated pairing parity and a compatib
 
 State the resulting comparison as `TauCeti.PotentialAutomorphy.patrikisTaylor`.
 
-Patrikis–Taylor Lemma 1.6 makes the irreducible constituents totally odd and polarized at conjugation-invariant coefficient primes. Use their Theorem 2.1, not BLGGT Theorem 5.5.3 under weaker hypotheses. The proof chooses suitable coefficient primes, applies BLGGT Theorem 4.5.1 to the constituents, and transports those constituents into compatible systems by BLGGT Theorem 5.5.1. The exact new constituent export is requested from R24.5.
+Patrikis–Taylor Lemma 1.6, author p. 9, uses a CM coefficient field that defines every constituent, a conjugation-invariant coefficient prime and the actual multiplier pairing to make the constituents polarized and totally odd. Use their Theorem 2.1, not BLGGT Theorem 5.5.3 under weaker hypotheses. For its finite family over F, with F/F₀ Galois CM and F^avoid/F finite Galois, one common CM extension F′/F is Galois over F₀ and linearly disjoint from F^avoid over F; every constituent system becomes cuspidally automorphic there. The proof chooses suitable coefficient primes, applies BLGGT Theorem 4.5.1 to the constituents, and transports them into compatible systems by BLGGT Theorem 5.5.1. The exact new constituent export is requested from R24.5.
 
 Fresán–Sabbah–Yu apply it to symmetric powers of Kloosterman sheaves.
 
@@ -1371,7 +1371,11 @@ BLGGT Theorem 3.1.2 (PotentialAutomorphyInfrastructurePartII PL.5/dwork-potentia
 
 Used in FKP Proposition 9.1 to produce geometric lifts with Zariski-dense image.
 
-([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, Proposition 9.1 and proof, arXiv v5 pp. 41–43 (the residual automorphy argument on p. 42).)
+The same construction accepts a finite set T of auxiliary trivial places away from p: prescribe v(t(P))<0 at every place above T in the Moret–Bailly step. Choose v₀,v₁∈T with different residue characteristics. Chebotarev supplies trivial places outside any finite set, so the second characteristic can be chosen different from the first. For the characteristic-zero lift, put both places in the finite local-condition set S of FKP Theorem E and prescribe sufficiently close approximations to formally smooth Steinberg lifts at both. The argument on FKP pp. 41–42 then retains both Steinberg components; these are simultaneous conditions, not two unrelated lifts or extensions. This finite-set variant is a deduction from the local-condition construction, whereas Proposition 9.1 itself is stated using one place.
+
+For a coefficient prime equal to the residue characteristic of v₀, v₁ is still available for an off-coefficient-prime monodromy comparison. Two places with the same residue characteristic would not have this property.
+
+([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), Theorem E, pp. 5–6, and §9, Proposition 9.1 and proof, arXiv v5 pp. 41–43 (finite local prescriptions and the residual automorphy argument on p. 42).)
 
 *Needs:* PotentialAutomorphyInfrastructurePartII, Layer PL.5 (dwork potential ordinary automorphy); [Moret–Bailly with prescribed local Galois extensions (Proposition 3.1.1)](#moret-bailly-galois-control); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
@@ -1648,17 +1652,19 @@ The transport between coefficient primes is the step where the compatible system
 <a id="compatible-system-from-potential-automorphy"></a>
 ### 2.30 A potentially automorphic geometric GSp_{2n}-lift lies in a strictly pure compatible system (FKP, after BLGGT 5.5.1)
 
-Let F be totally real, n ≥ 1, and ρ : Γ_F → GSp_{2n}(O′) geometric with Zariski-dense image and cyclotomic similitude κ^{1−2n}. Retain the auxiliary Steinberg place v₀ of FKP Proposition 9.1: WD(ρ|_{Γ_{F_{v₀}}}) has a regular nilpotent monodromy operator (an unramified twist of the rank-2n Steinberg parameter). Suppose that ρ|_{Γ_{F′}} ≅ r_ι(Π_{F′}) for a RAESDC Π_{F′} of GL_{2n}(𝔸_{F′}), F′/F Galois totally real. Then ρ belongs to a strictly pure compatible system {ρ_{ι′}} of ℓ-adic representations of Γ_F indexed by primes ℓ and ι′ : ℂ ≅ Q̄_ℓ. For the Zariski-density conclusion at every coefficient prime, require that each member has regular nilpotent monodromy at a finite place away from that coefficient prime, as well as the compatible symplectic pairing and ℓ-independent formal character.
+Let F be totally real, n ≥ 1, and ρ : Γ_F → GSp_{2n}(O′) geometric with Zariski-dense image and cyclotomic similitude κ^{1−2n}. Retain the auxiliary Steinberg place v₀ of FKP Proposition 9.1: WD(ρ|_{Γ_{F_{v₀}}}) has a regular nilpotent monodromy operator (an unramified twist of the rank-2n Steinberg parameter). Suppose that ρ|_{Γ_{F′}} ≅ r_ι(Π_{F′}) for a RAESDC Π_{F′} of GL_{2n}(𝔸_{F′}), F′/F Galois totally real. Then ρ belongs to a strictly pure compatible system {ρ_{ι′}} of ℓ-adic representations of Γ_F indexed by primes ℓ and ι′ : ℂ ≅ Q̄_ℓ. For Zariski density at every coefficient prime, take the two-place variant of [the Steinberg construction](#potential-automorphy-with-steinberg-place): both v₀ and v₁ are away from the original coefficient prime p, their residue characteristics q₀,q₁ are distinct, and both local monodromy operators are regular nilpotent. Together with the compatible symplectic pairing and ℓ-independent formal character, this gives Zariski-dense image for every member.
 
 State the resulting comparison as `TauCeti.PotentialAutomorphy.compatibleSystem_of_potentiallyAutomorphic`.
 
-The argument of BLGGT Theorem 5.5.1 ([A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system)): Brauer's induction over the soluble subextensions of F′/F, with soluble descent (PotentialAutomorphyInfrastructurePartII PL.0/soluble-descent). For each coefficient prime different from the residue characteristic of v₀, strict local compatibility retains the regular nilpotent operator; at the coefficient prime equal to that residue characteristic require the corresponding local comparison or a second auxiliary Steinberg place. **Comparison boundary.** The all-primes regular-unipotent comparison is a required extra input; one Steinberg place and weak compatibility alone do not establish it at its own residue characteristic. FKP's argument uses the regular unipotent and the symplectic pairing to reduce the Zariski closure to a principal GL₂ or GSp_{2n}; independence of formal character excludes the principal GL₂ alternative when n>1. At n=1, GSp₂ is already GL₂. Independence of formal character alone is not the regular-unipotent input.
+Use the argument of BLGGT Theorem 5.5.1 ([A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system)): Brauer's induction over the soluble subextensions of F′/F, with soluble descent (PotentialAutomorphyInfrastructurePartII PL.0/soluble-descent). For any coefficient prime ℓ, choose j∈{0,1} with ℓ≠q_j. Strict compatibility at v_j identifies the Frobenius-semisimplified Weil–Deligne parameter, including its monodromy operator, with that of the original p-adic member. Thus every member has regular nilpotent monodromy at a place away from its coefficient prime. This uses strict ramified compatibility, rather than good-place Euler polynomials alone. FKP's regular-unipotent argument and the symplectic pairing reduce the Zariski closure to a principal GL₂ or GSp_{2n}; independence of formal character excludes the principal GL₂ alternative when n>1. At n=1, GSp₂ is already GL₂.
+
+**Checks.** For ℓ=q₀ use v₁; for ℓ=q₁ use v₀; for ℓ outside {q₀,q₁} either place works. If q₀=q₁, the selection fails at that prime, explaining the distinct-characteristic requirement. The one-place construction alone still needs a separate comparison at its own residue characteristic.
 
 The GSp-valued refinement of [A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system).
 
 ([Lifting and automorphy of reducible mod p Galois representations over global fields](#ref-fkp-2022), §9, proof of Proposition 9.1, arXiv v5 pp. 42–43.)
 
-*Needs:* [A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system); PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
+*Needs:* [A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1)](#part-of-compatible-system); [Residual potential automorphy with a Steinberg place](#potential-automorphy-with-steinberg-place), including its simultaneous finite-place variant; PotentialAutomorphyInfrastructurePartII, Layer PL.0 (soluble descent); [C-GALOIS](#contract-c-galois); [C-SYSTEM](#contract-c-system); [C-LOCAL-DEFORMATION](#contract-c-local-deformation).
 
 <a id="patrikis-taylor-l-function-consequences"></a>
 ### 2.31 Purity, functional equation and strict compatibility from potential automorphy (Patrikis–Taylor, Corollary 2.2)
@@ -2104,7 +2110,11 @@ For n = 2 Xu's packets for GSp₄ agree with the Gan–Takeda L-packets ([The lo
 
 For a quasi-split real symplectic, special orthogonal or unitary group G, take ψ satisfying the full Adams–Johnson parameter conditions of AJ87. AMR Theorem 1.1 identifies the Whittaker-normalized twisted transfer of the stable Adams–Johnson character with the twisted GL_N character of Std∘ψ. Its Arthur packet therefore equals the Adams–Johnson multiset of cohomologically induced modules A_𝔮(λ), with the multiplicity-one consequence used by Chenevier–Taïbi. Require the full parameter definition as an AF.1 export: AMR §8.1 gives necessary consequences (regular integral infinitesimal character, centralizer Levi and a unitary-character factorization with principal SL₂), which are insufficient to define this scope.
 
-G is quasi-split over ℝ and ψ is an actual Adams–Johnson parameter. Its full defining conditions must be supplied by AF.1’s real-packet extension; regular integral infinitesimal character alone is insufficient. Global applications (Chenevier–Taïbi; Ichino–Prasanna) are conditional on [The twisted weighted fundamental lemma](#arthur-dependency-gate); Ichino–Prasanna use KMSW Theorem* 1.7.1 for non-generic parameters, which KMSW prove only for generic ones .
+G is quasi-split over ℝ and ψ is an actual Adams–Johnson parameter. Its full defining conditions must be supplied by AF.1’s real-packet extension; regular integral infinitesimal character alone is insufficient. Global applications (Chenevier–Taïbi; Ichino–Prasanna) are conditional on [The twisted weighted fundamental lemma](#arthur-dependency-gate); Ichino–Prasanna use KMSW Theorem* 1.7.1 for non-generic parameters, which KMSW prove only for generic ones.
+
+AF.1 must supply the following induction data. In the compact-Cartan case fix T⊂K, a θ-stable parabolic 𝔮=𝔩⊕𝔲, its stabilizer L, and a one-dimensional unitary character ξ of L. Cohomological induction is in degree ½dim(𝔨/(𝔩∩𝔨)). With λ=d(ξ|_T) and ρ_𝔮=ρ(𝔩)+ρ(𝔲), require Re⟨α,λ+ρ_𝔮⟩≥0 for every root α in 𝔲. Transport ξ to the conjugate stabilizers as in AJ87 (2.5); index the resulting modules by W(G,T)\W(𝔤,𝔱)/W(𝔩,𝔱), rather than by arbitrary characters. For ψ, retain its admissible L-group factorization through L, central restriction on ℂ× and principal SL₂, and obtain ξ from the ordinary parameter ψ∘j of §3. For groups without compact Cartan, use §10's reduction through M=Z_G(A) for a fundamental Cartan TA. These witnesses and their compatibilities must be constructed; listing consequences of ψ does not construct them.
+
+**Checks.** L=T recovers the discrete-series construction; L=G has 𝔲=0 and one Weyl double coset, giving the one-dimensional character. A choice violating the root inequality is excluded even if its infinitesimal character is regular integral. A group without compact Cartan requires the §10 construction rather than the compact-Cartan formula.
 
 Assume TWFL together with the [trace formula and intertwining inputs](#trace-formula-inputs-register) in the group and parameter scope of this assertion.
 
@@ -2114,7 +2124,7 @@ Import AMR Theorem 1.1 at the exact AJ87 parameter scope. The proof compares sta
 
 Chenevier–Taïbi (5.2.1): for Sp_{2g} and holomorphic discrete series ρ_k (k_g > g), ρ_k ∈ Π(ψ_ℝ) iff d_{i₀} = 1, with the character values given there.
 
-([Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](#ref-chenevier-taibi-2020), §5.2.1, p. 303 (published); [Hodge classes and the Jacquet–Langlands correspondence](#ref-ichino-prasanna-2023), §11.2, p. 70 (arXiv v2); published p. 81; [Paquets d’Arthur des groupes classiques et unitaires](#ref-amr-2018), Theorem 1.1, §1, printed p. 3; Adams–Johnson parameter hypotheses in §8.1.)
+([Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](#ref-chenevier-taibi-2020), §5.2.1, p. 303 (published); [Hodge classes and the Jacquet–Langlands correspondence](#ref-ichino-prasanna-2023), §11.2, p. 70 (arXiv v2); published p. 81; [Paquets d’Arthur des groupes classiques et unitaires](#ref-amr-2018), Theorem 1.1, §1, printed p. 3; [Adams–Johnson](#ref-adams-johnson-1987), (2.1)–(2.2), p. 277, (2.5), pp. 279–280, Definition 2.9, Lemma 2.10 and Definition 2.11, pp. 280–281; §3, pp. 285–286; §10, Theorem 10.3 and Proposition 10.4, pp. 305–308.)
 
 *Needs:* [Local Arthur packets and the local Langlands correspondence for quasi-split classical groups (Arthur, Theorem 1.5.1)](#local-arthur-packets); [Endoscopic classification for quasi-split unitary groups (Mok)](#mok-unitary-classification); AutomorphicFormsOnReductiveGroups, Layer AF.1 (discrete series); [The twisted weighted fundamental lemma](#arthur-dependency-gate); [C-ARTHUR](#contract-c-arthur); [C-AUTOMORPHIC](#contract-c-automorphic).
 
@@ -2416,11 +2426,11 @@ F totally real; π non-CM RAESDC.
 
 State the resulting comparison as `TauCeti.SymmetricPower.onePrime`.
 
-Newton–Thorne Lemma 2.1 uses Clozel independence of embedding together with Galois conjugation of the automorphic representation: changing ι can replace π by σπ. Compare compatible Frobenius traces and use Chebotarev; do not claim that fixing π while changing ι is automatic.
+Newton–Thorne Lemma 2.1 uses Clozel Theorem 3.13: a regular algebraic cuspidal π has a finite part defined over a number field, and σπ_f is the finite part of a regular algebraic cuspidal representation with σ-conjugated infinity type. Changing ι can therefore replace π by σπ. Compare compatible Frobenius traces and use Chebotarev; fixing π while changing ι is not automatic.
 
 Reduces symmetric power functoriality to automorphy of a single Galois representation.
 
-([Newton–Thorne, Hilbert](#ref-nt-2026), Lemma 2.1, §2, p. 9; proof pp. 9–10 (arXiv v2).)
+([Newton–Thorne, Hilbert](#ref-nt-2026), Lemma 2.1, §2, p. 9; proof pp. 9–10 (arXiv v2); [Clozel](#ref-clozel-1990), Theorem 3.13, p. 112, proof pp. 112–129.)
 
 *Needs:* [Automorphic Galois representations in Newton–Thorne's sense](#nt26-automorphy-predicate); [Symmetric power lifts Sym^{n−1}π over a number field](#symmetric-power-lift-over-number-fields); AutomorphicGaloisRepresentationsPartII, Layer AG2.2; TauCetiRoadmap.Chebotarev, Layer 10; [C-GALOIS](#contract-c-galois); [C-AUTOMORPHIC](#contract-c-automorphic); [C-SYSTEM](#contract-c-system).
 
@@ -2486,17 +2496,19 @@ The interface should expose the following operations and comparisons.
 - `TauCeti.SymmetricPower.isParallelWeight_of_imagQuadratic`: F imaginary quadratic ⇒ every cuspidal regular algebraic π on GL₂ has parallel weight.
 - `TauCeti.SymmetricPower.parallelWeight_independent`: If the actual weight function is parallel, k computed at τ equals k computed at σ.
 
-Definition by the weight λ; purity lemma: Clozel 1990, Lemme 4.9 (owner: AutomorphicFormsOnReductiveGroups AF.4).
+Definition by the weight λ; purity lemma: Clozel 1990, Lemme 4.9, pp. 144–145 (also stated before Theorem 3.13 on p. 112; owner: AutomorphicFormsOnReductiveGroups AF.4). In the normalization above, its motivic purity weight is w+1 for GL₂. This is an archimedean weight identity; finite-place Ramanujan bounds require [the symmetric-power purity argument](#purity-from-symmetric-powers). For an imaginary quadratic field, write the two equal cross-sums λ_{τ,1}+λ_{τc,2}=λ_{τc,1}+λ_{τ,2}; subtraction gives equality of the two weight differences. For a general CM field this proves equality within each conjugate pair, rather than equality between all pairs.
 
 **Checks.**
 
 - On the one-element embedding-index type, every weight function has constant difference.
 - The weight function (0,0) on two embeddings is parallel and has k=2. The elliptic-curve comparison requires its actual attached weight, not a supplied equality assumption.
 - On two embeddings, weights (0,0) and (2,0), corresponding to Hilbert weights (2,4), fail the parallel predicate.
+- For conjugate embeddings with weights (2,0) and (3,1), both cross-sums equal 3 and both differences equal 2, giving parallel weight k=4. The pure weights need not agree coordinate by coordinate.
+- On two distinct conjugate pairs, weights (0,0),(0,0) and (1,−1),(1,−1) have common cross-sum 0 but differences 0 and 2. The purity identity alone does not force parallel weight over a higher-degree CM field.
 
-Every cuspidal Bianchi π (F imaginary quadratic) has parallel weight.
+Every cuspidal regular algebraic Bianchi π (F imaginary quadratic) has parallel weight.
 
-([BCGNT](#ref-bcgnt-2025), Definition 1.6.1 (Parallel Weight) and the following paragraph, §1.6 Notation, arXiv v3 p. 13 (= Definition 1.5.1, §1.5, published p. 11: arXiv numbering and pagination differ).)
+([BCGNT](#ref-bcgnt-2025), Definition 1.6.1 (Parallel Weight) and the following paragraph, §1.6 Notation, arXiv v3 p. 13 (= Definition 1.5.1, §1.5, published p. 11: arXiv numbering and pagination differ); [Clozel](#ref-clozel-1990), Lemme 4.9 and proof, pp. 144–145.)
 
 *Needs:* AutomorphicFormsOnReductiveGroups, Layer AF.4; AutomorphicGaloisRepresentationsPartII, Layer AG2.0 (regular algebraic of weight); [C-COHERENT-GEOMETRY](#contract-c-coherent-geometry); [C-AUTOMORPHIC](#contract-c-automorphic).
 
@@ -3256,3 +3268,9 @@ Siegel modularity and abelian-surface modularity consume the classical packet, d
 
 <a id="ref-schmidt-2018"></a>
 - Ralf Schmidt. [Packet structure and paramodular forms](https://sites.math.unt.edu/~schmidt/papers/packets_paramodular.pdf). Trans. Amer. Math. Soc. 370 (2018), 3085–3112; §§1.1–1.2, pp. 3088–3092.
+
+<a id="ref-clozel-1990"></a>
+- Laurent Clozel. [Motifs et formes automorphes : applications du principe de fonctorialité](https://www.jmilne.org/math/Books/AA1988a.pdf). In L. Clozel and J. S. Milne (eds.), Automorphic Forms, Shimura Varieties, and L-functions, vol. I, Perspectives in Mathematics 10, Academic Press (1990), pp. 77–159. Editor's public scan; printed page p is PDF page p+11. Theorem 3.13, p. 112, proof pp. 112–129; Lemme 4.9 and proof, pp. 144–145.
+
+<a id="ref-adams-johnson-1987"></a>
+- Jeffrey Adams and Joseph F. Johnson. [Endoscopic groups and packets of non-tempered representations](https://www.numdam.org/item/CM_1987__64_3_271_0.pdf). Compositio Mathematica 64 (1987), no. 3, pp. 271–309; §§2–3, pp. 277–286, and §10, pp. 305–308.
