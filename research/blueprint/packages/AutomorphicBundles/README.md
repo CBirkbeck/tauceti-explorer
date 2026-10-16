@@ -24,7 +24,7 @@ An automorphic form has a coefficient, a field of definition and a condition at 
 roadmap constructs these three pieces together. A representation of the entire coefficient group
 carries more structure than a representation of the Hodge parabolic: Betti and étale local systems
 and a filtered de Rham bundle with an integrable connection. A representation of a Levi or parabolic
-alone acquires no flat connection. Keeping this distinction visible connects the classical coherent
+alone acquires no flat connection from this construction. Keeping this distinction visible connects the classical coherent
 coefficients with their Hodge–Tate comparisons without changing their meaning.
 
 The principal references are Milne for canonical principal bundles and rationality, Deligne for
@@ -285,6 +285,14 @@ C0 (*relative-torus-embedding*, *relative-stratum-quotient*, *relative-face-open
 *integral-coefficient-extension* leaves to B3.10 the check that general automorphic canonical
 extensions are formally canonical, and C3 *coherent-cohomology-invariance* leaves to B3.5 the
 identification `f^*E^can = E′^can`.
+
+For the arbitrary coefficient module in B5, use C5's formal restriction and
+homogeneous decomposition on the abelian torsor: the degree module is
+`Γ(C_Φ, Ψ_Φ(ℓ) ⊗ L_Φ^k ⊗ M)`. The subsequent left-exact coefficient
+functors and vector extension are B5.2–B5.3 and B5.14. A pushforward of
+`Ψ_Φ(ℓ)` followed by tensoring with a nonflat `M` is used only after a
+separate coefficient base-change theorem; it is not part of this supplier
+contract.
 
 ### Boundary and comparison suppliers used by the end theorems
 
@@ -1449,7 +1457,7 @@ realization in the solid analytic category is a separately supplied comparison.
 
 - For the upper-triangular `P ⊂ GL₂`, the character `diag(a, d) ↦ a` gives a rank-one automorphic
   coefficient that is not the restriction of a one-dimensional `GL₂`-representation (`det^n`
-  restricts to `aⁿdⁿ`), so it carries no flat connection (B2.1).
+  restricts to `aⁿdⁿ`), so the full-group flat-connection construction does not apply (B2.1).
 - Over `Spec ℚ` the étale coefficients `ℚ_ℓ` and `ℚ_ℓ(1)` have the same geometric realization and
   different Galois actions (B2.5).
 - On the `GSp_{2g}` flag the tautological sequence
@@ -2346,7 +2354,7 @@ function descent in the horizontal logarithmic setting, not just the
 ordinary pro-étale theorem on `U`.
 
 *Source:* [DLLZ], §§2.2–2.3, pp.7–20, §§3.1–3.3, pp.21–39,
-§§5.1–5.4, pp.70–80, especially Theorem 5.4.3, pp.79–80;
+§§5.1–5.4, pp.70–81, especially Theorems 5.4.3–5.4.4, pp.79–81;
 [DLLZRH], §2.3, pp.14–20.
 
 The API:
@@ -2402,7 +2410,7 @@ logarithms, matching the residues of B3.7. This assertion concerns geometric
 boundary inertia; it does not assert that arithmetic Galois acts unipotently.
 
 *Source:* [DLLZ], Theorem 4.6.1 and Corollary 4.6.7, pp.68–69,
-Corollaries 6.3.4–6.3.6, pp.88–89; [DLLZRH], §5.2, pp.52–56;
+Corollaries 6.3.4–6.3.5 and Lemma 6.3.6, pp.88–89; [DLLZRH], §5.2, pp.52–56;
 [RC22], §4.2, pp.21–23.
 
 The API:
@@ -2815,14 +2823,19 @@ Keep ordinary and compact comparisons separate, and prove compatibility
 with the support-forgetting map and duality. Degeneration does not need a
 perfectoid Shimura tower or a completed-cohomology comparison.
 
-For BCGP's negative dominant `κ`, transport the positive-root/dual
-convention before computing. The coherent label is
-`−w_{0,M}(w·κ+2ρ_M)`. In increasing length order the labels and their Hodge
-degrees are exactly `λ_j,a_j` of B5.21; in particular their central label is
-`−w`. Prove this convention dictionary by the `C₂` root action and the
-Levi-dual highest weight, rather than substituting `−κ` without changing the
-positive system. The bundle `ω^{λ_j}` here is untwisted; its Tate twist is
-applied once by the cohomology comparison.
+For BCGP's negative dominant `κ=(k₁,k₂;w)`, change the positive system
+before using the dot action. In their coordinates the simple roots are
+`e₁−e₂` and `−2e₁`; thus `ρ_G=(−1,−2;0)` and
+`ρ_L=(1/2,−1/2;0)`. Write `ρ_U=ρ_G−ρ_L`, the half-sum of the
+unipotent roots, so `2ρ_U=(−3,−3;0)`. The coherent label is
+`−w_{0,M}(w·κ+2ρ_U)`, where the dot action uses `ρ_G` and
+`w_{0,M}` interchanges the first two coordinates. The minimal left-coset
+representatives `1,s₂,s₂s₁,s₂s₁s₂` have lengths `0,1,2,3` and give
+`λ₃,λ₂,λ₁,λ₀`, respectively, with coherent cohomological degree
+`j=3−ℓ(w)` and Hodge degree `a_j` as in B5.21. In particular every central
+label is `−w`. Prove this dictionary by the `C₂` root action and the
+Levi-dual highest weight. The bundle `ω^{λ_j}` here is untwisted; its Tate
+twist is applied once by the cohomology comparison.
 
 *Source:* [LLZ], Theorem 6.1.10 and Remark 6.1.16, pp.53–54,
 Theorems 6.2.3 and 6.2.9, pp.54–55; [FC90], VI §5,
@@ -2837,8 +2850,13 @@ ComplexComparisonPartII C0/C2 (coherent GAGA and scalar comparison).
 **Checks.**
 
 - At `κ=0`, the four bundles are `O`, `ω^(2,0;0)`,
-  `ω^(3,1;0)`, `ω^(3,3;0)`, in lengths `0,1,2,3` and Hodge
-  degrees `0,1,2,3`; their ranks are `1,3,3,1`.
+  `ω^(3,1;0)`, `ω^(3,3;0)`, in cohomological degrees `0,1,2,3`
+  and BCGP Weyl lengths `3,2,1,0`; their Hodge degrees are `0,1,2,3`
+  and ranks are `1,3,3,1`.
+- At `κ=0` the identity Weyl element gives `−w_{0,M}(2ρ_U)=(3,3;0)`,
+  the degree-three term. Substituting the Levi half-sum instead would
+  give `(1,−1;0)`, and putting the identity in degree zero would give
+  the wrong term even with the correct half-sum.
 - At `κ=(0,−2;2)` the central label is `−2` throughout and the Hodge
   degrees are `0,1,4,5`. A zero-weight-only calculation cannot detect this.
 - For compact support every one of these bundles is tensored with
@@ -2901,7 +2919,7 @@ annihilator under the Weil pairing with the same Frobenius-kernel lift;
 uniqueness identifies it with `C_m`. No classification of all `p`-divisible groups over
 `O_C` is needed in this argument.
 
-*Source:* [Scholze15], III §2, Lemmas III.2.1–III.2.4, pp.31–33,
+*Source:* [Scholze15], III §2, Theorem III.2.1, Corollary III.2.2 and Lemma III.2.4, pp.31–33,
 Corollary III.2.6 and Definition III.2.7 with its following properties,
 pp.33–35 (including Proposition III.2.8).
 
@@ -2965,8 +2983,8 @@ uniform and perfectoid, and its adic space is a tilde-limit of these actual
 anticanonical regions, including their minimal boundary. Prove the boundary
 is strongly Zariski closed on these charts.
 
-*Source:* [Scholze15], Lemma III.2.10, pp.36–37, Proposition III.2.15,
-pp.39–41, Lemma III.2.17, pp.41–42, and Theorem III.2.19 with
+*Source:* [Scholze15], Lemma III.2.10, pp.36–37, Theorem III.2.15,
+pp.39–41, Lemma III.2.17, pp.41–42, and Corollary III.2.19 with
 Corollary III.2.20, pp.42–43.
 
 The API:
@@ -3021,7 +3039,8 @@ isomorphism `ring/f→Hom(g^(1/p^∞),ring/f)`; prove this by flat
 Frobenius in the smooth case and coherent higher direct images on the
 resolution in the normal case. The toroidal resolution from C2 supplies
 this hypothesis for the minimal Siegel charts at issue. Prove preservation
-under normal finite covers étale away from the boundary, by the trace
+under normal finite covers étale away from the boundary, with no
+irreducible component mapping entirely into the boundary, by the trace
 pairing away from the boundary and finite-level Hartogs, and under filtered
 surjective finite limits. This is the specific extension theorem used
 here, not an assertion for every perfectoid space and every closed subset.
@@ -3036,9 +3055,9 @@ integral sections and identify the tilted finite-cover construction with
 the actual completed level rings. Retain the characteristic-`p` extension
 argument and this density argument as separate steps.
 
-*Source:* [Scholze15], II §3, Definition II.3.8 and Lemmas II.3.9–II.3.12,
+*Source:* [Scholze15], II §3, Definition II.3.8, Lemmas II.3.9–II.3.11 and Corollary II.3.12,
 pp.23–26 (using Lemma II.3.6, pp.20–23), and
-Lemmas III.2.21–III.2.28, pp.44–50.
+III §2, results III.2.21–III.2.28, pp.44–50.
 
 The API:
 
@@ -3072,6 +3091,10 @@ PadicHodgeTheory P8 (almost purity); B5.1 (finite locally free trace).
   separate cusp calculation.
 - A finite cover ramified on the open need not satisfy the trace-pairing
   argument; étaleness off the boundary is a required hypothesis.
+- Adding a disjoint normal component mapping entirely into the boundary
+  gives a finite cover which is étale off it, but restriction loses every
+  function on the added component. Such a cover is excluded; the actual
+  normalizations of the open level covers have no such components.
 - At `g=2`, the generic trace divisor is `p³`. Normalizing it by `p²` gives
   the wrong normalized operator already on constants.
 
@@ -3106,10 +3129,10 @@ the boundary. The action is over the reflex field with its cyclotomic
 structure; choosing a cyclotomic trivialization during a ring calculation
 does not make that action trivial.
 
-*Source:* [Scholze15], Lemmas III.2.29–III.2.36, pp.50–53,
-Lemma III.3.1 and Proposition III.3.4, pp.54–56,
-Lemmas III.3.6–III.3.11 and Theorem III.3.12, pp.57–59,
-Theorem III.3.17 and Proposition III.3.18, pp.61–62.
+*Source:* [Scholze15], III §2, results III.2.29–III.2.36, pp.50–53,
+Proposition III.3.1 and Lemma III.3.4, pp.54–56,
+III §3, results III.3.6–III.3.11 and Corollary III.3.12, pp.57–59,
+Corollary III.3.17 and Theorem III.3.18, pp.61–62.
 
 The API:
 
@@ -3161,8 +3184,9 @@ degeneration identifications. Compose the map to the minimal tower with
 its period map; prove agreement with the Hodge–Tate filtration on the open
 and with the log Hodge filtration on cusp charts.
 
-*Source:* [PS16], Appendix A, Propositions A.15–A.19, pp.28–30;
-[Scholze15], III §3, Proposition III.3.18, pp.61–62.
+*Source:* [PS16], Appendix A, Lemmas A.15–A.17, Proposition A.18 and
+Corollary A.19, pp.28–30;
+[Scholze15], III §3, Theorem III.3.18, pp.61–62.
 
 The API:
 

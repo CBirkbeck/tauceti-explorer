@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-AutomorphicBundles~2",
-    "date": "2026-10-14",
-    "notes": "Completed independent fixing review of issue #7917. Read accepted packets, current upstream roadmaps/library, six new targets and three flagged inputs, 15 randomly sampled source targets, all-target adversarial pass and ten Lean signatures. Fixed Hodge-line duplication, generic supplier mappings, Hopf/generality scope, scalar cocycle source error, determinant convention, weight tests and binding Lean shape. Final lean-check exits 0 with 16 sorry-only warnings; no sorry data; packet and intake checks pass. Needs changes for two exact closure defects: missing rational Hodge\u2013Tate/VB, logarithmic comparison and dual-BGG constructions (B4.21/B5.20\u201322), and missing ramified Hilbert splitting-model boundary/formal coefficient suppliers (B4.15/B5.16\u201318/Hilbert B5.19). Conditional conclusions retained and gaps marked. The old active-API-count/200KB objections are superseded by the 2026-10-12 shape. See REV-PKG-AutomorphicBundles~2.md for evidence and repair contracts."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-AutomorphicBundles~3",
+    "date": "2026-10-16",
+    "notes": "Completed independent fixing review of issue #9883. Read both accepted packets, previous review and revision handoff, full package, current upstream models/library and relevant supplier contracts. Verified all 20 new prerequisite targets and a seeded random sample of 15 retained source targets; recorded an adversarial pass for all 114 targets and 14 Lean signature comparisons. The new Hilbert, horizontal-log, relative-BGG and rational-tower layers address both prior repair families. Corrected the BCGP BGG half-sum to 2rho_U=(-3,-3) and coherent degree to 3-Weyl-length, added a proved Lean negative control, restricted finite-cover boundary extension to covers without boundary-only components, and repaired source statement kinds and connection wording. No additional duplicate target found. Suggested.lean has 506 lines; final lean-check exits 0 with exactly 16 sorry-only warnings. No sorry data; packet, target/dependency and intake checks pass. Ready for the draft upstream PR; downstream ownership-pointer coordination is recorded in the handoff. See REV-PKG-AutomorphicBundles~3.md."
   }
 }
