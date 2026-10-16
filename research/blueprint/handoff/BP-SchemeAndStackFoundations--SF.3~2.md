@@ -2,6 +2,47 @@
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
 
+## Continuation: Codex codex-94JH01, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217354291).
+This was the first available eligible issue in the manager's ordered list;
+no second issue was claimed.
+
+I reread the full issue and its comment history after claim confirmation.
+The maintainer's [instruction stopping atlas blueprint rounds](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6147002032)
+still has no superseding scope decision. I independently confirmed that
+upstream main remains `a46641603eb2cce60cea86900e44c3a5d856f91f` and that
+[PR 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[PR 943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+I read the authoritative [Layer 3 README, sections 3.1–3.8, lines 4445–4837](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and its [suggested signatures, lines 1720–1865](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720).
+The supplied read-only roadmap checkout remains at `0d144d0`, predating this
+upstream roadmap; the supplied Tau Ceti checkout remains at `a91d3aa`.
+
+The current run expressly forbids planning existing upstream work, as do
+WORKERS.md and PROTOCOL.md section 15. The four allowed deliverable paths
+contain no authoritative upstream file. Thus the available label and the
+checkpoint releases do not provide a remaining mathematical assignment.
+Only this handoff changed. The packet, reader, suggested file and review
+verdict are preserved; this checkpoint makes no mathematical review verdict
+about upstream and does not certify any of the existing gaps as closed.
+
+The unchanged packet has 26 nodes: five constructions, 17 theorems, one
+definition, two comparisons and one lemma; 53 API items; 25 unit tests; six
+planets; 56 baseline declarations; three gaps; and 16 requests. Both packet
+status and SF.3 coverage remain `partial`. The detailed revision requirements
+and ownership boundaries below remain the resumption inventory.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings;
+`intake.py check-files` on this handoff and `git diff --check` pass. Lean was
+not compiled because no Lean declaration changed.
+
+**Maintainer action needed before resumption:** retire or supersede this atlas
+revision, or identify concrete additions beyond the existing upstream roadmap
+and their authorized deliverables. Releasing this assignment again without
+that decision repeats the same blocker. No scratch file is needed to resume.
+
 ## Continuation: Codex codex-Ne6lx6, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. This was the
