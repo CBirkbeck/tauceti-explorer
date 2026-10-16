@@ -48590,7 +48590,8 @@
     "PKG-ColemanIntegration~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ColemanIntegration~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9881"
   },
   {
    "id": "PKG-CompletedCohomologyPartII",
@@ -53276,7 +53277,8 @@
     "PKG-PadicFamilies"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PadicFamilies.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9889"
   },
   {
    "id": "PKG-PadicHodgeTheory",
@@ -53749,7 +53751,8 @@
     "PKG-PotentialModularityAndCompatibleSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9232"
   },
   {
    "id": "PKG-PrismaticCohomology",
@@ -54317,7 +54320,8 @@
     "PKG-ShimuraCompactifications"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ShimuraCompactifications.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9887"
   },
   {
    "id": "PKG-ShimuraVarieties",
