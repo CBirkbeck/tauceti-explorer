@@ -38643,7 +38643,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9286"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
@@ -53903,7 +53904,8 @@
    ],
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10009"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~3",
