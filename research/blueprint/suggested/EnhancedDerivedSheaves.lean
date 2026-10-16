@@ -6,7 +6,9 @@ they are not an implementation, and every proof is `sorry`.
 
 Enhanced derived categories of sheaves: the E0–E4 prototype (concrete enhancement,
 derived sheaves, descent, coherent adjoints, completion) and the E5 prototype (monoidal,
-presentable and animated structures), joined into one file with one namespace.
+presentable and animated structures), joined into one file with one namespace, followed by
+the signatures of the targets added by the whole-roadmap plan (section `WholeRoadmapOrdinary`
+and `WholeRoadmapMonoidal`, at the end).
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
 Conditions that cannot yet be stated at the pinned interfaces are omitted, never replaced
@@ -74,6 +76,15 @@ import Mathlib.RingTheory.WittVector.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Topology.Algebra.Group.Basic
 import Mathlib.Algebra.TrivSqZeroExt.Basic
+import Mathlib.CategoryTheory.Triangulated.Pretriangulated
+import Mathlib.Algebra.Category.ModuleCat.Presheaf.Sheafification
+import Mathlib.Algebra.Category.ModuleCat.Presheaf.Free
+import Mathlib.Algebra.Category.ModuleCat.Presheaf.Generator
+import Mathlib.CategoryTheory.Generator.Basic
+import Mathlib.RingTheory.Kaehler.Basic
+import Mathlib.RingTheory.Extension.Cotangent.Basic
+import Mathlib.RingTheory.Localization.Defs
+import Mathlib.Algebra.Category.Grp.Basic
 
 namespace TauCeti.EnhancedDerivedSheaves
 
@@ -2063,5 +2074,299 @@ The shared interface commutes with passage from ordinary rings to animated rings
 noncomputable def enhancementCompatibility (R : CommRingCat) : HEquiv (spectralModules R) (ordinaryDerivedModules R) := by sorry
 
 end Monoidal
+
+/-! ## Whole-roadmap additions (BP-EnhancedDerivedSheaves)
+
+Signatures for the targets the whole-roadmap pass adds. Ordinary statements use Mathlib and
+Tau Ceti carriers; ∞-categorical statements reuse the fixed-universe carriers of the E5
+section (`QCat`, `Obj`, `HEquiv`, `SymMonData`, algebra and module objects, animated algebras).
+As elsewhere in this file, a statement with no carrier at the pins is not stated here; a
+comment names it, and the roadmap document states it in full. -/
+
+section WholeRoadmapOrdinary
+
+open CategoryTheory CategoryTheory.Limits Opposite
+
+universe u v
+
+/-! ### E1/enhanced-versus-triangulated-colimits -/
+
+/-- In a pretriangulated category every epimorphism is split. A categorical colimit in the
+triangulated derived category therefore receives a split epimorphism from the direct sum, which
+fails for `ℤ/p → ℤ/p² → ⋯` and its enhanced colimit `ℚ_p/ℤ_p`. -/
+theorem pretriangulated_epi_isSplitEpi {C : Type u} [Category.{v} C] [Preadditive C]
+    [HasZeroObject C] [HasShift C ℤ] [∀ n : ℤ, (shiftFunctor C n).Additive]
+    [Pretriangulated C] {X Y : C} (f : X ⟶ Y) [Epi f] : IsSplitEpi f := by sorry
+
+/-! ### E1/slice-free-module-sheaves -/
+
+section SliceFree
+
+variable {C : Type u} [SmallCategory C] {J : GrothendieckTopology C} (R : Sheaf J RingCat.{u})
+  [J.WEqualsLocallyBijective AddCommGrpCat.{u}] [HasWeakSheafify J AddCommGrpCat.{u}]
+
+/-- `O_U = j_{U!}(O|_U)`: the sheafification of the free presheaf of modules on the
+representable presheaf of `U`. -/
+noncomputable def SheafOfModules.sliceFree (U : C) : SheafOfModules.{u} R :=
+  (PresheafOfModules.sheafification (𝟙 R.obj)).obj
+    ((PresheafOfModules.free R.obj).obj (yoneda.obj U))
+
+theorem SheafOfModules.sliceFree_presheaf (U : C) :
+    SheafOfModules.sliceFree R U =
+      (PresheafOfModules.sheafification (𝟙 R.obj)).obj
+        ((PresheafOfModules.free R.obj).obj (yoneda.obj U)) := rfl
+
+/-- Maps out of `O_U` are the sections over `U`. -/
+noncomputable def SheafOfModules.sliceFree_homEquiv (U : C) (F : SheafOfModules.{u} R) :
+    (SheafOfModules.sliceFree R U ⟶ F) ≃ F.val.obj (op U) := by sorry
+
+noncomputable def SheafOfModules.sliceFree_map {U V : C} (g : V ⟶ U) :
+    SheafOfModules.sliceFree R V ⟶ SheafOfModules.sliceFree R U :=
+  (PresheafOfModules.sheafification (𝟙 R.obj)).map
+    ((PresheafOfModules.free R.obj).map (yoneda.map g))
+
+theorem SheafOfModules.sliceFree_isSeparating :
+    ObjectProperty.IsSeparating (.ofObj (SheafOfModules.sliceFree R)) := by sorry
+
+theorem SheafOfModules.sliceFree_final (X : C) (hX : IsTerminal X) :
+    Nonempty (SheafOfModules.sliceFree R X ≅ SheafOfModules.unit R) := by sorry
+
+theorem SheafOfModules.sliceFree_hom_unit (U : C) :
+    Nonempty ((SheafOfModules.sliceFree R U ⟶ SheafOfModules.unit R) ≃ R.obj.obj (op U)) := by sorry
+
+end SliceFree
+
+-- Not stated here: SheafOfModules.sliceFree_flat (no flatness predicate for module sheaves at the
+-- pins) and the tests SheafOfModules.sliceFree_point and SheafOfModules.sliceFree_not_free
+-- (concrete one- and two-point sites); the roadmap document states them.
+
+/-! ### E1/localization-and-reduction-detect-zero -/
+
+/-- The module step: a `g`-power torsion module on which `g` acts bijectively is zero. Applied to
+the cohomology of `C` with `C[1/g] = 0` and `C ⊗ᴸ R/g = 0` it gives `C = 0`. -/
+theorem localization_reduction_detect_zero {R : Type u} [CommRing R] (g : R)
+    (M : Type u) [AddCommGroup M] [Module R M]
+    (htors : ∀ m : M, ∃ n : ℕ, g ^ n • m = 0)
+    (hbij : Function.Bijective (fun m : M => g • m)) : Subsingleton M := by sorry
+
+-- Not stated here: the perfect valuation counterexample K/m, and E1/valuation-decomposition-triangle
+-- and E1/projection-formula, which need quasicoherent derived categories of perfect schemes and of
+-- ringed topoi as carriers.
+
+end WholeRoadmapOrdinary
+
+section WholeRoadmapMonoidal
+
+open CategoryTheory
+set_option autoImplicit false
+
+/-! ### E2/lim1-products-vanish and E2/multiplicative-derived-limit-filtration -/
+
+/-- `1 − shift` on the product of a tower of abelian groups; its kernel is `lim` and its
+cokernel `lim¹`. -/
+def towerShiftDiff (A : ℕᵒᵖ ⥤ AddCommGrpCat.{0}) :
+    (∀ n : ℕ, A.obj (Opposite.op n)) →+ (∀ n : ℕ, A.obj (Opposite.op n)) where
+  toFun x n := x n - (A.map (homOfLE (Nat.le_succ n)).op).hom (x (n + 1))
+  map_zero' := by funext n; simp
+  map_add' x y := by funext n; simp only [Pi.add_apply, map_add]; abel
+
+/-- `lim¹` of a tower of abelian groups, as the cokernel of `1 − shift`. -/
+abbrev towerLimOne (A : ℕᵒᵖ ⥤ AddCommGrpCat.{0}) :=
+  (∀ n : ℕ, A.obj (Opposite.op n)) ⧸ (towerShiftDiff A).range
+
+/-- Test `derivedLimitFiltration_surjective`: a tower of surjections has no `lim¹`. -/
+theorem derivedLimitFiltration_surjective (A : ℕᵒᵖ ⥤ AddCommGrpCat.{0})
+    (hsurj : ∀ n : ℕ, Function.Surjective (A.map (homOfLE (Nat.le_succ n)).op).hom) :
+    Subsingleton (towerLimOne A) := by sorry
+
+-- Not stated here: the product vanishing of E2/lim1-products-vanish and the filtration
+-- derivedLimitFiltration with its API (gr, eq_bot, mul, naturality, nat_eq_milnor) and tests
+-- (final, ptower, not_lim), which need limits and pairings of mapping spectra.
+
+/-! ### E2: geometric descent
+
+Not stated here: properSurjective_inductiveLevel with its API and tests, abstract blowup squares,
+descendable maps from geometry, noetherian h-cover descendability and h-descent, the converse
+characterization, perfect abstract-blowup patching and truncated maps to hypercomplete objects.
+Their carriers (fppf covers, nil-immersions and blowups as properties of finite presentation,
+Dqc of schemes as an ∞-category, ∞-topoi) are not at the pins. -/
+
+/-! ### E3/kan-extensions-along-functors -/
+
+noncomputable def leftKanAlong {C₀ C₁ D : QCat} (δ : QFun C₀ C₁) : QFun (funQ C₀ D) (funQ C₁ D) := by sorry
+noncomputable def rightKanAlong {C₀ C₁ D : QCat} (δ : QFun C₀ C₁) : QFun (funQ C₀ D) (funQ C₁ D) := by sorry
+noncomputable def restrictAlong {C₀ C₁ D : QCat} (δ : QFun C₀ C₁) : QFun (funQ C₁ D) (funQ C₀ D) := by sorry
+
+/-- Left and right Kan extension are left and right adjoint to restriction (homotopy-category
+shadow of the ∞-categorical adjunctions). -/
+theorem kanExtension_adjunctions {C₀ C₁ D : QCat} (δ : QFun C₀ C₁) :
+    Nonempty (onHCat (leftKanAlong (D := D) δ) ⊣ onHCat (restrictAlong δ)) ∧
+      Nonempty (onHCat (restrictAlong (D := D) δ) ⊣ onHCat (rightKanAlong δ)) := by sorry
+
+/-! ### E4/completed-base-change -/
+
+/-- The derived `J`-complete objects of `D(S)` (point topos). -/
+noncomputable def completeModules (S : CommRingCat) (J : Ideal S) : QCat := by sorry
+noncomputable def completedBaseChange {R S : CommRingCat} (φ : R ⟶ S) (I : Ideal R) (J : Ideal S) :
+    QFun (completeModules R I) (completeModules S J) := by sorry
+noncomputable def completeRestriction {R S : CommRingCat} (φ : R ⟶ S) (I : Ideal R) (J : Ideal S) :
+    QFun (completeModules S J) (completeModules R I) := by sorry
+theorem completedBaseChange_adjunction {R S : CommRingCat} (φ : R ⟶ S) (I : Ideal R) (J : Ideal S)
+    (hI : I.map φ.hom ≤ J.radical) :
+    Nonempty (onHCat (completedBaseChange φ I J) ⊣ onHCat (completeRestriction φ I J)) := by sorry
+theorem completedBaseChange_comp {R S T : CommRingCat} (φ : R ⟶ S) (ψ : S ⟶ T)
+    (I : Ideal R) (J : Ideal S) (L : Ideal T) :
+    Nonempty (onHCat (completedBaseChange φ I J) ⋙ onHCat (completedBaseChange ψ J L) ≅
+      onHCat (completedBaseChange (φ ≫ ψ) I L)) := by sorry
+theorem completedBaseChange_id (R : CommRingCat) (I : Ideal R) :
+    Nonempty (onHCat (completedBaseChange (𝟙 R) I I) ≅ 𝟭 _) := by sorry
+-- Not stated here: completedBaseChange_monoidal, _reduction and _flat_equiv, and the tests
+-- completedBaseChange_zp, _zero_ideal and _polynomial, which need the completed tensor and
+-- reduction functors on these carriers. E4/amitsur-completion-of-finite-modules needs the
+-- Amitsur totalization of D(A) and is not stated here either.
+
+/-! ### E5:abstract/symmetric-monoidal-derived-sheaves -/
+
+noncomputable def derivedTensor_symmetricMonoidal (R : CommRingCat) : SymMonData := by sorry
+/-- The underlying category of the symmetric monoidal structure is `D(R)`. -/
+theorem derivedTensor_symmetricMonoidal_tensor (R : CommRingCat) :
+    Nonempty (HEquiv ((derivedTensor_symmetricMonoidal R).fibre 1) (ordinaryDerivedModules R)) := by sorry
+-- Not stated here: derivedTensor_symmetricMonoidal_colim, derivedPullback_symmetricMonoidal,
+-- derivedPushforward_laxMonoidal and derivedSections_cup (ringed sites in the fixed-universe
+-- carrier), and the tests derivedTensor_symmetricMonoidal_point, _unit, _homotopy and
+-- derivedTensor_termwise_not_invariant.
+
+/-! ### E5:abstract/amitsur-tower-fibres -/
+
+/-- The `k`-th stage of the Amitsur tower is the cofibre of `F^{⊗(k+1)} → A`. -/
+theorem amitsurTower_fibres (C : SymMonData) {A B : Obj (commutativeAlgebras C)} (f : A ⟶ B) (k : ℕ) :
+    Nonempty ((amitsurTower C f).obj (Opposite.op k) ≅
+      cofiberObj ((relativeMonoidal C A).fibre 1) (augmentationPower C f (k + 1)).hom) := by sorry
+
+/-! ### E5:presentability/spectra -/
+
+noncomputable def stabilization (C : QCat) : QCat := by sorry
+noncomputable def omegaInfinity (C : QCat) : QFun (stabilization C) C := by sorry
+noncomputable def sigmaInfinity (C : QCat) : QFun C (stabilization C) := by sorry
+noncomputable abbrev spectra : QCat := abstractSp
+noncomputable def mappingSpectrum (C : QCat) (x : Obj C) : QFun C spectra := by sorry
+theorem stabilization_stable (C : QCat) : IsStable (stabilization C).val := by sorry
+theorem stabilization_of_stable (C : QCat) (h : IsStable C.val) :
+    Nonempty (HEquiv (stabilization C) C) := by sorry
+theorem spectra_stable : IsStable spectra.val := by sorry
+-- Not stated here: omegaInfinity_equiv_iff_stable (its converse needs ∞-equivalences, not the
+-- homotopy-category shadow HEquiv), spectra_compactlyGenerated, spectra_idempotent, and the tests
+-- spectra_not_spaces, mappingSpectrum_derived and spectra_unit.
+
+/-! ### E5:presentability/filtered-objects -/
+
+noncomputable def integersOp : QCat := by sorry
+noncomputable def filteredObjects (C : QCat) : QCat := funQ integersOp C
+noncomputable def filteredObjects.underlying (C : QCat) : QFun (filteredObjects C) C := by sorry
+noncomputable def filteredObjects.gr (C : QCat) (i : ℤ) : QFun (filteredObjects C) C := by sorry
+noncomputable def filteredObjects.completion (C : QCat) : QFun (filteredObjects C) (filteredObjects C) := by sorry
+noncomputable def filteredObjects.dayConvolution (C : SymMonData) : SymMonData := by sorry
+-- Not stated here: filteredObjects.IsComplete (a limit-vanishing predicate with no carrier for
+-- limits in this fixed-universe model), and with it gr_conservative, gr_tensor and the tests
+-- gr_single, constant_not_complete, zero and unit.
+
+/-! ### E5:spectra-comparison/perfect-modules
+
+Not stated here: perfect, compact and dualizable objects of D(R) agree, and Perf commutes with
+filtered colimits of rings; the pins have no perfect-complex predicate on DerivedCategory. -/
+
+/-! ### E5:cotangent-export -/
+
+noncomputable def animatedModules {R : CommRingCat} (B : Obj (animatedAlgebras R)) : QCat := by sorry
+noncomputable def animatedModules_unit {R : CommRingCat} (B : Obj (animatedAlgebras R)) :
+    Obj (animatedModules B) := by sorry
+noncomputable def animatedModules_baseChange {R : CommRingCat} {A B : Obj (animatedAlgebras R)}
+    (f : A ⟶ B) : QFun (animatedModules A) (animatedModules B) := by sorry
+noncomputable def animatedModules_discrete (R : CommRingCat) :
+    HEquiv (animatedModules (animatedDiscrete R)) (ordinaryDerivedModules R) := by sorry
+-- Not stated here: animatedModules_connective_generated and the tests animatedModules_base,
+-- _discrete_unit, _tor and _zero.
+
+noncomputable def squareZeroExtension {R : CommRingCat} (B : Obj (animatedAlgebras R))
+    (M : Obj (animatedModules B)) : Obj (animatedAlgebras R) := by sorry
+noncomputable def derivedDerivations {R : CommRingCat} (B : Obj (animatedAlgebras R))
+    (M : Obj (animatedModules B)) : QCat := by sorry
+noncomputable def derivationZero {R : CommRingCat} (B : Obj (animatedAlgebras R))
+    (M : Obj (animatedModules B)) : Obj (derivedDerivations B M) := by sorry
+noncomputable def derivationPostcompose {R : CommRingCat} (B : Obj (animatedAlgebras R))
+    {M N : Obj (animatedModules B)} (g : M ⟶ N) :
+    QFun (derivedDerivations B M) (derivedDerivations B N) := by sorry
+-- Not stated here: squareZeroExtension_discrete, derivationDiscrete (whose ordinary shadow is
+-- Mathlib's derivationToSquareZeroEquivLift) and the tests derivedDerivations_base, _polynomial,
+-- _leibniz and _discrete.
+
+noncomputable def cotangentComplex {R : CommRingCat} {A B : Obj (animatedAlgebras R)} (f : A ⟶ B) :
+    Obj (animatedModules B) := by sorry
+noncomputable def cotangentMap {R : CommRingCat} {A B A' B' : Obj (animatedAlgebras R)}
+    (f : A ⟶ B) (f' : A' ⟶ B') (a : A ⟶ A') (b : B ⟶ B') (h : f ≫ b = a ≫ f') :
+    (onHCat (animatedModules_baseChange b)).obj (cotangentComplex f) ⟶ cotangentComplex f' := by sorry
+/-- `H⁰` of the cotangent complex of a ring map is the module of Kähler differentials. -/
+theorem cotangentH0 (A B : CommRingCat) (f : A ⟶ B) :
+    letI := f.hom.toAlgebra
+    Nonempty (cotangentCohomology B (importedCotangent A B f) 0 ≃ KaehlerDifferential A B) := by sorry
+/-- Test `cotangentComplex_line`. -/
+theorem cotangentComplex_line (R : CommRingCat) :
+    Nonempty (importedCotangent R (CommRingCat.of (MvPolynomial (Fin 1) R)) (polynomialRingMap R 1) ≅
+      polynomialDifferentials R 1) := by sorry
+-- Not stated here: cotangentResolutionEquiv, cotangent_polynomial and the tests
+-- cotangentComplex_self, cotangentComplex_dualNumbers and cotangentComplex_h0.
+
+theorem cotangentComplex_corepresents {R : CommRingCat} {A B : Obj (animatedAlgebras R)} (f : A ⟶ B)
+    (M : Obj (animatedModules B)) :
+    Nonempty (HEquiv (mappingQ (animatedModules B) (cotangentComplex f) M) (derivedDerivations B M)) := by sorry
+
+/-- `H⁻¹` of the cotangent complex of a ring map is Mathlib's `H1Cotangent`. -/
+theorem cotangentComplex_naive (A B : CommRingCat) (f : A ⟶ B) :
+    letI := f.hom.toAlgebra
+    Nonempty (cotangentCohomology B (importedCotangent A B f) (-1) ≃ Algebra.H1Cotangent A B) := by sorry
+
+noncomputable def cotangentComplex_transitivity {R : CommRingCat} {A B C : Obj (animatedAlgebras R)}
+    (f : A ⟶ B) (g : B ⟶ C) :
+    (onHCat (animatedModules_baseChange g)).obj (cotangentComplex f) ⟶ cotangentComplex (f ≫ g) := by sorry
+-- Not stated here: the cofibre identification of transitivity and cotangentComplex_baseChange,
+-- which need animated pushouts over an arbitrary base.
+
+theorem cotangentComplex_localization (R : CommRingCat) (S : Submonoid R) (n : ℤ) :
+    Subsingleton (cotangentCohomology (CommRingCat.of (Localization S))
+      (importedCotangent R (CommRingCat.of (Localization S))
+        (CommRingCat.ofHom (algebraMap R (Localization S)))) n) := by sorry
+
+theorem cotangentComplex_smooth (R : CommRingCat) (n : ℕ) :
+    Nonempty (importedCotangent R (CommRingCat.of (MvPolynomial (Fin n) R)) (polynomialRingMap R n) ≅
+      polynomialDifferentials R n) := by sorry
+
+theorem cotangentComplex_regularQuotient (R : CommRingCat) (rs : List R)
+    (hreg : RingTheory.Sequence.IsRegular R rs) :
+    Nonempty (importedCotangent R (sequenceQuotient R rs) (sequenceQuotientMap R rs) ≅
+      regularConormalShift R rs) := by sorry
+
+theorem cotangentComplex_lci (R : CommRingCat) (rs : List R)
+    (hreg : RingTheory.Sequence.IsRegular R rs) (n : ℤ) (hn : n < -1 ∨ 0 < n) :
+    Subsingleton (cotangentCohomology (sequenceQuotient R rs)
+      (importedCotangent R (sequenceQuotient R rs) (sequenceQuotientMap R rs)) n) := by sorry
+
+noncomputable def derivedExteriorPower {R : CommRingCat} (B : Obj (animatedAlgebras R)) (n : ℕ) :
+    QFun (animatedModules B) (animatedModules B) := by sorry
+theorem exteriorPowerZero {R : CommRingCat} (B : Obj (animatedAlgebras R)) (M : Obj (animatedModules B)) :
+    Nonempty ((onHCat (derivedExteriorPower B 0)).obj M ≅ animatedModules_unit B) := by sorry
+theorem exteriorPowerOne {R : CommRingCat} (B : Obj (animatedAlgebras R)) (M : Obj (animatedModules B)) :
+    Nonempty ((onHCat (derivedExteriorPower B 1)).obj M ≅ M) := by sorry
+theorem exteriorPowerBaseChange {R : CommRingCat} {B B' : Obj (animatedAlgebras R)} (g : B ⟶ B') (n : ℕ)
+    (M : Obj (animatedModules B)) :
+    Nonempty ((onHCat (animatedModules_baseChange g)).obj ((onHCat (derivedExteriorPower B n)).obj M) ≅
+      (onHCat (derivedExteriorPower B' n)).obj ((onHCat (animatedModules_baseChange g)).obj M)) := by sorry
+/-- Test `derivedExteriorPower_rank_one`, ordinary shadow: in Mathlib's exterior power the square
+of a vector vanishes, also over `𝔽₂`. -/
+theorem derivedExteriorPower_rank_one (k : Type) [Field k] (x : k) :
+    exteriorPower.ιMulti k 2 (fun _ : Fin 2 => x) = 0 := by sorry
+-- Not stated here: exteriorPowerFlat, exteriorPowerMul and the tests
+-- derivedExteriorPower_zero_module, _free and _smooth.
+
+end WholeRoadmapMonoidal
 
 end TauCeti.EnhancedDerivedSheaves
