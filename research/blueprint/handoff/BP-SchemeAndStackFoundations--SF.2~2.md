@@ -1,7 +1,45 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
 
-## Current run — Codex session codex-ySlkxH, 2026-10-16
+## Current run — Codex session codex-Lv0t4h, 2026-10-16
+
+The bot confirmed this run's claim in
+[comment 6223631766](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6223631766).
+I checked the issue body before claiming but missed the
+[manager's prohibition in its comment history](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380).
+That was a selection error. The available label does not authorize this
+superseded revision. This is the blocked checkpoint required by this run's
+instructions; no second issue was claimed.
+
+Fresh GitHub API reads confirm the merge metadata of upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) recorded below.
+The current upstream README remains blob
+`2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5`, and Suggested.lean remains blob
+`98d33af8657ee848f176ba05b2a2037d8f1bfaf6`. I inspected the README's
+Nisnevich foundations (§§2.12–2.13), derived quasi-coherent categories
+(§2.18), coherent upper shriek (§2.19), scheme Brauer groups (§2.22) and
+semilinear equivariant cohomology (§2.23), together with the suggested
+Nisnevich, DQCoh and ring-level Azumaya interfaces. These are existing
+upstream targets under WORKERS.md and PROTOCOL.md §15. The supplied
+read-only checkout lacks this roadmap directory, so current GitHub main
+supplied the ownership evidence; the shared checkout was not changed or
+built. This inspection establishes ownership, not a correctness review or
+formalisation claim.
+
+Only this handoff changes. The packet, reader, suggested file and review
+remain as received, including partial coverage, 11 gaps, nine requests and
+outstanding review corrections. The packet checker reports **0 errors and
+0 warnings**; `git diff --check` passes. No Lean file was changed or compiled.
+No new supplier request or ownership move is made.
+
+The manager must reconcile the queue with the supersession instruction and
+specify any distinct extension before mathematical work resumes. The existing
+review and packet retain the detailed worklist. No scratch material is needed
+to resume. Another automatic return to `state:available` does not establish
+eligibility and should not trigger another identical checkpoint.
+
+## Earlier run — Codex session codex-ySlkxH, 2026-10-16
 
 The bot confirmed this session's claim in
 [comment 6222948675](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6222948675).
