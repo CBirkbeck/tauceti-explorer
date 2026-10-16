@@ -1,0 +1,572 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "part": "R09.7b",
+  "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7b"
+  ],
+  "status": "complete",
+  "summary": "Single-stage planning pass for local resolution invariants. The accepted aggregate R09.7 packet already owns all twenty-one core targets assigned to R09.7b, and the accepted R09.7a supplement owns the regular-to-completed coefficient comparison. This packet supplies their stage-level ownership and dependency manifest, a corrected standalone reader and a compact native-carrier suggested file. It creates no duplicate declaration nodes. The stage is planned, with inherited supplier interfaces and implementation refinements stated explicitly; nothing is claimed implemented.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:MvPowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Coefficient linear maps indexed by finitely supported multi-indices.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "Total-degree formal order in the extended natural numbers, with order zero series equal to infinity.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean",
+        "provides": "Additivity of total order under multiplication over a nontrivial commutative semiring without zero divisors.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.pderiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Derivative.lean",
+        "provides": "Formal partial differentiation as a derivation over the coefficient ring.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:Pi.wellQuasiOrderedLE",
+        "kind": "instance",
+        "module": "Mathlib/Order/WellQuasiOrder.lean",
+        "provides": "Finite products of well-quasi-ordered types are well-quasi-ordered: the Dickson input for exponent diagrams.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:Module.length",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Extended-natural module length; local Hilbert–Samuel lengths are over their own local ring.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinants of finite square matrices over a commutative ring.",
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_pderiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Derivative.lean",
+        "provides": "The shifted multi-index coefficient times its new coordinate exponent; supplies the formal derivative calculation, not the geometric coordinate completion.",
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_iterate_derivative",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "For any commutative semiring, the constant coefficient of the qth derivative equals q! times coefficient q. Over Q this gives normalized coefficient extraction.",
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-16."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BM1997",
+      "title": "Canonical desingularization in characteristic zero by blowing up the maximum strata of a local invariant",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "edition": "Inventiones mathematicae 128 (1997), 207–302; full published 96-page article, printed pagination",
+      "url": "https://mahalex.net/teaching/seminars/gabber/Bierstone-Milman%20Canonical%20desingularization%20in%20characteristic%20zero.pdf",
+      "accessed": "2026-10-16",
+      "sha256": "f01ebbb0591fa62f9b65c16ab54f35e7409cf4fb0abd1f01bf3bf9b59d87ecaf",
+      "readSections": [
+        "Closed-point and invariant conventions, pp. 213–214, 219–220; Examples 2.1–2.2, pp. 226–228.",
+        "Regular coordinate derivatives, Lemma 3.5 and Remarks 3.6–3.7, p. 233; formal division and Hilbert–Samuel count, Theorem 3.17 and Corollaries 3.19–3.20, pp. 238–239.",
+        "Presentations, test equivalence, coefficient reduction and recursive local invariant, §§4–6, pp. 241–260.",
+        "Samuel certificates, determinantal ideals and transform statements, (7.2), Theorems 7.14, 7.20–7.21, pp. 261–271; the transform proof is imported from the accepted owner rather than re-certified in this pass.",
+        "Monotone diagram convention and finite-degree control, §8, Theorem 8.1 and Definition 8.3, pp. 273–275; regular semicoherence, Theorems 9.2, 9.4, 9.6 and Remarks 9.15, pp. 276–283."
+      ],
+      "readingBoundary": "Freshly read these portions, not the entire article. BM1989 Theorem 5.2.1, pp. 820–821, is imported through the accepted hs-stabilization node and its independent review; this run does not claim a fresh reading of that source."
+    }
+  ],
+  "nodes": [],
+  "importedTargets": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/finite-degree",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-word",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison"
+      ],
+      "note": "The first twenty-one ids are exactly the accepted R09.7a importedTargets assignment for this stage; the last is its own accepted comparison theorem. Preserve all owner APIs, tests, prerequisites, source corrections and unchecked implementation statuses."
+    }
+  ],
+  "importedSupport": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/stalk-order",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/test-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/normalized-orders",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/orders-invariant"
+      ],
+      "note": "Foundational prerequisites, not additional R09.7b targets: ordinary blowups stay with StableReduction Layer 4."
+    }
+  ],
+  "ownershipEvidence": [
+    {
+      "packet": "AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "review": "REV-AlgebraicModuliForArithmeticGeometry--R09.7",
+      "status": "accepted",
+      "provides": "Twenty-one local targets plus the nine supporting presentation/coordinate/transform owners. Read the accepted packet and review, whose corrections supersede the older reader."
+    },
+    {
+      "packet": "AlgebraicModuliForArithmeticGeometry--R09.7a.json",
+      "review": "REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
+      "status": "accepted",
+      "provides": "Explicit assignment of the aggregate local targets to R09.7b and the geometric coefficient-completion theorem. Supplier obligations are retained."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Order and multiplicity, including arbitrary-codimension Hilbert–Samuel input",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/finite-degree",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    },
+    {
+      "target": "Characteristic-zero maximal contact",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    },
+    {
+      "target": "Coefficient ideals, controlled transforms and dimension reduction",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    },
+    {
+      "target": "Regular/formal comparison",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    },
+    {
+      "target": "Presentation independence and upper semicontinuity",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    },
+    {
+      "target": "Smooth coordinate isomorphisms preserving history",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    },
+    {
+      "target": "Exceptional history and monomial local descent",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-word",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease"
+      ],
+      "status": "imported",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ]
+    }
+  ],
+  "dependencyClosure": {
+    "rule": "Every direct prerequisite of an imported target is either another imported target, one of the nine imported support nodes, a pinned declaration, or the SF.0 interface. The support nodes additionally import the existing StableReduction Layer 4 blowup interface and SF.3 Cartier bridge. Accepted owners retain responsibility for their prerequisite chains; the manifest does not re-review them.",
+    "directEdges": [
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/orders-invariant",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/marked-ideal",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+          "mathlib:MvPowerSeries.pderiv"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/test-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/normalized-orders",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/orders-invariant"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+        "prerequisites": [
+          "mathlib:MvPowerSeries.coeff",
+          "mathlib:Pi.wellQuasiOrderedLE"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+          "mathlib:MvPowerSeries.coeff"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+        "prerequisites": [
+          "mathlib:Module.length",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/stalk-order",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+          "SchemeAndStackFoundations:SF.0"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+          "mathlib:Pi.wellQuasiOrderedLE"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/finite-degree",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+          "mathlib:Matrix.det",
+          "mathlib:MvPowerSeries.pderiv"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+          "mathlib:MvPowerSeries.pderiv"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/marked-ideal",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/test-equivalence",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/finite-degree",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-word",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/normalized-orders",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-word",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/orders-invariant",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform"
+        ]
+      },
+      {
+        "owner": "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
+        "prerequisites": [
+          "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+          "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+          "mathlib:MvPowerSeries.pderiv",
+          "mathlib:MvPowerSeries.coeff",
+          "mathlib:MvPowerSeries.coeff_pderiv",
+          "SchemeAndStackFoundations:SF.0"
+        ]
+      }
+    ],
+    "consumer": "AlgebraicModuliForArithmeticGeometry:R09.7c consumes semicoherent invariant strata and local augmented descent to construct and glue global centres and prove global termination."
+  },
+  "requests": [],
+  "inheritedInterfaces": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "fromPackets": [
+        "AlgebraicModuliForArithmeticGeometry--R09.7.json",
+        "AlgebraicModuliForArithmeticGeometry--R09.7a.json"
+      ],
+      "need": "One actual regular étale coordinate neighbourhood at each closed point, residue-field coordinate completions, compatible extension of coordinate derivations and restriction to contact, quotient and finite-ideal completion comparison, and faithful-flat reflection of finite ideal equality and power inclusion. Retain the imported Jacobson finite-type closed-point density bridge; independently chosen formal germs do not supply common regular presentations.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/stalk-order",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "fromPackets": [
+        "AlgebraicModuliForArithmeticGeometry--R09.7.json"
+      ],
+      "need": "Existing ordinary blowup universal property, complement isomorphism, strict-transform saturation, exceptional Cartier ideal and pivot chart comparisons. Coordinate permissible centres supply controlled divisibility and cancellation; a blowup is not assumed flat.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/test-equivalence"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "fromPackets": [
+        "AlgebraicModuliForArithmeticGeometry--R09.7.json"
+      ],
+      "need": "Native effective-Cartier local equations and the ideal-product/divisor dictionary used by labelled SNC boundaries. Current Tau Ceti already has Scheme.IdealSheafData.IsEffectiveCartier beyond the pin; reuse it. No new Cartier or blowup theory is proposed here.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary"
+      ]
+    }
+  ],
+  "gaps": [],
+  "coverage": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "status": "planned",
+      "remaining": [
+        "Discharge the inherited SF.0 regular-coordinate, actual-completion, derivation/restriction and faithful-flat comparison interface; use residue fields at non-rational closed points.",
+        "Connect the imported presentation/transform carriers to StableReduction Layer 4 ordinary blowups and the native Cartier/SNC bridge; do not duplicate either supplier.",
+        "Implement and prove the accepted local targets and their APIs/tests, including common-neighbourhood semicoherence, pointed exceptional tests, birth history and codimension normalization. All implementations remain unchecked.",
+        "At assembly/package time retain the accepted owner ids and synchronize their older readers with accepted review corrections. Compact native examples here do not replace the full geometric targets."
+      ]
+    }
+  ],
+  "importedPlanets": [
+    {
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "name": "Maximal contact"
+    },
+    {
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "name": "Resolution invariant"
+    },
+    {
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "name": "Coefficient completion comparison"
+    }
+  ],
+  "sourceIssues": [],
+  "importedSourceIssues": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E1901",
+      "ownerPacket": "AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "locator": "BM1997 Example 2.1, p. 226, year-one parenthetical pullback",
+      "appliedCorrection": "The pulled-back year-zero monomial is x₁²x₂³. Its x₁ pivot transform after division by the square is y₁³y₂³. This is an existing independently confirmed finding, not a new report."
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E1902",
+      "ownerPacket": "AlgebraicModuliForArithmeticGeometry--R09.7.json",
+      "locator": "BM1997 proof of Theorem 9.6, p. 282; compare Definition 7.9, p. 265, and Remark 9.5(1), p. 277",
+      "appliedCorrection": "Use |β|<dᵢ−|γ| in the coefficient derivative ideal. The non-strict bound adds a unit for c=t², mark two. This is an existing independently confirmed finding, not a new report."
+    }
+  ],
+  "prototypeOmissions": [
+    "The fixed WORKERS.md shape governs this file. No second heavy marked-presentation, test-equivalence, Samuel-certificate, history, word or geometric invariant carrier is introduced merely to make signatures possible at the pins.",
+    "The reader specifies every imported definition, its planning API and discriminating tests. The suggested file states only native power-series/ideal examples and a finite rational monomial pivot inequality. It does not restate the full inherited API as stand-ins.",
+    "Formal derivative coefficient extraction is a native specialization of the imported completion comparison. It does not prove existence of the geometric completion maps, their compatibilities or faithful-flat reflection.",
+    "Global centres, termination, resolution outputs and arbitrary smooth-morphism functoriality are not asserted by these local examples. R09.7c owns the first three; BM1997 local-isomorphism invariance does not supply the last."
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "StableReduction",
+      "detail": "Current Layer 4 README and Suggested.lean read. Ordinary Rees/relative-Proj blowups and chart API stay there; arithmetic-surface resolution is not general characteristic-zero resolution."
+    },
+    {
+      "roadmap": "AlgebraicVectorBundles",
+      "detail": "Current README read for form and scope; relativeSpec signatures inspected. Sheaf/relative-Spec infrastructure does not already give the local resolution invariant. No duplicate bundle infrastructure is proposed."
+    },
+    {
+      "roadmap": "TauCeti",
+      "detail": "Current library commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and roadmap environment commit 0d144d044dacebca17b654695b6f1ad58f159b27 inspected read-only. Current affineBlowup, Rees-chart and effective-Cartier APIs must be reused when packaging; they are not pinned baseline citations. Searches of all nine roadmaps newer than the atlas snapshot and the current library found no replacement for the imported local resolution targets."
+    }
+  ],
+  "audit": {
+    "reviewedLayer": "data/library-coverage.json:AlgebraicModuliForArithmeticGeometry:R09.7b",
+    "verdict": "not built",
+    "reconciliation": "The library audit records the missing local invariant/contact/coefficient/history theory. Its missing targets are already planned by accepted blueprint owners. The older A0-extension remaining list is therefore discharged at planning level by imports, not by duplicating nodes.",
+    "links": "Relevant exact stage-link entries and atlas stageEdges checked. R09.7a supplies local marked transforms and R09.7c consumes the invariant; no new cross-roadmap link is needed."
+  },
+  "statistics": {
+    "newNodes": 0,
+    "newApiItems": 0,
+    "newUnitTests": 0,
+    "newPlanets": 0,
+    "importedTargets": 22,
+    "importedKinds": {
+      "theorem": 11,
+      "construction": 4,
+      "definition": 7
+    },
+    "importedApiItems": 33,
+    "importedUnitTests": 34,
+    "importedPlanets": 3,
+    "supportNodes": 9,
+    "newRequests": 0,
+    "inheritedInterfaces": 3
+  },
+  "implementationStatus": "unchecked"
+}
