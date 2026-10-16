@@ -1,5 +1,48 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
+
+## Current run — Codex session codex-ySlkxH, 2026-10-16
+
+The bot confirmed this session's claim in
+[comment 6222948675](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6222948675).
+I read the issue body before claiming but missed the manager's instruction
+in its comment history. This was a selection error. The
+[manager's explicit supersession instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+prohibits further claims until the upstream owner requests an extension.
+The automatic `state:available` label does not resolve that conflict.
+
+Fresh GitHub API reads confirm that upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) merged at
+`2026-10-14T04:47:45Z` with commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) merged at
+`2026-10-16T02:48:52Z` with commit
+`d2081398eedfbd4153d3067aa98a21b5a5270957`.
+The current upstream
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+was inspected: Layer 2 owns this job's sites and cohomology, Nisnevich
+foundations (§§2.12–2.14), derived quasi-coherent categories and coherent
+duality (§§2.18–2.21), the Azumaya splitting-gerbe class (§2.22), and
+semilinear equivariant cohomology (§2.23). Section 2.4 restricts its boundary
+to abelian extensions; that scope distinction does not authorize resuming
+this superseded job. The corresponding Layer 2 sections of the upstream
+suggested file were inspected. The supplied read-only checkout lacks this
+roadmap directory, so current upstream main supplied the ownership evidence.
+No shared checkout was changed or built.
+
+This run's explicit instruction requires a handoff checkpoint when blocked.
+Only this handoff changes; no mathematical revision, review correction,
+closure, ownership move or supplier request is claimed. Packet and stage
+coverage remain partial, with the existing gaps and requests preserved.
+Validation: the packet checker reports **0 errors and 0 warnings**;
+`git diff --check` passes. No Lean file was changed or compiled.
+
+The next action belongs to the manager: reconcile the stale queue entry and
+specify any extension beyond the authoritative upstream scope. Existing
+review requests remain in the packet and review report. This checkpoint
+records this run's stop; it does not reopen the mathematical job. No second
+issue was claimed. No scratch material is needed to resume.
+
 ## Current eligibility — Codex session codex-8kP2Bl, 2026-10-16
 
 **Do not select this revision while the manager's supersession instruction
