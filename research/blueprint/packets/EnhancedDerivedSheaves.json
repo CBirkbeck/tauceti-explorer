@@ -16,7 +16,7 @@
   "EnhancedDerivedSheaves:E5:spectra-comparison"
  ],
  "status": "complete",
- "summary": "Whole-roadmap target plan for enhanced derived categories of sheaves. It imports the 169 targets of the two accepted parts (E0–E4 and E5) unchanged and pinned by hash, corrects thirteen of them where this pass moves a dependency or a statement, and adds 35 targets: the cotangent complex of animated rings and its basic theory, moved down from DerivedDeRhamCohomology DD.0; the ∞-category of spectra and the Eilenberg–Mac Lane module comparison, replacing citations of StableHomotopyKTheory; the geometric descendability and h-descent results of Bhatt–Scholze §11 for noetherian and perfect schemes; Hinich's symmetric monoidal structure on D∞(O); slice-free generators of module sheaves; the Amitsur tower and completion theorems of Carlsson; filtered objects; Kan extensions along arbitrary functors; perfect modules; the projection formula; completed base change; and the BMPSTWW warning about colimits in triangulated categories. Every paper item routed to this roadmap is accounted for, and every request other roadmaps address to it is triaged. All stages are planned; none is closed.",
+ "summary": "Whole-roadmap target plan for enhanced derived categories of sheaves. It imports the 169 targets of the two accepted parts (E0–E4 and E5) unchanged and pinned by hash, corrects thirteen of them where this pass moves a dependency or a statement, and adds 32 targets: the cotangent complex of animated rings and its basic theory, moved down from DerivedDeRhamCohomology DD.0 as animated refinements of the ordinary cotangent complex that DerivedModuleAlgebra (TauCetiRoadmap pull request #944) owns upstream; the ∞-category of spectra and the Eilenberg–Mac Lane module comparison, replacing citations of StableHomotopyKTheory; the geometric descendability and h-descent results of Bhatt–Scholze §11 for noetherian and perfect schemes; Hinich's symmetric monoidal structure on D∞(O); slice-free generators of module sheaves; the Amitsur tower and completion theorems of Carlsson; filtered objects; Kan extensions along arbitrary functors; perfect modules; the projection formula; completed base change; and the BMPSTWW warning about colimits in triangulated categories. Every paper item routed to this roadmap is accounted for, and every request other roadmaps address to it is triaged. All stages are planned; none is closed.",
  "agent": "Claude (Claude Code, Opus 5.5)",
  "session": "claude-r1SP4N",
  "job": "BP-EnhancedDerivedSheaves",
@@ -482,6 +482,17 @@
    "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
    "readSections": [
     "§5.1: Definition 5.1 and Lemma 5.2 (pp. 28–29)"
+   ]
+  },
+  {
+   "id": "SAG",
+   "title": "Spectral Algebraic Geometry",
+   "authors": "Jacob Lurie",
+   "edition": "Author PDF 'under construction', dated 3 February 2018 (SHA-256 515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d), read 2026-10-16; printed and PDF pages agree.",
+   "url": "https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf",
+   "sha256": "515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d",
+   "readSections": [
+    "§25.2.1–§25.2.3: Construction 25.2.2.2, Proposition 25.2.3.1, Corollary 25.2.3.2, Proposition 25.2.3.4 (pp. 1698–1704)"
    ]
   }
  ],
@@ -1793,17 +1804,17 @@
    ],
    "title": "Kan extensions along arbitrary functors",
    "kind": "theorem",
-   "statement": "Let δ : C_0 → C_1 be a functor of small ∞-categories and D an ∞-category. A left Kan extension of f_0 : C_0 → D along δ is a functor f_1 : C_1 → D with α : f_0 → f_1 ∘ δ exhibiting f_1 as left adjoint-universal. (i) If D admits colimits indexed by the slices C_0 ×_{C_1} (C_1)_{/c}, a left Kan extension exists and is computed pointwise: f_1(c) = colim of f_0 over C_0 ×_{C_1} (C_1)_{/c}; when all these colimits exist, left Kan extension δ_! is a functor left adjoint to restriction δ^*. Dually, right Kan extensions δ_* are computed by limits over C_0 ×_{C_1} (C_1)_{c/} and are right adjoint to δ^*. (ii) For δ fully faithful the unit f_0 → δ^*δ_!f_0 and the counit δ^*δ_*f_0 → f_0 are equivalences; this recovers E3/left-kan-extension-along-a-full-inclusion and its dual. (iii) For a group-like E_1-space G (a group anima) and q : BG → *, δ = q gives homotopy orbits q_! = (−)_{hG} ⊣ q^* (trivial action) ⊣ q_* = (−)^{hG} on Fun(BG, D) for D = Sp or D∞(R). (iv) Kan extensions compose: (δ' ∘ δ)_! ≃ δ'_! ∘ δ_!, and for a pullback square of coCartesian fibrations whose map preserves coCartesian edges, the Beck–Chevalley map of left Kan extensions is an equivalence.",
+   "statement": "Let δ : C_0 → C_1 be a functor of small ∞-categories and D an ∞-category. A left Kan extension of f_0 : C_0 → D along δ is a functor f_1 : C_1 → D with α : f_0 → f_1 ∘ δ exhibiting f_1 as left adjoint-universal. (i) If D admits colimits indexed by the slices C_0 ×_{C_1} (C_1)_{/c}, a left Kan extension exists and is computed pointwise: f_1(c) = colim of f_0 over C_0 ×_{C_1} (C_1)_{/c}; when all these colimits exist, left Kan extension δ_! is a functor left adjoint to restriction δ^*. Dually, right Kan extensions δ_* are computed by limits over C_0 ×_{C_1} (C_1)_{c/} and are right adjoint to δ^*. (ii) For δ fully faithful the unit f_0 → δ^*δ_!f_0 and the counit δ^*δ_*f_0 → f_0 are equivalences; this recovers E3/left-kan-extension-along-a-full-inclusion and its dual. (iii) For a group-like E_1-space G (a group anima) and q : BG → *, δ = q gives homotopy orbits q_! = (−)_{hG} ⊣ q^* (trivial action) ⊣ q_* = (−)^{hG} on Fun(BG, D) for any ∞-category D with colimits and limits indexed by BG, for example D = D∞(R). (iv) Kan extensions compose: (δ' ∘ δ)_! ≃ δ'_! ∘ δ_!. For coCartesian fibrations p : C_0 → S and q : C_1 → S and δ over S carrying p-coCartesian edges to q-coCartesian edges, a left extension along δ is a left Kan extension exactly when its restriction to every fibre is a left Kan extension along δ_s : (C_0)_s → (C_1)_s; so left Kan extension along δ commutes with restriction to fibres.",
    "hypotheses": [
     "C_0 and C_1 are small; D admits the indexed colimits (limits for right Kan extensions).",
     "The pointwise formula is part of the statement, not an extra hypothesis."
    ],
    "proofSteps": [
     "Factor δ through the mapping cylinder M(δ) and reduce to the full-inclusion case of E3/left-kan-extension-along-a-full-inclusion together with the retraction of M(δ) onto C_1 (HTT Proposition 4.3.3.7).",
-    "The pointwise formula: restrict along the cofinal map from C_0 ×_{C_1} (C_1)_{/c} to the slice of the cylinder (HTT Definition 4.3.3.2 and Proposition 4.3.3.8).",
+    "The pointwise formula: by HTT Definition 4.3.3.2 a left Kan extension along δ is a left Kan extension along the full inclusion of C_0 into the cylinder M(δ), computed pointwise there (E3/left-kan-extension-along-a-full-inclusion); restrict along the cofinal map from C_0 ×_{C_1} (C_1)_{/c} to the slice of the cylinder (E3/cofinality-to-a-fibre). For fully faithful δ the unit is an equivalence (HTT Proposition 4.3.3.8).",
     "Dualize by passing to opposite categories for right Kan extensions.",
     "For q : BG → * the slice over the unique object is BG itself, so q_! and q_* are the colimit and limit over BG.",
-    "Composition from uniqueness of adjoints; the Beck–Chevalley statement is HTT Proposition 4.3.3.10 applied to the coCartesian square."
+    "Composition from uniqueness of adjoints; the fibrewise criterion is HTT Proposition 4.3.3.10."
    ],
    "acceptance": [
     "For δ : C_0 → * the left Kan extension is the colimit of f_0 and the right Kan extension its limit.",
@@ -1822,7 +1833,7 @@
     {
      "sourceId": "Lurie-HTT",
      "locator": "§4.3.3, Definition 4.3.3.2 and Propositions 4.3.3.5, 4.3.3.7, 4.3.3.8 and 4.3.3.10, printed pp. 285–291",
-     "match": "Lurie defines left Kan extensions along arbitrary maps through the mapping cylinder, reduces them to Kan extensions along full inclusions, proves that left Kan extension is left adjoint to restriction and gives the pointwise and coCartesian base-change criteria."
+     "match": "Lurie defines left Kan extensions along arbitrary maps through the mapping cylinder, reduces them to Kan extensions along full inclusions, proves that left Kan extension is left adjoint to restriction (4.3.3.7), that the unit is an equivalence at objects where δ is fully faithful (4.3.3.8), and that along a map of coCartesian fibrations preserving coCartesian edges Kan extensions are detected fibrewise (4.3.3.10)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2069,7 +2080,7 @@
     {
      "name": "inductiveLevel_noetherian_bound",
      "kind": "characterisation",
-     "statement": "Over a noetherian base of dimension d, the level can be taken ≤ d."
+     "statement": "Over a base of finite type over ℤ of dimension d, the level can be taken ≤ d."
     }
    ]
   },
@@ -2307,7 +2318,7 @@
    "acceptance": [
     "For U = Y (Z = ∅) both sides are Dqc(Y_perf).",
     "For the blowup of A² at the origin, a perfect complex on the perfected plane is the same as one on the perfected blowup with a compatible one on the perfected point.",
-    "Without perfection the statement fails for Dqc of ordinary schemes: for the nil-immersion Spec k → Spec k[ε]/(ε²), Dqc(k[ε]/(ε²)) is not D(k)."
+    "Without perfection the statement fails for Dqc of ordinary schemes: for the nil-immersion X = Spec k → Y = Spec k[ε]/(ε²), with U = ∅ and Z = E = Spec k (reduced structure), the right side is D(k) but Dqc(Y) = D(k[ε]/(ε²)) is not D(k)."
    ],
    "prerequisites": [
     "EnhancedDerivedSheaves:E2/perfect-h-cech-descent",
@@ -2377,9 +2388,9 @@
     "Tensor products are derived; Tot is the limit in D∞(A)."
    ],
    "proofSteps": [
-    "By E5:abstract/amitsur-tower-fibres, the fibre of M → Tot_k is F^{⊗L(k+1)} ⊗^L_A M with F = fib(A → B) = I[0], so Tot_k = cofib(I^{⊗L(k+1)} ⊗^L_A M → M).",
-    "The image of I^{⊗(k+1)} ⊗ M → M in degree 0 is I^{k+1}M. For noetherian A and finite M the higher Tor terms of the tower {I^{⊗L(k+1)} ⊗^L M} form pro-zero systems (Artin–Rees), so {I^{⊗L(k+1)} ⊗^L M} → {I^{k+1}M} is a pro-isomorphism (E2/pro-towers).",
-    "Pro-isomorphic towers have the same derived limit (E2/pro-zero-derived-limit), so Tot = R lim_k M/I^{k+1}M; the tower is surjective, so lim¹ vanishes (E2/tower-milnor) and Tot = M^∧_I in degree 0.",
+    "For a B-module N (so IN = 0) the augmented Amitsur object N ⊗^L_A B^{⊗L(•+1)} has an extra degeneracy, so Tot(N ⊗^L_A B^{⊗L(•+1)}) ≃ N; Tot is exact, so by the finite filtration by the B-modules I^jM/I^{j+1}M, Tot(M/I^kM ⊗^L_A B^{⊗L(•+1)}) ≃ M/I^kM for every k.",
+    "Carlsson's comparison (proof of Theorem 4.4): in each cosimplicial degree s, the pro-system {MultiTor^A_*(B, …, B, M/I^kM)}_k (s + 1 factors B) is pro-isomorphic to the constant system with value MultiTor^A_*(B, …, B, M), because I-adic pro-systems are exact on finitely generated modules over a noetherian ring (Artin–Rees) and I acts trivially on these multi-Tor groups, so the I-adic pro-system of the multi-Tor of M is pro-zero. Totalization commutes with inverse limits, so Tot(M ⊗^L_A B^{⊗L(•+1)}) ≃ R lim_k Tot(M/I^kM ⊗^L_A B^{⊗L(•+1)}) (E2/pro-towers, E2/pro-zero-derived-limit).",
+    "Hence the totalization is R lim_k M/I^kM; the tower is surjective, so lim¹ vanishes (E2/tower-milnor) and the result is M^∧_I in degree 0, compared with the classical completion by E4/classical-completion-comparison.",
     "For A = ℤ_p, I = (p) and M = A this gives ℤ_p, while ℤ_p → 𝔽_p is not descendable since it becomes the zero ring map after inverting p (E5:abstract/descendable-algebras)."
    ],
    "acceptance": [
@@ -2388,7 +2399,6 @@
     "For A = ℤ_p and I = (p) the totalization of the Čech nerve of ℤ_p → 𝔽_p is ℤ_p, so recovering the unit by totalization is strictly weaker than descendability."
    ],
    "prerequisites": [
-    "EnhancedDerivedSheaves:E5:abstract/amitsur-tower-fibres",
     "EnhancedDerivedSheaves:E2/pro-towers",
     "EnhancedDerivedSheaves:E2/pro-zero-derived-limit",
     "EnhancedDerivedSheaves:E2/tower-milnor",
@@ -2400,7 +2410,7 @@
     {
      "sourceId": "Carlsson08",
      "locator": "Theorem 4.4 and its proof, p. 11; Example 8.1, p. 30",
-     "match": "Carlsson proves that for a noetherian ring and a finitely generated module the derived completion along A → A/I, the totalization of the Amitsur complex, is the I-adic completion, comparing pro-systems of multi-Tor groups; he notes the example of ℤ → 𝔽_p."
+     "match": "Carlsson proves that for a noetherian ring and a finitely generated module the derived completion along A → A/I, the totalization of the Amitsur complex, is the I-adic completion, by comparing the pro-systems of multi-Tor groups of M/I^kM with those of M; he notes the example of ℤ → 𝔽_p."
     },
     {
      "sourceId": "BS17",
@@ -2418,7 +2428,7 @@
    ],
    "title": "Completed extension of scalars",
    "kind": "construction",
-   "statement": "Let φ : R → S be a map of commutative rings, I ⊆ R and J ⊆ S finitely generated ideals with φ(I)S ⊆ √J. For K ∈ D(R) put K ⊗̂^L_R S := (K ⊗^L_R S)^∧_J, the derived J-completion (E4/the-imported-completion-interface on the point topos). Restriction of scalars sends Dcomp(S, J) into Dcomp(R, I), and K ↦ K ⊗̂^L_R S, restricted to Dcomp(R, I), is left adjoint to it: Hom_{Dcomp(S,J)}(K ⊗̂^L_R S, L) ≃ Hom_{D(R)}(K, L). It is symmetric monoidal for the completed tensor products, transitive along (R, I) → (S, J) → (T, L) and unital for the identity, and compatible with reduction: (K ⊗̂^L_R S) ⊗^L_S S/J ≃ K ⊗^L_R S/J. If R → S is flat, J = IS and R/I → S/IS is an isomorphism, restriction Dcomp(S, IS) → Dcomp(R, I) is an equivalence with inverse K ↦ K ⊗̂^L_R S. Commutative algebra objects go to commutative algebra objects.",
+   "statement": "Let φ : R → S be a map of commutative rings, I ⊆ R and J ⊆ S finitely generated ideals with φ(I)S ⊆ √J. For K ∈ D(R) put K ⊗̂^L_R S := (K ⊗^L_R S)^∧_J, the derived J-completion (E4/the-imported-completion-interface on the point topos). Restriction of scalars sends Dcomp(S, J) into Dcomp(R, I), and K ↦ K ⊗̂^L_R S, restricted to Dcomp(R, I), is left adjoint to it: Hom_{Dcomp(S,J)}(K ⊗̂^L_R S, L) ≃ Hom_{D(R)}(K, L). It is symmetric monoidal for the completed tensor products, transitive along (R, I) → (S, J) → (T, L) and unital for the identity, and compatible with reduction: (K ⊗̂^L_R S) ⊗^L_S S/J ≃ K ⊗^L_R S/J. If R → S is flat, J = IS and R/I → S/IS is an isomorphism, restriction Dcomp(S, IS) → Dcomp(R, I) is an equivalence with inverse K ↦ K ⊗̂^L_R S. Commutative algebra objects go to commutative algebra objects. If S is derived J-complete and K is perfect, K ⊗̂^L_R S ≃ K ⊗^L_R S. On the point topos the derived completion used here is the module completion that DerivedModuleAlgebra §§1.2–1.5 (TauCetiRoadmap pull request #944) constructs.",
    "hypotheses": [
     "I and J are finitely generated, so derived completion is a left adjoint and is computed by the Koszul or Čech formula.",
     "φ(I)S ⊆ √J is needed for restriction to land in I-complete objects."
@@ -2427,7 +2437,8 @@
     "Derived completeness for J implies completeness for every ideal inside √J, because the set of f ∈ S with T(L, f) = 0 is a radical ideal (Stacks Lemma 15.93.2); so L ∈ Dcomp(S, J) is IS-complete and its restriction is I-complete (Stacks Lemma 15.93.24).",
     "Adjunction: Hom(K ⊗̂ S, L) = Hom_{D(S)}(K ⊗^L S, L) = Hom_{D(R)}(K, L) by the completion adjunction and extension of scalars.",
     "Transitivity and units follow from uniqueness of left adjoints; monoidality from the fact that completion inverts maps that are equivalences after ⊗^L S/J, and the completed tensor product is the completion of the tensor product (E4/completed-sheaf-tensor).",
-    "Reduction: completion does not change K ⊗^L S/J. The flat case is Stacks Lemma 15.93.25."
+    "Reduction: completion does not change K ⊗^L S/J. The flat case is Stacks Lemma 15.93.25.",
+    "Perfect K: K ⊗^L_R S is a finite colimit of shifts of retracts of S, and derived complete objects are closed under finite colimits, shifts and retracts."
    ],
    "acceptance": [
     "Identity: for (R, I) → (R, I) and complete K, K ⊗̂ R ≃ K.",
@@ -2494,6 +2505,11 @@
      "name": "completedBaseChange_flat_equiv",
      "role": "equivalence",
      "statement": "If R → S is flat with R/I ≅ S/IS and J = IS, it is an equivalence inverse to restriction."
+    },
+    {
+     "name": "completedBaseChange_perfect",
+     "role": "compatibility",
+     "statement": "If S is derived J-complete and K ∈ D(R) is perfect, K ⊗̂^L_R S ≃ K ⊗^L_R S."
     }
    ],
    "tests": [
@@ -2527,7 +2543,7 @@
    ],
    "title": "The symmetric monoidal derived category of module sheaves",
    "kind": "construction",
-   "statement": "Let (C, O) be a small ringed site with O commutative. D∞(O) carries a symmetric monoidal ∞-category structure whose tensor bifunctor is the derived tensor product of E1/presentability-and-derived-tensor and whose unit is O[0]. It is the symmetric monoidal Dwyer–Kan localization of the symmetric monoidal category of K-flat complexes of O-modules (total tensor product of TauCeti.SheafOfModules.tensorProduct termwise) at the quasi-isomorphisms. The tensor product preserves colimits separately in each variable, so D∞(O) is presentably symmetric monoidal and stable, a stable homotopy theory in the sense used for descendability. For a morphism of ringed topoi f, Lf^* is symmetric monoidal and its right adjoint Rf_* is lax symmetric monoidal; in particular RΓ(C, −) : D∞(O) → D∞(Γ(C, O)) is lax symmetric monoidal and gives natural cup products RΓ(K) ⊗^L RΓ(M) → RΓ(K ⊗^L M), associative, unital and graded commutative. No hypothesis on points of the topos is used.",
+   "statement": "Let (C, O) be a small ringed site with O commutative. D∞(O) carries a symmetric monoidal ∞-category structure whose tensor bifunctor is the derived tensor product of E1/presentability-and-derived-tensor and whose unit is O[0]. It is the symmetric monoidal Dwyer–Kan localization of the symmetric monoidal category of K-flat complexes of O-modules (total tensor product of TauCeti.SheafOfModules.tensorProduct termwise) at the quasi-isomorphisms. The tensor product preserves colimits separately in each variable, so D∞(O) is presentably symmetric monoidal and stable, a stable homotopy theory in the sense used for descendability. For a morphism of ringed topoi f, Lf^* is symmetric monoidal and its right adjoint Rf_* is lax symmetric monoidal; in particular RΓ(C, −) : D∞(O) → D∞(Γ(C, O)) is lax symmetric monoidal and gives natural cup products RΓ(K) ⊗^L RΓ(M) → RΓ(K ⊗^L M), associative, unital and graded commutative; for a ring map A → Γ(C, O), composing with restriction of scalars gives the cup product RΓ(K) ⊗^L_A RΓ(M) → RΓ(K ⊗^L M) in D(A), and on cohomology classes x of degree i and y of degree j, x ∪ y = (−1)^{ij} y ∪ x under the symmetry of K ⊗^L M. No hypothesis on points of the topos is used.",
    "hypotheses": [
     "C small; O a sheaf of commutative rings.",
     "The localization is the ∞-categorical one; on homotopy categories it gives the derived tensor of Mathlib's DerivedCategory when C is a point."
@@ -2950,7 +2966,8 @@
    "statement": "Let R be a commutative ring. For M ∈ D∞(R) the following are equivalent: (1) M is perfect, quasi-isomorphic to a bounded complex of finitely generated projective R-modules; (2) M is a compact object of D∞(R); (3) M is dualizable in the symmetric monoidal ∞-category D∞(R). D∞(R) is compactly generated by R[0], the perfect complexes form a small idempotent-complete stable subcategory Perf(R) with Ind(Perf(R)) ≃ D∞(R), and extension of scalars along R → S preserves perfect complexes and duals. For a filtered colimit of rings R = colim_i R_i, Perf(R) ≃ colim_i Perf(R_i): every perfect R-complex is extended from some R_i, and mapping spaces between extended complexes are filtered colimits of mapping spaces over the R_j.",
    "hypotheses": [
     "R is a discrete commutative ring; D∞(R) has the symmetric monoidal structure of E5:abstract/symmetric-monoidal-derived-sheaves.",
-    "Filtered colimits of rings are in commutative rings; the colimit of categories is in Cat∞."
+    "Filtered colimits of rings are in commutative rings; the colimit of categories is in Cat∞.",
+    "The ordinary predicate 'perfect' is the one DerivedModuleAlgebra §1.E.0 (TauCetiRoadmap pull request #944) defines; this node states the enhanced comparison."
    ],
    "proofSteps": [
     "(1) ⇔ (2): bounded complexes of finite projectives are compact by a direct Hom computation, and a compact object is a retract of a bounded complex of finite projectives (Stacks Proposition 15.80.3).",
@@ -3109,7 +3126,7 @@
    ],
    "title": "Square-zero extensions and derived derivations",
    "kind": "definition",
-   "statement": "Let A → B be a map of animated commutative rings and M a connective B-module. The trivial square-zero extension B ⊕ M is the animated A-algebra over B obtained by animating, on pairs (P, F) of a polynomial A-algebra P and a finite free P-module F, the ordinary square-zero extension P ⊕ F (Mathlib's TrivSqZeroExt) with multiplication (p, f)(p', f') = (pp', pf' + p'f). The space of A-derivations of B into M is Der_A(B, M) := Map_{AnimAlg_A/B}(B, B ⊕ M), the space of sections of the projection B ⊕ M → B, based at the zero section; it keeps all higher homotopy. For discrete B and discrete M, π_0 Der_A(B, M) is the set of ordinary A-derivations B → M.",
+   "statement": "Let A → B be a map of animated commutative rings and M a connective B-module. The trivial square-zero extension B ⊕ M is the animated A-algebra over B obtained by animating, on pairs (P, F) of a polynomial A-algebra P and a finite free P-module F, the ordinary square-zero extension P ⊕ F (Mathlib's TrivSqZeroExt) with multiplication (p, f)(p', f') = (pp', pf' + p'f). The space of A-derivations of B into M is Der_A(B, M) := Map_{AnimAlg_A/B}(B, B ⊕ M), the space of sections of the projection B ⊕ M → B, based at the zero section; it keeps all higher homotopy. For discrete B and discrete M, π_0 Der_A(B, M) is the set of ordinary A-derivations B → M. For ordinary B and M, B ⊕ M is the split trivial extension of DerivedModuleAlgebra §0.5.",
    "hypotheses": [
     "M is connective; the definition is stated in AnimAlg_A over B.",
     "The square-zero multiplication is part of the definition; a product ring is not a square-zero extension."
@@ -3214,35 +3231,43 @@
    "realises": [
     "EnhancedDerivedSheaves:E5:cotangent-export"
    ],
-   "title": "The cotangent complex",
+   "title": "The cotangent complex of animated rings",
    "kind": "construction",
-   "statement": "For a map A → B of animated commutative rings, the cotangent complex L_{B/A} ∈ Mod_B is the connective B-module obtained by animating P ↦ Ω_{P/A} ⊗_P B on polynomial A-algebras P (with Ω the Kähler differentials). For ordinary A → B and a free simplicial polynomial resolution P_• → B, L_{B/A} is represented by the normalized complex of Ω_{P_•/A} ⊗_{P_•} B, simplicial degree n in cohomological degree −n; different resolutions give coherently equivalent results, and a commutative square of ring maps (A → B) → (A' → B') induces L_{B/A} ⊗^L_B B' → L_{B'/A'}, coherently in composites. All negative cohomology is retained.",
+   "statement": "For a map A → B of animated commutative rings, the cotangent complex L_{B/A} ∈ Mod_B is the connective B-module obtained by animating P ↦ Ω_{P/A} ⊗_P B on polynomial A-algebras P (with Ω the Kähler differentials), together with its scalar extension in both variables; a commutative square of animated rings (A → B) → (A' → B') induces L_{B/A} ⊗^L_B B' → L_{B'/A'}, coherently in composites. All negative cohomology is retained. For ordinary rings A → B, L_{B/A} corresponds under the equivalence of the homotopy category of Mod_B with D(B) to the ordinary cotangent complex of DerivedModuleAlgebra (TauCetiRoadmap pull request #944) §0.4 (Algebra.CotangentComplex A B, the standard simplicial resolution model), compatibly with that roadmap's maps of squares and resolution comparisons (cotangentComplex_ordinary). Along this comparison the ordinary statements of that roadmap transport to L_{B/A}: H^0 L_{B/A} = Ω_{B/A} and the naive two-term truncation with H^{−1} = Algebra.H1Cotangent (§0.7), the smooth and étale computations (§0.12) and the regular-quotient formula L_{(P/J)/P} ≃ (J/J²)[1] (§0.13). The ordinary constructions and their proofs belong to that roadmap; PerfectoidSpaces Layer 0 (§0.19 of its package) consumes the same ordinary complex.",
    "hypotheses": [
-    "A → B is a map of animated commutative rings; for the resolution description A and B are ordinary.",
+    "A → B is a map of animated commutative rings; the comparison statements are for ordinary A and B.",
     "Cohomological indexing: connective means cohomology in degrees ≤ 0."
    ],
    "proofSteps": [
     "The functor P ↦ (P, Ω_{P/A}) from polynomial A-algebras to module pairs preserves finite coproducts; its animation (E5:animation/universal-property-of-animation) defines (B, L_{B/A}).",
-    "For a free simplicial resolution, the animation is computed by the geometric realization, whose normalized complex is the displayed one (Stacks Lemmas 4.3 and Remark 5.5).",
-    "Naturality in squares by functoriality of the animation."
+    "For ordinary A → B, a free simplicial polynomial resolution P_• → B computes the animation by geometric realization; its normalized complex is the model Algebra.CotangentComplex A B of DerivedModuleAlgebra (TauCetiRoadmap pull request #944) §0.4 (Stacks Lemmas 4.3 and Remark 5.5), which gives cotangentComplex_ordinary, natural in squares.",
+    "Transport DerivedModuleAlgebra (TauCetiRoadmap pull request #944) §§0.7, 0.12 and 0.13 along cotangentComplex_ordinary: the naive truncation is Mathlib's Algebra.Extension.cotangentComplex with its exactness lemma at Ω and Algebra.Generators.equivH1Cotangent, and regular sequences are Mathlib's RingTheory.Sequence.IsRegular; naturality in squares by functoriality of the animation."
    ],
    "acceptance": [
     "L_{A/A} = 0.",
     "L_{A[t]/A} ≃ A[t]·dt in degree 0.",
-    "For a field k of characteristic ≠ 2 and B = k[ε]/(ε²), L_{B/k} is [B → B dε] in degrees −1, 0 with 1 ↦ 2ε dε, so H^{−1} L_{B/k} = εB ≠ 0."
+    "For a field k of characteristic ≠ 2 and B = k[ε]/(ε²), L_{B/k} is [B → B dε] in degrees −1, 0 with 1 ↦ 2ε dε, so H^{−1} L_{B/k} = εB ≠ 0.",
+    "For k → k[ε]/(ε²) → k (ε ↦ 0), H^{−1} L_{k/k[ε]/(ε²)} = k and H^{−2} L_{k/k[ε]/(ε²)} = k: the naive truncation sees only H^{−1}.",
+    "L_{𝔽_p/ℤ} ≃ 𝔽_p[1], and for ℤ → ℤ[x, y]/(y − x²) the cotangent complex is free of rank 1 in degree 0."
    ],
    "prerequisites": [
     "EnhancedDerivedSheaves:E5:animation/universal-property-of-animation",
     "EnhancedDerivedSheaves:E5:animation/animated-commutative-rings",
     "EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category",
     "EnhancedDerivedSheaves:E5:cotangent-export/modules-over-animated-rings",
-    "mathlib:KaehlerDifferential"
+    "mathlib:KaehlerDifferential",
+    "mathlib:Algebra.Extension.cotangentComplex",
+    "mathlib:Algebra.Extension.toKaehler",
+    "mathlib:Algebra.Extension.exact_cotangentComplex_toKaehler",
+    "mathlib:Algebra.H1Cotangent",
+    "mathlib:Algebra.Generators.equivH1Cotangent",
+    "mathlib:RingTheory.Sequence.IsRegular"
    ],
    "sources": [
     {
      "sourceId": "Stacks-Cotangent",
      "locator": "Definition 3.2 (tag 08PN), p. 3; Lemmas 4.3 (tag 08PU), 4.5 (tag 08QF) and 4.7 (tag 08QH), pp. 5–6; Remark 5.5 (tag 08QI), p. 9",
-     "match": "Stacks defines the cotangent complex of a ring map through the standard simplicial resolution, shows that any free resolution computes it, that H^0 is the module of differentials and that the cotangent complex of a polynomial algebra is its module of differentials in degree 0."
+     "match": "Stacks defines the cotangent complex of a ring map through the standard simplicial resolution and shows that any free resolution computes it, that H^0 is the module of differentials and that a polynomial algebra has its differentials in degree 0; this is the ordinary model that the comparison identifies, built upstream by DerivedModuleAlgebra §0.4."
     },
     {
      "sourceId": "BL22",
@@ -3281,19 +3306,34 @@
      "statement": "A square (A → B) → (A' → B') gives L_{B/A} ⊗^L_B B' → L_{B'/A'}, with identities and composites."
     },
     {
-     "name": "cotangentResolutionEquiv",
-     "role": "equivalence",
-     "statement": "For ordinary A → B, every free simplicial resolution computes L_{B/A} by the normalized differential complex, naturally in comparison maps."
+     "name": "cotangentComplex_ordinary",
+     "role": "compatibility",
+     "statement": "For ordinary A → B, L_{B/A} corresponds under hMod_B ≃ D(B) to Algebra.CotangentComplex A B of DerivedModuleAlgebra §0.4, naturally in squares and compatibly with its resolution comparison."
     },
     {
      "name": "cotangentH0",
      "role": "compatibility",
-     "statement": "For ordinary A → B, H^0 L_{B/A} ≅ KaehlerDifferential A B, compatibly with the universal derivation."
+     "statement": "For ordinary A → B, H^0 L_{B/A} ≅ KaehlerDifferential A B, compatibly with the universal derivation (DerivedModuleAlgebra §0.4 homologyZeroIso, transported)."
+    },
+    {
+     "name": "cotangentComplex_naive",
+     "role": "compatibility",
+     "statement": "For ordinary A → B, τ^{≥−1} L_{B/A} is the naive complex [J/J² → Ω_{P/A} ⊗_P B] of any polynomial presentation and H^{−1} L_{B/A} ≅ Algebra.H1Cotangent A B (DerivedModuleAlgebra §0.7, transported)."
+    },
+    {
+     "name": "cotangentComplex_smooth",
+     "role": "compatibility",
+     "statement": "For a smooth finitely presented ring map L_{B/A} ≃ Ω_{B/A}[0], finite projective, and L_{B/A} = 0 for an étale map (DerivedModuleAlgebra §0.12, transported)."
+    },
+    {
+     "name": "cotangentComplex_regularQuotient",
+     "role": "compatibility",
+     "statement": "For J ⊆ P generated by a finite regular sequence, L_{(P/J)/P} ≃ (J/J²)[1] with J/J² free on the generators; for P smooth over A, L_{(P/J)/A} = [J/J² → Ω_{P/A} ⊗_P P/J] (DerivedModuleAlgebra §0.13, transported)."
     },
     {
      "name": "cotangent_polynomial",
      "role": "simp",
-     "statement": "For a polynomial algebra B = A[x_s], L_{B/A} ≃ ⊕_s B dx_s in degree 0."
+     "statement": "For a polynomial algebra B = A[x_s] over an animated ring A, L_{B/A} ≃ ⊕_s B dx_s in degree 0."
     }
    ],
    "tests": [
@@ -3316,6 +3356,11 @@
      "name": "cotangentComplex_h0",
      "kind": "compatibility",
      "statement": "H^0 L_{B/A} = Ω_{B/A} for ordinary A → B."
+    },
+    {
+     "name": "cotangentComplex_dualNumbers_two",
+     "kind": "non-example",
+     "statement": "In characteristic 2, for B = k[ε]/(ε²) the map of the two-term model is zero, so H^{−1} L_{B/k} = H^0 L_{B/k} = B; a construction assuming 2 invertible fails this."
     }
    ],
    "planet": {
@@ -3334,7 +3379,7 @@
    ],
    "title": "The universal property of the cotangent complex",
    "kind": "comparison",
-   "statement": "For a map A → B of animated rings and a connective B-module M there is a natural equivalence Map_{Mod_B}(L_{B/A}, M) ≃ Der_A(B, M), compatible with module maps M → N and with commutative squares of animated rings. For ordinary A → B and an ordinary B-module M its π_0 is Ext^0_B(L_{B/A}, M) = Hom_B(Ω_{B/A}, M) = Der_A(B, M).",
+   "statement": "For a map A → B of animated rings and a connective B-module M there is a natural equivalence Map_{Mod_B}(L_{B/A}, M) ≃ Der_A(B, M), compatible with module maps M → N and with commutative squares of animated rings. For ordinary A → B and an ordinary B-module M its π_0 is Ext^0_B(L_{B/A}, M) = Hom_B(Ω_{B/A}, M) = Der_A(B, M), the Ext-zero correspondence of DerivedModuleAlgebra (TauCetiRoadmap pull request #944) §0.6 transported along cotangentComplex_ordinary; the Ext¹/Exal correspondence and the obstruction theory of square-zero lifts (§§0.6, 0.25 there) are not restated here.",
    "hypotheses": [
     "M is connective."
    ],
@@ -3345,7 +3390,8 @@
    "acceptance": [
     "For B = A[t] the equivalence is evaluation at dt.",
     "For B = A both sides are contractible.",
-    "For ordinary A → B and M, π_0 recovers Hom_B(Ω_{B/A}, M) = Der_A(B, M)."
+    "For ordinary A → B and M, π_0 recovers Hom_B(Ω_{B/A}, M) = Der_A(B, M).",
+    "For B = A[t] and M = B[1], the derivation space has π_1 = B: the set of ordinary derivations cannot supply the mapping-space equivalence."
    ],
    "prerequisites": [
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
@@ -3368,47 +3414,6 @@
    "implementationStatus": "unchecked"
   },
   {
-   "id": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison",
-   "parentStageId": "EnhancedDerivedSheaves:E5:cotangent-export",
-   "realises": [
-    "EnhancedDerivedSheaves:E5:cotangent-export"
-   ],
-   "title": "Low degrees and the naive cotangent complex",
-   "kind": "comparison",
-   "statement": "For a map A → B of ordinary rings: H^0 L_{B/A} ≅ Ω_{B/A}; τ^{≥−1} L_{B/A} is canonically quasi-isomorphic to the naive cotangent complex [J/J² → Ω_{P/A} ⊗_P B] (degrees −1, 0) of any presentation P → B by a polynomial algebra with kernel J, which is Mathlib's Algebra.Extension.cotangentComplex; hence H^{−1} L_{B/A} is Mathlib's Algebra.H1Cotangent. If A → B is surjective with kernel I, then H^0 L_{B/A} = 0 and H^{−1} L_{B/A} = I/I². The truncation is not the whole complex in general.",
-   "hypotheses": [
-    "A → B is a map of ordinary rings."
-   ],
-   "proofSteps": [
-    "H^0 is the coequalizer of the first two terms of a resolution (Stacks Lemma 4.5).",
-    "The first two simplicial degrees of a resolution give a map from the naive cotangent complex to τ^{≥−1}L, a quasi-isomorphism by comparing the transitivity triangle for A → P → B with its naive analogue (Stacks Lemma 11.3); match it with Mathlib's Extension.cotangentComplex, its exactness lemma and Generators.equivH1Cotangent.",
-    "For surjective maps use Stacks Lemma 11.2."
-   ],
-   "acceptance": [
-    "For k → k[x]/(x²), the naive complex [B·x² → B dx] with x² ↦ 2x dx is the whole cotangent complex, since x² is a non-zero-divisor in k[x].",
-    "For k → k[ε]/(ε²) → k (ε ↦ 0), transitivity gives H^{−1} L_{k/k[ε]/(ε²)} = k and H^{−2} L_{k/k[ε]/(ε²)} = k; the naive complex sees only H^{−1}.",
-    "For surjective A → A/I, H^{−1} L = I/I²."
-   ],
-   "prerequisites": [
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
-    "mathlib:Algebra.Extension.cotangentComplex",
-    "mathlib:Algebra.Extension.toKaehler",
-    "mathlib:Algebra.Extension.exact_cotangentComplex_toKaehler",
-    "mathlib:Algebra.H1Cotangent",
-    "mathlib:Algebra.Generators.equivH1Cotangent",
-    "mathlib:KaehlerDifferential"
-   ],
-   "sources": [
-    {
-     "sourceId": "Stacks-Cotangent",
-     "locator": "Lemma 4.5 (tag 08QF), p. 5; Lemmas 11.2 (tag 08RA) and 11.3 (tag 08RB), p. 21",
-     "match": "Stacks proves that H^0 of the cotangent complex is the module of differentials, that for a surjection H^0 = 0 and H^{−1} = I/I², and that the truncation τ^{≥−1} of the cotangent complex is the naive cotangent complex."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
    "id": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
    "parentStageId": "EnhancedDerivedSheaves:E5:cotangent-export",
    "realises": [
@@ -3416,14 +3421,14 @@
    ],
    "title": "The transitivity triangle",
    "kind": "theorem",
-   "statement": "For maps A → B → C of animated commutative rings there is a natural cofibre sequence L_{B/A} ⊗^L_B C → L_{C/A} → L_{C/B} in Mod_C, compatible with maps of composable pairs.",
+   "statement": "For maps A → B → C of animated commutative rings there is a natural cofibre sequence L_{B/A} ⊗^L_B C → L_{C/A} → L_{C/B} in Mod_C, compatible with maps of composable pairs. For ordinary rings it corresponds under cotangentComplex_ordinary to the transitivity triangle of DerivedModuleAlgebra §0.8.",
    "hypotheses": [
     "Tensor products are derived; the sequence is a cofibre sequence in the stable ∞-category Mod_C."
    ],
    "proofSteps": [
     "For B polynomial over A and C polynomial over B, the sequence of modules of differentials is split exact.",
     "Resolve the composable pair by a bisimplicial pair of polynomial algebras and realize; identify the three terms by the universal property (E5:cotangent-export/cotangent-universal-property) and extension of scalars.",
-    "For ordinary rings this is Stacks Proposition 7.4."
+    "For ordinary rings, compare with the triangle of DerivedModuleAlgebra §0.8 (Stacks Proposition 7.4) through cotangentComplex_ordinary; both are determined on polynomial pairs."
    ],
    "acceptance": [
     "For ℤ → ℤ[x] → ℤ[x]/(x) = ℤ: L_{ℤ/ℤ[x]} ≃ ℤ[1], the boundary sending the conormal class of x to dx.",
@@ -3455,7 +3460,7 @@
    ],
    "title": "Base change of the cotangent complex",
    "kind": "theorem",
-   "statement": "For an animated pushout B' = B ⊗^L_A A', the natural map L_{B/A} ⊗^L_B B' → L_{B'/A'} is an equivalence. For ordinary rings the formula holds for the ordinary pushout B ⊗_A A' exactly in the Tor-independent case Tor_i^A(B, A') = 0 for i > 0.",
+   "statement": "For an animated pushout B' = B ⊗^L_A A', the natural map L_{B/A} ⊗^L_B B' → L_{B'/A'} is an equivalence. For ordinary rings the formula holds for the ordinary pushout B ⊗_A A' exactly in the Tor-independent case Tor_i^A(B, A') = 0 for i > 0, where it corresponds under cotangentComplex_ordinary to DerivedModuleAlgebra §0.10.",
    "hypotheses": [
     "The pushout is the animated (derived) one."
    ],
@@ -3490,7 +3495,7 @@
    ],
    "title": "Localization, étale maps and filtered colimits",
    "kind": "theorem",
-   "statement": "L_{B/A} vanishes when A → B is a localization S^{-1}A, an étale map, more generally weakly étale (A → B and B ⊗_A B → B flat), or a filtered colimit of maps with vanishing cotangent complex. For multiplicative sets S ⊆ A and T ⊆ B with S mapping into T, L_{T^{-1}B/S^{-1}A} ≃ L_{B/A} ⊗_B T^{-1}B. For a filtered colimit B = colim_j B_j of animated A-algebras, L_{B/A} ≃ colim_j (L_{B_j/A} ⊗^L_{B_j} B).",
+   "statement": "L_{B/A} vanishes when A → B is a localization S^{-1}A, an étale map, more generally weakly étale (A → B and B ⊗_A B → B flat), a flat epimorphism, or a filtered colimit of maps with vanishing cotangent complex. For multiplicative sets S ⊆ A and T ⊆ B with S mapping into T, L_{T^{-1}B/S^{-1}A} ≃ L_{B/A} ⊗_B T^{-1}B. For a filtered colimit B = colim_j B_j of animated A-algebras, L_{B/A} ≃ colim_j (L_{B_j/A} ⊗^L_{B_j} B). The localization and filtered-colimit formulas for ordinary rings correspond under cotangentComplex_ordinary to DerivedModuleAlgebra §0.11; the weakly étale and flat-epimorphism vanishing is stated here.",
    "hypotheses": [
     "Filtered colimits are in animated A-algebras; localizations and étale maps are of ordinary rings."
    ],
@@ -3520,80 +3525,6 @@
    "implementationStatus": "unchecked"
   },
   {
-   "id": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale",
-   "parentStageId": "EnhancedDerivedSheaves:E5:cotangent-export",
-   "realises": [
-    "EnhancedDerivedSheaves:E5:cotangent-export"
-   ],
-   "title": "Smooth and étale maps",
-   "kind": "theorem",
-   "statement": "For a smooth ring map A → B, L_{B/A} ≃ Ω_{B/A}[0], a finite projective B-module in degree 0 when the map is of finite presentation; for an étale map L_{B/A} = 0. For a polynomial ring on any set of variables, Ω is free in degree 0.",
-   "hypotheses": [
-    "Smooth means smooth of finite presentation unless stated otherwise."
-   ],
-   "proofSteps": [
-    "Polynomial rings: Stacks Lemma 4.7.",
-    "Smooth maps: Stacks Lemma 9.1, using the local structure of smooth maps and base change.",
-    "Étale maps: Stacks Lemma 8.4."
-   ],
-   "acceptance": [
-    "L_{A[t_1,…,t_r]/A} ≃ B^r[0].",
-    "L_{A[1/f]/A} = 0.",
-    "For the smooth map ℤ → ℤ[x, y]/(y − x²), L is free of rank 1 in degree 0."
-   ],
-   "prerequisites": [
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits"
-   ],
-   "sources": [
-    {
-     "sourceId": "Stacks-Cotangent",
-     "locator": "Lemma 4.7 (tag 08QH), p. 6; Lemma 9.1 (tag 08R5), p. 19; Lemma 8.4 (tag 08R2), p. 18",
-     "match": "The cotangent complex of a polynomial algebra and of a smooth ring map is the module of differentials in degree 0, and it vanishes for étale maps."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients",
-   "parentStageId": "EnhancedDerivedSheaves:E5:cotangent-export",
-   "realises": [
-    "EnhancedDerivedSheaves:E5:cotangent-export"
-   ],
-   "title": "Regular quotients",
-   "kind": "theorem",
-   "statement": "If J ⊆ P is generated by a Koszul-regular sequence f_1, …, f_r (for example a regular sequence) and B = P/J, then L_{B/P} ≃ (J/J²)[1], with J/J² free on the classes of the f_i. If moreover P is smooth over A, L_{B/A} is represented by [J/J² → Ω_{P/A} ⊗_P B] in degrees −1, 0, with f_i ↦ df_i. No flatness of B over A is needed. For an ideal that is not Koszul-regular the formula fails.",
-   "hypotheses": [
-    "The sequence is Koszul-regular; the second statement needs P smooth over A."
-   ],
-   "proofSteps": [
-    "Reduce to the universal case ℤ[x_1, …, x_r] → ℤ by derived base change, which is valid because the Koszul complex resolves the quotient (Stacks Lemmas 14.1–14.2).",
-    "With P smooth over A, apply transitivity to A → P → B with L_{P/A} = Ω_{P/A}[0] and identify the connecting map with d."
-   ],
-   "acceptance": [
-    "For B = k[x]/(x²) over k, L_{B/k} = [B·x² → B dx] with x² ↦ 2x dx; in characteristic 2 this map is zero and both H^{−1} and H^0 are free of rank one.",
-    "L_{𝔽_p/ℤ} ≃ 𝔽_p[1], the regular quotient by p.",
-    "For k → k[ε]/(ε²) → k the relative complex L_{k/k[ε]/(ε²)} has H^{−2} ≠ 0, since ε generates an ideal that is not regular in k[ε]/(ε²)."
-   ],
-   "prerequisites": [
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale",
-    "EnhancedDerivedSheaves:E1/koszul-complex",
-    "mathlib:RingTheory.Sequence.IsRegular"
-   ],
-   "sources": [
-    {
-     "sourceId": "Stacks-Cotangent",
-     "locator": "Lemmas 14.1 (tag 08SI), 14.2 (tag 08SJ) and 14.3 (tag 08SK), p. 29",
-     "match": "A surjection whose kernel is generated by a Koszul-regular sequence has cotangent complex I/I²[1]; Stacks proves it from the universal case by base change."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
    "id": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
    "parentStageId": "EnhancedDerivedSheaves:E5:cotangent-export",
    "realises": [
@@ -3606,8 +3537,8 @@
     "A → B is a local complete intersection map in the sense of Stacks."
    ],
    "proofSteps": [
-    "Choose a polynomial presentation P → B with kernel J; τ^{≥−1}L_{B/A} is the naive complex [J/J² → ⊕ B dx_i], perfect of amplitude [−1, 0] because J/J² is finite projective.",
-    "Vanishing outside [−1, 0] from transitivity for A → P → B and E5:cotangent-export/cotangent-regular-quotients locally."
+    "Choose a polynomial presentation P → B with kernel J; under cotangentComplex_ordinary, τ^{≥−1}L_{B/A} is the naive complex [J/J² → ⊕ B dx_i] (DerivedModuleAlgebra §0.7), perfect of amplitude [−1, 0] because J/J² is finite projective for a Koszul-regular J.",
+    "Vanishing outside [−1, 0]: transitivity for A → P → B with L_{P/A} = Ω_{P/A}[0], and locally on Spec B the regular-quotient formula L_{B/P} ≃ (J/J²)[1] (DerivedModuleAlgebra §0.13, transported through cotangentComplex_ordinary; Stacks Lemma 14.2 for Koszul-regular ideals)."
    ],
    "acceptance": [
     "A smooth map has amplitude [0, 0].",
@@ -3615,9 +3546,9 @@
     "The quotient k[ε]/(ε²) → k is not lci: L_{k/k[ε]/(ε²)} has H^{−2} = k, outside [−1, 0]."
    ],
    "prerequisites": [
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison",
+    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
+    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
     "EnhancedDerivedSheaves:E5:spectra-comparison/perfect-modules"
    ],
    "sources": [
@@ -3637,14 +3568,15 @@
    ],
    "title": "Derived exterior powers",
    "kind": "construction",
-   "statement": "For an animated ring B and a connective B-module M, the derived exterior powers L∧^n_B(M), n ≥ 0, are the animation of the exterior power ∧^n on pairs (P, F) of a polynomial algebra and a finite free module. They are connective B-modules with base change L∧^n_B(M) ⊗^L_B B' ≃ L∧^n_{B'}(M ⊗^L_B B') and a graded multiplication; for flat discrete B and M they are the ordinary exterior powers (Mathlib's exteriorPower). Applied to M = L_{B/A} they give LΩ^n_{B/A} = L∧^n_B(L_{B/A}), which is Ω^n_{B/A}[0] when L_{B/A} is flat in degree 0 (for example B smooth over A).",
+   "statement": "For an animated ring B and a connective B-module M, the derived exterior powers L∧^n_B(M), n ≥ 0, are the animation of the exterior power ∧^n on pairs (P, F) of a polynomial algebra and a finite free module (with ∧^n the quotient of the tensor power by the tensors with two equal factors). They are connective B-modules with base change L∧^n_B(M) ⊗^L_B B' ≃ L∧^n_{B'}(M ⊗^L_B B') and a graded multiplication; for discrete B and a flat discrete B-module M they are the ordinary exterior powers (Mathlib's exteriorPower). For discrete B the homotopy-category shadow of L∧^n_B is the derived exterior power DerivedDeRham.derivedExteriorPower of DerivedModuleAlgebra §0.14, which this node refines. Applied to M = L_{B/A} they give LΩ^n_{B/A} = L∧^n_B(L_{B/A}), which is Ω^n_{B/A}[0] when L_{B/A} is flat in degree 0 (for example B smooth over A).",
    "hypotheses": [
     "M connective; exterior powers impose x ∧ x = 0 also in characteristic 2."
    ],
    "proofSteps": [
-    "The exterior power on finite free modules over polynomial algebras preserves the relevant finite coproducts in the ring variable; animate it (E5:animation/nonabelian-derived-category, E5:animation/universal-property-of-animation).",
-    "Base change and the multiplication by animation of the ordinary ones; the flat comparison by Lazard's theorem, writing flat modules as filtered colimits of finite free ones.",
-    "For M = L_{B/A} this is BL22 Construction B.1; the smooth case is BL22 Remark B.5."
+    "The exterior power on finite free modules over polynomial algebras preserves the relevant finite coproducts in the ring variable; animate it on module pairs (E5:animation/nonabelian-derived-category, E5:animation/universal-property-of-animation; SAG Construction 25.2.2.2).",
+    "Base change: both sides commute with sifted colimits, so it suffices to treat finite free modules extended from ℤ, where it is the explicit description of ∧^n on free modules (SAG Proposition 25.2.3.1); the multiplication by animation of the ordinary one.",
+    "The flat comparison: both sides commute with filtered colimits in M, so Lazard's theorem reduces it to finite free M (SAG Proposition 25.2.3.4, with the exterior power in place of the signed-coinvariant quotient printed there, see sourceIssues).",
+    "For M = L_{B/A} this is BL22 Construction B.1; the smooth case is BL22 Remark B.5. For discrete B, compare with DerivedModuleAlgebra §0.14 on finite free modules."
    ],
    "acceptance": [
     "L∧^0_B(M) = B and L∧^1_B(M) = M.",
@@ -3663,6 +3595,11 @@
      "sourceId": "BL22",
      "locator": "Construction B.1, p. 225; Remark B.5, p. 226",
      "match": "Bhatt and Lurie define the derived exterior powers of the cotangent complex for animated algebras as the sifted-colimit extension of the exterior powers of differentials, and note that they are the ordinary differential forms when the cotangent complex is flat in degree 0."
+    },
+    {
+     "sourceId": "SAG",
+     "locator": "Construction 25.2.2.2, p. 1700; Proposition 25.2.3.1, p. 1702; Corollary 25.2.3.2 and Proposition 25.2.3.4(2), p. 1703",
+     "match": "Lurie extends the exterior power on finite free modules over polynomial rings to all connective modules over simplicial commutative rings by sifted colimits, proves base change and that the result is locally free of the expected rank on locally free modules and the ordinary exterior power on flat discrete modules; his printed description of the exterior power as signed coinvariants is a misprint (EnhancedDerivedSheaves/E6), the intended quotient being the exterior power."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3704,7 +3641,7 @@
     {
      "name": "exteriorPowerFlat",
      "role": "compatibility",
-     "statement": "For flat discrete B and M, L∧^n_B(M) is Mathlib's exterior power in degree 0."
+     "statement": "For discrete B and a flat discrete B-module M, L∧^n_B(M) is Mathlib's exterior power in degree 0."
     },
     {
      "name": "exteriorPowerMul",
@@ -3732,6 +3669,11 @@
      "name": "derivedExteriorPower_smooth",
      "kind": "compatibility",
      "statement": "For B smooth over A, L∧^n_B(L_{B/A}) ≃ Ω^n_{B/A}[0]."
+    },
+    {
+     "name": "derivedExteriorPower_shifted_line",
+     "kind": "computation",
+     "statement": "For B ≠ 0 and the free line M = B, L∧^n_B(M[1]) ≃ Γ^n_B(M)[n] is nonzero for every n ≥ 0 (décalage), so L∧^n of a shifted module is not computed by a naive shift of ∧^n."
     }
    ],
    "planet": {
@@ -3829,7 +3771,8 @@
    "remaining": [
     "Functorial replacements with universe control and perfect-ring algebra bridges (inherited gaps).",
     "Point-free ringed localization for internal Hom and pullback–pushforward (narrowed inherited gap).",
-    "Follow-up targets from incoming requests: termwise-flat (strongly K-flat) replacements (AInfCohomology), support-kernel triangles (ClassicalAdicEtaleCohomology), base-change maps for derived internal Hom under change of coefficients (DiamondEtaleCohomology)."
+    "Follow-up targets from incoming requests: termwise-flat (strongly K-flat) replacements (AInfCohomology), support-kernel triangles (ClassicalAdicEtaleCohomology), base-change maps for derived internal Hom under change of coefficients (DiamondEtaleCohomology).",
+    "Descent of natural transformations between constructions on functorial replacements, as a separate statement beside the localization universal property (CrystallineCohomology request)."
    ]
   },
   {
@@ -3891,7 +3834,9 @@
    "remaining": [
     "Higher sheaf localization and matching objects; source-version collation (inherited gaps).",
     "Gaps G-EDS-W1 (general multiplicative filtration), G-EDS-W2 and G-EDS-W3 (inputs of the converse in BS17 Theorem 11.26).",
-    "Follow-up targets from incoming requests: the explicit Čech formula RΓ(X, F) ≃ R lim RΓ(U_•, F) as a stated corollary, the universal cohomological descent calculus of SGA 4 Vbis (PadicDifferentialEquationsAndRigidCohomology), sheaves of presentable stable categories on a basis (HabiroCohomologyFoundations) and spectrum-valued hyperdescent (MotivicEtaleKTheory)."
+    "Follow-up targets from incoming requests: the explicit Čech formula RΓ(X, F) ≃ R lim RΓ(U_•, F) as a stated corollary, the universal cohomological descent calculus of SGA 4 Vbis (PadicDifferentialEquationsAndRigidCohomology), sheaves of presentable stable categories on a basis (HabiroCohomologyFoundations) and spectrum-valued hyperdescent (MotivicEtaleKTheory).",
+    "Module-coefficient versions of left completeness, Postnikov reconstruction, the amplitude of sequential limits and unbounded hypercover descent on replete ringed topoi (DiamondEtaleCohomology request).",
+    "The counit half of left completeness under a uniform cohomological-dimension bound on a covering basis, cosimplicial section complexes, and the Cartan criterion for Čech-acyclic presheaves of modules (DiamondEtaleCohomology and PrismaticCohomology requests)."
    ]
   },
   {
@@ -3915,7 +3860,8 @@
    ],
    "remaining": [
     "Higher mate and coefficient reconstruction coherence (inherited gap).",
-    "Follow-up target from incoming requests: compact cellular factorisation in compactly generated categories (Stacks 09SN, 09SP; SchemeKTheoryOperations)."
+    "Follow-up target from incoming requests: compact cellular factorisation in compactly generated categories (Stacks 09SN, 09SP; SchemeKTheoryOperations).",
+    "Cutoff comparisons for sets of compact test objects when the cutoff is enlarged (DiamondEtaleCohomology request)."
    ]
   },
   {
@@ -3950,7 +3896,8 @@
    ],
    "remaining": [
     "Completion algebra and its formal comparisons (inherited gap).",
-    "Follow-up targets from incoming requests: the fracture square for a principal ideal and a presentably symmetric monoidal structure on complete objects."
+    "Follow-up targets from incoming requests: the fracture square for a principal ideal and a presentably symmetric monoidal structure on complete objects.",
+    "Derived p-completion Rlim_n(− ⊗^L ℤ/p^n) of complexes of sheaves on a site that is not replete (AInfCohomology request, CK (1.7.1))."
    ]
   },
   {
@@ -4018,9 +3965,6 @@
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property",
     "EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers",
@@ -4057,7 +4001,8 @@
    ],
    "remaining": [
     "Continuous categorical actions beyond finite-quotient factoring (inherited gap).",
-    "Follow-up target from incoming requests: accessible t-structures on Ind-categories (HA 1.4.4.11; GeometricSatakeAndFusion)."
+    "Follow-up target from incoming requests: accessible t-structures on Ind-categories (HA 1.4.4.11; GeometricSatakeAndFusion).",
+    "A model of the filtered derived category of a ringed site by bounded finite filtered complexes localized at graded quasi-isomorphisms, total complexes of double complexes, and the filtered internal Hom (EtaleDualityAndPerverseSheaves and LefschetzPencilsAndVanishingCycles requests)."
    ]
   },
   {
@@ -4068,7 +4013,8 @@
     "EnhancedDerivedSheaves:E5:spectra-comparison/perfect-modules"
    ],
    "remaining": [
-    "Follow-up target from incoming requests: relative module comparisons with change of scalars that is only lax monoidal (HabiroRings)."
+    "Follow-up target from incoming requests: relative module comparisons with change of scalars that is only lax monoidal (HabiroRings).",
+    "Continuity of Perf along filtered limits of qcqs schemes with affine transition maps (SchemeKTheoryOperations request)."
    ]
   }
  ],
@@ -4326,6 +4272,18 @@
    "neededBy": [
     "EnhancedDerivedSheaves:E5:presentability/coherent-group-actions"
    ]
+  },
+  {
+   "id": "G-EDS-W4",
+   "title": "The ordinary cotangent complex is cited from an upstream roadmap outside the atlas",
+   "detail": "E5:cotangent-export/cotangent-complex compares the animated cotangent complex with the ordinary cotangent complex Algebra.CotangentComplex of DerivedModuleAlgebra §0.4 and transports that roadmap's §§0.5–0.14 statements (naive truncation, smooth, regular-quotient, transitivity, base change, localization, derived powers). DerivedModuleAlgebra is TauCetiRoadmap pull request #944, first in the merge order of the open roadmap pull requests, but it is not an atlas roadmap, so it can be cited only by section, not as a prerequisite. When it is registered, cite tauceti:TauCetiRoadmap/DerivedModuleAlgebra#… for these inputs. The animated constructions themselves do not depend on it.",
+   "neededBy": [
+    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
+    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property",
+    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
+    "EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers"
+   ],
+   "addedBy": "REV-EnhancedDerivedSheaves"
   }
  ],
  "assembly": {
@@ -4353,12 +4311,9 @@
    "EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface": [
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale",
-    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients",
     "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
     "EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers",
     "EnhancedDerivedSheaves:E5:cotangent-export/modules-over-animated-rings",
@@ -4463,10 +4418,10 @@
    },
    "EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface": {
     "addedBy": "BP-EnhancedDerivedSheaves",
-    "reason": "The cotangent complex moves down from DerivedDeRhamCohomology DD.0 (tier 9) into this tier-4 roadmap under the WORKERS upstream rule; this node becomes the layer's interface over the new targets, and its planet passes to the definition E5:cotangent-export/cotangent-complex.",
+    "reason": "The cotangent complex moves down from DerivedDeRhamCohomology DD.0 (tier 9) into this tier-4 roadmap under the WORKERS upstream rule; this node becomes the layer's interface over the new targets, and its planet passes to the definition E5:cotangent-export/cotangent-complex. Revised by REV-EnhancedDerivedSheaves: the ordinary cotangent complex and its §§0.4–0.17 properties are DerivedModuleAlgebra's (TauCetiRoadmap pull request #944, created by the 2026-10-14 de-cycling); this layer keeps the animated refinements.",
     "fields": {
      "title": "The cotangent-complex interface",
-     "statement": "The cotangent complex L_{B/A} of E5:cotangent-export/cotangent-complex, its universal property Map_{Mod_B}(L_{B/A}, M) ≃ Der_A(B, M), the transitivity cofibre sequence L_{B/A} ⊗^L_B C → L_{C/A} → L_{C/B}, derived base change along homotopy pushouts, the low-degree comparison with Mathlib's naive cotangent complex (H^0 = Ω and H^{−1} only), the smooth, étale, regular-quotient and lci computations and the derived exterior powers form one interface, with module structures those of Mod_B (E5:cotangent-export/modules-over-animated-rings). No second cotangent complex is defined anywhere in the atlas; DerivedDeRhamCohomology imports this interface.",
+     "statement": "The cotangent complex L_{B/A} of animated rings (E5:cotangent-export/cotangent-complex), its universal property Map_{Mod_B}(L_{B/A}, M) ≃ Der_A(B, M), the transitivity cofibre sequence L_{B/A} ⊗^L_B C → L_{C/A} → L_{C/B}, derived base change along homotopy pushouts, localization and filtered colimits, the lci amplitude and the derived exterior powers form one interface, with module structures those of Mod_B (E5:cotangent-export/modules-over-animated-rings). For ordinary rings each of them is compared, through cotangentComplex_ordinary, with the ordinary cotangent complex and powers of DerivedModuleAlgebra (TauCetiRoadmap pull request #944) §§0.4–0.17, which also carries the naive-truncation, smooth and regular-quotient computations; no second ordinary cotangent complex is constructed here. DerivedDeRhamCohomology imports both.",
      "proofSteps": [
       "Collect the layer's targets and check that they use the same Mod_B and the same animation functor.",
       "Check the polynomial, regular-quotient and k → k[ε]/(ε²) → k tests through these functors; the last retains H^{−2}."
@@ -4474,12 +4429,9 @@
      "prerequisites": [
       "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
       "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property",
-      "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison",
       "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
       "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
       "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits",
-      "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale",
-      "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients",
       "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
       "EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers",
       "EnhancedDerivedSheaves:E5:cotangent-export/modules-over-animated-rings",
@@ -4489,7 +4441,20 @@
       "mathlib:RingTheory.Sequence.IsRegular",
       "mathlib:TrivSqZeroExt"
      ],
-     "planet": null
+     "planet": null,
+     "hypotheses": [
+      "Cohomological indexing puts connective animated homotopy in nonpositive degrees.",
+      "Ordinary tensor base change needs Tor-independence unless explicitly derived.",
+      "The square-zero derivation mapping-space comparison is for connective modules M.",
+      "The regular-quotient computation requires a finite regular sequence. For A=k[ε]/(ε²)→k, relative L_(k/A) has H⁻¹=k and H⁻²=k; an arbitrary quotient cannot use the conormal-shift formula."
+     ],
+     "sources": [
+      {
+       "sourceId": "Lurie-HA",
+       "locator": "§7.1.4, pp. 1223–1227",
+       "match": "Supplies the rational commutative dg comparison needed to identify animated commutative algebras with commutative algebra objects; the ordinary cotangent model is DerivedModuleAlgebra's and its animated refinement is the layer's own target."
+      }
+     ]
     }
    },
    "EnhancedDerivedSheaves:E5:cotangent-export/e-infinity-comparison-in-proved-ranges": {
@@ -4517,7 +4482,7 @@
    },
    "EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation": {
     "addedBy": "BP-EnhancedDerivedSheaves",
-    "reason": "The concrete symmetric-spectrum comparison belongs to StableHomotopyKTheory H.5 (outside the 94 roadmaps and higher than this tier), which applies E5:abstract/monoidal-model-category-localization; this roadmap keeps the abstract comparison with Sp of E5:presentability/spectra.",
+    "reason": "The concrete symmetric-spectrum comparison belongs to StableHomotopyKTheory H.5 (outside the 94 roadmaps and higher than this tier), which applies E5:abstract/monoidal-model-category-localization; this roadmap keeps the abstract comparison with Sp of E5:presentability/spectra. REV-EnhancedDerivedSheaves also replaces the source match, which still said the concrete stable model is imported from H.5, and adds the HA results the proof cites.",
     "fields": {
      "title": "Eilenberg–Mac Lane rings and the module comparison",
      "statement": "For a commutative ring R, D∞(R) with the structure of E5:abstract/symmetric-monoidal-derived-sheaves is a commutative algebra in presentable stable ∞-categories, so the unique colimit-preserving symmetric monoidal functor Sp → D∞(R) has a lax symmetric monoidal right adjoint; it sends R[0] to a commutative algebra HR ∈ CAlg(Sp), the Eilenberg–Mac Lane ring, with π_0 HR = R and π_n HR = 0 for n ≠ 0. There is a symmetric monoidal equivalence Mod_{HR}(Sp) ≃ D∞(R) carrying HR to R[0] and the relative tensor product over HR to ⊗^L_R. On homotopy categories it recovers Mathlib's DerivedCategory (ModuleCat R) with its shift and distinguished triangles, and mapping spectra correspond to derived Hom complexes. Comparing a concrete point-set model of spectra with Sp belongs to the roadmap that builds that model.",
@@ -4547,7 +4512,14 @@
      ],
      "planet": {
       "name": "Eilenberg–Mac Lane module comparison"
-     }
+     },
+     "sources": [
+      {
+       "sourceId": "Lurie-HA",
+       "locator": "Theorem 7.1.2.1, p. 1206; Theorem 7.1.2.13, p. 1212; Proposition 4.8.2.18, p. 722",
+       "match": "Lurie characterizes module categories over ring spectra by a compact generator (Schwede–Shipley), identifies the derived ∞-category of a commutative ring with modules over its Eilenberg–Mac Lane ring spectrum symmetric monoidally, and shows that colimit-preserving symmetric monoidal functors out of Sp-module categories are determined by the unit; no concrete model of spectra is used."
+      }
+     ]
     }
    },
    "EnhancedDerivedSheaves:E2/perfect-h-cover-descendability": {
@@ -4580,7 +4552,7 @@
    },
    "EnhancedDerivedSheaves:E5:abstract/uniform-index-colimits": {
     "addedBy": "BP-EnhancedDerivedSheaves",
-    "reason": "The whole-layer citations of E1 and E2 are replaced by the declarations that supply the inputs: the sequential lim¹ product vanishing, the general multiplicative filtration, and Mathlib's injective-dimension carrier for the Gorenstein bound.",
+    "reason": "The whole-layer citations of E1 and E2 are replaced by the declarations that supply the inputs: the sequential lim¹ product vanishing, the general multiplicative filtration, and Mathlib's injective-dimension carrier for the Gorenstein bound. REV-EnhancedDerivedSheaves also corrects the source locator: BS17 Example 11.19 is on p. 43.",
     "fields": {
      "proofSteps": [
       "For sequential diagrams, the class of F^{⊗m} → A lies in the lim¹ part and products of two such classes vanish (E2/lim1-products-vanish), giving index at most 2m.",
@@ -4597,6 +4569,18 @@
       "mathlib:CategoryTheory.HasInjectiveDimensionLE",
       "mathlib:Module.FaithfullyFlat",
       "mathlib:IsNoetherianRing"
+     ],
+     "sources": [
+      {
+       "sourceId": "BS17",
+       "locator": "Example 11.19, p. 43; Example 11.21, Lemma 11.22 and Remark 11.24, pp. 44–45",
+       "match": "Proves the sequential uniform-index bound and records nilpotent, Gorenstein and countability applications; the general finite-cohomological-dimension filtration input remains explicit."
+      },
+      {
+       "sourceId": "Mathew",
+       "locator": "Corollary 3.33, p. 24",
+       "match": "Gives faithful-flat descendability for a target with countably many generators and relations; countable generation alone is not the cited hypothesis."
+      }
      ]
     }
    },
@@ -4676,9 +4660,21 @@
    },
    "EnhancedDerivedSheaves:E5/single-enhancement-supplier": {
     "addedBy": "BP-EnhancedDerivedSheaves",
-    "reason": "Wording only: the cotangent complex is this roadmap's own (E5:cotangent-export) and the spectral comparison is the abstract one.",
+    "reason": "Wording only: the cotangent complex is this roadmap's own (E5:cotangent-export) and the spectral comparison is the abstract one. REV-EnhancedDerivedSheaves also rewrites the proof step and source match that still credited DD.0.",
     "fields": {
-     "statement": "The shared interface commutes with passage from ordinary rings to animated rings and from algebra objects to modules. For the unit R, the enhanced module category, its tensor unit and ordinary derived-category comparison agree across E1, abstract E5 and the Eilenberg–Mac Lane module comparison. For polynomial R[x₁,…,x_n], the cotangent complex of E5:cotangent-export is the free rank-n B-module in degree zero. For a quotient by a regular sequence of length c, the relative cotangent complex is (I/I²)[1], free of rank c in cohomological degree −1. These computations, the homotopy pushout Tor example and preservation of exact triangles are the parent layer's acceptance diagram. The nonregular quotient k[ε]/(ε²)→k retains a nonzero H⁻² term, checking that the full cotangent object was not replaced by its naive truncation."
+     "statement": "The shared interface commutes with passage from ordinary rings to animated rings and from algebra objects to modules. For the unit R, the enhanced module category, its tensor unit and ordinary derived-category comparison agree across E1, abstract E5 and the Eilenberg–Mac Lane module comparison. For polynomial R[x₁,…,x_n], the cotangent complex of E5:cotangent-export is the free rank-n B-module in degree zero. For a quotient by a regular sequence of length c, the relative cotangent complex is (I/I²)[1], free of rank c in cohomological degree −1. These computations, the homotopy pushout Tor example and preservation of exact triangles are the parent layer's acceptance diagram. The nonregular quotient k[ε]/(ε²)→k retains a nonzero H⁻² term, checking that the full cotangent object was not replaced by its naive truncation.",
+     "proofSteps": [
+      "Apply the animation, unit-module and enhanced derived comparisons.",
+      "Transport the polynomial and regular-quotient computations of E5:cotangent-export/cotangent-complex (DerivedModuleAlgebra §§0.12–0.13, through cotangentComplex_ordinary) through the same module functor.",
+      "Use uniqueness from the universal properties to identify the comparison composites and their naturality."
+     ],
+     "sources": [
+      {
+       "sourceId": "Lurie-HA",
+       "locator": "Theorem 7.1.2.13, p. 1212",
+       "match": "Supplies the derived-module-to-spectral comparison in the joint acceptance diagram; the cotangent branch is the animated cotangent complex of E5:cotangent-export, compared with the ordinary one of DerivedModuleAlgebra, which carries the smooth and regular-quotient computations."
+      }
+     ]
     }
    },
    "EnhancedDerivedSheaves:E5:animation/bounded-totalization-colimits": {
@@ -4771,21 +4767,21 @@
   "moves": [
    {
     "formerOwner": "DerivedDeRhamCohomology:DD.0",
-    "owner": "EnhancedDerivedSheaves:E5:cotangent-export",
+    "owner": "DerivedModuleAlgebra §§0.4–0.17 (ordinary rings) and EnhancedDerivedSheaves:E5:cotangent-export (animated refinements)",
     "map": {
-     "DerivedDeRhamCohomology:DD.0/cotangent-complex": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
-     "DerivedDeRhamCohomology:DD.0/derived-derivations": "EnhancedDerivedSheaves:E5:cotangent-export/square-zero-extensions-and-derivations",
-     "DerivedDeRhamCohomology:DD.0/derivations-cotangent-comparison": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property",
-     "DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison",
-     "DerivedDeRhamCohomology:DD.0/cotangent-transitivity": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
-     "DerivedDeRhamCohomology:DD.0/cotangent-base-change": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
-     "DerivedDeRhamCohomology:DD.0/cotangent-localization-colimits": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits",
-     "DerivedDeRhamCohomology:DD.0/smooth-cotangent": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale",
-     "DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients",
-     "DerivedDeRhamCohomology:DD.0/lci-amplitude": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
-     "DerivedDeRhamCohomology:DD.0/derived-exterior-powers": "EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers"
+     "DerivedDeRhamCohomology:DD.0/cotangent-complex": "DerivedModuleAlgebra §0.4 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex (animated refinement, cotangentComplex_ordinary)",
+     "DerivedDeRhamCohomology:DD.0/derived-derivations": "DerivedModuleAlgebra §0.5 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/square-zero-extensions-and-derivations (animated)",
+     "DerivedDeRhamCohomology:DD.0/derivations-cotangent-comparison": "DerivedModuleAlgebra §0.6 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property (mapping spaces)",
+     "DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison": "DerivedModuleAlgebra §0.7; transported as cotangentComplex_naive of EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
+     "DerivedDeRhamCohomology:DD.0/cotangent-transitivity": "DerivedModuleAlgebra §0.8 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity (animated)",
+     "DerivedDeRhamCohomology:DD.0/cotangent-base-change": "DerivedModuleAlgebra §0.10 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change (animated)",
+     "DerivedDeRhamCohomology:DD.0/cotangent-localization-colimits": "DerivedModuleAlgebra §0.11 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits (animated)",
+     "DerivedDeRhamCohomology:DD.0/smooth-cotangent": "DerivedModuleAlgebra §0.12; transported as cotangentComplex_smooth of EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
+     "DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent": "DerivedModuleAlgebra §0.13; transported as cotangentComplex_regularQuotient of EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
+     "DerivedDeRhamCohomology:DD.0/lci-amplitude": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude (forward direction)",
+     "DerivedDeRhamCohomology:DD.0/derived-exterior-powers": "DerivedModuleAlgebra §0.14 (ordinary); EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers (animated)"
     },
-    "reason": "EnhancedDerivedSheaves is tier 4 and DerivedDeRhamCohomology tier 9; under the WORKERS upstream rule the cotangent complex moves down. DD.0's plan and package must import these nodes. The lci node states only the forward direction (Stacks Proposition 14.4); DD.0 keeps the converse for flat finitely presented maps."
+    "reason": "EnhancedDerivedSheaves is tier 4 and DerivedDeRhamCohomology tier 9, so DD.0's cotangent complex cannot be cited here. Since the 2026-10-14 de-cycling the ordinary cotangent complex, its universal property, naive truncation, transitivity, base change, localization, smooth and regular-quotient computations, derived powers and obstruction theory are owned upstream by DerivedModuleAlgebra (TauCetiRoadmap pull request #944, first in the merge order of the open roadmap pull requests), which the upstream EnhancedDerivedSheaves README (pull request #908) consumes; this layer keeps their animated refinements, as that README does. DD.0's plan and package import both. The lci node states only the forward direction (Stacks Proposition 14.4); DD.0 keeps the converse for flat finitely presented maps. Revised by REV-EnhancedDerivedSheaves."
    },
    {
     "formerOwner": "StableHomotopyKTheory:H.5:spectra",
@@ -4810,9 +4806,9 @@
    "roadmaps": [
     "EnhancedDerivedSheaves"
    ],
-   "title": "E5:cotangent-export owns the cotangent complex",
-   "detail": "The atlas stage text says that DerivedDeRhamCohomology DD.0 constructs the cotangent complex and E5 re-exports it. After the move down (assembly.moves), the cotangent complex, derivations, transitivity, base change, localization, smooth, regular and lci computations and derived exterior powers are planned here.",
-   "proposal": "Retitle E5:cotangent-export 'The cotangent complex of animated rings' and replace its description by: the cotangent complex of a map of animated rings, its universal property through square-zero extensions, comparison with Mathlib's Kähler differentials and naive cotangent complex, transitivity, base change, localization and filtered colimits, smooth, étale, regular-quotient and lci computations, and derived exterior powers. DerivedDeRhamCohomology DD.0 imports these targets."
+   "title": "E5:cotangent-export owns the animated cotangent complex",
+   "detail": "The atlas stage text says that DerivedDeRhamCohomology DD.0 constructs the cotangent complex and E5 re-exports it, and the stage records the upward edge E5:cotangent-export → DerivedDeRhamCohomology:DD.0. Since the 2026-10-14 de-cycling, the ordinary cotangent complex and its properties (§§0.4–0.17, 0.25) belong upstream to DerivedModuleAlgebra (TauCetiRoadmap pull request #944), and the upstream EnhancedDerivedSheaves README (pull request #908) keeps only their animated refinements.",
+   "proposal": "Retitle E5:cotangent-export 'The cotangent complex of animated rings' and replace its description by: modules over animated rings; square-zero extensions and derived derivations; the cotangent complex of a map of animated rings with its mapping-space universal property, its comparison cotangentComplex_ordinary with the ordinary cotangent complex of DerivedModuleAlgebra §0.4 (through which that roadmap's naive-truncation, smooth and regular-quotient computations transport); transitivity, base change, localization and filtered colimits for animated rings; the lci amplitude; and derived exterior powers of connective modules over animated rings, refining DerivedModuleAlgebra §0.14. Remove the stage edge E5:cotangent-export → DerivedDeRhamCohomology:DD.0; DerivedDeRhamCohomology DD.0 imports these targets and DerivedModuleAlgebra's."
   },
   {
    "action": "rescope",
@@ -4822,7 +4818,7 @@
    ],
    "title": "E5:spectra-comparison compares with the abstract ∞-category of spectra",
    "detail": "The stage text asks for a comparison with StableHomotopyKTheory H.5's concrete spectra. That roadmap is outside the 94 Caraiani–Newton roadmaps and above this tier.",
-   "proposal": "Retitle E5:spectra-comparison 'Eilenberg–Mac Lane rings and derived modules': HR, Mod_HR(Sp) ≃ D∞(R) and perfect = compact = dualizable modules. The comparison of a concrete model of spectra with Sp of E5:presentability/spectra belongs to StableHomotopyKTheory H.5."
+   "proposal": "Retitle E5:spectra-comparison 'Eilenberg–Mac Lane rings and derived modules': HR, Mod_HR(Sp) ≃ D∞(R) and perfect = compact = dualizable modules. The comparison of a concrete model of spectra with Sp of E5:presentability/spectra belongs to StableHomotopyKTheory H.5. Remove the stage edge E5:spectra-comparison → StableHomotopyKTheory:H.5. (The upstream README of pull request #908 now also owns the comparison with concrete symmetric spectra, using GeneralizedCohomology G2, a TauCetiRoadmap pull request outside the atlas; see the alignment proposal below.)"
   },
   {
    "action": "rescope",
@@ -4832,7 +4828,7 @@
    ],
    "title": "E4 owns generic derived completion",
    "detail": "The atlas stage text says that DD.1 owns the generic completion and E4 re-exports it; the accepted E0 part moved it down (ownershipMoves).",
-   "proposal": "Replace the E4 description's first paragraph by: E4 owns derived completeness and completion for finitely generated ideals, the Koszul power model, completed tensor products, completed base change along (R, I) → (S, J) and the Amitsur completion of finite modules, and their extension to sheaves and compatible coefficient systems; DerivedDeRhamCohomology DD.1 imports them."
+   "proposal": "Replace the E4 description's first paragraph by: E4 owns derived completeness and completion for finitely generated ideals, the Koszul power model, completed tensor products, completed base change along (R, I) → (S, J) and the Amitsur completion of finite modules, and their extension to sheaves and compatible coefficient systems; DerivedDeRhamCohomology DD.1 imports them. Remove the stage edge E4 → DerivedDeRhamCohomology:DD.1. Upstream, the module-level completion of the point topos is DerivedModuleAlgebra §§1.2–1.5 (pull request #944), which E4's point-topos case compares with."
   },
   {
    "action": "sublayers",
@@ -4842,9 +4838,42 @@
    "title": "Sub-layers E2:towers and E5:descent, with an acyclic build order",
    "detail": "With the effective prerequisites of this whole-roadmap plan, the stage graph has the cycles E2 ↔ E5:abstract and E5:abstract ↔ E5:presentability already recorded by the parts (proposals 4 and 9), and none other.",
    "proposal": "Apply the parts' proposals 4 and 9: E2:towers holds E2/coherent-towers-and-roos, E2/pro-towers, E2/lim1-products-vanish and E2/multiplicative-derived-limit-filtration; E5:descent holds E5:abstract/descendable-algebras, E5:abstract/module-descent-and-functoriality, E5:abstract/uniform-index-colimits and E5:abstract/amitsur-tower-fibres; E5:abstract/formal-tensor-inversion has parent E5:presentability. The induced layer graph is then acyclic, with build order E0, E1, E2:towers, E3, E5:abstract, E5:presentability, E5:animation, E5:descent, E5:spectra-comparison, E2, E5:cotangent-export, E4, E5."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "EnhancedDerivedSheaves",
+    "DerivedModuleAlgebra (TauCetiRoadmap pull request #944)",
+    "BordismFormalGroups (TauCetiRoadmap pull request #947)",
+    "GeneralizedCohomology (TauCetiRoadmap pull request #939)"
+   ],
+   "title": "Align the atlas plan with the 2026-10-14 upstream de-cycling",
+   "detail": "The upstream EnhancedDerivedSheaves README (TauCetiRoadmap pull request #908, revised 2026-10-16) is authoritative and now consumes three foundation roadmaps that are not atlas roadmaps: BordismFormalGroups F6.5 (the generic quasicategorical model, straightening, coherent diagrams, Kan extensions and adjunctions, localization, operads and LM fibres, stable quotients and Ind), GeneralizedCohomology G2–G3 (concrete symmetric spectra, Eilenberg–Mac Lane models, concrete towers and completion) and DerivedModuleAlgebra (module K-injective and K-flat models §§0.I.1 and 0.2, Koszul complexes §0.K.1, the ordinary cotangent complex and derived powers §§0.4–0.17, towers, ML and Milnor sequences §1.T.1, module derived limits, Hom and completion §§1.1–1.5). The accepted parts plan these inputs as atlas nodes of E0, E1, E2:towers, E3, E4 and E5:abstract. This review re-pointed only the new cotangent targets (they duplicated DerivedModuleAlgebra §§0.4–0.14 outright); the other overlaps are a maintainer decision.",
+   "proposal": "When DerivedModuleAlgebra, BordismFormalGroups and GeneralizedCohomology are registered as Tau Ceti roadmaps in the atlas, re-point the corresponding EnhancedDerivedSheaves nodes to their sections (as the upstream README's supplier table does), reduce the duplicated nodes to comparison nodes, and replace gap G-EDS-W4 by the stage citations."
   }
  ],
- "sourceIssues": [],
+ "sourceIssues": [
+  {
+   "id": "EnhancedDerivedSheaves/E6",
+   "source": "SAG",
+   "kind": "misprint",
+   "locator": "Construction 25.2.2.2, p. 1700, and Proposition 25.2.3.4(2), p. 1703, in the author PDF dated 3 February 2018",
+   "printed": "The nth exterior power of a free module M over a polynomial ring is described as the quotient of the n-fold tensor power of M by the action of the symmetric group through signed permutations, and Proposition 25.2.3.4(2) identifies the derived exterior power of a flat module with that same signed-coinvariant quotient.",
+   "correction": "The exterior power is the quotient of the tensor power by the submodule spanned by tensors with two equal factors (equivalently, the degree-n part of the exterior algebra). The signed coinvariants agree with it only when 2 is invertible.",
+   "reason": "For n = 2 and M = A free of rank one with basis x, the signed coinvariants are A·(x ⊗ x) modulo 2(x ⊗ x), that is A/2A, which is nonzero over ℤ or 𝔽_2, whereas the same construction is asserted to be free of rank (1 choose 2) = 0 with the stated basis of increasing indices. The rank statement and the basis fix the intended meaning.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The Spectral Algebraic Geometry author PDF of 3 February 2018 (the version on the author's page)",
+    "the atlas errata register (research/errata/REGISTER.md) and data/source-issues.json"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the reviewer: recomputed the signed coinvariants of the tensor square of a free module of rank one over ℤ (they are ℤ/2) against the rank and basis asserted in the same construction.",
+    "by": "REV-EnhancedDerivedSheaves"
+   }
+  }
+ ],
  "sourceIssueReferences": [
   "PAPER-BHATT-SCHOLZE-17/E3",
   "PAPER-BHATT-SCHOLZE-17/E14",
@@ -4960,6 +4989,13 @@
    "read": "2026-10-16",
    "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
    "source": "BMS19"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf",
+   "read": "2026-10-16",
+   "sha256": "515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d",
+   "source": "SAG"
   }
  ],
  "sourceCoverage": [
@@ -5760,11 +5796,11 @@
    "packet": "AInfCohomology--AI.6.json",
    "supplier": "EnhancedDerivedSheaves:E4",
    "need": "Completed extension of scalars along a map of rings with ideals (R,I)→(S,J): K↦K⊗̂^L_RS, the derived J-completion of K⊗^L_RS, with values in derived J-complete S-modules (commutative algebra objects when K is one), its transitivity, and its agreement with the ordinary derived tensor product when K i",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E4/completed-base-change"
    ],
-   "note": "Completed extension of scalars along (R, I) → (S, J) with its adjunction, transitivity, monoidality and reduction."
+   "note": "Completed extension of scalars with its adjunction, transitivity, monoidality, reduction and agreement with the ordinary derived tensor for perfect K (E4/completed-base-change, API completedBaseChange_perfect). Not yet stated here: the derived p-completion Rlim_n(− ⊗^L ℤ/p^n) of complexes of sheaves on a site that is not replete (CK (1.7.1)); recorded in the E4 coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 4,
@@ -5798,11 +5834,11 @@
    "packet": "AInfCohomology.json",
    "supplier": "EnhancedDerivedSheaves:E4",
    "need": "Completed extension of scalars along a map of rings with ideals (R,I)→(S,J): K↦K⊗̂^L_RS, the derived J-completion of K⊗^L_RS, with values in derived J-complete S-modules (commutative algebra objects when K is one), its transitivity, and its agreement with the ordinary derived tensor product when K i",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E4/completed-base-change"
    ],
-   "note": "Completed extension of scalars along (R, I) → (S, J) with its adjunction, transitivity, monoidality and reduction."
+   "note": "Completed extension of scalars with its adjunction, transitivity, monoidality, reduction and agreement with the ordinary derived tensor for perfect K (E4/completed-base-change, API completedBaseChange_perfect). Not yet stated here: the derived p-completion Rlim_n(− ⊗^L ℤ/p^n) of complexes of sheaves on a site that is not replete (CK (1.7.1)); recorded in the E4 coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 7,
@@ -5968,12 +6004,13 @@
    "packet": "CrystallineCohomology--CR.0.json",
    "supplier": "EnhancedDerivedSheaves:E1",
    "need": "Localize the category of cochain complexes of abelian groups at quasi-isomorphisms, with functorial termwise p-torsion-free replacements and enhancement. A natural construction on those replacements that preserves quasi-isomorphisms descends to D(Z); natural maps and their coherent compositions desc",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E1/k-flat-replacement",
-    "EnhancedDerivedSheaves:E1/enhanced-derived-category"
+    "EnhancedDerivedSheaves:E1/enhanced-derived-category",
+    "EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization"
    ],
-   "note": "Stated by the accepted part nodes (termwise epimorphic quasi-isomorphism P(K)→K with P(K) termwise flat and K-flat || the restriction equivalence onto the W-inverting functors)."
+   "note": "Termwise flat K-flat replacements are E1/k-flat-replacement and the enhancement E1/enhanced-derived-category; the universal property of the localization at quasi-isomorphisms (functors inverting them) is stated in its monoidal form by E5:abstract/monoidal-dwyer-kan-localization. Not yet stated here: descent of natural transformations between constructions on the replacements as a separate statement; recorded in the E1 coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 21,
@@ -6146,11 +6183,11 @@
    "packet": "EtaleDualityAndPerverseSheaves--EDC.7.json",
    "supplier": "EnhancedDerivedSheaves:E1",
    "need": "Filtered derived enhancement on ringed sites: localize bounded finite filtrations of complexes at associated-graded quasi-isomorphisms; construct the filtered derived tensor, internal Hom and coherent forgetful/graded functors, agreeing with the unfiltered enhancement. The two-step lifting and grade",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E5:presentability/filtered-objects"
    ],
-   "note": "Filtered objects of D∞(R) and D∞(O), graded pieces, completeness, completion and the Day convolution tensor product."
+   "note": "Filtered objects of D∞(O), graded pieces, completeness, completion and the Day convolution tensor product (E5:presentability/filtered-objects). Not yet stated here: the model of bounded finite filtered complexes localized at graded quasi-isomorphisms and the filtered internal Hom; recorded in the E5:presentability coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 35,
@@ -6340,9 +6377,10 @@
    "need": "For the accessible reflective completion subcategories, supply coherent adjunction units, counits, mates and their identity/composition/pasting laws. Supply the dual of the pointwise full-inclusion Kan-extension theorem (HTT 4.3.2 as planned in EnhancedDerivedSheaves:E3/left-kan-extension-along-a-fu",
    "disposition": "answered",
    "nodes": [
-    "EnhancedDerivedSheaves:E3/kan-extensions-along-functors"
+    "EnhancedDerivedSheaves:E3/kan-extensions-along-functors",
+    "EnhancedDerivedSheaves:E3/mates-and-beck-chevalley"
    ],
-   "note": "Left and right Kan extensions along arbitrary functors with pointwise formulas, homotopy orbits ⊣ trivial action ⊣ homotopy fixed points along BG → *, and Beck–Chevalley for coCartesian squares."
+   "note": "Left and right Kan extensions along arbitrary functors with pointwise formulas, homotopy orbits ⊣ trivial action ⊣ homotopy fixed points along BG → *, and Beck–Chevalley for coCartesian squares. Coherent units, counits and mates with their pasting laws: E3/mates-and-beck-chevalley. (Node list completed by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 52,
@@ -6418,7 +6456,8 @@
     "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
     "EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization",
     "EnhancedDerivedSheaves:E5:abstract/infinity-operad",
-    "EnhancedDerivedSheaves:E5:abstract/algebra-objects"
+    "EnhancedDerivedSheaves:E5:abstract/algebra-objects",
+    "EnhancedDerivedSheaves:E5:abstract/module-objects"
    ],
    "note": "Stated by the accepted part nodes (a class W of underlying morphisms is stable under tensoring with any object in either variable, C[W⁻¹] carries a symmetric monoidal structure || A symmetric mon)."
   },
@@ -6444,9 +6483,10 @@
    "need": "Reflective full subcategories of presentable ∞-categories with their adjunction data (stage text: 'Construct accessible localizations and reflective/coreflective full subcategories in the applicable presentable categories'), for the reflective subcategory D̂_H ⊆ D(A[q^{±1}]) with left adjoint Habiro",
    "disposition": "answered",
    "nodes": [
-    "EnhancedDerivedSheaves:E3/kan-extensions-along-functors"
+    "EnhancedDerivedSheaves:E3/accessible-localizations",
+    "EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations"
    ],
-   "note": "Left and right Kan extensions along arbitrary functors with pointwise formulas, homotopy orbits ⊣ trivial action ⊣ homotopy fixed points along BG → *, and Beck–Chevalley for coCartesian squares."
+   "note": "Accessible reflective and coreflective full subcategories of presentable categories with their adjunction data (E3/accessible-localizations, E3/adjoint-functor-theorem-and-localisations). (Node list corrected by REV-EnhancedDerivedSheaves: the earlier entry cited the Kan-extension node.)"
   },
   {
    "n": 60,
@@ -6475,11 +6515,12 @@
    "packet": "HodgeStructuresPartII--H.1.json",
    "supplier": "EnhancedDerivedSheaves:E1",
    "need": "Export the underived sheaf tensor, Hom, dual and exterior/determinant carriers and their coherent locally free pullback comparison. Use the existing Mathlib sheaf-of-modules and locally-free predicate, not a new opaque bundle record. Derived tensor statements alone do not identify the required under",
-   "disposition": "library",
+   "disposition": "partly",
    "nodes": [
-    "tauceti:TauCeti.SheafOfModules.tensorProduct"
+    "tauceti:TauCeti.SheafOfModules.tensorProduct",
+    "EnhancedDerivedSheaves:E1/ringed-pullback-pushforward"
    ],
-   "note": "The underived sheaf tensor product is in Tau Ceti at the pinned commit; exterior powers, duals and determinants of locally free module sheaves belong to the ordinary sheaf owners (DiamondsAndVStacks D0, SchemeAndStackFoundations), not to this roadmap."
+   "note": "The underived tensor product of module sheaves is Tau Ceti's TauCeti.SheafOfModules.tensorProduct at the pinned commit and the derived ringed pullback is E1/ringed-pullback-pushforward; duals, exterior powers and determinants of locally free module sheaves, their tensor-exactness and descent belong to the ordinary sheaf owners (DiamondsAndVStacks D0, SchemeAndStackFoundations), not to this roadmap. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 63,
@@ -6499,11 +6540,12 @@
    "packet": "HodgeStructuresPartII.json",
    "supplier": "EnhancedDerivedSheaves:E1",
    "need": "Use the pinned SheafOfModules and locally free carriers; supply their missing underived sheaf tensor, finite locally free dual/evaluation, tensor-exactness for locally free coefficient sheaves, ringed-site pullback and monoidal coherence/descent. Presheaf tensorObj already exists. No new module-shea",
-   "disposition": "library",
+   "disposition": "partly",
    "nodes": [
-    "tauceti:TauCeti.SheafOfModules.tensorProduct"
+    "tauceti:TauCeti.SheafOfModules.tensorProduct",
+    "EnhancedDerivedSheaves:E1/ringed-pullback-pushforward"
    ],
-   "note": "The underived sheaf tensor product is in Tau Ceti at the pinned commit; exterior powers, duals and determinants of locally free module sheaves belong to the ordinary sheaf owners (DiamondsAndVStacks D0, SchemeAndStackFoundations), not to this roadmap."
+   "note": "The underived tensor product of module sheaves is Tau Ceti's TauCeti.SheafOfModules.tensorProduct at the pinned commit and the derived ringed pullback is E1/ringed-pullback-pushforward; duals, exterior powers and determinants of locally free module sheaves, their tensor-exactness and descent belong to the ordinary sheaf owners (DiamondsAndVStacks D0, SchemeAndStackFoundations), not to this roadmap. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 65,
@@ -6628,11 +6670,11 @@
    "packet": "LefschetzPencilsAndVanishingCycles--LPV.0.json",
    "supplier": "EnhancedDerivedSheaves:E0",
    "need": "A coherent filtered derived category of actual étale module sheaves, functorial cones, total complexes and filtered quasi-isomorphisms; enough coherence to compare the can/var triangle and the two-component Rapoport–Zink double complex without choosing nonfunctorial cones.",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E5:presentability/filtered-objects"
    ],
-   "note": "Filtered objects of D∞(R) and D∞(O), graded pieces, completeness, completion and the Day convolution tensor product."
+   "note": "Filtered objects of D∞(R) and D∞(O) with graded pieces, completion and conservativity of gr on complete objects (E5:presentability/filtered-objects); functorial cones are the stable structure of E0. Not yet stated here: total complexes of double complexes and the filtered-quasi-isomorphism model; recorded in the E5:presentability coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 76,
@@ -6810,12 +6852,12 @@
    "packet": "PrismaticCohomology--PR.0.json",
    "supplier": "EnhancedDerivedSheaves:E2",
    "need": "Čech descent in a topos: for a sheaf of abelian groups (or a bounded-below complex) F and an object X_0 covering the final object, RΓ(𝒳,F) ≃ R lim RΓ(X_0^•,F) over the Čech nerve (Stacks 07JM in the generality of a topos); Cartan criterion: a presheaf of modules on a site with fibre products whose Č",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent",
     "EnhancedDerivedSheaves:E2/hypercover"
    ],
-   "note": "The Čech nerve of a covering is a hypercover, so bounded-below hypercover descent gives RΓ(X, F) ≃ R lim RΓ(U_•, F); the reader states this corollary."
+   "note": "The Čech nerve of an object covering the final object is a hypercover, so bounded-below hypercover descent (E2/bounded-below-hypercover-descent) gives RΓ(X, F) ≃ R lim RΓ(X_0^•, F). Not yet stated here: the Cartan criterion for presheaves of modules whose Čech cohomology vanishes; recorded in the E2 coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 91,
@@ -6960,12 +7002,13 @@
    "packet": "RefinedTraceMethods--RT.1.json",
    "supplier": "EnhancedDerivedSheaves:E5:spectra-comparison",
    "need": "The comparison of concrete spectra (StableHomotopyKTheory H.5) with the abstract stable symmetric monoidal ∞-categories of E5:abstract: Sp as a presentably symmetric monoidal stable ∞-category, and Mod_{HR}(Sp) ≃ D(R) symmetric monoidally for a commutative ring R (used to identify THH(HA/HR) with HH",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation",
-    "EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change"
+    "EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change",
+    "EnhancedDerivedSheaves:E5:presentability/spectra"
    ],
-   "note": "Stated by the accepted part nodes (Mod_HR is symmetric monoidally equivalent to the E1 enhanced D(R), carrying HR to R and derived smash over HR to derived tensor over R || its stable subcategory)."
+   "note": "Sp as a presentably symmetric monoidal stable ∞-category (E5:presentability/spectra) and Mod_{HR}(Sp) ≃ D∞(R) symmetric monoidally (E5:spectra-comparison/late-realisation). The comparison of a concrete model of spectra with Sp is not planned here: in the atlas it stays with StableHomotopyKTheory H.5, and upstream it is in the EnhancedDerivedSheaves README of pull request #908 using GeneralizedCohomology G2. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 103,
@@ -7156,11 +7199,11 @@
    "packet": "SchemeKTheoryOperations.json",
    "supplier": "EnhancedDerivedSheaves:E1",
    "need": "Enhanced finite-diagram continuity for Perf on filtered affine limits and qcqs affine-transition systems, refining the already planned derived enhancement.",
-   "disposition": "answered",
+   "disposition": "partly",
    "nodes": [
     "EnhancedDerivedSheaves:E5:spectra-comparison/perfect-modules"
    ],
-   "note": "Perfect = compact = dualizable in D∞(R), and Perf commutes with filtered colimits of rings."
+   "note": "Perfect = compact = dualizable in D∞(R) and Perf(colim R_i) ≃ colim Perf(R_i) for filtered colimits of rings (E5:spectra-comparison/perfect-modules). Not yet stated here: the scheme-level continuity of Perf along filtered limits of qcqs schemes with affine transition maps; recorded in the E5:spectra-comparison coverage. (Disposition revised by REV-EnhancedDerivedSheaves.)"
   },
   {
    "n": 119,
@@ -7294,32 +7337,84 @@
     "EnhancedDerivedSheaves:E5:presentability/compact-objects"
    ],
    "note": "Not yet stated here: Not stated: criterion identifying the tensor of compactly generated categories from exterior compact generators and Hom tensor comparison; Lambda-linear (relative to a base) version beyond module base change."
+  },
+  {
+   "n": 131,
+   "packet": "DiamondEtaleCohomology.json",
+   "supplier": "EnhancedDerivedSheaves:E2",
+   "need": "Module-coefficient versions of E2/left-completion, E2/replete-postnikov-unit and -counit, E2/inverse-limit-amplitude and E2/unbounded-hypercover-descent: for sheaves of O-modules on a replete ringed topos (in particular the constant ring Λ), D(X, O) is left-complete, R lim of a sequence of module sheaves has amplitude [0, 1], and pullback along a hypercover identifies D(X, O) with the cartesian objects. The current nodes are stated for abelian sheaves.",
+   "disposition": "follow-up",
+   "nodes": [
+    "EnhancedDerivedSheaves:E2/left-completion",
+    "EnhancedDerivedSheaves:E2/replete-postnikov-unit",
+    "EnhancedDerivedSheaves:E2/replete-postnikov-counit",
+    "EnhancedDerivedSheaves:E2/inverse-limit-amplitude",
+    "EnhancedDerivedSheaves:E2/unbounded-hypercover-descent"
+   ],
+   "note": "The abelian statements give the module versions through the conservative forgetful functor D(X, O) → D(X), which commutes with truncations, products and R lim; stating them for O-modules is a follow-up target of E2, recorded in its coverage. (Added by REV-EnhancedDerivedSheaves: the request merged after the plan was written.)"
+  },
+  {
+   "n": 132,
+   "packet": "DiamondEtaleCohomology.json",
+   "supplier": "EnhancedDerivedSheaves:E3",
+   "need": "HTT 5.5.3.12–5.5.3.13: a small limit of presentable ∞-categories along colimit-preserving functors, computed in Cat_∞, is presentable and the projections preserve colimits; and HTT 5.5.2.2: a functor C^op → S on a presentable ∞-category is representable iff it preserves small limits. EnhancedDerivedSheaves:E5:presentability/presentable-categories gives only the definition.",
+   "disposition": "answered",
+   "nodes": [
+    "EnhancedDerivedSheaves:E3/presentable-category-limits",
+    "EnhancedDerivedSheaves:E3/representability"
+   ],
+   "note": "HTT 5.5.3.12–5.5.3.14 is E3/presentable-category-limits and HTT 5.5.2.2 with Corollary 5.5.2.4 is E3/representability. (Added by REV-EnhancedDerivedSheaves.)"
+  },
+  {
+   "n": 133,
+   "packet": "DiamondEtaleCohomology.json",
+   "supplier": "EnhancedDerivedSheaves:E2",
+   "need": "Object-wise Postnikov convergence under one finite bound on a covering basis is planned as E2/postnikov-finite-cohomological-dimension (site-level Stacks 0D6P) and the uniform truncation window as E2/postnikov-uniform-window; C9 cites both at node level. Still requested from the stage: category-level left completeness of D(Y_ét,Λ) under the same uniform bound (every compatible Postnikov tower is the tower of its derived limit), and generic cosimplicial section complexes, normalization and comparison with sheaf cohomology once C8 proves its quasi-augmented descent theorem.",
+   "disposition": "partly",
+   "nodes": [
+    "EnhancedDerivedSheaves:E2/postnikov-finite-cohomological-dimension",
+    "EnhancedDerivedSheaves:E2/postnikov-uniform-window",
+    "EnhancedDerivedSheaves:E2/replete-postnikov-counit"
+   ],
+   "note": "The object-wise criterion holds for every E under a uniform bound, which gives the unit half of left completeness. Not yet stated here: the counit half (every compatible tower converges) under a uniform bound on a non-replete site, and the cosimplicial section complexes; recorded in the E2 coverage. (Added by REV-EnhancedDerivedSheaves.)"
+  },
+  {
+   "n": 134,
+   "packet": "DiamondEtaleCohomology.json",
+   "supplier": "EnhancedDerivedSheaves:E3",
+   "need": "Identify preservation of coproducts by exact derived Hom with the enhanced compactness criterion (an exact functor between the relevant stable cocomplete categories that preserves coproducts preserves all small colimits), and supply the cutoff comparisons for the set of test objects when the cutoff is enlarged.",
+   "disposition": "partly",
+   "nodes": [
+    "EnhancedDerivedSheaves:E3/right-adjoint-coproducts",
+    "EnhancedDerivedSheaves:E5:presentability/neeman-compactness-criterion"
+   ],
+   "note": "Coproduct preservation versus colimit preservation and the compactness criterion are E3/right-adjoint-coproducts and E5:presentability/neeman-compactness-criterion. Not yet stated here: the cutoff comparisons when the set of test objects is enlarged; recorded in the E3 coverage. (Added by REV-EnhancedDerivedSheaves.)"
   }
  ],
  "inventory": {
   "importedTargets": 169,
-  "newTargets": 35,
-  "combinedTargets": 204,
+  "newTargets": 32,
+  "combinedTargets": 201,
   "kinds": {
    "construction": 51,
-   "theorem": 86,
-   "comparison": 11,
+   "theorem": 84,
+   "comparison": 10,
    "definition": 31,
    "lemma": 25
   },
-  "apiItems": 357,
-  "unitTests": 271,
+  "apiItems": 361,
+  "unitTests": 273,
   "planets": 51,
-  "newNodeApiItems": 67,
-  "newNodeUnitTests": 44,
+  "newNodeApiItems": 71,
+  "newNodeUnitTests": 46,
   "newNodePlanets": 3,
   "baselineDeclarationsCitedByNewNodes": 34
  },
  "leanPrototype": {
   "file": "research/blueprint/suggested/EnhancedDerivedSheaves.lean",
   "compiled": true,
-  "checked": "2026-10-16 with lean-check at the pinned shared build (Mathlib 082e2d37e8, Tau Ceti f790474821): exit 0; 645 warnings, all placeholder-proof warnings (589 from the assembled part sections, 56 from the whole-roadmap sections); no errors and no other warnings.",
-  "lines": 2373,
+  "checked": "2026-10-16 with lean-check at the pinned shared build (Mathlib 082e2d37e8, Tau Ceti f790474821): exit 0; 646 warnings, all placeholder-proof warnings (589 from the assembled part sections, 57 from the whole-roadmap sections); no errors and no other warnings. Rechecked by REV-EnhancedDerivedSheaves after adding cotangentComplex_ordinary; a run_cmd audit of every declaration type in the namespace found no proof placeholder inside a statement.",
+  "lines": 2387,
   "wholeRoadmapSections": [
    "WholeRoadmapOrdinary",
    "WholeRoadmapMonoidal"
@@ -7453,7 +7548,8 @@
      "completedBaseChange_flat_equiv",
      "completedBaseChange_zp",
      "completedBaseChange_zero_ideal",
-     "completedBaseChange_polynomial"
+     "completedBaseChange_polynomial",
+     "completedBaseChange_perfect"
     ]
    },
    "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-derived-sheaves": {
@@ -7555,26 +7651,24 @@
     "stated": [
      "cotangentComplex",
      "cotangentMap",
+     "cotangentComplex_ordinary",
      "cotangentH0",
+     "cotangentComplex_naive",
+     "cotangentComplex_smooth",
+     "cotangentComplex_regularQuotient",
      "cotangentComplex_line"
     ],
     "notStated": [
-     "cotangentResolutionEquiv",
      "cotangent_polynomial",
      "cotangentComplex_self",
      "cotangentComplex_dualNumbers",
+     "cotangentComplex_dualNumbers_two",
      "cotangentComplex_h0"
     ]
    },
    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property": {
     "stated": [
      "cotangentComplex_corepresents"
-    ],
-    "notStated": []
-   },
-   "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-naive-comparison": {
-    "stated": [
-     "cotangentComplex_naive"
     ],
     "notStated": []
    },
@@ -7591,18 +7685,6 @@
    "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits": {
     "stated": [
      "cotangentComplex_localization"
-    ],
-    "notStated": []
-   },
-   "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-smooth-and-etale": {
-    "stated": [
-     "cotangentComplex_smooth"
-    ],
-    "notStated": []
-   },
-   "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-regular-quotients": {
-    "stated": [
-     "cotangentComplex_regularQuotient"
     ],
     "notStated": []
    },
@@ -7625,10 +7707,244 @@
      "exteriorPowerMul",
      "derivedExteriorPower_zero_module",
      "derivedExteriorPower_free",
-     "derivedExteriorPower_smooth"
+     "derivedExteriorPower_smooth",
+     "derivedExteriorPower_shifted_line"
     ]
    }
   },
   "omissions": "Statements whose carriers are not at the pins (Dqc of schemes and h-topologies as ∞-categories, ∞-topoi, flatness of module sheaves, perfect-complex predicates, Bousfield–Kan filtrations, completed tensor and reduction functors) are not stated; each is named in a comment in the file and stated in full in the reader. The new sections add one real-bodied construction (SheafOfModules.sliceFree and its map) and two real-bodied tower definitions (towerShiftDiff, towerLimOne)."
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-EnhancedDerivedSheaves",
+  "date": "2026-10-16",
+  "notes": "Independent review of the whole-roadmap plan by a session that wrote none of the parts, the assembly, the package or this plan. Read the 32 new declarations (35 before the review) and the 13 corrected part declarations against their sources at every locator (BS17 author copy and arXiv v3; Mathew v2; Carlsson v1; BHL15 v1; BMPSTWW v3; Stacks chapters; HA; HTT; NS18; Bhatt12; BL22; BMS19; SAG added), with a scripted sweep of 108 label–page pairs (one locator slip fixed); recomputed every numerical acceptance item; read all 34 baseline declarations in the pinned trees; rebuilt the effective prerequisite graph (201 declarations, acyclic; layer graph acyclic with the proposed sub-layers); re-ran the request triage against the requesting packets (4 requests merged after the plan were missing and are added; 13 dispositions narrowed or their node lists corrected after a Sonnet cross-check and reading each flagged need). Main correction: the plan moved DerivedDeRhamCohomology DD.0's cotangent complex here and planned the ordinary cotangent complex and its naive, smooth and regular-quotient computations again, but since the 2026-10-14 de-cycling these belong upstream to DerivedModuleAlgebra (TauCetiRoadmap pull request #944, first in the merge order), which the authoritative upstream EnhancedDerivedSheaves README (pull request #908) consumes, and PerfectoidSpaces' package (tier 3) consumes the same ordinary complex. The review rebased E5:cotangent-export on it as upstream does: the cotangent complex of animated rings with the comparison cotangentComplex_ordinary, three ordinary-only declarations withdrawn and turned into transported API items, the DD.0 move map, restructure proposals and the reader rewritten, gap G-EDS-W4 recording that DerivedModuleAlgebra can be cited only by section until it is an atlas roadmap. Other corrections: Kan extensions (HTT 4.3.3.8/4.3.3.10), the proof of Carlsson's completion theorem, derived exterior powers (SAG source, new misprint EnhancedDerivedSheaves/E6), completed base change (perfect sources), A-linear cup products, two test and one locator fixes, stale DD.0/H.5 wording in three corrected part declarations and in the reader. Restructure: the three upward stage edges (E4 → DD.1, E5:cotangent-export → DD.0, E5:spectra-comparison → H.5) are now explicitly removed, and proposal 5 records for the maintainer the wider overlap with the upstream foundation roadmaps (BordismFormalGroups F6.5, GeneralizedCohomology G2, DerivedModuleAlgebra). The suggested file elaborates at the pins (646 placeholder warnings, no other output) and an audit of every declaration type found no placeholder inside a statement. check_blueprint: 0 errors, 0 warnings.",
+  "checked": [
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/enhanced-versus-triangulated-colimits",
+    "verdict": "verified",
+    "note": "BMPSTWW23 Remark 4.11 and footnote 9 read; recomputed that the ℤ/p^i telescope has colimit ℚ_p/ℤ_p and that a section to ⊕ℤ/p^i is impossible; both Mathlib pretriangulated lemmas read at the pin."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/slice-free-module-sheaves",
+    "verdict": "verified",
+    "note": "Stacks Modules on Sites Lemmas 19.2, 19.3, 28.7, 28.8 (03DI, 03DJ, 03EV, 03EW) read; PresheafOfModules.freeYoneda, freeYonedaEquiv, freeYoneda.isSeparating, free, sheafification(Adjunction) and SheafOfModules.free read at the pin; the two-point non-example recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/localization-and-reduction-detect-zero",
+    "verdict": "verified",
+    "note": "BS17 Lemma 6.6 and Remark 6.7 read; recomputed Tor_0 and Tor_1 of K/m against k for a perfect valuation ring (m flat, m² = m) and the ℚ_p/ℤ_p acceptance item."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/valuation-decomposition-triangle",
+    "verdict": "verified",
+    "note": "BS17 Lemma 6.3 and proof read; both extreme cases (α = id, α → 0) recomputed. The qcqs hypothesis is the one the cited base-change lemma needs."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/projection-formula",
+    "verdict": "verified",
+    "note": "Stacks Cohomology on Sites §50 (0943, 0B56, 0944, 0E48) read; the non-quasi-compact counterexample ⊕∏ → ∏⊕ recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E3/kan-extensions-along-functors",
+    "verdict": "corrected",
+    "note": "HTT §4.3.3 read. HTT 4.3.3.8 is the unit statement for fully faithful δ, not the pointwise formula; part (iv) restated as HTT 4.3.3.10 (Kan extensions along a map of coCartesian fibrations are detected fibrewise); part (iii) no longer names Sp, which lives in a later layer."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/lim1-products-vanish",
+    "verdict": "verified",
+    "note": "BS17 Lemma 11.22 proof read; the lim¹ of the multiplication-by-p tower recomputed as ℤ_p/ℤ."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/multiplicative-derived-limit-filtration",
+    "verdict": "verified",
+    "note": "Construction checked against HA §1.2.2; the general multiplicativity is honestly gap G-EDS-W1 (BS17 leaves it to the reader); tests recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/proper-surjection-inductive-level",
+    "verdict": "corrected",
+    "note": "BS17 Definition 2.5 and Lemma 2.6 read; the dimension bound test is restricted to bases of finite type over ℤ, as in the source proof."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/abstract-blowup-squares",
+    "verdict": "verified",
+    "note": "BS17 Proposition 2.8 and Theorem 2.9 read; the homotopy-pushout step along a sectionwise monomorphism is correct."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/descendable-maps-from-geometry",
+    "verdict": "verified",
+    "note": "BS17 Lemma 11.23 and Example 11.19 read; Mathew v2 numbering (Corollary 3.33, Proposition 3.35) confirmed; the ℤ → ℤ/p non-example is right."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/noetherian-h-cover-descendability",
+    "verdict": "verified",
+    "note": "BS17 Proposition 11.25 proof read step by step; AdicSpacesPartII F0/graded-cohomology-finiteness (accepted) with B = A gives coherence of proper pushforward; SF.2 supplier statements read."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/noetherian-h-descent",
+    "verdict": "verified",
+    "note": "BS17 Theorem 11.12 and Remark 11.13 read; the derived counterexample recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/descendability-detects-noetherian-h-covers",
+    "verdict": "verified",
+    "note": "BS17 Theorem 11.26 and BHL15 Theorem 1.10 read; gaps G-EDS-W2 and G-EDS-W3 are honest."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/perfect-abstract-blowup-patching",
+    "verdict": "corrected",
+    "note": "BS17 Corollary 11.28 read; the non-example now names U = ∅ and Z = E = Spec k with reduced structure, without which it does not fail."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/truncated-maps-to-hypercomplete-objects",
+    "verdict": "verified",
+    "note": "BS17 Lemma 11.38 and HTT 6.5.2.9, 6.5.1.19 read."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E4/amitsur-completion-of-finite-modules",
+    "verdict": "corrected",
+    "note": "Carlsson Theorem 4.4 read: the proof steps claimed a pro-isomorphism {I^{⊗L(k+1)} ⊗ M} → {I^{k+1}M} that the source does not prove; replaced by Carlsson’s multi-Tor argument (Tot commutes with R lim over M/I^kM, and Tot(N ⊗ B^•) ≃ N for B-modules N)."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E4/completed-base-change",
+    "verdict": "corrected",
+    "note": "Stacks More on Algebra Lemmas 15.93.2, 15.93.10, 15.93.24, 15.93.25 read; added completedBaseChange_perfect (requested by AInfCohomology) with its one-line proof, and the upstream owner of the point-topos completion."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-derived-sheaves",
+    "verdict": "corrected",
+    "note": "NS18 Definition A.4 and Proposition A.5, Stacks 07A2 and 06YT, HA 7.3.2.7 read; added the A-linear cup product with its sign, which the CrystallineCohomology request asks for."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:abstract/amitsur-tower-fibres",
+    "verdict": "verified",
+    "note": "Carlsson Corollary 6.7 and BS17 proof of Lemma 11.20 read; the p-adic tower example recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:presentability/spectra",
+    "verdict": "verified",
+    "note": "HA §1.4.2–1.4.3 and Proposition 4.8.2.18 read at the cited pages."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:presentability/filtered-objects",
+    "verdict": "verified",
+    "note": "BMS19 Definition 5.1 and Lemma 5.2 and HA §2.2.6 read; the I-adic and unit tests recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:spectra-comparison/perfect-modules",
+    "verdict": "corrected",
+    "note": "Stacks 07LT and 0BC7, HA 7.2.4.2, 7.2.4.4, 7.3.5.11–12 read; the ordinary perfect predicate is named as DerivedModuleAlgebra §1.E.0."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/modules-over-animated-rings",
+    "verdict": "verified",
+    "note": "HA 7.1.2.13, 7.1.1.13, 7.1.1.16 read; the Tor example recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/square-zero-extensions-and-derivations",
+    "verdict": "corrected",
+    "note": "Bhatt12 Remark 6.6 read; the ordinary case is now identified with DerivedModuleAlgebra §0.5."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-complex",
+    "verdict": "corrected",
+    "note": "Rebased on DerivedModuleAlgebra §0.4 (TauCetiRoadmap pull request #944), which owns the ordinary cotangent complex upstream and which the upstream EnhancedDerivedSheaves README consumes: the node is the animated refinement with the comparison cotangentComplex_ordinary, and the ordinary naive-truncation, smooth and regular-quotient statements (withdrawn as separate declarations) are transported API items. Stacks 08PN, 08PU, 08QF, 08QH, 08QI and BL22 B.1 read; all test computations redone, including characteristic 2."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-universal-property",
+    "verdict": "corrected",
+    "note": "Bhatt12 Remark 6.6 read; π_0 is credited to DerivedModuleAlgebra §0.6; added the M = B[1] test that separates the mapping space from ordinary derivations."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-transitivity",
+    "verdict": "corrected",
+    "note": "Stacks 08QX read; the ordinary case is compared with DerivedModuleAlgebra §0.8; examples recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-base-change",
+    "verdict": "corrected",
+    "note": "Stacks 08QQ read; the Tor-independent ordinary case is DerivedModuleAlgebra §0.10; the 𝔽_p ⊗ᴸ 𝔽_p example recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-localization-and-filtered-colimits",
+    "verdict": "corrected",
+    "note": "Stacks 08S9, 08R2, 08SF read; ordinary localization formulas credited to DerivedModuleAlgebra §0.11; flat-epimorphism vanishing (Stacks 8.4(2)) added to the statement."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/cotangent-lci-amplitude",
+    "verdict": "corrected",
+    "note": "Stacks §14 and Proposition 14.4 read; prerequisites rebased after the withdrawal of the ordinary regular-quotient and naive-comparison declarations, whose statements it now cites from DerivedModuleAlgebra §§0.7, 0.13 through cotangentComplex_ordinary."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/derived-exterior-powers",
+    "verdict": "corrected",
+    "note": "BL22 B.1 covers only the cotangent case; added SAG Construction 25.2.2.2 and Propositions 25.2.3.1, 25.2.3.4 for general connective modules, recorded SAG’s signed-coinvariant misprint (EnhancedDerivedSheaves/E6), fixed the flat-comparison wording, compared with DerivedModuleAlgebra §0.14, added a décalage test."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening",
+    "verdict": "verified",
+    "note": "Correction checked: HTT Theorem 3.2.0.1 holds over every simplicial set."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface",
+    "verdict": "corrected",
+    "note": "Correction rewritten: the ordinary constructions are DerivedModuleAlgebra’s; hypotheses and source match no longer credit DD.0; prerequisites drop the three withdrawn declarations."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/e-infinity-comparison-in-proved-ranges",
+    "verdict": "verified",
+    "note": "HA 7.1.4.11, 7.1.4.18, 7.1.4.20 and Warning 7.1.4.21 read; the 𝔽_2 quadratic part recomputed."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation",
+    "verdict": "corrected",
+    "note": "HA 7.1.2.1, 7.1.2.13, 4.8.2.18 read; the source match no longer says the concrete model is imported from H.5."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/perfect-h-cover-descendability",
+    "verdict": "verified",
+    "note": "BS17 Theorem 11.27 and Proposition 11.6 read; the corrected proof follows the source."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:abstract/uniform-index-colimits",
+    "verdict": "corrected",
+    "note": "BS17 Example 11.19 is on p. 43, not pp. 44–45; locator corrected. Gorenstein bound recomputed from Example 11.19."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:abstract/descendable-algebras",
+    "verdict": "verified",
+    "note": "The correction uses E5:abstract/amitsur-tower-fibres as the source does (Carlsson Corollary 6.7 in BS17 Lemma 11.20)."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E2/perfect-h-topology",
+    "verdict": "verified",
+    "note": "SchemeAndStackFoundations SF.0 scheme-perfection and perfectly-finitely-presented statements read; SF is tier 2 and now on TauCetiRoadmap main."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/k-flat-replacement",
+    "verdict": "verified",
+    "note": "Correction checked against E1/slice-free-module-sheaves."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/derived-presentability",
+    "verdict": "verified",
+    "note": "Correction checked against E1/slice-free-module-sheaves."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
+    "verdict": "verified",
+    "note": "TauCeti.SheafOfModules.tensorProduct read at f790474."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5/single-enhancement-supplier",
+    "verdict": "corrected",
+    "note": "Proof step and source match no longer credit DD.0."
+   },
+   {
+    "nodeId": "EnhancedDerivedSheaves:E5:animation/bounded-totalization-colimits",
+    "verdict": "verified",
+    "note": "The statement uses only the finite matching-object tower; dropping the E2 prerequisite is correct."
+   }
+  ]
  }
 }

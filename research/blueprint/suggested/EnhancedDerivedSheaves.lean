@@ -8,7 +8,10 @@ Enhanced derived categories of sheaves: the E0–E4 prototype (concrete enhancem
 derived sheaves, descent, coherent adjoints, completion) and the E5 prototype (monoidal,
 presentable and animated structures), joined into one file with one namespace, followed by
 the signatures of the targets added by the whole-roadmap plan (section `WholeRoadmapOrdinary`
-and `WholeRoadmapMonoidal`, at the end).
+and `WholeRoadmapMonoidal`, at the end). `importedCotangent` stands for the ordinary cotangent complex
+`Algebra.CotangentComplex` of DerivedModuleAlgebra §0.4 (TauCetiRoadmap pull request #944), which is
+not at the pins; the cotangent-complex statements of the last section compare the animated cotangent
+complex with it.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
 Conditions that cannot yet be stated at the pinned interfaces are omitted, never replaced
@@ -2016,14 +2019,16 @@ example (p : ℕ) [Fact p.Prime] :
     simplicialPi (simplicialWitt p (torSimplicialRing p)) 1 ≃ (ℕ → ZMod p) := by sorry
 
 /- EnhancedDerivedSheaves:E5:animation/bounded-totalization-colimits
-For a cosimplicial diagram of n-truncated spaces, n≥0 fixed, totalization equals partial totalization through degree n+1. Consequently totalization commutes with filtered colimits when the truncation bound is uniform in both indices. For cosimplicial spectra whose terms all lie in Sp≤b for one integer b, π_k of totalization is computed by a finite partial stage r≥max(0,b−k+1). This gives filtered-colimit commutation degree by degree; coconnective terms are the case b=0. The analogous cohomological comparison for complexes uses a uniform lower cohomological bound. Without a uniform bound, arbitrary totalization need not commute with filtered colimits. Unbounded Postnikov convergence and hypercompleteness are supplied by E2. -/
+For a cosimplicial diagram of n-truncated spaces, n≥0 fixed, totalization equals partial totalization through degree n+1. Consequently totalization commutes with filtered colimits when the truncation bound is uniform in both indices. For cosimplicial spectra whose terms all lie in Sp≤b for one integer b, π_k of totalization is computed by a finite partial stage r≥max(0,b−k+1). This gives filtered-colimit commutation degree by degree; coconnective terms are the case b=0. The analogous cohomological comparison for complexes uses a uniform lower cohomological bound. Without a uniform bound, arbitrary totalization need not commute with filtered colimits. Unbounded Postnikov convergence and hypercompleteness are not used. -/
 noncomputable def boundedTotalization (n : ℕ) (F : QFun simplexQ (truncatedSpacesQ n)) : QCat := by sorry
 noncomputable def filteredTotalizationComparison (I : Type) [Category.{0} I] [IsFiltered I]
     (n : ℕ) (F : QFun (nerveQ I) (funQ simplexQ (truncatedSpacesQ n))) :
     HEquiv (filteredTotQ I n F) (totFilteredQ I n F) := by sorry
 
 /- EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface
-Import L_(B/A) from DD.0 with Map_B(L_(B/A),M) ≃ Der_A(B,M), its transitivity cofiber sequence B⊗^L_A L_(A/R)→L_(B/R)→L_(B/A), and derived base change for a homotopy pushout. E5 identifies these maps with its animated and monoidal module structures, without defining a second cotangent complex. The low-degree comparison with Mathlib’s naive cotangent construction covers H⁰=Ω and H⁻¹, not the entire complex. Re-export derived exterior powers and the DD.0 amplitude tests through the same interface. -/
+The cotangent complex L_{B/A} of animated rings (E5:cotangent-export/cotangent-complex), its universal property Map_{Mod_B}(L_{B/A}, M) ≃ Der_A(B, M), the transitivity cofibre sequence L_{B/A} ⊗^L_B C → L_{C/A} → L_{C/B}, derived base change along homotopy pushouts, localization and filtered colimits, the lci amplitude and the derived exterior powers form one interface, with module structures those of Mod_B (E5:cotangent-export/modules-over-animated-rings). For ordinary rings each of them is compared, through cotangentComplex_ordinary, with the ordinary cotangent complex and powers of DerivedModuleAlgebra (TauCetiRoadmap pull request #944) §§0.4–0.17, which also carries the naive-truncation, smooth and regular-quotient computations; no second ordinary cotangent complex is constructed here. DerivedDeRhamCohomology imports both. -/
+/-- Stand-in for the ordinary cotangent complex `Algebra.CotangentComplex A B` of DerivedModuleAlgebra §0.4
+(not at the pins). -/
 noncomputable def importedCotangent (A B : CommRingCat) (f : A ⟶ B) : Obj (ordinaryDerivedModules B) := by sorry
 noncomputable def polynomialRingMap (R : CommRingCat) (n : ℕ) : R ⟶ CommRingCat.of (MvPolynomial (Fin n) R) := by sorry
 noncomputable def polynomialDifferentials (R : CommRingCat) (n : ℕ) : Obj (ordinaryDerivedModules (CommRingCat.of (MvPolynomial (Fin n) R))) := by sorry
@@ -2057,20 +2062,20 @@ example (k : Type) [Field k] :
       (importedCotangent (dualNumbers k) (CommRingCat.of k) (dualNumbersAugmentation k)) (-2) ≃ k := by sorry
 
 /- EnhancedDerivedSheaves:E5:cotangent-export/e-infinity-comparison-in-proved-ranges
-There is a sifted-colimit-preserving comparison from animated commutative R-algebras to connective E∞ HR-algebras, determined on polynomial generators. It is an equivalence for R a ℚ-algebra. For any commutative R, simplicial associative R-algebras compare equivalently with connective E₁ HR-algebras. In positive characteristic the commutative comparison is not an equivalence in general: spectral free algebras retain the homology of symmetric groups, absent from a polynomial animated algebra on a degree-zero generator. Strictly commutative dg algebras are a general model only in characteristic zero. Cotangent comparisons are asserted only after the relevant equivalence or separately verified hypotheses. -/
+There is a sifted-colimit-preserving functor θ : AnimAlg_R → CAlg(D∞(R)^{cn}) (connective = cohomology in degrees ≤ 0) extending the inclusion of polynomial R-algebras as discrete commutative algebra objects. It is an equivalence when R is a ℚ-algebra. For every R, simplicial associative R-algebras are equivalent to connective associative algebra objects of D∞(R). In positive characteristic θ is not an equivalence: the free commutative algebra object of D∞(𝔽_2) on 𝔽_2[0] has quadratic part (𝔽_2 ⊗ 𝔽_2)_{hΣ_2}, with homology H_*(BΣ_2; 𝔽_2) nonzero in every degree ≥ 0, while the animated polynomial algebra 𝔽_2[x] is discrete. Strictly commutative dg algebras model the situation only in characteristic zero. Cotangent comparisons are asserted only after the relevant equivalence or under separately verified hypotheses. -/
 noncomputable def connectiveSpectralAlgebras (R : CommRingCat) : QCat := by sorry
 noncomputable def animationToSpectral (R : CommRingCat) : QFun (animatedAlgebras R) (connectiveSpectralAlgebras R) := by sorry
 noncomputable def rationalAnimationComparison : HEquiv (animatedAlgebras (CommRingCat.of ℚ)) (connectiveSpectralAlgebras (CommRingCat.of ℚ)) := by sorry
 
 /- EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation
-Import the H.5 symmetric-spectrum stable model, derived smash, Eilenberg–Mac Lane object and module model. Apply the E5 monoidal model-localization interface to compare its infinity-localization with the abstract stable monoidal category Sp. For each ordinary commutative R, Mod_HR is symmetric monoidally equivalent to the E1 enhanced D(R), carrying HR to R and derived smash over HR to derived tensor over R. On homotopy categories it recovers Mathlib’s DerivedCategory of R-modules, with the same cochain shifts and exact triangles. -/
+For a commutative ring R, D∞(R) with the structure of E5:abstract/symmetric-monoidal-derived-sheaves is a commutative algebra in presentable stable ∞-categories, so the unique colimit-preserving symmetric monoidal functor Sp → D∞(R) has a lax symmetric monoidal right adjoint; it sends R[0] to a commutative algebra HR ∈ CAlg(Sp), the Eilenberg–Mac Lane ring, with π_0 HR = R and π_n HR = 0 for n ≠ 0. There is a symmetric monoidal equivalence Mod_{HR}(Sp) ≃ D∞(R) carrying HR to R[0] and the relative tensor product over HR to ⊗^L_R. On homotopy categories it recovers Mathlib's DerivedCategory (ModuleCat R) with its shift and distinguished triangles, and mapping spectra correspond to derived Hom complexes. Comparing a concrete point-set model of spectra with Sp belongs to the roadmap that builds that model. -/
 noncomputable def spectralModules (R : CommRingCat) : QCat := by sorry
 noncomputable def spectralDerivedComparison (R : CommRingCat) : HEquiv (spectralModules R) (ordinaryDerivedModules R) := by sorry
 attribute [local instance] HasDerivedCategory.standard in
 noncomputable def derivedHomotopyComparison (R : CommRingCat) : HCat (ordinaryDerivedModules R) ≌ DerivedCategory (ModuleCat.{1} R) := by sorry
 
 /- EnhancedDerivedSheaves:E5/single-enhancement-supplier
-The shared interface commutes with passage from ordinary rings to animated rings and from algebra objects to modules. For the unit R, the enhanced module category, its tensor unit and ordinary derived-category comparison agree across E1, abstract E5 and the spectral return. For polynomial R[x₁,…,x_n], the imported cotangent complex is the free rank-n B-module in degree zero. For a quotient by a regular sequence of length c, the imported relative cotangent complex is (I/I²)[1], free rank c in cohomological degree −1. These computations, the homotopy pushout Tor example and preservation of exact triangles are the parent layer’s acceptance diagram. The nonregular quotient k[ε]/(ε²)→k retains a nonzero H⁻² term, checking that the full cotangent object was not replaced by its naive truncation. -/
+The shared interface commutes with passage from ordinary rings to animated rings and from algebra objects to modules. For the unit R, the enhanced module category, its tensor unit and ordinary derived-category comparison agree across E1, abstract E5 and the Eilenberg–Mac Lane module comparison. For polynomial R[x₁,…,x_n], the cotangent complex of E5:cotangent-export is the free rank-n B-module in degree zero. For a quotient by a regular sequence of length c, the relative cotangent complex is (I/I²)[1], free of rank c in cohomological degree −1. These computations, the homotopy pushout Tor example and preservation of exact triangles are the parent layer's acceptance diagram. The nonregular quotient k[ε]/(ε²)→k retains a nonzero H⁻² term, checking that the full cotangent object was not replaced by its naive truncation. -/
 noncomputable def enhancementCompatibility (R : CommRingCat) : HEquiv (spectralModules R) (ordinaryDerivedModules R) := by sorry
 
 end Monoidal
@@ -2220,7 +2225,7 @@ theorem completedBaseChange_comp {R S T : CommRingCat} (φ : R ⟶ S) (ψ : S �
       onHCat (completedBaseChange (φ ≫ ψ) I L)) := by sorry
 theorem completedBaseChange_id (R : CommRingCat) (I : Ideal R) :
     Nonempty (onHCat (completedBaseChange (𝟙 R) I I) ≅ 𝟭 _) := by sorry
--- Not stated here: completedBaseChange_monoidal, _reduction and _flat_equiv, and the tests
+-- Not stated here: completedBaseChange_monoidal, _reduction, _flat_equiv and _perfect, and the tests
 -- completedBaseChange_zp, _zero_ideal and _polynomial, which need the completed tensor and
 -- reduction functors on these carriers. E4/amitsur-completion-of-finite-modules needs the
 -- Amitsur totalization of D(A) and is not stated here either.
@@ -2305,7 +2310,13 @@ noncomputable def cotangentComplex {R : CommRingCat} {A B : Obj (animatedAlgebra
 noncomputable def cotangentMap {R : CommRingCat} {A B A' B' : Obj (animatedAlgebras R)}
     (f : A ⟶ B) (f' : A' ⟶ B') (a : A ⟶ A') (b : B ⟶ B') (h : f ≫ b = a ≫ f') :
     (onHCat (animatedModules_baseChange b)).obj (cotangentComplex f) ⟶ cotangentComplex f' := by sorry
-/-- `H⁰` of the cotangent complex of a ring map is the module of Kähler differentials. -/
+/-- For ordinary rings the animated cotangent complex is the ordinary one of DerivedModuleAlgebra §0.4
+(here its stand-in `importedCotangent`), under the discrete module comparison. -/
+theorem cotangentComplex_ordinary {A B : CommRingCat} (f : A ⟶ B) :
+    Nonempty ((animatedModules_discrete B).functor.obj (cotangentComplex (animatedDiscreteMap f)) ≅
+      importedCotangent A B f) := by sorry
+/-- `H⁰` of the cotangent complex of a ring map is the module of Kähler differentials
+(DerivedModuleAlgebra §0.4, transported along `cotangentComplex_ordinary`). -/
 theorem cotangentH0 (A B : CommRingCat) (f : A ⟶ B) :
     letI := f.hom.toAlgebra
     Nonempty (cotangentCohomology B (importedCotangent A B f) 0 ≃ KaehlerDifferential A B) := by sorry
@@ -2313,14 +2324,16 @@ theorem cotangentH0 (A B : CommRingCat) (f : A ⟶ B) :
 theorem cotangentComplex_line (R : CommRingCat) :
     Nonempty (importedCotangent R (CommRingCat.of (MvPolynomial (Fin 1) R)) (polynomialRingMap R 1) ≅
       polynomialDifferentials R 1) := by sorry
--- Not stated here: cotangentResolutionEquiv, cotangent_polynomial and the tests
--- cotangentComplex_self, cotangentComplex_dualNumbers and cotangentComplex_h0.
+-- Not stated here: cotangent_polynomial (polynomial algebras over an animated base) and the tests
+-- cotangentComplex_self, cotangentComplex_dualNumbers, cotangentComplex_dualNumbers_two and
+-- cotangentComplex_h0.
 
 theorem cotangentComplex_corepresents {R : CommRingCat} {A B : Obj (animatedAlgebras R)} (f : A ⟶ B)
     (M : Obj (animatedModules B)) :
     Nonempty (HEquiv (mappingQ (animatedModules B) (cotangentComplex f) M) (derivedDerivations B M)) := by sorry
 
-/-- `H⁻¹` of the cotangent complex of a ring map is Mathlib's `H1Cotangent`. -/
+/-- `H⁻¹` of the cotangent complex of a ring map is Mathlib's `H1Cotangent` (DerivedModuleAlgebra §0.7,
+transported along `cotangentComplex_ordinary`; an API item of the cotangent complex). -/
 theorem cotangentComplex_naive (A B : CommRingCat) (f : A ⟶ B) :
     letI := f.hom.toAlgebra
     Nonempty (cotangentCohomology B (importedCotangent A B f) (-1) ≃ Algebra.H1Cotangent A B) := by sorry
@@ -2336,10 +2349,12 @@ theorem cotangentComplex_localization (R : CommRingCat) (S : Submonoid R) (n : �
       (importedCotangent R (CommRingCat.of (Localization S))
         (CommRingCat.ofHom (algebraMap R (Localization S)))) n) := by sorry
 
+/-- Polynomial case of the smooth computation (DerivedModuleAlgebra §0.12, transported). -/
 theorem cotangentComplex_smooth (R : CommRingCat) (n : ℕ) :
     Nonempty (importedCotangent R (CommRingCat.of (MvPolynomial (Fin n) R)) (polynomialRingMap R n) ≅
       polynomialDifferentials R n) := by sorry
 
+/-- The regular-quotient formula (DerivedModuleAlgebra §0.13, transported). -/
 theorem cotangentComplex_regularQuotient (R : CommRingCat) (rs : List R)
     (hreg : RingTheory.Sequence.IsRegular R rs) :
     Nonempty (importedCotangent R (sequenceQuotient R rs) (sequenceQuotientMap R rs) ≅
@@ -2365,7 +2380,7 @@ of a vector vanishes, also over `𝔽₂`. -/
 theorem derivedExteriorPower_rank_one (k : Type) [Field k] (x : k) :
     exteriorPower.ιMulti k 2 (fun _ : Fin 2 => x) = 0 := by sorry
 -- Not stated here: exteriorPowerFlat, exteriorPowerMul and the tests
--- derivedExteriorPower_zero_module, _free and _smooth.
+-- derivedExteriorPower_zero_module, _free, _smooth and _shifted_line.
 
 end WholeRoadmapMonoidal
 
