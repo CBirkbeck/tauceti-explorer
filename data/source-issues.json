@@ -195217,8 +195217,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Nils Bruin and Michael Stoll, The Mordell–Weil sieve: proving non-existence of rational points on curves, LMS Journal of Computation and Mathematics 13 (2010), 272–306; version of record, doi:10.1112/S1461157009000187",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "PrepareLift must retain the target subgroup: intersecting the original kernels can remove admissible target classes. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "PrepareLift must retain the target subgroup: intersecting the original kernels can remove admissible target classes. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E2",
@@ -195238,8 +195238,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Centrum voor Wiskunde en Informatica, Amsterdam, 1989 (scan with OCR layer)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The sign of the affine translate is forced by subtracting the target vector; the corrected congruence matches Λ′. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The sign of the affine translate is forced by subtracting the target vector; the corrected congruence matches Λ′. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E3",
@@ -195258,8 +195258,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Centrum voor Wiskunde en Informatica, Amsterdam, 1989 (scan with OCR layer)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The triangular recursion runs over the full lattice dimension n; the printed upper limit omits coordinates. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The triangular recursion runs over the full lattice dimension n; the printed upper limit omits coordinates. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E4",
@@ -195277,8 +195277,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The exclusion argument uses the exponentially small form, whereas the cited inequality number refers elsewhere. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The exclusion argument uses the exponentially small form, whereas the cited inequality number refers elsewhere. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E5",
@@ -195297,8 +195297,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The embedding-vector identity fixes rows as embeddings and columns as units; transposition changes the inverse row-sum norm. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The embedding-vector identity fixes rows as embeddings and columns as units; transposition changes the inverse row-sum norm. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E6",
@@ -195317,8 +195317,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Centrum voor Wiskunde en Informatica, Amsterdam, 1989 (scan with OCR layer)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "At p=2 the logarithm-kernel comparison does not give the odd-prime index assertions; generation assumptions are also necessary for equality. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "At p=2 the logarithm-kernel comparison does not give the odd-prime index assertions; generation assumptions are also necessary for equality. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E7",
@@ -195337,8 +195337,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "A partial quotient of the true root is not automatically the partial quotient of a rational approximation; scanning all bounded convergents repairs the search. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "A partial quotient of the true root is not automatically the partial quotient of a rational approximation; scanning all bounded convergents repairs the search. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E8",
@@ -195356,8 +195356,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The uniqueness corollary supplies the cited step; the printed part number does not. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The uniqueness corollary supplies the cited step; the printed part number does not. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E9",
@@ -195375,8 +195375,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Negative logarithmic maxima cannot upper-bound nonnegative exponent contributions; adding zero to each maximum repairs both bounds. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Negative logarithmic maxima cannot upper-bound nonnegative exponent contributions; adding zero to each maximum repairs both bounds. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E10",
@@ -195396,8 +195396,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "W. Aitken, F. Lemmermeyer, Counterexamples to the Hasse principle, arXiv:1108.6310v1 (31 August 2011; the only arXiv version); published Amer. Math. Monthly 118 (2011) 610–628 (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The preceding substitution produces coefficient 16·17, which is rationally isomorphic to the stated coefficient17 curve. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The preceding substitution produces coefficient 16·17, which is rationally isomorphic to the stated coefficient17 curve. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E11",
@@ -195416,8 +195416,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Bjorn Poonen, The complete classification of rational preperiodic points of quadratic polynomials over Q: a refined conjecture, arXiv:math/9512217v1 (1995 preprint, 19 pp.); published Math. Z. 228 (1998), 11–29, not read. Poonen's 'Remarks and errata' (https://math.mit.edu/~poonen/papers/errata.pdf, dated August 14, 2025, SHA-256 d369e65f3af0c8304297de8b4a5c0fc3e72ff350c4b44b25a0ef83ee9c3a0377) read for this paper's entry.",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Both infinity branches meet the same reduced Weierstrass point; the corrected residue list accounts for both. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Both infinity branches meet the same reduced Weierstrass point; the corrected residue list accounts for both. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E12",
@@ -195436,8 +195436,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Nils Bruin and Michael Stoll, The Mordell–Weil sieve: proving non-existence of rational points on curves, LMS Journal of Computation and Mathematics 13 (2010), 272–306; version of record, doi:10.1112/S1461157009000187",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Triangle inequality requires all three quadratic terms, giving the factor3 in the product threshold. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Triangle inequality requires all three quadratic terms, giving the factor3 in the product threshold. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E13",
@@ -195456,8 +195456,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Nils Bruin and Michael Stoll, The Mordell–Weil sieve: proving non-existence of rational points on curves, LMS Journal of Computation and Mathematics 13 (2010), 272–306; version of record, doi:10.1112/S1461157009000187",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Evaluating the homogeneous x-coordinate polynomial at (a:b) gives k1·a²−k2·ab+k3·b². Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Evaluating the homogeneous x-coordinate polynomial at (a:b) gives k1·a²−k2·ab+k3·b². Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E14",
@@ -195476,8 +195476,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Nils Bruin and Michael Stoll, The Mordell–Weil sieve: proving non-existence of rational points on curves, LMS Journal of Computation and Mathematics 13 (2010), 272–306; version of record, doi:10.1112/S1461157009000187",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "FindQSequence updates and tests the computed survivor estimate n, not the input target M. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "FindQSequence updates and tests the computed survivor estimate n, not the input target M. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E15",
@@ -195497,8 +195497,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for modular curves: algorithms and examples, arXiv:2101.01862v4 (7 March 2023); published in Compositio Mathematica 159 (2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The connection gauge equation involves the primitive of ΩᵀZ dΩ−η; the incompatible printed primitive does not satisfy it. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The connection gauge equation involves the primitive of ΩᵀZ dΩ−η; the incompatible printed primitive does not satisfy it. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E16",
@@ -195518,8 +195518,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for modular curves: algorithms and examples, arXiv:2101.01862v4 (7 March 2023); published in Compositio Mathematica 159 (2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The gauge and filtration conventions require dΩ=−ω; switching its sign changes the linear term. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The gauge and filtration conventions require dΩ=−ω; switching its sign changes the linear term. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E17",
@@ -195538,8 +195538,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Nils Bruin and Michael Stoll, The Mordell–Weil sieve: proving non-existence of rational points on curves, LMS Journal of Computation and Mathematics 13 (2010), 272–306; version of record, doi:10.1112/S1461157009000187",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The final coefficient-divisibility argument needs a sufficiently large product of primes separating the two conjugate points. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The final coefficient-divisibility argument needs a sufficiently large product of primes separating the two conjugate points. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E18",
@@ -195558,8 +195558,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Direct norm expansion identifies each displayed quartic with the opposite named generator from the printed labels. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Direct norm expansion identifies each displayed quartic with the opposite named generator from the printed labels. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E19",
@@ -195578,8 +195578,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The arcsine ratio gives the corrected factor; its rounded bound1.02 remains valid. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The arcsine ratio gives the corrected factor; its rounded bound1.02 remains valid. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E20",
@@ -195598,8 +195598,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "E. V. Flynn, Bjorn Poonen, Edward F. Schaefer, Cycles of quadratic polynomials and rational points on a genus-2 curve, arXiv:math/9508211v1 (4 August 1995); published Duke Math. J. 90 (1997) 435–463 (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The subgroup generator used by the preceding lemma is u3β1β2, consistent with the later computation. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The subgroup generator used by the preceding lemma is u3β1β2, consistent with the later computation. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E21",
@@ -195618,8 +195618,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for modular curves: algorithms and examples, arXiv:2101.01862v4 (7 March 2023); published in Compositio Mathematica 159 (2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The truncation must bound ord(F_i)+i for every tail index; the printed alternative cannot justify the claimed degree reduction. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The truncation must bound ord(F_i)+i for every tail index; the printed alternative cannot justify the claimed degree reduction. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E22",
@@ -195639,8 +195639,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Samir Siksek, Explicit Chabauty over number fields, arXiv:1010.2603v2; published Algebra & Number Theory 7 (2013), 765–793",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The ordered pairing has differentials on the left, so its zero left kernel and torsion right kernel were interchanged. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review. The independent check was on arXiv:1010.2603v2 p5, not the publisher p770."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The ordered pairing has differentials on the left, so its zero left kernel and torsion right kernel were interchanged. Independently confirmed on arXiv v2 p.5 only; the published p.770 locator remains inherited. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E23",
@@ -195661,8 +195661,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "E. V. Flynn, Bjorn Poonen, Edward F. Schaefer, Cycles of quadratic polynomials and rational points on a genus-2 curve, arXiv:math/9508211v1 (4 August 1995); published Duke Math. J. 90 (1997) 435–463 (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The θ2 branch has the two roots n=−1,1, as also follows from its displayed factors. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The θ2 branch has the two roots n=−1,1, as also follows from its displayed factors. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E24",
@@ -195682,8 +195682,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944, doi:10.4007/annals.2019.189.3.6 (published version)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The differential basis has indices0 through2g+d−2; the printed last index is out of range. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The differential basis has indices0 through2g+d−2; the printed last index is out of range. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E25",
@@ -195702,8 +195702,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Centrum voor Wiskunde en Informatica, Amsterdam, 1989 (scan with OCR layer)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The symmetric enumeration must emit both signs before termination; a one-dimensional unit lattice exhibits the missing negative vector. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The symmetric enumeration must emit both signs before termination; a one-dimensional unit lattice exhibits the missing negative vector. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E26",
@@ -195722,8 +195722,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The coefficient bound A′≤(q−p+1)D A forces the denominator in the transferred exponential rate. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The coefficient bound A′≤(q−p+1)D A forces the denominator in the transferred exponential rate. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E27",
@@ -195742,8 +195742,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "E. V. Flynn, Bjorn Poonen, Edward F. Schaefer, Cycles of quadratic polynomials and rational points on a genus-2 curve, arXiv:math/9508211v1 (4 August 1995); published Duke Math. J. 90 (1997) 435–463 (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The linear term dominates in absolute value precisely when its valuation is smaller, not larger. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The linear term dominates in absolute value precisely when its valuation is smaller, not larger. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E28",
@@ -195762,8 +195762,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Jennifer S. Balakrishnan, Robert W. Bradshaw and Kiran S. Kedlaya, Explicit Coleman integration for hyperelliptic curves, arXiv:1004.4936v2; ANTS IX, Lecture Notes in Computer Science 6197 (2010) (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Expanding log(1−t) starts with −t, so the missing minus sign is necessary. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Expanding log(1−t) starts with −t, so the missing minus sign is necessary. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E29",
@@ -195782,8 +195782,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The 1993 published corrigendum supplies the missing factor m^(2m+1) and the corrected example bounds and counts. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The 1993 published corrigendum supplies the missing factor m^(2m+1) and the corrected example bounds and counts. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E30",
@@ -195802,8 +195802,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for modular curves: algorithms and examples, arXiv:2101.01862v4 (7 March 2023); published in Compositio Mathematica 159 (2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The published coefficient argument separates c1 from ϕ(i), confirming the correction already made in the version of record. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The published coefficient argument separates c1 from ϕ(i), confirming the correction already made in the version of record. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E31",
@@ -195823,8 +195823,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Samir Siksek, Chabauty for symmetric powers of curves, Version of record, Algebra & Number Theory 3(2009),209–236; Theorem3.2 is the published numbering (Box cites preprint Theorem1).",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "At i=0 both sides of the purported strict inequality coincide; the higher-term argument requires i≥1. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "At i=0 both sides of the purported strict inequality coincide; the higher-term argument requires i≥1. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E32",
@@ -195843,8 +195843,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Local extension absolute values are obtained from the p-adic absolute value of the norm; the 1993 corrigendum confirms this. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Local extension absolute values are obtained from the p-adic absolute value of the norm; the 1993 corrigendum confirms this. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E33",
@@ -195863,8 +195863,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The five parameter choices are definitions by equality in the corrigendum; weakening them needs a separate monotonicity proof. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The five parameter choices are definitions by equality in the corrigendum; weakening them needs a separate monotonicity proof. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E34",
@@ -195883,8 +195883,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The example maximum is2.289×10^33, as corrected in1993; the main c7 correction must additionally be applied. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The example maximum is2.289×10^33, as corrected in1993; the main c7 correction must additionally be applied. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E35",
@@ -195905,8 +195905,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Samir Siksek, Infinite descent on elliptic curves, Author preprint dated5 February1995; source PDF pagination1–25 (not published journal pagination)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The immediately preceding valuation parameter is m; the unrelated multiplication integer n cannot occur in this equality. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The immediately preceding valuation parameter is m; the unrelated multiplication integer n cannot occur in this equality. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E36",
@@ -195927,8 +195927,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Samir Siksek, Infinite descent on elliptic curves, Author preprint dated5 February1995; source PDF pagination1–25 (not published journal pagination)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "Projective classes exclude zero and use nonzero scalars; including zero destroys uniqueness or existence. The dimension is r+s. Checked at this source’s recovered public version and locator; other versions mentioned in the entry remain inherited provenance unless explicitly read in this review."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "Projective classes exclude zero and use nonzero scalars; including zero destroys uniqueness or existence. The dimension is r+s. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E37",
@@ -195947,8 +195947,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, On the practical solution of the Thue equation, J. Number Theory 31 (1989) 99–132",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "For D=d=d12=2, p=1,q=2, K₃=3/2 and a1=a2=1, A=1<K₃ and the displayed transformed coefficients have A′=4. The bound without D is3; with D it is6. Both the exponential rate and the additive coefficient must use this same change of scale."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "For D=d=d12=2, p=1,q=2, K₃=3/2 and a1=a2=1, A=1<K₃ and the displayed transformed coefficients have A′=4. The bound without D is3; with D it is6. Both the exponential rate and the additive coefficient must use this same change of scale. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E38",
@@ -195967,8 +195967,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "E. V. Flynn, Bjorn Poonen, Edward F. Schaefer, Cycles of quadratic polynomials and rational points on a genus-2 curve, arXiv:math/9508211v1 (4 August 1995); published Duke Math. J. 90 (1997) 435–463 (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "On E:y²+xy=x³+4x²+x, discriminant225 is odd and P=(−1/4,1/8) is nonzero rational2-torsion. Its primitive projective representative[−2:1:8] reduces to[0:1:0] at2. Thus good reduction at2 does not suffice for full torsion injection."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "On E:y²+xy=x³+4x²+x, discriminant225 is odd and P=(−1/4,1/8) is nonzero rational2-torsion. Its primitive projective representative[−2:1:8] reduces to[0:1:0] at2. Thus good reduction at2 does not suffice for full torsion injection. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E39",
@@ -195987,8 +195987,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "E. V. Flynn, Bjorn Poonen, Edward F. Schaefer, Cycles of quadratic polynomials and rational points on a genus-2 curve, arXiv:math/9508211v1 (4 August 1995); published Duke Math. J. 90 (1997) 435–463 (not read)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The denominators are prime to3 and the numerator valuations are2 and1, respectively. The small-parameter series argument uses absolute values, not an upper bound on these positive valuations."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The denominators are prime to3 and the numerator valuations are2 and1, respectively. The small-parameter series argument uses absolute values, not an upper bound on these positive valuations. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E40",
@@ -196007,8 +196007,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "Bjorn Poonen, The complete classification of rational preperiodic points of quadratic polynomials over Q: a refined conjecture, arXiv:math/9512217v1 (1995 preprint, 19 pp.); published Math. Z. 228 (1998), 11–29, not read. Poonen's 'Remarks and errata' (https://math.mit.edu/~poonen/papers/errata.pdf, dated August 14, 2025, SHA-256 d369e65f3af0c8304297de8b4a5c0fc3e72ff350c4b44b25a0ef83ee9c3a0377) read for this paper's entry.",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "The calculation on this page sets t=3n. Thus n=0,1,2 yields t=0,3,6 and y=−3,0,3; the subscript of P_t is t rather than n."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "The calculation on this page sets t=3n. Thus n=0,1,2 yields t=0,3,6 and y=−3,0,3; the subscript of P_t is t rather than n. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E41",
@@ -196027,8 +196027,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "J. E. Cremona, Algorithms for modular elliptic curves, Chapter III: Elliptic curve algorithms, 2nd edition, Cambridge University Press 1997; author's online full text of Chapter III",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "For y²=x³+1, the points(0,1) and(0,−1) are distinct rational points of order3: tangent doubling gives2(0,1)=(0,−1). A scan using positive y and inserting only that point cannot return the full torsion subgroup. The displayed loops also never output O despite advertising all torsion points."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "For y²=x³+1, the points(0,1) and(0,−1) are distinct rational points of order3: tangent doubling gives2(0,1)=(0,−1). A scan using positive y and inserting only that point cannot return the full torsion subgroup. The displayed loops also never output O despite advertising all torsion points. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E42",
@@ -196047,8 +196047,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "N. Tzanakis, B. M. M. de Weger, How to explicitly solve a Thue–Mahler equation, Compositio Math. 84 (1992) 223–288",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "R=3,S=16,l=5 satisfies equality but gives sqrt(25−16)−3=0. The proposed finite logarithm is undefined. ED.1 uses the required strict inequality already; the actual source example margins are strict."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "R=3,S=16,l=5 satisfies equality but gives sqrt(25−16)−3=0. The proposed finite logarithm is undefined. ED.1 uses the required strict inequality already; the actual source example margins are strict. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EffectiveDiophantineMethods/E43",
@@ -196067,8 +196067,8 @@
    "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
    "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Centrum voor Wiskunde en Informatica, Amsterdam, 1989 (scan with OCR layer)",
    "status": "confirmed",
-   "reviewedBy": "REV-EffectiveDiophantineMethods~3",
-   "reviewReason": "22000>6561 contradicts the stated ordering convention. Exact integer checks confirm22000+6561=28561 and coprimality; the summands have the table’s supported prime factors. This is an ordering error, not an objection to the545 count."
+   "reviewedBy": "REV-EffectiveDiophantineMethods~4",
+   "reviewReason": "22000>6561 contradicts the stated ordering convention. Exact integer checks confirm22000+6561=28561 and coprimality; the summands have the table’s supported prime factors. This is an ordering error, not an objection to the545 count. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
    "id": "EllipticCurveModularityImaginaryQuadratic/E4",
