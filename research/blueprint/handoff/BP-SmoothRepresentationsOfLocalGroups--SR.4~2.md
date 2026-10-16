@@ -1,6 +1,54 @@
 # Checkpoint: SR.4–SR.6 revision blocked by upstream ownership
 
-## Current checkpoint: codex-nf1Xx4
+## Current checkpoint: codex-KT4Wed
+
+Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
+session `codex-KT4Wed`; 16 October 2026. **Blocked checkpoint; revision
+unfinished.** No second job was claimed.
+
+The bot confirmed the claim in
+[comment 6222984638](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6222984638).
+The full discussion was read after the claim was posted; that ordering was an
+error. Although the issue had `state:available`, the manager's
+[stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6217693686)
+expressly forbids another claim until an upstream-owner extension request.
+No subsequent comment provides such a request. The automated release after
+checkpoint #10043 restored availability without resolving the scope conflict.
+
+Live GitHub metadata confirms that
+[upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+remains open at `f24efef61443870dd47b64fd4de9828b0a685501`. Its immutable
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f24efef61443870dd47b64fd4de9828b0a685501/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+Scope and ownership, SR.4.1, SR.5.2 and SR.6.1–SR.6.5, assigns Satake,
+integral GL_n families, finite-wild cocycle schemes, excursion algebras,
+center images and stable operators upstream. General reductive consequences
+requiring the geometric action are outside its scope; integral GL_n second
+adjointness is owned in SR.5.2. README SHA-256:
+`8ad83c1c93c6f7dca2843d59e832a372d069f05db86040e36a364f98fa538d99`
+(accessed 16 October 2026). The supplied read-only roadmap's scope and
+suggested-file opening were also inspected. No upstream files were changed
+or built.
+
+Only this handoff changes. Packet and SR.4/SR.5/SR.6 coverage remain
+`partial`, and the `needs_changes` review remains. The unchanged inventory is
+70 nodes (11 definitions, 6 constructions, 47 theorems, 5 comparisons,
+1 application), 55 API items, 51 unit tests, 14 planets, 14 baseline
+references, 13 gaps and 17 requests. No mathematical source or baseline
+statement was newly audited, and no mathematical gap was resolved.
+
+Validation: blueprint checker 0 errors and 0 warnings; submission file check
+and whitespace check pass. Lean was **not compiled in this session** because
+no Lean or mathematical contract changed. No Lean process was started.
+
+Resume only after an upstream-owner extension request and a maintainer scope
+decision. Changes to the existing roadmap belong in upstream PR #785. The
+manager must reconcile the automated release with the stop instruction;
+another checkpoint release alone does not authorize duplicate planning.
+If a new atlas scope is authorized, reconcile it with the upstream README
+before applying the inherited review. All resumption evidence is linked
+here; no scratch file is required.
+
+## Previous checkpoint: codex-nf1Xx4
 
 Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
 session `codex-nf1Xx4`; 16 October 2026. **Blocked checkpoint; the revision
