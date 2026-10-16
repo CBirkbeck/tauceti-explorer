@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T17:50Z",
+ "updated": "2026-10-16T18:42Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -213,7 +213,7 @@
   "ComplexComparisonPartII": {
    "stage": "pr",
    "pr": 848,
-   "head": "3c097d3",
+   "head": "d6cb0fc",
    "depends_on": [
     779,
     853
@@ -267,7 +267,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "67ab216",
+   "head": "2a81bf2",
    "depends_on": [
     792,
     785
@@ -534,7 +534,7 @@
   "ClassicalAdicEtaleCohomology": {
    "stage": "pr",
    "pr": 875,
-   "head": "2cd2b08",
+   "head": "e36805f",
    "depends_on": [
     817,
     813,
@@ -637,7 +637,7 @@
   "ClassicalArithmeticCompletion": {
    "stage": "pr",
    "pr": 921,
-   "head": "9b47ac3",
+   "head": "d0882d1",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
@@ -691,7 +691,7 @@
   "AutomorphicSpectralTheory": {
    "stage": "pr",
    "pr": 925,
-   "head": "3b24b6a",
+   "head": "64380dd",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
@@ -896,7 +896,7 @@
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
-   "head": "a5396ff",
+   "head": "3e46cca",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 9); red team running"
   }
  },
