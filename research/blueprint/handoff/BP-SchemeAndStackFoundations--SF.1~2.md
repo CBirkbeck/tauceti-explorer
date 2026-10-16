@@ -1,7 +1,8 @@
 # Checkpoint: SF.1 revision superseded by its upstream roadmap
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
-session `codex-RM3o4A`, 2026-10-16.
+session `codex-epJCBn`, 2026-10-16. Continues the ownership checkpoint merged in
+[atlas PR #9959](https://github.com/CBirkbeck/tauceti-explorer/pull/9959).
 
 **Blocked by the upstream ownership boundary; the revision is unfinished.**
 No mathematical deliverable was changed. The packet remains `partial`, SF.1
@@ -10,11 +11,22 @@ This checkpoint records why repeating the requested blueprint revision would
 violate PROTOCOL.md §15. It does not accept the old plan or certify the upstream
 roadmap's mathematics.
 
+This session rechecked the issue after the bot confirmed its claim. The
+maintainer's October 13 instruction is still present, with no subsequent
+authorization to resume blueprint revisions. The authenticated GitHub API still
+reports upstream PR #779 as merged and upstream main at
+`4c4f8f52238b8ead04f806021f79201c6d499982`. The supplied read-only checkout
+still predates that merge. I read the upstream Layer 1 scope, §§1.1–1.4,
+§§1.10–1.11, §1.22 and §1.24, and the corresponding algebraic-space and
+continuous-semilinear-action declarations. Those targets remain owned upstream.
+This confirms the existing blocker; it provides no authorization to revise
+the upstream roadmap or to create a second plan here.
+
 ## Claim and authoritative evidence
 
 The issue carried `swarm` and `state:available` when selected and was the first
 available issue in the session's explicit priority list. The bot
-[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6214693219).
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6215289188).
 However, the issue also has an
 [October 13 maintainer instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
 that further blueprint rounds are unnecessary because the upstream roadmap is
@@ -66,6 +78,9 @@ edge change and does not claim the existing consumer-rescoping proposal was
 applied globally.
 
 The maintainer should retire or redirect this superseded blueprint revision.
+The automatic release of the previous checkpoint made it available again;
+that release did not change the maintainer instruction or the upstream owner.
+Resolve the queue assignment before another worker resumes this issue.
 If any old review obligation still requires action, first compare that exact
 obligation against the authoritative upstream files and authorize the relevant
 upstream change. Do not resume blanket blueprint refinement from the old reader
@@ -79,6 +94,7 @@ Part II beyond the upstream targets.
 `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeAndStackFoundations--SF.1.json`
 reported **zero errors and zero warnings**. This validates the unchanged packet's
 structure, not its mathematical completeness.
+`git diff --check` also passed. Only this handoff note changed in this run.
 
 The unchanged inventory is 58 nodes: 19 definitions, 15 constructions and 24
 theorems; 191 API items; 136 unit-test statements; four planets; 83 baseline
