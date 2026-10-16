@@ -1,0 +1,538 @@
+import Mathlib
+import TauCeti.Algebra.Module.Injective.Envelope
+
+/-!
+# DeformationAndDerivedPatchingAlgebra: representative target signatures
+
+The roadmap is README.md. This file records light definitions and target signatures
+statable against the pinned Mathlib and Tau Ceti APIs; it is not exhaustive.
+The choices made explicit here are the cumulative exponent n + 1, intrinsic versus
+ambient multiplicity, near faithfulness through the nilradical, actual square
+presentations, strict native cochain representatives and cohomological indexing.
+Heavy coefficient, duality and patching objects remain targets in the README.
+
+Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
+Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+Cochains have C[n]^i = C^(i+n); a module in degree b is M[-b].
+-/
+
+noncomputable section
+universe u v w
+open IsLocalRing
+open scoped Pointwise
+
+namespace TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra
+
+variable (A : Type u) [CommRing A]
+variable (M : Type v) [AddCommGroup M] [Module A M]
+
+/-! ## Layer 1: Ordinary adic algebra and labelled coefficients -/
+
+/-- A small local extension has a nonzero principal socle kernel; identities are excluded. -/
+def SmallExtension {B : Type w} [CommRing B] [IsLocalRing B] [IsLocalRing A]
+    (f : B →+* A) : Prop :=
+  IsLocalHom f ∧ Function.Surjective f ∧ RingHom.ker f ≠ ⊥ ∧
+    (∃ b : B, RingHom.ker f = Ideal.span {b}) ∧
+    maximalIdeal B * RingHom.ker f = ⊥
+
+/-- A small extension is square-zero (Stacks, Lemma 90.3.3). -/
+theorem smallExtension_kernel_square_zero
+    {B : Type w} [CommRing B] [IsLocalRing B] [IsLocalRing A]
+    (f : B →+* A) (hf : SmallExtension A f) :
+    (RingHom.ker f) ^ 2 = ⊥ := by
+  sorry
+
+example [IsLocalRing A] : ¬ SmallExtension A (RingHom.id A) := by
+  sorry
+
+example [IsLocalRing (ZMod 4)] : SmallExtension (ZMod 2)
+    (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)) := by
+  sorry
+
+example [IsLocalRing (ZMod 8)] : ¬ SmallExtension (ZMod 2)
+    (ZMod.castHom (by decide : 2 ∣ 8) (ZMod 2)) := by
+  sorry
+
+/-! ## Layer 2: Minimal equations and deformation hulls
+
+The labelled relation-obstruction theorem and hull bounds use the coefficient
+category and functor interfaces specified in README.md, §§2.1–2.8.
+-/
+
+/-! ## Layer 3: Homological dimension, local duality and multiplicity -/
+
+/-- The cumulative length uses I^(n+1); finiteness is a separate hypothesis. -/
+def hilbertSamuelFunction (I : Ideal A) (n : ℕ) : ℕ∞ :=
+  Module.length A (M ⧸ (I ^ (n + 1) • (⊤ : Submodule A M)))
+
+/-- Extract d! times coefficient d; only an eventual length polynomial makes this multiplicity. -/
+def multiplicityCoefficient (d : ℕ) (P : Polynomial ℚ) : ℚ :=
+  (Nat.factorial d : ℚ) * P.coeff d
+
+/-- The trace ideal uses all linear functionals, without a projectivity assumption. -/
+def traceIdeal : Ideal A :=
+  Ideal.span {a : A | ∃ (f : M →ₗ[A] A) (m : M), f m = a}
+
+/-- Local regular-sequence formula for the supplied depth; the zero module has infinite depth. -/
+def moduleDepth [IsLocalRing A] : ℕ∞ :=
+  ⨆ (s : List A) (_ : ∀ a ∈ s, a ∈ maximalIdeal A)
+    (_ : RingTheory.Sequence.IsWeaklyRegular M s), (s.length : ℕ∞)
+
+/-- The symbolic square is localization at a prime followed by contraction. -/
+def symbolicSquare (p : Ideal A) [p.IsPrime] : Ideal A :=
+  Ideal.comap (algebraMap A (Localization.AtPrime p))
+    ((p ^ 2).map (algebraMap A (Localization.AtPrime p)))
+
+/-- An ideal of definition gives finite cumulative lengths at every index. -/
+theorem hilbertSamuel_finite [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M]
+    (I : Ideal A) (hI : I ≤ maximalIdeal A)
+    (hfinite : Module.length A (M ⧸ (I • (⊤ : Submodule A M))) ≠ ⊤) :
+    ∀ n : ℕ, hilbertSamuelFunction A M I n ≠ ⊤ := by
+  sorry
+
+/-- The cumulative function has a unique eventual rational polynomial. -/
+theorem hilbertSamuel_eventual_polynomial
+    [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M]
+    (I : Ideal A) (hI : I ≤ maximalIdeal A)
+    (hfinite : Module.length A (M ⧸ (I • (⊤ : Submodule A M))) ≠ ⊤) :
+    ∃! P : Polynomial ℚ, ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      P.eval (n : ℚ) = ((hilbertSamuelFunction A M I n).toNat : ℚ) := by
+  sorry
+
+/-- For nonzero M, the polynomial has degree dim Supp M and positive integral multiplicity. -/
+theorem hilbertSamuel_degree_and_positive_integral_coefficient
+    [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M] [Nontrivial M]
+    (I : Ideal A) (hI : I ≤ maximalIdeal A)
+    (hfinite : Module.length A (M ⧸ (I • (⊤ : Submodule A M))) ≠ ⊤)
+    (d : ℕ) (hd : Module.supportDim A M = (d : WithBot ℕ∞))
+    (P : Polynomial ℚ)
+    (hP : ∃ N : ℕ, ∀ n : ℕ, N ≤ n →
+      P.eval (n : ℚ) = ((hilbertSamuelFunction A M I n).toNat : ℚ)) :
+    P.natDegree = d ∧ ∃ e : ℕ, 0 < e ∧ multiplicityCoefficient d P = (e : ℚ) := by
+  sorry
+
+/-- Auslander–Buchsbaum, with nonzero finite M and finite projective dimension. -/
+theorem finite_projective_dimension_depth
+    [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M] [Nontrivial M]
+    (hpd : CategoryTheory.projectiveDimension (ModuleCat.of A M) ≠ ⊤) :
+    CategoryTheory.projectiveDimension (ModuleCat.of A M) +
+      (moduleDepth A M : WithBot ℕ∞) = (moduleDepth A A : WithBot ℕ∞) := by
+  sorry
+
+/-- A finite module over a regular local ring has projective dimension at most its dimension. -/
+theorem regular_local_finite_module_dimension_bound
+    [IsRegularLocalRing A] [Module.Finite A M] :
+    CategoryTheory.projectiveDimension (ModuleCat.of A M) ≤ ringKrullDim A := by
+  sorry
+
+/-- Over a local ring, trace one detects an actual split copy of A. -/
+theorem trace_eq_top_iff_free_summand [IsLocalRing A] [Module.Finite A M] :
+    traceIdeal A M = ⊤ ↔
+      ∃ (i : A →ₗ[A] M) (r : M →ₗ[A] A), r.comp i = LinearMap.id := by
+  sorry
+
+/-- Membership is tested after multiplying by an element outside the prime. -/
+theorem symbolicSquare_membership (p : Ideal A) [p.IsPrime] (a : A) :
+    a ∈ symbolicSquare A p ↔ ∃ s : A, s ∉ p ∧ s * a ∈ p ^ 2 := by
+  sorry
+
+/-- For complete Noetherian local A, finite M is naturally its Matlis bidual. -/
+theorem matlis_finite_bidouble
+    [IsLocalRing A] [IsNoetherianRing A] [IsAdicComplete (maximalIdeal A) A]
+    [Module.Finite A M]
+    (E : Type w) [AddCommGroup E] [Module A E]
+    (i : ResidueField A →ₗ[A] E) (hi : TauCeti.IsInjectiveEnvelope i) :
+    ∃ e : M ≃ₗ[A] ((M →ₗ[A] E) →ₗ[A] E), ∀ m f, e m f = f m := by
+  sorry
+
+example : multiplicityCoefficient 0 (Polynomial.C (5 : ℚ)) = 5 := by
+  sorry
+
+example : multiplicityCoefficient 2
+    (Polynomial.C (1 / 2 : ℚ) * Polynomial.X^2 +
+      Polynomial.C (3 / 2 : ℚ) * Polynomial.X + 1) = 1 := by
+  sorry
+
+example : multiplicityCoefficient 2 (Polynomial.X + (1 : Polynomial ℚ)) = 0 := by
+  sorry
+
+example : multiplicityCoefficient 3 (0 : Polynomial ℚ) = 0 := by
+  sorry
+
+example [Subsingleton M] (I : Ideal A) (n : ℕ) :
+    hilbertSamuelFunction A M I n = 0 := by
+  sorry
+
+example (K : Type*) [Field K] (n : ℕ) : hilbertSamuelFunction K K ⊥ n = 1 := by
+  sorry
+
+example (n : ℕ) :
+    hilbertSamuelFunction ℤ ℤ (Ideal.span {(2 : ℤ)}) n = (n + 1 : ℕ∞) := by
+  sorry
+
+example : traceIdeal A A = ⊤ := by
+  sorry
+
+example [Subsingleton M] : traceIdeal A M = ⊥ := by
+  sorry
+
+example : traceIdeal ℤ (ZMod 2) = ⊥ := by
+  sorry
+
+example [IsLocalRing A] [Subsingleton M] : moduleDepth A M = ⊤ := by
+  sorry
+
+example (K : Type*) [Field K] : moduleDepth K K = 0 := by
+  sorry
+
+example [IsLocalRing (ZMod 4)] : moduleDepth (ZMod 4) (ZMod 4) = 0 := by
+  sorry
+
+example [IsDomain A] : symbolicSquare A (⊥ : Ideal A) = ⊥ := by
+  sorry
+
+example (p : Ideal A) [p.IsMaximal] : symbolicSquare A p = p ^ 2 := by
+  sorry
+
+example (p : Ideal A) [p.IsPrime] (a : A) (ha : a ∉ p) :
+    a ∉ symbolicSquare A p := by
+  sorry
+
+-- Total-jet normalization for the nonzero plane equation x^4.
+example : Nat.choose (0 + 2) 2 - Nat.choose (0 + 2 - 4) 2 = 1 := by
+  sorry
+
+example : Nat.choose (1 + 2) 2 - Nat.choose (1 + 2 - 4) 2 = 3 := by
+  sorry
+
+example : Nat.choose (2 + 2) 2 - Nat.choose (2 + 2 - 4) 2 = 6 := by
+  sorry
+
+example : (4 : ℚ) * (0 + 1) - 4 * (4 - 1) / 2 = -2 := by
+  sorry
+
+/-! ## Layer 4: Finiteness and integral points -/
+
+/-- A complete local source and Noetherian local target: a finite closed fibre forces finiteness. -/
+theorem finite_of_finite_residual_fibre
+    {B : Type w} [IsLocalRing A]
+    [IsAdicComplete (maximalIdeal A) A]
+    [CommRing B] [IsLocalRing B] [IsNoetherianRing B]
+    [Algebra A B] [IsLocalHom (algebraMap A B)]
+    [Module.Finite A (B ⧸ (maximalIdeal A).map (algebraMap A B))] :
+    Module.Finite A B := by
+  sorry
+
+/-- A faithful finite module makes the action algebra finite over a Noetherian base. -/
+theorem finite_of_faithful_module
+    {S R N : Type*} [CommRing S] [IsNoetherianRing S] [CommRing R]
+    [Algebra S R] [AddCommGroup N] [Module S N] [Module R N]
+    [IsScalarTower S R N] [SMulCommClass R S N]
+    [Module.Finite S N] [FaithfulSMul R N] : Module.Finite S R := by
+  sorry
+
+/-- For a finite local DVR algebra, dimension one is detected by a nonnilpotent uniformizer. -/
+theorem dimension_ge_one_iff_not_nilpotent
+    {O B : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [CommRing B] [IsLocalRing B] [Algebra O B] [Module.Finite O B]
+    [IsLocalHom (algebraMap O B)] (π : O) (hπ : Irreducible π) :
+    (1 ≤ ringKrullDim B) ↔ ¬ IsNilpotent (algebraMap O B π) := by
+  sorry
+
+/-- A nonempty generic fibre has a point in a finite extension and its integral closure; characteristic zero ensures finite normalization. -/
+theorem exists_integral_point_of_not_nilpotent
+    {O K B Ω : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [Field K] [CharZero K] [Algebra O K] [IsFractionRing O K]
+    [Field Ω] [Algebra K Ω] [Algebra O Ω] [IsScalarTower O K Ω] [IsAlgClosed Ω]
+    [CommRing B] [IsLocalRing B] [Algebra O B] [Module.Finite O B]
+    [IsLocalHom (algebraMap O B)] (π : O) (hπ : Irreducible π)
+    (h : ¬ IsNilpotent (algebraMap O B π)) :
+    ∃ E : IntermediateField K Ω, Module.Finite K E ∧
+      (letI : Algebra O E := ((algebraMap K E).comp (algebraMap O K)).toAlgebra;
+       Module.Finite O (integralClosure O E) ∧
+         ∃ f : B →ₐ[O] integralClosure O E, IsLocalHom f.toRingHom) := by
+  sorry
+
+/-! ## Layer 5: Balanced module presentations -/
+
+/-- A square finite presentation permits zero generators and does not require injectivity. -/
+def HasSquarePresentation (S : Type*) [Ring S]
+    (N : Type*) [AddCommGroup N] [Module S N] : Prop :=
+  ∃ d : ℕ, ∃ f : (Fin d → S) →ₗ[S] (Fin d → S),
+    ∃ g : (Fin d → S) →ₗ[S] N,
+      Function.Surjective g ∧ LinearMap.range f = LinearMap.ker g
+
+/-- A presentation with at most as many relations as generators can be made square by zero columns. -/
+theorem square_presentation_iff_generator_relation_inequality
+    [IsLocalRing A] [IsNoetherianRing A] [Module.Finite A M] :
+    HasSquarePresentation A M ↔
+      ∃ d e : ℕ, e ≤ d ∧
+        ∃ f : (Fin e → A) →ₗ[A] (Fin d → A),
+          ∃ g : (Fin d → A) →ₗ[A] M,
+            Function.Surjective g ∧ LinearMap.range f = LinearMap.ker g := by
+  sorry
+
+example : HasSquarePresentation A A := by
+  sorry
+
+example (a : A) : HasSquarePresentation A (A ⧸ Ideal.span {a}) := by
+  sorry
+
+example [Subsingleton M] : HasSquarePresentation A M := by
+  sorry
+
+/-! ## Layer 6: Components and quotient identification -/
+
+/-- Near faithfulness means the annihilator lies in the nilradical, even without Noetherianity. -/
+def NearlyFaithful : Prop :=
+  Module.annihilator A M ≤ (⊥ : Ideal A).radical
+
+/-- For a finite module over a Noetherian ring, near faithfulness is full support. -/
+theorem nearlyFaithful_iff_full_support [IsNoetherianRing A] [Module.Finite A M] :
+    NearlyFaithful A M ↔ Module.support A M = Set.univ := by
+  sorry
+
+/-- A reduced source and full support force a surjective action-compatible quotient map to be injective. -/
+theorem reduced_quotient_identification
+    {B : Type w} [CommRing B] [IsNoetherianRing A] [IsReduced A]
+    [Module B M] (f : A →+* B) (hf : Function.Surjective f)
+    (hcompat : ∀ a : A, ∀ m : M, a • m = f a • m)
+    (hsupport : Module.support A M = Set.univ) :
+    Function.Injective f := by
+  sorry
+
+example : NearlyFaithful A A := by
+  sorry
+
+example [Nontrivial A] [Subsingleton M] : ¬ NearlyFaithful A M := by
+  sorry
+
+example : ¬ NearlyFaithful ℤ (ZMod 2) := by
+  sorry
+
+example : NearlyFaithful ℤ (ℚ ⧸ Submodule.span ℤ {(1 : ℚ)}) ∧
+    Module.support ℤ (ℚ ⧸ Submodule.span ℤ {(1 : ℚ)}) ≠ Set.univ := by
+  sorry
+
+example (I : Ideal A) (hI : I ≤ (⊥ : Ideal A).radical) :
+    NearlyFaithful A (A ⧸ I) := by
+  sorry
+
+/-! ## Layer 7: Finite complexes, signed duality and coefficient towers -/
+
+open CategoryTheory CategoryTheory.Limits
+open scoped ZeroObject
+attribute [local instance] HasDerivedCategory.standard
+
+/-- Native derived module objects. -/
+abbrev Der (R : Type u) [CommRing R] := DerivedCategory (ModuleCat.{u} R)
+
+/-- Native integer-indexed cochain complexes. -/
+abbrev Cpx (R : Type u) [CommRing R] := CochainComplex (ModuleCat.{u} R) ℤ
+
+/-- Cohomology in the native module category. -/
+abbrev H {R : Type u} [CommRing R] (i : ℤ) (C : Der R) :=
+  (DerivedCategory.homologyFunctor (ModuleCat R) i).obj C
+
+/-- Minimality is a condition on actual differentials; no bound or freeness is built in. -/
+def IsMinimal {R : Type u} [CommRing R] [IsLocalRing R] (P : Cpx R) : Prop :=
+  ∀ i : ℤ, LinearMap.range (P.d i (i + 1)).hom ≤
+    maximalIdeal R • (⊤ : Submodule R (P.X (i + 1)))
+
+/-- The native finite-projective-model version of all-module Tor amplitude. -/
+def PerfectInterval {R : Type u} [CommRing R] (C : Der R) (a b : ℤ) : Prop :=
+  ∃ P : Cpx R, (∀ i, i < a ∨ b < i → IsZero (P.X i)) ∧
+    (∀ i, Module.Finite R (P.X i) ∧ Module.Projective R (P.X i)) ∧
+    Nonempty ((DerivedCategory.Q.obj P) ≅ C)
+
+/-- Residual exactness of three finite free terms forces middle exactness, with no endpoint assertion. -/
+theorem three_term_residue_exactness [IsLocalRing A]
+    (F₀ F₁ F₂ : Type v)
+    [AddCommGroup F₀] [AddCommGroup F₁] [AddCommGroup F₂]
+    [Module A F₀] [Module A F₁] [Module A F₂]
+    [Module.Free A F₀] [Module.Free A F₁] [Module.Free A F₂]
+    [Module.Finite A F₀] [Module.Finite A F₁] [Module.Finite A F₂]
+    (f : F₀ →ₗ[A] F₁) (g : F₁ →ₗ[A] F₂) (hgf : g.comp f = 0)
+    (hresidue : ∀ y : F₁, g y ∈ maximalIdeal A • (⊤ : Submodule A F₂) →
+      ∃ x : F₀, y - f x ∈ maximalIdeal A • (⊤ : Submodule A F₁)) :
+    LinearMap.range f = LinearMap.ker g := by
+  sorry
+
+/-- A residue-zero differential condition detects minimality in a field. -/
+theorem minimal_iff_zero_differentials_over_field
+    {K : Type u} [Field K] (P : Cpx K) :
+    IsMinimal P ↔ ∀ i : ℤ, P.d i (i + 1) = 0 := by
+  sorry
+
+example {R : Type u} [CommRing R] [IsLocalRing R] :
+    IsMinimal (0 : Cpx R) := by
+  sorry
+
+example {R : Type u} [CommRing R] [IsLocalRing R] (i : ℤ) :
+    IsMinimal ((HomologicalComplex.single (ModuleCat R) (ComplexShape.up ℤ) i).obj
+      (ModuleCat.of R R)) := by
+  sorry
+
+example {R : Type u} [CommRing R] [IsLocalRing R] (P : Cpx R) (i : ℤ)
+    (x : P.X i) (hunit : (P.d i (i + 1)).hom x ∉
+      maximalIdeal R • (⊤ : Submodule R (P.X (i + 1)))) : ¬ IsMinimal P := by
+  sorry
+
+example {R : Type u} [CommRing R] (a b : ℤ) :
+    PerfectInterval (0 : Der R) a b := by
+  sorry
+
+example {R : Type u} [CommRing R] (i : ℤ) :
+    PerfectInterval ((DerivedCategory.singleFunctor (ModuleCat R) i).obj
+      (ModuleCat.of R R)) i i := by
+  sorry
+
+example {R : Type u} [CommRing R] [Nontrivial R] :
+    ¬ PerfectInterval ((DerivedCategory.singleFunctor (ModuleCat R) 0).obj
+      (ModuleCat.of R R)) 1 1 := by
+  sorry
+
+-- The differential of the rational 2-disk dual is +2; its bidual is -2.
+example : (-1 : ℚ) ^ ((-1 : ℤ) + 1) * 2 = 2 := by
+  sorry
+
+-- Signed bidual evaluation is +1 in degree zero and -1 in degree one.
+example : (-2 : ℚ) * 1 = (-1) * 2 := by
+  sorry
+
+-- Unsigned evaluation does not satisfy that chain equation in characteristic zero.
+example : (-2 : ℚ) * 1 ≠ 1 * 2 := by
+  sorry
+
+-- Tensoring by the degree-one stalk signs the shifted cone summand by -1.
+example : (-1 : ℚ) * 1 = 1 * (-1) := by
+  sorry
+
+-- In characteristic two the same signs agree, so it cannot detect this error.
+example : (-1 : ZMod 2) = 1 := by
+  sorry
+
+/-! ## Layer 8: Simultaneous finite coefficient selection -/
+
+/-- A finite-ring germ has its unique ultrafilter-large value; principal ultrafilters are allowed. -/
+theorem finite_germ_equivalence (F : Ultrafilter ℕ)
+    (B : Type u) [CommRing B] [Finite B] :
+    ∃ e : Filter.Germ (F : Filter ℕ) B ≃+* B,
+      (∀ b : B, e (Filter.Germ.const b) = b) ∧
+      (∀ f : ℕ → B, ∀ᶠ n in (F : Filter ℕ),
+        f n = e (Filter.Germ.ofFun f)) := by
+  sorry
+
+/-! ## Layer 9: Codimension, canonical duality and support transport -/
+
+/-- Complex support is the union of the supports of its native cohomology modules. -/
+def derivedSupport {R : Type u} [CommRing R] (C : Der R) : Set (PrimeSpectrum R) :=
+  ⋃ i : ℤ, Module.support R (H i C)
+
+/-- The cohomology annihilator uses an intersection, not a sum or the derived-action kernel. -/
+def cohomologyAnnihilator {R : Type u} [CommRing R] (C : Der R) : Ideal R :=
+  ⨅ i : ℤ, Module.annihilator R (H i C)
+
+/-- Over a regular local ring, a nonzero finite-projective interval has support of codimension at most its width. -/
+theorem codimension_amplitude_inequality
+    {R : Type u} [CommRing R] [IsRegularLocalRing R]
+    (C : Der R) (n l : ℕ) (a : ℤ)
+    (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
+    (hC : ¬ IsZero C) (hinterval : PerfectInterval C a (a + l)) :
+    ∃ p : PrimeSpectrum R, p ∈ derivedSupport C ∧
+      (n - l : WithBot ℕ∞) ≤ ringKrullDim (R ⧸ p.asIdeal) := by
+  sorry
+
+/-- The matching support upper bound forces concentration in the last degree. -/
+theorem balanced_dimension_concentration
+    {R : Type u} [CommRing R] [IsRegularLocalRing R]
+    (C : Der R) (n l : ℕ) (a : ℤ)
+    (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
+    (hC : ¬ IsZero C) (hinterval : PerfectInterval C a (a + l))
+    (hsupport : ∀ p ∈ derivedSupport C,
+      ringKrullDim (R ⧸ p.asIdeal) ≤ (n - l : WithBot ℕ∞)) :
+    (∀ i : ℤ, i ≠ a + l → IsZero (H i C)) ∧ ¬ IsZero (H (a + l) C) := by
+  sorry
+
+example {R : Type u} [CommRing R] : derivedSupport (0 : Der R) = ∅ := by
+  sorry
+
+example {R : Type u} [CommRing R] (I : Ideal R) (i : ℤ) :
+    derivedSupport ((DerivedCategory.singleFunctor (ModuleCat R) i).obj
+      (ModuleCat.of R (R ⧸ I))) = PrimeSpectrum.zeroLocus I := by
+  sorry
+
+example {R : Type u} [CommRing R] (C : Der R) :
+    PerfectInterval C 0 0 → (∀ i : ℤ, i ≠ 0 → IsZero (H i C)) := by
+  sorry
+
+example {R : Type u} [CommRing R] (C D : Der R) :
+    derivedSupport (C ⊞ D) = derivedSupport C ∪ derivedSupport D := by
+  sorry
+
+example {R : Type u} [CommRing R] :
+    cohomologyAnnihilator (0 : Der R) = ⊤ := by
+  sorry
+
+example {R : Type u} [CommRing R] (I : Ideal R) (i : ℤ) :
+    cohomologyAnnihilator ((DerivedCategory.singleFunctor (ModuleCat R) i).obj
+      (ModuleCat.of R (R ⧸ I))) = I := by
+  sorry
+
+example {R : Type u} [CommRing R] (C D : Der R) :
+    cohomologyAnnihilator (C ⊞ D) =
+      cohomologyAnnihilator C ⊓ cohomologyAnnihilator D := by
+  sorry
+
+/-
+README definitions requiring the stated further carriers or substantial constructions:
+
+Layer 1: ordinary adic Rees quotient and homogeneous module adapters, initial ideal,
+labelled local/Artinian/complete coefficient adapters and residue actions, nilpotent
+and square-zero extensions, truncation tower, relative coefficient cotangent space,
+residue-extension and coefficient-hull choices, complete-local tensor adapter,
+formal smoothness lift adapter, local completion maps and regular-source squares, pro-Hom comparison and parameter quotient system.
+
+Layer 2: relative minimal presentation, relation space, relation obstruction and its
+universal Artinian test, finite matrix equation algebra, continuous framed functor,
+principal-unit orbit functor and its hull.
+
+Layer 3: regular-sequence ideal and local complete-intersection presentation adapter and conormal comparisons,
+residue injective hull choice and Matlis functor, Cech comparison, normalized
+ring-dualizing complex and canonical CM dual, canonical module, Gorenstein predicate,
+type, graded Hilbert
+polynomial and intrinsic/ambient multiplicities, Koszul parameter Euler comparison,
+F-finiteness and local-locus adapters, total jets, shifted jet multiplication,
+plane-curve postulation defect and quotient length comparisons.
+
+Layer 4: algebraic/valued point comparison, generic formal smoothness and regular
+power-series generic fibres, pointed diagonal tensor coordinates,
+geometric component and torsion-free specialization comparisons.
+
+Layer 5: Betti-number balance, finite decorated patch data, cofinal cutoff category,
+limit presentation, simultaneous ring/module patch datum, characteristic-zero
+cotangent patch datum, Sylow projectivity and norm/dual comparisons.
+
+Layer 6: componentwise support, maximal coefficient-flat quotient, connectedness
+dimension and arithmetic rank adapters, generic/special component correspondence,
+specialization cycles, completed component products and determinant trivialization.
+
+Layer 7: native K-flat, perfect, pseudo-coherent, finite-order pseudo-coherent and
+all-module Tor-amplitude comparisons, complete flat basis and continuous matrix
+comparison, complete flat complex, signed dual functor,
+E/O dual, strict quotient tower and linear derived limit, strict tower action,
+complete finite model system, derived action and isolated block comparison,
+coefficient spectral sequence and its finite abutment filtration.
+
+Layer 8: based matrix complex presentation, finite germ evaluation construction,
+finite complex patch datum, paired patch datum, finite decorated coefficient types,
+complete simultaneous patch, genuine derived deformation lift, augmentation and
+paired comparison, cohomology-action patch datum.
+
+Layer 9: complex dimension and Fitting comparison, patched CM functor and duality,
+spectral deformation support, generic and special action blocks, local length
+defect, normalization coefficient and derived divisor length comparison, paired
+support transport and localized derived specialization.
+-/
+
+end TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra
