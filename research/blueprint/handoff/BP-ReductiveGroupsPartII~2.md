@@ -1,6 +1,65 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-wpzQqK, 2026-10-16
+## Latest dispatch: codex-mU3Ick, 2026-10-16
+
+**Blocked checkpoint; the revision is unfinished.** The manager's
+[2026-10-16 14:29 UTC instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+explicitly prohibits claiming this superseded atlas revision again. The
+[14:41 intake comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217943187)
+subsequently made it available after merging the previous checkpoint. That
+availability is an automation conflict, not an assignment of new mathematical
+scope. Reopen work only if the upstream owner requests an extension, as the
+manager specifies.
+
+This session posted a claim after checking the available label but overlooked
+that prohibition in the issue comments. The bot
+[confirmed the claim at 17:13 UTC](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6220787216).
+After reading the complete comment history, the session stopped mathematical
+work and recorded this handoff. No second issue was claimed. This checkpoint
+is submitted as a draft so automatic intake does not merge it and immediately
+make the prohibited job available again. The manager can dispose of the draft
+and reconcile the queue with the existing upstream-only instruction.
+
+Fresh evidence and validation:
+
+- The live [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  is now open and **ready for review**, rather than draft, at commit
+  `f24efef61443870dd47b64fd4de9828b0a685501`. Its
+  [README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f24efef61443870dd47b64fd4de9828b0a685501/TauCetiRoadmap/ReductiveGroupsPartII/README.md),
+  Scope and ownership, lines 29–123, still assigns all seven layers to the
+  upstream roadmap and identifies the excluded additions. The 7,286-line
+  README has SHA-256
+  `94837bbfff09c55294e8485f7f007d1b935b59ea8c6ba8905eeb044efc6d8d5f`.
+  This is an ownership check, not a mathematical review of upstream work.
+- The supplied read-only roadmap checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. Its ReductiveGroups and
+  ReductiveGroupsPartII introductions and the latter's suggested-file opening
+  were read for scope. No supplied tree was edited or built.
+- The reviewed library audit has no ReductiveGroupsPartII layer entries.
+  Its R09.3 entry distinguishes algebraic-space Weil restriction from the
+  affine owner. No new library implementation claim follows from this check.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ReductiveGroupsPartII.json`
+  reports **zero errors and zero warnings**. Only this handoff changes. Lean
+  was not run because the mathematical files are unchanged. No new source
+  verification, source-issue verdict or baseline audit is claimed.
+
+Inherited inventory is unchanged: 180 nodes (23 definitions, 36 constructions,
+110 theorems, two comparisons and nine applications), 368 API items, 249 tests,
+38 planets, 62 baseline declarations, 17 requests and five gaps. The packet and
+all seven stages RG2.0, RG2.0a, RG2.1–RG2.5 remain `partial`; the independent
+review remains `needs_changes`. No stage is closed. The existing disposition
+of RT-AREA-algebraicgeometry/11, including the ModularCurves 0F import, remains
+unchanged.
+
+**Resume only after an explicit upstream-owner request and manager assignment.**
+An atlas extension needs its own identity, boundaries, supplier links and
+permitted deliverables. Then use the independent review's fourteen-target
+table and seven coverage lists; preserve its eight corrections and four
+mathematical gaps besides ownership. The earlier notes below retain those
+resume details. Another automatic availability transition does not resolve
+the manager's prohibition.
+
+## Previous dispatch: codex-wpzQqK, 2026-10-16
 
 Codex session `codex-wpzQqK` selected #9312 as the first available eligible
 issue on the manager's priority list. The bot
