@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T22:42Z",
+ "updated": "2026-10-16T23:18Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -47,10 +47,9 @@
    "head": "f24efef",
    "review": {
     "recommendation": "approve",
-    "head": "b88426d",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AdelicAlgebraicGroups": {
@@ -63,10 +62,9 @@
    "head": "241d5d6",
    "review": {
     "recommendation": "approve",
-    "head": "791e18a",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "maintainer follow-up at 791e18a: dependency-cycle finding addressed; rebased onto the folded #785 branch as 2ad17a1"
+    "current": true,
+    "draft": false,
+    "maintainer": ""
    }
   },
   "SmoothRepresentationsOfLocalGroups": {
@@ -110,11 +108,10 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
    "head": "b7ed078",
    "review": {
-    "recommendation": "approve",
-    "head": "8c306f2",
+    "recommendation": null,
     "current": false,
-    "date": "2026-10-14",
-    "note": "maintainer (roed-math) APPROVED the pull request on 2026-10-14 after the A3.2/A3.3 corrections; awaiting the adic stack below it"
+    "draft": false,
+    "maintainer": "APPROVED"
    }
   },
   "AdicSpacesPartII": {
@@ -143,10 +140,9 @@
    "head": "4f9c123",
    "review": {
     "recommendation": "approve",
-    "head": "6433ad2",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep review (ChatGPT Pro) approve; ready for review"
+    "current": false,
+    "draft": false,
+    "maintainer": ""
    }
   },
   "PerfectoidSpaces": {
@@ -156,10 +152,9 @@
    "head": "3a308c7",
    "review": {
     "recommendation": "approve",
-    "head": "67a02f4",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "maintainer (roed-math) APPROVED on 2026-10-14; an independent GPT-6 Astra comment review at the same head is being answered; awaiting #813/#817 dependencies"
+    "current": true,
+    "draft": false,
+    "maintainer": "APPROVED"
    }
   },
   "AdicSpacesPartIII": {
@@ -171,11 +166,10 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged); ChatGPT Pro N3 answered CHANGES 10-16 ~10:00Z; draft",
    "head": "57e5159",
    "review": {
-    "recommendation": "approve",
-    "head": "6611921",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep review (ChatGPT Pro) approve; ready for review"
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AdicSpacesPartIV": {
@@ -187,11 +181,10 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
    "head": "f72d4b0",
    "review": {
-    "recommendation": "approve",
-    "head": "36cf6e6",
+    "recommendation": "changes",
     "current": false,
-    "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current revision after today's red-team repairs"
+    "draft": true,
+    "maintainer": ""
    }
   },
   "PerfectoidTowers": {
@@ -204,10 +197,9 @@
    "head": "1f4f1bf",
    "review": {
     "recommendation": "approve",
-    "head": "a538081",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "draft": false,
+    "maintainer": ""
    }
   },
   "ComplexComparisonPartII": {
@@ -221,10 +213,9 @@
    "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918; draft",
    "review": {
     "recommendation": "changes",
-    "head": "6a5b452",
     "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 6a5b452: four items (coefficient carrier, Ehresmann, Chern class, triangulation suppliers), repaired and answered at 6d28179; awaiting re-review"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AbelianSchemesAndArithmeticModuli": {
@@ -238,11 +229,10 @@
    ],
    "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
-    "recommendation": "approve",
-    "head": "7d89041",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "InverseGaloisAndArithmeticFundamentalGroups": {
@@ -257,11 +247,10 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
-    "head": "35958f0",
+    "recommendation": "approve",
     "current": false,
-    "date": "2026-10-14",
-    "note": "maintainer fresh review at 35958f0 repaired at 0a8d3e0; second red-team pass applied at da8c263; awaiting re-review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "GeometryOfNumbersAndQuadraticArithmetic": {
@@ -274,11 +263,10 @@
    ],
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
-    "recommendation": "approve",
-    "head": "047eb0d",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep review (ChatGPT Pro) approve; ready for review"
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "NeronModelsAndSemistableAbelianVarieties": {
@@ -291,11 +279,10 @@
    ],
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
-    "recommendation": "approve",
-    "head": "47e3459",
+    "recommendation": "changes",
     "current": false,
-    "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves after the maintainer round repairs"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AlgebraicModuliForArithmeticGeometry": {
@@ -311,10 +298,9 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
-    "head": "6f3a90d",
     "current": true,
-    "date": "2026-10-16",
-    "note": "ChatGPT Pro APPROVE 2026-10-16; ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "LocallyAnalyticDistributions": {
@@ -329,10 +315,9 @@
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
-    "head": "b2f2beb",
-    "current": true,
-    "date": "2026-10-16",
-    "note": "ChatGPT Pro APPROVE 2026-10-16; ready for review"
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "DiophantineApproximationAndTranscendence": {
@@ -361,11 +346,10 @@
    ],
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "changes",
-    "head": "4f207a3",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 4f207a3 (three blockers), repaired and answered at d93c2af; awaiting re-review"
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "CrystallineCohomology": {
@@ -387,11 +371,10 @@
    ],
    "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
    "review": {
-    "recommendation": "approve",
-    "head": "7ea842d",
+    "recommendation": "changes",
     "current": false,
-    "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves; marked ready for review; nonblocking documentation cleanup applied"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "ArithmeticGaloisDuality": {
@@ -409,10 +392,9 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
    "review": {
     "recommendation": "changes",
-    "head": "b8f53f1",
     "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at b8f53f1, repaired and answered at e27013c; awaiting re-review"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "DerivedDeRhamCohomology": {
@@ -427,11 +409,10 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
-    "recommendation": "changes",
-    "head": "10a113c",
-    "current": false,
-    "date": "2026-10-13",
-    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 439b655; further rounds in progress where ChatGPT posted follow-ups"
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "SelmerIwasawaCohomology": {
@@ -447,10 +428,9 @@
    "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "head": "7a61ea8",
     "current": false,
-    "date": "2026-10-13",
-    "note": "author-requested ChatGPT Pro review(s) repaired and answered at 5588b28; further rounds in progress where ChatGPT posted follow-ups"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "NeronModelsAndSemistableAbelianVarietiesPartII": {
@@ -465,11 +445,10 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
-    "head": "c1b7f73",
+    "recommendation": null,
     "current": false,
-    "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "ArithmeticLocallySymmetricSpaces": {
@@ -483,11 +462,10 @@
    ],
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "changes",
-    "head": "93f3d18",
+    "recommendation": "approve",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) changes needed; reverted to draft; repair running"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "DeformationAndDerivedPatchingAlgebraPartII": {
@@ -499,11 +477,10 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "approve",
-    "head": "cb9e707",
-    "current": true,
-    "date": "2026-10-14",
-    "note": "author-requested deep review (GPT-6 Astra) approves the current head; marked ready for review"
+    "recommendation": null,
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "LefschetzPencilsAndVanishingCycles": {
@@ -523,11 +500,10 @@
    ],
    "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
-    "head": "5e2c874",
-    "current": false,
-    "date": "2026-10-14",
-    "note": "maintainer fresh review at 5e2c874 (two zero-case corrections) repaired and answered at 171a973; awaiting re-review"
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 469a2c2 (§5.11 profinite degree, continuous powers); ready for re-review"
   },
@@ -551,10 +527,9 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "head": "1190c44",
     "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 1190c44, repaired and answered at a7bc290; awaiting re-review"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
@@ -574,11 +549,10 @@
    ],
    "note": "N2 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "changes",
-    "head": "a124119",
+    "recommendation": "approve",
     "current": false,
-    "date": "2026-10-14",
-    "note": "deep re-review (GPT-6 Astra) at a124119 repaired and answered at 2477ea6; awaiting re-review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "EnhancedDerivedSheaves": {
@@ -586,11 +560,10 @@
    "pr": 908,
    "head": "b3ea60e",
    "review": {
-    "recommendation": "changes",
-    "head": "752e6e2",
+    "recommendation": "approve",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review changes needed (E1.9 pullback formula, spectra handoff); repair running"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "note": "N2 CHANGES answered 10-16: generic foundations consumed from kim-em BordismFormalGroups #947; draft"
   },
@@ -600,11 +573,10 @@
    "head": "0cfa5c5",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
-    "recommendation": "approve",
-    "head": "976af72",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "FreeGroupsAndLimitGroups": {
@@ -613,11 +585,10 @@
    "head": "e085787",
    "note": "maintainer-ordered: no dependency on #271 (§§2.2–2.2a, 6.0a–6.1a) 10-16; N3 fix running; draft",
    "review": {
-    "recommendation": "changes",
-    "head": "a5b47fb",
+    "recommendation": "approve",
     "current": false,
-    "date": "2026-10-14",
-    "note": "deep review repaired at 7d4cbb7; both red-team passes applied through 52b7283; draft until a ChatGPT Pro approval"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "second review 2026-10-16 03:10Z (P1: fixed-depth twist families not generic); fix running; draft"
   },
@@ -628,10 +599,9 @@
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
    "review": {
     "recommendation": "approve",
-    "head": "92e676a",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; marked ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "ClassicalArithmeticCompletion": {
@@ -640,11 +610,10 @@
    "head": "d0882d1",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
-    "recommendation": "approve",
-    "head": "f1ef94c",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; marked ready for review"
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at e1b812b (§7.119a tame-inertia descent); ready for re-review"
   },
@@ -655,10 +624,9 @@
    "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
    "review": {
     "recommendation": "approve",
-    "head": "4e92b6b",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at ee31f87 (C8.48a relative tautness; §§0.1–0.4 from EnhancedDerivedSheaves); ready for re-review"
   },
@@ -669,10 +637,9 @@
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "head": "4030582",
     "current": false,
-    "date": "2026-10-14",
-    "note": "deep review (GPT-6 Astra) at 4030582: three specification issues; repair in progress; red team running"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AutomorphicLFunctionsAndLocalFactors": {
@@ -681,11 +648,10 @@
    "head": "657d3cc",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
    "review": {
-    "recommendation": null,
-    "head": null,
-    "current": false,
-    "date": null,
-    "note": "red team (Sol + Astra) running"
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AutomorphicSpectralTheory": {
@@ -695,10 +661,9 @@
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
-    "head": "2126757",
-    "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 5ad7671 (§§7.0a–7.0c cyclic transfer; §§7.1a–7.1d quantitative/auxiliary targets); ready for re-review"
   },
@@ -709,10 +674,9 @@
    "note": "N4 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
-    "head": "cb57bfd",
-    "current": true,
-    "date": "2026-10-16",
-    "note": "ChatGPT Pro APPROVE 2026-10-16; ready for review"
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "READY FOR APPROVAL 2026-10-16 (roed-math); S6.3 noetherian correction applied at f9bb79c"
   },
@@ -723,10 +687,9 @@
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
-    "head": "6633768",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 1509f4f (R15.4 dyadic twists; R15.5A.1 coefficient places; pairing-based char poly); ready for re-review"
   },
@@ -736,11 +699,10 @@
    "head": "5f713c4",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
    "review": {
-    "recommendation": null,
-    "head": null,
+    "recommendation": "approve",
     "current": false,
-    "date": null,
-    "note": "red team (Sol + Astra) running"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "GL2AutomorphicRepresentationsAndTransfer": {
@@ -749,11 +711,10 @@
    "head": "e118f3b",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 7035f1c; draft awaiting re-review",
    "review": {
-    "recommendation": null,
-    "head": null,
+    "recommendation": "approve",
     "current": false,
-    "date": null,
-    "note": "red team (Sol + Astra) running"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "ShimuraVarieties": {
@@ -762,18 +723,23 @@
    "head": "1dd09ed",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 6cc4f59; draft awaiting re-review",
    "review": {
-    "recommendation": null,
-    "head": null,
-    "current": false,
-    "date": null,
-    "note": "red team (Sol + Astra) running"
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "EtaleCohomologyFoundations": {
    "stage": "pr",
    "pr": 938,
    "head": "c4ee54f",
-   "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running"
+   "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running",
+   "review": {
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "PadicPeriodRings": {
    "stage": "pr",
@@ -781,11 +747,10 @@
    "head": "ef7f47c",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 3ed1fc3; draft awaiting re-review",
    "review": {
-    "recommendation": "changes",
-    "head": "2817055",
+    "recommendation": "approve",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review changes needed (ownership of §0.1, §4.3 fixed-field fact, metadata); repair running"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "DerivedModuleAlgebra": {
@@ -795,10 +760,9 @@
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (module-level derived algebra, position 0); not an explorer package; red team running; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
     "recommendation": "approve",
-    "head": "62aff3f",
     "current": true,
-    "date": "2026-10-15",
-    "note": "deep re-review (ChatGPT Pro) approve; ready for review"
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at fbe1d3c (M2: §1.5 splitting only in D(ℤ_p)); ready for re-review"
   },
@@ -806,13 +770,25 @@
    "stage": "pr",
    "pr": 964,
    "head": "22570cb",
-   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at cd66f9e; draft awaiting re-review"
+   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at cd66f9e; draft awaiting re-review",
+   "review": {
+    "recommendation": "approve",
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "AdicCoefficientsAndComparisons": {
    "stage": "pr",
    "pr": 965,
    "head": "4a7b4d8",
-   "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 4a7b4d8; draft awaiting re-review"
+   "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 4a7b4d8; draft awaiting re-review",
+   "review": {
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "PELModuli": {
    "stage": "pr",
@@ -821,89 +797,166 @@
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "head": "8d86eda",
     "current": false,
-    "date": "2026-10-15",
-    "note": "APPROVE 2026-10-15 at 8d86eda (superseded by red-team repairs)"
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
    "head": "ae96bcb",
-   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review"
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review",
+   "review": {
+    "recommendation": "approve",
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "stage": "pr",
    "pr": 970,
    "head": "c0fe088",
-   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review"
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
+   "review": {
+    "recommendation": "approve",
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
    "head": "b87d07e",
-   "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft"
+   "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
+   "review": {
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
    "pr": 1000,
    "head": "369f034",
-   "note": "ported 2026-10-16 (tier 16); both red-team passes applied; draft awaiting ChatGPT Pro"
+   "note": "ported 2026-10-16 (tier 16); both red-team passes applied; draft awaiting ChatGPT Pro",
+   "review": {
+    "recommendation": "approve",
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "WeightsInEtaleCohomology": {
    "stage": "pr",
    "pr": 1001,
    "head": "9260a53",
-   "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review"
+   "note": "ported 2026-10-16 (tier 12); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
+   "review": {
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
    "head": "c4faad3",
-   "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft"
+   "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
+   "review": {
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
    "head": "a50efea",
-   "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro"
+   "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro",
+   "review": {
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
    "head": "4ababd2",
-   "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft"
+   "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
+   "review": {
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "AutomorphicGaloisRepresentationsPartII": {
    "stage": "pr",
    "pr": 1006,
    "head": "4a36810",
-   "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft"
+   "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft",
+   "review": {
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
    "head": "5c3d5a6",
-   "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft"
+   "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
+   "review": {
+    "recommendation": "changes",
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "SerreWeightAndLevelOptimisation": {
    "stage": "pr",
    "pr": 1013,
    "head": "cad2a3c",
-   "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received; draft"
+   "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received; draft",
+   "review": {
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "HeightsRationalPointsAndObstructions": {
    "stage": "pr",
    "pr": 1017,
    "head": "12b388a",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 9); red team running"
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 9); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "c2c54ce",
-   "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running"
+   "head": "e040b45",
+   "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
