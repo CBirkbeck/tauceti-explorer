@@ -43673,8 +43673,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9297"
+   "state": "external",
+   "note": "claimed on GitHub issue #9297"
   },
   {
    "priority": 2,
@@ -130589,7 +130589,8 @@
     "BP-EffectiveDiophantineMethods~3",
     "BP-EffectiveDiophantineMethods~4"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10052"
   }
  ]
 }
