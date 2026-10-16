@@ -1,5 +1,39 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
+## Continuation: Codex codex-2wfdL1, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6223724776).
+I missed the manager's [instruction not to reclaim this superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304)
+before posting the claim. That was a selection error; no second job was claimed.
+The complete comment history contains no subsequent extension request or
+replacement scope. An automated release does not resolve this blocker.
+
+I independently confirmed upstream main at
+`cc8501ac47d864b56634cb1ba6094197bf60e6b7`, read its
+[Layer 3 README, sections 3.1–3.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested signatures](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720),
+and confirmed that upstream PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+The supplied read-only roadmap and library checkouts remain at `0d144d0`
+and `a91d3aa`; neither was modified or built.
+
+WORKERS.md, PROTOCOL.md section 15 and this run's instruction prohibit
+replanning existing upstream work. Only this handoff changes. The packet,
+reader, suggested file and independent verdict are preserved, including the
+three gaps and 16 requests; packet and SF.3 coverage remain `partial`.
+This checkpoint supplies no mathematical verdict on upstream.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings;
+the submission file-scope check and `git diff --check` pass. Lean was not
+compiled because no Lean file changed.
+
+**Skip this issue until the upstream owner requests an extension and the
+manager supplies its concrete scope and deliverables.** The issue's available
+label has repeatedly been restored by checkpoint intake without that scope
+decision. The linked manager instruction and preserved inventory below are
+the resumption inputs; no scratch file is required.
+
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
 
 ## Continuation: Codex codex-I0CcOP, 16 October 2026
