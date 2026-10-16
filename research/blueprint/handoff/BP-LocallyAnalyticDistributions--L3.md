@@ -1,14 +1,16 @@
 # BP-LocallyAnalyticDistributions--L3 — blocked checkpoint
 
 Issue: [#9293](https://github.com/CBirkbeck/tauceti-explorer/issues/9293). Worker:
-Codex, session `codex-jh9WIW`. Date: 2026-10-16.
+Codex, session `codex-7oqlUf`. Date: 2026-10-16.
 
 This run resumes the checkpoints merged in
 [#10017](https://github.com/CBirkbeck/tauceti-explorer/pull/10017), written by
 session `codex-uccHR2`, and
 [#10059](https://github.com/CBirkbeck/tauceti-explorer/pull/10059), written by
-session `codex-yPK66d`. The ownership blocker below was rechecked against the
-live issue timeline and upstream pull request on 2026-10-16 at 21:32 UTC.
+session `codex-yPK66d`, and
+[#10075](https://github.com/CBirkbeck/tauceti-explorer/pull/10075), written by
+session `codex-jh9WIW`. The ownership blocker below was rechecked against the
+live issue timeline and upstream pull request on 2026-10-16 at 22:10 UTC.
 
 The blueprint pass is **unfinished**. This checkpoint records an ownership
 blocker; it neither closes stage `LocallyAnalyticDistributions:L3` nor certifies
@@ -19,12 +21,11 @@ for this part has been created.
 
 The issue was labelled `swarm`, `state:available`, `top` and `kind:blueprint`
 when selected as the first available eligible candidate from the manager's
-priority list. The other available allowed job, #9323, was farther down that
-list. The bot confirmed this session's claim at 21:31:31 UTC in
-[comment 6225091060](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225091060),
+priority list. The other available allowed blueprint job, #9323, was farther
+down that list. The bot confirmed this session's claim at 22:09:38 UTC in
+[comment 6225654366](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225654366),
 identifying this session's
-[claim comment 6225088713](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225088713).
-Another session's concurrent claim was subsequently refused by the bot.
+[claim comment 6225652502](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225652502).
 
 However, the maintainer's
 [2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6147009644)
@@ -36,8 +37,11 @@ at 14:04 UTC that day. The timeline contains no subsequent maintainer
 instruction reopening this blueprint. The checkpoint intake then restored
 `state:available` again at 15:58:18 UTC and 20:36:42 UTC on 2026-10-16, after
 merging #10017 and #10059 respectively. These automated resets do not resolve
-the maintainer's ownership instruction. The current run's only human issue
-comments after those resets are claim commands.
+the maintainer's ownership instruction. After #10075, the intake restored
+`state:available` once more at 21:49:26 UTC, as recorded in
+[comment 6225345027](https://github.com/CBirkbeck/tauceti-explorer/issues/9293#issuecomment-6225345027).
+The timeline still contains no maintainer instruction reopening the blueprint;
+all subsequent human issue comments are claim commands.
 
 The upstream roadmap is
 [TauCetiRoadmap PR #854](https://github.com/TauCetiProject/TauCetiRoadmap/pull/854),
@@ -71,6 +75,14 @@ contain a `LocallyAnalyticDistributions` directory. The open pull request,
 rather than an absent main-branch directory or the older atlas snapshot,
 therefore determines ownership here.
 
+The upstream `Suggested.lean` at the same PR head explicitly leaves the Mellin
+equivalences and geometric character spaces in its authoritative README,
+because their carriers are not at the pins. That omission does not transfer
+ownership back to this atlas job. The supplied current Tau Ceti source tree
+was inspected read-only at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; this run
+adds no baseline declaration claims and makes no claim of an exhaustive
+implementation audit at that newer commit.
+
 ## State and resumption
 
 - The parent packet `research/blueprint/packets/LocallyAnalyticDistributions.json`
@@ -88,15 +100,16 @@ therefore determines ownership here.
   The blueprint checker has no new packet to validate. Validation of this
   checkpoint is the submission path/content check and `git diff --check`.
 - Reading completed for this blocker: the issue and its full timeline, the
-  preceding checkpoint's handoff, parent L3 coverage and target inventory,
-  reviewed L3 audit, upstream status material,
-  and PR #854's metadata and README sections 3.1–3.4. No paper or book was
+  preceding checkpoint's handoff, parent L3 coverage,
+  reviewed L3 audit, the supplied roadmap and library trees,
+  PR #854's metadata and README sections 3.1–3.4, and its suggested file's
+  scope note. No paper or book was
   used to assert a new mathematical result; no source passage was copied.
 
 The maintainer needs to reconcile the obsolete atlas job with upstream
 ownership and the repeated label resets: prevent the obsolete job from being
 offered again, or issue a replacement assignment authorizing work on the
-authoritative upstream pull request. A checkpoint merge has twice reoffered
+authoritative upstream pull request. A checkpoint merge has three times reoffered
 the same stopped work, so another automated availability reset alone must not
 be taken as evidence that the ownership conflict is resolved. No additional
 mathematical reading within this job's edit scope can resolve that ownership
