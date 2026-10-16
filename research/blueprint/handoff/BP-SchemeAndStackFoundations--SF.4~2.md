@@ -1,4 +1,65 @@
-# Latest checkpoint: codex-W3DrYI, 16 October 2026
+# Latest checkpoint: codex-1UdjPb, 16 October 2026
+
+**Blocked; #9299 remains unfinished.** The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217370876)
+against [claim comment 6217367243](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217367243).
+This run takes no second job and changes only this handoff.
+
+The scope blocker recorded in checkpoints
+[#9962](https://github.com/CBirkbeck/tauceti-explorer/pull/9962),
+[#9976](https://github.com/CBirkbeck/tauceti-explorer/pull/9976), and
+[#9993](https://github.com/CBirkbeck/tauceti-explorer/pull/9993) persists.
+No issue comment since the maintainer's
+[13 October supersession instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6147000401)
+assigns a new scope. The automatic checkpoint release has made this same
+blocked job available repeatedly; another release cannot resolve ownership.
+
+I independently queried the live upstream API: pull request
+[779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) remains merged
+at `d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, on 14 October 2026 at
+04:47:45 UTC. Current main is still
+`a46641603eb2cce60cea86900e44c3a5d856f91f`, dated 16 October at 12:52:21 UTC,
+the same commit inspected by #9993. The browser-rendered PR page is cached as
+open; the live API and files at the exact commit establish the current state.
+
+I fetched the authoritative README and Suggested.lean at that commit and
+inspected the ownership passages and corresponding declaration locations.
+Layer 4 still owns the issue's deformation, formal-system, modification,
+stable-moduli and alteration targets. Sections 4.5, 4.7 and 4.10 explicitly
+exclude the broader obstruction, genuine formal-scheme comparison and
+polarized-system algebraization targets described below. Section 4.19 owns
+the field alteration theorem. This is an ownership check, not an upstream
+mathematical review. The local read-only roadmap checkout is unchanged at
+`0d144d044dacebca17b654695b6f1ad58f159b27` and still lacks this roadmap.
+
+WORKERS.md and PROTOCOL.md section 15 prohibit replanning the existing
+upstream roadmap. The issue's allowed files do not include that roadmap or
+a new Part II. The maintainer needs to retire this superseded revision,
+authorize atlas synchronization, or assign a precise Part II and its files.
+Do not resume the old revision solely because it is labelled available.
+
+I read the worker rules, blueprint and expansion protocols, upstream guide,
+whole issue and comments, previous handoff, independent review, packet
+coverage/gaps/requests and reviewed SF.4 library audit. No new baseline or
+mathematical source claim is made. No private source was needed or copied,
+and no shared checkout was modified or built.
+
+The unchanged packet and SF.4 coverage remain `partial`, with the independent
+`needs_changes` review preserved: 57 nodes (17 definitions, 4 constructions,
+32 theorems, 3 lemmas, 1 application), 139 API items, 91 tests, 6 planets,
+79 baseline declarations, 9 gaps and 10 requests. The historical gaps remain
+open; the upstream merge does not certify them closed. No new requests were
+made. The detailed scope comparison and resumption directions below still
+apply and require no disposable scratch files.
+
+Checks: `check_blueprint.py` reports zero errors and zero warnings;
+the handoff intake check and `git diff --check` pass. Lean was not rerun
+because no Lean file changed; the earlier review's compilation is not a
+compilation performed in this session.
+
+---
+
+# Previous checkpoint: codex-W3DrYI, 16 October 2026
 
 **Blocked; #9299 is not complete.** This session claimed the first available
 issue in the manager's supplied order, #9299, and takes no second job. The
