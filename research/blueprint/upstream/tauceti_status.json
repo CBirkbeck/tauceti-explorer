@@ -1,12 +1,12 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T02:12Z",
+ "updated": "2026-10-16T02:29Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
    "pr": 779,
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435; AC01–AC02 fixed at f302a92; AD01–AD02 fixed at c16514b; AE01–AE04 fixed at 42ab8a1",
-   "head": "3c50577",
+   "head": "210337f",
    "review": {
     "recommendation": "approve",
     "head": "3c50577",
@@ -23,7 +23,7 @@
     "date": "2026-10-15",
     "note": "#943 (étale invariance §0.23a + scheme Frobenius §0.29) approved by deep re-review; ready for review"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math); fix running; draft"
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 210337f (§2.19 Čech pasting + §4.15 degrees); ready for re-review"
   },
   "PadicMeasuresIwasawaAlgebras": {
    "stage": "main",
@@ -608,7 +608,7 @@
   "FreeGroupsAndLimitGroups": {
    "stage": "pr",
    "pr": 914,
-   "head": "52b7283",
+   "head": "add519e",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); the decidability and formal-solution results are stated without executable procedures; no supplier in an open pull request; draft until the red team and a deep review pass",
    "review": {
     "recommendation": "changes",
@@ -616,7 +616,8 @@
     "current": false,
     "date": "2026-10-14",
     "note": "deep review repaired at 7d4cbb7; both red-team passes applied through 52b7283; draft until a ChatGPT Pro approval"
-   }
+   },
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at add519e (NTQ raw vs normalized towers; Mathlib #42677 coordination); ready for re-review"
   },
   "GlobalGaloisDeformations": {
    "stage": "pr",
@@ -783,7 +784,7 @@
   "DerivedModuleAlgebra": {
    "stage": "pr",
    "pr": 944,
-   "head": "62aff3f",
+   "head": "e2e3045",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (module-level derived algebra, position 0); not an explorer package; red team running",
    "review": {
     "recommendation": "approve",
@@ -792,7 +793,7 @@
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math); fix running; draft"
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at e2e3045 (simplicial tensor/diagonal comparisons + finite-model effectivity); ready for re-review"
   },
   "FarguesFontaineDiamonds": {
    "stage": "pr",
