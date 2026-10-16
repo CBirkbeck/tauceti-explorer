@@ -16,63 +16,72 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
         "provides": "Coefficient linear maps indexed by finitely supported multi-indices.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:MvPowerSeries.order",
         "kind": "def",
         "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
         "provides": "Total-degree formal order in the extended natural numbers, with order zero series equal to infinity.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:MvPowerSeries.order_mul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.lean",
         "provides": "Additivity of total order under multiplication over a nontrivial commutative semiring without zero divisors.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:MvPowerSeries.pderiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/MvPowerSeries/Derivative.lean",
         "provides": "Formal partial differentiation as a derivation over the coefficient ring.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:Pi.wellQuasiOrderedLE",
         "kind": "instance",
         "module": "Mathlib/Order/WellQuasiOrder.lean",
         "provides": "Finite products of well-quasi-ordered types are well-quasi-ordered: the Dickson input for exponent diagrams.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:Module.length",
         "kind": "def",
         "module": "Mathlib/RingTheory/Length.lean",
         "provides": "Extended-natural module length; local Hilbert–Samuel lengths are over their own local ring.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:Matrix.det",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Determinants of finite square matrices over a commutative ring.",
-        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16."
+        "checked": "Declaration body and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:MvPowerSeries.coeff_pderiv",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Derivative.lean",
         "provides": "The shifted multi-index coefficient times its new coordinate exponent; supplies the formal derivative calculation, not the geometric coordinate completion.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-16."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       },
       {
         "ref": "mathlib:PowerSeries.constantCoeff_iterate_derivative",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
         "provides": "For any commutative semiring, the constant coefficient of the qth derivative equals q! times coefficient q. Over Q this gives normalized coefficient extraction.",
-        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-16."
+        "checked": "Actual statement read at the pinned Mathlib commit on 2026-10-16.",
+        "independentReview": "Confirmed declaration, surrounding typeclasses and claimed use at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-AlgebraicModuliForArithmeticGeometry--R09.7b on 2026-10-16."
       }
     ]
   },
@@ -92,7 +101,23 @@
         "Samuel certificates, determinantal ideals and transform statements, (7.2), Theorems 7.14, 7.20–7.21, pp. 261–271; the transform proof is imported from the accepted owner rather than re-certified in this pass.",
         "Monotone diagram convention and finite-degree control, §8, Theorem 8.1 and Definition 8.3, pp. 273–275; regular semicoherence, Theorems 9.2, 9.4, 9.6 and Remarks 9.15, pp. 276–283."
       ],
-      "readingBoundary": "Freshly read these portions, not the entire article. BM1989 Theorem 5.2.1, pp. 820–821, is imported through the accepted hs-stabilization node and its independent review; this run does not claim a fresh reading of that source."
+      "readingBoundary": "The original planning pass used accepted owners for the full transform proof and BM1989 stabilization. The independent review freshly read the transform proof through p. 273 and BM1989 Theorem 5.2.1 and proof, pp. 820–821; declaration ownership and supplier obligations remain with the accepted packets.",
+      "reviewReadSections": [
+        "Independent review checked the imported target/support locators: printed pp. 213–214, 216, 219–220, 226–228, 231–239 and 241–283, including the proofs of Theorems 7.14, 7.20–7.21, 8.1 and 9.6.",
+        "This is a selective local-stage reading, not a claim to have read the whole article."
+      ]
+    },
+    {
+      "id": "BM1989",
+      "title": "Uniformization of analytic spaces",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "edition": "Journal of the American Mathematical Society 2 (1989), 801–836; printed pagination",
+      "url": "https://www.researchgate.net/publication/255647609_Uniformization_of_Analytic_Spaces",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "Theorem 5.2.1 and proof, pp. 820–821, in the public full text uploaded by Edward Bierstone."
+      ],
+      "readingBoundary": "The fixed-dimension stabilization result is a combinatorial theorem about upward diagrams; the formal-ideal specialization uses the imported complement-count theorem. No claim of reading the rest of the 1989 article."
     }
   ],
   "nodes": [],
@@ -436,7 +461,8 @@
         ]
       }
     ],
-    "consumer": "AlgebraicModuliForArithmeticGeometry:R09.7c consumes semicoherent invariant strata and local augmented descent to construct and glue global centres and prove global termination."
+    "consumer": "AlgebraicModuliForArithmeticGeometry:R09.7c consumes semicoherent invariant strata and local augmented descent to construct and glue global centres and prove global termination.",
+    "invariantTowerConvention": "For the imported complete-invariant construction, history and nonincrease theorem, an admissible tower means inv-admissible: each smooth centre has simultaneous SNC with the current boundary and the complete invariant is locally constant on it. This is BM1997 (1.2), p. 213, and Theorem 1.14, p. 220, not permissibility for an isolated marked ideal alone."
   },
   "requests": [],
   "inheritedInterfaces": [
@@ -515,13 +541,23 @@
       "id": "AlgebraicModuliForArithmeticGeometry/E1901",
       "ownerPacket": "AlgebraicModuliForArithmeticGeometry--R09.7.json",
       "locator": "BM1997 Example 2.1, p. 226, year-one parenthetical pullback",
-      "appliedCorrection": "The pulled-back year-zero monomial is x₁²x₂³. Its x₁ pivot transform after division by the square is y₁³y₂³. This is an existing independently confirmed finding, not a new report."
+      "appliedCorrection": "The pulled-back year-zero monomial is x₁²x₂³. Its x₁ pivot transform after division by the square is y₁³y₂³. This is an existing independently confirmed finding, not a new report.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly on printed p. 226: the year-one parenthetical uses the wrong original variable; pivot substitution and controlled square division give the monomial recorded here.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.7b"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E1902",
       "ownerPacket": "AlgebraicModuliForArithmeticGeometry--R09.7.json",
       "locator": "BM1997 proof of Theorem 9.6, p. 282; compare Definition 7.9, p. 265, and Remark 9.5(1), p. 277",
-      "appliedCorrection": "Use |β|<dᵢ−|γ| in the coefficient derivative ideal. The non-strict bound adds a unit for c=t², mark two. This is an existing independently confirmed finding, not a new report."
+      "appliedCorrection": "Use |β|<dᵢ−|γ| in the coefficient derivative ideal. The non-strict bound adds a unit for c=t², mark two. This is an existing independently confirmed finding, not a new report.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly on printed p. 282 against Definition 7.9 and Remark 9.5(1): derivatives at the mark need not vanish; c=t² at mark two gives the stated unit-ideal counterexample.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.7b"
+      }
     }
   ],
   "prototypeOmissions": [
@@ -568,5 +604,172 @@
     "newRequests": 0,
     "inheritedInterfaces": 3
   },
-  "implementationStatus": "unchecked"
+  "implementationStatus": "unchecked",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7b",
+    "date": "2026-10-16",
+    "notes": "Independent review of the zero-node ownership manifest and its 22 imported contracts, nine supporting owners, nine pinned declarations, 33 APIs, 34 tests and three existing planets. Corrected reader locators and clarified common marks, finite-check hypotheses and inv-admissibility; freshly checked BM1989 stabilization and independently confirmed both inherited source findings. No new declaration, ownership transfer, mathematical gap or supplier request. Stage remains planned with explicit open inherited interfaces; every implementation remains unchecked.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact",
+        "verdict": "corrected",
+        "note": "Verified Proposition 4.12, Remarks 4.13 and proof, pp. 244, 251–252; corrected the reader’s theorem/corollary labels and pages; retained normalized order, boundary-transverse direction and derivative-unit hypotheses."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+        "verdict": "corrected",
+        "note": "Verified Construction 4.18 and all three APIs/tests; clarified that the common integral mark is divisible by every reduced mark dᵢ−q, not merely the original marks."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+        "verdict": "verified",
+        "note": "Proposition 4.19 and proof, pp. 246, 252–253, give full pointed test equivalence with separate controlled and pure-pullback laws; no equal-codimension order theorem is applied across contact reduction."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation",
+        "verdict": "corrected",
+        "note": "Verified Construction 4.23 and Proposition 4.24, pp. 247–248, 253; corrected proposition label; the low-residual guard, terminal branches, three APIs and three tests are retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+        "verdict": "verified",
+        "note": "Read p. 238 and Corollaries 3.19–3.20; graded lexicographic order, finite vertices, zero/unit cases and all three APIs/tests agree."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+        "verdict": "verified",
+        "note": "Theorem 3.17 and Remark 3.18 justify prescribed disjoint quotient supports, uniqueness, completion and filtration shifts; no independent unsupported division theory is assumed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+        "verdict": "verified",
+        "note": "Local-ring length and complement counts agree at residue-field completions; closed-point convention, partial comparison, completion API and three tests are retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+        "verdict": "verified",
+        "note": "Freshly read BM1989 Theorem 5.2.1 and its complete proof, pp. 820–821; finite vertex-prefix subsequences and Dickson finite generation establish the fixed-dimension diagram result and hence the formal-ideal specialization."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+        "verdict": "corrected",
+        "note": "Read all five conditions (7.2) and Lemmas 7.3, 7.5, 7.7; the chosen diagram need not be the actual initial diagram. Qualified the finite-check API by the monotone degree-block hypothesis; all four tests have the stated scope."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/finite-degree",
+        "verdict": "corrected",
+        "note": "Read Theorem 8.1, Definition 8.3 and proof, pp. 273–275; made arbitrary commutative coefficient-ring generality explicit in the reader; retained monotonicity, supported multiples and complementary monomials."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal",
+        "verdict": "verified",
+        "note": "Definitions 7.10, 7.13 and Remarks 9.1 give the factorial-normalized finite Taylor matrix and rank-plus-one minors. Summing lower degrees, generator independence and all three tests are correct."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+        "verdict": "verified",
+        "note": "Theorem 7.14 and proof, pp. 266–268, require the full certificate. The coefficient application uses the strict derivative bound confirmed in E1902."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform",
+        "verdict": "verified",
+        "note": "Freshly checked Theorems 7.20–7.21 and proofs through p. 273: I_C contains the Samuel ideal; equality retains all generator orders and certificate conditions. Exceptional coordinate tests use pure pullback. No circular appeal to semicoherence."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+        "verdict": "verified",
+        "note": "Definition 6.4 and presentations 6.2 require one regular neighbourhood and family, with infinitesimal continuation. Its three APIs/tests reject unrelated pointwise formal choices."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "verdict": "verified",
+        "note": "Checked Theorems 9.2, 9.4, 9.6 and proof: generic monotone diagrams, finite supported elimination, common denominator localization and finite-degree propagation give regular data. Numerical semicontinuity stays on closed points."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+        "verdict": "verified",
+        "note": "Definitions 6.8, 6.15 and Proposition 6.6 preserve earliest-prefix birth years and disjoint surviving blocks; the three APIs/tests distinguish equations from history."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-word",
+        "verdict": "verified",
+        "note": "Remarks 1.3 and §6 retain the Hilbert–Samuel partial order, positive rational entries, counters, terminal zero/infinity and recursive factorial denominator certificates; three APIs/tests agree."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "verdict": "verified",
+        "note": "Definitions 6.12–6.15 and Remark 9.15 supply guarded recursive reduction and the exact e−(n−r)−1 padding; all three APIs/tests preserve the arbitrary-codimension and hypersurface conventions."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "verdict": "corrected",
+        "note": "Theorem 1.14 and §6/§9 establish the stated properties on inv-admissible towers. Expanded the reader’s admissibility hypothesis to require local constancy of the complete invariant on each SNC smooth centre; isolated marked-ideal permissibility alone is insufficient."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "verdict": "verified",
+        "note": "The terminal-zero monomial sum and inclusion-minimal threshold subsets match §6; preceding stratum equations, fixed denominators, all three APIs and all three tests are retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease",
+        "verdict": "verified",
+        "note": "Theorem 1.14(4) and §6 give the pivot replacement and augmented decrease; the native finite rational inequality is sound. Global selection and termination remain R09.7c."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
+        "verdict": "corrected",
+        "note": "Verified the accepted theorem, coefficient formulas and C1/C3/C4 tests; corrected the reader’s Lemma 3.5/Remarks 3.6–3.7 locator to pp. 233–234. Actual compatible residue-field completions and faithful-flat reflection remain inherited SF.0 obligations."
+      }
+    ],
+    "supportChecked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "verdict": "verified",
+        "note": "Read BM1997 §§3.1–3.8, Example 3.12 and the SF.0 étale-coordinates/Noetherian-completion statements. Those supply parts of, but do not discharge, the requested compatible residue-field Taylor/completion interface."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/stalk-order",
+        "verdict": "verified",
+        "note": "Order is maximal-ideal-power containment, preserved by the explicitly requested faithful-flat completion comparison; zero/unit and generator-minimum tests are sound."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "verdict": "verified",
+        "note": "The distinct-coordinate-germ and smooth labelled component convention is stronger than mere étale branch splitting. Current effective-Cartier native data are reusable; the remaining SF.3 divisor/product bridge remains requested."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/marked-ideal",
+        "verdict": "verified",
+        "note": "Positive marks, common-mark powers, zero functions and separate empty/infinite branches agree with 4.1–4.2; all three tests are discriminating."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "verdict": "verified",
+        "note": "Smooth coordinate centres permit boundary containment; ideal-power divisibility is justified in regular coordinates, with SNC retained. Full invariant-admissibility is a further condition for the complete-word theorem."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "verdict": "verified",
+        "note": "Read 4.4 and chart formulas; total, controlled, weak and saturated strict transforms differ. Cartier identity blowups still divide and retain birth history; blowup flatness is never assumed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/test-equivalence",
+        "verdict": "corrected",
+        "note": "Read 4.3–4.6 and 4.10: full, two-type and s* tests retain pointed exceptional continuations and their fixed old label. Corrected the reader’s references."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/normalized-orders",
+        "verdict": "verified",
+        "note": "Definitions 4.7, 4.9 distinguish generic boundary divisibility from point order and handle infinity before subtraction."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7/orders-invariant",
+        "verdict": "corrected",
+        "note": "Propositions 4.8, 4.11 and proofs use equal codimension, controlled Cartier tests and the restricted exceptional chain. Corrected proposition labels and page ranges in the reader."
+      }
+    ],
+    "supplierCheck": "Read actual SF.0 étale-coordinates, henselization-noetherian and jacobson-finite-type statements, the SF.3 scope/requests and current native effective-Cartier API, and StableReduction Layer 4. The inherited coordinate/completion compatibilities and general divisor/product bridge are open requested interfaces, not confirmed supplier theorems. No new request duplicates their accepted owners.",
+    "baselineCheck": "All nine manifest declarations independently confirmed at the exact Mathlib pin; no citation removed or replaced. Current Tau Ceti and all nine newer roadmap directions screened separately from pinned baseline claims."
+  }
 }
