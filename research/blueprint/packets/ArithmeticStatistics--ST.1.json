@@ -921,14 +921,14 @@
       "realises": [
         "ArithmeticStatistics:ST.1"
       ],
-      "title": "Universal binary-form discriminant",
-      "kind": "construction",
-      "statement": "For degree n≥2 and n+1 coefficient slots over a commutative ring, define the integral universal discriminant polynomial Δₙ. On the chart f₀≠0 it is (−1)^{n(n−1)/2}Res(f(t,1),∂_t f(t,1))/f₀; divisibility by the universal leading coefficient is proved before specializing. Evaluation therefore remains valid when f₀=0. It agrees with the parent cubic and ST.0 quartic discriminants and with ring discriminants in the parametrizations.",
+      "title": "Resultant and ring normalizations of the binary discriminant",
+      "kind": "comparison",
+      "statement": "Use the fixed-degree universal binary discriminant Δ_n of ST.0/binary-discriminant. For n≥2, identify it with the signed universal resultant quotient Res(F,F′)/a₀, where the universal divisibility is established before specializing a₀. At degree 3 it agrees with the parent binary-cubic discriminant, at degree 4 with ST.0’s quartic invariant discriminant. The later refinement-binary-form-order target supplies the trace-discriminant equality for its associated rank-n order, using this normalization. Leading-zero specializations use Δ_n, not the lower-degree affine discriminant. ArithmeticOrbitRefinement.binaryDiscriminant is the evaluation interface for the same ST.0 polynomial, not a second construction.",
       "hypotheses": [
         "The homogeneous degree n is fixed even when the dehomogenized polynomial drops degree."
       ],
       "proofSteps": [
-        "Define the resultant in universal coefficient variables and prove its leading-coefficient divisibility over Z. Evaluate the quotient polynomial in the coefficient ring. Compare on a splitting algebra with f₀^{2n−2} times the squared product of root differences, then specialize polynomial identities."
+        "Compare the ST.0 discriminant polynomial with the signed universal resultant quotient over Z, establishing divisibility before evaluating the leading coefficient. Compare on a splitting algebra with f₀^{2n−2} times the squared product of root differences, then specialize the polynomial identity. The associated-order comparison is proved in refinement-binary-form-order after that order is constructed."
       ],
       "acceptance": [
         "For ax²+bxy+cy² the value is b²−4ac.",
@@ -936,6 +936,7 @@
         "For n≥2, Δₙ(xⁿ)=0."
       ],
       "prerequisites": [
+        "ArithmeticStatistics:ST.0/binary-discriminant",
         "ArithmeticStatistics:ST.1/refinement-symmetric-pencil",
         "ArithmeticStatistics:ST.1/discriminant-of-the-cubic-ring-of-a-form",
         "ArithmeticStatistics:ST.0/invariants-height-and-eligible-pairs",
@@ -957,8 +958,8 @@
       "api": [
         {
           "name": "ArithmeticOrbitRefinement.binaryDiscriminant",
-          "role": "constructor",
-          "statement": "Evaluate Δₙ in a vector of n+1 coefficients."
+          "role": "compatibility",
+          "statement": "Evaluate the universal discriminant supplied by ST.0 in the symmetric-pencil coefficient convention."
         },
         {
           "name": "ArithmeticOrbitRefinement.binaryDiscriminant_map",
@@ -1576,9 +1577,9 @@
       "realises": [
         "ArithmeticStatistics:ST.1"
       ],
-      "title": "Weak and strong square divisibility",
-      "kind": "definition",
-      "statement": "For a prime p and integral fixed-degree coefficient vector f, p² strongly divides Δ(f) if p² divides Δ(f+p h) for every integral coefficient vector h. It weakly divides if p² divides Δ(f) and some h makes Δ(f+p h) indivisible by p². For a positive squarefree m, W_m^(2) imposes weak divisibility at every prime factor of m. For binary forms the p=2 weak locus is empty.",
+      "title": "Binary-form specialization of strong and weak divisibility",
+      "kind": "comparison",
+      "statement": "Specialize ST.0/strong-weak-discriminant to the fixed-degree binary discriminant Δ_n and the ST.1 coefficient order. For a prime p and integral fixed-degree coefficient vector f, p² strongly divides Δ(f) if p² divides Δ(f+p h) for every integral coefficient vector h. It weakly divides if p² divides Δ(f) and some h makes Δ(f+p h) indivisible by p². For a positive squarefree m, W_m^(2) imposes weak divisibility at every prime factor of m. For binary forms the p=2 weak locus is empty. These are the same strong and weak loci as ST.0; this interface transports them to pencils and projective-root criteria.",
       "hypotheses": [
         "Binary homogeneous discriminant with fixed degree n≥2.",
         "Monic specialization permits only monic-family perturbations where the source specifies that family."
@@ -1592,6 +1593,7 @@
         "No integral binary form has weak discriminant divisibility by4."
       ],
       "prerequisites": [
+        "ArithmeticStatistics:ST.0/strong-weak-discriminant",
         "ArithmeticStatistics:ST.1/refinement-binary-discriminant"
       ],
       "sources": [

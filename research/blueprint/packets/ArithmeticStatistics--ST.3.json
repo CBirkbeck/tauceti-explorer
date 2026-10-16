@@ -522,9 +522,6 @@
           "how": "Indexes governing-field and 16-rank criteria."
         }
       ],
-      "planet": {
-        "name": "Prime-power class-group ranks"
-      },
       "leanName": "FieldStatistics.powerRank"
     },
     {
@@ -793,7 +790,7 @@
         "Take smoothing parameter κ=X^{1/12}; the condition m⁴≤X absorbs the remaining error terms."
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-congruence-count"
       ],
       "sources": [
         {
@@ -914,7 +911,7 @@
         "ArithmeticStatistics:ST.3/secondary-cubic-lattice-coefficient",
         "ArithmeticStatistics:ST.3/cubic-secondary-local-factor-evaluation",
         "ArithmeticStatistics:ST.3/cubic-large-total-ramification-bound",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-cubic-secondary-sieve-error"
       ],
       "sources": [
         {
@@ -931,9 +928,6 @@
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Refined cubic sieve"
-      },
       "leanName": "FieldStatistics.refined_cubic_sieve",
       "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
@@ -1037,7 +1031,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/low-degree-s-integral-parametrization",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-global-field-large-prime-tail",
+        "ArithmeticStatistics:ST.2/refinement-global-field-generic-finite-count"
       ],
       "sources": [
         {
@@ -1676,7 +1671,7 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/rigid-embedded-field-family",
-        "ArithmeticStatistics:ST.2",
+        "ArithmeticStatistics:ST.2/uniformity-estimate-for-nonmaximal-binary-cubic-forms",
         "AnalyticNumberTheory:AN.8",
         "AnalyticNumberTheory:AN.4"
       ],
@@ -2275,9 +2270,6 @@
           "how": "Supplies the factor24 for each eligible extension."
         }
       ],
-      "planet": {
-        "name": "Nonabelian quadratic moments"
-      },
       "leanName": "FieldStatistics.rigidQuadraticMoment"
     },
     {
@@ -3471,7 +3463,7 @@
       ],
       "prerequisites": [
         "mathlib:AdjoinRoot",
-        "ArithmeticStatistics:ST.1",
+        "ArithmeticStatistics:ST.1/refinement-binary-form-order",
         "mathlib:Matrix.SpecialLinearGroup"
       ],
       "sources": [
@@ -3597,8 +3589,8 @@
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.1/refinement-binary-form-order",
+        "ArithmeticStatistics:ST.2/refinement-monic-fixed-modulus-sieve"
       ],
       "sources": [
         {
@@ -3635,7 +3627,8 @@
         "Sum the convergent local factors and use the quantitative reducibility bound; include the region-boundary estimate for each signature."
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.2",
+        "ArithmeticStatistics:ST.2/refinement-monic-fixed-modulus-sieve",
+        "ArithmeticStatistics:ST.2/refinement-monic-summed-tail",
         "ArithmeticStatistics:ST.0/family-defined-by-local-conditions"
       ],
       "sources": [
@@ -3674,7 +3667,7 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/polynomial-order-lattice-reduction",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-monic-weak-tail"
       ],
       "sources": [
         {
@@ -3754,7 +3747,7 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/monic-polynomial-sieve-counts",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-monic-fixed-modulus-sieve"
       ],
       "sources": [
         {
@@ -3908,8 +3901,8 @@
         "Enumerate the quartic discriminant polynomial modulo9 as a finite regression certificate; do not claim one finite check proves every prime."
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.1/refinement-binary-form-order",
+        "ArithmeticStatistics:ST.2/refinement-binary-fixed-modulus-sieve"
       ],
       "sources": [
         {
@@ -3948,7 +3941,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/binary-discriminant-local-factors",
-        "ArithmeticStatistics:ST.2"
+        "ArithmeticStatistics:ST.2/refinement-binary-fixed-modulus-sieve",
+        "ArithmeticStatistics:ST.2/refinement-binary-summed-tail"
       ],
       "sources": [
         {
@@ -3986,7 +3980,7 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/binary-form-sieve-counts",
-        "ArithmeticStatistics:ST.1"
+        "ArithmeticStatistics:ST.1/refinement-binary-form-order"
       ],
       "sources": [
         {
