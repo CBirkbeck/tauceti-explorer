@@ -21,31 +21,31 @@
         "ref": "tauceti:HeckeRing.GL2.Newform",
         "module": "TauCeti.NumberTheory.ModularForms.Newforms.Newform",
         "provides": "Bundled normalized newform of positive level N and integer weight k, extending the nonzero good Hecke eigenform, with nebentypus as a field. Reuse; no new form carrier.",
-        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap."
+        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap. Independently reconfirmed by REV-ClassicalSerreModularity--R27.6 against the pinned raw source and the shared compilation snapshot; signatures match."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform.qExpansion_coeff_one",
         "module": "TauCeti.NumberTheory.ModularForms.Newforms.Newform",
         "provides": "The first q-expansion coefficient of the underlying cusp form is 1.",
-        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap."
+        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap. Independently reconfirmed by REV-ClassicalSerreModularity--R27.6 against the pinned raw source and the shared compilation snapshot; signatures match."
       },
       {
         "ref": "mathlib:Matrix",
         "module": "Mathlib.LinearAlgebra.Matrix.Defs",
         "provides": "Matrices as row/column indexed functions; the light two-by-two local lattice calculations use this carrier.",
-        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap."
+        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap. Independently reconfirmed by REV-ClassicalSerreModularity--R27.6 against the pinned raw source and the shared compilation snapshot; signatures match."
       },
       {
         "ref": "mathlib:Matrix.det",
         "module": "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
         "provides": "The determinant over a commutative ring, used to test when the lattice basis change ceases to be invertible.",
-        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap."
+        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap. Independently reconfirmed by REV-ClassicalSerreModularity--R27.6 against the pinned raw source and the shared compilation snapshot; signatures match."
       },
       {
         "ref": "mathlib:Matrix.mulVec",
         "module": "Mathlib.Data.Matrix.Mul",
         "provides": "Matrix action on column vectors over a semiring; the residual inertia-invariant test uses this actual action.",
-        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap."
+        "checked": "Exact statement read at the pinned commit on 2026-10-16; also checked current Tau Ceti for overlap. Independently reconfirmed by REV-ClassicalSerreModularity--R27.6 against the pinned raw source and the shared compilation snapshot; signatures match."
       }
     ]
   },
@@ -109,6 +109,30 @@
       "readSections": [
         "Theorem 1.7 p.5; minimality definition and Theorem 1.9 pp.5–6; Theorem 1.11 p.7; Paso 2 pp.10–11 (page image for coefficient bars); Pasos 3–6 pp.12–15, including revised Lemma 2.3/Remark 6 pp.12–13; §3 p.15."
       ]
+    },
+    {
+      "id": "wiese04",
+      "title": "Dihedral Galois representations and Katz modular forms",
+      "authors": "Gabor Wiese",
+      "edition": "Documenta Mathematica 9 (2004), 123–133; published PDF, printed pagination is PDF pagination plus 122.",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf",
+      "sha256": "1dcd4bb30b64a19cb1335a7442b6704ff9c0a3dd0ad96d97d6b37a04d0aa3b06",
+      "read": "2026-10-16",
+      "readSections": [
+        "Introduction/projective-dihedral convention, printed pp.123,125; Lemma 3 and proof, printed p.127; proof of Theorem 1, printed p.131. Read to verify the accepted R17.6 general qualitative supplier; no new induction or weight-one theory is planned here."
+      ]
+    },
+    {
+      "id": "rt97",
+      "title": "An elementary case of Serre’s conjecture",
+      "authors": "David E. Rohrlich and Jerrold B. Tunnell",
+      "edition": "Pacific Journal of Mathematics 181, special issue (1997), 299–309; published PDF.",
+      "url": "https://msp.org/pjm/1997/181-3/pjm-v181-n3-p16-p.pdf",
+      "sha256": "fe131f6cff026c25c65727d6675d1bea9233f91bd1d0d7947587b491cf22d3b9",
+      "read": "2026-10-16",
+      "readSections": [
+        "Introduction pp.299–300; analytic Deligne–Serre application p.301; §2 pp.306–308, including the restricted theorem p.307 and Remarks 1–3 p.308. The introduction also acknowledges qualitative dihedral existence; distinguish that from the exact-level theorem."
+      ]
     }
   ],
   "nodes": [
@@ -129,7 +153,7 @@
       "proofSteps": [
         "Twist to weights {d,0}, d=a−b>0. Discard the finite exceptional set for residual irreducibility, coefficient ramification, crystallinity and ℓ≤d+1. The residual weight is d+1 and its level divides one fixed conductor bound.",
         "Apply the retained full classical Serre theorem to the remaining residual members. There are finitely many possible levels dividing the bound, characters and normalized newforms of weight d+1, by the modular-forms Hecke theory. Include the finitely many embeddings of their coefficient fields when applying the pigeonhole principle.",
-        "One newform and coefficient embedding occurs over infinitely many distinct rational primes. For each fixed good prime r, its trace and determinant differ from the fixed compatible-system polynomial by algebraic integers divisible by primes of infinitely many residue characteristics, so the differences vanish.",
+        "One newform and coefficient embedding occurs over infinitely many distinct rational primes. For each fixed good prime r, compare its trace and determinant with the fixed compatible-system polynomial in a common number field. Clear the finitely many denominators of these fixed differences and discard primes dividing them. A nonzero algebraic integer has only finitely many prime divisors, so both differences vanish.",
         "Use same-characteristic Chebotarev–Brauer–Nesbitt recognition separately for every λ to identify that member with the member attached to f. No cross-characteristic isomorphism is asserted."
       ],
       "acceptance": [
@@ -169,23 +193,28 @@
       "hypotheses": [
         "The input is continuous, odd and absolutely irreducible; the weight-shift implication assumes a weight-one witness, whereas the odd solvable-image corollary obtains it from R17.5.",
         "the restriction to k ≥ 2 is a convention justified by the Deligne–Serre congruence, not an omission",
-        "Theorem 1.3 is used only for odd p; at p = 2 the solvable case is Rohrlich–Tunnell (R33.5)",
-        "Dickson's classification is cited from its owner, ArithmeticGaloisRepresentations R01.4/dickson-classification-and-the-dyadic-refinement, not from the mixed KW I §6 node of R27.1: the modern strand takes from R27.1 only the three good-dihedral declarations (Definition 2.1, Lemma 6.3, Lemma 8.2)."
+        "Theorem 1.3 is used only for odd p. At p=2 the full solvable branch uses R17.6/qualitative-residual-modularity, followed by this weight shift; the restricted Rohrlich–Tunnell theorem alone is insufficient.",
+        "Dickson's classification is cited from its owner, ArithmeticGaloisRepresentations R01.4/dickson-classification-and-the-dyadic-refinement, not from the mixed KW I §6 node of R27.1: the modern strand takes from R27.1 only the three good-dihedral declarations (Definition 2.1, Lemma 6.3, Lemma 8.2).",
+        "The weight-one witness may have p dividing its level. R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform is used directly only in its invertible-level scope. At arbitrary level use its algebraic lifting lemma on the saturated q-expansion-integral analytic lattice described in the proof, using upstream ModularForms coefficient-field and old/new theory. An arbitrary all-cusp sublattice need not preserve the nonzero congruence at infinity; no smooth tame-level Katz base change is asserted."
       ],
       "proofSteps": [
-        "For a given integral weight-one witness multiply by a level-one Eisenstein series E_n congruent to 1, with n≥4 even and divisible by p−1. Its reduction has the same good Hecke eigenvalues and determinant exponents; apply R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform to the actual integral reduction image. Use E₄ at p=2 or 3. No arbitrary Katz weight-one lifting assertion is needed.",
-        "The R15.5 supplier normalizes a full eigenform and uses the existing upstream old/new theorem to obtain a newform of a divisor level. Recognize its residual representation through the R15.6 interface.",
+        "Normalize the given weight-one newform and multiply by E_n≡1 mod p, with n≥4 even and (p−1)∣n; E₄ suffices at p=2,3. The product h has integral q-expansion, first coefficient 1 and the original good-prime eigenvalues modulo p. For p∤N use the R15.5 application. For p∣N use the analytic application of algebraic eigenvalue lifting (RT p.301): choose a common number field for the finite newform/oldform basis at the new weight, and in that finite-dimensional space take the forms with all q-coefficients in the coefficient DVR. This lattice is finite free because finitely many coefficient maps inject the space into a finite coordinate space; it spans because the basis forms have integral coefficients after one common scaling. The q-expansion formulas make the good Hecke operators and diamonds preserve it. It is saturated in q-expansions, so h is nonzero modulo the uniformizer and its coefficientwise Hecke congruences are actual lattice congruences. Apply R15.5/deligne-serre-eigenvalue-lifting-lemma. This proof-local lattice application imports upstream finite-dimensionality, coefficient-field and old/new theory; no new public lattice definition is planned.",
+        "After lifting the good eigensystem, select a simultaneous characteristic-zero eigenvector for the remaining commuting Hecke operators in that eigenspace, normalize it, and use the upstream old/new theorem to obtain a newform of divisor level. No integral bad-prime eigenvalue is prescribed. Recognize its residual representation through the R15.6 interface.",
         "For odd p and solvable residual image import the weight-one witness from R17.5/q-solvable-residual-weight-one and apply the implication. The general qualitative theorem remains the endpoint of R33.4/R33.5."
       ],
       "acceptance": [
         "Check that the produced form has k ≥ 2 and that no step silently uses a weight-one form",
-        "Check that the weight and level refinements really are imported, so the independence of this strand concerns only the qualitative statement"
+        "Check that the weight and level refinements really are imported, so the independence of this strand concerns only the qualitative statement",
+        "Include a weight-one input whose level is divisible by p; the smooth invertible-level R15.5 application is not its lattice supplier."
       ],
       "prerequisites": [
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/q-solvable-residual-weight-one",
         "AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform",
         "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
-        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement"
+        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+        "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SerreConjecture/DieulefaitPacetti",
@@ -206,6 +235,11 @@
           "sourceId": "dieulefait-pacetti",
           "locator": "Theorem 1.3, p. 3 of arXiv v2",
           "match": "The solvable case."
+        },
+        {
+          "sourceId": "rt97",
+          "locator": "§1, printed p.301 (PDF p.3), application of Deligne–Serre Lemma 6.11",
+          "match": "An integral analytic cusp form with nonzero reduction and commuting Hecke eigencongruences lifts to a characteristic-zero eigensystem; this application does not assume that the coefficient prime is coprime to the level."
         }
       ],
       "implementationStatus": "unchecked",
@@ -283,7 +317,8 @@
         "The local inertial image at N has order q and the projective decomposition image has order 2q; the full decomposition image of the weight-two arithmetic lift is infinite (E8).",
         "The coefficient prime q lies outside the ramification set S₁ of the weight-two system, so the residual Serre weight is 2, not q + 1. Establish this before invoking the crystalline alternative of Theorem 1.9(4).",
         "Use the local-to-global solvability theorem R24.3/modern-prescribed-type-lifts with actual local lifts, their determinant and definite types. Compatibility of the semisimplified inertia alone does not establish local solvability. At N the selected standard induced lattice matches the full unramified residual D_N representation, after the prescribed unramified twist.",
-        "The R33.2 local-type supplier uses coefficients in the integers of a finite extension of ℚ_q containing μ_q. There is no order-q character into ℤ_q×."
+        "The R33.2 local-type supplier uses coefficients in the integers of a finite extension of ℚ_q containing μ_q. There is no order-q character into ℤ_q×.",
+        "For the normalized induced local model the Frobenius determinant is −1. An unramified twist with Frobenius value a has determinant −a² and must satisfy −a²=ψ(N)N, together with the prescribed residual scalar. This may require a finite coefficient extension and is part of the R08.6 local-solution obligation."
       ],
       "proofSteps": [
         "Choose q; dispose of solvable residual image.",
@@ -332,7 +367,7 @@
       "uses": [
         {
           "where": "ClassicalSerreModularity:R33.2/lemma-2-1-large-image",
-          "how": "Lemma 2.1: ramification in S ∪ {2, 3} and the type Ind κ at N"
+          "how": "Lemma 2.1: ramification in S₁∪{2,3,N}, with the protected induced type at N; N is included in the ramification bound."
         },
         {
           "where": "ClassicalSerreModularity:R33.2/paso-3-killing-the-odd-level",
@@ -377,6 +412,21 @@
           "name": "TauCeti.SerreConjecture.DP.GoodDihedralInsertion.residual_iso",
           "role": "compatibility",
           "statement": "The q-adic member with its specified stable lattice reduces to the old q-adic residual representation over a common finite field, as a full G_ℚ-module. In the modular branch the witnessing form uses the existing HeckeRing.GL2.Newform carrier."
+        },
+        {
+          "name": "TauCeti.SerreConjecture.DP.GoodDihedralInsertion.mapCoefficients",
+          "role": "functoriality",
+          "statement": "For a specified finite coefficient extension and compatible places, extend the system, local character and chosen integral models. The residual comparison is tensored to the common residue field; q,N, weight, ramification bound, type and modularity equivalence are preserved. Use the existing R01/R24 scalar-extension operations."
+        },
+        {
+          "name": "TauCeti.SerreConjecture.DP.GoodDihedralInsertion.iso_iff",
+          "role": "extensionality",
+          "statement": "For fixed q,N an isomorphism of insertion packages consists exactly of compatible coefficient identifications, an intertwiner of the characters, and isomorphisms of the systems and selected local/integral models commuting with the residual comparison. This transports the projections and type/modularity contracts; different lifts or auxiliary primes are not asserted equal."
+        },
+        {
+          "name": "TauCeti.SerreConjecture.DP.GoodDihedralInsertion.mapCoefficients_comp",
+          "role": "simp",
+          "statement": "Extension by the identity preserves the package up to its canonical isomorphism; two successive finite scalar extensions agree with their composite, including the residual comparison square."
         }
       ],
       "tests": [
@@ -401,9 +451,9 @@
           "statement": "q = 5 is excluded by the choice q > 5 in Paso 2; the Dickson step of Lemma 2.1 uses only that q divides neither |A₄| = 12 nor |S₄| = 24, so a solvable projective image of order divisible by q is dihedral"
         },
         {
-          "name": "insertion_not_general_lift_owner",
+          "name": "insertion_frobenius_determinant_twist",
           "kind": "non-example",
-          "statement": "A request for all four branches of DP Theorem 1.9 cannot be answered by this Paso 2 construction; R24.3 is its single owner."
+          "statement": "The normalized swap Frobenius has determinant −1. After an unramified scalar twist a its determinant is −a², whereas the arithmetic weight-two lift requires ψ(N)N. For example over 𝔽₇ the twist a=2 gives determinant 3, not −1=6. Keeping the finite induced model without this twist can violate the specified determinant even though its inertial type is unchanged."
         },
         {
           "name": "insertion_crystalline_needs_weight_two",
@@ -420,7 +470,7 @@
       ],
       "title": "Lemma 2.3: the order-three local type at 2, reached by a congruence at 3",
       "kind": "construction",
-      "statement": "Let {ρ_ℓ} be an almost strictly compatible system with Hodge–Tate weights {0, 1}, unramified at 3, whose Weil–Deligne representation at 2 is Steinberg up to an unramified twist, and with ρ̄₃ of non-solvable image. Let χ′ be a character of G_{ℚ₄} (ℚ₄ the unramified quadratic extension of ℚ₂) of order 3 and niveau 2, normalised by χ′(Art(2)) = 1, with values in 𝒪 = ℤ₃[ζ], ζ² + ζ + 1 = 0, uniformiser π = ζ − 1, and ρ̃₂ = Ind_{G_{ℚ₄}}^{G_{ℚ₂}} χ′, so ρ̃₂|_{I₂} ≅ χ′ ⊕ χ′² with trivial monodromy. Then ρ̄₃|_{D₂} ≅ γ ⊗ (χ̄₃ c; 0 1) with γ unramified, and either c = 0 (split case: ρ̄₃ is unramified at 2 and ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1), η = χ̄₃|_{D₂} the unramified quadratic character) or ρ̄₃|_{I₂} is a nontrivial unipotent module (non-split case). There is a G_{ℚ₂}-stable 𝒪-lattice Λ in ρ̃₂ with γ ⊗ (Λ/πΛ) ≅ ρ̄₃|_{D₂}: the standard lattice L₀ = 𝒪e₁ ⊕ 𝒪e₂ of R33.2/dihedral-local-type-at-n in the split case, and the adapted lattice L₁ = 𝒪(e₁ + e₂) ⊕ 𝒪πe₂ in the non-split case; L₀ does not serve in the non-split case. Hence ρ̃₂|_{I₂} is an inertial type compatible with ρ̄₃ at 2 in DP's sense (p. 6), and both reductions have trace 0 at Frobenius. A lift ρ′₃ of ρ̄₃, crystalline of weight 2 at 3, minimal away from 2 and 3, with ρ′₃|_{I₂} ≅ χ′ ⊕ χ′², exists by Theorem 1.9(4), and also by KW I Theorem 5.1(4) at (p, q) = (3, 2), whose hypotheses ρ̄₃ satisfies; Theorem 1.11 gives a system {ρ′_ℓ} with the same Hodge–Tate weights and ramification set, congruent to {ρ_ℓ} at 3, whose type at 2 comes from an order-3 character. Modularity of one system is equivalent to modularity of the other (Theorem 1.4 at 3).",
+      "statement": "Let {ρ_ℓ} be an almost strictly compatible system with Hodge–Tate weights {0, 1}, unramified at 3, whose Weil–Deligne representation at 2 is Steinberg up to an unramified twist, and with ρ̄₃ of non-solvable image. Let χ′ be a character of G_{ℚ₄} (ℚ₄ the unramified quadratic extension of ℚ₂) of order 3 and niveau 2, normalised by χ′(Art(2)) = 1, with values in 𝒪 = ℤ₃[ζ], ζ² + ζ + 1 = 0, uniformiser π = ζ − 1, and ρ̃₂ = Ind_{G_{ℚ₄}}^{G_{ℚ₂}} χ′, so ρ̃₂|_{I₂} ≅ χ′ ⊕ χ′² with trivial monodromy. Then ρ̄₃|_{D₂} ≅ γ ⊗ (χ̄₃ c; 0 1) with γ unramified, and either c = 0 (split case: ρ̄₃ is unramified at 2 and ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1), η = χ̄₃|_{D₂} the unramified quadratic character) or ρ̄₃|_{I₂} is a nontrivial unipotent module (non-split case). After a finite coefficient extension 𝒪→𝒪′ with residue field k′ containing the input coefficients and γ, there is a stable lattice Λ′ in ρ̃₂⊗Frac(𝒪′) with γ ⊗ (Λ′/𝔪′Λ′) ≅ ρ̄₃|_{D₂}⊗k′. It is obtained by extending one of the following 𝒪-lattices: the standard lattice L₀ = 𝒪e₁ ⊕ 𝒪e₂ of R33.2/dihedral-local-type-at-n in the split case, and the adapted lattice L₁ = 𝒪(e₁ + e₂) ⊕ 𝒪πe₂ in the non-split case; L₀ does not serve in the non-split case. Hence ρ̃₂|_{I₂} is an inertial type compatible with ρ̄₃ at 2 in DP's sense (p. 6), and both reductions have trace 0 at Frobenius. A lift ρ′₃ of ρ̄₃, crystalline of weight 2 at 3, minimal away from 2 and 3, with ρ′₃|_{I₂} ≅ χ′ ⊕ χ′², exists by Theorem 1.9(4), and also by KW I Theorem 5.1(4) at (p, q) = (3, 2), whose hypotheses ρ̄₃ satisfies; Theorem 1.11 gives a system {ρ′_ℓ} with the same Hodge–Tate weights and ramification set, congruent to {ρ_ℓ} at 3, whose type at 2 comes from an order-3 character. Modularity of one system is equivalent to modularity of the other (Theorem 1.4 at 3).",
       "hypotheses": [
         "The input at 2 is Steinberg with an unramified twist, as supplied by the preceding weight-two minimal lift. A ramified twist is not silently discarded.",
         "k(ρ̄₃) = 2: the system is unramified at 3 with Hodge–Tate weights {0, 1}, so ρ₃ is crystalline at 3 and ρ̄₃ is finite flat; this is what allows a crystalline lift at 3",
@@ -429,12 +479,14 @@
         "KW I Theorem 5.1(4) at (p, q) = (3, 2): ρ̄₃ is of S-type with k(ρ̄₃) = 2 ∈ [2, p + 1]; ρ̄₃|_{ℚ(µ₃)} is absolutely irreducible, since the image of ρ̄₃ is non-solvable and ℚ(µ₃) is quadratic; ρ̄₃|_{D₂} is (χ̄₃ ∗; 0 1) up to unramified twist; 3 | 2 + 1; χ′|_{I₂} = ω_{2,2} (i = 1, j = 0) has level 2 and order 3; there is no parity condition, as p = 3 is odd. Its conclusion at p is item 2 with k = 2, inertial parameter (1 ⊕ 1, 0), so ρ′₃ is crystalline of weight 2 at 3 and minimal at every ℓ ≠ 2, 3. Its local input at 2 is the level-two inertia-rigid condition of LocalGaloisDeformationRings R08.6/export-away-from-p (b), whose lifts (ρ(F), ρ(σ)) satisfy ρ(F)ρ(σ)ρ(F)⁻¹ = ρ(σ)^q with ρ|_{I₂} ≅ χ′ ⊕ χ′^q. At (p, q) = (3, 2) the matrices of L₀ and L₁, after an unramified twist, are such lifts of ρ̄₃|_{D₂}. They are not the supplier's own matrices: KW II §3.3.3 writes the lifts of that condition with ρ(F) diagonal",
         "KW I build the same order-3 type at 2 with their Theorem 5.1(4) in the proof of (D_1) (R27.5)",
         "The symbol ρ̃₂ denotes a local representation at 2 with 3-adic coefficients, not a 2-adic member. The global changed system is formed through its 3-adic lift.",
-        "For the order-three type one may use KW I Theorem 5.1(4) directly: coefficient prime 3, local prime 2, k=2, 3∣2+1 and nonsolvable residual image. This supplies a system via R24.5/kw-theorem-5-1-systems without asserting that every inertially compatible type has a global lift."
+        "For the order-three type one may use KW I Theorem 5.1(4) directly: coefficient prime 3, local prime 2, k=2, 3∣2+1 and nonsolvable residual image. This supplies a system via R24.5/kw-theorem-5-1-systems without asserting that every inertially compatible type has a global lift.",
+        "The displayed models L₀,L₁ are over 𝒪=ℤ₃[ζ], whose residue field is 𝔽₃. Choose a common finite coefficient field for the input and an unramified characteristic-zero lift of γ. Over its integers 𝒪′ reduce L_i⊗𝒪′ modulo the maximal ideal 𝔪′. If 𝒪′/𝒪 is ramified, π need not generate 𝔪′, so quotienting by π is not the residual representation."
       ],
       "proofSteps": [
         "Residual shape at 2. Steinberg up to an unramified twist γ̃ gives ρ₃(Frob₂) the eigenvalues γ̃(Frob₂)·{2, 1}, which reduce to γ(Frob₂)·{−1, 1} because χ̄₃(Frob₂) = 2 = −1 in 𝔽₃; and ρ̄₃(I₂) is unipotent, of order 1 or 3, so wild inertia acts trivially and I₂ acts through its quotient of order 3, generated by the image of a tame generator σ (ArithmeticGaloisRepresentations R01.2). If ρ̄₃(σ) = 1, ρ̄₃(Frob₂) has the distinct eigenvalues ±γ(Frob₂), so ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1): the split case. Otherwise, in a basis whose first vector spans the inertia invariants, ρ̄₃(σ) = (1 b; 0 1) with b ≠ 0 and ρ̄₃(Frob₂) = (α x; 0 β); the tame relation Frob₂ σ Frob₂⁻¹ = σ² forces α = −β; conjugating by an upper unipotent matrix, which commutes with ρ̄₃(σ), makes ρ̄₃(Frob₂) diagonal, and conjugating by diag(b⁻¹, 1) makes b = 1. So ρ̄₃|_{D₂} ≅ β ⊗ (Frob₂ ↦ diag(−1, 1), σ ↦ (1 1; 0 1)): the non-split case, with one-dimensional inertia invariants.",
         "The standard lattice L₀ (R33.2/dihedral-local-type-at-n at (q, N) = (3, 2)): σ ↦ D₀ = diag(ζ, ζ²) and Frob₂ ↦ F₀ = (0 1; 1 0). Modulo π, D₀ ≡ 1 and F₀ has eigenvalues 1 and −1, so L₀/πL₀ ≅ 1 ⊕ η: twisted by an unramified lift γ̃ of γ it realises the split case; it cannot realise the non-split case, whose inertia invariants are one-dimensional.",
         "The adapted lattice L₁ = 𝒪f₁ ⊕ 𝒪f₂, f₁ = e₁ + e₂, f₂ = πe₂, with change of basis P = (1 0; 1 π): D₀P = PD₁ and F₀P = PF₁ for D₁ = (ζ 0; ζ ζ²) and F₁ = (1 π; 0 −1), so L₁ is G_{ℚ₂}-stable, and both pairs satisfy D³ = F² = 1 and FDF⁻¹ = D². Modulo π, D₁ ≡ (1 0; 1 1) and F₁ ≡ diag(1, −1); in the basis (f₂, f₁) this is Frob₂ ↦ diag(−1, 1), σ ↦ (1 1; 0 1), the non-split module of step 1. Twisted by γ̃ it realises ρ̄₃|_{D₂}.",
+        "Extend coefficients to 𝒪′ and reduce the displayed matrices modulo 𝔪′; they are scalar extensions of the two 𝔽₃-models. Choose an unramified lift of γ and twist. This matches the full local residual module, not just inertia and trace. The arithmetic lift still has its specified determinant; the finite induced model by itself has determinant −1 at Frobenius.",
         "So ρ̃₂|_{I₂} is compatible with ρ̄₃ at 2 in DP's sense, and after the twist both reductions have trace γ(Frob₂)·(1 − 1) = 0 at Frobenius.",
         "Apply KW I Theorem 5.1(4) at coefficient prime 3 and local prime 2, using R24.3/theorem-5-1-part-4-level-two-type-at-q and R08.6/export-away-from-p. This restricted theorem supplies the order-three system via R24.5/kw-theorem-5-1-systems; an arbitrary-type global existence assertion is unnecessary. If the residual module at 2 is unramified, the published Lemma 2.3 also permits a minimal lift unramified at 2 and immediate passage to Paso 5. Use the exact odd transfer at 3 for the two 3-adic lifts and the within-system recognition contract."
       ],
@@ -551,7 +603,7 @@
         {
           "name": "TauCeti.SerreConjecture.DP.orderThreeType_exists_lattice_reduction_iso",
           "role": "characterisation",
-          "statement": "if ρ̄₃|_{D₂} ≅ γ ⊗ (χ̄₃ c; 0 1) with γ unramified, there is a G_{ℚ₂}-stable lattice Λ in ρ̃₂ with γ ⊗ (Λ/πΛ) ≅ ρ̄₃|_{D₂}: Λ = L₀ if c = 0 and Λ = L₁ if c ≠ 0; L₀ fails when c ≠ 0"
+          "statement": "After a specified common finite coefficient extension 𝒪→𝒪′, if the full residual local module has unramified twist γ and split/non-split Steinberg shape, choose Λ′=L₀⊗𝒪′ or L₁⊗𝒪′ respectively. Then γ⊗(Λ′/𝔪′Λ′) is isomorphic to that module over k′. Match a lift of γ as well when constructing the characteristic-zero local solution; L₀ fails in the non-split case."
         },
         {
           "name": "TauCeti.SerreConjecture.DP.orderThreeType_isCompatible",
@@ -562,6 +614,16 @@
           "name": "TauCeti.SerreConjecture.DP.typeChangeAtTwo",
           "role": "equivalence",
           "statement": "{ρ_ℓ} is modular iff {ρ′_ℓ} is"
+        },
+        {
+          "name": "TauCeti.SerreConjecture.DP.orderThreeType_scalarExtension",
+          "role": "functoriality",
+          "statement": "For every specified finite extension of the coefficient DVR, scalar extension of L₀ or L₁ and reduction modulo the new maximal ideal commute up to the canonical full local-module isomorphism. Preserve trivial versus one-dimensional inertia invariants and transport the unramified twist. Quotient by π only over the original DVR."
+        },
+        {
+          "name": "TauCeti.SerreConjecture.DP.orderThreeType_root_independence",
+          "role": "compatibility",
+          "statement": "Replacing the chosen primitive cube root ζ by ζ² conjugates the induced representation by interchange of its two character lines; the split and non-split residual module classes are unchanged after compatible coefficient extension and basis transport. Assert isomorphisms of representations and lattices, not equality of their displayed matrices."
         }
       ],
       "tests": [
@@ -609,6 +671,11 @@
           "name": "split_case_standard_lattice",
           "kind": "degenerate",
           "statement": "when ρ̄₃ is unramified at 2, ρ̄₃|_{D₂} ≅ γ ⊗ (η ⊕ 1), which L₀ realises: F₀ mod π squares to 1 and is neither 1 nor −1, so its eigenvalues are 1 and −1 = 2 = χ̄₃(Frob₂) (acceptance calculation)"
+        },
+        {
+          "name": "coefficient_field_and_ramified_extension",
+          "kind": "non-example",
+          "statement": "An unramified γ with Frobenius a primitive element of 𝔽₉× cannot be realized over the residue field 𝔽₃ of ℤ₃[ζ]. First extend to a common residue field. After an additional ramified extension, reducing modulo π may give a nonreduced ring; reduction modulo 𝔪′ still gives the displayed split/non-split matrices over k′."
         }
       ]
     },
@@ -687,28 +754,30 @@
       ],
       "title": "Section 3: characteristic two, reduced to the odd case",
       "kind": "theorem",
-      "statement": "Every irreducible ρ̄ : G_ℚ → GL₂(𝔽̄₂) is modular (oddness is automatic in characteristic 2). If the image is solvable, the projective image is dihedral (KW I Lemma 6.1: S₄ does not occur, and A₄ would lie in a Borel subgroup over 𝔽₄), and the dihedral case is Rohrlich–Tunnell. If the image is non-solvable, take the KW I Theorem 5.1(1)/(2) dyadic weight-2 system and an auxiliary prime p > 3 (R33.5/auxiliary-odd-prime-for-the-dyadic-system): ρ̄_p is either reducible, and ρ_p is modular by Theorem 1.6, or irreducible, odd and not bad dihedral in odd characteristic, hence modular by the already proved odd case (R33.4/dp-odd-characteristic-assembly), and ρ_p is modular by Theorem 1.4. By Remark 4 the whole system, hence ρ̄, is modular.",
+      "statement": "Every continuous irreducible ρ̄ : G_ℚ → GL₂(𝔽̄₂) is modular (oddness is automatic in characteristic 2). If the image is solvable, the projective image is dihedral (KW I Lemma 6.1: S₄ does not occur, and A₄ would lie in a Borel subgroup over 𝔽₄), and R17.6/qualitative-residual-modularity supplies a cuspidal weight-one witness through Wiese’s odd lift and dihedral Artin automorphy. Apply the weight-shift theorem of R33.1 to obtain the weight-at-least-two witness; this branch claims no exact level or character. If the image is non-solvable, take the KW I Theorem 5.1(1)/(2) dyadic weight-2 system and an auxiliary prime p > 3 (R33.5/auxiliary-odd-prime-for-the-dyadic-system): ρ̄_p is either reducible, and ρ_p is modular by Theorem 1.6, or irreducible, odd and not bad dihedral in odd characteristic, hence modular by the already proved odd case (R33.4/dp-odd-characteristic-assembly), and ρ_p is modular by Theorem 1.4. By Remark 4 the whole system, hence ρ̄, is modular.",
       "hypotheses": [
         "this stage uses the odd-characteristic qualitative theorem of §2; it does not use its own p = 2 conclusion",
-        "the solvable branch is entirely imported: Rohrlich–Tunnell (GL2AutomorphicRepresentationsAndTransfer R17.6), with the dyadic refinement of Dickson (KW I Lemma 6.1, ArithmeticGaloisRepresentations R01.4/dickson-classification-and-the-dyadic-refinement)",
+        "The solvable branch is entirely imported: R01.4 gives dihedral projective image, and GL2AutomorphicRepresentationsAndTransfer R17.6/qualitative-residual-modularity covers all such images. Rohrlich–Tunnell’s determinant-one theorem has a discriminant restriction and is not a substitute for this general existence theorem.",
         "The system’s own dyadic member can be read directly from its identified modular form system. If comparison with a separately chosen dyadic lift is needed, branch (B) of dp-modularity-lifting-inputs applies: regular de Rham weights and the original nonsolvable residual image. No p=2 Serre theorem is assumed."
       ],
       "proofSteps": [
         "Split on the solvability of the image.",
-        "Solvable: Lemma 6.1 and Rohrlich–Tunnell.",
+        "Solvable: apply the dyadic projective-image classification, then R17.6/qualitative-residual-modularity (Wiese Lemma 3 odd lift and dihedral Artin weight-one automorphy), then R33.1/dp-target-and-the-weight-at-least-two-convention. No conductor-level refinement or separate mod-two Serre theorem is used.",
         "Non-solvable: auxiliary prime p > 3; reducible branch by Theorem 1.6, irreducible branch by the odd case and Theorem 1.4; Remark 4. The last step imports R24.6/linked-systems-modularity-transfer, comparing each member to Deligne’s system of a modular form in the same coefficient characteristic."
       ],
       "acceptance": [
         "Check that the bound p > 3 from Lemma 1.14 is exactly what avoids bad dihedral at residual weight 2",
-        "Check that the claimed independence of this strand concerns only the qualitative argument, since the weight and level refinements come from elsewhere (R33.6)"
+        "Check that the claimed independence of this strand concerns only the qualitative argument, since the weight and level refinements come from elsewhere (R33.6)",
+        "A projective-dihedral example whose associated quadratic discriminant is 4 modulo 8 is covered by Wiese’s qualitative supplier; do not apply the restricted Rohrlich–Tunnell theorem or infer its exact level and trivial-character conclusion."
       ],
       "prerequisites": [
         "ClassicalSerreModularity:R33.5/auxiliary-odd-prime-for-the-dyadic-system",
         "ClassicalSerreModularity:R33.4/dp-odd-characteristic-assembly",
         "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
         "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
-        "GL2AutomorphicRepresentationsAndTransfer:R17.6/weight-two-witness",
-        "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer"
+        "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.6/qualitative-residual-modularity",
+        "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SerreConjecture/DieulefaitPacetti",
@@ -718,12 +787,22 @@
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "§3, p. 15 of arXiv v2",
-          "match": "The solvable branch: Lemma 6.1 and Rohrlich–Tunnell."
+          "match": "The solvable branch is asserted here; use the accepted R17.6 general Wiese/dihedral-Artin supplier, rather than extending the narrower cited Rohrlich–Tunnell theorem beyond its hypotheses."
         },
         {
           "sourceId": "dieulefait-pacetti",
           "locator": "§3, p. 15 of arXiv v2",
           "match": "The non-solvable branch ends in the odd case or in Theorem 1.6."
+        },
+        {
+          "sourceId": "wiese04",
+          "locator": "Lemma 3 and proof, printed p.127 (PDF p.5); proof of Theorem 1, printed p.131 (PDF p.9); dihedral convention printed p.123",
+          "match": "An odd characteristic-zero dihedral lift exists without conductor control, and dihedral Artin automorphy supplies a weight-one newform. The qualitative step does not require residual ramification; import it from the accepted R17.6 supplier."
+        },
+        {
+          "sourceId": "rt97",
+          "locator": "Introduction pp.299–300; theorem p.307 and Remarks 1–3 p.308",
+          "match": "The exact-level theorem covers linear-dihedral image only when the quadratic discriminant is odd or divisible by eight. Qualitative existence is acknowledged in the introduction; the full projective-dihedral contract here is imported through the explicit Wiese supplier. This distinction is not a claim that DP’s qualitative conclusion is false."
         }
       ],
       "implementationStatus": "unchecked",
@@ -742,18 +821,17 @@
       "statement": "Let p be any prime, F a finite field of characteristic p and ρ̄:G_ℚ→GL₂(F) continuous, odd and absolutely irreducible. Assume only that ρ̄ is modular in R15.6/s-type-arises-from-and-modular. Then there are a normalized characteristic-zero newform f of exact weight k(ρ̄)≥2 and exact level N(ρ̄), a coefficient place λ∣p, stable integral model and residual isomorphism after common finite residue-field extension. The nebentypus of f reduces to ε(ρ̄), and det ρ̄=ε(ρ̄)χ̄_p^{k(ρ̄)−1}. This implication is uniform in all p, including dyadic scalar local restriction. It assumes no unconditional Serre theorem.",
       "hypotheses": [
         "The definition of modularity, invariants and coefficient-extension conventions are the single R15.6 interfaces; no new predicate is defined here.",
-        "R20.6/strong-form-case-table is a manifest, not an unconditional supplier. Select the conditional optimisation rows only.",
+        "R20.6/strong-form-case-table is a documentary manifest, not a proof prerequisite. Use the named conditional optimisation nodes and R27.4’s dihedral/minimal-lift branches; never its unconditional row.",
         "At p=2 a scalar local representation has k=2. The scalar non-dihedral branch uses R27.4/strong-form-by-minimal-lifts; this is why the implication is owned after R27.4 and cannot be placed in R20."
       ],
       "proofSteps": [
-        "For odd p apply R27.4/strong-form-by-minimal-lifts: twist the residual representation into the interval 2≤k≤p+1, take the KW I Theorem 5.1(1) minimal crystalline lift and apply the exact odd-prime Theorem 4.1 with the supplied modular residual witness. Untwist using the R20.3 weight theorem and eigenvalue lifting. The prime-to-p conductor survives the cyclotomic twist.",
+        "For odd p first split off dihedral projective image, using the dihedral optimisation branch of R27.4/strong-form-by-minimal-lifts (KW I Lemma 6.2(i)). Only in the remaining non-dihedral case twist into 2≤k≤p+1: the cyclotomic restriction is then absolutely irreducible. Take the KW I Theorem 5.1(1) minimal crystalline lift and apply the exact odd-prime Theorem 4.1 with the given modular residual witness. Untwist using the R20.3 weight theorem and eigenvalue lifting. The prime-to-p conductor survives the cyclotomic twist.",
         "At p=2,k=2 use the dyadic part of that same conditional node, including the scalar non-dihedral case, or the dihedral optimisation where applicable. Retain its exact R22.6 lifting hypotheses; no KW induction endpoint is an input.",
         "At p=2,k=4 the restriction is nonfinite and hence nonscalar. Use R20.5/nonscalar-dyadic-multiplicity-one and R20.5/buzzard-weight-and-level-mod-two; the weight-three output in the nonfinite branch is raised to classical even Serre weight four with its character conventions. The Q(i)-induced branch has the independent dihedral bridge.",
         "In each branch pass to the attached normalized newform. Its level divides N(ρ̄) and the residual conductor divides that level, giving equality. Import the determinant equation and base-extension invariance from R15.6."
       ],
       "prerequisites": [
         "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
-        "SerreWeightAndLevelOptimisation:R20.6/strong-form-case-table",
         "SerreWeightAndLevelOptimisation:R20.5/nonscalar-dyadic-multiplicity-one",
         "SerreWeightAndLevelOptimisation:R20.5/buzzard-weight-and-level-mod-two",
         "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
@@ -764,7 +842,8 @@
         "Test all three weight branches: p odd; p=2,k=2; p=2,k=4. Include scalar local restriction in the second.",
         "For p=5 and local inertia χ̄₅⊕χ̄₅², the original Serre weight can exceed p+1. The proof must normalize and untwist, rather than apply Theorem 5.1(1) outside its weight range.",
         "No prerequisite is full-classical-serre-theorem, any unconditional R20 manifest reference, or ML.1. The modern qualitative proof may supply the hypothesis.",
-        "Reduced nebentypus equality does not imply equality of characteristic-zero characters."
+        "Reduced nebentypus equality does not imply equality of characteristic-zero characters.",
+        "A modular bad-dihedral odd-characteristic input is settled before Theorem 5.1(1): its cyclotomic restriction is reducible, so that lifting theorem cannot be applied to it."
       ],
       "sources": [
         {
@@ -925,9 +1004,10 @@
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
-      "need": "For each fixed weight k≥2 and bound B, finitely many normalized newforms of levels dividing B, including their nebentypus characters and coefficient embeddings into a common normal number field. Use the current modular-symbol/Hecke coefficient-field plan; no new modular-form carrier or duplicate finiteness theory.",
+      "need": "For each fixed weight k≥2 and bound B, finitely many normalized newforms of levels dividing B, including their nebentypus characters and coefficient embeddings into a common normal number field. Use the current modular-symbol/Hecke coefficient-field plan; no new modular-form carrier or duplicate finiteness theory. Reuse coefficient-field finiteness, including sublayer 8W for a weight-one witness, and finite-dimensionality to choose a common number field for a finite newform/oldform basis. The arbitrary-level weight-shift proof then applies algebraic lifting on the saturated q-expansion-integral lattice, rather than assuming a tame-level geometric reduction theorem or a congruence-preserving all-cusp sublattice.",
       "neededBy": [
-        "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export"
+        "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export",
+        "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention"
       ]
     },
     {
@@ -972,6 +1052,13 @@
       "neededBy": [
         "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+      "need": "Reuse the existing characteristic-zero primitive/oldform decomposition at arbitrary positive level: a full cuspidal eigenform has a normalized newform of divisor level with the same good eigensystem. After lifting the good eigensystem, select the remaining commuting eigenoperators in characteristic zero; no integral bad-prime eigenvalues are prescribed. This includes levels divisible by the residual coefficient prime.",
+      "neededBy": [
+        "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention"
+      ]
     }
   ],
   "restructure": [
@@ -984,7 +1071,7 @@
         "GL2AutomorphicRepresentationsAndTransfer"
       ],
       "detail": "Latest paper routing assigns general KW I Theorem 10.1(ii) and Khare weight-one descent to ML.1, while the confirmed RT-AREA-langlands-2/8 requires the finite-image odd Artin Corollary 10.2(ii) as an R27.6 export. These can coexist without a circular descent import.",
-      "proposal": "Retain R27.6/odd-artin-weight-one-modularity and its finite-image proof written in this reader; redirect its inputs to R01.1/R01.5, R15.2/R15.5, R20.3 and R19.1 rather than a general ML.1 descent theorem. Move the general statements of weight-one-descent-from-infinitely-many-primes and the irregular-system application to ML.1; cohomology/eigenvalue/weight facts stay at R15/R20. ML.1 over ℚ is a registry of R19.1’s Deligne–Serre construction, R17.5’s solvable cases and this finite Artin corollary, plus its own general irregular-system descent. Add R19.1→ML.1, R17.5→ML.1 and R27.6→ML.1. Never add ML.1→R27.6."
+      "proposal": "Retain R27.6/odd-artin-weight-one-modularity and its finite-image proof written in this reader; redirect its inputs to R01.1/R01.5, R15.2/R15.5, R20.3 and R19.1 rather than a general ML.1 descent theorem. Move the general statements of weight-one-descent-from-infinitely-many-primes and the irregular-system application to ML.1; cohomology/eigenvalue/weight facts stay at R15/R20. ML.1 over ℚ is a registry of R19.1’s Deligne–Serre construction, R17.5’s solvable cases and this finite Artin corollary, plus its own general irregular-system descent. Add R19.1→ML.1, R17.5→ML.1 and R27.6→ML.1. Never add ML.1→R27.6. Explicitly redirect R27.6/weight-one-reduction-is-onto-for-almost-all-primes to R15.2’s fixed-level H¹ request; retain the finite-image artin-reductions-of-serre-type helper and only the distinct-Frobenius-eigenvalue branch of unramified-residual-representations-arise-in-weight-one for this export. The stronger general irregular-system consumer moves to ML.1."
     },
     {
       "action": "split",
@@ -1029,7 +1116,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in KW author p.19: the construction is at the mod-three member and its local type at two is supplied by 5.1(4), not 5.1(2). Flatness of the dyadic member also uses compatibility and the e=3 comparison.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E4",
@@ -1044,7 +1136,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in DP v2 p.11; compared published p.11, which gives the correct residue-field cardinality N². This issue applies to v2, not that corrected published phrase.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E5",
@@ -1059,7 +1156,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on both DP p.11 page versions: the local character lives at N, so its niveau-two inertial restriction is at N. The barred coefficient-ring notation was checked on the page image and is not an additional error.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E6",
@@ -1074,7 +1176,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both Remark 6 versions p.13: existence of flatness over one even-index field does not exclude flatness over an odd-index field. The required universal odd-index obstruction is recorded as an open supplier contract.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E7",
@@ -1089,7 +1196,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparing the weak DP minimality definition (v2 p.6; published p.6) with Pasos 3–4 (pp.12–13). That definition alone does not preserve the ramified N-type. The packet explicitly imports stronger KW minimality/prescribed local type and includes N in the bound.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E8",
@@ -1104,7 +1216,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in DP Paso 2 p.11 in both versions: finite full decomposition image cannot have determinant ψ(N)N at arithmetic Frobenius. Distinguish finite inertial image, finite dihedral projective image, and the infinite arithmetic decomposition image.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E9",
@@ -1119,7 +1236,12 @@
       "searched": [
         "The cited author/preprint version and the accepted prior blueprint finding.",
         "DP 2023 published article compared at the indicated passages; KW I published Inventiones text not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an omitted proof step, not a false theorem: KW author §3.2 p.6 proves qualitative modularity and does not spell out the stated exact weight/conductor refinement. The conditional argument must separate dihedral inputs before minimal lifting and include scalar dyadic optimisation.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E15",
@@ -1134,7 +1256,12 @@
       "searched": [
         "KW I author preprint and accepted paper extraction; UCLA author publication list and public errata search, 2026-10-16.",
         "No claim about the inaccessible Inventiones text."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in KW author Theorem 5.1(2), p.9: a nonzero nilpotent operator lies in End, not GL₂, since its determinant vanishes. No claim about the unexamined Inventiones version.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     },
     {
       "id": "ClassicalSerreModularity/E16",
@@ -1149,7 +1276,12 @@
       "searched": [
         "KW I author preprint and accepted paper extraction; UCLA author publication list and public errata search, 2026-10-16.",
         "No claim about the inaccessible Inventiones text."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in KW author p.19 against Theorem 1.2 on p.2: the dyadic weight-two clause is numbered (2), not (ii). No mathematical change is needed.",
+        "by": "REV-ClassicalSerreModularity--R27.6"
+      }
     }
   ],
   "retainedTargets": [
@@ -1205,6 +1337,32 @@
         ],
         "refinement": "Keep the finite-image Corollary 10.2(ii), and replace general descent by the fixed-level eventual reduction argument in this reader. Its R15.2 stage reference is exactly the H¹ consumer request. The two retained Artin reduction/weight-one helpers are narrower than general irregular-system descent. Move the general descent theorem to ML.1; no reverse edge."
       }
+    },
+    {
+      "nodeId": "ClassicalSerreModularity:R27.6/unramified-residual-representations-arise-in-weight-one",
+      "packet": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+      "stageId": "ClassicalSerreModularity:R27.6",
+      "use": "The distinct-Frobenius-eigenvalue Katz weight-one branch used by the finite Artin export",
+      "assembly": {
+        "prerequisites": [
+          "ClassicalSerreModularity:R27.6/full-classical-serre-theorem",
+          "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+          "SerreWeightAndLevelOptimisation:R20.3/companion-forms",
+          "SerreWeightAndLevelOptimisation:R20.3/local-form-of-ordinary-eigenforms",
+          "SerreWeightAndLevelOptimisation:R20.3/local-form-of-supersingular-eigenforms",
+          "AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases",
+          "AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-and-its-comparison-with-serre-k",
+          "AlgebraicModularFormsAndSerreWeights:R15.2/integral-lattice-and-reduction-image",
+          "AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-with-a-chosen-place-and-coefficient-field"
+        ],
+        "refinement": "For the finite-image Artin export retain the distinct-Frobenius-eigenvalue hypothesis and its nonexceptional Katz weight-one branch. Remove the optional stronger without-distinct-eigenvalues clause from this finite-image assembly; the general irregular-system consumer is routed to ML.1. Weight-one reduction is supplied by the fixed-level R15.2 H¹ request, not a universal same-weight lifting assertion."
+      }
+    },
+    {
+      "nodeId": "ClassicalSerreModularity:R27.6/artin-reductions-of-serre-type",
+      "packet": "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+      "stageId": "ClassicalSerreModularity:R27.6",
+      "use": "Finite-image reduction, conductor and nonexceptional Frobenius helpers for the odd Artin export"
     },
     {
       "nodeId": "ClassicalSerreModularity:R33.1/fontaine-laffaille-member-not-bad-dihedral",
@@ -1384,10 +1542,9 @@
       "assembly": {
         "prerequisites": [
           "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
-          "AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform",
           "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention"
         ],
-        "refinement": "Use the actual weight-shift/true-eigenform application at R15.5 rather than the bare algebraic eigenvalue lemma, including its old/new supplier. This is an equivalence of witness predicates, not a second public modularity definition."
+        "refinement": "Use the R33.1 witness conversion, including its arbitrary-level analytic lattice branch when p divides the input weight-one level. Do not silently extend the invertible-level R15.5 application. The upstream old/new theorem then preserves good eigensystems. This is an equivalence of witness predicates, not a second public modularity definition."
       }
     },
     {
@@ -1409,7 +1566,16 @@
       "nodeId": "ClassicalSerreModularity:R33.6/two-routes-comparison",
       "packet": "research/blueprint/packets/ClassicalSerreModularity--R33.5.json",
       "stageId": "ClassicalSerreModularity:R33.6",
-      "use": "Two proofs of Serre’s conjecture: what each route uses from Khare–Wintenberger"
+      "use": "Two proofs of Serre’s conjecture: what each route uses from Khare–Wintenberger",
+      "assembly": {
+        "prerequisites": [
+          "ClassicalSerreModularity:R27.6/full-classical-serre-theorem",
+          "ClassicalSerreModularity:R33.6/strong-form-by-the-modern-route",
+          "ClassicalSerreModularity:R33.5/globalisation-dependency-check",
+          "ClassicalSerreModularity:R27.6/qualitative-to-refined-passage"
+        ],
+        "refinement": "Compare the endpoints documentarily after proving each separately. The modern qualitative closure uses only early R27.1 facts, while its refinement also uses the conditional R27.6 implication and R27.4 supplier. Never feed this comparison, or its classical endpoint prerequisite, back into either proof. Preserve the open source-independence audit."
+      }
     },
     {
       "nodeId": "ClassicalSerreModularity:R33.6/elliptic-curve-export-via-either-route",
@@ -1421,11 +1587,11 @@
   "upstreamNotes": [
     {
       "roadmap": "tauceti:TauCetiRoadmap/LocalGaloisGroups",
-      "detail": "Read the current local Galois, roots of unity, cyclotomic and cohomology plans. Those carriers are existing upstream work; local tame and finite-flat arithmetic refinements here are consumer requests to R01/R07/R08, not new local Galois definitions."
+      "detail": "Read the current local Galois, roots of unity, cyclotomic and cohomology plans. Those carriers are existing upstream work; local tame and finite-flat arithmetic refinements here are consumer requests to R01/R07/R08, not new local Galois definitions. The general tame quotient and its Frobenius relation are already owned by upstream LocalFieldsRamification, which LocalGaloisGroups imports; R01.2 only supplies the residual-module application here."
     },
     {
       "roadmap": "tauceti:TauCetiRoadmap/ModularForms",
-      "detail": "Read current newform and coefficient-field layers. HeckeRing.GL2.Newform and its normalized first coefficient already exist at both the pinned and current Tau Ceti commits. The nebentypus is a field of the bundled eigenform; no third type parameter or competing newform structure is introduced."
+      "detail": "Read current newform and coefficient-field layers. HeckeRing.GL2.Newform and its normalized first coefficient already exist at both the pinned and current Tau Ceti commits. The nebentypus is a field of the bundled eigenform; no third type parameter or competing newform structure is introduced. Layer 8W owns the all-cusp integral weight-one Hecke lattice independently of Artin representations. Reuse that coefficient-field direction and upstream old/new theory in the arbitrary-level analytic weight-shift application. Its proof uses the saturated q-expansion-integral lattice and algebraic lifting, not a presumed congruence-preserving all-cusp sublattice; the geometric invertible-level application is narrower."
     }
   ],
   "libraryInspection": {
@@ -1470,6 +1636,20 @@
       "url": "https://link.springer.com/content/pdf/10.1007/s13398-023-01478-8.pdf",
       "read": "2026-10-16",
       "sha256": "2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8"
+    },
+    {
+      "sourceId": "wiese04",
+      "kind": "published",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf",
+      "read": "2026-10-16",
+      "sha256": "1dcd4bb30b64a19cb1335a7442b6704ff9c0a3dd0ad96d97d6b37a04d0aa3b06"
+    },
+    {
+      "sourceId": "rt97",
+      "kind": "published",
+      "url": "https://msp.org/pjm/1997/181-3/pjm-v181-n3-p16-p.pdf",
+      "read": "2026-10-16",
+      "sha256": "fe131f6cff026c25c65727d6675d1bea9233f91bd1d0d7947587b491cf22d3b9"
     }
   ],
   "inheritedSourceIssues": [
@@ -1490,5 +1670,58 @@
       "id": "PotentialModularityAndCompatibleSystems/E5",
       "use": "DP Theorem 1.11’s cited Dieulefait theorem is narrower. Every application here selects a lift in the accepted A/B/C family scope rather than invoking the unsupported generalization."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ClassicalSerreModularity--R27.6",
+    "date": "2026-10-16",
+    "notes": "Independent review of all nine owned nodes, twenty-two retained target contracts and their assembly redirects, all seven source versions at cited locators, five baseline declarations at exact pins, current upstream ownership and the library audit. Corrected the odd dihedral branch, arbitrary-level saturated-q-expansion weight shift, dyadic solvable supplier, coefficient-DVR reduction, API/tests and comparison redirects. Nine sourceIssues independently confirmed. Packet and reader agree. All seven stages remain planned, with five gaps and eight requests; acceptance is of the completed planning pass, not proof closure or a source-independence certificate. Packet check has no errors/warnings; the 111-line suggested file compiles with only six expected theorem-placeholder warnings.",
+    "checked": [
+      {
+        "nodeId": "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export",
+        "verdict": "corrected",
+        "note": "KW I Theorem 10.1(i), author p.20: verified the regular, bounded-level, eventual-residual argument. Clear fixed denominators before the infinite-prime comparison; retain ML.1 ownership of general irregular descent and the finite Artin export here."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention",
+        "verdict": "corrected",
+        "note": "DP Remark 1/Theorem 1.3 and RT p.301: separate the invertible-level R15.5 application from the arbitrary-level analytic q-expansion lattice application of algebraic lifting. Its saturation makes coefficientwise congruences into actual lattice congruences. Import upstream finite-dimensionality, coefficient fields and old/new theory; correct the dyadic solvable supplier description."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
+        "verdict": "verified",
+        "note": "DP §§1.2–1.4, SW printed p.6 and accepted R32/R21 contracts agree with the four lifting branches. Finite-order determinant, ordinary quotient, cyclotomic absolute irreducibility and nonsolvable dyadic hypotheses are explicit. The R32 source-independence audit remains open."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R33.2/dp-lift-existence-and-good-dihedral-insertion",
+        "verdict": "corrected",
+        "note": "DP Paso 2 pp.10–11 and accepted R24/R08 contracts: preserve rational residual coefficients, weight-two crystallinity, full determinant-compatible local solutions and the bound including N. Replace the administrative test by a Frobenius determinant test; add scalar-extension, package-isomorphism and coherence API contracts."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type",
+        "verdict": "corrected",
+        "note": "DP Lemma 2.3 pp.12–13 in both versions and KW I 5.1(4) p.10 support the restricted construction. Extend the coefficient DVR to realize the input unramified twist, then reduce modulo its maximal ideal. Add transport/root-choice API and a coefficient-field counterexample; the two lattice matrices and relations are correct."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case",
+        "verdict": "verified",
+        "note": "DP Paso 6 pp.14–15 and the accepted R25/R21 contracts cover weights 2,4,6. Keep the k=3+1 ordinary boundary, finite-order determinant and positive-dimensional all-Tate-component realization obligation. Schoof remains the terminal supplier, not a substitute classical Serre endpoint."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R33.5/dp-characteristic-two-closure",
+        "verdict": "corrected",
+        "note": "DP §3 p.15: add continuity and use projective-dihedral classification plus R17.6/qualitative-residual-modularity and the R33.1 weight shift. Wiese Lemma 3 p.127 and proof of Theorem 1 p.131 verify the general supplier; RT pp.300,307–308 separate qualitative existence from the restricted exact-level theorem."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R27.6/qualitative-to-refined-passage",
+        "verdict": "corrected",
+        "note": "KW I pp.2,6–11: split dihedral odd-characteristic inputs before invoking minimal lifting, and retain all cyclotomic/normalized-weight hypotheses. Remove the documentary R20.6 manifest as a proof prerequisite. The shared conditional refinement has no unconditional classical endpoint prerequisite."
+      },
+      {
+        "nodeId": "ClassicalSerreModularity:R27.6/bcdt-mod-five-cyclotomic-special-case",
+        "verdict": "verified",
+        "note": "BCDT Theorem B author p.1 and Theorem 2.2.1 pp.17–19 use F₅, not its algebraic closure. Cyclotomic determinant gives oddness and absolute irreducibility by R01.4, so full Serre supplies the specialization. No finite-flat or weight-two assumption is added."
+      }
+    ]
+  }
 }
