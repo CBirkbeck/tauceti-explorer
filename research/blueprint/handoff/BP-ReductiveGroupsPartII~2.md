@@ -1,6 +1,67 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-J8QJCg, 2026-10-16
+## Latest dispatch: codex-1AKKYJ, 2026-10-16
+
+Codex session `codex-1AKKYJ` selected #9312 as the first available eligible
+issue in the manager's priority list. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6216489946).
+This submission is a **blocked checkpoint**, not a completed revision.
+
+The maintainer's
+[2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+still directs changes to the authoritative upstream roadmap PR and says that
+further atlas blueprint rounds are unnecessary. Read all subsequent issue
+comments: none resolves that restriction or assigns an extension owner.
+PROTOCOL section 15 treats tracked open upstream roadmap PRs as existing work.
+Another availability label and successful claim do not resolve the ownership
+conflict identified by the independent review.
+
+Fresh checks in this dispatch:
+
+- Read WORKERS, both protocols, upstream guidance, the complete issue and its
+  comments, the independent review, previous checkpoints, and the packet's
+  summary, review status, scope, coverage and five gaps. Inspected the reviewed
+  library audit's ModularCurves 0F and algebraic-space Weil-restriction entries.
+  No new pinned-library or mathematical-source audit is claimed.
+- Read the supplied ReductiveGroups and ReductiveGroupsPartII introductions,
+  ownership boundaries and the Part II suggested-file opening; inspected the
+  current Tau Ceti convolution-point source. Neither read-only tree was edited
+  or built. The supplied roadmap checkout remains at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`.
+- Queried the live [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785):
+  it remains open and draft at head
+  `b853d91ae766c28b7360b4c8ddb5af7db85bda46`. Fetched only its individual
+  [README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b853d91ae766c28b7360b4c8ddb5af7db85bda46/TauCetiRoadmap/ReductiveGroupsPartII/README.md)
+  into scratch and read Scope and ownership, lines 29–123. All seven assigned
+  layers remain owned there, and the candidate additional mathematics still
+  has no separately assigned atlas extension. Its 7,286 lines have SHA-256
+  `e13ec5ade6a7855e55e0da59d06ca68711d3a093f0b1b6cc7520e3dc57c009b4`.
+  This checks ownership, not correctness of the upstream roadmap.
+- Ran `python3 scripts/check_blueprint.py research/blueprint/packets/ReductiveGroupsPartII.json`:
+  **zero errors and zero warnings**. Only this handoff changes. Lean was not
+  run because no Lean changed; the prior elaboration result remains historical
+  evidence. No build or language server was started.
+
+The inherited inventory remains 180 nodes (23 definitions, 36 constructions,
+110 theorems, two comparisons, nine applications), 368 API items, 249 tests,
+38 planets, 62 baseline declarations, 17 requests and five gaps. Packet status
+and RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5 all remain `partial`;
+the `needs_changes` review remains in place. No request, source verification,
+source-issue verdict or mathematical claim changes. RT-AREA-algebraicgeometry/11
+retains the independent review's disposition, including the ModularCurves 0F
+import.
+
+**Resume requires the manager to reconcile this dispatch with the upstream-only
+instruction.** Work within the existing roadmap goes through PR #785. If an
+atlas extension is intended, assign its identity, stage boundaries, supplier
+links and permitted deliverables first. Resume from the independent review's
+fourteen-target routing table and seven coverage lists, preserving its eight
+reader corrections and the four mathematical gaps besides ownership described
+below. Repeated checkpoint intake has made this blocked issue available four
+times without resolving that prerequisite; another identical dispatch will not
+advance the mathematical revision. This session takes no second issue.
+
+## Previous dispatch: codex-J8QJCg, 2026-10-16
 
 Codex session `codex-J8QJCg` claimed #9312 as the first available eligible
 issue in the supplied priority list. The bot
