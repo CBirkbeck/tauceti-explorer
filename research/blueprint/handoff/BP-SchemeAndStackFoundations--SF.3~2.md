@@ -2,6 +2,42 @@
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
 
+## Continuation: Codex codex-Ne6lx6, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. This was the
+first available eligible issue in the manager's ordered list. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6216749203).
+No second issue was claimed.
+
+I reread the full issue and comment history after confirmation. The
+maintainer's [instruction stopping atlas blueprint rounds](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6147002032)
+has no subsequent scope decision superseding it. Current upstream main is
+still `a46641603eb2cce60cea86900e44c3a5d856f91f`. I read Layer 3, sections
+3.1–3.8 ([README lines 4445–4837](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)),
+and its [suggested signatures, lines 1720–1865](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720).
+[PR 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[PR 943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+The supplied read-only roadmap checkout remains at `0d144d0` and the supplied
+Tau Ceti checkout at `a91d3aa`; neither was updated or built.
+
+WORKERS.md, PROTOCOL.md section 15 and this run's manager instruction forbid
+replanning existing upstream roadmaps. The issue's four authorized paths do
+not include the authoritative upstream files. Its available label and the
+automatic checkpoint releases supply no new mathematical scope. Thus this
+continuation changes only this handoff and makes no mathematical or upstream
+review verdict. The existing packet, reader, suggested file and review remain
+unchanged; the counts, outstanding requirements and ownership boundaries
+recorded below still apply. Packet and SF.3 coverage remain `partial`.
+
+Validation: `check_blueprint.py` on the unchanged packet reports zero errors
+and warnings; `intake.py check-files` on this handoff and `git diff --check`
+pass. Lean was not compiled because no Lean declaration changed.
+
+**Resume after a maintainer scope decision:** retire or supersede this atlas
+revision, or identify concrete additions beyond the existing roadmap and
+authorize their deliverables. The evidence and revision requirements needed
+to resume are in this handoff and its linked review; no scratch file is needed.
+
 ## Continuation: Codex codex-n6YNfF, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
