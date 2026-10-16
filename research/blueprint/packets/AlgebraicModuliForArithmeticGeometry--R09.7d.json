@@ -1,0 +1,497 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "part": "R09.7d",
+  "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7d"
+  ],
+  "status": "complete",
+  "summary": "Export the existing characteristic-zero projective SNC compactification and labelled analytic chart targets to Borel extension on the prescribed smooth open. Add only the missing lower-tier smooth complex-point coordinate bridge and the unique lift of punctured chart inverses to that open. Resolution, general blowups, finite-cover compactification and meridian calculations retain their existing owners.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.IsOver",
+        "kind": "abbrev",
+        "module": "Mathlib/AlgebraicGeometry/Over.lean",
+        "provides": "Morphisms commuting with the specified structure maps; complex points and maps here are over Spec C.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:ChartedSpaceCore.toChartedSpace",
+        "kind": "def",
+        "module": "Mathlib/Geometry/Manifold/ChartedSpace.lean",
+        "provides": "Constructs a native charted space and its chart-generated topology from an atlas of partial equivalences with open, continuous transitions.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:IsManifold",
+        "kind": "class",
+        "module": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
+        "provides": "Native manifold compatibility with the chosen differentiability groupoid, including analytic regularity and the complex model.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.hasStrictFDerivAt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Analytic.lean",
+        "provides": "An analytic map has strict derivative equal to its Frechet derivative; invertibility is a separate condition.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean",
+        "provides": "For a complete normed source and a continuous linear equivalence as strict derivative, supplies a local homeomorphism with the original forward map and source containing the point.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:OpenPartialHomeomorph.hasFPowerSeriesAt_symm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Inverse.lean",
+        "provides": "The inverse chart has a convergent power series when the forward series has the specified invertible continuous linear term.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Topology.IsOpenEmbedding",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Defs/Induced.lean",
+        "provides": "An embedding with open range, retaining injectivity and the induced topology; used by the conditional lift signature.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Set.pi",
+        "kind": "def",
+        "module": "Mathlib/Data/Set/Operations.lean",
+        "provides": "The native dependent product of sets; use the full Fin n index set for a polydisc.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      },
+      {
+        "ref": "mathlib:Metric.ball",
+        "kind": "def",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Defs.lean",
+        "provides": "Open metric balls; on C a ball about zero is the strict norm inequality.",
+        "checked": "Statement read in source at the pinned Mathlib commit."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SERRE56",
+      "title": "Géométrie algébrique et géométrie analytique",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Annales de l’Institut Fourier 6 (1956), 1–42; Numdam scan",
+      "url": "https://www.numdam.org/item/AIF_1956__6__1_0.pdf",
+      "sha256": "9898f985dd6932496e26450bfe0beca8655a937032f545b97cebd88d1bc8eb98",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "§1, nos. 1–2 and 4, pp. 3–6",
+        "§2, no. 5, Lemma 1 and Proposition 2, pp. 7–9; no. 6, pp. 9–11 for the comparison boundary"
+      ]
+    },
+    {
+      "id": "BM1997",
+      "title": "Canonical desingularization in characteristic zero by blowing up the maximum strata of a local invariant",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "edition": "Inventiones mathematicae 128 (1997), 207–302; full published article",
+      "url": "https://mahalex.net/teaching/seminars/gabber/Bierstone-Milman%20Canonical%20desingularization%20in%20characteristic%20zero.pdf",
+      "sha256": "f01ebbb0591fa62f9b65c16ab54f35e7409cf4fb0abd1f01bf3bf9b59d87ecaf",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "SNC convention, p. 213; Theorem 1.10, pp. 216–217; Remark 1.18, p. 225",
+        "§3.1–3.5, pp. 231–233",
+        "Theorem 11.14, pp. 290–291; Theorem 12.2, p. 292",
+        "Theorem 13.2 and following comparison, pp. 297–298"
+      ]
+    },
+    {
+      "id": "DELIGNE71",
+      "title": "Théorie de Hodge II",
+      "authors": "Pierre Deligne",
+      "edition": "Publications Mathématiques de l’IHÉS 40 (1971), 5–57; Numdam scan",
+      "url": "https://www.numdam.org/item/PMIHES_1971__40__5_0.pdf",
+      "sha256": "748edefb44fded8af67869abfed87062d66977d25b5d12f7d014f1810a063c3f",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "(3.1.2), p. 31; proof of (3.1.9), pp. 33–34",
+        "(3.2.1), pp. 34–35, including the quasi-projective alternative",
+        "(4.4.3), p. 51, Borel dependency"
+      ]
+    },
+    {
+      "id": "BKT20",
+      "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
+      "edition": "JAMS 33 (2020), 917–939; read arXiv:1810.04801v2 (22 June 2020), §4.1 p. 13, corresponding to published p. 928",
+      "url": "https://arxiv.org/pdf/1810.04801v2",
+      "sha256": "9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "§4.1, local source-pair reduction and formula (4.1), arXiv p. 13 / published p. 928"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/smooth-complex-points",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Smooth complex points and algebraic coordinates",
+      "kind": "construction",
+      "statement": "For a smooth separated finite-type complex scheme X of pure dimension n, equip the actual set X(C)=Hom over Spec C from Spec C to X with its affine-chart Euclidean topology and the native n-dimensional complex analytic manifold structure. On a smooth affine presentation cut out by polynomials p(u,v)=0 with invertible v-Jacobian, use the local inverse of (u,v) mapped to (u,p(u,v)); the resulting u coordinates give the atlas. The maximal compatible analytic atlas and topology are independent of the presentation. Every morphism over C between such smooth schemes induces an analytic map, functorially; an algebraic open immersion identifies the source manifold with the corresponding analytic open subspace. An etale map between smooth n-folds is locally biholomorphic and its analytic differential is the evaluated algebraic Jacobian. A regular function is analytic with the same values and zero set. This bounded smooth-scheme construction is the coordinate input of the already planned SNC chart theorem, not a second general analytic-space or coherent-sheaf construction.",
+      "hypotheses": [
+        "X is smooth, separated and finite type over C; fix its pure dimension n. Work componentwise for the finitely many dimensions of a smooth scheme. The empty scheme and n=0 are included.",
+        "Points and all scheme maps commute with the C-structure maps. A prime-ideal point or an arbitrary unbased Spec C morphism is not the point carrier.",
+        "For the etale assertion the chosen local algebraic Jacobian is an isomorphism; no global injectivity of an etale morphism is assumed."
+      ],
+      "proofSteps": [
+        "Import R09.7/regular-coordinates for the smooth affine polynomial presentation and rational descriptions of regular functions. On complex points, apply the native analytic inverse theorem to F(u,v)=(u,p(u,v)); the Jacobian block determinant is nonzero. Its analytic local inverse restricted to the slice with p=0 gives the desired coordinates.",
+        "Transitions are restrictions of regular functions, expressed as polynomial quotients with nonvanishing denominators, composed with these analytic inverse charts. Thus both directions are analytic on overlap. Use ChartedSpaceCore.toChartedSpace and the analytic IsManifold compatibility; compare with the Euclidean subspace topology on every affine presentation.",
+        "Affine overlap identifications are the actual identifications of C-valued points. They glue on that set, as in Serre, Proposition 2. Separatedness gives a closed diagonal on the affine pieces, hence a Hausdorff realization. The maximal compatible atlas provides presentation independence, rather than equality of arbitrary preferred charts.",
+        "Evaluate regular maps on points. Their affine rational coordinate formulas prove analyticity, identity and composition. For an algebraic open immersion, principal open sets are nonvanishing loci of continuous regular functions; affine-local agreement identifies the induced analytic topology and atlas.",
+        "For an etale coordinate map evaluate its invertible Jacobian and apply the same local inverse theorem on manifolds. Local equations of a boundary component evaluate to the same analytic zero sets; no coherent GAGA or faithful-flat local-ring comparison is used."
+      ],
+      "acceptance": [
+        "The topology is on complex-valued points, not the Zariski space of X.",
+        "Both directions of a coordinate change are analytic over C; a real smooth inverse alone is insufficient.",
+        "The statement applies to arbitrary dimension and supplies only the smooth coordinate case needed here."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.IsOver",
+        "mathlib:ChartedSpaceCore.toChartedSpace",
+        "mathlib:IsManifold",
+        "mathlib:AnalyticAt.hasStrictFDerivAt",
+        "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph",
+        "mathlib:OpenPartialHomeomorph.hasFPowerSeriesAt_symm"
+      ],
+      "sources": [
+        {
+          "sourceId": "SERRE56",
+          "locator": "§1, nos. 1–2 and 4, pp. 3–6; §2, no. 5, Lemma 1 and Proposition 2, pp. 7–9",
+          "match": "Affine analytic topology, regular maps and overlap gluing give the construction on varieties; the smooth polynomial-coordinate proof here identifies its native complex manifold atlas."
+        },
+        {
+          "sourceId": "BM1997",
+          "locator": "§3, (3.1), Definition 3.2 and Lemma 3.3, pp. 231–232",
+          "match": "Provides the smooth affine Jacobian presentations and rational coordinate functions to which the analytic inverse theorem applies."
+        }
+      ],
+      "api": [
+        {
+          "name": "smoothComplexPoints.points",
+          "role": "coercion",
+          "statement": "The underlying set is exactly the over-C point set X(C); a map f acts by composition with f."
+        },
+        {
+          "name": "smoothComplexPoints.affineChart",
+          "role": "characterisation",
+          "statement": "On any smooth affine embedding in A^N, the topology agrees with the Euclidean topology on its polynomial zero locus, and the local u-coordinates are inverse-function charts."
+        },
+        {
+          "name": "smoothComplexPoints.independent",
+          "role": "compatibility",
+          "statement": "The identity of X(C) identifies the topologies and maximal compatible analytic atlases obtained from two affine covers or presentations."
+        },
+        {
+          "name": "smoothComplexPoints.map",
+          "role": "functoriality",
+          "statement": "Every C-morphism between smooth schemes induces an analytic map. The maps for identity and composition are the actual identity and composite on points."
+        },
+        {
+          "name": "smoothComplexPoints.openImmersion",
+          "role": "equivalence",
+          "statement": "An algebraic open immersion j:U into X gives a biholomorphism U(C) onto its image with the induced analytic structure and an open embedding on underlying topological spaces."
+        },
+        {
+          "name": "smoothComplexPoints.etaleCoordinates",
+          "role": "compatibility",
+          "statement": "An etale coordinate map is locally biholomorphic, with complex derivative the evaluated algebraic Jacobian; it need not be globally one-to-one."
+        },
+        {
+          "name": "smoothComplexPoints.zeroSet",
+          "role": "simp",
+          "statement": "For a regular function h on an algebraic open W, its analytic evaluation vanishes at a precisely when the C-point a factors through V(h); locally a Cartier equation therefore has the expected analytic support."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SmoothComplexPointsChecks.point",
+          "kind": "degenerate",
+          "statement": "For Spec C the over-C point set is a singleton and its analytic dimension is zero. For the empty smooth scheme the point set and atlas domains are empty."
+        },
+        {
+          "name": "SmoothComplexPointsChecks.principalOpen",
+          "kind": "compatibility",
+          "statement": "For A^1_C the realization is C with its usual topology. The inclusion D(t)=G_m into A^1 becomes C minus {0} into C; t and t inverse become z and 1/z on their respective domains."
+        },
+        {
+          "name": "SmoothComplexPointsChecks.etaleSheets",
+          "kind": "non-example",
+          "statement": "The map G_m to G_m, z mapped to z^2, has derivative 2z and is locally biholomorphic everywhere; 1 and -1 have the same image. The API must not produce a global inverse."
+        },
+        {
+          "name": "SmoothComplexPointsChecks.scalarStructure",
+          "kind": "non-example",
+          "statement": "The ring automorphism conjugating C induces an abstract scheme automorphism of Spec C but does not commute with the identity structure map to Spec C. It is excluded from the over-C point/map API; conjugation on C is not a complex analytic coordinate map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc",
+          "how": "Discharges the smooth-point, open-restriction and etale-Jacobian sub-interface of its A0-extension request using a lower-tier construction."
+        },
+        {
+          "where": "Deligne, Théorie de Hodge II, (3.1.2), p. 31 and proof of (3.1.9), pp. 33–34",
+          "how": "Identifies the analytic divisor and the complement in the same coordinate neighbourhood, starting with algebraic labelled components."
+        }
+      ],
+      "planet": {
+        "name": "Smooth complex realization"
+      },
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Complex/SmoothPoints",
+        "namespace": "TauCeti.AlgebraicGeometry"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/borel-source-charts",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Borel source charts on the prescribed open",
+      "kind": "construction",
+      "statement": "Let U be a smooth quasi-projective finite-type variety over a characteristic-zero field k. Import R09.7/snc-compactification to obtain a chosen smooth projective X, a dense open immersion j:U into X and a finite labelled reduced strict-SNC boundary D with complement exactly j(U). Over C, equip U and X with the smooth complex realization. For each a in X(C), choose the existing R09.7/analytic-polydisc chart c_a:N_a to P_a, centered at a, with n=dim_a X and b incident boundary labels enumerated by the first b coordinates. Here P_a is the native product of discs |z_i|<rho_i with every rho_i>0, and P_a^circ consists of its points with z_i nonzero for i<b. Export the unique biholomorphism ell_a:P_a^circ to j_an inverse-image of N_a such that j_an composed with ell_a equals c_a inverse on P_a^circ. Retain the same algebraic j, the boundary labels and the full unpunctured chart. These maps give local source charts for any analytic map on the original U. For a field embedding k into C the same conclusion applies after scalar extension of the chosen model; choosing such an embedding is an extra input.",
+      "hypotheses": [
+        "U is smooth, quasi-projective and finite type over char-zero k; projectivity of X is retained from the projective closure and projective blowup chain.",
+        "Analytic assertions are over C (or after a specified embedding k into C). The algebraic existence assertion does not require such an embedding.",
+        "Boundary labels refer to globally smooth effective Cartier components with distinct incident germs. Each analytic neighbourhood avoids every nonincident component."
+      ],
+      "proofSteps": [
+        "Use the existing R09.7/snc-compactification construction and its open, boundary and projective API without re-running resolution. Its R09.1 projective-closure request remains an explicit supplier obligation. Each modification is an isomorphism on the prescribed U, so j identifies that U, not a replacement birational open.",
+        "Use smooth-complex-points to identify the analytic image of j with X(C) minus the union of the analytic boundary zero sets. For the imported R09.7/analytic-polydisc theorem, this construction supplies the required smooth analytification and etale-coordinate bridge previously requested from A0-extension.",
+        "Take its centred labelled polydisc chart and shrink away from the finitely many nonincident boundary components. Its coordinate equations give c_a(N_a intersect j_an(U(C)))=P_a^circ. Positivity of radii and b at most n are part of the chart, including n=b=0.",
+        "Restrict the inverse of c_a to P_a^circ, then use the inverse of the open-immersion identification to lift it uniquely to U(C). Injectivity of j_an proves the square and uniqueness; both inverse maps are analytic. The image is exactly j_an inverse-image of N_a.",
+        "Restrict the same maps when radii decrease, and reindex the first b coordinates when the incident labels are permuted. The square proves compatibility on overlaps. Every point of U(C) is in the image of a chart centred at its image in X(C), proving the cover; the construction chooses charts pointwise and asserts no uniform radius or finite subcover."
+      ],
+      "acceptance": [
+        "The factorization is into the original U and uses its specified open immersion.",
+        "At a crossing remove every incident coordinate hyperplane, not just their common intersection.",
+        "The full neighbourhood chart includes boundary points; only the map ell_a has punctured domain.",
+        "The result provides the source input for Borel extension. Extension into an arithmetic quotient and algebraicity are separate consumer theorems."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/smooth-complex-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "mathlib:Topology.IsOpenEmbedding",
+        "mathlib:Set.pi",
+        "mathlib:Metric.ball"
+      ],
+      "sources": [
+        {
+          "sourceId": "DELIGNE71",
+          "locator": "(3.1.2), p. 31; proof of Proposition (3.1.9), pp. 33–34; (3.2.1), pp. 34–35",
+          "match": "The analytic coordinate-boundary pair and its punctured complement give the local model; the quasi-projective case permits a projective completion without the general Nagata route. The lift square is this packet’s interface deduction."
+        },
+        {
+          "sourceId": "BM1997",
+          "locator": "Theorem 1.10, pp. 216–217; Theorem 11.14, pp. 290–291; Theorem 12.2, p. 292; Theorem 13.2, pp. 297–298",
+          "match": "Supports the imported resolution/principalization construction preserving the given smooth open, with projectivity supplied by projective closure and blowups."
+        },
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.1, published p. 928; arXiv v2 p. 13, local pair and formula (4.1)",
+          "match": "A period map is restricted through precisely these punctured source charts. Finite covering and buffering for definability belong to the Hodge consumer, not the present pointwise export."
+        }
+      ],
+      "api": [
+        {
+          "name": "borelSourceCharts.algebraicModel",
+          "role": "data",
+          "statement": "Expose the chosen X, j and labelled reduced D from snc-compactification, with X smooth projective and image j the complement of D. The choice is not canonical."
+        },
+        {
+          "name": "borelSourceCharts.fullChart",
+          "role": "projection",
+          "statement": "Expose a in N_a, c_a(a)=0, positive radii, b at most n, the bijection between incident labels and the first b coordinates, and the full biholomorphism c_a."
+        },
+        {
+          "name": "borelSourceCharts.boundary",
+          "role": "characterisation",
+          "statement": "For an incident label lambda_i, the points of D_lambda_i in N_a are exactly c_a inverse-image of z_i=0; every nonincident component misses N_a. Hence the image of N_a intersect j_an(U(C)) is P_a^circ."
+        },
+        {
+          "name": "borelSourceCharts.liftSquare",
+          "role": "universal-property",
+          "statement": "There is a unique analytic ell_a:P_a^circ to U(C) satisfying j_an(ell_a(z))=c_a inverse(z). It is a biholomorphism onto j_an inverse-image of N_a, whose inverse is c_a composed with j_an."
+        },
+        {
+          "name": "borelSourceCharts.restrict",
+          "role": "compatibility",
+          "statement": "If 0<sigma_i at most rho_i for every coordinate, use N_a prime=c_a inverse-image of P(sigma). The new ell_a is exactly the restriction of the old ell_a; successively shrinking twice equals the direct restriction."
+        },
+        {
+          "name": "borelSourceCharts.relabel",
+          "role": "functoriality",
+          "statement": "Permuting the incident labels permutes the corresponding coordinates and radii in the full chart, and precomposes ell_a with the inverse coordinate permutation. Identity and composite permutations act accordingly."
+        },
+        {
+          "name": "borelSourceCharts.coverAndPullback",
+          "role": "compatibility",
+          "statement": "The images of the ell_a cover U(C). For any analytic f:U(C) to a complex analytic target T, f composed with ell_a is analytic on P_a^circ; no extension of it is asserted by this API."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BorelSourceChecks.point",
+          "kind": "degenerate",
+          "statement": "For U=Spec C choose X=U, empty boundary and n=b=0. The empty coordinate product is a singleton and ell is the identity of that point, not a map with empty domain."
+        },
+        {
+          "name": "BorelSourceChecks.projectiveInterior",
+          "kind": "degenerate",
+          "statement": "For smooth projective U choose X=U and D empty. Every b is zero, so P^circ=P and ell is the full inverse chart. Artificially puncturing an ordinary coordinate would fail the boundary and image identities."
+        },
+        {
+          "name": "BorelSourceChecks.affineLineInfinity",
+          "kind": "computation",
+          "statement": "For U=A^1 in X=P^1, at infinity take w=1/t and |w|<rho. Here b=n=1 and ell(w)=1/w on 0<|w|<rho. The square lands in the actual affine t-line; zero belongs to the full chart but not to its lifted domain."
+        },
+        {
+          "name": "BorelSourceChecks.torusCorner",
+          "kind": "computation",
+          "statement": "For U=G_m squared in P^1 times P^1 at (0,0), the two incident boundary components are x=0 and y=0. The lifted domain is |x|<rho_1, |y|<rho_2, x nonzero and y nonzero. In particular (0,rho_2/2) is excluded although it is not the origin; at (0,1) only one factor is punctured after translating the other coordinate."
+        },
+        {
+          "name": "BorelSourceChecks.preservedOpen",
+          "kind": "characterisation",
+          "statement": "Let Y be the projective nodal cubic y^2 z=x^2(x+z) over C and U=Reg(Y). Its normalization P^1 is already a smooth SNC compactification: the two points above the node form its boundary and normalization restricts to an isomorphism with this exact U. The exported square factors through that isomorphism, and no point of U is deleted during compactification."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ShimuraVarieties:V3 and PELModuli:M3",
+          "how": "For a holomorphic map on a quasi-projective source, restrict along ell_a before applying the independently proved arithmetic-quotient extension theorem; retain c_a on the full domain for that theorem’s conclusion."
+        },
+        {
+          "where": "Bakker–Klingler–Tsimerman, §4.1, p. 928; PAPER-BAKKER-KLINGLER-TSIMERMAN-20/snc-compactification",
+          "how": "Provides the imported smooth projective source model and the ordinary local pairs. Buffering and finite chart refinements for definability remain the Hodge extension’s consuming adaptation."
+        },
+        {
+          "where": "Deligne, (4.4.3), p. 51",
+          "how": "The abelian-family equivalence cites Borel for essential surjectivity, so it cannot replace the extension theorem in the consuming proof."
+        }
+      ],
+      "planet": {
+        "name": "Borel extension source charts"
+      },
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/BorelSourceCharts",
+        "namespace": "TauCeti.AlgebraicGeometry"
+      }
+    }
+  ],
+  "imports": [
+    {
+      "target": "Projective closure, resolution and principalization preserving the original smooth open",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification",
+      "detail": "Exact existing target; its open, boundary and projective API is imported. Its upstream form is AlgebraicModuliForArithmeticGeometry PR853 §9.5 at head 6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c. The finer R09.7 resolution and principalization nodes remain its owners."
+    },
+    {
+      "target": "Strict globally smooth labelled boundary",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+      "detail": "Import its distinct-component and etale-coordinate convention. R09.7a/boundary-stratum-refinement is an additional supplier for a merely normal-crossings input, not another step of the present principalization route."
+    },
+    {
+      "target": "Full biholomorphic polydisc and punctured complement",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc",
+      "detail": "Import the existing target; smooth-complex-points supplies its explicit smooth coordinate prerequisite. Do not create a second SNC chart record or inverse-function theorem."
+    },
+    {
+      "target": "Cover compactification and monomial/meridian interfaces",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification",
+      "detail": "The existing R09.7a packet already plans this and its monomial-boundary-chart and meridian-comparison consumers. They are outside the additions here."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+      "need": "Discharge the existing R09.7/snc-compactification request: a chosen quasi-projective embedding gives a reduced projective closure with the specified dense open, and the closure/blowup composite remains projective. No exact projective-closure node is present in the read R09.1 packet. The current upstream PR853 Layer 1 supplies the intended projective geometry; this is an atlas-level supplier reconciliation, not a new compactification theorem.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/borel-source-charts"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "status": "planned",
+      "remaining": [
+        "Resolve the exact R09.1 projective-closure supplier request already inherited by R09.7/snc-compactification; retain its identification of the prescribed U.",
+        "Reconcile the analytic supplier references during assembly: route the smooth-point/open/etale-coordinate sub-interface of R09.7/analytic-polydisc to R09.7d/smooth-complex-points, and let the higher general complex-analytification construction consume and identify this smooth case. No change to another packet or upstream proposal is made here.",
+        "The heavy smooth-manifold realization and full geometric lift API/tests are authoritative README targets: their native scheme-to-manifold instantiations and proofs are not certified by the compact suggested file."
+      ]
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "sourceId": "BM1997",
+      "version": "Full 96-page published article, not the shorter 1995 arXiv account.",
+      "accessed": "2026-10-16"
+    },
+    {
+      "sourceId": "DELIGNE71",
+      "version": "Numdam published scan; locators are printed pages, not PDF indices.",
+      "accessed": "2026-10-16"
+    },
+    {
+      "sourceId": "BKT20",
+      "version": "Read v2, not the erratum’s global definability claims; only the unchanged local geometric input is used.",
+      "accessed": "2026-10-16"
+    },
+    {
+      "sourceId": "SERRE56",
+      "version": "Numdam published scan; the present construction uses its reduced smooth case only.",
+      "accessed": "2026-10-16"
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "target": "AlgebraicModuliForArithmeticGeometry PR853 and ComplexComparisonPartII general analytification",
+      "detail": "At PR853 head 6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c, the ownership table sends general complex-scheme analytification to ComplexComparisonPartII C−1.1 and Layer 9 contains algebraic SNC compactification only. WORKERS tier rules prohibit importing the higher tier here. The bounded smooth C-point/open/etale-coordinate case is therefore planned at R09.7d/smooth-complex-points. The upper construction must identify its smooth case with this one and retain singular/nonreduced analytic spaces and GAGA. This is a requested ownership adjustment, not a claim that the upstream files were changed."
+    },
+    {
+      "target": "Current main AnalyticToricGeometry Layer 4; RealAlgebraicGeometry analytic toolkit",
+      "detail": "Toric analytic boundary charts and the native analytic inversion toolkit are existing work. Neither is general scheme analytification. The new smooth bridge uses native inversion and charted-space carriers; it does not replan toric realization, a general analytic inverse theorem, or extension of functions across hyperplanes."
+    }
+  ],
+  "review": {
+    "status": "pending"
+  },
+  "inputAudit": {
+    "libraryAudit": "AUDIT-01, data/library-coverage.json, R09.7d: not built; adic polydiscs excluded",
+    "restructure": "RS-27 accepted; R09.7d unchanged, ordinary blowups remain StableReduction Layer 4",
+    "currentRoadmapsRead": [
+      "AlgebraicVectorBundles README and Suggested.lean",
+      "StableReduction README and Suggested.lean",
+      "AnalyticToricGeometry boundary/carrier sections",
+      "RealAlgebraicGeometry analytic toolkit"
+    ],
+    "upstreamProposal": {
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/853",
+      "head": "6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c",
+      "readmeSha256": "a858ba126ddef7b3a5f545a20599b4d8df74508fe2cd34b5e4207bcf12e739f3"
+    }
+  }
+}
