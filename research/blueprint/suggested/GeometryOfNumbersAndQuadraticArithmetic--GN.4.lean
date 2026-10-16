@@ -15,6 +15,8 @@ import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Data.ZMod.ValMinAbs
 import Mathlib.Order.Filter.AtTopBot.Basic
 import Mathlib.Analysis.Asymptotics.Defs
+import Mathlib.MeasureTheory.Covering.BesicovitchVectorSpace
+import Mathlib.NumberTheory.Divisors
 
 /-!
 # Geometry of numbers, Layer GN.4 follow-up: suggested Lean forms
@@ -22,7 +24,9 @@ import Mathlib.Analysis.Asymptotics.Defs
 This file is not the roadmap and is not exhaustive: the roadmap document
 `research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.4.md` is definitive.
 The statements below suggest Lean forms so that contributors and reviewers converge on names
-and signatures. Every proof is `sorry`.
+and signatures. Unproved theorem statements use `sorry`; light definitions have real bodies.
+Revision 2 adds the restricted representation-pair count and the marked-poset predicate and
+measure estimate. Owner-dependent Chevalley and highest-weight constructions remain README targets.
 
 Conventions. Lattices are Mathlib's discrete full `Submodule ℤ E` (`DiscreteTopology`,
 `IsZLattice ℝ`) in a finite-dimensional real inner-product space; Euclidean successive minima
@@ -147,7 +151,8 @@ theorem hasComplexity_interval_condition (n k ℓ : ℕ) :
       ∀ J : Finset (Fin n), IntervalCondition h (coordProj J '' Z) := sorry
 
 /-- Davenport's estimate for upper triangular unipotent images (unipotent-davenport-transfer),
-stated for complexity-bounded regions. -/
+stated for complexity-bounded regions. Apply BW to `u⁻¹ ℤⁿ`: its nonzero vectors
+have Euclidean norm at least one, by the last nonzero integral coordinate. -/
 theorem abs_card_unipotent_image_inter_sub_volume_le (n k ℓ : ℕ) :
     ∃ C : ℝ, ∀ (Z : Set (Fin n → ℝ)), Bornology.IsBounded Z → HasComplexity k ℓ Z →
       ∀ u : Matrix (Fin n) (Fin n) ℝ, u.BlockTriangular id → (∀ i, u i i = 1) →
@@ -259,6 +264,18 @@ example (R : Set (Fin 2 → ℝ)) (k : ℕ) :
 
 end Bands
 
+/-! ## 4.10 Uniform ellipse count -/
+
+/-- Absolute `2/3` discrepancy bound, including arbitrary aspect ratio, centre and orientation.
+The README gives the Fourier/smoothing proof and separates the inherited Huxley input. -/
+theorem uniform_ellipse_lattice_count :
+    ∃ C : ℝ, 0 < C ∧ ∀ (A B : ℝ) (c : Fin 2 → ℝ)
+      (Q : Matrix (Fin 2) (Fin 2) ℝ), 0 < B → B ≤ A → Q.transpose * Q = 1 →
+      |(({z : Fin 2 → ℤ |
+        let w := Q.transpose.mulVec (fun i ↦ (z i : ℝ) - c i)
+        (w 0 / A) ^ 2 + (w 1 / B) ^ 2 ≤ 1}).ncard : ℝ) - Real.pi * A * B| ≤
+          C * (1 + A ^ 2 / B) ^ (2 / 3 : ℝ) := sorry
+
 /-! ## 4.11 Explicit counts in applications -/
 
 section Markoff
@@ -275,6 +292,18 @@ theorem markoffFundamentalCount_eq :
 
 /-- hyperplane-orthant-count for `d = 2`, `a = (1, 1)`, `L = ℤ²` (its first check). -/
 example (n : ℕ) : {x : Fin 2 → ℕ | x 0 + x 1 = n}.ncard = n + 1 := sorry
+
+/-- Restricted second moment for all discriminants, including nonfundamental ones.
+Toma Theorem 1, with its full conductor error, gives this range. The unrestricted
+all-`d` statement is false already at `K = 2` (see the README). -/
+theorem card_two_representations_le :
+    ∃ C : ℝ, 0 < C ∧ ∀ (K : ℝ) (d : ℕ), 2 ≤ K → 1 ≤ d → 16 * (d : ℝ) ^ 2 ≤ K →
+      (({v : Fin 4 → ℤ |
+        (v 0 : ℝ) ^ 2 + (d : ℝ) * (v 3 : ℝ) ^ 2 =
+          (v 1 : ℝ) ^ 2 + (d : ℝ) * (v 2 : ℝ) ^ 2 ∧
+        |(v 0 : ℝ)| ≤ Real.sqrt K ∧ |(v 1 : ℝ)| ≤ Real.sqrt K ∧
+        |(v 2 : ℝ)| ≤ Real.sqrt (K / d) ∧ |(v 3 : ℝ)| ≤ Real.sqrt (K / d)}).ncard : ℝ) ≤
+        C * (K / Real.sqrt d + K * Real.log K * ((Nat.divisors d).card : ℝ) / d) := sorry
 
 end Markoff
 
@@ -415,6 +444,64 @@ theorem IsGood.abs {d : ℕ} {C α : ℝ} {V : Set (EuclideanSpace ℝ (Fin d))}
 theorem IsGood.const_mul {d : ℕ} {C α : ℝ} {V : Set (EuclideanSpace ℝ (Fin d))}
     {f : EuclideanSpace ℝ (Fin d) → ℝ} (hf : IsGood C α V f) (c : ℝ) :
     IsGood C α V (fun x ↦ c * f x) := sorry
+
+/-- A marking witness is a finite chain. The empty chain still tests every element
+in its second clause; elements incomparable to a nonempty witness are not tested. -/
+def IsMarked {S X : Type*} [PartialOrder S] (ψ : S → X → ℝ) (ε ρ : ℝ) (x : X) : Prop :=
+  ∃ σ : Finset S, IsChain (· ≤ ·) (σ : Set S) ∧
+    (∀ s ∈ σ, ε ≤ |ψ s x| ∧ |ψ s x| ≤ ρ) ∧
+    ∀ s ∉ σ, (∀ t ∈ σ, s ≤ t ∨ t ≤ s) → ρ ≤ |ψ s x|
+
+theorem IsMarked.empty {S X : Type*} [PartialOrder S] {ψ : S → X → ℝ}
+    {ε ρ : ℝ} {x : X} (h : ∀ s, ρ ≤ |ψ s x|) : IsMarked ψ ε ρ x := sorry
+
+theorem IsMarked.mono_epsilon {S X : Type*} [PartialOrder S] {ψ : S → X → ℝ}
+    {ε ε' ρ : ℝ} {x : X} (h : ε' ≤ ε) (hx : IsMarked ψ ε ρ x) :
+    IsMarked ψ ε' ρ x := sorry
+
+theorem IsMarked.chain_length {S X : Type*} [PartialOrder S] {ψ : S → X → ℝ}
+    {ε ρ : ℝ} {x : X} {k : ℕ}
+    (hlen : ∀ σ : Finset S, IsChain (· ≤ ·) (σ : Set S) → σ.card ≤ k)
+    (hx : IsMarked ψ ε ρ x) :
+    ∃ σ : Finset S, σ.card ≤ k ∧ IsChain (· ≤ ·) (σ : Set S) ∧
+      (∀ s ∈ σ, ε ≤ |ψ s x| ∧ |ψ s x| ≤ ρ) ∧
+      ∀ s ∉ σ, (∀ t ∈ σ, s ≤ t ∨ t ≤ s) → ρ ≤ |ψ s x| := sorry
+
+/-- Empty poset test. -/
+example (ε ρ : ℝ) : IsMarked (fun s : Fin 0 ↦ fun _ : Unit ↦ (s.val : ℝ)) ε ρ () := sorry
+
+/-- Singleton threshold test; values above `ρ` are marked by the empty chain. -/
+example {X : Type*} (ψ : Fin 1 → X → ℝ) (x : X) (ε ρ : ℝ)
+    (hε : 0 < ε) (hερ : ε ≤ ρ) : IsMarked ψ ε ρ x ↔ ε ≤ |ψ 0 x| := sorry
+
+/-- The empty-chain clause must reject a singleton whose value is below `ε`. -/
+example (ε ρ : ℝ) (hε : 0 < ε) (hερ : ε ≤ ρ) :
+    ¬ IsMarked (fun _ : Fin 1 ↦ fun _ : Unit ↦ (0 : ℝ)) ε ρ () := sorry
+
+/-- A two-element poset with incomparable elements: the zero at `b` is not tested
+by the witness `{a}`. Dropping the comparability clause would reject this point. -/
+example {S : Type*} [PartialOrder S] [DecidableEq S] (a b : S)
+    (hab : ¬ a ≤ b) (hba : ¬ b ≤ a) (huniv : ∀ s : S, s = a ∨ s = b)
+    (ε ρ : ℝ) (hε : 0 < ε) (hερ : ε < ρ) :
+    IsMarked (fun s : S ↦ fun _ : Unit ↦ if s = a then ε else 0) ε ρ () := sorry
+
+/-- KM Theorem 4.1, specialized to the countable posets used here.
+The sup lower bound is expressed by approximation, so it need not be attained on the open ball.
+The Besicovitch constant comes from the prescribed-ball covering theorem at the pins. -/
+theorem volume_unmarked_le {S : Type*} [PartialOrder S] [Countable S] {d k : ℕ}
+    (hd : 1 ≤ d) (ψ : S → EuclideanSpace ℝ (Fin d) → ℝ)
+    (x₀ : EuclideanSpace ℝ (Fin d)) (r₀ C α ρ ε : ℝ)
+    (hr : 0 < r₀) (hC : 0 < C) (hα : 0 < α) (hρ : 0 < ρ)
+    (hε : 0 < ε) (hερ : ε ≤ ρ)
+    (hlen : ∀ σ : Finset S, IsChain (· ≤ ·) (σ : Set S) → σ.card ≤ k)
+    (hcont : ∀ s, ContinuousOn (ψ s) (ball x₀ (3 ^ k * r₀)))
+    (hgood : ∀ s, IsGood C α (ball x₀ (3 ^ k * r₀)) (ψ s))
+    (hlower : ∀ s q, 0 < q → q < ρ → ∃ y ∈ ball x₀ r₀, q ≤ |ψ s y|)
+    (hfinite : ∀ x ∈ ball x₀ (3 ^ k * r₀), {s | |ψ s x| < ρ}.Finite) :
+    (volume {x ∈ ball x₀ r₀ | ¬ IsMarked ψ ε ρ x}).toReal ≤
+      (k : ℝ) * C * ((3 : ℝ) ^ d *
+        (Besicovitch.multiplicity (EuclideanSpace ℝ (Fin d)) : ℝ)) ^ k *
+          (ε / ρ) ^ α * (volume (ball x₀ r₀)).toReal := sorry
 
 /-- unipotent-quantitative-recurrence (Kleinbock–Margulis, Theorem 5.3), for a continuous
 one-parameter group `u` of unipotent matrices. -/
@@ -635,6 +722,20 @@ end Extra
 end TauCeti.GeometryOfNumbersPlan
 
 /-!
+## Further README targets introduced in revision 2
+
+The BW chain consists of rectifiable-coordinate-measure-bound,
+semialgebraic-hausdorff-bound, semialgebraic-boundary-null and
+orthogonal-projection-comparison. It imports the existing RealAlgebraicGeometry
+carriers; its exact post-pin interfaces and owner-side extension are recorded in the README.
+The uniform-ellipse-lattice-count and ellipse-fourier-decay targets include the complete
+shape-dependent Fourier/smoothing argument there. The primitive-flag-short-vector
+argument uses the exterior-coordinate sup norm, not Euclidean covolume.
+projective-recurrence-fixed-lines feeds Borel density through the existing Chevalley
+stabilizer; so21-quotient-standard-module identifies the concrete quotient with the
+owner's already implemented highest-weight-four module. These ownership adapters are
+README statements rather than new algebraic-representation carriers at the pins.
+
 ## Statements not typed at the pins
 
 The packet names below are specified in the roadmap document but not typed here, because their
@@ -677,10 +778,12 @@ card_skew_singular_symmetric_le.
 CurvatureLatticeClass, IsAdmissibleExponent, CurvatureLatticeClass.mono,
 IsAdmissibleExponent.mono, radiusOfCurvatureMax_ellipse, curvatureClass_disc_translate (test),
 curvatureClass_small_area (test), square_not_C2 (test), isAdmissible_mono_test (test),
-abs_card_smul_inter_sub_le_vanDerCorput, abs_card_smul_inter_sub_le_huxley,
+abs_card_smul_inter_sub_le_vanDerCorput (fixed-domain constant),
+abs_card_smul_inter_sub_le_huxley (the all-ellipses improvement is an explicit open input),
 isAdmissibleExponent_of_two_thirds_lt.
 
-§4.11 Explicit counts in applications: markoffFibreCount_eq, card_two_representations_le.
+§4.11 Explicit counts in applications: markoffFibreCount_eq. The restricted
+card_two_representations_le is stated above; no unrestricted all-d target is retained.
 
 §4.13 The space of lattices, its measure and its flows: UnimodularLattices.range_toLattice,
 UnimodularLattices.instTopologicalSpace, UnimodularLattices.transposeHomeomorph,

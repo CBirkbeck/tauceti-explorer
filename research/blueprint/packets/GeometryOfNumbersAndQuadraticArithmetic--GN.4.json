@@ -6,7 +6,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
  ],
  "status": "complete",
- "summary": "Follow-up plan for stage GN.4 (Lattice points and homogeneous dynamics) of the geometry-of-numbers roadmap. It cites the base packet's 46 GN.4 nodes and the GN.1 follow-up's four Gaussian covering nodes and plans what their coverage records and the routed papers and consumer requests leave open. Counting: volumes of coordinate projections and Davenport's principle, semialgebraic sets of bounded complexity with a uniform interval condition from a fibrewise cell count, Davenport's estimate for triangular unipotent images (whose proposed induction remains an open input), ball counts by successive minima derived from Henk's bound, Schmidt's bounded-domain count, counts for definite quadratic lattices, small-vector counts, bases with coordinate bounds, Widmer's lattice-uniform count for Lipschitz boundaries and Barroero–Widmer's count for semialgebraic families; Browning–Le Boudec–Sawin's angular bands, primitive lattices with prescribed minima, Schmidt's extension count, band section volumes, weighted primitive sums and primitive ball counts; Bhargava–Shankar–Wang's skew counts of singular symmetric matrices through Eskin–Katznelson row lattices; curvature-controlled planar counts after van der Corput and Huxley; Markoff fundamental-set counts; Blomer–Granville; lattice points on a hyperplane in the orthant. Transference and covering: Minkowski-constant transference, sup-norm covering from the dual lattice, the minimum of a Construction A lattice. Dynamics: the space of unimodular lattices and its invariant probability, Mahler's criterion with bounded bases and the sup norm, diagonal and unipotent flows, the Mautner phenomenon, mixing of noncompact one-parameter flows and of the time-one diagonal map on X_2, good functions and Kleinbock–Margulis quantitative nondivergence with its unipotent corollary, Borel density and the auxiliary lemmas of Margulis's proof of the Oppenheim conjecture. Siegel: the Siegel transform, mirabolic unfolding, invariant measures on the punctured space and the primitive mean value theorem. Equidistribution carriers: CM point packets, oriented closed geodesics with their length and orientation reversal, harmonic Weyl sums and the spherical Weyl criterion; the equidistribution theorems on the modular surface are proposed for the toral-packets Part II because their inputs lie above this tier.",
+ "summary": "Revision 2 of the GN.4 continuation, responding to the independent review. The counting plan now includes the full semialgebraic projection/measure/section/boundary chain, a lattice-based proof of triangular unipotent uniformity, and a restricted representation-pair second moment valid in the Ghosh–Sarnak range through Toma’s conductor formula. Prescribed-ball Besicovitch covers feed an explicit marked-poset theorem and the primitive-flag wedge argument. Borel density imports the existing Chevalley stabilizer and functorial representation results; the so(2,1) quotient is explicitly identified with the owner’s highest-weight-four module. Homogeneous mixing is an adapter to the base Howe–Moore theorem with its inherited proof gap. Primary-source Fourier decay and isotropic smoothing give one curvature-dependent constant over all ellipses, while the Huxley improvement remains conditional. All previous definition APIs, tests, six planets and reviewer corrections are retained; a marked-point predicate and its API/tests are added. No formalisation or independent acceptance is claimed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -486,6 +486,76 @@
     "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
     "provides": "def at Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121, `def riemannZeta := hurwitzZetaEven 0`; used by: Primitive points of a primitive lattice in a ball; Siegel's mean value theorem, primitive form",
     "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MeasureTheory.Measure.euclideanHausdorffMeasure",
+    "kind": "def",
+    "module": "Mathlib/Geometry/Euclidean/Volume/Measure.lean",
+    "provides": "Natural-dimensional Hausdorff measure normalized to agree with Euclidean volume; use this measure H^j throughout the projection argument.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:InnerProductSpace.euclideanHausdorffMeasure_eq_volume",
+    "kind": "theorem",
+    "module": "Mathlib/Geometry/Euclidean/Volume/Measure.lean",
+    "provides": "At line 186: μHE[finrank ℝ V] = volume in a finite-dimensional real inner-product space.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:Isometry.euclideanHausdorffMeasure_image",
+    "kind": "theorem",
+    "module": "Mathlib/Geometry/Euclidean/Volume/Measure.lean",
+    "provides": "At line 129: an isometry preserves μHE[d] on images of every set.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:LipschitzOnWith.hausdorffMeasure_image_le",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Hausdorff.lean",
+    "provides": "At line 733: K-Lipschitz image has μH[d] measure at most K^d times the original for d≥0. Multiplying by the dimension normalization gives the same inequality for μHE[j].",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:Besicovitch.BallPackage",
+    "kind": "structure",
+    "module": "Mathlib/MeasureTheory/Covering/Besicovitch.lean",
+    "provides": "At line 196: centres c:β→E, positive radii r, and one finite upper bound r_bound with r i≤r_bound.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:Besicovitch.exist_disjoint_covering_families",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Covering/Besicovitch.lean",
+    "provides": "At line 455: if 1<τ and SatelliteConfig E N τ is empty, every BallPackage admits N subfamilies, each with pairwise disjoint closed balls, whose prescribed open balls cover all its centres.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:Besicovitch.one_lt_goodτ",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Covering/BesicovitchVectorSpace.lean",
+    "provides": "At line 258: 1<goodτ E for a finite-dimensional real normed space E.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:Besicovitch.isEmpty_satelliteConfig_multiplicity",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Covering/BesicovitchVectorSpace.lean",
+    "provides": "At line 488: SatelliteConfig E (multiplicity E) (goodτ E) is empty; combine with the prescribed-ball covering theorem. Set N_d=multiplicity (EuclideanSpace ℝ (Fin d)).",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:Besicovitch.multiplicity_le",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Covering/BesicovitchVectorSpace.lean",
+    "provides": "At line 151: multiplicity E≤5^(finrank ℝ E). In particular N_d depends only on d.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
+   },
+   {
+    "ref": "mathlib:SchwartzMap.tsum_eq_tsum_fourier",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
+    "provides": "At line 219: for f:SchwartzMap ℝ ℂ and x:ℝ, Σ_{n∈ℤ} f(x+n)=Σ_{n∈ℤ} Fourier(f)(n) fourier n x. Iterate in the two coordinates with Schwartz decay and Fubini; this is a special ℤ² adapter, not a new general-lattice Poisson theory.",
+    "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-16."
    }
   ]
  },
@@ -644,7 +714,8 @@
    "url": "https://arxiv.org/pdf/math/0310402",
    "accessed": "2026-10-16",
    "readSections": [
-    "§1.2 Theorem 1.2.2 and ternary proof printed pp.13–15; §3.2 Mautner and mixing, printed pp.102–105; §4.7 Proposition 4.7.1 and proof printed pp.139–142; §4.8 Corollary 4.8.5 printed pp.144–145. Exercise 1.2#15 is an assigned reduction, not a supplied proof."
+    "§1.2 Theorem 1.2.2 and ternary proof printed pp.13–15; §3.2 Mautner and mixing, printed pp.102–105; §4.7 Proposition 4.7.1 and proof printed pp.139–142; §4.8 Corollary 4.8.5 printed pp.144–145. Exercise 1.2#15 is an assigned reduction, not a supplied proof.",
+    "Theorem 4.5.2 and proof, printed pp.133–134; Corollary 4.3.6, printed p.126; Lemma 4.7.5 and the projective recurrence proof, printed pp.141–142."
    ],
    "sha256": "daabc4ac0d7b6c57b2e02dfbb24075eba77653fc1fd600d110eadfda2e5ecd7f"
   },
@@ -782,7 +853,7 @@
   },
   {
    "id": "BG2006",
-   "title": "Representation numbers of quadratic forms",
+   "title": "Estimates for representation numbers of quadratic forms",
    "authors": "Valentin Blomer, Andrew Granville",
    "edition": "Author-hosted journal proof layout, Duke Math. J. 135 (2006), no.2",
    "url": "https://dms.umontreal.ca/~andrew/PDF/quadraticforms.pdf",
@@ -790,6 +861,52 @@
    "sha256": "ae3ffeb985b4ddc269692be7144c75c712ca933171d59b0aa9387ea1d60aaf0b",
    "readSections": [
     "§1.1 fundamental-discriminant convention pp.2–3; Theorem 2 p.5. This source does not directly imply the former all-d representation-pair target."
+   ]
+  },
+  {
+   "id": "LeBoudec2020",
+   "title": "Height of rational points on random Fano hypersurfaces",
+   "authors": "Pierre Le Boudec",
+   "edition": "arXiv:2006.02288v1, 3 June 2020",
+   "url": "https://arxiv.org/pdf/2006.02288v1",
+   "sha256": "cb782025395c1c755d133328654dfbc61846389689a8dda893354c05fea882b8",
+   "accessed": "2026-10-16",
+   "readSections": [
+    "§2.1, Lemmas 1–3 and proofs, printed pp.5–7; all radii and constants checked in Lemma 3."
+   ]
+  },
+  {
+   "id": "Toma2020",
+   "title": "Estimates for representation numbers of binary quadratic forms and Apollonian circle packings",
+   "authors": "Radu Toma",
+   "edition": "Author-hosted article, Journal of Number Theory 214 (2020), 399–413; PDF pagination 1–15",
+   "url": "https://radustoma.github.io/articole/Estimates-BQFs-ACPs.pdf",
+   "sha256": "c8b6367a09b40df12b3f9aab2c49947fd30749fbb95c206d9df0a8f75829961e",
+   "accessed": "2026-10-16",
+   "readSections": [
+    "Theorem 1, PDF pp.3–4; Theorem 3 and its proof, pp.4–7; §3 conductor descent and proof of Theorem 1, pp.8–9."
+   ]
+  },
+  {
+   "id": "BCR1998",
+   "title": "Real Algebraic Geometry",
+   "authors": "Jacek Bochnak, Michel Coste, Marie-Françoise Roy",
+   "edition": "Springer, Ergebnisse 36, 1998; maintainer-cleared private reading copy",
+   "access": "Read in the maintainer-cleared library; the file and source passages are not reproduced.",
+   "readSections": [
+    "Theorem 2.8.8, pp.52–53; Proposition 2.8.13, p.53; Proposition 2.8.14, p.54; inverse and implicit function results 2.9.7–2.9.8, pp.56–57; smooth semialgebraic partition Proposition 2.9.10 and proof, p.57."
+   ]
+  },
+  {
+   "id": "KN2004",
+   "title": "Effektive Abschätzungen für den Gitterrest gewisser ebener und dreidimensionaler Bereiche",
+   "authors": "Ekkehard Krätzel and Werner Georg Nowak",
+   "edition": "arXiv:math/0405215v1, 12 May 2004; Monatsh. Math. 146 (2005), 21–35",
+   "url": "https://arxiv.org/pdf/math/0405215v1",
+   "sha256": "5c2c9cbb722aaeba1b0aab1fc0892e91ca11a6eb051a6d56b30fda87f01276d9",
+   "accessed": "2026-10-16",
+   "readSections": [
+    "§3 smoothing bracket and Poisson formula (3.4), pp.4–5; Satz 2, formula (3.18)–(3.20) and proof sketch, pp.8–9. The source’s G₀,G₁-dependent numerical count is not silently treated as a uniform-shape theorem."
    ]
   }
  ],
@@ -833,6 +950,27 @@
    "read": "2026-10-16",
    "sha256": "914d33cc9af3e5a83d68f5c601b6e8bac1ea2f5e30d994180058ff2689e31113",
    "citation": "Current author-hosted edition; Theorem 3.2.9 printed p.109 still displays the norm product. No claim is made about an uncollated printed edition."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2006.02288v1",
+   "read": "2026-10-16",
+   "sha256": "cb782025395c1c755d133328654dfbc61846389689a8dda893354c05fea882b8",
+   "citation": "Pierre Le Boudec, Height of rational points on random Fano hypersurfaces; locators in the source and target entries."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://radustoma.github.io/articole/Estimates-BQFs-ACPs.pdf",
+   "read": "2026-10-16",
+   "sha256": "c8b6367a09b40df12b3f9aab2c49947fd30749fbb95c206d9df0a8f75829961e",
+   "citation": "Radu Toma, Estimates for representation numbers of binary quadratic forms and Apollonian circle packings; locators in the source and target entries."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0405215v1",
+   "read": "2026-10-16",
+   "sha256": "5c2c9cbb722aaeba1b0aab1fc0892e91ca11a6eb051a6d56b30fda87f01276d9",
+   "citation": "Ekkehard Krätzel and Werner Georg Nowak, Effektive Abschätzungen für den Gitterrest gewisser ebener und dreidimensionaler Bereiche; locators in the source and target entries."
   }
  ],
  "sourceIssues": [
@@ -842,8 +980,8 @@
    "kind": "gap",
    "locator": "Proposition 2.5 and the paragraph after it, physical p.14 (arXiv v2)",
    "printed": "The proposition asserts the lattice-point estimate for images R′ = uR of a bounded semialgebraic multiset under triangular unipotent u, with the error measured by projection volumes of R rather than of R′, and says Davenport's proof adapts without significant change.",
-   "correction": "Davenport's slicing argument applied to R′ produces projection volumes of R′, which can be much larger than those of R (a shear stretches the first-coordinate projection). The estimate as stated holds, but needs a reorganised induction: fibre along the coordinate sheared by the others, so each fibre of uR is a translate of a fibre of R, and count the main term through the superlevel sets of the fibre-length function; the error terms then integrate to projection volumes of R (unipotent-davenport-transfer). The superlevel sets need the interval condition uniformly, which holds for semialgebraic R (semialgebraic-interval-condition).",
-   "reason": "For R = [0, ε] × [0, T] and u(x, y) = (x + ay, y) the projection of R′ to the first axis has length ε + aT, unbounded in a, while the count of R′ ∩ ℤ² stays ≤ 2(⌊T⌋ + 1); so the statement is true but does not follow from Davenport's lemma applied to R′.",
+   "correction": "The shear example only rules out substituting projection volumes of uR for those of R in a naive argument. It does not establish a source erratum. The atlas now proves the asserted estimate by applying Barroero–Widmer Theorem 1.3 to u⁻¹ℤⁿ: the last nonzero integral coordinate proves that every successive minimum is at least one. The rejected fibre-volume induction is removed.",
+   "reason": "A shear can enlarge a coordinate projection arbitrarily while u⁻¹ℤⁿ still has shortest Euclidean vector length at least one. This explains why the lattice-uniform theorem gives the original projection-volume bound.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -1272,15 +1410,14 @@
    ],
    "title": "Davenport's interval condition for semialgebraic regions",
    "kind": "lemma",
-   "statement": "Let n, k, ℓ ∈ ℕ and Z ⊆ ℝⁿ of complexity at most (k, ℓ). There is h = h(n, k, ℓ) such that: (a) for every J ⊆ Fin n with |J| ≥ 1 and every line L ⊂ ℝ^J parallel to a coordinate axis, L ∩ π_J(Z) is a union of at most h intervals; (b) for every coordinate i, every J ⊆ Fin n ∖ {i} and every s ≥ 0, the superlevel set {w ∈ ℝ^J : vol_1({t : (t, w) ∈ π_{{i}∪J}(Z)}) ≥ s} of the fibre-length function of π_{{i}∪J}(Z) along the i-th axis satisfies the same condition with the same h. The constant depends on (n, k, ℓ) only.",
+   "statement": "For fixed n, k, ℓ there is h(n,k,ℓ) such that every set Z ⊆ ℝⁿ with complexity at most (k,ℓ), each of its coordinate projections, and every axis-parallel line section of those projections have at most h connected components (intervals, allowing points and open or half-open endpoints). More generally, for a fixed semialgebraic family Z ⊆ ℝ^{m+n} there is h_Z working simultaneously for every linear image Ψ(Z_T), every parameter T, and all its coordinate projections.",
    "hypotheses": [
-    "Z need not be closed; the intervals may be open, half-open or degenerate.",
-    "Part (b) is the condition used for triangular unipotent images (unipotent-davenport-transfer)."
+    "Linear maps Ψ are unrestricted and need not be invertible. No fibre-volume function or iterated superlevel family is part of this assertion."
    ],
    "proofSteps": [
-    "(a) L ∩ π_J(Z) = π_J(Z ∩ π_J⁻¹(L)), and π_J⁻¹(L) is an affine subspace parametrised affinely by ℝ^{n−|J|+1}; the pulled-back set has complexity (k, ℓ) (semialgebraic-complexity, preimage_affine), hence at most B(n, k, ℓ) connected components (semialgebraic-uniform-components).",
-    "A connected set maps under the continuous projection to L onto a connected subset of a line, i.e. an interval; so L ∩ π_J(Z) is a union of at most B intervals.",
-    "(b) The set {(c, s, w)} of coefficient vectors, levels s and points w with fibre length ≥ s is semialgebraic (the fibre is a union of boundedly many intervals with semialgebraic endpoints, by Tarski–Seidenberg); apply semialgebraic-uniform-components to this family and argue as in (a)."
+    "Encode the coefficients of Ψ and the parameter T in W={(Ψ,T,y): ∃x, (T,x)∈Z and y=Ψx}. This is a single semialgebraic family by projection closure; its description does not change with Ψ.",
+    "For each coordinate set J and axis i∈J, encode the remaining fixed coordinates of the line as more parameters. Apply semialgebraic-uniform-components to the resulting family of subsets of ℝ. There are only finitely many choices of J,i; take the maximum of their bounds.",
+    "For bounded complexity, use a universal coefficient family of k polynomials of degree at most ℓ and a sign selector. A selector is a subset of the finite set {−1,0,1}^k, so finitely many universal families suffice. The maximum of their constants depends only on n,k,ℓ."
    ],
    "acceptance": [
     "For the open unit disc in ℝ² every axis-parallel line section is one interval and each projection is (−1, 1): h = 1 works.",
@@ -1320,38 +1457,35 @@
    ],
    "title": "Davenport's estimate for triangular unipotent images",
    "kind": "lemma",
-   "statement": "Let n ≥ 1, h ≥ 1 and Z ⊆ ℝⁿ bounded such that Z and all its coordinate projections satisfy the h-interval condition on axis-parallel lines, as do the superlevel sets of their fibre-length functions (semialgebraic-interval-condition (b)). Let u be an upper triangular unipotent real matrix. Then |#(uZ ∩ ℤⁿ) − vol(Z)| ≤ C(n, h)·Σ_{J ⊊ Fin n} V_J(Z), with V_∅ = 1 and C(n, h) depending only on n and h. The projection volumes are those of Z, not of uZ. The lower triangular case follows by reversing the order of the coordinates.",
+   "statement": "For n≥1 and k,ℓ∈ℕ there is C(n,k,ℓ) such that for every bounded semialgebraic Z⊆ℝⁿ of complexity at most (k,ℓ) and every upper or lower triangular unipotent real matrix u, |#(uZ∩ℤⁿ)−vol(Z)| ≤ C(n,k,ℓ) Σ_{j=0}^{n−1} V_j(Z). The volumes are those of Z. For a semialgebraic multiset with multiplicity at most m and with each multiplicity superlevel set of complexity at most (k,ℓ), the same estimate holds with constant m C(n,k,ℓ) and the corresponding sum of projection volumes of those sets.",
    "hypotheses": [
-    "Upper triangular means x'_i = x_i + Σ_{j>i} u_ij x_j; the coordinate sheared by the others is the first.",
-    "No integrality of u is assumed; vol(uZ) = vol(Z) since det u = 1."
+    "No integrality of u is needed. The multiplicity-zero exterior is excluded from the superlevel decomposition."
    ],
    "proofSteps": [
-    "The following is a proposed proof architecture, not a verified closure: its induction must establish the uniform complexity/variation of every superlevel family that occurs. See the open input Uniform unipotent Davenport proof.",
-    "Fibre along the first coordinate: for z ∈ ℝ^{n−1} the fibre of uZ over z is a translate of the fibre of Z over u'⁻¹z, where u' is the lower-right (n − 1)-block of u, again upper triangular unipotent. Hence #(uZ ∩ ℤⁿ) = Σ_{z∈ℤ^{n−1}} (G(u'⁻¹z) + O(h)) with G(w) the length of the fibre of Z over w.",
-    "The O(h) terms are supported on u'(π(Z)) ∩ ℤ^{n−1}, π forgetting the first coordinate; by induction (with u') their number is vol(π(Z)) + O(Σ_{J ⊊ {2..n}} V_J(Z)).",
-    "Main term: Σ_z G(u'⁻¹z) = ∫_0^∞ #(u'S_s ∩ ℤ^{n−1}) ds with S_s = {G ≥ s}. Apply the induction hypothesis to each S_s: the main terms integrate to ∫ G = vol(Z), and the errors ∫_0^∞ V_J(S_s) ds are at most V_{{1}∪J}(Z), because over each w ∈ π_J(S_s) the projection π_{{1}∪J}(Z) contains a first-coordinate set of length ≥ s.",
-    "The superlevel sets S_s are bounded by π(Z) and inherit the interval condition by hypothesis, uniformly in s."
+    "Put Λ=u⁻¹ℤⁿ. Its covolume is one and x↦ux is a bijection Z∩Λ→uZ∩ℤⁿ.",
+    "For z∈ℤⁿ nonzero, choose its last nonzero coordinate i when u is upper triangular. The i-th coordinate of u⁻¹z equals the nonzero integer z_i, since all subsequent z_j vanish. Thus ‖u⁻¹z‖∞≥1 and ‖u⁻¹z‖₂≥1. Every Euclidean successive minimum of Λ is therefore at least one. For lower triangular u use the first nonzero coordinate.",
+    "Apply semialgebraic-family-lattice-count to Z and Λ. For each sign selector use the universal polynomial-coefficient family intersected with a closed Euclidean ball whose radius is another parameter. All fibres of this enlarged family are bounded, as BW Theorem 1.3 requires; every bounded complexity-(k,ℓ) set occurs unchanged by taking a sufficiently large radius. There are finitely many sign selectors, so the maximum constant depends only on n,k,ℓ. Drop the minima denominators, which are at least one. No fibre-volume function is integrated.",
+    "For a multiset, sum the estimate over the m nonempty multiplicity superlevel sets. This also proves the base packet’s Bhargava–Shankar multiset clause after bounding the finite projection sum by a dimension constant times max(1, largest proper coordinate projection volume)."
    ],
    "acceptance": [
     "u = identity recovers davenport-principle up to the constant.",
     "n = 2, Z = [0, ε] × [0, T], u(x, y) = (x + ay, y): the count is at most 2(⌊T⌋ + 1) for every a, within C·(1 + ε + T) as the lemma predicts, although the projection of uZ to the first axis has length ε + aT."
    ],
    "prerequisites": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-principle",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coordinate-projection-volumes",
-    "mathlib:MeasureTheory.lintegral_prod",
-    "mathlib:MeasureTheory.lintegral_eq_lintegral_meas_le"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-family-lattice-count",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-complexity",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coordinate-projection-volumes"
    ],
    "sources": [
     {
      "sourceId": "BhargavaShankar2010",
-     "locator": "Proposition 2.5 and the sentence following it, physical p.14",
-     "match": "States the unipotent triangular estimate with projection volumes of the original region and says Davenport’s proof adapts. The replacement induction proposed here is not yet certified; E401 is rejected as an established source erratum, and the atlas closure gap is explicit."
+     "locator": "Proposition 2.5 and following paragraph, physical p.14",
+     "match": "The asserted triangular unipotent estimate is recovered with the original projection volumes. The proof here uses a different route and makes no source-error claim."
     },
     {
      "sourceId": "BW2014",
-     "locator": "Theorem 1.1, p.2",
-     "match": "The base principle whose slicing argument is reorganised along the flag of the triangular matrix."
+     "locator": "Theorem 1.3, p.5; Lemma 4.1, pp.13–14",
+     "match": "The lattice-uniform theorem applied to u⁻¹ℤⁿ, together with the elementary last-coordinate argument, gives the estimate."
     }
    ],
    "library": {
@@ -1680,6 +1814,172 @@
    }
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/rectifiable-coordinate-measure-bound",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Coordinate multiplicities control the measure of a smooth-stratified set",
+   "kind": "theorem",
+   "statement": "For 0≤j≤n and a Borel A⊆ℝⁿ that is a countable union of C¹ submanifolds of dimension at most j, H^j(A) ≤ C_{n,j} Σ_{|I|=j} ∫_{ℝ^I} #({x∈A:π_I x=y}) dy, where counts may be infinite and the nonnegative integrals are outer integrals (ordinary Lebesgue integrals for the semialgebraic application), and H^j is Mathlib’s normalized Euclidean Hausdorff measure. One may take C_{n,0}=1 and C_{n,j}=(2√binom(n,j))^j for j>0. In particular, a semialgebraic set of dimension less than j has H^j measure zero.",
+   "hypotheses": [],
+   "proofSteps": [
+    "First treat a j-dimensional C¹ manifold. At a tangent j-plane choose an orthonormal basis. Cauchy–Binet makes the sum of squares of its coordinate j-minors one, so one projection π_I has determinant at least binom(n,j)^{-1/2}. Every singular value is at most one, so the inverse differential has norm at most √binom(n,j).",
+    "The inverse function theorem and continuity give a neighborhood represented over a convex open subset of ℝ^I by an inverse section with Lipschitz constant at most 2√binom(n,j). Second countability supplies countably many such charts. Partition A into disjoint Borel pieces subordinate to them and group pieces by I.",
+    "On each piece, apply the Lipschitz image inequality to its inverse section. H^j on the coordinate plane is its Lebesgue measure by the normalization baseline. For a fixed I, summing projected-piece measures equals the integral of their multiplicity; disjointness of the original pieces bounds this by the number of points of each π_I-fibre of A. Countable additivity gives the bound. This deliberately uses a dimension constant, rather than assuming Federer’s general area formula.",
+    "For a lower-dimensional C¹ chart, exhaust its parameter domain by countably many bounded compact pieces on which its derivative is bounded. A k-dimensional box, k<j, has zero H^j content: cover it by O(δ^{-k}) cubes of diameter O(δ) and let δ→0. Lipschitz image bounds and countable unions prove nullity. At j=0 the assertion is just counting measure."
+   ],
+   "acceptance": [
+    "For a j-coordinate box the only nonzero full-rank projection contributes its volume; lower-rank projections have infinite fibres on null sets, whose nonnegative integrals are zero.",
+    "A finite set has H^j=0 for j>0 and H^0 equal to its cardinality.",
+    "A sloping line segment has length bounded by a dimension constant times the sum of its two coordinate lengths."
+   ],
+   "prerequisites": [
+    "mathlib:MeasureTheory.Measure.euclideanHausdorffMeasure",
+    "mathlib:InnerProductSpace.euclideanHausdorffMeasure_eq_volume",
+    "mathlib:Isometry.euclideanHausdorffMeasure_image",
+    "mathlib:LipschitzOnWith.hausdorffMeasure_image_le"
+   ],
+   "sources": [
+    {
+     "sourceId": "BW2014",
+     "locator": "§5, Definition 5.5, Proposition 5.6 and Theorem 5.7, pp.15–16",
+     "match": "Identifies the needed rectifiability/coordinate-fibre measure comparison. The stated weaker dimension-constant comparison is proved here by local coordinate charts instead of importing the general Federer theorem."
+    },
+    {
+     "sourceId": "BCR1998",
+     "locator": "Proposition 2.9.10, p.57; Proposition 2.8.14, p.54",
+     "match": "Supplies smooth semialgebraic strata and agreement of dimensions through the existing owner request."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "rectifiable_coordinate_measure_bound"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-hausdorff-bound",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Uniform Hausdorff bound in families of small dimension",
+   "kind": "theorem",
+   "statement": "Let S⊆ℝ^{m+n} be a fixed semialgebraic family, every fibre S_a bounded with dim S_a≤j≤n. There is c_S such that H^j(S_a) ≤ c_S Σ_{|I|=j}vol_j(π_I S_a) for every a. For j=0 use the cardinality of the finite fibre and the convention that the projection of a nonempty set to ℝ⁰ has measure one.",
+   "hypotheses": [],
+   "proofSteps": [
+    "For each I the set of parameters (a,y) where the π_I-fibre has positive dimension is semialgebraic and, for fixed a, has dimension less than j by the requested fibre-dimension inequality. It has Lebesgue measure zero by the lower-dimensional clause of rectifiable-coordinate-measure-bound.",
+    "All remaining fibres are zero-dimensional semialgebraic sets, hence finite; semialgebraic-uniform-components bounds their cardinalities by one M for the single family (a,y)↦S_a∩π_I⁻¹(y). Take the maximum over the finitely many I.",
+    "Use the owner’s finite C¹ partition and the coordinate multiplicity theorem. Its right side is at most C_{n,j} M Σ_I vol(π_I S_a), since exceptional positive-dimensional fibres lie over a null set. The count of a finite zero-dimensional fibre is handled separately when j=0."
+   ],
+   "acceptance": [
+    "For j=n it reduces to H^n=volume with a harmless family constant.",
+    "For j=1, n=2, a circle has length bounded by a fixed multiple of the sum of its two projection lengths.",
+    "The constant depends on the family: N parallel copies of a segment require a factor growing with N."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/rectifiable-coordinate-measure-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-uniform-components"
+   ],
+   "sources": [
+    {
+     "sourceId": "BW2014",
+     "locator": "Lemma 5.8 and proof, pp.16–17",
+     "match": "The finite-fibre multiplicity argument is specialized to semialgebraic sets, with the chart-based dimension constant replacing the sharp area comparison."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "semialgebraic_hausdorff_bound"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-boundary-null",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Closures and boundaries of bounded semialgebraic fibres",
+   "kind": "theorem",
+   "statement": "For a fixed semialgebraic family Z⊆ℝ^{m+n} with bounded fibres, C_T=closure Z_T and B_T=frontier Z_T form semialgebraic families with compact fibres. Each B_T has n-dimensional volume zero, vol C_T=vol Z_T, and V_j(C_T)=V_j(Z_T), while V_j(B_T)≤V_j(C_T), for 1≤j≤n. For j=0 all error-bound conventions are one.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Fibrewise closure and interior can be written with quantified distance inequalities; the requested owner projection/quantifier-elimination API makes the resulting families semialgebraic. A bounded fibre has compact closure.",
+    "By CAD dimension, dim frontier Z_T<n. Indeed frontier is the union of closure Z_T\\Z_T and Z_T\\interior Z_T; the former drops dimension, while the latter has no n-dimensional open cell. The lower-dimensional Hausdorff clause and H^n=volume give nullity and vol C_T=vol Z_T.",
+    "For any linear coordinate projection π, compactness gives π(closure Z_T)=closure(π Z_T): inclusion one way follows from continuity, and the other from taking a convergent subsequence in the bounded closure. The missing set between a semialgebraic set and its closure has dimension less than the target dimension, so its target-dimensional volume is zero. Sum over π_I; monotonicity treats B_T."
+   ],
+   "acceptance": [
+    "Open and closed boxes have the same volume and projection volumes although their lattice-point counts can differ.",
+    "A planar line segment has zero planar volume; its frontier is the whole segment.",
+    "Boundedness is necessary for π closure=closure π: the hyperbola xy=1 has a nonclosed coordinate projection."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/rectifiable-coordinate-measure-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coordinate-projection-volumes"
+   ],
+   "sources": [
+    {
+     "sourceId": "BW2014",
+     "locator": "§3 Proposition 3.15, p.13; Lemmas 5.3–5.4, p.15; §7, pp.20–21",
+     "match": "Provides precisely the closure/frontier and projection-volume equalities used to remove compactness in Theorem 1.3."
+    },
+    {
+     "sourceId": "BCR1998",
+     "locator": "Proposition 2.8.13, p.53",
+     "match": "The closure-minus-set dimension drop is consumed from the owner."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "semialgebraic_boundary_null"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/orthogonal-projection-comparison",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Uniform comparison of orthogonal and coordinate projections",
+   "kind": "theorem",
+   "statement": "For a fixed semialgebraic family Z⊆ℝ^{m+n} with bounded fibres and 1≤j≤n, there is c_{Z,j} such that the j-volume of every orthogonal projection of Z_T to any j-plane is at most c_{Z,j} V_j(Z_T), uniformly in T and the plane. The same holds for closure Z_T.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Parametrize the projection plane by φ∈O(n); let p:ℝⁿ→ℝ^j take the first j coordinates. The family of images pφ(closure Z_T) is semialgebraic. Apply the owner’s semialgebraic choice to the graph of (φ,T,x)↦pφx to select a semialgebraic section over each image. Its image S_{φ,T} lies in closure Z_T, has dimension at most j by injectivity of pφ on it, and has the same orthogonal projection as closure Z_T. No continuity of the selection is required.",
+    "Orthogonal projection is 1-Lipschitz; hence its j-volume is at most H^j(S_{φ,T}). Apply semialgebraic-hausdorff-bound to this single family of sections, obtaining a constant independent of φ,T.",
+    "Every coordinate projection of S_{φ,T} lies in the corresponding projection of closure Z_T. Bound their volumes by V_j(closure Z_T)=V_j(Z_T), using semialgebraic-boundary-null. This is the missing Proposition 6.1 step after the linear-algebraic projection estimate."
+   ],
+   "acceptance": [
+    "For a diagonal line segment the largest one-dimensional projection is at most the sum of its coordinate lengths.",
+    "For j=n the comparison is equality of volume.",
+    "Arbitrary sets need not admit a family-uniform bound; the semialgebraic family, not just each individual fibre, is fixed."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-hausdorff-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-boundary-null",
+    "mathlib:LipschitzOnWith.hausdorffMeasure_image_le"
+   ],
+   "sources": [
+    {
+     "sourceId": "BW2014",
+     "locator": "Proposition 6.1, pp.17,20; Lemma 6.2 and proof, pp.17–20",
+     "match": "The family of definable sections supplies a j-dimensional subset with unchanged chosen orthogonal projection; Lemma 5.8 controls its measure by coordinate projections."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "orthogonal_projection_comparison"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-family-lattice-count",
    "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
    "realises": [
@@ -1692,9 +1992,10 @@
     "Only semialgebraic families are claimed here; the source proves the statement for families definable in any o-minimal structure, which no library or roadmap plans."
    ],
    "proofSteps": [
-    "Map Λ to ℤⁿ by the linear map Ψ sending an adapted basis (adapted-basis-coordinates) to the standard basis; apply davenport-principle to Ψ(closure Z_T) with a Davenport constant h depending only on Z (semialgebraic-interval-condition applied to the family, via semialgebraic-uniform-components).",
-    "BW Lemmas 2.2–2.4 first bound transformed coordinate projections using the largest volumes of arbitrary orthogonal projections, V′_j. Replacing V′_j(Z_T) by a family-dependent multiple of V_j(Z_T) needs Proposition 6.1, pp.17–20: definable sections (Lemma 6.2), rectifiability and Hausdorff-measure comparison (Lemma 5.8). This nonroutine input has no exact supplier in the present prerequisite list; it is an open input.",
-    "BW §7, pp.20–21, passes from compact closures to arbitrary bounded fibres using definable boundaries of dimension < n, equality of projection volumes with their closures, and the compact-fibre estimate applied to the boundary. These boundary and projection-comparison inputs must be supplied before claiming closure."
+    "For compact fibres C_T, choose an adapted lattice basis and send it to the standard basis by Ψ. The family (Ψ,T)↦Ψ(C_T) has a uniform Davenport line-section constant by semialgebraic-interval-condition. Its main volume is vol C_T/detΛ.",
+    "BW Lemma 2.2 expresses each j-dimensional transformed coordinate projection using oblique projections onto spans of j basis vectors, with factor at most 2^j/(V_j^{ball} λ₁⋯λ_j). Lemmas 2.3–2.4 use the adapted basis lengths and Minkowski’s second theorem to bound the angle distortion of these oblique projections by a dimension constant times the largest j-dimensional orthogonal projection. Equivalently, the complementary basis parallelepiped has volume ≪_n λ_{j+1}⋯λ_n and detΛ≳_n∏λ_i, which bounds the inverse angle factor. These are linear-algebra steps and do not yet compare coordinate and arbitrary orthogonal projections.",
+    "Apply orthogonal-projection-comparison to C_T. It turns the arbitrary orthogonal projection bound into c_Z V_j(Z_T)/(λ₁⋯λ_j), with c_Z independent of Λ and T. Sum Davenport’s finitely many projection terms; the j=0 contribution is one.",
+    "For arbitrary bounded Z_T apply the compact-fibre result twice, to C_T and B_T=frontier Z_T. By semialgebraic-boundary-null, vol B_T=0, vol C_T=vol Z_T and V_j(B_T)≤V_j(C_T)=V_j(Z_T). Since C_T\\Z_T⊆B_T, the difference of the lattice counts is at most #(B_T∩Λ). Adding the two errors proves the displayed estimate without any assumption on which boundary points are included."
    ],
    "acceptance": [
     "Λ = ℤⁿ and Z_T = T·[0,1]ⁿ (T ∈ ℝ_{>0}): recovers |(⌊T⌋ + 1)ⁿ − Tⁿ| ≪ Σ_j T^j.",
@@ -1704,8 +2005,9 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-principle",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/coordinate-projection-volumes",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-interval-condition",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-uniform-components",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/adapted-basis-coordinates"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/adapted-basis-coordinates",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/orthogonal-projection-comparison",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-boundary-null"
    ],
    "sources": [
     {
@@ -2338,9 +2640,10 @@
     "Primitive Λ, so primitivity in Λ and in ℤ^N agree; R ≥ 3 makes the Möbius sum converge with a log error."
    ],
    "proofSteps": [
-    "Möbius inversion over the content: S*_0(Λ; B̄(T)) = Σ_{m ≥ 1} μ(m)·#((Λ ∖ {0}) ∩ B̄(T/m)).",
-    "For m ≤ T/Y use the ball count with error (band-count with I = 1, v = 0): #(Λ ∩ B̄(T/m)) = V_R(T/m)^R/det Λ·(1 + O(mY/T)); for m > T/Y bound by small-vector-count.",
-    "Sum: Σ_m μ(m)m^{−R} = 1/ζ(R) with tail O((Y/T)^{R−1}); the error sums give O(Y/T) relative error plus O(T log(2Y))."
+    "Because Λ is saturated in ℤ^N, the ambient content of a nonzero vector divides it inside Λ. Möbius inversion therefore gives Σ_{m≤T} μ(m)(N_Λ(T/m)−1); integral nonzero vectors have Euclidean norm at least one, explaining the finite cutoff.",
+    "For m≤T/Y, use the rank-R ball estimate N_Λ(t)=V_R t^R/detΛ·(1+O_R(Y/t)), valid for t≥Y. The main Möbius series has tail O_R((Y/T)^{R−1}); since R≥3, Σm^{1−R} is bounded. Both errors are O_R(Y T^{R−1}/detΛ). The removal of zero contributes O(T).",
+    "For T/Y<m≤T use small-vector-count with R₀=R−2: N_Λ(T/m) ≪_R T²Y^{R−2}/(m²detΛ)+T/m. Summing m⁻² over the tail gives O_R(TY^{R−1}/detΛ), bounded by O_R(YT^{R−1}/detΛ) because Y≤T and R≥3.",
+    "The harmonic tail Σ_{T/Y<m≤T}T/m is O(T(1+log Y)). Combine this with the O(T) zero-vector term to obtain O_R(T log(2Y)), including Y=1. Le Boudec writes log Y, with the O(T) term absorbed elsewhere; log(2Y) makes the displayed independent additive error valid at the endpoint."
    ],
    "acceptance": [
     "Λ = ℤ^3, Y = 1: the number of primitive vectors of norm ≤ T is (4π/3)T³/ζ(3) + O(T²) ⊂ the stated form."
@@ -2354,9 +2657,14 @@
    ],
    "sources": [
     {
+     "sourceId": "LeBoudec2020",
+     "locator": "§2.1, Lemmas 1–3, pp.5–7, especially (2.6)–(2.8), p.7",
+     "match": "Lemma 3 is the direct parameter-uniform statement for saturated rank-R integral lattices, R≥3, λ_R≤Y≤T. Its proof supplies the short-radius tail estimate and constants depending only on R."
+    },
+    {
      "sourceId": "BLS2020",
-     "locator": "§4.5, proof of Lemma 4.8, p.35, citing Le Boudec, Algebra Number Theory (2018), Lemma 3",
-     "match": "Applies the asymptotic S*_0(Γ; B̄(A)) = 8ι(A^{R}/det Γ)(1 + O(µ/A)) + O(A log B) for primitive Γ with λ_R ≤ µ ≤ A, which is this statement with V_R/ζ(R) = 8ι."
+     "locator": "Proof of Lemma 4.8, p.35; reference [14], p.66",
+     "match": "The application cites Le Boudec’s Height of rational points on random Fano hypersurfaces, listed as to appear (2020), rather than an unidentified 2018 lemma."
     }
    ],
    "library": {
@@ -2801,6 +3109,84 @@
    ]
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/ellipse-fourier-decay",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Fourier decay of an ellipse with its full shape dependence",
+   "kind": "theorem",
+   "statement": "There is an absolute C such that for every planar ellipse E=c+T(B̄₂), with singular values A≥B>0, and every ξ≠0, |∫_E exp(−2πi⟨ξ,x⟩)dx|≤C AB(1+|Tᵀξ|)^{−3/2}≤C√R |ξ|^{−3/2}, where R=A²/B is its maximal radius of curvature. Constants are independent of A/B and c.",
+   "hypotheses": [],
+   "proofSteps": [
+    "A linear change of variables and a rotation take the transform to AB times the unit-disc transform at s=|Tᵀξ|; translation only supplies a unit-modulus phase. Integrating cross sections gives the one-dimensional integral ∫_{−1}^1 2√(1−v²) exp(−2πisv)dv. This is also the explicit integral underlying KN (3.19)–(3.20).",
+    "For s≤2 use the disc area. For s>2 remove endpoint intervals of length δ=1/s, whose integrals are O(δ^{3/2}). On [−1+δ,1−δ] integrate twice by parts. Endpoint values of √(1−v²) are O(√δ), endpoint first derivatives are O(δ^{-1/2}), and the integral of the absolute second derivative is O(δ^{-1/2}). Every resulting term is O(s^{-3/2}). Thus a finite absolute constant follows without depending on the numerical Bessel maximum or an unread special-function reference.",
+    "Finally |Tᵀξ|≥B|ξ|, so AB(1+|Tᵀξ|)^{-3/2}≤(A/√B)|ξ|^{-3/2}=√R |ξ|^{-3/2}. This is the precise quantitative primary-source Fourier contract used in the uniform ellipse count."
+   ],
+   "acceptance": [
+    "A=B=a gives the familiar a^{1/2}|ξ|^{-3/2} disc bound.",
+    "For ξ in the short-axis direction, the coefficient A/√B grows with eccentricity; a shape-independent area-normalized coefficient would be false.",
+    "Translating the ellipse changes only the Fourier phase, hence leaves the estimate unchanged."
+   ],
+   "prerequisites": [
+    "mathlib:SchwartzMap.tsum_eq_tsum_fourier"
+   ],
+   "sources": [
+    {
+     "sourceId": "KN2004",
+     "locator": "§3, (3.19)–(3.20), pp.8–9",
+     "match": "Gives the ellipse-transform integral and its support-function dependence. The elementary endpoint proof here replaces the numerical Bessel bound and retains all shape dependence."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "ellipse_fourier_decay"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/uniform-ellipse-lattice-count",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Uniform van der Corput exponent for every ellipse",
+   "kind": "theorem",
+   "statement": "There is an absolute C such that for every real planar ellipse E, in every orientation and with arbitrary centre, |#(E∩ℤ²)−area(E)|≤C(1+R_max(E))^{2/3}. No lower bound on the smaller semiaxis and no bounded-eccentricity hypothesis is imposed.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Write the semiaxes A≥B>0 and R=A²/B. If R<1 then A≤R<1, so the ellipse meets at most nine integer points and has bounded area. Assume R≥1 and put δ=(1/4)R^{-1/3}.",
+    "If B<2δ, then A=√(RB)≤√(2Rδ)≪R^{1/3}. Davenport’s compact convex estimate in dimension two gives error O(1+V₁(E))=O(1+A), enough for the asserted bound. This explicitly handles arbitrarily thin ellipses and avoids an invalid inner smoothing.",
+    "If B≥2δ, put r=δ/B≤1/2 and let E_± be the concentric ellipses with axes (1±r)A,(1±r)B. Choose one fixed nonnegative C∞ bump of mass one supported in the unit disc and rescale it to radius δ. Since the centred ellipse contains the B-disc, E_-+δB̄₂⊆E and E+δB̄₂⊆E_+. Thus 1_{E_-}*η_δ≤1_E≤1_{E_+}*η_δ pointwise, including lattice points on the boundary. The two main integrals differ from area(E) by O(Aδ)≤O(Rδ).",
+    "Apply Poisson to each smooth compactly supported convolution. The required ℤ² identity is obtained by applying pinned SchwartzMap.tsum_eq_tsum_fourier successively to both coordinates; Schwartz estimates justify all sum/integral interchanges. The nonzero Fourier coefficients are bounded by ellipse-fourier-decay and |η̂_δ(m)|≤C_N(1+δ|m|)^{-N}, obtained by integration by parts for this fixed bump. R_max(E_±)≤(3/2)R.",
+    "Summing over dyadic Euclidean annuli, which contain O(2^{2q}) integer points of norm about 2^q, gives Σ_{m≠0}|m|^{-3/2}(1+δ|m|)^{-N}≪δ^{-1/2} for N≥3. The error is therefore O(Rδ+√R δ^{-1/2})=O(R^{2/3}). All constants came from one fixed bump, the absolute ellipse-transform estimate and dimension-two Davenport; none depends on the form, aspect ratio, orientation or centre. This adapts the primary source’s smoothing argument with an isotropic bump instead of dropping its G₀,G₁ factors."
+   ],
+   "acceptance": [
+    "A long thin ellipse is handled by B<2δ; its major semiaxis is then O(R^{1/3}).",
+    "All orientations are allowed: no integral rotation or bounded shape reduction occurs.",
+    "For E/a with area(E)≥a², R(E)/a≥1/√π, so the additive one can be absorbed uniformly."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/ellipse-fourier-decay",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-principle",
+    "mathlib:SchwartzMap.tsum_eq_tsum_fourier"
+   ],
+   "sources": [
+    {
+     "sourceId": "KN2004",
+     "locator": "§3 smoothing proof, (3.4), pp.4–5; Satz 2 proof, (3.18)–(3.20), pp.8–9",
+     "match": "The proof here adapts the explicit Fourier/smoothing argument, keeping a uniform curvature coefficient; it does not claim the source’s displayed G₀,G₁ bound already has the desired form."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "uniform_ellipse_lattice_count"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/van-der-corput-planar-count",
    "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
    "realises": [
@@ -2808,14 +3194,15 @@
    ],
    "title": "Van der Corput's bound for C² convex domains",
    "kind": "theorem",
-   "statement": "There is an absolute constant C such that for every C² convex planar domain E (nonvanishing curvature, maximal radius of curvature r_max), every real x ≥ 1 and every translate: |#(x·E ∩ ℤ²) − x²A(E)| ≤ C(1 + r_max·x)^{2/3}. Consequently, for every ε > 0 every C² convex domain lies in L(C_ε, 2/3 + ε) for some C_ε, and every θ > 2/3 is admissible.",
+   "statement": "For every fixed C² convex planar domain E with nonzero curvature there is C_E such that every real x≥1 satisfies |#(xE∩ℤ²)−x²area(E)|≤C_E x^{2/3}. For ellipses the stronger shape-uniform conclusion is uniform-ellipse-lattice-count, with the absolute curvature-dependent bound C(1+R_max(E))^{2/3}. In particular every θ>2/3 is admissible for integral binary forms.",
    "hypotheses": [
-    "The constant is absolute (Chaix's form); translates are covered since the hypotheses are translation-invariant."
+    "The general C² assertion is a fixed-domain theorem. Its constant is not used to prove uniformity over changing ellipses.",
+    "The survey also reports Chaix’s stronger absolute-curvature form for general C² domains; its unseen primary proof is not claimed here."
    ],
    "proofSteps": [
-    "Cut ∂(xE) into arcs on which the boundary is a graph y = f(t) with |f''| ≍ 1/(r x) bounded above and below; the count in each vertical strip is Σ_t (⌊f(t)⌋ − …) and the error is Σ ψ(f(t)) with ψ the sawtooth.",
-    "Van der Corput's second-derivative test bounds Σ_{t∈I} ψ(f(t)) ≪ |I|λ^{1/3} + λ^{−1/2} with λ ≍ 1/(r_max x) the size of f''; summing over O(1) arcs of length ≪ r_max x gives (r_max x)^{2/3}.",
-    "The class statement: with x = 1/a after translating by x₀, (R_max/a)^{2/3} ≥ 1 when A(E) ≥ a², so the additive 1 is absorbed."
+    "For a fixed E split the boundary into finitely many graph arcs with bounded slope, interchanging the coordinate axes near vertical tangencies. The two curvature bounds of this fixed domain give positive E-dependent lower and upper bounds for the absolute second derivative on these arcs. Under dilation by x the bounds are proportional to x⁻¹.",
+    "The standard sawtooth-sum argument uses a Fourier cutoff H and the second-derivative estimate on each graph arc. Its bound is O_E(x/H+√(xH)+√x+1); taking H comparable to x^{1/3} gives O_E(x^{2/3}). Boundary-integral/Euler summation accounts for the graph endpoints and the area main term. This is the fixed-domain classical result reported in IKKN §3.1, p.9; the general primary proof remains an indirect-source item.",
+    "For the parameter-uniform conclusion use the separate, fully quantified uniform-ellipse-lattice-count and admissible-ellipse-exponents. No assertion that a fixed-domain constant depends only on R_max is used."
    ],
    "acceptance": [
     "The circle of radius √X: the error is O(X^{1/3}), the classical Gauss circle exponent of van der Corput.",
@@ -2823,7 +3210,7 @@
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/curvature-lattice-class",
-    "mathlib:Int.fract"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/uniform-ellipse-lattice-count"
    ],
    "sources": [
     {
@@ -2855,19 +3242,20 @@
    ],
    "title": "Huxley's bound for C³ convex domains",
    "kind": "theorem",
-   "statement": "For every C³ convex planar domain E (boundary of class C³ with nonvanishing curvature) there is C_E such that |#(x·E ∩ ℤ²) − x²A(E)| ≤ C_E·x^{131/208}(log x)^{18637/8320} for x ≥ 2. For ellipses the constant can be taken uniform in the form after normalising the radius of curvature, so every θ > 131/208 is admissible.",
+   "statement": "Target contract: for every C³ convex planar domain E with nonzero curvature, |#(xE∩ℤ²)−x²area(E)|≤C_E x^{131/208}(log x)^{18637/8320} for x≥2. The stronger input needed for admissibility is: there is one absolute C such that every ellipse F satisfies |#(F∩ℤ²)−area(F)|≤C(1+R_max(F))^{131/208}(log(2+R_max(F)))^{18637/8320}. The second assertion is an explicit unresolved Huxley input, not a consequence of the first assertion with an unspecified C_E.",
    "hypotheses": [
-    "C³ boundary; the uniformity for ellipses of integral forms is what admissibility requires."
+    "C³ boundary in the fixed-domain assertion. The uniform ellipse assertion quantifies over all eccentricities, orientations, centres and scales.",
+    "Both the advanced exponent-sum proof and the precise uniform primary-source hypotheses are retained in the inherited Huxley gap. The certified elementary alternative in this continuation is exponent 2/3."
    ],
    "proofSteps": [
-    "The proof is Huxley's discrete Hardy–Littlewood method (Bombieri–Iwaniec–Huxley) for the sawtooth sums Σψ(f(t)), with first and second spacing problems for resonance curves. The method is not decomposed here; see the gap 'Huxley exponent-sum method'."
+    "The fixed-domain exponent is reported in IKKN §3.1, p.10, and KN (1.1), p.1. Its proof uses the discrete Hardy–Littlewood/Bombieri–Iwaniec–Huxley spacing arguments. The 2003 primary proof was not accessible in a permitted readable copy, so this continuation does not certify or redevelop it.",
+    "For uniform admissibility the stated second contract must be established from a quantitative primary theorem, including its normalized-derivative hypotheses for unbounded-eccentricity ellipses, or by a separate proof. A bound with C_E depending on the ellipse is insufficient. Record this as an open inherited input; subsequent use below exponent 2/3 is conditional on it."
    ],
    "acceptance": [
     "The circle: P(x) ≪ x^{131/208+ε}, 131/208 ≈ 0.6298 < 2/3."
    ],
    "prerequisites": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/curvature-lattice-class",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/van-der-corput-planar-count"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/curvature-lattice-class"
    ],
    "sources": [
     {
@@ -2896,19 +3284,23 @@
    ],
    "title": "Admissible lattice-count exponents for ellipses",
    "kind": "application",
-   "statement": "Every θ > 2/3 is admissible in the sense of curvature-lattice-class, and every θ > 131/208 is admissible.",
+   "statement": "Every θ≥2/3 is admissible in the sense of curvature-lattice-class. Conditional on the explicitly stated uniform ellipse contract in huxley-planar-count, every θ>131/208 is admissible. The latter range retains the inherited Huxley proof gap.",
    "hypotheses": [
-    "Admissibility quantifies over all positive definite integral binary forms and all scales."
+    "Admissibility uses one constant for all positive definite integral binary forms and all eligible scales and translates.",
+    "No bounded-eccentricity reduction is assumed. The 2/3 route is established by the primary-source Fourier/smoothing adaptation; the improved Huxley route is conditional."
    ],
    "proofSteps": [
-    "Ellipses {Q ≤ X} are C^∞ convex domains with nonvanishing curvature; apply van-der-corput-planar-count (θ > 2/3) and huxley-planar-count (θ > 131/208).",
-    "Uniformity in Q: after an integral change of variables bringing Q to reduced form the ratio R_max²/A(E) is bounded below, and the constants depend only on the normalised shape, which van der Corput's bound with absolute constant handles directly."
+    "For F=a⁻¹(E−x₀), the semiaxes and maximal radius of curvature scale by a⁻¹. Its area is at least one, and for an ellipse area(F)=πAB≤πR(F)², so R(F)≥π^{-1/2}. Apply uniform-ellipse-lattice-count: (1+R)^{2/3}≤(1+√π)^{2/3}R^{2/3}. This proves admissibility at 2/3 itself, uniformly even for arbitrary real ellipses.",
+    "Use the corrected exponent-monotonicity API, with its π^{(θ′−θ)/2} constant adjustment, for every θ≥2/3.",
+    "If the uniform Huxley ellipse contract is supplied, let η=θ−131/208>0 and use (log(2+R))^{18637/8320}≪_η(1+R)^η. The same lower bound R≥π^{-1/2} absorbs the additive one, yielding C_θ R^θ. This implication is valid without claiming that the unresolved uniform contract has been proved."
    ],
    "acceptance": [
-    "θ = 0.7 is admissible; θ = 0.64 is admissible by Huxley."
+    "θ=0.7 and θ=2/3 follow from the elementary uniform ellipse theorem.",
+    "θ=0.64 requires the explicitly unresolved uniform Huxley contract.",
+    "An arbitrarily eccentric integral ellipse remains inside the quantified 2/3 estimate."
    ],
    "prerequisites": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/van-der-corput-planar-count",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/uniform-ellipse-lattice-count",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/huxley-planar-count",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/curvature-lattice-class"
    ],
@@ -3006,34 +3398,44 @@
    "realises": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
    ],
-   "title": "Blomer–Granville bound for pairs of representations",
+   "title": "Restricted second-moment bound for pairs of representations",
    "kind": "theorem",
-   "statement": "UNRESOLVED TARGET (not an established bound). For K ≥ 2 and 1 ≤ d ≤ K, determine hypotheses under which the number of (s₁,s₂,t₁,t₂) ∈ ℤ⁴ with s₁² + d t₂² = s₂² + d t₁², |s_j| ≤ √K and |t_j| ≤ √(K/d) is ≪ K/√d + K(log K)τ(d)/d. The original assertion for unrestricted d ≥ 1 is false. A valid restricted statement and derivation from the primary source are required.",
+   "statement": "There is an absolute C such that for K≥2 and an integer d≥1 satisfying 16d²≤K, the number of integer quadruples with s₁²+d t₂²=s₂²+d t₁², |s_j|≤√K and |t_j|≤√(K/d) is at most C(K/√d + K log K·τ(d)/d). This range includes d=a²−4 in the asymptotic regime of Ghosh–Sarnak §9: (log K)²<A≪_εK^ε and √A≤a≤A, for sufficiently large K. No assertion is made for all d≤K.",
    "hypotheses": [
-    "At least a restriction on d relative to K is necessary. No claim is made here that d ≤ K alone suffices.",
-    "Blomer–Granville Theorem 2 is about fundamental discriminants and contains additional error terms; a proof must explain the passage to the required possibly nonfundamental d."
+    "K is real, d a positive integer; the stated numerical restriction implies K≥16. The estimate includes zero coordinates and the zero representation.",
+    "The positive definite form x²+d y² is primitive of discriminant −D=−4d, which need not be fundamental."
    ],
    "proofSteps": [
-    "For fixed K = 2 and d → ∞, take t₁ = t₂ = 0 and s₁ = ±s₂. The count is positive while the proposed right-hand side tends to zero (τ(d)/d → 0). This disproves the unrestricted statement.",
-    "GS Lemma 9.5 uses the bound in its own restricted parameter regime. Derive that version with its exact range; a factorisation and the words divisor counting do not establish the asserted uniform estimate."
+    "The common value n lies in [0,2K]. Apart from n=0, the box count is bounded by w_D² Σ_{1≤n≤2K} r_g(n)², where g=x²+dy², r_g counts representations modulo the w_D≤6 automorphisms. Each orbit has exactly w_D elements for n>0, since a nonidentity orientation-preserving automorphism fixes no nonzero vector.",
+    "Use Toma Theorem 1 with β=2 and −D=D₀ f². Its main coefficient is absolutely bounded: the factors w_{D/e²} are at most six, u_{θ_e(g)}≥1, and Σ_{e|f}φ(f/e)/f=1. Consequently the main term is O(x/√D), uniformly in f and g.",
+    "Keep the full error: Σ_{e|f}(2^{ω(f/e)}/e)√(x/a_{θ_e(g)}) + τ(f²) + τ(D)(x log x/D + x/D^{3/4}). Here a_{θ_e(g)}≥1. The conductor sum is at most √x·τ(f²), because Σ_{e|f}2^{ω(f/e)}=τ(f²); also τ(f²)≤2f≤2√D.",
+    "Since D=4d≤√K and x=2K, √(xD)+√D ≪ x/√D. The elementary divisor bound τ(D)≪D^{1/4} absorbs xτ(D)/D^{3/4} into x/√D. It follows by separating the finitely many primes p<2^4 in the product τ(D)=∏(v_p(D)+1); their ratios to p^{v_p(D)/4} have finite suprema. Finally τ(4d)≤3τ(d). These estimates give the displayed bound, including the single n=0 tuple.",
+    "For the GS application, choose ε=1/16 in A≪_εK^ε. Then 4(a²−4)≤4A²≪K^{1/8}≤√K for sufficiently large K, uniformly for a≤A. In the second moment of R_d, interchanging the two t variables converts equality of s²−dt² into the positive-form pair equation; the sector bounds s≪√K,t≪√(K/d) only enlarge x and constants by absolute factors.",
+    "The deleted unrestricted statement fails for K=2 and prime d→∞: t₁=t₂=0 already supplies five solutions. Retain that test so no subsequent extension silently drops the parameter restriction."
    ],
    "acceptance": [
-    "d = 1: the bound K + K log K matches the count of (s, t) pairs with s₁² − s₂² = t₁² − t₂².",
-    "Keep the diagonal family t₁=t₂=0 in every parameter test; it cannot be absorbed by a right-hand side tending to zero for fixed K."
+    "For d=1 and K≥16 this gives O(K log K), consistent with the sum-of-two-squares second moment.",
+    "The diagonal family t₁=t₂=0 has O(√K) elements, absorbed since d≤√K/4.",
+    "For d=a²−4 the discriminant −4d is often nonfundamental; the conductor formula is used without replacing d by its squarefree part."
    ],
    "prerequisites": [
     "mathlib:ArithmeticFunction.sigma"
    ],
    "sources": [
     {
-     "sourceId": "GS2022",
-     "locator": "Proof of Lemma 9.5, p.29, citing Blomer–Granville, Duke Math. J. 135 (2006), Theorem 2",
-     "match": "Quotes a representation-pair estimate inside the restricted regime of Lemma 9.5; it does not justify the packet’s former assertion for arbitrary d ≥ 1."
+     "sourceId": "Toma2020",
+     "locator": "Theorem 1, PDF pp.3–4; proof in §3, PDF pp.8–9",
+     "match": "Provides the second moment for arbitrary negative quadratic discriminants, with the conductor sum and extra errors retained before absorption in the stated range."
     },
     {
      "sourceId": "BG2006",
-     "locator": "§1.1 pp.2–3; Theorem 2 p.5",
-     "match": "A second-moment theorem under the fundamental-discriminant convention, with additional error terms. The required reduction and parameter range remain unresolved."
+     "locator": "§1.1, pp.2–3; Theorem 2, p.5",
+     "match": "Supplies the fundamental-discriminant result generalized by Toma; it alone is not used to assert the nonfundamental case."
+    },
+    {
+     "sourceId": "GS2022",
+     "locator": "§9.1 parameter choices, pp.25–26; Lemma 9.5 and its proof, p.29",
+     "match": "The small-power range for A places every d=a²−4 used here inside 16d²≤K eventually; swapping t variables gives the positive-definite second moment."
     }
    ],
    "library": {
@@ -3727,23 +4129,23 @@
    ],
    "title": "Mixing of noncompact one-parameter flows",
    "kind": "theorem",
-   "statement": "Let G be a connected simple Lie group with finite centre, Γ a lattice, μ the G-invariant probability measure on Γ\\G, and g_t a one-parameter subgroup whose closure is not compact. Then for all φ, ψ ∈ L²(Γ\\G, μ): ∫ φ(xg_t)ψ(x) dμ(x) → (∫φ dμ)(∫ψ dμ) as t → ∞. In particular g_t is mixing and ergodic, and so is every time-t₀ map x ↦ xg_{t₀} with t₀ ≠ 0.",
+   "statement": "Let G be a connected simple Lie group with finite centre, Γ a lattice, μ the G-invariant probability measure on Γ\\G, and g_t a one-parameter subgroup whose closure is not compact. Then for all real-valued φ, ψ ∈ L²(Γ\\G, μ): ∫ φ(xg_t)ψ(x) dμ(x) → (∫φ dμ)(∫ψ dμ) as t → ∞. In particular g_t is mixing and ergodic, and so is every time-t₀ map x ↦ xg_{t₀} with t₀ ≠ 0.",
    "hypotheses": [
     "The limit is the product of the integrals, not of the L² norms (sourceIssue E402).",
     "G simple (not merely semisimple): for products one must leave every compact set in each factor."
    ],
    "proofSteps": [
-    "Reduce to φ, ψ in the orthogonal complement ℋ of the constants.",
-    "For SL₂, follow Morris pp.103–105: a weak limit E of the commuting operators ρ(g_t) is normal because it lies in their abelian von Neumann algebra. Contracting unipotents give ρ(U)E=E and Eρ(V)=E. Thus range(E) is U-fixed and ker(E)⊥ is V-fixed; normality identifies the closures of these ranges. Their intersection consists of G-fixed vectors, so E=0 on the orthogonal complement of constants.",
-    "For a general simple G, Morris uses Cartan decomposition and the Lie-theoretic generation/contracting subgroup argument. This needs an exact supplier contract; LieGroups Layer 2 alone supplies neither that argument nor decay of matrix coefficients. The former inference from absence of fixed vectors of E to E=0 was invalid. One may instead import the base Howe–Moore theorem, retaining its recorded proof gap.",
-    "The time-t₀ statement follows by restricting to t ∈ t₀ℕ."
+    "Use the base packet’s exact howe-moore-mixing contract: connected noncompact almost-simple real Lie group with finite centre, strongly continuous unitary representation, no nonzero invariant vectors, and escape from all compact subsets. Its general decay proof remains the base packet’s explicit gap; this continuation supplies the homogeneous-space adapter and does not assert a new contracting-subgroup generation theorem.",
+    "Right translation is unitary on L²(Γ\\G,μ) by invariance. It is strongly continuous: continuous compactly supported functions are dense for the Radon finite quotient measure; translations converge uniformly on one compact neighborhood of their supports, hence in L². Approximate an arbitrary L² vector and use unitarity to pass continuity to it.",
+    "The invariant vectors are the constants. To justify the almost-everywhere point: smooth an invariant L² vector by a smooth compactly supported approximate identity on G. In quotient coordinate charts differentiation under this compact convolution gives a smooth representative, which is continuous and invariant; transitivity of G on Γ\\G makes it constant. The approximate identity converges in L² by strong continuity. Thus the zero-mean closed subspace has no nonzero invariant vector.",
+    "A one-parameter subgroup with noncompact closure escapes every compact set as |t|→∞. Apply Ad, whose kernel is the finite centre and whose map onto the adjoint group is proper. For exp(t·ad X), a nonzero real part of an eigenvalue or a nonzero nilpotent part in real Jordan form forces its matrix or inverse norm to tend to infinity. Otherwise ad X is semisimple with purely imaginary spectrum and the closure is compact, contrary to the hypothesis. This also justifies both signs of t₀.",
+    "Remove the means of φ,ψ and apply the base Howe–Moore theorem to their matrix coefficient. Add the constants back to get the product of integrals. For complex functions the sesquilinear version uses conjugation on ψ and on its integral. Restrict to t=m t₀ with m→∞ (and the negative-time version when t₀<0) for mixing of each nonzero time map; mixing implies ergodicity."
    ],
    "acceptance": [
     "G = SL(2, ℝ), Γ = SL(2, ℤ), g_t = diag(e^{t/2}, e^{−t/2}): the geodesic flow on the modular surface is mixing.",
     "For φ = ψ = 1_A with 0 < μ(A) < 1 the limit is μ(A)², not μ(A)."
    ],
    "prerequisites": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/mautner-phenomenon",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/lattice-space-invariant-probability",
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem"
@@ -3909,6 +4311,179 @@
    ]
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/marked-poset-points",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Marked points of a partially ordered family",
+   "kind": "definition",
+   "statement": "Let S be a partially ordered set, ψ_s:V→ℝ, and 0<ε≤ρ. A point x∈V is (ε,ρ)-marked if there is a finite chain Σ⊆S such that ε≤|ψ_s(x)|≤ρ for s∈Σ, and |ψ_s(x)|≥ρ for every s∈S\\Σ comparable to every member of Σ. The empty chain is allowed; then the second clause tests every s∈S. Continuity is an additional hypothesis of the measure estimate, not of this pointwise predicate.",
+   "hypotheses": [],
+   "proofSteps": [
+    "A finite chain and the two displayed inequalities are the complete data; the second clause also quantifies over elements when the chain is empty. No maximality condition is imposed on a marking chain."
+   ],
+   "acceptance": [
+    "For an empty poset every point is marked.",
+    "For a singleton, a value below ε is unmarked and a value at least ε is marked."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/good-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "KM1998",
+     "locator": "§4, definitions before Theorem 4.1, pp.9–10",
+     "match": "Records both marking clauses, including comparability, and the empty-chain convention."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "marked_poset_points"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "KM Theorem 4.1, pp.9–13",
+     "how": "The complement of the marked set is estimated by induction on chain length."
+    },
+    {
+     "where": "KM Theorem 5.2, pp.14–15",
+     "how": "A marked primitive-subgroup flag excludes vectors with sup norm less than ε."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.IsMarked",
+     "role": "constructor",
+     "statement": "IsMarked ψ ε ρ x ↔ ∃ Σ:Finset S, Σ is a chain ∧ (∀s∈Σ, ε≤|ψ_s(x)| ∧ |ψ_s(x)|≤ρ) ∧ ∀s∉Σ, (∀t∈Σ, s≤t ∨ t≤s) → ρ≤|ψ_s(x)|."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.IsMarked.empty",
+     "role": "simp",
+     "statement": "If every s satisfies |ψ_s(x)|≥ρ, the empty chain witnesses IsMarked ψ ε ρ x; the empty witness satisfies the marking clauses only under this condition."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.IsMarked.mono_epsilon",
+     "role": "structure",
+     "statement": "0<ε′≤ε → IsMarked ψ ε ρ x → IsMarked ψ ε′ ρ x."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.IsMarked.chain_length",
+     "role": "structure",
+     "statement": "If every finite chain has cardinality at most k, IsMarked ψ ε ρ x supplies a marking witness Σ of cardinality at most k, with both marking clauses."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.marked_empty_poset",
+     "kind": "degenerate",
+     "statement": "For S=∅, every x is marked by Σ=∅."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.marked_singleton_threshold",
+     "kind": "characterisation",
+     "statement": "For S a singleton and 0<ε≤ρ, x is marked iff |ψ_s(x)|≥ε; equality ε and equality ρ are included."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.marked_incomparable_pair",
+     "kind": "non-example",
+     "statement": "For two incomparable elements with ψ_a(x)=ε and ψ_b(x)=0<ε<ρ, Σ={a} marks x: b is not comparable to a and is not tested. A definition omitting comparability would incorrectly reject it."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.marked_empty_chain_checks_all",
+     "kind": "non-example",
+     "statement": "For a nonempty singleton with |ψ_s(x)|<ε, the empty chain does not mark x, since its universal comparability condition is vacuous and the ρ lower bound fails."
+    }
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/marked-poset-measure-bound",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Quantitative estimate for unmarked points",
+   "kind": "theorem",
+   "statement": "Let d≥1, k≥0, B=B(x₀,r₀) with r₀>0 and B̃=B(x₀,3^k r₀). Let S be a countable partially ordered set, every finite chain of which has cardinality at most k, and continuous ψ_s:B̃→ℝ. Assume C,α,ρ>0, each ψ_s is (C,α)-good on B̃, sup_B|ψ_s|≥ρ for every s, and for each x∈B̃ the set {s:|ψ_s(x)|<ρ} is finite. For 0<ε≤ρ the measure of the unmarked subset of B is at most k C (3^d N_d)^k (ε/ρ)^α vol(B), with N_d=Besicovitch.multiplicity(ℝ^d).",
+   "hypotheses": [],
+   "proofSteps": [
+    "Countability ensures measurability: finite chains form a countable family, and each marking condition is a countable intersection/union of closed inequalities. The primitive-subgroup application is countable. For k=0 the poset is empty and all points are marked.",
+    "For an unmarked x∈B put H_x={s:|ψ_s(x)|<ρ}; it is finite and nonempty, since otherwise the empty chain marks x. For s∈H_x let r_{s,x} be the largest radius ≤2r₀ on which sup_{B(x,r)}|ψ_s|≤ρ. Continuity gives positivity and passage to the endpoint. Since B⊆B(x,2r₀) and sup_B≥ρ, the supremum at this maximal radius equals ρ. Choose s_x maximizing r_{s,x} over H_x and put B_x=B(x,r_{s_x,x}). Then |ψ_{s_x}|≤ρ on B_x, while sup_{B_x}|ψ_s|≥ρ for every s: for s outside H_x its centre value suffices, and for s∈H_x use maximality.",
+    "Let S_x be the strict link of s_x, namely all other elements comparable to s_x. Its chain length is at most k−1. The enlarged ball 3^{k−1}B_x lies in B̃ because its radius is ≤2·3^{k−1}r₀ and its centre is in B. All goodness, lower-bound and local-finiteness hypotheses pass to this link. By induction, its unmarked subset of B_x has measure at most (k−1)C(3^dN_d)^{k−1}(ε/ρ)^α vol(B_x).",
+    "If y∈B∩B_x is unmarked for S but marked for S_x, then |ψ_{s_x}(y)|<ε: otherwise adjoining s_x to a witness chain marks it for S (|ψ_{s_x}|≤ρ on B_x; any element comparable to the enlarged chain lies in S_x). Goodness bounds this additional set by C(ε/ρ)^α vol(B_x).",
+    "Package exactly these prescribed balls B_x, x unmarked in B, using radii ≤2r₀. Besicovitch.exist_disjoint_covering_families with goodτ and multiplicity selects N_d families with disjoint closed balls covering every centre. Each selected family is countable by second countability and nonempty disjoint open balls; multiplicity is at most N_d. Every selected ball is in 3B, so Σvol(B_x)≤N_d vol(3B)=N_d3^d vol(B). Multiplying the local bound gives at most kC(3^dN_d)^k, since 3^dN_d≥1. No arbitrary-small-ball or almost-everywhere cover is substituted."
+   ],
+   "acceptance": [
+    "k=0 gives zero unmarked measure.",
+    "A singleton poset reduces to the good-function sublevel estimate.",
+    "The finiteness assumption is pointwise, not a single global finite list of primitive subgroups."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/marked-poset-points",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/good-functions",
+    "mathlib:Besicovitch.BallPackage",
+    "mathlib:Besicovitch.exist_disjoint_covering_families",
+    "mathlib:Besicovitch.one_lt_goodτ",
+    "mathlib:Besicovitch.isEmpty_satelliteConfig_multiplicity",
+    "mathlib:Besicovitch.multiplicity_le"
+   ],
+   "sources": [
+    {
+     "sourceId": "KM1998",
+     "locator": "Theorem 4.1 and proof, pp.9–13",
+     "match": "All length, goodness, nonvanishing and pointwise finiteness conditions are retained. The countable-poset specialization suffices for primitive subgroups and makes measurability explicit."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "marked_poset_measure_bound"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/primitive-flag-short-vector",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "A marked primitive flag excludes short vectors",
+   "kind": "theorem",
+   "statement": "For g∈GL_k(ℝ), k≥1, put ψ_Γ=‖g(v₁∧⋯∧v_r)‖∞ for each nonzero primitive subgroup Γ≤ℤ^k of rank r, independently of its integral basis. If 0<ε≤ρ≤1/k and g is (ε,ρ)-marked for the inclusion poset of such Γ, then every nonzero v∈ℤ^k satisfies ‖gv‖∞≥ε.",
+   "hypotheses": [],
+   "proofSteps": [
+    "The exterior-coordinate norm satisfies ‖u∧w‖∞≤k‖u‖∞‖w‖∞ when w has rank one: each output coordinate is a sum of at most k products. If Γ is primitive of rank r and v lies outside its real span, Λ=(Γ+ℝv)∩ℤ^k contains Γ+ℤv with finite index. Basis wedges differ by that index, so ψ_Λ≤kψ_Γ‖gv‖∞. This is KM (5.1); no Euclidean-covolume substitution is made.",
+    "It suffices to test primitive v, since dividing out its positive integral content decreases its norm. Order a marking chain Γ₁<⋯<Γ_l. If v is in the real span of some Γ_i, take the first such i; otherwise use endpoint Γ_{l+1}=ℤ^k. Primitivity puts v inside that first Γ_i. Put Γ=Γ_{i−1} (or zero for i=1), and Λ=(Γ+ℝv)∩ℤ^k. The subgroup Λ lies between consecutive flag members (including endpoints), so it is comparable to the whole flag.",
+    "Thus ψ_Λ≥ε: either Λ belongs to the marking chain or its norm is ≥ρ by the second marking clause. If Γ is nonzero, ψ_Γ≤ρ, hence ε≤kρ‖gv‖∞≤‖gv‖∞. If Γ=0, do not use ψ_0=1≤ρ (false in general): Λ=ℤv for primitive v, so ψ_Λ=‖gv‖∞ directly.",
+    "For each fixed g, only finitely many primitive Γ have ψ_Γ<ρ. The integral basis wedge is a primitive nonzero integer point in one of the finitely many exterior powers; ∧^r g is invertible and a bounded norm ball contains finitely many integer points. The wedge determines Γ up to sign. The poset is countable and its chains have length at most k because proper inclusions of primitive subgroups increase rank."
+   ],
+   "acceptance": [
+    "For k=1, marking forces the scalar |g|≥ε.",
+    "The rank-zero predecessor is treated by the vector norm itself; it is not bounded by ρ.",
+    "For g=diag(t,t⁻¹), 0<t<ε, no marking can exclude the subgroup ℤe₁, so the flag criterion correctly fails."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/marked-poset-points",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis",
+    "mathlib:Module.Basis.det"
+   ],
+   "sources": [
+    {
+     "sourceId": "KM1998",
+     "locator": "§5, (5.1), p.14; proof of Theorem 5.2, pp.14–15",
+     "match": "The wedge norm, saturation and insertion of a primitive vector give the marked-point implication and pointwise finiteness."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "primitive_flag_short_vector"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/quantitative-nondivergence",
    "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
    "realises": [
@@ -3921,8 +4496,9 @@
     "N_d depends only on d; Γ ranges over all nonzero primitive subgroups of ℤ^k."
    ],
    "proofSteps": [
-    "Mark points x ∈ B by flags of primitive subgroups Γ with ψ_Γ(x) small relative to ψ_Γ on balls around x (the poset argument of Kleinbock–Margulis §4).",
-    "KM §4, Theorem 4.1, pp.9–13, bounds unmarked points by induction on the length of a partially ordered set using bounded-multiplicity Besicovitch covers of prescribed balls. In §5 the primitive-subgroup poset has length k. At a marked point, the wedge inequality (5.1) and a flag augmented by a primitive vector give δ ≥ ε. The AE disjoint-small-ball covering theorem in Mathlib does not supply this covering contract."
+    "Use the countable poset of nonzero primitive subgroups of ℤ^k, ordered by inclusion, and ψ_Γ(x) as the max absolute Plücker-coordinate norm. Basis invariance follows from determinant ±1 of a change of integral basis. Proper primitive inclusions increase rank, so chain length is at most k.",
+    "The finite-exterior-lattice argument in primitive-flag-short-vector proves pointwise finiteness below ρ for every x, even though no finite list works globally. Continuity of h makes every ψ_Γ continuous. The stated hypotheses are precisely the remaining assumptions of marked-poset-measure-bound.",
+    "Apply that estimate. By primitive-flag-short-vector and ρ≤1/k, every marked point has δ(h(x)ℤ^k)≥ε. Therefore the set with δ<ε is contained in the unmarked set, giving the claimed measure bound."
    ],
    "acceptance": [
     "k = 1: h(x) is a scalar and the statement is the good property of |h| itself.",
@@ -3930,8 +4506,8 @@
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/good-functions",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/space-of-unimodular-lattices",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/marked-poset-measure-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/primitive-flag-short-vector"
    ],
    "sources": [
     {
@@ -3998,6 +4574,43 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/projective-recurrence-fixed-lines",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Invariant projective probabilities for unipotent and positive hyperbolic maps",
+   "kind": "theorem",
+   "statement": "Let V be a finite-dimensional real vector space and a∈GL(V) either unipotent or diagonalizable over ℝ with positive eigenvalues. Every a-invariant Borel probability on the real projective space P(V) gives full measure to the set of a-fixed lines. This fixed set is closed, so every line in the support is a-fixed.",
+   "hypotheses": [],
+   "proofSteps": [
+    "For a unipotent, write a=1+N. For each nonzero v choose the largest j with N^jv≠0. The binomial expansion a^m v=Σ_i binom(m,i)N^i v shows [a^m v]→[N^jv], an a-fixed line, as m→∞.",
+    "For a positive diagonalizable a, decompose v into eigenspaces and take the largest eigenvalue with nonzero component. Dividing a^m v by that eigenvalue to the m-th power gives convergence in projective space to its component line, again fixed.",
+    "Poincaré recurrence for the invariant finite measure, applied to a countable basis of projective neighborhoods, gives almost every point a subsequence a^{m_i}[v]→[v]. The preceding full-orbit limit is a fixed line, hence [v] itself is fixed. Since the fixed-line set is closed, it contains the support. No claim that all vectors, rather than their lines, are fixed is used."
+   ],
+   "acceptance": [
+    "For diag(2,1), an invariant probability is supported on its two eigenlines.",
+    "A scalar positive map fixes every line, so every probability is allowed.",
+    "A nontrivial rotation need not have a fixed real line and can preserve angular probability; the spectral hypothesis cannot be dropped."
+   ],
+   "prerequisites": [
+    "mathlib:MeasureTheory.Conservative.ae_mem_imp_frequently_image_mem"
+   ],
+   "sources": [
+    {
+     "sourceId": "MorrisRatner",
+     "locator": "Lemma 4.7.5 and proof, printed pp.141–142",
+     "match": "Finite invariant measure plus the projective asymptotic of unipotent/positive hyperbolic iterates forces support on fixed lines."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "projective_recurrence_fixed_lines"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/borel-density",
    "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
    "realises": [
@@ -4011,17 +4624,18 @@
     "The conclusion concerns unipotent and hyperbolic elements, not all of G."
    ],
    "proofSteps": [
-    "Let Γ̄ be the Zariski closure; G acts on the space of polynomials of bounded degree and the line of a polynomial vanishing on Γ̄ gives a finite measure on a projective space invariant under the image of G/Γ.",
-    "For a unipotent or hyperbolic g, the iterates g^m push every point of projective space towards a g-fixed point (polynomial or exponential growth); Poincaré recurrence for the finite invariant measure on G/Γ forces g to fix the relevant points, so g ∈ Γ̄."
+    "Let H be the algebraic Zariski closure of Γ in SL_ℓ. Multiplication and inversion are regular, so H is an algebraic subgroup. Import the existing Chevalley stabilizer theorem through ReductiveGroups Layer 3: there are a finite-dimensional algebraic representation ρ and a line ℓ with stabilizer H(ℝ). A single arbitrarily chosen polynomial vanishing on H does not have this property.",
+    "On G/Γ define F(gΓ)=ρ(g)ℓ. This is well-defined because Γ⊆H, is continuous and G-equivariant. Normalize the assumed finite nonzero invariant quotient measure and push it to P(V). The resulting probability ν is ρ(G)-invariant. The identity line ℓ is in its support: the preimage of every neighborhood of ℓ contains an open neighborhood of the identity coset, of positive quotient measure. Full support of the quotient probability follows from transitivity and second countability: countably many translates of any nonempty open set cover the quotient, so such an open set cannot have measure zero.",
+    "For a unipotent or positive real-hyperbolic g∈G, the ReductiveGroups Layer 4 contract makes ρ(g) unipotent or positive real-hyperbolic respectively. Apply projective-recurrence-fixed-lines to ν. Its support contains ℓ, so ρ(g) fixes ℓ and the exact stabilizer identity gives g∈H(ℝ)."
    ],
    "acceptance": [
     "Γ = SL_ℓ(ℤ) in G = SL_ℓ(ℝ): Γ is Zariski dense.",
     "A finite group Γ is a lattice only in a compact G, which has no nontrivial unipotent elements: consistent."
    ],
    "prerequisites": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/lattice-space-invariant-probability",
-    "mathlib:MeasureTheory.Conservative.ae_mem_imp_frequently_image_mem"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/projective-recurrence-fixed-lines"
    ],
    "sources": [
     {
@@ -4043,6 +4657,45 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/so21-quotient-standard-module",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "The five-dimensional so(2,1) quotient is the existing highest-weight-four module",
+   "kind": "theorem",
+   "statement": "Let J represent Q(a,b,c)=b²−4ac on ℝ³, let 𝔥={A∈sl₃:AᵀJ+JA=0} and 𝔭={A∈sl₃:AᵀJ=JA}. Then sl₃=𝔥⊕𝔭 as 𝔥-modules, and the action of 𝔥 on 𝔭 is isomorphic to the standard highest-weight-four sl₂ module Sl2Std ℝ 4. Consequently 𝔭, equivalently sl₃/𝔥, is irreducible of dimension five.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use J=[[0,0,−2],[0,1,0],[−2,0,0]]. The matrices E=[[0,1,0],[0,0,2],[0,0,0]], F=[[0,0,0],[2,0,0],[0,1,0]] and H=diag(2,0,−2) lie in 𝔥 and satisfy [H,E]=2E, [H,F]=−2F, [E,F]=H. They are independent and span 𝔥, identifying it with sl₂.",
+    "The involution A↦J⁻¹AᵀJ preserves trace. Its minus and plus eigenspaces on sl₃ are 𝔥 and 𝔭. Projection by one half of 1 minus/plus this involution proves the direct sum, and [𝔥,𝔭]⊆𝔭 follows by transposition. Directly solving the symmetric condition leaves six parameters and trace zero removes one, so dim 𝔭=5.",
+    "Put v₀=e₁₃ and v_i=(ad F)^i v₀ for 0≤i≤4. Matrix multiplication gives v_i∈𝔭, v_i≠0, [H,v_i]=(4−2i)v_i, [E,v_i]=i(5−i)v_{i−1} for i≥1, [E,v₀]=0 and [F,v₄]=0. Their distinct weights make them independent, hence a basis. Rescale the basis to the owner’s standard raising/lowering normalization to obtain an explicit intertwiner with Sl2Std ℝ 4.",
+    "Import irreducibility of that standard module from LieHighestWeight Layer 0, already implemented on current main. Transfer it across the intertwiner. A real change of coordinates and a nonzero scalar take b²−4ac to x₁²+x₂²−x₃² and transport the decomposition. This is a concrete adapter, not a new irreducibility theorem for general sl₂ modules."
+   ],
+   "acceptance": [
+    "The five weights are 4,2,0,−2,−4, each once.",
+    "The plus eigenspace of A↦J⁻¹AᵀJ in all matrices has dimension six; trace zero is necessary to obtain dimension five.",
+    "Dimension alone does not imply irreducibility; the displayed nonzero ladder links all five weight spaces."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+    "mathlib:LieSubalgebra"
+   ],
+   "sources": [
+    {
+     "sourceId": "MorrisRatner",
+     "locator": "§1.2, proof of Margulis’ theorem, printed pp.14–15",
+     "match": "Uses maximality of SO(2,1)°. The quotient identification and explicit five-vector calculation here supply its required representation-theoretic input."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CountingAuxiliaries",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "so21_quotient_standard_module"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/so21-intermediate-subgroups",
    "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
    "realises": [
@@ -4055,15 +4708,15 @@
     "Connected subgroups; the statement is about Lie algebras 𝔥 ⊆ 𝔰 ⊆ 𝔰𝔩_3(ℝ)."
    ],
    "proofSteps": [
-    "Under H ≅ PSL_2(ℝ) (or SO(2,1)° ≅ PSL_2(ℝ)), 𝔰𝔩_3(ℝ) = 𝔥 ⊕ 𝔭 with 𝔭 the 5-dimensional irreducible representation (traceless Q₀-symmetric matrices).",
-    "An 𝔥-invariant subspace 𝔰 ⊇ 𝔥 is 𝔥 ⊕ (𝔰 ∩ 𝔭), and irreducibility of 𝔭 forces 𝔰 ∩ 𝔭 ∈ {0, 𝔭}."
+    "Use so21-quotient-standard-module to split sl₃=𝔥⊕𝔭 with irreducible 𝔭. For any Lie subalgebra 𝔰 containing 𝔥, its elements’ 𝔥-components already lie in 𝔰, so 𝔰=𝔥⊕(𝔰∩𝔭). The latter intersection is 𝔥-invariant, hence either zero or all of 𝔭.",
+    "Therefore 𝔰=𝔥 or sl₃. The connected-Lie-subgroup correspondence from LieGroups Layer 2 identifies the connected analytic subgroup with that algebra; since SO(Q₀)° and SL₃(ℝ) are connected, these are the only choices. Closedness of the intermediate subgroup is not needed for the Lie-algebra argument."
    ],
    "acceptance": [
     "The Lie algebra 𝔰𝔬(2,1) has dimension 3 and 𝔰𝔩_3 dimension 8 = 3 + 5."
    ],
    "prerequisites": [
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
-    "mathlib:LieSubalgebra"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/so21-quotient-standard-module"
    ],
    "sources": [
     {
@@ -4900,12 +5553,32 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem",
-   "need": "Closed subgroups of SL_n(ℝ) are Lie groups with Lie algebras; connected Lie subgroups correspond to Lie subalgebras; the adjoint representation.",
+   "need": "Closed/connected Lie-subgroup and Lie-algebra correspondence in SL_n(ℝ), plus the adjoint action and the following finite-dimensional real Lie-group adapters used in mixing: a connected finite-centre simple group has proper adjoint map onto its closed adjoint group; real Jordan form of exp(t·ad X) distinguishes compact closure from proper escape. This request does not assert matrix-coefficient decay, Chevalley stabilizers, or irreducibility.",
    "neededBy": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-mixing",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/borel-density",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/so21-intermediate-subgroups",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/closed-orbit-rational-form"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+   "need": "Chevalley stabilizer theorem for an algebraic subgroup H≤SL_n over ℝ: a finite-dimensional algebraic representation ρ and a real line ℓ with stabilizer exactly H(ℝ). Consume current Tau Ceti HopfIdeal.exists_finite_subcomodule_exteriorPower_line_stabilizer (Representation/ExteriorStabilizer/Character.lean, lines 100–115) and supply its real-points/Noetherian finite-ideal adapter; this is after f790474, not a pinned baseline. It is already implemented in the current owner direction, so do not replan the polynomial-space/exterior-line construction here. Morris Theorem 4.5.2, printed pp.133–134.",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/borel-density"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+   "need": "An algebraic representation of SL_n over ℝ sends unipotent real points to unipotent linear maps, and a real diagonalizable point with positive eigenvalues to a real diagonalizable linear map with positive eigenvalues. Use functorial Jordan decomposition and the integer-weight decomposition on the split diagonal torus. Current Tau Ceti Representation/UnipotentPoint and JordanDecompositionNaturality cover the algebraic part after the pin; the positive-real-weight adapter is requested explicitly (Morris Corollary 4.3.6, printed p.126).",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/borel-density"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine",
+   "need": "Use the existing standard highest-weight module Sl2Std ℝ 4, its explicit raising/lowering actions and irreducibility. Current Tau Ceti TauCeti.Sl2Std.eq_top_of_raise_mem_of_lower_mem (Algebra/Lie/Sl2/Standard.lean:971) and instance TauCeti.Sl2Std.isIrreducible (line 980) implement this after the pin. GN.4 supplies only the concrete so(2,1)-quotient identification, not a new theory of irreducible sl₂ modules.",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/so21-quotient-standard-module"
    ]
   }
  ],
@@ -4913,100 +5586,52 @@
   {
    "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
    "status": "planned",
-   "note": "The 65 targets cover the requested directions, but independent review found nonroutine proof and supplier gaps and a false unrestricted representation-pair estimate. The remaining list records the unresolved target-level contracts; this packet is not accepted. The schema status planned denotes the target inventory; the independent verdict is needs_changes and no closure is certified.",
+   "note": "Finished revision pass with 76 targets. The six groups of returned proof-contract findings have explicit corrected targets, proofs or supplier imports; the stronger Huxley route is clearly conditional. Remaining entries are honest owner/pin and inherited proof inputs, not a claim of closure. The historical needs_changes review is retained for the next independent reviewer to replace.",
    "remaining": [
-    "Cylindrical algebraic decomposition is not at the pins: The fibrewise cell count rests on cylindrical algebraic decomposition and on Tarski–Seidenberg. Both are on Tau Ceti main (TauCeti/Geometry/RealAlgebraic/CAD.lean and Semialgebraic/Image.lean, after the pin f790474) and are planned in TauCetiRoadmap RealAlgebraicGeometry Layer 6, a roadmap newer than the atlas snapshot and so not an atlas stage that a request can name. When the pin moves past those modules, cite them as baseline declarations; until then the dependency is recorded here and in the restructure entry on RT-AREA-algebraicnt-1/1.",
-    "Huxley exponent-sum method: Huxley's bound x^{131/208}(log x)^{18637/8320} for C³ convex domains rests on the Bombieri–Iwaniec–Huxley discrete Hardy–Littlewood method (first and second spacing problems). Huxley, Proc. London Math. Soc. 87 (2003), is not freely available and was read only through the survey IKKN2004 §3.1; the method is not decomposed and no lower-tier roadmap plans it. The weaker θ > 2/3 route avoids this method; its claimed uniform curvature dependence is separately recorded as an open input below.",
-    "Primary sources read only through citing papers: Davenport (1951/1963), Schmidt (1968), Eskin–Katznelson (1995) and Le Boudec (2018) remain cited through BW, BLS and BSW at the node locators. Their statements in those papers were checked; this review does not certify unseen primary proofs. Henk Theorem 1.5 was read directly. Blomer–Granville’s public author copy was also acquired, and its fundamental-discriminant hypothesis and error terms expose the separate representation-pair contract gap below.",
-    "General Howe–Moore and Ratner proofs: Morris Theorem 3.2.9 and its proof, printed pp.103–105, were read. The SL₂ kernel/range argument has been corrected. General simple-group mixing still needs the Cartan/contracting-subgroup generation contract, or the base Howe–Moore result with its existing proof gap. Ratner’s general measure classification and orbit closure inputs retain the base packet’s open proof contracts.",
-    "Projection comparison in the semialgebraic family count: BW Proposition 6.1 is essential: arbitrary orthogonal projection volumes must be bounded by coordinate projection sums uniformly in the definable family. Lemmas 2.2–2.4 alone do not do this. Plan a target for this comparison with its rectifiability/area and definable-section prerequisites, importing CAD from its existing owner; also account for the boundary argument of §7. This is target-level missing mathematics, not deferred lemma splitting.",
-    "Representation-pair count: false unrestricted range: The former all-d statement is disproved by fixed K and d → ∞. The primary Blomer–Granville author copy, Theorem 2, p.5, assumes a fundamental discriminant and has extra error terms. Supply the precise restricted contract needed by GS Lemma 9.5 and its reduction to that theorem, including nonfundamental discriminants if needed. Merely imposing d ≤ K is not certified as sufficient by this review.",
-    "Quantitative nondivergence covering and marking inputs: Specify the bounded-multiplicity cover for the prescribed balls in KM §4, and a key target for the marked-poset estimate Theorem 4.1 with its length and local finiteness hypotheses. Mathlib Besicovitch.exists_disjoint_closedBall_covering_ae is an AE disjoint arbitrarily-small-ball cover and is not this statement. Connect primitive exterior-power sup norms through wedge inequality (5.1), not a bare appeal to Minkowski.",
-    "Oppenheim auxiliary proof contracts: Borel density needs the algebraic-group invariant-line/stabilizer input used in Morris Theorem 4.5.2 and Proposition 4.7.1 (printed pp.139–142); the LieGroups Layer 2 contract does not provide it. The SO(2,1) maximality proof needs irreducibility of the five-dimensional quotient representation sl₃/so(2,1), not merely a dimension count. These are key inputs that must be owned or imported before closure. The separate ternary reduction has been corrected using the irrational-value-ratio argument of Exercise 1.2#15, not openness of irrationality.",
-    "Uniform unipotent Davenport proof: The source states the unipotent estimate, but the proposed replacement induction has not established the uniform complexity of all superlevel sets it uses. One-dimensional semialgebraic fibre lengths can be handled by endpoints; iterated higher-dimensional fibre volumes need not be semialgebraic. State precisely the family retained at each induction step and prove the uniform interval/variation bound, or give a complete alternative proof. E401 is rejected as an established paper erratum; this remains an atlas proof gap.",
-    "Uniform planar estimate and primitive-ball range: The IKKN survey gives fixed-domain asymptotics; the proposed uniform dependence solely on maximal curvature over all integral ellipses needs a precise quantitative primary-source contract (the Huxley method is already open). For the primitive-ball target, derive the asserted Y-uniform logarithmic error from the cited BLS application or a primary statement: the application alone does not certify the full generalisation. These claims remain targets, not closed prerequisites."
+    "Post-pin semialgebraic owner interfaces: RealAlgebraicGeometry is a current upstream roadmap absent from the atlas stage registry. Its Layer 6 CAD/projection-closure modules exist after the pin f790474; no post-pin declaration is falsely listed as baseline. The precise owner contracts are recorded in upstreamNotes: Layer 6 choice, fibrewise closure and dimension/fibre-dimension consequences of CAD, plus a Layer 7 extension giving a finite C¹ semialgebraic partition by derivative refinement and implicit roots (BCR Proposition 2.9.10, p.57). The current Layer 7 README does not itself promise this partition. These are explicit owner-side interfaces to supply, not an assertion that CAD alone already exposes them. Within GN.4, the chart-measure, uniform multiplicity, section and boundary targets now give the entire BW 5.8→6.2→6.1→§7 chain relative to these inputs. Assembly must register the existing roadmap and route these contracts; neither that registry nor its files is in this issue’s edit scope.",
+    "Inherited Huxley exponent-sum and uniform ellipse contract: The Bombieri–Iwaniec–Huxley spacing method remains undecomposed in the base plan. The fixed-domain bound reported in IKKN2004 p.10 does not prove the separate all-ellipses contract C(1+R)^{131/208}log(2+R)^{18637/8320} with one C. Huxley 2003’s permitted primary proof was not readable in this run; no normalized derivative or eccentricity hypothesis is invented. The exact stronger input is now stated in huxley-planar-count, and the improved admissible range is explicitly conditional on it. The independent elementary route at θ≥2/3 is fully planned by the new primary-source Fourier/smoothing adaptation, including thin ellipses.",
+    "Inherited indirect primary proofs: The general Davenport, Schmidt and Eskin–Katznelson proofs remain read through BW, BLS and BSW at the listed locators. The general fixed-C²-domain van der Corput proof is also an indirect classical-source item; its unspecified fixed-domain constant is not used for shape-uniform admissibility. This continuation does not certify unseen primary arguments. By contrast, Le Boudec’s actual 2020 primary Lemma 3 and Toma’s 2020 nonfundamental-discriminant Theorem 1 are now read directly; those former source gaps and the false representation-pair range are resolved locally.",
+    "Inherited Howe–Moore and Ratner proof inputs: The continuation now uses exactly the base GN.4/howe-moore-mixing theorem and supplies strong continuity, unitarity, constants as invariant vectors and proper escape of the chosen one-parameter subgroup. The general matrix-coefficient decay proof remains the base packet’s explicit open input. No LieGroups Layer 2 citation is offered as a substitute for decay or contracting-subgroup generation. The base Ratner measure-classification/orbit-closure proof contracts remain open and are imported without a new proof claim here."
    ]
   }
  ],
  "gaps": [
   {
-   "title": "Cylindrical algebraic decomposition is not at the pins",
+   "title": "Post-pin semialgebraic owner interfaces",
    "neededBy": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-uniform-components",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-interval-condition"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-interval-condition",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/rectifiable-coordinate-measure-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-hausdorff-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-boundary-null",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/orthogonal-projection-comparison"
    ],
-   "detail": "The fibrewise cell count rests on cylindrical algebraic decomposition and on Tarski–Seidenberg. Both are on Tau Ceti main (TauCeti/Geometry/RealAlgebraic/CAD.lean and Semialgebraic/Image.lean, after the pin f790474) and are planned in TauCetiRoadmap RealAlgebraicGeometry Layer 6, a roadmap newer than the atlas snapshot and so not an atlas stage that a request can name. When the pin moves past those modules, cite them as baseline declarations; until then the dependency is recorded here and in the restructure entry on RT-AREA-algebraicnt-1/1."
+   "detail": "RealAlgebraicGeometry is a current upstream roadmap absent from the atlas stage registry. Its Layer 6 CAD/projection-closure modules exist after the pin f790474; no post-pin declaration is falsely listed as baseline. The precise owner contracts are recorded in upstreamNotes: Layer 6 choice, fibrewise closure and dimension/fibre-dimension consequences of CAD, plus a Layer 7 extension giving a finite C¹ semialgebraic partition by derivative refinement and implicit roots (BCR Proposition 2.9.10, p.57). The current Layer 7 README does not itself promise this partition. These are explicit owner-side interfaces to supply, not an assertion that CAD alone already exposes them. Within GN.4, the chart-measure, uniform multiplicity, section and boundary targets now give the entire BW 5.8→6.2→6.1→§7 chain relative to these inputs. Assembly must register the existing roadmap and route these contracts; neither that registry nor its files is in this issue’s edit scope."
   },
   {
-   "title": "Huxley exponent-sum method",
+   "title": "Inherited Huxley exponent-sum and uniform ellipse contract",
    "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/huxley-planar-count"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/huxley-planar-count",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/admissible-ellipse-exponents"
    ],
-   "detail": "Huxley's bound x^{131/208}(log x)^{18637/8320} for C³ convex domains rests on the Bombieri–Iwaniec–Huxley discrete Hardy–Littlewood method (first and second spacing problems). Huxley, Proc. London Math. Soc. 87 (2003), is not freely available and was read only through the survey IKKN2004 §3.1; the method is not decomposed and no lower-tier roadmap plans it. The weaker θ > 2/3 route avoids this method; its claimed uniform curvature dependence is separately recorded as an open input below."
+   "detail": "The Bombieri–Iwaniec–Huxley spacing method remains undecomposed in the base plan. The fixed-domain bound reported in IKKN2004 p.10 does not prove the separate all-ellipses contract C(1+R)^{131/208}log(2+R)^{18637/8320} with one C. Huxley 2003’s permitted primary proof was not readable in this run; no normalized derivative or eccentricity hypothesis is invented. The exact stronger input is now stated in huxley-planar-count, and the improved admissible range is explicitly conditional on it. The independent elementary route at θ≥2/3 is fully planned by the new primary-source Fourier/smoothing adaptation, including thin ellipses."
   },
   {
-   "title": "Primary sources read only through citing papers",
+   "title": "Inherited indirect primary proofs",
    "neededBy": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-principle",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/schmidt-primitive-extension-count",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/eskin-katznelson-basis",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/primitive-ball-count",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/blomer-granville-representation-bound"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/van-der-corput-planar-count"
    ],
-   "detail": "Davenport (1951/1963), Schmidt (1968), Eskin–Katznelson (1995) and Le Boudec (2018) remain cited through BW, BLS and BSW at the node locators. Their statements in those papers were checked; this review does not certify unseen primary proofs. Henk Theorem 1.5 was read directly. Blomer–Granville’s public author copy was also acquired, and its fundamental-discriminant hypothesis and error terms expose the separate representation-pair contract gap below."
+   "detail": "The general Davenport, Schmidt and Eskin–Katznelson proofs remain read through BW, BLS and BSW at the listed locators. The general fixed-C²-domain van der Corput proof is also an indirect classical-source item; its unspecified fixed-domain constant is not used for shape-uniform admissibility. This continuation does not certify unseen primary arguments. By contrast, Le Boudec’s actual 2020 primary Lemma 3 and Toma’s 2020 nonfundamental-discriminant Theorem 1 are now read directly; those former source gaps and the false representation-pair range are resolved locally."
   },
   {
-   "title": "General Howe–Moore and Ratner proofs",
+   "title": "Inherited Howe–Moore and Ratner proof inputs",
    "neededBy": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-mixing"
    ],
-   "detail": "Morris Theorem 3.2.9 and its proof, printed pp.103–105, were read. The SL₂ kernel/range argument has been corrected. General simple-group mixing still needs the Cartan/contracting-subgroup generation contract, or the base Howe–Moore result with its existing proof gap. Ratner’s general measure classification and orbit closure inputs retain the base packet’s open proof contracts."
-  },
-  {
-   "title": "Projection comparison in the semialgebraic family count",
-   "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-family-lattice-count"
-   ],
-   "detail": "BW Proposition 6.1 is essential: arbitrary orthogonal projection volumes must be bounded by coordinate projection sums uniformly in the definable family. Lemmas 2.2–2.4 alone do not do this. Plan a target for this comparison with its rectifiability/area and definable-section prerequisites, importing CAD from its existing owner; also account for the boundary argument of §7. This is target-level missing mathematics, not deferred lemma splitting."
-  },
-  {
-   "title": "Representation-pair count: false unrestricted range",
-   "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/blomer-granville-representation-bound"
-   ],
-   "detail": "The former all-d statement is disproved by fixed K and d → ∞. The primary Blomer–Granville author copy, Theorem 2, p.5, assumes a fundamental discriminant and has extra error terms. Supply the precise restricted contract needed by GS Lemma 9.5 and its reduction to that theorem, including nonfundamental discriminants if needed. Merely imposing d ≤ K is not certified as sufficient by this review."
-  },
-  {
-   "title": "Quantitative nondivergence covering and marking inputs",
-   "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/quantitative-nondivergence"
-   ],
-   "detail": "Specify the bounded-multiplicity cover for the prescribed balls in KM §4, and a key target for the marked-poset estimate Theorem 4.1 with its length and local finiteness hypotheses. Mathlib Besicovitch.exists_disjoint_closedBall_covering_ae is an AE disjoint arbitrarily-small-ball cover and is not this statement. Connect primitive exterior-power sup norms through wedge inequality (5.1), not a bare appeal to Minkowski."
-  },
-  {
-   "title": "Oppenheim auxiliary proof contracts",
-   "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/borel-density",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/so21-intermediate-subgroups"
-   ],
-   "detail": "Borel density needs the algebraic-group invariant-line/stabilizer input used in Morris Theorem 4.5.2 and Proposition 4.7.1 (printed pp.139–142); the LieGroups Layer 2 contract does not provide it. The SO(2,1) maximality proof needs irreducibility of the five-dimensional quotient representation sl₃/so(2,1), not merely a dimension count. These are key inputs that must be owned or imported before closure. The separate ternary reduction has been corrected using the irrational-value-ratio argument of Exercise 1.2#15, not openness of irrationality."
-  },
-  {
-   "title": "Uniform unipotent Davenport proof",
-   "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-davenport-transfer",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/semialgebraic-interval-condition"
-   ],
-   "detail": "The source states the unipotent estimate, but the proposed replacement induction has not established the uniform complexity of all superlevel sets it uses. One-dimensional semialgebraic fibre lengths can be handled by endpoints; iterated higher-dimensional fibre volumes need not be semialgebraic. State precisely the family retained at each induction step and prove the uniform interval/variation bound, or give a complete alternative proof. E401 is rejected as an established paper erratum; this remains an atlas proof gap."
-  },
-  {
-   "title": "Uniform planar estimate and primitive-ball range",
-   "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/van-der-corput-planar-count",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/huxley-planar-count",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/primitive-ball-count"
-   ],
-   "detail": "The IKKN survey gives fixed-domain asymptotics; the proposed uniform dependence solely on maximal curvature over all integral ellipses needs a precise quantitative primary-source contract (the Huxley method is already open). For the primitive-ball target, derive the asserted Y-uniform logarithmic error from the cited BLS application or a primary statement: the application alone does not certify the full generalisation. These claims remain targets, not closed prerequisites."
+   "detail": "The continuation now uses exactly the base GN.4/howe-moore-mixing theorem and supplies strong continuity, unitarity, constants as invariant vectors and proper escape of the chosen one-parameter subgroup. The general matrix-coefficient decay proof remains the base packet’s explicit open input. No LieGroups Layer 2 citation is offered as a substitute for decay or contracting-subgroup generation. The base Ratner measure-classification/orbit-closure proof contracts remain open and are imported without a new proof claim here."
   }
  ],
  "restructure": [
@@ -5015,8 +5640,8 @@
    "roadmaps": [
     "GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "detail": "The base packet's GN.4 nodes davenport-semialgebraic-count, mahler-compactness, unipotent-nondivergence, oppenheim-values, siegel-mean-value, homogeneous-ergodicity, howe-moore-mixing and duke-spherical-equidistribution rest on recorded gaps that this packet now plans. The base packet cannot be edited by this job.",
-   "proposal": "At assembly, re-point the base nodes' prerequisites: davenport-semialgebraic-count → davenport-principle, semialgebraic-complexity, semialgebraic-interval-condition, unipotent-davenport-transfer, coordinate-projection-volumes (closing the gap 'Corrected Davenport/Rogers proof and semialgebraic carrier' up to the original-source caveat); mahler-compactness → mahler-bounded-basis, space-of-unimodular-lattices (closing 'Mahler bounded basis and quotient topology'); unipotent-nondivergence → unipotent-quantitative-recurrence (closing 'Dani–Margulis nondivergence proof'; the quantitative statement implies the qualitative one); oppenheim-values → so21-intermediate-subgroups, closed-orbit-rational-form, oppenheim-ternary-reduction, borel-density (closing 'Oppenheim auxiliary Lie and arithmetic lemmas'); siegel-mean-value → primitive-siegel-mean-value, siegel-transform (closing 'Original Siegel mean-value proof'); homogeneous-ergodicity → homogeneous-mixing for one-parameter subgroups; duke-spherical-equidistribution → spherical-weyl-criterion, harmonic-weyl-sum; dual-transference-upper gains the gap-free weaker-constant companion transference-minkowski-constant."
+   "detail": "The base packet records gaps behind its GN.4 endpoints. This continuation provides the counting and homogeneous-space adapters listed below, relative to the explicit owner requests and inherited gaps; it does not complete Howe–Moore, Ratner, or the Huxley method. The base packet is outside this job’s edit scope.",
+   "proposal": "At assembly, re-point the base Davenport, Mahler, nondivergence, Oppenheim-auxiliary and Siegel nodes to the corresponding targets of this continuation, preserving their supplier contracts and inherited source/proof gaps. In particular, use the unipotent lattice-change proof; the full Hausdorff/section/boundary chain for BW; the marked-poset/primitive-flag chain for quantitative nondivergence; and the Chevalley and standard-module imports for Borel density and the intermediate-subgroup lemma. homogeneous-ergodicity may use homogeneous-mixing for noncompact one-parameter subgroups only relative to the base howe-moore-mixing input; do not create a circular proof or mark that inherited gap closed. dual-transference-upper gains the weaker-constant companion transference-minkowski-constant. Move the Duke endpoint according to the separate toral-packets rescope below."
   },
   {
    "action": "rescope",
@@ -5032,7 +5657,7 @@
    "roadmaps": [
     "GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "detail": "GN.4 now holds about 115 target-level nodes (46 in the base packet, 4 in the GN.1 follow-up, 65 here) in four directions, and the base packet already shows six planets on the layer.",
+   "detail": "GN.4 now holds about 126 target-level nodes (46 in the base packet, 4 in the GN.1 follow-up, 76 here) in four directions, and the base packet already shows six planets on the layer.",
    "proposal": "Divide GN.4 for the atlas into GN.4a 'Lattice-point counting' (base: coset-difference-bound to henk-successive-minima-count, davenport-semialgebraic-count; here: coordinate-projection-volumes to hyperplane-orthant-count, symmetric-row-lattices to skew-singular-symmetric-count, curvature-lattice-class to admissible-ellipse-exponents, markoff-*, blomer-granville-representation-bound), GN.4b 'Homogeneous dynamics on spaces of lattices' (base: howe-moore-mixing to oppenheim-values, mahler-compactness, siegel-mean-value; here: space-of-unimodular-lattices to oppenheim-ternary-reduction and the Siegel transform nodes), GN.4c 'Transference, covering and star bodies' (base: packing-radius, compact-star-body, transference, covering, critical determinants and the Gaussian chain; GN.1 follow-up: gaussian-directional-tail, gaussian-coordinate-tails, l1-covering-transference, smith-cofactor-adjustment; here: transference-minkowski-constant, max-norm-covering, construction-a-minimum) and GN.4d 'Arithmetic packets for equidistribution' (base: duke-spherical-equidistribution until it moves; here: cm-point-packet to spherical-weyl-criterion). This packet's six planets go to GN.4a (Widmer's lattice-point count, Van der Corput lattice-point bound) and GN.4b (Space of unimodular lattices, Mixing of one-parameter flows, Quantitative nondivergence, Siegel transform)."
   },
   {
@@ -5044,10 +5669,12 @@
     "tauceti:TauCetiRoadmap/RealAlgebraicGeometry",
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
     "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
-    "tauceti:TauCetiRoadmap/IntegralLattices"
+    "tauceti:TauCetiRoadmap/IntegralLattices",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
    ],
    "detail": "RT-AREA-algebraicnt-1/1 (confirmed): the roadmap's suppliers are named in prose but not recorded as roadmap-level prerequisites with reciprocal consumers. For GN.4 the suppliers are AdelicAlgebraicGroups AA.2–AA.3 (Haar measure, lattice property of SL_n(ℤ)), GlobalNumberFields Layer 3 (Lipschitz parametrisable sets), RealAlgebraicGeometry Layer 6 (CAD, Tarski–Seidenberg), RepresentationTheory/LieGroups Layer 2, AlgebraicCodingTheory Layer 6 (Construction A) and IntegralLattices Layer B (binary forms and their class numbers, for cm-point-packet).",
-   "proposal": "Record the stage links AdelicAlgebraicGroups:AA.2 → GN.4, AdelicAlgebraicGroups:AA.3 → GN.4, GlobalNumberFields Layer 3 → GN.4, RealAlgebraicGeometry Layer 6 → GN.4, RepresentationTheory/LieGroups Layer 2 → GN.4 and AlgebraicCodingTheory Layer 6 → GN.4 in the link workflow with full tauceti: identifiers, each carried by the nodes that cite them here, and let assembly derive the roadmap-level prerequisites and reciprocal consumer entries, as the verdict on RT-AREA-algebraicnt-1/1 prescribes and as the GN.1 and GN.2 follow-ups did for their layers. QuadraticFormInvariants and GlobalQuadraticForms concern GN.2 only; nothing in GN.4 uses them."
+   "proposal": "Record the stage links AdelicAlgebraicGroups:AA.2 → GN.4, AdelicAlgebraicGroups:AA.3 → GN.4, GlobalNumberFields Layer 3 → GN.4, RealAlgebraicGeometry Layer 6 → GN.4, RepresentationTheory/LieGroups Layer 2 → GN.4 and AlgebraicCodingTheory Layer 6 → GN.4 in the link workflow with full tauceti: identifiers, each carried by the nodes that cite them here, and let assembly derive the roadmap-level prerequisites and reciprocal consumer entries, as the verdict on RT-AREA-algebraicnt-1/1 prescribes and as the GN.1 and GN.2 follow-ups did for their layers. QuadraticFormInvariants and GlobalQuadraticForms concern GN.2 only; nothing in GN.4 uses them. Include ReductiveGroups Layers 3–4 and LieHighestWeight Layer 0 from the new exact requests, and the additional RealAlgebraicGeometry Layer 7 extension recorded in upstreamNotes. The absent RealAlgebraicGeometry snapshot stages must be registered before formal supplier requests can replace the recorded owner-interface gap. These are assembly instructions, not edits to the authoritative roadmaps."
   }
  ],
  "upstreamNotes": [
@@ -5061,7 +5688,31 @@
    "roadmaps": [
     "tauceti:TauCetiRoadmap/RealAlgebraicGeometry"
    ],
-   "note": "Layer 6 states CAD and quantifier elimination but not the fibrewise consequence that a semialgebraic family has a uniform bound on the number of cells (hence connected components) of its fibres; GN.4 states it (semialgebraic-uniform-components) for Davenport-type counting. It may sit better in RealAlgebraicGeometry as a corollary of its CAD layer."
+   "note": "RealAlgebraicGeometry Layer 6 owns CAD and quantifier elimination; GN.4 derives the uniform fibre-component consequence and does not replan CAD. The further choice/dimension and C¹-partition contracts are stated below with exact layers and locators. The absent snapshot registry prevents a formal requests entry, so these terminate in the recorded honest owner-interface gap."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/RealAlgebraicGeometry"
+   ],
+   "note": "tauceti:TauCetiRoadmap/RealAlgebraicGeometry#layer-6-cad-and-quantifier-elimination: Use the existing CAD/projection-closure carriers. Supply the following derived interfaces: semialgebraic choice (a semialgebraic section of any semialgebraic surjection), fibrewise closure/interior/frontier, dimension monotonicity under images and equality for injections, dim(closure A\\A)<dim A, and the fibre-dimension inequality dim{y:dim A_y≥r}+r≤dim A. These are explicit requested consequences of the owner’s CAD, not declarations claimed at the pins. Choice is obtained cell by cell by midpoint/endpoint choices; dimension follows from cell dimensions. BCR Theorem 2.8.8 and Proposition 2.8.13, pp.52–53; BW Proposition 3.14–3.15, pp.12–13. The snapshot registry has no RealAlgebraicGeometry stage, so this import is recorded as an owner contract and an honest gap, not a fabricated baseline or an invalid supplier request."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/RealAlgebraicGeometry"
+   ],
+   "note": "tauceti:TauCetiRoadmap/RealAlgebraicGeometry#layer-7-analytic-preparation-and-mccallum-projection: On the existing semialgebraic carriers and CAD, supply a finite partition into C¹ embedded semialgebraic submanifolds whose manifold and cell dimensions agree. This extra consumer contract is not asserted by the present Layer 7 README: it is a requested extension in its analytic direction, using Layer 6 CAD and Layer 7 implicit roots. Refine the slicing family by derivatives so each root branch is a simple root of some derivative; use implicit roots on the base cells. BCR Proposition 2.9.10 and proof, p.57, and Proposition 2.8.14, p.54. No new Nash-manifold theory is requested for GN.4. The snapshot registry has no RealAlgebraicGeometry stage, so this import is recorded as an owner contract and an honest gap, not a fabricated baseline or an invalid supplier request."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups"
+   ],
+   "note": "Current main already implements the Chevalley exterior-line stabilizer and functorial unipotent/Jordan representation results. Use the exact Layer 3 and Layer 4 supplier requests; do not introduce an atlas copy of either theory."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+   ],
+   "note": "Layer 0 and current TauCeti.Sl2Std implement standard sl₂ modules and irreducibility. GN.4 owns only the explicit five-dimensional so(2,1) matrix adapter. No ownership move or duplicate highest-weight theory is proposed."
   }
  ],
  "routing": [
@@ -5277,7 +5928,7 @@
  "redTeamFindings": [
   {
    "finding": "RT-AREA-algebraicnt-1/1",
-   "handling": "Roadmap-level metadata lives outside this job's files. The GN.4 edges of the finding are stated in the nodes that use them (AdelicAlgebraicGroups AA.2–AA.3 in the lattice-space and Siegel nodes; GlobalNumberFields Layer 3 in widmer-lipschitz-count and hyperplane-orthant-count; RealAlgebraicGeometry Layer 6 in the semialgebraic nodes; RepresentationTheory/LieGroups Layer 2 in the dynamics nodes; AlgebraicCodingTheory Layer 6 through the base construction-a-real-lattice-interface; IntegralLattices binary forms in cm-point-packet), with request entries, and the fourth restructure entry records the corresponding supplier-stage → GN.4 links in the form the finding's verdict prescribes, so assembly derives the roadmap-level prerequisites and reciprocal consumers. QuadraticFormInvariants and GlobalQuadraticForms are GN.2 suppliers only."
+   "handling": "Roadmap-level metadata lives outside this job's files. The GN.4 edges of the finding are stated in the nodes that use them (AdelicAlgebraicGroups AA.2–AA.3 in the lattice-space and Siegel nodes; GlobalNumberFields Layer 3 in widmer-lipschitz-count and hyperplane-orthant-count; RealAlgebraicGeometry Layer 6 in the semialgebraic nodes; RepresentationTheory/LieGroups Layer 2 in the dynamics nodes; AlgebraicCodingTheory Layer 6 through the base construction-a-real-lattice-interface; IntegralLattices binary forms in cm-point-packet), with request entries, and the fourth restructure entry records the corresponding supplier-stage → GN.4 links in the form the finding's verdict prescribes, so assembly derives the roadmap-level prerequisites and reciprocal consumers. QuadraticFormInvariants and GlobalQuadraticForms are GN.2 suppliers only. The exact new ReductiveGroups and LieHighestWeight requests supplement those imports. RealAlgebraicGeometry is absent from the atlas registry: its Layer 6/7 contracts are recorded explicitly in upstreamNotes and gaps, rather than as an invalid request or a fabricated pinned declaration."
   }
  ],
  "review": {
