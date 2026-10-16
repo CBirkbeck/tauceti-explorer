@@ -6,7 +6,7 @@
     "LocallyAnalyticDistributions:L4"
   ],
   "status": "complete",
-  "summary": "Reconcile the inherited L4 follow-up with its already existing upstream owner, TauCetiRoadmap PR #854. All in-scope targets and the compact-complex red-team addition are imported from that roadmap and its named suppliers. The index accounts for the 221 inherited L4 node IDs without creating parallel mathematical declarations. Solid functional analysis is excluded under the explicit issue boundary. Completion means the ownership pass is finished, not that the planned mathematics is implemented or independently verified.",
+  "summary": "Reconcile the inherited L4 follow-up with its existing upstream owner, TauCetiRoadmap PR #854. Import the authoritative Layer 4 contracts and account for all 221 inherited node IDs without parallel mathematical declarations. Distinguish exact mappings, supplier imports, replaced proof routes and three stronger inherited generalities not established by their import locators. Solid functional analysis remains excluded under the issue boundary. Completion concerns this ownership pass, without an implementation or upstream mathematical-review claim.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -37,6 +37,18 @@
       "readSections": [
         "Layer 4 prototypes and imported native carriers"
       ]
+    },
+    {
+      "id": "CO-932-README",
+      "title": "Compact operators — README.md",
+      "authors": "W. Coram and TauCetiProject/TauCetiRoadmap contributors",
+      "edition": "Open PR #932, commit 724243bd565643c1367ea557271b8de4b572c8ec",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/724243bd565643c1367ea557271b8de4b572c8ec/TauCetiRoadmap/CompactOperators/README.md",
+      "sha256": "6da9096f90a31cc99819c0e5c8cc02c8de7e54fcb42b7704fecff91700019924",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "§3.3, Prescribed finite rank (ownership contract only)"
+      ]
     }
   ],
   "nodes": [],
@@ -62,7 +74,7 @@
             "§§4.3–4.4",
             "§§4.9–4.14"
           ],
-          "boundary": "Use every-radius Gauss convergence and the zero constant coefficient on the functional input where required. Finite determinant size is supplied rank, even when polynomial degree drops. General entire and compact-operator constructions retain their named suppliers.",
+          "boundary": "Use every-radius Gauss convergence and the zero constant coefficient on the functional input where required. Finite determinant size is supplied rank, even when polynomial degree drops. General entire and compact-operator constructions retain their named suppliers. The coordinate-detection import is the Banach c0 case. Polynomial invertibility is imported only when the constant coefficient is a unit; finite transform multiplication is used under the upstream Banach-ring contract.",
           "sourceLineage": "As located by the upstream README: Coleman, Appendix A3, pp. 432–436, Lemma A3.8 and Theorem A3.9, pp. 435–436."
         },
         {
@@ -151,8 +163,9 @@
       "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-injection",
       "disposition": "existing-upstream-target",
       "sourceId": "LAD-854-README",
-      "locator": "§4.1, target at line 1437",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1437"
+      "locator": "§4.1, target at line 1389",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1389",
+      "detail": "The required contract includes a bound for the inverse of finite coordinate restriction, as well as injectivity. This target supplies both for a finite submodule of c0 over the stated Noetherian Banach algebra; the injectivity-only target at line 1437 is insufficient for the norm-bound assertion."
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
@@ -270,8 +283,21 @@
       "inheritedNode": "LocallyAnalyticDistributions:L4/evaluated-product-on",
       "disposition": "existing-upstream-target",
       "sourceId": "LAD-854-README",
-      "locator": "§4.2, target at line 1581",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1581"
+      "locator": "§4.2, target at line 1589",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1589",
+      "detail": "The inherited statement uses a potentially orthonormalizable module, so the c0-only target at line 1581 is read through chart/norm independence and the (Pr) zero-extension target at line 1589. This imports the identity evaluated at 1, without a commutation assumption; it does not assert multiplicativity of the entire series.",
+      "supportingLocators": [
+        {
+          "sourceId": "LAD-854-README",
+          "locator": "§4.2, line 1509",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1509"
+        },
+        {
+          "sourceId": "LAD-854-README",
+          "locator": "§4.2, line 1581",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1581"
+        }
+      ]
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/evaluated-product-pr",
@@ -305,15 +331,29 @@
       "inheritedNode": "LocallyAnalyticDistributions:L4/resolvent-series",
       "disposition": "existing-upstream-target",
       "sourceId": "LAD-854-README",
-      "locator": "§4.5, target at line 1832",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1832"
+      "locator": "§4.7, target at line 1936",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1936",
+      "detail": "The formal coefficient recurrence and two-sided identity are at §4.6, line 1832; entireness and operator-norm evaluation are imported at §4.7, line 1936. The (Pr) case uses zero extension and compression, not the formal identity alone.",
+      "supportingLocators": [
+        {
+          "sourceId": "LAD-854-README",
+          "locator": "§4.6, line 1832",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1832"
+        },
+        {
+          "sourceId": "LAD-854-README",
+          "locator": "§4.7, line 1922",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1922"
+        }
+      ]
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
-      "disposition": "existing-upstream-target",
+      "disposition": "upstream-contract-qualified",
       "sourceId": "LAD-854-README",
       "locator": "§4.14, target at line 2493",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2493"
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2493",
+      "detail": "Import only the upstream criterion for a monic Q with unit constant coefficient, using its degree-correct reciprocal and the (Pr) zero-extension adapter. This is the case used by the slope construction. The inherited statement allows arbitrary monic Q; this entry does not establish that stronger generality."
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/compact-identity-finite",
@@ -359,10 +399,11 @@
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-detection",
-      "disposition": "existing-upstream-target",
+      "disposition": "upstream-contract-qualified",
       "sourceId": "LAD-854-README",
       "locator": "§4.1, target at line 1437",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1437"
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L1437",
+      "detail": "Import finite coordinate detection for a finitely generated submodule of c0 under the upstream Noetherian Banach-Tate hypotheses. The inherited node states an algebraic result for a submodule of an arbitrary full product over any commutative Noetherian ring. That extra generality is not supplied by this locator and is not claimed by the import."
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/hasse-series",
@@ -966,11 +1007,18 @@
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-factor-product",
-      "disposition": "supplier-import",
-      "sourceId": "LAD-854-README",
-      "locator": "§4.9, target at line 2129",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2129",
-      "detail": "Finite root products and multiplication at prescribed ranks come from CompactOperators §3.3, used by upstream §§4.9 and 4.13."
+      "disposition": "supplier-import-qualified",
+      "sourceId": "CO-932-README",
+      "locator": "§3.3, Prescribed finite rank, lines 683–697",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/724243bd565643c1367ea557271b8de4b572c8ec/TauCetiRoadmap/CompactOperators/README.md#L683",
+      "detail": "The prescribed-rank product law is supplied by CompactOperators §3.3, not by the split root-product formula previously linked in §4.9. Its Banach-ring use is imported here; no claim is made that this passage explicitly supplies the inherited node for every commutative ring, including the zero ring. The distinct entire-input product target at LAD §4.13 is supporting context, not a replacement for the finite polynomial law.",
+      "supportingLocators": [
+        {
+          "sourceId": "LAD-854-README",
+          "locator": "§4.13, line 2425",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/fc6c8ae8b306e6d02566d030d5efcd56cef86cfe/TauCetiRoadmap/LocallyAnalyticDistributions/README.md#L2425"
+        }
+      ]
     },
     {
       "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-zero-padding",
@@ -1716,7 +1764,7 @@
       "stageId": "LocallyAnalyticDistributions:L4",
       "status": "planned",
       "remaining": [],
-      "notes": "All in-scope inherited targets are supplied by the existing upstream plan. This packet changes neither the inherited packet nor the upstream roadmap and does not declare proof closure. The import index distinguishes direct targets, supplier APIs, replaced proof routes, native library inputs and the excluded solid portion."
+      "notes": "Coverage records the existing authoritative upstream Layer 4 plan, not proof closure or equality with every stronger statement in the inherited packet. The import index distinguishes direct targets, supplier APIs, replaced proof routes, native library inputs, three qualified generalities and the excluded solid portion. No local mathematical targets are added; proposed ownership integration remains for the maintainer."
     }
   ],
   "requests": [],
@@ -1755,13 +1803,1159 @@
   },
   "validation": {
     "inheritedNodes": 221,
-    "directUpstreamTargetMatches": 177,
-    "otherDispositions": 44,
+    "directUpstreamTargetMatches": 175,
+    "otherDispositions": 46,
     "newNodes": 0,
     "newApiItems": 0,
     "newUnitTests": 0,
     "newPlanets": 0,
     "baselineDeclarations": 0,
-    "mathematicalReview": "No review or red-team verdict on upstream PR #854; source lineage is reported through that roadmap, without claiming a new reading of the underlying papers."
+    "mathematicalReview": "No review or red-team verdict on upstream PR #854; source lineage is reported through that roadmap, without claiming a new reading of the underlying papers.",
+    "dispositionCounts": {
+      "api-subsumed": 2,
+      "existing-upstream-target": 175,
+      "library-through-upstream": 2,
+      "proof-route-replaced": 20,
+      "proof-step-subsumed": 12,
+      "renamed-target": 3,
+      "scope-narrowed": 1,
+      "supplier-import": 3,
+      "supplier-import-qualified": 1,
+      "upstream-contract-qualified": 2
+    }
+  },
+  "inheritedContractBoundaries": [
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/finite-coordinate-detection",
+      "importedContract": "Finite coordinate detection on finite submodules of c0 over the stated Noetherian Banach-Tate coefficients.",
+      "notEstablishedByImport": "The inherited arbitrary full-product statement over an arbitrary commutative Noetherian ring.",
+      "effect": "This is a limit of the local ownership claim, not a verdict on upstream mathematics. The upstream README remains authoritative; no additional local theory is planned."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+      "importedContract": "The monic unit-constant polynomial criterion used by finite-slope summands.",
+      "notEstablishedByImport": "The inherited criterion for arbitrary monic polynomials without a unit-constant hypothesis.",
+      "effect": "This is a limit of the local ownership claim, not a verdict on upstream mathematics. The upstream README remains authoritative; no additional local theory is planned."
+    },
+    {
+      "inheritedNode": "LocallyAnalyticDistributions:L4/spectral-factor-product",
+      "importedContract": "The prescribed-rank finite product law in the upstream Banach-ring setting.",
+      "notEstablishedByImport": "An explicit supplier statement at the inherited arbitrary-commutative-ring generality, including the zero ring.",
+      "effect": "This is a limit of the local ownership claim, not a verdict on upstream mathematics. The upstream README remains authoritative; no additional local theory is planned."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LocallyAnalyticDistributions--L4",
+    "date": "2026-10-16",
+    "notes": "Accepted as an ownership reconciliation under PROTOCOL §15 and the maintainer notice on #9294. Independently checked all 221 inherited IDs and the immutable target locators against the inherited statements and hypotheses; corrected six mappings or contract descriptions and recorded three limits on stronger inherited generalities. Verified source hashes, six obligation routes, the classical scope boundary and RT-AREA-iwasawa-2/5 disposition. There are no local mathematical nodes, baseline declarations, API items, unit tests or planets to certify. This acceptance does not review upstream PR #854 or its suppliers, verify their primary papers, assert proof closure, or replace maintainer integration of the proposed rescope.",
+    "checkedScope": "The checked nodeIds reference inheritedNodeDisposition, not declarations in the empty local nodes array. Verified means the ownership mapping is verified within its recorded scope.",
+    "checked": [
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completely-continuous",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1339: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/c0-lift",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1355: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1373: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-module-topology",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1381: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-injection",
+        "verdict": "corrected",
+        "note": "LAD-854-README, §4.1, target at line 1389: The required contract includes a bound for the inverse of finite coordinate restriction, as well as injectivity. This target supplies both for a finite submodule of c0 over the stated Noetherian Banach algebra; the injectivity-only target at line 1437 is insufficient for the norm-bound assertion."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1397: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1405: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1461: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-series",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1469: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/minor-tail-estimate",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1477: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/coefficient-continuity",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1485: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/gauss-convergence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1493: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-determinant",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1501: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/determinant-invariance",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1509: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1517: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completed-base-change",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1525: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1541: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/projective-lifting",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1549: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-pr-projective",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1557: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1565: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-direct-sum",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1573: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/evaluated-product-on",
+        "verdict": "corrected",
+        "note": "LAD-854-README, §4.2, target at line 1589: The inherited statement uses a potentially orthonormalizable module, so the c0-only target at line 1581 is read through chart/norm independence and the (Pr) zero-extension target at line 1589. This imports the identity evaluated at 1, without a commutation assumption; it does not assert multiplicativity of the entire series."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/evaluated-product-pr",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1589: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-division",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultants",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1792: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resultant-unit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1816: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-series",
+        "verdict": "corrected",
+        "note": "LAD-854-README, §4.7, target at line 1936: The formal coefficient recurrence and two-sided identity are at §4.6, line 1832; entireness and operator-norm evaluation are imported at §4.7, line 1936. The (Pr) case uses zero extension and compression, not the formal identity alone."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+        "verdict": "corrected",
+        "note": "LAD-854-README, §4.14, target at line 2493: Import only the upstream criterion for a monic Q with unit constant coefficient, using its degree-correct reciprocal and the (Pr) zero-extension adapter. This is the case used by the slope construction. The inherited statement allows arbitrary monic Q; this entry does not establish that stronger generality."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-identity-finite",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1445: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.14, target at line 2501: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.14, target at line 2509: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-image-range-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1413: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completely-continuous-norm-approximation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1421: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/c0-scalar-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1429: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-detection",
+        "verdict": "corrected",
+        "note": "LAD-854-README, §4.1, target at line 1437: Import finite coordinate detection for a finitely generated submodule of c0 under the upstream Noetherian Banach-Tate hypotheses. The inherited node states an algebraic result for a submodule of an arbitrary full product over any commutative Noetherian ring. That extra generality is not supplied by this locator and is not claimed by the import."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-series",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.5, target at line 1840: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-polynomial-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.5, target at line 1840: The mapping identifies a supplier interface through the upstream target; it is not a new local declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-product",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.5, target at line 1840: The mapping identifies a supplier interface through the upstream target; it is not a new local declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-coefficient-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.5, target at line 1848: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-entire",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.5, target at line 1858: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1944: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1952: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-root-unit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1956: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-lower-annihilation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1964: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-projector-formula",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1976: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-topological-splitting",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1986: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-regular-inverse",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-projector-closure",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1968: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-commuting-stability",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.7, target at line 1994: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-projection",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1347: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1347: The inherited use is part of the target API rather than a second local target."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1347: The inherited use is part of the target API rather than a second local target."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/c0-operator-norm-criterion",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.1, target at line 1365: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-adjugate-recurrence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1876: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1886: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1890: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-output-resolvent-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1898: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1902: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-coefficient-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1906: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-tail-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1914: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-retraction-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1918: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-recurrence-entire",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.6, target at line 1922: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-geometric-factor",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2010: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-operator-equiv",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2014: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/pr-continuous-retract",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2025: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-pr",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2033: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-compressed-approximation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2037: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2041: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-finite",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2045: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-projective",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.8, target at line 2053: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/ultrametric-product-perturbation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1597: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/ultrametric-determinant-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1603: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/ultrametric-determinant-perturbation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1611: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fixed-degree-minors-null",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1615: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/distinct-column-product-tail",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.2, target at line 1623: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-tail-summable",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1635: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1639: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1651: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1655: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1659: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1639: The mapping identifies a supplier interface through the upstream target; it is not a new local declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-division",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1663: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-product-constant",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1671: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-division-unique",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1679: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1755: The native input is identified through upstream; no pinned baseline declaration is newly certified here."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-polynomial",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1683: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-root-factor",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1687: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/monic-reciprocal-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1695: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1699: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1707: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1717: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-product-low-degree",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-division-unique",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1741: The old intermediate step is accounted for within the named larger target, without asserting a separate upstream declaration."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1721: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-linear",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.3, target at line 1731: The changed target name and its stated supplier boundary account for the inherited use."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1755: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-polynomial-divisibility",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1765: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1769: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class-kernel",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1780: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class-surjective",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1784: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class-linear",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1788: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultant-polynomial",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1800: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultant-bezout",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.4, target at line 1808: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2069: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2073: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2081: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-polynomial-constant",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2085: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-right-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2089: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-linear-factor",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2097: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-factor-product",
+        "verdict": "corrected",
+        "note": "CO-932-README, §3.3, Prescribed finite rank, lines 683–697: The prescribed-rank product law is supplied by CompactOperators §3.3, not by the split root-product formula previously linked in §4.9. Its Banach-ring use is imported here; no claim is made that this passage explicitly supplies the inherited node for every commutative ring, including the zero ring. The distinct entire-input product target at LAD §4.13 is supporting context, not a replacement for the finite polynomial law."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-zero-padding",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2101: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-padding-stability",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2109: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-scalar-extension",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2117: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-quotient-norm",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2125: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-split-factors",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.9, target at line 2129: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-reflection",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2141: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-degree",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2143: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-coefficients",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2147: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-conjugation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2151: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-diagonal-product",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation-diagonal",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-characteristic",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2177: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-evaluation-conjugation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-similarity-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-faithful-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-universal-polynomial",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-universal-degree",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-specialization",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-specialization-matrix",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-specialization-polynomial",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-generic-discriminant",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-generic-separability",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-eigenbasis",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-universal-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-finite-specialization",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The inherited auxiliary proof route is replaced by the named finite spectral-mapping supplier; no separate upstream declaration of this old intermediate step is asserted."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-characteristic-reindex",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2188: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-evaluation-reindex",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2192: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.10, target at line 2159: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-sylvester-reflection",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2204: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-resultant-reflection",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2208: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2212: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2223: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resultant-coordinate-continuity",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2231: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2235: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2243: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2247: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reciprocal-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2257: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-simultaneous-truncation-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.11, target at line 2265: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2281: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-native-gauss",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2285: The native input is identified through upstream; no pinned baseline declaration is newly certified here."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2295: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-convergence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2302: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-bounded-coefficient-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2310: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-bounded-gauss-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2318: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-bounded",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2326: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-complete",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2330: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-uniform-evaluation",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2338: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-multiplication-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2348: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-bound",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2356: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.12, target at line 2364: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reduce-functional-polynomial",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2376: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-output-degree",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2380: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-coefficient-coordinate-continuity",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2384: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/bounded-degree-gauss-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2388: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-polynomial-spectral",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2392: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-polynomial-compatibility",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2405: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2409: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-gauss-limit",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2413: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-simultaneous-fixed-polynomial-gauss",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2417: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-padding",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2421: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-factor-product",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2425: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-linear-input",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.13, target at line 2429: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/affinoid-analytic-stage",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2523: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/affinoid-distribution-stage",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2533: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/family-integral-lattice",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2543: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/analytic-completed-tensor",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2553: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/dual-scalar-extension-map",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2557: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/family-specialization",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2578: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/universal-character-coefficient-action",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2601: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/coefficient-action-cocycle",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2612: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/uniform-family-radius",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2592: The changed target name and its stated supplier boundary account for the inherited use."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/contracting-family-compactness",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2617: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/pan-tate-compactness",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2625: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/pan-formal-compactness",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.15, target at line 2629: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/banach-cochain-complex",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2639: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-complex-representative",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2649: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-homotopy-endomorphism",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2661: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/representative-fredholm-product",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2671: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/complex-product-entire",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2681: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/representative-product-dependence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2685: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/numerical-slope-decomposition",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2709: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/slope-functoriality",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2729: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/slope-uniqueness",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2733: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/slope-subcomplex",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2737: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-perfect-complex",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2756: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/cohomology-slope-comparison",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2776: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-homotopy-invariance",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2780: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/derived-slope-base-change",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2784: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/exact-slope-rank-local-constancy",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2788: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given. The inherited hypotheses already restrict h to rational values and fibres to rank one."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-euler-local-constancy",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2798: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given. The inherited hypotheses already restrict h to rational values and fibres to rank one."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/factorized-finite-slope-extension",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2808: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/factorized-extension-independence",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.16, target at line 2812: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-frechet-factorization",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.17, target at line 2820: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/frechet-finite-slope",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.17, target at line 2830: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/stein-frechet-interface",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.17, target at line 2834: The target and inherited hypotheses align for this ownership mapping; no verdict on its upstream proof is given."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/torus-slope-order",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.17, target at line 2854: The changed target name and its stated supplier boundary account for the inherited use."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/classical-solid-finite-window",
+        "verdict": "verified",
+        "note": "LAD-854-README, §4.17, target at line 2862: Only the classical finite-window part is imported; the excluded solid comparison is not claimed."
+      }
+    ]
   }
 }
