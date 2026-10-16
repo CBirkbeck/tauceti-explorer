@@ -6611,6 +6611,21 @@
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "A finite product of native group-ring basis elements is the basis element at the product of their labels, with the product of their coefficients.",
         "checked": "Independently read2026-10-05 at the exact pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 source, Mathlib/Algebra/MonoidAlgebra/Defs.lean:869, with surrounding binders/context and actual declaration kind. File SHA256c3f9206e7816fdbae33be08913cfc9d893744526eeffb812d363beeeaf05322e. Statement/interface check only, not a new proof or a complete-module reading."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
+        "module": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+        "kind": "theorem",
+        "provides": "Nonprincipal character L-value at1 is nonzero.",
+        "checked": "Own actual declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on4October2026; compiler/index check recorded in handoff.",
+        "independentReview": "Statement and required hypotheses reread in the byte-authenticated source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 5 October 2026; exact per-declaration receipt is in REV-DirichletPadicLFunctions--L0.md."
+      },
+      {
+        "ref": "mathlib:ContinuousMonoidHom.inv",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+        "provides": "Native inversion homomorphism on a commutative topological group, with continuous inverse.",
+        "checked": "Full declaration and applicable ambient topological monoid/group hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. A complete native inverse-coordinate constructor and its pointwise, unit-product and nontrivial-value lemmas elaborate in the probe."
       }
     ]
   },
@@ -104795,6 +104810,281 @@
       "acceptance": [
         "At level 6 the prime-2 kernel is the identity subgroup, whereas primary residue unit 2 at prime 3 corresponds to original unit 5. At level 15 the prime-3 kernel sum has coefficient zero at unit 2, but the product over both primes has coefficient one there. Every product coefficient is zero or one, with no tuple multiplicity. At level 1 the empty product is the original group-ring identity."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Algebraic inputs to the cyclotomic logarithms",
+      "kind": "lemma",
+      "statement": "Every α_c is nonzero algebraic overℚ and every β_c is algebraic overℚ.",
+      "hypotheses": [
+        "N>1; χ is a primitive nonprincipal native complex Dirichlet character of conductorN; ζ is a primitive Nth complex root. Put G=gaussSum(χ⁻¹,AddChar.zmodChar N ζ) with its native root certificate and G≠0.",
+        "For c∈(ZMod N)ˣ put α_c=1−ζ^(c.val) and β_c=−G⁻¹χ⁻¹(c). Logs are the native principal Complex.log. The cyclotomic log sum is S=∑_c β_c log(α_c). These are local expressions, not definitions of a second logarithm or L-function."
+      ],
+      "proofSteps": [
+        "Primitive-root nontriviality at0<c.val<N proves α_c≠0; ζ is algebraic because ζ^N=1 with N>0.",
+        "On units, χ takes roots-of-unity values by native MulChar.pow_card_eq_one. They and their inverses are algebraic; nonunit weights, if introduced in a reindexing, are zero and algebraic.",
+        "Use native algebraicClosure ℚ ℂ as an intermediate field, closed under sums, products and inverses. The finite Gauss sum is algebraic, and G≠0 permits its inverse.",
+        "This supplies Baker’s algebraic arguments and coefficients. It says nothing about independence of the original log family."
+      ],
+      "prerequisites": [
+        "mathlib:MulChar.pow_card_eq_one",
+        "mathlib:IsAlgebraic.of_pow",
+        "mathlib:mem_algebraicClosure_iff",
+        "mathlib:gaussSum",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt",
+        "mathlib:AddChar.zmodChar",
+        "mathlib:AddChar.zmodChar_primitive_of_primitive_root"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ClassicalComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "cyclotomic_log_algebraic_inputs"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§6, Theorem6.1(i) and footnote10, printed149–150 / physical50–51.",
+          "match": "Worker algebraic-input decomposition of the terminal corollary; Baker’s theorem itself is imported."
+        }
+      ],
+      "acceptance": [
+        "Repeated or multiplicatively dependent arguments are allowed. Principal logarithms of algebraic numbers need not be algebraic."
+      ],
+      "implementationStatus": "unchecked",
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+      "notes": "Placed in L3 by the assembly (ASM-DirichletPadicLFunctions): it cites inputs of the L3 logarithmic value at one, so it cannot sit in L0 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L0 prefix."
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Baker’s theorem for the cyclotomic log sum",
+      "kind": "lemma",
+      "statement": "If the above S is nonzero, then S is transcendental overℚ.",
+      "hypotheses": [
+        "N>1; χ is a primitive nonprincipal native complex Dirichlet character of conductorN; ζ is a primitive Nth complex root. Put G=gaussSum(χ⁻¹,AddChar.zmodChar N ζ) with its native root certificate and G≠0.",
+        "For c∈(ZMod N)ˣ put α_c=1−ζ^(c.val) and β_c=−G⁻¹χ⁻¹(c). Logs are the native principal Complex.log. The cyclotomic log sum is S=∑_c β_c log(α_c). These are local expressions, not definitions of a second logarithm or L-function."
+      ],
+      "proofSteps": [
+        "The preceding node makes every log(α_c) a logarithm of a nonzero algebraic number.",
+        "Use the requested DT.3 arbitrary-finite-linear-form corollary: a nonzero algebraic linear combination of logarithms of algebraic numbers is transcendental.",
+        "Its supplier proof chooses a ℚ-basis of the finite logarithm span, rewrites the coefficients, removes zero transformed coefficients, and applies the existing Baker independent-logarithm theorem. Nonzero S ensures some coefficient survives; no independence of the displayed cyclotomic logs is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
+        "DiophantineApproximationAndTranscendence:DT.3/baker-linear-independence-of-logarithms",
+        "DiophantineApproximationAndTranscendence:DT.3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ClassicalComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "cyclotomic_log_baker_application"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§6, footnote10, printed149 / physical50.",
+          "match": "Domain-specific application; generic basis reduction is requested from the existing transcendence owner, not redefined here."
+        }
+      ],
+      "acceptance": [
+        "The original logarithm family may have repetitions and rational dependencies; only the resulting linear form must be nonzero."
+      ],
+      "implementationStatus": "unchecked",
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+      "notes": "Placed in L3 by the assembly (ASM-DirichletPadicLFunctions): it cites inputs of the L3 logarithmic value at one, so it cannot sit in L0 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L0 prefix."
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/dirichlet-one-transcendental",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Transcendence of the Dirichlet value at one",
+      "kind": "theorem",
+      "statement": "For every primitive nonprincipal complex Dirichlet character χ of positive conductorN>1, χ.LFunction(1) is transcendental overℚ.",
+      "hypotheses": [
+        "The character and L-function are native pinned carriers. N is the primitive conductor, not an arbitrary imprimitive level."
+      ],
+      "proofSteps": [
+        "Use the canonical primitive Nth root and the imported modular-forms primitive Gauss nonvanishing contract.",
+        "Apply the L3 theorem complex-lvalue-one-log with η=χ, D=N, ε=ζ and G=gaussSum(χ⁻¹,AddChar.zmodChar N ζ), whose nonvanishing is the imported ModularForms Layer 0 contract. It identifies χ.LFunction(1) with S. The formula is that node's; it is not restated here.",
+        "Native LFunction_apply_one_ne_zero makes S nonzero after that equality. Apply cyclotomic-log-baker-application."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-lvalue-one-log",
+        "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application",
+        "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ClassicalComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "dirichlet_one_transcendental"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§6, footnote10 and Theorem6.1(i), printed149–150 / physical50–51.",
+          "match": "Terminal consequence of Theorem 6.1(i): the L3 logarithmic formula, native nonvanishing at one and Baker's theorem for an arbitrary nonzero linear form; neither its proof nor closure is claimed."
+        }
+      ],
+      "acceptance": [
+        "For the primitive odd quadratic character modulo4, the target specializes to the transcendence of π/4. This is a target instance, not a completed proof."
+      ],
+      "implementationStatus": "unchecked",
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L0.json",
+      "notes": "Placed in L3 by the assembly (ASM-DirichletPadicLFunctions): it cites the L3 logarithmic formula for L(χ,1), so it cannot sit in L0 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L0 prefix."
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-inverse-character",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The inverse-coordinate arithmetic character",
+      "kind": "construction",
+      "statement": "Define κ⁻:ContinuousMonoidHom U Z by κ_(0,1,1) composed with native inversion on U. It is nontrivial for every prime.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field.",
+        "The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z."
+      ],
+      "proofSteps": [
+        "The existing arithmetic coordinate character is a continuous multiplicative map to Z. The native ContinuousMonoidHom.inv on the commutative topological group U is continuous and multiplicative. Compose these actual maps using native ContinuousMonoidHom.comp.",
+        "Its pointwise inverse-unit formula is promoted below. Multiplying that value by the original unit value gives1 by the native unit inverse law. This takes no inverse of an arbitrary nonunit p-adic integer.",
+        "For nontriviality choose the supplied unit a=p+1. If κ⁻ were the trivial character, its value at a would be1, and the unit inverse law would give a=1 in Z. The characteristic-zero inclusion of the natural number p+1 contradicts p>0.",
+        "A complete native constructor and inverse-product/nontrivial-value lemmas verify the exact unit carrier and topology. Generic continuous characters and their inversion are reused from the libraries."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "mathlib:ContinuousMonoidHom.comp",
+        "mathlib:ContinuousMonoidHom.inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinInverseCharacter",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinInverseCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
+          "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInverseCharacterTests.inverse_character_identity",
+          "kind": "computation",
+          "statement": "The inverse-coordinate character sends1 to1."
+        },
+        {
+          "name": "SuggestedInverseCharacterTests.inverse_character_negative_identity",
+          "kind": "computation",
+          "statement": "It sends−1 to−1, including p=2."
+        },
+        {
+          "name": "SuggestedInverseCharacterTests.inverse_character_nontrivial",
+          "kind": "non-example",
+          "statement": "It is not the trivial continuous character at any prime."
+        }
+      ],
+      "acceptance": [
+        "This is the specific arithmetic character needed by the corrected Eisenstein denominator. It is not a reconstruction of general character-space theory."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.eisensteinInverseCharacter_def",
+          "role": "constructor",
+          "statement": "The character is κ_(0,1,1) composed with ContinuousMonoidHom.inv U."
+        },
+        {
+          "name": "DirichletPadic.eisensteinInverseCharacter_apply",
+          "role": "data",
+          "statement": "κ⁻(u) is the underlying Z-value of u⁻¹. Promoted to eisenstein-inverse-character-value."
+        },
+        {
+          "name": "DirichletPadic.eisensteinInverseCharacter_mul",
+          "role": "compatibility",
+          "statement": "u·κ⁻(u)=1 in Z for every actual unit u."
+        },
+        {
+          "name": "DirichletPadic.eisensteinInverseCharacter_ne_one",
+          "role": "characterisation",
+          "statement": "κ⁻ is nontrivial, witnessed by the supplied unit p+1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Corrected RJW Theorem8.2 denominator",
+          "how": "The coordinate shift places its denominator obstruction at the inverse coordinate."
+        },
+        {
+          "where": "Actual integral evaluation",
+          "how": "Supplies a concrete integral continuous character to the existing character-integral algebra homomorphism."
+        }
+      ],
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L4.json",
+      "notes": "Placed in L3 by the assembly (ASM-DirichletPadicLFunctions): it cites only L2 and PMIA nodes and is consumed by L3/inverse-arithmetic-character, so it cannot sit in L4 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L4 prefix."
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/eisenstein-inverse-character-value",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact inverse-unit value",
+      "kind": "lemma",
+      "statement": "For every u∈U, κ⁻(u)=(u⁻¹:U):Z.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p, U=Zˣ and M=AbstractMeasure U Z Z use the existing native carriers and supplied actual commutative convolution algebra. Q=FractionRing M is the total quotient, not an assumed field.",
+        "The existing arithmetic character κ_(0,1,1):U→Z is the unit coordinate. Native continuous group inversion on U defines its inverse-coordinate composite. The inverse is taken in U before coercion into Z."
+      ],
+      "proofSteps": [
+        "Unfold the native composition and inversion. Apply the promoted level-zero coordinate-character formula at the actual unit u⁻¹, with exponent1.",
+        "The coefficient algebra is Z over itself, so its algebraMap is the identity and the first power simplifies. This gives the exact coerced group inverse.",
+        "The native inverse_apply lemma is definitional for the corresponding concrete native coordinate map. At p=3,u=2 the value satisfies2κ⁻(u)=1 in Z_3."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/eisenstein-inverse-character",
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "mathlib:ContinuousMonoidHom.comp",
+        "mathlib:ContinuousMonoidHom.inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/EisensteinInverseCharacter",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.eisensteinInverseCharacter_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), Remark3.35, published129–130/PDF30–31; Theorem8.2 and its proof, published159–160/PDF60–61. Complete pages read in4693 during this continuation. The rescaling construction on published137–140/PDF38–41 was also reread completely after4695 preparation. Existing source qualifications and confirmed E54 retained.",
+          "match": "Worker algebraic analysis of the inverse-coordinate character at the shifted Eisenstein denominator. Its actual integral evaluation is defined, but maps every displayed shifted denominator to0, so it cannot extend as a ring map to those localizations. This locates a precise obstruction without asserting analytic pole order, residue or failure of every possible smaller-domain evaluation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInverseCharacterTests.inverse_character_ternary_two",
+          "kind": "computation",
+          "statement": "At the actual ternary unit represented by2, twice its inverse-character value is1."
+        }
+      ],
+      "acceptance": [
+        "The inverse is a group operation on units; no nonexistent division structure on Z_p is introduced."
+      ],
+      "originPacket": "research/blueprint/packets/DirichletPadicLFunctions--L4.json",
+      "notes": "Placed in L3 by the assembly (ASM-DirichletPadicLFunctions): it cites only L2 nodes and is consumed by L3/inverse-arithmetic-character-value, so it cannot sit in L4 under the layer order L0→L1→L2→L3→L4. The identifier keeps its original L4 prefix."
     }
   ],
   "requests": [
@@ -104889,21 +105179,37 @@
       "neededBy": [
         "DirichletPadicLFunctions:L3/robert-series-gauss-comparison"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+      "neededBy": [
+        "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
+        "DirichletPadicLFunctions:L0/dirichlet-one-transcendental"
+      ],
+      "need": "Canonical generalized Bernoulli finite-sum normalization1,…,D for n≥1, coefficient-field extension, principal-character Euler-factor identity, and primitive composite-modulus Gauss norm/nonvanishing with positive modulus and primitive additive character. Keep these objects in ModularForms Layer0, as accepted RS14 requires."
+    },
+    {
+      "supplier": "DiophantineApproximationAndTranscendence:DT.3",
+      "neededBy": [
+        "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application"
+      ],
+      "need": "Named arbitrary-family corollary of the existing Baker independent-logarithm theorem: a nonzero finite algebraic linear combination of logarithms of nonzero algebraic numbers is transcendental. Expose the finite-span rational basis reduction and removal of zero transformed coefficients; no independence assumption on the original logarithms."
     }
   ],
   "coverage": [
     {
       "stageId": "DirichletPadicLFunctions:L3",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Complete target coverage before refining the inherited Kubert strand. Construct the actual odd-prime and integral dyadic branches from the PMIA L0a character components and LAD L3 analytic Mellin coordinates, including the corrected inverse-Teichmüller twist in source issue E14. The existing tame-character integral/analytic transfer assumes a supplied continuous-test-space-valued family and does not construct the principal-unit family.",
-        "Complete the source-specific complex cyclotomic logarithmic value and Leopoldt p-adic value-at-one comparisons with primitive character, chosen Gauss sum and compatible root conventions, for pure p-power as well as nontrivial tame conductor. Import the common normalized logarithm and compatible finite-extension/branch-change laws from their existing owners; do not introduce a second logarithm or use the subsequent Coleman positive-value theorem as the earlier value-at-one proof.",
-        "Decompose the trivial-component pole theorem: actual numerator value, convergence, nonvanishing of the auxiliary logarithm, division by the simple zero, residue 1−p⁻¹ in the specified RJW s-coordinate, and its coordinate-change law. Keep the nontrivial components separate and do not replace the arithmetic residue calculation by a formal quotient rule.",
-        "RT-AREA-iwasawa-2/1 is only partly discharged. Preserve the existing Morita continuous unit-valued Gamma construction, uniqueness and both functional equations. The existing Robert Gross–Koblitz comparison retains the exact RD.6 coefficient-bound and splitting-value hypotheses. Obtain those owned interfaces and prove the chosen-root compatibility π^(p−1)=−p and ζπ≡1+π mod π², source-negative Gauss normalization and exponent endpoint conventions, including the required dyadic comparison. The root congruence ζ ≡ 1 + π mod π², the equality of ideals (π) = (ζ − 1) and the dyadic root convention are planned in the follow-up part of this layer, research/blueprint/packets/DirichletPadicLFunctions--L3-2.json (nodes DirichletPadicLFunctions:L3/rjw2-gk-root-ideals, DirichletPadicLFunctions:L3/rjw2-gk-root-congruence and DirichletPadicLFunctions:L3/rjw2-gk-dyadic-root), which has not been reviewed yet; the RD.6 inputs remain requested.",
-        "RT-AREA-iwasawa-2/2 remains undecomposed: read the exact Ferrero–Greenberg derivative formula, plan its declarations and source-qualified hypotheses, keep χ(p)=1 explicit, and prove the nonvanishing consequence separately. The presence of Gamma, its logarithmic models and conditional Gross–Koblitz comparisons is not the derivative formula. The declarations are planned in the follow-up part of this layer, research/blueprint/packets/DirichletPadicLFunctions--L3-2.json (nodes DirichletPadicLFunctions:L3/rjw2-fg-gamma-sum, DirichletPadicLFunctions:L3/rjw2-fg-count, DirichletPadicLFunctions:L3/rjw2-fg-permutation, DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference, DirichletPadicLFunctions:L3/rjw2-fg-sum-expression, DirichletPadicLFunctions:L3/rjw2-fg-differentiation, DirichletPadicLFunctions:L3/rjw2-fg-count-character-sum, DirichletPadicLFunctions:L3/rjw2-ferrero-greenberg, DirichletPadicLFunctions:L3/rjw2-fg-exceptional-zero, DirichletPadicLFunctions:L3/rjw2-fg-exceptional-derivative, DirichletPadicLFunctions:L3/rjw2-fg-simple-zero and DirichletPadicLFunctions:L3/rjw2-fg-nonvanishing); that part has not been reviewed yet, so the finding stays open here until it is accepted.",
-        "Retain the thirteen precise supplier requests. The Coleman disc-function/LAD coefficient comparison, inherited overconvergent geometry and distribution inputs, bounded-measure rotation/primitive interfaces, larger-radius derivative/Taylor bounds and actual p-adic exp/log inverse all remain required. Conditional consumer proofs do not discharge these typed supplier obligations.",
+        "Complete target coverage before refining the inherited Kubert strand. Construct the actual odd-prime and integral dyadic branches from the PMIA L0a character components and LAD L3 analytic Mellin coordinates, including the corrected inverse-Teichmüller twist in source issue E14. The existing tame-character integral/analytic transfer assumes a supplied continuous-test-space-valued family and does not construct the principal-unit family. The branches, their interpolation and the dyadic chart are planned in the second part of this layer, research/blueprint/packets/DirichletPadicLFunctions--L3-2.json, accepted on 10 October 2026 (rjw2-rjw-test through rjw2-dyadic-branches); its PMIA L0a and LAD requests remain open.",
+        "Complete the source-specific complex cyclotomic logarithmic value and Leopoldt p-adic value-at-one comparisons with primitive character, chosen Gauss sum and compatible root conventions, for pure p-power as well as nontrivial tame conductor. Import the common normalized logarithm and compatible finite-extension/branch-change laws from their existing owners; do not introduce a second logarithm or use the subsequent Coleman positive-value theorem as the earlier value-at-one proof. Leopoldt's formula in the tame, pure p-power and mixed cases is planned in research/blueprint/packets/DirichletPadicLFunctions--L3-2.json (rjw2-tame-trace-euler through rjw2-leopoldt), accepted on 10 October 2026.",
+        "Decompose the trivial-component pole theorem: actual numerator value, convergence, nonvanishing of the auxiliary logarithm, division by the simple zero, residue 1−p⁻¹ in the specified RJW s-coordinate, and its coordinate-change law. Keep the nontrivial components separate and do not replace the arithmetic residue calculation by a formal quotient rule. The pole, its residue and the coordinate-change law are planned in research/blueprint/packets/DirichletPadicLFunctions--L3-2.json (rjw2-analytic-coordinate-agreement through rjw2-residue-coordinate-change), accepted on 10 October 2026.",
+        "RT-AREA-iwasawa-2/1 is only partly discharged. Preserve the existing Morita continuous unit-valued Gamma construction, uniqueness and both functional equations. The existing Robert Gross–Koblitz comparison retains the exact RD.6 coefficient-bound and splitting-value hypotheses. Obtain those owned interfaces and prove the chosen-root compatibility π^(p−1)=−p and ζπ≡1+π mod π², source-negative Gauss normalization and exponent endpoint conventions, including the required dyadic comparison. The root congruence ζ ≡ 1 + π mod π², the equality of ideals (π) = (ζ − 1) and the dyadic root convention are planned in the follow-up part of this layer, research/blueprint/packets/DirichletPadicLFunctions--L3-2.json (nodes DirichletPadicLFunctions:L3/rjw2-gk-root-ideals, DirichletPadicLFunctions:L3/rjw2-gk-root-congruence and DirichletPadicLFunctions:L3/rjw2-gk-dyadic-root), accepted on 10 October 2026; the RD.6 inputs remain requested.",
+        "RT-AREA-iwasawa-2/2 remains undecomposed: read the exact Ferrero–Greenberg derivative formula, plan its declarations and source-qualified hypotheses, keep χ(p)=1 explicit, and prove the nonvanishing consequence separately. The presence of Gamma, its logarithmic models and conditional Gross–Koblitz comparisons is not the derivative formula. The declarations are planned in the follow-up part of this layer, research/blueprint/packets/DirichletPadicLFunctions--L3-2.json (nodes DirichletPadicLFunctions:L3/rjw2-fg-gamma-sum, DirichletPadicLFunctions:L3/rjw2-fg-count, DirichletPadicLFunctions:L3/rjw2-fg-permutation, DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference, DirichletPadicLFunctions:L3/rjw2-fg-sum-expression, DirichletPadicLFunctions:L3/rjw2-fg-differentiation, DirichletPadicLFunctions:L3/rjw2-fg-count-character-sum, DirichletPadicLFunctions:L3/rjw2-ferrero-greenberg, DirichletPadicLFunctions:L3/rjw2-fg-exceptional-zero, DirichletPadicLFunctions:L3/rjw2-fg-exceptional-derivative, DirichletPadicLFunctions:L3/rjw2-fg-simple-zero and DirichletPadicLFunctions:L3/rjw2-fg-nonvanishing); that part was accepted on 10 October 2026, and the arithmetic nonvanishing input remains its recorded gap.",
+        "Retain the thirteen inherited precise supplier requests, and the ModularForms Layer 0 and DT.3 requests that came with the transcendence nodes. The Coleman disc-function/LAD coefficient comparison, inherited overconvergent geometry and distribution inputs, bounded-measure rotation/primitive interfaces, larger-radius derivative/Taylor bounds and actual p-adic exp/log inverse all remain required. Conditional consumer proofs do not discharge these typed supplier obligations.",
         "For the inherited corrected integer image, identify the outside-primary-coordinate condition with the original admissible reduction kernel and distinguished 1/M value. Then prove Kubert Proposition 4.13 equality with the product of original local integer lattices and Proposition 4.11 rational spanning; complete universal-distribution identification, quotient injectivity/freeness, lower rank and internal-to-global injection. General-degree primitive coordinates and local-field comparisons remain open.",
-        "Integrate the extracted L3 signatures with the separately owned L1/L2 prototype modules when available, and check the complete module against the exact pinned dependency closure. The new split file is uncompiled. Preserve all 2,880 named tests and the 26 inherited short-API advisories for review; its exact declaration bodies and defining instances are inherited, not new implementation claims."
+        "The assembled suggested file research/blueprint/suggested/DirichletPadicLFunctions.lean joins all layers and elaborates at the pins, with the PadicMeasuresIwasawaAlgebras definitions it uses restated in its first section. Preserve all 2,880 named tests and the 26 inherited short-API advisories for review; its exact declaration bodies and defining instances are inherited, not new implementation claims.",
+        "Terminal transcendence of L(χ,1) for primitive nonprincipal χ (placed here by the assembly from L0): cyclotomic-log-algebraic-inputs, cyclotomic-log-baker-application and dirichlet-one-transcendental, with gaps G-primitive-Gauss and G-Baker-arbitrary-form and the ModularForms Layer 0 and DT.3 requests."
       ]
     }
   ],
@@ -104911,7 +105217,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "This pass is complete because it inherited 1,663 nodes, already above the 300-node limit; it adds no nodes. L3 remains partial. Current coverage records all target-level unfinished work, including branches, value-at-one and pole theorems, explicit RT-AREA-iwasawa-2 obligations, analytic suppliers and the retained Kubert frontier. The two-item historical coverage did not certify the other L3 targets. Independent review must retain these gaps and create follow-up work before deeper refinement."
+      "detail": "This first part inherited 1,663 nodes, already above the 300-node limit, and added none. The second part of the layer (research/blueprint/packets/DirichletPadicLFunctions--L3-2.json, accepted on 10 October 2026) completed the target ledger: the branches, the value at one in every conductor case, the pole and residue, and the Ferrero–Greenberg decomposition. What remains is listed in the coverage of both parts: the supplier interfaces, the arithmetic nonvanishing input for Ferrero–Greenberg, the RD.6 Gross–Koblitz inputs and the Kubert frontier."
     },
     {
       "title": "Inherited Coleman disc-function and LAD power-series comparison",
@@ -104992,30 +105298,24 @@
       ]
     },
     {
-      "title": "L3 branch, Leopoldt and pole target closure",
-      "neededBy": [
-        "DirichletPadicLFunctions:L3"
-      ],
-      "detail": "The current stage and accepted RS-14 require the actual odd/dyadic branch construction, the complex and p-adic value-at-one comparisons for pure p-power and tame conductors, and the trivial-component residue 1−p⁻¹ with coordinate change. The inherited specialized integrals, trace calculations and conditional analytic interfaces do not certify that complete target chain. Follow the current coverage worklist, import the common logarithm and character-space owners, and preserve primitive-character, Gauss/root and convergence hypotheses."
-    },
-    {
-      "title": "Ferrero–Greenberg derivative formula remains undecomposed",
-      "neededBy": [
-        "DirichletPadicLFunctions:L3"
-      ],
-      "detail": "Confirmed finding RT-AREA-iwasawa-2/2 remains open: the inherited Morita Gamma node explicitly lists the routed formula as an open use. There is no finished derivative-formula decomposition in this packet. The follow-up must read the exact source, state χ(p)=1 and the full character/conductor/branch conventions, decompose the derivative formula at s=0 and keep its nonvanishing consequence separate. The budget-completion status does not resolve the finding. The follow-up part research/blueprint/packets/DirichletPadicLFunctions--L3-2.json plans this decomposition (node DirichletPadicLFunctions:L3/rjw2-ferrero-greenberg and the lemmas it rests on); this gap closes when that part is accepted."
-    },
-    {
-      "title": "Split L3 signature integration and complete compilation",
-      "neededBy": [
-        "DirichletPadicLFunctions:L3"
-      ],
-      "detail": "All 1,892 distinct inherited L3 declaration/API names and all 2,880 named tests are extracted with their exact command bodies and contexts. The file imports sibling L0/L1/L2 arithmetic prototypes instead of redefining their objects; L1/L2 prototype files are not yet present. The PMIA prototype and inherited native imports remain explicit dependencies. This split projection has not compiled, and historical native or partial-signature receipts for the combined file do not validate it. Complete the owned imports and verify the exact pinned full module; build no missing libraries in this worker pass."
-    },
-    {
       "title": "Kubert open-interval smoothness classification needs endpoint control",
       "neededBy": [],
       "detail": "Do not import Proposition3.3 under its printed C^(k+1)(0,1) hypothesis. New source issue DirichletPadicLFunctions/E30 gives the full-distribution k2 Clausen counterexample. A future Bernoulli-classification decomposition must state and prove the sufficient bounded derivative or endpoint regularity hypothesis explicitly. Existing local index corrections E23 do not close this source error. No new classification node or closure claim is introduced by this review."
+    },
+    {
+      "title": "G-primitive-Gauss — composite modulus nonvanishing",
+      "neededBy": [
+        "DirichletPadicLFunctions:L0/cyclotomic-log-algebraic-inputs",
+        "DirichletPadicLFunctions:L0/dirichlet-one-transcendental"
+      ],
+      "detail": "Native primitive Gauss inversion is built, including nonunits, but the search found only finite-field Gauss nonvanishing, not the full composite-modulus norm identity. MF Layer0 retains its Gauss/Fourier ownership. Require primitive χ and primitive additive root at positive N, norm²(G)=N or its nonvanishing consequence; the principal character at N>1 is imprimitive. No theorem for a finite field is applied to composite ZMod N."
+    },
+    {
+      "title": "G-Baker-arbitrary-form — independent-basis corollary",
+      "neededBy": [
+        "DirichletPadicLFunctions:L0/cyclotomic-log-baker-application"
+      ],
+      "detail": "The existing DT.3 Baker theorem has linearly independent logarithms as hypotheses. Its arbitrary-finite-family nonzero-linear-form corollary needs a named export; request the basis reduction and removal of zero transformed coefficients from the same owner. DT’s primary proof source was not reread here. Do not assume cyclotomic logarithms are independent."
     }
   ],
   "sourceIssues": [

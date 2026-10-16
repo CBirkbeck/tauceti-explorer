@@ -8412,71 +8412,6 @@
       ]
     },
     {
-      "id": "DirichletPadicLFunctions:L2/smoothed-translation-sum",
-      "parentStageId": "DirichletPadicLFunctions:L2",
-      "realises": [
-        "DirichletPadicLFunctions:L2"
-      ],
-      "title": "A finite translation identity for the smoothing measure",
-      "kind": "lemma",
-      "statement": "Σ_(i<a)(τ_i)_*(I_Kμ_a)=Σ_(i<a)Σ_(j<i)δ_j in D(Z,K).",
-      "hypotheses": [
-        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
-        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
-        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
-      ],
-      "proofSteps": [
-        "For a natural i and every Mahler degree k, native Nat.add_choose_eq and mahler_natCast_eq give the finite binomial translation formula at natural inputs. Density of naturals in Z and continuity extend it to every p-adic input.",
-        "Using native map_apply and coeff_amiceTransform, finite linearity gives A((τ_i)_*(I_Kμ_a))=Y^i A(I_Kμ_a). The same coefficient formula and dirac_apply give A(δ_j)=Y^j. A complete native proof verifies the translation formula on the actual measure and coefficient carriers.",
-        "The earlier smoothed-extension-amice identifies A(I_Kμ_a) with F_a over K. The needed unit certificate for a is the image of its integral unit certificate.",
-        "The two sides therefore have transforms Q_a(Y)F_a and B_a(Y). The preceding finite geometric cancellation equates them, and native general Amice injectivity gives the displayed equality of actual measures."
-      ],
-      "prerequisites": [
-        "DirichletPadicLFunctions:L1/smoothing-geometric-cancellation",
-        "DirichletPadicLFunctions:L1/smoothed-extension-amice",
-        "mathlib:AbstractMeasure.amiceTransform",
-        "mathlib:AbstractMeasure.injective_amiceTransform",
-        "mathlib:IsUnit.map",
-        "mathlib:Nat.add_choose_eq",
-        "mathlib:mahler_natCast_eq",
-        "mathlib:PadicInt.denseRange_natCast",
-        "mathlib:AbstractMeasure.coeff_amiceTransform",
-        "mathlib:AbstractMeasure.map_apply",
-        "mathlib:AbstractMeasure.dirac_apply",
-        "mathlib:Polynomial.coeff_one_add_X_pow",
-        "mathlib:Polynomial.coeff_coe",
-        "mathlib:Polynomial.coe_pow"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
-        "namespace": "DirichletPadic",
-        "declaration": "DirichletPadic.extend_smoothedMeasure_translation_sum"
-      },
-      "sources": [
-        {
-          "sourceId": "RJW-published",
-          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
-          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "tests": [
-        {
-          "name": "SuggestedAdditiveRationalTests.translation_two",
-          "kind": "computation",
-          "statement": "At p=3,a=2,K=Q_3, I_Kμ_2+(τ_1)_*I_Kμ_2=δ_0."
-        },
-        {
-          "name": "SuggestedAdditiveRationalTests.translation_three",
-          "kind": "computation",
-          "statement": "At p=2,a=3,K=Q_2, the sum of translates at0,1,2 is2δ_0+δ_1."
-        }
-      ],
-      "acceptance": [
-        "The identity is for the actual arithmetic measure. The generic finite Mahler calculation is a native proof ingredient, not a second Amice or convolution theory."
-      ]
-    },
-    {
       "id": "DirichletPadicLFunctions:L2/smoothed-additive-translation",
       "parentStageId": "DirichletPadicLFunctions:L2",
       "realises": [
@@ -18364,7 +18299,7 @@
       }
     },
     {
-      "id": "DirichletPadicLFunctions/E34",
+      "id": "DirichletPadicLFunctions/E38",
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Published printed144/PDF45, after equation(5-3), explanation that epsilon_D^c−1 is an integral unit; arXivv2physical32 has the same wording.",
@@ -18383,10 +18318,11 @@
         "verdict": "confirmed",
         "reason": "Complete affected published144 and v2physical32 images independently read. The reduction-of-finite-geometric-sum proof supplies the intended tame unit argument and separates root order from its always-one norm. No failure of the integral series theorem is claimed.",
         "by": "REV-DirichletPadicLFunctions--L2"
-      }
+      },
+      "renumberedFrom": "DirichletPadicLFunctions/E34: renumbered by the assembly (ASM-DirichletPadicLFunctions) because the L1 packet uses E34 for a different finding (an adoption of a confirmed paper finding about §11)."
     },
     {
-      "id": "DirichletPadicLFunctions/E35",
+      "id": "DirichletPadicLFunctions/E39",
       "source": "RJW-published",
       "kind": "gap",
       "locator": "Published printed145/PDF46, proof of Lemma5.10, the geometric series proving equation(5-4); arXivv2physical33 identical.",
@@ -18405,7 +18341,8 @@
         "verdict": "confirmed",
         "reason": "Independent complete published145 and v2physical33 images confirm the geometric step. Constant terms provide a symbolic nonconvergence test; the all-prime finite rational identity repairs the proof. Native packet nodes26–31 use the finite residue route and do not assume the invalid geometric summation.",
         "by": "REV-DirichletPadicLFunctions--L2"
-      }
+      },
+      "renumberedFrom": "DirichletPadicLFunctions/E35: renumbered by the assembly (ASM-DirichletPadicLFunctions) because the L1 packet uses E35 for a different finding (an adoption of a confirmed paper finding about §11)."
     }
   ],
   "checks": {
