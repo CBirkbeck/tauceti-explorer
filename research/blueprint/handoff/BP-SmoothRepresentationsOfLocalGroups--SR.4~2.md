@@ -1,6 +1,59 @@
 # Checkpoint: SR.4–SR.6 revision blocked by upstream ownership
 
-## Current checkpoint: codex-JQx0Hm
+## Current checkpoint: codex-9FBT9M
+
+Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
+session `codex-9FBT9M`; 16 October 2026. **Blocked checkpoint; revision
+unfinished.** No second job was claimed.
+
+The bot confirmed the claim in
+[comment 6226055880](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6226055880).
+I selected this issue from the manager's priority list using its available
+label and read the full discussion after claiming. That was a selection
+error: the maintainer's
+[13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6146993445)
+supersedes this revision with the upstream roadmap, and the manager's
+[16 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9313#issuecomment-6217693686)
+expressly stops further claims until the upstream owner requests an extension.
+The complete discussion contains no subsequent extension request. Automated
+availability after checkpoint #10079 did not resolve that instruction.
+
+Live checks confirm that
+[upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+remains open at `f24efef61443870dd47b64fd4de9828b0a685501`, carrying
+SmoothRepresentationsOfLocalGroups, and
+[PR #793](https://github.com/TauCetiProject/TauCetiRoadmap/pull/793) is merged.
+I read the immutable
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f24efef61443870dd47b64fd4de9828b0a685501/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md),
+Scope and ownership, SR.4.1, SR.5.2, SR.6.1 and SR.6.4–SR.6.5. It owns
+Satake, integral GL_n families and second adjointness, finite-wild parameters,
+excursion algebras, center images and stable operators. Its geometric-action
+boundary does not authorize a replacement atlas revision. README SHA-256:
+`8ad83c1c93c6f7dca2843d59e832a372d069f05db86040e36a364f98fa538d99`
+(accessed 16 October 2026). I also read the supplied upstream roadmap's
+ownership section and suggested-file opening; no shared upstream file was
+changed or built.
+
+Only this handoff changes. The packet and all three stage coverage records
+remain `partial`, and the existing review remains `needs_changes`. The
+unchanged inventory is 70 nodes (11 definitions, 6 constructions, 47 theorems,
+5 comparisons, 1 application), 55 API items, 51 unit tests, 14 planets,
+14 baseline declarations, 13 gaps and 17 requests. No mathematical source or
+baseline declaration was newly audited; no mathematical gap was resolved.
+
+Validation: blueprint checker reports 0 errors and 0 warnings; submission
+file check and whitespace check pass. The suggested Lean file was **not
+compiled in this session**, because no Lean or mathematical contract changed.
+No Lean process was started.
+
+Resume only after an upstream-owner extension request and a maintainer scope
+decision. Current roadmap changes belong in upstream #785. Before another
+claim, inspect the maintainer's discussion as well as the automated label;
+the manager must reconcile availability with the explicit stop instruction.
+The previous handoffs and review preserve the research worklist. All evidence
+needed to resume is linked here; no scratch file is needed.
+
+## Previous checkpoint: codex-JQx0Hm
 
 Issue #9313; job `BP-SmoothRepresentationsOfLocalGroups--SR.4~2`; Codex,
 session `codex-JQx0Hm`; 16 October 2026. **Blocked checkpoint; revision
