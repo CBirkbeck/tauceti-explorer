@@ -1,5 +1,44 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
+## Continuation: Codex codex-npjWIV, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6226049281).
+I missed the manager's [instruction not to reclaim this superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304)
+before claiming. This was a selection error. I then read the full discussion;
+it contains no subsequent upstream extension request or replacement scope.
+No second issue was claimed.
+
+I independently checked upstream main at
+`fb90c183a4e16179828a81c75ecd2ae1f1d67dcc`, read its
+[Layer 3 README, sections 3.1–3.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested interfaces](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720),
+and confirmed that upstream PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+The existing upstream roadmap owns these curve, degree, Picard, norm-stack and
+Abel–Jacobi targets, including targets specified only in its README.
+WORKERS.md and PROTOCOL.md section 15 prohibit replanning that work here.
+The authorized deliverables do not include the authoritative upstream files.
+This ownership check makes no claim that the historical review's mathematical
+requirements have been discharged.
+
+Only this handoff changes. The packet, reader, suggested file and independent
+verdict remain intact: 26 nodes (five constructions, 17 theorems, one definition,
+two comparisons and one lemma), 53 API items, 25 tests, six planets, 56 baseline
+declarations, three gaps and 16 requests. Packet and SF.3 coverage remain
+`partial`; no gap is closed and no supplier request is added.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings;
+`intake.py check-files` and `git diff --check` pass. Lean was not compiled
+because this continuation changes no Lean file. The shared read-only roadmap
+and library checkouts remain at `0d144d0` and `a91d3aa`; neither was modified
+or built. No scratch file is needed to resume.
+
+**Do not reclaim this issue without the upstream owner's extension request
+and a concrete replacement scope from the manager.** Automatic checkpoint
+release does not supply either. The preserved revision inventory below and
+the linked manager instruction are the handoff inputs.
+
 ## Continuation: Codex codex-QEX6ic, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
