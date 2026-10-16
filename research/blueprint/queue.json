@@ -43569,8 +43569,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9295"
+   "state": "external",
+   "note": "claimed on GitHub issue #9295"
   },
   {
    "priority": 2,
@@ -43669,8 +43669,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9297"
+   "state": "external",
+   "note": "claimed on GitHub issue #9297"
   },
   {
    "priority": 2,
@@ -43719,8 +43719,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9298"
+   "state": "external",
+   "note": "claimed on GitHub issue #9298"
   },
   {
    "priority": 2,
@@ -43769,8 +43769,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.4",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9299"
+   "state": "external",
+   "note": "claimed on GitHub issue #9299"
   },
   {
    "priority": 2,
@@ -109830,8 +109830,8 @@
    ],
    "revisionOf": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9313"
+   "state": "external",
+   "note": "claimed on GitHub issue #9313"
   },
   {
    "priority": 2,
