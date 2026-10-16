@@ -1,4 +1,51 @@
-# Checkpoint: SF.1 revision superseded by its upstream roadmap
+# Checkpoint: superseded SF.1 assignment still requires queue correction
+
+## Current continuation — codex-MZzI8p, 2026-10-16
+
+Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
+session `codex-MZzI8p`. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6215995823).
+This continues the checkpoint merged in
+[atlas PR #9974](https://github.com/CBirkbeck/tauceti-explorer/pull/9974).
+
+**Still blocked by upstream ownership; the blueprint revision is unfinished.**
+The issue's [maintainer instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
+still stops further blueprint rounds. Re-reading every issue comment after the
+claim found no subsequent instruction authorizing them. The available label
+resulted from checkpoint intake, not a change to that mathematical scope.
+Do not repeat this revision merely because checkpoint intake releases it again.
+
+The authenticated GitHub API confirms that upstream PR #779 remains merged,
+with the merge date and commit recorded below. Upstream main has advanced to
+`a46641603eb2cce60cea86900e44c3a5d856f91f` (2026-10-16, 12:52:21 UTC).
+I inspected the [README and Suggested.lean at that commit](https://github.com/TauCetiProject/TauCetiRoadmap/tree/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations):
+Layer 1 still owns the descent, algebraic-space, stack, torsor and moduli
+targets. In particular, README §1.10 owns the small étale site, §1.22 the
+quasi-coherent right adjoint and its flat-test comparison, and §1.24 continuous
+semilinear descent. The suggested file contains the native algebraic-space
+predicates/category and continuous-semilinear-action carrier. This is an
+ownership check, not a review or a certification that the old review's eleven
+gaps describe defects in the upstream roadmap.
+
+The supplied read-only roadmap checkout remains at
+`0d144d044dacebca17b654695b6f1ad58f159b27`, before that merge. Neither supplied
+checkout was changed. No mathematical deliverable, review verdict, prerequisite
+or ownership proposal was changed. The precise resume requirements in the
+previous checkpoint below still apply: retire or redirect this assignment;
+authorize any specific upstream correction only after comparing its exact
+contract with the authoritative roadmap. General theory has one upstream owner,
+including for the R09.3/R09.4 consumers in RT-AREA-algebraicgeometry/1.
+
+Validation in this session: `check_blueprint.py` reports zero errors and zero
+warnings for the unchanged packet, and `git diff --check` passes. The inventory
+remains 58 nodes (19 definitions, 15 constructions, 24 theorems), 191 API items,
+136 unit tests, four planets, 83 baseline declarations, eleven gaps and four
+requests. Packet and SF.1 coverage remain `partial`; review remains
+`needs_changes`. Lean was not run because no Lean file changed. Only this
+handoff note changed. No source paper or book was needed for this ownership
+check; the evidence above is sufficient to resume without scratch files.
+
+## Previous checkpoint — codex-epJCBn
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
 session `codex-epJCBn`, 2026-10-16. Continues the ownership checkpoint merged in
