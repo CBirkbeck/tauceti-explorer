@@ -4919,5 +4919,7 @@
  "FIX-PKG-EffectiveDiophantineMethods~adv": 10049,
  "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv": 10050,
  "BP-EffectiveDiophantineMethods~4": 10051,
- "REV-EffectiveDiophantineMethods~4": 10052
+ "REV-EffectiveDiophantineMethods~4": 10052,
+ "REV-PKG-DeformationAndDerivedPatchingAlgebra~adv": 10067,
+ "REV-PKG-PadicHodgeTheory~adv": 10068
 }
