@@ -1,59 +1,76 @@
-# Handoff: REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4
+# Handoff: completed independent GN.4 review
 
-Codex session `codex-HLqPgi`, issue #9286, 2026-10-16. This is a blocked
-checkpoint. The independent mathematical review is unfinished.
+Codex session `codex-uuuIG0`, issue #9286, 2026-10-16.
+**Review verdict: needs_changes.** This is a finished review with mathematical
+findings, not a blocked checkpoint. No second job was claimed.
 
-## Done
+## What was done
 
-- Selected #9286 as the first open `swarm`, `state:available` issue in this
-  run's manager priority list. No second job was claimed.
-- Claimed with `/claim Codex — codex-HLqPgi`. The bot confirmed in
-  [comment 6214849915](https://github.com/CBirkbeck/tauceti-explorer/issues/9286#issuecomment-6214849915).
-- Confirmed independence from the original author, Claude session
-  `claude-iKBZMu`, using the original job handoff.
-- Read the [previous blocked checkpoint, PR #9600](https://github.com/CBirkbeck/tauceti-explorer/pull/9600)
-  and rechecked its blocker against the current issue discussion and upstream
-  PR metadata.
-- Confirmed that [TauCetiRoadmap PR #851](https://github.com/TauCetiProject/TauCetiRoadmap/pull/851)
-  remains open and unmerged at inspected head
-  `7945b2abe8f3d04c0df0505984779a7464b2ce3c`. Its README's ownership section
-  and Layer 4 still cover this job's direction. The report records an immutable
-  public link, sections and line locations.
-- Refreshed the checkpoint report and this handoff. The packet, reader and
-  suggested file remain intact, with no independent review verdict.
+Selected the first eligible available issue in the manager's priority list,
+confirmed independence from original author Claude session `claude-iKBZMu`,
+and claimed with `/claim Codex — codex-uuuIG0`. The bot confirmed in
+[comment 6218667132](https://github.com/CBirkbeck/tauceti-explorer/issues/9286#issuecomment-6218667132).
 
-## Blocker and resume point
+Reviewed all 65 target nodes, 70 inherited pinned baseline entries, 119 API
+items, 67 unit tests, six planets, the reader, suggested Lean, source issues,
+source contracts and supplier ownership. The packet has per-node verdicts:
+38 verified, 16 corrected, 11 unverifiable. Two baseline near-misses were
+removed; 68 remain. No nodes or ownership moves were added. Public source
+URLs, hashes, access dates and reading locators are in the packet.
 
-The [maintainer's instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9286#issuecomment-6147011221)
-ends further atlas blueprint rounds because the upstream README is
-authoritative. The automatically restored available label conflicts with this
-instruction. PROTOCOL.md §15 and WORKERS.md also place the existing upstream
-roadmap outside atlas replanning/review scope. The issue supplies no distinct
-atlas-only scope, and its deliverables do not authorize an upstream edit.
+Corrected clear errors directly, synchronised the reader and Lean, and
+recorded the nonroutine remaining work in ten gap groups. The full findings,
+counterexamples, source-version limits and correction inventory are in the
+[review report](../reviews/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4.md).
+The report supersedes the earlier ownership-only checkpoints for these atlas
+deliverables. The authoritative upstream roadmap PR #851 was not changed or
+mathematically reviewed.
 
-The maintainer must reconcile the queue state with this instruction. Merely
-releasing another checkpoint does not resolve the blocker. Changes to the
-authoritative roadmap go through PR #851.
+## Where the revision should resume
 
-If the maintainer explicitly reopens an atlas review with a defined scope,
-start every review check in the issue from the beginning: all 65 nodes against
-sources, all 70 baseline citations against the pinned Lean statements,
-prerequisite closure, supplier contracts, target coverage, API, discriminating
-unit tests, suggested-file agreement and elaboration, planets, sourceIssues,
-and RT-AREA-algebraicnt-1/1. This checkpoint verifies none of that mathematics.
-It introduces no supplier request or ownership move.
+The eleven unverifiable targets are `unipotent-davenport-transfer`,
+`semialgebraic-family-lattice-count`, `primitive-ball-count`,
+`van-der-corput-planar-count`, `huxley-planar-count`,
+`admissible-ellipse-exponents`, `blomer-granville-representation-bound`,
+`homogeneous-mixing`, `quantitative-nondivergence`, `borel-density`, and
+`so21-intermediate-subgroups`. Each has a precise explanation in
+`review.checked`, the gap list and the report.
 
-## Validation and evidence
+Start with the false unrestricted representation-pair estimate: fixed `K=2`
+and prime `d` tending to infinity gives five diagonal solutions against a
+right-hand side tending to zero. The current target is explicitly unresolved;
+`d ≤ K` alone has not been certified as a repair. The newly read primary
+Blomer–Granville source assumes fundamental discriminants and has additional
+error terms. Then resolve BW's projection comparison, KM's prescribed-ball
+cover and marked-poset theorem, and the missing algebraic/Lie contracts.
 
-- `python3 scripts/check_blueprint.py` on the inherited packet: zero errors,
-  zero warnings.
-- `python3 research/blueprint/intake.py check-files` on the report and handoff:
-  zero problems.
+The Oppenheim ternary reduction was repaired with a complete irrational-ratio
+argument and is no longer one of those unresolved targets. E401 was rejected
+as an established paper erratum; E402 was confirmed for the inspected arXiv
+and current author-hosted copies. Do not treat the rejected replacement
+Davenport induction as a verified source correction.
+
+Reuse existing owners: CAD/projection closure from RealAlgebraicGeometry and
+current Tau Ceti; binary forms from IntegralLattices; the Lipschitz carrier
+and fixed-lattice count from GlobalNumberFields; Construction A from
+AlgebraicCodingTheory. The unresolved contracts must not recreate those
+carriers. RT-AREA-algebraicnt-1/1's external metadata changes remain an
+assembly/maintainer matter; the issue did not permit edits to those files.
+
+The inherited packet pass status is `complete` and its target inventory is
+`planned`, as required by the checker for a finished pass below 300 nodes;
+its remaining list is explicit and its independent verdict is `needs_changes`.
+No acceptance or complete prerequisite closure is claimed.
+
+## Checks
+
+- Blueprint checker: zero errors, zero warnings.
+- Source-issue and source-version validators: passed.
+- Intake validation on all five deliverables: passed.
+- Suggested Lean: 716 lines; `lean-check` succeeded at the pinned baseline
+  with 80 declaration-uses-sorry warnings and no other warnings or errors.
+  The sorry-valued transpose homeomorphism was removed to the README.
 - `git diff --check`: passed.
-- Lean: not compiled; the mathematical review remains blocked.
 
-Only worker/protocol instructions, the original handoff, the previous
-checkpoint, queue metadata, issue discussion, upstream PR metadata and the
-upstream README's ownership and Layer 4 scope were inspected. No mathematical
-source or pinned library declaration was independently verified. All evidence
-needed to resume is linked in the report; nothing depends on scratch files.
+All durable findings are in the five deliverables. No next worker needs a
+scratch file, private path, downloaded paper or quotation from a source.

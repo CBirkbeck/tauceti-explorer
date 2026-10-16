@@ -188,10 +188,11 @@ example (L : Submodule ℤ E) (D : Set E) (h0 : (0 : E) ∈ D) (Y : ℝ) :
 
 /-- adapted-basis-coordinates. -/
 theorem exists_basis_abs_repr_le (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L] :
-    ∃ b : Basis (Fin (finrank ℝ E)) ℤ L, ∃ c : ℝ,
+    ∃ b : Basis (Fin (finrank ℝ E)) ℤ L,
       (∀ j, ‖(b j : E)‖ ≤ (j.val + 1 : ℝ) * euclMin L j) ∧
       ∀ (x : E) (j : Fin (finrank ℝ E)),
-        |(b.ofZLatticeBasis ℝ L).repr x j| ≤ c * ‖x‖ / euclMin L j := sorry
+        |(b.ofZLatticeBasis ℝ L).repr x j| ≤ (2 ^ finrank ℝ E * (Nat.factorial (finrank ℝ E) : ℝ) /
+          (volume (closedBall (0 : E) 1)).toReal) * ‖x‖ / euclMin L j := sorry
 
 /-- Lipschitz parametrisable boundary data `Lip(D, 1, M, Λ)` (Widmer; GlobalNumberFields 3A). -/
 def LipBoundary (M : ℕ) (Λ : NNReal) (S : Set E) : Prop :=
@@ -352,9 +353,8 @@ example (n : ℕ) : UnimodularLattices.toLattice (QuotientGroup.mk 1 : Unimodula
 /-- Test `unimodularLattices_one_subsingleton`. -/
 example : Subsingleton (UnimodularLattices 1) := sorry
 
-/-- The transpose identification of the right quotient with `X_n`. -/
-def transposeHomeomorph (n : ℕ) :
-    Quotient (QuotientGroup.rightRel (slZ n)) ≃ₜ UnimodularLattices n := sorry
+/- The transpose homeomorphism between row and column quotients is a README target:
+it is a construction of data, so it is not introduced here with a sorry body. -/
 
 /-- lattice-space-invariant-probability: existence and uniqueness. -/
 theorem existsUnique_invariant_probability (n : ℕ) (hn : 2 ≤ n) :
@@ -398,13 +398,15 @@ end LatticeSpace
 
 section Nondivergence
 
-/-- `(C, α)`-good functions on `V ⊆ ℝ^d` (Kleinbock–Margulis); balls on which `f` vanishes
+/-- `(C, α)`-good functions, using all witnessed positive lower bounds for the local
+supremum to avoid unbounded real suprema; balls on which `f` vanishes
 identically impose nothing (the source's convention `1/0 = ∞`). -/
 def IsGood {d : ℕ} (C α : ℝ) (V : Set (EuclideanSpace ℝ (Fin d)))
     (f : EuclideanSpace ℝ (Fin d) → ℝ) : Prop :=
-  ContinuousOn f V ∧ ∀ x r, ball x r ⊆ V → 0 < (⨆ y ∈ ball x r, |f y|) → ∀ ε > 0,
-    (volume {y ∈ ball x r | |f y| < ε}).toReal ≤
-      C * (ε / ⨆ y ∈ ball x r, |f y|) ^ α * (volume (ball x r)).toReal
+  0 < C ∧ 0 < α ∧ ContinuousOn f V ∧ ∀ x r, 0 < r → ball x r ⊆ V →
+    ∀ M > 0, (∃ y ∈ ball x r, M ≤ |f y|) → ∀ ε > 0,
+      (volume {y ∈ ball x r | |f y| < ε}).toReal ≤
+        C * (ε / M) ^ α * (volume (ball x r)).toReal
 
 theorem IsGood.abs {d : ℕ} {C α : ℝ} {V : Set (EuclideanSpace ℝ (Fin d))}
     {f : EuclideanSpace ℝ (Fin d) → ℝ} (hf : IsGood C α V f) : IsGood C α V (fun x ↦ |f x|) :=
@@ -422,7 +424,7 @@ theorem volume_unipotent_minimum_lt_le {k : ℕ} (hk : 1 ≤ k)
       (∀ t, IsNilpotent (u t - 1)) → ∀ T > 0, ∀ ε, 0 < ε → ε ≤ ρ →
       (volume {x ∈ Set.Ioo (0 : ℝ) T | minNorm (L.map
         ((Matrix.toEuclideanLin (u x)).restrictScalars ℤ)) < ε}).toReal
-        ≤ 2 * k * 3 ^ k * ((k : ℝ) ^ 2 + 1) ^ (1 / (k : ℝ) ^ 2) * (ε / ρ) ^ (1 / (k : ℝ) ^ 2) * T :=
+        ≤ 2 * (k : ℝ) ^ 3 * 6 ^ k * ((k : ℝ) ^ 2 + 1) ^ (1 / (k : ℝ) ^ 2) * (ε / ρ) ^ (1 / (k : ℝ) ^ 2) * T :=
   sorry
 
 end Nondivergence
@@ -501,8 +503,10 @@ def geodesicOfForm (a b c : ℤ) : Set ℍ :=
 example : geodesicOfForm 1 0 (-2) = {z : ℍ | ‖(z : ℂ)‖ = Real.sqrt 2} := sorry
 
 /-- closed-geodesic-length: the automorph built from the minimal solution of `t² - Du² = 4`
-translates its geodesic by `2 log ε`. -/
+translates its geodesic by `2 log ε`. Any positive Pell solution gives this displacement;
+minimality is required only to identify the primitive closed period. -/
 theorem length_closedGeodesic_eq (a b c t u : ℤ) (ht : t ^ 2 - (b ^ 2 - 4 * a * c) * u ^ 2 = 4)
+    (hD : 0 < b ^ 2 - 4 * a * c) (htpos : 0 < t)
     (hu : 0 < u) (γ : Matrix.SpecialLinearGroup (Fin 2) ℤ)
     (hγ : (γ : Matrix (Fin 2) (Fin 2) ℤ) = !![(t - b * u) / 2, -c * u; a * u, (t + b * u) / 2])
     (z : ℍ) (hz : z ∈ geodesicOfForm a b c) :
@@ -523,7 +527,7 @@ example : (latticeSphere 3).card = 8 := sorry
 example : latticeSphere 7 = ∅ := sorry
 
 /-- Test `nonharmonic_not_mean_zero`: the average of `x²` is `1/3`. -/
-example (n : ℕ) (hn : (latticeSphere n).Nonempty) :
+example (n : ℕ) (hpos : 0 < n) (hn : (latticeSphere n).Nonempty) :
     harmonicWeylSum (fun x ↦ x 0 ^ 2) n = 1 / 3 := sorry
 
 end Packets
@@ -607,7 +611,7 @@ theorem IsGood.mono {d : ℕ} {C C' α : ℝ} {V : Set (EuclideanSpace ℝ (Fin 
 example : IsGood 4 1 Set.univ (fun x : EuclideanSpace ℝ (Fin 1) ↦ x 0) := sorry
 
 /-- Test `isGood_zero`. -/
-example {d : ℕ} (C α : ℝ) (hC : 0 ≤ C) : IsGood C α Set.univ (fun _ : EuclideanSpace ℝ (Fin d) ↦ (0 : ℝ)) :=
+example {d : ℕ} (C α : ℝ) (hC : 0 < C) (hα : 0 < α) : IsGood C α Set.univ (fun _ : EuclideanSpace ℝ (Fin d) ↦ (0 : ℝ)) :=
   sorry
 
 theorem siegelTransform_smul (f : (Fin n → ℝ) → ENNReal) (h : SpecialLinearGroup (Fin n) ℝ)
