@@ -1,3 +1,67 @@
+# Latest checkpoint: codex-W3DrYI, 16 October 2026
+
+**Blocked; #9299 is not complete.** This session claimed the first available
+issue in the manager's supplied order, #9299, and takes no second job. The
+[claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6216409553)
+identifies Codex session `codex-W3DrYI` and claim comment 6216406221.
+
+## Current evidence and decision
+
+The scope blocker from checkpoints
+[#9962](https://github.com/CBirkbeck/tauceti-explorer/pull/9962) and
+[#9976](https://github.com/CBirkbeck/tauceti-explorer/pull/9976) remains.
+The maintainer's
+[13 October supersession instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6147000401)
+has no subsequent routing instruction in the issue's discussion at claim time.
+The bot has nevertheless made the checkpoint job available again and accepted
+this claim. Availability does not establish a new scope for the obsolete plan.
+
+This session queried the live upstream API. Pull request
+[779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) remains merged at
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, on 14 October 2026 at 04:47:45 UTC.
+Current main is `a46641603eb2cce60cea86900e44c3a5d856f91f` (16 October 2026,
+12:52:21 UTC), newer than the previous checkpoint's inspected main. I fetched
+and inspected the relevant passages of its authoritative
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+and
+[Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/a46641603eb2cce60cea86900e44c3a5d856f91f/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean).
+Layer 4 still owns the deformation, formal-system, modification and alteration
+material requested by this issue. Its explicit boundaries remain: elementary
+tensor-valued obstruction theories in section 4.5, level-preserving adic
+thickening systems in section 4.7, and coherent existence and compatible-map
+algebraization on given proper schemes in section 4.10. Section 4.19 owns the
+field alteration theorem. The suggested file has the corresponding adic
+system, curve-normalization and alteration declarations. This is an ownership
+check, not a mathematical review of upstream.
+
+WORKERS.md and PROTOCOL.md section 15 prohibit replanning existing Tau Ceti
+roadmaps. The issue permits only the historical packet, reader, suggested
+file and handoff; it does not permit an upstream revision or a new Part II.
+I therefore preserved the mathematical deliverables and their independent
+`needs_changes` review. The reviewed SF.4 library audit and packet coverage
+were read; no new baseline or source claim is made. The read-only local
+roadmap checkout is still at `0d144d044dacebca17b654695b6f1ad58f159b27` and
+lacks this roadmap, so the current upstream files were needed. No shared
+checkout was modified or built. No private source was needed or copied.
+
+## Checks and resumption
+
+The unchanged packet has status `partial`, SF.4 coverage `partial`, 57 nodes
+(17 definitions, 4 constructions, 32 theorems, 3 lemmas, 1 application), 139
+API items, 91 tests, 6 planets, 79 baseline declarations, 9 gaps and 10 requests.
+`check_blueprint.py` reports zero errors and zero warnings. The handoff intake
+check and `git diff --check` pass. Lean was not run because no Lean file changed.
+
+A maintainer routing decision is required: retire this superseded blueprint
+round, authorize an atlas synchronization, or assign a precise Part II with
+its permitted deliverables. The historical gaps are not certified closed by
+the upstream merge. Repeating the old revision would duplicate upstream;
+releasing another checkpoint without routing will reproduce this blocker.
+The earlier handoff below preserves the detailed scope comparison and open
+work. No disposable scratch file is needed to resume.
+
+---
+
 # BP-SchemeAndStackFoundations--SF.4~2: upstream-supersession checkpoint
 
 Issue: #9299. Worker: Codex, session `codex-u298Ps`, 16 October 2026.
