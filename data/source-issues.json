@@ -184312,25 +184312,46 @@
    "reviewReason": "Added by the reviewer after comparing Theorem 3.4 and its proof (p. 6, §8.4) with Theorem 1.2 (p. 2). The blueprint author had noticed the step and supplied it in R27.4/strong-form-by-minimal-lifts without recording it; it is recorded here so that formalisers see that the published proof omits it."
   },
   {
+   "id": "ClassicalSerreModularity/E15",
+   "kind": "misprint",
+   "locator": "Author preprint Theorem5.1(2), p.9; page image checked",
+   "printed": "The nonzero nilpotent monodromy operator is placed in GL₂.",
+   "correction": "The operator belongs to M₂, or End of the rank-two space, and is not invertible.",
+   "reason": "Nilpotence implies determinant zero. In dimension two a nonzero nilpotent has rank one, which gives the conductor exponent one used here.",
+   "affects": "nothing",
+   "known": "Existing ClassicalSerreModularity/E15 in R27.6 and PAPER-KHARE-WINTENBERGER-09-I/E5; no new finding or claim about the Inventiones version.",
+   "searched": [
+    "Existing R27.6 and paper-extraction ledgers",
+    "Author preprint p.9 page image"
+   ],
+   "owner": "ClassicalSerreModularity",
+   "file": "research/blueprint/packets/ClassicalSerreModularity--R27.4.json",
+   "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (I), Author preprint results.pdf of Invent. Math. 178 (2009), 485–504; all locators use the preprint running pages.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.4",
+   "reviewReason": "The page image prints GL₂ at the monodromy clause; a nilpotent operator cannot be invertible. The packet already uses the intended endomorphism."
+  },
+  {
    "id": "ClassicalSerreModularity/E3",
    "kind": "misprint",
    "locator": "Author copy results.pdf, proof of Theorem 9.1, §9 p. 19; published version not compared.",
    "printed": "The second system is described as lifting the original residual representation, and the later finite-flat sentence points to the minimal-lift item of Theorem 5.1. This is a paraphrase of the two cross-reference slips.",
-   "correction": "The second system lifts the characteristic-three residual member of the first system. Its order-three type comes from Theorem 5.1(4); crystallinity after killing that type also uses coefficient-prime almost strict compatibility, and finite flatness uses the integral Barsotti–Tate theorem for the chosen lattice.",
+   "correction": "The second system lifts the characteristic-three residual member of the first system, with any required small-weight twist recorded and later undone. Its order-three type comes from Theorem 5.1(4); crystallinity after killing that type also uses coefficient-prime almost strict compatibility, and finite flatness uses the integral Barsotti–Tate theorem for the chosen lattice.",
    "reason": "The prescribed local input is at coefficient 3 and local prime 2; it is not a condition on the original characteristic-p representation. Item (2) alone cannot prescribe the new order-three type or identify the required residual lattice.",
    "affects": "nothing",
    "known": "Existing finding ClassicalSerreModularity/E3 in part R27.3, confirmed by its independent review. Reused identity, without copying that review as a review of this packet. No published correction was established in this run.",
    "searched": [
     "The public author copy of KW I, §9 p. 19.",
     "The existing part R27.3 source issue E3 and its recorded confirmed review.",
-    "KW II §3.3.3 and §10.3.2 for the corrected lift and compatibility. The journal copy was not obtained for comparison."
+    "KW II §3.3.3 and §10.3.2 for the corrected lift and compatibility. The journal copy was not obtained for comparison.",
+    "Independent review: the Springer article landing page (DOI 10.1007/s00222-009-0205-7) and its PDF endpoint on 2026-10-16 expose subscription access rather than the proof; no correction is linked on the landing page. Khare’s public results.pdf remains the version checked. No claim about the published proof text is made."
    ],
    "owner": "ClassicalSerreModularity",
    "file": "research/blueprint/packets/ClassicalSerreModularity--R27.5.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre’s modularity conjecture (I), Public author copy, own printed pages 2–23; published in Invent. Math. 178 (2009), 485–504. Published pagination was not compared.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ClassicalSerreModularity--R27.5",
+   "reviewReason": "Independently read the author PDF §9 p. 19 against Theorem 5.1(4) pp. 9–10 and KW II §3.3.3 pp. 35–36. The local input belongs to the coefficient-three residual of the first system, up to the separately tracked weight twist, and item (2) alone does not prescribe the order-three local type. Compatibility and the integral chosen-lattice argument supply the later finite-flat step. These are recoverable reference slips in the identified author copy; journal proof text was not accessible."
   },
   {
    "id": "ClassicalSerreModularity/E3",
@@ -188655,8 +188676,8 @@
    "id": "DeformationAndDerivedPatchingAlgebra/E5",
    "kind": "misprint",
    "locator": "Online HTML read 2026-10-05, Lemma 15.66.5 (064U), projective padding and descending-cone proof.",
-   "printed": "The source writes F^{n_0} and Ker(F^n → F^{n−1}), and uses the phrases “our of complexes”, “Dnote” and “and the to”.",
-   "correction": "After the inductive decomposition F^(n−1)=P^(n−1)⊕C^n⊕C^(n−1), require F^(n−1) finite free, not a repeated F^n0. In the descending construction the chosen map lands in ker(d^n:F^n→F^(n+1)), not ker(F^n→F^(n−1)). Read the textual slips as “our map of complexes”, “Denote” and “and to”.",
+   "printed": "The padding step repeats the initial-degree superscript, the displayed cycle kernel points to the preceding degree, and several short textual slips occur.",
+   "correction": "After the inductive decomposition F^(n−1)=P^(n−1)⊕C^n⊕C^(n−1), require F^(n−1) finite free. The descending lift must land in ker(d^n:F^n→F^(n+1)). The other slips have no mathematical effect.",
    "reason": "The proof explicitly uses cochain differentials d^i:F^i→F^(i+1); F^(n−1) is precisely the next term being constructed. Lifting cycles into the displayed wrong kernel is not the required induction step. The corrected cone/lifting argument proves the unchanged statement.",
    "affects": "nothing",
    "known": "new",
@@ -189240,7 +189261,7 @@
    "locator": "§6.1, Theorem 6.4(1), PDF p. 93 (published version, printed p. 389)",
    "printed": "The source assumes formal smoothness of R∞ over O, gives R ≃ O[x1, . . . , xq+j−l0], and concludes that H is free as an R-module.",
    "correction": "If R∞ is formally smooth over O, so R∞ ≃ O[[x1, …, x_{q+j−l0}]], then H is a free R-module.",
-   "reason": "Formal smoothness is a hypothesis on R∞, and dim R∞ = 1 + j + q − l0 matches O[[x1,…,x_{q+j−l0}]]. The proof begins 'Suppose first of all that R∞ ≃ O[x1,…,x_{j+q−l0}]'. R (the quotient) is not formally smooth in general.",
+   "reason": "Formal smoothness is a hypothesis on R∞, and dim R∞ = 1 + j + q − l0 matches O[[x1,…,x_{q+j−l0}]]. The first proof case uses a formally smooth power-series presentation of R∞. R (the quotient) is not formally smooth in general.",
    "affects": "nothing",
    "known": "Not corrected in print. The bracket part (single brackets for power-series brackets) is item (2) of the authors' Correction, Invent. Math. 227 (2022) 855–856, DOI 10.1007/s00222-021-01095-5; the slip R for R∞ is not in it. The same slip is already recorded in this atlas's register as PAPER-CALEGARI-GERAGHTY-18/E141, confirmed by REV-PAPER-CALEGARI-GERAGHTY-18; this entry records it for the blueprint that uses Theorem 6.4(1).",
    "searched": [
@@ -198078,6 +198099,26 @@
    "status": "confirmed",
    "reviewedBy": "REV-EnhancedDerivedSheaves--E5",
    "reviewReason": "In the pinned author copy BS17 Remark 11.24, p. 45, the attributed hypothesis controls algebra generators only; the cited Mathew Corollary 3.33, p. 24, controls both generators and relations. This confirms a citation/hypothesis gap, not falsity of countable-generation descendability. The packet conservatively uses countable presentation."
+  },
+  {
+   "id": "EnhancedDerivedSheaves/E6",
+   "kind": "misprint",
+   "locator": "Construction 25.2.2.2, p. 1700, and Proposition 25.2.3.4(2), p. 1703, in the author PDF dated 3 February 2018",
+   "printed": "The nth exterior power of a free module M over a polynomial ring is described as the quotient of the n-fold tensor power of M by the action of the symmetric group through signed permutations, and Proposition 25.2.3.4(2) identifies the derived exterior power of a flat module with that same signed-coinvariant quotient.",
+   "correction": "The exterior power is the quotient of the tensor power by the submodule spanned by tensors with two equal factors (equivalently, the degree-n part of the exterior algebra). The signed coinvariants agree with it only when 2 is invertible.",
+   "reason": "For n = 2 and M = A free of rank one with basis x, the signed coinvariants are A·(x ⊗ x) modulo 2(x ⊗ x), that is A/2A, which is nonzero over ℤ or 𝔽_2, whereas the same construction is asserted to be free of rank (1 choose 2) = 0 with the stated basis of increasing indices. The rank statement and the basis fix the intended meaning.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The Spectral Algebraic Geometry author PDF of 3 February 2018 (the version on the author's page)",
+    "the atlas errata register (research/errata/REGISTER.md) and data/source-issues.json"
+   ],
+   "owner": "EnhancedDerivedSheaves",
+   "file": "research/blueprint/packets/EnhancedDerivedSheaves.json",
+   "citation": "Jacob Lurie, Spectral Algebraic Geometry, Author PDF 'under construction', dated 3 February 2018 (SHA-256 515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d), read 2026-10-16; printed and PDF pages agree.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EnhancedDerivedSheaves",
+   "reviewReason": "Added by the reviewer: recomputed the signed coinvariants of the tensor square of a free module of rank one over ℤ (they are ℤ/2) against the rank and basis asserted in the same construction."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E1",
