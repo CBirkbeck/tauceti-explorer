@@ -1,10 +1,61 @@
 # BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6: blocked checkpoint
 
-Worker: Codex, session `codex-C8b6hH`. Date: 2026-10-16.
+Worker: Codex, session `codex-gOLztX`. Date: 2026-10-16.
 Issue: [#9330](https://github.com/CBirkbeck/tauceti-explorer/issues/9330).
 Status: **blocked; no new mathematical plan submitted**.
 
-## Continuation check — codex-C8b6hH
+## Continuation check — codex-gOLztX
+
+Continued the checkpoint merged in [#10014](https://github.com/CBirkbeck/tauceti-explorer/pull/10014).
+Issue #9330 was the first available permitted job in this run's manager list.
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6223536816).
+No second job was claimed.
+
+Re-read the complete issue, the prior handoff, WORKERS.md, both protocols,
+UPSTREAM_GUIDE.md and the parent packet's GN.6 coverage. The maintainer's
+[blocking instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6146989949)
+still applies; no subsequent issue comment assigns a mathematical extension.
+
+The live [upstream PR #851](https://github.com/TauCetiProject/TauCetiRoadmap/pull/851)
+is still open, but its head has advanced to
+**2a81bf26f00972b7e17dc5105c2f8980ea7698b5**. Inspected the README and
+Suggested.lean at that head on 2026-10-16. The README SHA-256 is
+`acd0d1ffa92b714c7c8f0dadda359b5519e587b11a73c9f27eef46b57c96bba0`.
+The current [Layer 6](https://github.com/TauCetiProject/TauCetiRoadmap/blob/2a81bf26f00972b7e17dc5105c2f8980ea7698b5/TauCetiRoadmap/GeometryOfNumbersAndQuadraticArithmetic/README.md#layer-6-hermitian-k-theory-of-exact-categories)
+continues to own the exact-category hermitian K-theory targets named by this
+issue and its remaining-work list. In particular, §§6.1.1–6.1.6 own the
+ordinary Q/S, realization, nonconnective K and group-completion interfaces;
+§§6.4–6.5 own the GW/W presentations and hermitian Q comparison;
+§6.6a owns the four-condition filtering quotient and its descended duality;
+§§6.7–6.8 own the cone, suspension and formation interfaces; and §§6.8a–6.10
+own the derived-duality, residue and periodicity interfaces. The final
+roadmap-for-a-roadmap still excludes the number-ring homotopy-limit theorem
+and higher integer GW tables from implementable targets. This is a check of
+ownership and scope, not an independent mathematical review of #851.
+
+The blocker therefore persists despite the new upstream head. PROTOCOL.md
+§15 includes open upstream roadmap pull requests in existing work, and the
+maintainer explicitly directs changes through that PR. Creating the old
+atlas packet would duplicate its owner. No packet, reader or suggested file
+has been created, and no closure or implementation claim is made. The
+metadata finding RT-AREA-algebraicnt-1/1 remains unresolved within this job's
+authorized paths, as recorded below.
+
+This submission changes only this handoff and is a **blocked checkpoint**.
+The maintainer needs to reconcile this obsolete follow-up with #851 or assign
+a precise extension, its owner and deliverable paths. The available label and
+successful claim do not resolve that decision. Resume from the current
+upstream head and the maintainer's issue instruction, rather than the older
+head documented in the historical sections below. All resumption evidence
+is public and recorded here; nothing depends on this run's scratch files.
+
+Checks: `git diff --check` and `python3 research/blueprint/intake.py check-files`
+for this handoff. No new packet exists for `check_blueprint.py`; no Lean file
+was changed or compiled. No primary mathematical source was newly verified.
+New nodes by kind, API items, unit tests, planets, baseline declarations and
+supplier requests: all zero. GN.6 retains its parent packet's partial status.
+
+## Previous continuation check — codex-C8b6hH
 
 Continued the checkpoint merged in [#9966](https://github.com/CBirkbeck/tauceti-explorer/pull/9966).
 The bot confirmed [the current session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6218762794).
