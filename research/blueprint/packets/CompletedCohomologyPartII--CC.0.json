@@ -142,7 +142,7 @@
    ],
    "acceptance": [
     "Circle tower of connected degree-p covers: H̃_{1,s} = lim(O/varpi^s ← O/varpi^s ← …) along multiplication by p is 0 for every s, H̃_1 = 0, and the comparison is the zero isomorphism.",
-    "Zero-dimensional regular tower Y_U = K_0/U: H̃_{0,s} = (O/varpi^s)[[K_0]] and its limit over s is O[[K_0]] = H̃_0, the owner's test regular_zero_homology.",
+    "Zero-dimensional regular tower Y_U = K_0/U: H̃_{0,s} = (O/varpi^s)[[K_0]] and its limit over s is O[[K_0]] = H̃_0, the test regular_zero_homology of CC.3/completed-homology-and-borel-moore.",
     "Non-example for commuting limits with rationalisation: in the circle tower E ⊗_O H̃_1 = 0 while lim_U H_1(Y_U, E) = E.",
     "At s = 1 the composite H̃_n ≅ lim_s H̃_{n,s} → H̃_{n,k} is the reduction map of the Bockstein sequence of CC.3/finite-coefficient-duality-and-bockstein, with cokernel H̃_{n−1}[varpi]; in the circle tower H̃_{0,k} = k and H̃_0 = O, consistent with H̃_{−1} = 0."
    ],
@@ -192,7 +192,7 @@
    "hypotheses": [
     "O is the ring of integers of a finite extension E of Q_p, with uniformizer varpi and finite residue field k.",
     "Σ₀ is finite and contains no place above p; K^Σ is fixed; every tame level K_{Σ₀}K^Σ used is neat.",
-    "For K'_{Σ₀} normal in K_{Σ₀}, the cover at level K'_{Σ₀}K^Σ over level K_{Σ₀}K^Σ is a finite Galois cover whose group is the effective quotient of K_{Σ₀}/K'_{Σ₀}; its degree divides [K_{Σ₀} : K'_{Σ₀}]. For Shimura quotients with infinite central units the owner verifies the effective deck group (its gap G12).",
+    "For K'_{Σ₀} normal in K_{Σ₀}, the cover at level K'_{Σ₀}K^Σ over level K_{Σ₀}K^Σ is a finite Galois cover whose group is the effective quotient of K_{Σ₀}/K'_{Σ₀}; its degree divides [K_{Σ₀} : K'_{Σ₀}]. For Shimura quotients with infinite central units the effective deck group is verified under gap G12.",
     "The invariants statement requires K_{Σ₀} of pro-order invertible in O (SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order)."
    ],
    "proofSteps": [
@@ -231,7 +231,7 @@
      "how": "Both colimits, the invariants identification and the projector formula are the inputs of the tame-level duality."
     },
     {
-     "where": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4 (Nakamura, Corollary 2.5, through PAPER-NAKAMURA-23/12)",
+     "where": "CompletedCohomologyAndLocalGlobalCompatibility:R31.4 (Nakamura, Corollary 2.5)",
      "how": "The residual-localised Borel–Moore module at tame level Σ₀ is built from this colimit."
     }
    ],
@@ -333,15 +333,15 @@
     "H̃^{n+1}_c(K_{Σ₀})[varpi^∞] = 0 for all open K_{Σ₀} ⊂ K⁰_{Σ₀}. For modular curves and n = 1 this holds because the completed H^2_c vanishes, the result of Emerton that Nakamura cites in the proof of his Lemma 2.4."
    ],
    "proofSteps": [
-    "Fixed tame level: the compact-support and Borel–Moore case of the owner's integral duality gives 0 → Hom_O(H̃^{n+1}_c[varpi^∞], E/O) → H̃_n^{BM} → Hom_O(H̃^n_c, O) → 0. Under the hypothesis h_K is a continuous bijection of compact Hausdorff modules, hence a homeomorphism (Nakamura, Lemma 2.4, for the modular curve).",
-    "Transitions: for K' ⊂ K ⊂ K⁰, transfer on Borel–Moore homology is adjoint under evaluation to the trace (corestriction) on compact-support cohomology: both are the finite-cover transfer of the AlgebraicTopology Stage 5 supplier on relative chains of the Borel–Serre pair, with the adjointness this packet requests there, and ALS.3/level-trace identifies that trace with the level trace. With e_K∘ι_{K'} = ι_K∘[K : K']⁻¹ cor (TameCompleted.averaging_comp_ι) and μ(K') = [K : K']⁻¹ μ(K), the square formed by μ(K)h_K, λ ↦ λ∘e_K, transfer and μ(K')h_{K'} commutes. This is Nakamura's second diagram in §2.3.2, whose lower row lands in Hom_O(Ĥ¹_c(K'_{Σ₀}), O) (PAPER-NAKAMURA-23/E3).",
+    "Fixed tame level: the compact-support and Borel–Moore case of the integral duality CC.3/duality-between-completed-homology-and-completed-cohomology gives 0 → Hom_O(H̃^{n+1}_c[varpi^∞], E/O) → H̃_n^{BM} → Hom_O(H̃^n_c, O) → 0. Under the hypothesis h_K is a continuous bijection of compact Hausdorff modules, hence a homeomorphism (Nakamura, Lemma 2.4, for the modular curve).",
+    "Transitions: for K' ⊂ K ⊂ K⁰, transfer on Borel–Moore homology is adjoint under evaluation to the trace (corestriction) on compact-support cohomology: both are the finite-cover transfer of the AlgebraicTopology Stage 5 supplier on relative chains of the Borel–Serre pair, with the adjointness requested from that stage, and ALS.3/level-trace identifies that trace with the level trace. With e_K∘ι_{K'} = ι_K∘[K : K']⁻¹ cor (TameCompleted.averaging_comp_ι) and μ(K') = [K : K']⁻¹ μ(K), the square formed by μ(K)h_K, λ ↦ λ∘e_K, transfer and μ(K')h_{K'} commutes. This is Nakamura's second diagram in §2.3.2, whose lower row lands in Hom_O(Ĥ¹_c(K'_{Σ₀}), O) (correcting a misprint in the printed diagram).",
     "SR.0 smooth-dual (3) identifies Hom_O(V^K, O) with (Ṽ)^K for K of pro-order invertible in O, and TameCompleted.invariants gives V^K = H̃^n_c(K); these identifications are compatible with the inclusions (Ṽ)^K ⊂ (Ṽ)^{K'}.",
     "Pass to the colimit over the cofinal family of open K ⊂ K⁰: every vector of Ṽ is fixed by some such K, so the union of the (Ṽ)^K is Ṽ, and the colimit of H̃_n^{BM}(K) along transfer is H̃_{n,Σ}^{BM}.",
     "Equivariance: conjugation by g carries μ(K)h_K to μ(gKg⁻¹)h_{gKg⁻¹} because μ is conjugation invariant; the p-adic group acts through the contragredient convention; a Hecke correspondence acts on homology by its transpose, for which evaluation is invariant (CC.1/tame-hecke-on-colimits). In Nakamura's cohomological model of H̃_1^{BM} through Poincaré duality this transposed action is T'_l = T_l S_l⁻¹, S'_l = S_l⁻¹."
    ],
    "acceptance": [
     "Zero-dimensional example of CC.3/tame-level-completed-modules: the isomorphism sends the coset gK to the functional f ↦ ∫_{gK} f dμ on C^∞(K⁰, O). Without the factor μ(K) the maps fail to commute with transfer by the factor [K : K'].",
-    "Modular curves, n = 1: the isomorphism is Nakamura's identification of H̃_{1,Σ}^{BM} with the smooth contragredient of Ĥ¹_{c,Σ}; its Galois equivariance uses the Galois action transported by the accepted CC.8 adapter. Nakamura writes Ĥ¹_c, the varpi-adic completion of the integral level colimit; here it is the H̃¹_c of this node, because every finite-level H²_c(Y_K, O) is torsion-free, so the Tate-module term of the owner's CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting vanishes.",
+    "Modular curves, n = 1: the isomorphism is Nakamura's identification of H̃_{1,Σ}^{BM} with the smooth contragredient of Ĥ¹_{c,Σ}; its Galois equivariance uses the Galois action transported by CC.8/transported-arithmetic-actions. Nakamura writes Ĥ¹_c, the varpi-adic completion of the integral level colimit; here it is the H̃¹_c of this node, because every finite-level H²_c(Y_K, O) is torsion-free, so the Tate-module term of CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting vanishes.",
     "If H̃^{n+1}_c(K)[varpi^∞] ≠ 0, the kernel Hom_O(H̃^{n+1}_c(K)[varpi^∞], E/O) of h_K is nonzero.",
     "With K⁰ = GL₂(Z_l) and p dividing |GL₂(F_l)| the normalisation μ(K) is not defined in O; first pass to a pro-l open subgroup."
    ],
@@ -461,12 +461,12 @@
    "proofSteps": [
     "Terms: 𝒫_i = Λ^{c_i d}, so S̃^i = Hom_cont,O(𝒫_i, O) = C(K_0, O)^{c_i d}, varpi-adically complete and torsion-free (finite projective summands in the descended model).",
     "Reductions: continuous maps into the discrete O/varpi^m factor through finite levels, so S̃/varpi^m = colim_U Hom_O(𝒫 ⊗_Λ (O/varpi^m)[K_0/U], O/varpi^m) = colim_U C^•(Z_U, O/varpi^m) by CC.4/derived-finite-level-coinvariants (underived, as 𝒫 is finite projective); exactness of filtered colimits (CC.1/fixed-exponent-smooth-colimit) gives H^i(S̃/varpi^m) ≅ A^i_m.",
-    "Integral cohomology: CC.2/integral-admissible-complex-control gives H^i(S̃) ≅ lim_m H^i(S̃/varpi^m) = H̃^i, naturally for the transitions and actions of the owner's CC.4 comparison.",
+    "Integral cohomology: CC.2/integral-admissible-complex-control gives H^i(S̃) ≅ lim_m H^i(S̃/varpi^m) = H̃^i, naturally for the transitions and actions of CC.4/perfectness-and-cochain-comparison.",
     "Coefficients: M/varpi^m is flat over O/varpi^m because M is torsion-free, so colim_U C^•(Z_U, M/varpi^m) = (S̃/varpi^m) ⊗_{O/varpi^m} M/varpi^m and its cohomology is A^i_m ⊗_O M; take the limit over m.",
     "Completed tensor: tensoring the Bockstein sequences of CC.2/complete-torsion-free-complex-control for S̃ with the flat M/varpi^m gives 0 → (H̃^i ⊗ M)/varpi^m → A^i_m ⊗ M → H̃^{i+1}[varpi^m] ⊗ M → 0. With varpi^c killing the torsion, c consecutive transitions of the third terms vanish, so their limit and lim¹ are zero and the limit of the middle terms is the completion of H̃^i ⊗_O M."
    ],
    "acceptance": [
-    "M = O: the coefficient formula is lim_m A^i_m = H̃^i, the owner's definition.",
+    "M = O: the coefficient formula is lim_m A^i_m = H̃^i, the definition in CC.2/coefficient-limit-completion.",
     "M = O[[T]] (complete and torsion-free, not finitely generated over O): H̃^i(O[[T]]) = lim_m (A^i_m ⊗_O O[[T]]) is the submodule of H̃^i[[T]] of the series Σ_j a_j T^j such that, for every m, the images of the a_j in A^i_m generate a finitely generated O-module; it is not H̃^i[[T]] in general. In the zero-dimensional tower Y_U = K_0/U with K_0 = Z_p, H̃^0(M) = C(Z_p, M) for the varpi-adic topology of M, and Σ_j 1_{p^j Z_p} T^j lies in C(Z_p, O)[[T]] = H̃^0[[T]] but not in H̃^0(O[[T]]): the indicator functions are linearly independent in A^0_1 = C^∞(Z_p, k).",
     "Circle tower of connected degree-p covers: A^0_m = O/varpi^m and A^1_m = 0 (pullback is multiplication by p on H^1), so H̃^0(M) = M and H̃^1(M) = 0 for every complete torsion-free M."
    ],
@@ -1587,8 +1587,12 @@
     "CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent",
     "CohomologyComparisons:CP.6/pan-truncated-period-isomorphism"
    ],
-   "answeredBy": [],
-   "disposition": "Outside this part: CC.8 belongs to the accepted CC.8 part and the owner."
+   "answeredBy": [
+    "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
+    "CompletedCohomologyPartII:CC.8/transported-arithmetic-actions",
+    "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison"
+   ],
+   "disposition": "Partly answered, by the CC.8 layer (recorded at assembly). CC.8/arithmetic-tower-realisation identifies the completed cohomology of the modular-curve tower with the generic completed object (modularCompletedComparison), CC.8/transported-arithmetic-actions transports the Galois, tame Hecke and local actions to it with their continuity, and CC.8/scholze-4-2-convention-and-the-perfectoid-comparison fixes the fixed-exponent compact-support convention. The rest of the request is not a target of this roadmap. The infinite-level perfectoid modular curve, its Hodge–Tate period map to the flag variety and the affinoid perfectoid preimages of a basis are perfectoid Shimura-variety geometry; the consuming node already cites PerfectoidShimuraVarieties:S3/affinoid-perfectoid-basis-of-flag-variety for the last. Pan (2022), Corollary 4.4.3, the almost-integral comparison of completed cohomology with the cohomology of the perfectoid tower, is a perfectoid comparison of the kind of Scholze's Theorem 4.2.1, which TorsionCohomologyInfrastructure:TC.2 owns; CC.8 supplies only its left-hand side. No atlas packet states Pan's Corollary 4.4.3 (searched 16 October 2026), so CohomologyComparisons needs an owner for it."
   },
   {
    "from": "TorsionCohomologyInfrastructure",
@@ -1608,7 +1612,7 @@
  "requests": [
   {
    "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-   "need": "Stage 5, item 3 already constructs transfer on singular chains of a finite covering, with pushforward after transfer equal to multiplication by the degree, and transfer after pushforward equal to the sum over the deck group for a regular covering. This packet needs in addition: (a) the same transfer, with both identities, on relative chains of a finite covering of finite CW pairs whose subcomplex is the preimage of the base subcomplex, which computes the Borel–Moore homology of a Borel–Serre pair; (b) under the evaluation pairing of Stage 6, item 1 (cochains as Hom of chains), the cohomological transfer, the dual of chain transfer, is adjoint to homology transfer, and pullback is adjoint to pushforward, in the absolute and the relative case. The owner's request to the same stage asks for transfer, chain comparison and deck-group descent; this records the relative and adjointness clauses.",
+   "need": "Stage 5, item 3 already constructs transfer on singular chains of a finite covering, with pushforward after transfer equal to multiplication by the degree, and transfer after pushforward equal to the sum over the deck group for a regular covering. This roadmap needs in addition: (a) the same transfer, with both identities, on relative chains of a finite covering of finite CW pairs whose subcomplex is the preimage of the base subcomplex, which computes the Borel–Moore homology of a Borel–Serre pair; (b) under the evaluation pairing of Stage 6, item 1 (cochains as Hom of chains), the cohomological transfer, the dual of chain transfer, is adjoint to homology transfer, and pullback is adjoint to pushforward, in the absolute and the relative case. The roadmap's other request to the same stage asks for transfer, chain comparison and deck-group descent; this one adds the relative and adjointness clauses.",
    "neededBy": [
     "CompletedCohomologyPartII:CC.3/tame-level-completed-modules",
     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality"
@@ -1815,5 +1819,38 @@
     "note": "Pan II Lemma 7.2.6(1) and its proof (arXiv v1 p. 120) match the coefficient interchange; the completed-tensor clause needs the bounded torsion of H̃^{i+1}, as stated. Replaced the false O[[T]] test by the correct description and a counterexample in the zero-dimensional tower over Z_p."
    }
   ]
+ },
+ "assemblyMaterialization": {
+  "job": "ASM-CompletedCohomologyPartII",
+  "date": "2026-10-16",
+  "changes": [
+   {
+    "field": "consumerRequests[2]",
+    "from": {
+     "answeredBy": [],
+     "disposition": "Outside this part: CC.8 belongs to the accepted CC.8 part and the owner."
+    },
+    "reason": "The request of CohomologyComparisons to CC.8 was outside this part; at assembly the CC.8 layer is in scope, so the disposition records which CC.8 targets answer it and which parts of it no target of this roadmap covers."
+   },
+   {
+    "field": "wording",
+    "items": [
+     "CompletedCohomologyPartII:CC.3/finite-coefficient-model-of-completed-homology acceptance[1]",
+     "CompletedCohomologyPartII:CC.3/tame-level-completed-modules hypotheses[2]",
+     "CompletedCohomologyPartII:CC.3/tame-level-completed-modules uses[3].where",
+     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality proofSteps[0]",
+     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality proofSteps[1]",
+     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality proofSteps[1]",
+     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality acceptance[1]",
+     "CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality acceptance[1]",
+     "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange proofSteps[2]",
+     "CompletedCohomologyPartII:CC.4/completed-coefficient-interchange acceptance[0]",
+     "request tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+     "request tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+    ],
+    "reason": "Process wording (packet, owner, accepted part, PAPER route ids) replaced by references to the roadmap's own targets, so that the assembled document reads as one roadmap. No statement changes its mathematics."
+   }
+  ],
+  "unchanged": "Nodes, imports, target coverage, requests, coverage, source issues and the review object are as reviewed."
  }
 }

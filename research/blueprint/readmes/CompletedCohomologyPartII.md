@@ -1,131 +1,297 @@
-# Roadmap: arithmetic locally symmetric spaces and their cohomology, Part II
+# Roadmap: completed cohomology, homology and arithmetic towers
 
-Build completed cohomology and homology from the actual finite-level arithmetic complexes. The endpoints are the finite projective completed chain model, qualified finiteness and Banach admissibility, derived finite-level descent, completed support and duality comparisons, and the residual Hecke summands used by arithmetic consumers. All nine layers are planned. Proof closure requires the precise supplier extensions and proof leaves listed below; no result is claimed to be implemented.
+*Arithmetic locally symmetric spaces and their cohomology, Part II.*
+
+**Summary.** Completed cohomology turns the cohomology of a tower of arithmetic locally symmetric spaces into one object with an action of a p-adic group. With coefficients O/varpi^s one takes the colimit over p-power levels and then the limit over s; completed homology is the limit over levels under covering pushforward. This roadmap builds these objects from the actual finite-level complexes of ArithmeticLocallySymmetricSpaces, and keeps the degreewise completed modules apart from the cohomology of the derived limit. Its end results are: a bounded complex of finite projective modules over the Iwasawa algebra that computes completed homology and whose derived coinvariants recover every finite level; finite generation, bounded torsion and admissibility of the completed objects, with the Iwasawa-dimension bounds that follow; completed Hochschild–Serre descent, homological descent and the classical evaluation map; the completed support triangle, completed interior cohomology and completed Iwasawa–Poincaré duality; and, for the modular, Siegel, unitary and Hilbert towers, named comparisons with étale cohomology, the transported Galois and Hecke actions, the completed Hecke algebra and the residual localisation that arithmetic applications use. Every target is stated with its hypotheses and its source. The proof inputs that are still missing are listed under "Proof closure and supplier extensions", and nothing here is claimed to be formalised.
 
 ## Scope and ownership
 
-This is the Part II of `ArithmeticLocallySymmetricSpaces` fixed by accepted RS-09. ALS supplies arithmetic quotients, local systems, finite cochains, the Borel–Serre pair, correspondences and finite-level duality. Current TauCetiRoadmap `AlgebraicTopology` supplies cellular chains, relative complexes, covering transfers and manifold duality; `ProfiniteArithmetic` supplies existing profinite powers, integral-ring and continuous-automorphism foundations. Continuous cochains and countable cofinal systems use their library/R02.1 owners. Neither is constructed again here. The library audit is AUDIT-14 in `data/library-coverage.json`; its generic colimit/limit and group-cohomology evidence is used with the arithmetic specializations kept separate.
+### What this roadmap owns
 
-The accepted independent CC.8 packet supplies twelve targets, including compatible finite derived Hecke images, the completed Hecke algebra, stable residual support, semilocal product decomposition and residual localization. Those targets are reproduced below as imports. This whole-roadmap packet adds the selected canonical-model, Hilbert/quaternionic coefficient and central-quotient inputs, together with the finite étale–Betti and oriented trace contracts. These narrow inputs replace the older V8, R18.4 and EDC.6 dependencies identified by the current upstream order. The accepted part file remains unchanged: applying that supplier migration is proof/assembly obligation G11.
+This roadmap is the Part II of ArithmeticLocallySymmetricSpaces (ALS) and starts where ALS stops. ALS supplies the finite-level objects: the arithmetic quotients Y_K and their local systems, finite cochain models, the Borel–Serre compactification with its boundary triangle, Hecke correspondences, level pullback and trace, and Poincaré–Lefschetz duality at a fixed level. Everything obtained from these by passing to the tower is owned here: the coherent tower diagram and its finite comparisons (Layer 0), the fixed-exponent colimits with their smooth actions (Layer 1), completion and derived limits (Layer 2), continuous duals and completed homology (Layer 3), the completed chain model (Layer 4), finiteness and admissibility (Layer 5), descent to finite level (Layer 6), completed supports and duality (Layer 7), and the adapters to Shimura varieties, Galois actions and Hecke algebras (Layer 8). ALS consumes the completed descent and support interfaces of Layers 6 and 7; it does not supply them.
 
-Scholze’s almost automorphic-section comparison and its vanishing corollaries belong to TC.2. CC.8 only matches the fixed-exponent completed object and support convention. GL₂ Banach local–global compatibility belongs to R31; no such theorem is used for GSp₄. General analytic-group, Iwasawa dimension and unitary Banach category theory belongs to NE.0 and the foundational extension immediately after L1, with exact requests below. The arithmetic specializations here do not define those categories a second time.
+### Boundaries with neighbouring roadmaps
+
+- **Tau Ceti AlgebraicTopology.** Cellular chains of finite CW pairs and relative complexes (Stage 4), finite-cover transfer, chain comparison and deck-group descent (Stage 5), and Poincaré–Lefschetz duality with local systems (Stage 6). Layer 4 lifts these through the tower; it does not construct them again.
+- **Tau Ceti ProfiniteCohomology.** Continuous cohomology of profinite groups with discrete coefficients, with Mathlib's `continuousCohomology` as its carrier. The fixed-exponent descent 6.2 has discrete smooth coefficients and is a statement about this cohomology. The integral descent 6.1 needs continuous cohomology with compact coefficients in the completed category, which is ArithmeticGaloisDuality D7.
+- **Tau Ceti library and ProfiniteProPGroups.** The completed group algebra `TauCeti.completedGroupAlgebra` and the action `IsCompactModule.completedGroupAlgebraModule` on compact modules exist in the current library. Layer 3 uses them and checks only the arithmetic hypotheses and conventions.
+- **ArithmeticGaloisDuality.** R02.1 owns countable lim¹, Milnor sequences and the derived limit of countable diagrams; Layer 2 applies them to the tower. D7 owns continuous Hochschild–Serre functoriality in the completed coefficient category; Layer 6 proves the arithmetic abutment.
+- **PadicMeasuresIwasawaAlgebras.** L1 owns completed group algebras, measures and their dualities. The general unitary Banach category (Schneider–Teitelbaum) is an extension requested immediately after L1, which PadicLocalLanglandsForGL2Qp R30.2 specialises to GL₂(Q_p); Layers 2 and 5 apply it to towers.
+- **NoncommutativeAndEquivariantIwasawa.** NE.0 owns the Lazard theory of compact p-adic analytic groups: open uniform subgroups, noetherianity of O[[K_0]] and k[[K_0]], Auslander regularity and dimension theory. Layers 0 and 5 import it through the exact requests below.
+- **SmoothRepresentationsOfLocalGroups** (a Tau Ceti roadmap, Layers SR.0 and SR.1). Smooth representations over O, compact-open invariants and averaging for groups of invertible pro-order, smooth contragredients and O-valued Haar measures.
+- **IntegralHeckeAndGaloisDeterminants** (a Tau Ceti roadmap; its Layer 2 on integral and derived Hecke actions is cited as IHG.2). Finite derived Hecke images, their local factors, idempotents and ghost bounds. Layer 8 takes their inverse limit over the tower. These statements are over a commutative base; the extension to the possibly noncommutative group rings of the tower is requested below.
+- **DeformationAndDerivedPatchingAlgebra.** P7 owns perfect complexes and minimal models over adic coefficient rings, and P8 the patched complexes of Gee–Newton. Layer 4 imports the patched perfect model and does not construct patching.
+- **LocallyAnalyticDistributions.** L0 owns locally analytic vectors and their derived functors; 6.7 states the derived comparison through them.
+- **ModularCurvesPartII, EnhancedDerivedSheaves, ComplexComparisonPartII.** R14.3 supplies the modular-curve local-system dictionary; E1 and C2 the sheaf categories and the GAGA input behind the finite étale–Betti comparison.
+- **ShimuraVarieties, HilbertModularVarietiesAndShimuraCurves, EtaleDualityAndPerverseSheaves.** The narrow canonical-model input for the selected Shimura data (8.2), the Hilbert and quaternionic coefficient input (8.3), the central-quotient comparison (8.1) and the finite étale–Betti and trace comparisons (0.6, 0.7) are stated here, in the form the tower needs. Those three roadmaps build on these statements and keep their wider geometry: integral models, compactifications, general Shimura data and the étale six operations.
+
+### Not targets of this roadmap
+
+- Scholze's comparison of completed cohomology with the cohomology of the perfectoid Shimura variety (Theorem 4.2.1 and Corollaries 4.2.2–4.2.3) is TorsionCohomologyInfrastructure TC.2. Layer 8 supplies only its fixed-exponent left-hand side and the support convention (8.6).
+- Banach local–global compatibility for GL₂ and its modular and Shimura-curve applications are CompletedCohomologyAndLocalGlobalCompatibility R31. No GL₂ local–global result is used for another group.
+- Nakamura's coadmissible modules (Appendix B.2.4, Lemma B.16) and his Corollary 2.5 belong to R31.4, with SmoothRepresentationsOfLocalGroups SR.5.
+- The concentration conjectures of Calegari–Emerton, projectivity of completed homology and growth along arbitrary filtrations do not follow from anything here and are not stated as results.
+- Locally analytic vectors are a further functor, not the definition of completed cohomology.
 
 ## Conventions
 
-Fix a prime p and O, the ring of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k. Fix tame level K^p and one specified compatible integral coefficient lattice. Reductions are O/varpi^s for s≥1. Rational isomorphism of coefficient representations does not identify their integral lattices or support diagrams. Complete local coefficient rings A occur only in the separately qualified CC.3 topological-module targets.
+Fix a prime p and O, the ring of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k. Fix tame level K^p and one specified compatible integral coefficient lattice. Reductions are O/varpi^s for s ≥ 1. A rational isomorphism of coefficient representations does not identify their integral lattices or their support diagrams. Complete local coefficient rings A occur only in the separately qualified topological-module targets of Layer 3.
 
-Write H for the full local group and K_0 for a compact open. For a fixed algebraic lattice W_0 let H_int=Stab_H(W_0), an open subgroup containing K_0. Integral local actions below are actions of H_int; replacing it by full H requires a coherent full-H-equivariant integral system, as for trivial coefficients. A general g transports W_0 to g⁻¹W_0. Only the commensurable-lattice comparison after rationalization gives the full-H algebraic-coefficient action. When applying the finite free chain model choose an actual regular tower of a finite CW pair with faithful deck groups K_0/U_r, for U_r a cofinal normal basis; open uniform/pro-p existence is a foundational input. This hypothesis is checked at the geometric quotient being used. In a Shimura quotient with ineffective rational central units, neatness alone does not imply these deck groups: CC.8 retains the effective quotient, central coefficient descent and bundle comparison under G12. A non-neat fixed level has its ALS derived stabilizer interpretation.
+Write H for the full local group and K_0 for a compact open subgroup. For a fixed algebraic lattice W_0 let H_int = Stab_H(W_0), an open subgroup containing K_0. Integral local actions are actions of H_int; replacing H_int by H requires a coherent H-equivariant integral system, as for trivial coefficients. A general g transports W_0 to g⁻¹W_0, and only the commensurable-lattice comparison after rationalisation gives the action of H with algebraic coefficients. To apply the finite free chain model, choose an actual regular tower of a finite CW pair with faithful deck groups K_0/U_r, for a cofinal normal basis U_r; the existence of an open uniform or pro-p such basis is a foundational input. This hypothesis is checked on the geometric quotient in use. In a Shimura quotient with ineffective rational central units, neatness alone does not give these deck groups: Layer 8 keeps the effective quotient, the central coefficient descent and the bundle comparison (8.1, gap G12). A non-neat fixed level has the derived stabiliser interpretation of ALS.
 
-For cohomology, refinement U⊂K induces pullback from level K to U. At fixed s put A^n_{*,s}=colim_K H^n_*(Y_K,O/varpi^s), with discrete topology and support *=ordinary,c,∂. Put H̃^n_*=lim_s A^n_{*,s}; the level colimit precedes the coefficient inverse limit. The enhanced complex is RΓ̃_*=Rlim_s colim_K C^*_{K,s}. Its cohomology and H̃^n_* differ by the explicit Milnor term unless the stated control theorem applies.
+Two standing hypotheses hold throughout and are not repeated in each target: O, E, varpi and k are as above, and the tame level and integral local system are fixed, with integral local actions restricted to H_int as just described.
 
-Completed homology is the compact inverse level limit under covering pushforward, not transfer. Borel–Moore homology is relative homology of the Borel–Serre pair. Finite coefficients and reduction of integral completed homology are distinguished by the adjacent torsion term in Bockstein. Compact support, boundary and the image defining interior cohomology are different objects.
+For cohomology, refinement U ⊂ K induces pullback from level K to level U. At fixed s put A^n_{\*,s} = colim_K H^n_\*(Y_K, O/varpi^s), with the discrete topology, for the supports \* = ordinary, c, ∂. Put H̃^n_\* = lim_s A^n_{\*,s}: the level colimit comes before the coefficient limit. The enhanced complex is RΓ̃\_\* = Rlim_s colim_K C^\*\_{K,s}. Its cohomology and H̃^n_\* differ by an explicit Milnor term unless the stated control theorem applies.
 
-A left action on a module gives the right transpose action on its dual by (f·g)(x)=f(gx). To obtain a left dual action use (g·f)(x)=f(g⁻¹x), consistent with Mathlib `Representation.dual`. Algebraic and continuous duals, pointwise compact and uniform varpi-adic topologies, and O versus E/O coefficient targets are named separately. Tame trace is unnormalized: trace after pullback at a degree-d cover multiplies by d. Orientation characters, component groups, and the BP Serre twist t↦w₀t⁻¹ remain in every applicable comparison.
+Completed homology is the compact inverse limit over levels under covering pushforward, not under transfer. Borel–Moore homology is the relative homology of the Borel–Serre pair. Homology with finite coefficients and the reduction of integral completed homology differ by the adjacent torsion term of the Bockstein sequence. Compact support, boundary and the image that defines interior cohomology are different objects.
 
-The dimensions used in CC.5/CC.7 are different: a real symmetric-space dimension controls classical middle degree, whereas dim(K_0) is the local analytic dimension. For torsion-free uniform U, O[[U]] has global dimension dim(U)+1 and k[[U]] has global dimension dim(U). Concentration conjectures, projectivity of homology and arbitrary-filtration growth are not consequences of finite perfectness.
+A left action on a module gives the right transpose action on its dual by (f·g)(x) = f(gx). The left dual action is (g·f)(x) = f(g⁻¹x), as in Mathlib's `Representation.dual`. Algebraic and continuous duals, the pointwise compact and uniform varpi-adic topologies, and the coefficient targets O and E/O are named separately. Tame trace is unnormalised: trace after pullback along a cover of degree d is multiplication by d. Orientation characters, component groups and the Boxer–Pilloni Serre twist t ↦ w₀t⁻¹ remain in every comparison where they apply.
+
+The dimensions in Layers 5 and 7 are different: the real dimension of the symmetric space controls the classical middle degree, whereas dim(K_0) is the local analytic dimension. For torsion-free uniform U, O[[U]] has global dimension dim(U) + 1 and k[[U]] has global dimension dim(U). Concentration conjectures, projectivity of homology and growth along an arbitrary filtration are not consequences of finite perfectness.
+
+**Varying tame level** (3.8, 3.9). Σ₀ is a finite set of finite places of the base field not above p, G_{Σ₀} is the product of the groups G(F_v) for v ∈ Σ₀, and K^Σ is the level at the finite places outside Σ = Σ₀ ∪ {places above p}. A compact open subgroup has pro-order invertible in O when every finite index of an open subgroup in it is a unit of O. For such a K⁰\_{Σ₀}, μ is the O-valued Haar measure on G_{Σ₀} with μ(K⁰\_{Σ₀}) = 1, so that μ(K) = [K⁰\_{Σ₀} : K]⁻¹ for open K ⊂ K⁰\_{Σ₀}; G_{Σ₀} is unimodular, so μ is invariant under conjugation. For a smooth O[G_{Σ₀}]-module V, e_K is the averaging projector onto V^K, and Ṽ is the smooth contragredient, the smooth vectors of Hom_O(V, O).
+
+**Notation across the sources.** The exponent of the coefficient ring is written s, or m where the source writes m (as in 4.5, after Pan); there A^i_m is the module A^i_s with s = m. Fu rationalises by ⊗ K for a finite extension K of Q_p; in 3.6 that is E ⊗ with O = Z_p. Nakamura's Ĥ¹\_c, the varpi-adic completion of the integral level colimit, agrees with H̃¹\_c in his setting (the checks of 3.9 say why). Boxer–Pilloni's Λ is the Iwasawa algebra of a torus; elsewhere Λ = O[[K_0]]. The proposed Lean names live in the namespace `TauCeti.CompletedCohomology`; the layers give them either relative to that namespace or in full.
 
 ## Existing Mathlib and Tau Ceti used
 
-At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, the following statements and their type hypotheses were read. Existing derived categories and exact colimits supply generic operations; they do not supply the arithmetic diagrams, continuous completed Tor or the required enhanced countable Rlim.
+At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` the following statements and their hypotheses were read. The derived categories and exact colimits of the libraries supply generic operations; they do not supply the arithmetic diagrams, continuous completed Tor or the enhanced countable Rlim that the tower needs.
 
-- `tauceti:TauCeti.moduleCat_ab5OfSize`: Filtered module colimits are exact with the stated small universe convention. Module `TauCeti/Algebra/Homology/ShortComplex/Colimit.lean`.
-- `tauceti:TauCeti.homologicalComplexHomologyFunctor_preservesColimitsOfShape`: Homology of complexes commutes with existing exact colimits. Module `TauCeti/Algebra/Homology/ShortComplex/Colimit.lean`.
-- `mathlib:ModuleCat.sectionsSubmodule`: Compatible module-valued sections are a native submodule of the product. Module `Mathlib/Algebra/Category/ModuleCat/Limits.lean`.
-- `mathlib:TopModuleCat.isLimit`: An underlying module limit with the projection-induced topology is a topological-module limit. Module `Mathlib/Algebra/Category/ModuleCat/Topology/Basic.lean`.
-- `mathlib:Module.DirectLimit`: The existing module colimit carrier; this packet specializes its diagram, not its quotient construction. Module `Mathlib/Algebra/Colimit/Module.lean`.
-- `mathlib:Module.DirectLimit.of`: Canonical maps from level modules into the existing colimit. Module `Mathlib/Algebra/Colimit/Module.lean`.
-- `mathlib:Module.DirectLimit.exists_of`: Every class has a finite-level representative in a nonempty directed diagram. Module `Mathlib/Algebra/Colimit/Module.lean`.
-- `mathlib:DerivedCategory.Q`: The native localization of cochain complexes at quasi-isomorphisms. Module `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`.
+- `tauceti:TauCeti.moduleCat_ab5OfSize`: Filtered module colimits are exact with the stated small universe convention. Module `TauCeti/Algebra/Homology/ShortComplex/Colimit.lean`. Used in [1.1](#fixed-exponent-smooth-colimit).
+- `tauceti:TauCeti.homologicalComplexHomologyFunctor_preservesColimitsOfShape`: Homology of complexes commutes with existing exact colimits. Module `TauCeti/Algebra/Homology/ShortComplex/Colimit.lean`. Used in [1.1](#fixed-exponent-smooth-colimit).
+- `mathlib:ModuleCat.sectionsSubmodule`: Compatible module-valued sections are a native submodule of the product. Module `Mathlib/Algebra/Category/ModuleCat/Limits.lean`. Used in [2.1](#coefficient-limit-completion), [8.10](#completed-hecke-algebra).
+- `mathlib:TopModuleCat.isLimit`: An underlying module limit with the projection-induced topology is a topological-module limit. Module `Mathlib/Algebra/Category/ModuleCat/Topology/Basic.lean`. Used in [2.1](#coefficient-limit-completion), [3.3](#completed-homology-and-borel-moore), [8.7](#transported-arithmetic-actions).
+- `mathlib:Module.DirectLimit`: The existing module colimit carrier; this roadmap specializes its diagram, not its quotient construction. Module `Mathlib/Algebra/Colimit/Module.lean`. Used in [1.1](#fixed-exponent-smooth-colimit).
+- `mathlib:Module.DirectLimit.of`: Canonical maps from level modules into the existing colimit. Module `Mathlib/Algebra/Colimit/Module.lean`. Used in [1.1](#fixed-exponent-smooth-colimit).
+- `mathlib:Module.DirectLimit.exists_of`: Every class has a finite-level representative in a nonempty directed diagram. Module `Mathlib/Algebra/Colimit/Module.lean`. Used in [1.1](#fixed-exponent-smooth-colimit).
+- `mathlib:DerivedCategory.Q`: The native localization of cochain complexes at quasi-isomorphisms. Module `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`. Used in [0.2](#tower-axioms-and-the-standing-hypotheses), [2.2](#derived-completed-tower).
 - `mathlib:CategoryTheory.Limits.colim.exact_mapShortComplex`: An exact colimit functor preserves exact short complexes. Module `Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Colim.lean`.
-- `mathlib:CategoryTheory.Functor.Final.colimitIso`: Cofinal restriction gives the existing categorical colimit isomorphism. Module `Mathlib/CategoryTheory/Limits/Final.lean`.
-- `mathlib:Representation.dual`: Algebraic dual representation uses precomposition by the inverse group action. Module `Mathlib/RepresentationTheory/Basic.lean`.
+- `mathlib:CategoryTheory.Functor.Final.colimitIso`: Cofinal restriction gives the existing categorical colimit isomorphism. Module `Mathlib/CategoryTheory/Limits/Final.lean`. Used in [1.1](#fixed-exponent-smooth-colimit).
+- `mathlib:Representation.dual`: Algebraic dual representation uses precomposition by the inverse group action. Module `Mathlib/RepresentationTheory/Basic.lean`. Used in [3.1](#continuous-dual-conventions).
 - `mathlib:groupCohomologyIsoExt`: Discrete group cohomology is Ext in Rep; not continuous completed descent. Module `Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean`.
-- `mathlib:groupHomologyIsoTor`: Discrete group homology is Tor in Rep with its tensor product; the ordinary group-ring interpretation requires its standard adapter, and this is not continuous completed Tor. Module `Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean`.
-- `mathlib:ContinuousLinearMap`: Native bundled continuous linear maps supply continuous O-dual maps. Module `Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean`.
-- `mathlib:PontryaginDual`: Native Circle-valued continuous characters with compact-open topology; O-linear E/O duality still needs comparison. Module `Mathlib/Topology/Algebra/PontryaginDual.lean`.
+- `mathlib:groupHomologyIsoTor`: Discrete group homology is Tor in Rep with its tensor product; the ordinary group-ring interpretation requires its standard adapter, and this is not continuous completed Tor. Module `Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean`. Used in [6.3](#homological-hyperTor-descent).
+- `mathlib:ContinuousLinearMap`: Native bundled continuous linear maps supply continuous O-dual maps. Module `Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean`. Used in [3.1](#continuous-dual-conventions), [7.4](#completed-interior-image).
+- `mathlib:PontryaginDual`: Native Circle-valued continuous characters with compact-open topology; O-linear E/O duality still needs comparison. Module `Mathlib/Topology/Algebra/PontryaginDual.lean`. Used in [3.1](#continuous-dual-conventions).
+- `tauceti:Representation.averageMap_eq_invOf_card_smul_norm`: For a finite group G with |G| invertible in k, Mathlib's averaging projection averageMap equals the group sum Representation.norm scaled by ⅟|G|: the finite form of the identity e_K = [K : K']⁻¹ (sum over K/K') on K'-invariants. Module `TauCeti/RepresentationTheory/Invariants.lean`. Used in [3.8](#tame-level-completed-modules).
+- `mathlib:Representation.averageMap`: The averaging projection onto the invariants of a representation of a finite group whose order is invertible in the coefficient ring. Module `Mathlib/RepresentationTheory/Invariants.lean`.
+- `mathlib:IsAdicComplete`: An I-adically Hausdorff and precomplete module; for I = (varpi) this is the completeness of the terms in CC.2/complete-torsion-free-complex-control. Module `Mathlib/RingTheory/AdicCompletion/Basic.lean`. Used in [2.5](#complete-torsion-free-complex-control).
+- `mathlib:RingCat.sectionsSubring`: The compatible sections of a ring functor form the native subring of the product. Module `Mathlib/Algebra/Category/Ring/Limits.lean`. Used in [8.10](#completed-hecke-algebra), [8.12](#residual-hecke-projector).
+- `mathlib:TopModuleCat`: Bundled topological modules with continuous linear morphisms; its limit is the underlying module limit with the induced projection topology. Module `Mathlib/Algebra/Category/ModuleCat/Topology/Basic.lean`. Used in [8.7](#transported-arithmetic-actions).
+- `mathlib:CategoryTheory.Functor.mapEnd`: A functor maps an object’s endomorphism monoid to the endomorphism monoid of its image, preserving composition. Module `Mathlib/CategoryTheory/Endomorphism.lean`. Used in [8.7](#transported-arithmetic-actions).
+- `mathlib:LinearMap.IsIdempotentElem.range_eq_ker`: An idempotent linear map has range equal to the kernel of identity minus that map. Module `Mathlib/LinearAlgebra/Projection.lean`. Used in [8.13](#completed-residual-localisation).
+- `mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range`: The range of a continuous idempotent is closed on a T1 topological additive group. Module `Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Idempotent.lean`. Used in [8.13](#completed-residual-localisation).
+- `mathlib:RingHom.range`: The native subring image of a ring homomorphism; the compatible Hecke image diagram restricts an existing endomorphism-ring functor to these actual images. Module `Mathlib/Algebra/Ring/Subring/Basic.lean`. Used in [8.8](#compatible-derived-hecke-images).
+- `mathlib:CategoryTheory.Limits.lim`: The limit functor on diagram categories; its endomorphism map transports the supplied natural action. Module `Mathlib/CategoryTheory/Limits/HasLimits.lean`. Used in [8.7](#transported-arithmetic-actions).
 
-Current upstream `AlgebraicTopology` supplies finite cellular/relative complexes, finite-cover maps and manifold duality; `ProfiniteArithmetic` supplies profinite powers and its integral-ring/automorphism foundations. The nine newer directions were inspected for relevant overlap. The current completed-group-algebra receipt is also explicit in `ProfiniteProPGroups`, Layer 9 prerequisites. At Tau Ceti commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, `TauCeti.completedGroupAlgebra` already supplies the ring, finite quotient projections, extensionality, topology and dense group-algebra span (`CompletedGroupAlgebra/Basic.lean`). `TauCeti.IsCompactModule` already supplies the compact totally disconnected topological-module predicate and quotient/limit API (`Topology/Algebra/Module/Compact.lean`), and `IsCompactModule.completedGroupAlgebraModule` extends a continuous scalar-compatible compact-group action, with `completedSMul_of`, `mkQ_completedSMul` and `continuousSMul_completedGroupAlgebraModule` (`CompletedGroupAlgebra/Module.lean`). CC.3 imports these; its new work is verifying the arithmetic hypotheses, comparing coefficient/group limit presentations and matching deck/dual conventions. These current declarations are separate from the fifteen fixed-pin citations above and are not imported in the pinned Lean sketch. No completed arithmetic cohomology carrier or general admissible Banach category was identified in the inspected current modules.
+At the same Mathlib commit `continuousCohomology` (`Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean`) is the carrier of continuous group cohomology; the Tau Ceti roadmap ProfiniteCohomology develops it for profinite groups with discrete coefficients, and the fixed-exponent descent 6.2 is a statement about it.
+
+The current Tau Ceti library (commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`), later than the pin, already supplies the completed group algebra `TauCeti.completedGroupAlgebra` with its ring structure, finite quotient projections, extensionality, topology and dense group-algebra span (`CompletedGroupAlgebra/Basic.lean`); the predicate `TauCeti.IsCompactModule` for compact totally disconnected topological modules with its quotient and limit API (`Topology/Algebra/Module/Compact.lean`); and `IsCompactModule.completedGroupAlgebraModule`, which extends a continuous scalar-compatible action of a compact group, with `completedSMul_of`, `mkQ_completedSMul` and `continuousSMul_completedGroupAlgebraModule` (`CompletedGroupAlgebra/Module.lean`). Layer 3 uses these; the new work there is checking the arithmetic hypotheses, comparing the coefficient and group limit presentations and matching the deck and dual conventions. These declarations are not at the pin and are not imported by the suggested Lean file.
+
+The library audit of this roadmap finds the generic colimits, limits, derived categories and group cohomology used above, and no tower, completed arithmetic carrier, finiteness theorem over the Iwasawa algebra or admissible Banach category.
 
 ## Exact supplier contracts
 
-The following requests specify precisely what is imported or must be extended. A known node is cited directly in the layer; a stage request does not silently assume every theorem in its direction.
+Each roadmap this one builds on is listed with what is taken from it: the named nodes or stages cited by the targets, and, where the supplier's current plan does not yet contain what is needed, the precise statement requested. A cited node is used as stated; a stage request does not assume every theorem in that direction.
 
-### From `SmoothRepresentationsOfLocalGroups:SR.0`
+### From ArithmeticLocallySymmetricSpaces
 
-The existing compact-open index, smooth representation carrier, transport by conjugation, and finite-exponent open stabilizer criterion. Import the full local-group convention, not merely a fixed compact group.
+The base roadmap. Its finite-level quotients, local systems, cochain models, Borel–Serre pairs, correspondences, traces and finite-level duality are imported as named nodes; nothing of ALS is planned again here.
 
-### From `PadicMeasuresIwasawaAlgebras:L1`
+Cited by the targets:
 
-Extend immediately after L1 with general compact/profinite continuous-function versus measure duality, compact-discrete O/E/O duality and Schikhof duality; strict integral admissible complexes and Emerton Proposition1.2.4 control; continuous completed tensor/coinduced acyclicity; the general unitary E-Banach category with stable lattice, Schneider–Teitelbaum Theorems2.3,3.5 and abelianness for compact analytic groups, and compact-open testing for local groups. Supply the regular congruence-filtration leading-rank/continuous-cohomology error estimates used by CEbounds Theorem3.2. R30.2 consumes this category for GL₂. This is a foundational extension, not a new category in CC.2. Reuse the current Tau Ceti completedGroupAlgebra and IsCompactModule action declarations; L1 extends the measure/dual/strict-complex interfaces, not those existing ring/action constructors.
+- `ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`: [0.5](#arithmetic-tower-tests), [8.1](#arithmetic-shimura-central-quotient), [8.2](#canonical-four-family-tower-input).
+- `ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers`: [8.1](#arithmetic-shimura-central-quotient).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system`: [8.1](#arithmetic-shimura-central-quotient).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`: [0.2](#tower-axioms-and-the-standing-hypotheses), [5.6](#normalized-classical-growth), [8.3](#hilbert-finite-local-system-input).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change`: [0.2](#tower-axioms-and-the-standing-hypotheses).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`: [3.3](#completed-homology-and-borel-moore), [3.5](#finite-coefficient-duality-and-bockstein), [3.6](#finite-coefficient-model-of-completed-homology), [4.1](#lifted-cellular-tower).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison`: [0.4](#non-neat-tower-realisation).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/level-pullback`: [0.2](#tower-axioms-and-the-standing-hypotheses).
+- `ArithmeticLocallySymmetricSpaces:ALS.1/sheaf-singular-comparison`: [0.6](#finite-etale-betti-support-comparison).
+- `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification`: [3.3](#completed-homology-and-borel-moore).
+- `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation`: [4.1](#lifted-cellular-tower), [5.6](#normalized-classical-growth).
+- `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-quotient-compact`: [0.5](#arithmetic-tower-tests).
+- `ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification`: [7.7](#boundary-strata-and-completed-induction).
+- `ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action`: [1.3](#tame-hecke-on-colimits).
+- `ArithmeticLocallySymmetricSpaces:ALS.3/hecke-composition`: [0.3](#conjugation-and-tame-coherence).
+- `ArithmeticLocallySymmetricSpaces:ALS.3/hecke-support-boundary-compatibility`: [0.3](#conjugation-and-tame-coherence).
+- `ArithmeticLocallySymmetricSpaces:ALS.3/level-trace`: [0.2](#tower-axioms-and-the-standing-hypotheses), [0.7](#finite-etale-trace-orientation-comparison), [1.4](#restriction-corestriction-normalisation), [3.9](#tame-level-borel-moore-duality).
+- `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`: [0.2](#tower-axioms-and-the-standing-hypotheses), [0.6](#finite-etale-betti-support-comparison), [7.1](#derived-completed-support-triangle), [7.3](#completed-homological-support-sequence).
+- `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/non-neat-duality`: [4.6](#stabilizers-and-boundary-replacements).
+- `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`: [0.7](#finite-etale-trace-orientation-comparison), [7.6](#completed-iwasawa-poincare-duality).
+- `ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent`: [0.4](#non-neat-tower-realisation), [4.4](#derived-finite-level-coinvariants), [6.1](#hochschild-serre-descent-to-finite-level), [6.2](#fixed-exponent-descent).
 
-### From `NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group`
+### From Tau Ceti roadmap AlgebraicTopology
 
-Its existing packet leaves open the equivalence of analytic and finite-rank structure, existence of open uniform subgroups and the uniform graded-polynomial input. Supply these exact Lazard facts for every compact p-adic analytic group, not only an admitted H with quotient Z_p.
+A Tau Ceti roadmap. Its stages are cited directly.
 
-### From `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian`
+Cited by the targets:
 
-Supply the already planned left/right noetherianity for O[[K_0]] and k[[K_0]] for every compact analytic K_0, plus its missing Lazard proof leaves. Extend NE.0 with Auslander regularity for torsion-free uniform U, coefficient grade shift/purity comparison, finite-index invariance and the regular uniform-power Hilbert-growth theorem; no arbitrary cofinal-basis exponent is requested.
+- `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`: [4.1](#lifted-cellular-tower).
+- `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`: [0.5](#arithmetic-tower-tests), [1.4](#restriction-corestriction-normalisation), [3.8](#tame-level-completed-modules), [3.9](#tame-level-borel-moore-duality), [4.1](#lifted-cellular-tower), [4.4](#derived-finite-level-coinvariants), [8.1](#arithmetic-shimura-central-quotient).
+- `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`: [0.7](#finite-etale-trace-orientation-comparison), [7.6](#completed-iwasawa-poincare-duality).
 
-### From `ArithmeticGaloisDuality:R02.1`
+Requested from `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent` (for [0.5](#arithmetic-tower-tests), [1.4](#restriction-corestriction-normalisation), [4.1](#lifted-cellular-tower), [4.4](#derived-finite-level-coinvariants)): Use current upstream finite-cover transfer, chain comparison and deck-group descent; the integral degree identity retains the covering degree.
 
-Extend the existing countable lim¹ and degreewise-surjective Milnor API to functorial Rlim of enhanced countable O-module complex diagrams, its 1−shift cone, natural support triangle, general Milnor sequence, and kernel-system obstruction. Keep the actual arithmetic comparison in CC.2; no second generic derived-limit construction.
+Requested from `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations` (for [4.1](#lifted-cellular-tower)): Use current upstream cellular chains for finite CW pairs, relative chains and cellular/singular chain comparison. Only lifted arithmetic completion is new in CC.4.
 
-### From `ArithmeticGaloisDuality:D7`
+Requested from `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality` (for [7.6](#completed-iwasawa-poincare-duality), [0.7](#finite-etale-trace-orientation-comparison)): Use current upstream Poincaré–Lefschetz/local-system duality on finite manifold pairs; ALS supplies its corner bridge and orientation data.
 
-Supply continuous Hochschild–Serre/derived group cohomology functoriality in the completed topological coefficient category, with coinduced acyclicity and coefficient conventions; the actual arithmetic finite-level abutment is proved in CC.6.
+Requested from `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent` (for [3.8](#tame-level-completed-modules), [3.9](#tame-level-borel-moore-duality)): Stage 5, item 3 already constructs transfer on singular chains of a finite covering, with pushforward after transfer equal to multiplication by the degree, and transfer after pushforward equal to the sum over the deck group for a regular covering. This roadmap needs in addition: (a) the same transfer, with both identities, on relative chains of a finite covering of finite CW pairs whose subcomplex is the preimage of the base subcomplex, which computes the Borel–Moore homology of a Borel–Serre pair; (b) under the evaluation pairing of Stage 6, item 1 (cochains as Hom of chains), the cohomological transfer, the dual of chain transfer, is adjoint to homology transfer, and pullback is adjoint to pushforward, in the absolute and the relative case. The roadmap's other request to the same stage asks for transfer, chain comparison and deck-group descent; this one adds the relative and adjointness clauses.
 
-### From `DeformationAndDerivedPatchingAlgebra:P7`
+### From Tau Ceti roadmap ProfiniteProPGroups
 
-Extend the common perfect/adic coefficient owner to noncommutative compact group-ring bases: bounded projective and minimal models, conservative derived residue reduction over (O/varpi^s)[P] for finite p-groups P, and the generic compact finite-quotient tensor universal property. The commutative P7 signatures alone do not suffice. Import coefficient-completion/Artin–Rees machinery needed for the orthonormalizable/pro-free A-module comparison, not an arithmetic tower definition. For G12, supply a qualified closed-central-kernel change-of-rings/perfect resolution only when its finite projective dimension and compatibility with the actual effective deck tower have been proved; no unconditional perfectness for an ineffective action.
+A Tau Ceti roadmap; only the completed-group-algebra receipt in its Layer 9 prerequisites is used, not Demushkin classification.
 
-### From `DeformationAndDerivedPatchingAlgebra:P8`
+Cited by the targets:
 
-Supply exactly the Gee–Newton Proposition3.4.16 O_∞[[K_0]]-perfect patched model, flat terms, coherent reduction at (U_p,J), compatible minimal resolutions/uniform rank bounds and Proposition3.4.19 augmentation comparison. Existing commutative patched-term statements require this noncommutative extension; CC.4 imports it without duplicating patching.
+- `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs`: [3.4](#iwasawa-action-on-homology), [4.2](#completed-equivariant-cell-complex).
 
-### From `LocallyAnalyticDistributions:L0`
+Requested from `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs` (for [3.4](#iwasawa-action-on-homology), [4.2](#completed-equivariant-cell-complex)): Import only the current-library completed-group-algebra and compact-module receipt in the Layer 9 prerequisites, not Demushkin classification: TauCeti.completedGroupAlgebra (Basic.lean) with proj, mk, ext and dense_span_range_of; TauCeti.IsCompactModule (Compact.lean); IsCompactModule.completedGroupAlgebraModule, completedSMul_of, mkQ_completedSMul and continuousSMul_completedGroupAlgebraModule (Module.lean). These exist at Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, not at the fixed sketch pin. O must be a compact commutative topological ring and M a compact totally disconnected topological O-module with continuous K_0-action commuting with scalars. CC.3 supplies only the arithmetic specialization and two-index coefficient comparison; no generic constructor is requested.
 
-Supply derived locally analytic vectors, continuous/Lie algebra derived Hom, their exactness hypotheses and the Q_p versus F_v analytic convention needed for the generic derived arithmetic comparison. E06 Corollary2.2.18 provides a spectral sequence, not a definition of derived vectors.
+### From SmoothRepresentationsOfLocalGroups
 
-### From `ModularCurvesPartII:R14.3`
+A Tau Ceti roadmap. SR.0 and SR.1 are its Layers SR.0 (the smooth category: smoothness, invariants and averaging for invertible pro-order, smooth contragredients) and SR.1 (Hecke algebras over rings, with A-valued Haar measures).
 
-Import the actual modular finite-level integral local-system Betti/étale comparison, level pullback and unnormalized trace, tame Hecke and component labels. Use CC.0 finite-stalk comparison for the all-degree support contract outside the explicit H¹ scope.
+Cited by the targets:
 
-### From `IntegralHeckeAndGaloisDeterminants:IHG.2`
+- `SmoothRepresentationsOfLocalGroups:SR.0`: [0.1](#arithmetic-level-index), [1.2](#full-local-group-smooth-action), [5.3](#smooth-dual-admissibility).
+- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector`: [3.8](#tame-level-completed-modules), [3.9](#tame-level-borel-moore-duality).
+- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`: [3.9](#tame-level-borel-moore-duality).
+- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`: [3.8](#tame-level-completed-modules).
+- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order`: [3.8](#tame-level-completed-modules).
+- `SmoothRepresentationsOfLocalGroups:SR.1/a-valued-haar-measure`: [3.9](#tame-level-borel-moore-duality).
 
-Import finite derived-image algebras, finite local-factor decomposition, compatible central idempotents and bounded ghost exponent. Retain the accepted CC.8 request for a genuine O-linear deck-equivariant derived-image contract over possibly noncommutative finite group rings; forgetting equivariance is insufficient.
+Requested from `SmoothRepresentationsOfLocalGroups:SR.0` (for [0.1](#arithmetic-level-index), [1.1](#fixed-exponent-smooth-colimit), [1.2](#full-local-group-smooth-action)): The existing compact-open index, smooth representation carrier, transport by conjugation, and finite-exponent open stabilizer criterion. Import the full local-group convention, not merely a fixed compact group.
 
-### From `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`
+### From IntegralHeckeAndGaloisDeterminants
 
-Use current upstream finite-cover transfer, chain comparison and deck-group descent; the integral degree identity retains the covering degree.
+A Tau Ceti roadmap. IHG.2 is its Layer 2, integral and derived Hecke actions (Hecke images in the derived category, finite local factors, idempotents and ghost bounds).
 
-### From `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`
+Cited by the targets:
 
-Use current upstream cellular chains for finite CW pairs, relative chains and cellular/singular chain comparison. Only lifted arithmetic completion is new in CC.4.
+- `IntegralHeckeAndGaloisDeterminants:IHG.2`: [7.8](#boundary-vanishing-support-comparison), [8.8](#compatible-derived-hecke-images), [8.9](#residual-support-stability), [8.11](#completed-semilocal-product), [8.12](#residual-hecke-projector), [8.13](#completed-residual-localisation), [8.14](#localisation-limit-support-dual-compatibility), [8.15](#derived-cohomological-residual-comparison).
 
-### From `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`
+Requested from `IntegralHeckeAndGaloisDeterminants:IHG.2` (for [7.8](#boundary-vanishing-support-comparison), [8.8](#compatible-derived-hecke-images), [8.9](#residual-support-stability), [8.10](#completed-hecke-algebra), [8.11](#completed-semilocal-product), [8.12](#residual-hecke-projector), [8.13](#completed-residual-localisation), [8.14](#localisation-limit-support-dual-compatibility), [8.15](#derived-cohomological-residual-comparison)): Import finite derived-image algebras, finite local-factor decomposition, compatible central idempotents and bounded ghost exponent. Layer 8 also requests a genuine O-linear deck-equivariant derived-image contract over possibly noncommutative finite group rings; forgetting equivariance is insufficient.
 
-Use current upstream Poincaré–Lefschetz/local-system duality on finite manifold pairs; ALS supplies its corner bridge and orientation data.
+Requested from `IntegralHeckeAndGaloisDeterminants:IHG.2` (for [8.8](#compatible-derived-hecke-images), [8.9](#residual-support-stability), [8.11](#completed-semilocal-product), [8.12](#residual-hecke-projector), [8.13](#completed-residual-localisation), [8.14](#localisation-limit-support-dual-compatibility), [8.15](#derived-cohomological-residual-comparison)): Import the already upstream finite derived-image, finite local-factor, ghost and idempotent theory. Its current signatures use commutative base A. For CC.8 supply the precise additional central O-linear equivariant contract in D((O/varpi^s)[K_0/U]): finite image of H, finite commutative image factorization, derived idempotent splitting and ghost exponent b−a+1. Do not identify a forgotten-O action with a faithful equivariant derived image. This noncommutative-base extension is recorded as a gap/upstream note, not planned twice here.
 
-### From `EnhancedDerivedSheaves:E1`
+### From PadicMeasuresIwasawaAlgebras
 
-Import the existing enhanced derived sheaf categories and finite-level comparison morphism carriers; CC.0 owns only its selected arithmetic comparison.
+Cited by the targets:
 
-### From `ComplexComparisonPartII:C2`
+- `PadicMeasuresIwasawaAlgebras:L1`: [2.4](#integral-admissible-complex-control), [2.10](#rational-unitary-banach-tower), [3.1](#continuous-dual-conventions), [3.2](#qualified-biduality), [3.5](#finite-coefficient-duality-and-bockstein), [3.11](#admissible-complex-convention), [3.12](#admissible-perfect-anti-equivalence), [4.2](#completed-equivariant-cell-complex), [5.3](#smooth-dual-admissibility), [5.4](#banach-admissibility), [5.5](#codimension-iwasawa-dimension-and-the-torsion-theorem), [5.7](#semisimple-homology-torsion), [5.9](#classical-middle-rank-and-tate-torsion), [6.1](#hochschild-serre-descent-to-finite-level), [6.3](#homological-hyperTor-descent), [7.7](#boundary-strata-and-completed-induction).
 
-Import coherent GAGA used in the finite-cover Riemann-existence proof; it does not itself prove étale cohomology comparison.
+Requested from `PadicMeasuresIwasawaAlgebras:L1` (for [2.4](#integral-admissible-complex-control), [2.10](#rational-unitary-banach-tower), [3.1](#continuous-dual-conventions), [3.2](#qualified-biduality), [3.5](#finite-coefficient-duality-and-bockstein), [3.11](#admissible-complex-convention), [3.12](#admissible-perfect-anti-equivalence), [4.2](#completed-equivariant-cell-complex), [5.3](#smooth-dual-admissibility), [5.4](#banach-admissibility), [5.5](#codimension-iwasawa-dimension-and-the-torsion-theorem), [5.7](#semisimple-homology-torsion), [6.1](#hochschild-serre-descent-to-finite-level), [6.3](#homological-hyperTor-descent), [7.7](#boundary-strata-and-completed-induction)): Extend immediately after L1 with general compact/profinite continuous-function versus measure duality, compact-discrete O/E/O duality and Schikhof duality; strict integral admissible complexes and Emerton Proposition1.2.4 control; continuous completed tensor/coinduced acyclicity; the general unitary E-Banach category with stable lattice, Schneider–Teitelbaum Theorems2.3,3.5 and abelianness for compact analytic groups, and compact-open testing for local groups. Supply the regular congruence-filtration leading-rank/continuous-cohomology error estimates used by CEbounds Theorem3.2. R30.2 consumes this category for GL₂. This is a foundational extension, not a new category in CC.2. Reuse the current Tau Ceti completedGroupAlgebra and IsCompactModule action declarations; L1 extends the measure/dual/strict-complex interfaces, not those existing ring/action constructors.
 
+### From NoncommutativeAndEquivariantIwasawa
 
-### From `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs`
+Cited by the targets:
 
-Import only the current-library completed-group-algebra and compact-module receipt in the Layer 9 prerequisites, not Demushkin classification: TauCeti.completedGroupAlgebra (Basic.lean) with proj, mk, ext and dense_span_range_of; TauCeti.IsCompactModule (Compact.lean); IsCompactModule.completedGroupAlgebraModule, completedSMul_of, mkQ_completedSMul and continuousSMul_completedGroupAlgebraModule (Module.lean). These exist at Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, not at the fixed sketch pin. O must be a compact commutative topological ring and M a compact totally disconnected topological O-module with continuous K_0-action commuting with scalars. CC.3 supplies only the arithmetic specialization and two-index coefficient comparison; no generic constructor is requested.
+- `NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group`: [0.1](#arithmetic-level-index).
+- `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p`: [3.11](#admissible-complex-convention).
+- `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian`: [3.7](#duality-between-completed-homology-and-completed-cohomology), [5.1](#finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology), [5.5](#codimension-iwasawa-dimension-and-the-torsion-theorem), [5.8](#uniform-filtration-growth).
+
+Requested from `NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group` (for [0.1](#arithmetic-level-index)): Its current plan leaves open the equivalence of analytic and finite-rank structure, existence of open uniform subgroups and the uniform graded-polynomial input. Supply these exact Lazard facts for every compact p-adic analytic group, not only an admitted H with quotient Z_p.
+
+Requested from `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian` (for [5.1](#finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology), [5.5](#codimension-iwasawa-dimension-and-the-torsion-theorem), [5.8](#uniform-filtration-growth)): Supply the already planned left/right noetherianity for O[[K_0]] and k[[K_0]] for every compact analytic K_0, plus its missing Lazard proof leaves. Extend NE.0 with Auslander regularity for torsion-free uniform U, coefficient grade shift/purity comparison, finite-index invariance and the regular uniform-power Hilbert-growth theorem; no arbitrary cofinal-basis exponent is requested.
+
+### From ArithmeticGaloisDuality
+
+Cited by the targets:
+
+- `ArithmeticGaloisDuality:D7`: [6.1](#hochschild-serre-descent-to-finite-level), [6.3](#homological-hyperTor-descent).
+- `ArithmeticGaloisDuality:R02.1`: [2.2](#derived-completed-tower), [6.1](#hochschild-serre-descent-to-finite-level), [7.1](#derived-completed-support-triangle), [7.5](#interior-image-comparison).
+- `ArithmeticGaloisDuality:R02.1/lim-one-six-term`: [2.8](#the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting).
+- `ArithmeticGaloisDuality:R02.1/milnor-sequence`: [2.3](#milnor-and-mittag-leffler-control).
+- `ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`: [2.3](#milnor-and-mittag-leffler-control), [2.5](#complete-torsion-free-complex-control), [3.6](#finite-coefficient-model-of-completed-homology).
+
+Requested from `ArithmeticGaloisDuality:R02.1` (for [2.2](#derived-completed-tower), [7.1](#derived-completed-support-triangle), [6.1](#hochschild-serre-descent-to-finite-level), [7.5](#interior-image-comparison)): Extend the existing countable lim¹ and degreewise-surjective Milnor API to functorial Rlim of enhanced countable O-module complex diagrams, its 1−shift cone, natural support triangle, general Milnor sequence, and kernel-system obstruction. Keep the actual arithmetic comparison in CC.2; no second generic derived-limit construction.
+
+Requested from `ArithmeticGaloisDuality:D7` (for [6.1](#hochschild-serre-descent-to-finite-level), [6.3](#homological-hyperTor-descent)): Supply continuous Hochschild–Serre/derived group cohomology functoriality in the completed topological coefficient category, with coinduced acyclicity and coefficient conventions; the actual arithmetic finite-level abutment is proved in CC.6.
+
+### From DeformationAndDerivedPatchingAlgebra
+
+Cited by the targets:
+
+- `DeformationAndDerivedPatchingAlgebra:P7`: [3.11](#admissible-complex-convention), [3.12](#admissible-perfect-anti-equivalence), [3.13](#orthonormalizable-and-profree-modules), [3.14](#coefficient-module-duality), [3.15](#mixed-completed-tensor), [3.16](#mixed-tensor-dual-comparison), [4.2](#completed-equivariant-cell-complex), [4.3](#perfectness-and-cochain-comparison), [4.4](#derived-finite-level-coinvariants), [4.6](#stabilizers-and-boundary-replacements), [4.7](#patched-perfect-model-import), [8.9](#residual-support-stability).
+- `DeformationAndDerivedPatchingAlgebra:P8`: [4.7](#patched-perfect-model-import).
+
+Requested from `DeformationAndDerivedPatchingAlgebra:P7` (for [3.11](#admissible-complex-convention), [3.12](#admissible-perfect-anti-equivalence), [3.13](#orthonormalizable-and-profree-modules), [3.14](#coefficient-module-duality), [3.15](#mixed-completed-tensor), [3.16](#mixed-tensor-dual-comparison), [4.2](#completed-equivariant-cell-complex), [4.3](#perfectness-and-cochain-comparison), [4.4](#derived-finite-level-coinvariants), [4.6](#stabilizers-and-boundary-replacements), [4.7](#patched-perfect-model-import), [8.1](#arithmetic-shimura-central-quotient)): Extend the common perfect/adic coefficient owner to noncommutative compact group-ring bases: bounded projective and minimal models, conservative derived residue reduction over (O/varpi^s)[P] for finite p-groups P, and the generic compact finite-quotient tensor universal property. The commutative P7 signatures alone do not suffice. Import coefficient-completion/Artin–Rees machinery needed for the orthonormalizable/pro-free A-module comparison, not an arithmetic tower definition. For G12, supply a qualified closed-central-kernel change-of-rings/perfect resolution only when its finite projective dimension and compatibility with the actual effective deck tower have been proved; no unconditional perfectness for an ineffective action.
+
+Requested from `DeformationAndDerivedPatchingAlgebra:P8` (for [4.7](#patched-perfect-model-import)): Supply exactly the Gee–Newton Proposition3.4.16 O_∞[[K_0]]-perfect patched model, flat terms, coherent reduction at (U_p,J), compatible minimal resolutions/uniform rank bounds and Proposition3.4.19 augmentation comparison. Existing commutative patched-term statements require this noncommutative extension; CC.4 imports it without duplicating patching.
+
+Requested from `DeformationAndDerivedPatchingAlgebra:P7` (for [8.9](#residual-support-stability)): Supply conservative derived residue reduction for perfect complexes over the finite local ring (O/varpi^s)[P], P a finite p-group, including finite projective/minimal representatives and radical coefficient reduction. P7’s existing commutative local-base nodes do not suffice for nonabelian P; extend the common owner in this precise direction using Gee–Newton 2.1.6–2.1.9, pp. 9–10.
+
+### From LocallyAnalyticDistributions
+
+Cited by the targets:
+
+- `LocallyAnalyticDistributions:L0`: [6.7](#analytic-classical-comparison).
+
+Requested from `LocallyAnalyticDistributions:L0` (for [6.7](#analytic-classical-comparison)): Supply derived locally analytic vectors, continuous/Lie algebra derived Hom, their exactness hypotheses and the Q_p versus F_v analytic convention needed for the generic derived arithmetic comparison. E06 Corollary2.2.18 provides a spectral sequence, not a definition of derived vectors.
+
+### From ModularCurvesPartII
+
+Cited by the targets:
+
+- `ModularCurvesPartII:R14.3`: [0.5](#arithmetic-tower-tests), [8.2](#canonical-four-family-tower-input), [8.4](#arithmetic-tower-realisation).
+
+Requested from `ModularCurvesPartII:R14.3` (for [0.5](#arithmetic-tower-tests), [8.2](#canonical-four-family-tower-input)): Import the actual modular finite-level integral local-system Betti/étale comparison, level pullback and unnormalized trace, tame Hecke and component labels. Use CC.0 finite-stalk comparison for the all-degree support contract outside the explicit H¹ scope.
+
+Requested from `ModularCurvesPartII:R14.3` (for [8.4](#arithmetic-tower-realisation)): Supply the modular finite étale/Betti comparison with the chosen integral local system, ordinary/compact support distinction, finite étale trace, level pullback, tame Hecke and determinant/component labels. All-degree support inputs beyond its explicit H^1 target use CC.0/finite-etale-betti-support-comparison, not an assumed stronger R14.3 theorem.
+
+### From EnhancedDerivedSheaves
+
+Cited by the targets:
+
+- `EnhancedDerivedSheaves:E1`: [0.6](#finite-etale-betti-support-comparison).
+
+Requested from `EnhancedDerivedSheaves:E1` (for [0.6](#finite-etale-betti-support-comparison)): Import the existing enhanced derived sheaf categories and finite-level comparison morphism carriers; CC.0 owns only its selected arithmetic comparison.
+
+### From ComplexComparisonPartII
+
+Cited by the targets:
+
+- `ComplexComparisonPartII:C2`: [0.6](#finite-etale-betti-support-comparison).
+
+Requested from `ComplexComparisonPartII:C2` (for [0.6](#finite-etale-betti-support-comparison)): Import coherent GAGA used in the finite-cover Riemann-existence proof; it does not itself prove étale cohomology comparison.
 
 ## How to read the build
 
-CC.0 assembles actual finite diagrams and finite comparison maps; CC.1 takes their exact fixed-exponent colimit. CC.2 distinguishes degreewise completion from the derived complex and states the strict integral control target independently of finiteness. CC.3 fixes the dual categories and completed homology; CC.4 then constructs their actual lifted finite-cell models. CC.5 applies noetherianity and analytic duality to those models. CC.6 recovers finite arithmetic levels by derived continuous invariants or completed Tor. CC.7 applies support and duality to the same coherent diagram. CC.8 imports the accepted adapters and checks the central and canonical-model inputs they actually require. Forward references to a model or comparison are node dependencies, not a circular proof of admissibility from itself.
+Layer 0 assembles the actual finite diagrams and the finite comparison maps, and Layer 1 takes their exact colimit at fixed exponent. Layer 2 distinguishes degreewise completion from the derived complex and states the strict integral control theorem independently of finiteness. Layer 3 fixes the dual categories and completed homology, and Layer 4 then constructs the actual lifted finite-cell models. Layer 5 applies noetherianity and analytic duality to those models. Layer 6 recovers finite levels by derived continuous invariants or completed Tor, and Layer 7 applies supports and duality to the same coherent diagram. Layer 8 compares the result with the Shimura towers, transports the arithmetic actions and builds the completed Hecke algebra and the residual localisation.
 
-The exact target statements below are the roadmap. Their named API items and discriminating checks are retained even where their carriers are absent at the library pins. A layer is planned when these targets’ chains end at a library statement, a precise imported node/stage request, or a named proof leaf. None of the nine layers is marked closed.
+A few targets cite a later layer: the topology and Bockstein comparisons 2.6 and 2.9 use the finite projective model 4.3, the finite-coefficient and integral dualities 3.5 and 3.7 use the completed cell complex 4.2, and the growth and torsion targets 5.6 and 5.7 use the descent targets 6.4 and 6.3. These are dependencies between targets, not a circular proof: the dependency graph of the targets has no cycle.
+
+The exact target statements below are the roadmap. Their named API items and discriminating checks are kept even where the carriers are not yet in the libraries. Each target cites its source and its prerequisites; the open proof inputs of each layer are named at its end and described under "Proof closure and supplier extensions".
+
+| Layer | Title | Targets |
+|---|---|---|
+| 0 | [Finite-level towers and support data](#layer-0) | 7 |
+| 1 | [Torsion colimits and smooth actions](#layer-1) | 5 |
+| 2 | [Completion, derived limits and topology](#layer-2) | 10 |
+| 3 | [Continuous duals and completed homology](#layer-3) | 17 |
+| 4 | [Actual completed chain models](#layer-4) | 7 |
+| 5 | [Noetherian finiteness and admissibility](#layer-5) | 9 |
+| 6 | [Completed descent and classical comparison](#layer-6) | 7 |
+| 7 | [Completed supports, boundary and duality](#layer-7) | 8 |
+| 8 | [Shimura, Galois and Hecke adapters](#layer-8) | 15 |
+| | Total | 85 |
+
+<a id="layer-0"></a>
 
 ## Layer 0: Finite-level towers and support data
+
+This layer assembles the finite-level data from which the completed objects are built: the category of p-adic levels, one coherent diagram of ordinary, compact-support and boundary complexes with its pullback, trace and conjugation maps, the derived model at non-neat levels, and two acceptance towers. For Shimura varieties it also states the comparison of étale and Betti cohomology with finite coefficients, with compact supports, and its trace and orientation normalisation. No limit is taken in this layer.
+
+**Targets of the layer.**
+
+- *Indexing category of levels, with cofinal normal and pro-p sequences* ([0.1](#arithmetic-level-index)). Compact opens of the p-adic group ordered by inclusion, with labelled conjugation arrows and their composition law. A countable normal basis is taken inside a fixed compact open; it can be chosen pro-p after passing to an open uniform subgroup, whose existence is the Lazard input requested from NoncommutativeAndEquivariantIwasawa NE.0.
+- *Finite covering correspondences, their composition identities and the conjugation maps* ([0.2](#tower-axioms-and-the-standing-hypotheses), [0.3](#conjugation-and-tame-coherence)). One diagram of ordinary, compact-support and boundary complexes, with pullback in the level and reduction in the exponent; trace is a separate reverse system. Identity and composition laws hold, compatibly with reduction, supports and tame Hecke operators. Same-lattice integral conjugation is restricted to H_int.
+- *Levels with stabilisers: the stack or derived group-cohomology model, with torsion retained* ([0.4](#non-neat-tower-realisation)). At a non-neat level the ALS groupoid or derived group-cohomology model is used, with descent from a neat normal refinement by RΓ(Q, −), Q-torsion included. A neat cofinal tower does not remove the stabilisers of a fixed non-neat level.
+- *Compact support through compatible compactifications or the j! model, with trace maps* ([0.2](#tower-axioms-and-the-standing-hypotheses), [0.6](#finite-etale-betti-support-comparison), [0.7](#finite-etale-trace-orientation-comparison)). Topologically, compact support is the ALS Borel–Serre model with proper pullback and trace. For Shimura varieties the j! model on a proper algebraic compactification is compared with it, naturally in finite étale level maps, together with the unnormalised trace and the orientation dictionary.
+- *Singular, cellular and étale finite-coefficient models compared under exact hypotheses* ([0.6](#finite-etale-betti-support-comparison), [0.7](#finite-etale-trace-orientation-comparison), [4.1](#lifted-cellular-tower)). The étale–Betti comparison for finite locally constant coefficients on neat characteristic-zero Shimura varieties, with compact support; the cellular–singular comparison is part of the lifted cellular tower of Layer 4. The constructible-coefficient and compactification-independence proofs are gap G10.
+- *Acceptance tests on actual towers* ([0.5](#arithmetic-tower-tests)). Neat modular curves through ModularCurvesPartII R14.3 and an anisotropic compact quotient: pullback, trace (trace after pullback is the degree), conjugation, supports and the cusp incidence diagram.
 
 ### 0.1 Arithmetic level index
 
@@ -250,7 +416,7 @@ Target `CompletedCohomologyPartII:CC.0/arithmetic-tower-tests`.
 
 <a id="finite-etale-betti-support-comparison"></a>
 
-For a selected neat characteristic-zero Shimura variety X at finite level, a complex embedding, and a finite locally constant O/varpi^s sheaf F, construct the comparison RΓ_et(X_C,F)≅RΓ(X(C),F_an), and the compact-support comparison via a proper algebraic compactification j:X→Xbar and j!F. Compare the boundary support triangle with the ALS topological boundary model through its supplied compact-support comparison. Naturality in finite étale level maps and coefficient reduction is part of the named map. This moves only the consumed complex analytic EDC.6 contract into CC.0; it does not construct diamond operations or all étale six functors. Constructible comparison and compact-support proof leaves are G10.
+For a selected neat characteristic-zero Shimura variety X at finite level, a complex embedding, and a finite locally constant O/varpi^s sheaf F, construct the comparison RΓ\_et(X_C,F)≅RΓ(X(C),F_an), and the compact-support comparison via a proper algebraic compactification j:X→Xbar and j!F. Compare the boundary support triangle with the ALS topological boundary model through its supplied compact-support comparison. Naturality in finite étale level maps and coefficient reduction is part of the named map. This moves only the consumed complex analytic EDC.6 contract into CC.0; it does not construct diamond operations or all étale six functors. Constructible comparison and compact-support proof leaves are G10.
 
 (MilneEC, Theorems21.1,21.3,21.5 and Remark21.2, pp.130–134: Finite-stalk locally constant comparison is proved by étale-local killing of analytic cohomology; the constructible extension is identified separately.)
 
@@ -286,21 +452,32 @@ Target `CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison
 
 ### Examples
 
-At a finite regular point torsor the actual degree-zero module is Map(K_0/U,O/varpi^s). On an open modular curve the cusp boundary remains; on an anisotropic compact quotient it is empty. A non-neat point with stabilizer C_p has nonzero H¹ over k.
+At a finite regular point torsor the actual degree-zero module is Map(K_0/U, O/varpi^s). On an open modular curve the cusp boundary remains; on an anisotropic compact quotient it is empty. A non-neat point with stabiliser C_p has nonzero H¹ over k.
 
 ### Dependencies
 
 `ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`, `ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change`, `ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison`, `ArithmeticLocallySymmetricSpaces:ALS.1/level-pullback`, `ArithmeticLocallySymmetricSpaces:ALS.1/sheaf-singular-comparison`, `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-quotient-compact`, `ArithmeticLocallySymmetricSpaces:ALS.3/hecke-composition`, `ArithmeticLocallySymmetricSpaces:ALS.3/hecke-support-boundary-compatibility`, `ArithmeticLocallySymmetricSpaces:ALS.3/level-trace`, `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent`, `ComplexComparisonPartII:C2`, `EnhancedDerivedSheaves:E1`, `ModularCurvesPartII:R14.3`, `NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:DerivedCategory.Q`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
 
-This layer is **planned**. Its remaining closure work is G1 analytic index supplier; G10 finite coefficient support comparison.
+**Open proof inputs.** G1 (the analytic-group input of the level index) and G10 (the finite-coefficient support comparison).
+
+<a id="layer-1"></a>
 
 ## Layer 1: Torsion colimits and smooth actions
+
+This layer takes the colimit over p-levels at a fixed exponent s. It proves exactness and cofinality, constructs the smooth action of the full local group by conjugating levels and the commuting tame Hecke operators, records the restriction–corestriction identities with their degree factors (never inverted integrally), and sets up the separate diagram over tame levels.
+
+**Targets of the layer.**
+
+- *Filtered colimit at fixed exponent, in modules and in complexes; independence of cofinal restriction; exactness* ([1.1](#fixed-exponent-smooth-colimit)). A^n_{\*,s} = colim_K H^n(C^\*\_{K,s}) for the three supports, the colimit of complexes and the exact-colimit identification of their cohomology; cofinal restriction through the final-functor comparison.
+- *Action of the local group by conjugating levels; open stabilisers; smoothness* ([1.2](#full-local-group-smooth-action)). A left action through the conjugation dictionary of Layer 0; every class has an open stabiliser, so the action is smooth. For a fixed algebraic lattice only H_int acts integrally.
+- *Commuting tame Hecke operators from double correspondences, with explicit normalisation* ([1.3](#tame-hecke-on-colimits)). The ALS double-correspondence maps on the colimits and their complexes, commuting with the local action and obeying the convolution law. The completed Hecke algebra is built in Layer 8 ([8.10](#completed-hecke-algebra)).
+- *Mackey and restriction–corestriction identities with degree factors, never inverted integrally* ([1.4](#restriction-corestriction-normalisation), [1.5](#tame-level-variation)). cor∘res is the index and res∘cor is the group sum for a normal subgroup, on the tower, the colimits and the descent diagrams. Tame-level variation is a separate diagram; its interchange with completion is a comparison of its own ([3.8](#tame-level-completed-modules)).
 
 ### 1.1 Fixed-exponent cohomology
 
 <a id="fixed-exponent-smooth-colimit"></a>
 
-For s≥1 and support *=ordinary,c,boundary define A^n_{*,s}=colim_K H^n(C^*_{K,s}) under pullback, and A^•_{*,s}=colim_K C^*_{K,s} in complexes. Exact filtered colimits identify H^n(A^•_{*,s}) with A^n_{*,s}. Give the former cohomology modules the discrete topology at fixed exponent; finite exponent does not mean finite cardinality.
+For s≥1 and support \*=ordinary,c,boundary define A^n_{\*,s}=colim_K H^n(C^\*\_{K,s}) under pullback, and A^•\_{\*,s}=colim_K C^\*\_{K,s} in complexes. Exact filtered colimits identify H^n(A^•\_{\*,s}) with A^n_{\*,s}. Give the former cohomology modules the discrete topology at fixed exponent; finite exponent does not mean finite cardinality.
 
 (E06, §2.1, pp.20–23: Fixed-exponent direct limits are computed with lifted simplicial cochains.; LLHLM, §5.3, p.121: Degree-zero forms first take the level colimit and only then the coefficient limit.)
 
@@ -331,7 +508,7 @@ Target `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`.
 
 <a id="full-local-group-smooth-action"></a>
 
-For a specified coherent full-H-equivariant integral coefficient system, transport representatives by g and the CC.0 conjugation dictionary to define a left H-action on A^n_{*,s}; right geometric translation is converted using g⁻¹. Every finite-level class has an open stabilizer after shrinking to fix its finite coefficient data, so this action is smooth independently of a normal basis. For a fixed K_0-stable algebraic lattice W_0 the same argument gives only a smooth H_int=Stab_H(W_0) action on the fixed integral colimit. General g change the lattice; CC.2/CC.6 supply the full-H action only after rational lattice comparison.
+For a specified coherent full-H-equivariant integral coefficient system, transport representatives by g and the CC.0 conjugation dictionary to define a left H-action on A^n_{\*,s}; right geometric translation is converted using g⁻¹. Every finite-level class has an open stabilizer after shrinking to fix its finite coefficient data, so this action is smooth independently of a normal basis. For a fixed K_0-stable algebraic lattice W_0 the same argument gives only a smooth H_int=Stab_H(W_0) action on the fixed integral colimit. General g change the lattice; CC.2/CC.6 supply the full-H action only after rational lattice comparison.
 
 (E06, §2.2, Lemmas 2.2.4,2.2.8–2.2.10 and Theorem 2.2.11, pp.28–32: The integral stabilizer preserves its lattice; other translations vary the lattice and give the rational action.; CE, §1.5, p.7: The trivial-coefficient completed objects have the full local-group action, not just K_0.)
 
@@ -351,7 +528,7 @@ Target `CompletedCohomologyPartII:CC.1/full-local-group-smooth-action`.
 
 <a id="tame-hecke-on-colimits"></a>
 
-The ALS tame double-correspondence maps induce O/varpi^s-linear endomorphisms of A^n_{*,s} and of its actual complex, commute with the H-action, and obey the imported convolution/composition law. These are transported actions; the completed Hecke image algebra and its residual factors belong to the accepted CC.8 packet.
+The ALS tame double-correspondence maps induce O/varpi^s-linear endomorphisms of A^n_{\*,s} and of its actual complex, commute with the H-action, and obey the imported convolution/composition law. These are transported actions; the completed Hecke image algebra and its residual factors belong to Layer 8.
 
 (GN, §2.1.4, pp.8–9: Integral finite-level operators are sums over cosets and commute with level reduction.; CE, §1.5, p.7: Tame Hecke acts on the completed tower.)
 
@@ -370,7 +547,7 @@ Target `CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits`.
 
 <a id="restriction-corestriction-normalisation"></a>
 
-On the tower, res followed by cor at a finite covering U⊂K gives cor∘res=[K:U]; when U is normal, res∘cor=Σ_{a∈K/U}a. The corresponding maps induced on fixed-exponent colimits and descent diagrams use these same formulas. No division by [K:U] is made over O/varpi^s or O; Mackey compatibility is inherited with the supplied coefficients.
+On the tower, res followed by cor at a finite covering U⊂K gives cor∘res=[K:U]; when U is normal, res∘cor=Σ\_{a∈K/U}a. The corresponding maps induced on fixed-exponent colimits and descent diagrams use these same formulas. No division by [K:U] is made over O/varpi^s or O; Mackey compatibility is inherited with the supplied coefficients.
 
 (E06, Proposition 2.1.11 proof, pp.24–26: Finite-cover descent is applied before the tower limits.; GN, §2.1.4, p.8: Correspondence action is the unnormalized sum with coefficient transport.)
 
@@ -418,21 +595,35 @@ Target `CompletedCohomologyPartII:CC.1/tame-level-variation`.
 
 ### Examples
 
-For a pro-p circle tower, degree-one pullback is multiplication by p; its fixed-exponent colimit is zero. In degree zero the regular point torsor yields locally constant functions, which are not all set functions when K_0 is infinite.
+For a pro-p circle tower, pullback in degree one is multiplication by p, so its fixed-exponent colimit is zero. In degree zero the regular point torsor gives locally constant functions, which are not all set functions when K_0 is infinite.
 
 ### Dependencies
 
 `ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action`, `ArithmeticLocallySymmetricSpaces:ALS.3/level-trace`, `CompletedCohomologyPartII:CC.0/arithmetic-level-index`, `CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `SmoothRepresentationsOfLocalGroups:SR.0`, `mathlib:CategoryTheory.Functor.Final.colimitIso`, `mathlib:Module.DirectLimit`, `mathlib:Module.DirectLimit.exists_of`, `mathlib:Module.DirectLimit.of`, `tauceti:TauCeti.homologicalComplexHomologyFunctor_preservesColimitsOfShape`, `tauceti:TauCeti.moduleCat_ab5OfSize`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
 
-This layer is **planned**. Its remaining closure work is Import SR.0 smooth action; the arithmetic conjugation/Hecke checks remain required.
+**Open proof inputs.** The smooth action is imported from SmoothRepresentationsOfLocalGroups SR.0; the arithmetic conjugation and Hecke checks are part of the targets above.
+
+<a id="layer-2"></a>
 
 ## Layer 2: Completion, derived limits and topology
+
+This layer takes the inverse limit over the exponent. It keeps apart the degreewise completed module H̃^n and the cohomology of the derived limit, which differ by a lim¹ term, and states the control theorems that identify them, including a general control lemma for complexes of complete torsion-free modules. It compares the completed module with its reductions through the Bockstein sequence, separates the completion of the integral colimit from its Tate module, proves continuity of the actions, and builds the unitary Banach completion after inverting p.
+
+**Targets of the layer.**
+
+- *Inverse system in the exponent and its topological limit; topology, separatedness, completeness* ([2.1](#coefficient-limit-completion), [2.6](#adic-topology-and-continuous-actions)). H̃^n_\* = lim_s A^n_{\*,s} with the projection topology, compared with the varpi-adic topology; separatedness, completeness and bounded torsion hold only under the finite-cell admissible model.
+- *Derived inverse limit of complexes and the Milnor sequence, with the lim¹ term displayed* ([2.2](#derived-completed-tower), [2.3](#milnor-and-mittag-leffler-control)). Rlim_s as the countable homotopy limit, distinct from H̃^n_\*, and the natural sequence 0 → lim¹ A^{n−1} → H^n(Rlim) → H̃^n → 0.
+- *Surjectivity and Mittag-Leffler criteria at each use* ([2.3](#milnor-and-mittag-leffler-control), [2.4](#integral-admissible-complex-control)). The Mittag-Leffler condition on cohomology (not only on terms) removes lim¹; integral admissible complexes give essentially null kernel and cokernel systems.
+- *Control of complexes of complete torsion-free modules (Pan 2022, Lemma 4.4.4)* ([2.5](#complete-torsion-free-complex-control), [2.9](#coefficient-bockstein-comparison), [2.7](#completion-and-tate-module)). For any bounded-above complex of complete torsion-free modules: no cohomology class has a compatible system of varpi-power roots (Hom_O(E, H^i) = 0), the Bockstein sequences have multiplication by varpi on their torsion terms and a vanishing limit, and cohomology is complete under bounded torsion. The tower-specific forms are 2.7 and 2.9.
+- *Reduction of the completed module against the finite-coefficient module, under explicit torsion and control hypotheses, with counterexample tests* ([2.9](#coefficient-bockstein-comparison), [2.7](#completion-and-tate-module), [2.8](#the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting), [2.4](#integral-admissible-complex-control)). The Bockstein sequence 0 → H̃^n/varpi^s → A^n_s → H̃^{n+1}[varpi^s] → 0 after integral control; the completion and the Tate module of the integral colimit and the exact sequence relating them, with the counterexamples among the checks of 2.7–2.9.
+- *Unitary Banach module after inverting p* ([2.10](#rational-unitary-banach-tower)). The gauge norm of the torsion-free quotient lattice; unitarity for the full group needs a stable lattice. The general unitary Banach and Schikhof category is the extension of PadicMeasuresIwasawaAlgebras after L1.
+- *Continuity of the group and Hecke actions* ([2.6](#adic-topology-and-continuous-actions)). Joint continuity of the integral local action and continuity of the transported Hecke endomorphisms, from smoothness at each exponent and the topology comparison.
 
 ### 2.1 Completed cohomology
 
 <a id="coefficient-limit-completion"></a>
 
-Define H̃^n_*(K^p,O)=lim_{s≥1} A^n_{*,s} with coefficient-reduction transitions, as the existing topological-module limit of discrete A^n_{*,s}. It is a compatible-family module with projection-induced topology. Do not assert yet that this topology is the varpi-adic topology, or that its reduction is A^n_{*,s}.
+Define H̃^n_\*(K^p,O)=lim_{s≥1} A^n_{\*,s} with coefficient-reduction transitions, as the existing topological-module limit of discrete A^n_{\*,s}. It is a compatible-family module with projection-induced topology. Do not assert yet that this topology is the varpi-adic topology, or that its reduction is A^n_{\*,s}.
 
 (CE, §1.1, pp.2–4: The conventional completed cohomology takes the coefficient inverse limit after the level colimit.; E06, §2.1 definitions and Lemma 2.1.4, pp.20–22: Completion is separated and complete; the subsequent admissible-complex argument supplies stronger control.)
 
@@ -442,10 +633,10 @@ Uses: CC.3 duals: Topology must be fixed before a continuous dual can be formed;
 
 Provide the following named interface.
 
-- `completed_proj`: Projection to A^n_{*,s} is continuous and O-linear.
+- `completed_proj`: Projection to A^n_{\*,s} is continuous and O-linear.
 - `completed_ext`: Equality of all coefficient projections implies equality.
 - `completed_lift`: A compatible family of continuous linear maps uniquely induces a map into H̃.
-- `completed_support_map`: The finite-level support natural transformation induces H̃_c→H̃.
+- `completed_support_map`: The finite-level support natural transformation induces H̃\_c→H̃.
 
 **Checks.**
 
@@ -463,7 +654,7 @@ Target `CompletedCohomologyPartII:CC.2/coefficient-limit-completion`.
 
 <a id="derived-completed-tower"></a>
 
-For the enhanced ordinary, compact-support and boundary complex diagram define 𝒞_*=Rlim_s A^•_{*,s} in D(O). Use the supplied countable homotopy-limit model Cone(1−shift:∏_s A^•_{*,s}→∏_s A^•_{*,s})[−1], with its projection cone and coherent actions. This is a derived object distinct from H̃^n_*.
+For the enhanced ordinary, compact-support and boundary complex diagram define 𝒞\_\*=Rlim_s A^•\_{\*,s} in D(O). Use the supplied countable homotopy-limit model Cone(1−shift:∏\_s A^•\_{\*,s}→∏\_s A^•\_{\*,s})[−1], with its projection cone and coherent actions. This is a derived object distinct from H̃^n_\*.
 
 (E06, Proposition 1.2.12, p.16; Proposition 2.1.11, pp.24–26: Cohomology/limit interchange is established through a pro-system comparison, not assumed.; CE, §1.1, pp.2–4: The degreewise definition motivates a separate derived comparison.)
 
@@ -494,7 +685,7 @@ Target `CompletedCohomologyPartII:CC.2/derived-completed-tower`.
 
 <a id="milnor-and-mittag-leffler-control"></a>
 
-For each n the supplied countable derived limit gives 0→lim¹_s A^{n−1}_{*,s}→H^n(𝒞_*)→H̃^n_*→0, naturally for support, Hecke, conjugation and coefficients. The last arrow is an isomorphism when {A^{n−1}_{*,s}} is ML. For a degreewise-surjective complex representative this specializes to R02.1/milnor-sequence; ML of terms alone does not imply ML of cohomology.
+For each n the supplied countable derived limit gives 0→lim¹\_s A^{n−1}\_{\*,s}→H^n(𝒞\_\*)→H̃^n_\*→0, naturally for support, Hecke, conjugation and coefficients. The last arrow is an isomorphism when {A^{n−1}\_{\*,s}} is ML. For a degreewise-surjective complex representative this specializes to R02.1/milnor-sequence; ML of terms alone does not imply ML of cohomology.
 
 (E06, Propositions 1.2.12 and 2.1.11, pp.16,24–26: Admissible pro-system comparison is the proof mechanism for the required interchange.)
 
@@ -528,11 +719,36 @@ The proof route is: Import the general strict admissible Banach/Schikhof theory 
 
 Target `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`.
 
-### 2.5 Adic topology and continuous actions
+### 2.5 Control of complete torsion-free complexes
+
+<a id="complete-torsion-free-complex-control"></a>
+
+Let M^• be a bounded-above complex of varpi-adically complete, varpi-torsion-free O-modules. Then (1) no nonzero element of H^i(M^•) has a compatible system of varpi-power roots (x_0 = x and varpi x_n = x_{n−1}): Hom_O(E, H^i(M^•)) = 0, hence its varpi-adic Tate module lim_n H^i(M^•)[varpi^n] (transitions multiplication by varpi) is zero. This does not say that H^i(M^•) has no nonzero varpi-divisible element (one lying in varpi^n H^i(M^•) for every n); without the hypothesis of (4) such elements can exist; (2) for every n there is a natural exact sequence 0 → H^i(M^•)/varpi^n → H^i(M^•/varpi^n) → H^{i+1}(M^•)[varpi^n] → 0, and these sequences form an inverse system whose third terms have transition multiplication by varpi; (3) the induced map lim_n H^i(M^•)/varpi^n → lim_n H^i(M^•/varpi^n) is an isomorphism; (4) if moreover lim_n H^i(M^•/varpi^n) has bounded varpi-power torsion for every i, then H^i(M^•) → lim_n H^i(M^•)/varpi^n is also an isomorphism, so H^i(M^•) is varpi-adically complete and separated and equals lim_n H^i(M^•/varpi^n). The statement is for complete and torsion-free terms: for M = E in degree 0 the limit of H^0(M/varpi^n) is 0 while H^0(M) = E.
+
+The hypotheses are as follows. M^• is bounded above; each M^i is varpi-adically complete and separated (IsAdicComplete for the ideal (varpi)) and varpi-torsion-free. Clause (4) also assumes that every lim_n H^i(M^•/varpi^n) has bounded varpi-power torsion.
+
+(Pan22, §4.4, Lemma 4.4.4, Forum Math. Pi 10 (2022), e7, statement p. 44, proof p. 45 (arXiv:2008.07099v3, p. 48): For a bounded-above complex of p-adically complete p-torsion-free modules whose mod-p^n cohomologies have limits with bounded torsion, cohomology is the limit of its reductions and the limit of the mod-p^n cohomologies; the proof shows that no cohomology module receives a nonzero map from Q_p, uses the universal-coefficient sequence with multiplication by p on the torsion terms, and concludes by a divisibility argument.)
+
+The proof route is: Divisible elements: if x_n ∈ H^i(M) satisfy varpi x_n = x_{n−1} with x_0 ≠ 0, lift them to cocycles x̃\_n and choose y_n with d y_n = x̃\_{n−1} − varpi x̃\_n; the convergent sum y = Σ varpi^{n−1} y_n satisfies dy = x̃\_0, a contradiction. So Hom_O(E, H^i) = 0, and the Tate module, a submodule of Hom_O(E, H^i) by the sequence 0 → O → E → E/O → 0, vanishes. Bockstein: M is varpi-torsion-free, so 0 → M → M → M/varpi^n → 0 (multiplication by varpi^n) is exact; its long exact sequence gives (2), and comparing n + 1 with n shows that the transition on the third terms is multiplication by varpi. The third terms form a system with zero limit by (1). The first terms H^i/varpi^n have surjective transitions, so their lim¹ vanishes (ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one) and the limit of the exact sequences gives (3). Completeness: H^i(M) is a quotient of the complete module of cocycles, so H^i(M) → lim H^i(M)/varpi^n is onto. If its kernel K were nonzero, bounded torsion (varpi^k kills the torsion of the limit) shows varpi K = K, which with (1) forces K = 0.
+
+Uses: CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit: Pan's bounded-torsion inverse-limit argument for A_inf-coefficient cohomology of the perfectoid modular curve applies this lemma to a Čech complex; the request to CC.2 asks for exactly this control; CompletedCohomologyPartII:CC.4/completed-coefficient-interchange: Identifies the completed tensor form of completed cohomology with arbitrary complete torsion-free coefficients.
+
+**Checks.**
+
+- M = O in degree 0: both limits are O.
+- M = [O → O] in degrees 0, 1 with differential multiplication by varpi: H^0 = 0 and H^1 = O/varpi = k. H^0(M/varpi^n) = varpi^{n−1}O/varpi^n ≅ k is nonzero for every n, and the Bockstein sequence identifies it with H^1[varpi^n] = k, whose transitions are multiplication by varpi, hence zero: the limit of the H^0(M/varpi^n) is 0 = H^0(M).
+- Completeness is needed: M = E in degree 0 is torsion-free but not complete, and E is varpi-divisible with lim_n E/varpi^n = 0 ≠ E.
+- Divisible elements need not vanish without the hypothesis of (4): let M^0 = M^1 be the varpi-adic completion of the free O-module on e_1, e_2, … (the null sequences in O) and d(e_n) = varpi^n e_n. The class of w = Σ varpi^n e_n in H^1 is nonzero, since a preimage would have to be Σ e_n, which is not a null sequence, yet w − d(e_1 + … + e_{k−1}) lies in varpi^k M^1 for every k, so the class lies in every varpi^k H^1. Here lim_m H^1/varpi^m is the completion of the direct sum of the O/varpi^n, whose varpi-power torsion is unbounded, and Hom_O(E, H^1) = 0 still holds.
+
+*Needs:* `ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`, `mathlib:IsAdicComplete`.
+
+Target `CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control`.
+
+### 2.6 Adic topology and continuous actions
 
 <a id="adic-topology-and-continuous-actions"></a>
 
-When the coefficient system comes from the CC.4 finite-cell admissible model and the preceding strict pro-system control applies, H̃^n_* is varpi-adically separated and complete with bounded varpi-torsion, and its coefficient projection topology agrees with its varpi-adic topology. The H_int-action and transported Hecke endomorphisms are continuous; for a coherent full-H-equivariant integral system H_int may be replaced by H. Joint H_int×H̃ continuity follows from smoothness of every discrete coefficient quotient and the topology comparison.
+When the coefficient system comes from the CC.4 finite-cell admissible model and the preceding strict pro-system control applies, H̃^n_\* is varpi-adically separated and complete with bounded varpi-torsion, and its coefficient projection topology agrees with its varpi-adic topology. The H_int-action and transported Hecke endomorphisms are continuous; for a coherent full-H-equivariant integral system H_int may be replaced by H. Joint H_int×H̃ continuity follows from smoothness of every discrete coefficient quotient and the topology comparison.
 
 (E06, Lemma 2.1.4 and Theorem 2.1.5 proof, pp.21–24: The completed cochain model gives the actual topology and continuous admissible action.; CE, Theorem 1.1(2), pp.3–4: Integral completeness and bounded torsion are asserted separately in the survey.)
 
@@ -547,11 +763,11 @@ The proof route is: First prove the named coefficient/pro-system comparison; rec
 
 Target `CompletedCohomologyPartII:CC.2/adic-topology-and-continuous-actions`.
 
-### 2.6 Completion and Tate module
+### 2.7 Completion and Tate module
 
 <a id="completion-and-tate-module"></a>
 
-Put B^n_*=colim_K H^n(C^*_{K,O}) under pullback. Define Ĥ^n_*=lim_s B^n_*/varpi^s and T_varpi B^n_*=lim_s B^n_*[varpi^s] with transition multiplication by varpi, not inclusion or reduction. These modules are separate from H̃. The Tate module is varpi-torsion-free; a divisible part of B is killed by completion but its divisible torsion may contribute to T_varpi.
+Put B^n_\*=colim_K H^n(C^\*\_{K,O}) under pullback. Define Ĥ^n_\*=lim_s B^n_\*/varpi^s and T_varpi B^n_\*=lim_s B^n_\*[varpi^s] with transition multiplication by varpi, not inclusion or reduction. These modules are separate from H̃. The Tate module is varpi-torsion-free; a divisible part of B is killed by completion but its divisible torsion may contribute to T_varpi.
 
 (CE, Definitions before (1.1), pp.4–5: Integral-colimit completion and its Tate module explain the error between integral and finite-coefficient completion.; E06, §2.1, pp.20–22: The UCT yields the comparison sequence.)
 
@@ -578,11 +794,11 @@ Provide the following named interface.
 
 Target `CompletedCohomologyPartII:CC.2/completion-and-tate-module`.
 
-### 2.7 Completion–Tate exact sequence
+### 2.8 Completion–Tate exact sequence
 
 <a id="the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting"></a>
 
-For the finite-projective coefficient lattice and actual finite-cell UCT tower, 0→Ĥ^n_*→H̃^n_*→T_varpi B^{n+1}_*→0 is exact and natural for the supplied support/Hecke maps. If the varpi-torsion exponents of all finite-level H^{n+1} are uniformly bounded, the last term vanishes. No boundedness conclusion follows from each individual level being finite.
+For the finite-projective coefficient lattice and actual finite-cell UCT tower, 0→Ĥ^n_\*→H̃^n_\*→T_varpi B^{n+1}\_\*→0 is exact and natural for the supplied support/Hecke maps. If the varpi-torsion exponents of all finite-level H^{n+1} are uniformly bounded, the last term vanishes. No boundedness conclusion follows from each individual level being finite.
 
 (E06, §2.1, displayed UCT and Lemma 2.1.4, pp.20–22: The quotient system is surjective, so lim¹ on its left term vanishes.; CE, Equation (1.1), pp.4–5; Remark 1.15, p.12: The completed object differs by the next-degree Tate module.)
 
@@ -597,13 +813,13 @@ The proof route is: Take finite-level UCT 0→H^n/varpi^s→H^n(mod varpi^s)→H
 
 Target `CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting`.
 
-### 2.8 Coefficient Bockstein comparison
+### 2.9 Coefficient Bockstein comparison
 
 <a id="coefficient-bockstein-comparison"></a>
 
-After the integral admissible-complex comparison identifies H̃^n with H^n(S), derived reduction gives 0→H̃^n/varpi^s→A^n_s→H̃^{n+1}[varpi^s]→0. The reduction map is an isomorphism only when the next-degree torsion term vanishes. For an arbitrary coefficient tower lacking that comparison, use 𝒞⊗ᴸ O/varpi^s and its separate base-change map to A^•_s, with the Milnor error retained.
+After the integral admissible-complex comparison identifies H̃^n with H^n(S), derived reduction gives 0→H̃^n/varpi^s→A^n_s→H̃^{n+1}[varpi^s]→0. The reduction map is an isomorphism only when the next-degree torsion term vanishes. For an arbitrary coefficient tower lacking that comparison, use 𝒞⊗ᴸ O/varpi^s and its separate base-change map to A^•\_s, with the Milnor error retained.
 
-The hypotheses are as follows. The controlled integral cochain model S is O-flat and its derived reduction S⊗ᴸ_O O/varpi^s identifies with the actual fixed-exponent tower cochain complex, compatibly for all s. These comparisons are proved using CC.4, not inferred from cohomological completeness.
+The hypotheses are as follows. The controlled integral cochain model S is O-flat and its derived reduction S⊗ᴸ\_O O/varpi^s identifies with the actual fixed-exponent tower cochain complex, compatibly for all s. These comparisons are proved using CC.4, not inferred from cohomological completeness.
 
 (CE, Theorem 1.16(5), p.13: The mod-p comparison contains a next-degree torsion term.; E06, Proposition 1.2.12, p.16: The comparison is established pro-systemically before reducing at one index.)
 
@@ -618,11 +834,11 @@ The proof route is: Use the multiplication-by-varpi^s triangle of the flat integ
 
 Target `CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison`.
 
-### 2.9 Unitary Banach completion
+### 2.10 Unitary Banach completion
 
 <a id="rational-unitary-banach-tower"></a>
 
-Under the topology and bounded-torsion theorem put L=H̃^n_*/H̃^n_*[varpi^∞] with its complete separated varpi-adic topology and B=L⊗_O E. The gauge norm with unit ball L makes B a unitary E-Banach representation for trivial coefficient action, or for a specified full-H-stable lattice. For algebraic coefficients the full-H action is constructed by maps between commensurable transported lattices, using E06 Lemmas 2.2.8–2.2.10; the resulting rational representation is continuous and compact-open admissible once CC.5 applies. Full-H unitarity still requires a full-H-stable lattice. General Banach and Schikhof categories are imported from the foundational owner.
+Under the topology and bounded-torsion theorem put L=H̃^n_\*/H̃^n_\*[varpi^∞] with its complete separated varpi-adic topology and B=L⊗\_O E. The gauge norm with unit ball L makes B a unitary E-Banach representation for trivial coefficient action, or for a specified full-H-stable lattice. For algebraic coefficients the full-H action is constructed by maps between commensurable transported lattices, using E06 Lemmas 2.2.8–2.2.10; the resulting rational representation is continuous and compact-open admissible once CC.5 applies. Full-H unitarity still requires a full-H-stable lattice. General Banach and Schikhof categories are imported from the foundational owner.
 
 (E06, Lemma 2.1.4, Theorem 2.1.5, pp.21–24; Lemmas 2.2.8–2.2.10 and Theorem 2.2.11, pp.30–32: The complete torsion-free lattice gives the Banach space; algebraic coefficient translations require lattice transport.; ST, Theorem 2.3, pp.11–12; §3, pp.12–15: The general duality and admissible category are foundational inputs.)
 
@@ -651,15 +867,31 @@ Target `CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower`.
 
 ### Examples
 
-The inverse coefficient limit of regular point-tower functions is C(K_0,O) with uniform varpi-adic topology. For the auxiliary uncontrolled discrete tower Z with transitions p, lim is zero but lim¹=Z_p/Z. Thus degreewise completion and derived completion are distinguished.
+The inverse coefficient limit of the functions on the regular point tower is C(K_0, O) with the uniform varpi-adic topology. For the auxiliary uncontrolled discrete tower Z with transitions p, lim is zero but lim¹ = Z_p/Z, so degreewise completion and derived completion differ. For the complex [O → O] with differential varpi, H^0(M/varpi^n) ≅ k for every n but the transitions vanish, so the limit is 0 = H^0(M); for M = E in degree 0 completeness fails and lim E/varpi^n = 0 ≠ E (2.5).
 
 ### Dependencies
 
-`ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.1/lim-one-six-term`, `ArithmeticGaloisDuality:R02.1/milnor-sequence`, `ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.1/full-local-group-smooth-action`, `CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison`, `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:DerivedCategory.Q`, `mathlib:ModuleCat.sectionsSubmodule`, `mathlib:TopModuleCat.isLimit`.
+`ArithmeticGaloisDuality:R02.1`, `ArithmeticGaloisDuality:R02.1/lim-one-six-term`, `ArithmeticGaloisDuality:R02.1/milnor-sequence`, `ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.1/full-local-group-smooth-action`, `CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison`, `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:DerivedCategory.Q`, `mathlib:IsAdicComplete`, `mathlib:ModuleCat.sectionsSubmodule`, `mathlib:TopModuleCat.isLimit`.
 
-This layer is **planned**. Its remaining closure work is G2 integral strict control; R02.1 enhanced Rlim and L1 Banach foundations.
+**Open proof inputs.** G2 (strict integral control), the enhanced countable Rlim of ArithmeticGaloisDuality R02.1, and the Banach foundations after PadicMeasuresIwasawaAlgebras L1.
+
+<a id="layer-3"></a>
 
 ## Layer 3: Continuous duals and completed homology
+
+This layer fixes the dual categories, continuous O-duals and Pontryagin duals with their topologies and action conventions, defines completed homology and Borel–Moore homology as limits under pushforward, and proves the integral duality between completed homology and completed cohomology with its torsion terms. It also contains Fu's double-limit model of completed homology, the completed modules at varying tame level with their Borel–Moore duality used by Nakamura, and the admissible complexes and coefficient-module dualities used by Boxer–Pilloni and Nakamura.
+
+**Targets of the layer.**
+
+- *Continuous O-linear and Pontryagin duals with their coefficient targets and topologies* ([3.1](#continuous-dual-conventions)). D_t into E/O with the discrete or compact topology and D_O into O with the uniform varpi-adic or pointwise compact topology; the transpose action is a right action, and inversion gives the left contragredient.
+- *Dual of the smooth torsion colimit as a projective system; completed homology with its transfer direction* ([3.3](#completed-homology-and-borel-moore), [3.5](#finite-coefficient-duality-and-bockstein), [3.6](#finite-coefficient-model-of-completed-homology)). Completed homology and Borel–Moore homology are limits under covering pushforward; at the residue field the duals of the torsion colimits are the finite-coefficient completed homology. 3.6 identifies H̃\_n with the double limit over exponent and level, which is Fu's model.
+- *Module structure over O[[K_0]]; left modules distinguished from the opposite action of duality* ([3.4](#iwasawa-action-on-homology), [3.1](#continuous-dual-conventions)). Tau Ceti's `completedGroupAlgebra` and `IsCompactModule.completedGroupAlgebraModule` give the left action; duals carry the transpose right action, converted by the inversion anti-isomorphism.
+- *Biduality only in the compact–discrete or admissible category* ([3.2](#qualified-biduality), [3.11](#admissible-complex-convention), [3.12](#admissible-perfect-anti-equivalence)). Biduality for compact modules that are limits of finite varpi-primary modules, for discrete torsion modules, and for torsion-free compact modules and complete torsion-free lattices; nothing for modules with torsion in other topologies.
+- *Compatibility with localisation and completion, without commuting duals with arbitrary base change* ([3.7](#duality-between-completed-homology-and-completed-cohomology), [3.10](#dual-completion-tate-sequence), [3.16](#mixed-tensor-dual-comparison), [8.14](#localisation-limit-support-dual-compatibility)). Integral completed duality and its completion–Tate dual sequence; the mixed tensor duality for finite local coefficient algebras only; localisation at residual ideals in Layer 8.
+- *Completed Borel–Moore homology and its duality with compactly supported completed cohomology, at fixed and at varying tame level (Nakamura §2.3)* ([3.3](#completed-homology-and-borel-moore), [3.7](#duality-between-completed-homology-and-completed-cohomology), [3.8](#tame-level-completed-modules), [3.9](#tame-level-borel-moore-duality)). At fixed tame level this is the compact-support and Borel–Moore case of 3.7 (Nakamura, Lemma 2.4, once the torsion term vanishes). The colimit over tame levels is 3.8, and its identification with the smooth contragredient is 3.9.
+- *Coefficient-module duality and completed tensor products (Nakamura, Appendix B.1)* ([3.13](#orthonormalizable-and-profree-modules), [3.14](#coefficient-module-duality), [3.15](#mixed-completed-tensor), [3.16](#mixed-tensor-dual-comparison)). Definitions B.1–B.4 and Lemmas B.5–B.6, with Emerton's 2011 Appendices B–C as proofs.
+- *Admissible complexes and their perfect duals (Boxer–Pilloni §1.4, §5.4)* ([3.11](#admissible-complex-convention), [3.12](#admissible-perfect-anti-equivalence)). Terms are finite direct summands of C(K_0, O)^{n_i} for a profinite K_0, free for pro-p K_0; degreewise continuous duality reverses amplitude; the completed tensor product is used; Λ acts through t ↦ [t]; transpose and contragredient structures are kept apart; the Serre adjoint carries the twist t ↦ w₀t⁻¹ (see Source corrections).
+- *Pontryagin and Schikhof duals of the definite degree-zero tower (LLHLM §5.3)* ([3.17](#definite-degree-zero-dual-interface), [3.1](#continuous-dual-conventions), [3.2](#qualified-biduality), [8.5](#definite-unitary-degree-zero)). The completed lattice is the carrier of Layers 1–2 and its two duals use the conventions of 3.1; the unitary geometry is 8.5.
 
 ### 3.1 Continuous tower duals
 
@@ -715,7 +947,7 @@ Target `CompletedCohomologyPartII:CC.3/qualified-biduality`.
 
 <a id="completed-homology-and-borel-moore"></a>
 
-Define H̃_n=lim_U H_n(Y_{UK^p},O) under covering pushforward, and H̃_n^{BM}=lim_U H_n^{BM}(Y_{UK^p},O) under proper pushforward, with their compact projective-limit topologies at finite-type neat levels. At fixed s put H̃_{n,s}=lim_U H_n(Y_{UK^p},O/varpi^s), with the BM variant. These are separate from reductions H̃_n/varpi^s until the Bockstein theorem is applied. Over a Borel–Serre pair, BM is computed by its relative chains, not by forgetting the boundary.
+Define H̃\_n=lim_U H_n(Y_{UK^p},O) under covering pushforward, and H̃\_n^{BM}=lim_U H_n^{BM}(Y_{UK^p},O) under proper pushforward, with their compact projective-limit topologies at finite-type neat levels. At fixed s put H̃\_{n,s}=lim_U H_n(Y_{UK^p},O/varpi^s), with the BM variant. These are separate from reductions H̃\_n/varpi^s until the Bockstein theorem is applied. Over a Borel–Serre pair, BM is computed by its relative chains, not by forgetting the boundary.
 
 (CE, §1.1 definitions, p.2; Theorem 1.16, pp.12–13: Homology uses the inverse level system and has a separate finite-coefficient variant.; GN, §2.1.3, p.8: Completed homology is the inverse limit of actual finite-level homology.; Nakamura, Remark 2.3, p.21: For modular curves BM is the relative homology of the compact curve and its cusps.)
 
@@ -728,7 +960,7 @@ Provide the following named interface.
 - `completedHomology_proj`: The U-component is the actual finite-level H_n, with pushforward compatibility.
 - `completedHomology_ext`: All level projections jointly detect equality.
 - `completedHomology_cofinal`: Cofinal normal restriction gives an isomorphism of compact modules.
-- `completedHomology_toBM`: The finite support map induces H̃_n→H̃_n^{BM}.
+- `completedHomology_toBM`: The finite support map induces H̃\_n→H̃\_n^{BM}.
 
 **Checks.**
 
@@ -765,7 +997,7 @@ Target `CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology`.
 
 <a id="finite-coefficient-duality-and-bockstein"></a>
 
-For finite-cell towers with compatible finite-projective coefficients and their duals, evaluation identifies A^n_k≅Hom_cont,k(H̃_{n,k},k) and H̃_{n,k}≅Hom_k(A^n_k,k), including compact-support/BM. The coefficient triangle and completed chain comparison give 0→H̃_n/varpi→H̃_{n,k}→H̃_{n−1}[varpi]→0. With nontrivial coefficient lattice replace one coefficient system by its O-linear dual. This is algebraic UCT duality, not dimension-shifting Poincaré duality.
+For finite-cell towers with compatible finite-projective coefficients and their duals, evaluation identifies A^n_k≅Hom_cont,k(H̃\_{n,k},k) and H̃\_{n,k}≅Hom_k(A^n_k,k), including compact-support/BM. The coefficient triangle and completed chain comparison give 0→H̃\_n/varpi→H̃\_{n,k}→H̃\_{n−1}[varpi]→0. With nontrivial coefficient lattice replace one coefficient system by its O-linear dual. This is algebraic UCT duality, not dimension-shifting Poincaré duality.
 
 (CE, Theorem 1.16(3),(5), p.13: Finite-field duality is exact, whereas integral reduction retains adjacent torsion.; E06, Theorem 2.1.5 proof, pp.22–24: Finite cochain terms are dual to finite chains, compatibly with level maps.)
 
@@ -773,18 +1005,43 @@ The proof route is: Dualize finite complexes over k, where linear dual is exact.
 
 **Checks.**
 
-- For the two-term chain O --varpi→ O, H̃_{1,k}=k comes from H̃₀[varpi].
+- For the two-term chain O --varpi→ O, H̃\_{1,k}=k comes from H̃₀[varpi].
 - The compact inverse limit is dual to the discrete colimit, not to an unrestricted product.
 
 *Needs:* `CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore`, `CompletedCohomologyPartII:CC.3/continuous-dual-conventions`, `CompletedCohomologyPartII:CC.3/qualified-biduality`, `ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `PadicMeasuresIwasawaAlgebras:L1`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`.
 
 Target `CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein`.
 
-### 3.6 Integral completed duality
+### 3.6 Finite-coefficient model of completed homology
+
+<a id="finite-coefficient-model-of-completed-homology"></a>
+
+Fix the tame level K^p, a compact open K_0 of the p-adic group with a countable basis of open normal subgroups U, and the neat finite-type tower Y_U with the finite free O-local system of CC.3/completed-homology-and-borel-moore. For every n the coefficient-reduction maps induce an O[[K_0]]-linear homeomorphism H̃\_n ≅ lim_s H̃\_{n,s}, where H̃\_{n,s} = lim_U H_n(Y_U, O/varpi^s); likewise H̃\_n^{BM} ≅ lim_s lim_U H_n^{BM}(Y_U, O/varpi^s). The isomorphisms commute with the support map H̃\_n → H̃\_n^{BM}, covering pushforward, conjugation and the transported tame Hecke maps. Consequently the rational completed homology of Fu, (lim_s lim_U H_n(Y_U, Z/p^s)) ⊗\_{Z_p} K for a finite extension K/Q_p, is K ⊗\_{Z_p} H̃\_n for O = Z_p: rationalisation is applied after both limits. It is not the limit lim_U H_n(Y_U, E) of rational finite-level homology: in the tower of connected degree-p covers of a circle the first is 0 and the second is E.
+
+The hypotheses are as follows. Fixed tame level K^p; every Y_U is a neat finite level with the finite cellular model of ALS.1/finite-complex-model (relative cells of the Borel–Serre pair for Borel–Moore homology), so its homology with coefficients in a finite O-module is a finite O-module. The coefficient system is the finite free O-local system fixed in CC.3/completed-homology-and-borel-moore; for an algebraic lattice W_0 the integral local actions are those of H_int = Stab_H(W_0). Fu's instance: O = Z_p and the rationalisation is ⊗\_{Z_p} K for a finite extension K of Q_p.
+
+(Fu, §1, equation (4), p. 3; §7, the displayed definition before (38), p. 23: Fu defines completed homology at a fixed tame level as the limit over the exponent s of the limit over p-levels of homology with Z/p^s coefficients, tensored afterwards with a finite extension K of Q_p, and quotes its finite generation over K[[G]] from Emerton and Calegari–Emerton.; CE, §1.1, p. 2; Theorem 1.1(1), p. 3: Calegari and Emerton define completed homology as the limit over the tower of homology with Z_p coefficients, assuming each space has the homotopy type of a finite simplicial complex so that all these groups are finitely generated, and state that the projective-limit topology is the canonical one.)
+
+The proof route is: At a fixed level U the cellular chain complex C_U is a bounded complex of finite free O-modules (ALS.1/finite-complex-model), and H_n(Y_U, O/varpi^s) = H_n(C_U/varpi^s) is a finite O-module; for Borel–Moore homology use the relative complex of the Borel–Serre pair. For fixed n the systems s ↦ Z_n(C_U/varpi^s) and s ↦ B_n(C_U/varpi^s) consist of finite modules, so they are Mittag-Leffler and their lim¹ vanishes (ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one). So lim_s is exact on 0 → B_n → Z_n → H_n → 0 and on 0 → Z_n → C_n → B_{n−1} → 0, and lim_s H_n(C_U/varpi^s) = H_n(lim_s C_U/varpi^s) = H_n(C_U) since C_U is varpi-adically complete. Coefficient reduction commutes with covering pushforward, so (U, s) ↦ H_n(Y_U, O/varpi^s) is a functor on a product of two directed sets and its limit may be taken in either order: lim_s lim_U H_n(Y_U, O/varpi^s) ≅ lim_U lim_s H_n(Y_U, O/varpi^s) = lim_U H_n(Y_U, O) = H̃\_n. Both sides are compact Hausdorff, being limits of finite discrete modules, and the comparison is a continuous bijection, hence a homeomorphism. Deck transformations, supports and the transported Hecke correspondences commute with coefficient reduction, so the map is O[[K_0]]-linear for the action of CC.3/iwasawa-action-on-homology. Rationalisation: K ⊗\_{Z_p} (−) is applied to the integral limit. In the tower of connected degree-p covers of a circle, pushforward on H_1(−, O) = O is multiplication by p, so H̃\_1 = 0, whereas lim(E ← E ← …) along multiplication by p is E because p is invertible in E.
+
+Uses: Fu, §7, before (38), arXiv v2 p. 23: The finitely generated torsion Iwasawa module and the descent spectral sequence (38) are stated for this rational double-limit model; CC.5/semisimple-homology-torsion and CC.6/homological-hyperTor-descent prove them for H̃\_n, and this comparison transports them; CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein: The fixed-exponent modules H̃\_{n,s} are the ones that duality pairs with the fixed-exponent cohomology; this node says how they assemble to H̃\_n.
+
+**Checks.**
+
+- Circle tower of connected degree-p covers: H̃\_{1,s} = lim(O/varpi^s ← O/varpi^s ← …) along multiplication by p is 0 for every s, H̃\_1 = 0, and the comparison is the zero isomorphism.
+- Zero-dimensional regular tower Y_U = K_0/U: H̃\_{0,s} = (O/varpi^s)[[K_0]] and its limit over s is O[[K_0]] = H̃\_0, the test regular_zero_homology of CC.3/completed-homology-and-borel-moore.
+- Non-example for commuting limits with rationalisation: in the circle tower E ⊗\_O H̃\_1 = 0 while lim_U H_1(Y_U, E) = E.
+- At s = 1 the composite H̃\_n ≅ lim_s H̃\_{n,s} → H̃\_{n,k} is the reduction map of the Bockstein sequence of CC.3/finite-coefficient-duality-and-bockstein, with cokernel H̃\_{n−1}[varpi]; in the circle tower H̃\_{0,k} = k and H̃\_0 = O, consistent with H̃\_{−1} = 0.
+
+*Needs:* `CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore`, `CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology`, `ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`.
+
+Target `CompletedCohomologyPartII:CC.3/finite-coefficient-model-of-completed-homology`.
+
+### 3.7 Integral completed duality
 
 <a id="duality-between-completed-homology-and-completed-cohomology"></a>
 
-For the finite-cell completed chain model over noetherian Λ with the strict integral control established in CC.2, there are natural exact sequences 0→Hom_cont,O(H̃_{n−1}[varpi^∞],E/O)→H̃^n→Hom_cont,O(H̃_n,O)→0 and 0→Hom_O(H̃^{n+1}[varpi^∞],E/O)→H̃_n→Hom_O(H̃^n,O)→0, with the compact-support/BM analogues and dual coefficient lattice when needed. The first E/O-dual takes the torsion submodule, correcting CE Theorem 1.1(3). Each cohomology lattice uses varpi-adic topology; compact homology uses its canonical topology.
+For the finite-cell completed chain model over noetherian Λ with the strict integral control established in CC.2, there are natural exact sequences 0→Hom_cont,O(H̃\_{n−1}[varpi^∞],E/O)→H̃^n→Hom_cont,O(H̃\_n,O)→0 and 0→Hom_O(H̃^{n+1}[varpi^∞],E/O)→H̃\_n→Hom_O(H̃^n,O)→0, with the compact-support/BM analogues and dual coefficient lattice when needed. The first E/O-dual takes the torsion submodule, correcting CE Theorem 1.1(3). Each cohomology lattice uses varpi-adic topology; compact homology uses its canonical topology.
 
 (CE, Theorem 1.1(3), pp.3–4, corrected as E1: The paired sequences are the survey target; its first displayed torsion term must be restored.; E06, §2.1 lifted finite-cell proof, pp.22–24: The integral model, with strictness and bounded torsion, provides a route rather than a mere citation to the survey.)
 
@@ -799,11 +1056,75 @@ The proof route is: Represent compact completed chains by a bounded finite free/
 
 Target `CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology`.
 
-### 3.7 Dual completion–Tate sequence
+### 3.8 Completed modules at varying tame level
+
+<a id="tame-level-completed-modules"></a>
+
+Let Σ₀ be a finite set of finite places of F not above p, G_{Σ₀} = ∏\_{v∈Σ₀} G(F_v), and fix the level K^Σ at the finite places outside Σ = Σ₀ ∪ {places above p}. For a compact open K_{Σ₀} ⊂ G_{Σ₀} with K_{Σ₀}K^Σ neat, write H̃^n_c(K_{Σ₀}) for the completed compact-support cohomology (CC.2, support c) and H̃\_n^{BM}(K_{Σ₀}) for the completed Borel–Moore homology (CC.3) of the p-tower at tame level K_{Σ₀}K^Σ. For K'\_{Σ₀} ⊂ K_{Σ₀}, finite-cover pullback gives res: H̃^n_c(K_{Σ₀}) → H̃^n_c(K'\_{Σ₀}) and the finite-cover transfer gives tr: H̃\_n^{BM}(K_{Σ₀}) → H̃\_n^{BM}(K'\_{Σ₀}); both commute with the p-level and coefficient transitions. Define H̃^n_{c,Σ} = colim_{K_{Σ₀}} H̃^n_c(K_{Σ₀}) along res and H̃\_{n,Σ}^{BM} = colim_{K_{Σ₀}} H̃\_n^{BM}(K_{Σ₀}) along tr. Conjugation of tame levels gives each a smooth O-linear action of G_{Σ₀}, commuting with the action of the p-adic group at each tame level and with the tame Hecke operators at places outside Σ. The colimit is taken after completion in s; it is a different construction from the fixed-exponent tame colimit of CC.1/tame-level-variation, and the two are not identified here.
+
+The hypotheses are as follows. Σ₀ is finite and contains no place above p; K^Σ is fixed; every tame level K_{Σ₀}K^Σ used is neat. For K'\_{Σ₀} normal in K_{Σ₀}, the cover at level K'\_{Σ₀}K^Σ over level K_{Σ₀}K^Σ is a finite Galois cover whose group is the effective quotient of K_{Σ₀}/K'\_{Σ₀}; its degree divides [K_{Σ₀} : K'\_{Σ₀}]. For Shimura quotients with infinite central units the effective deck group is verified under gap G12. The invariants statement requires K_{Σ₀} of pro-order invertible in O (SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order).
+
+(Nakamura, §2.3.1, arXiv p. 22 (Inventiones 234, p. 192): The completed Borel–Moore homology at tame level Σ₀ is defined as the direct limit over compact opens of G_{Σ₀} of the fixed-level modules along restriction maps, and carries a smooth action of G_{Σ₀}.; Nakamura, §2.3.2, arXiv pp. 23–24 (Inventiones 234, pp. 194–195): For a compact open of pro-order prime to p, the projector onto invariants is defined with the normalised Haar measure; the invariants of the tame-level compactly supported completed cohomology are the fixed-level module, and the projector restricted to a smaller level is the corestriction divided by the index.)
+
+The proof route is: At each p-level and exponent, pullback and finite-cover transfer between tame levels are the ALS pullback and the finite-cover transfer of the AlgebraicTopology supplier; they commute with p-level pushforward and pullback and with coefficient reduction, so they pass to the completed modules of CC.2/coefficient-limit-completion and CC.3/completed-homology-and-borel-moore. Form the two filtered colimits in O-modules. Conjugation by g ∈ G_{Σ₀} carries level K_{Σ₀} to gK_{Σ₀}g⁻¹ and commutes with res and tr, so G_{Σ₀} acts; a class coming from level K_{Σ₀} is fixed by K_{Σ₀}, so the action is smooth (SR.0:abelian-category/smooth-rep-category). For K' normal in K of index invertible in O: cor∘res is multiplication by the degree and res∘cor is the group sum over the deck group (CC.1/restriction-corestriction-normalisation, applied at every exponent and passed to the limit). Hence res is injective with image the invariants, and the averaging projector e_K of SR.0 satisfies e_K∘ι\_{K'} = ι\_K∘[K : K']⁻¹ cor; the finite form of this identity is Tau Ceti's Representation.averageMap_eq_invOf_card_smul_norm. The Borel–Moore side is the same with tr and pushforward exchanged. Invariants commute with filtered colimits of smooth modules when e_K exists, which gives (H̃^n_{c,Σ})^{K} = H̃^n_c(K) and the Borel–Moore analogue.
+
+Uses: Nakamura, §2.3.1, arXiv p. 22 (Inventiones 234, p. 192): The completed Borel–Moore homology of modular curves at tame level Σ₀ is the colimit of the fixed-tame-level modules along restriction, with its smooth action of G_{Σ₀}; restriction there is the Poincaré dual of the transfer used here; Nakamura, §2.3.2, arXiv pp. 23–24 (Inventiones 234, pp. 194–195): The compactly supported completed cohomology at tame level Σ₀ has K_{Σ₀}-invariants equal to the fixed-level module, and the projector restricted to a smaller level is the normalised trace; CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality: Both colimits, the invariants identification and the projector formula are the inputs of the tame-level duality; CompletedCohomologyAndLocalGlobalCompatibility:R31.4 (Nakamura, Corollary 2.5): The residual-localised Borel–Moore module at tame level Σ₀ is built from this colimit.
+
+Provide the following named interface.
+
+- `TameCompleted.ι`: Structure maps H̃^n_c(K_{Σ₀}) → H̃^n_{c,Σ} and H̃\_n^{BM}(K_{Σ₀}) → H̃\_{n,Σ}^{BM}, compatible with res and tr respectively.
+- `TameCompleted.exists_ι`: Every element of either colimit is ι\_K x for some open K_{Σ₀} inside a fixed compact open K⁰\_{Σ₀}, and ι\_K x = ι\_K y exactly when x and y agree after res (respectively tr) to some open K′ ⊂ K; the open subgroups of K⁰\_{Σ₀} are cofinal, so restricting to them gives the same colimit.
+- `TameCompleted.desc`: A family of O-linear maps f_K : H̃^n_c(K_{Σ₀}) → W with f_{K′} ∘ res = f_K for K′ ⊂ K induces a unique O-linear map H̃^n_{c,Σ} → W with desc ∘ ι\_K = f_K, and likewise along tr on the Borel–Moore side; it is G_{Σ₀}-equivariant when W is a G_{Σ₀}-module and g ∘ f_K = f_{gKg⁻¹} ∘ g for the conjugation maps.
+- `TameCompleted.smooth`: Every element of either colimit is fixed by a compact open subgroup of G_{Σ₀}; an element in the image of level K_{Σ₀} is fixed by K_{Σ₀}.
+- `TameCompleted.invariants`: For K_{Σ₀} of pro-order invertible in O, ι identifies H̃^n_c(K_{Σ₀}) with (H̃^n_{c,Σ})^{K_{Σ₀}} and H̃\_n^{BM}(K_{Σ₀}) with (H̃\_{n,Σ}^{BM})^{K_{Σ₀}}; in particular ι is injective.
+- `TameCompleted.averaging_comp_ι`: For K' ⊂ K of index invertible in O, e_K ∘ ι\_{K'} = ι\_K ∘ [K : K']⁻¹ cor on H̃^n_c(K'), with e_K the averaging projector of SR.0.
+- `TameCompleted.equivariant`: The G_{Σ₀}-action commutes with the action of the p-adic group at each tame level and with tame Hecke operators at places outside Σ.
+- `TameCompleted.of_empty`: For Σ₀ = ∅ the structure maps are isomorphisms from the fixed-level modules.
+
+**Checks.**
+
+- `tameCompleted_empty`: With Σ₀ empty, H̃^n_{c,Σ} = H̃^n_c(K^p) and H̃\_{n,Σ}^{BM} = H̃\_n^{BM}(K^p).
+- `tameCompleted_points`: For levels Y(K) = K⁰/K of a profinite K⁰ of pro-order invertible in O with trivial p-tower, H̃^0_{c,Σ} = C^∞(K⁰, O) with translation action, and its K-invariants are the functions on K⁰/K; H̃\_{0,Σ}^{BM} = colim_K O[K⁰/K] along the maps sending a coset to the sum of the smaller cosets it contains.
+- `tameCompleted_p_index`: For the connected degree-p cover of a circle, pullback on H^1(−, F_p) = F_p is zero; with a p-power index the transition is not injective and level invariants are not recovered.
+- `tameCompleted_transfer_not_pushforward`: For the connected double cover of a circle with p odd, transfer H_1(S^1, O) → H_1(S^1, O) is an isomorphism and pushforward after transfer is multiplication by 2; the Borel–Moore colimit uses transfer, not pushforward.
+- An element in the image of level K_{Σ₀} is fixed by every g ∈ K_{Σ₀}: conjugation by g maps level K_{Σ₀} to itself and acts there as the identity.
+- For a finite group acting with invertible order, the averaging identity of TameCompleted.averaging_comp_ι is Tau Ceti's Representation.averageMap_eq_invOf_card_smul_norm (averageMap = ⅟|G| • norm).
+- Pushforward after transfer is multiplication by the degree on the Borel–Moore side, and cor after res is multiplication by the degree on the cohomology side, at every exponent and after completion.
+
+*Needs:* `CompletedCohomologyPartII:CC.2/coefficient-limit-completion`, `CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore`, `CompletedCohomologyPartII:CC.1/tame-level-variation`, `CompletedCohomologyPartII:CC.1/restriction-corestriction-normalisation`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector`, `tauceti:Representation.averageMap_eq_invOf_card_smul_norm`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+
+Target `CompletedCohomologyPartII:CC.3/tame-level-completed-modules`.
+
+### 3.9 Tame-level Borel–Moore duality
+
+<a id="tame-level-borel-moore-duality"></a>
+
+In the setting of CC.3/tame-level-completed-modules, fix a compact open K⁰\_{Σ₀} ⊂ G_{Σ₀} of pro-order invertible in O, the O-valued Haar measure μ on G_{Σ₀} with μ(K⁰\_{Σ₀}) = 1, and a degree n. Suppose that H̃^{n+1}\_c(K_{Σ₀})[varpi^∞] = 0 for every open K_{Σ₀} ⊂ K⁰\_{Σ₀}, so that by the compact-support and Borel–Moore case of CC.3/duality-between-completed-homology-and-completed-cohomology the evaluation map h_{K_{Σ₀}}: H̃\_n^{BM}(K_{Σ₀}) → Hom_O(H̃^n_c(K_{Σ₀}), O) is a homeomorphism of compact O-modules. Put V = H̃^n_{c,Σ}. Then the maps μ(K_{Σ₀})·h_{K_{Σ₀}}, followed by the identification Hom_O(V^{K_{Σ₀}}, O) ≅ (Ṽ)^{K_{Σ₀}}, λ ↦ λ∘e_{K_{Σ₀}}, of SR.0, are compatible with the transfer transitions, and induce an O-linear isomorphism H̃\_{n,Σ}^{BM} ≅ Ṽ onto the smooth contragredient of V. It restricts at each K_{Σ₀} to a homeomorphism H̃\_n^{BM}(K_{Σ₀}) ≅ (Ṽ)^{K_{Σ₀}}, and it is equivariant for G_{Σ₀}, for the p-adic group with the contragredient convention of CC.3/continuous-dual-conventions, and for each tame Hecke correspondence at places outside Σ, which acts on Borel–Moore homology by the transposed correspondence. Without the torsion hypothesis h_{K_{Σ₀}} has kernel Hom_O(H̃^{n+1}\_c(K_{Σ₀})[varpi^∞], E/O) and no isomorphism is asserted.
+
+The hypotheses are as follows. The hypotheses of CC.3/tame-level-completed-modules, with K⁰\_{Σ₀}K^Σ neat; for GL₂ one may take K⁰\_{Σ₀} = ∏\_{l∈Σ₀}(1 + l M₂(Z_l)), which is pro-l at each l ∈ Σ₀. G_{Σ₀} is unimodular (a product of groups of points of reductive groups), so μ(gKg⁻¹) = μ(K). H̃^{n+1}\_c(K_{Σ₀})[varpi^∞] = 0 for all open K_{Σ₀} ⊂ K⁰\_{Σ₀}. For modular curves and n = 1 this holds because the completed H^2_c vanishes, the result of Emerton that Nakamura cites in the proof of his Lemma 2.4.
+
+(Nakamura, §2.3.2, Lemma 2.4 and its proof, arXiv p. 22 (Inventiones 234, p. 193): At a fixed tame level the evaluation map from completed Borel–Moore homology to the O-dual of compactly supported completed cohomology is a topological isomorphism, because the Calegari–Emerton sequence has a torsion term that vanishes since the completed H^2_c is zero.; Nakamura, §2.3.2, arXiv p. 23 (Inventiones 234, p. 193): Hecke operators on the Borel–Moore side are normalised as T'\_l = T_l S_l⁻¹ and S'\_l = S_l⁻¹ so that the duality map is Hecke-linear.; Nakamura, §2.3.2, arXiv pp. 23–24 (Inventiones 234, pp. 194–195): With a compact open of pro-order prime to p and the normalised Haar measure, the normalised fixed-level duality maps composed with the projector identification assemble into a Hecke- and group-equivariant topological isomorphism from the tame-level Borel–Moore homology to the smooth contragredient of the tame-level compactly supported completed cohomology.; CE, Theorem 1.1(3), second sequence, p. 3, and its Borel–Moore and compact-support variants, p. 4: Completed homology maps onto the O-dual of completed cohomology with kernel the E/O-dual of the torsion of the next completed cohomology group, with Borel–Moore and compact-support variants.)
+
+The proof route is: Fixed tame level: the compact-support and Borel–Moore case of the integral duality CC.3/duality-between-completed-homology-and-completed-cohomology gives 0 → Hom_O(H̃^{n+1}\_c[varpi^∞], E/O) → H̃\_n^{BM} → Hom_O(H̃^n_c, O) → 0. Under the hypothesis h_K is a continuous bijection of compact Hausdorff modules, hence a homeomorphism (Nakamura, Lemma 2.4, for the modular curve). Transitions: for K' ⊂ K ⊂ K⁰, transfer on Borel–Moore homology is adjoint under evaluation to the trace (corestriction) on compact-support cohomology: both are the finite-cover transfer of the AlgebraicTopology Stage 5 supplier on relative chains of the Borel–Serre pair, with the adjointness requested from that stage, and ALS.3/level-trace identifies that trace with the level trace. With e_K∘ι\_{K'} = ι\_K∘[K : K']⁻¹ cor (TameCompleted.averaging_comp_ι) and μ(K') = [K : K']⁻¹ μ(K), the square formed by μ(K)h_K, λ ↦ λ∘e_K, transfer and μ(K')h_{K'} commutes. This is Nakamura's second diagram in §2.3.2, whose lower row lands in Hom_O(Ĥ¹\_c(K'\_{Σ₀}), O) (correcting a misprint in the printed diagram). SR.0 smooth-dual (3) identifies Hom_O(V^K, O) with (Ṽ)^K for K of pro-order invertible in O, and TameCompleted.invariants gives V^K = H̃^n_c(K); these identifications are compatible with the inclusions (Ṽ)^K ⊂ (Ṽ)^{K'}. Pass to the colimit over the cofinal family of open K ⊂ K⁰: every vector of Ṽ is fixed by some such K, so the union of the (Ṽ)^K is Ṽ, and the colimit of H̃\_n^{BM}(K) along transfer is H̃\_{n,Σ}^{BM}. Equivariance: conjugation by g carries μ(K)h_K to μ(gKg⁻¹)h_{gKg⁻¹} because μ is conjugation invariant; the p-adic group acts through the contragredient convention; a Hecke correspondence acts on homology by its transpose, for which evaluation is invariant (CC.1/tame-hecke-on-colimits). In Nakamura's cohomological model of H̃\_1^{BM} through Poincaré duality this transposed action is T'\_l = T_l S_l⁻¹, S'\_l = S_l⁻¹.
+
+Uses: Nakamura, §2.3.3 and Corollary 2.5, arXiv p. 25 (Inventiones 234, pp. 195–196): The residual-localised completed Borel–Moore homology at tame level Σ₀ is identified with the smooth contragredient of completed cohomology, the starting point of the zeta morphisms; that corollary is routed to CompletedCohomologyAndLocalGlobalCompatibility:R31.4.
+
+**Checks.**
+
+- Zero-dimensional example of CC.3/tame-level-completed-modules: the isomorphism sends the coset gK to the functional f ↦ ∫\_{gK} f dμ on C^∞(K⁰, O). Without the factor μ(K) the maps fail to commute with transfer by the factor [K : K'].
+- Modular curves, n = 1: the isomorphism is Nakamura's identification of H̃\_{1,Σ}^{BM} with the smooth contragredient of Ĥ¹\_{c,Σ}; its Galois equivariance uses the Galois action transported by CC.8/transported-arithmetic-actions. Nakamura writes Ĥ¹\_c, the varpi-adic completion of the integral level colimit; here it is the H̃¹\_c of this node, because every finite-level H²\_c(Y_K, O) is torsion-free, so the Tate-module term of CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting vanishes.
+- If H̃^{n+1}\_c(K)[varpi^∞] ≠ 0, the kernel Hom_O(H̃^{n+1}\_c(K)[varpi^∞], E/O) of h_K is nonzero.
+- With K⁰ = GL₂(Z_l) and p dividing |GL₂(F_l)| the normalisation μ(K) is not defined in O; first pass to a pro-l open subgroup.
+
+*Needs:* `CompletedCohomologyPartII:CC.3/tame-level-completed-modules`, `CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology`, `CompletedCohomologyPartII:CC.3/continuous-dual-conventions`, `CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector`, `SmoothRepresentationsOfLocalGroups:SR.1/a-valued-haar-measure`, `ArithmeticLocallySymmetricSpaces:ALS.3/level-trace`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+
+Target `CompletedCohomologyPartII:CC.3/tame-level-borel-moore-duality`.
+
+### 3.10 Dual completion–Tate sequence
 
 <a id="dual-completion-tate-sequence"></a>
 
-Under the strict complete-lattice hypotheses of the integral completed UCT, dualizing 0→Ĥ^n→H̃^n→T_varpi B^{n+1}→0 gives 0→D_O(T_varpi B^{n+1})→H̃_n/H̃_n[varpi^∞]→D_O(Ĥ^n)→0. Surjectivity of the last map uses the complete torsion-free quotient and the qualified Schikhof duality; it is not exactness of Hom(−,O) on arbitrary O-modules.
+Under the strict complete-lattice hypotheses of the integral completed UCT, dualizing 0→Ĥ^n→H̃^n→T_varpi B^{n+1}→0 gives 0→D_O(T_varpi B^{n+1})→H̃\_n/H̃\_n[varpi^∞]→D_O(Ĥ^n)→0. Surjectivity of the last map uses the complete torsion-free quotient and the qualified Schikhof duality; it is not exactness of Hom(−,O) on arbitrary O-modules.
 
 (CE, Consequence of (1.1), p.5: The middle dual is the torsion-free quotient of completed homology, with a Tate-dual submodule.)
 
@@ -818,7 +1139,7 @@ The proof route is: Use the second integral UCT to identify D_O(H̃^n) with the 
 
 Target `CompletedCohomologyPartII:CC.3/dual-completion-tate-sequence`.
 
-### 3.8 Admissible integral complexes
+### 3.11 Admissible integral complexes
 
 <a id="admissible-complex-convention"></a>
 
@@ -849,11 +1170,11 @@ Provide the following named interface.
 
 Target `CompletedCohomologyPartII:CC.3/admissible-complex-convention`.
 
-### 3.9 Admissible–perfect duality
+### 3.12 Admissible–perfect duality
 
 <a id="admissible-perfect-anti-equivalence"></a>
 
-Degreewise continuous O-duality induces an anti-equivalence between the integral admissible complexes just defined and perfect complexes of compact right Λ-modules, changing amplitude [a,b] to [−b,−a]. Inversion transports the latter to left modules. Its Λ-linear dual is RHom_Λ(P,Λ), naturally right-handed for P left-handed. For the torus instance, with t acting on Λ by left multiplication [t], the diagonal-action completed tensor model RΓ(K_0,M⊗̂_OΛ) realizes this dual after the prescribed inversion/opposite conversion. BP’s Serre adjoint uses the additional automorphism t↦w₀t⁻¹; it is recorded as a twist, not absorbed into the untwisted action.
+Degreewise continuous O-duality induces an anti-equivalence between the integral admissible complexes just defined and perfect complexes of compact right Λ-modules, changing amplitude [a,b] to [−b,−a]. Inversion transports the latter to left modules. Its Λ-linear dual is RHom_Λ(P,Λ), naturally right-handed for P left-handed. For the torus instance, with t acting on Λ by left multiplication [t], the diagonal-action completed tensor model RΓ(K_0,M⊗̂\_OΛ) realizes this dual after the prescribed inversion/opposite conversion. BP’s Serre adjoint uses the additional automorphism t↦w₀t⁻¹; it is recorded as a twist, not absorbed into the untwisted action.
 
 (BP, Remark 1.4.2, p.5; Lemmas 5.4.1–5.4.2, pp.56–57; Theorem 5.5.2, p.57: Continuous function/measure duality gives perfect complexes; completed tensor and the action twist are essential.)
 
@@ -869,11 +1190,11 @@ The proof route is: Identify D_O C(K_0,O) with Λ using the supplied continuous 
 
 Target `CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence`.
 
-### 3.10 Orthonormalizable coefficient modules
+### 3.13 Orthonormalizable coefficient modules
 
 <a id="orthonormalizable-and-profree-modules"></a>
 
-For a complete noetherian local O-algebra A with finite residue field and maximal ideal m, V is orthonormalizable if it is m-adically complete separated and V/m^rV is free over A/m^r for every r≥1. A compact A-module is pro-free if it is a product A^I with the product m-adic topology. Put V*=Hom_A(V,A) with pointwise topology. Cofinitely generated X means varpi-complete separated, O-torsion-free, continuous for m-adic A and varpi-adic X, with (X/varpi X)[m] finite dimensional over k. These three notions are named separately.
+For a complete noetherian local O-algebra A with finite residue field and maximal ideal m, V is orthonormalizable if it is m-adically complete separated and V/m^rV is free over A/m^r for every r≥1. A compact A-module is pro-free if it is a product A^I with the product m-adic topology. Put V\*=Hom_A(V,A) with pointwise topology. Cofinitely generated X means varpi-complete separated, O-torsion-free, continuous for m-adic A and varpi-adic X, with (X/varpi X)[m] finite dimensional over k. These three notions are named separately.
 
 (Nakamura, Definitions B.1–B.4, pp.90–91: The coefficient-module notions and their distinct topologies are used by the tensor-duality lemma.; E11, Appendices B,C, Definitions B.1,B.10,C.1, pp.99,102–103: The definitions and their duality contracts are stated for general complete local coefficient rings.)
 
@@ -900,15 +1221,15 @@ Provide the following named interface.
 
 Target `CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules`.
 
-### 3.11 Coefficient-module duality
+### 3.14 Coefficient-module duality
 
 <a id="coefficient-module-duality"></a>
 
-For A as in the preceding definition, V↦V* anti-equivalently identifies orthonormalizable modules with pro-free compact modules, inverse Hom_cont,A(−,A). For O-torsion-free A, X↦Hom_O(X,O) anti-equivalently identifies cofinitely generated modules with O-torsion-free finite A-modules with their m-adic topology. Orthonormalizable V is A-flat; tensor with a finite local A-algebra is orthonormalizable, without a claim for arbitrary base change.
+For A as in the preceding definition, V↦V\* anti-equivalently identifies orthonormalizable modules with pro-free compact modules, inverse Hom_cont,A(−,A). For O-torsion-free A, X↦Hom_O(X,O) anti-equivalently identifies cofinitely generated modules with O-torsion-free finite A-modules with their m-adic topology. Orthonormalizable V is A-flat; tensor with a finite local A-algebra is orthonormalizable, without a claim for arbitrary base change.
 
 (E11, Lemma B.2, Remark B.5, Lemma B.6 and Proposition B.11, pp.99–102; Proposition C.5, pp.103–104: Lifted bases, Artin–Rees and compact Nakayama prove the actual duality.; Nakamura, Appendix B.1, pp.90–91: These equivalences are precisely the topological inputs to B.6.)
 
-The proof route is: Lift a residue basis and identify V with restricted families tending to zero m-adically. Use Artin–Rees on finite presentations for flatness and finite coefficient base change; use the finite noetherian hypothesis, not infinite rank projectivity. Compute V* as the unrestricted product A^I, and its continuous dual by convergent evaluation. Use the compact Nakayama criterion on the O-dual of X to translate the finite-socle condition into finite A-generation.
+The proof route is: Lift a residue basis and identify V with restricted families tending to zero m-adically. Use Artin–Rees on finite presentations for flatness and finite coefficient base change; use the finite noetherian hypothesis, not infinite rank projectivity. Compute V\* as the unrestricted product A^I, and its continuous dual by convergent evaluation. Use the compact Nakayama criterion on the O-dual of X to translate the finite-socle condition into finite A-generation.
 
 **Checks.**
 
@@ -919,11 +1240,11 @@ The proof route is: Lift a residue basis and identify V with restricted families
 
 Target `CompletedCohomologyPartII:CC.3/coefficient-module-duality`.
 
-### 3.12 Mixed completed coefficient tensor
+### 3.15 Mixed completed coefficient tensor
 
 <a id="mixed-completed-tensor"></a>
 
-For O-torsion-free complete noetherian local A, orthonormalizable V and cofinitely generated X, define V⊗̂_A X=lim_n V⊗_A(X/varpi^nX), with varpi-adic topology. Separately, for compact M,N define their compact tensor by lim_{U,W}(M/U)⊗_A(N/W) with finite quotient topology. These limits share a symbol in Nakamura but are different constructions. Use the supplied generic completed tensor carriers and name the mixed realization comparison here.
+For O-torsion-free complete noetherian local A, orthonormalizable V and cofinitely generated X, define V⊗̂\_A X=lim_n V⊗\_A(X/varpi^nX), with varpi-adic topology. Separately, for compact M,N define their compact tensor by lim_{U,W}(M/U)⊗\_A(N/W) with finite quotient topology. These limits share a symbol in Nakamura but are different constructions. Use the supplied generic completed tensor carriers and name the mixed realization comparison here.
 
 (Nakamura, Definition B.2 and Lemma B.5, pp.90–91: The compact quotient tensor and mixed varpi completion are distinguished.)
 
@@ -933,28 +1254,28 @@ Uses: Nakamura B.5–B.6: The duality map is defined on exactly this completion;
 
 Provide the following named interface.
 
-- `mixedTensor_proj`: Projection to V⊗_A(X/varpi^nX) is O-linear and continuous.
-- `mixedTensor_reduce`: Its mod-varpi^n quotient is V⊗_A(X/varpi^nX) under the stated flatness control.
+- `mixedTensor_proj`: Projection to V⊗\_A(X/varpi^nX) is O-linear and continuous.
+- `mixedTensor_reduce`: Its mod-varpi^n quotient is V⊗\_A(X/varpi^nX) under the stated flatness control.
 - `mixedTensor_map`: Continuous compatible A-linear maps induce the completed tensor map.
 - `mixedTensor_torsionfree`: The completed mixed tensor is O-torsion-free.
 
 **Checks.**
 
-- `unit_tensor`: A⊗̂_A X≅X with its varpi topology.
+- `unit_tensor`: A⊗̂\_A X≅X with its varpi topology.
 - `finite_free_tensor`: For V=A^d the tensor is X^d.
 - `infinite_completion`: For A=O, V=c₀(N,O) and X=O, the mixed tensor recovers c₀(N,O), whereas the compact tensor of O^N with O has compact product topology.
-- The topology on V⊗̂_AX is the mixed varpi-adic topology.
+- The topology on V⊗̂\_AX is the mixed varpi-adic topology.
 - The compact tensor has the specified finite-quotient topology.
 
 *Needs:* `CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules`, `CompletedCohomologyPartII:CC.3/coefficient-module-duality`, `DeformationAndDerivedPatchingAlgebra:P7`.
 
 Target `CompletedCohomologyPartII:CC.3/mixed-completed-tensor`.
 
-### 3.13 Mixed tensor duality
+### 3.16 Mixed tensor duality
 
 <a id="mixed-tensor-dual-comparison"></a>
 
-Under the mixed tensor hypotheses, with D=Hom_O(X,O) finite over A, evaluation induces a topological A-linear isomorphism V*⊗_A D≅Hom_O(V⊗̂_A X,O), sending f⊗d to (v⊗x↦d(f(v)x)). On the left algebraic tensor agrees with compact completed tensor because D is finitely presented over noetherian A; this agreement is not asserted for an arbitrary compact second factor.
+Under the mixed tensor hypotheses, with D=Hom_O(X,O) finite over A, evaluation induces a topological A-linear isomorphism V\*⊗\_A D≅Hom_O(V⊗̂\_A X,O), sending f⊗d to (v⊗x↦d(f(v)x)). On the left algebraic tensor agrees with compact completed tensor because D is finitely presented over noetherian A; this agreement is not asserted for an arbitrary compact second factor.
 
 (Nakamura, Lemma B.6 and proof, pp.91–92: Finite m-power torsion and finite coefficient quotients give the evaluation comparison.; E11, Lemma B.7 and Proposition C.5, pp.101,104: Finite presentation controls Hom/tensor and compact finite generation.)
 
@@ -970,11 +1291,11 @@ The proof route is: Write X/varpi^nX as the union of its m^r-torsion, using cont
 
 Target `CompletedCohomologyPartII:CC.3/mixed-tensor-dual-comparison`.
 
-### 3.14 Definite degree-zero dual interface
+### 3.17 Definite degree-zero dual interface
 
 <a id="definite-degree-zero-dual-interface"></a>
 
-For the finite definite unitary double-coset tower of LLHLM §5.3, its fixed-exponent functions and completed lattice are the CC.1 and CC.2 carriers. Their Pontryagin and Schikhof duals use the CC.3 conventions. Formula (5.8) pairs the localized mod-residual representation with the Pontryagin dual of the patched quotient; it is not an O-linear Schikhof dual of a torsion module. Actual unitary geometry and patched-module existence remain in the accepted CC.8 adapter and the patching supplier.
+For the finite definite unitary double-coset tower of LLHLM §5.3, its fixed-exponent functions and completed lattice are the CC.1 and CC.2 carriers. Their Pontryagin and Schikhof duals use the CC.3 conventions. Formula (5.8) pairs the localized mod-residual representation with the Pontryagin dual of the patched quotient; it is not an O-linear Schikhof dual of a torsion module. Actual unitary geometry and patched-module existence remain in the CC.8 adapter and the patching supplier.
 
 (LLHLM, §5.3, pp.121–123, formula (5.8): The degree-zero completed lattice and its mod-residual Pontryagin pairing are explicit applications of the generic tower.)
 
@@ -991,15 +1312,30 @@ Target `CompletedCohomologyPartII:CC.3/definite-degree-zero-dual-interface`.
 
 ### Examples
 
-D_O(O/varpi)=0 whereas D_t(O/varpi)≅O/varpi. For K_0=Z_p, D_O C(K_0,O)=O[[K_0]] with the stated dual topologies. For infinite rank the orthonormalizable c₀ lattice and the pro-free product are different topological objects.
+D_O(O/varpi) = 0 whereas D_t(O/varpi) ≅ O/varpi. For K_0 = Z_p, D_O C(K_0, O) = O[[K_0]] with the stated dual topologies. In infinite rank the orthonormalisable c₀ lattice and the pro-free product are different topological objects. In the circle tower H̃\_1 = 0 integrally while lim_U H_1(Y_U, E) = E, so Fu's model rationalises after both limits (3.6). In the zero-dimensional tower of levels K⁰/K the tame-level duality of 3.9 sends a coset gK to integration over gK against μ; without the factor μ(K) the maps fail to commute with transfer by the index [K : K′].
 
 ### Dependencies
 
-`ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.2/coefficient-limit-completion`, `CompletedCohomologyPartII:CC.2/completion-and-tate-module`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `DeformationAndDerivedPatchingAlgebra:P7`, `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p`, `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian`, `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:ContinuousLinearMap`, `mathlib:PontryaginDual`, `mathlib:Representation.dual`, `mathlib:TopModuleCat.isLimit`.
+`ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`, `ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification`, `ArithmeticLocallySymmetricSpaces:ALS.3/level-trace`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.1/restriction-corestriction-normalisation`, `CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits`, `CompletedCohomologyPartII:CC.1/tame-level-variation`, `CompletedCohomologyPartII:CC.2/coefficient-limit-completion`, `CompletedCohomologyPartII:CC.2/completion-and-tate-module`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `DeformationAndDerivedPatchingAlgebra:P7`, `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p`, `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian`, `PadicMeasuresIwasawaAlgebras:L1`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order`, `SmoothRepresentationsOfLocalGroups:SR.1/a-valued-haar-measure`, `mathlib:ContinuousLinearMap`, `mathlib:PontryaginDual`, `mathlib:Representation.dual`, `mathlib:TopModuleCat.isLimit`, `tauceti:Representation.averageMap_eq_invOf_card_smul_norm`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs`.
 
-This layer is **planned**. Its remaining closure work is G3 continuous integral duality; G4 noncommutative tensor action; P7 coefficient completion extensions.
+**Open proof inputs.** G3 (continuous integral duality), G4 (the noncommutative completed-tensor action) and the coefficient-completion extensions of DeformationAndDerivedPatchingAlgebra P7.
+
+<a id="layer-4"></a>
 
 ## Layer 4: Actual completed chain models
+
+This layer constructs the actual chain model. A finite CW model lifted through a regular tower gives a bounded complex of finite projective modules over Λ = O[[K_0]] whose derived coinvariants recover every finite level. Its termwise continuous dual is the integral cochain model, which computes completed cohomology and its reductions and also completed cohomology with complete torsion-free coefficients. Stabilisers, boundaries and the patched model of Gee–Newton are treated separately.
+
+**Targets of the layer.**
+
+- *Cellular complexes on finite CW or Borel–Serre models; equivariant lifted cell complexes on a cofinal torsion-free tower* ([4.1](#lifted-cellular-tower)). A finite CW pair from the neat ALS Borel–Serre model, lifted cell by cell through a regular covering tower, gives bounded finite free O[K_0/U_r]-complexes with quotient transitions.
+- *Comparison with singular and étale cochains; compatibility of refinement maps* ([4.1](#lifted-cellular-tower), [0.6](#finite-etale-betti-support-comparison)). Homotopy-coherent cellular–singular comparisons compatible with supports, coefficients and Hecke maps; the étale side through 0.6.
+- *Bounded complexes of finite free or projective O[[K_0]]-modules, for a finite-cell compact quotient and compact p-adic analytic K_0* ([4.2](#completed-equivariant-cell-complex), [4.3](#perfectness-and-cochain-comparison)). Terms Λ^{c_i d} with the limit of the attaching matrices; the complex is perfect, finite free in the lifted model and finite projective after prime-to-p descent.
+- *A finite projective complex kept distinct from projectivity of its homology* ([4.3](#perfectness-and-cochain-comparison)). The degree bounds are cell bounds; neither projective homology nor concentration is asserted.
+- *Derived finite-level coinvariants recover the finite-level complex* ([4.4](#derived-finite-level-coinvariants)). (O/varpi^s)[K_0/U] ⊗ᴸ\_Λ 𝒫 ≅ C_•(Z_U, O/varpi^s), naturally; underived coinvariants of homology are not a substitute.
+- *Integral cochain model and completed coefficients (Pan II, Lemma 7.2.6)* ([4.5](#completed-coefficient-interchange), [4.3](#perfectness-and-cochain-comparison)). The complete torsion-free cochain complex S̃ with H^i(S̃) = H̃^i and H^i(S̃/varpi^m) = A^i_m, built on the admissible cochain model of 4.3, and completed cohomology with complete torsion-free coefficients M as lim_m (A^i_m ⊗ M).
+- *Replacements for torsion stabilisers and noncompact spaces, with boundary chains preserved* ([4.6](#stabilizers-and-boundary-replacements)). Induced derived stabiliser complexes, with a finite projective model only under a uniform bound or invertible stabiliser orders; the compact Borel–Serre pair with relative chains for Borel–Moore homology.
+- *Patched perfect model* ([4.7](#patched-perfect-model-import)). Gee–Newton, Proposition 3.4.16, imported through DeformationAndDerivedPatchingAlgebra P8; never used as perfectness of an unpatched tower.
 
 ### 4.1 Lifted cellular tower
 
@@ -1036,7 +1372,7 @@ Target `CompletedCohomologyPartII:CC.4/lifted-cellular-tower`.
 
 <a id="completed-equivariant-cell-complex"></a>
 
-For the lifted pair define 𝒫_•=lim_{r,s} C_•(Z_r,O/varpi^s) with quotient/pushforward transitions, and its relative counterpart 𝒫^{BM}. Use the existing Λ=TauCeti.completedGroupAlgebra O K_0. The coefficient and normal-level systems compute its two-index finite quotient presentation by CC.3, not a new ring construction. Each term is Λ^{c_i d}, where c_i is the number of base cells and d the coefficient rank, with differential the compatible limit of actual attaching matrices. It is a bounded complex of compact left Λ-modules; its dual continuous-function complex computes the cohomological tower. Bases are auxiliary; the resulting object and comparisons are independent up to specified quasi-isomorphism.
+For the lifted pair define 𝒫\_•=lim_{r,s} C_•(Z_r,O/varpi^s) with quotient/pushforward transitions, and its relative counterpart 𝒫^{BM}. Use the existing Λ=TauCeti.completedGroupAlgebra O K_0. The coefficient and normal-level systems compute its two-index finite quotient presentation by CC.3, not a new ring construction. Each term is Λ^{c_i d}, where c_i is the number of base cells and d the coefficient rank, with differential the compatible limit of actual attaching matrices. It is a bounded complex of compact left Λ-modules; its dual continuous-function complex computes the cohomological tower. Bases are auxiliary; the resulting object and comparisons are independent up to specified quasi-isomorphism.
 
 (E06, Theorem 2.1.5 proof, pp.22–24: The completed cochains have finite continuous-function terms; their duals are finite completed-ring modules.; GN, §2.1.1–2.1.3, pp.7–8: The tower completed chain object is tied to actual arithmetic chains.)
 
@@ -1048,7 +1384,7 @@ Provide the following named interface.
 
 - `completedChain_reduce`: Each (r,s) projection is the actual finite chain complex.
 - `completedChain_terms`: The compatible lifted bases give Λ^{c_i d} in degree i.
-- `completedChain_homology`: The named homology comparison identifies H_n(𝒫) with the independently defined H̃_n.
+- `completedChain_homology`: The named homology comparison identifies H_n(𝒫) with the independently defined H̃\_n.
 - `completedChain_support`: Absolute, boundary and relative models form their compatible short exact chain sequence.
 
 **Checks.**
@@ -1067,7 +1403,7 @@ Target `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`.
 
 <a id="perfectness-and-cochain-comparison"></a>
 
-Under the lifted finite-cell regular tower hypotheses, 𝒫 and 𝒫^{BM} are perfect compact Λ-complexes, finite free in the chosen lifted model. A finite prime-to-p quotient descent or idempotent summand gives finite projective terms, not necessarily free terms. Their continuous O-duals are the integral admissible cochain models, and the comparisons identify conventional H̃^n and H̃_n via CC.2 strict pro-system control. The degree bounds are cell bounds; no assertion of projective homology or concentration follows.
+Under the lifted finite-cell regular tower hypotheses, 𝒫 and 𝒫^{BM} are perfect compact Λ-complexes, finite free in the chosen lifted model. A finite prime-to-p quotient descent or idempotent summand gives finite projective terms, not necessarily free terms. Their continuous O-duals are the integral admissible cochain models, and the comparisons identify conventional H̃^n and H̃\_n via CC.2 strict pro-system control. The degree bounds are cell bounds; no assertion of projective homology or concentration follows.
 
 (E06, Theorems 2.1.5,2.1.12 proofs, pp.22–27: The lifted finite simplicial model supplies finite regular-function terms and admissible cohomology.; GN, §2.1.5–2.1.9, pp.9–10: Minimal finite projective/free resolutions require noetherian local base and separate degree control.)
 
@@ -1086,7 +1422,7 @@ Target `CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison`.
 
 <a id="derived-finite-level-coinvariants"></a>
 
-For U normal open in K_0, (O/varpi^s)[K_0/U]⊗ᴸ_Λ𝒫≅C_•(Z_U,O/varpi^s), naturally for quotient levels, coefficients and tame correspondences. More generally O, as a right O[[U]]-module by augmentation, satisfies O⊗ᴸ_{O[[U]]}𝒫≅C_•(Z_U,O); with algebraic coefficient lattice W_0 replace 𝒫 by its finite-rank diagonal coefficient twist. Compute on the finite projective terms; underived coinvariants of H_n need not equal H_n of the finite-level complex.
+For U normal open in K_0, (O/varpi^s)[K_0/U]⊗ᴸ\_Λ𝒫≅C_•(Z_U,O/varpi^s), naturally for quotient levels, coefficients and tame correspondences. More generally O, as a right O[[U]]-module by augmentation, satisfies O⊗ᴸ\_{O[[U]]}𝒫≅C_•(Z_U,O); with algebraic coefficient lattice W_0 replace 𝒫 by its finite-rank diagonal coefficient twist. Compute on the finite projective terms; underived coinvariants of H_n need not equal H_n of the finite-level complex.
 
 (GN, §2.1.1–2.1.3, pp.7–8: Finite arithmetic chain complexes use the correct right/left coefficient tensor.; Fu, §7, equation (38), pp.23–24: Homological descent needs the derived coinvariant object with coefficient twist.)
 
@@ -1101,7 +1437,31 @@ The proof route is: Identify the quotient on each finite free completed chain te
 
 Target `CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants`.
 
-### 4.5 Stabilizer and boundary replacement
+### 4.5 Integral cochain model and completed coefficients
+
+<a id="completed-coefficient-interchange"></a>
+
+For the lifted finite-cell tower of CC.4 at fixed tame level, let S̃^• be its integral admissible cochain model, the termwise continuous O-dual of the completed chain complex 𝒫 (CC.4/perfectness-and-cochain-comparison). Then S̃^• is a bounded complex of varpi-adically complete, varpi-torsion-free O-modules, with natural isomorphisms H^i(S̃) ≅ H̃^i and H^i(S̃/varpi^m) ≅ A^i_m, where A^i_m = colim_U H^i(Y_U, O/varpi^m), compatible with tower transitions, the integral local action and the transported Hecke maps; the same holds for the compact-support and boundary models. For every varpi-adically complete, varpi-torsion-free O-module M, with trivial action on the tower, the completed cohomology with coefficients M, H̃^i(M) = lim_m colim_U H^i(Y_U, M/varpi^m), is naturally isomorphic to lim_m (A^i_m ⊗\_O M). If the varpi-power torsion of H̃^{i+1} is bounded, as CC.5/bounded-integral-torsion proves for this tower, H̃^i(M) is moreover the varpi-adic completion of H̃^i ⊗\_O M.
+
+The hypotheses are as follows. The hypotheses of CC.4/completed-equivariant-cell-complex and CC.4/perfectness-and-cochain-comparison: a lifted finite-cell regular tower over a compact p-adic analytic K_0, at fixed tame level. M is varpi-adically complete, separated and varpi-torsion-free, and the tower acts trivially on it; any further action on M (for example a Galois action on A_inf-type coefficients) is carried along by naturality. The completed-tensor clause assumes that varpi^c kills the varpi-power torsion of H̃^{i+1} for some c.
+
+(PanII, §7.2, Lemma 7.2.6(1) and its proof, arXiv:2209.06366v1, p. 120: Completed cohomology with coefficients in a p-adically complete torsion-free module is the limit over m of the mod-p^m completed cohomology tensored with the module; the proof uses a complex of complete torsion-free modules computing completed cohomology and its reductions (attributed to Emerton), the universal-coefficient sequences and multiplication by p on the torsion terms.)
+
+The proof route is: Terms: 𝒫\_i = Λ^{c_i d}, so S̃^i = Hom_cont,O(𝒫\_i, O) = C(K_0, O)^{c_i d}, varpi-adically complete and torsion-free (finite projective summands in the descended model). Reductions: continuous maps into the discrete O/varpi^m factor through finite levels, so S̃/varpi^m = colim_U Hom_O(𝒫 ⊗\_Λ (O/varpi^m)[K_0/U], O/varpi^m) = colim_U C^•(Z_U, O/varpi^m) by CC.4/derived-finite-level-coinvariants (underived, as 𝒫 is finite projective); exactness of filtered colimits (CC.1/fixed-exponent-smooth-colimit) gives H^i(S̃/varpi^m) ≅ A^i_m. Integral cohomology: CC.2/integral-admissible-complex-control gives H^i(S̃) ≅ lim_m H^i(S̃/varpi^m) = H̃^i, naturally for the transitions and actions of CC.4/perfectness-and-cochain-comparison. Coefficients: M/varpi^m is flat over O/varpi^m because M is torsion-free, so colim_U C^•(Z_U, M/varpi^m) = (S̃/varpi^m) ⊗\_{O/varpi^m} M/varpi^m and its cohomology is A^i_m ⊗\_O M; take the limit over m. Completed tensor: tensoring the Bockstein sequences of CC.2/complete-torsion-free-complex-control for S̃ with the flat M/varpi^m gives 0 → (H̃^i ⊗ M)/varpi^m → A^i_m ⊗ M → H̃^{i+1}[varpi^m] ⊗ M → 0. With varpi^c killing the torsion, c consecutive transitions of the third terms vanish, so their limit and lim¹ are zero and the limit of the middle terms is the completion of H̃^i ⊗\_O M.
+
+Uses: CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent: Pan's identification of completed cohomology with A_inf/(ker θ)^k coefficients is the case M = A_inf/(ker θ)^k of the coefficient formula; the request to CC.4 asks for this complex and this interchange; Pan, On locally analytic vectors II, Lemma 7.2.6, arXiv v1 p. 120: The stronger form for every p-adically complete torsion-free coefficient module.
+
+**Checks.**
+
+- M = O: the coefficient formula is lim_m A^i_m = H̃^i, the definition in CC.2/coefficient-limit-completion.
+- M = O[[T]] (complete and torsion-free, not finitely generated over O): H̃^i(O[[T]]) = lim_m (A^i_m ⊗\_O O[[T]]) is the submodule of H̃^i[[T]] of the series Σ\_j a_j T^j such that, for every m, the images of the a_j in A^i_m generate a finitely generated O-module; it is not H̃^i[[T]] in general. In the zero-dimensional tower Y_U = K_0/U with K_0 = Z_p, H̃^0(M) = C(Z_p, M) for the varpi-adic topology of M, and Σ\_j 1_{p^j Z_p} T^j lies in C(Z_p, O)[[T]] = H̃^0[[T]] but not in H̃^0(O[[T]]): the indicator functions are linearly independent in A^0_1 = C^∞(Z_p, k).
+- Circle tower of connected degree-p covers: A^0_m = O/varpi^m and A^1_m = 0 (pullback is multiplication by p on H^1), so H̃^0(M) = M and H̃^1(M) = 0 for every complete torsion-free M.
+
+*Needs:* `CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison`, `CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control`.
+
+Target `CompletedCohomologyPartII:CC.4/completed-coefficient-interchange`.
+
+### 4.6 Stabilizer and boundary replacement
 
 <a id="stabilizers-and-boundary-replacements"></a>
 
@@ -1120,11 +1480,11 @@ The proof route is: Import the ALS stabilizer resolutions and the Borel–Serre 
 
 Target `CompletedCohomologyPartII:CC.4/stabilizers-and-boundary-replacements`.
 
-### 4.6 Patched completed model import
+### 4.7 Patched completed model import
 
 <a id="patched-perfect-model-import"></a>
 
-For the specific Gee–Newton patched complex C̃_∞ with O_∞=O[[x₁,…,x_g]], coherent open ideals J and normal levels U_p, import Proposition 3.4.16: its terms are O_∞[[K_0]]-flat, it is perfect over that ring, and O_∞/J⊗_{O_∞[[U_p]]}C̃_∞≅C(U_p,J,∞). Keep the patching construction, ultrafilter, compatible minimal resolutions and uniform rank bounds in P8. Proposition 3.4.19 supplies the separate augmentation/cohomology comparison. This result is never cited as perfectness of an arbitrary unpatched inverse-limit tower.
+For the specific Gee–Newton patched complex C̃\_∞ with O_∞=O[[x₁,…,x_g]], coherent open ideals J and normal levels U_p, import Proposition 3.4.16: its terms are O_∞[[K_0]]-flat, it is perfect over that ring, and O_∞/J⊗\_{O_∞[[U_p]]}C̃\_∞≅C(U_p,J,∞). Keep the patching construction, ultrafilter, compatible minimal resolutions and uniform rank bounds in P8. Proposition 3.4.19 supplies the separate augmentation/cohomology comparison. This result is never cited as perfectness of an arbitrary unpatched inverse-limit tower.
 
 (GN, Proposition 3.4.16 and proof, pp.23–24; Proposition 3.4.19, p.24: Flat terms, finite compatible minimal resolutions and reduction identify this particular patched model.)
 
@@ -1141,21 +1501,32 @@ Target `CompletedCohomologyPartII:CC.4/patched-perfect-model-import`.
 
 ### Examples
 
-The actual procyclic circle model is Λ --(γ−1)→ Λ. It is perfect, H₀=Λ/(γ−1) is not Λ-projective, and H₁=0. Derived finite-level coinvariants recover the finite circle H₁=O, while coinvariants of H̃₁ would be zero.
+The procyclic circle model is Λ → Λ, multiplication by γ − 1. It is perfect, H₀ = Λ/(γ − 1) is not Λ-projective, and H₁ = 0. Derived finite-level coinvariants recover the finite circle's H₁ = O, while the coinvariants of H̃₁ are zero. Coefficients are not taken termwise in 4.5: in the zero-dimensional tower over Z_p, Σ\_j 1_{p^j Z_p} T^j lies in C(Z_p, O)[[T]] but not in H̃^0(O[[T]]).
 
 ### Dependencies
 
-`ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/non-neat-duality`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent`, `CompletedCohomologyPartII:CC.0/non-neat-tower-realisation`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.3/admissible-complex-convention`, `CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore`, `CompletedCohomologyPartII:CC.3/continuous-dual-conventions`, `DeformationAndDerivedPatchingAlgebra:P7`, `DeformationAndDerivedPatchingAlgebra:P8`, `PadicMeasuresIwasawaAlgebras:L1`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+`ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model`, `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/non-neat-duality`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent`, `CompletedCohomologyPartII:CC.0/non-neat-tower-realisation`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.2/complete-torsion-free-complex-control`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.3/admissible-complex-convention`, `CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore`, `CompletedCohomologyPartII:CC.3/continuous-dual-conventions`, `CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology`, `DeformationAndDerivedPatchingAlgebra:P7`, `DeformationAndDerivedPatchingAlgebra:P8`, `PadicMeasuresIwasawaAlgebras:L1`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs`.
 
-This layer is **planned**. Its remaining closure work is G2/G3 chain/cochain comparison; P7/P8 noncommutative perfect and patched extensions.
+**Open proof inputs.** G2 and G3 for the chain–cochain comparison, the noncommutative perfect and patched extensions of P7 and P8, and G12 where the deck action of a Shimura tower is ineffective.
+
+<a id="layer-5"></a>
 
 ## Layer 5: Noetherian finiteness and admissibility
+
+This layer applies the noetherianity of Λ to the chain model of Layer 4: completed homology is finitely generated, its torsion is bounded, completed cohomology is admissible in the torsion and unitary Banach categories, and the Iwasawa dimension controls the growth of classical cohomology along a uniform-power filtration and the torsion of completed homology.
+
+**Targets of the layer.**
+
+- *Finite generation of completed homology over the noetherian completed group algebra* ([5.1](#finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology)). Finitely generated left O[[K_0]]-modules with the canonical topology, for compact p-adic analytic K_0, using the noetherianity requested from NE.0; not freeness or concentration.
+- *Explicit finite-generation, separatedness and finiteness-of-invariants hypotheses* ([5.2](#bounded-integral-torsion), [5.1](#finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology)). Bounded varpi-power torsion and complete torsion-free quotients for the actual finite-cell tower; no statement for arbitrary profinite groups, towers or coefficient rings.
+- *Dual admissibility criterion; admissibility in the torsion and unitary Banach categories* ([5.3](#smooth-dual-admissibility), [5.4](#banach-admissibility)). Smooth admissible duals of finitely generated k[[K_0]]-modules; admissible unitary Banach completed cohomology through the general Schneider–Teitelbaum category of the extension after L1.
+- *Iwasawa dimension, codimension and the torsion theorem for completed homology* ([5.5](#codimension-iwasawa-dimension-and-the-torsion-theorem), [5.6](#normalized-classical-growth), [5.7](#semisimple-homology-torsion), [5.8](#uniform-filtration-growth), [5.9](#classical-middle-rank-and-tate-torsion)). Grade and canonical dimension from NE.0 (Venjakob); torsion of H̃\_n in the absence of discrete series or outside the middle degree, which is the first assertion of Fu §7.
 
 ### 5.1 Finite generation and canonical topology
 
 <a id="finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology"></a>
 
-For the actual lifted finite-cell tower over compact p-adic analytic K_0, H̃_n and H̃_n^{BM} are finitely generated left Λ=O[[K_0]]-modules. The topology inherited from the compact chain complex agrees with the canonical finite-module topology. Kernels and images of its continuous differentials are closed. This asserts neither freeness of homology nor degree concentration, and does not cover arbitrary profinite groups.
+For the actual lifted finite-cell tower over compact p-adic analytic K_0, H̃\_n and H̃\_n^{BM} are finitely generated left Λ=O[[K_0]]-modules. The topology inherited from the compact chain complex agrees with the canonical finite-module topology. Kernels and images of its continuous differentials are closed. This asserts neither freeness of homology nor degree concentration, and does not cover arbitrary profinite groups.
 
 (CE, Theorem 1.1(1), p.3; Theorem 1.16, pp.12–13: Finite generation and the canonical topology hold under the finite-cell and analytic hypotheses.; ST, Proposition 3.1 and Lemmas 3.2–3.4, pp.13–14: Finite modules over the compact noetherian algebra have the canonical compact topology.)
 
@@ -1231,7 +1602,7 @@ Target `CompletedCohomologyPartII:CC.5/banach-admissibility`.
 
 <a id="codimension-iwasawa-dimension-and-the-torsion-theorem"></a>
 
-For a torsion-free uniform open U of analytic dimension d, use the supplied Auslander regular rings Λ_U=O[[U]] and Ω_U=k[[U]], with global dimensions d+1 and d. For a nonzero finite module M, set j_R(M)=min{i:Ext_R^i(M,R)≠0} and δ_R(M)=gldim(R)−j_R(M); these are imported notions. If varpi M=0 then j_Λ(M)=j_Ω(M)+1. If M is varpi-torsion-free, reducing a finite free resolution gives 0→Ext_Λ^i(M,Λ)/varpi→Ext_Ω^i(M/varpi,Ω)→Ext_Λ^{i+1}(M,Λ)[varpi]→0. Equality of the two grades in the torsion-free case additionally uses the supplier’s Auslander purity/grade argument; it does not follow from an all-degree Ext isomorphism. For Λ_U over a uniform domain, rank zero is equivalent to positive grade; pass to a general compact analytic K_0 by finite-index restriction with the supplied dimension comparison.
+For a torsion-free uniform open U of analytic dimension d, use the supplied Auslander regular rings Λ\_U=O[[U]] and Ω\_U=k[[U]], with global dimensions d+1 and d. For a nonzero finite module M, set j_R(M)=min{i:Ext_R^i(M,R)≠0} and δ\_R(M)=gldim(R)−j_R(M); these are imported notions. If varpi M=0 then j_Λ(M)=j_Ω(M)+1. If M is varpi-torsion-free, reducing a finite free resolution gives 0→Ext_Λ^i(M,Λ)/varpi→Ext_Ω^i(M/varpi,Ω)→Ext_Λ^{i+1}(M,Λ)[varpi]→0. Equality of the two grades in the torsion-free case additionally uses the supplier’s Auslander purity/grade argument; it does not follow from an all-degree Ext isomorphism. For Λ\_U over a uniform domain, rank zero is equivalent to positive grade; pass to a general compact analytic K_0 by finite-index restriction with the supplied dimension comparison.
 
 (CE, §1.7, Lemma 1.17, pp.13–14: The grade comparison uses a corrected Bockstein sequence; the printed degreewise isomorphism is not used.; CE, §1.2, pp.5–6: Rank, grade and the integral versus residual coefficient dimensions are distinct interfaces.)
 
@@ -1252,7 +1623,7 @@ Target `CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-tor
 
 In the semisimple arithmetic setting and congruence p-power tower of CEbounds §3, with a fixed finite-dimensional algebraic coefficient representation and analytic local dimension d>0, dim_E H^n(Y_r,V)/[K_0:U_r] tends to zero if the real group has no discrete series or n is not half the real symmetric-space dimension. The tower is the regular congruence filtration of that source. This target owns the exact normalized-growth input needed for the completed torsion application; its classical multiplicity and noncuspidal estimates remain proof leaves G5, rather than a citation upward to AutomorphicSpectra.
 
-The hypotheses are as follows. G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗_Q F) and K_∞ is a maximal compact subgroup. Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ_r is torsion-free. The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r. Y_r=Γ_r\G_∞/K_∞, with the actual congruence covering and coefficient comparisons; a fixed algebraic E-representation has a K_0-stable finite free O-lattice. Dimensions over E are compared with classical complex Betti dimensions through this same algebraic coefficient system.
+The hypotheses are as follows. G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗\_Q F) and K_∞ is a maximal compact subgroup. Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ\_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ\_r is torsion-free. The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r. Y_r=Γ\_r\\G_∞/K_∞, with the actual congruence covering and coefficient comparisons; a fixed algebraic E-representation has a K_0-stable finite free O-lattice. Dimensions over E are compared with classical complex Betti dimensions through this same algebraic coefficient system.
 
 (CEbounds, Theorem 3.4 proof, p.6; Theorem 3.8, pp.7–8: Classical multiplicity limits and the noncuspidal estimate give sublinear normalized growth outside the discrete-series middle degree.)
 
@@ -1271,9 +1642,9 @@ Target `CompletedCohomologyPartII:CC.5/normalized-classical-growth`.
 
 <a id="semisimple-homology-torsion"></a>
 
-In the same semisimple congruence tower, H̃_n is Λ-torsion if there is no real discrete series or n differs from half the real symmetric-space dimension. Here torsion means rank zero after restriction to a torsion-free uniform open domain, not every element being varpi-torsion. The conclusion follows by duality, the normalized classical growth target and the supplied leading-rank asymptotic for admissible Banach invariants plus derived descent. It asserts neither integral vanishing nor a conjectural single-degree concentration theorem.
+In the same semisimple congruence tower, H̃\_n is Λ-torsion if there is no real discrete series or n differs from half the real symmetric-space dimension. Here torsion means rank zero after restriction to a torsion-free uniform open domain, not every element being varpi-torsion. The conclusion follows by duality, the normalized classical growth target and the supplied leading-rank asymptotic for admissible Banach invariants plus derived descent. It asserts neither integral vanishing nor a conjectural single-degree concentration theorem.
 
-The hypotheses are as follows. G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗_Q F) and K_∞ is a maximal compact subgroup. Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ_r is torsion-free. The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r. Y_r=Γ_r\G_∞/K_∞, with the actual congruence covering and coefficient comparisons; a fixed algebraic E-representation has a K_0-stable finite free O-lattice. Dimensions over E are compared with classical complex Betti dimensions through this same algebraic coefficient system.
+The hypotheses are as follows. G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗\_Q F) and K_∞ is a maximal compact subgroup. Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ\_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ\_r is torsion-free. The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r. Y_r=Γ\_r\\G_∞/K_∞, with the actual congruence covering and coefficient comparisons; a fixed algebraic E-representation has a K_0-stable finite free O-lattice. Dimensions over E are compared with classical complex Betti dimensions through this same algebraic coefficient system.
 
 (CE, Theorem 1.4, pp.7–8; §1.6, pp.9–11: The proved torsion statement is weaker than the concentration conjectures.; CEbounds, Theorem 3.2, pp.4–5; Theorem 3.4 proof, p.6: The leading corank term compares completed cohomology with classical growth.; Fu, §7, p.23, completed-homology torsion bullet before (38): The non-totally-real SL₂ example uses completed-homology Iwasawa torsion.)
 
@@ -1292,7 +1663,7 @@ Target `CompletedCohomologyPartII:CC.5/semisimple-homology-torsion`.
 
 <a id="uniform-filtration-growth"></a>
 
-For torsion-free uniform U of dimension d>0, its power subgroups U_r=U^{p^r}, a nonzero finite Ω_U-module M of canonical dimension δ, and V=D_k(M), dim_k V^{U_r} is bounded above and below by positive constants times [U:U_r]^{δ/d}. This target imports the uniform filtered-ring/Hilbert-growth theorem from NE.0. It does not assert this exponent for an arbitrary descending normal neighbourhood basis; CE/E3 exhibits a counterexample.
+For torsion-free uniform U of dimension d>0, its power subgroups U_r=U^{p^r}, a nonzero finite Ω\_U-module M of canonical dimension δ, and V=D_k(M), dim_k V^{U_r} is bounded above and below by positive constants times [U:U_r]^{δ/d}. This target imports the uniform filtered-ring/Hilbert-growth theorem from NE.0. It does not assert this exponent for an arbitrary descending normal neighbourhood basis; CE/E3 exhibits a counterexample.
 
 (CE, Theorem 1.18, p.14: The stated arbitrary-basis formulation needs the regular uniform-filtration restriction recorded in CE/E3.)
 
@@ -1311,13 +1682,13 @@ Target `CompletedCohomologyPartII:CC.5/uniform-filtration-growth`.
 
 <a id="classical-middle-rank-and-tate-torsion"></a>
 
-In the specified semisimple congruence tower with trivial O coefficients, suppose G_∞ admits discrete series and put n=dim_R(G_∞/K_∞)/2. Then D_O(Ĥ^n) has positive Λ-rank; consequently H̃_n has positive rank. Moreover D_O(T_varpi B^{n+1}) has Λ-rank zero even in this middle degree. Thus the classical completion supplies the whole rank in the dual completion–Tate exact sequence, while the Tate contribution is Iwasawa torsion. Rank is measured after restriction to a torsion-free uniform open subgroup, and positive rank is not integral torsion-freeness or concentration.
+In the specified semisimple congruence tower with trivial O coefficients, suppose G_∞ admits discrete series and put n=dim_R(G_∞/K_∞)/2. Then D_O(Ĥ^n) has positive Λ-rank; consequently H̃\_n has positive rank. Moreover D_O(T_varpi B^{n+1}) has Λ-rank zero even in this middle degree. Thus the classical completion supplies the whole rank in the dual completion–Tate exact sequence, while the Tate contribution is Iwasawa torsion. Rank is measured after restriction to a torsion-free uniform open subgroup, and positive rank is not integral torsion-freeness or concentration.
 
-The hypotheses are as follows. G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗_Q F) and K_∞ is a maximal compact subgroup. Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ_r is torsion-free. The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r. Y_r=Γ_r\G_∞/K_∞, with the actual congruence covering and coefficient comparisons; a fixed algebraic E-representation has a K_0-stable finite free O-lattice. Dimensions over E are compared with classical complex Betti dimensions through this same algebraic coefficient system. The coefficient system is trivial, and the strict dual completion–Tate comparison has been proved.
+The hypotheses are as follows. G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗\_Q F) and K_∞ is a maximal compact subgroup. Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ\_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ\_r is torsion-free. The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r. Y_r=Γ\_r\\G_∞/K_∞, with the actual congruence covering and coefficient comparisons; a fixed algebraic E-representation has a K_0-stable finite free O-lattice. Dimensions over E are compared with classical complex Betti dimensions through this same algebraic coefficient system. The coefficient system is trivial, and the strict dual completion–Tate comparison has been proved.
 
 (CE, Theorem 1.4, pp.7–8, including the immediately preceding qualification: The middle-degree classical dual has positive rank, and the Tate dual is torsion; the survey says the latter follows from the proof of the bounds paper.; CEbounds, Theorem 3.2, pp.4–5; Theorem 3.8 and proof, pp.7–8: The leading rank comparison and discrete-series contribution give the arithmetic route; the full classical completion/Tate separation must also be checked.)
 
-The proof route is: Acquire G5’s discrete-series multiplicity limit and positive formal-degree contribution for trivial coefficients, with the cuspidal/noncuspidal comparison. Compare normalized growth of the classical integral completion with the completed Banach corank in the regular congruence filtration; verify the lattice and Tate separation argument signalled by CE rather than deriving it from Theorem 3.2 alone. Apply strict continuous duality to the completion–Tate sequence; rank additivity identifies the positive classical rank and the rank-zero Tate kernel. Use bounded integral homology torsion to identify the rank of H̃_n with that of its torsion-free quotient.
+The proof route is: Acquire G5’s discrete-series multiplicity limit and positive formal-degree contribution for trivial coefficients, with the cuspidal/noncuspidal comparison. Compare normalized growth of the classical integral completion with the completed Banach corank in the regular congruence filtration; verify the lattice and Tate separation argument signalled by CE rather than deriving it from Theorem 3.2 alone. Apply strict continuous duality to the completion–Tate sequence; rank additivity identifies the positive classical rank and the rank-zero Tate kernel. Use bounded integral homology torsion to identify the rank of H̃\_n with that of its torsion-free quotient.
 
 **Checks.**
 
@@ -1330,21 +1701,33 @@ Target `CompletedCohomologyPartII:CC.5/classical-middle-rank-and-tate-torsion`.
 
 ### Examples
 
-The circle example distinguishes finite generation, Λ-torsion and integral vanishing. The ideal (p,T) in Z_p[[T]] distinguishes a Bockstein Ext sequence from a false all-degree reduction isomorphism. The weighted Z_p² filtration distinguishes arbitrary bases from uniform-power growth.
+The circle tower distinguishes finite generation, Λ-torsion and integral vanishing. The ideal (p, T) in Z_p[[T]] distinguishes a Bockstein Ext sequence from a false reduction isomorphism in all degrees. The weighted filtration of Z_p² distinguishes arbitrary bases from uniform-power growth.
 
 ### Dependencies
 
 `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`, `ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower`, `CompletedCohomologyPartII:CC.3/dual-completion-tate-sequence`, `CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology`, `CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison`, `CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting`, `CompletedCohomologyPartII:CC.6/homological-hyperTor-descent`, `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian`, `PadicMeasuresIwasawaAlgebras:L1`, `SmoothRepresentationsOfLocalGroups:SR.0`.
 
-This layer is **planned**. Its remaining closure work is G1 analytic/Auslander foundations; G5 classical multiplicity leaves and regular-filtration leading-rank input.
+**Open proof inputs.** G1 (analytic and Auslander foundations) and G5 (the classical multiplicity proof leaves and the leading-rank input for regular filtrations).
+
+<a id="layer-6"></a>
 
 ## Layer 6: Completed descent and classical comparison
+
+This layer recovers the finite levels: the completed Hochschild–Serre spectral sequence and its fixed-exponent form, homological descent through completed Tor, the untwisting of algebraic coefficients, the classical evaluation map, and the derived locally analytic comparison. The descent is Hecke-equivariant: the tame correspondences act on the completed model compatibly with the finite-level identification of 4.4, the spectral sequence of 6.1 is functorial in that model, and on the classical edge this is `classicalEval_hecke` (6.5).
+
+**Targets of the layer.**
+
+- *Continuous Hochschild–Serre (descent) spectral sequence with its edge maps* ([6.1](#hochschild-serre-descent-to-finite-level), [6.2](#fixed-exponent-descent)). H^i_cts(U, H̃^j) ⇒ H^{i+j}(Y_U, O) in the integral admissible category, and the fixed-exponent version; the Milnor errors are kept for a general tower.
+- *Derived-invariants formulation and Hecke functoriality* ([6.1](#hochschild-serre-descent-to-finite-level), [4.4](#derived-finite-level-coinvariants), [6.5](#classical-evaluation-map), [6.6](#lowest-degree-recovery)). The derived descent model, functorial in the completed model and for supports. Hecke functoriality follows: the tame correspondences act on the completed model compatibly with the finite-level identification (4.4 is natural for tame correspondences), the descent spectral sequence is functorial in that model, and on the classical edge it is `classicalEval_hecke` (6.5). The edge is an isomorphism only in the lowest nonvanishing degree (6.6).
+- *Classical comparison maps for algebraic coefficients through finite-level evaluation, with hypotheses and degree ranges* ([6.4](#algebraic-coefficient-untwisting), [6.5](#classical-evaluation-map), [6.6](#lowest-degree-recovery)). Untwisting by a K_0-stable lattice, the edge map to the invariants of H̃^n(E) ⊗ W, and its kernel and cokernel, controlled by the spectral sequence.
+- *Homological hyper-Tor descent with algebraic coefficients (Fu, (38))* ([6.3](#homological-hyperTor-descent)). O ⊗ᴸ\_{O[[U]]} (𝒫 ⊗ W_0) ≅ C_•(Y_U, W_0) and the completed Tor spectral sequence; Fu's rational form through 3.6.
+- *Derived locally analytic comparison; locally algebraic vectors only through R31* ([6.7](#analytic-classical-comparison)). BCGP Theorem 4.8.3 as the derived comparison, with the derived functors of LocallyAnalyticDistributions L0 (gap G6); no recovery of every classical form from degree-zero invariants.
 
 ### 6.1 Completed Hochschild–Serre descent
 
 <a id="hochschild-serre-descent-to-finite-level"></a>
 
-For the actual neat regular finite-cell tower and a compact open U, continuous group cohomology in the specified integral admissible category gives a functorial first-quadrant spectral sequence H^i_cts(U,H̃^j_*)⇒H^{i+j}_*(Y_U,O), for *=ordinary,c, with the coefficient system and support hypotheses of CC.4. Rationalization gives the E version. The identification with conventional H̃^j uses CC.2 strict integral control; for a general tower replace it by the derived completed complex and retain its Milnor errors. Non-neat fixed levels use the ALS derived stabilizer interpretation.
+For the actual neat regular finite-cell tower and a compact open U, continuous group cohomology in the specified integral admissible category gives a functorial first-quadrant spectral sequence H^i_cts(U,H̃^j_\*)⇒H^{i+j}\_\*(Y_U,O), for \*=ordinary,c, with the coefficient system and support hypotheses of CC.4. Rationalization gives the E version. The identification with conventional H̃^j uses CC.2 strict integral control; for a general tower replace it by the derived completed complex and retain its Milnor errors. Non-neat fixed levels use the ALS derived stabilizer interpretation.
 
 (E06, Proposition 2.1.11 and proof, pp.24–26; Theorem 2.1.12, pp.26–27: The finite-level integral continuous descent sequence is Proposition 2.1.11; compact support is included in Theorem 2.1.12. Theorem 2.1.5(ii) instead gives rational stable cohomology after taking the level colimit.; CE, Theorem 1.1(4), p.3; Theorem 1.16(4), p.13: The completed Hochschild–Serre sequence is an arithmetic descent statement.)
 
@@ -1363,7 +1746,7 @@ Target `CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level`
 
 <a id="fixed-exponent-descent"></a>
 
-At each s≥1, H^i_cts(U,A^j_{*,s})⇒H^{i+j}_*(Y_U,O/varpi^s), using discrete smooth continuous group cohomology and the actual tower’s regular-cover model. The inverse coefficient limit of this spectral sequence cannot be identified with the integral spectral sequence by merely discarding lim¹; CC.2 integral control supplies that comparison under its hypotheses.
+At each s≥1, H^i_cts(U,A^j_{\*,s})⇒H^{i+j}\_\*(Y_U,O/varpi^s), using discrete smooth continuous group cohomology and the actual tower’s regular-cover model. The inverse coefficient limit of this spectral sequence cannot be identified with the integral spectral sequence by merely discarding lim¹; CC.2 integral control supplies that comparison under its hypotheses.
 
 (E06, Proposition 2.1.11 proof, pp.24–25: The fixed-exponent smooth modules are computed before applying coefficient inverse limits.)
 
@@ -1382,7 +1765,7 @@ Target `CompletedCohomologyPartII:CC.6/fixed-exponent-descent`.
 
 <a id="homological-hyperTor-descent"></a>
 
-Let W_0 be a finite free O-module with continuous algebraic U-action and the corresponding local system on Y_U. Give 𝒫⊗_O W_0 the diagonal action, with the inversion fixed by CC.3. Then O⊗ᴸ_{O[[U]]}(𝒫⊗_O W_0)≅C_•(Y_U,W_0), where O is the right augmentation module, and H_i_cts(U,H̃_j⊗_O W_0)⇒H_{i+j}(Y_U,W_0). Here H_i_cts is completed Tor, not ordinary group-ring Tor. The rational E version uses flat rationalization and the appropriate completed locally analytic/continuous coefficient category.
+Let W_0 be a finite free O-module with continuous algebraic U-action and the corresponding local system on Y_U. Give 𝒫⊗\_O W_0 the diagonal action, with the inversion fixed by CC.3. Then O⊗ᴸ\_{O[[U]]}(𝒫⊗\_O W_0)≅C_•(Y_U,W_0), where O is the right augmentation module, and H_i_cts(U,H̃\_j⊗\_O W_0)⇒H_{i+j}(Y_U,W_0). Here H_i_cts is completed Tor, not ordinary group-ring Tor. The rational E version uses flat rationalization and the appropriate completed locally analytic/continuous coefficient category.
 
 (Marshall, §5.2, equation (34), pp.1646–1648: Completed homology descent is a continuous homological spectral sequence.; Fu, §7, equation (38), p.24: The spectral sequence includes the finite algebraic coefficient factor.)
 
@@ -1401,7 +1784,7 @@ Target `CompletedCohomologyPartII:CC.6/homological-hyperTor-descent`.
 
 <a id="algebraic-coefficient-untwisting"></a>
 
-For a finite-dimensional algebraic E-representation W with a K_0-stable finite free lattice W_0, each reduction W_0/varpi^s is trivial on some open U_s. The arithmetic tower with its associated local system therefore has a compatible fixed-exponent untwisting, and after completion/rationalization its completed cohomology with W identifies with H̃^n(E)⊗_E W in the diagonal H-action convention specified by (w,g)↦(g_p⁻¹w,g). Commensurable lattices give the same rational result; this does not make the algebraic factor a unitary representation of the full noncompact H.
+For a finite-dimensional algebraic E-representation W with a K_0-stable finite free lattice W_0, each reduction W_0/varpi^s is trivial on some open U_s. The arithmetic tower with its associated local system therefore has a compatible fixed-exponent untwisting, and after completion/rationalization its completed cohomology with W identifies with H̃^n(E)⊗\_E W in the diagonal H-action convention specified by (w,g)↦(g_p⁻¹w,g). Commensurable lattices give the same rational result; this does not make the algebraic factor a unitary representation of the full noncompact H.
 
 (E06, Lemma 2.2.4, pp.28–29; Lemmas 2.2.8–2.2.10, pp.30–31; Theorem 2.2.17, pp.33–34: Fixed-exponent untwisting first uses the lattice stabilizer; commensurable-lattice transport gives the full rational action and tensor comparison.)
 
@@ -1420,7 +1803,7 @@ Target `CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting`.
 
 <a id="classical-evaluation-map"></a>
 
-Define the descent edge map H^n_*(Y_U,W)→(H̃^n_*(E)⊗_E W)^U by the actual completed descent and coefficient comparison. Its tower colimit maps into the corresponding smooth vectors. In general it has kernels or cokernels controlled by the other spectral-sequence terms; it is not an isomorphism by definition. The locally analytic classical edge map is the separate CC.6 analytic target.
+Define the descent edge map H^n_\*(Y_U,W)→(H̃^n_\*(E)⊗\_E W)^U by the actual completed descent and coefficient comparison. Its tower colimit maps into the corresponding smooth vectors. In general it has kernels or cokernels controlled by the other spectral-sequence terms; it is not an isomorphism by definition. The locally analytic classical edge map is the separate CC.6 analytic target.
 
 (E06, Proposition 2.1.11, pp.24–26; Theorem 2.2.11(v), pp.31–32: Finite-level integral descent gives the edge map; after rational lattice comparison its level colimit maps to smooth coefficient vectors. Corollary 2.2.18 is the separate locally analytic spectral sequence.)
 
@@ -1451,7 +1834,7 @@ Target `CompletedCohomologyPartII:CC.6/classical-evaluation-map`.
 
 <a id="lowest-degree-recovery"></a>
 
-If H̃^j_*=0 for all j<n in the completed descent model, then the edge H^n_*(Y_U,O)→(H̃^n_*)^U is an isomorphism. In other degrees recovery is the spectral sequence, and higher continuous U-cohomology terms need not vanish. The analogous rational and algebraic-coefficient statements require their same comparison hypotheses.
+If H̃^j_\*=0 for all j<n in the completed descent model, then the edge H^n_\*(Y_U,O)→(H̃^n_\*)^U is an isomorphism. In other degrees recovery is the spectral sequence, and higher continuous U-cohomology terms need not vanish. The analogous rational and algebraic-coefficient statements require their same comparison hypotheses.
 
 (E06, Proposition 2.1.11, pp.24–26; Theorem 2.1.12, pp.26–27: The first-quadrant finite-level descent sequence gives an edge isomorphism when all lower completed rows vanish.)
 
@@ -1470,7 +1853,7 @@ Target `CompletedCohomologyPartII:CC.6/lowest-degree-recovery`.
 
 <a id="analytic-classical-comparison"></a>
 
-For the locally symmetric arithmetic tower with algebraic coefficient local system W, state the derived comparison between classical cohomology and Lie-algebra derived Hom from W∨ into derived locally analytic vectors of the rational completed cochain object, in the source’s Q_p-local analytic convention. In the GSp₄ instance of BCGP Theorem 4.8.3 this is RΓ(Y,W)≅RHom_{𝔤}(W∨,RΓ_completed,la). The generic derived-locally-analytic and Lie-cohomology functors, including exactness hypotheses and the Q_p versus F_v restriction-of-scalars convention, come from LocallyAnalyticDistributions:L0. The ordinary underived H̃^j_la Ext spectral sequence of E06 Corollary 2.2.18 is a cohomological consequence and does not by itself specify the derived comparison or justify replacing derived vectors by underived ones.
+For the locally symmetric arithmetic tower with algebraic coefficient local system W, state the derived comparison between classical cohomology and Lie-algebra derived Hom from W∨ into derived locally analytic vectors of the rational completed cochain object, in the source’s Q_p-local analytic convention. In the GSp₄ instance of BCGP Theorem 4.8.3 this is RΓ(Y,W)≅RHom_{𝔤}(W∨,RΓ\_completed,la). The generic derived-locally-analytic and Lie-cohomology functors, including exactness hypotheses and the Q_p versus F_v restriction-of-scalars convention, come from LocallyAnalyticDistributions:L0. The ordinary underived H̃^j_la Ext spectral sequence of E06 Corollary 2.2.18 is a cohomological consequence and does not by itself specify the derived comparison or justify replacing derived vectors by underived ones.
 
 (E06, Corollary 2.2.18 and Remark 2.2.19, pp.34–35: Lie-algebra Ext of locally analytic completed cohomology recovers classical coefficient cohomology spectrally.; BCGP, Theorem 4.8.3, pp.101–102: The GSp₄ application states a derived locally analytic comparison, not a GL₂ local-global theorem.)
 
@@ -1487,21 +1870,34 @@ Target `CompletedCohomologyPartII:CC.6/analytic-classical-comparison`.
 
 ### Examples
 
-For the regular point tower descent recovers the chosen finite-level coefficient. For the circle tower the classical degree-one edge to H̃¹ is zero. An edge is an isomorphism in the first nonzero completed degree, because all lower spectral-sequence rows vanish.
+For the regular point tower, descent recovers the chosen finite-level coefficient. For the circle tower the classical degree-one edge to H̃¹ is zero. An edge map is an isomorphism in the first nonzero completed degree, because all lower rows of the spectral sequence vanish.
 
 ### Dependencies
 
-`ArithmeticGaloisDuality:D7`, `ArithmeticGaloisDuality:R02.1`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent`, `CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.2/coefficient-limit-completion`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants`, `LocallyAnalyticDistributions:L0`, `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:groupHomologyIsoTor`.
+`ArithmeticGaloisDuality:D7`, `ArithmeticGaloisDuality:R02.1`, `ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent`, `CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence`, `CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit`, `CompletedCohomologyPartII:CC.2/coefficient-limit-completion`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower`, `CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants`, `LocallyAnalyticDistributions:L0`, `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:groupHomologyIsoTor`.
 
-This layer is **planned**. Its remaining closure work is G2 strict descent control; G6 derived analytic comparison; D7 continuous coefficient contract.
+**Open proof inputs.** G2 (strict descent control), G6 (the derived analytic comparison) and the continuous coefficient contract of ArithmeticGaloisDuality D7.
+
+<a id="layer-7"></a>
 
 ## Layer 7: Completed supports, boundary and duality
+
+This layer passes the support triangle through the derived tower, compares it with the conventional long exact sequence, defines completed interior cohomology as an image and compares it with the limit of the finite images, and states completed Iwasawa–Poincaré duality, the boundary strata with completed parabolic induction, and the generic part of boundary vanishing.
+
+**Targets of the layer.**
+
+- *The support triangle passed through the derived tower, with exactness and connecting morphisms* ([7.1](#derived-completed-support-triangle)). RΓ̃\_c → RΓ̃ → RΓ̃\_∂ → RΓ̃\_c[1], equivariant for all actions.
+- *Derived limits against conventional completed cohomology, with lim¹ and torsion errors* ([7.2](#boundary-long-exact-sequences-and-the-borel-serre-tower), [2.3](#milnor-and-mittag-leffler-control)). The conventional long exact sequence under strict admissible control or vanishing lim¹; otherwise the derived sequence with its Milnor errors.
+- *Homological support sequence and completed Poincaré duality* ([7.3](#completed-homological-support-sequence), [7.6](#completed-iwasawa-poincare-duality)). The relative chain triangle of the compact completed models, and the Ext spectral sequence from the chain-level pairing (gap G7).
+- *Completed interior cohomology as the specified image, each comparison proved separately* ([7.4](#completed-interior-image), [7.5](#interior-image-comparison)). The image of H̃\_c → H̃ and the limit of the finite images, compared through lim¹ of the kernel system.
+- *Localisation-compatible triangles exported to ALS.6 and TC.2* ([7.1](#derived-completed-support-triangle), [8.14](#localisation-limit-support-dual-compatibility)). The derived triangle commutes with the local and Hecke actions; residual localisation is in Layer 8.
+- *Boundary vanishing, Igusa concentration and compactification geometry kept as arithmetic inputs* ([7.7](#boundary-strata-and-completed-induction), [7.8](#boundary-vanishing-support-comparison)). Only the implication from a residual projector killing the boundary to a quasi-isomorphism is generic (the interface for BCGP Theorem 4.9.4); the boundary strata keep Levi cohomology and parabolic induction (gap G8).
 
 ### 7.1 Derived completed support triangle
 
 <a id="derived-completed-support-triangle"></a>
 
-For the CC.0 support diagram, exact filtered colimit and derived coefficient inverse limit give a natural triangle RΓ̃_c→RΓ̃→RΓ̃_∂→RΓ̃_c[1]. It commutes with full local actions, tame correspondences, coefficient changes and level conjugation. Its long exact sequence uses the cohomology of the derived objects; the conventional modules enter only through their Milnor comparison. There is no claim that a bare inverse limit preserves a long exact sequence of discrete modules.
+For the CC.0 support diagram, exact filtered colimit and derived coefficient inverse limit give a natural triangle RΓ̃\_c→RΓ̃→RΓ̃\_∂→RΓ̃\_c[1]. It commutes with full local actions, tame correspondences, coefficient changes and level conjugation. Its long exact sequence uses the cohomology of the derived objects; the conventional modules enter only through their Milnor comparison. There is no claim that a bare inverse limit preserves a long exact sequence of discrete modules.
 
 (CE, §1.5, equation (1.3), p.8: The completed support sequence requires a compatible boundary tower.; E06, Theorem 2.1.12, pp.26–27: The compact-support integral model has the same tower-control requirements.)
 
@@ -1520,7 +1916,7 @@ Target `CompletedCohomologyPartII:CC.7/derived-completed-support-triangle`.
 
 <a id="boundary-long-exact-sequences-and-the-borel-serre-tower"></a>
 
-Under the actual finite-cell strict admissible control for all three support complexes, the triangle identifies with conventional completed modules and yields …→H̃_c^n→H̃^n→H̃_∂^n→H̃_c^{n+1}→…. Alternatively impose and verify lim¹_s A^{n-1}_{*,s}=0 in every relevant degree. Without either hypothesis use the derived support sequence and its Milnor errors. All support arrows and connecting maps are equivariant with the CC.0 actions.
+Under the actual finite-cell strict admissible control for all three support complexes, the triangle identifies with conventional completed modules and yields …→H̃\_c^n→H̃^n→H̃\_∂^n→H̃\_c^{n+1}→…. Alternatively impose and verify lim¹\_s A^{n-1}\_{\*,s}=0 in every relevant degree. Without either hypothesis use the derived support sequence and its Milnor errors. All support arrows and connecting maps are equivariant with the CC.0 actions.
 
 (CE, §1.5, equation (1.3), p.8: The claimed conventional long exact sequence is justified here through the actual controlled model.)
 
@@ -1539,7 +1935,7 @@ Target `CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-bor
 
 <a id="completed-homological-support-sequence"></a>
 
-For the actual compact completed chain models, 𝒫_∂→𝒫→𝒫^{BM} is their relative chain triangle, and its long exact sequence identifies with H̃_n(∂)→H̃_n→H̃_n^{BM}→H̃_{n-1}(∂). Exactness uses the compact closed-image inverse-limit category and the actual finite-cell comparison; it is not the unrestricted exactness of limits of discrete modules.
+For the actual compact completed chain models, 𝒫\_∂→𝒫→𝒫^{BM} is their relative chain triangle, and its long exact sequence identifies with H̃\_n(∂)→H̃\_n→H̃\_n^{BM}→H̃\_{n-1}(∂). Exactness uses the compact closed-image inverse-limit category and the actual finite-cell comparison; it is not the unrestricted exactness of limits of discrete modules.
 
 (Nakamura, §2.3, Lemma 2.4, pp.21–22; Appendix B.1, pp.90–92: The completed Borel–Moore model and compact topological duality retain the boundary.; CE, §1.5, equation (1.2), p.8: The homological support sequence has the displayed degree shift.)
 
@@ -1558,7 +1954,7 @@ Target `CompletedCohomologyPartII:CC.7/completed-homological-support-sequence`.
 
 <a id="completed-interior-image"></a>
 
-Define completed interior cohomology I^n as im(H̃_c^n→H̃^n) in the specified topological module category, with its quotient/image topology and the induced actions. Separately define I_s^n=im(A^n_{c,s}→A^n_s) and I_lim^n=lim_s I_s^n. There is a canonical map I^n→I_lim^n. These two constructions are not identified in the definition; closedness and comparison use the strict model or the kernel-system condition below.
+Define completed interior cohomology I^n as im(H̃\_c^n→H̃^n) in the specified topological module category, with its quotient/image topology and the induced actions. Separately define I_s^n=im(A^n_{c,s}→A^n_s) and I_lim^n=lim_s I_s^n. There is a canonical map I^n→I_lim^n. These two constructions are not identified in the definition; closedness and comparison use the strict model or the kernel-system condition below.
 
 (CE, §1.5, equations (1.2)–(1.3), p.8: The interior term is an image of the support map; its tower comparison must retain inverse-limit errors.)
 
@@ -1608,7 +2004,7 @@ Target `CompletedCohomologyPartII:CC.7/interior-image-comparison`.
 
 <a id="completed-iwasawa-poincare-duality"></a>
 
-For an oriented neat arithmetic d-manifold tower and dual coefficient local systems, the actual Λ-cellular duality comparison induces Ext^i_Λ(H̃_j,Λ)⇒H̃_{d-i-j}^{BM} with the orientation twist and opposite-ring action converted by g↦g⁻¹; swapping supports gives the reverse comparison. It is obtained from the chain-level Poincaré–Lefschetz pairing and RHom_Λ(𝒫,Λ), not the continuous O-dual alone. For O[[U]] with torsion-free uniform U, the unrestricted Ext amplitude is dim(U)+1; the smaller dim(U) bound requires O-torsion-free input and the supplier’s coefficient argument. The arithmetic chain pairing is proof leaf G7.
+For an oriented neat arithmetic d-manifold tower and dual coefficient local systems, the actual Λ-cellular duality comparison induces Ext^i_Λ(H̃\_j,Λ)⇒H̃\_{d-i-j}^{BM} with the orientation twist and opposite-ring action converted by g↦g⁻¹; swapping supports gives the reverse comparison. It is obtained from the chain-level Poincaré–Lefschetz pairing and RHom_Λ(𝒫,Λ), not the continuous O-dual alone. For O[[U]] with torsion-free uniform U, the unrestricted Ext amplitude is dim(U)+1; the smaller dim(U) bound requires O-torsion-free input and the supplier’s coefficient argument. The arithmetic chain pairing is proof leaf G7.
 
 (CE, §1.3, pp.5–6; Theorem 1.16(5), p.13: Completed support duality uses Iwasawa Ext, with coefficients and orientation retained.; Nakamura, Lemma 2.4, pp.21–22: The rank-two arithmetic instance uses completed support duality with its twists.)
 
@@ -1616,7 +2012,7 @@ The proof route is: Import only finite-level manifold/support duality from ALS.5
 
 **Checks.**
 
-- For U={1}, Λ=O and M=k, Ext¹_O(k,O) is nonzero.
+- For U={1}, Λ=O and M=k, Ext¹\_O(k,O) is nonzero.
 - No completed duality target is requested back from ALS.5.
 
 *Needs:* `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `CompletedCohomologyPartII:CC.7/completed-homological-support-sequence`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`, `CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
@@ -1646,7 +2042,7 @@ Target `CompletedCohomologyPartII:CC.7/boundary-strata-and-completed-induction`.
 
 <a id="boundary-vanishing-support-comparison"></a>
 
-If a compatible central residual Hecke projector e acts on the completed support triangle and eRΓ̃_∂=0, then eRΓ̃_c→eRΓ̃ is a quasi-isomorphism, with all local actions and dual comparisons retained. This generic implication is the interface for BCGP Theorem 4.9.4. Proving boundary vanishing for its GSp₄ residual Galois hypotheses belongs to that arithmetic consumer and is not deduced from a GL₂ example or from the generic projector construction.
+If a compatible central residual Hecke projector e acts on the completed support triangle and eRΓ̃\_∂=0, then eRΓ̃\_c→eRΓ̃ is a quasi-isomorphism, with all local actions and dual comparisons retained. This generic implication is the interface for BCGP Theorem 4.9.4. Proving boundary vanishing for its GSp₄ residual Galois hypotheses belongs to that arithmetic consumer and is not deduced from a GL₂ example or from the generic projector construction.
 
 (BCGP, Theorem 4.9.4, p.104: The arithmetic non-Eisenstein condition is an additional boundary-vanishing input to the support comparison.)
 
@@ -1663,29 +2059,110 @@ Target `CompletedCohomologyPartII:CC.7/boundary-vanishing-support-comparison`.
 
 ### Examples
 
-For empty boundary ordinary and compact-support objects coincide. For a finite relative interval, the endpoint boundary creates relative H₁=O. For constant integer lifts Z→Z/p^s, taking inverse-limit images gives Z⊂Z_p, so image/limit interchange fails without kernel control.
+For empty boundary the ordinary and compact-support objects coincide. For a finite relative interval the endpoint boundary creates relative H₁ = O. For the constant integer lifts Z → Z/p^s, the inverse limit of the images is Z ⊂ Z_p, so image and limit do not commute without control of the kernels.
 
 ### Dependencies
 
 `ArithmeticGaloisDuality:R02.1`, `ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification`, `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle`, `ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.2/derived-completed-tower`, `CompletedCohomologyPartII:CC.2/integral-admissible-complex-control`, `CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control`, `CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore`, `CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex`, `CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:ContinuousLinearMap`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
 
-This layer is **planned**. Its remaining closure work is G7 arithmetic Iwasawa chain pairing; G8 boundary nilpotent calculation; kernel-system control for interior image.
+**Open proof inputs.** G7 (the arithmetic Iwasawa chain pairing), G8 (the boundary nilpotent calculation) and control of the kernel system for the interior image.
+
+<a id="layer-8"></a>
 
 ## Layer 8: Shimura, Galois and Hecke adapters
 
-The following twelve imported targets are the accepted CC.8 plan. For the reader their prerequisite list uses the proposed current-tier replacement contracts; G11 records the required assembly migration. Their completed carrier, finite-image, residual-support and localization mathematics is unchanged. The imported arithmetic realization is conditional on the new central-quotient target: Y, its split-center quotient and the Shimura quotient are compared only with the verified descended coefficients, support shifts and effective deck groups. Its Y_K=X_K(C) notation does not assert that a central bundle or ineffective kernel is trivial.
+This layer identifies the generic completed objects with the towers that arithmetic applications use. The arithmetic, split-centre and Shimura quotients are first told apart (8.1). The selected canonical-model towers (8.2), the Hilbert and quaternionic coefficient input (8.3) and the finite comparisons 0.6–0.7 then give four named comparison isomorphisms (8.4); the definite unitary degree-zero tower needs no canonical model (8.5), and Scholze's fixed-exponent object is matched with that of Layer 1 (8.6). Galois and tame Hecke actions are transported from finite level (8.7). The remaining targets build the completed Hecke algebra as the inverse limit of finite derived Hecke images, prove that it is semilocal, and localise the completed tower at a residual ideal compatibly with limits, supports and duality (8.8–8.15).
 
-### 8.1 Arithmetic tower realisation comparisons
+**Targets of the layer.**
+
+- *The generic completed object identified with the modular, Siegel, unitary and Hilbert towers its consumers use* ([8.1](#arithmetic-shimura-central-quotient), [8.2](#canonical-four-family-tower-input), [8.3](#hilbert-finite-local-system-input), [8.4](#arithmetic-tower-realisation), [8.5](#definite-unitary-degree-zero)). First the arithmetic, split-centre and Shimura quotients are told apart (8.1); then the selected canonical models and the Hilbert and quaternionic coefficient input (8.2, 8.3) and the finite comparisons of 0.6–0.7 give four named comparison isomorphisms (8.4). The definite unitary degree-zero tower needs no canonical model (8.5).
+- *Scholze's fixed-exponent compact-support convention* ([8.6](#scholze-4-2-convention-and-the-perfectoid-comparison)). Scholze's §4.2 object at fixed exponent n, with its support and lattice, identified with the fixed-exponent object of Layer 1; the perfectoid comparison itself is TorsionCohomologyInfrastructure TC.2.
+- *Galois and tame Hecke actions transported from finite level, continuous and compatible with every transition* ([8.7](#transported-arithmetic-actions)). The finite actions are transported through the comparison, the level colimit and the coefficient limit; joint continuity comes from open point stabilisers.
+- *Localisation at a residual Hecke ideal* ([8.8](#compatible-derived-hecke-images), [8.9](#residual-support-stability), [8.10](#completed-hecke-algebra), [8.11](#completed-semilocal-product), [8.12](#residual-hecke-projector), [8.13](#completed-residual-localisation), [8.14](#localisation-limit-support-dual-compatibility), [8.15](#derived-cohomological-residual-comparison)). The inverse limit of the finite derived Hecke images, its semilocality from stable residual support at a pro-p level, its compatible residual projectors, and the closed residual summand of the completed tower, compatible with limits, supports and duality.
+- *Named comparison isomorphisms rather than a new completed object for each group* ([8.4](#arithmetic-tower-realisation)). The four comparisons `modularCompletedComparison`, `siegelCompletedComparison`, `unitaryCompletedComparison` and `hilbertCompletedComparison` compare the one carrier of Layers 1–2 with each tower.
+
+**What this layer uses from the earlier layers.**
+
+- Layer 0: the finite tower, its cofinality and the finite coefficient and local-system dictionary, with the convention for real components.
+- Layer 1: the fixed-exponent level colimit, cofinality, and the action of the full local group by conjugating levels, with open stabilisers and transported tame Hecke maps.
+- Layer 2: the integral topological and derived coefficient limits: separatedness and completeness, qualified Mittag-Leffler and fixed-coefficient recovery, lim¹ corrections, and rationalisation of a stable lattice.
+- Layer 3: completed homology and the exact continuous dual comparison in its stated support and lattice range, with adjoint tame Hecke labels.
+- Layer 4: uniformly bounded perfect complexes over the finite group rings, coherent Hecke-equivariant derived coefficient change and recovery of deck coinvariants, with the actual compatible actions.
+- Layer 5: finite generation, agreement of the canonical and inverse-limit topologies, and dual admissibility, where these structures are used.
+- Layer 6: continuous completed descent and qualified classical evaluation, when those comparisons are invoked; recovery of the coefficient limit itself is Layer 2, and finite derived coinvariant recovery is Layer 4.
+- Layer 7: functorial support, trace and local-system maps with the equivariant boundary triangle, and the canonical-model étale coefficient system with its analytic identification for each chosen integral lattice, including the Tate-twist and coefficient-extension normalisation.
+
+Gee–Newton §2.1 (pp. 7–11) is the source of the unpatched finite complexes and their recovery of group-ring coefficients used in 8.8–8.9; their Proposition 3.4.16 (pp. 23–24) gives the patched perfect complex with recovery of open-ideal and deck coinvariants, and Proposition 3.4.19 (p. 24) identifies its augmentation homology with residual completed homology. Both are taken from Layer 4 (4.7); patched complexes are not constructed here.
+
+### 8.1 Arithmetic–Shimura central comparison
+
+<a id="arithmetic-shimura-central-quotient"></a>
+
+Distinguish E06’s arithmetic Y_K, finite-volume Y_K°=Y_K/S_∞°, and Shimura quotient Ỹ\_K=Y_K/Z_∞°. The first quotient has contractible fiber S_∞°≅R^a, hence ordinary coefficient cohomology is unchanged but compact-support cohomology has the real dimension a shift and its orientation factor. The second quotient has a t-dimensional compact torus fiber; its Leray sequence has fiber H^j((S¹)^t,O)≅∧^jO^t, so it is not an unconditional cohomology isomorphism. An algebraic coefficient representation descends to Ỹ only when the indicated Z_∞¹ action is trivial. At the finite adelic levels retain the closure of rational central units in the effective deck action; verify the actual deck quotient rather than inferring K_0/U from neatness. The Hilbert and selected quaternionic Shimura curves need this comparison, since E06 §2.4’s simplifying equality Y°=Ỹ excludes these general examples. Finite-cell/perfect/descent targets apply only to their verified regular tower, or to the explicit central/stabilizer replacement G12.
+
+(E06, §2.4,pp.40–42: The two central quotients, torus fiber, coefficient descent condition and restricted simplifying hypothesis distinguish arithmetic and Shimura towers.; MilneSV, Example5.24,pp.63–64; Theorem5.28 and Remark5.29,pp.65–66; §9 type A₁ example,pp.94–95: Hilbert/quaternionic data and rational central units determine the effective finite-level quotient; no topological inverse-limit identity from Theorem5.28 is used.)
+
+The proof route is: Import the actual ALS quotient and coefficient descent data. Use the contractible real-split central bundle comparison for ordinary cohomology and the compact-support Thom shift. For the residual central torus bundle retain its Leray/monodromy comparison instead of identifying its cohomology with the base. Check actual level kernels and coefficient descent before applying CC.4/CC.6; acquire G12’s effective-deck/perfect replacement if the full compact group is ineffective.
+
+**Checks.**
+
+- For a circle fiber H¹ contributes O, so base and total cohomology need not agree.
+- A real-line fiber preserves ordinary H⁰ but shifts compact-support degree by one.
+- Infinite central units are not removed by neatness.
+
+*Needs:* `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers`, `ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+
+Target `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
+
+### 8.2 Canonical arithmetic tower input
+
+<a id="canonical-four-family-tower-input"></a>
+
+For the selected modular/Siegel, PEL unitary and Hilbert Shimura data of the CC.8 adapter, construct the minimal characteristic-zero canonical-model input: varieties Sh_K over the reflex field, compatible finite étale level maps at neat inclusions, Hecke correspondences, and the complex analytic identification with the connected arithmetic locally symmetric quotient including component labels. The relevant data are of PEL/Hodge or abelian type under Milne’s criteria; central quotients and chosen level conditions are retained. This supplies only the input consumed by the completed tower, not integral models, all Shimura data, compactifications or a new completed object. Its canonical-existence proof leaves are G9.
+
+(MilneSV, §5, 5.29, pp.57–66; 12.10, pp.114–115; 13.6–13.8, pp.118–119; 14.12–14.16, pp.125–128: The analytic quotient, canonical-model convention, functoriality and PEL/Hodge/abelian-type existence supply these selected tower contracts.)
+
+The proof route is: Check each selected Shimura datum against the source’s PEL/Hodge or abelian-type criteria. Acquire the required canonical-existence proof leaves G9, without assuming an arbitrary Shimura datum has the selected moduli interpretation. Use canonical functoriality for neat finite level maps and correspondences. Match complex components with the supplied ALS arithmetic quotient before applying the CC.8 tower realization.
+
+**Checks.**
+
+- The definite unitary discrete quotient is distinguished from a positive-dimensional unitary Shimura variety.
+- This target states, in the form the tower needs, the input otherwise taken from ShimuraVarieties V8; it does not imply a perfectoid comparison.
+
+*Needs:* `ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `ModularCurvesPartII:R14.3`, `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
+
+Target `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`.
+
+### 8.3 Hilbert finite-level coefficient input
+
+<a id="hilbert-finite-local-system-input"></a>
+
+For the Hilbert datum Res_{F/Q}GL₂ with F totally real and the selected neat level, specialize the canonical tower input and the étale/Betti comparison of CC.0/finite-etale-betti-support-comparison to each O/varpi^s local system attached to the specified algebraic representation. Identify its complex connected component cochains with the actual ALS finite-level tower, compatibly with tame Hecke, level maps and coefficient reduction. The full level tower, central units and finite components must be retained. This is the narrow input needed by CC.8; the wider Hilbert modular geometry stays with R18.4 as a consumer. Include selected quaternionic Shimura curves (quaternion algebra split at exactly one real place) via the abelian-type canonical input. Coefficients satisfy the central descent condition of arithmetic-shimura-central-quotient; no PEL moduli assertion is made for every quaternionic datum.
+
+(MilneSV, §5, pp.57–66; 14.12–14.16, pp.125–128: The totally real Hilbert datum is handled through its selected canonical-model construction and complex arithmetic quotient.; E06, §2.2, Lemma 2.2.4 and Theorem 2.2.17, pp.28–29,33–34: The coefficient system comparison must commute with untwisting and level transport.; MilneSV, Example5.24,pp.63–64; §9 type A₁ example,pp.94–95: Hilbert data are the split quaternion case; the one-split-real-place case is a curve, and general quaternionic data require the abelian-type route.)
+
+The proof route is: Use the selected Hilbert PEL/abelian-type construction and analytic quotient with its components. Apply the imported étale/Betti coefficient comparison at every finite exponent. Check the actual level, tame and reduction squares and feed them to the arithmetic adapter CC.8/arithmetic-tower-realisation.
+
+**Checks.**
+
+- Central units are not discarded by replacing the tower with one connected component without descent.
+- No Hilbert perfectoid vanishing result is a prerequisite of this finite-level input.
+
+*Needs:* `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`, `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting`, `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
+
+Target `CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input`.
+
+### 8.4 Arithmetic tower realisation comparisons
 
 <a id="arithmetic-tower-realisation"></a>
 
 For each of the modular, Siegel, unitary and Hilbert families, fix the actual canonical-model tower X_K over its reflex field E, an embedding of an algebraic closure of E into C, a neat cofinal level system K=K_p K^p, and a compatible finite locally constant O/varpi^s coefficient system L_s from one chosen integral lattice. Identify the CC.0 finite-level arithmetic quotient with X_K(C), with its archimedean-component convention explicitly matched. The supplied finite étale–analytic comparison gives compatible O/varpi^s-linear isomorphisms of ordinary and compactly supported cohomology, natural for coefficient reduction, level pullback, finite étale trace and tame Hecke correspondences. Applying the existing CC.1 colimit at fixed s and then the CC.2 coefficient inverse limit gives named continuous linear comparison isomorphisms between the generic completed objects and these four actual arithmetic towers. These are comparisons of the existing carrier, not four new definitions of completed cohomology. The boundary triangle is transported only for the compactification and support maps supplied by CC.0/CC.7.
 
-The hypotheses are as follows. O is the ring of integers in a finite extension of Q_p; varpi is a uniformizer; k is finite. Neatness ensures finite-level schemes and covering maps; nonneat levels require the supplied stack or group-cohomology interpretation. The connected real stabilizer A_infty^0 K_infty^0 used in the survey and the full stabilizer of a Shimura domain can differ. A comparison is asserted only after a concrete equivariant quotient dictionary; when descent is needed retain derived finite-component descent, rather than averaging at primes dividing the component-group order. Siegel and unitary comparisons use the finite-coefficient portion of EDC.6/complex-analytic-comparison. R14.3 and R18.4 supply the modular and Hilbert/curve inputs. Trace comparisons use the chosen complex orientation. For the complex orientation identify the finite Tate twist by the chosen compatible roots of unity. Use the EDC.6 trace-orientation input for Z/p^n and the supplied coefficient-extension compatibility for the selected O/varpi^s local system; no arbitrary unlabelled Tate-twist identification is made.
+The hypotheses are as follows. Neatness ensures finite-level schemes and covering maps; nonneat levels require the supplied stack or group-cohomology interpretation. The connected real stabilizer A_infty^0 K_infty^0 used in the survey and the full stabilizer of a Shimura domain can differ. A comparison is asserted only after a concrete equivariant quotient dictionary; when descent is needed retain derived finite-component descent, rather than averaging at primes dividing the component-group order. The canonical-model towers, their level maps and Hecke correspondences, and the analytic identification with the arithmetic quotient are those of CC.8/canonical-four-family-tower-input. Siegel and unitary comparisons use the finite-coefficient comparison CC.0/finite-etale-betti-support-comparison. R14.3 supplies the modular local-system dictionary and CC.8/hilbert-finite-local-system-input the Hilbert and quaternionic Shimura-curve one. Trace comparisons use the chosen complex orientation. For the complex orientation identify the finite Tate twist by the chosen compatible roots of unity. Use CC.0/finite-etale-trace-orientation-comparison for Z/p^n and the supplied coefficient-extension compatibility for the selected O/varpi^s local system; no arbitrary unlabelled Tate-twist identification is made. The arithmetic quotient Y_K of CC.0, its quotient Y_K° by the split real centre and the Shimura quotient Ỹ\_K are distinguished as in CC.8/arithmetic-shimura-central-quotient. The identification with X_K(C) is made for the quotient the selected Shimura datum actually gives, with its coefficient descent, compact-support shift and orientation factor, and with the effective finite deck groups verified there. The notation Y_K = X_K(C) does not assert that a central torus bundle or an ineffective central kernel is trivial; where the effective deck group differs from K_0/U, the CC.4 and CC.6 comparisons are applied to the verified effective tower (gap G12).
 
-(CE, §1.5, pp. 7–8: The arithmetic quotient uses connected real stabilizers and retains a finite component-group action; this fixes the quotient dictionary required by the adapter.; Scholze, §4.2, proof of Theorem 4.2.1, p. 1021: The finite compact-support group is identified with étale cohomology of extension by zero on a compactification before the perfectoid argument. Only this finite comparison recipe is used here.; Milne, Theorem 21.1 and Remark 21.2, p. 130: Ordinary finite-coefficient comparison and its constructible extension motivate the finite input; compact supports and naturality are imported from the stronger named EDC supplier, not inferred from this ordinary statement.)
+(CE, §1.5, pp. 7–8: The arithmetic quotient uses connected real stabilizers and retains a finite component-group action; this fixes the quotient dictionary required by the adapter.; Scholze, §4.2, proof of Theorem 4.2.1, p. 1021: The finite compact-support group is identified with étale cohomology of extension by zero on a compactification before the perfectoid argument. Only this finite comparison recipe is used here.; MilneEC, Theorem 21.1 and Remark 21.2, p. 130: Ordinary finite-coefficient comparison and its constructible extension motivate the finite input; compact supports and naturality come from CC.0/finite-etale-betti-support-comparison, not from this ordinary statement.)
 
-The proof route is: Import X_K, its canonical model, reflex-field action, and the analytic adelic quotient from V8; retain determinant/component labels, rather than silently selecting one geometric component. Apply the exact finite-coefficient comparison with compact supports from EDC.6. For modular and Hilbert/curve families use the specialized local-system dictionaries in R14.3 and R18.4. Check all comparison squares before taking limits. Use EDC.6/trace-orientation-comparison for the chosen Tate-twist/complex-orientation normalization and CC.7 for its coefficient-system transport. Use CC.1 functoriality on the cofinal level diagram at each s and CC.7 for the support diagram. Then take the CC.2 coefficient inverse limit with its induced topology; its inverse is the limit of the finite comparison inverses. Export modularCompletedComparison, siegelCompletedComparison, unitaryCompletedComparison and hilbertCompletedComparison; R31.1 imports the first and fourth instead of constructing them again.
+The proof route is: Compare the arithmetic, split-centre and Shimura quotients and their coefficients through CC.8/arithmetic-shimura-central-quotient. Take X_K, its canonical model, reflex-field action, level maps, Hecke correspondences and the analytic identification with the arithmetic quotient from CC.8/canonical-four-family-tower-input; retain determinant/component labels, rather than silently selecting one geometric component. Apply the finite-coefficient comparison with compact supports CC.0/finite-etale-betti-support-comparison. For modular and Hilbert/curve families use the specialized local-system dictionaries of R14.3 and CC.8/hilbert-finite-local-system-input. Check all comparison squares before taking limits. Use CC.0/finite-etale-trace-orientation-comparison for the chosen Tate-twist/complex-orientation normalization and CC.7 for its coefficient-system transport. Use CC.1 functoriality on the cofinal level diagram at each s and CC.7 for the support diagram. Then take the CC.2 coefficient inverse limit with its induced topology; its inverse is the limit of the finite comparison inverses. Export modularCompletedComparison, siegelCompletedComparison, unitaryCompletedComparison and hilbertCompletedComparison; R31.1 imports the first and fourth instead of constructing them again.
 
 **Checks.**
 
@@ -1694,15 +2171,15 @@ The proof route is: Import X_K, its canonical model, reflex-field action, and th
 - For a component group C_2 at p=2, no averaging projection using 1/2 is exported. The quotient dictionary or actual derived descent must appear.
 - The Galois action transported to the Betti object depends on the specified comparison and complex embedding; no Galois action on the bare singular site is asserted.
 
-*Needs:* `CompletedCohomologyPartII:CC.0`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.7`, `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`, `ModularCurvesPartII:R14.3`, `CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison`, `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
+*Needs:* `CompletedCohomologyPartII:CC.0`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.7`, `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`, `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`, `ModularCurvesPartII:R14.3`, `CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison`.
 
-Target `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`.
 
-### 8.2 Definite unitary degree-zero adapter
+### 8.5 Definite unitary degree-zero adapter
 
 <a id="definite-unitary-degree-zero"></a>
 
-In the definite unitary setting of LLHLM §5.3, with fixed tame level U^p and fixed away-p lattice W, let S(U,W_s) consist of functions on G(F^+)\G(A_f) with f(gu)=u^{-1}f(g), W_s=W/varpi^s. The actual finite double quotient and its equivariant coefficient system identify this module with H^0 of the finite discrete arithmetic tower. Thus lim_s colim_{U_p} S(U_p U^p,W_s) is canonically the CC.2 completed degree-zero object after the CC.1 level colimit for that tower, with its tame Hecke and G_p actions and coefficient-limit topology. At a nonneat finite quotient, the value at a representative x lies in W_s^{Gamma_x}; arbitrary W_s-valued functions are valid only when stabilizers act trivially. The degree-zero identification makes no claim that higher stabilizer cohomology vanishes. The finite quotient/coefficient dictionary is a CC.0 input; no canonical-model or étale–Betti comparison is used for this discrete degree-zero identification. Galois representations associated to Hecke eigenvalues are not a Galois action on these functions.
+In the definite unitary setting of LLHLM §5.3, with fixed tame level U^p and fixed away-p lattice W, let S(U,W_s) consist of functions on G(F^+)\\G(A_f) with f(gu)=u^{-1}f(g), W_s=W/varpi^s. The actual finite double quotient and its equivariant coefficient system identify this module with H^0 of the finite discrete arithmetic tower. Thus lim_s colim_{U_p} S(U_p U^p,W_s) is canonically the CC.2 completed degree-zero object after the CC.1 level colimit for that tower, with its tame Hecke and G_p actions and coefficient-limit topology. At a nonneat finite quotient, the value at a representative x lies in W_s^{Gamma_x}; arbitrary W_s-valued functions are valid only when stabilizers act trivially. The degree-zero identification makes no claim that higher stabilizer cohomology vanishes. The finite quotient/coefficient dictionary is a CC.0 input; no canonical-model or étale–Betti comparison is used for this discrete degree-zero identification. Galois representations associated to Hecke eigenvalues are not a Galois action on these functions.
 
 The hypotheses are as follows. Use the paper’s definite outer form of GL_3 over the totally real F^+≠Q, split over its CM field, and its specified local identifications and tame coefficient lattice. For the simple G_p action by right translation, W is fixed away p and its U_p action is trivial. A nontrivial p-adic coefficient action requires the corresponding equivariant coefficient transport, not this simplified formula.
 
@@ -1718,9 +2195,9 @@ The proof route is: Use the finite double-coset decomposition to evaluate functi
 
 *Needs:* `CompletedCohomologyPartII:CC.0`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`.
 
-Target `CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero`.
 
-### 8.3 Scholze fixed-exponent support convention
+### 8.6 Scholze fixed-exponent support convention
 
 <a id="scholze-4-2-convention-and-the-perfectoid-comparison"></a>
 
@@ -1730,7 +2207,7 @@ The hypotheses are as follows. n≥1 is fixed. Coefficients are exactly Z/p^n; a
 
 (Scholze, §4.2, definition on p. 1020; Theorem 4.2.1 statement and its two level diagrams on p. 1021: The definition is a compact-support colimit at fixed exponent with the Hodge/Siegel and tame-level hypotheses. The theorem is cited only to identify the consumer and its coefficient/support requirements, not as a CC.8 theorem.)
 
-The proof route is: Read the published §4.2 definition with the §4.1 Hodge embedding/tame level conventions, matching finite level and support with the arithmetic adapter. Apply cofinality and the compact-support finite comparison at fixed n. Expose the level-insertion maps so TC.2 can verify its pullback/trace diagrams. Register a supplier link CC.8→TC.2 for this fixed-exponent input. Preserve this integrated node id with its narrowed statement, and remove the perfectoid comparison output from CC.8 ownership.
+The proof route is: Read the published §4.2 definition with the §4.1 Hodge embedding/tame level conventions, matching finite level and support with the arithmetic adapter. Apply cofinality and the compact-support finite comparison at fixed n. Expose the level-insertion maps so TC.2 can verify its pullback/trace diagrams. CC.8 supplies this fixed-exponent input to TC.2 (the link CC.8→TC.2); the perfectoid comparison is not a CC.8 output.
 
 **Checks.**
 
@@ -1740,9 +2217,9 @@ The proof route is: Read the published §4.2 definition with the §4.1 Hodge emb
 
 *Needs:* `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.7`.
 
-Target `CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison`.
 
-### 8.4 Transported Galois and Hecke actions
+### 8.7 Transported Galois and Hecke actions
 
 <a id="transported-arithmetic-actions"></a>
 
@@ -1752,32 +2229,32 @@ The hypotheses are as follows. The finite Galois and Hecke actions commute with 
 
 (CE, §1.5, p. 7: The arithmetic tower carries the full p-adic group and completed tame Hecke action; CC.8 adds the canonical-model Galois transport to the generic construction.; GN, Remark 2.1.13, p. 11: The completed Hecke action commutes with the full p-adic group on completed homology. This is the consumer requirement for the transported action.)
 
-The proof route is: Conjugate the finite actions across the comparison, and use naturality to descend to each colimit. Prove its smoothness vector by vector at a finite level and finite coefficient. Invoke the existing TopModuleCat limit and Functor.mapEnd on the coefficient diagram. Equality and commutation are checked under every limit projection; uniqueness follows from those projections. For joint continuity, test each inverse-limit basic open using its discrete coordinate and that coordinate’s open stabilizer. Use CC.1 for G_p level reindexing and CC.2 for stable-lattice rationalization and its topology. For each residual projector in this packet the commutation equations restrict these actions to its closed summand.
+The proof route is: Conjugate the finite actions across the comparison, and use naturality to descend to each colimit. Prove its smoothness vector by vector at a finite level and finite coefficient. Invoke the existing TopModuleCat limit and Functor.mapEnd on the coefficient diagram. Equality and commutation are checked under every limit projection; uniqueness follows from those projections. For joint continuity, test each inverse-limit basic open using its discrete coordinate and that coordinate’s open stabilizer. Use CC.1 for G_p level reindexing and CC.2 for stable-lattice rationalization and its topology. For each residual projector of CC.8/residual-hecke-projector the commutation equations restrict these actions to its closed summand.
 
 Uses: TorsionCohomologyInfrastructure:TC.2: The fixed-exponent compact-support comparison must retain commuting actions; CompletedCohomologyAndLocalGlobalCompatibility:R31.1/R31.3: The Banach lattice and its residual summand must carry the same Galois, Hecke and G_p conventions.
 
 Provide the following named interface.
 
-- `TauCeti.CompletedArithmetic.transportedAction`: The monoid action on the existing topological coefficient-limit object is the image of the natural diagram action under the limit functor; arithmetic finite actions are transported first.
-- `TauCeti.CompletedArithmetic.transportedAction_projection`: Each limit projection intertwines the induced operator with the corresponding diagram component.
-- `TauCeti.CompletedArithmetic.transportedAction_unique`: Two continuous actions agreeing under every coefficient projection agree.
-- `TauCeti.CompletedArithmetic.transportedAction_commute`: Commuting natural diagram actions induce commuting operators on the limit.
-- `TauCeti.CompletedArithmetic.transportedAction_jointlyContinuous`: If each coordinate action is jointly continuous, the action on the induced limit topology is jointly continuous.
-- `TauCeti.CompletedArithmetic.transportedAction_localized`: A continuous idempotent commuting with all action operators has an invariant image with the restricted continuous action.
+- `TauCeti.CompletedCohomology.transportedAction`: The monoid action on the existing topological coefficient-limit object is the image of the natural diagram action under the limit functor; arithmetic finite actions are transported first.
+- `TauCeti.CompletedCohomology.transportedAction_projection`: Each limit projection intertwines the induced operator with the corresponding diagram component.
+- `TauCeti.CompletedCohomology.transportedAction_unique`: Two continuous actions agreeing under every coefficient projection agree.
+- `TauCeti.CompletedCohomology.transportedAction_commute`: Commuting natural diagram actions induce commuting operators on the limit.
+- `TauCeti.CompletedCohomology.transportedAction_jointlyContinuous`: If each coordinate action is jointly continuous, the action on the induced limit topology is jointly continuous.
+- `TauCeti.CompletedCohomology.transportedAction_localized`: A continuous idempotent commuting with all action operators has an invariant image with the restricted continuous action.
 
 **Checks.**
 
-- `TauCeti.CompletedArithmetic.transportedAction_identity`: The trivial natural action induces the identity on every element of the completed object.
-- `TauCeti.CompletedArithmetic.transportedAction_sign`: For a constant O coefficient-limit diagram with the C_2 sign action, the nontrivial element acts by −1, including at p=2; reduction modulo 2 can be trivial without making the integral action trivial.
-- `TauCeti.CompletedArithmetic.transportedAction_noncommuting`: The two shears on O^2, represented by matrices [[1,1],[0,1]] and [[1,0],[1,1]], do not commute. Commutation on the completed object requires the finite commuting-action hypothesis.
+- `TauCeti.CompletedCohomology.transportedAction_identity`: The trivial natural action induces the identity on every element of the completed object.
+- `TauCeti.CompletedCohomology.transportedAction_sign`: For a constant O coefficient-limit diagram with the C_2 sign action, the nontrivial element acts by −1, including at p=2; reduction modulo 2 can be trivial without making the integral action trivial.
+- `TauCeti.CompletedCohomology.transportedAction_noncommuting`: The two shears on O^2, represented by matrices [[1,1],[0,1]] and [[1,0],[1,1]], do not commute. Commutation on the completed object requires the finite commuting-action hypothesis.
 - Projection to each coefficient coordinate recovers the specified action, with the same order of Hecke composition.
 - A product of finite discrete representations gives a continuous inverse-limit action even when their common kernel is not open.
 
 *Needs:* `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.7`, `mathlib:TopModuleCat`, `mathlib:CategoryTheory.Functor.mapEnd`, `mathlib:CategoryTheory.Limits.lim`, `mathlib:TopModuleCat.isLimit`.
 
-Target `CompletedCohomologyPartII:CC.8/transported-arithmetic-actions` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/transported-arithmetic-actions`.
 
-### 8.5 Compatible finite derived Hecke image diagram
+### 8.8 Compatible finite derived Hecke image diagram
 
 <a id="compatible-derived-hecke-images"></a>
 
@@ -1793,24 +2270,24 @@ Uses: Gee–Newton, Definition 2.1.11, p. 10: The big algebra is the inverse lim
 
 Provide the following named interface.
 
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram`: The functor on the cofiltered normal-level/coefficient category has object T_{U,s} and transition given by the specified derived coefficient change.
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram_class`: Every transition sends the derived image class of h∈H to its target image class.
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram_surjective`: Each transition is surjective; finite images are finite commutative O-algebras.
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram_coherence`: Identity and composite transitions agree, including their base-change comparison isomorphisms.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram`: The functor on the cofiltered normal-level/coefficient category has object T_{U,s} and transition given by the specified derived coefficient change.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram_class`: Every transition sends the derived image class of h∈H to its target image class.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram_surjective`: Each transition is surjective; finite images are finite commutative O-algebras.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram_coherence`: Identity and composite transitions agree, including their base-change comparison isomorphisms.
 
 **Checks.**
 
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram_zero`: A zero complex has the one-element image ring at every level; its compatible diagram has no maximal ideals.
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram_scalar`: For the scalar action on a rank-one O/varpi^s complex at trivial group level, the image is O/varpi^s and coefficient transitions are quotient maps.
-- `TauCeti.CompletedArithmetic.derivedHeckeDiagram_intertwiner_insufficient`: For H=k[x] acting by x=0 on k and by x=1 on k, the zero map of modules intertwines the actions, but no H-compatible map of the two image quotients exists. A bare intertwiner cannot replace base-change recovery.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram_zero`: A zero complex has the one-element image ring at every level; its compatible diagram has no maximal ideals.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram_scalar`: For the scalar action on a rank-one O/varpi^s complex at trivial group level, the image is O/varpi^s and coefficient transitions are quotient maps.
+- `TauCeti.CompletedCohomology.derivedHeckeDiagram_intertwiner_insufficient`: For H=k[x] acting by x=0 on k and by x=1 on k, the zero map of modules intertwines the actions, but no H-compatible map of the two image quotients exists. A bare intertwiner cannot replace base-change recovery.
 - Every transition is surjective on actual image rings and preserves the class of each abstract Hecke operator.
 - An operator killed in the finer derived image is killed after actual derived coefficient change.
 
 *Needs:* `CompletedCohomologyPartII:CC.4`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `mathlib:RingHom.range`.
 
-Target `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images`.
 
-### 8.6 Residual support at a pro-p level
+### 8.9 Residual support at a pro-p level
 
 <a id="residual-support-stability"></a>
 
@@ -1830,13 +2307,13 @@ The proof route is: Split a finite residual factor using the IHG equivariant ide
 
 *Needs:* `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images`, `CompletedCohomologyPartII:CC.4`, `DeformationAndDerivedPatchingAlgebra:P7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
 
-Target `CompletedCohomologyPartII:CC.8/residual-support-stability` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/residual-support-stability`.
 
-### 8.7 Completed derived Hecke algebra
+### 8.10 Completed derived Hecke algebra
 
 <a id="completed-hecke-algebra"></a>
 
-For the compatible finite derived-image diagram F of this packet define T_hat as its inverse limit, the subring of the product consisting of compatible tuples, with the subspace topology of the product of finite discrete rings. This is the instance of Mathlib RingCat.sectionsSubring attached to F, not a new generic inverse-limit construction. It is a compact Hausdorff complete topological commutative O-algebra. The evaluation maps to finite images are continuous surjections. The compatible map H→T_hat has dense image; it need not be surjective. Cofinal normal-level systems and iterated coefficient/level limits give canonical topological ring isomorphisms. The supplied finite actions induce a continuous action on the compatible CC.4 chain/homology system and its completed limit; on completed cohomology use the CC.3 adjoint/dual convention or an explicitly supplied cohomological diagram.
+For the compatible finite derived-image diagram F of CC.8/compatible-derived-hecke-images define T_hat as its inverse limit, the subring of the product consisting of compatible tuples, with the subspace topology of the product of finite discrete rings. This is the instance of Mathlib RingCat.sectionsSubring attached to F, not a new generic inverse-limit construction. It is a compact Hausdorff complete topological commutative O-algebra. The evaluation maps to finite images are continuous surjections. The compatible map H→T_hat has dense image; it need not be surjective. Cofinal normal-level systems and iterated coefficient/level limits give canonical topological ring isomorphisms. The supplied finite actions induce a continuous action on the compatible CC.4 chain/homology system and its completed limit; on completed cohomology use the CC.3 adjoint/dual convention or an explicitly supplied cohomological diagram.
 
 The hypotheses are as follows. The normal-level/coefficient index is nonempty and cofiltered; transitions are surjective finite ring maps. Use a countable cofinal subsystem only after proving cofinality. The completed module action is asserted only on diagrams whose action and transition maps are compatible and jointly continuous at each discrete coefficient level.
 
@@ -1848,32 +2325,32 @@ Uses: Gee–Newton, Lemma 2.1.14, p. 11: The finite residual support produces fi
 
 Provide the following named interface.
 
-- `TauCeti.CompletedArithmetic.completedHecke`: The carrier is RingCat.sectionsSubring for the finite derived-image functor; use its inherited commutative ring and the product-induced topology.
-- `TauCeti.CompletedArithmetic.completedHecke_eval`: Evaluation at any (U,s) is a continuous surjective ring map and satisfies all transition equations.
-- `TauCeti.CompletedArithmetic.completedHecke_ext`: Two elements agree exactly when their evaluations at every finite image agree.
-- `TauCeti.CompletedArithmetic.completedHecke_lift`: A compatible family of continuous ring maps to the finite images factors uniquely and continuously through T_hat.
-- `TauCeti.CompletedArithmetic.completedHecke_dense`: The abstract H map is dense because it surjects onto every finite image; density does not assert surjectivity onto the limit.
-- `TauCeti.CompletedArithmetic.completedHecke_cofinal`: Restriction to a cofinal level/coefficient subsystem is a topological ring isomorphism preserving each retained evaluation.
-- `TauCeti.CompletedArithmetic.completedHecke_action`: Evaluation of t acting on a compatible module element equals the corresponding finite image operator applied to that coordinate.
-- `TauCeti.CompletedArithmetic.completedHecke_action_continuous`: If the finite coordinate actions are jointly continuous and compatible with the diagram, the induced action on the compatible-sections completed module is jointly continuous for the product-induced topologies.
+- `TauCeti.CompletedCohomology.completedHecke`: The carrier is RingCat.sectionsSubring for the finite derived-image functor; use its inherited commutative ring and the product-induced topology.
+- `TauCeti.CompletedCohomology.completedHecke_eval`: Evaluation at any (U,s) is a continuous surjective ring map and satisfies all transition equations.
+- `TauCeti.CompletedCohomology.completedHecke_ext`: Two elements agree exactly when their evaluations at every finite image agree.
+- `TauCeti.CompletedCohomology.completedHecke_lift`: A compatible family of continuous ring maps to the finite images factors uniquely and continuously through T_hat.
+- `TauCeti.CompletedCohomology.completedHecke_dense`: The abstract H map is dense because it surjects onto every finite image; density does not assert surjectivity onto the limit.
+- `TauCeti.CompletedCohomology.completedHecke_cofinal`: Restriction to a cofinal level/coefficient subsystem is a topological ring isomorphism preserving each retained evaluation.
+- `TauCeti.CompletedCohomology.completedHecke_action`: Evaluation of t acting on a compatible module element equals the corresponding finite image operator applied to that coordinate.
+- `TauCeti.CompletedCohomology.completedHecke_action_continuous`: If the finite coordinate actions are jointly continuous and compatible with the diagram, the induced action on the compatible-sections completed module is jointly continuous for the product-induced topologies.
 
 **Checks.**
 
-- `TauCeti.CompletedArithmetic.completedHecke_constant`: For the constant identity-transition diagram on a finite commutative ring A, T_hat≅A with its discrete topology.
-- `TauCeti.CompletedArithmetic.completedHecke_scalar`: For A_s=Z/p^s with reduction maps, T_hat≅Z_p; the map Z→Z_p is dense and is not surjective.
-- `TauCeti.CompletedArithmetic.completedHecke_zero`: For the one-element finite image diagram, the completed ring is the one-element ring and its maximal spectrum is empty.
+- `TauCeti.CompletedCohomology.completedHecke_constant`: For the constant identity-transition diagram on a finite commutative ring A, T_hat≅A with its discrete topology.
+- `TauCeti.CompletedCohomology.completedHecke_scalar`: For A_s=Z/p^s with reduction maps, T_hat≅Z_p; the map Z→Z_p is dense and is not surjective.
+- `TauCeti.CompletedCohomology.completedHecke_zero`: For the one-element finite image diagram, the completed ring is the one-element ring and its maximal spectrum is empty.
 - No topology of pointwise convergence on End(completed homology) replaces the specified inverse-limit topology.
 - The underlying ring and projections agree with the native compatible-sections carrier.
 
 *Needs:* `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.4`, `mathlib:RingCat.sectionsSubring`, `mathlib:ModuleCat.sectionsSubmodule`.
 
-Target `CompletedCohomologyPartII:CC.8/completed-hecke-algebra` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/completed-hecke-algebra`.
 
-### 8.8 Semilocal product decomposition
+### 8.11 Semilocal product decomposition
 
 <a id="completed-semilocal-product"></a>
 
-Let T_hat be the preceding inverse limit and fix the finite base image A_0 of residual-support-stability. Then evaluation q:T_hat→A_0 is surjective and ker(q) is contained in J(T_hat). Pullback gives a bijection MaxSpec(A_0)≅MaxSpec(T_hat), including algebraic maximal ideals, not only continuous ones. With this finite index set, T_hat≅∏_m T_hat_m as rings and as topological rings when each factor is endowed with the inverse-limit topology from its finite local factors. Each T_hat_m is a compact complete Hausdorff local ring with the same finite residue field as the corresponding A_0 factor, and equals the algebraic localization of T_hat at m. The topology asserted here is the finite-image inverse-limit topology. No noetherianity, finite O-module assertion, or identification with the algebraic J-adic topology is inferred merely from semilocality.
+Let T_hat be the preceding inverse limit and fix the finite base image A_0 of residual-support-stability. Then evaluation q:T_hat→A_0 is surjective and ker(q) is contained in J(T_hat). Pullback gives a bijection MaxSpec(A_0)≅MaxSpec(T_hat), including algebraic maximal ideals, not only continuous ones. With this finite index set, T_hat≅∏\_m T_hat_m as rings and as topological rings when each factor is endowed with the inverse-limit topology from its finite local factors. Each T_hat_m is a compact complete Hausdorff local ring with the same finite residue field as the corresponding A_0 factor, and equals the algebraic localization of T_hat at m. The topology asserted here is the finite-image inverse-limit topology. No noetherianity, finite O-module assertion, or identification with the algebraic J-adic topology is inferred merely from semilocality.
 
 The hypotheses are as follows. Every finite transition is surjective and its map to A_0 has radical kernel. Finite local-factor decompositions and their uniqueness are supplied by IHG.2. For the zero image system, the maximal spectrum is empty and the empty product is the one-element ring.
 
@@ -1889,9 +2366,9 @@ The proof route is: An element is a unit in the limit exactly when all its finit
 
 *Needs:* `CompletedCohomologyPartII:CC.8/completed-hecke-algebra`, `CompletedCohomologyPartII:CC.8/residual-support-stability`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
 
-Target `CompletedCohomologyPartII:CC.8/completed-semilocal-product` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/completed-semilocal-product`.
 
-### 8.9 Compatible residual Hecke projectors
+### 8.12 Compatible residual Hecke projectors
 
 <a id="residual-hecke-projector"></a>
 
@@ -1907,24 +2384,24 @@ Uses: CC.8 completed residual localization: Its action defines the exact closed 
 
 Provide the following named interface.
 
-- `TauCeti.CompletedArithmetic.residualProjector`: The element of T_hat formed from the compatible finite local-factor idempotents.
-- `TauCeti.CompletedArithmetic.residualProjector_eval`: Its evaluation equals the unique projector for the specified finite residual factor.
-- `TauCeti.CompletedArithmetic.residualProjector_unique`: An element with those finite evaluations is the same residual projector; consequently it is independent of all cofinal choices.
-- `TauCeti.CompletedArithmetic.residualProjector_relations`: The residual projectors are idempotent, pairwise orthogonal and have finite sum 1.
-- `TauCeti.CompletedArithmetic.residualProjector_factor`: Multiplication by the residual projector identifies its image ring with the corresponding factor of the semilocal product.
+- `TauCeti.CompletedCohomology.residualProjector`: The element of T_hat formed from the compatible finite local-factor idempotents.
+- `TauCeti.CompletedCohomology.residualProjector_eval`: Its evaluation equals the unique projector for the specified finite residual factor.
+- `TauCeti.CompletedCohomology.residualProjector_unique`: An element with those finite evaluations is the same residual projector; consequently it is independent of all cofinal choices.
+- `TauCeti.CompletedCohomology.residualProjector_relations`: The residual projectors are idempotent, pairwise orthogonal and have finite sum 1.
+- `TauCeti.CompletedCohomology.residualProjector_factor`: Multiplication by the residual projector identifies its image ring with the corresponding factor of the semilocal product.
 
 **Checks.**
 
-- `TauCeti.CompletedArithmetic.residualProjector_product`: For O×O with the two residual maximal ideals, the projectors are (1,0) and (0,1).
-- `TauCeti.CompletedArithmetic.residualProjector_local`: For a local completed image ring the sole residual projector is 1.
-- `TauCeti.CompletedArithmetic.residualProjector_congruent_characters`: In T={(a,b)∈O×O : a≡b mod varpi}, (1,0) is not an element of T. Both rational characters belong to the same residual factor, whose projector is 1.
+- `TauCeti.CompletedCohomology.residualProjector_product`: For O×O with the two residual maximal ideals, the projectors are (1,0) and (0,1).
+- `TauCeti.CompletedCohomology.residualProjector_local`: For a local completed image ring the sole residual projector is 1.
+- `TauCeti.CompletedCohomology.residualProjector_congruent_characters`: In T={(a,b)∈O×O : a≡b mod varpi}, (1,0) is not an element of T. Both rational characters belong to the same residual factor, whose projector is 1.
 - A residual ideal outside the image support is rejected as input; it does not define an arbitrary new summand.
 
 *Needs:* `CompletedCohomologyPartII:CC.8/completed-semilocal-product`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `mathlib:RingCat.sectionsSubring`.
 
-Target `CompletedCohomologyPartII:CC.8/residual-hecke-projector` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/residual-hecke-projector`.
 
-### 8.10 Residual localisation of the completed tower
+### 8.13 Residual localisation of the completed tower
 
 <a id="completed-residual-localisation"></a>
 
@@ -1940,28 +2417,28 @@ Uses: CompletedCohomologyAndLocalGlobalCompatibility:R31.3: Its residual Banach 
 
 Provide the following named interface.
 
-- `TauCeti.CompletedArithmetic.completedLocalization`: The native range of the continuous residual idempotent on the completed object, with induced topology.
-- `TauCeti.CompletedArithmetic.completedLocalization_inclusion`: The range subtype inclusion is continuous and linear.
-- `TauCeti.CompletedArithmetic.completedLocalization_projection`: P corestricts to a continuous linear projection onto its range, and the inclusion/projection composites are 1 on the range and P on M.
-- `TauCeti.CompletedArithmetic.completedLocalization_fixed`: An element lies in the selected range exactly when P x=x.
-- `TauCeti.CompletedArithmetic.completedLocalization_closed`: In a Hausdorff completed object the selected range is closed.
-- `TauCeti.CompletedArithmetic.completedLocalization_map`: Any continuous linear map intertwining two labelled projectors restricts to the ranges, respecting identity and composition.
-- `TauCeti.CompletedArithmetic.completedLocalization_algebraic`: For the supported residual label and semilocal product ring, the selected image is algebraically the localization of M at that maximal ideal.
-- `TauCeti.CompletedArithmetic.completedLocalization_complete`: For the complete separated additive uniformity of the Hausdorff completed object, its closed residual range is complete with the induced uniformity.
+- `TauCeti.CompletedCohomology.completedLocalization`: The native range of the continuous residual idempotent on the completed object, with induced topology.
+- `TauCeti.CompletedCohomology.completedLocalization_inclusion`: The range subtype inclusion is continuous and linear.
+- `TauCeti.CompletedCohomology.completedLocalization_projection`: P corestricts to a continuous linear projection onto its range, and the inclusion/projection composites are 1 on the range and P on M.
+- `TauCeti.CompletedCohomology.completedLocalization_fixed`: An element lies in the selected range exactly when P x=x.
+- `TauCeti.CompletedCohomology.completedLocalization_closed`: In a Hausdorff completed object the selected range is closed.
+- `TauCeti.CompletedCohomology.completedLocalization_map`: Any continuous linear map intertwining two labelled projectors restricts to the ranges, respecting identity and composition.
+- `TauCeti.CompletedCohomology.completedLocalization_algebraic`: For the supported residual label and semilocal product ring, the selected image is algebraically the localization of M at that maximal ideal.
+- `TauCeti.CompletedCohomology.completedLocalization_complete`: For the complete separated additive uniformity of the Hausdorff completed object, its closed residual range is complete with the induced uniformity.
 
 **Checks.**
 
-- `TauCeti.CompletedArithmetic.completedLocalization_zero`: The zero projector selects the zero module, even when M is nonzero.
-- `TauCeti.CompletedArithmetic.completedLocalization_one`: The identity projector selects all of M with its original topology.
-- `TauCeti.CompletedArithmetic.completedLocalization_product`: On O×O with the first residual factor projector, the selected module is O×{0}; (0,1) is excluded.
+- `TauCeti.CompletedCohomology.completedLocalization_zero`: The zero projector selects the zero module, even when M is nonzero.
+- `TauCeti.CompletedCohomology.completedLocalization_one`: The identity projector selects all of M with its original topology.
+- `TauCeti.CompletedCohomology.completedLocalization_product`: On O×O with the first residual factor projector, the selected module is O×{0}; (0,1) is excluded.
 - The range topology is inherited from M and the inclusion/projection are continuous; no algebraic localization topology is silently substituted.
 - A nonidentity residual summand may be zero on one degree of M without removing that label from the all-degree derived image algebra.
 
 *Needs:* `CompletedCohomologyPartII:CC.8/residual-hecke-projector`, `CompletedCohomologyPartII:CC.8/transported-arithmetic-actions`, `CompletedCohomologyPartII:CC.3`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `mathlib:LinearMap.IsIdempotentElem.range_eq_ker`, `mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range`.
 
-Target `CompletedCohomologyPartII:CC.8/completed-residual-localisation` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/completed-residual-localisation`.
 
-### 8.11 Localisation through limits, supports and duality
+### 8.14 Localisation through limits, supports and duality
 
 <a id="localisation-limit-support-dual-compatibility"></a>
 
@@ -1981,9 +2458,9 @@ The proof route is: At each fixed s, represent a vector at some finite level; ap
 
 *Needs:* `CompletedCohomologyPartII:CC.8/completed-residual-localisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
 
-Target `CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility` is imported from the accepted CC.8 packet.
+Target `CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility`.
 
-### 8.12 Derived and homology images have the same residual labels
+### 8.15 Derived and homology images have the same residual labels
 
 <a id="derived-cohomological-residual-comparison"></a>
 
@@ -2002,209 +2479,193 @@ The proof route is: Use the IHG bounded ghost theorem at every finite coordinate
 
 *Needs:* `CompletedCohomologyPartII:CC.8/completed-hecke-algebra`, `CompletedCohomologyPartII:CC.8/residual-hecke-projector`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
 
-Target `CompletedCohomologyPartII:CC.8/derived-cohomological-residual-comparison` is imported from the accepted CC.8 packet.
-
-### 8.13 Canonical arithmetic tower input
-
-<a id="canonical-four-family-tower-input"></a>
-
-For the selected modular/Siegel, PEL unitary and Hilbert Shimura data of the CC.8 adapter, construct the minimal characteristic-zero canonical-model input: varieties Sh_K over the reflex field, compatible finite étale level maps at neat inclusions, Hecke correspondences, and the complex analytic identification with the connected arithmetic locally symmetric quotient including component labels. The relevant data are of PEL/Hodge or abelian type under Milne’s criteria; central quotients and chosen level conditions are retained. This supplies only the input consumed by the completed tower, not integral models, all Shimura data, compactifications or a new completed object. Its canonical-existence proof leaves are G9.
-
-(MilneSV, §5, 5.29, pp.57–66; 12.10, pp.114–115; 13.6–13.8, pp.118–119; 14.12–14.16, pp.125–128: The analytic quotient, canonical-model convention, functoriality and PEL/Hodge/abelian-type existence supply these selected tower contracts.)
-
-The proof route is: Check each selected Shimura datum against the source’s PEL/Hodge or abelian-type criteria. Acquire the required canonical-existence proof leaves G9, without assuming an arbitrary Shimura datum has the selected moduli interpretation. Use canonical functoriality for neat finite level maps and correspondences. Match complex components with the supplied ALS arithmetic quotient before applying the accepted CC.8 tower realization.
-
-**Checks.**
-
-- The definite unitary discrete quotient is distinguished from a positive-dimensional unitary Shimura variety.
-- This target replaces the upward V8 prerequisite under the current tier rule; it does not imply perfectoid comparison.
-
-*Needs:* `ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `ModularCurvesPartII:R14.3`, `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
-
-Target `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`.
-
-### 8.14 Hilbert finite-level coefficient input
-
-<a id="hilbert-finite-local-system-input"></a>
-
-For the Hilbert datum Res_{F/Q}GL₂ with F totally real and the selected neat level, specialize the canonical tower input and the lower-tier étale/Betti comparison to each O/varpi^s local system attached to the specified algebraic representation. Identify its complex connected component cochains with the actual ALS finite-level tower, compatibly with tame Hecke, level maps and coefficient reduction. The full level tower, central units and finite components must be retained. This is the narrow input needed by CC.8; the wider Hilbert modular geometry stays with R18.4 as a consumer. Include selected quaternionic Shimura curves (quaternion algebra split at exactly one real place) via the abelian-type canonical input. Coefficients satisfy the central descent condition of arithmetic-shimura-central-quotient; no PEL moduli assertion is made for every quaternionic datum.
-
-(MilneSV, §5, pp.57–66; 14.12–14.16, pp.125–128: The totally real Hilbert datum is handled through its selected canonical-model construction and complex arithmetic quotient.; E06, §2.2, Lemma 2.2.4 and Theorem 2.2.17, pp.28–29,33–34: The coefficient system comparison must commute with untwisting and level transport.; MilneSV, Example5.24,pp.63–64; §9 type A₁ example,pp.94–95: Hilbert data are the split quaternion case; the one-split-real-place case is a curve, and general quaternionic data require the abelian-type route.)
-
-The proof route is: Use the selected Hilbert PEL/abelian-type construction and analytic quotient with its components. Apply the imported étale/Betti coefficient comparison at every finite exponent. Check the actual level, tame and reduction squares and feed them to the accepted arithmetic adapter.
-
-**Checks.**
-
-- Central units are not discarded by replacing the tower with one connected component without descent.
-- No Hilbert perfectoid vanishing result is a prerequisite of this finite-level input.
-
-*Needs:* `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`, `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting`, `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
-
-Target `CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input`.
-
-### 8.15 Arithmetic–Shimura central comparison
-
-<a id="arithmetic-shimura-central-quotient"></a>
-
-Distinguish E06’s arithmetic Y_K, finite-volume Y_K°=Y_K/S_∞°, and Shimura quotient Ỹ_K=Y_K/Z_∞°. The first quotient has contractible fiber S_∞°≅R^a, hence ordinary coefficient cohomology is unchanged but compact-support cohomology has the real dimension a shift and its orientation factor. The second quotient has a t-dimensional compact torus fiber; its Leray sequence has fiber H^j((S¹)^t,O)≅∧^jO^t, so it is not an unconditional cohomology isomorphism. An algebraic coefficient representation descends to Ỹ only when the indicated Z_∞¹ action is trivial. At the finite adelic levels retain the closure of rational central units in the effective deck action; verify the actual deck quotient rather than inferring K_0/U from neatness. The Hilbert and selected quaternionic Shimura curves need this comparison, since E06 §2.4’s simplifying equality Y°=Ỹ excludes these general examples. Finite-cell/perfect/descent targets apply only to their verified regular tower, or to the explicit central/stabilizer replacement G12.
-
-(E06, §2.4,pp.40–42: The two central quotients, torus fiber, coefficient descent condition and restricted simplifying hypothesis distinguish arithmetic and Shimura towers.; MilneSV, Example5.24,pp.63–64; Theorem5.28 and Remark5.29,pp.65–66; §9 type A₁ example,pp.94–95: Hilbert/quaternionic data and rational central units determine the effective finite-level quotient; no topological inverse-limit identity from Theorem5.28 is used.)
-
-The proof route is: Import the actual ALS quotient and coefficient descent data. Use the contractible real-split central bundle comparison for ordinary cohomology and the compact-support Thom shift. For the residual central torus bundle retain its Leray/monodromy comparison instead of identifying its cohomology with the base. Check actual level kernels and coefficient descent before applying CC.4/CC.6; acquire G12’s effective-deck/perfect replacement if the full compact group is ineffective.
-
-**Checks.**
-
-- For a circle fiber H¹ contributes O, so base and total cohomology need not agree.
-- A real-line fiber preserves ordinary H⁰ but shifts compact-support degree by one.
-- Infinite central units are not removed by neatness.
-
-*Needs:* `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers`, `ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
-
-Target `CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient`.
+Target `CompletedCohomologyPartII:CC.8/derived-cohomological-residual-comparison`.
 
 ### Examples
 
-For a definite unitary discrete tower, completion is continuous degree-zero functions; its mod-residual dual is Pontryagin, not O-linear Schikhof. A Hilbert or quaternionic input checks central descent and effective deck groups. A central torus fiber contributes exterior-power cohomology and cannot be discarded.
+For a definite unitary discrete tower the completion is the module of continuous degree-zero functions; its residual dual is the Pontryagin dual, not the O-linear Schikhof dual. A Hilbert or quaternionic input checks central descent and effective deck groups. A central torus fibre contributes exterior-power cohomology and cannot be discarded.
 
 ### Dependencies
 
-`ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers`, `ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system`, `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`, `CompletedCohomologyPartII:CC.0`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.4`, `CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting`, `CompletedCohomologyPartII:CC.7`, `CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input`, `CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input`, `DeformationAndDerivedPatchingAlgebra:P7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `ModularCurvesPartII:R14.3`, `mathlib:CategoryTheory.Functor.mapEnd`, `mathlib:CategoryTheory.Limits.lim`, `mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range`, `mathlib:LinearMap.IsIdempotentElem.range_eq_ker`, `mathlib:ModuleCat.sectionsSubmodule`, `mathlib:RingCat.sectionsSubring`, `mathlib:RingHom.range`, `mathlib:TopModuleCat`, `mathlib:TopModuleCat.isLimit`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+`ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space`, `ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers`, `ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system`, `ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes`, `CompletedCohomologyPartII:CC.0`, `CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison`, `CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison`, `CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.4`, `CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting`, `CompletedCohomologyPartII:CC.7`, `DeformationAndDerivedPatchingAlgebra:P7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `ModularCurvesPartII:R14.3`, `mathlib:CategoryTheory.Functor.mapEnd`, `mathlib:CategoryTheory.Limits.lim`, `mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range`, `mathlib:LinearMap.IsIdempotentElem.range_eq_ker`, `mathlib:ModuleCat.sectionsSubmodule`, `mathlib:RingCat.sectionsSubring`, `mathlib:RingHom.range`, `mathlib:TopModuleCat`, `mathlib:TopModuleCat.isLimit`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
 
-This layer is **planned**. Its remaining closure work is G9 canonical existence; G10 finite support comparison; G11 accepted supplier migration; three inherited CC.8 gaps. G12 arithmetic/Shimura central quotient, coefficient descent and effective deck groups.
-
+**Open proof inputs.** G9 (existence of the selected canonical models), G10 (the finite support comparison), G12 (the central quotient, coefficient descent and effective deck groups), the finite equivariant noncommutative Hecke contract, finite p-group derived residue detection, and the arithmetic carriers absent at the library pins.
 
 ## Worked examples
 
-The pro-p circle is a simultaneous direction, duality and descent test. A degree-p cover acts by p on H¹ under pullback and by p on H₁ under pushforward. Thus A¹_s=0, H̃¹=0 and H̃₁=0, but H̃₀=O. The completed cellular complex has differential γ−1. Taking derived coinvariants recovers finite-level H₁=O through Tor; taking coinvariants of its homology alone misses that degree. The integral UCT has no E/O-dual contribution from H̃₀’s torsion, since that torsion is zero. This checks the corrected CE/E1 term and the classical edge-map non-isomorphism.
+**The pro-p circle.** The tower of connected degree-p covers of a circle tests direction, duality and descent at once. A degree-p cover acts by p on H¹ under pullback and by p on H₁ under pushforward. Hence A¹\_s = 0, H̃¹ = 0 and H̃₁ = 0, but H̃₀ = O. The completed cellular complex has differential γ − 1. Derived coinvariants recover the finite-level H₁ = O through Tor, while the coinvariants of the homology alone miss that degree. The integral universal-coefficient sequence has no E/O-dual contribution from the torsion of H̃₀, since that torsion is zero; this checks the corrected sequence E1 and shows that the classical edge map need not be an isomorphism. Rationalisation comes after the limits: E ⊗ H̃₁ = 0, whereas the limit of the rational groups H₁(Y_U, E) along multiplication by p is E (3.6).
 
-For U=Z_p² and M=k[[T₁]] with T₂ acting trivially, canonical Ω-dimension is one. Uniform power levels yield p^r-dimensional dual invariants and index p^{2r}, as expected from δ/d=1/2. The cofinal normal levels p^rZ_p×p^{2r}Z_p have index p^{3r} but the same p^r invariants. They disprove the unrestricted growth claim. The target imports filtered Hilbert growth only for the regular uniform-power filtration.
+**Growth along filtrations.** For U = Z_p² and M = k[[T₁]] with T₂ acting trivially, the canonical dimension over Ω is one. The uniform-power levels give dual invariants of dimension p^r at index p^{2r}, as δ/d = 1/2 predicts. The cofinal normal levels p^r Z_p × p^{2r} Z_p have index p^{3r} but the same p^r invariants, which disproves the growth claim for arbitrary filtrations. The target 5.8 imports filtered Hilbert growth only for the regular uniform-power filtration.
 
-For R=Z_p[[T]] and M=(p,T), resolve M by R→R² with relation (−T,p). Dualizing gives Ext¹_R(M,R)=R/(p,T)=F_p. Reduction of the dual complex therefore has the additional adjacent torsion term. The displayed Bockstein sequence in CC.5 records it; no degreewise Ext identification is used to prove grade equality.
+**An Ext calculation.** For R = Z_p[[T]] and M = (p, T), resolve M by R → R² with relation (−T, p). Dualising gives Ext¹\_R(M, R) = R/(p, T) = F_p, so the reduction of the dual complex has an additional adjacent torsion term. The Bockstein sequence of Layer 5 records it; no identification of Ext groups in all degrees is used to prove the grade equality.
 
-The constant discrete integer system surjects at every stage onto Z/p^s. Its inverse limit maps Z→Z_p with image Z, while the inverse limit of the stage images is Z_p. The kernel system p^sZ provides the lim¹ obstruction. This distinguishes the two completed interior-image definitions. The example is a control counterexample, not a compact arithmetic tower: compact closed-image inverse limits have stronger exactness.
+**Images and limits.** The constant discrete integer system surjects at every stage onto Z/p^s. Its inverse limit maps Z → Z_p with image Z, while the inverse limit of the stage images is Z_p; the kernel system p^s Z carries the lim¹ obstruction. This distinguishes the two definitions of completed interior cohomology in 7.4–7.5. It is a counterexample to control, not a compact arithmetic tower: inverse limits of compact closed images are better behaved.
 
-For a selected Hilbert Shimura tower, first determine whether the quotient is arithmetic Y, finite-volume Y° or Shimura Ỹ. The real split central quotient preserves ordinary cohomology but shifts compact support. The remaining compact torus quotient has exterior-power fiber cohomology; coefficients descend only with the stated central action condition. The closure of rational units can make the full local compact action ineffective. The source’s faithful regular cover calculation cannot be transported across these quotients without G12’s verified effective-deck or change-of-rings comparison.
+**Divisible classes in Pan's lemma.** Let M^0 = M^1 be the varpi-adic completion of the free O-module on e_1, e_2, …, with d(e_n) = varpi^n e_n. The class of w = Σ varpi^n e_n in H^1 is nonzero, since a preimage would have to be Σ e_n, which is not a null sequence; yet w − d(e_1 + … + e_{k−1}) lies in varpi^k M^1, so the class lies in every varpi^k H^1. Here lim_m H^1/varpi^m has unbounded torsion, so clause (4) of 2.5 does not apply, while Hom_O(E, H^1) = 0 still holds, as clause (1) says.
+
+**A zero-dimensional tame tower.** Take tame levels Y(K) = K⁰/K for a profinite group K⁰ of pro-order invertible in O, with trivial p-tower. Then H̃^0_{c,Σ} = C^∞(K⁰, O) with the translation action, H̃\_{0,Σ}^{BM} is the colimit of the O[K⁰/K] along the maps sending a coset to the sum of the smaller cosets it contains, and the duality of 3.9 sends gK to the functional f ↦ ∫\_{gK} f dμ. The factor μ(K) is what makes these maps compatible with transfer; without it they differ by [K : K′].
+
+**A Hilbert Shimura tower.** First decide whether the quotient in use is the arithmetic quotient Y, the finite-volume quotient Y° or the Shimura quotient Ỹ. The split real central quotient preserves ordinary cohomology but shifts compact support. The remaining compact torus quotient has exterior-power fibre cohomology, and coefficients descend only under the stated condition on the central action. The closure of the rational units can make the action of the full local compact group ineffective. The faithful regular-cover calculation of the sources cannot be transported across these quotients without the effective-deck or change-of-rings comparison of G12.
 
 ## Proof closure and supplier extensions
 
-The following are precise open proof obligations, not implementation claims. The source locators above support the targets and distinguish a full proof from a source statement or outline. Every prerequisite chain stops at an inspected declaration, an exact supplied/requested contract, or one of these obligations.
+Each item below is an open proof input, not an implementation claim. The source locators in the layers support the targets and say whether the source gives a full proof, a statement or an outline. Every prerequisite chain ends at a pinned library declaration, an exact supplier node or request, or one of these items. The labels are those the targets use; there is no G11, because the supplier contracts it concerned are now stated in 0.6, 0.7, 8.2 and 8.3.
 
-### G1: general analytic Iwasawa foundations
+### G1. General analytic Iwasawa foundations
 
-NE.0 now plans broader noetherianity, but the current packet explicitly leaves its analytic/open-uniform and graded-ring proof leaves. Auslander purity, coefficient grade comparison, finite-index dimension and uniform-power growth require the precise extension requested above. L1 must own the generic Schneider–Teitelbaum category and leading-rank input before these arithmetic targets close.
+NoncommutativeAndEquivariantIwasawa NE.0 plans noetherianity in the generality needed, but its plan leaves open the analytic and open-uniform proof leaves and the graded-ring input. Auslander purity, the coefficient grade comparison, finite-index invariance of dimension and uniform-power growth need the extension requested above. The generic Schneider–Teitelbaum category and the leading-rank input belong to the extension after PadicMeasuresIwasawaAlgebras L1 and must exist before these targets close.
 
-### G2: strict integral tower control
+Needed by [0.1](#arithmetic-level-index), [5.1](#finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology), [5.4](#banach-admissibility), [5.5](#codimension-iwasawa-dimension-and-the-torsion-theorem), [5.8](#uniform-filtration-growth).
 
-The E06 finite-cell proof requires the full integral admissible-complex/pro-system machinery: strict images, bounded torsion, completeness and the compatible comparison with lim_s of cohomology. It is requested after L1; the native inverse-limit carrier alone does not supply this. Check all ordinary, compact-support and boundary models simultaneously.
+### G2. Strict integral tower control
 
-### G3: continuous duality with integral torsion
+Emerton's finite-cell proof needs the full integral admissible-complex and pro-system machinery: strict images, bounded torsion, completeness and the compatible comparison with lim_s of cohomology. It is requested after L1; the native inverse-limit carrier alone does not supply it. The ordinary, compact-support and boundary models are checked simultaneously.
 
-Acquire the qualified complete-lattice/compact-discrete duality and strict exactness used in the two integral UCT sequences, biduality, the dual completion–Tate sequence and the chain/cochain comparison. The torsion term in CE/E1 is corrected, but a continuous Hom target is not an implementation of this theorem.
+Needed by [2.4](#integral-admissible-complex-control), [4.2](#completed-equivariant-cell-complex), [6.1](#hochschild-serre-descent-to-finite-level), [7.1](#derived-completed-support-triangle).
 
-### G4: noncommutative completed tensor action check
+### G3. Continuous duality with integral torsion
 
-BP proves the torus instance. The profinite noncommutative extension needs the regular-function generator calculation, the contraction of the completed coinduced complex and the right/opposite action conversion. Verify this before exporting the full invariant completed-tensor realization of RHom_Λ; the degreewise O-dual anti-equivalence is separately justified.
+The qualified duality for complete lattices and compact–discrete modules, with the strict exactness used in the two integral universal-coefficient sequences, in biduality, in the dual completion–Tate sequence and in the chain–cochain comparison, has still to be acquired. The torsion term of the Calegari–Emerton sequence is corrected (E1), but a continuous Hom target is not a proof of the theorem.
 
-### G5: classical multiplicity proof leaves
+Needed by [3.1](#continuous-dual-conventions), [3.7](#duality-between-completed-homology-and-completed-cohomology), [3.10](#dual-completion-tate-sequence), [4.2](#completed-equivariant-cell-complex).
 
-CEbounds Theorem3.4 proof uses the discrete-series cohomology degree theorem, DeGeorge–Wallach/Savin limit multiplicity and the Rohlfs–Speh noncuspidal bound; those underlying proofs were not acquired in this run. The precise normalized-growth target is owned in CC.5 rather than citing a higher-tier AutomorphicSpectralTheory roadmap. Acquire publicly usable proofs and backward-chain them at this owner before marking the arithmetic torsion target closed. For the middle-degree target also acquire the positive discrete-series formal-degree limit and the integral classical-lattice completion versus Tate-kernel rank separation signalled before CE Theorem1.4; the bounds paper’s rational leading-rank formula alone does not prove the separation.
+### G4. The noncommutative completed-tensor action
 
-### G6: derived analytic comparison
+Boxer–Pilloni prove the torus case. The noncommutative profinite extension needs the generator calculation for regular functions, the contraction of the completed coinduced complex and the conversion between right and opposite actions. It is verified before the full invariant completed-tensor realisation of RHom_Λ is used; the degreewise O-dual anti-equivalence is justified separately.
 
-The derived comparison stated by BCGP Theorem4.8.3 requires a chain-level evaluation and derived analytic-vector theorem with explicit field/analytic convention. E06 Corollary2.2.18 alone only supplies a spectral sequence. Import the L0 derived machinery and verify the arithmetic quasi-isomorphism before using the stronger comparison.
+Needed by [3.12](#admissible-perfect-anti-equivalence).
 
-### G7: arithmetic Iwasawa chain pairing
+### G5. Classical multiplicity proof leaves
 
-ALS.5 supplies finite-level Poincaré–Lefschetz duality only. Build its compatible Λ-cellular pairing, with orientation, inverse deck action, support interchange and grading, before asserting the completed hyper-Ext spectral sequence. Source CE states the spectral sequence but does not replace this comparison proof.
+The proof of Calegari–Emerton's bounds Theorem 3.4 uses the theorem on the cohomological degrees of discrete series, the limit multiplicity theorems of DeGeorge–Wallach and Savin, and the noncuspidal bound of Rohlfs–Speh; their proofs are not yet acquired. The normalised growth target is stated in Layer 5 rather than taken from AutomorphicSpectralTheory, and publicly usable proofs of these inputs are needed before the arithmetic torsion target closes. The middle-degree target 5.9 also needs the limit of the formal degrees of discrete series and the separation between the rank of the completed integral classical lattice and the rank of the Tate kernel indicated before Calegari–Emerton's survey Theorem 1.4; the rational leading-rank formula of the bounds paper does not prove that separation.
 
-### G8: completed boundary nilpotent calculation
+Needed by [5.6](#normalized-classical-growth), [5.7](#semisimple-homology-torsion), [5.9](#classical-middle-rank-and-tate-torsion).
 
-Acquire the proof that the positive-degree nilpotent congruence-tower colimit vanishes with the stated coefficient and p hypotheses, then check Levi induction and incidence compatibility. CE §1.5 gives a route, not a blanket vanishing theorem for arbitrary boundary models. Retain p=2 component and stabilizer corrections.
+### G6. Derived analytic comparison
 
-### G9: selected canonical-model existence
+The derived comparison of BCGP Theorem 4.8.3 needs a chain-level evaluation map and a derived theorem on analytic vectors, with an explicit choice of field and analytic convention. Emerton's Corollary 2.2.18 supplies only a spectral sequence. The derived machinery of LocallyAnalyticDistributions L0 is imported, and the arithmetic quasi-isomorphism is verified before the stronger comparison is used.
 
-The newly moved canonical-model input uses Milne’s PEL/Hodge/abelian-type criteria. The underlying moduli/descent and absolute-Hodge existence proofs are not acquired here. Verify the precise chosen unitary/Siegel/Hilbert data and prove their selected characteristic-zero canonical models before closure; no unrestricted canonical-model theorem is inferred.
+Needed by [6.7](#analytic-classical-comparison).
 
-### G10: finite support comparison proof
+### G7. The arithmetic Iwasawa chain pairing
 
-MilneEC §21 gives the finite-locally-constant proof outline and identifies the general constructible theorem. The constructible j! comparison, compactification independence and its oriented trace normalization need full proof closure through the existing sheaf/geometry foundations. This moved contract replaces EDC.6 input; it is not a new six-functor package.
+ALS.5 supplies Poincaré–Lefschetz duality at finite level only. The compatible Λ-cellular pairing, with orientation, inverse deck action, interchange of supports and grading, is built before the completed hyper-Ext spectral sequence is asserted. Calegari–Emerton state the spectral sequence but do not give this comparison.
 
-### Finite equivariant noncommutative Hecke contract
+Needed by [7.6](#completed-iwasawa-poincare-duality).
 
-The current upstream IHG.2 Suggested.lean states finite-image and ghost APIs over commutative A. The CC.4 deck group-ring base can be noncommutative. The requested equivariant extension is mathematically required before these arithmetic signatures can use genuine finite derived-image objects; forgetting deck equivariance is insufficient.
+### G8. The completed boundary nilpotent calculation
+
+The proof that the positive-degree colimit over the nilpotent congruence tower vanishes, under the stated coefficient and p hypotheses, has still to be acquired, and then Levi induction and incidence compatibility checked. Calegari–Emerton §1.5 gives a route, not a vanishing theorem for arbitrary boundary models. The component and stabiliser corrections at p = 2 are kept.
+
+Needed by [7.7](#boundary-strata-and-completed-induction).
+
+### G9. Existence of the selected canonical models
+
+The canonical-model input 8.2 uses Milne's criteria for data of PEL, Hodge or abelian type. The underlying moduli, descent and absolute-Hodge existence proofs are not yet acquired. The chosen unitary, Siegel and Hilbert data are verified and their characteristic-zero canonical models proved before closure; no canonical-model theorem for arbitrary data is inferred.
+
+Needed by [8.2](#canonical-four-family-tower-input), [8.3](#hilbert-finite-local-system-input).
+
+### G10. The finite support comparison
+
+Milne's étale notes (§21) give the proof outline for finite locally constant coefficients and identify the general constructible theorem. The constructible j! comparison, independence of the compactification and the oriented trace normalisation need full proofs from the existing sheaf and geometry foundations. This is a narrow comparison, not a six-functor formalism.
+
+Needed by [0.6](#finite-etale-betti-support-comparison), [0.7](#finite-etale-trace-orientation-comparison), [8.3](#hilbert-finite-local-system-input).
+
+### G12. The effective central quotient tower
+
+The central quotient and the effective finite deck groups are verified for the selected Hilbert and quaternionic examples and for the descended coefficients. The hypotheses of a faithful regular K_0/U tower in Layers 4 and 6 are not automatic for Shimura quotients with infinite central units. If the full ineffective compact group is kept, a finite projective model needs a qualified change of rings, with a perfect resolution, for the closed central kernel, which P7 would supply before perfectness is used; otherwise descent is computed in the verified effective deck group. No invariants theorem for the full group is stated for an ineffective tower.
+
+Needed by [4.2](#completed-equivariant-cell-complex), [8.1](#arithmetic-shimura-central-quotient), [8.3](#hilbert-finite-local-system-input), [8.4](#arithmetic-tower-realisation).
+
+### The finite equivariant noncommutative Hecke contract
+
+The derived Hecke image theory of IntegralHeckeAndGaloisDeterminants is stated over a commutative base A, while the deck group rings of Layer 4 can be noncommutative. The requested equivariant extension is needed before the finite derived-image objects of 8.8–8.15 exist for the tower; forgetting the deck action is not enough.
+
+Needed by [8.8](#compatible-derived-hecke-images), [8.9](#residual-support-stability), [8.15](#derived-cohomological-residual-comparison).
 
 ### Finite p-group derived residue detection
 
-P7’s existing local/minimal-complex packet is commutative-base. CC.4 supplies the finite derived coinvariant identification. The noncommutative finite local group-ring derived Nakayama needed after Hecke idempotent splitting is an exact additional supplier contract. The source supports it, but no applicable current supplier signature was found.
+The local and minimal-complex theory of P7 has a commutative base. Layer 4 supplies the finite derived coinvariant identification. The derived Nakayama lemma over the noncommutative finite local group ring, needed after a Hecke idempotent is split off, is an additional supplier contract; Gee–Newton support it, but no current supplier states it.
 
-### Arithmetic comparison and tower interfaces at the pins
+Needed by [8.9](#residual-support-stability).
 
-The pinned libraries contain generic limits, topological modules and derived categories, but not the CC.0–CC.7 arithmetic tower/local-system carrier or the selected canonical-model comparison. Suggested.lean consequently prototypes the real compatible-sections, limit action and idempotent-range interfaces; the arithmetic-specific signature register lists the omitted comparison/action/finite-image/support/duality declarations with their exact suppliers. They are not replaced by arbitrary cohomology functions, private scheme stand-ins or vacuous predicates.
+### Arithmetic carriers at the library pins
 
-### G11: accepted CC.8 supplier migration
+The pinned libraries have generic limits, topological modules and derived categories, but not the arithmetic tower and local-system carriers of Layers 0–7 or the canonical-model comparison. The suggested Lean file therefore states the compatible-sections, limit-action and idempotent-range interfaces on existing carriers. The arithmetic comparisons, actions, finite images and support and duality maps remain targets of this document, with their suppliers named; they are not replaced by arbitrary cohomology functions, private scheme stand-ins or vacuous predicates.
 
-The immutable accepted part still names V8, R18.4 and two EDC.6 nodes. Under the current tier instructions its arithmetic-tower-realisation must instead import the new CC.8 selected canonical/Hilbert inputs and CC.0 finite étale Betti/trace comparisons. Apply this precise migration when assembling the reviewed whole packet; no part file is changed by this job. The migration must also specialize the imported arithmetic realization to the central/effective-quotient hypotheses of G12; its displayed arithmetic/complex-space identification is conditional, not a universal identification of the different quotients.
-
-### G12: effective central quotient tower
-
-Verify the central quotient and effective finite deck groups for the selected Hilbert/quaternionic examples and the descended coefficients. The faithful regular K_0/U tower hypotheses of CC.4/CC.6 are not automatic for Shimura quotients with infinite central units. If retaining a full ineffective compact group, a finite-projective model needs a qualified change-of-rings/perfect resolution for the closed central kernel; supply that extension at P7 before invoking perfectness. Otherwise compute descent in the verified effective deck group. No full-U invariants theorem is exported for an ineffective tower.
+Needed by [8.4](#arithmetic-tower-realisation), [8.5](#definite-unitary-degree-zero), [8.6](#scholze-4-2-convention-and-the-perfectoid-comparison), [8.7](#transported-arithmetic-actions), [8.8](#compatible-derived-hecke-images), [8.14](#localisation-limit-support-dual-compatibility).
 
 ## Source corrections
 
-The four findings below paraphrase the source. Each was independently confirmed against the stated author-PDF locator on 13 October 2026, including the counterexample or coefficient calculation. Nodes use the corrected formulation. The confirmation concerns the displayed statement or proof step specified here; in E2 it does not reject the lemma’s grade equality. No published correction was identified in the inspected author indexes and version; this is not a claim about every edition.
+The findings below paraphrase the source. Each was checked against the stated locator, including the counterexample or calculation; the targets use the corrected form. No published correction was found in the authors' pages or in the versions read.
 
 ### CompletedCohomologyPartII/E1
 
-At CE author PDF, Theorem1.1(3),p.3, the first duality sequence uses the E/O-dual of all of H̃_{n−1} in its left term. Use Hom_cont,O(H̃_{n−1}[varpi^∞],E/O), not the dual of the entire module.
-
-In the degree-p circle tower H̃₀=O and H̃₁=0, while H̃¹=0. The printed term Hom(O,E/O) is nonzero; the corrected torsion submodule is zero. Known within the reviewed integrated decomposition; no published correction identified in the searched author version.
+Calegari–Emerton, survey, Theorem 1.1(3), p. 3. The first duality sequence has as its left term the E/O-dual of the whole of H̃\_{n−1}. It should be the E/O-dual of the torsion submodule, Hom_cont,O(H̃\_{n−1}[varpi^∞], E/O). In the degree-p circle tower H̃₀ = O and H̃₁ = 0 = H̃¹; the printed term Hom(O, E/O) is nonzero, while the corrected term vanishes. 3.7 uses the corrected sequence; 3.9 uses the second sequence, which needs no correction.
 
 ### CompletedCohomologyPartII/E2
 
-At CE author PDF, Lemma1.17 proof,p.14, the reduction of every Ext group modulo p is identified directly with Ext over Ω. For p-torsion-free M use the Bockstein short exact sequence with adjacent Ext[p] term; establish grade equality by a separate Auslander purity argument.
-
-For R=Z_p[[T]], M=(p,T), the resolution R→R²→M has Ext¹_R(M,R)=F_p. Thus the reduction map in degree zero has cokernel F_p. This invalidates the all-degree identification without asserting that the lemma’s grade equality is false. New in this pass; no published correction identified in the searched author indexes/version.
+Calegari–Emerton, survey, proof of Lemma 1.17, p. 14. The reduction modulo p of every Ext group is identified directly with an Ext group over Ω. For p-torsion-free M there is instead a Bockstein short exact sequence with an adjacent Ext[p] term, and the grade equality follows from a separate Auslander purity argument. For R = Z_p[[T]] and M = (p, T), the resolution R → R² → M gives Ext¹\_R(M, R) = F_p, so the reduction map in degree zero has cokernel F_p. This does not say that the grade equality of the lemma is false.
 
 ### CompletedCohomologyPartII/E3
 
-At CE author PDF, Theorem1.18,p.14, the δ/d exponent is claimed for any descending normal cofinal neighbourhood basis. Use a regular uniform-power filtration U^{p^r}, with nonzero finite Ω-module and d>0; any broader filtration needs its own weighted growth statement.
-
-Take U=Z_p², M=k[[T₁]] with T₂ acting as zero, δ=1,d=2, and U_r=p^rZ_p×p^{2r}Z_p. For V=D_k(M), dim V^{U_r}=p^r whereas [U:U_r]^{δ/d}=p^{3r/2}; their ratio tends to zero. New in this pass; no published correction identified in the searched author indexes/version.
+Calegari–Emerton, survey, Theorem 1.18, p. 14. The growth exponent δ/d is claimed for every descending normal cofinal neighbourhood basis. It holds for a regular uniform-power filtration U^{p^r}, with M a nonzero finite Ω-module and d > 0; a broader filtration needs its own weighted growth statement. For U = Z_p², M = k[[T₁]] with T₂ acting by zero, δ = 1, d = 2 and U_r = p^r Z_p × p^{2r} Z_p, the invariants of the dual have dimension p^r while [U : U_r]^{δ/d} = p^{3r/2}, and the ratio tends to zero.
 
 ### CompletedCohomologyPartII/E4
 
-At CE author PDF, §1.3,p.6, Ext-functor amplitude sentence, the Iwasawa Ext functors are given amplitude at most dim(K_0) on finitely generated integral modules without a coefficient restriction. For O[[U]] with torsion-free uniform U the unrestricted bound is dim(U)+1. A dim(U) bound requires O-torsion-free input and its additional coefficient argument.
+Calegari–Emerton, survey, §1.3, p. 6, the sentence on the amplitude of the Ext functors. The Iwasawa Ext functors are given amplitude at most dim(K_0) on finitely generated integral modules, with no condition on the coefficients. For O[[U]] with U torsion-free uniform the bound is dim(U) + 1; the bound dim(U) needs O-torsion-free input and a further argument. For U = {1} the ring is O and Ext¹\_O(k, O) = k, although dim(U) = 0; for positive d the module k has its top Ext in degree d + 1, by regularity.
 
-For U={1} the ring is O and the finite module k has Ext¹_O(k,O)=k, although dim(U)=0. For positive d, k has top Ext in degree d+1 by regularity. New in this pass; no published correction identified in the searched author indexes/version.
+### CompletedCohomologyPartII/E5
 
+Pan (2022), proof of Lemma 4.4.4, p. 45 (arXiv v3, p. 48). After the universal-coefficient sequence, the proof writes the limit over n of H^{i+1}(M^•)[p^n] as Hom(Q_p/Z_p, H^i(M^•)). It is Hom(Q_p/Z_p, H^{i+1}(M^•)), since the terms are submodules of H^{i+1} and a compatible system under multiplication by p is a homomorphism from Q_p/Z_p. The proof has just shown that Hom(Q_p/Z_p, H^j) vanishes in every degree, so nothing is affected. The version of record and arXiv v3 have the same text.
+
+### Corrections recorded with other sources
+
+- Boxer–Pilloni, §1.4, the display before Proposition 1.4.7, p. 5: the tensor product is the completed one, as in §5.4. 3.12 uses it.
+- Boxer–Pilloni, §5.4, Remark 5.4.3, p. 57: Λ acts through t ↦ [t] in the invariants that define the complexes, with the universal character normalised accordingly. 3.12 fixes this action.
+- Boxer–Pilloni, Theorem 1.4.8, p. 5, and Theorem 5.5.2, p. 57: the Λ-structure of the second factor of the Serre pairing is twisted by the involution induced by t ↦ w₀t⁻¹. 3.12 records the twist.
+- Nakamura, §2.3.2, the second commutative diagram (Inventiones p. 195, arXiv p. 24): the lower row lands in Hom_O(Ĥ¹\_c(K′\_{Σ₀}), O). 3.9 uses the corrected diagram.
 
 ## Suggested Lean forms
 
-The compact suggested file has 193 lines. It elaborates at the pins with six admitted-proof warnings and no other diagnostics. Its real-bodied specializations are `torsionColimit`, `coefficientLimit`, `coefficientLimitAction`, `ContinuousIntegralDual`, `continuousDualPrecomp` and `interiorSubmodule`. These use existing categorical limits, continuous linear maps and linear-map ranges. The continuous diagram-action, finite noetherian short-complex homology and compact closed-image milestones are statable at the pins. Small examples check final-functor reuse, exact colimits, inverse-action duality, torsion dual failure and range behavior.
+The suggested Lean file states, in the namespace `TauCeti.CompletedCohomology`, only what the pinned Mathlib and Tau Ceti can carry. It elaborates against the pins, and the proofs of its milestones are left as `sorry`.
 
-These prototypes check the generic carrier interfaces used by the arithmetic plan. They do not create arithmetic towers from arbitrary module functions. The required level diagram, support system, continuous E/O dual and its topology, completed Λ object, admissible complex category, generic enhanced countable Rlim, continuous completed Tor, derived analytic-vector and canonical-model carriers are not at the pins. Their definitions, APIs, unit tests and end theorems remain in the layer prose above, in accordance with the current compact roadmap shape. The accepted CC.8 suggested file is reused separately and is not rewritten or imported to develop heavy data here.
+- Layers 1–2: `torsionColimit` and `coefficientLimit`, the native colimit and limit of a supplied diagram, with the final-functor and exact-colimit examples; `transportedAction`, the action induced on the coefficient limit by a natural action on the diagram, with `transportedAction_projection`, `transportedAction_unique`, `transportedAction_commute`, `transportedAction_jointlyContinuous` and `transportedAction_localized` and the checks `transportedAction_identity`, `transportedAction_sign` and `transportedAction_noncommuting`; and clause (1) of the control lemma 2.5 as `homology_hom_away_eq_zero`, with the vanishing transition of the `[O → O]` check.
+- Layer 3: `ContinuousIntegralDual` and `continuousDualPrecomp` on Mathlib's continuous linear maps, the inverse-action convention of `Representation.dual`, the failure of `O`-linear duals on torsion, and the arithmetic behind the checks of 3.6, 3.8 and 3.9 (the integral and rational limits of the circle tower, the `p`-power index, averaging as the normalised group sum, and the Haar index identity), all proved.
+- Layers 4, 5 and 7: `finite_shortComplex_homology` over a noetherian ring, and `interiorSubmodule` with its examples and the closed-image milestone `interiorSubmodule_closed`.
+- Layer 8: `derivedHeckeDiagram`, the diagram of image rings of a supplied endomorphism-ring diagram, with `derivedHeckeDiagram_class`, `derivedHeckeDiagram_surjective`, `derivedHeckeDiagram_coherence` and its three checks; `completedHecke`, the ring of compatible sections, with its commutative ring structure, inverse-limit topology, `completedHecke_eval`, `completedHecke_lift` and its evaluation and uniqueness, compactness, density, `completedHecke_cofinal`, `completedHecke_action`, `completedHecke_semilocal` and `completedHecke_decomposition`; `residualProjector` with its relations and `residualProjector_factor`; and `completedLocalization`, the range of a continuous idempotent, with its inclusion, projection, `completedLocalization_map`, closedness, completeness, `completedLocalization_algebraic` and `completedLocalization_limit` through the diagram of ranges `projectorRangeDiagram`. The fixtures `scalarDiagram`, `congruenceSubring` and `firstProjector` carry the checks `completedHecke_scalar`, `residualProjector_congruent_characters` and `completedLocalization_product`.
+
+Every data definition has a real body. Where a construction is itself a theorem (the cofinal identification of completed Hecke algebras, the action on compatible sections, the factor cut out by an idempotent, the algebraic localisation and the localisation of a limit) it is stated as an existence theorem rather than as a definition. The arithmetic carriers and comparisons whose types are not available at the pins are listed by name in the file's closing comment and are targets of this document.
 
 ## Downstream consumers
 
-TC.2 receives the fixed-exponent topological/support object, then proves the perfectoid/automorphic-section comparison and vanishing. IHG receives the arithmetic action and supplies finite determinant/derived-image theory; completed inverse-limit residual localization has its single owner CC.8. R31 specializes to modular and Shimura curves and adds GL₂ local–global comparison. R30.2 specializes the general foundational Banach category. Fu and Marshall use the completed homological descent and uniform Iwasawa torsion bounds. BP uses the admissible–perfect anti-equivalence, completed tensor and specified involution. Nakamura uses the Borel–Moore and mixed coefficient-duality targets; LLHLM uses the degree-zero unitary tower and residual Pontryagin pairing. ALS consumes the completed support/descent interfaces while supplying only the finite-level geometry and early duality.
+- **TorsionCohomologyInfrastructure TC.2** receives the fixed-exponent compact-support object, its support convention and the transported actions (8.6, 8.7), and proves Scholze's perfectoid comparison and the vanishing theorems. For its Iwasawa consequences it also uses the finite projective completed chain complex at a torsion-free pro-p level with its support versions (4.2, 4.3), completed Iwasawa–Poincaré duality with its hypotheses (7.6, gap G7) and the tame action (1.3).
+- **CompletedCohomologyAndLocalGlobalCompatibility R31** imports the modular and Hilbert comparisons (8.4) in R31.1 and specialises the completed Hecke algebra, its residual projectors and the closed localisation (8.10–8.13) to GL₂ in R31.3. R31.4 builds Nakamura's residually localised Borel–Moore module at tame level Σ₀ from 3.8–3.9 and proves his Corollary 2.5.
+- **IntegralHeckeAndGaloisDeterminants** receives the arithmetic action and supplies the finite determinant and derived-image theory; the completed inverse-limit residual localisation is 8.13.
+- **PadicLocalLanglandsForGL2Qp R30.2** specialises the general Banach category of the extension after L1, which Layers 2 and 5 apply.
+- **CohomologyComparisons CP.6** (Pan's comparison for the modular curve) uses the control lemma 2.5, with 2.2, 2.3, 2.7 and 2.9, for its bounded-torsion inverse limit, and the integral cochain model and coefficient interchange 4.5, with 4.3, for coefficients A_inf/(ker θ)^k. The Galois action on A^i_m and H̃^i is the one transported in 8.7, and the coefficient isomorphism of 4.5 is equivariant for it, acting diagonally with a continuous action on M, because at each finite level it is the étale universal-coefficient isomorphism. From Layer 8 it uses the modular comparison (8.4), the transported actions (8.7) and the fixed-exponent convention (8.6). The infinite-level perfectoid modular curve and its Hodge–Tate period map belong to PerfectoidShimuraVarieties S3, and Pan's almost-integral comparison (Pan 2022, Corollary 4.4.3) is not a target of this roadmap.
+- **ShimuraVarieties V8, HilbertModularVarietiesAndShimuraCurves R18.4 and EtaleDualityAndPerverseSheaves EDC.6** import the narrow statements 8.1–8.3 and 0.6–0.7 and keep their wider geometry.
+- **ArithmeticLocallySymmetricSpaces** consumes the completed descent and support interfaces (Layers 6 and 7) in ALS.6, while supplying only the finite-level geometry and duality.
+- The sources' own uses: Fu and Marshall use completed homological descent (6.3), Fu's double-limit model (3.6) and the uniform Iwasawa torsion bounds (5.5–5.7); Boxer–Pilloni use the admissible–perfect anti-equivalence, the completed tensor product and the involution (3.11–3.12); Nakamura uses the Borel–Moore and coefficient-module dualities (3.3, 3.7–3.9, 3.13–3.16); Le–Le Hung–Levin–Morra use the definite unitary degree-zero tower and its residual Pontryagin pairing (8.5, 3.17).
 
 ## References
 
-All source matches and proof outlines above are in the roadmap’s own words. Author-draft pagination is explicitly distinguished from published pagination.
+All matches and proof outlines in the layers are in this document's own words. Author-draft pagination is distinguished from published pagination.
 
-- **E06**: Matthew Emerton, *On the interpolation of systems of eigenvalues attached to automorphic Hecke eigenforms*. Author draft dated 2 January 2006, 71 pages; cite printed draft pages, not Inventiones pagination. [Public source](https://math.uchicago.edu/~emerton/pdffiles/interpolate.pdf), read 2026-10-13.
-- **CE**: Frank Calegari and Matthew Emerton, *Completed cohomology — a survey*. Author survey PDF; printed pp.1–20. [Public source](https://math.uchicago.edu/~emerton/pdffiles/survey.pdf), read 2026-10-13.
-- **GN**: Toby Gee and James Newton, *Patching and the completed homology of locally symmetric spaces*. 57-page author PDF; printed pages. [Public source](https://www.ma.imperial.ac.uk/~tsg/Index_files/derivedpatchingpadicLL.pdf), read 2026-10-13.
-- **ST**: Peter Schneider and Jeremy Teitelbaum, *Banach space representations and Iwasawa theory*. arXiv:math/0005066 author preprint; published Israel J. Math.127 (2002),359–380; cite preprint pages. [Public source](https://arxiv.org/pdf/math/0005066), read 2026-10-13.
-- **CEbounds**: Frank Calegari and Matthew Emerton, *Bounds for multiplicities of unitary representations of cohomological type in spaces of cusp forms*. Author version dated 29 February 2008; published Annals170 (2009),1437–1446; cite author pages. [Public source](https://math.uchicago.edu/~emerton/pdffiles/bounds.pdf), read 2026-10-13.
-- **Marshall**: Simon Marshall, *Bounds for the multiplicities of cohomological automorphic forms on SL₂*. Annals175 (2012),1629–1651; published PDF. [Public source](https://annals.math.princeton.edu/wp-content/uploads/annals-v175-n3-p13-p.pdf), read 2026-10-13.
-- **Fu**: Weibo Fu, *Sharp bounds for multiplicities of Bianchi modular forms*. arXiv:2201.11190v2; printed preprint pages; Annals200 (2024). [Public source](https://arxiv.org/pdf/2201.11190v2), read 2026-10-13.
-- **BP**: George Boxer and Vincent Pilloni, *Higher Hida theory for Siegel modular forms*. 65-page author PDF fetched 13 October 2026; cite its printed pages. [Public source](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf), read 2026-10-13.
-- **Nakamura**: Kentaro Nakamura, *Zeta morphisms for rank two universal deformations*. arXiv:2006.13647 version fetched 13 October 2026; cite arXiv printed pages, not Inventiones234 pagination. [Public source](https://arxiv.org/pdf/2006.13647), read 2026-10-13.
-- **LLHLM**: Daniel Le, Bao V. Le Hung, Brandon Levin and Stefano Morra, *Serre weights and Breuil’s lattice conjecture in dimension three*. Forum of Mathematics, Pi8 (2020),e5;135-page published PDF. [Public source](https://math.rice.edu/~bl70/LLHLMlattices.pdf), read 2026-10-13.
-- **BCGP**: George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, *Modularity theorems for abelian surfaces*. arXiv:2502.20645v1; printed preprint pages. [Public source](https://arxiv.org/pdf/2502.20645v1), read 2026-10-13.
-- **MilneSV**: James S. Milne, *Introduction to Shimura varieties*. Author revision 2017; printed pages. [Public source](https://www.jmilne.org/math/xnotes/svi.pdf), read 2026-10-13.
-- **E11**: Matthew Emerton, *Local-global compatibility in the p-adic Langlands programme for GL₂/Q*. Author manuscript dated 23 March 2011, unpublished; no GL₂ local-global theorem imported as a generic theorem. [Public source](https://math.uchicago.edu/~emerton/pdffiles/lg.pdf), read 2026-10-13.
-- **MilneEC**: James S. Milne, *Lectures on étale cohomology*. Version2.21,22March2013; printed pages. [Public source](https://www.jmilne.org/math/CourseNotes/LEC.pdf), read 2026-10-13.
-- **Scholze**: Peter Scholze, *On torsion in the cohomology of locally symmetric varieties*. Annals of Mathematics 182 (2015), 945–1066, published §4.2 numbering. [Public source](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), read 2026-10-11.
-- **Milne**: James S. Milne, *Lectures on Étale Cohomology*. Version 2.21, 22 March 2013. [Public source](https://www.jmilne.org/math/CourseNotes/LEC.pdf), read 2026-10-11.
+- **E06**: Matthew Emerton, *On the interpolation of systems of eigenvalues attached to automorphic Hecke eigenforms*. Author draft dated 2 January 2006, 71 pages; cite printed draft pages, not Inventiones pagination. [Public source](https://math.uchicago.edu/~emerton/pdffiles/interpolate.pdf), accessed 2026-10-13. Sections used: §1.2, Definition 1.2.1, Propositions 1.2.4, 1.2.10–1.2.12, 1.2.18–1.2.20, pp.13–19; §2.1, all constructions and proofs, pp.20–27; §2.2, lattice untwisting and Theorems 2.2.11, 2.2.17; Corollary 2.2.18 and Remark 2.2.19, pp.27–35; §2.4 central quotients and Galois comparison, pp.40–42.
+- **CE**: Frank Calegari and Matthew Emerton, *Completed cohomology — a survey*. Author survey PDF; printed pp.1–20. [Public source](https://math.uchicago.edu/~emerton/pdffiles/survey.pdf), accessed 2026-10-13. Sections used: §§1.1–1.5, pp.2–9; §1.6 conjecture and conditional implications, pp.9–11; §1.7, Theorem 1.16, Lemma 1.17 and Theorem 1.18, pp.12–15; §1.1, definitions of completed homology and cohomology, p. 2; Theorem 1.1(1) and (3), pp. 3–4; §1.5, pp. 7–8; quotient and component conventions.
+- **GN**: Toby Gee and James Newton, *Patching and the completed homology of locally symmetric spaces*. 57-page author PDF; printed pages. [Public source](https://www.ma.imperial.ac.uk/~tsg/Index_files/derivedpatchingpadicLL.pdf), accessed 2026-10-13. Sections used: §2.1.1–2.1.14, pp.7–11; Proposition 3.4.16 and its proof, pp.23–24; Proposition 3.4.19, p.24; Introduction, pp. 1–3; Definition 3.3.5, p. 18; Propositions 3.4.16 and 3.4.19, pp. 23–24.
+- **ST**: Peter Schneider and Jeremy Teitelbaum, *Banach space representations and Iwasawa theory*. arXiv:math/0005066 author preprint; published Israel J. Math.127 (2002),359–380; cite preprint pages. [Public source](https://arxiv.org/pdf/math/0005066), accessed 2026-10-13. Sections used: §2 duality, Theorem 2.3, pp.8–12; §3, Proposition 3.1, Lemmas 3.2–3.4, Theorem 3.5 and abelianness, pp.12–15.
+- **CEbounds**: Frank Calegari and Matthew Emerton, *Bounds for multiplicities of unitary representations of cohomological type in spaces of cusp forms*. Author version dated 29 February 2008; published Annals170 (2009),1437–1446; cite author pages. [Public source](https://math.uchicago.edu/~emerton/pdffiles/bounds.pdf), accessed 2026-10-13. Sections used: §1 arithmetic and congruence hypotheses, pp.1–3; §2, Theorem 2.1 and Lemma 2.2, pp.3–4; §3, Theorems 3.2,3.4,3.8 and Lemma 3.3 with proofs, pp.4–8.
+- **Marshall**: Simon Marshall, *Bounds for the multiplicities of cohomological automorphic forms on SL₂*. Annals175 (2012),1629–1651; published PDF. [Public source](https://annals.math.princeton.edu/wp-content/uploads/annals-v175-n3-p13-p.pdf), accessed 2026-10-13. Sections used: §5.2, completed homology and equation (34), pp.1646–1648; §6 opening reduction and equations (36)–(37), pp.1648–1649.
+- **Fu**: Weibo Fu, *Sharp bounds for multiplicities of Bianchi modular forms*. arXiv:2201.11190v2; printed preprint pages; Annals200 (2024). [Public source](https://arxiv.org/pdf/2201.11190v2), accessed 2026-10-13. Sections used: §7, equations (37)–(38) and the completed-homology torsion bullet, pp.23–24; §1, equation (4), p. 3; §7, the displayed definition, the two bullets and (38), pp. 23–24.
+- **BP**: George Boxer and Vincent Pilloni, *Higher Hida theory for Siegel modular forms*. 65-page author PDF fetched 13 October 2026; cite its printed pages. [Public source](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf), accessed 2026-10-13. Sections used: §1.4, Definition 1.4.1 and Remark 1.4.2, pp.4–5; §5.4, Lemmas 5.4.1–5.4.2 and their proofs; Theorem 5.5.2 twist, pp.56–57.
+- **Nakamura**: Kentaro Nakamura, *Zeta morphisms for rank two universal deformations*. arXiv:2006.13647 version fetched 13 October 2026; cite arXiv printed pages, not Inventiones234 pagination. [Public source](https://arxiv.org/pdf/2006.13647), accessed 2026-10-13. Sections used: §2.3, Remark 2.3 and Lemma 2.4 with proof, pp.21–22; Appendix B.1, Definitions B.1–B.4 and Lemmas B.5–B.6 with proofs, pp.90–92; §2.3.1, arXiv pp. 20–22 (Inventiones pp. 191–192); §2.3.2, Lemma 2.4 and its proof, the Hecke normalisation, the projector and the tame-level isomorphism, arXiv pp. 22–24 (Inventiones pp. 192–195); §2.3.3 and Corollary 2.5, arXiv pp. 24–25 (Inventiones pp. 195–196), for the use only; Appendix B.2.4, Definitions B.13–B.15 and Lemma B.16, arXiv pp. 95–96, to place B.16.
+- **LLHLM**: Daniel Le, Bao V. Le Hung, Brandon Levin and Stefano Morra, *Serre weights and Breuil’s lattice conjecture in dimension three*. Forum of Mathematics, Pi8 (2020),e5;135-page published PDF. [Public source](https://math.rice.edu/~bl70/LLHLMlattices.pdf), accessed 2026-10-13. Sections used: §5.3 setup, degree-zero spaces and formula (5.8), pp.120–123; §5.3, pp. 120–122; definite unitary forms and completed lattice.
+- **BCGP**: George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, *Modularity theorems for abelian surfaces*. arXiv:2502.20645v1; printed preprint pages. [Public source](https://arxiv.org/pdf/2502.20645v1), accessed 2026-10-13. Sections used: §4.8, Theorem 4.8.3 and its Emerton citation, pp.101–102; §4.9, Theorem 4.9.4 and its stated boundary input, pp.103–104.
+- **MilneSV**: James S. Milne, *Introduction to Shimura varieties*. Author revision 2017; printed pages. [Public source](https://www.jmilne.org/math/xnotes/svi.pdf), accessed 2026-10-13. Sections used: §5 quotient/tower conventions, 5.29, pp.57–66; 12.10 and canonical-model convention, pp.114–115; 13.6–13.8 functoriality, pp.118–119; 14.12–14.16 and PEL/Hodge-type existence discussion, pp.125–128; Example5.24 and5.28–5.29,pp.63–66; §9 type A₁ example,pp.94–95.
+- **E11**: Matthew Emerton, *Local-global compatibility in the p-adic Langlands programme for GL₂/Q*. Author manuscript dated 23 March 2011, unpublished; no GL₂ local-global theorem imported as a generic theorem. [Public source](https://math.uchicago.edu/~emerton/pdffiles/lg.pdf), accessed 2026-10-13. Sections used: Appendix B, Lemmas B.2,B.6,B.7 and Proposition B.11 with proofs, pp.99–102; Appendix C, Definition C.1 and Proposition C.5 with proof, pp.103–104.
+- **MilneEC**: James S. Milne, *Lectures on étale cohomology*. Version2.21,22March2013; printed pages. [Public source](https://www.jmilne.org/math/CourseNotes/LEC.pdf), accessed 2026-10-13. Sections used: §21, Theorems21.1,21.3,21.5, Lemma21.6 and Proposition21.8 with proof outline, pp.130–134; §14 trace discussion, p.98; §24, Theorem24.1 and Remark24.2, pp.144–145; Theorem 21.1 and Remark 21.2, p. 130.
+- **Pan22**: Lue Pan, *On locally analytic vectors of the completed cohomology of modular curves*. Forum of Mathematics, Pi 10 (2022), e7, 1–82, open-access version of record, doi:10.1017/fmp.2022.1; checked against arXiv:2008.07099v3 (8 July 2021), whose Lemma 4.4.4 is on p. 48. [Public source](https://doi.org/10.1017/fmp.2022.1), accessed 2026-10-14. Sections used: §4.4, Corollary 4.4.3, Lemma 4.4.4 with its proof and Remark 4.4.5, published pp. 43–45 (arXiv v3 pp. 47–48).
+- **PanII**: Lue Pan, *On locally analytic vectors of the completed cohomology of modular curves II*. arXiv:2209.06366v1 (14 September 2022), the version CohomologyComparisons and PAPER-PAN-26 cite; published in Annals of Mathematics 203 (2026), not read. [Public source](https://arxiv.org/pdf/2209.06366v1), accessed 2026-10-14. Sections used: §7.2, the construction of the maps g_{k,m}, Lemmas 7.2.5 and 7.2.6 with their proofs, pp. 118–120.
+- **Scholze**: Peter Scholze, *On torsion in the cohomology of locally symmetric varieties*. Annals of Mathematics 182 (2015), 945–1066, published §4.2 numbering. [Public source](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf), accessed 2026-10-11. Sections used: §4.1, Theorem 4.1.1 hypotheses, pp. 1017–1020; §4.2 definition, p. 1020; Theorem 4.2.1 statement and comparison diagrams, p. 1021; opening finite-comparison step of proof.
