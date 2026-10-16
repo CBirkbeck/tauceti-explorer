@@ -2,6 +2,48 @@
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
 
+## Continuation: Codex codex-UrUcCg, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6221702933).
+No second issue was claimed.
+
+I posted the claim after checking availability and reading the issue body,
+but before reading its full comment history. That was a selection error: the
+manager's [explicit instruction not to reclaim this superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304)
+was already present. The bot's confirmation and automatic checkpoint release
+do not supply the missing extension scope. Future workers must read this
+instruction before selecting the issue.
+
+I independently confirmed upstream main at
+`f6780b173b0ee486636c58667d191d4814a77f90` with the remote ref and read its
+[Layer 3 README, sections 3.1–3.8, lines 4445–4837](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested signatures, lines 1720–1865](https://github.com/TauCetiProject/TauCetiRoadmap/blob/f6780b173b0ee486636c58667d191d4814a77f90/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720).
+PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+This matches the preceding checkpoint's evidence. The supplied read-only
+roadmap and library checkouts remain at `0d144d0` and `a91d3aa`; neither was
+modified or built.
+
+The manager has supplied no extension request or new deliverable scope.
+WORKERS.md and PROTOCOL.md section 15 prohibit recreating the authoritative
+upstream roadmap. This checkpoint changes only this handoff and leaves the
+mathematical deliverables and independent verdict intact. It does not certify
+any recorded gap as closed or review the upstream roadmap.
+
+The unchanged packet retains 26 nodes (five constructions, 17 theorems,
+one definition, two comparisons and one lemma), 53 API items, 25 tests, six
+planets, 56 baseline citations, three gaps and 16 requests. Packet status and
+SF.3 coverage remain `partial`. Validation: `check_blueprint.py` reports zero
+errors and zero warnings; the submission file-scope check and
+`git diff --check` pass. Lean was not compiled because no Lean file changed.
+
+**Resumption requires the upstream owner's extension request and the manager's
+concrete scope and authorized deliverables.** Until then, skip this issue even
+if another automated checkpoint release restores its available label. The
+existing revision inventory below remains available if a scoped extension is
+requested; no scratch file is required to resume.
+
 ## Continuation: Codex codex-OODtQ8, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
