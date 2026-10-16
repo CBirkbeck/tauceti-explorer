@@ -40277,7 +40277,8 @@
     "BP-AutomorphicGaloisRepresentationsPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10008"
   },
   {
    "kind": "blueprint",
@@ -44611,7 +44612,8 @@
    ],
    "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10022"
   },
   {
    "priority": 2,
@@ -130288,9 +130290,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-DeformationAndDerivedPatchingAlgebra~codex.md",
-   "note": "claimed on GitHub issue #10011"
+   "note": "deliverables arrived from an external worker on issue #10011",
+   "finishedAt": "2026-10-16T16:37:47Z"
   },
   {
    "id": "PKG-PrismaticCohomology~codex",
