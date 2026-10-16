@@ -23295,7 +23295,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R27.6",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R27.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9933"
   },
   {
    "id": "BP-CohomologyComparisons",
@@ -23832,8 +23833,9 @@
    ],
    "avoidAccountOf": "BP-DiamondEtaleCohomology",
    "prompt": "research/blueprint/prompts/REV-DiamondEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9921"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9921",
+   "finishedAt": "2026-10-16T12:44:53Z"
   },
   {
    "id": "BP-DiamondSixOperations",
@@ -24520,8 +24522,9 @@
    ],
    "avoidAccountOf": "BP-EnhancedDerivedSheaves",
    "prompt": "research/blueprint/prompts/REV-EnhancedDerivedSheaves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9917"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9917",
+   "finishedAt": "2026-10-16T12:44:56Z"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -25269,8 +25272,9 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R32.6",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9927"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9927",
+   "finishedAt": "2026-10-16T12:44:59Z"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory",
@@ -34220,7 +34224,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R27.4",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R27.4.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9931",
+   "finishedAt": "2026-10-16T12:45:03Z"
   },
   {
    "id": "BP-ClassicalSerreModularity--R27.5",
@@ -34266,7 +34272,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R27.5",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R27.5.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9932",
+   "finishedAt": "2026-10-16T12:45:07Z"
   },
   {
    "id": "BP-ColemanPowerSeries--L0",
@@ -38703,8 +38711,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9330"
+   "state": "pending",
+   "note": "released on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -42090,8 +42098,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9312"
+   "state": "pending",
+   "note": "released on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -43493,8 +43501,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9295"
+   "state": "pending",
+   "note": "released on GitHub issue #9295"
   },
   {
    "priority": 2,
@@ -43543,8 +43551,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.1",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9296"
+   "state": "pending",
+   "note": "released on GitHub issue #9296"
   },
   {
    "priority": 2,
@@ -43593,8 +43601,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9297"
+   "state": "pending",
+   "note": "released on GitHub issue #9297"
   },
   {
    "priority": 2,
@@ -43643,8 +43651,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9298"
+   "state": "pending",
+   "note": "released on GitHub issue #9298"
   },
   {
    "priority": 2,
@@ -43742,8 +43750,9 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.1",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9300"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9300",
+   "finishedAt": "2026-10-16T12:45:10Z"
   },
   {
    "priority": 2,
@@ -43792,8 +43801,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9301"
+   "state": "pending",
+   "note": "released on GitHub issue #9301"
   },
   {
    "priority": 2,
@@ -48685,8 +48694,9 @@
     "PKG-CompletedCohomologyPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CompletedCohomologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9923"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9923",
+   "finishedAt": "2026-10-16T12:45:12Z"
   },
   {
    "id": "PKG-ComplexComparisonPartII",
@@ -53804,8 +53814,9 @@
     "PKG-PotentialModularityAndCompatibleSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9232"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9232",
+   "finishedAt": "2026-10-16T12:45:16Z"
   },
   {
    "id": "PKG-PrismaticCohomology",
@@ -129686,8 +129697,9 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9942"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9942",
+   "finishedAt": "2026-10-16T12:45:22Z"
   },
   {
    "id": "PKG-HeightsRationalPointsAndObstructions~codex",
