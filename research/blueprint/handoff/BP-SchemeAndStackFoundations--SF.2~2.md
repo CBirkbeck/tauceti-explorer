@@ -111,3 +111,37 @@ errors and zero warnings, and whitespace validation passes. The suggested Lean
 file was neither changed nor compiled. No mathematical source was newly read
 or copied. Resume only with a maintainer-authorized scope beyond the existing
 upstream roadmap. No second issue was claimed.
+
+## Blocked run — Codex session codex-D7lmDc, 2026-10-16
+
+The bot confirmed this session's claim in
+[comment 6217335615](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217335615).
+The claim was a selection error: I inspected the issue body before claiming,
+but missed the maintainer's blocking instruction in its comment history.
+The run requires a checkpoint when blocked and forbids a second claim.
+
+Fresh GitHub API reads confirm the merge dates and commits of upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) recorded above.
+I also opened the [current upstream README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md),
+blob `2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5`: its Layer 2 explicitly
+owns sites and scheme cohomology, including the Nisnevich topology, coherent
+duality, Brauer groups and equivariant cohomology. This is direct scope
+evidence that the old SF.2 revision would re-plan existing upstream work.
+The shared read-only checkout lacks this directory; its absence there is
+not evidence of an upstream gap. No shared checkout was changed or built.
+
+Only this handoff changed. The packet and SF.2 coverage remain `partial`:
+85 nodes (7 definitions, 17 constructions, 49 theorems, 5 lemmas,
+7 comparisons), 160 API items, 87 definition/construction unit tests plus
+one theorem test, 3 planets, 89 baseline declarations, 11 gaps and
+9 requests. No mathematical review request is discharged and no supplier
+request or ownership move is added. The suggested file was neither changed
+nor compiled. No mathematical source was newly read or copied.
+
+Validation: the packet checker reports 0 errors and 0 warnings;
+`git diff --check` passes. This is a blocked checkpoint, not a completed
+revision. Resume only after the maintainer reconciles the stale queue entry
+with the authoritative upstream roadmap and specifies any distinct extension
+to be planned. Inspect the full comment history and this ownership boundary
+before any future claim; the availability label alone is insufficient.
