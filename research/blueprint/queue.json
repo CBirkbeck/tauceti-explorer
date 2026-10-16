@@ -32868,8 +32868,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9293"
+   "state": "pending",
+   "note": "released on GitHub issue #9293"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L3",
@@ -38721,8 +38721,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9330"
+   "state": "pending",
+   "note": "released on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -43573,8 +43573,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9295"
+   "state": "pending",
+   "note": "released on GitHub issue #9295"
   },
   {
    "priority": 2,
@@ -43673,8 +43673,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9297"
+   "state": "pending",
+   "note": "released on GitHub issue #9297"
   },
   {
    "priority": 2,
@@ -43723,8 +43723,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9298"
+   "state": "pending",
+   "note": "released on GitHub issue #9298"
   },
   {
    "priority": 2,
@@ -43876,8 +43876,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9301"
+   "state": "pending",
+   "note": "released on GitHub issue #9301"
   },
   {
    "priority": 2,
@@ -109886,8 +109886,8 @@
    ],
    "revisionOf": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9313"
+   "state": "pending",
+   "note": "released on GitHub issue #9313"
   },
   {
    "priority": 2,
@@ -130547,7 +130547,7 @@
     "research/blueprint/handoff/BP-EffectiveDiophantineMethods~4.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-EffectiveDiophantineMethods~4.md",
    "scope": [
     "EffectiveDiophantineMethods:ED.0",
@@ -130562,7 +130562,8 @@
     "REV-EffectiveDiophantineMethods~3"
    ],
    "revisionOf": "BP-EffectiveDiophantineMethods",
-   "note": "claimed on GitHub issue #10051"
+   "note": "deliverables arrived from an external worker on issue #10051",
+   "finishedAt": "2026-10-16T20:37:36Z"
   },
   {
    "id": "REV-EffectiveDiophantineMethods~4",
