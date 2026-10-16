@@ -1,16 +1,15 @@
 # Blocked checkpoint: BP-AlgebraicModuliForArithmeticGeometry--R09.4~2
 
-**Codex, session codex-R4V1qI, 16 October 2026.** Issue
+**Codex, session codex-fqSsUp, 16 October 2026.** Issue
 [#9301](https://github.com/CBirkbeck/tauceti-explorer/issues/9301).
 **The revision is unfinished. No mathematical correction is claimed.**
 
 The bot confirmed this session's claim in
-[comment 6225599098](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6225599098),
-responding to [claim 6225596999](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6225596999).
-The earlier claim attempt on #9330 lost to `codex-QGEMCt`; that issue was
-never this session's claim. #9301 was then the first eligible available issue
-in the manager's ordered list. No second job was claimed. Continued the
-checkpoint merged in [#10073](https://github.com/CBirkbeck/tauceti-explorer/pull/10073).
+[comment 6226106021](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6226106021),
+responding to [claim 6226104270](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6226104270).
+#9301 was the first available issue in the manager's ordered list whose kind
+was permitted. No second job was claimed. Continued the blocked checkpoint
+merged in [#10083](https://github.com/CBirkbeck/tauceti-explorer/pull/10083).
 
 ## Blocker and required disposition
 
@@ -21,11 +20,14 @@ and that comment directly; no subsequent comment rescinds it. The checkpoint
 merges [#9968](https://github.com/CBirkbeck/tauceti-explorer/pull/9968),
 [#10015](https://github.com/CBirkbeck/tauceti-explorer/pull/10015),
 [#10058](https://github.com/CBirkbeck/tauceti-explorer/pull/10058),
-[#10066](https://github.com/CBirkbeck/tauceti-explorer/pull/10066) and
-[#10073](https://github.com/CBirkbeck/tauceti-explorer/pull/10073) released the
-issue without resolving that instruction.
+[#10066](https://github.com/CBirkbeck/tauceti-explorer/pull/10066),
+[#10073](https://github.com/CBirkbeck/tauceti-explorer/pull/10073) and
+[#10083](https://github.com/CBirkbeck/tauceti-explorer/pull/10083) released the
+issue without resolving that instruction. This continuation also fetched the
+maintainer's comment directly: its text and update date remain unchanged.
 
-Rechecked upstream PRs and fetched the README at each immutable head below.
+Rechecked upstream PRs and fetched the README and Suggested.lean at each
+immutable head below. Read their scope and carrier-boundary statements.
 All three PRs remain open. The main roadmap's head is unchanged from the
 preceding checkpoint; both supplier heads are also unchanged. Their
 README hashes match the preceding handoff. The verified boundaries remain:
@@ -144,9 +146,16 @@ The three fetched README SHA-256 digests match the preceding checkpoint:
 - ModularCurvesPartII: `6f98748841c20ca0c898849b3293adf8f08650f5c44384671811c41737012c9b`.
 - AbelianSchemesAndArithmeticModuli: `dc4a3d5d305fb7c0df8d7e0ea21357457c53397d0e62e664af4ffa4eabec97b2`.
 
-The first README was downloaded from its immutable raw URL and its Git blob
-hash checked against GitHub's contents metadata:
-`aeef09f2ca4bc05a30aefc3b8dcbd2146c0d02a6` (1,364,322 bytes).
+The Suggested.lean SHA-256 digests fetched at the same immutable heads are:
+
+- AlgebraicModuliForArithmeticGeometry: `d264197ae6aa60a7e1f701f6dada4f3ac128ed430129a166abefcd5a9627d199`.
+- ModularCurvesPartII: `d98516abd9cff0b634f942f316d8643c5348846d2f819e2cee1bfaf7776622a3`.
+- AbelianSchemesAndArithmeticModuli: `980465d02efd7d4cbfe60ebe086027429d7a26d206b089c9332a4da7a5a25deb`.
+
+These files distinguish README-only geometric targets from signatures over
+existing carriers; the abelian-scheme prototype already provides the relative
+carrier. They were read for ownership, not elaborated or independently reviewed.
+No roadmap source tree was copied, edited or built.
 
 Validation for this continuation: the packet checker reports **0 errors and
 0 warnings**; the allowed-deliverable and whitespace checks pass. The packet,
