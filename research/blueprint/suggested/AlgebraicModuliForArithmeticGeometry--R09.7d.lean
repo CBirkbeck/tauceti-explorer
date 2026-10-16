@@ -20,15 +20,16 @@ It states the topological consequence only; complex analyticity is a README
 obligation. The examples state coordinate consequences, not the complete
 geometric fixtures.
 
-README inventory (two construction nodes):
+README inventory (one application and one construction node):
 
 * smooth-complex-points: smoothComplexPoints.points,
   smoothComplexPoints.affineChart, smoothComplexPoints.independent,
   smoothComplexPoints.map, smoothComplexPoints.openImmersion,
   smoothComplexPoints.etaleCoordinates, smoothComplexPoints.zeroSet.
-  These require the native
-  scheme-point analytic manifold instantiation, which is a target, not a
-  carrier supplied at the pins. All seven API signatures remain in the README.
+  These apply the single smooth realization already owned by ComplexComparison
+  PR196 Layers 0–2, integrated through the A0-extension request. Its native
+  scheme-point manifold instantiation is unavailable at the pins; it is not
+  reconstructed here. All seven compatibility clauses remain in the README.
   SmoothComplexPointsChecks.point, SmoothComplexPointsChecks.principalOpen,
   SmoothComplexPointsChecks.etaleSheets, SmoothComplexPointsChecks.scalarStructure
   are full scheme/manifold fixtures there; no coordinate example below claims
@@ -47,8 +48,9 @@ README inventory (two construction nodes):
   and the geometric
   parts of point and torusCorner, remain README fixtures.
 
-The imported R09.7/snc-compactification and R09.7/analytic-polydisc targets keep
-their existing owners. No second inverse-function theorem is defined here.
+The imported PR196 realization, R09.7/snc-compactification and
+R09.7/analytic-polydisc targets keep their existing owners. No second
+analytification or inverse-function theorem is defined here.
 -/
 
 open Set Topology

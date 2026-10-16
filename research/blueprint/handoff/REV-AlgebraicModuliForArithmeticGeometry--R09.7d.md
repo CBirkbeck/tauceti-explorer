@@ -1,0 +1,20 @@
+# Handoff: independent review of R09.7d
+
+Codex, session `codex-OaVgRf`, issue #9916, 2026-10-16. Independent of author `codex-YhNZtu` (#9912). The review is complete and accepted after in-place corrections. See the [review report](../reviews/REV-AlgebraicModuliForArithmeticGeometry--R09.7d.md), corrected [packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7d.json), [reader](../readmes/AlgebraicModuliForArithmeticGeometry--R09.7d.md) and [suggested file](../suggested/AlgebraicModuliForArithmeticGeometry--R09.7d.lean).
+
+The complete pass has two corrected nodes, one application and one construction; 14 interface clauses and nine geometric test groups; nine confirmed pinned baseline references; one new planet; two requests; no added nodes or source-issue findings. The packet checker counts seven clauses/five tests on the construction, excluding the application's seven/four. R09.7d remains planned, with unchecked implementations. R09.7a owns four more planets parented to this stage, making five in the combined layer.
+
+The principal correction supersedes the author's earlier handoff: **do not move or reconstruct smooth analytification at R09.7d**. Existing [ComplexComparison PR196](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196), head `4bd72379658126cbe9be935656396f0c9dac4de0`, standing conventions and Layers 0–2, already owns scheme analytification and its smooth complex manifold, open-immersion and étale-local specializations. Its path is `TauCetiRoadmap/CohomologicalPointCounting/ComplexComparison/README.md`; the read README SHA256 is `1c58d7db30b9acbe8656b29345d1c92cd334ef5b14cb35d644967b7adb96477c`. The application retains the coordinate compatibility requirements on that single carrier and has no duplicate planet. PR853's attribution to ComplexComparisonPartII C−1.1 is stale; the accepted Part II packet itself imports PR196. Upstream was inspected, not edited.
+
+Assembly has two precise supplier tasks:
+
+1. Resolve the inherited R09.1 chosen reduced projective-closure contract, with the prescribed dense open and projective blowup composite. No exact closure node is present in the read R09.1 packet. Preserve the original U and do not infer projectivity from properness.
+2. Integrate PR196 Layers 0–2 as A0-extension's scheme input and export the exact points/manifold, analytic maps, open-immersion and étale-local interface to this application and R09.7/analytic-polydisc. No exact atlas anchor names the upstream subroadmap, so this is an explicit request, not a fabricated library reference. A0-extension's existing algebraic-space node extends that input. Reconcile PR853's attribution without importing higher-tier coherent comparison.
+
+The polynomial-zero-locus API was also corrected: require a closed affine embedding; retain open nonvanishing conditions for locally closed presentations. The existing principal-open test detects this distinction. The packet, reader and Lean inventory agree.
+
+All four source PDFs and all nine baseline statements were independently read and the packet's PDF hashes matched. The full source locators, mathematical checks, current-library inspection and upstream ownership evidence are in the report. No restricted source was needed, no source passage was copied into the repository, and no mathematical node was added.
+
+Validation: packet checker zero errors/warnings; pinned `lean-check` succeeded with only five admitted-proof warnings; native executable statements were unchanged; file-scope, reader/API/test consistency, admitted-data and whitespace checks passed. The suggested file contains only a conditional topological lift and coordinate/inversion examples. It certifies no scheme-to-manifold instantiation or analytic lift. Formalization must instantiate the imported carrier and prove the full geometric API and all nine fixtures. The geometric layer is planned, not closed or implemented.
+
+This session submits only this review and takes no second issue. The report and this note contain all information needed after scratch cleanup.
