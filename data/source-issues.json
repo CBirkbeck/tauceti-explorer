@@ -259024,6 +259024,48 @@
    "reviewReason": "Repeated Psi^- has incompatible changing ranks; the basic derivative definition and Proposition 3.1.16 use Psi^- (Phi^-)^(n-1). The published article corrects this order on p. 674."
   },
   {
+   "id": "SmoothRepresentationsOfLocalGroups/E1",
+   "kind": "misprint",
+   "locator": "Version of record, Proposition 3.3(2), proof, p. 36; same formula in arXiv v2, p. 39",
+   "printed": "The source writes J_w₂=(w₂w₁⁻¹)∘J_w₁ while declaring that the permutation is a map between the two ordered source spectra.",
+   "correction": "Writing p:X_w₁→X_w₂ for that source permutation, the typed identity is J_w₂∘p=J_w₁, or J_w₂=J_w₁∘p⁻¹.",
+   "reason": "J_w₁ has codomain Spec H, on which the declared source permutation cannot be composed. The corrected identity gives exactly the stated tangent diagram ζ_w₂∘dp=ζ_w₁.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2407.21237 version history, latest listed v2 (12 June 2025)",
+    "Springer version-of-record article page, DOI 10.1007/s10240-025-00156-2, and PDF (10 July 2025); no linked correction found",
+    "Author/title search for a correction to Proposition 3.3, checked 16 October 2026"
+   ],
+   "owner": "SmoothRepresentationsOfLocalGroups",
+   "file": "research/blueprint/packets/SmoothRepresentationsOfLocalGroups.json",
+   "citation": "Yiwen Ding, p-adic Hodge parameters in the crystabelline representations of GL_n, Publications mathématiques de l’IHÉS 142 (2025), 1–74, published 10 July 2025",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SmoothRepresentationsOfLocalGroups/E2",
+   "kind": "misprint",
+   "locator": "Version of record, Proposition 3.3 proof, p. 36, and §3.6, p. 57; arXiv v2 pp. 39–40 and 61",
+   "printed": "The coordinate Bernstein centre H_i is identified with G_m while H_i is used as the algebra inside Spec H_i.",
+   "correction": "H_i is the Laurent algebra E[T_i,T_i⁻¹] after choosing an unramified coordinate; Spec H_i is G_m.",
+   "reason": "The algebra and its affine scheme have different types. With this conventional notational correction the source’s maps and completions have the intended meaning.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2407.21237 version history, latest listed v2 (12 June 2025)",
+    "Springer version-of-record article page, DOI 10.1007/s10240-025-00156-2, and PDF (10 July 2025); no linked correction found",
+    "Author/title search for a correction to Proposition 3.3, checked 16 October 2026"
+   ],
+   "owner": "SmoothRepresentationsOfLocalGroups",
+   "file": "research/blueprint/packets/SmoothRepresentationsOfLocalGroups.json",
+   "citation": "Yiwen Ding, p-adic Hodge parameters in the crystabelline representations of GL_n, Publications mathématiques de l’IHÉS 142 (2025), 1–74, published 10 July 2025",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "SpecialValuesBirchTate/E1",
    "kind": "misprint",
    "locator": "proof of Theorem 5, p. 250 (Cambridge Core PDF of the published note)",
