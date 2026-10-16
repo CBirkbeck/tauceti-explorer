@@ -1,18 +1,21 @@
 # BP-SchemeAndStackFoundations--SF.4~2: upstream-supersession checkpoint
 
-Issue: #9299. Worker: Codex, session `codex-jQeXWF`, 16 October 2026.
+Issue: #9299. Worker: Codex, session `codex-u298Ps`, 16 October 2026.
+Continues the blocked checkpoint in [#9962](https://github.com/CBirkbeck/tauceti-explorer/pull/9962),
+written by Codex session `codex-jQeXWF`.
 **Blocked checkpoint; the requested blueprint revision is not complete.**
 
 The claim bot confirmed this session's claim in
-[comment 6214746741](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6214746741).
-The confirmation itself was posted at 11:43:41 UTC. This run holds one confirmed
+[comment 6215378205](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6215378205).
+The confirmation itself was posted at 12:20:51 UTC. This run holds one confirmed
 claim and takes no further job.
 
 ## Blocker and evidence
 
 The issue's availability label is inconsistent with the authoritative upstream
-roadmap and with the maintainer's 13 October instruction on the issue. That
-instruction says this blueprint round is superseded and further changes belong
+roadmap and with the maintainer's
+[13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6147000401).
+That instruction says this blueprint round is superseded and further changes belong
 in TauCetiRoadmap. Since then,
 [TauCetiRoadmap pull request 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
 has merged, at 04:47:45 UTC on 14 October 2026, in commit
@@ -97,8 +100,8 @@ is preserved. It still contains 57 nodes: 17 definitions, 4 constructions,
 planet, baseline claim or cross-roadmap request was added. Nothing is claimed
 formalized or mathematically closed by this checkpoint.
 
-Read in this run: WORKERS.md, PROTOCOL.md, the expansion protocol and upstream
-guide; the full #9299 instructions and its comments; the SF.4 independent review
+The previous checkpoint records reading: WORKERS.md, PROTOCOL.md, the expansion
+protocol and upstream guide; the full #9299 instructions and its comments; the SF.4 independent review
 and packet coverage, requests and gaps; the reviewed SF.4 library audit; the
 current tier list; the local StableReduction and AlgebraicVectorBundles
 roadmap material; and the authoritative upstream scope and Layer 4 passages
@@ -134,3 +137,38 @@ correction list in
 `research/blueprint/reviews/REV-SchemeAndStackFoundations--SF.4.md`.
 This handoff contains all evidence needed for that routing decision; it needs
 no file from the disposable scratch directory.
+
+## Supersession recheck in this run
+
+The issue was still labelled `state:available` when this session claimed it.
+The bot accepted the claim even though the maintainer's supersession instruction
+and the previous blocked checkpoint were both already present. The subsequent
+availability label is therefore not evidence that the scope blocker has been
+resolved. The current tier document also identifies SchemeAndStackFoundations
+as merged upstream.
+
+This session read the worker rules and protocols, the full issue and comments,
+the earlier handoff, the independent review, the packet coverage and gap list,
+the reviewed SF.4 library audit, the tier document and nearby read-only
+StableReduction and AlgebraicVectorBundles roadmap material. The source-library
+index was inspected; no restricted source was needed. This session independently
+queried the live GitHub API for upstream main and
+pull request 779, and read the README and Suggested.lean at the exact main
+commit linked above. The API still reports the same merge and main commits.
+A browser-rendered pull-request page returned older cached information; the
+live API and the files at the exact commit establish the current state.
+The Layer 4 scope, sections 4.5, 4.7 and 4.10, and the function-field normalization
+signature in section 4.13 confirm the ownership and exclusion boundaries in
+this handoff. No source theorem was re-reviewed or new mathematical result
+claimed. In particular, the old review's 9 gaps remain historical open work;
+the upstream merge is not a proof that they have been discharged.
+
+The authoritative roadmap files are outside this issue's permitted
+write scope. Updating only the old packet would neither amend those files nor
+resolve the conflict with the supersession instruction. This checkpoint
+therefore changes only the handoff. A maintainer routing decision is required
+before further mathematical work: retire the superseded blueprint round,
+authorize atlas synchronization, or assign a precise Part II. The automatic
+checkpoint-release path has already made the same blocked job available again;
+repeating that release without a routing decision will reproduce this blocker.
+This session does not change issue labels or take a second job.
