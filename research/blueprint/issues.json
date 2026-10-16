@@ -4875,5 +4875,8 @@
  "PKG-ShimuraCompactifications": 9886,
  "REV-PKG-ShimuraCompactifications": 9887,
  "PKG-PadicFamilies": 9888,
- "REV-PKG-PadicFamilies": 9889
+ "REV-PKG-PadicFamilies": 9889,
+ "FIX-PKG-IgusaVarietiesAndTorsionConcentration~adv": 9890,
+ "FIX-PKG-PerfectoidQuotients~adv": 9891,
+ "FIX-PKG-PotentialAutomorphyInfrastructure~adv": 9892
 }
