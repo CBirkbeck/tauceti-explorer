@@ -8,8 +8,8 @@ the original variety can then be pulled back to that precise domain.
 
 The resolution algorithm, the compactification existence theorem and the SNC
 polydisc theorem already have accepted targets. This part imports them. Its two
-additional targets are the smooth complex-coordinate bridge needed by the
-polydisc theorem and the lift of its inverse chart into the prescribed open.
+interface nodes apply the existing smooth complex realization needed by the
+polydisc theorem and construct the lift of its inverse chart into the prescribed open.
 The latter is an assembly of existing geometric results, with a commuting
 square that fixes its meaning; it introduces no new compactification object or
 competing chart record.
@@ -30,16 +30,19 @@ rather than additional nodes in this packet.
 
 | Input | Exact supplier | Contract used here |
 | --- | --- | --- |
+| Smooth complex realization | ComplexComparison PR196, Layers 0–2, via the explicit A0-extension integration request | The actual over-C point carrier, classical topology, analytic maps, smooth manifold specialization, open immersions and etale local biholomorphisms. |
 | Smooth algebraic coordinates | `AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates` | Smooth affine Jacobian presentations and regular coordinate functions; at a C-point the residue field is C. |
 | Strict boundary | `AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary` | Finite labelled globally smooth Cartier components, distinct incident germs and simultaneous étale coordinates. |
 | Projective SNC model | `AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification` | Smooth projective X, a specified dense open immersion j from U and reduced complement D; every modification preserves U. |
 | Local analytic pair | `AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc` | A full biholomorphic polydisc chart centred at the point, with boundary hyperplanes and its punctured complement. |
 
-Build smooth complex points first. They supply the smooth-point,
-open-restriction and étale-Jacobian sub-interface requested by the imported
-polydisc node. Then assemble the compactification and chart into the exported
-maps to U. The node dependency order does not require a new resolution theorem
-or a reference to the aggregate resolution stage as its own prerequisite.
+First import the shared smooth complex realization. Its coordinate compatibility
+supplies the smooth-point, open-restriction and étale-Jacobian sub-interface
+requested by the polydisc node. Then assemble the compactification and chart
+into the exported maps to U. This order constructs neither a second
+analytification nor a new resolution theorem. The two explicit supplier
+requests below record projective closure and integration of the existing
+analytic carrier.
 
 The compactification supplier starts from a chosen reduced projective closure
 of U, resolves it while preserving U inside its regular locus, and principalizes
@@ -82,29 +85,35 @@ continuous linear equivalence, and the inverse theorem uses a complete source.
 These conditions hold for the finite-dimensional complex coordinate spaces.
 A real differentiable inverse does not establish a complex analytic chart.
 
-At upstream PR853 head `6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c`, §9.5 contains
-the algebraic compactification, while the ownership table sends general
-complex-scheme analytification to ComplexComparisonPartII C−1.1. That is a
-higher tier than this layer. Following WORKERS' downward ownership rule, this
-part owns only the required smooth separated finite-type point/coordinate
-case. Assembly must point the old polydisc node's small coordinate request here
-and make the upper general construction identify its smooth case with this
-one. Singular and nonreduced analytic spaces, coherent comparison, algebraic
-spaces and GAGA stay with their existing owners. No dependency on the higher
-roadmap is introduced, and no upstream file is changed by this packet.
+ComplexComparison [PR196](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196),
+head `4bd72379658126cbe9be935656396f0c9dac4de0`, standing conventions and Layers
+0–2, already owns the complex-point topology and scheme analytification,
+including the smooth native complex manifold specialization, open immersions
+and étale local biholomorphisms. Those are existing roadmap targets. This
+part applies them on their single shared carrier; it does not build a
+separate smooth-case functor. Its first node is an application.
+
+PR853 head `6f3a90dbb5188375dd083e1df9c87ef2bbf38c6c`, §9.5, contains the
+algebraic compactification, but its ownership table attributes general
+analytification to ComplexComparisonPartII C−1.1. The accepted Part II packet
+instead imports PR196. Assembly must reconcile that stale attribution and
+integrate PR196 as the scheme input of A0-extension, as requested here. There
+is no exact atlas layer anchor for PR196's subroadmap. The request therefore
+names its exact upstream path and layers, rather than inventing a library
+reference. No higher-tier coherent comparison or ownership move is needed.
 
 Current main's AnalyticToricGeometry Layer 4 already owns toric boundary charts;
 RealAlgebraicGeometry already owns its general analytic inversion toolkit and
 parameter-dependent extension results. Those targets are imported where
-applicable. Neither supplies general smooth scheme point realization. The
+applicable. Neither replaces the shared PR196 smooth scheme realization. The
 reviewed AUDIT-01 verdict for R09.7d is “not built”; the adic polydiscs found in
 the library use a different carrier and do not meet this complex input.
 
-## Target 1. Smooth complex points and algebraic coordinates
+## Target 1. Using the shared smooth complex realization
 
 **Node:** `AlgebraicModuliForArithmeticGeometry:R09.7d/smooth-complex-points`.
 
-For a smooth separated finite-type complex scheme X of pure dimension n, equip the actual set X(C)=Hom over Spec C from Spec C to X with its affine-chart Euclidean topology and the native n-dimensional complex analytic manifold structure. On a smooth affine presentation cut out by polynomials p(u,v)=0 with invertible v-Jacobian, use the local inverse of (u,v) mapped to (u,p(u,v)); the resulting u coordinates give the atlas. The maximal compatible analytic atlas and topology are independent of the presentation. Every morphism over C between such smooth schemes induces an analytic map, functorially; an algebraic open immersion identifies the source manifold with the corresponding analytic open subspace. An etale map between smooth n-folds is locally biholomorphic and its analytic differential is the evaluated algebraic Jacobian. A regular function is analytic with the same values and zero set. This bounded smooth-scheme construction is the coordinate input of the already planned SNC chart theorem, not a second general analytic-space or coherent-sheaf construction.
+Import the single complex-point topology and analytification of ComplexComparison PR196 Layers 0–2. For a smooth separated finite-type complex scheme X of pure dimension n, use its smooth specialization as the native n-dimensional complex analytic manifold on the actual set X(C)=Hom over Spec C from Spec C to X. Identify its local coordinates from a closed smooth affine presentation p(u,v)=0 with the u-coordinates furnished by the local inverse of (u,v) mapped to (u,p(u,v)), when the v-Jacobian is invertible. The topology, atlas independence, analytic functoriality, open-immersion comparison and etale local biholomorphisms are supplier outputs, not new constructions here. In these coordinates the analytic differential is the evaluated algebraic Jacobian, and regular functions have the same values and zero sets. Apply this interface to the existing SNC chart theorem without constructing a separate smooth analytification carrier.
 
 **Hypotheses and conventions.**
 
@@ -112,18 +121,17 @@ For a smooth separated finite-type complex scheme X of pure dimension n, equip t
 - Points and all scheme maps commute with the C-structure maps. A prime-ideal point or an arbitrary unbased Spec C morphism is not the point carrier.
 - For the etale assertion the chosen local algebraic Jacobian is an isomorphism; no global injectivity of an etale morphism is assumed.
 
-**Construction.**
+**Application and coordinate compatibility.**
 
-1. Import R09.7/regular-coordinates for the smooth affine polynomial presentation and rational descriptions of regular functions. On complex points, apply the native analytic inverse theorem to F(u,v)=(u,p(u,v)); the Jacobian block determinant is nonzero. Its analytic local inverse restricted to the slice with p=0 gives the desired coordinates.
-2. Transitions are restrictions of regular functions, expressed as polynomial quotients with nonvanishing denominators, composed with these analytic inverse charts. Thus both directions are analytic on overlap. Use ChartedSpaceCore.toChartedSpace and the analytic IsManifold compatibility; compare with the Euclidean subspace topology on every affine presentation.
-3. Affine overlap identifications are the actual identifications of C-valued points. They glue on that set, as in Serre, Proposition 2. Separatedness gives a closed diagonal on the affine pieces, hence a Hausdorff realization. The maximal compatible atlas provides presentation independence, rather than equality of arbitrary preferred charts.
-4. Evaluate regular maps on points. Their affine rational coordinate formulas prove analyticity, identity and composition. For an algebraic open immersion, principal open sets are nonvanishing loci of continuous regular functions; affine-local agreement identifies the induced analytic topology and atlas.
-5. For an etale coordinate map evaluate its invertible Jacobian and apply the same local inverse theorem on manifolds. Local equations of a boundary component evaluate to the same analytic zero sets; no coherent GAGA or faithful-flat local-ring comparison is used.
+1. Import PR196 Layers 0–2 through the explicit A0-extension integration request. Use its actual over-C points, presentation-independent classical topology, analytic morphism functor and smooth native manifold specialization. Do not reconstruct their carriers or gluing.
+2. For coordinate compatibility, import R09.7/regular-coordinates and use a closed affine presentation, locally cut out by p(u,v)=0 with invertible v-Jacobian. Its complex Jacobian gives the invertible linear term of F(u,v)=(u,p(u,v)); the native analytic inverse theorem identifies the supplier chart with its u-coordinate model.
+3. Regular coordinate functions are polynomial quotients with denominators nonzero on their domains. Their evaluations are analytic and their derivatives are the evaluated Jacobian. Supplier functoriality identifies these formulas with the actual maps on points.
+4. Use the supplier open-immersion and etale local-biholomorphism comparisons on this same carrier. For a regular function h, evaluation vanishes precisely when the point factors through V(h); this identifies the algebraic boundary support and analytic zero set without coherent GAGA.
 
-**API.** These clauses are the required library interface.
+**API.** These clauses are compatibility requirements on the imported interface.
 
 - `smoothComplexPoints.points` (coercion): The underlying set is exactly the over-C point set X(C); a map f acts by composition with f.
-- `smoothComplexPoints.affineChart` (characterisation): On any smooth affine embedding in A^N, the topology agrees with the Euclidean topology on its polynomial zero locus, and the local u-coordinates are inverse-function charts.
+- `smoothComplexPoints.affineChart` (characterisation): For a closed embedding of a smooth affine scheme in A^N, the imported topology agrees with the Euclidean topology on its polynomial zero locus, and the local u-coordinates are inverse-function charts. For a locally closed presentation, retain its open nonvanishing conditions as well as its equations.
 - `smoothComplexPoints.independent` (compatibility): The identity of X(C) identifies the topologies and maximal compatible analytic atlases obtained from two affine covers or presentations.
 - `smoothComplexPoints.map` (functoriality): Every C-morphism between smooth schemes induces an analytic map. The maps for identity and composition are the actual identity and composite on points.
 - `smoothComplexPoints.openImmersion` (equivalence): An algebraic open immersion j:U into X gives a biholomorphism U(C) onto its image with the induced analytic structure and an open embedding on underlying topological spaces.
@@ -139,12 +147,12 @@ For a smooth separated finite-type complex scheme X of pure dimension n, equip t
 
 **Uses.**
 
-- AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc: Discharges the smooth-point, open-restriction and etale-Jacobian sub-interface of its A0-extension request using a lower-tier construction.
+- AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc: Identifies the smooth-point, open-restriction and etale-Jacobian sub-interface of its A0-extension request with the existing PR196 carrier; it does not move ownership of analytification.
 - Deligne, Théorie de Hodge II, (3.1.2), p. 31 and proof of (3.1.9), pp. 33–34: Identifies the analytic divisor and the complement in the same coordinate neighbourhood, starting with algebraic labelled components.
 
 **Sources.**
 
-- SERRE56, §1, nos. 1–2 and 4, pp. 3–6; §2, no. 5, Lemma 1 and Proposition 2, pp. 7–9. Affine analytic topology, regular maps and overlap gluing give the construction on varieties; the smooth polynomial-coordinate proof here identifies its native complex manifold atlas.
+- SERRE56, §1, nos. 1–2 and 4, pp. 3–6; §2, no. 5, Lemma 1 and Proposition 2, pp. 7–9. Checks the imported affine topology, regular maps and overlap gluing; the polynomial-coordinate argument identifies its native smooth manifold charts.
 - BM1997, §3, (3.1), Definition 3.2 and Lemma 3.3, pp. 231–232. Provides the smooth affine Jacobian presentations and rational coordinate functions to which the analytic inverse theorem applies.
 
 ## Target 2. Borel source charts on the prescribed open
@@ -162,7 +170,7 @@ Let U be a smooth quasi-projective finite-type variety over a characteristic-zer
 **Construction.**
 
 1. Use the existing R09.7/snc-compactification construction and its open, boundary and projective API without re-running resolution. Its R09.1 projective-closure request remains an explicit supplier obligation. Each modification is an isomorphism on the prescribed U, so j identifies that U, not a replacement birational open.
-2. Use smooth-complex-points to identify the analytic image of j with X(C) minus the union of the analytic boundary zero sets. For the imported R09.7/analytic-polydisc theorem, this construction supplies the required smooth analytification and etale-coordinate bridge previously requested from A0-extension.
+2. Use the imported smooth realization through smooth-complex-points to identify the analytic image of j with X(C) minus the union of the analytic boundary zero sets. For the imported R09.7/analytic-polydisc theorem, this application identifies its requested smooth analytification and etale-coordinate bridge with the existing PR196 supplier integrated through A0-extension.
 3. Take its centred labelled polydisc chart and shrink away from the finitely many nonincident boundary components. Its coordinate equations give c_a(N_a intersect j_an(U(C)))=P_a^circ. Positivity of radii and b at most n are part of the chart, including n=b=0.
 4. Restrict the inverse of c_a to P_a^circ, then use the inverse of the open-immersion identification to lift it uniquely to U(C). Injectivity of j_an proves the square and uniqueness; both inverse maps are analytic. The image is exactly j_an inverse-image of N_a.
 5. Restrict the same maps when radii decrease, and reindex the first b coordinates when the incident labels are permuted. The square proves compatibility on overlaps. Every point of U(C) is in the image of a chart centred at its image in X(C), proving the cover; the construction chooses charts pointwise and asserts no uniform radius or finite subcover.
@@ -267,7 +275,7 @@ coordinates and the native analytic inverse theorem.
 
 The pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. Nine Mathlib statements were read at
-the pin; none supplies the absent scheme-to-complex-manifold construction.
+the pin; none implements the scheme-to-complex-manifold targets of PR196.
 Current main's roadmap overlap was also checked against AlgebraicVectorBundles,
 StableReduction, AnalyticToricGeometry and RealAlgebraicGeometry.
 
@@ -277,27 +285,31 @@ native conditional topological lift signature and a few coordinate checks.
 It introduces no admitted data definition or placeholder analytic space.
 Its conditional lift assumes an actual open embedding, actual partial
 homeomorphism and exact image equality. Those hypotheses are geometric outputs
-to be established by the two targets; the signature does not establish them.
+to be established through the imported interface and lift construction; the signature does not establish them.
 The zero-dimensional and two-axis examples check only the indicated native
 coordinate identities. All fourteen geometric API clauses and nine full
 geometric checks remain required targets in this document, including the
 complex analyticity and scheme identifications absent from those examples.
 
-The complete planning pass has two construction nodes, fourteen API clauses,
-nine geometric checks and two planets. The four existing R09.7d planets in
-R09.7a are retained, giving six in the combined layer. Coverage is planned with
-one explicit request and no unrecorded source gap:
+The complete planning pass has one application node and one construction node,
+fourteen interface API clauses, nine geometric checks and one new planet. The
+four existing R09.7d planets in R09.7a are retained, giving five in the combined
+layer. The application has no separate planet for the imported realization.
+Coverage is planned with two explicit requests and no unrecorded source gap:
 
 - **R09.1 projective closure.** Supply an exact node for the chosen reduced
   projective closure with the prescribed dense open and projective composition.
   The older R09.1 packet contains no exact node for it. PR853's Layer 1 is the
   intended projective-geometry supplier; its atlas reference must be reconciled.
-- **Analytic ownership.** Route the smooth coordinate sub-interface of the
-  imported polydisc node to `R09.7d/smooth-complex-points` and compare the higher
-  general analytification on that case. The packet records this move for
-  assembly; it does not edit the other owners' files.
-- **Native geometric realization.** Instantiate the scheme point/manifold
-  structures and the full chart lift with their exact maps and analytic proofs,
+- **A0-extension analytic integration.** Integrate ComplexComparison PR196,
+  Layers 0–2 at the head above, as A0-extension's scheme input. Its existing
+  algebraic-space analytification node extends that input and does not supply
+  this exact scheme interface. Export the smooth points/manifold, analytic map,
+  open-immersion and etale-local comparisons to this application and
+  R09.7/analytic-polydisc. Reconcile PR853's stale attribution to the higher
+  Part II during assembly. No upstream file is changed here.
+- **Native geometric realization.** Instantiate the imported scheme point/manifold
+  interface and the full chart lift with their exact maps and analytic proofs,
   and realize every geometric check. Elaboration of the compact suggested file
   checks the explicitly stated native signatures and examples; their admitted
   proofs establish no geometric implementation.
