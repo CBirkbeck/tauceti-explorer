@@ -424,6 +424,13 @@ example : coherentWeights 0 (-2) 2 = ![(0, -2, -2), (2, -2, -2), (5, 1, -2), (5,
     twiceTateExponents 0 (-2) 2 = ![0, 2, 8, 10] := by
   constructor <;> decide
 
+-- The BCGP identity Weyl element has length zero and gives the degree-three coherent term.
+-- Here `2ρ_U = (-3,-3)`, whereas `2ρ_L = (1,-1)` gives the wrong Levi-dual weight.
+example : (-(-3 : ℤ), -(-3 : ℤ), (0 : ℤ)) = coherentWeights 0 0 0 3 ∧
+    (-(-1 : ℤ), -(1 : ℤ), (0 : ℤ)) ≠ coherentWeights 0 0 0 3 ∧
+    coherentWeights 0 0 0 3 ≠ coherentWeights 0 0 0 0 := by
+  decide
+
 -- Test `SiegelHT.parity`: `(0, 0; 1)` fails the parity condition, and its first doubled exponent
 -- is odd.
 example : (0 + 0 + 1 : ℤ) % 2 ≠ 0 ∧ twiceTateExponents 0 0 1 0 = 1 := by
