@@ -145,3 +145,59 @@ revision. Resume only after the maintainer reconciles the stale queue entry
 with the authoritative upstream roadmap and specifies any distinct extension
 to be planned. Inspect the full comment history and this ownership boundary
 before any future claim; the availability label alone is insufficient.
+
+## Explicitly resumed run — Codex session codex-fCPH3g, 2026-10-16
+
+The user explicitly instructed this session to resume #9297 after its earlier
+release and to submit the result under WORKERS.md. The bot confirmed the
+renewed claim in [comment 6221063174](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6221063174).
+This submission is a **blocked checkpoint**, not a completed revision. The
+resumption authorizes submitting this checkpoint; it provides no distinct
+mathematical scope beyond the existing upstream roadmap. The nonduplication
+rule in WORKERS.md and PROTOCOL.md section 15 therefore still applies.
+
+The ownership check was repeated against current upstream main, rather than
+inferring absence from the supplied read-only checkout. The GitHub API serves
+the [README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+at blob `2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5` and the
+[Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+at blob `98d33af8657ee848f176ba05b2a2037d8f1bfaf6` (2,511 lines).
+Layer 2 owns the requested scope: site-cohomology functoriality and spectral
+sequences (§§2.1–2.2), topology comparisons and the Nisnevich site, coherent
+duality (§§2.19–2.21), scheme Brauer groups (§2.22), and semilinear equivariant
+sheaf cohomology (§2.23). Its §2.4 distinguishes the abelian connecting-map
+construction from general banded-gerbe classification; §2.22 explicitly owns
+the construction of the Azumaya splitting-gerbe class. These are upstream
+targets, not unassigned work for this obsolete atlas revision. The relevant
+Layer 2 sections of Suggested.lean were also inspected; no elaboration or
+correctness verdict is asserted for the upstream file.
+
+Fresh API reads confirm that [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged at `2026-10-14T04:47:45Z`, commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) merged at
+`2026-10-16T02:48:52Z`, commit
+`d2081398eedfbd4153d3067aa98a21b5a5270957`. This supports the
+[manager's supersession instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380).
+No shared checkout was changed or built, and no mathematical source text was
+copied into the repository.
+
+Only this handoff changed. The existing packet, reader document, suggested
+file and independent review are preserved. The packet has 85 nodes:
+7 definitions, 17 constructions, 49 theorems, 5 lemmas and 7 comparisons;
+160 API items; 87 definition/construction tests and one theorem test;
+3 planets; 89 baseline declarations; 11 gaps; and 9 requests. Packet status
+and SF.2 coverage remain `partial`. None of the review's corrections is
+claimed discharged, and no new ownership move or supplier request is made.
+
+Validation: the packet checker reports **0 errors and 0 warnings**;
+`git diff --check` passes. The suggested Lean file was neither changed nor
+compiled: this checkpoint changes only the ownership handoff.
+
+To resume the mathematics, the maintainer must specify an extension beyond
+the authoritative upstream targets, or route concrete changes to the
+upstream owner, and reconcile the stale queue entry. The old review's open
+items remain recorded in the packet and review report; they must not be
+re-planned here solely to finish this obsolete revision. No second issue was
+claimed. This checkpoint follows the user's explicit resumed submission
+request and does not establish that another identical checkpoint is needed.
