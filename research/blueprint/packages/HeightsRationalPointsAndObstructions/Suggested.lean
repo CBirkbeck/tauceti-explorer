@@ -112,6 +112,18 @@ example {F : Type u} [Field F] [Height.AdmissibleAbsValues F] [DecidableEq F]
     {W : WeierstrassCurve.Affine F} [W.IsElliptic] (P : W.Point) :
     ellipticUnhalvedPolarization P P = 2 * P.canonicalHeight := by sorry
 
+example {F : Type u} [Field F] [Height.AdmissibleAbsValues F] [DecidableEq F]
+    {W : WeierstrassCurve.Affine F} [W.IsElliptic] (P : W.Point) :
+    ellipticUnhalvedPolarization 0 P = 0 := by sorry
+
+example : logHeight ![(2 : ℚ), 1] = Real.log 2 := by sorry
+example : 2 * Real.log 2 / (2 : ℝ) = Real.log 2 := by ring
+example : (2 : ℝ) * 2 - 2 - 2 = 0 := by norm_num
+example : (2 : ℝ) ^ 2 = 4 := by norm_num
+example : Real.log 2 + Real.log ((2 : ℝ)⁻¹) = 0 := by sorry
+example : (4 : ℝ) - 1 = 3 ∧ (Real.log 2 / 3) * 3 = Real.log 2 := by constructor <;> ring
+example : -Real.log 2 + Real.log 2 = 0 := by ring
+
 /-! ## Layer 1: Mordell–Weil on native abelian-variety points -/
 
 /-- The additive form of the native group of L-points of an abelian variety over K. -/
@@ -125,6 +137,7 @@ variable {K : Type u} [Field K] (A : TauCeti.AlgebraicGeometry.AbelianVariety K)
 
 example (P : Points A K) : (-P) + P = 0 := by simp
 example (P : Points A K) : 2 • P = P + P := by simp [two_nsmul]
+example (P : Points A K) : (0 : Points A K) + P = P := by simp
 
 /-- The point-level kernel of multiplication by n; no geometric torsion scheme is replaced. -/
 def torsion (n : ℕ) (L : Type u) [Field L] [Algebra K L] : AddSubgroup (Points A L) :=
@@ -140,7 +153,14 @@ theorem fg_points [NumberField K] : AddGroup.FG (Points A K) := by sorry
 example (L : Type u) [Field L] [Algebra K L] : torsion A 1 L = ⊥ := by sorry
 example (L : Type u) [Field L] [Algebra K L] : torsion A 0 L = ⊤ := by sorry
 
+example (L : Type u) [Field L] [Algebra K L] (P : Points A L) :
+    P ∈ torsion A 2 L ↔ P + P = 0 := by simp [torsion, two_nsmul]
+
 end AbelianVariety
+
+example : ((2 : ℚ) ^ 2)⁻¹ = 1 / 4 ∧ (4 : ℕ) * 4 = 16 := by norm_num
+example : (1 : ℝ) ≤ 1 / (2 - 1) := by norm_num
+example : ¬ ((1 : ℝ) > 1 / (2 - 1)) := by norm_num
 
 /-! ## Layer 2: adelic points -/
 
@@ -170,9 +190,34 @@ example (K : Type) [Field K] [NumberField K] : Subsingleton (AdelicPoints K K) :
 example : IsEmpty (AdelicPoints ℚ
     (Polynomial ℚ ⧸ Ideal.span {(Polynomial.X ^ 2 + 1 : Polynomial ℚ)})) := by sorry
 
+example (K : Type) [Field K] [NumberField K] :
+    Nonempty (AdelicPoints K (Polynomial K)) := by sorry
+
+example (K : Type) [Field K] [NumberField K] (A : Type) [CommRing A]
+    [Algebra K A] (a : A) : Continuous (fun x : AdelicPoints K A =>
+      (AlgHom.toRingHom (show A →ₐ[K] NumberField.AdeleRing (NumberField.RingOfIntegers K) K from x)) a) := by sorry
+
+example : ((1 / 2 : ℚ) : AddCircle (1 : ℚ)) + (1 / 2 : ℚ) = 0 := by sorry
+example : ((0 : ℚ) : AddCircle (1 : ℚ)) = 0 := rfl
+example : (((2 : ℚ) * (1 / 2 : ℚ) : ℚ) : AddCircle (1 : ℚ)) = 0 := by sorry
+
 /-! ## Layer 3: torsor descent and comparison of obstructions -/
 
+example : (1 : ZMod 3) - 1 = 0 := by norm_num
+example : (1 : ZMod 3) - 2 = 2 := by decide
+example : ((1 / 3 : ℚ) : AddCircle (1 : ℚ)) + (2 / 3 : ℚ) = 0 := by sorry
+example : ((1 / 3 : ℚ) : AddCircle (1 : ℚ)) - (2 / 3 : ℚ) = (2 / 3 : ℚ) := by sorry
+example : (-1 : ℤ) + 1 = 0 ∧ 1 + 1 = (2 : ℤ) := by norm_num
+example : (2 : ℚ) ^ (-1 : ℤ) * 2 = 1 := by norm_num
+example : (2 : ℚ) / (2 * 2) = 1 / 2 := by norm_num
+example : (2 : ℚ) * (1 / 2) = 1 := by norm_num
+example : (2 : ℕ) • ((1 / 2 : ℚ) : AddCircle (1 : ℚ)) = 0 := by sorry
+
 /-! ## Layer 4: curve covers and integral points -/
+
+example : 1 + 2 ^ (2 * 2) * (2 - 1) = (17 : ℕ) := by norm_num
+example : 2 * 41 - 2 = 2 ^ (2 * 2) * (4 * 2 - 3 : ℕ) := by norm_num
+example : (2 : ℝ) ^ (2 / (2 : ℝ)) = 2 := by norm_num
 
 /-! ## Layer 5: finite rank and difference maps -/
 
@@ -186,6 +231,7 @@ theorem finiteRank_iff_le_divisionHull {G : Type u} [AddCommGroup G] (Γ : AddSu
 
 example (r : ℕ) : HasFiniteRank (Fin r → ℤ) := by sorry
 example : HasFiniteRank ℚ ∧ ¬ AddGroup.FG ℚ := by sorry
+example : HasFiniteRank (ZMod 2) := by sorry
 
 /-- The point-level Faltings–Zhang difference homomorphism, with target A^M. -/
 def faltingsZhang {G : Type u} [AddCommGroup G] (M : ℕ) :
@@ -206,25 +252,66 @@ example {G : Type u} [AddCommGroup G] (P Q : G) :
 example {G : Type u} [AddCommGroup G] (M : ℕ) (P : Fin (M + 1) → G) :
     faltingsZhang M P = 0 ↔ ∀ i, P i = P 0 := by sorry
 
+example {G : Type u} [AddCommGroup G] (P : Fin 1 → G) :
+    faltingsZhang 0 P = 0 := by sorry
+example : faltingsZhang 1 ![(2 : ℤ), 5] 0 = 3 := by rfl
+
+example : (5 / (8 : ℝ)) < 3 / 4 := by norm_num
+example : (1 / (2 : ℚ)) + 1 / 2 = 1 := by norm_num
+example : (2 : ℚ)⁻¹ * 4 = 2 := by norm_num
+example : (2 : ℚ) * (4 * 1 - 1) = 6 := by norm_num
+example : (2 : ℚ) * 1 = 2 ∧ (2 : ℚ) * 1 ≠ 1 := by norm_num
+example : (2 : ℝ) * 1 * 3 = 6 ∧ (2 : ℝ) * 1 * 3 / (2 * 3) = 1 := by norm_num
+example : (2 : ℝ) * 1 * 3 = 6 := by norm_num
+
 /-! ## Layer 6: rational points by genus -/
 
 /-!
-The README gives the defining interfaces that need geometric or cohomological carriers:
-height-class pullback; generalized global fields and polarized function-field structures;
-normalized geometric projective heights; the Weil height machine; general Néron–Tate heights
-and their bilinear forms; bounded point metrics, canonical point metrics and local Weil
-functions; geometric subvariety heights; isogeny Kummer maps and Kummer Selmer structures;
-the K/k-trace; two-coverings and their two-Selmer sets; integral models and the general
-adelic model direct limit; affine and general Brauer–Manin pairings; algebraic, unramified
-and almost-everywhere trivial Brauer subgroups; zero-cycle Brauer evaluation; cyclic-algebra
-invariant matrices; torsor evaluation and twists, torsor Selmer sets, descent and étale–Brauer
-sets; universal torsors and relative algebraic Brauer groups; the residual Sha functional;
-good reduction outside S, Kodaira–Parshin covers and S-integral points; positive-dimensional
-abelian quotients, closed-subvariety stabilizers, generated abelian subvarieties and Ueno
-loci; minimal torsion cosets and essential minima; local solubility and the conjecture
-register. Affine Azumaya and scheme Brauer evaluation are imported supplier interfaces.
-The existing point groups do not encode the hypotheses of these geometric definitions or
-the genus-classification and small-point measure theorems.
+The following README definitions need geometric or cohomological carriers beyond the native
+point groups and light carriers used above.
+
+Layer 0: height-class pullback; GeneralizedGlobalField, extension and polarization structures,
+normalized geometric projective height; generated difference presentations; weilHeight;
+general neronTateHeight and neronTateForm; PointHeightMetricFamily, canonicalPointMetric,
+LocalWeilFunction and neronFunction; integral models and naive/canonical subvariety heights.
+
+Layer 1: positive-dimensional AbelianVariety.quotient; isogeny kummer maps,
+kummerSelmerStructure, selmerGroup and tateShafarevich; the K/k-trace; TwoCovering, W2 and
+order-k Selmer sets; IntegralCommutativeFormalGroup, smooth formal identity charts and
+formalLogarithm. Native finite-module Selmer constructors and finite-subgroup quotients
+are supplier interfaces, not replacements for these geometric inputs.
+
+Layer 2: integral models/points and GlobalFunctionFieldIntegralModel; TwistedModule and the
+native projective-K-zero support-filtration adapter; geometric adelic points and the model
+direct limit; Brauer pairing, brauerSet, brauerManinSet and HasObstruction; brauerZero,
+brauerOne, supported cohomology, unramifiedBrauer, algebraicUnramifiedBrauer and brauerOmega;
+finite-flat Brauer corestriction and zero-cycle evaluation; cyclic-algebra classes and local
+invariant matrices. Affine Azumaya and scheme Brauer evaluation are imported interfaces.
+
+Layer 3: torsor evaluation/twist/Selmer sets, descentSet, descentObstructionSet, etaleSet,
+connectedSet, pglSet, etaleBrauerSet and etaleDescentSet; KDprime, UniversalNTorsor,
+compatible finite torsors, minimal compatible isogenies and invariant Brauer; coflasque
+enlargement and nonabelian H2 links; UniversalTorsor, relativeBrauerOne and residual Sha
+functional; CasselsTate, KummerLocal, BrauerPic0 and BrauerPic0_n; PencilSelmerOrbit,
+oriented ideals, the isogeny Q invariant and realEffectiveFraction.
+
+Layer 4: good reduction outside S, shafarevichSet and ShafarevichFiniteness;
+KodairaParshin covers, S-integral points and section jets.
+
+Layer 5: IsCoset, IsTorsionCoset and IsTorsionSubvariety; scheme stabilizer,
+generatedByDifferences, uenoLocus, cosetFreeOpen and orthogonalComplement;
+CartierDieudonneRing, ConnectedDieudonneModule and formalWeight; uniform torsion closure;
+blockIndex, blockIndexLocus, projective cycle heights, bounded projection presentations and
+admissible jets; geometric difference maps; torsionEnvelope, torsionDimension and
+essentialMinimum; ArithmeticCycleClass, metrized divisor action, arithmeticDegree and
+arithmeticIntersection; AdelicMetrizedLineBundle, SemipositiveAdelic, IntegrableAdelic,
+adelicCycleHeight and cycleProbabilityMeasure; BergmanDensity, AdelicSectionLattice,
+arithmeticEulerCharacteristic, AdelicSuccessiveMinimum and canonicalAdelicMetric.
+
+Layer 6: IsLocallySoluble, SatisfiesHassePrinciple and SatisfiesWeakApproximation;
+BombieriLangConjecture, VojtaConjecture, BrauerManinOnlyObstructionConjecture and
+ShaFinitenessConjecture. The genus-classification and small-point measure theorems need the
+geometric hypotheses stated in the README; no bare point-group signature asserts them.
 -/
 
 end TauCetiRoadmap.HeightsRationalPointsAndObstructions
