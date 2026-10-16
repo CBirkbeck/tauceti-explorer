@@ -47652,8 +47652,8 @@
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9882",
-   "finishedAt": "2026-10-16T10:41:35Z"
+   "finishedAt": "2026-10-16T10:41:35Z",
+   "note": "deliverables arrived from an external worker on issue #9882"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~3",
@@ -48594,8 +48594,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ColemanIntegration~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9881",
-   "finishedAt": "2026-10-16T10:41:41Z"
+   "finishedAt": "2026-10-16T10:41:41Z",
+   "note": "deliverables arrived from an external worker on issue #9881"
   },
   {
    "id": "PKG-CompletedCohomologyPartII",
