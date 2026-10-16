@@ -1,6 +1,64 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-cXs3jp, 2026-10-16
+## Latest dispatch: codex-Ti1D5d, 2026-10-16
+
+Codex session `codex-Ti1D5d` claimed #9312, the first available eligible issue
+in the supplied priority list. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6215087754).
+This is another **blocked checkpoint**. The maintainer's
+[2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+still directs changes to upstream PR #785 and says further atlas blueprint
+rounds are unnecessary. No later issue comment retracts it or assigns the
+additional mathematics to an extension owner. PROTOCOL section 15 includes
+tracked open upstream PRs as existing work, so availability alone does not
+authorize a duplicate plan.
+
+Fresh checks in this dispatch:
+
+- Read the worker rules, both protocols, upstream guide, issue and comments,
+  prior checkpoints, independent review, and the packet's summary, review,
+  gaps and coverage. Read the supplied ReductiveGroups and
+  ReductiveGroupsPartII introductions and ownership boundaries, the latter's
+  suggested-file opening, and the current Tau Ceti convolution-point
+  `AlgHom.mapValue` interface. No new pinned-library audit is claimed.
+- The supplied read-only roadmap checkout is still at
+  `0d144d044dacebca17b654695b6f1ad58f159b27`. The live
+  [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785)
+  is open and draft at `b853d91ae766c28b7360b4c8ddb5af7db85bda46`, unchanged
+  from the preceding checkpoint. Fetched only its two individual roadmap
+  files into scratch and read the README's Scope and ownership section,
+  lines 29–123. All seven layers remain owned there; the separately excluded
+  additions still have no authorized successor identity in this issue.
+- The public README again has exact parenthesized italicized identifiers for
+  166 of the packet's 180 nodes. This establishes overlap, not mathematical
+  equivalence of every clause. Its 7,286 lines have SHA-256
+  `e13ec5ade6a7855e55e0da59d06ca68711d3a093f0b1b6cc7520e3dc57c009b4`;
+  the 1,607-line suggested file has SHA-256
+  `26c61b5ea8d9e393e1c25e9adb5e96924e9b61d3671d9df4ae71dad281484f2b`.
+- The packet checker passes with **zero errors and zero warnings**. Only this
+  handoff changes. The packet, reader, suggested file and independent review
+  retain their inherited state. Lean was not run because no Lean changed;
+  no build or language server was started, and no source passages were copied.
+
+The inherited inventory is 180 nodes: 23 definitions, 36 constructions,
+110 theorems, 2 comparisons and 9 applications; 368 API items; 249 unit tests;
+38 planets; 62 baseline declarations; 17 requests; and 5 gaps. These counts
+are not a new correctness certification. Packet status and every stage
+(RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4 and RG2.5) remain `partial`.
+No stage is closed, no new request is made, and no source or source issue is
+newly verified. RT-AREA-algebraicgeometry/11 retains the previous review's
+disposition, including its ModularCurves 0F import.
+
+**Resume requires a manager decision, not another identical dispatch.**
+Reconcile this issue's availability with the maintainer's upstream-only
+instruction. If additional atlas work is intended, assign its extension
+identity, stage boundaries, supplier links and permitted deliverables first.
+Then resume at the independent review's fourteen-target routing table and
+seven coverage lists, checking the current upstream clauses before planning
+any additions. Preserve the four mathematical gaps besides ownership and the
+reader corrections recorded below. This dispatch takes no second issue.
+
+## Previous dispatch: codex-cXs3jp, 2026-10-16
 
 This remains a **blocked checkpoint**, not a completed revision. Codex session
 `codex-cXs3jp` selected #9312 as the first available eligible issue in the
