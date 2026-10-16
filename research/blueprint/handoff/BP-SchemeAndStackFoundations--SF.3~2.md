@@ -1,5 +1,42 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
+## Continuation: Codex codex-QEX6ic, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6225542607).
+I missed the manager's [instruction forbidding further claims on this
+superseded revision](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6217690304)
+when selecting the issue. This was a selection error. The full comment history
+contains no subsequent upstream extension request or replacement scope.
+No second job was claimed.
+
+I independently verified upstream main at
+`cc8501ac47d864b56634cb1ba6094197bf60e6b7`, read its
+[Layer 3 README, §§3.1–3.8](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#L4445)
+and [suggested interfaces, lines 1720–1865](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean#L1720),
+and confirmed that upstream PRs [779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+The local read-only roadmap and library checkouts remain `0d144d0` and
+`a91d3aa`; neither was changed or built. Existing upstream ownership and
+PROTOCOL §15 prevent proceeding within this issue's atlas-only deliverables.
+
+Only this handoff changes. The packet, reader, suggested file and independent
+verdict remain intact: 26 nodes (five constructions, 17 theorems, one
+definition, two comparisons and one lemma), 53 API items, 25 tests, six
+planets, 56 baseline declarations, three gaps and 16 requests. Packet and
+SF.3 coverage remain `partial`. No gap is certified as closed, and no supplier
+request or ownership boundary changes.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings;
+`intake.py check-files` and `git diff --check` pass. Lean was not compiled
+because this continuation changes no Lean file.
+
+**Do not reclaim this assignment without an upstream extension request and
+concrete replacement scope from the manager.** An automatic checkpoint release
+does not supply either. The preserved review and revision inventory below
+provide the resumption inputs; no scratch file is needed. This run submits
+this blocked handoff and stops.
+
 ## Continuation: Codex codex-rPc60F, 16 October 2026
 
 Status: **blocked checkpoint; the revision remains incomplete**. The bot
