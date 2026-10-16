@@ -1,19 +1,16 @@
 import Mathlib
-import TauCeti.AlgebraicGeometry.LineBundle.Class
 
 /-!
 # PotentialModularityAndCompatibleSystems: representative target signatures
 
 The roadmap is README.md. This file records definitions and theorem signatures statable
 against the pinned APIs and is not exhaustive. Archimedean expressions distinguish
-meromorphic cancellation from pointwise division in the total Gamma functions. Picard
-classes below are objectwise rigidified classes; relative representability remains a
-separate construction. Lift parameters below encode numerical character restrictions,
+meromorphic cancellation from pointwise division in the total Gamma functions. Relative
+Picard representability is a README target over the current library’s rigidified line bundles.
+Lift parameters below encode numerical character restrictions,
 while arithmetic lift types also require representations and local deformation conditions.
 -/
 
-open CategoryTheory AlgebraicGeometry
-open TauCeti.AlgebraicGeometry
 set_option autoImplicit false
 
 universe u
@@ -120,77 +117,6 @@ end Factors
 
 /-! ## Layer 2: Integral points and controlled fields -/
 
-namespace Picard
-
-/-- A line bundle on `X` with a trivialization of its restriction to the boundary `Z`
-(Moret-Bailly II 3.4). -/
-structure Rigidified (X Z : Scheme.{u}) (i : Z ⟶ X) where
-  line : InvertibleSheaf X
-  trivialization : (Scheme.Modules.pullback i).obj line.obj ≅ (InvertibleSheaf.trivial Z).obj
-
-/-- Isomorphisms of line bundles must intertwine the boundary trivializations. -/
-def rigidifiedSetoid (X Z : Scheme.{u}) (i : Z ⟶ X) : Setoid (Rigidified X Z i) where
-  r A B := Nonempty {e : A.line.obj ≅ B.line.obj //
-    (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom}
-  iseqv := by sorry
-
-/-- Objectwise rigidified isomorphism classes; relative fppf representability is separate. -/
-def generalizedPicard (X Z : Scheme.{u}) (i : Z ⟶ X) : Type _ :=
-  Quotient (rigidifiedSetoid X Z i)
-
-/-- Equality of classes is witnessed by a boundary-compatible isomorphism. -/
-theorem generalizedPicard_mk_eq_iff (X Z : Scheme.{u}) (i : Z ⟶ X)
-    (A B : Rigidified X Z i) :
-    (Quotient.mk _ A : generalizedPicard X Z i) = Quotient.mk _ B ↔
-      Nonempty {e : A.line.obj ≅ B.line.obj //
-        (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom} := by
-  sorry
-
-/-- Descend an invariant function through the rigidified quotient. -/
-def generalizedPicard_lift (X Z : Scheme.{u}) (i : Z ⟶ X) (T : Type*)
-    (f : Rigidified X Z i → T)
-    (hf : ∀ A B, (rigidifiedSetoid X Z i).r A B → f A = f B) :
-    generalizedPicard X Z i → T := Quotient.lift f hf
-
-/-- Evaluation of the descended function on a representative. -/
-theorem generalizedPicard_lift_mk (X Z : Scheme.{u}) (i : Z ⟶ X) (T : Type*)
-    (f : Rigidified X Z i → T)
-    (hf : ∀ A B, (rigidifiedSetoid X Z i).r A B → f A = f B)
-    (A : Rigidified X Z i) :
-    generalizedPicard_lift X Z i T f hf (Quotient.mk _ A) = f A := by
-  sorry
-
-/-- Forgetting is well-defined on rigidified isomorphism classes, into the pinned class type. -/
-def generalizedPicard_forget (X Z : Scheme.{u}) (i : Z ⟶ X) :
-    generalizedPicard X Z i → LineBundleClass X :=
-  Quotient.lift (fun A ↦ LineBundleClass.mk A.line) (by sorry)
-
-/-- The kernel of forgetting the rigidification on objectwise classes.
-Relative fppf exactness is a separate statement. -/
-theorem generalizedPicard_forget_kernel (X Z : Scheme.{u}) (i : Z ⟶ X)
-    (P : generalizedPicard X Z i) :
-    generalizedPicard_forget X Z i P = LineBundleClass.mk (InvertibleSheaf.trivial X) ↔
-      ∃ α : (Scheme.Modules.pullback i).obj (InvertibleSheaf.trivial X).obj ≅
-          (InvertibleSheaf.trivial Z).obj,
-        P = Quotient.mk _ (Rigidified.mk (InvertibleSheaf.trivial X) α) := by
-  sorry
-
-/-- Rigidifying on the whole scheme leaves exactly one isomorphism class. -/
-example (X : Scheme.{u}) (A B : Rigidified X X (𝟙 X)) :
-    (Quotient.mk _ A : generalizedPicard X X (𝟙 X)) = Quotient.mk _ B := by sorry
-
-/-- Forgetting a rigidification on the whole scheme gives the trivial class. -/
-example (X : Scheme.{u}) (A : Rigidified X X (𝟙 X)) :
-    generalizedPicard_forget X X (𝟙 X) (Quotient.mk _ A) =
-      LineBundleClass.mk (InvertibleSheaf.trivial X) := by sorry
-
-/-- A sheaf isomorphism identifies rigidified classes only when it respects the boundary. -/
-example (X Z : Scheme.{u}) (i : Z ⟶ X) (A B : Rigidified X Z i)
-    (h : ¬ Nonempty {e : A.line.obj ≅ B.line.obj //
-      (Scheme.Modules.pullback i).map e.hom ≫ B.trivialization.hom = A.trivialization.hom}) :
-    (Quotient.mk _ A : generalizedPicard X Z i) ≠ Quotient.mk _ B := by sorry
-
-end Picard
 
 /-! ## Layer 3: Auxiliary characters and moduli -/
 /-! ## Layer 4: Residual potential modularity -/
@@ -330,7 +256,8 @@ PolarizedSystem, PolarizedSystem.IsTotallyOdd, PolarizedSystem.tensor, Polarized
 PolarizedSystem.twist, PolarizedSystem.power, characterSystem, artinSystem,
 partialLFunction, lFunction, completedLFunction, RepRing, LarsenData, componentGroup,
 SkolemDatum, SkolemDatum.IntegralPoint, SkolemDatum.IsComplete, SkolemDatum.FieldPoint,
-SkolemDatum.enlargeSigma, generalizedPicard_exact, generalizedPicard_group, generalizedPicard_pullback, divisorClassMap, CurveCompactification,
+SkolemDatum.enlargeSigma, Picard.generalizedPicard, generalizedPicard_exact,
+generalizedPicard_group, generalizedPicard_pullback, divisorClassMap, CurveCompactification,
 splitField, DetectsSubextensions, TaylorAuxiliaryData, IsKWField, HasKWWitnesses,
 IsLiftOfType, AuxiliaryField, OrdinaryGlobalRing, CGRing, LocalConditions,
 RequiredLiftType, RequiredLiftType.localCondition, RequiredLiftType.ring,
