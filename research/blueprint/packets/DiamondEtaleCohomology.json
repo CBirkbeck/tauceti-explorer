@@ -75,6 +75,36 @@
         "module": "Mathlib.GroupTheory.PGroup",
         "provides": "In a p-group the order of each element is coprime to every integer coprime to p. An element of the image in an additive field of distinct prime characteristic also has order dividing that characteristic, hence is zero.",
         "verification": "Statement read in the source at the recorded pin on 2026-10-16."
+      },
+      {
+        "ref": "tauceti:TauCeti.exists_isProPSylow",
+        "module": "TauCeti.Topology.Algebra.Group.Profinite.Sylow.Existence",
+        "provides": "Every profinite group (compact, totally disconnected topological group) has a Sylow pro-p subgroup for each prime p. C8/wild-automorphism takes a Sylow pro-ℓ subgroup of the compact procyclic closure.",
+        "verification": "Statement read in the source at the recorded pin and found in the pinned declaration index by REV-DiamondEtaleCohomology on 2026-10-16."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsProPSylow.not_dvd_index",
+        "module": "TauCeti.Topology.Algebra.Group.Profinite.Sylow.Basic",
+        "provides": "The image of a Sylow pro-p subgroup in every quotient by an open normal subgroup has index prime to p. Applied to a trivial Sylow pro-ℓ subgroup it says that ℓ does not divide the order of any finite quotient; this gives a nontrivial pro-ℓ Sylow subgroup when the group is not pro-p.",
+        "verification": "Statement read in the source at the recorded pin and found in the pinned declaration index by REV-DiamondEtaleCohomology on 2026-10-16."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsProPSylow.isProP",
+        "module": "TauCeti.Topology.Algebra.Group.Profinite.Sylow.Basic",
+        "provides": "A Sylow pro-p subgroup is pro-p in its subspace topology (TauCeti.IsProP).",
+        "verification": "Statement read in the source at the recorded pin and found in the pinned declaration index by REV-DiamondEtaleCohomology on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:Polynomial.exists_monic_and_natDegree_eq_and_norm_map_algebraMap_coeff_sub_lt",
+        "module": "Mathlib.Analysis.Normed.Field.Approximation",
+        "provides": "For a dense subfield K of a normed field L, every monic polynomial over L is approximated coefficientwise by a monic polynomial over K of the same degree. No characteristic hypothesis. Named in the PerfectoidSpaces:P4 request and gap G3.",
+        "verification": "Statement read in the source at the recorded pin and found in the pinned declaration index by REV-DiamondEtaleCohomology on 2026-10-16."
+      },
+      {
+        "ref": "mathlib:Polynomial.exists_roots_norm_sub_lt_of_norm_coeff_sub_lt",
+        "module": "Mathlib.Analysis.Normed.Field.Approximation",
+        "provides": "Continuity of roots: if monic f and g of the same degree have close coefficients and g splits, every root of f is close to a root of g. No characteristic hypothesis. Named in the PerfectoidSpaces:P4 request and gap G3.",
+        "verification": "Statement read in the source at the recorded pin and found in the pinned declaration index by REV-DiamondEtaleCohomology on 2026-10-16."
       }
     ]
   },
@@ -90,7 +120,7 @@
       "readSections": [
         "Proposition 20.14 and proof, p.119; Proposition 20.17 and proof, pp.121–122",
         "Lemma 21.17 and proof, p.127; Proposition 21.16 and proof, pp.126–127",
-        "Running text after 17.2 and 17.5, pp.97–98; Remark 18.2(b), p.101"
+        "Running text after 17.2 and 17.5, pp.97–98; Remark 18.2 (its second sentence), p.101"
       ]
     },
     {
@@ -139,6 +169,17 @@
       "access": "Maintainer-cleared edition read in place; no text or file copied.",
       "readSections": [
         "§1.8, Definitions 1.8.1–1.8.4 and Lemma 1.8.5 with proof, pp.90–91"
+      ]
+    },
+    {
+      "id": "Stacks",
+      "title": "The Stacks project",
+      "authors": "The Stacks project authors",
+      "edition": "online, accessed 16 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0BC7",
+      "accessed": "2026-10-16",
+      "readSections": [
+        "Tag 0BC7 (More on Algebra, Lemma 15.76.18) and its proof: perfect complexes over a filtered colimit of rings, read by REV-DiamondEtaleCohomology for C7/perfect-constructible-ring-colimit."
       ]
     }
   ],
@@ -357,7 +398,9 @@
         "DiamondEtaleCohomology:C7/perfect-constructible-limit-equivalence",
         "DiamondEtaleCohomology:C7/perfect-constructible-ring-colimit"
       ],
-      "contract": "Use these accepted nodes with their statements, API, tests, sources and unresolved dependencies. They are not duplicated in this continuation. The refinement records below apply to the assembled reader, and must be applied when the parts are assembled again."
+      "contract": "Use these accepted nodes with their statements, API, tests, sources and unresolved dependencies. They are not duplicated in this continuation. The refinement records below apply to the assembled reader, and must be applied when the parts are assembled again.",
+      "sha256": "dd3d020bb7530aaf841c71be5670cc4cc8cc7f058b7ad17f07effccf1fbe21e8",
+      "nodeCount": 119
     },
     {
       "packet": "research/blueprint/packets/DiamondEtaleCohomology--C8.json",
@@ -430,7 +473,9 @@
         "DiamondEtaleCohomology:C8/topological-independence-degree",
         "DiamondEtaleCohomology:C8/independent-le-generating-degree"
       ],
-      "contract": "Use these accepted nodes with their statements, API, tests, sources and unresolved dependencies. They are not duplicated in this continuation. The refinement records below apply to the assembled reader, and must be applied when the parts are assembled again."
+      "contract": "Use these accepted nodes with their statements, API, tests, sources and unresolved dependencies. They are not duplicated in this continuation. The refinement records below apply to the assembled reader, and must be applied when the parts are assembled again.",
+      "sha256": "156ecbeb7126d83bb8d5abbe119005f2f92d854a69e4e3f9ee5cd1fe3dbe5dc3",
+      "nodeCount": 65
     }
   ],
   "targetCoverage": [
@@ -453,14 +498,14 @@
       "target": "Proper maps of locally compact Hausdorff spaces",
       "nodeId": "DiamondEtaleCohomology:C4/locally-compact-hausdorff-proper",
       "sourceId": "ECD",
-      "locator": "Remark 18.2(b), p.101"
+      "locator": "Remark 18.2, second sentence, p.101"
     },
     {
       "stageId": "DiamondEtaleCohomology:C7",
       "target": "Restricted compactness of perfect-constructible objects",
       "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness",
       "sourceId": "ECD",
-      "locator": "Proposition 20.14, p.119; common lower bound required; coefficient typo corrected as in E1"
+      "locator": "Proposition 20.14, p.119; common lower bound required; coefficient misprint corrected as in PAPER-SCHOLZE-17/E57"
     },
     {
       "stageId": "DiamondEtaleCohomology:C8",
@@ -487,7 +532,7 @@
   "nodeRefinements": [
     {
       "nodeId": "DiamondEtaleCohomology:C9/perfect-local-system-compact",
-      "statement": "Let Y be spatial, Λ commutative, and N a single finite upper bound for H^i(Y,F) for every étale Λ-module sheaf F and every i>N. For a quasicompact separated étale map j:U→Y and a perfect local system L on U, the object j!L is compact in D_ét(Y,Λ). The same N bounds cohomology on U by C9/uniform-test-bound.",
+      "statement": "Let Y be a spatial diamond and Λ a commutative ring, and suppose that one natural number N satisfies H^i(Y,F)=0 for every i>N and every étale Λ-module sheaf F on Y. For a quasicompact separated étale map j:U→Y and a perfect local system L on U, the object j!L is compact in D_ét(Y,Λ). The same N bounds cohomology on U by C9/uniform-test-bound.",
       "removePrerequisites": [
         "DiamondEtaleCohomology:C7"
       ],
@@ -495,22 +540,41 @@
         "DiamondEtaleCohomology:C7/perfect-local-system-dualizable",
         "DiamondEtaleCohomology:C9/uniform-test-bound"
       ],
-      "reason": "Replace the stage-level API placeholder by the named duality lemma, and state explicitly which common bound is used."
+      "reason": "Replace the stage-level API placeholder by the named duality lemma, state the single cohomological bound explicitly as a vanishing condition above N, and cite the lemma in the proof steps.",
+      "proofSteps": [
+        "The adjunction j! ⊣ j* of C5/etale-extension-by-zero and the C3 internal Hom identify derived Hom(j!L,−) with RΓ(U,Rℋom_Λ(L,j*−)); C7/perfect-local-system-dualizable identifies this with RΓ(U,L^∨⊗^L_Λ j*−).",
+        "Pullback j* is a left adjoint, and tensoring with L^∨ preserves coproducts (E1 derived tensor, C3/etale-tensor).",
+        "By C9/uniform-test-bound the same N bounds the cohomology of every étale Λ-module sheaf on U, so C9/global-sections-coproducts makes RΓ(U,−) commute with coproducts."
+      ]
     },
     {
       "nodeId": "DiamondEtaleCohomology:C8/wild-automorphism",
       "addPrerequisites": [
         "DiamondEtaleCohomology:C8/compact-procyclic-field-action",
+        "tauceti:TauCeti.exists_isProPSylow",
+        "tauceti:TauCeti.IsProPSylow.not_dvd_index",
+        "tauceti:TauCeti.IsProPSylow.isProP",
         "tauceti:TauCeti.IsProP.isPGroup_range",
         "mathlib:IsPGroup.orderOf_coprime"
       ],
       "proofSteps": [
-        "The leading-term assumption implies that γ is an isometry. Apply compact-procyclic-field-action; its last step passes all the leading-term congruences to the compact closure. If this procyclic profinite group is not pro-p, take a nontrivial pro-ℓ Sylow subgroup H, with ℓ≠p, using the existing profinite supplier.",
+        "The leading-term assumption implies that γ is an isometry. Apply compact-procyclic-field-action: the closure G of the powers of γ is a compact procyclic profinite group, and its last step passes all the leading-term congruences to G. If G is not pro-p, some quotient G/U by an open normal subgroup has order divisible by a prime ℓ≠p. Take a Sylow pro-ℓ subgroup H of G (pinned TauCeti.exists_isProPSylow). Its image in G/U has index prime to ℓ (IsProPSylow.not_dvd_index), so H is nontrivial; H is pro-ℓ (IsProPSylow.isProP) and compact, being closed in G.",
         "Choose x≠0 moved by H. The continuous function h↦‖h(x)/x−1‖ attains a maximum δ on compact H. Since all leading-term congruences hold, 0<δ<1. Choose h0 attaining δ and set y=h0(x)/x−1, so y≠0 and ‖y‖=δ. For every h, d_h=h(x)/x−1 satisfies ‖d_h/y‖≤1; the residue map c(h)=res(d_h/y) is defined on all of H and c(h0)≠0.",
         "For g,h∈H use d_(gh)=d_g+g(d_h)+d_g g(d_h). Every g acts trivially on the residue field and has g(y)/y≡1. Therefore res(g(d_h)/y)=res(d_h/y). The cross term divided by y has norm at most δ<1, so c(gh)=c(g)+c(h). The residue field is discrete because its maximal ideal is open, hence c is continuous.",
         "The pinned IsProP.isPGroup_range says the image of c is an ℓ-group even for an infinite discrete residue field. Its elements are killed by p. IsPGroup.orderOf_coprime and ℓ≠p force that image to be trivial, contradicting c(h0)≠0. Thus the compact procyclic group is pro-p; finite p-group quotients show its p^n powers tend to the identity, and point evaluation gives the result."
       ],
-      "reason": "The source normalizes at a chosen automorphism without spelling out a bound over the group. Compact maximization supplies the bound needed to define its residue homomorphism everywhere. This is a proof refinement of the existing target, not a new residue-theory construction."
+      "reason": "The source normalizes at a generator without spelling out the bound over the group; compact maximization supplies it (the cocycle estimate at a topological generator works as well). The Sylow and pro-p inputs are the pinned Tau Ceti declarations, so no ProfiniteProPGroups request remains for this node. This is a proof refinement of the existing target, not a new residue-theory construction.",
+      "removePrerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Lemma 21.17 and proof, p.127",
+          "match": "Lemma 21.17 concludes that the p-power powers of γ tend pointwise to the identity. Its proof passes to a pro-ℓ Sylow subgroup of the procyclic closure and divides g(x)/x−1 by a fixed element to get a continuous homomorphism to the p-torsion residue field."
+        }
+      ]
     },
     {
       "nodeId": "DiamondEtaleCohomology:C8/finite-topological-generators",
@@ -523,7 +587,7 @@
       "nodeId": "DiamondEtaleCohomology:C8/analytic-dimension-bound",
       "proofSteps": [
         "Apply Huber Lemma 1.8.5(i): each specialization chain in a fibre is bounded by the rational rank of its relative value group, and the valuative transcendence estimate bounds this rank by the complete-field transcendence invariant. Huber cites Bourbaki VI.10.3 Corollary 1 for the latter estimate; its proof remains a source obligation.",
-        "Pass to completed algebraic closures: completion preserves the value group and algebraic extension changes it only by torsion, so rational ranks agree. Under compatible valued extensions they can only increase. Establish these comparisons and apply the minimum defining modifiedTopologicalTrdeg, then take the supremum over point presentations."
+        "Pass to completed algebraic closures: completion preserves the value group and algebraic extension changes it only by torsion, so rational ranks agree. Under compatible valued extensions they can only increase. Establish these comparisons and apply the minimum defining modifiedTopologicalTrdeg, then take the supremum over the points of the source."
       ],
       "sources": [
         {
@@ -538,6 +602,149 @@
         }
       ],
       "reason": "The Huber statement and proof have now been read in the cleared edition. Separate the read reduction from the remaining Bourbaki, completion and modified-degree comparisons."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-ring-colimit",
+      "removePrerequisites": [
+        "SchemeKTheoryOperations:S.1/perfect-complexes-on-limits"
+      ],
+      "addPrerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-hom-filtered-colimit",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-extension-preserves-perfect"
+      ],
+      "proofSteps": [
+        "Full faithfulness: node perfect-constructible-limit-fully-faithful (ring case).",
+        "Essential surjectivity 'proved similarly': by 20.16 reduce to locally constant L with perfect values on a quasicompact separated étale trivializing cover; perfect complexes over Λ and maps between them descend to some Λ_i, and the finite descent datum descends by full faithfulness.",
+        "The algebraic input is Stacks Lemma 15.76.18 (Tag 0BC7). A perfect complex over Λ is a bounded complex of finite projective modules (P7/perfect-object); each module is the image of an idempotent matrix and each differential is a matrix, so the finitely many entries and relations are defined over some Λ_i, and derived extension of that complex gives back the original one (P7/p7ii-derived-extension, P7/p7ii-extension-preserves-perfect). For perfect K_0 over Λ_0 and any L_0, Hom_{D(Λ)}(K_0⊗Λ, L_0⊗Λ) is the colimit over i of the Hom groups over Λ_i: use the extension–restriction adjunction, write L_0⊗Λ as the filtered colimit of the L_0⊗Λ_i, and apply P7/finite-perfect-hom-filtered-colimit."
+      ],
+      "sources": [
+        {
+          "sourceId": "ECD",
+          "locator": "Proposition 20.15, p. 119",
+          "match": "Proposition 20.15 states that perfect-constructible complexes form a 2-colimit both along cofiltered limits of spatial diamonds and along filtered colimits of coefficient rings; its proof treats the space case and says the ring case is proved similarly."
+        },
+        {
+          "sourceId": "Stacks",
+          "locator": "Tag 0BC7 (Lemma 15.76.18)",
+          "match": "Over a filtered colimit of rings, every perfect complex comes from a perfect complex at some stage, and Hom out of the base change of a perfect complex is the colimit of the Hom groups at the stages."
+        }
+      ],
+      "reason": "SchemeKTheoryOperations is outside the 94 roadmaps that Caraiani–Newton needs (upstream/CaraianiNewton.md lists this single citation as a stray one to remove). Only its affine case is used; Stacks 0BC7 with the tier-10 P7 perfect-complex nodes supplies it."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
+      "removePrerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
+      ],
+      "proofSteps": [
+        "Each element of P satisfies the factorial-power convergence hypothesis by continuity of the action from a profinite group.",
+        "The action gives a continuous injection of the compact group G into the Hausdorff group of continuous automorphisms of C′ with the topology of pointwise convergence, hence a homeomorphism onto its image. Pointwise convergence of g^(p^n) to the identity is therefore convergence in G, so every open normal subgroup of P contains g^(p^n) for large n.",
+        "Apply wild-automorphism to each element of P. Every quotient of P by an open normal subgroup then has only elements of p-power order, so it is a p-group in Mathlib's sense (IsPGroup); this is the defining condition of the pinned TauCeti.IsProP."
+      ],
+      "reason": "The finite-quotient criterion is the definition of the pinned TauCeti.IsProP, so the ProfiniteProPGroups Layer 3 request is not needed here."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C8/prime-to-p-wild-removal",
+      "removePrerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+        "ArithmeticGaloisDuality:R02.1"
+      ],
+      "addPrerequisites": [
+        "tauceti:TauCeti.IsProP",
+        "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence"
+      ],
+      "reason": "Pro-p is the pinned TauCeti.IsProP; the ProfiniteProPGroups Layer 3 contract adds nothing the node uses. The cohomological inputs remain the ProfiniteCohomology Layer 10–11 and ArithmeticGaloisDuality R02.1 requests. Hochschild–Serre is the accepted node R02.2/hochschild-serre-spectral-sequence.",
+      "proofSteps": [
+        "Finite-quotient averaging and the all-degree coefficient-colimit comparison give H^b(P,M)=0 for b>0 and discrete ℓ-primary torsion M.",
+        "Hochschild–Serre (R02.2/hochschild-serre-spectral-sequence) collapses to H^a(G,M)=H^a(G/P,M^P). This yields one inequality; inflate each G/P module to get the reverse."
+      ]
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C2/enhanced-etale-category",
+      "removePrerequisites": [
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "addPrerequisites": [
+        "EnhancedDerivedSheaves:E3/presentable-category-limits"
+      ],
+      "proofSteps": [
+        "Closure under colimits in 𝒟(Y_v,κ, Λ): cones are clear; filtered colimits commute with canonical truncations and filtered colimits of étale sheaves are étale, so membership follows from the cohomology-sheaf criterion (C2/cohomology-sheaf-criterion).",
+        "Presentability: by hyperdescent along a hypercover by disjoint unions of strictly totally disconnected spaces (nodes v-hyperdescent and etale-category-one-cutoff), 𝒟_ét(Y, Λ) is a limit of the presentable ∞-categories 𝒟(Y_i,ét, Λ) along colimit-preserving functors, which is presentable ([Lur09, Propositions 5.5.3.12–5.5.3.13], EnhancedDerivedSheaves:E3/presentable-category-limits). Such a hypercover exists, with all Y_i κ-small for κ large enough, since every small v-stack and every small v-sheaf has a v-cover by a disjoint union of strictly totally disconnected spaces (D1, D4).",
+        "For a disjoint union of strictly totally disconnected spaces, 𝒟(Y_ét, Λ) → 𝒟(Y_v, Λ) is fully faithful (as on homotopy categories) with the same objects as D_ét."
+      ],
+      "reason": "HTT 5.5.3.12–13 is the accepted node E3/presentable-category-limits; the stage request is withdrawn."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C3/internal-hom",
+      "removePrerequisites": [
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "addPrerequisites": [
+        "EnhancedDerivedSheaves:E3/representability"
+      ],
+      "proofSteps": [
+        "For fixed (A, C), B ↦ Map(B ⊗^L A, C) takes colimits in 𝒟_ét to limits since − ⊗^L A preserves colimits (node etale-tensor); by the representability criterion for presentable ∞-categories ([Lur09, Proposition 5.5.2.2], EnhancedDerivedSheaves:E3/representability) it is representable.",
+        "The comparison with R_Yét of the v-internal Hom (C3/v-derived-tensor API vTensor.internalHom) follows from the adjunctions incl ⊣ R_Yét and ⊗ ⊣ Hom on D(Y_v, Λ)."
+      ],
+      "reason": "HTT 5.5.2.2 is the accepted node E3/representability; the stage request is withdrawn."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C9/etale-constant-compact",
+      "removePrerequisites": [
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "addPrerequisites": [
+        "EnhancedDerivedSheaves:E3/exact-coproducts-colimits"
+      ],
+      "proofSteps": [
+        "C5 étale adjunction identifies derived Hom(j!Λ,−) with RΓ(U,−).",
+        "Apply global-sections-coproducts. Exactness identifies the triangulated coproduct criterion with the enhanced compactness criterion: an exact functor between these stable categories preserves all small colimits once it preserves coproducts (EnhancedDerivedSheaves:E3/exact-coproducts-colimits)."
+      ],
+      "reason": "The coproduct-to-colimit criterion is the accepted node E3/exact-coproducts-colimits; only the cutoff comparison of compact-generators stays requested from E3."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C8/extension-cd-bound",
+      "removePrerequisites": [
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:R02.2"
+      ],
+      "addPrerequisites": [
+        "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence"
+      ],
+      "proofSteps": [
+        "Instantiate the all-degree Hochschild–Serre spectral sequence for discrete modules, ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence, with abutment the canonical continuousCohomology, E2^(a,b)=H^a(Q,H^b(N,M))⇒H^(a+b)(G,M).",
+        "For finite bounds the E2 terms vanish outside the rectangle a≤cd_ℓ(Q), b≤cd_ℓ(N); use convergence to deduce vanishing above the sum. Infinite bounds are automatic."
+      ],
+      "reason": "The all-degree Hochschild–Serre spectral sequence for discrete modules, with its abutment on the canonical carrier and its edge maps, is the accepted node R02.2/hochschild-serre-spectral-sequence; the R02.1 and R02.2 stage requests are withdrawn."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C7/constructible-filtration",
+      "addPrerequisites": [
+        "DiamondsAndVStacks:D5/localization-at-a-point"
+      ],
+      "reason": "The localization Y_y is the accepted node D5/localization-at-a-point; the D5 stage stays for the requested field-point presentation."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-filtration",
+      "addPrerequisites": [
+        "DiamondsAndVStacks:D5/localization-at-a-point"
+      ],
+      "reason": "The localization Y_y is the accepted node D5/localization-at-a-point; the D5 stage stays for the requested field-point presentation."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C8/local-stalk-bound",
+      "addPrerequisites": [
+        "DiamondsAndVStacks:D5/localization-at-a-point"
+      ],
+      "reason": "The localization Y_y is the accepted node D5/localization-at-a-point; the D5 stage stays for the requested field-point presentation."
+    },
+    {
+      "nodeId": "DiamondEtaleCohomology:C8/point-sheaf-equivalence",
+      "addPrerequisites": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality"
+      ],
+      "reason": "The canonical TopRep carrier and ofDiscreteModule are ProfiniteCohomology Layer 1, not Layer 0."
     }
   ],
   "requests": [
@@ -579,7 +786,7 @@
     },
     {
       "supplier": "DiamondsAndVStacks:D5",
-      "need": "Localization Y_y of a spatial diamond at a point y (the limit of its quasicompact open neighbourhoods; |Y_y| is the chain of generalizations of y) and a quasi-pro-étale surjection Spa(C, C⁺) → Y_y with C algebraically closed. This joins the two D5 requests of DiamondEtaleCohomology--C8 for the field-point presentation.",
+      "need": "Localization Y_y of a spatial diamond at a point y (the limit of its quasicompact open neighbourhoods; |Y_y| is the chain of generalizations of y) and a quasi-pro-étale surjection Spa(C, C⁺) → Y_y with C algebraically closed. This joins the two D5 requests of DiamondEtaleCohomology--C8 for the field-point presentation. DiamondsAndVStacks:D5/localization-at-a-point (accepted) already supplies Y_y for spatial Y: it is spatial, |Y_y| is the set of generalizations of y, Y_y → Y is a quasicompact injection, and maps landing in the generalizations factor through it. Only the quasi-pro-étale presentation of Y_y by Spa(C, C⁺) with C algebraically closed, and the clauses about it named here, remain requested.",
       "neededBy": [
         "DiamondEtaleCohomology:C7/constructible-filtration",
         "DiamondEtaleCohomology:C7/perfect-constructible-filtration"
@@ -603,14 +810,6 @@
       ]
     },
     {
-      "supplier": "EnhancedDerivedSheaves:E3",
-      "need": "HTT 5.5.3.12–5.5.3.13: a small limit of presentable ∞-categories along colimit-preserving functors, computed in Cat_∞, is presentable and the projections preserve colimits; and HTT 5.5.2.2: a functor C^op → S on a presentable ∞-category is representable iff it preserves small limits. EnhancedDerivedSheaves:E5:presentability/presentable-categories gives only the definition.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C2/enhanced-etale-category",
-        "DiamondEtaleCohomology:C3/internal-hom"
-      ]
-    },
-    {
       "supplier": "SchemeAndStackFoundations:SF.2",
       "need": "The étale topos of a cofiltered limit of qcqs schemes with affine transition maps is the limit of the étale topoi, with étale cohomology the colimit (SGA 4 VII 5.7–5.8), and the proper base change theorem for torsion coefficients on which ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-cycle-cohomology rests (also listed as UPSTREAM:ECD:SCH_BC in the stage's requires).",
       "neededBy": [
@@ -619,7 +818,14 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
-      "need": "Discrete continuous module dictionary, including invariants, morphisms and exactness, on the canonical TopRep carrier. The equivalence of diamond sheaves with this category is proved in C8.",
+      "need": "Discrete modules and continuous sections: invariants, morphisms and exactness of discrete G-modules. The equivalence of diamond sheaves with this category is proved in C8.",
+      "neededBy": [
+        "DiamondEtaleCohomology:C8/point-sheaf-equivalence"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "need": "The canonical carrier TopRep ℤ G and ofDiscreteModule, whose image (the smooth discrete objects) is equivalent to the discrete G-modules of Layer 0; C8 states its point-sheaf equivalence on this image.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/point-sheaf-equivalence"
       ]
@@ -648,37 +854,6 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory",
-      "need": "Existence of pro-ℓ Sylow subgroups and their use inside a procyclic profinite group; retain the continuous subgroup topology.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/wild-automorphism"
-      ]
-    },
-    {
-      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "need": "Use the existing pinned TauCeti.IsProP predicate and IsProP.isPGroup_range for the finite-quotient criterion and discrete images. The remaining contract is closed-subgroup stability in the stated profinite scope and the pro-p Sylow detection used for the wild kernel. No new discrete-image theorem is requested.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/wild-automorphism",
-        "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
-        "DiamondEtaleCohomology:C8/prime-to-p-wild-removal"
-      ]
-    },
-    {
-      "supplier": "ArithmeticGaloisDuality:R02.1",
-      "need": "As assigned by accepted RS-05, supply the all-degree continuous Hochschild–Serre sequence for a closed normal profinite subgroup and discrete torsion coefficients, converging to the canonical upstream carrier, with edge maps.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/extension-cd-bound",
-        "DiamondEtaleCohomology:C8/prime-to-p-wild-removal"
-      ]
-    },
-    {
-      "supplier": "ArithmeticGaloisDuality:R02.2",
-      "need": "As assigned by accepted RS-05, supply the discrete/compact coefficient comparison and the convergence/edge-map compatibility needed when specializing Hochschild–Serre to discrete ℓ-primary torsion modules. No compact-coefficient limit interchange without its convergence hypotheses.",
-      "neededBy": [
-        "DiamondEtaleCohomology:C8/extension-cd-bound"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
       "need": "The actual adic carrier, local stalks, residue-field valuations and valuation-compatible maps. Completing and algebraically closing those fields, with compatible embeddings, remains a separate C8 proof obligation.",
       "neededBy": [
@@ -687,7 +862,7 @@
     },
     {
       "supplier": "AdicEtaleGeometry:A2",
-      "need": "Comparison with the valuative partial-properness criterion of CS17 Remark4.2.20 and rank-one generalizations. CS17 allows general analytic partially proper adic spaces, beyond the supplier’s explicit noetherian scope; the extension of the geometric supplier is recorded in restructure and remains unresolved.",
+      "need": "Comparison with the valuative partial-properness criterion of CS17 Remark 4.2.20 and rank-one generalizations. CS17 allows general analytic partially proper adic spaces, beyond the supplier’s explicit noetherian scope; the extension of the geometric supplier is recorded in restructure and remains unresolved.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/partially-proper-closure-dimension",
         "DiamondEtaleCohomology:C8/partially-proper-dimension",
@@ -696,7 +871,7 @@
     },
     {
       "supplier": "DiamondsAndVStacks:D5",
-      "need": "Localization of a spatial diamond at a point, its chain of generalizations, and the quasi-pro-étale field-point presentation, with compatibility with the inverse system of quasicompact open neighbourhoods. C0/etale-cohomology-continuity supplies the cohomology-continuity statement once this geometric localization is supplied. Existing D5 presentation/permanence nodes do not supply the complete geometric localization contract.",
+      "need": "Localization of a spatial diamond at a point, its chain of generalizations, and the quasi-pro-étale field-point presentation, with compatibility with the inverse system of quasicompact open neighbourhoods. C0/etale-cohomology-continuity supplies the cohomology-continuity statement once this geometric localization is supplied. Existing D5 presentation/permanence nodes do not supply the complete geometric localization contract. DiamondsAndVStacks:D5/localization-at-a-point (accepted) already supplies Y_y for spatial Y: it is spatial, |Y_y| is the set of generalizations of y, Y_y → Y is a quasicompact injection, and maps landing in the generalizations factor through it. Only the quasi-pro-étale presentation of Y_y by Spa(C, C⁺) with C algebraically closed, and the clauses about it named here, remain requested.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/local-stalk-bound"
       ]
@@ -713,15 +888,14 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E3",
-      "need": "Identify preservation of coproducts by exact derived Hom with the enhanced compactness criterion (an exact functor between the relevant stable cocomplete categories that preserves coproducts preserves all small colimits), and supply the cutoff comparisons for the set of test objects when the cutoff is enlarged. The thick-closure description of compact objects is outside E3's stated scope and is imported from Tau Ceti DGAInfinity Layer 6.",
+      "need": "Supply the cutoff comparisons for the set of quasicompact separated étale test objects when the cutoff is enlarged, so that compactness of the j!Λ and their generation do not depend on the cutoff. The coproduct-to-colimit criterion is the accepted node E3/exact-coproducts-colimits. The thick-closure description of compact objects is outside E3's stated scope and is imported from Tau Ceti DGAInfinity Layer 6.",
       "neededBy": [
-        "DiamondEtaleCohomology:C9/etale-constant-compact",
         "DiamondEtaleCohomology:C9/compact-generators"
       ]
     },
     {
       "supplier": "DiamondsAndVStacks:D5",
-      "need": "Quasi-pro-étale algebraically closed field-point presentations through a given diamond point; localization and preservation of fibre specialization chains. Supply the field-point evaluation in Remark 21.8 and the one-point/local presentation used in 21.9/21.15. The general universally-open presentation node does not alone specify this exact contract.",
+      "need": "Quasi-pro-étale algebraically closed field-point presentations through a given diamond point; localization and preservation of fibre specialization chains. Supply the field-point evaluation in Remark 21.8 and the one-point/local presentation used in 21.9/21.15. The general universally-open presentation node does not alone specify this exact contract. DiamondsAndVStacks:D5/localization-at-a-point (accepted) already supplies Y_y for spatial Y: it is spatial, |Y_y| is the set of generalizations of y, Y_y → Y is a quasicompact injection, and maps landing in the generalizations factor through it. Only the quasi-pro-étale presentation of Y_y by Spa(C, C⁺) with C algebraically closed, and the clauses about it named here, remain requested.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/diamond-dim-trg",
         "DiamondEtaleCohomology:C8/point-quotient",
@@ -746,7 +920,7 @@
     },
     {
       "supplier": "PerfectoidSpaces:P4",
-      "need": "Promote the characteristic-independent completion-of-algebraic-closure input already used by P4/algebraically-closed-extension-of-affinoid-field to a general complete nonarchimedean valued-field helper. For an algebraically closed dense subfield of a complete nonarchimedean normed field, prove algebraic closedness in every characteristic. Conrad Theorem 1.1 and §2 give the coefficient/root approximation proof; Mathlib IsAlgClosed.of_denseRange at the pin covers characteristic zero only. C8 imports this generic helper, and retains its field-generating-degree application.",
+      "need": "Promote the characteristic-independent completion-of-algebraic-closure input already used by P4/algebraically-closed-extension-of-affinoid-field to a general complete nonarchimedean valued-field helper. For an algebraically closed dense subfield of a complete nonarchimedean normed field, prove algebraic closedness in every characteristic. Conrad Theorem 1.1 and §2 give the coefficient/root approximation proof; Mathlib IsAlgClosed.of_denseRange at the pin covers characteristic zero only. C8 imports this generic helper, and retains its field-generating-degree application. At the pin Mathlib already has the two characteristic-free inputs: Polynomial.exists_monic_and_natDegree_eq_and_norm_map_algebraMap_coeff_sub_lt (same-degree monic approximation over a dense subfield) and Polynomial.exists_roots_norm_sub_lt_of_norm_coeff_sub_lt (continuity of roots); apply them in the splitting field with its spectral norm (spectralNorm.normedField). P4/algebraically-closed-extension-of-affinoid-field records the same characteristic-p step as its own gap, so one helper serves both.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/finite-topological-generators"
       ]
@@ -816,7 +990,7 @@
       "stageId": "DiamondEtaleCohomology:C2",
       "status": "planned",
       "remaining": [
-        "Receive the EnhancedDerivedSheaves:E3 contract HTT 5.5.3.12 for Lemma 17.1 and the E2 module-coefficient hypercover descent for Proposition 17.3.",
+        "Receive the E2 module-coefficient hypercover descent for Proposition 17.3; HTT 5.5.3.12–13 for Lemma 17.1 is EnhancedDerivedSheaves:E3/presentable-category-limits.",
         "Lemma-level refinement of the BS15 5.3.2 argument for Proposition 14.15 and of the coherent functoriality data under change of cutoff and pullback needed in §22.",
         "C2 inherits the C0 gap on R^iλ_Y∗λ_Y^∗F for i ≥ 2 (PAPER-SCHOLZE-17/E46) through C0/bounded-below-comparison and C0/unbounded-comparison-std: the v-part of 14.12(i) for complexes, D⁺_ét(Y) = D⁺(Y_ét), D_ét(X) = D(X_ét), 14.15 and the bounded formula for R_Yét."
       ],
@@ -841,7 +1015,6 @@
       "stageId": "DiamondEtaleCohomology:C3",
       "status": "planned",
       "remaining": [
-        "Receive the E3 representability criterion (HTT 5.5.2.2) for internal Hom.",
         "Lemma-level refinement: coherence of (f ∘ g)^∗ ≃ g^∗ ∘ f^∗ and of its mate for Rf∗; the projection formula and Hom identities for étale f_! are stated as API of C5/etale-extension-by-zero."
       ],
       "suppliedBy": [
@@ -1076,14 +1249,14 @@
     },
     {
       "title": "Characteristic-independent completion argument",
-      "detail": "The generic completion input overlaps PerfectoidSpaces:P4/algebraically-closed-extension-of-affinoid-field and is requested there, not planned again in C8. Conrad’s proof is read and the finite-extension spectral norm is available. For a monic polynomial approximate its coefficients in the dense algebraically closed subfield; bounded roots of the approximants make the values of the fixed polynomial tend to zero. In a finite splitting extension, one root is approached along a subsequence; completeness puts that root in the original field. This works in positive characteristic, whereas pinned IsAlgClosed.of_denseRange assumes CharZero. The general supplier statement and its application to C8 remain to be discharged.",
+      "detail": "The generic completion input overlaps PerfectoidSpaces:P4/algebraically-closed-extension-of-affinoid-field and is requested there, not planned again in C8. Conrad’s proof is read and the finite-extension spectral norm is available. For a monic polynomial approximate its coefficients in the dense algebraically closed subfield; bounded roots of the approximants make the values of the fixed polynomial tend to zero. In a finite splitting extension, one root is approached along a subsequence; completeness puts that root in the original field. This works in positive characteristic, whereas pinned IsAlgClosed.of_denseRange assumes CharZero. The general supplier statement and its application to C8 remain to be discharged. Mathlib at the pin has both characteristic-free steps, Polynomial.exists_monic_and_natDegree_eq_and_norm_map_algebraMap_coeff_sub_lt and Polynomial.exists_roots_norm_sub_lt_of_norm_coeff_sub_lt, so the remaining work is their assembly in P4.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/finite-topological-generators"
       ]
     },
     {
       "title": "Universe bounds, valued amalgamation and point choices",
-      "detail": "Prove finite extension-witness size reduction using the read D0 completion-cardinality bound; construct compatible complete algebraically closed valued amalgams for the two modified21.3 inequalities; prove independence of completed residue-field closures and of quasi-pro-étale point representatives; prove cutoff independence for representable v-stack tests. Split these into individual lemmas before closure. No universal monotonicity answer to Question21.4 is assumed.",
+      "detail": "Prove finite extension-witness size reduction using the read D0 completion-cardinality bound; construct compatible complete algebraically closed valued amalgams for the two modified Lemma 21.3 inequalities; prove independence of completed residue-field closures and of quasi-pro-étale point representatives; prove cutoff independence for representable v-stack tests. Split these into individual lemmas before closure. No universal monotonicity answer to Question 21.4 is assumed.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/modified-topological-trdeg",
         "DiamondEtaleCohomology:C8/modified-trdeg-tower",
@@ -1111,9 +1284,8 @@
     },
     {
       "title": "Wild, residue and tame proof interiors",
-      "detail": "The compact procyclic closure is now C8/compact-procyclic-field-action. The wild-automorphism argument supplies the uniform normalization, residue additivity and continuity argument. The remaining obligations in 21.16 are the infinite-Galois identification, the Brauer-vanishing-to-cd≤1 criterion for every finite separable extension, the tame character topology and finite-adele identification, and the cohomological bound on compact lattices. The Tsen statement is an inherited verified input; Serre II.3.1 remains an unread supplier source. These general valued-field arguments cannot be replaced by discrete local-field inertia.",
+      "detail": "The compact procyclic closure is now C8/compact-procyclic-field-action. The wild-automorphism argument is now complete at target level: uniform normalization, residue additivity and continuity, with the pinned Sylow and pro-p declarations; it no longer depends on this gap. The remaining obligations in 21.16 are the infinite-Galois identification, the Brauer-vanishing-to-cd≤1 criterion for every finite separable extension, the tame character topology and finite-adele identification, and the cohomological bound on compact lattices. The Tsen statement is an inherited verified input; Serre II.3.1 remains an unread supplier source. These general valued-field arguments cannot be replaced by discrete local-field inertia.",
       "neededBy": [
-        "DiamondEtaleCohomology:C8/wild-automorphism",
         "DiamondEtaleCohomology:C8/residue-galois-identification",
         "DiamondEtaleCohomology:C8/residue-cd-bound",
         "DiamondEtaleCohomology:C8/tame-character-embedding",
@@ -1129,7 +1301,7 @@
     },
     {
       "title": "Scheiderer quasi-augmented descent proof",
-      "detail": "The1992 article, DOI10.1016/0022-4049(92)90062-K, was located on its open-archive publisher page, but the PDF endpoint returned403. The author bibliography has no PDF link. Read §§2–4, especially Remark2.5, Theorem4.1 and Corollary4.6. Construct the quasi-augmentation adjunction and prove descent with the precise hypotheses; then separate normalization into a named lemma. KST Lemma6.6 supplies the specialization-chain and normalized-support argument only. Stacks0A3G proves the desired bound by another method and does not close this required source route.",
+      "detail": "The 1992 article, DOI 10.1016/0022-4049(92)90062-K, was located on its open-archive publisher page, but the PDF endpoint returned 403. The author bibliography has no PDF link. Read §§2–4, especially Remark 2.5, Theorem 4.1 and Corollary 4.6. Construct the quasi-augmentation adjunction and prove descent with the precise hypotheses; then separate normalization into a named lemma. KST Lemma 6.6 supplies the specialization-chain and normalized-support argument only. Stacks 0A3G proves the desired bound by another method and does not close this required source route.",
       "neededBy": [
         "DiamondEtaleCohomology:C8/specialization-chain-space",
         "DiamondEtaleCohomology:C8/chain-cohomology-comparison",
@@ -1147,7 +1319,7 @@
     },
     {
       "title": "Finite-window and generation interfaces",
-      "detail": "The named C7/perfect-local-system-dualizable now supplies the exact duality comparison used by C9. Still required are the E2 category-level left-completion and uniform-window/coproduct arguments, the E3 enhanced compactness and cutoff comparisons, and the current DGAInfinity Layers 5–6 compact/thick-generator result on the supplied DG model. The detect-zero step must pass from derived sections on every étale test object to stalks using the uniform bound; a cohomology presheaf cannot be treated as a sheaf without proof.",
+      "detail": "The named C7/perfect-local-system-dualizable now supplies the exact duality comparison used by C9. Still required are the E2 category-level left-completion and uniform-window/coproduct arguments, the E3 cutoff comparisons for the test objects (the coproduct-to-colimit criterion is the accepted node E3/exact-coproducts-colimits), and the current DGAInfinity Layers 5–6 compact/thick-generator result on the supplied DG model. The detect-zero step must pass from derived sections on every étale test object to stalks using the uniform bound; a cohomology presheaf cannot be treated as a sheaf without proof.",
       "neededBy": [
         "DiamondEtaleCohomology:C9/left-completeness",
         "DiamondEtaleCohomology:C9/global-sections-coproducts",
@@ -1187,7 +1359,7 @@
       "id": "DiamondEtaleCohomology/E3",
       "source": "ECD",
       "locator": "Lemma 21.17 proof, p.127",
-      "resolution": "Use C8/compact-procyclic-field-action and the wild-automorphism refinement. The compact-closure correction is now supported by a full target-level argument. The residue normalization is made uniform by maximizing over the compact Sylow subgroup; no new unverified erratum is asserted."
+      "resolution": "Use C8/compact-procyclic-field-action and the wild-automorphism refinement. The compact-closure correction is now supported by a full target-level argument. The residue normalization is made uniform by maximizing over the compact Sylow subgroup; no new unverified erratum is asserted. The source’s own normalization at a topological generator γ is also sound: the cocycle identity and the ultrametric inequality give |g(x)/x−1| ≤ |γ(x)/x−1| for the nonnegative powers of γ, hence by continuity on their closure, which is the whole group; so E3 concerns only the compact closure."
     }
   ],
   "restructure": [
@@ -1207,7 +1379,7 @@
         "DiamondEtaleCohomology"
       ],
       "detail": "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic (C8 part) states the étale acyclicity of strictly totally disconnected spaces with prerequisite the stage C0. The same statement is ECD §14 material, used in the proof of Proposition 14.10, and is planned here as DiamondEtaleCohomology:C0/std-etale-acyclic.",
-      "proposal": "At assembly, retire C8/strictly-disconnected-acyclic in favour of C0/std-etale-acyclic and point its consumers (C8/qpetale-direct-image) at the C0 node; one owner, no change of mathematics."
+      "proposal": "Implemented by the assembly in its export form: C0/std-etale-acyclic is the single proof owner, C8/strictly-disconnected-acyclic is kept only as a stable export citing it, and C8/qpetale-direct-image cites the C0 node. No change of mathematics; nothing further to do unless the C8 identifier is retired at the next revision of the C8 part."
     },
     {
       "action": "rescope",
@@ -1245,7 +1417,7 @@
     },
     {
       "title": "Adic spaces, Part II: general analytic valuative partial properness",
-      "reason": "CS17 Remark4.2.20 is used in general analytic scope, whereas AdicEtaleGeometry:A2’s read contract specifies noetherian analytic scope. Extend the existing AdicSpacesPartII direction with the general valuative predicate, rank-one specialization and comparison, rather than constructing an incompatible partial-properness predicate inside C8.",
+      "reason": "CS17 Remark 4.2.20 is used in general analytic scope, whereas AdicEtaleGeometry:A2’s read contract specifies noetherian analytic scope. Extend the existing AdicSpacesPartII direction with the general valuative predicate, rank-one specialization and comparison, rather than constructing an incompatible partial-properness predicate inside C8.",
       "supplier": "AdicSpacesPartII:R0",
       "consumer": "DiamondEtaleCohomology:C8"
     }
@@ -1267,6 +1439,11 @@
       "roadmap": "AdicSpaces and LocalGaloisGroups",
       "readCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
       "note": "Current AdicSpaces does not supply perfectoid or diamond sites. Current LocalGaloisGroups and LocalFieldsRamification are in discrete local-field scope; they do not replace the arbitrary residue field and value-group arguments in C8. Current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 was searched as well as the pins."
+    },
+    {
+      "roadmap": "ProfiniteProPGroups",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ProfiniteProPGroups",
+      "note": "Layers 2–3 list TauCeti.exists_isProPSylow, IsProPSylow.not_dvd_index, IsProPSylow.isProP and the IsProP API as already in Tau Ceti, and all are present at the pin f790474. C8 now cites these declarations directly, so the two requests to Layers 2 and 3 are withdrawn (REV-DiamondEtaleCohomology). Layer 6 (cd_p of a Sylow subgroup) is not in the pinned library and remains requested; current Tau Ceti a91d3aa has started a ContCohomology/CohomologicalDimension directory."
     }
   ],
   "audit": {
@@ -1279,5 +1456,943 @@
   "validation": {
     "blueprint": "Passed scripts/check_blueprint.py with zero errors and zero warnings on 2026-10-16.",
     "lean": "lean-check research/blueprint/suggested/DiamondEtaleCohomology.lean exited 0 at the pinned shared build on 2026-10-16; six expected admitted-proof warnings. No data definitions or surrogate carriers."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DiamondEtaleCohomology",
+    "date": "2026-10-16",
+    "notes": "Independent review by Claude (session claude-fp7JM9) of BP-DiamondEtaleCohomology (Codex, codex-OTJOrW, PR #9941): a whole-roadmap continuation that imports the accepted parts C0 (119 nodes) and C8 (65 nodes), adds two lemmas and refines imported nodes by same-id records. Sources re-fetched with SHA-256 equal to the packet (ECD arXiv v4, CS17, FS v4, Conrad); read at the cited places: ECD 17.2, 17.5, 18.2, 20.14-20.17, 21.6, 21.16-21.17; CS17 4.2.19-4.2.21; FS Problem I.11.1; Huber 1996 §1.8 pp.90-91 (maintainer-cleared copy, in place). Both new lemmas and the four BP refinements are mathematically right; corrections are wording and supplier precision. Baseline: the nine new declarations confirmed at Mathlib 082e2d3 and Tau Ceti f790474 and in the pinned index; five added (TauCeti.exists_isProPSylow, IsProPSylow.not_dvd_index, IsProPSylow.isProP, two characteristic-free Mathlib polynomial approximation lemmas). Corrections: (1) the one citation outside the 94 Caraiani-Newton roadmaps (SchemeKTheoryOperations:S.1 in C7/perfect-constructible-ring-colimit) replaced by Stacks Tag 0BC7 and tier-10 P7 nodes; (2) ProfiniteProPGroups Layer 2-3 requests withdrawn, met by pinned Tau Ceti declarations; (3) the E3 HTT request withdrawn (E3/presentable-category-limits, E3/representability) and the second E3 request narrowed to cutoff comparisons (E3/exact-coproducts-colimits cited); (4) R02.1 and R02.2 requests withdrawn: ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence is the all-degree discrete Hochschild-Serre with canonical abutment; (5) D5/localization-at-a-point cited and three D5 requests narrowed to the field-point presentation; (6) ProfiniteCohomology Layer 1 added for the TopRep carrier; (7) C9/perfect-local-system-compact statement and steps; (8) gap G7 no longer lists wild-automorphism, whose argument is complete at target level; (9) P4 request and gap G3 name the Mathlib characteristic-free lemmas; (10) targetCoverage locators (Remark 18.2 has no part (b); the 20.14 coefficient misprint is PAPER-SCHOLZE-17/E57, not E1); (11) glued digits in gaps, requests and restructure; (12) imports pinned by SHA-256 and node count. Requests 25 to 21; 15 refinement records (11 added). Effective plan: 186 nodes, 543 internal edges, acyclic, every prerequisite resolves, every external citation in a lower tier (or Tau Ceti). RT-AREA-padic-1/11 is handled: C4 owns ECD §18, the DiamondsAndVStacks package leaves §18 to this roadmap, DiamondSixOperations consumes C4; the RS-05 owner entry still needs the maintainer. Reader: brought in line with every correction by script (all 186 sections reproduce the effective fields) and escaped for the site renderer (270 inline units lost characters to spurious emphasis before). Suggested file unchanged: lean-check exit 0, six proof-placeholder warnings, no placeholder inside any statement (run_cmd audit). All ten stages planned, 11 gaps, honestly recorded.",
+    "checked": [
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/etale-site",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/quasi-pro-etale-site",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/v-site",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/cutoff-derived-categories",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/algebraic-topoi",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/geometric-stalk",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/etale-site-enough-points",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/comparison-morphisms",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/perfectoid-bases-and-coherent-subsites",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/separated-pro-etale-hull",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/separated-pro-etale-hull-fibre-products",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/v-pullback-formula",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/pullback-preserves-limits",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/v-pullback-fully-faithful",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/v-pullback-higher-vanishing",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/etale-to-quasi-pro-etale-basis",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/quasi-pro-etale-pullback-fully-faithful",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/etale-cohomology-continuity",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/std-etale-acyclic",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/quasi-pro-etale-topos-replete",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/v-topos-replete",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/left-completeness",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/bounded-below-comparison",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C0/unbounded-comparison-std",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/base-change-transformations",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/strictly-local-reduction",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/v-pushforward-degree-zero",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/v-pushforward-quasi-pro-etale",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/v-pushforward-prime-to-p",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/derived-v-pushforward-comparison",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/etale-qproet-pushforward",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/derived-etale-qproet-pushforward",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/qproet-base-change-sheaves",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/qproet-base-change-complexes",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/etale-base-change-sheaves",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C1/etale-base-change-complexes",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/v-local-etaleness",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/etale-derived-category",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/etale-test-on-one-cover",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/etale-derived-left-complete",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/left-completion-comparison",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/cohomology-sheaf-criterion",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/qproet-pushforward-etale",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/qcqs-pushforward-preserves-etale",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/enhanced-v-derived-category",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/v-hyperdescent",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/etale-category-one-cutoff",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/enhanced-etale-category",
+        "verdict": "corrected",
+        "note": "Corrected: HTT 5.5.3.12-13 is the accepted node EnhancedDerivedSheaves:E3/presentable-category-limits; bare E3 stage removed."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/etale-coreflection",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C2/etale-coreflection-bounded-formula",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/pullback",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/pushforward",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/pushforward-via-coreflection",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/pushforward-locally-spatial",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/qcqs-base-change-bounded",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/qcqs-base-change-finite-cd",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/v-derived-tensor",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/etale-tensor",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/internal-hom",
+        "verdict": "corrected",
+        "note": "Corrected: HTT 5.5.2.2 is the accepted node EnhancedDerivedSheaves:E3/representability; bare E3 stage removed."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/pushforward-internal-hom",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C3/change-of-coefficients",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/proper-map",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/closed-immersion-proper",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/locally-compact-hausdorff-proper",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/valuative-criterion-proper",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/partially-proper-map",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/proper-iff-partially-proper-qc",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/proper-stability",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/compactification-of-separated-sheaf",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/compactification-affinoid-formula",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/compactification-limits-surjectivity",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/compactification-partially-proper",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/compactification-small-diamond",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/canonical-compactification",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/canonical-compactification-universal",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/relative-compactification-properties",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/proper-image-closed",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/partially-proper-colimit",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C4/tautness-criterion",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/etale-extension-by-zero",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/extension-by-zero-base-change",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/open-support-triangle",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/exchange-map",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/compactification-hypercover",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/compactified-field-point-topos",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/zariski-riemann-acyclicity",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/proper-base-change-bounded",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C5/proper-base-change-unbounded",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/invariance-complete-extension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/annulus-exhaustion",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/annulus-extension-by-zero-vanishing",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/perfectoid-annulus-cohomology",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/invariance-discrete-to-complete",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/invariance-discrete-extension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C6/cohomology-invariance",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-sheaf-spectral",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-sheaf-std",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-sheaf",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-abelian",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-compact-spectral",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-v-descent",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-spatial-characterisation",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-limit-descent",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/local-system",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/support-restriction",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/constructible-filtration",
+        "verdict": "corrected",
+        "note": "Corrected: cites DiamondsAndVStacks:D5/localization-at-a-point for Y_y; the D5 stage stays for the requested field-point presentation."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-local-system",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-std",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-thick",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-stalk-criterion",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-over-field",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-v-descent",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-restricted-compactness",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-limit-fully-faithful",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-local-system-limit",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-filtration",
+        "verdict": "corrected",
+        "note": "Corrected: cites DiamondsAndVStacks:D5/localization-at-a-point for Y_y; the D5 stage stays for the requested field-point presentation."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-limit-equivalence",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-constructible-ring-colimit",
+        "verdict": "corrected",
+        "note": "Corrected: the SchemeKTheoryOperations citation (outside the 94 Caraiani-Newton roadmaps) is replaced by Stacks Tag 0BC7 with the tier-10 P7 nodes perfect-object, finite-perfect-hom-filtered-colimit, p7ii-derived-extension and p7ii-extension-preserves-perfect."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/specialization-dimension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/fibre-dimension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/topological-trdeg",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/finite-topological-generators",
+        "verdict": "verified",
+        "note": "Refinement verified: P4/algebraically-closed-extension-of-affinoid-field records the characteristic-p step as its own gap, so the stage import with a request is right; the request now names the characteristic-free Mathlib lemmas."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/topological-trdeg-tower",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/topological-trdeg-base-change",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/modified-topological-trdeg",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/modified-trdeg-tower",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/modified-trdeg-base-change",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/analytic-dim-trg",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/analytic-dimension-bound",
+        "verdict": "corrected",
+        "note": "Refinement checked against Huber 1996 Lemma 1.8.5(i) and proof, p.91 (cleared copy, read in place) and ECD Lemma 21.6, p.123. Corrected wording: supremum over the points of the source."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/diamond-dim-trg",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/diamond-dim-base-change",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/diamond-dim-composition",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/locally-finite-dim-trg",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/strictly-disconnected-acyclic",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/qpetale-direct-image",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/injection-direct-image",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/point-quotient",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/point-quotient-unique",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/point-sheaf-equivalence",
+        "verdict": "corrected",
+        "note": "Corrected: adds ProfiniteCohomology Layer 1 (canonical TopRep carrier and ofDiscreteModule) beside Layer 0."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/point-cohomology",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/point-cd",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/specialization-stabilizers",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/closed-point-cohomology",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/closed-point-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/extension-cd-bound",
+        "verdict": "corrected",
+        "note": "Corrected: cites ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence (all degrees, discrete modules, edge maps inflation and restriction) instead of the R02.1 and R02.2 stages."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/wild-automorphism",
+        "verdict": "corrected",
+        "note": "Refinement checked against ECD 21.17, p.127: maximization over the compact Sylow subgroup, the cocycle d_(gh)=d_g+g(d_h)+d_g g(d_h), additivity of the residue map and continuity are right; the source normalization at a generator also works. Corrected: Sylow existence and nontriviality now cite pinned TauCeti.exists_isProPSylow, IsProPSylow.not_dvd_index and IsProPSylow.isProP instead of ProfiniteProPGroups Layers 2-3; specific source match."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/wild-kernel-pro-p",
+        "verdict": "corrected",
+        "note": "Corrected: the finite-quotient criterion is the definition of pinned TauCeti.IsProP; ProfiniteProPGroups Layer 3 citation removed."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/prime-to-p-wild-removal",
+        "verdict": "corrected",
+        "note": "Corrected: pro-p is pinned TauCeti.IsProP; Hochschild-Serre is ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence (abutment continuousCohomology), not the R02.1 stage."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/residue-galois-identification",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/residue-cd-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/tame-character-embedding",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/tame-cd-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/valuation-transcendence-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/point-cd-geometric-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/specialization-chain-space",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/chain-cohomology-comparison",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/spectral-cohomological-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/boundary-dimension-drop",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/constructible-support-reduction",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/local-stalk-bound",
+        "verdict": "corrected",
+        "note": "Corrected: cites DiamondsAndVStacks:D5/localization-at-a-point for Y_y; the D5 stage stays for the requested field-point presentation."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/spatial-cohomological-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/partially-proper-closure-dimension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/partially-proper-dimension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/partially-proper-fibre-dimension",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/bounded-filtered-compactness",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/uniform-test-bound",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/left-completeness",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/ordinary-derived-comparison",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/global-sections-coproducts",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/etale-constant-compact",
+        "verdict": "corrected",
+        "note": "Corrected: the coproduct-to-colimit criterion is the accepted node EnhancedDerivedSheaves:E3/exact-coproducts-colimits."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/etale-generators-detect-zero",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/compact-generators",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/compact-implies-perfect-constructible",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/perfect-local-system-compact",
+        "verdict": "corrected",
+        "note": "Refinement corrected: the bound is now stated as vanishing above one N (the BP text called N an upper bound for H^i); proof steps cite the duality lemma, uniform-test-bound and global-sections-coproducts."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/perfect-constructible-implies-compact",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/compact-iff-perfect-constructible",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/finite-field-compact-objects",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/modified-trdeg-finite-equality",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/topological-dimension-field-tests",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C9/compact-generation-from-dimension-bounds",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/topological-independence-degree",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/independent-le-generating-degree",
+        "verdict": "verified",
+        "note": "Accepted import (REV-DiamondEtaleCohomology--C0 or --C8, unchanged part file pinned by SHA-256). Checked here: every prerequisite resolves, no citation above tier 11, the effective graph is acyclic, and the reader section reproduces every field; sources not re-read in this review."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C7/perfect-local-system-dualizable",
+        "verdict": "verified",
+        "note": "Verified. Promotes the IsPerfectLocalSystem.dualizable API item of C7/perfect-local-system, as the C8 part requested. Commutative Λ; internal Hom commutes with étale restriction by the projection formula of C5/etale-extension-by-zero; on a trivializing cover P7/p7ii-perfect-tensor-hom and p7ii-perfect-dual-perfect give the comparison; conservativity on the cover. The Q-over-Z non-example is right (RHom(Q,Z)⊗Q is not RHom(Q,Q)). ECD 20.17, last paragraph, pp.121-122, uses exactly this dual."
+      },
+      {
+        "nodeId": "DiamondEtaleCohomology:C8/compact-procyclic-field-action",
+        "verdict": "verified",
+        "note": "Verified. Telescoping plus the ultrametric inequality and isometry give |γ^(mN!)(x)−x| ≤ |γ^(N!)(x)−x|, so orbit maps are uniformly continuous for the profinite uniformity and extend to Ẑ; the image in C^C is compact, equals the closure of the integer (and of the nonnegative) powers, and is the quotient of Ẑ by a closed subgroup. This supplies the compactness that E3 records as missing in ECD 21.17, p.127. Baseline citations confirmed at the pins."
+      }
+    ]
   }
 }
