@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T16:42Z",
+ "updated": "2026-10-16T17:42Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -140,7 +140,7 @@
     818
    ],
    "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
-   "head": "5ce5911",
+   "head": "4f9c123",
    "review": {
     "recommendation": "approve",
     "head": "6433ad2",
@@ -169,7 +169,7 @@
     817
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged); ChatGPT Pro N3 answered CHANGES 10-16 ~10:00Z; draft",
-   "head": "3435bc4",
+   "head": "57e5159",
    "review": {
     "recommendation": "approve",
     "head": "6611921",
@@ -185,7 +185,7 @@
     814
    ],
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-   "head": "c3504c8",
+   "head": "f72d4b0",
    "review": {
     "recommendation": "approve",
     "head": "36cf6e6",
@@ -230,7 +230,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "86e76f3",
+   "head": "abd7847",
    "depends_on": [
     779,
     848,
@@ -397,7 +397,7 @@
   "ArithmeticGaloisDuality": {
    "stage": "pr",
    "pr": 858,
-   "head": "e62d69e",
+   "head": "72ea6c6",
    "depends_on": [
     779,
     856,
@@ -437,7 +437,7 @@
   "SelmerIwasawaCohomology": {
    "stage": "pr",
    "pr": 869,
-   "head": "86938e7",
+   "head": "a0e2857",
    "depends_on": [
     858,
     779,
@@ -665,7 +665,7 @@
   "LocalGaloisDeformationRings": {
    "stage": "pr",
    "pr": 923,
-   "head": "3d519c4",
+   "head": "4ccbfb8",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -772,7 +772,7 @@
   "EtaleCohomologyFoundations": {
    "stage": "pr",
    "pr": 938,
-   "head": "d56a157",
+   "head": "c4ee54f",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running"
   },
   "PadicPeriodRings": {
@@ -817,7 +817,7 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "3ffb741",
+   "head": "7577fe7",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -860,13 +860,13 @@
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
-   "head": "3ff645d",
+   "head": "c4faad3",
    "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft"
   },
   "FaltingsFinitenessAndIsogenyTheorems": {
    "stage": "pr",
    "pr": 1004,
-   "head": "90c45d0",
+   "head": "a50efea",
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro"
   },
   "HilbertModularVarietiesAndShimuraCurves": {
@@ -884,7 +884,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "66d89e9",
+   "head": "5c3d5a6",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft"
   },
   "SerreWeightAndLevelOptimisation": {
