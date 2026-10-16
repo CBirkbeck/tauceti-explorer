@@ -207627,8 +207627,8 @@
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
    "citation": "Manjul Bhargava, Arul Shankar, Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves, arXiv:1006.1002v2, 50 pages",
    "status": "rejected",
-   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
-   "reviewReason": "The shear example disproves applying the unsheared projection bound naively to uR, not the source assertion that Davenport’s proof adapts. It establishes neither a paper error nor adequacy of the proposed replacement induction. The latter is recorded as an atlas closure gap."
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "reviewReason": "Independently checked Proposition 2.5, physical p.14 of arXiv v2, and BW Theorem 1.3, p.5. A shear disproves naive projection invariance, not the asserted estimate. The inverse-lattice last-integer-coordinate proof supplies the original-projection estimate, conditional only on the explicit BW owner inputs. No source mistake is established."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E402",
@@ -207647,8 +207647,29 @@
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
    "citation": "Dave Witte Morris, Ratner's theorems on unipotent flows, arXiv:math/0310402 (Chicago Lectures in Mathematics, 2005); printed = physical − 10",
    "status": "confirmed",
-   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
-   "reviewReason": "At printed p.103 the arXiv statement uses L² norms; indicator functions and a negative constant contradict that formula. The proof and Remark 3.2.8 give the product of integrals. Also checked the current author-hosted edition, Theorem 3.2.9, printed p.109, which retains the display; this finding is scoped to those copies, not an uncollated printed edition."
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "reviewReason": "Independently read arXiv Theorem 3.2.9, printed p.103, its proof and Remark 3.2.8. The norm product fails for indicators and negative constants; the integral product follows from mixing. The prior author-copy collation is retained as prior evidence; this review’s direct mathematical check is of the hashed arXiv copy."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E403",
+   "kind": "error",
+   "locator": "Proposition 5.5 proof, first displayed bound before (25), arXiv:2207.05592v1 p.22; same step before (27), p.24 of the 4 April 2025 author copy",
+   "printed": "The proof multiplies the full-dimensional lattice estimate by ∏_{i≤j, i+j>r+1}(Y/(μ_iμ_j))⁻¹, treating every upper-antidiagonal product as a minimum above the counting scale.",
+   "correction": "Restrict this product to U_Y={i≤j:μ_iμ_j>CY}, after choosing the dimension/domain threshold C. Nonvanishing places U_Y inside the upper antidiagonal, and the same injection bounds its product by the final ratio product. Use d(γΛ) in the denominator as in the separately reviewed E15.",
+   "reason": "Take r=2, γ=1 and Λ=ℤe_1+ℤe_2⊂ℤ³, with D a fixed Frobenius ball. All μ_i=1 and there are ≍Y³ full-rank symmetric blocks. The displayed untruncated product includes (2,2) and would give O(Y²), a contradiction. The restricted product is empty and gives O(Y³).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2207.05592v1, §5 p.22",
+    "Author-hosted manuscript dated 4 April 2025, §5 p.24, which retains the step",
+    "Web searches for the paper title with erratum/correction and Proposition 5.5, 2026-10-16: no separate correction found; the Cambridge publisher landing page was not served"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.4.json",
+   "citation": "Manjul Bhargava, Arul Shankar, Xiaoheng Wang, Squarefree values of polynomial discriminants II, Forum of Mathematics, Pi 13 (2025), e17; inspected copies: arXiv:2207.05592v1 and author manuscript dated 4 April 2025 (60 pages)",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "reviewReason": "The rank-two standard-lattice example directly contradicts the intermediate estimate in both inspected copies. Restricting to products above CY repairs this step and recovers the final bound; this finding does not challenge the final skew-counting theorem."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
