@@ -130259,6 +130259,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~codex.md"
+  },
+  {
+   "id": "PKG-PadicHodgeTheory~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/PadicHodgeTheory/README.md",
+    "research/blueprint/packages/PadicHodgeTheory/Suggested.lean",
+    "research/blueprint/packages/PadicHodgeTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-PadicHodgeTheory~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-PadicHodgeTheory~codex.md"
   }
  ]
 }
