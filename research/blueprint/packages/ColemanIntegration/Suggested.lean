@@ -579,10 +579,10 @@ end PositiveIntegerValues
   compatibility (L0.14–L0.18). The branch existence and change milestones are stated above.
 * L1: good-reduction pairs, wide opens, dagger algebras, logarithmic ends and Frobenius lifts
   (L1.1–L1.6); coordinate maps, change of basis and iteration of Frobenius data (L1.7);
-  their geometric existence (L1.9); the shuffle word algebra, its differential, depth and
-  Frobenius action (L1.12–L1.16); Coleman functions and integration, uniqueness, Taylor
-  homotopies, lift and branch independence and pullback (L1.17–L1.24, L1.43); the punctured
-  and four-punctured lines and their explicit data (L1.25–L1.42, L1.44).
+  their geometric existence and the differential/dualizing-sheaf comparison (L1.9); the
+  shuffle word algebra, its differential, depth and Frobenius action (L1.12–L1.16); Coleman functions and integration, uniqueness, Taylor
+  transport with finite-chart convergence and gluing, lift and branch independence and
+  pullback (L1.17–L1.24, L1.43); the punctured and four-punctured lines and their explicit data (L1.25–L1.42, L1.44).
 * L2: the log-Laurent class and the global polylogarithm family and its uniqueness
   (L2.3–L2.6, L2.16), tangential normalization, differential, inversion, distribution and
   branch-change identities, value at one, Frobenius-modified polylogarithms, Galois
