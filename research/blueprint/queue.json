@@ -42101,8 +42101,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9312"
+   "state": "pending",
+   "note": "released on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -43554,8 +43554,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.1",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9296"
+   "state": "external",
+   "note": "claimed on GitHub issue #9296"
   },
   {
    "priority": 2,
@@ -43704,8 +43704,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.4",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9299"
+   "state": "pending",
+   "note": "released on GitHub issue #9299"
   },
   {
    "priority": 2,
