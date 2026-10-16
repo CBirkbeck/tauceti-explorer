@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T01:51Z",
+ "updated": "2026-10-16T02:12Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -22,7 +22,8 @@
     "head": "3101509",
     "date": "2026-10-15",
     "note": "#943 (étale invariance §0.23a + scheme Frobenius §0.29) approved by deep re-review; ready for review"
-   }
+   },
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math); fix running; draft"
   },
   "PadicMeasuresIwasawaAlgebras": {
    "stage": "main",
@@ -106,8 +107,8 @@
    "depends_on": [
     813
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "6d928b6",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "head": "e8ef37a",
    "review": {
     "recommendation": "approve",
     "head": "8c306f2",
@@ -117,9 +118,9 @@
    }
   },
   "AdicSpacesPartII": {
-   "stage": "pr",
+   "stage": "main",
    "pr": 817,
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 32 + 4 targets cite RigidAnalyticGeometry/PadicFunctionalAnalysis (W. Coram) as suppliers; maintainer approved 2026-10-16 at d5b8d6d",
+   "note": "MERGED 2026-10-16 (#817, roed-math approval at d5b8d6d); adic stack restacked onto main",
    "head": "d5b8d6d",
    "review": {
     "recommendation": "approve",
@@ -128,7 +129,9 @@
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
    },
-   "maintainer": "APPROVED 2026-10-16 (roed-math, d5b8d6d)"
+   "maintainer": "APPROVED 2026-10-16 (roed-math, d5b8d6d)",
+   "merged": "2026-10-16T01:56Z",
+   "merge_commit": "63f989b"
   },
   "DiamondsAndVStacks": {
    "stage": "pr",
@@ -136,8 +139,8 @@
    "depends_on": [
     818
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "6433ad2",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "head": "855cfe5",
    "review": {
     "recommendation": "approve",
     "head": "6433ad2",
@@ -149,8 +152,8 @@
   "PerfectoidSpaces": {
    "stage": "pr",
    "pr": 818,
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged)",
-   "head": "9ea97ef",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "head": "1d7b81e",
    "review": {
     "recommendation": "approve",
     "head": "67a02f4",
@@ -165,8 +168,8 @@
    "depends_on": [
     817
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817",
-   "head": "6611921",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "head": "93db55a",
    "review": {
     "recommendation": "approve",
     "head": "6611921",
@@ -181,8 +184,8 @@
    "depends_on": [
     814
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack",
-   "head": "2281fb7",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "head": "c560e75",
    "review": {
     "recommendation": "approve",
     "head": "36cf6e6",
@@ -197,8 +200,8 @@
    "depends_on": [
     818
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged)",
-   "head": "a538081",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "head": "1f4f1bf",
    "review": {
     "recommendation": "approve",
     "head": "a538081",
@@ -788,7 +791,8 @@
     "current": true,
     "date": "2026-10-15",
     "note": "deep re-review (ChatGPT Pro) approve; ready for review"
-   }
+   },
+   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math); fix running; draft"
   },
   "FarguesFontaineDiamonds": {
    "stage": "pr",
