@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T02:29Z",
+ "updated": "2026-10-16T02:43Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -23,7 +23,7 @@
     "date": "2026-10-15",
     "note": "#943 (étale invariance §0.23a + scheme Frobenius §0.29) approved by deep re-review; ready for review"
    },
-   "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at 210337f (§2.19 Čech pasting + §4.15 degrees); ready for re-review"
+   "maintainer": "APPROVED 2026-10-16 (roed-math, 210337f) after the §2.19/§4.15 repairs"
   },
   "PadicMeasuresIwasawaAlgebras": {
    "stage": "main",
