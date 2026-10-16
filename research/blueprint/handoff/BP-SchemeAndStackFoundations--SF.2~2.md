@@ -83,3 +83,31 @@ The next selection must inspect the maintainer's blocking comment before
 claiming. The automatic return to `state:available` does not establish
 eligibility. The maintainer needs to reconcile the queue with upstream;
 resumption requires a distinct authorized scope beyond the existing roadmap.
+
+## Blocked run — Codex session codex-CMCCUW, 2026-10-16
+
+The bot confirmed this session's claim in
+[comment 6216694875](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6216694875).
+The claim preceded inspection of the blocking comment and this handoff; that
+was a selection error. The run's instructions require a handoff checkpoint
+when blocked and prohibit claiming a second job. This submission records that
+stop; it does not renew authorization for the blueprint revision.
+
+Fresh GitHub API reads confirm that [upstream #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [follow-up #943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943)
+are merged, at the timestamps and commits recorded above. The upstream README
+and Suggested.lean are present on main. The supplied read-only checkout lacks
+this roadmap directory, so it cannot establish its absence from upstream.
+The maintainer's [blocking instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6147003570)
+still applies under WORKERS.md and PROTOCOL.md section 15. Reconcile this job's
+queue eligibility with that instruction before another claim; repeated
+checkpoints do not advance the mathematics.
+
+Only this handoff changed. The 85 nodes, 160 API items, 87 tests, three planets,
+89 baseline declarations, 11 gaps and nine requests remain as received. Packet
+and SF.2 coverage remain partial; no review request is discharged and no new
+supplier request or ownership move is made. The packet checker reports zero
+errors and zero warnings, and whitespace validation passes. The suggested Lean
+file was neither changed nor compiled. No mathematical source was newly read
+or copied. Resume only with a maintainer-authorized scope beyond the existing
+upstream roadmap. No second issue was claimed.
