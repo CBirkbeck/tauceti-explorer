@@ -6,9 +6,13 @@ The local lifting theorems belong to R32.2–R32.5. Their R32.6 transfer forms a
 
 The central application is a member at a ramified coefficient prime whose reduction is reducible. A de Rham lifting theorem can apply there even when the family's compatibility conditions give no Weil–Deligne comparison at that prime. Characteristic-zero irreducibility, oddness and the de Rham hypothesis remain explicit. The source-independence audit is a separate target: the transfer statements below do not certify that every auxiliary globalisation in their proofs avoids the full Serre theorem.
 
+Independent review accepts this complete target-level pass with stage coverage `planned`, not `closed`. The exact normalized-newform endpoint has a recorded geometric-twist classification input. The two inherited system wrappers also retain higher-tier dependencies in their owner packet, which assembly must replace. Neither obligation is treated as completed by this continuation.
+
 ## Conventions and supplier interfaces
 
 Write G_ℚ for the absolute Galois group with its Krull topology. A p-adic representation is continuous, two-dimensional, and defined over a specified finite extension of ℚ_p; notation with ℚ̄_p records an embedding of that finite coefficient field. This finite model is part of the input, so no compactness argument is used to infer a coefficient field inside ℚ̄_p. A residual representation means the semisimplified reduction of a stable lattice, extended to a specified algebraic closure of the residue field. Congruence means isomorphism of those semisimplifications after a common residue-field extension. It does not identify integral representations or nonsplit residual extensions.
+
+Irreducibility of a selected p-adic member means irreducibility after extension to ℚ̄_p. Irreducibility only over its finite coefficient model is not the hypothesis imported from a lifting theorem stated over ℚ̄_p.
 
 Arithmetic Frobenius is used throughout. For a normalized newform f of weight k≥2, level N and nebentypus ψ, its representation satisfies
 
@@ -28,21 +32,28 @@ The interfaces are imported at the following exact nodes.
 | Independence of reduction choices | `ArithmeticGaloisRepresentations:R01.1/residual-representation-well-defined` | Change lattices or finite coefficient models without changing the residual isomorphism class. |
 | Frobenius recognition | `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent` | Over one fixed residue characteristic, equal polynomials at a density-one unramified set identify semisimplifications after coefficient extension. |
 | Newform representations for every λ | `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation` | Supply the representations of a fixed newform and their displayed good-prime polynomials. |
+| Absolute irreducibility of those representations | `AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility` | Upgrade recognition of semisimplifications to identification with the actual newform realization, at every coefficient place. |
 | Weight of a modular twist | `GL2ModularityLifting:R32.1/weight-of-modular-twist` | Convert an up-to-geometric-twist conclusion into a weight-k newform under the normalized weights. |
+| Classification of the actual modularity twist | Requested from `GL2ModularityLifting:R32.1` | Supply the cyclotomic-times-finite-order form assumed by the preceding lemma, and exclude a weight-one witness using regularity. This input remains a gap. |
+| Finite-order twists and primitive associates | Current TauCetiRoadmap, `ModularForms`, Layer 9 | Preserve weight and cuspidality, multiply good eigenvalues by the Dirichlet character and nebentypus by its square, and take the normalized primitive associate. |
 | Normalizing an ordinary quotient | `GL2ModularityLifting:R32.5/ordinary-character-normalisation` | Twist by the inverse Teichmüller lift of the global residual constituent matching the actual unramified ordinary quotient. |
 
 These are planned supplier exports, not declarations claimed to exist in the pinned libraries. Their definitions, APIs and unit tests stay with their owners. The uses here require coefficient-extension composition, reduction compatible with extension and twisting, invariance of residual semisimplification under lattice changes, and Frobenius recognition after deleting a finite exceptional set. There is no second implementation of any of those operations in R32.6.
+
+The weight-of-modular-twist export assumes that its character is ε_p^m μ with μ of finite order and that the modular witness has weight at least two. It does not classify an arbitrary character occurring in an up-to-twist conclusion. The requested R32.1 input must establish those premises from the actual geometric representation and identify μ with a Dirichlet character, with the coefficient embeddings retained. Distinct weights can then be compared. Finite-order twisting uses the existing upstream analytic target; its Galois compatibility follows by multiplying the good-prime polynomials and applying recognition to the absolutely irreducible newform realizations. No higher-tier compatible-system or character-system constructor supplies this step here.
 
 Checks on the imported interfaces include the following.
 
 1. Changing a stable lattice may change the residual extension class but must preserve its semisimplification. A congruence interface comparing the full reductions fails this check.
 2. Extending the coefficient field before reducing must agree with extending the residual field afterwards. Every congruence edge records both embeddings; merely naming the same rational prime does not fix them.
-3. Frobenius recognition returns an isomorphism of semisimplifications in general. For the families used here the members are already semisimple, so it identifies those members. Dropping semisimplicity without changing the conclusion would lose extension data.
+3. Frobenius recognition returns an isomorphism of semisimplifications on both sides. The family members are assumed semisimple, and R19.3 separately supplies absolute irreducibility of the newform realizations. Both facts are needed to identify the actual representations. The R19.1 construction and polynomial formula alone are not the irreducibility theorem.
 4. With arithmetic Frobenius, the constant coefficient for a weight-k newform is ψ(q)q^(k−1). Replacing Frobenius by its inverse without changing this polynomial fails the normalization check.
 
 ## Selected-member transfer theorems
 
 The following four local alternatives are imports. Their proofs remain in the existing lifting stages. They describe precisely when a congruence can be used; they are not assertions that an arbitrary congruent lift is modular.
+
+Some Q-level sources state the weight-k conclusion directly; other lifting forms conclude modularity up to a character twist. When the latter form is used, every exact-weight assertion below consumes the normalization input just specified. Comparing weights is not a substitute for that input.
 
 ### Odd prime with irreducible cyclotomic restriction
 
@@ -100,7 +111,7 @@ The new application theorem is `GL2ModularityLifting:R32.6/directed-polynomial-f
 
 For i=A,B, give a number field E_i, a finite set S_i of rational primes, and a family of continuous semisimple representations ρ_i,λ indexed by the finite places λ of E_i. Each member has a specified finite local coefficient model. For q outside S_i give a polynomial P_i,q in E_i[X] of degree two. Require that, when λ lies above ℓ and q≠ℓ, the member is unramified at q and its arithmetic-Frobenius characteristic polynomial is the image of P_i,q. These are ordinary indexed representation and polynomial data, not a new mathematical carrier or a newly defined compatibility predicate.
 
-Choose places λ_A,λ_B above a common prime p. Give coefficient embeddings into ℚ̄_p, stable lattices and an isomorphism of residual semisimplifications over F̄_p. The two selected characteristic-zero members are irreducible, odd and finitely ramified, and are de Rham with weights {0,k_A−1} and {0,k_B−1}, k_A,k_B≥2. The assertion has four alternatives:
+Choose places λ_A,λ_B above a common prime p. Give coefficient embeddings into ℚ̄_p, stable lattices and an isomorphism of residual semisimplifications over F̄_p. The two selected characteristic-zero members remain irreducible over ℚ̄_p, are odd and finitely ramified, and are de Rham with weights {0,k_A−1} and {0,k_B−1}, k_A,k_B≥2. The assertion has four alternatives:
 
 | Alternative | Additional condition at the selected member | Modular seed |
 |---|---|---|
@@ -111,12 +122,14 @@ Choose places λ_A,λ_B above a common prime p. Give coefficient embeddings into
 
 The conclusion is that there is a normalized cuspidal newform g of weight k_B such that every B-member, after common coefficient extension with compatible algebraic embeddings, is isomorphic to the corresponding realization of g. In the last two alternatives the entire A-family and congruence can be omitted. De Rham hypotheses at other members of B are unnecessary for this recognition argument. Conversely, if a direction of an irreducible or dyadic bridge has its target hypotheses checked on A as well, the same argument gives the reverse implication. There is no blanket undirected equivalence under hypotheses checked only on B.
 
-The proof has four steps.
+The proof has six steps; the fourth records an outstanding supplier input.
 
 1. In the seeded alternatives, take a newform f realizing the known A-member. Pass to a compositum of E_A and the coefficient field of f, using the relative embedding determined by that realization. Equality of the polynomials in one local algebraic closure is equality of algebraic numbers because the coefficient embedding is injective. Thus P_A,q and the good polynomial of f agree in that compositum for every q outside a finite exceptional set.
-2. Embed this identity at λ_A. Frobenius recognition identifies the selected A-member with the corresponding f-realization. Reduce its stable lattice and use the given residual congruence. The odd or dyadic lifting theorem now supplies modularity of the selected B-member. In a reducible alternative apply Pan or the normalized Skinner–Wiles theorem directly to B instead.
-3. Normalize the modular witness using the weight-of-modular-twist export. Comparing {0,k_B−1} with {m,m+k′−1}, where k′≥2 and the twist is ε^m times finite order, forces m=0 and k′=k_B. Absorb the finite-order character into the newform g.
-4. Compare P_B,q with g's polynomial in a common number field. For each other B-place, choose a place of that compositum above it and compare in the resulting fixed-characteristic local field. Remove the finite ramification sets, g's level primes and that member's residue characteristic. Frobenius recognition gives equality of semisimplifications, and the assumed semisimplicity identifies the member itself.
+2. Extend the specified embedding of E_A at λ_A to the compositum. Frobenius recognition identifies the selected A-member with the corresponding f-realization, using semisimplicity of A and absolute irreducibility of the newform representation. Reduce its stable lattice; independence of the residual class from the lattice and finite coefficient model transports modularity through the specified congruence.
+3. Apply the odd or dyadic transfer to obtain modularity of the selected B-member. In a reducible alternative apply Pan or the normalized Skinner–Wiles theorem directly to B. Retain whether the chosen source form gives exact attachment or attachment only up to a character twist.
+4. In an up-to-twist conclusion ρ_B,λB≅ρ_h⊗χ, supply the requested classification of χ as ε_p^m μ with μ of finite order, and the exclusion of a weight-one witness. The present R32.1 weight lemma assumes these inputs. This classification remains a recorded gap; the weight-k endpoint is therefore a planned target, not a closed export.
+5. Now compare {0,k_B−1} with {m,m+k′−1}, where k′≥2. This forces m=0 and k′=k_B. Use upstream ModularForms Layer 9 to twist h by the Dirichlet character corresponding to μ, then take its normalized primitive associate g. The twist need not itself be new at its displayed level. The good eigenvalues are multiplied by μ(q), and the nebentypus by μ². The R19.1 polynomial formula and recognition therefore identify the Galois twist with g's realization. The same finite-order argument undoes η in the ordinary-three branch.
+6. Compare P_B,q with g's polynomial in the relative compositum determined by the selected B-realization. For every other B-place extend its specified embedding of E_B to that compositum and a common local coefficient field. Remove the finite ramification sets, g's level primes and that member's residue characteristic. Recognition gives equality of semisimplifications. The assumed semisimplicity of the B-member and R19.3 irreducibility of the g-realization identify the actual representations.
 
 No representation over ℚ̄_p is compared directly to one over ℚ̄_ℓ when p≠ℓ. The passage across characteristics takes place through the common algebraic polynomial coefficients; the representation-theoretic recognition theorem is applied separately at each characteristic. The newform attached to B need not be the source newform f: the congruence can change weight, level and type. Within a single B-family, all members use the one target newform g with the compatible coefficient embeddings.
 
@@ -134,11 +147,15 @@ The companion existing target `GL2ModularityLifting:R32.6/de-rham-lifting-and-al
 
 This is the resolution of `RT-AREA-langlands-2/21`: R32.6 owns the modern ramified reducible transfer. R24.6 supplies its family and reduction adapters and imports the transfer. No R24.6 theorem is used in the proof here. The new application accepts polynomial data directly, so it also respects the tier order: GL2ModularityLifting is tier 21, while PotentialModularityAndCompatibleSystems is tier 22.
 
+This ownership resolution does not repair the two older wrappers' dependency lists in R32.3. Those lists still cite R24.5, including a reducibility-across-λ theorem that the new application avoids by requiring irreducibility only at the selected member. The wrappers' mathematical applications are specializations of the polynomial-data theorem, but their inherited dependency closure is outside this continuation's acceptance. Assembly must express them through that lower-tier theorem and keep the generic system adapters in R24. This is a recorded gap in dependency closure; planned coverage does not assert that the old graph already respects the tiers. The R19.3 classical-newform-irreducibility supplier also cites R24.5/character-system in its own proof plan. Its mathematical statement is the required lower-tier contract, but its owner must reconcile that transitive edge through lower-tier character classification. The absence of a direct R24 prerequisite in the new theorem is not a certificate for every supplier’s tier closure.
+
 Sources: Dieulefait–Pacetti, Definition 1.10 and the almost-strict modification, pp.6–7, Remark 4, p.7, and Paso 5(1), p.14. The latter is the intended use: the de Rham hypothesis survives precisely where the coefficient-prime local comparison is unavailable.
 
 ## Dependency audit for an independent Serre route
 
 The single audit owner remains `GL2ModularityLifting:R32.6/globalisation-dependency-audit`. Its consumer is `ClassicalSerreModularity:R33.5/globalisation-dependency-check`. The required output is an audit of the actual proofs' global inputs, rather than an inference from their displayed hypotheses. The following distinctions are part of that output.
+
+The inherited odd-transfer node also contains an assurance that no Serre conjecture is used. That assurance is stronger than its own conditional audit and is not adopted here. The owner or assembly job must remove it until the transitive certificate exists. R31.6 supplies the dependencies of its globalisation and support inputs to this audit; it does not become a second audit owner.
 
 | Proof input | Precisely supported use | Independence boundary |
 |---|---|---|
@@ -161,7 +178,7 @@ The inspected proof paths give the following more precise obligations:
 - Emerton–Paškūnas, Theorem 6.3 and proof, p.26, gives support equal to a union of irreducible components. It does not by itself give full support on every deformation ring. Tung, Proposition 3.9 and proof, p.12, adds irreducibility and reducedness of the relevant unrestricted local deformation space, with its stated exceptional cases, and uses density to deduce faithfulness. A certificate must retain those local-ring and density inputs, as well as the patched-module construction.
 - BLGG13, Theorem A.4.1 and proof, pp.36–42, assumes an automorphic residual realization over a CM extension in addition to adequacy, polarization and regular potentially diagonalizable local lifts. Its proof uses BLGGT change of weight and descent to match components. CEG+16, Corollary 5.4, pp.78–79, uses it for automorphic component support. Adequacy alone must not be substituted for the existing seed assumption.
 
-The `CompletedCohomologyAndLocalGlobalCompatibility:R31.6` request names these obligations. The `SerreWeightAndLevelOptimisation:R20.6` request names the restricted weight part in Emerton §7.4 and the precise edition of Gee's *Automorphic lifts of prescribed types* cited by Kisin (2.2.17) as Theorem 4.4.12. The current author PDF inspected here instead has Theorem 4.6.9, p.26: for p>2 completely split in a totally real field, it assumes residual modularity and irreducibility on the cyclotomic subgroup before identifying modular weights. Its immediate proof invokes Proposition 4.6.6 and Lemma 4.6.8. The two numbered results require collation before the latter can certify the former's use. Their precise source versions, hypotheses and proof paths are required before the audit can certify independence. The packet records this as an open gap; it is complete as a target-level plan, with coverage `planned`, not `closed`.
+The `CompletedCohomologyAndLocalGlobalCompatibility:R31.6` request names these obligations. The `SerreWeightAndLevelOptimisation:R20.6` request names the restricted weight part in Emerton §7.4 and the precise edition of Gee's *Automorphic lifts of prescribed types* cited by Kisin (2.2.17) as Theorem 4.4.12. The current author PDF inspected here instead has Theorem 4.6.9, p.26: for p>2 completely split in a totally real field, it assumes residual modularity and irreducibility on the cyclotomic subgroup before identifying modular weights. Its immediate proof invokes Proposition 4.6.6 and Lemma 4.6.8. The two numbered results require collation before the latter can certify the former's use. Their precise source versions, hypotheses and proof paths are required before the audit can certify independence. The packet records this as an open gap. The review pass is complete; stage coverage is `planned`, with the additional normalization and inherited-wrapper gaps specified above. It is not `closed`.
 
 ## Checks and worked applications
 
@@ -178,6 +195,8 @@ The `CompletedCohomologyAndLocalGlobalCompatibility:R31.6` request names these o
 **A finite congruence chain.** Record for each edge its prime, two coefficient places, their embeddings, residual comparison, selected target weight, target geometric conditions and branch. Propagate a modular seed in the direction justified by that record. A reducible Pan or ordinary-three vertex can instead supply a seed. To propagate backwards along an edge, check the local hypotheses on the new target. Switching from one member of the same family to another uses only the common good polynomials and semisimplicity. The zero-edge chain simply retains its seed and requires no lifting theorem.
 
 **Boundary failures.** Repeated weights do not satisfy the regular de Rham lifting interfaces. Missing de Rham data at a ramified coefficient prime cannot be recovered from weak compatibility. Solvable residual image at 2 does not satisfy the dyadic theorem. Agreement modulo p is weaker than equality of characteristic-zero good polynomials and cannot itself trigger Frobenius recognition. These checks distinguish the local lifting step from the two family-recognition steps.
+
+**Normalizing an up-to-twist witness.** The equality {0,k−1}={m,m+k′−1}, with k,k′≥2, forces m=0 and k′=k. It gives no classification of a character that has not yet been shown to be ε_p^m times finite order. A proof that invokes the weight lemma before supplying that character form fails this check. After a finite-order twist, taking the primitive associate is also necessary to justify the word “newform.”
 
 ## Library and suggested-file boundary
 

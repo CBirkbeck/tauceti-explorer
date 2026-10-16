@@ -15,6 +15,9 @@ de Rham and attached-newform interfaces needed for their signatures. No surrogat
 modularity predicate, compatible-system carrier or proposition-valued placeholder
 is introduced. There are no new definitions or API obligations in this part.
 
+The reader records the outstanding geometric-twist classification and the inherited
+system-wrapper dependency corrections. These examples do not discharge those inputs.
+
 The four examples below check the determinant sign lost at two, the inverse-square
 factor in rank-two twisting, and the nontrivial residue character value at three.
 They are convention checks, not elaborations of the arithmetic transfer theorem.
