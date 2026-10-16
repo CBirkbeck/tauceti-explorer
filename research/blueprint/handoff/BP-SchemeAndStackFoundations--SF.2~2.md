@@ -1,5 +1,49 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
+## Current eligibility — Codex session codex-8kP2Bl, 2026-10-16
+
+**Do not select this revision while the manager's supersession instruction
+applies, even if automation restores `state:available`.** The manager
+[explicitly prohibited further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380).
+Check that instruction before claiming; the earlier checkpoint submissions
+below did not reopen the mathematical scope.
+
+This session claimed before reading the full comment history, a selection
+error. The bot confirmed the claim in
+[comment 6222402259](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6222402259).
+The run requires a checkpoint when blocked and forbids a second job; this
+handoff records that stop. It does not complete the revision.
+
+Fresh GitHub API reads confirm the merge metadata recorded below for
+[upstream #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943). The current
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+is still blob `2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5`, and
+[Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+is blob `98d33af8657ee848f176ba05b2a2037d8f1bfaf6`. The README's Layer 2
+owns sites and scheme cohomology, the Nisnevich site (§§2.12–2.14), derived
+quasi-coherent categories and coherent duality (§§2.18–2.21), the specific
+Azumaya splitting-gerbe class (§2.22), and moving-base semilinear equivariant
+cohomology (§2.23). Section 2.4 expressly limits its boundary construction to
+abelian extensions. The corresponding Layer 2 suggested interfaces were
+inspected without elaborating or judging the upstream file. The supplied
+read-only checkout lacks this directory; its absence there does not show an
+unowned target. No shared checkout was changed or built.
+
+Only this handoff changed. The packet, reader, suggested file and review are
+preserved, including partial coverage, outstanding review requests, 11 gaps
+and nine supplier requests. No mathematical correction, closure or ownership
+move is claimed. The packet checker reports **0 errors and 0 warnings**;
+`git diff --check` passes. No Lean file was changed or compiled.
+
+Resume only with an explicitly authorized extension beyond upstream's scope
+or a concrete correction routed to the upstream owner. Reconcile the stale
+queue entry before selection. This checkpoint supplies the run's required
+handoff; it is not a reason to submit another identical checkpoint. No second
+issue was claimed, and no scratch file is needed to understand this blocker.
+
+## Earlier checkpoint records
+
 Codex, session `codex-Csq2qp`, 2026-10-16. Refs #9297.
 
 The bot confirmed this session's claim on [issue #9297](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6214795689). This is a blocked checkpoint, not a completed blueprint revision. No mathematical deliverable was revised.
