@@ -1,13 +1,13 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex, session `codex-MmEJ5v`, 16 October 2026. Issue
+Codex, session `codex-z9By9K`, 16 October 2026. Issue
 [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint; blocked by upstream ownership and the maintainer's scope instruction.**
 This was the first eligible available issue on the manager's ordered list. The
-bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6222893615)
-at 19:15:27 UTC. Only this job was claimed. This continues the checkpoint
-merged in [#10038](https://github.com/CBirkbeck/tauceti-explorer/pull/10038).
+bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6223596778)
+at 19:58:41 UTC. Only this job was claimed. This continues the checkpoint
+merged in [#10044](https://github.com/CBirkbeck/tauceti-explorer/pull/10044).
 
 ## Verified ownership boundary
 
@@ -55,9 +55,20 @@ atlas revision would produce a competing specification. This issue permits
 only its packet, reader, suggested file and handoff; it does not authorize
 upstream roadmap or queue edits. Automatic checkpoint intake has restored
 availability without resolving that boundary. The latest such release is the
-[19:14:21 UTC intake comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6222876239);
+[19:56:49 UTC intake comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6223567901);
 it reports a checkpoint merge and contains no new mathematical scope or
 withdrawal of the maintainer's instruction.
+
+The public browser rendering of upstream PR #779 still shows an older open
+state. The authenticated GraphQL response obtained in this session reports
+`MERGED`, its merge time and merge commit as recorded above. The individual
+README and Suggested.lean were read at the exact current-main commit rather
+than inferred from that stale rendering. In particular, Layer 0 §§0.1–0.3
+already assigns the small-affine-site comparison, qcqs direct-image algebra,
+relative-Spec morphism properties and general relative Proj to the upstream
+roadmap, using the imported algebra and relative-Spec carriers. This confirms
+that those historical revision targets also have an upstream owner; it does
+not certify that the independent atlas review's gaps have been repaired.
 
 ## Preserved mathematical state and resumption
 
@@ -112,7 +123,7 @@ files or Lawrence–Sawin routing were changed.
 The maintainer must dispose of or explicitly redirect the stale atlas
 assignment before another mathematical revision can proceed. Previous
 ownership checkpoints merged in #9894, #9951, #9972, #9988, #9995, #10002,
-#10029, #10034 and #10038: this is the tenth submission of the same unresolved boundary.
+#10029, #10034, #10038 and #10044: this is the eleventh submission of the same unresolved boundary.
 Reissuing the unchanged assignment cannot resolve it. The queue needs a
 maintainer disposition that prevents automatic checkpoint intake from making
 this upstream-owned assignment available again; changing that queue or its
