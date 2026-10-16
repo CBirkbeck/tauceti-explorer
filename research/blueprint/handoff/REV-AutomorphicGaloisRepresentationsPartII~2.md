@@ -1,84 +1,28 @@
 # Handoff: REV-AutomorphicGaloisRepresentationsPartII~2
 
-Issue #10008; Codex, session `codex-P5lc4w`; 2026-10-16.
-**Blocked checkpoint. The independent mathematical review is unfinished.**
+Issue #10008. Claude, session `claude-4kbXWw`, 2026-10-16. This is a finished review, not a checkpoint. It replaces the earlier checkpoint handoff of this job by codex-P5lc4w, which gave no verdict.
 
-## Done
+## Outcome
 
-- Claimed only #10008, with bot confirmation in
-  [comment 6218018859](https://github.com/CBirkbeck/tauceti-explorer/issues/10008#issuecomment-6218018859).
-  This session is independent of the original author, revision author and
-  preceding reviewer. No second job was claimed.
-- Earlier available priority-list jobs #9286, #9330, #9301, #9293, #9294 and
-  #9323 had explicit maintainer instructions ending further atlas blueprint
-  rounds because their upstream roadmap README is authoritative. Fix jobs
-  were excluded by this run's instructions.
-- Read the preceding independent review, revision-2 handoff and merged
-  [checkpoint PR #10012](https://github.com/CBirkbeck/tauceti-explorer/pull/10012).
-  Verified that the revision remains partial and blocked at atlas commit
-  `01af2c27ade35f2a1649f2ff9e7daeb7c47b14ee`.
-- Compared that commit with its parent: all mathematical contract arrays,
-  source/baseline records and decisions, coverage, requests, first 17 gaps,
-  review object and suggested file are unchanged. The revision records the
-  integration blocker; it does not implement the requested repair.
-- Executed the durable read-only probe in the
-  [revision handoff](BP-AutomorphicGaloisRepresentationsPartII~2.md), then
-  independently checked semantic differences and the production layer-cycle
-  witness. Results: current merger **129 targets / 54 planets**, desired
-  complete-contract model **124 / 46**, **35** unapplied semantic contracts,
-  **five** retained exclusions. The desired model has exact contract equality
-  and acyclic internal target/layer graphs, not installed behavior or a global
-  graph certificate.
-- Reproduced the six external consumer references in each of the research
-  and promoted packet representations. Read IHG's current Layer 3b.1 and
-  Suggested predicates at roadmap commit
-  `0d144d044dacebca17b654695b6f1ad58f159b27`; the proposed redirect uses its
-  existing Galois-type/non-Eisenstein predicates.
-- Elaborated the unchanged suggested file: exit 0, 31 allowed proof-placeholder
-  warnings, no errors or other warnings. The pinned shared build was used;
-  no build/update/cache operation or language server was started.
+The plan is **accepted**, and the packet's `review` object names `independent-review-REV-AutomorphicGaloisRepresentationsPartII~2`. Packet status is now `complete`. The [report](../reviews/REV-AutomorphicGaloisRepresentationsPartII~2.md) lists every check and correction.
 
-## Blocker and exact resume point
+Main corrections:
 
-The review issue waits for `BP-AutomorphicGaloisRepresentationsPartII~2`
-(#10007), but that job submitted a blocked checkpoint. Its required repair
-needs executable support for complete import contracts and exclusions, plus
-coordinated changes to historical and consumer packets.
+- **Dual normalization.** Shin's and Caraiani's L_n applies rec to the contragredient (Shin §2.3 p.10; Caraiani ANT Theorem 1.1 pp.1597–1598; CH p.5). A source representation R_ℓ(Π) is therefore attached, in the AG2.0 sense, to Π^∨. This is fixed in the AG2.5 dictionary node and in two proof steps.
+- **Caraiani numbering.** Caraiani's "Proposition 5.8" is Lemma 5.7 and Theorem 5.8 in arXiv v1. Two contracts and request 20 are fixed.
+- **New source record.** A record for the published Caraiani author copy was added.
+- **Locators and matches.** Sixteen further contracts had locator or match slips, now fixed.
+- **Source issues.** All 16 are confirmed; EAG27-1 is added.
+- **Lean names.** Five theorems in the suggested file are renamed to the packet's API names. It elaborates with placeholder-proof warnings only.
 
-[WORKERS.md](../WORKERS.md), “Doing the work”, requires: “Edit only the files
-the issue names, plus your own scratch space.” Neither this review's allowed
-files nor the revision's allowed files include that infrastructure and those
-other packets. Only this handoff and the
-[checkpoint report](../reviews/REV-AutomorphicGaloisRepresentationsPartII~2.md)
-were changed. No packet review object or mathematical statement was changed.
+## For the maintainer
 
-Resolve the authorized integration path, finish #10007 and validate the real
-promotion result before redispatching #10008. The earlier revision handoff
-contains the executable reproduction and detailed repair sequence; nothing
-needed to resume depends on this run's scratch files. The production graph
-still has AG2.2 → AG2.3 → AG2.2 through the character twist, polarized
-construction and historical CS discrete-normalization targets. Redirect the
-three external consumers' six references atomically with removal of the two
-obsolete generic ideal targets. Preserve all stable ids, full contracts,
-four intended parent moves and dedicated GSp4 routing.
+Gap 18 is the only open integration step: install the importChecks contracts, the parent moves and the five exclusions over the AG2.0 and AG2.6 part packets, and redirect the six external prerequisites of IG.7 (two targets) and PL.2 (one target) to IHG.3 Layer 3b. The report's "Questions for the orchestrator" give the details.
 
-After the revision is complete, carry out all issue #10008 checks: source
-locators for every proposed target, all 15 baseline statements, supplier and
-proof closure, granularity, APIs and discriminating tests, reader/Lean
-agreement, planets, all 16 source issues, reviewed library coverage/current
-upstream nonduplication and 11 assigned findings. This checkpoint supplies no
-independent mathematical verification of those items and no verdict.
+The executable probe in the [revision-2 handoff](BP-AutomorphicGaloisRepresentationsPartII~2.md) still reproduces the current difference, 129/54 against 124/46 with 35 semantic contract differences, after this review's corrections.
 
-## Checks and retained inventory
+The L_n correction should also be checked against the upstream README in TauCetiRoadmap pull request #1006.
 
-- Inherited packet checker: zero errors, zero warnings (16 physical nodes).
-- Read-only production/model probes and unchanged-contract comparison: passed
-  with the limitations above.
-- Shared `lean-check`: exit 0; only the 31 allowed warnings.
-- Submission file/content check and `git diff --check`: passed.
+## Nothing left for a worker in this job
 
-The proposed inventory remains 124 targets: 14 definitions, 24 constructions,
-64 theorems, six lemmas and 16 comparisons; 189 API entries, 139 tests and 46
-planets. These are inventory counts, not fresh mathematical review results.
-No mathematical gap or request was closed, no ownership move was installed,
-and no source passage or cleared file was copied into the repository.
+No scratch file is needed to resume. Sources were read from the URLs and hashes recorded in the packet; the cleared ACC+, LTXZZ and Pilloni PDFs were read in place and not copied.
