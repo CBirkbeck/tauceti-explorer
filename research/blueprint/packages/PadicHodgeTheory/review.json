@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-PadicHodgeTheory~adv",
+    "date": "2026-10-16",
+    "notes": "Reviewed 318 input targets, all layer conventions, 59 supplier requests, 27 author-flagged source subjects and a fixed-seed sample of 15 other locators. Corrected the B_dR algebraic-closure error, integral-period inclusion, I^[r] membership, completed coefficient proof, Herr sign/source, Wach import, FL and all-p Barsotti\u2013Tate citations, BLZ endpoint route and rank-two Tate classification. Needs changes: reconcile duplicate lower Selmer/finite-flat/N\u00e9ron ownership and the Tate\u2013Sen prerequisite cycle; supply multiplicative chain-level B-pair/relative comparison, P_l and relative coefficient/separation constructions, singular proper descent input, CDT lifting adapter and actual all-p twist/reduction supplier. Suggested.lean elaborates at the pins with only sorry warnings; see the independent report for exact findings and validation."
+  }
+}
