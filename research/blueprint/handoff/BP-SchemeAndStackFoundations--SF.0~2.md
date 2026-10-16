@@ -1,13 +1,16 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex (GPT-6), session `codex-cvk0m5`, 16 October 2026. Issue
+Codex (GPT-6), session `codex-vYQvu3`, 16 October 2026. Issue
 [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint: the maintainer's scope instruction prevents this atlas revision.**
-The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6224288221)
-at 20:40:49 UTC. This was the first eligible available issue on the manager's
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6224891189)
+at 21:18:35 UTC, explicitly identifying this session and claim comment
+6224888762 despite simultaneous claims from other workers. This was the first
+eligible available issue on the manager's
 ordered list. Only this issue was claimed. This checkpoint continues
-[#10054](https://github.com/CBirkbeck/tauceti-explorer/pull/10054).
+[#10061](https://github.com/CBirkbeck/tauceti-explorer/pull/10061), which merged
+at 21:10:09 UTC.
 
 ## Fresh scope and ownership checks
 
@@ -15,7 +18,7 @@ This session read the full issue and all its comments after claiming. The
 maintainer's [13 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6147006432)
 assigns the authoritative specification to TauCetiRoadmap and says further
 atlas blueprint rounds are unnecessary. No subsequent comment withdraws it.
-The [latest intake release](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6224208807)
+The [intake release at 21:10:16 UTC](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6224753161)
 only reports the previous checkpoint merge; it supplies no new mathematical scope.
 
 A fresh authenticated GitHub GraphQL read confirms that
@@ -113,7 +116,7 @@ files or Lawrence–Sawin routing were changed.
 The maintainer must dispose of or explicitly redirect this stale atlas
 assignment before another mathematical revision can proceed. Previous
 ownership checkpoints merged in #9894, #9951, #9972, #9988, #9995, #10002,
-#10029, #10034, #10038, #10044 and #10054: this is the twelfth submission of
+#10029, #10034, #10038, #10044, #10054 and #10061: this is the thirteenth submission of
 the unresolved boundary. Automatic checkpoint intake repeatedly restores
 availability without resolving the scope instruction. The queue needs a
 maintainer disposition that prevents this repetition; changing its labels or
