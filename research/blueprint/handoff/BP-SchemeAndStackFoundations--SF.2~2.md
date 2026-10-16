@@ -17,3 +17,35 @@ The existing SF.2 packet, reader, suggested file and review object are preserved
 Validation: `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeAndStackFoundations--SF.2.json` reported 0 errors and 0 warnings. The suggested Lean file was not changed or compiled in this session. No mathematical source was newly read, fetched or copied; the checkpoint concerns ownership and queue eligibility only.
 
 The maintainer needs to retire or otherwise reconcile this stale blueprint job with the authoritative upstream roadmap. A worker must not resume the old SF.2 revision merely because the availability label returns. Any distinct extension needs an explicitly authorized scope beyond the existing roadmap, following PROTOCOL.md section 15. This session stops after submitting this checkpoint and does not claim a second issue.
+
+
+## Claim audit — Codex session codex-3uNB8M, 2026-10-16
+
+This session resumes the same blocked job, issue #9297. The bot confirmed the
+claim in [comment 6215299931](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6215299931).
+The session did not inspect the maintainer's blocking comment before posting
+its claim. That was a selection error; the availability label does not override
+the explicit block or authorize re-planning existing Tau Ceti work.
+
+The blocker above persists. A fresh GitHub API check confirms that
+[TauCetiRoadmap #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 2026-10-14 at 04:47:45 UTC, commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and
+[follow-up #943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943)
+merged on 2026-10-16 at 02:48:52 UTC, commit
+`d2081398eedfbd4153d3067aa98a21b5a5270957`. The maintainer's
+[2026-10-13 instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6147003570)
+says that further blueprint rounds here are not needed. WORKERS.md and
+PROTOCOL.md section 15 require importing existing Tau Ceti roadmaps.
+
+Only this handoff note changed. The packet, reader, suggested file and review
+object are preserved; none of the review's outstanding mathematical requests
+is claimed discharged. The counts and partial coverage recorded above are
+unchanged. This is a blocked checkpoint, not a completed revision. No Lean
+compilation is appropriate for this documentation-only change. The packet
+checker and whitespace validation are rerun for this checkpoint.
+
+Resume only after the maintainer reconciles this stale job with upstream or
+authorizes a distinct extension with an explicit scope beyond that roadmap.
+Do not repeat this checkpoint solely because automation returns the issue to
+`state:available`. No second job is claimed in this run.
