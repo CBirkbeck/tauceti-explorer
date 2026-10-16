@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T10:17Z",
+ "updated": "2026-10-16T10:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -44,7 +44,7 @@
    "stage": "pr",
    "pr": 785,
    "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR); draft",
-   "head": "4ac746a",
+   "head": "b853d91",
    "review": {
     "recommendation": "approve",
     "head": "b88426d",
@@ -70,38 +70,36 @@
    }
   },
   "SmoothRepresentationsOfLocalGroups": {
-   "stage": "main",
-   "pr": 793,
+   "stage": "pr",
+   "pr": 785,
    "depends_on": [
     785
    ],
-   "note": "MERGED 2026-10-16 (#793, carrying IntegralHeckeAndGaloisDeterminants #789)",
-   "head": "2880329",
+   "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
+   "head": "b853d91",
    "review": {
     "recommendation": "approve",
     "head": "74400cd",
     "current": true,
     "date": "2026-10-14",
     "note": "maintainer (roed-math) APPROVED and merged #793 into the ReductiveGroupsPartII branch (#785) at 19:12Z; the folder now travels with #785"
-   },
-   "merged": "2026-10-16"
+   }
   },
   "IntegralHeckeAndGaloisDeterminants": {
-   "stage": "main",
-   "pr": 789,
+   "stage": "pr",
+   "pr": 785,
    "depends_on": [
     793
    ],
-   "note": "MERGED 2026-10-16 inside #793",
-   "head": "3eb09ab",
+   "note": "carried on #785 (ReductiveGroupsPartII) since the maintainer merged #793/#789 into that branch on 2026-10-14; SR.3a.2 companion repair applied 2026-10-16 at b853d91",
+   "head": "b853d91",
    "review": {
     "recommendation": "approve",
     "head": "ac1db49",
     "current": false,
     "date": "2026-10-14",
     "note": "merged by the maintainer into the SmoothRepresentations branch at 19:15Z and folded into #785 at 85b9dab; earlier Astra approval at ac1db49"
-   },
-   "merged": "2026-10-16"
+   }
   },
   "AdicEtaleGeometry": {
    "stage": "pr",
