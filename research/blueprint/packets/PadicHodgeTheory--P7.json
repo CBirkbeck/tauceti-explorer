@@ -13,7 +13,7 @@
     "PadicHodgeTheory:R06.4"
   ],
   "status": "complete",
-  "summary": "Target-level planning pass for eight p-adic Hodge stages, completed at the 300-node budget. Preserves all 242 earlier ids and adds primitive comparison with its local and integral inputs, coefficient and relative B-pairs, the actual finite-Q_p Berger route to Colmez–Fontaine, ordinary-character and reductive-group interfaces, relative cohomology and de Rham-pair pushforward. Rational rings use the pinned Mathlib carriers and import integral theta-kernel theory. This is a plan, not a formalization, checked by the independent review REV-PadicHodgeTheory--P7; explicit proof gaps, supplier requests and global stage-ordering decisions remain. P7 and P8 retain partial target coverage for their stated missing comparisons.",
+  "summary": "Target-level planning pass for eight p-adic Hodge stages, completed at the 300-node budget. Preserves all 242 earlier ids and adds primitive comparison with its local and integral inputs, coefficient and relative B-pairs, the actual finite-Q_p Berger route to Colmez–Fontaine, ordinary-character and reductive-group interfaces, relative cohomology and de Rham-pair pushforward. Rational rings use the pinned Mathlib carriers and import integral theta-kernel theory. This is a plan, not a formalization, checked by the independent review REV-PadicHodgeTheory--P7; explicit proof gaps, supplier requests and global stage-ordering decisions remain. P7 and P8 retain partial target coverage for their stated missing comparisons. Assembly ASM-PadicHodgeTheory reconciles the two constant-coefficient application tails with the accepted R06.5 targets (stable legacy P8 ids, parent R06.5), keeps the relative degree-one proof in P8, and exports LL/JL transport to its downstream owner. The original eight-stage scope is retained; the R06.5 tails are assembled with the separately reviewed R06.5 part. Historical review verdicts are unchanged; assembly edits are listed for re-review in the handoff.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -10578,7 +10578,7 @@
       "kind": "theorem",
       "statement": "Let X be proper smooth over Spa(k, O_k), L a lisse Ẑ_p-sheaf on X_proét, M = L ⊗_{Ẑ_p} B_dR^+. Then there is a Gal(k̄/k)-equivariant isomorphism H^i(X_k̄, L) ⊗_{Z_p} B_dR^+ ≅ H^i(X_k̄, M), where B_dR^+ = B_dR^+(Ĉ); in particular H^i(X_k̄, M) is a free B_dR^+-module of finite rank when H^i(X_k̄, L) is torsion free, and in general H^i(X_k̄, M) ⊗ B_dR = H^i(X_k̄, L) ⊗ B_dR.",
       "hypotheses": [
-        "Primitive comparison theorem (Scholze Theorem 5.1): for X proper smooth over algebraically closed (C, C^+) and an F_p-local system L', H^i(X_ét, L') is finite and H^i(X_ét, L') ⊗ C^{+a}/p ≅ H^i(X_ét, L' ⊗ O^{+a}/p); requested from CohomologyComparisons CP.3 together with its consequence H^i(X_k̄, L_n) ⊗ A_inf^a ≅ H^i(X_k̄, L_n ⊗ A_inf^a) (gap: no atlas stage owns Scholze §5).",
+        "The primitive comparison input is supplied by PadicHodgeTheory:P8:local-rational/primitive-bdr-plus-comparison and its earlier mod-p/A_inf proof chain, with the coefficient sheaf and almost annihilator stated there. This is the existing direct prerequisite, not a CP.3 request or an unowned primitive theorem.",
         "The almost version of Lemma 3.18 and the A_inf sheaf with its almost acyclicity (AI.3); X_{L,proét} ≅ X_proét/X_L (Proposition 3.15, A1); ξ as in R06.1."
       ],
       "proofSteps": [
@@ -10656,49 +10656,52 @@
     },
     {
       "id": "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application",
-      "parentStageId": "PadicHodgeTheory:P8",
+      "parentStageId": "PadicHodgeTheory:R06.5",
       "realises": [
-        "PadicHodgeTheory:P8"
+        "PadicHodgeTheory:R06.5"
       ],
-      "title": "Application of CP.3–CP.4: the proper-smooth de Rham/semistable comparison realised by the period sheaves, with tensor compatibility",
+      "title": "Constant-coefficient agreement of the rational geometric comparisons",
       "kind": "application",
-      "statement": "Let k be a finite extension of Q_p (more generally complete discretely valued with perfect residue field), X proper smooth over Spa(k, O_k), C = k̄^, G_k = Gal(k̄/k). (a) (de Rham, from CP.3) The G_k-equivariant filtered comparison isomorphism c_dR: H^i_ét(X_C, Q_p) ⊗_{Q_p} B_dR ≅ H^i_dR(X/k) ⊗_k B_dR supplied by CohomologyComparisons CP.3 coincides with the period-sheaf isomorphism of node de-rham-comparison-for-de-rham-lisse-sheaves for L = Ẑ_p (E = O_X), i.e. with the composite H^i(X_C, Ẑ_p) ⊗ B_dR ≅ H^i(X_C, B_dR) ≅ H^i(X_C, DR(O_X) ⊗ OB_dR) ≅ H^i_dR(X/k) ⊗ B_dR (Poincaré lemma, Lemma 7.13); hence H^i_ét(X_C, Q_p) is de Rham with D_dR ≅ H^i_dR(X/k) as filtered k-vector spaces (Hodge filtration), and the Hodge–de Rham spectral sequence degenerates. This identification is CohomologyComparisons CP.3's agreement theorem (RS-01 owner record), imported: P8 does not prove the case L = Ẑ_p again, and owns only the extension to de Rham lisse sheaves and families. (b) (tensor compatibility) c_dR is compatible with cup products H^i ⊗ H^j → H^{i+j}, with the trace H^{2d}_ét(X_C, Q_p(d)) ≅ Q_p ↔ H^{2d}_dR(X/k) ≅ k for X geometrically connected of dimension d, with pullback and pushforward along morphisms of proper smooth spaces, and, for de Rham lisse sheaves L, L', with ⊗ of coefficients (associated E ⊗ E'). (c) (semistable, from CP.4) If X is the generic fibre of a proper flat semistable formal O_k-scheme, the B_st-comparison of CohomologyComparisons CP.4, H^i_ét(X_C, Q_p) ⊗ B_st ≅ H^i_HK ⊗_{K_0} B_st (compatible with G_k, φ, N), composed with ι: k ⊗_{K_0} B_st → B_dR (choice of log p), equals c_dR after identifying k ⊗_{K_0} H^i_HK ≅ H^i_dR(X/k) by the Hyodo–Kato isomorphism; hence H^i_ét(X_C, Q_p) is semistable with D_st = H^i_HK and D_dR-filtration the Hodge filtration; N = 0 on cohomology in the good-reduction case, recovering the crystalline case.",
+      "statement": "Let K/Q_p be finite, C the completion of its algebraic closure, and X a proper smooth rigid space over K. (a) The strict filtered G_K-equivariant comparison c_dR: H^i_et(X_C,Q_p) tensor B_dR ≅ H^i_dR(X/K) tensor_K B_dR is the constant-coefficient specialization of the P8 de Rham lisse-sheaf comparison: take the constant Z_p local system and the trivial filtered pair (O_X,d). R06.5/proper-smooth-de-rham-comparison owns this rational realization and its Hodge–de Rham degeneration; this target records agreement rather than a second construction. (b) Pullback, cup products and coefficient tensor products agree with the P8 maps. For algebraic geometrically connected X of pure dimension d, trace and the induced cohomological pushforwards agree with de Rham duality under the normalized top-degree Tate-line contract in R06.5/geometric-period-functoriality-duality-twists. A trace normalization is an input, not a consequence of multiplicativity alone. (c) If X has a proper semistable formal model satisfying R06.5/proper-semistable-period-comparison, its B_st comparison extends to c_dR under the fixed B_st → B_dR embedding and the compatible Hyodo–Kato map. Thus D_st(H^i_et)=H^i_HK with period-normalized monodromy and Hodge filtration after K-extension. For a smooth proper model the crystalline realization of R06.5 has N=0.",
       "hypotheses": [
-        "The comparison theorems themselves (construction of c_dR through the canonical B_dR^+-deformation, its agreement with the rational pro-étale period-sheaf construction, and the B_st comparison with its compatibilities) are owned by CohomologyComparisons CP.3 and CP.4 and imported (requests).",
-        "This node applies them; it does not feed CP.3/CP.4 into any construction node of P8:local-rational (the construction nodes do not depend on this one).",
-        "Hodge–Tate weight convention HT(χ) = +1: the summand H^{i−j}(X, Ω^j) ⊗ C(−j) of H^i_ét ⊗ C has weight −j."
+        "The finite-Q_p base and model hypotheses are exactly those of the cited R06.5 targets; the broader perfect-residue-field coefficient theorem in P8 is not narrowed by this specialization.",
+        "The stable legacy P8 identifier is retained for consumers, but this application belongs after the R06.5 rational comparisons. General lisse coefficients and families remain P8 suppliers.",
+        "HT(chi_p)=+1, so the cohomological summand H^{i-j}(X,Omega^j) tensor C(-j) has weight -j. Trace and pushforward assertions use the stated algebraic duality and top Tate-line supplier contracts.",
+        "The earlier perfect-residue-field semistable extension is retained as an explicit proof gap, rather than asserted to follow from the finite-base R06.5 supplier."
       ],
       "proofSteps": [
-        "(a): node de-rham-comparison-for-de-rham-lisse-sheaves gives the period-sheaf isomorphism for L = Ẑ_p; CP.3 proves that its comparison agrees with the rational pro-étale period-sheaf construction (CP.3 stage text: 'prove agreement with the rational pro-étale period-sheaf construction supplied by PadicHodgeTheory P8:local-rational'); de Rham-ness follows by taking G_k-invariants (R06.2 formalism, B_dR^{G_k} = k).",
-        "(b): cup product: the period-sheaf isomorphism is multiplicative because every map in the composite is induced by multiplicative maps of sheaves of rings (Ẑ_p → B_dR → OB_dR ← O_X, the Poincaré quasi-isomorphism being one of dg-algebras) and by node tensor-compatibility-of-associated-local-systems for coefficients; the trace compatibility for d-dimensional X follows from multiplicativity and the one-dimensional case H^{2d} (packet-authored).",
-        "(c): CP.4 states compatibility of the B_st comparison with the filtration after B_st → B_dR and with the B_dR^+-deformation of CP.3; combine with (a); D_st = (H^i_ét ⊗ B_st)^{G_k} = H^i_HK ⊗ B_st^{G_k} = H^i_HK."
+        "R06.5/proper-smooth-de-rham-comparison is defined by specializing P8/de-rham-comparison-for-de-rham-lisse-sheaves. The two maps therefore coincide by their construction, and the invariant identification and degeneration are its conclusions (Scholze Theorem 8.4, pp.48–49).",
+        "Use P8 tensor compatibility for coefficients and P8/de-rham-pushforward-cup-and-base-change for relative cup products and naturality. For algebraic traces and dual pushforwards use the normalized pairing contract of R06.5/geometric-period-functoriality-duality-twists; do not infer a trace scalar from cup products alone.",
+        "Apply the B_dR-agreement conclusion of R06.5/proper-semistable-period-comparison. Its exact AI.6 and CR.6 inputs carry the Hyodo–Kato embedding, ramification normalization and total monodromy. The smooth case is R06.5/crystalline-comparison-good-reduction."
       ],
       "acceptance": [
-        "Good-reduction elliptic curve E/Q_p: D_dR(H¹_ét(E_C, Q_p)) = H¹_dR(E/Q_p) with Fil¹ = H⁰(E, Ω¹) of dimension 1; Hodge–Tate weights 0 and −1 (HT(χ) = +1); N = 0 (CP.4 recovers CP.2).",
-        "Tate curve E_q over Q_p: D_st(H¹_ét) is 2-dimensional with N ≠ 0 (CP.4 acceptance); its D_dR-filtration equals the Hodge filtration of H¹_dR(E_q).",
-        "Cup product H¹ × H¹ → H² for an elliptic curve corresponds under c_dR to the de Rham cup product, and the trace H²_ét(E_C, Q_p(1)) ≅ Q_p to H²_dR(E) ≅ k."
+        "Good-reduction elliptic curve E/Q_p: D_dR(H¹_ét(E_C, Q_p)) = H¹_dR(E/Q_p) with Fil¹ = H⁰(E, Ω¹) of dimension 1; Hodge–Tate weights 0 and −1 (HT(χ) = +1); N = 0 (the smooth-model specialization of R06.5).",
+        "Tate curve E_q over Q_p: D_st(H¹_ét) is 2-dimensional with N ≠ 0 (R06.5 semistable realization); its D_dR-filtration equals the Hodge filtration of H¹_dR(E_q).",
+        "Cup product H¹ × H¹ → H² for an elliptic curve corresponds under c_dR to the de Rham cup product, and the trace H²_ét(E_C, Q_p(1)) ≅ Q_p to H²_dR(E) ≅ K."
       ],
       "prerequisites": [
-        "PadicHodgeTheory:P8/de-rham-comparison-for-de-rham-lisse-sheaves",
+        "PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison",
+        "PadicHodgeTheory:R06.5/proper-semistable-period-comparison",
+        "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
+        "PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists",
         "PadicHodgeTheory:P8/tensor-compatibility-of-associated-local-systems",
-        "PadicHodgeTheory:P8/proper-smooth-bdr-local-system-comparison",
-        "PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension",
-        "PadicHodgeTheory:P8:local-rational/semistable-period-sheaves",
-        "CohomologyComparisons:CP.3",
-        "CohomologyComparisons:CP.4",
-        "PadicHodgeTheory:R06.1/semistable-period-ring",
-        "PadicHodgeTheory:R06.1/de-rham-period-ring"
+        "PadicHodgeTheory:P8/de-rham-pushforward-cup-and-base-change"
       ],
       "sources": [
         {
           "sourceId": "sch13-padic-hodge",
           "locator": "Introduction, Theorem 1.6 and Corollary 1.8 (statements), p. 4",
-          "match": "The conclusion of Corollary 1.8 that part (a) of the node re-derives and identifies with CP.3's comparison."
+          "match": "Constant-coefficient de Rham realization and Hodge–Tate degeneration; agreement uses the actual specialization map."
         },
         {
           "sourceId": "sch13-padic-hodge",
           "locator": "Section 8, Theorem 8.4, p. 48",
-          "match": "The period-sheaf isomorphism with which the CP.3 comparison is identified."
+          "match": "The period-sheaf comparison from which the R06.5 rational map is specialized."
+        },
+        {
+          "sourceId": "betts-stix",
+          "locator": "Propositions 3.16–3.19, pp.23–27; Proposition 3.20(5)–(6), pp.27–28 (arXiv v1)",
+          "match": "Naturality and cup products are checked on the comparison maps; the trace and duality statements require the separate Tate-line normalization."
         }
       ],
       "implementationStatus": "unchecked"
@@ -10791,9 +10794,9 @@
       "kind": "theorem",
       "statement": "Let f: X → Y be a proper smooth morphism of smooth adic spaces over Spa(k, O_k), L a lisse Ẑ_p-sheaf on X_proét with M = L ⊗ B_dR,X^+, and assume R^if_proét* L is a lisse Ẑ_p-sheaf on Y_proét. Then there is a canonical isomorphism R^if_proét* M ≅ R^if_proét* L ⊗_{Ẑ_p} B_dR,Y^+; in particular R^if_proét* M is a B_dR,Y^+-local system associated with R^if_proét* L.",
       "hypotheses": [
-        "Relative primitive comparison (Scholze Corollary 5.11): (R^if_ét* L') ⊗ O_Y^{+a}/p ≅ R^if_ét*(L' ⊗ O_X^{+a}/p) for F_p-local systems L' and proper smooth f; requested from CohomologyComparisons CP.3 with Theorem 5.1 (gap: no atlas stage owns Scholze §5).",
+        "The primitive comparison input is supplied by PadicHodgeTheory:P8:local-rational/relative-primitive-comparison and its earlier mod-p/A_inf proof chain, with the coefficient sheaf and almost annihilator stated there. This is the existing direct prerequisite, not a CP.3 request or an unowned primitive theorem.",
         "Corollary 3.17 (ii) (A1); Lemma 3.18 and its almost version, A_inf and O^+_{X♭} (AI.3).",
-        "The lisseness hypothesis holds when f and L are analytifications of algebraic objects (Remark 8.9 via Huber's comparison, Theorem 9.3) and for abelian families (node degree-one-abelian-comparison)."
+        "The lisseness hypothesis holds for analytifications of proper smooth algebraic families by proper smooth base change and the algebraic/analytic adapter (Scholze Remark 8.9 and Theorem 9.3). Abelian families use that geometric input before applying the degree-one comparison; comparison is not itself a proof of lisseness."
       ],
       "proofSteps": [
         "Use the early primitive-comparison package of P8:local-rational, including the almost A_inf lift and passage to the B_dR^+ quotients.",
@@ -10877,14 +10880,15 @@
       "statement": "Let S be a smooth adic space over Spa(k, O_k) and f: A → S a proper smooth morphism with geometrically connected fibres such that R¹f_ét* Z/p^n is locally constant with finite fibres for all n (e.g. the analytification of an abelian scheme over a smooth k-scheme, or an abelian family with R¹f_*Z/p^n ≅ Hom(A[p^n], Z/p^n)). Put T := R¹f_proét* Ẑ_p (for abelian families the dual of the Tate-module local system T_pA). Then: (i) T is a lisse Ẑ_p-sheaf and is de Rham, with associated filtered O_S-module with integrable connection (H¹_dR(A/S), ∇_GM, Fil), where Fil⁰ = H¹_dR, Fil¹ = f_*Ω¹_{A/S} (the Hodge subbundle), Fil² = 0, and H¹_dR(A/S), f_*Ω¹_{A/S}, R¹f_*O_A are locally free; (ii) there is an isomorphism T ⊗_{Ẑ_p} OB_dR,S ≅ H¹_dR(A/S) ⊗_{O_S} OB_dR,S of sheaves on S_proét compatible with filtrations and connections, and T ⊗ B_dR,S^+ = Fil⁰(H¹_dR(A/S) ⊗ OB_dR,S)^{∇=0}; (iii) the isomorphism is functorial in A/S (homomorphisms of families, in particular endomorphisms and isogenies) and compatible with base change S' → S; (iv) it is compatible with tensor structures: the cup product R¹f_*Ẑ_p ⊗ R¹f_*Ẑ_p → R²f_*Ẑ_p and the de Rham cup product (hence with polarisations and the Weil pairing through the Tate twist Ẑ_p(−1) ↔ (O_S, d, jump at 1)), and with duals.",
       "hypotheses": [
         "f proper smooth with R¹f_*Z/p^n locally constant (the hypothesis of Theorem 8.8 in degree 1); the identification R¹f_*Ẑ_p = (T_pA)^∨ for abelian families and the verification of the hypothesis for T1's families are HodgeTateAndCanonicalSubgroups T1's (it owns the abelian/automorphic comparison and its identification with T0).",
-        "Theorem 8.8 applied with L = Ẑ_p, E = (O_A, d, trivial filtration), i = 1; relative Hodge–de Rham degeneration gives the Hodge filtration."
+        "Theorem 8.8 applied with L = Ẑ_p, E = (O_A, d, trivial filtration), i = 1; relative Hodge–de Rham degeneration gives the Hodge filtration.",
+        "For the degree-2 cup-product assertion, assume the corresponding R²f_*Z/p^n are locally constant as well; this holds for the algebraic abelian families just named. Degree-1 lisseness alone is not used as a proof of degree-2 lisseness."
       ],
       "proofSteps": [
         "R¹f_*Ẑ_p is lisse by the hypothesis and Proposition 8.2 (node lisse-sheaves-etale-proetale-equivalence).",
         "Apply node relative-de-rham-comparison to L = Ẑ_p (de Rham with E = O_A): R¹f_*Ẑ_p is de Rham with associated R¹f_dR*(O_A) = H¹_dR(A/S); gr of the Hodge filtration is R^{1−j,j}f_Hodge* = R^{1−j}f_*Ω^j, i.e. R¹f_*O_A (j = 0) and f_*Ω¹ (j = 1), locally free.",
         "(ii) is the conclusion R¹f_dR* ⊗ OB_dR ≅ R¹f_*M ⊗ OB_dR together with node relative-bdr-plus-local-system-comparison (R¹f_*M = T ⊗ B_dR,S^+) and node associated-bdr-plus-local-system.",
         "(iii): every step is functorial in (A → S) and compatible with base change of the period sheaves.",
-        "(iv): multiplicativity of the relative comparison (as in node proper-smooth-de-rham-comparison-application (b), relative version) and node tensor-compatibility-of-associated-local-systems; R²f_*Ẑ_p for relative curves/abelian families is lisse under the same hypothesis in degree 2."
+        "(iv): apply P8/de-rham-pushforward-cup-and-base-change to the relative cup pairing and tensor-compatibility-of-associated-local-systems to coefficient duals. The cup-product assertion requires lisseness in each degree entering the pairing, including degree 2; algebraic abelian families satisfy this by proper smooth base change. This relative proof does not depend on the later constant-coefficient R06.5 application."
       ],
       "acceptance": [
         "Elliptic curve E/S: T has rank 2, Hodge numbers (1, 1); over a point S = Spa(k, O_k) with good reduction, D_dR(H¹_ét(E_C, Q_p)) = H¹_dR(E/k) with Fil¹ = H⁰(E, Ω¹) (1-dimensional) and Hodge–Tate weights {0, −1} (HT(χ) = +1).",
@@ -10896,13 +10900,18 @@
         "PadicHodgeTheory:P8/tensor-compatibility-of-associated-local-systems",
         "PadicHodgeTheory:P8/lisse-sheaves-etale-proetale-equivalence",
         "PadicHodgeTheory:P8/associated-bdr-plus-local-system",
-        "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application"
+        "PadicHodgeTheory:P8/de-rham-pushforward-cup-and-base-change"
       ],
       "sources": [
         {
           "sourceId": "sch13-padic-hodge",
           "locator": "Section 8, Theorem 8.8 and Remark 8.9, pp. 51-52",
           "match": "The lisseness hypothesis for algebraic (e.g. abelian-scheme) families; Theorem 8.8 is applied in degree 1."
+        },
+        {
+          "sourceId": "betts-stix",
+          "locator": "Propositions 3.16–3.17, pp.23–25 (arXiv v1)",
+          "match": "Relative cup pairings and base change commute with the de Rham-pair comparison when the relevant higher direct images are local systems."
         }
       ],
       "planet": {
@@ -20003,13 +20012,13 @@
       ],
       "title": "Rank-two types for Drinfeld-tower coefficients",
       "kind": "definition",
-      "statement": "For a rank-two (φ,N,G_Qp)-module M over Q_p^nr with coefficient field E and smooth descent, define supercuspidal type by irreducibility of WD(M), and special type by N≠0. CDN23 §0.3.1 build the slopes into their definitions (supercuspidal: WD(M) irreducible of slope 1/2; special: N≠0 with φ-slopes 0 and 1), i.e. they work in the weight-one homological normalization; the predicates here are the slope-free ones, and the CDN types are their intersection with that normalization. Their LL(M) and JL(M) are imported from local Langlands/Jacquet–Langlands and have central character det WD(M)·|·|, with arithmetic Frobenius sent to p by |·|. For a representation V of HT weights {0,1}, CDN20B uses WD(D_pst(V)[1])=WD(D_pst(V))⊗|·|^−1; this is a normalization comparison, not an identification of the covariant D_st slopes with the homological slopes.",
+      "statement": "For a rank-two (phi,N,G_Qp)-module M over Q_p^nr with coefficient field E and smooth descent, define supercuspidal type by irreducibility of WD(M), and special type by N≠0. CDN23 §0.3.1 includes a weight-one normalization: its supercuspidal modules have slope 1/2 and its special modules have slopes 0 and 1. The predicates here are slope-free; intersect them with those normalizations to recover that source’s classes. For V of HT weights {0,1}, CDN20B uses WD(D_pst(V)[1])=WD(D_pst(V)) tensor |.|^{-1}. This is an explicit homological Tate shift, not an identification of covariant D_st slopes with homological slopes. The output here is the WD parameter with these type predicates and normalization data. Applying local Langlands or Jacquet–Langlands, and transporting their central character, is a downstream R16.3 contract.",
       "hypotheses": [
         "The slope assertions require the weight-one normalized class of modules in CDN §0.3.1; they are not imposed on every rank-two φ,N-module."
       ],
       "proofSteps": [
         "Use the common WD functor; define the irreducibility and nonzero-monodromy predicates.",
-        "Import the two smooth representation correspondences and transport the determinant twist.",
+        "Rank-one tensor twists preserve WD irreducibility and N≠0, while shifting Frobenius slopes. No smooth representation correspondence is needed to define or test either predicate.",
         "Record explicitly the homological Tate shift linking this source to the covariant period-functor convention."
       ],
       "acceptance": [
@@ -20017,8 +20026,7 @@
       ],
       "prerequisites": [
         "PadicHodgeTheory:R06.3/fontaine-weil-deligne-functor",
-        "PadicHodgeTheory:R06.3/convention-comparison-with-r01",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+        "PadicHodgeTheory:R06.3/convention-comparison-with-r01"
       ],
       "sources": [
         {
@@ -20048,11 +20056,6 @@
           "name": "rankTwoType_twist",
           "role": "functoriality",
           "statement": "Both type predicates are invariant under rank-one twists, with slopes shifted."
-        },
-        {
-          "name": "rankTwoType_LL",
-          "role": "compatibility",
-          "statement": "Transport LL/JL and their central character with the stated determinant factor."
         }
       ],
       "tests": [
@@ -20076,6 +20079,10 @@
         {
           "where": "CDN23 §0.3",
           "how": "coefficient parameters in Drinfeld-tower cohomology"
+        },
+        {
+          "where": "GL2AutomorphicRepresentationsAndTransfer:R16.3 (downstream consumer)",
+          "how": "Import these WD types and their homological normalization, then own rankTwoType_LL: form LL/JL and check central character det WD(M) times |.| under the CDN reciprocity convention sending arithmetic Frobenius to p. This consumer contract is not an input to R06.3."
         }
       ],
       "library": {
@@ -20278,15 +20285,15 @@
     },
     {
       "id": "PadicHodgeTheory:P8/algebraic-analytic-period-comparison",
-      "parentStageId": "PadicHodgeTheory:P8",
+      "parentStageId": "PadicHodgeTheory:R06.5",
       "realises": [
-        "PadicHodgeTheory:P8"
+        "PadicHodgeTheory:R06.5"
       ],
       "title": "Algebraic and analytic de Rham comparisons agree",
       "kind": "theorem",
       "statement": "For a smooth proper variety X/K and a finite extension L/K, the comparison obtained by analytifying X and pushing its constant de Rham pair to Spa(K) gives H^i_et(X_K̄,Q_p)⊗B_dR≅H^i_dR(X/K)⊗B_dR, equivariant for G_K and strictly filtered. It is compatible with pullback, cup products, finite-extension base change and Tate twists. Algebraic étale and de Rham cohomology here are identified with their analytic versions by the comparison suppliers.",
       "hypotheses": [
-        "X smooth proper, K/Q_p finite; coefficients constant. The already owned abstract proper-smooth comparison is imported, not reconstructed as CP.3."
+        "X smooth proper, K/Q_p finite; coefficients constant. R06.5 owns the rational constant-coefficient comparison, and P8 supplies the coefficient-pair pushforward maps. The legacy identifier is retained, with this agreement target assigned to R06.5."
       ],
       "proofSteps": [
         "Use proper algebraic/analytic étale comparison and coherent GAGA for the de Rham complex.",
@@ -20294,12 +20301,12 @@
         "Transport the four compatibilities through the canonical comparison maps."
       ],
       "acceptance": [
-        "The result is an agreement/compatibility target, with the constant-coefficient comparison itself owned by CP.3."
+        "The analytified algebraic comparison uses the same constant-coefficient P8 map as R06.5/proper-smooth-de-rham-comparison; the agreement adds no second comparison construction."
       ],
       "prerequisites": [
         "PadicHodgeTheory:P8/proper-smooth-pushforward-de-rham-pairs",
         "PadicHodgeTheory:P8/de-rham-pushforward-cup-and-base-change",
-        "CohomologyComparisons:CP.3",
+        "PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison",
         "AdicSpacesPartII:R3"
       ],
       "sources": [
@@ -21380,6 +21387,13 @@
         "PadicHodgeTheory:P8:local-rational/primitive-comparison-mod-p"
       ],
       "detail": "The targets give the proof route of Scholze Lemmas 5.4 and 2.12, pp. 29–30, 10. Before formalization, state their full rectangle/index hypotheses in our own words into the H0 and PerfectoidSpaces:P0 supplier contracts and prove compatibility with the inverse-limit coefficient systems. The finite-image conclusion must not use a noetherian-submodule argument."
+    },
+    {
+      "title": "Perfect-residue-field extension of the legacy semistable agreement",
+      "neededBy": [
+        "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application"
+      ],
+      "detail": "The legacy application also asked for semistable/Hyodo–Kato agreement over any complete discretely valued extension of Q_p with perfect residue field. The exact R06.5/proper-semistable-period-comparison supplier is presently stated only for finite K/Q_p. Its finite-base theorem cannot discharge that broader claim. General perfect-residue-field de Rham coefficient comparison remains in P8, but the corresponding semistable realization and descent need a separate proof with matching model, monodromy and embedding hypotheses. NEXT ACTION: extend the R06.5/CR.6 supplier interface from a lawful source and check invariants and ramification normalization in that generality before restoring the larger semistable statement. No higher-tier CP prerequisite is silently retained."
     }
   ],
   "requests": [
@@ -21645,21 +21659,6 @@
       ]
     },
     {
-      "supplier": "CohomologyComparisons:CP.3",
-      "need": "(a) The de Rham comparison for proper smooth X over a complete discretely valued k with perfect residue field (trivial coefficients): the G_k-equivariant filtered isomorphism H^i_ét(X_C, Q_p) ⊗ B_dR ≅ H^i_dR(X/k) ⊗_k B_dR and its agreement with the rational pro-étale period-sheaf construction of P8:local-rational (CP.3 stage text). Part (b) of this request, Scholze's primitive comparison theorem, is withdrawn: RS-01's revised owner record (FIX-RT-RS-01) gives it to this roadmap's own P8:local-rational early cut, upstream of CP.3, and CP.3 imports it from there.",
-      "neededBy": [
-        "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application",
-        "PadicHodgeTheory:P8/algebraic-analytic-period-comparison"
-      ]
-    },
-    {
-      "supplier": "CohomologyComparisons:CP.4",
-      "need": "The B_st comparison for proper flat semistable formal O_k-models: H^i_ét(X_C, Q_p) ⊗ B_st ≅ H^i_HK ⊗_{K_0} B_st, compatible with G_k, φ, N and, after ι: k ⊗_{K_0} B_st → B_dR, with the Hodge filtration and with CP.3's B_dR^+-deformation; the Hyodo–Kato isomorphism k ⊗_{K_0} H^i_HK ≅ H^i_dR(X/k).",
-      "neededBy": [
-        "PadicHodgeTheory:P8/proper-smooth-de-rham-comparison-application"
-      ]
-    },
-    {
       "supplier": "AlgebraicModuliForArithmeticGeometry:A0-extension",
       "need": "Finiteness of normalisation for finitely generated reduced flat W(κ)-algebras S^+ inside S^+[1/p] (W(κ) a complete discrete valuation ring, hence excellent), used in Sch13 Lemma 6.12.",
       "neededBy": [
@@ -21849,13 +21848,6 @@
       "neededBy": [
         "PadicHodgeTheory:R06.3/filtered-module-robba-equivalence",
         "PadicHodgeTheory:R06.3/weak-admissibility-robba-slope-zero"
-      ]
-    },
-    {
-      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
-      "need": "Supply the rank-two Weil–Deligne/local-Langlands dictionary with central-character, determinant and |·| normalization for the special, supercuspidal and principal-series cases used by the Drinfeld-tower coefficient interface.",
-      "neededBy": [
-        "PadicHodgeTheory:R06.3/rank-two-potentially-semistable-types"
       ]
     },
     {
@@ -22051,8 +22043,8 @@
         "PadicHodgeTheory"
       ],
       "title": "Redirect CohomologyComparisons' request to R06.2 for Kisin's functor and Scholze's de Rham comparison",
-      "detail": "CohomologyComparisons' packet requests from PadicHodgeTheory:R06.2 'Kisin's functor and the Breuil–Kisin module theory ... together with Scholze's de Rham comparison' (for CP.5/dvr-lattice-recovery-via-breuil-kisin). Breuil–Kisin modules and Kisin's functor are owned by FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, and Scholze's de Rham comparison with constant coefficients by CohomologyComparisons CP.3 itself (RS-01 owner record, FIX-RT-RS-01, RT-RS-01/12): a P8 or R06.5 owner is impossible, since CP.2 uses the theorem and CP.2 → CP.4 → P8. P8 owns only its extension to de Rham lisse sheaves and to families. R06.2 supplies only the period-functor inputs used there: D_dR(V) with its filtration, D_cris, crystallinity by dimension count and B_cris^{G_K} = W(k)[1/p].",
-      "proposal": "CohomologyComparisons cites FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4 for Kisin's functor and BK(T) ⊗_S A_inf ≅ BKF(T), its own CP.3 for Scholze's de Rham comparison with constant coefficients, and PadicHodgeTheory:R06.2/period-functors, R06.2/admissible-representations and R06.1/period-ring-invariants for the period-functor facts."
+      "detail": "The CP.5 lattice-recovery request conflates Kisin’s integral functor, the rational geometric de Rham theorem and the elementary period formalism. Current tier order and the accepted R06.5 part place the needed rational constant-coefficient comparison below CP, superseding the earlier RS-01/CP.3 owner wording. The general lisse-coefficient and family comparison remains in P8. R06.2 supplies D_dR with filtration, D_cris, the dimension criterion and period invariants.",
+      "proposal": "CP.5 imports FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4 for Kisin’s functor and the BK(T) tensor A_inf/BKF(T) interface; PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison for rational geometric de Rham comparison; and R06.2/period-functors, R06.2/admissible-representations and R06.1/period-ring-invariants for the elementary period facts. Rewire the inherited AI.6 CP.3 references as specified in the assembly handoff before claiming transitive tier closure."
     },
     {
       "kind": "ownership",
