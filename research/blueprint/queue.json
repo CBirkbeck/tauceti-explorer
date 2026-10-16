@@ -32868,8 +32868,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9293"
+   "state": "pending",
+   "note": "released on GitHub issue #9293"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L3",
@@ -38644,8 +38644,9 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9286"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9286",
+   "finishedAt": "2026-10-16T15:59:05Z"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
@@ -38716,8 +38717,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9330"
+   "state": "pending",
+   "note": "released on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -43869,8 +43870,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9301"
+   "state": "pending",
+   "note": "released on GitHub issue #9301"
   },
   {
    "priority": 2,
@@ -51543,7 +51544,8 @@
     "PKG-HeightsRationalPointsAndObstructions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9837"
   },
   {
    "id": "PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -130257,8 +130259,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~codex.md",
+   "note": "claimed on GitHub issue #10016"
   },
   {
    "id": "PKG-PadicHodgeTheory~codex",
@@ -130276,8 +130279,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-PadicHodgeTheory~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-PadicHodgeTheory~codex.md",
+   "note": "claimed on GitHub issue #10019"
   }
  ]
 }
