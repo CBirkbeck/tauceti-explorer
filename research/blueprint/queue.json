@@ -40278,8 +40278,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10008",
-   "finishedAt": "2026-10-16T17:15:43Z"
+   "finishedAt": "2026-10-16T17:15:43Z",
+   "note": "deliverables arrived from an external worker on issue #10008"
   },
   {
    "kind": "blueprint",
@@ -44614,8 +44614,8 @@
    "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10022",
-   "finishedAt": "2026-10-16T17:15:46Z"
+   "finishedAt": "2026-10-16T17:15:46Z",
+   "note": "deliverables arrived from an external worker on issue #10022"
   },
   {
    "priority": 2,
@@ -44641,8 +44641,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10023",
-   "finishedAt": "2026-10-16T17:55:45Z"
+   "finishedAt": "2026-10-16T17:55:45Z",
+   "note": "deliverables arrived from an external worker on issue #10023"
   },
   {
    "id": "ASM-K3BlochGroups",
@@ -51600,8 +51600,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeightsRationalPointsAndObstructions~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9837",
-   "finishedAt": "2026-10-16T17:15:48Z"
+   "finishedAt": "2026-10-16T17:15:48Z",
+   "note": "deliverables arrived from an external worker on issue #9837"
   },
   {
    "id": "PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -82265,6 +82265,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-AutomorphicGaloisRepresentationsPartII~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1073,
+   "name": "blueprint BP-AutomorphicGaloisRepresentationsPartII~2: Automorphic Galois Representations PartII",
+   "target": "BP-AutomorphicGaloisRepresentationsPartII~2",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentationsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AutomorphicGaloisRepresentationsPartII~2.result.json",
+    "research/blueprint/redteam/RT-BP-AutomorphicGaloisRepresentationsPartII~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-AutomorphicGaloisRepresentationsPartII~2",
+    "REV-AutomorphicGaloisRepresentationsPartII~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-AutomorphicGaloisRepresentationsPartII~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-AutomorphicGaloisRepresentationsPartII~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1073,
+   "name": "blueprint BP-AutomorphicGaloisRepresentationsPartII~2: Automorphic Galois Representations PartII",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentationsPartII"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-AutomorphicGaloisRepresentationsPartII~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-AutomorphicGaloisRepresentationsPartII~2.md"
+   ],
+   "after": [
+    "RT-BP-AutomorphicGaloisRepresentationsPartII~2"
+   ],
+   "avoidAccountOf": "RT-BP-AutomorphicGaloisRepresentationsPartII~2",
+   "independentOf": [
+    "RT-BP-AutomorphicGaloisRepresentationsPartII~2",
+    "BP-AutomorphicGaloisRepresentationsPartII~2",
+    "REV-AutomorphicGaloisRepresentationsPartII~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-AutomorphicGaloisRepresentationsPartII~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-AutomorphicLFunctionsAndLocalFactors~2",
    "kind": "redteam",
    "priority": 2,
@@ -84569,6 +84616,53 @@
     "REV-FiniteFieldsAndCharacterSums--FF.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-FiniteFieldsAndCharacterSums--FF.1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1149,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "target": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.result.json",
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1149,
+   "name": "blueprint BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2: Geometry of numbers, quadratic forms and homogeneous arithmetic",
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md"
+   ],
+   "after": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2"
+   ],
+   "avoidAccountOf": "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+   "independentOf": [
+    "RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+    "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2",
+    "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
    "state": "pending"
   },
   {
@@ -93271,7 +93365,8 @@
     "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
     "research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
     "research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.5.lean",
-    "research/blueprint/handoff/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md"
+    "research/blueprint/handoff/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md",
+    "research/blueprint/handoff/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md"
    ],
    "after": [
     "FIX-RT-AREA-algebraicnt-1"
