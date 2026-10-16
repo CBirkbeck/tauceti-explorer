@@ -108,6 +108,13 @@
         "module": "Mathlib/Algebra/Homology/HomotopyCategory/KProjective.lean",
         "provides": "For an integer-indexed cochain complex in an abelian category, IsStrictlyLE d and projectivity of every term imply K-projectivity. A bounded finite free ModuleCat complex meets these hypotheses. K-flatness and relative derived tensor are separate supplier contracts.",
         "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent reviewer on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Ideal.finite_quotient_pow",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Index.lean",
+        "provides": "For a finitely generated ideal I in a commutative ring with finite R/I, every R/I^n has finite cardinality, including n=0.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 101; 2026-10-10."
       }
     ]
   },
@@ -356,7 +363,9 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/bounded-presentation",
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-native-complex",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-bounded-above-projective",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-basechange"
       ],
       "sources": [
         {
@@ -499,7 +508,7 @@
       ]
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+      "id": "DeformationAndDerivedPatchingAlgebra:P8/finite-coefficient-ultrapatch",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:P8",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:P8"
@@ -613,7 +622,8 @@
         "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
         "DeformationAndDerivedPatchingAlgebra:P7/minimal-representative",
         "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks",
-        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-coefficient-pushout",
         "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image"
       ],
       "sources": [
@@ -995,7 +1005,7 @@
         "The full hypotheses and the conclusion above must be retained; finite coefficient change must agree with the native derived-category representative."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes"
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-coefficient-ultrapatch"
       ],
       "sources": [
         {
@@ -1028,7 +1038,7 @@
         "The full hypotheses and the conclusion above must be retained; finite coefficient change must agree with the native derived-category representative."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-coefficient-ultrapatch",
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-ext"
       ],
       "sources": [
@@ -1062,7 +1072,7 @@
         "The full hypotheses and the conclusion above must be retained; finite coefficient change must agree with the native derived-category representative."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-coefficient-ultrapatch",
         "mathlib:Filter.Germ.coe_eq",
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-ext"
       ],
@@ -1207,7 +1217,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:R03.1"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/cyclic-group-ring-quotients",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/cofinal-artinian-cutoffs"
       ],
       "sources": [
         {
@@ -1281,8 +1292,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/finite-coefficient-germ",
-        "DeformationAndDerivedPatchingAlgebra:P8/finite-germ-fibre",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-germ-fibre"
       ],
       "sources": [
         {
@@ -1357,7 +1367,8 @@
         "DeformationAndDerivedPatchingAlgebra:P8/finite-germ-naturality",
         "DeformationAndDerivedPatchingAlgebra:P8/coefficient-change-entry",
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-ext",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-bounded-above-projective",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension"
       ],
       "sources": [
         {
@@ -1472,7 +1483,6 @@
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-coordinates",
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-native-complex",
         "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
-        "DeformationAndDerivedPatchingAlgebra:P7",
         "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image-finite",
         "mathlib:CochainComplex.isKProjective_of_projective"
       ],
@@ -1548,7 +1558,7 @@
       "prerequisites": [
         "mathlib:Ultrafilter.eventually_exists_iff",
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:R03.1"
+        "mathlib:Ideal.finite_quotient_pow"
       ],
       "sources": [
         {
@@ -1586,7 +1596,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/finite-end-cardinal",
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/finite-decorated-data",
         "mathlib:IsArtinianRing.isNilpotent_jacobson_bot",
         "IntegralHeckeAndGaloisDeterminants:IHG.2/hecke-annihilator-power"
       ],
@@ -1625,7 +1635,10 @@
       "prerequisites": [
         "mathlib:nonempty_sections_of_finite_cofiltered_system",
         "DeformationAndDerivedPatchingAlgebra:P8/bounded-presentation-finite",
-        "DeformationAndDerivedPatchingAlgebra:R03.5"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/finite-patch-datum",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/finite-decorated-data",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/compatible-patch-tower",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/patching-extraction"
       ],
       "sources": [
         {
@@ -1665,7 +1678,7 @@
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-coefficient-change",
         "mathlib:AdicCompletion.of_bijective_iff",
         "DeformationAndDerivedPatchingAlgebra:P7/minimal-homotopy-equivalence-is-iso",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit"
       ],
       "sources": [
         {
@@ -1809,7 +1822,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/patched-terms-finite",
-        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-noetherian-finite-cohomology-pseudo",
         "mathlib:MvPowerSeries.isNoetherianRing"
       ],
       "sources": [
@@ -1845,8 +1858,7 @@
         "The full hypotheses and the conclusion above must be retained; finite coefficient change must agree with the native derived-category representative."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P8/stable-hecke-decoration",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P8/stable-hecke-decoration"
       ],
       "sources": [
         {
@@ -1884,7 +1896,7 @@
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-support",
         "DeformationAndDerivedPatchingAlgebra:P8/stable-hecke-decoration",
-        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit",
         "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image"
       ],
       "sources": [
@@ -1932,8 +1944,9 @@
         "DeformationAndDerivedPatchingAlgebra:P8/uniform-deformation-exponent",
         "DeformationAndDerivedPatchingAlgebra:P8/stable-hecke-decoration",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-error-nilpotent",
-        "DeformationAndDerivedPatchingAlgebra:R03.1",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-quotient-limit",
+        "mathlib:Ideal.finite_quotient_pow",
+        "DeformationAndDerivedPatchingAlgebra:P7/complete-cofiltered-finite-exactness"
       ],
       "sources": [
         {
@@ -1970,7 +1983,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/patched-deformation-surjective",
-        "DeformationAndDerivedPatchingAlgebra:R03.1"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/compatible-complete-lifting"
       ],
       "sources": [
         {
@@ -2046,7 +2060,8 @@
         "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-eventual-isomorphism",
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-support",
-        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
         "mathlib:MvPowerSeries.constantCoeff",
         "mathlib:MvPowerSeries.constantCoeff_C"
@@ -2091,7 +2106,8 @@
         "DeformationAndDerivedPatchingAlgebra:P8/ultra-deformation-quotient",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-deformation-surjective",
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:R03.1"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-quotient-limit",
+        "mathlib:Ideal.finite_quotient_pow"
       ],
       "sources": [
         {
@@ -2129,8 +2145,7 @@
         "DeformationAndDerivedPatchingAlgebra:P8/derived-augmentation",
         "DeformationAndDerivedPatchingAlgebra:P8/unframed-deformation-surjective",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-error-nilpotent",
-        "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data"
       ],
       "sources": [
         {
@@ -2167,7 +2182,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-hecke-injective",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit"
       ],
       "sources": [
         {
@@ -2205,7 +2220,8 @@
         "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-base-change",
         "DeformationAndDerivedPatchingAlgebra:P8/transition-choices-comparison",
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension"
       ],
       "sources": [
         {
@@ -2247,7 +2263,8 @@
         "DeformationAndDerivedPatchingAlgebra:P8/stable-hecke-decoration",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-hecke-injective",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-deformation-surjective",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit",
+        "DeformationAndDerivedPatchingAlgebra:P7/complete-cofiltered-finite-exactness"
       ],
       "sources": [
         {
@@ -2284,8 +2301,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P8/residual-hecke-images",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-deformation-surjective",
-        "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data"
       ],
       "sources": [
         {
@@ -2302,7 +2318,7 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:P8/patched-perfect-complexes-in-a-range-of-degrees",
+      "id": "DeformationAndDerivedPatchingAlgebra:P8/cohomology-action-patching-theorem",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:P8",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:P8"
@@ -2333,8 +2349,12 @@
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-terms-free",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-support",
-        "DeformationAndDerivedPatchingAlgebra:R03.5",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/finite-patch-datum",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/finite-decorated-data",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/compatible-patch-tower",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/patching-extraction",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-perfect-limit",
+        "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks"
       ],
       "sources": [
         {
@@ -2362,7 +2382,7 @@
   "requests": [
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
-      "need": "Use Mathlib CochainComplex.isKProjective_of_projective for bounded-projective K-projectivity; supply exact native signatures for bounded-projective K-flatness; derived tensor along coefficient maps with comparison to entrywise free representative change; strictification of minimal compatible quotient models; Hom_D and cohomology inverse-limit comparison over complete Noetherian local rings with finite Artinian quotients; exactness/quotient compatibility of finite Mittag–Leffler systems. KT Lemma 2.13(1)–(3) and minimal strictification Lemma 2.14, pp.11–12 and ACC Proposition 6.4.12 are the contracts. Existing minimality nodes are imported by id; do not re-plan them.",
+      "need": "P7/p7ii-kflat-bounded-above-projective, p7ii-derived-extension and p7ii-kflat-basechange supply derived coefficient change; P7/minimal-homotopy-equivalence-is-iso supplies strict representatives, and P7/finite-perfect-limit supplies cohomology and Hom_D completion for compatible minimal bounded finite-free systems. P7/complete-cofiltered-finite-exactness supplies finite-module limit exactness. Remaining native adapter: assemble chosen derived quotient identifications into adjacent based minimal chain isomorphisms and their iterated strict cocycles before invoking the limit; export the comparison compatibly with the retained action decorations. No generic replacement tensor or inverse-limit theory is requested.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-coefficient-change",
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
@@ -2379,7 +2399,7 @@
     },
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
-      "need": "Supply the complete local category with finite residue field, finite-variable power-series/complete group-algebra comparison and the cofinal standard p-power group kernels; completed tensor products of the framed local rings; continuous local quotient maps and compactness of complete local finite-residue rings; uniform ideal nilpotence across a finite bounded-cardinality family of local rings; continuous formal-smooth power-series lifting and the paired modulo-π fibre-product lifting contract of ACC Remark 6.4.14. Generic MvPowerSeries and adic completeness are already baseline.",
+      "need": "R03.1/tensor-coefficient-pushout and artinian-quotient-limit, pinned Ideal.finite_quotient_pow and R03.5/finite-decorated-data supply complete coefficients, compact quotient towers and uniform finite-action nilpotence. R03.5/cyclic-group-ring-quotients and cofinal-artinian-cutoffs supply standard p-power group quotients. Remaining: the actual cofinality estimate for arbitrary Delta_N with kernel contained in p^N Z_p^h, and the paired modulo-pi fibre-product scalar lifting diagram of ACC Remark 6.4.14. Ordinary local series evaluation is already R03.1/local-series-evaluation; it alone does not establish the paired lift.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
         "DeformationAndDerivedPatchingAlgebra:P8/quotient-cofinal",
@@ -2395,7 +2415,7 @@
       "need": "Supply finite decorated patch-data types and the functorial lower-level restriction maps for complete local module patching, including local ring maps, cohomology module action data at all subquotients, framings, top augmentation identifiers and cofinal level choice. P8 adds the bounded matrix-complex codes. CG Theorem 6.3 proof, PDF pp.91–92. Do not re-plan the generic compact finite module/deformation decoration machinery here. In particular the action data at every allowed finite framing quotient must be supplied; do not infer it from an invalid nonflat cohomology base-change identity (E13).",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P8/compatible-patch-choices",
-        "DeformationAndDerivedPatchingAlgebra:P8/patched-perfect-complexes-in-a-range-of-degrees"
+        "DeformationAndDerivedPatchingAlgebra:P8/cohomology-action-patching-theorem"
       ]
     },
     {
@@ -2428,13 +2448,23 @@
       "detail": "ACC Proposition 6.4.12 gives T∞→End_D(C∞) and R∞→T∞/I∞. It supplies neither R∞→T∞ nor a strict chain action. The actual continuous derived R∞ action target requires a chosen continuous quotient lift or an additional theorem establishing one. CG Theorem 6.3 supplies only cohomology actions. The planned conditional node is complete; the stage’s unconditional promise must be corrected or its extra input supplied."
     },
     {
-      "title": "Native supplier signatures absent from the accepted P7 part",
+      "title": "Coherent minimal representatives and retained decorations",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-scalar-lift",
-        "DeformationAndDerivedPatchingAlgebra:P8/patched-perfect-complexes-in-a-range-of-degrees"
+        "DeformationAndDerivedPatchingAlgebra:P8/cohomology-action-patching-theorem"
       ],
-      "detail": "The precise mathematical contracts are sourced and requested above; the original P7 packet did not finish the derived tensor/completion/coefficient-category APIs. The suggested file states its typed core and final native checks honestly, with the exact omissions enumerated in prototypeCoverage. Elaborating an admitted signature does not close these contracts."
+      "detail": "P7-2 supplies the derived coefficient contracts and P7/finite-perfect-limit supplies the finite perfect limit. The remaining adapter chooses adjacent based minimal representatives from derived quotient identifications, enforces iterated strict cocycles and exports the comparison with every retained action decoration. These are required construction targets, not assumptions supplied by signature elaboration."
+    },
+    {
+      "title": "Remaining coefficient and decorated-complex adapters",
+      "detail": "R03.5 supplies finite module decorations and extraction, and P7 supplies finite perfect limits and derived coefficient change. The complex application must still construct coherent restriction maps for the supplied cohomology actions at every allowed framing/subquotient, without nonflat cohomology base change. The cyclic group-ring comparison supplies standard p-power quotients; arbitrary Delta_N cofinality and the exact paired modulo-pi fibre-product scalar lift require their stated adapters. These do not create a full R_infinity derived action.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P8/quotient-cofinal",
+        "DeformationAndDerivedPatchingAlgebra:P8/compatible-patch-choices",
+        "DeformationAndDerivedPatchingAlgebra:P8/patched-scalar-lift",
+        "DeformationAndDerivedPatchingAlgebra:P8/cohomology-action-patching-theorem"
+      ]
     }
   ],
   "sourceIssues": [

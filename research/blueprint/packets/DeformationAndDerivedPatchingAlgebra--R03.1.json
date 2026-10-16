@@ -1620,7 +1620,7 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.1",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.1"
@@ -1707,7 +1707,7 @@
       }
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.1",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.1"
@@ -2255,7 +2255,7 @@
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
         "DeformationAndDerivedPatchingAlgebra:R03.1/nilpotent-extension",
         "DeformationAndDerivedPatchingAlgebra:R03.1/morphism-maximal-comap",
         "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal"
@@ -2294,7 +2294,7 @@
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
         "mathlib:isSimpleModule_iff_quot_maximal"
       ],
       "library": {
@@ -2734,7 +2734,7 @@
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
         "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
         "mathlib:IsAdicComplete.map_algebraMap_iff",
         "mathlib:AdicCompletion.ofAlgEquiv"
@@ -2869,7 +2869,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/complete-quotient",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
         "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal"
       ],
       "library": {
@@ -3288,7 +3288,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-finite",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
         "mathlib:IsLocalRing.CotangentSpace.span_image_eq_top_iff",
         "mathlib:surjective_of_mk_map_comp_surjective",
         "mathlib:IsHausdorff.of_isLocalRing"
@@ -3328,7 +3328,7 @@
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
         "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
         "mathlib:MvPowerSeries.mem_map_C_iff_of_fg"
       ],
@@ -3858,7 +3858,7 @@
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
         "DeformationAndDerivedPatchingAlgebra:R03.1/morphism-continuous",
         "mathlib:Algebra.TensorProduct.lift"
       ],
@@ -5345,8 +5345,8 @@
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
         "DeformationAndDerivedPatchingAlgebra:R03.1/strict-cohen-ring",
         "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
         "mathlib:WittVector.quotientPEquiv"
@@ -6397,13 +6397,6 @@
       ]
     },
     {
-      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.2",
-      "need": "Provide the smooth natural-transformation predicate for set-valued Artinian deformation functors and the represented-functor interface. Compare the represented transformation h_B→h_A with the ring-side small-extension diagram predicate in R03.1/continuous-formal-smoothness, with its contravariant direction explicit. The generic functor notion remains R03.2-owned.",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
       "need": "Current ModularCurves Suggested.lean already exposes ArtinianTestAlgebra with actual Witt algebra map, labelled residue map and kernel equation. Reuse that object data for the Artinian specialization. Expose its residue-preserving arrows and the complete-category type promised by README §7D to state the category comparison. No replacement test-algebra definition, elliptic moduli or universal deformation ring belongs here.",
       "neededBy": [
@@ -6498,6 +6491,21 @@
         "DeformationAndDerivedPatchingAlgebra:R03.1/finite-residue-coefficient-completion"
       ],
       "detail": "BIP23 Lemmas3.35–3.37, pp.24–25, are read in the published version. The proof imports [9,Lemmas3.3.4–3.3.5], the one-element differential p-basis diagonal calculation, and topological Nakayama for pseudocompact modules. The finite-type native smooth-field theorem and finite-module Nakayama do not provide these interfaces. Their exact relative coefficient-completion comparison, including separated kernel and actual maps, remains unestablished here. In the O-Cohen case, reduction needs the general comparison for a Noetherian local k-algebra with labelled local-field residue; coheight one of a contraction is not an assumed hypothesis. Establish completed coefficient-map flatness (including any Noetherianity premise), completeness of kernel and cokernel, and tensor exactness before applying pseudocompact Nakayama. Do not infer this reduction directly from the narrower coheight-one statement."
+    },
+    {
+      "title": "Unresolved exact supplier from R03.3",
+      "detail": "No node in the eleven accepted Part I packets supplies the full interface cited by this whole-stage edge. Retain the existing request and its hypotheses; the stage reference is a routing placeholder, not a closure claim. Consumers require: Noetherian completion from a finite ideal; Tensor domains from a regular coefficient point.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-domain-point"
+      ]
+    },
+    {
+      "title": "Unresolved exact supplier from R03.4",
+      "detail": "No node in the eleven accepted Part I packets supplies the full interface cited by this whole-stage edge. Retain the existing request and its hypotheses; the stage reference is a routing placeholder, not a closure claim. Consumers require: Completion after characteristic-p local-field base change.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1/local-field-coefficient-completion"
+      ]
     }
   ],
   "sourceIssues": [
@@ -7356,7 +7364,7 @@
       "routeRead": "Existing paper-extraction item read as an ownership lead; only the source passages listed in sources.readSections were freshly read.",
       "disposition": "planned-here",
       "provides": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category"
       ],
       "boundary": "Exact statement and gap qualifications are in the referenced nodes, not in the earlier routing shorthand."
     },
@@ -8556,8 +8564,8 @@
       "nodes": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/labelled-local-algebra",
         "DeformationAndDerivedPatchingAlgebra:R03.1/residue-preserving-morphism",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-noetherian-local-coefficient-category"
       ]
     },
     {
@@ -9375,5 +9383,18 @@
         "note": "BIP Lemma 3.37 has a zero-dimensional diagonal in both finite separable coefficient cases, so no new variable appears; actual coefficient-map compatibility remains part of gap 7."
       }
     ]
-  }
+  },
+  "resolvedRequests": [
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "need": "Provide the smooth natural-transformation predicate for set-valued Artinian deformation functors and the represented-functor interface. Compare the represented transformation h_B→h_A with the ring-side small-extension diagram predicate in R03.1/continuous-formal-smoothness, with its contravariant direction explicit. The generic functor notion remains R03.2-owned.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness"
+      ],
+      "providedBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/smooth-functor-ring-comparison"
+      ],
+      "resolution": "The comparison is now an exact R03.2 target, using the R03.1 ring predicate. It is a consumer of the predicate, not a prerequisite of its definition."
+    }
+  ]
 }

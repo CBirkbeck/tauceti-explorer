@@ -9625,7 +9625,7 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.4"
@@ -9938,11 +9938,7 @@
         "Stated with a regular sequence because the pinned Mathlib has no module depth; this is the form R03.6 uses."
       ],
       "proofSteps": [
-        "depth M ≥ dim A from the given sequence, and depth M ≤ dim Supp M ≤ dim A by the integrated R03.3 node; so depth M = dim A = d, and M ≠ 0 (Mathlib RingTheory.Sequence.IsRegular.nontrivial).",
-        "A regular local ring has finite global dimension (the integrated R03.3 node), so pd_A M < ∞.",
-        "depth A = d by regular-local-cohen-macaulay.",
-        "Auslander–Buchsbaum (the integrated R03.3 node) gives pd_A M + depth M = depth A, so pd_A M = 0: M is projective.",
-        "A finite projective module is flat (Mathlib instance Module.Flat.of_projective), and a finite flat module over a local ring is free (Mathlib Module.free_of_flat_of_isLocalRing)."
+        "The given maximal-length regular sequence and the imported SF.0 depth/support bound give depth_A M=dim A. Apply SchemeAndStackFoundations:SF.0/free-maximal-depth-regular-local, whose parameter induction and basis lifting do not use Auslander–Buchsbaum or finite global dimension. The zero module is separately free."
       ],
       "acceptance": [
         "Regularity of A is needed: over the dual numbers k[ε] (dimension 0) the empty sequence has length 0 = dim, but k = k[ε]/(ε) is not free.",
@@ -9960,7 +9956,6 @@
         }
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay",
         "mathlib:IsRegularLocalRing",
         "mathlib:RingTheory.Sequence.IsRegular",
@@ -9968,13 +9963,15 @@
         "mathlib:Module.Flat.of_projective",
         "mathlib:Module.free_of_flat_of_isLocalRing",
         "mathlib:Module.Projective",
-        "mathlib:Module.Free"
+        "mathlib:Module.Free",
+        "SchemeAndStackFoundations:SF.0/depth",
+        "SchemeAndStackFoundations:SF.0/free-maximal-depth-regular-local"
       ],
       "sources": [
         {
           "sourceId": "REV-STACKS-00NT",
           "locator": "Algebra, Lemma 10.106.6, tag 00NT",
-          "match": "The statement; the proof here uses Auslander–Buchsbaum and finite global dimension from the integrated R03.3 node instead of Stacks' induction through 00N6 and 00NS."
+          "match": "The maximal-depth freeness theorem and its parameter-induction proof, through the regular parameter quotient and basis lifting of Lemma 10.106.5; imported from SF.0 rather than deduced from finite global dimension."
         },
         {
           "sourceId": "REV-STACKS-00O7",
@@ -35103,14 +35100,14 @@
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
       "need": "For a finite intermediate field E of a chosen algebraic closure of a characteristic-zero nonarchimedean local field K, supply the actual finite-extension topology and valuative relation, completeness, ring of integers and its canonical O-algebra identification with integralClosure(O,E), together with maximal-ideal powers as the topology basis. Reuse the Layer 0 intermediate-field adapters. This comparison extends the algebraic theorem; it is not needed to construct its map to integralClosure.",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+        "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point"
       ]
     },
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
       "need": "For the separate framed-lifting target retained from the integrated R03.4 node, provide the exact complete-local coefficient-category lifting interface: a proved power-series presentation with compatible residue data, or a formally smooth continuous map together with compatible Artinian quotient lifts and an inverse-limit realization. Supply local continuous evaluation in the declared topologies. An arbitrary formally smooth ring map is not treated as a substitute. This request is not used to prove the preceding algebraic point.",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+        "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting"
       ]
     }
   ],
@@ -35210,7 +35207,7 @@
     {
       "title": "Local-field interpretation and framed lifting",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+        "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point"
       ],
       "detail": "The algebraic map targets the existing integral closure. Its interpretation as a continuous map to the complete DVR of integers requires the actual Layer 0 isomorphism and topology transport. The framed formal-smooth lifting assertion remains a separate complete-local construction; the general point theorem permits residue-field extension and does not certify a fixed-residue arithmetic refinement. The actual assembler projection at the current audit base has no stage path from the requested LocalFieldsRamification layer 0 to R03.4; this inherited supplier request is unchanged and must be reconciled by its owner. Twelve of thirteen scoped dependency/request stage pairs are reachable."
     },
@@ -35221,16 +35218,16 @@
         "DeformationAndDerivedPatchingAlgebra:R03.4/generic-prime-coefficient-injection",
         "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-point-of-generic-prime",
         "DeformationAndDerivedPatchingAlgebra:R03.4/finite-field-of-point-values",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension"
+        "DeformationAndDerivedPatchingAlgebra:R03.4/algebraic-characteristic-zero-point"
       ],
       "detail": "The five R03.4 signatures retain historical exact-pin Mathlib-only admitted elaboration evidence. The current isolated canonical projection also elaborated in PR #6086, with 899 admitted-proof warnings across the whole file. The current full Tau-importing suggested file is uncompiled. These are signature receipts, not proofs of the point construction, remaining finiteness or framed-lifting theorems."
     },
     {
-      "title": "Regular local rings are domains",
+      "title": "Historical regular-local domain and graded comparison",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay"
       ],
-      "detail": "Stacks Lemma 10.106.2 (00NP): any regular local ring is a domain, proved from Lemma 10.106.1 (00NO), gr_m(R) ≅ κ[X_1, ..., X_d]. Neither is in the pinned Mathlib (no IsDomain instance for IsRegularLocalRing) and no layer of the atlas plans the associated-graded computation; it is generic local algebra owned by R03.3 under RS-08 and must be decomposed there (Hilbert–Samuel function of R and of the polynomial ring)."
+      "detail": "At the historical pins, the regular-local domain proof needs Stacks Lemmas 10.106.1–10.106.2 (00NO–00NP), using the regular associated-graded polynomial comparison. Current Tau Ceti already supplies IsRegularLocalRing.isDomain and parameter-quotient regularity, so import those declarations at current pins instead of assigning their implementation again. The associated-graded and multiplicity comparisons remain distinct R03.3 targets."
     },
     {
       "title": "Associated-graded module comparison, scalar transport and graded-module finiteness",
@@ -35291,13 +35288,13 @@
       "detail": "All Hilbert–Samuel implementation statuses remain unchecked. PR #6086 supplies authenticated admission-free native proof evidence for its stated adapter contracts and an isolated canonical projection with 899 admitted-proof warnings, not a general Hilbert–Serre or multiplicity proof. The full Tau-importing suggested file remains uncompiled; this independent review attempted full lean-check and it stopped at the missing Tau quotient object; its Mathlib-only prefix receipt is recorded separately. General polynomial existence, support-degree comparison, completion, finite localized-length and associativity proofs remain open."
     },
     {
-      "title": "Derived base change versus the ordinary representative computation",
+      "title": "Derived coefficient realization and representative comparison",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P7/residual-perfectness-criterion",
         "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
         "DeformationAndDerivedPatchingAlgebra:P7/minimal-residual-ranks"
       ],
-      "detail": "The pinned ordinary extendScalars functor and mapHomotopyEquiv give well-defined change of coefficients on homotopy-equivalent bounded above projective representatives. A generic derived tensor functor is absent in the reviewed audit. P7 must construct its restriction and prove bounded above projective module complexes K-flat, the resolution comparison and agreement with any later generic derived tensor construction. This missing comparison is not a supplied assumption masquerading as a formal theorem. The suggested residual Nakayama theorem is stated on actual representatives; its derived-object form is an explicitly omitted signature."
+      "detail": "P7/p7ii-kflat-bounded-above-projective, p7ii-derived-extension and p7ii-kflat-basechange supply the planned native module-complex coefficient contracts. Implement their comparison with ordinary extendScalars on bounded-above projective representatives and with the generic upstream derived tensor owner. The residual Nakayama target on representatives must be transported through that comparison to derived objects. These are construction obligations, not a new generic tensor theory."
     },
     {
       "title": "Remaining minimal-complex comparison and finite approximation proofs",
@@ -35413,8 +35410,8 @@
       "source": "REV-STACKS-064U",
       "kind": "misprint",
       "locator": "Online HTML read 2026-10-05, Lemma 15.66.5 (064U), projective padding and descending-cone proof.",
-      "printed": "The source writes F^{n_0} and Ker(F^n → F^{n−1}), and uses the phrases “our of complexes”, “Dnote” and “and the to”.",
-      "correction": "After the inductive decomposition F^(n−1)=P^(n−1)⊕C^n⊕C^(n−1), require F^(n−1) finite free, not a repeated F^n0. In the descending construction the chosen map lands in ker(d^n:F^n→F^(n+1)), not ker(F^n→F^(n−1)). Read the textual slips as “our map of complexes”, “Denote” and “and to”.",
+      "printed": "The padding step repeats the initial-degree superscript, the displayed cycle kernel points to the preceding degree, and several short textual slips occur.",
+      "correction": "After the inductive decomposition F^(n−1)=P^(n−1)⊕C^n⊕C^(n−1), require F^(n−1) finite free. The descending lift must land in ker(d^n:F^n→F^(n+1)). The other slips have no mathematical effect.",
       "reason": "The proof explicitly uses cochain differentials d^i:F^i→F^(i+1); F^(n−1) is precisely the next term being constructed. Lifting cycles into the displayed wrong kernel is not the required induction step. The corrected cone/lifting argument proves the unchanged statement.",
       "affects": "nothing",
       "known": "new",

@@ -175,7 +175,7 @@
       "prerequisites": [
         "mathlib:CategoryTheory.Tor'",
         "mathlib:Module.Finite.exists_fin'",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/minimal-finite-resolution"
       ],
       "library": {
         "module": "TauCeti/RingTheory/ModulePatching",
@@ -269,7 +269,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-module",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/minimal-finite-resolution"
       ],
       "library": {
         "module": "TauCeti/RingTheory/ModulePatching",
@@ -349,7 +349,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.5/cyclic-group-ring-quotients",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/finiteness-of-deformation-rings-criteria",
+        "DeformationAndDerivedPatchingAlgebra:R03.4/finite-of-faithful-finite-module",
         "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
         "mathlib:IsLocalRing.finite_quotient_iff"
       ],
@@ -1045,7 +1045,10 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds",
         "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay",
-        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-action",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-map-cm-transfer",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/auslander-buchsbaum",
+        "SchemeAndStackFoundations:SF.0/free-maximal-depth-regular-local",
         "mathlib:RingTheory.Sequence.IsRegular",
         "mathlib:IsRegularLocalRing"
       ],
@@ -1068,7 +1071,7 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-modules-and-module-patching",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-module-patching-theorem",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.5",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.5"
@@ -1254,7 +1257,7 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patching-criterion",
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-characteristic-zero-patching",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.5",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.5"
@@ -1371,7 +1374,7 @@
       ],
       "prerequisites": [
         "mathlib:RingTheory.Sequence.IsRegular",
-        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patching-criterion",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-characteristic-zero-patching",
         "DeformationAndDerivedPatchingAlgebra:R03.5/patching-depth-numerical"
       ],
       "library": {
@@ -1404,17 +1407,17 @@
     },
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
-      "need": "For a local homomorphism S→A of Noetherian local rings and a nonzero module finite over both, prove equality of depth and of support dimension under restriction of scalars, without requiring A finite over S. Use the finite image ring A/Ann_A M where necessary. Supply the regularity of S=O[[Fin q]], its dimension q+1, and the parameter regular sequence (π,z₁,…,z_q), connecting to native IsRegularLocalRing and Sequence.IsRegular.",
+      "need": "R03.3/depth-finite-action now supplies depth equality through the finite action quotient; R03.3/finite-map-cm-transfer and the native integral-dimension theorem supply support dimension after quotienting annihilators. Remaining: regularity of S=O[[Fin q]], dimension q+1, and the parameter regular sequence (pi,z_1,...,z_q), with native IsRegularLocalRing and Sequence.IsRegular comparisons. Do not require the whole action ring finite over S.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.5/patching-depth-numerical",
-        "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-modules-and-module-patching"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-module-patching-theorem"
       ]
     },
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
       "need": "Identify the complete-local formal smoothness used for B[1/p] in Kisin Proposition 3.3.1, and prove that it implies regularity of B[[Fin e]][1/p], with its actual completed local topology, for every finite e. Also supply regularity of O[[Fin q]][1/p]. Do not assert the algebraic Mathlib Algebra.FormallySmooth instance without a comparison theorem.",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patching-criterion"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-characteristic-zero-patching"
       ]
     }
   ],
@@ -1438,19 +1441,36 @@
       "detail": "The source calculation is read and its proof route fixed, but the existing supplier does not specify the residue-field lift of native Tor or the minimal-resolution comparison. Native Tor derives one factor and lacks this module-level API; the concrete square-presentation predicate is elaboratable while the canonical defect signatures remain omitted. The first R03.3 request must resolve this interface."
     },
     {
-      "title": "Depth and dimension comparison for a finite module over two local rings",
+      "title": "Regular power-series parameters for the numerical patching step",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.5/patching-depth-numerical",
-        "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-modules-and-module-patching"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-module-patching-theorem"
       ],
-      "detail": "The integrated R03.3 target includes depth, AB and the same-dimension-domain lemma, but not this exact restriction-of-scalars statement or the finite-variable formal-series parameter calculation. CG uses both. The second R03.3 request records the precise module-finite hypotheses and should be supplied before claiming mathematical closure."
+      "detail": "R03.3/depth-finite-action and finite-map-cm-transfer supply the restriction-of-scalars and support-dimension contracts for the finite action quotient. The remaining input is the regularity, dimension q+1 and explicit parameter sequence of S=O[[Fin q]]. Neither this calculation nor finiteness of the entire deformation ring follows from the finite action image."
     },
     {
       "title": "Kisin generic-fibre formal smoothness and regularity",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patching-criterion"
+        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-characteristic-zero-patching"
       ],
       "detail": "The paper uses complete-local generic-fibre formal smoothness to apply regularity after inversion. The R03.1 formal smoothness target is a small-extension lifting predicate for coefficient objects, not automatically an algebraic smoothness instance for B[1/p]. The precise comparison and regularity theorem is requested, so the suggested criterion does not encode an unspecified smoothness proposition."
+    },
+    {
+      "title": "Residue Tor and regular series comparisons after assembly",
+      "detail": "R03.3/minimal-finite-resolution assumes finite projective dimension. It does not by itself supply Tor_1(M,k) and minimal first-syzygy ranks for every finite module. The existing residue-Tor request remains open. The exact depth-action and finite-map support contracts now resolve restriction of scalars; the regularity/dimension/parameter API for O[[Fin q]] and the complete-local generic-fibre formal-smoothness comparison remain additional suppliers.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-module",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-square-presentation",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/patching-depth-numerical",
+        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-characteristic-zero-patching"
+      ]
+    },
+    {
+      "title": "Unresolved exact supplier from R03.1",
+      "detail": "No node in the eleven accepted Part I packets supplies the full interface cited by this whole-stage edge. Retain the existing request and its hypotheses; the stage reference is a routing placeholder, not a closure claim. Consumers require: Kisin’s module patching criterion.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-characteristic-zero-patching"
+      ]
     }
   ],
   "sourceIssues": [

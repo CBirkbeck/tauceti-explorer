@@ -185,6 +185,20 @@
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "X divides a power series exactly when its constant coefficient is zero; together with surjectivity this identifies R[[X]]/(X) with R.",
         "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "tauceti:TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul",
+        "kind": "existing",
+        "module": "TauCeti/RingTheory/KrullDimension/Integral.lean",
+        "provides": "An injective integral algebra map preserves Krull dimension.",
+        "checked": "The declaration and its context were read in the source tree at the recorded pin; the audit file also checks name resolution."
+      },
+      {
+        "ref": "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+        "kind": "existing",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "Support dimension of a finite module agrees with the ring dimension of its annihilator quotient.",
+        "checked": "The declaration and its context were read in the source tree at the recorded pin; the audit file also checks name resolution."
       }
     ]
   },
@@ -841,7 +855,7 @@
       }
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-inequality",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:P9"
@@ -894,7 +908,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-dimension-bound",
-        "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+        "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-inequality",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-projective-interval"
       ],
       "proofSteps": [
@@ -1005,7 +1019,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "tauceti:TauCeti.ringKrullDim_eq_of_isIntegral_of_faithfulSMul",
+        "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator"
       ],
       "proofSteps": [
         "Each cohomology is finite over T. Its R-support is the finite spectral image of its T-support; integral finite maps preserve dimension of closed subsets."
@@ -1261,7 +1276,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
         "mathlib:DerivedCategory.homologyFunctor",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/ghost-ideal-nilpotence"
       ],
       "proofSteps": [
         "Use the finite canonical truncation filtration: a ghost factors across one further step of the filtration; a product longer than its number of cohomology degrees factors through zero. Explicitly request the T-equivariant truncation/ghost-filtration bridge from P7."
@@ -1304,7 +1319,7 @@
         "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
         "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
         "DeformationAndDerivedPatchingAlgebra:P9/support-closed",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-derived-action-localization"
       ],
       "proofSteps": [
         "Bounded finite projective representatives make the derived endomorphism S-module finite. The annihilator of total cohomology is the ghost ideal in T, hence nilpotent; use finite module support."
@@ -1550,7 +1565,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
         "mathlib:Module.length_ne_top_iff",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-criterion"
       ],
       "proofSteps": [
         "Both modules are finite and killed by f; a finite module over the zero-dimensional Noetherian local quotient is Artinian and Noetherian."
@@ -1656,7 +1671,8 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/catenary-iff-dimension-function"
       ],
       "proofSteps": [
         "Use the principal ideal theorem at m and uniqueness of the minimal prime. If f belonged to that prime, the quotient would still have dimension one."
@@ -1692,7 +1708,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
-        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres",
         "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite"
       ],
       "proofSteps": [
@@ -1729,7 +1745,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-criterion"
       ],
       "proofSteps": [
         "Q has zero generic localization and is finite, so its support is contained in the closed point. The tensor long exact sequence bounds the kernel by Tor_1^A(M,Q) and identifies the cokernel with M⊗_A Q; these are finite and supported at the closed point."
@@ -1767,7 +1784,7 @@
         "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
         "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite-length-zero",
         "DeformationAndDerivedPatchingAlgebra:P9/length-defect-additive",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres"
       ],
       "proofSteps": [
         "A finite normalization of the one-dimensional local domain is a semilocal Dedekind domain, hence a PID. Its finite module structure splits into a finite free module and finite-length torsion; apply additivity and the zero defect of torsion."
@@ -1842,9 +1859,7 @@
       "hypotheses": [
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
-      "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
-      ],
+      "prerequisites": [],
       "proofSteps": [
         "Intersect the other minimal primes. The Chinese remainder idempotent modulo the nilradical lifts through its nilpotence. The resulting local factor has sole prime m, is Artinian, and identifies with A_m."
       ],
@@ -1879,7 +1894,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres"
       ],
       "proofSteps": [
         "Integral incomparability makes primes over q maximal after localization at q. Minimality is preserved. Apply the product decomposition to the Noetherian finite S_q-algebra T_q."
@@ -1918,7 +1933,7 @@
         "DeformationAndDerivedPatchingAlgebra:P9/generic-action-idempotent",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
         "mathlib:CategoryTheory.IsIdempotentComplete",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-derived-action-localization"
       ],
       "proofSteps": [
         "Localize the base and action, then use idempotent splitting in the bounded derived module category. The generic algebra factor acts on the summand through the product factor.",
@@ -2043,7 +2058,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
         "mathlib:Module.length_ne_top_iff",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-maximal-power-criterion"
       ],
       "proofSteps": [
         "Minimal-prime localization is Artinian. Finite S-cohomology is finite T-cohomology and remains finite on localization; retract cohomology identifies with the module localization."
@@ -2116,7 +2131,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7/derived-ring-action"
       ],
       "proofSteps": [
         "Derived scalar extension is S/(f)-linear; its transported S-scalar f is zero as a morphism. S-compatibility and multiplicativity imply fT is in the action kernel. Apply the quotient ring universal property and then the native cohomology functor."
@@ -2156,7 +2171,7 @@
         "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
         "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-flat",
-        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-derived-action-localization",
         "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle"
       ],
       "proofSteps": [
@@ -2258,7 +2273,7 @@
       }
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity",
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/one-dimensional-derived-length-identity",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:P9"
@@ -2352,7 +2367,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/catenary-iff-dimension-function"
       ],
       "proofSteps": [
         "First π avoids every dimension-d generic: containment in V(π) would give a component of R/(π) of dimension d. Then apply the principal-divisor dimension formula on each top component.",
@@ -2389,7 +2405,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge",
-        "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity",
+        "DeformationAndDerivedPatchingAlgebra:P9/one-dimensional-derived-length-identity",
         "DeformationAndDerivedPatchingAlgebra:P9/derived-length-zero-dimensional",
         "DeformationAndDerivedPatchingAlgebra:P9/euler-length-nonzero-support"
       ],
@@ -2431,7 +2447,8 @@
         "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
         "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
         "DeformationAndDerivedPatchingAlgebra:P9/generic-localized-length-finite",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-finite-pd",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/auslander-buchsbaum"
       ],
       "proofSteps": [
         "S_q is regular. The closed support dimension≤n−l gives codimension≥l after localization via the catenary regular-local height formula. P7 gives a finite projective representative in the fibre interval. CG concentration finds a codimension-l support prime. Lift it through finite T to a dimension-d generic of R. At this prime localized cohomology is concentrated in one degree, so its Euler length is nonzero."
@@ -2454,7 +2471,7 @@
       }
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/top-component-support-transport",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:P9"
@@ -2507,7 +2524,7 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "DeformationAndDerivedPatchingAlgebra:P9/top-component-support-transport",
         "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
         "DeformationAndDerivedPatchingAlgebra:R03.6/r-red-equals-t-red"
       ],
@@ -2547,7 +2564,8 @@
         "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-sequence",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-convergence",
-        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:P7/derived-ring-action",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-actions",
         "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change"
       ],
       "proofSteps": [
@@ -2584,7 +2602,7 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "DeformationAndDerivedPatchingAlgebra:P9/top-component-support-transport",
         "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
       ],
       "proofSteps": [
@@ -2804,7 +2822,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-amplitude",
-        "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+        "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-inequality",
         "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
       ],
       "proofSteps": [
@@ -2831,7 +2849,7 @@
   "requests": [
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
-      "need": "Finite normalization of a one-dimensional excellent local domain; semilocal Dedekind normalization is a PID; excellence of complete Noetherian local rings and finite algebras/localizations; finite integral maps preserve dimensions of closed support images; catenary regular-local height/dimension formulas for the localization seed. These are ring-theoretic suppliers, not new P9 definitions. Noetherian dimension-zero rings are Artinian; a maximal minimal prime defines a clopen factor and its idempotent lifts through the nilradical; finite integral extensions have incomparability and preserve dimensions of residue quotients. Principal-ideal height and catenary dimension formulas supply the divisor dichotomy, and normalization is generically an isomorphism with finite-length correction kernels and cokernels.",
+      "need": "R03.3/excellence-normalization-and-formal-fibres supplies excellence and finite normalization; R03.3/catenary-iff-dimension-function supplies the local dimension-chain criterion. The pinned injective integral-dimension theorem and module annihilator-quotient dimension identify finite support images. Remaining proof interfaces are the one-dimensional semilocal Dedekind normalization/PID module calculation and the isolated maximal-minimal Artinian factor with its canonical localization projection. Do not treat excellence alone as the module formula or as idempotent lifting.",
       "consumers": [
         "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
         "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
@@ -2856,7 +2874,7 @@
     },
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
-      "need": "T-equivariant canonical truncations for a commutative algebra action in the derived category; a bounded ghost ideal is nilpotent with exponent the number of cohomology degrees; finite generation of the derived endomorphism S-module of a perfect complex over Noetherian S; comparison of induced actions under exact derived base change and a T-linear right-edge comparison for derived actions (the existing spectral-actions node assumes strict chain actions). Existing generic tensor/Hom and truncation theory is imported; this request names the native action comparison bridge. For quotient extension S→S/(f), the transported scalar f is zero as a derived morphism, so the action factors through T/(f); preserve the resulting equivariant cohomology and localization comparisons.",
+      "need": "P7/ghost-ideal-nilpotence supplies ideal-power ghost nilpotence; P7/finite-derived-action-localization supplies finite action images and the perfect-complex generic/divisor idempotent localizations; P7/derived-ring-action supplies transported actions. Remaining: make coefficient spectral-sequence and right-edge comparison T-equivariant for a merely derived action. P7/p7ii-coefficient-spectral-actions handles strict chain actions only. For arbitrary bounded finite cohomology retain the separate idempotent-splitting request; do not infer it from perfectness-specific suppliers.",
       "consumers": [
         "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
         "DeformationAndDerivedPatchingAlgebra:P9/action-subalgebra-support",
@@ -2872,12 +2890,12 @@
   ],
   "gaps": [
     {
-      "title": "Excellence and normalization interface is not yet a fine supplier node",
-      "detail": "The complete ACC module-length proof is planned through normalization and finite-length corrections. R03.3 must expose the stated excellence, normalization/PID and dimension contracts; no such interface was found at the pin or in its fine nodes. The Lean file omits an unstated excellence predicate and explicitly prototypes the derived reduction step using its module identity input.",
+      "title": "Normalization module formula and isolated factors",
+      "detail": "R03.3/excellence-normalization-and-formal-fibres and catenary-iff-dimension-function supply excellence, finite normalization and dimension-chain contracts. Still required are the one-dimensional semilocal Dedekind normalization/PID module formula and the isolated Artinian factor with its localization projection. These ordinary algebra interfaces precede the full derived length identity; excellence alone does not establish them.",
       "nodes": [
         "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
         "DeformationAndDerivedPatchingAlgebra:P9/length-defect-module-identity",
-        "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity"
+        "DeformationAndDerivedPatchingAlgebra:P9/one-dimensional-derived-length-identity"
       ]
     },
     {
@@ -2886,8 +2904,19 @@
       "nodes": [
         "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
         "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
-        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "DeformationAndDerivedPatchingAlgebra:P9/top-component-support-transport",
         "DeformationAndDerivedPatchingAlgebra:P9/divisor-quotient-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization",
+        "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
+      ]
+    },
+    {
+      "title": "General bounded derived actions exceed the perfect and strict suppliers",
+      "detail": "P7/finite-derived-action-localization supplies the perfect-complex generic and divisor idempotent localizations, not splitting for every object with bounded finite cohomology. P7/p7ii-coefficient-spectral-actions assumes a strict chain action, whereas right-edge-specialization starts with a derived action. The two existing P7 requests remain open in that generality. The semilocal Dedekind PID normalization module formula and isolated Artinian ring factor need their ordinary algebra proof interfaces; excellence alone is not a PID theorem. These gaps do not affect the separately stated perfect or strict-action special cases.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
+        "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
         "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization",
         "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
       ]
