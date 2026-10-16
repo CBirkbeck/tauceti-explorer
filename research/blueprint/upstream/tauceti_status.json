@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-16T09:39Z",
+ "updated": "2026-10-16T10:17Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -70,12 +70,12 @@
    }
   },
   "SmoothRepresentationsOfLocalGroups": {
-   "stage": "pr",
+   "stage": "main",
    "pr": 793,
    "depends_on": [
     785
    ],
-   "note": "carries IHG (#789 merged into this branch by the maintainer 10-14); companion SR.3a.2 repair 10-16; maintainer re-look requested",
+   "note": "MERGED 2026-10-16 (#793, carrying IntegralHeckeAndGaloisDeterminants #789)",
    "head": "2880329",
    "review": {
     "recommendation": "approve",
@@ -83,15 +83,16 @@
     "current": true,
     "date": "2026-10-14",
     "note": "maintainer (roed-math) APPROVED and merged #793 into the ReductiveGroupsPartII branch (#785) at 19:12Z; the folder now travels with #785"
-   }
+   },
+   "merged": "2026-10-16"
   },
   "IntegralHeckeAndGaloisDeterminants": {
-   "stage": "pr",
+   "stage": "main",
    "pr": 789,
    "depends_on": [
     793
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); merged into #793 branch 2026-10-14 19:15Z, folded into #785",
+   "note": "MERGED 2026-10-16 inside #793",
    "head": "3eb09ab",
    "review": {
     "recommendation": "approve",
@@ -99,7 +100,8 @@
     "current": false,
     "date": "2026-10-14",
     "note": "merged by the maintainer into the SmoothRepresentations branch at 19:15Z and folded into #785 at 85b9dab; earlier Astra approval at ac1db49"
-   }
+   },
+   "merged": "2026-10-16"
   },
   "AdicEtaleGeometry": {
    "stage": "pr",
@@ -168,7 +170,7 @@
    "depends_on": [
     817
    ],
-   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
+   "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged); ChatGPT Pro N3 answered CHANGES 10-16 ~10:00Z; draft",
    "head": "93db55a",
    "review": {
     "recommendation": "approve",
@@ -267,12 +269,12 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "c98015e",
+   "head": "7945b2a",
    "depends_on": [
     792,
     785
    ],
-   "note": "companion repoint of moved EDS names 10-16",
+   "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "approve",
     "head": "047eb0d",
@@ -666,7 +668,7 @@
    "stage": "pr",
    "pr": 923,
    "head": "d027020",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z, fix running; draft",
    "review": {
     "recommendation": "changes",
     "head": "4030582",
@@ -679,7 +681,7 @@
    "stage": "pr",
    "pr": 924,
    "head": "68698f6",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z, fix running; draft",
    "review": {
     "recommendation": null,
     "head": null,
@@ -747,7 +749,7 @@
    "stage": "pr",
    "pr": 931,
    "head": "2cd461f",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z, fix running; draft",
    "review": {
     "recommendation": null,
     "head": null,
@@ -760,7 +762,7 @@
    "stage": "pr",
    "pr": 933,
    "head": "b85d49f",
-   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass",
+   "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z, fix running; draft",
    "review": {
     "recommendation": null,
     "head": null,
@@ -779,7 +781,7 @@
    "stage": "pr",
    "pr": 940,
    "head": "ed4b5e3",
-   "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running",
+   "note": "foundation roadmap created 2026-10-14 by the de-cycling (SelmerIwasawa §4.1 core + FiniteFlat period carriers); not an explorer package; red team running; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z, fix running; draft",
    "review": {
     "recommendation": "changes",
     "head": "2817055",
@@ -806,26 +808,26 @@
    "stage": "pr",
    "pr": 964,
    "head": "f01a54d",
-   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review"
+   "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z, fix running; draft"
   },
   "AdicCoefficientsAndComparisons": {
    "stage": "pr",
    "pr": 965,
    "head": "f524f5e",
-   "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review"
+   "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z, fix running; draft"
   },
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
    "head": "037a79e",
-   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review",
+   "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z, fix running; draft",
    "review": "APPROVE 2026-10-15 at 8d86eda (superseded by red-team repairs)"
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
    "head": "68a6288",
-   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review"
+   "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z, fix running; draft"
   },
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "stage": "pr",
@@ -836,26 +838,26 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "2dcdfa9",
-   "note": "companion: consumes AutomorphicSpectralTheory §4.14a; red team first pass finished, fix running"
+   "head": "6409a81",
+   "note": "ported 2026-10-16 (tier 14); red-team first pass applied, second pass running; companion repoint to AutomorphicSpectralTheory §4.14a; draft"
   },
   "ArakelovGeometryAndAbelianHeights": {
    "stage": "pr",
    "pr": 1000,
-   "head": "50eac36",
-   "note": "ported 2026-10-15 from the accepted explorer package (tier 16); red team running"
+   "head": "328ced2",
+   "note": "ported 2026-10-16 (tier 16); both red-team passes applied; draft awaiting ChatGPT Pro"
   },
   "WeightsInEtaleCohomology": {
    "stage": "pr",
    "pr": 1001,
-   "head": "ca05fc5",
-   "note": "ported 2026-10-15 from the accepted explorer package (tier 12); red team running"
+   "head": "ad2b1cf",
+   "note": "ported 2026-10-16 (tier 12); red-team first pass applied, second-pass fix running; draft"
   },
   "PadicDifferentialEquationsAndRigidCohomology": {
    "stage": "pr",
    "pr": 1002,
-   "head": "9fb1c55",
-   "note": "ported 2026-10-15 from the accepted explorer package (tier 12); red team running"
+   "head": "c246412",
+   "note": "ported 2026-10-16 (tier 12); red-team first pass applied, second pass running; draft"
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
