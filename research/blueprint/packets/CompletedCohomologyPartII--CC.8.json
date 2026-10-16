@@ -131,7 +131,7 @@
       ]
     },
     {
-      "id": "Milne",
+      "id": "MilneEC",
       "title": "Lectures on Étale Cohomology",
       "authors": "James S. Milne",
       "edition": "Version 2.21, 22 March 2013",
@@ -157,12 +157,13 @@
         "O is the ring of integers in a finite extension of Q_p; varpi is a uniformizer; k is finite.",
         "Neatness ensures finite-level schemes and covering maps; nonneat levels require the supplied stack or group-cohomology interpretation.",
         "The connected real stabilizer A_infty^0 K_infty^0 used in the survey and the full stabilizer of a Shimura domain can differ. A comparison is asserted only after a concrete equivariant quotient dictionary; when descent is needed retain derived finite-component descent, rather than averaging at primes dividing the component-group order.",
-        "Siegel and unitary comparisons use the finite-coefficient portion of EDC.6/complex-analytic-comparison. R14.3 and R18.4 supply the modular and Hilbert/curve inputs. Trace comparisons use the chosen complex orientation.",
-        "For the complex orientation identify the finite Tate twist by the chosen compatible roots of unity. Use the EDC.6 trace-orientation input for Z/p^n and the supplied coefficient-extension compatibility for the selected O/varpi^s local system; no arbitrary unlabelled Tate-twist identification is made."
+        "The canonical-model towers, their level maps and Hecke correspondences, and the analytic identification with the arithmetic quotient are those of CC.8/canonical-four-family-tower-input. Siegel and unitary comparisons use the finite-coefficient comparison CC.0/finite-etale-betti-support-comparison. R14.3 supplies the modular local-system dictionary and CC.8/hilbert-finite-local-system-input the Hilbert and quaternionic Shimura-curve one. Trace comparisons use the chosen complex orientation.",
+        "For the complex orientation identify the finite Tate twist by the chosen compatible roots of unity. Use CC.0/finite-etale-trace-orientation-comparison for Z/p^n and the supplied coefficient-extension compatibility for the selected O/varpi^s local system; no arbitrary unlabelled Tate-twist identification is made.",
+        "The arithmetic quotient Y_K of CC.0, its quotient Y_K° by the split real centre and the Shimura quotient Ỹ_K are distinguished as in CC.8/arithmetic-shimura-central-quotient. The identification with X_K(C) is made for the quotient the selected Shimura datum actually gives, with its coefficient descent, compact-support shift and orientation factor, and with the effective finite deck groups verified there. The notation Y_K = X_K(C) does not assert that a central torus bundle or an ineffective central kernel is trivial; where the effective deck group differs from K_0/U, the CC.4 and CC.6 comparisons are applied to the verified effective tower (gap G12)."
       ],
       "proofSteps": [
-        "Import X_K, its canonical model, reflex-field action, and the analytic adelic quotient from V8; retain determinant/component labels, rather than silently selecting one geometric component.",
-        "Apply the exact finite-coefficient comparison with compact supports from EDC.6. For modular and Hilbert/curve families use the specialized local-system dictionaries in R14.3 and R18.4. Check all comparison squares before taking limits. Use EDC.6/trace-orientation-comparison for the chosen Tate-twist/complex-orientation normalization and CC.7 for its coefficient-system transport.",
+        "Compare the arithmetic, split-centre and Shimura quotients and their coefficients through CC.8/arithmetic-shimura-central-quotient. Take X_K, its canonical model, reflex-field action, level maps, Hecke correspondences and the analytic identification with the arithmetic quotient from CC.8/canonical-four-family-tower-input; retain determinant/component labels, rather than silently selecting one geometric component.",
+        "Apply the finite-coefficient comparison with compact supports CC.0/finite-etale-betti-support-comparison. For modular and Hilbert/curve families use the specialized local-system dictionaries of R14.3 and CC.8/hilbert-finite-local-system-input. Check all comparison squares before taking limits. Use CC.0/finite-etale-trace-orientation-comparison for the chosen Tate-twist/complex-orientation normalization and CC.7 for its coefficient-system transport.",
         "Use CC.1 functoriality on the cofinal level diagram at each s and CC.7 for the support diagram. Then take the CC.2 coefficient inverse limit with its induced topology; its inverse is the limit of the finite comparison inverses.",
         "Export modularCompletedComparison, siegelCompletedComparison, unitaryCompletedComparison and hilbertCompletedComparison; R31.1 imports the first and fourth instead of constructing them again."
       ],
@@ -171,11 +172,12 @@
         "CompletedCohomologyPartII:CC.1",
         "CompletedCohomologyPartII:CC.2",
         "CompletedCohomologyPartII:CC.7",
-        "ShimuraVarieties:V8",
+        "CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient",
+        "CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input",
         "ModularCurvesPartII:R14.3",
-        "HilbertModularVarietiesAndShimuraCurves:R18.4",
-        "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
-        "EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison"
+        "CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input",
+        "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
+        "CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison"
       ],
       "sources": [
         {
@@ -189,9 +191,9 @@
           "match": "The finite compact-support group is identified with étale cohomology of extension by zero on a compactification before the perfectoid argument. Only this finite comparison recipe is used here."
         },
         {
-          "sourceId": "Milne",
+          "sourceId": "MilneEC",
           "locator": "Theorem 21.1 and Remark 21.2, p. 130",
-          "match": "Ordinary finite-coefficient comparison and its constructible extension motivate the finite input; compact supports and naturality are imported from the stronger named EDC supplier, not inferred from this ordinary statement."
+          "match": "Ordinary finite-coefficient comparison and its constructible extension motivate the finite input; compact supports and naturality come from CC.0/finite-etale-betti-support-comparison, not from this ordinary statement."
         }
       ],
       "acceptance": [
@@ -202,10 +204,10 @@
       ],
       "implementationStatus": "unchecked",
       "suggestedDeclarations": [
-        "TauCeti.CompletedArithmetic.modularCompletedComparison",
-        "TauCeti.CompletedArithmetic.siegelCompletedComparison",
-        "TauCeti.CompletedArithmetic.unitaryCompletedComparison",
-        "TauCeti.CompletedArithmetic.hilbertCompletedComparison"
+        "TauCeti.CompletedCohomology.modularCompletedComparison",
+        "TauCeti.CompletedCohomology.siegelCompletedComparison",
+        "TauCeti.CompletedCohomology.unitaryCompletedComparison",
+        "TauCeti.CompletedCohomology.hilbertCompletedComparison"
       ]
     },
     {
@@ -246,7 +248,7 @@
       ],
       "implementationStatus": "unchecked",
       "suggestedDeclarations": [
-        "TauCeti.CompletedArithmetic.definiteUnitaryDegreeZeroComparison"
+        "TauCeti.CompletedCohomology.definiteUnitaryDegreeZeroComparison"
       ]
     },
     {
@@ -265,7 +267,7 @@
       "proofSteps": [
         "Read the published §4.2 definition with the §4.1 Hodge embedding/tame level conventions, matching finite level and support with the arithmetic adapter.",
         "Apply cofinality and the compact-support finite comparison at fixed n. Expose the level-insertion maps so TC.2 can verify its pullback/trace diagrams.",
-        "Register a supplier link CC.8→TC.2 for this fixed-exponent input. Preserve this integrated node id with its narrowed statement, and remove the perfectoid comparison output from CC.8 ownership."
+        "CC.8 supplies this fixed-exponent input to TC.2 (the link CC.8→TC.2); the perfectoid comparison is not a CC.8 output."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
@@ -287,7 +289,7 @@
       ],
       "implementationStatus": "unchecked",
       "suggestedDeclarations": [
-        "TauCeti.CompletedArithmetic.scholzeFixedExponentComparison"
+        "TauCeti.CompletedCohomology.scholzeFixedExponentComparison"
       ]
     },
     {
@@ -308,7 +310,7 @@
         "Conjugate the finite actions across the comparison, and use naturality to descend to each colimit. Prove its smoothness vector by vector at a finite level and finite coefficient.",
         "Invoke the existing TopModuleCat limit and Functor.mapEnd on the coefficient diagram. Equality and commutation are checked under every limit projection; uniqueness follows from those projections.",
         "For joint continuity, test each inverse-limit basic open using its discrete coordinate and that coordinate’s open stabilizer. Use CC.1 for G_p level reindexing and CC.2 for stable-lattice rationalization and its topology.",
-        "For each residual projector in this packet the commutation equations restrict these actions to its closed summand."
+        "For each residual projector of CC.8/residual-hecke-projector the commutation equations restrict these actions to its closed summand."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
@@ -349,49 +351,49 @@
       ],
       "api": [
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction",
+          "name": "TauCeti.CompletedCohomology.transportedAction",
           "role": "constructor",
           "statement": "The monoid action on the existing topological coefficient-limit object is the image of the natural diagram action under the limit functor; arithmetic finite actions are transported first."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_projection",
+          "name": "TauCeti.CompletedCohomology.transportedAction_projection",
           "role": "compatibility",
           "statement": "Each limit projection intertwines the induced operator with the corresponding diagram component."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_unique",
+          "name": "TauCeti.CompletedCohomology.transportedAction_unique",
           "role": "extensionality",
           "statement": "Two continuous actions agreeing under every coefficient projection agree."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_commute",
+          "name": "TauCeti.CompletedCohomology.transportedAction_commute",
           "role": "relation",
           "statement": "Commuting natural diagram actions induce commuting operators on the limit."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_jointlyContinuous",
+          "name": "TauCeti.CompletedCohomology.transportedAction_jointlyContinuous",
           "role": "structure",
           "statement": "If each coordinate action is jointly continuous, the action on the induced limit topology is jointly continuous."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_localized",
+          "name": "TauCeti.CompletedCohomology.transportedAction_localized",
           "role": "compatibility",
           "statement": "A continuous idempotent commuting with all action operators has an invariant image with the restricted continuous action."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_identity",
+          "name": "TauCeti.CompletedCohomology.transportedAction_identity",
           "kind": "characterisation",
           "statement": "The trivial natural action induces the identity on every element of the completed object."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_sign",
+          "name": "TauCeti.CompletedCohomology.transportedAction_sign",
           "kind": "characterisation",
           "statement": "For a constant O coefficient-limit diagram with the C_2 sign action, the nontrivial element acts by −1, including at p=2; reduction modulo 2 can be trivial without making the integral action trivial."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.transportedAction_noncommuting",
+          "name": "TauCeti.CompletedCohomology.transportedAction_noncommuting",
           "kind": "non-example",
           "statement": "The two shears on O^2, represented by matrices [[1,1],[0,1]] and [[1,0],[1,1]], do not commute. Commutation on the completed object requires the finite commuting-action hypothesis."
         }
@@ -448,39 +450,39 @@
       ],
       "api": [
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram",
           "role": "constructor",
           "statement": "The functor on the cofiltered normal-level/coefficient category has object T_{U,s} and transition given by the specified derived coefficient change."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram_class",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram_class",
           "role": "projection",
           "statement": "Every transition sends the derived image class of h∈H to its target image class."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram_surjective",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram_surjective",
           "role": "structure",
           "statement": "Each transition is surjective; finite images are finite commutative O-algebras."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram_coherence",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram_coherence",
           "role": "functoriality",
           "statement": "Identity and composite transitions agree, including their base-change comparison isomorphisms."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram_zero",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram_zero",
           "kind": "characterisation",
           "statement": "A zero complex has the one-element image ring at every level; its compatible diagram has no maximal ideals."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram_scalar",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram_scalar",
           "kind": "characterisation",
           "statement": "For the scalar action on a rank-one O/varpi^s complex at trivial group level, the image is O/varpi^s and coefficient transitions are quotient maps."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.derivedHeckeDiagram_intertwiner_insufficient",
+          "name": "TauCeti.CompletedCohomology.derivedHeckeDiagram_intertwiner_insufficient",
           "kind": "non-example",
           "statement": "For H=k[x] acting by x=0 on k and by x=1 on k, the zero map of modules intertwines the actions, but no H-compatible map of the two image quotients exists. A bare intertwiner cannot replace base-change recovery."
         }
@@ -536,7 +538,7 @@
       ],
       "kind": "construction",
       "title": "Completed derived Hecke algebra",
-      "statement": "For the compatible finite derived-image diagram F of this packet define T_hat as its inverse limit, the subring of the product consisting of compatible tuples, with the subspace topology of the product of finite discrete rings. This is the instance of Mathlib RingCat.sectionsSubring attached to F, not a new generic inverse-limit construction. It is a compact Hausdorff complete topological commutative O-algebra. The evaluation maps to finite images are continuous surjections. The compatible map H→T_hat has dense image; it need not be surjective. Cofinal normal-level systems and iterated coefficient/level limits give canonical topological ring isomorphisms. The supplied finite actions induce a continuous action on the compatible CC.4 chain/homology system and its completed limit; on completed cohomology use the CC.3 adjoint/dual convention or an explicitly supplied cohomological diagram.",
+      "statement": "For the compatible finite derived-image diagram F of CC.8/compatible-derived-hecke-images define T_hat as its inverse limit, the subring of the product consisting of compatible tuples, with the subspace topology of the product of finite discrete rings. This is the instance of Mathlib RingCat.sectionsSubring attached to F, not a new generic inverse-limit construction. It is a compact Hausdorff complete topological commutative O-algebra. The evaluation maps to finite images are continuous surjections. The compatible map H→T_hat has dense image; it need not be surjective. Cofinal normal-level systems and iterated coefficient/level limits give canonical topological ring isomorphisms. The supplied finite actions induce a continuous action on the compatible CC.4 chain/homology system and its completed limit; on completed cohomology use the CC.3 adjoint/dual convention or an explicitly supplied cohomological diagram.",
       "hypotheses": [
         "The normal-level/coefficient index is nonempty and cofiltered; transitions are surjective finite ring maps. Use a countable cofinal subsystem only after proving cofinality.",
         "The completed module action is asserted only on diagrams whose action and transition maps are compatible and jointly continuous at each discrete coefficient level."
@@ -577,59 +579,59 @@
       ],
       "api": [
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke",
+          "name": "TauCeti.CompletedCohomology.completedHecke",
           "role": "constructor",
           "statement": "The carrier is RingCat.sectionsSubring for the finite derived-image functor; use its inherited commutative ring and the product-induced topology."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_eval",
+          "name": "TauCeti.CompletedCohomology.completedHecke_eval",
           "role": "projection",
           "statement": "Evaluation at any (U,s) is a continuous surjective ring map and satisfies all transition equations."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_ext",
+          "name": "TauCeti.CompletedCohomology.completedHecke_ext",
           "role": "extensionality",
           "statement": "Two elements agree exactly when their evaluations at every finite image agree."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_lift",
+          "name": "TauCeti.CompletedCohomology.completedHecke_lift",
           "role": "universal-property",
           "statement": "A compatible family of continuous ring maps to the finite images factors uniquely and continuously through T_hat."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_dense",
+          "name": "TauCeti.CompletedCohomology.completedHecke_dense",
           "role": "structure",
           "statement": "The abstract H map is dense because it surjects onto every finite image; density does not assert surjectivity onto the limit."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_cofinal",
+          "name": "TauCeti.CompletedCohomology.completedHecke_cofinal",
           "role": "equivalence",
           "statement": "Restriction to a cofinal level/coefficient subsystem is a topological ring isomorphism preserving each retained evaluation."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_action",
+          "name": "TauCeti.CompletedCohomology.completedHecke_action",
           "role": "compatibility",
           "statement": "Evaluation of t acting on a compatible module element equals the corresponding finite image operator applied to that coordinate."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_action_continuous",
+          "name": "TauCeti.CompletedCohomology.completedHecke_action_continuous",
           "role": "structure",
           "statement": "If the finite coordinate actions are jointly continuous and compatible with the diagram, the induced action on the compatible-sections completed module is jointly continuous for the product-induced topologies."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_constant",
+          "name": "TauCeti.CompletedCohomology.completedHecke_constant",
           "kind": "characterisation",
           "statement": "For the constant identity-transition diagram on a finite commutative ring A, T_hat≅A with its discrete topology."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_scalar",
+          "name": "TauCeti.CompletedCohomology.completedHecke_scalar",
           "kind": "characterisation",
           "statement": "For A_s=Z/p^s with reduction maps, T_hat≅Z_p; the map Z→Z_p is dense and is not surjective."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedHecke_zero",
+          "name": "TauCeti.CompletedCohomology.completedHecke_zero",
           "kind": "characterisation",
           "statement": "For the one-element finite image diagram, the completed ring is the one-element ring and its maximal spectrum is empty."
         }
@@ -725,44 +727,44 @@
       ],
       "api": [
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector",
+          "name": "TauCeti.CompletedCohomology.residualProjector",
           "role": "constructor",
           "statement": "The element of T_hat formed from the compatible finite local-factor idempotents."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_eval",
+          "name": "TauCeti.CompletedCohomology.residualProjector_eval",
           "role": "projection",
           "statement": "Its evaluation equals the unique projector for the specified finite residual factor."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_unique",
+          "name": "TauCeti.CompletedCohomology.residualProjector_unique",
           "role": "characterisation",
           "statement": "An element with those finite evaluations is the same residual projector; consequently it is independent of all cofinal choices."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_relations",
+          "name": "TauCeti.CompletedCohomology.residualProjector_relations",
           "role": "relation",
           "statement": "The residual projectors are idempotent, pairwise orthogonal and have finite sum 1."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_factor",
+          "name": "TauCeti.CompletedCohomology.residualProjector_factor",
           "role": "equivalence",
           "statement": "Multiplication by the residual projector identifies its image ring with the corresponding factor of the semilocal product."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_product",
+          "name": "TauCeti.CompletedCohomology.residualProjector_product",
           "kind": "characterisation",
           "statement": "For O×O with the two residual maximal ideals, the projectors are (1,0) and (0,1)."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_local",
+          "name": "TauCeti.CompletedCohomology.residualProjector_local",
           "kind": "characterisation",
           "statement": "For a local completed image ring the sole residual projector is 1."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.residualProjector_congruent_characters",
+          "name": "TauCeti.CompletedCohomology.residualProjector_congruent_characters",
           "kind": "non-example",
           "statement": "In T={(a,b)∈O×O : a≡b mod varpi}, (1,0) is not an element of T. Both rational characters belong to the same residual factor, whose projector is 1."
         }
@@ -822,59 +824,59 @@
       ],
       "api": [
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization",
+          "name": "TauCeti.CompletedCohomology.completedLocalization",
           "role": "constructor",
           "statement": "The native range of the continuous residual idempotent on the completed object, with induced topology."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_inclusion",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_inclusion",
           "role": "projection",
           "statement": "The range subtype inclusion is continuous and linear."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_projection",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_projection",
           "role": "projection",
           "statement": "P corestricts to a continuous linear projection onto its range, and the inclusion/projection composites are 1 on the range and P on M."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_fixed",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_fixed",
           "role": "characterisation",
           "statement": "An element lies in the selected range exactly when P x=x."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_closed",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_closed",
           "role": "structure",
           "statement": "In a Hausdorff completed object the selected range is closed."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_map",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_map",
           "role": "functoriality",
           "statement": "Any continuous linear map intertwining two labelled projectors restricts to the ranges, respecting identity and composition."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_algebraic",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_algebraic",
           "role": "equivalence",
           "statement": "For the supported residual label and semilocal product ring, the selected image is algebraically the localization of M at that maximal ideal."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_complete",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_complete",
           "role": "structure",
           "statement": "For the complete separated additive uniformity of the Hausdorff completed object, its closed residual range is complete with the induced uniformity."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_zero",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_zero",
           "kind": "characterisation",
           "statement": "The zero projector selects the zero module, even when M is nonzero."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_one",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_one",
           "kind": "characterisation",
           "statement": "The identity projector selects all of M with its original topology."
         },
         {
-          "name": "TauCeti.CompletedArithmetic.completedLocalization_product",
+          "name": "TauCeti.CompletedCohomology.completedLocalization_product",
           "kind": "characterisation",
           "statement": "On O×O with the first residual factor projector, the selected module is O×{0}; (0,1) is excluded."
         }
@@ -928,10 +930,10 @@
       ],
       "implementationStatus": "unchecked",
       "suggestedDeclarations": [
-        "TauCeti.CompletedArithmetic.completedLocalization_limit",
-        "TauCeti.CompletedArithmetic.completedLocalization_levelColimit",
-        "TauCeti.CompletedArithmetic.completedLocalization_supportTriangle",
-        "TauCeti.CompletedArithmetic.completedLocalization_dual"
+        "TauCeti.CompletedCohomology.completedLocalization_limit",
+        "TauCeti.CompletedCohomology.completedLocalization_levelColimit",
+        "TauCeti.CompletedCohomology.completedLocalization_supportTriangle",
+        "TauCeti.CompletedCohomology.completedLocalization_dual"
       ]
     },
     {
@@ -970,28 +972,14 @@
       ],
       "implementationStatus": "unchecked",
       "suggestedDeclarations": [
-        "TauCeti.CompletedArithmetic.derivedCohomologicalResidualComparison"
+        "TauCeti.CompletedCohomology.derivedCohomologicalResidualComparison"
       ]
     }
   ],
   "requests": [
     {
-      "supplier": "ShimuraVarieties:V8",
-      "need": "Supply the actual modular, Siegel, unitary and Hilbert canonical-model towers over their reflex fields, the complex-embedding/adelic quotient dictionaries including finite real components, level maps and tame correspondences defined over the reflex field. The coefficient local systems and their comparison are separate CC.7/R14.3/R18.4 inputs. No cohomology comparison is presumed from canonical models alone.",
-      "neededBy": [
-        "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation"
-      ]
-    },
-    {
       "supplier": "ModularCurvesPartII:R14.3",
-      "need": "Supply the modular finite étale/Betti comparison with the chosen integral local system, ordinary/compact support distinction, finite étale trace, level pullback, tame Hecke and determinant/component labels. All-degree support inputs beyond its explicit H^1 target use EDC.6, not an assumed stronger R14.3 theorem.",
-      "neededBy": [
-        "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation"
-      ]
-    },
-    {
-      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.4",
-      "need": "Supply the Hilbert and quaternionic Shimura-curve finite tower/local-system dictionary and étale/Betti Hecke-equivariant comparisons with degeneration/trace conventions; combine with EDC.6 for the all-degree support diagram.",
+      "need": "Supply the modular finite étale/Betti comparison with the chosen integral local system, ordinary/compact support distinction, finite étale trace, level pullback, tame Hecke and determinant/component labels. All-degree support inputs beyond its explicit H^1 target use CC.0/finite-etale-betti-support-comparison, not an assumed stronger R14.3 theorem.",
       "neededBy": [
         "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation"
       ]
@@ -1053,7 +1041,7 @@
       "stageId": "CompletedCohomologyPartII:CC.8",
       "status": "planned",
       "remaining": [
-        "Discharge the finite canonical-model/local-system comparison requests and the same-roadmap CC.0–CC.7 contracts.",
+        "Discharge the same-roadmap contracts of CC.0–CC.7, the proof leaves of CC.8/canonical-four-family-tower-input, CC.8/hilbert-finite-local-system-input and CC.8/arithmetic-shimura-central-quotient (gaps G9, G10 and G12), and the R14.3 modular local-system request.",
         "Provide the IHG.2 equivariant noncommutative-base and P7 finite p-group residue-detection extensions.",
         "Replace the arithmetic-specific omitted signature register with real supplier imports when their carriers and maps are available; preserve all stated hypotheses and tests."
       ]
@@ -1085,7 +1073,7 @@
         "CompletedCohomologyAndLocalGlobalCompatibility"
       ],
       "detail": "RT-AREA-automorphic-1/15–16–18 and accepted RS-09 fix the ownership of the fixed-exponent comparison, concrete tower identifications and big Hecke algebra.",
-      "proposal": "Keep all four actual tower comparisons and the completed inverse-limit Hecke/localization constructions in CC.8. Retain the old Scholze node id only for the definition/convention comparison; TC.2 owns Theorem 4.2.1 and Corollaries 4.2.2–4.2.3. R31.1 imports CC.8 identifications and R31.3 specializes CC.8’s common Hecke algebra. The arithmetic CC.0 stage imports the V8/EDC.6 finite comparison dictionary rather than stating an unsupported canonical-model identification."
+      "proposal": "Keep all four actual tower comparisons and the completed inverse-limit Hecke/localization constructions in CC.8. Retain the old Scholze node id only for the definition/convention comparison; TC.2 owns Theorem 4.2.1 and Corollaries 4.2.2–4.2.3. R31.1 imports CC.8 identifications and R31.3 specializes CC.8’s common Hecke algebra. The selected canonical-model input, the Hilbert and quaternionic coefficient input and the finite étale–Betti and trace comparisons are this roadmap's own targets (CC.8/canonical-four-family-tower-input, CC.8/hilbert-finite-local-system-input, CC.0/finite-etale-betti-support-comparison, CC.0/finite-etale-trace-orientation-comparison), checked against CC.8/arithmetic-shimura-central-quotient; ShimuraVarieties V8, HilbertModularVarietiesAndShimuraCurves R18.4 and EtaleDualityAndPerverseSheaves EDC.6 import these narrow contracts and keep their wider geometry."
     },
     {
       "action": "rescope",
@@ -1173,7 +1161,7 @@
       "Native continuous idempotent range, inclusion/projection/fixed-point/closedness/map/algebraic-localization API, coefficient-limit comparison and three tests."
     ],
     "omittedWithExactSuppliers": [
-      "Four actual arithmetic comparisons, definite unitary degree-zero and Scholze fixed-exponent comparison: real CC.0/CC.1/CC.2/CC.7 and the named finite geometric/comparison inputs; the definite discrete example uses CC.0 instead of the canonical-model adapter.",
+      "Four actual arithmetic comparisons, definite unitary degree-zero and Scholze fixed-exponent comparison: real CC.0/CC.1/CC.2/CC.7, the CC.8 canonical-model, Hilbert and central-quotient inputs and the CC.0 finite étale–Betti and trace comparisons; the definite discrete example uses CC.0 instead of the canonical-model adapter.",
       "Arithmetic instantiation of the endomorphism-ring diagram: CC.4 recovery and the IHG.2 equivariant noncommutative-base extension.",
       "Arithmetic pro-p residual-support proof: CC.4 finite derived coinvariant recovery and the P7 finite local group-ring residue-detection extension.",
       "Actual support-triangle, level-colimit and continuous-dual specialization: CC.1/CC.2/CC.3/CC.7.",
@@ -1247,5 +1235,87 @@
         "note": "GN Remark 2.1.12 p.10 and Lemma 2.1.14 p.11 supply the bounded ghost/residual-support argument. A common interval gives the uniform power b−a+1; finite fibre compactness makes the inverse-limit quotient surjective. A nilpotent kernel identifies maximal ideals and the unique idempotents, not the image rings. An action on one completed degree remains a separately qualified quotient."
       }
     ]
+  },
+  "assemblyMaterialization": {
+    "job": "ASM-CompletedCohomologyPartII",
+    "date": "2026-10-16",
+    "basis": "The supplier migration that the whole-roadmap packet CompletedCohomologyPartII.json (accepted 2026-10-13) records as its gap G11 and its third restructure entry, and the conditionality on CC.8/arithmetic-shimura-central-quotient stated in its imports note.",
+    "changes": [
+      {
+        "node": "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
+        "field": "prerequisites",
+        "from": [
+          "CompletedCohomologyPartII:CC.0",
+          "CompletedCohomologyPartII:CC.1",
+          "CompletedCohomologyPartII:CC.2",
+          "CompletedCohomologyPartII:CC.7",
+          "ShimuraVarieties:V8",
+          "ModularCurvesPartII:R14.3",
+          "HilbertModularVarietiesAndShimuraCurves:R18.4",
+          "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
+          "EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison"
+        ],
+        "to": [
+          "CompletedCohomologyPartII:CC.0",
+          "CompletedCohomologyPartII:CC.1",
+          "CompletedCohomologyPartII:CC.2",
+          "CompletedCohomologyPartII:CC.7",
+          "CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient",
+          "CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input",
+          "ModularCurvesPartII:R14.3",
+          "CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input",
+          "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
+          "CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison"
+        ],
+        "reason": "ShimuraVarieties (V8) and HilbertModularVarietiesAndShimuraCurves (R18.4) are later in the upstream order; their consumed contracts are stated at this roadmap's CC.8 nodes canonical-four-family-tower-input and hilbert-finite-local-system-input, and the two EDC.6 contracts at the CC.0 nodes finite-etale-betti-support-comparison and finite-etale-trace-orientation-comparison. The central-quotient comparison is added because the identification of the arithmetic quotient with X_K(C) depends on it."
+      },
+      {
+        "node": "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
+        "field": "hypotheses[3], hypotheses[4], new hypotheses[5], proofSteps[0], proofSteps[1], sources[2].match",
+        "reason": "The same supplier replacement in the text; the new hypothesis states the central-quotient and effective-deck-group conditions of G12."
+      },
+      {
+        "field": "requests",
+        "reason": "The requests to ShimuraVarieties:V8 and HilbertModularVarietiesAndShimuraCurves:R18.4 are withdrawn: no node of this part cites those suppliers any more, and the contracts they asked for are stated at this roadmap's CC.8 nodes canonical-four-family-tower-input and hilbert-finite-local-system-input. The R14.3 request names CC.0/finite-etale-betti-support-comparison in place of EDC.6.",
+        "withdrawn": [
+          {
+            "supplier": "ShimuraVarieties:V8",
+            "need": "Supply the actual modular, Siegel, unitary and Hilbert canonical-model towers over their reflex fields, the complex-embedding/adelic quotient dictionaries including finite real components, level maps and tame correspondences defined over the reflex field. The coefficient local systems and their comparison are separate CC.7/R14.3/R18.4 inputs. No cohomology comparison is presumed from canonical models alone.",
+            "neededBy": [
+              "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation"
+            ]
+          },
+          {
+            "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.4",
+            "need": "Supply the Hilbert and quaternionic Shimura-curve finite tower/local-system dictionary and étale/Betti Hecke-equivariant comparisons with degeneration/trace conventions; combine with EDC.6 for the all-degree support diagram.",
+            "neededBy": [
+              "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation"
+            ]
+          }
+        ]
+      },
+      {
+        "field": "restructure[0].proposal, coverage[0].remaining[0], suggestedInterfaceCoverage.omittedWithExactSuppliers[0]",
+        "reason": "The same supplier replacement in the routing text."
+      },
+      {
+        "field": "sources",
+        "reason": "Source id Milne renamed MilneEC: it is the same document (same SHA-256) as the whole-roadmap packet's MilneEC, so the assembled roadmap cites it under one id."
+      },
+      {
+        "field": "api[].name, tests[].name, suggestedDeclarations",
+        "reason": "Namespace TauCeti.CompletedArithmetic renamed TauCeti.CompletedCohomology, the namespace of the rest of the roadmap and of the joined suggested Lean file."
+      },
+      {
+        "field": "wording",
+        "items": [
+          "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison proofSteps[2]",
+          "CompletedCohomologyPartII:CC.8/transported-arithmetic-actions proofSteps[3]",
+          "CompletedCohomologyPartII:CC.8/completed-hecke-algebra statement"
+        ],
+        "reason": "Process wording (packet, owner, accepted part, PAPER route ids) replaced by references to the roadmap's own targets, so that the assembled document reads as one roadmap. No statement changes its mathematics."
+      }
+    ],
+    "unchanged": "Every other field, including the review object and its checked records, is as reviewed. No statement of a target is changed except the realisation node's supplier names and its added central-quotient hypothesis."
   }
 }
