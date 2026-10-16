@@ -1,5 +1,59 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
+## Current run: codex-E0Z9OT, 16 October 2026
+
+**Checkpoint; the upstream-ownership blocker persists.** The bot confirmed
+[this run's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6217264142)
+at 14:06:38 UTC. Issue #9295 was the first eligible issue labelled
+`state:available` in the manager's ordered list. Only this job was claimed.
+This run continues the checkpoint merged in
+[#9995](https://github.com/CBirkbeck/tauceti-explorer/pull/9995).
+
+Fresh authenticated GitHub API reads confirmed that upstream
+[PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+is merged, at `d23fdaf388733bd9bcb0dc9b7963cc336f21461d` on
+14 October 2026 at 04:47:45 UTC. Current upstream main remains
+`a46641603eb2cce60cea86900e44c3a5d856f91f`. I separately fetched and read
+its README scope/ownership clauses and Layer 0, and the corresponding
+Suggested.lean imports and Layer 0 interfaces. The upstream specification
+covers the schemes-and-morphisms direction of this issue and imports the
+AlgebraicVectorBundles carriers. The supplied read-only roadmap checkout
+remains at `0d144d044dacebca17b654695b6f1ad58f159b27`, without the new
+directory; the current GitHub files establish ownership despite that older
+checkout. The current Tau Ceti checkout remains at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; its relative-Spec functor
+source and the SF.0 reviewed library audit were inspected as context.
+No current-library declaration is newly asserted to exist at the historical
+packet pins.
+
+The [maintainer's scope instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6147006432)
+still directs changes upstream and says further atlas blueprint rounds are
+unnecessary. No subsequent issue comment withdraws it. Automatic intake
+released the issue again after #9995 at 14:01:49 UTC. That release leaves
+the conflict between the queue and the maintainer's instruction unresolved.
+WORKERS.md and PROTOCOL.md section 15 prohibit a second plan of this
+existing upstream roadmap. Completing the historical revision requires a
+maintainer disposition of that conflict; changing the queue or upstream
+roadmap is outside this issue's editable deliverables.
+
+Only this handoff changes. The packet, reader and suggested file retain their
+previous state: `partial` packet, `partial` SF.0 coverage, `needs_changes`
+review, 139 nodes, six gaps and 11 requests. This run adds no mathematical
+nodes, API, tests, planets, baseline citations or ownership transfers.
+The six unresolved review groups and the existing handling of
+`RT-AREA-algebraicgeometry/11` are preserved below. Their correctness has
+not been newly certified by this checkpoint.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings for
+the unchanged packet. The handoff passes `intake.py check-files`.
+No Lean file changed or was compiled. No book or source passage was copied
+into the repository, and no shared build or checkout was changed. The
+historical checkpoint below retains the detailed source links and resumption
+instructions; no scratch file is needed. This is the sixth submission of the
+same ownership blocker, after #9894, #9951, #9972, #9988 and #9995.
+
+## Previous checkpoint and preserved mathematical state
+
 Codex, session `codex-unDNnV`, 16 October 2026. Issue [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint; revision blocked by upstream ownership.** The bot confirmed this
