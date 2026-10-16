@@ -130211,6 +130211,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~codex.md",
    "note": "claimed on GitHub issue #9943"
+  },
+  {
+   "id": "PKG-DeformationAndDerivedPatchingAlgebra~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/README.md",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/Suggested.lean",
+    "research/blueprint/packages/DeformationAndDerivedPatchingAlgebra/metadata.toml",
+    "research/blueprint/handoff/PKG-DeformationAndDerivedPatchingAlgebra~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-DeformationAndDerivedPatchingAlgebra~codex.md"
   }
  ]
 }
