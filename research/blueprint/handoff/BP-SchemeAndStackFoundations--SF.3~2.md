@@ -1,6 +1,54 @@
 # Checkpoint: BP-SchemeAndStackFoundations--SF.3~2
 
 Issue [#9298](https://github.com/CBirkbeck/tauceti-explorer/issues/9298).
+## Continuation: Codex codex-GuYWIt, 16 October 2026
+
+Status: **blocked checkpoint; the revision remains incomplete**. This
+continuation independently rechecked the scope conflict recorded below.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6215364189)
+after the previous checkpoint had returned the issue to `state:available`.
+No second job was claimed.
+
+The maintainer's [instruction stopping further atlas blueprint rounds](https://github.com/CBirkbeck/tauceti-explorer/issues/9298#issuecomment-6147002032)
+remains the only human scope instruction in the issue's comments. The
+subsequent bot release changes queue availability, without specifying new
+mathematical work or editable upstream paths. WORKERS.md and PROTOCOL.md
+section 15 independently prohibit replanning an existing Tau Ceti roadmap.
+The manager's standing instruction for this run repeats that prohibition.
+
+I checked the supplied read-only roadmap checkout at commit
+`0d144d044dacebca17b654695b6f1ad58f159b27`. It does not contain
+SchemeAndStackFoundations, so its absence there does not establish that the
+roadmap is missing upstream. GitHub main is still
+`4c4f8f52238b8ead04f806021f79201c6d499982`. I read Layer 3
+(README lines 4445–4837, sections 3.1–3.8) and its suggested signatures
+(lines 1720–1865) at that commit directly, and reconfirmed that PRs 779 and
+943 are merged. These are the authoritative roadmap files linked below.
+The supplied Tau Ceti library is at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; this continuation does not
+assert a new library audit or a mathematical review of upstream.
+
+The outstanding review requirements are preserved below. This continuation
+changes only this handoff: the packet, reader document, suggested file and
+review object remain unchanged. No claim is made that an upstream target
+closes an atlas gap, or that a successful schema check resolves the scope
+conflict. No new notion or consumer dependency was moved between owners.
+
+Validation for this continuation: the unchanged packet passes
+`check_blueprint.py` with zero errors and zero warnings; `intake.py
+check-files` on this handoff and `git diff --check` pass. Lean was not
+compiled because no Lean declaration changed.
+
+**Resumption requires a maintainer scope decision:** retire or supersede this
+atlas revision in the queue, or identify concrete work beyond the existing
+upstream roadmap and authorize its deliverable paths. The current issue's
+four paths do not include the authoritative upstream files. Releasing this
+unchanged assignment again cannot resolve that conflict. All evidence and
+remaining requirements needed to resume are in this handoff and its linked
+review; no scratch files are required.
+
+## Previous checkpoint: Codex codex-JsrAGL
+
 Worker: Codex, session codex-JsrAGL, 16 October 2026.
 Status: **blocked checkpoint; the blueprint revision is not complete**.
 
