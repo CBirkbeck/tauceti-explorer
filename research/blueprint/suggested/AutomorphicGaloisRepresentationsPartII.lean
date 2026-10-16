@@ -76,7 +76,7 @@ theorem expectedHodgeTate_conj {n : ℕ} {ι : Type*} (c : ι → ι)
       (w + ((n - 1 : ℕ) : ℤ)) -
         ((a τ).1 i.rev + ((n - 1 - i.rev : ℕ) : ℤ)) := sorry
 
-theorem weight_baseChange_conjugation {n : ℕ} {ι ι' : Type*}
+theorem DominantWeight.isInW_baseChange {n : ℕ} {ι ι' : Type*}
     (c : ι → ι) (c' : ι' → ι') (f : ι' → ι)
     (hf : ∀ τ, f (c' τ) = c (f τ))
     {w : ℤ} {a : DominantWeight n ι} (h : a.IsInW c w) :
@@ -175,21 +175,21 @@ def IsGeneric {G k : Type*} [Group G] [Field k] {n : ℕ}
       ∏ i, (X - C (α i : AlgebraicClosure k))) ∧
     IsGenericEigenvalues α (algebraMap k (AlgebraicClosure k) q)
 
-theorem generic_scalar_twist {K : Type*} [Field K] {n : ℕ}
+theorem isGenericEigenvalues_smul {K : Type*} [Field K] {n : ℕ}
     (α : Fin n → Kˣ) (q : K) (c : Kˣ) :
     IsGenericEigenvalues (fun i => c * α i) q ↔ IsGenericEigenvalues α q := sorry
 
-theorem generic_reindex {K : Type*} [Field K] {n : ℕ}
+theorem isGenericEigenvalues_reindex {K : Type*} [Field K] {n : ℕ}
     (α : Fin n → Kˣ) (q : K) (e : Fin n ≃ Fin n) :
     IsGenericEigenvalues (α ∘ e) q ↔ IsGenericEigenvalues α q := sorry
 
-theorem generic_dual {K : Type*} [Field K] {n : ℕ}
+theorem isGenericEigenvalues_inverse {K : Type*} [Field K] {n : ℕ}
     (α : Fin n → Kˣ) (q : K) :
     IsGenericEigenvalues (fun i => (α i)⁻¹) q ↔ IsGenericEigenvalues α q := sorry
 
 /-- Independence uses equality of the representation at the lifts. In the local
 application this follows because their difference belongs to inertia. -/
-theorem generic_frobenius_lift {G k : Type*} [Group G] [Field k] {n : ℕ}
+theorem isGeneric_frobenius_independent {G k : Type*} [Group G] [Field k] {n : ℕ}
     (I : Subgroup G) (r : G →* Matrix.GeneralLinearGroup (Fin n) k)
     (f₁ f₂ : G) (q : k) (h : r f₁ = r f₂) :
     IsGeneric I r f₁ q ↔ IsGeneric I r f₂ q := sorry
