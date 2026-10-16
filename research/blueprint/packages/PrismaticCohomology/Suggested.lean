@@ -379,7 +379,8 @@ functor; The crystalline and de Rham realisations; The Breuil–Kisin and A_inf 
 Spf(O_K), and their Čech nerves; Period sheaves on the quasi-syntomic site of O_K; From filtered
 φ-modules to F-crystals over the open unit disc; The prismatic F-crystal of a crystalline lattice.
 
-Layer 8: δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free
+Layer 8: Algebraic Witt–Frobenius modules; Bounded algebraic Frobenius derived category;
+δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free
 δ_log-rings; Exactification of δ_log-triples; Prelog prisms; Log prisms; The standard prelog prisms;
 Prelog prismatic envelopes; Perfectoid monoids and perfectoid log rings; Perfect log prisms; The
 relative log prismatic site; Log prismatic cohomology complexes; The absolute saturated log
@@ -395,7 +396,11 @@ systems; p-Kummer local systems; Laurent F-crystals on the absolute saturated lo
 Additional definitions in README.md: formal completed quasi-coherent pullback and quotient
 descent; arc and arc_p sites and their formal variants; general complete delta-base framings
 and their cochain Koszul models; the graded prismatic Beilinson square and filtered
-Frobenius bundle dictionary.
+Frobenius bundle dictionary; the skew q-de Rham differential graded algebra and its
+semicosimplicial multiplicative comparison; completed untilt ring sheaves and constant
+condensed coefficient sheaves on diamond sites; formal integral logarithmic charts,
+smooth and étale formal logarithmic geometry, completed logarithmic cotangent sheaves,
+completed log PD envelopes and the big formal log crystalline site.
 -/
 
 end TauCetiRoadmap.PrismaticCohomology
