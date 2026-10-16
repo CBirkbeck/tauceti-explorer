@@ -44830,7 +44830,8 @@
     "REV-DirichletPadicLFunctions--L3-2"
    ],
    "prompt": "research/blueprint/prompts/ASM-DirichletPadicLFunctions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5872"
   },
   {
    "id": "ASM-EllipticKTheory",
@@ -45594,8 +45595,9 @@
     "REV-ArithmeticStatistics--ST.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-ArithmeticStatistics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6278"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6278",
+   "finishedAt": "2026-10-16T09:25:27Z"
   },
   {
    "id": "ASM-ProbabilisticAndMetricNumberTheory",
@@ -46461,7 +46463,9 @@
    ],
    "revisionOf": "PKG-AInfCohomology",
    "prompt": "research/blueprint/prompts/PKG-AInfCohomology~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9876",
+   "finishedAt": "2026-10-16T09:25:30Z"
   },
   {
    "id": "REV-PKG-AInfCohomology~2",
@@ -47606,7 +47610,8 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9882"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~3",
@@ -48517,7 +48522,8 @@
    ],
    "revisionOf": "PKG-ColemanIntegration",
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9880"
   },
   {
    "id": "REV-PKG-ColemanIntegration~3",
@@ -52735,7 +52741,8 @@
    ],
    "revisionOf": "PKG-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9884"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions~2",
@@ -53159,7 +53166,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicFamilies.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9888"
   },
   {
    "id": "REV-PKG-PadicFamilies",
@@ -53586,8 +53594,8 @@
    ],
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9188"
+   "state": "external",
+   "note": "claimed on GitHub issue #9188"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~2",
@@ -53681,7 +53689,8 @@
    ],
    "revisionOf": "PKG-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9878"
   },
   {
    "id": "REV-PKG-PrismaticCohomology~2",
@@ -54153,7 +54162,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraCompactifications.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9886"
   },
   {
    "id": "REV-PKG-ShimuraCompactifications",
@@ -109533,8 +109543,9 @@
     "REV-CompletedCohomologyPartII--CC.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-CompletedCohomologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #220"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #220",
+   "finishedAt": "2026-10-16T09:25:36Z"
   },
   {
    "id": "ASM-CrystallineCohomology",
@@ -109872,8 +109883,9 @@
     "REV-PadicHodgeTheory--R06.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-PadicHodgeTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #250"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #250",
+   "finishedAt": "2026-10-16T09:25:39Z"
   },
   {
    "id": "ASM-PerfectoidSpaces",
@@ -110155,8 +110167,9 @@
     "REV-AnalyticNumberTheory--AN.8~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-AnalyticNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #213"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #213",
+   "finishedAt": "2026-10-16T09:25:43Z"
   },
   {
    "id": "ASM-PeriodsAndSpecialValues",
