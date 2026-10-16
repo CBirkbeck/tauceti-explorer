@@ -56,6 +56,11 @@ import Mathlib.Order.SupIndep
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Data.Fintype.Prod
+import Mathlib.GroupTheory.Perm.Basic
+import Mathlib.Algebra.Polynomial.Eval.Defs
+import Mathlib.Tactic.Linarith
 
 
 open Polynomial
@@ -1920,8 +1925,19 @@ theorem weight_separated_factor_extraction {L : Type*} [Field L] [CharZero L] (q
     ∀ i ≤ N, ∃! Q : ℤ[X], Q.map (Int.castRingHom L) = P i := sorry
 
 /-- Test `weight_separation_needed`: without purity the factors are not determined by the product:
-`(1, 1 − 2t, 1 − 2t)` and `(1, 1, 1)` both have alternating product `1`. -/
-example : ((1 : ℚ[X]) - Polynomial.C 2 * Polynomial.X) * 1 = 1 * ((1 : ℚ[X]) - Polynomial.C 2 * Polynomial.X) := by ring
+`(P₀, P₁, P₂) = (1, 1 − 2t, 1 − 2t)` and `(1, 1, 1)` both satisfy `R · P₀P₂ = P₁` with `R = 1`,
+but their weight-one factors differ. -/
+example : (1 : ℚ[X]) * (1 * (1 - Polynomial.C 2 * Polynomial.X)) = 1 - Polynomial.C 2 * Polynomial.X ∧
+    (1 : ℚ[X]) * (1 * 1) = 1 ∧ (1 - Polynomial.C 2 * Polynomial.X : ℚ[X]) ≠ 1 := by
+  refine ⟨by ring, by ring, ?_⟩
+  intro h
+  have := congrArg (Polynomial.eval (1 : ℚ)) h
+  norm_num at this
+
+/-- Test `elliptic_seven_points`: `y² = x³ + x + 1` has four affine points over `𝔽₇`, so
+`#E(𝔽₇) = 5` and the trace of Frobenius is `7 + 1 − 5 = 3`. -/
+example : (Finset.univ.filter (fun p : ZMod 7 × ZMod 7 => p.2 ^ 2 = p.1 ^ 3 + p.1 + 1)).card + 1 = 5 := by
+  decide
 
 /-- Test `elliptic_seven_factor`: for `y² = x³ + x + 1` over `𝔽₇` the weight-one factor is
 `1 − 3t + 7t²`; its reverse `t² − 3t + 7` has discriminant `9 − 28 < 0`, so its roots are complex
@@ -1946,9 +1962,11 @@ theorem norm_interior_trace_le (q : ℝ) (hq : 1 < q) (d r : ℕ) (b : ℕ → �
 example (q r : ℕ) : ((1 + q ^ r + q ^ (2 * r) : ℕ) : ℤ) - (1 + q ^ (2 * r)) = q ^ r := by
   push_cast; ring
 
-/-- Test `swapped_lines_count`: two projective lines exchanged by Frobenius have `N_r = c_r(1 + q^r)`
-with `c_r = 0` for odd `r` (here `r = 3`) and `2` for even `r`. -/
-example : ¬ Even (3 : ℕ) := by decide
+/-- Test `swapped_lines_count`: two projective lines exchanged by Frobenius have `N_r = c_r(1 + q^r)`,
+where `c_r` counts the components fixed by the `r`-th power of the swap: `c₃ = 0` and `c₂ = 2`. -/
+example : (Finset.univ.filter (fun i : Fin 2 => ((Equiv.swap (0 : Fin 2) 1) ^ 3) i = i)).card = 0 ∧
+    (Finset.univ.filter (fun i : Fin 2 => ((Equiv.swap (0 : Fin 2) 1) ^ 2) i = i)).card = 2 := by
+  decide
 
 /-- Test `elliptic_seven_count`: `|5 − 8| ≤ 2·√7` for `y² = x³ + x + 1` over `𝔽₇`. -/
 example : |(5 : ℝ) - 8| ≤ 2 * Real.sqrt 7 := sorry
