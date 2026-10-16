@@ -40,6 +40,19 @@ theorem mk_eq_mk_iff (h g : X → ℝ) :
 theorem northcott_congr {h g : X → ℝ} (H : mk h = mk g) :
     Northcott h ↔ Northcott g := by sorry
 
+/-- Pullback of height classes along an arbitrary map, `[h] ↦ [h ∘ f]`. No finite-fibre
+hypothesis is needed to define it; Northcott transfer along it needs finite fibres. -/
+def pullback {Y : Type v} (f : X → Y) : HeightClass Y →ₗ[ℝ] HeightClass X :=
+  (Filter.boundedFilterSubmodule (β := ℝ) ℝ (⊤ : Filter Y)).mapQ
+    (Filter.boundedFilterSubmodule (β := ℝ) ℝ (⊤ : Filter X))
+    (LinearMap.funLeft ℝ ℝ f) (fun h hh => by
+      have : (h ∘ f) =O[⊤] ((1 : Y → ℝ) ∘ f) :=
+        Asymptotics.IsBigO.comp_tendsto hh Filter.tendsto_top
+      exact this)
+
+example {Y : Type v} (f : X → Y) (h : Y → ℝ) : pullback f (mk h) = mk (h ∘ f) := rfl
+example : pullback (fun _ : ℕ => (0 : ℕ)) (mk (fun n : ℕ => (n : ℝ))) = 0 := by sorry
+
 example (h : Empty → ℝ) : mk h = 0 := by sorry
 example : mk (fun n : ℕ => (-1 : ℝ)^n) = 0 := by sorry
 example : mk (fun n : ℕ => (n : ℝ)) ≠ 0 := by sorry
@@ -85,10 +98,6 @@ example {F : Type u} [Field F] [AdmissibleAbsValues F] [DecidableEq F]
 example : ¬ ∃ l : ℝ, Filter.Tendsto (fun m : ℕ => (m : ℝ))
     Filter.atTop (nhds l) := by sorry
 
-/-- Northcott for finite-dimensional projective space over a fixed number field. -/
-theorem northcott_projectivization (K : Type u) [Field K] [NumberField K] (n : ℕ) :
-    Northcott (Projectivization.logHeight (K := K) («ι» := Fin (n + 1))) := by sorry
-
 /-- A fixed-field linear coordinate change changes projective height by a bounded amount. -/
 theorem logHeight_linearChange_bounded (K : Type u) [Field K] [NumberField K]
     {n : ℕ} (T : (Fin (n + 1) → K) ≃ₗ[K] (Fin (n + 1) → K)) :
@@ -117,12 +126,6 @@ example {F : Type u} [Field F] [Height.AdmissibleAbsValues F] [DecidableEq F]
     ellipticUnhalvedPolarization 0 P = 0 := by sorry
 
 example : logHeight ![(2 : ℚ), 1] = Real.log 2 := by sorry
-example : 2 * Real.log 2 / (2 : ℝ) = Real.log 2 := by ring
-example : (2 : ℝ) * 2 - 2 - 2 = 0 := by norm_num
-example : (2 : ℝ) ^ 2 = 4 := by norm_num
-example : Real.log 2 + Real.log ((2 : ℝ)⁻¹) = 0 := by sorry
-example : (4 : ℝ) - 1 = 3 ∧ (Real.log 2 / 3) * 3 = Real.log 2 := by constructor <;> ring
-example : -Real.log 2 + Real.log 2 = 0 := by ring
 
 /-! ## Layer 1: Mordell–Weil on native abelian-variety points -/
 
@@ -158,9 +161,6 @@ example (L : Type u) [Field L] [Algebra K L] (P : Points A L) :
 
 end AbelianVariety
 
-example : ((2 : ℚ) ^ 2)⁻¹ = 1 / 4 ∧ (4 : ℕ) * 4 = 16 := by norm_num
-example : (1 : ℝ) ≤ 1 / (2 - 1) := by norm_num
-example : ¬ ((1 : ℝ) > 1 / (2 - 1)) := by norm_num
 
 /-! ## Layer 2: adelic points -/
 
@@ -198,26 +198,13 @@ example (K : Type) [Field K] [NumberField K] (A : Type) [CommRing A]
       (AlgHom.toRingHom (show A →ₐ[K] NumberField.AdeleRing (NumberField.RingOfIntegers K) K from x)) a) := by sorry
 
 example : ((1 / 2 : ℚ) : AddCircle (1 : ℚ)) + (1 / 2 : ℚ) = 0 := by sorry
-example : ((0 : ℚ) : AddCircle (1 : ℚ)) = 0 := rfl
-example : (((2 : ℚ) * (1 / 2 : ℚ) : ℚ) : AddCircle (1 : ℚ)) = 0 := by sorry
 
-/-! ## Layer 3: torsor descent and comparison of obstructions -/
+/-! ## Layers 3–4: torsor descent, curve covers and integral points
 
-example : (1 : ZMod 3) - 1 = 0 := by norm_num
-example : (1 : ZMod 3) - 2 = 2 := by decide
-example : ((1 / 3 : ℚ) : AddCircle (1 : ℚ)) + (2 / 3 : ℚ) = 0 := by sorry
-example : ((1 / 3 : ℚ) : AddCircle (1 : ℚ)) - (2 / 3 : ℚ) = (2 / 3 : ℚ) := by sorry
-example : (-1 : ℤ) + 1 = 0 ∧ 1 + 1 = (2 : ℤ) := by norm_num
-example : (2 : ℚ) ^ (-1 : ℤ) * 2 = 1 := by norm_num
-example : (2 : ℚ) / (2 * 2) = 1 / 2 := by norm_num
-example : (2 : ℚ) * (1 / 2) = 1 := by norm_num
-example : (2 : ℕ) • ((1 / 2 : ℚ) : AddCircle (1 : ℚ)) = 0 := by sorry
+Torsors, descent sets, curve models and integral points need scheme-level carriers; they are
+README targets and are named in the closing comment.
+-/
 
-/-! ## Layer 4: curve covers and integral points -/
-
-example : 1 + 2 ^ (2 * 2) * (2 - 1) = (17 : ℕ) := by norm_num
-example : 2 * 41 - 2 = 2 ^ (2 * 2) * (4 * 2 - 3 : ℕ) := by norm_num
-example : (2 : ℝ) ^ (2 / (2 : ℝ)) = 2 := by norm_num
 
 /-! ## Layer 5: finite rank and difference maps -/
 
@@ -233,8 +220,8 @@ example (r : ℕ) : HasFiniteRank (Fin r → ℤ) := by sorry
 example : HasFiniteRank ℚ ∧ ¬ AddGroup.FG ℚ := by sorry
 example : HasFiniteRank (ZMod 2) := by sorry
 
-/-- The point-level Faltings–Zhang difference homomorphism, with target A^M. -/
-def faltingsZhang {G : Type u} [AddCommGroup G] (M : ℕ) :
+/-- The point-level difference map (x₀,…,x_M) ↦ (x₁−x₀,…,x_M−x₀), with target G^M. -/
+def differenceMap {G : Type u} [AddCommGroup G] (M : ℕ) :
     (Fin (M + 1) → G) →+ (Fin M → G) where
   toFun P := fun i => P i.succ - P 0
   map_zero' := by
@@ -247,30 +234,23 @@ def faltingsZhang {G : Type u} [AddCommGroup G] (M : ℕ) :
     abel
 
 example {G : Type u} [AddCommGroup G] (P Q : G) :
-    faltingsZhang 1 ![P, Q] 0 = Q - P := rfl
+    differenceMap 1 ![P, Q] 0 = Q - P := rfl
 
 example {G : Type u} [AddCommGroup G] (M : ℕ) (P : Fin (M + 1) → G) :
-    faltingsZhang M P = 0 ↔ ∀ i, P i = P 0 := by sorry
+    differenceMap M P = 0 ↔ ∀ i, P i = P 0 := by sorry
 
 example {G : Type u} [AddCommGroup G] (P : Fin 1 → G) :
-    faltingsZhang 0 P = 0 := by sorry
-example : faltingsZhang 1 ![(2 : ℤ), 5] 0 = 3 := by rfl
+    differenceMap 0 P = 0 := by sorry
+example : differenceMap 1 ![(2 : ℤ), 5] 0 = 3 := by rfl
 
-example : (5 / (8 : ℝ)) < 3 / 4 := by norm_num
-example : (1 / (2 : ℚ)) + 1 / 2 = 1 := by norm_num
-example : (2 : ℚ)⁻¹ * 4 = 2 := by norm_num
-example : (2 : ℚ) * (4 * 1 - 1) = 6 := by norm_num
-example : (2 : ℚ) * 1 = 2 ∧ (2 : ℚ) * 1 ≠ 1 := by norm_num
-example : (2 : ℝ) * 1 * 3 = 6 ∧ (2 : ℝ) * 1 * 3 / (2 * 3) = 1 := by norm_num
-example : (2 : ℝ) * 1 * 3 = 6 := by norm_num
-
-/-! ## Layer 6: rational points by genus -/
 
 /-!
+## Layer 6 and the definitions not stated here
+
 The following README definitions need geometric or cohomological carriers beyond the native
 point groups and light carriers used above.
 
-Layer 0: height-class pullback; GeneralizedGlobalField, extension and polarization structures,
+Layer 0: GeneralizedGlobalField, extension and polarization structures,
 normalized geometric projective height; generated difference presentations; weilHeight;
 general neronTateHeight and neronTateForm; PointHeightMetricFamily, canonicalPointMetric,
 LocalWeilFunction and neronFunction; integral models and naive/canonical subvariety heights.
