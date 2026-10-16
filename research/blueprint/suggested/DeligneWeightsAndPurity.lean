@@ -1,20 +1,23 @@
 /-
-Suggested Lean forms for "Deligne weights, purity and the Weil bounds"
-(DeligneWeightsAndPurity), all eleven layers DWP.0–DWP.10.
+Suggested Lean forms for the roadmap "Deligne weights, purity and the Weil bounds"
+(DeligneWeightsAndPurity), all eleven layers DWP.0–DWP.10, after the whole-roadmap plan.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/DeligneWeightsAndPurity.md` is definitive. These statements suggest
-Lean forms so contributors and reviewers converge on names and signatures. Planned proofs use
-`sorry`; nothing here is claimed formalised (implementationStatus = unchecked).
+`research/blueprint/readmes/DeligneWeightsAndPurity.md` is definitive; these statements suggest Lean
+forms so that contributors and reviewers converge on names and signatures. Planned proofs are
+`sorry`; nothing here is claimed to be formalised (implementationStatus = unchecked). Pins: Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174, Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Only
+Mathlib is imported.
 
-Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174,
-Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Names agree with both part packets. Unit tests are examples labelled by their packet test names.
-The numerical definitions use characteristic-root multisets, including Jordan multiplicities.
-The two coverage ledgers below identify entries lacking genuine scheme, sheaf, cohomology or
-analytic carriers. Documentary specifications are not elaborated signatures: no missing carrier
-or theorem is replaced by a free proposition or fabricated cohomology structure. The second
-part's Frobenius-module cores use the same numerical conventions as the first part.
+Layout. The two accepted parts' files follow unchanged, in order (DWP.0–DWP.6 and DWP.10, then
+DWP.7–DWP.9), each with its own ledger of the declarations whose carriers are not at the pins; the
+targets added by the whole-roadmap plan come last, with a name ledger. Since 2026-10-14 many of the
+numerical definitions of the first part (Weil numbers, ι-weights, eigenvalue multisets, twists, the
+Weil group, punctual purity, totally real predicates, the positivity lemmas of Weil I §3) and the
+geometric-semisimplicity definition of the second part belong to EtaleDualityAndPerverseSheaves
+EDC.7, which keeps their names. They stay here, verbatim, only so that the remaining statements of
+this roadmap elaborate without importing another suggested file; the name ledger at the end lists
+them. Unit tests are `example`s whose docstring begins "Test `<name>`".
 -/
 
 import Mathlib.Analysis.Complex.Basic
@@ -50,6 +53,10 @@ import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic
 import Mathlib.Algebra.DirectSum.Module
 import Mathlib.Order.SupIndep
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.Algebra.Polynomial.Reverse
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+
 
 open Polynomial
 
@@ -784,7 +791,10 @@ end TauCeti.Weights
 
 This ledger distinguishes elaborated signatures from names awaiting real owner
 interfaces (PROTOCOL section 13). An omitted statement is not replaced by a
-proposition-valued field. The corrected packet specifies it mathematically; the reader requires the revision recorded by this review.
+proposition-valued field. The packet and synchronized reader specify it mathematically.
+Of the packet's 81 API names and 44 test names, 52 API names and 30 test names
+have elaborated signatures or examples; 29 API names and 14 test names are
+explicitly omitted below with their genuine owner-interface obligations.
 
 The API declarations for WeilGroup are its actual group-theoretic pullback
 core, not the arithmetic fundamental group or its topology. The punctual and
@@ -1154,7 +1164,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus
 Weil I Lemma 6.12: the eigenvalue-δ^a locus is closed and Haar-null
 For an ℓ-adic unit δ in the fixed finite coefficient field, the locus Z_δ={(a,g)∈H₁: δ^a is an eigenvalue of g} is closed and null in each arithmetic-degree fibre, hence Haar-null in H₁. For a bad geometric eigenvalue δ₀^e the arithmetic-degree locus uses δ=δ₀⁻¹, since a(F_x)=−e.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group, tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1190,7 +1200,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors
 Weil I Theorem 6.2: the local factors of the radical quotient have rational coefficients
 In the setting of radical-quotient-of-the-vanishing-system, for every x ∈ |U₀|, det(1 − F_x t, ℱ₀) ∈ ℚ[t].
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization, DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set, DeligneWeightsAndPurity:DWP.3/divisibility-criterion, DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization, DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set, DeligneWeightsAndPurity:DWP.3/divisibility-criterion, DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family, DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1261,7 +1271,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 /-
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/real-sheaves
 Totally real and ι-real sheaves
-A sheaf is totally real when every closed-point local characteristic polynomial has algebraic totally real coefficients; it is ι-real when those coefficients map into ℝ under the fixed ι. These are coefficient conditions, not assertions that every eigenvalue is real. A pure sheaf of integer weight n is a direct summand of the totally real sheaf ℱ⊕ℱ∨(−n); for real ι-weight β use a rank-one Weil twist of weight 2β in place of the integer Tate normalization.
+A lisse sheaf is totally real when every closed-point local characteristic polynomial has algebraic totally real coefficients; it is ι-real when those coefficients map into ℝ under the fixed ι. These are coefficient conditions, not assertions that every eigenvalue is real. A punctually pure lisse sheaf of integer weight n is a direct summand of the totally real sheaf ℱ⊕ℱ∨(−n); for real ι-weight β use a rank-one Weil twist of weight 2β in place of the integer Tate normalization.
 Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness, DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters, DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
@@ -1307,7 +1317,7 @@ the packet retains its hypotheses, proof and tests.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/generalized-majoration
 Deligne’s generalized majoration theorem
 For a normal connected X₀ of finite type over 𝔽_q, the irreducible constituents of a lisse ι-real sheaf are punctually ι-pure. More precisely, on a smooth curve let r be its maximal determinantal weight; every stalk eigenvalue has ι-weight ≤r, and each irreducible constituent of determinantal weight β is punctually pure of weight β. No open symplectic-image or rational-coefficient hypothesis is imposed.
-Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.2/positive-local-factors, DeligneWeightsAndPurity:DWP.2/poles-of-positive-products, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, LefschetzPencilsAndVanishingCycles:LPV.5, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology
+Direct mathematical inputs: DeligneWeightsAndPurity:DWP.5/real-sheaves, DeligneWeightsAndPurity:DWP.5/determinantal-weights, DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree, DeligneWeightsAndPurity:DWP.2/positive-local-factors, DeligneWeightsAndPurity:DWP.2/poles-of-positive-products, DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals, LefschetzPencilsAndVanishingCycles:LPV.5, DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers, DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality, EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology, SchemeAndStackFoundations:SF.2
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1361,7 +1371,7 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 UNINSTANTIATED DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy
 Specialization of geometric monodromy
 Let f:X→S be smooth with geometrically connected curve fibres, S reduced irreducible with generic point η, and g:S→X a section. For a lisse ℤ_ℓ-sheaf ℱ, after shrinking S to a nonempty open there is, simultaneously for every n, a lisse subgroup of Aut(g*ℱ/ℓⁿ) whose stalk is the image of the geometric fibre fundamental group. If f has a smooth proper curve compactification with boundary finite étale over S, the image is locally constant without further shrinking under the stated tame conditions; the inertia images at sections of the boundary specialize compatibly. The extension (1.11.5) covers finite-type families after stratification and dévissage, with the model and the locally constant image conditions kept explicit.
-Direct mathematical inputs: ArithmeticGaloisRepresentations:R01.6, InverseGaloisAndArithmeticFundamentalGroups:IG.1, SchemeAndStackFoundations:SF.2, LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups
+Direct mathematical inputs: ArithmeticGaloisRepresentations:R01.6, InverseGaloisAndArithmeticFundamentalGroups:IG.1, SchemeAndStackFoundations:SF.2, LefschetzPencilsAndVanishingCycles:LPV.5
 The schema awaits the geometric/representation carriers from the owners above;
 all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
@@ -1511,81 +1521,8 @@ all hypotheses remain in the packet instead of fabricated Lean parameters.
 -/
 
 
-/-
-Companion signature coverage ledger
+/-! # Second part: DWP.7–DWP.9 -/
 
-What is typed here. The pinned libraries have no constructible ℓ-adic sheaves, no Weil sheaves,
-no bounded constructible derived category with Rf_!, f^! and Verdier duality, and no étale
-cohomology with Frobenius action (EtaleDualityAndPerverseSheaves EDC.0–EDC.4 and
-SchemeAndStackFoundations SF.2 plan them). So the file types only the parts whose carriers
-exist: the Frobenius-module (stalk, or Spec 𝔽_q) form of integral sheaves; the p-adic couples of
-Weil II (3.3.7) on Mathlib's additive valuations; geometric semisimplicity of a representation
-of a Weil group restricted to a subgroup; Lemma (4.1.4) on invariant forms; evenness of the rank
-of a nondegenerate alternating form; and the primitive decomposition of a graded operator with
-the hard Lefschetz property. No sheaf, complex or cohomology group is replaced by a stand-in.
-
-The following packet declarations need those carriers and are therefore not typed here; their
-mathematical statements are in the packet and the reader.
-
-DWP.7 (namespace TauCeti.Weights):
-  IsIntegralSheaf, IsIntegralSheaf.comap, IsIntegralSheaf.finite_pushforward,
-  IsIntegralSheaf.twist_neg, IsIntegralSheaf.weights_nonneg, IsIntegralSheaf.constant;
-  the theorem nodes weights-mixed-sheaves-definitions, devissage-in-the-sheaf-and-the-source,
-  devissage-in-the-target, tame-cover-of-a-lisse-sheaf-on-a-curve,
-  spreading-out-to-a-tame-relative-curve, purity-of-the-relative-curve-case,
-  fundamental-direct-image-theorem-3-3-1, iota-mixed-direct-image-3-3-10,
-  deligne-integrality-theorem-sga7-xxi, integral-weight-bounds-3-3-3,
-  cohomological-bounds-3-3-2-3-3-6, valuation-triangles-3-3-8,
-  hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11.
-DWP.8 (namespace TauCeti.Weights):
-  IsMixedComplex, HasWeightsLE, HasIotaWeightsLE, isMixedComplex_triangle,
-  HasWeightsLE.of_triangle, hasWeightsLE_shift, hasWeightsLE_twist, HasWeightsLE.mono,
-  hasWeightsLE_sheaf_iff, hasWeightsLE_iff_eigenvalues, hasWeightsLE_baseExtension,
-  HasWeightsLE.isIotaWeightsLE and the tests hasWeightsLE_const_shift_neg,
-  hasWeightsLE_const_shift_pos, hasWeightsLE_tate_shift, hasWeightsLE_zero,
-  not_isMixedComplex_transcendental, hasWeightsLE_point_iff;
-  HasWeightsGE, IsPureComplex, hasWeightsGE_dual, IsPureComplex.dual, HasWeightsGE.of_triangle,
-  IsPureComplex.of_triangle, hasWeightsGE_shift_twist, hasWeightsGE_iff_rhom_smooth,
-  isPureComplex_iff_lisse, IsPureComplex.directSum and the tests isPureComplex_const_smooth,
-  isPureComplex_point_iff, not_isPureComplex_nodal, not_isPureComplex_extensionByZero,
-  isPureComplex_zero;
-  IsMixedGalois, isMixedGalois_of_unramified, isMixedGalois_iff_filtration,
-  isMixedGalois_changeOfTrait, IsMixedGalois.subquotient, IsMixedGalois.tensor,
-  IsMixedGalois.invariants and the tests isMixedGalois_trivial, isMixedGalois_tate_curve,
-  isMixedGalois_quadratic_twist, isMixedGalois_zero, not_isMixedGalois_transcendental;
-  weightClass, weightClass_isInternal, weightClass_stalk, weightClass_map, weightClass_unique,
-  weightClass_eq_twist, weightClass_of_integer, weightClass_tensor and the tests
-  weightClass_fractional, weightClass_integral, weightClass_depends_on_iota, weightClass_zero,
-  weightClass_point;
-  weightFiltration, weightFiltration_gr_pure, weightFiltration_unique, weightFiltration_stalk,
-  weightFiltration_map, weightFiltration_strict, weightFiltration_tensor, weightFiltration_dual,
-  weightFiltration_pullback, weightFiltration_twist, weightFiltration_indep_iota and the tests
-  weightFiltration_kummer, weightFiltration_pure, weightFiltration_not_split,
-  weightFiltration_point, weightFiltration_strict_example;
-  isGeometricallySemisimple_iff_restrict_open, isGeometricallySemisimple_baseExtension,
-  IsGeometricallySemisimple.subquotient, IsGeometricallySemisimple.dual,
-  maximalGeometricallySemisimpleSubsheaf, isGeometricallySemisimple_iff_reductive,
-  geometricMonodromyGroup_conjugate (sheaf level);
-  ArithmeticModel, PotentiallyHas, PotentiallyHas.mono, ArithmeticModel.restrict,
-  PotentiallyHas.pullback, PotentiallyHas.directSum, PotentiallyHas.of_iso,
-  potentially_baseChange_algClosed and the
-  tests potentiallyPure_const_smooth, potentially_of_finite_field, not_potentiallyPure_kummer,
-  potentially_zero;
-  and every DWP.8 theorem node.
-DWP.9 (namespace TauCeti.HardLefschetz):
-  lefschetzOperator, lefschetzOperator_pow, lefschetzOperator_smul,
-  lefschetzOperator_comm_pullback, lefschetzOperator_galois,
-  lefschetzOperator_eq_gysin_restrict, lefschetzOperator_selfAdjoint, lefschetzOperator_pow_top,
-  primitivePart, lefschetzPairing, lefschetzPairing_symm and the tests
-  lefschetzOperator_projectiveSpace, lefschetzOperator_trivial_bundle,
-  lefschetzOperator_degree_zero, lefschetzOperator_point, lefschetzPairing_curve;
-  and the theorem nodes hyperplane-factorisation-4-1-2,
-  arithmetic-model-of-a-polarised-smooth-projective-variety,
-  global-invariant-cycles-for-smooth-hyperplane-sections-4-1-3, hard-lefschetz-4-1-1,
-  primitive-decomposition-and-lefschetz-pairings, odd-betti-numbers-are-even-4-1-5,
-  hard-lefschetz-for-potentially-pure-complexes-6-2-13, hard-lefschetz-for-pure-lisse-sheaves,
-  orthogonal-decomposition-of-a-hyperplane-section-4-3-9.
--/
 
 open Polynomial
 
@@ -1900,3 +1837,141 @@ theorem lefschetzPairing_nondegenerate (𝒱 : ℤ → Submodule K V) (h𝒱 : D
 end LefschetzDecomposition
 
 end TauCeti.HardLefschetz
+
+
+/-! # Targets added by the whole-roadmap plan
+
+The six targets below are planned in this roadmap since the 2026-10 whole-roadmap pass: two
+zeta-factor statements and Weil I Theorem 1.6, the point-count bounds, purity of smooth proper
+Deligne–Mumford stacks and Chebotarev density for covers of curves. Only the first two and the
+numerical core of the point-count bounds have carriers at the pins (power series, polynomials,
+Weil numbers, complex numbers); Theorem 1.6, stack purity and the Chebotarev theorem need étale
+cohomology, stacks and Frobenius classes of places, and are stated in the reader only. -/
+
+namespace TauCeti.Weights
+
+open PowerSeries
+
+/-! ## Rationality descent and Fatou (`DeligneWeightsAndPurity:DWP.0/rational-zeta-descent-and-fatou`) -/
+
+section RationalSeries
+
+/-- A power series over a field `k` is rational when it is the expansion of `A / B` with
+`A, B ∈ k[X]` and `B(0) ≠ 0`. -/
+def IsRationalSeries {k : Type*} [Field k] (f : PowerSeries k) : Prop :=
+  ∃ A B : k[X], B.coeff 0 ≠ 0 ∧ (B : PowerSeries k) * f = (A : PowerSeries k)
+
+/-- (a) Rationality descends along a field extension: `k[[t]] ∩ L(t) = k(t)` (Hankel determinants). -/
+theorem isRationalSeries_of_map {k L : Type*} [Field k] [Field L] [Algebra k L] (f : PowerSeries k)
+    (h : IsRationalSeries (PowerSeries.map (algebraMap k L) f)) : IsRationalSeries f := sorry
+
+/-- (b) Local Fatou: the coprime presentation normalised at `0` of an `ℓ`-adically integral
+rational series with constant term one is `ℓ`-adically integral. -/
+theorem local_fatou (p : ℕ) [Fact p.Prime] (f : PowerSeries ℤ_[p]) (hf : constantCoeff f = 1)
+    (G H : ℚ_[p][X]) (hGH : IsCoprime G H) (hG : G.coeff 0 = 1) (hH : H.coeff 0 = 1)
+    (h : (H : PowerSeries ℚ_[p]) * PowerSeries.map (PadicInt.Coe.ringHom (p := p)) f =
+      (G : PowerSeries ℚ_[p])) :
+    ∃ G' H' : ℤ_[p][X], G'.map (PadicInt.Coe.ringHom (p := p)) = G ∧
+      H'.map (PadicInt.Coe.ringHom (p := p)) = H := sorry
+
+/-- (c) Global Fatou: an integral rational series with constant term one has a unique coprime
+presentation `A / B` with `A, B ∈ 1 + tℤ[t]`. -/
+theorem exists_integral_presentation (f : PowerSeries ℤ) (hf : constantCoeff f = 1)
+    (h : IsRationalSeries (PowerSeries.map (Int.castRingHom ℚ) f)) :
+    ∃ A B : ℤ[X], A.coeff 0 = 1 ∧ B.coeff 0 = 1 ∧
+      IsCoprime (A.map (Int.castRingHom ℚ)) (B.map (Int.castRingHom ℚ)) ∧
+      (B : PowerSeries ℤ) * f = (A : PowerSeries ℤ) := sorry
+
+/-- The zeta series of `ℙ¹` over `𝔽_q`: its `n`-th coefficient is `1 + q + ⋯ + qⁿ`. -/
+def zetaProjectiveLine (q : ℤ) : PowerSeries ℤ :=
+  PowerSeries.mk fun n => ∑ i ∈ Finset.range (n + 1), q ^ i
+
+/-- Test `zetaProjectiveLine_presentation`: `Z(ℙ¹, t) = 1 / ((1 − t)(1 − qt))`. -/
+example (q : ℤ) :
+    (((1 - Polynomial.X) * (1 - Polynomial.C q * Polynomial.X) : ℤ[X]) : PowerSeries ℤ) * zetaProjectiveLine q = 1 := sorry
+
+/-- Test `isRationalSeries_zetaProjectiveLine`: the zeta series of `ℙ¹` is rational over `ℚ`. -/
+example (q : ℤ) : IsRationalSeries (PowerSeries.map (Int.castRingHom ℚ) (zetaProjectiveLine q)) :=
+  sorry
+
+/-- Test `geometric_half_not_integral`: `1 / (1 − t/2)` is rational over `ℚ` but has no integral
+presentation, so integrality of the coefficients cannot be dropped in (c). -/
+example : ¬ ∃ A B : ℤ[X], B.coeff 0 = 1 ∧
+    (B.map (Int.castRingHom ℚ) : PowerSeries ℚ) * PowerSeries.mk (fun n => ((2 : ℚ)⁻¹) ^ n) =
+      (A.map (Int.castRingHom ℚ) : PowerSeries ℚ) := sorry
+
+end RationalSeries
+
+/-! ## Weight separation of zeta factors (`DeligneWeightsAndPurity:DWP.0/weight-separated-factor-extraction`) -/
+
+section FactorExtraction
+
+/-- If the alternating product of factors `Pᵢ ∈ 1 + tL[t]` is an integral rational series and every
+reciprocal root of `Pᵢ` is a Weil `q`-number of weight `i`, then each `Pᵢ` is the image of a unique
+integer polynomial, independent of `L`. Reciprocal roots of `Pᵢ` are the roots of its reverse. -/
+theorem weight_separated_factor_extraction {L : Type*} [Field L] [CharZero L] (q : ℕ) (hq : 1 < q)
+    (N : ℕ) (P : ℕ → L[X]) (hP0 : ∀ i, (P i).coeff 0 = 1) (R : PowerSeries ℤ)
+    (hR : constantCoeff R = 1)
+    (hprod : PowerSeries.map (Int.castRingHom L) R *
+        ∏ i ∈ (Finset.range (N + 1)).filter Even, (P i : PowerSeries L) =
+      ∏ i ∈ (Finset.range (N + 1)).filter Odd, (P i : PowerSeries L))
+    (hpure : ∀ i ≤ N, ∀ α ∈ ((P i).reverse.map (algebraMap L (AlgebraicClosure L))).roots,
+      IsWeilNumber (q : ℝ) (i : ℤ) α) :
+    ∀ i ≤ N, ∃! Q : ℤ[X], Q.map (Int.castRingHom L) = P i := sorry
+
+/-- Test `weight_separation_needed`: without purity the factors are not determined by the product:
+`(1, 1 − 2t, 1 − 2t)` and `(1, 1, 1)` both have alternating product `1`. -/
+example : ((1 : ℚ[X]) - Polynomial.C 2 * Polynomial.X) * 1 = 1 * ((1 : ℚ[X]) - Polynomial.C 2 * Polynomial.X) := by ring
+
+/-- Test `elliptic_seven_factor`: for `y² = x³ + x + 1` over `𝔽₇` the weight-one factor is
+`1 − 3t + 7t²`; its reverse `t² − 3t + 7` has discriminant `9 − 28 < 0`, so its roots are complex
+conjugates of product `7`, of absolute value `7^{1/2}`. -/
+example : ((3 : ℤ) ^ 2 - 4 * 7) < 0 := by norm_num
+
+end FactorExtraction
+
+/-! ## Numerical core of the point-count bounds (`DeligneWeightsAndPurity:DWP.10/point-count-bounds`) -/
+
+section PointCounts
+
+/-- If the eigenvalues in each interior degree `0 < i < 2d` have absolute value `q^{i/2}`, then the
+alternating interior trace of the `r`-th power is bounded by `∑ bᵢ q^{ir/2}`. With the endpoint traces
+`c_r` and `c_r q^{dr}` this is the bound `|N_r − c_r(1 + q^{dr})| ≤ ∑_{i=1}^{2d−1} bᵢ q^{ir/2}`. -/
+theorem norm_interior_trace_le (q : ℝ) (hq : 1 < q) (d r : ℕ) (b : ℕ → ℕ)
+    (α : (i : ℕ) → Fin (b i) → ℂ) (hα : ∀ i j, ‖α i j‖ = q ^ ((i : ℝ) / 2)) :
+    ‖∑ i ∈ Finset.Ioo 0 (2 * d), (-1 : ℂ) ^ i * ∑ j, α i j ^ r‖ ≤
+      ∑ i ∈ Finset.Ioo 0 (2 * d), (b i : ℝ) * q ^ ((i : ℝ) * r / 2) := sorry
+
+/-- Test `projective_plane_count`: for `ℙ²`, `N_r − (1 + q^{2r}) = q^r`, the bound with `b₂ = 1`. -/
+example (q r : ℕ) : ((1 + q ^ r + q ^ (2 * r) : ℕ) : ℤ) - (1 + q ^ (2 * r)) = q ^ r := by
+  push_cast; ring
+
+/-- Test `swapped_lines_count`: two projective lines exchanged by Frobenius have `N_r = c_r(1 + q^r)`
+with `c_r = 0` for odd `r` (here `r = 3`) and `2` for even `r`. -/
+example : ¬ Even (3 : ℕ) := by decide
+
+/-- Test `elliptic_seven_count`: `|5 − 8| ≤ 2·√7` for `y² = x³ + x + 1` over `𝔽₇`. -/
+example : |(5 : ℝ) - 8| ≤ 2 * Real.sqrt 7 := sorry
+
+end PointCounts
+
+end TauCeti.Weights
+
+/-! ## Name ledger of the whole-roadmap plan
+
+Owned by EtaleDualityAndPerverseSheaves EDC.7 since its accepted revision of 2026-10-14, and only
+restated above so that this file elaborates on its own (the declaration names are EDC.7's):
+`IsWeilNumber` and its API, `iotaWeight`, `IsIotaPure`, `eigenvalues`, `IsPure`,
+`IsIotaPureEnd`, `iotaWeights`, the spectra and twist lemmas, `WeilGroup` and its API,
+`IsPunctuallyPure`, `IsPunctuallyIotaPure`, `IsTotallyReal`, `IsIotaReal`, the stalkwise
+purity lemmas, `IsGeometricallySemisimple` and `geometricMonodromyGroup`, and the positivity
+lemmas of Weil I §3. The parts (i)–(ii) of the graded-operator lemma (`iSupIndep_lefschetzDecomposition`,
+`finrank_primitivePiece`) are EDC.7's abstract primitive decomposition in vector spaces; this
+roadmap owns `lefschetzPairing_nondegenerate`.
+
+Planned here and stated in the reader only, because their carriers (étale cohomology of varieties
+and stacks over finite fields, Frobenius classes of places of function fields) are not at the
+pins: `DWP.4/integral-cohomological-factors` (Weil I Theorem 1.6),
+`DWP.7/purity-of-smooth-proper-dm-stacks` and `DWP.3/function-field-chebotarev`, together with the
+geometric targets listed in the two part ledgers above.
+-/
