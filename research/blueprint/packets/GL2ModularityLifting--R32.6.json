@@ -252,20 +252,22 @@
       "title": "Directed modularity transfer between families linked by one residual congruence",
       "kind": "theorem",
       "implementationStatus": "unchecked",
-      "statement": "For i=A,B let E_i be a number field and (ρ_i,λ) a family of continuous semisimple two-dimensional representations of G_Q, each defined over a finite extension of (E_i)_λ. Give a finite set S_i and polynomials P_i,q in E_i[X] whose images are the characteristic polynomials of arithmetic Frobenius on ρ_i,λ whenever q is outside S_i and q differs from the residue characteristic of λ; every such member is unramified there. Choose λ_A and λ_B above the same rational prime p, coefficient embeddings into Q̄_p, and stable lattices with isomorphic residual semisimplifications over F̄_p. Both selected characteristic-zero representations are irreducible, odd, finitely ramified and de Rham, of weights {0,k_A−1} and {0,k_B−1}, with k_A,k_B≥2. If one A-member is attached to a normalized cuspidal newform of weight at least two, and the relevant branch hypothesis below holds, then every B-member is attached, after common coefficient extension with compatible algebraic embeddings, to one normalized cuspidal newform g of weight k_B. Under the reducible Pan or ordinary-three branch, the same conclusion follows from the B-family data alone, without a modular A-family or a residual congruence.",
+      "statement": "For i=A,B let E_i be a number field and (ρ_i,λ) a family of continuous semisimple two-dimensional representations of G_Q, each defined over a finite extension of (E_i)_λ. Give a finite set S_i and polynomials P_i,q in E_i[X] whose images are the characteristic polynomials of arithmetic Frobenius on ρ_i,λ whenever q is outside S_i and q differs from the residue characteristic of λ; every such member is unramified there. Choose λ_A and λ_B above the same rational prime p, coefficient embeddings into Q̄_p, and stable lattices with isomorphic residual semisimplifications over F̄_p. Both selected characteristic-zero representations are irreducible after extension to Q̄_p, odd, finitely ramified and de Rham, of weights {0,k_A−1} and {0,k_B−1}, with k_A,k_B≥2. If one A-member is attached to a normalized cuspidal newform of weight at least two, and the relevant branch hypothesis below holds, then every B-member is attached, after common coefficient extension with compatible algebraic embeddings, to one normalized cuspidal newform g of weight k_B. Under the reducible Pan or ordinary-three branch, the same conclusion follows from the B-family data alone, without a modular A-family or a residual congruence.",
       "hypotheses": [
         "Odd irreducible branch: p is odd and the common residual representation restricted to G_Q(ζ_p) is absolutely irreducible. A known modular A-member is the modularity seed; congruence supplies residual modularity for B.",
         "Dyadic branch: p=2 and the common residual image is nonsolvable. Oddness is imposed on the characteristic-zero representations; reduction modulo two cannot detect its determinant sign.",
-        "Reducible Pan branch: p≥5 and the selected B-residual semisimplification is χ̄_1⊕χ̄_2; also allow p=3 if (χ̄_1χ̄_2^−1)|G_Q3 differs from ω_3. Characteristic-zero irreducibility remains required. No ordinarity, residual modularity or coefficient-prime Weil–Deligne comparison is assumed.",
+        "Reducible Pan branch: p≥5 and the selected B-residual semisimplification is χ̄_1⊕χ̄_2; also allow p=3 if (χ̄_1χ̄_2^−1)|G_Q3 differs from ω_3. Irreducibility over Q̄_p remains required, rather than irreducibility only over a finite coefficient field. No ordinarity, residual modularity or coefficient-prime Weil–Deligne comparison is assumed.",
         "Exceptional ordinary-three branch: p=3; a specified finite-order character η gives τ=ρ_B,λB⊗η^−1 with residual semisimplification 1⊕ω_3 globally, τ|I_3 upper triangular with quotient 1, and det τ=ψ ε_3^(k_B−1) for ψ of finite order. The normalization is justified by the actual ordinary quotient. Congruence does not establish these hypotheses.",
         "For all good-prime identities, enlarge coefficient number fields and local fields before comparing. No isomorphism between different-characteristic coefficient fields is asserted. Frobenius recognition is applied separately in each fixed residue characteristic.",
         "The family hypotheses are ordinary indexed representation and polynomial data, not an invocation of a compatible-system carrier, existence theorem, strict compatibility or all-member de Rham predicate. Only the selected members need the stated de Rham condition."
       ],
       "proofSteps": [
-        "If a modular A-member is supplied, identify its good Frobenius polynomials with those of its newform. In the algebraic compositum of coefficient fields the equality is an equality of algebraic numbers, since the chosen local embedding is injective. Embed that identity at λ_A and apply the R01.5 characteristic-polynomial recognition theorem. Thus the selected A-member is modular; no lifting theorem or bad-prime compatibility is used for this propagation.",
-        "In the odd irreducible and dyadic cases apply the existing R32.6 transfer-residually-irreducible-odd or transfer-dyadic theorem to the selected congruent pair. In the Pan case apply transfer-residually-reducible to the B-member without a modularity seed. In the exceptional ordinary-three case apply R32.5/p-three-residually-reducible-branch to τ and untwist by η.",
-        "The R32.1 weight-of-modular-twist convention identifies the modular witness with a weight-k_B newform g, absorbing the finite-order twist. The selected B-member therefore has g’s good Frobenius polynomials after common algebraic coefficient extension.",
-        "Repeat the algebraic-number comparison with P_B,q and use the all-λ newform realizations and R01.5 recognition separately for each B-member. Intersect the two cofinite good-prime sets, also removing its own residue characteristic. Semisimplicity upgrades the resulting semisimplification isomorphism to an isomorphism of the given member. No equality of Weil–Deligne parameters at p is used."
+        "If a modular A-member is supplied, identify its good Frobenius polynomials with those of its newform. Form a compositum of E_A and the newform coefficient field using the relative embeddings determined by that realization. Injectivity of the resulting local embedding makes these identities identities of algebraic numbers. Extend the chosen embedding of E_A at λ_A to this compositum; this does not require the seed and λ_A to have the same residue characteristic.",
+        "Apply the R01.5 recognition theorem at λ_A. The A-member is semisimple after coefficient extension, and the newform representation is absolutely irreducible by R19.3/classical-newform-irreducibility; hence recognition identifies the actual representations, not merely their semisimplifications. R01.1/residual-representation-well-defined makes the newform residual class independent of the lattice and finite coefficient model. The specified congruence therefore supplies residual modularity for B.",
+        "In the odd irreducible and dyadic cases apply transfer-residually-irreducible-odd or transfer-dyadic to the selected pair. In the Pan case apply transfer-residually-reducible directly to B. In the exceptional ordinary-three case apply R32.5/p-three-residually-reducible-branch to τ. Preserve the distinction between an exact attached-newform conclusion and a source conclusion only up to a character twist.",
+        "For an up-to-twist conclusion ρ_B,λB ≅ ρ_h ⊗ χ, use the requested R32.1 geometric-twist classification before applying weight-of-modular-twist. It must show that the actual χ has the form ε_p^m μ with μ of finite order and rule out a weight-one witness using distinct selected weights. The cited weight-of-modular-twist node assumes this form and does not prove it. This is the recorded normalization gap, not a consequence of comparing two weight multisets alone.",
+        "With that input, weight-of-modular-twist gives m=0 and the weight k_B. Import the Dirichlet twist and primitive-associate construction from the current upstream ModularForms Layer 9: its cuspidal twist has good eigenvalues multiplied by μ(Frob_q) and nebentypus multiplied by μ², and its primitive associate g has the same weight and good eigenvalues. Combine the R19.1 polynomial formula, R19.3 irreducibility and R01.5 recognition to identify ρ_h ⊗ μ with ρ_g. Apply the same finite-order twisting argument to undo η in the ordinary-three branch. This supplies the required normalized newform witness once the recorded supplier inputs are available.",
+        "Compare P_B,q with the good polynomial of g in the relative compositum determined by the selected B-realization. For each B-place extend its specified embedding of E_B to that compositum and a common local coefficient field. Remove the finite ramification sets, g’s level primes and this member’s residue characteristic. Apply R01.5 separately in each fixed characteristic. Semisimplicity of the B-member and absolute irreducibility of the g-realization identify the actual representations. No coefficient-prime Weil–Deligne equality is used."
       ],
       "prerequisites": [
         "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
@@ -277,7 +279,11 @@
         "ArithmeticGaloisRepresentations:R01.1/coefficient-extension",
         "ArithmeticGaloisRepresentations:R01.1/reduction-and-residual-semisimplification",
         "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
-        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
+        "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation",
+        "ArithmeticGaloisRepresentations:R01.1/residual-representation-well-defined",
+        "AutomorphicGaloisRepresentations:R19.3/classical-newform-irreducibility",
+        "GL2ModularityLifting:R32.1",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer"
       ],
       "sources": [
         {
@@ -302,7 +308,10 @@
         "At p=2 an isomorphism of residual representations with solvable image does not enter the dyadic branch; nor does residual determinant 1 establish characteristic-zero oddness.",
         "A modular A-family and a residual congruence alone do not enter any branch when B is missing the required local or residual-image conditions.",
         "Within one family, modularity of a member propagates using only good polynomials and semisimplicity, without de Rham conditions at the other coefficient primes. A claimed equality of good polynomials must be checked after specified coefficient embeddings.",
-        "A finite chain is handled edge by edge, recording the prime, embeddings, lattices, selected weights and the applicable branch for each directed edge. Reverse traversal requires hypotheses for its new target; a reducible branch can instead start modularity without a seed."
+        "A finite chain is handled edge by edge, recording the prime, embeddings, lattices, selected weights and the applicable branch for each directed edge. Reverse traversal requires hypotheses for its new target; a reducible branch can instead start modularity without a seed.",
+        "Frobenius recognition alone returns semisimplifications on both sides. The actual newform realization is identified using its separate R19.3 absolute-irreducibility export; the R19.1 good-polynomial construction alone is not that export.",
+        "The input χ=ε_p^m μ with μ finite order is a hypothesis of weight-of-modular-twist. An arbitrary up-to-twist modularity witness cannot be normalized by that lemma before the requested character-classification input is supplied.",
+        "A finite-order Dirichlet twist of a newform need not itself be new at the displayed twist level. Take its normalized primitive associate, preserving weight and the good-prime eigenvalues, before claiming the conclusion is a newform."
       ],
       "uses": [
         {
@@ -323,18 +332,21 @@
     {
       "stageId": "GL2ModularityLifting:R32.6",
       "status": "planned",
-      "notes": "The four selected-member transfer targets and the two system applications retain their existing seven R32.6 node ids in R32.3, including the globalisation audit. This continuation gives the directed family application, exact branch conditions, ramified-prime specialization and reader-level target map. No node id is duplicated.",
+      "notes": "All R32.6 mathematical targets are mapped to the seven existing owner nodes and the new directed-family application. This complete review pass accepts the corrected target-level continuation, not dependency closure of the inherited system wrappers: their R24.5 edges conflict with the tier order and remain an explicit assembly gap. The new theorem has no direct R24 prerequisite; this is not a transitive tier-closure certificate for its suppliers. The geometric-twist classification is also now an explicit requested input rather than an implicit use of a weaker lemma.",
       "remaining": [
         "Complete the exact R31.6/R20.6 source-independence obligations before claiming an independent Serre proof.",
         "Elaborate the arithmetic target once the imported p-adic representation, de Rham, residual, and newform-realization interfaces exist at the pins.",
-        "At assembly, reconcile the two existing system wrappers with the polynomial-data theorem and the tier order; do not add a dependency on higher-tier R24.5 or R24.6."
+        "At assembly, reconcile the two existing system wrappers with the polynomial-data theorem and the tier order; do not add a dependency on higher-tier R24.5 or R24.6.",
+        "Supply the R32.1 geometric-twist classification and weight-one exclusion needed before applying weight-of-modular-twist; import the existing upstream ModularForms Dirichlet-twist/primitive-associate API, without duplicating it.",
+        "In the R32.3 owner packet remove the unsupported full-Serre independence assurance from the odd transfer annotation; retain only the conditional audit stated here. That owner packet is outside this review’s editable files.",
+        "Ask the R19.3 owner to reconcile classical-newform-irreducibility’s R24.5/character-system prerequisite through lower-tier character classification. Its statement is the correct supplier contract; its inherited proof graph is not certified here."
       ]
     }
   ],
   "requests": [
     {
       "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.6",
-      "need": "Complete the existing R32.6/globalisation-dependency-audit export, not a second audit: for Tung 4.3.3 audit Calegari 3.2→Moret–Bailly (the immediate proof was read here), Snowden 8.2.1→8.2.2, 8.1.1, 5.1.1, 7.6.1 and 4.4.2 (immediate §8 proofs read here), and the dyadic extension via published KW II Theorem 6.1. For Tung 4.3.4 retain the given-automorphic hypothesis of Paškūnas 3.29 (proof read here) and audit KW II Lemma 3.5. For the odd-prime path, CEG+16 §2.1 pp.15–17 was read and reduces suitable globalisation to EG14 Proposition A.2/Corollary A.7 and BLGGT14 potential automorphy: certify those precise leaves and the remaining patching inputs. Emerton–Paškūnas Theorem 6.3 p.26 gives support a union of components, not unconditional full support; retain Tung Proposition 3.9 p.12 extra irreducibility/reducedness and density inputs in its faithfulness deduction. BLGG13 A.4.1 pp.36–42 was read and assumes a potentially automorphic residual seed in addition to adequacy and potentially diagonalizable regular local lifts; certify that seed and its BLGGT change-of-weight/descent inputs rather than treating A.4.1 as unconditional globalisation. A residual-modularity hypothesis on the final theorem is insufficient to certify these local globalisations.",
+      "need": "Supply the source-checked dependencies of your own globalisation and support inputs to the existing R32.6/globalisation-dependency-audit owner, rather than planning a second audit: for Tung 4.3.3 audit Calegari 3.2→Moret–Bailly (the immediate proof was read here), Snowden 8.2.1→8.2.2, 8.1.1, 5.1.1, 7.6.1 and 4.4.2 (immediate §8 proofs read here), and the dyadic extension via published KW II Theorem 6.1. For Tung 4.3.4 retain the given-automorphic hypothesis of Paškūnas 3.29 (proof read here) and audit KW II Lemma 3.5. For the odd-prime path, CEG+16 §2.1 pp.15–17 was read and reduces suitable globalisation to EG14 Proposition A.2/Corollary A.7 and BLGGT14 potential automorphy: certify those precise leaves and the remaining patching inputs. Emerton–Paškūnas Theorem 6.3 p.26 gives support a union of components, not unconditional full support; retain Tung Proposition 3.9 p.12 extra irreducibility/reducedness and density inputs in its faithfulness deduction. BLGG13 A.4.1 pp.36–42 was read and assumes a potentially automorphic residual seed in addition to adequacy and potentially diagonalizable regular local lifts; certify that seed and its BLGGT change-of-weight/descent inputs rather than treating A.4.1 as unconditional globalisation. A residual-modularity hypothesis on the final theorem is insufficient to certify these local globalisations.",
       "neededBy": [
         "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
         "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
@@ -345,6 +357,20 @@
       "need": "Audit the restricted weight-part theorem for Emerton Theorem 3.3.22 §7.4, applied to a specifically constructed CM-induced modular residual representation, without using §7.3 Theorem 1.2.3 or full Serre. Also collate the exact edition of Gee, Automorphic lifts of prescribed types, Theorem 4.4.12 as consumed by Kisin (2.2.17), then audit its proof. The current author PDF read here instead numbers the weight-part statement Theorem 4.6.9, p.26: p>2 split in a totally real field, assumed residual modularity and irreducibility on the cyclotomic subgroup. Its proof uses Proposition 4.6.6 and Lemma 4.6.8. Do not identify the two numbered results without that collation. Return exact source versions, locators and dependency paths.",
       "neededBy": [
         "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    },
+    {
+      "supplier": "GL2ModularityLifting:R32.1",
+      "need": "Complete the geometric-twist input used by the existing weight-of-modular-twist export. For a finitely ramified continuous rank-two Q̄_p representation that is de Rham with distinct normalized weights and is isomorphic to a modular representation tensored with an actual continuous character χ, justify that χ is ε_p^m times a finite-order global character, with coefficient models and embeddings retained; rule out a weight-one modular witness and identify the finite-order global μ with a Dirichlet character in the chosen coefficient embeddings. The current node assumes that character form. Its multiset comparison cannot supply the classification. Trace the de Rham character and global class-field inputs through lower-tier owners; do not import the higher-tier R24.5 character-system constructor. Return an exact export or identify the precise remaining leaf.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+      "need": "Consume the existing current-main Dirichlet-twist API: for a normalized cuspidal newform h of weight k≥2 and a finite-order Dirichlet character μ, the twist is cuspidal of weight k, has good eigenvalues μ(q)a_q(h) and nebentypus ψ_h μ², and has a normalized primitive associate g of weight k with those eigenvalues outside the finite conductor/level set. Combine that polynomial formula with R19.1, R19.3 and R01.5 to obtain Galois twisting compatibility here. This is an import of the upstream Layer 9 target, not a request to replan or review it.",
+      "neededBy": [
         "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
       ]
     }
@@ -364,6 +390,22 @@
       "neededBy": [
         "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
       ]
+    },
+    {
+      "title": "Geometric-twist classification is not the weight-comparison lemma",
+      "detail": "The R32.1 weight-of-modular-twist statement explicitly assumes χ=ε_p^m μ with μ finite order and a witness of weight at least two. The previous composition silently inferred those inputs from an up-to-twist lifting conclusion. The new proof records the exact R32.1 request, including the weight-one exclusion, before comparing weights. Finite-order modular twisting uses the existing upstream ModularForms target and primitive associate; it is not asserted that an arbitrary twist is itself new. Thus the exact normalized newform conclusion is a planned target with this missing supplier input, not a closed export.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer"
+      ]
+    },
+    {
+      "title": "Inherited system wrappers and independence annotation are outside this continuation’s closure",
+      "detail": "The two R32.6 system wrappers owned in R32.3 still cite higher-tier R24.5, including a reducibility-across-λ theorem unnecessary for the new polynomial-data application. Their mathematical specializations are described here, but their old dependency lists are not adopted as proofs of the new theorem. Assembly must apply the lower-tier theorem to explicit representation/polynomial data and keep generic system adapters in R24. The inherited odd-transfer annotation also says no full Serre theorem is used, whereas its audit node and this continuation leave transitive globalisation inputs uncertified; that assurance is not adopted here. Only the owner/assembly job can edit those nodes. The newly explicit lower-tier R19.3/classical-newform-irreducibility export also cites R24.5/character-system in its own proof plan. Its mathematical statement matches this use, but that transitive tier edge must be reconciled by its owner using lower-tier character classification. This review does not claim that importing R19.3 closes that supplier graph.",
+      "neededBy": [
+        "GL2ModularityLifting:R32.6/de-rham-lifting-and-almost-strict-systems",
+        "GL2ModularityLifting:R32.6/ramified-reducible-coefficient-prime",
+        "GL2ModularityLifting:R32.6/globalisation-dependency-audit"
+      ]
     }
   ],
   "sourceIssues": [],
@@ -371,7 +413,12 @@
     {
       "id": "GL2ModularityLifting/E10",
       "fromPacket": "GL2ModularityLifting--R32.3.json",
-      "handling": "Retain finite-order ψ in the ordinary-three branch, as in Skinner–Wiles printed p.6; DP Theorem 1.7 leaves that qualification implicit. No new erratum is asserted."
+      "handling": "Retain finite-order ψ in the ordinary-three branch, as in Skinner–Wiles printed p.6; DP Theorem 1.7 leaves that qualification implicit. No new erratum is asserted.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared DP arXiv v2 Theorem 1.7 pp.4–5 with the Numdam image of Skinner–Wiles printed p.6. The cited theorem requires the determinant factor ψ to have finite order; retain that qualification. This rechecks the existing finding and creates no duplicate source issue.",
+        "by": "REV-GL2ModularityLifting--R32.6"
+      }
     }
   ],
   "upstreamNotes": [
@@ -381,7 +428,7 @@
     },
     {
       "title": "Tier order for compatible-system wrappers",
-      "detail": "GL2ModularityLifting is tier 21 and PotentialModularityAndCompatibleSystems tier 22 in upstream/CaraianiNewton.md. The new theorem has no R24 dependency: it accepts indexed representations and their good polynomials explicitly. The two pre-existing R32.6 wrappers in R32.3 use R24.5; assembly should apply the lower-tier theorem to data, keeping compatible-system packaging in R24.5/R24.6. No generic carrier is duplicated or moved by this part."
+      "detail": "GL2ModularityLifting is tier 21 and PotentialModularityAndCompatibleSystems tier 22 in upstream/CaraianiNewton.md. The new theorem has no direct R24 prerequisite: it accepts indexed representations and their good polynomials explicitly. The two pre-existing R32.6 wrappers in R32.3 use R24.5; assembly should apply the lower-tier theorem to data, keeping compatible-system packaging in R24.5/R24.6. No generic carrier is duplicated or moved by this part."
     }
   ],
   "libraryAudit": {
@@ -389,5 +436,18 @@
     "verdict": "No direct GL2ModularityLifting record was found; do not infer a positive coverage verdict. Reviewed R31.6 and R33.5 records route the same source-independence obligation to R32.6.",
     "checked": "2026-10-16",
     "searchBoundary": "Pinned and current source trees searched for geometric p-adic representation, compatible-system, de Rham lifting and Brauer–Nesbitt interfaces. Arithmetic R01 and automorphic R19 nodes remain planned inputs, not library declarations."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GL2ModularityLifting--R32.6",
+    "date": "2026-10-16",
+    "notes": "Independent review of the continuation: all fourteen source files and their cited passages, two pinned Mathlib statements, seven inherited mathematical contracts, direct suppliers, library boundary and RT-AREA-langlands-2/21 were checked. Corrected residual-choice and newform-irreducibility dependencies, made the geometric-twist gap explicit, imported the existing upstream finite-order twist/primitive-associate target, and made algebraic embedding extensions precise. Stage coverage is planned, not closed: the recorded gaps include inherited wrapper tier edges and an independence annotation requiring an owner/assembly change. Acceptance covers this honest complete planning pass, not those inherited dependency closures, an independent Serre proof, or an arithmetic Lean implementation.",
+    "checked": [
+      {
+        "nodeId": "GL2ModularityLifting:R32.6/directed-polynomial-family-transfer",
+        "verdict": "corrected",
+        "note": "The four branch hypotheses and the fixed-characteristic recognition composition agree with the cited sources. Both sides of recognition now have explicit semisimplicity support; residual modularity is transported using lattice independence. The exact weight-k newform endpoint records the missing geometric-twist classification and uses the upstream primitive-associate API. Those precise gaps are not presented as completed inputs."
+      }
+    ]
   }
 }
