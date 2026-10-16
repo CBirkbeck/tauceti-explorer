@@ -819,7 +819,13 @@
    "pr": 966,
    "head": "0f4df97",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
-   "review": "APPROVE 2026-10-15 at 8d86eda (superseded by red-team repairs)"
+   "review": {
+    "recommendation": "changes",
+    "head": "8d86eda",
+    "current": false,
+    "date": "2026-10-15",
+    "note": "APPROVE 2026-10-15 at 8d86eda (superseded by red-team repairs)"
+   }
   },
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
