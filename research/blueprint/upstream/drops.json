@@ -29,7 +29,7 @@
   "ComputationalNumberTheory": {
    "layer": "CN.0, CN.4",
    "needed_by": "EffectiveDiophantineMethods and its bundle partners ColemanIntegration and DirichletPadicLFunctions",
-   "notion": "explicit computations (modular-curve and arithmetic data); by the maintainer's decision of 2026-10-16 the final theorems take such explicit computations as hypotheses instead of carrying them out in Tau Ceti, so the roadmap is not needed"
+   "notion": "explicit computations; by the maintainer's decision of 2026-10-16 the explicit modular-curve data (CN.5) used by EllipticCurveModularityImaginaryQuadratic become hypotheses of the final theorem, while EffectiveDiophantineMethods keeps a minimal certified-numerics layer of its own (certified exact numbers and logarithm error bounds, formerly CN.0/CN.4), so the roadmap is not needed"
   }
  }
 }
