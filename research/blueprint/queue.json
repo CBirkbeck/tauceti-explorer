@@ -32868,8 +32868,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9293"
+   "state": "pending",
+   "note": "released on GitHub issue #9293"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L3",
@@ -38197,8 +38197,8 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9323"
+   "state": "pending",
+   "note": "released on GitHub issue #9323"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.5",
@@ -38722,8 +38722,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9330"
+   "state": "pending",
+   "note": "released on GitHub issue #9330"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.6",
@@ -43574,8 +43574,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9295"
+   "state": "pending",
+   "note": "released on GitHub issue #9295"
   },
   {
    "priority": 2,
@@ -43724,8 +43724,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9298"
+   "state": "pending",
+   "note": "released on GitHub issue #9298"
   },
   {
    "priority": 2,
@@ -43877,8 +43877,8 @@
    ],
    "revisionOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9301"
+   "state": "pending",
+   "note": "released on GitHub issue #9301"
   },
   {
    "priority": 2,
@@ -49654,7 +49654,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EffectiveDiophantineMethods.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10086"
   },
   {
    "id": "REV-PKG-EffectiveDiophantineMethods",
@@ -109979,8 +109980,8 @@
    ],
    "revisionOf": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9313"
+   "state": "pending",
+   "note": "released on GitHub issue #9313"
   },
   {
    "priority": 2,
@@ -130703,9 +130704,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-DeformationAndDerivedPatchingAlgebra~adv.md",
-   "note": "claimed on GitHub issue #10067"
+   "note": "deliverables arrived from an external worker on issue #10067",
+   "finishedAt": "2026-10-16T22:29:07Z"
   },
   {
    "id": "REV-PKG-PadicHodgeTheory~adv",
@@ -130724,9 +130726,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-PadicHodgeTheory~adv.md",
-   "note": "claimed on GitHub issue #10068"
+   "note": "deliverables arrived from an external worker on issue #10068",
+   "finishedAt": "2026-10-16T22:29:10Z"
   }
  ]
 }
