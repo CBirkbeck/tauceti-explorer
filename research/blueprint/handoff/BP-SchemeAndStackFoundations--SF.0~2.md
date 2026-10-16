@@ -36,7 +36,7 @@ version was still current:
 Both files' latest change at that main commit is
 [upstream PR #943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943),
 merged as `d2081398eedfbd4153d3067aa98a21b5a5270957` on 16 October at
-02:36:55 UTC. The current Layer 0 includes étale topological invariance
+02:48:52 UTC. The current Layer 0 includes étale topological invariance
 (§0.23a) and scheme Frobenius (§0.29), further evidence that the upstream
 specification is actively maintained. This is an ownership check, not a
 mathematical review of those additions.
