@@ -129357,6 +129357,45 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-PotentialAutomorphyInfrastructure~adv.md"
+  },
+  {
+   "id": "ASM-DeformationAndDerivedPatchingAlgebra~2",
+   "kind": "assembly",
+   "priority": 2,
+   "order": 5000,
+   "roadmapIds": [
+    "DeformationAndDerivedPatchingAlgebra"
+   ],
+   "outputs": [
+    "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra.md",
+    "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra.lean",
+    "research/blueprint/handoff/ASM-DeformationAndDerivedPatchingAlgebra.md",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7-2.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P8.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P9.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.1.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.2.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.3.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.4.json",
+    "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.5.json"
+   ],
+   "after": [
+    "REV-DeformationAndDerivedPatchingAlgebra--P7",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.6",
+    "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
+    "REV-DeformationAndDerivedPatchingAlgebra--P8",
+    "REV-DeformationAndDerivedPatchingAlgebra--P9",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.2",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.3",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.4",
+    "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
+   ],
+   "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra~2.md",
+   "state": "pending",
+   "note": "superseded by the whole-roadmap blueprint BP-DeformationAndDerivedPatchingAlgebra (#9405, reviewed in #9373): the legacy P7/R03.x part assembly would overwrite the reviewed whole-roadmap reader; maintainer decision 2026-10-14"
   }
  ]
 }
