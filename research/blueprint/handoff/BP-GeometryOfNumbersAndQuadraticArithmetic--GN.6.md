@@ -1,8 +1,47 @@
 # BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6: blocked checkpoint
 
-Worker: Codex, session `codex-vMUTFN`. Date: 2026-10-16.
+Worker: Codex, session `codex-C8b6hH`. Date: 2026-10-16.
 Issue: [#9330](https://github.com/CBirkbeck/tauceti-explorer/issues/9330).
 Status: **blocked; no new mathematical plan submitted**.
+
+## Continuation check — codex-C8b6hH
+
+Continued the checkpoint merged in [#9966](https://github.com/CBirkbeck/tauceti-explorer/pull/9966).
+The bot confirmed [the current session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6218762794).
+No second job was claimed.
+
+Re-read the complete issue, WORKERS.md, both protocols, UPSTREAM_GUIDE.md,
+this handoff, the parent packet's GN.6 coverage, and the current upstream
+Layer 6 scope and relevant target sections. On 2026-10-16, GitHub still
+reports [TauCetiRoadmap #851](https://github.com/TauCetiProject/TauCetiRoadmap/pull/851)
+as open, with head **7945b2abe8f3d04c0df0505984779a7464b2ce3c**,
+unchanged from the previous checkpoint. The README fetched at that commit has
+SHA-256 `47b4f6ac98a803a815511769544881be7c01c3be63eebf61851dff006b81fd26`.
+The target correspondence below still applies. Its final extension section
+still excludes the number-ring homotopy-limit theorem and higher integer GW
+tables from implementable targets.
+
+The maintainer's blocking instruction remains on the issue, without a
+subsequent instruction assigning an extension beyond #851. The atlas parent
+packet still records GN.6 as partial; neither that fact nor the available
+label authorizes a second plan of upstream-owned targets. PROTOCOL.md section
+15 explicitly includes open Tau Ceti roadmap pull requests in existing work.
+The blocker therefore persists: this continuation cannot finish the old brief
+without duplicating its authoritative owner. No mathematical deliverable or
+closure assertion has been added.
+
+The disposition needed is the same as before: reconcile the obsolete atlas
+follow-up with #851, or assign a precise extension and its deliverable paths.
+The reciprocal metadata finding remains unresolved by this job, as explained
+below. This update is a blocked checkpoint for intake, not a completed
+blueprint. No primary mathematical source was newly verified; no Lean file
+was changed or compiled. Checks for this continuation: `git diff --check` and
+`python3 research/blueprint/intake.py check-files` on this handoff. The packet
+does not exist, so there is no packet to validate with `check_blueprint.py`.
+New nodes, API items, tests, planets, baseline citations and requests: all zero.
+
+The remaining sections preserve the previous checkpoint's ownership evidence
+and resumption instructions (Codex session `codex-vMUTFN`).
 
 ## Claim and blocker
 
