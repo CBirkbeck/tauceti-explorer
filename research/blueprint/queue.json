@@ -49638,6 +49638,49 @@
    "note": "deliverables arrived from an external worker on issue #7925"
   },
   {
+   "id": "PKG-EffectiveDiophantineMethods",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EffectiveDiophantineMethods/README.md",
+    "research/blueprint/packages/EffectiveDiophantineMethods/Suggested.lean",
+    "research/blueprint/packages/EffectiveDiophantineMethods/metadata.toml",
+    "research/blueprint/handoff/PKG-EffectiveDiophantineMethods.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-EffectiveDiophantineMethods.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-EffectiveDiophantineMethods",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EffectiveDiophantineMethods.md",
+    "research/blueprint/packages/EffectiveDiophantineMethods/review.json",
+    "research/blueprint/packages/EffectiveDiophantineMethods/README.md",
+    "research/blueprint/packages/EffectiveDiophantineMethods/Suggested.lean",
+    "research/blueprint/packages/EffectiveDiophantineMethods/metadata.toml"
+   ],
+   "after": [
+    "PKG-EffectiveDiophantineMethods"
+   ],
+   "avoidAccountOf": "PKG-EffectiveDiophantineMethods",
+   "independentOf": [
+    "PKG-EffectiveDiophantineMethods"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-EffectiveDiophantineMethods.md",
+   "state": "pending"
+  },
+  {
    "id": "PKG-EllipticCurveModularity",
    "kind": "package",
    "priority": 2,
@@ -92848,6 +92891,53 @@
    "state": "done",
    "finishedAt": "2026-09-30T15:51:06Z",
    "note": "deliverables arrived from an external worker on issue #5048"
+  },
+  {
+   "id": "RT-BP-EffectiveDiophantineMethods~4",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1499,
+   "name": "blueprint BP-EffectiveDiophantineMethods~4: Effective Diophantine methods and certified rational points",
+   "target": "BP-EffectiveDiophantineMethods~4",
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EffectiveDiophantineMethods~4.result.json",
+    "research/blueprint/redteam/RT-BP-EffectiveDiophantineMethods~4.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-EffectiveDiophantineMethods~4",
+    "REV-EffectiveDiophantineMethods~4"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-EffectiveDiophantineMethods~4.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-EffectiveDiophantineMethods~4",
+   "kind": "review",
+   "priority": 2,
+   "order": 1499,
+   "name": "blueprint BP-EffectiveDiophantineMethods~4: Effective Diophantine methods and certified rational points",
+   "roadmapIds": [
+    "EffectiveDiophantineMethods"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-EffectiveDiophantineMethods~4.review.json",
+    "research/blueprint/reviews/REV-RT-BP-EffectiveDiophantineMethods~4.md"
+   ],
+   "after": [
+    "RT-BP-EffectiveDiophantineMethods~4"
+   ],
+   "avoidAccountOf": "RT-BP-EffectiveDiophantineMethods~4",
+   "independentOf": [
+    "RT-BP-EffectiveDiophantineMethods~4",
+    "BP-EffectiveDiophantineMethods~4",
+    "REV-EffectiveDiophantineMethods~4"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-EffectiveDiophantineMethods~4.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-elementary",
