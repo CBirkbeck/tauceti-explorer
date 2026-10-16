@@ -1,14 +1,14 @@
 # BP-GeometryOfNumbersAndQuadraticArithmetic--GN.6: blocked checkpoint
 
-Worker: Codex, session `codex-AcAsq3`. Date: 2026-10-16.
+Worker: Codex, session `codex-8QFqJW`. Date: 2026-10-16.
 Issue: [#9330](https://github.com/CBirkbeck/tauceti-explorer/issues/9330).
 Status: **blocked; no new mathematical plan submitted**.
 
 ## Current continuation
 
-Continued the checkpoint merged in [#10053](https://github.com/CBirkbeck/tauceti-explorer/pull/10053).
+Continued the checkpoint merged in [#10065](https://github.com/CBirkbeck/tauceti-explorer/pull/10065).
 Issue #9330 was the first available eligible issue in this run's manager list.
-The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6224463999).
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9330#issuecomment-6224984052).
 No second issue was claimed.
 
 Re-read WORKERS.md, PROTOCOL.md, the expansion protocol, UPSTREAM_GUIDE.md,
@@ -22,12 +22,14 @@ mathematical extension.
 
 Verified [TauCetiRoadmap PR #851](https://github.com/TauCetiProject/TauCetiRoadmap/pull/851)
 is **open** at head **2a81bf26f00972b7e17dc5105c2f8980ea7698b5**, unchanged
-from #10053. Fetched its README and Suggested.lean at that commit on
+from #10065. Fetched its README and Suggested.lean at that commit on
 2026-10-16. Their SHA-256 hashes are respectively
 `acd0d1ffa92b714c7c8f0dadda359b5519e587b11a73c9f27eef46b57c96bba0`
 and `976d6af3b394b2866680cb2bc6522c011beca641289fe52dd1d5c92db76bb89d`.
-Inspected the Layer 6 scope, relevant target sections, dependency and extension
-boundaries, and the suggested file's statement of its scope. The ownership
+Inspected the Layer 6 scope, ordinary Q/K and realization targets in 6.1,
+the four-condition filtering quotient and descended duality in 6.6a,
+the Poincare target headings and interfaces, the extension boundary, and
+the suggested file's statement of its scope. The ownership
 map below still applies. This is an ownership check, not a mathematical
 review or certification of the upstream roadmap.
 
@@ -62,8 +64,10 @@ mathematical specification.
 The final roadmap-for-a-roadmap explicitly excludes the number-ring
 homotopy-limit theorem and higher integer GW tables from implementable targets.
 Those exclusions do not assign this obsolete follow-up a new scope. A separate
-extension needs a precise brief and owner. No fictitious supplier stage has
-been introduced for the parent packet's routed Poincare-category brief.
+extension needs a precise brief and owner. The manager's current instruction
+to take this available issue also forbids replanning existing upstream work;
+it supplies no distinct mathematical extension or supersession instruction.
+No fictitious supplier stage has been introduced for the parent packet's routed Poincare-category brief.
 
 ## Confirmed finding RT-AREA-algebraicnt-1/1
 
@@ -87,13 +91,16 @@ blocking instruction and upstream ownership: retire the obsolete follow-up,
 or assign a precise extension with its scope, owner and deliverable paths.
 Resume from the current #851 head and the maintainer's issue instruction.
 The older checkpoints are [#9966](https://github.com/CBirkbeck/tauceti-explorer/pull/9966),
-[#10014](https://github.com/CBirkbeck/tauceti-explorer/pull/10014) and
-[#10053](https://github.com/CBirkbeck/tauceti-explorer/pull/10053).
+[#10014](https://github.com/CBirkbeck/tauceti-explorer/pull/10014),
+[#10053](https://github.com/CBirkbeck/tauceti-explorer/pull/10053), and
+[#10065](https://github.com/CBirkbeck/tauceti-explorer/pull/10065).
 
 Inspected the supplied read-only upstream checkout's GrothendieckEulerForms
-and QuadraticFormInvariants scope/foundation sections and searched the current
-Tau Ceti categorical-duality sources. No library or upstream roadmap was
-edited or built. No primary mathematical source was newly verified, no new
+and QuadraticFormInvariants scope/foundation sections and read the current
+Tau Ceti `CategoryTheory/InvolutiveDual.lean`, including the involutivity
+condition and the induced duality equivalence. This current-library reading
+is context, not a new claim about the pinned baseline. No library or upstream
+roadmap was edited or built. No primary mathematical source was newly verified, no new
 statement-level baseline citation or implementation-absence claim is made,
 and no mathematical source acquisition is needed to establish this blocker.
 
