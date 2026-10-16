@@ -129396,6 +129396,25 @@
    "prompt": "research/blueprint/prompts/ASM-DeformationAndDerivedPatchingAlgebra~2.md",
    "state": "pending",
    "note": "superseded by the whole-roadmap blueprint BP-DeformationAndDerivedPatchingAlgebra (#9405, reviewed in #9373): the legacy P7/R03.x part assembly would overwrite the reviewed whole-roadmap reader; maintainer decision 2026-10-14"
+  },
+  {
+   "id": "PKG-HeightsRationalPointsAndObstructions~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HeightsRationalPointsAndObstructions"
+   ],
+   "outputs": [
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/README.md",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/Suggested.lean",
+    "research/blueprint/packages/HeightsRationalPointsAndObstructions/metadata.toml",
+    "research/blueprint/handoff/PKG-HeightsRationalPointsAndObstructions~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-HeightsRationalPointsAndObstructions~codex.md"
   }
  ]
 }
