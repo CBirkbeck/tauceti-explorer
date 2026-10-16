@@ -44640,7 +44640,9 @@
     "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10023",
+   "finishedAt": "2026-10-16T17:55:45Z"
   },
   {
    "id": "ASM-K3BlochGroups",
@@ -130314,9 +130316,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~codex.md",
-   "note": "claimed on GitHub issue #10016"
+   "note": "deliverables arrived from an external worker on issue #10016",
+   "finishedAt": "2026-10-16T17:55:48Z"
   },
   {
    "id": "PKG-PadicHodgeTheory~codex",
