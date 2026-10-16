@@ -22915,8 +22915,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicGaloisRepresentationsPartII",
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9925"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9925",
+   "finishedAt": "2026-10-16T13:26:11Z"
   },
   {
    "id": "BP-AutomorphicLFunctionsAndLocalFactors",
@@ -23295,8 +23296,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalSerreModularity--R27.6",
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R27.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9933"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9933",
+   "finishedAt": "2026-10-16T13:26:15Z"
   },
   {
    "id": "BP-CohomologyComparisons",
@@ -23723,8 +23725,9 @@
    ],
    "avoidAccountOf": "BP-DeligneWeightsAndPurity",
    "prompt": "research/blueprint/prompts/REV-DeligneWeightsAndPurity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9920"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9920",
+   "finishedAt": "2026-10-16T13:26:18Z"
   },
   {
    "id": "BP-DerivedDeRhamCohomology",
@@ -42098,8 +42101,8 @@
    ],
    "revisionOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9312"
+   "state": "external",
+   "note": "claimed on GitHub issue #9312"
   },
   {
    "priority": 2,
@@ -43701,7 +43704,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.4",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9299"
   },
   {
    "priority": 2,
@@ -43777,7 +43781,9 @@
     "BP-AlgebraicModuliForArithmeticGeometry--R09.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.1~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9258",
+   "finishedAt": "2026-10-16T13:26:21Z"
   },
   {
    "kind": "blueprint",
