@@ -1,17 +1,17 @@
 # BP-SchemeAndStackFoundations--SF.0~2: upstream ownership checkpoint
 
-Codex (GPT-6), session `codex-vmSSHa`, 16 October 2026. Issue
+Codex (GPT-6), session `codex-fnApCm`, 16 October 2026. Issue
 [#9295](https://github.com/CBirkbeck/tauceti-explorer/issues/9295).
 
 **Checkpoint: the maintainer's scope instruction prevents this atlas revision.**
-The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6225363585)
-at 21:50:44 UTC, explicitly identifying this session and claim comment
-6225361308. This was the first
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6226012871)
+at 22:37:48 UTC, explicitly identifying this session and claim comment
+6226011298. This was the first
 eligible available issue on the manager's
 ordered list. Only this issue was claimed. This checkpoint continues
-[#10069](https://github.com/CBirkbeck/tauceti-explorer/pull/10069). Its
-[intake release](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6225334241)
-at 21:48:37 UTC made the job available again without changing its scope.
+[#10077](https://github.com/CBirkbeck/tauceti-explorer/pull/10077). Its
+[intake release](https://github.com/CBirkbeck/tauceti-explorer/issues/9295#issuecomment-6225882005)
+at 22:27:22 UTC made the job available again without changing its scope.
 
 ## Fresh scope and ownership checks
 
@@ -27,24 +27,29 @@ A fresh authenticated GitHub read confirms that
 [upstream PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
 merged on 14 October 2026 at 04:47:45 UTC, with merge commit
 `d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. A separate commits API read resolves current
-main to `cc8501ac47d864b56634cb1ba6094197bf60e6b7`. This session fetched and
+main to `fb90c183a4e16179828a81c75ecd2ae1f1d67dcc`. This session fetched and
 inspected the individual README and Suggested.lean at that exact commit:
 
-- [Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership)
+- [Scope and ownership](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/README.md#scope-and-ownership)
   assigns the shared scheme foundations to this upstream roadmap and imports
   quasi-coherent algebras, relative Spec and graded algebras from their existing owners.
-- [Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms),
+- [Layer 0](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-0-schemes-and-morphisms),
   especially §§0.1–0.3, already owns the small-affine-site comparison, qcqs
   direct-image algebra, relative-Spec morphism-property dictionary and general
   relative Proj. Thus even the genuine extensions distinguished by the historical
   atlas review now have an upstream owner. Layer 0 also owns henselization,
   excellence and perfection.
-- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/cc8501ac47d864b56634cb1ba6094197bf60e6b7/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+- [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/fb90c183a4e16179828a81c75ecd2ae1f1d67dcc/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
   imports AlgebraicVectorBundles and states Layer 0 interfaces, including
   `Proj.isPullback_baseChange` and the `Henselization` strand. Its absence of a
   declaration for a README-only target does not remove that target's owner.
 
-The following scope comparison gives the maintainer precise places to resume.
+The following scope comparison is retained from the previous checkpoint to give
+the maintainer precise places to resume. Both newly fetched files have the
+same hashes as that checkpoint; the upstream specifications are byte-identical.
+This session read the scope, conventions, Layer 0 §§0.1–0.3 and the corresponding
+Proj and henselization suggested declarations. The retained table is not a new
+review of every historical finding.
 It checks ownership and differences in the specifications, not the correctness
 of upstream mathematics and not whether upstream has discharged the old review.
 All locators refer to the immutable current-main README linked above.
@@ -65,7 +70,7 @@ the suggested file's is
 Both were read on 16 October 2026. These are individual public files, not a
 repository snapshot; the immutable public URLs suffice after scratch cleanup.
 
-The supplied read-only roadmap checkout remains at
+The supplied read-only roadmap checkout, checked again in this session, remains at
 `0d144d044dacebca17b654695b6f1ad58f159b27`, without this newer roadmap.
 Its absence there does not supersede the exact current-main evidence above.
 This session read the supplied AlgebraicVectorBundles and ModularCurves scope
@@ -143,10 +148,13 @@ scope table above to establish a permitted, nonduplicating task before changing
 the historical packet. Any upstream correction needs a separately authorized
 scope and editable destination. Previous
 ownership checkpoints merged in #9894, #9951, #9972, #9988, #9995, #10002,
-#10029, #10034, #10038, #10044, #10054, #10061 and #10069: this is the fourteenth submission of
+#10029, #10034, #10038, #10044, #10054, #10061, #10069 and #10077: this is the fifteenth submission of
 the unresolved boundary. Automatic checkpoint intake repeatedly restores
 availability without resolving the scope instruction. The queue needs a
 maintainer disposition that prevents this repetition; changing its labels or
 queue is outside this job's permitted deliverables. A redirected task needs
 an explicit scope against the current upstream roadmap. This run submits
-this checkpoint and stops without claiming a second issue.
+this checkpoint and stops without claiming a second issue. The job remains
+blocked on scope, not on time, source access or Lean resources; spending the
+remaining run time repairing this atlas specification would violate the
+maintainer's ownership instruction.
