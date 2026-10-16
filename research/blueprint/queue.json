@@ -44830,8 +44830,9 @@
     "REV-DirichletPadicLFunctions--L3-2"
    ],
    "prompt": "research/blueprint/prompts/ASM-DirichletPadicLFunctions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5872"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5872",
+   "finishedAt": "2026-10-16T10:02:46Z"
   },
   {
    "id": "ASM-EllipticKTheory",
@@ -46491,7 +46492,9 @@
     "PKG-AInfCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AInfCohomology~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9877",
+   "finishedAt": "2026-10-16T10:02:51Z"
   },
   {
    "id": "PKG-AbelianSchemesAndArithmeticModuli",
@@ -48522,8 +48525,9 @@
    ],
    "revisionOf": "PKG-ColemanIntegration",
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9880"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9880",
+   "finishedAt": "2026-10-16T10:02:55Z"
   },
   {
    "id": "REV-PKG-ColemanIntegration~3",
@@ -53166,8 +53170,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicFamilies.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9888"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9888",
+   "finishedAt": "2026-10-16T10:03:01Z"
   },
   {
    "id": "REV-PKG-PadicFamilies",
@@ -53594,8 +53599,9 @@
    ],
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9188"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9188",
+   "finishedAt": "2026-10-16T10:03:08Z"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~2",
@@ -54162,8 +54168,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraCompactifications.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9886"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9886",
+   "finishedAt": "2026-10-16T10:03:14Z"
   },
   {
    "id": "REV-PKG-ShimuraCompactifications",
