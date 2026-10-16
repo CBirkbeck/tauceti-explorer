@@ -90,6 +90,12 @@ example : (standardFrobenius (ZMod 3)).trace = (adaptedFrobenius (1 : ZMod 3)).t
 example : (cubicBasisChange (1 : ZMod 3)).det = 0 := by
   decide
 
+-- An unramified scalar twist preserves inertia but changes the Frobenius determinant.
+-- The arithmetic local lift must match its specified determinant, not just its inertia.
+example : (standardFrobenius (ZMod 7)).det = -1 ∧
+    ((2 : ZMod 7) • standardFrobenius (ZMod 7)).det = 3 := by
+  decide
+
 -- R33.2: the auxiliary congruences; primality and the Galois Frobenius condition are separate inputs.
 example : 406561 % 8 = 1 ∧ 406561 % 3 = 1 ∧ 406561 % 5 = 1 ∧
     406561 % 7 = 1 ∧ 406561 % 11 = 1 ∧ 406561 % 13 = 12 := by
