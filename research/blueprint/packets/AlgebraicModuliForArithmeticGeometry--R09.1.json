@@ -2207,7 +2207,7 @@
       ],
       "title": "Bounded smooth polarizations with trivial canonical bundle",
       "kind": "application",
-      "statement": "Fix n≥1 and r>0. Smooth projective complex varieties X of dimension 2n with K_X trivial and an ample L satisfying L^(2n)=r form a bounded family of underlying varieties. A uniform power L^m embeds them into one fixed P^N with degree m^(2n)r. The characteristic-zero Chow-support families of the bounded-degree target then supply finitely many finite-type projective parameter families, and finitely many Hilbert polynomials. These families need no Hilbert-functor representability; R09.2 later imports the polynomial finiteness for its Hilbert construction.",
+      "statement": "Fix n≥1 and r>0. Smooth projective complex varieties X of dimension 2n with K_X trivial and an ample L satisfying L^(2n)=r form a bounded family of underlying varieties. A uniform power L^m embeds them into one fixed P^N with degree m^(2n)r. The characteristic-zero Chow-support families of the bounded-degree target then supply finitely many finite-type projective parameter families, and finitely many Hilbert polynomials. These families need no Hilbert-functor representability; R09.2 imports the polynomial finiteness for its Hilbert construction.",
       "hypotheses": [
         "Ample L, not merely big; K_X trivial; fixed dimension and top self-intersection. This is a complex geometric family statement, not descent of L over a smaller field."
       ],
