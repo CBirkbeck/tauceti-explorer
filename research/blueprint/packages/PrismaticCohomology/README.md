@@ -8,7 +8,7 @@ The four roadmaps form the chain [PrismaticCohomology](../PrismaticCohomology/RE
 
 Prerequisites in other roadmaps are cited by roadmap name and the section labels of that roadmap. Section numbers continue across the four parts.
 
-This part owns the integral polynomial, localization, completion and δ-ideal API over arbitrary commutative rings. PerfectoidSpaces §P4.15.2 develops δ-rings, distinguished elements and prisms in the range its semiperfectoid construction needs, and supplies the prism objects and the restricted affine theory used here. The δ-structure of §0.3 is the same notion over an arbitrary commutative ring: on a Z_(p)-algebra it is the PerfectoidSpaces δ-ring, and Layer 0 adds only the API that PerfectoidSpaces does not state. This part owns the extension to arbitrary bounded prisms with canonical Breuil–Kisin twists and formal schemes, and animated perfectoidization, arc descent and integral J-almost purity (§§2.0, 2.22–2.31). PerfectoidSpaces owns the semiperfectoid universal quotient. PerfectoidTowers §P8.18 states the universal integral perfectoid ring under an integral extension of an integral perfectoid ring (`exists_perfectoidization`); §2.31 differs in proving that the animated perfectoidization of such an extension is discrete and is that ring, together with the J-almost purity statements.
+This part owns the integral polynomial, localization, completion and δ-ideal API over arbitrary commutative rings. PerfectoidSpaces §P4.15.2 develops δ-rings, distinguished elements and prisms in the range its semiperfectoid construction needs, and supplies the prism objects and the restricted affine theory used here. The δ-structure of §0.3 is the same notion over an arbitrary commutative ring: on a Z_(p)-algebra it is the PerfectoidSpaces δ-ring, and Layer 0 adds only the API that PerfectoidSpaces does not state. This part owns the extension to arbitrary bounded prisms with canonical Breuil–Kisin twists and formal schemes, and animated perfectoidization, arc descent and integral J-almost purity (§§2.0, 2.22–2.31). PerfectoidSpaces owns the semiperfectoid universal quotient. PerfectoidTowers §P8.18 states the universal integral perfectoid ring under an integral extension of an integral perfectoid ring (`exists_perfectoidization`); §2.31 differs in proving that the animated perfectoidization of such an extension is discrete and is that ring, together with the J-almost purity statements. General orientable envelopes, Laurent relative Frobenius and relative quasiregular initiality are the additional targets in §§0.93, 1.13a and 2.13a; their wider ranges are not inferred from the restricted supplied cases.
 
 Mathlib supplies ordinary Witt vectors, adic completions, divided powers and divided power algebras, localizations, sites and derived categories. EnhancedDerivedSheaves, DerivedModuleAlgebra and DerivedDeRhamCohomology supply their enhanced, completed and animated interfaces; SchemeAndStackFoundations supplies formal schemes. No divided power envelope or full cotangent complex is inferred from its naive counterpart. AlgebraicVectorBundles supplies the ordinary affine vector-bundle dictionary; compatible-system effectivity in §2.28 is additional.
 
@@ -162,6 +162,7 @@ A supplier row specifies the interface used, under the hypotheses shown. Its the
 | CrystallineCohomology §§CR.2.1–CR.2.3 | 1–2 | Crystalline–de Rham comparison on smooth lifts and its polynomial/derived extension with Frobenius and completed base change. No singular site comparison follows from the smooth theorem alone. |
 | CrystallineCohomology §§CR.DDR.4.5 and CR.DDR.5.18–CR.DDR.5.22 | 2 | Derived de Rham–Witt as the p-completed polynomial extension, its smooth crystalline comparison and the quasiregular semiperfect PD identification of A_crys(S); the prismatic comparison is §2.19. |
 | EnhancedDerivedSheaves §§0.1–0.3 and E1.1–E1.4 | 0 | Enhanced module derived categories, derived tensor, adjunctions and derived limits; their homotopy categories recover ordinary derived categories. The complete enhancements and algebra objects are retained, not inferred from triangulated categories. |
+| EnhancedDerivedSheaves §E0.4 | 0 | Products and limits with fixed universe cutoffs; the solution-set construction in §0.93 explicitly enlarges the ambient universe. |
 | EnhancedDerivedSheaves Layers E2 and E3 | 1–2 | Enhanced sheaves, hypercovers, effective epimorphisms, cohomological descent and replete-topos limits (E2); relative left Kan extension along a full inclusion (§E3.1). Use space-valued fpqc sheafification, not just groupoid stackification. |
 | EnhancedDerivedSheaves Layers E5:abstract, E5:descent and E5:animation | 0–2 | Symmetric monoidal stable ∞-categories and commutative algebra objects (§§E5:abstract.1–E5:abstract.2); descendability and module descent (E5:descent), with conservativity and colimits requiring the stated uniform descendability index; animation, its universal property and animated commutative rings (§§E5:animation.1 and E5:animation.4). All coherences survive completion. |
 | SchemeAndStackFoundations §§1.1, 2.1–2.6 and 4.7–4.8 | 1–2 | Affine module and vector-bundle faithfully flat descent (§1.1); small étale sites, morphisms of topoi and gluing of scheme cohomology (§§2.1–2.6); bounded p-adic formal schemes, Spf, their étale sites, affine charts and descent (§§4.7–4.8). Complete formal QCoh, compatible-tower effectivity, punctured derived-completion descent, the prismatic sheaves and the quasisyntomic/formal adapters are constructed here. |
@@ -1597,6 +1598,28 @@ The identity is integral, including with p-torsion; only its universal torsion-f
 
 *Needs:* [§0.72](#s0-72), [§0.61](#s0-61), [§0.5](#s0-5), Mathlib `RingTheory.Sequence.IsRegular`, [§0.86](#s0-86), [§0.66](#s0-66), [§0.81](#s0-81), [§0.78](#s0-78), Mathlib `MvPolynomial`, Mathlib `AdicCompletion`, [§0.55](#s0-55), [§0.56](#s0-56), Mathlib `RingHom.FaithfullyFlat`, [§0.8](#s0-8), [§0.44](#s0-44), [§0.28](#s0-28), [§0.13](#s0-13).
 
+<a id="s0-93"></a>
+<a id="layer-0-general-prismatic-envelope"></a>
+
+### 0.93 General envelopes over orientable prisms
+
+For an orientable prism (A,I=(d)), a delta-A-algebra B and any ideal J⊇IB, construct `Prism.generalEnvelope(B,J)`: a prism (C,IC) with a delta map B→C sending J into IC, initial among such maps to prisms over A. Neither the base nor the targets need be bounded. The input B and J need not be complete, flat, finitely generated or regular; the output is not asserted bounded or completely flat. `Prism.generalEnvelope.liftEquiv` identifies maps C→T over A with delta-A-maps B→T carrying J into IT, for every target prism T. The remaining API is `Prism.generalEnvelope.map`, respecting identities and composition, `Prism.generalEnvelope.orientationIndependent`, the unique isomorphism for two generators of I, and `Prism.generalEnvelope.regularComparison`, agreement with the supplied regular envelope only under all its regularity and complete-flatness hypotheses. ([K1](#ref-k1), Propositions 3.1–3.2, p.13; [Bhatt, Lecture V](https://www.math.ias.edu/~bhatt/teaching/prismatic-columbia/lecture5-prismatic-site.pdf), Lemma 5.1, p.6, has a bounded-base convention on p.1.)
+
+Here is a construction that does not assume an animated completion is discrete. In a target T, d is injective by rigidity, and derived (p,d)-completeness says that each sequence operator Δ_f:T^N→T^N, (x_n)↦(x_n−f x_(n+1)), is bijective for f=p,d; use its inverse-coordinate operations S_(f,n). These operations are preserved by A-maps by uniqueness. Choose κ=max(ℵ_0,|A|,|B|) and λ=κ^ℵ_0, and close the image of B together with the unique d-quotients of J under ring operations, δ and every S_(f,n) for ω_1 stages: each stage has size at most λ, every countable tuple occurs at a common earlier stage, and the resulting small subring remains d-injective and complete. Take the product of representatives of all such small admissible targets, including the zero target, and perform the same closure inside that product; this gives C, and projections to a small factor give existence of its maps to arbitrary targets, while preservation of the generating operations proves uniqueness by transfinite induction. The prism relation comes from A; the argument uses choice and a larger ambient universe for the product. (The telescope and finite-generator criteria are [Stacks, Tags 091P, 091Q and 091S](https://stacks.math.columbia.edu/tag/091P), More on Algebra §93, Lemmas 93.1–93.2 and Definition 93.4, pp.261–263; the solution-set argument here supplies the indicated generality.)
+
+**Checks.**
+
+- `generalEnvelope_identity`: if (B,IB) is already a prism and J=IB, the result and its structure map are B and the identity.
+- `generalEnvelope_unitIdeal`: J=B gives zero, since d invertible and derived d-completeness force a target to vanish.
+- `generalEnvelope_regularAgreement`: for the completed free delta algebra on x and J=(d,x), agreement with the regular envelope requires checking its complete flatness and relative regularity first.
+- `generalEnvelope_nonregularInput`: the ordinary free delta algebra on x,y with J=(d,x²,xy,y²) is an allowed input, without a regular presentation or prior completion; its universal map does not imply flatness.
+- `generalEnvelope_unboundedIdentity`: B=A,J=I gives A even if A/I has unbounded p-power torsion. Imposing bounded output would fail this test.
+- `generalEnvelope_telescopeZero`: for f=0 on Z, Δ_f is the identity and its inverse coordinates add no elements.
+- `generalEnvelope_telescopeUnit`: for f=1 on Z, both constant sequences 0 and 1 have image zero, so Z fails derived completeness for the unit ideal.
+- `generalEnvelope_telescopeSign`: for f=2, the constant sequence −1 solves Δ_f(x)=1; a plus sign would give −3.
+
+*Needs:* [§0.79](#s0-79), integral delta algebra, DerivedModuleAlgebra §§1.1–1.9 derived completeness and its telescope criterion, EnhancedDerivedSheaves §E0.4 products and universe conventions.
+
 ### Examples
 
 At p=2 on Z, δ(a)=(a−a²)/2 gives δ(2)=−1 and δ(4)=−6. Its associated Frobenius is the identity. The product rule on 2·2 computes 4(−1)+4(−1)+2(−1)²=−6, so omitting the final pδ(x)δ(y) term is detected. The ideal (2) is Frobenius-stable but not delta-stable; its delta closure is the unit ideal. On Z_(2), 2 is distinguished and 4 is not. On the nonzero ring F₂, the identity is an ordinary Frobenius lift but there is no delta structure. These examples force both the integral division convention and the no-torsion hypothesis of reconstruction.
@@ -2004,6 +2027,24 @@ The tensor is termwise. BS22’s monoid partition uses residues {0,…,p−1}^r,
 *Needs:* Mathlib `AlgebraicTopology.alternatingCofaceMapComplex`, Mathlib `MvPolynomial`.
 
 **Proof route.** Decompose polynomial monomials by their residues modulo p; the relative Frobenius Čech summands contract after adjoining coefficients (BS22 Lemma 5.4, pp.46–49).
+
+<a id="s1-13a"></a>
+<a id="layer-1-laurent-relative-frobenius"></a>
+
+### 1.13a Laurent relative Frobenius on a Čech nerve
+
+Extend the supplied polynomial Čech lemma to a Laurent algebra. Let k have characteristic p, S be any set, G=⊕_(s∈S)Z and B=k[G]. For the Čech nerve B^n=B^(⊗_k(n+1)) and its relative Frobenius twist B^(•,(1))=B^•⊗_(k,Frob_k)k, prove `Prismatic.laurentRelativeFrobenius`: for every cosimplicial B^(•,(1))-module N, the map N→N⊗_(B^(•,(1)))B^• is a quasi-isomorphism on unnormalized cochain complexes of k-modules. Tensor is ordinary and degreewise; the relative Frobenius maps are free, and N need not be k-flat. No finite-rank assumption on G is used; an arbitrary nonfree group or monoid with p-torsion is outside this statement. ([BS22](#ref-bs22), Lemma 5.4 and proof, pp.48–49, for the polynomial argument; [K1](#ref-k1), Appendix B, Lemma B.4, pp.61–62, for the Laurent consumer.)
+
+Choose the pointed representatives T of G/pG with finitely supported coordinates in {0,…,p−1}; the unique decompositions g=ph+a identify the relative-Frobenius extension in each degree with the free factor k[ET], compatibly with cofaces. This factor is the underlying semicosimplicial module of the split Čech nerve of k→k[G/pG], so its split homotopy makes the augmented comparison a homotopy equivalence after degreewise tensoring with any cosimplicial N. Every group element has finite support, which proves the assertion directly for infinite S without descending an arbitrary N to finitely many variables; codegeneracies need not respect the chosen basis.
+
+**Checks.**
+
+- For S empty, B=k and the comparison is the identity on N.
+- For G=Z and p=2, −1=2(−1)+1, so X^(−1)=X^(−2)X; the coefficient exponents must include negative integers.
+- At p=2, a codegeneracy sends the residue pair (1,1) to 2, outside {0,1}; the proof requires only cofaces.
+- Take k=F_p[ε]/(ε²) and constant N=k/(ε), with all group variables acting as 1. The same split homotopy works despite failure of k-flatness.
+
+*Needs:* [§1.13](#s1-13), Mathlib `AlgebraicTopology.alternatingCofaceMapComplex`, EnhancedDerivedSheaves §§E1.1–E1.4 module tensor products; the coface contraction constructed above.
 
 <a id="s1-14"></a>
 <a id="layer-1-crystalline-comparison"></a>
@@ -2577,6 +2618,27 @@ Regular means Koszul-regular; all δ-adjunctions and completions in the local fo
 
 **Proof route.** Consume the oriented regular envelope and glue its divided-power graded pieces with canonical ideal twists (BS22 Lemma 7.7 and Example 7.9, pp.57–59).
 
+<a id="s2-13a"></a>
+<a id="layer-2-quasiregular-quotient-initiality"></a>
+
+### 2.13a Relative initiality for quasiregular quotients
+
+Extend the supplied regular-quotient and perfect-base QRSP calculations to an arbitrary bounded prism (A,I) and a surjection A/I→S. Assume S is derived p-complete with bounded p-power torsion and (L_(S/(A/I))[−1])^∧_p is p-completely flat over S. Prove that Δ_(S/A) is a discrete delta-A-algebra, its Hodge–Tate reduction is p-completely faithfully flat over S with bounded p-power torsion, and (Δ_(S/A),IΔ_(S/A)) is initial among **all** prisms over A equipped with S→B/IB, including unbounded targets. For I=(d), identify it with the general envelope of (A,ker(A→S)). The original kernel need not be generated by a regular sequence, and the base need not be perfect; initiality here is relative to its fixed A-map. ([KY](#ref-ky), Proposition 4.17 and Lemma 4.18 with proof, pp.39–40; [BL22](#ref-bl22), Corollary 4.1.17 and Remark 4.1.20, pp.81–82, Remark 4.3.9 and Lemma 4.3.10, p.87.)
+
+The API is `Prismatic.quasiregularQuotient.initial`, the lift equivalence for all target prisms; `Prismatic.quasiregularQuotient.bounded`, including the complete faithful flatness of the reduction; `Prismatic.quasiregularQuotient.envelopeEquiv`, respecting δ, A and the map from S; and `Prismatic.quasiregularQuotient.map`, the unique functorial map for maps of quotient diagrams satisfying these hypotheses. It does not assert that arbitrary changes of A induce equivalences.
+
+The conjugate graded pieces Γ^i_S((L_(S/(A/I))[−1])^∧_p){−i}^∧_p are discrete and p-completely flat, giving discreteness and boundedness of the reduction; the supplied discrete-prism construction gives a natural idempotent e_S whose image is initial, so it remains to show e_S=id. For generators f_j of ker(A/I→S), the auxiliary quotient S′=((A/I)⟨X_j^(1/p^∞)⟩/(X_j−f_j))^∧_p maps to S; its relation classes surject onto the shifted completed cotangent complex modulo p, so divided powers and the conjugate filtration give a surjection Δ_(S′/A)→Δ_(S/A), and naturality reduces the idempotent identity to S′. Completed filtered passage reduces S′ to finitely many variables; extend A to A′=(A[X_1^(1/p^∞),…,X_r^(1/p^∞)])^∧_(p,I), with δ of each root zero, whose relatively p-completely formally étale reduction leaves Δ unchanged, and use that X_i−f_i is a successive monic regular sequence at every finite root level, with free quotients over A/I. Thus the supplied regular-quotient calculation over A′ gives e=id, hence initiality for S; only this auxiliary presentation is regular. The general-envelope comparison then follows from the same mapping problem, with boundedness already proved separately by Hodge–Tate theory. ([BS22](#ref-bs22), Lemma 7.7, pp.57–58, Example 7.9 and Proposition 7.10, pp.59–60.)
+
+**Checks.**
+
+- `quasiregularQuotient_identity`: S=A/I gives the relative prism A, including bounded nonperfect A.
+- `quasiregularQuotient_fatPoint`: for A=Z_p⟨x⟩, δ(x)=0, I=(p), and S=F_p[x]/(x²), the shifted cotangent complex over F_p[x] has rank one. The result adjoins x²/p and its delta relations although S need not be semiperfectoid.
+- `quasiregularQuotient_unboundedTargets`: the lift equivalence must hold for unbounded targets as well as the bounded site.
+- `quasiregularQuotient_nonsurjective`: F_p→F_p[x] is not a surjection and has the degree-zero cotangent generator dx; its positive-dimensional Hodge–Tate complex does not satisfy this discrete initiality assertion.
+- In the regular case with r relations, gr_i is free of rank binom(r+i−1,i), interpreted as rank one for i=0 and zero for i>0 when r=0. At (A,I)=(Z_p⟨x⟩,(p)) with f=x^p, the envelope is the p-completed PD envelope of (x); over A_inf(O_C) with f=p it is A_inf{p/ξ}^∧.
+
+*Needs:* [§2.12](#s2-12), [§2.13](#s2-13), [general envelopes](#layer-0-general-prismatic-envelope), derived Hodge–Tate comparison and conjugate filtration, DerivedModuleAlgebra §§0.1–0.17 cotangent complexes, DerivedModuleAlgebra §§1.1–1.9 complete flatness and completion, animated delta algebras. The log application first identifies its complex with this ordinary relative complex after exactification and verifies the stated cotangent and torsion hypotheses.
+
 <a id="s2-14"></a>
 <a id="layer-2-derived-input-higher-homotopy"></a>
 
@@ -2986,3 +3048,9 @@ PrismaticCohomologyPartII Layers 3–5 consumes the relative, derived and perfec
 - **Stacks**: [Tag 0D4B](https://stacks.math.columbia.edu/tag/0D4B), effectivity of finite projective modules for adic completion.
 
 Mathlib declarations are cited at commit `082e2d37e8b0463410cdb532e111cd43d5a66174`; the Tau Ceti baseline is `f790474821cf4256814db967cb154e7af3d0c369`. Declarations, rather than page numbers, locate these library interfaces.
+
+<a id="ref-k1"></a>
+
+- **K1**: Teruhisa Koshikawa. [Logarithmic prismatic cohomology I](https://arxiv.org/pdf/2007.14037v3). Propositions 3.1–3.2, p.13, and Appendix B, Lemma B.4, pp.61–62.
+
+- **Lecture V**: Bhargav Bhatt. [The prismatic site](https://www.math.ias.edu/~bhatt/teaching/prismatic-columbia/lecture5-prismatic-site.pdf). Lemma 5.1, p.6; its bounded-base convention is on p.1. Section 0.93 supplies its own solution-set proof for the wider unbounded range.
