@@ -10,13 +10,15 @@ The following boundaries fix the carriers and prevent parallel versions of exist
 
 - TauCetiRoadmap.EllipticCurves Layers 1, 4–8 supply isogenies, local point groups, quadratic twists, Mordell–Weil, finite Selmer groups and their exact sequence, and the unique integral minimal short pair over Q. Here the new elliptic-family adapter sends that pair `(A,B)` to `(-3A,-27B)` and tracks the resulting height and local-density factors. Mathlib's pointwise `WeierstrassCurve.naiveHeight` is a height on points and is not this curve-family height.
 - TauCetiRoadmap.PolynomialGaloisGroups Layers 0, 2 and 6 own permutation actions on roots, conjugacy of their images, and the transitive-group predicates. The field-counting predicate here specializes that interface to embeddings of an extension; it does not define another permutation Galois group.
-- TauCetiRoadmap.GlobalNumberFields Layers 9–11 own discriminants, orders, Picard groups and the number-field lattice dictionary. Its lattice/coset estimates and GeometryOfNumbersAndQuadraticArithmetic:GN.4 supply the bounded semialgebraic count. What is added here is its use on skew, truncated and averaged arithmetic fundamental regions, with the cusp error retained. TauCetiRoadmap.OrthogonalSpinGroups Layer 0 supplies the generic orthogonal group; the one-matrix slice here fixes an arithmetic quadratic matrix and integral lattice. TauCetiRoadmap.IntegralLattices is about symmetric bilinear lattices; the alternating lattices used in symplectic monodromy are separate objects.
+- TauCetiRoadmap.GlobalNumberFields Layers 9–11 own discriminants, orders, Picard groups and the number-field lattice dictionary. Its lattice/coset estimates and GeometryOfNumbersAndQuadraticArithmetic:GN.4 supply the bounded semialgebraic count. What is added here is its use on skew, truncated and averaged arithmetic fundamental regions, with the cusp error retained. TauCetiRoadmap.OrthogonalSpinGroups Layer 0 supplies the generic orthogonal group; the one-matrix slice here fixes an arithmetic quadratic matrix and integral lattice. TauCetiRoadmap.IntegralLattices §2G supplies Minkowski reduction and bounded Gram entries for integral symmetric lattices. The polynomial-order Gram target here uses a real embedding metric, with one embedding per complex pair, which need not be integral; only that metric adapter and its restricted change-of-basis groups are new. Alternating lattices used in symplectic monodromy are separate objects.
 - TauCetiRoadmap.NumberFieldArithmetic Layers 1, 4 and 6 and TauCetiRoadmap.LocalFieldsRamification Layer 3 supply splitting, relative discriminants, towers and local ramification. TauCetiRoadmap.ClassFieldTheory supplies Artin reciprocity, unramified class fields and conductor characters. Generic norm and ideal-extension maps are reused; the added narrow-class-group and base-character filters keep total positivity and the relative statistical numerator explicit.
 - `TauCeti.FiniteQuadraticModule.IsIsotropic`, `IsLagrangian` and `orthogonalQuotient` already provide finite quadratic isotropy, self-orthogonality and the induced quadratic quotient. Their `orthogonalQuotientMk`, quadratic-value, pairing, surjectivity, equality and nondegeneracy theorems are the finite-module interface consumed here. The new targets are the maximal-isotropic *parameter space*, its uniform probability, reduction of a varying maximal isotropic, and the fibre/intersection counts. Over F_p, identify the values with `(1/p)Z/Z`; over other fields use Mathlib's `QuadraticForm` and submodule quotients. Quadratic vanishing is retained at p=2.
 - Scalar finite-measure moment determinacy with an exponential moment is already `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` in `TauCeti.Probability.Moments.Determinacy`, together with `ext_of_mgf`. Here surjection moments on finite group classes and exponential rank-grid moments have different growth assumptions and need the discrete separator and tightness arguments below.
 - Restricted-product groups and independent infinite product measures use Tau Ceti's completed RestrictedProducts roadmap and Mathlib's `MeasureTheory.Measure.infinitePi` and projective-measure interfaces. The added structure is the quadratic form, self-duality, finite reductions and canonical maximal-isotropic probability, not another restricted product or product measure.
 - SchemeAndStackFoundations:SF.3 owns unpointed Picard schemes and their degree torsors, the Picard–Brauer obstruction, rational-divisor-class comparison, norm and high-degree Abel maps. The Picard quotient, carry and Hecke probability here are finite statistical specializations. AbelianSchemesAndArithmeticModuli:A3 supplies theta groups and Cartier-dual isogeny kernels; A6 supplies polarized automorphisms and the Rosati-positive-unit orbit description of principal polarizations. The finite counting fibres and their asymptotics are new.
 - InverseGaloisAndArithmeticFundamentalGroups:IG.3–IG.5 own reduced Schur multipliers and covers, arithmetic lifting invariants and Hurwitz components. They are imported with their marked central-cover choices and cyclotomic power actions. Here embedded wreath types, infinity rigidifications and the normalized component sums specify which arithmetic moments are counted.
+
+The pointwise two-Selmer rank identity is supplied by EllipticCurves Layer 7's exact sequence and Layer 6's Mordell–Weil theorem: `dim Sel₂(E)=rank E(Q)+dim E(Q)[2]+dim Sha(E)[2]`. Its explicit descent cardinal formula and rank inequality are already `WeierstrassCurve.Affine.card_range_μ` and `pow_rank_le_card_of_range_μ_le` in `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup`, transported by EllipticCurves' explicit/cohomological comparison. These pointwise facts are prerequisites; the new results here average them in the specified family.
 
 The companion AnalyticNumberTheory roadmap is in the same bundle. The other prospective suppliers used below are lower in the build: SchemeAndStackFoundations; GeometryOfNumbersAndQuadraticArithmetic; AdelicAlgebraicGroups; AlgebraicModuliForArithmeticGeometry; DiophantineApproximationAndTranscendence; InverseGaloisAndArithmeticFundamentalGroups; AbelianSchemesAndArithmeticModuli; ArithmeticGaloisRepresentations; SelmerIwasawaCohomology; ArithmeticGaloisDuality; NeronModelsAndSemistableAbelianVarieties; HeightsRationalPointsAndObstructions; EtaleDualityAndPerverseSheaves; and DeligneWeightsAndPurity. More specialized facts required here are stated as local supporting targets, not deferred to a later roadmap.
 
@@ -352,9 +354,9 @@ To prove the assertion, stabilizerWeight is Quotient.lift of v ↦ (Nat.card Sta
 
 - For (ℤ/3)ˣ = {±1} acting on ℤ/3, the fixed orbit {0} has weight 1/2.
 
-- For (ℤ/3)ˣ acting on ℤ/3 the orbit weights add up to 3/2 = #V/#Γ; the reciprocal-orbit-length weighting (which would give 2) fails.
+- For (ℤ/3)ˣ acting on ℤ/3 the orbit weights add up to 3/2 = #V/#Γ; reciprocal orbit lengths instead assign 1 to {0} and 1/2 to {1,2}, reversing the two weights. Their total is also 3/2, so the individual weights are essential to this test.
 
-- For {±1} = (ℤ/3)ˣ acting on ℤ/3 by multiplication, the orbits {0} and {1, 2} have weights 1/2 and 1, total 3/2 = #V/#Γ; weighting by reciprocal orbit length would give 2.
+- For {±1} = (ℤ/3)ˣ acting on ℤ/3 by multiplication, the orbits {0} and {1, 2} have weights 1/2 and 1, total 3/2 = #V/#Γ; reciprocal orbit lengths give the same total but reverse those individual weights.
 
 - In the regular action of a group on itself every weight is 1 and the weighted count is the count.
 
@@ -662,6 +664,8 @@ To prove the assertion, invI_twistedSMul, invJ_twistedSMul: by [relative invaria
 - x⁴ − y⁴: I = −12, J = 0, Δ = −256, the polynomial discriminant of X⁴ − 1.
 
 - x⁴: I = J = Δ = 0 (the null cone contains forms with a fourfold root).
+
+- Over F₃ the form x³y−xy³ has I=J=0 but Δ=1. The identity 27Δ=4I³−J² remains valid and does not determine Δ in characteristic three; division by 27 is restricted to rings where it is invertible.
 
 
 <a id="relative-invariance-of-i-and-j"></a>
@@ -2639,7 +2643,13 @@ To prove the assertion, Subtract an integer multiple of κ to normalize degree. 
 **Checks.**
 
 
-- In P=Z×Z/2 with κ=(2,1), the parity-one class has order four: Q is not the direct product of its two order-two sectors.
+- In P=Z×Z/2 with κ=(2,1) and D₀=(1,0), the class of D₀ has order four: Q is not the direct product of its two order-two sectors.
+
+- In P=Z with κ=2 and D₀=1, Pic⁰=0 and Q=Z/2; adding two degree-one representatives gives the degree-zero identity.
+
+- In P=Z×Z/3 with degree the first coordinate, κ=(2,1) and D₀=(1,0), c=(0,1). Thus (0,1)+(0,1)=(2,0) in Pic⁰×{0,1}. A carry +c would give (1,0), so this example detects the minus sign.
+
+- In the preceding P, the representative (−1,0) normalizes to (1,1) by adding κ. The degree-one coordinate is 1, rather than the discarded degree −1.
 
 
 <a id="finite-joint-bundle-mass"></a>
@@ -2910,7 +2920,7 @@ To prove the assertion, Use the already built wreath map induced by α:G≃*G on
 
 - For G=C₂ the type automorphism count is one, although the full wreath group has eight elements.
 
-- Identity always preserves the type.
+- For G=C₃ and H the full wreath subgroup, both automorphisms of C₃ preserve H, so |Aut_H(G)|=2. A constant-one count fails this example.
 
 
 <a id="wood-continuous-surjections"></a>
@@ -2978,11 +2988,11 @@ To prove the assertion, Import the marked arithmetic extension and normal-closur
 **Checks.**
 
 
-- A quotient with order divisible by Δ must not be excluded merely by the prime-to-Δ group supplier.
+- With Δ=3, a continuous unramified split-infinity quotient C₃ is retained by the full group. Its homomorphisms all become trivial after replacing that group by its maximal prime-to-3 quotient; the full interface cannot use that replacement.
 
-- Only the chosen sqrt(t) completion is in the imaginary function-field family, not every nonsplit completion.
+- Over F₃((t⁻¹)), the ramified quadratic completions obtained by adjoining sqrt(t) and sqrt(2t) have different squareclasses, since 2 is a nonsquare unit. Only the first satisfies the chosen imaginary-infinity condition.
 
-- A split-infinity real field has no canonical outside inertia involution; its rigid data include a twist y.
+- In the admissible C₂² type for G=C₂, both τ and (g,g)τ, with g the nonidentity element of C₂, are outside involutions and differ. For split real infinity the pair (ρ,y) retains this choice rather than selecting an inertia generator.
 
 
 ### 0.20 Exact quadratic function-field slices
@@ -3214,7 +3224,11 @@ To prove the assertion, Use the Layer 1 discriminant-preserving rank-n ring of a
 **Checks.**
 
 
-- Quadratic discriminants b²−4ac are 0 or 1 mod4; xy has Δ=1, and y² has Δ=0.
+- The leading-zero quadratic xy has Δ=1, so it belongs to neither square-divisibility locus at 2.
+
+- The leading-zero quadratic y² has Δ=0. Every coefficient perturbation modulo 2 has discriminant divisible by 4, so it belongs to the strong locus.
+
+- The quadratic x²−y² has Δ=4 and is strongly divisible at 2; it is not a weakly divisible example. In contrast x²+xy−y² has Δ=5, in the other allowed residue class modulo 4.
 
 
 <a id="monic-density-formulas"></a>
@@ -3241,6 +3255,12 @@ To prove the assertion, Squarefree residue polynomials give generating series (1
 
 
 - The monic quartic at p=3 has ν₀=2/3, ν₁=8/81 and λ=62/81; these counts disagree with exponent −n.
+
+- In degrees zero and one the discriminant is 1: ν₀=λ=1 and ν₁=0 at every prime. The degree-zero polynomial is the constant 1.
+
+- Among the 81 monic quadratics modulo 9, 54 have discriminant prime to 3 and 18 have valuation exactly one; thus ν₀=2/3, ν₁=2/9 and λ=8/9.
+
+- At p=2 in degree two, ν₀=1/2, ν₁=0 and λ=1/2. A residue class of valuation exactly one would contradict the discriminant congruence modulo 4.
 
 
 ### 0.24 Monic local Euler factors
@@ -4409,7 +4429,11 @@ To prove the assertion, For eta != 0: G(1, 0) = (4 phi + p)/3 with p = g_4(1,0) 
 **Checks.**
 
 
-- On y^2 = x^3 - 43x + 42 (roots 1, 6, -7), P = (-3, 12) gives square classes (-1, -1, 1) componentwise for both z(q(P)) and xi - e_i (checked numerically).
+- On y²=x³−43x+42 (roots 1,6,−7), P=(−3,12) gives values (−4,−9,4), hence square classes (−1,−1,1), for both z(q(P)) and μ(P).
+
+- At P=O the quartic-of-a-point construction has a linear factor and z(q(O))=1=μ(O). The identity cannot be replaced by the zero square class.
+
+- On E_(3,0):y²=x³−81x, with roots 0,9,−9, P=(0,0) is two-torsion. The corrected representative has values (−81,−9,9), hence square classes (−1,−1,1). The uncorrected values (0,−9,9) do not even define a unit square class; this tests the cofactor correction.
 
 
 <a id="binary-quartic-parametrization-of-e-mod-2e"></a>
@@ -4528,6 +4552,8 @@ To prove the assertion, Into the Selmer group: for locally soluble g, z(g) has s
 - Over Q for E = 571a1 (I = 44608, J = 18842960): the three nontrivial Selmer elements are represented by the quartics g_1, g_2, g_3 of Fisher's Example 3.4, and the product of their cubic invariants is a square.
 
 - Lind's quartic 2x^4 - 34y^4 (I = -816, J = 0) is locally soluble with no rational point: its cubic invariant lies in selmerGroup_2 of y^2 = x^3 + 22032 x but not in the image of mu.
+
+- The quartic x³y−xy³ has (I,J)=(3,0) and the rational zero (x,y,z)=(1,0,0). It represents the identity in the two-Selmer group of y²=x³−81x, over Q and after every localization; the orbit of a form with a linear factor must not be counted as nonidentity.
 
 
 ### 1.7 Integral two-covering representatives
@@ -5010,7 +5036,13 @@ To prove the assertion, Partition into a₀ unit; a₀∈p,a₁ unit; and a₀,a
 **Checks.**
 
 
-- At (n,p)=(4,3), α=176/243; at (4,2), α=3/8. The degree-four odd factor agrees with n≥5 after correction.
+- At (n,p)=(4,3), α=176/243: exactly 42,768 of the 9⁵ coefficient tuples modulo 9 have discriminant not divisible by 9. The degree-four odd factor agrees with n≥5 after correction.
+
+- At (n,p)=(4,2), α=3/8: exactly 384 of the 4⁵ coefficient tuples modulo 4 have discriminant not divisible by 4.
+
+- In degree two at p=2, α₂(2)=1/2 whereas β₂(2)=11/16. Squarefree discriminant and maximality are different local predicates.
+
+- In degree three at p=3, α₃(3)=64/81 whereas β₃(3)=208/243. Substituting the degree≥4 squarefree formula in degree three gives the wrong factor.
 
 
 ### 1.10 Integral quintic multiplication and sextic resolvents
@@ -7655,7 +7687,7 @@ To prove the assertion, Lift weak forms to marked distinguished slices with pres
 
 *Needs:* [weak lift odd](#refinement-weak-lift-odd), [even weak lift](#refinement-even-weak-lift), [monic distinguished off block](#refinement-monic-distinguished-off-block), [monic q cusp tail](#refinement-monic-q-cusp-tail), [monic extra reducible bound](#refinement-monic-extra-reducible-bound).
 
-([[74]](#ref-74), Theorem 1.5(b); §§2–4.)
+([[74]](#ref-74), Theorem 1.5(b), p.4; §§2–4.)
 
 
 **Checks.**
@@ -8436,7 +8468,9 @@ For the monic sieve prove an average divisor-sum estimate for the rational-root 
 
 For the even-degree binary sieve isolate the following implication. Assume a paired-fibre lattice count on actual full-rank `(A,B)` rows and the restricted Gram lower bound on `L_good(M)`, after deleting small discriminants and small constant terms. Then combine main, shallow and deep estimates and the non-Sn exclusion to obtain positive `δ,η` and `ξ≥0` with `τ=max(η,(η+ξ)/δ)<1` and `(2n+1)τ<n+1`. These assumptions give the summed tail and fixed-modulus sieve with those parameters. No numerical even-degree endpoint is inferred without those assumptions. The supporting tasks are to prove the paired-fibre count, the Cauchy–Binet/determinantal-ideal lower bound and the quantitative excluded-locus bound with logarithmic slack. A row-space condition is not a proof that a small coordinate block vanishes; use the deep-box inequalities themselves. Degree two has its own quadratic discriminant sieve. Source: BSW II, §§5–6, especially the restricted replacement for Lemma 6.25. The numerical exponent `1/(88n⁶)` is a proposed endpoint of this implication, rather than an unconditional consequence of the odd-degree argument.
 
-The three-isogeny coregular count is the following conditional interface. Fix the normalized mirror representation, an integral representative lattice, a finite-volume archimedean squareclass window and compatible additive local Haar measures. Assume: rational orbit classification with its identity orbit separated; integral representatives with bounded and computed multiplicity; finite-congruence equidistribution at the specified height; a uniformly negligible nongeneric locus; a uniform tail for the acceptable local exclusions; and a local orbit-Jacobian/mass formula with one global differential normalization. Then the average of the nonidentity soluble orbits is the product of the local Selmer ratios. Prove each of these six assertions for the chosen representation before removing the conditional hypothesis. In particular a raw archimedean sign cone has infinite volume and cannot be inserted as the representative window. Source: BKLOS Theorems 2.1 and 7.2, §§7–8; these conditions state the exact counting input used there.
+<a id="support-coregular-count"></a>
+
+The three-isogeny coregular count is the following conditional interface. Fix the normalized mirror representation, an integral representative lattice, a finite-volume archimedean squareclass window and compatible additive local Haar measures. Assume: rational orbit classification with its identity orbit separated; integral representatives with bounded and computed multiplicity; finite-congruence equidistribution at the specified height; a uniformly negligible nongeneric locus; a uniform tail for the acceptable local exclusions; and a local orbit-Jacobian/mass formula with one global differential normalization. Then the average of the nonidentity soluble orbits is the product of the local Selmer ratios. Prove each of these six assertions for the chosen representation before removing the conditional hypothesis. In particular a raw archimedean sign cone has infinite volume and cannot be inserted as the representative window. This checklist does not yet specify a quantified counting theorem or supply its six representation-specific estimates. BKLOS Theorem 8.1 and its proof, §8, pp.12–13 of arXiv:1709.09790v2, instead invoke Global Fields II Theorem 13 with axioms for the representation, local conditions, local spreading, two archimedean counts and uniformity. An exact supplier contract must identify these axioms, their height and representative-domain normalizations, and the earlier targets proving their instances; the generic checklist alone is insufficient. BKLOS Theorems 2.1 and 7.2 give the arithmetic endpoint and orbit correspondence.
 
 For the marked-genus-one second moment, sum the sparse quaternary estimates over leading-coefficient/monicization ranges with their actual a-dependent support. Preserve the relation between X,Y,θ,δ and the absolute positive saving λ: choose `10θ+62δ<λ` before absorbing logarithms. The fixed-slice smoothed count is an input to this sum, not the whole second-moment argument. Source: BSS Theorem 5.1 and the counting and monicization assembly in §§5–7, pp. 24–47.
 
@@ -9502,7 +9536,7 @@ The interface exposes the following operations and identities:
 
 - `gaussBinom_succ_succ`: [n+1 k+1]_t = [n k]_t + t^{k+1}[n k+1]_t.
 
-- `gaussBinom_eq_prod`: When no t^i (1 ≤ i ≤ n) equals 1: [n k]_t = ∏_{i=1}^{k}(1 − t^{n−k+i})/(1 − t^i).
+- `gaussBinom_eq_prod`: For k≤n, when no t^i (1 ≤ i ≤ n) equals 1: [n k]_t = ∏_{i=1}^{k}(1 − t^{n−k+i})/(1 − t^i).
 
 - `gaussBinom_symm`: [n k]_t = [n n−k]_t for k ≤ n.
 
@@ -9533,7 +9567,7 @@ To prove the assertion, Define [n k]_t by the recursion in ℤ[t] (a polynomial)
 
 - [4 2]_2 = 35 = number of 2-dimensional subspaces of 𝔽_2^4.
 
-- [n k]_t = [n n−k]_t.
+- For k≤n, [n k]_t = [n n−k]_t. For k>n, [n k]_t=0 whereas the truncated natural index n−k=0 gives [n 0]_t=1; the range hypothesis cannot be omitted.
 
 
 <a id="cauchy-q-binomial-theorem"></a>
@@ -11144,7 +11178,7 @@ To prove the assertion, Translate an unlinked support to contain zero and use it
 
 *Needs:* [quadratic four rank jacobi expansion](#quadratic-four-rank-jacobi-expansion), [coefficient sieves](#support-sieves) and [quadratic character-sum bounds](#support-character-sums), AnalyticNumberTheory:AN.2, AnalyticNumberTheory:AN.5.
 
-([[90]](#ref-90), §5.3–5.4, Lemma18, Proposition3, pp.17–23.)
+([[90]](#ref-90), §§5.3–5.5, pp.17–23; Lemma 18, pp.22–23, and Proposition 3, p.23.)
 
 
 <a id="fk-main-coefficient"></a>
@@ -11580,7 +11614,7 @@ To prove the assertion, All inertia/decomposition images are outside involutions
 
 *Needs:* [nonabelian quadratic moment interface](#nonabelian-quadratic-moment-interface), [embedded quadratic wreath type](#embedded-quadratic-wreath-type), `Abelianization` (Mathlib), [embedded types and signature representations](#support-embedded-types), InverseGaloisAndArithmeticFundamentalGroups:IG.3 (reduced multiplier and marked cover).
 
-([[96]](#ref-96), Proposition2.2,pp.386–387; Lemma6.2,p.414; §1,p.379; [[50]](#ref-50), arXiv:1702.04644v2, Proposition 2.2, §2, p.8, and Lemma 6.2, §6, pp.28–29 (author pagination)..)
+([[50]](#ref-50), arXiv:1702.04644v2, Proposition 2.2, §2, p.8; Lemma 6.2, §6, pp.28–29; conjectural predictions in §1, pp.2–3.)
 
 
 <a id="embedded-type-catalogue"></a>
@@ -12010,7 +12044,7 @@ To prove the assertion, Enlarge a hypothetical governing field to contain E. Tak
 <a id="restricted-real-quadratic-family"></a>
 
 
-**Restricted real quadratic family.** D={d∈N:d>0, squarefree, and every prime divisor is2 or1 mod4}; D(X) uses d<X. D⁻ imposes an integer solution x²−dy²=−1. The unit radicand1 belongs to both sets but gives Q rather than a quadratic field, and is removed when assigning a class group. For r≥0, D_{2,r} is the d>1 subfamily with rk₄Cl⁺(Q(√d))=r. Ordering is by radicand; the discriminant is d when d≡1 mod4 and4d otherwise. The symmetric-matrix law P_Sym and the rectangular law P(m,n,j) are imported from Layer 5.
+**Restricted real quadratic family.** D={d∈N:d>0, squarefree, and every prime divisor is2 or1 mod4}; D(X) uses d<X. D⁻ imposes an integer solution x²−dy²=−1. The unit radicand1 belongs to both sets but gives Q rather than a quadratic field, and is removed when assigning a class group. For r≥0, D_{2,r} is the d>1 subfamily with rk₄Cl⁺(Q(√d))=r. Ordering is by radicand; the discriminant is d when d≡1 mod4 and4d otherwise. The symmetric-matrix law P_Sym and the rectangular law P(m,n,j) are the earlier Layer 3 matrix-rank laws.
 
 Throughout this assertion, For the field/rank API d>1; all set definitions retain d=1.
 
@@ -12327,7 +12361,7 @@ To prove the assertion, Truncate Möbius inversion using the corrected Layer 2 w
 Throughout this assertion, All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity.
 
 
-To prove the assertion, Identify the section with the finite flat algebra of the binary-form order. For finite flat orders in number fields, regularity is equivalent to local maximality. Use the binary maximal-order density and ζ_{P¹_Z}(s)=ζ(s)ζ(s−1). Here dim(P¹_Z)=2, so the Bertini argument is evaluated at s=3.
+To prove the assertion, Identify the section with the finite flat algebra of the binary-form order. For finite flat orders in number fields, regularity is equivalent to local maximality. Use the binary maximal-order density and ζ_{P¹_Z}(s)=ζ(s)ζ(s−1). Here dim(P¹_Z)=2, so the Bertini argument is evaluated at s=3. For even n≥4, the preceding binary maximal-order density remains conditional on the restricted paired-fibre and Gram estimates. Thus the stated all-degree Bertini theorem is an end target with an unresolved even-degree counting input; its proof cannot drop those hypotheses. An independent maximal-order tail, if used instead, must be stated with its uniform bounds and prerequisites.
 
 *Needs:* [binary form sieve counts](#binary-form-sieve-counts), [binary form order](#refinement-binary-form-order).
 
@@ -12448,7 +12482,7 @@ To prove the assertion, Count x for each allowed y by its centralizer; since y²
 
 *Needs:* [embedded quadratic wreath type](#embedded-quadratic-wreath-type), [nonabelian quadratic moment interface](#nonabelian-quadratic-moment-interface), AnalyticNumberTheory:AN.4.
 
-([[96]](#ref-96), §6,pp.411–414; Question6.1,p.413.)
+([[50]](#ref-50), arXiv:1702.04644v2, §6, pp.26–28; Question 6.1, p.28.)
 
 
 **Checks.**
@@ -12798,7 +12832,7 @@ To prove the assertion, Define the integrands as functions of (I, J) on {Δ ≠ 
 
 **Average over a height ordered family.** Let F be an arithmetic family in the sense of Layer 0 (a set with a height h having finite sublevel sets) and φ a real function on F. For X ∈ R let N(F; X) := #{E ∈ F : h(E) < X} and Avg_F(φ; X) := (Σ_{E ∈ F, h(E) < X} φ(E)) / N(F; X) (with value 0 when N(F; X) = 0). φ has average c over F if Avg_F(φ; X) → c as X → ∞; its upper average is limsup_{X→∞} Avg_F(φ; X). For elliptic curves over Q the height is H(E) = max{4|A|³, 27B²} or H'(E) = max{|I(E)|³, J(E)²/4}; since 27H = 4H' (Layer 0) the two orderings give the same averages and upper averages. The average size of the 2-Selmer group over F is the average of E ↦ #S_2(E).
 
-Throughout this assertion, The average is a limit of ratios of finite sums; its existence is part of any theorem asserting it. Upper averages (limsup) are used for statements, such as the rank bound, that assert no limit. Rescaling the height by a positive constant changes N(F; X) into N(F; cX) and does not change limits or limsups as X → ∞.
+Throughout this assertion, The average is a limit of ratios of finite sums; its existence is part of any theorem asserting it. Upper averages (limsup) are used for statements, such as the rank bound, that assert no limit. Rescaling h to c·h with c>0 changes N(F; X) into N_h(F; X/c), and Avg_{c·h}(φ;X)=Avg_h(φ;X/c). Limits and limsups as X → ∞ are unchanged; finite-cutoff averages need not agree at the same X.
 
 The interface exposes the following operations and identities:
 
@@ -12844,7 +12878,7 @@ To prove the assertion, Define N(F; X) and the partial sums with the counting AP
 
 - Over all elliptic curves the indicator of {B = 0} has average 0 (#{A : 4|A|³ < X} ≍ X^{1/3} while N ≍ X^{5/6}).
 
-- Changing H to H' leaves every average unchanged.
+- For positive integers with h(n)=n, φ(n)=n and strict cutoff X=5, Avg_h(φ;5)=5/2 whereas Avg_{2h}(φ;5)=3/2. The limiting-average rescaling statement must not assert equality at the same finite cutoff.
 
 
 <a id="orbit-weight-as-a-stabilizer-sum"></a>
@@ -13482,7 +13516,7 @@ To prove the assertion, Embed x³ + Ax + B ↦ the binary cubic form x³ + Axy²
 Throughout this assertion, Curves are counted up to Q-isomorphism, through their invariants (I, J) = (−3A, −27B) for the unique minimal pair (A, B) (Layer 0, from Tau Ceti EllipticCurves layer 8). The main term may vanish (if some M_p(F) = 0); the statement is still true, and theorems dividing by N(F; X) assume Π_p M_p(F) > 0.
 
 
-To prove the assertion, First incorporate the local minimal-pair conditions and I ∈ 3Z_p, J ∈ 27Z_p into Σ_p, obtaining T_p. They are clopen off Δ = 0; hence T_p is relatively closed there and has null boundary. Inv_p(F) ⊆ T_p. For all sufficiently large p, largeness implies {p² ∤ Δ} ⊆ Inv_p(F) ⊆ T_p, so 1−μ_p(T_p)=O(p^{-2}). If μ_q(T_q)=0 for some q, then μ_q(Inv_q(F))=0. Compact clopen outer neighbourhoods of the closure of T_q have arbitrarily small mass (adding Δ=0 costs zero mass). The finite-congruence lattice count bounds N(F;X)/X^{5/6} by an arbitrarily small constant, proving the claimed zero main term without any regularity assertion about Inv_p(F) at other primes. Otherwise every μ_p(T_p)>0. Fix a prime q and a nonempty clopen ball B contained in the interior of T_q. CRT counts with finitely many inner clopen approximations to the other T_p have positive normalized main term: the infinite product of their masses is positive since 1−μ_p(T_p)=O(p^{-2}). Choose the approximation errors summably small and the prime cutoff Y large enough that the discriminant-tail bound O(1/Y) is smaller than this main term. Count first as X→∞ with all finite data fixed. At least one resulting global minimal pair lies in B, meets all T_p and satisfies the chosen real sign. Repeating inside every subball proves interior(T_q) ⊆ Inv_q(F). Thus, in this positive-mass case, interior(T_p) ⊆ Inv_p(F) ⊆ T_p for every p. The difference is supported on ∂T_p, so μ_p(Inv_p(F))=μ_p(T_p)>0 and ∂Inv_p(F) is null. This supplies the boundary assertion; it is not inherited merely by taking a closed subset. Finite approximation: for a finite set of primes P and closed-open sets U_p ⊆ Z_p² that are finite unions of cosets of p^kZ_p², lattice-points-of-bounded-invariant-height gives #{(I, J) ∈ Z² : (I, J) ∈ U_p ∀p ∈ P, (I, J) ∈ Inv_∞(F), H < X} = M_∞(F; X)Π_{p∈P} μ_p(U_p) + O_P(X^{1/2}). Upper bound: in the positive-mass case, since ∂Inv_p(F) is null by the preceding CRT/tail argument, choose U_p ⊇ Inv_p(F) with μ_p(U_p \ Inv_p(F)) small; letting P grow gives limsup N(F; X)/X^{5/6} ≤ M_∞(F; 1)Π_p M_p(F). Lower bound: choose U_p ⊆ Inv_p(F) for p ≤ Y; a pair in all U_p (p ≤ Y) but outside Inv(F) fails Inv_p(F) at some p > Y, and for Y beyond the exceptional primes of largeness this forces p² | Δ(I, J); by tail-estimate-for-square-divisors-of-the-discriminant these number O(X^{5/6}/Y + X^{5/6}/log X). Convergence: for p ≥ 5 outside the exceptional set, Inv_p(F) ⊇ {p² ∤ Δ}, and μ_p{p² | Δ(I, J)} ≤ 3p^{-2} (at most 2 residues of J modulo p² for each unit I, and p² classes with p | I, p | J). Let Y → ∞.
+To prove the assertion, First incorporate the local minimal-pair conditions and I ∈ 3Z_p, J ∈ 27Z_p into Σ_p, obtaining T_p. The minimal-pair and divisibility conditions are clopen off Δ = 0. Intersecting them with the given relatively closed, null-boundary Σ_p makes T_p relatively closed there with null boundary; T_p itself need not be clopen. Inv_p(F) ⊆ T_p. For all sufficiently large p, largeness implies {p² ∤ Δ} ⊆ Inv_p(F) ⊆ T_p, so 1−μ_p(T_p)=O(p^{-2}). If μ_q(T_q)=0 for some q, then μ_q(Inv_q(F))=0. Compact clopen outer neighbourhoods of the closure of T_q have arbitrarily small mass (adding Δ=0 costs zero mass). The finite-congruence lattice count bounds N(F;X)/X^{5/6} by an arbitrarily small constant, proving the claimed zero main term without any regularity assertion about Inv_p(F) at other primes. Otherwise every μ_p(T_p)>0. Fix a prime q and a nonempty clopen ball B contained in the interior of T_q. CRT counts with finitely many inner clopen approximations to the other T_p have positive normalized main term: the infinite product of their masses is positive since 1−μ_p(T_p)=O(p^{-2}). Choose the approximation errors summably small and the prime cutoff Y large enough that the discriminant-tail bound O(1/Y) is smaller than this main term. Count first as X→∞ with all finite data fixed. At least one resulting global minimal pair lies in B, meets all T_p and satisfies the chosen real sign. Repeating inside every subball proves interior(T_q) ⊆ Inv_q(F). Thus, in this positive-mass case, interior(T_p) ⊆ Inv_p(F) ⊆ T_p for every p. The difference is supported on ∂T_p, so μ_p(Inv_p(F))=μ_p(T_p)>0 and ∂Inv_p(F) is null. This supplies the boundary assertion; it is not inherited merely by taking a closed subset. Finite approximation: for a finite set of primes P and closed-open sets U_p ⊆ Z_p² that are finite unions of cosets of p^kZ_p², lattice-points-of-bounded-invariant-height gives #{(I, J) ∈ Z² : (I, J) ∈ U_p ∀p ∈ P, (I, J) ∈ Inv_∞(F), H < X} = M_∞(F; X)Π_{p∈P} μ_p(U_p) + O_P(X^{1/2}). Upper bound: in the positive-mass case, since ∂Inv_p(F) is null by the preceding CRT/tail argument, choose U_p ⊇ Inv_p(F) with μ_p(U_p \ Inv_p(F)) small; letting P grow gives limsup N(F; X)/X^{5/6} ≤ M_∞(F; 1)Π_p M_p(F). Lower bound: choose U_p ⊆ Inv_p(F) for p ≤ Y; a pair in all U_p (p ≤ Y) but outside Inv(F) fails Inv_p(F) at some p > Y, and for Y beyond the exceptional primes of largeness this forces p² | Δ(I, J); by tail-estimate-for-square-divisors-of-the-discriminant these number O(X^{5/6}/Y + X^{5/6}/log X). Convergence: for p ≥ 5 outside the exceptional set, Inv_p(F) ⊇ {p² ∤ Δ}, and μ_p{p² | Δ(I, J)} ≤ 3p^{-2} (at most 2 residues of J modulo p² for each unit I, and p² classes with p | I, p | J). Let Y → ∞.
 
 *Needs:* [lattice points of bounded invariant height](#lattice-points-of-bounded-invariant-height), [tail estimate for square divisors of the discriminant](#tail-estimate-for-square-divisors-of-the-discriminant), [local masses of a family](#local-masses-of-a-family), [elliptic families defined by congruence conditions](#elliptic-families-defined-by-congruence-conditions), [family defined by local conditions](#family-defined-by-local-conditions), [elliptic curves over q ordered by height](#elliptic-curves-over-q-ordered-by-height).
 
@@ -13652,29 +13686,6 @@ To prove the assertion, Apply average-size-of-the-2-selmer-group-is-three to all
 ### 4.11 Rank and torsion consequences
 
 
-<a id="two-selmer-rank-identity"></a>
-
-
-**Two selmer rank identity.** For every elliptic curve E over Q: r_2(S_2(E)) = r(E) + r_2(E(Q)[2]) + r_2(Ш_E[2]), where r(E) is the rank of E(Q) and r_2(G) = dim_{F_2} G for an elementary abelian 2-group G. In particular r(E) ≤ r_2(S_2(E)) and 2^{r(E)}·#E(Q)[2] ≤ #S_2(E).
-
-Throughout this assertion, E(Q) is finitely generated (Mordell–Weil), so E(Q)/2E(Q) ≅ F_2^{r(E) + r_2(E(Q)[2])}. S_2(E) is finite (Tau Ceti EllipticCurves layer 7); Ш_E[2] is its quotient by the image of E(Q)/2E(Q), finite as well. Nothing here controls Ш_E.
-
-
-To prove the assertion, The exact sequence 0 → E(Q)/2E(Q) → S_2(E) → Ш_E[2] → 0 of F_2-vector spaces (Tau Ceti EllipticCurves layer 7). #(E(Q)/2E(Q)) = 2^{r(E)}·#E(Q)[2] (tauceti:WeierstrassCurve.Affine.card_range_μ, with E(Q) finitely generated by tauceti:WeierstrassCurve.Affine.fg_point_of_numberField), transported to the cohomological carrier by the comparison of explicit and cohomological 2-Selmer groups (layer 7 milestone, used through Layer 1). Take F_2-dimensions. The inequality 2^{r}·#E(Q)[2] ≤ #S_2(E) is also tauceti:WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le for the explicit 2-Selmer group tauceti:WeierstrassCurve.Affine.selmerGroup₂.
-
-*Needs:* `WeierstrassCurve.Affine.card_range_μ` (Tau Ceti), `WeierstrassCurve.Affine.fg_point_of_numberField` (Tau Ceti), `WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le` (Tau Ceti), `WeierstrassCurve.Affine.selmerGroup₂` (Tau Ceti), [binary quartic parametrization of two selmer](#binary-quartic-parametrization-of-two-selmer).
-
-([[1]](#ref-1), Equations (1)–(2), pp. 1–2.)
-
-
-**Checks.**
-
-
-- y² = x³ − x: r = 0, r_2(E(Q)[2]) = 2, Ш[2] = 0, r_2(S_2) = 2.
-
-- The identity is between dimensions; equality of r_2(S_2) with the rank r(E) holds only when E(Q)[2] and Ш_E[2] vanish.
-
-
 <a id="rational-two-torsion-has-density-zero"></a>
 
 
@@ -13703,12 +13714,12 @@ To prove the assertion, A rational root of the monic integral cubic is an intege
 
 **Rank bound from the selmer average.** Let F be a large family with M_p(F) > 0 for every prime p (for Corollary 1.2 itself, the family of all elliptic curves), ordered by height. Then limsup_{X→∞} Avg_F(r_2(S_2(E)); X) ≤ 3/2 and limsup_{X→∞} Avg_F(r(E); X) ≤ 3/2: the average 2-Selmer rank, and hence the average rank, of elliptic curves in F is bounded by 1.5. This bounds the Mordell–Weil rank; it does not compute it, since r(E) and r_2(S_2(E)) differ by r_2(E(Q)[2]) + r_2(Ш_E[2]), which is not controlled.
 
-Throughout this assertion, The conclusion is about the upper average (limsup); no lower bound and no limit is asserted. The inequality 2k ≤ 2^k for k ∈ N, an equality exactly at k = 1, 2, is where the loss from average size 3 to average rank 1.5 occurs. The rank bound needs E(Q) finitely generated and S_2(E) finite (two-selmer-rank-identity).
+Throughout this assertion, The conclusion is about the upper average (limsup); no lower bound and no limit is asserted. The inequality 2k ≤ 2^k for k ∈ N, an equality exactly at k = 1, 2, is where the loss from average size 3 to average rank 1.5 occurs. The rank bound needs E(Q) finitely generated and S_2(E) finite (EllipticCurves Layer 7's pointwise identity).
 
 
-To prove the assertion, Pointwise, 2·r_2(S_2(E)) ≤ 2^{r_2(S_2(E))} = #S_2(E) (mathlib:Nat.mul_le_pow with a = 2: 2k ≤ 2^k). Average: Avg_F(r_2(S_2); X) ≤ Avg_F(#S_2; X)/2 → 3/2 by average-size-of-the-2-selmer-group-is-three, so the upper average is at most 3/2. r(E) ≤ r_2(S_2(E)) (two-selmer-rank-identity), so the upper average of r(E) is at most 3/2 (upperFamilyAverage_mono).
+To prove the assertion, Pointwise, 2·r_2(S_2(E)) ≤ 2^{r_2(S_2(E))} = #S_2(E) (mathlib:Nat.mul_le_pow with a = 2: 2k ≤ 2^k). Average: Avg_F(r_2(S_2); X) ≤ Avg_F(#S_2; X)/2 → 3/2 by average-size-of-the-2-selmer-group-is-three, so the upper average is at most 3/2. r(E) ≤ r_2(S_2(E)) (EllipticCurves Layer 7's pointwise identity), so the upper average of r(E) is at most 3/2 (upperFamilyAverage_mono).
 
-*Needs:* [average size of the 2 selmer group is three](#average-size-of-the-2-selmer-group-is-three), [two selmer rank identity](#two-selmer-rank-identity), [average over a height ordered family](#average-over-a-height-ordered-family), `Nat.mul_le_pow` (Mathlib).
+*Needs:* [average size of the 2 selmer group is three](#average-size-of-the-2-selmer-group-is-three), EllipticCurves Layer 7's pointwise two-Selmer rank identity (Scope and ownership), [average over a height ordered family](#average-over-a-height-ordered-family), `Nat.mul_le_pow` (Mathlib).
 
 ([[1]](#ref-1), Corollary 1.2 with the identity (2) and the surrounding argument, p. 2.)
 
@@ -13733,9 +13744,9 @@ To prove the assertion, Pointwise, 2·r_2(S_2(E)) ≤ 2^{r_2(S_2(E))} = #S_2(E) 
 Throughout this assertion, Ш_E[2] is the 2-torsion of the Shafarevich–Tate group of Tau Ceti EllipticCurves layer 7; no finiteness of Ш_E is assumed.
 
 
-To prove the assertion, The three summands in two-selmer-rank-identity are nonnegative, so r_2(Ш_E[2]) ≤ r_2(S_2(E)); apply rank-bound-from-the-selmer-average. The 2-torsion average is rational-two-torsion-has-density-zero.
+To prove the assertion, The three summands in EllipticCurves Layer 7's pointwise identity are nonnegative, so r_2(Ш_E[2]) ≤ r_2(S_2(E)); apply rank-bound-from-the-selmer-average. The 2-torsion average is rational-two-torsion-has-density-zero.
 
-*Needs:* [two selmer rank identity](#two-selmer-rank-identity), [rank bound from the selmer average](#rank-bound-from-the-selmer-average), [rational two torsion has density zero](#rational-two-torsion-has-density-zero).
+*Needs:* EllipticCurves Layer 7's pointwise two-Selmer rank identity (Scope and ownership), [rank bound from the selmer average](#rank-bound-from-the-selmer-average), [rational two torsion has density zero](#rational-two-torsion-has-density-zero).
 
 ([[1]](#ref-1), §1.1, p. 2.)
 
@@ -16933,7 +16944,7 @@ To prove the assertion, Let S be the finite set of places dividing 3·∞, the p
 Throughout this assertion, φ : E → E' a 3-isogeny over F Σ nonempty, defined by finitely many local conditions
 
 
-To prove the assertion, Parametrisation (BKLOS §§3–7): φ-coverings, in particular φ-Selmer elements, of E^s correspond to SL_2(F)-orbits of binary cubic forms with discriminant in a fixed class related to s; locally soluble orbits have integral representatives, and their discriminants are squarefree away from a fixed finite set of primes (Theorems 4.2, 5.3, 6.2, Proposition 6.1, Corollary 7.1). This is an orbit parametrisation over a Dedekind domain in the scope of Layer 1. Counting (BKLOS §8): count irreducible locally φ-soluble SL_2(O_F)-orbits of bounded height with discriminant in κ·Σ, by the general geometry-of-numbers theorem over number fields of Bhargava–Shankar–Wang [BKLOS ref. 7, Thm. 13] and the uniformity estimate [ref. 8, Thm. 17]; this is the Layer 2 counting machinery over a number field. Mass computation: the Tamagawa number τ(SL_2) = 1 and the local masses give avg_Σ c(φ_s); add the identity element.
+To prove the assertion, Parametrisation (BKLOS §§3–7): φ-coverings, in particular φ-Selmer elements, of E^s correspond to SL_2(F)-orbits of binary cubic forms with discriminant in a fixed class related to s; locally soluble orbits have integral representatives, and their discriminants are squarefree away from a fixed finite set of primes (Theorems 4.2, 5.3, 6.2, Proposition 6.1, Corollary 7.1). This is an orbit parametrisation over a Dedekind domain in the scope of Layer 1. Counting (BKLOS §8): the required nonidentity-orbit asymptotic is [number-field twist orbit count](#refinement-number-field-twist-orbit-count). That target is conditional on the six assertions of the [coregular counting contract](#support-coregular-count), including finite-congruence equidistribution and a finite compatible archimedean representative measure. Those assertions have not been discharged by the preceding targets. This leaves an explicit proof gap in the present roadmap; the available Global Fields I tail estimate supplies only one part of the counting argument. Mass computation: the Tamagawa number τ(SL_2) = 1 and the local masses give avg_Σ c(φ_s); add the identity element.
 
 *Needs:* [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), [selmer ratio classes are locally defined](#selmer-ratio-classes-are-locally-defined), [height moments in an arithmetic family](#height-moments-in-an-arithmetic-family), [quadratic twist squareclass family](#quadratic-twist-squareclass-family), [family defined by local conditions](#family-defined-by-local-conditions), [binary cubic forms and the twisted action](#binary-cubic-forms-and-the-twisted-action), [number field twist orbit count](#refinement-number-field-twist-orbit-count).
 
@@ -20021,7 +20032,7 @@ To prove the assertion, The Weil pairing gives µ_n⊂k and E[n]≅µ_n². For e
 **Abelian three isogeny average.** Let F be a number field, φ:A→A′ a degree3 isogeny of abelian varieties, and Σ⊂F×/F×² nonempty and defined by finitely many local conditions. Count each squareclass once, ordered by H(s)=∏_{v_finite:v(s) odd}Nv. Then average_s∈Σ#Sel_(φ_s)(A_s)=1+average_Σ c(φ_s). At finite places the local average uses the pullback of normalized additive Haar measure on O_v, not uniform mass on squareclasses; archimedean factors use the finite representative-window convention of Layer 2.
 
 
-To prove the assertion, The degree3 kernel has a quadratic mirror algebra; the norm-one description and binary-cubic covering orbit classification depend only on this kernel, allowing general A. Use integral local representatives after the fixed discriminant scale and the compatible local mass identities. Apply the conditional Layer 2 coregular count after its six axioms and representative-window measure are discharged; add the unique reducible identity orbit. The exact height denominator and local-ratio product then yield the equality. This proof is not closed while the supporting estimates below-count remains.
+To prove the assertion, The degree3 kernel has a quadratic mirror algebra; the norm-one description and binary-cubic covering orbit classification depend only on this kernel, allowing general A. Use integral local representatives after the fixed discriminant scale and the compatible local mass identities. Apply the conditional Layer 2 coregular count after its six axioms and representative-window measure are discharged; add the unique reducible identity orbit. The exact height denominator and local-ratio product then yield the equality. The unresolved input is the six-part coregular counting contract in [Layer 2 coregular counting contract](#support-coregular-count), including its archimedean representative measure. The elliptic-only conditional orbit-count target does not supply its general-abelian specialization. Until that specialization and the six estimates are stated and discharged, this is a sourced end target with an explicit proof gap, rather than a consequence of the current preceding targets.
 
 *Needs:* [positive squareclass denominator](#twist-denominator-frontier), [number field twist orbit count](#refinement-number-field-twist-orbit-count), [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), AbelianSchemesAndArithmeticModuli:A3, SelmerIwasawaCohomology:L0.
 
@@ -20492,7 +20503,7 @@ AnalyticNumberTheory uses the invariant and local-count interfaces. Field-counti
 
 <a id="ref-56"></a>
 
-[56] A. J. de Jong. [Counting elliptic surfaces over finite fields](https://www.math.columbia.edu/~dejong/papers/surfaces2.dvi). Author-hosted DVI, 30 pages; journal reference Moscow Mathematical Journal 2 (2002), 281–311. Locators use the author DVI pagination..
+[56] A. J. de Jong. [Counting elliptic surfaces over finite fields](https://www.math.columbia.edu/~dejong/papers/surfaces2.dvi). Author-hosted DVI, 30 pages; journal reference Moscow Mathematical Journal 2 (2002), 281–311. Locators use the author DVI pagination.
 
 
 <a id="ref-57"></a>
@@ -20557,7 +20568,7 @@ AnalyticNumberTheory uses the invariant and local-count interfaces. Field-counti
 
 <a id="ref-69"></a>
 
-[69] Bhargava, Shankar, Taniguchi, Thorne, Tsimerman, Zhao. [Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf). Public author preprint dated February 18, 2017; the published 2020 text was..
+[69] Bhargava, Shankar, Taniguchi, Thorne, Tsimerman, Zhao. [Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf). Public author preprint dated February 18, 2017; locators use this manuscript.
 
 
 <a id="ref-70"></a>

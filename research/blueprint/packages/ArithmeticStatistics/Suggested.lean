@@ -48,6 +48,10 @@ example (S : Set A) (hS : S.Infinite) : F.HasRelativeDensity S S 1 := by sorry
 example : (⟨fun n : ℕ => (n : ℝ), by sorry⟩ : ArithmeticFamily ℕ).count Set.univ 3 = 4 := by sorry
 example : ¬ Northcott (fun x : ℚ => (|x| : ℝ)) := by sorry
 
+/-- The two orbits have reciprocal stabilizers 1/2 and 1, respectively. -/
+example : Nat.card {u : (ZMod 3)ˣ // (u : ZMod 3) * 0 = 0} = 2 ∧
+    Nat.card {u : (ZMod 3)ˣ // (u : ZMod 3) * 1 = 1} = 1 := by sorry
+
 end ArithmeticFamily
 
 namespace Coefficients
@@ -92,6 +96,10 @@ def WeakSquareDivides {r : ℕ} (Delta : (Fin r → ℤ) → ℤ) (p : ℕ) (a :
 example (a : Fin 1 → ℤ) : StrongSquareDivides (fun _ => 0) 3 a := by sorry
 example (a : Fin 1 → ℤ) : ¬ WeakSquareDivides (fun _ => 0) 3 a := by sorry
 
+/-- Divisibility at one point does not imply divisibility on its residue class. -/
+example : WeakSquareDivides (fun a : Fin 1 → ℤ => a 0) 3 0 ∧
+    StrongSquareDivides (fun a : Fin 1 → ℤ => (a 0) ^ 2) 3 0 := by sorry
+
 end Coefficients
 
 /-- Binary quartics use ordinary monomial coefficients, with no binomial factors. -/
@@ -135,6 +143,11 @@ example : invI (⟨1, 0, 0, 0, -1⟩ : BinaryQuartic ℤ) = -12 ∧
 example : disc (⟨0, 1, 0, -1, 0⟩ : BinaryQuartic ℤ) = 4 := by sorry
 example : pairHeight 3 0 = 27 ∧ pairHeight 1 2 = 1 := by sorry
 
+/-- In characteristic three the integral discriminant is not recovered by division by 27. -/
+example : invI (⟨0, 1, 0, -1, 0⟩ : BinaryQuartic (ZMod 3)) = 0 ∧
+    invJ (⟨0, 1, 0, -1, 0⟩ : BinaryQuartic (ZMod 3)) = 0 ∧
+    disc (⟨0, 1, 0, -1, 0⟩ : BinaryQuartic (ZMod 3)) = 1 := by sorry
+
 end BinaryQuartic
 
 /-! ## Layer 1: Integral orbit dictionaries -/
@@ -173,6 +186,9 @@ example (a b : R) : pencilInvariant (!![a]) (!![b]) = ![a,-b] := by sorry
 example : pencilInvariant (1 : Matrix (Fin 3) (Fin 3) ℤ) 0 = ![-1,0,0,0] := by sorry
 example {n : ℕ} (hn : 1 ≤ n) :
     pencilInvariant (0 : Matrix (Fin n) (Fin n) R) 0 = 0 := by sorry
+
+/-- Empty determinants give the constant one, even for the zero pencil. -/
+example : pencilInvariant (0 : Matrix (Fin 0) (Fin 0) ℤ) 0 = ![1] := by sorry
 
 example : pencilPoly (1 : Matrix (Fin 1) (Fin 1) ℤ) 0 = X := by sorry
 

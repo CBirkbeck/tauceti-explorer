@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ArithmeticStatistics",
+    "date": "2026-10-17",
+    "notes": "Independent review for #10117 by Codex, session codex-NXdGFK. Applied source, arithmetic-check, API-test, dependency and ownership corrections; Suggested.lean elaborates with only sorry warnings. Remaining defects: the conditional elliptic SL2 cubic count lacks an exact quantified coregular supplier plan and its general-abelian specialization, yet unconditional three-isogeny averages consume it; the even-degree Bertini deduction drops the binary count's restricted paired-fibre/Gram assumptions; field-lower-bound restoration still needs specified uniform regular-family and bounded-multiplicity replacements. See research/blueprint/reviews/REV-PKG-ArithmeticStatistics.md for source receipts, validation and exact handoff."
+  }
+}
