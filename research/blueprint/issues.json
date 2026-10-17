@@ -4951,5 +4951,7 @@
  "REV-EtaleDualityAndPerverseSheaves--EDC.4~5": 10135,
  "REV-ShimuraData~5": 10136,
  "PKG-AutomorphicFormsOnReductiveGroups~codex": 10141,
- "REV-PKG-DirichletPadicLFunctions~adv": 10142
+ "REV-PKG-DirichletPadicLFunctions~adv": 10142,
+ "FIX-PKG-AnalyticNumberTheory~adv": 10146,
+ "FIX-PKG-ArithmeticStatistics~adv": 10147
 }
