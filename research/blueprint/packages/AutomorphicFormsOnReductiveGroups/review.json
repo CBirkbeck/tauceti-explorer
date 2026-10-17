@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-AutomorphicFormsOnReductiveGroups",
+    "date": "2026-10-17",
+    "notes": "Independent fixing review by Codex, session codex-WXRm5K (#10164). Corrected van Est counterexample, local split-centre quotient, principal-series irreducibility, conductor/unit conventions and value-field hypothesis; restored Hodge/dual-coefficient witnesses and derived the GL2 Hecke factor. Removed existing enveloping/tensor-centre targets. Checked all author-flagged source families, 15 seeded sample locators, all 48 subsections adversarially, pinned/current library and roadmap duplication, and all 13 theorem signatures. Suggested.lean elaborates with only 20 sorry warnings; intake reports 0 problems. See REV-PKG-AutomorphicFormsOnReductiveGroups.md."
+  }
+}
