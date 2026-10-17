@@ -132325,6 +132325,44 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv2.md",
    "note": "claimed on GitHub issue #10214"
+  },
+  {
+   "id": "FIX-PKG-ShimuraCompactifications~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ShimuraCompactifications"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ShimuraCompactifications~adv.md",
+    "research/blueprint/packages/ShimuraCompactifications/review.json",
+    "research/blueprint/packages/ShimuraCompactifications/README.md",
+    "research/blueprint/packages/ShimuraCompactifications/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ShimuraCompactifications~adv.md"
+  },
+  {
+   "id": "FIX-PKG-PerfectoidShimuraVarieties~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PerfectoidShimuraVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PerfectoidShimuraVarieties~adv.md",
+    "research/blueprint/packages/PerfectoidShimuraVarieties/review.json",
+    "research/blueprint/packages/PerfectoidShimuraVarieties/README.md",
+    "research/blueprint/packages/PerfectoidShimuraVarieties/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidShimuraVarieties~adv.md"
   }
  ]
 }
