@@ -63,6 +63,12 @@ example : weightedDilation 2 (0 : Fin 0 → ℝ) = 0 ∧
 example : separatedRoots 1 0 (0 : Fin 1 → ℂ) ∧
     ¬ separatedRoots 1 (-1) (0 : Fin 1 → ℂ) := by sorry
 
+/-- Zero separation permits a singular evaluation matrix and nonzero invisible coefficients. -/
+example : separatedRoots 0 0 (0 : Fin 3 → ℂ) ∧
+    ∃ m : Fin 3 → ℤ, m ≠ 0 ∧
+      ∀ j : Fin 3, ∑ i : Fin 3, (m i : ℂ) *
+        ((0 : Fin 3 → ℂ) j) ^ i.val = 0 := by sorry
+
 /-- Field-count and discriminant exponents include the loss of one translation parameter. -/
 example : ((3 * (3 + 1) / 2 : ℚ) - 1) / (3 * (3 - 1)) = 5/6 ∧
     ((4 + 1 : ℚ) / (2 * 4 - 2)) = 5/6 ∧
@@ -73,6 +79,21 @@ example : (X ^ 3 - X - 1 : ℤ[X]).discr = -23 := by sorry
 example : (X ^ 3 - 4 * X + 1 : ℤ[X]).discr = 229 := by sorry
 example : (X ^ 3 - 2 : ℤ[X]).discr = -108 := by sorry
 
+/-- The fixed-degree quartic discriminant uses the same sign as the binary-form convention. -/
+example : (X ^ 4 - 1 : ℤ[X]).discr = -256 := by sorry
+
+/-- In degree two on three-torsion, extension must be normalized by the inverse degree. -/
+example (x : ZMod 3) : 2 * (2 * x) = x := by sorry
+
+/-- This irreducible cubic reduction gives nontrivial decomposition with trivial inertia at 2. -/
+example : ∀ x : ZMod 2, (X ^ 3 + X + 1 : (ZMod 2)[X]).eval x ≠ 0 := by sorry
+
+/-- The subgroup-size input needs nonabelian simplicity; its smallest positive case is A₅. -/
+example : (1 : ℕ) ^ 2 < 2 ∧ (60 : ℕ) < 12 ^ 2 := by sorry
+
+/-- Quadratic generator reflection fixes a trace-zero model, so dividing its orbit size by 2 fails. -/
+example (a : ℤ) : (X ^ 2 + C a : ℤ[X]).comp (-X) = X ^ 2 + C a := by sorry
+
 /-- The degree-two real transporter obstruction: xy is fixed by the split diagonal torus. -/
 example (u : ℝ) (hu : u ≠ 0) :
     (MvPolynomial.C u * MvPolynomial.X (0 : Fin 2)) *
@@ -81,5 +102,35 @@ example (u : ℝ) (hu : u ≠ 0) :
 
 
 end FieldStatistics
+
+/-
+The README also specifies cubicSplittingSymbol, splittingTypeSet,
+maximalNotTotallyRamifiedSet, maximalTotallyRamifiedSet, notFundamentalSet;
+CubicLocalSpecification with its acceptable and strongly acceptable predicates,
+standard specifications, localMass, archimedeanMass and p-adic densities;
+cohenLenstraMomentPrediction; malleIndex, malleIndexGroup, malleA, malleB,
+malleStrong and malleWeak; the dyadic remainder E_n and local products γ_j.
+
+The arithmetic interfaces FieldStatistics.RigidField, rigidFieldCount,
+relativeNarrowClassGroup and its norm kernel, OutsideInvolutions,
+IsAdmissibleType, IsGoodType, typeAutStabilizer, transportType,
+outsideClassCount, rigidQuadraticMoment, unrigidQuadraticMoment,
+GoodTypeMomentPrediction, BadTypeMomentPrediction,
+RefinedGoodTypeMomentPrediction, quotientGraphType, catalogueRow,
+eligibleA4Kernel, eligibleA4Kernels and a4SampleEstimator remain in the README.
+
+The supporting theorems doublePointInterpolation, polynomialMap_finiteFibres,
+simpleGroup_largeProperSubgroup and IsMinkowskiReducedGram_exists, and
+RankGrid.geometricZero are specified in the README, the last with its coefficient
+growth and vanishing-order hypotheses in the README. The remaining definitions
+are IsRankGoverningField; pellRadicands,
+negativePellRadicands, pellRadicandsBelow, pellFourRankSlice, pellDiscriminant;
+monicOrderGram, binaryOrderGram, IsMinkowskiReducedGram, IsMonicQuasiReduced,
+IsBinaryQuasiReduced, IsStrongReducedGram; regular monic and binary regions,
+the trace-zero volume and monogenic asymptotic predicates;
+tameOutsideLocalMass, localModelLogExponent and LogarithmicMomentPrediction.
+They use the arithmetic orbit, extension, order and moment interfaces specified
+there. Only the weighted-dilation and separated-root interfaces are declared here.
+-/
 
 end TauCetiRoadmap.ArithmeticStatisticsPartV

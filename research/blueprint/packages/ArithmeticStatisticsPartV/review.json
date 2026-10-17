@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "accepted",
-    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ArithmeticStatisticsPartV~adv",
     "date": "2026-10-17",
-    "notes": "Field and class-group statistics. Retained full-dimensional regular regions, O(Y) monic generator fibres, degree-at-least-three binary compact transporters, ordinary GL2 multiplicities and signed-discriminant/2/infinity normal-closure transfer. Even consumers keep the summed-tail hypothesis. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 16 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+    "notes": "Independent review of all 111 targets, original split coverage, current-upstream duplication, 15 seeded source samples plus all 21 flagged support topics, definition APIs/Checks and all conventions. Fixed inertia/decomposition, m>=1 tower endpoints, narrow norm/extension normalization, n=2 monogenic asymptotic, exact supplier links, real Gram adapter and source locators; supplied the direct Jensen proof and verified the existing regular-region/Vandermonde route against exact suppliers. lean-check exit 0 with only 22 sorry warnings; all seven packet checks pass. Needs changes: nonabelian-simple subgroup input for unconditional general Galois bound, mixed-trace interpolation/generic finite fibres, corrected wild-3 all-conductor relative order identity, original Siegel/Wright/Baily scopes, restricted Q8 residues, governing-field PID certificate, Blomer/Cremona-Odoni originals and D5/F20 quintic remainders remain open. See the report for exact contracts and evidence; no packet or metadata change."
   }
 }
