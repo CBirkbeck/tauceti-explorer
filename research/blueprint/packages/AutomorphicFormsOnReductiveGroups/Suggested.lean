@@ -285,6 +285,13 @@ def q0ResPGL (r₁ r₂ n : ℕ) : ℕ := (symDimResPGL r₁ r₂ n - ell0ResPGL
 theorem two_q0_add_ell0 (r₁ r₂ n : ℕ) :
     2 * q0ResPGL r₁ r₂ n + ell0ResPGL r₁ r₂ n = symDimResPGL r₁ r₂ n := sorry
 
+/-- Rank one gives the trivial group; rank zero is only the numerical zero extension. -/
+example (r₁ r₂ : ℕ) :
+    ell0ResPGL r₁ r₂ 0 = 0 ∧ symDimResPGL r₁ r₂ 0 = 0 ∧
+      q0ResPGL r₁ r₂ 0 = 0 ∧ ell0ResPGL r₁ r₂ 1 = 0 ∧
+      symDimResPGL r₁ r₂ 1 = 0 ∧ q0ResPGL r₁ r₂ 1 = 0 := by
+  simp [ell0ResPGL, symDimResPGL, q0ResPGL]
+
 /-- `PGL₂/ℚ` has `(q₀, ℓ₀) = (1, 0)`; over an imaginary quadratic field `(1, 1)`. -/
 example : (q0ResPGL 1 0 2, ell0ResPGL 1 0 2) = (1, 0) ∧
     (q0ResPGL 0 1 2, ell0ResPGL 0 1 2) = (1, 1) := by decide
@@ -454,18 +461,24 @@ example : (HeckeRing.GLn.diagCoset ![1, 2]).degree = 3 := by
   simpa using HeckeRing.GL2.degree_diagCoset_prime_pow 2 (by decide) 0 1 (by decide)
 
 /-
-README targets whose carriers are not available at the pins include the adelic test and
-Schwartz algebras, the uniform-moderate-growth spaces and their topologies, the relative and
-differentiable cochain comparisons and van Est, admissible and Harish-Chandra modules, normalized
-induction, tempered and discrete-series representations, the real Weil group and `recGL`,
-smooth Fréchet globalizations, the global Hecke module and automorphic representations,
-restricted tensor products and Flath factorization, discrete occurrences, Whittaker coefficients
-and the character duality of `F\𝔸_F`, holomorphic SL₂ and Maass forms, Vogan–Zuckerman modules,
-stable adelic lattices and fields of rationality, the Hermitian group datum and coherent
-cohomology, the GSp₄ and Siegel coherent packets, the GL₂ adelization, and the level and
-central-character algebraic modular forms.
+README definitions requiring additional carriers include `AdelicSmoothFunction`,
+`AdelicTestFunction`, `AdelicSchwartzFunction`, `T_sm` and `SmoothAutomorphicForm`;
+`relativeKoszulResolution`, `smoothGroupCochains` and `homogeneousPoincareResolution`;
+`IsAdmissible`, `IsHarishChandraModule`, `HasInfinitesimalCharacter`, generalized central
+characters, normalized induction, `IsTempered`, `IsSquareIntegrable`, their essential
+variants, `IrrAdmissible`, `WeilGroupComplex`, `WeilGroupReal`, `IsBoundedParameter`,
+`D_k`, `HasWhittakerModel`, `GContinuousNorm` and smooth Fréchet globalizations;
+`IsAutomorphicRepresentation`, `archimedeanHeckeAlgebra`, `RestrictedTensor`,
+`DiscreteOccurrence`, Whittaker coefficients, `HolomorphicSL2Form` and `MaassCuspForm`;
+`IsCAlgebraic`, `IsLAlgebraic`, `IsAlgebraicCT`, `HasCohomologyWith`, the general
+`ell0` and `q0`, `A_q`, `StableAdelicLattice`, `galoisTwist`, `rationalityField` and
+`IsFieldOfDefinition`; `HermitianGroupDatum`, `coherentCochains`, `coherentCohomology`,
+`CuspidalCoherentCohomology`, `DiscreteCoherentCohomology`, the GSp₄ character lattices
+and chambers, component induction and extensions, `coherentChambers` and scalar
+holomorphic series; `adelize`, `LevelAlgebraicModularForm` and
+`CentralCharacterAlgebraicModularForm`. Their constructions and comparisons, including
+van Est, `recGL`, Flath factorization and the GL₂ dictionary, are specified in the README.
 -/
-
 end
 
 end TauCetiRoadmap.AutomorphicFormsOnReductiveGroups
