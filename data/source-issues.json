@@ -199222,7 +199222,7 @@
    "locator": "Appendix A.3.1, printed p.55 (arXiv 1407.8519v3); published p.478",
    "printed": "The v3 appendix assigns the smooth-open restriction of IC the degree and Tate twist of the smooth dualizing complex.",
    "correction": "IC_X|_U ≅ ℚ̄_ℓ[dim X] (unnormalized; a half-twist normalization is a separate choice).",
-   "reason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex); the printed shift 2 dim X is not perverse.",
+   "reason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex-of-local-system); the printed shift 2 dim X is not perverse.",
    "affects": "nothing",
    "known": "PAPER-ZHU-17/E25 (recorded by the extraction of Zhu's paper in this atlas)",
    "searched": [
@@ -199235,7 +199235,7 @@
    "citation": "Xinwen Zhu, Affine Grassmannians and the geometric Satake in mixed characteristic, arXiv 1407.8519v3 (2016); published Ann. of Math. 185 (2017); read 2026-10-06",
    "status": "confirmed",
    "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
-   "reviewReason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex); the printed shift 2 dim X is not perverse. Independently checked in both the public v3 preprint p.55 and the published p.478 on 2026-10-09; the ordinary IC shift is dim X."
+   "reviewReason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex-of-local-system); the printed shift 2 dim X is not perverse. Independently checked in both the public v3 preprint p.55 and the published p.478 on 2026-10-09; the ordinary IC shift is dim X."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E14",
@@ -256505,6 +256505,26 @@
    "status": "confirmed",
    "reviewedBy": "REV-ShimuraData~3",
    "reviewReason": "BCGP published pp.201–202 define neatness using a faithful rational representation. At p.409 one F-place is insufficient: in F=ℚ(√2), the unit u=7+5√2 reduces to 1 at (7,√2−3), yet the two rational-representation eigenvalues u and u′ multiply to −1. The scalar has totally positive similitude u². All places above one rational prime control the full spectrum and remove this counterexample. Independently checked by this review on 2026-10-09 in the recorded version."
+  },
+  {
+   "id": "ShimuraData/E18",
+   "kind": "error",
+   "locator": "§8, PEL Shimura varieties, p.88, sentence before the definition of a PEL Shimura datum (2017 author notes)",
+   "printed": "Milne deduces from the embedding of G into the Siegel group, which carries X into the Siegel domain, that (G,X) satisfies SV1–SV4.",
+   "correction": "SV1, SV2 and SV4 follow; SV3 must be added as a hypothesis. For a wholly definite unitary PEL datum of rank n≥2 (signature (n,0) at every real place) h is central, G^ad is a nontrivial ℚ-simple group with compact real points, and SV3 fails.",
+   "reason": "Take K imaginary quadratic, B=K with complex conjugation, V=K^n with a definite skew-hermitian form and h(z) acting on V⊗ℝ=ℂ^n by the scalar z. The positivity condition of Proposition 8.14 holds, h(S) is central, so its projection to G^ad=PU(n) is trivial while PU(n) is a nontrivial ℚ-simple factor for n≥2. The embedding into the Siegel datum transfers SV1, SV2 and SV4 but not SV3.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "https://www.jmilne.org/math/xnotes/errata.html (SVI 2017 corrections listed there; none for p.88)",
+    "TauCetiRoadmap pull request #966 README §M0.12, which states the same correction independently"
+   ],
+   "owner": "ShimuraData",
+   "file": "research/blueprint/packets/ShimuraData.json",
+   "citation": "J. S. Milne, Introduction to Shimura varieties, Author notes, 2017 edition",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "ShimuraVarieties/E1",
