@@ -48095,7 +48095,9 @@
     "PKG-AutomorphicFormsOnReductiveGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicFormsOnReductiveGroups.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10164",
+   "finishedAt": "2026-10-17T14:10:48Z"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -50613,8 +50615,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EtaleDualityAndPerverseSheaves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10160"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10160",
+   "finishedAt": "2026-10-17T14:10:51Z"
   },
   {
    "id": "REV-PKG-EtaleDualityAndPerverseSheaves",
@@ -54909,8 +54912,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraData.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10161"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10161",
+   "finishedAt": "2026-10-17T14:10:57Z"
   },
   {
    "id": "REV-PKG-ShimuraData",
@@ -131049,9 +131053,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-IgusaVarietiesAndTorsionConcentration~adv.md",
-   "note": "claimed on GitHub issue #9890"
+   "note": "deliverables arrived from an external worker on issue #9890",
+   "finishedAt": "2026-10-17T14:11:03Z"
   },
   {
    "id": "FIX-PKG-PotentialAutomorphyInfrastructure~adv",
@@ -131923,8 +131928,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeTheory~adv2.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeTheory~adv2.md",
+   "note": "deliverables arrived from an external worker on issue #10182",
+   "finishedAt": "2026-10-17T14:11:06Z"
   },
   {
    "id": "FIX-PKG-DirichletPadicLFunctions~adv",
@@ -131942,8 +131949,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-DirichletPadicLFunctions~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DirichletPadicLFunctions~adv.md",
+   "note": "claimed on GitHub issue #10181"
   },
   {
    "id": "FIX-PKG-ColemanIntegration~adv",
@@ -131961,8 +131969,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv.md",
+   "note": "deliverables arrived from an external worker on issue #10180",
+   "finishedAt": "2026-10-17T14:11:09Z"
   }
  ]
 }
