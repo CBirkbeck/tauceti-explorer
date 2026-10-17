@@ -5987,20 +5987,16 @@ These are the target rows of the current packet. A target inventory records an e
 
 These contracts name the actual supplying stage/node, with a separate field/integral/topological role. They do not authorize duplication of that owner.
 
-- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field`: Local field quadratic classification with actual dyadic discriminant/Hasse/sign conventions; only the field input, not integral genus. Consumers: `GN.2/integral-genus`
-- `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry`: Rational isometry from matching local field forms with all real signatures and finite invariants retained; no integral isometry conclusion. Consumers: `GN.2/integral-genus`
-- `tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-2-the-pin-and-spin-groups-and-the-double-covers`: Actual spin-cover map to SO on general characteristic-not-two field points and its spinor-norm kernel; no unsupported local surjectivity. Consumers: `GN.2/proper-spinor-genus`
-- `AdelicAlgebraicGroups:AA.1`: Finite adelic points and functorial induced spin-cover maps, with their actual restricted-product topology. Consumers: `GN.2/proper-spinor-genus`
+- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field`: Local field quadratic classification with actual dyadic discriminant/Hasse/sign conventions; only the field input, not integral genus. Consumers: `GN.2/integral-genus`, `GN.2/local-field-classification-adapter`, `GN.2/spinor-unimodular-stabilizer`
+- `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry`: Rational isometry from matching local field forms with all real signatures and finite invariants retained; no integral isometry conclusion. Consumers: `GN.2/integral-genus`, `GN.2/global-field-isometry-adapter`
+- `AdelicAlgebraicGroups:AA.1`: Finite adelic points and functorial induced spin-cover maps, with their actual restricted-product topology. Consumers: `GN.2/proper-spinor-genus`, `GN.2/spinor-adelic-norm`
 - `tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors`: Use the completed intrinsic exact structure, actual conflation-exact functors and biproduct conflations; supply the duality adapter without defining a private Quillen carrier. Consumers: `GN.6/exact-category-duality`, `GN.6/exact-lagrangian`
-- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal`: Compare the general exact-category degree-zero Witt/GW presentations with the existing field theory under its exact characteristic and form conventions. Consumers: `GN.6/exact-witt-group`
+- `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal`: Import the field Witt ring for the generic-field and trivial-involution hermitian comparisons and for the exact-category degree-zero Witt/GW presentation, retaining the characteristic and form conventions of each adapter. Consumers: `GN.6/exact-witt-group`, `GN.2/field-witt-comparison`, `GN.2/signed-hermitian-witt-comparison`
 - `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion`: Quaternion algebras and the standard involution in characteristic different from two; no commutative-field replacement of the right quaternion module. Consumers: `GN.2/quaternionic-integral-hermitian-data`
 - `AdelicAlgebraicGroups:AA.2`: Compatible Haar/quotient measures, quotient integration and L2 action normalization. Finite-volume reduction is imported separately from AA.3; no numerical Tamagawa constant is inferred. Consumers: `GN.3/adelic-mass-identity`, `GN.4/howe-moore-mixing`, `GN.4/homogeneous-ergodicity`, `GN.4/siegel-mean-value`
 - `AdelicAlgebraicGroups:AA.3`: Reduction domains for the indicated arithmetic groups, with actual coarse/fundamental-domain and quotient-topology hypotheses. Consumers: `GN.3/definite-genus-class-finite`, `GN.3/adelic-mass-identity`, `GN.4/mahler-compactness`
-- `MetaplecticAutomorphicForms:MP.5`: Convergent theta kernel and the lattice Schwartz/Gaussian coefficient specialization, including its discriminant, level and measure conventions. Consumers: `GN.3/theta-lattice-coefficient-interface`
-- `MetaplecticAutomorphicForms:MP.7`: The harmonic half-integral theta coefficient interface for Duke’s spherical Weyl sums; the analytic coefficient estimate remains a separate original-source gap. Consumers: `GN.4/duke-spherical-equidistribution`
 - `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`: Actual finite-dimensional matrix Lie groups and their closed subgroup structures; general homogeneous quotient manifolds are supplied by Lie groups Part II, not redefined here. Consumers: `GN.4/howe-moore-mixing`, `GN.4/ratner-orbit-closure`, `GN.4/ratner-measure-classification`, `GN.4/oppenheim-values`
 - `tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses`: Use the completed Construction A constructor, exact index and self-dual/parity hypotheses; supply the real metric/covolume adapter for the current unresolved FF.4 consumer routing. Consumers: `GN.4/construction-a-real-lattice-interface`
-- `GeneralAlgebraicKTheory:K.4:construction/S-construction`: The actual Waldhausen simplicial S-construction; delooping is imported separately from K.4/delooping-and-the-spectrum. Consumers: `GN.6/shifted-karoubi-periodicity`, `GN.6/classical-dg-bott-triangle`
 - `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory`: Import hyperbolic decomposition, reflection generation and cancellation over characteristic-not-two fields; GN adds the integral-to-generic adapter only. Consumers: `GN.2/field-hyperbolic-comparison`, `GN.2/spinor-reflection-product`
 - `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-3-the-classical-invariants-that-need-no-brauer-group`: Import rank, determinant and signed discriminant with the q=B(x,x)/2 scaling explicitly compared. Consumers: `GN.2/field-discriminant-comparison`
 - `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants`: Import the exact field Hasse/Clifford Brauer-class conventions, not an integral classification. Consumers: `GN.2/field-hasse-comparison`
@@ -6009,11 +6005,29 @@ These contracts name the actual supplying stage/node, with a separate field/inte
 - `tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms`: Import finite free integral symmetric Z-lattices and their isometries; no evenness assumption unless stated separately. Consumers: `GN.2/symmetric-z-carrier-comparison`
 - `tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group`: Import rational symmetric lattice duality and finite discriminant module; compare the B-dual convention directly. Consumers: `GN.2/symmetric-z-dual-comparison`
 - `tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups`: Import even integral Z-overlattice/discriminant gluing, retaining the finite quadratic refinement and evenness hypothesis. Consumers: `GN.2/symmetric-z-overlattice-comparison`
-- `StableHomotopyKTheory:H.1`: Realize the native nerve of the small/smallified hermitian Q-category and the supplied ordinary Q-category as pointed topological spaces, with their forgetful functor. Consumers: `GN.6/hermitian-q-nerve-realization`
-- `StableHomotopyKTheory:H.2`: Supply nerve realization of natural transformations, Quillen theorem A/B homotopy-fibre criteria and contractible comma categories under the precise source hypotheses. Consumers: `GN.6/hermitian-q-nerve-realization`, `GN.6/cofinal-hermitian-comma-contraction`, `GN.6/cofinal-hermitian-q-fibration`
-- `StableHomotopyKTheory:H.4`: Supply coherent orthogonal-sum group completion, pointed H-space loop and fundamental-group interfaces; GN supplies the hermitian exact functors and form relations. Consumers: `GN.6/hermitian-orthogonal-additivity`, `GN.6/formation-loop-comparison`
 
-The four-condition s-filtering exact quotient is an ordinary-K owner extension requiring a concrete supplying declaration. No existing K.6 citation is asserted to provide it. The Poincare owner has no supplying stage here; its framework request remains a recorded gap rather than a fictitious stage. Reciprocal immutable upstream consumer metadata for RT-AREA-algebraicnt-1/1 must be integrated by the maintainer, as the packet upstreamNotes/restructure proposal specifies. No upstream reader or atlas data is edited by this revision.
+The four-condition s-filtering exact quotient is an ordinary-K owner extension requiring a concrete supplying declaration. No existing K.6 citation is asserted to provide it. The Poincare owner has no supplying stage here; its framework request remains a recorded gap rather than a fictitious stage.
+
+RT-AREA-algebraicnt-1/1 is covered by the following twelve supplier-to-consumer stage edges. Each row is backed by the node prerequisites above; the request list also records the other direct uses of these suppliers.
+
+| Supplier stage | Consumer stage | Import boundary |
+| --- | --- | --- |
+| QuadraticFormInvariants Layer 1 | GN.2 | Hyperbolic decomposition, cancellation and reflections over fields |
+| QuadraticFormInvariants Layer 3 | GN.2 | Plain and signed field discriminants |
+| QuadraticFormInvariants Layer 4 | GN.2 | Field Witt ring and the comparison with exact-category W0 |
+| QuadraticFormInvariants Layer 5 | GN.2 | Field Hasse and Clifford invariants |
+| QuadraticFormInvariants Layer 6, including 6D | GN.2 | Nonarchimedean field classification, retaining dyadic conventions |
+| GlobalQuadraticForms Layer 5 | GN.2 | Generic number-field isotropy from all completions |
+| GlobalQuadraticForms Layer 6 | GN.2 | Generic representation and isometry from all completions |
+| Completed/IntegralLattices Layer 1 | GN.2 | Symmetric integral Z-lattice carrier and isometries |
+| Completed/IntegralLattices Layer 2 | GN.2 | Nondegenerate rational dual and finite discriminant group |
+| Completed/IntegralLattices Layer 4 | GN.2 | Overlattice correspondence, with evenness for quadratic gluing |
+| AdelicAlgebraicGroups AA.2 | GN.3 | Compatible Haar measures and quotient integration |
+| AdelicAlgebraicGroups AA.3 | GN.3 | Reduction and finiteness for the indicated arithmetic quotients |
+
+The packet uses the registered Layer 6 identifier for the QFI 6D contract. Field isometry does not imply integral lattice isometry; the global imports retain every finite place and real signature. Quadratic discriminant refinements retain evenness, and quotient integration does not supply a numerical Tamagawa constant. GN's comparison nodes preserve those distinctions.
+
+Atlas assembly reads the hard node prerequisites in `scripts/blueprints.py::merge_blueprints`, then `refresh_roadmap_links` derives both the roadmap prerequisites and the suppliers' reciprocal consumers. The request records document the contracts; they do not create graph edges themselves. The accepted blueprint already supplies all twelve edges, so this fix reconciles its request lists and removes the obsolete request for a manual restructuring. No upstream reader or generated atlas data needs a hand edit for this finding.
 
 ## Remaining supplier API signatures
 

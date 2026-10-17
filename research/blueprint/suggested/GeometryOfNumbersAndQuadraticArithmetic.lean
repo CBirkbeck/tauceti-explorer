@@ -59,6 +59,18 @@ These statements suggest Lean forms so contributors and reviewers can converge o
 Revision planning pass for #6516; every new statement is an unchecked planning obligation.
 No replacement lattice, Gram matrix, covolume or measure carrier is introduced.
 The primitive-orthogonal proof chain and both sharp halves of Minkowski's second theorem are planned here; all statements remain unchecked.
+
+Supplier boundary for RT-AREA-algebraicnt-1/1 (the reader and packet give the contracts):
+* QFI Layers 1, 3, 4, 5 and 6 (including 6D), GlobalQuadraticForms Layers 5 and 6,
+  and Completed/IntegralLattices Layers 1, 2 and 4 supply GN.2.
+* AdelicAlgebraicGroups AA.2 and AA.3 supply GN.3.
+These are mathematical prerequisites, recorded on the packet nodes; they are not Lean
+imports of roadmap prototypes. Field comparisons retain the characteristic hypotheses,
+all finite places and real signatures; integral quadratic gluing retains evenness.
+GN adds the adapters and applications. Atlas assembly derives the stage edges and the
+reciprocal roadmap links from those node prerequisites.
+The newer IntegralLattices Layers 3/4 and OrthogonalSpinGroups Layers 1/3 remain
+current-upstream inputs with explicit snapshot-registration gaps in the packet.
 -/
 noncomputable section
 open scoped BigOperators ZeroObject
