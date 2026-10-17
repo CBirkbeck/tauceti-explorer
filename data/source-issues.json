@@ -199194,8 +199194,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
    "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR text layer (printed page = PDF page − 1), read 2026-10-06; excerpts checked against page images",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
-   "reviewReason": "The correct cutoff agrees with BBD 2.2.2 and 4.0.1–4.0.2. At a closed point with cutoff zero, the skyscraper Λ_x[1] has cohomology only in degree -1: it belongs to the upper aisle but violates the printed vanishing-below-cutoff condition. An unshifted degree-zero skyscraper satisfies both inequalities and therefore does not detect this misprint. Independently checked against the BBD p.71 page image on 2026-10-09, including the shifted-skyscraper test."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "reviewReason": "The p.71 image reverses both inequalities; the aisle conventions and §4.0, p.102 give the corrected directions."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E12",
@@ -199213,8 +199213,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
    "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR text layer (printed page = PDF page − 1), read 2026-10-06; excerpts checked against page images",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
-   "reviewReason": "4.0 fixes ℚ̄_ℓ coefficients for the whole section; the classification of simple objects is over ℚ̄_ℓ. Independently checked against the BBD p.112 page image and §4.0 on 2026-10-09. This confirms the coefficient-label misprint, not a denial of the corresponding finite-extension coefficient theory."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "reviewReason": "Read §4.0, p.101 and 4.3.1(ii), p.112: the classification uses the algebraically closed coefficient field of §4.0."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E13",
@@ -199234,8 +199234,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
    "citation": "Xinwen Zhu, Affine Grassmannians and the geometric Satake in mixed characteristic, arXiv 1407.8519v3 (2016); published Ann. of Math. 185 (2017); read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
-   "reviewReason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex-of-local-system); the printed shift 2 dim X is not perverse. Independently checked in both the public v3 preprint p.55 and the published p.478 on 2026-10-09; the ordinary IC shift is dim X."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "reviewReason": "Compared the published A.3.1 display, p.478, with its perverse normalization: the smooth restriction is shifted by d, not 2d."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E14",
@@ -199255,8 +199255,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
    "citation": "Xinwen Zhu, Affine Grassmannians and the geometric Satake in mixed characteristic, Annals of Mathematics 185 (2017), 403–492, version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
-   "reviewReason": "Over F_q the irreducible zero-dimensional scheme Spec F_(q²) becomes two points over the algebraic closure, giving two-dimensional H_c^0. The appendix permits any perfect base field in A.1.2; irreducibility over that field is insufficient. Independently checked against published A.1.2, p.465 and A.3.3, pp.479–480 on 2026-10-09; the geometric-component counterexample uses the permitted perfect base field."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "reviewReason": "A.1.2, p.465 allows a general perfect field. Spec(F_q²) is irreducible but has two geometric components, so its geometric top cohomology is not a scalar line."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E15",
@@ -199276,8 +199276,8 @@
    "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.4.json",
    "citation": "Xinwen Zhu, Affine Grassmannians and the geometric Satake in mixed characteristic, Annals of Mathematics 185 (2017), 403–492, version of record",
    "status": "confirmed",
-   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
-   "reviewReason": "For the k-linear relative Frobenius of P¹, pullback sends O(1) to O(p) and multiplies H²(P¹,Qbar_ell(1)) by p. Its perfection is an automorphism, so changing the model by this automorphism changes the transferred trace by a nontrivial p-power. Ordinary scheme trace has the correct degree-scaling law and is unaffected. Independently checked against published A.3.3, p.480 and the preprint pp.55–56 on 2026-10-09, using the degree-p action on top cohomology of P¹."
+   "reviewedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~4",
+   "reviewReason": "A.3.3, p.480 claims model independence under pullback. Frobenius on P¹ has degree p and multiplies H²(1) by p while becoming an automorphism after perfection; the ordinary trace of finite-type models is not invariant under that pullback."
   },
   {
    "id": "EtaleDualityAndPerverseSheaves/E16",
