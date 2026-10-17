@@ -24,7 +24,7 @@ Local Langlands inputs are taken from the roadmaps that state them: GL2Automorph
 
 ## Conventions
 
-Write e(t)=exp(2πit) (`expTwoPi`). Heisenberg extensions use coefficient-first coordinates (t,w), with law (t,w)(s,v)=(t+s+B(w,v),w+v); the symplectic model has B=ω/2. BFH’s space-first convention is obtained by interchanging coordinates. QuadraticFormInvariants §6C supplies nonarchimedean Hilbert symbols, and GlobalQuadraticForms Layer 4 the real one. Local fields have characteristic different from two where stated; dyadic residue characteristic remains allowed. Use nontrivial continuous unitary ψ and self-dual additive measures. Left actions correspond to Kudla’s right action through inversion. Operator comparisons specify Fourier signs and root branches.
+Write e(t)=exp(2πit) (`expTwoPi`) and Z[w]=wᵀZw (`quad`). Heisenberg extensions use coefficient-first coordinates (t,w), with law (t,w)(s,v)=(t+s+B(w,v),w+v); the symplectic model has B=ω/2. BFH’s space-first convention is obtained by interchanging coordinates. QuadraticFormInvariants §6C supplies nonarchimedean Hilbert symbols, and GlobalQuadraticForms Layer 4 the real one. Local fields have characteristic different from two where stated; dyadic residue characteristic remains allowed. Use nontrivial continuous unitary ψ and self-dual additive measures. Left actions correspond to Kudla’s right action through inversion. Operator comparisons specify Fourier signs and root branches.
 
 Distinguish the scalar-circle extension from its normalized μ₂ subcover. A genuine representation sends the latter’s central −1 to −Id. Fix q’s polar form as q(x+y)−q(x)−q(y); its determinant differs from the quadratic determinant by 2^dimV. GQT parameters use m=m₀+2r, d(n)=n+ε₀, s₀=(m−d(n))/2 and ρ_H=(m−r−ε₀)/2. The half-weight parameter is r/2 and the paired weight-zero parameter r. Petersson products use unnormalized hyperbolic area. In BFH, the original newform conductor is M, the auxiliary level N, and the normalized Siegel parameter s−2.
 
@@ -284,7 +284,7 @@ F is nonarchimedean; ψ is continuous nontrivial unitary; Y is an isotropic F-su
 (Kudla96, I.2 Lemma2.2, PDF7, polarization realization). *Needs:* 0.15; SmoothRepresentationsOfLocalGroups §SR.2.1.
 
 - `inducedSchroedingerEquiv_apply`: The coordinate map is f↦(u↦f(u,0)).
-- `inducedSchroedingerEquiv_covariance`: The inverse section-evaluation map satisfies f(t,u)=ψ(t)φ(u); smoothness and compact support are additional source obligations.
+- `inducedSchroedingerEquiv_covariance`: The inverse section-evaluation map satisfies f(t,u)=ψ(t)φ(u); smoothness and compact support are proved separately in 0.16.
 - `inducedSchroedingerEquiv_intertwines`: The explicitly constructed coordinate translation intertwines section evaluation with the same Schrödinger phase/translation operator.
 
 **Checks.**
@@ -370,7 +370,7 @@ The Hilbert Schrödinger model is strongly continuous; g acts by the inherited c
 
 - G=1,H=C: every unitary normalizer is a unique norm-one scalar.
 - Every pair above g=1 is uniquely z·id, |z|=1.
-- For W≠0 over R, the normalized μ₂ cover has no continuous homomorphic section.
+- For W≠0 over ℝ the extension has no continuous splitting; otherwise the μ₂ subcover of 2.4b would split as well.
 
 ### 1.4 Scalar ambiguity and composition of intertwiners
 
@@ -436,13 +436,13 @@ Characteristic different from two; use the symplectic quotient by the isotropic 
 - ω(e₀,e₁)=1, L₀=Fe₀,L₁=Fe₁,L₂=F(e₀+e₁): q(y)=−y²/2.
 - L₀=L₁ transverse to L₂: R=L₀ is not contained in L₂, so (L₂∩R⊥)/R is undefined.
 
-The auxiliary signature `lerayGraphForm` gives only the graph expression ω(y,Ty)/2. The full `lerayForm` on a triple, its isotropic reduction and radical quotient remain separate targets with the hypotheses above.
+The graph expression ω(y,Ty)/2 (`lerayGraphForm`) is the Leray form only for a transverse pair; the full `lerayForm` on a triple needs the isotropic reduction and the radical quotient above.
 
 ### 2.4 Leray cocycle of intertwiners
 
 Prove `leray_cocycle`: For the unitary normalized integral operators r_Y(g), their factor set is c_Y(g₁,g₂)=γψ(L(Y,Yg₁⁻¹,Yg₂⁻¹g₁⁻¹))=γψ(L(Y,Yg₂⁻¹,Yg₁)). This obeys normalization and the two-cocycle identity because it computes actual operator composition.
 
-Use Kudla’s right action on W and the same q-versus-polar-form convention as the index and Leray nodes; source convention conversion is explicit.
+Use Kudla’s right action on W and the same q-versus-polar-form convention as the index and Leray targets; source convention conversion is explicit.
 
 (Kudla96, I.3 Theorem3.1 p.13). *Needs:* 0.15, 1.3, 2.1, 2.3.
 
@@ -472,7 +472,7 @@ Local field characteristic different from two, finite-dimensional symplectic W. 
 
 (Weil64, IV.§§42–44, printed194–199, PDF52–57). *Needs:* 1.3, 2.4a, 2.4.
 
-*Construction of λ₂.* By 2.4a, (z,g)↦z·β(g)r_Y(g)T_g identifies the extension of Sp(W) by U(1) attached to the normalized Rao factor set c_Rao with the oscillator normalizer S_ψ of 1.3. Since c_Rao takes values in μ₂, λ₂(z,g)=z² is a continuous homomorphism S_ψ→U(1), and its kernel is the μ₂-extension E_{c_Rao}. Because Sp(W) is perfect for every local field F, λ₂ is the only continuous character of S_ψ restricting to z↦z² on the central U(1).
+*Construction of λ₂.* For nonarchimedean F, by 2.4a, (z,g)↦z·β(g)r_Y(g)T_g identifies the extension of Sp(W) by U(1) attached to the normalized Rao factor set c_Rao with the oscillator normalizer S_ψ of 1.3. Since c_Rao takes values in μ₂, λ₂(z,g)=z² is a continuous homomorphism S_ψ→U(1), and its kernel is the μ₂-extension E_{c_Rao}. Over ℝ, S_ψ contains Weil's double cover (Weil64, IV.§§42–44), and λ₂ is the character with that kernel that is z↦z² on the circle; over ℂ, S_ψ≃Sp(W)×U(1) and λ₂ is the second projection squared. In every case λ₂ is the only continuous character of S_ψ that is z↦z² on the central U(1), because Sp(W) is perfect.
 
 - `lambdaTwo`: the continuous character λ₂:S_ψ→U(1) above.
 - `lambdaTwo_center`: λ₂(z)=z² on the central circle.
@@ -629,19 +629,19 @@ Nonarchimedean local field and the specified dual pair/splittings. π∨ is the 
 - G=1,π=C: the quotient is S with its H action.
 - Every equivariant S→π⊗σ factors uniquely through the maximal π-isotypic quotient.
 
-The algebraic signature `thetaCoinvariantRelation_eq_zero` only verifies that a commuting H-action preserves the relations. The full smooth `bigTheta` and its Hom comparison require the smooth contragredient and maximal-isotypic carrier; their signatures remain absent until those carriers exist.
+A commuting H-action preserves the coinvariant relations (`thetaCoinvariantRelation_eq_zero`), which is the algebraic part of `bigTheta`; the smooth big theta module and its Hom comparison also need the smooth contragredient and the maximal isotypic quotient.
 
 ### 3.5 Small theta quotient
 
 Define `smallTheta` as follows. Define θ(π) as the maximal semisimple quotient of the finite-length big theta module in the source category. Under a stated Howe theorem, it is zero or irreducible. Define no arbitrary chosen irreducible summand when Howe duality has not been established.
 
-The big theta module is finite length. The semisimple quotient and radical are imported from SR.0/SR.3; archimedean variants use AF.1.
+The big theta module is finite length. The semisimple quotient and radical are imported from SmoothRepresentationsOfLocalGroups §§SR.0.2, SR.3.1; archimedean variants use AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
 (GanTakeda16, §1 PDF1–2). *Needs:* 3.4; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
 - `Submodule.mkQ_surjective`: The natural Θ(π)→θ(π) is surjective.
 - `smallTheta_semisimple`: θ(π) is semisimple in the supplied smooth category.
-- `Submodule.liftQ`: Every linear map killing the chosen quotient submodule factors uniquely through the native quotient. Identifying that submodule as the maximal semisimple radical is a separate source obligation.
+- `Submodule.liftQ`: Every linear map killing the chosen quotient submodule factors uniquely through the native quotient. That this submodule is the radical of the maximal semisimple quotient is part of this target.
 
 **Checks.**
 
@@ -651,9 +651,9 @@ The big theta module is finite length. The semisimple quotient and radical are i
 
 ### 3.6 Finite length of theta modules
 
-Prove `bigTheta_finiteLength`: For a nonarchimedean characteristic-zero type-I pair, prove Θ(π) admissible and finite length for irreducible admissible π. Supply separately the archimedean finitely generated admissible (g,K)-module analogue on the oscillator Harish-Chandra module, using its original theorem and AF.1 category.
+Prove `bigTheta_finiteLength`: For a nonarchimedean characteristic-zero type-I pair, prove Θ(π) admissible and finite length for irreducible admissible π. Supply separately the archimedean finitely generated admissible (g,K)-module analogue on the oscillator Harish-Chandra module, using Howe's theorem in the category of AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
-The matched central character and source splittings are fixed. Generic admissibility, Jacquet exactness and finite-length criteria belong to SR.2/SR.3; Harish-Chandra modules belong to AF.1.
+The matched central character and source splittings are fixed. Generic admissibility, Jacquet exactness and finite-length criteria belong to SmoothRepresentationsOfLocalGroups §§SR.2.2, SR.3.1; Harish-Chandra modules to AutomorphicFormsOnReductiveGroups §2.1.
 
 (Kudla96, II.2 pp31–33, isotypic quotient and admissibility). *Needs:* 3.4; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
@@ -661,7 +661,7 @@ The matched central character and source splittings are fixed. Generic admissibi
 
 Prove `howeDuality`: For a nonarchimedean orthogonal–symplectic or unitary type-I pair in characteristic ≠2, prove θ(π) zero or irreducible and nonzero θ(π)≃θ(π′) implies π≃π′, including dyadic residue fields. Quaternionic full duality requires its additional theorem beyond Gan–Takeda’s partial result. Over R or C use the separate original archimedean Howe theorem in the specified Harish-Chandra/globalization category.
 
-The smooth representations are irreducible admissible and genuine where required. Gan–Takeda Theorem1.2 is the full orthogonal/symplectic/unitary theorem; its Theorem1.3 only gives scoped quaternionic conclusions. Archimedean Harish-Chandra modules/globalizations and Howe’s original theorem require AutomorphicFormsOnReductiveGroups:AF.1 and the original archimedean Howe theorem; no extension to arbitrary algebraic representations is asserted.
+The smooth representations are irreducible admissible and genuine where required. Gan–Takeda Theorem1.2 is the full orthogonal/symplectic/unitary theorem; its Theorem1.3 only gives scoped quaternionic conclusions. Archimedean Harish-Chandra modules/globalizations and Howe’s original theorem require AutomorphicFormsOnReductiveGroups §§2.1, 2.7 and Howe's archimedean theorem; no extension to arbitrary algebraic representations is asserted.
 
 (GanTakeda16, Theorem1.2 and(HD), PDF2; proof §§4–6 PDF9 onward; GI18, §2.2, arXiv-v3 PDF8; GS23a, §14.1–14.3, arXiv-v1 PDF50–51). *Needs:* 3.5, 3.6; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
@@ -671,7 +671,7 @@ The smooth representations are irreducible admissible and genuine where required
 
 Prove `localSeeSaw`: For a see-saw with compatible restrictions of one oscillator, identify Hom_H₁(Θ_G₁(π₁),π₂) with Hom_H₂(Θ_G₂(π₂∨),π₁∨) through the common oscillator Hom space. Give the tensor/dual conventions explicitly. This concerns big coinvariants; passage to small lifts requires semisimplicity and Howe hypotheses.
 
-Smooth admissible modules; compatible restrictions of the same oscillator representation; archimedean version in AF.1.
+Smooth admissible modules; compatible restrictions of the same oscillator representation; archimedean version in the category of AutomorphicFormsOnReductiveGroups §2.7.
 
 (Kudla96, IV.1 pp59–66, see-saw examples and oscillator Hom route). *Needs:* 3.4, 2.7; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
@@ -738,9 +738,9 @@ Smooth irreducible representations; the pair orientation and normalized action a
 
 ### 3.15 MVW involution and metaplectic induction
 
-Prove `mvw_coverInduction`: Transport smooth duals and normalized induction through the split Mp unipotents. The exact covariant MVW involution agrees with π∨ for irreducible π. On Levi GL_k×Mp_{2n−2k}, use τ̃ψ=(τ∘projection)⊗χψ, with central sign −1, as the genuine inducing datum. Archimedean variants require AF.1 and their own comparison.
+Prove `mvw_coverInduction`: Transport smooth duals and normalized induction through the split Mp unipotents. The exact covariant MVW involution agrees with π∨ for irreducible π. On Levi GL_k×Mp_{2n−2k}, use τ̃ψ=(τ∘projection)⊗χψ, with central sign −1, as the genuine inducing datum. Archimedean variants use AutomorphicFormsOnReductiveGroups §2.7 and need their own comparison.
 
-Nonarchimedean characteristic-zero F for the smooth comparison; real Lie-group variants use AF.1 and their own proof. χψ is the Weil-index genuine character on the covered GL factor.
+Nonarchimedean characteristic-zero F for the smooth comparison; real Lie-group variants use AutomorphicFormsOnReductiveGroups §2.7 and need their own proof. χψ is the Weil-index genuine character on the covered GL factor.
 
 (GI18, §5.2–5.3 PDF18–20, Lemma5.2). *Needs:* 3.2, 2.2; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
@@ -772,7 +772,7 @@ Hypotheses: F nonarchimedean of characteristic zero; auxiliary characters χ_V, 
 
 Prove `unitaryTheta_doublingDichotomy`: For Li–Liu Assumption 3.1’s rank-2r skew-Hermitian datum, prove the equal-rank two-choice dichotomy and doubling Hom multiplicity ≤1. Establish the required semisimplicity of the relevant big theta module separately; the scoped Gan–Ichino irreducibility result does not suffice.
 
-Characteristic zero local fields, the exact relevant tempered representation and splitting data of Li–Liu; archimedean case uses AF.1.
+Characteristic zero local fields, the exact relevant tempered representation and splitting data of Li–Liu; archimedean case uses AutomorphicFormsOnReductiveGroups §§2.4, 2.7.
 
 (LL21, Proposition3.6 PDF15–17). *Needs:* 3.13, 3.7, 3.3; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
@@ -912,7 +912,7 @@ Exact split quaternion idempotent and bases; norm-image multipliers; source quad
 
 Prove `similitudeTheta_howe`: For the matched multiplier subgroup R⊂G×H⁺, compactly induce the extended oscillator to Ω=c-Ind_R^{G×H⁺}ω. Prove finite-length big quotients, and, for Ichino–Prasanna’s classical pairs, small theta zero or irreducible and injective on its nonzero domain. H⁺ is the multiplier-image subgroup.
 
-Characteristic-zero local F; isometry-group Howe, Clifford and compact-induction inputs; AF.1 at infinity.
+Characteristic-zero local F; isometry-group Howe, Clifford and compact-induction inputs; AutomorphicFormsOnReductiveGroups §§2.4, 6.8 at infinity.
 
 (IP23, §7.2 and Lemma9.3 arXiv PDF41–42,50–52). *Needs:* 3.7, 3.16, 3.24; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
@@ -1018,7 +1018,7 @@ The lattice is integral self-dual for the specified ψ-pairing; no assertion of 
 
 Define `adelicMetaplectic` as follows. Take the restricted product ∏′_v Mp(W_v) relative to the distinguished integral splittings at good finite places. Its central restricted subgroup is the finite-support product ⊕_v μ₂. Quotient by the subgroup {ε:∏_v ε_v=1} to obtain Mp(W)(A), with exact projection to Sp(W)(A) and a single μ₂ kernel. Equip it with the quotient topology and local compactness inherited from the restricted product.
 
-Global field char≠2 with the characteristic-zero source used for number-field assertions; finitely many bad places retained; topological restricted-product input from AA.1.
+Global field char≠2 with the characteristic-zero source used for number-field assertions; finitely many bad places retained; topological restricted-product input from AdelicAlgebraicGroups §1.2.
 
 (Weil64, III.§§37–38, printed187–189, PDF45–47; IV.§42 for the twofold reduction). *Needs:* 4.1, 2.4b; AdelicAlgebraicGroups §1.2.
 
@@ -1117,7 +1117,7 @@ The adelic cover of 4.2 is the number-field analogue for N=2; nothing in Layers 
 
 - For N=1 the gerbe is trivial, Ĝ_N=Ĝ, and the statement is the ordinary decomposition of Laf18 Théorème 0.1.
 - For N not dividing q−1 hypothesis (i) cannot hold over 𝔽_q, since μ_N is then not constant; the statement is empty.
-- The excursion operators of (iii) are global, indexed by finite sets of places and Ĝ_N-invariant functions; the local excursion algebra of SR.6.3 does not supply them.
+- The excursion operators of (iii) are global, indexed by finite sets of places and Ĝ_N-invariant functions; the local excursion algebra of SmoothRepresentationsOfLocalGroups §SR.6.3 does not supply them.
 
 ### Examples
 
@@ -1149,7 +1149,7 @@ Number field, characteristic-zero source, compatible ψ and self-dual measures; 
 
 ### 5.2 Theta smoothness and growth transfer
 
-Prove `theta_uniformModerateGrowth`: The theta kernel is smooth at infinity, locally constant at finite places, and every archimedean differential operator can be applied termwise on compact subsets. On the specified adelic Siegel sets its derivatives satisfy a common polynomial height bound for each finite Schwartz seminorm family. With fixed finite level and finite K-type this gives uniform moderate growth in the AF.2 sense, after comparison of the cover height with the base-group height.
+Prove `theta_uniformModerateGrowth`: The theta kernel is smooth at infinity, locally constant at finite places, and every archimedean differential operator can be applied termwise on compact subsets. On the specified adelic Siegel sets its derivatives satisfy a common polynomial height bound for each finite Schwartz seminorm family. With fixed finite level and finite K-type this gives uniform moderate growth in the sense of AutomorphicFormsOnReductiveGroups §0.4, after comparison of the cover height with the base-group height.
 
 Number field; finite-dimensional quadratic/symplectic datum; fixed finite-level vector and K-type where an automorphic-form space requires them. The height, central-character restriction and Schwartz seminorms must be matched to the supplier.
 
@@ -1159,11 +1159,11 @@ Number field; finite-dimensional quadratic/symplectic datum; fixed finite-level 
 
 ### 5.3 Genuine automorphic spaces
 
-Define `genuineAutomorphic` as follows. Inside smooth finite-level functions on Sp(W)(F)\Mp(W)(A), take the subspace of infinitesimal-character-finite, uniformly moderate-growth functions f with f(zg)=−f(g), using AF.2’s fixed central-character convention. Its cuspidal subspace has vanishing constant term along every proper rational parabolic, computed through the canonical unipotent splitting. Following GQT §2.10, this smooth space imposes no K-finiteness and carries the full right G(A)-action. Its K-finite part is instead a (g,K)-module with the finite-adelic action; full real-group translation is not claimed to preserve K-finiteness.
+Define `genuineAutomorphic` as follows. Inside smooth finite-level functions on Sp(W)(F)\Mp(W)(A), take the subspace of infinitesimal-character-finite, uniformly moderate-growth functions f with f(zg)=−f(g), using the central-character convention of AutomorphicFormsOnReductiveGroups §3.2. Its cuspidal subspace has vanishing constant term along every proper rational parabolic, computed through the canonical unipotent splitting. Following GQT §2.10, this smooth space imposes no K-finiteness and carries the full right G(A)-action. Its K-finite part is instead a (g,K)-module with the finite-adelic action; full real-group translation is not claimed to preserve K-finiteness.
 
-Use the actual adelic cover, rational splitting and AF.1–3 analytic conventions; require the same split-center/central-character normalization as the base automorphic space.
+Use the actual adelic cover, rational splitting and the analytic conventions of AutomorphicFormsOnReductiveGroups Layers 0–4; require the same split-center/central-character normalization as the base automorphic space.
 
-(Weil64, III.§41 Théorème6, printed193, PDF51; AF.2/3 supplies finiteness and growth conditions; GQT, §2.10, arXiv-v3 PDF13). *Needs:* 4.2, 4.4, 5.2; AutomorphicFormsOnReductiveGroups §0.1; AutomorphicFormsOnReductiveGroups §§3.1–3.2; AutomorphicFormsOnReductiveGroups §§4.1–4.2.
+(Weil64, III.§41 Théorème6, printed193, PDF51; AutomorphicFormsOnReductiveGroups §§0.4, 3.1 supply finiteness and growth conditions; GQT, §2.10, arXiv-v3 PDF13). *Needs:* 4.2, 4.4, 5.2; AutomorphicFormsOnReductiveGroups §0.1; AutomorphicFormsOnReductiveGroups §§3.1–3.2; AutomorphicFormsOnReductiveGroups §§4.1–4.2.
 
 - `genuineAutomorphic_eval`: Elements evaluate as functions on the actual cover quotient.
 - `genuineAutomorphic_right`: Right translation preserves the smooth genuine automorphic and cusp subspaces. The K-finite part is stable under its (g,K) and finite-adelic actions.
@@ -1175,7 +1175,7 @@ Use the actual adelic cover, rational splitting and AF.1–3 analytic convention
 - A genuine function descending to the base group is zero.
 - Translation preserves the central sign equation.
 
-The auxiliary `centralSignFunctions` signature records only the central sign equation on an arbitrary group. It supplies neither quotient automorphy nor smoothness, finiteness, cusp conditions or growth. The full `genuineAutomorphic` carrier is a separate target with the hypotheses above.
+The central sign equation f(zg)=−f(g) (`centralSignFunctions`) gives neither automorphy nor smoothness, finiteness, cusp conditions or growth; the carrier `genuineAutomorphic` imposes all of them.
 
 ### 5.4 Unipotent splittings
 
@@ -1187,11 +1187,11 @@ Characteristic zero; the unipotent subgroup and cover topology are fixed.
 
 ### 5.5 Metaplectic constant terms and Whittaker coefficients
 
-Define `metaplecticWhittaker` as follows. For a continuous genuine automorphic f, a rational unipotent U, and a unitary character η on U(F)\U(A), define W_U,η(f)(g)=∫U(F)\U(A) f(ũg)η(u)⁻¹du using the canonical splitting and probability quotient Haar. The trivial η gives the constant term. Right translation and differentiation commute with the integral under the AF.3 regularity hypotheses; central genuineness is retained.
+Define `metaplecticWhittaker` as follows. For a continuous genuine automorphic f, a rational unipotent U, and a unitary character η on U(F)\U(A), define W_U,η(f)(g)=∫U(F)\U(A) f(ũg)η(u)⁻¹du using the canonical splitting and probability quotient Haar. The trivial η gives the constant term. Right translation and differentiation commute with the integral under the regularity hypotheses of AutomorphicFormsOnReductiveGroups §4.1; central genuineness is retained.
 
 U(F)\U(A) compact; η trivial on rational points; f smooth for derivative assertions. Fourier expansion requires the appropriate abelian U and the supplier’s convergence topology.
 
-(Weil64, III.§41 Théorème6, printed193, PDF51 (theta realization); AA.1 and AF.3 supply the quotient-integral API). *Needs:* 5.3, 5.4; AutomorphicFormsOnReductiveGroups §4.1; AdelicAlgebraicGroups §§2.2–2.3; AutomorphicLFunctionsAndLocalFactors AL.0 (standard additive character).
+(Weil64, III.§41 Théorème6, printed193, PDF51 (theta realization); AdelicAlgebraicGroups §§2.2–2.3 and AutomorphicFormsOnReductiveGroups §4.1 supply the quotient integrals). *Needs:* 5.3, 5.4; AutomorphicFormsOnReductiveGroups §4.1; AdelicAlgebraicGroups §§2.2–2.3; AutomorphicLFunctionsAndLocalFactors AL.0 (standard additive character).
 
 - `metaplecticWhittaker_trivial`: The trivial-character coefficient equals the constant term.
 - `metaplecticWhittaker_right`: Coefficient extraction commutes with right translation.
@@ -1205,7 +1205,7 @@ U(F)\U(A) compact; η trivial on rational points; f smooth for derivative assert
 
 ### 5.6 Global theta lift
 
-Define `globalThetaLift` as follows. For a dual pair G,H, define θφ(f)(g)=∫[H] θ(g,h;φ) conjugate(f(h))dh whenever the displayed product is absolutely integrable. Its span is the global theta-lift module; the oscillator splitting fixes its central character and equivariance. If f is cuspidal with the required unitary central character, AF.3 rapid decay combined with the theta-growth estimate supplies convergence in the source’s permitted range.
+Define `globalThetaLift` as follows. For a dual pair G,H, define θφ(f)(g)=∫[H] θ(g,h;φ) conjugate(f(h))dh whenever the displayed product is absolutely integrable. Its span is the global theta-lift module; the oscillator splitting fixes its central character and equivariance. If f is cuspidal with the required unitary central character, the rapid decay of cusp forms (AutomorphicFormsOnReductiveGroups §4.2) combined with the theta-growth estimate supplies convergence in the source’s permitted range.
 
 Quotient and measure normalized as in GQT; use either anisotropic H, the convergent range, or a cusp/decay bound proved sufficient. No arbitrary regularized value is substituted for a divergent integral.
 
@@ -1312,7 +1312,7 @@ D<0 fundamental; z in the upper half plane. Ideal classes, norms and the diction
 
 ### 5.13 Ideal-class theta modularity
 
-Prove `idealClassTheta_modular`: θ_A is holomorphic of weight1 on Γ₀(|D|) with Nebentypus ε_D: θ_A(γz)=ε_D(d)(cz+d)θ_A(z), and it is holomorphic at every cusp. This holds for every negative fundamental D; the explicit all-SL₂(Z) transformation node below is restricted to odd D.
+Prove `idealClassTheta_modular`: θ_A is holomorphic of weight1 on Γ₀(|D|) with Nebentypus ε_D: θ_A(γz)=ε_D(d)(cz+d)θ_A(z), and it is holomorphic at every cusp. This holds for every negative fundamental D; the explicit all-SL₂(Z) transformation target below is restricted to odd D.
 
 Negative fundamental D; γ∈Γ₀(|D|); source lattice and character conventions.
 
@@ -1510,7 +1510,7 @@ Generic good section in the source’s normalized induction, compatible Haar and
 
 ### 6.12 Factorization of theta pairings
 
-Prove `thetaPairing_factorization`: In a proved convergence chamber, unfold a pure-tensor doubled theta pairing into normalized local integrals times the specified global/partial L-factor and good-place denominators. Apply AA.0 restricted-product Fubini with its countability, second-countability, open compact and cofinite-indicator hypotheses; compute ramified and real factors separately. The rational theta sum itself need not factor.
+Prove `thetaPairing_factorization`: In a proved convergence chamber, unfold a pure-tensor doubled theta pairing into normalized local integrals times the specified global/partial L-factor and good-place denominators. Apply the restricted-product Fubini theorem of AdelicAlgebraicGroups §0.3 with its countability, second-countability, open compact and cofinite-indicator hypotheses; compute ramified and real factors separately. The rational theta sum itself need not factor.
 
 Pure-tensor input; all integrability/unfolding hypotheses proved; compatible local measures and good-place reference vectors.
 
@@ -1668,7 +1668,7 @@ Define `halfWeightMaass` as follows. For Δ₁/₂=−y²(∂ₓ²+∂ᵧ²)+(i/
 - Ordinary Γ invariance does not establish genuineness.
 - Using r rather than r/2 in W gives the wrong eigenvalue.
 
-The auxiliary `halfWeightEigenfunctions` signature records multiplier covariance and the eigenspace of a supplied linear operator. The operator must first be identified with Δ₁/₂, and smoothness, L² membership and all three cusp conditions belong to the separate full `halfWeightMaass` target.
+Multiplier covariance and an eigenvalue equation (`halfWeightEigenfunctions`) do not define the space: the operator is Δ₁/₂, and smoothness, L² membership and the conditions at all three cusps are part of `halfWeightMaass`.
 
 ### 7.3 Whittaker Fourier expansion
 
@@ -1807,7 +1807,7 @@ Prove `plusKloosterman_symmetry`: For c>0 with 4|c and all m,n∈ℤ, K⁺(m,n;c
 
 ### 7.15 Half-weight resolvent kernel
 
-Define `halfWeightResolvent` as follows. Construct the resolvent G_{1/2}(z,z′;s) on the Γ₀(4) unitary-multiplier L² space, with its three-cusp domain, hermitian kernel symmetry and discrete polar projectors. This is a cover-specific adaptation of AS.0, not an ordinary scalar kernel on Γ\H.
+Define `halfWeightResolvent` as follows. Construct the resolvent G_{1/2}(z,z′;s) on the Γ₀(4) unitary-multiplier L² space, with its three-cusp domain, hermitian kernel symmetry and discrete polar projectors. This is a cover-specific adaptation of AutomorphicSpectralTheory §§1.16a, 2.19, not an ordinary scalar kernel on Γ\H.
 
 (DIT16, §8 (8.5), p975). *Needs:* 7.2, 5.5; AutomorphicSpectralTheory §§1.16a, 2.19.
 
@@ -2017,7 +2017,7 @@ Prove `positiveFourier_finiteCertificate`: For an orthonormal basis f₁,…,f_m
 
 Prove `shimura_finiteFourierAutomorphy`: At N=1, assume convergence of Biró’s Fourier series and its equation (14) for every positive admissible index n=s/D. This expresses each conjugated-coefficient combination of Sh_D f_j as a finite genus-weighted weight-zero cusp trace. Finite Fourier separation then proves each Sh_D f, f∈W, is a possibly zero level-one cusp eigenform at parameter r. For positive D its Fourier coefficients are even. Establish the trace identity independently; for N>1 the spaces are Γ₀(N) and V*₁/₂(4N).
 
-D>0 is fundamental. The trace identity(14) and its convergence are hypotheses of this conditional node, not consequences of finite-dimensional coefficient separation. The trace identity must be proved independently of that separation argument; for N>1 use Γ₀(N) and the corresponding V*_{1/2}(4N).
+D>0 is fundamental. The trace identity(14) and its convergence are hypotheses of this conditional target, not consequences of finite-dimensional coefficient separation. The trace identity must be proved independently of that separation argument; for N>1 use Γ₀(N) and the corresponding V*_{1/2}(4N).
 
 (Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.32a, 7.32b.
 
@@ -2065,7 +2065,7 @@ Prove `halfWeight_dukeBound`: For an L²-unit weight-one-half cusp form on Γ₀
 
 (DIT16, §6, (6.6), printed968–969/PDF20–21; Duke88, §2 spectral normalization, printed77–78/PDF5–6; Theorem5 printed85–86/PDF16–17). *Needs:* 7.3, 7.12, 7.28, 5.5.
 
-The Duke88 Theorem 5 statement, its spectral normalization and its proof on printed pp.85–86 have been checked. The formal signature still awaits the full spectral coefficient carrier.
+The statement and spectral normalization are Duke88 Theorem 5, printed pp.85–86; the bound is stated for the Fourier coefficients of the weight-one-half Maass forms of 7.2.
 
 ### 7.40 Exact conjugation of the two U and W normalizations
 
@@ -3015,11 +3015,11 @@ All objects here are built from one BFH datum (8.28a).
 
 (BFH90, §1, p.549, I_s; §2, pp.553–554; §8, pp.601–602). *Needs:* 8.31, 8.23, 8.13, 8.53, 8.28a; AutomorphicSpectralTheory §§1.12–1.13; ModularForms Layer 4; ModularForms Layer 6; AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors).
 
-The signature `genuineThetaLift_central` proves only the central sign of a lifted function. The full `genuine_induced_comparison` needs the stated BFH newform, finite K-type and normalized induced carrier; central sign alone does not imply induced covariance.
+The central sign of a lifted function (`genuineThetaLift_central`) does not imply induced covariance; `genuine_induced_comparison` needs the BFH datum (8.28a), its finite K-type and the normalized induced section.
 
 ### 8.77 Genuine Eisenstein initial convergence and growth
 
-Prove `genuine_eisenstein_initial_convergence`: For the specified BFH K-type, newform, finite vector and cover measures, prove E_s and its theta-component sums converge absolutely and locally uniformly with all required derivatives for Re s>S₀, for some real S₀. Compare their absolute-value and Sobolev bounds with AS.1 Siegel-section estimates at ν=s−2 after Gaussian λ summation. The finite-cover identification must establish this comparison.
+Prove `genuine_eisenstein_initial_convergence`: For the specified BFH K-type, newform, finite vector and cover measures, prove E_s and its theta-component sums converge absolutely and locally uniformly with all required derivatives for Re s>S₀, for some real S₀. Compare their absolute-value and Sobolev bounds with the Siegel-section estimates of AutomorphicSpectralTheory §1.3 at ν=s−2 after Gaussian λ summation. The finite-cover identification must establish this comparison.
 
 All objects here are built from one BFH datum (8.28a).
 
@@ -3068,7 +3068,7 @@ All objects here are built from one BFH datum (8.28a).
 
 ### 8.80 Genuine Eisenstein continuation and Weyl equation
 
-Prove `genuine_eisenstein_continuation`: Prove meromorphic continuation of the genuine BFH family and E(s,F)=E(4−s,M(w,s)F), with the raw intertwiner and contragredient cusp identification. Poles come from the proved genuine constant terms. Near s=2, regularity is equivalent to regularity of those coefficients; intertwiner residues give genuine automorphic residues. Supply the cover-specific AS.2 adaptation and the original Fricke conductor M.
+Prove `genuine_eisenstein_continuation`: Prove meromorphic continuation of the genuine BFH family and E(s,F)=E(4−s,M(w,s)F), with the raw intertwiner and contragredient cusp identification. Poles come from the proved genuine constant terms. Near s=2, regularity is equivalent to regularity of those coefficients; intertwiner residues give genuine automorphic residues. Supply the cover-specific adaptation of AutomorphicSpectralTheory §§2.4–2.6 and the original Fricke conductor M.
 
 All objects here are built from one BFH datum (8.28a).
 
