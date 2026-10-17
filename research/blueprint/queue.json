@@ -11555,7 +11555,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PrismaticCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3365"
   },
   {
    "id": "REV-DESIGN-PrismaticCohomologyPartII",
@@ -132321,8 +132322,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PrismaticCohomology~adv2.md",
+   "note": "claimed on GitHub issue #10214"
   }
  ]
 }
