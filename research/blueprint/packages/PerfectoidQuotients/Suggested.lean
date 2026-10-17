@@ -18,6 +18,49 @@ universe u v
 
 /-! ## Layer 0: integral perfectoid algebra -/
 
+/-! ### §0.0: concrete witnesses for the Tor and δ-extension Checks
+
+The full theorems need the suppliers' derived, perfectoid and δ carriers and
+are stated in the README. These examples retain actual polynomial and Witt
+carriers; they do not replace a derived tensor or a p-derivation by a predicate.
+-/
+
+-- perfectoidTensorHypothesis: the free resolution differential is injective
+-- before specializing X to zero; after specialization the differential is zero.
+example : Function.Injective (fun f : Polynomial (ZMod 2) => Polynomial.X * f) := by sorry
+
+example :
+    (Polynomial.evalRingHom (0 : ZMod 2)) (Polynomial.X : Polynomial (ZMod 2)) = 0 ∧
+      (1 : ZMod 2) ≠ 0 := by sorry
+
+-- fontaineSquareCharP: the characteristic-p Fontaine resolution stays exact.
+example (p : ℕ) [Fact p.Prime] (k : Type*) [CommRing k]
+    [CharP k p] [PerfectRing k p] :
+    Function.Injective (fun x : WittVector p k => (p : WittVector p k) * x) := by sorry
+
+-- deltaEtaleIdentity: the canonical Witt Frobenius fixes 2, and δ(2)=-1.
+-- This is the numerator identity, without pretending there is a pinned δ carrier.
+example :
+    WittVector.frobenius (2 : WittVector 2 (ZMod 2)) = 2 ∧
+      (2 : WittVector 2 (ZMod 2)) - 2 ^ 2 = 2 * (-1) := by sorry
+
+-- deltaEtaleHypothesis: two lifts agree modulo 2 but differ over the integers.
+example :
+    (Polynomial.X ^ 2 : Polynomial ℤ) ≠ Polynomial.X ^ 2 + 2 ∧
+      Polynomial.map (Int.castRingHom (ZMod 2))
+        (Polynomial.X ^ 2 : Polynomial ℤ) =
+      Polynomial.map (Int.castRingHom (ZMod 2))
+        (Polynomial.X ^ 2 + 2 : Polynomial ℤ) := by sorry
+
+-- deltaWittKernel: V(C) need not be square zero in mixed characteristic.
+example :
+    ((WittVector.verschiebung (1 : WittVector 2 ℤ)) ^ 2).coeff 1 = 2 := by sorry
+
+-- The truncated Witt ring is not its pair of ghost coordinates over F₂.
+example :
+    (2 : TruncatedWittVector 2 2 (ZMod 2)) ≠ 0 ∧
+      (2 : TruncatedWittVector 2 2 (ZMod 2)) ^ 2 = 0 := by sorry
+
 section IntegralAlgebra
 variable (p : ℕ) [Fact p.Prime]
 variable (R : Type u) [CommRing R]
@@ -315,6 +358,10 @@ example :
 end CharacteristicPQuotients
 
 /- The further README targets are:
+§0.0 perfectoid_tor_independence, fontaine_tor_independence,
+delta_etale_extension, delta_derivedCompletion, completeEtale_algebraization,
+delta_witt2_etale,
+perfectPrism_completeEtale_lift, with their hypotheses, proof routes and Checks;
 §0.2 finiteWittFrobenius and finiteFontaineTheta with their APIs and Checks,
 frobenius_surjectivity_equivalences, theta_generator_iff_unit_coeff_one,
 theta_generator_nonzerodivisor, theta_generator_normal_form,
