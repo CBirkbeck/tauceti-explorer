@@ -1,0 +1,239 @@
+{
+  "id": "HigherHidaAndColemanTheory",
+  "title": "p-adic families, Part II: higher Hida and Coleman theory",
+  "area": "automorphic",
+  "parent": "PadicFamilies",
+  "summary": "A Part-II-style extension of PadicFamilies to coherent cohomology in every degree. Integral supported Hida theory is proved for Siegel varieties of arbitrary genus, while higher Coleman theory and its eigenvarieties use the general abelian-type, locally quasi-split datum supported by Boxer–Pilloni. Derived specialization, singular weights, boundary conditions and normalization are explicit. General integral Hodge/PEL Hida theory and sharper bounds on full general Coleman cohomology remain recorded gaps.",
+  "readme": "This roadmap extends ordinary and finite-slope p-adic families to supported coherent cohomology in all degrees. It owns the automorphic applications of dynamical ordinary cohomology, the higher-degree control and duality theorems, and the interior eigenvariety deformation theorem. It imports geometry, coefficient representations and generic spectral machinery from their owners. Integral statements are Siegel statements; general Coleman statements use abelian-type data with quasi-split local group. See the reader document for exact hypotheses, examples and unresolved supplier contracts.",
+  "prerequisites": [
+    "AdicSpacesPartII",
+    "AnalyticStacks",
+    "AutomorphicBundles",
+    "DeformationAndDerivedPatchingAlgebra",
+    "HodgeTateAndCanonicalSubgroups",
+    "LocallyAnalyticDistributions",
+    "OverconvergentAutomorphicForms",
+    "PELModuli",
+    "PadicFamilies",
+    "PadicMeasuresIwasawaAlgebras",
+    "PerfectoidShimuraVarieties",
+    "ShimuraCompactifications",
+    "ShimuraData",
+    "SolidAnalyticRings"
+  ],
+  "stages": [
+    {
+      "key": "A0",
+      "title": "Weights, supports and operator conventions",
+      "description": "Fix the abelian-type Coleman datum, quotient torus, relative slope order, shifted Weyl chambers, and integral Siegel datum. Specify the two classicality tests and the scalar normalization check that every comparison must respect.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "ShimuraData:D3"
+      ]
+    },
+    {
+      "key": "D1",
+      "title": "Dynamical ordinary cohomology",
+      "description": "Define strict/compact dynamical compactifications and the two orders of partial support. Prove ordinary finite-rank factorization, finiteness, perfectness, discrete derived base change, transposed duality and Hecke-compatible supported Cousin filtrations. Import solid six functors and ordinary projectors.",
+      "requires": [
+        "AnalyticStacks:AS.3",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "PadicFamilies:L0a",
+        "SolidAnalyticRings:SA.2",
+        "SolidAnalyticRings:SA.3"
+      ]
+    },
+    {
+      "key": "H2",
+      "title": "Integral Siegel strata and fixed weights",
+      "description": "Apply the dynamical theory to polarized ordinary Siegel Igusa quotients and their partial toroidal compactifications. Normalize the Hecke correspondences integrally, prove supported fixed-weight perfectness, and derive the integral Cousin and regular-weight rational control theorems with model dependence explicit.",
+      "requires": [
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B5",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:A0",
+        "HigherHidaAndColemanTheory:D1",
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "PELModuli:M2",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "I3",
+      "title": "Universal higher Hida complexes",
+      "description": "Pass through finite torus levels and mod-p towers. Prove continuous admissibility, perfect Iwasawa duals, derived arithmetic control with the correct sign of weight, finite Hecke images and integral family Serre duality. State integral amplitude only in proven genera.",
+      "requires": [
+        "AnalyticStacks:AS.3",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B5",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:D1",
+        "HigherHidaAndColemanTheory:H2",
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "PadicFamilies:L0a",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "C4",
+      "title": "Geometric higher Coleman cohomology",
+      "description": "Use Bruhat tubes and finite-level de Rham torsor reductions to define supported finite-slope coherent cohomology for all Weyl strata. Prove analytic continuation, level invariance, the Bruhat Cousin spectral sequence, cuspidal and noncuspidal vanishing, duality, and regular and singular classicality from proved slope estimates.",
+      "requires": [
+        "AdicSpacesPartII:F1",
+        "AdicSpacesPartII:R3",
+        "AutomorphicBundles:B3",
+        "AutomorphicBundles:B5",
+        "HigherHidaAndColemanTheory:A0",
+        "HigherHidaAndColemanTheory:D1",
+        "LocallyAnalyticDistributions:L4",
+        "PerfectoidShimuraVarieties:S4",
+        "PerfectoidShimuraVarieties:S6",
+        "ShimuraCompactifications:C3",
+        "ShimuraData:D3"
+      ]
+    },
+    {
+      "key": "F5",
+      "title": "Analytic coefficients and derived families",
+      "description": "Descend the supplied analytic induction and projective-radius distributions along the de Rham torsor. Normalize torus actions, construct supported family complexes and finite perfect slope blocks, and prove Tor specialization, the automorphic BGG spectral sequence, analytic control and family duality without an unproved flatness assertion.",
+      "requires": [
+        "AdicSpacesPartII:F1",
+        "AdicSpacesPartII:R3",
+        "AutomorphicBundles:B0",
+        "AutomorphicBundles:B2",
+        "AutomorphicBundles:B5",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:A0",
+        "HigherHidaAndColemanTheory:C4",
+        "LocallyAnalyticDistributions:L4",
+        "OverconvergentAutomorphicForms:O0",
+        "OverconvergentAutomorphicForms:O1",
+        "ShimuraCompactifications:C3"
+      ]
+    },
+    {
+      "key": "E6",
+      "title": "Eigenvarieties and interior deformation",
+      "description": "Feed supported family cohomology into the complex spectral machine. Obtain the cohomological eigenvariety, its eigenpacket and Serre-duality interfaces, the torsion-free interior sheaves and equidimensional interior support. Prove maximal-dimensional deformation and sharp interior bounds, separating these from conjectural sharp bounds on full cohomology.",
+      "requires": [
+        "AutomorphicBundles:B5",
+        "HigherHidaAndColemanTheory:C4",
+        "HigherHidaAndColemanTheory:F5",
+        "PadicFamilies:L2a",
+        "PadicMeasuresIwasawaAlgebras:L0a",
+        "ShimuraData:D3"
+      ]
+    },
+    {
+      "key": "B7",
+      "title": "Ordinary and finite-slope comparison",
+      "description": "Identify Siegel integral ordinary complexes with ordinary overconvergent cohomology, then compare their weight-space families. Deduce rational all-genus amplitudes and sharp Siegel classicality. Retain the genuine obstruction to integral Hida theory for general Hodge/PEL data.",
+      "requires": [
+        "AdicSpacesPartII:R3",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:C4",
+        "HigherHidaAndColemanTheory:D1",
+        "HigherHidaAndColemanTheory:E6",
+        "HigherHidaAndColemanTheory:F5",
+        "HigherHidaAndColemanTheory:H2",
+        "HigherHidaAndColemanTheory:I3",
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "PerfectoidShimuraVarieties:S6",
+        "ShimuraCompactifications:C5",
+        "SolidAnalyticRings:SA.3"
+      ]
+    },
+    {
+      "key": "X8",
+      "title": "Modular, Siegel and unitary Checks",
+      "description": "Compute modular-curve normalizations and two cohomological degrees, all four GSp4 chambers and a strict slope threshold, the singular Klingen two-term complex, and all n+1 split U(n,1) Weyl strata. Export precisely the higher-degree perfect complexes and deformation statements used by potential modularity and Siegel lifting.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B5",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:A0",
+        "HigherHidaAndColemanTheory:B7",
+        "HigherHidaAndColemanTheory:C4",
+        "HigherHidaAndColemanTheory:D1",
+        "HigherHidaAndColemanTheory:E6",
+        "HigherHidaAndColemanTheory:F5",
+        "HigherHidaAndColemanTheory:I3",
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "PadicFamilies:L0",
+        "PadicFamilies:L0a",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "ShimuraCompactifications:C5",
+        "ShimuraData:D3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BP-Hida",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "Author PDF read 2026-10-16, 65 printed pages; published Inventiones mathematicae 244 (2026), 45–141, DOI 10.1007/s00222-025-01393-2. Locators below refer to the author PDF, not journal pagination. No public arXiv identifier was located.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf",
+      "sha256": "af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6",
+      "readSections": [
+        "§§1–2, pp. 2–33: conventions and supported ordinary cohomology",
+        "§§3–4, pp. 33–52: Igusa geometry, normalization and Cousin control",
+        "§§5–6, pp. 52–64: universal complexes, duality and overconvergent comparison"
+      ]
+    },
+    {
+      "id": "BP-Coleman",
+      "title": "Higher Coleman theory",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "Revised author PDF, 180 pages, read 2026-10-16; file metadata created 2025-03-03, identified by SHA-256 below. This is the normative edition for all Coleman locators.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf",
+      "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
+      "readSections": [
+        "Introduction, pp. 2–14",
+        "§§2.5–2.7, pp. 24–32; §3, pp. 32–49",
+        "§§4.1–4.2, pp. 50–64; §§4.5–4.6, pp. 87–98",
+        "§§5.4–5.12, pp. 108–137; §5.14, pp. 140–142",
+        "§§6.1–6.10, pp. 142–173"
+      ]
+    },
+    {
+      "id": "BP-Coleman-v1",
+      "title": "Higher Coleman theory",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "arXiv:2110.10251v1 [math.NT], 19 October 2021, 174 pages; checked against the revised author version. Never interchange its theorem/page numbering with the normative edition.",
+      "url": "https://arxiv.org/pdf/2110.10251v1",
+      "sha256": "85526b90c48d0955f2a042f63d619a22584e3801391934504563994733d58596",
+      "readSections": [
+        "Introduction; §4.6 torsor reductions; §§5.11 and 6.8 classicality conditions; §6.9 eigenvarieties (version comparison)"
+      ]
+    },
+    {
+      "id": "Pilloni-Singular",
+      "title": "Higher coherent cohomology and p-adic modular forms of singular weights",
+      "authors": "Vincent Pilloni",
+      "edition": "Duke Mathematical Journal 169 (2020), no. 12, 2511–2659; cleared author PDF, 113 pages, file metadata created 2019-06-17. Locators refer to its printed author-page numbers. Read 2026-10-16.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/complexhidatheorygsp4.pdf",
+      "sha256": "4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58",
+      "readSections": [
+        "§1, pp. 2–7; §2, pp. 7–11",
+        "§9, pp. 54–57; §10.7 and §11, pp. 66–72",
+        "§13.1–13.3, pp. 83–90; §14.7–14.8, pp. 99–102; §14.9, pp. 102–106; §5.1.3–5.1.5, pp. 21–22 (repeated-eigenvalue level comparison recorded as G6)"
+      ]
+    },
+    {
+      "id": "BP-GL2",
+      "title": "Higher Hida and Coleman theories on the modular curve",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "arXiv:2002.06845v2 [math.NT], 11 September 2022; Épijournal de Géométrie Algébrique 6 (2022), article 16; read 2026-10-16.",
+      "url": "https://arxiv.org/pdf/2002.06845v2",
+      "sha256": "2db66ee969c5030f2b24b09ff9321d6ea582dd725e10c31de9ac76e1ab47f47e",
+      "readSections": [
+        "Introduction, Theorems 1.1–1.4, pp. 2–3; §2.1, pp. 4–5"
+      ]
+    }
+  ],
+  "status": "draft"
+}
