@@ -25,63 +25,63 @@
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "The derived category of an abelian category with its triangulated structure; for ModuleCat R it is the homotopy category against which D(Spec R) is tested.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:ModuleCat",
     "kind": "structure",
     "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
     "provides": "The category of modules over a ring.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:Module.FaithfullyFlat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
     "provides": "Faithfully flat modules and algebras, the hypothesis of flat descent.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:AlgEquiv",
     "kind": "structure",
     "module": "Mathlib/Algebra/Algebra/Equiv.lean",
     "provides": "Algebra isomorphisms; the q-automorphisms γ_s are D-algebra automorphisms.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:Algebra.FormallyEtale",
     "kind": "class",
     "module": "Mathlib/RingTheory/Etale/Basic.lean",
     "provides": "Ordinary formally étale algebras. The I-completely ind-étale framing and passage to completed infinitesimal lifts require the stated additional interface and hypotheses.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:KaehlerDifferential",
     "kind": "def",
     "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
     "provides": "Ordinary algebraic Kähler differentials. Continuous completed forms require the DD.2 interface; this declaration alone does not provide them.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:ExteriorAlgebra",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
     "provides": "The exterior algebra, giving the terms E ⊗ Λ^i of the Koszul complex.",
-    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Declaration and statement independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 for REV-PrismaticCohomology (2026-10-13). Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:Ideal.span",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Ideal/Span.lean",
     "provides": "The ideal generated by a set; used for explicit inclusions between (p,[p]_q), (p,q−1) and (p,ξ). No derived-completion theorem is inferred from this declaration.",
-    "checked": "Read the abbreviation and its span_le/member interface in the pinned Mathlib source, 2026-10-17, codex-NLkW3i. Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Read the abbreviation and its span_le/member interface in the pinned Mathlib source, 2026-10-17, codex-NLkW3i. Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    },
    {
     "ref": "mathlib:AdicCompletion",
     "kind": "def",
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "provides": "Compatible ordinary module quotients defining classical adic completion; the cofinal-ideal theorem here uses this carrier and does not re-plan it.",
-    "checked": "Read the inverse-limit definition and AdicCompletion.of in pinned Mathlib, 2026-10-17, codex-NLkW3i. Re-read declaration at the same pin, 2026-10-17, codex-3742mf."
+    "checked": "Read the inverse-limit definition and AdicCompletion.of in pinned Mathlib, 2026-10-17, codex-NLkW3i. Re-read declaration at the same pin, 2026-10-17, codex-3742mf. Independently re-read declaration and hypotheses at this pin for REV-PrismaticCohomology~2, Codex codex-Laat6S, 2026-10-17."
    }
   ]
  },
@@ -110,6 +110,13 @@
     "session": "codex-ruVgAp",
     "scope": "§8.2.4, pp.647–652, especially Corollary 8.2.4.15 and completed tensor; §8.3.4, pp.666–669, especially the connectivity boundary of Theorem 8.3.4.4 and Remark 8.3.4.5.",
     "sha256": "515109098ae5cd73bf266fa97bf498b4e8c7adb6e936be67e6fa9a86bb69020d"
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "§§6.2.2–6.2.3, pp.490–493; §6.3.4, pp.505–507; §8.2.4, pp.650–652; §8.3.4, pp.667–668; Corollary D.6.3.3 and surrounding descent statements, pp.2176–2178. The spectral and connective scope restrictions were checked explicitly.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -152,6 +159,13 @@
     "session": "codex-3742mf",
     "scope": "§3.3, printed pp.43–45, Warning 3.3.6, Lemma 3.3.10 and Corollary 3.3.11.",
     "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "§3.2, Proposition 3.2.8 and Corollaries 3.2.9–3.2.10, pp.41–42; §3.3, pp.43–45; Corollary 4.1.17, Variant 4.1.19 and Remark 4.1.20, pp.81–82; Remark 4.3.9 and Lemma 4.3.10, p.87.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -193,6 +207,13 @@
     "session": "codex-3742mf",
     "scope": "Lemma 5.4 with proof, pp.48–49; Constructions 16.19–16.20 and Lemma 16.21 with proof, pp.114–115.",
     "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "§1.2 footnote 7, p.12; Lemma 5.4 and proof, pp.48–49; Lemma 7.7, Example 7.9 and Proposition 7.10 with proofs, pp.57–60; Constructions 16.19–16.20, Lemma 16.21, Theorem 16.22 and Theorem 17.2, pp.114–117. Read the cleared PDF in place.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -217,6 +238,13 @@
     "session": "codex-NLkW3i",
     "date": "2026-10-17",
     "scope": "BS22-v4 Constructions 16.19–16.20, Lemma 16.21, pp.114–115, and Notation 17.1, p.117; SQDEF §3, pp.6–7 and §4, p.9. Fresh reading scoped to completion topology and q-derivative convergence; historical review records are preserved."
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "§3 and opening of §4, pp.6–9: completed framing, Jackson derivative, twisted Leibniz rule, finite-coordinate complex and the A_inf specialization.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -244,6 +272,13 @@
     "scope": [
      "§6.3: Construction 6.16, Theorem 6.17 and proof, Proposition 6.18 and proof, Lemma 6.19, Corollary 6.20 and Proposition 6.21, pp.44–46."
     ]
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "§6.3, Construction 6.16, Theorem 6.17, Propositions 6.18 and 6.21, Lemma 6.19 and Corollary 6.20 with their proofs, pp.44–46.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -271,6 +306,13 @@
     "scope": [
      "Proposition 6.8 with proof, pp.22–24; §6.4, p.26, the essential-surjectivity paragraph and footnotes 12–13 naming the Fargues–Fontaine inputs and construction-matching qualification."
     ]
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Proposition 6.8 and proof, Lemmas 6.9–6.10 and §6.4 essential surjectivity, pp.22–26, including footnotes 12–13.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -292,6 +334,13 @@
      "Definition 1.8.1, p.37 (Robba-ring convention).",
      "Theorem 8.2.10(1), p.238; Chapter 10 hypotheses, p.264; Proposition 10.5.6 and its proof, p.290; Corollary 11.2.22 and preceding dictionary, pp.327–328; Theorem 11.3.1 and its proof, pp.330–331."
     ]
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Definition 1.8.1, printed pp.37–38; Theorem 8.2.10(1), pp.238–239; Chapter 10 field setup, pp.264–265; Proposition 10.5.6 and proof, pp.290–291; Corollary 11.2.22, pp.327–328; Theorem 11.3.1 and proof, pp.330–332. Printed pages are 60 below physical PDF page numbers.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -311,6 +360,13 @@
     "scope": [
      "Proposition 4.6.1.11 and Remark 4.6.1.12, p.620; Proposition 7.2.4.4 and proof, p.1263."
     ]
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Proposition 4.6.1.11 and Remark 4.6.1.12, p.620; Proposition 7.2.4.4 and duality discussion, pp.1263–1264.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -323,7 +379,14 @@
    "sha256": "c2890789651f980857383a3850c1615e17d8e4e868598aa1b14ab82c9cb4c959",
    "readSections": [
     "§1, p.1 (bounded orientable convention); §5, Lemma 5.1 and proof sketch, p.6."
-   ]
+   ],
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Bounded-prism convention, p.1, and Lemma 5.1, p.6. The general-envelope node supplies its own solution-set proof for the broader unbounded range; the notes alone do not certify that extension.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
+   }
   },
   {
    "id": "K1",
@@ -341,6 +404,13 @@
     "session": "codex-3742mf",
     "scope": "Appendix B, Proposition B.1 through Lemma B.4 with proofs, pp.61–62.",
     "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Proposition 2.16 and Construction 2.17, pp.11–12; Propositions 3.1–3.2 and footnote 8, pp.13–14; Propositions 3.6–3.7, p.15; Appendix B, Propositions B.1–B.3 and Lemma B.4 with proofs, pp.61–62.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -353,7 +423,14 @@
    "readSections": [
     "§93 (HTML §15.93): Lemma 93.1(1),(6),(7) and telescope proof, pp.261–262, tag 091P; Lemma 93.2 and proof, p.262, tag 091Q; Definition 93.4, p.263, tag 091S. Printed PDF pagination; HTML has the chapter prefix 15."
    ],
-   "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2"
+   "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2",
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Tags 091P, 091Q and 091S: derived completion, the telescope criterion and dependence only on the radical of the finitely generated ideal.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
+   }
   },
   {
    "id": "KY",
@@ -372,6 +449,13 @@
     "session": "codex-3742mf",
     "scope": "Propositions 4.17 and 4.19 and Lemmas 4.18 and 4.20 with proofs, pp.39–40.",
     "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Proposition 4.14, Propositions 4.17 and 4.19 and Lemmas 4.18 and 4.20 with proofs, pp.37–40; checked the non-perfect bounded-base initial-prism argument and its root-variable regular presentations.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   },
   {
@@ -389,6 +473,13 @@
     "session": "codex-3742mf",
     "scope": "Lemmas 3.5.4–3.5.7 with proofs, pp.25–26.",
     "method": "Read the specified PDF pages; all repository descriptions are paraphrases."
+   },
+   "revisionReviewReading": {
+    "date": "2026-10-17",
+    "by": "REV-PrismaticCohomology~2",
+    "session": "codex-Laat6S",
+    "scope": "Lemmas 3.5.4–3.5.7 with proofs, pp.25–26, including the regular-quotient tower and the uniform coefficient bound used before tensoring with unbounded modules. Read the cleared PDF in place.",
+    "method": "Read the specified source passages; statements in the review and roadmap are paraphrases. Earlier readings and hashes are retained."
    }
   }
  ],
@@ -1062,7 +1153,7 @@
     "(4): truncate to discrete objects and compare with SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent."
    ],
    "acceptance": [
-    "For X = WCart and the Zariski surjection Spf(A^0) → WCart with fibre powers Spf(A^n), (3) gives Bhatt–Lurie's equivalence D(WCart) ≃ Tot(D̂(A^•)) (Lemma 3.3.10). Here D(Spf A) is the derived (p,I)-complete module category, not D(A). The formal-affine identification and completed scalar change are the explicit formal-QCoh gap of this review.",
+    "For X = WCart and the Zariski surjection Spf(A^0) → WCart with fibre powers Spf(A^n), (3) gives Bhatt–Lurie's equivalence D(WCart) ≃ Tot(D̂(A^•)) (Lemma 3.3.10). Here D(Spf A) is the derived (p,I)-complete module category, not D(A). The displayed transversal Čech charts have regular defining ideals, so formal-affine-complete-qcoh supplies their formal-affine identification and completed scalar change. The all-bounded-prism version remains the recorded nonregular formal-QCoh gap.",
     "For a finite Galois extension of fields K → L with group G, (1) and (3) give D(K) ≃ D(L)^{hG}, the ∞-categorical form of Galois descent.",
     "Non-example: for Z → F_p (not flat), Tot(D(F_p^{⊗•})) is not D(Z); for instance Q is killed by base change."
    ],
@@ -2308,7 +2399,7 @@
     "PrismaticCohomology"
    ],
    "detail": "R6. The accepted PR.8 part cites its own roadmap's layers by bare stage id 39 times (41 rows, two already resolved). Each row was checked against the consumer's statement and proof and the suppliers' statements: 36 rows verified (row 20 by the new Laurent extension; row 23 with a note on topologies), two conditional or probable with the condition stated (rows 25 and 38), and one dropping a redundant citation (row 27).",
-   "proposal": "Replace each bare stage citation of the PR.8 part by the node ids of its row, after the condition stated in rows 25 and 38. Row 5 uses general-prismatic-envelope over any orientable base; rows 30–31 use the bounded-base quasiregular theorem and the general envelope, imposing no regularity on the original exactified kernel. Row 20 uses the Laurent extension in this packet; the original polynomial lemma is unchanged.",
+   "proposal": "Replace each bare stage citation of the PR.8 part by the node ids of its row, after the condition stated in rows 25 and 38. Row 5 uses general-prismatic-envelope over any orientable base; rows 30–31 use the bounded-base quasiregular theorem and the general envelope, imposing no regularity on the original exactified kernel. Row 20 uses the Laurent extension in this packet; the original polynomial lemma is unchanged. Row 5 must include consumerProofAdjustment: algebraic (1+pB)-localization before exactification, replacing the narrower classical-completion proof and bounded-target acceptance sentence.",
    "map": [
     {
      "row": 1,
@@ -2364,7 +2455,14 @@
      "replaceBy": [
       "PrismaticCohomology:PR.0/general-prismatic-envelope"
      ],
-     "verdict": "verified: the consumer's base is orientable and need not be bounded, which is the range of general-prismatic-envelope; the log structure is carried along after exactification by the consumer's own proof"
+     "verdict": "verified with a required proof adjustment: general-prismatic-envelope covers the orientable, possibly unbounded base and targets. Replace the consumer’s bounded-target classical-completion step by the algebraic localization and exactification below; carry the integral monoid along through the envelope. K1 footnote 8 concerns the nonorientable descent in Proposition 3.2, not a bounded-target restriction on Proposition 3.6.",
+     "consumerProofAdjustment": [
+      "For S=1+pB, first replace B by B_loc=S^(-1)B and B/J by B_loc/JB_loc, leaving M_B→N unchanged. The multiplicative set S is Frobenius-stable since φ(1+pb)=1+pφ(b), so the delta-log structure extends uniquely by PR.0/delta-localization-criterion. The image of p lies in the Jacobson radical of B_loc: if x=b/s with s∈S, then s+pb∈S, so 1+px is a unit.",
+      "Every target prism T is derived (p,I)-complete, hence p lies in its Jacobson radical; every delta-log map B→T therefore factors uniquely through B_loc. The compatible map B/J→T/IT also factors through B_loc/JB_loc. Thus the original universal problem is unchanged, without requiring classical completeness or boundedness of T.",
+      "Apply PR.8/delta-log-groupification (K1 Proposition 2.16, p.11) to M_B⊂M′=(h^gp)^(-1)(N)⊂M_B^gp over B_loc. Put E=B_loc⊗_(Z_(p)[M_B]) Z_(p)[M′] and K=ker(E→B_loc/JB_loc). The argument of K1 Construction 2.17, p.12, uses classical p-completeness only to invert 1+p·δ_log(m); the Jacobson-radical hypothesis just proved supplies those inverses. This gives the same exact-surjective monoid map M′→N.",
+      "Now apply general-prismatic-envelope to (E,K) over (A,I). Carry M′, its structure map and its delta-log values along E→C. The resulting (C,IC,M′) is a prelog prism with exact-surjective M′→N. The localization, monoid exactification and ordinary-envelope universal properties successively give existence and uniqueness of lifts to every target, including unbounded prisms. No flatness or boundedness of C is inferred.",
+      "When applying this route in the part packet, replace its first proof step and delete its acceptance condition restricting universality to bounded prisms. Retain its statement and lift API in their unrestricted orientable range."
+     ]
     },
     {
      "row": 6,
@@ -2929,45 +3027,75 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-PrismaticCohomology",
-  "date": "2026-10-13",
-  "notes": "Completed independent review of all seven added nodes, their cited source passages, seven baseline declarations, proposed dependency moves and inherited acceptance/red-team boundaries. Clear mathematical and source-locator errors corrected in place; reader and suggested signatures synchronized. The artifact is partial and requires a revision of the effective whole-roadmap assembly and consumer interfaces. The two retained part reviews and their sourceIssues are historical input, not newly recertified source readings by this review.",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-PrismaticCohomology~2",
+  "date": "2026-10-17",
+  "notes": "Completed independent target-level review of all thirteen additional nodes, nine baseline declarations, exact source passages, effective assembly and all 57 consumer-route rows. Accepted under Protocol §0: all nine layers are planned, with five explicit gaps and seven supplier requests retained. The 369 inherited targets and 91 source issues keep their earlier reviews. R1–R4/R6 remain routed, unapplied edits; conditional rows remain conditional. Corrected R6 row 5 by supplying its required algebraic-localization proof adjustment for unbounded targets, and synchronized formal-descent scope and reader counts. This accepts a complete plan, not proof closure or authorization to treat unapplied routes as actual dependencies.",
   "checked": [
    {
+    "nodeId": "PrismaticCohomology:PR.0/general-prismatic-envelope",
+    "verdict": "accepted",
+    "note": "Verified the solution-set construction, countable inverse-telescope closure, products, d-division and uniqueness for unbounded orientable prisms. BHATT-V is explicitly only contextual; the broad proof is supplied here."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.1/laurent-relative-frobenius-cosimplicial-lemma",
+    "verdict": "accepted",
+    "note": "Verified pointed residue splitting for negative exponents and arbitrary rank; the splitting needs only cofaces, and the split Čech homotopy survives arbitrary coefficient modules. The log grading argument remains the consumer’s."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.2/quasiregular-quotient-initial-prism",
+    "verdict": "accepted",
+    "note": "Verified the bounded, not necessarily perfect, base range via KY Lemma 4.18. Root-variable regular presentations are auxiliary; no regularity of the original kernel is imposed."
+   },
+   {
     "nodeId": "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
-    "verdict": "corrected",
-    "note": "Corrected the actual limits supplier, universe convention and missing HA duality locators; perfect-duality interface explicitly requested."
+    "verdict": "accepted",
+    "note": "Verified the enhanced pointwise limit, universe/presentability convention, scalar-change coherence, colimit variance and pointwise perfect/dualizable criterion. Ordinary upstream QCoh is imported."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.5/formal-affine-complete-qcoh",
+    "verdict": "accepted",
+    "note": "Verified the regular-ideal unbounded proof using perfect rectangular quotients, uniformly vanishing coefficient maps and finite-amplitude ghost compositions before arbitrary tensor. The noncomplete unit is Λ_J R. The general nonregular bounded-prism case remains a precise gap."
    },
    {
     "nodeId": "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
     "verdict": "corrected",
-    "note": "Corrected sheafification orientation, colimit variance and source page; formal and infinity-sheafification interfaces recorded."
+    "note": "Verified ordinary faithfully flat descent and the effective-epimorphism/sheafification consequences. Corrected the acceptance note: regular transversal formal charts are covered, the general formal gap remains."
    },
    {
     "nodeId": "PrismaticCohomology:PR.5/affine-direct-image-and-base-change",
-    "verdict": "corrected",
-    "note": "Discarded arbitrary ordinary-ring affine base change: restricted to flat affine maps, added the Tor counterexample and restricted prism-chart acceptance to transversal prisms."
+    "verdict": "accepted",
+    "note": "Verified flat affine ordinary base change and the nonflat Tor counterexample. Presentability is retained for global adjoints; arbitrary nonflat formal base change is not inferred."
    },
    {
     "nodeId": "PrismaticCohomology:PR.6/framed-q-automorphisms",
-    "verdict": "corrected",
-    "note": "Corrected the completed-ring unit claim, added sufficient ordinary lifting and quotient-completeness hypotheses, p-torsion-free P for delta extension, and valid reduction tests. Consumer-range extension remains unresolved."
+    "verdict": "accepted",
+    "note": "Verified complete ind-étale lifting, quotient completeness and regular divisibility hypotheses, delta compatibility and both cofinal-ideal estimates. The merely p-complete counterexample is valid."
    },
    {
     "nodeId": "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex",
-    "verdict": "corrected",
-    "note": "Fixed coefficient linearity, finite/summable indexing, extra-direction functoriality, first-order reduction, derived Laurent completion and the actual Koszul supplier boundary."
+    "verdict": "accepted",
+    "note": "Verified D-linearity, commutation, wedge signs, extra-direction condition, first-order de Rham reduction, toric décalage and Frobenius factor. Generic Koszul theory remains AI.1-owned."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/completed-q-derivative-summability",
+    "verdict": "accepted",
+    "note": "Verified the decay condition makes each quotient differential finite, extends to completed forms and squares to zero. The common-Y example detects failure of topology alone; envelope/log decay remains a gap."
+   },
+   {
+    "nodeId": "PrismaticCohomology:PR.6/framed-algebras-over-flat-bases",
+    "verdict": "accepted",
+    "note": "Verified associated graded regularity, strict quotient completeness, the uniform colon bound and finite-coordinate étale descent including the chosen element. The proof covers P, not its q-PD envelopes."
    },
    {
     "nodeId": "PrismaticCohomology:PR.7/beilinson-fibre-square-input",
-    "verdict": "corrected",
-    "note": "Verified the cited AMMN statements with trace proof retained as a gap; corrected section and scalar-comparison proof input and recorded the integral de Rham supplier boundary."
+    "verdict": "accepted",
+    "note": "Verified the AMMN/BS23 statement, degree and scalar range. Trace-theoretic proof, integral derived-de-Rham identification and syntomic construction matching remain named gaps."
    },
    {
     "nodeId": "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input",
-    "verdict": "corrected",
-    "note": "Read the free author manuscript directly; added GAGA, exact schematic/adic distinctions and source field setup, with the construction-matching and period supplier extensions explicit."
+    "verdict": "accepted",
+    "note": "Verified schematic slope-zero triviality, weak-admissible modification, GAGA and Robba dictionary locators and field range. AdicSpaces supplies the adic curve only; the proof and construction-matching gaps remain."
    }
   ]
  },
@@ -3002,6 +3130,52 @@
    "effectiveNodes": 382,
    "effectivePlanets": 54,
    "remaining": "All inherited gaps, requests and remaining lists retained. R1–R4 and R6 require a job owning the parts to apply only the justified rows; R5 and R7 are maintainer stage-edge actions."
+  },
+  "reviewOutcome": "REV-PrismaticCohomology~2 independently accepts this target-level plan, 2026-10-17. The preceding needs_changes review is retained verbatim in reviewHistory. All gaps, requests and unapplied routing boundaries remain; the new reviewer’s report specifies its corrections and evidence."
+ },
+ "reviewHistory": [
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-PrismaticCohomology",
+   "date": "2026-10-13",
+   "notes": "Completed independent review of all seven added nodes, their cited source passages, seven baseline declarations, proposed dependency moves and inherited acceptance/red-team boundaries. Clear mathematical and source-locator errors corrected in place; reader and suggested signatures synchronized. The artifact is partial and requires a revision of the effective whole-roadmap assembly and consumer interfaces. The two retained part reviews and their sourceIssues are historical input, not newly recertified source readings by this review.",
+   "checked": [
+    {
+     "nodeId": "PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks",
+     "verdict": "corrected",
+     "note": "Corrected the actual limits supplier, universe convention and missing HA duality locators; perfect-duality interface explicitly requested."
+    },
+    {
+     "nodeId": "PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes",
+     "verdict": "corrected",
+     "note": "Corrected sheafification orientation, colimit variance and source page; formal and infinity-sheafification interfaces recorded."
+    },
+    {
+     "nodeId": "PrismaticCohomology:PR.5/affine-direct-image-and-base-change",
+     "verdict": "corrected",
+     "note": "Discarded arbitrary ordinary-ring affine base change: restricted to flat affine maps, added the Tor counterexample and restricted prism-chart acceptance to transversal prisms."
+    },
+    {
+     "nodeId": "PrismaticCohomology:PR.6/framed-q-automorphisms",
+     "verdict": "corrected",
+     "note": "Corrected the completed-ring unit claim, added sufficient ordinary lifting and quotient-completeness hypotheses, p-torsion-free P for delta extension, and valid reduction tests. Consumer-range extension remains unresolved."
+    },
+    {
+     "nodeId": "PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex",
+     "verdict": "corrected",
+     "note": "Fixed coefficient linearity, finite/summable indexing, extra-direction functoriality, first-order reduction, derived Laurent completion and the actual Koszul supplier boundary."
+    },
+    {
+     "nodeId": "PrismaticCohomology:PR.7/beilinson-fibre-square-input",
+     "verdict": "corrected",
+     "note": "Verified the cited AMMN statements with trace proof retained as a gap; corrected section and scalar-comparison proof input and recorded the integral de Rham supplier boundary."
+    },
+    {
+     "nodeId": "PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input",
+     "verdict": "corrected",
+     "note": "Read the free author manuscript directly; added GAGA, exact schematic/adic distinctions and source field setup, with the construction-matching and period supplier extensions explicit."
+    }
+   ]
   }
- }
+ ]
 }
