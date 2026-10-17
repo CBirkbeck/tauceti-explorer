@@ -131240,6 +131240,44 @@
     "BP-GL2ModularityLifting--R22.1~2"
    ],
    "state": "pending"
+  },
+  {
+   "id": "PKG-EtaleDualityAndPerverseSheaves~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EtaleDualityAndPerverseSheaves"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EtaleDualityAndPerverseSheaves/README.md",
+    "research/blueprint/packages/EtaleDualityAndPerverseSheaves/Suggested.lean",
+    "research/blueprint/packages/EtaleDualityAndPerverseSheaves/metadata.toml",
+    "research/blueprint/handoff/PKG-EtaleDualityAndPerverseSheaves~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-EtaleDualityAndPerverseSheaves~codex.md"
+  },
+  {
+   "id": "PKG-GL2ModularityLifting~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GL2ModularityLifting"
+   ],
+   "outputs": [
+    "research/blueprint/packages/GL2ModularityLifting/README.md",
+    "research/blueprint/packages/GL2ModularityLifting/Suggested.lean",
+    "research/blueprint/packages/GL2ModularityLifting/metadata.toml",
+    "research/blueprint/handoff/PKG-GL2ModularityLifting~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting~codex.md"
   }
  ]
 }
