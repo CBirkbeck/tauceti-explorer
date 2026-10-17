@@ -23,6 +23,9 @@ Design choices made explicit here:
   `CochainComplex (ModuleCat R) ℤ`; all integer degrees are allowed.
 - The Breuil–Kisin Frobenius on `𝔖 = W(k)[[u]]` is coefficientwise `F` followed by Mathlib's
   substitution `u ↦ u^p`; the crystalline coefficient map is `F ∘ constantCoeff`.
+- Arithmetic period-ring inputs come from PadicPeriodRings. AI.7 defines Breuil–Kisin cohomology
+  by Bott-inverted relative trace descent; its comparison with prismatic cohomology is a
+  downstream target, not an input to these coefficient formulas.
 -/
 
 noncomputable section
@@ -123,6 +126,16 @@ theorem shiftedTheta_ker (θ : A →+* O) (φ : A ≃+* A) (x : A)
 example (θ : A →+* O) : shiftedTheta θ (RingEquiv.refl A) = θ := by sorry
 
 end ShiftedTheta
+
+/-! ## Checks on the light carriers of AI.2 and AI.3 -/
+
+-- AI.2.4: the rank-one Frobenius image `(ξ̃²)` fails to contain `(ξ̃)`.
+example : ¬ (2 : ℤ) ∈ Ideal.span ({(2 : ℤ) ^ 2} : Set ℤ) := by sorry
+
+-- AI.3.1: profinite products use continuous functions, which need not be locally constant.
+example (p : ℕ) [Fact p.Prime] :
+    Continuous (fun x : PadicInt p => (x : Padic p)) ∧
+      ¬ IsLocallyConstant (fun x : PadicInt p => (x : Padic p)) := by sorry
 
 section Fontaine
 
@@ -301,7 +314,8 @@ Layer AI.2: `BKF.Module`, `BKF.LatticePair`, `BKF.etale`, `AInf.Yan`, `BKF.recon
 `AInf.MinusculeBKF`.
 
 Layer AI.3: `AInfSheaf.completedIntegral`, `AInfSheaf.tilt`, `AInf.classical_ainf_sheaf`,
-`AInfSheaf.ainf`, `AInf.nu`, `AOmega.local`, `AOmega.toricCover`, `AOmega.qModel`, `AInf.sqZero`.
+`AInfSheaf.ainf`, `AInfSheaf.deRhamPeriods`, `AInfSheaf.structuralDeRhamPeriods`,
+`AInf.nu`, `AOmega.local`, `AOmega.toricCover`, `AOmega.qModel`, `AInf.sqZero`.
 
 Layer AI.4: `AOmega.wittPre`, `AOmega.wittImproved`, `AInf.boundedPD`
 (`AInf.bounded_pd_coefficients`).
@@ -320,6 +334,7 @@ Layer AI.6: `Semistable.chartRing`, `Semistable.divisorialLog`, `Semistable.mono
 Layer AI.7: `CohomologicalBK.coefficientNormalization`, `AInf.Trace.tate`, `AInf.Trace.THH`,
 `AInf.relative_cyclotomic_traces`,
 `AInf.qrsp_trace_unfolding`, `CohomologicalBK.cohomology`, `CohomologicalBK.twistedTrace`,
+`CohomologicalBK.traceDescent`, `CohomologicalBK.twistCompatibility`,
 `CohomologicalBK.choiceTransport`.
 
 -/
