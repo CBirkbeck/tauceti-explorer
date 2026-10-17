@@ -236,11 +236,6 @@ Hodge–Tate objects are kept distinct in the README. -/
 /-! ## Layer 4: Absolute prismatic cohomology and Cartier–Witt geometry -/
 /-! Formal stacks and their quasi-coherent infinity categories are README targets. -/
 
-/-- The divided Frobenius has target exponent m minus n: the first two stages at n=1
-have exponents zero and one. The opposite index would add an extra factor four. -/
-example : (1 : ℤ) - 1 = 0 ∧ (2 : ℤ) - 1 = 1 ∧ (6 : ℤ) / 2 = 3 := by
-  norm_num
-
 /-! ## Layer 5: q-crystalline and q-de Rham comparison -/
 
 namespace QCrys
@@ -277,8 +272,11 @@ example (q : R) : pAnalog 2 q = 1 + q := by
 example : qInteger 3 (2 : ℤ) = 7 := by
   norm_num [qInteger, Finset.sum_range_succ]
 
-/-- The two-endomorphism cochain Koszul convention cancels the mixed term. -/
-example (m : ℤ) : 3 * (2 * m) - 2 * (3 * m) = 0 := by ring
+/-- The two-endomorphism cochain Koszul convention `d⁰ m = (D₁ m, D₂ m)`,
+`d¹ (a, b) = D₂ a - D₁ b`: commuting operators give `d¹ ∘ d⁰ = 0`. -/
+example {M : Type*} [AddCommGroup M] [Module R M] (D₁ D₂ : M →ₗ[R] M)
+    (h : D₁ ∘ₗ D₂ = D₂ ∘ₗ D₁) (m : M) : D₂ (D₁ m) - D₁ (D₂ m) = 0 := by
+  rw [← LinearMap.comp_apply, ← h, LinearMap.comp_apply, sub_self]
 
 /-- Replacing subtraction by addition fails already at the integer unit. -/
 example : 3 * (2 * (1 : ℤ)) + 2 * (3 * 1) = 12 := by norm_num
@@ -300,10 +298,6 @@ Their prismatic and syntomic carriers remain README targets. -/
 /-! ## Layer 7: Prismatic F-crystals and crystalline lattices -/
 /-! Crystals, their period realizations, and the equivalence with crystalline lattices
 require the sites and period rings specified in the README. -/
-
-/-- The modification degree is Hodge degree minus Newton degree. A rank-one module
-with Frobenius p and filtration jump one has degree zero; jump zero gives degree minus one. -/
-example : (1 : ℤ) - 1 = 0 ∧ (0 : ℤ) - 1 = -1 := by norm_num
 
 /-! ## Layer 8: Logarithmic prismatic cohomology -/
 
@@ -363,16 +357,11 @@ example (alpha : M →* ℤ) (d : DeltaLogStructure 2 ℤ M alpha) (m : M)
   rw [unitFactor_mul]
   norm_num [unitFactor, hm]
 
-/-- The first two dyadic PD coefficients have valuations one and three. -/
-example : (Nat.factorial 2 : ℤ) = 2 ∧ (Nat.factorial 4 : ℤ) = 2 ^ 3 * 3 := by
-  norm_num [Nat.factorial]
-
-/-- A nonfree saturated chart retains its relation between the three generators. -/
-example : ((1, 1) : ℕ × ℕ) + (1, 1) = (1, 0) + (1, 2) := by decide
-
-/-- Killing a period parameter modulo p does not kill its value in characteristic zero. -/
-example {K : Type*} [Field K] (a : K) (ha : a ≠ 0) (n : ℕ) :
-    a ^ (2 ^ n) ≠ 0 := pow_ne_zero _ ha
+/-- At p = 2 the coefficients `2!` and `4!` of the first two Frobenius iterates on a divided
+power have 2-adic valuations exactly one and three, the contraction exponents `2ⁿ - 1`. -/
+example : 2 ∣ Nat.factorial 2 ∧ ¬ 4 ∣ Nat.factorial 2 ∧
+    8 ∣ Nat.factorial 4 ∧ ¬ 16 ∣ Nat.factorial 4 := by
+  decide
 
 end Log
 
@@ -380,15 +369,12 @@ end Log
 Full definitions retained in README.md also include the following geometric or derived
 objects. Their carriers are not introduced in this signature file.
 
-Layer 0: Integral addition correction; Delta structure on a ring; Ordinary Frobenius lift;
-Associated Frobenius endomorphism; Torsion-free Frobenius reconstruction; Canonical delta operation
-on the integers; Delta structures on a square-zero extension; Delta structures as Witt-vector
+Layer 0: Delta structures on a square-zero extension; Delta structures as Witt-vector
 sections; Coefficient map on length-two Witt vectors; Localization of a delta structure; Shifted
 quotient delta operation; Canonical delta structure on the inverse-limit completion; Localization
-with a radical target; The canonical p-local integer delta structure; Delta-stabilization of an
-ideal; Universal delta quotient by an ideal; Free δ-rings; Limits, colimits and Witt vectors of
-δ-rings; Simplicial commutative δ-rings; p-local localization of a δ-ring; Distinguished elements;
-Completely regular sequences relative to a base; Prisms; Maps of prisms; perfect, bounded,
+with a radical target; The canonical p-local integer delta structure; Universal delta quotient by
+an ideal; Free δ-rings; Limits, colimits and Witt vectors of δ-rings; Simplicial commutative
+δ-rings; p-local localization of a δ-ring; Completely regular sequences relative to a base; Prisms; Maps of prisms; perfect, bounded,
 orientable and crystalline prisms; Crystalline prisms; The perfect prism of a perfectoid ring; The
 Breuil–Kisin prism; The q-de Rham prism; The universal oriented prism; Perfection of a prism;
 Prismatic envelopes of regular ideals; A (p,f)-complete ring with bounded torsion modulo f and
@@ -419,7 +405,7 @@ cohomology sheaf on WCart and absolute prismatic cohomology; Absolute Hodge–Ta
 diffracted Hodge complex; The absolute Nygaard filtration; The Frobenius on absolute prismatic
 cohomology; Cyclotomic chart and its Hodge–Tate torsor.
 
-Layer 5: The q-analogue [p]_q and the operation γ; q-PD pairs; q-PD envelopes; The q-crystalline
+Layer 5: The operation γ on N(D); q-PD pairs; q-PD envelopes; The q-crystalline
 site and q-crystalline cohomology; Čech–Alexander complexes for q-crystalline cohomology; Framed
 D-algebras and framed q-PD data; The q-de Rham complex of a framed q-PD datum; The all-coordinates
 comparison map from q-crystalline cohomology to AΩ.
@@ -435,7 +421,7 @@ Spf(O_K), and their Čech nerves; Period sheaves on the quasi-syntomic site of O
 φ-modules to F-crystals over the open unit disc; The prismatic F-crystal of a crystalline lattice.
 
 Layer 8: Algebraic Witt–Frobenius modules; Bounded algebraic Frobenius derived category;
-δ_log-rings; The monoid Frobenius of a δ_log log ring; Limits, colimits and free
+The monoid Frobenius of a δ_log log ring; Limits, colimits and free
 δ_log-rings; Exactification of δ_log-triples; Prelog prisms; Log prisms; The standard prelog prisms;
 Prelog prismatic envelopes; Perfectoid monoids and perfectoid log rings; Perfect log prisms; The
 relative log prismatic site; Log prismatic cohomology complexes; The absolute saturated log
