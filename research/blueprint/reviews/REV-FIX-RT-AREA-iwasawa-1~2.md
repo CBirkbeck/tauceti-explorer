@@ -1,872 +1,146 @@
-# Current receipt: #6217 needs scope reconciliation before redispatch
+# Review #6217: blocked by incompatible issued and queued scopes
 
-Refs #6217. Codex — **codex-3e6LnC**, 11 October 2026.
-Input commit: `df91fe32260d17ef3558ec5fd610ca2a56f047cb`.
-The bot confirmed the claim in
-[comment 6108463624](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6108463624).
-This session claimed exactly one job and did none of its underlying fixes.
+Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
+Codex — **codex-xnTg4o**, 17 October 2026.
+Input commit: `c844b396e21e1fa45d3ee5127b777294f9deb8eb`.
+The bot confirmed this session's claim in
+[comment 6241476191](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6241476191),
+identifying claim comment 6241473945. This session did none of the fixes.
 
-**Blocked checkpoint.** The published issue, reread after claim confirmation,
-permits this report, the HE.0 packet and its suggested file. The issued
-mathematical review is already complete and accepted, as documented in the
-preserved reviews below. The current queue requires 23 outputs, including
-independent verdicts on ten additional packets. Its completion predicate
-returns **false** for the actual queue entry and **true** when only the
-outputs are restricted in memory to the three issued paths. All 23 files
-exist; absent files are not the blocker. The ten other packets retain their
-own reviewers, including ES.0's `needs_changes` verdict.
+**Blocked checkpoint.** The published issue permits a review of the HE.0
+packet. That review already has an accepted verdict. The queue requires this
+job's independent verdict on nine additional packets, which the issue does
+not authorize editing. The mismatch persists on current main, with a different
+set of outputs from the previous checkpoint. This report records the current
+blocker; it does not repeat or extend the mathematical review.
 
-## Fresh checks at this input
+## Published assignment and actual completion rule
 
-- The unmodified HE.0 packet checker passes with zero errors and warnings,
-  using the available pinned declaration index: 78 nodes, 24 API items,
-  eighteen tests, thirteen baseline declarations, 21 gaps, 63 requests and
-  eight planned stages. This is structural validation, not a new source audit.
-- The concrete two-file repair patch preserved below passes `git apply --check`.
-- The preserved issued-round regression passes all six state/trigger fixtures,
-  repeated generation, rejection-dependency preservation and the absent-successor case.
-- A fresh full-generator replay, with repository writes prohibited and its
-  lock redirected to scratch, passes two generations. Restoring the issued
-  four-output fix and three-output review scopes plus the proposed guard keeps
-  those scopes stable; additional work becomes round three, with 33 fix and
-  nineteen review outputs. Compared with the stock replay, 44 existing job
-  records change, twenty are added and none are removed. These wider effects
-  require maintainer inspection; this is an in-memory experiment.
-- The actual intake path checks reject both `research/blueprint/queue.json`
-  and `research/blueprint/make_queue.py` as outside swarm output paths.
+I reread the live issue after the bot confirmed the claim. Its deliverables
+and full instructions name these three files:
 
-The HE.0 packet, suggested file, queue and generator are unchanged. No primary
-source was reread and Lean was not rerun for these documentation changes.
-The prior successful Lean receipts retain their original session attribution.
+- `research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md`
+- `research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json`
+- `research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean`
 
-## Action required
+The local queue and a fresh GitHub contents read of main's queue agree:
+**21 outputs**, comprising this report, ten packets and ten suggested files.
+All exist. `issues.deliverables_complete` requires every packet's reviewer to
+be `independent-review-REV-FIX-RT-AREA-iwasawa-1~2`, with a recognized verdict.
+The current packet markers are:
 
-[WORKERS.md](../WORKERS.md), “Doing the work”, says: “Edit only the files the
-issue names, plus your own scratch space.” Neither proposed repair path is
-named by #6217. A scope-extension question presenting the applicable patch
-and the intake limitation was asked in this run; no authorization has arrived.
-There was no automatic approval-review rejection.
+| Packet | Reviewer | Status |
+| --- | --- | --- |
+| `HeegnerPointEulerSystems--HE.0.json` | `independent-review-REV-FIX-RT-AREA-iwasawa-1~2` | accepted |
+| `HeegnerPointEulerSystems--HE.8c.json` | `independent-review-REV-HeegnerPointEulerSystems--HE.8c` | accepted |
+| `HeegnerPointEulerSystems--HE.8.json` | `independent-review-REV-HeegnerPointEulerSystems--HE.8` | accepted |
+| `GrossZagierAndArithmeticHeights.json` | `independent-review-REV-GrossZagierAndArithmeticHeights` | accepted |
+| `HeightsRationalPointsAndObstructions.json` | `independent-review-REV-HeightsRationalPointsAndObstructions~2` | accepted |
+| `RankZeroOneBSD--BSD.0.json` | `independent-review-REV-RankZeroOneBSD--BSD.0~2` | accepted |
+| `HeegnerPointEulerSystems--HE.8b.json` | `independent-review-REV-HeegnerPointEulerSystems--HE.8b` | accepted |
+| `EulerSystemsAndKolyvaginSystems.json` | `independent-review-REV-EulerSystemsAndKolyvaginSystems` | needs_changes |
+| `SelmerIwasawaCohomology.json` | `independent-review-REV-SelmerIwasawaCohomology` | accepted |
+| `KatoEulerSystems.json` | `independent-review-REV-KatoEulerSystems~2` | accepted |
 
-Before redispatching, reconcile the issue, queue and generated prompts.
-Either authorize and inspect the preserved repair, restore the historical
-arrays and preserve issued rounds in the generator, or publish the expanded
-scope and assign the ten additional independent reviews. The guard alone
-preserves already-expanded arrays and cannot restore the issued scope.
-Repeated HE.0-only reviews cannot satisfy the expanded completion predicate.
-The patch and self-contained reproducers below are sufficient to resume;
-no deleted scratch artifact is required.
+Fresh execution of that actual function gives:
 
----
+| Job passed to the function | Result |
+| --- | --- |
+| Unchanged local queue job | `False` |
+| Unchanged live-main queue job | `False` |
+| Either job with only its outputs replaced in memory by the three published paths | `True` |
 
-# Review #6217: completed issued review; blocked by expanded queue scope
+Thus missing files are not the cause, and rewriting HE.0's accepted verdict
+cannot finish the queued assignment. The earlier checkpoint described eleven
+packets and 23 outputs; those counts and its list of extra packets are no
+longer current. The table above supersedes them.
 
-Codex — **codex-MQrMj0**, 11 October 2026. Input commit: `1c06f9548`.
-Branch: `codex-MQrMj0-review-6217`. The bot confirmed the claim in
-[comment 6107751142](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6107751142).
-This session did none of the fixes and claimed only this issue.
+## Issued mathematical review and fresh validation
 
-**Blocked checkpoint.** The live issue names this report, the HE.0 packet and
-its suggested file. Their mathematical review is already complete and accepted,
-with source and Lean receipts preserved below. The queue instead requires ten
-additional packet reviews. Repeating HE.0 cannot finish that expanded queue job.
-This session independently reproduced the completion mismatch, reran both
-focused regressions and the full current generator, and refreshed the concrete
-repair patch. No mathematical verdict or signature was changed.
+The HE.0 record retains acceptance of findings **/2, /8, /9 and /10**:
 
-## Current completion evidence
+| Finding | Preserved issued-review outcome |
+| --- | --- |
+| /2: level raising | Exact-level Ribet/Diamond–Taylor raising is an explicit supplier request; rational Jacquet–Langlands and integral transports have distinct contracts. |
+| /8: Zhang's prerequisites | The rank-zero, period and transfer inputs have exact supplier contracts; the proposed HE.6z split separates the Zhang branch from clean descent. |
+| /9: open-image ownership | HE.7 keeps the Heegner application and imports general image theory from its designated Part II owner. |
+| /10: Howard systems | ES.5 owns self-dual hypotheses/DVR descent; ES.8 owns the Λ-adic result. The primitivity equality uses the Howard-system supplier, with its extra hypotheses explicit. |
 
-The real `issues.deliverables_complete` returns **false** for the current
-23-output review and **true** for an in-memory copy with precisely the live
-issue's three outputs. Every queued file exists. The ten additional packets
-retain other reviewers, including ES.0's `needs_changes` verdict; they were not
-reviewed or stamped by this session. Historical commit `88f9bcd44` records the
-round-two fix's four outputs and review's three, matching the published issues.
+These are historical review outcomes, not fresh source verdicts by this
+session. The full mathematical arguments, locators, source receipts and Lean
+checks remain in the
+[report at commit 508e89592](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+and in the packet's attributed verification fields and review history.
+The fixes themselves are in
+[PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753).
 
-The packet checker passes with **zero errors and warnings**: 78 nodes,
-24 API items, eighteen tests, thirteen baseline declarations, 21 gaps and
-63 requests. All eight stages remain planned. The accepted review marker,
-source receipts and `unchecked` implementation statuses are preserved.
-No primary source was reread. Lean was not rerun for these Markdown-only edits;
-the earlier successful pinned compilation with only `sorry` warnings is
-historical evidence, not a fresh compile by this session.
+I read the confirmed findings, verifier decisions and round-two fix report,
+then ran the packet checker on the unchanged HE.0 packet. It reports **zero
+errors and zero warnings**: 78 nodes, 24 API items, eighteen tests, thirteen
+baseline declarations, 21 gaps, 63 requests and eight planned stages.
+This is structural validation, not proof closure or a new source audit.
+No mathematical statement, signature or review marker changes in this run.
+Primary sources were not reread, and Lean was not rerun for these Markdown
+changes. Earlier compilation receipts retain their original attribution.
 
-## Repair verification
+## Required reconciliation before redispatch
 
-The unapplied patch below restores the historical output arrays and keeps an
-already-issued successor's scope whenever it exists in `previous_jobs`.
-`git apply --check` succeeds at the input commit. The guard alone would retain
-the already-expanded arrays, so both changes are required.
+[WORKERS.md](../WORKERS.md), “Doing the work”, requires edits to issue-named
+files and scratch only. I also evaluated `intake.file_problems` for both
+possible automation repair paths. It returns “file outside swarm output
+paths” for `research/blueprint/queue.json` and
+`research/blueprint/make_queue.py`. This is an existing scope restriction,
+not an automatic approval-review rejection.
 
-The focused checks pass: six state/trigger fixtures, repeated generation,
-preservation of rejection dependencies and creation of an absent successor;
-and seven completed-round cases. The first suite directly checks the proposed
-unconditional guard against pending, external and completed issued rounds.
-The second suite exercises the narrower completed-round alternative retained
-for comparison; it is not the proposed patch.
+The maintainer must choose and publish one consistent assignment:
 
-The complete current generator was then run **in memory** with both historical
-arrays restored. Repository text writes were intercepted and forbidden; its
-lock was redirected to task scratch. No queue, prompt, issue or promotion was
-written. Both generation passes preserve the restored issued scopes.
+1. Restore this issued review's three outputs and its fix's four outputs,
+   then preserve already-issued round scopes in the generator. The historical
+   arrays are recorded at commit `88f9bcd44`; the extra work needs a distinct
+   subsequent round with matching issue instructions.
+2. Explicitly authorize and publish the expanded review scope, identifying
+   which fixes were made in the nine additional packets and assigning their
+   independent checks. Existing accepted reviews, and the Euler-system
+   packet's `needs_changes`, are not this job's fix-review verdicts.
 
-| Generated family | Stock guard | Proposed issued-round guard |
-|---|---|---|
-| Round-two fix outputs | 30 | 4 |
-| Round-two review outputs | 17 | 3 |
-| Round-three fix/review outputs | No new round | 33 / 19 |
+The old proposed generator change replaced the conditional assignment to
+`made` in `fix_rounds` by `made = previous_jobs.get(following)`. It still needs
+maintainer review of wider scheduling effects. Applying that guard alone
+would preserve the already-expanded arrays, so it cannot repair the current
+scope. The earlier report contains the historical patch and regression
+experiments; its old line numbers, packet lists and replay counts must not be
+assumed current.
 
-The patched replay assigns the additional work to round three. Against the
-stock counterfactual it changes **44 existing job records**, adds **20**
-and removes **0** across the fix families. These are fresh replay counts;
-they do not describe a queue applied to the repository. This wider scheduling
-effect needs maintainer inspection before the repair is applied.
+A scope question was sent during this run; no answer authorizing expanded
+work has arrived. The queue, generator and other packets remain unchanged.
+Resume only after reconciling the issued scope with the completion rule.
 
-## Required action before reassignment
+## Reproducing the completion mismatch without writes
 
-Authorize and apply the concrete historical-array restoration plus the generator
-guard after examining its wider effects, or explicitly assign the ten additional
-reviews. Synchronize issue scope, queue and generated prompts. Leave other jobs'
-review markers intact until those independent reviews actually take place.
-Do not send another worker through the unchanged HE.0-only scope: that review
-is complete and its repetition cannot satisfy the expanded completion predicate.
-
-[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus your
-own scratch space.” Neither queue.json nor make_queue.py is named by #6217.
-The actual `intake.file_problems` independently rejects both as outside swarm
-output paths. A scope-extension request with this concrete repair is pending;
-no authorization has been received in this run. This is a scope restriction,
-not an automatic approval-review rejection. Only this report and its handoff
-are changed, and the submission is a blocked checkpoint.
-
-## Concrete unapplied patch
-
-The proposal follows the earlier scope repair. This patch was refreshed against
-the current input commit and validated without applying it.
-
-```diff
---- a/research/blueprint/queue.json
-+++ b/research/blueprint/queue.json
-@@ -80080,45 +80080,9 @@
-    ],
-    "outputs": [
-     "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
--    "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
--    "research/blueprint/readmes/HeegnerPointEulerSystems--HE.7s.md",
--    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.7s.lean",
--    "research/blueprint/handoff/BP-HeegnerPointEulerSystems--HE.7s~2.md",
-     "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
-     "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
--    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
--    "research/blueprint/handoff/BP-HeegnerPointEulerSystems--HE.0~2.md",
--    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
--    "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.0.md",
--    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
--    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
--    "research/blueprint/readmes/RankZeroOneBSD--BSD.0.md",
--    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
--    "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
--    "research/blueprint/readmes/RankZeroOneBSD--BSD.7.md",
--    "research/blueprint/suggested/RankZeroOneBSD--BSD.7.lean",
--    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
--    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.0.md",
--    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",
--    "research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json",
--    "research/blueprint/readmes/GeneralizedHeegnerCycles--GH.0.md",
--    "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean",
--    "research/blueprint/handoff/BP-GeneralizedHeegnerCycles--GH.0~2.md",
--    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.8.json",
--    "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.8.md",
--    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.8.lean",
--    "research/blueprint/handoff/BP-GrossZagierAndArithmeticHeights--GZ.8~2.md",
--    "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
--    "research/blueprint/readmes/PadicHodgeRegulators--D.1.md",
--    "research/blueprint/suggested/PadicHodgeRegulators--D.1.lean",
--    "research/blueprint/handoff/BP-PadicHodgeRegulators--D.1~2.md",
--    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.8.json",
--    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.8.md",
--    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.8.lean",
--    "research/blueprint/packets/KatoEulerSystems.json",
--    "research/blueprint/readmes/KatoEulerSystems.md",
--    "research/blueprint/suggested/KatoEulerSystems.lean",
--    "research/blueprint/handoff/BP-KatoEulerSystems~2.md"
-+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
-    ],
-    "after": [
-     "FIX-RT-AREA-iwasawa-1"
-@@ -80146,28 +80110,8 @@
-    ],
-    "outputs": [
-     "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
--    "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
-     "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
--    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
--    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
--    "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
--    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
--    "research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json",
--    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.8.json",
--    "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
--    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.8.json",
--    "research/blueprint/packets/KatoEulerSystems.json",
--    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.7s.lean",
--    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
--    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
--    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
--    "research/blueprint/suggested/RankZeroOneBSD--BSD.7.lean",
--    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",
--    "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean",
--    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.8.lean",
--    "research/blueprint/suggested/PadicHodgeRegulators--D.1.lean",
--    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.8.lean",
--    "research/blueprint/suggested/KatoEulerSystems.lean"
-+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
-    ],
-    "after": [
-     "FIX-RT-AREA-iwasawa-1~2"
---- a/research/blueprint/make_queue.py
-+++ b/research/blueprint/make_queue.py
-@@ -1954,7 +1954,7 @@
-             earlier_report, report = report, f"research/blueprint/redteam/{rt}.fixes-{k}.md"
-             # A round an earlier run made is kept as it was made, though its files may now carry a later
-             # round's verdict: the rounds after it are then still found, and a later send-back still counts.
--            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
-+            made = previous_jobs.get(following)
-             if made:
-                 sent_back = made.get("after") == [review]
-             why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
-```
-
-## Issued-round regression
+Run this Python from the repository root. It imports the actual completion
+function and changes only an in-memory copy of the queue entry:
 
 ```python
-"""Exercise the real fix_rounds function without changing repository files."""
-import ast
 import copy
-import re
-from pathlib import Path
-
-source = Path('research/blueprint/make_queue.py').read_text()
-old = 'made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
-new = '''made = previous_jobs.get(following) if (
-                states.get(following) == "done" or (following in states and not (missing or sent_back))
-            ) else None'''
-assert source.count(old) == 1
-base = 'FIX-RT-FIXTURE'
-report = 'research/blueprint/redteam/RT-FIXTURE.fixes.md'
-packet = 'research/blueprint/packets/Fixture.json'
-suggested = 'research/blueprint/suggested/Fixture.lean'
-added_packet = 'research/blueprint/packets/NewFixture.json'
-added_suggested = 'research/blueprint/suggested/NewFixture.lean'
-round_two = [report.replace('.fixes.md', '.fixes-2.md'), packet, suggested]
-historical = [
-    {'id': base, 'state': 'done', 'outputs': [report]},
-    {'id': base + '~2', 'state': 'done', 'outputs': round_two, 'after': [base]},
-    {'id': 'REV-' + base + '~2', 'state': 'pending', 'outputs': []},
-]
-
-def generate(src, prior, blueprints, verdicts=None):
-    function = next(n for n in ast.walk(ast.parse(src))
-                    if isinstance(n, ast.FunctionDef) and n.name == 'fix_rounds')
-    module = ast.Module(body=[function], type_ignores=[])
-    jobs = {}
-    env = {
-        'states': {j['id']: j['state'] for j in prior},
-        'previous_outputs': {j['id']: j['outputs'] for j in prior},
-        'previous_jobs': {j['id']: j for j in prior},
-        'PROMOTABLE': re.compile(r'^research/blueprint/packets/'),
-        'review_of': lambda p: (verdicts or {}).get(p, {}),
-        'findings_text': lambda *args: '', 'fill': {},
-        'FIX_TEMPLATE': '', 'FIX_REVIEW_TEMPLATE': '',
-        'add': lambda job, prompt: jobs.update({job['id']: job}),
-    }
-    exec(compile(module, '<real fix_rounds>', 'exec'), env)
-    env['fix_rounds']('RT-FIXTURE', 'fixture', 'fixture', [], 0, {}, [],
-                      [report], blueprints, {}, [])
-    return jobs
-
-
-completed_only = source.replace(old, new)
-all_existing = source.replace(old, 'made = previous_jobs.get(following)')
-checks = 0
-for state in ['pending', 'external', 'done']:
-    for trigger in ['new_input', 'send_back']:
-        prior = copy.deepcopy(historical)
-        prior[0]['outputs'] = [report, packet, suggested]
-        prior[1]['state'] = state
-        verdicts = {}
-        blueprint_list = [packet, suggested]
-        if trigger == 'new_input':
-            blueprint_list += [added_packet, added_suggested]
-        else:
-            prior += [{'id': 'REV-' + base, 'state': 'done', 'outputs': []}]
-            verdicts = {packet: {'status': 'needs_changes',
-                                 'reviewer': 'independent-review-REV-' + base}}
-        original = generate(source, prior, blueprint_list, verdicts)
-        limited = generate(completed_only, prior, blueprint_list, verdicts)
-        preserved = generate(all_existing, prior, blueprint_list, verdicts)
-        original_grows = original[base + '~2']['outputs'] != round_two
-        limited_grows = limited[base + '~2']['outputs'] != round_two
-        assert preserved[base + '~2']['outputs'] == round_two
-        assert preserved[base + '~2']['after'] == prior[1]['after']
-        if trigger == 'send_back':
-            assert original[base + '~2']['after'] == ['REV-' + base]
-            assert limited[base + '~2']['after'] == (prior[1]['after'] if state == 'done' else ['REV-' + base])
-        expected = trigger == 'new_input'
-        assert original_grows == expected
-        assert limited_grows == (expected and state != 'done')
-        for key in [base + '~2', 'REV-' + base + '~2']:
-            again = [dict(j, state=next((p['state'] for p in prior if p['id']==jid), 'pending'))
-                     for jid,j in preserved.items()]
-            twice = generate(all_existing, again, blueprint_list, verdicts)
-            assert twice[key]['outputs'] == preserved[key]['outputs']
-        checks += 1
-        print(state, trigger, 'stock grows:', original_grows,
-              'completed-only grows:', limited_grows, 'all-existing stable: True')
-# A saved rejection round keeps its reason even when the prior review changes.
-prior = copy.deepcopy(historical)
-prior[1]['state'] = 'external'
-prior[1]['after'] = ['REV-' + base]
-out = generate(all_existing, prior, [packet, suggested, added_packet, added_suggested])
-assert out[base + '~2']['after'] == ['REV-' + base]
-assert out[base + '~2']['outputs'] == round_two
-# No saved successor: new work must still form the next round.
-prior = [historical[0]]
-out = generate(all_existing, prior, [packet, suggested, added_packet, added_suggested])
-assert added_packet in out[base + '~2']['outputs']
-print('PASS:', checks, 'state/trigger fixtures, repeat generation, rejection reason, new successor')
-```
-
-## Completed-round alternative regression
-
-```python
-"""Exercise the real fix_rounds function without changing repository files."""
-import ast
-import copy
-import re
-from pathlib import Path
-
-source = Path('research/blueprint/make_queue.py').read_text()
-old = 'made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
-new = '''made = previous_jobs.get(following) if (
-                states.get(following) == "done" or (following in states and not (missing or sent_back))
-            ) else None'''
-assert source.count(old) == 1
-base = 'FIX-RT-FIXTURE'
-report = 'research/blueprint/redteam/RT-FIXTURE.fixes.md'
-packet = 'research/blueprint/packets/Fixture.json'
-suggested = 'research/blueprint/suggested/Fixture.lean'
-added_packet = 'research/blueprint/packets/NewFixture.json'
-added_suggested = 'research/blueprint/suggested/NewFixture.lean'
-round_two = [report.replace('.fixes.md', '.fixes-2.md'), packet, suggested]
-historical = [
-    {'id': base, 'state': 'done', 'outputs': [report]},
-    {'id': base + '~2', 'state': 'done', 'outputs': round_two, 'after': [base]},
-    {'id': 'REV-' + base + '~2', 'state': 'pending', 'outputs': []},
-]
-
-def generate(src, prior, blueprints, verdicts=None):
-    function = next(n for n in ast.walk(ast.parse(src))
-                    if isinstance(n, ast.FunctionDef) and n.name == 'fix_rounds')
-    module = ast.Module(body=[function], type_ignores=[])
-    jobs = {}
-    env = {
-        'states': {j['id']: j['state'] for j in prior},
-        'previous_outputs': {j['id']: j['outputs'] for j in prior},
-        'previous_jobs': {j['id']: j for j in prior},
-        'PROMOTABLE': re.compile(r'^research/blueprint/packets/'),
-        'review_of': lambda p: (verdicts or {}).get(p, {}),
-        'findings_text': lambda *args: '', 'fill': {},
-        'FIX_TEMPLATE': '', 'FIX_REVIEW_TEMPLATE': '',
-        'add': lambda job, prompt: jobs.update({job['id']: job}),
-    }
-    exec(compile(module, '<real fix_rounds>', 'exec'), env)
-    env['fix_rounds']('RT-FIXTURE', 'fixture', 'fixture', [], 0, {}, [],
-                      [report], blueprints, {}, [])
-    return jobs
-
-blueprints = [packet, suggested, added_packet, added_suggested]
-original = generate(source, historical, blueprints)
-assert original[base + '~2']['outputs'] != round_two
-assert base + '~3' not in original
-fixed_source = source.replace(old, new)
-fixed = generate(fixed_source, historical, blueprints)
-assert fixed[base + '~2']['outputs'] == round_two
-assert fixed[base + '~3']['after'] == [base + '~2']
-assert added_packet in fixed[base + '~3']['outputs']
-assert added_suggested in fixed[base + '~3']['outputs']
-assert fixed['REV-' + base + '~2']['outputs'] == [
-    'research/blueprint/reviews/REV-FIX-RT-FIXTURE~2.md', packet, suggested]
-prior = [dict(j, state=next((p['state'] for p in historical if p['id'] == jid),
-                            'pending')) for jid, j in fixed.items()]
-twice = generate(fixed_source, prior, blueprints)
-assert {k: v['outputs'] for k, v in fixed.items()} == {
-    k: v['outputs'] for k, v in twice.items()}
-
-# Unfinished work still absorbs newly available inputs.
-pending = copy.deepcopy(historical)
-pending[1]['state'] = 'pending'
-unfinished = generate(fixed_source, pending, blueprints)
-assert added_packet in unfinished[base + '~2']['outputs']
-assert base + '~3' not in unfinished
-
-# The genuine rejection path keeps the independent review dependency.
-rejected = copy.deepcopy(historical)
-rejected[2]['state'] = 'done'
-sent_back = generate(fixed_source, rejected, [packet, suggested], {
-    packet: {'status': 'needs_changes',
-             'reviewer': 'independent-review-REV-' + base + '~2'}})
-assert sent_back[base + '~3']['after'] == ['REV-' + base + '~2']
-
-# An existing completed rejection round keeps its recorded reason/dependency.
-saved_rejection = copy.deepcopy(historical)
-saved_rejection[1]['after'] = ['REV-' + base]
-preserved = generate(fixed_source, saved_rejection, blueprints)
-assert preserved[base + '~2']['after'] == ['REV-' + base]
-assert preserved[base + '~2']['outputs'] == round_two
-print('PASS: original bug, completed scope, new-work routing, repeat generation, '
-      'unfinished expansion, rejection dependency, historical dependency')
-```
-
-## Full-generator regression with the proposed guard
-
-Run from the repository root. Save the historical queue with
-`git show 88f9bcd44:research/blueprint/queue.json` to `historical-queue.json`
-in task scratch. Extract this script there and pass that scratch directory as
-its sole argument. The preceding two scripts need no arguments. All three
-scripts are preserved here, so no deleted scratch artifact is needed.
-
-```python
-import ast
-import builtins
-import contextlib
-import copy
-import io
+import importlib.util
 import json
-import sys
 from pathlib import Path
-from unittest.mock import patch
 
-REPO=Path.cwd()
-SCRATCH=Path(sys.argv[1])
-source_path=REPO/'research/blueprint/make_queue.py'
-source=source_path.read_text()
-old='made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
-new='made = previous_jobs.get(following)'
-rt='RT-AREA-iwasawa-1'; base='FIX-'+rt
-current=json.loads((REPO/'research/blueprint/queue.json').read_text())
-historical={j['id']:j for j in json.loads((SCRATCH/'historical-queue.json').read_text())['jobs']}
-restored=copy.deepcopy(current)
-for j in restored['jobs']:
-    if j['id'] in (base+'~2','REV-'+base+'~2'):
-        j['outputs']=historical[j['id']]['outputs'][:]
-
-real_read=Path.read_text
-real_open=builtins.open
-
-def generate(source, queue):
-    tree=ast.parse(source)
-    main=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
-    dry=next(n for n in main.body if isinstance(n,ast.If) and isinstance(n.test,ast.Attribute) and n.test.attr=='dry_run')
-    dry.body=[ast.Return(value=ast.Dict(keys=[ast.Constant('jobs'),ast.Constant('prompts')],values=[ast.Name(id='merged',ctx=ast.Load()),ast.Name(id='prompts',ctx=ast.Load())]))]
-    ast.fix_missing_locations(tree)
-    namespace={'__file__':str(source_path),'__name__':'scope_repair_dry_run'}
-    exec(compile(tree,str(source_path),'exec'),namespace)
-    def read(path,*args,**kwargs):
-        return json.dumps(queue) if path==REPO/'research/blueprint/queue.json' else real_read(path,*args,**kwargs)
-    def open_safe(file,*args,**kwargs):
-        if Path(file)==REPO/'research/blueprint/.queue.lock': file=SCRATCH/'generation.lock'
-        return real_open(file,*args,**kwargs)
-    sys.path.insert(0,str(REPO/'research/blueprint'))
-    with patch.object(Path,'read_text',read), patch.object(Path,'write_text',side_effect=AssertionError('dry-run attempted write')), patch('builtins.open',open_safe), patch.object(sys,'argv',[str(source_path),'--library','library','--baseline','baseline','--workers','workers','--dry-run']), contextlib.redirect_stdout(io.StringIO()):
-        return namespace['main']()
-
-runs={}
-for label,src in [('original',source),('repaired',source.replace(old,new))]:
-    first=generate(src,restored)
-    jobs={j['id']:j for j in first['jobs']}
-    print(label,[(jid,len(j['outputs'])) for jid,j in jobs.items() if jid.startswith((base,'REV-'+base))])
-    runs[label]=first
-    if label=='repaired':
-        assert jobs[base+'~2']['outputs']==historical[base+'~2']['outputs']
-        assert jobs['REV-'+base+'~2']['outputs']==historical['REV-'+base+'~2']['outputs']
-        assert base+'~3' in jobs
-        second=generate(src,{'jobs':first['jobs']})
-        for round_ in (base+'~2','REV-'+base+'~2',base+'~3','REV-'+base+'~3'):
-            assert next(j for j in second['jobs'] if j['id']==round_)['outputs']==jobs[round_]['outputs']
-        print('full dry-run: historical scope stable across two generations; additional work assigned to round three')
-
-original={j['id']:j for j in runs['original']['jobs']}
-repaired={j['id']:j for j in runs['repaired']['jobs']}
-changed=[jid for jid in original.keys() & repaired.keys() if original[jid]!=repaired[jid]]
-added=list(repaired.keys()-original.keys())
-removed=list(original.keys()-repaired.keys())
-print('different jobs:',sorted(changed));print('added jobs:',sorted(added));print('removed jobs:',sorted(removed))
+root = Path.cwd()
+spec = importlib.util.spec_from_file_location(
+    "issues", root / "research/blueprint/issues.py")
+issues = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(issues)
+job = next(j for j in json.loads(
+    (root / "research/blueprint/queue.json").read_text())["jobs"]
+    if j["id"] == "REV-FIX-RT-AREA-iwasawa-1~2")
+issued = copy.deepcopy(job)
+issued["outputs"] = [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+]
+print(len(job["outputs"]))                     # 21 at this checkpoint
+print(issues.deliverables_complete(job, root))  # False
+print(issues.deliverables_complete(issued, root))  # True
 ```
-
-## Preserved mathematical reviews
-
-# Independent fix review: codex-kEnFR2, 10 October 2026
-
-Issue #6217; reviewer Codex — `codex-kEnFR2`. This session did none of the
-fixes, red team or verification. The bot confirmed the claim before work began.
-
-**HE.0 fixes: accepted. Whole queue job: blocked checkpoint.**
-
-The four findings applicable to the issue-named packet were checked against
-the verified red-team result, round-two fix report, current packet and supplier
-statements. No further mathematical or Lean signature correction was necessary.
-Earlier reviews are preserved in `reviewHistory` and below; this session's
-source locators, hashes and check results are in
-`verification.independentFixReviewSession`.
-
-| Finding | Verdict and independently checked correction |
-|---|---|
-| /2 | Accepted with explicit supplier obligations. Zhang Theorem 2.1, pp.203–204, requires the exact raised level and trivial character. HE.0 distinguishes this export from Diamond's weaker q-new criterion, rational Jacquet–Langlands, and the separately requested integral multiplicity-one and transport statements. |
-| /8 | Accepted with explicit supplier obligations. Zhang §6.3 and Theorems 6.4–6.5, pp.228–231, use geometric component groups. Theorem 7.1, pp.231–232, requires the recorded discriminant correction when deduced from Skinner A/B, pp.1–2; Skinner §2.5, pp.15–16, supplies the weaker integral argument under its separate residual and coinvariant conditions. The period and nonsquarefree variants remain requests. |
-| /9 | Accepted as an ownership correction. The accepted PAPER-CALEGARI-GERAGHTY-20 route assigns the general large-image theorems to the Faltings Part II. HE.7 keeps applications and records missing all-prime, adelic and GL₂-type exports. This checks ownership, rather than independently proving the general image theorem. |
-| /10 | Accepted with explicit supplier obligations. Howard Definition 1.2.3 and H.0–H.5, pp.7–9, and Theorems 1.6.1/1.6.5, pp.16–19, support ES.5's self-dual descent contract. Proposition 1.7.4 and Theorem 1.7.5, p.21, support the corrected cyclic-tensor system. Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6, pp.19–20, retain p≥5, both dual hypothesis lists, the prime-set condition and a nonzero bottom class. The exact equality is requested from ES.5, without the unrelated over-Q divisibility prerequisite. |
-
-Primary versions read: [Zhang, version of record](https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf),
-[Howard v1](https://arxiv.org/pdf/1202.6340v1),
-[Skinner v1](https://arxiv.org/pdf/1407.1093v1), and
-[Zanarella v1](https://arxiv.org/pdf/1908.09197v1).
-Zhang was read in the maintainer-cleared library; neither its file nor passages
-were copied. This continuation does not claim a fresh rereading of every HE.0
-source or all ten source issues.
-
-All thirteen Mathlib baseline statements were read at the exact pin. The two
-p-adic ideal/valuation lemmas keep their nonzero restrictions. The current
-Tau Ceti `levelRaise` is a degeneracy operator, not the exact-level supplier.
-Current upstream boundaries and the reviewed library audit were inspected;
-the generic arithmetic carriers remain imports rather than new HE definitions.
-
-Validation: packet checker zero errors/warnings; source-issue schema and version
-checks zero problems (ten issues, 24 receipts); `lean-check` exit 0 with 114
-warnings, all `sorry`. The suggested file is unchanged. Across 30,589 indexed
-nodes, there are no duplicate ids or cycles reachable from HE.0. HE.6 has six
-clean and thirteen Zhang nodes; none of the 62 HE.8-family nodes depends on
-HE.6. The period export has no Heegner input. All 78 node names and every API/test name
-are present in Lean. These checks do not establish implementation or remove
-the packet's 21 gaps and 63 requests.
-
-The live issue authorizes only HE.0, its suggested file and this report. The
-queue instead requires eleven packets: `deliverables_complete` is false for
-that job and true for an in-memory copy restricted to the live issue's three
-outputs. [WORKERS.md](../WORKERS.md) says “Edit only the files the issue names,
-plus your own scratch space.” Scope clarification was requested and remains
-unanswered. Completing the ten extra independent reviews requires authorization,
-or the queue must be aligned with the live issue. The handoff lists those
-packets. No extra packet or queue entry was edited.
-
----
-
-Preserved earlier reports follow, with their original verification scope.
-
-# Continuation: codex-mVQR9r, 10 October 2026
-
-Issue #6217; independent reviewer Codex — `codex-mVQR9r`.
-This session did none of the fixes, their red team, verification or earlier reviews.
-The bot confirmed the claim before this continuation began.
-
-**Authorized HE.0 verdict: accepted. Queue-job status: blocked checkpoint.**
-
-## What this continuation establishes
-
-I independently rechecked the four HE.0 findings against the confirmed findings,
-round-two fix report, current packet/supplier statements and the primary passages
-listed below. The previous continuation's mathematical corrections remain sound;
-this continuation adds verification receipts and an executable diagnosis of the
-scope blocker. It changes no mathematical statement or Lean signature.
-
-| Finding | Verdict | Check |
-|---|---|---|
-| /2 | Accepted within the recorded supplier obligations | Zhang Theorem 2.1, pp.203–204, preserves exact level and trivial character. The Diamond criterion is weaker; rational Jacquet–Langlands and integral transports remain distinct contracts. |
-| /8 | Accepted within the recorded supplier obligations | Zhang §6.3 and Theorems 6.4–6.5, pp.228–231, use geometric component lengths over K at inert primes. Theorem 7.1, pp.231–232, is repaired using Skinner's integral input and the prime-to-discriminant condition; the missing period/transport variants remain explicit requests. |
-| /9 | Accepted as an ownership correction | The accepted image-theory paper route and Part II brief own the general results; HE.7 keeps their application and exact requests for the all-prime, adelic and GL₂-type exports. I checked the ownership contract, not a new proof of Serre's theorem. |
-| /10 | Accepted within the recorded supplier obligations | Howard's H.0–H.5, self-dual DVR theorem and cyclic-tensor systems belong to ES.5. Zanarella's equality keeps both dual hypothesis lists, p≥5, the prime-set condition and nonzero bottom class. The Howard-system formula remains requested, rather than supplied by a Mazur–Rubin-over-Q theorem. |
-
-Sources read in this continuation:
-
-- [Zhang, version of record](https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf): Theorem 2.1 pp.203–204; §6.3 and Theorems 6.4–6.5 pp.228–231; Theorems 7.1–7.2 pp.231–233. Read from the maintainer-cleared copy, without copying the file or passages.
-- [Howard, arXiv:1202.6340v1](https://arxiv.org/pdf/1202.6340v1): Definition 1.2.3 p.7; H.0–H.5 pp.8–9; Theorem 1.6.1 and its proof pp.16–18; Theorem 1.6.5 and its proof pp.18–19.
-- [Skinner, arXiv:1407.1093v1](https://arxiv.org/pdf/1407.1093v1): Theorems A/B pp.1–2; Theorem 2.5.2 and its integral-coefficient discussion pp.15–16.
-- [Zanarella, arXiv:1908.09197v1](https://arxiv.org/pdf/1908.09197v1): Definition 2.3.2, Proposition 2.3.3, and Theorem 2.3.6 with its proof pp.19–20.
-
-The four hashes match the previous receipts. These receipts are in
-`verification.independentFixReviewScopeCheck`. The historical review below
-retains its own source scope; I do not claim a new independent rereading of all
-78 targets or all ten source issues.
-
-I read all thirteen Mathlib baseline statements at the exact pin
-082e2d37e8b0463410cdb532e111cd43d5a66174, including the two nonzero restrictions
-in the p-adic ideal/valuation lemmas. The current upstream EllipticCurves layers
-2/7, ModularCurves scope, LocalGaloisGroups and ProfiniteArithmetic prototypes
-were inspected read-only. They keep generic Tate, pairing and Kummer material
-outside HE's ownership. The current Tau Ceti `levelRaise` is a degeneracy
-operator and supplies no exact-level Ribet/Diamond–Taylor theorem.
-
-## Current verification
-
-- Packet checker: zero errors and warnings; 78 nodes, 24 API items, eighteen unit tests, 21 gaps and 63 requests.
-- Source-issue schema/version checks: ten issues, 24 version receipts, zero problems.
-- Intake file checks: three changed files, zero problems; `git diff --check` passes.
-- `lean-check`: exit 0, 114 warnings, all `sorry`; no other warnings or errors. The suggested file is unchanged, SHA-256 `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
-- Current declaration graph: 30,589 unique indexed nodes; no duplicate ids or cycle reachable from HE.0. The HE.6 split remains six clean and thirteen Zhang nodes. No outside node consumes the Zhang group; it consumes no clean node. None of the 62 HE.8-family nodes depends on HE.6. The period export's closure has no Heegner node.
-
-These checks support acceptance of the four HE.0 fixes, with the supplier and
-stage-restructuring gaps preserved. They do not certify closure or implementation.
-
-## Reproduced completion blocker
-
-The live issue was re-read after claim confirmation. It names only this report,
-`HeegnerPointEulerSystems--HE.0.json` and its suggested file. Both the local
-queue and a fresh read of the live main queue instead name eleven packets.
-`issues.deliverables_complete` returns **false** for that actual queue job and
-**true** for an in-memory copy restricted to the live issue's three outputs.
-The ten extra packets retain other independent-review markers; one supplier
-packet, ES.0, has a `needs_changes` verdict. Their existing reviews do not
-constitute this job's independent fix review.
-
-[WORKERS.md](../WORKERS.md) requires edits to issue-named files. Scope
-clarification was requested in this session and remains unanswered. The extra
-packets and queue are untouched. This checkpoint needs a scope reconciliation:
-either align the queue outputs with the live issue, or authorize the ten extra
-reviews before they receive this job's verdict. The handoff lists them exactly.
-Repeating the already accepted HE.0 review cannot change that completion predicate.
-
----
-
-The following is the preserved historical report of codex-TRbVPK. Its findings,
-corrections and source receipts remain part of the handoff evidence.
-
-# REV-FIX-RT-AREA-iwasawa-1~2
-
-Independent continuation review for issue #6217, by Codex — `codex-TRbVPK`,
-10 October 2026. This session did none of FIX-RT-AREA-iwasawa-1~2
-(Claude `claude-PWOydn`, PR #6753), its red team or verification. This follows
-Claude `claude-yM8YCo`'s accepted HE.0 review of 7 October and the independent
-HE.0 round-two review of 6 October. Both historical review objects are preserved.
-
-**HE.0 verdict: accepted after corrections in place. Job completion: blocked
-by the issue/queue scope mismatch.**
-
-## Scope and completion blocker
-
-The live issue's deliverables and full instructions name the HE.0 packet,
-its suggested file and this report. WORKERS.md restricts edits to issue-named
-files and requires a handoff on stopping. This submission changes those files
-and its handoff only.
-
-Both the local and live main queue instead list eleven packets for this job.
-`research/blueprint/issues.py::deliverables_complete` requires this job's
-reviewer marker on every listed packet. Ten still have other reviews. Thus the
-permitted HE.0 review can be finished, but intake cannot recognize completion
-without an issue-scope update or a queue correction. Scope clarification was
-requested during this run. No unreviewed packet receives this session's
-verdict, and no queue or automation file is changed.
-
-The ten extra packet stems are HeegnerPointEulerSystems--HE.7s,
-GrossZagierAndArithmeticHeights--GZ.0, RankZeroOneBSD--BSD.0,
-RankZeroOneBSD--BSD.7, EulerSystemsAndKolyvaginSystems--ES.0,
-GeneralizedHeegnerCycles--GH.0, GrossZagierAndArithmeticHeights--GZ.8,
-PadicHodgeRegulators--D.1, EulerSystemsAndKolyvaginSystems--ES.8 and
-KatoEulerSystems. Their suggested files are also queue outputs.
-
-## Finding verdicts
-
-I compared the four confirmed findings affecting HE.0 with their verified
-evidence, the fix report, the packet changes, current supplier statements and
-primary sources. The other 32 area findings are outside the live issue's file
-scope; their fixes have no verdict from this session.
-
-| Finding | HE.0 verdict | Reason |
-|---|---|---|
-| /2: level raising and quaternionic transport | Accepted | The exact-level statement is requested separately from Diamond's weaker criterion. Rational global JL, integral residual multiplicity, Shimura-set realization and local Kummer transport keep distinct owners. |
-| /8: Zhang suppliers, periods and dependency order | Accepted | R17.3 replaces the wrong transfer layer. The GL₂-type rank-zero contract and period normalization retain their exact hypotheses and supplier gaps. The proposed dependency split checks out. |
-| /9: general open-image ownership | Accepted | HE.7 imports the accepted Part II image-theory route and requests the all-p, adelic and GL₂-type exports missing from its large-p brief. It owns only the Heegner application. |
-| /10: Howard's self-dual systems | Accepted after correction | ES.5 owns the hypotheses/DVR theorem and ES.8 the Λ-adic theorem. I removed the lingering Mazur–Rubin primitivity dependency and made all the self-dual equality hypotheses explicit. |
-
-### /2: exact level and integral transports
-
-Zhang Theorem 2.1, pp.203–204, requires a weight-two form of level N with
-trivial character, irreducible residual representation, p≥5 and an admissible
-q. Notations (xiv), p.203, includes q∤NDp, inertness, p∤q²−1 and the Hecke
-congruence. It supplies level Nq with trivial character and the same residual
-representation; its proof keeps the local inertial types.
-
-R20.2/level-raising-diamond is weaker. The request retains the missing exact
-level and type conditions, citing Diamond–Taylor's Duke Math. J. 74,
-Theorem 1, and Invent. Math. 115, Theorem B. The proposed stage is still a
-maintainer action. R17.3/global-jl and multiplicity-one supply rational
-transfer; definite-infinity assigns its function space to R18.3. These do not
-supply integral residual multiplicity. That is separately requested from
-Zhang Lemma 3.3, p.215, and (4.8), p.219. The transport in (4.9), p.219,
-is specifically a Heegner Kummer comparison.
-
-### /8: rank-zero, periods and stage order
-
-Zhang Theorem 7.1 and proof, pp.231–233, use the GL₂-type quotient and its
-quadratic twist. The node retains good ordinarity, residual SL₂(F_p),
-ramification at a prime dividing N exactly once and p∤D_K. Skinner Theorems
-A/B, arXiv v1 pp.1–2, Theorem 2.5.2 and its integrality discussion,
-pp.15–16, supply the repaired input: irreducibility and a tame element with
-free rank-one coinvariants. Canonical-period and local-condition comparisons
-remain exact supplier obligations. The split multiplicative exceptional-zero
-condition does not arise at prime-to-p level.
-
-Zhang §6.3, pp.228–229, and Theorem 6.4, pp.229–230, use geometric component
-length over K_ℓ. The residue extension at an inert multiplicative prime makes
-that component group constant; a Q_ℓ notation alone does not prove the
-identification. The request records this and separates Pollack–Weston's
-squarefree result from the Ribet–Takahashi, Khare and Helm inputs for the
-nonsquarefree case. Theorem 6.5, pp.230–231, uses these normalizations in the
-special-value unit test.
-
-My current graph check indexed 30,584 packet declarations without duplicate
-ids. The closure reachable from HE.0 has no declaration cycle. The proposed
-split partitions its nineteen HE.6 declarations into six clean-descent and
-thirteen Zhang declarations. All thirteen lie in the closure of
-zhang-indivisibility; none depends on a clean-descent declaration, and no
-outside declaration depends on the Zhang group. The current HE.8/HE.8b/HE.8c
-packet has **62**, rather than the previous report's 60, declarations; none
-directly or indirectly depends on HE.6.
-
-The period node's closure contains no Heegner declaration. Of the Zhang
-suppliers, only ModularIwasawaMainConjectures:L1 is reachable from HE.8; no
-clean-descent supplier is. The old R17.5→HE.6 atlas edge and RS-21
-InductionRestriction link remain. Their removal and the HE.6z/BSD.3a
-sub-layers remain maintainer proposals. The gap retains both the HE.6→BSD.5
-cycle and the route through BSD.4/kato-heegner-comparison. These checks do
-not claim that the stage graph has already been restructured or that the
-packet has closure.
-
-### /9: a separate owner for image theory
-
-The accepted OpenImageTheoremsForAbelianVarieties route in
-PAPER-CALEGARI-GERAGHTY-20 and its
-FaltingsFinitenessAndIsogenyTheoremsPartII design handoff supply the owner.
-Their large-p brief alone does not give all-p/adelic finite index, uniform
-homothety bounds or all GL₂-type exports. HE.0 requests those via R28.4/R01.4
-and does not reprove them. The earlier R28.7 proposal is withdrawn. The CM
-semilinear theory keeps its separate owner.
-
-### /10: Howard systems and primitivity
-
-Howard §1.3 H.0–H.5 and Theorem 1.6.5's proof, arXiv v1 pp.8–9,18–19,
-support the actual Tate/local checks: full Tate image, the symmetric
-conjugation-twisted Weil pairing and conjugate local orthogonality.
-Definition 1.2.3, p.7, and Theorem 1.7.5, p.21, use Howard systems over K
-with the cyclic tensor. The existing gap about extending local χ to global
-cohomology remains explicit; this review does not solve it.
-
-HE.6 applies ES.5/howard-dvr-theorem (Howard Theorem 1.6.1, p.16), keeping
-the paired finite part and an inequality. It does not use a Mazur–Rubin
-core-rank-one theorem over Q. Howard Proposition 2.1.3, pp.23–24, reuses that
-generic theorem and hypothesis verification in specializations, so a new
-HE.6→HE.8 dependency is unnecessary. ES.8 owns the Λ-adic theorem.
-
-Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6, arXiv v1
-pp.19–20, require p>4, H.0–H.5 for both the triple and its dual,
-𝓛⊇𝓛_s(T) and κ_1≠0. The finite-length formula has defect d(κ), which
-vanishes exactly for a nonzero residual Howard system. The prior review
-corrected the request but retained a proof reference and prerequisite to
-ES.5/divisibility-invariants, a Mazur–Rubin statement over Q. I corrected
-both. The statement/hypotheses now give all the inputs; its matching Lean
-comment explicitly records the missing supplier conditions, and its
-signature retains 5≤p. The general definition/formula remain requested from
-ES.5. Multiplication by p preserves a nonzero bottom class, increases its
-rank-one index by one and kills the residual system; non-torsion does not
-justify sharpness.
-
-## Independent source-issue checks
-
-E9 and E10 now have confirmed review objects. E9 remains a proof error and
-E10 a gap in the stated result. Neither refutes Zhang's main theorems.
-
-For E9, Elkies, arXiv v1 Abstract/Introduction pp.1–2, supplies the p=3
-failure of residual-to-integral lifting. The curves are additive at 3 and
-are not instances of all Theorem 7.1 hypotheses. Skinner §2.5, pp.15–16,
-supplies the weaker integral inputs; residual ramification at ℓ∥N gives a
-primitive tame unipotent element and rank-one coinvariants.
-
-I also checked the p=5 ramified-coefficient subgroup assertion explicitly.
-In O=Z₅[√5], put φ=(1+√5)/2. Since φ−2 has residue 1, Hensel gives
-r²=φ−2 with r≡1. Set b=(−φ+r)/2 and c=b+φ, and take
-
-```text
-A = [ 0   1 ]       B = [ 1/2  b   ]
-    [−1   0 ]           [ c    1/2 ]
-```
-
-Here bc=−3/4, both determinants are 1, and A²=B³=(AB)⁵=−I. Modulo {±I},
-the subgroup is an image of the finite (2,3,5) triangle group of order 60,
-so it has at most 120 elements. Modulo √5 the generators are [0,1;4,0]
-and [3,4;2,3]; direct finite multiplication gives all 120 elements of
-SL₂(F₅). The subgroup is finite and reduces surjectively, so cannot contain
-a conjugate of SL₂(Z₅). This is a group counterexample, not a Galois-image
-claim. Manoharmayum's Main Theorem, arXiv v2 p.1, excludes n=2, k=F₅.
-I shortened E9's reason to this verified evidence, removing reliance on an
-unchecked LMFDB record and the earlier quaternion-algebra explanation.
-
-For E10, Zhang Notations (i), (x), pp.200,202, impose prime-to-N conditions,
-but the displayed Theorem 7.1 omits p∤D_K. The proof applies ordinary
-formulas to g and g⊗χ_K. When p|D_K and p∤N, the twist has p² dividing its
-level and that argument is unavailable. The planned result keeps p∤D_K,
-as Zhang's main theorem already does. This diagnoses the argument's missing
-domain condition, without claiming the broader-domain statement false.
-
-## Sources and checks
-
-All mathematical statements here are paraphrases. Zhang's version of record
-was read in the maintainer-cleared library without copying its file or text;
-its hash matches the historical publisher receipt. The other five PDFs were
-retrieved from the public primary URLs below. Howard, Skinner and Zanarella
-match the packet receipts. Full hashes are preserved in
-`verification.independentFixReviewContinuation.sourceRetrieval`.
-
-| Source | Version and URL | Locators checked |
-|---|---|---|
-| Zhang | [Camb. J. Math. 2 (2014), version of record](https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf) | Notations pp.200–203; Theorem 2.1 pp.203–204; Lemma 3.3 p.215; (4.7)–(4.9) pp.218–219; §6.3 and Theorems 6.4–6.5 pp.228–231; Theorems 7.1–7.2 pp.231–233 |
-| Howard | [arXiv:1202.6340v1](https://arxiv.org/pdf/1202.6340v1) | Theorem A p.2; Definition 1.2.3 p.7; H.0–H.5 pp.8–9; Theorems 1.6.1, 1.6.5 pp.16,18–19; Theorem 1.7.5 p.21; Proposition 2.1.3 pp.23–24 |
-| Skinner | [arXiv:1407.1093v1](https://arxiv.org/pdf/1407.1093v1) | Theorems A/B pp.1–2; §2.5 pp.15–16; §3.2 pp.20–21 |
-| Zanarella | [arXiv:1908.09197v1](https://arxiv.org/pdf/1908.09197v1) | Definition 2.3.2, Propositions 2.3.3–2.3.4 and Theorem 2.3.6 pp.19–20 |
-| Elkies | [arXiv:math/0612734v1](https://arxiv.org/pdf/math/0612734v1) | Abstract/Introduction pp.1–2 |
-| Manoharmayum | [arXiv:1304.1196v2](https://arxiv.org/pdf/1304.1196v2) | Main Theorem p.1 |
-
-All thirteen cited Mathlib declarations were read at commit
-082e2d37e8b0463410cdb532e111cd43d5a66174, including the nonzero restrictions
-on the p-adic ideal/valuation lemmas. No completed Tau Ceti Heegner declaration
-is claimed. I inspected its pinned source, the current read-only library and
-upstream roadmaps, and the reviewed library audit. The generic Tate/Weil
-pairing and Galois/Kummer interfaces remain upstream imports.
-
-The six definition/construction nodes have 24 API items and eighteen tests,
-with suggested-file counterparts. They distinguish a point from its trace,
-a sum of coefficient ideals from a product, unique descent from unrestricted
-restriction, inverse correction from raw classes, squarefree support count
-from multiplicity, and good-prime base locus from coefficient/bad primes.
-Each has three distinct tests. All 78 mathematical statement comments and all
-node/API/test names are present. No new definition was added.
-
-Final checks:
-
-- `python3 scripts/check_blueprint.py research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json`: zero errors and warnings.
-- `check_issues` and `versions_checked`: ten source issues, 24 version receipts, zero problems.
-- `python3 research/blueprint/intake.py check-files` on all four changed files: zero problems.
-- `lean-check research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean`: exit 0, 114 warnings, all declarations using `sorry`, at the exact pinned Mathlib. Available memory was 97 GB. No Tau Ceti olean build was performed.
-- Current node/stage graph and statement/name coverage checks as above.
-
-The prototype omits explicitly named supplier conditions under PROTOCOL §13;
-elaboration checks its forms, not arithmetic validity. All 21 gaps, 63
-requests and unchecked implementation statuses remain. Acceptance here does
-not mean closure. The reader is outside this issue's deliverables and needs
-regeneration from the corrected packet when its scope is authorized.
-
-## Summary
-
-The four HE.0 fixes are accepted after correcting the Howard primitivity
-reference, full hypothesis list, Lean prime bound and source-issue evidence.
-The checks pass and the prototype elaborates with only `sorry` warnings.
-Completion of issue #6217 remains blocked: the live issue permits HE.0 only,
-while intake expects ten further packet reviews. The handoff identifies the
-scope reconciliation needed before another worker proceeds.
