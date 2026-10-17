@@ -47873,7 +47873,8 @@
    ],
    "revisionOf": "PKG-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticStatistics~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10158"
   },
   {
    "id": "REV-PKG-ArithmeticStatistics~2",
@@ -48067,8 +48068,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicFormsOnReductiveGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10159"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10159",
+   "finishedAt": "2026-10-17T13:30:55Z"
   },
   {
    "id": "REV-PKG-AutomorphicFormsOnReductiveGroups",
@@ -131026,9 +131028,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidQuotients~adv.md",
-   "note": "claimed on GitHub issue #9891"
+   "note": "deliverables arrived from an external worker on issue #9891",
+   "finishedAt": "2026-10-17T13:31:00Z"
   },
   {
    "id": "FIX-PKG-IgusaVarietiesAndTorsionConcentration~adv",
@@ -131066,9 +131069,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-PotentialAutomorphyInfrastructure~adv.md",
-   "note": "claimed on GitHub issue #9892"
+   "note": "deliverables arrived from an external worker on issue #9892",
+   "finishedAt": "2026-10-17T13:31:03Z"
   },
   {
    "id": "ASM-DeformationAndDerivedPatchingAlgebra~2",
@@ -131377,9 +131381,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-DeformationAndDerivedPatchingAlgebra~adv.md",
-   "note": "claimed on GitHub issue #10107"
+   "note": "deliverables arrived from an external worker on issue #10107",
+   "finishedAt": "2026-10-17T13:31:06Z"
   },
   {
    "id": "FIX-PKG-PadicHodgeTheory~adv",
@@ -131397,9 +131402,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeTheory~adv.md",
-   "note": "claimed on GitHub issue #10108"
+   "note": "deliverables arrived from an external worker on issue #10108",
+   "finishedAt": "2026-10-17T13:31:09Z"
   },
   {
    "id": "PKG-DirichletPadicLFunctions~codex",
@@ -131896,9 +131902,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatistics~adv.md",
-   "note": "claimed on GitHub issue #10147"
+   "note": "deliverables arrived from an external worker on issue #10147",
+   "finishedAt": "2026-10-17T13:31:13Z"
   }
  ]
 }
