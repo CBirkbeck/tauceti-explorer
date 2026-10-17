@@ -13,15 +13,17 @@ with Li_k taken for the Iwasawa branch of the logarithm (L3.28). The Teichmülle
 
 This roadmap owns:
 
-1. **Elementary p-adic analysis** (Layer L0): the normalized formal primitive of a power series over a ℚ-algebra and its radius estimates; functions analytic on a whole open disc and their primitives; the logarithm series over a general complete ultrametric field of characteristic zero; residues and logarithmic primitives on open annuli and on the end germ of a residue disc; the branches log_a of the p-adic logarithm on ℂ_p^×, their change and Galois compatibility, and the Iwasawa branch; the rational polylogarithm coefficient series q_k ∈ ℚ[[X]] (L0.F).
+1. **Elementary p-adic analysis** (Layer L0): the normalized formal primitive of a power series over a ℚ-algebra and its radius estimates; functions analytic on a whole open disc and their primitives; the logarithm series over a general complete ultrametric field of characteristic zero; the Laurent carriers O_K(I) of annuli, for every interval I of radii, with their Gauss norms, restriction maps, units, end germs, values at points of ℂ_p and identity principle (L0.A1–L0.A2); residues and logarithmic primitives on open annuli and on the end germ of a residue disc; the branches log_a of the p-adic logarithm on ℂ_p^×, their change and Galois compatibility, and the Iwasawa branch; the rational polylogarithm coefficient series q_k ∈ ℚ[[X]] (L0.F).
 2. **Coleman integration** (Layer L1): good-reduction pairs, wide opens, locally analytic functions with logarithmic ends, Frobenius lifts and Teichmüller points, Frobenius-structured unipotent data and their existence, Dwork's principle, the word algebra, Coleman functions and integrals, the uniqueness principle, independence of the Frobenius lift and of the branch, functoriality, and the explicit punctured lines ℙ¹ ∖ ({0, ∞} ∪ μ_N) and the four-punctured lines used by the five-term relation.
 3. **Coleman's polylogarithms** (Layer L2): Li_k^a, their residue-disc expansions, tangential base point, distribution and inversion relations, branch dependence, the value at 1, Frobenius relation and integral modified polylogarithm, Galois equivariance, the dilogarithm identities, values at roots of unity, the complex boundary values (L2.Fa), the scalar five-term relation and its projective and Bloch-group forms over an arbitrary field (L2.Fb, L2.70).
 4. **L-values and regulators** (Layer L3): geometric and smoothed measures and their negative moments, Coleman's formula and its comparisons, the complex formula, the modified polylogarithm L^mod_n, and the motivic and regulator foundations L3.Fa.1–L3.Fd.2: rational Quillen K-theory and its Adams operations, multi-relative K-theory of cubes, de Jeu's symbols and complexes, Beilinson's cyclotomic elements, Besser's modified syntomic cohomology and syntomic regulator, the relative rigid complexes and the integration-down computation, the Gros regulator, the complex regulator pairings and determinants, the rank criterion, Zagier's single-valued polylogarithms, and Artin L-functions with coefficients, complex and p-adic.
 
 It leaves to other roadmaps, and imports:
 
-- **AdicSpacesPartII** Layers F1, R2 and R3: dagger algebras, weak completions, rational localizations, differentials and the logarithmic de Rham complex, scalar extension, the identity principle (F1); generic fibres, specialization, tubes and residue-disc coordinates (R2); proper rigid GAGA and the quasi-Stein theorems (R3).
-- **PadicHodgeTheory** Layer P7: Laurent rings of annuli, their restriction maps, Gauss norms and the identity principle for Laurent series.
+- **TauCetiRoadmap AdicSpacesPartII** §R1.9 (*rigid-identity-principle*): on a connected normal rigid space, restriction to a nonempty admissible open is injective on sections of the structure sheaf and of finite locally free modules. L1 uses it through AdicSpacesPartIV §F1.8.
+- **AdicSpacesPartIII** (TauCetiRoadmap pull request #813) Layers R2 and R3: generic fibres (§R2.3); specialization and tubes (§R2.4); residue discs of smooth rational points as open discs, with the reparametrization t′ = u t (1 + h) (§R2.9, *residue-disc*); quasi-Stein spaces with Kiehl's Theorems A and B (§R3.4); proper GAGA (§R3.7).
+- **AdicSpacesPartIV** (TauCetiRoadmap pull request #815) Layer F1: dagger algebras (§F1.2), fringe presentations and the fringe topology (§F1.3), rational localization (§F1.4), weak completions (§F1.5), Tate acyclicity (§F1.6), and coherent modules and strict neighbourhoods (§F1.7). Also the identity principle (§F1.8), the overconvergent de Rham complex with smooth dagger spaces and the cohomology of dagger annuli (§F1.9), finite base change of dagger de Rham cohomology (§F1.11), and logarithmic complexes of smooth pairs (§F1.12).
+- **TauCetiRoadmap RestrictedPowerSeries** §§1.1, 2.1, 2.4, 3.2 and 7.1–7.2 and **TauCetiRoadmap NewtonPolygons** §§0.3 and 0.5: Gauss norms, evaluation, the maximum principle and units for one-sided restricted series; series on open discs and entire series; supporting values of integer-indexed height sequences. Both roadmaps leave analytic Laurent rings out of scope. L0.A1–L0.A2 build the two-sided Laurent carrier of an annulus on them.
 - **PadicDifferentialEquationsAndRigidCohomology** Layers RD.0, RD.3.5, RD.3.12, RD.3.17–RD.3.18 and RD.4–RD.6: Frobenius lifts on weak completions and the finite-order linear algebra of Frobenius; diagonal-tube charts, the Taylor convergence criterion and the connection/stratification equivalence; rigid cohomology, its finite-dimensionality, independence of choices and Frobenius weights.
 - **PadicMeasuresIwasawaAlgebras** Layers L2 and L3: bounded Mahler–Amice theory over O_K, continuous rotation and residue-class integrals; evaluation of pseudomeasures at nontrivial characters.
 - **LocallyAnalyticDistributions** Layer L1: locally analytic distributions on ℤ_p, their Amice transforms onto R⁺ and restriction to ℤ_p^×.
@@ -75,9 +77,13 @@ Each is used with its stated hypotheses only. In particular Mathlib has no polyl
 
 - `NormedSpace.logOneAdd`, `NormedSpace.logOneAddSeries`, `NormedSpace.hasFPowerSeriesOnBall_logOneAdd` and `NormedSpace.logOneAdd_eq_tsum`: the logarithm series log(1 + u) and its defining power series. The radius theorem proved there assumes a continuous action of ℚ≥0, which p-adic fields lack; L0.10 proves the ultrametric radius bound on the same series.
 - `TauCeti.teichmuller` and `TauCeti.range_teichmuller`: the Teichmüller lift of a local field, used for the Teichmüller points of L1.6.
+- `TauCeti.laurentEval` (module `TauCeti.Algebra.Polynomial.Laurent`): evaluation of a Laurent polynomial at a unit of an algebra. On Laurent polynomials it is the evaluation of L0.A2.
 
 ### From TauCetiRoadmap
 
+- **AdicSpacesPartII**, §R1.9 (*rigid-identity-principle*): on a connected normal rigid space, sections of the structure sheaf or of a finite locally free module that vanish on a nonempty admissible open vanish. The supplier states it for RigidAnalyticGeometry's affinoid algebras (`IsAffinoidAlgebra K A`) and rigid spaces, read through the carrier bridge of AdicSpacesPartII §R0.9. L1.2 and L1.35 apply it to the wide opens W_r, which are connected smooth curves and hence normal, through the dagger–rigid comparison of AdicSpacesPartIV §F1.8.
+- **RestrictedPowerSeries**, §1.1 (Gauss norms, their attainment and multiplicativity), §2.1 (evaluation), §2.4 (Strassmann's bound and the maximum principle on the closed disc), §3.2 (units of restricted algebras), §7.1 (series on an open disc) and §7.2 (entire series). L0.A1 applies them to the two halves f⁺ and f⁻ of a Laurent family, and L2.13 uses the evaluation of §2.1. The two-sided product, the unit criterion on an annulus, and the maximum principle on circles are constructed in L0.A1–L0.A2.
+- **NewtonPolygons**, §0.3 (supporting values and their concavity) and §0.5 (the same theory for integer-indexed sequences): ρ ↦ −log|f|_ρ is the supporting function of n ↦ −log‖a_n‖ at slope log ρ (L0.A1, `laurentGaussNorm_logConvex`).
 - **AdelicAlgebraicGroups**, §2.4 (convergence factors): for a finite-image complex Galois representation, the local factor on inertia invariants, its induction formula and the Euler product of the global L-function on Re s > 1 with its continuation. L3.Fd.1 assembles these over the embeddings of a coefficient field.
 - **RepresentationTheory**, induction and restriction, Layer 6: the ring of virtual characters and Brauer's induction theorem (every character is a ℤ-combination of characters induced from one-dimensional characters of elementary subgroups). L3.Fd.2 uses the version that keeps the fixed fields totally real when the kernel field is totally real.
 - **GrothendieckEulerForms**, Layers 0–2: the essentially small exact-category infrastructure and exact Grothendieck group, with universal properties and equivalence invariance. **AlgebraicVectorBundles**, L0A–L0C: finite locally free sheaves and their exact pullback, tensor, symmetric and exterior powers. L3.Fa.1 imports these objects before constructing higher K-groups.
@@ -86,8 +92,8 @@ Each is used with its stated hypotheses only. In particular Mathlib has no polyl
 
 ### From other roadmaps
 
-- **AdicSpacesPartII F1, R2, R3** — as listed under Scope; L1 states its carriers (wide opens, dagger algebras A⁺ and differentials Ω⁺) as these suppliers construct them.
-- **PadicHodgeTheory P7** — the Laurent carrier O_K(A(e; r, s)) of an annulus with |a_n|ρ^n → 0 for ρ ∈ (r, s), its restriction maps and Gauss norms; L0.11 defines the residue on it.
+- **AdicSpacesPartIII R2, R3** (open pull request #813). §R2.3 (*raynaud-generic-fibre*) and §R2.4 (*specialisation-map*, *tube*) give the generic fibre X_an, the specialization map and the tubes ]x[ and ]Y_k[ of L1.2. §R2.9 (*residue-disc*) identifies the tube of a smooth rational point with the open unit disc and gives `residueDisc_reparam_one`, the change of parameter t′ = u t (1 + h) used in L1.2–L1.3. §R3.4 (*quasi-stein-space*; Theorem B, the vanishing of higher coherent cohomology, is *quasi-stein-theorems-a-b*, and Theorem A is *quasi-stein-theorem-a*) and §R3.7 (*proper-gaga*) give the Čech and GAGA steps of L1.9.
+- **AdicSpacesPartIV F1** (open pull request #815). §F1.2 (*dagger-algebra*, *dagger-norm-and-continuity*, *dagger-weak-completeness*) gives dagger algebras, their residue norms and overconvergent geometric series. §F1.3 (*fringe-presentation*, *fringe-topology*, *fringe-module-descent*) gives fringe stages and descent of finite modules to them. §F1.5 (*weak-completion*, *weak-completion-generic-fibre*) gives the weak completion S†⊗K of a finitely generated O_K-algebra as a dagger algebra, for K finite over ℚ_p. §F1.6 (*dagger-tate-acyclicity*) and §F1.7 (*dagger-coherent-module*, *strict-neighbourhood*, *overconvergent-sections-formula*) give acyclicity, coherent descent and overconvergent sections over strict neighbourhoods. §F1.8 (*dagger-identity-principle*) transports the identity principle of AdicSpacesPartII §R1.9. §F1.9 (*dagger-differentials*, *dagger-smooth-space*, *dagger-de-rham-complex*, *dagger-polyannulus-de-rham-cohomology*) gives differentials, smoothness, the de Rham complex and the cohomology of annuli. §F1.11 (*dagger-de-rham-finite-field-extension*) gives finite base change, and §F1.12 (*dagger-snc-divisor*, *log-de-rham-complex*) gives the logarithmic complex of a smooth pair. L1 states its carriers (wide opens, A⁺ and Ω⁺) as these suppliers construct them. The comparison of colim_r O(W_r) with S†⊗K for the particular wide opens W_r is L1.2's own `daggerAlgebra_eq_weakCompletion`.
 - **PadicDifferentialEquationsAndRigidCohomology RD.0, RD.3.5, RD.3.12, RD.3.17–RD.3.18, RD.4–RD.6** — diagonal-tube charts, the Taylor convergence criterion and the connection/stratification equivalence (L1.21); Frobenius lifts and homotopies between them, rigid cohomology of smooth curves with its finiteness and independence of the lift, and the Frobenius weights used in L1.8 and L3.Fb.3.
 - **PadicMeasuresIwasawaAlgebras L2, L3** — bounded measures with O_K coefficients, their Amice transforms, rotation by p-power roots of unity, residue-class values, and pseudomeasure values at nontrivial characters.
 - **LocallyAnalyticDistributions L1** — D^la(ℤ_p, K), the Amice isomorphism onto R⁺, multiplication by x and restriction to ℤ_p^×.
@@ -95,11 +101,11 @@ Each is used with its stated hypotheses only. In particular Mathlib has no polyl
 
 ## How to read the build
 
-The layers are built in the order L0 → L1 → L2 → L3, and within a layer the *Needs* clauses give the dependency order. In the regulator foundations first construct K-theory (L3.Fa.1), the syntomic complexes and regulator (L3.Fb.1–L3.Fb.2) and the complex regulator and Borel theorem (L3.Fc.1). The number-field vanishing consequence of Borel supplies L3.Fa.1 before constructing the symbol complexes (L3.Fa.2–L3.Fa.4), then the cyclotomic classes of L3.Fa.5. Construct the regulator maps and rank criterion (L3.Fb, L3.Fc.1–L3.Fc.2) before using the cyclotomic calculations of L3.Fc.3 to prove the basis and spanning claims of L3.Fa.5; the definitions of those classes do not use their independence. L0 is pure p-adic analysis over Mathlib and the logarithm series of Tau Ceti. L1 needs L0 and the rigid-geometric suppliers, and delivers Coleman integration in general and explicitly on punctured lines. L2 needs L1 only through the punctured lines and the uniqueness principle, and delivers the polylogarithms and the five-term relation. L3 has two halves: the scalar half (L3.1–L3.13, L3.17–L3.35) needs L2, the measure suppliers and DirichletPadicLFunctions, and delivers Coleman's formula; the regulator half (L3.14–L3.16, L3.36–L3.37) also needs the motivic and regulator foundations L3.Fa.1–L3.Fd.2, which are self-contained apart from Coleman integration (L1) and the polylogarithms (L2). Proof sketches cite targets by number; locators refer to the editions listed under References, with published page numbers marked as such.
+The layers are built in the order L0 → L1 → L2 → L3, and within a layer the *Needs* clauses give the dependency order. In the regulator foundations first construct K-theory (L3.Fa.1), the syntomic complexes and regulator (L3.Fb.1–L3.Fb.2) and the complex regulator and Borel theorem (L3.Fc.1). The number-field vanishing consequence of Borel supplies L3.Fa.1 before constructing the symbol complexes (L3.Fa.2–L3.Fa.4), then the cyclotomic classes of L3.Fa.5. Construct the regulator maps and rank criterion (L3.Fb, L3.Fc.1–L3.Fc.2) before using the cyclotomic calculations of L3.Fc.3 to prove the basis and spanning claims of L3.Fa.5; the definitions of those classes do not use their independence. L0 is pure p-adic analysis over Mathlib, the logarithm series of Tau Ceti, and the one-sided series theory of TauCetiRoadmap RestrictedPowerSeries and NewtonPolygons; its Laurent carriers of annuli are its own (L0.A1–L0.A2). L1 needs L0 and the rigid-geometric suppliers, and delivers Coleman integration in general and explicitly on punctured lines. L2 needs L1 only through the punctured lines and the uniqueness principle, and delivers the polylogarithms and the five-term relation. L3 has two halves: the scalar half (L3.1–L3.13, L3.17–L3.35) needs L2, the measure suppliers and DirichletPadicLFunctions, and delivers Coleman's formula; the regulator half (L3.14–L3.16, L3.36–L3.37) also needs the motivic and regulator foundations L3.Fa.1–L3.Fd.2, which are self-contained apart from Coleman integration (L1) and the polylogarithms (L2). Proof sketches cite targets by number; locators refer to the editions listed under References, with published page numbers marked as such.
 
 ## Layer L0: Power series, residues and logarithm branches
 
-Use Mathlib’s analytic and formal-series carriers. Termwise integration preserves the open convergence radius but can lose the closed boundary. Adjoin one logarithmic symbol to remove the annulus residue obstruction; then construct every branch on ℂ_p from principal-unit logarithms. Whole-disc analyticity is stronger than local analyticity.
+Use Mathlib’s analytic and formal-series carriers. Termwise integration preserves the open convergence radius but can lose the closed boundary. Functions on an open annulus are two-sided Laurent families with a decay condition at every interior radius (L0.A1), evaluated at points of ℂ_p (L0.A2). Adjoin one logarithmic symbol to remove the annulus residue obstruction; then construct every branch on ℂ_p from principal-unit logarithms. Whole-disc analyticity is stronger than local analyticity.
 
 ### L0.F Rational coefficient series
 
@@ -275,9 +281,98 @@ Standing hypotheses of this target: K complete, nontrivially normed, ultrametric
 
 *Needs:* L0.1, `NormedSpace.logOneAdd`, `NormedSpace.logOneAddSeries`, `NormedSpace.hasFPowerSeriesOnBall_logOneAdd`, `FormalMultilinearSeries.radius`, `HasFPowerSeriesOnBall`, `PowerSeries.derivative_log_mul_one_add_X`.
 
+### L0.A1 Laurent carriers of annuli
+
+**Definition.** Let K be a complete nontrivially normed ultrametric field and I ⊆ (0, ∞) a nonempty interval of radii. I may be open, closed, half-open, unbounded above or a single radius, and its endpoints need not lie in |K^×|. The Laurent carrier O_K(I) consists of the two-sided coefficient families a : ℤ → K, written f = Σ_{n∈ℤ} a_n T^n, with ‖a_n‖ρ^n → 0 as |n| → ∞ for every ρ ∈ I (`IsLaurentOn I a`). For a centre e ∈ K and 0 ≤ r < s ≤ ∞, the ring of the open annulus A(e; r, s) = {r < |z − e| < s} is O_K(A(e; r, s)) := O_K((r, s)), read in the coordinate T = z − e. The centre changes the interpretation, not the coefficient algebra. Around ∞ use the coordinate 1/z. Addition is coefficientwise. The product is the two-sided Cauchy product c_n = Σ_{m∈ℤ} a_m b_{n−m} (`laurentMul`). For fixed n and ρ ∈ I the terms satisfy ‖a_m b_{n−m}‖ρ^n = (‖a_m‖ρ^m)(‖b_{n−m}‖ρ^{n−m}) → 0 as |m| → ∞, so each c_n converges in the complete ultrametric field K. For ρ ∈ I and f ≠ 0 the ρ-Gauss norm |f|_ρ := sup_n ‖a_n‖ρ^n (`laurentGaussNorm`) is a maximum. It is attained at a nonempty finite set of indices, with least element n_ρ(f) and greatest element N_ρ(f). With these operations O_K(I) is a commutative K-algebra and an integral domain, and every |·|_ρ with ρ ∈ I is a multiplicative ultrametric norm on it. O_K(I) is complete for the topology of all |·|_ρ, ρ ∈ I. The carrier is not a subring of Mathlib's `LaurentSeries K` (`HahnSeries ℤ K`, whose supports are bounded below): when inf I = 0 a member may have infinitely many negative terms, and a formal Laurent series need converge at no radius. (Lazard 1962, §1, (1.1)–(1.3), p. 48, and (1.7)–(1.9), p. 49; §2, Prop. 1, pp. 50–51, and (2.5)–(2.6), p. 51; Kedlaya pde, Def. 8.1.1, p. 136, Def. 8.2.1, p. 138, Props. 8.2.3 and 8.2.5, pp. 138–139, and §8.4, Defs. 8.4.1–8.4.3, pp. 143–144.)
+
+Standing hypotheses of this target: K complete, nontrivially normed and ultrametric. Characteristic zero is not used here; it enters with primitives in L0.12. I ⊆ (0, ∞) is a nonempty interval. Each weighted term ‖a_n‖ρ^n is log-affine in log ρ, so decay at two radii gives decay in between. Hence O_K(S) = O_K(hull S) for every nonempty set S of positive radii, and the Lean statements are made for such sets.
+
+- `IsLaurentOn`: the predicate on a : ℤ → K, quantified over ρ ∈ I.
+- `LaurentOn K I`: the K-algebra O_K(I) of such families with coefficientwise sum and `laurentMul`. `LaurentOn.coeff n` is the n-th coefficient, and two elements are equal when all coefficients agree.
+- `IsLaurentOn.laurentMul`: the Cauchy product of two members converges coefficientwise and is a member. The product is commutative and associative, distributes over the sum, and has unit `Pi.single 0 1`.
+- `laurentGaussNorm`: |f|_ρ = sup_n ‖a_n‖ρ^n. For f in the carrier and ρ ∈ I it is attained, and `laurentGaussNorm_eq_zero_iff` gives |f|_ρ = 0 iff f = 0.
+- `laurentGaussNorm_add_le`: |f + g|_ρ ≤ max(|f|_ρ, |g|_ρ).
+- `laurentGaussNorm_laurentMul`: |fg|_ρ = |f|_ρ |g|_ρ, with n_ρ(fg) = n_ρ(f) + n_ρ(g) and N_ρ(fg) = N_ρ(f) + N_ρ(g). Hence O_K(I) is a domain.
+- `laurentGaussNorm_logConvex`: for f ≠ 0, log |f|_ρ is a convex function of log ρ on I. On each compact subinterval of I it is piecewise affine with finitely many breaks. Its left and right slopes at ρ are n_ρ(f) and N_ρ(f), and n_ρ(f) < N_ρ(f) only at the breaks. In particular the conditions at the two endpoints of a compact interval give the condition at every radius in between. This is the supporting-value geometry of the integer-indexed height sequence n ↦ −log‖a_n‖ (TauCetiRoadmap NewtonPolygons §§0.3 and 0.5) at slope log ρ.
+- `LaurentOn.complete`: a sequence that is Cauchy for every |·|_ρ, ρ ∈ I, converges in O_K(I). It suffices to test the endpoints of a sequence of compact subintervals exhausting I.
+- `IsLaurentOn.mono` and `LaurentOn.restrict`: for J ⊆ I the identity on coefficients is an injective K-algebra map O_K(I) → O_K(J) preserving every |·|_ρ with ρ ∈ J. Restrictions compose, and O_K(I) is the inverse limit of the O_K(J) over compact J ⊆ I.
+- `LaurentOn.endGerm`: the end germ ring R := colim_{r→1} O_K((r, 1)) along these injective maps. It is realized as the union over r < 1 of the carriers inside the families ℤ → K, which is the Robba ring of K as a ring. At a point e of D, R_e is this ring in the coordinate z − e.
+- `LaurentOn.ofPowerSeries`: a power series converging on the open disc of radius s (TauCetiRoadmap RestrictedPowerSeries §7.1, or §7.2 for entire series when s = ∞), extended by zero on negative indices, lies in O_K(I) for every I ⊆ (0, s). On (0, s) this is the coefficient map at the centre of the whole-disc functions of L0.7.
+- `LaurentOn.decomp`: for I = (r, s), every f decomposes uniquely as f⁺ + f⁻. Here f⁺ = Σ_{n≥0} a_n T^n converges on |T| < s, and f⁻ = Σ_{n<0} a_n T^n is a series without constant term in w = T^{-1} converging on |w| < 1/r (entire in w when r = 0).
+- `LaurentOn.derivative`: the termwise derivative d/dT, with coefficient (n + 1)a_{n+1} at T^n, is a K-derivation of O_K(I) with |df|_ρ ≤ ρ^{-1}|f|_ρ. Its kernel is K when K has characteristic zero, and the coefficient of T^{-1} in every df is 0.
+- `isUnit_laurentOn_iff`: f is a unit of O_K(I) iff a single index j dominates at every radius, that is, ‖a_n‖ρ^n < ‖a_j‖ρ^j for all n ≠ j and all ρ ∈ I. On a compact I = [ρ₁, ρ₂] this reads n_{ρ₁}(f) = N_{ρ₂}(f). Then f = a_j T^j (1 + h) with |h|_ρ < 1 for every ρ ∈ I, and f^{-1} = a_j^{-1} T^{-j} Σ_{k≥0} (−h)^k.
+- `exists_subinterval_single_dominant`: if f ≠ 0 and I has nonempty interior, some open interval (ρ₁, ρ₂) ⊆ I carries a single dominant index. So f restricts to a unit of O_K((ρ₁, ρ₂)).
+- `LaurentOn.pullback`: let u ∈ K with |u| = 1, and let h ∈ O_K(I) have |h|_ρ < 1 for every ρ ∈ I. The substitution t = uT(1 + h) sends g = Σ b_n t^n in O_K(I) to Σ b_n u^n T^n (1 + h)^n in O_K(I). It is a K-algebra automorphism preserving every |·|_ρ, and it commutes with d through dt = t′(T) dT. The power (1 + h)^n for n < 0 uses the unit criterion.
+
+*Construction.* Membership and the Cauchy product are as stated. For convergence of the product family at ρ ∈ I: given ε > 0, only finitely many m have ‖a_m‖ρ^m ≥ ε/(|f|_ρ + |g|_ρ + 1), and similarly for g. So ‖c_n‖ρ^n ≤ max_m ‖a_m‖ρ^m ‖b_{n−m}‖ρ^{n−m} tends to 0 as |n| → ∞ (Lazard, Prop. 1, pp. 50–51). For multiplicativity, take i = n_ρ(f) and j = n_ρ(g). Every other pair (m, i + j − m) has one factor strictly below its maximum. So the coefficient of index i + j has norm exactly |f|_ρ|g|_ρ ρ^{-(i+j)}, and no coefficient exceeds it. The same argument with N_ρ gives the upper indices.
+
+For convexity and finite breaks: log(‖a_n‖ρ^n) is affine in log ρ, and the supremum of these affine functions is convex. On [ρ₁, ρ₂] ⊆ I, ‖a_n‖ρ^n ≤ ‖a_n‖ρ₂^n for n ≥ 0 and ‖a_n‖ρ^n ≤ ‖a_n‖ρ₁^n for n < 0. Both bounds tend to 0. Meanwhile |f|_ρ ≥ ‖a_k‖min(ρ₁^k, ρ₂^k) > 0 for any k with a_k ≠ 0. So only finitely many indices can dominate on [ρ₁, ρ₂], and a maximum of finitely many affine functions has finitely many breaks (Lazard (1.8)–(1.9), p. 49; Kedlaya Prop. 8.2.3, pp. 138–139). For completeness: each coefficient functional is bounded by ρ^{-n}, so coefficientwise limits exist, and the limit family satisfies the decay condition at each ρ by the usual ε/3 argument (Kedlaya Prop. 8.2.5, p. 139). The decomposition f = f⁺ + f⁻ splits the coefficient family; the two halves are the open-disc series of RestrictedPowerSeries §7.1 in T and in T^{-1}.
+
+For units: suppose one index j dominates on I. Then h := a_j^{-1} T^{-j} f − 1 has |h|_ρ < 1 for each ρ, so the Neumann series converges in every |·|_ρ by completeness. Conversely, if fg = 1 then n_ρ(f) + n_ρ(g) = 0 = N_ρ(f) + N_ρ(g) at every ρ, which forces n_ρ(f) = N_ρ(f). A unique dominant index persists on a neighbourhood of each radius, and I is connected, so it is constant (Lazard, Prop. 4 (1), p. 55, and Prop. 4 bis, p. 56; Kedlaya Lemma 8.2.6, pp. 139–140). The sub-interval exists because the breaks are finite in every compact subinterval of the interior, leaving an open interval free of them.
+
+For the pullback: at each ρ, |b_n u^n T^n ((1 + h)^n − 1)|_ρ ≤ |b_n|ρ^n |h|_ρ. So the substituted series converges in every Gauss norm, and the dominance of the leading term preserves each Gauss norm. The inverse substitution comes from the Neumann series of (pullback along uT)^{-1} ∘ (pullback along t) − 1, which is strictly contracting for each |·|_ρ. The derivation commutes with substitution because both sides are continuous and agree on Laurent polynomials.
+
+*In `Suggested.lean`:* `IsLaurentOn`, `laurentGaussNorm`, `laurentMul`, `IsLaurentOn.mono`, `IsLaurentOn.laurentMul`, `laurentGaussNorm_laurentMul`, `isUnit_laurentOn_iff`, `exists_subinterval_single_dominant`.
+
+*Needs:* `IsUltrametricDist`, `CompleteSpace`, TauCetiRoadmap RestrictedPowerSeries §§1.1, 3.2, 7.1–7.2, TauCetiRoadmap NewtonPolygons §§0.3 and 0.5, `LaurentSeries` (comparison only), L0.7.
+
+**Checks.**
+
+- Over ℚ_p the family a_n = p^{|n|} lies in O((1/p, p)): ‖a_n‖ρ^n = (ρ/p)^n for n ≥ 0 and (pρ)^n for n < 0. It does not lie in O((1/p, p²)), because at any ρ ∈ (p, p²) the terms (ρ/p)^n → ∞. So the radius condition is not vacuous.
+- Over ℚ_p take a_{−n} = p^{n²} for n ≥ 0 and a_n = 0 for n > 0. This family lies in O((0, ∞)), since p^{−n²}ρ^{−n} → 0 for every ρ > 0, but its support is not bounded below. It is the coefficient family of no element of Mathlib's `LaurentSeries`.
+- Over ℚ_p, |T + p|_1 = max(1, p^{-1}) = 1; a weighted ℓ¹ norm would give 1 + p^{-1}. For a multiplicativity witness take f = T + p and g = T^{-1} + p, so fg = 1 + p² + pT + pT^{-1}. At ρ = 1, |f|_1|g|_1 = 1 = |fg|_1. At ρ = p^{-2}, |f|_ρ = p^{-1}, |g|_ρ = p² and |fg|_ρ = max(1, p^{-3}, p) = p.
+- T − p is a unit of O((1/p, 1)): index 1 dominates for every ρ > 1/p, and the inverse is Σ_{k≥0} p^k T^{−k−1}. It is not a unit of O((p^{-2}, 1)), nor of O({1/p}). At ρ = 1/p the indices 0 and 1 tie, since ‖1‖ p^{-1} = ‖p‖, and T = p is a zero on that circle. On the compact [p^{-2}, 1] the criterion fails as n_{p^{-2}} = 0 ≠ 1 = N_1.
+- d(T^{-1}) = −T^{-2} and d(T^0) = 0. The T^{-1}-coefficient of every derivative is 0, so the family Pi.single (−1) 1 is not a derivative.
+
+### L0.A2 Points, the maximum principle on circles and the identity principle
+
+**Theorem.** Let f = Σ a_n T^n lie in O_{ℂ_p}(I), with I ⊆ (0, ∞) a nonempty interval and centre e ∈ ℂ_p. This covers every complete subfield K of ℂ_p, through the isometric inclusion of coefficients. Write A_I(ℂ_p) = {z ∈ ℂ_p : |z − e| ∈ I}.
+
+(a) For z ∈ A_I(ℂ_p) the series f(z) = Σ a_n (z − e)^n converges (`laurentSeriesEval`). Evaluation at z is a ring homomorphism O(I) → ℂ_p, compatible with restriction and with the pullbacks of L0.A1. On power series it agrees with the whole-disc functions of L0.7.
+
+(b) |f(z)| ≤ |f|_{|z−e|} for every z ∈ A_I(ℂ_p).
+
+(c) If ρ ∈ I lies in |ℂ_p^×| = p^ℚ, then |f(z)| = |f|_ρ for some z with |z − e| = ρ. Hence |f|_ρ is the maximum of |f| on that circle. Since ρ ↦ |f|_ρ is continuous on I (L0.A1), the values of f on A_I(ℂ_p) determine its Gauss norms on the closure of I ∩ p^ℚ in I. That is all of I unless I is a single radius outside p^ℚ, whose circle has no ℂ_p-points.
+
+(d) If f ≠ 0 and ρ₁ ≤ ρ₂ lie in I, then f has only finitely many zeros z with ρ₁ ≤ |z − e| ≤ ρ₂. Counted with multiplicity there are N_{ρ₂}(f) − n_{ρ₁}(f) of them, with N and n the greatest and least dominant indices of L0.A1.
+
+(e) (Identity principle.) Suppose f vanishes on an infinite subset of a closed sub-annulus ρ₁ ≤ |z − e| ≤ ρ₂ with ρ₁, ρ₂ ∈ I. Then f = 0. This applies in particular when f vanishes on a nonempty open subset of A_I(ℂ_p), or on a whole circle |z − e| = ρ with ρ ∈ I ∩ p^ℚ.
+
+(Lazard 1962, (1.1), p. 48; Prop. 2, pp. 53–54; Prop. 4, p. 55; Kedlaya pde, Prop. 8.3.2, p. 141. The closed-disc analogue of (b)–(c) is TauCetiRoadmap RestrictedPowerSeries §2.4.)
+
+Standing hypotheses of this target: p any prime, including 2; coefficients in ℂ_p (Mathlib `PadicComplex`); I ⊆ (0, ∞) a nonempty interval. Points are taken in ℂ_p, not in the coefficient field.
+
+- `laurentSeriesEval`: the value Σ' a_n w^n at w = z − e. `laurentSeriesEval_add`, `laurentSeriesEval_laurentMul` and `laurentSeriesEval_one` hold on A_I(ℂ_p).
+- `norm_laurentSeriesEval_le`: (b).
+- `laurentGaussNorm_eq_max_on_circle`: (b) and (c) on the circle of radius ‖c‖, for nonzero c ∈ ℂ_p with ‖c‖ ∈ I.
+- `finite_zeros_closedSubannulus`: (d), the finiteness part. `card_zeros_closedSubannulus` is the count with multiplicity.
+- `eq_zero_of_eval_eq_zero_on_open`: (e) for a nonempty open subset of A_I(ℂ_p).
+- `LaurentOn.eval_injective`: if I is not a single radius outside p^ℚ, two members with equal values on A_I(ℂ_p) are equal.
+
+*Proof sketch.* (a) |a_n (z − e)^n| = ‖a_n‖ρ^n → 0 with ρ = |z − e|. Multiplication commutes with evaluation by absolute convergence of the double series in the ultrametric field ℂ_p. (b) is the ultrametric inequality.
+
+(c) Pick c with |c| = ρ and put b_n = a_n c^n. Then f(e + cw) = Σ b_n w^n for |w| = 1, with |b_n| → 0 in both directions. The value |f|_ρ = |b_j| for a dominant index j lies in |ℂ_p^×|. After dividing by b_j, the reduction is a nonzero Laurent polynomial over the residue field F̄_p, nonzero only at the finitely many indices that attain the maximum. Since F̄_p^× is infinite, some unit w₀ has reduction that is neither 0 nor a root. Then |f(e + cw₀)| = |b_j| = |f|_ρ.
+
+(d) On the compact interval [ρ₁, ρ₂], factor f as P·f*, where P is a polynomial in z − e of degree N_{ρ₂}(f) − n_{ρ₁}(f) and f* is a unit of O([ρ₁, ρ₂]) (Lazard, Prop. 4 (2), p. 55, built from the extremal factors of Prop. 2, pp. 53–54; Kedlaya Prop. 8.3.2, p. 141). A unit has a single strictly dominant index at each radius (L0.A1). By the ultrametric equality, its value at z then has norm |f*|_{|z−e|} ≠ 0. The zeros of f are therefore the finitely many roots of P.
+
+(e) An infinite set of zeros inside a closed sub-annulus contradicts (d) unless f = 0. A nonempty open U ⊆ A_I(ℂ_p) contains a small disc around some z₀. That disc lies in the circle |z − e| = |z₀ − e| and is infinite.
+
+*In `Suggested.lean`:* `laurentSeriesEval`, `laurentGaussNorm_eq_max_on_circle`, `finite_zeros_closedSubannulus`, `eq_zero_of_eval_eq_zero_on_open`.
+
+*Needs:* L0.A1, L0.7, `PadicComplex`, `PadicComplex.isNonarchimedean`, TauCetiRoadmap RestrictedPowerSeries §2.4.
+
+**Checks.**
+
+- A Laurent polynomial P over ℚ_p lies in O((0, ∞)), and its value at a unit u is Tau Ceti's `TauCeti.laurentEval u P`. A definition summing only n ≥ 0, or reading T^{-1} as 0, would give P(u) wrongly for P = T^{-1}.
+- The annulus 1/p < |z| < 1 has no ℚ_p-points, because ‖ℚ_p^×‖ = p^ℤ. Vanishing on its ℚ_p-points says nothing, so the identity principle must test points of ℂ_p.
+- f = T^p − T has |f|_1 = 1, but |f(z)| ≤ p^{-1} at every z ∈ ℤ_p^× by Fermat's little theorem. The maximum on the unit circle is attained at a unit of ℂ_p whose reduction lies outside F_p, never at a ℚ_p-point.
+- T − p has exactly one zero on the circle |z| = p^{-1}, namely z = p, since N_{1/p} − n_{1/p} = 1 − 0. On |z| = 1 it has none, and there |f(z)| = 1 = |f|_1 at every point.
+- Finite zero sets do not force vanishing. The nonzero T^{p−1} − 1 vanishes at the p − 1 roots of unity in ℤ_p^×, all on the circle |z| = 1, so (e) needs an infinite set.
+- For ρ = p^{√2} the circle |z| = ρ has no ℂ_p-point. Part (c) is stated only for ρ ∈ p^ℚ. On I = {p^{√2}}, every member vanishes at all (no) points of A_I(ℂ_p), which is why `LaurentOn.eval_injective` excludes that case.
+
 ### L0.11 The residue of a differential on an annulus
 
-**Definition.** Let K be a complete subfield of ℂ_p, e in K a centre, 0≤r < s≤∞, and A = A(e; r, s) = {z in ℂ_p : r < |z - e| < s} (around ∞ use the coordinate 1/z). Let O_K(A) be the ring of Laurent series f = sum_{n in Z} a_n (z - e)^n, a_n in K, with |a_n| ρ^n→0 as |n|→∞ for ρ in (r, s), as functions on A(ℂ_p) (the carrier constructed in PadicHodgeTheory P7). For a differential ω = f dz with f in O_K(A), res_A(ω) := a_(-1). The same definition applies to the germ ring R_e = colim_{r→1} O_K(A(e; r, 1)) of the end of a residue disc, the only case in which A is not a full punctured disc. (BBK §2, Def. 1, p. 3; BT §5, p. 18.)
+**Definition.** Let K be a complete subfield of ℂ_p, e in K a centre, 0≤r < s≤∞, and A = A(e; r, s) = {z in ℂ_p : r < |z - e| < s} (around ∞ use the coordinate 1/z). Let O_K(A) be the Laurent carrier of L0.A1: the ring of Laurent series f = sum_{n in Z} a_n (z - e)^n, a_n in K, with |a_n| ρ^n→0 as |n|→∞ for ρ in (r, s), identified with functions on A(ℂ_p) by the injective evaluation of L0.A2. For a differential ω = f dz with f in O_K(A), res_A(ω) := a_(-1). The same definition applies to the germ ring R_e = colim_{r→1} O_K(A(e; r, 1)) of the end of a residue disc (`LaurentOn.endGerm`, L0.A1), the only case in which A is not a full punctured disc. (BBK §2, Def. 1, p. 3; BT §5, p. 18.)
 
 Standing hypotheses of this target: K complete subfield of ℂ_p (or any complete ultrametric field of characteristic zero). 0≤r < s≤∞; the residue is taken with respect to the coordinate z - e, oriented so that |z - e| increases outwards.
 
@@ -289,9 +384,9 @@ Standing hypotheses of this target: K complete subfield of ℂ_p (or any complet
 - `annulusResidue_restrict`: Compatible with restriction to a sub-annulus A(e; r', s') with r≤r' < s'≤s and with passage to the end germ ring R_e.
 - `annulusResidue_laurentSeries`: For r = 0 and f meromorphic at e (finitely many negative powers) the residue is the coefficient of X^(-1) of the corresponding Mathlib `LaurentSeries`.
 
-*Construction.* Define res on O_K(A) dz as the K-linear coefficient functional a_(-1). res(dg) = 0 for g in O_K(A): the coefficient of (z-e)^(-1) in g' is 0 * b_0 = 0. Coordinate independence: for an automorphism t = u (z - e)(1 + h) of A with |u| = 1 and |h| < 1 on A, dt/t = dz/(z-e) + d(log(u(1+h))) with log(u(1+h)) in O_K(A) (L0.10), so residues agree; under t = 1/(z - e) the orientation reverses and res changes sign. For a general Laurent differential, split off a_(-1) dt/t. Every remaining monomial is exact; its primitive converges on each smaller annulus by the polynomial denominator bound of L0.1. Analytic substitution commutes with d, so these exact terms still have zero residue. The logarithmic derivative of t'=u t(1+h) is dt/t + d log(1+h), using L0.10. This proves coordinate invariance for the entire differential, rather than only dt/t.
+*Construction.* Define res on O_K(A) dz as the K-linear coefficient functional a_(-1). res(dg) = 0 for g in O_K(A): the coefficient of (z-e)^(-1) in g' is 0 * b_0 = 0. Coordinate independence: for an automorphism t = u (z - e)(1 + h) of A with |u| = 1 and |h| < 1 on A, dt/t = dz/(z-e) + d(log(u(1+h))) with log(u(1+h)) in O_K(A) (L0.10), so residues agree; under t = 1/(z - e) the orientation reverses and res changes sign. For a general Laurent differential, split off a_(-1) dt/t. Every remaining monomial is exact; its primitive converges on each smaller annulus by the polynomial denominator bound of L0.1. Analytic substitution (`LaurentOn.pullback`, L0.A1) commutes with d, so these exact terms still have zero residue. The logarithmic derivative of t'=u t(1+h) is dt/t + d log(1+h), using L0.10. This proves coordinate invariance for the entire differential, rather than only dt/t.
 
-*Needs:* PadicHodgeTheory P7, `LaurentSeries`, `IsUltrametricDist`, L0.10.
+*Needs:* L0.A1, L0.A2, `LaurentSeries`, `IsUltrametricDist`, L0.10.
 
 **Checks.**
 
@@ -302,13 +397,13 @@ Standing hypotheses of this target: K complete subfield of ℂ_p (or any complet
 
 ### L0.12 A differential on an annulus is exact exactly when its residue vanishes
 
-**Theorem.** Let K be a complete subfield of ℂ_p (or any complete ultrametric field of characteristic zero), A = A(e; r, s) an open annulus, and ω = f dz with f = sum a_n (z - e)^n in O_K(A). There is g in O_K(A) with dg = ω if and only if res_A(ω) = 0; in that case g = sum_{n≠-1} a_n (z - e)^(n+1)/(n+1) + const, and g is unique up to an additive constant because ker(d on O_K(A)) = K. (BBK §2, Def. 1 and Rem. 2, p. 3; BT §5, p. 18.)
+**Theorem.** Let K be a complete subfield of ℂ_p (or any complete ultrametric field of characteristic zero), A = A(e; r, s) an open annulus, and ω = f dz with f = sum a_n (z - e)^n in O_K(A). There is g in O_K(A) with dg = ω if and only if res_A(ω) = 0; in that case g = sum_{n≠-1} a_n (z - e)^(n+1)/(n+1) + const, and g is unique up to an additive constant because ker(d on O_K(A)) = K. (BBK §2, Def. 1 and Rem. 2, p. 3; BT §5, p. 18.) For K of characteristic zero and radii in √|K^×|, the open-annulus case is also the degree-one part of AdicSpacesPartIV §F1.9 (*dagger-polyannulus-de-rham-cohomology* (b)), stated for the rigid open annulus. The coefficient argument here covers arbitrary real radii and the end germ, and it needs no comparison of O_K(A) with rigid sections.
 
 Standing hypotheses of this target: (C1); A an open annulus or the end germ of a residue disc.
 
 *Proof sketch.* Write η = sum a_n t^n dt. An analytic primitive forces a_(-1)=0 because a derivative has no t^(-1) coefficient in characteristic zero. Conversely put b_(n+1)=a_n/(n+1) for n ≠ -1 and b_0=0. The bound is ||((n+1):K)^(-1)|| ≤ |n+1|_real^σ for a fixed σ≥0; the integer absolute value is real, and the annulus outer radius is not this exponent. For each positive ρ between r and s choose r<ρ_minus<ρ<ρ_plus<s. The coefficient-decay estimates at ρ_minus for the negative tail and at ρ_plus for the positive tail absorb the polynomial denominators, so the primitive converges at ρ. Differentiate termwise. The kernel follows coefficientwise: (n+1)b_(n+1)=0 forces every nonconstant coefficient to vanish.
 
-*Needs:* L0.11, L0.1, L0.5, PadicHodgeTheory P7.
+*Needs:* L0.11, L0.1, L0.5, L0.A1.
 
 ### L0.13 The logarithm series is a homomorphism on principal units
 
@@ -331,7 +426,7 @@ Standing hypotheses of this target: ℂ_p is Mathlib's `PadicComplex` p; its nor
 *Proof sketch.* Value group: on the algebraic closure (Mathlib `PadicAlgCl`) the norm is the spectral norm (Mathlib `spectralNorm`), ||y|| = |N(y)|^(1/[ℚ_p(y):ℚ_p]) in p^Q; since the algebraic closure is dense in ℂ_p and ||x|| = ||y|| whenever ||x - y|| < ||x||, every nonzero x has ||x|| in p^Q. Choose N_0 with ||x^(N_0)|| = p^(-m_0); u = x^(N_0) p^(-m_0) is a unit of the valuation ring Mathlib `PadicComplexInt`. Choose y algebraic with ||u - y|| < 1; y is a unit in a finite extension of ℚ_p whose residue field is finite of order q, so y^(q-1) and hence u^(q-1) lie in 1 + m. Take N = N_0 (q - 1), m = m_0 (q - 1); the identity m/N = v_p(x) is immediate from ||x^N p^(-m)|| = 1.
 
 
-*Needs:* `PadicComplex`, `PadicAlgCl`, spectralNorm, `PadicComplexInt`, `Real.logb`, PadicHodgeTheory P7.
+*Needs:* `PadicComplex`, `PadicAlgCl`, spectralNorm, `PadicComplexInt`, `Real.logb`.
 
 ### L0.15 The branches log_a of the p-adic logarithm
 
@@ -442,11 +537,15 @@ Standing hypotheses of this target: K complete subfield of ℂ_p; a∈ℂ_p; A=A
 - `AnnulusLogRing.realize_d`: ρ_a commutes with d: the derivative of ρ_a(F) is ρ_a(dF/dz).
 - `AnnulusLogRing.changeParam`: For t = u (z - e)(1 + h), |u| = 1, |h| < 1, the substitution l↦l + log_a(u) + log(1 + h) is an isomorphism compatible with d and ρ_a.
 - `AnnulusLogRing.realize_branch`: ρ_b(F) = ρ_a(F with l replaced by l + (b - a) v_p(z - e)) as functions (L0.23).
-- `AnnulusLogRing.restrict`: Restriction to sub-annuli and to the end germ.
+- `AnnulusLogRing.restrict`: Restriction to sub-annuli and to the end germ, through the coefficient maps of L0.A1.
+- `IsLogLaurentNear`: for c ∈ ℂ_p and a function L, f is on 0 < |z − c| < 1 a polynomial Σ_{k≤N} g_k(z) L(z − c)^k whose coefficients g_k are values of members of the punctured-disc carrier O_{ℂ_p}(A(c; 0, 1)) of L0.A1; with L = log_a this is the image of O(A(c; 0, 1))[l] under ρ_a.
+- `IsLogLaurentAtInfty`: the same shape on |z| > 1 in the parameter z^{-1}, with coefficients in O_{ℂ_p}(A(0; 0, 1)) evaluated at z^{-1} and L(z^{-1}) in place of L(z − c).
 
 *Construction.* Define the polynomial ring and extend d by the Leibniz rule with dl = dz/(z - e). ρ_a is a ring homomorphism by construction; d ρ_a = ρ_a d by L0.19. Independence of the parameter: log_a(t) = log_a(z - e) + log_a(u) + log(1 + h) by L0.15, and log(1 + h) lies in O(A) by L0.10.
 
-*Needs:* L0.11, L0.15, L0.19, L0.10, PadicHodgeTheory P7, L0.17.
+*In `Suggested.lean`:* `IsLogLaurentNear`, `IsLogLaurentAtInfty`.
+
+*Needs:* L0.11, L0.15, L0.19, L0.10, L0.A1, L0.A2, L0.17.
 
 **Checks.**
 
@@ -454,6 +553,7 @@ Standing hypotheses of this target: K complete subfield of ℂ_p; a∈ℂ_p; A=A
 - On polynomials of degree 0 in l, ρ_a is the inclusion of O_K(A) as functions.
 - ρ_a(l) = log_a(z - e) is not ρ_a of any element of O_K(A): dz/(z - e) has residue 1 (L0.12).
 - ρ_b(l)-ρ_a(l)=(b-a)v_p(z-e). It is locally constant, and for a≠b it is nonconstant on A(0;p^(-2),1), which contains circles of two different valuations.
+- `IsLogLaurentNear` constrains f only on 0 < |z − c| < 1. Changing f at c preserves it, so the expansion carries no information about the value at the puncture.
 
 ### L0.21 The logarithm is transcendental over functions on an annulus
 
@@ -461,9 +561,9 @@ Standing hypotheses of this target: K complete subfield of ℂ_p; a∈ℂ_p; A=A
 
 Standing hypotheses of this target: 0 ≤ r < s, so that A contains circles of more than one radius; K complete subfield of ℂ_p.
 
-*Proof sketch.* n = 0: a Laurent series vanishing as a function on A(ℂ_p) is zero, by the identity principle for the Laurent carrier of PadicHodgeTheory P7 (the Gauss norm |f|_ρ is attained on the circle |z − e| = ρ for ρ ∈ |ℂ_p^×|). Induction: take a relation of minimal degree n ≥ 1 with f_n ≠ 0 and apply the derivation θ = (z - e) d/dz: θ(f l^k) = θ(f) l^k + k f l^(k-1). The combination f_n * θ(relation) - θ(f_n) * relation has degree < n, so all its coefficients vanish; its coefficient of l^(n-1) gives f_n θ(f_(n-1)) - θ(f_n) f_(n-1) + n f_n^2 = 0. Choose an open sub-annulus A' on which a single term dominates f_n (a radius interval between consecutive breaks of the Newton polygon of f_n; breaks are discrete); there f_n = c (z-e)^j (1 + h) with |h| < 1 is a unit of O(A'). Then g = f_(n-1)/f_n lies in O(A') and θ(g) = -n, i.e. dg = -n dz/(z - e) on A', whose residue -n is nonzero in characteristic zero: this contradicts L0.12.
+*Proof sketch.* n = 0: a Laurent series vanishing as a function on A(ℂ_p) is zero, by the identity principle L0.A2 (e); equivalently, by L0.A2 (c) the Gauss norm |f|_ρ is attained on the circle |z − e| = ρ for ρ ∈ |ℂ_p^×|. Induction: take a relation of minimal degree n ≥ 1 with f_n ≠ 0 and apply the derivation θ = (z - e) d/dz: θ(f l^k) = θ(f) l^k + k f l^(k-1). The combination f_n * θ(relation) - θ(f_n) * relation has degree < n, so all its coefficients vanish; its coefficient of l^(n-1) gives f_n θ(f_(n-1)) - θ(f_n) f_(n-1) + n f_n^2 = 0. Choose an open sub-annulus A' on which a single term dominates f_n (a radius interval between consecutive breaks of the Newton polygon of f_n, which are finite in every closed subinterval; `exists_subinterval_single_dominant`, L0.A1); there f_n = c (z-e)^j (1 + h) with |h| < 1 is a unit of O(A') (`isUnit_laurentOn_iff`, L0.A1). Then g = f_(n-1)/f_n lies in O(A') and θ(g) = -n, i.e. dg = -n dz/(z - e) on A', whose residue -n is nonzero in characteristic zero: this contradicts L0.12.
 
-*Needs:* L0.12, L0.20, L0.19, PadicHodgeTheory P7.
+*Needs:* L0.12, L0.20, L0.19, L0.A1, L0.A2.
 
 ### L0.22 Logarithmic primitives on an annulus
 
@@ -516,10 +616,11 @@ Standing hypotheses of this target: (C2), (C3); c∈ℂ_p is nonzero.
 - For p = 3 and every branch a, log_a(4) = 3 + 2·3² + 3³ + 2·3⁵ + 2·3⁶ + 3⁸ + 2·3¹⁰ + 3¹¹ modulo 3¹², since 4 is a principal unit (L0.15); log_b(p²) − log_a(p²) = 2(b − a) (L0.16).
 - On the annulus A(0; r, s) the form dz/z has residue 1 and is not exact; its primitive in the logarithmic ring is the symbol l, realized as log_a(z) (L0.11, L0.20, L0.22).
 - The indicator of D⁻(0, 1/p) on D⁻(0, 1) is locally analytic with derivative 0 but not in the ring of functions analytic on the whole disc (L0.7, L0.9).
+- Over ℚ_p, z − p is a unit on A(0; 1/p, 1) with inverse Σ_{k≥0} p^k z^{−k−1}, but not on A(0; p^{-2}, 1), where its two coefficients tie at ρ = 1/p and z = p is a zero. The family Σ_{n≥0} p^{n²} z^{−n} lies in the carrier of the punctured plane but is no formal Laurent series (L0.A1, L0.A2).
 
 ### Dependencies
 
-Mathlib (power series, analytic functions, `PadicComplex`); Tau Ceti `NormedSpace.logOneAdd`; PadicHodgeTheory P7 (Laurent carriers of annuli); LocallyAnalyticDistributions L1 (the Amice target R⁺).
+Mathlib (power series, analytic functions, `PadicComplex`); Tau Ceti `NormedSpace.logOneAdd`; TauCetiRoadmap RestrictedPowerSeries §§1.1, 2.4, 3.2, 7.1–7.2 and NewtonPolygons §§0.3, 0.5 (one-sided Gauss norms, open-disc and entire series and supporting values, which L0.A1–L0.A2 extend to Laurent carriers of annuli); LocallyAnalyticDistributions L1 (the Amice target R⁺).
 
 ## Layer L1: Frobenius continuation and Coleman functions
 
@@ -552,23 +653,23 @@ Standing hypotheses of this target: K finite over ℚ_p, contained in ℂ_p; k =
 
 ### L1.2 Wide open neighbourhoods and the dagger algebra
 
-**Definition.** For a good-reduction pair, X_an is the generic fibre of its formal completion, with specialization sp. Write ]x[=sp⁻¹(x) and ]Y_k[=sp⁻¹(Y_k). Choose an integral parameter t_e at each section e∈D. For 0<r<1 in |ℂ_p^×|, set W_r=X_an∖⋃_e{|t_e|≤r} inside the end discs. These connected wide opens are cofinal strict neighborhoods of ]Y_k[, independently of parameters up to cofinality. Define A⁺(Y)=colim_(r→1)O(W_r) and Ω⁺(Y)=colim_r Ω¹(W_r); identify A⁺ with the Monsky–Washnitzer weak completion of O(Y) tensored with K. AdicSpacesPartII F1 supplies these carriers; AdicSpacesPartII R2 supplies fibres and tubes. (BT §5, p. 18; BBK §2, Def. 4, p. 4; F §2.1, p. 7.)
+**Definition.** For a good-reduction pair, X_an is the generic fibre of its formal completion, with specialization sp. Write ]x[=sp⁻¹(x) and ]Y_k[=sp⁻¹(Y_k). Choose an integral parameter t_e at each section e∈D. For 0<r<1 in |ℂ_p^×|, set W_r=X_an∖⋃_e{|t_e|≤r} inside the end discs. These connected wide opens are cofinal strict neighborhoods of ]Y_k[, independently of parameters up to cofinality. Define A⁺(Y)=colim_(r→1)O(W_r) and Ω⁺(Y)=colim_r Ω¹(W_r); identify A⁺ with the Monsky–Washnitzer weak completion of O(Y) tensored with K. AdicSpacesPartIV §§F1.2, F1.5 and F1.9 supply the dagger algebra, the weak completion and the differentials; AdicSpacesPartIII §§R2.3–R2.4 supply fibres and tubes. (BT §5, p. 18; BBK §2, Def. 4, p. 4; F §2.1, p. 7.)
 
 Standing hypotheses of this target: (X, D) a good-reduction pair; r ranges over |ℂ_p^x| intersected with (0, 1).
 
 - `wideOpen`: wideOpen (X, D) r : the basic wide open W_r, an admissible open of X_an.
-- `daggerAlgebra`: A+(Y) = colim_r O(W_r), the dagger algebra (carrier from AdicSpacesPartII F1).
+- `daggerAlgebra`: A+(Y) = colim_r O(W_r), the dagger algebra (carrier from AdicSpacesPartIV §F1.2, *dagger-algebra*).
 - `daggerDifferentials`: Ω+(Y) = colim_r Ω^1(W_r), a projective A+(Y)-module of rank one with the derivation d.
 - `mem_tube_iff`: x lies in ]Y_k[ iff sp(x) is in Y_k.
 - `wideOpen_anti`: r≤r' implies W_r' is contained in W_r; the W_r are cofinal among strict neighbourhoods.
 - `wideOpen_param_indep`: Changing the local parameters t_e changes the system (W_r) by a cofinal one and does not change A+(Y).
 - `daggerAlgebra_eq_weakCompletion`: A+(Y) is the Monsky-Washnitzer weak completion of O(Y) tensored with K (Balakrishnan-Bradshaw-Kedlaya Definition 7 for hyperelliptic curves).
 - `daggerAlgebra_restrict`: Restriction maps A+(Y)→O(]x[) for x in Y_k and to the end germs at points of D (L1.3).
-- `daggerAlgebra_identity`: An element of A+(Y) or Ω+(Y) whose restriction to one residue disc of ]Y_k[ vanishes is zero (identity principle on the connected W_r; imported from AdicSpacesPartII F1).
+- `daggerAlgebra_identity`: An element of A+(Y) or Ω+(Y) whose restriction to one residue disc of ]Y_k[ vanishes is zero (identity principle on the connected smooth, hence normal, W_r; imported from AdicSpacesPartIV §F1.8, *dagger-identity-principle*, which transports TauCetiRoadmap AdicSpacesPartII §R1.9).
 
-*Construction.* Residue discs and tubes: generic fibre and specialisation of AdicSpacesPartII R2. Strict neighbourhoods: the sets W_r are complements of closed discs inside the residue discs of the points of D; cofinality under change of the t_e follows because two parameters differ on ]e[ by t' = u t (1 + h) with |u| = 1, |h| < 1 (L1.3). Dagger algebra, weak completion and Ω+: imported from AdicSpacesPartII F1. Comparison with Balakrishnan-Bradshaw-Kedlaya's wide opens {|f| < λ}: take f with poles exactly along D.
+*Construction.* Residue discs and tubes: generic fibre and specialisation of AdicSpacesPartIII §§R2.3–R2.4, residue discs of §R2.9. Strict neighbourhoods: the sets W_r are complements of closed discs inside the residue discs of the points of D; cofinality under change of the t_e follows because two parameters differ on ]e[ by t' = u t (1 + h) with |u| = 1, |h| < 1 (L1.3). Dagger algebra, weak completion and Ω+: imported from AdicSpacesPartIV §F1.5 (*weak-completion*, *weak-completion-generic-fibre*) and §F1.9 (*dagger-differentials*). Overconvergent sections are colimits over strict neighbourhoods (§F1.7, *strict-neighbourhood*, *overconvergent-sections-formula*). The comparison with the particular system W_r is `daggerAlgebra_eq_weakCompletion`. Comparison with Balakrishnan-Bradshaw-Kedlaya's wide opens {|f| < λ}: take f with poles exactly along D.
 
-*Needs:* L1.1, AdicSpacesPartII F1, AdicSpacesPartII R2, L0.6, L0.5.
+*Needs:* L1.1, AdicSpacesPartIV §§F1.2, F1.5, F1.7–F1.9, AdicSpacesPartIII §§R2.3, R2.4, R2.9, L0.6, L0.5.
 
 **Checks.**
 
@@ -582,9 +683,9 @@ Standing hypotheses of this target: (X, D) a good-reduction pair; r ranges over 
 
 Standing hypotheses of this target: (X, D) a good-reduction pair; x a point of X_k(F_p-bar).
 
-*Proof sketch.* The formal completion of X along x is the formal disc in t (smoothness); its generic fibre is D^-(0, 1) (AdicSpacesPartII R2). At e in D the same parameter identifies ]e[ with D^-(0, 1) and W_r intersected with ]e[ with A(0; r, 1). Two integral etale parameters give inverse formal-disc coordinates. Their composition has constant term v in the maximal ideal and unit linear coefficient u. For parameters vanishing at the same section, v=0, so t'/t=u(1+h). Translation between different lifts is handled by whole-disc recentering, not by division by t. Invariance of O(D^-), R_e and residues under such automorphisms: L0.7 (composition) and the coordinate-change API of L0.11 and L0.20.
+*Proof sketch.* The formal completion of X along x is the formal disc in t (smoothness); its generic fibre is D^-(0, 1) (AdicSpacesPartIII §R2.9: *residue-disc* for a rational point, after the finite unramified extension of K whose residue field contains κ(x), over which `residueDisc_unramified_split` splits the tube into discs). At e in D the same parameter identifies ]e[ with D^-(0, 1) and W_r intersected with ]e[ with A(0; r, 1). Two integral etale parameters give inverse formal-disc coordinates. Their composition has constant term v in the maximal ideal and unit linear coefficient u. For parameters vanishing at the same section, v=0, so t'/t=u(1+h). Translation between different lifts is handled by whole-disc recentering, not by division by t. Invariance of O(D^-), R_e and residues under such automorphisms: L0.7 (composition), the pullback of L0.A1 and the coordinate-change API of L0.11 and L0.20.
 
-*Needs:* L1.1, L1.2, AdicSpacesPartII R2, L0.7, L0.11, L0.20.
+*Needs:* L1.1, L1.2, AdicSpacesPartIII §R2.9, L0.7, L0.A1, L0.11, L0.20.
 
 ### L1.4 Locally analytic functions with logarithmic ends
 
@@ -627,9 +728,9 @@ Standing hypotheses of this target: (X, D) a good-reduction pair; q = #k. φ is 
 - `FrobeniusLift.exists`: Every good-reduction pair admits a Frobenius lift (imported from PadicDifferentialEquationsAndRigidCohomology RD.0).
 - `FrobeniusLift.close`: Two lifts φ, φ' satisfy |φ'(g) - φ(g)|≤|π| |g| on the integral algebra (the input of L1.21).
 
-*Construction.* Existence and homotopy of lifts come from PadicDifferentialEquationsAndRigidCohomology RD.0 (Frobenius lifts on weak completions), on the dagger carrier of AdicSpacesPartII F1. Action on points: φ(y) reduces to F(sp(y)) because φ reduces to the q-power map; so φ maps ]x[ into ]F(x)[. Ends: the reduction of φ^* t_(F(e)) is the pullback by Frobenius of a uniformiser at F(e), i.e. a unit times the q-th power of a uniformiser at e; so φ^* t_(F(e)) - u t_e^q lies in π times the integral algebra for a unit constant u, and on the part of the end where |t_e|^q > |π|, φ^* t_(F(e)) = u t_e^q (1 + h) with |h| < 1; then log_a(φ^* t_(F(e))) = q log_a(t_e) + log_a(u) + log(1 + h) by L0.15, and log_a(u) is branch independent by L0.16. Pullback on A_loc^a is a ring endomorphism commuting with d by the chain rule on each component.
+*Construction.* Existence and homotopy of lifts come from PadicDifferentialEquationsAndRigidCohomology RD.0 (Frobenius lifts on weak completions), on the dagger carrier of AdicSpacesPartIV §F1.5. Its *mw-morphism-lifting* gives existence only: over the complete discrete valuation ring O_K of mixed characteristic, every homomorphism of smooth k-algebras lifts to their flat weakly complete lifts, in particular the q-power Frobenius of O(Y_k). Homotopies between lifts are RD.0's. Action on points: φ(y) reduces to F(sp(y)) because φ reduces to the q-power map; so φ maps ]x[ into ]F(x)[. Ends: the reduction of φ^* t_(F(e)) is the pullback by Frobenius of a uniformiser at F(e), i.e. a unit times the q-th power of a uniformiser at e; so φ^* t_(F(e)) - u t_e^q lies in π times the integral algebra for a unit constant u, and on the part of the end where |t_e|^q > |π|, φ^* t_(F(e)) = u t_e^q (1 + h) with |h| < 1; then log_a(φ^* t_(F(e))) = q log_a(t_e) + log_a(u) + log(1 + h) by L0.15, and log_a(u) is branch independent by L0.16. Pullback on A_loc^a is a ring endomorphism commuting with d by the chain rule on each component.
 
-*Needs:* L1.1, L1.2, L1.4, L0.15, L0.16, `AlgHom.IsArithFrobAt`, PadicDifferentialEquationsAndRigidCohomology RD.0, AdicSpacesPartII F1.
+*Needs:* L1.1, L1.2, L1.4, L0.15, L0.16, `AlgHom.IsArithFrobAt`, PadicDifferentialEquationsAndRigidCohomology RD.0, AdicSpacesPartIV §F1.5.
 
 **Checks.**
 
@@ -689,20 +790,20 @@ Standing hypotheses of this target: (X,D) good-reduction over O_K; φ K-linear. 
 
 **Theorem.** Let (X, D) be a good-reduction pair over O_K (K finite over ℚ_p, residue field F_q). Then (X, D) carries a Frobenius-structured datum (L1.7): a Frobenius lift φ exists; H^1_dR+(Y) = Ω+(Y)/dA+(Y), which is the Monsky-Washnitzer (rigid) cohomology H^1_rig(Y_k/K), is finite dimensional, of dimension 2g + #D(K-bar) - 1 with a basis of algebraic differentials on Y_K, and its Frobenius does not depend on the lift; ker d = K on A+(Y); the identity principle (Hi) holds on the connected wide opens; and the eigenvalues of the K-linear Frobenius are Weil q-numbers of weights 1 (from H^1 of X_k) and 2 (from the residues along D), so (Hw) holds by L1.8. (BH §1.3.2, Def. 1 and the following sentence, p. 6; BH §1.3.2, Thm. 1, p. 6; BT §5, pp. 17-18.)
 
-The algebraic comparison is the restriction-induced K-linear equivalence `goodReduction_algebraicDeRhamEquiv` from H¹_dR(Y_K/K) to Ω⁺/dA⁺. Construct it for constant coefficients by the following argument. On a puncture disc with parameter t, use the log complex O→O·dt/t. For a Laurent one-form Σ_n a_n t^n dt/t, its negative part has primitive Σ_(n<0) (a_n/n)t^n. Division by n preserves convergence on every strictly smaller annulus by L0.1 and L0.12. Projection to nonnegative powers and this homotopy identify the log-disc, punctured-disc and fringe-annulus complexes; the surviving local classes are K in degree zero and K·dt/t in degree one. These are homotopies of complexes, not multiplicative constant-term maps. Algebraically the same finite principal-part calculation removes higher poles. Proper GAGA on X_K compares the coherent log complexes. Cover X_K^an by a strict neighbourhood and the disjoint puncture discs; quasi-Stein acyclicity and the Čech double complex give the comparison on the whole curve. Pass to the cofinal neighbourhood limit and the PadicDifferentialEquationsAndRigidCohomology RD.4 Monsky–Washnitzer comparison. Split D over a finite extension when necessary; finite scalar extension and faithful descent preserve the comparison.
+The algebraic comparison is the restriction-induced K-linear equivalence `goodReduction_algebraicDeRhamEquiv` from H¹_dR(Y_K/K) to Ω⁺/dA⁺. Construct it for constant coefficients by the following argument. On a puncture disc with parameter t, use the log complex O→O·dt/t. For a Laurent one-form Σ_n a_n t^n dt/t, its negative part has primitive Σ_(n<0) (a_n/n)t^n. Division by n preserves convergence on every strictly smaller annulus by L0.1 and L0.12. Projection to nonnegative powers and this homotopy identify the log-disc, punctured-disc and fringe-annulus complexes; the surviving local classes are K in degree zero and K·dt/t in degree one. These are homotopies of complexes, not multiplicative constant-term maps. Algebraically the same finite principal-part calculation removes higher poles. Proper GAGA on X_K (AdicSpacesPartIII §R3.7, *proper-gaga*) compares the coherent log complexes term by term. Cover X_K^an by a strict neighbourhood and the disjoint puncture discs; quasi-Stein acyclicity (AdicSpacesPartIII §R3.4, *quasi-stein-theorems-a-b*) and the Čech double complex give the comparison on the whole curve. Pass to the cofinal neighbourhood limit and the PadicDifferentialEquationsAndRigidCohomology RD.4 Monsky–Washnitzer comparison. Split D over a finite extension when necessary; finite scalar extension and faithful descent preserve the comparison.
 
 First construct `goodReduction_differentialsEquivDualizing`: for the smooth proper curve X_K, a canonical O_(X_K)-linear isomorphism Ω¹_(X_K/K) ≃ ω_(X_K/K), compatible with finite extension of K and with tensoring by O(D). Here ω is the dualizing sheaf already supplied by JacobianChallenge, not a second construction of that sheaf. Use the residue trace on differential principal parts: the sum Σ_x Tr_(κ(x)/K) res_x over closed points annihilates global meromorphic differentials, so its Čech pairing identifies Hom(F, Ω¹) with H¹(F)^∨ for coherent F. The representing property of ω then gives the isomorphism, and uniqueness with this trace normalization gives finite-base-change compatibility. This specializes smooth duality in Stacks Lemma 53.4.1(6), with base change in Lemma 53.4.4(2), [§53.4, tag 0E31](https://stacks.math.columbia.edu/tag/0E31). It does not require a rational point; the subsequent use of the existing divisor-cohomology API may pass to a finite extension that supplies one.
 
 For r=dim_K Γ(D_K,O)=#D(K-bar), the log-complex spectral sequence gives 0→H⁰(X_K,Ω¹(log D))→H¹_dR(Y_K)→H¹(X_K,O)→0: global functions are constants, and H¹(Ω¹(log D))=0 by Serre duality and H⁰(O(−D))=0. Riemann–Roch gives dim H⁰(Ω¹(log D))=g+r−1, hence `goodReduction_deRham_finrank`: dim H¹=2g+r−1. Since Y_K is affine, classes have global algebraic differential representatives. This does not make those representatives logarithmic when g>0. Import curve duality from JacobianChallenge Layer B and apply the differential/canonical-sheaf comparison below; Weil-differential duality alone does not supply that comparison. Reuse Tau Ceti's `SchemeWeilDivisor.eulerCharBelow_sheaf_eq_relativeDegree_add_one_sub_genus` and `cohomologyOneDualEquivCohomologyZero`, after a finite extension supplying a rational point.
 
-The comparison commutes with finite scalar extension, with restriction and pullback of pairs, and with the local residue maps (`goodReduction_algebraicDeRhamEquiv_baseChange`, `goodReduction_algebraicDeRhamEquiv_restrict`, `goodReduction_algebraicDeRhamEquiv_residue`). BC works over an algebraically closed complete field; apply its local argument over a finite splitting extension using the finite base change of AdicSpacesPartII F1. Its non-Liouville and overconvergence conditions hold for the trivial connection (BC Theorem 2.4 and Corollary 2.6, §§2–3, pp. 8–14 and 17–18; the constant-coefficient curve argument uses its Theorem 3.1 with exponent zero and the Čech proof of Corollary 3.7).
+The comparison commutes with finite scalar extension, with restriction and pullback of pairs, and with the local residue maps (`goodReduction_algebraicDeRhamEquiv_baseChange`, `goodReduction_algebraicDeRhamEquiv_restrict`, `goodReduction_algebraicDeRhamEquiv_residue`). BC works over an algebraically closed complete field; apply its local argument over a finite splitting extension using the finite base change of AdicSpacesPartIV §F1.11 (*dagger-de-rham-finite-field-extension*). Its non-Liouville and overconvergence conditions hold for the trivial connection (BC Theorem 2.4 and Corollary 2.6, §§2–3, pp. 8–14 and 17–18; the constant-coefficient curve argument uses its Theorem 3.1 with exponent zero and the Čech proof of Corollary 3.7).
 
 - `goodReduction_differentialsEquivDualizing`: Ω¹_(X_K/K) ≃ ω_(X_K/K), trace normalized, with finite-base-change and divisor-twist compatibility.
 - `goodReduction_algebraicDeRhamEquiv`: the restriction-induced K-linear equivalence H¹_dR(Y_K/K) ≃ Ω⁺/dA⁺.
 - `goodReduction_deRham_finrank`: dim H¹ = 2g + r − 1 with r = dim_K Γ(D_K, O) = #D(K̄).
 - `goodReduction_frobeniusDatum`: the Frobenius-structured datum of L1.7 on (X, D).
 
-*Needs:* L1.1, L1.2, L1.5, L1.7, L1.8, L0.1, L0.12; PadicDifferentialEquationsAndRigidCohomology RD.0, RD.4, RD.5, RD.6; AdicSpacesPartII F1 (logarithmic de Rham complex and finite base change of dagger de Rham cohomology), R2, R3; TauCetiRoadmap JacobianChallenge Layer B.
+*Needs:* L1.1, L1.2, L1.5, L1.7, L1.8, L0.1, L0.12; PadicDifferentialEquationsAndRigidCohomology RD.0, RD.4, RD.5, RD.6; AdicSpacesPartIV §F1.12 (logarithmic de Rham complex) and §F1.11 (finite base change of dagger de Rham cohomology); AdicSpacesPartIII §§R2.4, R3.4, R3.7; TauCetiRoadmap JacobianChallenge Layer B.
 
 **Checks.**
 
@@ -867,9 +968,9 @@ Standing hypotheses of this target: A datum on (X, D); a in ℂ_p; for independe
 
 Standing hypotheses of this target: A datum satisfying (H0), (H1), (Hi); coefficients extended to ℂ_p.
 
-*Proof sketch.* Write F = ρ(y), y = sum_w f_w L_w. By L1.14 (iii), on ]x[ one has ρ(L_w) = sum over w = u v of λ_(x,b)(L_u) c_v with constants c_v and c_empty = 1; hence F restricted to ]x[ is sum_u g_u λ_(x,b)(L_u) with g_u := sum_v c_v f_(u v), elements of A+(Y) (x) ℂ_p. F vanishes on all of ]x[ by the identity principle on discs (API eq_zero_of_eqOn of L0.7). Local independence is proved by a minimal relation, not by comparing coefficients in the relation being proved independent. Work over the meromorphic fraction field of the coefficient-extended connected smooth dagger curve. Among nonzero finite formal relations whose local realization vanishes, choose minimal maximal word length and then minimal number of nonzero coefficients at that length; divide by one top coefficient to make it 1. Differentiation removes that coefficient. If the resulting formal differential is nonzero, expand it in a basis of the one-dimensional meromorphic differential module: a nonzero component gives a vanishing relation with fewer top coefficients (or lower length), contradicting minimality. Therefore its formal D-image is 0. Independence in H1 remains valid for meromorphic primitives: df analytic forces f to have no poles in characteristic zero, and pole removal on a strict neighbourhood (AdicSpacesPartII F1) places it back in the dagger algebra; H0 likewise gives only ℂ_p constants. The kernel-of-D argument of L1.13 therefore applies over the fraction field and forces the formal relation to be a constant. A nonzero constant cannot realize to 0, which establishes local independence. The system g_u = sum_v c_v f_(u v) is unitriangular (c_empty = 1, and g_u - f_u involves only words longer than u), so descending in length all f_w = 0 and F = 0. At an end use λ_e and the identity principle for Laurent germs. Consequences: if dF = 0 then F is constant on the residue class of x, and F minus that constant vanishes there.
+*Proof sketch.* Write F = ρ(y), y = sum_w f_w L_w. By L1.14 (iii), on ]x[ one has ρ(L_w) = sum over w = u v of λ_(x,b)(L_u) c_v with constants c_v and c_empty = 1; hence F restricted to ]x[ is sum_u g_u λ_(x,b)(L_u) with g_u := sum_v c_v f_(u v), elements of A+(Y) (x) ℂ_p. F vanishes on all of ]x[ by the identity principle on discs (API eq_zero_of_eqOn of L0.7). Local independence is proved by a minimal relation, not by comparing coefficients in the relation being proved independent. Work over the meromorphic fraction field of the coefficient-extended connected smooth dagger curve. Among nonzero finite formal relations whose local realization vanishes, choose minimal maximal word length and then minimal number of nonzero coefficients at that length; divide by one top coefficient to make it 1. Differentiation removes that coefficient. If the resulting formal differential is nonzero, expand it in a basis of the one-dimensional meromorphic differential module: a nonzero component gives a vanishing relation with fewer top coefficients (or lower length), contradicting minimality. Therefore its formal D-image is 0. Independence in H1 remains valid for meromorphic primitives: df analytic forces f to have no poles in characteristic zero, and pole removal places it back in the dagger algebra: a pole of order m ≥ 1 of f gives a pole of order m + 1 of df in characteristic zero, so f is analytic on a strict neighbourhood and hence an overconvergent section (AdicSpacesPartIV §F1.7, *overconvergent-sections-formula*); H0 likewise gives only ℂ_p constants. The kernel-of-D argument of L1.13 therefore applies over the fraction field and forces the formal relation to be a constant. A nonzero constant cannot realize to 0, which establishes local independence. The system g_u = sum_v c_v f_(u v) is unitriangular (c_empty = 1, and g_u - f_u involves only words longer than u), so descending in length all f_w = 0 and F = 0. At an end use λ_e and the identity principle for Laurent germs (L0.A2 (e)). Consequences: if dF = 0 then F is constant on the residue class of x, and F minus that constant vanishes there.
 
-*Needs:* L1.7, L1.14, L1.16, L1.17, L0.7, L1.13, AdicSpacesPartII F1.
+*Needs:* L1.7, L1.14, L1.16, L1.17, L0.7, L0.A2, L1.13, AdicSpacesPartIV §F1.7.
 
 ### L1.19 The Coleman integral
 
@@ -925,14 +1026,14 @@ Standing hypotheses of this target: both pairs descend to finite extensions of �
 
 Solve the triangular word system in that difference variable. A Taylor coefficient of a word of length at most n involves at most n integrations. Each integration divides an index between 1 and j+n; L0.1 bounds the product of these denominators polynomially in j. Products and convolutions do not introduce a factor counting summands, by the ultrametric inequality. Thus, in each of the finitely many charts, the divided connection derivatives on W_n have bounds C_n(j+1)^c_n R₀^(−j), after enlarging C_n to account for the finitely many small indices. Choose |π|<δ<R₀<1. Equal reduction bounds the coordinate increments by |π| on the ordinary tube; after shrinking the common fringe stage their norms are at most δ. The Taylor terms are then bounded by C_n(j+1)^c_n(δ/R₀)^j and tend to zero. For ramified K this uses |π|, not |p|. At ends the same calculation uses Laurent-log primitives from L0.22 on a common inner annulus; finitely many word integrations still give polynomial denominator loss.
 
-RD.3.17 now applies to this particular finite unipotent connection. RD.3.18 supplies coordinate independence and the cocycle from its integrability and the proved analytic convergence. Restriction compatibility and coherent descent (AdicSpacesPartII F1.31 and F1.34) glue the matrices over the finite chart cover. Faithful finite scalar descent removes the splitting extension. On ordinary components the resulting identity is whole-disc recentering; on ends it is the Laurent-log Taylor identity, or ordinary-disc restriction for an ordinary image. Continuity of restriction permits termwise evaluation. Consequently the glued dagger coefficients express v-pullback in the u-pulled-back word family. Taking u to be the chosen Frobenius shows that the other lift preserves the Coleman image.
+RD.3.17 now applies to this particular finite unipotent connection. RD.3.18 supplies coordinate independence and the cocycle from its integrability and the proved analytic convergence. Restriction compatibility and coherent descent (AdicSpacesPartIV §F1.6, *dagger-tate-acyclicity*, and §F1.7, *dagger-coherent-module*) glue the matrices over the finite chart cover. Faithful finite scalar descent removes the splitting extension. On ordinary components the resulting identity is whole-disc recentering; on ends it is the Laurent-log Taylor identity, or ordinary-disc restriction for an ordinary image. Continuity of restriction permits termwise evaluation. Consequently the glued dagger coefficients express v-pullback in the u-pulled-back word family. Taking u to be the chosen Frobenius shows that the other lift preserves the Coleman image.
 
 - `wordConnection_uniformTaylor`: the polynomial-times-geometric bound at every fixed depth and every difference radius R₀<1, on a sufficiently small common fringe stage.
 - `wordTaylor_coordinate_independent`: the chart matrices define one transport, including the case of a nonfree differential module.
 - `wordTaylor_cocycle`: the identity and three-map composition laws, with restriction and finite-base-change compatibility.
 - `wordTaylor_realization`: the ordinary and end component identities stated above.
 
-*Needs:* L1.1–L1.5, L1.12, L1.15, L1.16, L0.1, L0.7, L0.22; AdicSpacesPartII F1.17–F1.18, F1.31, F1.34, F1.47 and F1.65; PadicDifferentialEquationsAndRigidCohomology RD.3.5, RD.3.12, RD.3.17–RD.3.18. Only the finite-word convergence is constructed here; the general stratification equivalence is imported.
+*Needs:* L1.1–L1.5, L1.12, L1.15, L1.16, L0.1, L0.7, L0.22; AdicSpacesPartIV §F1.3 (*fringe-topology*, *fringe-module-descent*), §F1.6 (*dagger-tate-acyclicity*), §F1.7 (*dagger-coherent-module*), §F1.9 (*dagger-smooth-space*) and §F1.11 (*dagger-de-rham-finite-field-extension*); PadicDifferentialEquationsAndRigidCohomology RD.3.5, RD.3.12, RD.3.17–RD.3.18. Only the finite-word convergence is constructed here; the general stratification equivalence is imported.
 
 **Checks.**
 
@@ -972,7 +1073,7 @@ Standing hypotheses of this target: A datum; a, b in ℂ_p.
 
 ### L1.25 The projective line minus zero, ∞ and roots of unity
 
-**Definition.** Let N≥1 with p not dividing N, O = ℤ_p[μ_N] (unramified over ℤ_p) and K_N = ℚ_p(μ_N) inside ℂ_p. The punctured line is U_N := P^1_O minus ({0, ∞} u μ_N); (P^1_O, D_N = {0, ∞} u μ_N) is a good-reduction pair (L1.1) because the N-th roots of unity have distinct reductions. U_1 = P^1 minus {0, 1, ∞}. Residue classes: P^1(F_p-bar) = {0, ∞} u F_p-bar^x, with ends at 0, ∞ and at the ζ in μ_N; local parameters t_0 = z, t_inf = 1/z, t_ζ = z - ζ; wide opens W_r = {r < |z| < 1/r, |z - ζ| > r for all ζ in μ_N}; dagger algebra A+(U_N) = weak completion of O[z, z^(-1), (z^N - 1)^(-1)] tensored with K_N (AdicSpacesPartII F1). (F §2.2, before Def. 2.9, p. 9; BH §1.2, pp. 2-3.)
+**Definition.** Let N≥1 with p not dividing N, O = ℤ_p[μ_N] (unramified over ℤ_p) and K_N = ℚ_p(μ_N) inside ℂ_p. The punctured line is U_N := P^1_O minus ({0, ∞} u μ_N); (P^1_O, D_N = {0, ∞} u μ_N) is a good-reduction pair (L1.1) because the N-th roots of unity have distinct reductions. U_1 = P^1 minus {0, 1, ∞}. Residue classes: P^1(F_p-bar) = {0, ∞} u F_p-bar^x, with ends at 0, ∞ and at the ζ in μ_N; local parameters t_0 = z, t_inf = 1/z, t_ζ = z - ζ; wide opens W_r = {r < |z| < 1/r, |z - ζ| > r for all ζ in μ_N}; dagger algebra A+(U_N) = weak completion of O[z, z^(-1), (z^N - 1)^(-1)] tensored with K_N (AdicSpacesPartIV §F1.5, *weak-completion-generic-fibre*). (F §2.2, before Def. 2.9, p. 9; BH §1.2, pp. 2-3.)
 
 - `puncturedLine`: puncturedLine p N : the good-reduction pair (P^1_O, {0, ∞} u μ_N) for p not dividing N.
 - `puncturedLine.wideOpen_eq`: The wide open W_r = {r < |z| < 1/r, |z - ζ| > r for ζ in μ_N}.
@@ -985,7 +1086,7 @@ Standing hypotheses of this target: A datum; a, b in ℂ_p.
 
 *Construction.* Etaleness of D_N: z^N - 1 is separable modulo p since p does not divide N. The wide opens and dagger algebra are the instance of L1.2 with these parameters.
 
-*Needs:* L1.1, L1.2, AdicSpacesPartII F1, rootsOfUnity, `IsPrimitiveRoot`.
+*Needs:* L1.1, L1.2, AdicSpacesPartIV §F1.5, rootsOfUnity, `IsPrimitiveRoot`.
 
 **Checks.**
 
@@ -1000,9 +1101,9 @@ Standing hypotheses of this target: A datum; a, b in ℂ_p.
 
 Standing hypotheses of this target: (C4).
 
-*Proof sketch.* Partial fractions give the decomposition on O[z, z^(-1), (z^N - 1)^(-1)]; the Gauss norms of the pieces on the boundary circles of W_r define the Banach norm of O(W_r) (carrier of AdicSpacesPartII F1), so the decomposition extends to the weak completion and is unique. Expansions: on ]x[ each piece is analytic on a disc containing ]x[ (L0.7); on the end at ζ the pieces other than f_ζ are analytic near ζ and f_ζ(1/(z - ζ)) is a Laurent tail (L0.11 carrier). (Hi): if f vanishes on a residue disc, its expansion around a point of the disc vanishes; the pieces are then determined by their singular parts at the removed discs, which vanish by uniqueness of the decomposition (each singular part is the principal part of the Laurent expansion on the corresponding end).
+*Proof sketch.* Partial fractions give the decomposition on O[z, z^(-1), (z^N - 1)^(-1)]; on each closed rational subdomain of W_r between the boundary circles, the Gauss norms of the pieces on those circles bound the projections. O(W_r) is the Fréchet limit of these affinoid algebras, and A⁺ is a dagger algebra with fringe Banach stages (AdicSpacesPartIV §§F1.2–F1.3, *dagger-norm-and-continuity*, *fringe-presentation*). So the decomposition extends to the weak completion and is unique. Expansions: on ]x[ each piece is analytic on a disc containing ]x[ (L0.7); on the end at ζ the pieces other than f_ζ are analytic near ζ and f_ζ(1/(z - ζ)) is a Laurent tail (L0.11 carrier). (Hi): if f vanishes on a residue disc, its expansion around a point of the disc vanishes; the pieces are then determined by their singular parts at the removed discs, which vanish by uniqueness of the decomposition (each singular part is the principal part of the Laurent expansion on the corresponding end).
 
-*Needs:* L1.25, AdicSpacesPartII F1, L0.7, L0.11, `PowerSeries.IsRestricted`.
+*Needs:* L1.25, AdicSpacesPartIV §§F1.2–F1.3, L0.7, L0.A1, L0.11, `PowerSeries.IsRestricted`.
 
 ### L1.27 The de Rham cohomology of the punctured line
 
@@ -1132,9 +1233,9 @@ Standing hypotheses of this target: (C5).
 
 Standing hypotheses of this target: (C5).
 
-*Proof sketch.* Apply partial fractions to K[z,1/(z(z−1)(z−v))]. Assign the constant polynomial part only to f_infinity; otherwise uniqueness would fail. On a closed rational subdomain between the boundary circles, the Gauss estimates for the four expansions bound the projections to each principal part. Pairwise unit distances keep the discs disjoint. Pass these bounded projections to the completed algebra; passage through slightly smaller overconvergence radii gives the dagger union. Recover each negative Laurent tail from its own boundary circle, so all projections are unique. For the converse evaluate all four restricted series on a sufficiently small wide open W_r with r⁻¹<ρ. Apply the connected-domain identity principle from AdicSpacesPartII F1 (identity principle for dagger algebras); W_r is the connected projective line with four disjoint closed discs removed. The same applies to differential coefficients because dz is a basis.
+*Proof sketch.* Apply partial fractions to K[z,1/(z(z−1)(z−v))]. Assign the constant polynomial part only to f_infinity; otherwise uniqueness would fail. On a closed rational subdomain between the boundary circles, the Gauss estimates for the four expansions bound the projections to each principal part. Pairwise unit distances keep the discs disjoint. Pass these bounded projections to the completed algebra; passage through slightly smaller overconvergence radii gives the dagger union. Recover each negative Laurent tail from its own boundary circle, so all projections are unique. For the converse evaluate all four restricted series on a sufficiently small wide open W_r with r⁻¹<ρ. Apply the connected-domain identity principle of AdicSpacesPartIV §F1.8 (*dagger-identity-principle*, transporting TauCetiRoadmap AdicSpacesPartII §R1.9); W_r is the connected projective line with four disjoint closed discs removed. The same applies to differential coefficients because dz is a basis.
 
-*Needs:* L1.34, L0.7, L0.11, `PowerSeries.IsRestricted`, AdicSpacesPartII F1.
+*Needs:* L1.34, L0.7, L0.11, `PowerSeries.IsRestricted`, AdicSpacesPartIV §§F1.2, F1.8.
 
 ### L1.36 Residue coordinates on the four-punctured line
 
@@ -1144,7 +1245,7 @@ Standing hypotheses of this target: (C5).
 
 *Proof sketch.* Use L1.35 on the coefficient of η. Integrate the polynomial-side series and the negative Laurent terms with exponents different from−1 termwise. Division by a nonzero integer preserves overconvergence after shrinking ρ>1: the existing ultrametric integer bound is polynomial in the index, while the radius margin supplies exponential decay. Apply L0.5 to each piece. The three remaining simple-pole coefficients are the corresponding residues. Exact forms have zero residue, so they determine the unique vector. If dh=0, characteristic-zero coefficient differentiation forces the polynomial part constant and all principal parts zero. Expand the three logarithmic forms in t=1/z to read residue−1 at ∞ for each; exact forms contribute zero.
 
-*Needs:* L1.35, L0.5, L0.1, L0.12, AdicSpacesPartII F1.
+*Needs:* L1.35, L0.5, L0.1, L0.12, AdicSpacesPartIV §F1.9.
 
 ### L1.37 Small error in the q-power Frobenius polynomial
 
@@ -1164,7 +1265,7 @@ Standing hypotheses of this target: (C5).
 
 *Proof sketch.* Choose s<1 sufficiently close to1 that δ<s^q. Then L1.37 gives |u_c−1|<1 uniformly on W_s, so the geometric inverse and the inherited logarithm series converge after a strict radius margin. Their sums belong to A_v. For each target W_r choose s with s^q>r and δ<s^q. If |z|≤1, ultrametric strict domination gives |z^q−c|=|z−c|^q; if |z|>1, both norms equal |z|^q. The inequalities for0 and ∞ also hold. Hence φ(W_s) is contained in W_r, producing the dagger endomorphism. Differentiate u_c algebraically and use d log u_c=du_c/u_c on the convergence domain. The result is q z^(q−1) dz/(z^q−c)−q dz/(z−c). For c=0, u_0=1.
 
-*Needs:* L1.37, L0.10, L0.13, AdicSpacesPartII F1.
+*Needs:* L1.37, L0.10, L0.13, AdicSpacesPartIV §F1.2.
 
 ### L1.39 Frobenius datum for an arbitrary separated fourth point
 
@@ -1236,7 +1337,7 @@ Standing hypotheses of this target: p is any prime, including2; v∈ℂ_p is a s
 
 ### Dependencies
 
-Layer L0; AdicSpacesPartII F1, R2, R3; PadicDifferentialEquationsAndRigidCohomology RD.0, RD.3.5, RD.3.12, RD.3.17–RD.3.18, RD.4–RD.6; TauCetiRoadmap JacobianChallenge Layer B; Tau Ceti `TauCeti.teichmuller`.
+Layer L0; AdicSpacesPartIV F1; AdicSpacesPartIII R2, R3; TauCetiRoadmap AdicSpacesPartII §R1.9; PadicDifferentialEquationsAndRigidCohomology RD.0, RD.3.5, RD.3.12, RD.3.17–RD.3.18, RD.4–RD.6; TauCetiRoadmap JacobianChallenge Layer B; Tau Ceti `TauCeti.teichmuller`.
 
 ## Layer L2: Coleman polylogarithms and functional equations
 
@@ -1490,9 +1591,9 @@ Standing hypotheses of this target: k ∈ Z (all integers; k ≥ 0 is what L2 us
 - `modPolylogLimit_distribution`: For p ∤ m: Σ_{ζ∈μ_m} modPolylogLimit p k (ζz) = m^{1−k}·modPolylogLimit p k (z^m) where all arguments satisfy |· − 1| ≥ 1.
 - `modPolylogElement`: The element ℓ_k of the p-adic completion of ℤ_p[t, (1 − t)^{−1}] (`AdicCompletion` of `Localization.Away` (1 − X)); its expansion at 0 is Σ_{p∤n} t^n/n^k.
 
-*Construction.* For m≥1 and p not dividing a, (a+p^m j)^(-k) is congruent to a^(-k) modulo p^m. Split the positive p-unit integers uniquely as a+p^m j, 0<a<p^m, p not dividing a, j≥0. Summing the geometric series proves ell_k=f_(k,m) modulo p^m in ℤ_p[[t]]. This uses the correct period p^m and one representative per class; GSWZ equation(54) as printed repeats every class p times. 1 − t^{p^N} is a unit of 𝒜 (its reduction mod p is (1 − t)^{p^N}, a unit of F_p[t, (1 − t)^{−1}], and 𝒜 is p-adically complete: Mathlib `AdicCompletion`, Mathlib `Localization.Away`), so f_{k,N} ∈ 𝒜; the congruences make (f_{k,N}) Cauchy in 𝒜, and the expansion map 𝒜 → ℤ_p[[t]] is injective and continuous, so ℓ_k ∈ 𝒜. The expansion map is p-saturated: reduce modulo p^m and use injectivity of (Z/p^m)[t,(1-t)^(-1)] into (Z/p^m)[[t]], since 1-t is a unit there and coefficient comparison of polynomials is injective. Hence congruence of the rational approximants in formal expansions is a congruence in the completion, making the sequence Cauchy there. (i) Elements of 𝒜 are p-adic limits of polynomials in t and (1 − t)^{−1} with ℤ_p coefficients, which converge uniformly on X_0 where |t| ≤ 1 and |(1 − t)^{−1}| ≤ 1; values at W(F̄_p)- or O_K-points stay in that ring. (ii) is the case N = 1 of the first step. (iii) f_{k,m}(1/t) = −(1 − t^{p^m})^{−1}Σ_b b^{−k}t^{p^m − b} and (p^m − b)^{−k} ≡ (−b)^{−k} mod p^m, so f_{k,m}(1/t) ≡ (−1)^{k+1}f_{k,m}(t); each f_{k,m} vanishes at ∞ (degree of numerator < p^m); pass to the limit on {|z| = |z − 1| = 1} and glue with ℓ_k on X_0. (iv) and (v) hold coefficientwise in ℤ_p[[t]] (for (v), Σ_{ζ∈μ_m}ζ^n = m·[m | n] and p ∤ mj ⟺ p ∤ j when p ∤ m) and transfer to 𝒜 by injectivity of the expansion. Restrictedness in s is an assertion about the particular globally glued ℓ_k, not about every element of the completed localization. By (iii) ℓ_k is rigid analytic and integral on the whole closed affinoid ℙ¹ minus D⁻(1, 1). Its coordinate v = 1/(1 − t) = 1 + s identifies this affinoid with the closed unit disc, whose integral analytic functions are ℤ_p⟨v⟩ by the affinoid compatibility of AdicSpacesPartII F1. Translating v = 1 + s preserves the integral Tate algebra, so ℓ_k has restricted ℤ_p coefficients in s. The general element t = s/(1 + s) has coefficients ±1 and shows that the assertion fails for a general element of the completion.
+*Construction.* For m≥1 and p not dividing a, (a+p^m j)^(-k) is congruent to a^(-k) modulo p^m. Split the positive p-unit integers uniquely as a+p^m j, 0<a<p^m, p not dividing a, j≥0. Summing the geometric series proves ell_k=f_(k,m) modulo p^m in ℤ_p[[t]]. This uses the correct period p^m and one representative per class; GSWZ equation(54) as printed repeats every class p times. 1 − t^{p^N} is a unit of 𝒜 (its reduction mod p is (1 − t)^{p^N}, a unit of F_p[t, (1 − t)^{−1}], and 𝒜 is p-adically complete: Mathlib `AdicCompletion`, Mathlib `Localization.Away`), so f_{k,N} ∈ 𝒜; the congruences make (f_{k,N}) Cauchy in 𝒜, and the expansion map 𝒜 → ℤ_p[[t]] is injective and continuous, so ℓ_k ∈ 𝒜. The expansion map is p-saturated: reduce modulo p^m and use injectivity of (Z/p^m)[t,(1-t)^(-1)] into (Z/p^m)[[t]], since 1-t is a unit there and coefficient comparison of polynomials is injective. Hence congruence of the rational approximants in formal expansions is a congruence in the completion, making the sequence Cauchy there. (i) Elements of 𝒜 are p-adic limits of polynomials in t and (1 − t)^{−1} with ℤ_p coefficients, which converge uniformly on X_0 where |t| ≤ 1 and |(1 − t)^{−1}| ≤ 1; values at W(F̄_p)- or O_K-points stay in that ring. (ii) is the case N = 1 of the first step. (iii) f_{k,m}(1/t) = −(1 − t^{p^m})^{−1}Σ_b b^{−k}t^{p^m − b} and (p^m − b)^{−k} ≡ (−b)^{−k} mod p^m, so f_{k,m}(1/t) ≡ (−1)^{k+1}f_{k,m}(t); each f_{k,m} vanishes at ∞ (degree of numerator < p^m); pass to the limit on {|z| = |z − 1| = 1} and glue with ℓ_k on X_0. (iv) and (v) hold coefficientwise in ℤ_p[[t]] (for (v), Σ_{ζ∈μ_m}ζ^n = m·[m | n] and p ∤ mj ⟺ p ∤ j when p ∤ m) and transfer to 𝒜 by injectivity of the expansion. Restrictedness in s is an assertion about the particular globally glued ℓ_k, not about every element of the completed localization. By (iii) ℓ_k is rigid analytic and integral on the whole closed affinoid ℙ¹ minus D⁻(1, 1). Its coordinate v = 1/(1 − t) = 1 + s identifies this affinoid with the closed unit disc, whose integral analytic functions are ℤ_p⟨v⟩: the affinoid algebra of that disc is ℚ_p⟨v⟩, and its Gauss norm is the supremum over points of ℂ_p by the maximum principle of TauCetiRoadmap RestrictedPowerSeries §2.4. Translating v = 1 + s preserves the integral Tate algebra, so ℓ_k has restricted ℤ_p coefficients in s. The general element t = s/(1 + s) has coefficients ±1 and shows that the assertion fails for a general element of the completion.
 
-*Needs:* L2.1, `AdicCompletion`, `Localization.Away`, `PadicInt`, `PowerSeries`, `PowerSeries.IsRestricted`, AdicSpacesPartII F1.
+*Needs:* L2.1, `AdicCompletion`, `Localization.Away`, `PadicInt`, `PowerSeries`, `PowerSeries.IsRestricted`, TauCetiRoadmap RestrictedPowerSeries §§2.1 and 2.4.
 
 **Checks.**
 
@@ -2046,13 +2147,15 @@ Standing hypotheses of this target: (C2), (C3); The stated constancy on all admi
 
 ### L2.63 A logarithmic Laurent end determines its punctured disc
 
-**Lemma.** Let L be the actual logarithm branch. Suppose f and g each have a finite polynomial expansion in L(z−c), with Laurent coefficients converging absolutely at every real radius 0<ρ<1, as in the existing IsLogLaurentNear. If for some 0≤r<1 one has f(z)=g(z) whenever r<|z−c|<1, then f(z)=g(z) for 0<|z−c|<1. A germ equality means such equality on an outer annulus; it is not merely agreement on a finite collection of points. (F arXiv math/0304085v2, §2.1, p. 7 (Laurent germ ring and logarithm transcendence); Proposition2.11 and proof of Theorem2.13, p. 10 (whole-disc logarithmic coefficients).)
+**Lemma.** Let L be the actual logarithm branch. Suppose f and g each have a finite polynomial expansion in L(z−c), with Laurent coefficients in the punctured-disc carrier O_{ℂ_p}(A(c; 0, 1)) of L0.A1, as in `IsLogLaurentNear` (L0.20). If for some 0≤r<1 one has f(z)=g(z) whenever r<|z−c|<1, then f(z)=g(z) for 0<|z−c|<1. A germ equality means such equality on an outer annulus; it is not merely agreement on a finite collection of points. (F arXiv math/0304085v2, §2.1, p. 7 (Laurent germ ring and logarithm transcendence); Proposition2.11 and proof of Theorem2.13, p. 10 (whole-disc logarithmic coefficients).)
 
 Standing hypotheses of this target: p is any prime; a,c∈ℂ_p; L=log_a; 0≤r<1. Both functions have the existing whole-punctured-disc logarithmic Laurent expansions, with a finite logarithmic degree and all-radius convergence.
 
-*Proof sketch.* Subtract the two finite expansions and pad the shorter polynomial by zero coefficients. The resulting polynomial in L(z−c) vanishes on the nonempty open annulus r<|z−c|<1. Apply L0.21 on that annulus: every Laurent coefficient function vanishes there. The radii are nonnegative and genuinely distinct, so no empty-annulus injectivity assertion is used. Apply the Laurent-series identity principle of PadicHodgeTheory P7 to each coefficient function. Its coefficient sequence is zero, since restricting an all-radius Laurent series to the outer annulus preserves those same coefficients. All coefficients therefore vanish on the whole punctured disc, by their existing convergent series. Recover f=g there. Zero derivative of an arbitrary locally analytic function is not used.
+*Proof sketch.* Subtract the two finite expansions and pad the shorter polynomial by zero coefficients. The resulting polynomial in L(z−c) vanishes on the nonempty open annulus r<|z−c|<1. Apply L0.21 on that annulus: every Laurent coefficient function vanishes there. The radii are nonnegative and genuinely distinct, so no empty-annulus injectivity assertion is used. Apply the identity principle L0.A2 (e) on the outer annulus to each coefficient family. Restriction to that annulus is the identity on coefficients (L0.A1), so the family is zero. All coefficients therefore vanish on the whole punctured disc, by their existing convergent series. Recover f=g there. Zero derivative of an arbitrary locally analytic function is not used.
 
-*Needs:* L0.21, L0.20, L2.16, PadicHodgeTheory P7.
+*In `Suggested.lean`:* `IsLogLaurentNear.eqOn_punctured`.
+
+*Needs:* L0.21, L0.20, L2.16, L0.A1, L0.A2.
 
 **Checks.**
 
@@ -2060,7 +2163,7 @@ Standing hypotheses of this target: p is any prime; a,c∈ℂ_p; L=log_a; 0≤r<
 
 ### L2.64 A logarithmic Laurent end determines the disc at ∞
 
-**Lemma.** Let f,g satisfy the existing IsLogLaurentAtInfty for the same branch. If for some 0≤r<1 they agree whenever r<|1/z|<1, then they agree for |z|>1. This compares the functions on the entire punctured residue disc of∞. (F arXiv math/0304085v2, Proposition2.11, p. 10, the parameter1/t at∞.)
+**Lemma.** Let f,g satisfy `IsLogLaurentAtInfty` (L0.20) for the same branch. If for some 0≤r<1 they agree whenever r<|1/z|<1, then they agree for |z|>1. This compares the functions on the entire punctured residue disc of∞. (F arXiv math/0304085v2, Proposition2.11, p. 10, the parameter1/t at∞.)
 
 Standing hypotheses of this target: p is any prime; a∈ℂ_p; L=log_a; 0≤r<1; both expansions converge at every parameter radius0<ρ<1.
 
@@ -2154,7 +2257,7 @@ Standing hypotheses of this target: θ nontrivial modulo N ≥ 2 (primitive wher
 
 ### Dependencies
 
-Layers L0–L1; AdicSpacesPartII F1; PadicHodgeTheory P7; Mathlib `HurwitzZeta.expZeta`.
+Layers L0–L1; AdicSpacesPartIV F1; TauCetiRoadmap RestrictedPowerSeries §2.1; Mathlib `HurwitzZeta.expZeta`.
 
 ## Layer L3: Positive integer L-values and regulators
 
@@ -2292,7 +2395,7 @@ The Adams operations are another construction target, not fields of an assumed K
 - `modSyntomicCohomology.cup`: the cup product (4.8), (ω₁, ε₁) ∪ (ω₂, ε₂) = (ω₁ ∧ ω₂, ε₁ ∧ (γ + (1 − γ)φ*/q^j)ω₂ + (−1)^(deg ω₁)((1 − γ) + γφ*/qⁱ)ω₁ ∧ ε₂) for every parameter γ, all choices inducing the same product on cohomology (BDJ (4.8), p. 892).
 - `modSyntomicCohomology.baseChange`: compatibility with finite extensions R → R', the map K → K' on the target of the regulator being the inclusion (Besser, cited in BDJ proof of Theorem 1.12, p. 910).
 
-*Needs:* AdicSpacesPartII F1 (dagger algebras and their de Rham complexes), PadicDifferentialEquationsAndRigidCohomology RD.4–RD.5 (rigid cohomology, its independence of choices and finiteness), Mathlib `CochainComplex`.
+*Needs:* AdicSpacesPartIV §F1.2 and §F1.9 (dagger algebras and their de Rham complexes), PadicDifferentialEquationsAndRigidCohomology RD.4–RD.5 (rigid cohomology, its independence of choices and finiteness), Mathlib `CochainComplex`.
 
 **Checks.**
 
@@ -2968,13 +3071,14 @@ Standing hypotheses of this target: p odd; n≥2; the sign is the one of L3.15.
 
 ### Dependencies
 
-Layers L0–L2; DirichletPadicLFunctions L0–L3; PadicMeasuresIwasawaAlgebras L2–L3; LocallyAnalyticDistributions L1; AdicSpacesPartII F1; PadicDifferentialEquationsAndRigidCohomology RD.4–RD.6; TauCetiRoadmap GrothendieckEulerForms Layers 0–2; AlgebraicVectorBundles L0A–L0C; IntegralHeckeAndGaloisDeterminants §6.4; TauCetiRoadmap AdelicAlgebraicGroups §2.4; TauCetiRoadmap RepresentationTheory (induction and restriction, Layer 6); Mathlib `DirichletCharacter.LFunction`, `gaussSum`, `AbstractMeasure.amiceTransform`.
+Layers L0–L2; DirichletPadicLFunctions L0–L3; PadicMeasuresIwasawaAlgebras L2–L3; LocallyAnalyticDistributions L1; AdicSpacesPartIV F1; PadicDifferentialEquationsAndRigidCohomology RD.4–RD.6; TauCetiRoadmap GrothendieckEulerForms Layers 0–2; AlgebraicVectorBundles L0A–L0C; IntegralHeckeAndGaloisDeterminants §6.4; TauCetiRoadmap AdelicAlgebraicGroups §2.4; TauCetiRoadmap RepresentationTheory (induction and restriction, Layer 6); Mathlib `DirichletCharacter.LFunction`, `gaussSum`, `AbstractMeasure.amiceTransform`.
 
 ## Downstream consumers
 
 - **AnabelianGeometryAndNonabelianChabauty**: the word algebra, Coleman functions, the uniqueness principle and the punctured-line polylogarithms (Layers L1–L2), as the depth-n quotients of the unipotent fundamental group and their Coleman realizations.
 - **EffectiveDiophantineMethods**: Coleman integrals on curves (Layer L1) for Chabauty–Coleman bounds.
 - **Polylogarithms**, **BorelRegulators**, **PadicHodgeRegulators** and **EllipticRegulators**: Coleman's polylogarithms (Layer L2), the modified polylogarithm and the syntomic regulator of cyclotomic elements, and the regulator foundations L3.Fa.1–L3.Fd.2.
+- **PadicHodgeTheory**: the Laurent carriers O_K(I) with their Gauss norms, units, zeros and evaluation, and the end germ ring, which is its Robba ring as a ring (L0.A1–L0.A2). Its Layer 1 adds the topology of the Robba ring, the bounded and cyclotomic coefficient rings and scalar extension on top of them.
 - **GrossZagierAndArithmeticHeights** and **HabiroNahmSeries**: p-adic polylogarithm values at algebraic points and roots of unity (Layer L2).
 
 ## References
@@ -2999,6 +3103,8 @@ Locators give theorem, section and page in the edition listed; published page nu
 - **BDJ-preprint:** Amnon Besser and Rob de Jeu, [The syntomic regulator for K-theory of fields](https://arxiv.org/abs/math/0110334v2), arXiv:math/0110334v2.
 - **DJ:** Rob de Jeu, [Describing all multivariable functional equations of dilogarithms](https://arxiv.org/abs/2007.11014v1), arXiv:2007.11014v1, 21 July 2020.
 - **FPZ:** Xander Faber, Keith Pardue, David Zelinsky, [Cross-Ratios of Scheme-Valued Points](https://arxiv.org/abs/2012.03073v1), arXiv:2012.03073v1, 5 December 2020.
+- **Lazard 1962:** Michel Lazard, [Les zéros des fonctions analytiques d'une variable sur un corps valué complet](http://www.numdam.org/item/PMIHES_1962__14__47_0/), Publ. Math. IHÉS 14 (1962), 47–75 (version of record).
+- **Kedlaya pde:** Kiran S. Kedlaya, [p-adic Differential Equations](https://kskedlaya.org/papers/p-adic_differential_equations.pdf), Cambridge Studies in Advanced Mathematics 125, Cambridge University Press, 2010; author copy from the author's page, read 2026-10-17; locators use the printed pagination.
 - **BC:** Francesco Baldassarri, joint work with Bruno Chiarellotto, [Algebraic versus rigid cohomology with logarithmic coefficients: the 1-dimensional example](https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/0773-02.pdf), RIMS Kôkyûroku 773 (1991), pp.7–21.
 
 - **Stacks:** The Stacks Project, [§53.4: Duality, tag 0E31](https://stacks.math.columbia.edu/tag/0E31), Lemmas 53.4.1(6) and 53.4.4(2).
