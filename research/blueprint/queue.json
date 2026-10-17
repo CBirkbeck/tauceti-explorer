@@ -132685,6 +132685,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheoryPartI~adv.md"
+  },
+  {
+   "id": "REV-PKG-AnalyticNumberTheoryPartII~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AnalyticNumberTheoryPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-AnalyticNumberTheoryPartII~adv.md",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/review.json",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/README.md",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/Suggested.lean",
+    "research/blueprint/packages/AnalyticNumberTheoryPartII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheoryPartII~adv.md"
   }
  ]
 }
