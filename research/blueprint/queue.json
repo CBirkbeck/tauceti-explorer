@@ -131906,6 +131906,63 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatistics~adv.md",
    "note": "deliverables arrived from an external worker on issue #10147",
    "finishedAt": "2026-10-17T13:31:13Z"
+  },
+  {
+   "id": "FIX-PKG-PadicHodgeTheory~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PadicHodgeTheory~adv2.md",
+    "research/blueprint/packages/PadicHodgeTheory/review.json",
+    "research/blueprint/packages/PadicHodgeTheory/README.md",
+    "research/blueprint/packages/PadicHodgeTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeTheory~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-DirichletPadicLFunctions~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DirichletPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-DirichletPadicLFunctions~adv.md",
+    "research/blueprint/packages/DirichletPadicLFunctions/review.json",
+    "research/blueprint/packages/DirichletPadicLFunctions/README.md",
+    "research/blueprint/packages/DirichletPadicLFunctions/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DirichletPadicLFunctions~adv.md"
+  },
+  {
+   "id": "FIX-PKG-ColemanIntegration~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ColemanIntegration"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ColemanIntegration~adv.md",
+    "research/blueprint/packages/ColemanIntegration/review.json",
+    "research/blueprint/packages/ColemanIntegration/README.md",
+    "research/blueprint/packages/ColemanIntegration/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv.md"
   }
  ]
 }
