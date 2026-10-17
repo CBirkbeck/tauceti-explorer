@@ -558,6 +558,7 @@ char F≠2; finite-dimensional spaces; b and ω nondegenerate. The tensor-produc
 - `tensorSymplecticForm`: The form evaluates on pure tensors as b(v,v′)ω(w,w′).
 - `tensorSymplecticForm_isAlt`: For symmetric b and alternating ω, b⊗ω is alternating; this holds in every characteristic.
 - `tensorSymplecticForm_nondegenerate`: For finite-dimensional V, W, nondegenerate b and ω give a nondegenerate b⊗ω.
+- `orthogonalSymplecticEmbedding_isometry`: Each g⊗h preserves b⊗ω, so the tensor action lands in the isometry group of 0.8.
 - `dualPair_commute`: The O(V) and Sp(W) actions commute on V⊗W.
 - `dualPair_kernel`: For nonzero factors the kernel is the simultaneous scalar pairs (aI,a⁻¹I) admitted by the two groups.
 

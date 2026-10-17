@@ -205,6 +205,30 @@ theorem schroedinger_mul (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W �
       schroedinger ψ B (t + s + (2 : F)⁻¹ * (B x b - B a y)) (x + a) (y + b) := by
   sorry
 
+/-- The Schrödinger operators preserve the squared L² integral for a translation-invariant
+measure and a unitary character (0.15); the descent to L² classes is 0.17. -/
+theorem schroedinger_isUnitary (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F)
+    [TopologicalSpace V] [IsTopologicalAddGroup V] [MeasurableSpace V] [BorelSpace V]
+    (μ : MeasureTheory.Measure V) [μ.IsAddLeftInvariant]
+    (hψ : ∀ s, ‖(ψ (ofAdd s) : ℂ)‖ = 1) (t : F) (x : V) (y : W) (φ : V → ℂ) :
+    (∫ u, ‖schroedinger ψ B t x y φ u‖ ^ 2 ∂μ) = ∫ u, ‖φ u‖ ^ 2 ∂μ := by
+  sorry
+
+/-- **Haar measure on the Heisenberg group** (0.14): for left-invariant measures `μ` on `F` and
+`ν` on `V`, the product measure is invariant under left multiplication by any `p` in the law
+`(t, v) ↦ (p₁ + t + B(p₂, v), p₂ + v)`. -/
+theorem heisenberg_haar (B : LinearMap.BilinForm F V)
+    [TopologicalSpace F] [TopologicalSpace V] [IsTopologicalAddGroup F]
+    [IsTopologicalAddGroup V] [MeasurableSpace F] [MeasurableSpace V]
+    [BorelSpace F] [BorelSpace V] [SecondCountableTopology F] [SecondCountableTopology V]
+    (μ : MeasureTheory.Measure F) (ν : MeasureTheory.Measure V)
+    [MeasureTheory.SFinite μ] [MeasureTheory.SFinite ν]
+    [μ.IsAddLeftInvariant] [ν.IsAddLeftInvariant]
+    (hB : Continuous (fun q : V × V => B q.1 q.2)) (p : F × V) :
+    MeasureTheory.Measure.map (fun q : F × V => (p.1 + q.1 + B p.2 q.2, p.2 + q.2)) (μ.prod ν) =
+      μ.prod ν := by
+  sorry
+
 /-- The center acts by `ψ(t)`. -/
 example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (t : F) (φ : V → ℂ) :
     schroedinger ψ B t 0 0 φ = (ψ (ofAdd t) : ℂ) • φ := by
@@ -256,6 +280,35 @@ example (ω : BilinForm ℚ (Fin 2 → ℚ))
     let x : (Fin 2 → ℚ) ⊗[ℚ] (Fin 2 → ℚ) :=
       Pi.single 0 1 ⊗ₜ Pi.single 1 1 - Pi.single 1 1 ⊗ₜ Pi.single 0 1
     tensorSymplecticForm ω ω x x = 2 := by
+  sorry
+
+/-- The tensor action of `O(V) × Sp(W)` on `V ⊗ W` (3.1): `(g, h) ↦ g ⊗ h`. -/
+def orthogonalSymplecticEmbedding (b : BilinForm F V) (ω : BilinForm F W) :
+    TauCeti.BilinForm.isometryGroup b × TauCeti.BilinForm.isometryGroup ω →*
+      (V ⊗[F] W ≃ₗ[F] V ⊗[F] W) where
+  toFun p := TensorProduct.congr (p.1 : V ≃ₗ[F] V) (p.2 : W ≃ₗ[F] W)
+  map_one' := TensorProduct.congr_refl_refl
+  map_mul' _ _ := TensorProduct.congr_mul _ _ _ _
+
+/-- The image of the tensor action preserves `b ⊗ ω` (3.1). -/
+theorem orthogonalSymplecticEmbedding_isometry (b : BilinForm F V) (ω : BilinForm F W)
+    (p : TauCeti.BilinForm.isometryGroup b × TauCeti.BilinForm.isometryGroup ω) :
+    orthogonalSymplecticEmbedding b ω p ∈ TauCeti.BilinForm.isometryGroup (tensorSymplecticForm b ω) := by
+  sorry
+
+/-- **Kernel of the dual-pair map** (3.1): for nonzero `V` and `W`, `(g, h)` acts trivially on
+`V ⊗ W` exactly when `g = a` and `h = a⁻¹` for a scalar `a`. -/
+theorem dualPair_kernel [Nontrivial V] [Nontrivial W] (b : BilinForm F V) (ω : BilinForm F W)
+    (g : TauCeti.BilinForm.isometryGroup b) (h : TauCeti.BilinForm.isometryGroup ω) :
+    orthogonalSymplecticEmbedding b ω (g, h) = 1 ↔
+      ∃ a : Fˣ, (∀ v, (g : V ≃ₗ[F] V) v = (a : F) • v) ∧ ∀ w, (h : W ≃ₗ[F] W) w = (a⁻¹ : Fˣ) • w := by
+  sorry
+
+/-- `(−1, −1)` lies in the kernel; without nontriviality of the factors the kernel is everything. -/
+example (b : BilinForm F V) (ω : BilinForm F W) (g : TauCeti.BilinForm.isometryGroup b)
+    (h : TauCeti.BilinForm.isometryGroup ω)
+    (hg : ∀ v, (g : V ≃ₗ[F] V) v = -v) (hh : ∀ w, (h : W ≃ₗ[F] W) w = -w) :
+    orthogonalSymplecticEmbedding b ω (g, h) = 1 := by
   sorry
 
 open Classical in
@@ -451,6 +504,27 @@ noncomputable def genusTwoTheta (a : ℕ) (ν : Fin 2 → ℤ) (Z : Matrix (Fin 
     (W : Fin 2 → ℂ) : ℂ :=
   ∑' R : Fin 2 → ℤ, if ∀ i, Int.ModEq (2 * (a : ℤ)) (R i) (ν i) then
     expTwoPi (quad Z (fun i => (R i : ℂ)) / (4 * a) + (fun i => (R i : ℂ)) ⬝ᵥ W) else 0
+
+/-- **Quasi-periodicity** (8.18): `θ(Z, W) = e(a(Z[λ] + 2Wᵀλ)) θ(Z, W + Zλ + ρ)` for integral
+`λ, ρ`. -/
+theorem genusTwoTheta_elliptic (a : ℕ) (ha : 0 < a) (ν l r : Fin 2 → ℤ) (Z : SiegelSpace)
+    (W : Fin 2 → ℂ) :
+    genusTwoTheta a ν Z.1 W =
+      expTwoPi (a * (quad Z.1 (fun i => (l i : ℂ)) + 2 * (W ⬝ᵥ fun i => (l i : ℂ)))) *
+        genusTwoTheta a ν Z.1 (W + Z.1 *ᵥ (fun i => (l i : ℂ)) + fun i => (r i : ℂ)) := by
+  sorry
+
+/-- **Theta inversion** (8.24): for `a > 0` and `Z` in the Siegel space,
+`θᵃ_ν(−Z⁻¹, Z⁻¹W) = e(a Z⁻¹[W]) √(−det Z)/(2a) Σ_{μ mod 2a} e(−νᵀμ/(2a)) θᵃ_μ(Z, W)`, with the
+principal root, positive at `Z = iY`. -/
+theorem theta_fourier_transform (a : ℕ) (ha : 0 < a) (Z : SiegelSpace) (W : Fin 2 → ℂ)
+    (ν : Fin 2 → ℤ) :
+    genusTwoTheta a ν (-Z.1⁻¹) (Z.1⁻¹ *ᵥ W) =
+      expTwoPi (a * quad Z.1⁻¹ W) * (-Z.1.det) ^ (1 / 2 : ℂ) / (2 * a) *
+        ∑ μ : Fin 2 → Fin (2 * a),
+          expTwoPi (-(∑ i, (ν i : ℂ) * ((μ i : ℕ) : ℂ)) / (2 * a)) *
+            genusTwoTheta a (fun i => ((μ i : ℕ) : ℤ)) Z.1 W := by
+  sorry
 
 /-- **Gaussian orthogonality** (8.21): with ordinary Lebesgue measure on `ℂ²`, written as
 `det Y dλ dρ` in the coordinates `W = Zλ + ρ`, the weighted pairing of `θᵃ_μ` and `θᵃ_ν` is
