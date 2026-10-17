@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T14:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T15:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -99,7 +99,6 @@ Generated 2026-10-17T14:50Z from the README supplier graph of every open pull re
 - #922 DiamondEtaleCohomology — ready; waits on #814, #818, #820, #858, #875, #908, #938
 - #928 AlgebraicModularFormsAndSerreWeights — ready; waits on #848, #849, #856, #879, #913, #938
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913, #938
-- #1035 CompletedCohomologyPartII — draft; waits on #1034, #785, #848, #854, #858, #871, #908, #913, #944
 
 ## Wave 20
 - #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
@@ -123,6 +122,7 @@ Generated 2026-10-17T14:50Z from the README supplier graph of every open pull re
 ## Wave 24
 - #966 PELModuli — draft; waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #933, #938
 - #970 SmallRamificationAndAbelianVarietyBaseCases — ready (approved at an earlier head); waits on #849, #852, #856, #931, #933
+- #1035 CompletedCohomologyPartII — draft; waits on #1034, #785, #848, #854, #858, #871, #908, #913, #933, #944
 
 ## Wave 25
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #785, #792, #818, #820, #849, #850, #853, #854, #856, #858, #871, #873, #875, #879, #924, #925, #927, #929, #931, #933, #938, #965, #966
