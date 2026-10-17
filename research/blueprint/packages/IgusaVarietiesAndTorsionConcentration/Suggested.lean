@@ -406,8 +406,132 @@ example : ¬ WeaklyGeneric (1 : ZMod 5) ![1, 1] := by
 
 end Genericity
 
+/-! ## Computed controls for the geometric interfaces
+
+These examples test arithmetic shadows of README constructions. They do not introduce curve,
+p-divisible-group, Artin-stack or cohomology carriers absent from the pins.
+-/
+
+section GeometricControls
+
+/-- IG.0.18a: a two-cycle has Frobenius slope `1/2`; its square is `-p`, and its fourth power is `p²`. This also tests the residue-characteristic-two case. -/
+example :
+    (!![(0 : ℚ), -2; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = (-2) • (1 : Matrix (Fin 2) (Fin 2) ℚ) ∧
+    (!![(0 : ℚ), -2; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 4 = 4 • (1 : Matrix (Fin 2) (Fin 2) ℚ) := by
+  constructor <;> ext i j <;> fin_cases i <;> fin_cases j <;>
+    norm_num [pow_succ, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- The cleared slope-cycle map is an isomorphism after dividing the square by `-p`.
+The fourth power requires `p²`, not `p`. -/
+example :
+    (-1 / 2 : ℚ) • (!![(0 : ℚ), -2; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 1 ∧
+    (1 / 4 : ℚ) • (!![(0 : ℚ), -2; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 4 = 1 := by
+  constructor <;> ext i j <;> fin_cases i <;> fin_cases j <;>
+    norm_num [pow_succ, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- IG.2.11: clearing `diag(1,4,1/4,1)` by `p²=4` gives outer maps `[4]` and
+multiplier `16`. The cleared map does not preserve the outer maps as identities. -/
+example :
+    let ψ : Matrix (Fin 4) (Fin 4) ℤ := !![4, 0, 0, 0; 0, 16, 0, 0; 0, 0, 1, 0; 0, 0, 0, 4]
+    ψ.transpose * skewHermMatrix ℤ 2 * ψ = (16 : ℤ) • skewHermMatrix ℤ 2 ∧
+      ψ 0 0 = 4 ∧ ψ 3 3 = 4 ∧ ψ 0 0 ≠ 1 := by
+  decide
+
+/-- Before clearing, the rational quasi-isogeny has unit multiplier and identity
+outer maps; its middle block is not integral. -/
+example :
+    let φ : Matrix (Fin 4) (Fin 4) ℚ := !![1, 0, 0, 0; 0, 4, 0, 0; 0, 0, 1 / 4, 0; 0, 0, 0, 1]
+    φ.transpose * skewHermMatrix ℚ 2 * φ = skewHermMatrix ℚ 2 ∧
+      φ 0 0 = 1 ∧ φ 3 3 = 1 := by
+  native_decide
+
+/-- IG.F.2: the differential is `1 - Frobenius`, with its actual sign. -/
+example :
+    (1 : Matrix (Fin 2) (Fin 2) ℤ) - !![1, 0; 0, 2] = !![0, 0; 0, -1] := by
+  decide
+
+/-- IG.F.16/20: the GL₂ standard modification has shift one; its representation has
+rank two. These are distinct invariants. -/
+example : pairingTwoRho ![(1 : ℚ), 0] = 1 ∧ Fintype.card (Fin 2) = 2 := by
+  norm_num [pairingTwoRho, Fin.sum_univ_two]
+
+/-- IG.F.16: the pinning correction negates a simple-root coordinate; it is visible
+in odd coefficient characteristic and becomes the identity in characteristic two. -/
+example : (-1 : ZMod 3) * 1 = 2 ∧ (-1 : ZMod 3) * 1 ≠ 1 ∧
+    (-1 : ZMod 2) * 1 = 1 := by
+  decide
+
+/-- IG.F.22: normalized and unnormalized Levi embeddings differ even after reduction.
+For `q=9` in `F₁₁`, the chosen root is `3` and its inverse is `4`. -/
+example : (3 : ZMod 11) ^ 2 = 9 ∧ (3 : ZMod 11) * 4 = 1 ∧
+    (3 : ZMod 11) ≠ 1 ∧ (4 : ZMod 11) ≠ 1 := by
+  decide
+
+/-- IG.6.6a: rank one needs the cyclotomic `q⁻¹` factor; this is not an interchange
+of arithmetic and geometric Frobenius. -/
+example (x : ℚ) : 1 - 6 * (x / 3) = 1 - 2 * x := by
+  ring
+
+/-- Rank two retains the `q U₂` coefficient after the substitution `X ↦ X/q`.
+The polynomial conversion itself is imported from TC §3b.1, not redefined here. -/
+example (x : ℚ) : 1 - 6 * (x / 2) + 40 * (x / 2) ^ 2 = 1 - 3 * x + 10 * x ^ 2 := by
+  ring
+
+/-- IG.6.6b: the unitary ambient twist has exponent `1-m`. On each coefficient it
+changes `i(1-2m+i)/2` into the required `i(i-1)/2`. -/
+example (i m : ℚ) : i * (1 - 2 * m + i) / 2 + i * (m - 1) = i * (i - 1) / 2 := by
+  ring
+
+/-- IG.0.31/0.33: for height two the ordinary and supersingular dimensions are 1,0;
+their kernel ranks grow from one to two. Height one has dimension zero. -/
+example : (2 - 1 - 0 : ℕ) = 1 ∧ (2 - 1 - 1 : ℕ) = 0 ∧
+    (2 - 1 : ℕ) = 1 ∧ (2 - 0 : ℕ) = 2 ∧ (1 - 1 : ℕ) = 0 := by
+  decide
+
+/-- IG.1.9: the first-kind cover over height two, etale height one and level one
+covers one base Frobenius; it is not the identity before perfection. -/
+example : (2 - 1 : ℕ) * 1 = 1 ∧ (2 - 0 : ℕ) * 1 = 2 := by
+  decide
+
+/-- IG.F.3: a negative isocrystal slope gives a positive bundle slope; negating and
+reordering the ordinary pair gives `(0,-1)`, not `(-1,0)`. -/
+example : -(-1 / 2 : ℚ) = 1 / 2 ∧ pairingTwoRho ![(0 : ℚ), -1] = 1 ∧
+    pairingTwoRho ![(-1 : ℚ), 0] = -1 := by
+  norm_num [pairingTwoRho, Fin.sum_univ_two]
+
+/-- IG.F.10/14 and IG.7.13: group dimension one and stratum dimension minus one
+have opposite dualizing shifts. In cohomological grading `[2]` places the line at `-2`. -/
+example : (2 * 1 : ℤ) = 2 ∧ (2 * (-1) : ℤ) = -2 ∧
+    -(-2 : ℤ) = 2 ∧ -(2 : ℤ) = -2 := by
+  decide
+
+/-- IG.7.7: with `n=2`, `r₁=1`, the two GL blocks have exponents `-3,0`;
+the remaining rank-two unitary block has exponent `-1`. -/
+example : (1 - 2 * 2 : ℤ) = -3 ∧ (1 - 1 : ℤ) = 0 ∧ -(1 : ℤ) = -1 ∧
+    (1 + 1 + 2 : ℕ) = 4 := by
+  decide
+
+/-- IG.7.11's integral obstruction: `Q_ell` is nonzero and multiplication by `ell`
+is surjective. Its ordinary reduction can vanish without the representation vanishing. -/
+example (ℓ : ℕ) [Fact (Nat.Prime ℓ)] :
+    (1 : ℚ_[ℓ]) ≠ 0 ∧ ∀ x : ℚ_[ℓ], ∃ y : ℚ_[ℓ], x = ℓ * y := by
+  have hℓ : (ℓ : ℚ_[ℓ]) ≠ 0 := by
+    exact_mod_cast (Fact.out : Nat.Prime ℓ).ne_zero
+  constructor
+  · exact one_ne_zero
+  · intro x
+    refine ⟨x / ℓ, ?_⟩
+    field_simp
+
+end GeometricControls
+
 /-!
 ## Targets stated only in the README
+
+Layer IG.F adds the relative curve, crystalline/PEL classification, Artin/solid coefficients,
+Satake, local shtukas and geometric excursion action. IG.4.0a–d adds the valuation-model,
+two-tower descent, continuous cosupport and ordinary-support limit comparisons. IG.6.6a–b
+specifies the actual GL torsion import and the lower unitary residual application.
 
 Their carriers are not available at the pins: the set `B(G)` of a general reductive group with its
 Newton and Kottwitz maps, J_b; the integral model `S_K`, abelian and p-divisible groups with
