@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T22:10Z",
+ "updated": "2026-10-17T22:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -793,7 +793,7 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "6c69937",
+   "head": "d1f1c20",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
@@ -985,7 +985,7 @@
   "AnabelianGeometryAndNonabelianChabauty": {
    "stage": "pr",
    "pr": 1021,
-   "head": "520d7b5",
+   "head": "a685c6a",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
@@ -1105,7 +1105,7 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "802264b",
+   "head": "fadb642",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
@@ -1165,7 +1165,7 @@
   "PadicHodgeTheory": {
    "stage": "pr",
    "pr": 1062,
-   "head": "4dfb23d",
+   "head": "f089495",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
@@ -1237,11 +1237,11 @@
   "PrismaticCohomologyPartIII": {
    "stage": "pr",
    "pr": 1070,
-   "head": "0341109",
+   "head": "4e4fb4c",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1276,8 +1276,8 @@
    "head": "436a663",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1321,7 +1321,7 @@
   "TorsionCohomologyInfrastructure": {
    "stage": "pr",
    "pr": 1087,
-   "head": "c7bcbc4",
+   "head": "b47ffa8",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
    "review": {
     "recommendation": null,
@@ -1333,7 +1333,7 @@
   "IgusaVarietiesAndTorsionConcentration": {
    "stage": "pr",
    "pr": 1090,
-   "head": "343bc63",
+   "head": "4f6fee6",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
    "review": {
     "recommendation": null,
