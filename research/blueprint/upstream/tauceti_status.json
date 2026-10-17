@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T17:09Z",
+ "updated": "2026-10-17T17:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -166,9 +166,9 @@
    "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged); ChatGPT Pro N3 answered CHANGES 10-16 ~10:00Z; draft",
    "head": "57e5159",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1033,7 +1033,7 @@
   "AutomorphicFormsOnReductiveGroups": {
    "stage": "pr",
    "pr": 1037,
-   "head": "6d17e21",
+   "head": "c211a0d",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 22); red team running",
    "review": {
     "recommendation": null,
@@ -1094,13 +1094,25 @@
    "stage": "pr",
    "pr": 1043,
    "head": "1ed2c02",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
    "head": "6721ccb",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"

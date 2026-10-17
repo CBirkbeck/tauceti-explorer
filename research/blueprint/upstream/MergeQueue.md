@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T16:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T17:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -23,7 +23,7 @@ Generated 2026-10-17T16:50Z from the README supplier graph of every open pull re
 - #1041 VonNeumannAlgebras (kim-em, other author)
 
 ## Wave 2
-- #813 AdicSpacesPartIII — draft; waits on #944
+- #813 AdicSpacesPartIII — ready; waits on #944
 - #248 LFunctions (roed-math, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
@@ -59,6 +59,7 @@ Generated 2026-10-17T16:50Z from the README supplier graph of every open pull re
 - #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #286, #934
 - #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #944, #899
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #785, #813, #815, #857
+- #1042 PerfectoidQuotients — draft; waits on #818, #857, #868, #908, #944
 
 ## Wave 11
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #853, #857, #868, #908, #938, #944, #279, #887, #896, #918, #953, #954, #992
@@ -100,6 +101,7 @@ Generated 2026-10-17T16:50Z from the README supplier graph of every open pull re
 - #922 DiamondEtaleCohomology — ready; waits on #814, #818, #820, #858, #875, #908, #938
 - #928 AlgebraicModularFormsAndSerreWeights — ready; waits on #848, #849, #856, #879, #913, #938
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913, #938
+- #1044 AInfCohomology — draft; waits on #1042, #813, #814, #818, #853, #857, #858, #868, #875, #879, #908, #940, #944
 
 ## Wave 20
 - #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
@@ -121,6 +123,7 @@ Generated 2026-10-17T16:50Z from the README supplier graph of every open pull re
 ## Wave 23
 - #933 ShimuraVarieties — ready; waits on #785, #792, #848, #849, #850, #852, #853, #871, #913, #931
 - #1001 WeightsInEtaleCohomology — ready; waits on #1002, #849, #850, #852, #856, #857, #868, #873, #879, #908, #913, #928, #929, #931, #938, #940, #944
+- #1043 ColemanIntegration — draft; waits on #1002, #1039, #792, #813, #815, #854, #944
 
 ## Wave 24
 - #966 PELModuli — draft; waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #933, #938
