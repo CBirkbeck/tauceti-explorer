@@ -137,7 +137,8 @@ variable (k K : Type*) [Field k] [Field K] [Algebra k K]
 /-! ## Layer 5: Zeta functions and inertia factors -/
 
 /-- Schmidt supplies an integer divisor of degree one, without supplying a rational point.
-Its proof uses the independent all-extension Weil estimate, not class-field existence. -/
+Its proof uses the independent all-extension curve Weil estimate (EtaleDualityAndPerverseSheaves
+EDC.7), not class-field existence. -/
 theorem schmidt_degree_one [Finite k] (hK : IsFunctionField k K)
     (hex : IsIntegrallyClosedIn k K) : ∃ D : Divisor k K, Divisor.degree D = 1 := by sorry
 
@@ -172,7 +173,8 @@ example :
     PowerSeries.coeff 2 (PowerSeries.mk (fun n => if 2 ∣ n then (1 : ℤ) else 0)) = 1 := by sorry
 end CurveZeta
 
-/-- RR supplies rationality/functional equation; the Weil root bound is a separate WC.5 import. -/
+/-- RR supplies rationality/functional equation; the Weil root bound is the separate import
+EtaleDualityAndPerverseSheaves EDC.7 (weight-weil-estimate-for-curves). -/
 theorem riemann_roch_zeta_rationality [Finite k] (hK : IsFunctionField k K)
     (hex : IsIntegrallyClosedIn k K) :
     ∃ P : Polynomial ℤ, P.coeff 0 = 1 ∧ P.natDegree = 2 * genus k K ∧
