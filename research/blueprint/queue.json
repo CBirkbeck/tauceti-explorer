@@ -131517,6 +131517,44 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-DirichletPadicLFunctions~adv.md",
    "note": "claimed on GitHub issue #10142"
+  },
+  {
+   "id": "FIX-PKG-AnalyticNumberTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AnalyticNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AnalyticNumberTheory~adv.md",
+    "research/blueprint/packages/AnalyticNumberTheory/review.json",
+    "research/blueprint/packages/AnalyticNumberTheory/README.md",
+    "research/blueprint/packages/AnalyticNumberTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-ArithmeticStatistics~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticStatistics"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ArithmeticStatistics~adv.md",
+    "research/blueprint/packages/ArithmeticStatistics/review.json",
+    "research/blueprint/packages/ArithmeticStatistics/README.md",
+    "research/blueprint/packages/ArithmeticStatistics/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatistics~adv.md"
   }
  ]
 }
