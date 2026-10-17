@@ -42129,8 +42129,8 @@
    "revisionOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10119",
-   "finishedAt": "2026-10-17T14:52:42Z"
+   "finishedAt": "2026-10-17T14:52:42Z",
+   "note": "deliverables arrived from an external worker on issue #10119"
   },
   {
    "priority": 2,
@@ -42156,8 +42156,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10118",
-   "finishedAt": "2026-10-17T15:30:40Z"
+   "finishedAt": "2026-10-17T15:30:40Z",
+   "note": "deliverables arrived from an external worker on issue #10118"
   },
   {
    "kind": "blueprint",
@@ -50646,8 +50646,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EtaleDualityAndPerverseSheaves.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10165",
-   "finishedAt": "2026-10-17T14:52:43Z"
+   "finishedAt": "2026-10-17T14:52:43Z",
+   "note": "deliverables arrived from an external worker on issue #10165"
   },
   {
    "id": "PKG-ExponentialSumsAndCircleMethod",
@@ -51038,8 +51038,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10194",
-   "finishedAt": "2026-10-17T15:30:43Z"
+   "finishedAt": "2026-10-17T15:30:43Z",
+   "note": "deliverables arrived from an external worker on issue #10194"
   },
   {
    "id": "REV-PKG-GL2ModularityLifting",
@@ -51065,8 +51065,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GL2ModularityLifting.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10195",
-   "finishedAt": "2026-10-17T16:07:23Z"
+   "finishedAt": "2026-10-17T16:07:23Z",
+   "note": "deliverables arrived from an external worker on issue #10195"
   },
   {
    "id": "PKG-GeneralizedHeegnerCycles",
@@ -53397,8 +53397,8 @@
    "revisionOf": "PKG-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #9884",
-   "finishedAt": "2026-10-17T16:07:26Z"
+   "finishedAt": "2026-10-17T16:07:26Z",
+   "note": "deliverables arrived from an external worker on issue #9884"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions~2",
@@ -54350,8 +54350,8 @@
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10009",
-   "finishedAt": "2026-10-17T16:07:30Z"
+   "finishedAt": "2026-10-17T16:07:30Z",
+   "note": "deliverables arrived from an external worker on issue #10009"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~3",
@@ -54995,8 +54995,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ShimuraData.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10166",
-   "finishedAt": "2026-10-17T14:52:46Z"
+   "finishedAt": "2026-10-17T14:52:46Z",
+   "note": "deliverables arrived from an external worker on issue #10166"
   },
   {
    "id": "PKG-ShimuraVarieties",
@@ -83976,6 +83976,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-BP-PrismaticCohomology~2",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 1104,
+   "name": "blueprint BP-PrismaticCohomology~2: Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "target": "BP-PrismaticCohomology~2",
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PrismaticCohomology~2.result.json",
+    "research/blueprint/redteam/RT-BP-PrismaticCohomology~2.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "BP-PrismaticCohomology~2",
+    "REV-PrismaticCohomology~2"
+   ],
+   "prompt": "research/blueprint/prompts/RT-BP-PrismaticCohomology~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-BP-PrismaticCohomology~2",
+   "kind": "review",
+   "priority": 2,
+   "order": 1104,
+   "name": "blueprint BP-PrismaticCohomology~2: Prismatic cohomology: relative, absolute, Nygaard and log variants",
+   "roadmapIds": [
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-PrismaticCohomology~2.review.json",
+    "research/blueprint/reviews/REV-RT-BP-PrismaticCohomology~2.md"
+   ],
+   "after": [
+    "RT-BP-PrismaticCohomology~2"
+   ],
+   "avoidAccountOf": "RT-BP-PrismaticCohomology~2",
+   "independentOf": [
+    "RT-BP-PrismaticCohomology~2",
+    "BP-PrismaticCohomology~2",
+    "REV-PrismaticCohomology~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-BP-PrismaticCohomology~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-BP-RankZeroOneBSD--BSD.0~2",
    "kind": "redteam",
    "priority": 2,
@@ -98616,6 +98663,7 @@
     "research/blueprint/packets/PrismaticCohomology.json",
     "research/blueprint/readmes/PrismaticCohomology.md",
     "research/blueprint/suggested/PrismaticCohomology.lean",
+    "research/blueprint/handoff/BP-PrismaticCohomology~2.md",
     "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
     "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
     "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
@@ -98823,6 +98871,7 @@
     "research/blueprint/packets/PrismaticCohomology.json",
     "research/blueprint/readmes/PrismaticCohomology.md",
     "research/blueprint/suggested/PrismaticCohomology.lean",
+    "research/blueprint/handoff/BP-PrismaticCohomology~2.md",
     "research/blueprint/packets/DerivedDeRhamCohomology.json",
     "research/blueprint/readmes/DerivedDeRhamCohomology.md",
     "research/blueprint/suggested/DerivedDeRhamCohomology.lean",
@@ -99150,7 +99199,8 @@
     "research/blueprint/suggested/HabiroRings--HR.4.lean",
     "research/blueprint/packets/PrismaticCohomology.json",
     "research/blueprint/readmes/PrismaticCohomology.md",
-    "research/blueprint/suggested/PrismaticCohomology.lean"
+    "research/blueprint/suggested/PrismaticCohomology.lean",
+    "research/blueprint/handoff/BP-PrismaticCohomology~2.md"
    ],
    "after": [
     "FIX-RT-AREA-etale"
