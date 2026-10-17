@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-ShimuraData",
+    "date": "2026-10-17",
+    "notes": "Independent fixing review by Codex, session codex-VmKphf. Corrected variation extensionality to retain coefficient forms and comparisons, made the holomorphic-subbundle input explicit, restored the omitted rank-two weight-one counterexample, corrected the Siegel reflex-field locator, and strengthened the sign, central-coordinate, polarization, exceptional-type and small-prime controls. Audited all 56 targets, the 85 input API entries and 72 input tests; checked the seeded 15-source sample, current upstream ownership and native-library boundaries. Suggested.lean elaborates at the pins with only sorry warnings. Full evidence and handoff: research/blueprint/reviews/REV-PKG-ShimuraData.md."
+  }
+}
