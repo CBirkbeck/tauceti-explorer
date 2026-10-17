@@ -4991,5 +4991,6 @@
  "FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2": 10242,
  "FIX-PKG-AnalyticNumberTheory~adv3": 10249,
  "FIX-PKG-ArithmeticStatistics~adv2": 10250,
- "REV-PKG-AnalyticNumberTheoryPartI~adv": 10271
+ "REV-PKG-AnalyticNumberTheoryPartI~adv": 10271,
+ "REV-PKG-AnalyticNumberTheoryPartII~adv": 10272
 }
