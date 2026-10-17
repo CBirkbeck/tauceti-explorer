@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T18:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T19:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -77,7 +77,7 @@ Generated 2026-10-17T18:50Z from the README supplier graph of every open pull re
 
 ## Wave 15
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready (approved at an earlier head); waits on #785, #792, #848, #849, #853, #856, #858, #908, #938
-- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #785, #792, #858, #908, #248, #280, #284, #286, #417, #894, #947
+- #851 GeometryOfNumbersAndQuadraticArithmetic — ready; waits on #785, #792, #858, #908, #248, #280, #284, #286, #417, #894, #947
 - #872 DeformationAndDerivedPatchingAlgebraPartII — ready (approved at an earlier head); waits on #858, #944
 - #879 FiniteFlatGroupsAndIntegralPadicHodgeTheory — draft; waits on #785, #818, #849, #856, #857, #858, #868, #938, #940, #944
 
@@ -93,7 +93,7 @@ Generated 2026-10-17T18:50Z from the README supplier graph of every open pull re
 
 ## Wave 18
 - #875 ClassicalAdicEtaleCohomology — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938, #944
-- #913 ModularCurvesPartII — draft; waits on #785, #792, #813, #848, #849, #852, #853, #856, #871, #873, #908, #938, #944
+- #913 ModularCurvesPartII — ready (approved at an earlier head); waits on #785, #792, #813, #848, #849, #852, #853, #856, #871, #873, #908, #938, #944
 - #923 LocalGaloisDeformationRings — ready (approved at an earlier head); waits on #1034, #785, #792, #813, #853, #856, #858, #869, #879
 
 ## Wave 19
@@ -111,7 +111,7 @@ Generated 2026-10-17T18:50Z from the README supplier graph of every open pull re
 - #921 ClassicalArithmeticCompletion — ready (approved at an earlier head); waits on #785, #792, #851, #856, #924
 - #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #785, #792, #856, #858, #871, #924, #1041
 - #965 AdicCoefficientsAndComparisons — ready; waits on #813, #818, #820, #875, #908, #922, #927, #938
-- #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
+- #968 ModularSymbolsPadicLFunctions — ready; waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — draft; waits on #854, #924
 
 ## Wave 22
@@ -127,7 +127,7 @@ Generated 2026-10-17T18:50Z from the README supplier graph of every open pull re
 
 ## Wave 24
 - #966 PELModuli — ready (approved at an earlier head); waits on #785, #792, #848, #849, #852, #853, #858, #879, #913, #921, #933, #938
-- #970 SmallRamificationAndAbelianVarietyBaseCases — ready (approved at an earlier head); waits on #849, #850, #852, #856, #879, #921, #923, #928, #931, #933
+- #970 SmallRamificationAndAbelianVarietyBaseCases — ready; waits on #849, #850, #852, #856, #879, #921, #923, #928, #931, #933
 - #1035 CompletedCohomologyPartII — ready; waits on #1034, #785, #848, #854, #858, #871, #908, #913, #933, #944
 
 ## Wave 25
@@ -149,7 +149,7 @@ Generated 2026-10-17T18:50Z from the README supplier graph of every open pull re
 - #1021 AnabelianGeometryAndNonabelianChabauty — draft; waits on #1000, #1001, #1002, #1017, #1043, #785, #848, #849, #850, #852, #853, #857, #858, #869, #879, #924, #929, #938, #940, #944, #966
 
 ## Wave 28
-- #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #856, #879, #920, #923, #928, #931, #970
+- #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #1034, #856, #879, #920, #923, #928, #931, #970
 - #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
 
 ## Wave 29
