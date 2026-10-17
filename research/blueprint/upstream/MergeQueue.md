@@ -14,6 +14,7 @@ Generated 2026-10-17T17:18Z from the README supplier graph of every open pull re
 - #446 CFSGBasicProperties (kim-em, other author)
 - #447 ChevalleyGroups (kim-em, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #947 BordismFormalGroups (kim-em, other author)
@@ -34,7 +35,6 @@ Generated 2026-10-17T17:18Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814, #944
-- #896 CharacteristicClasses (kim-em, other author)
 
 ## Wave 5
 - #815 AdicSpacesPartIV — draft; waits on #813, #814, #818, #944
