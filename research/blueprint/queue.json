@@ -132384,9 +132384,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "superseded",
    "prompt": "research/blueprint/prompts/FIX-PKG-PotentialModularityAndCompatibleSystems~adv.md",
-   "note": "claimed on GitHub issue #10211"
+   "note": "moot: the package was accepted by the independent review #10163-era pass before this fix ran; checkpoint PR #10215 closed by the manager 2026-10-17"
   },
   {
    "id": "FIX-PKG-ModularityAndLanglandsExtensions~adv",
