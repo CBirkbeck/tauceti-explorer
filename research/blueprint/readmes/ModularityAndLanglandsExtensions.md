@@ -3314,6 +3314,8 @@ Check every target at the displayed hypotheses and source scope, every definitio
 
 Register classical-group classification through source-qualified conditional inputs and a constructive endoscopic Part II. Keep local packet multisets, inner-twist pairings, global multiplicities and the symplectic branch distinct. Apply GSp₄ and real-packet results only at their source scope. The singular-weight assertions remain frontiers.
 
+The layer has five developments, proposed as atlas sub-layers in Ownership contract 5 below; every target keeps this layer as its parent. ML.4:gsp4-local is Gan–Takeda’s local correspondence for GSp₄ and the Galois-side packet L(ρ); it is unconditional. ML.4:classical-arthur is the endoscopic classification of quasi-split symplectic, orthogonal and unitary groups and of their inner forms (Arthur, Mok, KMSW, Ishimoto), with the register of its trace-formula inputs. ML.4:gsp4-arthur is Gee–Taïbi’s classification for GSp₄ and what is deduced from it; ML.4:real-packets the real Arthur packets (Adams–Johnson packets, after Arancibia–Mœglin–Renard, and Mœglin–Renard’s scalar highest-weight packets); ML.4:xu-packets Xu’s packets for similitude groups. Everything resting on the classification of Arthur and Mok is conditional on the twisted weighted fundamental lemma, the one input still unproved after Mœglin–Waldspurger and Atobe–Gan–Ichino–Kaletha–Mínguez–Shin ([ML.0/arthur-dependency-gate](#target-arthur-dependency-gate), [ML.4/trace-formula-inputs-register](#target-trace-formula-inputs-register)). Gan–Takeda’s local correspondence, their strong generic lift from GSp₄ to GL₄ and the archimedean computations are not; [ML.4/symplectic-branch-status](#target-symplectic-branch-status) states the division for every GSp₄ export.
+
 Atlas planets: Global Arthur parameter; Local Arthur packets; Arthur's multiplicity formula; Mok's classification for unitary groups; Local Langlands correspondence for GSp₄; Arthur's classification for GSp₄.
 
 <a id="target-gan-takeda-llc-gsp4"></a>
@@ -3394,12 +3396,13 @@ Suggested signature: stated with its API and tests.
 
 Target `ML.4/self-dual-cuspidal-type`; definition. Proposed declaration: `TauCeti.Arthur.IsSymplecticType`.
 
-Let π be a unitary cuspidal automorphic representation of GL_N(𝔸_F) with π ≅ π^∨, and S a finite set of places containing the archimedean places and those where π ramifies. π is of symplectic type if the partial exterior-square L-function L^S(s, π, ∧²) has a pole at s = 1, and of orthogonal type if L^S(s, π, Sym²) has a pole at s = 1. Exactly one of the two holds: L^S(s, π × π) = L^S(s, π, Sym²)·L^S(s, π, ∧²) has a simple pole at s = 1 because π ≅ π^∨, and neither factor vanishes at s = 1. Symplectic type forces N even and ω_π = 1. Arthur's Theorem 1.5.3 identifies the type with the dual group from which π is a twisted-endoscopic transfer: symplectic type exactly when π comes from a generic parameter of split SO_{N+1} (Ĝ = Sp_N(ℂ)), orthogonal type exactly when π comes from Sp_{N−1} (N odd) or from the quasi-split SO_N attached to ω_π (N even).
+Let π be a unitary cuspidal automorphic representation of GL_N(𝔸_F) with π ≅ π^∨, and S a finite set of places containing the archimedean places and those where π ramifies. π is of symplectic type if the partial exterior-square L-function L^S(s, π, ∧²) has a pole at s = 1, and of orthogonal type if L^S(s, π, Sym²) has a pole at s = 1. Exactly one of the two holds: L^S(s, π × π) = L^S(s, π, Sym²)·L^S(s, π, ∧²) has a simple pole at s = 1 because π ≅ π^∨, and neither factor vanishes at s = 1. Symplectic type forces N even and ω_π = 1. Arthur's Theorem 1.5.3, conditionally on the twisted weighted fundamental lemma (ML.0/arthur-dependency-gate), identifies the type with the dual group from which π is a twisted-endoscopic transfer: symplectic type exactly when π comes from a generic parameter of split SO_{N+1} (Ĝ = Sp_N(ℂ)), orthogonal type exactly when π comes from Sp_{N−1} (N odd) or from the quasi-split SO_N attached to ω_π (N even).
 
 Hypotheses:
 
 - F a number field; π a unitary cuspidal automorphic representation of GL_N(𝔸_F) with π ≅ π^∨.
 - The type does not depend on S: the local factors at finitely many places are holomorphic and non-zero at s = 1.
+- The definition and the dichotomy are unconditional (Jacquet–Shalika and Shahidi; Gee–Taïbi §2.5 record the dichotomy for χ-self-dual π, with a simple pole). The identification with twisted-endoscopic transfer (Arthur Theorem 1.5.3, the API item selfDualType_iff_transfer) belongs to Arthur’s induction and carries ML.0/arthur-dependency-gate; a consumer that uses only the pole definition, such as ML.5/ckpss-generic-transfer, does not.
 
 Proof route:
 
@@ -3408,7 +3411,7 @@ Proof route:
 3. Shahidi: L^S(s, π, Sym²) and L^S(s, π, ∧²) are non-zero at s = 1 and have at most simple poles there (Langlands–Shahidi method), so exactly one of them has the pole.
 4. Arthur, Theorem 1.5.3: the pole determines the twisted-endoscopic group G with π = ψ for a simple generic ψ ∈ Ψ_2(G).
 
-Direct prerequisites: `AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`, `AutomorphicLFunctionsAndLocalFactors:AL.4`, `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
+Direct prerequisites: `AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`, `AutomorphicLFunctionsAndLocalFactors:AL.4`, `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`, [ML.0/arthur-dependency-gate](#target-arthur-dependency-gate).
 
 Consumers:
 
@@ -3425,7 +3428,7 @@ Planning API:
 - `TauCeti.Arthur.IsSymplecticType.even` — IsSymplecticType π implies N is even.
 - `TauCeti.Arthur.IsSymplecticType.centralCharacter_eq_one` — IsSymplecticType π implies ω_π = 1.
 - `TauCeti.Arthur.IsSymplecticType.independent_of_S` — The pole at s = 1 does not depend on the finite set S.
-- `TauCeti.Arthur.selfDualType_iff_transfer` — Arthur Theorem 1.5.3: IsSymplecticType π iff π is the transfer of a simple generic parameter of split SO_{N+1}.
+- `TauCeti.Arthur.selfDualType_iff_transfer` — Arthur Theorem 1.5.3: IsSymplecticType π iff π is the transfer of a simple generic parameter of split SO_{N+1}. Conditional on ML.0/arthur-dependency-gate.
 
 Definition tests:
 
@@ -3438,7 +3441,7 @@ Acceptance controls:
 
 - The type of a quadratic Hecke character (N = 1) is orthogonal; that of a cuspidal GL₂ representation with trivial central character is symplectic; a non-self-dual π has no type.
 
-Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.5, Theorem 1.5.3 and the paragraph before it, pp. 47–48 (2011 manuscript).
+Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.5, Theorem 1.5.3 and the paragraph before it, pp. 47–48 (2011 manuscript); [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), §2.5, p. 12 (arXiv v1).
 
 Suggested signature: omitted until C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -3749,7 +3752,7 @@ Suggested signature: omitted until C-COHERENT-GEOMETRY supplies the actual objec
 
 Target `ML.4/trace-formula-inputs-register`; comparison. Proposed declaration: `TauCeti.Arthur.traceFormulaInputs`.
 
-Arthur's classification (ML.4/local-arthur-packets, ML.4/arthur-multiplicity-formula) and its unitary analogues (ML.4/mok-unitary-classification, ML.4/kmsw-inner-forms) rest on: (1) the invariant trace formula of G and the twisted trace formula of GL_N ⋊ θ (Arthur; owner AutomorphicSpectralTheory:AS.6 for the untwisted formula); (2) the stabilisation of the ordinary and of the twisted trace formula (Arthur; Mœglin–Waldspurger 2016); (3) the transfer of orbital integrals (Waldspurger) and the fundamental lemma (Ngô) with its twisted and weighted variants (Chaudouard–Laumon; the twisted weighted fundamental lemma); (4) the local intertwining relation (Arthur §2.4, proved by Arthur for quasi-split groups modulo [A25]–[A27] and by Atobe–Gan–Ichino–Kaletha–Mínguez–Shin in further cases). Each input is registered with its owner stage and its status: proved in print, announced, or open. No input is assumed proved because a related unitary or GL_N result is.
+Arthur’s classification (ML.4/local-arthur-packets, ML.4/arthur-multiplicity-formula) and its unitary analogues (ML.4/mok-unitary-classification, ML.4/kmsw-inner-forms) rest on the inputs below, each with its status and owner. Arthur proves the local classification, the local intertwining relations and the global classification together, in one induction on N whose main input is the stabilised trace formula, so each input bears on the local theorems as much as on the global ones. (1) The invariant trace formula of G (Arthur; owner AutomorphicSpectralTheory:AS.6); the twisted trace formula of GL_N ⋊ θ, the starting point of the stabilisation in (2); and Mœglin–Waldspurger’s local twisted trace formula, which Atobe–Gan–Ichino–Kaletha–Mínguez–Shin list among the inputs now proved. The atlas plans only the simple twisted forms of EndoscopicTransferAndUnitaryTraceComparison:ET.4. (2) The stabilisation of the ordinary and of the twisted trace formula: Mœglin–Waldspurger 2016, proved assuming the twisted weighted fundamental lemma; Arthur’s announced [A24] (his Proposition 2.1.1) is their I.4.11. No atlas owner. (3) Transfer of orbital integrals and the fundamental lemmas: Waldspurger’s transfer and every unweighted fundamental lemma, ordinary or twisted, are theorems (Ngô, Waldspurger and others; owner EndoscopicTransferAndUnitaryTraceComparison:ET.3 for what it plans). The weighted fundamental lemma for Lie algebras is proved for split groups (Chaudouard–Laumon); for non-split groups, and in its non-standard form, no proof is written. The twisted weighted fundamental lemma (Mœglin–Waldspurger II.4.4) reduces to these two and is open. The weighted Lie-algebra lemma beyond split groups is already needed for the untwisted stabilisation that Arthur and Mok use, and for the inner-form classifications (KMSW, Ishimoto) as well. No atlas owner for the weighted lemmas. (4) The local intertwining relation and the other results Arthur deferred to [A25]–[A27], with Mok’s unitary analogues: proved for quasi-split symplectic, special orthogonal and unitary groups by Atobe–Gan–Ichino–Kaletha–Mínguez–Shin (their Main Theorems 1–3). For inner forms of unitary groups it is KMSW’s Theorem* 2.6.2, which their Theorem* 1.7.1 assumes beyond the generic scope they prove (ML.4/kmsw-inner-forms); for non-quasi-split odd special orthogonal groups Ishimoto proves it for L-parameters (his Theorem 4.13). No atlas owner. Open status: the twisted weighted fundamental lemma alone. No input is assumed proved because a related unitary or GL_N result is.
 
 Hypotheses:
 
@@ -3757,8 +3760,9 @@ Hypotheses:
 
 Proof route:
 
-1. Owners: AutomorphicSpectralTheory AS.6 (coarse, fine and invariant trace formula); EndoscopicTransferAndUnitaryTraceComparison (transfer, fundamental lemma and unitary trace comparison); no roadmap of the atlas plans the stabilisation of the twisted trace formula or the twisted weighted fundamental lemma: these are recorded as gaps.
-2. Status of each input is read from Arthur's book §3.2 and from Atobe–Gan–Ichino–Kaletha–Mínguez–Shin §§0.3–0.4.
+1. Owners: AutomorphicSpectralTheory AS.6 (coarse, fine and invariant trace formula); EndoscopicTransferAndUnitaryTraceComparison ET.3–ET.4 (transfer, unweighted fundamental lemma, simple twisted trace formulas). No roadmap of the atlas plans the stabilisation of the twisted trace formula, the weighted fundamental lemmas or the local intertwining relations: these are the recorded gap, and restructure proposal 2 asks for their constructive owner.
+2. Statuses: Arthur’s Hypothesis 3.2.1 (§3.2, p. 137) for what the book assumes; Atobe–Gan–Ichino–Kaletha–Mínguez–Shin, pp. 4–5 and §§0.3–0.4, for what has since been proved and what remains; their §0.1 for the single induction that proves the local and global theorems together.
+3. Inner forms: KMSW §1.6–§1.7 and Ishimoto Theorem 3.14 state the generic scope at which the intertwining relation is available to them.
 
 Direct prerequisites: `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`, `EndoscopicTransferAndUnitaryTraceComparison:ET.3`, `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, [ML.0/arthur-dependency-gate](#target-arthur-dependency-gate).
 
@@ -3766,7 +3770,7 @@ Acceptance controls:
 
 - Every theorem node of ML.4 lists this register among its prerequisites, so that its conditional status is visible.
 
-Sources: [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), §1.4.1, p. 14 (arXiv v3).
+Sources: [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), §1.4.1, p. 14 (arXiv v3); [Hiraku Atobe, Wee Teck Gan, Atsushi Ichino, Tasho Kaletha, Alberto Mínguez, Sug Woo Shin, Local intertwining relations and co-tempered A-packets of classical groups](https://arxiv.org/pdf/2410.13504), Introduction, pp. 4–5; §0.1, pp. 5–6; §0.3, p. 14; §0.4, p. 15 (arXiv v3); [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §3.2, Hypothesis 3.2.1, p. 137 (2011 manuscript); [Hiroshi Ishimoto, The endoscopic classification of representations of non-quasi-split odd special orthogonal groups](https://arxiv.org/pdf/2301.12143v2), Introduction, p. 2; §4.9 opening, p. 33 (arXiv v2).
 
 Suggested signature: omitted until C-ARTHUR supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -3781,7 +3785,7 @@ Let F be a local field of characteristic 0, G a quasi-split Sp_{2n}, SO_{2n+1} o
 Hypotheses:
 
 - F local of characteristic 0; G quasi-split symplectic or special orthogonal over F with a fixed Whittaker datum.
-- The statement is conditional as recorded in ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate: Arthur's proof uses the stabilisation of the twisted trace formula and results he announces in [A24]–[A27].
+- Conditional, as recorded in ML.0/arthur-dependency-gate. Arthur proves these local statements in the same induction as the global multiplicity formula, with the stabilised twisted trace formula as its main input, so they carry the same hypothesis: after Mœglin–Waldspurger and Atobe–Gan–Ichino–Kaletha–Mínguez–Shin, the twisted weighted fundamental lemma.
 
 Proof route:
 
@@ -3795,7 +3799,7 @@ Acceptance controls:
 
 - The packets of a tempered φ with S_φ = 1 are singletons; for G = SL₂-type groups the packet sizes are |Ŝ_φ| ∈ {1, 2, 4}.
 
-Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–42 (2011 manuscript); [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.5, after Theorem 1.5.1, p. 42 (2011 manuscript); [Chung Pang Mok, Endoscopic classification of representations of quasi-split unitary groups](https://arxiv.org/pdf/1206.0882), §2.5, Theorem 2.5.1 — independently checked downloaded PDF p.32; published-copy pagination where applicable.
+Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–42 (2011 manuscript); [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.5, after Theorem 1.5.1, p. 42 (2011 manuscript); [Chung Pang Mok, Endoscopic classification of representations of quasi-split unitary groups](https://arxiv.org/pdf/1206.0882), §2.5, Theorem 2.5.1 — independently checked downloaded PDF p.32; published-copy pagination where applicable; [Hiraku Atobe, Wee Teck Gan, Atsushi Ichino, Tasho Kaletha, Alberto Mínguez, Sug Woo Shin, Local intertwining relations and co-tempered A-packets of classical groups](https://arxiv.org/pdf/2410.13504), §0.1, pp. 5–6 (arXiv v3).
 
 Suggested signature: omitted until C-ARTHUR supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -3829,28 +3833,32 @@ Suggested signature: omitted until C-ARTHUR supplies the actual objects and hypo
 
 <a id="target-symplectic-branch-status"></a>
 
-### The symplectic (GSp₄) branch is conditional: its verification task
+### Status of the symplectic (GSp₄) branch: unconditional local exports, conditional global ones
 
 Target `ML.4/symplectic-branch-status`; comparison. Proposed declaration: `TauCeti.Arthur.symplecticBranchStatus`.
 
-The symplectic branch of ML.4 (Gee–Taïbi's classification of the discrete spectrum of GSp₄, ML.4/gsp4-arthur-classification, and everything that uses it: ML.4/gl4-symplectic-descent, ML.4/non-general-type-reducible and the GSp₄ modularity theorems of Boxer–Calegari–Gee–Pilloni and Calegari–Geraghty) is conditional on Arthur's classification for Sp₄ and SO₅ with the inputs of ML.4/trace-formula-inputs-register. It is not made unconditional by the availability of Mok's or KMSW's unitary results. The verification task is: (i) list the statements of Arthur's book that rest on the announced references [A24]–[A27] and on the twisted weighted fundamental lemma; (ii) check, for each, whether a published proof now exists (Mœglin–Waldspurger for the stabilisation; Atobe–Gan–Ichino–Kaletha–Mínguez–Shin for the local intertwining relation); (iii) record the remaining hypotheses as explicit hypotheses of every GSp₄ endpoint.
+The GSp₄ results of ML.4 fall into two groups. Unconditional (the stabilised twisted trace formula does not enter): Gan–Takeda’s local correspondence rec_GT with its L-packets (ML.4/gan-takeda-llc-gsp4); the Galois-side packet L(ρ) defined through it (ML.0/gsp4-galois-l-packet); Gan–Takeda’s strong generic lift (their Theorem 12.1), which matches globally generic cuspidal representations of GSp₄(𝔸_F) with automorphic Π ⊠ µ of GL₄ × GL₁, describes the image and equates L-parameters at every place, and so gives the existence part of ML.4/gl4-symplectic-descent and the local symplectic type of the localisations of a cuspidal GL₄ representation of symplectic type (Gee–Taïbi Proposition 7.3.1); and the archimedean computations, namely the infinitesimal character of the spin transfer (ML.4/gsp4-gl4-archimedean-transfer) and the description of the archimedean L-packet containing a holomorphic limit of discrete series (Blasius–Harris–Ramakrishnan; the first assertion of ML.4/gsp4-archimedean-limit-packets). Conditional on the twisted weighted fundamental lemma (ML.0/arthur-dependency-gate): Gee–Taïbi’s classification as a whole, that is the local packets of their Theorem 3.1.1 and the multiplicity formula of their Theorem 7.4.1 (ML.4/gsp4-arthur-classification), and everything that uses it: the packet form of the descent (every member of the global L-packet automorphic, with multiplicity one) in ML.4/gl4-symplectic-descent, ML.4/non-general-type-reducible, the equality of archimedean Arthur packet and L-packet in ML.4/gsp4-archimedean-limit-packets, ML.4/limit-discrete-series-packet-types, ML.4/unitary-descent-of-gl4-transfer, ML.0/regular-weight-serre-implies-abelian-surface-modularity, and the GSp₄ modularity theorems of Boxer–Calegari–Gee–Pilloni and Calegari–Geraghty that use them. The verification task is complete: Gee–Taïbi make their results exactly as conditional as Arthur 2013 and Mœglin–Waldspurger’s stabilisation, which means the twisted weighted fundamental lemma and Arthur’s announced references [A24]–[A27]; [A24] is now Mœglin–Waldspurger’s I.4.11 and [A25]–[A27] are the three main theorems of Atobe–Gan–Ichino–Kaletha–Mínguez–Shin, so the twisted weighted fundamental lemma is the single remaining hypothesis. Mok’s and KMSW’s unitary results do not remove it, and the proved unweighted fundamental lemma does not imply it. Each conditional consumer listed above states it as a hypothesis.
 
 Hypotheses:
 
-- Status register; the hypotheses it lists are carried by the consumer nodes.
+- Status register; it proves nothing. The one hypothesis it records, the twisted weighted fundamental lemma in Mœglin–Waldspurger’s form II.4.4, is carried by each conditional consumer named in the statement.
+- At p-adic places and tempered parameters Gee–Taïbi’s packets are Gan–Takeda’s L-packets with the character relations proved by Chan–Gan (Gee–Taïbi Theorem 2.8.1). Chan–Gan’s paper was not read for this register, so that case receives no status beyond the one Gee–Taïbi’s disclosure gives to their paper as a whole.
 
 Proof route:
 
-1. Gee–Taïbi deduce GSp₄ from Arthur's classification for Sp₄ and SO₅ (restriction to Sp₄ and the similitude character); they inherit Arthur's hypotheses.
-2. Boxer–Calegari–Gee–Pilloni §1.4.1 and Calegari–Geraghty §1.4 state the dependence explicitly; BCGP 2025 §1.6 isolates the remaining twisted weighted fundamental lemma.
+1. Gee–Taïbi prove Arthur’s GSp₄ classification with the stable twisted trace formulas of GL₄ × GL₁ and GSpin₅: a square multiplier reduces by twisting to Arthur 2013 for SO₅ (their Theorem 2.6.1); otherwise they construct the missing local packets (§3) and run the comparison (§7), using Gan–Takeda’s correspondence and generic lift, Kim–Henniart’s exterior square and Chan–Gan’s tempered character relations. Their disclosure (§1.1, p. 3) ties the status to Arthur 2013 and Mœglin–Waldspurger.
+2. Atobe–Gan–Ichino–Kaletha–Mínguez–Shin (arXiv v3, pp. 4–5 and §0.3) record [A24] as settled by Mœglin–Waldspurger and prove what [A25]–[A27] were to contain; their §0.4 leaves the twisted weighted fundamental lemma, reduced to the weighted fundamental lemma for Lie algebras of non-split groups and its non-standard variant, neither of which has a written proof.
+3. Gan–Takeda’s Main Theorem and Theorem 12.1 are proved with local and global theta correspondences and the local Langlands correspondence for GL₂ and GL₄; none of these uses the stabilised twisted trace formula, which is why those exports are unconditional.
+4. Boxer–Calegari–Gee–Pilloni 2021 §1.4.1 and Calegari–Geraghty §1.4 state the dependence of their GSp₄ theorems; Boxer–Calegari–Gee–Pilloni 2025 §1.6 isolates the twisted weighted fundamental lemma.
 
 Direct prerequisites: [ML.4/trace-formula-inputs-register](#target-trace-formula-inputs-register), [ML.0/arthur-dependency-gate](#target-arthur-dependency-gate).
 
 Acceptance controls:
 
-- The acceptance criterion of ML.4: the symplectic branch has a named verification task and is never marked unconditional because a unitary theorem is available.
+- The acceptance criterion of ML.4: every GSp₄ export has a stated status. No conditional export is marked unconditional because a unitary theorem is available, and Gan–Takeda’s local correspondence is not marked conditional because Arthur’s classification is.
+- Check: ML.4/gan-takeda-llc-gsp4, ML.0/gsp4-galois-l-packet and ML.4/gsp4-gl4-archimedean-transfer carry no twisted-weighted-fundamental-lemma hypothesis; every node named as conditional does.
 
-Sources: [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), §1.4.1, p. 14 (arXiv v3).
+Sources: [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), §1.4.1, p. 14 (arXiv v3); [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), §1.1, disclosure paragraph, p. 3 (arXiv v1); [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), §2.6, pp. 14–15; Theorem 2.8.1, p. 16 (arXiv v1); [Hiraku Atobe, Wee Teck Gan, Atsushi Ichino, Tasho Kaletha, Alberto Mínguez, Sug Woo Shin, Local intertwining relations and co-tempered A-packets of classical groups](https://arxiv.org/pdf/2410.13504), Introduction, pp. 4–5; §0.3, p. 14; §0.4, p. 15 (arXiv v3); [Wee Teck Gan and Shuichiro Takeda, The local Langlands conjecture for GSp(4)](https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p12-p.pdf), §12, Theorem 12.1 and its proof, pp. 1878–1880.
 
 Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -3976,12 +3984,12 @@ Let F be a local field of characteristic 0 and φ : L_F → Sp_{2n}(ℂ) an L-pa
 Hypotheses:
 
 - F local of characteristic 0; V of odd dimension 2n + 1 with trivial discriminant (SO(V⁺) split, SO(V⁻) its pure inner form).
-- Conditional: the split case is Arthur's (ML.0/arthur-dependency-gate); the non-split case is Mœglin–Renard's, which assumes Arthur-type results for inner forms (proved for generic parameters by Ishimoto).
+- Conditional on ML.0/arthur-dependency-gate. The split case is Arthur’s. For non-split SO(V⁻), Mœglin–Renard construct the packets without the local intertwining relation; Ishimoto proves the local Langlands correspondence with the endoscopic character relations for bounded generic parameters of every inner form of SO_{2n+1} (his Theorem 3.14(1)) by Kaletha–Mínguez–Shin–White’s global method, which rests on Arthur’s quasi-split classification and so carries the same hypothesis.
 
 Proof route:
 
 1. Split SO(V⁺): ML.4/local-arthur-packets (c) for SO_{2n+1}.
-2. Non-split SO(V⁻): Mœglin–Renard, with Ishimoto's local intertwining relation and endoscopic character relations for generic parameters; Gan–Ichino (5.3) record the combined statement.
+2. Non-split SO(V⁻): Ishimoto Theorem 3.14(1) for bounded generic parameters, through his local intertwining relation (Theorem 4.13) and globalisation; the Langlands classification gives the other parameters; Gan–Ichino (5.3) record the combined statement.
 3. Square-integrability and temperedness criteria follow from the packet construction (Mœglin).
 
 Direct prerequisites: [ML.4/local-arthur-packets](#target-local-arthur-packets), [ML.4/extended-langlands-parameter](#target-extended-langlands-parameter), [ML.4/trace-formula-inputs-register](#target-trace-formula-inputs-register), [ML.0/arthur-dependency-gate](#target-arthur-dependency-gate).
@@ -3990,7 +3998,7 @@ Acceptance controls:
 
 - For n = 1: SO(V⁺) ≅ PGL₂ and SO(V⁻) ≅ D^×/F^× for the quaternion division algebra D; the Vogan packet of a discrete parameter φ with S_φ = ℤ/2ℤ is {the discrete series of PGL₂, its Jacquet–Langlands transfer to D^×/F^×}.
 
-Sources: [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §5.2, (5.3), p. 17 (arXiv v3); published p. 987; [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §1.2, p. 4 (arXiv v3); published p. 969.
+Sources: [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §5.2, (5.3), p. 17 (arXiv v3); published p. 987; [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §1.2, p. 4 (arXiv v3); published p. 969; [Hiroshi Ishimoto, The endoscopic classification of representations of non-quasi-split odd special orthogonal groups](https://arxiv.org/pdf/2301.12143v2), Theorem 1.2, p. 2; Theorem 3.14(1), §3, p. 22 (arXiv v2); [Hiroshi Ishimoto, The endoscopic classification of representations of non-quasi-split odd special orthogonal groups](https://arxiv.org/pdf/2301.12143v2), Introduction, p. 2 (arXiv v2).
 
 Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4032,7 +4040,7 @@ Let F be a number field and V a (2n+1)-dimensional quadratic space with trivial 
 Hypotheses:
 
 - F a number field; V odd-dimensional with trivial discriminant; Φ generic elliptic.
-- For split SO(V) this is Arthur's Theorem 1.5.2; for non-split SO(V) Gan–Ichino assume it (their hypothesis (6.1) with the decomposition of §3.1), and Ishimoto proves it for generic parameters; conditional on ML.0/arthur-dependency-gate.
+- For split SO(V) this is Arthur’s Theorem 1.5.2. For non-split SO(V) Gan–Ichino assume both the near-equivalence decomposition of their §3.1 and hypothesis (6.1). Ishimoto proves the decomposition for every inner form of SO_{2n+1} and all A-parameters (his Theorem 3.12) and the multiplicity formula for generic parameters (his Theorem 3.14(2), with Theorem* 3.13). Conditional on ML.0/arthur-dependency-gate.
 
 Proof route:
 
@@ -4045,7 +4053,7 @@ Acceptance controls:
 
 - Gan–Ichino's Theorem 1.4 (the multiplicity formula for Mp_{2n}) is stated under this hypothesis; the node keeps the hypothesis visible for every consumer.
 
-Sources: [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §6.2, (6.1), p. 22 (arXiv v3); published p. 993; [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §3.1, p. 10 (arXiv v3); published p. 977.
+Sources: [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §6.2, (6.1), p. 22 (arXiv v3); published p. 993; [Wee Teck Gan, Atsushi Ichino, The Shimura–Waldspurger correspondence for Mp_2n](https://arxiv.org/pdf/1705.10106v3), §3.1, p. 10 (arXiv v3); published p. 977; [Hiroshi Ishimoto, The endoscopic classification of representations of non-quasi-split odd special orthogonal groups](https://arxiv.org/pdf/2301.12143v2), Theorem 3.12, pp. 21–22; Theorem* 3.13 and Theorem 3.14(2), p. 22 (arXiv v2); [Hiroshi Ishimoto, The endoscopic classification of representations of non-quasi-split odd special orthogonal groups](https://arxiv.org/pdf/2301.12143v2), Introduction, p. 2 (arXiv v2).
 
 Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4082,17 +4090,16 @@ Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual o
 
 Target `ML.4/gsp4-arthur-classification`; theorem. Proposed declaration: `TauCeti.Arthur.GSp4.classification`.
 
-Let F be a totally real number field. Every discrete automorphic representation π of GSp₄(𝔸_F) has a transfer π̃ to GL₄(𝔸_F) (its global parameter) of one of the six types (a)–(f) of ML.4/gsp4-discrete-spectrum-types, and the discrete spectrum is described by Arthur's multiplicity formula for GSp₄. In particular: (i) the transfer is compatible with rec_GT at every finite place; (ii) for a parameter ψ = π̃ ⊠ 1 of general type the global component group S_ψ is trivial, so for every choice of local packet members π′_v ∈ Π_{ψ_v} (π′_v unramified for almost all v) ⊗′_v π′_v is automorphic; (iii) such representations occur with multiplicity one; and for a general-type ψ the archimedean packet Π_{ψ_∞} is the L-packet of the archimedean parameter.
+Let F be a number field. The discrete automorphic spectrum of GSp₄ ≅ GSpin₅ over F is the direct sum, over the continuous characters χ of 𝔸_F^×/F^×ℝ_{>0} and the discrete parameters ψ ∈ Ψ_disc(GSpin₅, χ), of the representations π in the subset Π_ψ(ε_ψ) of the global packet (Gee–Taïbi Theorem 7.4.1). The local packets Π_{ψ_v} are those of Gee–Taïbi Theorem 3.1.1: characterised by the stable twisted transfer to GL₄ × GL₁, normalised by Whittaker data, and by the endoscopic character identities; at a p-adic place with ψ_v tempered they are Gan–Takeda’s L-packets (Gee–Taïbi Theorem 2.8.1), so the packets and rec_GT share one normalisation. In particular every discrete automorphic representation π of GSp₄(𝔸_F) has a transfer π̃ to GL₄(𝔸_F) (its global parameter) of one of the six types (a)–(f) of ML.4/gsp4-discrete-spectrum-types, and: (i) the transfer is compatible with rec_GT at every finite place, and for a cuspidal χ-self-dual Π of GL₄(𝔸_F) of symplectic type every localisation (rec(Π_v), rec(χ_v)) factors through GSp₄(ℂ) (Gee–Taïbi Proposition 7.3.1, deduced from Gan–Takeda Theorem 12.1); (ii) for a parameter ψ = π̃ ⊠ 1 of general type the global component group S_ψ is trivial, so for every choice of local packet members π′_v ∈ Π_{ψ_v} (π′_v unramified for almost all v) ⊗′_v π′_v is automorphic; (iii) such representations occur with multiplicity one; and for a general-type ψ the archimedean packet Π_{ψ_∞} is the L-packet of the archimedean parameter.
 
 Hypotheses:
 
-- F a totally real number field (BCGP work over totally real F; Calegari–Geraghty and Pilloni over ℚ); GSp₄ the split symplectic similitude group with similitude ν; π a discrete automorphic representation of GSp₄(𝔸_F) with central character ω_π.
-- Conditional on ML.0/arthur-dependency-gate: Gee–Taïbi prove Arthur's 2004 announcement from Arthur 2013 for Sp₄ and SO₅, and the result is only as unconditional as Arthur 2013 and Mœglin–Waldspurger's stabilisation.
-- The BCGP §2.9 statement used here has F totally real; a version over an arbitrary number field needs a separately checked Gee–Taïbi export.
+- F a number field (Gee–Taïbi work over any number field, §2.5, p. 12); GSp₄ ≅ GSpin₅ the split symplectic similitude group with similitude ν; π a discrete automorphic representation of GSp₄(𝔸_F) with central character ω_π. Boxer–Calegari–Gee–Pilloni restate the classification for totally real F (§2.9), and Calegari–Geraghty and Pilloni use F = ℚ; their consumers keep those fields.
+- Conditional on ML.0/arthur-dependency-gate, with one exception: Gee–Taïbi state that their results are exactly as conditional as Arthur 2013 and Mœglin–Waldspurger’s stabilisation (§1.1, p. 3), so the classification assumes the twisted weighted fundamental lemma, while the local symplectic-type assertion in (i) rests on Gan–Takeda Theorem 12.1 alone.
 
 Proof route:
 
-1. Gee–Taïbi: restrict from GSp₄ to Sp₄ and use Arthur's classification for Sp₄ (Ĝ = SO₅) and for SO₅ ≅ PGSp₄ (Ĝ = Sp₄), together with the similitude character, and prove compatibility with rec_GT.
+1. Gee–Taïbi: for a square multiplier χ = η², twist to trivial similitude and apply Arthur 2013 for SO₅ (their Theorem 2.6.1). Otherwise construct the missing local packets (§3 for parameters non-trivial on SL₂; Proposition 7.2.1, a global argument, for discrete tempered archimedean ones) and compare the stable twisted trace formulas of GL₄ × GL₁ and GSpin₅ (§7), using Proposition 7.3.1 for the local symplectic type and, in the Yoshida case, Chan–Gan’s theta-correspondence result.
 2. Parts (ii)–(iii) for general type: ψ is stable (S_ψ = 1), so ε_ψ = 1 and every member of the global packet occurs once.
 
 Direct prerequisites: [ML.4/gsp4-discrete-spectrum-types](#target-gsp4-discrete-spectrum-types), [ML.4/arthur-multiplicity-formula](#target-arthur-multiplicity-formula), [ML.4/gan-takeda-llc-gsp4](#target-gan-takeda-llc-gsp4), [ML.4/symplectic-branch-status](#target-symplectic-branch-status), [ML.0/arthur-dependency-gate](#target-arthur-dependency-gate).
@@ -4101,7 +4108,7 @@ Acceptance controls:
 
 - Calegari–Geraghty Theorem 7.11 and Pilloni Proposition 15.2.4.1 use exactly (ii) and (iii) to move between the holomorphic and generic limits of discrete series at infinity.
 
-Sources: [Frank Calegari, David Geraghty, Minimal modularity lifting for nonregular symplectic representations (with an appendix by F. Calegari, D. Geraghty and M. Harris)](http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf), Proof of Theorem 7.11, §7.2, publ. p. 854; arXiv v1 p. 40; [Frank Calegari, David Geraghty, Minimal modularity lifting for nonregular symplectic representations (with an appendix by F. Calegari, D. Geraghty and M. Harris)](http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf), Proof of Theorem 7.11, publ. p. 855 (copy p. 55); [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), §2.9 'Arthur's classification', first paragraph — independently checked downloaded PDF p.38; published-copy pagination where applicable.
+Sources: [Frank Calegari, David Geraghty, Minimal modularity lifting for nonregular symplectic representations (with an appendix by F. Calegari, D. Geraghty and M. Harris)](http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf), Proof of Theorem 7.11, §7.2, publ. p. 854; arXiv v1 p. 40; [Frank Calegari, David Geraghty, Minimal modularity lifting for nonregular symplectic representations (with an appendix by F. Calegari, D. Geraghty and M. Harris)](http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf), Proof of Theorem 7.11, publ. p. 855 (copy p. 55); [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), §2.9 'Arthur's classification', first paragraph — independently checked downloaded PDF p.38; published-copy pagination where applicable; [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), Theorem 7.4.1, §7.4, p. 40 (arXiv v1); [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), Theorem 3.1.1, §3.1, p. 16; Theorem 2.8.1, §2.8, p. 16 (arXiv v1); [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), Proposition 7.3.1, §7.3, p. 39 (arXiv v1); [Toby Gee, Olivier Taïbi, Arthur's multiplicity formula for GSp4 and restriction to Sp4](https://arxiv.org/pdf/1807.03988), §1.1, disclosure paragraph, p. 3; §2.5, p. 12 (arXiv v1).
 
 Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4166,25 +4173,26 @@ Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual o
 
 Target `ML.4/gl4-symplectic-descent`; theorem. Proposed declaration: `TauCeti.Arthur.GSp4.descent_of_symplecticType`.
 
-Let F be totally real and Π a cuspidal automorphic representation of GL₄(𝔸_F) of symplectic type with multiplier χ. Then there is a discrete automorphic representation π of GSp₄(𝔸_F) with central character χ whose transfer is Π. More precisely, if for each place v π_v is any element of the L-packet corresponding to (rec_p(Π_v), χ_v), then π := ⊗′_v π_v is automorphic and occurs with multiplicity one in the discrete spectrum; if moreover Π is algebraic, π is cuspidal.
+Let F be totally real and Π a cuspidal automorphic representation of GL₄(𝔸_F) of symplectic type with multiplier χ. Then there is a discrete automorphic representation π of GSp₄(𝔸_F) with central character χ whose transfer is Π. More precisely, if for each place v π_v is any element of the L-packet corresponding to (rec_p(Π_v), χ_v), then π := ⊗′_v π_v is automorphic and occurs with multiplicity one in the discrete spectrum; if moreover Π is algebraic, π is cuspidal. The existence of π holds unconditionally, over any number field, with π cuspidal and globally generic: by Gan–Takeda Theorem 12.1(iii)(a) and (iv), Π ⊠ χ is the strong lift of a globally generic cuspidal π with ω_π = χ, and the L-parameters of π and Π agree at every place. The packet statement uses the multiplicity formula of ML.4/gsp4-arthur-classification.
 
 Hypotheses:
 
 - F a totally real number field (BCGP work over totally real F; Calegari–Geraghty and Pilloni over ℚ); GSp₄ the split symplectic similitude group with similitude ν; π a discrete automorphic representation of GSp₄(𝔸_F) with central character ω_π.
-- Π cuspidal of symplectic type with multiplier χ; conditional on ML.0/arthur-dependency-gate.
+- Π cuspidal of symplectic type with multiplier χ. The packet statement (every member of the global L-packet automorphic, with multiplicity one) is conditional on ML.0/arthur-dependency-gate; the existence of one globally generic cuspidal descent is not.
 
 Proof route:
 
-1. The first two statements are immediate from the multiplicity formula of ML.4/gsp4-arthur-classification (S_ψ = 1 for ψ = Π ⊠ 1).
-2. Cuspidality for algebraic Π: Clozel's purity lemma makes Π_∞ essentially tempered, and Wallach's criterion (a discrete representation with tempered archimedean component is cuspidal) applies.
+1. Existence of a globally generic cuspidal descent: Gan–Takeda Theorem 12.1(iii)(a) with µ = χ gives π with Θ(π) = Π ⊠ χ, and Theorem 12.1(iv) equates the L-parameters at every place, so Π is the transfer of π in the sense of ML.4/gsp4-discrete-spectrum-types. The proof uses global theta lifts to GSO(V), Howe duality and the Shalika-period criterion of Jacquet–Shalika, not the trace formula.
+2. BCGP derive the first two statements from the multiplicity formula of ML.4/gsp4-arthur-classification (S_ψ = 1 for ψ = Π ⊠ 1); only the packet statement needs it.
+3. Cuspidality for algebraic Π: Clozel's purity lemma makes Π_∞ essentially tempered, and Wallach's criterion (a discrete representation with tempered archimedean component is cuspidal) applies.
 
-Direct prerequisites: [ML.4/gsp4-arthur-classification](#target-gsp4-arthur-classification), `AutomorphicFormsOnReductiveGroups:AF.4`.
+Direct prerequisites: [ML.4/gsp4-arthur-classification](#target-gsp4-arthur-classification), `AutomorphicFormsOnReductiveGroups:AF.4`, [ML.4/gan-takeda-llc-gsp4](#target-gan-takeda-llc-gsp4), `MetaplecticAutomorphicForms:MP.3`.
 
 Acceptance controls:
 
 - Consumers: BCGP Lemma 8.3.2 (soluble descent of GSp₄ automorphy), Theorem 9.3.1 and §7.13.
 
-Sources: [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), Theorem 2.9.3, §2.9 — independently checked downloaded PDF p.39; published-copy pagination where applicable; [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), Proof of Theorem 2.9.3, PDF/printed p.39 (arXiv v3).
+Sources: [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), Theorem 2.9.3, §2.9 — independently checked downloaded PDF p.39; published-copy pagination where applicable; [George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), Proof of Theorem 2.9.3, PDF/printed p.39 (arXiv v3); [Wee Teck Gan and Shuichiro Takeda, The local Langlands conjecture for GSp(4)](https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p12-p.pdf), §12, Theorem 12.1 and its proof, pp. 1878–1880.
 
 Suggested signature: omitted until C-ARTHUR, C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4481,11 +4489,12 @@ Suggested signature: omitted until C-AUTOMORPHIC supplies the actual objects and
 
 Target `ML.5/grs-descent`; theorem. Proposed declaration: `TauCeti.Functoriality.grsDescent`.
 
-Let F be a number field and φ = τ₁ ⊞ ⋯ ⊞ τ_r a generic global parameter for the split group SO_{2n+1}: τ_i pairwise non-isomorphic unitary self-dual cuspidal representations of GL_{n_i}(𝔸_F) of symplectic type, Σ n_i = 2n. The automorphic descent (a Fourier–Jacobi or Bessel coefficient of the residual Eisenstein representation E_τ with parameter (τ₁, 2) ⊞ ⋯ ⊞ (τ_r, 2)) is a non-zero cuspidal globally generic automorphic representation π₀ of SO_{2n+1}(𝔸_F) whose functorial lift to GL_{2n} is τ₁ ⊞ ⋯ ⊞ τ_r; it is irreducible (Jiang–Soudry) and is the generic member of the global packet Π̃_φ. The analogous descents for the other quasi-split classical groups give non-zero cuspidal generic representations whose structure depends on the uniqueness of local Bessel models over Vogan packets.
+Let F be a number field and φ = τ₁ ⊞ ⋯ ⊞ τ_r a generic global parameter for the split group SO_{2n+1}: τ_i pairwise non-isomorphic unitary self-dual cuspidal representations of GL_{n_i}(𝔸_F) of symplectic type, Σ n_i = 2n. The automorphic descent (a Fourier–Jacobi or Bessel coefficient of the residual Eisenstein representation E_τ with parameter (τ₁, 2) ⊞ ⋯ ⊞ (τ_r, 2)) is a non-zero cuspidal globally generic automorphic representation π₀ of SO_{2n+1}(𝔸_F) whose functorial lift to GL_{2n} is τ₁ ⊞ ⋯ ⊞ τ_r; it is irreducible (Jiang–Soudry), and in Arthur’s classification (conditional on ML.0/arthur-dependency-gate) it is the generic member of the global packet Π̃_φ. The analogous descents for the other quasi-split classical groups give non-zero cuspidal generic representations whose structure depends on the uniqueness of local Bessel models over Vogan packets.
 
 Hypotheses:
 
 - F a number field; φ generic for split SO_{2n+1}.
+- For split SO_{2n+1} the descent, its cuspidality, genericity, irreducibility and functorial lift use no trace-formula input; its identification as the generic member of Arthur’s global packet, and the Vogan-packet input for the other groups, carry ML.0/arthur-dependency-gate.
 
 Proof route:
 
@@ -4493,7 +4502,7 @@ Proof route:
 2. Jiang–Soudry (Ann. of Math. 2003): irreducibility for SO_{2n+1} via the local converse theorem.
 3. Jiang–Zhang record the general structure, with the correction their extraction lists (E21).
 
-Direct prerequisites: [ML.4/global-arthur-parameter](#target-global-arthur-parameter), [ML.5/ckpss-generic-transfer](#target-ckpss-generic-transfer), `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
+Direct prerequisites: [ML.4/global-arthur-parameter](#target-global-arthur-parameter), [ML.5/ckpss-generic-transfer](#target-ckpss-generic-transfer), `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`, [ML.0/arthur-dependency-gate](#target-arthur-dependency-gate).
 
 Acceptance controls:
 
@@ -4723,6 +4732,12 @@ The accepted NT paper routes separate endpoints from analytic, unitary-level-rai
 
 Retain the eight method/refinement ids as import contracts with ownership fields naming the reviewed proposed Part IIs. Exact exports are requested without fabricated stage ids. The endpoint roadmap contains no second proof plan for those methods. The unitary method owner consumes the classifications as an external conditional input with their precise status; do not add a circular ML.4 → ML.3 proof edge.
 
+### Ownership contract 5
+
+ML.4 holds 31 targets in five developments with different sources and different status: Gan–Takeda’s unconditional local theory, Gee–Taïbi’s conditional GSp₄ classification with its consequences, the classical-group classification of Arthur, Mok, KMSW and Ishimoto, the real Arthur packets, and Xu’s similitude packets. One star does not show which exports are conditional. The five sub-layers follow FIX-RT-AREA-langlands-3’s proposal; every node keeps parentStageId ML.4 and its id.
+
+ML.4:gsp4-local “Local Langlands correspondence for GSp₄” (unconditional): gan-takeda-llc-gsp4, ML.0/gsp4-galois-l-packet. ML.4:classical-arthur “Endoscopic classification of classical groups” (conditional on the twisted weighted fundamental lemma): self-dual-cuspidal-type, global-arthur-parameter, orthogonal-sign-kernel, extended-langlands-parameter, trace-formula-inputs-register, local-arthur-packets, arthur-multiplicity-formula, mok-unitary-classification, kmsw-inner-forms, vogan-packets-so-v, amf-nonsplit-so-v, packet-member-irreducibility, generic-packets-standard-modules. ML.4:gsp4-arthur “Arthur’s classification for GSp₄ and its consequences”: gsp4-discrete-spectrum-types, symplectic-branch-status, gsp4-arthur-classification, gl4-symplectic-descent, non-general-type-reducible, shahidi-exterior-square, gsp4-archimedean-limit-packets, gsp4-gl4-archimedean-transfer, limit-discrete-series-packet-types, unitary-descent-of-gl4-transfer, ML.0/weight-22-abelian-variety-conjecture, ML.0/regular-weight-serre-implies-abelian-surface-modularity. ML.4:real-packets “Real Arthur packets”: adams-johnson-packets, moeglin-renard-packets. ML.4:xu-packets “Xu’s packets for similitude groups”: xu-gsp2n-packets, xu-multiplicity-formula. Node prerequisites give the order ML.4:gsp4-local, ML.4:classical-arthur → ML.4:gsp4-arthur, ML.4:real-packets, ML.4:xu-packets; ML.4:gsp4-local uses no classification node, and no node of ML.4:classical-arthur uses a GSp₄ node. The six planets stay where they are: global-arthur-parameter, local-arthur-packets, arthur-multiplicity-formula and mok-unitary-classification in ML.4:classical-arthur, gan-takeda-llc-gsp4 in ML.4:gsp4-local, gsp4-arthur-classification in ML.4:gsp4-arthur. Paper routes that send classification items to ML.4 (BOXER-CALEGARI-GEE-PILLONI-21 route 8, CALEGARI-GERAGHTY-20 route 15, PILLONI-20 route 14, GAN-SAVIN-23 route 4, GAN-ICHINO-18 route 3, JIANG-ZHANG-20 route 4, CHENEVIER-TAIBI-20 route 8, ICHINO-PRASANNA-23 route 7, GAN-SAVIN-23-B route 4) can name the sub-layer of the owning node; RT-AREA-langlands-3.fixes-2.md lists the owner of every item.
+
 ## Supplier requests
 
 Every request is open. Each names the exact extension rather than treating an existing coarse layer as a proof of a stronger result. Requests to a local layer with a proposed method owner terminate at that owner contract; no undesigned stage identifier is invented.
@@ -4855,9 +4870,9 @@ Required by: [ML.1/buzzard-taylor-hypotheses](#target-buzzard-taylor-hypotheses)
 
 ### R22: `MetaplecticAutomorphicForms:MP.3`
 
-Local theta correspondences for (GSp₄, GO(V)) with dim V = 4, 6 and for (Mp_{2n}, SO_{2n+1}) (Gan–Takeda; Gan–Savin), used to construct the LLC for GSp₄ and the local descent to Mp_{2n}. Scope correction: MP.3 provides elementary theta modules and source-qualified range statements; full all-residual-characteristic Howe duality and GRS local descent require a separate exact extension.
+Local theta correspondences for (GSp₄, GO(V)) with dim V = 4, 6 and for (Mp_{2n}, SO_{2n+1}) (Gan–Takeda; Gan–Savin), used to construct the LLC for GSp₄ and the local descent to Mp_{2n}. Scope correction: MP.3 provides elementary theta modules and source-qualified range statements; full all-residual-characteristic Howe duality and GRS local descent require a separate exact extension. Also the global theta lift between GSp₄ and GSO(V) with dim V = 4, 6, with Howe duality at every place and the Whittaker/Shalika-period computation, as used in Gan–Takeda Theorem 12.1 for the generic descent of ML.4/gl4-symplectic-descent.
 
-Required by: [ML.4/gan-takeda-llc-gsp4](#target-gan-takeda-llc-gsp4), [ML.5/local-descent-mp2n](#target-local-descent-mp2n).
+Required by: [ML.4/gan-takeda-llc-gsp4](#target-gan-takeda-llc-gsp4), [ML.5/local-descent-mp2n](#target-local-descent-mp2n), [ML.4/gl4-symplectic-descent](#target-gl4-symplectic-descent).
 
 ### R23: `PadicFamilies:L2`
 
@@ -5137,9 +5152,9 @@ Required by: [ML.3/steinberg-level-raising](#target-steinberg-level-raising).
 
 ### G4: Arthur's endoscopic classification is an external conditional input
 
-No roadmap plans the proofs of Arthur 2013 (Chapters 2–8), Mok 2015, KMSW 2014, Gee–Taïbi 2019, Xu or Ishimoto: the stabilisation of the twisted trace formula (Mœglin–Waldspurger 2016), the local intertwining relation (Arthur [A25]–[A27], proved by Atobe–Gan–Ichino–Kaletha–Mínguez–Shin), and the twisted weighted fundamental lemma (Mœglin–Waldspurger II.4.4; the weighted fundamental lemma for Lie algebras of non-split groups and its non-standard version have no written proof). The ML.4 nodes state the results with this status (ML.0/arthur-dependency-gate); restructure proposal 2 asks for a constructive owner.
+No roadmap plans the proofs of Arthur 2013 (Chapters 2–8), Mok 2015, KMSW 2014, Gee–Taïbi 2019, Xu or Ishimoto 2024: the stabilisation of the twisted trace formula (Mœglin–Waldspurger 2016), the local intertwining relation (Arthur [A25]–[A27], proved for quasi-split groups by Atobe–Gan–Ichino–Kaletha–Mínguez–Shin; for inner forms at the generic scope of KMSW and Ishimoto), and the twisted weighted fundamental lemma (Mœglin–Waldspurger II.4.4; the weighted fundamental lemma for Lie algebras of non-split groups and its non-standard version have no written proof). The ML.4 nodes state the results with this status (ML.0/arthur-dependency-gate; the GSp₄ split into unconditional and conditional exports is ML.4/symplectic-branch-status); restructure proposal 2 asks for a constructive owner. Chan–Gan’s tempered character relations for GSp₄, which Gee–Taïbi cite as their Theorem 2.8.1, were not read.
 
-Required by: [ML.4/local-arthur-packets](#target-local-arthur-packets), [ML.4/arthur-multiplicity-formula](#target-arthur-multiplicity-formula), [ML.4/mok-unitary-classification](#target-mok-unitary-classification), [ML.4/kmsw-inner-forms](#target-kmsw-inner-forms), [ML.4/gsp4-arthur-classification](#target-gsp4-arthur-classification), [ML.4/xu-gsp2n-packets](#target-xu-gsp2n-packets), [ML.4/amf-nonsplit-so-v](#target-amf-nonsplit-so-v).
+Required by: [ML.4/local-arthur-packets](#target-local-arthur-packets), [ML.4/arthur-multiplicity-formula](#target-arthur-multiplicity-formula), [ML.4/mok-unitary-classification](#target-mok-unitary-classification), [ML.4/kmsw-inner-forms](#target-kmsw-inner-forms), [ML.4/gsp4-arthur-classification](#target-gsp4-arthur-classification), [ML.4/xu-gsp2n-packets](#target-xu-gsp2n-packets), [ML.4/amf-nonsplit-so-v](#target-amf-nonsplit-so-v), [ML.4/gl4-symplectic-descent](#target-gl4-symplectic-descent), [ML.4/vogan-packets-so-v](#target-vogan-packets-so-v).
 
 ### G5: Newton–Thorne and Clozel–Thorne methods are owned by proposed Part IIs
 
@@ -5384,3 +5399,4 @@ The packet applies, without re-recording them, the confirmed errata of the route
 - **gan-takeda-2011**: Wee Teck Gan and Shuichiro Takeda, [The local Langlands conjecture for GSp(4)](https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p12-p.pdf). Annals of Mathematics 173 (2011), 1841–1882, journal PDF
 - **patrikis-taylor-2015**: Stefan Patrikis and Richard Taylor, [Automorphy and irreducibility of some l-adic representations](https://virtualmath1.stanford.edu/~rltaylor/irred.pdf). Public author manuscript, Compositio Mathematica 151 (2015), pp. 207–229; manuscript pagination used
 - **zou-2024**: Konrad Zou, [The categorical form of Fargues’ conjecture for tori](https://arxiv.org/pdf/2202.13238v2). arXiv:2202.13238v2, 6 August 2024
+- **ishimoto-2024**: Hiroshi Ishimoto, [The endoscopic classification of representations of non-quasi-split odd special orthogonal groups](https://arxiv.org/pdf/2301.12143v2). arXiv:2301.12143v2 (16 June 2024), 68 pages; published Int. Math. Res. Not. IMRN 2024, no. 14, 10939–11012 (journal version not collated). PDF page = printed page.
