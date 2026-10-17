@@ -53455,8 +53455,9 @@
    ],
    "revisionOf": "PKG-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10230"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10230",
+   "finishedAt": "2026-10-17T20:22:34Z"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions~3",
@@ -54557,8 +54558,9 @@
    ],
    "revisionOf": "PKG-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/PKG-PrismaticCohomology~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10231"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10231",
+   "finishedAt": "2026-10-17T20:22:38Z"
   },
   {
    "id": "REV-PKG-PrismaticCohomology~3",
@@ -132601,9 +132603,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EllipticCurveModularityImaginaryQuadratic~adv2.md",
-   "note": "claimed on GitHub issue #10242"
+   "note": "deliverables arrived from an external worker on issue #10242",
+   "finishedAt": "2026-10-17T20:22:39Z"
   },
   {
    "id": "FIX-PKG-AnalyticNumberTheory~adv3",
@@ -132621,8 +132624,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv3.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AnalyticNumberTheory~adv3.md",
+   "note": "claimed on GitHub issue #10249"
   },
   {
    "id": "FIX-PKG-ArithmeticStatistics~adv2",
@@ -132640,8 +132644,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatistics~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticStatistics~adv2.md",
+   "note": "claimed on GitHub issue #10250"
   }
  ]
 }
