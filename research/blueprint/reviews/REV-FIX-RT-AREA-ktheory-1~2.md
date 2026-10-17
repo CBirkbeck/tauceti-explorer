@@ -1,3 +1,115 @@
+# Current scope checkpoint — 17 October 2026
+
+Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex (GPT-6), session
+`codex-ZlHsdM`. Claim comment 6241672571 was confirmed by bot comment
+6241675270. This session wrote none of the fixes under review.
+
+**Blocked on issue/queue scope reconciliation.** The live issue was reread
+after claim confirmation. It still authorizes seven packets, their seven
+suggested files and this report. The actual queue now requires **19 packets
+and 19 suggested files**, rather than the 22 recorded in the historical
+checkpoint below. Twelve supplier packets require an additional scoped
+verdict from this job. [WORKERS.md](../WORKERS.md), Doing the work, says
+“Edit only the files the issue names.” Authorization to include the current
+queue-listed suppliers was requested in this session; no answer had arrived
+when this checkpoint was prepared. No supplier or original packet, Lean file,
+queue entry, issue body, label or review verdict was changed.
+
+This is a scope checkpoint, not a repeated seven-packet mathematical review.
+The earlier finding-by-finding verdicts and source certifications below retain
+their named authors and dates. The following evidence is fresh.
+
+## Actual completion audit
+
+Calling the repository's `issues.py:deliverables_complete` with the current
+queue job returns **false**. A scratch-only copy retaining the issue's
+seven packet outputs returns **true**. All 39 current queue output files
+exist. The twelve additional packets have accepted verdicts from other jobs;
+the completion predicate requires this job's reviewer identifier on each.
+The four existing `needs_changes` verdicts on original packets are valid
+completed review outcomes and do not cause this scope blocker.
+
+Neither changing reviewer identifiers without reviewing their obligations nor
+changing the queue to bypass them would complete the requested independent
+review. No such changes were made.
+
+| Additional packet basename | Current independent review job |
+| --- | --- |
+| BorelRegulators | `REV-BorelRegulators~2` |
+| MotivicEtaleKTheory--M.1 | `REV-MotivicEtaleKTheory--M.1` |
+| StableHomotopyKTheory | `REV-StableHomotopyKTheory~3` |
+| KTheoryLowDegrees--U.1 | `REV-KTheoryLowDegrees--U.1~3` |
+| KTheoryLowDegrees--U.6 | `REV-KTheoryLowDegrees--U.6` |
+| SpecialValuesBirchTate | `REV-SpecialValuesBirchTate~2` |
+| MotivicEtaleKTheory--M.5d | `REV-MotivicEtaleKTheory--M.5d~2` |
+| SchemeKTheoryOperations | `REV-SchemeKTheoryOperations~3` |
+| KTheoryLowDegrees--U.4 | `REV-KTheoryLowDegrees--U.4` |
+| K2SymbolsBrauer--T.1-classical | `REV-K2SymbolsBrauer--T.1-classical` |
+| K3BlochGroups--V.1 | `REV-K3BlochGroups--V.1` |
+| KTheoryFiniteLocalFields | `REV-KTheoryFiniteLocalFields~2` |
+
+Compared with the previous 22-packet checkpoint, the queue no longer includes
+Arithmetic N.2, N.3-finite-generation, N.5 or low-degree Z.3, and now includes
+the classical T.1 supplement. Thus the old fifteen-supplier resumption list
+and its instruction to repair Z.3 are not the current job's scope.
+
+## Fresh checks and supplement evidence
+
+All **19** current queue packets pass `scripts/check_blueprint.py` with
+**zero errors and zero warnings**. These are structural checks, not closure
+certification. The original seven packets already carry this job's prior
+scoped verdicts; they were not stamped again or mathematically re-reviewed.
+
+The newly queue-listed `K2SymbolsBrauer--T.1-classical.lean` was elaborated
+serially with `lean-check` at the pinned build, with more than 20 GB of
+available memory: **zero errors, 16 admitted-declaration warnings, no other
+warnings**. Its SHA-256 is
+`fc2489bbb4cd4871d48eff112c890929be5a000695e75ddf43c4d8b25a3cf70b`.
+The other 18 suggested files were not recompiled in this continuation;
+the earlier results below remain historical evidence. No language server,
+library build, update or cache download was started.
+
+A targeted read-only check of the supplement's new centrality criterion used
+these actual pinned source statements:
+
+- Tau Ceti `GroupExtension.InducesAction`,
+  `conjAct_eq_one_of_le_center` and `inducesAction_iff_smul_eq_self`,
+  `GroupTheory/GroupExtension/FactorSetOfSection.lean`, lines 119–147.
+- Mathlib `GroupExtension.inl_conjAct_comm`,
+  `GroupTheory/GroupExtension/Defs.lean`, line 148.
+
+Centrality makes actual kernel conjugation trivial. Conversely, compatibility
+with the specified trivial quotient action makes each conjugate of an
+included kernel element equal to itself, hence its image commutes with the
+whole total group. This verifies that one new criterion; it is not a review
+of the supplement's seven inherited refinements, its column/row API or every
+imported theorem. The supplement imports 43 parent T.1 nodes rather than
+creating new owners for universal central extensions, the Hopf formula or
+the five-term sequence. Its full scoped area-fix verdict remains to be
+reviewed after authorization.
+
+The applicable baseline is Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Current upstream roadmaps and
+Tau Ceti were inspected read-only; no upstream tree was changed or built.
+No restricted source or passage was copied. No new mathematical source
+certification is claimed beyond the pinned declarations just identified.
+
+## Resume condition
+
+Synchronize issue #5542's authorized deliverables with the current queue, or
+explicitly authorize the twelve additional packets and matching suggested
+files above. Review their actual area-fix obligations and preserve earlier
+review history before recording this job's scoped verdicts. Keep the original
+38-finding dispositions below; use the current queue list instead of the old
+22-packet list. The [handoff](../handoff/REV-FIX-RT-AREA-ktheory-1~2.md)
+records the remaining mathematical and compilation boundaries. No second job
+was claimed.
+
+---
+
+## Historical checkpoint by codex-7qt7vQ — 11 October 2026
+
 # Independent review of the second K-theory area fix
 
 Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex (GPT-6), session
