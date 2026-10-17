@@ -4,61 +4,102 @@
 
 ## Scope and ownership
 
-This part owns function-field distributions and geometric statistics. Its numbered subsections retain the common layer notation: Layer 0 is the family interface, Layer 1 the orbit dictionaries, Layer 2 the counts, Layer 3 the field and finite-group tools, Layer 4 the Selmer means, and Layer 5 the probability and geometric comparisons. An exact link identifies the supplying part whenever a layer is shared between two parts.
+This part owns Layer 5 §§5.12–5.22 of the arithmetic-statistics roadmap, the geometric and function-field statistics. Section numbers keep the six-layer numbering shared by the eight parts (Layer 0 families and heights, Layer 1 orbit dictionaries, Layer 2 counts, Layer 3 field and finite-group tools, Layer 4 Selmer means, Layer 5 probability models and geometric comparisons); a lower layer named in a proof is reached through the link to the part that states it. The targets fall into five groups.
 
-The following boundaries fix the carriers and prevent parallel versions of existing mathematics.
+- §5.12: first and second moments of the local densities of random primitive hypersurfaces, with the Taylor and Hensel lifting lemmas they need (Browning–Le Boudec–Sawin, §5).
+- §§5.13–5.14: concentration of the isogeny types of principally polarized abelian varieties over a prime field, conditional on Lipnowski–Tsimerman's Conjecture 5.2 and its analogue with the real-Weil surface, and its two consequences: an atom at zero in the averaged eigenangle spacing law, and the failure of the enhanced Cohen–Lenstra model for this family.
+- §§5.15–5.19: the Ellenberg–Venkatesh–Westerland theorem. Class-group surjection moments of imaginary quadratic function fields become point counts of generalized-dihedral Hurwitz schemes. A uniform trace estimate, the symplectic monodromy of the odd-degree hyperelliptic family (Achter–Pries, Vasiu) and the uniqueness of the Frobenius-stable symplectic orbit then give the large-q Cohen–Lenstra theorem for the upper and lower degree densities.
+- §§5.20–5.21: Wood's nonabelian moments in the eventual-degree large-q mode, the liminf bound for bad types and the whole fixed-degree component profile, which decides when an ordinary limit exists.
+- §5.22: the Liu–Wood–Zureick-Brown moments of unramified semidirect extensions of F_q(t), and the Cohen–Lenstra–Martinet corollary.
 
-- TauCetiRoadmap.EllipticCurves Layers 1, 4–8 supply isogenies, local point groups, quadratic twists, Mordell–Weil, finite Selmer groups and their exact sequence, and the unique integral minimal short pair over Q. Here the new elliptic-family adapter sends that pair `(A,B)` to `(-3A,-27B)` and tracks the resulting height and local-density factors. Mathlib's pointwise `WeierstrassCurve.naiveHeight` is a height on points and is not this curve-family height.
-- TauCetiRoadmap.PolynomialGaloisGroups Layers 0, 2 and 6 own permutation actions on roots, conjugacy of their images, and the transitive-group predicates. The field-counting predicate here specializes that interface to embeddings of an extension; it does not define another permutation Galois group.
-- TauCetiRoadmap.GlobalNumberFields Layers 9–11 own discriminants, orders, Picard groups and the number-field lattice dictionary. Its lattice/coset estimates and GeometryOfNumbersAndQuadraticArithmetic:GN.4 supply the bounded semialgebraic count. What is added here is its use on skew, truncated and averaged arithmetic fundamental regions, with the cusp error retained. TauCetiRoadmap.OrthogonalSpinGroups Layer 0 supplies the generic orthogonal group; the one-matrix slice here fixes an arithmetic quadratic matrix and integral lattice. TauCetiRoadmap.IntegralLattices §2G supplies Minkowski reduction and bounded Gram entries for integral symmetric lattices. The polynomial-order Gram target here uses a real embedding metric, with one embedding per complex pair, which need not be integral; only that metric adapter and its restricted change-of-basis groups are new. Alternating lattices used in symplectic monodromy are separate objects.
-- TauCetiRoadmap.NumberFieldArithmetic Layers 1, 4 and 6 and TauCetiRoadmap.LocalFieldsRamification Layer 3 supply splitting, relative discriminants, towers and local ramification. TauCetiRoadmap.ClassFieldTheory supplies Artin reciprocity, unramified class fields and conductor characters. Generic norm and ideal-extension maps are reused; the added narrow-class-group and base-character filters keep total positivity and the relative statistical numerator explicit.
-- `TauCeti.FiniteQuadraticModule.IsIsotropic`, `IsLagrangian` and `orthogonalQuotient` already provide finite quadratic isotropy, self-orthogonality and the induced quadratic quotient. Their `orthogonalQuotientMk`, quadratic-value, pairing, surjectivity, equality and nondegeneracy theorems are the finite-module interface consumed here. The new targets are the maximal-isotropic *parameter space*, its uniform probability, reduction of a varying maximal isotropic, and the fibre/intersection counts. Over F_p, identify the values with `(1/p)Z/Z`; over other fields use Mathlib's `QuadraticForm` and submodule quotients. Quadratic vanishing is retained at p=2.
-- Scalar finite-measure moment determinacy with an exponential moment is already `TauCeti.Measure.ext_of_forall_integral_pow_eq_of_exists_integrable_exp` in `TauCeti.Probability.Moments.Determinacy`, together with `ext_of_mgf`. Here surjection moments on finite group classes and exponential rank-grid moments have different growth assumptions and need the discrete separator and tightness arguments below.
-- Restricted-product groups and independent infinite product measures use Tau Ceti's completed RestrictedProducts roadmap and Mathlib's `MeasureTheory.Measure.infinitePi` and projective-measure interfaces. The added structure is the quadratic form, self-duality, finite reductions and canonical maximal-isotropic probability, not another restricted product or product measure.
-- SchemeAndStackFoundations:SF.3 owns unpointed Picard schemes and their degree torsors, the Picard–Brauer obstruction, rational-divisor-class comparison, norm and high-degree Abel maps. The Picard quotient, carry and Hecke probability here are finite statistical specializations. AbelianSchemesAndArithmeticModuli:A3 supplies theta groups and Cartier-dual isogeny kernels; A6 supplies polarized automorphisms and the Rosati-positive-unit orbit description of principal polarizations. The finite counting fibres and their asymptotics are new.
-- InverseGaloisAndArithmeticFundamentalGroups:IG.3–IG.5 own reduced Schur multipliers and covers, arithmetic lifting invariants and Hurwitz components. They are imported with their marked central-cover choices and cyclotomic power actions. Here embedded wreath types, infinity rigidifications and the normalized component sums specify which arithmetic moments are counted.
+The following boundaries fix the carriers.
 
-The pointwise two-Selmer rank identity is supplied by EllipticCurves Layer 7's exact sequence and Layer 6's Mordell–Weil theorem: `dim Sel₂(E)=rank E(Q)+dim E(Q)[2]+dim Sha(E)[2]`. Its explicit descent cardinal formula and rank inequality are already `WeierstrassCurve.Affine.card_range_μ` and `pow_rank_le_card_of_range_μ_le` in `TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.SelmerGroup`, transported by EllipticCurves' explicit/cohomological comparison. These pointwise facts are prerequisites; the new results here average them in the specified family.
-
-AnalyticNumberTheory is a prerequisite of every part of this roadmap and takes no input from any part. The other prospective suppliers used below are lower in the build: SchemeAndStackFoundations; GeometryOfNumbersAndQuadraticArithmetic; AdelicAlgebraicGroups; AlgebraicModuliForArithmeticGeometry; DiophantineApproximationAndTranscendence; InverseGaloisAndArithmeticFundamentalGroups; AbelianSchemesAndArithmeticModuli; ArithmeticGaloisRepresentations; SelmerIwasawaCohomology; ArithmeticGaloisDuality; NeronModelsAndSemistableAbelianVarieties; HeightsRationalPointsAndObstructions; EtaleDualityAndPerverseSheaves; and DeligneWeightsAndPurity. More specialized facts required here are stated as local supporting targets, not deferred to a later roadmap.
+- InverseGaloisAndArithmeticFundamentalGroups (TauCetiRoadmap pull request #850) owns Hurwitz moduli, their fixed-degree cohomology and point counts, component invariants, reduced Schur multipliers, coprime complements and the marked-extension dictionary. Existence and conjugacy of coprime complements are its §IG.4.5 *Coprime profinite complements*; §5.22 adds only the count [H : H^Γ] of sections. Its §IG.5.5 *Fixed-degree uniform Hurwitz point estimate* is the per-component bound used in §§5.20–5.21. The trace estimate of §5.16 differs from it in being uniform in the dimension under an explicit Betti-number hypothesis. The items of that roadmap used here, and those still required of it, are listed under Exact supplier contracts.
+- AbelianSchemesAndArithmeticModuli (pull request #849) owns torsion subschemes, Weil pairings, polarizations, Rosati orbits of principal polarizations and finiteness of polarized automorphism groups. GeometryOfNumbersAndQuadraticArithmetic (pull request #851) owns lattice indices, hermitian lattices and masses. EtaleDualityAndPerverseSheaves (pull request #1040) owns Poincaré duality. DeligneWeightsAndPurity (pull request #929) owns Deligne's weight bounds and the point-count formulas for curves and abelian varieties over finite fields. TauCetiRoadmap.EllipticCurves Layer 3 supplies the Hasse bound.
+- Mathlib supplies distribution functions and the equality of probability measures with equal distribution functions; the Kolmogorov distance built on them here is new. Mathlib's `Matrix.symplecticGroup` is the multiplier-one case of the similitude cosets of §5.18. The current Tau Ceti library (a91d3aaf, after the pin) proves in `TauCeti.GLSymplecticFin.eq_top_of_adjacent_of_long` that a subgroup of its symplectic matrix group over a field containing the adjacent short-root elements and one long-root subgroup is the whole group. The transvection generation used in §5.17 is a different generating set, so it remains a supporting fact here.
+- Earlier parts supply the remaining inputs: Part I the local-density, polarized-count, function-field and Wood-normalization targets; Part IV Cohen–Lenstra measures and the moment tools; Part V the nonabelian quadratic moment interface and embedded types; Part VII the enhanced Cohen–Lenstra finite-level law. AnalyticNumberTheory supplies the earlier parts, and no target here uses it directly. Nothing in this part is an input of AnalyticNumberTheory or of an earlier part.
 
 ## Conventions
 
-All finite-field cardinalities `q` are prime powers greater than one. A letter `p` or `ℓ` declared prime is a natural prime. An integer modulus is positive unless its zero case is explicitly discussed. Empty products have value one, zero-dimensional vector spaces and the trivial group are retained, and any formula with `q^i-1` in a denominator specifies the positive index range. At characteristic two, alternating means zero diagonal as well as skew symmetry; polar isotropy alone is not quadratic isotropy.
+A finite-field cardinality q is a prime power greater than one; the moment theorems further assume q coprime to the group order, or odd, as stated. A letter p or ℓ declared prime is a natural prime; λ denotes a coefficient prime different from the characteristic. Empty products have value one, the trivial group and zero-dimensional spaces are retained, and a natural cardinal is used only after finiteness is proved. An average over an empty finite slice is zero, but every limiting statement concerns inhabited slices.
 
-A height includes its carrier and equivalence relation. Inclusive Northcott sublevels use `H≤X`; strict source counts use `H<X`. Passing between them requires the stated boundary estimate. A field is counted up to base-field isomorphism unless an embedded or rigid family is named. An orbit count is unweighted unless its reciprocal stabilizer or rational-orbit weight is displayed. A natural cardinal is used only after finiteness; the value zero of `Nat.card` on an infinite type never licenses division. The average of an empty finite sublevel is zero, but any limiting ratio theorem assumes the specified positive denominator.
+On torsion points and Tate modules, Frobenius means arithmetic Frobenius, which multiplies the Weil pairing by q. The trace formula uses geometric Frobenius on compactly supported cohomology. The two are never interchanged. Symplectic matrices follow Mathlib: `Matrix.J l R = fromBlocks 0 (-1) 1 0` and `Matrix.symplecticGroup l R = {h | h * J * hᵀ = J}`; the similitude coset of multiplier m is {h | h J hᵀ = m J}.
 
-Binary coefficients descend in x-degree, and changes of variables use row vectors. Cubics use the determinant-twisted GL2 action; quartics use either the ordinary GL2 action for integral orbit enumeration or the determinant-to-the-minus-two action of PGL2 for two-descent, as specified. For `(a,b,c,d,e)`, `I=12ae-3bd+c²`, `J=72ace+9bcd-27ad²-27b²e-2c³`, and the integral binary discriminant satisfies `27Δ=4I³-J²`. The fixed-degree binary discriminant is used when a leading coefficient vanishes. For the quartic `x⁴-y⁴`, `I=-12`, `J=0`, `Δ=-256`; this fixes the sign. With `E:y²=x³+Ax+B`, `(I,J)=(-3A,-27B)`, `H_E=max(4|A|³,27B²)` and `H_IJ=max(|I|³,J²/4)` satisfy `27H_E=4H_IJ`. Under the two-covering integral representative scaling `(I,J)↦(2⁴I,2⁶J)`, the invariant height scales by `2¹²`.
-
-Coefficient lattices have additive Haar mass one locally. An algebraic-group Haar measure comes from the stated invariant differential; it is not independently renormalized during a product formula. The p-adic absolute value has `|p|_p=p⁻¹`. Archimedean coefficient regions use the displayed Euclidean or Lebesgue measure. Actual CRT residue proportions are used for coupled finite conditions; a product of marginal densities is valid only for independently imposed prime-power conditions.
-
-Every arithmetic conjecture is a proposition, not an axiom or an unconditional distribution theorem. Distribution convergence does not imply convergence of unbounded moments. Fixed-q degree limits, fixed-degree large-q limits and iterated liminf/limsup limits are kept distinct. Selmer dimension, p-infinity Selmer corank and Mordell–Weil rank are distinguished; passing from corank to rank requires the stated condition on the divisible part of Sha. A degree-one Picard-scheme point, an actual degree-one divisor, and a point over an odd-degree extension are compared only under the explicit Brauer/local-solubility hypotheses.
+Three limit modes are kept distinct. EVW's upper and lower densities take odd n → ∞ at fixed q, then q → ∞. Wood's eventual-degree mode fixes a large n and lets q → ∞. Liu–Wood–Zureick-Brown take lim_b of limsup_q and liminf_q of averages over degrees at most b. No two are interchanged without a stated uniform estimate. Convergence of distributions does not give convergence of unbounded moments. Every conjecture is a proposition, never an axiom. The Haar measure on M_g(Z_ℓ) has total mass one.
 
 ## Exact supplier contracts
 
-From Mathlib use `Northcott`, `Northcott.comp_of_finite_fibers`, finite sets and quotient/orbit types; `Polynomial.discr`, resultants, separability and `Squarefree`; `ClassGroup`, `NumberField.discr` and `NumberField.dedekindZeta_residue`; p-adic fields and integers; Haar measures, real and extended nonnegative integrals, filters, infinite sums and products; `QuadraticForm`, bilinear forms, matrices, ranks, finite-dimensional subspaces, finite abelian-group structure and Smith normal form. The prime-counting estimate is `Chebyshev.eventually_primeCounting_le` in `Mathlib.NumberTheory.Chebyshev`: for every ε>0 and eventually x, `π(⌊x⌋)≤(log 4+ε)x/log x`. The new weighted prime-tail statements use partial summation from that estimate.
+### From Mathlib
 
-From Tau Ceti use `TauCeti.normLE`, `coe_normLE` and `summatory` to compare natural-valued heights with Northcott counts. Finite quadratic-module and scalar-determinacy imports are specified in Scope and ownership. They do not assert a group-valued moment theorem or a statistical intersection law.
+The pinned Mathlib supplies the following:
+- polynomial evaluation and partial derivatives: `MvPolynomial.eval_map`, `MvPolynomial.induction_on`, `MvPolynomial.pderiv`, `MvPolynomial.pderiv_mul`, `Ideal.Quotient.eq_zero_iff_mem`, `Nat.findGreatest`;
+- counting: `Nat.choose`, `Finset.Nat.antidiagonalTuple`, `PowerSeries`;
+- probability: `MeasureTheory.ProbabilityMeasure`, `MeasureTheory.diracProba`, `MeasureTheory.Measure.dirac`, `ProbabilityTheory.cdf`, `cdf_le_one`, `cdf_eq_real` and the equality criterion `MeasureTheory.Measure.eq_of_cdf`;
+- angles and roots: `Multiset.sort`, `Multiset.count`, `Polynomial.roots`, `Complex.arg`, `toIcoMod`;
+- order and limits: `le_ciSup`, `Real.log_nonneg`, `Filter.Tendsto`, `Filter.atTop`, `Filter.limsup` and its dual liminf, `tendsto_nhds_unique`, `Filter.tendsto_pure`, `Finite.instDiscreteTopology`;
+- matrices and p-adics: `Matrix.J`, `Matrix.symplecticGroup`, `SymplecticGroup.mem_iff`, `Matrix.GeneralLinearGroup`, `PadicInt`, `ZMod`, `Module.End.maxGenEigenspace`;
+- groups: `SemidirectProduct` with `inl`, `inr` and `rightHom`, `MulEquiv.inv`, `Subgroup.center`, the Schur–Zassenhaus existence theorem `Subgroup.exists_right_complement'_of_coprime`, `CommGroup.primaryComponent`;
+- class groups: `ClassGroup` and `integralClosure`.
 
-The alternating-extension transfer consumes `TauCeti.NumberField.discr_emod_four_eq_zero_or_one` from `TauCeti.NumberTheory.NumberField.Discriminant.Stickelberger` and `NumberField.discr_eq_of_squarefree_of_mod_four_eq_one` from `TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers`. The latter requires a generator of minimal polynomial X²−d, generation over Q, squarefree d and d≡1 modulo four. Mathlib's `NumberField.abs_discr_gt_two` rules out a nontrivial number field of absolute discriminant one. These are existing arithmetic inputs, not new targets.
+### From TauCetiRoadmap.EllipticCurves
 
-From TauCetiRoadmap.EllipticCurves require the finite exact sequence `0→E(K)/nE(K)→Sel_n(E/K)→Sha(E/K)[n]→0`, compatibility with localization, naturality under isogenies, and rational torsion. Over Q require a unique integral short pair with no prime satisfying `p⁴|A` and `p⁶|B`, nonsingular discriminant, finiteness of bounded-height pairs and invariance under Q-isomorphism. Over Q_p require a finite-index open formal subgroup isomorphic to an open additive Z_p subgroup and the reduction/component/Tamagawa dictionary. Over R require the one- or two-component compact Lie-group description. These exact local groups, not only their cardinalities, enter the five-adic labels.
+Layer 3 supplies the Hasse bound a_q² ≤ 4q (AEC V.1.1, `hasse_bound`). It is applied with q = p and q = p², where it gives #E(F_{p²}) ≤ (p + 1)².
 
-From TauCetiRoadmap.ClassFieldTheory require the unramified reciprocity quotient, including split real places for ordinary classes and allowed real ramification for narrow classes, the conductor–discriminant formula, and equivariance under field automorphisms. From NumberFieldArithmetic require norm/extension compatibility and discriminant transitivity. From GlobalNumberFields require the finite order-class and overorder interfaces, trace duals, ideal norms, and discriminant/index-square identities. From GlobalQuadraticForms Layer 5 require the Hasse principle for nonsingular conics over number fields, used to compare quartic descent with the cohomological two-Selmer group.
+### From InverseGaloisAndArithmeticFundamentalGroups
 
-From GeometryOfNumbersAndQuadraticArithmetic:GN.0 require primitive-vector saturation and integral minor/gcd comparison; GN.2–GN.3 require successive-minimum and covolume bounds; GN.4 requires the Davenport estimate for a bounded semialgebraic region with bounded complexity, including translates, projections and multiplicity. From AdelicAlgebraicGroups:AA.0–AA.4 require Haar integration on the specified adelic group, arithmetic reduction and fundamental sets, and central-isogeny measure comparison. Representation-specific Jacobians, cusps and Tamagawa values below still have to be proved.
+*Uses* (TauCetiRoadmap pull request #850):
+- Layer IG.0. §IG.0.T4 is the constant-sheaf Grothendieck–Lefschetz formula #X(k_r) = Σ_i (−1)^i Tr(Frob_{q^r} | H^i_c(X_k̄, Q_ℓ)) for separated X of finite type. §IG.0.3 identifies finite étale covers of a connected normal base with finite continuous π₁-sets; hence the connected components of a finite étale cover are the π₁-orbits on a geometric fibre.
+- Layer IG.1. §IG.1.2 gives tame quotients. The geometric/arithmetic fundamental-group sequence over F_q shows that a geometric component is defined over F_q exactly when Frobenius preserves its orbit.
+- Layer IG.3. §IG.3.4 gives the reduced Schur multiplier M(G, c) = M(G)/Q_c (Wood's H₂(G, c)) and the reduced Schur covers. Its item *Coprime semidirect products and admissible inertia* covers H ⋊ Γ with c the elements of order equal to the order of their image; for A ⋊ Z/2 with A odd it gives (iii) and the conjugation and power stability in (ii) of the generalized dihedral datum. §IG.3.5 gives the action of units; §IG.3.6 gives lifting invariants, the stable classification of braid orbits and the Tate-twisted arithmetic lifting invariants.
+- Layer IG.4. §IG.4.5 gives *Coprime profinite complements* and the unramified admissible Γ-groups Gal(K^#/K) (Liu–Wood–Zureick-Brown, Definition 2.1). §IG.4.6 gives *Marked extensions and their infinity types* (Wood, Proposition 4.4, with the swap and coordinate-projection hypotheses stated there, and Disc M = Disc K^{|G′|/2} for tame quadratic function fields) and *The marked extension count over F_q(t)*, which defines N(H, Γ, D, F_q(t)).
+- Layer IG.5.
+  - §IG.5.3 *Arithmetic Hurwitz stacks and schemes*: finite étale over the configuration space; for Z(G) = 1 the k-points are G-covers defined over k. The same section's *Component bound from finite étale degree* gives D_n.
+  - §IG.5.4: admissible covers and the compact-type locus.
+  - §IG.5.5: tame cohomological specialization (EVW, Proposition 7.7); the fixed-degree comparison and rational Betti dimensions (LWZB, Lemma 10.3); *Finite Hurwitz cohomology and the trace formula*; the *Fixed-degree uniform Hurwitz point estimate* |#C(F_q) − q^n| ≤ K_n q^{n−1/2} (Wood, Theorem 4.7); and *Hurwitz points and marked extensions* (LWZB, Lemma 10.2; Wood, Theorem 4.5(2), for the ordinary marking at unramified ∞).
+  - §IG.5.6: component lifting invariants, the *General rational-class fixed-fiber formula* (|A[q − 1]| or zero per stable multiplicity vector, for the unramified-∞ marking) and *Semidirect components versus quotient components* (LWZB, Theorem 10.4).
+  - §IG.5.7: *The labelled hyperelliptic quotient family* [PConf_n(A¹)/Ã_n], with Ã_n the lifted affine coordinate group, written B_n below, and the *Finite-cover criteria for full monodromy image*. These criteria cover a dense open substack of a connected normal stack, a representable smooth surjection with geometrically connected fibres, and the passage from the compact-type locus to the smooth locus.
 
-The finite-dimensional singular system is already owned by [TauCetiRoadmap.OperatorTheory, PolarDecomposition Part C](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/OperatorTheory/PolarDecomposition/README.md): PD-C09–PD-C18 supply right and left singular vectors and reconstruction. Its real invertible two-dimensional specialization gives g=k diag(u,u⁻¹)l, u≥1, for |det g|=1, with k,l orthogonal. This is the supplier used in compact binary transporters. Mathlib's `LinearMap.IsSymmetric.eigenvectorBasis` in `Analysis.InnerProductSpace.Spectrum` already supplies the underlying spectral theorem; no general singular-decomposition theory is planned here.
+*Required in addition* (not yet stated in IG's README):
+- (IG-a) EVW's Hurwitz scheme Hn^c_{G,n} of tame G-covers of P¹ branched at n points of A¹ and possibly at ∞ (EVW §§7.1, 7.3). For G centre-free and k of characteristic prime to |G|, its k-points should be the covers defined over k. §IG.5.3 states this only over Conf_n(P¹) and with an ordinary marking at unramified ∞.
+- (IG-b) Wood's marked scheme CHur^{c,g}_{F,m} for tangential infinity types g ∈ c ∪ {1} (Wood, Theorem 4.5(2)), and Theorem 4.5(3). In the stable range m_i ≥ N₀ its Frobenius-fixed geometric components should correspond to the q⁻¹-fixed component invariants. For the surviving parity vectors of Wood's Proposition 4.1 and Remark 4.2 their number should be |H₂(F, c)[q − 1]|, and zero otherwise. The fixed-fibre formulas of §IG.5.6 cover only the unramified-∞ marking.
 
-From SchemeAndStackFoundations:SF.0–SF.3 require representability and base change for the specified moduli problems, finite étale covers, smooth lifting, unpointed Picard degree torsors, and the Picard–Brauer exact sequence. From AlgebraicModuliForArithmeticGeometry:R09.1 require Grassmannian/projective representability and smoothness tests; the split quadratic isotropic locus is constructed here. From AbelianSchemesAndArithmeticModuli:A2–A3 require abelian isogenies, duality, polarizations and theta-group commutators, with fppf cohomology when the degree meets the characteristic; A6 gives the Rosati orbit description and finite polarized automorphism groups. From NeronModelsAndSemistableAbelianVarieties:R11.1,R11.3,R11.4,R11.6 require local existence, semistable reduction, normalization/Picard exact sequences, graph monodromy and the identity-component comparison used in the twist parity formulas.
+*No owner yet.* (HS) EVW's Proposition 7.8 asks for the following. Let (G, c) be nonsplitting, G centre-free and c a rational class generating G. Then there should be C(G, c) with dim H^i(Hn^c_{G,n} ⊗ F̄_q, Q_λ) ≤ C(G, c)^{i+1} for all i and n, once λ > max(|G|, q, n). It rests on EVW's homological stability theorem (Theorem 6.1, Corollary 6.2). The atlas routes that theorem to an Inverse Galois Part II on homological stability of Hurwitz spaces, which has no plan yet. IG states fixed-degree comparisons only and asserts no homological stability. Until (HS) has an owner, the theorems of §5.19 that rest on it are conditional on it.
 
-From SelmerIwasawaCohomology:L0–L4 require continuous/fppf cohomology, Kummer localization, finite Selmer groups and torsors and the p-infinity corank interface. From ArithmeticGaloisDuality:D7 and R02.4 require the Poitou–Tate annihilator statement and local invariant normalization, Cassels–Tate pairing and adjointness of dual isogenies, including the finite quotient by the maximal divisible subgroup. From ArithmeticGaloisRepresentations:R01.6 require the precise residual ordinary and ramification predicates used in the analytic rank criteria. From HeightsRationalPointsAndObstructions:RP.1 require the degree/index and actual-divisor obstruction comparison, without identifying a rational relative Picard point with a line bundle before the obstruction vanishes.
+### From AbelianSchemesAndArithmeticModuli
 
-From InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 require finite embedding problems, quantitative Hilbert irreducibility and the fixed-model Lang–Weil estimate. IG.3 supplies `H₂(F,c)=H₂(F,Z)/Q_c`, a chosen reduced cover, and functorial cyclotomic powers. IG.4–IG.5 supply marked arithmetic lifting invariants, unramified Gamma groups and Hurwitz components with their rational Frobenius action. A stable component formula is used only in its stable multidegree range; boundary components remain in the total profile.
+*Uses* (pull request #849):
+- §A2: polarizations and duality.
+- §A3.2: A[n] is finite locally free of rank n^{2g}, étale where n is invertible, and compatible with base change.
+- §A3.5: the Cartier-dual pairing e_n.
+- §A3.7: the pairing e_{λ,n} of a polarization is strongly alternating, and perfect when λ is principal.
+- §A6.5: Poincaré complete reducibility.
+- §A6.18: finiteness of Aut(A, λ).
+- §A6.19: principal polarizations correspond to the Rosati-symmetric totally positive units, and their isomorphism classes are the orbits of s ↦ u^†su.
 
-From EtaleDualityAndPerverseSheaves:EDC.2 and DeligneWeightsAndPurity:DWP.7 require compactly supported cohomology, the trace formula, Poincaré duality, weights and the uniform Betti-bound hypotheses stated below. DeligneWeightsAndPurity §1.6 supplies `#C(F_(q^m))=q^m+1-Σ_i α_i^m` and `|#C(F_(q^m))-(q^m+1)|≤2gq^(m/2)` for a smooth proper geometrically connected curve. Its §1.4–1.5 supplies the weight-one abelian Frobenius roots and `#A(F_(q^m))=det(1-π^m)`. Arithmetic Frobenius on the Tate module and geometric Frobenius on cohomology are not interchanged.
+*Required in addition:* the Jacobian of the relative curve y² = f(x) over Conf_n ⊗ k, with its section at ∞, as a principally polarized abelian scheme of relative dimension g. TauCetiRoadmap.JacobianChallenge Layer D constructs the Jacobian over a field only, which gives the fibres.
 
-From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheory/README.md#cubic-action-discriminant) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheory/README.md#cubic-coefficient-finiteness) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheory/README.md#cubic-uniform-field-count) (§5.7), [cubic continuation and residues](../AnalyticNumberTheory/README.md#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheory/README.md#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheory/README.md#quadratic-large-sieve) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
+### From GeometryOfNumbersAndQuadraticArithmetic
+
+*Uses* (pull request #851): Layer 0, primitive vectors, saturation and covolumes (§§0.2–0.3); Layer 2, quaternionic hermitian lattices (§2.8); Layer 3, masses of genera (§3.3).
+
+*Required in addition.* The first three items are planned in GN's accepted atlas plan but are absent from its upstream README; no roadmap states the last one yet.
+- (GN-a) Browning–Le Boudec–Sawin, Definition 3.7 and Lemma 3.9. The atlas plan has them as GN.0 *Gcd of maximal minors*, *Minor content is the saturation index* and *Two-congruence determinant*. G(c₁, …, c_k) is the nonnegative gcd of the maximal minors, with G = 0 for an all-zero list. For linearly independent primitive c, d ∈ Z^N and Q ≥ 1, the lattice {y : ⟨c, y⟩ ≡ ⟨d, y⟩ ≡ 0 mod Q} has index Q²/gcd(G(c, d), Q) in Z^N.
+- (GN-b) Lipnowski–Tsimerman, Definition 5.1: the model ring R_{L,n} = ∏ M_{n_i}(O_{L_i}) with the conjugate-transpose involution, and its quaternionic analogue M_m(O_D). This is GN.2 *Model rings with positive involution* in the atlas plan.
+- (GN-c) The corrected Lipnowski–Tsimerman bound (55), log n_{L,n} ≤ (1/2) Σ_i [K_i:Q] n_i² log n_i + C_p g². This is GN.3 *Positive unit orbit counts on model rings* in the atlas plan.
+- (GN-d) The quaternionic bound log n_D(m) ≤ 2m² log m + O_p(m²), from the mass of unimodular quaternion-hermitian lattices.
+
+### From EtaleDualityAndPerverseSheaves
+
+*Uses* (pull request #1040): Layer 0, §0.5, Poincaré duality for smooth varieties with torsion coefficients, and §0.6, its ℓ-adic and rational form. The pairing H^i_c × H^{2d−i}(F^∨(d)) → E is perfect and Frobenius-compatible, and the top-degree trace is an isomorphism for geometrically connected X. Two consequences are used here. For a smooth X of pure dimension n, dim H^j_c = dim H^{2n−j}. For a geometrically connected smooth C of dimension n, H^{2n}_c(C, Q_λ) ≅ Q_λ(−n).
+
+### From DeligneWeightsAndPurity
+
+*Uses* (pull request #929):
+- Item 7.12 (Weil II 3.3.4): every eigenvalue of geometric Frobenius on H^j_c(X_{F̄_q}, Q_λ) has absolute value at most q^{j/2}.
+- §§1.4–1.5: the Frobenius roots of an abelian variety over F_q are Weil q-numbers of weight one, and #A(F_{q^m}) = P_{π^m}(1).
+- §1.6: the point count of a curve.
+
+Hence the characteristic polynomial of an isogeny factor divides that of A, and #B₀(F_p) = (p − 1)².
 
 ### From earlier arithmetic-statistics parts
 
@@ -72,7 +113,7 @@ From ArithmeticStatisticsPartVII require [zero cokernel probability at two](../A
 
 ## How to read the build
 
-The mathematical specification is this README; `Suggested.lean` gives representative light definitions and signatures on the pinned carriers. The sections below state every target with its hypotheses, source locator, API and Checks. Definitions requiring new arithmetic or geometric carriers are README targets. Earlier-part supplier links point to their precise statements. The source counts retain their strict or inclusive cutoffs and their own denominators.
+The groups are read in order. §5.12 is self-contained apart from the Part I density carriers and item GN-a. §§5.13–5.14 rest on the Lipnowski–Tsimerman hypotheses and items GN-b to GN-d. §§5.15–5.19 form one chain: the class-group dictionary (§5.15), the trace estimate (§5.16), monodromy (§5.17), the orbit count (§5.18) and the large-q theorem (§5.19). §§5.20–5.21 apply the Wood normalizations of Part I to the components of item IG-b. §5.22 uses only group theory and the Hurwitz counts of IG Layer IG.5. Each target states its hypotheses, source locator and Checks. Definitions also carry an API list; their heavier carriers (Hurwitz schemes, monodromy representations, spacing measures) are README targets, while the representative light definitions are in `Suggested.lean`.
 
 ## Layer 5: Function-field distributions and geometric statistics
 
@@ -84,9 +125,7 @@ The finite and locally compact random-intersection models supply exact probabili
 
 **Polynomial congruence under perturbation.** Let R be a commutative ring, σ a set of variables, f ∈ R[X_i : i ∈ σ] and x, h ∈ R^σ. Then f(x + h) − f(x) lies in the ideal (h_i : i ∈ σ). In particular, for R = ℤ and h ≡ 0 mod p^c coordinatewise, f(x + h) ≡ f(x) mod p^c; applied to the partial derivatives, ∇f(x + h) ≡ ∇f(x) mod p^c.
 
-R commutative f a polynomial x, h vectors in R^σ
-
-For the proof, Let I = (h_i : i ∈ σ) and π: R → R/I the quotient map. Evaluation commutes with ring homomorphisms (Mathlib MvPolynomial.eval_map): π(f(x + h)) = (π f)(π(x + h)) = (π f)(π(x)) = π(f(x)), since π(h_i) = 0. Hence π(f(x + h) − f(x)) = 0, i.e. f(x + h) − f(x) ∈ I (Mathlib Ideal.Quotient.eq_zero_iff_mem).
+*Proof.* Let I = (h_i : i ∈ σ) and π: R → R/I the quotient map. Evaluation commutes with ring homomorphisms (Mathlib MvPolynomial.eval_map): π(f(x + h)) = (π f)(π(x + h)) = (π f)(π(x)) = π(f(x)), since π(h_i) = 0. Hence π(f(x + h) − f(x)) = 0, i.e. f(x + h) − f(x) ∈ I (Mathlib Ideal.Quotient.eq_zero_iff_mem).
 
 *Needs:* `MvPolynomial.eval_map` (Mathlib), `Ideal.Quotient.eq_zero_iff_mem` (Mathlib).
 
@@ -102,9 +141,7 @@ For the proof, Let I = (h_i : i ∈ σ) and π: R → R/I the quotient map. Eval
 
 **First order taylor congruence.** Let R be a commutative ring, σ a finite set of variables, f ∈ R[X_i : i ∈ σ] and x, h ∈ R^σ. Then f(x + h) − f(x) − Σ_i h_i ∂f/∂X_i(x) lies in the ideal generated by the products h_i h_j (i, j ∈ σ). In particular, over ℤ, if b ≡ x mod p^c then f(b) ≡ f(x) + ⟨∇f(x), b − x⟩ mod p^{2c}.
 
-R commutative σ finite f a polynomial
-
-For the proof, Induct on f (Mathlib MvPolynomial.induction_on): constants have zero derivative and zero difference; the statement is additive in f. For f·X_k, write f(x+h) = f(x) + Σ_i h_i ∂_i f(x) + ρ with ρ in the ideal J = (h_i h_j); by the Leibniz rule (Mathlib MvPolynomial.pderiv_mul) ∂_i(f X_k)(x) = ∂_i f(x) x_k + δ_{ik} f(x). Then (f X_k)(x+h) − (f X_k)(x) − Σ_i h_i ∂_i(f X_k)(x) = (Σ_i h_i ∂_i f(x)) h_k + ρ(x_k + h_k) ∈ J.
+*Proof.* Induct on f (Mathlib MvPolynomial.induction_on): constants have zero derivative and zero difference; the statement is additive in f. For f·X_k, write f(x+h) = f(x) + Σ_i h_i ∂_i f(x) + ρ with ρ in the ideal J = (h_i h_j); by the Leibniz rule (Mathlib MvPolynomial.pderiv_mul) ∂_i(f X_k)(x) = ∂_i f(x) x_k + δ_{ik} f(x). Then (f X_k)(x+h) − (f X_k)(x) − Σ_i h_i ∂_i(f X_k)(x) = (Σ_i h_i ∂_i f(x)) h_k + ρ(x_k + h_k) ∈ J.
 
 *Needs:* `MvPolynomial.induction_on` (Mathlib), `MvPolynomial.pderiv` (Mathlib), `MvPolynomial.pderiv_mul` (Mathlib).
 
@@ -120,9 +157,7 @@ For the proof, Induct on f (Mathlib MvPolynomial.induction_on): constants have z
 
 **Local density first moment.** Let d ≥ 1, n ≥ 0, p prime, r ≥ 1 and N = N_{d,n}. Then (1/#R_N(p^r)) Σ_{a ∈ R_N(p^r)} σ(a; p^r) = (1 − p^{−(n+1)})(1 − p^{−(N−1)})/(1 − p^{−N}). In particular, for d ≥ 2 and n ≥ 1 (so N ≥ n + 2) the average lies in [1 − 2p^{−(n+1)}, 1], which is the source's 1 + O(p^{−n−1}) (stated there for d ≥ 2, n ≥ 3).
 
-d ≥ 1 p prime r ≥ 1
-
-For the proof, Swap the sums: Σ_a σ(a; p^r) = p^{−rn} Σ_{b ∈ R_{n+1}(p^r)} #{a ∈ R_N(p^r) : ⟨a, ν_{d,n}(b)⟩ ≡ 0 mod p^r} (coefficient-vector-form, eval_form). For primitive b, ν_{d,n}(b) is primitive (it contains b_i^d for a unit b_i), so a ↦ ⟨a, ν(b)⟩ maps (ℤ/p^r)^N onto ℤ/p^r with kernel of size p^{r(N−1)}; the kernel elements with a ≡ 0 mod p are p·a′ with ⟨a′, ν(b)⟩ ≡ 0 mod p^{r−1}, p^{(r−1)(N−1)} of them. So the inner count is p^{r(N−1)}(1 − p^{−(N−1)}), independent of b. Insert #R_m(p^r) = p^{rm}(1 − p^{−m}) (Layer 0, (5.10)) for m = n + 1 and m = N and simplify. For the range: (1 − p^{−(N−1)})/(1 − p^{−N}) ≤ 1 and (1 − x)(1 − y) ≥ 1 − x − y with y = p^{−(N−1)} ≤ p^{−(n+1)}.
+*Proof.* Swap the sums: Σ_a σ(a; p^r) = p^{−rn} Σ_{b ∈ R_{n+1}(p^r)} #{a ∈ R_N(p^r) : ⟨a, ν_{d,n}(b)⟩ ≡ 0 mod p^r} (coefficient-vector-form, eval_form). For primitive b, ν_{d,n}(b) is primitive (it contains b_i^d for a unit b_i), so a ↦ ⟨a, ν(b)⟩ maps (ℤ/p^r)^N onto ℤ/p^r with kernel of size p^{r(N−1)}; the kernel elements with a ≡ 0 mod p are p·a′ with ⟨a′, ν(b)⟩ ≡ 0 mod p^{r−1}, p^{(r−1)(N−1)} of them. So the inner count is p^{r(N−1)}(1 − p^{−(N−1)}), independent of b. Insert #R_m(p^r) = p^{rm}(1 − p^{−m}) (BLS (5.10), from the [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set) carriers of Part I) for m = n + 1 and m = N and simplify. For the range: (1 − p^{−(N−1)})/(1 − p^{−N}) ≤ 1 and (1 − x)(1 − y) ≥ 1 − x − y with y = p^{−(N−1)} ≤ p^{−(n+1)}.
 
 *Needs:* [local density of a form modulo q](../ArithmeticStatisticsPartI/README.md#local-density-of-a-form-modulo-q), [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set).
 
@@ -142,11 +177,9 @@ For the proof, Swap the sums: Σ_a σ(a; p^r) = p^{−rn} Σ_{b ∈ R_{n+1}(p^r)
 
 **Two point incidence count.** Let d ≥ 1, n ≥ 1, p prime, r ≥ 1, N = N_{d,n} (so N ≥ 2) and b_1, b_2 ∈ R_{n+1}(p^r). Let v ∈ {0, …, r} be the capped p-adic valuation of the minors of (ν_{d,n}(b_1), ν_{d,n}(b_2)), i.e. p^v = gcd(G(ν(b_1), ν(b_2)), p^r) for integral lifts. Then #L(b_1, b_2; p^r) := #{a ∈ R_N(p^r) : f_a(b_1) ≡ f_a(b_2) ≡ 0 mod p^r} = p^{r(N−2)+v} − p^{(r−1)(N−2)+min(v, r−1)}. This one formula covers both of the source's cases (b_1, b_2 proportional modulo p^r is v = r), and gives p^{r(N−2)+v}(1 − p^{−(N−2)}) ≤ #L ≤ p^{r(N−2)+v}, which is (5.13).
 
-d ≥ 1, n ≥ 1 b_1, b_2 primitive modulo p^r
+*Proof.* Choose primitive integral lifts c₁,c₂ (surjectivity of primitive vectors modulo p^r from unimodular completion). If they are dependent, complete c₂ to an integral unimodular basis and choose another basis vector v; replacing c₂ by c₂+p^r v preserves its residue and primitivity (basis coordinates (1,p^r,0,…)) and makes it independent of c₁. Their Veronese vectors are primitive and independent, since d≥1 and the Veronese map is injective on projective points. By item GN-a (Browning–Le Boudec–Sawin, Lemma 3.9) the lattice Λ^{(p^r)}\_{ν(c_1)} ∩ Λ^{(p^r)}\_{ν(c_2)} has index p^{2r}/gcd(G(ν(c_1), ν(c_2)), p^r) in ℤ^N. It contains p^r ℤ^N, so the number of residues a mod p^r with ⟨a, ν(b_1)⟩ ≡ ⟨a, ν(b_2)⟩ ≡ 0 is p^{rN}/index = p^{r(N−2)+v}. The residues with a ≡ 0 mod p are a = p a′ with a′ mod p^{r−1} satisfying the same two congruences modulo p^{r−1}; the same count at level r − 1 gives p^{(r−1)(N−2)+min(v, r−1)} (for r = 1 this is the single residue 0). Subtract; the bounds follow from min(v, r − 1) ≤ v.
 
-For the proof, Choose primitive integral lifts c₁,c₂ (surjectivity of primitive vectors modulo p^r from unimodular completion). If they are dependent, complete c₂ to an integral unimodular basis and choose another basis vector v; replacing c₂ by c₂+p^r v preserves its residue and primitivity (basis coordinates (1,p^r,0,…)) and makes it independent of c₁. Their Veronese vectors are primitive and independent, since d≥1 and the Veronese map is injective on projective points. By GN.0 (Browning–Le Boudec–Sawin, Lemma 3.9) the lattice Λ^{(p^r)}_{ν(c_1)} ∩ Λ^{(p^r)}_{ν(c_2)} has index p^{2r}/gcd(G(ν(c_1), ν(c_2)), p^r) in ℤ^N. It contains p^r ℤ^N, so the number of residues a mod p^r with ⟨a, ν(b_1)⟩ ≡ ⟨a, ν(b_2)⟩ ≡ 0 is p^{rN}/index = p^{r(N−2)+v}. The residues with a ≡ 0 mod p are a = p a′ with a′ mod p^{r−1} satisfying the same two congruences modulo p^{r−1}; the same count at level r − 1 gives p^{(r−1)(N−2)+min(v, r−1)} (for r = 1 this is the single residue 0). Subtract; the bounds follow from min(v, r − 1) ≤ v.
-
-*Needs:* [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), GeometryOfNumbersAndQuadraticArithmetic:GN.0, [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set).
+*Needs:* [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), GeometryOfNumbersAndQuadraticArithmetic (item GN-a), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set).
 
 ([[46]](#ref-46), arXiv v1, proof of Lemma 5.5, p.54; [[46]](#ref-46), arXiv v1, Lemma 3.9, p.11.)
 
@@ -158,13 +191,11 @@ For the proof, Choose primitive integral lifts c₁,c₂ (surjectivity of primit
 
 <a id="veronese-minor-valuation"></a>
 
-**Veronese minor valuation.** Let d ≥ 1, p prime, r ≥ 1 and b_1, b_2 ∈ R_{n+1}(p^r). Then the capped p-adic valuations (at most r) of the minors of (ν_{d,n}(b_1), ν_{d,n}(b_2)) and of (b_1, b_2) are equal. Use the GN.0-requested nonnegative gcd extended by 0 for an all-zero list of minors (so gcd(0, p^r) = p^r). Equivalently, for primitive integral lifts, gcd(G(ν_{d,n}(c_1), ν_{d,n}(c_2)), p^r) = gcd(G(c_1, c_2), p^r); running over all p and r this is Lemma 3.11 of the source, G(ν_{d,n}(x), ν_{d,n}(y)) = G(x, y) for linearly independent primitive x, y ∈ ℤ^{n+1}.
+**Veronese minor valuation.** Let d ≥ 1, p prime, r ≥ 1 and b_1, b_2 ∈ R_{n+1}(p^r). Then the capped p-adic valuations (at most r) of the minors of (ν_{d,n}(b_1), ν_{d,n}(b_2)) and of (b_1, b_2) are equal. Use the nonnegative gcd of item GN-a, extended by 0 for an all-zero list of minors (so gcd(0, p^r) = p^r). Equivalently, for primitive integral lifts, gcd(G(ν_{d,n}(c_1), ν_{d,n}(c_2)), p^r) = gcd(G(c_1, c_2), p^r); running over all p and r this is Lemma 3.11 of the source, G(ν_{d,n}(x), ν_{d,n}(y)) = G(x, y) for linearly independent primitive x, y ∈ ℤ^{n+1}.
 
-d ≥ 1 b_1, b_2 primitive modulo p^r
+*Proof.* Criterion: for u primitive modulo p^r with u_0 a unit and any w, all minors of (u, w) vanish modulo p^e (e ≤ r) iff w ≡ λu mod p^e for some λ (λ = w_0/u_0): the minors u_0w_j − u_jw_0 give w_j ≡ (w_0/u_0)u_j, and the other minors are combinations of these after multiplying by the unit u_0: u_0(u_iw_j − u_jw_i) = u_i(u_0w_j − u_jw_0) − u_j(u_0w_i − u_iw_0). If b_2 ≡ λ b_1 mod p^e then ν(b_2) ≡ λ^d ν(b_1) mod p^e, since every monomial has degree d. Conversely let ν(b_2) ≡ μ ν(b_1) mod p^e with e ≥ 1 and (after renumbering) b_{1,0} a unit. The coordinates X_0^d and X_0^{d−1}X_j give b_{2,0}^d ≡ μ b_{1,0}^d and b_{2,0}^{d−1}b_{2,j} ≡ μ b_{1,0}^{d−1}b_{1,j}. If p | b_{2,0} then p | μ and ν(b_2) ≡ 0 mod p, contradicting the primitivity of ν(b_2); so b_{2,0} is a unit and b_{2,j} ≡ (b_{2,0}/b_{1,0}) b_{1,j} mod p^e. By the criterion applied to (ν(b_1), ν(b_2)) (ν(b_1) is primitive) and to (b_1, b_2), both valuations are the largest e ≤ r for which b_2 is proportional to b_1 modulo p^e.
 
-For the proof, Criterion: for u primitive modulo p^r with u_0 a unit and any w, all minors of (u, w) vanish modulo p^e (e ≤ r) iff w ≡ λu mod p^e for some λ (λ = w_0/u_0): the minors u_0w_j − u_jw_0 give w_j ≡ (w_0/u_0)u_j, and the other minors are combinations of these after multiplying by the unit u_0: u_0(u_iw_j − u_jw_i) = u_i(u_0w_j − u_jw_0) − u_j(u_0w_i − u_iw_0). If b_2 ≡ λ b_1 mod p^e then ν(b_2) ≡ λ^d ν(b_1) mod p^e, since every monomial has degree d. Conversely let ν(b_2) ≡ μ ν(b_1) mod p^e with e ≥ 1 and (after renumbering) b_{1,0} a unit. The coordinates X_0^d and X_0^{d−1}X_j give b_{2,0}^d ≡ μ b_{1,0}^d and b_{2,0}^{d−1}b_{2,j} ≡ μ b_{1,0}^{d−1}b_{1,j}. If p | b_{2,0} then p | μ and ν(b_2) ≡ 0 mod p, contradicting the primitivity of ν(b_2); so b_{2,0} is a unit and b_{2,j} ≡ (b_{2,0}/b_{1,0}) b_{1,j} mod p^e. By the criterion applied to (ν(b_1), ν(b_2)) (ν(b_1) is primitive) and to (b_1, b_2), both valuations are the largest e ≤ r for which b_2 is proportional to b_1 modulo p^e.
-
-*Needs:* [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set), GeometryOfNumbersAndQuadraticArithmetic:GN.0.
+*Needs:* [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set), GeometryOfNumbersAndQuadraticArithmetic (item GN-a).
 
 ([[46]](#ref-46), arXiv v1, Lemma 3.11, p.12.)
 
@@ -180,9 +211,7 @@ For the proof, Criterion: for u primitive modulo p^r with u_0 a unit and any w, 
 
 **Primitive pair minor gcd sum.** For n ≥ 2, p prime and r ≥ 1: Σ_{b_1, b_2 ∈ R_{n+1}(p^r)} gcd(G(b_1, b_2), p^r) ≤ p^{2r(n+1)}((1 − p^{−(n+1)})² + 2p^{1−n}). With the trivial lower bound #R_{n+1}(p^r)² this is (5.14): the sum is p^{2r(n+1)}(1 + O(p^{1−n})), uniformly in r.
 
-n ≥ 2 p prime r ≥ 1
-
-For the proof, For fixed b_1 and 1 ≤ j ≤ r, the b_2 with p^j | G(b_1, b_2) are those with b_2 ≡ λb_1 mod p^j for some λ ∈ (ℤ/p^j)^× (criterion in veronese-minor-valuation); there are at most p^j · p^{(r−j)(n+1)} = p^{r(n+1)−jn} of them. Write gcd(G, p^r) = 1 + Σ_{1 ≤ j ≤ r, p^j | G}(p^j − p^{j−1}) ≤ 1 + Σ_{1 ≤ j ≤ r, p^j | G} p^j and sum over pairs: the total is at most #R_{n+1}(p^r)² + #R_{n+1}(p^r)·p^{r(n+1)} Σ_{j≥1} p^{−j(n−1)}. For n ≥ 2, p^{1−n} ≤ 1/2 so Σ_{j≥1} p^{−j(n−1)} ≤ 2p^{1−n}; insert #R_{n+1}(p^r) = p^{r(n+1)}(1 − p^{−(n+1)}) ≤ p^{r(n+1)} (Layer 0).
+*Proof.* For fixed b_1 and 1 ≤ j ≤ r, the b_2 with p^j | G(b_1, b_2) are those with b_2 ≡ λb_1 mod p^j for some λ ∈ (ℤ/p^j)^× (criterion in veronese-minor-valuation); there are at most p^j · p^{(r−j)(n+1)} = p^{r(n+1)−jn} of them. Write gcd(G, p^r) = 1 + Σ_{1 ≤ j ≤ r, p^j | G}(p^j − p^{j−1}) ≤ 1 + Σ_{1 ≤ j ≤ r, p^j | G} p^j and sum over pairs: the total is at most #R_{n+1}(p^r)² + #R_{n+1}(p^r)·p^{r(n+1)} Σ_{j≥1} p^{−j(n−1)}. For n ≥ 2, p^{1−n} ≤ 1/2 so Σ_{j≥1} p^{−j(n−1)} ≤ 2p^{1−n}; insert #R_{n+1}(p^r) = p^{r(n+1)}(1 − p^{−(n+1)}) ≤ p^{r(n+1)} (BLS (5.10)).
 
 *Needs:* [veronese minor valuation](#veronese-minor-valuation), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set).
 
@@ -198,9 +227,7 @@ For the proof, For fixed b_1 and 1 ≤ j ≤ r, the b_2 with p^j | G(b_1, b_2) a
 
 **Local density second moment.** For d ≥ 1, n ≥ 2, p prime, r ≥ 1 and N = N_{d,n}: Σ_{a ∈ R_N(p^r)} σ(a; p^r)² ≤ p^{rN}((1 − p^{−(n+1)})² + 2p^{1−n}). Dividing by #R_N(p^r) = p^{rN}(1 − p^{−N}) gives the upper half of (5.15): the mean of σ² is at most 1 + O(p^{1−n}).
 
-d ≥ 1 n ≥ 2 p prime r ≥ 1
-
-For the proof, Expand (5.12): Σ_a σ(a; p^r)² = p^{−2rn} Σ_{b_1, b_2 ∈ R_{n+1}(p^r)} #L(b_1, b_2; p^r). By two-point-incidence-count, #L(b_1, b_2; p^r) ≤ p^{r(N−2)} gcd(G(ν(b_1), ν(b_2)), p^r). By veronese-minor-valuation, gcd(G(ν(b_1), ν(b_2)), p^r) = gcd(G(b_1, b_2), p^r). Apply primitive-pair-minor-gcd-sum; the exponent is −2rn + r(N−2) + 2r(n+1) = rN.
+*Proof.* Expand (5.12): Σ_a σ(a; p^r)² = p^{−2rn} Σ_{b_1, b_2 ∈ R_{n+1}(p^r)} #L(b_1, b_2; p^r). By two-point-incidence-count, #L(b_1, b_2; p^r) ≤ p^{r(N−2)} gcd(G(ν(b_1), ν(b_2)), p^r). By veronese-minor-valuation, gcd(G(ν(b_1), ν(b_2)), p^r) = gcd(G(b_1, b_2), p^r). Apply primitive-pair-minor-gcd-sum; the exponent is −2rn + r(N−2) + 2r(n+1) = rN.
 
 *Needs:* [local density of a form modulo q](../ArithmeticStatisticsPartI/README.md#local-density-of-a-form-modulo-q), [two point incidence count](#two-point-incidence-count), [veronese minor valuation](#veronese-minor-valuation), [primitive pair minor gcd sum](#primitive-pair-minor-gcd-sum).
 
@@ -216,9 +243,7 @@ For the proof, Expand (5.12): Σ_a σ(a; p^r)² = p^{−2rn} Σ_{b_1, b_2 ∈ R_
 
 **Local density variance.** For d ≥ 1, n ≥ 2, p prime and r ≥ 1: (1/#R_N(p^r)) Σ_{a ∈ R_N(p^r)} (σ(a; p^r) − 1)² ≤ 4p^{1−n}, where N = N_{d,n}. This is the source's bound ≪ p^{−(n−1)} (stated for d ≥ 2, n ≥ 3) with an explicit constant, uniform in r.
 
-d ≥ 1 n ≥ 2 p prime r ≥ 1
-
-For the proof, Expand: mean((σ − 1)²) = mean(σ²) − 2 mean(σ) + 1. Insert mean(σ) = (1 − x)(1 − y)/(1 − z) (local-density-first-moment) and mean(σ²) ≤ ((1 − x)² + 2w)/(1 − z) (local-density-second-moment), where x = p^{−(n+1)}, y = p^{−(N−1)}, z = p^{−N}, w = p^{1−n}. The numerator is x² + 2w + 2y − 2xy − z ≤ 2w + 2p^{−n} + p^{−2n−2} ≤ 3.1·w, using N ≥ n + 1; the denominator 1 − z ≥ 7/8 since N ≥ 3. Hence the mean is at most (3.1·8/7) w < 4w.
+*Proof.* Expand: mean((σ − 1)²) = mean(σ²) − 2 mean(σ) + 1. Insert mean(σ) = (1 − x)(1 − y)/(1 − z) (local-density-first-moment) and mean(σ²) ≤ ((1 − x)² + 2w)/(1 − z) (local-density-second-moment), where x = p^{−(n+1)}, y = p^{−(N−1)}, z = p^{−N}, w = p^{1−n}. The numerator is x² + 2w + 2y − 2xy − z ≤ 2w + 2p^{−n} + p^{−2n−2} ≤ 3.1·w, using N ≥ n + 1; the denominator 1 − z ≥ 7/8 since N ≥ 3. Hence the mean is at most (3.1·8/7) w < 4w.
 
 *Needs:* [local density first moment](#local-density-first-moment), [local density second moment](#local-density-second-moment), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set).
 
@@ -228,13 +253,11 @@ For the proof, Expand: mean((σ − 1)²) = mean(σ²) − 2 mean(σ) + 1. Inser
 
 - d = 1 (linear forms): σ(a; p^r) = 1 − p^{−n} for every primitive a, so the variance is p^{−2n} ≤ 4p^{1−n}.
 
-- In the proof of Proposition 5.2 (Part II) this bound is used for every prime p ∣ W with the uniform constant.
+- Browning–Le Boudec–Sawin use this bound for every prime p ∣ W in the proof of their Proposition 5.2 (arXiv v1, pp.57–59); the constant 4 is uniform in r, which that use requires.
 
 <a id="gradient-valuation-strata"></a>
 
-**Gradient valuation strata.** Let p be prime and r ≥ 1. For a vector v ∈ (ℤ/p^rℤ)^I, its capped valuation v_p(v) is the largest e ∈ {0, …, r} with v ≡ 0 mod p^e. For a form f let ∇f = (∂f/∂X_i)_{i=0..n}. For 0 ≤ e ≤ r and N = N_{d,n}, the gradient stratum is R^{(e)}_N(p^r) = {a ∈ R_N(p^r) : ∃ x ∈ R_{n+1}(p^r) with f_a(x) ≡ 0 mod p^r and v_p(∇f_a(x)) = e}. The strata for e = 0, …, r cover F^loc(p^r) = {a ∈ R_N(p^r) : f_a has a primitive zero modulo p^r} (5.18); they are defined existentially and overlap in general, so their cardinalities do not add up to #F^loc(p^r).
-
-p prime r ≥ 1 0 ≤ e ≤ r
+**Gradient valuation strata.** Let p be prime and r ≥ 1. For a vector v ∈ (ℤ/p^rℤ)^I, its capped valuation v_p(v) is the largest e ∈ {0, …, r} with v ≡ 0 mod p^e. For a form f let ∇f = (∂f/∂X_i)\_{i=0..n}. For 0 ≤ e ≤ r and N = N_{d,n}, the gradient stratum is R^{(e)}\_N(p^r) = {a ∈ R_N(p^r) : ∃ x ∈ R_{n+1}(p^r) with f_a(x) ≡ 0 mod p^r and v_p(∇f_a(x)) = e}. The strata for e = 0, …, r cover F^loc(p^r) = {a ∈ R_N(p^r) : f_a has a primitive zero modulo p^r} (5.18); they are defined existentially and overlap in general, so their cardinalities do not add up to #F^loc(p^r).
 
 The required API is:
 
@@ -256,7 +279,7 @@ The required API is:
 
 - `FormDensity.gradientStratum_smul_unit`: Membership is invariant under scaling a by a unit.
 
-For the proof, Define v_p(v) = max{e ≤ r : p^e divides every coordinate}, via Mathlib Nat.findGreatest on the residues' representatives. Define ∇f_a through the partial derivatives (Mathlib MvPolynomial.pderiv) and R^{(e)} by the existential condition. (5.18): a zero x of f_a has some valuation e ∈ {0, …, r} of ∇f_a(x), and conversely a ∈ R^{(e)} has the zero x.
+*Proof.* Define v_p(v) = max{e ≤ r : p^e divides every coordinate}, via Mathlib Nat.findGreatest on the residues' representatives. Define ∇f_a through the partial derivatives (Mathlib MvPolynomial.pderiv) and R^{(e)} by the existential condition. (5.18): a zero x of f_a has some valuation e ∈ {0, …, r} of ∇f_a(x), and conversely a ∈ R^{(e)} has the zero x.
 
 *Needs:* [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), [local density of a form modulo q](../ArithmeticStatisticsPartI/README.md#local-density-of-a-form-modulo-q), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set), `Nat.findGreatest` (Mathlib), `MvPolynomial.pderiv` (Mathlib).
 
@@ -270,17 +293,11 @@ For the proof, Define v_p(v) = max{e ≤ r : p^e divides every coordinate}, via 
 
 - X_0X_1 in three variables lies in both R^{(0)}(9) and R^{(2)}(9): the strata are not a partition.
 
-- Linear forms: ∇f_a = a is primitive, so R^{(0)} is all of R_N(p^r) (n ≥ 1) and R^{(e)} = ∅ for e ≥ 1.
-
-- X_0X_1 in three variables lies in R^{(0)}(9) and R^{(2)}(9) (zeros (1,0,0) and (0,0,1)): the strata overlap.
-
 <a id="high-gradient-stratum-count"></a>
 
-**High gradient stratum count.** For d ≥ 1, n ≥ 1, p prime and 1 ≤ e ≤ r: #R^{(e)}_{N}(p^r) ≤ 2p^{rN−e}, where N = N_{d,n}. (Stated in the source for d ≥ 2, n ≥ 3, with the cardinality sign omitted.)
+**High gradient stratum count.** For d ≥ 1, n ≥ 1, p prime and 1 ≤ e ≤ r: #R^{(e)}\_{N}(p^r) ≤ 2p^{rN−e}, where N = N_{d,n}. (Stated in the source for d ≥ 2, n ≥ 3, with the cardinality sign omitted.)
 
-d ≥ 1 n ≥ 1 p prime 1 ≤ e ≤ r
-
-For the proof, If a ∈ R^{(e)} with witness x, then x mod p^e lies in D_a(p^e) = {x ∈ R_{n+1}(p^e) : f_a(x) ≡ 0, ∇f_a(x) ≡ 0 mod p^e}, since e ≥ 1. D_a(p^e) is stable under x ↦ gx for g ∈ (ℤ/p^e)^× (f_a(gx) = g^d f_a(x), ∇f_a(gx) = g^{d−1}∇f_a(x)), and the p^{e−1}(p − 1) multiples of a primitive x are distinct; so 1_{D_a(p^e) ≠ ∅} ≤ #D_a(p^e)/(p^{e−1}(p − 1)) ≤ 2#D_a(p^e)/p^e. Swap the sums: #R^{(e)} ≤ (2/p^e) Σ_{x ∈ R_{n+1}(p^e)} #{a mod p^r : f_a(x) ≡ 0 and ∇f_a(x) ≡ 0 mod p^e}. Fix x and renumber so that x_0 is a unit. Split off the coordinates c^{(i)} of a at the monomials X_0^{d−1}X_i (i = 0..n): f_a(x) = x_0^{d−1}Σ_i c^{(i)}x_i + g_a(x) and ∂_i f_a(x) = c^{(i)}x_0^{d−1} + ∂_i g_a(x) for i ≥ 1, where g_a does not involve c. The n + 1 conditions f_a(x) ≡ 0 and ∂_i f_a(x) ≡ 0 (1 ≤ i ≤ n) mod p^e fix c mod p^e (drop the ∂_0 condition for an upper bound), so at most p^{r(N−n−1)}·p^{(r−e)(n+1)} vectors a qualify. With #R_{n+1}(p^e) ≤ p^{e(n+1)}: #R^{(e)} ≤ 2p^{−e}·p^{e(n+1)}·p^{r(N−n−1)+(r−e)(n+1)} = 2p^{rN−e}.
+*Proof.* If a ∈ R^{(e)} with witness x, then x mod p^e lies in D_a(p^e) = {x ∈ R_{n+1}(p^e) : f_a(x) ≡ 0, ∇f_a(x) ≡ 0 mod p^e}, since e ≥ 1. D_a(p^e) is stable under x ↦ gx for g ∈ (ℤ/p^e)^× (f_a(gx) = g^d f_a(x), ∇f_a(gx) = g^{d−1}∇f_a(x)), and the p^{e−1}(p − 1) multiples of a primitive x are distinct; so 1_{D_a(p^e) ≠ ∅} ≤ #D_a(p^e)/(p^{e−1}(p − 1)) ≤ 2#D_a(p^e)/p^e. Swap the sums: #R^{(e)} ≤ (2/p^e) Σ_{x ∈ R_{n+1}(p^e)} #{a mod p^r : f_a(x) ≡ 0 and ∇f_a(x) ≡ 0 mod p^e}. Fix x and renumber so that x_0 is a unit. Split off the coordinates c^{(i)} of a at the monomials X_0^{d−1}X_i (i = 0..n): f_a(x) = x_0^{d−1}Σ_i c^{(i)}x_i + g_a(x) and ∂_i f_a(x) = c^{(i)}x_0^{d−1} + ∂_i g_a(x) for i ≥ 1, where g_a does not involve c. The n + 1 conditions f_a(x) ≡ 0 and ∂_i f_a(x) ≡ 0 (1 ≤ i ≤ n) mod p^e fix c mod p^e (drop the ∂_0 condition for an upper bound), so at most p^{r(N−n−1)}·p^{(r−e)(n+1)} vectors a qualify. With #R_{n+1}(p^e) ≤ p^{e(n+1)}: #R^{(e)} ≤ 2p^{−e}·p^{e(n+1)}·p^{r(N−n−1)+(r−e)(n+1)} = 2p^{rN−e}.
 
 *Needs:* [coefficient vector form](../ArithmeticStatisticsPartI/README.md#coefficient-vector-form), [gradient valuation strata](#gradient-valuation-strata), [primitive hypersurface family](../ArithmeticStatisticsPartI/README.md#primitive-hypersurface-family), [finite local hypersurface set](../ArithmeticStatisticsPartI/README.md#finite-local-hypersurface-set).
 
@@ -290,15 +307,13 @@ For the proof, If a ∈ R^{(e)} with witness x, then x mod p^e lies in D_a(p^e) 
 
 - d = 1: the strata e ≥ 1 are empty, consistent with the bound.
 
-- In the proof of Proposition 5.2 (Part II) the bound gives Σ_{e ≥ 2} p^{κ(e+1)n}#R^{(e)} ≪ p^{rN−2+3κn} for κ < 1/n.
+- In the proof of Browning–Le Boudec–Sawin's Proposition 5.2 (arXiv v1, p.59) the bound gives Σ_{e ≥ 2} p^{κ(e+1)n}#R^{(e)} ≪ p^{rN−2+3κn} for κ < 1/n.
 
 <a id="fixed-gradient-valuation-hensel-lifting"></a>
 
 **Fixed gradient valuation hensel lifting.** Let p be prime, s ≥ 1, F ∈ ℤ[t_1, …, t_s], A ∈ ℤ, a ∈ ℤ^s and integers m, ℓ, δ ≥ 0 with m ≥ 2δ + 1 and δ ≤ m − ℓ. Put R_δ(p^m, A; p^ℓ) = {t ∈ (ℤ/p^mℤ)^s : F(t) ≡ A mod p^m, v_p(∇F(t)) = δ, t ≡ a mod p^ℓ}. Then for every k ∈ ℤ, #R_δ(p^m, A; p^ℓ)/p^{m(s−1)} = #R_δ(p^{m+1}, A + kp^m; p^ℓ)/p^{(m+1)(s−1)}. In the form used by Browning–Le Boudec–Sawin (s = n + 1, A = k = 0, δ = e, ℓ = e + 1, a = x with v_p(∇F(x)) = e): for every s′ ≥ 2e + 2, #{b mod p^{s′} : b ≡ x mod p^{e+1}, F(b) ≡ 0 mod p^{s′}}/p^{s′n} equals the same quantity at level s′ − 1.
 
-p prime m ≥ 2δ + 1 δ ≤ m − ℓ
-
-For the proof, For t ∈ R_δ(p^m, A; p^ℓ) and t′ ∈ ℤ^s: F(t + p^{m−δ}t′) ≡ F(t) + p^{m−δ}⟨t′, ∇F(t)⟩ ≡ A mod p^m by first-order-taylor-congruence (2(m − δ) ≥ m and p^δ | ∇F(t)); ∇F(t + p^{m−δ}t′) ≡ ∇F(t) mod p^{m−δ} by polynomial-congruence-under-perturbation, and m − δ ≥ δ + 1, so the valuation δ is kept; t + p^{m−δ}t′ ≡ a mod p^ℓ since ℓ ≤ m − δ. So R_δ(p^m, A; p^ℓ) is a union of cosets modulo p^{m−δ}. For t mod p^{m+1} reducing into R_δ(p^m, A; p^ℓ), the vectors t + p^{m−δ}t′ (t′ mod p) run through p^s cosets modulo p^{m+1−δ}, and t + p^{m−δ}t′ ∈ R_δ(p^{m+1}, A + kp^m; p^ℓ) iff p^{−m}(F(t) − A) + p^{−δ}⟨t′, ∇F(t)⟩ ≡ k mod p, which has exactly p^{s−1} solutions t′ mod p because p^{−δ}∇F(t) is nonzero modulo p. Counting cosets: #R_δ(p^{m+1}, A + kp^m; p^ℓ) = p^{s−1}·#R_δ(p^m, A; p^ℓ). For the BLS form: every b ≡ x mod p^{e+1} has v_p(∇F(b)) = e (perturbation congruence), so the displayed set is R_e(p^{s′}, 0; p^{e+1}); apply the lemma with m = s′ − 1 ≥ 2e + 1.
+*Proof.* For t ∈ R_δ(p^m, A; p^ℓ) and t′ ∈ ℤ^s: F(t + p^{m−δ}t′) ≡ F(t) + p^{m−δ}⟨t′, ∇F(t)⟩ ≡ A mod p^m by first-order-taylor-congruence (2(m − δ) ≥ m and p^δ | ∇F(t)); ∇F(t + p^{m−δ}t′) ≡ ∇F(t) mod p^{m−δ} by polynomial-congruence-under-perturbation, and m − δ ≥ δ + 1, so the valuation δ is kept; t + p^{m−δ}t′ ≡ a mod p^ℓ since ℓ ≤ m − δ. So R_δ(p^m, A; p^ℓ) is a union of cosets modulo p^{m−δ}. For t mod p^{m+1} reducing into R_δ(p^m, A; p^ℓ), the vectors t + p^{m−δ}t′ (t′ mod p) run through p^s cosets modulo p^{m+1−δ}, and t + p^{m−δ}t′ ∈ R_δ(p^{m+1}, A + kp^m; p^ℓ) iff p^{−m}(F(t) − A) + p^{−δ}⟨t′, ∇F(t)⟩ ≡ k mod p, which has exactly p^{s−1} solutions t′ mod p because p^{−δ}∇F(t) is nonzero modulo p. Counting cosets: #R_δ(p^{m+1}, A + kp^m; p^ℓ) = p^{s−1}·#R_δ(p^m, A; p^ℓ). For the BLS form: every b ≡ x mod p^{e+1} has v_p(∇F(b)) = e (perturbation congruence), so the displayed set is R_e(p^{s′}, 0; p^{e+1}); apply the lemma with m = s′ − 1 ≥ 2e + 1.
 
 *Needs:* [first order taylor congruence](#first-order-taylor-congruence), [polynomial congruence under perturbation](#polynomial-congruence-under-perturbation), [gradient valuation strata](#gradient-valuation-strata), `MvPolynomial.pderiv` (Mathlib).
 
@@ -314,9 +329,7 @@ For the proof, For t ∈ R_δ(p^m, A; p^ℓ) and t′ ∈ ℤ^s: F(t + p^{m−δ
 
 **Local density lower bound on gradient stratum.** For d ≥ 1, n ≥ 0, p prime, r ≥ 1, 0 ≤ e ≤ r and a ∈ R^{(e)}_N(p^r): σ(a; p^r) ≥ p^{−(e+1)n}. (Source: d ≥ 2, n ≥ 3.)
 
-p prime r ≥ 1 0 ≤ e ≤ r a ∈ R^{(e)}_N(p^r)
-
-For the proof, Choose a witness x ∈ R_{n+1}(p^r) with f_a(x) ≡ 0 mod p^r and v_p(∇f_a(x)) = e. If e = r, x alone gives σ ≥ p^{−rn} ≥ p^{−(r+1)n}. For e < r: σ(a; p^r) ≥ #C_{a,x}(p^{e+1}; p^r)/p^{rn}, where C_{a,x}(p^c; p^s) = {b ∈ R_{n+1}(p^s) : b ≡ x mod p^c, f_a(b) ≡ 0 mod p^s} (such b are automatically primitive). Case r ≤ 2e + 1: for b ≡ x mod p^{e+1}, f_a(b) ≡ f_a(x) + ⟨∇f_a(x), b − x⟩ ≡ 0 mod p^r (first-order-taylor-congruence with p^e | ∇f_a(x) and p^{e+1} | b − x); so C = {b ≡ x mod p^{e+1}}, #C = p^{(r−e−1)(n+1)} and σ ≥ p^{r−e−1}·p^{−(e+1)n}. Case r ≥ 2e + 2: by fixed-gradient-valuation-hensel-lifting applied r − 2e − 1 times, #C(p^r)/p^{rn} = #C(p^{2e+1})/p^{(2e+1)n}, and by the previous case #C(p^{2e+1}) = p^{e(n+1)}; so σ ≥ p^{e−(e+1)n} ≥ p^{−(e+1)n}.
+*Proof.* Choose a witness x ∈ R_{n+1}(p^r) with f_a(x) ≡ 0 mod p^r and v_p(∇f_a(x)) = e. If e = r, x alone gives σ ≥ p^{−rn} ≥ p^{−(r+1)n}. For e < r: σ(a; p^r) ≥ #C_{a,x}(p^{e+1}; p^r)/p^{rn}, where C_{a,x}(p^c; p^s) = {b ∈ R_{n+1}(p^s) : b ≡ x mod p^c, f_a(b) ≡ 0 mod p^s} (such b are automatically primitive). Case r ≤ 2e + 1: for b ≡ x mod p^{e+1}, f_a(b) ≡ f_a(x) + ⟨∇f_a(x), b − x⟩ ≡ 0 mod p^r (first-order-taylor-congruence with p^e | ∇f_a(x) and p^{e+1} | b − x); so C = {b ≡ x mod p^{e+1}}, #C = p^{(r−e−1)(n+1)} and σ ≥ p^{r−e−1}·p^{−(e+1)n}. Case r ≥ 2e + 2: by fixed-gradient-valuation-hensel-lifting applied r − 2e − 1 times, #C(p^r)/p^{rn} = #C(p^{2e+1})/p^{(2e+1)n}, and by the previous case #C(p^{2e+1}) = p^{e(n+1)}; so σ ≥ p^{e−(e+1)n} ≥ p^{−(e+1)n}.
 
 *Needs:* [local density of a form modulo q](../ArithmeticStatisticsPartI/README.md#local-density-of-a-form-modulo-q), [gradient valuation strata](#gradient-valuation-strata), [first order taylor congruence](#first-order-taylor-congruence), [polynomial congruence under perturbation](#polynomial-congruence-under-perturbation), [fixed gradient valuation hensel lifting](#fixed-gradient-valuation-hensel-lifting).
 
@@ -326,7 +339,7 @@ For the proof, Choose a witness x ∈ R_{n+1}(p^r) with f_a(x) ≡ 0 mod p^r and
 
 - e = 0 (a nonsingular zero): σ(a; p^r) ≥ p^{−n} for every r.
 
-- In the proof of Proposition 5.2 (Part II) this gives σ(a; p^r)^{−κ} ≤ p^{κ(e+1)n} on R^{(e)}.
+- In the proof of Browning–Le Boudec–Sawin's Proposition 5.2 (arXiv v1, p.59) this gives σ(a; p^r)^{−κ} ≤ p^{κ(e+1)n} on R^{(e)}.
 
 ### 5.13 Concentration of polarized isogeny types
 
@@ -334,9 +347,9 @@ For the proof, Choose a witness x ∈ R_{n+1}(p^r) with f_a(x) ≡ 0 mod p^r and
 
 **Convex concentration inequality.** Let g ∈ ℝ, 1/2 < ε < 1 and x_1, …, x_k ∈ ℝ with 0 ≤ x_i ≤ εg and Σ_i x_i = g. Then Σ_i x_i² ≤ (ε² + (1 − ε)²)g² = (1 − 2ε(1 − ε))g².
 
-1/2 < ε < 1 0 ≤ x_i ≤ εg Σ x_i = g
+The representative Lean namespace `Concentration` pins this target as `sum_sq_le_of_le_mul`, with the extremal vector and the constant 0.9802 as examples.
 
-For the proof, If g ≤ 0 the hypotheses force every x_i = 0 and g = 0. Let g > 0 and let x_1 be a largest coordinate. If x_1 < g/2: Σ x_i² ≤ x_1 Σ x_i < g²/2 ≤ (ε² + (1 − ε)²)g², since ε² + (1 − ε)² ≥ 1/2. If x_1 ≥ g/2: Σ_{i≥2} x_i² ≤ (Σ_{i≥2} x_i)² = (g − x_1)², so Σ x_i² ≤ x_1² + (g − x_1)², which is increasing in x_1 on [g/2, εg] and equals (ε² + (1 − ε)²)g² at x_1 = εg. (The source argues by convexity: the maximum over the polytope {x ∈ [0, εg]^k : Σx = g} is at a vertex, and the vertices are the k(k − 1) permutations of (εg, (1 − ε)g, 0, …, 0).)
+*Proof.* If g ≤ 0 the hypotheses force every x_i = 0 and g = 0. Let g > 0 and let x_1 be a largest coordinate. If x_1 < g/2: Σ x_i² ≤ x_1 Σ x_i < g²/2 ≤ (ε² + (1 − ε)²)g², since ε² + (1 − ε)² ≥ 1/2. If x_1 ≥ g/2: Σ_{i≥2} x_i² ≤ (Σ_{i≥2} x_i)² = (g − x_1)², so Σ x_i² ≤ x_1² + (g − x_1)², which is increasing in x_1 on [g/2, εg] and equals (ε² + (1 − ε)²)g² at x_1 = εg. (The source argues by convexity: the maximum over the polytope {x ∈ [0, εg]^k : Σx = g} is at a vertex, and the vertices are the k(k − 1) permutations of (εg, (1 − ε)g, 0, …, 0).)
 
 *Needs:* `Real.rpow` (Mathlib), `Finset.sum` (Mathlib).
 
@@ -352,9 +365,7 @@ For the proof, If g ≤ 0 the hypotheses force every x_i = 0 and g = 0. Let g > 
 
 **Weighted square concentration.** For every C ≥ 0 there is g_0 such that for all g ≥ g_0 and every finite family of pairs of positive integers (k_j, n_j) with Σ_j k_j n_j = g in which no j has both k_j = 1 and n_j ≥ 0.99g: (1/2)Σ_j k_j n_j² log n_j + Cg² < 0.495 g² log g.
 
-C ≥ 0 k_j, n_j ≥ 1 Σ_j k_j n_j = g no block with k_j = 1 and n_j ≥ 0.99g
-
-For the proof, Put x_j = k_j n_j. Case A, every x_j < 0.99g: since k_j ≥ 1 and n_j ≤ g, k_j n_j² log n_j ≤ x_j² log g, and convex-concentration-inequality with ε = 0.99 gives Σ_j x_j² ≤ 0.9802g²; so the left side is at most 0.4901 g² log g + Cg². Case B, some x_{j0} ≥ 0.99g: then k_{j0} ≥ 2 (a block with k = 1 has x = n < 0.99g), so n_{j0} ≤ g/2 and k_{j0}n_{j0}² log n_{j0} = x_{j0}n_{j0} log n_{j0} ≤ (g²/2) log g; the other blocks have Σ_{j≠j0} x_j ≤ 0.01g and n_j ≤ 0.01g, so Σ_{j≠j0} k_j n_j² log n_j ≤ Σ_{j≠j0} x_j n_j log g ≤ 10^{−4} g² log g. The left side is at most 0.25005 g² log g + Cg². In both cases the left side is below 0.495 g² log g once 0.0049 log g > C, i.e. for g ≥ g_0 = ⌈exp(C/0.0049)⌉ + 1 (log n_j ≥ 0 by Mathlib Real.log_nonneg).
+*Proof.* Put x_j = k_j n_j. Case A, every x_j < 0.99g: since k_j ≥ 1 and n_j ≤ g, k_j n_j² log n_j ≤ x_j² log g, and convex-concentration-inequality with ε = 0.99 gives Σ_j x_j² ≤ 0.9802g²; so the left side is at most 0.4901 g² log g + Cg². Case B, some x_{j0} ≥ 0.99g: then k_{j0} ≥ 2 (a block with k = 1 has x = n < 0.99g), so n_{j0} ≤ g/2 and k_{j0}n_{j0}² log n_{j0} = x_{j0}n_{j0} log n_{j0} ≤ (g²/2) log g; the other blocks have Σ_{j≠j0} x_j ≤ 0.01g and n_j ≤ 0.01g, so Σ_{j≠j0} k_j n_j² log n_j ≤ Σ_{j≠j0} x_j n_j log g ≤ 10^{−4} g² log g. The left side is at most 0.25005 g² log g + Cg². In both cases the left side is below 0.495 g² log g once 0.0049 log g > C, i.e. for g ≥ g_0 = ⌈exp(C/0.0049)⌉ + 1 (log n_j ≥ 0 by Mathlib Real.log_nonneg).
 
 *Needs:* [convex concentration inequality](#convex-concentration-inequality), `Real.log_nonneg` (Mathlib).
 
@@ -370,11 +381,9 @@ For the proof, Put x_j = k_j n_j. Case A, every x_j < 0.99g: since k_j ≥ 1 and
 
 **Model ring orbit count concentration.** Fix a prime p. There is g_0 = g_0(p) such that for every g ≥ g_0 and every model ring R_{L,n} = ∏_i M_{n_i}(O_{L_i}) with conjugate-transpose involution, where the L_i are distinct CM fields generated by p-Weil numbers with totally real subfields K_i and Σ_i [K_i:ℚ]n_i = g, the following holds: if the number n_{L,n} of R_{L,n}^×-orbits on the positive symmetric units of R_{L,n} (action a ↦ γ* a γ) satisfies log n_{L,n} ≥ 0.495 g² log g, then some i_0 has [K_{i_0}:ℚ] = 1 and n_{i_0} ≥ 0.99g.
 
-p a fixed prime g ≥ g_0(p) Σ_i [K_i:ℚ]n_i = g
+*Proof.* Item GN-c (Lipnowski–Tsimerman (55), corrected by the factor 1/2): log n_{L,n} ≤ (1/2)Σ_i [K_i:ℚ]n_i² log n_i + C_p g² with C_p depending only on p. Apply weighted-square-concentration to the blocks (k_i, n_i) = ([K_i:ℚ], n_i) with C = C_p: if no i has [K_i:ℚ] = 1 and n_i ≥ 0.99g, then log n_{L,n} < 0.495 g² log g for g ≥ g_0.
 
-For the proof, GN.3 (Lipnowski–Tsimerman (55), corrected by the factor 1/2): log n_{L,n} ≤ (1/2)Σ_i [K_i:ℚ]n_i² log n_i + C_p g² with C_p depending only on p. Apply weighted-square-concentration to the blocks (k_i, n_i) = ([K_i:ℚ], n_i) with C = C_p: if no i has [K_i:ℚ] = 1 and n_i ≥ 0.99g, then log n_{L,n} < 0.495 g² log g for g ≥ g_0.
-
-*Needs:* [weighted square concentration](#weighted-square-concentration), GeometryOfNumbersAndQuadraticArithmetic:GN.2, GeometryOfNumbersAndQuadraticArithmetic:GN.3.
+*Needs:* [weighted square concentration](#weighted-square-concentration), GeometryOfNumbersAndQuadraticArithmetic (items GN-b to GN-d).
 
 ([[45]](#ref-45), arXiv v1, Proposition 5.10, p.32; [[45]](#ref-45), arXiv v1, §5.4.5, (55), p.31.)
 
@@ -388,11 +397,9 @@ For the proof, GN.3 (Lipnowski–Tsimerman (55), corrected by the factor 1/2): l
 
 **Most ppavs have a large elliptic or real weil factor.** Let p be a prime such that p satisfies the corrected conclusion of Lipnowski–Tsimerman Lemma 5.11: there are an elliptic curve E_0/𝔽_p and C_0 with log n_{E_0^g} ≥ (1/2)g² log g − C_0 g² for all g ≥ 1 (true when p splits in one of the nine imaginary quadratic fields of class number one, a set of primes of density ≥ 1 − 2^{−9}). Assume (H1) Lipnowski–Tsimerman Conjecture 5.2: there is C_p such that for every g-dimensional abelian variety A/𝔽_p admitting a principal polarization and isogenous to A_1^{n_1} × ⋯ × A_k^{n_k} with A_i pairwise non-isogenous simple and End⁰(A_i) ≅ L_i a CM field, |log n_A − log n_{L,n}| ≤ C_p g², where n_A is the number of isomorphism classes of principal polarizations on A (Aut(A)-orbits) and n_{L,n} is the orbit count of the model ring R_{L,n} = ∏ M_{n_i}(O_{L_i}); (H2) the same inequality for A isogenous to A_1^{n_1} × ⋯ × A_k^{n_k} × B_0^m with m ≥ 1, where B_0 is the simple abelian surface over 𝔽_p with Frobenius polynomial (x² − p)² and End⁰(B_0) = D, the quaternion algebra over ℚ(√p) ramified exactly at its two infinite places, with model count n_{L,n}·n_D(m), n_D(m) the number of GL_m(O_D)-orbits on the positive definite quaternion-hermitian matrices in GL_m(O_D) (O_D a maximal order, ∗ the conjugate transpose with the canonical involution of D). Call a g-dimensional principally polarized abelian variety (A, λ) over 𝔽_p bad if A has no isogeny factor E^h with E/𝔽_p an elliptic curve and h ≥ 0.99g, and no isogeny factor B_0^m with 2m ≥ 0.99g. Then the proportion of bad classes among the A(p, g) isomorphism classes of g-dimensional ppavs over 𝔽_p (uniform measure) is at most exp(−0.005 g² log g + O_p(g²)); in particular it tends to 0 as g → ∞.
 
-p satisfies the corrected conclusion of Lemma 5.11 H1 (Conjecture 5.2) H2 (its analogue with B_0-factors)
+*Proof.* ([Finite-field abelian counting inputs](../ArithmeticStatisticsPartI/README.md#support-abelian-counts) of Part I.) The number B(p, g) of isomorphism classes of g-dimensional abelian varieties over 𝔽_p satisfies log B(p, g) ≤ C′\_p g². (The same Part I inputs give the Honda–Tate classification over a prime field; AbelianSchemesAndArithmeticModuli §A6.5 gives the isogeny decomposition.) Every simple abelian variety over 𝔽_p has End⁰ a CM field of degree 2·dim, except the isogeny class of B_0; so every A falls under H1 or H2 and g = Σ_i [K_i:ℚ]n_i + 2m. A block with [K_i:ℚ] = 1 is a power of an elliptic curve. (items GN-c and GN-d of the supplier contracts) log n_model ≤ (1/2)Σ_i [K_i:ℚ]n_i² log n_i + 2m² log m + O_p(g²) ≤ (1/2)Σ over blocks k n² log n + O_p(g²), counting B_0^m as a block (k, n) = (1, 2m). For bad A no block has k = 1 and n ≥ 0.99g, so H1/H2 and weighted-square-concentration (with C = C_p + the O_p constant) give log n_A < 0.495 g² log g for g ≥ g_0. ([Polarization fiber count](../ArithmeticStatisticsPartI/README.md#polarization-fiber-count): A(p, g) = Σ_A n_A over isomorphism classes of abelian varieties.) The number of bad ppav classes is at most B(p, g)·exp(0.495 g² log g), while A(p, g) ≥ n_{E_0^g} ≥ exp((1/2)g² log g − C_0 g²); the ratio is at most exp(−0.005 g² log g + O_p(g²)).
 
-For the proof, (The finite-field abelian counting assertion in Layer 0) The number B(p, g) of isomorphism classes of g-dimensional abelian varieties over 𝔽_p satisfies log B(p, g) ≤ C′_p g². (The prime-field endomorphism classification in Layer 0 and the abelian isogeny decomposition) Every simple abelian variety over 𝔽_p has End⁰ a CM field of degree 2·dim, except the isogeny class of B_0; so every A falls under H1 or H2 and g = Σ_i [K_i:ℚ]n_i + 2m. A block with [K_i:ℚ] = 1 is a power of an elliptic curve. (GN.3, corrected (55), and the quaternionic mass bound requested there) log n_model ≤ (1/2)Σ_i [K_i:ℚ]n_i² log n_i + 2m² log m + O_p(g²) ≤ (1/2)Σ over blocks k n² log n + O_p(g²), counting B_0^m as a block (k, n) = (1, 2m). For bad A no block has k = 1 and n ≥ 0.99g, so H1/H2 and weighted-square-concentration (with C = C_p + the O_p constant) give log n_A < 0.495 g² log g for g ≥ g_0. (Layer 0: A(p, g) = Σ_A n_A over isomorphism classes of abelian varieties) The number of bad ppav classes is at most B(p, g)·exp(0.495 g² log g), while A(p, g) ≥ n_{E_0^g} ≥ exp((1/2)g² log g − C_0 g²); the ratio is at most exp(−0.005 g² log g + O_p(g²)).
-
-*Needs:* [weighted square concentration](#weighted-square-concentration), [arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family), [principally polarized count](../ArithmeticStatisticsPartI/README.md#principally-polarized-count), [polarization fiber count](../ArithmeticStatisticsPartI/README.md#polarization-fiber-count), GeometryOfNumbersAndQuadraticArithmetic:GN.2, GeometryOfNumbersAndQuadraticArithmetic:GN.3, AbelianSchemesAndArithmeticModuli:A2, AbelianSchemesAndArithmeticModuli:A6, [finite-field abelian counting inputs](../ArithmeticStatisticsPartI/README.md#support-abelian-counts).
+*Needs:* [weighted square concentration](#weighted-square-concentration), [arithmetic family](../ArithmeticStatisticsPartI/README.md#arithmetic-family), [principally polarized count](../ArithmeticStatisticsPartI/README.md#principally-polarized-count), [polarization fiber count](../ArithmeticStatisticsPartI/README.md#polarization-fiber-count), GeometryOfNumbersAndQuadraticArithmetic (items GN-b to GN-d), AbelianSchemesAndArithmeticModuli §§A2, A6.5, A6.18–A6.19, [finite-field abelian counting inputs](../ArithmeticStatisticsPartI/README.md#support-abelian-counts).
 
 ([[45]](#ref-45), arXiv v1, Theorem 0.2, p.2; [[45]](#ref-45), arXiv v1, Conjecture 5.2, pp.24–25; [[45]](#ref-45), arXiv v1, proof of Corollary 5.13, pp.33–34.)
 
@@ -408,29 +415,27 @@ For the proof, (The finite-field abelian counting assertion in Layer 0) The numb
 
 **Kolmogorov distance.** For Borel probability measures μ, ν on ℝ with distribution functions F_μ(x) = μ((−∞, x]) and F_ν, the Kolmogorov distance is d_K(μ, ν) = sup_{x ∈ ℝ} |F_μ(x) − F_ν(x)|. It takes values in [0, 1], is symmetric, satisfies the triangle inequality, vanishes exactly when μ = ν, and dominates |μ((−∞, x]) − ν((−∞, x])| for every x.
 
-μ, ν Borel probability measures on ℝ
-
 The representative Lean namespace `GeometricStatistics` pins this target as `kolmogorovDist` and `kolmogorovDist_eq_zero_iff`; `atom_zero_le_kolmogorovDist` pins its supported-at-zero comparison below.
 
 The required API is:
 
-- `AbelianVarietyStatistics.kolmogorovDist`: d_K(μ, ν) = sup_x |F_μ(x) − F_ν(x)|.
+- `GeometricStatistics.kolmogorovDist`: d_K(μ, ν) = sup_x |F_μ(x) − F_ν(x)|.
 
-- `AbelianVarietyStatistics.kolmogorovDist_nonneg`: d_K ≥ 0.
+- `GeometricStatistics.kolmogorovDist_nonneg`: d_K ≥ 0.
 
-- `AbelianVarietyStatistics.kolmogorovDist_comm`: d_K(μ, ν) = d_K(ν, μ).
+- `GeometricStatistics.kolmogorovDist_comm`: d_K(μ, ν) = d_K(ν, μ).
 
-- `AbelianVarietyStatistics.kolmogorovDist_le_one`: d_K ≤ 1.
+- `GeometricStatistics.kolmogorovDist_le_one`: d_K ≤ 1.
 
-- `AbelianVarietyStatistics.abs_cdf_sub_le_kolmogorovDist`: |F_μ(x) − F_ν(x)| ≤ d_K(μ, ν) for every x.
+- `GeometricStatistics.abs_cdf_sub_le_kolmogorovDist`: |F_μ(x) − F_ν(x)| ≤ d_K(μ, ν) for every x.
 
-- `AbelianVarietyStatistics.kolmogorovDist_triangle`: d_K(μ, ρ) ≤ d_K(μ, ν) + d_K(ν, ρ).
+- `GeometricStatistics.kolmogorovDist_triangle`: d_K(μ, ρ) ≤ d_K(μ, ν) + d_K(ν, ρ).
 
-- `AbelianVarietyStatistics.kolmogorovDist_eq_zero_iff`: For probability measures, d_K(μ, ν) = 0 iff μ = ν.
+- `GeometricStatistics.kolmogorovDist_eq_zero_iff`: For probability measures, d_K(μ, ν) = 0 iff μ = ν.
 
-For the proof, Define d_K as the supremum over x of |cdf μ x − cdf ν x| (Mathlib ProbabilityTheory.cdf); the family is bounded by 1 (Mathlib ProbabilityTheory.cdf_le_one), so the supremum is a real number and dominates each term (Mathlib le_ciSup). For probability measures cdf μ x = μ((−∞, x]) (Mathlib ProbabilityTheory.cdf_eq_real); equal distribution functions give equal measures.
+*Proof.* Define d_K as the supremum over x of |cdf μ x − cdf ν x| (Mathlib ProbabilityTheory.cdf); the family is bounded by 1 (Mathlib ProbabilityTheory.cdf_le_one), so the supremum is a real number and dominates each term (Mathlib le_ciSup). For probability measures cdf μ x = μ((−∞, x]) (Mathlib ProbabilityTheory.cdf_eq_real); equal distribution functions give equal measures (Mathlib MeasureTheory.Measure.eq_of_cdf).
 
-*Needs:* `ProbabilityTheory.cdf` (Mathlib), `ProbabilityTheory.cdf_eq_real` (Mathlib), `ProbabilityTheory.cdf_le_one` (Mathlib), `le_ciSup` (Mathlib).
+*Needs:* `ProbabilityTheory.cdf` (Mathlib), `ProbabilityTheory.cdf_eq_real` (Mathlib), `ProbabilityTheory.cdf_le_one` (Mathlib), `MeasureTheory.Measure.eq_of_cdf` (Mathlib), `le_ciSup` (Mathlib).
 
 ([[45]](#ref-45), arXiv v1, Corollary 5.14, p.34.)
 
@@ -442,37 +447,33 @@ For the proof, Define d_K as the supremum over x of |cdf μ x − cdf ν x| (Mat
 
 - d_K((δ_0 + δ_1)/2, δ_0) = 1/2: the distance is not the indicator of inequality.
 
-- d_K((δ_0 + δ_1)/2, δ_0) = 1/2.
-
 <a id="normalized-eigenangle-spacing-measure"></a>
 
 **Normalized eigenangle spacing measure.** Let θ be a finite multiset of N ≥ 1 angles in [0, 2π) (repetitions kept). Sort it as θ_1 ≤ ⋯ ≤ θ_N; its cyclic gaps are θ_{i+1} − θ_i (1 ≤ i < N) and the wrap-around gap θ_1 + 2π − θ_N. The normalized spacing measure is μ(θ) = (1/N) Σ_gaps δ_{(N/2π)·gap}, a probability measure on [0, ∞) of mean 1. For an integral polynomial P, its eigenangles are the arguments in [0, 2π) of its complex roots with multiplicity; for a g-dimensional abelian variety A/𝔽_p the spacing measure of A is μ(θ(P_A)) for its Frobenius polynomial P_A (degree 2g, roots of absolute value √p), and μ_g is the average of these over the uniform measure on the isomorphism classes of g-dimensional ppavs over 𝔽_p.
 
-θ a finite multiset of angles in [0, 2π)
-
 The required API is:
 
-- `AbelianVarietyStatistics.cyclicGaps`: The N cyclic gaps of a multiset of N angles, including the wrap-around gap.
+- `GeometricStatistics.cyclicGaps`: The N cyclic gaps of a multiset of N angles, including the wrap-around gap.
 
-- `AbelianVarietyStatistics.spacingMeasure`: μ(θ) = (1/N)Σ δ_{(N/2π)·gap}.
+- `GeometricStatistics.spacingMeasure`: μ(θ) = (1/N)Σ δ_{(N/2π)·gap}.
 
-- `AbelianVarietyStatistics.eigenangles`: The eigenangles in [0, 2π) of an integral polynomial, with multiplicity.
+- `GeometricStatistics.eigenangles`: The eigenangles in [0, 2π) of an integral polynomial, with multiplicity.
 
-- `AbelianVarietyStatistics.length_cyclicGaps`: There are exactly N gaps.
+- `GeometricStatistics.length_cyclicGaps`: There are exactly N gaps.
 
-- `AbelianVarietyStatistics.cyclicGaps_nonneg`: For angles in [0, 2π) every gap is ≥ 0.
+- `GeometricStatistics.cyclicGaps_nonneg`: For angles in [0, 2π) every gap is ≥ 0.
 
-- `AbelianVarietyStatistics.sum_cyclicGaps`: The gaps of a nonempty multiset sum to 2π.
+- `GeometricStatistics.sum_cyclicGaps`: The gaps of a nonempty multiset sum to 2π.
 
-- `AbelianVarietyStatistics.spacingMeasure_univ`: μ(θ) is a probability measure for θ ≠ ∅.
+- `GeometricStatistics.spacingMeasure_univ`: μ(θ) is a probability measure for θ ≠ ∅.
 
-- `AbelianVarietyStatistics.spacingMeasure_Iio_zero`: μ(θ) gives no mass to (−∞, 0).
+- `GeometricStatistics.spacingMeasure_Iio_zero`: μ(θ) gives no mass to (−∞, 0).
 
-- `AbelianVarietyStatistics.card_eigenangles`: A nonzero P has natDegree P eigenangles with multiplicity.
+- `GeometricStatistics.card_eigenangles`: A nonzero P has natDegree P eigenangles with multiplicity.
 
-- `AbelianVarietyStatistics.sub_one_div_le_spacingMeasure_zero`: An angle of multiplicity ≥ h forces μ(θ){0} ≥ (h − 1)/N.
+- `GeometricStatistics.sub_one_div_le_spacingMeasure_zero`: An angle of multiplicity ≥ h forces μ(θ){0} ≥ (h − 1)/N.
 
-For the proof, Sort θ (Mathlib Multiset.sort), form the list of consecutive differences with the wrap-around gap, rescale by N/2π and average the point masses (Mathlib MeasureTheory.Measure.dirac). Eigenangles: map the roots of P in ℂ (Mathlib Polynomial.roots) to Complex.arg reduced into [0, 2π) (Mathlib toIcoMod). The gaps are nonnegative and sum to 2π (telescoping), so μ(θ) is a probability measure on [0, ∞) with mean 1. The average μ_g over ppav classes uses Layer 0's ppav count and the Frobenius-polynomial interface specified in the supplier contracts.
+*Proof.* Sort θ (Mathlib Multiset.sort), form the list of consecutive differences with the wrap-around gap, rescale by N/2π and average the point masses (Mathlib MeasureTheory.Measure.dirac). Eigenangles: map the roots of P in ℂ (Mathlib Polynomial.roots) to Complex.arg reduced into [0, 2π) (Mathlib toIcoMod). The gaps are nonnegative and sum to 2π (telescoping), so μ(θ) is a probability measure on [0, ∞) with mean 1. The average μ_g over ppav classes uses Part I's [principally polarized count](../ArithmeticStatisticsPartI/README.md#principally-polarized-count) and the Frobenius polynomials of DeligneWeightsAndPurity §1.4.
 
 *Needs:* `Multiset.sort` (Mathlib), `MeasureTheory.Measure.dirac` (Mathlib), `Polynomial.roots` (Mathlib), `Complex.arg` (Mathlib), `toIcoMod` (Mathlib).
 
@@ -480,7 +481,7 @@ For the proof, Sort θ (Mathlib Multiset.sort), form the list of consecutive dif
 
 **Checks.**
 
-- μ({1,1,1,1}){0} = 3/4: N equal angles give N − 1 zero gaps.
+- μ({1,1,1,1}) = (3/4)δ_0 + (1/4)δ_4: four equal angles give the gaps 0, 0, 0 and the wrap-around gap 2π, rescaled to 4.
 
 - μ({0, π}) = δ_1: the wrap-around gap is counted.
 
@@ -488,17 +489,11 @@ For the proof, Sort θ (Mathlib Multiset.sort), form the list of consecutive dif
 
 - The eigenangles of x² + 5 are π/2 and 3π/2.
 
-- Four equal angles give gaps 0, 0, 0, 2π, so μ = (3/4)δ_0 + (1/4)δ_4.
-
-- The angles {0, π} give μ = δ_1 (the wrap-around gap counts).
-
 <a id="zero-gap-mass-from-repeated-angles"></a>
 
 **Zero gap mass from repeated angles.** Let θ be a multiset of N angles in [0, 2π) containing two distinct values s ≠ t each with multiplicity at least h. Then the normalized spacing measure satisfies μ(θ)({0}) ≥ 2(h − 1)/N.
 
-θ ⊂ [0, 2π) finite with N elements s ≠ t each of multiplicity ≥ h
-
-For the proof, In the sorted list the ≥ h copies of s are consecutive and give ≥ h − 1 zero gaps; likewise for t; these gap positions are distinct. The wrap-around gap θ_1 + 2π − θ_N is positive for angles in [0, 2π), so it is not counted among them. Each zero gap contributes mass 1/N at 0.
+*Proof.* In the sorted list the ≥ h copies of s are consecutive and give ≥ h − 1 zero gaps; likewise for t; these gap positions are distinct. The wrap-around gap θ_1 + 2π − θ_N is positive for angles in [0, 2π), so it is not counted among them. Each zero gap contributes mass 1/N at 0.
 
 *Needs:* [normalized eigenangle spacing measure](#normalized-eigenangle-spacing-measure), `Multiset.count` (Mathlib).
 
@@ -514,9 +509,7 @@ For the proof, In the sorted list the ≥ h copies of s are consecutive and give
 
 **Kolmogorov distance lower bound from an atom.** For Borel probability measures μ, ν on ℝ and x ∈ ℝ: μ((−∞, x]) − ν((−∞, x]) ≤ d_K(μ, ν). In particular, if μ is supported on [0, ∞) and ν((−∞, 0]) = 0 (for instance ν atomless and supported on [0, ∞)), then d_K(μ, ν) ≥ μ({0}).
 
-μ, ν probability measures on ℝ
-
-For the proof, cdf μ x = μ((−∞, x]) for probability measures (Mathlib ProbabilityTheory.cdf_eq_real), and |cdf μ x − cdf ν x| ≤ d_K(μ, ν) (kolmogorov-distance API). For μ supported on [0, ∞), μ((−∞, 0]) = μ({0}).
+*Proof.* cdf μ x = μ((−∞, x]) for probability measures (Mathlib ProbabilityTheory.cdf_eq_real), and |cdf μ x − cdf ν x| ≤ d_K(μ, ν) (kolmogorov-distance API). For μ supported on [0, ∞), μ((−∞, 0]) = μ({0}).
 
 *Needs:* [kolmogorov distance](#kolmogorov-distance), `ProbabilityTheory.cdf_eq_real` (Mathlib).
 
@@ -532,9 +525,7 @@ For the proof, cdf μ x = μ((−∞, x]) for probability measures (Mathlib Prob
 
 **Spacing measure discrepancy for ppavs.** Under the hypotheses of most-ppavs-have-a-large-elliptic-or-real-weil-factor (p as in the corrected Lemma 5.11, H1 and H2), let μ_g be the average over the g-dimensional ppav classes over 𝔽_p of the normalized eigenangle spacing measures of their Frobenius polynomials. Then μ_g({0}) ≥ 0.99 − o(1), and for every probability measure ν on ℝ with ν((−∞, 0]) = 0 — in particular the GUE spacing law, which is absolutely continuous on [0, ∞) — liminf_{g→∞} d_K(μ_g, ν) ≥ 0.99.
 
-p satisfies the corrected conclusion of Lemma 5.11 H1 and H2 ν((−∞, 0]) = 0
-
-For the proof, By most-ppavs-have-a-large-elliptic-or-real-weil-factor, a proportion 1 − o(1) of ppav classes have a factor E^h (h ≥ 0.99g) or B_0^m (2m ≥ 0.99g). (use the finite-field Frobenius comparison in the supplier contracts) For E^h the Frobenius polynomial of A is divisible by (x² − a_E x + p)^h, whose two roots are distinct (a_E² ≠ 4p since 4p is not a square); for B_0^m it is divisible by (x² − p)^{2m}, roots ±√p of multiplicity h = 2m. So two distinct eigenangles have multiplicity ≥ h ≥ 0.99g. zero-gap-mass-from-repeated-angles gives mass ≥ 2(h − 1)/(2g) ≥ 0.99 − 1/g at 0 for each such class; averaging, μ_g({0}) ≥ (1 − o(1))(0.99 − 1/g). μ_g is supported on [0, ∞) (normalized-eigenangle-spacing-measure API), so kolmogorov-distance-lower-bound-from-an-atom gives d_K(μ_g, ν) ≥ μ_g({0}) − ν((−∞, 0]) = μ_g({0}).
+*Proof.* By most-ppavs-have-a-large-elliptic-or-real-weil-factor, a proportion 1 − o(1) of ppav classes have a factor E^h (h ≥ 0.99g) or B_0^m (2m ≥ 0.99g). (DeligneWeightsAndPurity §§1.4–1.5) For E^h the Frobenius polynomial of A is divisible by (x² − a_E x + p)^h, whose two roots are distinct (a_E² ≠ 4p since 4p is not a square); for B_0^m it is divisible by (x² − p)^{2m}, roots ±√p of multiplicity h = 2m. So two distinct eigenangles have multiplicity ≥ h ≥ 0.99g. zero-gap-mass-from-repeated-angles gives mass ≥ 2(h − 1)/(2g) ≥ 0.99 − 1/g at 0 for each such class; averaging, μ_g({0}) ≥ (1 − o(1))(0.99 − 1/g). μ_g is supported on [0, ∞) (normalized-eigenangle-spacing-measure API), so kolmogorov-distance-lower-bound-from-an-atom gives d_K(μ_g, ν) ≥ μ_g({0}) − ν((−∞, 0]) = μ_g({0}).
 
 *Needs:* [most ppavs have a large elliptic or real weil factor](#most-ppavs-have-a-large-elliptic-or-real-weil-factor), [zero gap mass from repeated angles](#zero-gap-mass-from-repeated-angles), [normalized eigenangle spacing measure](#normalized-eigenangle-spacing-measure), [kolmogorov distance lower bound from an atom](#kolmogorov-distance-lower-bound-from-an-atom), [principally polarized count](../ArithmeticStatisticsPartI/README.md#principally-polarized-count), [polarization fiber count](../ArithmeticStatisticsPartI/README.md#polarization-fiber-count), [finite-field abelian counting inputs](../ArithmeticStatisticsPartI/README.md#support-abelian-counts).
 
@@ -550,9 +541,7 @@ For the proof, By most-ppavs-have-a-large-elliptic-or-real-weil-factor, a propor
 
 **Enhanced cohen lenstra fails for ppavs.** Let p be an odd prime satisfying the corrected conclusion of Lemma 5.11 and assume H1 and H2 (as in most-ppavs-have-a-large-elliptic-or-real-weil-factor). Let S be the set of primes ℓ ≠ p with ℓ < (p + 1)², and assume that for each ℓ ∈ S the limit CL_{(1,2),ℓ}(0, 0) = lim_{g→∞} Haar_g{F ∈ M_g(ℤ_ℓ) : coker(1 − F) = 0 and coker(1 − F²) = 0} exists. Then, for (A, λ) uniform among the g-dimensional ppav classes over 𝔽_p, Prob(A(𝔽_p)[S^∞] = 0 and A(𝔽_{p²})[S^∞] = 0) → 0 as g → ∞, whereas CL_{(1,2),S}(0, 0) = ∏_{ℓ∈S} CL_{(1,2),ℓ}(0, 0) > 0. Hence the joint law of (A(𝔽_p)[S^∞], A(𝔽_{p²})[S^∞]) does not converge to CL_{(1,2),S}: the enhanced Cohen–Lenstra model does not describe this family.
 
-p odd, satisfying the corrected Lemma 5.11 H1 and H2 existence of CL_{(1,2),ℓ}(0,0) for ℓ ∈ S
-
-For the proof, By most-ppavs-have-a-large-elliptic-or-real-weil-factor, with probability 1 − o(1) A has an isogeny factor E (h ≥ 1 suffices) or B_0. (Part II, corrected Lemma 5.19, odd p) E(𝔽_p) and E(𝔽_{p²}) are not both p-groups, so some prime ℓ ≠ p divides #E(𝔽_p) or #E(𝔽_{p²}); by the Hasse bound (EllipticCurves Layer 3) ℓ ≤ #E(𝔽_{p²}) ≤ (p + 1)², and (p + 1)² is not prime, so ℓ ∈ S. #B_0(𝔽_p) = (p − 1)² is even, and 2 ∈ S. (Part II: point counts are isogeny invariant and multiplicative) #E(𝔽_{p^r}) or #B_0(𝔽_{p^r}) divides #A(𝔽_{p^r}), so A(𝔽_p)[S^∞] or A(𝔽_{p²})[S^∞] is nonzero (Cauchy's theorem). Positivity: the event depends on F mod ℓ only; the finite-g probabilities are ≥ ∏_{j≥1}(1 − 2^{−j}) for ℓ = 2 and ≥ 2∏_{j≥1}(1 − 3^{−j}) − 1 > 0 for odd ℓ (Example 5.17: [zero cokernel probability at two](../ArithmeticStatisticsPartVII/README.md#zero-cokernel-probability-at-two), [zero cokernel probability lower bound at odd primes](../ArithmeticStatisticsPartVII/README.md#zero-cokernel-probability-lower-bound-at-odd-primes), on the finite-level laws of [enhanced cohen lenstra finite level law](../ArithmeticStatisticsPartVII/README.md#enhanced-cohen-lenstra-finite-level-law)), so the assumed limits are positive and so is their finite product.
+*Proof.* By most-ppavs-have-a-large-elliptic-or-real-weil-factor, with probability 1 − o(1) A has an isogeny factor E (h ≥ 1 suffices) or B_0. For odd p, E(𝔽_p) and E(𝔽_{p²}) are not both p-groups (Lipnowski–Tsimerman, Lemma 5.19, whose printed argument does not prove it): if #E(𝔽_p) = p + 1 − t = p^i and p + 1 + t = p^j, then p^i + p^j = 2(p + 1), which is impossible modulo p when i, j ≥ 1, while i = 0 or j = 0 forces |t| = p > 2√p unless p = 3, where p + 1 ± 3 is 1 and 7. Hence so some prime ℓ ≠ p divides #E(𝔽_p) or #E(𝔽_{p²}); by the Hasse bound (TauCetiRoadmap.EllipticCurves Layer 3) ℓ ≤ #E(𝔽_{p²}) ≤ (p + 1)², and (p + 1)² is not prime, so ℓ ∈ S. #B_0(𝔽_p) = (p − 1)² is even, and 2 ∈ S. (DeligneWeightsAndPurity §1.5: #A(𝔽_{p^r}) = P_{π^r}(1), and the characteristic polynomial of an isogeny factor divides that of A.) #E(𝔽_{p^r}) or #B_0(𝔽_{p^r}) divides #A(𝔽_{p^r}), so A(𝔽_p)[S^∞] or A(𝔽_{p²})[S^∞] is nonzero (Cauchy's theorem). Positivity: the event depends on F mod ℓ only; the finite-g probabilities are ≥ ∏_{j≥1}(1 − 2^{−j}) for ℓ = 2 and ≥ 2∏_{j≥1}(1 − 3^{−j}) − 1 > 0 for odd ℓ (Example 5.17: [zero cokernel probability at two](../ArithmeticStatisticsPartVII/README.md#zero-cokernel-probability-at-two), [zero cokernel probability lower bound at odd primes](../ArithmeticStatisticsPartVII/README.md#zero-cokernel-probability-lower-bound-at-odd-primes), on the finite-level laws of [enhanced cohen lenstra finite level law](../ArithmeticStatisticsPartVII/README.md#enhanced-cohen-lenstra-finite-level-law)), so the assumed limits are positive and so is their finite product.
 
 *Needs:* [most ppavs have a large elliptic or real weil factor](#most-ppavs-have-a-large-elliptic-or-real-weil-factor), [enhanced cohen lenstra finite level law](../ArithmeticStatisticsPartVII/README.md#enhanced-cohen-lenstra-finite-level-law), [zero cokernel probability at two](../ArithmeticStatisticsPartVII/README.md#zero-cokernel-probability-at-two), [zero cokernel probability lower bound at odd primes](../ArithmeticStatisticsPartVII/README.md#zero-cokernel-probability-lower-bound-at-odd-primes), [enhanced cohen lenstra conjecture](../ArithmeticStatisticsPartVII/README.md#enhanced-cohen-lenstra-conjecture), [cohen lenstra measure](../ArithmeticStatisticsPartIV/README.md#cohen-lenstra-measure), [principally polarized count](../ArithmeticStatisticsPartI/README.md#principally-polarized-count), [polarization fiber count](../ArithmeticStatisticsPartI/README.md#polarization-fiber-count), [finite-field abelian counting inputs](../ArithmeticStatisticsPartI/README.md#support-abelian-counts).
 
@@ -560,7 +549,7 @@ For the proof, By most-ppavs-have-a-large-elliptic-or-real-weil-factor, with pro
 
 **Checks.**
 
-- p = 2 is excluded: y² + xy = x³ + x² + 1 over 𝔽_2 has #E(𝔽_2) = 2 and #E(𝔽_4) = 8, and #B_0(𝔽_2) = #B_0(𝔽_4) = 1.
+- p = 2 is excluded: y² + xy = x³ + x² + 1 over 𝔽_2 has #E(𝔽_2) = 2 and #E(𝔽_4) = 8, both 2-groups, so Lemma 5.19 fails there; and #B_0(𝔽_2) = #B_0(𝔽_4) = 1.
 
 - For p = 3, S = {2, 5, 7, 11, 13}.
 
@@ -570,7 +559,7 @@ For the proof, By most-ppavs-have-a-large-elliptic-or-real-weil-factor, with pro
 
 **Generalized dihedral cover datum.** Let A be a finite abelian group of odd order. Put G_A := A ⋊ Z/2, where the generator τ of Z/2 acts on A by inversion, and let c_A ⊂ G_A be the set of elements with nontrivial image in Z/2, i.e. c_A = {aτ : a ∈ A}. Then (i) c_A is exactly the set of involutions of G_A; (ii) c_A is a single conjugacy class, stable under invertible powers (hence a rational class); (iii) c_A generates G_A; (iv) if A ≠ 0 the centre of G_A is trivial; (v) (G_A, c_A) is nonsplitting: for every subgroup H ≤ G_A, c_A ∩ H is empty or a single H-conjugacy class. For A of order a power of an odd prime ℓ and q prime to 2ℓ, the Hurwitz scheme X_n := Hn^{c_A}_{G_A,n} ⊗ F_q of tame G_A-covers of A¹ branched at n points with all finite inertia in c_A is the scheme of EVW §8.6.
 
-|A| odd (for (i), (ii), (v)) A ≠ 0 for (iv); for A = 0, G_A = Z/2 has full centre and is treated separately as the trivial moment
+Odd order is used in (i), (ii), (iv) and (v). For A = 0 the group G_A = Z/2 is abelian, so (iv) needs A ≠ 0; this case is the trivial moment.
 
 The required API is:
 
@@ -590,7 +579,7 @@ The required API is:
 
 - `outsideInvolutions_nonsplitting`: For |A| odd and H ≤ G_A, c_A ∩ H is empty or a single H-conjugacy class.
 
-For the proof, Construct the inversion action Z/2 → Aut(A) and the semidirect product (Mathlib SemidirectProduct); c_A is the preimage of the nontrivial element under rightHom. (i) (aτ)² = a·τaτ^{−1} = a − a = 0, while an element a ≠ 0 of A has odd order; so involutions are exactly c_A. (ii) b(aτ)b^{−1} = (a + 2b)τ and 2 is invertible on A, so A acts transitively on c_A; invertible powers of an involution are itself. (iii) (aτ)(0τ) = a, so ⟨c_A⟩ contains A and τ. (iv) a central element commutes with τ, forcing 2a = 0 hence a = 0 on the A-part, and aτ is not central when A ≠ 0. (v) For H ≤ G_A meeting c_A, H = (H ∩ A) ⋊ ⟨a₀τ⟩ and c_A ∩ H = {(h + a₀)τ : h ∈ H ∩ A} = one (H ∩ A)-orbit by (ii) applied to the odd group H ∩ A. This is the instance of EVW Lemma 3.2 used in §8.6; the general odd-index lemma belongs to the Hurwitz homological-stability roadmap.
+*Proof.* Construct the inversion action Z/2 → Aut(A) and the semidirect product (Mathlib SemidirectProduct); c_A is the preimage of the nontrivial element under rightHom. (i) (aτ)² = a·τaτ^{−1} = a − a = 0, while an element a ≠ 0 of A has odd order; so involutions are exactly c_A. (ii) b(aτ)b^{−1} = (a + 2b)τ and 2 is invertible on A, so A acts transitively on c_A; invertible powers of an involution are itself. (iii) (aτ)(0τ) = a, so ⟨c_A⟩ contains A and τ. (iv) a central element commutes with τ, forcing 2a = 0 hence a = 0 on the A-part, and aτ is not central when A ≠ 0. (v) For H ≤ G_A meeting c_A, H = (H ∩ A) ⋊ ⟨a₀τ⟩ and c_A ∩ H = {(h + a₀)τ : h ∈ H ∩ A} = one (H ∩ A)-orbit by (ii) applied to the odd group H ∩ A. This is the instance of EVW Lemma 3.2 used in §8.6; the general odd-index lemma belongs to the Hurwitz homological-stability roadmap.
 
 *Needs:* `SemidirectProduct` (Mathlib), `SemidirectProduct.inl` (Mathlib), `SemidirectProduct.inr` (Mathlib), `SemidirectProduct.rightHom` (Mathlib), `MulEquiv.inv` (Mathlib), `Subgroup.center` (Mathlib).
 
@@ -598,25 +587,17 @@ For the proof, Construct the inversion action Z/2 → Aut(A) and the semidirect 
 
 **Checks.**
 
-- For A = Z/3 the group G_A has 6 elements.
-
 - For A = 0 the centre of G_A is the whole group (G_A is not centre-free).
-
-- For A = Z/2 the two elements of c_A are not conjugate (G_A is abelian).
 
 - For A = Z/5 every element of c_A has order 2.
 
 - A = Z/3: G_A ≅ S_3 and c_A is the class of transpositions.
-
-- A = 0: G_A = Z/2 is not centre-free.
 
 - A = Z/2 (even order): c_A = {τ, aτ} consists of two central involutions of the Klein group, so (ii) and (iv) fail.
 
 <a id="class-group-surjection-pair"></a>
 
 **Class group surjection pair.** Let q be odd, n odd, L ∈ S_n with ring O_L (integral closure of F_q[t] in L), and A a finite abelian group. A pair (L, α) consists of L and a surjective homomorphism α : Cl(O_L) → A. Two pairs (L, α), (L', α') are isomorphic if there is a K-isomorphism φ : L → L' with α' ∘ φ_* = α. The nontrivial automorphism σ of L/K acts on Cl(O_L) by −1, so (L, α) ≅ (L, β) iff β = ±α. The moment m_A(L) := |Sur(Cl(O_L), A)| counts pairs with fixed L before identification.
-
-q odd; n odd A finite abelian (in the application an ℓ-group, ℓ odd)
 
 The required API is:
 
@@ -634,7 +615,7 @@ The required API is:
 
 - `classGroupMoment_trivial`: m_0(L) = 1.
 
-For the proof, Define the class group of O_L (Mathlib ClassGroup of the integral closure), the set of surjections and the involution α ↦ −α. σ acts by −1 on Cl(O_L): for a fractional ideal I, I·σ(I) is the extension of the norm ideal from F_q[t], a principal ideal domain, hence principal. For |A| odd and A ≠ 0, −α ≠ α for every surjection α (else 2α = 0, forcing α = 0), so the sign action on Sur(Cl(O_L), A) is free.
+*Proof.* Define the class group of O_L (Mathlib ClassGroup of the integral closure), the set of surjections and the involution α ↦ −α. σ acts by −1 on Cl(O_L): for a fractional ideal I, I·σ(I) is the extension of the norm ideal from F_q[t], a principal ideal domain, hence principal. For |A| odd and A ≠ 0, −α ≠ α for every surjection α (else 2α = 0, forcing α = 0), so the sign action on Sur(Cl(O_L), A) is free.
 
 *Needs:* [odd degree quadratic function field family](../ArithmeticStatisticsPartI/README.md#odd-degree-quadratic-function-field-family), [surjection count](../ArithmeticStatisticsPartIV/README.md#surjection-count), `ClassGroup` (Mathlib), `integralClosure` (Mathlib).
 
@@ -642,13 +623,9 @@ For the proof, Define the class group of O_L (Mathlib ClassGroup of the integral
 
 **Checks.**
 
-- For the trivial group A, m_A(L_f) = 1 for every squarefree f of odd degree.
-
 - For A = Z/3 the zero homomorphism Cl(O_L) → A is not a pair.
 
 - neg (neg α) = α.
-
-- For A = Z/3 and f squarefree of odd degree, m_A(L_f) is even.
 
 - A = 0: m_A(L) = 1 for every L (the unique map is surjective).
 
@@ -658,9 +635,7 @@ For the proof, Define the class group of O_L (Mathlib ClassGroup of the integral
 
 **Involution quotient of the unramified pro l group.** Let q be odd, ℓ an odd prime not dividing q, n odd and L ∈ S_n with nontrivial automorphism σ over K = F_q(t). Let J_L be the Galois group of the maximal abelian everywhere unramified pro-ℓ extension of L, and J'_L := J_L/(1 + σ)J_L its largest quotient on which σ acts by −1. Class field theory gives an exact sequence 0 → Cl(O_L)_ℓ → J_L → Ẑ_ℓ → 0 on which σ acts trivially on Ẑ_ℓ and by −1 on Cl(O_L)_ℓ, and the snake lemma yields a canonical isomorphism J'_L ≅ Cl(O_L)_ℓ. Here Cl(O_L)_ℓ is the ℓ-primary part, and Cl(O_L) ≅ Pic⁰(C_L)(F_q) because C_L has a unique point over ∞.
 
-q odd, ℓ odd prime, ℓ ∤ q n odd (so ∞ is ramified and has a unique, rational point above it)
-
-For the proof, Import from the function-field class field theory owner ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields)): the unramified abelian pro-ℓ quotient sits in 0 → Pic⁰(C_L)(F_q)_ℓ → J_L → Ẑ_ℓ → 0 with the degree map to Gal(F̄_q/F_q)_ℓ. Identify Pic⁰(C_L)(F_q) with Cl(O_L) via I ↦ D_I − deg(D_I)·∞ (unique rational point ∞ over ∞ of P¹). σ acts by −1 on Cl(O_L) ([class group surjection pair](#class-group-surjection-pair)) and trivially on the constant-field quotient. Apply the snake lemma to multiplication by 1 + σ on the sequence; since ℓ is odd, (1 + σ) is invertible on Ẑ_ℓ (acts by 2) and zero on Cl(O_L)_ℓ, giving J_L/(1+σ)J_L ≅ Cl(O_L)_ℓ/(1+σ)Cl(O_L)_ℓ = Cl(O_L)_ℓ.
+*Proof.* Import from the function-field class field theory owner ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields)): the unramified abelian pro-ℓ quotient sits in 0 → Pic⁰(C_L)(F_q)_ℓ → J_L → Ẑ_ℓ → 0 with the degree map to Gal(F̄_q/F_q)_ℓ. Identify Pic⁰(C_L)(F_q) with Cl(O_L) via I ↦ D_I − deg(D_I)·∞ (unique rational point ∞ over ∞ of P¹). σ acts by −1 on Cl(O_L) ([class group surjection pair](#class-group-surjection-pair)) and trivially on the constant-field quotient. Apply the snake lemma to multiplication by 1 + σ on the sequence; since ℓ is odd, (1 + σ) is invertible on Ẑ_ℓ (acts by 2) and zero on Cl(O_L)_ℓ, giving J_L/(1+σ)J_L ≅ Cl(O_L)_ℓ/(1+σ)Cl(O_L)_ℓ = Cl(O_L)_ℓ.
 
 *Needs:* [class group surjection pair](#class-group-surjection-pair), [function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields), `CommGroup.primaryComponent` (Mathlib).
 
@@ -674,13 +649,13 @@ For the proof, Import from the function-field class field theory owner ([functio
 
 <a id="hurwitz-points-classify-class-group-surjections"></a>
 
-**Hurwitz points classify class group surjections.** Let q be odd, ℓ an odd prime with ℓ ∤ q, A a nontrivial finite abelian ℓ-group, (G_A, c_A) the generalized dihedral datum and X_n = Hn^{c_A}_{G_A,n} ⊗ F_q, n odd. There is a bijection between X_n(F_q) and the set of isomorphism classes of pairs (L, α) with L ∈ S_n and α : Cl(O_L) → A surjective. Given (L, α), compose α with J'_L ≅ Cl(O_L)_ℓ, extend to Gal(F_L/K) = J'_L ⋊ ⟨τ⟩ → G_A (unique up to A-conjugacy), and take the fixed field F_α: a tame G_A-cover of P¹ over F_q, geometrically connected, branched exactly where L/K is (the n roots of f and ∞, since F_α/L is unramified), a point of Hn^{c_A}_{G_A,n}: n branch points in A¹ with inertia generated by elements of c_A, plus ramification at ∞; conversely a tame G_A-cover with inertia in c_A branched at n points of A¹ has X/A → P¹ ramified at ∞ (odd number of finite branch points) and X → X/A étale, giving (L, α) by class field theory.
+**Hurwitz points classify class group surjections.** Let q be odd, ℓ an odd prime with ℓ ∤ q, A a nontrivial finite abelian ℓ-group, (G_A, c_A) the generalized dihedral datum and X_n = Hn^{c_A}\_{G_A,n} ⊗ F_q, n odd. There is a bijection between X_n(F_q) and the set of isomorphism classes of pairs (L, α) with L ∈ S_n and α : Cl(O_L) → A surjective. Given (L, α), compose α with J'\_L ≅ Cl(O_L)\_ℓ, extend to Gal(F_L/K) = J'\_L ⋊ ⟨τ⟩ → G_A (unique up to A-conjugacy), and take the fixed field F_α: a tame G_A-cover of P¹ over F_q, geometrically connected, branched exactly where L/K is (the n roots of f and ∞, since F_α/L is unramified), a point of Hn^{c_A}\_{G_A,n}: n branch points in A¹ with inertia generated by elements of c_A, plus ramification at ∞; conversely a tame G_A-cover with inertia in c_A branched at n points of A¹ has X/A → P¹ ramified at ∞ (odd number of finite branch points) and X → X/A étale, giving (L, α) by class field theory.
 
-q odd; ℓ odd prime, ℓ ∤ q A nontrivial finite abelian ℓ-group n odd G_A centre-free, so F_q-points of the Hurwitz scheme are covers defined over F_q (not only Galois-stable geometric classes)
+Since G_A is centre-free (part (iv) of the generalized dihedral datum), an F_q-point of the Hurwitz scheme is a cover defined over F_q, not only a Galois-stable geometric isomorphism class.
 
-For the proof, Import the Hurwitz scheme Hn^c_{G,n}, finite étale over Conf_n over Z[1/|G|], and, for centre-free G and any field k of characteristic prime to |G|, the bijection between Hn^c_{G,n}(k) and isomorphism classes of tame G-covers of P¹_k branched at n points of A¹ with finite inertia in c (InverseGaloisAndArithmeticFundamentalGroups:IG.5; EVW §§7.1, 7.3; the marked-cover comparison). Forward map: by [involution quotient of the unramified pro l group](#involution-quotient-of-the-unramified-pro-l-group) and the splitting (8.7.1) of 1 → J'_L → Gal(F_L/K) → Z/2 → 1 (ℓ odd), α gives g_α : Gal(F_L/K) → G_A, well defined up to A-conjugacy since all involutions of G_A are A-conjugate ([generalized dihedral cover datum](#generalized-dihedral-cover-datum) (ii)). Ramification: F_α/L is unramified, so the branch points are those of L/K; each inertia group maps onto an order-2 subgroup generated by an element of c_A; F_q is algebraically closed in F_α. Indeed the constant-field quotient of G_A is cyclic, hence factors through G_A^ab=C₂. The quadratic subfield L is geometric because it ramifies at infinity, so this quotient is trivial. Inverse: for a tame G_A-cover X → P¹ with inertia in c_A branched at n points of A¹, X → X/A is étale over A¹ (local computation: inertia meets A trivially); X/A → P¹ has an odd number of finite branch points, hence is ramified at ∞, where the inertia is cyclic of order 2 mapping onto Z/2, so X → X/A is étale everywhere; class field theory ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields)) turns the étale A-cover into α. Check the two constructions are mutually inverse on isomorphism classes, using that (L, α) ≅ (L, β) iff β = ±α ([class group surjection pair](#class-group-surjection-pair)).
+*Proof.* Import the Hurwitz scheme Hn^c_{G,n}, finite étale over Conf_n over Z[1/|G|], and, for centre-free G and any field k of characteristic prime to |G|, the bijection between Hn^c_{G,n}(k) and isomorphism classes of tame G-covers of P¹_k branched at n points of A¹ with finite inertia in c (item IG-a of the supplier contracts, extending InverseGaloisAndArithmeticFundamentalGroups §IG.5.3; EVW §§7.1, 7.3). Forward map: by [involution quotient of the unramified pro l group](#involution-quotient-of-the-unramified-pro-l-group) and the splitting (8.7.1) of 1 → J'_L → Gal(F_L/K) → Z/2 → 1 (ℓ odd), α gives g_α : Gal(F_L/K) → G_A, well defined up to A-conjugacy since all involutions of G_A are A-conjugate ([generalized dihedral cover datum](#generalized-dihedral-cover-datum) (ii)). Ramification: F_α/L is unramified, so the branch points are those of L/K; each inertia group maps onto an order-2 subgroup generated by an element of c_A; F_q is algebraically closed in F_α. Indeed the constant-field quotient of G_A is cyclic, hence factors through G_A^ab=C₂. The quadratic subfield L is geometric because it ramifies at infinity, so this quotient is trivial. Inverse: for a tame G_A-cover X → P¹ with inertia in c_A branched at n points of A¹, X → X/A is étale over A¹ (local computation: inertia meets A trivially); X/A → P¹ has an odd number of finite branch points, hence is ramified at ∞, where the inertia is cyclic of order 2 mapping onto Z/2, so X → X/A is étale everywhere; class field theory ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields)) turns the étale A-cover into α. Check the two constructions are mutually inverse on isomorphism classes, using that (L, α) ≅ (L, β) iff β = ±α ([class group surjection pair](#class-group-surjection-pair)).
 
-*Needs:* [generalized dihedral cover datum](#generalized-dihedral-cover-datum), [class group surjection pair](#class-group-surjection-pair), [involution quotient of the unramified pro l group](#involution-quotient-of-the-unramified-pro-l-group), InverseGaloisAndArithmeticFundamentalGroups:IG.5, [function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields).
+*Needs:* [generalized dihedral cover datum](#generalized-dihedral-cover-datum), [class group surjection pair](#class-group-surjection-pair), [involution quotient of the unramified pro l group](#involution-quotient-of-the-unramified-pro-l-group), InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields).
 
 ([[37]](#ref-37), Proposition 8.7, p.774–775 (Annals 183); [[37]](#ref-37), Proof of Proposition 8.7, p.776 (Annals 183).)
 
@@ -694,9 +669,7 @@ For the proof, Import the Hurwitz scheme Hn^c_{G,n}, finite étale over Conf_n o
 
 **Factor two point count identity.** In the setting of [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections) (q odd, ℓ odd, ℓ ∤ q, A a nontrivial finite abelian ℓ-group, n odd): Σ_{L ∈ S_n} m_A(L) = 2|X_n(F_q)|. For A = 0 the average of m_A over S_n is exactly 1.
 
-as in [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections)
-
-For the proof, Σ_{L ∈ S_n} m_A(L) counts pairs (L, α) with α surjective, L running over S_n (each field once). Isomorphism classes of pairs with fixed L are the orbits of α ↦ −α; for A ≠ 0 of odd order this action is free ([class group surjection pair](#class-group-surjection-pair)), so every class has exactly 2 elements. Distinct L ∈ S_n are non-isomorphic over K, so the classes over different L are distinct; apply the bijection of [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections).
+*Proof.* Σ_{L ∈ S_n} m_A(L) counts pairs (L, α) with α surjective, L running over S_n (each field once). Isomorphism classes of pairs with fixed L are the orbits of α ↦ −α; for A ≠ 0 of odd order this action is free ([class group surjection pair](#class-group-surjection-pair)), so every class has exactly 2 elements. Distinct L ∈ S_n are non-isomorphic over K, so the classes over different L are distinct; apply the bijection of [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections).
 
 *Needs:* [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections), [class group surjection pair](#class-group-surjection-pair), [size of the odd degree quadratic family](../ArithmeticStatisticsPartI/README.md#size-of-the-odd-degree-quadratic-family).
 
@@ -712,7 +685,7 @@ For the proof, Σ_{L ∈ S_n} m_A(L) counts pairs (L, α) with α surjective, L 
 
 **Empirical l primary class group law.** Let q be odd, ℓ prime and n odd. The empirical law ν_n = ν_{q,ℓ,n} is the probability measure on the set of isomorphism classes of finite abelian ℓ-groups with ν_n(A) := #{L ∈ S_n : Cl(O_L)_ℓ ≅ A}/|S_n|, where Cl(O_L)_ℓ is the ℓ-primary part of the (finite) class group. Its A-moment Σ_B ν_n(B)|Sur(B, A)| equals the average of m_A(L) = |Sur(Cl(O_L), A)| over S_n, because surjections onto an ℓ-group factor through the ℓ-primary part.
 
-q odd, ℓ prime, n odd classes of finite abelian ℓ-groups as in [isomorphism classes of finite abelian p groups](../ArithmeticStatisticsPartIV/README.md#isomorphism-classes-of-finite-abelian-p-groups)
+Isomorphism classes of finite abelian ℓ-groups are those of [isomorphism classes of finite abelian p groups](../ArithmeticStatisticsPartIV/README.md#isomorphism-classes-of-finite-abelian-p-groups).
 
 The required API is:
 
@@ -726,15 +699,13 @@ The required API is:
 
 - `empiricalClassGroupLaw_eq_average`: The A-moment of ν_n ([surjection moment](../ArithmeticStatisticsPartIV/README.md#surjection-moment)) is the average of m_A over P_n, equivalently over S_n.
 
-For the proof, Class groups Cl(O_L) are finite (function-field class number finiteness, via Pic⁰(C_L)(F_q) finite); their ℓ-primary parts are finite abelian ℓ-groups, each isomorphic to exactly one class. Define ν_n(A) as the proportion; computing it over polynomials P_n instead of S_n gives the same value since every class of S_n has (q − 1)/2 representatives. Total mass one: the events Cl(O_L)_ℓ ≅ A partition S_n. Moment identity: Sur(Cl(O_L), A) = Sur(Cl(O_L)_ℓ, A) for A an ℓ-group (restriction to the primary part is a bijection, the prime-to-ℓ part mapping to 0).
+*Proof.* Class groups Cl(O_L) are finite (function-field class number finiteness, via Pic⁰(C_L)(F_q) finite); their ℓ-primary parts are finite abelian ℓ-groups, each isomorphic to exactly one class. Define ν_n(A) as the proportion; computing it over polynomials P_n instead of S_n gives the same value since every class of S_n has (q − 1)/2 representatives. Total mass one: the events Cl(O_L)_ℓ ≅ A partition S_n. Moment identity: Sur(Cl(O_L), A) = Sur(Cl(O_L)_ℓ, A) for A an ℓ-group (restriction to the primary part is a bijection, the prime-to-ℓ part mapping to 0).
 
 *Needs:* [odd degree quadratic function field family](../ArithmeticStatisticsPartI/README.md#odd-degree-quadratic-function-field-family), [class group surjection pair](#class-group-surjection-pair), [isomorphism classes of finite abelian p groups](../ArithmeticStatisticsPartIV/README.md#isomorphism-classes-of-finite-abelian-p-groups), [surjection moment](../ArithmeticStatisticsPartIV/README.md#surjection-moment), `CommGroup.primaryComponent` (Mathlib), `ClassGroup` (Mathlib).
 
 ([[37]](#ref-37), Deduction of Theorem 1.2 after Theorem 8.8, p.777 (Annals 183); [[37]](#ref-37), Theorem 8.8 context, p.777 (Annals 183).)
 
 **Checks.**
-
-- For n = 1, ν_1 is the Dirac mass at the trivial class: ν_1(trivial) = 1.
 
 - For every A, ν_n(A) ≤ 1.
 
@@ -748,7 +719,9 @@ For the proof, Class groups Cl(O_L) are finite (function-field class number fini
 
 **Lower and upper degree densities.** For a real sequence u : ℕ → ℝ, its upper (lower) odd-degree density is limsup (liminf) of u(n) as n → ∞ through odd n. For q odd, ℓ prime and A a finite abelian ℓ-group, δ^+(q, A) and δ^−(q, A) are the upper and lower odd-degree densities of n ↦ ν_{q,ℓ,n}(A). For fixed q they need not coincide; the degree limit n → ∞ is taken before q → ∞.
 
-u bounded (for ν_n(A) ∈ [0, 1] automatically)
+The representative Lean namespace `DegreeDensities` pins `upperOddDensity`, `lowerOddDensity` and `lowerOddDensity_le_upperOddDensity`, with the alternating example and the irrelevance of even degrees.
+
+Liminf and limsup are compared only for bounded u; for u = ν_{q,ℓ,n}(A) this holds because 0 ≤ ν_n(A) ≤ 1.
 
 The required API is:
 
@@ -764,7 +737,7 @@ The required API is:
 
 - `lowerClassGroupDensity`: δ^−(q, A) := lower odd density of n ↦ ν_{q,ℓ,n}(A).
 
-For the proof, Define δ^± via Mathlib Filter.limsup (and its order dual liminf) of u(2m + 1) along m → ∞. For bounded u, δ^− ≤ δ^+, with equality iff u converges along odd n, in which case both equal the limit.
+*Proof.* Define δ^± via Mathlib Filter.limsup (and its order dual liminf) of u(2m + 1) along m → ∞. For bounded u, δ^− ≤ δ^+, with equality iff u converges along odd n, in which case both equal the limit.
 
 *Needs:* [empirical l primary class group law](#empirical-l-primary-class-group-law), `Filter.limsup` (Mathlib), `Filter.atTop` (Mathlib).
 
@@ -778,21 +751,15 @@ For the proof, Define δ^± via Mathlib Filter.limsup (and its order dual liminf
 
 - Changing u on even n does not change upperOddDensity u.
 
-- For u constant, δ^+ = δ^− = that constant.
-
-- For u(n) = (−1)^{(n−1)/2}, δ^+ = 1 and δ^− = −1 along odd n.
-
-### 5.16 Uniform trace bounds and large-q distributions
+### 5.16 Top-degree traces and the uniform trace estimate
 
 <a id="top-cohomology-counts-rational-components"></a>
 
-**Top cohomology counts rational components.** Let X be a smooth separated scheme of finite type and pure dimension n over F_q, and λ a prime not dividing q. Then H^{2n}_c(X_{F̄_q}, Q_λ) ≅ Q_λ(−n)^{π₀(X_{F̄_q})}, the permutation representation on geometric connected components twisted by Q_λ(−n); hence Tr(Frob_q | H^{2n}_c(X_{F̄_q}, Q_λ)) = q^n · #{geometric components fixed by Frobenius}. In particular the trace is q^n exactly when one geometric component is defined over F_q.
+**Top cohomology counts rational components.** Let X be a smooth separated scheme of finite type and pure dimension n over F_q, and λ a prime not dividing q. Then H^{2n}\_c(X_{F̄_q}, Q_λ) ≅ Q_λ(−n)^{π₀(X_{F̄_q})}, the permutation representation on geometric connected components twisted by Q_λ(−n); hence Tr(Frob_q | H^{2n}\_c(X_{F̄_q}, Q_λ)) = q^n · #{geometric components fixed by Frobenius}. In particular the trace is q^n exactly when one geometric component is defined over F_q.
 
-X smooth, separated, finite type, pure dimension n over F_q λ ∤ q
+*Proof.* Decompose X_{F̄_q} into its connected components, which are smooth irreducible of dimension n and permuted by Frobenius. For each geometrically connected smooth component C, Poincaré duality (EtaleDualityAndPerverseSheaves §§0.5–0.6) gives H^{2n}_c(C, Q_λ) ≅ H^0(C, Q_λ)^∨(−n) = Q_λ(−n). Frobenius permutes the summands; only fixed components contribute to the trace, each contributing q^n (geometric Frobenius acts on Q_λ(−n) by q^n).
 
-For the proof, Decompose X_{F̄_q} into its connected components, which are smooth irreducible of dimension n and permuted by Frobenius. For each geometrically connected smooth component C, Poincaré duality (EtaleDualityAndPerverseSheaves:EDC.2) gives H^{2n}_c(C, Q_λ) ≅ H^0(C, Q_λ)^∨(−n) = Q_λ(−n). Frobenius permutes the summands; only fixed components contribute to the trace, each contributing q^n (geometric Frobenius acts on Q_λ(−n) by q^n).
-
-*Needs:* EtaleDualityAndPerverseSheaves:EDC.2, SchemeAndStackFoundations:SF.2.
+*Needs:* EtaleDualityAndPerverseSheaves §§0.5–0.6, InverseGaloisAndArithmeticFundamentalGroups §IG.0.T4.
 
 ([[37]](#ref-37), Proof of Theorem 8.8, p.778–779 (Annals 183); [[51]](#ref-51), Proof of Theorem 1.4, p.40 (arXiv v2).)
 
@@ -810,9 +777,9 @@ The light signature `GeometricStatistics.trace_error_bound` states the numerical
 
 X is smooth, separated and of finite type over F_q, of pure dimension n. Betti bound dim H^i ≤ C^{i+1} for i ≥ 1 exactly one Frobenius-fixed geometric component √q > C ≥ 1
 
-For the proof, Grothendieck–Lefschetz: |X(F_q)| = Σ_j (−1)^j Tr(Frob | H^j_c(X_{F̄_q}, Q_λ)) (SchemeAndStackFoundations:SF.2). The j = 2n term is q^n ([top cohomology counts rational components](#top-cohomology-counts-rational-components)). Deligne's weight bound (DeligneWeightsAndPurity:DWP.7): every Frobenius eigenvalue on H^j_c has absolute value ≤ q^{j/2}; with Poincaré duality dim H^j_c = dim H^{2n−j} (EtaleDualityAndPerverseSheaves:EDC.2), |Tr(Frob | H^j_c)| ≤ q^{j/2} C^{2n−j+1}. Sum the finite range j < 2n first, then bound by the geometric series Σ_{i≥1} (C/√q)^i · C = C²/(√q − C) (put i = 2n − j).
+*Proof.* Grothendieck–Lefschetz: |X(F_q)| = Σ_j (−1)^j Tr(Frob | H^j_c(X_{F̄_q}, Q_λ)) (InverseGaloisAndArithmeticFundamentalGroups §IG.0.T4). The j = 2n term is q^n ([top cohomology counts rational components](#top-cohomology-counts-rational-components)). Deligne's weight bound (DeligneWeightsAndPurity, item 7.12): every Frobenius eigenvalue on H^j_c has absolute value ≤ q^{j/2}; with Poincaré duality dim H^j_c = dim H^{2n−j} (EtaleDualityAndPerverseSheaves §0.6), |Tr(Frob | H^j_c)| ≤ q^{j/2} C^{2n−j+1}. Sum the finite range j < 2n first, then bound by the geometric series Σ_{i≥1} (C/√q)^i · C = C²/(√q − C) (put i = 2n − j).
 
-*Needs:* [top cohomology counts rational components](#top-cohomology-counts-rational-components), SchemeAndStackFoundations:SF.2, EtaleDualityAndPerverseSheaves:EDC.2, DeligneWeightsAndPurity:DWP.7.
+*Needs:* [top cohomology counts rational components](#top-cohomology-counts-rational-components), InverseGaloisAndArithmeticFundamentalGroups §IG.0.T4, EtaleDualityAndPerverseSheaves §§0.5–0.6, DeligneWeightsAndPurity item 7.12.
 
 ([[37]](#ref-37), Proof of Theorem 8.8, p.778 (Annals 183).)
 
@@ -834,11 +801,9 @@ For the proof, Grothendieck–Lefschetz: |X(F_q)| = Σ_j (−1)^j Tr(Frob | H^j_
 
 **Hyperelliptic torsion local system.** Let k be a field with 2ℓ invertible (ℓ an odd prime), n = 2g + 1 odd, and over Conf_n ⊗ k (monic squarefree degree-n polynomials f) let C_f be the smooth projective curve birational to y² = f(x), of genus g, with its unique point at ∞. For each m ≥ 1 the ℓ^m-torsion V_m := Jac(C_f)[ℓ^m] forms a locally constant étale sheaf of free Z/ℓ^m-modules of rank 2g on Conf_n ⊗ k, the Tate module T = lim V_m is a lisse Z_ℓ-sheaf of rank 2g, and the Weil pairing (from the canonical principal polarization) is a perfect alternating pairing V_m × V_m → μ_{ℓ^m}. Consequently geometric monodromy lies in Sp(V_m) and, over k = F_q, a Frobenius element acts in GSp_q(V_m) (similitude multiplier q).
 
-ℓ odd prime, 2ℓ invertible on the base n = 2g + 1 ≥ 3 odd; g = (n − 1)/2 k arbitrary (F_q or the function field of Conf_n) Frobenius on torsion points and Tate modules means arithmetic Frobenius, with cyclotomic multiplier q. The trace formula on compactly supported cohomology uses geometric Frobenius; these representations and conventions are not interchanged.
+*Proof.* The Jacobian of the relative smooth proper curve y² = f(x) over Conf_n ⊗ k (completed at the unique point over ∞) is an abelian scheme of relative dimension g (the relative-Jacobian item required in addition from AbelianSchemesAndArithmeticModuli; TauCetiRoadmap.JacobianChallenge Layer D gives the Jacobian of each fibre). [ℓ^m] is finite étale of degree ℓ^{2mg} when ℓ is invertible, so V_m is a locally constant sheaf, free over Z/ℓ^m of rank 2g (AbelianSchemesAndArithmeticModuli §A3.2). The canonical principal polarization induces the Weil pairing V_m × V_m → μ_{ℓ^m}, perfect and alternating (AbelianSchemesAndArithmeticModuli §§A3.5, A3.7); monodromy preserves it up to the cyclotomic character, which is trivial on the geometric fundamental group and equals q on Frobenius over F_q.
 
-For the proof, The Jacobian of the relative smooth proper curve y² = f(x) over Conf_n ⊗ k (completed at the unique point over ∞) is an abelian scheme of relative dimension g (tauceti JacobianChallenge Layer D: Pic⁰ and the Jacobian). [ℓ^m] is finite étale of degree ℓ^{2mg} when ℓ is invertible, so V_m is a locally constant sheaf, free over Z/ℓ^m of rank 2g (AbelianSchemesAndArithmeticModuli:A3). The canonical principal polarization induces the Weil pairing V_m × V_m → μ_{ℓ^m}, perfect and alternating (AbelianSchemesAndArithmeticModuli:A3); monodromy preserves it up to the cyclotomic character, which is trivial on the geometric fundamental group and equals q on Frobenius over F_q.
-
-*Needs:* [odd degree quadratic function field family](../ArithmeticStatisticsPartI/README.md#odd-degree-quadratic-function-field-family), AbelianSchemesAndArithmeticModuli:A3.
+*Needs:* [odd degree quadratic function field family](../ArithmeticStatisticsPartI/README.md#odd-degree-quadratic-function-field-family), AbelianSchemesAndArithmeticModuli §§A3.2, A3.5, A3.7 and its relative-Jacobian item.
 
 ([[37]](#ref-37), Proof of Theorem 8.8, p.779 (Annals 183); [[37]](#ref-37), Proof of Theorem 8.8, p.780 (Annals 183).)
 
@@ -852,13 +817,11 @@ For the proof, The Jacobian of the relative smooth proper curve y² = f(x) over 
 
 <a id="geometric-generic-fibre-of-the-unmarked-hurwitz-cover"></a>
 
-**Geometric generic fibre of the unmarked hurwitz cover.** Let ℓ be odd, A a nontrivial finite abelian ℓ-group, m ≥ 1 with ℓ^m A = 0, and n = 2g + 1 odd. Over the function field K of Conf_n ⊗ F_q (or any field of characteristic prime to 2ℓ), the geometric generic fibre Σ of the finite étale cover X_n = Hn^{c_A}_{G_A,n} → Conf_n is identified, Gal(K̄/K)-equivariantly, with Sur(V_m, A)/{±1}, where V_m = Jac(C)[ℓ^m](K̄) with its monodromy action. The marked set Sur(V_m, A) has twice as many elements, and since −I ∈ Sp(V_m), the Sp(V_m)-orbit sets of Sur(V_m, A) and of Sur(V_m, A)/{±1} correspond bijectively.
+**Geometric generic fibre of the unmarked hurwitz cover.** Let ℓ be odd, A a nontrivial finite abelian ℓ-group, m ≥ 1 with ℓ^m A = 0, and n = 2g + 1 odd. Over the function field K of Conf_n ⊗ F_q (or any field of characteristic prime to 2ℓ), the geometric generic fibre Σ of the finite étale cover X_n = Hn^{c_A}_{G_A,n} → Conf_n is identified, Gal(K̄/K)-equivariantly, with Sur(V_m, A)/{±1}, where V_m is the group of K̄-points of Jac(C)[ℓ^m], with its monodromy action. The marked set Sur(V_m, A) has twice as many elements, and since −I ∈ Sp(V_m), the Sp(V_m)-orbit sets of Sur(V_m, A) and of Sur(V_m, A)/{±1} correspond bijectively.
 
-ℓ odd prime; A ≠ 0 a finite abelian ℓ-group with ℓ^m A = 0 n odd characteristic prime to 2ℓ
+*Proof.* Repeat [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections) over K̄, replacing class field theory by geometric Kummer theory: étale abelian A-covers of the curve C over K̄ correspond to surjections from the K̄-points of Jac(C)[ℓ^m] onto A ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields), geometric form). Equivariance: the identification is canonical, hence commutes with Gal(K̄/K). −I ∈ Sp(V_m) acts as the sign, so each Sp-orbit on Sur(V_m, A) is a union of sign classes; orbit sets correspond.
 
-For the proof, Repeat [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections) over K̄, replacing class field theory by geometric Kummer theory: étale abelian A-covers of the curve C over K̄ correspond to surjections Jac(C)[ℓ^m](K̄) → A ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields), geometric form). Equivariance: the identification is canonical, hence commutes with Gal(K̄/K). −I ∈ Sp(V_m) acts as the sign, so each Sp-orbit on Sur(V_m, A) is a union of sign classes; orbit sets correspond.
-
-*Needs:* [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), [class group surjection pair](#class-group-surjection-pair), InverseGaloisAndArithmeticFundamentalGroups:IG.5, [function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields).
+*Needs:* [hurwitz points classify class group surjections](#hurwitz-points-classify-class-group-surjections), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), [class group surjection pair](#class-group-surjection-pair), InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields).
 
 ([[37]](#ref-37), Proof of Theorem 8.8, p.779 (Annals 183).)
 
@@ -866,17 +829,15 @@ For the proof, Repeat [hurwitz points classify class group surjections](#hurwitz
 
 - V = F_3², A = F_3: 8 surjections, 4 sign classes.
 
-- The component count is unchanged by the correction; only the fibre description changes.
+- EVW (p.779) identify Σ with Sur(V, A) itself. Since −I ∈ Sp(V_m), the Sp-orbit sets of Sur(V_m, A) and of Sur(V_m, A)/{±1} correspond, so the component count of §5.18 is unaffected.
 
 <a id="hyperelliptic-boundary-degeneration"></a>
 
 **Hyperelliptic boundary degeneration.** Let k be algebraically closed with 2ℓ invertible, g ≥ 3. The moduli space H̃_g of labelled hyperelliptic (Z/2-)curves of genus g degenerates to the boundary stratum Δ_{1,1}: there are clutching maps κ_L : H̃_{g−1} × H̃_1 → H̃_g^ct, κ_R : H̃_1 × H̃_{g−1} → H̃_g^ct and κ : H̃_1 × H̃_{g−2} × H̃_1 → H̃_g^ct factoring through both, whose images meet the closure of H̃_g. Along a clutching map the ℓ-torsion of Pic⁰ splits: κ^*Pic⁰(C_γ)[ℓ] ≅ Pic⁰(C_{γ1})[ℓ] × Pic⁰(C_{γ2})[ℓ] as symplectic local systems, and the monodromy group of the image contains the product of the factors' monodromy groups. Here H̃_g^ct is the compact-type locus of the compactification; the clutching images lie on its boundary, in the closure of the smooth locus H̃_g. They do not map into the smooth locus itself.
 
-k algebraically closed, 2ℓ invertible g ≥ 3 (class vector (1, …, 1) of length 2g + 2 split as (1,1,1,1), (1,…,1) of length 2g − 2, (1,1,1,1))
+*Proof.* Achter–Pries Lemma 2.5: the class vector of H̃_g splits into γ1 = γ3 = (1,1,1,1) and γ2 of length 2g − 2, giving the Δ_{1,1} degeneration. Achter–Pries Lemma 3.1(a): for a stable curve C = C1 ∪ C2 meeting in one section, restriction gives Pic⁰(C) ≅ Pic⁰(C1) × Pic⁰(C2) on stalks, hence an isomorphism of ℓ-torsion sheaves. The dual graph is a tree, so the nodal curve is of compact type and Pic⁰ is an abelian scheme; the displayed product is not a statement about a smooth glued curve. Achter–Pries Lemma 3.1(b): the Galois cover trivialising the product local system has group H1 × H2, so the monodromy of the image of κ is the product.
 
-For the proof, Achter–Pries Lemma 2.5: the class vector of H̃_g splits into γ1 = γ3 = (1,1,1,1) and γ2 of length 2g − 2, giving the Δ_{1,1} degeneration. Achter–Pries Lemma 3.1(a): for a stable curve C = C1 ∪ C2 meeting in one section, restriction gives Pic⁰(C) ≅ Pic⁰(C1) × Pic⁰(C2) on stalks, hence an isomorphism of ℓ-torsion sheaves. The dual graph is a tree, so the nodal curve is of compact type and Pic⁰ is an abelian scheme; the displayed product is not a statement about a smooth glued curve. Achter–Pries Lemma 3.1(b): the Galois cover trivialising the product local system has group H1 × H2, so the monodromy of the image of κ is the product.
-
-*Needs:* [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), InverseGaloisAndArithmeticFundamentalGroups:IG.1.
+*Needs:* [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), InverseGaloisAndArithmeticFundamentalGroups §IG.5.4 (admissible covers and the compact-type locus).
 
 ([[48]](#ref-48), Lemma 2.5, p.7 (Achter–Pries author PDF); [[48]](#ref-48), Lemma 3.1(a), p.11 (Achter–Pries author PDF).)
 
@@ -890,9 +851,7 @@ For the proof, Achter–Pries Lemma 2.5: the class vector of H̃_g splits into �
 
 **Overlapping symplectic subgroups generate.** Let F be a finite field of odd characteristic and V = V1 ⊕ V2 ⊕ V3 a nondegenerate symplectic F-space with the V_i pairwise orthogonal and all nonzero. If a subgroup H ≤ Sp(V) contains Sp(V1 ⊕ V2) × Sp(V3) and Sp(V1) × Sp(V2 ⊕ V3), then H = Sp(V).
 
-F finite, char F odd V_i ≠ 0, pairwise orthogonal, V nondegenerate
-
-For the proof, Sp(V) over a field is generated by the symplectic transvections t_{v,a}(x) = x + a⟨x, v⟩v (v ∈ V, a ∈ F): the transvection-generation assertion under the monodromy inputs below. Transvections along vectors of V1 ⊕ V2 or of V2 ⊕ V3 lie in H by hypothesis (they are the transvections of those nondegenerate summands, extended by the identity). For v = v1 + v2 + v3 with v1 + v2 ≠ 0: Sp(V1 ⊕ V2) acts transitively on nonzero vectors of V1 ⊕ V2 and V2 ≠ 0, so some h ∈ Sp(V1 ⊕ V2) ⊂ H sends v1 + v2 into V2; then h(v) ∈ V2 ⊕ V3, t_{h(v),a} ∈ H and t_{v,a} = h^{−1} t_{h(v),a} h ∈ H. If v1 + v2 = 0 then v ∈ V3. Hence H contains all transvections and H = Sp(V). This elementary argument replaces Achter–Pries's appeal to the maximality of Sp(V1 ⊕ V2) × Sp(V3) in Sp(V) (Kleidman–Liebeck), which needs V1 ⊕ V2 and V3 of different dimensions.
+*Proof.* Sp(V) over a field is generated by the symplectic transvections t_{v,a}(x) = x + a⟨x, v⟩v (v ∈ V, a ∈ F): the transvection-generation assertion under the monodromy inputs below. Transvections along vectors of V1 ⊕ V2 or of V2 ⊕ V3 lie in H by hypothesis (they are the transvections of those nondegenerate summands, extended by the identity). For v = v1 + v2 + v3 with v1 + v2 ≠ 0: Sp(V1 ⊕ V2) acts transitively on nonzero vectors of V1 ⊕ V2 and V2 ≠ 0, so some h ∈ Sp(V1 ⊕ V2) ⊂ H sends v1 + v2 into V2; then h(v) ∈ V2 ⊕ V3, t_{h(v),a} ∈ H and t_{v,a} = h^{−1} t_{h(v),a} h ∈ H. If v1 + v2 = 0 then v ∈ V3. Hence H contains all transvections and H = Sp(V). This elementary argument replaces Achter–Pries's appeal to the maximality of Sp(V1 ⊕ V2) × Sp(V3) in Sp(V) (Kleidman–Liebeck), which needs V1 ⊕ V2 and V3 of different dimensions.
 
 *Needs:* `Matrix.symplecticGroup` (Mathlib).
 
@@ -908,11 +867,9 @@ For the proof, Sp(V) over a field is generated by the symplectic transvections t
 
 **Mod l hyperelliptic monodromy is symplectic.** Let ℓ be an odd prime and k an algebraically closed field in which 2ℓ is invertible. For every g ≥ 1 the mod-ℓ monodromy groups of the labelled hyperelliptic moduli space H̃_g ⊗ k and of the hyperelliptic moduli space H_g ⊗ k (tautological curves, ℓ-torsion of Pic⁰) are both Sp_{2g}(F_ℓ).
 
-ℓ odd prime k algebraically closed, char k ∤ 2ℓ g ≥ 1
+*Proof.* H_g ⊗ k is open dense in its closure, which is dominated by H̃_g ⊗ k, so it suffices to treat H̃_g (restriction to a dense open does not change the image: InverseGaloisAndArithmeticFundamentalGroups §IG.5.7, *Finite-cover criteria for full monodromy image*). Base cases g = 1, 2: every curve of genus g is hyperelliptic, so M_ℓ(H_g) = M_ℓ(M_g) = Sp_{2g}(F_ℓ) (Deligne–Mumford 5.15–5.16; the genus-one and genus-two monodromy base assertions below); pass to H̃_g by Achter–Pries Lemma 3.3, since the Galois group Sym(2g + 2) of H̃_g → H_g and Sp_{2g}(F_ℓ) have no common nontrivial quotient (PSp_{2g}(F_ℓ) simple except PSp_2(F_3) ≅ A_4). In the exceptional base case (g,ℓ)=(1,3), SL₂(F₃) has abelianization C₃ and its nontrivial proper quotients have a C₃ quotient, whereas S₄ has no C₃ quotient; this excludes a common nontrivial quotient as well. Induction for g ≥ 3: by [hyperelliptic boundary degeneration](#hyperelliptic-boundary-degeneration) the image contains Sp(V1) × Sp(V2 ⊕ V3) and Sp(V1 ⊕ V2) × Sp(V3) with dim V1 = dim V3 = 2 (induction hypothesis for genera 1 and g − 1). Conclude by [overlapping symplectic subgroups generate](#overlapping-symplectic-subgroups-generate).
 
-For the proof, H_g ⊗ k is open dense in its closure, which is dominated by H̃_g ⊗ k, so it suffices to treat H̃_g (restriction to a dense open does not change the image: InverseGaloisAndArithmeticFundamentalGroups:IG.0). Base cases g = 1, 2: every curve of genus g is hyperelliptic, so M_ℓ(H_g) = M_ℓ(M_g) = Sp_{2g}(F_ℓ) (Deligne–Mumford 5.15–5.16; the genus-one and genus-two monodromy base assertions below); pass to H̃_g by Achter–Pries Lemma 3.3, since the Galois group Sym(2g + 2) of H̃_g → H_g and Sp_{2g}(F_ℓ) have no common nontrivial quotient (PSp_{2g}(F_ℓ) simple except PSp_2(F_3) ≅ A_4). In the exceptional base case (g,ℓ)=(1,3), SL₂(F₃) has abelianization C₃ and its nontrivial proper quotients have a C₃ quotient, whereas S₄ has no C₃ quotient; this excludes a common nontrivial quotient as well. Induction for g ≥ 3: by [hyperelliptic boundary degeneration](#hyperelliptic-boundary-degeneration) the image contains Sp(V1) × Sp(V2 ⊕ V3) and Sp(V1 ⊕ V2) × Sp(V3) with dim V1 = dim V3 = 2 (induction hypothesis for genera 1 and g − 1). Conclude by [overlapping symplectic subgroups generate](#overlapping-symplectic-subgroups-generate).
-
-*Needs:* [hyperelliptic boundary degeneration](#hyperelliptic-boundary-degeneration), [overlapping symplectic subgroups generate](#overlapping-symplectic-subgroups-generate), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), InverseGaloisAndArithmeticFundamentalGroups:IG.0.
+*Needs:* [hyperelliptic boundary degeneration](#hyperelliptic-boundary-degeneration), [overlapping symplectic subgroups generate](#overlapping-symplectic-subgroups-generate), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), InverseGaloisAndArithmeticFundamentalGroups Layer IG.0.
 
 ([[48]](#ref-48), Theorem 3.4, p.13 (Achter–Pries author PDF); [[48]](#ref-48), Proof of Theorem 3.4, p.13 (Achter–Pries author PDF).)
 
@@ -926,9 +883,7 @@ For the proof, H_g ⊗ k is open dense in its closure, which is dominated by H̃
 
 **Integral lift of full mod l symplectic image.** Let ℓ be an odd prime, g ≥ 1 and H ≤ Sp_{2g}(Z_ℓ) a closed subgroup whose reduction mod ℓ is all of Sp_{2g}(F_ℓ). If g ≥ 2 or ℓ ≥ 5, then H = Sp_{2g}(Z_ℓ). For (g, ℓ) = (1, 3) the conclusion needs the extra condition that H mod 9 meets the kernel of SL_2(Z/9) → SL_2(F_3) nontrivially; without it the implication fails: the order-24 subgroup of SL_2(Z/9) generated by [[0, 1], [8, 0]] and [[1, 7], [6, 7]] maps isomorphically onto SL_2(F_3), and its inverse image in SL_2(Z_3) is a proper closed subgroup (of index 27) with full mod-3 image.
 
-ℓ odd prime, g ≥ 1 H closed in Sp_{2g}(Z_ℓ) (images of profinite groups are compact, hence closed) (g, ℓ) ≠ (1, 3), or the congruence-kernel condition at (1, 3)
-
-For the proof, Sp_{2g} is simply connected, so Vasiu's Main Theorem 1.3 applies with c(G) = 1: case (a) ℓ ≥ 5; case (b) ℓ = 3, where the extra condition concerns only normal SL_2/PGL_2 factors, i.e. only g = 1. The mechanism (Vasiu §§3.7.1, 4.1.2, 4.5, 4.7; Serre's lifting argument): H mod ℓ² surjects onto Sp_{2g}(F_ℓ); the extension 0 → sp_{2g}(F_ℓ) → Sp_{2g}(Z/ℓ²) → Sp_{2g}(F_ℓ) → 1 does not split and the adjoint module is irreducible, so H mod ℓ² contains the whole congruence kernel; then powering lifts congruence kernels level by level and H = Sp_{2g}(Z_ℓ) by closedness. Prove the congruence-kernel and nonsplitting assertions before applying this integral lift. The (1, 3) witness: check by finite computation that the two matrices generate a group of order 24 mapping bijectively to SL_2(F_3) (whose order is 24), so its preimage in SL_2(Z_3) misses the nontrivial level-2 congruence kernel.
+*Proof.* Sp_{2g} is simply connected, so Vasiu's Main Theorem 1.3 applies with c(G) = 1: case (a) ℓ ≥ 5; case (b) ℓ = 3, where the extra condition concerns only normal SL_2/PGL_2 factors, i.e. only g = 1. The mechanism (Vasiu §§3.7.1, 4.1.2, 4.5, 4.7; Serre's lifting argument): H mod ℓ² surjects onto Sp_{2g}(F_ℓ); the extension 0 → sp_{2g}(F_ℓ) → Sp_{2g}(Z/ℓ²) → Sp_{2g}(F_ℓ) → 1 does not split and the adjoint module is irreducible, so H mod ℓ² contains the whole congruence kernel; then powering lifts congruence kernels level by level and H = Sp_{2g}(Z_ℓ) by closedness. Prove the congruence-kernel and nonsplitting assertions before applying this integral lift. The (1, 3) witness: check by finite computation that the two matrices generate a group of order 24 mapping bijectively to SL_2(F_3) (whose order is 24), so its preimage in SL_2(Z_3) misses the nontrivial level-2 congruence kernel.
 
 *Needs:* `Matrix.symplecticGroup` (Mathlib), `PadicInt` (Mathlib), `ZMod` (Mathlib).
 
@@ -944,9 +899,7 @@ For the proof, Sp_{2g} is simply connected, so Vasiu's Main Theorem 1.3 applies 
 
 **Integral hyperelliptic monodromy.** Let ℓ be an odd prime and k algebraically closed with 2ℓ invertible. For g ≥ 2, or g = 1 and ℓ ≥ 5, the ℓ-adic monodromy groups of H̃_g ⊗ k and of H_g ⊗ k are Sp_{2g}(Z_ℓ). The case (g, ℓ) = (1, 3) is not covered by this argument.
 
-ℓ odd prime, char k ∤ 2ℓ g ≥ 2, or g = 1 and ℓ ≥ 5
-
-For the proof, The ℓ-adic image is a closed subgroup of Sp_{2g}(Z_ℓ) (compact image of a profinite group; the Weil pairing gives the upper bound: [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system)). Its reduction mod ℓ is Sp_{2g}(F_ℓ) by [mod l hyperelliptic monodromy is symplectic](#mod-l-hyperelliptic-monodromy-is-symplectic). Apply [integral lift of full mod l symplectic image](#integral-lift-of-full-mod-l-symplectic-image) in the stated range.
+*Proof.* The ℓ-adic image is a closed subgroup of Sp_{2g}(Z_ℓ) (compact image of a profinite group; the Weil pairing gives the upper bound: [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system)). Its reduction mod ℓ is Sp_{2g}(F_ℓ) by [mod l hyperelliptic monodromy is symplectic](#mod-l-hyperelliptic-monodromy-is-symplectic). Apply [integral lift of full mod l symplectic image](#integral-lift-of-full-mod-l-symplectic-image) in the stated range.
 
 *Needs:* [mod l hyperelliptic monodromy is symplectic](#mod-l-hyperelliptic-monodromy-is-symplectic), [integral lift of full mod l symplectic image](#integral-lift-of-full-mod-l-symplectic-image), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system).
 
@@ -962,11 +915,9 @@ For the proof, The ℓ-adic image is a closed subgroup of Sp_{2g}(Z_ℓ) (compac
 
 **Monodromy of the odd degree polynomial family.** Let ℓ be odd, k algebraically closed with 2ℓ invertible and n = 2g + 1 ≥ 5 (or n = 3 with ℓ ≥ 5). The geometric ℓ-adic monodromy of the Jacobian of y² = ∏_{i=1}^n (x − a_i) over Conf_n(A¹_k) is Sp_{2g}(Z_ℓ).
 
-ℓ odd, char k ∤ 2ℓ n = 2g + 1 ≥ 5, or n = 3 and ℓ ≥ 5
+*Proof.* The family over the ordered configuration space PConf_n is a torsor under the smooth connected group B_n of affine changes (a, b, d) with d² = a^n, and [PConf_n/B_n] ≅ H̃_g^{sm} keeps the hyperelliptic involution (InverseGaloisAndArithmeticFundamentalGroups §IG.5.7, *The labelled hyperelliptic quotient family* and *The lifted affine coordinate group*, where B_n is written Ã_n). A representable smooth surjection with geometrically connected fibres induces a surjection on étale π₁ (§IG.5.7, *Finite-cover criteria for full monodromy image*); restriction from the compact-type locus to the smooth locus does not change the image (the same item). Hence the image over PConf_n equals that over H̃_g, which is Sp_{2g}(Z_ℓ) by [integral hyperelliptic monodromy](#integral-hyperelliptic-monodromy); PConf_n → Conf_n is finite étale Galois with group S_n, and the image over Conf_n contains the image over PConf_n and is contained in Sp_{2g}(Z_ℓ).
 
-For the proof, The family over the ordered configuration space PConf_n is a torsor under the smooth connected group B_n of affine changes (a, b, d) with d² = a^n, and [PConf_n/B_n] ≅ H̃_g^{sm} keeps the hyperelliptic involution (InverseGaloisAndArithmeticFundamentalGroups:IG.1; the marked-cover comparison). A representable smooth surjection with geometrically connected fibres induces a surjection on étale π₁ (IG.0; EVW items /132); restriction from the compact-type locus to the smooth locus does not change the image (IG.0; item /133). Hence the image over PConf_n equals that over H̃_g, which is Sp_{2g}(Z_ℓ) by [integral hyperelliptic monodromy](#integral-hyperelliptic-monodromy); PConf_n → Conf_n is finite étale Galois with group S_n, and the image over Conf_n contains the image over PConf_n and is contained in Sp_{2g}(Z_ℓ).
-
-*Needs:* [integral hyperelliptic monodromy](#integral-hyperelliptic-monodromy), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), InverseGaloisAndArithmeticFundamentalGroups:IG.0, InverseGaloisAndArithmeticFundamentalGroups:IG.1.
+*Needs:* [integral hyperelliptic monodromy](#integral-hyperelliptic-monodromy), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system), InverseGaloisAndArithmeticFundamentalGroups Layer IG.0, InverseGaloisAndArithmeticFundamentalGroups Layer IG.1.
 
 ([[37]](#ref-37), Proof of Theorem 8.8, p.780 (Annals 183).)
 
@@ -980,9 +931,7 @@ For the proof, The family over the ordered configuration space PConf_n is a tors
 
 **Finite level monodromy of the polynomial family.** In the range of [monodromy of the odd degree polynomial family](#monodromy-of-the-odd-degree-polynomial-family), for every m ≥ 1 the geometric monodromy image on V_m = Jac[ℓ^m] is Sp_{2g}(Z/ℓ^m), and the arithmetic image over F_q contains elements of GSp_q(V_m) lying over Frobenius. Any element of GSp_q(V_m) lifts to GSp_q(T) (T the Tate module), by smoothness of GSp.
 
-as in [monodromy of the odd degree polynomial family](#monodromy-of-the-odd-degree-polynomial-family) m ≥ 1 Frobenius on torsion points and Tate modules means arithmetic Frobenius, with cyclotomic multiplier q. The trace formula on compactly supported cohomology uses geometric Frobenius; these representations and conventions are not interchanged.
-
-For the proof, V_m = T/ℓ^m T equivariantly; reduction Sp_{2g}(Z_ℓ) → Sp_{2g}(Z/ℓ^m) is surjective (Sp_{2g} is smooth over Z_ℓ, Hensel lifting). Frobenius acts with multiplier q ([hyperelliptic torsion local system](#hyperelliptic-torsion-local-system)); GSp_q(T) → GSp_q(V_m) is surjective by smoothness of GSp and of the multiplier fibre.
+*Proof.* V_m = T/ℓ^m T equivariantly; reduction Sp_{2g}(Z_ℓ) → Sp_{2g}(Z/ℓ^m) is surjective (Sp_{2g} is smooth over Z_ℓ, Hensel lifting). Frobenius acts with multiplier q ([hyperelliptic torsion local system](#hyperelliptic-torsion-local-system)); GSp_q(T) → GSp_q(V_m) is surjective by smoothness of GSp and of the multiplier fibre.
 
 *Needs:* [monodromy of the odd degree polynomial family](#monodromy-of-the-odd-degree-polynomial-family), [hyperelliptic torsion local system](#hyperelliptic-torsion-local-system).
 
@@ -1000,13 +949,15 @@ For the proof, V_m = T/ℓ^m T equivariantly; reduction Sp_{2g}(Z_ℓ) → Sp_{2
 
 **Symplectic similitude group.** Let R be a commutative ring and V a free R-module of rank 2g with a perfect alternating pairing ω (in matrix form, V = R^{2g} with ω(x, y) = xᵀJy, J the standard alternating matrix). The similitude group GSp(V) consists of the R-linear automorphisms h with ω(hx, hy) = m(h)·ω(x, y) for a unit m(h) ∈ R^×, the multiplier; m : GSp(V) → R^× is a homomorphism with kernel Sp(V). For a unit m, GSp_m(V) := m^{−1}(m) is a coset of Sp(V). In matrices: h ∈ GSp_m ⇔ h J hᵀ = m J. The multiplier homomorphism and the assertion that its fibres are labelled cosets require g≥1. The displayed matrix subsets and their union remain defined at g=0, when every multiplier gives the same singleton subset.
 
-R commutative (in the application Z_ℓ or Z/ℓ^k, ℓ odd) ω perfect and alternating
+The representative Lean namespace `Similitude` pins `similitudeCoset`, `similitudeSet`, `similitudeCoset_one`, `similitudeCoset_mul_mem` and `multiplier_unique`, with diag(1, −1) as a unit-multiplier example and diag(1, 3) over Z as the non-unit control.
 
 The required API is:
 
-- `similitudeCoset`: GSp_m = {h : h J hᵀ = m J} for a unit m.
+- `similitudeCoset`: GSp_m = {h : h J hᵀ = m J}; defined for every m ∈ R, with GSp using only unit m and non-unit cosets serving as controls.
 
-- `similitudeGroup`: GSp = ⋃_m GSp_m, a submonoid of matrices (a group on units).
+- `similitudeSet`: GSp = ⋃_m GSp_m over unit multipliers m, as a set of matrices; it is closed under products, and its invertible elements form the group GSp.
+
+- `multiplier_unique`: for g ≥ 1 a matrix lies in at most one coset GSp_m.
 
 - `mem_similitudeCoset_iff`: h ∈ GSp_m ⇔ h J hᵀ = m J.
 
@@ -1016,7 +967,7 @@ The required API is:
 
 - `similitudeCoset_map`: A ring homomorphism R → R' maps GSp_m(R) into GSp_{φ(m)}(R').
 
-For the proof, Define the multiplier coset {h : h J hᵀ = m J} and GSp as their union over units m; closure under products and inverses is a computation (multipliers multiply). For g≥1 a standard entry of J is 1, so mJ=m′J implies m=m′; invertibility of an empty matrix alone would not prove uniqueness. The equations hJhᵀ=mJ and hᵀJh=mJ are equivalent because J⁻¹=−J and h is invertible. The multiplier-one subset recovers Mathlib symplecticGroup.
+*Proof.* Define the multiplier coset {h : h J hᵀ = m J} and GSp as their union over units m; closure under products and inverses is a computation (multipliers multiply). For g≥1 a standard entry of J is 1, so mJ=m′J implies m=m′; invertibility of an empty matrix alone would not prove uniqueness. The equations hJhᵀ=mJ and hᵀJh=mJ are equivalent because J⁻¹=−J and h is invertible. The multiplier-one subset recovers Mathlib symplecticGroup.
 
 *Needs:* `Matrix.symplecticGroup` (Mathlib), `SymplecticGroup.mem_iff` (Mathlib), `Matrix.J` (Mathlib).
 
@@ -1030,27 +981,19 @@ For the proof, Define the multiplier coset {h : h J hᵀ = m J} and GSp as their
 
 - Over Z_ℓ with g = 1, diag(1, ℓ) satisfies h J hᵀ = ℓ J but is not in similitudeGroup, since ℓ is not a unit.
 
-- diag(I_g, q I_g) ∈ GSp_q.
-
-- −I ∈ Sp.
-
-- A matrix with multiplier ℓ over Z_ℓ is not a similitude: the multiplier must be a unit.
-
 <a id="monodromy-orbits-and-rational-components"></a>
 
 **Monodromy orbits and rational components.** In the range of [monodromy of the odd degree polynomial family](#monodromy-of-the-odd-degree-polynomial-family) (A a nontrivial finite abelian ℓ-group, ℓ odd, q odd with ℓ ∤ q, ℓ^m A = 0): the geometric connected components of X_n ⊗ F̄_q correspond bijectively to Sp(V_m)-orbits on Sur(V_m, A), and an orbit O gives a component defined over F_q iff the stabilizer in GSp(V_m) of some (equivalently every) x ∈ O meets GSp_q(V_m). Via T → V_m these are the Sp(T)-orbits on Sur(T, A) whose stabilizer meets GSp_q(T).
 
-as in [monodromy of the odd degree polynomial family](#monodromy-of-the-odd-degree-polynomial-family) and [geometric generic fibre of the unmarked hurwitz cover](#geometric-generic-fibre-of-the-unmarked-hurwitz-cover) Frobenius on torsion points and Tate modules means arithmetic Frobenius, with cyclotomic multiplier q. The trace formula on compactly supported cohomology uses geometric Frobenius; these representations and conventions are not interchanged.
+*Proof.* Connected components of a finite étale cover of a geometrically connected base are orbits of the geometric fundamental group on the geometric generic fibre; a component is defined over F_q iff Frobenius preserves the orbit (InverseGaloisAndArithmeticFundamentalGroups §IG.0.3, finite étale covers as finite π₁-sets, with the arithmetic/geometric sequence of Layer IG.1). The fibre is Sur(V_m, A)/{±1} ([geometric generic fibre of the unmarked hurwitz cover](#geometric-generic-fibre-of-the-unmarked-hurwitz-cover)); since −I ∈ Sp, the orbit sets agree with those on Sur(V_m, A). The geometric image is Sp(V_m) ([finite level monodromy of the polynomial family](#finite-level-monodromy-of-the-polynomial-family)) and a Frobenius element lies in GSp_q(V_m); Frobenius fixes the orbit of x iff some element of Sp·F = GSp_q ∩ (image) fixes x, i.e. the stabilizer of x meets GSp_q. Lift to T using surjectivity GSp_q(T) → GSp_q(V_m) and Sur(V_m, A) = Sur(T, A).
 
-For the proof, Connected components of a finite étale cover of a geometrically connected base are orbits of the geometric fundamental group on the geometric generic fibre; a component is defined over F_q iff Frobenius preserves the orbit (InverseGaloisAndArithmeticFundamentalGroups:IG.0, IG.1). The fibre is Sur(V_m, A)/{±1} ([geometric generic fibre of the unmarked hurwitz cover](#geometric-generic-fibre-of-the-unmarked-hurwitz-cover)); since −I ∈ Sp, the orbit sets agree with those on Sur(V_m, A). The geometric image is Sp(V_m) ([finite level monodromy of the polynomial family](#finite-level-monodromy-of-the-polynomial-family)) and a Frobenius element lies in GSp_q(V_m); Frobenius fixes the orbit of x iff some element of Sp·F = GSp_q ∩ (image) fixes x, i.e. the stabilizer of x meets GSp_q. Lift to T using surjectivity GSp_q(T) → GSp_q(V_m) and Sur(V_m, A) = Sur(T, A).
-
-*Needs:* [geometric generic fibre of the unmarked hurwitz cover](#geometric-generic-fibre-of-the-unmarked-hurwitz-cover), [finite level monodromy of the polynomial family](#finite-level-monodromy-of-the-polynomial-family), [symplectic similitude group](#symplectic-similitude-group), InverseGaloisAndArithmeticFundamentalGroups:IG.0, InverseGaloisAndArithmeticFundamentalGroups:IG.1.
+*Needs:* [geometric generic fibre of the unmarked hurwitz cover](#geometric-generic-fibre-of-the-unmarked-hurwitz-cover), [finite level monodromy of the polynomial family](#finite-level-monodromy-of-the-polynomial-family), [symplectic similitude group](#symplectic-similitude-group), InverseGaloisAndArithmeticFundamentalGroups Layer IG.0, InverseGaloisAndArithmeticFundamentalGroups Layer IG.1.
 
 ([[37]](#ref-37), Proof of Theorem 8.8, p.780 (Annals 183).)
 
 **Checks.**
 
-- A = 0 has one orbit (the empty surjection set is replaced by the single trivial map).
+- A = 0 lies outside the statement: Sur(V_m, 0) is the single zero map, so it would give one orbit and one component.
 
 - The equivalence 'some x' ⇔ 'every x' holds because stabilizers along an orbit are Sp-conjugate and Sp is normal in GSp.
 
@@ -1058,9 +1001,7 @@ For the proof, Connected components of a finite étale cover of a geometrically 
 
 **Primary decomposition for a multiplier q similitude.** Let ℓ be odd, V free of rank 2g over Z_ℓ with a perfect alternating pairing, q ∈ Z_ℓ^× with q − 1 ∈ Z_ℓ^×, and h ∈ GSp_q(V). Let V_1 (resp. V_q) be the set of v ∈ V with (h − 1)^N v → 0 (resp. (h − q)^N v → 0) ℓ-adically, and W := ⋂_N (h − 1)^N (h − q)^N V. Then V = V_1 ⊕ V_q ⊕ W as Z_ℓ-modules, each summand is h-stable, h − 1 is invertible on V_q ⊕ W and h − q is invertible on V_1 ⊕ W.
 
-ℓ odd prime q and q − 1 units of Z_ℓ h ∈ GSp_q(V)
-
-For the proof, Factor the characteristic polynomial of h mod ℓ into its (x − 1)-primary part, (x − q)-primary part and a coprime remainder (1 ≠ q in F_ℓ); lift the coprime factorisation by Hensel's lemma to Z_ℓ[x]. The corresponding idempotents in Z_ℓ[h] give an h-stable decomposition V = V_1 ⊕ V_q ⊕ W with the stated invertibility (a polynomial coprime mod ℓ to the char. poly. of h on a summand acts invertibly on it). Identify the idempotent summands with the limit descriptions (EVW's definitions): on V_1, h − 1 is topologically nilpotent; on the complement it is invertible.
+*Proof.* Factor the characteristic polynomial of h mod ℓ into its (x − 1)-primary part, (x − q)-primary part and a coprime remainder (1 ≠ q in F_ℓ); lift the coprime factorisation by Hensel's lemma to Z_ℓ[x]. The corresponding idempotents in Z_ℓ[h] give an h-stable decomposition V = V_1 ⊕ V_q ⊕ W with the stated invertibility (a polynomial coprime mod ℓ to the char. poly. of h on a summand acts invertibly on it). Identify the idempotent summands with the limit descriptions (EVW's definitions): on V_1, h − 1 is topologically nilpotent; on the complement it is invertible.
 
 *Needs:* [symplectic similitude group](#symplectic-similitude-group), `PadicInt` (Mathlib), `Module.End.maxGenEigenspace` (Mathlib).
 
@@ -1068,7 +1009,7 @@ For the proof, Factor the characteristic polynomial of h mod ℓ into its (x −
 
 **Checks.**
 
-- h = diag(I, q I): V_1 = V_−, V_q = V_+, W = 0.
+- In a symplectic basis (e_1, …, e_g, f_1, …, f_g) with ω(e_i, f_j) = δ_ij, the map h fixing every e_i and sending f_j to q f_j has multiplier q, and V_1 = span(e_i), V_q = span(f_j), W = 0.
 
 - If q ≡ 1 mod ℓ the decomposition V_1 ⊕ V_q fails (the primary parts coincide mod ℓ); this is why q − 1 must be a unit.
 
@@ -1076,9 +1017,7 @@ For the proof, Factor the characteristic polynomial of h mod ℓ into its (x −
 
 **Symplectic normal forms over z l.** Let M be a finite free Z_ℓ-module with a perfect alternating pairing. (i) M has a symplectic basis; any basis x_1, …, x_g of a Lagrangian direct summand extends to one; hence Sp(M) acts transitively on Lagrangian direct summands. (ii) Each factor in an orthogonal direct-sum decomposition of M inherits a perfect pairing. (iii) M = M_+ ⊕ M_− with M_± Lagrangian. (iv) If M = P ⊕ Q with P, Q isotropic, both are Lagrangian (of rank half of M). (v) Every automorphism of a Lagrangian M_+ extends, by inverse transpose on a complementary Lagrangian M_−, to an element of Sp(M).
 
-ℓ prime (odd in the application) M finite free over Z_ℓ, pairing perfect and alternating
-
-For the proof, (i) Given a basis x_i of a Lagrangian summand, choose y_j with ω(x_i, y_j) = δ_ij by perfectness, then correct y_j by combinations of the x_i to make ⟨y_i, y_j⟩ = 0 (EVW's argument); transitivity follows by mapping one symplectic basis to another. (ii) Choose bases of the two orthogonal direct summands. The Gram matrix is block diagonal, and its determinant is a unit by perfectness. Each block determinant is therefore a unit in Z_ℓ, proving perfectness of both restricted pairings; absence of a radical alone would not suffice over Z_ℓ. (iii) Take the spans of the two halves of a symplectic basis. (iv) Reduce mod ℓ and use the field statement (isotropic subspaces have dimension at most half). (v) With respect to a symplectic basis adapted to M_+ ⊕ M_−, the block matrix diag(a, (aᵀ)^{−1}) is symplectic.
+*Proof.* (i) Given a basis x_i of a Lagrangian summand, choose y_j with ω(x_i, y_j) = δ_ij by perfectness, then correct y_j by combinations of the x_i to make ⟨y_i, y_j⟩ = 0 (EVW's argument); transitivity follows by mapping one symplectic basis to another. (ii) Choose bases of the two orthogonal direct summands. The Gram matrix is block diagonal, and its determinant is a unit by perfectness. Each block determinant is therefore a unit in Z_ℓ, proving perfectness of both restricted pairings; absence of a radical alone would not suffice over Z_ℓ. (iii) Take the spans of the two halves of a symplectic basis. (iv) Reduce mod ℓ and use the field statement (isotropic subspaces have dimension at most half). (v) With respect to a symplectic basis adapted to M_+ ⊕ M_−, the block matrix diag(a, (aᵀ)^{−1}) is symplectic.
 
 *Needs:* [symplectic similitude group](#symplectic-similitude-group), `PadicInt` (Mathlib), `Matrix.symplecticGroup` (Mathlib).
 
@@ -1094,9 +1033,7 @@ For the proof, (i) Given a basis x_i of a Lagrangian summand, choose y_j with ω
 
 **Orthogonality and a killed lagrangian.** In [primary decomposition for a multiplier q similitude](#primary-decomposition-for-a-multiplier-q-similitude): V_1 and V_q are isotropic, V_1 ⊕ V_q is orthogonal to W, and W is nondegenerate; W = W_+ ⊕ W_− with W_± isotropic, and then W_+ ⊕ V_1 and W_− ⊕ V_q are complementary maximal isotropic (Lagrangian) direct summands of V. If f : V → A satisfies f ∘ h = f, then the Lagrangian W_− ⊕ V_q lies in the image of h − 1, hence in ker f.
 
-as in [primary decomposition for a multiplier q similitude](#primary-decomposition-for-a-multiplier-q-similitude) f : V → A a homomorphism with f ∘ h = f
-
-For the proof, For x ∈ V_1 and y ∈ V_1 ⊕ W write y = (h − q)^N z_N; using ω(hx, hy) = q ω(x, y), ω(x, y) ∈ ω((h − 1)^N x, V) for all N, hence 0 (EVW's iteration). Symmetrically for V_q. More explicitly the adjoint of h−q is −q h⁻¹(h−1). Its N-th power puts the pairing in the ideal generated by the coordinates of (h−1)^N x; the integral factors q^N h⁻N preserve divisibility. Those coordinates tend to zero ℓ-adically, forcing the pairing to vanish. W is nondegenerate as an orthogonal summand of a perfect pairing (EVW fact (ii)); decompose W into two isotropic summands (EVW fact (iii), a symplectic basis: [symplectic normal forms over z l](#symplectic-normal-forms-over-z-l)). (V_1 ⊕ W_+) ⊕ (V_q ⊕ W_−) = V with both summands isotropic, so both are maximal isotropic (fact (iv)). h − 1 is invertible on V_q ⊕ W, so V_q ⊕ W_− ⊆ im(h − 1); f ∘ (h − 1) = 0 gives V_q ⊕ W_− ⊆ ker f.
+*Proof.* For x ∈ V_1 and y ∈ V_1 ⊕ W write y = (h − q)^N z_N; using ω(hx, hy) = q ω(x, y), ω(x, y) ∈ ω((h − 1)^N x, V) for all N, hence 0 (EVW's iteration). Symmetrically for V_q. More explicitly the adjoint of h−q is −q h⁻¹(h−1). Its N-th power puts the pairing in the ideal generated by the coordinates of (h−1)^N x; the integral factors q^N h⁻N preserve divisibility. Those coordinates tend to zero ℓ-adically, forcing the pairing to vanish. W is nondegenerate as an orthogonal summand of a perfect pairing (EVW fact (ii)); decompose W into two isotropic summands (EVW fact (iii), a symplectic basis: [symplectic normal forms over z l](#symplectic-normal-forms-over-z-l)). (V_1 ⊕ W_+) ⊕ (V_q ⊕ W_−) = V with both summands isotropic, so both are maximal isotropic (fact (iv)). h − 1 is invertible on V_q ⊕ W, so V_q ⊕ W_− ⊆ im(h − 1); f ∘ (h − 1) = 0 gives V_q ⊕ W_− ⊆ ker f.
 
 *Needs:* [primary decomposition for a multiplier q similitude](#primary-decomposition-for-a-multiplier-q-similitude), [symplectic normal forms over z l](#symplectic-normal-forms-over-z-l).
 
@@ -1112,9 +1049,7 @@ For the proof, For x ∈ V_1 and y ∈ V_1 ⊕ W write y = (h − q)^N z_N; usin
 
 **Linear group transitive on lattice surjections.** Let A be a finite abelian ℓ-group generated by at most g elements. Then GL_g(Z_ℓ) acts transitively (by precomposition) on the set of surjective homomorphisms Z_ℓ^g → A.
 
-A finite abelian ℓ-group with dim_{F_ℓ}(A/ℓA) = k ≤ g
-
-For the proof, Fix x_1, …, x_k ∈ A whose classes form a basis of A/ℓA; by Nakayama they generate A. Doing the same for f_2 gives a basis y'_i; the automorphism y_i ↦ y'_i carries f_1 to f_2.
+*Proof.* Fix x_1, …, x_k ∈ A whose classes form a basis of A/ℓA; by Nakayama they generate A. Let f : Z_ℓ^g → A be surjective and choose y_1, …, y_k with f(y_i) = x_i. Their classes in F_ℓ^g map to a basis of A/ℓA, so they are independent; extend them to a basis of F_ℓ^g and lift it to a basis y_1, …, y_g of Z_ℓ^g (Nakayama). For j > k write f(y_j) = Σ_i c_{ji} x_i and replace y_j by y_j − Σ_i c_{ji} y_i. The result is still a basis, with f(y_i) = x_i for i ≤ k and f(y_j) = 0 for j > k. A second surjection f′ gives a basis y′ of the same shape, and the automorphism φ with φ(y′_i) = y_i satisfies f ∘ φ = f′.
 
 *Needs:* `PadicInt` (Mathlib), `Matrix.GeneralLinearGroup` (Mathlib).
 
@@ -1130,9 +1065,7 @@ For the proof, Fix x_1, …, x_k ∈ A whose classes form a basis of A/ℓA; by 
 
 **Unique similitude stable symplectic orbit.** Let ℓ be odd, V a free Z_ℓ-module of rank 2g with a perfect alternating pairing, A a finite abelian ℓ-group and q ∈ Z_ℓ^× with q − 1 ∈ Z_ℓ^×. Let O be the set of surjections f : V → A such that f ∘ h = f for some h ∈ GSp_q(V). If g ≥ dim_{F_ℓ}(A/ℓA), then O is nonempty and Sp(V) acts transitively on O.
 
-ℓ odd prime; q, q − 1 ∈ Z_ℓ^× A finite abelian ℓ-group g ≥ dim_{F_ℓ}(A/ℓA)
-
-For the proof, Nonempty: write V = V_+ ⊕ V_− with Lagrangians ([symplectic normal forms over z l](#symplectic-normal-forms-over-z-l) (iii)); h := q on V_+ and 1 on V_− lies in GSp_q; any surjection factoring through the projection to V_− (exists as rank V_− = g ≥ dim A/ℓA) is fixed by h. Given f ∈ O with h, ker f contains a Lagrangian direct summand ([orthogonality and a killed lagrangian](#orthogonality-and-a-killed-lagrangian)). By transitivity on Lagrangians (normal forms (i)) move it to V_+, so f factors through V → V_−. Automorphisms of V_− extend to Sp(V) (normal forms (v)), reducing to GL_g(Z_ℓ)-transitivity on surjections Z_ℓ^g → A ([linear group transitive on lattice surjections](#linear-group-transitive-on-lattice-surjections)).
+*Proof.* Nonempty: write V = V_+ ⊕ V_− with Lagrangians ([symplectic normal forms over z l](#symplectic-normal-forms-over-z-l) (iii)); h := q on V_+ and 1 on V_− lies in GSp_q; any surjection factoring through the projection to V_− (exists as rank V_− = g ≥ dim A/ℓA) is fixed by h. Given f ∈ O with h, ker f contains a Lagrangian direct summand ([orthogonality and a killed lagrangian](#orthogonality-and-a-killed-lagrangian)). By transitivity on Lagrangians (normal forms (i)) move it to V_+, so f factors through V → V_−. Automorphisms of V_− extend to Sp(V) (normal forms (v)), reducing to GL_g(Z_ℓ)-transitivity on surjections Z_ℓ^g → A ([linear group transitive on lattice surjections](#linear-group-transitive-on-lattice-surjections)).
 
 *Needs:* [primary decomposition for a multiplier q similitude](#primary-decomposition-for-a-multiplier-q-similitude), [orthogonality and a killed lagrangian](#orthogonality-and-a-killed-lagrangian), [symplectic normal forms over z l](#symplectic-normal-forms-over-z-l), [linear group transitive on lattice surjections](#linear-group-transitive-on-lattice-surjections), [symplectic similitude group](#symplectic-similitude-group).
 
@@ -1148,9 +1081,7 @@ For the proof, Nonempty: write V = V_+ ⊕ V_− with Lagrangians ([symplectic n
 
 **One rational geometric component.** Let ℓ be odd, A a nontrivial finite abelian ℓ-group and q an odd prime power with ℓ ∤ q(q − 1). For every odd n larger than a bound depending only on A (n ≥ 5 and g = (n − 1)/2 ≥ dim_{F_ℓ}(A/ℓA)), exactly one geometric connected component of X_n = Hn^{c_A}_{G_A,n} ⊗ F̄_q is fixed by Frobenius.
 
-ℓ odd; A ≠ 0 finite abelian ℓ-group q odd, ℓ ∤ q(q − 1) n odd with n ≥ 5 and (n − 1)/2 ≥ dim_{F_ℓ}(A/ℓA)
-
-For the proof, By [monodromy orbits and rational components](#monodromy-orbits-and-rational-components), Frobenius-fixed components correspond to Sp(T)-orbits of surjections T → A whose stabilizer meets GSp_q(T). Since ℓ ∤ q(q − 1), q and q − 1 are units of Z_ℓ; [unique similitude stable symplectic orbit](#unique-similitude-stable-symplectic-orbit) gives exactly one such orbit (nonempty and transitive).
+*Proof.* By [monodromy orbits and rational components](#monodromy-orbits-and-rational-components), Frobenius-fixed components correspond to Sp(T)-orbits of surjections T → A whose stabilizer meets GSp_q(T). Since ℓ ∤ q(q − 1), q and q − 1 are units of Z_ℓ; [unique similitude stable symplectic orbit](#unique-similitude-stable-symplectic-orbit) gives exactly one such orbit (nonempty and transitive).
 
 *Needs:* [monodromy orbits and rational components](#monodromy-orbits-and-rational-components), [unique similitude stable symplectic orbit](#unique-similitude-stable-symplectic-orbit).
 
@@ -1162,17 +1093,15 @@ For the proof, By [monodromy orbits and rational components](#monodromy-orbits-a
 
 - The bound on n depends only on A, not on q.
 
-### 5.19 Uniform trace bounds and large-q distributions
+### 5.19 Uniform moments and the large-q Cohen–Lenstra theorem
 
 <a id="uniform-function-field-surjection-moment-estimate"></a>
 
-**Uniform function field surjection moment estimate.** Let ℓ be an odd prime and A a finite abelian ℓ-group. There is a constant B(A) such that for every odd prime power q with ℓ ∤ q(q − 1) and √q > B(A), and every odd n > B(A), | (Σ_{L ∈ S_n} m_A(L))/|S_n| − 1 | ≤ B(A)/√q, where m_A(L) = |Sur(Cl(O_L), A)|. For A = 0 the left side is 0.
+**Uniform function field surjection moment estimate.** Let ℓ be an odd prime and A a finite abelian ℓ-group. There is a constant B(A) such that for every odd prime power q with ℓ ∤ q(q − 1) and √q > B(A), and every odd n > B(A), | (Σ_{L ∈ S_n} m_A(L))/|S_n| − 1 | ≤ B(A)/√q, where m_A(L) = |Sur(Cl(O_L), A)|. For A = 0 the left side is 0. The proof uses input (HS) of the supplier contracts, which has no owner yet, so the theorem is conditional on (HS) in this roadmap.
 
-ℓ odd prime A finite abelian ℓ-group q odd prime power, ℓ ∤ q(q − 1) n odd, n > B(A), √q > B(A)
+*Proof.* Let A ≠ 0 and let X_n be the Hurwitz scheme of the generalized-dihedral datum (G_A, c_A) over F_q (item IG-a). By the [factor two point count identity](#factor-two-point-count-identity) and |S_n| = 2(q^n − q^{n−1}), the average equals (q/(q − 1))·y with y = q^{−n}|X_n(F_q)|, so |average − 1| ≤ (q/(q − 1))|y − 1| + 1/(q − 1). The datum is nonsplitting and centre-free, and c_A is a rational class generating G_A ([generalized dihedral cover datum](#generalized-dihedral-cover-datum)). Input (HS), with a coefficient prime λ > max(|G_A|, q, n), therefore gives dim H^i(X_n ⊗ F̄_q, Q_λ) ≤ C^{i+1} for all i and n, with C = C(G_A, c_A) ≥ 1. X_n is smooth of pure dimension n, being finite étale over Conf_n. For odd n ≥ 2 dim_{F_ℓ}(A/ℓA) + 1 with n ≥ 5, exactly one geometric component is fixed by Frobenius ([one rational geometric component](#one-rational-geometric-component)). So [uniform trace error estimate](#uniform-trace-error-estimate) gives |y − 1| ≤ C²/(√q − C) ≤ 2C²/√q once √q ≥ 2C. For q ≥ 4 we have q/(q − 1) ≤ 4/3 and 1/(q − 1) ≤ 1/√q, hence |average − 1| ≤ (3C² + 1)/√q. Take B(A) = max(3C² + 1, 2 dim_{F_ℓ}(A/ℓA) + 1, 5). Then √q > B(A) forces q ≥ 4 and √q ≥ 2C, and n > B(A) puts n in the range above.
 
-For the proof, For G=A⋊{±1} and its involution class, prove the uniform cohomological bound dim H_c^i≤C^(i+1) in the form stated under uniform cohomological inputs. This uses the nonsplitting Hurwitz stabilization map, its stable range n>Ai+B, and comparison with étale cohomology; these assertions are supporting targets here. Combine the trace formula, Poincaré duality and weight bounds with the connected-component count. The component in top degree contributes its Frobenius-fixed mass; bound the remaining geometric series uniformly in the permitted odd q with ℓ∤q(q−1). Translate the resulting Hurwitz count to the ℓ-primary class-group surjection average with its exact marked/unmarked multiplicity.
-
-*Needs:* [factor two point count identity](#factor-two-point-count-identity), [size of the odd degree quadratic family](../ArithmeticStatisticsPartI/README.md#size-of-the-odd-degree-quadratic-family), [uniform trace error estimate](#uniform-trace-error-estimate), [one rational geometric component](#one-rational-geometric-component), [generalized dihedral cover datum](#generalized-dihedral-cover-datum), [empirical l primary class group law](#empirical-l-primary-class-group-law), InverseGaloisAndArithmeticFundamentalGroups:IG.5.
+*Needs:* [factor two point count identity](#factor-two-point-count-identity), [size of the odd degree quadratic family](../ArithmeticStatisticsPartI/README.md#size-of-the-odd-degree-quadratic-family), [uniform trace error estimate](#uniform-trace-error-estimate), [one rational geometric component](#one-rational-geometric-component), [generalized dihedral cover datum](#generalized-dihedral-cover-datum), [empirical l primary class group law](#empirical-l-primary-class-group-law), InverseGaloisAndArithmeticFundamentalGroups Layer IG.5.
 
 ([[37]](#ref-37), Theorem 8.8, p.777 (Annals 183); [[37]](#ref-37), Proposition 7.8, p.769 (Annals 183).)
 
@@ -1184,11 +1113,9 @@ For the proof, For G=A⋊{±1} and its involution class, prove the uniform cohom
 
 <a id="large-q-cohen-lenstra-theorem"></a>
 
-**Large q cohen lenstra theorem.** Let ℓ be an odd prime and A a finite abelian ℓ-group. As q → ∞ through odd prime powers with ℓ ∤ q(q − 1), both the upper density δ^+(q, A) and the lower density δ^−(q, A) — taken over odd n → ∞ of the proportion of L ∈ S_n (imaginary quadratic extensions of F_q(t), ramified at ∞) with Cl(O_L)_ℓ ≅ A — converge to the Cohen–Lenstra mass μ(A) = ∏_{i≥1}(1 − ℓ^{−i})/|Aut A|. Precisely: for every ε > 0 there is Q such that |δ^±(q, A) − μ(A)| ≤ ε for all such q > Q.
+**Large q cohen lenstra theorem.** Let ℓ be an odd prime and A a finite abelian ℓ-group. As q → ∞ through odd prime powers with ℓ ∤ q(q − 1), both the upper density δ^+(q, A) and the lower density δ^−(q, A) — taken over odd n → ∞ of the proportion of L ∈ S_n (imaginary quadratic extensions of F_q(t), ramified at ∞) with Cl(O_L)\_ℓ ≅ A — converge to the Cohen–Lenstra mass μ(A) = ∏\_{i≥1}(1 − ℓ^{−i})/|Aut A|. Precisely: for every ε > 0 there is Q such that |δ^±(q, A) − μ(A)| ≤ ε for all such q > Q. Through the moment estimate it uses, this theorem is conditional on input (HS).
 
-ℓ odd prime A finite abelian ℓ-group q odd, ℓ ∤ q, ℓ ∤ q − 1
-
-For the proof, Fix A₀ and ε > 0. Apply finite moment control ([finite moment control of masses](../ArithmeticStatisticsPartIV/README.md#finite-moment-control-of-masses), EVW Proposition 8.3) with the finite set {A₀}: it yields δ > 0 and a finite set L' of finite abelian ℓ-groups such that any probability measure ν with |⟨Sur(−, A)⟩_ν − 1| ≤ δ for all A ∈ L' satisfies |ν(A₀) − μ(A₀)| ≤ ε. The measures ν_n ([empirical l primary class group law](#empirical-l-primary-class-group-law)) are probability measures whose A-moments are the averages of m_A over S_n. By [uniform function field surjection moment estimate](#uniform-function-field-surjection-moment-estimate), choose Q > max_{A ∈ L'} max(1, B(A), B(A)²) with B(A)/√Q < δ for all A ∈ L'; then for q > Q allowed and odd n > Q, |ν_n(A₀) − μ(A₀)| ≤ ε. Hence every limit point of ν_n(A₀) along odd n lies in [μ(A₀) − ε, μ(A₀) + ε], i.e. δ^±(q, A₀) are within ε of μ(A₀) ([lower and upper degree densities](#lower-and-upper-degree-densities)). The quantifiers are in this order: finitely many moments first, then uniform thresholds in q and n.
+*Proof.* Fix A₀ and ε > 0. Apply finite moment control ([finite moment control of masses](../ArithmeticStatisticsPartIV/README.md#finite-moment-control-of-masses), EVW Proposition 8.3) with the finite set {A₀}: it yields δ > 0 and a finite set L' of finite abelian ℓ-groups such that any probability measure ν with |⟨Sur(−, A)⟩\_ν − 1| ≤ δ for all A ∈ L' satisfies |ν(A₀) − μ(A₀)| ≤ ε. The measures ν_n ([empirical l primary class group law](#empirical-l-primary-class-group-law)) are probability measures whose A-moments are the averages of m_A over S_n. By [uniform function field surjection moment estimate](#uniform-function-field-surjection-moment-estimate), choose Q > max_{A ∈ L'} max(1, B(A), B(A)²) with B(A)/√Q < δ for all A ∈ L'; then for q > Q allowed and odd n > Q, |ν_n(A₀) − μ(A₀)| ≤ ε. Hence every limit point of ν_n(A₀) along odd n lies in [μ(A₀) − ε, μ(A₀) + ε], i.e. δ^±(q, A₀) are within ε of μ(A₀) ([lower and upper degree densities](#lower-and-upper-degree-densities)). The quantifiers are in this order: finitely many moments first, then uniform thresholds in q and n.
 
 *Needs:* [uniform function field surjection moment estimate](#uniform-function-field-surjection-moment-estimate), [empirical l primary class group law](#empirical-l-primary-class-group-law), [lower and upper degree densities](#lower-and-upper-degree-densities), [finite moment control of masses](../ArithmeticStatisticsPartIV/README.md#finite-moment-control-of-masses), [cohen lenstra measure](../ArithmeticStatisticsPartIV/README.md#cohen-lenstra-measure).
 
@@ -1204,11 +1131,9 @@ For the proof, Fix A₀ and ε > 0. Apply finite moment control ([finite moment 
 
 <a id="positive-proportions-of-l-divisible-and-indivisible-class-numbers"></a>
 
-**Positive proportions of l divisible and indivisible class numbers.** Let ℓ be an odd prime. There is Q₀(ℓ) such that for every odd prime power q > Q₀(ℓ) with ℓ ∤ q(q − 1), the lower odd-degree density of the proportion of L ∈ S_n with ℓ ∤ |Cl(O_L)| is positive, and the lower odd-degree density of the proportion with ℓ | |Cl(O_L)| is positive. Quantitatively both lower densities tend to c_ℓ = ∏_{i≥1}(1 − ℓ^{−i}) > 0 and 1 − c_ℓ > 0 respectively as q → ∞.
+**Positive proportions of l divisible and indivisible class numbers.** Let ℓ be an odd prime. There is Q₀(ℓ) such that for every odd prime power q > Q₀(ℓ) with ℓ ∤ q(q − 1), the lower odd-degree density of the proportion of L ∈ S_n with ℓ ∤ |Cl(O_L)| is positive, and the lower odd-degree density of the proportion with ℓ | |Cl(O_L)| is positive. Quantitatively both lower densities tend to c_ℓ = ∏_{i≥1}(1 − ℓ^{−i}) > 0 and 1 − c_ℓ > 0 respectively as q → ∞. Like the large-q theorem, this is conditional on input (HS).
 
-ℓ odd prime q odd, ℓ ∤ q(q − 1), q > Q₀(ℓ)
-
-For the proof, ℓ ∤ |Cl(O_L)| iff Cl(O_L)_ℓ is trivial, so the first proportion is ν_n(0); the second is 1 − ν_n(0). By [large q cohen lenstra theorem](#large-q-cohen-lenstra-theorem) with A = 0, δ^−(q, 0) → μ(0) = c_ℓ and δ^+(q, 0) → c_ℓ; the lower density of 1 − ν_n(0) is 1 − δ^+(q, 0). c_ℓ ∈ (0, 1) for ℓ odd (the infinite product converges and each factor lies in (0, 1)); choose Q₀ with |δ^±(q, 0) − c_ℓ| < min(c_ℓ, 1 − c_ℓ)/2.
+*Proof.* ℓ ∤ |Cl(O_L)| iff Cl(O_L)_ℓ is trivial, so the first proportion is ν_n(0); the second is 1 − ν_n(0). By [large q cohen lenstra theorem](#large-q-cohen-lenstra-theorem) with A = 0, δ^−(q, 0) → μ(0) = c_ℓ and δ^+(q, 0) → c_ℓ; the lower density of 1 − ν_n(0) is 1 − δ^+(q, 0). c_ℓ ∈ (0, 1) for ℓ odd (the infinite product converges and each factor lies in (0, 1)); choose Q₀ with |δ^±(q, 0) − c_ℓ| < min(c_ℓ, 1 − c_ℓ)/2.
 
 *Needs:* [large q cohen lenstra theorem](#large-q-cohen-lenstra-theorem), [cohen lenstra measure](../ArithmeticStatisticsPartIV/README.md#cohen-lenstra-measure).
 
@@ -1226,7 +1151,7 @@ For the proof, ℓ ∤ |Cl(O_L)| iff Cl(O_L)_ℓ is trivial, so the first propor
 
 **Eventual degree large q limit.** For m ≥ 1 let A_m be the filter on N of prime powers q coprime to m, tending to infinity. For a function E(q, n) of a prime power q and a degree n, and a target c(n), say E has eventual-degree large-q limit c if there is n₀ such that for every fixed n ≥ n₀, E(q, n) → c(n) as q → ∞ along A_m. Wood (2019) uses this mode. EVW’s final distribution theorem instead takes upper/lower degree densities first and then q→∞; these are distinct convergence modes; it is not the fixed-q, large-degree limit of the direct function-field analogue of the number-field conjectures, and the two limits may not be interchanged without a new uniform estimate.
 
-m ≥ 1 (the moduli excluded from q) E : prime powers × N → R, c : N → R
+The representative Lean namespace `LargeQ` pins `allowedPrimePowers`, `EventualDegreeLargeQLimit`, `allowedPrimePowers_neBot`, `allowedPrimePowers_zero` and `EventualDegreeLargeQLimit.unique`, with the n/(n + q) example and the modulus-zero control.
 
 The required API is:
 
@@ -1240,7 +1165,7 @@ The required API is:
 
 - `EventualDegreeLargeQLimit.mono`: If m divides m′, the allowed filter for m′ refines that for m, preserving the limit. Numerical m≤m′ alone is insufficient.
 
-For the proof, Define A_m := atTop ⊓ principal{q : q a prime power, gcd(q, m) = 1}; it is a proper filter (infinitely many primes are coprime to m). Define the predicate ∃ n₀, ∀ n ≥ n₀, Tendsto (q ↦ E(q, n)) A_m (nhds c(n)). Limits are unique along the proper filter A_m, so c(n) is determined for n ≥ n₀.
+*Proof.* Define A_m := atTop ⊓ principal{q : q a prime power, gcd(q, m) = 1}; it is a proper filter (infinitely many primes are coprime to m). Define the predicate ∃ n₀, ∀ n ≥ n₀, Tendsto (q ↦ E(q, n)) A_m (nhds c(n)). Limits are unique along the proper filter A_m, so c(n) is determined for n ≥ n₀.
 
 *Needs:* `Filter.Tendsto` (Mathlib), `Filter.atTop` (Mathlib), `tendsto_nhds_unique` (Mathlib).
 
@@ -1256,19 +1181,15 @@ For the proof, Define A_m := atTop ⊓ principal{q : q a prime power, gcd(q, m) 
 
 - A_0=⊥ because no prime power is coprime to zero. Consequently every function converges to every target along A_0; uniqueness and liminf consequences must require m≠0.
 
-- E(q, n) = n/(n + q): the eventual-degree large-q limit is 0 at every n, while for each fixed q, E(q, n) → 1 as n → ∞.
-
-- Constant functions have their constant as limit.
-
 <a id="imaginary-per-component-unit-moment"></a>
 
 **Imaginary per component unit moment.** Let G be a finite group, G′ ≤ G ≀ S₂ admissible, good and centre-free, c the set of order-2 elements of G′ outside ker(G′ → S₂). For each prime power q coprime to |G′| choose a Frobenius-fixed component invariant f_q with f_q(u_q) = (x, 2n − 1), x ↦ (1, 1, σ) in G′. Then for n sufficiently large, the number of pairs (K, ρ) with K ∈ IQ_{=q^{2n}} and ρ ∈ Sur(G_K^{un,∞}, G) of type G′ and component invariant f_q, divided by #IQ_{=q^{2n}}, tends to 1 as q → ∞ with (q, |G′|) = 1. The invariant f_q may vary with q; n is fixed before q → ∞; it is a rigid average (no |Aut_{G′}(G)| factor).
 
-G′ admissible, good (c is one G′-class), Z(G′) = 1 q prime to |G′| (hence odd) n ≥ n₀(G′)
+Here G′ is good when c is a single G′-conjugacy class, and q is odd because |G′| is even.
 
-For the proof, Proposition 4.4 (InverseGaloisAndArithmeticFundamentalGroups:IG.4; the marked-cover comparison): pairs (K, ρ) of the given type correspond to marked (G′, c)-extensions of F_q(t) of imaginary infinity type, with Disc M = Disc K^{|G′|/2}, so discriminant norm q^{2n} ⇔ Σ n_i = 2n − 1. Theorem 4.5(2)–(3) (IG.5; the marked-cover comparison): these marked extensions are the F_q-points of CHur^{c,(1,1,σ)}_{G′,2n−1}, and for n ≥ N₀ the points with component invariant f_q are those of one Frobenius-fixed geometric component C. Theorem 4.7 (IG.5; the marked-cover comparison): |#C(F_q) − q^{2n−1}| ≤ K_{2n−1} q^{2n−3/2} uniformly in q. #IQ_{=q^{2n}} = q^{2n−1} − q^{2n−2} ([imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization)); the ratio is 1 + O_n(q^{−1/2}).
+*Proof.* Proposition 4.4 (InverseGaloisAndArithmeticFundamentalGroups §IG.4.6, *Marked extensions and their infinity types*, with Part I's [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter)): pairs (K, ρ) of the given type correspond to marked (G′, c)-extensions of F_q(t) of imaginary infinity type, with Disc M = Disc K^{|G′|/2}, so discriminant norm q^{2n} ⇔ Σ n_i = 2n − 1. Theorem 4.5(2)–(3) (item IG-b): these marked extensions are the F_q-points of CHur^{c,(1,1,σ)}\_{G′,2n−1}, and for n ≥ N₀ the points with component invariant f_q are those of one Frobenius-fixed geometric component C. Theorem 4.7 (§IG.5.5, *Fixed-degree uniform Hurwitz point estimate*): |#C(F_q) − q^{2n−1}| ≤ K_{2n−1} q^{2n−3/2} uniformly in q. #IQ_{=q^{2n}} = q^{2n−1} − q^{2n−2} ([imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization)); the ratio is 1 + O_n(q^{−1/2}).
 
-*Needs:* [imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [eventual degree large q limit](#eventual-degree-large-q-limit), InverseGaloisAndArithmeticFundamentalGroups:IG.4, InverseGaloisAndArithmeticFundamentalGroups:IG.5, [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter).
+*Needs:* [imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [eventual degree large q limit](#eventual-degree-large-q-limit), InverseGaloisAndArithmeticFundamentalGroups Layer IG.4, InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter).
 
 ([[50]](#ref-50), Theorem 4.8, p.22 (arXiv v2; Duke 168, p.406); [[50]](#ref-50), Proof of Theorem 4.8, p.24 (arXiv v2; Duke 168, p.408).)
 
@@ -1282,17 +1203,15 @@ For the proof, Proposition 4.4 (InverseGaloisAndArithmeticFundamentalGroups:IG.4
 
 **Real per component unit moment.** With G, G′, c as in [imaginary per component unit moment](#imaginary-per-component-unit-moment), for each q coprime to |G′| let f_q be a Frobenius-fixed component invariant with f_q(u_q) = (x, 2n), x ↦ 1 in G′. For n sufficiently large, the number of pairs (ρ, y) — ρ ∈ Sur(G_K^{un,∞}, G), y a twist for ρ, (ρ, y) of type G′ with component invariant f_q — summed over K ∈ RQ_{=q^{2n}} and divided by #RQ_{=q^{2n}}, tends to 1 as q → ∞ with (q, |G′|) = 1.
 
-as in [imaginary per component unit moment](#imaginary-per-component-unit-moment), with trivial infinity type
+*Proof.* Theorem 4.5(2)–(3) (item IG-b) and Theorem 4.7 (§IG.5.5) for CHur^{c,1}\_{G′,2n}: one Frobenius-fixed component with q^{2n} + O_n(q^{2n−1/2}) points. #RQ_{=q^{2n}} = q^{2n} − q^{2n−1} ([real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization)).
 
-For the proof, Theorem 4.5(2)–(3) and Theorem 4.7 (IG.5) for CHur^{c,1}_{G′,2n}: one Frobenius-fixed component with q^{2n} + O_n(q^{2n−1/2}) points. #RQ_{=q^{2n}} = q^{2n} − q^{2n−1} ([real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization)).
-
-*Needs:* [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization), [eventual degree large q limit](#eventual-degree-large-q-limit), InverseGaloisAndArithmeticFundamentalGroups:IG.4, InverseGaloisAndArithmeticFundamentalGroups:IG.5, [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter).
+*Needs:* [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization), [eventual degree large q limit](#eventual-degree-large-q-limit), InverseGaloisAndArithmeticFundamentalGroups Layer IG.4, InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter).
 
 ([[50]](#ref-50), Proof of Theorem 4.8, real case, p.25 (arXiv v2; Duke 168, p.409).)
 
 **Checks.**
 
-- This is the rigid pair count; dividing by |c|·|Aut_{G′}(G)| (Layer 3's conversion) gives E^+.
+- This is the rigid pair count; dividing by |c|·|Aut_{G′}(G)| (the conversion of the [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface)) gives E^+.
 
 - The discriminant counts only finite ramification in the real exact slice.
 
@@ -1300,11 +1219,9 @@ For the proof, Theorem 4.5(2)–(3) and Theorem 4.7 (IG.5) for CHur^{c,1}_{G′,
 
 **Imaginary normalized nonabelian moment.** Let G be finite and G′ ≤ G ≀ S₂ admissible, good and centre-free, c its outside involutions. For n sufficiently large, E⁻_{F_q(t), q^{2n}}(G, G′)/|H₂(G′, c)[q − 1]| → 1/|Aut_{G′}(G)| as q → ∞ with (q, |G′|) = 1, where E⁻ is the average number of unramified G-extensions L/K split at ∞ with Gal(L̃/F_q(t)) of type G′, over K ∈ IQ_{=q^{2n}}, and H₂(G′, c) is the reduced Schur multiplier. The torsion count |H₂(G′, c)[q − 1]| varies with q and is divided out inside the limit.
 
-G′ admissible, good, Z(G′) = 1 q coprime to |G′| n ≥ n₀(G, G′)
+*Proof.* The Frobenius-fixed component invariants of the imaginary slice number exactly |H₂(G′, c)[q − 1]| (Wood Theorem 4.5(3) with Proposition 4.1: item IG-b, built on the reduced multipliers and lifting invariants of §§IG.3.4–IG.3.6). Sum [imaginary per component unit moment](#imaginary-per-component-unit-moment) over them: along q with |H₂(G′, c)[q − 1]| = d fixed, Ẽ⁻ → d; since d takes finitely many values the normalised ratio Ẽ⁻/|H₂(G′, c)[q − 1]| → 1 along all allowed q. Use the component-uniform constant K_{2n−1} of Theorem 4.7, so summing over invariants that vary with q preserves a uniform O_n(q⁻¹ᐟ²) estimate. Convert rigid to unrigid: E⁻ = Ẽ⁻/|Aut_{G′}(G)| ([nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface)).
 
-For the proof, The Frobenius-fixed component invariants of the imaginary slice number exactly |H₂(G′, c)[q − 1]| (Wood Theorem 4.5(3) with Proposition 4.1; use the reduced-cover and marked-lifting contracts of IG.3–IG.5: the marked-cover comparisonInverseGaloisAndArithmeticFundamentalGroups:IG.3). Sum [imaginary per component unit moment](#imaginary-per-component-unit-moment) over them: along q with |H₂(G′, c)[q − 1]| = d fixed, Ẽ⁻ → d; since d takes finitely many values the normalised ratio Ẽ⁻/|H₂(G′, c)[q − 1]| → 1 along all allowed q. Use the component-uniform constant K_{2n−1} of Theorem 4.7, so summing over invariants that vary with q preserves a uniform O_n(q⁻¹ᐟ²) estimate. Convert rigid to unrigid: E⁻ = Ẽ⁻/|Aut_{G′}(G)| (Layer 3, the marked-cover comparison).
-
-*Needs:* [imaginary per component unit moment](#imaginary-per-component-unit-moment), [eventual degree large q limit](#eventual-degree-large-q-limit), [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface), InverseGaloisAndArithmeticFundamentalGroups:IG.5, [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
+*Needs:* [imaginary per component unit moment](#imaginary-per-component-unit-moment), [eventual degree large q limit](#eventual-degree-large-q-limit), [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface), InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
 
 ([[50]](#ref-50), Theorem 1.2, p.2 (arXiv v2; Duke 168, p.379); [[50]](#ref-50), Proof of Theorem 1.2, p.23 (arXiv v2; Duke 168, p.407); [[50]](#ref-50), §8.2, table p.34 (arXiv v2).)
 
@@ -1318,11 +1235,9 @@ For the proof, The Frobenius-fixed component invariants of the imaginary slice n
 
 **Real normalized nonabelian moment.** With G, G′, c as in [imaginary normalized nonabelian moment](#imaginary-normalized-nonabelian-moment) (G′ good), for n sufficiently large, E⁺_{F_q(t), q^{2n}}(G, G′)/|H₂(G′, c)[q − 1]| → 1/(|c|·|Aut_{G′}(G)|) as q → ∞ with (q, |G′|) = 1.
 
-G′ admissible, good, Z(G′) = 1 q coprime to |G′| n ≥ n₀(G, G′)
+*Proof.* Sum [real per component unit moment](#real-per-component-unit-moment) over the |H₂(G′, c)[q − 1]| Frobenius-fixed invariants of the real slice (Proposition 4.1 and item IG-b). Convert rigid to unrigid with the good real multiplicity A(G, G′) = |c|·|Aut_{G′}(G)| (Wood Lemma 2.1; [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface)).
 
-For the proof, Sum [real per component unit moment](#real-per-component-unit-moment) over the |H₂(G′, c)[q − 1]| Frobenius-fixed invariants of the real slice (Proposition 4.1; use the reduced-cover and marked-lifting contracts of IG.3–IG.5). Convert rigid to unrigid with the good real multiplicity A(G, G′) = |c|·|Aut_{G′}(G)| (Wood Lemma 2.1; Layer 3, the marked-cover comparison).
-
-*Needs:* [real per component unit moment](#real-per-component-unit-moment), [eventual degree large q limit](#eventual-degree-large-q-limit), [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface), InverseGaloisAndArithmeticFundamentalGroups:IG.5, [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
+*Needs:* [real per component unit moment](#real-per-component-unit-moment), [eventual degree large q limit](#eventual-degree-large-q-limit), [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface), InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
 
 ([[50]](#ref-50), Theorem 1.2, p.2 (arXiv v2; Duke 168, p.379).)
 
@@ -1338,9 +1253,9 @@ For the proof, Sum [real per component unit moment](#real-per-component-unit-mom
 
 **Stable parity multidegree count.** Let N ≥ 1, N₀ ≥ 0, d ≥ 0 and ε ∈ {0, 1}^N. Let a_i be the least integer ≥ N₀ with a_i ≡ ε_i (mod 2). The number of m ∈ Z_{≥0}^N with m_i ≥ N₀, m_i ≡ ε_i (mod 2) and Σ m_i = d is the binomial coefficient C(L + N − 1, N − 1) if L := (d − Σ a_i)/2 is a nonnegative integer, and 0 otherwise.
 
-N ≥ 1, N₀ ≥ 0, d ≥ 0, ε ∈ {0,1}^N
+The representative Lean namespace `ComponentProfiles` pins `parityMultidegreeCount` and the stars-and-bars formula `parityMultidegreeCount_eq` on `Finset.Nat.antidiagonalTuple`, with three counts checked by `decide`.
 
-For the proof, The map m_i = a_i + 2z_i is a bijection between such m and z ∈ Z_{≥0}^N with Σ z_i = L. Weak compositions of L into N parts number C(L + N − 1, N − 1) (Mathlib Nat.choose and the stars-and-bars count); when d − Σ a_i is odd or negative the set is empty.
+*Proof.* The map m_i = a_i + 2z_i is a bijection between such m and z ∈ Z_{≥0}^N with Σ z_i = L. Weak compositions of L into N parts number C(L + N − 1, N − 1) (Mathlib Nat.choose and the stars-and-bars count); when d − Σ a_i is odd or negative the set is empty.
 
 *Needs:* `Nat.choose` (Mathlib).
 
@@ -1356,9 +1271,7 @@ For the proof, The map m_i = a_i + 2z_i is a bijection between such m and z ∈ 
 
 **Many large parity vectors.** For N ≥ 2, N₀ ≥ 0 and ε ∈ {0,1}^N there is v > 0 (depending only on N, N₀) such that for all sufficiently large d with d ≡ Σ ε_i (mod 2), the number of m ∈ Z^N with m_i ≥ N₀, m_i ≡ ε_i (mod 2) and Σ m_i = d is at least v·d^{N−1}.
 
-N ≥ 2 d ≡ Σ ε_i (mod 2), d large
-
-For the proof, By [stable parity multidegree count](#stable-parity-multidegree-count) the number is C(L + N − 1, N − 1) with L = (d − Σ a_i)/2 ≥ d/2 − N(N₀ + 1). C(L + N − 1, N − 1) ≥ L^{N−1}/(N − 1)!, which is ≥ v d^{N−1} for d large.
+*Proof.* By [stable parity multidegree count](#stable-parity-multidegree-count) the number is C(L + N − 1, N − 1) with L = (d − Σ a_i)/2 ≥ d/2 − N(N₀ + 1). C(L + N − 1, N − 1) ≥ L^{N−1}/(N − 1)!, which is ≥ v d^{N−1} for d large.
 
 *Needs:* [stable parity multidegree count](#stable-parity-multidegree-count), `Nat.choose` (Mathlib).
 
@@ -1374,11 +1287,9 @@ For the proof, By [stable parity multidegree count](#stable-parity-multidegree-c
 
 **Bad type lower bound.** Let G′ ≤ G ≀ S₂ be admissible and centre-free but not good, with N_{G′} ≥ 2 classes of outside involutions. There is w > 0 depending only on G, G′ such that for n sufficiently large, liminf_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t), q^{2n}}(G, G′)/|H₂(G′, c)[q − 1]| ≥ w·n^{N_{G′}−1}. The printed statement asserts a limit; only this liminf bound is proved.
 
-G′ admissible, centre-free, not good q coprime to |G′| n large
+*Proof.* Keep only multidegrees m with Σ m_i = 2n − 1 (imaginary; 2n real), every m_i ≥ N₀ and the parities of Wood Proposition 4.1 (m_1 odd, others even, imaginary; all even, real): at least v n^{N−1} of them ([many large parity vectors](#many-large-parity-vectors)). For each such m the Frobenius-fixed components number exactly |H₂(G′, c)[q − 1]| (Theorem 4.5(3) and Proposition 4.1: item IG-b), each with q^{Σ m_i} + O_n(q^{Σ m_i − 1/2}) points (Theorem 4.7, §IG.5.5). All other components contribute nonnegatively; divide by #IQ_{=q^{2n}} (or #RQ) and |H₂(G′, c)[q − 1]|, then take liminf in q.
 
-For the proof, Keep only multidegrees m with Σ m_i = 2n − 1 (imaginary; 2n real), every m_i ≥ N₀ and the parities of Wood Proposition 4.1 (m_1 odd, others even, imaginary; all even, real): at least v n^{N−1} of them ([many large parity vectors](#many-large-parity-vectors)). For each such m the Frobenius-fixed components number exactly |H₂(G′, c)[q − 1]| (Theorem 4.5(3) (IG.5) and Proposition 4.1; use the reduced-cover and marked-lifting contracts of IG.3–IG.5), each with q^{Σ m_i} + O_n(q^{Σ m_i − 1/2}) points (Theorem 4.7, IG.5). All other components contribute nonnegatively; divide by #IQ_{=q^{2n}} (or #RQ) and |H₂(G′, c)[q − 1]|, then take liminf in q.
-
-*Needs:* [many large parity vectors](#many-large-parity-vectors), [imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization), [eventual degree large q limit](#eventual-degree-large-q-limit), InverseGaloisAndArithmeticFundamentalGroups:IG.4, InverseGaloisAndArithmeticFundamentalGroups:IG.5, [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter), [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
+*Needs:* [many large parity vectors](#many-large-parity-vectors), [imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization), [eventual degree large q limit](#eventual-degree-large-q-limit), InverseGaloisAndArithmeticFundamentalGroups Layer IG.4, InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter), [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
 
 ([[50]](#ref-50), Proof of Theorem 4.8, bad case, p.24–25 (arXiv v2; Duke 168, p.409).)
 
@@ -1392,9 +1303,7 @@ For the proof, Keep only multidegrees m with Σ m_i = 2n − 1 (imaginary; 2n re
 
 **Bad type normalization transfer.** In [bad type lower bound](#bad-type-lower-bound), the same liminf lower bound (with a smaller positive constant) holds for the unrigid averages E^±_{F_q(t), q^{2n}}(G, G′)/|H₂(G′, c)[q − 1]|: E⁻ = Ẽ⁻/|Aut_{G′}(G)| and E⁺ = Ẽ⁺/A(G, G′), where A(G, G′) is the real rigidification multiplicity (not |c||Aut_{G′}(G)| for bad G′).
 
-as in [bad type lower bound](#bad-type-lower-bound)
-
-For the proof, The rigidification multiplicities |Aut_{G′}(G)| and A(G, G′) are positive and depend only on G, G′ (Layer 3, the marked-cover comparisonST.0 for A(G, G′), /16). Divide the bound of [bad type lower bound](#bad-type-lower-bound) by them.
+*Proof.* The rigidification multiplicities |Aut_{G′}(G)| and A(G, G′) are positive and depend only on G, G′ ([nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface), and Part I's [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations) for A(G, G′)). Divide the bound of [bad type lower bound](#bad-type-lower-bound) by them.
 
 *Needs:* [bad type lower bound](#bad-type-lower-bound), [nonabelian quadratic moment interface](../ArithmeticStatisticsPartV/README.md#nonabelian-quadratic-moment-interface), [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations).
 
@@ -1410,7 +1319,7 @@ For the proof, The rigidification multiplicities |Aut_{G′}(G)| and A(G, G′) 
 
 **Printed bad type ordinary limit assertion.** Formulate the following conjectural proposition. For G′ admissible, centre-free and bad, with N = N_{G′}, the proposition PBL(G, G′): there are w > 0 and n₀ such that for every n ≥ n₀ the limit L_n := lim_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t), q^{2n}}(G, G′)/|H₂(G′, c)[q − 1]| exists and L_n ≥ w·n^{N−1}. This is a separately defined conjectural proposition. The unconditional conclusion here is the liminf estimate; the ordinary-limit existence clause is equivalent to eventual constancy in q of the whole component profile, including its boundary contribution.
 
-G′ admissible, centre-free, not good the limit is in the mode of [eventual degree large q limit](#eventual-degree-large-q-limit)
+The limit in q is taken along the allowed prime powers, in the mode of [eventual degree large q limit](#eventual-degree-large-q-limit).
 
 The required API is:
 
@@ -1420,7 +1329,7 @@ The required API is:
 
 - `PrintedBadTypeLimitAssertion.of_eventually_const`: If, for all large n, E(q, n)/M(q) is eventually constant in q with value ≥ w n^{N−1}, then PBL holds.
 
-For the proof, Define PBL for an arbitrary function E(q, n) with normaliser M(q) ≥ 1 and exponent N: ∃ w > 0, ∃ n₀, ∀ n ≥ n₀, ∃ L, (E(·, n)/M → L along A_{|G′|}) ∧ w n^{N−1} ≤ L; specialise E = Ẽ^±, M(q) = |H₂(G′, c)[q − 1]|. PBL implies the liminf bound; the converse fails for oscillating functions.
+*Proof.* Define PBL for an arbitrary function E(q, n) with normaliser M(q) ≥ 1 and exponent N: ∃ w > 0, ∃ n₀, ∀ n ≥ n₀, ∃ L, (E(·, n)/M → L along A_{|G′|}) ∧ w n^{N−1} ≤ L; specialise E = Ẽ^±, M(q) = |H₂(G′, c)[q − 1]|. PBL implies the liminf bound; the converse fails for oscillating functions.
 
 *Needs:* [eventual degree large q limit](#eventual-degree-large-q-limit), [wood average normalizations](../ArithmeticStatisticsPartI/README.md#wood-average-normalizations), [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter).
 
@@ -1440,9 +1349,7 @@ For the proof, Define PBL for an arbitrary function E(q, n) with normaliser M(q)
 
 <a id="whole-fixed-degree-component-profile"></a>
 
-**Whole fixed degree component profile.** Fix a centre-free admissible F = G′ with outside involution classes c_1, …, c_N, a sign ± and n ≥ 2; put d = 2n − 1 and g = (1, 1, σ) in the imaginary case, d = 2n and g = 1 in the real case. For q coprime to |F| let C_n^±(q) be the total number of Frobenius-fixed geometric components of ⊔_m CHur^{c,g}_{F,m} over all multidegrees m ∈ Z_{≥0}^N with Σ m_i = d, and M(q) := |H₂(F, c)[q − 1]| ≥ 1. The profile is P_n^±(q) := C_n^±(q)/M(q) ∈ Q_{≥0}. It includes every multidegree, not only the stable range m_i ≥ N₀. In the component-count interface the geometric counts are carried as data: a function m ↦ C_m(q) and the normaliser M.
-
-F centre-free admissible; q coprime to |F| n ≥ 2 all multidegrees of total degree d are included
+**Whole fixed degree component profile.** Fix a centre-free admissible F = G′ with outside involution classes c_1, …, c_N, a sign ± and n ≥ 2; put d = 2n − 1 and g = (1, 1, σ) in the imaginary case, d = 2n and g = 1 in the real case. For q coprime to |F| let C_n^±(q) be the total number of Frobenius-fixed geometric components of ⊔\_m CHur^{c,g}\_{F,m} over all multidegrees m ∈ Z_{≥0}^N with Σ m_i = d, and M(q) := |H₂(F, c)[q − 1]| ≥ 1. The profile is P_n^±(q) := C_n^±(q)/M(q) ∈ Q_{≥0}. It includes every multidegree, not only the stable range m_i ≥ N₀. In the component-count interface the geometric counts are carried as data: a function m ↦ C_m(q) and the normaliser M.
 
 The required API is:
 
@@ -1454,9 +1361,9 @@ The required API is:
 
 - `FixedDegreeComponentData.profile_mem_finite`: If Σ_m C_m(q) ≤ B and M(q) ≤ K for all q, then P takes values in the finite set {a/b : 0 ≤ a ≤ B, 1 ≤ b ≤ K}.
 
-For the proof, The set of multidegrees of total degree d is finite (the antidiagonal tuples). Geometric components are open and closed (the schemes are smooth, finite étale over Conf_d: IG.5), and Frobenius permutes them; C_m(q) counts the fixed ones. P_n^±(q) := (Σ_m C_m(q))/M(q).
+*Proof.* The set of multidegrees of total degree d is finite (the antidiagonal tuples). Geometric components are open and closed (the schemes are smooth and finite étale over Conf_d: §IG.5.3), and Frobenius permutes them; C_m(q) counts the fixed ones. P_n^±(q) := (Σ_m C_m(q))/M(q).
 
-*Needs:* InverseGaloisAndArithmeticFundamentalGroups:IG.5, `Nat.choose` (Mathlib).
+*Needs:* InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, `Nat.choose` (Mathlib).
 
 ([[50]](#ref-50), Theorem 4.5(3), p.21 (arXiv v2; Duke 168, p.404).)
 
@@ -1468,15 +1375,11 @@ For the proof, The set of multidegrees of total degree d is finite (the antidiag
 
 - For N = 2, d = 2, N₀ = 1 and counts C_{(2,0)} = 1, C_{(1,1)} = 0, C_{(0,2)} = 0, M = 1, the profile is 1 although the stable-range sum (all m_i ≥ 1) is 0.
 
-- If every C_m(q) = 0 the profile is 0.
-
 - N = 1: a single multidegree (d).
 
 <a id="boundary-component-remainder"></a>
 
 **Boundary component remainder.** In [whole fixed degree component profile](#whole-fixed-degree-component-profile) fix the stable threshold N₀ of Wood Theorem 4.5(3). Split the multidegrees of total degree d into the stable ones (every m_i ≥ N₀) and the boundary ones (some m_i < N₀), and C_n(q) = C_{stable,n}(q) + C_{boundary,n}(q) accordingly. The boundary remainder is R_{boundary,n}(q) := C_{boundary,n}(q)/M(q) ≥ 0. No formula for it is assumed: the stable lifting-invariant classification does not describe braid components in the boundary.
-
-as in [whole fixed degree component profile](#whole-fixed-degree-component-profile) N₀ a stable threshold for F
 
 The required API is:
 
@@ -1490,7 +1393,7 @@ The required API is:
 
 - `FixedDegreeComponentData.boundaryRemainder_nonneg`: R_boundary(q) ≥ 0.
 
-For the proof, The stable and boundary sets partition the finite set of multidegrees of total degree d. Sum the counts over each part; divide by M(q).
+*Proof.* The stable and boundary sets partition the finite set of multidegrees of total degree d. Sum the counts over each part; divide by M(q).
 
 *Needs:* [whole fixed degree component profile](#whole-fixed-degree-component-profile).
 
@@ -1504,15 +1407,11 @@ For the proof, The stable and boundary sets partition the finite set of multideg
 
 - (0, 4) is a multidegree of total degree 4 but not a stable one for N₀ = 1.
 
-- N₀ = 0: every multidegree is stable and the remainder is 0.
-
 - The remainder is nonnegative, which is all the bad-type argument uses.
 
 <a id="complete-stable-range-component-sum"></a>
 
-**Complete stable range component sum.** Let F = G′, c = ⊔_{i ≤ N} c_i its outside involution classes, A = H₂(F, c), g ∈ c ∪ {1}, q odd coprime to |F| and N₀ a stable threshold. For a set S ⊆ {0,1}^N of surviving parity vectors (those compatible with [g] in F^ab and with v₂(q − 1) ≥ t_A(b(g, ε)) + 1, Wood Proposition 4.1/Remark 4.2 as refined in the marked-cover comparison), define Σ_stable(d) := Σ_{ε ∈ S} #{m : m_i ≥ N₀, m_i ≡ ε_i (mod 2), Σ m_i = d}. Then C_{stable,d}^g(q)/|A[q − 1]| = Σ_stable(d): each surviving parity class of stable multidegrees contributes exactly |A[q − 1]| Frobenius-fixed components per multidegree, the others none. The boundary remainder is not included.
-
-F centre-free admissible, q odd coprime to |F| N₀ a stable threshold S the surviving parity vectors determined by the reduced-Schur-multiplier criterion
+**Complete stable range component sum.** Let F = G′, c = ⊔_{i ≤ N} c_i its outside involution classes, A = H₂(F, c), g ∈ c ∪ {1}, q odd coprime to |F| and N₀ a stable threshold. For a set S ⊆ {0,1}^N of surviving parity vectors (those compatible with [g] in F^ab and with v₂(q − 1) ≥ t_A(b(g, ε)) + 1, Wood Proposition 4.1 and Remark 4.2, with the infinity conventions of Part I's [wood infinity and type adapter](../ArithmeticStatisticsPartI/README.md#wood-infinity-and-type-adapter)), define Σ_stable(d) := Σ_{ε ∈ S} #{m : m_i ≥ N₀, m_i ≡ ε_i (mod 2), Σ m_i = d}. Then C_{stable,d}^g(q)/|A[q − 1]| = Σ_stable(d): each surviving parity class of stable multidegrees contributes exactly |A[q − 1]| Frobenius-fixed components per multidegree, the others none. The boundary remainder is not included.
 
 The required API is:
 
@@ -1526,9 +1425,9 @@ The required API is:
 
 - `parityMultidegreeCount_eq`: The stars-and-bars formula of [stable parity multidegree count](#stable-parity-multidegree-count).
 
-For the proof, Define the parity-class count ([stable parity multidegree count](#stable-parity-multidegree-count)) and sum it over S. For each stable m, the Frobenius-fixed components are the q^{−1}-fixed lifting invariants over (g, m) (Theorem 4.5(3), IG.5); their number is |A[q − 1]| if the parity vector of m survives and 0 otherwise (the marked-cover comparisonuse the reduced-cover and marked-lifting contracts of IG.3–IG.5). The survival criterion depends only on m mod 2, so the stable count is |A[q − 1]| times Σ_stable(d).
+*Proof.* Define the parity-class count ([stable parity multidegree count](#stable-parity-multidegree-count)) and sum it over S. For each stable m, the Frobenius-fixed components are the q^{−1}-fixed lifting invariants over (g, m) (Theorem 4.5(3): item IG-b); their number is |A[q − 1]| if the parity vector of m survives and 0 otherwise (item IG-b; for the unramified-∞ marking this is the *General rational-class fixed-fiber formula* of §IG.5.6). The survival criterion depends only on m mod 2, so the stable count is |A[q − 1]| times Σ_stable(d).
 
-*Needs:* [stable parity multidegree count](#stable-parity-multidegree-count), [boundary component remainder](#boundary-component-remainder), InverseGaloisAndArithmeticFundamentalGroups:IG.5, [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
+*Needs:* [stable parity multidegree count](#stable-parity-multidegree-count), [boundary component remainder](#boundary-component-remainder), InverseGaloisAndArithmeticFundamentalGroups Layer IG.5, [embedded types and signature representations](../ArithmeticStatisticsPartV/README.md#support-embedded-types).
 
 ([[50]](#ref-50), Remark 4.2, p.19 (arXiv v2; Duke 168, p.401).)
 
@@ -1540,19 +1439,13 @@ For the proof, Define the parity-class count ([stable parity multidegree count](
 
 - For N = 1, N₀ = 0, d = 4 and S = {1}: the sum is 0 (an odd part cannot have even total).
 
-- S = ∅ gives 0.
-
-- N = 1, N₀ = 0, S = {0}, d = 4: Σ_stable(4) = 1.
-
 <a id="moment-minus-component-profile-vanishes"></a>
 
 **Moment minus component profile vanishes.** In [whole fixed degree component profile](#whole-fixed-degree-component-profile), let B_n bound the total number of geometric components (uniformly in q) and K_d be the uniform component error of Wood Theorem 4.7. Then |Ẽ_n^±(q)/M(q) − P_n^±(q)| ≤ B_n(K_d q^{−1/2} + q^{−1})/(1 − q^{−1}); in particular the difference is O_n(q^{−1/2}). One may take B_n = D_d, the degree of the finite étale map CHur_{F,d} → Conf_d.
 
-as in [whole fixed degree component profile](#whole-fixed-degree-component-profile) B_n a q-uniform bound on the number of geometric components
+*Proof.* A rational point lies on a Frobenius-fixed component; non-fixed open and closed components contribute no F_q-points. Each fixed component C has |#C(F_q) − q^d| ≤ K_d q^{d−1/2} (Theorem 4.7, §IG.5.5); the rigid moment numerator is Σ_C #C(F_q) (Proposition 4.4, §IG.4.6). The denominator is q^d(1 − q^{−1}) ([imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization)); divide by it and by M(q) ≥ 1, using C_n(q) ≤ B_n. B_n = D_d is q-independent because the degree of CHur_{F,d} → Conf_d is constant over the connected base (§IG.5.3, *Component bound from finite étale degree*).
 
-For the proof, A rational point lies on a Frobenius-fixed component; non-fixed open and closed components contribute no F_q-points. Each fixed component C has |#C(F_q) − q^d| ≤ K_d q^{d−1/2} (Theorem 4.7, IG.5; the marked-cover comparison); the rigid moment numerator is Σ_C #C(F_q) (Proposition 4.4, IG.4). The denominator is q^d(1 − q^{−1}) ([imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization)); divide by it and by M(q) ≥ 1, using C_n(q) ≤ B_n. B_n = D_d is q-independent because the degree of CHur_{F,d} → Conf_d is constant over the connected base (IG.5; the marked-cover comparison).
-
-*Needs:* [whole fixed degree component profile](#whole-fixed-degree-component-profile), [imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization), InverseGaloisAndArithmeticFundamentalGroups:IG.4, InverseGaloisAndArithmeticFundamentalGroups:IG.5.
+*Needs:* [whole fixed degree component profile](#whole-fixed-degree-component-profile), [imaginary exact slice parametrization](../ArithmeticStatisticsPartI/README.md#imaginary-exact-slice-parametrization), [real exact slice parametrization](../ArithmeticStatisticsPartI/README.md#real-exact-slice-parametrization), InverseGaloisAndArithmeticFundamentalGroups Layer IG.4, InverseGaloisAndArithmeticFundamentalGroups Layer IG.5.
 
 ([[50]](#ref-50), Theorem 4.7, p.21 (arXiv v2; Duke 168, p.404–405).)
 
@@ -1566,9 +1459,7 @@ For the proof, A rational point lies on a Frobenius-fixed component; non-fixed o
 
 **Ordinary limit iff eventual profile constancy.** Under [moment minus component profile vanishes](#moment-minus-component-profile-vanishes) (with M(q) ≤ K uniformly, as M(q) divides |H₂(F, c)|), the limit of Ẽ_n^±(q)/M(q) as q → ∞ along allowed prime powers exists iff P_n^±(q) is eventually equal to a single rational value, and then that value is the limit. This is a criterion, not a proof that every bad type satisfies it.
 
-as in [moment minus component profile vanishes](#moment-minus-component-profile-vanishes) M(q) ≤ K := |H₂(F, c)| for all q
-
-For the proof, The profile takes values in the finite set {a/b : 0 ≤ a ≤ B_n, 1 ≤ b ≤ K} (API profile_mem_finite). By [moment minus component profile vanishes](#moment-minus-component-profile-vanishes) the moment converges iff the profile converges, to the same limit. A convergent function with values in a finite subset of R is eventually constant: a finite subset of a T1 space is discrete (Mathlib Finite.instDiscreteTopology) and convergence to a point of a discrete subtype is eventual equality (Mathlib Filter.tendsto_pure).
+*Proof.* The profile takes values in the finite set {a/b : 0 ≤ a ≤ B_n, 1 ≤ b ≤ K} (API profile_mem_finite). By [moment minus component profile vanishes](#moment-minus-component-profile-vanishes) the moment converges iff the profile converges, to the same limit. A convergent function with values in a finite subset of R is eventually constant: a finite subset of a T1 space is discrete (Mathlib Finite.instDiscreteTopology) and convergence to a point of a discrete subtype is eventual equality (Mathlib Filter.tendsto_pure).
 
 *Needs:* [moment minus component profile vanishes](#moment-minus-component-profile-vanishes), [whole fixed degree component profile](#whole-fixed-degree-component-profile), `Finite.instDiscreteTopology` (Mathlib), `Filter.tendsto_pure` (Mathlib).
 
@@ -1584,9 +1475,7 @@ For the proof, The profile takes values in the finite set {a/b : 0 ≤ a ≤ B_n
 
 **Liminf limsup from recurrent profile values.** Under [moment minus component profile vanishes](#moment-minus-component-profile-vanishes), let R_n^± be the set of profile values attained for arbitrarily large allowed q. It is a nonempty finite set, and liminf_q Ẽ_n^±(q)/M(q) = min R_n^±, limsup_q Ẽ_n^±(q)/M(q) = max R_n^±. In particular the bad-type bound of [bad type lower bound](#bad-type-lower-bound) bounds every recurrent value from below.
 
-as in [moment minus component profile vanishes](#moment-minus-component-profile-vanishes)
-
-For the proof, Finitely many profile values occur (API profile_mem_finite); discard those taken only for boundedly many q; the remaining set is nonempty. Along an unbounded sequence of q with profile value r, the moment tends to r (error O(q^{−1/2})); conversely every limit point of the moment is a limit point of the profile, hence in R_n^±.
+*Proof.* Finitely many profile values occur (API profile_mem_finite); discard those taken only for boundedly many q; the remaining set is nonempty. Along an unbounded sequence of q with profile value r, the moment tends to r (error O(q^{−1/2})); conversely every limit point of the moment is a limit point of the profile, hence in R_n^±.
 
 *Needs:* [moment minus component profile vanishes](#moment-minus-component-profile-vanishes), [whole fixed degree component profile](#whole-fixed-degree-component-profile), [bad type lower bound](#bad-type-lower-bound), `Filter.limsup` (Mathlib).
 
@@ -1602,9 +1491,7 @@ The finite-profile assertion follows from the elementary argument above. The ari
 
 **Weight polynomial formula for the stable orthant.** In [complete stable range component sum](#complete-stable-range-component-sum), let δ ≡ N₀ (mod 2), 1 = (1, …, 1), and W(X) := Σ_{ε ∈ S} X^{wt(ε + δ·1)} (the weight enumerator of the surviving parities shifted by N₀). Then, as formal power series, Σ_{d ≥ 0} Σ_stable(d) X^d = X^{N·N₀} W(X)/(1 − X²)^N, equivalently (1 − X²)^N · Σ_d Σ_stable(d) X^d = X^{N N₀} W(X).
 
-as in [complete stable range component sum](#complete-stable-range-component-sum)
-
-For the proof, For a fixed ε the least allowed coordinate is N₀ + ((ε_i − N₀) mod 2), and the other allowed values add 2z_i, z_i ≥ 0: the generating series of the parity class is X^{N N₀ + wt(ε + δ·1)}/(1 − X²)^N. Sum over ε ∈ S; the coefficient identity is [stable parity multidegree count](#stable-parity-multidegree-count) (stars and bars). No analytic convergence is used.
+*Proof.* For a fixed ε the least allowed coordinate is N₀ + ((ε_i − N₀) mod 2), and the other allowed values add 2z_i, z_i ≥ 0: the generating series of the parity class is X^{N N₀ + wt(ε + δ·1)}/(1 − X²)^N. Sum over ε ∈ S; the coefficient identity is [stable parity multidegree count](#stable-parity-multidegree-count) (stars and bars). No analytic convergence is used.
 
 *Needs:* [complete stable range component sum](#complete-stable-range-component-sum), [stable parity multidegree count](#stable-parity-multidegree-count), `PowerSeries` (Mathlib).
 
@@ -1622,9 +1509,9 @@ For the proof, For a fixed ε the least allowed coordinate is N₀ + ((ε_i − 
 
 **Surjections onto a semidirect product.** Let Γ be a finite group, H a finite Γ-group and G a profinite group. There is a bijection between Sur(G, H ⋊ Γ) (continuous surjections) and tuples (ρ, N, s, φ) with ρ ∈ Sur(G, Γ), N ⊆ ker ρ a closed normal subgroup of G, s : Γ → G/N a homomorphic section of the induced map ρ : G/N → Γ, and φ : ker ρ/N → H a Γ-isomorphism, where Γ acts on ker ρ/N through s and conjugation. The bijection sends ψ to (projection of ψ to Γ, ker ψ, ψ^{−1} restricted to Γ, ψ|_{ker ρ/N}).
 
-Γ and H are finite, with discrete topologies; H carries the specified Γ-action. G profinite; homomorphisms continuous, N closed
+Γ and H carry the discrete topology.
 
-For the proof, Forward map as stated; ψ^{−1}(Γ) makes sense on G/N ≅ H ⋊ Γ. Inverse: from 1 → ker ρ/N → G/N → Γ → 1 and the section s get G/N ≅ ker ρ/N ⋊ Γ; extend φ to ker ρ/N ⋊ Γ ≅ H ⋊ Γ (Mathlib SemidirectProduct and its universal properties) and compose with G → G/N. Since N is closed and G/N is compact and finite, it is discrete. Thus the resulting algebraic isomorphisms and section are continuous, as required. The two constructions are mutually inverse (direct check).
+*Proof.* Forward map as stated; ψ^{−1}(Γ) makes sense on G/N ≅ H ⋊ Γ. Inverse: from 1 → ker ρ/N → G/N → Γ → 1 and the section s get G/N ≅ ker ρ/N ⋊ Γ; extend φ to ker ρ/N ⋊ Γ ≅ H ⋊ Γ (Mathlib SemidirectProduct and its universal properties) and compose with G → G/N. Since N is closed and G/N is compact and finite, it is discrete. Thus the resulting algebraic isomorphisms and section are continuous, as required. The two constructions are mutually inverse (direct check).
 
 *Needs:* `SemidirectProduct` (Mathlib), `SemidirectProduct.rightHom` (Mathlib), `SemidirectProduct.inr` (Mathlib).
 
@@ -1638,13 +1525,11 @@ For the proof, Forward map as stated; ψ^{−1}(Γ) makes sense on G/N ≅ H ⋊
 
 <a id="complements-of-a-coprime-abelian-normal-subgroup-are-conjugate"></a>
 
-**Complements of a coprime abelian normal subgroup are conjugate.** Let E be a finite group and H ⊴ E an abelian normal subgroup with gcd(|H|, [E : H]) = 1. Then H has a complement in E and any two complements are conjugate by an element of H. Consequently, for Γ finite and H a finite abelian Γ-group with gcd(|H|, |Γ|) = 1, the sections of H ⋊ Γ → Γ form one H-conjugacy orbit, and there are exactly [H : H^Γ] of them.
+**Sections of a coprime abelian semidirect product.** Let Γ be a finite group and H a finite abelian Γ-group with gcd(|H|, |Γ|) = 1. The sections of H ⋊ Γ → Γ form a single orbit under conjugation by H, and there are exactly [H : H^Γ] of them. Existence and H-conjugacy of complements of a coprime normal subgroup are InverseGaloisAndArithmeticFundamentalGroups §IG.4.5, *Coprime profinite complements*; the count is what is added here.
 
-E finite; H abelian normal; |H| and [E : H] coprime
+*Proof.* A section s corresponds to the complement s(Γ), and a complement K to the section (π|_K)⁻¹, so sections and complements of H correspond bijectively. H acts transitively on complements by conjugation (§IG.4.5; for abelian H this is the vanishing of H¹(Γ, H), which is killed by both |Γ| and |H|). For h ∈ H and γ ∈ Γ, hγh⁻¹ = (h·γ(h)⁻¹)γ lies in the standard complement Γ iff γ(h) = h. So the stabiliser of Γ is H^Γ, and the orbit has [H : H^Γ] elements.
 
-For the proof, Existence is Mathlib's Schur–Zassenhaus theorem (Subgroup.exists_right_complement'_of_coprime). Two complements K, K' ≅ Γ := E/H give a 1-cocycle c : Γ → H with k' = c(γ)k; H¹(Γ, H) is killed by |Γ| (corestriction–restriction) and by |H|, hence is 0 when they are coprime, so c is a coboundary c(γ) = hγ(h)^{−1} and K' = h K h^{−1}. Sections of H ⋊ Γ → Γ correspond to complements; H acts on them by conjugation transitively, with stabiliser of the standard section Γ equal to H^Γ.
-
-*Needs:* `Subgroup.exists_right_complement'_of_coprime` (Mathlib), `SemidirectProduct` (Mathlib).
+*Needs:* InverseGaloisAndArithmeticFundamentalGroups Layer IG.4 (§IG.4.5), `Subgroup.exists_right_complement'_of_coprime` (Mathlib), `SemidirectProduct` (Mathlib).
 
 ([[51]](#ref-51), Proof of Lemma 9.3, p.39 (arXiv v2).)
 
@@ -1654,15 +1539,15 @@ For the proof, Existence is Mathlib's Schur–Zassenhaus theorem (Subgroup.exist
 
 - Γ = Z/2 acting by −1 on H = Z/3: [H : H^Γ] = 3 sections, the three involutions' subgroups of S_3.
 
+- Γ = Z/2 acting trivially on H = Z/3: H^Γ = H and the standard section is the only one, so the count depends on the action and not only on |H|.
+
 <a id="counting-unramified-h-extensions-via-semidirect-extensions"></a>
 
 **Counting unramified h extensions via semidirect extensions.** Let Γ be finite, Q = Q or F_q(t), and H a finite Γ-group with gcd(|H|, |Γ|) = 1 such that (SZ) all sections of H ⋊ Γ → Γ are H-conjugate (true when H is abelian: [complements of a coprime abelian normal subgroup are conjugate](#complements-of-a-coprime-abelian-normal-subgroup-are-conjugate)). Let N(H, Γ, D, Q) be the number of surjections Gal(Q̄/Q) → H ⋊ Γ whose H ⋊ Γ-extension K has rDisc K = D, whose H-extension K/K^H is unramified everywhere and split completely above ∞, and whose Γ-extension K^H/Q is split completely at ∞. Then Σ_ρ |Sur_Γ(Gal(K_ρ^{un,∞}/K_ρ)^{(|Γ|′)}, H)| = [H : H^Γ]^{−1} N(H, Γ, D, Q), where ρ runs over surjections Gal(Q̄/Q) → Γ split completely at ∞ with rDisc = D (Γ-extensions with their identification, not isomorphism classes) and the Γ-action is that of the chosen section on the maximal pro-|Γ|′ quotient. Summing instead over isomorphism classes E_Γ(D, Q), the right side acquires the factor |Z(Γ)|/|Γ|.
 
-Γ finite; H finite Γ-group with gcd(|H|, |Γ|) = 1 (SZ): sections of H ⋊ Γ → Γ are H-conjugate left side summed over surjections ρ (see the correction for isomorphism classes)
+*Proof.* Apply [surjections onto a semidirect product](#surjections-onto-a-semidirect-product) with G = Gal(Q̄/Q). For each ρ, the maximal pro-|Γ|′ quotient ker ρ/M carries a distinguished section s_ρ (LWZB Definition 2.1); tuples with s = s_ρ correspond to Γ-surjections ker ρ/M → H; the local conditions and rDisc = D match on both sides. By (SZ), all sections of G/N → Γ are ker ρ/N-conjugate with stabiliser (ker ρ/N)^Γ, so there are [H : H^Γ] sections, each with the same number of φ's.
 
-For the proof, Apply [surjections onto a semidirect product](#surjections-onto-a-semidirect-product) with G = Gal(Q̄/Q). For each ρ, the maximal pro-|Γ|′ quotient ker ρ/M carries a distinguished section s_ρ (LWZB Definition 2.1); tuples with s = s_ρ correspond to Γ-surjections ker ρ/M → H; the local conditions and rDisc = D match on both sides. By (SZ), all sections of G/N → Γ are ker ρ/N-conjugate with stabiliser (ker ρ/N)^Γ, so there are [H : H^Γ] sections, each with the same number of φ's.
-
-*Needs:* [surjections onto a semidirect product](#surjections-onto-a-semidirect-product), [complements of a coprime abelian normal subgroup are conjugate](#complements-of-a-coprime-abelian-normal-subgroup-are-conjugate), InverseGaloisAndArithmeticFundamentalGroups:IG.4.
+*Needs:* [surjections onto a semidirect product](#surjections-onto-a-semidirect-product), [complements of a coprime abelian normal subgroup are conjugate](#complements-of-a-coprime-abelian-normal-subgroup-are-conjugate), InverseGaloisAndArithmeticFundamentalGroups Layer IG.4.
 
 ([[51]](#ref-51), Lemma 9.3, p.38 (arXiv v2); [[51]](#ref-51), Introduction, p.3 (arXiv v2).)
 
@@ -1676,11 +1561,9 @@ For the proof, Apply [surjections onto a semidirect product](#surjections-onto-a
 
 **Liu wood zureick brown function field moments.** Let Γ be finite and H a finite admissible Γ-group satisfying (SZ). For prime powers q with gcd(q, |Γ||H|) = 1 and gcd(q − 1, |H|) = 1 put R_b(q) := Σ_{n ≤ b} Σ_{K ∈ E_Γ(q^n, F_q(t))} |Sur_Γ(Gal(K^#/K), H)| / Σ_{n ≤ b} |E_Γ(q^n, F_q(t))|, where E_Γ(D, F_q(t)) is the set of Γ-extensions of F_q(t) split completely at ∞ with radical discriminant norm D and K^# is the maximal unramified extension of K split completely above ∞ with all finite subextensions of degree prime to q(q − 1)|Γ|. Then lim_{b→∞} limsup_{q→∞} R_b(q) = lim_{b→∞} liminf_{q→∞} R_b(q) = [H : H^Γ]^{−1}. For every sufficiently large b, every limit point of R_b(q) in q lies within O_G(1/b) of [H : H^Γ]^{−1}; the existence of lim_{q→∞} R_b(q) is not proved.
 
-Γ finite; H finite admissible Γ-group; (SZ) q prime power, gcd(q, |Γ||H|) = 1, gcd(q − 1, |H|) = 1 (these force |H| odd)
+*Proof.* Write a_Γ=|Z(Γ)|/|Γ|. The numerator over isomorphism classes is a_Γ[H:H^Γ]⁻¹ Σ_{n≤b}N(H,Γ,q^n,F_q(t)), while the denominator is a_Γ Σ_{n≤b}N(1,Γ,q^n,F_q(t)). Thus a_Γ cancels in the ratio. The Γ-surjections to H factor through Gal(K^#/K), since |H| is prime to q(q−1)|Γ|. N(H, Γ, q^n, F_q(t)) = #Hur^n_{G,c}(F_q) with G = H ⋊ Γ and c the nonidentity elements of the order of their image in Γ; after cancellation, the denominator is Σ_n #Hur^n_{Γ,Γ∖1}(F_q) (LWZB Lemma 10.2: §IG.5.5, *Hurwitz points and marked extensions*). If Γ=1, admissibility forces H=1 and the ratio is identically 1, using the unique trivial extension of radical discriminant 1. Otherwise fix an allowed residue a of q modulo |G|² and replace b by b_a, the largest integer ≤b whose residue lies in E_a modulo M_a from Theorem 10.4. The omitted slices have no rational points. Since E_a is nonempty, 0≤b−b_a<M_a; for sufficiently large b this gives b_a≍b, uniformly over the finitely many a. Apply all following top-degree and error estimates at b_a, not at an empty degree-b slice. Grothendieck–Lefschetz (§IG.0.T4), Deligne's bound (DeligneWeightsAndPurity item 7.12) and the Betti comparison (LWZB Lemma 10.3: §IG.5.5) give |#Hur^b(F_q) − π(q, b) q^b| ≤ B(b) Σ_{j<2b} q^{j/2}, with the top-degree trace counting Frobenius-fixed components ([top cohomology counts rational components](#top-cohomology-counts-rational-components)); lower n contribute O_b(q^{b−1/2}). LWZB Theorem 10.4 (§IG.5.6, *Semidirect components versus quotient components*): π_{G,c}(q, b) = π_Γ(q, b) + O_G(b^{d_Γ(q)−2}) and π_Γ(q, b) ≥ C_G b^{d_Γ(q)−1} on the residues where it is nonzero; so R_b(q) = [H : H^Γ]^{−1}(1 + O_G(b^{−1}) + O_b(q^{−1/2})) along each residue class of q mod |G|², hence every limit point in q lies in [H : H^Γ]^{−1}(1 + O_G(1/b)).
 
-For the proof, Write a_Γ=|Z(Γ)|/|Γ|. The numerator over isomorphism classes is a_Γ[H:H^Γ]⁻¹ Σ_{n≤b}N(H,Γ,q^n,F_q(t)), while the denominator is a_Γ Σ_{n≤b}N(1,Γ,q^n,F_q(t)). Thus a_Γ cancels in the ratio. The Γ-surjections to H factor through Gal(K^#/K), since |H| is prime to q(q−1)|Γ|. N(H, Γ, q^n, F_q(t)) = #Hur^n_{G,c}(F_q) with G = H ⋊ Γ and c the nonidentity elements of the order of their image in Γ; after cancellation, the denominator is Σ_n #Hur^n_{Γ,Γ∖1}(F_q) (LWZB Lemma 10.2, IG.5). If Γ=1, admissibility forces H=1 and the ratio is identically 1, using the unique trivial extension of radical discriminant 1. Otherwise fix an allowed residue a of q modulo |G|² and replace b by b_a, the largest integer ≤b whose residue lies in E_a modulo M_a from Theorem 10.4. The omitted slices have no rational points. Since E_a is nonempty, 0≤b−b_a<M_a; for sufficiently large b this gives b_a≍b, uniformly over the finitely many a. Apply all following top-degree and error estimates at b_a, not at an empty degree-b slice. Grothendieck–Lefschetz (SF.2), Deligne's bound (DWP.7) and the Betti comparison (LWZB Lemma 10.3, IG.5) give |#Hur^b(F_q) − π(q, b) q^b| ≤ B(b) Σ_{j<2b} q^{j/2}, with the top-degree trace counting Frobenius-fixed components ([top cohomology counts rational components](#top-cohomology-counts-rational-components)); lower n contribute O_b(q^{b−1/2}). LWZB Theorem 10.4 (IG.5): π_{G,c}(q, b) = π_Γ(q, b) + O_G(b^{d_Γ(q)−2}) and π_Γ(q, b) ≥ C_G b^{d_Γ(q)−1} on the residues where it is nonzero; so R_b(q) = [H : H^Γ]^{−1}(1 + O_G(b^{−1}) + O_b(q^{−1/2})) along each residue class of q mod |G|², hence every limit point in q lies in [H : H^Γ]^{−1}(1 + O_G(1/b)).
-
-*Needs:* [counting unramified h extensions via semidirect extensions](#counting-unramified-h-extensions-via-semidirect-extensions), [top cohomology counts rational components](#top-cohomology-counts-rational-components), InverseGaloisAndArithmeticFundamentalGroups:IG.5, SchemeAndStackFoundations:SF.2, DeligneWeightsAndPurity:DWP.7.
+*Needs:* [counting unramified h extensions via semidirect extensions](#counting-unramified-h-extensions-via-semidirect-extensions), [top cohomology counts rational components](#top-cohomology-counts-rational-components), InverseGaloisAndArithmeticFundamentalGroups Layers IG.0 and IG.5, DeligneWeightsAndPurity item 7.12.
 
 ([[51]](#ref-51), Theorem 1.4, p.3 (arXiv v2); [[51]](#ref-51), Proof of Theorem 1.4, p.41 (arXiv v2).)
 
@@ -1694,9 +1577,7 @@ For the proof, Write a_Γ=|Z(Γ)|/|Γ|. The numerator over isomorphism classes i
 
 **Cohen lenstra martinet moments over function fields.** Let Γ be finite and H a finite abelian Γ-group with gcd(|H|, |Γ|) = 1 and H^Γ = 1. Then with q running over prime powers with gcd(q, |Γ||H|) = 1 and gcd(q − 1, |H|) = 1, lim_{b→∞} limsup_q and lim_{b→∞} liminf_q of Σ_{n ≤ b} Σ_{K ∈ E_Γ(q^n, F_q(t))} |Sur_Γ(Cl(O_K), H)| / Σ_{n ≤ b} |E_Γ(q^n, F_q(t))| both equal |H|^{−1}.
 
-Γ finite; H finite abelian Γ-group, gcd(|H|, |Γ|) = 1, H^Γ = 1 q as in [liu wood zureick brown function field moments](#liu-wood-zureick-brown-function-field-moments)
-
-For the proof, An abelian Γ-group is admissible iff gcd(|H|, |Γ|) = 1 and H^Γ = 1 (LWZB §7.1); (SZ) holds by [complements of a coprime abelian normal subgroup are conjugate](#complements-of-a-coprime-abelian-normal-subgroup-are-conjugate). By class field theory for function fields ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields)), Gal(K^#/K)^{ab} is the prime-to-q(q − 1)|Γ| part of Cl(O_K), so Γ-surjections onto the abelian H coincide. Apply [liu wood zureick brown function field moments](#liu-wood-zureick-brown-function-field-moments): [H : H^Γ]^{−1} = |H|^{−1}.
+*Proof.* An abelian Γ-group is admissible iff gcd(|H|, |Γ|) = 1 and H^Γ = 1 (LWZB §7.1); (SZ) holds by [complements of a coprime abelian normal subgroup are conjugate](#complements-of-a-coprime-abelian-normal-subgroup-are-conjugate). By class field theory for function fields ([function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields)), Gal(K^#/K)^{ab} is the prime-to-q(q − 1)|Γ| part of Cl(O_K), so Γ-surjections onto the abelian H coincide. Apply [liu wood zureick brown function field moments](#liu-wood-zureick-brown-function-field-moments): [H : H^Γ]^{−1} = |H|^{−1}.
 
 *Needs:* [liu wood zureick brown function field moments](#liu-wood-zureick-brown-function-field-moments), [complements of a coprime abelian normal subgroup are conjugate](#complements-of-a-coprime-abelian-normal-subgroup-are-conjugate), [function-field class-field and Picard comparison](../ArithmeticStatisticsPartI/README.md#support-function-fields).
 
@@ -1712,27 +1593,25 @@ For the proof, An abelian Γ-group is admissible iff gcd(|H|, |Γ|) = 1 and H^Γ
 
 <a id="support-cohomology"></a>
 
-The EVW input is a uniform homological-stability/Betti estimate for the specified center-free generalized-dihedral Hurwitz spaces: after its degree threshold, Betti numbers are bounded by `C^(i+1)` with C depending on the fixed group, and there is exactly one Frobenius-fixed geometric component in the stated odd-degree, odd-q, `ℓ∤q(q-1)` range. Build the labelled stable hyperelliptic boundary and its compact-type clutching maps; the maps land on the boundary, not in the smooth open stratum. The nodal Picard/normalization exact sequence splits the torsion local system into the required overlapping symplectic summands. Prove the base cases and transvection generation, then lift integral monodromy. The lift from full mod-ℓ image requires g≥2 or ℓ≥5; for g=1,ℓ=3 it additionally requires a nontrivial mod-nine kernel. Source: EVW §§7–8, especially Lemma 8.9, pp. 780–782, with Achter–Pries's monodromy base cases and the integral lifting criterion stated at its target.
+Input (HS) of the supplier contracts is EVW's uniform Betti estimate for the centre-free generalized-dihedral Hurwitz schemes: for all i and n the Betti numbers are at most `C^(i+1)`, with C depending only on the group. That exactly one geometric component is Frobenius-fixed in the stated odd-degree, odd-q, `ℓ∤q(q-1)` range is proved in §5.18. Build the labelled stable hyperelliptic boundary and its compact-type clutching maps; the maps land on the boundary, not in the smooth open stratum. The nodal Picard/normalization exact sequence splits the torsion local system into the required overlapping symplectic summands. Prove the base cases and transvection generation, then lift integral monodromy. The lift from full mod-ℓ image requires g≥2 or ℓ≥5; for g=1,ℓ=3 it additionally requires a nontrivial mod-nine kernel. Source: EVW §§7–8, especially Lemma 8.9, pp. 780–782, with Achter–Pries's monodromy base cases and the integral lifting criterion stated at its target.
 
 Use compact-support duality and weights to sum the lower cohomological traces. For `√q>C≥1` the geometric-series remainder is `C²/(√q-C)`. The top trace counts Frobenius-fixed geometric components, not the total number of components. This gives uniform moments before the upper/lower degree-density argument. Fixed-degree Wood moments instead sum all stable *and boundary* multidegrees, divide by the varying reduced-multiplier torsion `M(q)`, and compare with a finite-valued rational component profile to error `O_n(q^-1/2)`. An ordinary limit exists exactly when that whole profile is eventually constant; a lower bound on stable orthants alone proves a liminf. Sources: EVW Theorem 8.8 and proof, pp. 778–782; Wood Theorems 4.5, 4.7–4.8, pp. 20–25 in arXiv:1702.04644v2.
 
-For de Jong's function-field three-Selmer upper average, construct the locally minimal long-Weierstrass family of exact geometric height d and its automorphism-weighted count. Prove the exact weighted denominator asymptotic `q^(−10d−1)I_d→(1−q^-9)(1−q^-10)/(1−q^-1)>0`. The ternary-cubic surface count bounds the similarly normalized nonidentity numerator by `3/((1−q^-3)(1−q^-2)²(1−q^-1)²)` in limsup. Outside constant j the automorphism order is two; the constant-j count `O(dq^(9d))` and Selmer-dimension bound `C₁d` make its Selmer contribution negligible for sufficiently large fixed q. These facts give the unweighted upper mean `4+O(1/q)`. Source: de Jong, *Counting elliptic surfaces over finite fields*, Theorem 1.2, Propositions 4.12, 4.14, 5.14, 7.5, 7.9 and Lemma 10.2, author DVI pp. 1–2, 8–11, 20, 24–25, 29. Height tends to infinity first. An alternate family still needs a denominator comparison.
-
-The joint enhanced Cohen–Lenstra model is conditional on existence of the finite-level joint-cokernel limits; a positive liminf is sufficient for its zero-cokernel obstruction, but does not establish existence. The polarized-abundance theorem assumes both uniform Rosati-model counting hypotheses, including the real-Weil surface factor. Under those assumptions its repeated-angle atom forces `liminf d_K≥.99` against any spacing law without an atom at zero; a particular GUE distribution is unnecessary for that implication. Source: Lipnowski–Tsimerman, §5, especially Definition 5.16, Lemma 5.11 and the concentration/spacing arguments. For the conjectures over general global fields, specify the short-coefficient family outside characteristics two and three and the long Weierstrass family in those characteristics. Odd/even hyperelliptic degree and Jacobian genus determine which prime laws and shifted two-Selmer laws are conjectured. No coefficient-height conjecture is transferred to a minimal invariant-height Q-family without a denominator comparison.
+The joint enhanced Cohen–Lenstra model is conditional on existence of the finite-level joint-cokernel limits; a positive liminf is sufficient for its zero-cokernel obstruction, but does not establish existence. The polarized-abundance theorem assumes both uniform Rosati-model counting hypotheses, including the real-Weil surface factor. Under those assumptions its repeated-angle atom forces `liminf d_K≥.99` against any spacing law without an atom at zero; a particular GUE distribution is unnecessary for that implication. Source: Lipnowski–Tsimerman, §5, especially Definition 5.16, Lemma 5.11 and the concentration/spacing arguments.
 
 ### Examples
 
 For the Wood profile, if recurring allowed q produce two distinct rational component ratios, the `O_n(q^-1/2)` error tends to zero while the ratios remain separated. Thus the arithmetic normalized moments have different liminf and limsup. Stable-range stars-and-bars counting cannot erase that boundary dependence.
 
-The standalone Lean file realizes Kolmogorov distance on `ProbabilityMeasure ℝ`, using the imported CDF and a supremum over all real cutoffs. Its witnesses are a law against itself (zero), δ₀ against δ₁ (one), and `(δ₀+δ₁)/2` against δ₀ (one half). The atom lower bound keeps μ((−∞,0))=0 and ν((−∞,0])=0. The trace milestone states the displayed finite numerical core on `Fin (2n)`, with real half-exponents and arbitrary real q>1, C≥1, √q>C (the geometric application specializes q to a prime power) and the bounds on the same trace vector. At C=1,q=16 its upper bound is one third; q=1 fails the strict hypothesis. At n=1,C=1,q=9, traces `t₀=1,t₁=3` give error `2/9` and upper bound `1/2`. At n=0 the trace sum is empty, the error zero and the upper bound positive. These witnesses distinguish the alternating sum, the q^(−n) normalization and the positive denominator.
+The standalone Lean file realizes Kolmogorov distance on `ProbabilityMeasure ℝ`, using the imported CDF and a supremum over all real cutoffs. Its witnesses are a law against itself (zero), δ₀ against δ₁ (one), and `(δ₀+δ₁)/2` against δ₀ (one half). The atom lower bound keeps μ((−∞,0))=0 and ν((−∞,0])=0. The trace milestone states the displayed finite numerical core on `Fin (2n)`, with real half-exponents and arbitrary real q>1, C≥1, √q>C (the geometric application specializes q to a prime power) and the bounds on the same trace vector. At C=1,q=16 its upper bound is one third; q=1 fails the strict hypothesis. At n=1,C=1,q=9, traces `t₀=1,t₁=3` give error `2/9` and upper bound `1/2`. At n=0 the trace sum is empty, the error zero and the upper bound positive. These witnesses distinguish the alternating sum, the q^(−n) normalization and the positive denominator. The file also pins the convex concentration inequality, the odd-degree densities with an alternating control, the similitude cosets with the non-unit control diag(1, 3) over Z, the allowed-prime-power filter with its modulus-zero control, and the parity multidegree count with three exact values.
 
 ### Dependencies
 
-Layers 0–4; the finite-group moment and matrix tools already constructed in Layer 3; Mathlib probability and projective measures; A2–A3 and A6; SF.2–SF.3 and R09.1; D7 and Selmer L0–L4; Neron normalization/semistable geometry; IG.3–IG.5; EDC.2 and DWP.7; and the explicit local supporting hypotheses above. Conditional arithmetic laws and unproved limit-existence predicates are used only as hypotheses.
+Parts I, IV, V and VII, linked at each use. InverseGaloisAndArithmeticFundamentalGroups Layers IG.0, IG.1 and IG.3–IG.5, with items IG-a and IG-b. AbelianSchemesAndArithmeticModuli §§A2, A3 and A6, with its relative-Jacobian item. GeometryOfNumbersAndQuadraticArithmetic items GN-a to GN-d. EtaleDualityAndPerverseSheaves §§0.5–0.6. DeligneWeightsAndPurity item 7.12 and §§1.4–1.6. TauCetiRoadmap.EllipticCurves Layer 3. Input (HS), which has no owner yet. Conditional arithmetic laws and unproved limit-existence predicates are used only as hypotheses.
 
 ## Downstream consumers
 
-Field and Selmer comparisons identify their family, height, equivalence relation and local weights before applying an arithmetic average. Probability convergence alone supplies no unbounded moment identity. AnalyticNumberTheory is a supplier of every part and takes no input from any part.
+This is the last part of the arithmetic-statistics roadmap, and no later part uses it. Two atlas plans name its similitude carrier as their GSp matrix group: ClassicalGroupsPartII and LocalGaloisDeformationRings use the [symplectic similitude group](#symplectic-similitude-group). AnalyticNumberTheory and ModularityAndLanglandsExtensions take no input from this part.
 
 ## References
 
