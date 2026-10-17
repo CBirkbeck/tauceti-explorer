@@ -131288,6 +131288,64 @@
    "state": "superseded",
    "prompt": "research/blueprint/prompts/PKG-GL2ModularityLifting~codex.md",
    "note": "created by mistake — plan part R22.1 is not accepted (revision live)"
+  },
+  {
+   "id": "BP-AutomorphicFormsOnReductiveGroups~5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/readmes/AutomorphicFormsOnReductiveGroups.md",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean",
+    "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~5.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups~5.md",
+   "scope": [
+    "AutomorphicFormsOnReductiveGroups:AF.0",
+    "AutomorphicFormsOnReductiveGroups:AF.1",
+    "AutomorphicFormsOnReductiveGroups:AF.1a",
+    "AutomorphicFormsOnReductiveGroups:AF.2",
+    "AutomorphicFormsOnReductiveGroups:AF.3",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "AutomorphicFormsOnReductiveGroups:AF.5"
+   ],
+   "after": [
+    "REV-AutomorphicFormsOnReductiveGroups~4"
+   ],
+   "revisionOf": "BP-AutomorphicFormsOnReductiveGroups"
+  },
+  {
+   "id": "REV-AutomorphicFormsOnReductiveGroups~5",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicFormsOnReductiveGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-AutomorphicFormsOnReductiveGroups~5.md",
+    "research/blueprint/packets/AutomorphicFormsOnReductiveGroups.json",
+    "research/blueprint/readmes/AutomorphicFormsOnReductiveGroups.md",
+    "research/blueprint/suggested/AutomorphicFormsOnReductiveGroups.lean"
+   ],
+   "after": [
+    "BP-AutomorphicFormsOnReductiveGroups~5"
+   ],
+   "avoidAccountOf": "BP-AutomorphicFormsOnReductiveGroups~5",
+   "independentOf": [
+    "BP-AutomorphicFormsOnReductiveGroups",
+    "BP-AutomorphicFormsOnReductiveGroups~2",
+    "BP-AutomorphicFormsOnReductiveGroups~3",
+    "BP-AutomorphicFormsOnReductiveGroups~4",
+    "BP-AutomorphicFormsOnReductiveGroups~5"
+   ],
+   "state": "pending"
   }
  ]
 }
