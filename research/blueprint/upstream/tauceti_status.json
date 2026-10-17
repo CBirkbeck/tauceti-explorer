@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T19:06Z",
+ "updated": "2026-10-17T19:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -194,10 +194,10 @@
     818
    ],
    "note": "ChatGPT Pro N3 APPROVE 10-16 (two non-blocking suggestions); ready",
-   "head": "1f4f1bf",
+   "head": "dd042fb",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": ""
    }
@@ -256,7 +256,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic": {
    "stage": "pr",
    "pr": 851,
-   "head": "3929844",
+   "head": "da48e5f",
    "depends_on": [
     792,
     785
@@ -264,7 +264,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -805,11 +805,11 @@
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
-   "head": "ae96bcb",
+   "head": "0e05be3",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -817,11 +817,11 @@
   "SmallRamificationAndAbelianVarietyBaseCases": {
    "stage": "pr",
    "pr": 970,
-   "head": "c0fe088",
+   "head": "2687dda",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -892,7 +892,7 @@
    "head": "4ababd2",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
    "review": {
-    "recommendation": "approve",
+    "recommendation": "changes",
     "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
@@ -949,7 +949,7 @@
   "ClassicalSerreModularity": {
    "stage": "pr",
    "pr": 1020,
-   "head": "deaa766",
+   "head": "0ce1375",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
    "review": {
     "recommendation": "changes",
@@ -965,7 +965,7 @@
    "note": "ported 2026-10-16 from the accepted explorer package (tier 25); both red-team passes applied; draft",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1093,11 +1093,11 @@
   "ColemanIntegration": {
    "stage": "pr",
    "pr": 1043,
-   "head": "45db72d",
+   "head": "e55dc34",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1132,8 +1132,8 @@
    "head": "5ea8fe8",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1154,7 +1154,13 @@
    "stage": "pr",
    "pr": 1057,
    "head": "7901cc8",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
