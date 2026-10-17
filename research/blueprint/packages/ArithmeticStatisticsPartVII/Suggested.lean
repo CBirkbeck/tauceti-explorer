@@ -71,6 +71,36 @@ example : parityCoupledWeight 0 (fun i => Fin.elim0 i) (fun i => Fin.elim0 i) = 
 example (w : Fin 1 → ℕ → ℝ) (d : Fin 1 → ℕ) :
     parityCoupledWeight 1 w d = w 0 (d 0) := by sorry
 
+/-- Concentration in even degree violates the half-parity hypothesis. -/
+example : parityCoupledWeight 2 (fun _ n => if n = 0 then 1 else 0)
+    (fun _ => 0) = 2 := by sorry
+
+/-- The two-point half-even, half-odd laws have total coupled mass one. -/
+example : (∑ d : Fin 2 → Fin 2,
+    parityCoupledWeight 2 (fun _ n => if n ≤ 1 then 1 / 2 else 0)
+      (fun i => (d i).val)) = 1 := by sorry
+
+/-- In characteristic two the sign action fixes both elements. -/
+example : (Nat.card {x : ZMod 2 // -x = x} : ℝ)⁻¹ = 1 / 2 := by sorry
+
+/-- At an odd prime the sign action has only its zero fixed point. -/
+example : (Nat.card {x : ZMod 3 // -x = x} : ℝ)⁻¹ = 1 := by sorry
+
 end Distributions
+
+/-
+The README also specifies CohenLenstraHeuristic, CohenLenstraMomentConjecture,
+cohenMartinetPredictedMoment, CohenLenstraMartinetAverage,
+CohenMartinetMomentConjecture, enhancedCokernelLaw,
+EnhancedCohenLenstraConjecture, IsMaxIsotropic, isotropicQuotientForm,
+poonenRainsConstant and its probability law, delaunayWeight,
+alternatingKernelLaw, IsSymplecticClass, alternatingCokernelLaw, bklprModel,
+PoonenRainsSelmerConjecture, SelmerAverageConjecture, BKLPRSelmerConjecture,
+signedTwistCorankCount, SmithTwistHypothesis, localSelmerRatio and its global
+and twist variants, LCQuadraticData.orthogonal, weaklyMetabolic,
+maximalIsotropics, squarefree_selmer_conjecture,
+odd_degree_jacobian_conjecture, even_genus_two_selmer_conjecture,
+injection_moment_conjecture and global_image_splitting_conjecture.
+-/
 
 end TauCetiRoadmap.ArithmeticStatisticsPartVII
