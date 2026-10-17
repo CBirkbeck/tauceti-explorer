@@ -54,7 +54,7 @@ Roadmaps that are open TauCetiRoadmap pull requests, cited by section:
 | AutomorphicSpectralTheory | §§0.6–0.7 spectral theorem; §0.25 Bessel J and I; §§0.26–0.28 Whittaker M and W; §1.16 Kloosterman sums and the weight-k Laplacian; §§1.1–1.3, 1.12–1.13 normalized induction and convergent Eisenstein series; §§1.20–1.21 weight-two Poincaré one-forms; §§2.1–2.6, 2.17, 2.19 intertwining operators, continuation, residues and the resolvent; §4.17a genus characters and real-quadratic surfaces |
 | EndoscopicTransferAndUnitaryTraceComparison | §§11.2–11.3 tempered and extended local unitary packets with their pairings, conditional on its classification inputs |
 | GL2AutomorphicRepresentationsAndTransfer | R16.0.1 finite-place local Langlands for GL₂; R17.1.1 quaternionic local Jacquet–Langlands; R17.4.13 the adjoint lift |
-| GeometryOfNumbersAndQuadraticArithmetic | §3.4 lattice theta series (boundary); §4.3 the theta multiplier on Γ₀(4), nonvanishing of θ and half-integral Kloosterman sums |
+| GeometryOfNumbersAndQuadraticArithmetic | §2.9 signed Hermitian spaces, their adjoint and trace transfer; §3.4 lattice theta series (boundary); §4.3 the theta multiplier on Γ₀(4), nonvanishing of θ and half-integral Kloosterman sums |
 | SmoothRepresentationsOfLocalGroups | §SR.0.2 the smooth category; §§SR.2.1–SR.2.3 smooth and compact induction, Jacquet functors, the geometric lemma and Whittaker functionals; §SR.3a.1 Schur's lemma; §§SR.3.1, SR.3.3 finite length, cuspidal support and the Langlands classification; §§SR.4.1–SR.4.4 Satake transforms and spherical parameters |
 
 Every use keeps the local field, representation category, normalization and convergence hypotheses of its supplier. The remaining constructions this roadmap needs and no supplier provides (the oscillator normalizer and its character λ₂, the genuine adelic induced spaces, the BFH datum and its Eisenstein family) are targets here.
@@ -1001,7 +1001,7 @@ A zero tensor factor enlarges the dual-pair kernel, so both factors are nonzero 
 
 ### Dependencies
 
-Within this roadmap: Layers 0–2. From other roadmaps: RepresentationTheory/ClassicalGroups Layer 0; QuadraticFormInvariants §6C; AutomorphicLFunctionsAndLocalFactors AL.0–AL.1 (local Fourier inversion, change of additive character, local epsilon factors and Gauss sums); SmoothRepresentationsOfLocalGroups §§SR.0.2, SR.2.1–SR.2.3, SR.3.1, SR.3.3, SR.4.1–SR.4.4; AutomorphicFormsOnReductiveGroups §§2.1, 2.4, 2.7, 5.4, 6.8; AdelicAlgebraicGroups §§1.1, 1.5; GL2AutomorphicRepresentationsAndTransfer R17.1.1; EndoscopicTransferAndUnitaryTraceComparison §§11.2–11.3.
+Within this roadmap: Layers 0–2. From other roadmaps: RepresentationTheory/ClassicalGroups Layer 0; GeometryOfNumbersAndQuadraticArithmetic §2.9; QuadraticFormInvariants §6C; AutomorphicLFunctionsAndLocalFactors AL.0–AL.1 (local Fourier inversion, change of additive character, local epsilon factors and Gauss sums); SmoothRepresentationsOfLocalGroups §§SR.0.2, SR.2.1–SR.2.3, SR.3.1, SR.3.3, SR.4.1–SR.4.4; AutomorphicFormsOnReductiveGroups §§2.1, 2.4, 2.7, 5.4, 6.8; AdelicAlgebraicGroups §§1.1, 1.5; GL2AutomorphicRepresentationsAndTransfer R17.1.1; EndoscopicTransferAndUnitaryTraceComparison §§11.2–11.3.
 
 ## Layer 4: Adelic metaplectic covers and finite Weil representations
 
@@ -1541,7 +1541,7 @@ Compatible see-saw characters; cusp/decay or compact-source estimates sufficient
 
 ### 6.16 Norm-form theta integrals
 
-Prove `normTheta_integralRange`: Export to GZ.5 the rank-one theta kernel for the binary quadratic norm of E/F and the ternary trace-zero quaternion norm. For anisotropic binary (m=2,r=0,n=1) and division ternary (m=3,r=0), the ordinary integral converges. Split binary (m=2,r=1) lies at the exceptional boundary A₁=B₀. Split ternary (m=3,r=1) lies in the second-term range and uses A₋₁=B₋₂ and A₀=B₋₁ modulo Im A₋₁, with the anisotropic complementary correction zero. Export explicit Haar/splitting factors, not the Waldspurger identity itself.
+Prove `normTheta_integralRange`: Export to GrossZagierAndArithmeticHeights the rank-one theta kernel for the binary quadratic norm of E/F and the ternary trace-zero quaternion norm. For anisotropic binary (m=2,r=0,n=1) and division ternary (m=3,r=0), the ordinary integral converges. Split binary (m=2,r=1) lies at the exceptional boundary A₁=B₀. Split ternary (m=3,r=1) lies in the second-term range and uses A₋₁=B₋₂ and A₀=B₋₁ modulo Im A₋₁, with the anisotropic complementary correction zero. Export explicit Haar/splitting factors, not the Waldspurger identity itself.
 
 Orthogonal ε₀=1,d(1)=2; nondegenerate norm/trace-zero forms; exact GQT convention and source’s quaternion split/division cases.
 
@@ -1615,7 +1615,7 @@ Positive index; compatible integral lattice; normal Fourier convergence and all 
 
 ### 6.22 Toric theta pairing interface
 
-Prove `toricTheta_pairingComparison`: For an anisotropic norm torus T, unfold its compatible quadratic/quaternionic theta pairing into local oscillator/orbital integrals after proving product integrability on [T] and the companion quotient. Match character, rational splitting and Haar data, and export the factors and see-saw to GZ.5, which owns the Waldspurger identity and arithmetic comparison.
+Prove `toricTheta_pairingComparison`: For an anisotropic norm torus T, unfold its compatible quadratic/quaternionic theta pairing into local oscillator/orbital integrals after proving product integrability on [T] and on the corresponding quaternionic quotient. Match character, rational splitting and Haar data, and export the factors and see-saw to GrossZagierAndArithmeticHeights, which owns the Waldspurger identity and arithmetic comparison.
 
 Actual anisotropic torus and unitary character trivial on T(F); cusp or compactness/decay bound; ramified test functions and source parity fixed. For a quadratic field K/F its binary norm remains anisotropic even if the containing quaternion algebra is split. A split-quaternion Shimizu/Petersson comparison requires the separate source-qualified factorization with the exact toric normalization; a GQT residual-image identity alone is insufficient.
 
@@ -3101,7 +3101,7 @@ All objects here are built from one BFH datum (8.28a). Fix y₂>0. The scalar co
 
 ### 8.85 Genus-two coefficient and local-test export
 
-Prove `bsd2_export`: Export the first-cusp coefficients, unramified factor ratio, squarefactor bound, joint polar continuation, valid residue/derivative interchanges and three finite K-type existence tests. AL.3 identifies L(s,D₀)=L_N(s+k/2−2,f⊗χ_{D₀})/L_N(2s+k−4,Sym²f) for fundamental D₀ and L(s,0)=L_N(2s+k−5,Sym²f)/L_N(2s+k−4,Sym²f). At m=N rad(N),r=1 these supply RankZeroOneBSD:BSD.2. That roadmap owns twist residues, positivity, noncancellation, simultaneous local conditions and infinitude.
+Prove `bsd2_export`: Export the first-cusp coefficients, unramified factor ratio, squarefactor bound, joint polar continuation, valid residue/derivative interchanges and three finite K-type existence tests. AL.3 identifies L(s,D₀)=L_N(s+k/2−2,f⊗χ_{D₀})/L_N(2s+k−4,Sym²f) for fundamental D₀ and L(s,0)=L_N(2s+k−5,Sym²f)/L_N(2s+k−4,Sym²f). At m=N rad(N),r=1 these supply RankZeroOneBSD. That roadmap owns twist residues, positivity, noncancellation, simultaneous local conditions and infinitude.
 
 All objects here are built from one BFH datum (8.28a).
 
@@ -3109,19 +3109,19 @@ All objects here are built from one BFH datum (8.28a).
 
 ### 8.86 BFH metaplectic kernel interface
 
-Prove `bfh_halfWeightKernelComparison`: Import the genuine genus-two BFH kernel, its theta components, two-cusp Whittaker expansions, actual local test vectors and unramified Euler-factor ratio from Layer 8. Its normalized Siegel parameter is s−2 and its original newform conductor is M, while the auxiliary arithmetic level is N. Layer 7 supplies the common multiplier/Fourier conventions and compares their restriction with the rank-one half-weight theory; BSD.2 consumes Layer 8/bsd2-export and owns the final twist nonvanishing argument.
+Prove `bfh_halfWeightKernelComparison`: For one BFH datum (8.28a), compare the genuine genus-two kernel, its theta components, two-cusp Whittaker expansions, local test vectors and unramified Euler-factor ratio (8.22a–8.85) with the rank-one half-weight theory of Layer 7 (7.49), in Layer 7's multiplier and Fourier conventions. Its normalized Siegel parameter is s−2 and its original newform conductor is M, while the auxiliary arithmetic level is N. RankZeroOneBSD consumes this export together with 8.85 and 8.87 and owns the final twist nonvanishing argument.
 
 Layer 8 exact arithmetic datum: even weightk≥2, trivial character,8M|N,N|m,4m|N²; vector-valued K-type and specified two-cusp transforms.
 
-(BFH90, §1 construction printed549, PDF8; §2 Proposition2.2 printed552, PDF11). *Needs:* 7.49, 6.20, 8.31, 8.23, 8.76, 8.73, 8.85.
+(BFH90, §1 construction printed549, PDF8; §2 Proposition2.2 printed552, PDF11). *Needs:* 7.49, 6.20, 8.28a, 8.31, 8.23, 8.76, 8.73, 8.85.
 
 ### 8.87 Ramified quadratic-twist kernel inputs
 
 Prove `quadraticTwist_kernelInputs`: For the BFH route, export the supplier’s actual ramified local character/test-vector integrals and nonzero finite K-type tests together with its normalized Euler factors. For the separate Friedberg–Hoffstein route, require the original kernel, its exact level/character restrictions, each ramified and dyadic integral, and its Fourier coefficient comparison before an identification with this common interface is asserted. The Friedberg–Hoffstein comparison requires that original kernel formula, not an identification through a formal half-weight symbol.
 
-A specified original paper route and actual newform/local vectors; original character and conductor hypotheses must be collated. No all-local-condition nonvanishing theorem is concluded here.
+Hypotheses: one BFH datum (8.28a) with its newform and local vectors, and the character and conductor conditions of BFH90 §1 for the BFH route, or of Friedberg–Hoffstein for theirs. No nonvanishing theorem under all local conditions is concluded here.
 
-(BFH90, §1 quadratic-twist completion, printed551, PDF10). *Needs:* 8.85, 8.48, 8.49, 8.50, 7.49; AutomorphicLFunctionsAndLocalFactors AL.1–AL.2 (ramified local theory, test vectors).
+(BFH90, §1 quadratic-twist completion, printed551, PDF10). *Needs:* 8.28a, 8.85, 8.48, 8.49, 8.50, 7.49; AutomorphicLFunctionsAndLocalFactors AL.1–AL.2 (ramified local theory, test vectors).
 
 ### Examples
 
