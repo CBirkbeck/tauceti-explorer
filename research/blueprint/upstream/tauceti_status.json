@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T12:50Z",
+ "updated": "2026-10-17T13:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -182,7 +182,7 @@
    "head": "f72d4b0",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": ""
    }
@@ -212,9 +212,9 @@
    ],
    "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918; draft",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -230,7 +230,7 @@
    "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -264,7 +264,7 @@
    "note": "maintainer-ordered: no dependency on #237 (Koopman facts owned locally) 10-16; companion repoint of moved EDS names",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -279,9 +279,9 @@
    ],
    "note": "maintainer-ordered: no dependency on #271 (graph cycles owned locally) 10-16",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -372,7 +372,7 @@
    "note": "maintainer-ordered: no dependency on #453/#341 (CR.4.6) 10-16; N2 fix running; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -392,7 +392,7 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -527,7 +527,7 @@
    "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -735,9 +735,9 @@
    "head": "c4ee54f",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -917,7 +917,7 @@
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
