@@ -28,7 +28,7 @@ All finite-field cardinalities `q` are prime powers greater than one. A letter `
 
 A height includes its carrier and equivalence relation. Inclusive Northcott sublevels use `H≤X`; strict source counts use `H<X`. Passing between them requires the stated boundary estimate. A field is counted up to base-field isomorphism unless an embedded or rigid family is named. An orbit count is unweighted unless its reciprocal stabilizer or rational-orbit weight is displayed. A natural cardinal is used only after finiteness; the value zero of `Nat.card` on an infinite type never licenses division. The average of an empty finite sublevel is zero, but any limiting ratio theorem assumes the specified positive denominator.
 
-Binary coefficients descend in x-degree, and changes of variables use row vectors. Cubics use the determinant-twisted GL2 action; quartics use either the ordinary GL2 action for integral orbit enumeration or the determinant-to-the-minus-two action of PGL2 for two-descent, as specified. For `(a,b,c,d,e)`, `I=12ae-3bd+c²`, `J=72ace+9bcd-27ad²-27b²e-2c³`, and the integral binary discriminant satisfies `27Δ=4I³-J²`. The fixed-degree binary discriminant is used when a leading coefficient vanishes. For the quartic `x⁴-y⁴`, `I=-12`, `J=0`, `Δ=-256`; this fixes the sign. With `E:y²=x³+Ax+B`, `(I,J)=(-3A,-27B)`, `H_E=max(4|A|³,27B²)` and `H_IJ=max(|I|³,J²/4)` satisfy `27H_E=4H_IJ`. Under the two-covering integral representative scaling `(I,J)↦(2⁴I,2⁶J)`, the invariant height scales by `2¹²`.
+Binary coefficients descend in x-degree, and changes of variables use row vectors. Ordinary-coefficient cubics use the determinant-twisted GL2 action. The mirror cubics of three-isogeny descent use binomial coefficients and the ordinary SL2 action, with normalized discriminant −1/27 times the ordinary discriminant; quartics use either the ordinary GL2 action for integral orbit enumeration or the determinant-to-the-minus-two action of PGL2 for two-descent, as specified. For `(a,b,c,d,e)`, `I=12ae-3bd+c²`, `J=72ace+9bcd-27ad²-27b²e-2c³`, and the integral binary discriminant satisfies `27Δ=4I³-J²`. The fixed-degree binary discriminant is used when a leading coefficient vanishes. For the quartic `x⁴-y⁴`, `I=-12`, `J=0`, `Δ=-256`; this fixes the sign. With `E:y²=x³+Ax+B`, `(I,J)=(-3A,-27B)`, `H_E=max(4|A|³,27B²)` and `H_IJ=max(|I|³,J²/4)` satisfy `27H_E=4H_IJ`. Under the two-covering integral representative scaling `(I,J)↦(2⁴I,2⁶J)`, the invariant height scales by `2¹²`.
 
 Coefficient lattices have additive Haar mass one locally. An algebraic-group Haar measure comes from the stated invariant differential; it is not independently renormalized during a product formula. The p-adic absolute value has `|p|_p=p⁻¹`. Archimedean coefficient regions use the displayed Euclidean or Lebesgue measure. Actual CRT residue proportions are used for coupled finite conditions; a product of marginal densities is valid only for independently imposed prime-power conditions.
 
@@ -1545,6 +1545,41 @@ To prove the assertion, Define the structure with four coefficients, the evaluat
 - The swap matrix (0 1; 1 0), of determinant -1, sends (a,b,c,d) to (-d,-c,-b,-a).
 
 
+<a id="mirror-cubic-normalization"></a>
+
+**Mirror cubic normalization.** On the existing coefficient carrier R⁴, for a commutative ring R, define `MirrorCubic.ordinaryCubic(a,b,c,d)=Cubic.mk a (3b) (3c) d` and `MirrorCubic.normalizedDisc(a,b,c,d)=a²d²−3b²c²+4ac³+4b³d−6abcd`. These polynomial formulas are defined in every characteristic. For descent and local spreading assume characteristic zero. For a substitution x↦u x+v y, y↦w x+z y, define the new binomial coordinates by the integral formulas
+
+`a′=au³+3bu²w+3cuw²+dw³`,
+`b′=au²v+b(u²z+2uvw)+c(2uwz+vw²)+dw²z`,
+`c′=auv²+b(2uvz+v²w)+c(uz²+2vwz)+dwz²`,
+`d′=av³+3bv²z+3cvz²+dz³`.
+
+These formulas define the action even when conversion to ordinary coefficients is not injective. For uz−vw=1 it preserves normalizedDisc. The adapter to ordinary-coefficient cubics is invertible after inverting three; it need not be invertible in characteristic three.
+
+The interface exposes the following operations and identities:
+
+- `MirrorCubic.ordinaryCubic_coeff`: the four ordinary coefficients are (a,3b,3c,d), and evaluation/homogenization gives the displayed binomial expression.
+- `MirrorCubic.ordinaryCubic_map`: the adapter commutes with every coefficient ring homomorphism.
+- `MirrorCubic.normalizedDisc_map`: normalizedDisc commutes with the same base change.
+- `MirrorCubic.ordinary_discr`: `(ordinaryCubic v).discr=−27·normalizedDisc v`, including leading coefficient zero.
+- `MirrorCubic.normalizedDisc_scale`: normalizedDisc(t·v)=t⁴normalizedDisc(v).
+- `MirrorCubic.normalizedDisc_sl2`: ordinary SL₂ substitution preserves normalizedDisc; obtain the identity over Z by coefficient expansion, so no cancellation by 27 is needed in residue characteristic three.
+- `MirrorCubic.section_discriminant`: over a ring with four invertible, (0,1,0,u/4) has normalizedDisc u. This section meets the reducible orbit; sections through the other local orbits use C3.
+
+To prove the assertion, Use Mathlib's existing `Cubic` and `Cubic.discr`, and the ordinary-coefficient form action, rather than introduce another four-coordinate structure. Expand the two invariant polynomials and substitution over the integral polynomial ring, then base change. Only the binomial-coordinate adapter and normalized invariant are new.
+
+*Needs:* [binary cubic forms and the twisted action](#binary-cubic-forms-and-the-twisted-action), Mathlib `Cubic`, `Cubic.discr` and polynomial identities over Z.
+
+([[127]](#ref-127), §3 p.5, and the section in §8 p.13.)
+
+**Checks.**
+
+- (1,0,0,1) gives normalizedDisc1 and ordinary discriminant−27.
+- (0,1,0,1) gives normalizedDisc4 and ordinary discriminant−108, even though its dehomogenized polynomial has degree two.
+- (1,0,0,0) is singular and both invariants vanish.
+- Over F₃, (0,1,0,1) has normalizedDisc1 but ordinary discriminant0. Dividing an ordinary discriminant by27 is not a definition in this characteristic.
+
+
 <a id="cubic-ring"></a>
 
 
@@ -2391,21 +2426,19 @@ To prove the assertion, Restrict the squarefree Northcott carrier by the prime-f
 
 <a id="twist-denominator-frontier"></a>
 
+**Positive squareclass denominator.** Let F be a number field and Σ a nonempty set of squareclasses specified at finitely many places. With H(s)=∏_{v(s) odd}Nv and each squareclass counted once, #Σ(X)=c_(F,Σ)X+o(X), c_(F,Σ)>0. More precisely, local squareclass tuples at a fixed finite set of places are equidistributed with the probabilities obtained by pushing additive Haar measure on {s∈O_v:v(s)<2} to F_v×/F_v×², and uniform sign probability at real places. Thus every bounded function of those tuples has the corresponding limiting weighted mean. For unions of rectangles, sum the rectangle masses. The finite unit and ideal-class fibres belong in c_(F,Σ); an ideal count alone does not count squareclasses.
 
-**Positive squareclass denominator.** For a number field F, the squareclass height H(t)=product of norms of finite primes with odd valuation has finite fibers. For a nonempty admissible finite set of local conditions Σ, one needs #Σ(X)=c_(F,Σ) X+o(X), c_(F,Σ)>0, where each squareclass is counted once. Admissible means local conditions are compatible with global squareclasses, not merely that each local set is individually nonempty. Its ideal-counting proof must distinguish classes modulo Cl(F)² and the finite unit/Selmer fibers. Prove this denominator asymptotic from the squarefree ideal count and compatible ray-class conditions below; Northcott finiteness alone does not imply it.
+To prove the assertion, Write (s)=a b² with a squarefree integral ideal and b chosen from finitely many fractional-ideal representatives; keep the obstruction in Cl(F)/Cl(F)² and the unit squareclasses. Encode the finitely many local conditions in a sufficiently deep ray modulus, including real signs. Import the current library's `TauCeti.GlobalNumberFields.isBigO_rayClassIdealCountingFunction_sub` and `tendsto_rayClassIdealCountingFunction_div` from `TauCeti.NumberTheory.NumberField.Global.RayClass.Count.Asymptotic`; these count ideals in every ray class with the same positive main term and error O(X^(1−1/[F:Q])). Apply ideal Möbius inversion to squarefreeness. Truncate the square divisor norm at T, use the imported class estimate for the finite sum, and bound the omitted ideals by O_F(X/T); then let X and T tend to infinity in that order. Track the unit fibres and the class obstruction before summing sectors. `TauCeti.GlobalNumberFields.exists_fieldUnit_isSquare_div_at_places` in `Global.Approximation.SquareClass` makes every prescribed finite local squareclass tuple occur; its compatible ray classes and Haar masses are positive. This is a squareclass/squarefree adapter to an existing ray-class count, rather than a new analytic ideal-counting theorem.
 
+*Needs:* [squareclass height](#squareclass-height), [finiteness of squareclasses of bounded height](#finiteness-of-squareclasses-of-bounded-height), the current Tau Ceti ray-class counting and local-squareclass approximation declarations above, `TauCeti.GlobalNumberFields.rayClassIdealMainTerm_pos`, GlobalNumberFields Layer 2 ideal classes and unit decomposition.
 
-To prove the assertion, Expand squarefree ideals in each ray class and use finite-order Hecke characters to select compatible classes. Count unit/Selmer fibers and local squareclass conditions explicitly. Analytic continuation and a Tauberian/ideal equidistribution theorem must produce the residue and its strict positivity. These analytic statements are requested from AN.4, rather than asserted as already supplied.
-
-*Needs:* [squareclass height](#squareclass-height), [finiteness of squareclasses of bounded height](#finiteness-of-squareclasses-of-bounded-height), AnalyticNumberTheory:AN.4.
-
-([[68]](#ref-68), §2 p.2, squareclass height and Σ(X).)
-
+([[68]](#ref-68), §2 p.2; [[127]](#ref-127), §8 pp.11–13; [[131]](#ref-131), §2.2, Proposition2.1 and Lemma2.2, pp.6–9, for the representative-domain construction.)
 
 **Checks.**
 
-
-- Over Q with no local restriction the positive squarefree denominator is (6/π²)X+o(X). Compatibility and residue positivity, rather than mere local nonemptiness, must be established for general F.
+- Over Q the positive squareclasses alone contribute (6/π²)X+o(X); both signs together contribute (12/π²)X+o(X).
+- At an odd p, parity of valuation has probabilities p/(p+1) and 1/(p+1), not 1/2 and 1/2. Within either parity the two unit squareclasses have equal mass.
+- Coupled local conditions are a disjoint union of rectangles. Count their actual allowed tuples; multiplying their marginal probabilities changes the answer in general.
 
 
 ### 0.16 Finite-field abelian-variety counting families
@@ -8369,25 +8402,103 @@ To prove the assertion, Separate the special rank-one congruences at primes divi
 ### 2.22 Number-field three-isogeny orbit counts
 
 
-<a id="refinement-number-field-twist-orbit-count"></a>
+<a id="support-coregular-count"></a>
 
 
-**Number field twist orbit count.** Fix a number field F and elliptic 3-isogeny phi:E→Eprime. Choose the squareclass representative domain Sigma0 and nonzero integral scale kappa from BKLOS Theorem 7.2 and the primary coregular counting theorem. Let Sigma be a large locally defined subfamily: at almost every finite v its factor is {s in O_v : v(s)<2}, and its archimedean sign conditions are nonempty. Order it by H(s)=product of N(p) at the primes with odd v_p(s); on a representative this equals N(I(s))^2 product_{v infinite}|s|_v, where I(s)={a in F:a^2 s in O_F}. Let N_irr,loc(X) count irreducible locally phi-soluble SL2(F) binary-cubic orbits with normalized Disc=kappa s for s in Sigma,H(s)<X. Conditional on the representation-specific coregular counting theorem, its six axioms and compatible finite archimedean representative measure, lim_{X→infinity} N_irr,loc(X)/#Sigma(X)=R_infinity product_{v finite}R_v. Here c_v(s)=#coker(phi_s:E_s(F_v)→Eprime_s(F_v))/#ker(phi_s), R_v=(integral_{Sigma_v}c_v(s)ds)/vol(Sigma_v), and R_infinity=(integral_{Omega_infinity}product_{v infinite}c_v(s_v)dmu)/vol(Omega_infinity). Omega_infinity is the normalized representative window for H_infinity<1 and the allowed signs, with positive finite volume; establishing its compatibility is the supporting estimates below, not an assumption that raw sign-cone integrals converge. Almost every finite R_v is 1. This is the nonidentity orbit-count input, without adding the identity orbit or asserting a new Selmer-average theorem. Ordinary cubic discriminant equals −27 times this normalized Disc.
+The specialized contracts below use the [mirror cubic normalization](#mirror-cubic-normalization), `V=Sym³(F²)` in binomial coordinates and `G=SL₂`. They apply to any abelian degree-three isogeny; dimension one is not a counting hypothesis. They give the instances needed for Global Fields II's Representation, Local Weights, Counting at Infinity I and II, Local Spreading, and Uniformity axioms. Its statement separates uniformity for the representation and for the invariant denominator. Each displayed asymptotic is for fixed F, φ, lattice, local specifications and representative sectors; the constants may depend on those fixed data.
 
+<a id="coregular-mirror-integral-multiplicity"></a>
 
-To prove the assertion, Use BKLOS Theorems 7.1–7.2 for the locally soluble orbit dictionary, unique reducible identity orbit and the uniform integral scaling; its native SL2/normalized-Disc adapter is the supporting estimates below. Apply the genuine SL2 coregular invariant-height theorem after all six axioms and the finite representative-domain measure are established. The local orbit masses identify with the displayed cokernel/kernel ratios; SL2 has Tamagawa number 1. The available Global Fields I theorem supplies a tail input, not this coregular main term.
+**C1 — mirror, lattice and orbit multiplicity.** Choose the quadratic mirror algebra of A[φ]. BKLOS Theorem7.1 identifies Sel_(φ_s)(A_s) with the locally soluble SL₂(F)-orbits of normalized Disc=4D̂s; its zero class is the unique reducible orbit. Theorem7.2 gives, after enlarging D̂ by a fixed square, integral representatives over O_v for every allowed local s with v(s)<2. For a general ideal sector first choose its fixed denominators, then enlarge by one common scale for the finitely many bad primes; do not assume a globally principal squarefree representative. Use the finitely many commensurable lattices V_β and arithmetic groups Γ_β of Global Fields II (9)–(11), pp.11–12. One rational orbit may meet several integral orbits. If v_i enumerate G(O_v)-orbits in G(F_v)v∩V(O_v), put
 
-*Needs:* [global field large prime tail](#refinement-global-field-large-prime-tail), [family defined by local conditions](#family-defined-by-local-conditions), [binary cubic forms and the twisted action](#binary-cubic-forms-and-the-twisted-action).
+`m_v(v)=m_(0,v)(v) / (#Stab_(G(F_v))(v) · Σ_i 1/#Stab_(G(O_v))(v_i))`.
 
-([[89]](#ref-89), Theorems 7.1–7.2, pp.10–11; Theorem 8.1 proof and six axioms, pp.12–13; §3 p.5.)
+The local sum is finite for nonzero discriminant. Define the global correction by `m=m_0/(#Stab_(G(F))·Σ_(β,i)1/#Stab_(Γ_β)(v_(β,i)))`; Lemma3.1 identifies it with the product of the local corrections. Together with reciprocal integral stabilizers this counts a rational orbit with weight m_0/#Stab_(G(F)); it does not assume uniformly bounded numbers of integral representatives. Prove the product identity by the adelic orbit decomposition, as in Lemma3.1, (12)–(13), pp.11–12. The stabilizer is the degree-three kernel, uniformly of order at most three. Nontrivial F-rational stabilizers require the twisted quadratic character of that kernel to be trivial, hence at most one global squareclass is exceptional. The product of the local exceptional-stabilizer densities is zero: away from finitely many places the nontrivial quadratic character condition occurs on at most a fixed proper fraction of the local squareclasses. Prerequisites: Layer1's cubic/order dictionary; abelian Kummer localization from SelmerIwasawaCohomology:L0; finite ideal classes and overorders from GlobalNumberFields; adelic cosets from AA.0–AA.4. Source: BKLOS §§3–7 pp.5–11; Global Fields II §3, pp.10–12.
 
+The correction interface exposes `integralMassCorrection` with its displayed positive denominator, `integralMassCorrection_sum` (the corrected reciprocal-stabilizer sum equals m₀/#Stab), `integralMassCorrection_le_one` for 0≤m₀≤1, local constancy off Disc=0, base change between the finite lattice sectors, and `integralMassCorrection_good` (value one at the allowed unramified squarefree-discriminant primes). These are properties of the orbit dictionary and adelic correction, not an additional notion of orbit.
 
 **Checks.**
 
+- One integral orbit with rational and integral stabilizers both of order three gives m_v=m₀ and corrected mass m₀/3.
+- Two integral orbits with all stabilizers trivial give m_v=m₀/2 and total corrected mass m₀.
+- One integral orbit with trivial integral stabilizer and rational stabilizer of order three gives m_v=m₀/3. Rational and integral stabilizers cannot be interchanged in the formula.
 
-- Prove finite bounded-height squareclass/orbit sets and a positive finite normalized archimedean denominator; identify the representative window used in every numerator and denominator.
+<a id="coregular-squareclass-window"></a>
 
-- Distinguish the irreducible nonidentity count from the Selmer average with its extra1, and keep the normalized Disc convention and uniform kappa scaling.
+**C2 — a finite squareclass window and its measure.** Write (s)=a b_j², with a squarefree integral ideal and b_j in fixed representatives for the finitely many possible ideal classes. Reuse the unit logarithmic domain underlying current Tau Ceti `TauCeti.GlobalNumberFields.rayFundamentalDomain`; pass to its finite-index unit-square subgroup by doubling the logarithmic lattice, divide its torsion action by unit squares, and choose half-open boundaries. In sector j this gives a measurable representative cone Ω_j, balanced by bounds `c≤|s_v|_v^(1/deg v)/|s_w|_w^(1/deg w)≤C`. On that cone H(s)=|N_(F/Q)s|/N(b_j)². The subset Ω_j(X) cut out by H<X is bounded, has null boundary, and is `X^(1/[F:Q])Ω_j(1)` in the archimedean scalar coordinates, so its additive volume is X times that of Ω_j(1). The height-zero vertex has measure zero. Retain the finite-prime cosets selecting the sector, since ideal-class and unit conditions are not independent choices. Count each rational squareclass once by this decomposition. Finite-congruence counts on these cones and the squarefree ideal tail give precisely the denominator and local pushforward measure stated in [positive squareclass denominator](#twist-denominator-frontier). No Lebesgue integral is taken over an entire sign cone. Source: Global Fields II §2.2, Lemma2.2 and proof of Proposition2.1, pp.6–9, specialized to the weight-two action; its weighted-projective height is √H here. This is a sector-by-sector construction, retaining the primitive conditions v(a)<2 at almost all primes, rather than using the proposition's abbreviated description of its local sets. Prerequisites: Mathlib's unit logarithmic lattice and finite class group; GlobalNumberFields ideal norms; current Tau Ceti `exists_abs_ncard_rayFundamentalDomain_inter_norm_le_inter_vadd_sub_le` and its Lipschitz-frontier/volume interface in `Global.Counting.RayFundamentalDomain`; GN.4 for the finite-index unit-square and cubic multisection adapters; the denominator target.
+
+The window interface consists of the finite sector index, `unitSquareWindow j`, its height truncation `unitSquareWindowLt j X`, the unique-representative assertion after the torsion quotient, compatibility with the finite-prime sector cosets, null boundary, scalar-dilation identity and `volume_windowLt` (volume X times the unit truncation for X>0). The existing logarithmic lattice, ray-class domain and lattice count remain the underlying objects.
+
+**Checks.**
+
+- Over Q the two sign sectors can use (0,X) and (−X,0), with total length 2X; quotienting signs would lose half the squareclasses.
+- For positive unit rank the raw norm-bounded locus has infinite additive volume. Intersecting with the half-open unit-square window is necessary before integrating.
+- Replacing the unit-square logarithmic lattice by the full unit lattice identifies classes differing by a nonsquare unit. For Q(√2), the unit 1+√2 has norm −1 and cannot be a square; the two squareclasses must remain distinct.
+
+<a id="coregular-local-spreading"></a>
+
+**C3 — spreading and the archimedean section.** Away from Disc=0 the invariant map V→A¹ is smooth in characteristic zero. For every local orbit and every v on it, produce a continuous section through v on a neighborhood of Disc(v), by the real/complex or nonarchimedean implicit function theorem. A section through the reducible orbit alone is insufficient. On each compact balanced invariant shell `1≤H≤2`, finitely many such charts and the finite local H¹ of the order-three kernel give a precompact multisection with uniformly bounded multiplicities. Radial dilation then gives the archimedean representative sets R_j(X), in which cubic coordinates grow by X^(1/(4[F:Q])). This supplies Counting at Infinity I, including a null-boundary chart partition. At primes above two or three use the characteristic-zero local charts, with a fixed finite denominator; smooth spreading over O_F[1/6] handles the others. Prerequisites: polynomial Jacobians and local inverse/implicit function theorems; SF.0 smooth lifting; finite local Kummer groups. Source: BKLOS §3 p.5 and §8 pp.12–13; Global Fields II Local Spreading and Remark3.6 p.14. The bounded-window extension uses compact shells, not the unbalanced norm-one locus.
+
+<a id="coregular-finite-congruence-count"></a>
+
+**C4 — finite-congruence generic count, with its actual height.** For every sector j, every Γ commensurable with SL₂(O_F), every Γ-invariant lattice L commensurable with V(O_F), and every fixed bounded Γ-invariant weight w=w_∞∏_v w_v on L, where each finite-place w_v factors through a fixed residue quotient and all but finitely many equal one, and w_∞ bounded and Riemann integrable on the finite archimedean chart partition, let N_w be the sum of w(v)/#Stab_Γ(v) over irreducible Γ-orbits in L∩G(F_∞)R_j(X). Then
+
+`N_w(L,Γ,R_j(X)) = (1/covol(L)) ∫_(F_Γ·R_j(X)) w_∞(v)/#Stab_(G(F_∞))(v) dv · ∏_(v finite) E_(L_v)w_v + o(X)`.
+
+Interpret the product only at the finitely many specified primes, each expectation with normalized additive Haar on L_v, and the integral as the fundamental multiset integral. Finite sums of such weights are handled by linearity, including coupled residue conditions; their answer need not be a product of marginal expectations. Prove the formula first for residue cosets and compact angular subregions, then approximate the half-open unit window from inside and outside by finitely many regular subregions; their omitted volumes tend to zero. This is the balanced-window form of (14)–(15), not a direct application of a theorem to the noncompact locus |Norm Disc|=1. In SL₂ torus coordinates diag(t⁻¹,t) the four coefficient weights are −3,−1,1,3; the positive root is 2 and the Haar exponent is −2. Vanishing of the −3 coordinate makes the cubic reducible. In Theorem4.1's ordering every nonempty saturated subset contains that weight, so only the empty subset needs the generic cusp inequality; take π=0 and obtain total exponent −2<0. The remaining root condition uses `2=−2(−1)`. The nongeneric sieve uses the positive proportion of irreducible cubics over every sufficiently large residue field. These checks give o(X) cusp errors uniformly on compact angular pieces. GN.4 counts the main body; the source's reduction-theory argument transfers the same inequalities to every commensurable lattice and arithmetic group. Thus C4 proves Counting at Infinity II for the window needed here. Prerequisites: GN.4; AA.0–AA.4; finite-field factorization counts; Layer1's cubic invariant. Source: Global Fields II Theorem4.1 and proof, pp.16–20, with the cubic weights computed here; Davenport's estimate Proposition2.4 pp.9–10.
+
+<a id="coregular-uniform-tails"></a>
+
+**C5 — the two uniform tails.** Let W_(β,v) consist of generic integral representatives with m_v≠1. For M beyond a fixed finite set, prove
+
+`limsup_(X→∞) X⁻¹ N(⋃_(Nv>M) W_(β,v),Γ_β,R_j(X)) ≤ C/(M log M)`.
+
+Also prove the invariant/squareclass tail bound with the same iterated limit and a right side tending to zero. For the representation tail, BKLOS Propositions3.5,6.1 and Theorem7.2 imply W_(β,v)⊂{v²|Disc} away from the fixed bad primes: a squarefree-discriminant cubic order is maximal, its integral orbit is unique locally, and the unramified Kummer condition is automatic. Transfer to the ordinary determinant-twisted GL₂ cubic representation; its ordinary discriminant is −27 Disc and its height is |Norm Disc|≤C_jX. In a fixed representative sector a GL₂ integral orbit has only boundedly many SL₂ lifts: determinant changes Disc by a square, the unit-square fundamental domain selects one such invariant, and at a fixed invariant the two possible determinants differ by sign. Keep the finite lattice/ideal sectors and the fixed scales in this bound. Global Fields I Theorem5.2, pp.19–21, counts the union of nonmaximal and extra-ramified cubic orders; in characteristic zero this contains the full discriminant-square locus away from the finite bad set. It gives `O(X/(M log M))+o(X)` before the bounded lift comparison. The invariant tail is the squarefree ideal Möbius tail used in the denominator, `O(X/M)+o(X)`, after the sector/coset comparison. These are separate V and S estimates (17) and (24) of Global Fields II; neither follows from pointwise local asymptotics. Prerequisites: [global field large prime tail](#refinement-global-field-large-prime-tail), C1–C2, GlobalNumberFields cubic orders and finite ideal classes. Source: BKLOS §8 p.13; Global Fields I Theorem5.2 and its strong/weak split pp.19–21; Global Fields II §4.2, embedding-sieve Theorem4.9 p.23.
+
+<a id="coregular-sl2-tamagawa"></a>
+
+**The split SL₂ constant.** For every number field F the quotient SL₂(F)\SL₂(A_F) has volume one for AA.2's Tamagawa measure. Use its discriminant-normalized gauge product, not a product of independently normalized local probabilities.
+
+To prove this, let SL₂ act on F²; the stabilizer of a nonzero vector is G_a. Quotient integration and the covolume-one additive quotient give, for Schwartz–Bruhat φ,
+
+`I(φ)=∫_(SL₂(F)\SL₂(A_F)) Σ_(x∈F²) φ(g⁻¹x) dg = τ(SL₂)φ(0)+∫_(A_F²)φ`.
+
+Unfold nonnegative φ first; AA.3 finite volume and the G_a quotient show integrability, then dominate a general Schwartz function. Check the quotient gauge against the additive two-dimensional gauge on the nonzero-vector orbit. Adelic Poisson summation makes I invariant under Fourier transform (apply the contragredient automorphism to g). Hence `(τ−1)(φ(0)−φ̂(0))=0`; choose φ with unequal evaluation and integral. This computes the specific constant rather than importing a general simply connected Tamagawa conjecture.
+
+*Needs:* AdelicAlgebraicGroups AA.2 quotient integration and gauge normalization, AA.3 finite volume; AutomorphicLFunctionsAndLocalFactors AL.0 adelic Poisson summation and additive covolume one, applied in two coordinates.
+
+([[133]](#ref-133), §5.6, (143)–(144), original pp.152–153, retypeset pp.138–139.)
+
+<a id="coregular-local-mass"></a>
+
+**C6 — local masses and one differential.** Fix the coordinate top form da∧db∧dc∧dd, the invariant differential dDisc, and one invariant top form on SL₂ over F. Prove the orbit change-of-variables identity with a single J∈F×, independent of the place and the local section, as in Proposition3.4, (19), p.14. Use this same J at the primes above three, where switching binomial and ordinary coefficients is not a unit change. In the local mass formula retain the rational stabilizer:
+
+`Σ_(soluble SL₂(F_v) orbits, Disc=κ_js) 1/#Stab = #(A′_s(F_v)/φ_s A_s(F_v))/#A_s[φ_s](F_v) = c_v(φ_s)`.
+
+For nonarchimedean v integrate this mass against the additive measure on the actual sector's invariant cosets; at infinity use Ω_j(X). The identity orbit is included in the local mass, even though the global generic count omits its single rational orbit. Apply C1's integral correction, multiply the common differential factors, and use ∏_v|J|_v=1 and τ(SL₂/F)=1. The discriminant scale's local factors cancel by the same product formula. With D_F=|Disc F|, the coefficient factor D_F⁻² splits as the group Tamagawa factor D_F^(−3/2) and the invariant additive factor D_F^(−1/2), which is also present in the squareclass denominator. Summing the finite sectors and dividing by their denominator leaves the Haar/sign expectation of ∏_v c_v, rather than a new height or a separately normalized probability. Prove the finite-place normalization by the numerator and denominator formulas (20)–(25); C2 identifies their angular/unit-sector factors. Prerequisites: local Kummer localization; the local cokernel/kernel cardinalities in the orbit-count statement; AA.0–AA.4 invariant integration and [the split SL₂ constant](#coregular-sl2-tamagawa). Source: BKLOS Theorems4.2,5.3,6.2 pp.6–10 and §8 pp.12–13; Global Fields II Proposition3.4, Lemma3.7 and Theorem3.8, pp.14–16.
+
+**Checks for C1–C6.** If there is exactly one integral local orbit and both stabilizers have order three, the correction is m_v=m_(0,v), and its weighted mass is m_(0,v)/3. Putting the stabilizer in the numerator would instead give the incorrect mass 3m_(0,v). The cubic 3x²y+(u/4)y³ has normalized Disc=u, fixing the section's factor four and the ordinary discriminant −27u. Over C the local Kummer quotient is trivial and the kernel has size three, so the mass is 1/3, not one. Over Q the all-sign squareclass denominator is twice the positive one; the orbit count and its denominator must use the same signs. Infinite unit orbits are removed before integration; integral-orbit multiplicities are removed by m_v rather than by an unsupported constant. All six contracts are local targets of this roadmap; the general analytic and adelic facts in their prerequisites retain their existing owners.
+
+
+<a id="refinement-number-field-twist-orbit-count"></a>
+
+**Number field twist orbit count.** Fix a number field F and a degree-three isogeny φ:A→A′ of abelian varieties over F. Let Σ⊂F×/F×² be nonempty and defined by finitely many local squareclass conditions. Use the finite ideal sectors and balanced unit-square windows of the [specialized coregular contracts](#support-coregular-count), with fixed nonzero integral discriminant scales κ_j. Let N_irr,loc(X) be the number of irreducible locally φ_s-soluble SL₂(F)-orbits in the binomial binary-cubic representation, with normalized discriminant κ_j s in the sector for s∈Σ and H(s)<X. Count each rational orbit once, using the integral mass correction below. Then
+
+`N_irr,loc(X) = #Σ(X) · E_Σ(∏_v c_v(φ_s)) + o(X)`.
+
+Here c_v(φ_s)=#(A′_s(F_v)/φ_s A_s(F_v))/#A_s[φ_s](F_v). The expectation is the finite-local Haar/sign expectation of [positive squareclass denominator](#twist-denominator-frontier); all factors outside a fixed finite set are one. For a rectangle it is R_∞∏_{v finite}R_v, with R_v=∫_{Σ_v}c_v(s)ds/vol(Σ_v), and R_∞ the average of the product of the archimedean ratios over the same balanced window used for its denominator. For a union, use the weighted sum of rectangle expectations. This is the nonidentity count; the Selmer average has an additional one.
+
+To prove the assertion, Use BKLOS Theorems7.1–7.2 for the general-abelian kernel/orbit dictionary and a uniform local integral scale. Establish contracts C1–C6 above, including their balanced-window version of the count, before applying the coregular mass formula. Global Fields II Theorem3.8 supplies the abstract implication; §4.1 and the explicit cubic weights supply its counting instance. Global Fields I Theorem5.2 supplies the discriminant-square tail via the determinant comparison in C5. The local Kummer mass and the product formula cancel the differential and κ_j factors, and τ(SL₂/F)=1. Exceptional rational stabilizers occur in at most one twist squareclass and contribute O(1), since that Selmer group is finite.
+
+*Needs:* [specialized coregular contracts](#support-coregular-count), [positive squareclass denominator](#twist-denominator-frontier), [family defined by local conditions](#family-defined-by-local-conditions), [binary cubic forms and the twisted action](#binary-cubic-forms-and-the-twisted-action), AbelianSchemesAndArithmeticModuli:A3, SelmerIwasawaCohomology:L0.
+
+([[127]](#ref-127), Theorems7.1–7.2 pp.10–11, Theorem8.1 and proof pp.12–13; [[131]](#ref-131), Theorem3.8 pp.15–16, Theorem4.1 pp.16–17; the explicit SL₂ specialization and window adapter are C1–C6 above.)
+
+**Checks.**
+
+- The representation uses a x³+3b x²y+3c xy²+d y³ and normalized Disc=a²d²−3b²c²+4ac³+4b³d−6abcd. Its ordinary cubic discriminant is −27 Disc; the ordinary determinant-twisted GL₂ action is used only for the tail comparison.
+- For a local-ratio-one family the nonidentity mean is one and the full Selmer mean is two. The identity orbit must not enter the generic count.
+- Every ideal sector and every unit-square representative occurs once. A raw sign cone has infinite volume when the unit rank is positive and is not an archimedean denominator.
 
 
 ### 2.23 Hypersurface local densities
@@ -8467,10 +8578,6 @@ For weakly square-divisible quartics the required transport estimate is on *all*
 For the monic sieve prove an average divisor-sum estimate for the rational-root and reducible loci; a pointwise assertion that every nonzero integer has boundedly many divisors is false. Degree four's extra quadratic-factor locus has the weaker exponent `22/3+ε`. A commensurable S-arithmetic lattice requires a finite-index denominator comparison of both generic orbit counts and bad-prime tails; it does not inherit a standard-lattice estimate without that comparison. The source is BSW I, Lemma 4.2, Proposition 4.3 and Theorems 4.1, 4.4, pp. 20–23, and Global Fields I, Theorems 4.7, 5.1–5.3, pp. 18–21.
 
 For the even-degree binary sieve isolate the following implication. Assume a paired-fibre lattice count on actual full-rank `(A,B)` rows and the restricted Gram lower bound on `L_good(M)`, after deleting small discriminants and small constant terms. Then combine main, shallow and deep estimates and the non-Sn exclusion to obtain positive `δ,η` and `ξ≥0` with `τ=max(η,(η+ξ)/δ)<1` and `(2n+1)τ<n+1`. These assumptions give the summed tail and fixed-modulus sieve with those parameters. No numerical even-degree endpoint is inferred without those assumptions. The supporting tasks are to prove the paired-fibre count, the Cauchy–Binet/determinantal-ideal lower bound and the quantitative excluded-locus bound with logarithmic slack. A row-space condition is not a proof that a small coordinate block vanishes; use the deep-box inequalities themselves. Degree two has its own quadratic discriminant sieve. Source: BSW II, §§5–6, especially the restricted replacement for Lemma 6.25. The numerical exponent `1/(88n⁶)` is a proposed endpoint of this implication, rather than an unconditional consequence of the odd-degree argument.
-
-<a id="support-coregular-count"></a>
-
-The three-isogeny coregular count is the following conditional interface. Fix the normalized mirror representation, an integral representative lattice, a finite-volume archimedean squareclass window and compatible additive local Haar measures. Assume: rational orbit classification with its identity orbit separated; integral representatives with bounded and computed multiplicity; finite-congruence equidistribution at the specified height; a uniformly negligible nongeneric locus; a uniform tail for the acceptable local exclusions; and a local orbit-Jacobian/mass formula with one global differential normalization. Then the average of the nonidentity soluble orbits is the product of the local Selmer ratios. Prove each of these six assertions for the chosen representation before removing the conditional hypothesis. In particular a raw archimedean sign cone has infinite volume and cannot be inserted as the representative window. This checklist does not yet specify a quantified counting theorem or supply its six representation-specific estimates. BKLOS Theorem 8.1 and its proof, §8, pp.12–13 of arXiv:1709.09790v2, instead invoke Global Fields II Theorem 13 with axioms for the representation, local conditions, local spreading, two archimedean counts and uniformity. An exact supplier contract must identify these axioms, their height and representative-domain normalizations, and the earlier targets proving their instances; the generic checklist alone is insufficient. BKLOS Theorems 2.1 and 7.2 give the arithmetic endpoint and orbit correspondence.
 
 For the marked-genus-one second moment, sum the sparse quaternary estimates over leading-coefficient/monicization ranges with their actual a-dependent support. Preserve the relation between X,Y,θ,δ and the absolute positive saving λ: choose `10θ+62δ<λ` before absorbing logarithms. The fixed-slice smoothed count is an input to this sum, not the whole second-moment argument. Source: BSS Theorem 5.1 and the counting and monicization assembly in §§5–7, pp. 24–47.
 
@@ -12163,9 +12270,9 @@ To prove the assertion, Construct the quotient-algebra basis and its embedding G
 Throughout this assertion, All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity.
 
 
-To prove the assertion, The tame discriminant exponent1 at each ramified prime means inertia acts by a transposition. The normal subgroup generated by all inertia has fixed field everywhere unramified over Q, hence trivial. A transitive subgroup generated by transpositions is the full symmetric group; squarefree order discriminant also forces index1.
+To prove the assertion, The tame discriminant exponent1 at each ramified prime means inertia acts by a transposition. The normal subgroup generated by all finite inertia has fixed field unramified at every finite prime of Q, hence of absolute discriminant one. Mathlib `NumberField.abs_discr_gt_two` forces that fixed field to be Q, including the possibility of ramification at infinity. A transitive subgroup generated by transpositions is the full symmetric group; squarefree order discriminant also forces index1.
 
-*Needs:* TauCetiRoadmap.ClassFieldTheory Layer 13, [binary form order](#refinement-binary-form-order), [monic fixed modulus sieve](#refinement-monic-fixed-modulus-sieve).
+*Needs:* TauCetiRoadmap.NumberFieldArithmetic Layers4–6 discriminant and inertia formulas; TauCetiRoadmap.LocalFieldsRamification tame inertia; Mathlib `NumberField.abs_discr_gt_two` and Galois correspondence; [binary form order](#refinement-binary-form-order), [monic fixed modulus sieve](#refinement-monic-fixed-modulus-sieve).
 
 ([[105]](#ref-105), §1,p.2; §5,p.26, citing the classical originals.)
 
@@ -12266,25 +12373,40 @@ To prove the assertion, Use the conjugate bound to control the elementary symmet
 ### 3.33 Monogenic field predictions
 
 
-<a id="monogenic-field-lower-bound-target"></a>
+<a id="separated-generator-multiplicity"></a>
 
+**Separated-generator sieve and multiplicity.** Fix n≥2, a signature (r₁,r₂), and finitely many local field conditions compatible with squarefree discriminant and having positive local measure. There is a compact semialgebraic coefficient region B of positive volume in the separable monic degree-n real locus of that signature, constants C,c>0, and t₀ such that the following statements hold for t≥t₀. Under the weighted dilation D_t(a₁,…,a_n)=(ta₁,…,tⁿa_n), every root has absolute value ≤Ct and any two roots are at distance ≥ct. With N=n(n+1)/2, the number of irreducible integral polynomials in D_tB with squarefree discriminant and the specified local field conditions is asymptotic to c_Bt^N with c_B>0. Translating their generators by integers to impose 0≤a₁<n leaves at least c′_Bt^(N−1) distinct polynomials, with root bound C′t and the same root separation. Each maximal order field occurs among these normalized polynomials at most twice, uniformly in t and in the field.
 
-**Monogenic field lower bound target.** The source targets are N_n^{monogenic,S_n}(X)≫X^{1/2+1/n}, and the short-generator S_n-field count≫Y^{(n−1)(n+2)/2}. Fixed compatible signature and finitely many local monogeneity conditions have the same exponents. Their extracted proof remains open: use a positive regular trace-band/slice family, a quantitative squarefree sieve, and a uniform bounded field multiplicity replacing the false density-one strong uniqueness claim.
+To prove the assertion, Choose a small closed coefficient box around a separable polynomial of the required signature, with interior of positive volume. Continuity of roots gives the two uniform root bounds. The weighted region lies in a fixed enlargement of the unrestricted coefficient box: finite-congruence lattice counts give its real volume factor and the unrestricted square-divisibility tail bounds its discarded points. Apply [monic polynomial sieve counts](#monic-polynomial-sieve-counts), including quantitative reducibility exclusion. The finite conditions concern the local field, hence survive generator translation; no arbitrary generator congruence is claimed to survive. Local positivity excludes specifications incompatible with squarefree discriminant. Each normalized polynomial has at most O_B(t) translated preimages, since its original trace coefficient is O_B(t), so normalization costs at most one power of t. This obtains a lower count without asserting a trace-zero or trace-band density formula.
 
-Throughout this assertion, All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity.
+For the multiplicity statement fix one normalized generator α of a field K with O_K=Z[α], and another β in the same counted family, after identifying its field with K. Write β=Σ_{i=0}^{n−1}b_iα^i with b_i∈Z. The n embeddings give a Vandermonde system on z_j=σ_j(α)/t. Its inverse is uniformly bounded because |z_j|≤C′ and |z_j−z_k|≥c. Since every |σ_j(β)|≤C′t, it follows that |b_i|≤C″t^(1−i), with C″ independent of K,t. For sufficiently large t the coefficients b_i with i≥2 vanish. The index of Z[b₀+b₁α] in Z[α] is |b₁|^(n(n−1)/2); both orders are maximal, so b₁=±1. For either sign, the trace interval 0≤a₁<n permits at most one integer b₀. This proves the uniform bound two, also for n=2, where no coefficients of index ≥2 occur. Finitely many t below t₀ do not affect the asymptotic lower bound.
 
+*Needs:* [monic polynomial sieve counts](#monic-polynomial-sieve-counts), [squarefree field discriminant sn](#squarefree-field-discriminant-sn), Mathlib Vandermonde determinant and polynomial translation, GlobalNumberFields order index/discriminant identities, GN.4 weighted lattice counts.
 
-To prove the assertion, Supply the positive restricted sieve on a regular family. Prove a replacement bounded-multiplicity theorem on that family, modulo α↦±α+c. Use |Δ(g)|≪H(g)^{n(n−1)} and a valid root bound, then translate the polynomial exponent2+…+n into the asserted field exponents.
-
-*Needs:* [trace restricted polynomial sieve](#trace-restricted-polynomial-sieve), [strong reduction ring fibres](#strong-reduction-ring-fibres), [squarefree field discriminant sn](#squarefree-field-discriminant-sn), [short generator field upper bound](#short-generator-field-upper-bound).
-
-([[105]](#ref-105), Corollaries1.3–1.4,pp.2–3; proof §5,pp.25–27.)
-
+(The weighted sieve is [[105]](#ref-105), Theorems1.1–1.2 and §4, pp.1–3,20–23; the translation and Vandermonde argument here is a replacement proof of the bounded-multiplicity input to its Corollaries1.3–1.4, pp.2–3, rather than the strong-uniqueness assertion in Lemma5.3.)
 
 **Checks.**
 
+- For n=2 the trace band contains both residues zero and one. The trace-zero slice alone has discriminant −4a₂ and squarefree density zero; it cannot replace this construction.
+- At n=3, |b₂|≤C″/t forces b₂=0 for t>C″. A mere upper bound on roots without separation does not give a bounded Vandermonde inverse.
+- The two possible normalized generators are sign alternatives; an arbitrary unit multiple of a generator does not preserve the O(t) conjugate bound and this power-basis estimate.
 
-- The degree3 discriminant exponent is5/6; polynomial density alone does not establish this field lower bound.
+
+<a id="monogenic-field-lower-bound-target"></a>
+
+**Monogenic field lower bound target.** For each fixed n≥2 there are ≫_n X^(1/2+1/n) isomorphism classes of monogenic S_n fields of absolute discriminant <X. The number of S_n fields admitting an integral generator of house ≤Y is ≫_n Y^((n−1)(n+2)/2). Both lower bounds hold for any fixed signature and finitely many local field conditions with positive squarefree-discriminant local measures. The constructed fields have squarefree field discriminant; specifications forcing a repeated discriminant prime are excluded from this assertion.
+
+To prove the assertion, Apply [separated-generator sieve and multiplicity](#separated-generator-multiplicity). There are ≫t^(N−1) fields, not just polynomial models. Their generator house is ≤C′t and their discriminants are ≤C_Δt^(n(n−1)) by root differences. Set t=(X/(2C_Δ))^(1/(n(n−1))) for the strict discriminant cutoff, or t=Y/C′ for house. Since (N−1)/(n(n−1))=1/2+1/n and N−1=(n−1)(n+2)/2, these are the displayed exponents. Squarefree discriminant gives maximality and S_n. Neither a positive trace-zero slice nor density-one strong reduction is used.
+
+*Needs:* [separated-generator sieve and multiplicity](#separated-generator-multiplicity), [squarefree field discriminant sn](#squarefree-field-discriminant-sn), [short generator field upper bound](#short-generator-field-upper-bound).
+
+([[105]](#ref-105), Corollaries1.3–1.4 pp.2–3; the replacement route for the multiplicity step of §5 pp.24–27 is the preceding target.)
+
+**Checks.**
+
+- At n=3 the discriminant exponent is5/6 and the short-generator exponent is5.
+- At n=2 the exponents are1 and2; no positivity statement on the zero-trace slice is needed.
+- An isomorphism-class count divides the normalized polynomial count by at most two, after the separate O(t) translation loss. Dividing the original count by two would miss that loss.
 
 
 <a id="monogenic-field-asymptotic-prediction"></a>
@@ -12355,53 +12477,72 @@ To prove the assertion, Truncate Möbius inversion using the corrected Layer 2 w
 
 <a id="binary-form-arithmetic-bertini"></a>
 
+**Binary form arithmetic bertini.** Fix n≥3 and order binary n-ic coefficients by H(f)<X. For odd n, the limiting density of regular effective degree-n hyperplane sections of P¹_Z is ζ(2)⁻¹ζ(3)⁻¹. For even n≥4 the same conclusion is conditional on the paired-fibre, restricted Gram and quantitative excluded-locus hypotheses of [binary form sieve counts](#binary-form-sieve-counts), with δ,η>0, ξ≥0, τ=max(η,(η+ξ)/δ)<1 and (2n+1)τ<n+1. No numerical error exponent is claimed from these inequalities alone. Degree two has a different local product.
 
-**Binary form arithmetic bertini.** For each fixed n≥3 in the binary n-ic coefficient-box ordering, the density of regular effective degree-n hyperplane sections of P¹_Z is ζ(2)^{-1}ζ(3)^{-1}. The equivalence with maximality of the associated finite flat rank-n order includes the scheme/ring comparison. Degree2 has a different density; this does not prove the general higher-dimensional arithmetic Bertini conjecture.
+To prove the assertion, Treat nonprimitive sections separately and discard the negligible zero-discriminant locus. Identify each primitive nonsingular divisor with the finite flat binary-form algebra, and compare regularity with maximality at every finite prime. Primitive nonsingular forms give an order in an étale Q-algebra; its local rings are regular exactly when the order is maximal. For nonprimitive forms, a vertical component meets the horizontal divisor, so regularity fails; the local maximality criterion also excludes their nonunit content. Apply the maximal-order sieve, retaining the even-degree assumptions in its statement and in this conclusion. Use ζ_(P¹_Z)(s)=ζ(s)ζ(s−1), evaluated at s=3 since dim(P¹_Z)=2. This is a fixed-degree calculation on P¹_Z, not a general arithmetic Bertini theorem.
 
-Throughout this assertion, All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity.
+*Needs:* [binary form sieve counts](#binary-form-sieve-counts), [binary form order](#refinement-binary-form-order), SchemeAndStackFoundations:SF.0 regular local rings and finite flat schemes.
+
+([[106]](#ref-106), §1 p.3 and §7 Theorem7.1 pp.51–52, with the corrected conditional even-degree sieve; the arithmetic Bertini comparison is its discussion of Poonen §5/Theorem5.1.)
+
+**Checks.**
+
+- At n=3 the odd sieve gives the stated unconditional density.
+- At n=4 this target retains the two inequalities on τ; the proposed 1/(88n⁶) saving requires stronger quantitative inputs.
+- The n=2 maximality product is not ζ(2)⁻¹ζ(3)⁻¹; extrapolating the n≥3 formula changes the density.
 
 
-To prove the assertion, Identify the section with the finite flat algebra of the binary-form order. For finite flat orders in number fields, regularity is equivalent to local maximality. Use the binary maximal-order density and ζ_{P¹_Z}(s)=ζ(s)ζ(s−1). Here dim(P¹_Z)=2, so the Bertini argument is evaluated at s=3. For even n≥4, the preceding binary maximal-order density remains conditional on the restricted paired-fibre and Gram estimates. Thus the stated all-degree Bertini theorem is an end target with an unresolved even-degree counting input; its proof cannot drop those hypotheses. An independent maximal-order tail, if used instead, must be stated with its uniform bounds and prerequisites.
+<a id="binary-order-uniform-multiplicity"></a>
 
-*Needs:* [binary form sieve counts](#binary-form-sieve-counts), [binary form order](#refinement-binary-form-order).
+**Uniform binary-order multiplicity on regular regions.** Fix n≥3. Put B_n=n⌈exp(3·12⁶n³)⌉. Independently of the order, the irreducible integral binary n-ic forms whose associated order is isomorphic to a fixed rank-n order O occupy at most B_n GL₂(Z)-classes. Fix also a compact positive-volume semialgebraic region B of real binary n-ics with discriminant bounded away from zero. There is a finite C_B such that every GL₂(Z)-orbit meets tB in at most C_B forms, for every t>0. Consequently at most B_nC_B forms of tB can represent any fixed maximal-order field.
 
-([[106]](#ref-106), §1,p.3, referring to Poonen §5/Theorem5.1.)
+To prove the assertion, For the first statement use the invariant order with basis 1,a₀θ,a₀θ²+a₁θ,…, exactly the Layer1 binary-form order. Follow Bérczes–Evertse–Győry Theorem2.1 and Corollary2.1: fixing the order fixes the relevant difference ideals. Raising to a common class-number power cancels the generator-dependent principal factors in the cross ratios; the remaining groups use ordinary units of fields of degree at most binomial(n,2), together with one fixed coefficient pair. Thus the radical group for each equation x+y=1 has rank at most 6 binomial(n,2)−5, independent of the discriminant. In particular one does not invert all discriminant primes, which would lose this uniformity. The n−3 cross ratios relative to three chosen roots determine the projective root configuration. Import the finite-rank nondegenerate unit-equation bound from DiophantineApproximationAndTranscendence:DT.2; its bound may give a larger B_n than the source's sharper 2^(24n³), which is unnecessary here. The imported bound for two variables is exp(12⁶(r+1)); using r≤6 binomial(n,2)−5 and at most n−3 parameters gives at most exp(3·12⁶n³) configurations. Lemma5.2, Proposition5.3 and Proposition6.1 of that paper then give uniformly many integral equivalence classes per configuration. At n=3 the source treats the configuration directly, since there is no four-point cross ratio. The ideal-class factor over Z is one, including even n. There are at most n integral equivalence classes per weak projective configuration by Proposition5.3 (s=1 and h₂(Z)=1), giving the displayed B_n. At n=3 this bound also covers the single cubic-order orbit.
+
+For the second statement prove that `{γ∈GL₂(Z):γB∩B≠∅}` is finite and set C_B to its cardinality. An unbounded sequence of such γ has, after orthogonal changes and passage to a subsequence, singular values λ,λ⁻¹ with λ→∞. Bounded transformed coefficients force every positive-weight coefficient of the limiting form to vanish; that form has a projective root of multiplicity at least ceil(n/2), hence at least two. This contradicts the nonzero-discriminant compact region. Compactness then bounds the matrix entries, leaving finitely many integral γ. Scalar dilation commutes with the substitution action, so the same C_B works for every t. Stabilizers only reduce the number of distinct forms. For det=±1 the ordinary and determinant-twisted actions differ by at most an overall sign; either choice changes this bound by at most two if B is replaced by B∪(−B).
+
+*Needs:* [binary form order](#refinement-binary-form-order), DiophantineApproximationAndTranscendence:DT.2 finite-rank unit-equation bound, GlobalNumberFields order bases and conjugates, Mathlib singular-value decomposition and compactness.
+
+([[132]](#ref-132), Theorem2.1 and Corollary2.1 pp.5–6, invariant order (1.1),(2.4) pp.1–4, §§5–6 pp.24–37. The compact-region properness argument is the local real-action adapter proved here.)
+
+**Checks.**
+
+- Uniformity is in O: a bound allowed to grow with |Disc O| would change the field-count exponent.
+- The restriction n≥3 is needed. Binary quadratics can have infinite integral stabilizer, and the positive-weight degeneration argument does not force a double root at n=2.
+- A compact set touching Disc=0 need not give a finite set of intersecting group elements. Nonzero discriminant of one central form alone does not control the entire family.
 
 
 <a id="binary-form-field-lower-bound-target"></a>
 
+**Binary form field lower bound target.** For odd n≥3 there are ≫_n X^((n+1)/(2n−2)) isomorphism classes of S_n fields with squarefree absolute field discriminant <X. Fixing a signature and finitely many local field specifications preserves the exponent provided their squarefree-discriminant local measures are positive. For even n≥4 the same statements are conditional on the even-degree sieve hypotheses in [binary form sieve counts](#binary-form-sieve-counts), including δ,η>0, ξ≥0 and both inequalities on τ. No strong-reduction assumption is required in this formulation.
 
-**Binary form field lower bound target.** For every n≥3 the source targets an isomorphism-class lower bound≫X^{1/2+1/(n−1)} for S_n fields with squarefree discriminant. Its proposed construction needs a regular positive-volume family B, a sieve uniform on tB, and a uniform bounded multiplicity of the associated maximal-order fields. Openness of strong quasi-reduction at one form does not establish strong quasi-reduction on every dilation tB.
+To prove the assertion, Choose a compact regular positive-volume coefficient box B inside the required real signature locus. The finite-congruence count in tB has main term vol(B)t^(n+1) times the actual local product. The tail is bounded by that in the containing coefficient box; finite Jordan approximations supply the same region count. Apply the odd sieve, or the explicitly assumed even sieve, and the quantitative reducibility/non-S_n exclusion, to get ≫t^(n+1) squarefree-discriminant forms. Such forms define maximal orders and S_n fields. The preceding target bounds their field fibres by B_nC_B independently of t. Finally |Disc(f)|≤C_Δt^(2n−2); take t=(X/(2C_Δ))^(1/(2n−2)).
 
-Throughout this assertion, All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity.
+*Needs:* [uniform binary-order multiplicity on regular regions](#binary-order-uniform-multiplicity), [binary form sieve counts](#binary-form-sieve-counts), [squarefree field discriminant sn](#squarefree-field-discriminant-sn), GN.4 finite-congruence region counts.
 
-
-To prove the assertion, Construct a regular family with compatible signature and positive local density. Prove strong reduction uniformly along its dilations, or supply a replacement bounded-multiplicity result modulo the four sign alternatives. Apply the region sieve at t=X^{1/(2n−2)}, and use the degree2n−2 discriminant homogeneity to obtain the exponent(n+1)/(2n−2).
-
-*Needs:* [polynomial order lattice reduction](#polynomial-order-lattice-reduction), [strong reduction ring fibres](#strong-reduction-ring-fibres), [binary form sieve counts](#binary-form-sieve-counts), [squarefree field discriminant sn](#squarefree-field-discriminant-sn).
-
-([[106]](#ref-106), Theorem3,p.3; proof §7,p.53.)
-
+([[106]](#ref-106), Theorem3 p.3 and §7 pp.52–53 for the asserted exponent; [[132]](#ref-132), Corollary2.1 pp.5–6 supplies the replacement multiplicity route. The conditional even-degree hypotheses are those of the corrected Layer2 sieve.)
 
 **Checks.**
 
-
-- At n=3 the target exponent is1. The positive-volume, uniform-dilation and multiplicity obligations all remain necessary.
+- At n=3 the exponent is1, in agreement with cubic field counting.
+- At n=4 the exponent is5/6 and the result retains the even-degree sieve assumptions.
+- Coefficient dilation scales discriminant by t^(2n−2) but does not homothetically scale the whole order lattice. The multiplicity proof uses GL₂ properness and the fixed-order theorem instead.
 
 
 <a id="unramified-alternating-extension-lower-bound-target"></a>
 
+**Unramified alternating extension lower bound target.** Fix n≥3. For odd n there are ≫_n X^((n+1)/(2n−2)) Q-isomorphism classes of pairs (k,L) with k a real quadratic field of |Disc k|<X, L/k Galois with group A_n, and unramified at every finite and infinite place. The same lower bound holds separately for imaginary quadratic k. For even n≥4 both bounds retain exactly the even-degree hypotheses of [binary form field lower bound target](#binary-form-field-lower-bound-target). No assertion fixes a single quadratic base field.
 
-**Unramified alternating extension lower bound target.** For n≥3 the source targets≫X^{(n+1)/(2n−2)} unramified A_n-extensions over real quadratic fields, and separately over imaginary quadratic fields, with base discriminant absolute value<X. Its restoration of Nakagawa’s withdrawn results requires the original extension correspondence, rigidity/multiplicity calculation and the corrected binary tail; it is not inferred solely from the field-count lower bound.
+To prove the assertion, Start with an S_n field K having squarefree discriminant d and let L be its normal closure. The sign character identifies the unique quadratic fixed field as k=Q(√d). Since a squarefree number-field discriminant is 1 modulo4, the fundamental discriminant of k is d itself. At every finite ramified prime the inertia group in L/Q is generated by a transposition, and its intersection with A_n is trivial. Thus L/k is unramified at all finite places. For real k choose the totally real signature of K, which makes L totally real and excludes ramification at infinity. For imaginary k choose r₂(K)=1, so d<0; k has no real places to check. Both signature regions have positive volume and the preceding field lower bound applies. Distinct K may give the same pair, but every such K is a degree-n subfield of L. A group of order n! has at most 2^(n!) subgroups, so each Q-isomorphism class of pairs receives at most that many field isomorphism classes, uniformly in d. Divide by this constant. This elementary Galois-closure dictionary supplies the needed multiplicity and infinity comparison without appealing to a withdrawn parametrization.
 
-Throughout this assertion, All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity.
+*Needs:* [binary form field lower bound target](#binary-form-field-lower-bound-target), [squarefree field discriminant sn](#squarefree-field-discriminant-sn), TauCetiRoadmap.LocalFieldsRamification inertia/discriminant comparison, TauCetiRoadmap.NumberFieldArithmetic discriminants and normal closures, Mathlib Galois correspondence and permutation sign.
 
+([[106]](#ref-106), Theorem4 p.3 for the source endpoint; the finite-inertia, sign-character, signature and subgroup-fibre argument above is the replacement proof route.)
 
-To prove the assertion, Read the original binary-form/unramified-extension parametrization with its infinity conditions. Reconcile its quadratic resolvent discriminant and isomorphism multiplicities with the statistical carrier. Insert the corrected tail and regular-region estimate and sum the two signatures separately.
+**Checks.**
 
-*Needs:* [binary form sieve counts](#binary-form-sieve-counts), [binary form field lower bound target](#binary-form-field-lower-bound-target), TauCetiRoadmap.ClassFieldTheory Layer 13.
-
-([[106]](#ref-106), Theorem4,p.3, citing Nakagawa’s two papers and their corrections.)
+- Positive discriminant alone does not ensure splitting at infinity: a signature with two complex pairs has positive discriminant but nontrivial even complex conjugation. The real-base construction requires total reality.
+- At n=3, A₃=C₃; the construction gives cyclic cubic unramified extensions of varying quadratic bases, rather than an extension of every base.
+- At even n the extension bound inherits the conditional field sieve. The Galois correspondence does not remove its analytic hypotheses.
 
 
 ### 3.35 All fields of degree at most five
@@ -16923,7 +17064,7 @@ To prove the assertion, Reduce to additive potentially good reduction (good redu
 Throughout this assertion, F number field φ a 3-isogeny over F Σ defined by finitely many local conditions
 
 
-To prove the assertion, Let S be the finite set of places dividing 3·∞, the places of bad reduction of E and the places above 2. For v ∉ S, E^s has either good reduction (v(s) even) or is a ramified quadratic twist of a good-reduction curve (v(s) odd), and in both cases c_v(φ_s) = 1 ([tamagawa ratio under potentially good reduction](#tamagawa-ratio-under-potentially-good-reduction) with [local selmer ratio via tamagawa numbers](#local-selmer-ratio-via-tamagawa-numbers)). For v ∈ S, c_v(φ_s) depends only on the class of s in F_v^×/F_v^{×2}, a finite set; so c(φ_s) = ∏_{v∈S} c_v(φ_s) takes finitely many values and each level set is a finite union of sets defined by local conditions at S. Decompose the finite set of allowed local squareclass tuples into single tuples. Each nonempty rectangle has a positive density by the number-field squareclass counting input used in BKLOS §8; sum the finitely many disjoint densities. A level set of the product of local ratios need not itself be a rectangle, and its density is a sum of products, not one product. [family defined by local conditions](#family-defined-by-local-conditions) supplies only the definition; the required arithmetic equidistribution remains part of the six-hypothesis BKLOS counting target.
+To prove the assertion, Let S be the finite set of places dividing 3·∞, the places of bad reduction of E and the places above 2. For v ∉ S, E^s has either good reduction (v(s) even) or is a ramified quadratic twist of a good-reduction curve (v(s) odd), and in both cases c_v(φ_s) = 1 ([tamagawa ratio under potentially good reduction](#tamagawa-ratio-under-potentially-good-reduction) with [local selmer ratio via tamagawa numbers](#local-selmer-ratio-via-tamagawa-numbers)). For v ∈ S, c_v(φ_s) depends only on the class of s in F_v^×/F_v^{×2}, a finite set; so c(φ_s) = ∏_{v∈S} c_v(φ_s) takes finitely many values and each level set is a finite union of sets defined by local conditions at S. Decompose the finite set of allowed local squareclass tuples into single tuples. Each nonempty rectangle has a positive density by the number-field squareclass counting input used in BKLOS §8; sum the finitely many disjoint densities. A level set of the product of local ratios need not itself be a rectangle, and its density is a sum of products, not one product. [family defined by local conditions](#family-defined-by-local-conditions) supplies only the definition; the required arithmetic equidistribution is the [positive squareclass denominator](#twist-denominator-frontier).
 
 *Needs:* [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), [tamagawa ratio under potentially good reduction](#tamagawa-ratio-under-potentially-good-reduction), [local selmer ratio via tamagawa numbers](#local-selmer-ratio-via-tamagawa-numbers), [family defined by local conditions](#family-defined-by-local-conditions), [quadratic twist squareclass family](#quadratic-twist-squareclass-family).
 
@@ -16939,12 +17080,12 @@ To prove the assertion, Let S be the finite set of places dividing 3·∞, the p
 <a id="bklos-average-size-of-three-isogeny-selmer-groups"></a>
 
 
-**Bklos average size of three isogeny selmer groups.** Let φ : E → E' be a 3-isogeny of elliptic curves over a number field F and Σ ⊆ F^×/F^{×2} a nonempty set defined by finitely many local conditions. When the twists E^s, s ∈ Σ, are ordered by the height H(s) = ∏_{v_𝔭(s) odd} N𝔭, the average of #Sel_{φ_s}(E^s) exists and equals 1 + avg_Σ c(φ_s), where avg_Σ c(φ_s) := lim_{X→∞} (1/#Σ(X)) Σ_{s∈Σ(X)} c(φ_s) = ∏_{v | 3 f_E ∞} avg_{Σ_v} c_v(φ_s), a rational number. (BKLOS prove this for 3-isogenies of abelian varieties; the elliptic case is the one planned here, Sel_φ being the Selmer group of the Selmer structure of Kummer images on E[φ], Tau Ceti EllipticCurves Layer 7.)
+**Bklos average size of three isogeny selmer groups.** Let φ : E → E' be a 3-isogeny of elliptic curves over a number field F and Σ ⊆ F^×/F^{×2} a nonempty set defined by finitely many local conditions. When the twists E^s, s ∈ Σ, are ordered by the height H(s) = ∏_{v_𝔭(s) odd} N𝔭, the average of #Sel_{φ_s}(E^s) exists and equals 1 + avg_Σ c(φ_s), where avg_Σ c(φ_s) := lim_{X→∞} (1/#Σ(X)) Σ_{s∈Σ(X)} c(φ_s) is the rational expectation of ∏_{v | 3 f_E ∞} c_v for the squareclass denominator measure. For a local rectangle it is ∏_{v | 3 f_E ∞} avg_{Σ_v} c_v; for a finite disjoint union of rectangles it is their density-weighted sum. (This specializes the general-abelian degree-three theorem below; Sel_φ is the Selmer group of the Kummer-image Selmer structure on E[φ], Tau Ceti EllipticCurves Layer 7.)
 
 Throughout this assertion, φ : E → E' a 3-isogeny over F Σ nonempty, defined by finitely many local conditions
 
 
-To prove the assertion, Parametrisation (BKLOS §§3–7): φ-coverings, in particular φ-Selmer elements, of E^s correspond to SL_2(F)-orbits of binary cubic forms with discriminant in a fixed class related to s; locally soluble orbits have integral representatives, and their discriminants are squarefree away from a fixed finite set of primes (Theorems 4.2, 5.3, 6.2, Proposition 6.1, Corollary 7.1). This is an orbit parametrisation over a Dedekind domain in the scope of Layer 1. Counting (BKLOS §8): the required nonidentity-orbit asymptotic is [number-field twist orbit count](#refinement-number-field-twist-orbit-count). That target is conditional on the six assertions of the [coregular counting contract](#support-coregular-count), including finite-congruence equidistribution and a finite compatible archimedean representative measure. Those assertions have not been discharged by the preceding targets. This leaves an explicit proof gap in the present roadmap; the available Global Fields I tail estimate supplies only one part of the counting argument. Mass computation: the Tamagawa number τ(SL_2) = 1 and the local masses give avg_Σ c(φ_s); add the identity element.
+To prove the assertion, Specialize the general-abelian [number field twist orbit count](#refinement-number-field-twist-orbit-count) to E. Its C1–C6 suppliers give the integral representative correction, finite balanced squareclass window, quantified generic count, both uniform tails and local differential normalization. The result counts nonidentity Selmer elements with average avg_Σ c(φ_s). Add the unique reducible identity orbit. For a family that is a union of local rectangles, sum their denominator-weighted expectations; a product of marginal expectations applies only to a rectangle. The positive denominator and finite-place Haar measure are those of [positive squareclass denominator](#twist-denominator-frontier).
 
 *Needs:* [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), [selmer ratio classes are locally defined](#selmer-ratio-classes-are-locally-defined), [height moments in an arithmetic family](#height-moments-in-an-arithmetic-family), [quadratic twist squareclass family](#quadratic-twist-squareclass-family), [family defined by local conditions](#family-defined-by-local-conditions), [binary cubic forms and the twisted action](#binary-cubic-forms-and-the-twisted-action), [number field twist orbit count](#refinement-number-field-twist-orbit-count).
 
@@ -20032,7 +20173,7 @@ To prove the assertion, The Weil pairing gives µ_n⊂k and E[n]≅µ_n². For e
 **Abelian three isogeny average.** Let F be a number field, φ:A→A′ a degree3 isogeny of abelian varieties, and Σ⊂F×/F×² nonempty and defined by finitely many local conditions. Count each squareclass once, ordered by H(s)=∏_{v_finite:v(s) odd}Nv. Then average_s∈Σ#Sel_(φ_s)(A_s)=1+average_Σ c(φ_s). At finite places the local average uses the pullback of normalized additive Haar measure on O_v, not uniform mass on squareclasses; archimedean factors use the finite representative-window convention of Layer 2.
 
 
-To prove the assertion, The degree3 kernel has a quadratic mirror algebra; the norm-one description and binary-cubic covering orbit classification depend only on this kernel, allowing general A. Use integral local representatives after the fixed discriminant scale and the compatible local mass identities. Apply the conditional Layer 2 coregular count after its six axioms and representative-window measure are discharged; add the unique reducible identity orbit. The exact height denominator and local-ratio product then yield the equality. The unresolved input is the six-part coregular counting contract in [Layer 2 coregular counting contract](#support-coregular-count), including its archimedean representative measure. The elliptic-only conditional orbit-count target does not supply its general-abelian specialization. Until that specialization and the six estimates are stated and discharged, this is a sourced end target with an explicit proof gap, rather than a consequence of the current preceding targets.
+To prove the assertion, The degree-three kernel has a quadratic mirror algebra and the BKLOS orbit dictionary applies to A in arbitrary dimension. Apply the general-abelian [number field twist orbit count](#refinement-number-field-twist-orbit-count), whose representation-specific estimates C1–C6 depend on the degree-three kernel and the local Kummer images, rather than on dimension one. The count omits the unique reducible orbit, so add one for the identity. Its mass calculation uses precisely the Haar/sign measure of the positive squareclass denominator. Finite local ratios take finitely many values and equal one away from a fixed finite set; hence their expectation exists and is finite. A finite union of local rectangles uses the sum of their weighted expectations.
 
 *Needs:* [positive squareclass denominator](#twist-denominator-frontier), [number field twist orbit count](#refinement-number-field-twist-orbit-count), [selmer ratio of an isogeny](#selmer-ratio-of-an-isogeny), AbelianSchemesAndArithmeticModuli:A3, SelmerIwasawaCohomology:L0.
 
@@ -20874,3 +21015,18 @@ AnalyticNumberTheory uses the invariant and local-count interfaces. Field-counti
 <a id="ref-130"></a>
 
 [130] Bhargava; Klagsbrun; Lemke Oliver; Shnidman. [Three-isogeny Selmer groups: author copy](https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf). Author copy linked from Robert Lemke Oliver’s publication list.
+
+
+<a id="ref-131"></a>
+
+[131] Manjul Bhargava; Arul Shankar; Xiaoheng Wang. [Geometry-of-numbers methods over global fields II: Coregular representations](https://arxiv.org/pdf/2604.16978v1). arXiv:2604.16978v1, April2026; printed manuscript pages.
+
+
+<a id="ref-132"></a>
+
+[132] Attila Bérczes; Jan-Hendrik Evertse; Kálmán Győry. [On the number of equivalence classes of binary forms of given degree and given discriminant](https://arxiv.org/pdf/math/0312234). arXiv:math/0312234v1; printed manuscript pages.
+
+
+<a id="ref-133"></a>
+
+[133] Jun-Ichi Igusa, notes by S. Raghavan. [Lectures on Forms of Higher Degree](https://mathweb.tifr.res.in/Documents/Publications/Lectures/tifr59.pdf). TIFR Lectures on Mathematics59,1978; freely published by TIFR. Both original marginal pagination and retypeset pagination are specified above.
