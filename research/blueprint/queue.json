@@ -53424,7 +53424,9 @@
     "PKG-ModularityAndLanglandsExtensions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularityAndLanglandsExtensions~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9885",
+   "finishedAt": "2026-10-17T16:45:46Z"
   },
   {
    "id": "PKG-MordellLawrenceVenkatesh",
@@ -54378,7 +54380,9 @@
     "PKG-PotentialModularityAndCompatibleSystems~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10010",
+   "finishedAt": "2026-10-17T16:45:49Z"
   },
   {
    "id": "PKG-PrismaticCohomology",
@@ -54473,8 +54477,9 @@
     "PKG-PrismaticCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9879"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9879",
+   "finishedAt": "2026-10-17T16:45:53Z"
   },
   {
    "id": "PKG-QuiverRepresentationsPartII",
@@ -132255,9 +132260,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv2.md",
-   "note": "claimed on GitHub issue #10204"
+   "note": "deliverables arrived from an external worker on issue #10204",
+   "finishedAt": "2026-10-17T16:45:55Z"
   },
   {
    "id": "FIX-PKG-PotentialModularityAndCompatibleSystems~adv",
@@ -132275,8 +132281,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PotentialModularityAndCompatibleSystems~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PotentialModularityAndCompatibleSystems~adv.md",
+   "note": "claimed on GitHub issue #10211"
   },
   {
    "id": "FIX-PKG-ModularityAndLanglandsExtensions~adv",
@@ -132294,8 +132301,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv.md",
+   "note": "claimed on GitHub issue #10210"
   }
  ]
 }
