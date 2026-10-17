@@ -5,7 +5,7 @@ import Mathlib
 
 The mathematical roadmap is `README.md`. This file records definitions and theorem signatures
 statable against the pinned Mathlib APIs and is not exhaustive. The definitions retain repeated
-Hodge numbers, reverse the actual-degree Frobenius polynomial, compare projective images using
+Hodge numbers, compare projective images using
 one embedded finite field and one conjugation, and impose the orthogonal determinant constraint
 before a central quotient. Weight functions are numerical data; attachment to an automorphic
 representation is a separate comparison in the README.
@@ -40,35 +40,31 @@ example : singularWeightHodgeList 2 1 = [0, -1, 2, 1] ∧
     (singularWeightHodgeList 2 1).Nodup := by
   norm_num [singularWeightHodgeList]
 
+example : singularWeightHodgeList 0 1 = [0, -1, 0, -1] ∧
+    ¬ (singularWeightHodgeList 0 1).Nodup := by
+  norm_num [singularWeightHodgeList]
+
 example : singularWeightHodgeList 0 2 = [0, 0, 1, 1] ∧
     ¬ (singularWeightHodgeList 3 2).Nodup := by
   norm_num [singularWeightHodgeList]
 
-open Polynomial
+/-- Use the existing polynomial API directly; the characteristic and Euler polynomials differ. -/
+example : (Polynomial.X - 1 : Polynomial ℚ).reverse = 1 - Polynomial.X ∧
+    (Polynomial.X - 1 : Polynomial ℚ).eval (1 / 2) ≠
+      (1 - Polynomial.X : Polynomial ℚ).eval (1 / 2) := by
+  constructor
+  · have hx : (Polynomial.X : Polynomial ℚ).reverse = 1 := by
+      simp [Polynomial.reverse]
+    have hsub : (Polynomial.X - 1 : Polynomial ℚ) =
+        Polynomial.X + Polynomial.C (-1) := by simp [sub_eq_add_neg]
+    rw [hsub, Polynomial.reverse_add_C, hx]
+    simp [sub_eq_add_neg]
+  · norm_num
 
-/-- Mathlib's reverse, specialized to the Frobenius-to-Euler normalization comparison. -/
-noncomputable def reciprocalEulerPolynomial {R : Type*} [Semiring R] (Q : R[X]) : R[X] :=
-  Q.reverse
-
-/-- A monic characteristic polynomial gives an Euler polynomial with constant term one. -/
-theorem reciprocalEulerPolynomial_coeff_zero {R : Type*} [Semiring R]
-    (Q : R[X]) (h : Q.Monic) : (reciprocalEulerPolynomial Q).coeff 0 = 1 := sorry
-
-/-- Reverse evaluation uses the inverse of a nonzero field element. -/
-theorem reciprocalEulerPolynomial_eval {K : Type*} [Field K] (Q : K[X])
-    (x : K) (hx : x ≠ 0) :
-    (reciprocalEulerPolynomial Q).eval x * x⁻¹ ^ Q.natDegree = Q.eval x⁻¹ := sorry
-
-/-- The reverse characteristic polynomial of an invertible matrix is the Euler denominator. -/
-theorem reciprocalEulerPolynomial_matrix {K : Type*} [Field K]
-    {n : ℕ} (A : Matrix.GeneralLinearGroup (Fin n) K) (x : K) :
-    (reciprocalEulerPolynomial A.val.charpoly).eval x = (1 - x • A.val).det := sorry
-
-example : reciprocalEulerPolynomial (X - 1 : ℚ[X]) = 1 - X ∧
-    (X - 1 : ℚ[X]).eval (1 / 2) ≠ (1 - X : ℚ[X]).eval (1 / 2) := sorry
-
-example (a q : ℚ) : reciprocalEulerPolynomial (X ^ 2 - C a * X + C q) =
-    1 - C a * X + C q * X ^ 2 ∧ reciprocalEulerPolynomial (1 : ℚ[X]) = 1 := sorry
+/-- The matrix API includes singular matrices and dimension zero. -/
+example : Matrix.charpolyRev (0 : Matrix (Fin 0) (Fin 0) ℚ) = 1 ∧
+    Matrix.charpolyRev (0 : Matrix (Fin 2) (Fin 2) ℚ) = 1 := by
+  simp [Matrix.charpolyRev]
 
 /-- In the basis `e², eē, ē²`, conjugation fixes the middle line of `Sym² H¹`. -/
 example : Matrix.trace (!![0, 0, 1; 0, 1, 0; 1, 0, 0] : Matrix (Fin 3) (Fin 3) ℤ) = 1 ∧
@@ -180,6 +176,12 @@ example : orthogonalSignKernel (fun (_ : Fin 1) => 3) = ⊥ ∧
 example (s : Fin 2 → ZMod 2) :
     s ∈ orthogonalSignKernel (fun (_ : Fin 2) => 1) ↔ s 0 = s 1 := sorry
 
+/-- An even block is free while the odd block must have positive sign. -/
+example (s : Fin 2 → ZMod 2) :
+    s ∈ orthogonalSignKernel ![1, 2] ↔ s 0 = 0 := by
+  have h : (2 : ZMod 2) = 0 := by decide
+  simp [orthogonalSignKernel, Fin.sum_univ_two, h]
+
 end Arthur
 
 /-! ## Layer 4: symmetric powers, purity and equidistribution -/
@@ -212,19 +214,94 @@ example : ¬ IsParallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
     parallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
       if i = 0 then if τ = 0 then (0 : ℤ) else 2 else 0) 1 = 4 := sorry
 
+example : IsParallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
+    if i = 0 then if τ = 0 then (2 : ℤ) else 3 else if τ = 0 then 0 else 1) ∧
+    parallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
+      if i = 0 then if τ = 0 then (2 : ℤ) else 3 else if τ = 0 then 0 else 1) 0 = 4 ∧
+    parallelWeight (fun (τ : Fin 2) (i : Fin 2) =>
+      if i = 0 then if τ = 0 then (2 : ℤ) else 3 else if τ = 0 then 0 else 1) 1 = 4 := by
+  simp only [IsParallelWeight, parallelWeight]
+  decide
+
 end SymmetricPower
 
 /-! ## Layer 5: generic transfers and Langlands conjectures -/
 
+/-! ## Numerical convention witnesses -/
+
+/-- Ramification scaling preserves the rational rank-two nilpotence index. -/
+example :
+    (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 0 ∧
+    (2 • !![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 0 ∧
+    (2 • !![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ≠ 0 := by
+  norm_num [pow_two, Matrix.mul_fin_two, Matrix.smul_cons, Matrix.smul_empty,
+    Matrix.cons_eq_zero_iff]
+  decide
+
+/-- Maximal N and Nφ=pφN do not encode the consecutive-Hodge-list premise. -/
+example :
+    (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * !![5, 0; 0, 25] =
+      5 • (!![5, 0; 0, 25] * !![0, 1; 0, 0]) ∧
+    (1 + 2 : ℤ) = 0 + 3 ∧ (0 : ℤ) < 1 := by
+  norm_num [Matrix.mul_fin_two, Matrix.smul_cons, Matrix.smul_empty]
+  decide
+
+/-- Residue cardinality q, rather than coefficient prime p, fixes the unramified scale. -/
+example : (Real.sqrt 9) ^ 3 = 27 ∧ (Real.sqrt 5) ^ 3 ≠ 27 := by
+  constructor
+  · norm_num
+  · have hs := Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 5)
+    have hn := Real.sqrt_nonneg (5 : ℝ)
+    nlinarith [sq_nonneg (Real.sqrt 5 - 3)]
+
+/-- The archimedean angular character remembers the value at the negative real unit. -/
+example : ((-1 : ℂ) / ‖(-1 : ℂ)‖) ^ 1 = -1 ∧
+    (-1 : ℂ) / star (-1 : ℂ) = 1 := by norm_num
+
+/-- The cohomological symmetric square has weights 0,1,2 and determinant exponent -3. -/
+example : (List.range 3).map (fun i => (i : ℤ)) = [0, 1, 2] ∧
+    -(∑ i ∈ Finset.range 3, (i : ℤ)) = -3 := by decide
+
+/-- Rank n means symmetric-power degree n-1; distinct Satake roots may collide in degree two. -/
+example : (1 : ℕ) - 1 = 0 ∧ (3 : ℕ) - 1 = 2 ∧
+    [((1 : ℤ) ^ 2), 1 * (-1), (-1) ^ 2] = [1, -1, 1] := by decide
+
+/-- The boundary chamber and its integral lattice impose different constraints. -/
+example : (((1 - 3 : ℤ) : ZMod 2) = (2 : ZMod 2)) ∧
+    (((1 - 3 : ℤ) : ZMod 2) ≠ (1 : ZMod 2)) ∧
+    ((1 + 1 : ℤ), (0 + 2 : ℤ)) = (2, 2) := by decide
+
+/-- Weak good range includes a zero pairing and excludes a negative one. -/
+example : (0 : ℤ) ≤ 0 ∧ ¬ (0 : ℤ) ≤ -1 := by decide
+
+/-- Nonvanishing rules out cancellation of a higher pole by a zero. -/
+example (a b : ℤ) (ha : a ≤ 0) (hb : b ≤ 0) (hab : a + b = -1) :
+    (a = -1 ∧ b = 0) ∨ (a = 0 ∧ b = -1) := by omega
+
+/-- The ordinary idempotent selects the unit-root coordinate in this mod-three model. -/
+example : (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 =
+    !![1, 0; 0, 0] ∧
+    Matrix.mulVec (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ![0, 1] = 0 := by
+  norm_num [pow_two, Matrix.mul_fin_two, Matrix.cons_mulVec, dotProduct,
+    Fin.sum_univ_two, Matrix.cons_eq_zero_iff]
+  decide
+
+/-- Deligne–Lusztig cuspidal-type signs distinguish the two split block sizes. -/
+example : (-1 : ℤ) ^ (2 - 1) = -1 ∧ (-1 : ℤ) ^ (5 - 1) = 1 := by decide
+
+/-- The normalized Jacquet factor and the spectrum twist are different powers. -/
+example : (Real.sqrt ((9 : ℝ)⁻¹))⁻¹ = 3 ∧ (((9 : ℝ)⁻¹)⁻¹) = 9 := by
+  norm_num
+
 /-!
-Definitions specified in README.md whose full mathematical objects are supplied by neighbouring
-theories: EndpointRecord and Status; recArch, isobaricSum and baseChangeCR; partialL,
-archimedeanFactor and completedL for compatible systems; IsAutomorphicNT; GSp4.lPacketOf and
-monodromyRank; WeightTwoTwoConjecture and ExpectedSingularWeightHodge; IsAutomorphicArtin;
-TwistedModularCurve; SymPowerLift, SymPowerExists and SP; the elliptic completedL; SatoTateGroup;
-BianchiEigenform and its Fourier and parabolic-cohomology comparisons; IsSymplecticType and
-IsOrthogonalType; GlobalParameter, ExtendedParameter and GSp4.IsDiscrete; IsFunctorialLift;
-Functoriality, Reciprocity, LocalLanglands and CategoricalLLC; IsAccessibleRefinement and IsNRegular.
+The README also specifies the assertion records, automorphic realization, accessible refinements,
+Artin/functorial/symmetric-power predicates, integral Hecke and Dwork objects, ordinary flags,
+Conjecture B, twisted modular curves and exceptional-curve certificates; oscillator/theta and
+metaplectic descent, Arthur parameters/packets, Adams–Johnson induction, unitary eigenvarieties
+and trianguline deformation families; Bianchi Fourier/cohomology and Sato–Tate data; general
+functoriality/reciprocity, Bun_G/lisse categories, Weil-cocycle stacks, singular support and the
+canonical spectral-action adjunction. Their carriers and comparisons remain mathematical targets
+there.
 -/
 
 end TauCetiRoadmap.ModularityAndLanglandsExtensions
