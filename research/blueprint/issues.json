@@ -4970,5 +4970,6 @@
  "PKG-GL2ModularityLifting": 10194,
  "REV-PKG-GL2ModularityLifting": 10195,
  "FIX-PKG-AInfCohomology~adv": 10201,
- "FIX-PKG-PerfectoidQuotients~adv2": 10202
+ "FIX-PKG-PerfectoidQuotients~adv2": 10202,
+ "FIX-PKG-PrismaticCohomology~adv": 10203
 }
