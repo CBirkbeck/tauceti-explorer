@@ -1,0 +1,15 @@
+# Handoff: REV-PKG-ArithmeticStatisticsPartIII~adv
+
+Issue #10275; Codex session `codex-YLY6oi`; independent package review completed 2026-10-17. Verdict: accepted with fixes. No second job taken.
+
+The package retains all 116 mathematical anchors of the accepted original counting layer, all four uniform counting/sieve suppliers and all seven C(F,φ,Σ) contracts. The accepted ST.2 packet has 51 nodes; there is no separate PartIII packet. No packet was changed. Full findings, the reproducible 15-source sample and the 116-row adversarial pass are in `research/blueprint/reviews/REV-PKG-ArithmeticStatisticsPartIII~adv.md`.
+
+Fixed the monic sieve's missing dependence on Σ and expanded its truncation bounds; corrected the impossible trivial quartic stabilizer and the all-h boundary multiplicity bound; defined the rational-orbit selector and required local factorization before claiming a product of weights. Reused Part II's normalized cubic polynomial, aligned the actual Counting namespace, routed analytic supplier links to Part II and explicitly kept ModularityAndLanglandsExtensions downstream. Added native discriminant/Jacobian/central-action examples and the Lean closing list of absent arithmetic carriers. Metadata is unchanged.
+
+Current upstream audit used TauCetiRoadmap `0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, including all nine newer roadmaps and the specified Completed roadmaps. No additional duplicate target was found or removed. Existing generic lattice, orthogonal-group, root/discriminant and modular fundamental-domain APIs remain suppliers. Normalized cubic discriminant ownership is explicitly Part II.
+
+No target moved upward or downward. The existing additional supplier request `AA-II.sl2-tamagawa-one` remains an exact conditional input: general-number-field SL₂ volume one, not merely finite volume. Its proposed owner is AdelicAlgebraicGroups Part II. The even-degree binary sieve still assumes the actual paired-lattice and restricted-Gram estimates and quantitative excluded-locus control; the cubic count still assumes all of C(F,φ,Σ), with separate V and S tails and balanced archimedean windows. These assumptions are mathematical scope, not claims of completed proofs.
+
+Final validation: lean-check exit 0 at Mathlib 082e2d3 / Tau Ceti f790474, 23 warnings all using sorry, 156 lines and no sorry-defined data. Exact rational/finite calculations checked the Jacobians/signs, local mass/CRT factors, even cutoff failures and hypersurface examples. Local link/fragment validation, intake check-files and git diff --check pass. README is 295,783 bytes. No restricted book was needed and no source passages were copied.
+
+Nothing remains to resume for this review. Future contributors prove the targets and conditional suppliers before removing assumptions. The scratch-only verifier and public-source downloads are deleted after opening the PR; every conclusion needed for intake or subsequent work is recorded in the review and this note.

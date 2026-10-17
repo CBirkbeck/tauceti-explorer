@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "accepted",
-    "reviewer": "fix-FIX-PKG-ArithmeticStatistics~adv2",
+    "reviewer": "independent-review-REV-PKG-ArithmeticStatisticsPartIII~adv",
     "date": "2026-10-17",
-    "notes": "Uniform counts and sieves. Kept all seven C(F,phi,Sigma) contracts and the AA-II SL2 volume-one request, all four uniform counting suppliers, separate V/S tails and both even-degree cutoff inequalities. The expanded rational-root signature uses the exact earlier weighted box and polynomial on pinned carriers. All original target paragraphs, APIs, hypotheses, source locators and Checks in this part are retained. All local links resolve and cross-part citations point earlier. AnalyticNumberTheory supplies every part and receives no input. lean-check exit 0 at Mathlib 082e2d3/Tau Ceti f790474; 19 warnings, all declaration uses sorry. No sorry-defined data; exact finite computations and the complete pass table are in the fix handoff. Acceptance records the fix disposition, not independent review or formalized proofs."
+    "notes": "Independent review of all 116 counting-layer anchors, the accepted ST.2 plan and pre-split layer; random 15-source sample plus quantitative-contract checks; current upstream/Tau Ceti duplication and pinned-library audit. Fixed Sigma dependence and truncation details in the monic sieve, impossible quartic trivial-stabilizer Check and all-h boundary multiplicity bound, and undefined orbit selector/factorization assumptions. Reused Part II normalizedDisc, aligned Counting API names, routed analytic owners directly, added native sign/Jacobian/central-action controls and absent-carrier closing comment. Full adversarial-pass table in the review. All four uniform suppliers, seven C(F,phi,Sigma) contracts, separate V/S tails, AA-II SL2 volume-one request and both even cutoff inequalities remain explicit. Conditional estimates are not claimed established. Final lean-check exit 0 with 23 sorry-only warnings; intake and local links pass. No unfixed package defect."
   }
 }

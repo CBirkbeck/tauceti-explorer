@@ -5,7 +5,7 @@ import Mathlib
 
 The accompanying README is the full specification, with source locators and exact
 supplier contracts. This file gives light definitions and selected milestones on
-the pinned carriers. Counts retain the specified cutoffs and denominators; orbit,
+the pinned carriers and is not exhaustive. Counts retain the specified cutoffs and denominators; orbit,
 moduli, covering and arithmetic probability constructions remain README targets.
 -/
 
@@ -117,6 +117,40 @@ example : squareDivisorTail (fun _ : Unit => 36) (fun _ => 0) 6 1 = ∅ ∧
 example : sectionKernel (fun _ : Unit => ()) (fun _ : Unit => ())
     (fun _ : Equiv.Perm (Fin 2) => (0 : ℝ)) (fun _ => 3) () = 0 := by sorry
 
+/-- Cubic sign regions exclude the singular boundary; quartic sign uses the fixed degree. -/
+example : (X ^ 3 - 3 * X : ℤ[X]).discr = 108 ∧
+    (X ^ 3 + X : ℤ[X]).discr = -4 ∧ (X ^ 3 : ℤ[X]).discr = 0 ∧
+    (X ^ 4 - 1 : ℤ[X]).discr = -256 := by sorry
+
+/-- The ordered quartic tangent basis E11,E12,E21 fixes the Jacobian sign. -/
+example (i j : ℚ) :
+    Matrix.det (!![0, 1, 0, 0, 0; 1, 0, 0, 0, 0; 0, -i, 3, 0, 0;
+      i/3, -4*j/27, 0, -1/3, 0; 2*j/27, 0, -i/3, 0, -1/27] :
+      Matrix (Fin 5) (Fin 5) ℚ) = -1/27 := by sorry
+
+/-- At x³−xy² the scalar, diagonal, unipotent and rotation tangent columns have determinant 8. -/
+example : Matrix.det (!![1, -3, 0, 0; 0, 0, 3, 5; -1, -1, 0, 0; 0, 0, -1, -1] :
+    Matrix (Fin 4) (Fin 4) ℚ) = 8 := by sorry
+
+/-- Central minus identity fixes a quartic under ordinary substitution. -/
+example (a b c d e x y : ℤ) :
+    a * (-x)^4 + b * (-x)^3 * (-y) + c * (-x)^2 * (-y)^2 +
+      d * (-x) * (-y)^3 + e * (-y)^4 =
+    a * x^4 + b * x^3 * y + c * x^2 * y^2 + d * x * y^3 + e * y^4 := by sorry
+
 end Counting
+
+/-!
+The README also specifies the arithmetic carriers and their APIs: real quartic
+root types and fundamental sets; real cubic sign regions; Gauss/Iwasawa multiset regions and their orbit
+multiplicities; quarticAveragedCount, quarticAveragedCount_weighted,
+quarticRegionB and cubicAveragedCount; strong and weak discriminant divisibility;
+Counting.IsKappaAcceptable and its residue/product API; local congruence
+selectors and densities; real invariant sections and their smoothed unfolding;
+and the adelic class-chart lattices, integral orbit weights, balanced-unit
+squareclass windows and local masses in C(F,φ,Σ). The normalized cubic
+polynomial is supplied by Part II. Their arithmetic and geometric constructions
+are specified in the README rather than declarations here.
+-/
 
 end TauCetiRoadmap.ArithmeticStatisticsPartIII
