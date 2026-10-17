@@ -137,7 +137,7 @@ theorem curve139_coefficients :
     curve139.a₁ = 0 ∧ curve139.a₂ = -1 ∧ curve139.a₃ = 1 ∧
       curve139.a₄ = -64403 ∧ curve139.a₆ = -6220110 := by sorry
 theorem curve139_discriminant : curve139.Δ = 37 * 139 ^ 6 := by sorry
-instance curve139_isElliptic : curve139.IsElliptic := by sorry
+instance curve139_isElliptic : WeierstrassCurve.IsElliptic curve139 := by sorry
 theorem curve139_source_equation (X Y : ℚ) :
     curve139.toAffine.Equation X Y ↔
       (-139 : ℚ) * ((8 * Y + 4) / 139 ^ 2) ^ 2 =
@@ -165,7 +165,7 @@ theorem curve5077_coefficients :
     curve5077.a₁ = 0 ∧ curve5077.a₂ = 0 ∧ curve5077.a₃ = 1 ∧
       curve5077.a₄ = -7 ∧ curve5077.a₆ = 6 := by sorry
 theorem curve5077_discriminant : curve5077.Δ = 5077 := by sorry
-instance curve5077_isElliptic : curve5077.IsElliptic := by sorry
+instance curve5077_isElliptic : WeierstrassCurve.IsElliptic curve5077 := by sorry
 theorem curve5077_equation (x y : ℚ) :
     curve5077.toAffine.Equation x y ↔ y ^ 2 + y = x ^ 3 - 7 * x + 6 := by sorry
 theorem curve5077_minus_y_equation (x y : ℚ) :
