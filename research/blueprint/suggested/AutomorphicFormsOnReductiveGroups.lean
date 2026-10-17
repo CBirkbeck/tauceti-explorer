@@ -5,7 +5,9 @@ import Mathlib
 
 The mathematical roadmap is `AutomorphicFormsOnReductiveGroups.md`. This file records
 light definitions and theorem signatures expressible against the pinned APIs; it is
-not an exhaustive list of the targets of any layer.
+not an exhaustive list of the targets of any layer. The common real-representation,
+globalization and number-field tensor foundations have one AF owner; the later
+AS/AL applications consume those interfaces as explained in the reader.
 
 The arithmetic scope is a connected reductive group over a number field. Generic
 function predicates below specialize to its actual adelic points, rational diagonal,

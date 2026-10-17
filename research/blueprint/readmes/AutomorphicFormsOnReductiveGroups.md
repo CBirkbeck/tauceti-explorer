@@ -1,6 +1,6 @@
 # Automorphic forms on reductive groups
 
-**Summary.** For a number field F and a connected reductive F-group G, this roadmap relates automorphic functions on G(F)\G(𝔸_F), their admissible representations, cuspidality and cohomology. It develops the archimedean representation theory and compatibility maps needed to use the adelic, local smooth-representation, arithmetic-cohomology and spectral suppliers. GL_n, GL₂ and GSp₄ provide specializations and Checks; the underlying automorphic definitions and spectral interfaces do not require G to be split, quasi-split or a general linear group.
+**Summary.** For a number field F and a connected reductive F-group G, this roadmap relates automorphic functions on G(F)\G(𝔸_F), their admissible representations, cuspidality and cohomology. It specifies the archimedean representation theory and compatibility maps needed to use the adelic, local smooth-representation, arithmetic-cohomology and spectral suppliers, with one owner for each shared foundation. GL_n, GL₂ and GSp₄ provide specializations and Checks; the underlying automorphic definitions and spectral interfaces do not require G to be split, quasi-split or a general linear group.
 
 ## Scope and supplier contracts
 
@@ -15,6 +15,8 @@ Fix G throughout the foundational statements. Its actual rational, infinite and 
 | Complete automorphic spectrum | [AutomorphicSpectralTheory, §0.51 and §§4.1–4.6](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) | Import normalized constant terms in stages and the onto spectral transform, associate parameters and multiplicities, discrete/residual/continuous subspaces and Hecke/central-character compatibility for general G. AF consumes its actual discrete occurrences for coherent cohomology. Eisenstein continuation, residues, truncation and completeness remain with AS. |
 
 The first, second and fifth suppliers are open upstream proposals. SR’s PR #793 merged on 2026-10-14 and is on upstream main. The current upstream tree was checked at `0d144d044dacebca17b654695b6f1ad58f159b27`, and the current Tau Ceti tree at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are ownership checks, distinct from the pinned implementation baseline below. ALS’s foundation contracts were checked at its PR head `e7e16145f2be8db4cddbda88b2ccab63f1bb52fd`. DifferentialGeometry already owns manifold forms, exterior differentiation and de Rham/Poincaré theory; RealAlgebraicGeometry owns finite connected-cell decomposition. GlobalNumberFields owns algebraic Hecke characters, and ReductiveGroups already supplies adjoint Kostant-lattice stability. Their application here does not expand those results to arbitrary integral coefficient models without the stated supplier input.
+
+The tier order places the ALS/AF bundle in tier 11, AL in tier 12 and AS in tier 13. Accordingly, the overlapping foundations stated in the open AS proposal at `64380dd10f4e9f85e4b0253a6cf1aad53b336cf2` (§§0.11, 0.48–0.50) have a single lower-tier owner: AF.0 for the adelic test-function carrier/topology, AF.1 for real representation theory and globalization, and AF.2 for number-field restricted tensor factorization. AS imports these AF exports; its nuclearity enhancement, spectral analysis and function-field extensions remain distinct. The shared GL_n globalization and tensor foundations likewise precede AL applications. These are redirects of the already specified contracts, not additional constructions or dependencies on AS. The maintainer must reconcile the open supplier proposals and historical routes before packaging. Existing AS spectral/cohomological application requests below are retained as explicit integration obligations; this plan does not certify the combined tier/stage graph or packaging readiness.
 
 ### General automorphic and spectral interface
 
@@ -42,7 +44,7 @@ The real reductive Harish-Chandra/globalization statements use their stated real
 
 ## Target status and Suggested file
 
-All seven stages are planned; none is closed or implemented. The catalogue retains 100 nodes, 311 API items and 30 planets, now with 214 specified definition/construction Checks. There are 57 checked baseline declarations, 43 supplier requests, 23 explicit construction/source-proof refinements and 36 sources. The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) records dependencies and the accepted fourth independent target-level review, [REV-AutomorphicFormsOnReductiveGroups~4](../reviews/REV-AutomorphicFormsOnReductiveGroups~4.md). That verdict concerns the fourth revision. The fifth revision retains its corrections and refines the coefficient-ring Check in AF.5, as recorded in the [handoff](../handoff/BP-AutomorphicFormsOnReductiveGroups~5.md); it awaits independent review. Acceptance does not close a stage or implement a target.
+All seven stages are planned; none is closed or implemented. The catalogue retains 100 nodes, 311 API items, 214 specified definition/construction Checks and 30 planets. There are 57 checked baseline declarations, 43 supplier requests, 23 explicit construction/source-proof refinements and 36 sources. The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) records the accepted fifth independent target-level review, [REV-AutomorphicFormsOnReductiveGroups~5](../reviews/REV-AutomorphicFormsOnReductiveGroups~5.md). The fifth revision correctly distinguishes field cancellation from injectivity of a scalar difference over a ring; its ℤ/8ℤ Check is valid. This review also records the single-owner redirects for the overlapping AS foundations and synchronizes the BHR consumer of request R7. Acceptance does not close a stage, implement a target or certify the combined supplier graph.
 
 The [Suggested file](../suggested/AutomorphicFormsOnReductiveGroups.lean) follows the current worker shape: only real-bodied light definitions and representative theorem signatures on carriers available at the pins. Full intended mathematical interfaces, including all three conclusions of `AF.4/bhr-large-weight`, remain in this reader when their carriers are not at the pins. No theorem is represented by an admitted data definition, an arbitrary proposition standing for its conclusion, or a numerical weight check.
 
@@ -146,6 +148,8 @@ Let G be a connected reductive group over a number field F, G(𝔸) = G(F_∞) �
 ### Adelic test functions C_c^∞(G(𝔸))
 
 **Construction** `AF.0/adelic-test-functions`. Proposed declaration: `TauCeti.Automorphic.TestFunction`. Module: `TauCeti/Automorphic/Growth`. Realises `AF.0`.
+
+**Ownership boundary.** AF.0 owns the adelic test-function carrier, support/level LF topology and convolution compatibility. AS §0.11 uses that carrier and topology for its nuclearity and distribution-dual enhancement; its general nuclear-space theory is not moved into AF. See [AS §0.11](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
 
 Atlas planet: **Adelic test functions**.
 
@@ -505,7 +509,7 @@ A pair (𝔮, K) consists of a compact Lie group K (not necessarily connected), 
 - [Christoph Wockel, Topological group cohomology of Lie groups and Chern-Weil theory for compact symmetric spaces](https://arxiv.org/abs/1401.1037v1), §3, p. 11. The pair (𝔤, K) with K possibly disconnected.
 - [Frank Calegari, David Geraghty, Minimal modularity lifting for nonregular symplectic representations](https://arxiv.org/abs/1907.08691v1), §2.2, arXiv v1 p. 8 (Duke p. 810). The pair (Lie Q⁻, K^h) for the θ-stable parabolic (K^h_ℂ rendered 'KC h' in the PDF text).
 
-**Native prototype scope.** Native compact Lie inclusion, adjoint action and differentiated covariance; identity-component restriction and the GL₂/O₂ matrix pair retain reflection components. Noncompact K^h is handled through a separate central-balanced Hodge quotient.
+**Intended interface scope.** README interface contract; not a claim of a declaration in Suggested. Native compact Lie inclusion, adjoint action and differentiated covariance; identity-component restriction and the GL₂/O₂ matrix pair retain reflection components. Noncompact K^h is handled through a separate central-balanced Hodge quotient.
 
 **Implementation status:** `unchecked`.
 
@@ -569,7 +573,7 @@ A (𝔮, K)-module is a complex vector space V with a Lie algebra representation
 
 **Atlas planet:** (𝔤, K)-module.
 
-**Native prototype scope.** Native Lie and compact actions with finite smooth orbit spans, differentiated compatibility and covariance; kernels, cokernels, tensors and restricted duals. SL₂ weights are evaluated in the actual two-ray module and O₂ action.
+**Intended interface scope.** README interface contract; not a claim of a declaration in Suggested. Native Lie and compact actions with finite smooth orbit spans, differentiated compatibility and covariance; kernels, cokernels, tensors and restricted duals. SL₂ weights are evaluated in the actual two-ray module and O₂ action.
 
 **Implementation status:** `unchecked`.
 
@@ -1077,6 +1081,8 @@ Let K be a compact Lie group and V a representation of K that is a union of fini
 
 **Definition** `AF.1/admissible-gk-module`. Proposed declaration: `TauCeti.RealReductive.HCModule`. Module: `TauCeti/RepresentationTheory/RealReductive/Basic`. Realises `AF.1`.
 
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
+
 Atlas planet: **Harish-Chandra module**.
 
 Let (G, K) be a real reductive group. A (𝔤, K)-module V is admissible (weakly admissible) if dim Hom_K(σ, V) < ∞ for every σ ∈ K̂. It is Z(𝔤)-finite if an ideal of finite codimension in the centre Z(𝔤) of U(𝔤_ℂ) annihilates it. A Harish-Chandra module is a finitely generated admissible (𝔤, K)-module; equivalently a Z(𝔤)-finite admissible (𝔤, K)-module. Harish-Chandra modules form an abelian category HC closed under subquotients, finite direct sums, tensor products with finite-dimensional (𝔤, K)-modules and the duality V ↦ Ṽ (K-finite vectors of the algebraic dual), with Ṽ̃ = V.
@@ -1221,6 +1227,8 @@ Let (G, K) be a real reductive group. (i) Every irreducible (𝔤, K)-module is 
 
 **Construction** `AF.1/principal-series`. Proposed declaration: `TauCeti.RealReductive.principalSeries`. Module: `TauCeti/RepresentationTheory/RealReductive/Basic`. Realises `AF.1`.
 
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
+
 Fix an Iwasawa decomposition G = NAK and the minimal parabolic P_min = MAN with M = Z_K(A). For a finite-dimensional smooth representation W of P_min (in particular σ ⊗ e^{ν+ρ} ⊗ 1 with σ ∈ M̂, ν ∈ 𝔞_ℂ^*), I^∞(W) is the space of smooth f : G → W with f(pg) = p·f(g), with the Fréchet topology of compact convergence of all derivatives and G acting by right translation R(g)f(x) = f(xg). It is an admissible smooth Fréchet representation of moderate growth; its K-finite vectors I(W) form a Harish-Chandra module, and restriction to K gives I(W) ≅ Ind_{M∩K}^K(W\|) as K-modules (Frobenius reciprocity for K-types).
 
 **Hypotheses.** (G, K) real reductive; Iwasawa decomposition from Tau Ceti LieGroups Layer 9; For SL_2, normalized I(ε,ν) uses f(diag(t,t⁻¹)g)=\|t\|^{ν+1}sgn(t)^ε f(g). Reducibility occurs exactly when ν∈ℤ and ν≡ε+1 mod 2; the contragredient pairing uses the dual inducing coefficient and opposite parameter.
@@ -1295,6 +1303,8 @@ Every Harish-Chandra module V ≠ 0 of a real reductive group (G, K) embeds into
 ### Smooth Fréchet representations of moderate growth
 
 **Definition** `AF.1/sf-representation`. Proposed declaration: `TauCeti.RealReductive.SFRep`. Module: `TauCeti/RepresentationTheory/RealReductive/Globalization`. Realises `AF.1`.
+
+**Ownership boundary.** AF.1 owns the smooth moderate-growth Fréchet/Harish-Chandra equivalence and its specified topology, morphism, exactness and realization comparisons. AS §0.49 consumes that export. The common GL_n globalization foundation is also an AF export to AL; AL retains its L-function-specific applications. See [AS §0.49](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
 
 A Fréchet representation (π, E) of a real reductive group G is a continuous representation on a Fréchet space. It is an F-representation of moderate growth if for each continuous seminorm p there are a continuous seminorm q and N with p(π(g)v) ≤ ‖g‖^N q(v); it is smooth (an SF-representation) if every vector is smooth, E = E^∞, and the Fréchet topology is the one defined by the seminorms v ↦ p(Xv), X ∈ U(𝔤). It is admissible (an SAF-representation) if its K-finite vectors form a Harish-Chandra module. SAF is the category with continuous G-maps; E ↦ E_K is a functor SAF → HC.
 
@@ -1395,6 +1405,8 @@ A norm p on a Harish-Chandra module V is G-continuous if the completion V_p is a
 
 **Theorem** `AF.1/casselman-wallach-globalization`. Proposed declaration: `TauCeti.RealReductive.casselmanWallach`. Module: `TauCeti/RepresentationTheory/RealReductive/Globalization`. Realises `AF.1`.
 
+**Ownership boundary.** AF.1 owns the smooth moderate-growth Fréchet/Harish-Chandra equivalence and its specified topology, morphism, exactness and realization comparisons. AS §0.49 consumes that export. The common GL_n globalization foundation is also an AF export to AL; AL retains its L-function-specific applications. See [AS §0.49](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
+
 Atlas planet: **Casselman–Wallach globalization**.
 
 For a real reductive group G with maximal compact K: (i) any two G-continuous norms on a Harish-Chandra module V are Sobolev-equivalent; (ii) consequently V has a unique SAF-globalization V^∞ (the smooth vectors of V_p for any G-continuous p), and V^∞ = π(S(G))V; (iii) the functor SAF → HC, E ↦ E_K, is an equivalence of categories, with quasi-inverse V ↦ V^∞; (iv) every (𝔤, K)-morphism V → W extends uniquely to a continuous G-map V^∞ → W^∞ with closed range, and V ↦ V^∞ is exact; (v) V is irreducible iff V^∞ is algebraically simple as an S(G)-module.
@@ -1454,6 +1466,8 @@ For a real reductive group G with maximal compact K: (i) any two G-continuous no
 
 **Definition** `AF.1/real-reductive-representation-theory`. Proposed declaration: `TauCeti.RealReductive.IrrAdmissible`. Module: `TauCeti/RepresentationTheory/RealReductive/Langlands`. Realises `AF.1`.
 
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
+
 Parent node grouping the classification material of AF.1: tempered and (essentially) square-integrable representations, discrete series and their limits with Harish-Chandra parameters, the Langlands classification, the Weil groups W_ℝ and W_ℂ and Langlands' correspondence for GL_n(ℝ) and GL_n(ℂ), and Vogan's classification of the generic unitary dual of GL_n over ℝ and ℂ. It is proposed in `restructure` as the sub-layer AF.1b.
 
 **Hypotheses.** (G, K) real reductive (AF.1/real-reductive-group)
@@ -1496,6 +1510,8 @@ Parent node grouping the classification material of AF.1: tempered and (essentia
 ### Tempered, square-integrable and essentially square-integrable representations
 
 **Definition** `AF.1/tempered-square-integrable`. Proposed declaration: `TauCeti.RealReductive.IsTempered`. Module: `TauCeti/RepresentationTheory/RealReductive/Langlands`. Realises `AF.1`.
+
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
 
 A supplied irreducible admissible continuous representation π of a real reductive G (with split centre A_G) is square-integrable modulo the centre (discrete series) if it has a unitary central character and its K-finite matrix coefficients are in L²(G/A_G); essentially square-integrable if some twist by a character of G/[G,G] is; tempered if its K-finite matrix coefficients lie in L^{2+ε}(G/A_G) for all ε > 0; essentially tempered if a twist is tempered.
 
@@ -1547,6 +1563,8 @@ A supplied irreducible admissible continuous representation π of a real reducti
 
 **Theorem** `AF.1/discrete-series`. Proposed declaration: `TauCeti.RealReductive.discreteSeries`. Module: `TauCeti/RepresentationTheory/RealReductive/Langlands`. Realises `AF.1`.
 
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
+
 Atlas planet: **Discrete series**.
 
 Let (G, K) be real reductive with G connected modulo its centre for simplicity of statement (the component group acting on parameters in general). (i) G has square-integrable (modulo centre) representations iff rank(𝔤_ℂ) − dim A_G = rank(𝔨_ℂ), i.e. G/A_G has a compact Cartan, equivalently G has a Cartan compact modulo A_G. (ii) Then, for each λ ∈ i𝔱^* regular with λ − ρ_G integral (λ ∈ X^*(T) + ρ), there is a discrete series π(λ, C) attached to the Weyl chamber C containing λ, with infinitesimal character χ_λ; π(λ, C) ≅ π(λ', C') iff (λ', C') = w(λ, C) for w ∈ W_K = N_K(T)/T, the Weyl group of K; the lowest K-type has highest weight λ + ρ_n − ρ_c (Blattner). (iii) For λ singular but C-dominant (non-degenerate: no simple compact root of C is orthogonal to λ), π(λ, C) is a non-degenerate limit of discrete series, tempered and nonzero. Example: the split classical groups over ℤ with discrete series are SO_{2n+1}, Sp_{2n} and SO_{4n} (and SO_{2n} with n odd has none).
@@ -1578,6 +1596,8 @@ Let (G, K) be real reductive with G connected modulo its centre for simplicity o
 ### Langlands classification
 
 **Theorem** `AF.1/langlands-classification`. Proposed declaration: `TauCeti.RealReductive.langlandsClassification`. Module: `TauCeti/RepresentationTheory/RealReductive/Langlands`. Realises `AF.1`.
+
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
 
 Let (G, K) be real reductive. Every irreducible admissible (𝔤, K)-module is the unique irreducible quotient J(P, σ, ν) (Langlands quotient) of a standard module Ind_P^G(σ ⊗ e^{ν}) with P = MAN a standard parabolic, σ an irreducible tempered representation of M and ν ∈ 𝔞^* in the open positive chamber for P; the triple (P, σ, ν) is unique up to K-conjugacy. Tempered representations are the constituents of Ind_P^G(σ) with σ (limits of) discrete series of M and ν unitary.
 
@@ -1767,6 +1787,8 @@ For F = ℝ or ℂ, every irreducible generic unitary representation of GL_m(F) 
 ### Normalized real parabolic induction
 
 **Construction** `AF.1/normalized-real-parabolic-induction`. Proposed declaration: `TauCeti.RealReductive.normalizedInduction`. Module: `TauCeti/Automorphic/Foundations`. Realises `AF.1`.
+
+**Ownership boundary.** AF.1 owns the general Harish-Chandra, normalized real induction, tempered/discrete-series and Langlands foundation interfaces specified here, using the earlier ALS real-point prefix. AS §0.48 must consume these exports, with its covariance and central-quotient conventions identified, rather than construct a second foundation. See [AS §0.48](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
 
 Let G be real reductive and P=M_PA_PN_P a real parabolic. Given an actual smooth moderate-growth Fréchet realization (σ,V) of M_P and λ∈𝔞_{P,ℂ}^*, define E_{σ,λ}={f∈C^∞(G,V):f(namg)=a^{ρ_P+λ}σ(m)f(g)}, where ρ_P is half the sum of roots in Lie N_P with multiplicities. Give this space the compact-picture C^∞(K,V) subspace topology and the right-translation action. Its K-finite part is normalized algebraic parabolic induction. Construction uses the supplied realization of σ, before claiming a canonical globalization; when σ is irreducible good, Bernstein–Krötz Proposition 9.6 identifies E_{σ,λ} with that globalization. It agrees with minimal principal series for finite-dimensional σ.
 
@@ -2197,6 +2219,8 @@ An automorphic representation of G(𝔸) is an irreducible admissible (𝔤, K_�
 
 **Construction** `AF.2/restricted-tensor-product`. Proposed declaration: `TauCeti.Automorphic.RestrictedTensor`. Module: `TauCeti/Automorphic/AutomorphicForm`. Realises `AF.2`.
 
+**Ownership boundary.** AF.2 owns algebraic restricted tensor factorization over number fields, its local-factor uniqueness and comparison with a specified unitary Hilbert realization. AS §0.50 consumes this export, including the GL_n specialization also used by AL. Function-field extensions remain outside this AF plan. AF retains its finer finite-corner and archimedean distribution/PBW compatibility targets. See [AS §0.50](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
+
 Given vector spaces W_v (v in a countable index set Ξ) and nonzero vectors φ_v^0 ∈ W_v for v ∉ Ξ_0 (Ξ_0 finite), the restricted tensor product ⊗'_v W_v = lim_→S ⊗_{v∈S} W_v (S ⊇ Ξ_0 finite) with transition maps ⊗_{v∈S} w_v ↦ ⊗_{v∈S} w_v ⊗ ⊗_{v∈S'−S} φ_v^0. Similarly for algebras A_v with idempotents a_v^0 (the restricted tensor product algebra), and for modules W_v over A_v with a_v^0φ_v^0 = φ_v^0 for almost all v. The isomorphism class depends on (φ_v^0) only up to scalars at each place.
 
 **Hypotheses.** Ξ countable, Ξ_0 finite; φ_v^0 ≠ 0
@@ -2278,6 +2302,8 @@ Let v be a finite place at which G has a reductive model over O_v and K_v = G(O_
 ### Flath's tensor product theorem
 
 **Theorem** `AF.2/flath-factorization`. Proposed declaration: `TauCeti.Automorphic.flath`. Module: `TauCeti/Automorphic/AutomorphicForm`. Realises `AF.2`.
+
+**Ownership boundary.** AF.2 owns algebraic restricted tensor factorization over number fields, its local-factor uniqueness and comparison with a specified unitary Hilbert realization. AS §0.50 consumes this export, including the GL_n specialization also used by AL. Function-field extensions remain outside this AF plan. AF retains its finer finite-corner and archimedean distribution/PBW compatibility targets. See [AS §0.50](https://github.com/TauCetiProject/TauCetiRoadmap/pull/925) for the overlapping proposed contract; the tier order requires the AF→AS direction.
 
 Atlas planet: **Flath's tensor product theorem**.
 
@@ -4180,7 +4206,7 @@ Let G be connected reductive over a number field F with G(F ⊗ ℝ) compact mod
 
 **Atlas planet:** Algebraic modular forms.
 
-**Native prototype scope.** Gross rational and level-coefficient carriers, continuous p-adic action, full stabilizers and weighted semigroup Hecke support. AA class-set data characterize evaluation/base change; the quaternion ideal-class test and compact-infinity automorphic comparison are stated with their arithmetic suppliers.
+**Intended interface scope.** README interface contract; not a claim of a declaration in Suggested. Gross rational and level-coefficient carriers, continuous p-adic action, full stabilizers and weighted semigroup Hecke support. AA class-set data characterize evaluation/base change; the quaternion ideal-class test and compact-infinity automorphic comparison are stated with their arithmetic suppliers.
 
 **Implementation status:** `unchecked`.
 
@@ -4421,7 +4447,7 @@ Consumers: `AF.4/clozel-rationality`.
 
 **R7.** `AutomorphicSpectralTheory:AS.4`. Import AS §§4.1–4.6: the complete associate-parameter Hilbert transform and its onto orthosum, discrete/cuspidal/residual/continuous subspaces, multiplicity spaces, and Hecke/central-character compatibility for a general connected reductive group over a number field. The AF.4 consumer uses the smooth K-finite, finite-level discrete module A_(2)(G,χ), including residual constituents, with its actual occurrence map. For nonunitary |·|² retain the weighted central norm/unitary-twist transport. AF does not reconstruct the transform, Eisenstein theory, residual spectrum or completeness.
 
-Consumers: `AF.4/coherent-relative-cohomology`.
+Consumers: `AF.4/coherent-relative-cohomology`, `AF.4/bhr-large-weight`.
 
 **R8.** `AutomorphicLFunctionsAndLocalFactors:AL.3`. Genericity (existence of a global Whittaker model) of cuspidal automorphic representations of GL_n, used in Clozel's purity lemma to apply Vogan's generic unitary dual at infinity.
 
@@ -4569,11 +4595,13 @@ Consumers: `AF.5/central-character-algebraic-modular-forms`.
 
 ## Source ledger and reading provenance
 
+The fifth independent review (17 October 2026) freshly read Getz pp.16–19 and 30–38; Bernstein–Krötz arXiv v3 pp.1–3 and 20–23; Wockel arXiv v1 pp.11–14; Harder–Raghuram arXiv v2 pp.17–19; BCGP21 arXiv v3 §3.10 pp.70–73; BCGP25 arXiv v1 §5.7 pp.130–133; Pitale–Schmidt §§2.1–2.4 pp.3–7; and Calegari–Geraghty §§2.0.1–2.0.2 pp.6–9. It also read Flath printed pp.179–182, Borel–Jacquet printed pp.189–197 and Pilloni author pp.107–108 in the cleared copies, in place. The review report states the resulting checks and retains the inherited original-proof limits. Historical provenance below is not a claim of fresh full-source reading by the fifth reviewer.
+
 The fourth independent review (17 October 2026) directly checked BCGP21 §3.10 pp.70,72–73; Pilloni pp.107–108, Theorem 15.2.2.1 and its following specialization; Pitale–Schmidt §§2.1–2.4 pp.3–7; Calegari–Geraghty §§2.0.1–2.0.2 pp.6–9 and §5.3 pp.21–23; Borel–Jacquet §§1.1–1.5 pp.189–191; and Flath pp.179–182. The cleared Corvallis and Pilloni copies were read in place. Other original-source readings and the nineteen source-finding verdicts below remain attributed to their preceding workers. This review checked their use in the contracts, without claiming a fresh audit of every cited original proof.
 
 The revision-3 review (10 October 2026) rechecked the cited target and source-issue passages in these recorded versions. Earlier broad reading ranges below remain provenance from preceding runs; this review does not assert that every original proof or every page in those ranges was read. Borel–Jacquet and Flath were read in the cleared volume in place, and no passages or files were copied.
 
-Citations are mathematical statements in our own words, with theorem, section and page locators. This ledger records source versions and the portions used for these targets; it is not a section-by-section digest. Historical readSections entries belong to the preceding plan or independent reviews and are retained as that provenance. revisionReadSections and the three new source entries identify readings in this run. Knapp, Casselman, Buzzard–Gee, Harris and the published Goldring–Koskivirta correction are retained independent-review readings rather than fresh readings claimed by this worker.
+Citations are mathematical statements in our own words, with theorem, section and page locators. This ledger records source versions and the portions used for these targets; it is not a section-by-section digest. Historical readSections entries belong to the preceding plan or independent reviews and are retained as that provenance. Historical revisionReadSections and the three source entries added by preceding workers identify their readings; the fifth review’s fresh readings are listed above. Knapp, Casselman, Buzzard–Gee, Harris and the published Goldring–Koskivirta correction are retained independent-review readings rather than fresh readings claimed by this worker.
 
 **getz-hahn.** Jayce R. Getz, [An introduction to automorphic representations (course notes)](https://sites.math.duke.edu/~jgetz/aut_reps.pdf). Lecture notes, version of 13 March 2015 (89 pp.), author-hosted PDF.
 
@@ -5063,6 +5091,6 @@ Keep RS-04's direction AA.3 → AF.1: AA.3 proves the comparison ‖g‖_ι' ≤
 
 Export an early AF.4:local-weights prefix with algebraic-weight, coefficient-lattices, cohomological-representation, wigner-lemma and vogan-zuckerman. Its current fine-node inputs are AF.1/AF.1a, AA.1 integral models and the existing highest-weight/root suppliers; it imports no ALS or AS.5 result. Keep torsion-hecke-eigenclasses after ALS.1/ALS.3, and clozel-rationality after the actual ALS.5 comparison and AS.5 inputs, retaining its GL_n and explicitly conditional general-group scopes. ALS.5 and AS.5 comparison proofs may use the local prefix, never this rationality suffix. Coordinate with the existing ALS.5 comparison versus automorphic-applications split; preserve node ids until maintainer integration.
 
-The target catalogue has completed its fourth independent review. All three BHR theorem contracts are specified, with original-proof refinements retained. Closure work constructs the specified supplier exports, proves the analytic/classification/arithmetic comparisons and integrates the recorded prefix splits before asserting combined stage-graph acyclicity. All seven stages retain these exact planned obligations.
+The target catalogue has completed its fifth independent review. All three BHR theorem contracts are specified, with original-proof refinements retained. Closure work constructs the specified supplier exports, proves the analytic/classification/arithmetic comparisons and integrates the recorded prefix splits before asserting combined stage-graph acyclicity. All seven stages retain these exact planned obligations.
 
 Current upstream component-finiteness input: RealAlgebraicGeometry Layer 6 provides finite connected-cell CAD over ℝ. AF’s real-points node imports it and supplies only the algebraic-group embedding/manifold compatibility. This is a roadmap input, not a declaration asserted to exist at the pin.
