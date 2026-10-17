@@ -899,19 +899,21 @@
       ],
       "title": "Hecke and diamond equivariance of Ch_{M,N}(k,r,r') (Kato Lemma 8.8)",
       "kind": "lemma",
-      "statement": "The homomorphism Ch_{M,N}(k,r,r') satisfies (1) T'(n) o Ch_{M,N}(k,r,r') = n^{r-1} * Ch_{M,N}(k,r,r') o T'(n) for every integer n prime to M*p, and (2) <a,b>^* o Ch_{M,N}(k,r,r') = a^{r'-1} * b^{k-r'-1} * (a*b)^{-r} * Ch_{M,N}(k,r,r') o <a,b>^* for all integers a, b with (a,M*p) = 1 and (b,N*p) = 1. These scalars are exactly the ones produced by the moment monomial and the Tate twist in the construction.",
+      "statement": "The homomorphism Ch_{M,N}(k,r,r') satisfies (1) T'(n) o Ch_{M,N}(k,r,r') = n^{r'-1} * Ch_{M,N}(k,r,r') o T'(n) for every integer n prime to M*p, and (2) <a,b>^* o Ch_{M,N}(k,r,r') = a^{r'-1} * b^{k-r'-1} * (a*b)^{-r} * Ch_{M,N}(k,r,r') o <a,b>^* for all integers a, b with (a,M*p) = 1 and (b,N*p) = 1. These scalars are exactly the ones produced by the moment monomial and the Tate twist in the construction.",
       "hypotheses": [
         "n prime to M*p in (1); a prime to M*p and b prime to N*p in (2)",
         "the operators on the two sides are the dual Hecke and diamond operators acting on K_2 (source) and on the Galois cohomology of the modular local system (target); the lemma is an intertwining relation with explicit scalars, not a commutation"
       ],
       "proofSteps": [
         "The scalars arise from the transformation of the moment monomial e_1^{(r'-1)} tensor e_2^{(k-r'-1)} tensor zeta^{(-r)} under the diamond action on the p^n-torsion basis and under the twisting of the root of unity: e_1 -> a*e_1, e_2 -> b*e_2, zeta -> zeta^{a*b}.",
-        "Kato records the lemma as proved easily from the definition of Ch in 8.4."
+        "Kato records the lemma as proved easily from the definition of Ch in 8.4.",
+        "Transport the K₂ norm operator using Lemma 8.8 without redefining T′. The inverse Hecke transport contributes n^(1−r′), and the first-diamond transport contributes n^(r′−1−r), so their product is n^(−r). The central-diamond scalar n^(k−2−2r), together with the degree-n transfer term, gives n^(k−1−2r)."
       ],
       "acceptance": [
-        "For a=b=n the diamond intertwining scalar is n^(k−2−2r); the T′(n) scalar is n^(r−1). These are distinct operators and their scalars must not be identified.",
+        "For a=b=n the diamond intertwining scalar is n^(k−2−2r); the T′(n) scalar is n^(r′−1). These are distinct operators and their scalars must not be identified.",
         "At r′=k−1 the monomial contributes a^(k−2), while the determinant twist still contributes (ab)^(−r). The b monomial exponent is zero, but the total b dependence is not removed.",
-        "Check that this lemma, together with Props. 2.3 and 2.4, is exactly what yields the p-adic norm relations of Prop. 8.7, so that no additional geometric input enters at that point."
+        "Check that this lemma, together with Props. 2.3 and 2.4, is exactly what yields the p-adic norm relations of Prop. 8.7, so that no additional geometric input enters at that point.",
+        "At r=1, r′=2, n=2 the linear transport scalar is 2^(1−2)·2^(2−1−1)=1/2. Substituting r for r′ in the Hecke exponent would give 1, so this check detects the remaining normalization error."
       ],
       "prerequisites": [
         "KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system",
@@ -927,7 +929,36 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanName": "chernHeckeDiamond"
+      "leanName": "chernHeckeDiamond",
+      "api": [
+        {
+          "name": "momentHeckeScalar",
+          "role": "definition",
+          "statement": "The scalar in Lemma 8.8(1) is n^(r′−1), with r′ the moment index, independently of the Tate-twist index r."
+        },
+        {
+          "name": "momentDiamondScalar",
+          "role": "definition",
+          "statement": "The scalar in Lemma 8.8(2) is a^(r′−1)b^(k−r′−1)(ab)^(−r)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "moment_hecke_index",
+          "kind": "computation",
+          "statement": "For n=2,r′=2 the Hecke scalar is 2. At r=1 its inverse times the first-diamond transport is 1/2; replacing r′ by r gives 1 and fails."
+        },
+        {
+          "name": "moment_linear_transport",
+          "kind": "compatibility",
+          "statement": "For any nonzero n in a field of characteristic zero, n^(1−r′) n^(r′−1−r)=n^(−r), independently of the admissible moment index r′."
+        },
+        {
+          "name": "moment_central_transport",
+          "kind": "compatibility",
+          "statement": "For nonzero n, the degree times the central-diamond scalar n·momentDiamondScalar(n,n,k,r,r′) is n^(k−1−2r), not n^(k−2−2r)."
+        }
+      ]
     },
     {
       "id": "KatoEulerSystems:L2/integrality-of-the-cyclotomic-limit-in-S-integral-cohomology",

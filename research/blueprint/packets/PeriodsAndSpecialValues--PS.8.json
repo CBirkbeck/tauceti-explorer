@@ -2630,17 +2630,21 @@
       "hypotheses": [],
       "proofSteps": [
         "Apply the actual Q-linear algebra map per to the motivic basis expansion. A surjective image map preserves spanning and yields only an upper dimension bound.",
-        "Use the equality with the mixed-Tate comodule algebra and invert the Tate period for arbitrary twists. Import PS.2’s P_eff[L⁻¹], evaluation of L⁻¹=(2πi)⁻¹, and its tensor-comparison interface."
+        "Use the equality with the mixed-Tate comodule algebra and invert the Tate period for arbitrary twists. Import PS.2’s P_eff[L⁻¹], evaluation of L⁻¹=(2πi)⁻¹, and its tensor-comparison interface.",
+        "Require the PS.2 evaluation to factor through the MC.6 fullEquiv identification with the comparison algebra of the extended full Nori fibres, and to represent the same fibreComparison complex point. An equivalence only to an abstract Localization.Away of the effective comparison algebra is insufficient. Restrict this supplier to the mixed-Tate objects used here; Brown’s nonnegative-weight H and its unipotent coaction are not replaced by the entire localized Nori period algebra."
       ],
       "acceptance": [
         "Weight five is spanned numerically by ζ(2,3),ζ(3,2), without an assertion that they are numerically independent.",
-        "Tate inverse evaluation uses PS.2 localization rather than an effective-period algebra missing the inverse."
+        "Tate inverse evaluation uses PS.2 localization rather than an effective-period algebra missing the inverse.",
+        "The inverse Tate object evaluates to (2πi)^(-1) through the same full comparison point. Brown’s H still has its nonnegative grading, nonzero ζ^m(2), and coaction into A tensor H; this import neither inverts ζ^m(2) inside H nor assumes period injectivity."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.9/hoffman-motivic-basis",
         "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
         "PeriodsAndSpecialValues:PS.2",
-        "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor"
+        "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+        "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+        "MotivesAndAlgebraicCycles:MC.6/period-point"
       ],
       "sources": [
         {

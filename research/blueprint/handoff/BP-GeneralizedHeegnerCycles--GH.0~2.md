@@ -84,3 +84,8 @@ These 18 requests remain external exports. None is a claimed implementation. The
 - **ArithmeticGaloisDuality:R02.1**: For continuous finite-dimensional Q_p representations of G_F, identify extension classes 0→V→E→Q_p→0 with continuous H¹(F,V) by g↦g·lift(1)−lift(1), independently of lift, functorially under restriction and coefficient maps. Apply to the rational Gysin pullback for AJ_et. The R02.2 compact five-term sequence is not this theorem.
 
 The complete gap details and prerequisite graph are in [the packet](../packets/GeneralizedHeegnerCycles--GH.0.json) and [the reader](../readmes/GeneralizedHeegnerCycles--GH.0.md). The preserved [independent review](../reviews/REV-GeneralizedHeegnerCycles--GH.0.md) identifies the original five rejection reasons.
+
+
+## FIX-RT-AREA-iwasawa-3~4 follow-through (17 October 2026)
+
+The GH.1 p-adic Abel–Jacobi hypothesis now separates finite unramified F/ℚ_p, supplied smooth proper models of C and X_m over O_F, and the selected conductor-c condition p∤cNd_K (BDP §3.2, pp.1067–1068). Both positive product-model and negative arbitrary-twist checks are carried to the consumer. The linear Lean adapter omits the geometric owner types and is labelled accordingly. The existing independent review is preserved; the round-4 fixes await independent review.

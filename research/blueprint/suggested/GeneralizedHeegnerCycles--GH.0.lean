@@ -702,6 +702,11 @@ Under BDP §3’s finite unramified F/Q_p and supplied smooth proper models, AJ_
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
 
+/-- BDP §3.2, pp.1067–1068: the geometric input must include finite unramified
+F/ℚ_p and smooth proper C and X_m models over O_F. The selected CM application
+uses p∤cNd_K; it does not replace the two factor-model inputs for arbitrary twists.
+The linear prototype below omits these owner types; it proves only composition
+once the genuine cycle map and logarithm are supplied. -/
 noncomputable def ajP (a : Chow →ₗ[ℚ] Coh) (log : Coh →ₗ[ℚ] DualQ) : Chow →ₗ[ℚ] DualQ := log.comp a
 
 /-- AJ_p is the crystalline/Bloch–Kato logarithm of AJ_et under the stated quotient and duality identification. -/

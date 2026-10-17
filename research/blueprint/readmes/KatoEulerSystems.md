@@ -554,7 +554,7 @@ Source correspondence:
 
 Node `KatoEulerSystems:L1/hecke-and-diamond-equivariance-of-the-moment-map`; lemma; proposed declaration `chernHeckeDiamond`. Implementation status: **unchecked**.
 
-The homomorphism Ch_{M,N}(k,r,r') satisfies (1) T'(n) o Ch_{M,N}(k,r,r') = n^{r-1} * Ch_{M,N}(k,r,r') o T'(n) for every integer n prime to M*p, and (2) <a,b>^* o Ch_{M,N}(k,r,r') = a^{r'-1} * b^{k-r'-1} * (a*b)^{-r} * Ch_{M,N}(k,r,r') o <a,b>^* for all integers a, b with (a,M*p) = 1 and (b,N*p) = 1. These scalars are exactly the ones produced by the moment monomial and the Tate twist in the construction.
+The homomorphism Ch_{M,N}(k,r,r') satisfies (1) T'(n) o Ch_{M,N}(k,r,r') = n^{r'-1} * Ch_{M,N}(k,r,r') o T'(n) for every integer n prime to M*p, and (2) <a,b>^* o Ch_{M,N}(k,r,r') = a^{r'-1} * b^{k-r'-1} * (a*b)^{-r} * Ch_{M,N}(k,r,r') o <a,b>^* for all integers a, b with (a,M*p) = 1 and (b,N*p) = 1. These scalars are exactly the ones produced by the moment monomial and the Tate twist in the construction.
 
 Hypotheses and domain:
 
@@ -565,14 +565,27 @@ Construction or proof outline:
 
 1. The scalars arise from the transformation of the moment monomial e_1^{(r'-1)} tensor e_2^{(k-r'-1)} tensor zeta^{(-r)} under the diamond action on the p^n-torsion basis and under the twisting of the root of unity: e_1 -> a*e_1, e_2 -> b*e_2, zeta -> zeta^{a*b}.
 2. Kato records the lemma as proved easily from the definition of Ch in 8.4.
+3. Transport the K₂ norm operator using Lemma 8.8 without redefining T′. The inverse Hecke transport contributes n^(1−r′), and the first-diamond transport contributes n^(r′−1−r), so their product is n^(−r). The central-diamond scalar n^(k−2−2r), together with the degree-n transfer term, gives n^(k−1−2r).
 
 Direct prerequisites: `KatoEulerSystems:L1/etale-chern-moment-map-into-modular-local-system`, `ModularCurvesPartII:R14.1/diamond-operators`, `ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`, `ModularCurvesPartII:R14.1`.
 
+The source normalization is exposed by these light definitions:
+
+- `momentHeckeScalar` (definition): The scalar in Lemma 8.8(1) is n^(r′−1), with r′ the moment index, independently of the Tate-twist index r.
+- `momentDiamondScalar` (definition): The scalar in Lemma 8.8(2) is a^(r′−1)b^(k−r′−1)(ab)^(−r).
+
+Unit tests:
+
+- `moment_hecke_index` (computation): For n=2,r′=2 the Hecke scalar is 2. At r=1 its inverse times the first-diamond transport is 1/2; replacing r′ by r gives 1 and fails.
+- `moment_linear_transport` (compatibility): For any nonzero n in a field of characteristic zero, n^(1−r′) n^(r′−1−r)=n^(−r), independently of the admissible moment index r′.
+- `moment_central_transport` (compatibility): For nonzero n, the degree times the central-diamond scalar n·momentDiamondScalar(n,n,k,r,r′) is n^(k−1−2r), not n^(k−2−2r).
+
 Acceptance checks:
 
-- For a=b=n the diamond intertwining scalar is n^(k−2−2r); the T′(n) scalar is n^(r−1). These are distinct operators and their scalars must not be identified.
+- For a=b=n the diamond intertwining scalar is n^(k−2−2r); the T′(n) scalar is n^(r′−1). These are distinct operators and their scalars must not be identified.
 - At r′=k−1 the monomial contributes a^(k−2), while the determinant twist still contributes (ab)^(−r). The b monomial exponent is zero, but the total b dependence is not removed.
 - Check that this lemma, together with Props. 2.3 and 2.4, is exactly what yields the p-adic norm relations of Prop. 8.7, so that no additional geometric input enters at that point.
+- At r=1, r′=2, n=2 the linear transport scalar is 2^(1−2)·2^(2−1−1)=1/2. Substituting r for r′ in the Hecke exponent would give 1, so this check detects the remaining normalization error.
 
 Source correspondence:
 
@@ -2295,3 +2308,8 @@ PAPER-BURUNGALE-TIAN-26 route 7 needs an early all-prime elliptic-unit stage bef
 REV-KatoEulerSystems~2 synchronizes all forty nodes, sixty API items, forty-one construction tests, fourteen gaps, thirty-one requests and twelve source findings into the reader. Its current independent review replaces the historical packet verdict; the earlier report remains unchanged. The added R19.3 and R07 L3 requests retain supplier ownership and make no implementation claim.
 
 The independent review accepts this complete target-level planning pass. All five stages remain planned and all implementations unchecked. Proof closure and supplier export work resumes at the fourteen gaps above.
+
+
+## Round-4 Hecke normalization
+
+Kato Lemma 8.8(1), printed p.185, uses the moment index r′: T′(n)∘Ch=n^(r′−1) Ch∘T′(n). The diamond scalar is a^(r′−1)b^(k−r′−1)(ab)^(−r). The inverse Hecke transport contributes n^(1−r′); multiplying by the first-diamond transport n^(r′−1−r) gives n^(−r). The central diamond and degree term give n^(k−1−2r). At r=1,r′=2,n=2 the linear scalar is 1/2; the earlier exponent r−1 incorrectly gives 1. The definitions `momentHeckeScalar`, `momentDiamondScalar` and the explicit `chernHeckeDiamond` signature pin these source scalars. Their Lean regression tests compute this discriminating case and the central exponent, while the existing norm and reciprocity tests cover all divisibility cases.

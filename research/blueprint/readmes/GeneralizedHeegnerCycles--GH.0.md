@@ -772,7 +772,8 @@ Atlas planet: p-adic Abel–Jacobi map.
 
 Hypotheses and conventions:
 
-- F unramified over ℚ_p with good reduction of C and X_m (p ∤ cNd_K). The comparison and Nekovář's theorem are imported from PadicHodgeTheory R06.5.
+- For the BDP §3.2 comparison, F/ℚ_p is finite unramified and C and X_m have specified smooth proper models over O_F. These are separate local hypotheses, imported with crystalline comparison and Nekovář’s containment theorem from PadicHodgeTheory R06.5.
+- In BDP’s selected conductor-c CM application, p∤cNd_K permits the stated choice of F and good models; the numerical condition is not a good-reduction certificate for an arbitrary CM twist. GH.0/cm-product-good-model supplies the product only after the W_m and A factors have their own models over the same O_F.
 - H = ε_X H^{2m+1}_dR(m + 1) has weight −1 < 0, as Proposition 3.5 requires.
 - Negative weight gives D_cris(V)^{φ=1}=0. Consequently H¹_e(F,V)=H¹_f(F,V), so the L1 logarithm, whose supplied domain is H¹_e, applies to the geometric finite class.
 
@@ -805,6 +806,8 @@ Unit tests:
 Acceptance checks:
 
 - r = 0: AJ_F(P − ∞)(ω_f) = ∫_∞^P ω_f, the Coleman integral, which BDP §3.6 recovers.
+- Reject the inference from p∤N alone: y²=x³−25x at p=5 is a bad CM twist even when N=7; it does not satisfy the supplied-model hypothesis of this Abel–Jacobi comparison.
+- For y²=x³−x at p=5 and level N=13, use its unit discriminant 64 and the supplied W_m model to form X_m over a common finite unramified O_F; pass those same model data to the GH.1 comparison.
 
 Prerequisites:
 
@@ -819,7 +822,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.2, p. 1067: Hypotheses on F.
+- [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.2, pp.1067–1068; introduction, p.1040: Finite unramified F and the smooth proper C and X_m models are assumed independently; the following selected CM application imposes p∤cNd_K.
 - [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.2, Theorem 3.3, p. 1068: Faltings' crystalline comparison.
 - [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.4, p. 1069: AJ^et lands in H¹_f = Ext_cris.
 - [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.4, p. 1070: Definition of AJ_F.

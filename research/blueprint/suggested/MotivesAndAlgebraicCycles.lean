@@ -8394,6 +8394,10 @@ structure PairDiagram.ProductCompatible (P : (good Hs).ProductStructure (goodGra
     (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P) : Prop where
   /-- The product of good pairs is the product of pairs. -/
   mul_eq : ∀ f g, P.mul f g = goodMul Hs f g
+  /-- The geometric unit, needed when extending to a neutral tensor context. -/
+  unit_eq : P.unit = ⟨ptVertex, ptVertex_good Hs⟩
+  unital₁ : M₁.Unital
+  unital₂ : M₂.Unital
   /-- The inverse de Rham Künneth map with the MC.5 degree sign. -/
   wedge : ∀ f g (ω : (deRhamGood Hs dR).obj f) (ω' : (deRhamGood Hs dR).obj g),
     ((M₁.τ f g).inv ≫ eqToHom (congrArg (deRhamGood Hs dR).obj (mul_eq f g))).hom.hom
@@ -8651,6 +8655,15 @@ example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
     AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂ ctx).op (periodPoint Hs dR P M₁ M₂ φ hM)
       (periodPoint Hs dR P M₁ M₂ φ hM) (periodPoint Hs dR P M₁ M₂ φ hM) =
         periodPoint Hs dR P M₁ M₂ φ hM := sorry
+
+/-! The full localized comparison adapter is a README target: see the section
+“Full Nori comparison adapter” in the matching reader. Its carriers (full Nori
+fibre functors, comparison algebra and torsor) are planned here, not present at
+the library pins. In accordance with WORKERS.md's current shape rule, the
+adapter's coefficient maps, localization, fibre comparison and full actions
+are specified there rather than introduced as further sorry-defined data.
+The effective `periodPoint_heap` and `periodPoint_action` above remain
+conditional helpers; they do not assert rigidity of effective Nori motives. -/
 
 end MC6
 section MC7
