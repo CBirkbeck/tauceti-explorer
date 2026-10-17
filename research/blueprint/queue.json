@@ -42065,8 +42065,8 @@
    ],
    "revisionOf": "BP-PrismaticCohomology",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #10119"
+   "state": "external",
+   "note": "claimed on GitHub issue #10119"
   },
   {
    "priority": 2,
@@ -47359,7 +47359,8 @@
     "PKG-AnalyticNumberTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AnalyticNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10116"
   },
   {
    "id": "PKG-ArakelovGeometryAndAbelianHeights",
@@ -47710,8 +47711,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticStatistics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10115"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10115",
+   "finishedAt": "2026-10-17T10:20:14Z"
   },
   {
    "id": "REV-PKG-ArithmeticStatistics",
@@ -131019,9 +131021,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-DirichletPadicLFunctions~codex.md",
-   "note": "claimed on GitHub issue #10109"
+   "note": "deliverables arrived from an external worker on issue #10109",
+   "finishedAt": "2026-10-17T10:20:18Z"
   },
   {
    "id": "BP-AutomorphicFormsOnReductiveGroups~4",
@@ -131140,7 +131143,8 @@
     "BP-ShimuraData~3",
     "BP-ShimuraData~4"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10113"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.4~4",
@@ -131193,7 +131197,9 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~3",
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~4"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10111",
+   "finishedAt": "2026-10-17T10:20:21Z"
   },
   {
    "id": "BP-GL2ModularityLifting--R22.1~2",
@@ -131309,7 +131315,7 @@
     "research/blueprint/handoff/BP-AutomorphicFormsOnReductiveGroups~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups~5.md",
    "scope": [
     "AutomorphicFormsOnReductiveGroups:AF.0",
@@ -131323,7 +131329,9 @@
    "after": [
     "REV-AutomorphicFormsOnReductiveGroups~4"
    ],
-   "revisionOf": "BP-AutomorphicFormsOnReductiveGroups"
+   "revisionOf": "BP-AutomorphicFormsOnReductiveGroups",
+   "note": "deliverables arrived from an external worker on issue #10124",
+   "finishedAt": "2026-10-17T10:20:24Z"
   },
   {
    "id": "REV-AutomorphicFormsOnReductiveGroups~5",
