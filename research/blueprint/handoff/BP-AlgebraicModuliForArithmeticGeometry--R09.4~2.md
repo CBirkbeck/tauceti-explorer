@@ -1,3 +1,64 @@
+# Blocked checkpoint: codex-Dd9dyq, issue #9301
+
+**Codex, session codex-Dd9dyq, 16 October 2026. Revision unfinished.**
+This continuation changes only the handoff. It preserves the previous checkpoint
+below as the detailed mathematical resume record.
+
+The first eligible available issue in the manager's ordered list was #9301.
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6226525870)
+in response to [claim 6226524321](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6226524321).
+No second issue was claimed. The preceding checkpoint was merged in
+[#10093](https://github.com/CBirkbeck/tauceti-explorer/pull/10093).
+
+## Current blocker and disposition needed
+
+Re-fetched the [maintainer's stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9301#issuecomment-6146996689)
+and read the complete issue discussion. Its text and update date are unchanged;
+no subsequent comment authorizes further atlas blueprint rounds. Changes belong
+to the authoritative upstream roadmap PR. The available label and automatic
+checkpoint releases have not resolved this conflict.
+
+Re-fetched all six README/Suggested artifacts at the three immutable upstream
+heads recorded below. All three PRs remain open at those same heads; all six
+SHA-256 digests match the preceding checkpoint. Read their introductions and
+ownership boundaries. The general roadmap excludes the historical arithmetic
+applications; ModularCurvesPartII imports the generalized elliptic carrier from
+AdicSpacesPartIII and owns the integral stack applications; the abelian-scheme
+roadmap owns relative abelian theory but excludes polarized moduli stacks.
+Thus PROTOCOL section 15's single-owner rule also prevents simply continuing
+the historical assignment. The issue permits no edits to those upstream owners.
+
+**Resume only after the maintainer retires or rescopes this assignment, or
+explicitly authorizes historical corrections with ownership reconciled.**
+The queue disposition is the external blocker. Another checkpoint merge does
+not supply it. The eight mathematical correction targets and both confirmed
+red-team findings remain in the preserved worklist below.
+
+## This continuation's verification boundary
+
+Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the independent review,
+prior handoff and the reviewed R09.4 library audit. Read the read-only main
+ModularCurves and StableReduction introductions and scope/conventions, and
+the current Tau Ceti AbelianVariety carrier. Local main commits remain
+`0d144d044dacebca17b654695b6f1ad58f159b27` (roadmaps) and
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` (Tau Ceti).
+No library was built or modified. These readings check ownership, not the
+historical source proofs or pinned baseline declarations.
+
+The unchanged packet has 33 nodes: 10 constructions, 3 definitions and 20
+theorems; 68 API items, 43 tests, 1 planet, 12 baseline declarations, 14 gaps
+and 21 requests. Packet and R09.4 coverage remain **partial**; the independent
+review remains **needs_changes**. No mathematical correction is claimed.
+
+`python3 scripts/check_blueprint.py research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.4.json`
+reports **0 errors, 0 warnings**. The deliverable-only diff and `git diff --check`
+pass. **Lean was not compiled:** its file is unchanged and the maintainer's
+instruction stops mathematical revision. No new primary mathematical source
+was certified and no private reference was used. No scratch artifact is needed
+after submission.
+
+---
+
 # Blocked checkpoint: BP-AlgebraicModuliForArithmeticGeometry--R09.4~2
 
 **Codex, session codex-fqSsUp, 16 October 2026.** Issue
