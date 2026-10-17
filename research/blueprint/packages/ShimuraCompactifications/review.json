@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-PKG-ShimuraCompactifications",
-    "date": "2026-10-16",
-    "notes": "Accepted after corrections to completion/localization, cone stabilizers, boundary positivity, descent, inverse limits, projectivity, Hodge ranks and signs, and source locators. All 155 targets were checked against the accepted plan and adversarial instances; every author-unverified source and a reproducible fifteen-target source sample were inspected or replaced. Current-roadmap and current-library duplication and supplier contracts were checked. Suggested.lean compiled at the pins with exit 0 and 36 sorry warnings only. Full findings and validation are in REV-PKG-ShimuraCompactifications.md."
+    "reviewer": "fix-FIX-PKG-ShimuraCompactifications~adv",
+    "date": "2026-10-17",
+    "notes": "Resolved the manager's 2026-10-17 ordering finding: ShimuraCompactifications precedes AutomorphicBundles. Removed B3.5 from the C3.9 proof and Layer C3 Dependencies, and B3.10 from the C5.21 proof; recorded those applications only as downstream uses. Replaced the joint-development wording in Downstream consumers with the explicit one-way construction order and scoped B3.10 to its good-prime PEL coefficients. All remaining AutomorphicBundles mentions describe consumers or ownership boundaries; no supplier, Needs clause or proof relies on it. The required generic refinement comparison, semi-abelian Hodge bundle, scalar Fourier-Jacobi expansion and formally canonical condition are already owned by C3.5-C3.9, C4.1, C5.15 and C5.21, so no replacement supplier or new target is necessary. Preserved the prior accepted review's mathematical corrections, all 155 targets, every Check block and all Lean signatures. Suggested.lean is unchanged and lean-check exited 0 with 36 declaration-uses-sorry warnings only. The existing packet checker reported 0 errors and 0 warnings; intake check-files reported 0 problems. The handoff records the finding dispositions and adversarial pass on the touched statements."
   }
 }
