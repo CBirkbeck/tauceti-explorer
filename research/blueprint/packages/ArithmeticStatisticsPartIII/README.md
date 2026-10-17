@@ -58,7 +58,7 @@ From InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.2 require finite embe
 
 From EtaleDualityAndPerverseSheaves:EDC.2 and DeligneWeightsAndPurity:DWP.7 require compactly supported cohomology, the trace formula, Poincaré duality, weights and the uniform Betti-bound hypotheses stated below. DeligneWeightsAndPurity §1.6 supplies `#C(F_(q^m))=q^m+1-Σ_i α_i^m` and `|#C(F_(q^m))-(q^m+1)|≤2gq^(m/2)` for a smooth proper geometrically connected curve. Its §1.4–1.5 supplies the weight-one abelian Frobenius roots and `#A(F_(q^m))=det(1-π^m)`. Arithmetic Frobenius on the Tate module and geometric Frobenius on cohomology are not interchanged.
 
-From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheory/README.md#cubic-action-discriminant) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheory/README.md#cubic-coefficient-finiteness) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheory/README.md#cubic-uniform-field-count) (§5.7), [cubic continuation and residues](../AnalyticNumberTheory/README.md#the-two-cubic-poles-and-their-residues-cubic-residues-and-entire-clearance) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheory/README.md#pole-aware-cubic-convexity-bound-cubic-pole-cleared-convexity) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheory/README.md#quadratic-large-sieve) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
+From AnalyticNumberTheory require the [binary-cubic action and discriminant](../AnalyticNumberTheoryPartII/README.md#s5-4) (§5.4), [projective cubic-algebra equivalence](../AnalyticNumberTheoryPartII/README.md#s5-5) (§5.5), [finite weighted cubic coefficients](../AnalyticNumberTheoryPartII/README.md#s5-6) (§5.6), [uniform small-degree field bound](../AnalyticNumberTheoryPartII/README.md#s5-7) (§5.7), [cubic continuation and residues](../AnalyticNumberTheoryPartII/README.md#s5-21) (§5.21), [pole-aware cubic convexity](../AnalyticNumberTheoryPartII/README.md#s5-28) (§5.28), and [quadratic large sieve and real-character moment](../AnalyticNumberTheoryPartII/README.md#s5-29) (§5.29). The projective equivalence includes nonprincipal rank-two modules, stabilizers and determinant-line discriminants; restricting to the free coefficient lattice does not discard those general inputs. The cubic descriptions below are import and compatibility contracts for those objects, with the displayed basis/sign adapters, rather than a second construction of them. The source-specific local selectors, sieve estimates and statistical applications remain the targets here. AnalyticNumberTheory's analytic layers also supply the Dirichlet-series continuation, Perron/partial-summation, Tauberian and convergent-product statements used below, with their pole order, convergence domain and coefficient hypotheses. AnalyticNumberTheory supplies every part and takes no input from any part. DiophantineApproximationAndTranscendence:DT.4 supplies the uniform degree-three Thue bound used in the embedding fibre estimate; its numerical constant is retained in that application. Its §2.4 finite-rank unit-equation bound is also the supplier for the invariant-order fibre theorem; only the order/cross-ratio statistical application is new here.
 
 ### From earlier arithmetic-statistics parts
 
@@ -420,7 +420,7 @@ For the proof, Compute invariants: for x^3y − (1/3)xy^3 − (J/27)y^4, I = −
 
 *Needs:* [real root types of binary quartic forms](#real-root-types-of-binary-quartic-forms), [real orbits of binary quartic forms with fixed invariants](#real-orbits-of-binary-quartic-forms-with-fixed-invariants), [invariants height and eligible pairs](../ArithmeticStatisticsPartI/README.md#invariants-height-and-eligible-pairs).
 
-([[1]](#ref-1), Section 2.1, Table 1, printed p. 8 (checked on the page image); [[1]](#ref-1), Section 2.1, after Table 1, printed p. 8; [[1]](#ref-1), Section 2.4, printed p. 13.)
+([[1]](#ref-1), Section 2.1, Table 1, printed p. 8; [[1]](#ref-1), Section 2.1, after Table 1, printed p. 8; [[1]](#ref-1), Section 2.4, printed p. 13.)
 
 **Checks.**
 
@@ -466,7 +466,7 @@ For the proof, Iwasawa: Gram-Schmidt on the rows of g gives g = (lower unitriang
 
 *Needs:* `ModularGroup.fd` (Mathlib), `ModularGroup.fdo` (Mathlib), `ModularGroup.exists_smul_mem_fd` (Mathlib), `ModularGroup.eq_smul_self_of_mem_fdo_mem_fdo` (Mathlib), `ModularGroup.isFundamentalDomain_fdo` (Tau Ceti), `MeasureTheory.IsFundamentalDomain` (Mathlib), `Matrix.GeneralLinearGroup` (Mathlib).
 
-([[1]](#ref-1), Section 2.1, (7), printed p. 8 (checked on the page image); [[1]](#ref-1), Section 2.3, the Haar measure after (10), printed pp. 10-11; [[5]](#ref-5), Section 5.1, (15), p. 10.)
+([[1]](#ref-1), Section 2.1, (7), printed p. 8; [[1]](#ref-1), Section 2.3, the Haar measure after (10), printed pp. 10-11; [[5]](#ref-5), Section 5.1, (15), p. 10.)
 
 **Checks.**
 
@@ -536,7 +536,7 @@ For the proof, For fixed x choose the unique point x_L of L^(i) in its real orbi
 
 **Checks.**
 
-- For x=x⁴+y⁴, m(x)=1. If h sends the chosen L^(2+) representative to x, both g=1 and g=k(pi/2) lie in F and fix x, so the point has multiplicity at least two for this exceptional h. This refutes the former assertion for every h and tests the boundary qualification.
+- For x=x⁴+y⁴, m(x)=1. If h sends the chosen L^(2+) representative to x, both g=1 and g=k(pi/2) lie in F and fix x, so the point has multiplicity at least two for this exceptional h. Thus a multiplicity assertion for every h fails, testing the boundary qualification.
 
 - For x=x³y−xy³, the integral stabilizer contains the quarter-turn and has order at least four, so m(x)≤2<n_0. The ratio, rather than a pointwise boundary count, is what controls the averaged formula.
 
@@ -546,7 +546,7 @@ For the proof, For fixed x choose the unique point x_L of L^(i) in its real orbi
 
 **Averaged count of binary quartic orbits.** Fix a compact semialgebraic set G_0 ⊂ GL_2(ℝ) that is left SO_2(ℝ)-invariant, is the closure of a nonempty open set, and has det h ≥ 1 for h ∈ G_0; let dh be the Haar measure of [gauss fundamental domain in iwasawa coordinates](#gauss-fundamental-domain-in-iwasawa-coordinates) and F the strict Gauss domain. For i ∈ T, S ⊆ V_ℤ^(i) (not necessarily GL_2(ℤ)-invariant) and X > 0 define N(S; X) := (1/C_{G_0}^(i)) ∫_{h ∈ G_0} #{x ∈ F h·L^(i) ∩ S^irr : H(x) < X} dh, where C_{G_0}^(i) := n_i ∫_{G_0} dh, S^irr is the set of elements of S irreducible over ℚ, and the count is taken with the multiplicities of the multiset F h·L^(i). For a weight φ : V_ℤ → ℝ, N_φ(S; X) is defined in the same way with each x counted with weight φ(x). For n = n(u), t > 0, λ > 0 put B(n, t, λ, X) := n a(t) λ G_0·L^(i) ∩ {x ∈ V_ℝ^(i) : H(x) < X}, a bounded semialgebraic multiset.
 
-G_0, i and the fundamental set L^(i) are fixed; for GL_2(ℤ)-invariant S the value does not depend on G_0 Only irreducible elements are counted; H is the height max(|I|^3, J^2/4) of [invariants height and eligible pairs](../ArithmeticStatisticsPartI/README.md#invariants-height-and-eligible-pairs) G_0 is a set of matrices with Haar measure. An arbitrary subset of Iwasawa coordinate space can cover the same matrix different numbers of times; invariance of its image alone does not give the invariant averaging measure. The prototype now integrates on the matrix carrier. The general semialgebraic predicate and multiset Davenport interface remain GN.4 supplier work.
+G_0, i and the fundamental set L^(i) are fixed; for GL_2(ℤ)-invariant S the value does not depend on G_0 Only irreducible elements are counted; H is the height max(|I|^3, J^2/4) of [invariants height and eligible pairs](../ArithmeticStatisticsPartI/README.md#invariants-height-and-eligible-pairs) G_0 is a set of matrices with Haar measure. An arbitrary subset of Iwasawa coordinate space can cover the same matrix different numbers of times; invariance of its image alone does not give the invariant averaging measure. The average therefore integrates on the matrix carrier. The general semialgebraic predicate and multiset Davenport interface remain GN.4 supplier work.
 
 The required API is:
 
@@ -578,7 +578,7 @@ For the proof, On a compact averaging set the height bound and a≠0 for irreduc
 
 - For S = {f ∈ V_ℤ^(i) : a(f) = 0}, N(S; X) = 0: every such form has the linear factor y.
 
-- For a single point S = {f} with f irreducible and trivial stabiliser, N(S; X) = (1/C) ∫_{G_0} mult_{F h·L}(f) dh, which is in general strictly between 0 and 1: on non-invariant sets N(·; X) is not a count of orbits.
+- For a single point S = {f} with f irreducible and Stab_GL2(Z)(f)={±1}, N(S; X) = (1/C) ∫_{G_0} 1_{H(f)<X} mult_{F h·L}(f) dh and 0≤N(S; X)≤1. If X≤H(f), its value is zero. The central matrix −1 fixes every quartic, so a trivial GL2 stabilizer is impossible; the effective stabilizer in GL2/{±1} is the trivial one in this test. For a non-invariant singleton the integral depends on how its representatives meet the averaging region, rather than merely on the number of orbits.
 
 - For S = V_ℤ^(i), N(S; X) = Σ_{[x]} 2/#Stab_{GL_2(ℤ)}(x) over the irreducible classes of height < X, independently of G_0.
 
@@ -608,7 +608,7 @@ For the proof, Write the integrand of the definition as a sum over x ∈ S^irr w
 
 **Reducible binary quartic forms in the main body.** Let G_0 ⊂ GL_2(ℝ) be compact and h ∈ G_0. For every ε > 0 the number of integral binary quartic forms f = ax^4 + bx^3y + cx^2y^2 + dxy^3 + ey^4 in the multiset R_X(h·L^(i)) := {w ∈ F h·L^(i) : H(w) < X} (counted with multiplicity) that are reducible over ℚ and have a ≠ 0 is O_ε(X^{2/3+ε}), the implied constant depending only on G_0 and ε.
 
-Only forms with a ≠ 0: the forms with a = 0 in the cusp are reducible and are excluded from the counts by other means (they are never irreducible) Multiplicities are at most n_i ≤ 4 When concluding that O(X^{3/4+epsilon}) is lower order than X^{5/6}, choose 0<epsilon<1/12; the bound itself is stated for every positive epsilon.
+Only forms with a ≠ 0 are included: a = 0 forces the factor y. A fixed vector has at most #Stab_GL2(R)(f)=2n_i≤8 preimages under the orbit map, which bounds its multiset multiplicity even on the retained boundary. The sharper orbit-total multiplicity n_i is used only for almost every averaging matrix h, as in the multiplicity theorem. When concluding that O(X^{3/4+epsilon}) is lower order than X^{5/6}, choose 0<epsilon<1/12; the bound itself is stated for every positive epsilon.
 
 For the proof, Coefficient bounds: R_X(h·L) ⊆ N′A′KΛh·L with h·L in a fixed compact set and 0 < λ ≪_{G_0} X^{1/24} (H scales by λ^24 and det(h)^12, with |det(h)| bounded away from zero on the compact subset G_0 of GL2(R)). Hence a, b, c = O(X^{1/6}) and ad, bd, ae = O(X^{1/3}); in particular the forms with a ≠ 0 and e = 0 number O(X^{4/6+ε}). Linear factor, a, e ≠ 0: the quadruple (a, b, d, e) has O(X^{4/6+ε}) possibilities; a linear factor px + qy (p, q coprime) has p | a and q | e, so O(X^ε) choices by the divisor bound d(n) = O_ε(n^ε) (requested from AnalyticNumberTheory:AN.5); then f(−q, p) = 0 determines c. Product of two irreducible quadratics (px^2 + qxy + ry^2)((a/p)x^2 + sxy + (e/r)y^2): O(X^{2/6+ε}) pairs (a, e) (ae = O(X^{1/3})), O(X^ε) pairs (p, r) by the divisor bound; if the linear system (a/p)q + ps = b, (e/r)q + rs = d is nonsingular, (b, d) determine (q, s) and then c, giving O(X^{4/6+ε}); if singular, d = (r/p)b is determined by b and there are O(X^{1/6}) choices each for b and c, again O(X^{4/6+ε}). Multiply by the bounded multiplicity.
 
@@ -668,7 +668,7 @@ For the proof, Coefficient ranges: a(t) multiplies the coefficient of x^{4−k}y
 
 *Needs:* GeometryOfNumbersAndQuadraticArithmetic:GN.4, [fundamental sets for real binary quartic orbits](#fundamental-sets-for-real-binary-quartic-orbits), [gauss fundamental domain in iwasawa coordinates](#gauss-fundamental-domain-in-iwasawa-coordinates), [averaged count of binary quartic orbits](#averaged-count-of-binary-quartic-orbits).
 
-([[1]](#ref-1), Section 2.3, Proposition 2.7, printed p. 12 (checked on the page image); [[1]](#ref-1), Section 2.5, printed p. 14.)
+([[1]](#ref-1), Section 2.3, Proposition 2.7, printed p. 12; [[1]](#ref-1), Section 2.5, printed p. 14.)
 
 **Checks.**
 
@@ -686,7 +686,7 @@ For the proof, By [averaging formula for binary quartic forms](#averaging-formul
 
 *Needs:* [averaging formula for binary quartic forms](#averaging-formula-for-binary-quartic-forms), [reducible binary quartic forms in the main body](#reducible-binary-quartic-forms-in-the-main-body), [orbits with large stabilizer are negligible](#orbits-with-large-stabilizer-are-negligible), [binary quartic lattice points in the cusp](#binary-quartic-lattice-points-in-the-cusp), [orbit multiplicities in fundamental multisets](#orbit-multiplicities-in-fundamental-multisets), [averaged count of binary quartic orbits](#averaged-count-of-binary-quartic-orbits).
 
-([[1]](#ref-1), Section 2.3, (18)-(20), printed p. 12 (checked on the page image); [[1]](#ref-1), Section 2.3, (20), printed p. 12.)
+([[1]](#ref-1), Section 2.3, (18)-(20), printed p. 12; [[1]](#ref-1), Section 2.3, (20), printed p. 12.)
 
 **Checks.**
 
@@ -874,7 +874,7 @@ For the proof, W′_p ⊆ W_p^(2)(V): p ∤ ∂Δ/∂e(f) excludes strong divisi
 
 *Needs:* [weakly divisible quartic discriminants via ternary pairs](#weakly-divisible-quartic-discriminants-via-ternary-pairs), [chebyshev bounds for prime sums](#chebyshev-bounds-for-prime-sums), [strongly and weakly divisible values](#strongly-and-weakly-divisible-values), [discriminant loci of codimension two](#discriminant-loci-of-codimension-two).
 
-([[1]](#ref-1), Section 2.6, Theorem 2.20, printed p. 18 (checked on the page image); [[1]](#ref-1), Proof of Theorem 2.20, printed p. 18.)
+([[1]](#ref-1), Section 2.6, Theorem 2.20, printed p. 18; [[1]](#ref-1), Proof of Theorem 2.20, printed p. 18.)
 
 **Checks.**
 
@@ -896,7 +896,7 @@ For the proof, Apply [averaging formula for binary quartic forms](#averaging-for
 
 **Checks.**
 
-- Interchange check: the acceptance condition of Layer 2 (an interchange of the sieve limit and the height limit needs a uniform tail theorem) is met by this statement: the bound on lim sup_X is uniform in the set of congruence conditions imposed at primes ≤ M.
+- Interchange check: the uniformity needed to interchange the sieve and height limits is supplied by this statement: the bound on lim sup_X is uniform in the set of congruence conditions imposed at primes ≤ M.
 
 - Order check: the tail is o(1)·X^{5/6} as M → ∞; for fixed M it is of the same order X^{5/6} as the main term, so it cannot be dropped.
 
@@ -930,7 +930,7 @@ For the proof, For n≥1, define psi_{p,n} and psiPrime_{p,n} as the infimum and
 
 **Real orbits and stabilizers of binary cubic forms.** Let U_ℝ be the space of real binary cubic forms f = ax^3 + bx^2y + cxy^2 + dy^3 with the twisted action γ·f := (det γ)^{−1} f((x, y)γ) of GL_2(ℝ) (the action (9) of [delone faddeev parametrization of cubic rings](../ArithmeticStatisticsPartII/README.md#delone-faddeev-parametrization-of-cubic-rings)), and Disc(f) = b^2c^2 − 4ac^3 − 4b^3d − 27a^2d^2 + 18abcd. (a) Disc(γ·f) = (det γ)^2 Disc(f), and the scalar matrix λ·1 acts by f ↦ λf. (b) U_ℝ^(0) := {Disc > 0}, the forms with three distinct real roots in ℙ^1(ℝ), and U_ℝ^(1) := {Disc < 0}, the forms with one real root and a pair of complex conjugate roots, are each a single GL_2(ℝ)-orbit. (c) The stabiliser in GL_2(ℝ) of f ∈ U_ℝ^(0) has order n_0 := 6 and acts on the three roots as the full symmetric group; the stabiliser of f ∈ U_ℝ^(1) has order n_1 := 2. Put U_ℤ^(i) := U_ℝ^(i) ∩ U_ℤ.
 
-**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheory/README.md#proof-cubic-projective-parametrization) §5.5 supplies the real local types and stabilizer orders; the real sign-region notation below is the counting adapter. The detailed contract and Checks are retained below for the specialization.
+**Supplier ownership.** [AnalyticNumberTheory](../AnalyticNumberTheoryPartII/README.md#s5-5) §5.5 supplies the real local types and stabilizer orders; the real sign-region notation below is the counting adapter. The detailed contract and Checks are retained below for the specialization.
 
 The twisted action (det gamma)^{-1} is the Delone–Faddeev action; the untwisted scalar action would be lambda³ instead of lambda, although over R the stabilizer orders are still 6 and 2 because every nonzero real scalar has a unique real cube root. Only forms with Disc ≠ 0 are in U_ℝ^(0) ∪ U_ℝ^(1)
 
@@ -945,6 +945,8 @@ For the proof, (a) Disc is homogeneous of degree 4 and relatively invariant of w
 - x^3 − 3xy^2 ∈ U_ℝ^(0) with Disc = 108 and x^3 + xy^2 ∈ U_ℝ^(1) with Disc = −4; the stabiliser of x^3 + xy^2 is {1, diag(−1, 1)} (diag(1, −1) sends it to its negative).
 
 - The scalar −1 ∈ GL_2(ℤ) sends f to −f: unlike binary quartic forms, the centre does not act trivially, which is why n_i is the full stabiliser order here and half of it for quartics.
+
+- The singular cubic x³ has Disc=0 and belongs to neither real sign region; its repeated root does not have either finite stabilizer described above. This separates the sign-region adapter from the whole cubic coefficient space.
 
 <a id="stabilizers-of-irreducible-integral-binary-cubic-forms"></a>
 
@@ -1350,13 +1352,13 @@ For the proof, Replace squarefree-index nonmaximal conditions by simple-root/dou
 
 The required API is:
 
-- `ArithmeticCountingRefinement.squareDivisorTail`: Membership is exactly H(a)<X, Delta(a) nonzero, and existence of the indicated squarefree positive square divisor.
+- `Counting.squareDivisorTail`: Membership is exactly H(a)<X, Delta(a) nonzero, and existence of the indicated squarefree positive square divisor.
 
-- `ArithmeticCountingRefinement.squareDivisorMultiplicity`: Return the finite filtered positive-divisor cardinal, with the deliberate value 0 at Delta=0.
+- `Counting.squareDivisorMultiplicity`: Return the finite filtered positive-divisor cardinal, with the deliberate value 0 at Delta=0.
 
-- `ArithmeticCountingRefinement.tail_iff_multiplicity_pos`: For H(a)<X and Delta(a) nonzero, membership is equivalent to 0<w_M(a), whose natural cardinal equals the finite filtered-divisor count.
+- `Counting.tail_iff_multiplicity_pos`: For H(a)<X and Delta(a) nonzero, membership is equivalent to 0<w_M(a), whose natural cardinal equals the finite filtered-divisor count.
 
-- `ArithmeticCountingRefinement.tail_antitone`: If M<=Mprime, T(Mprime,X) is contained in T(M,X) and w_Mprime(a)<=w_M(a).
+- `Counting.tail_antitone`: If M<=Mprime, T(Mprime,X) is contained in T(M,X) and w_Mprime(a)<=w_M(a).
 
 For the proof, Use the finite positive divisor set of the nonzero invariant. Restrict its squarefree members by m>M and m^2 divisibility. The zero convention agrees with removal of the singular locus, not with the infinitely many actual square divisors of 0.
 
@@ -1378,11 +1380,11 @@ For the proof, Use the finite positive divisor set of the nonzero invariant. Res
 
 The required API is:
 
-- `ArithmeticCountingRefinement.IsKappaAcceptable`: The predicate is the conjunction of residue dependence, range [0,1], and eventual good-discriminant factor 1.
+- `Counting.IsKappaAcceptable`: The predicate is the conjunction of residue dependence, range [0,1], and eventual good-discriminant factor 1.
 
-- `ArithmeticCountingRefinement.kappa_good_prime`: An acceptable family has a threshold P with phi_p(a)=1 for every prime p>P with p^2 not dividing Delta(a).
+- `Counting.kappa_good_prime`: An acceptable family has a threshold P with phi_p(a)=1 for every prime p>P with p^2 not dividing Delta(a).
 
-- `ArithmeticCountingRefinement.kappa_finite_product_residue`: For a finite set of distinct primes, the product factors through the coefficient residue modulo their product to the kappa power. This is compatible with the finite congruence function.
+- `Counting.kappa_finite_product_residue`: For a finite set of distinct primes, the product factors through the coefficient residue modulo their product to the kappa power. This is compatible with the finite congruence function.
 
 For the proof, Compare coordinates modulo p^kappa. Keep a single threshold valid for every coefficient vector. The modulus dependence is what controls the total small-modulus error.
 
@@ -1414,7 +1416,7 @@ For the proof, A rational root is integral and divides the constant term. Handle
 
 **Rectangular plane-curve count.** Fix `d≥1` and `ε>0`. For an irreducible nonconstant `F∈Z[u,v]` of total degree `d` and real `P_1,P_2≥2`, let `T=max{P_1^i P_2^j : u^i v^j occurs in F}`. Then `T≥2` and
 `#{(u,v)∈Z²:F(u,v)=0, |u|≤P_1, |v|≤P_2} ≪_(d,ε) max(P_1,P_2)^ε exp(log(P_1)log(P_2)/log(T))`.
-The constant is independent of the coefficients of `F`. In particular, a pure monomial `u^m` with `m≥1` gives the upper bound `max(P_1,P_2)^ε P_2^(1/m)`.
+The constant is independent of the coefficients of `F`. In particular, the occurrence of a pure monomial `u^m` with `m≥1` gives the upper bound `max(P_1,P_2)^ε P_2^(1/m)`.
 
 For an absolutely irreducible curve homogenize with the extra coordinate fixed to one. In the determinant method order the auxiliary monomials by their rectangular weights and exclude multiples of a leading monomial of `F`. On each good-prime residue class compare the real determinant bound from those weights with the p-adic divisibility obtained by expanding in a smooth local parameter. Choose the auxiliary degree and prime ranges with ε slack so that the determinant vanishes. The resulting auxiliary polynomial is not divisible by `F`; Bézout bounds its intersections with `F`. Singular classes and exceptional primes are handled by the uniform coefficient-height alternative in this argument, so the final bound does not acquire a coefficient-dependent constant. If `F` is irreducible over Q but not absolutely irreducible, its rational points lie on intersections of distinct conjugate components; Bézout gives `O_d(1)` instead. Sources: [Dietmann](https://arxiv.org/pdf/1010.5341v1), Lemma 6 and its proof, p.4; [Browning–Heath-Brown, *Plane curves in boxes and equal sums of two powers*](https://arxiv.org/pdf/math/0506497v1), Theorem 1 and (3), p.2, §2 pp.4–11 for the determinant argument, with the integral-point specialization (3) on p.2. *Needs:* AlgebraicCurves:Layers 1–5 (plane curves, smooth local parameters and Bézout); Mathlib matrices, determinants, integer divisibility and p-adic valuations; AnalyticNumberTheory:AN.2–AN.5 (prime selection and elementary size estimates). The rectangular determinant estimate is proved here; ordinary lattice-point counting does not supply it.
 
@@ -1515,13 +1517,19 @@ For the proof, Factor the squarefree m into strong and weak parts; one exceeds s
 
 <a id="refinement-monic-fixed-modulus-sieve"></a>
 
-**Monic fixed modulus sieve.** Let n>=2,kappa>=1, Sigma_p residue conditions modulo p^kappa be acceptable, and Sigma_infinity a nonempty collection of permitted real root types. Then the count in the weighted box equals vol(Sigma_infinity∩{H<1}) product_p vol(Sigma_p) X^D + O_{n,kappa,epsilon}(X^(D−min(1/5,1/(2kappa))+epsilon)). The infinite product and singular-locus removal are included in the assertion.
+**Monic fixed modulus sieve.** Let n>=2,kappa>=1, Sigma_p residue conditions modulo p^kappa be acceptable, and Sigma_infinity a nonempty collection of permitted real root types. Then the count in the weighted box equals vol(Sigma_infinity∩{H<1}) product_p vol(Sigma_p) X^D + O_{n,Sigma,kappa,epsilon}(X^(D−min(1/5,1/(2kappa))+epsilon)). Here Sigma=(Sigma_infinity,(Sigma_p)_p) is fixed before X tends to infinity; the implied constant may depend on its exceptional primes and residue conditions. The infinite product and singular-locus removal are included in the assertion.
 
-For the proof, Use Mobius truncation only on Delta nonzero and CRT for the small squarefree moduli. Bound Delta=0 by O(X^(D−1)). The congruence remainder is a sum of theta_bar(m)m^kappa X^(D−1), bounded by O_epsilon(X^(D−1/kappa+epsilon)); combine with the summed tail. The displayed source middle exponent D−n is not used.
+For the proof, Use Mobius truncation only on Delta nonzero and CRT for the small squarefree moduli. Bound Delta=0 by O(X^(D−1)). For fixed Sigma the excluded residue density satisfies theta_bar(m)≪_{Sigma,epsilon}m^(−2+epsilon) on squarefree m, after absorbing its finitely many exceptional primes. Truncate at Y=X^(1/kappa). The congruence remainder is X^(D−1) times the sum of theta_bar(m)m^kappa for m≤Y, hence O_{Sigma,kappa,epsilon}(X^(D−1/kappa+epsilon)), with the logarithm absorbed when kappa=1. The Euler-product remainder is O_{Sigma,epsilon}(X^D/Y^(1−epsilon)); combine both with the summed tail at Y. The displayed source middle exponent D−n is not used.
 
 *Needs:* [kappa acceptable](#refinement-kappa-acceptable), [monic summed tail](#refinement-monic-summed-tail), [local density of values divisible by p squared](#local-density-of-values-divisible-by-p-squared), GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count.
 
 ([[74]](#ref-74), Theorem 4.1, p.21; proof (41), p.23.)
+
+**Checks.**
+
+- With every finite local condition equal to the full coefficient lattice, the finite density product is one; the real root-type restriction still determines the archimedean volume.
+- If one local allowed set is empty, both the actual count and the density product vanish.
+- Dependence on Sigma is necessary: fix a large X and choose a prime q much larger than the weighted box. At q exclude exactly the reductions of all integral vectors in that box; impose no other finite restriction. This is an acceptable family with q as an exceptional prime, its actual count at X is zero, and its local density tends to one as q grows. Thus no error constant uniform in all Sigma can give a power saving. The theorem fixes this family before taking its asymptotic limit.
 
 ### 2.14 Invariant geometric-sieve criterion
 
@@ -1621,7 +1629,7 @@ For the proof, The two main-body alternatives yield two savings, whose minimum m
 
 **Checks.**
 
-- Do not certify these source-derived main/shallow bounds until the row-contained spanning lattice count is justified under its existence and vanishing hypotheses. This conditional clause is separate from the restricted deep Gram estimate.
+- These main/shallow implications assume the row-contained spanning lattice count with its existence and vanishing hypotheses. This conditional clause is separate from the restricted deep Gram estimate.
 
 <a id="refinement-even-binary-restricted-gram"></a>
 
@@ -1637,7 +1645,7 @@ For the proof, Use Delta(x f)=Delta(f) f(0,1)^2, degree 2n(n+1) in pencil entrie
 
 - Verify the factor 2 in the Gram exponent.
 
-- Supply the determinantal ideal argument and count restricted fibres before certifying this target.
+- The restricted implication needs both the determinantal ideal argument and its restricted-fibre count; neither is replaced by an unrestricted row-space estimate.
 
 <a id="refinement-even-binary-restricted-deep-tail"></a>
 
@@ -1839,13 +1847,13 @@ For the proof, Approximate the finite local factors by residue step functions. A
 
 The required API is:
 
-- `ArithmeticCountingRefinement.sectionKernel`: The transporter sum defines the kernel for the supplied action, inv, section and functions.
+- `Counting.sectionKernel`: The transporter sum defines the kernel for the supplied action, inv, section and functions.
 
-- `ArithmeticCountingRefinement.sectionKernel_zero`: If phi is identically0 then the kernel is 0, without a transporter hypothesis.
+- `Counting.sectionKernel_zero`: If phi is identically0 then the kernel is 0, without a transporter hypothesis.
 
-- `ArithmeticCountingRefinement.sectionKernel_unique`: If exactly one g carries kappa(inv(u)) to u, then K(u)=Theta(g)phi(inv(u)); this agrees with a one-term finite sum.
+- `Counting.sectionKernel_unique`: If exactly one g carries kappa(inv(u)) to u, then K(u)=Theta(g)phi(inv(u)); this agrees with a one-term finite sum.
 
-- `ArithmeticCountingRefinement.sectionKernel_finite_fibre`: If the transporter set {g:g kappa(inv(u))=u} is finite, K(u) is its finite sum of Theta(g)phi(inv(u)), with every stabilizer element counted once.
+- `Counting.sectionKernel_finite_fibre`: If the transporter set {g:g kappa(inv(u))=u} is finite, K(u) is its finite sum of Theta(g)phi(inv(u)), with every stabilizer element counted once.
 
 For the proof, Use the native action and equality of vectors in the transporter fibre; attach inv and section rather than replacing them by an arbitrary weight. For a genuine invariant section the summand restricts to a coset of the stabilizer. Finite stabilizers and compact support justify finite summation. Use invariant differential-form integration with the specified Haar normalization.
 
@@ -1968,7 +1976,7 @@ For the even-degree binary sieve isolate the following implication. Assume a pai
 
 <a id="support-coregular-count"></a>
 
-**Windowed cubic counting contract.** The notation C(F,φ,Σ) means the conjunction of the precise windowed main term and uniform estimates in items 4–6 below, with the representation, weights and local mass normalization in items 1–3 and 7, including the explicitly requested SL₂ volume-one input. It is an explicit analytic hypothesis in the orbit count and every three-isogeny mean or rank application that uses it. The following named targets give its supplier plan; the hypothesis is not silently removed by the existence of a general counting theorem. BKLOS's six source axioms match representation (1), local weights (2), local spreading (3), infinity I (4), infinity II (5) and V-uniformity (6). The denominator additionally requires the S-uniformity in (6). Global Fields II is now available as [[131]](#ref-131); its current Theorem 3.8 pp.15–16 replaces the in-preparation Theorem 13 cited by BKLOS. Its formulas are weighted until global stabilizers are handled.
+**Windowed cubic counting contract.** The notation C(F,φ,Σ) means the conjunction of the precise windowed main term and uniform estimates in items 4–6 below, with the representation, weights and local mass normalization in items 1–3 and 7, including the explicitly requested SL₂ volume-one input. It is an explicit analytic hypothesis in the orbit count and every three-isogeny mean or rank application that uses it. The following named targets give its supplier plan; the hypothesis is not silently removed by the existence of a general counting theorem. BKLOS's six source axioms match representation (1), local weights (2), local spreading (3), infinity I (4), infinity II (5) and V-uniformity (6). The denominator additionally requires the S-uniformity in (6). Use Global Fields II [[131]](#ref-131), Theorem 3.8 pp.15–16 for the general counting input cited by BKLOS as Theorem 13. Its formulas are weighted until global stabilizers are handled.
 
 <a id="cubic-representation-and-descent"></a>
 
@@ -1978,7 +1986,7 @@ Disc=a²d²−6abcd−3b²c²+4ac³+4b³d.
 
 The invariant algebra over F is F[Disc], deg Disc=4=dim V, and the generic stabilizer is finite of geometric order three. Compare this lattice with ordinary coefficients by (a,b,c,d)↦(a,3b,3c,d), retaining the finite-index change at places above three. The ordinary binary discriminant is −27Disc. For φ of any abelian dimension choose the mirror parameter D̂ and κ=4D̂ as in BKLOS Theorem 7.2, after a fixed square rescaling. For every s≠0, locally φ-soluble rational orbits of Disc=κs identify with Sel_(φ_s)(A_s), with exactly one reducible orbit, corresponding to zero. This is the actual local Kummer subgroup, not all H¹(F_v,A[φ]).
 
-The light definition `Cubic.normalizedDisc` is the displayed polynomial over any commutative ring. Its API includes coefficient homogeneity Disc(u·v)=u⁴Disc(v) and the universal fixed-degree binary identity Δ=−27Disc, also in characteristics two and three. The affine-polynomial version `ordinaryDisc_eq` is stated over any field with a≠0; when a=0 its degree can drop and its affine discriminant is a different invariant. Only the orbit and counting assertions require the number-field hypothesis.
+Reuse Part II's [normalized cubic discriminant](../ArithmeticStatisticsPartII/README.md#supporting-descent-and-integral-realization) `TauCetiRoadmap.ArithmeticStatisticsPartII.Cubic.normalizedDisc`, the displayed polynomial over any commutative ring. Its imported API includes coefficient homogeneity Disc(u·v)=u⁴Disc(v) and the universal fixed-degree binary identity Δ=−27Disc, also in characteristics two and three. The affine-polynomial version `ordinaryDisc_eq` is stated over any field with a≠0; when a=0 its degree can drop and its affine discriminant is a different invariant. Only the orbit and counting assertions require the number-field hypothesis.
 
 To prove this target, import the norm-one cohomology and orbit dictionary from Layer 1 and BKLOS Theorems 4.2,5.3,7.1 pp.6–10; verify the polynomial normalization and the invariant generator directly. The source representation is over O_F with possible denominators only at a fixed finite set, handled by commensurable lattices. **Needs:** Layer 1 cubic dictionary, A3 isogeny kernels, L0 Kummer maps, Mathlib polynomial invariants.
 
@@ -1992,20 +2000,20 @@ To prove this target, import the norm-one cohomology and orbit dictionary from L
 
 <a id="cubic-integral-multiplicity"></a>
 
-2. **Integral representatives and exact multiplicity.** At every finite v and local representative with v(s)∈{0,1}, each soluble G(F_v)-orbit of Disc=κs meets V(O_v), for one fixed κ independent of s and of the orbit. For shifted ideal-class charts use a fixed local square rescaling and the resulting commensurable lattice. Let β run through the finite adelic class set, L_β=V(F)∩β⁻¹V(O_f) and Γ_β=G(F)∩β⁻¹G(O_f)β. For a rational regular orbit O, put
+2. **Integral representatives and exact multiplicity.** At every finite v and local representative with v(s)∈{0,1}, each soluble G(F_v)-orbit of Disc=κs meets V(O_v), for one fixed κ independent of s and of the orbit. For shifted ideal-class charts use a fixed local square rescaling and the resulting commensurable lattice. Let β run through the finite adelic class set, L_β=V(F)∩β⁻¹V(O_f) and Γ_β=G(F)∩β⁻¹G(O_f)β. For a rational regular orbit O meeting these soluble integral charts, let m₀(O)∈[0,1] be its prescribed orbit selector: in the counting application it is the indicator of the chosen local-solubility and finite local-family conditions, with the archimedean window treated separately. Put
 
 D(O)=Σ_β Σ_(Γ_β u⊂O∩L_β) 1/#Stab_(Γ_β)(u),
 
 w(u)=m₀(O)/(#Stab_(G(F))(u)·D(O)).
 
-The sums are finite and positive on soluble orbits. Their exact identity is Σ_β Σ_(Γ_β u⊂O∩L_β) w(u)/#Stab_(Γ_β)(u)=m₀(O)/#Stab_(G(F))(u). Locally use the identical formula with G(F_v),G(O_v) and the finite sum over integral local orbits; w factors into these local weights. No uniform bound on the number of integral representatives is assumed. Outside the finite primes dividing 6κ or bad reduction, w_v=1 whenever v(Disc)<2. The local functions are invariant and locally constant off the discriminant-zero null set, with convergent products. The density of the nontrivial-local-stabilizer locus is ≤1−c for some c>0 at all sufficiently large primes; the separable (1,2) splitting type gives a uniform open set with trivial stabilizer.
+The denominator sum D(O) is finite and strictly positive on these orbits, even when the selector m₀(O) is zero. Their exact identity is Σ_β Σ_(Γ_β u⊂O∩L_β) w(u)/#Stab_(Γ_β)(u)=m₀(O)/#Stab_(G(F))(u). Locally use the identical formula with G(F_v),G(O_v) and the finite sum over integral local orbits. For the application assume m₀ is the product of the stated local selectors; with the matching adelic charts and mass normalization, w then factors into these local weights. This factorization is not asserted for an arbitrary rational-orbit function m₀. No uniform bound on the number of integral representatives is assumed. Outside the finite primes dividing 6κ or bad reduction, w_v=1 whenever v(Disc)<2. The local functions are invariant and locally constant off the discriminant-zero null set, with convergent products. The density of the nontrivial-local-stabilizer locus is ≤1−c for some c>0 at all sufficiently large primes; the separable (1,2) splitting type gives a uniform open set with trivial stabilizer.
 
 To prove this target, use BKLOS Theorems 6.2,7.2 pp.9–11 for integral representatives, finite local orbit dictionaries for finiteness, and [[131]](#ref-131), Lemma 3.1, equations (9)–(13) pp.11–12 for factorization. Read the factors as reciprocal stabilizer sizes: multiplication by the stabilizer size would give the wrong total. Use finite-field cubic splitting counts for the density bound. General F requires the adelic integral lattices, even when a single principal integral representative is unavailable. **Needs:** GNF order/ideal and AA adelic class-set interfaces, local cubic dictionary and finite étale descent.
 
 **Checks.**
 
 - One integral orbit with the same stabilizer as the rational orbit has w=m₀, giving contribution m₀/#Stab, not m₀·#Stab.
-- With two integral orbits of stabilizer one and rational stabilizer one, w=m₀/2 on each; the sum is m₀.
+- With two integral orbits of stabilizer one and rational stabilizer one, w=m₀/2 on each; the sum is m₀. If the selector is zero, every representative has weight zero while D(O) remains positive; an orbit with no integral representative is outside the domain of this quotient.
 - A rational nontrivial stabilizer can occur for only the single squareclass making A[φ_s] rational. Its fixed finite Selmer count is O(1); this removes the rational 1/#Stab weight asymptotically. It does not remove the reducible identity family, which has one orbit per twist.
 
 <a id="cubic-local-spreading"></a>
@@ -2084,7 +2092,7 @@ Keep the discriminant normalization when passing from the differential measures 
 
 Thus put D_γ(X)=vol(Ω_γ(X))∏_(v finite)vol(Σ_(γ,v)), using the normalized measures of item 4, and put C_γ(X) equal to the same expression with c_v inserted in each integral. Items 5–6 give #Σ_γ(X)=D_γ(X)+o(X) and N_(irr,γ)(X)=C_γ(X)+o(X). Sum over γ before dividing. Local square rescaling of a chart preserves c_v and changes numerator and denominator by the same Haar factor; c_∞ depends only on signs. Consequently C_γ/D_γ is the displayed local-ratio product for one rectangle. Compatibility and the positive denominator target give Σ_γ D_γ(1)>0. The only rational-stabilizer correction is O(1) by item 2. Add one identity per class for the Selmer mean.
 
-To prove this target, the local Kummer bijection identifies the number of soluble local orbits with #coker φ_s and their stabilizer with A_s[φ_s](F_v). Apply the differential formula to each orbit chart and the exact integral weights. Use one global differential and the adelic Tamagawa normalization from AA; do not independently set every group Haar volume to one. **Needs:** items 1–6, local descent, AA Haar/Tamagawa, `AA-II.sl2-tamagawa-one` and product formula, the positive denominator target. Sources: BKLOS Theorems 4.2,5.3 and §8 pp.6–13; [[131]](#ref-131), equations (19)–(26) pp.14–16.
+To prove this target, the local Kummer bijection identifies the number of soluble local orbits with #coker φ_s and their stabilizer with `A_s[φ_s](F_v)`. Apply the differential formula to each orbit chart and the exact integral weights. Use one global differential and the adelic Tamagawa normalization from AA; do not independently set every group Haar volume to one. **Needs:** items 1–6, local descent, AA Haar/Tamagawa, `AA-II.sl2-tamagawa-one` and product formula, the positive denominator target. Sources: BKLOS Theorems 4.2,5.3 and §8 pp.6–13; [[131]](#ref-131), equations (19)–(26) pp.14–16.
 
 **Checks.**
 
@@ -2109,7 +2117,7 @@ Layers 0–1; the Mathlib Chebyshev estimate and partial summation; GN.0–GN.4 
 
 ## Downstream consumers
 
-The later arithmetic-statistics parts use the exact targets supplied here. Field and Selmer comparisons identify their family, height, equivalence relation and local weights before applying an arithmetic average. Probability convergence alone supplies no unbounded moment identity. AnalyticNumberTheory is a supplier of every part and takes no input from any part.
+The later arithmetic-statistics parts and ModularityAndLanglandsExtensions are downstream consumers of the exact targets supplied here; none supplies an input to this part. Field and Selmer comparisons identify their family, height, equivalence relation and local weights before applying an arithmetic average. Probability convergence alone supplies no unbounded moment identity. AnalyticNumberTheory is a supplier of every part and takes no input from any part.
 
 ## References
 
