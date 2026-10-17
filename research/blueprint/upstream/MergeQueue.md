@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T13:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T14:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -51,11 +51,11 @@ Generated 2026-10-17T13:50Z from the README supplier graph of every open pull re
 - #868 DerivedDeRhamCohomology — ready; waits on #818, #908, #940, #944
 
 ## Wave 9
-- #785 ReductiveGroupsPartII — ready; waits on #868, #908, #944, #446, #447
+- #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #868, #908, #944, #446, #447
 - #857 CrystallineCohomology — draft; waits on #813, #814, #815, #818, #820, #868, #908, #940, #944
 
 ## Wave 10
-- #792 AdelicAlgebraicGroups — ready; waits on #785, #248, #286, #934
+- #792 AdelicAlgebraicGroups — ready (approved at an earlier head); waits on #785, #248, #286, #934
 - #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #944, #899
 - #854 LocallyAnalyticDistributions — ready (approved at an earlier head); waits on #785, #813, #815, #857
 
@@ -64,10 +64,10 @@ Generated 2026-10-17T13:50Z from the README supplier graph of every open pull re
 
 ## Wave 12
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #848, #857, #908, #938, #280
-- #871 ArithmeticLocallySymmetricSpaces — ready; waits on #785, #792, #848, #938, #944
+- #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848, #938, #944
 
 ## Wave 13
-- #856 ArithmeticGaloisRepresentations — ready; waits on #785, #792, #813, #849, #938, #248, #446
+- #856 ArithmeticGaloisRepresentations — ready (approved at an earlier head); waits on #785, #792, #813, #849, #938, #248, #446
 
 ## Wave 14
 - #858 ArithmeticGaloisDuality — draft; waits on #792, #816, #849, #853, #856, #908, #938, #940, #944
@@ -100,7 +100,7 @@ Generated 2026-10-17T13:50Z from the README supplier graph of every open pull re
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913, #938
 
 ## Wave 20
-- #924 AutomorphicLFunctionsAndLocalFactors — ready; waits on #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
+- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #785, #814, #816, #818, #820, #875, #908, #922
 
 ## Wave 21
