@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T21:48Z",
+ "updated": "2026-10-17T22:00Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -793,11 +793,11 @@
   "PELModuli": {
    "stage": "pr",
    "pr": 966,
-   "head": "d3ed65b",
+   "head": "6c69937",
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -829,11 +829,11 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "efc042c",
+   "head": "f8cf12b",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -889,11 +889,11 @@
   "HilbertModularVarietiesAndShimuraCurves": {
    "stage": "pr",
    "pr": 1005,
-   "head": "305843b",
+   "head": "91e9dcf",
    "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1240,7 +1240,7 @@
    "head": "0341109",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": null,
+    "recommendation": "changes",
     "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
@@ -1285,7 +1285,7 @@
   "PotentialAutomorphyInfrastructure": {
    "stage": "pr",
    "pr": 1081,
-   "head": "efd3f14",
+   "head": "b09b943",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
    "review": {
     "recommendation": null,
@@ -1297,7 +1297,7 @@
   "HodgeTateAndCanonicalSubgroups": {
    "stage": "pr",
    "pr": 1084,
-   "head": "0082033",
+   "head": "dfe3d34",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
    "review": {
     "recommendation": null,
@@ -1334,7 +1334,13 @@
    "stage": "pr",
    "pr": 1090,
    "head": "343bc63",
-   "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running"
+   "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
