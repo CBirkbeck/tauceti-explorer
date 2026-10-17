@@ -724,6 +724,13 @@
     "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
     "provides": "The canonical image of the inverted element is a unit, so a ring homomorphism from the localized Tate model to Q cannot send it to zero.",
     "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-OXZ9ou, 2026-10-11."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms",
+    "kind": "def",
+    "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+    "provides": "Ordinary conservative Beck for an adjunction: the right adjoint reflects isomorphisms and the source has coequalizers of right-adjoint-split pairs, preserved by that right adjoint. No separate reflection-of-coequalizers hypothesis. It does not identify the tensor monad or construct internal comodules.",
+    "checked": "Statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-WkJRnK, 2026-10-17; lines 362–374."
    }
   ],
   "abstractReconstructionAudit": {
@@ -13226,7 +13233,7 @@
    ],
    "proofSteps": [
     "Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).",
-    "Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.",
+    "Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned conservative Beck variant after giving the adjunction, reflection of isomorphisms, and existence and preservation of F_i-split coequalizers. Conservativity already supplies reflection of isomorphisms; separate reflection of coequalizers is unnecessary for this variant. The source-to-library preservation bridge remains an explicit obligation. The light relativePieceMonadicOfPreserves definition states only this sufficient-hypothesis ordinary Beck step. Do not plan Barr–Beck again.",
     "Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i."
    ],
    "acceptance": [
@@ -13235,7 +13242,7 @@
     "For a finite left B-module V, the right B∨-coaction transposed from the left action obeys (id_V⊗ev_b)ρ(v)=b·v for every b∈B, where ev_b(φ)=φ(b), and (id_V⊗ev_1)ρ=id_V. On the regular B-module, evaluating twice at E₁₂,E₂₁ agrees with left multiplication by E₁₁, detecting an erroneous reversal."
    ],
    "prerequisites": [
-    "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers",
+    "mathlib:CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms",
     "mathlib:CategoryTheory.RigidCategory",
     "mathlib:CategoryTheory.Equivalence"
    ],
@@ -13912,14 +13919,13 @@
   {
    "stageId": "MotivesAndAlgebraicCycles:MC.6",
    "status": "partial",
-   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand. FIX-RT-AREA-iwasawa-3~3 encodes the typed comparison (PairDiagram.PeriodComparison: natural for both kinds of edge, unital, multiplicative) and its compatibility with the good-pair multiplicative structures (PairDiagram.ProductCompatible), threads them through the period point and its dependent statements, and so closes the prototype gap the algebraic-geometry review recorded. The comparison itself stays a request to C5 for pairs.",
+   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand. FIX-RT-AREA-iwasawa-3~3 encodes the typed comparison (PairDiagram.PeriodComparison: natural for both kinds of edge, unital, multiplicative) and its compatibility with the good-pair multiplicative structures (PairDiagram.ProductCompatible), threads them through the period point and its dependent statements, and so closes the prototype gap the algebraic-geometry review recorded. The comparison itself stays a request to C5 for pairs. REV-FIX-RT-AREA-geomlanglands~2 (codex-WkJRnK, 2026-10-17) supersedes the historical demand to develop heavy reconstruction carriers in Lean, and supplies the ordinary conservative Beck application with preservation explicit. The source-to-pin preservation bridge remains open.",
    "remaining": [
     "The Artin and Tate subcategories of Nori motives and their tensor automorphism groups, which the stage's acceptance asks for, are computed in no source read (gap).",
     "The universal property of Nori's diagram category, used by MC.6/fibre-functor-extension, rests on von Wangenheim's work, not obtained (gap).",
     "The quotient theorem of SGA 3 behind MC.6/affine-torsor-groups was not obtained (gap; not on the path to the period torsor).",
     "The comparison of relative de Rham and singular cohomology of pairs over Q as graded multiplicative representations is requested from ComplexComparisonPartII:C5, which owns the comparison and plans only the smooth and smooth proper cases.",
-    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain.",
-    "REV-FIX-RT-AREA-geomlanglands~2: finish the early abstract supplier interfaces and typed signatures named in the new gap. The relative Beck preservation bridge remains open; successful elaboration of the current partial prototype does not close it. The MC.6:abstract stage split still awaits maintainer installation under PROTOCOL §9.",
+    "Relative reconstruction: discharge the source-to-pinned-Beck preservation bridge in the prose proof plan. The light conservative Beck application assumes preservation explicitly. Heavy reconstruction carriers remain prose targets under the 12 October shape rule; the early-stage split awaits maintainer installation.",
     "Provide the typed identification of the localized good-pair comparison ring with the full Nori comparison algebra and thread the extended de Rham fibre functor, comparison, heap and actions through it; effective good-pair rigidity cannot replace this adapter."
    ]
   },
@@ -14120,22 +14126,7 @@
     "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
     "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode"
    ],
-   "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. Bridge the printed reflection convention to the preservation instance required by the pinned Beck theorem; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
-  },
-  {
-   "title": "Abstract reconstruction still lacks typed carriers, signatures and tests",
-   "neededBy": [
-    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
-    "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
-    "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
-    "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
-    "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
-    "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
-    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
-    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
-    "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
-   ],
-   "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
+   "detail": "The prose proof plan must account for the A-linear representer adjunction, tensor monad, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2, pp.232–234. These are roadmap targets over carriers absent at the pins; the 12 October WORKERS/PACKAGE_REVIEW shape rule does not require developing them in Suggested.lean. The substantive unresolved bridge is from the printed split-coequalizer hypothesis to preservation required by pinned Beck. Its conservative variant already uses reflection of isomorphisms, so no separate coequalizer-reflection adapter is required. relativePieceMonadicOfPreserves checks the sufficient-hypothesis version with preservation explicit; it does not establish the printed source target. Maintainer installation of the proposed early split is a separate normal handoff, not a mathematical gap or an authorized graph rewrite here."
   },
   {
    "title": "Full localized comparison and period-point torsor adapters are not typed in the prototype",
@@ -15459,10 +15450,10 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
-  "date": "2026-10-11",
-  "session": "codex-BIjxwP",
-  "notes": "Codex (GPT-6), session codex-BIjxwP: independently checked the eight confirmed findings and their corrections against public HMS v5, published Kato and BDP, following codex-R4MNK8 whose review is preserved exactly in reviewHistory. Corrected MC.6/period-point hypothesis 0 to distinguish the natural unital product-compatible comparison on all effective pairs from the graded multiplicative representation on good pairs, with Definition 1.1/Theorem 1.6 and Definition B.14 locators. Existing edge laws, shared Künneth signs, Tate inverse and effective evaluation contracts are retained. The full localized Nori comparison-algebra/fibre-functor/heap/action adapter remains an explicit substantive gap, so needs_changes is retained. Fresh Motives Lean check: exit 0, 817 admitted-proof-only warnings, no errors or other warnings. This is a bounded review of the assigned fixes, not an exhaustive audit of all 182 nodes. Kato and GH.0 were inspected read-only: their corrections and remaining Hecke-normalization/model-hypothesis errors are recorded in the report. Their four packet/suggested paths are required by intake but excluded by the live issue; no scope extension has been received and their review markers remain unchanged."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
+  "date": "2026-10-17",
+  "session": "codex-WkJRnK",
+  "notes": "Codex, session codex-WkJRnK: bounded independent review of FIX-RT-AREA-geomlanglands~2; read all 39 claims, verifier decisions and fix dispositions. Follows the immediately preceding review preserved unchanged in reviewHistory. Live issue #5161 authorizes two packets, whereas queue completion requires nineteen; excluded packet verdicts are not asserted. Rechecked FS v4 VI.10.2, pp.232–234, and VI.11, pp.235–237, and the corrected author text of Deligne–Milne 1.13, p.12, and 2.11–2.23, pp.20–27. Reused the pinned conservative Beck variant: existence and preservation of F-split coequalizers plus reflection of isomorphisms suffice; no separate reflection-of-coequalizers instance is needed. Added a real-bodied Lean application with preservation explicit. The source-to-pin preservation bridge remains unresolved, so /17 still needs_changes. Removed the superseded requirement to develop missing heavy carriers/signatures in Suggested.lean: the binding 12 October shape rule keeps these as prose targets. This does not close mathematical proof-plan gaps or unrelated Nori comparison obligations."
  },
  "reviewHistory": [
   {
@@ -16580,6 +16571,13 @@
    "date": "2026-10-11",
    "session": "codex-R4MNK8",
    "notes": "Codex (GPT-6), session codex-R4MNK8: independently checked all eight assigned findings against public HMS v5, published Kato and BDP, following the complete codex-EozIdh review archived unchanged. The unital multiplicative comparison, both edge laws, shared Künneth signs, explicit Tate inverse and effective evaluation contracts survive the check. Added the direct MC.5 diagram-localisation/nori-rigidity and MC.6 fibre-functor-extension prerequisites actually used by the period-point proof sketch, with source locators. The full localized Nori comparison-algebra/fibre-functor/heap/action adapter remains an explicit substantive gap, so needs_changes is retained. The Motives suggested file elaborates at pinned Mathlib with 817 admitted-proof-only warnings, no errors or other warnings. This verdict is a bounded review of the assigned correction, not a fresh exhaustive audit of all 182 nodes. Arithmetic owner paths are outside the live issue deliverables; the queue requires their verdicts, but no scope extension was received and their markers have not been changed."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+   "date": "2026-10-11",
+   "session": "codex-BIjxwP",
+   "notes": "Codex (GPT-6), session codex-BIjxwP: independently checked the eight confirmed findings and their corrections against public HMS v5, published Kato and BDP, following codex-R4MNK8 whose review is preserved exactly in reviewHistory. Corrected MC.6/period-point hypothesis 0 to distinguish the natural unital product-compatible comparison on all effective pairs from the graded multiplicative representation on good pairs, with Definition 1.1/Theorem 1.6 and Definition B.14 locators. Existing edge laws, shared Künneth signs, Tate inverse and effective evaluation contracts are retained. The full localized Nori comparison-algebra/fibre-functor/heap/action adapter remains an explicit substantive gap, so needs_changes is retained. Fresh Motives Lean check: exit 0, 817 admitted-proof-only warnings, no errors or other warnings. This is a bounded review of the assigned fixes, not an exhaustive audit of all 182 nodes. Kato and GH.0 were inspected read-only: their corrections and remaining Hecke-normalization/model-hypothesis errors are recorded in the report. Their four packet/suggested paths are required by intake but excluded by the live issue; no scope extension has been received and their review markers remain unchanged."
   }
  ],
  "fixes": {

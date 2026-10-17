@@ -1,5 +1,12 @@
 /-
 
+REV-FIX-RT-AREA-geomlanglands~2 (Codex codex-WkJRnK, 17 October 2026):
+The current roadmap shape keeps reconstruction over missing carriers in prose.
+The earlier request to develop those carriers in this file is superseded.
+relativePieceMonadicOfPreserves below reuses pinned conservative Beck with an
+explicit preservation hypothesis. It does not derive that hypothesis from
+FS VI.10.2 or construct the relative tensor/comodule comparison.
+
 REV-FIX-RT-AREA-iwasawa-3~3 (Codex codex-OXZ9ou, 11 October 2026):
 Generic tensor-isomorphism representability and heap signatures now require the
 neutral Tannakian hypotheses of HMS Lemma 3.2. Effective periodPoint is evaluation;
@@ -172,6 +179,7 @@ import Mathlib.CategoryTheory.Monoidal.Preadditive
 import Mathlib.CategoryTheory.Monoidal.Rigid.Basic
 import Mathlib.CategoryTheory.Monoidal.Rigid.Braided
 import Mathlib.CategoryTheory.Monoidal.Subcategory
+import Mathlib.CategoryTheory.Monad.Monadicity
 import Mathlib.CategoryTheory.MorphismProperty.Composition
 import Mathlib.CategoryTheory.Preadditive.Biproducts
 import Mathlib.CategoryTheory.Preadditive.Mat
@@ -9549,13 +9557,28 @@ namespace TauCeti.Motives.AbstractTannaka
 
 open CategoryTheory CategoryTheory.Limits
 
+/-- The ordinary conservative Beck step for a represented finite piece.
+FS VI.10.2, pp.232–234, still needs the source-to-library preservation adapter;
+this sufficient-hypothesis form assumes preservation explicitly. -/
+@[instance_reducible]
+noncomputable def relativePieceMonadicOfPreserves
+    {A C : Type*} [Category A] [Category C]
+    {L : A ⥤ C} {F : C ⥤ A} (adj : L ⊣ F)
+    [F.ReflectsIsomorphisms]
+    [CategoryTheory.Monad.HasCoequalizerOfIsSplitPair F]
+    [CategoryTheory.Monad.PreservesColimitOfIsSplitPair F] :
+    CategoryTheory.MonadicRightAdjoint F :=
+  CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms adj
+
 /-! Early MC.6 supplier, independent of MC.5.
 The full relative theorem needs an A-action/representer interface and internal
 comodules in Ind(A); the full neutral theorem needs its finite hull algebras,
 canonical coalgebra, and tensor-compatible fibre functor comparison. Those
 carriers are not supplied by the known-Hopf reconstruction theorem.
-The inventory below records each omitted signature and its required interface.
-It is planning prose, not an axiom or a compiled assertion.
+The inventory below records prose targets over carriers absent at the pins.
+Under WORKERS.md and PACKAGE_REVIEW.md's 12 October shape rule, they belong in
+the roadmap; developing those carriers here is not a review requirement.
+The inventory is planning prose, not an axiom or a compiled assertion.
 DM 2.23 is imported from upstream ReductiveGroups layer 6, not re-proved here.
 -/
 
@@ -9591,7 +9614,7 @@ example (k : Type*) [Field k] :
 /-! MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction
 Statement: Under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Use symmetry to identify its monad with V↦A_i⊗V, where A_i=F(X_i) has the multiplication transported from that monad. The comparison gives C_i≃LeftMod_A(A_i)≃RightComod_A(A_i∨), compatibly with F_i. Modules and comodules have underlying objects in A, not arbitrary objects of Ind(A). Keeping the unswapped expression V⊗A_i instead uses right modules over the opposite multiplication.
 Hypotheses: A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.; F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.; C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).; The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.
-Proof plan: Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).; Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.; Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i.
+Proof plan: Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).; Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned conservative Beck variant after supplying the adjunction, reflection of isomorphisms, and existence and preservation of F_i-split coequalizers. The light relativePieceMonadicOfPreserves definition checks this sufficient-hypothesis step only; the source-to-library preservation bridge remains open. Do not plan Barr–Beck again.; Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i.
 
 relativePieceLeftAdjoint: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
 Planned signature: The A-linear functor V↦V⊗X_i and L_i⊣F_i.
