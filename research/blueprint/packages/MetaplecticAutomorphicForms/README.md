@@ -1,32 +1,38 @@
 # Roadmap: metaplectic groups, Weil representations and automorphic theta kernels
 
-The oscillator representation connects quadratic Fourier analysis to local and global theta correspondence. Starting with bilinear Heisenberg extensions, this roadmap constructs normalized metaplectic covers, genuine Weil actions and adelic theta kernels. Its analytic layers lead to regularized Siegel–Weil identities, half-integral-weight comparisons and the two-cusp genus-two kernels used in quadratic-twist arguments.
+**Summary.** This roadmap builds the oscillator (Weil) representation and its metaplectic double cover over local fields and adeles, and from them the local theta correspondence, global theta kernels and lifts, the regularized Siegel–Weil and Rallis inner-product identities, half-integral-weight Maass forms with the Kohnen plus space and the Shimura lift, and the genus-two Jacobi–Eisenstein analysis of Bump–Friedberg–Hoffstein. It starts from bilinear Heisenberg extensions built on Tau Ceti's factor sets, Mathlib's bilinear forms, Schwartz spaces and measures, and the Schwartz–Bruhat, adelic-measure, smooth-representation, automorphic-form and spectral roadmaps of TauCetiRoadmap. Its end theorems are Howe duality, the conservation relations and the see-saw identities in the generality the sources prove them (Layer 3), the Weil product formula and the global Weil representation (Layer 4), theta lifts and their convergence (Layer 5), the Siegel–Weil, Rallis inner-product and theta nonvanishing theorems (Layer 6), the Duke–Imamoḡlu–Tóth trace identities and the Shimura bijection in weight one half (Layer 7), and the genus-two coefficient and local-test export used for quadratic-twist nonvanishing (Layer 8).
 
 ## Scope and ownership
 
-Smooth representation categories, induction and Jacquet functors come from SR; local and adelic Schwartz–Bruhat analysis and Poisson summation from AL.0; quotient measures from AA; growth, Eisenstein and spectral analysis from AF and AS. Existing classical groups, quadratic invariants and finite quadratic modules are reused. GN denotes GeometryOfNumbersAndQuadraticArithmetic; GZ denotes GrossZagierAndArithmeticHeights; BSD denotes RankZeroOneBSD. MP supplies the cover-specific actions, splittings and theta comparisons. Arithmetic Waldspurger identities belong to GrossZagierAndArithmeticHeights:GZ.5 and the final twist nonvanishing argument to RankZeroOneBSD:BSD.2. Function-field geometric applications require their independently supplied Satake and shtuka constructions.
+This roadmap owns the oscillator side of the theory: bilinear Heisenberg extensions and Schrödinger models, the oscillator normalizer and the metaplectic double cover of Sp(W) over every local field, the Weil index, Leray invariant and Rao cocycle, the operator formulas, dual pairs with their splittings and local theta modules, the adelic cover and global Weil representation, theta kernels, genuine automorphic forms and theta lifts on covering groups, the Siegel–Weil, doubling and Rallis comparisons, half-integral-weight Maass forms with their plus space and Shimura lift, and the genus-two Jacobi analysis of Bump–Friedberg–Hoffstein. It uses smooth representation categories, induction and Jacquet functors from SmoothRepresentationsOfLocalGroups; local and adelic Schwartz–Bruhat analysis and Poisson summation from AutomorphicLFunctionsAndLocalFactors AL.0; adelic, quotient and Tamagawa measures from AdelicAlgebraicGroups; growth, constant terms and real representations from AutomorphicFormsOnReductiveGroups; and Eisenstein, intertwining and special-function analysis for linear groups from AutomorphicSpectralTheory. The arithmetic Waldspurger identities belong to GrossZagierAndArithmeticHeights and the final quadratic-twist nonvanishing argument to RankZeroOneBSD; both consume this roadmap.
 
 ### Prerequisites and boundaries
 
-The ordinary classical groups and their standard representations belong to `TauCetiRoadmap.RepresentationTheory.ClassicalGroups`, Layer 0, and `OrthogonalSpinGroups`. Finite quadratic modules, discriminant forms and Gauss invariants belong to `IntegralLattices`, Layer 1G–1H. This roadmap adds oscillator operators on those objects. Positive-definite lattice theta series belong to `LatticeThetaFunctions`; the automorphic theta kernels and indefinite Siegel–Weil comparisons here use different carriers and measures. The Hermite basis and harmonic-oscillator eigen-equation are supplied by `Completed/OrthogonalL2Bases`.
+The ordinary classical groups and their standard representations belong to `TauCetiRoadmap.RepresentationTheory.ClassicalGroups`, Layer 0, and `OrthogonalSpinGroups`. Finite quadratic modules, discriminant forms and Gauss invariants belong to `IntegralLattices`, Layer 1G–1H. This roadmap adds oscillator operators on those objects. Positive-definite lattice theta series and their coefficients belong to GeometryOfNumbersAndQuadraticArithmetic §3.4; the automorphic theta kernels and indefinite Siegel–Weil comparisons here use different carriers and measures. The Hermite basis and harmonic-oscillator eigen-equation are supplied by `Completed/OrthogonalL2Bases`.
 
 `TauCeti.HeisenbergGroup`, its group law, `equivProd` and `commutatorElement_eq` supply the three-coordinate ring model. `ProfiniteArithmetic`, 3.4, supplies its product topology and pro-p detecting example. The retained bilinear construction allows arbitrary coefficient modules and forms and compares their polarization-dependent oscillator actions.
 
-The current `TauCeti.Topology.Algebra.GroupExtension.FactorSet` supplies `TauCeti.FactorSet.Extension.instTopologicalSpace`, `homeomorphProd`, `isTopologicalGroup`, and `TauCeti.FactorSet.isClosedEmbedding_inl` and `isOpenMap_rightHom`. These native constructions are reused. They are newer than the pinned Tau Ceti baseline, so the joint-continuity comparison in Layer 0 has no companion signature at that baseline. Its boundary checks are: the zero vector module leaves the additive coefficient group; a continuous bilinear cocycle gives continuous multiplication in product coordinates; and in Hausdorff coordinates the central injection is closed while the projection is continuous, open and surjective.
+The current `TauCeti.Topology.Algebra.GroupExtension.FactorSet` supplies `TauCeti.FactorSet.Extension.instTopologicalSpace`, `homeomorphProd`, `isTopologicalGroup`, and `TauCeti.FactorSet.isClosedEmbedding_inl` and `isOpenMap_rightHom`. These native constructions are reused. They are newer than the pinned Tau Ceti, so the joint-continuity comparison in Layer 0 is a README target only. Its boundary checks are: the zero vector module leaves the additive coefficient group; a continuous bilinear cocycle gives continuous multiplication in product coordinates; and in Hausdorff coordinates the central injection is closed while the projection is continuous, open and surjective.
 
-Mathlib's `MonoidHom.ker` and `Subgroup.subtype` supply kernels and inclusions, `MonoidHom.comp` restricts a representation, `Submodule.mkQ_surjective` and `Submodule.liftQ` supply quotient maps and their universal property, and `QuotientGroup.mk'` and `QuotientGroup.lift` supply group quotients. Mathlib's `Representation.Coinvariants.mk`, `lift`, `lift_comp_mk` and `mk_surjective` also supply algebraic tensor coinvariants. `SemidirectProduct` supplies the abstract semidirect group and its multiplication; `MonoidHom.comp_apply` supplies character composition. These are used directly. An arbitrary character kernel is not yet a normalized metaplectic cover; an arbitrary submodule quotient is not yet the small theta lift; and an arbitrary normal subgroup quotient is not yet the adelic restricted-product cover. Those identifications remain the corresponding named mathematical targets.
+Mathlib's `MonoidHom.ker` and `Subgroup.subtype` supply kernels and inclusions, `MonoidHom.comp` restricts a representation, `Submodule.mkQ_surjective` and `Submodule.liftQ` supply quotient maps and their universal property, and `QuotientGroup.mk'` and `QuotientGroup.lift` supply group quotients. Mathlib's `Representation.Coinvariants.mk`, `lift`, `lift_comp_mk` and `mk_surjective` also supply algebraic tensor coinvariants. `SemidirectProduct` supplies the abstract semidirect group and its multiplication; `MonoidHom.comp_apply` supplies character composition. These are used directly. An arbitrary character kernel is not yet a normalized metaplectic cover; an arbitrary submodule quotient is not yet the small theta lift; and an arbitrary normal subgroup quotient is not yet the adelic restricted-product cover. Those identifications are the targets 2.4b, 3.5 and 4.2.
+
+GL2AutomorphicRepresentationsAndTransfer R17.4.13a constructs, for its adjoint-lift integral, the case of SL₂ over a number field: the metaplectic extension by the circle, the Weil representation on Schwartz functions, the rational and unipotent splittings, the theta sum and genuine Eisenstein series. Layers 2, 4 and 5 here construct these objects for Sp(W) of every rank and over every local field; for dim W=2 and a number field 2.4b, 4.2, 4.4, 4.5, 5.1, 5.4 and 5.16 specialise to that construction.
+
+GeometryOfNumbersAndQuadraticArithmetic §4.3 owns the holomorphic theta multiplier on Γ₀(4), the nonvanishing of θ and the half-integral Kloosterman sums `halfIntegralKloosterman`. Here 7.1 uses the multiplier in the unitary normalization, and 7.12 identifies K_{1/2} with its odd-ℓ case. AutomorphicFormsOnReductiveGroups §6.4 owns GSp₄⁺(ℝ) (`positiveSimilitude`), which 8.11 writes in BFH's coordinates. AutomorphicSpectralTheory owns the Bessel functions J and I (§0.25), the Whittaker functions M and W (§§0.26–0.28), Kloosterman sums and the weight-k Laplacian (§1.16), and the weight-zero resolvent, Poincaré and Eisenstein theory for linear groups (Layers 1–2). Layer 7 and 8.76–8.80 adapt them to the theta multiplier and to the double cover.
+
+Local Langlands inputs are taken from the roadmaps that state them: GL2AutomorphicRepresentationsAndTransfer R16.0.1 and R17.1.1 (GL₂ and quaternionic Jacquet–Langlands) and EndoscopicTransferAndUnitaryTraceComparison §§11.2–11.3 (tempered unitary packets, conditional on its classification inputs). No TauCetiRoadmap roadmap constructs the local Langlands correspondence for Sp₆, so 3.41 states it as a hypothesis. The function-field programme 4.8 takes its factorization gerbe, metaplectic geometric Satake equivalence and global excursion operators as hypotheses; SmoothRepresentationsOfLocalGroups §SR.6.3 supplies only the local excursion algebra.
 
 ## Conventions
 
-Write e(t)=exp(2πit). Heisenberg extensions use coefficient-first coordinates (t,w), with law (t,w)(s,v)=(t+s+B(w,v),w+v); the symplectic model has B=ω/2. BFH’s space-first convention is obtained by interchanging coordinates. QFI6C supplies nonarchimedean Hilbert symbols; use GlobalQuadraticForms layer 4 over R. Local fields have characteristic different from two where stated; dyadic residue characteristic remains allowed. Use nontrivial continuous unitary ψ and self-dual additive measures. Left actions correspond to Kudla’s right action through inversion. Operator comparisons specify Fourier signs and root branches.
+Write e(t)=exp(2πit). Heisenberg extensions use coefficient-first coordinates (t,w), with law (t,w)(s,v)=(t+s+B(w,v),w+v); the symplectic model has B=ω/2. BFH’s space-first convention is obtained by interchanging coordinates. QuadraticFormInvariants §6C supplies nonarchimedean Hilbert symbols, and GlobalQuadraticForms Layer 4 the real one. Local fields have characteristic different from two where stated; dyadic residue characteristic remains allowed. Use nontrivial continuous unitary ψ and self-dual additive measures. Left actions correspond to Kudla’s right action through inversion. Operator comparisons specify Fourier signs and root branches.
 
 Distinguish the scalar-circle extension from its normalized μ₂ subcover. A genuine representation sends the latter’s central −1 to −Id. Fix q’s polar form as q(x+y)−q(x)−q(y); its determinant differs from the quadratic determinant by 2^dimV. GQT parameters use m=m₀+2r, d(n)=n+ε₀, s₀=(m−d(n))/2 and ρ_H=(m−r−ε₀)/2. The half-weight parameter is r/2 and the paired weight-zero parameter r. Petersson products use unnormalized hyperbolic area. In BFH, the original newform conductor is M, the auxiliary level N, and the normalized Siegel parameter s−2.
 
-The degree-two theta pairing uses ordinary Lebesgue measure on C². With W=Zλ+ρ this is det(Im Z)dλdρ. Its diagonal norm is √det(Im Z)/(4a); the Gaussian calculation in 8.21 fixes this normalization. The finite S-transform still has factor 1/(2a), the reciprocal square root of the number of residue classes. The two factors serve different operations.
+The degree-two theta pairing uses ordinary Lebesgue measure on C². With W=Zλ+ρ this is det(Im Z)dλdρ. Its diagonal norm is √det(Im Z)/(4a); the Gaussian calculation in 8.21 fixes this normalization. The finite S-transform still has factor 1/(2a), the reciprocal square root of the number of residue classes, and the real Gaussian Fourier integral in W has factor √(−det Z)/(2m) (8.62). The three factors serve different operations.
 
 ## Exact supplier contracts
 
-The companion uses Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Reuse is also checked against the current Tau Ceti `a91d3aaf` and the current upstream roadmaps; declarations added after the pins are supplier boundaries, not reimplementations.
+`Suggested.lean` is checked against Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Reuse is also checked against the current Tau Ceti `a91d3aaf` and the current TauCetiRoadmap roadmaps; declarations added after the pins are supplier boundaries, not reimplementations.
 
 ### From Mathlib and Tau Ceti
 
@@ -34,44 +40,28 @@ Mathlib supplies the native groups, modules, matrices, quadratic maps, Schwartz 
 
 Tau Ceti supplies `TauCeti.BilinForm.isometryGroup`, `TauCeti.BilinForm.isometryGroupEquivIsometryEquiv`, `TauCeti.BilinForm.mem_isometryGroup`, `TauCeti.FactorSet`, `TauCeti.FactorSet.Extension`, `TauCeti.FactorSet.Extension.inv_left`, `TauCeti.FactorSet.Extension.inv_right`, `TauCeti.FactorSet.Extension.mul_left`, `TauCeti.FactorSet.Extension.mul_right`, `TauCeti.FactorSet.canonicalSection`, `TauCeti.FactorSet.groupExtension`, `TauCeti.FactorSet.inl`, `TauCeti.FactorSet.inl_injective`, `TauCeti.FactorSet.inl_mul_canonicalSection`, `TauCeti.FactorSet.inl_range_le_center`, `TauCeti.FactorSet.rescaleEquiv`, `TauCeti.FactorSet.rescaleEquiv_apply`, `TauCeti.FactorSet.rescaleEquiv_symm_apply`, `TauCeti.choleskyEquiv`, `TauCeti.trivialMulDistribMulAction`, `TauCeti.trivialMulDistribMulAction_smul`. Bilinear isometries act on the native factor-set extension; their continuity requires the stated topology and evaluation hypothesis.
 
-### From neighbouring roadmaps
+### From TauCetiRoadmap
 
-| Prefix | Supplier and contract |
+Roadmaps on TauCetiRoadmap main, cited by layer: IntegralLattices Layer 1 (finite quadratic modules, discriminant forms and Gauss invariants) and Layer B (B2, binary forms and ideal classes); FuchsianOrbifolds Layer 6 (the level-one modular quotient); GlobalQuadraticForms Layers 3, 4, 7 and 8 (admissible local invariants, the real Hilbert symbol, existence and classification); ModularForms Layers 0, 2, 4, 6 and 7 (nebentypus, Hecke operators, newforms and conductors, Atkin–Lehner and Fricke operators, L-functions); QuadraticFormInvariants §6C (Hilbert symbol and Hasse invariant, dyadic fields included); RepresentationTheory/ClassicalGroups Layer 0; RepresentationTheory/CompactGroups Layer 5 (Peter–Weyl); OrthogonalSpinGroups; ProfiniteArithmetic 3.4; Completed/OrthogonalL2Bases (Hermite functions).
+
+Roadmaps that are open TauCetiRoadmap pull requests, cited by section:
+
+| Roadmap | Sections used and contract |
 | --- | --- |
-| `AA` | `AdelicAlgebraicGroups`: restricted products, adelic groups, rational quotients and Haar/Tamagawa measures in Layers 0–1 |
-| `AF` | `AutomorphicFormsOnReductiveGroups`: smooth automorphic forms with the stated finite level, cusp and growth conditions in Layers 1–2 and 5 |
-| `AL` | `AutomorphicLFunctionsAndLocalFactors`: actual local and adelic Schwartz–Bruhat spaces, self-dual Fourier inversion and rational Poisson summation in Layer 0; normalized local factors in Layer 3 |
-| `AS` | `AutomorphicSpectralTheory`: normalized induced sections and initial convergence in Layer 1; intertwiners, meromorphic families and pole/constant-term criteria in Layer 2 |
-| `R16` | `GL2AutomorphicRepresentationsAndTransfer`: the normalized GL₂ representation of the original newform and its conductor, finite vectors and Fricke/cusp coefficients in Layer 2 |
-| `GS3` | `GeometricSatakeAndFusion`: the metaplectic geometric Satake equivalence, its fusion compatibilities and the specified dual group |
-| `GS` | `GlobalShtukasAndFunctionFieldLanglands`: the factorization-gerbe and shtuka constructions for the conditional function-field programme |
-| `ML` | `ModularityAndLanglandsExtensions`: the named local-parameter inputs only after their dependencies on this roadmap are separated |
-| `LV` | `MordellLawrenceVenkatesh`: a Lagrangian symplectic basis, without transferring its later arithmetic hypotheses |
-| `QM` | `QSeriesPartitionsAndMockModularForms`: the classical weight-k hyperbolic Laplacian and the theta multiplier; cover-specific comparisons belong here |
-| `SR` | `SmoothRepresentationsOfLocalGroups`: smooth representations, induction and Jacquet functors in Layers 2–3; the smooth dual and finite-length categories, not arbitrary algebraic representations |
+| AdelicAlgebraicGroups | §§0.2–0.4 restricted products of Haar measures and integrals of factorizable functions; §1.2 adelic points as restricted products; §1.5 compact open subgroups; §§2.2–2.4 quotient measures, the automorphic quotient, Tamagawa measures and numbers; §§3.4–3.5 Siegel sets, finite volume and heights; §§4.4–4.5 level indices and volumes |
+| AutomorphicFormsOnReductiveGroups | §0.1 smooth finite-level functions; §§0.3–0.4 Schwartz functions on the group and uniform moderate growth; §§2.1, 2.4, 2.7 admissible (𝔤,K)-modules, discrete series and Langlands quotients, smooth Fréchet globalizations; §§3.1–3.2 smooth automorphic forms and central characters; §§4.1–4.2 constant terms and cuspidal occurrence; §4.5 Maass forms and their Fourier expansion; §§5.4, 6.8 Vogan–Zuckerman modules and holomorphic discrete series; §6.4 GSp₄⁺(ℝ); §§7.2–7.3 GL₂ adelization and Hecke normalization. Genuine forms on covering groups (Layers 5 and 8) follow the same definitions with a genuine central character |
+| AutomorphicLFunctionsAndLocalFactors | AL.0 self-dual additive measures, local and adelic Schwartz–Bruhat spaces, local Fourier inversion, partial Fourier transforms, vector-space Poisson summation and the K-Bessel kernel; AL.1 Tate theory, archimedean and epsilon factors, ramified local theory; AL.2 Godement–Jacquet factors, GL₂ newvectors and test vectors; AL.3 Rankin–Selberg factors |
+| AutomorphicSpectralTheory | §§0.6–0.7 spectral theorem; §0.25 Bessel J and I; §§0.26–0.28 Whittaker M and W; §1.16 Kloosterman sums and the weight-k Laplacian; §§1.1–1.3, 1.12–1.13 normalized induction and convergent Eisenstein series; §§1.20–1.21 weight-two Poincaré one-forms; §§2.1–2.6, 2.17, 2.19 intertwining operators, continuation, residues and the resolvent; §4.17a genus characters and real-quadratic surfaces |
+| EndoscopicTransferAndUnitaryTraceComparison | §§11.2–11.3 tempered and extended local unitary packets with their pairings, conditional on its classification inputs |
+| GL2AutomorphicRepresentationsAndTransfer | R16.0.1 finite-place local Langlands for GL₂; R17.1.1 quaternionic local Jacquet–Langlands; R17.4.13 the adjoint lift |
+| GeometryOfNumbersAndQuadraticArithmetic | §3.4 lattice theta series (boundary); §4.3 the theta multiplier on Γ₀(4), nonvanishing of θ and half-integral Kloosterman sums |
+| SmoothRepresentationsOfLocalGroups | §SR.0.2 the smooth category; §§SR.2.1–SR.2.3 smooth and compact induction, Jacquet functors, the geometric lemma and Whittaker functionals; §SR.3a.1 Schur's lemma; §§SR.3.1, SR.3.3 finite length, cuspidal support and the Langlands classification; §§SR.4.1–SR.4.4 Satake transforms and spherical parameters |
 
-The exact upstream references used below are:
-
-- `TC47`: `tauceti:TauCetiRoadmap/IntegralLattices#layer-1-dual-lattices-discriminant-groups-and-finite-quadratic-forms`.
-- `TC48`: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order`.
-- `TC49`: `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants`.
-- `TC50`: `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas`.
-- `TC51`: `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-7-existence-from-compatible-local-invariants`.
-- `TC52`: `tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences`.
-- `TC53`: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
-- `TC54`: `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
-- `TC55`: `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`.
-- `TC56`: `tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators`.
-- `TC57`: `tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions`.
-- `TC58`: `tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant`.
-- `TC59`: `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation`.
-- `TC60`: `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem`.
-
-Supplier existence does not imply proof closure. The normalizing character on the scalar oscillator normalizer, the local smooth/Fréchet representation categories, genuine adelic induced spaces and the original arithmetic BFH seed must be supplied before their full comparisons can be stated as Lean theorems. The README states these full targets; the companion records only signatures whose hypotheses are expressible at the pins. Unread or unavailable original proofs are identified as source gaps at the affected targets.
+Every use keeps the local field, representation category, normalization and convergence hypotheses of its supplier. The remaining constructions this roadmap needs and no supplier provides (the oscillator normalizer and its character λ₂, the genuine adelic induced spaces, the BFH datum and its Eisenstein family) are targets here.
 
 ## How to read the build
 
-Layer 0 fixes bilinear Heisenberg coordinates and the Schrödinger models. Layer 1 constructs the normalized double cover, and Layer 2 its Fourier and Weil-index formulas. Layer 3 supplies local theta correspondence; Layer 4 assembles adelic actions. Layers 5 and 6 construct global kernels and their integral comparisons. Layer 7 matches classical half-weight conventions and spectral transforms, while Layer 8 supplies the genus-two two-cusp analysis. Every subsection states its own hypotheses, named interfaces, source locator and direct prerequisites; examples at the end of each layer collect the convention witnesses.
+Layer 0 fixes bilinear Heisenberg coordinates, symplectic bases and the Schrödinger models. Layer 1 proves Stone–von Neumann and builds the oscillator normalizer, an extension of Sp(W) by the circle. Layer 2 computes the Weil index and the Leray invariant, uses them to build the Rao cocycle, the character λ₂ and the metaplectic double cover with its genuine Weil representation, and then gives the operator formulas. Layer 3 builds dual pairs, their splittings (with the Hermitian normalizations of 3.3a–3.3b) and the local theta correspondence. Layer 4 assembles the adelic cover and the global Weil representation. Layers 5 and 6 construct global theta kernels, lifts and their integral comparisons; 5.14a supplies the Poisson comparison that 5.15 uses. Layer 7 matches the classical half-integral-weight conventions and spectral transforms. Layer 8 supplies the genus-two two-cusp analysis built from one BFH datum (8.28a) and ends with the exports 8.85–8.87. Every target needs only earlier targets of its own layer and earlier layers; each subsection states its hypotheses, interfaces, source locator and direct prerequisites, and the examples at the end of each layer collect the convention witnesses.
 
 ## Layer 0: Symplectic and Heisenberg groups with topology
 
@@ -340,7 +330,7 @@ For the integer bilinear form B(x,y)=x₀y₁, the two orders give B(e₀,e₁)=
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AutomorphicFormsOnReductiveGroups §2.7, AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space), 0.0, SmoothRepresentationsOfLocalGroups §SR.0.2, SmoothRepresentationsOfLocalGroups §SR.2.1. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: none. From other roadmaps: AutomorphicLFunctionsAndLocalFactors AL.0 (self-dual Haar measures, local Schwartz–Bruhat spaces, local Fourier inversion); SmoothRepresentationsOfLocalGroups §§SR.0.2, SR.2.1; AutomorphicFormsOnReductiveGroups §2.7. Mathlib and Tau Ceti as in the supplier contracts.
 
 ## Layer 1: Stone–von Neumann and the oscillator normalizer
 
@@ -352,7 +342,7 @@ No odd-residue-characteristic assumption is imposed. For the use of Sun–Zhu’
 
 (Kudla96, I.1 Theorem1.1 p.3). *Needs:* 0.16; SmoothRepresentationsOfLocalGroups §SR.0.2; SmoothRepresentationsOfLocalGroups §SR.3a.1 (Schur’s lemma).
 
-Source gap. Kudla and Sun–Zhu both refer this proof to MVW 2.I.2; that book proof requires verification in its original source. The smooth uniqueness and scalar Schur step remain explicit proof gaps until a matching source is checked.
+*Proof input.* Kudla96 I.1 and Sun–Zhu refer the smooth uniqueness to Mœglin–Vignéras–Waldspurger, chapitre 2, I.2. The two steps it needs are the uniqueness of the induced model with central character ψ (0.16) and the scalar Schur lemma for irreducible smooth representations of the Heisenberg group over nonarchimedean F, a locally profinite group countable at infinity; SmoothRepresentationsOfLocalGroups §SR.3a.1 supplies the latter in exactly that generality.
 
 ### 1.2 Unitary Stone–von Neumann theorem
 
@@ -370,7 +360,7 @@ The Hilbert Schrödinger model is strongly continuous; g acts by the inherited c
 
 (Weil64, I.§10 Théorème1, printed157, PDF15; III.§§31–36, PDF39–45). *Needs:* 0.17, 0.8, 1.2, 1.1.
 
-Source and signature gap. The actual irreducible nonzero Schrödinger model, its strong operator topology and scalar-kernel Schur comparison are required; covariance for an arbitrary representation does not imply this extension theorem.
+*Construction.* The extension is built on the irreducible Schrödinger model of 1.2, with the strong operator topology on its unitary group. Schur's lemma for that irreducible model identifies the kernel of S_ψ→Sp(W) with the scalar circle; covariance under an arbitrary representation of the Heisenberg group does not give this.
 
 - `scalarNormalizer_projection`: The covariance subgroup projects by a group homomorphism to G; openness, surjectivity, continuity and its scalar kernel require the actual irreducible model.
 - `scalarNormalizer_covariance`: Aρ(h)=ρ(g·h)A.
@@ -392,11 +382,11 @@ Nontrivial ψ; the exact smooth or strongly continuous unitary category is fixed
 
 ### Examples
 
-For the scalar square character on Cˣ, its kernel contains −1 and consists of the second roots of unity. These checks distinguish the kernel calculation from the additional oscillator-normalization and topological double-cover theorem.
+For W=0 the Heisenberg group is its center, the Schrödinger model is ψ on ℂ and the oscillator normalizer is the circle U(1), so 1.3 is the trivial extension. For W≠0 a unitary normalizing the Schrödinger model is determined up to a scalar of modulus one (1.4); removing that circle ambiguity is the work of Layer 2.
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are SmoothRepresentationsOfLocalGroups §SR.0.2, SmoothRepresentationsOfLocalGroups §SR.3a.1 (Schur’s lemma), QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layer 0. From other roadmaps: SmoothRepresentationsOfLocalGroups §SR.0.2 and §SR.3a.1 (Schur's lemma).
 
 ## Layer 2: Weil index, Rao cocycle, metaplectic cover and explicit operators
 
@@ -549,11 +539,11 @@ dim_F V>0. Let q(x)=(x,x)/2, V^int={x | val_F(q(x))≥0} and V^int_+={x | val_F(
 
 ### Examples
 
-Changing ψ to ψ⁻¹ conjugates the Fourier phase. On a rank-one graph with pairing −xy, the Leray quadratic value is −x²/2, fixing the graph convention. In characteristic two the division by 2 requires the explicit invertibility hypothesis.
+For W=0 the metaplectic cover is μ₂, the kernel of z↦z² on the circle; the character z↦z⁴ would leave μ₄. Changing ψ to ψ⁻¹ conjugates the Fourier phase. On a rank-one graph with pairing −xy, the Leray quadratic value is −x²/2, fixing the graph convention. In characteristic two the division by 2 requires the explicit invertibility hypothesis.
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicLFunctionsAndLocalFactors AL.1 (local epsilon factors and Gauss sums), 0.0, GlobalQuadraticForms Layer 4, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 0 and 1. From other roadmaps: AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion) and AL.1 (local epsilon factors); QuadraticFormInvariants §6C; GlobalQuadraticForms Layer 4.
 
 ## Layer 3: Dual pairs and local theta modules
 
@@ -671,7 +661,7 @@ The smooth representations are irreducible admissible and genuine where required
 
 (GanTakeda16, Theorem1.2 and(HD), PDF2; proof §§4–6 PDF9 onward; GI18, §2.2, arXiv-v3 PDF8; GS23a, §14.1–14.3, arXiv-v1 PDF50–51). *Needs:* 3.5, 3.6; SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1; AutomorphicFormsOnReductiveGroups §§2.1, 2.7.
 
-Source gap. Gan–Takeda proof continuation PDF11–21 and its type-II/MVW inputs need complete proof closure; the full quaternionic Gan–Sun theorem and archimedean Howe/automatic-continuity sources remain requested.; Gan–Ichino18 and Gan–Savin23 invoke classical Howe duality. Their invocation is read; Howe’s archimedean original proof and its Harish-Chandra/globalization comparison require verification in their original sources here. Supply the full real/complex theorem with exact categories before closing this node.
+*Proof input.* For nonarchimedean F the proof is GanTakeda16 §§4–6 (PDF9–21), whose inputs are the type-II correspondence of 3.14 and the MVW involution of 3.15. The quaternionic dual pairs need Gan–Sun's extension of that argument, and real and complex F need Howe's archimedean theorem, which Gan–Ichino18 §2.2 and Gan–Savin23 §14.1 quote; in the archimedean case the statement is made for Casselman–Wallach representations (AutomorphicFormsOnReductiveGroups §2.7), and the comparison between Harish-Chandra modules and their globalizations is part of this target.
 
 ### 3.8 Local see-saw identity
 
@@ -739,7 +729,7 @@ Smooth irreducible representations; the pair orientation and normalized action a
 
 (GanTakeda16, §3 proof strategy, PDF9, cited general-linear Howe input; original Mínguez theorem required). *Needs:* SmoothRepresentationsOfLocalGroups §SR.2.2; SmoothRepresentationsOfLocalGroups §SR.3.1.
 
-Source gap. Gan–Takeda §3 cites the general-linear Howe input. The original Mínguez theorem and the unequal-rank parameter formula are required for closure.
+*Proof input.* GanTakeda16 §3 uses Mínguez's explicit type-II correspondence for (GL_n, GL_m), including the unequal-rank parameter formula; this target is that statement, and it is the only input of 3.7 from outside Layers 0–3.
 
 ### 3.15 MVW involution and metaplectic induction
 
@@ -1007,7 +997,7 @@ A zero tensor factor enlarges the dual-pair kernel, so both factors are nonzero 
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §§1.1, 1.5, AutomorphicFormsOnReductiveGroups §§2.1, 2.4, 2.7, 5.4, 6.8, AutomorphicLFunctionsAndLocalFactors AL.0, `ML.4`, SmoothRepresentationsOfLocalGroups §SR.0.2, SmoothRepresentationsOfLocalGroups §§SR.2.1–SR.2.3, SmoothRepresentationsOfLocalGroups §§SR.3.1, SR.3.3, SR.4.1–SR.4.4, QuadraticFormInvariants §6C, RepresentationTheory/ClassicalGroups Layer 0. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 0–2. From other roadmaps: RepresentationTheory/ClassicalGroups Layer 0; QuadraticFormInvariants §6C; AutomorphicLFunctionsAndLocalFactors AL.0–AL.1 (local Fourier inversion, change of additive character, local epsilon factors and Gauss sums); SmoothRepresentationsOfLocalGroups §§SR.0.2, SR.2.1–SR.2.3, SR.3.1, SR.3.3, SR.4.1–SR.4.4; AutomorphicFormsOnReductiveGroups §§2.1, 2.4, 2.7, 5.4, 6.8; AdelicAlgebraicGroups §§1.1, 1.5; GL2AutomorphicRepresentationsAndTransfer R17.1.1; EndoscopicTransferAndUnitaryTraceComparison §§11.2–11.3.
 
 ## Layer 4: Adelic metaplectic covers and finite Weil representations
 
@@ -1129,7 +1119,7 @@ Two local central signs multiply to +1 in the product-one quotient, whereas a si
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §1.2, AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation), AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space), AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space), `GS.5`, `GS.5/excursion-operator`, `GS.5/the-excursion-algebra`, `GS3`, `GS3:fusion/fusion-product-and-sign-rule`, IntegralLattices Layer 1, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 0–3 (directly Layer 2). From other roadmaps: AutomorphicLFunctionsAndLocalFactors AL.0 (local and adelic Schwartz–Bruhat spaces, local Fourier inversion, vector-space Poisson summation); AdelicAlgebraicGroups §1.2; QuadraticFormInvariants §6C; IntegralLattices Layer 1.
 
 ## Layer 5: Global theta kernels and genuine automorphic forms
 
@@ -1159,7 +1149,7 @@ Number field; finite-dimensional quadratic/symplectic datum; fixed finite-level 
 
 (Weil64, III.§41 Lemmas4–5 and compact normal convergence, printed193–194, PDF51–52). *Needs:* 5.1; AdelicAlgebraicGroups §3.4 (adelic Siegel sets); AdelicAlgebraicGroups §3.4 (Siegel covering); AdelicAlgebraicGroups §3.5 (heights on Siegel sets); AutomorphicFormsOnReductiveGroups §0.4.
 
-Source gap. Weil’s stated lemmas give continuity and compact normal convergence. The derivative and uniform polynomial height estimates require a separate proof against the precise AF.2 seminorm and AA.3 height contracts; they do not follow from compact convergence alone.
+*Proof input.* Weil's lemmas give continuity and normal convergence on compacta. The uniform derivative and polynomial height bounds are part of this target: differentiate under the sum using the smooth vectors of 0.18, and bound on Siegel sets with AdelicAlgebraicGroups §§3.4–3.5 and the moderate-growth seminorms of AutomorphicFormsOnReductiveGroups §0.4. Convergence on compacta alone does not give them.
 
 ### 5.3 Genuine automorphic spaces
 
@@ -1370,7 +1360,7 @@ The rational theta sum on a zero-dimensional configuration has one term. If a lo
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §§2.2–2.4, AdelicAlgebraicGroups §3.4, AdelicAlgebraicGroups §3.4 (adelic Siegel sets), AdelicAlgebraicGroups §3.5 (heights on Siegel sets), AdelicAlgebraicGroups §3.4 (Siegel covering), AutomorphicFormsOnReductiveGroups §0.1, AutomorphicFormsOnReductiveGroups §§3.1–3.2, AutomorphicFormsOnReductiveGroups §0.4, AutomorphicFormsOnReductiveGroups §§4.1–4.2, AutomorphicFormsOnReductiveGroups §4.1, AutomorphicFormsOnReductiveGroups §4.2, AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation), AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space), AutomorphicLFunctionsAndLocalFactors AL.0 (local Schwartz–Bruhat space), AutomorphicSpectralTheory §§1.1–1.3, AutomorphicSpectralTheory §§2.4, 2.6, IntegralLattices Layer 1, ModularForms Layer 0, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 2–4. From other roadmaps: AutomorphicLFunctionsAndLocalFactors AL.0; AdelicAlgebraicGroups §§2.2–2.4, 3.4–3.5, 4.4; AutomorphicFormsOnReductiveGroups §§0.1, 0.4, 3.1–3.2, 4.1–4.2; AutomorphicSpectralTheory §§1.1–1.3, 2.4, 2.6; IntegralLattices Layers 1 and B; ModularForms Layer 0; QuadraticFormInvariants §6C.
 
 ## Layer 6: Siegel–Weil, Rallis, see-saw and Jacobi interfaces
 
@@ -1446,7 +1436,7 @@ Prove `siegelWeil_secondTerm`: In d(n)<m≤d(n)+r with r≤n, let m+m′=2d(n), 
 
 Define `thetaSectionCollection` as follows. A local quadratic/Hermitian collection with fixed dimension/discriminant and good-place lattices gives tensor evaluation sections. Coherence means localization of a global space, with every real signature and invariant-product constraint matched. Incoherent sections lie in the same induced representation without a global rational theta sum. Export their normalization and functional equation to GZ.6.
 
-Number-field local collection, common inducing character, matching archimedean data. For quadratic spaces, admissible invariant systems, global existence and classification come from GlobalQuadraticForms Layers3,7,8; QFI6C supplies only local Hilbert/Hasse invariants and its cohomological comparison. The global Hermitian analogue requires a separate source-qualified extension, not an assumed consequence of local theta nonvanishing.
+Number-field local collection, common inducing character, matching archimedean data. For quadratic spaces, admissible invariant systems, global existence and classification come from GlobalQuadraticForms Layers3,7,8; QuadraticFormInvariants §6C supplies only local Hilbert/Hasse invariants and its cohomological comparison. The global Hermitian analogue requires a separate source-qualified extension, not an assumed consequence of local theta nonvanishing.
 
 (AGHMP18, Published §6.1 equations(6.1.1)–(6.1.2), printed466–467, PDF76–77). *Needs:* 6.2, 4.3; QuadraticFormInvariants §6C; AutomorphicSpectralTheory §§2.4, 2.6; GlobalQuadraticForms Layer 3; GlobalQuadraticForms Layer 7; GlobalQuadraticForms Layer 8.
 
@@ -1626,7 +1616,7 @@ Actual anisotropic torus and unitary character trivial on T(F); cusp or compactn
 
 (GZ86, I.§5(5.2), printed229, PDF6; IV.§2 printed273–275, PDF50–52; YZZ11, 6 November 2011 draft, §2.2.1 Proposition2.2.1 and proof pp.48–50; §§2.3–2.4 pp.51–55). *Needs:* 6.16, 6.15, 6.1, 6.12; AdelicAlgebraicGroups §§2.3, 3.4.
 
-Source gap. The linked 2011 YZZ draft is unavailable at its cited public URL. Its Propositions 2.2.1 and 2.3–2.4 and their normalization must be checked in that exact version. The GZ86 theta and Rankin identities do not alone supply the toric Shimizu comparison; a quaternionic toric-pairing construction is required.
+*Proof input.* The nonsplit toric Shimizu contraction, the toric unfolding and their normalization are Yuan–Zhang–Zhang's (2011 author draft, §2.2.1 Proposition 2.2.1 and §§2.3–2.4, pp.48–55), where the split quaternion case is reduced to Waldspurger's argument instead of the Siegel–Weil formula. GZ86's theta and Rankin identities give only the ideal-theta part, so the quaternionic toric pairing itself is constructed in this target.
 
 ### Examples
 
@@ -1634,7 +1624,7 @@ The GQT second-term equality holds modulo the image of A₋₁; at r′=0 its co
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §0.3, AdelicAlgebraicGroups §§0.2, 1.5, 2.3, AdelicAlgebraicGroups §2.4 (Tamagawa measure), AdelicAlgebraicGroups §§2.4, 3.4 (Tamagawa number), AutomorphicFormsOnReductiveGroups §3.1, AutomorphicFormsOnReductiveGroups §4.2, AutomorphicFormsOnReductiveGroups §4.1, AutomorphicLFunctionsAndLocalFactors AL.0, AutomorphicLFunctionsAndLocalFactors AL.0 (vector-space Poisson summation), AutomorphicLFunctionsAndLocalFactors AL.0 (adelic Schwartz–Bruhat space), AutomorphicLFunctionsAndLocalFactors AL.0 (local Fourier inversion), AutomorphicSpectralTheory §§0.6–0.7, AutomorphicSpectralTheory §§1.1–1.3, AutomorphicSpectralTheory §§2.4, 2.6, SmoothRepresentationsOfLocalGroups §SR.2.2, IntegralLattices Layer 1, GlobalQuadraticForms Layer 3, GlobalQuadraticForms Layer 7, GlobalQuadraticForms Layer 8, QuadraticFormInvariants §6C. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 0–5. From other roadmaps: AdelicAlgebraicGroups §§0.2–0.4, 1.5, 2.3–2.4, 3.4; AutomorphicLFunctionsAndLocalFactors AL.0–AL.2; AutomorphicSpectralTheory §§0.6–0.7, 1.1–1.3, 2.4, 2.6; AutomorphicFormsOnReductiveGroups §§3.1, 4.1–4.2; SmoothRepresentationsOfLocalGroups §SR.2.2; QuadraticFormInvariants §6C; GlobalQuadraticForms Layers 3, 7 and 8; IntegralLattices Layer 1.
 
 ## Layer 7: Half-integral weight, plus spaces and Shimura lifting
 
@@ -1768,7 +1758,7 @@ Prove `kohnenPlus_projection`: Prove pr⁺ is the orthogonal projection onto V_r
 
 (DIT16, §8 equation(8.10) and footnote7, printed977, PDF29; projection definition printed976 PDF28). *Needs:* 7.10, 5.5.
 
-Source gap. DIT16 footnote 7 identifies the old projector normalization, but the operator identity on the full cusp domain still needs the original proof.
+*Proof input.* DIT16 footnote 7 fixes only the factor between the DIT11 projector and pr⁺. That pr⁺ is the orthogonal projection onto V_r⁺ on the full three-cusp domain is part of this target, proved from the formulas for U and W in 7.10 on the multiplier space of 7.2.
 
 ### 7.12 Half-weight Kloosterman sum
 
@@ -1815,7 +1805,7 @@ Define `halfWeightResolvent` as follows. Construct the resolvent G_{1/2}(z,z′;
 
 (DIT16, §8 (8.5), p975). *Needs:* 7.2, 5.5; AutomorphicSpectralTheory §§1.16a, 2.19.
 
-Source gap. The full multiplier resolvent and its self-adjoint three-cusp domain need Fay’s Theorem 3.1 and Corollary 3.6, p.178, in the original source. The DIT16 citation verifies the formula used here, not that analytic construction.
+*Proof input.* The resolvent of the weight-one-half Laplacian with the theta multiplier, and its self-adjoint domain with conditions at the three cusps, are Fay's construction (Fay, Theorem 3.1 and Corollary 3.6, p.178), which DIT16 §8 quotes for the formula used here. This target constructs them, following the weight-zero resolvent of AutomorphicSpectralTheory §§1.16a and 2.19 with the multiplier J in place of the trivial one.
 
 - `halfWeightResolvent_weightedDomain`: Use functions with J automorphy and all three cusps in the self-adjoint domain.
 - `halfWeightResolvent_covariance`: Transform each kernel variable with its J or conjugate J factor.
@@ -1849,7 +1839,7 @@ Prove `halfWeightPoincare_residue`: At s₀=1/2+ir/2, r>0, Res[(2s−1)F_{1/2,n}
 
 (DIT16, §8 equation(8.7), printed976, PDF28). *Needs:* 7.3, 7.15, 7.16, 5.5.
 
-Source gap. The Poincaré-resolvent residue comparison needs the original Fay construction and its cusp-domain hypotheses; the displayed DIT16 residue formula has been checked.
+*Proof input.* The residue formula is DIT16 (8.7); the comparison between the Poincaré family and the resolvent uses the resolvent of 7.15 with its cusp-domain hypotheses.
 
 ### 7.18 Plus Bessel coefficient family
 
@@ -1879,7 +1869,7 @@ Prove `plusBesselCoefficient_residue`: Φ⁺(d′,d;s) continues meromorphically
 
 (DIT16, Proposition4, p977). *Needs:* 7.9, 7.17, 7.19, 5.5.
 
-Source gap. The full meromorphic coefficient family needs the source resolvent and spectral projector; DIT16 Proposition 4 gives its stated normalization.
+*Proof input.* The meromorphic continuation of the coefficient family uses the resolvent of 7.15 and the spectral projector onto V_r⁺ of 7.11; DIT16 Proposition 4 fixes the normalization.
 
 ### 7.21 Quadratic-root Weyl sum
 
@@ -1903,7 +1893,7 @@ Prove `kohnenSalie_identity`: For c>0 divisible by4, d fundamental, d′≡0,1 m
 
 (DIT16, Lemma 8, p.980; the same as DIT11 Proposition 3, p.965, with DIT11's (d,D) renamed (d′,d)). *Needs:* 7.13, 7.21.
 
-Source gap. DIT11 Proposition 3, p.965, verifies the finite-sum statement, but its proof cites Kohnen Proposition 5, p.259. The original Kohnen calculation has not been checked.
+*Proof input.* DIT11 Proposition 3, p.965, states the identity and refers its proof to Kohnen's Proposition 5, p.259, a finite computation with Salié sums; that computation is part of this target.
 
 ### 7.23 Weight-two cycle unfolding
 
@@ -1941,7 +1931,7 @@ Prove `kohnenPlus_heckeBasis`: Construct an orthonormal simultaneous Hecke eigen
 
 (DIT16, §10, pp980–981; Katok–Sarnak[34]). *Needs:* 7.9, 7.10, 5.5.
 
-Source gap. The full Hecke spectral domain and the p=2 plus-space operator need their original source proof; diagonalization only away from 2 does not provide the all-prime eigenbasis.
+*Proof input.* The eigenbasis needs the Hecke operators T(p²) for all p, including the plus-space operator at p=2, on the self-adjoint domain of 7.15; simultaneous diagonalization away from 2 does not give an eigenbasis for the Euler product. The operator at 2 and its self-adjointness are part of this target (DIT16 §10, Katok–Sarnak).
 
 ### 7.29 Shimura lift from an eigenline
 
@@ -1989,7 +1979,7 @@ Prove `shimura_eigenlineBijection`: The weight-one-half Kohnen-plus Hecke eigenl
 
 (DIT16, §10 Proposition6 proof, pp981–982, [1]Theorem1.2). *Needs:* 7.28, 7.33, 5.5.
 
-Source gap. DIT16’s Proposition 6 proof cites the original Baruch–Mao Theorem 1.2 for surjectivity. That theorem and its level, multiplier and local conditions have not been checked.
+*Proof input.* Surjectivity onto the weight-zero eigenlines is Baruch–Mao's Theorem 1.2, which DIT16 Proposition 6 cites; it is an input of this target, with its level, multiplier and local conditions stated as in Baruch–Mao.
 
 ### 7.35 Extended trace formula for all discriminants
 
@@ -2055,7 +2045,7 @@ Prove `positiveFourier_finiteCertificate`: For an orthonormal basis f₁,…,f_m
 
 Prove `shimura_finiteFourierAutomorphy`: At N=1, assume convergence of Biró’s Fourier series and its equation (14) for every positive admissible index n=s/D. This expresses each conjugated-coefficient combination of Sh_D f_j as a finite genus-weighted weight-zero cusp trace. Finite Fourier separation then proves each Sh_D f, f∈W, is a possibly zero level-one cusp eigenform at parameter r. For positive D its Fourier coefficients are even. Establish the trace identity independently; for N>1 the spaces are Γ₀(N) and V*₁/₂(4N).
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained. D>0 is fundamental. The trace identity(14) and its convergence are hypotheses of this conditional node, not consequences of finite-dimensional coefficient separation. The trace identity must be proved independently of that separation argument; for N>1 use Γ₀(N) and the corresponding V*_{1/2}(4N).
+D>0 is fundamental. The trace identity(14) and its convergence are hypotheses of this conditional node, not consequences of finite-dimensional coefficient separation. The trace identity must be proved independently of that separation argument; for N>1 use Γ₀(N) and the corresponding V*_{1/2}(4N).
 
 (Biro00, Proof of Theorem1, printed128–129, PDF26–27). *Needs:* 7.41, 7.42.
 
@@ -2071,13 +2061,13 @@ Prove `halfWeightResolvent_fourier`: For Re s>1, reduced z and Im z′>Im z, exp
 
 (DIT16, §8, pp.975–977, citing Fay [20, Thm 3.1] and footnote 5; Fay Cor. 3.6 p.178). *Needs:* 5.5, 7.15, 7.16, 7.17.
 
-Source gap. DIT16 §8 records the Fourier formula and refers to Fay Theorem 3.1 and Corollary 3.6, p.178. The original multiplier resolvent construction remains unverified.
+*Proof input.* DIT16 §8 records the Fourier formula and refers to Fay, Theorem 3.1 and Corollary 3.6, p.178; the resolvent itself is the one constructed in 7.15.
 
 ### 7.46 Shimura Dirichlet-series identity for ψ∈B_r
 
 Prove `shimura_dirichletSeries`: For ψ∈B_r and fundamental d, prove L_d(s+1/2)Σ_{n≥1}b(dn²)n^(1−s)=b(d)∏_p(1−a_ψ(p)p^−s+p^−2s)^−1. Here L_d=L(−,χ_d), and a_ψ(2) uses the specified plus-space Hecke operator. Coefficient comparison gives 7.30.
 
-Native upper half plane; Γ₀(4) unitary theta multiplier; exact DIT16/DIT11 normalization and every numerical/range hypothesis in the statement. For spectral residue formulas r>0 and an orthonormal Petersson basis; three-cusp boundary conditions are retained. Use the all-prime simultaneous eigenbasis, including the separately supplied plus-space operator at2; an odd-prime eigenbasis does not define the displayed Euler product.
+Use the all-prime simultaneous eigenbasis, including the separately supplied plus-space operator at2; an odd-prime eigenbasis does not define the displayed Euler product.
 
 (DIT16, §10, p.981 (display after (10.1))). *Needs:* 5.5, 7.3, 7.28, 7.30.
 
@@ -2132,7 +2122,7 @@ The half-weight spectral eigenvalue is 1/4+(r/2)², while the corresponding weig
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AdelicAlgebraicGroups §4.5, AutomorphicFormsOnReductiveGroups §7.2, AutomorphicFormsOnReductiveGroups §4.5, AutomorphicFormsOnReductiveGroups §4.5, AutomorphicLFunctionsAndLocalFactors AL.0–AL.1, AutomorphicSpectralTheory §§0.6–0.7, 1.20–1.21, 2.19, 4.17a, AutomorphicSpectralTheory §§0.26, 0.28 (Whittaker functions), AutomorphicSpectralTheory §§1.1–1.3, GeometryOfNumbersAndQuadraticArithmetic §4.3 (theta multiplier, nonvanishing of θ), AutomorphicSpectralTheory §0.25 (Bessel J), AutomorphicSpectralTheory §0.25 (Bessel I), AutomorphicSpectralTheory §1.16 (weight-k Laplacian), FuchsianOrbifolds Layer 6, ModularForms Layer 0. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 2 and 5. From other roadmaps: GeometryOfNumbersAndQuadraticArithmetic §4.3; AutomorphicSpectralTheory §§0.25–0.28, 1.1–1.3, 1.16, 1.16a, 1.20–1.21, 2.19, 4.17a; AutomorphicLFunctionsAndLocalFactors AL.0–AL.1; AutomorphicFormsOnReductiveGroups §§4.5, 7.2–7.3; AdelicAlgebraicGroups §4.5; FuchsianOrbifolds Layer 6; ModularForms Layer 0.
 
 ## Layer 8: Genus-two Jacobi and Eisenstein analysis
 
@@ -2583,7 +2573,7 @@ Define `jacquetTwoParameter` as follows. For the BFH K-type, let F_v(n(E(x₂))m
 
 (BFH90, §3, pp.559–561, (3.11)–(3.15)). *Needs:* 8.32, 8.29.
 
-Source gap. The original special-function integral entries used in this reflection calculation, including their convergence and branch domains, require verification; the cited BFH transformation alone does not close that input.
+*Proof input.* BFH quote Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent integrals. The facts used are the Euler tail-integral representation of W_{κ,μ}, its order symmetry W_{κ,−μ}=W_{κ,μ} and its decaying normalization, all on the positive real axis; AutomorphicSpectralTheory §0.26 supplies them (`eulerIntegral`, `whittaker_w_order_symm`, `decayingNormalization`), with the asymptotics of §0.28, after the substitution that brings the integral here to the Euler form.
 
 - `jacquetTwoParameter_linear`: Scaling v or T scales V and W; additive linearity is asserted in a common convergence chamber and then by analytic continuation.
 - `jacquetTwoParameter_normalization`: W(s,r)=π^−r Γ(r+k/2)V(s,r).
@@ -2601,7 +2591,7 @@ Prove `jacquet_r_reflection`: The V-family continues analytically to Re(s+r)>5/2
 
 (BFH90, §3, pp.560–561, Proposition 3.3). *Needs:* 8.35.
 
-Source gap. The original special-function integral entries used in this reflection calculation, including their convergence and branch domains, require verification; the cited BFH transformation alone does not close that input.
+*Proof input.* BFH quote Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent integrals. The facts used are the Euler tail-integral representation of W_{κ,μ}, its order symmetry W_{κ,−μ}=W_{κ,μ} and its decaying normalization, all on the positive real axis; AutomorphicSpectralTheory §0.26 supplies them (`eulerIntegral`, `whittaker_w_order_symm`, `decayingNormalization`), with the asymptotics of §0.28, after the substitution that brings the integral here to the Euler form.
 
 ### 8.37 Gamma-normalized Jacquet Weyl relation
 
@@ -2609,7 +2599,7 @@ Prove `jacquet_weyl_reflection`: For torus weight n, φ(θ_tκ)=e^−intφ(κ), 
 
 (BFH90, §3, p.562, Proposition 3.4, (3.18)–(3.19); pp.563–565, (3.26)–(3.27) and explicit V̂ displays). *Needs:* 8.36.
 
-Source gap. The original special-function integral entries used in this reflection calculation, including their convergence and branch domains, require verification; the cited BFH transformation alone does not close that input.
+*Proof input.* BFH quote Gradshteyn–Ryzhik 3.384.9 and 9.237 for the confluent integrals. The facts used are the Euler tail-integral representation of W_{κ,μ}, its order symmetry W_{κ,−μ}=W_{κ,μ} and its decaying normalization, all on the positive real axis; AutomorphicSpectralTheory §0.26 supplies them (`eulerIntegral`, `whittaker_w_order_symm`, `decayingNormalization`), with the asymptotics of §0.28, after the substitution that brings the integral here to the Euler form.
 
 ### 8.38 Whittaker holomorphy beyond convergence
 
@@ -2623,7 +2613,7 @@ Prove `whittaker_rapid_decay`: On compact parameter sets in Re s>3/2, for ε=±1
 
 (BFH90, §3, pp.566–567, Proposition 3.6). *Needs:* 8.38; AutomorphicSpectralTheory §1.3; AutomorphicFormsOnReductiveGroups §§0.3–0.4.
 
-Source gap. The differentiated rapid-decay argument requires the exact JPSS Whittaker estimate and its specialization to the stated genuine archimedean K-type.
+*Proof input.* BFH Propositions 3.5–3.6 take the rapid decay of nondegenerate Whittaker functions of compact convolutions, and the polynomial bound in the degenerate case, from Jacquet–Piatetski-Shapiro–Shalika §8.3.3. The specialization to the K-type of 8.32, with derivatives in both variables, is part of this target.
 
 ### 8.40 Degenerate Whittaker continuation and decay
 
@@ -2662,7 +2652,7 @@ Prove `rotated_whittaker_bound`: Let κ_z correspond to diag(1,(1−iz)/Δ_z), �
 
 (BFH90, §3, pp.569–571, Proposition 3.10, (3.31)–(3.39)). *Needs:* 8.42, 8.38.
 
-Source gap. A global compact transition on both signs of 1+zx₁ is required. The positive chart formula does not prove the stated bound across the chart boundary.
+*Proof input.* The bound must hold across the boundary 1+zx₁=0 between the two charts: write the rotation as one compact-valued function of (z,x₁) on all of ℝ² before estimating, since the formula on the chart 1+zx₁>0 alone does not give the bound on the other side.
 
 ### 8.44 Novodvorsky Mellin transform
 
@@ -2736,7 +2726,7 @@ Prove `local_test_nonzero_m`: There exist finite-dimensional σ, weight-k v, T a
 
 (BFH90, §3, p.577, Proposition 3.15). *Needs:* 8.47, 8.45, 8.46, 8.41.
 
-Source gap. BFH Proposition 3.15 gives no proof. Its explicit Bessel transform and nonzero matrix-coefficient construction remain required.
+*Proof input.* BFH Proposition 3.15 is stated without proof; this target supplies it by exhibiting a matrix coefficient in the algebra of 8.41 whose degenerate residue is a nonzero Bessel transform, evaluated through AutomorphicSpectralTheory §0.27.
 
 ### 8.51 Similitude action on the Jacobi group
 
@@ -2766,7 +2756,7 @@ Prove `arithmetic_adelic_comparison`: From Layer 4’s normalized rank-two restr
 
 (BFH90, §1, pp.545–549; §2, p.553, (2.6)). *Needs:* 8.52, 8.15, 8.24; 2.4b; Layer 2; Layer 4.
 
-Source gap. Specify the rank-two adelic similitude extension, dyadic lattice splitting and its real positive-component identification before using the comparison.
+*Proof input.* The comparison is stated for the extension of the adelic metaplectic cover of 4.2 to rank-two similitudes, with the splitting over the dyadic lattice of 4.1 and the identification of its real positive component with the cover of 8.13; those three constructions are part of this target.
 
 ### 8.54 Theta component Levi transformations
 
@@ -2808,7 +2798,7 @@ Prove `primitive_symplectic_pairs`: A full-row-rank symmetric integral pair (C,D
 
 (BFH90, §4, pp.577–578, paragraph before Proposition 4.1 and Proposition 4.2). *Needs:* 8.57.
 
-Source gap. Primitive completion requires the exact integral symplectic completion theorem cited by BFH, including full row rank and the integral lattice domain.
+*Proof input.* BFH p.577 cites Maass, §11, for completing a primitive symmetric pair (C,D) of full row rank with CDᵀ=DCᵀ to an element of Sp₄(ℤ), and p.587 cites Maass p.160 for the rank-one normal form; both are integral linear algebra and are proved in this target by elementary divisors.
 
 ### 8.59 Matrix Möbius divisor identity
 
@@ -3130,15 +3120,15 @@ A specified original paper route and actual newform/local vectors; original char
 
 ### Examples
 
-At a=1 and Z=iI₂ the diagonal theta pairing is 1/4, and at a=2 it is 1/8; different residue classes are orthogonal. The S-transform factors are 1/2 and 1/4 respectively. At a=0 discriminant recovery fails. At p=3,a=b=2,d=1,m=16,N=8,r=1,n₁=0 the corrected congruence system has six solutions. At the compact chart boundary the global φ₁ keeps its sign, unlike the positive chart representative.
+At a=1 and Z=iI₂ the diagonal theta pairing is 1/4, and at a=2 it is 1/8; different residue classes are orthogonal. At Z=iI₂ and R=0 the real Gaussian Fourier integral of 8.62 is 1/2 for m=1 and 1/4 for m=2. The S-transform factors are 1/2 and 1/4 respectively. At a=0 discriminant recovery fails. At p=3,a=b=2,d=1,m=16,N=8,r=1,n₁=0 the corrected congruence system has six solutions. At the compact chart boundary the global φ₁ keeps its sign, unlike the positive chart representative.
 
 ### Dependencies
 
-The direct prerequisites are the targets named in this layer’s Needs clauses and the exact supplier contracts above. The external inputs are AutomorphicFormsOnReductiveGroups §§0.3–0.4, AutomorphicFormsOnReductiveGroups §§7.2–7.3, GL2AutomorphicRepresentationsAndTransfer R17.4.13 (adjoint lift) and AutomorphicLFunctionsAndLocalFactors AL.3 (Rankin–Selberg factors), AutomorphicSpectralTheory §§1.3, 1.12–1.13, AutomorphicSpectralTheory §§2.1–2.6, 2.4b, Layer 2, Layer 4, Layer 6, AutomorphicLFunctionsAndLocalFactors AL.2 (GL₂ newvectors), ModularForms Layer 2, ModularForms Layer 4, ModularForms Layer 6, ModularForms Layer 7, RepresentationTheory/CompactGroups Layer 5. Every use retains the local field, representation category, normalization and convergence hypotheses of its supplier.
+Within this roadmap: Layers 2, 4, 6 and 7. From other roadmaps: AutomorphicFormsOnReductiveGroups §§0.3–0.4, 6.4, 7.2–7.3; ModularForms Layers 2, 4, 6 and 7; AutomorphicLFunctionsAndLocalFactors AL.1–AL.3 (GL₂ newvectors, ramified test vectors, Rankin–Selberg factors); GL2AutomorphicRepresentationsAndTransfer R17.4.13; AutomorphicSpectralTheory §§0.26–0.28, 1.3, 1.12–1.13, 2.1–2.5, 2.4a, 2.17; RepresentationTheory/CompactGroups Layer 5.
 
 ## Downstream consumers
 
-`GrossZagierAndArithmeticHeights`, GZ.5, consumes the analytic toric/Waldspurger interfaces, and GZ.6 consumes coherent/incoherent section and arithmetic-theta normalizations. `RankZeroOneBSD`, BSD.2, consumes 8.85 and owns the final quadratic-twist nonvanishing argument. `GL2AutomorphicRepresentationsAndTransfer` consumes the rank-one adelic/classical comparison; `QSeriesPartitionsAndMockModularForms` uses the classical multiplier and Fourier conventions. The function-field geometric programme consumes separately supplied metaplectic Satake and shtuka constructions; it does not provide those prerequisites itself.
+GrossZagierAndArithmeticHeights consumes the analytic toric and Waldspurger interfaces (6.22) and the coherent and incoherent sections with the arithmetic theta normalizations (6.7–6.9). RankZeroOneBSD consumes 8.85–8.87 and owns the final quadratic-twist nonvanishing argument. ModularityAndLanglandsExtensions consumes the local theta correspondence of Layer 3 for its theta-based local Langlands constructions, and a local Langlands parametrization it constructs for Sp₆ instantiates the hypothesis of 3.41. QSeriesPartitionsAndMockModularForms uses the classical multiplier and Fourier conventions of Layer 7. A function-field roadmap that constructs factorization gerbes, metaplectic geometric Satake and global excursion operators instantiates 4.8.
 
 ## References
 
