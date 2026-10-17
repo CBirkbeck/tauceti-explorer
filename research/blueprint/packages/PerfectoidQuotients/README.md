@@ -1,82 +1,56 @@
 # Roadmap: perfectoid quotients and their prismatic prerequisites
 
-This roadmap constructs universal perfectoid quotients. If an ordinary ring `S`
-is derived `p`-complete and is a quotient of an integral perfectoid ring, there is
-a universal integral perfectoid ring `S_perfd` under `S`. The principal theorem
-says that the canonical map `S → S_perfd` is surjective. Applied to integral
-models of affinoid perfectoid Tate rings, it constructs the perfectoid space
-associated with any Zariski closed subset, with its coordinate ring, topology,
-plus ring and universal mapping property.
-
-The integral algebra is useful independently of the geometric application. It
-includes a torsion-allowing perfectoid predicate, elementary Witt-vector
-calculations, reducedness, torsion removal, `p`-integral closure and completed
-ring operations. Initial prisms connect this algebra to prismatic cohomology.
-Quasisyntomic lifting and André's flatness lemma supply the covers used to prove
-surjectivity. A second root-adjunction construction over a fixed perfectoid
-field records the almost faithfully flat variant and its functorial iteration.
+**Summary.** This roadmap develops the integral algebra and explicit root
+constructions used alongside universal perfectoid quotients: Fontaine-generator
+calculations over rings with torsion, Witt-vector torsion bounds, torsion removal,
+root closure, completed ring operations, characteristic-`p` radical formulas,
+and almost faithfully flat root extensions over a perfectoid field. Its end
+results include perfectoid completion of root closures, an ind-syntomic
+refinement modulo `p` of André's cover, and functorial almost absolutely
+integrally closed extensions. All use the single integral-perfectoid predicate
+and universal quotient supplied by PerfectoidSpaces.
 
 ## Scope and ownership
 
-The build develops integral perfectoid algebra (Layer 0), initial prisms and
-universal perfectoidization of ordinary semiperfectoid rings (Layer 1),
-perfectoid covers and the fixed-field root extension (Layer 2), and the
-surjectivity and integral models of universal perfectoid quotients (Layer 3).
-The generic prism, derived and analytic constructions retain the owners below.
+Layer 0 owns the additional integral algebra and fixed-field model comparison.
+Layer 1 owns the relative smooth-site cover, the modulo-`p` refinement of the
+root cover, and the fixed-field almost constructions. Layer 2 owns explicit
+radical and inverse-Frobenius calculations in characteristic `p`.
 
-**Gap: common integral-perfectoid and quotient suppliers.**
-[PerfectoidSpaces §1.24](../PerfectoidSpaces/README.md#p1-24) already specifies
-the integral perfectoid predicate and its root/Frobenius criteria.
-[PerfectoidSpaces §4.15](../PerfectoidSpaces/README.md#p4-15) already specifies
-semiperfectoid perfectoidization, surjectivity of its unit and the strongly
-Zariski closed theorem. Its scope explicitly includes that integral
-construction. Those contracts overlap §§0.1–0.2, 1.2 and 3.2–3.3 here.
-There must be one common predicate, one universal ring under each semiperfectoid
-ring and one ownership route for the surjectivity theorem. The lower-tier
-supplier and this build have not yet been reconciled at those interfaces;
-the distinction between derived and ordinary completeness must be explicit
-in the common perfectoidization contract. The prismatic description should
-compare with that single universal ring, rather than define a second owner.
+[PerfectoidSpaces](https://github.com/TauCetiProject/TauCetiRoadmap/pull/818)
+is the sole owner of integral perfectoidness (P1.24), its root/Frobenius criteria
+and the integral/Tate dictionary (P1.25). We use its `IsIntegralPerfectoid`;
+BMS2's normalized description is a characterization of that same property,
+not a second predicate. P4.15.1–P4.15.6 own the semiperfectoid derived-completion
+interfaces, initial prisms and their perfectizations, the universal ring under
+a semiperfectoid ring, the ordinary `p`-completely faithfully flat André cover,
+reducedness, rooted principal quotients, complete-flat base change and
+completed-colimit reductions, surjectivity of perfectoidization, and the
+strongly Zariski closed application with its integral model and plus ring.
+Those statements are prerequisites, not targets here. In particular, the
+initial-prism formula and the analytic universal ring denote that supplier's
+one perfectoidization; this roadmap introduces no additional functor or carrier.
 
-The following ownership boundaries determine which constructions are imported.
+The exact contracts below refer to the immutable
+[PerfectoidSpaces specification](https://github.com/TauCetiProject/TauCetiRoadmap/blob/3a308c7ea66cce055b429c79505eb97f1f02106c/TauCetiRoadmap/PerfectoidSpaces/README.md).
+Its P0 supplies almost modules, their adjoints and the full cotangent complex;
+P2 supplies rational localization and approximation; P3 supplies analytic
+tilting; P5 supplies completed colimits of perfectoid pairs.
+`PrismaticCohomology:PR.0`, in the same bundle, supplies the general
+Tor-independence, δ-étale extension and complete algebraization interfaces used
+by the integral algebra. Only its stated additional interfaces are consumed;
+the restricted universal-prism and affine Hodge–Tate theory needed for the
+quotient construction already belongs to PerfectoidSpaces P4.15.2–P4.15.3.
+`CrystallineCohomology:CR.0` supplies characteristic-`p` divided-power envelopes
+and their regular-sequence formulas for the modulo-`p` refinement.
 
-| Roadmap layer | Interface used here |
-| --- | --- |
-| `PrismaticCohomology:PR.0` | δ-rings, distinguished elements, prisms and their morphisms, rigidity of prism ideals, completed prism perfection, perfect-prism/perfectoid correspondence, Tor independence and prismatic envelopes. |
-| `PrismaticCohomology:PR.1` | The smooth prismatic site and its cohomology, Hodge–Tate, crystalline and de Rham comparisons, and initiality of the perfect prism of a perfectoid ring. |
-| `PrismaticCohomology:PR.2` | Derived prismatic cohomology and filtration, comparison with the site, the QRSP prism and the existing quasisyntomic lifting theorem. |
-| `DerivedDeRhamCohomology:DD.0` | The full cotangent complex, derived exterior powers and the quasisyntomic condition. |
-| `DerivedDeRhamCohomology:DD.1` | Derived completion, complete flatness and its descent, torsion comparisons, and completion/colimit exchange. |
-| `DerivedDeRhamCohomology:DD.5` | Quasiregular semiperfectoid rings and elementary quasisyntomic covers. |
-| `EnhancedDerivedSheaves:E5:animation` | Animated commutative rings, their universal property and sifted colimits. |
-| `CrystallineCohomology:CR.0` | Divided-power envelopes, including the characteristic-`p` calculation used in the ind-syntomic refinement. |
-| `PerfectoidSpaces:P0` | Almost modules, almost flatness, almost-elements saturation and limits in the specified almost category. |
-| `PerfectoidSpaces:P1` | Perfectoid Tate rings and the integral/Tate and powerbounded dictionaries. |
-| `PerfectoidSpaces:P2` | Rational localization, approximation and its almost integral models. |
-| `PerfectoidSpaces:P3` | Tilting and its analytic compatibilities. |
-| `PerfectoidSpaces:P4` | Universal perfectoid Zariski closed spaces, their plus rings and closed-immersion carriers. |
-| `PerfectoidSpaces:P5` | Completed colimits of perfectoid pairs and preservation of perfectoidness. |
-
-The semiperfectoid condition is local; the integral predicate has the common
-supplier gap described above. Generic quasisyntomic and QRSP predicates retain
-their `DD.0` and `DD.5` owners. The
-quasisyntomic lifting result is applied through
-`PrismaticCohomology:PR.2/quasisyntomic-covers-lift-to-prisms`; its use in Layer 2
-does not introduce a second declaration of that theorem. Likewise `P4` supplies
-the universal closed analytic object; its §4.15 also includes algebraic
-surjectivity, so the ownership gap above affects the Layer 3 image theorem
-as well as the integral model comparison.
-
-General integral perfectoidization of arbitrary animated rings, arc descent and
-the `J`-almost purity results of Bhatt–Scholze §§8–10 belong to
-`PerfectoidQuotientsPartIIIntegralPerfectoidization`. General fibre-product and
-valuation methods, including the stronger ordinary ind-syntomic André theorem
-of Česnavičius–Scholze Proposition 2.3.4, belong to `IntegralPerfectoidPartII`.
-Frobenius-approximating towers remain with `PerfectoidSpaces:P7`. None of these
-later results is an input to the proof of the Layer 3 surjectivity theorem. In
-particular, the base-change theorem of Bhatt–Scholze Proposition 8.5 cannot be
-used to prove Theorem 7.4, which it already uses. The same dependency order
-applies to later applications in `AdicEtaleGeometry:A3`.
+General perfectoidization of arbitrary animated rings, arc descent and
+`J`-almost purity belong to `PerfectoidQuotientsPartIIIntegralPerfectoidization`.
+General fibre-product and valuation methods, including the stronger ordinary
+ind-syntomic André theorem of Česnavičius–Scholze Proposition 2.3.4, belong to
+`IntegralPerfectoidPartII`. Frobenius-approximating towers remain with
+PerfectoidSpaces P7. None is an input here. In particular, Bhatt–Scholze
+Proposition 8.5 cannot prove their Theorem 7.4: it already uses that theorem.
 
 ## Conventions
 
@@ -89,7 +63,7 @@ always has positive degree. Absolute integral closedness below is this
 monic-root property for possibly nondomain rings.
 
 Ordinary `I`-adic completion is `lim_n R/I^n`, including separation. Derived
-completion is the `DD.1` functor in the derived or animated category. A chosen
+completion is the P4.15.1 functor in the derived or animated category. A chosen
 pseudouniformizer `ϖ` determines a third, explicitly specified topology.
 Comparisons between these completions carry their hypotheses; divisibility
 `ϖ^p | p` alone does not identify the `ϖ`-adic and `p`-adic topologies. The
@@ -126,7 +100,7 @@ used directly rather than reconstructed.
 
 | Existing interface | Generality relevant here |
 | --- | --- |
-| [`IsAdicComplete`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean#L56), `AdicCompletion` | Ordinary complete and separated modules and inverse-limit completions. The completion carrier alone does not assert completeness for an arbitrary ideal. |
+| [`IsAdicComplete`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean#L56), `AdicCompletion` | Ordinary complete and separated modules and inverse-limit completions. For a finitely generated ideal its ordinary completion is complete; no unrestricted ideal-completeness assertion is used (Stacks 05GG). |
 | `IsAdicComplete.subsingleton`, `IsAdicComplete.le_jacobson_bot` | Completeness at the unit ideal forces the zero ring; a complete ring's defining ideal lies in its Jacobson radical. |
 | `PreTilt`, `PreTilt.coeff`, `PreTilt.untilt` | Inverse perfection of `R/p`, its coordinate maps and the multiplicative sharp map. The pinned ring instances use nonunit `p`. |
 | [`WittVector.fontaineTheta`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Perfectoid/FontaineTheta.lean#L165), `WittVector.mk_fontaineTheta`, `WittVector.fontaineTheta_teichmuller` | Fontaine's map for a `p`-complete ring with nonunit `p`, its reduction modulo `p` and its value on Teichmüller representatives. |
@@ -140,8 +114,7 @@ used directly rather than reconstructed.
 | `AdicCompletion.map_surjective`, `AdicCompletion.of_surjective`, `AdicCompletion.map_of` | Completion preserves any surjective module map; a precomplete module surjects onto its completion; the maps commute with canonical completion units. There is no Noetherian or finite-generation hypothesis in the first assertion. |
 
 The complete theory of δ-rings, prisms, animated rings, full cotangent complexes,
-derived completion and perfectoid analytic spaces is supplied by the roadmap
-layers above. A Witt Frobenius endomorphism or a two-term naive cotangent
+derived completion and perfectoid analytic spaces is supplied by the contracts below. A Witt Frobenius endomorphism or a two-term naive cotangent
 complex cannot stand in for the finite length-reducing Frobenius or the full
 cotangent complex used here. The existing truncated Witt carrier, truncation and infinite Frobenius are
 inputs to the finite length-reducing Frobenius and finite Fontaine maps
@@ -155,7 +128,7 @@ formula `Perfection.coeff_quotientMulEquiv` in
 characteristic `p` of the quotient; perfectoidness is unnecessary. The new
 normalized finite-quotient calculations use this equivalence.
 
-Current Tau Ceti supplies the `(p,[ϖ])`-adic Witt topology in
+Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` supplies the `(p,[ϖ])`-adic Witt topology in
 `TauCeti/RingTheory/WittVector/Complete.lean` and
 `TauCeti/RingTheory/WittVector/Frobenius.lean`, and the corresponding Huber-ring
 adapter in `TauCeti/RingTheory/Huber/WittVector.lean`. These remain their
@@ -163,215 +136,159 @@ existing interfaces; none defines integral perfectoidness or universal
 perfectoidization. The perfectoid-field input and its topological `A_inf`
 model retain `TauCetiRoadmap.AdicSpaces`, Layer 6.1, as owner.
 
-### From PrismaticCohomology and EnhancedDerivedSheaves
+### From PerfectoidSpaces: the common integral predicate
 
-Use `PR.0`'s δ-ring and Frobenius-lift dictionary on the existing Witt-vector
-construction, its free δ-ring and δ-stable ideal closure, and its universal
-δ-quotient. Distinguished elements are those whose δ-value is a unit. A
-prism `(A,I)` has a Cartier ideal, derived `(p,I)`-completeness and
-`p ∈ I+φ(I)A`; boundedness is bounded `p`-power torsion in `A/I`. Orientations
-and boundedness are explicit hypotheses whenever used. Morphisms retain the
-rigidity result `J=IB` on prism ideals.
+Use P1.24's choice-independent BMS1 Definition 3.5 predicate. There is an
+admissible `ϖ` with `ϖ^p | p` and ordinary complete separated `ϖ`-adic topology,
+Frobenius on `R/p` is surjective, and the kernel of the existing Fontaine map
+is principal. A generator is not part of the structure. For nonzero `R`, the
+adic presentation provides ordinary `p`-completeness and nonunit `p`, as needed
+by the pinned Fontaine map; for zero `R` use its unique map. Thus products,
+`p`-torsion and the zero ring are permitted.
 
-Completed prism perfection and the perfect-prism/integral-perfectoid
-correspondence are supplied by
-`PrismaticCohomology:PR.0/prism-perfection` and
-`PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings`. The uncompleted
-orientation during the construction can be a zero divisor; regularity is
-asserted where the completed prism theorem establishes it. Use
-`PrismaticCohomology:PR.1/perfect-prism-initial` for the initiality of
-`(A_inf(R),ker θ_R)` among all prisms under an integral perfectoid `R`.
-Its proof needs δ-compatible deformation theory even when `R` has `p`-torsion;
-an arbitrary lift of Frobenius is not a replacement.
+The same property has the BMS2 Definition 4.18 description: ordinary
+`p`-completeness, `π^p=pu` for some unit `u`, surjective Frobenius on `R/p`,
+and principal Fontaine kernel, with the zero case understood separately.
+This change of admissible element uses the normalization and completion
+comparison; it does not assert that every `ϖ` with `ϖ^p | p` satisfies
+`(ϖ^p)=(p)`. P1.24 supplies the BMS1 Lemma 3.10 criterion: under ordinary
+`ϖ`-completeness, `ϖ^p | p` and surjectivity of that power map, principal kernel implies that
+`R/ϖ → R/ϖ^p`, `x ↦ x^p`, is bijective; its converse requires regular `ϖ`.
+Use the compatible-root unit replacements supplied there. Sources: BMS1
+Definition 3.5, Lemmas 3.9–3.10 and Remark 3.11, pp.21–23; BMS2 Definition
+4.18, p.22; Česnavičius Definition 4.2 and Remarks 4.4–4.5, pp.7–8, for the
+`p`-torsion-free normalized specialization.
 
-The other prerequisite is the actual animation of commutative rings:
-`EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`,
-`/universal-property-of-animation` and `/sifted-colimits`. Positive-characteristic
-animated commutative rings are not defined by substituting strict commutative
-DGAs. Full cotangent complexes, derived exterior powers and completion come
-from `DerivedDeRhamCohomology:DD.0/cotangent-complex`,
-`DD.0/derived-exterior-powers` and `DD.1/derived-completion` on those carriers.
+P4.15.5 supplies reducedness of every integral perfectoid ring. Together with
+P1.24's Frobenius clause and perfect characteristic-`p` examples, this gives
+the characteristic-`p` dictionary used here: a ring killed by `p` is integral
+perfectoid exactly when its `p`-power map is bijective, including the zero
+ring. For characteristic exactly `p`, this is Mathlib's `PerfectRing R p`.
+The representative Lean coefficient-ring statements use `CharP R p`,
+which means exact characteristic and hence excludes zero for prime `p`;
+quotients by the unit ideal are still included and receive no such instance.
+Use the common predicate's ordinary-completeness and equivalence-transport
+interfaces; they are not redeclared locally. Checks of that contract include
+`0`, `F_p × F_p`, and exclusion of `F₂[T]` and the semiperfect nonreduced
+`PerfectClosure(F₂[T],2)/(T)` (BMS1 Example 3.15, p.24).
 
-Sources: Bhatt–Scholze §§2–4, especially Lemma 3.9 and Theorem 3.10,
-pp.31–32, and Lemma 4.8, pp.38–39. The free algebra, distinguished-element,
-prism-category, rigidity, regular-envelope, Tor-independence and bounded
-complete-flatness interfaces are imported under their `PR.0` names. These contracts retain their owners and apply to Layer 0’s integral algebra.
+For `p`-torsion-free integral perfectoid `A`, P1.20 and P1.25 supply the Tate
+ring `A[1/p]` with the topology from `A`. Its powerbounded ring is the
+almost-elements saturation of `A`, with quotient annihilated by every root
+of a normalized `π`; `A` contains the topologically nilpotent elements.
+Keep this actual powerbounded carrier and the complete integral/Tate
+comparison (BMS1 Lemmas 3.20–3.21, pp.26–27; Česnavičius §4.8, pp.8–9).
 
-### From PrismaticCohomology: smooth comparisons
+### From PerfectoidSpaces: the single universal quotient
 
-Let `(A,I)` be a bounded prism and `R` a `p`-completely smooth `A/I`-algebra.
-Use `PrismaticCohomology:PR.1/relative-prismatic-site` and
-`PR.1/prismatic-structure-sheaf` to form relative cohomology `Δ_(R/A)`.
-The chosen Čech–Alexander envelope model computes that cohomology, independently
-of its smooth presentation, and carries the functorial Frobenius map. Its
-reduction `Δ̄_(R/A)` has multiplicative Hodge–Tate comparison
+Use P4.15.6's `SemiperfectoidRing`: an ordinary derived `p`-complete ring `S`
+with an actual surjection from an integral perfectoid ring. Derived
+completeness means the derived/animated completion of P4.15.1; for a discrete
+module it is equivalent to bijectivity of
+`(a_n) ↦ (a_n-p a_(n+1))` on `∏_n S` (Stacks 091P(7)). It does not mean
+ordinary completeness by definition. Ordinary complete separated modules are
+derived complete (Stacks 091T); conversely separatedness, or the supplier's
+bounded-torsion comparison where applicable, is retained when passing back
+to ordinary completion. For `F_p` the difference operator is the identity;
+for `Q` it has the nonzero kernel `(1,p⁻¹,p⁻²,…)`.
 
-```text
-Ω^i_(R/(A/I)){-i} ≃ H^i(Δ̄_(R/A)).
-```
+P4.15.2 constructs an initial prism `Δ_init(S)` under `S`. Its perfected
+prism quotient is **the** `semiperfectoidPerfectoidization(S)`, with unit
+`η_S : S → S_perfd`. P4.15.6 supplies
+`semiperfectoidPerfectoidization_universal`: precomposition with `η_S` is a
+bijection from maps `S_perfd → T` to maps `S → T` for every integral
+perfectoid `T`. This specifies the object and all functor maps independently
+of the chosen presentation. The perfect-prism construction and universal
+property are compared inside P4.15.2, not by a new comparison target here.
+P4.15.5 supplies `semiperfectoidPerfectoidization_surjective`, its
+complete-flat base-change and completed-colimit reductions, and the formula
+for the completed quotient by all entries of a compatible root tower.
+P4.15.6 supplies the kernel as the intersection of kernels of maps to
+integral perfectoid rings and `S_perfd ⊗_S T ≃ T` for perfectoid `S`-algebras.
+Sources: Bhatt–Scholze Notation 7.1 and Proposition 7.2, p.55; Corollary 7.3,
+Theorem 7.4 and Remark 7.5, p.56; proof of Theorem 7.4, p.62.
 
-Here `Ω^i` denotes the `p`-completed differential forms and
-`M{i}=M⊗_(A/I)(I/I²)^⊗i`, with dual powers for negative `i`. This is the
-twist of `A/I`-modules; it does not require constructing the prism's
-Breuil–Kisin twists in `PR.3`. Under this comparison the Bockstein
-differential agrees with the differential in the de Rham complex. Keep the
-comparison map, its multiplication and its differential compatibility, as
-well as the cohomology isomorphism.
+For an affinoid perfectoid pair `(R,R⁺)` and any ideal `I ⊆ R`, P4.15.6's
+`completedIntegralQuotient` is the actual ordinary `ϖ`-completion
+`A=(R⁺/(I∩R⁺))^∧_ϖ`. Its contract proves that `A` has a semiperfectoid
+presentation in the derived sense above. No identification of derived and
+ordinary completion is implicit in that notation. The universal analytic
+quotient has `S=A_perfd[1/ϖ]` and the integral closure of the image of `R⁺`
+as its minimal plus ring; `R → S` is surjective, `R⁺ → S⁺` is almost
+surjective, and its spectrum maps homeomorphically to `V(I)`. This applies to
+nonclosed and infinitely generated `I` (Bhatt–Scholze Remark 7.5, p.56;
+Scholze ECD Theorem 5.8, p.25). The maps go from ambient rings to quotient
+rings. Both `I=0` and `I=R` fix the direction: they give the original pair
+and the empty spectrum, respectively.
 
-The imported crystalline comparison starts with a crystalline prism
-`(A,(p))`, a divided-power ideal `J⊂A` containing `p`, and a smooth
-`A/J`-algebra `T`. With `ψ:A/J→A/p` induced by Frobenius and
-`T^(1)=T⊗_(A/J,ψ)A/p`, it identifies `Δ_(T^(1)/A)` with
-`RΓ_crys(T/A)`, compatibly with Frobenius. The imported de Rham comparison
-requires `W(A/I)` to be `p`-torsion-free and identifies
-`Δ_(R/A)⊗̂^L_(A,φ_A)A/I` with the `p`-completed de Rham complex of `R`
-over `A/I`. Thus its base change uses Frobenius, whereas Hodge–Tate
-reduction uses the quotient map. Prismatic base change and the syntomic
-extension of crystalline comparison retain their stated `PR.1` hypotheses.
-The general de Rham comparison without the Witt-ring torsion hypothesis and
-the étale comparison belong to `PR.3`.
+### From PerfectoidSpaces and the bundle: derived and prism interfaces
 
-Source: Bhatt–Scholze Construction 4.9, pp.39–40; Theorem 5.2, pp.45–48;
-Theorems 6.3–6.4, pp.52–54.
-Prerequisites are the prism and animation contracts and the exact `PR.1` interfaces
-`relative-prismatic-cohomology`, `change-of-topology`,
-`cech-alexander-complex`, `cech-alexander-computes-cohomology`,
-`frobenius-on-prismatic-cohomology`, `hodge-tate-cohomology`,
-`bockstein-differential`, `hodge-tate-comparison-map`, `hodge-tate-comparison`,
-`crystalline-comparison`, `crystalline-comparison-syntomic`,
-`prismatic-base-change` and `de-rham-comparison`. These results retain their
-supplier names. Their polynomial-coordinate and envelope calculations are
-supplied by `PR.0` and `CrystallineCohomology:CR.0`.
+P4.15.1 supplies derived completion, completed tensor products and complete
+faithfully flat descent on their genuine derived/animated carriers, including
+finite-ideal and transfinite completion exchange. P0.19 supplies the full
+cotangent complex, its transitivity and Tor-independent base change. These
+are not replacements by ordinary differentials or a two-term naive complex.
+For cohomological grading, `[1]` moves a degree-zero module to degree `−1`.
 
-### From PrismaticCohomology: derived comparisons and lifting
+P4.15.2 supplies free δ-algebras, distinguished elements, bounded prisms,
+rigidity of their Cartier ideals, envelopes and completed perfection, and
+the equivalence between perfect prisms and integral perfectoid rings.
+P4.15.3 supplies affine prismatic cohomology for bounded prisms and
+`p`-completely smooth algebras, its completed base-change comparison, and
+Hodge–Tate comparison with completed forms and twists by the conormal line.
+Its extension by simplicial resolutions has conjugate graded pieces
+`(∧^i L)[−i]` and identifies a discrete QRSP Hodge–Tate object with the
+initial prism. These are the precise carriers used in the relative cover.
+Sources: Bhatt–Scholze Lemma 3.9 and Theorem 3.10, pp.31–32; Lemma 4.8,
+pp.38–39; Theorems 6.3–6.4, pp.52–54; Construction 7.6, pp.56–58, and
+Proposition 7.10, p.60.
 
-Take a perfect prism `(A,I)` as base and a derived `p`-complete animated
-`A/I`-algebra `S` for the derived initiality construction.
-Import `PrismaticCohomology:PR.2/derived-prismatic-cohomology`, the derived
-`p`-complete left Kan extension from smooth algebras, and its conjugate
-filtration. Its Hodge–Tate reduction has graded pieces
+P4.15.4 supplies the lifting theorem for a quasisyntomic algebra over the
+reduction of a bounded prism, preserving complete flatness and faithful
+flatness. If the base prism is perfect, these properties persist on completed
+perfection. It also supplies André's `p`-completely faithfully flat integral
+perfectoid cover on which every positive-degree monic polynomial has a root
+(Bhatt–Scholze Proposition 7.11, p.60, and Theorem 7.14, pp.61–62).
+The constant polynomial `1` is excluded. The relative smooth-site statement
+and modulo-`p` ind-syntomic refinement below add conclusions to these inputs.
 
-```text
-gr_i Δ̄_(S/A) ≃ (∧^i L_(S/(A/I)))^∧_p {-i}[-i].
-```
-
-The exterior powers and tensor operations are derived. For initiality, the
-hypothesis is that **the Hodge–Tate reduction** `Δ̄` is concentrated in degree
-zero. Under this hypothesis `Δ` is discrete, orientation-torsion-free and
-carries the compatible δ-structure; it is weakly initial in the relevant
-prism category. The initial object is obtained as an idempotent retract.
-Neither discreteness of `Δ` alone nor weak initiality alone asserts the
-desired initiality. The regular Koszul quotient calculation retains its
-regular-sequence and bounded-torsion assumptions. In the QRSP case the
-supplier identifies the derived object with the initial prism, including
-the characteristic-`p` crystalline envelope description.
-
-Sources: Bhatt–Scholze Construction 7.6, Lemmas 7.7–7.8, Example 7.9 and
-Proposition 7.10, pp.56–60. Prerequisites are the smooth-comparison contract, the Layer 1 initial prism,
-and the `PR.2` interfaces `conjugate-filtration`,
-`derived-hodge-tate-comparison`, `derived-prismatic-base-change`,
-`kunneth-formula`, `comparison-to-prisms`, `derived-agrees-with-site`,
-`idempotent-retract-initial-object`, `regular-quotient-prismatic-envelope`,
-`qrsp-prism`, `qrsp-char-p-acrys` and `quasisyntomic-descent`. The full
-cotangent and completion interfaces retain their `DD.0` and `DD.1` owners.
-
-For a bounded prism `(A,I)` and a quasisyntomic `A/I`-algebra `R`, apply
-the lifting theorem to obtain a prism `(B,IB)` and a map `R → B/IB`
-which is `p`-completely faithfully flat, with `A → B`
-`(p,I)`-completely flat. If `A/I → R` is itself `p`-completely faithfully
-flat, the latter map is `(p,I)`-completely faithfully flat. Over a perfect
-base prism, completed perfection of `B` preserves these assertions. The
-base map's faithfulness hypothesis must remain visible; it is not an
-automatic consequence of `R` being quasisyntomic.
-
-Source: Bhatt–Scholze Proposition 7.11 and proof, p.60. Prerequisites are
-the Layer 1 derived comparison and
-`PrismaticCohomology:PR.2/quasisyntomic-covers-lift-to-prisms`,
-`DerivedDeRhamCohomology:DD.0/quasisyntomic-condition` and
-`DD.5/elementary-semiperfectoid-covers`. This is an application of the
-existing lifting interface.
-
-### From PerfectoidSpaces: integral and Tate models
-
-Apply the `P1` integral/Tate dictionary to `p`-torsion-free integral
-perfectoid `A`. Choose `π^p=pu` and equip `T=A[1/p]` with `A` as its open
-`p`-adic model. Then `T` is a uniform perfectoid Tate ring. Each compatible
-root of `π` annihilates `T°/A`; the powerbounded ring `T°` is the
-almost-elements saturation of `A` in `T`. Moreover `A` contains `T°°`, and
-`T°` is ordinarily `p`-complete and integral perfectoid. No separate
-integral-closedness assumption on `A` is needed.
-
-This is the application of
-`PerfectoidSpaces:P1/perfectoid-tate-ring-from-integral-perfectoid`,
-`PerfectoidSpaces:P1/almost-integral-dictionary`,
-`PerfectoidSpaces:P1/topologically-nilpotent-elements-as-root-ideal` and
-`PerfectoidSpaces:P1/integral-perfectoid-comparison`. Sources are BMS1
-Lemmas 3.20–3.21, pp.26–27, and Česnavičius §4.8, pp.8–9. The prerequisites
-here are normalization, compatible roots and the Fontaine algebra
-above, together with those `P1` interfaces. No second Tate-perfectoid
-predicate is introduced.
+For §0.3 use `PrismaticCohomology:PR.0/perfectoid-tor-independence`:
+base change of the Fontaine presentation along a map of integral perfectoid
+rings is Tor independent (BMS1 Lemmas 3.13–3.14, p.24). For §0.6 use
+`PR.0/delta-etale-extension` and its complete algebraization: étale algebras
+modulo the prism ideal lift uniquely compatibly with δ and with completion
+(Anschütz–Le Bras Proposition 2.1.8 and Corollary 2.1.10, pp.13–14).
+For §1.2 use `CrystallineCohomology:CR.0`'s divided-power envelope and
+regular-sequence formulas after characteristic-`p` Frobenius pullback
+(Bhatt–Scholze Remark 7.15 and its proof, p.62). These bundle/lower-tier
+interfaces supply the additional generality used here.
 
 ## How to read the build
 
-Layer 0 develops the integral predicate, Fontaine generators, torsion bounds,
-reducedness, root closure and completed ring operations. Layer 1 constructs
-initial prisms and the ring-valued perfectoidization functor; its final two
-calculations prepare descent without using the later arc-descent theory.
-Layer 2 supplies the covers and root-adjunction procedures. Layer 3 proves
-surjectivity and identifies the analytic closed quotient on the suppliers’
-carriers. Within Layer 0, the elementary unit and Witt calculations precede
-the generator and torsion results; the torsion decomposition completes the
-torsion-allowing normalization before the completed operations are used.
+Layer 0 proceeds from units and naturality through Fontaine generators and
+Witt torsion to torsion removal, root closure and completed operations.
+Layer 1 adds the relative cover and the modulo-`p` refinement, then develops
+the fixed-field almost route. Layer 2 computes characteristic-`p` quotients
+by radicals and their inverse-Frobenius root ideals. Each uses the common
+supplier contracts above and states its extra conclusion explicitly.
 
-[Suggested.lean](Suggested.lean) records representative definitions, theorem
-signatures and the checks on available Mathlib carriers in
-`TauCetiRoadmap.PerfectoidQuotients`. It distinguishes the full targets below
-from their typed specializations. Prism, derived, almost and analytic statements
-use the genuine supplier carriers; their names are listed at the end of that
-file until those interfaces are available. Elaborating a theorem with `sorry`
-checks its type and gives no proof of its conclusion.
+[Suggested.lean](Suggested.lean) records the light ambient root-closure
+definition, independent statements on existing Witt, quotient, localization
+and perfection carriers, and their representative checks in
+`TauCetiRoadmap.PerfectoidQuotients`. Targets using the supplier's integral
+predicate, prisms, finite Witt maps, derived or almost carriers remain full
+README targets. Those carriers are not defined by placeholder data in Lean.
+The closing comment names these targets. Elaboration with `sorry` checks
+types and does not supply mathematical proofs.
 
 ## Layer 0: integral perfectoid algebra
 
 ### 0.1 Integral rings, units and characteristic p
 
-Define `IsIntegralPerfectoid p R` using the normalization of BMS2 Definition
-4.18. In the nonzero case, require ordinary `p`-adic completeness and
-separation, an element `π` and a unit `u` with `π^p = p u`, surjective
-Frobenius on `R/p`, and a principal kernel of `θ`. Include the zero ring
-explicitly. This branch permits the actual pinned `PreTilt` and `θ`
-instances, which require nonunit `p`, without excluding a mathematical zero
-object. A separated `p`-complete ring with unit `p` is necessarily zero.
-`IsIntegralPerfectoid.iff_nontrivial` exposes precisely these three remaining
-clauses when the nonunit and completeness instances are supplied.
-
-Develop the predicate with the following API. A generator of `ker θ` is
-existential data, not part of the chosen structure. The Frobenius and kernel
-projections must provide the actual maps and ideals used by later proofs.
-
-The API consists of the following named statements.
-
-- `IsIntegralPerfectoid.of_subsingleton` — Every zero ring is integral perfectoid.
-- `IsIntegralPerfectoid.complete` — An integral perfectoid R is classically p-adically complete and separated.
-- `IsIntegralPerfectoid.has_p_root` — There exist π in R and a unit a with π^p=pa.
-- `IsIntegralPerfectoid.iff_nontrivial` — With the existing nonunit-p and completeness instances, the predicate is exactly the root condition, Frobenius surjectivity on ModP, and a principal kernel of the existing Fontaine map.
-- `IsIntegralPerfectoid.congr` — A ring equivalence R≃S preserves and reflects the predicate, with p fixed.
-- `integralPerfectoid_iff_perfect` — For a ring of characteristic exactly p, integral perfectoidness is equivalent to Mathlib PerfectRing R p.
-
-The predicate must accept products and characteristic-`p` perfect rings, while
-rejecting merely semiperfect nonreduced rings. Its tests fix these distinctions.
-
-**Checks.**
-
-- `zeroRing` — ZMod 1 is integral perfectoid for every prime p.
-- `primeField` — ZMod p is integral perfectoid for every prime p.
-- `zmodFour` — ZMod 4 is not integral perfectoid at p=2: no π and odd unit a satisfy π²=2a.
-- `polynomial` — F₂[t] is not integral perfectoid at 2: Frobenius misses t.
-- `dualNumbers` — TrivSqZeroExt F₂ F₂ is not integral perfectoid: its nonzero square-zero element is not a square.
-- `semiperfectNotPerfect` — If A=PerfectClosure(F₂[t],2) and t denotes the image of the polynomial variable, A/(t) is not integral perfectoid although its squaring map is surjective. The class t^(1/2) is nonzero and square-zero.
-- `semiperfectSquaring` — Squaring is surjective on PerfectClosure(F₂[t],2)/(t); this separates the principal-kernel condition from Frobenius surjectivity.
-- `productField` — F_p × F_p is integral perfectoid, so a domain or valuation-ring condition would be too strong.
-- `perfectRingAgreement` — Every ring of characteristic p with the baseline PerfectRing instance satisfies the predicate.
+Throughout this layer integral perfectoidness means the common P1.24
+predicate. The following elementary statements also apply outside the
+Tate-plus setting of P1.16–P1.18: they quantify over arbitrary characteristic-`p`
+rings, their inverse perfections, and arbitrary perfect coefficient rings.
 
 Three algebraic lemmas support the characteristic-`p` comparison. For any
 characteristic-`p` ring `k`, an inverse-perfection element is a unit exactly
@@ -398,29 +315,15 @@ show that `a` is a unit. The resulting factorization through the existing
 isomorphism `W(R♭)/(p) ≃ R♭` proves injectivity of the zeroth tilt projection
 (`tilt_projection_injective_charP`). Neither lemma assumes Frobenius
 surjective on `R/p` in addition to its stated principal-kernel premise.
-Adding the surjectivity clause gives
+The characteristic-`p` dictionary is the supplier contract above;
+these intermediate unit, coordinate and projection statements expose the
+algebra in its proof without defining a new predicate.
 
-```text
-IsIntegralPerfectoid p R ↔ PerfectRing R p
-```
-
-for characteristic exactly `p` (`integralPerfectoid_iff_perfect`), with the
-zero ring treated by the explicit branch. The reverse implication uses
-`π = 0`, the canonical complete topology at `(p)=0`, and the baseline Witt
-kernel calculation. This makes the role of principal kernel visible: the
-quotient `PerfectClosure(F₂[t],2)/(t)` has surjective Frobenius but nonzero
-nilpotent roots of `t`, so it is not integral perfectoid.
-
-Sources: BMS2 Definition 4.18, preprint p.22, for the predicate and its
-nonzero criterion; BMS1 Lemma 3.10 and its proof, pp.22–23, for the unit and
-coordinate arguments; BMS1 Example 3.15, p.24, for the characteristic-`p`
-comparison. These intermediate unit, coordinate and projection lemmas expose
-the calculations in those proofs as reusable statements. Prerequisites for the
-predicate are `IsAdicComplete`, `PreTilt`, `WittVector.fontaineTheta` and
-`surjective_fontaineTheta`; for the unit lemmas, inverse perfection and Witt
-completion; for the characteristic-`p` result, those lemmas,
-`WittVector.ker_constantCoeff`, `WittVector.quotientPEquiv` and the nonzero
-criterion.
+Sources: BMS1 Lemma 3.10 and its proof, pp.22–23, and Example 3.15, p.24.
+Prerequisites are inverse perfection, Witt completion,
+`WittVector.ker_constantCoeff`, `WittVector.quotientPEquiv` and the baseline
+Fontaine map. The two projection statements do not require Frobenius
+surjective on the original ring.
 
 **Checks.**
 
@@ -432,7 +335,7 @@ criterion.
   a coordinate-one unit criterion cannot be implemented using the unmodified
   Teichmüller digit formula.
 
-### 0.2 Naturality, normalization and Fontaine generators
+### 0.2 Naturality, finite Witt maps and Fontaine generators
 
 For `p`-complete rings `R,S` with nonunit `p`, a unital map `f : R → S` induces
 a quotient map `g : R/p → S/p`. Require explicitly that `g` commutes with the
@@ -449,10 +352,8 @@ of the target. For the second, compare maps into `S/p^(n+1)`, where `p` is
 nilpotent, using equality on Teichmüller representatives; separation then
 identifies the maps into `S`. The pinned theorem
 `WittVector.eq_of_apply_teichmuller_eq` is applied only to these nilpotent
-quotient targets. Transport completeness, root witnesses, Frobenius
-surjectivity and the principal kernel through a ring equivalence to obtain
-`IsIntegralPerfectoid.congr`. No chosen generator survives as extra structure
-of this predicate.
+quotient targets. The result applies to arbitrary complete rings with nonunit `p`,
+whereas P1.17's analytic Fontaine comparison concerns Tate-plus rings.
 
 Use the existing `TruncatedWittVector p r R` carrier to define
 `finiteWittFrobenius p R r : W_(r+1)(R) → W_r(R)` for every commutative ring
@@ -474,8 +375,8 @@ than `θ̃_r`. Prove `finiteFontaineTheta_teichmuller`, with
 length-one coordinate with the existing `WittVector.fontaineTheta`.
 At length zero the target is the zero ring. The zero source has the unique
 maps separately. The broader `ϖ`-complete input below is `p`-complete because
-`ϖ` divides `p`, via the completion supplier; the typed construction uses
-this normalized `p`-complete instance (BMS1 Lemmas 3.2–3.4, pp.19–21).
+`ϖ` divides `p`, via the completion supplier; this construction uses
+the normalized `p`-complete instance (BMS1 Lemmas 3.2–3.4, pp.19–21).
 
 **Checks.**
 
@@ -512,36 +413,24 @@ and `ϖ^p | p`. Establish the following Frobenius-surjectivity equivalences
 Under these equivalent conditions, unit multiples of `ϖ` and of `p` admit
 compatible `p`-power roots. The finite Frobenius implication uses the
 Davis–Kedlaya criterion with this topology; the infinite Witt Frobenius is a
-different map. Prove `integralPerfectoid_bms_iff`: the integral predicate agrees
-with BMS1 Definition 3.5 after the required completion and root normalization.
-Its `p`-torsion-free specialization agrees with Česnavičius Definition 4.2,
-which has `(π^p)=(p)` and the isomorphism `R/π → R/p`. The general map
-`R/ϖ → R/ϖ^p` is the criterion of BMS1 Lemma 3.10, rather than the literal
-Česnavičius definition. The normalization theorem must handle torsion and
-transport `θ`; mere divisibility does not supply the completion comparison.
+different map. The predicate normalization and two-direction principal-kernel criterion
+are the P1.24 supplier contract. Here the finite-map equivalences are the
+additional all-length statements. They neither introduce another predicate
+nor repeat the supplied admissible-element criterion.
 
-In the `ϖ`-complete setting, suppose the `p`-power map
-`R/ϖ → R/ϖ^p` is surjective. If `ker θ` is principal, that map is an
-isomorphism and every kernel generator is a nonzerodivisor in `A_inf(R)`.
-Conversely, if the map is an isomorphism and `ϖ` is a nonzerodivisor, then
-`ker θ` is principal (`principal_theta_kernel_criterion`). The forward
-direction has no torsion-free assumption on `R`. The full two-direction criterion is distinct from
-`theta_generator_nonzerodivisor`, the normalized consequence recorded in
-Suggested.lean. The normalized integral
-predicate is a corollary of this comparison, not an assumption that every
-`ϖ` satisfying the divisibility condition is a nonzerodivisor.
-
-For nonzero integral perfectoid `R` and `ξ ∈ ker θ`, prove
+For nonzero integral perfectoid `R` and `ξ ∈ ker θ`, beyond the Tate-plus scope of P1.18, prove
 `theta_generator_iff_unit_coeff_one`: `ξ` generates the kernel exactly when
-`ξ₁` is a unit in `R♭`. Every such generator is a nonzerodivisor. Prove `theta_generator_normal_form`: after
-replacing `π` by a suitable unit multiple with compatible roots, one obtains
+`ξ₁` is a unit in `R♭`. Every such generator is a nonzerodivisor
+(`theta_generator_nonzerodivisor`). Prove `theta_generator_normal_form`: choose
+a normalized `π` with `π^p=pu`, where `u` is a unit. After replacing `π`
+by a suitable unit multiple with compatible roots, one obtains
 a generator `p + [π♭]^p x` with `x` a unit. Prove
 `theta_map_preserves_generator`: for a unital map of nonzero integral perfectoid
 rings, the Witt map induced on tilts sends any generator of `ker θ_R` to a
 generator of `ker θ_S`. Naturality and preservation of units prove the claim.
 
 Sources: BMS1 Definition 3.1, Lemmas 3.2 and 3.4, pp.19–21, for the sharp and
-Fontaine constructions; BMS2 Definition 4.18, p.22, for invariance; BMS1
+Fontaine constructions; BMS2 Definition 4.18, p.22, for the normalized convention; BMS1
 Definition 3.5, Remark 3.8 and Lemma 3.9, pp.21–22, for normalization and
 Frobenius equivalences; Davis–Kedlaya Theorem 3.2, implication `(xiv)′⇒(ii)`,
 §3 pp.6–11, for finite Witt surjectivity; Česnavičius Definition 4.2 and
@@ -549,9 +438,8 @@ Remarks 4.4–4.5, pp.7–8, for the torsion-free convention; BMS1 Lemma 3.10,
 pp.22–23, and Remark 3.11, p.23, for the kernel criterion and generators.
 Prerequisites for naturality are the baseline sharp congruence,
 `Perfection.map`, `WittVector.map`, Teichmüller evaluation and adic separation.
-Invariance uses naturality. Normalization uses the preceding unit criteria,
-`DerivedDeRhamCohomology:DD.1/derived-completion` and the torsion decomposition
-below. The kernel and generator statements use Witt completeness and the
+The common normalization is imported; its use keeps the supplier
+completion hypotheses. The finite-map equivalences use the preceding unit criteria. The kernel and generator statements use Witt completeness and the
 Frobenius equivalences and the finite maps just constructed, with their
 actual truncated-Witt carriers.
 
@@ -586,9 +474,9 @@ lemmas do not assert an equivalence for all principal ideals.
 Apply these lemmas to a distinguished Fontaine generator to prove
 `perfectoid_p_torsion_killed_by_p`: every integral perfectoid ring has
 `R[p^∞]=R[p]`. Thus its `p`-primary torsion has bound one. The ordinary and
-derived `p`-completeness comparison follows through `DD.1`; it is a separate
-application of the torsion bound. This elementary argument precedes the
-prismatic quotient construction and supplies its completion input.
+derived `p`-completeness comparison follows through P4.15.1; it is a separate
+application of the torsion bound. This is the elementary Witt-vector proof of the bound-one assertion;
+the supplier's prismatic construction is an independent prerequisite.
 
 For any map `R → S` of integral perfectoid rings, the full relative cotangent
 complex satisfies `L_(S/R) ⊗^L_ℤ F_p = 0`; its derived `p`-completion is
@@ -611,32 +499,31 @@ Teichmüller expansion, Witt coordinate divisibility, injectivity of Frobenius
 and cancellation of `p` in `W(k)`. The perfectoid application uses the kernel
 generator criterion. Cotangent statements additionally import
 `PrismaticCohomology:PR.0/perfectoid-tor-independence`,
-`DerivedDeRhamCohomology:DD.0/cotangent-complex` and
-`DerivedDeRhamCohomology:DD.1/derived-completion`. Their consequences for
-quasisyntomic and QRSP rings are consumed by `DD.0` and `DD.5`.
+PerfectoidSpaces P0.19 and
+PerfectoidSpaces P4.15.1. The full derived complex and the shift convention are essential to both assertions.
 
 **Checks.**
 
 - `cotangentShift` — For the complex `ℤ` concentrated in degree zero,
   its shift `[1]` has `ℤ` in degree `−1` and zero in degree zero. These
   two terms fix the sign of the completed absolute cotangent convention;
-  the full cotangent identification uses the `DD.0` carrier.
+  the full cotangent identification uses the P0.19 carrier.
 
-### 0.4 Reducedness, torsion removal and compatible roots
+### 0.4 Torsion removal and compatible roots
 
-Prove `integralPerfectoid_reduced` for all integral perfectoid rings, including those
-with `p`-torsion. For an element `a` with a compatible tower of `p`-power roots,
+Use the supplied reducedness theorem. For an element `a` with a compatible tower of `p`-power roots,
 all the annihilators agree:
 
 ```text
 Ann(a^(1/p^n)) = Ann(a) = R[a^∞].
 ```
 
-The reduction to characteristic `p` and the Fontaine presentation establish
-these assertions without a domain assumption. They are the reason that maps
+These annihilator identities (`compatible_root_annihilator` and
+`compatible_root_power_torsion`) hold in any reduced ring with the indicated
+root tower; the perfectoid application uses the supplied reducedness theorem. They are the reason that maps
 to perfectoid rings killing an element also kill all its specified roots.
 
-Suppose `R` is also ordinarily `ϖ`-complete, with `ϖ^p | p`. Then
+Let `R` be integral perfectoid and ordinarily `ϖ`-complete, with `ϖ^p | p`. Then
 `R_tf = R/R[ϖ^∞]` is `ϖ`-torsion-free and integral perfectoid
 (`perfectoid_torsion_free_quotient`). With a compatible-root unit replacement
 of `ϖ`, its tilt is `R♭/R♭[(ϖ♭)^∞]`. The decomposition is
@@ -647,8 +534,8 @@ R ≃ R_tf ×_((R_tf/ϖ)_red) (R/ϖ)_red.
 
 Both special fibres in this formula are reduced. The ideal generated by all
 compatible roots of `ϖ` has quotient `(R/ϖ)_red`, a perfect `F_p`-algebra.
-Suggested.lean records the perfectoidness and torsion-free conclusions;
-the tilt and fibre-product comparisons are further conclusions of this target.
+The tilt, fibre-product and completeness comparisons are part of this target
+on the supplied integral-perfectoid carrier.
 The construction uses the actual localization kernel
 `ker(R → R[1/ϖ])` for power torsion and transports the quotient topology and
 completion. It is a specific decomposition theorem; generic fibre-product
@@ -679,8 +566,7 @@ intermediate subring closed under `p`th roots inside the fixed ambient ring
 generated subring and repeat; the union of these stages is root closed.
 The definition may use the infimum of the root-closed subrings containing `A`.
 The ambient ring is essential: this construction does not adjoin roots in a
-new algebra. Its infimum definition and closure laws in Suggested.lean work
-for any natural exponent; the source application fixes a prime, and the
+new algebra. Its infimum definition works for any natural exponent; the source application fixes a prime, and the
 integral-closure containment explicitly requires that prime hypothesis. It is contained in ordinary integral closure, since each root
 satisfies a monic polynomial, but it need not equal that closure.
 
@@ -703,7 +589,11 @@ The API consists of the following named statements.
 
 The local map `quotientPowerMap` is the canonical ring homomorphism
 `A/(ϖ) → A/(ϖ^p)` taking a representative `x` to `x^p`.
-Its representative formula `quotientPowerMap_mk` uses the explicit witness
+Its API is `quotientPowerMap_mk`, the representative formula, and
+`quotientPowerMap_natural`: if `f : A → B` sends `ϖ` to `τ` with the same
+divisibility hypotheses, its quotient maps commute with the two power maps.
+Use the baseline quotient extensionality to characterize these maps.
+The construction uses the explicit witness
 `ϖ^p a=p`; this makes the target characteristic dividing `p` and the
 representative formula independent of the choice of lift.
 
@@ -723,9 +613,10 @@ Let `ϖ` be a nonzerodivisor in `A` with `ϖ^p | p`. The map
 `p`-integrally closed in `A[1/ϖ]`
 (`perfectoid_p_integral_closedness`). Apply this to the torsion-free image of
 an integral perfectoid ring to obtain `p`-root closedness of its image in the
-localization even when the original ring has `ϖ`-torsion. Its Lean signature is the nonzerodivisor localization criterion; the
-torsion-removal application and completion criterion below are separate
-conclusions. The nonzerodivisor
+localization even when the original ring has `ϖ`-torsion. Suggested.lean states the equivalent representative criterion
+`∀ x ∈ A, ϖ^p | x^p → ϖ | x`, which is the injectivity condition without
+constructing a new quotient map. The torsion-removal application and
+completion criterion below are separate conclusions. The nonzerodivisor
 criterion is first proved before this torsion-removal application.
 
 If `A` has a compatible root tower for `ϖ`, `ϖ` is a nonzerodivisor,
@@ -736,7 +627,8 @@ quotients before identifying the completion; Frobenius injectivity comes
 from root closedness and surjectivity from the original quotient map. An
 additional useful criterion says that for `p`-torsion-free `A` with
 `(π^p)=(p)`, ordinary integral closedness in `A[1/p]` and Frobenius
-surjectivity on `A/p` imply that its ordinary `p`-completion is perfectoid.
+surjectivity on `A/p` imply that its ordinary `p`-completion is perfectoid
+(`completion_integrally_closed_perfectoid`).
 This implication retains both the root normalization and the integral
 closedness hypothesis.
 
@@ -747,7 +639,7 @@ ordinary integral-closure criterion. Prerequisites for the closure definition
 are baseline `Subring` operations and `integralClosure`. The localization
 criterion uses `Localization.Away`, quotient power maps and the
 nonzerodivisor hypothesis. The completed statements use normalization,
-torsion removal and `DerivedDeRhamCohomology:DD.1`'s quotient/completion
+torsion removal and PerfectoidSpaces P4.15.1's quotient/completion
 comparison in precisely the indicated setting.
 
 ### 0.6 Ring operations and their tilts
@@ -773,9 +665,8 @@ ordinary completed constructions.
   subset `E ⊆ A`, assume for every `n>0` that the ideal generated by `E`
   modulo `ϖ^n` is generated by `p^n`th powers of elements of that ideal.
   Then the ordinary `ϖ`-completion of `A/(E)` is perfectoid.
-  Suggested.lean records the sufficient special case where every member of `E`
-  has a `p`th root in `E`; the general ideal-power condition and tilt comparison
-  remain part of the full target. Its tilt is
+  This extends the supplier's single-tower quotient to arbitrary root-stable
+  defining sets and the stated ideal-power condition. Its tilt is
   the ordinary `ϖ♭`-completion of `A♭/(E♭)`, where
   `E♭ = lim_(x↦x^p)(E mod ϖ)`. A sufficient condition is that every
   element of `E` has some positive `p`-power root in `E`; compatible root
@@ -783,8 +674,7 @@ ordinary completed constructions.
   rather than completeness of the raw quotient.
 - **Products** (`integralPerfectoid_pi_iff`). For any small family of
   `ℤ_p`-algebras, their product is integral perfectoid exactly when every
-  factor is. The tilt is the product of the tilts. The ring-level equivalence
-  in Suggested.lean is stated for arbitrary commutative rings: every perfectoid
+  factor is. The tilt is the product of the tilts. The ring-level equivalence is stated for arbitrary commutative rings: every perfectoid
   factor has its canonical `ℤ_p` action by completeness. The tilt comparison
   is a further target. This includes the empty
   product, which is the zero ring. The uniform bound on `p`-torsion is
@@ -794,8 +684,8 @@ ordinary completed constructions.
   finitely many `a_i ∈ A♭`, let `J=(a_i♯)` and `J♭=(a_i)`. The ordinary
   `J`-completion of `A` is perfectoid, agrees with derived `J`-completion,
   and has tilt the ordinary `J♭`-completion of `A♭`. Finiteness of the
-  tuple is retained. Suggested.lean states ordinary perfectoidness; the
-  derived comparison and tilt identification are additional conclusions. There is no requirement that `J` contain `p`. Use the
+  tuple is retained. The ordinary perfectoidness, derived comparison and tilt identification
+  are all conclusions of this target. There is no requirement that `J` contain `p`. Use the
   reduced/separated completion criterion before identifying the two
   completions; this is not a statement for all infinitely generated ideals.
 
@@ -817,13 +707,13 @@ The étale assertion uses Anschütz–Le Bras Corollary 2.1.10, p.14, and the
 henselization assertion Česnavičius–Scholze Corollary 2.1.6, p.13.
 Prerequisites for root polynomials are the integral predicate, inverse
 perfection and ordinary completion. Tensor products use these and
-`DerivedDeRhamCohomology:DD.1/completion-exchanges`; root-stable quotients use
+PerfectoidSpaces P4.15.1; root-stable quotients use
 the Fontaine criterion and quotient/completion transport. Products use the
 torsion bound, Witt functoriality and perfection of products. Sharp
 completions use the torsion decomposition and the finite-ideal separation
 criterion. The étale route additionally imports
 `PrismaticCohomology:PR.0/delta-etale-extension`, its complete algebraization
-interface and `DD.1`'s complete-étale comparisons.
+interface and P4.15.1's complete-étale comparisons.
 
 ### 0.7 The fixed-field integral model
 
@@ -842,244 +732,27 @@ general torsion-allowing predicate does not imply this field-based structure.
 Source: Bhatt, *On the direct summand conjecture and its derived variant*,
 Notation 1.4 and footnote 5, p.3. Prerequisites are the integral predicate,
 normalization, and `PerfectoidSpaces:P0` and `P1` for the actual almost-elements
-and powerbounded carriers. This comparison supplies the hypotheses of the
-second root-adjunction route in Layer 2.
+and powerbounded carriers. This comparison supplies the hypotheses of the fixed-field route in Layer 1;
+it adds the explicit flatness and saturation conditions to P1.25's
+bounded-plus-ring comparison.
 
 ### Examples
 
-The tests in §0.1 separate a perfect product ring from a semiperfect ring with
-nilpotents. The Witt quotient `W(F₂)/(4)` in §0.3 separates bound-two torsion
+The `p=2` computations in §0.1 distinguish a Witt coordinate from its
+Teichmüller digit. The Witt quotient `W(F₂)/(4)` in §0.3 separates bound-two torsion
 from the bound-one conclusion. The two polynomial subrings in §0.5 separate
 root closure in a fixed ambient ring from ordinary integral closure.
 
 ### Dependencies
 
 Mathlib’s completion, quotient, localization, inverse-perfection and Witt APIs;
-`DD.0` for the full cotangent complex, `DD.1` for completion transport;
-`PR.0` for prism interfaces, and §0.2 for finite Witt and Fontaine maps. The fixed-field model
+P0.19 for the full cotangent complex, P4.15.1 for completion transport;
+`PR.0` for the stated additional Tor/étale interfaces, and §0.2 for finite Witt and Fontaine maps. The fixed-field model
 uses the specified `P0` almost-elements and `P1` powerbounded contracts.
 
-## Layer 1: initial prisms and universal perfectoidization
+## Layer 1: relative covers and almost root extensions
 
-### 1.1 Semiperfectoid rings and the initial prism
-
-Define `IsSemiperfectoid p S` for an ordinary ring `S` by derived
-`p`-completeness and existence of a surjective map from an integral perfectoid
-ring. The presentation is a witness to a property of `S`, rather than part of
-its structure. Surjectivity alone does not prove derived completeness. For an
-ordinary ring or module, the specialization of Stacks tag `091P`, criterion
-(7), makes derived `p`-completeness equivalent to bijectivity on the countable
-product of the operator
-
-```text
-(a_n)_n ↦ (a_n − p a_(n+1))_n.
-```
-
-The suggested predicate uses this actual operator together with a quotient
-witness. Identify it with the generic `DD.1` predicate once that interface is
-available. Ordinary and derived completeness coincide here only under the
-appropriate torsion comparison. The integral perfectoid bound-one theorem
-provides that comparison for an integral perfectoid source, while an arbitrary
-semiperfectoid target need not have bounded `p`-torsion. The private difference
-operator itself is defined for any natural exponent; semiperfectoidness and
-its perfectoid presentation retain the standing prime hypothesis.
-
-The API consists of the following named statements.
-
-- `IsSemiperfectoid.presentation` — Obtain an integral perfectoid source and a surjective ring map onto S.
-- `IsSemiperfectoid.derived_complete` — S is derived p-complete.
-- `IsSemiperfectoid.of_perfectoid` — An integral perfectoid ring is semiperfectoid.
-- `IsSemiperfectoid.congr` — Ring equivalences preserve and reflect semiperfectoidness.
-- `IsSemiperfectoid.classically_complete_of_bounded` — If S has bounded p-primary torsion, its derived p-completeness is equivalent to the Mathlib p-adic completeness predicate.
-
-**Checks.**
-
-- `completionOperatorDirection` — At `p=2`, the sequence `(1,1,0,…)`
-  is sent by `a_n−2a_(n+1)` to `(-1,1,0,…)`. This fixes the arrow and
-  minus sign in the ordinary-module derived-completion criterion.
-- `completionOperatorCharacteristicP` — Over `F_p` the same operator
-  is the identity, so completeness is automatic.
-- `completionOperatorNonexample` — Over `ℚ`, the nonzero sequence
-  `(1,1/2,1/4,…)` lies in its kernel at `p=2`. Bijectivity excludes this
-  ring, where `p` is invertible.
-- `semiperfectoidZero` — The zero ring is semiperfectoid.
-- `semiperfectoidRootQuotient` — PerfectClosure(F₂[t],2)/(t) is semiperfectoid and is not integral perfectoid.
-- `semiperfectoidIdentity` — Every integral perfectoid ring gives the identity presentation.
-- `semiperfectoidPolynomialFails` — F_p[t] is not semiperfectoid: a quotient of a perfectoid ring has surjective Frobenius modulo p.
-
-For semiperfectoid `S`, construct `initialPrism p S = (Δ_init(S),I_S)`,
-initial among **all** prisms with a map `S → A/I`. The ideal `I_S` is
-principal; the target category is not restricted to bounded prisms. Start
-from a perfectoid presentation `R ↠ S`, choose `d` generating `ker θ_R`,
-and work over `A_inf(R)`. In the free δ-algebra impose `d x_f=f` for each
-`f` in the presentation kernel. Remove the δ-stable `d`-power torsion and
-take `H⁰` of derived `(p,d)`-completion. Repeat these two operations along
-a sufficiently regular ordinal. A fixed cardinality bound and stationarity
-argument give a `d`-torsion-free completed stage, and the unique maps to
-every test prism survive each operation.
-
-The universal property gives functoriality and independence of both the
-presentation and orientation. The ordinal construction must prove that
-the required countably filtered colimits commute with completion, that a
-stationary stage is a prism, and that its orientation remains the image of
-`d`. An existence claim without these comparisons does not define the
-initial object.
-
-The API consists of the following named statements.
-
-- `initialPrism.structureMap` — The canonical ring map S → Δ_init(S)/I_S.
-- `initialPrism.ideal_principal` — I_S is generated by the image of the chosen d.
-- `initialPrism.lift` — Every prism C under S receives the unique compatible δ-map Δ_init(S) → C.
-- `initialPrism.lift_unique` — Two compatible prism maps out of Δ_init(S) are equal.
-- `initialPrism.map` — A map of semiperfectoid rings gives a map of initial prisms; identity and composition are preserved.
-- `initialPrism.presentation_independent` — Any two quotient presentations give uniquely isomorphic initial prisms over S.
-
-**Checks.**
-
-- `initialPrismPerfectoid` — For integral perfectoid S, recover (A_inf(S),ker θ_S) via PR.1 Lemma 4.8.
-- `initialPrismZero` — For S=0 the initial prism is the trivial prism.
-- `initialPrismQrsp` — For QRSP S use PR.2/qrsp-prism to identify Δ_init(S) with derived prismatic cohomology.
-- `initialPrismFp` — For S=F_p, the initial prism is (W(F_p),(p)), canonically identified with (ℤ_p,(p)); its reduction map is the identity of F_p.
-
-Sources: Bhatt–Scholze Notation 7.1 and Proposition 7.2 with its proof, p.55;
-Stacks Lemma 15.93.1, tag `091P`, criterion (7), for the ordinary module
-test. Prerequisites for semiperfectoid rings are Layer 0 and
-`DerivedDeRhamCohomology:DD.1/derived-completion` with the ordinary-module
-criterion. The initial prism uses the prism and animation contracts,
-`PrismaticCohomology:PR.0/free-delta-ring`, `delta-ideal-closure`,
-`delta-universal-quotient`, `prism-category` and `rigidity-prism-ideal`,
-`EnhancedDerivedSheaves:E5:animation`, and `DD.1`'s completion/colimit
-exchange. The perfectoid identity test uses `PR.1/perfect-prism-initial`;
-the QRSP identification uses `PR.2/qrsp-prism`.
-
-### 1.2 The perfectoidization functor
-
-Apply completed perfection to the initial prism and divide by its extended
-ideal:
-
-```text
-S_perfd = Δ_init(S)_perf / I_S Δ_init(S)_perf.
-```
-
-Equivalently take the `p`-completion of the quotient of the uncompleted
-perfection. The perfect-prism correspondence makes this an integral
-perfectoid ring. Define `perfectoidization p S` with its canonical
-`η_S : S → S_perfd` and prove the natural equivalence
-
-```text
-Hom(S_perfd,T) ≃ Hom(S,T)
-```
-
-for every integral perfectoid `T`. The maps on the right are from the
-semiperfectoid target `S`, rather than just from its presenting source `R`.
-The construction and its universal property precede the separate theorem
-that `η_S` is surjective. The suggested ring-valued formulation chooses a
-real ring with the integral predicate and this precise mapping property;
-the prism formula must subsequently be identified with that ring through
-the supplier's actual prism carrier.
-
-The API consists of the following named statements.
-
-- `perfectoidization.eta` — The unit map η_S:S → S_perfd.
-- `perfectoidization.isIntegralPerfectoid` — S_perfd satisfies the integral predicate.
-- `perfectoidization.lift` — For perfectoid T, a map f:S → T has a unique lift S_perfd → T.
-- `perfectoidization.lift_eta` — The lift composed with η_S equals f.
-- `perfectoidization.lift_unique` — A map out of S_perfd is determined by its composite with η_S.
-- `perfectoidization.map` — The unit is natural; the induced maps preserve identities and composition.
-- `perfectoidization.of_perfectoid` — For perfectoid S, η_S is a ring equivalence.
-- `perfectoidization.presentation_independent` — Changing the surjection R ↠ S preserves the universal ring and its unit.
-
-**Checks.**
-
-- `perfectoidizationZero` — Perfectoidization of 0 is 0 and its unit is the identity.
-- `perfectoidizationPerfect` — For F_p, and every perfectoid S, the unit is an isomorphism.
-- `perfectoidizationRootQuotient` — For A=PerfectClosure(F₂[t],2), the perfectoidization of A/(t) is A/√(t), with a noninjective unit.
-- `perfectoidizationMapDirection` — Let `S=F₂×F₂`, let `f` swap the
-  factors and let `g` be second projection. For `s=(0,1)`,
-  `map(g∘f)(η_S(s))=η_(F₂)(0)`, while `map(g)(η_S(s))=η_(F₂)(1)`.
-  These values differ since `F₂` is already perfectoid. This pins composition
-  in the same direction as the original ring maps.
-- `perfectoidizationTwoPresentations` — Two perfectoid quotient presentations of the same S induce the same lifts to every perfectoid target.
-
-The functor preserves identities and compositions by uniqueness of lifts.
-An integral perfectoid ring is fixed by it. The comparison between two
-presentations preserves `η_S`, so it gives a canonical isomorphism of
-objects under `S`, rather than merely an abstract ring isomorphism.
-These compatibilities are essential when forming the finite-quotient
-system used in Layer 3.
-
-Source: Bhatt–Scholze Corollary 7.3, p.56. Prerequisites are the initial
-prism, `PrismaticCohomology:PR.0/prism-perfection`,
-`PR.0/perfect-prisms-perfectoid-rings` and `PR.1/perfect-prism-initial`.
-The universal property is always a property of actual ring maps to every
-perfectoid target in the chosen universe.
-
-### 1.3 The two descent calculations
-
-Two additional calculations are required for the surjectivity proof. First,
-let `R → R′` be `p`-completely faithfully flat between integral perfectoid
-rings, and let `R ↠ S` be a semiperfectoid presentation. Put
-`S′=(S ⊗^L_R R′)^∧_p`. Complete flatness makes this an ordinary
-semiperfectoid ring. Prove the canonical unit-compatible comparison
-
-```text
-(S_perfd ⊗^L_R R′)^∧_p ≃ S′_perfd,
-```
-
-and descend surjectivity of `η_S′` to surjectivity of `η_S`
-(`perfectoidization_complete_flat_base_change`). This is the base-change
-law along a perfectoid cover; it does not claim arbitrary base change.
-The proof uses the completed pushout of perfectoid algebras, Tor
-independence and the universal property, then compares the actual derived
-cofibers of the units. `DD.1`'s complete-flat descent detects the resulting
-obstructing cokernel. Bounded torsion for `R` and `R′` comes from Layer 0;
-no extra bounded-torsion hypothesis is imposed on `S`. The cofiber
-comparison must be proved rather than inserted as an assumption in the
-theorem's type.
-
-Second, fix integral perfectoid `R`, an ideal `J`, and a derived
-`p`-complete quotient `S=R/J`. For every finite subset `F ⊆ J`, put
-`S_F=R/(F)`. Each finite quotient is derived complete by the weak Serre
-property, being the cokernel of a map from a finite sum of copies of `R`.
-Their completed animated colimit is `S`. Prove that perfectoidization
-carries it to the colimit in perfectoid `R`-algebras
-(`perfectoidization_completed_filtered_colimits`). If `K_F` are the
-compatible kernels of the units at finite stages and `K=⋃_F K_F`,
-identify the completed perfectoid colimit with the ordinary
-`p`-completion of `R/K`, compatibly with the units. The colimit in this
-category is completed; a raw ordinary ring colimit need not be complete.
-Once its carrier is identified, surjectivity of the canonical image
-follows from the existing completion-surjectivity theorem.
-
-Sources for these two calculations: Bhatt–Scholze Theorem 7.4, proof p.62;
-BMS1 Lemma 3.13, p.24, for Tor independence; Stacks tags `091P` and `091U`
-for derived completeness and its weak Serre property. Prerequisites for
-base change are the Layer 0 tensor and torsion results, the Layer 1 universal
-property, `PrismaticCohomology:PR.0/perfectoid-tor-independence` and
-`DerivedDeRhamCohomology:DD.1/complete-flatness` and complete-flat descent.
-The colimit calculation uses the same universal property, animation,
-`DD.1/completion-exchanges`, the completed perfectoid colimit interface and
-baseline `AdicCompletion.map_surjective`, `of_surjective` and `map_of`.
-Neither calculation uses arc descent or Bhatt–Scholze Proposition 8.5.
-
-### Examples
-
-The quotient `PerfectClosure(F₂[t],2)/(t)` is semiperfectoid but has a
-noninjective perfectoidization unit; its image is the radical quotient.
-The zero ring and `F_p` are fixed objects. These checks test the actual
-unit maps rather than an abstract isomorphism class.
-
-### Dependencies
-
-Layer 0; `PR.0`’s free δ-rings, prism morphisms and completed perfection;
-`PR.1`’s initial perfect prism; the derived-comparison contract from `PR.2`;
-`E5:animation` and `DD.1`’s completion, complete-flat descent and exchanges.
-The complete-flat base-change calculation uses Layer 0’s completed tensor
-product and Tor-independence, without the later Proposition 8.5.
-
-## Layer 2: prism covers and adjoining roots
-
-### 2.1 The two perfection covers
+### 1.1 A relative smooth-site cover
 
 For bounded `(A,I)` and `p`-completely smooth `R`, choose a quasisyntomic
 cover `R → R_∞` with `(L_(R_∞/(A/I)))^∧_p=0`. The relative object
@@ -1088,47 +761,37 @@ cover `R → R_∞` with `(L_(R_∞/(A/I)))^∧_p=0`. The relative object
 (`relative_perfectoid_cover_smooth_site`). It covers the final object of
 the relative prismatic site of `R` in the following precise sense: every
 test prism has a faithfully flat refinement receiving a map from `B`.
-The statement concerns relative perfection, not absolute perfectness of
-`B`. The cotangent vanishing is the full derived statement and enters the
+The statement concerns relative perfection of `B`. The cotangent vanishing is the full derived statement and enters the
 Hodge–Tate filtration calculation.
 
-For a bounded prism `(A,I)` whose Frobenius is `(p,I)`-completely flat,
-its completed perfection `(B,IB)` has perfectoid reduction and covers
-the final object in the absolute prismatic site of `A/I`
-(`frobenius_flat_prism_perfection_cover`). Over a perfect base, completing
-the perfection of a flat prism map preserves complete flatness, and
-preserves faithful flatness when that map was faithful. The proof needs
-the regular-reduction criterion for Frobenius flatness with its actual
-hypotheses; it cannot apply Kunz to an arbitrary nonnoetherian reduction.
+Unlike P4.15.4's general lifting statement, this target supplies the
+cotangent-vanishing smooth-site cover, relative perfection of its prismatic
+algebra, and the refinement property for every test prism.
 
-Sources: Bhatt–Scholze Example 7.12, its proof and footnote 12, p.61, for
-the relative cover; Proposition 7.11(2) and Example 7.13, pp.60–61, for
-the perfection cover. Prerequisites for the relative cover are the
-lifting result, the smooth-comparison contract and Layer 1's derived Hodge–Tate comparison, Layer 0's
-cotangent theorem, `PrismaticCohomology:PR.0/delta-etale-extension` and
-`DerivedDeRhamCohomology:DD.1/complete-flatness`. The perfection cover uses
-`PR.0/prism-perfection`, `perfect-prisms-perfectoid-rings`,
-`bounded-prism-complete-flatness`, its regular-reduction Frobenius
-criterion, and `DD.1/completion-exchanges`.
+There is a related absolute-site conclusion
+(`frobenius_flat_prism_perfection_cover`). Let `(A,I)` be bounded and assume
+`φ_A : A → A` is `(p,I)`-completely flat. For its supplied completed
+perfection `(B,IB)`, the object with perfectoid reduction `B/IB` covers the
+final object of the absolute prismatic site of `A/I`: every test prism over
+`A/I` has a completely faithfully flat refinement receiving a compatible
+map from `(B,IB)`. The new target is this covering property; perfection
+itself and its complete-flatness properties use P4.15.2 and P4.15.4.
+The Frobenius-flat hypothesis is retained explicitly, including in the
+regular-ring applications.
 
-### 2.2 André's flatness lemma and its modulo-p refinement
+Sources: Bhatt–Scholze Examples 7.12–7.13, proof and footnote 12, p.61.
+Prerequisites are P4.15.3's smooth and derived Hodge–Tate comparisons,
+P4.15.4's quasisyntomic lifting, Layer 0's relative cotangent theorem,
+`PrismaticCohomology:PR.0/delta-etale-extension`, and P4.15.1's
+complete-flatness and completion exchanges.
 
-For every integral perfectoid ring `R`, construct an integral perfectoid
-`S` and a `p`-completely faithfully flat map `R → S` such that every
-positive-degree monic polynomial over `S` has a root
-(`andre_flatness`). In particular one can successively solve
-`X^p-a`, obtaining adjacent compatible roots for a specified element.
-The monic-root property is stated without a domain hypothesis; the constant
-polynomial `1` is excluded by the positive-degree condition.
+### 1.2 The modulo-p ind-syntomic refinement
 
-At successor stages adjoin roots of monic polynomials by finite free
-algebras, pass to quasisyntomic covers, lift to prisms and perfect them.
-At limit stages take the correctly completed carrier and prove integral
-perfectoidness and `p`-complete faithful flatness. Specify a universe and
-cardinality bound; a final monic polynomial has finitely many coefficients,
-which descend to an earlier stage where the next root operation applies.
-The transfinite construction and faithful-flatness comparison are parts of
-the theorem, not consequences of merely naming an ordinary colimit.
+Refine the supplied André cover, rather than constructing a second
+cover theorem. For each integral perfectoid `R`, the target is an integral
+perfectoid `S` with `R → S` `p`-completely faithfully flat, every
+positive-degree monic polynomial over `S` having a root, and the following
+additional conclusion.
 
 Refine the construction so that `R/p → S/p` is an ind-syntomic faithfully
 flat cover (`andre_ind_syntomic_mod_p`). Trace the characteristic-`p`
@@ -1140,17 +803,14 @@ Pass through these stages and their limits to obtain ind-syntomicity.
 This refinement is separate from the stronger ordinary ind-syntomic
 extension of Česnavičius–Scholze Proposition 2.3.4.
 
-Sources: Bhatt–Scholze Theorem 7.14 with its full proof, pp.61–62, and
-Remark 7.15 with proof, p.62. Prerequisites for André's theorem are Layer 0's
-root-polynomial and tensor operations, the preceding lifting and perfection
-covers, `DerivedDeRhamCohomology:DD.5`'s quasisyntomic covers and `DD.1`'s
-complete-flatness/limit interfaces. The ind-syntomic refinement additionally
-uses `CrystallineCohomology:CR.0`'s characteristic-`p` PD-envelope formula,
-`PR.0`'s Frobenius pullback comparison, and the supplier's syntomic
-regular-sequence calculations. The stronger ordinary theorem retains its
-`IntegralPerfectoidPartII` owner.
+Source: Bhatt–Scholze Remark 7.15 and its proof, p.62, refining Theorem
+7.14, pp.61–62. Prerequisites are the P4.15.4 cover, P4.15.1's
+complete-flatness/limit interfaces, `CrystallineCohomology:CR.0`'s
+characteristic-`p` PD-envelope formula and the Frobenius pullback comparison
+in the exact contracts. The stronger ordinary ind-syntomic statement retains
+its `IntegralPerfectoidPartII` owner.
 
-### 2.3 Rational root neighborhoods and the saturated root extension
+### 1.3 Rational root neighborhoods and the saturated root extension
 
 There is a second construction in the fixed-field setting of the Layer 0
 Bhatt comparison. Let `A` be a saturated integral perfectoid `K°`-model,
@@ -1167,6 +827,20 @@ neighborhoods `U_ℓ = { |T-g| ≤ |t|^ℓ }` for `ℓ ≥ 0`. They shrink aroun
 `B_ℓ → B_(ℓ+1)` (`bhatt_root_neighborhoods`). Use the actual `P2`
 rational-localization model and its necessary almost-elements saturation;
 the notation does not select an arbitrary integral subring.
+The neighborhood API is `bhattRootNeighborhoods.restrict` for `ℓ ≤ k`,
+`restrict_self` and `restrict_comp` for the contravariant section maps,
+and `rational_model` identifying the actual integral rational-localization
+model with `B_ℓ` after its prescribed saturation.
+
+**Checks.**
+
+- `rootNeighborhoodZeroRadiusIndex` — Since both `T` and `g` are
+  powerbounded, `U₀=Y`; the exponent zero gives radius one.
+- `rootNeighborhoodRestrictionDirection` — For `A=K°`, `g=0` and a
+  rank-one point with `T=t`, that point belongs to `U₁` and not `U₂`:
+  `0<|t|²<|t|<1`. Thus `U₂⊆U₁` and sections restrict `B₁→B₂`.
+- `rootNeighborhoodUnitElement` — For `g=1`, the point `T=0` belongs
+  to `U₀` but not `U₁`, since `|0−1|=1>|t|`.
 
 Let `C` be the ordinary `t`-completion of `colim_ℓ B_ℓ` and define
 `bhattRootExtension(A,g) = A_∞ = C_*`, where `(-)_*` is `P0`'s saturation.
@@ -1201,7 +875,7 @@ localization and approximation, and `P4`'s universal closed-space
 construction. The raw/saturated comparison and the `g=0` identity test
 are part of the interface before flatness is claimed.
 
-### 2.4 Almost flatness and functorial monic-root iteration
+### 1.4 Almost flatness and functorial monic-root iteration
 
 For `ℓ>0`, the map `A → B_ℓ` is almost faithfully flat modulo `t` for
 `m=(t^(1/p^n))`. Passing to the completed colimit and its saturation gives
@@ -1214,7 +888,7 @@ The monic-polynomial version is needed for iteration. Let `(A,A⁺)` be a
 perfectoid affinoid `K`-pair, choose the compatible-root pseudouniformizer
 `π`, and let `P(T) ∈ A⁺[T]` be monic of positive degree. Let `B⁺` be the
 `π`-completion of the integral closure of `A⁺` in
-`A[T^(1/p^∞)]/(P(T))`, and put `B=B⁺[1/π]`. Then `(B,B⁺)` is perfectoid,
+`A[T^(1/p^∞)]/(P(T))`, and put `B=B⁺[1/π]`. Denote this construction by `monicRootPair(A,A⁺,P,π)`. Then `(B,B⁺)` is perfectoid,
 and `A⁺ → B⁺` is almost faithfully flat modulo `π`. It is universal
 among complete uniform affinoid `A`-pairs equipped with a root
 `h_0 ∈ C⁺` of `P` and adjacent compatible roots `h_(n+1)^p=h_n`.
@@ -1223,6 +897,21 @@ extension explicitly; the universal closed-space property only for
 perfectoid targets does not by itself prove the stronger statement.
 The finite free root algebra and the relevant regular sequence supply the
 flatness calculation. Coefficients belong to `A⁺` in this argument.
+Its API is `monicRootPair.map` for the continuous map of pairs,
+`root` and `root_pow` for the chosen adjacent tower, `polynomial_root`
+for `P(h₀)=0`, and `lift` with `lift_map`, `lift_root` and `lift_unique`
+for this universal property.
+
+**Checks.**
+
+- `monicRootLinear` — For `P=T−g`, the roots start at the image of `g`
+  and the analytic pair agrees with the fixed-element root construction.
+- `monicRootZero` — For `P=T`, the resulting pair is the original pair;
+  all adjacent roots of zero vanish by uniformity/reducedness.
+- `monicRootUnit` — For `P=T−1`, the distinguished `h₀` is one; at
+  `p=2` the next root may be `−1`. The construction therefore cannot
+  require a unique chosen root in the original ring or identify the pair
+  with the original one for every linear polynomial.
 
 Construct a functor `B` on the category of Bhatt integral perfectoid
 `K°`-models, with natural maps `A → B(A)` almost faithfully flat modulo
@@ -1236,8 +925,25 @@ plus-ring colimit is already complete. Every finite list of polynomial
 coefficients comes from one earlier stage, and its successor supplies the
 root. Verify naturality, preservation of the integral-model conditions,
 and almost faithful flatness through the completed operations. This is
-the fixed-field almost variant; André's ordinary `p`-complete cover theorem
-above has different hypotheses and a different flatness conclusion.
+the fixed-field almost variant. The supplied ordinary `p`-complete André
+cover theorem has its stated integral hypotheses and complete-flatness conclusion.
+Use the API `almostAicExtension.map`, `map_id`, `map_comp` and the
+natural structural map `unit`, with `map_unit` for its naturality;
+`has_root` asserts existence for each positive-degree monic polynomial,
+without choosing its roots functorially.
+
+**Checks.**
+
+- `almostAicZero` — Starting from the zero model gives the zero model,
+  as every unital algebra over zero is zero.
+- `almostAicConstantExcluded` — Over a nonzero model the constant monic
+  polynomial `1` has no root. The positive-degree clause is essential;
+  already evaluation of `1` at each element of `F₃` equals one.
+- `almostAicBeyondPowers` — For `p=3` and
+  `K` the completion of `Q₃(3^(1/3^∞))`, the original residue field is `F₃`, where
+  `X²+1` has no root: its values at `0,1,2` are `1,2,2`.
+  The extension must supply a root of this monic quadratic as well as
+  compatible cube roots. An extension solving only `X³−a` would fail.
 
 Sources: Bhatt Theorem 2.3 and proof, pp.4–5, and Remark 2.7, p.5;
 Bhatt's 23 April 2017 perfectoid lecture notes, Theorem 9.4.3(1)–(2) and
@@ -1252,7 +958,7 @@ Functorial iteration uses Layer 0's completed tensor products,
 `P0/almost-hom-and-adjoints`, `almost-tensor-and-internal-hom`,
 `almost-zero-limits-and-colimits`,
 `PerfectoidSpaces:P5/completed-colimit-of-perfectoid-pairs`,
-`P5/completed-colimit-is-perfectoid` and `DD.1`'s countably filtered
+`P5/completed-colimit-is-perfectoid` and P4.15.1's countably filtered
 completion exchange.
 
 ### Examples
@@ -1266,19 +972,20 @@ root, so positive degree is essential. For the fixed-field construction,
 
 ### Dependencies
 
-Layers 0–1; `PR.2`’s quasisyntomic lifting; `PR.0`’s relative perfection and
-complete-flatness contracts; `DD.1` and `DD.5` for limits and covers; `CR.0`’s
+Layer 0; P4.15.1, P4.15.3 and P4.15.4 for limits, relative prismatic
+cohomology and quasisyntomic lifting; `CR.0`’s
 characteristic-`p` divided powers. The field-based branch uses `P0`, `P1`,
 `P2`, `P4` and `P5` on the fixed root ideal and explicit plus rings.
 
-## Layer 3: universal perfectoid quotients
+## Layer 2: characteristic-p quotients and radicals
 
-### 3.1 Characteristic-p quotients and radicals
+### 2.1 Characteristic-p quotients and radicals
 
 The characteristic-`p` route gives elementary tests of the universal
 construction. If the `p`-power map on a ring is surjective, it remains
 surjective on every quotient (`quotient_pow_surjective`), without
-finite-generation assumptions on the ideal. For perfect characteristic-`p`
+finite-generation assumptions on the ideal. This descent of a surjective
+power function holds even without the characteristic hypothesis. For perfect characteristic-`p`
 `R`, prove
 
 ```text
@@ -1288,14 +995,14 @@ PerfectRing (R/I) p ↔ I.IsRadical.
 The forward direction is reducedness of a perfect ring; the reverse
 combines reducedness of a radical quotient with its surjective Frobenius
 (`quotient_perfect_iff_radical`). The formula includes `I=⊤` and the zero
-quotient. By the Layer 0 characteristic-`p` theorem, `R/√I` is integral
+quotient. By the common characteristic-`p` dictionary, `R/√I` is integral
 perfectoid (`radical_quotient_integralPerfectoid`) and
 `IsIntegralPerfectoid p (R/I) ↔ I.IsRadical`
 (`quotient_perfectoid_iff_radical`).
 
-Prove `radical_quotient_universal`: every map from `R` into an integral
-perfectoid `T` killing `I` factors uniquely through `R/√I`. There is no
-extra characteristic-`p` hypothesis on `T`: the unital map from `R`
+Prove `radical_quotient_universal`: every map from `R` into any reduced ring
+`T` killing `I` factors uniquely through `R/√I`. This strengthens the factorization needed for perfectoid targets;
+there is no extra characteristic-`p` hypothesis on `T`: the unital map from `R`
 forces `p=0` in the target, and reducedness forces it to kill the radical.
 Thus the universal perfectoid quotient of `R/I` is `R/√I` and the unit
 is the surjective quotient map. In a perfect characteristic-`p` ring,
@@ -1319,157 +1026,38 @@ Sources: BMS1 Example 3.15, p.24, and the characteristic-`p` specialization
 of Bhatt–Scholze Theorem 7.4, statement p.56 and proof p.62. The quotient
 and radical lemmas here are elementary consequences spelling out that
 specialization; they are not additional named theorems in the source.
-Prerequisites are the Layer 0 characteristic-`p` comparison and reducedness,
+Prerequisites are the common characteristic-`p` dictionary and reducedness,
 baseline quotient lifts, `Ideal.isRadical_iff_quotient_reduced`,
 `Ideal.IsRadical.radical_le_iff`, `PerfectRing.ofSurjective` and inverse
-Frobenius. The universal comparison additionally uses the Layer 1 mapping
+Frobenius. The universal comparison additionally uses P4.15.6's mapping
 property when identifying this explicit object with `S_perfd`.
-
-### 3.2 The principal calculation and general surjectivity
-
-Let `R` be integral perfectoid, let `f_n` be a specified compatible root
-tower with `f_0=f`, and suppose `S=R/(f)` is derived `p`-complete. Put
-
-```text
-J_root = (f_n : n ≥ 0),
-B = (R/J_root)^∧_p.
-```
-
-The root-stable quotient theorem makes `B` integral perfectoid.
-Every map `S → T` to an integral perfectoid ring kills the images of all
-`f_n`, because `T` is reduced and `f_n^(p^n)=f`. It extends uniquely
-through the quotient and ordinary completion. Prove
-`principal_root_quotient_perfectoidization`: the resulting identification
-`S_perfd ≃ B` preserves the canonical units.
-
-Surjectivity of `S → B` is part of this calculation. Apply
-`AdicCompletion.map_surjective` to `R → R/J_root` as a surjective
-`R`-linear map, and combine it with `AdicCompletion.of_surjective` on the
-complete source. `AdicCompletion.map_of` identifies the composite with
-the quotient-completion map. Transport along the image of `(p)` to the
-ordinary `p`-completion of the quotient. This proves surjectivity
-without requiring `J_root` to be closed or finitely generated.
-
-For every semiperfectoid `S`, prove
-`perfectoidization_surjective : Surjective η_S`. The proof proceeds
-through the two Layer 1 calculations and Layer 2's André extension. Write
-`S=R/J`. Completed filtered colimits reduce the assertion to finitely
-many generators. Induct on their number, passing through the previous
-perfectoid quotient. For the remaining principal generator, André
-provides a `p`-completely faithfully flat perfectoid cover with compatible
-roots. The principal calculation proves surjectivity there; the unit
-cofiber comparison and complete-flat descent bring it back. Finally
-identify the completed colimit with the completion of `R` modulo the
-union of the finite-stage unit kernels. The baseline image argument then
-proves the general surjectivity assertion. No bounded-torsion condition
-is added to `S`, and the theorem does not say that every semiperfectoid
-ring is already perfectoid.
-
-Source: Bhatt–Scholze Theorem 7.4, statement p.56 and proof p.62.
-Prerequisites for the principal calculation are Layer 0's reducedness,
-root-stable completion and bounded torsion, the Layer 1 universal property,
-and the three baseline completion-surjectivity declarations. General
-surjectivity uses Layer 1's complete-flat base change and completed filtered
-colimits, Layer 2's André theorem, and
-`DerivedDeRhamCohomology:DD.1`'s complete-flat descent. The pushout,
-cofiber and colimit identifications are proof obligations in this order;
-they are not hypotheses weakening the final assertion.
-
-### 3.3 Integral models of the analytic closed quotient
-
-Let `(R,R⁺)` be a perfectoid Tate pair and let `I ⊆ R` be any ideal,
-with no closedness or finite-generation restriction. Choose a
-compatible-root pseudouniformizer `ϖ` with `ϖ^p | p` in the integral
-model, and form the ordinary completion
-
-```text
-S = (R⁺/(I ∩ R⁺))^∧_ϖ,
-R_I = S_perfd[1/ϖ].
-```
-
-Define `perfectoidClosedQuotient(R,R⁺,I)` using this ring and the minimal
-open integrally closed subring `R_I⁺` containing the image of `R⁺`.
-Prove that the resulting complete uniform Tate pair is independent of
-the chosen pseudouniformizer, root tower and presentation, with the
-canonical map from `(R,R⁺)` preserved. Its universal property concerns
-continuous maps to perfectoid Tate rings annihilating `I`, and the
-pair-level version respects the plus subrings.
-
-The API consists of the following named statements.
-
-- `perfectoidClosedQuotient.map` — The continuous map q:R → R_I annihilates I.
-- `perfectoidClosedQuotient.plus` — R_I⁺ is the minimal open integrally closed subring containing q(R⁺).
-- `perfectoidClosedQuotient.lift` — A continuous map to a perfectoid Tate ring killing I factors uniquely through q.
-- `perfectoidClosedQuotient.choices` — Choices of pseudouniformizer and integral presentation give canonically isomorphic pairs.
-- `perfectoidClosedQuotient.spa` — The induced Spa map is the P4 universal perfectoid Zariski-closed subspace with image V(I).
-
-**Checks.**
-
-- `closedQuotientZeroIdeal` — For I=0 recover (R,R⁺).
-- `closedQuotientUnitIdeal` — For I=R obtain the empty affinoid space and zero pair.
-- `closedQuotientCharacteristicP` — In characteristic p the perfectoid kernel contains the radical of I; the raw nonradical quotient is not the answer.
-- `closedQuotientNonclosedIdeal` — Allow a nonclosed ideal I; the universal pair depends on V(I), and its kernel is a closed saturated ideal containing I.
-- `closedQuotientPlus` — The plus ring is integral closure of the image with openness, rather than an arbitrarily chosen powerbounded ring.
-
-To establish the semiperfectoid presentation, use completeness of `R⁺`
-and the baseline completion-surjectivity theorem to obtain a surjection
-`R⁺ → S`. Classical completeness for the principal ideal `(ϖ)` implies
-derived `ϖ`-completeness by Stacks tag `091T`. Since `ϖ^p | p`, a complex
-over `S[1/p]` is a complex over `S[1/ϖ]`; the orthogonality criterion
-`091P(2)` then gives derived `p`-completeness. This proves that `S` is
-semiperfectoid without a new bounded-torsion premise. Apply the unit
-surjectivity theorem and invert `ϖ` to obtain the surjection `R → R_I`.
-The analytic comparison must additionally account for any
-`ϖ`-power-torsion removal, the complete uniform topology and the actual
-minimal open integrally closed plus ring. These are identified on
-`PerfectoidSpaces:P1` and `P4`'s analytic carriers.
-
-Prove `zariskiClosed_is_stronglyZariskiClosed`: the induced map
-`Spa(R_I,R_I⁺) → Spa(R,R⁺)` is a homeomorphism onto `V(I)`, and
-`R⁺ → R_I⁺` is almost surjective for
-`m=(ϖ^(1/p^n) : n≥0)`. Together with ordinary surjectivity of `R → R_I`,
-these give the strongly Zariski closed immersion. The integral map goes
-from the ambient plus ring to the quotient plus ring. The construction
-agrees with `P4`'s universal perfectoid closed space and does not replace
-its minimal plus ring by an arbitrary choice of `R_I°`. Every Zariski
-closed subset of an affinoid perfectoid space is consequently itself an
-affinoid perfectoid space.
-
-Sources: Bhatt–Scholze Remark 7.5, p.56; Scholze, *Étale cohomology of
-diamonds*, Definitions 5.6–5.7, p.24, Theorem 5.8 and the following
-remark, p.25, in the 14 April 2026 author version; Stacks tags `091T`
-and `091P(2)` for the integral completion argument. Prerequisites are
-the Layer 0 integral/Tate dictionary, Layer 1's semiperfectoid construction,
-Layer 3 unit surjectivity, ordinary completion and localization,
-`PerfectoidSpaces:P0`'s root-ideal almost category,
-`P1/integral-perfectoid-comparison`, and the `P4` universal closed-space,
-closed-immersion and plus-ring interfaces. The topology and plus-ring
-comparison completes the passage from the algebraic surjection to the
-geometric conclusion.
 
 ### Examples
 
-For `f=0` the compatible-root ideal is zero; for `f=1` it is the unit ideal.
-A nonradical characteristic-`p` ideal removes nilpotent roots under the
-perfectoidization unit. On analytic pairs these endpoints give the original
-pair and the empty space. Nonclosed ideals remain allowed in the construction.
+The top ideal gives the zero perfect ring and the zero ideal recovers `R`.
+For `PerfectClosure(F₂[T],2)/(T)`, squaring is surjective but not injective;
+its radical quotient is `F₂`. At root indices `0,1,2`, the powers recovering
+`T` are `1,2,4`. These tests distinguish radical closure from the original
+ideal and inverse Frobenius from forward Frobenius.
 
 ### Dependencies
 
-Layers 0–2; Mathlib’s quotient lifts and completion-surjectivity maps;
-`DD.1`’s complete-flat descent; `P0`’s specified almost category and the
-`P1`/`P4` topology, plus-ring and closed-immersion contracts. The algebraic
-surjectivity theorem is established before its analytic application.
+Mathlib's actual ideals, quotients, radical, perfect-ring and inverse-Frobenius
+interfaces; P1.24 and P4.15.5–P4.15.6 for the common characteristic-`p`
+dictionary, reducedness and the universal quotient to which the explicit
+radical formula is compared. No new perfectoidization carrier is constructed.
 
 ## Downstream consumers
 
-`AInfCohomology`, `PrismaticCohomology` and `PadicHodgeTheory` use the integral
-predicate, Fontaine generators, torsion bounds and perfectoidization within
-their shared bundle. `DerivedDeRhamCohomology` uses the cotangent and quotient
-calculations. `PerfectoidSpaces` uses the image theorem to strengthen its
-universal analytic closed-space construction; `AdicEtaleGeometry` then uses
-closed affinoid perfectoid subspaces. The two integral-perfectoid Part II
-roadmaps extend these results to their larger descent and valuation scopes.
+`AInfCohomology`, `PrismaticCohomology` and `PadicHodgeTheory` use the additional
+Fontaine-generator, torsion and completed-operation results. The full cotangent
+and torsion-removal calculations support derived de Rham applications. The
+fixed-field root extensions provide almost faithfully flat monic-root covers
+for later perfectoid arguments. All these consumers obtain the integral
+predicate and universal perfectoidization directly from PerfectoidSpaces;
+there is no reverse dependency from that lower-tier roadmap to this one.
+The two integral-perfectoid Part II roadmaps add the larger descent and
+valuation scopes specified in the ownership boundaries.
 
 ## References
 
@@ -1519,4 +1107,5 @@ of each locator.
   [criterion 091P](https://stacks.math.columbia.edu/tag/091P),
   [ordinary/derived comparison 091T](https://stacks.math.columbia.edu/tag/091T),
   [weak Serre property 091U](https://stacks.math.columbia.edu/tag/091U),
-  and [reduced-ring completeness criterion 0G3I](https://stacks.math.columbia.edu/tag/0G3I).
+  [reduced-ring completeness criterion 0G3I](https://stacks.math.columbia.edu/tag/0G3I),
+  and [finite-ideal completion 05GG](https://stacks.math.columbia.edu/tag/05GG).
