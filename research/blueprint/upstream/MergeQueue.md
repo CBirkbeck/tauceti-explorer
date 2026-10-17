@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T22:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T22:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -142,7 +142,7 @@ Generated 2026-10-17T22:30Z from the README supplier graph of every open pull re
 - #999 EndoscopicTransferAndUnitaryTraceComparison — draft; waits on #1040, #1062, #785, #792, #818, #820, #849, #850, #853, #854, #856, #858, #871, #873, #875, #879, #924, #925, #927, #929, #931, #933, #938, #965, #966
 - #1000 ArakelovGeometryAndAbelianHeights — ready (approved at an earlier head); waits on #1002, #848, #849, #852, #853, #858, #879, #966
 - #1038 ShimuraData — ready; waits on #1037, #785, #792, #848, #849, #871, #933, #966, #279, #953
-- #1064 CohomologyComparisons — draft; waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #813, #814, #815, #818, #853, #854, #857, #868, #875, #879, #908, #913, #938, #940, #944
+- #1064 CohomologyComparisons — draft; waits on #1035, #1040, #1044, #1057, #1062, #1065, #1070, #1080, #813, #814, #815, #818, #853, #854, #857, #868, #875, #879, #908, #913, #938, #940, #944
 
 ## Wave 27
 - #1004 FaltingsFinitenessAndIsogenyTheorems — ready (approved at an earlier head); waits on #1000, #1001, #1002, #792, #848, #849, #852, #853, #856, #858, #879, #921, #929, #933, #940, #966
@@ -169,7 +169,7 @@ Generated 2026-10-17T22:30Z from the README supplier graph of every open pull re
 ## Wave 31
 - #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1013, #1020, #852, #856, #879, #913, #928
 - #1066 OrdinaryAutomorphicFormsAndModularityLifting — draft; waits on #1005, #1007, #1013, #1019, #1020, #1034, #1039, #1062, #785, #856, #858, #920, #923, #931
-- #1085 PerfectoidShimuraVarieties — draft; waits on #1005, #1038, #1042, #1053, #1069, #1084, #785, #813, #816, #818, #820, #933, #966
+- #1085 PerfectoidShimuraVarieties — draft; waits on #1005, #1038, #1042, #1053, #1069, #1084, #785, #792, #813, #816, #818, #820, #933, #966
 
 ## Wave 32
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
