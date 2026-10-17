@@ -239,6 +239,11 @@ stated there only.
   `QCohPrestack.spec_homotopy`, `QCohPrestack.classifying_Z2`, `QCohPrestack.dualizable_spec`;
   faithfully flat descent for quasi-coherent complexes and the affine direct image with base
   change; the Cartier–Witt stack.
+  The bounded-prism formal-affine comparison also stays in the README: `FormalAffineQCoh.completeEquiv`,
+  `eval`, `unit`, `tensor`, `colimit`, `pullback`, `reductions`; tests `crystalline`,
+  `completedCoproduct`, `derivedReduction`, `identityAndShift`. It requires unbounded enhanced
+  complete-module categories and geometric effectivity, absent at the pins. SAG
+  Theorem 8.3.4.4 has a connectivity restriction; no unrestricted comparison is assumed here.
 * Needing completely étale framings of derived complete algebras (PR.6): `FramedAlgebra`,
   `FramedAlgebra.gamma`, `FramedAlgebra.gamma_X`, `FramedAlgebra.gamma_comm`,
   `FramedAlgebra.gamma_sub_mem`, `FramedAlgebra.gamma_unique`, `FramedAlgebra.gamma_map`,
