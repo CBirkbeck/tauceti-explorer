@@ -48,7 +48,7 @@
   "AInfCohomology": 19,
   "PadicHodgeTheory": 23,
   "PerfectoidQuotients": 10,
-  "PrismaticCohomology": 11,
+  "PrismaticCohomology": 20,
   "CohomologyComparisons": 25,
   "AnalyticNumberTheory": 21,
   "ArithmeticStatistics": 21,
@@ -78,7 +78,7 @@
   "IgusaVarietiesAndTorsionConcentration": 35,
   "AutomorphicGaloisRepresentations": 27,
   "SerreWeightAndLevelOptimisation": 26,
-  "OrdinaryAutomorphicFormsAndModularityLifting": 29,
+  "OrdinaryAutomorphicFormsAndModularityLifting": 28,
   "GL2ModularityLifting": 30,
   "PotentialModularityAndCompatibleSystems": 31,
   "PotentialAutomorphyInfrastructure": 37,
@@ -99,6 +99,6 @@
   "DerivedModuleAlgebra": 1,
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": 30,
   "MetaplecticAutomorphicForms": 26,
-  "PrismaticCohomologyPartII": 20
+  "PrismaticCohomologyPartII": 21
  }
 }

@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T19:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T19:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -63,7 +63,6 @@ Generated 2026-10-17T19:40Z from the README supplier graph of every open pull re
 
 ## Wave 11
 - #848 ComplexComparisonPartII — ready (approved at an earlier head); waits on #853, #857, #868, #908, #938, #944, #279, #887, #896, #918, #953, #954, #992
-- #1057 PrismaticCohomology — draft; waits on #1042, #818, #857, #868, #908, #944
 
 ## Wave 12
 - #849 AbelianSchemesAndArithmeticModuli — ready; waits on #848, #853, #857, #908, #938, #280
@@ -107,14 +106,15 @@ Generated 2026-10-17T19:40Z from the README supplier graph of every open pull re
 ## Wave 20
 - #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
 - #927 DiamondSixOperations — ready (approved at an earlier head); waits on #785, #814, #816, #818, #820, #875, #908, #922
-- #1065 PrismaticCohomologyPartII — draft; waits on #1042, #1044, #1057, #818, #857, #868, #908, #944
+- #1057 PrismaticCohomology — draft; waits on #1042, #1044, #818, #857, #868, #908, #938, #944
 
 ## Wave 21
 - #921 ClassicalArithmeticCompletion — ready (approved at an earlier head); waits on #785, #792, #851, #856, #924
-- #925 AutomorphicSpectralTheory — ready (approved at an earlier head); waits on #1037, #785, #792, #856, #858, #871, #924, #1041
+- #925 AutomorphicSpectralTheory — ready; waits on #1037, #785, #792, #856, #858, #871, #924, #1041
 - #965 AdicCoefficientsAndComparisons — ready; waits on #813, #818, #820, #875, #908, #922, #927, #938
 - #968 ModularSymbolsPadicLFunctions — ready (approved at an earlier head); waits on #785, #854, #856, #858, #869, #871, #879, #913, #923, #924, #928, #940
 - #1039 DirichletPadicLFunctions — draft; waits on #854, #924
+- #1065 PrismaticCohomologyPartII — draft; waits on #1042, #1044, #1057, #818, #857, #868, #908, #944
 
 ## Wave 22
 - #931 GL2AutomorphicRepresentationsAndTransfer — ready (approved at an earlier head); waits on #1037, #785, #792, #848, #856, #871, #873, #875, #923, #924, #925, #928, #938, #934
@@ -156,6 +156,7 @@ Generated 2026-10-17T19:40Z from the README supplier graph of every open pull re
 ## Wave 28
 - #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #1034, #856, #879, #920, #923, #928, #931, #970
 - #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
+- #1066 OrdinaryAutomorphicFormsAndModularityLifting — draft; waits on #1005, #1007, #1013, #1019, #1034, #1039, #1062, #785, #856, #858, #920, #923, #931
 
 ## Wave 29
 - #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1013, #1020, #852, #856, #879, #913, #928
