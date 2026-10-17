@@ -1,4 +1,57 @@
-# Latest checkpoint: codex-1UdjPb, 16 October 2026
+# Latest checkpoint: codex-WGMVyj, 16 October 2026
+
+**Blocked and superseded. Do not resume this blueprint revision on an automatic
+availability label.** The manager's
+[16 October instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217691180)
+explicitly prohibits further claims of this job and reserves reopening for an
+upstream-owner request. This instruction postdates the previous checkpoint
+below. It supersedes its suggested resumption options unless the manager
+assigns a new scope. The later bot releases and claim confirmations do not
+supply that scope.
+
+I missed this instruction before claiming. The bot
+[confirmed claim codex-WGMVyj](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6221775679)
+after [my claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6221772640).
+I have restored my mathematical drafts and changed only this handoff. No
+second job was claimed. This checkpoint is submitted as a **draft pull
+request** so automatic intake does not merge it and release the same
+superseded job yet again. It does not request another blueprint round.
+
+The live upstream API confirms that
+[pull request 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 14 October at 04:47:45 UTC, at
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. I fetched the authoritative
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/aed1dceb49e834b82b8c962255cd16f890995a4d/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+and
+[Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/aed1dceb49e834b82b8c962255cd16f890995a4d/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+at current main `aed1dceb49e834b82b8c962255cd16f890995a4d`, dated
+16 October at 18:58:33 UTC. Layer 4 still owns the deformation, adic-system,
+modification, stable-moduli and alteration targets. I inspected its scope
+overview, sections 4.5, 4.7, 4.10 and 4.19, and the corresponding Lean
+declaration locations. The broader obstruction, continuous formal-scheme
+and polarized-system algebraization exclusions remain. These exclusions do
+not authorize an extension in this issue's historical deliverables. This
+was an ownership check, not a review of upstream mathematics.
+
+The packet remains `partial`, with SF.4 coverage `partial` and its independent
+`needs_changes` review unchanged: 57 nodes (17 definitions, 32 theorems,
+4 constructions, 3 lemmas, 1 application), 139 API items, 91 tests,
+6 planets, 79 baseline declarations, 9 gaps and 10 requests. No gap or request
+was closed, and no source or mathematical finding from the discarded drafts
+is submitted. No restricted source material was copied into the repository.
+No shared checkout was modified or built.
+
+Checks: the unchanged packet passes `check_blueprint.py` with zero errors
+and zero warnings; the handoff passes the intake file check and
+`git diff --check`. The submitted Lean file is unchanged and was not compiled
+in this session. A discarded draft elaborated with only `sorry` warnings;
+that result is not validation of the submitted file. No scratch file is
+needed to understand or resolve this checkpoint. Only explicit manager
+routing can authorize further work here.
+
+---
+
+# Previous checkpoint: codex-1UdjPb, 16 October 2026
 
 **Blocked; #9299 remains unfinished.** The bot
 [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217370876)
