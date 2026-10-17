@@ -9669,8 +9669,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-    "date": "2026-10-11",
-    "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /11: all six supplier exports retain their formal, analytic or arithmetic domains. Read GSWZ v2 equations (110)-(111), p.28, Definition 2.11 and (117)-(119), pp.29-30, (126), p.31, Theorems 3/5, p.14, and Theorem 8, pp.35-36; GZ v1 analytic datum, pp.2-3, and Theorem 3.1, pp.5-6. Nondegeneracy, the completed Gaussian domain, coprime auxiliary orders, Laurent coefficients before the t-completion, the quadratic discriminant algebra and excluded orders are retained. Follow-up prefactor, regularity, Kummer and gluing gaps remain qualifications of the exports. The suggested h=1 real-polynomial bracket is narrower than the completed operator. No knot identification follows from module membership. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
+    "date": "2026-10-17",
+    "notes": "Bounded independent review of finding /11 by Codex (GPT-6), codex-BsNNY8. Checked the six formal, analytic and arithmetic exports against GSWZ v2 Theorems 3/5, p.14, section 1.8 pp.16-17, (110)-(111) p.28, Definition 2.11 and (117)-(119) pp.29-30, (126) p.31, Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Retain invertible formal Hessians versus positive-definite analytic data, odd coprime orders, Laurent coefficients before t-completion and the restricted coefficient-line membership. HB.4 follow-up retains coefficientwise Kummer and normalization gaps; HB.10 retains scalar-change, gluing and global-line gaps. Neither module membership nor its numerical examples establish knot invariance, analytic state integrals or quantum modularity. No mathematical payload changed; this is not a new whole-plan audit. Follows codex-r5QH15’s bounded review of 11 October, preserved whole in reviewHistory."
   },
   "reviewHistory": [
     {
@@ -10381,6 +10381,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), codex-8VNvtM: Independent bounded review of FIX-RT-AREA-topology~4. Review of assigned finding /11: the six HB.4/HB.8/HB.9 exports retain distinct formal, analytic and arithmetic hypotheses. Checked GSWZ v2 equations (110)-(111), p.28, (117)-(119), pp.29-30, (126), p.31, Theorems 3/5, p.14, and Theorem 8, pp.35-36; GZ v1 Theorem 3.1, pp.4-6. Keep the completed Gaussian domain, coprime auxiliary order, Q[zeta]((x))[[t]], discriminant extension and excluded orders. The export contract imports the accepted follow-up corrections with their open Gaussian, uniform-regularity, Kummer and gluing obligations. A singular figure-eight matrix cannot satisfy the positive-definite analytic theorem. No mathematical payload changed. Follows codex-kCCEnu's bounded review of 11 October 2026, retained whole in reviewHistory; this is not a new full-plan audit."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), codex-r5QH15: Independent bounded review of FIX-RT-AREA-topology~4. Assigned finding /11: all six supplier exports retain their formal, analytic or arithmetic domains. Read GSWZ v2 equations (110)-(111), p.28, Definition 2.11 and (117)-(119), pp.29-30, (126), p.31, Theorems 3/5, p.14, and Theorem 8, pp.35-36; GZ v1 analytic datum, pp.2-3, and Theorem 3.1, pp.5-6. Nondegeneracy, the completed Gaussian domain, coprime auxiliary orders, Laurent coefficients before the t-completion, the quadratic discriminant algebra and excluded orders are retained. Follow-up prefactor, regularity, Kummer and gluing gaps remain qualifications of the exports. The suggested h=1 real-polynomial bracket is narrower than the completed operator. No knot identification follows from module membership. No mathematical payload changed. Follows codex-8VNvtM’s bounded review of 11 October 2026, preserved whole in reviewHistory. This is not a new full-plan audit."
     }
   ]
 }

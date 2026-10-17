@@ -1,3 +1,180 @@
+# Independent review of topology fix round 4 — current checkpoint
+
+Refs #6521. Codex (GPT-6), session `codex-BsNNY8`, 17 October 2026;
+branch `codex-BsNNY8-review-topology-fixes`, input commit `37d735d33`.
+The bot confirmed [claim comment 6241630447](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6241633348).
+This session authored neither the plans nor FIX-RT-AREA-topology~4 and claimed
+only this job. The complete predecessor report is preserved below.
+
+The bounded supplier verdicts remain **accepted** for Polylogarithms /7 and
+HabiroNahmSeries /11, and **needs_changes** for QSeries /13. The QSeries
+reader still contradicts its corrected packet and suggested signature. Each
+of the three issue-listed packets now records this session/date; its entire
+previous review is appended once to `reviewHistory`. No mathematical field
+or suggested file changed, and no whole-plan audit is superseded by a claim
+of mathematical closure.
+
+## Newly established completion boundary
+
+The issue was re-read after the bot confirmed the claim. Its deliverables and
+full instructions still name only three packets and three suggested files.
+The current queue requires **seven packets, seven suggested files and this
+report: 15 outputs**. The previous checkpoint's five-packet/11-output count
+and corresponding assertion are stale. Four queue-required packets retain
+their separate whole-plan reviewer IDs:
+
+| Packet absent from the live issue | Existing whole-plan reviewer | Bounded review to record after authorization |
+|---|---|---|
+| Polylogarithms--P.2 | independent-review-REV-Polylogarithms--P.2 | /7, accepted with existing geometric gaps |
+| ArithmeticQuantumTopology | independent-review-REV-ArithmeticQuantumTopology~2 | /1–/16, needs_changes with G4/G5 and the missing direct supplier edge |
+| HabiroNahmSeries--HB.4 | independent-review-REV-HabiroNahmSeries--HB.4 | /11, accepted with Kummer/normalization qualifications |
+| HabiroNahmSeries--HB.10 | independent-review-REV-HabiroNahmSeries--HB.10 | /11, accepted with coefficient-line and cohomology qualifications |
+
+[WORKERS.md, Doing the work](../WORKERS.md) explicitly says “Edit only the
+files the issue names, plus your own scratch space.” Scope authorization was
+requested for those four packets, their four suggested files, and the two
+reader corrections described below. No answer has arrived. The omitted
+canonical files therefore remain unchanged. The allowed handoff is required
+by PROTOCOL §8 and WORKERS' stopping rule.
+
+The actual unchanged `issues.deliverables_complete` returns **false**. This
+is an edit-scope blocker, not a failure caused by the `needs_changes` verdict:
+that verdict is an allowed completed review result. Prepared all four
+omitted-packet objects in scratch, preserving each whole predecessor audit.
+A read-only substitution at their canonical paths passes the checker with
+its declaration index and makes the unchanged completion predicate **true**.
+Restoring either HB.4 or HB.10's canonical object makes it false again. This
+independently establishes that the two newly omitted parts matter. No queue,
+completion logic, issue body, label, generated atlas file or upstream file
+was edited to evade the discrepancy.
+
+## Assigned findings: current verdicts
+
+Read the assigned claims, verifier reasons and the supplier/consumer
+allocation in the [fix report](../redteam/RT-AREA-topology.fixes-4.md).
+Reviewed the affected supplier contracts, direct premises, sources, APIs,
+distinguishing tests and suggested signatures. The consumer and upstream
+rows below accept the fix's **handoff**, without asserting that the requested
+mathematics has been implemented. This is a fix review, not a fresh audit of
+all 537 QSeries nodes or all 106 QT nodes.
+
+| Finding | Verdict and reason |
+|---|---|
+| /1 | Accept handoff: GT 1/4/5 remains the geometric owner; existing framed diagram types are inputs, while realization, tangles and surgery calculus require their named suppliers. |
+| /2 | Accept handoff: the chosen admissible-link construction needs isotopies and Hoste moves, not an unrestricted Kirby-invariance assertion. Habiro v1 Theorems 9.4 and 10.1–10.2, pp.34–35, make that distinction. |
+| /3 | Accept handoff: quantum ribbon/completion/bottom-tangle machinery extends the imported braided, rigid and Hopf foundations. The contracts remain obligations. |
+| /4 | Accept handoff: general Lie type needs separate quantum groups, integral forms, colors and root-order hypotheses; the rank-one construction does not supply them. |
+| /5 | Accept handoff: the Jones comparison must fix the variable substitution and unknot normalization; the existing representation/trace does not choose QT's normalization. |
+| /6 | Accept supplier allocation: P.1/P.2 and V.3/V.4/V.6 are the relevant algebraic and regulator inputs. Extra QT.0/V.5 premises need a stated use. |
+| /7 | Accept supplier correction: P.2 owns the tetrahedron identity over GT 7/8 foundations. QT.5's direct formula input remains a concrete omitted-path correction. Keep the geometric-region, signed-integration and calibration gaps. |
+| /8 | Accept handoff: an early ideal-boundary/region interface and a cusped-manifold extension are distinct needs. Closed-manifold Mostow does not discharge either. |
+| /9 | Accept handoff: flattenings, an extended lift, Rogers regulator conventions and the period/sign comparison remain explicit. An ordinary Bloch class does not choose an extended representative. |
+| /10 | Accept handoff: the NZ-to-Nahm recipe is conditional on the requisite unimodular B and chosen geometric datum. GSWZ v2 §1.8, pp.16–17, does not give a general existence theorem for that choice. |
+| /11 | Accept supplier correction: the six exports distinguish completed formal integration, positive-definite analytic asymptotics, coefficient fields and restricted module membership. The follow-up HB.4/HB.10 contracts preserve the relevant gaps. |
+| /12 | Accept handoff: fixed-color/root evaluations and the proved-case ledger can be targets; the unrestricted volume conjecture remains conjectural. |
+| /13 | Needs changes: scalar QM.5 ownership and the eight export contracts are right, but the reader still gives the wrong general multiplier. Keep Example 5 knot cocycles separate from real-analytic scalar examples. |
+| /14 | Accept handoff: one formal-pentagon owner is compatible with a separately sourced analytic Faddeev/state-integral construction, with domains, contours and admissible moves. |
+| /15 | Accept handoff: the proved/conjectural ledger and phase checks do not imply a general resurgence theorem. |
+| /16 | Accept handoff: relative-Habiro, MMR and Alexander comparisons stay explicit follow-ups, with the Bouis–Gazda exclusion retained. |
+| /23 | Accept maintainer note: relative homotopy groups are for arbitrary based pairs; NDR is a comparison hypothesis. Current AT Suggested.lean already has that generality. |
+| /24 | Accept maintainer note: a filtered-chain supplier must include convergence, edge maps and naturality, rather than merely spectral pages. |
+| /26 | Accept maintainer note: CW approximation/compression and degree-one Hurewicz are named prerequisites, not consequences of a carrier declaration. |
+| /29 | Accept maintainer coordination: dependency reconciliation belongs in the upstream AT plan, not in generated extracts. |
+| /33 | Accept maintainer note: extend the existing absolute homotopy-map/basepoint APIs to pairs, with one owner. |
+| /81 | Accept maintainer note: use DG's abstract boundary/faces; retain the stronger ball, corner, collar and gluing suppliers. A subset boundary loses face multiplicity. |
+| /82 | Accept maintainer note: current DG 3.3 owns scoped homogeneity; supported isotopy extension and transport of gluings are additional contracts. |
+| /87 | Accept maintainer note: choose one surface/mapping-class owner and an explicit triangulation or Morse route to Heegaard existence; boundary connected sum remains an input. |
+| /91 | Accept maintainer coordination: GT 7 consumes the shared Hopf–Rinow connection and existing Riemannian measure. Do not recreate either while recording dependencies. |
+| /103 | Accept maintainer note: current DG owns manifold forms, d, orientation and Stokes. Retain its regularity, compact-support and outward-first hypotheses in the Floer comparison. |
+| /105 | Accept maintainer note: four-dimensional handles, Spin-c, intersection/signature and absolute rational grading need named suppliers; correction terms retain rational-homology-sphere scope. |
+
+## Focused source and contract checks
+
+For /7, read [Zagier, The Dilogarithm Function](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf),
+I.3 equations (3),(5), printed p.11; I.4 equations (7)–(9), pp.13–14;
+and [Neumann v2](https://arxiv.org/pdf/math/0307092v2), Theorem 2.6 and §3,
+pp.420–421. The cross-ratio order controls oriented volume. Neumann's
+regulator convention has imaginary volume and the opposite real
+Chern–Simons sign to the convention requested in QT; an explicit comparison
+is still necessary. The P.2 follow-up's analytic angle-volume theorem does
+not supply its missing geometric region. The proposed direct edge from
+`QT.5/volume-and-chern-simons` to `P.2/hyperbolic-volume` has no reverse path
+in the blueprint-node prerequisite graph.
+
+For /11, read [GSWZ v2](https://arxiv.org/pdf/2412.04241v2), Theorems 3/5
+p.14, §1.8 pp.16–17, equations (110)–(111) p.28, Definition 2.11 and
+(117)–(119) pp.29–30, (126) p.31, Theorem 8 pp.35–36; and
+[GZ v1](https://arxiv.org/pdf/1812.07690v1), the analytic datum pp.2–3 and
+Theorem 3.1 pp.5–6. The completed formal bracket uses invertibility and a
+rational coefficient algebra; analytic Nahm asymptotics additionally require
+positive definiteness and the odd coprime root order. Keep the source's
+corrected prefactors, branch conventions and all-orders remainder meaning.
+The identification takes Laurent coefficients in x before t-completion and
+retains (126)'s coprime auxiliary order.
+
+Read HB.4's radial-analytic-remainder, coefficientwise-Kummer and
+CGZ-normalization follow-ups: the analytic result does not erase the
+coefficientwise descent or rational-data arithmetic gaps. Read HB.10's
+quartic-module, Picard/regulator and higher-cohomology exports: finite étale
+scalar change, the specified K3 lift, excluded orders, arbitrary-rank
+gluing, global extension and completion-triviality remain qualifications.
+A formal member of a restricted coefficient-line module is not thereby a
+global generator or a geometric cohomology class. Preserve both parts' whole
+13-node/14-node audits rather than replacing them with an alleged new
+complete audit.
+
+For /13, read [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf),
+p.2 and Examples 3–5 pp.10–12; [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf),
+Theorems 1–2 and the periodic mean-zero proposition pp.98–99; and inspected
+the rendered [Strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf),
+§6 equations (38)–(39), p.958. For the pinned lower-boundary convention,
+`j₍₃/₂₎(-I,x)=i`. The corrected epsilon is `-i`, so their product is 1;
+the reader's naive inverse eta is `i`, giving product -1. This comparison
+is a derivation from the chosen convention, not a quotation of a source
+formula. Its reader statement and hypotheses must agree with the packet.
+The independently attributed QSeries whole-plan objections in
+REV-QSeriesPartitionsAndMockModularForms~2 (#6469) remain in force.
+
+All mathematical descriptions here are in the reviewer's own words. No source
+file, verbatim source passage or section-by-section source summary is committed.
+
+## Existing owners, validation and corrections made
+
+Read current AT relative-homotopy signatures, DG forms/boundary/Stokes and
+homogeneity contracts, and GT 7/8 metric/measure contracts. Current roadmap
+HEAD is `0d144d044dacebca17b654695b6f1ad58f159b27`; current Tau Ceti HEAD is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are read-only inputs.
+The declared baseline remains Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Re-read the pinned Gaussian
+density/withDensity statement and the shared build's trapezoidal-error and
+neighborhood-analyticity definitions: positive-definite covariance is needed
+for the density theorem; the trapezoidal error definition is a signed
+quantity. Neither supplies the completed Gaussian or all-orders analytic
+remainder theorem. No new baseline declaration is claimed by this review.
+No Lake command ran in either read-only tree.
+
+All seven canonical packets pass `scripts/check_blueprint.py` with zero
+errors and warnings and the declaration index. Their nodes/gaps/requests
+are P 75/19/21, HB 109/22/9, QSeries 537/24/27, P.2 14/2/3,
+QT 106/8/19, HB.4 13/3/1 and HB.10 14/5/3.
+The three issue-listed suggested files elaborate through serial `lean-check`
+calls, exit 0, with only `sorry` warnings: P 462, HB 441, QSeries 1491.
+Memory was checked before each call. These checks establish signatures,
+not proofs. This session did not compile the four omitted suggested files.
+
+Changes are confined to this report, its handoff and the three authorized
+review objects/history entries. The new report corrects the stale output
+count and identifies both newly required HB part verdicts. Structural checks
+confirm every mathematical field unchanged and each predecessor review
+preserved whole. No `excerpt` key occurs in the edited packets. The omitted
+packet proposals were checked read-only; canonical completion remains false.
+The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) gives exact remaining
+edits, without depending on temporary scratch material.
+
+<details>
+<summary>Complete predecessor report by codex-r5QH15, retained as historical evidence</summary>
+
 # Independent review of topology fix round 4
 
 Refs #6521. Codex (GPT-6), session `codex-r5QH15`, 11 October 2026;
@@ -382,5 +559,7 @@ predicate remains false, while exactly that two-object substitution returns
 true. Intake check-files accepts all five submission paths and git diff
 --check is clean. The live issue was re-read and still omits the two packets;
 with scope authorization pending, this submission is a checkpoint.
+
+</details>
 
 </details>
