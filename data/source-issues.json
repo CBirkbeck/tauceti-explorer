@@ -248567,6 +248567,48 @@
    "reviewReason": "For trivial log structures, the tests in KY Definition 7.14 reduce exactly to Definition 7.1: only strictly totally disconnected perfectoid base changes are required to be pro-etale. The resulting underlying condition is quasi-pro-etale. Scholze, Etale cohomology of diamonds, Definition 10.1, Convention 10.2 and Proposition 10.3, p. 50, distinguish these predicates and explicitly note that the converse from quasi-pro-etale to pro-etale need not hold; they coincide over a strictly totally disconnected target. Thus the missing quasi prefix in Proposition 7.16(1) cannot impose pro-etaleness on an arbitrary underlying diamond map. The corrected packet statement already used quasi-pro-etale; this review brings its typed predicate into agreement."
   },
   {
+   "id": "PrismaticCohomologyPartII/E1",
+   "kind": "gap",
+   "locator": "§5.2, the paragraph after Remark 5.2.2 and Theorem 5.2.5, pp. 78–79 (arXiv v4; the published §5.2 has the same text)",
+   "printed": "Theorem 5.2.5 is stated for every complete regular local ring R = W(k)⟦u₁, …, u_d⟧/(E) with perfect residue field, but the text fixes d = 1 for simplicity before the proof and expresses the hope that the general case works similarly.",
+   "correction": "As proved, the theorem holds for d ≤ 1 (𝒪_K, k⟦u⟧ and k). For d ≥ 2 the statement needs an argument that the descent datum along the self-coproduct of the Breuil–Kisin prism is automatic (the analogue of Lemma 5.2.8), or a comparison with Lau's Breuil-window classification.",
+   "reason": "The proof of Lemma 5.2.8 and the computation of the self-coproduct B = A ⊗̂ A are written in one variable u; for several variables the ideal J and the topological nilpotence of φ/E on it are not treated.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv versions v1–v4 of arXiv:1907.10525",
+    "the erratum Forum Math. Pi 13 (2025) e3, which concerns only Proposition 5.23 (arXiv 5.3.5)",
+    "the authors' pages"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Johannes Anschütz, Arthur-César Le Bras, Prismatic Dieudonné theory, arXiv:1907.10525v4 (11 October 2022); published Forum of Mathematics, Pi 11 (2023), e2. Locators are the arXiv statement numbers and arXiv pages (PDF page = printed page).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E2",
+   "kind": "misprint",
+   "locator": "Remark 4.8.4, p. 70 (arXiv v4)",
+   "printed": "After applying RHom(T_pG, −) to Bhatt–Lurie's sequence 0 → T_pG_m → N^{≥1}O^pris → O^pris → 0, the source writes the resulting middle and right terms, and the fibre computing RΓ(T_pǦ), with the Dieudonné crystal of the dual group Ǧ.",
+   "correction": "The terms are N^{≥1}ℳ_Δ(G) and ℳ_Δ(G): 0 → T_pǦ → N^{≥1}ℳ_Δ(G) → ℳ_Δ(G) → 0 and RΓ(T_pǦ) ≅ fib(φ/ξ̃ − 1 : N^{≥1}ℳ_Δ(G) → ℳ_Δ(G)).",
+   "reason": "By Lemma 4.2.6, ℋom(T_pG, O^pris) = ℳ_Δ(G) and ℋom(T_pG, N^{≥1}O^pris) = N^{≥1}ℳ_Δ(G); Proposition 4.8.2 on the same page states the kernel statement correctly with G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1907.10525 v1–v4",
+    "the 2025 erratum",
+    "the published version is not freely readable here; the remark was compared in arXiv v4 only"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Johannes Anschütz, Arthur-César Le Bras, Prismatic Dieudonné theory, arXiv:1907.10525v4 (11 October 2022); published Forum of Mathematics, Pi 11 (2023), e2. Locators are the arXiv statement numbers and arXiv pages (PDF page = printed page).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ProbabilisticAndMetricNumberTheory/EPM4-1",
    "kind": "gap",
    "locator": "arXiv:1705.02921v2, physical p.4, Theorem 2, displayed estimate after the derivative cancellation",
