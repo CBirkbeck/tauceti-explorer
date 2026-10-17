@@ -5186,6 +5186,9 @@ def FlagPoint.specialFibre (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p) :
 def FlagPoint.newton (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p) : KottwitzSet D p := sorry
 
 /-- (IG.3/flag-points-and-p-divisible-groups) Scholze–Weinstein Theorem B with PEL structure:
+The unstructured local input is requested from PrismaticCohomologyPartII
+PD.3/scholze-weinstein-theorem-b, whose current draft has no independent acceptance.
+T2 supplies Hodge–Tate sequences, not this classification; the PEL adapter remains additional.
 `x ↦ (𝒳_{O_C}, α)` is a bijection from `Fℓ(C)` onto isomorphism classes of pairs; the special
 fibre of `𝒳_{O_C}` is `X_k` and `b(x)` is the isogeny class of `X_k`. (The Hodge–Tate
 filtration description and the symplectic splittings `δ_𝒳, δ_X` are not formalised here: they

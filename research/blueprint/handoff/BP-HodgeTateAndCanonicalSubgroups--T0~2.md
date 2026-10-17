@@ -155,3 +155,9 @@ orchestrator repair outside this job's allowed files.
 The next reviewer should inspect the revised targets against these contracts,
 and the full file needs elaboration when a compatible Tau build is available.
 The scratch sources and checks are disposable; no future work depends on them.
+
+## Round-four red-team synchronization, 17 October 2026
+
+FIX-RT-AREA-padic-1~4 (Codex, codex-ucnoCV; issue #8929) supersedes this note’s older S3-only /22 ownership and proposed new FiniteFlat classification stage. The accepted packet assigns T2 the open limit-v-sheaf map and Levi pullback; S3 identifies their perfectoid incarnation and compactified extensions. The accepted whole T2 packet also owns p-level-tower, tower-right-action and infinite-level-diamond, moved down from S0. The duplicate S0 nodes have now been retired and their consumers retargeted; T2 supplies S0, never the reverse for those constructions. The suggested comment now agrees.
+
+The local Scholze–Weinstein classification belongs to the shared PrismaticCohomologyPartII direction, not a second FiniteFlat stage or global T2. Its PD.3/scholze-weinstein-theorem-b draft is named as the candidate supplier; it has no independent acceptance. T0’s character map and T2’s sequence remain upstream inputs, with no classification return edge. The reader now matches the reviewed node statements, hypotheses, API, tests, gaps and requests, including the relative-filtration, radius, ramification and Hasse-boundary qualifications. Current inventory: 65 nodes, 137 API entries, 83 checks, 25 planets, 12 gaps, 15 requests. Historical reviews are unchanged. See [the complete report](../redteam/RT-AREA-padic-1.fixes-4.md) for scope, evidence and pending maintainer actions.

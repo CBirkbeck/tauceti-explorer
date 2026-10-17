@@ -259,6 +259,11 @@ open CategoryTheory CategoryTheory.Limits
 
 universe u v w u' v' w'
 
+/- RT-AREA-padic-1/22: the actual p-level tower, its right action and its limit diamond
+are imports from HodgeTateAndCanonicalSubgroups T2. The elementary categorical wrappers
+below only illustrate supplied diagrams using Mathlib carriers; they are not separate
+geometric constructions or evidence for spatiality, quasi-pro-etaleness or perfectoidness.
+The README records the fixed-base, canonical-model and neatness requirements. -/
 section Towers
 variable {L : Type u} [Category.{v} L]
 variable {Models : Type u'} [Category.{v'} Models]

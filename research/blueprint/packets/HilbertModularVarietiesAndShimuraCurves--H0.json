@@ -343,7 +343,7 @@
       "prerequisites": [
         "mathlib:FractionalIdeal.dual",
         "mathlib:FractionalIdeal.dual_eq_mul_inv",
-        "ShimuraData:D5/hilbert-trace-embedding"
+        "PELModuli:M5"
       ],
       "sources": [
         {
@@ -418,7 +418,7 @@
       ],
       "title": "Integral trace polarization family",
       "kind": "definition",
-      "statement": "For a∈c and x,y∈L_c set ψ_{c,a}(x,y)=Tr_{F/ℚ}(a(x₁y₂−x₂y₁))∈ℤ. This is a family parametrized O-linearly by c, rather than a canonical principal symplectic form. Nonzero a gives a nondegenerate rational alternating form; totally positive a has the polarization sign prescribed by D5 (negate the form if the positive h(i) convention is used).",
+      "statement": "For a∈c and x,y∈L_c set ψ_{c,a}(x,y)=Tr_{F/ℚ}(a(x₁y₂−x₂y₁))∈ℤ. This is a family parametrized O-linearly by c, rather than a canonical principal symplectic form. Nonzero a gives a nondegenerate rational alternating form. After rational extension to F², with PELModuli §M5.4’s convention h(i)(x₁,x₂)=(−x₂,x₁), totally positive a gives ψ_{c,a}(x,h(i)x)=Tr_{F/ℚ}(a(x₁²+x₂²))>0 for x≠0; retain this form without negation.",
       "hypotheses": [
         "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion."
       ],
@@ -435,7 +435,7 @@
         "HilbertModularVarietiesAndShimuraCurves:H0/polarization-lattice",
         "mathlib:Submodule.mem_traceDual",
         "mathlib:Algebra.trace",
-        "ShimuraData:D5/hilbert-trace-form"
+        "PELModuli:M5"
       ],
       "sources": [
         {
@@ -468,7 +468,7 @@
         {
           "name": "TauCeti.HilbertModular.integralTraceFamily_integral",
           "role": "compatibility",
-          "statement": "Its rational image agrees with D5’s trace representation multiplied by a."
+          "statement": "Its rational image agrees with PELModuli §M5.4’s trace representation multiplied by a."
         },
         {
           "name": "TauCeti.HilbertModular.integralTraceFamily_balance",
@@ -491,6 +491,11 @@
           "name": "TauCeti.HilbertModular.traceFamily_ramified",
           "kind": "non-example",
           "statement": "For F=ℚ(√2), the second summand uses d⁻¹=(2√2)⁻¹O, preventing a false O² self-duality assertion."
+        },
+        {
+          "name": "TauCeti.HilbertModular.traceFamily_positive_h",
+          "kind": "non-example",
+          "statement": "On the rational extension F², for totally positive a and x≠0 the convention h(i)(x₁,x₂)=(−x₂,x₁) gives ψ_{c,a}(x,h(i)x)>0. Negating ψ_{c,a} fails this positivity check."
         }
       ],
       "uses": [
@@ -558,12 +563,12 @@
       ],
       "title": "Hodge and abelian type witnesses",
       "kind": "theorem",
-      "statement": "D5’s actual trace embedding of (G*,X*) into the Siegel datum, with the sign fixed by integral Trace Family, is a D4 Hodge-type witness. The identity Res SL₂→Res SL₂ on the derived groups induces the common connected adjoint datum, and is a D4 abelian-type witness for (G,X). It does not assert a Hodge-type embedding of the exact group G.",
+      "statement": "PELModuli §M5.4’s actual trace embedding of (G*,X*) into the Siegel datum, with the sign fixed by integral Trace Family, is a ShimuraVarieties §P.1 Hodge-type witness. The identity Res SL₂→Res SL₂ on the derived groups induces the common connected adjoint datum, and is a ShimuraVarieties §P.1 abelian-type witness for (G,X). It does not assert a Hodge-type embedding of the exact group G.",
       "hypotheses": [
         "F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion."
       ],
       "proofSteps": [
-        "Verify closed immersion and compatibility with h for D5’s map, not just faithfulness of a real representation.",
+        "Verify closed immersion and compatibility with h for PELModuli §M5.4’s map, not just faithfulness of a real representation.",
         "Use the common derived group and connected adjoint domains for the central-isogeny condition.",
         "Separate the integral lattice refinement from the rational type assertion."
       ],
@@ -574,9 +579,8 @@
         "HilbertModularVarietiesAndShimuraCurves:H0/derived-centres",
         "HilbertModularVarietiesAndShimuraCurves:H0/domain-comparison",
         "HilbertModularVarietiesAndShimuraCurves:H0/integral-trace-family",
-        "ShimuraData:D5/hilbert-trace-embedding",
-        "ShimuraData:D4/hodge-type",
-        "ShimuraData:D4/abelian-type"
+        "PELModuli:M5",
+        "ShimuraVarieties:V0"
       ],
       "sources": [
         {
@@ -4503,8 +4507,8 @@
         "The full central weight is not falsely declared rational for a single active embedding."
       ],
       "prerequisites": [
-        "ShimuraData:D4/shimura-datum",
-        "ShimuraData:D2/cartan-adjoint-criterion",
+        "ShimuraVarieties:V0",
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
         "ReductiveGroupsPartII:RG2.0a",
         "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
         "mathlib:AlgebraicGeometry.Scheme"
@@ -4597,8 +4601,7 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum",
-        "ShimuraData:D3/cocharacter-class",
-        "ShimuraData:D3/reflex-field"
+        "ShimuraVarieties:V0"
       ],
       "sources": [
         {
@@ -4777,7 +4780,7 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum",
-        "ShimuraData:D4/datum-morphism",
+        "ShimuraVarieties:V0",
         "ReductiveGroupsPartII:RG2.0a"
       ],
       "sources": [
@@ -4867,7 +4870,7 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups",
-        "ShimuraData:D3/reflex-field",
+        "ShimuraVarieties:V0",
         "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-reflex-dimension"
       ],
       "sources": [
@@ -5039,7 +5042,7 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups",
         "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-reflex",
         "HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve",
-        "ShimuraData:D4/product-datum",
+        "ShimuraVarieties:V0",
         "ShimuraVarieties:V8/datum-functoriality"
       ],
       "sources": [
@@ -5202,6 +5205,34 @@
       "need": "Integral quaternion order levels (1+NÔ_B)×, their compact openness and nested-level comparison, with effective rational scalar stabilizers computed separately.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-effective-stabilizers"
+      ]
+    },
+    {
+      "supplier": "ShimuraVarieties:V0",
+      "need": "Import the pure Shimura datum and its morphisms, adjoint and product data, Hodge/abelian-type predicates and central derived-isogeny convention from ShimuraVarieties §P.1; import the Hodge cocharacter class and reflex field from §P.3. These replace the retired ShimuraData D3/D4 nodes listed in its supersededNodes ledger. This is the upstream roadmap contract, not a claim that these carriers exist at the pinned library commits.",
+      "neededBy": [
+        "HilbertModularVarietiesAndShimuraCurves:H0/type-witnesses",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-reflex-dimension",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-groups",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-bridge-reflex",
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/yz-torus-bridge"
+      ]
+    },
+    {
+      "supplier": "PELModuli:M5",
+      "need": "Import PELModuli §M5.4: for totally real F, the scalar-determinant Hilbert group G*, its polarization trace form and symplectic trace embedding, with the induced map of Shimura data. Keep the full restriction-of-scalars GL₂ group distinct from G*. These replace the retired ShimuraData D5 trace-form and trace-embedding nodes.",
+      "neededBy": [
+        "HilbertModularVarietiesAndShimuraCurves:H0/polarization-lattice",
+        "HilbertModularVarietiesAndShimuraCurves:H0/integral-trace-family",
+        "HilbertModularVarietiesAndShimuraCurves:H0/type-witnesses"
+      ]
+    },
+    {
+      "supplier": "ArithmeticLocallySymmetricSpaces:ALS.0",
+      "need": "Import the real reductive-group Cartan involution criterion and its adjoint/Lie compatibility from ArithmeticLocallySymmetricSpaces §§ALS.0.1–ALS.0.2 for the quaternionic datum check. This replaces the retired ShimuraData D2/cartan-adjoint-criterion; no new Cartan theory is planned in the Hilbert/quaternionic specialization.",
+      "neededBy": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum"
       ]
     }
   ],

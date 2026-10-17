@@ -2591,7 +2591,7 @@ For the rational special-fibre category over k̄, the top-dimensional irreducibl
 
 - `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`
 - `GeometricSatakeAndFusion:GS1/rational-weight-concentration`
-- `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex`
+- `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex-of-local-system`
 - `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`
 
 **Sources**
@@ -2865,7 +2865,7 @@ For a split integral model and one leg, restriction induces equivalences D^ULA(H
 - `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness`
 - `AdicCoefficientsAndComparisons:L1/char-p-scheme-diamond-and-comparison-functor`
 - `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`
-- `EtaleDualityAndPerverseSheaves:EDC.5/perverse-recollement`
+- `EtaleDualityAndPerverseSheaves:EDC.5/open-closed-perverse-recollement`
 - `AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2`
 - `AdicCoefficientsAndComparisons:L3/commutation-and-adjoints-27-1-27-3`
 
@@ -2909,8 +2909,8 @@ On the bounded-support derived category over a leg base S, define perverse ≤0 
 
 - `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`
 - `GeometricSatakeAndFusion:GS1/integral-family-comparison`
-- `EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure`
-- `EtaleDualityAndPerverseSheaves:EDC.5/perverse-recollement`
+- `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`
+- `EtaleDualityAndPerverseSheaves:EDC.5/open-closed-perverse-recollement`
 - `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`
 - `EnhancedDerivedSheaves:E5:presentability/ind-completion`
 - `EnhancedDerivedSheaves:E5:presentability`
@@ -2984,7 +2984,7 @@ Pullback of perverse Hecke objects to Gr is fully faithful. For A≤0 and B≥0 
 - `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`
 - `GeometricSatakeAndFusion:GS1/constant-term-conservativity`
 - `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`
-- `EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing`
+- `EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing`
 - `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`
 - `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`
 - `EtaleDualityAndPerverseSheaves:EDC.5`
@@ -3100,7 +3100,7 @@ For a one-leg μ-cell of dimension d_μ, Δ_μ=pH⁰j_{μ!}Λ[d_μ] and ∇_μ=p
 - `GeometricSatakeAndFusion:GS1/flat-perverse-objects`
 - `GeometricSatakeAndFusion:GS1/ula-constant-term-criterion`
 - `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`
-- `EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing`
+- `EtaleDualityAndPerverseSheaves:EDC.5/perverse-artin-vanishing`
 - `DiamondSixOperations:S3/upper-shriek`
 - `DiamondSixOperations:S3/adjunction-calculus`
 - `DiamondSixOperations:S3/verdier-duality-lower-shriek`
@@ -3169,7 +3169,7 @@ For fixed μ, Δ_μ→∇_μ is an isomorphism after rationalization, and over Z
 **Direct prerequisites**
 
 - `GeometricSatakeAndFusion:GS1/standard-costandard-objects`
-- `EtaleDualityAndPerverseSheaves:EDC.7/proper-direct-image-decomposition`
+- `EtaleDualityAndPerverseSheaves:EDC.7/decomposition-theorem`
 - `ReductiveGroupsPartII:RG2.3`
 - `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`
 - `mathlib:PadicInt`
@@ -3217,7 +3217,7 @@ For rational equivariant perverse A on the Witt Grassmannian, H_c^i(S_λ,A)=0 un
 - `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`
 - `GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure`
 - `GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound`
-- `EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perverse`
+- `EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perversity`
 - `ReductiveGroupsPartII:RG2.4`
 
 **Sources**
@@ -3594,7 +3594,7 @@ On the rational Witt special fibre, the n-fold unbounded convolution Grassmannia
 - `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`
 - `GeometricSatakeAndFusion:GS1/rational-weight-concentration`
 - `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`
-- `EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perverse`
+- `EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perversity`
 - `AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4`
 
 **Sources**

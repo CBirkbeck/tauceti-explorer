@@ -3616,7 +3616,7 @@
       ],
       "title": "André extension ind-syntomic modulo p",
       "kind": "theorem",
-      "statement": "The map R → S in André’s flatness lemma can be chosen so R/p → S/p is an ind-syntomic faithfully flat cover. This is a modulo-p refinement of the general integral theorem. It is distinct from the ordinary ind-syntomic theorem of ČS24 Proposition 2.3.4, which remains owned by IntegralPerfectoidPartII.",
+      "statement": "The map R → S in André’s flatness lemma can be chosen so R/p → S/p is an ind-syntomic faithfully flat cover. This is a modulo-p refinement of the general integral theorem. It is distinct from the ordinary ind-syntomic theorem of ČS24 Proposition 2.3.4, which remains owned by the shared PerfectoidQuotientsPartII (the queue-generated owner of the integral extension).",
       "hypotheses": [
         "R integral perfectoid; use the monic-polynomial construction in the André theorem."
       ],
@@ -5646,10 +5646,10 @@
       "finding": "RT-AREA-padic-1/1",
       "action": "late-extension-proposal",
       "proposedStage": "PerfectoidQuotients:Q5",
-      "protocolOwner": "PerfectoidQuotientsPartIIIntegralPerfectoidization",
+      "protocolOwner": "PerfectoidQuotientsPartII",
       "title": "Perfectoid quotients and their prismatic prerequisites, Part II: general integral perfectoidization and J-almost purity",
       "status": "proposal only; outside the seven-stage scope",
-      "reason": "The accepted REV-PAPER-BHATT-SCHOLZE-22 route 3 already gives the protocol-form Part II for the requested Q5 material. Keep one owner: if the maintainer creates Q5 first, route 3 becomes a source route to that layer; otherwise Q5 names this late-extension proposal, not an additional implementation plan.",
+      "reason": "The accepted BS22 route 3 and Česnavičius–Scholze route 3 are collected by DESIGN-PerfectoidQuotientsPartII (issue #3362), whose generated roadmap id is PerfectoidQuotientsPartII. The longer BS22 route name was retired by RT-PAPER-BHATT-SCHOLZE-22/5. Q5 is historical shorthand for this late material, not a second owner or an installed stage. The design must place general integral perfectoidization and J-almost purity after Q3, Q4, PR.2 and arc descent; P8 imports its integral-algebra theorem and forwards it to S2/S4.",
       "imports": [
         "PerfectoidQuotients:Q2",
         "PerfectoidQuotients:Q3",
@@ -5690,7 +5690,7 @@
     {
       "finding": "RT-AREA-padic-1/7",
       "action": "integral-prefix-ownership-proposal",
-      "roadmap": "PerfectoidQuotientsIntegralPerfectoidPartII",
+      "roadmap": "PerfectoidQuotientsPartII",
       "parent": "PerfectoidQuotients",
       "moveTo": "PerfectoidQuotients:Q0:integral-algebra",
       "items": [

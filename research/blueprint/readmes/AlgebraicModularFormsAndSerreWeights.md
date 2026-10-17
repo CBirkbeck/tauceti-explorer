@@ -4,7 +4,7 @@ This roadmap begins after [ModularForms](../../../content/tau-ceti/ModularForms/
 
 The ownership follows the accepted RS-06 result and its latest independent review, `independent-review-REV-FIX-RT-RS-06`. The stable roadmap identifier remains `AlgebraicModularFormsAndSerreWeights`; the Part II title describes its mathematical boundary. Stable inherited node identifiers are retained when their role changes from a construction to an imported comparison.
 
-The [packet](../packets/AlgebraicModularFormsAndSerreWeights.json) is a plan of 63 nodes: 6 definitions, 14 constructions, 16 theorems, 9 lemmas, 12 comparisons and 6 applications. Its 20 definition/construction nodes have 67 API items and 61 unit tests. The 21 planets select central definitions and theorems, at most six per stage. All six stages are **planned**; none is **closed**. “Complete” is the planning status of protocol §0: every target has a chain to a verified baseline declaration, an owned supplier node/requested stage, or one of the nine recorded gaps. It does not mean that those gaps have been filled or that any node has been implemented. Every implementation status remains unchecked.
+The [packet](../packets/AlgebraicModularFormsAndSerreWeights.json) is a plan of 66 nodes: 6 definitions, 15 constructions, 18 theorems, 9 lemmas, 12 comparisons and 6 applications. Its 21 definition/construction nodes have 72 API items and 64 unit tests. The 21 planets select central definitions and theorems, at most six per stage. All six stages are **planned**; none is **closed**. “Complete” is the planning status of protocol §0: every target has a chain to a verified baseline declaration, an owned supplier node/requested stage, or one of the 13 recorded gaps. It does not mean that those gaps have been filled or that any node has been implemented. Every implementation status remains unchecked.
 
 ## Conventions and boundaries
 
@@ -425,38 +425,29 @@ Identifier: `AlgebraicModularFormsAndSerreWeights:R15.2/strong-q-expansion-princ
 
 Let n, k >= 1 and let K be a Z[1/n]-module such that for every prime p with (p-1) | k multiplication by p is injective on K. If f is a modular form of level n and weight k holomorphic at infinity with coefficients in K and all its q-expansions are polynomials in q, then f = 0. Consequently (strong q-expansion principle), with a = product of the primes p such that (p-1) | k, K a Z[1/an]-module and L a Z[1/an]-submodule, if at each cusp all but finitely many q-expansion coefficients of f lie in L tensor Z[1/n, zeta_n], then f is a modular form with coefficients in L. The proof admits Result 1.12.0 (a special case of Swinnerton-Dyer's structure theorem, proved in Katz 4.4.1): if K is a field of characteristic p not dividing n, f has level n >= 1 and weight k >= 1, (p-1) does not divide k, and all q-expansions of f at the cusps of Mbar_n tensor K(zeta_n) are constants, then f = 0.
 
-**Hypotheses and conventions.**
+Hypotheses and conventions:
 
-1. the divisibility hypothesis is indexed by the weight: only the primes p with (p-1) | k are constrained, and for the corollary those primes are inverted
-2. the conclusion of Thm 1.12.1 concerns forms whose q-expansions at every cusp are polynomials, not merely bounded
-3. the proof reduces to n >= 3 via the level 1 and 2 descriptions 1.9.0.0/1.9.1.1, then to artin local K, then to K a field
-4. Result 1.12.0 is admitted, not proved, in 1.12 (its proof is in 4.4.1); as printed its hypothesis 'characteristic p, p-1 does not divide k' does not literally cover a field of characteristic 0, which the field case of the induction also needs (reviewer observation)
+- the divisibility hypothesis is indexed by the weight: only the primes p with (p-1) | k are constrained, and for the corollary those primes are inverted
+- the conclusion of Thm 1.12.1 concerns forms whose q-expansions at every cusp are polynomials, not merely bounded
+- the proof reduces to n >= 3 via the level 1 and 2 descriptions 1.9.0.0/1.9.1.1, then to artin local K, then to K a field
+- Katz 1.12 invokes Result1.12.0, whose characteristic-p proof is in 4.4.1 (read in this review). The characteristic-zero constant-expansion case needs the separate analytic descent argument recorded as a gap.
 
-**Prerequisites.**
-
-- [The q-expansion principle at level n >= 3 and its underlying vanishing theorem](#R15-2-q-expansion-principle-and-its-vanishing-theorem)
-
-**Proof plan.**
+Construction and proof:
 
 1. Katz reduces to n >= 3, then replaces K by K[1/a] (legitimate because K -> K[1/a] is injective by hypothesis) and views f as a form of level a n.
 2. He then reduces to K artin local by a filtration argument and induces on the length, the base case being K a field.
 3. Over a field one takes a basis f_1, ..., f_r of the finite-dimensional space of such forms, lets N be the maximal degree of their polynomial q-expansions, chooses a prime l not dividing n with l > N, and uses stability of the space under T_l (1.11) to write T_l(F) = C.F for the column F = (f_i); comparing coefficients of q^i in (A_{il} + l^{k-1} A_{i/l}) = C A_i gives A_i = 0 for i >= 1 because il > N and il^2 > N, so every q-expansion is constant, and Result 1.12.0 gives f_i = 0. The artin-local case follows by induction on the nilpotence of the maximal ideal using the cohomology sequence 1.6.2.2.
-4. Cor. 1.12.2 follows by applying the theorem to the image of f in K/L.
+4. In characteristic p use 4.4.1 at m=1: a nonzero constant expansion of positive weight forces (p−1)|k, contrary to the field hypothesis after the indicated localization. In characteristic zero use the separately recorded constant-expansion vanishing input; do not infer it from the characteristic-p theorem.
+5. Cor. 1.12.2 follows by applying the theorem to the image of f in K/L.
 
-**Acceptance checks.**
+Acceptance:
 
-1. Check that for k with (p-1) | k and K = Z/p the conclusion fails, so the hypothesis on multiplication by p is used and not cosmetic
-2. Check the corollary on a concrete eigenform whose first few coefficients are not integral but whose tail is
+- Check that for k with (p-1) | k and K = Z/p the conclusion fails, so the hypothesis on multiplication by p is used and not cosmetic
+- Check the corollary on a concrete eigenform whose first few coefficients are not integral but whose tail is
 
-**Source passages.**
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`, `AlgebraicModularFormsAndSerreWeights:R15.2/finite-generation-of-geometric-sections`, `AlgebraicModularFormsAndSerreWeights:R15.3/weight-congruences-on-the-ordinary-tower`, `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
 
-
-- [p-adic properties of modular schemes and modular forms](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), Theorem 1.12.1, printed p. 94 (Ka-26). Quotation: “are polynomials in”. The literal divisibility hypothesis '(p-1) | k' (printed 'p-!Ik') retained in the statement.
-
-- [p-adic properties of modular schemes and modular forms](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), Corollary 1.12.2, printed p. 95 (Ka-27). Quotation: “Strong q-expansion principle”. Literal statement of the corollary with the ring Z[1/an] in which the primes p with (p-1)|k have been inverted.
-
-- [p-adic properties of modular schemes and modular forms](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 1.12, Result 1.12.0, printed p. 93 (Ka-25) and p. 94 (Ka-26). Quotation: “are constants”. The theorem depends on an admitted result whose proof lies outside the sections read. Added by the reviewer.
-
+Sources: [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), Theorem 1.12.1, printed p. 94 (Ka-26); [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), Corollary 1.12.2, printed p. 95 (Ka-27); [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 1.12, Result 1.12.0, printed p. 93 (Ka-25) and p. 94 (Ka-26); [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 4.4.1, printed p.151 (Ka-83).
 
 <a id="R15-2-base-change-for-spaces-of-forms-and-the-weight-one-boundary"></a>
 
@@ -787,51 +778,41 @@ Identifier: `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke
 
 In CG18 take p odd, N≥5 prime to p, Q squarefree prime to pN, a fine quotient X_Δ(Q) over a DVR O of residue characteristic p, and x prime to pNQ. For i=0,1 and L=ω^n or ω^n(−C), n∈ℤ, define xT_x=tr(π₁)∘φ*^{⊗n}∘π₂* on H^i(X,L⊗A), with A any O-module. Negative powers use the inverse isogeny map since x is a unit. For primes y|Q define U_y by the analogous level-preserving correspondence omitting the forbidden subgroup; the projections, extension to cusps and trace input belong to ModularCurvesPartII. Recover geometric and analytic T_x at i=0. Operators commute with coefficient maps and with each other and diamonds, giving the O[group]-polynomial algebra action without assuming its image torsion-free.
 
-**API.**
-
-- `TauCeti.GeometricHecke.heckeCohomology` (constructor): T_x on the specified coherent cohomology, with integral invertible-x normalization.
-- `TauCeti.GeometricHecke.heckeCohomology_coefficients` (functoriality): Coefficient maps intertwine T_x and U_y.
-- `TauCeti.GeometricHecke.heckeCohomology_commute` (relation): The allowed T_x,U_y and diamonds commute.
-
-**Unit tests.**
-
-- `TauCeti.GeometricHecke.heckeCohomology_sections` — compatibility: At i=0 the operator is the geometric q-expansion Hecke operator.
-- `TauCeti.GeometricHecke.heckeCohomology_boundary` — computation: In CG18 Remark3.4, a nonzero mod-p boundary common eigenvector for all the allowed T_x, with diamond character ε, has T_x-eigenvalue 1+ε(x)x^{n−1}. This is not asserted for an arbitrary vector at a single cusp.
-- `TauCeti.GeometricHecke.heckeCohomology_zero_coefficients` — degenerate: Zero coefficient module has zero cohomology and zero operator.
-
-**Uses deriving the interface.**
-
-1. CG18 §3.2.3: Supplies the torsion cohomology Hecke algebra action
-2. R15.3 twisted duality: Fixes the adjoint normalization
-
-**Prerequisites.**
-
-- [Diamond action on coherent cohomology](#R15-2-diamond-cohomology-action)
-- [Logarithmic Kodaira–Spencer isomorphism](#R15-1-logarithmic-kodaira-spencer)
-- `ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`
-- [Hecke operators defined over arbitrary coefficient modules by their q-expansion formula](#R15-2-integral-hecke-operators-from-q-expansions)
-
-**Proposed library location.**
-
-- module: `TauCeti/NumberTheory/ModularForms/Geometric/R152.lean`
-- namespace: `TauCeti`
-
-**Proof plan.**
+Construction and proof:
 
 1. Pull back along π₂; use the universal quotient isogeny on ω; trace along π₁.
 2. For cusp twists check pullback inclusion and that trace preserves cusp vanishing.
 3. Transport composition relations of correspondences, and check the q formula at i=0.
 
-**Acceptance checks.**
+API:
 
-1. Include A=O/varpi^m and A=K/O, not just fields.
-2. The factor x^−1 is part of the normalization.
+- `TauCeti.GeometricHecke.heckeCohomology` (constructor): T_x on the specified coherent cohomology, with integral invertible-x normalization.
+- `TauCeti.GeometricHecke.heckeCohomology_coefficients` (functoriality): Coefficient maps intertwine T_x and U_y.
+- `TauCeti.GeometricHecke.heckeCohomology_commute` (relation): The allowed T_x,U_y and diamonds commute.
 
-**Source passages.**
+Unit tests:
 
+- `TauCeti.GeometricHecke.heckeCohomology_sections` (compatibility): At i=0 the operator is the geometric q-expansion Hecke operator.
+- `TauCeti.GeometricHecke.heckeCohomology_boundary` (computation): A nonzero boundary common eigenvector supported on the diamond orbit of ∞, with character ε, has T_x-eigenvalue 1+ε(x)x^{n−1}. The unrestricted all-cusp assertion is false; see boundary-eigensystems-are-eisenstein and sourceIssue E4.
+- `TauCeti.GeometricHecke.heckeCohomology_zero_coefficients` (degenerate): Zero coefficient module has zero cohomology and zero operator.
 
-- [Modularity lifting beyond the Taylor–Wiles method](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), 3.2.3, printed pp.314–317. Quotation: “We recall in this section how the Hecke algebra”. Defines its action on coherent cohomology, including torsion coefficients and cusp twists.
+Uses:
 
+- **CG18 §3.2.3**: Supplies the torsion cohomology Hecke algebra action
+- **R15.3 twisted duality**: Fixes the adjoint normalization
+
+Acceptance:
+
+- Include A=O/varpi^m and A=K/O, not just fields.
+- The factor x^−1 is part of the normalization.
+
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.2/diamond-cohomology-action`, `AlgebraicModularFormsAndSerreWeights:R15.1/logarithmic-kodaira-spencer`, `ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`.
+
+Sources: [calegari-geraghty18](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), 3.2.3, printed pp.313–316.
+
+Proposed library: module `TauCeti/NumberTheory/ModularForms/Geometric/R152.lean`, namespace `TauCeti`.
+
+Atlas planet: **Coherent Hecke action**.
 
 <a id="R15-2-fricke-hodge-action"></a>
 
@@ -891,32 +872,21 @@ Identifier: `AlgebraicModularFormsAndSerreWeights:R15.2/cuspidal-exact-sequence-
 
 The coherent long exact sequence from 0→ω^n(−C)⊗A→ω^n⊗A→(ω^n|C)⊗A→0 is equivariant for diamonds, T_x and U_y with the normalization of torsion-cohomology-hecke-action. In the smooth prime-to-level setting the cusp quotient is O-flat, so the sheaf sequence is exact for arbitrary O-module A. On boundary H⁰(C,ω^n⊗A) its action is obtained by taking constant terms at each cusp, not by treating one cusp as all cusps.
 
-**Prerequisites.**
-
-- [Hecke action on torsion coherent cohomology](#R15-2-torsion-cohomology-hecke-action)
-- [Diamond action on coherent cohomology](#R15-2-diamond-cohomology-action)
-- [Geometric cusp forms](#R15-1-cusp-ideal-section-forms)
-
-**Proposed library location.**
-
-- module: `TauCeti/NumberTheory/ModularForms/Geometric/R152.lean`
-- namespace: `TauCeti`
-
-**Proof plan.**
+Construction and proof:
 
 1. Check compatibility of pullback, Hodge map and trace with cusp inclusions and quotient sheaves.
 2. Use naturality of the connecting morphisms in the cohomology long exact sequence.
 
-**Acceptance checks.**
+Acceptance:
 
-1. Nonzero cusp-boundary eigenforms have the scalar 1+ε(x)x^{n−1} in the CG convention.
-2. No surjectivity of M_n→H⁰(C,ω^n|C) is inferred.
+- Boundary eigensystems on each cusp type are Eisenstein, but the scalar 1+ε(x)x^{n−1} is specific to the diamond orbit of ∞; see boundary-eigensystems-are-eisenstein.
+- No surjectivity of M_n→H⁰(C,ω^n|C) is inferred.
 
-**Source passages.**
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke-action`, `AlgebraicModularFormsAndSerreWeights:R15.2/diamond-cohomology-action`, `AlgebraicModularFormsAndSerreWeights:R15.1/cusp-ideal-section-forms`.
 
+Sources: [calegari-geraghty18](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), 3.2.3, printed pp.313–316.
 
-- [Modularity lifting beyond the Taylor–Wiles method](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), 3.2.3, printed pp.314–317. Quotation: “We recall in this section how the Hecke algebra”. Defines its action on coherent cohomology, including torsion coefficients and cusp twists.
-
+Proposed library: module `TauCeti/NumberTheory/ModularForms/Geometric/R152.lean`, namespace `TauCeti`.
 
 <a id="R15-2-curve-fricke-map"></a>
 
@@ -1044,39 +1014,28 @@ Let R be an F_p-algebra and E/R an elliptic curve. Absolute Frobenius induces a 
 
 Identifier: `AlgebraicModularFormsAndSerreWeights:R15.3/deligne-congruence-and-the-explicit-p-equals-2-3-liftings`. Kind: **theorem**.
 
-For even k >= 4 the Eisenstein series E_k = 1 - (2k/B_k) sum sigma_{k-1}(n) q^n is defined over Q by the q-expansion principle 1.9.1. For k = p-1 with p >= 5 the p-adic ordinal of -2(p-1)/B_{p-1} is 1, so E_{p-1} has q-expansion coefficients in Q intersect Z_p and reduces mod p to a level-one weight-(p-1) form over F_p with constant q-expansion 1; since A also has q-expansion 1 and the same weight, A = E_{p-1} mod p. For p = 2 and p = 3 it is not possible to lift A to a level-one form holomorphic at infinity over Q intersect Z_p. Instead, for p = 2 and 3 <= n <= 11 with n odd, A lifts to a weight-1 level-n form holomorphic at infinity over Z[1/n], and for p = 3 and any n >= 3 with 3 not dividing n, A lifts to a weight-2 level-n form over Z[1/n], both by Theorem 1.7.1 (the following sentence, choosing the lifting E_{p-1}, prints the p = 3 range as n >= 2, 3 not dividing n). By the Remark, for p = 2 a lifting of A to level n over Z[1/n] exists for n = 3, 5, 7, 9, 11 and hence for any n divisible by one of 3, 5, 7, 11; Katz does not know whether A lifts to level n for other n (even n = 13), and notes that E_4 = 1 + 240 sum sigma_3(n) q^n provides a level-one lifting to Z of A^4 when p = 2 and of A^2 when p = 3.
+For even k >= 4 the Eisenstein series E_k = 1 - (2k/B_k) sum sigma_{k-1}(n) q^n is defined over Q by the q-expansion principle 1.9.1. For k = p-1 with p >= 5 the p-adic ordinal of -2(p-1)/B_{p-1} is 1, so E_{p-1} has q-expansion coefficients in Q intersect Z_p and reduces mod p to a level-one weight-(p-1) form over F_p with constant q-expansion 1; since A also has q-expansion 1 and the same weight, A = E_{p-1} mod p. For p = 2 and p = 3 it is not possible to lift A to a level-one form holomorphic at infinity over Q intersect Z_p. Instead, for p = 2 and 3 <= n <= 11 with n odd, A lifts to a weight-1 level-n form holomorphic at infinity over Z[1/n], and for p = 3 and any n >= 2 with 3 not dividing n, A lifts to a weight-2 level-n form over Z[1/n], by Theorem 1.7.1 at fine level n >= 3; the p = 3, n = 2 case uses the level-two base-change theorem 1.8.1, agreeing with the next sentence in 2.1 which chooses E_{p-1} for n >= 2, 3 not dividing n. By the Remark, for p = 2 a lifting of A to level n over Z[1/n] exists for n = 3, 5, 7, 9, 11 and hence for any n divisible by one of 3, 5, 7, 11; Katz does not know whether A lifts to level n for other n (even n = 13), and notes that E_4 = 1 + 240 sum sigma_3(n) q^n provides a level-one lifting to Z of A^4 when p = 2 and of A^2 when p = 3.
 
-**Hypotheses and conventions.**
+Hypotheses and conventions:
 
-1. p >= 5 for the level-one congruence A = E_{p-1} mod p; the argument needs E_{p-1} to be p-integral and to reduce to the constant 1
-2. the identification of two forms with equal q-expansion uses the level-one q-expansion principle, Cor. 1.9.1
-3. the p = 2 lifting is produced by Thm 1.7.1 for odd n with 3 <= n <= 11 and then, by the Remark, for every n divisible by one of 3, 5, 7, 11; for other n it is open in the source. The p = 3 lifting is in weight 2, where Thm 1.7.1 applies for all n >= 3 with 3 not dividing n
+- p >= 5 for the level-one congruence A = E_{p-1} mod p; the argument needs E_{p-1} to be p-integral and to reduce to the constant 1
+- the identification of two forms with equal q-expansion uses the level-one q-expansion principle, Cor. 1.9.1
+- the p = 2 lifting is produced by Thm 1.7.1 for odd n with 3 <= n <= 11 and then, by the Remark, for every n divisible by one of 3, 5, 7, 11; for other n it is open in the source. The p = 3 lifting is in weight 2, where Thm 1.7.1 applies for all n >= 3 with 3 not dividing n The p = 3, n = 2 lifting follows from level-two descent/base change 1.8.1 and is included.
 
-**Prerequisites.**
-
-- [Elliptic modular Hasse invariant](#R15-3-hasse-invariant-as-a-form-of-weight-p-minus-one)
-- [The q-expansion principle at level n >= 3 and its underlying vanishing theorem](#R15-2-q-expansion-principle-and-its-vanishing-theorem)
-
-**Proof plan.**
+Construction and proof:
 
 1. Katz 2.1 computes the q-expansion of E_k and its field of definition, then observes that for k = p-1 with p > 3 the p-adic ordinal of 2(p-1)/B_{p-1} is 1, so E_{p-1} has p-integral coefficients and reduces to the constant 1.
 2. Since A also has q-expansion 1 (node hasse-invariant-as-a-form-of-weight-p-minus-one) and both have weight p-1 and level one, they agree by the q-expansion principle.
-3. For p = 2, 3 Katz states that A admits no level-one holomorphic lifting and produces the level-n liftings from Thm 1.7.1 in the indicated weight and level ranges, flagging explicitly that the case p = 2, n = 13 is unknown to him.
+3. For p = 2, 3 Katz states that A admits no level-one holomorphic lifting and produces the level-n liftings from Thm 1.7.1 in the indicated weight and level ranges, flagging explicitly that the case p = 2, n = 13 is unknown to him. At p = 3 and n = 2 use Theorem1.8.1, rather than applying the fine-level theorem outside its range.
 
-**Acceptance checks.**
+Acceptance:
 
-1. Check the von Staudt-Clausen computation ord_p(B_{p-1}) = -1 for p >= 5, hence ord_p(2(p-1)/B_{p-1}) = 1, so that E_{p-1} is p-integral with constant term 1 and all other coefficients divisible by p
-2. Check that at p = 2 and p = 3 the roadmap's characteristic-p operations are stated with an explicitly chosen lifting E_{p-1} of level n, and never through a division by p-1 or by 6
+- Check the von Staudt-Clausen computation ord_p(B_{p-1}) = -1 for p >= 5, hence ord_p(2(p-1)/B_{p-1}) = 1, so that E_{p-1} is p-integral with constant term 1 and all other coefficients divisible by p
+- Check that at p = 2 and p = 3 the roadmap's characteristic-p operations are stated with an explicitly chosen lifting E_{p-1} of level n, and never through a division by p-1 or by 6
 
-**Source passages.**
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`, `AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `AlgebraicModularFormsAndSerreWeights:R15.1/level-one-and-two-by-descent-with-explicit-inverted-primes`.
 
-
-- [p-adic properties of modular schemes and modular forms](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 2.1, printed p. 98 (Ka-30). Quotation: “For p”. Literal statement of Deligne's congruence together with the q-expansion argument used to prove it.
-
-- [p-adic properties of modular schemes and modular forms](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 2.1, printed pp. 98-99 (Ka-30/31). Quotation: “it is not possible to lift”. The literal exceptional treatment at p = 2 and p = 3 with its level range, transcribed from the page image (the text layer drops the inequality signs).
-
-- [p-adic properties of modular schemes and modular forms](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), Remark in 2.1, printed p. 99 (Ka-31). Quotation: “there exists a lifting”. The full Remark: the p = 2 lifting extends to every n divisible by 3, 5, 7 or 11, and is open only for the remaining n. Extended by the reviewer.
-
+Sources: [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 2.1, printed p. 98 (Ka-30); [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), 2.1, printed pp. 98-99 (Ka-30/31); [katz73-padic-properties](https://web.math.princeton.edu/~nmk/old/padicpropMFMS.pdf), Remark in 2.1, printed p. 99 (Ka-31).
 
 <a id="R15-3-theta-operator-filtration-and-hecke-commutation"></a>
 
@@ -1188,43 +1147,33 @@ Identifier: `AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-m
 
 Let f be an eigenform of some type (N, k, eps). Then there exist integers i and k' with 0 <= i <= p-1 and k' <= p+1 and an eigenform g of type (N, k', eps) such that f and theta^i g have the same eigenvalues for all T_l^* with l different from p. Edixhoven's proof (section 7) is modular-form theoretic and stated for arbitrary p: for N >= 5 prime to p it combines the long exact cohomology sequence of multiplication by the Hasse invariant 7.1.1 on X_1(N)_{F_p-bar}, Prop. 7.2 (an element B of the space S(N, p+1) of forms on the supersingular points inducing Hecke-twisted isomorphisms S(N, k) -> S(N, k+p+1)) and Prop. 7.3 (Hecke compatibility of the boundary map S(N, k) -> M^0(N, p+1-k)^dual obtained from Serre duality and Kodaira-Spencer); N = 2, 3, 4 and N = 1 with p > 3 are treated by taking G-invariants on X(4) or X(3) for a group G of order prime to p; the remaining cases N = 1, p = 2 or 3 are referred to Serre [25], Theoreme 3 (Asterisque 24-25), which was not read.
 
-**Hypotheses and conventions.**
+Hypotheses and conventions:
 
-1. the conclusion controls the eigenvalues only away from p: the T_l^* for l different from p
-2. the source states the range 0 <= i <= p-1; since l^{p-1} = 1 in F_p for l different from p, only i mod (p-1) affects the eigenvalues away from p (reviewer remark, not in the source)
-3. the cohomological proof is run at level N >= 5; N = 2, 3, 4, and N = 1 with p > 3, are obtained via G-invariants with p not dividing #G; N = 1 with p = 2 or 3 is an unread import from Serre [25], Theoreme 3
+- the conclusion controls the eigenvalues only away from p: the T_l^* for l different from p
+- the source states the range 0 <= i <= p-1; since l^{p-1} = 1 in F_p for l different from p, only i mod (p-1) affects the eigenvalues away from p (reviewer remark, not in the source)
+- the cohomological proof is run at level N >= 5; N = 2, 3, 4, and N = 1 with p > 3, are obtained via G-invariants with p not dividing #G; N = 1 with p = 2 or 3 is an unread import from Serre [25], Theoreme 3
 
-**Uses deriving the interface.**
+Construction and proof:
 
-1. SerreWeightAndLevelOptimisation R20.3: the first step of Edixhoven's proof of Theorem 4.5
-
-**Prerequisites.**
-
-- [Tate's theta-cycles, with the p > 3 classification and the explicit p = 2 and p = 3 tables](#R15-3-theta-cycles-and-the-small-characteristic-tables)
-- [The theta operator, the filtration w(f), and their Hecke commutation relations](#R15-3-theta-operator-filtration-and-hecke-commutation)
-- [Hecke operators defined over arbitrary coefficient modules by their q-expansion formula](#R15-2-integral-hecke-operators-from-q-expansions)
-
-**Proof plan.**
-
-1. Edixhoven Thm 3.4 states the result; the alternative, previously unpublished, argument uses the Jordan-Holder filtration of Sym^{k-2} F for the p-torsion F of the universal elliptic curve, with successive quotients Sym^i F tensor (det F)^{tensor j}, 0 <= i <= p-1, 0 <= j <= p-2, illustrated by the exact sequence 0 -> F -> Sym^p F -> Sym^{p-2} F tensor det F -> 0.
+1. Use the supersingular section space, its Hecke-twisted periodicity and the twisted-duality boundary sequence. Taking the finite-dimensional linear dual preserves eigensystem support; the remaining support-to-eigenvector algebra is recorded as a gap. The alternative symmetric-power proof in §3.4 is not planned a second time.
 2. Edixhoven's own proof is given in section 7: Prop. 7.2 produces B in S(N, p+1) with T_l^*(Bf) = l B T_l^*(f) (three constructions: Robert [23] Thm B, E_{p+1} mod p for p >= 5; the Kodaira-Spencer image of the simple zero of A; Katz [15]), Prop. 7.3 shows via Lemma 7.4 (compatibility of Kodaira-Spencer with isogenies) that the map Phi: S(N, k) -> M^0(N, k')^dual, k' = p+1-k, intertwines T_l^* with l^{k-1} T_l^{*dual}, and 7.5 assembles these with the long exact sequence of 7.1.1 and the fact that duality on finite-length F_p-bar[T_l]-modules preserves supports.
 3. The first published proof for p >= 5 is attributed to Ash-Stevens, [1], Thms 3.4 and 3.5.
 4. 7.5, small levels: for N = 4 or 2 (so p odd) M(N, k) = H^0(X, omega^k)^G with X = X(4) and G a subgroup of SL_2(Z/4Z) of order prime to p; for N = 3 the same with X(3); for N = 1 and p > 3 with G = SL_2(Z/3Z) or SL_2(Z/4Z); G-invariants are exact and the exact sequence 7.5.1 is G-equivariant. For N = 1 and p = 2 or 3 the source refers to Serre [25], Theoreme 3.
 
-**Acceptance checks.**
+Uses:
 
-1. Check on an example of weight k > p+1 that the produced pair (i, k') satisfies rho_f = rho_g tensor chi^i
-2. Check that the statement is only about eigenvalues away from p, by exhibiting a case where a_p(f) and a_p(theta^i g) differ
+- **SerreWeightAndLevelOptimisation R20.3**: the first step of Edixhoven's proof of Theorem 4.5
 
-**Source passages.**
+Acceptance:
 
+- Check on an example of weight k > p+1 that the produced pair (i, k') satisfies rho_f = rho_g tensor chi^i
+- Check that the statement is only about eigenvalues away from p, by exhibiting a case where a_p(f) and a_p(theta^i g) differ
 
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Theorem 3.4, p. 9 of the DVI. Quotation: “there exist integers”. Literal statement including the restriction to l different from p. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables`, `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`, `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-section-space`, `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-hecke-twisted-periodicity`, `AlgebraicModularFormsAndSerreWeights:R15.3/twisted-serre-duality-hecke`, `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`.
 
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), 7.5 Proof of Theorem 3.4, p. 25 of the DVI. Quotation: “combined with Propositions”. Records that the proof is run for N >= 5 and that the small levels need a separate argument. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
+Sources: [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Theorem 3.4, p. 9 of the DVI; [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), 7.5 Proof of Theorem 3.4, p. 25 of the DVI; [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), 7.5, p. 26 of the DVI.
 
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), 7.5, p. 26 of the DVI. Quotation: “For these remaining two cases”. The level-one characteristic-2 and -3 cases rest on an unread import. Added by the reviewer. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
-
+Atlas planet: **Weight reduction to at most p + 1**.
 
 <a id="R15-3-frobenius-verschiebung-on-expansions"></a>
 
@@ -1400,40 +1349,25 @@ Under the prime-to-p level hypotheses of CG18 (p≥3,N≥5) and a DVR O with res
 
 Identifier: `AlgebraicModularFormsAndSerreWeights:R15.3/twisted-serre-duality-hecke`. Kind: **comparison**.
 
-For CG18’s fine curve X_Δ(Q), extend O to contain ζ_NQ. Let Φ be Serre duality on H¹(X,ω^{2−n}(−C)⊗K/O), followed by the dual of the elliptic Kodaira–Spencer identification and the dual action of the constructed Hodge operator W_ζ. It gives H¹(X,ω^{2−n}(−C)⊗K/O)≅Hom_O(H⁰(X,ω^n),K/O), with Φ T_x=x^{1−n}T_x^∨Φ, the same identity for the allowed U_x and Φ⟨a⟩=⟨a⟩^∨Φ in the twisted convention. The bare Serre-duality map lacks this equivariance; for n=1 the scalar is 1. For the supersingular boundary of multiplication by A, Edixhoven Proposition7.3 obtains the corresponding ℓ^{k−1} factor after n=p+1−k and reduction.
+For CG18’s fine curve X_Δ(Q), extend O to contain ζ_NQ. Let Φ be Serre duality on H¹(X,ω^{2−n}(−C)⊗K/O), followed by the dual of the elliptic Kodaira–Spencer identification and the dual action of the constructed Hodge operator W_ζ. It gives H¹(X,ω^{2−n}(−C)⊗K/O)≅Hom_O(H⁰(X,ω^n),K/O), with Φ T_x=x^{1−n}T_x^∨Φ, the same identity for the allowed U_x and Φ⟨a⟩=⟨a⟩^∨Φ in the twisted convention. The bare Serre-duality map lacks this equivariance; for n=1 the scalar is 1. For the supersingular boundary of multiplication by A, Edixhoven Proposition7.3 obtains the corresponding ℓ^{k−1} factor after n=p+1−k and reduction. In the field case the Hasse connecting map followed by this twisted duality gives Φ:S(N,k)→S_cusp(N,p+1−k)^∨, and the sequence M(N,k)→S(N,k)→S_cusp(N,p+1−k)^∨ is exact. Its relation is ΦT_ℓ=ℓ^{k−1}T_ℓ^∨Φ; the cusp twist is on the dual target.
 
-**Prerequisites.**
-
-- [Logarithmic Kodaira–Spencer isomorphism](#R15-1-logarithmic-kodaira-spencer)
-- [Hecke action on torsion coherent cohomology](#R15-2-torsion-cohomology-hecke-action)
-- [Root-dependent Fricke operator](#R15-3-edixhoven-root-fricke-operator)
-- `SchemeAndStackFoundations:SF.2/proper-adjunction`
-- `SchemeAndStackFoundations:SF.2/trace`
-- `SchemeAndStackFoundations:SF.3`
-
-**Proposed library location.**
-
-- module: `TauCeti/NumberTheory/ModularForms/Geometric/R153.lean`
-- namespace: `TauCeti`
-
-**Proof plan.**
+Construction and proof:
 
 1. Use proper coherent Serre duality with K/O torsion coefficients.
 2. Apply isogeny compatibility of KS to compute the scalar of the transpose correspondence.
 3. Conjugate the transpose action by w_ζ, as Edixhoven7.3; retain the arithmetic degree factor.
+4. For Edixhoven7.3 compose the Hasse connecting map with field Serre duality and KS; keep the cusp twist in the dual target and use Lemma7.4 for ℓ^{k−1}.
 
-**Acceptance checks.**
+Acceptance:
 
-1. At n=1 Φ is Hecke equivariant.
-2. At n=2 the factor is x^−1, so the bare untwisted claim would fail.
+- At n=1 Φ is Hecke equivariant.
+- At n=2 the factor is x^−1, so the bare untwisted claim would fail.
 
-**Source passages.**
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.1/logarithmic-kodaira-spencer`, `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke-action`, `AlgebraicModularFormsAndSerreWeights:R15.3/edixhoven-root-fricke-operator`, `SchemeAndStackFoundations:SF.2/proper-adjunction`, `SchemeAndStackFoundations:SF.2/trace`, `SchemeAndStackFoundations:SF.3`, `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-section-space`, `AlgebraicModularFormsAndSerreWeights:R15.1/cusp-ideal-section-forms`, `SchemeAndStackFoundations:key/coherent-duality`.
 
+Sources: [calegari-geraghty18](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), 3.2.5, after Lemma3.7, printed pp.322–323; [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Proposition7.3 and Lemma7.4, author DVI pp.24–25.
 
-- [Modularity lifting beyond the Taylor–Wiles method](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), 3.2.5, after Lemma3.7, printed pp.322–323. Quotation: “is not Hecke equivariant”. The next displayed composition includes KS and (w*)∨, and has the x^{1−n} scalar.
-
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Proposition7.3 and Lemma7.4, author DVI pp.24–25. Quotation: “The exact sequence”. DVI text of the supersingular sequence compatibility; the proof checks the isogeny degree factor. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
-
+Proposed library: module `TauCeti/NumberTheory/ModularForms/Geometric/R153.lean`, namespace `TauCeti`.
 
 <a id="R15-3-edixhoven-root-fricke-operator"></a>
 
@@ -1861,42 +1795,28 @@ Identifier: `AlgebraicModularFormsAndSerreWeights:R15.4/edixhoven-weight-k-rho-a
 
 Edixhoven defines k(rho_p) (Def. 4.3) by the same case division and the same normalizations as Serre, except in two places: in the tame level-1 case (rho_p|I_p trivial, rho_p|I = diag(chi^a, chi^b), 0 <= a <= b <= p-2, the same normalization as Serre's 2.3) he sets k(rho_p) = 1 + pa + b also for (a,b) = (0,0), so k(rho_p) = 1 for rho_p unramified; and in the wild case (0 <= alpha <= p-2, 1 <= beta <= p-1) the additional p-1 is added exactly when chi^{beta - alpha} = chi and rho_p tensor chi^{-alpha} is not finite at p (so at p = 2 the addition is 1, not Serre's 2). Remark 4.4: always k(rho) <= k_rho, and they differ in exactly two cases - (i) rho_p|I_p trivial with a = b = 0, where k(rho) = 1 and k_rho = p; (ii) p = 2, rho_p|I_p nontrivial, alpha = 0, beta = 1 and rho_p not finite at p, where k(rho) = 3 and k_rho = 4. The existence and minimality theorem 4.5 is imported from SerreWeightAndLevelOptimisation R20.3, not proved by this comparison of local functions.
 
-**Hypotheses and conventions.**
+Hypotheses and conventions:
 
-1. k(rho_p) is defined for a local representation and depends only on rho_p; the 'not finite at p' clause refers to the finiteness notion of section 8 of the source, i.e. existence of a finite flat model
-2. Thm 4.5 assumes rho already modular of some type (N, k, eps) with p not dividing N; it is a weight-optimisation statement, not an existence statement
-3. the minimality assertion and the k(rho) form of the conclusion require rho to be non-exceptional; the added end-of-introduction note states that for p > 2 the Coleman-Voloch result removes this condition
-4. the proof depends on Gross [10] whose Hecke-equivariance compatibilities on pages 504-505 were, at the time of writing, unchecked; Coleman verified the map in (16.6)
+- k(rho_p) is defined for a local representation and depends only on rho_p; the 'not finite at p' clause refers to the finiteness notion of section 8 of the source, i.e. existence of a finite flat model
 
-**Prerequisites.**
+Construction and proof:
 
-- [Serre's weight in the two tame cases, with the normalizations and the (0,0) shift](#R15-4-serre-weight-tame-cases)
-- [The wildly ramified case: the peu ramifie / tres ramifie dichotomy and the weight it produces](#R15-4-peu-et-tres-ramifie-and-the-wild-case-weight)
-- [For a residually reducible local representation with unramified diagonal twists, peu ramifie is equivalent to admitting a finite flat model](#R15-4-finite-at-p-equals-peu-ramifie)
+1. Compare Definition4.3 with Serre2.2–2.4 using the same ordered normalized local data.
+2. In the unramified branch the formulas give 1 and p; in the wild cyclotomic-ratio branch replace not-finite by très ramifiée using the finite-at-p comparison, giving 3 versus 4 at p=2.
+3. Every other branch has the same formula. Coefficient extension preserves the local representation and the finite-flat predicate through the imported supplier interface.
 
-**Proof plan.**
+Uses:
 
-1. Edixhoven Def. 4.3 gives the case division; Remark 4.4 compares it with Serre's k_rho and isolates the two discrepancies.
-2. Proof of Thm 4.5: by Thm 3.4 there is alpha with rho tensor chi^{-alpha} isomorphic to rho_{f_1} for an eigenform f_1 of type (N, k_1, eps) with k_1 <= p+1 and w(f_1) = k_1; the local results Thms 2.5, 2.6, 2.8 and Prop. 2.7 then pin down k_1 and alpha in terms of rho|G_p.
-3. The desired f is obtained by untwisting: apply theta alpha times and divide by the Hasse invariant as often as possible.
-4. The main complication is that k_1 is not unique: a companion form of weight p+1-k_1 may exist (Gross, Thm 2.9) or f_1 may be a multiple of the Hasse invariant (only for k_1 = p or p+1; the k_1 = p+1 case is Mazur's Thm 2.8, which is where 'finite at p' enters).
-5. Minimality: given g of type (M, k, eps') with p not dividing M, the existence part gives f of type (M, k(rho), eps') with the same eigenvalues away from p; if T_p^* f = 0 = T_p^* g the q-expansions differ by a constant and k(rho) = w(f) = w(g) <= k; if T_p^* g is nonzero then k <= p+1 by Gross [10], Proposition 4.12 (not read) and 'a case by case check' (not displayed) gives k(rho) <= k.
-6. Existence in the tame level-1 case alpha = beta = 0 uses Gross's Thm 2.9 (companion forms) and the non-exceptional hypothesis; the added end-of-introduction note says that for p > 2 the Coleman-Voloch theorem removes the 'not exceptional' condition from all statements of Thm 4.5.
+- **SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem**: Supplies the local function and comparison only. Existence/minimality, companion forms and Gross/Coleman–Voloch inputs belong to that consuming node; importing it back here would create a cycle.
 
-**Acceptance checks.**
+Acceptance:
 
-1. Check the two discrepancy cases of Remark 4.4 explicitly: an unramified rho_p (k(rho) = 1, k_rho = p) and a p = 2 non-finite extension with alpha = 0, beta = 1 (k(rho) = 3, k_rho = 4)
-2. Check that the recipe is invariant under enlarging the coefficient field and under isomorphism of rho_p: every clause refers to rho_p|I, to rho_p|I_p, or to the finiteness at p of rho_p tensor chi^{-alpha}, which is a property of the G_p-representation
+- Check the two discrepancy cases of Remark 4.4 explicitly: an unramified rho_p (k(rho) = 1, k_rho = p) and a p = 2 non-finite extension with alpha = 0, beta = 1 (k(rho) = 3, k_rho = 4)
+- Check that the recipe is invariant under enlarging the coefficient field and under isomorphism of rho_p: every clause refers to rho_p|I, to rho_p|I_p, or to the finiteness at p of rho_p tensor chi^{-alpha}, which is a property of the G_p-representation
 
-**Source passages.**
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases`, `AlgebraicModularFormsAndSerreWeights:R15.4/peu-et-tres-ramifie-and-the-wild-case-weight`, `AlgebraicModularFormsAndSerreWeights:R15.4/finite-at-p-equals-peu-ramifie`.
 
-
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Definition 4.3 case 2(b), p. 10 of the DVI. Quotation: “not finite at”. Literal statement of the extension-sensitive clause, phrased through 'finite at p' rather than through Serre's Kummer-valuation condition. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
-
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Remark 4.4.1, p. 10 of the DVI. Quotation: “they differ only in two cases”. The exact comparison between the two weight recipes, including the p = 2 discrepancy, which the roadmap requires the local table to record. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
-
-- [The weight in Serre's conjectures on modular forms](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Introduction, p. 2 of the DVI. Quotation: “have not been checked”. Records the unverified Hecke-compatibility inputs from Gross that Theorem 4.5 depended on at the time of writing; the added note limits the damage to p = 2. DVI prose is quoted with word spacing restored; no unread displayed glyph is used as a quotation.
-
+Sources: [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Definition 4.3 case 2(b), p. 10 of the DVI; [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Remark 4.4.1, p. 10 of the DVI.
 
 <a id="R15-4-dyadic-weight-two-or-four"></a>
 
@@ -2943,6 +2863,127 @@ For an absolutely irreducible odd residual ρ̄, existence of a normalized geome
 - [Formes modulaires de poids 1](https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf), 6.8 and 6.12–6.13, pp.522–523. Quotation: “le théorème pour/équivaut au théorème pour/”. Good-prime eigenvalue and determinant congruences identify the residual semisimplification; OCR merges f with the slash.
 
 
+<a id="R15-3-supersingular-section-space"></a>
+
+### Modular forms on the supersingular points
+
+Identifier: `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-section-space`. Kind: **construction**.
+
+Let K=F̄_p, p prime, N≥5 with p not dividing N, X=X₁(N)_K and ω its Hodge line. Let Z be the reduced supersingular locus, the finite simple-zero divisor of the elliptic Hasse section A. For every k∈ℤ define S(N,k)=H⁰(Z,ω^k|Z)=⊕_{x∈Z(K)}ω_x^k. Evaluation/restriction M(N,k)→S(N,k) is K-linear. Prime-to-p Hecke isogenies preserve Z and give the same normalized pull–Hodge–trace action as on modular forms. Multiplication by A gives 0→ω^{k−p+1}→ω^k→ω^k|Z→0 and its equivariant cohomology sequence. This finite fibre space has no cusp condition and makes sense in negative weights. The reduced simple-zero locus interface is a recorded geometric gap, not the general BT₁ Hasse construction.
+
+Hypotheses and conventions:
+
+- Fine Γ₁(N) curve, N≥5, p∤N, algebraically closed residue field.
+- Use the actual Hodge fibres at the finite supersingular points, including dual powers for k<0.
+
+Construction and proof:
+
+1. Restrict the imported Hodge line to the reduced finite supersingular locus and take its sections.
+2. Identify sections with the finite direct sum of one-dimensional fibres.
+3. Use the simple-zero divisor identification for the Hasse sequence, then restrict isogeny correspondences and connecting maps.
+
+API:
+
+- `TauCeti.ModPModularForms.supersingularForms` (constructor): S(N,k) is the section module of ω^k on the finite reduced supersingular locus, with evaluation at each point.
+- `TauCeti.ModPModularForms.supersingularForms_eval` (projection): Evaluation S(N,k)→ω_x^k is K-linear and is the x-component of the finite direct-sum description.
+- `TauCeti.ModPModularForms.supersingularForms_ext` (extensionality): Two supersingular sections are equal iff their values at every supersingular point agree.
+- `TauCeti.ModPModularForms.supersingularRestriction` (compatibility): Restricting a global modular form evaluates it on the actual Hodge fibres at all supersingular points; the map is linear.
+- `TauCeti.ModPModularForms.supersingularForms_mul` (structure): Pointwise tensor product gives S(N,a)×S(N,b)→S(N,a+b), using the canonical Hodge-power identification; multiplication by a fixed section is linear and is detected on every fibre.
+
+Unit tests:
+
+- `TauCeti.ModPModularForms.supersingularForms_empty` (degenerate): Restriction to an empty finite locus has the zero section space, rather than a copy of the coefficient field.
+- `TauCeti.ModPModularForms.supersingularForms_weight_zero` (computation): At weight zero, two distinct supersingular points allow different values; the space is all functions on the finite set, not just constants.
+- `TauCeti.ModPModularForms.supersingularForms_negative` (non-example): On a nonempty finite supersingular locus every Hodge power, including negative weights, has a nonzero section after fibre trivializations; this contrasts with global negative-weight forms.
+
+Uses:
+
+- **AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-hecke-twisted-periodicity**: Carries the nowhere-vanishing B section and multiplication isomorphism.
+- **AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one**: Carries the middle term of the Hasse cohomology sequence used to compare eigensystem supports.
+
+Acceptance:
+
+- S(N,k) is a finite-dimensional Hecke module even for k<0; it is not the ordinary locus or a cusp-form subspace.
+- Restriction does not assert surjectivity of M(N,k)→S(N,k).
+
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke-action`, `ModularCurvesPartII:R13.5`.
+
+Sources: [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), 7.1, equation7.1.1, author DVI p.23.
+
+Proposed library: module `TauCeti/NumberTheory/ModularForms/Geometric/R153.lean`, namespace `TauCeti.ModPModularForms`.
+
+Atlas planet: **Supersingular modular forms**.
+
+<a id="R15-3-supersingular-hecke-twisted-periodicity"></a>
+
+### Hecke-twisted supersingular periodicity
+
+Identifier: `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-hecke-twisted-periodicity`. Kind: **theorem**.
+
+Under the hypotheses of supersingular-section-space, there exists B∈S(N,p+1) nowhere zero on Z. Multiplication by B gives an isomorphism S(N,k)→S(N,k+p+1) for every k∈ℤ, satisfying T_ℓ(Bf)=ℓ B T_ℓ(f) for every prime ℓ≠p (with the level-preserving interpretation at primes dividing N in the source). Consequently multiplication by B^{p−1} is Hecke equivariant and shifts the weight by p²−1. This is a supersingular restriction section, not a global form with q-expansion 1.
+
+Hypotheses and conventions:
+
+- Same fine prime-to-p level N≥5 and K=F̄_p as the supersingular section space.
+- The Hasse divisor is reduced with simple zeros, supplied through the recorded geometric interface.
+
+Construction and proof:
+
+1. Use the second proof of Edixhoven Proposition7.2, which works for every p: the first-order Hasse zero gives a nonzero element of ω_x^{p−1}⊗Ω¹_x at each supersingular point.
+2. Supersingular points avoid the cusps, so Kodaira–Spencer identifies Ω¹_x with ω_x², producing B_x∈ω_x^{p+1}.
+3. Isogeny naturality of A and the degree factor of Kodaira–Spencer give T_ℓ(Bf)=ℓ B T_ℓ(f); nowhere-zero fibre multiplication is invertible.
+4. Iterate p−1 times, using ℓ^{p−1}=1 in characteristic p, to obtain Hecke-equivariant period p²−1.
+
+Uses:
+
+- **AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one**: Moves supersingular eigensystems between weights with the exact cyclotomic twist before applying the boundary sequence.
+
+Acceptance:
+
+- The derivative/simple-zero proof includes p=2 and p=3, where invoking a level-one E_{p+1} without its hypotheses is insufficient.
+- The first shift twists eigenvalues by ℓ; only its (p−1)st power is untwisted.
+
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-section-space`, `AlgebraicModularFormsAndSerreWeights:R15.1/logarithmic-kodaira-spencer`, `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`, `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke-action`.
+
+Sources: [edixhoven-weight](https://websites.math.leidenuniv.nl/edixhoven/public_html_rennes/publications/weight.dvi), Proposition7.2 and its second proof, author DVI pp.23–24.
+
+Proposed library: module `TauCeti/NumberTheory/ModularForms/Geometric/R153.lean`, namespace `TauCeti.ModPModularForms`.
+
+<a id="R15-2-boundary-eigensystems-are-eisenstein"></a>
+
+### Boundary eigensystems are Eisenstein
+
+Identifier: `AlgebraicModularFormsAndSerreWeights:R15.2/boundary-eigensystems-are-eisenstein`. Kind: **theorem**.
+
+In the setting of torsion-cohomology-hecke-action, over the residue field, every simultaneous good-prime Hecke/diamond eigensystem on H⁰(C,ω^n|C) has eigenvalues ψ₁(x)+ψ₂(x)x^{n−1}, where ψ₁,ψ₂ are finite-order prime-to-p characters with ψ₁ψ₂=ε, the diamond character. Its semisimple Galois representation is ψ₁⊕ψ₂χ_cyc^{n−1}. The formula 1+ε(x)x^{n−1} holds on the diamond orbit of ∞; the orbit over 0 gives ε(x)+x^{n−1}, and mixed types allow both characters nontrivial. A boundary eigenvector can vanish on entire other cusp orbits. Hence the boundary term vanishes after localization at an absolutely irreducible residual eigensystem. No transitivity of the diamonds on all cusps is used.
+
+Hypotheses and conventions:
+
+- p odd, p∤NQ, N≥5, fine X_Δ(Q), and x∤pNQ as in CG18.
+- Use all cusp types and their actual Tate level structures, not one local parameter for every orbit.
+
+Construction and proof:
+
+1. The diamond action preserves fibres over cusps of X₀(NQ); 0 and ∞ already give distinct orbits.
+2. On each type evaluate the normalized isogeny sum at constant terms. It is B_x+x^{n−1}A_x, with commuting multiplicative finite cusp actions A_xB_x=⟨x⟩.
+3. On a simultaneous eigenline the two actions give characters ψ₁,ψ₂; their p-parts act trivially in the residue field. This gives the reducible characteristic polynomials.
+4. View the finite Dirichlet characters through the cyclotomic quotient of G_ℚ. For localization compare the resulting direct sum with the residual representation supplied by the consuming theorem, using the exact R01.5 Chebotarev/characteristic-polynomial recognition node. No new representation attachment is constructed here.
+
+Uses:
+
+- **Calegari–Geraghty18 Lemma3.7(2)**: Removes the cusp boundary after non-Eisenstein localization; this is the corrected input, not a duplicate Galois attachment.
+
+Acceptance:
+
+- For N=7,n=3,p=5,x=3,ε=(·/7), the 0-type line has eigenvalue −1+9=3 mod5, whereas the ∞-type line has 1−9=2 mod5.
+- The two-type calculation leaves Hecke equivariance of the cuspidal long exact sequence intact.
+
+Direct prerequisites: `AlgebraicModularFormsAndSerreWeights:R15.2/cuspidal-exact-sequence-equivariance`, `AlgebraicModularFormsAndSerreWeights:R15.2/diamond-cohomology-action`, `ModularCurvesPartII:R13.3`, `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`.
+
+Sources: [calegari-geraghty18](https://www.math.uchicago.edu/~fcale/papers/CG.pdf), Remark3.4, printed p.316, corrected as PAPER-CALEGARI-GERAGHTY-18/E23.
+
+Proposed library: module `TauCeti/NumberTheory/ModularForms/Geometric/R152.lean`, namespace `TauCeti.GeometricHecke`.
+
 ## Verified baseline
 
 The reviewed library audit for all six layers was read before planning. Every declaration below was read at its recorded commit. These are inputs to the proof plan, not claims that any planned node is formalized. Additional carrier imports in the suggested file remain unchecked signatures.
@@ -3146,149 +3187,256 @@ id: AlgebraicModularFormsAndSerreWeights/E3; source: calegari-geraghty18; kind: 
 
 ## Recorded closure gaps
 
-These are precise leaves of planned stages, not missing targets hidden by a completion label.
-
-
 ### Pinned algebraic API integration
 
 Exact baseline names and hypothesis checks remain for finite/free operator subalgebras, finite generic fibers of finite domain algebras, lying over in integral closure, nonzero-prime localization of a Dedekind domain, the flat tensor-inclusion theorem, finite-free endomorphism base change, and integral-coordinate clearing/reassociation. These are explicit existing-library search obligations, not permission to duplicate their mathematics. The displayed proof is not claimed closed at the baseline.
 
-Needed by: [Deligne-Serre eigenvalue lifting](#R15-5-deligne-serre-eigenvalue-lifting-lemma), [Lift a character to a dominating DVR](#R15-5-character-valuation-lift), [Faithfulness survives extension of the operator algebra](#R15-5-generic-action-faithfulness), [Clear denominators of a common eigenvector](#R15-5-integral-eigenvector).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`, `AlgebraicModularFormsAndSerreWeights:R15.5/character-valuation-lift`, `AlgebraicModularFormsAndSerreWeights:R15.5/generic-action-faithfulness`, `AlgebraicModularFormsAndSerreWeights:R15.5/integral-eigenvector`.
 
 ### The level-2 tame case of the dyadic weight dichotomy
 
 Verified: Serre 2.6 gives k ∈ {2, 4} with k = 4 exactly in the wild très ramifiée case; Edixhoven Proposition 8.2 (valid at p = 2) gives finite ⇔ peu ramifiée in the wild case; unramified representations are finite. Not verified: that a ρ₂ whose tame characters are the fundamental characters of level 2 is finite over ℤ₂. Raynaud Theorem 3.4.3 gives a prolongation over the strict henselisation, but at e = p − 1 uniqueness can fail (Proposition 3.3.2(3)), so its descent to ℤ₂ needs an argument that no source read writes out. Khare–Wintenberger state the dichotomy without proof. Next action: FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.5 (request), or a Breuil–Kisin argument at p = 2.
 
-Needed by: [At p = 2 Serre's weight is 2 or 4, and it is 4 exactly in the wild très ramifiée case](#R15-4-dyadic-weight-two-or-four).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.4/dyadic-weight-two-or-four`.
 
 ### Geometric and stack carriers at the pinned libraries
 
 The pinned libraries supply schemes, module presheaves and sections but not this compactified elliptic moduli stack, its Hodge tensor powers or logarithmic connection. The exact supplier requests are prerequisite leaves. Suggested signatures use real section modules for expressible fragments; missing moduli/connection conditions are omitted explicitly, never encoded as arbitrary Prop fields. Complete geometry signatures need the supplied carriers.
 
-Needed by: [Geometric modular forms in every integral weight](#R15-1-hodge-bundle-with-tate-curve-normalization), [Geometric cusp forms](#R15-1-cusp-ideal-section-forms), [Coefficient maps of geometric forms](#R15-1-coefficient-maps), [All-weight analytic comparison](#R15-1-all-weight-analytic-comparison), [Logarithmic Kodaira–Spencer isomorphism](#R15-1-logarithmic-kodaira-spencer), [Integral lattice and reduction image](#R15-2-integral-lattice-and-reduction-image), [Hecke action on torsion coherent cohomology](#R15-2-torsion-cohomology-hecke-action), [Fricke action on Hodge powers](#R15-2-fricke-hodge-action), [Twisted Serre duality for Hecke actions](#R15-3-twisted-serre-duality-hecke), [Geometric Fricke map](#R15-2-curve-fricke-map), [Root-dependent Fricke operator](#R15-3-edixhoven-root-fricke-operator).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.1/cusp-ideal-section-forms`, `AlgebraicModularFormsAndSerreWeights:R15.1/coefficient-maps`, `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`, `AlgebraicModularFormsAndSerreWeights:R15.1/logarithmic-kodaira-spencer`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-lattice-and-reduction-image`, `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke-action`, `AlgebraicModularFormsAndSerreWeights:R15.2/fricke-hodge-action`, `AlgebraicModularFormsAndSerreWeights:R15.3/twisted-serre-duality-hecke`, `AlgebraicModularFormsAndSerreWeights:R15.2/curve-fricke-map`, `AlgebraicModularFormsAndSerreWeights:R15.3/edixhoven-root-fricke-operator`.
 
 ### All-prime bounded-denominator comparison
 
 CDT25 Lemma4.2.2 explicitly invokes Shimura Theorem3.52. That original theorem has not been read here. The analytic all-prime theorem is an upstream import, and the level-prime geometric lattice/model comparison is not supplied by Katz’s ℤ[1/N] smooth curve alone. Verify the owned lattice theorem and the integral level-prime comparison before closing this application.
 
-Needed by: [Bounded denominators for congruence forms](#R15-2-bounded-denominators-congruence-application), [Integral lattice and reduction image](#R15-2-integral-lattice-and-reduction-image).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.2/bounded-denominators-congruence-application`, `AlgebraicModularFormsAndSerreWeights:R15.2/integral-lattice-and-reduction-image`.
 
 ### Gross torsion weight-one operator
 
 CG18 invokes Gross1990 §4/Proposition4.1 for T_p over O/varpi^m. CG18/CG20 and Katz77 were read, but Gross’s original coefficient-general construction has not been read. Supply its exact base/level hypotheses and a proof of preservation of geometric sections; the formal U+⟨p⟩V equation is not that proof.
 
-Needed by: [Weight-one Hecke operator at p](#R15-3-weight-one-tp-with-torsion-coefficients).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.3/weight-one-tp-with-torsion-coefficients`.
 
 ### General theta-cycle proof and small-level reduction
 
 Edixhoven3.2–3.4 and §7 are read and specify the arbitrary-prime tables and reduction argument. Its citation [13] §7 (Jochnowitz, theta-cycle classification) and Serre Astérisque24–25 Theorem3 for N=1,p=2,3 have not been read. The displayed tables remain explicit targets; close the cited proof inputs or give the indicated finite supersingular computation.
 
-Needed by: [Tate's theta-cycles, with the p > 3 classification and the explicit p = 2 and p = 3 tables](#R15-3-theta-cycles-and-the-small-characteristic-tables), [Every mod p eigensystem comes, up to a theta-twist, from weight at most p+1](#R15-3-weight-reduction-to-at-most-p-plus-one).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.3/theta-cycles-and-the-small-characteristic-tables`, `AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one`.
 
 ### Ribet input to normalized bad-dihedral application
 
 Retain the routed source boundary from ClassicalSerreModularity: Ribet, Images of semistable Galois representations, Proposition2.2 has not been read. DP Lemma1.14 supplies the fuller niveau proof and KW6.2(ii) the conclusion, but the cited original input and the supplier’s image identification still need independent verification. No claim of source closure is made.
 
-Needed by: [Bad-dihedral normalized weight constraint](#R15-4-bad-dihedral-normalized-weight-application).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.4/bad-dihedral-normalized-weight-application`.
 
 ### Character lattice and Katz shift-to-reduction image
 
 The fine-level Katz holomorphic base-change theorem does not automatically handle cusp twists, low-level stabilizer invariants or a character projector whose order is not a unit. Establish the H¹-torsion criterion in the exact requested character/level setting and provide a Hasse-power shift landing in that reduction image for the Katz-modularity equivalence. Same-weight lifting is stated only for an actual reduction eigenvector.
 
-Needed by: [Integral lattice and reduction image](#R15-2-integral-lattice-and-reduction-image), [Weight shift and true eigenform lifting](#R15-5-reduction-to-weight-at-least-two-and-to-a-true-eigenform), [Modularity formulations and determinant congruence](#R15-6-modularity-formulations-and-determinant).
-
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.2/integral-lattice-and-reduction-image`, `AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`, `AlgebraicModularFormsAndSerreWeights:R15.6/modularity-formulations-and-determinant`.
 
 ### Fontaine–Laffaille convention and classification
 
 The supplier’s contravariant U_S functor and simple-object theorem give χ^r for positive filtration degree r (HT(χ_cyc)=+1). The extension-sensitive rank-two classification, including the ordered stable line in the wild branch and the r=1 finite-flat/peu assertion, is requested rather than inferred from Edixhoven’s geometric modular-form proof. Reconcile coefficient embeddings and the residual functor convention before closure.
 
-Needed by: [Fontaine–Laffaille weight comparison](#R15-4-fontaine-laffaille-weight-comparison).
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.4/fontaine-laffaille-weight-comparison`.
+
+### Q-expansion vanishing and proper coherent base-change interfaces
+
+Katz1.6.1 uses quasi-coherent cohomology commuting with filtered colimits, faithful flatness of noetherian completion, formal functions, Krull intersection and the depth-zero support argument on a smooth curve over an Artin base. Katz1.7.1 and finite-generation-of-geometric-sections require proper coherent finiteness/base change and the curve degree/Serre-duality vanishing criterion. Their exact pinned declarations or owned scheme-foundation interfaces are not yet identified. For weight1 full level n≤11 also supply the cusp-count/degree calculation; name these interfaces before closing the nodes.
+
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.2/q-expansion-principle-and-its-vanishing-theorem`, `AlgebraicModularFormsAndSerreWeights:R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary`, `AlgebraicModularFormsAndSerreWeights:R15.2/finite-generation-of-geometric-sections`.
+
+### Strong q-expansion coefficient reduction and characteristic-zero constants
+
+The characteristic-p constant-expansion input is read in Katz4.4.1 and imported through the ordinary weight criterion. For characteristic zero provide constant-expansion vanishing in positive weight via the analytic comparison and finite-data descent to a finitely generated field embeddable in ℂ. Also spell out Katz’s reduction of arbitrary coefficient modules to the Artin-local field induction. The polynomial-Hecke argument alone does not settle either input.
+
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.2/strong-q-expansion-principle-with-its-divisibility-hypothesis`.
+
+### Eisenstein coefficient integrality in Deligne congruence and shifts
+
+Use the owned analytic Eisenstein q-expansion, then identify an exact pinned theorem or prove the required Bernoulli p-adic valuation (von Staudt–Clausen), including DS6.9 even-weight shifts at p=2,3. This arithmetic input is not supplied by Hasse base change and is not a new geometric Eisenstein construction.
+
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.3/deligne-congruence-and-the-explicit-p-equals-2-3-liftings`, `AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`.
+
+### Simple supersingular divisor and finite eigensystem support
+
+The elliptic Hasse section has simple zeros at the finite supersingular points; Edixhoven7.1–7.2 and Katz77 cite this modular-curve geometry, but its exact supplier proof interface is not present at the pins. It is requested from R13.5. The §7.5 reduction further uses support preservation under finite-dimensional field duality and passage from support of a module over a finite commutative operator-image algebra to a common eigenvector over F̄_p. Identify the exact algebra API; do not assume semisimplicity of the Hecke action.
+
+Needed by: `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-section-space`, `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-hecke-twisted-periodicity`, `AlgebraicModularFormsAndSerreWeights:R15.3/twisted-serre-duality-hecke`, `AlgebraicModularFormsAndSerreWeights:R15.3/weight-reduction-to-at-most-p-plus-one`.
 
 ## Supplier requests
 
-The supplier retains ownership of each imported theorem or construction. Existing upstream work is never re-planned.
+### tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields
 
+Reuse finite integral Hecke theory and the separately justified weight-one 8W lattice. Proposition 2.7 is not Lemme 6.11; the requested lattice is input, not an assertion of arbitrary Katz lifting.
 
-- **tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields**: Reuse finite integral Hecke theory and the separately justified weight-one 8W lattice. Proposition 2.7 is not Lemme 6.11; the requested lattice is input, not an assertion of arbitrary Katz lifting. Needed by `AlgebraicModularFormsAndSerreWeights:R15.5`.
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.5`.
 
+### tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor
 
-- **tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor**: After lifting the specified eigenvalue family, supply the exact newform/oldform and normalization result with its level, character and bad-prime data. A good-prime eigenvector is not automatically a normalized full eigenform at the same level. Needed by `AlgebraicModularFormsAndSerreWeights:R15.5`.
+After lifting the specified eigenvalue family, supply the exact newform/oldform and normalization result with its level, character and bad-prime data. A good-prime eigenvector is not automatically a normalized full eigenform at the same level.
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.5`.
 
-- **ArithmeticGaloisRepresentations:R01.2**: Tame inertia I_t of ℚ_p, its identification with lim F_{p^n}^×, the fundamental characters of levels 1 and 2 and the conjugation action u ↦ u^p of a Frobenius lift (Serre 1987, 2.1). Needed by [The two tame characters of a local residual representation are of level 1 or of level 2 and then conjugate](#R15-4-tame-inertia-characters-of-a-local-residual-representation), [Well-definedness of the local weight recipe](#R15-4-recipe-well-definedness-and-twisting).
+### ArithmeticGaloisRepresentations:R01.2
 
+Tame inertia I_t of ℚ_p, its identification with lim F_{p^n}^×, the fundamental characters of levels 1 and 2 and the conjugation action u ↦ u^p of a Frobenius lift (Serre 1987, 2.1).
 
-- **ArithmeticGaloisRepresentations:R01.3**: The prime-to-p Artin conductor N(ρ̄) of a residual representation, n(l, ρ̄) = dim V/V^{G_0} + b(V) (Serre 1987, (1.2.1)–(1.2.2)). Needed by [S-type representations, "arises from a newform" and "modular", and their invariance under the coefficient field](#R15-6-s-type-arises-from-and-modular), [Classical Serre target](#R15-6-serre-conjecture-target-with-N-k-epsilon).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.4/tame-inertia-characters-of-a-local-residual-representation`, `AlgebraicModularFormsAndSerreWeights:R15.4/recipe-well-definedness-and-twisting`.
 
+### ArithmeticGaloisRepresentations:R01.3
 
-- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5**: Finiteness at 2 of ρ₂ : G_{ℚ₂} → GL₂(F̄₂) whose tame characters are the fundamental characters of level 2: the descent to ℤ₂ of Raynaud's prolongation over ℤ₂^nr (Theorem 3.4.3), where uniqueness may fail because e = p − 1 = 1. Needed by [At p = 2 Serre's weight is 2 or 4, and it is 4 exactly in the wild très ramifiée case](#R15-4-dyadic-weight-two-or-four).
+The prime-to-p Artin conductor N(ρ̄) of a residual representation, n(l, ρ̄) = dim V/V^{G_0} + b(V) (Serre 1987, (1.2.1)–(1.2.2)).
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular`, `AlgebraicModularFormsAndSerreWeights:R15.6/serre-conjecture-target-with-N-k-epsilon`.
 
-- **ModularCurvesPartII:R13.3**: The Tate curve Tate(q^n) over Z[1/n, ζ_n]((q)) with its canonical differential and level structures, as the formal neighbourhood of each cusp. Supply the full reduced cusp divisor with its Cartier ideal and Tate vanishing-order interpretation. Needed by [Geometric modular forms in every integral weight](#R15-1-hodge-bundle-with-tate-curve-normalization), [Geometric cusp forms](#R15-1-cusp-ideal-section-forms).
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5
 
+Finiteness at 2 of ρ₂ : G_{ℚ₂} → GL₂(F̄₂) whose tame characters are the fundamental characters of level 2: the descent to ℤ₂ of Raynaud's prolongation over ℤ₂^nr (Theorem 3.4.3), where uniqueness may fail because e = p − 1 = 1.
 
-- **ModularCurvesPartII:R12.5**: Supply the elliptic Hodge line on the compactified moduli stack and its analytic automorphy/Tate trivialization; Kodaira–Spencer is proved in R15.1/logarithmic-kodaira-spencer. Needed by [Geometric modular forms in every integral weight](#R15-1-hodge-bundle-with-tate-curve-normalization), [All-weight analytic comparison](#R15-1-all-weight-analytic-comparison).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.4/dyadic-weight-two-or-four`.
 
+### ModularCurvesPartII:R13.3
 
-- **ModularCurvesPartII:R14.1**: The Hecke correspondences T_l on M_n via the l + 1 subgroups of order l, with the level structure π(α_n) (Katz 1.11.0). Needed by [Hecke operators defined over arbitrary coefficient modules by their q-expansion formula](#R15-2-integral-hecke-operators-from-q-expansions).
+The Tate curve Tate(q^n) over Z[1/n, ζ_n]((q)) with its canonical differential and level structures, as the formal neighbourhood of each cusp. Supply the full reduced cusp divisor with its Cartier ideal and Tate vanishing-order interpretation.
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.1/cusp-ideal-section-forms`.
 
-- **ModularCurvesPartII:R13.4a**: Proper rigidifying covers, effective descent of sections and the coherent finiteness/base-change interface on the integral compactified stack; no coarse-space descent in all weights. Needed by [Geometric modular forms in every integral weight](#R15-1-hodge-bundle-with-tate-curve-normalization), [Finite generation of geometric forms](#R15-2-finite-generation-of-geometric-sections), [All-weight analytic comparison](#R15-1-all-weight-analytic-comparison).
+### ModularCurvesPartII:R12.5
 
+Supply the elliptic Hodge line on the compactified moduli stack and its analytic automorphy/Tate trivialization; Kodaira–Spencer is proved in R15.1/logarithmic-kodaira-spencer.
 
-- **ComplexComparisonPartII:C2**: Projective coherent GAGA for all integer Hodge powers and cusp twists, compatible with finite group action and descent. Needed by [All-weight analytic comparison](#R15-1-all-weight-analytic-comparison).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
 
+### ModularCurvesPartII:R14.1
 
-- **tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus**: Analytic modular forms, character spaces and automorphy factor for each integer weight; the geometric comparison identifies its actual carrier. Needed by [All-weight analytic comparison](#R15-1-all-weight-analytic-comparison).
+The Hecke correspondences T_l on M_n via the l + 1 subgroups of order l, with the level structure π(α_n) (Katz 1.11.0).
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.2/integral-hecke-operators-from-q-expansions`.
 
-- **AbelianSchemesAndArithmeticModuli:A4**: Universal elliptic relative de Rham bundle, Hodge filtration, Gauss–Manin connection and cup product with base-change and isogeny functoriality. Needed by [Logarithmic Kodaira–Spencer isomorphism](#R15-1-logarithmic-kodaira-spencer), [The theta operator, the filtration w(f), and their Hecke commutation relations](#R15-3-theta-operator-filtration-and-hecke-commutation).
+### ModularCurvesPartII:R13.4a
 
+Proper rigidifying covers, effective descent of sections and the coherent finiteness/base-change interface on the integral compactified stack; no coarse-space descent in all weights.
 
-- **AutomorphicBundles:B3**: Canonical logarithmic extension of the elliptic de Rham bundle and connection at modular cusps; R15.1 owns the Kodaira–Spencer proof. Needed by [Logarithmic Kodaira–Spencer isomorphism](#R15-1-logarithmic-kodaira-spencer).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization`, `AlgebraicModularFormsAndSerreWeights:R15.2/finite-generation-of-geometric-sections`, `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
 
+### ComplexComparisonPartII:C2
 
-- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2**: General BT₁ Hasse invariant det(V*) and its compatibility with dual Frobenius, with the determinant-line conventions fixed. Needed by [Elliptic modular Hasse invariant](#R15-3-hasse-invariant-as-a-form-of-weight-p-minus-one).
+Projective coherent GAGA for all integer Hodge powers and cusp twists, compatible with finite group action and descent.
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
 
-- **ModularCurvesPartII:R13.5**: Ordinary Igusa cover/tower, tautological Hodge differential and full unit-group monodromy modulo p^m, including p=2 and3. Needed by [Igusa interpretation of Hasse and theta](#R15-3-igusa-interpretation-of-hasse-and-theta), [Congruences of weights on the ordinary tower](#R15-3-weight-congruences-on-the-ordinary-tower).
+### tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
 
+Analytic modular forms, character spaces and automorphy factor for each integer weight; the geometric comparison identifies its actual carrier.
 
-- **ModularCurvesPartII:R14.1**: Auxiliary compactified moduli curve, degeneracy projections and extended quotient-isogeny Hodge maps; U_y correspondences at y|Q. The auxiliary curve map w_x and its square are constructed in R15.2, not requested from this supplier. Needed by [Fricke action on Hodge powers](#R15-2-fricke-hodge-action), [Hecke action on torsion coherent cohomology](#R15-2-torsion-cohomology-hecke-action), [Geometric Fricke map](#R15-2-curve-fricke-map).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
 
+### AbelianSchemesAndArithmeticModuli:A4
 
-- **ArithmeticGaloisRepresentations:R01.4**: S-type image and bad-dihedral identification: cyclotomic restriction reducible iff restriction to ℚ(√p*) reducible, p*=(-1)^((p−1)/2)p, with the induced-dihedral structure and projective inertia facts. Needed by [Bad-dihedral normalized weight constraint](#R15-4-bad-dihedral-normalized-weight-application).
+Universal elliptic relative de Rham bundle, Hodge filtration, Gauss–Manin connection and cup product with base-change and isogeny functoriality.
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/logarithmic-kodaira-spencer`, `AlgebraicModularFormsAndSerreWeights:R15.3/theta-operator-filtration-and-hecke-commutation`.
 
-- **ArithmeticGaloisRepresentations:R01.5**: Finite-field semisimplification, stable-lattice independence/Brauer–Nesbitt and realizability over the field of characteristic-polynomial coefficients, without a dependency on late R15.6 definitions. Needed by [Residual modularity witness](#R15-6-residual-modularity-witness), [Coefficient-field descent in the residual definition](#R15-6-realizability-over-the-field-of-characteristic-polynomials), [S-type representations, "arises from a newform" and "modular", and their invariance under the coefficient field](#R15-6-s-type-arises-from-and-modular), [Modularity formulations and determinant congruence](#R15-6-modularity-formulations-and-determinant).
+### AutomorphicBundles:B3
 
+Canonical logarithmic extension of the elliptic de Rham bundle and connection at modular cusps; R15.1 owns the Kodaira–Spencer proof.
 
-- **AutomorphicGaloisRepresentations:R19.1**: The remaining coefficient-place transport and stable-lattice/residual semisimplification interface for the attached representations. The characteristic-zero weight≥2 and weight-one attachments and the reduction-eigenform residual representation are finer node imports. Do not import late R15.6 as a prerequisite of the early residual construction. Needed by [Residual modularity witness](#R15-6-residual-modularity-witness), [Modularity formulations and determinant congruence](#R15-6-modularity-formulations-and-determinant).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/logarithmic-kodaira-spencer`.
 
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
 
-- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5**: The extension-sensitive finite-flat/local inertia cases consumed by the R15.4 comparison and the finite torsion model of good semistable elliptic curves; the Fontaine–Laffaille functor/classification itself is imported from R07.3. Needed by [Fontaine–Laffaille weight comparison](#R15-4-fontaine-laffaille-weight-comparison), [Serre weight of semistable elliptic torsion](#R15-4-semistable-elliptic-torsion-weight).
+General BT₁ Hasse invariant det(V*) and its compatibility with dual Frobenius, with the determinant-line conventions fixed.
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`.
 
-- **tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1**: Relative Frobenius, dual isogeny Verschiebung and their action on invariant differentials; the geometric form operation is the R15.3 specialization. Needed by [Frobenius and Verschiebung on forms](#R15-3-frobenius-verschiebung-on-expansions).
+### ModularCurvesPartII:R13.5
 
+Ordinary Igusa cover/tower, tautological Hodge differential and full unit-group monodromy modulo p^m, including p=2 and3.
 
-- **tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv**: Tate curve torsion exact sequence and Kummer class q_E, including the unramified quadratic twist for nonsplit multiplicative reduction. Needed by [Serre weight of semistable elliptic torsion](#R15-4-semistable-elliptic-torsion-weight).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.3/igusa-interpretation-of-hasse-and-theta`, `AlgebraicModularFormsAndSerreWeights:R15.3/weight-congruences-on-the-ordinary-tower`.
 
+### ModularCurvesPartII:R14.1
 
-- **FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3**: Rank-two extension-sensitive inertia classification for residual Fontaine–Laffaille weights {0,r}, 1≤r≤p−2, including the r=1 finite/peu assertion, using the existing contravariant U_S functor and positive-weight inertia dictionary. The functor and simple-object dictionary are finer node imports, not new constructions. Needed by [Fontaine–Laffaille weight comparison](#R15-4-fontaine-laffaille-weight-comparison).
+Auxiliary compactified moduli curve, degeneracy projections and extended quotient-isogeny Hodge maps; U_y correspondences at y|Q. The auxiliary curve map w_x and its square are constructed in R15.2, not requested from this supplier.
 
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.2/fricke-hodge-action`, `AlgebraicModularFormsAndSerreWeights:R15.2/torsion-cohomology-hecke-action`, `AlgebraicModularFormsAndSerreWeights:R15.2/curve-fricke-map`.
 
-- **tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas**: Reuse Layer10C’s analytic automorphy line, all-integer-weight section-space interpretation and stabilizer/cusp conventions; the algebraic/analytic GAGA bridge alone is owned by R15.1. Needed by [All-weight analytic comparison](#R15-1-all-weight-analytic-comparison).
+### ArithmeticGaloisRepresentations:R01.4
 
+S-type image and bad-dihedral identification: cyclotomic restriction reducible iff restriction to ℚ(√p*) reducible, p*=(-1)^((p−1)/2)p, with the induced-dihedral structure and projective inertia facts.
 
-- **ModularCurvesPartII:R13.4b**: The compactified quotient/contraction interface for auxiliary Γ₀(x) level and universal isogeny differentials, including cusp charts and compatibility with the Δ quotient; CG18 cites Conrad Proposition4.4.3, not read here. This supplies the extension input, not the new w_x construction. Needed by [Geometric Fricke map](#R15-2-curve-fricke-map).
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.4/bad-dihedral-normalized-weight-application`.
 
+### ArithmeticGaloisRepresentations:R01.5
 
-- **SchemeAndStackFoundations:SF.3**: Relative coherent Serre duality for a smooth proper curve over a DVR, with the K/O duality H¹(L^∨⊗Ω⊗K/O)≅Hom_O(H⁰(L),K/O) under the finite-free/base-change hypotheses of the fine modular curve, and functoriality for finite-flat isogeny correspondences. SF.2 proper adjunction and trace provide the general input; field-only Serre duality does not by itself supply this torsion-coefficient specialization. Needed by [Twisted Serre duality for Hecke actions](#R15-3-twisted-serre-duality-hecke).
+Finite-field semisimplification, stable-lattice independence/Brauer–Nesbitt and realizability over the field of characteristic-polynomial coefficients, without a dependency on late R15.6 definitions.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-witness`, `AlgebraicModularFormsAndSerreWeights:R15.6/realizability-over-the-field-of-characteristic-polynomials`, `AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular`, `AlgebraicModularFormsAndSerreWeights:R15.6/modularity-formulations-and-determinant`.
+
+### AutomorphicGaloisRepresentations:R19.1
+
+The remaining coefficient-place transport and stable-lattice/residual semisimplification interface for the attached representations. The characteristic-zero weight≥2 and weight-one attachments and the reduction-eigenform residual representation are finer node imports. Do not import late R15.6 as a prerequisite of the early residual construction.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.6/residual-modularity-witness`, `AlgebraicModularFormsAndSerreWeights:R15.6/modularity-formulations-and-determinant`.
+
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5
+
+The extension-sensitive finite-flat/local inertia cases consumed by the R15.4 comparison and the finite torsion model of good semistable elliptic curves; the Fontaine–Laffaille functor/classification itself is imported from R07.3.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.4/fontaine-laffaille-weight-comparison`, `AlgebraicModularFormsAndSerreWeights:R15.4/semistable-elliptic-torsion-weight`.
+
+### tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1
+
+Relative Frobenius, dual isogeny Verschiebung and their action on invariant differentials; the geometric form operation is the R15.3 specialization.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.3/frobenius-verschiebung-on-expansions`.
+
+### tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
+
+Tate curve torsion exact sequence and Kummer class q_E, including the unramified quadratic twist for nonsplit multiplicative reduction.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.4/semistable-elliptic-torsion-weight`.
+
+### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3
+
+Rank-two extension-sensitive inertia classification for residual Fontaine–Laffaille weights {0,r}, 1≤r≤p−2, including the r=1 finite/peu assertion, using the existing contravariant U_S functor and positive-weight inertia dictionary. The functor and simple-object dictionary are finer node imports, not new constructions.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.4/fontaine-laffaille-weight-comparison`.
+
+### tauceti:TauCetiRoadmap/ModularForms#layer-10-the-modular-curve-γℍ-and-the-dimension-formulas
+
+Reuse Layer10C’s analytic automorphy line, all-integer-weight section-space interpretation and stabilizer/cusp conventions; the algebraic/analytic GAGA bridge alone is owned by R15.1.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
+
+### ModularCurvesPartII:R13.4b
+
+The compactified quotient/contraction interface for auxiliary Γ₀(x) level and universal isogeny differentials, including cusp charts and compatibility with the Δ quotient; CG18 cites Conrad Proposition4.4.3, not read here. This supplies the extension input, not the new w_x construction.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.2/curve-fricke-map`.
+
+### SchemeAndStackFoundations:SF.3
+
+Relative coherent Serre duality for a smooth proper curve over a DVR, with the K/O duality H¹(L^∨⊗Ω⊗K/O)≅Hom_O(H⁰(L),K/O) under the finite-free/base-change hypotheses of the fine modular curve, and functoriality for finite-flat isogeny correspondences. SF.2 proper adjunction and trace provide the general input; field-only Serre duality does not by itself supply this torsion-coefficient specialization.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.3/twisted-serre-duality-hecke`.
+
+### tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
+
+Use the existing Eisenstein series and Bernoulli q-expansion normalization to supply E_{p−1} for p≥5 and the even E_n shifts of DS6.9. Do not construct a second Eisenstein API; the exact p-integral coefficient valuation remains a baseline/source obligation.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.3/deligne-congruence-and-the-explicit-p-equals-2-3-liftings`, `AlgebraicModularFormsAndSerreWeights:R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`.
+
+### ModularCurvesPartII:R13.5
+
+Supply the finite reduced supersingular locus of X₁(N) over F̄_p for p∤N, N≥5, with the elliptic Hasse zero divisor having multiplicity one, and prime-to-p isogenies preserving it. This is elliptic modular-curve geometry; the general BT₁ Hasse determinant remains R07.2.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-section-space`, `AlgebraicModularFormsAndSerreWeights:R15.3/supersingular-hecke-twisted-periodicity`.
+
+### ModularCurvesPartII:R13.3
+
+The finite cusp-type decomposition and Tate level charts on X_Δ(Q), compatible with the map to X₀(NQ), diamonds and good-prime Hecke correspondences. The diamonds are transitive only within appropriate fibres, not on the whole divisor. R15.2 computes the boundary eigenvalues from this geometry.
+
+Consumers: `AlgebraicModularFormsAndSerreWeights:R15.2/boundary-eigensystems-are-eisenstein`.

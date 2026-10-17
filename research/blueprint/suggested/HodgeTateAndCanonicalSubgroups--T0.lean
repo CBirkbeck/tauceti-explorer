@@ -754,8 +754,9 @@ def deRhamHodgeTateLeviComparison (PdR PdRTate PHT : Sheaf J (Type u)) :
     PdRTate ≅ PHT := sorry
 end Torsors
 
-/-! T2 owns the open-tower map before perfectoid representability. S0 supplies
-Tower, D6 supplies Flag as v-sheaves on the marked-untilt perfectoid site.
+/-! T2 owns the open-tower map before perfectoid representability. The accepted whole
+T2 packet supplies Tower through its moved-down finite tower, action and limit diamond;
+S0 imports them. D6 supplies diamondification of the analytic Flag over the fixed untilt.
 P9 supplies relative tensor-filtration pullback and descent on all test objects;
 R09.1/B0 supply the universal flag and homogeneous Levi torsor. These
 conditions are omitted from the schematic declarations, not assumed proved.

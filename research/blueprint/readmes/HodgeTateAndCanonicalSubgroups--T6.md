@@ -160,29 +160,24 @@ Integral charts turn generic log algebra into analytic geometry. Continuous diff
 
 ### Log structures on an adic étale site
 
-`HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space` · definition · proposed declaration `TauCeti.LogAdic.LogAdicData`.
-
-Atlas planet: **Log adic spaces**.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space`. Kind: **definition**.
 
 Let X be an étale sheafy adic space. A pre-log structure on X is a sheaf M_X of commutative monoids on X_ét with a monoid map α:M_X→(O_{X_ét},·); morphisms of pre-log structures commute with the structure maps. It is a log structure, and (X,M_X,α) a log adic space, if α restricts to an isomorphism α⁻¹(O×_{X_ét})≃O×_{X_ét}. The log structure ᵃM associated with a pre-log structure is the pushout O×_{X_ét}←α⁻¹(O×_{X_ét})→M_X in sheaves of monoids, and logification is left adjoint to the inclusion of log structures into pre-log structures. The characteristic is M̄_X=M_X/α⁻¹(O×_{X_ét}); its geometric stalks are sharp. M_X is integral (resp. saturated) if it is a sheaf of integral (resp. saturated) monoids, equivalently if every geometric stalk is. A morphism (Y,M_Y,α_Y)→(X,M_X,α_X) is a morphism f:Y→X of adic spaces with a monoid-sheaf map f♯:f⁻¹M_X→M_Y compatible with f♯:f⁻¹O_{X_ét}→O_{Y_ét} and the structure maps. The pullback f*M_X is the log structure associated with f⁻¹M_X→f⁻¹O_{X_ét}→O_{Y_ét}; f is strict if f*M_X→M_Y is an isomorphism, equivalently if M̄_{X,f(ȳ)}→M̄_{Y,ȳ} is an isomorphism at every geometric point ȳ, and exact if, at every geometric point ȳ, the induced homomorphism (f*M_X)_ȳ→M_{Y,ȳ} is exact (for integral log structures, equivalently the induced map of characteristic stalks is exact). Properties of the underlying adic space or morphism (locally noetherian, affinoid, lft, proper, finite, …) are attributed to the log adic space or log morphism.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.LogAdicData`.
+
+Hypotheses and conventions:
 
 - X is étale sheafy (DLLZ Convention 2.2.1). The packet instantiates the étale site and structure sheaves of AdicEtaleGeometry A1, which are built for locally strongly sheafy analytic adic spaces (including locally noetherian analytic adic spaces and perfectoid spaces). DLLZ's non-analytic locally noetherian spaces, such as Spa(A,A) for a formal scheme in Proposition 2.2.22, are outside this specialisation.
 - Coherent, fine and fs log adic spaces are defined through integral charts (integral-adic-chart, DLLZ Definition 2.3.5), not through finite generation of section monoids.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Apply the CR.5 logification and pullback constructions to the étale ringed site (X_ét,O_{X_ét}) of A1; Remark 2.2.3 gives the adjunction.
 2. Check the unit condition, sharpness of M̄ and integrality or saturation on geometric stalks (Lemma 2.2.4, Remark 2.2.5).
 3. Compose morphisms through the canonical isomorphism (g∘f)*≅f*∘g* of logified pullbacks; the stalk criterion for strictness is Remark 2.2.6, using that f♯ is local on stalks and Lemma 2.1.5.
 
-**Acceptance checks.**
-
-- The trivial log structure is O_X×, not the one-element monoid when X has nontrivial units.
-- Strictness is tested on f*M_X→M_Y, the logified pullback, not on f⁻¹M_X→M_Y.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.LogAdicData` (constructor): Bundle the monoid sheaf, structural map and unit isomorphism over the imported étale ringed adic carrier.
 - `TauCeti.LogAdic.LogAdicData.strict` (characterisation): f is strict exactly when the logified pullback map is an isomorphism.
@@ -194,27 +189,29 @@ Let X be an étale sheafy adic space. A pre-log structure on X is a sheaf M_X of
 - `TauCeti.LogAdic.LogAdicData.trivial` (example): The trivial log structure O×_{X_ét}→O_{X_ét} (Example 2.2.7); it is the pullback of the trivial log structure along any morphism.
 - `TauCeti.LogAdic.LogAdicData.strict_iff_stalk` (characterisation): f is strict if and only if M̄_{X,f(ȳ)}→M̄_{Y,ȳ} is an isomorphism at every geometric point ȳ of Y (Remark 2.2.6).
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.LogAdicData.trivial_units` (degenerate): For M=O_X× the unit comparison is the identity.
 - `TauCeti.LogAdic.LogAdicData.unit_fiber` (characterisation): At every geometric stalk, each unit of O_X has a unique lift in α⁻¹(O_X×).
 - `TauCeti.LogAdic.LogAdicData.not_terminal_monoid` (non-example): For Spa(Q_p,Z_p), the one-element monoid mapping to 1 is not a log structure because Q_p× has more than one element.
 
-**Prerequisites.** `AdicEtaleGeometry:A1/etale-site`, `AdicEtaleGeometry:A1/etale-structure-sheaf`, `CrystallineCohomology:CR.5:log-algebra/log-structure`, `CrystallineCohomology:CR.5:log-algebra/associated-log`, `CrystallineCohomology:CR.5:log-algebra/log-pullback`, `CrystallineCohomology:CR.5:log-algebra`.
+Uses:
 
-**Sources and relation to this target.**
+- **DLLZ-adic §4.1**: Kummer maps are tested on log characteristic stalks.
+- **PrismaticCohomology:PR.8**: Imports the analytic log-site geometry without a p-adic comparison.
 
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Convention 2.2.1, p. 7. States the étale-sheafiness convention behind the node; the packet further restricts to the analytic carriers of the A1 étale site, as recorded in the hypotheses.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 2.2.2(3), p. 8. Defines the unit condition α⁻¹(O×)≃O× that makes a pre-log structure a log structure; parts (1)-(2) and (4)-(6) of the same definition give pre-log structures, integrality/saturation, the characteristic and the associated log structure stated here.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 2.2.2(7)-(8), p. 8. Defines morphisms of log adic spaces, the pullback log structure f*M_X and strictness exactly as in the node; part (8) defines exactness of (f*M_X)_ȳ→M_{Y,ȳ} at geometric points.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Example 2.2.7 and Remark 2.2.6, p. 9. Example 2.2.7 identifies the trivial log structure as O×_{X_ét} with its inclusion (the node's degenerate test); Remark 2.2.6 on the same page gives the stalkwise criterion for strictness.
+Acceptance:
 
-**Uses.**
+- The trivial log structure is O_X×, not the one-element monoid when X has nontrivial units.
+- Strictness is tested on f*M_X→M_Y, the logified pullback, not on f⁻¹M_X→M_Y.
 
-- DLLZ-adic §4.1: Kummer maps are tested on log characteristic stalks.
-- PrismaticCohomology:PR.8: Imports the analytic log-site geometry without a p-adic comparison.
+Direct prerequisites: `AdicEtaleGeometry:A1/etale-site`, `AdicEtaleGeometry:A1/etale-structure-sheaf`, `CrystallineCohomology:CR.5:log-algebra/log-structure`, `CrystallineCohomology:CR.5:log-algebra/associated-log`, `CrystallineCohomology:CR.5:log-algebra/log-pullback`, `CrystallineCohomology:CR.5:log-algebra`, `ComplexComparisonPartII:C5/prelog-structure`, `ComplexComparisonPartII:C5/log-structure`, `ComplexComparisonPartII:C5/associated-log-structure`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace `TauCeti.LogAdic`.
+Sources: [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Convention 2.2.1, p. 7; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 2.2.2(3), p. 8; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 2.2.2(7)-(8), p. 8; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Example 2.2.7 and Remark 2.2.6, p. 9.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace `TauCeti.LogAdic`.
+
+Atlas planet: **Log adic spaces**.
 
 <a id="toric-log-adic-space"></a>
 
@@ -1772,107 +1769,99 @@ Toric character cohomology supplies local almost calculations. Properness turns 
 
 ### Toric character cohomology estimates
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology` · theorem · proposed declaration `TauCeti.LogAdic.toric_kummer_cohomology`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology`. Kind: **theorem**.
 
 Let k be a perfectoid field of characteristic zero and residue characteristic p containing all roots of unity, k⁺=O_k, P a sharp fs monoid, V=Spa(S₁,S₁⁺) a log smooth affinoid fs log adic space over Spa(k,k⁺) with a toric chart V→E=Spa(k⟨P⟩,k⁺⟨P⟩), n=dim V, and L an F_p-local system on V_két. (1) H^i(V_két,L⊗_{F_p}O⁺_V/p) is almost zero for all i>n. (2) If V′⊂V is a rational subset strictly contained in V (the closure of V′ lies in V), the image of H^i(V_két,L⊗O⁺_V/p)→H^i(V′_két,L⊗O⁺_V/p) is an almost finitely generated k⁺-module for each i≥0. (3) (Lemma 6.1.7) Fix any r≥0 (independent of n=dim V). For Γ=Hom(P^gp,Ẑ(1)) and a k⁺/p^r-module M on which Γ acts through a primitive character χ:Γ→μ_m, every H^i(Γ,M) is killed by ζ_m−1 for any primitive m-th root of unity ζ_m; if moreover M≅M₀⊗_{k₀⁺/p^r}k⁺/p^r as Γ-modules for a finite extension k₀ of Q_p(μ_m) in k, a finitely generated k₀⁺/p^r-algebra T₀ and a finite T₀-module M₀, then H^i(Γ,M) is a finitely presented T₀⊗_{k₀⁺/p^r}k⁺/p^r-module.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.toric_kummer_cohomology`.
+
+Hypotheses and conventions:
 
 - Strict containment means closure(V′)⊂V. For Lemma 6.1.7 the finite-presentation assertion requires its finite coefficient model.
 - k perfectoid over Q_p: DLLZ-adic Proposition 6.1.1 assumes only that k has characteristic zero and contains all roots of unity, but its proof uses that Ẽ is log affinoid perfectoid, which needs k perfectoid (see sourceIssues); Theorem 6.2.1 applies it with k algebraically closed. Almost mathematics is with respect to the maximal ideal of O_k.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Decompose k⁺[P_{Q≥0}] by the finite-order characters of Γ (Lemma 6.1.6) and compute H^i(Γ,M) by the Koszul complex of Γ≅Ẑ(1)^{rk P^gp} as in Scholze 2013 Lemma 5.5, with flat base change for the finite-presentation clause (Lemma 6.1.7, Remark 6.1.8).
 2. For a log affinoid perfectoid U, H^i(U_két,L⊗O⁺/p) is almost zero for i>0 and its H^0 is almost finitely generated projective over R⁺/p (Lemma 6.1.11: Theorem 5.4.3 on a trivializing finite Kummer étale cover and almost faithfully flat descent).
 3. (1): for the Galois cover Ṽ→V with group Γ, the Cartan–Leray spectral sequence with Propositions 5.1.7 and 5.1.12 and Scholze 2013 Proposition 3.7(iii) gives H^i(V_két,L⊗O⁺/p)≅^a H^i(Γ,L(Ṽ)); Γ has cohomological dimension n.
 4. (2): choose rational V=V^{(1)}⊃⋯⊃V^{(n+2)}=V′, each strictly contained in the previous, approximate by finite levels (Lemma 6.1.9, analogue of Scholze 2013 Lemma 4.5), and use the Hochschild–Serre spectral sequence for mΓ⊂Γ, Remark 6.1.8 and Scholze 2013 Lemma 5.4.
 
-**Acceptance checks.**
+Acceptance:
 
 - For a nontrivial character χ of order m, every H^i(Γ,(k⁺/p)[P_{Q≥0}]_χ) is killed by ζ_m−1 (Lemma 6.1.7); for χ=1 the summand is (k⁺/p)[P] with trivial Γ-action and H^i(Γ,(k⁺/p)[P])≅(k⁺/p)[P]^{⊕C(r,i)}, r=rk P^gp, which is nonzero for 0≤i≤r.
 - For P=0 and V=Spa(k,O_k), Γ is trivial and H^i(V_két,O⁺/p) is almost zero for every i>0.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower](#all-root-toric-tower), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity](#log-perfectoid-almost-acyclicity), [HodgeTateAndCanonicalSubgroups:T6:log-sites/finite-kummer-descent](#finite-kummer-descent), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections](#log-site-projections), `PerfectoidSpaces:P0/almost-faithfully-flat-descent`, `PadicHodgeTheory:P8`, `ClassicalAdicEtaleCohomology:H0`, `PerfectoidSpaces:P0/almost-finitely-generated-and-presented`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/finite-kummer-descent`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections`, `PerfectoidSpaces:P0/almost-faithfully-flat-descent`, `PadicHodgeTheory:P8`, `ClassicalAdicEtaleCohomology:H0`, `PerfectoidSpaces:P0/almost-finitely-generated-and-presented`, `PadicHodgeTheory:P8/early-primitive-comparison-and-finiteness`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 6.1.1, p. 81; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 6.1.1(1), p. 81; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 6.1.1(2), p. 81; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 6.1.7, p. 83.
 
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 6.1.1, p. 81. Hypotheses of Proposition 6.1.1; the node adds that k is perfectoid, which the proof uses.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 6.1.1(1), p. 81. Part (1): almost vanishing above the dimension.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 6.1.1(2), p. 81. Part (2): almost finite generation of restriction images to strictly contained rational subsets.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 6.1.7, p. 83. Part (3): the character cohomology estimate and, in the same lemma, the finite-presentation clause.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="proper-log-almost-finiteness"></a>
 
 ### Proper log almost finiteness
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness` · theorem · proposed declaration `TauCeti.LogAdic.proper_log_almost_finiteness`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness`. Kind: **theorem**.
 
 Let (k,k⁺) be an affinoid field with k algebraically closed of characteristic zero and residue characteristic p, X a proper log smooth fs log adic space over Spa(k,k⁺) and L an F_p-local system on X_két. Then H^i(X_két,L⊗_{F_p}O⁺_X/p) is an almost finitely generated k⁺-module for each i≥0 and is almost zero for i sufficiently large. Almost mathematics is with respect to the maximal ideal m_k of O_k (contained in k⁺). This is an integral almost statement, not finite generation or vanishing before almost localization.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.proper_log_almost_finiteness`.
+
+Hypotheses and conventions:
 
 - Properness and log smoothness are both required; arbitrary open affinoids are excluded.
 - k is over Q_p: the source states only 'characteristic zero', but the proof uses log affinoid perfectoid objects, which live over Spa(Z_p,Z_p) (see sourceIssues).
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Reduce to k⁺=O_k: for X′=X×_{Spa(k,k⁺)}Spa(k,O_k), compare the Čech spectral sequences of a covering by log affinoid perfectoid objects using Lemma 6.1.11 and Proposition 5.1.7.
 2. Lemma 6.2.4: by Proposition 3.1.10 and the argument of Scholze 2013 Lemma 5.3 (properness), choose N affinoid étale coverings by chains V_h^{(N)}⊂⋯⊂V_h^{(1)} of rational subsets, each strictly contained in the previous, with toric charts on V_h^{(1)} and fibre products that are compositions of rational localizations and finite étale maps.
 3. Map the Čech spectral sequences of the N coverings to each other, apply Proposition 6.1.1(2) to the transition maps and Scholze 2013 Lemma 5.4 for almost finite generation; Proposition 6.1.1(1) and the first spectral sequence give almost vanishing in large degrees.
 
-**Acceptance checks.**
+Acceptance:
 
 - Proper smooth trivial-log spaces specialize to the ordinary primitive input.
 - For X=Spa(k,O_k) and L=F_p, H^0 is k⁺/p and H^i=0 for i>0.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology](#toric-kummer-cohomology), [HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower](#all-root-toric-tower), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis](#log-perfectoid-basis), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections](#log-site-projections), `PadicHodgeTheory:P8`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `PerfectoidSpaces:P0/almost-finitely-generated-and-presented`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections`, `PadicHodgeTheory:P8`, `DiamondsAndVStacks:D0/cech-to-derived-comparison`, `PerfectoidSpaces:P0/almost-finitely-generated-and-presented`, `PadicHodgeTheory:P8/early-primitive-comparison-and-finiteness`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 6.2.1, p. 85; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 6.2.1(1), p. 85; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 6.2.4, p. 86; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proof of Theorem 6.2.1(1), p. 86.
 
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 6.2.1, p. 85. Hypotheses of Theorem 6.2.1, kept in the node (properness and log smoothness).
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 6.2.1(1), p. 85. The almost finite generation conclusion of part (1).
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 6.2.4, p. 86. The covering lemma used in the proof, with its properness hypothesis.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proof of Theorem 6.2.1(1), p. 86. The reduction to k⁺=O_k recorded as the first proof step.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="log-primitive-comparison"></a>
 
 ### Logarithmic primitive comparison
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison` · theorem · proposed declaration `TauCeti.LogAdic.log_primitive_comparison`.
-
-Atlas planet: **Logarithmic primitive comparison**.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison`. Kind: **theorem**.
 
 For proper log smooth fs X over Spa(k,k⁺), k algebraically closed of characteristic zero and residue characteristic p, and an F_p-local system L on X_két, the canonical map H^i(X_két,L)⊗_{F_p}(k⁺/p)→H^i(X_két,L⊗_{F_p}O⁺_X/p) is an almost isomorphism of k⁺-modules for every i≥0. Transport along ν gives the matching pro-Kummer formulation. Its properness hypothesis is retained by every finite-level application.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.log_primitive_comparison`.
+
+Hypotheses and conventions:
 
 - DLLZ Theorem 6.2.1; no SNC assumption is needed for the comparison itself.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. The Artin–Schreier sequence 0→L→L⊗Ô^♭→L⊗Ô^♭→0 (σ=Id⊗(Φ−Id)) is exact on X_prokét, checked on log affinoid perfectoid objects trivializing L via Lemma 5.3.8 and the argument of Scholze 2013 Theorem 5.1.
 2. Choose ϖ∈k♭ with ϖ♯=p; by Theorem 6.2.1(1) and Scholze 2013 Lemma 2.12, H^i(X_prokét,L⊗Ô^{♭+}/ϖ^m)^a≅(O^a_{k♭}/ϖ^m)^r compatibly in m and with Frobenius; Scholze 2013 Lemma 3.18 passes to Ô^{♭+} and inverting ϖ to Ô^♭≅(k♭)^r.
 3. Take Frobenius invariants in the long exact sequence and use Proposition 5.1.7: H^i(X_két,L)≅F_p^r and H^i(X_két,L)⊗k^{+a}/p≅H^i(X_két,L⊗O⁺/p)^a.
 
-**Acceptance checks.**
+Acceptance:
 
 - For the constant Fp-sheaf on a geometric point the map is Fp⊗Fp k⁺/p≃k⁺/p.
 - Empty boundary agrees with Scholze’s ordinary primitive theorem.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness](#proper-log-almost-finiteness), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity](#log-perfectoid-almost-acyclicity), [HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves](#completed-structural-log-sheaves), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis](#log-perfectoid-basis), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections](#log-site-projections), `PadicHodgeTheory:P8`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections`, `PadicHodgeTheory:P8`, `PadicHodgeTheory:P8/early-primitive-comparison-and-finiteness`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), §6.2 and Theorem 6.2.1(2), p. 85; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proof of Theorem 6.2.1(2), p. 87; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proof of Theorem 6.2.1(2), p. 87.
 
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), §6.2 and Theorem 6.2.1(2), p. 85. Introduces Theorem 6.2.1, whose part (2) is the almost isomorphism H^i(X_két,L)⊗k⁺/p→H^i(X_két,L⊗O⁺/p) stated in the node with the same hypotheses plus residue characteristic p (source issue on Theorem 6.2.1).
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proof of Theorem 6.2.1(2), p. 87. The Artin–Schreier step of the proof followed in the node.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proof of Theorem 6.2.1(2), p. 87. The tilt-side computation; it uses that k has residue characteristic p, made explicit in the node.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Atlas planet: **Logarithmic primitive comparison**.
 
 <a id="log-cohomology-finite-vanishing"></a>
 
@@ -2000,30 +1989,27 @@ Constant periods use imported Fontaine constructions. Structural periods additio
 
 ### Ordinary periods on the pro-Kummer site
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods` · construction · proposed declaration `TauCeti.LogAdic.LogConstantPeriods`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods`. Kind: **construction**.
 
 Let X be a locally noetherian fs log adic space over Spa(Q_p,Z_p), with Ô⁺, Ô and Ô^{♭+}=lim_Φ Ô⁺ on X_prokét. Set A_inf=W(Ô^{♭+}), B_inf=A_inf[1/p] with θ:B_inf→Ô, B_dR⁺=lim_r B_inf/(ker θ)^r with Fil^r B_dR⁺=(ker θ)^r B_dR⁺, and B_dR=B_dR⁺[t⁻¹] for any local generator t of (ker θ)B_dR⁺, with Fil^r B_dR=∑_{s≥−r} t^{−s}Fil^{r+s}B_dR⁺ (Definition 2.2.3). For every log affinoid perfectoid U∈X_prokét with associated perfectoid space Û=Spa(R,R⁺) the canonical maps are isomorphisms A_inf(U)≅A_inf(R,R⁺)=W(R^{♭+}), B_inf(U)≅B_inf(R,R⁺), B_dR⁺(U)≅B_dR⁺(R,R⁺), B_dR(U)≅B_dR(R,R⁺), and H^j(U,B_dR⁺)=H^j(U,B_dR)=0 for all j>0 (Proposition 2.2.4). Hence t exists locally and is a nonzerodivisor, so B_dR and its filtration are well defined and independent of t (Remark 2.2.5). If X lies over a perfectoid field containing all roots of unity, gr^•B_dR≅⊕_{r∈Z}Ô(r) (Corollary 2.2.6). These are the ordinary period functors applied on X_prokét; no new local period ring is defined.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.LogConstantPeriods`.
+
+Hypotheses and conventions:
 
 - X is a locally noetherian fs log adic space over Spa(Q_p,Z_p) (Definition 2.2.3); no log smoothness and no p-adic base field is needed for the definitions or for Proposition 2.2.4.
 - The evaluation and acyclicity are asserted only on log affinoid perfectoid objects U of X_prokét (DLLZ-adic Definition 5.3.1), via the associated perfectoid pair (R,R⁺).
 - The Tate-twisted identification gr^r B_dR≅Ô(r) keeps the hypothesis of Corollary 2.2.6 (X over a perfectoid field containing all roots of unity); without it only gr^r B_dR(R,R⁺)≅ξ^rR ((2.2.2)) is asserted sectionwise.
 - Sectionwise the pinned Mathlib carrier BDeRhamPlus is used with its own hypotheses (p prime, p not a unit, p-adically complete ring), applied to R⁺.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Apply W, inversion of p and (ker θ)-adic completion to the tilted completed structure sheaf Ô^{♭+} (completed-structural-log-sheaves); log affinoid perfectoid objects form a basis of X_prokét (DLLZ-adic Proposition 5.3.12), so it suffices to work on them.
 2. Proposition 2.2.4: argue as in the ordinary case (Scholze 2013, Theorem 6.5; P8 period-sheaves-on-affinoid-perfectoids and rational-acyclicity-of-de-rham-period-sheaves), with the ordinary almost acyclicity input replaced by DLLZ-adic Theorem 5.4.3 (Ô^{♭+}(U)=R^{♭+} and almost vanishing of higher cohomology on log affinoid perfectoid U).
 3. Remark 2.2.5: ker θ on A_inf(R,R⁺) is principal, generated by a nonzerodivisor ξ ((2.2.1)), so a local generator t exists; two generators differ by a unit, so B_dR⁺[t⁻¹] and the filtration do not depend on t.
 4. Corollary 2.2.6: combine gr^r B_dR(R,R⁺)≅ξ^rR ((2.2.2)) with Proposition 2.2.4 as in the ordinary case (P8 graded-de-rham-period-sheaf-tate-twist); Corollary 2.2.7 (surjectivity along strict closed immersions on log affinoid perfectoid sections) follows from DLLZ-adic Proposition 5.4.5 and Proposition 2.2.4.
 
-**Acceptance checks.**
-
-- There is no new local period-ring definition duplicating P8: sectionwise the rings are A_inf(R,R⁺), B_dR⁺(R,R⁺), B_dR(R,R⁺) of the associated perfectoid pair.
-- On every log affinoid perfectoid U the sections are those of the associated perfectoid pair and H^j(U,B_dR⁺)=H^j(U,B_dR)=0 for j>0; this is the evaluation used by PerfectoidShimuraVarieties S6.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.LogConstantPeriods` (constructor): The sheaves A_inf, B_inf, B_dR⁺, B_dR on X_prokét obtained from Ô^{♭+} by the ordinary period functors, with θ and the filtrations of Definition 2.2.3.
 - `TauCeti.LogAdic.LogConstantPeriods.theta` (projection): θ:A_inf→Ô⁺, and its p-inverted and completed versions θ:B_inf→Ô, θ:B_dR⁺→Ô, surjective with kernel Fil¹.
@@ -2033,31 +2019,31 @@ Let X be a locally noetherian fs log adic space over Spa(Q_p,Z_p), with Ô⁺, �
 - `TauCeti.LogAdic.LogConstantPeriods.acyclic_log_affinoid_perfectoid` (other): For a log affinoid perfectoid U, H^j(U,B_dR⁺)=H^j(U,B_dR)=0 for all j>0 (Proposition 2.2.4(2)).
 - `TauCeti.LogAdic.LogConstantPeriods.closed_restriction_surjective` (compatibility): For a strict closed immersion ı:Z→X, B_dR,X⁺→ı_{prokét,*}B_dR,Z⁺ is surjective, already on sections over every log affinoid perfectoid U (Corollary 2.2.7).
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.LogConstantPeriods.trivial_log` (compatibility): For the trivial log structure, under X_prokét≃X_proét these sheaves, θ and filtrations are P8's A_inf, B_inf, B_dR⁺, B_dR.
 - `TauCeti.LogAdic.LogConstantPeriods.grade_zero` (computation): θ induces B_dR⁺/Fil¹B_dR⁺≅Ô; on a log affinoid perfectoid U this is B_dR⁺(R,R⁺)/ξ≅R.
 - `TauCeti.LogAdic.LogConstantPeriods.not_integral_completion` (non-example): (lim_r A_inf(R,R⁺)/ξ^r)[1/p]=A_inf(R,R⁺)[1/p] is not B_dR⁺(R,R⁺): the convergent series ∑_{n≥0}p^{−n}ξ^n lies in B_dR⁺(R,R⁺) but not in A_inf(R,R⁺)[1/p].
 - `TauCeti.LogAdic.LogConstantPeriods.point_values` (degenerate): For X=Spa(K,O_K) with K a perfectoid field and trivial log structure, U=X is log affinoid perfectoid and B_dR⁺(U)=B_dR⁺(K,O_K), Fontaine's ring, with Fil^r=ξ^rB_dR⁺(K,O_K).
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves](#completed-structural-log-sheaves), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity](#log-perfectoid-almost-acyclicity), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid](#log-affinoid-perfectoid), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis](#log-perfectoid-basis), `PadicHodgeTheory:P8:local-rational/period-sheaves-definitions`, `PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids`, `PadicHodgeTheory:P8:local-rational/rational-acyclicity-of-de-rham-period-sheaves`, `PadicHodgeTheory:P8:local-rational/de-rham-period-sheaf`, `PadicHodgeTheory:P8:local-rational/graded-de-rham-period-sheaf-tate-twist`, `mathlib:BDeRhamPlus`, `mathlib:fontaineThetaInvertP`.
+Uses:
 
-**Sources and relation to this target.**
+- **DLLZ-RH Definition 2.2.10**: The structural periods are B_dR⁺-algebras containing these constant coefficient periods.
+- **DLLZ-RH Proposition 2.3.15**: B_dR⁺|_X̃[[P−1]] is built on the values B_dR⁺(U) of Proposition 2.2.4.
+- **DLLZ-RH Corollaries 2.4.2(4) and 2.4.5**: gr^r B_dR≅Ô(r) gives the Tate twists in the graded Poincaré lemma and the Faltings extension.
+- **DLLZ-RH Lemma 3.6.1**: Primitive comparison upgrades to B_dR⁺-cohomology.
+- **PerfectoidShimuraVarieties:S6**: Evaluation of A_inf, B_dR⁺, B_dR on log affinoid perfectoid test objects over the toroidal tower (sections and acyclic_log_affinoid_perfectoid), to restrict P_HT to perfectoid test objects.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Definition 2.2.3(2), p. 12. Definition 2.2.3(2) sets B_dR=B_dR⁺[t⁻¹] for any generator t of (ker θ)B_dR⁺ and only later fixes t=log[ε] in (2.3.2); the node keeps the arbitrary local generator and the convolution filtration of Definition 2.2.3(3).
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 2.2.4(1)–(2), p. 12. Proposition 2.2.4 gives the values of A_inf, B_inf, B_dR⁺, B_dR on a log affinoid perfectoid U through its associated perfectoid pair and the vanishing of higher cohomology of B_dR⁺ and B_dR; the node states both parts.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 2.2.5, p. 12. Remark 2.2.5 is the well-definedness of B_dR and its filtration recorded in the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.2.6, p. 12. Corollary 2.2.6 identifies gr^•B_dR with ⊕Ô(r) under the stated base hypothesis, which the node keeps.
+Acceptance:
 
-**Uses.**
+- There is no new local period-ring definition duplicating P8: sectionwise the rings are A_inf(R,R⁺), B_dR⁺(R,R⁺), B_dR(R,R⁺) of the associated perfectoid pair.
+- On every log affinoid perfectoid U the sections are those of the associated perfectoid pair and H^j(U,B_dR⁺)=H^j(U,B_dR)=0 for j>0; this is the evaluation used by PerfectoidShimuraVarieties S6.
 
-- DLLZ-RH Definition 2.2.10: The structural periods are B_dR⁺-algebras containing these constant coefficient periods.
-- DLLZ-RH Proposition 2.3.15: B_dR⁺|_X̃[[P−1]] is built on the values B_dR⁺(U) of Proposition 2.2.4.
-- DLLZ-RH Corollaries 2.4.2(4) and 2.4.5: gr^r B_dR≅Ô(r) gives the Tate twists in the graded Poincaré lemma and the Faltings extension.
-- DLLZ-RH Lemma 3.6.1: Primitive comparison upgrades to B_dR⁺-cohomology.
-- PerfectoidShimuraVarieties:S6: Evaluation of A_inf, B_dR⁺, B_dR on log affinoid perfectoid test objects over the toroidal tower (sections and acyclic_log_affinoid_perfectoid), to restrict P_HT to perfectoid test objects.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `PadicHodgeTheory:P8:local-rational/plan/period-sheaves-definitions`, `PadicHodgeTheory:P8:local-rational/plan/period-sheaves-on-affinoid-perfectoids`, `PadicHodgeTheory:P8:local-rational/plan/rational-acyclicity-of-de-rham-period-sheaves`, `PadicHodgeTheory:P8:local-rational/plan/de-rham-period-sheaf`, `PadicHodgeTheory:P8:local-rational/plan/graded-de-rham-period-sheaf-tate-twist`, `mathlib:BDeRhamPlus`, `mathlib:fontaineThetaInvertP`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Definition 2.2.3(2), p. 12; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 2.2.4(1)–(2), p. 12; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 2.2.5, p. 12; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.2.6, p. 12.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="structural-log-period-plus"></a>
 
@@ -2236,124 +2222,118 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 ### Toric power-series description of log periods
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model` · theorem · proposed declaration `TauCeti.LogAdic.toric_structural_period_model`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model`. Kind: **theorem**.
 
 Let k be a p-adic field, P=P̄⊕Q toric monoids, E=Spa(k⟨P̄⟩,k⁺⟨P̄⟩)↪Spa(k⟨P⟩,k⁺⟨P⟩) the stratum with pulled-back log structure, X=Spa(A,A⁺) an affinoid fs log adic space with a strictly étale map X→E, and X̃→X the pullback of the all-root tower Ẽ=lim E_m, log affinoid perfectoid with Galois group Γ. Let M⊂B_dR⁺|_X̃[P] be the ideal generated by {e_a−1}_{a∈P}, B_dR⁺|_X̃[[P−1]]=lim_r B_dR⁺|_X̃[P]/M^r with Fil^r=(ξ,M)^r. (1) There is a unique v:O_{X_prokét}|_X̃→B_dR⁺|_X̃[[P−1]] lifting O→Ô and sending a∈P_{Q≥0} to [T^{ā♭}]e_a (Lemma 2.3.7), and β:M♭|_X̃→(B_dR⁺|_X̃[[P−1]])^× with v(α(a♯))=[α♭(a)]β(a) (Lemma 2.3.12). (2) The map B_dR⁺|_X̃[[P−1]]→OB⁺_dR,log|_X̃ of (2.3.14), e_a↦e_{(a,a)}, is an isomorphism of filtered sheaves (Proposition 2.3.15); for every log affinoid perfectoid U=lim U_i in X_prokét/X̃, OB⁺_dR,log(U)≅B_dR⁺(U)[[P−1]] and each Ŝ_i→OB⁺_dR,log(U) is an isomorphism. (3) For a Z-basis a_1,…,a_n of P^gp and y_j=y_{a_j} (y_a=log(e^{a⁺})−log(e^{a⁻}) for a=a⁺−a⁻), B_dR⁺|_X̃[[P−1]]≅B_dR⁺|_X̃[[y_1,…,y_n]], matching M^r with (y_1,…,y_n)^r and (ξ,M)^r with (ξ,y_1,…,y_n)^r ((2.3.6)). (4) With W_j=t⁻¹y_j, Fil^rOB_dR,log≅t^rB_dR⁺{W_1,…,W_n} (t-adically convergent series) for all r∈Z, gr^rOB_dR,log≅t^rÔ[W_1,…,W_n] and gr^•OB_dR,log≅Ô[t^{±1},W_1,…,W_n] (Corollary 2.3.17). (5) For a strict closed immersion Z→X pulled back from the closed stratum of a direct summand Q′ of P̄, these isomorphisms for X and Z are compatible with pullback and pushforward, and B_dR,X⁺(U)/ξ^r modulo the completed ideal generated by the [T^{sa♭}] (s∈Q_{>0}, a∈Q′−{0}) is B_dR,Z⁺(V)/ξ^r ((2.3.21), Corollary 2.3.20).
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.toric_structural_period_model`.
+
+Hypotheses and conventions:
 
 - k is a p-adic field (§2.3), with k_∞=k(µ_∞), t=log[ε] ((2.3.2)) and k→B_dR⁺ the unique lift of k→k̂_∞.
 - P is a toric (fs, sharp) monoid, not necessarily free; n is the rank of P^gp; Q≠0 covers strata with the pulled-back log structure (Remark 2.4.1(2)).
 - The isomorphisms hold on the localized site X_prokét/X̃ (equivalently on log affinoid perfectoid objects over X̃); the formal power series B_dR⁺[[y]] of the positive case and the t-adically convergent series B_dR⁺{W} of the completed case are not identified.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Lemma 2.3.7: for each U_i choose m_i with U_i×_E E_{m_i}→E_{m_i} strictly étale (DLLZ-adic Lemma 4.2.5), write its ring as the p-adic completion of an étale finite-type k[(1/m_i)P̄]/(Q−{0})-algebra (Huber, Corollary 1.7.3(iii)), and lift uniquely to B_dR⁺(U)[[P−1]] by Scholze's power-series lifting lemma (P8 bdr-plus-power-series-extension-lemma).
 2. Lemma 2.3.11: A⊗̂_k(B_dR⁺/ξ^r)⊗̂(B_dR⁺/ξ^r)⟨P̄_{Q≥0}⟩→B_dR⁺(X̃)/ξ^r is a Γ-equivariant isomorphism, by passing to ξ-graded pieces and the toric tower computation (DLLZ-adic Lemma 6.1.9); Lemma 2.3.12 constructs β from v and generators of M♭|_X̃.
 3. Proposition 2.3.15: (2.3.16) induces S_{i,r}→(B_dR⁺(U)/ξ^r)[[P−1]] sending ker θ_log into (ξ,M); after completion it is inverse to (2.3.14), both composites being B_dR⁺(U)-linear, fixing the e_a and agreeing on R_i by the uniqueness in Lemma 2.3.7; this also shows Ŝ_i≅OB⁺_dR,log(U).
 4. Corollary 2.3.17: transport the filtration through (2.3.6) and compute the convolution-filtration completion of B_dR⁺[[y]][t⁻¹] as t^rB_dR⁺{W}; Corollary 2.3.20 by comparing the constructions for X and Z through the surjection of Corollary 2.2.7.
 
-**Acceptance checks.**
+Uses:
+
+- **DLLZ-RH Corollaries 2.4.2 and 2.4.6**: Reduce the Poincaré lemmas to explicit power-series complexes.
+- **DLLZ-RH Proposition 3.3.3 and §3.4**: OC_log|_Z̃=Ô[W_1,…,W_n] computes Γ_geom-cohomology and residues.
+- **PerfectoidShimuraVarieties:S6**: Evaluation of OB⁺_dR,log and Fil^rOB_dR,log on log affinoid perfectoid test objects over toric charts of the toroidal tower: Ŝ_i≅OB⁺_dR,log(U)≅B_dR⁺(U)[[P−1]].
+
+Acceptance:
 
 - For P=Z_{≥0} (X=D¹ with log structure at 0, Q=0): OB⁺_dR,log|_X̃≅B_dR⁺|_X̃[[y]] with y=log(e^{(a,a)}) and Fil^r=(ξ,y)^r, and Fil⁰OB_dR,log≅B_dR⁺{W} with W=y/t; ∑_n t^nW^{n²} lies in Fil⁰OB_dR,log but not in B_dR⁺[[y]][t⁻¹].
 - The positive model uses formal power series B_dR⁺[[y]], the completed one t-adically convergent series B_dR⁺{W}; neither is replaced by the other.
 - On every log affinoid perfectoid U over X̃ the presheaf value Ŝ_i is already the sheaf value OB⁺_dR,log(U) (the evaluation used by PerfectoidShimuraVarieties S6).
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/structural-log-period-plus](#structural-log-period-plus), [HodgeTateAndCanonicalSubgroups:T6:comparison/structural-log-period-complete](#structural-log-period-complete), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower](#all-root-toric-tower), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid](#log-affinoid-perfectoid), `PadicHodgeTheory:P8:local-rational/bdr-plus-power-series-extension-lemma`, `PadicHodgeTheory:P8:local-rational/etale-algebras-over-torus-models`, `AdicSpacesPartII:R0/etale-algebraic-model`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/structural-log-period-plus`, `HodgeTateAndCanonicalSubgroups:T6:comparison/structural-log-period-complete`, `HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/all-root-toric-tower`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid`, `PadicHodgeTheory:P8:local-rational/plan/structural-algebra-structure-on-bdr-power-series`, `AdicSpacesPartII:R0/etale-algebraic-model`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 2.3.15, p. 18; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark after the proof of Proposition 2.3.15, p. 19; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.3.17, p. 19; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.3.20, pp. 19–20.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 2.3.15, p. 18. Proposition 2.3.15 is part (2) of the node, for the toric chart X→E of §2.3 with P=P̄⊕Q.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark after the proof of Proposition 2.3.15, p. 19. The evaluation Ŝ_i≅OB⁺_dR,log(U) on log affinoid perfectoid U over X̃ stated in part (2).
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.3.17, p. 19. Corollary 2.3.17 gives Fil^rOB_dR,log≅t^rB_dR⁺{W} and the graded pieces, part (4) of the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.3.20, pp. 19–20. Corollary 2.3.20 is the stratum compatibility, part (5) of the node.
-
-**Uses.**
-
-- DLLZ-RH Corollaries 2.4.2 and 2.4.6: Reduce the Poincaré lemmas to explicit power-series complexes.
-- DLLZ-RH Proposition 3.3.3 and §3.4: OC_log|_Z̃=Ô[W_1,…,W_n] computes Γ_geom-cohomology and residues.
-- PerfectoidShimuraVarieties:S6: Evaluation of OB⁺_dR,log and Fil^rOB_dR,log on log affinoid perfectoid test objects over toric charts of the toroidal tower: Ŝ_i≅OB⁺_dR,log(U)≅B_dR⁺(U)[[P−1]].
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="log-poincare"></a>
 
 ### Logarithmic period Poincaré lemma
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare` · theorem · proposed declaration `TauCeti.LogAdic.log_poincare`.
-
-Atlas planet: **Logarithmic Poincaré lemma**.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare`. Kind: **theorem**.
 
 Let X be as in Remark 2.4.1 over a p-adic field k. On X_prokét, with tensor products over O_{X_prokét}: (1) 0→B_dR⁺→OB⁺_dR,log→OB⁺_dR,log⊗Ω^{log,1}_X→OB⁺_dR,log⊗Ω^{log,2}_X→⋯ (differentials ∇) is exact; (2) the same holds with B_dR and OB_dR,log; (3) for each r∈Z the subcomplex 0→Fil^rB_dR→Fil^rOB_dR,log→Fil^{r−1}OB_dR,log⊗Ω^{log,1}_X→Fil^{r−2}OB_dR,log⊗Ω^{log,2}_X→⋯ is exact; (4) for each r∈Z the quotient complex 0→gr^rB_dR→gr^rOB_dR,log→gr^{r−1}OB_dR,log⊗Ω^{log,1}_X→⋯ is exact and identifies with 0→Ô(r)→OC_log(r)→OC_log(r)⊗Ω^{log,1}_X(−1)→OC_log(r)⊗Ω^{log,2}_X(−2)→⋯ (Corollary 2.4.2). If f:X→X′ is log smooth with X and X′ both as in Remark 2.4.1, then 0→B⁺_dR,X⊗̂_{f⁻¹B⁺_dR,X′}f⁻¹OB⁺_dR,log,X′→OB⁺_dR,log,X→OB⁺_dR,log,X⊗Ω^{log,1}_{X/X′}→OB⁺_dR,log,X⊗Ω^{log,2}_{X/X′}→⋯ is exact, where ⊗̂ is the tensor product completed for the filtration (locally B⁺_dR,X[[y′_1,…,y′_{n′}]] in the base coordinates); the analogous complex with B_dR,X, B_dR,X′, OB_dR,log,X, OB_dR,log,X′ (first term locally B_dR,X{W′_1,…,W′_{n′}}) is exact and strictly compatible with the filtrations (Corollary 2.4.6, with the completed tensor product).
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.log_poincare`.
+
+Hypotheses and conventions:
 
 - k is a p-adic field and X is as in Remark 2.4.1: either (1) X is log smooth over k, or (2) X is a smooth intersection of irreducible components of a normal crossings divisor of a smooth Y over k, with the log structure pulled back from Y.
 - In the relative statement f:X→X′ is log smooth and X′ is also as in Remark 2.4.1; Ω^log_{X/X′} is a vector bundle and 0→f*Ω^log_{X′}→Ω^log_X→Ω^log_{X/X′}→0 is exact.
 - The first term of the relative complex is the filtration-completed tensor product; with the uncompleted tensor product printed in Corollary 2.4.6 exactness at OB⁺_dR,log,X fails.
 - Exactness is a statement about sheaves on X_prokét, not about global sections.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Étale locally choose a strictly étale toric chart X→E=Spa(k⟨P̄⟩,k⁺⟨P̄⟩) (Q=0 in case (1), Q a direct summand in case (2)) and pass pro-Kummer étale locally to X̃ (proof of Corollary 2.4.2).
 2. By Proposition 2.3.15 and Corollary 2.3.17 replace OB⁺_dR,log and OB_dR,log by B_dR⁺|_X̃[[y_1,…,y_n]] and B_dR|_X̃{W_1,…,W_n}; Ω^log_X=⊕_jO_Xδ(a_j) (DLLZ-adic Theorem 3.3.17, Corollary 3.3.18, Proposition 3.2.25, Corollary 3.2.29) and ∇y_j=δ(a_j), ∇W_j=t⁻¹δ(a_j) ((2.4.3)–(2.4.4)).
 3. Exactness, filtered and graded, is the formal Poincaré lemma for power series in the y_j, respectively the W_j (anti-derivatives preserve t-adic convergence; P8 formal-poincare-lemma); identify the graded complex using gr^rB_dR≅Ô(r) and gr^rOB_dR,log≅t^rÔ[W_1,…,W_n].
 4. Relative case: take an injective sharp fs chart P′↪P (DLLZ-adic Propositions 3.1.4 and 3.1.10), compatible X̃→X̃′, and a′_{n′+1},…,a′_n∈P completing a basis of (P′)^gp_Q to one of P^gp_Q; then Ω^log_{X/X′}=⊕_{j>n′}O_Xδ(a′_j), the horizontal Q-linear combinations of the y_j are spanned by y′_1,…,y′_{n′}, and the same computation gives exactness with first term B⁺_dR,X[[y′_1,…,y′_{n′}]] (respectively B_dR,X{W′}).
 
-**Acceptance checks.**
+Uses:
+
+- **DLLZ-RH Lemma 3.3.2 and §3.6**: The resolution computes Rµ′_*(L̂⊗OB_dR,log) and the de Rham comparison.
+- **DLLZ-RH Theorem 3.2.7(5)**: The relative version gives the relative log de Rham comparison.
+
+Acceptance:
 
 - In rank zero (Ω^log_X=0) the resolution is B_dR≅OB_dR,log with no higher log-coordinate terms.
 - The filtration of the qth term is r−q, not r.
 - For X=D¹ with log structure at 0, locally 0→B⁺_dR→B⁺_dR[[y]]→B⁺_dR[[y]]·dlog T→0 with ∇=∂/∂y⊗dlog T is exact.
 - For the projection T²→T¹ (trivial log), the section ∑_k[T₂♭]^ky₁^k of B⁺_dR,X[[y₁,y₂]] is horizontal for ∇_{X/X′} but is not in the image of the uncompleted tensor product, so the completed tensor product is needed.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model](#toric-structural-period-model), [HodgeTateAndCanonicalSubgroups:T6:comparison/structural-period-connection](#structural-period-connection), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:log-sites/analytic-log-de-rham](#analytic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent](#log-differential-descent), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-smooth-chart-criterion](#log-smooth-chart-criterion), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis](#log-perfectoid-basis), `PadicHodgeTheory:P8:local-rational/formal-poincare-lemma`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model`, `HodgeTateAndCanonicalSubgroups:T6:comparison/structural-period-connection`, `HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/analytic-log-de-rham`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-smooth-chart-criterion`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `PadicHodgeTheory:P8:local-rational/plan/poincare-lemma-and-faltings-extension`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 2.4.1, p. 20; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.4.2 and its proof, pp. 20–21; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.4.6, p. 21.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 2.4.1, p. 20. Remark 2.4.1 gives the two cases (log smooth X, or a smooth stratum with pulled-back log structure) kept as the node's hypothesis.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.4.2 and its proof, pp. 20–21. The proof of Corollary 2.4.2 reduces parts (1)–(4) to the explicit power-series complexes, as in the node's proof sketch.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.4.6, p. 21. Corollary 2.4.6 is the relative Poincaré lemma with filtered strictness; the node uses the filtration-completed tensor product in its first term instead of the printed uncompleted one.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
-**Uses.**
-
-- DLLZ-RH Lemma 3.3.2 and §3.6: The resolution computes Rµ′_*(L̂⊗OB_dR,log) and the de Rham comparison.
-- DLLZ-RH Theorem 3.2.7(5): The relative version gives the relative log de Rham comparison.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Atlas planet: **Logarithmic Poincaré lemma**.
 
 <a id="log-faltings-extension"></a>
 
 ### Logarithmic Faltings extension
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/log-faltings-extension` · theorem · proposed declaration `TauCeti.LogAdic.log_faltings_extension`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-faltings-extension`. Kind: **theorem**.
 
 Let X be as in Remark 2.4.1 over a p-adic field k. There is a short exact sequence of Ô-modules on X_prokét 0→Ô(1)→gr¹OB⁺_dR,log→Ô⊗_{O_{X_prokét}}Ω^log_X→0 (Corollary 2.4.5). The first map is gr¹B_dR⁺≅Ô(1) followed by gr¹ of B_dR⁺→OB⁺_dR,log; the second is the graded piece of ∇, gr¹OB⁺_dR,log→gr⁰OB⁺_dR,log⊗Ω^log_X=Ô⊗Ω^log_X. Over a toric chart, on X̃ one has gr¹OB⁺_dR,log=Ô·ξ⊕⊕_jÔ·y_j with y_j↦δ(a_j), so the sequence is locally split.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.log_faltings_extension`.
+
+Hypotheses and conventions:
 
 - k is a p-adic field and X is as in Remark 2.4.1: either (1) X is log smooth over k, or (2) X is a smooth intersection of irreducible components of a normal crossings divisor of a smooth Y over k, with the log structure pulled back from Y.
 - gr¹B_dR⁺≅Ô(1) is the canonical Galois-equivariant identification; Corollary 2.2.6 states it over a perfectoid base containing all roots of unity, and over k it is obtained on X_prokét/X_{k̂_∞} and descended.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Over a toric chart and on X̃, Proposition 2.3.15 and (2.3.6) give gr¹OB⁺_dR,log=(ξ,y_1,…,y_n)/(ξ,y_1,…,y_n)²=Ô·ξ⊕⊕_jÔ·y_j.
 2. By (2.4.3) and Ω^log_X=⊕_jO_Xδ(a_j), gr¹(∇) sends y_j to δ(a_j) and kills ξ; its kernel is Ô·ξ=gr¹B_dR⁺≅Ô(1) (Corollary 2.2.6 on X_prokét/X_{k̂_∞}); this is the r=1 positive part of the graded Poincaré complex of Corollary 2.4.2.
 3. The maps are defined globally (gr¹ of B_dR⁺→OB⁺_dR,log and gr¹∇), so local exactness gives the sequence on X_prokét.
 
-**Acceptance checks.**
+Acceptance:
 
 - For the trivial log structure (X smooth) the sequence is P8's Faltings extension 0→Ô(1)→gr¹OB_dR⁺→Ô⊗Ω¹_X→0.
 - For X=D¹ with log structure at 0, the class of y=log(e^{(a,a)}) maps to dlog T, which is not in Ô⊗Ω¹_X along T=0; a log coordinate contributes its dlog class.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model](#toric-structural-period-model), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:comparison/structural-period-connection](#structural-period-connection), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent](#log-differential-descent), `PadicHodgeTheory:P8:local-rational/faltings-extension`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model`, `HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods`, `HodgeTateAndCanonicalSubgroups:T6:comparison/structural-period-connection`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent`, `PadicHodgeTheory:P8:local-rational/plan/faltings-extension`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.4.5, p. 21; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 2.4.1, p. 20.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 2.4.5, p. 21. Corollary 2.4.5 is the node's short exact sequence; the node records the hypothesis of Remark 2.4.1 under which Corollary 2.4.2 is proved.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 2.4.1, p. 20. The standing hypothesis on X for §2.4, kept by the node.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 ## Logarithmic Riemann–Hilbert and relative comparison
 
@@ -2377,28 +2357,25 @@ Coefficient sheaves and decompletion give the target categories and direct-image
 
 ### B_dR-coefficient structure sheaves on analytic sites
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves` · construction · proposed declaration `TauCeti.LogAdic.BdRCoefficientSheaf`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves`. Kind: **construction**.
 
 Let k be a p-adic field, K a perfectoid field containing k_∞, B_dR⁺=B_dR⁺(K,O_K), B_dR=B_dR(K,O_K), t=log[ε]∈B_dR⁺, and k→B_dR⁺ the unique lift of k→K (Definition 3.1.1(1)). For a locally noetherian adic space X over k, O_X⊗̂_k(B_dR⁺/t^r) is the sheaf on X_an associated with Spa(A,A⁺)↦A⊗̂_k(B_dR⁺/t^r); O_X⊗̂_kB_dR⁺=lim_rO_X⊗̂_k(B_dR⁺/t^r) and O_X⊗̂_kB_dR=(O_X⊗̂_kB_dR⁺)[t⁻¹], with Fil^r(O_X⊗̂_kB_dR⁺)=t^r(O_X⊗̂_kB_dR⁺) and Fil^r(O_X⊗̂_kB_dR)=t^{−s}Fil^{r+s}(O_X⊗̂_kB_dR⁺) for any s≥−r; the same on X_ét using étale maps from affinoids (Definition 3.1.1(2)–(4)). Lemma 3.1.4: (1) for affinoid X=Spa(A,A⁺), H^i(X_ét,O_{X_ét}⊗̂_k(B_dR⁺/t^r)) is A⊗̂_k(B_dR⁺/t^r) for i=0 and 0 for i>0; (2) gr^r(O_{X_ét}⊗̂_kB_dR)≅O_{X_ét}⊗̂_kK(r); (3) O_X⊗̂_k(B_dR⁺/t^r)≅λ_*(O_{X_ét}⊗̂_k(B_dR⁺/t^r))≅Rλ_*(O_{X_ét}⊗̂_k(B_dR⁺/t^r)), and likewise for B_dR⁺ and B_dR; (4) for affinoid X, finite projective A⊗̂_kB_dR⁺-modules, finite locally free O_X⊗̂_kB_dR⁺-modules and finite locally free O_{X_ét}⊗̂_kB_dR⁺-modules are equivalent; (5) λ_* is an equivalence from finite locally free O_{X_ét}⊗̂_k(B_dR⁺/t^r)-modules (resp. O_{X_ét}⊗̂_kB_dR⁺-modules) to the corresponding modules on X_an. The ringed spaces are X⁺=(X_an,O_X⊗̂_kB_dR⁺) and X=(X_an,O_X⊗̂_kB_dR) (3.1.5); a vector bundle on X⁺ is a finite locally free O_X⊗̂_kB_dR⁺-module, and vector bundles on X are the global sections of the stack obtained from vector bundles on X⁺ over open subspaces by passing to the t-isogeny category.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.BdRCoefficientSheaf`.
+
+Hypotheses and conventions:
 
 - k is a p-adic field and K a perfectoid field containing k_∞=k(µ_∞) (§3); X is any locally noetherian adic space over k.
 - The tensor products are completed tensor products of Banach k-algebras (A⊗̂_k(B_dR⁺/t^r) with B_dR⁺/t^r a Banach k-algebra); the uncompleted O_X⊗_kB_dR⁺ is not used.
 - A vector bundle on X is not required to come from a vector bundle on X⁺ by a global extension of scalars (unlike Liu–Zhu Definition 3.5).
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Define the sheaves on X_an and X_ét from the affinoid completed tensor products and take the limit over r and the localization at t.
 2. Lemma 3.1.4: by Remark 3.1.3 (X_{K,an}, X_{K,ét} are generated by base changes from finite extensions k′ of k) the categories agree with those of Liu–Zhu §3.1, and the arguments of Liu–Zhu Lemmas 3.1–3.2, Proposition 3.3 and Corollary 3.4 apply: Tate acyclicity and Kiehl gluing for A⊗̂_k(B_dR⁺/t^r) by dévissage along t, gr^r via t^r, and étale descent for λ.
 3. Form the stack of vector bundles on X⁺ over opens and its t-isogeny category to define vector bundles on X.
 
-**Acceptance checks.**
-
-- For X=Spa(k), O_X⊗̂_kB_dR⁺=B_dR⁺ with Fil^r=t^rB_dR⁺ and gr⁰=K.
-- gr⁰(O_X⊗̂_kB_dR)=O_X⊗̂_kK, so finite locally free gr⁰-modules are vector bundles on X_{K,an} (Remark 3.1.3).
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.BdRCoefficientSheaf` (constructor): The sheaves O_X⊗̂_k(B_dR⁺/t^r), O_X⊗̂_kB_dR⁺=lim_r and O_X⊗̂_kB_dR=(⋯)[t⁻¹] on X_an and on X_ét.
 - `TauCeti.LogAdic.BdRCoefficientSheaf.fil` (structure): Fil^r=t^r(O_X⊗̂_kB_dR⁺) and Fil^r(O_X⊗̂_kB_dR)=t^{−s}Fil^{r+s}(O_X⊗̂_kB_dR⁺) for any s≥−r; [a,b]-truncations (O_X⊗̂_kB_dR)^{[a,b]}=Fil^a/Fil^{b+1}.
@@ -2409,29 +2386,29 @@ Let k be a p-adic field, K a perfectoid field containing k_∞, B_dR⁺=B_dR⁺(
 - `TauCeti.LogAdic.BdRCoefficientSheaf.VectorBundle` (other): Vector bundles on X⁺ (finite locally free O_X⊗̂_kB_dR⁺-modules) and on X (t-isogeny stack); E⊗_{O_X}M for a vector bundle E on X_an.
 - `TauCeti.LogAdic.BdRCoefficientSheaf.pullback` (functoriality): A morphism f:Y→X of locally noetherian adic spaces over k induces f⁻¹(O_X⊗̂_kB_dR⁺)→O_Y⊗̂_kB_dR⁺ compatibly with filtrations, with map_id and map_comp; Gal(K/k) acts through the coefficients.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.BdRCoefficientSheaf.point` (degenerate): For X=Spa(k,O_k), O_X⊗̂_kB_dR⁺=B_dR⁺(K,O_K) with Fil^r=t^rB_dR⁺ and gr⁰=K.
 - `TauCeti.LogAdic.BdRCoefficientSheaf.gr_zero` (computation): gr⁰(O_X⊗̂_kB_dR)=O_X⊗̂_kK; for X=Spa(k⟨T⟩) its sections are K⟨T⟩.
 - `TauCeti.LogAdic.BdRCoefficientSheaf.not_algebraic_tensor` (non-example): For X=Spa(k⟨T⟩), the section ∑_np^nx_nT^n of O_X⊗̂_kK, with x_n∈O_K linearly independent over k, is not in k⟨T⟩⊗_kK, whose elements have coefficients in a finite-dimensional k-subspace of K.
 - `TauCeti.LogAdic.BdRCoefficientSheaf.twist` (characterisation): Gal(K/k) acts on gr¹(O_X⊗̂_kB_dR⁺)=t·(O_X⊗̂_kK) through σ(tf)=χ(σ)t·σ(f), so gr¹≅O_X⊗̂_kK(1) and not O_X⊗̂_kK as Galois-equivariant sheaves.
 
-**Prerequisites.** `PadicHodgeTheory:R06.1/de-rham-period-ring`, `PadicHodgeTheory:R06.1/fontaine-element-t`, `AdicSpacesPartII:R0/completed-tensor-product`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomology:H0`, `EnhancedDerivedSheaves:E1`.
+Uses:
 
-**Sources and relation to this target.**
+- **DLLZ-RH Definitions 3.1.6–3.1.7**: The ringed spaces X⁺ and X carry log connections, t-connections and Higgs fields.
+- **DLLZ-RH Lemma 3.3.2 and Proposition 3.3.3**: Lemma 3.1.4(3),(5) reduce µ′_* to ν′_* on the étale site.
+- **DLLZ-RH Theorem 3.2.3**: RH_log(L) is a vector bundle on X with filtration by locally free O_X⊗̂_kB_dR⁺-submodules.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Definition 3.1.1(1), p. 22. Definition 3.1.1 fixes B_dR⁺=B_dR⁺(K,O_K), t=log[ε] and the lift k→B_dR⁺ used to form O_X⊗̂_kB_dR⁺, as in the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.1.4, p. 22. Introduces Lemma 3.1.4 with the proof route through Liu–Zhu recorded in the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.1.4(5), p. 23. Lemma 3.1.4(5), the equivalence between étale and analytic finite locally free modules used in Proposition 3.3.3.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Equation (3.1.5) and following, p. 23. The definition of vector bundles on X⁺ and X recorded in the node.
+Acceptance:
 
-**Uses.**
+- For X=Spa(k), O_X⊗̂_kB_dR⁺=B_dR⁺ with Fil^r=t^rB_dR⁺ and gr⁰=K.
+- gr⁰(O_X⊗̂_kB_dR)=O_X⊗̂_kK, so finite locally free gr⁰-modules are vector bundles on X_{K,an} (Remark 3.1.3).
 
-- DLLZ-RH Definitions 3.1.6–3.1.7: The ringed spaces X⁺ and X carry log connections, t-connections and Higgs fields.
-- DLLZ-RH Lemma 3.3.2 and Proposition 3.3.3: Lemma 3.1.4(3),(5) reduce µ′_* to ν′_* on the étale site.
-- DLLZ-RH Theorem 3.2.3: RH_log(L) is a vector bundle on X with filtration by locally free O_X⊗̂_kB_dR⁺-submodules.
+Direct prerequisites: `PadicHodgeTheory:R06.1/plan/de-rham-period-ring`, `PadicHodgeTheory:R06.1/plan/fontaine-element-t`, `AdicSpacesPartII:R0/completed-tensor-product`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomology:H0`, `EnhancedDerivedSheaves:E1`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Definition 3.1.1(1), p. 22; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.1.4, p. 22; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.1.4(5), p. 23; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Equation (3.1.5) and following, p. 23.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="filtered-log-connection"></a>
 
@@ -2757,28 +2734,26 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 ### Arithmetic logarithmic de Rham functor
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham` · construction · proposed declaration `TauCeti.LogAdic.ArithmeticLogDR`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham`. Kind: **construction**.
 
 For µ:X_prokét→X_an (k, (X,D) as in the geometric functor, K any perfectoid field containing k_∞) set D_dR,log(L)=µ_*(L̂⊗_{Q̂_p}OB_dR,log). For the invariant computation choose K=k̂_∞; then D_dR,log(L)≅RH_log(L)^{Gal(k_∞/k)} and Fil^•D_dR,log(L)=(Fil^•RH_log(L))^{Gal(k_∞/k)}. Then L↦D_dR,log(L) is a functor to vector bundles on X_an with integrable log connection ∇_L and decreasing filtration by coherent subsheaves satisfying Griffiths transversality; for every irreducible component Z of D all eigenvalues of Res_Z(∇_L) lie in Q∩[0,1), and they are 0 if L|U has unipotent geometric monodromy along D. The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is injective and strictly compatible with filtrations. If L|U is de Rham it is an isomorphism compatible with connections and filtrations, and gr D_dR,log(L) is a vector bundle of rank rk_{Q_p}L. Without that hypothesis the rank of D_dR,log(L) need not equal rk L.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.ArithmeticLogDR`.
+
+Hypotheses and conventions:
 
 - The same p-adic field and normal crossings pair as the geometric RH construction; no geometric-irreducibility hypothesis is needed for the arithmetic residues (Theorem 3.2.7(2)).
 - De Rham means L|U de Rham in Scholze's sense (as reviewed in the DLLZ-RH introduction); it is needed only for the adjunction isomorphism and the graded rank.
 - The intrinsic µ-pushforward does not depend on K. Its Galois-invariant description here uses K=k̂_∞, as in Lemma 3.3.17; it is not asserted for arbitrary Aut(K/k). General perfectoid K remains allowed for the geometric RH coefficient extension and the adjunction comparison.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Choose K=k̂_∞ for the invariant computation. Compute D_dR,log(L) as the sheaf associated with Y↦H⁰(Gal(k_∞/k),RH_log(L)(Y)); with K=k̂_∞, decompletion (Theorem A.2.1.2, Corollary A.1.21) gives finitely generated graded pieces compatible with rational and finite étale localization, so D_dR,log(L) is coherent (Lemma 3.3.17); it is reflexive by the codimension-two extension argument [Kis99, Cor. 2.2.4], [Ser66, Prop. 7] (Lemma 3.3.18).
 2. D_dR,log(L)(X)≅N^{Gal(k_∞/k)} and its residue is still t⁻¹log(γ_i), so the eigenvalue analysis of normalized-log-residues gives eigenvalues in Q∩[0,1) (Proposition 3.4.15), and 0 under unipotent monodromy (proof of Theorem 3.2.12(2)); Proposition 3.4.16 then gives local freeness (Theorem 3.2.7(1)).
 3. The adjunction map is injective and strict by comparing ⊕_{a+b=r}gr^a(RH_log(L))^{Gal(k_∞/k)}⊗K(b) with gr^r RH_log(L) (Lemma 3.4.18).
 4. If L|U is de Rham the map is an isomorphism on U (LZ17 Cor. 3.12(ii), from Scholze's association L̂⊗OB_dR≅E⊗OB_dR), hence on X by Proposition 3.4.17 and the normalized residues on both sides (Corollary 3.4.21); then ⊕_a gr^a D_dR,log(L)⊗K(−a)≅H_log(L) gives the graded rank (Corollary 3.4.22).
 
-**Acceptance checks.**
-
-- Do not require de Rham input to define the functor or assert equal ranks for non-de Rham input.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.ArithmeticLogDR` (constructor): The arithmetic degree-zero pushforward with its induced connection and coherent filtration.
 - `TauCeti.LogAdic.ArithmeticLogDR.geometric_invariants` (characterisation): For K=k̂_∞, the arithmetic pushforward is RH_log(L)^{Gal(k_∞/k)}, with Fil^rD_dR,log(L)=(Fil^rRH_log(L))^{Gal(k_∞/k)} (Lemma 3.3.17). This formula is not a descent claim through Aut(K/k) for arbitrary perfectoid K.
@@ -2789,29 +2764,27 @@ For µ:X_prokét→X_an (k, (X,D) as in the geometric functor, K any perfectoid 
 - `TauCeti.LogAdic.ArithmeticLogDR.restrict_interior` (compatibility): On U with trivial log structure, D_dR,log(L)|U is the ordinary arithmetic de Rham functor of L|U (Remark 3.5.1).
 - `TauCeti.LogAdic.ArithmeticLogDR.map_comp` (functoriality): Coefficient maps induce horizontal filtered maps, preserving composition.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.ArithmeticLogDR.constant` (computation): For the trivial Q_p coefficient system, D_dR,log=O_X with d and its weight-zero filtration.
 - `TauCeti.LogAdic.ArithmeticLogDR.tate` (computation): For L=Q_p(m), D_dR,log(L)=O_X·(e_m⊗t^{−m}) with ∇=d, and gr^{−m} is its only nonzero graded piece.
 - `TauCeti.LogAdic.ArithmeticLogDR.zero` (degenerate): The zero local system maps to the zero filtered bundle.
 - `TauCeti.LogAdic.ArithmeticLogDR.non_de_rham` (non-example): For X=Spa(k,O_k) with empty boundary and a Q_p-character of Gal(k̄/k) whose Sen weight is not an integer, D_dR,log(L)=0 although rk L=1, so the rank equality needs the de Rham hypothesis.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#log-riemann-hilbert), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor](#log-higgs-functor), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward](#log-oc-pushforward), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-tower-decompletion](#log-tower-decompletion), [HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues](#normalized-log-residues), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension](#log-regularity-and-extension), `PadicHodgeTheory:P8:local-rational/de-rham-period-sheaf`, `PadicHodgeTheory:P8/de-rham-lisse-sheaf`, `ClassicalAdicEtaleCohomology:H0`, `AdicSpacesPartII:R3/coherent-sheaf`, `AdicSpacesPartII:R3/coherent-sheaf-operations`, `AdicSpacesPartII:R3/locally-free-sheaf`.
+Uses:
 
-**Sources and relation to this target.**
+- **DLLZ-RH Theorem 5.3.1**: Canonical coefficients are identified with their standard filtered de Rham realizations.
+- **DLLZ-RH §§3.4–3.6 (Theorem 3.2.12(2), Corollary 3.5.7, Lemmas 3.6.3–3.6.4, Corollary 3.5.14)**: The adjunction isomorphism with RH_log for de Rham interior input drives the tensor, pullback, proper and relative comparisons.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Equation (3.2.6) and Theorem 3.2.7(1), p. 26. Defines D_dR,log(L)=µ_*(L̂⊗OB_dR,log) and states it is a functor (not claimed exact) to vector bundles with integrable log connection and coherent Griffiths-transversal filtration.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(2), p. 26. The arithmetic residue normalization, stated without a geometric-irreducibility hypothesis; the same item gives the graded rank rk_{Q_p}L for de Rham L|U.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.4.18, p. 38. The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is injective and strict, as in the node and its toRH API item.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 3.4.21, p. 38. The de Rham isomorphism with RH_log stated in the node; Corollary 3.4.22 then gives the graded rank.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.3.17 and its proof, pp. 31–32. Explicitly chooses K=k̂_∞ to compute the arithmetic pushforward and its coherent graded pieces as cyclotomic Galois invariants; the intrinsic pushforward construction remains independent of this choice.
+Acceptance:
 
-**Uses.**
+- Do not require de Rham input to define the functor or assert equal ranks for non-de Rham input.
 
-- DLLZ-RH Theorem 5.3.1: Canonical coefficients are identified with their standard filtered de Rham realizations.
-- DLLZ-RH §§3.4–3.6 (Theorem 3.2.12(2), Corollary 3.5.7, Lemmas 3.6.3–3.6.4, Corollary 3.5.14): The adjunction isomorphism with RH_log for de Rham interior input drives the tensor, pullback, proper and relative comparisons.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-tower-decompletion`, `HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension`, `PadicHodgeTheory:P8:local-rational/plan/de-rham-period-sheaf`, `PadicHodgeTheory:P8/plan/de-rham-lisse-sheaf`, `ClassicalAdicEtaleCohomology:H0`, `AdicSpacesPartII:R3/coherent-sheaf`, `AdicSpacesPartII:R3/coherent-sheaf-operations`, `AdicSpacesPartII:R3/locally-free-sheaf`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Equation (3.2.6) and Theorem 3.2.7(1), p. 26; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(2), p. 26; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.4.18, p. 38; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 3.4.21, p. 38; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.3.17 and its proof, pp. 31–32.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="log-rh-pullback"></a>
 
@@ -2850,103 +2823,94 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 ### Tensor comparison for unipotent boundary systems
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor` · theorem · proposed declaration `TauCeti.LogAdic.unipotent_log_tensor`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor`. Kind: **theorem**.
 
 (1) RH_log (resp. H_log) restricts to a tensor functor from the category of Q_p-local systems L on X_két such that L|U has unipotent geometric monodromy along D to the category of filtered Gal(K/k)-equivariant vector bundles on 𝒳 with integrable log connection with nilpotent residues along D (resp. Gal(K/k)-equivariant log Higgs bundles on X_K,an). (2) D_dR,log restricts to a tensor functor from the category of Q_p-local systems L on X_két such that L|U is de Rham and has unipotent geometric monodromy along D to filtered vector bundles on X_an with integrable log connection with nilpotent residues along D. For such L the period maps µ′⁻¹H_log(L)⊗OC_log→L̂⊗OC_log and µ′⁻¹RH_log(L)⊗OB_dR,log→L̂⊗OB_dR,log, and in case (2) µ⁻¹D_dR,log(L)⊗OB_dR,log→L̂⊗OB_dR,log, are isomorphisms. No tensor compatibility is asserted for arbitrary Q_p-local systems.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.unipotent_log_tensor`.
+
+Hypotheses and conventions:
 
 - Unipotence is geometric boundary unipotence as in DLLZ-adic Definition 6.3.7; D_dR,log also requires L|U de Rham.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Unipotent geometric monodromy forces x=1 in Lemmas 3.4.11 and 3.4.13, so the residues of RH_log(L) are nilpotent (Lemma 3.4.7), and those of D_dR,log(L) as well by Proposition 3.4.15.
 2. In the decomposition (3.3.9) only characters τ with τ(γ_i)=1 for every boundary coordinate occur, so after enlarging m₀ the map (3.3.13) is an isomorphism; hence the period maps for H_log and RH_log are isomorphisms (cf. LZ17 Thm. 2.1(ii), 3.8(iii)).
 3. With these isomorphisms argue as in LZ17 Thm. 2.1(iv) and 3.8(i): the multiplication maps for tensor products and the unit are isomorphisms, compatibly with connections, filtrations, Higgs fields and Galois actions.
 4. For (2), Corollary 3.4.21 makes D_dR,log(L)⊗̂_k B_dR→RH_log(L) an isomorphism, so the arithmetic period map is an isomorphism and one concludes as in LZ17 Thm. 3.9(v).
 
-**Acceptance checks.**
+Acceptance:
 
 - For a Kummer character χ along D with residue 2/3, RH_log(χ)⊗RH_log(χ) has residue 4/3 while RH_log(χ²) has residue 1/3, so the unrestricted tensor statement is false; χ does not have unipotent monodromy.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#log-riemann-hilbert), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor](#log-higgs-functor), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward](#log-oc-pushforward), [HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues](#normalized-log-residues), [HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy](#geometric-boundary-monodromy), `PadicHodgeTheory:P8/de-rham-lisse-sheaf`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward`, `HodgeTateAndCanonicalSubgroups:T6:comparison/normalized-log-residues`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy`, `PadicHodgeTheory:P8/plan/de-rham-lisse-sheaf`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.12(1), p. 27; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.12(2), p. 27; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Paragraph before Theorem 3.2.12, p. 27; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proof of Theorem 3.2.12, p. 39.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.12(1), p. 27. Part (1) for RH_log and H_log, with targets filtered equivariant bundles with nilpotent residues (resp. equivariant log Higgs bundles), as in the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.12(2), p. 27. Part (2): the arithmetic functor needs de Rham and unipotent interior restriction.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Paragraph before Theorem 3.2.12, p. 27. Supports the node's refusal of an unrestricted tensor statement.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proof of Theorem 3.2.12, p. 39. The final step of the proof sketch, after the period maps are shown to be isomorphisms.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="proper-log-period-cohomology"></a>
 
 ### Proper logarithmic period cohomology comparison
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology` · theorem · proposed declaration `TauCeti.LogAdic.proper_log_period_cohomology`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology`. Kind: **theorem**.
 
 Let X be proper over k (smooth, with normal crossings divisor D), K the completion of an algebraic closure k̄ of k, and L a Z_p-local system on X_két. For each i≥0 there are canonical Gal(K/k)-equivariant isomorphisms H^i(X_K,két,L)⊗_{Z_p}B_dR≅H^i_logdR(𝒳,RH_log(L)), compatible with filtrations, and H^i(X_K,két,L)⊗_{Z_p}K≅H^i_logHiggs(X_K,an,H_log(L)); they factor through H^i(X_K,prokét,L̂⊗B_dR) and H^i(X_K,prokét,L̂⊗Ô) (Lemmas 3.6.1–3.6.2). If moreover L|U is de Rham, H^i(X_K,két,L)⊗_{Z_p}B_dR≅H^i_logdR(X_an,D_dR,log(L))⊗_k B_dR compatibly with filtrations, the log Hodge–de Rham spectral sequence of D_dR,log(L) degenerates at E₁, and H^i(X_K,két,L)⊗_{Z_p}K≅⊕_{a+b=i}H^{a,b}_logHodge(X_an,D_dR,log(L))⊗_k K(−a), the 0-th graded piece of the previous isomorphism. No compactly supported or subcanonical version is asserted.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.proper_log_period_cohomology`.
+
+Hypotheses and conventions:
 
 - X proper over k and K the completion of k̄ for every conclusion; L|U de Rham only for the D_dR,log comparison, the E₁-degeneration and the Hodge–Tate decomposition; the RH_log/H_log comparisons hold for every Z_p-local system (torsion allowed, DLLZ-adic Definition 6.3.1).
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Lemma 3.6.1: as in Scholze's Theorem 8.4, with his primitive comparison replaced by the log primitive comparison (DLLZ-adic Theorem 6.2.1) and the finiteness of H^i(X_K,két,L), obtain H^i(X_K,két,L)⊗B_dR⁺≅H^i(X_K,prokét,L̂⊗B_dR⁺) compatibly with filtrations, and its gr⁰ version with Ô.
 2. Lemma 3.6.2: by the log Poincaré lemma (Corollary 2.4.2) L̂⊗B_dR≃DR_log(L̂⊗OB_dR,log) and L̂⊗Ô≃Higgs_log(L̂⊗OC_log); by Theorem 3.2.3(1), Proposition 3.3.3 and the projection formula, Rµ′_* of these complexes are DR_log(RH_log(L)) and Higgs_log(H_log(L)). This gives Theorems 3.2.3(3) and 3.2.4(2).
 3. Lemmas 3.6.3–3.6.4: for L|U de Rham, Corollary 3.4.21 gives RH_log(L)≅D_dR,log(L)⊗̂_k B_dR, and Lemma 3.5.9 (proper pushforward commutes with ⊗̂_k B_dR, via gr^r B_dR≅K(r)) moves B_dR outside the hypercohomology; taking gr⁰ gives the Hodge–Tate decomposition.
 4. E₁-degeneration: (3.2.8) and (3.2.9) give dim_k H^i_logdR=∑_{a+b=i}dim_k H^{a,b}_logHodge.
 
-**Acceptance checks.**
+Acceptance:
 
 - The Tate twist is −a; the decomposition concerns coefficient log Hodge cohomology, not just ordinary differential-form cohomology.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology](#proper-padic-boundary-cohomology), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison](#log-primitive-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#log-riemann-hilbert), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward](#log-oc-pushforward), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor](#log-higgs-functor), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), `PadicHodgeTheory:P8/de-rham-lisse-sheaf`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `AdicSpacesPartII:R3/kiehl-proper-mapping-theorem`, `AdicSpacesPartII:R3/proper-coherent-cohomology-field-extension`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham`, `PadicHodgeTheory:P8/plan/de-rham-lisse-sheaf`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `AdicSpacesPartII:R3/kiehl-proper-mapping-theorem`, `AdicSpacesPartII:R3/proper-coherent-cohomology-field-extension`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.3(3), p. 25; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.6.1, pp. 41–42; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), §3.6, after Lemma 3.6.2, p. 42; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(3), p. 26.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.3(3), p. 25. The standing hypotheses of all cohomology comparisons: X proper and K the completed algebraic closure (the hat and bar are lost in extraction); Theorems 3.2.4(2) and 3.2.7(3) refer back to them.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.6.1, pp. 41–42. The B_dR⁺ upgrade of the log primitive comparison, the node's first proof step.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), §3.6, after Lemma 3.6.2, p. 42. The RH_log and H_log comparisons hold for every Z_p-local system, without a de Rham hypothesis.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(3), p. 26. The de Rham-interior comparison with D_dR,log(L)⊗_k B_dR, E₁-degeneration and Hodge–Tate decomposition with twist K(−a), as in the node.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="relative-log-comparison"></a>
 
 ### Relative logarithmic de Rham comparison
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison` · theorem · proposed declaration `TauCeti.LogAdic.relative_log_comparison`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison`. Kind: **theorem**.
 
 Let f:X→Y be a proper log smooth morphism, where X and Y are smooth rigid analytic varieties over k with log structures given by normal crossings divisors D and E, such that f|_U:U→V (U=X−D, V=Y−E) is proper smooth; then D=f⁻¹(E). For a Z_p-local system L on X_két with L|U de Rham, each R^if_két,*(L) is a Z_p-local system on Y_két whose restriction to V is de Rham, and there is a canonical isomorphism D_dR,log(R^if_két,*L)≅(R^if_logdR,*(D_dR,log(L),∇_L))_free compatible with log connections (Gauss–Manin) and filtrations, where the subscript free denotes the O_Y-torsion-free quotient.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.relative_log_comparison`.
+
+Hypotheses and conventions:
 
 - Both proper log smooth f and proper smooth interior restriction are required; L|U de Rham; retain the torsion-free quotient.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. D=f⁻¹(E) by the argument of Lemma 3.5.2 and density of U; R^if_két,*(L) is a Z_p-local system by DLLZ-adic Corollary 6.3.5, and its completion is R^if_prokét,*(L̂) (DLLZ-adic Definition 6.3.2, Proposition 5.2.1).
 2. The relative log Poincaré lemma (Corollary 2.4.6), Rµ′_{Y,*} and the projection formula give the filtered map (3.5.8) RH_log(R^if_két,*L)→R^if_logdR,*(RH_log(L)); for L|U de Rham rewrite the target as R^if_logdR,*(D_dR,log(L))⊗̂_k B_dR (Corollary 3.4.21, Lemma 3.5.9) and take Gal(K/k)-invariants to get (3.5.10).
 3. R^if_*(L)|V is de Rham by Scholze's relative comparison (Sch13 Thm. 8.8); by Corollary 3.4.22 and density of V the induced map to the torsion-free quotient is injective and strictly filtered (Lemma 3.5.11).
 4. By Katz's argument [Kat71, Sec. VII] the residues of (R^if_logdR,*D_dR,log(L))_free have eigenvalues in Q∩[0,1); Proposition 3.4.17, Theorem 3.2.7(1) and the interior comparison on V give the isomorphism (Corollary 3.5.14).
 
-**Acceptance checks.**
+Acceptance:
 
 - A relative conclusion omitting the interior properness or the torsion-free quotient is rejected.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#log-riemann-hilbert), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension](#log-regularity-and-extension), [HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems](#completed-kummer-local-systems), [HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension](#boundary-local-system-extension), `PadicHodgeTheory:P8/relative-de-rham-comparison`, `ClassicalAdicEtaleCohomology:H0`, [HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems](#kummer-proper-pushforward-local-systems), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections](#log-site-projections), `AdicSpacesPartII:R3/kiehl-proper-mapping-theorem`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert`, `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension`, `PadicHodgeTheory:P8/de-rham-pair-derived-pushforward`, `ClassicalAdicEtaleCohomology:H0`, `HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections`, `AdicSpacesPartII:R3/kiehl-proper-mapping-theorem`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(5), p. 26; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(5), p. 27; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proof of Corollary 3.5.14, p. 41; [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Corollary 6.3.5, p. 89.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(5), p. 26. The two properness hypotheses of the node; the same item states that R^if_két,*(L) is a Z_p-local system on Y_két that is de Rham on V.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(5), p. 27. The torsion-free quotient in the comparison isomorphism, which the node retains.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proof of Corollary 3.5.14, p. 41. The final extension-uniqueness step, after Katz's residue argument shows the free quotient has normalized residues.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Corollary 6.3.5, p. 89. The Kummer proper pushforward used in the first proof step; its hypotheses (f log smooth, f and f|_{X−D} proper) are those of the node.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 ## Canonical coefficients, lattices and finite-level flags
 
@@ -2967,27 +2931,25 @@ Canonical realizations are normalized at special points and recognized by arithm
 
 ### Canonical Gᶜ coefficients on the log site
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations` · construction · proposed declaration `TauCeti.LogAdic.CanonicalLogRealizations`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations`. Kind: **construction**.
 
 Let (G,X) be a Shimura datum, Gᶜ its central split quotient, K a neat level and S^tor_{K,Σ} a smooth projective toroidal compactification whose boundary D is a normal-crossings divisor. For an algebraic representation W of Gᶜ, import the canonical automorphic étale Q_p-local system W_p on S_K and the automorphic filtered connection W_dR with its canonical extension (nilpotent residues along D, filtration by subbundles). W_p extends uniquely to a Kummer-étale Q_p-local system on S^tor_{K,Σ} (boundary local-system equivalence, characteristic 0), completed to Ŵ_p on the pro-Kummer-étale site, and this extension has unipotent geometric monodromy along D (DLLZ-RH p. 55, from (5.2.13)). Over a finite extension k of Q_p containing the p-adic completion of the reflex field (and the coefficient field), W_p|S_K is de Rham, and p-W_dR:=D_dR,log(W_p) is a filtered log connection on S^tor_{K,Σ,k} with nilpotent residues along D; after ι:Q̄_p≅C, the horizontal sections of the analytified base change of p-W_dR|S_K form the C-local system p-W_B. Each of W↦W_p, W_dR, p-W_dR, p-W_B is a G(A_f)-equivariant tensor functor on Rep(Gᶜ), functorial for morphisms of Shimura data. Full-group coefficients, not arbitrary Levi representations, carry these flat connections.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.CanonicalLogRealizations`.
+
+Hypotheses and conventions:
 
 - Smooth projective toroidal compactification with normal-crossings boundary (strict normal crossings after étale localization); canonical full-group coefficients and their tensor/Hecke functoriality come from AutomorphicBundles.
 - De Rham-ness of W_p on the open Shimura variety is an imported input (Liu–Zhu, Theorem 1.2, as cited in DLLZ-RH §5.2); it is not deduced from the comparison planned later in this stage.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Import B2.general’s full-group realizations W_p and W_dR and B3.general’s canonical logarithmic extension of W_dR with nilpotent residues (DLLZ-RH Proposition 5.2.10).
 2. Unipotent geometric monodromy of W_p along D (DLLZ-RH p. 55, after (5.2.13)) and the boundary local-system equivalence give the Kummer-étale extension; complete it on the pro-Kummer-étale site.
 3. Apply D_dR,log to the de Rham local system W_p (DLLZ-RH (5.2.14)–(5.2.16)); nilpotent residues and the tensor property come from Theorem 3.2.12(2); push out along L⊗k→k, algebraize by rigid GAGA on the proper S^tor_{K,Σ,k} (Köpf; DLLZ-RH p. 55, D^alg_dR,log), base change the algebraic object via ι and take horizontal sections to obtain p-W_B (Proposition 5.2.17).
 4. Check tensor, dual, unit and Hecke pullback compatibility on the unipotent coefficient subcategory.
 
-**Acceptance checks.**
-
-- No universal abelian scheme or motive for a general datum is introduced.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.CanonicalLogRealizations` (constructor): The imported coefficient functors instantiated on the toroidal Kummer/pro-Kummer ringed sites, together with the p-adic realizations p-W_dR and p-W_B.
 - `TauCeti.LogAdic.CanonicalLogRealizations.etale_restriction` (compatibility): Restriction to the interior recovers the canonical p-adic local system.
@@ -2998,96 +2960,90 @@ Let (G,X) be a Shimura datum, Gᶜ its central split quotient, K a neat level an
 - `TauCeti.LogAdic.CanonicalLogRealizations.p_betti` (data): After ι:Q̄_p≅C, the horizontal sections of the analytified p-W_dR|S_K form a C-local system p-W_B; W↦p-W_B is a G(A_f)-equivariant tensor functor.
 - `TauCeti.LogAdic.CanonicalLogRealizations.tensor` (compatibility): Tensor, dual and unit isomorphisms for W_p, W_dR, p-W_dR and p-W_B are canonical and coherent.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.CanonicalLogRealizations.unit` (degenerate): The trivial representation gives the constant Q_p sheaf and trivial filtered O bundle.
 - `TauCeti.LogAdic.CanonicalLogRealizations.siegel` (compatibility): In the Siegel case the standard representation is the semiabelian Tate/de Rham coefficient with its boundary extension.
 - `TauCeti.LogAdic.CanonicalLogRealizations.no_levi_connection` (non-example): An arbitrary Levi coefficient has an automorphic bundle but is not thereby assigned a full-group flat local system.
 - `TauCeti.LogAdic.CanonicalLogRealizations.p_de_rham_unit` (degenerate): For the trivial representation p-W_dR is O with d and the filtration Fil⁰=O, Fil¹=0, and p-W_B is the constant sheaf C; a nontrivial filtration jump or residue would fail this.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension](#boundary-local-system-extension), [HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems](#completed-kummer-local-systems), [HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy](#geometric-boundary-monodromy), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor](#unipotent-log-tensor), `AutomorphicBundles:B2/etale-coefficient-local-system`, `AutomorphicBundles:B2.general/general-flat-realizations`, `AutomorphicBundles:B3.general/general-logarithmic-comparison`, `ShimuraCompactifications:C2/smooth-normal-crossings`.
+Uses:
 
-**Sources and relation to this target.**
+- **DLLZ-RH Theorem 5.3.1**: The comparison identifies these two canonical realizations.
+- **PerfectoidShimuraVarieties:S6**: Imports these finite-level tensor-compatible coefficients.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.2.10, p. 54. States the Betti and automorphic de Rham coefficient functors as G(A_f)-equivariant tensor functors on Rep(Gᶜ); the node imports them and their canonical log extension.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), §5.2, (5.2.12)–(5.2.16), p. 55. Gives the unipotent boundary monodromy of the étale coefficient used for the Kummer extension; the same page records de Rham-ness via Liu–Zhu Theorem 1.2 and builds p-dR V^can with nilpotent residues.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.2.17, p. 56. States the tensor-functor and Hecke properties of the p-adic realizations p-dR and p-B that the node constructs.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.38, p. 79. BP’s finite-level coefficients on S^tor_{K,Σ}: the pro-Kummer-étale local system and the filtered log connection that the node supplies.
+Acceptance:
 
-**Uses.**
+- No universal abelian scheme or motive for a general datum is introduced.
 
-- DLLZ-RH Theorem 5.3.1: The comparison identifies these two canonical realizations.
-- PerfectoidShimuraVarieties:S6: Imports these finite-level tensor-compatible coefficients.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy`, `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham`, `HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor`, `AutomorphicBundles:B2/etale-coefficient-local-system`, `AutomorphicBundles:B2.general/general-flat-realizations`, `AutomorphicBundles:B3.general/general-logarithmic-comparison`, `ShimuraCompactifications:C2/roadmap/smooth-normal-crossings`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.2.10, p. 54; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), §5.2, (5.2.12)–(5.2.16), p. 55; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.2.17, p. 56; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.38, p. 79.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="special-point-comparison"></a>
 
 ### Special-point normalization of canonical comparison
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison` · theorem · proposed declaration `TauCeti.LogAdic.special_point_comparison`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison`. Kind: **theorem**.
 
 Let h∈X be a special point, so h factors through T_R for a maximal Q-torus T⊆G, and K neat. For every W∈Rep(Gᶜ), the pullbacks of the Betti system W_B,C and of the p-adically reconstructed Betti system p-W_B to (G(Q)h)×G(A_f) are canonically and G(Q)×G(A_f)-equivariantly isomorphic to the trivial local system (G(Q)h)×W_C×G(A_f), on which G(Q) acts by diagonal left multiplication on all three factors and G(A_f) by right multiplication on the last. For p-W_B the identification passes through a CM motive M (Artin motives and abelian varieties potentially of CM type, absolute Hodge cycles) whose p-adic realization is the special-point Galois representation r(µ,W)⁺_{K,g,p}, and it does not depend on the choice of M. At h the Hodge filtrations of the pullbacks of p-W_dR and W_dR are both the one defined by the Hodge cocharacter µ_h. These identifications normalize the general coefficient comparison and its reflex-field descent.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.special_point_comparison`.
+
+Hypotheses and conventions:
 
 - Use the proven CM/abelian-motive realizations and absolute Hodge-tensor compatibility (Blasius); this does not assert existence of motives for every general Shimura coefficient.
 - h is a special point: h:S→G_R factors through T_R for a maximal torus T of G over Q; the level K is neat.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Factor h through T, form the reciprocity map r(µ) of (5.4.2)–(5.4.3) and the Galois representation r(µ,W)⁺_{K,g,p} describing the pullback of W_p to the image of (h,g); since T_R stabilizes h, the maximal Q-anisotropic R-split subtorus of T is that of the centre, which acts trivially on W∈Rep(Gᶜ); with neatness of gKg⁻¹ this makes W trivial on gKg⁻¹∩T(Q) (as in the proof of Liu–Zhu Lemma 4.5).
 2. This representation is potentially crystalline (Liu–Zhu Lemma 4.4) and factors through T(Q_p), hence is the p-adic realization of a CM motive M (Patrikis Theorem 2.3.13); Blasius Theorem 0.3 makes Faltings’s comparison D_dR(M_p)≅M_dR⊗k respect the absolute Hodge cycles; identify the pullbacks of W_dR and p-W_dR to h (using compatibility of D_dR with pullback to points) and then of W_B,C and p-W_B by the trivial Riemann–Hilbert correspondence at h.
 3. Independence of M from Deligne–Milne–Ogus–Shih IV (D); G(Q)-equivariance by conjugating all data by γ, G(A_f)-equivariance because the second factor is not involved.
 4. The characters of T(Q_p) in r(µ,W) are locally algebraic, induced by the local Artin map and µ, so both Hodge filtrations at h are determined by µ_h (proof of Proposition 5.4.4).
 
-**Acceptance checks.**
+Acceptance:
 
 - Tensor identifications are normalized at special points rather than chosen up to an unspecified scalar.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations](#canonical-pro-kummer-realizations), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback](#log-rh-pullback), `ShimuraVarieties:V8.general`, `PadicHodgeTheory:P8/relative-de-rham-comparison`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback`, `ShimuraVarieties:V8.general`, `PadicHodgeTheory:P8/de-rham-pair-derived-pushforward`, `ShimuraVarieties:V8.general/general-tower`, `ShimuraVarieties:V8/disjoint-special-reflex-fields`, `ShimuraVarieties:V7/simple-connected-reduction`, `AutomorphicBundles:B0/central-split-quotient`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.4.1, p. 58; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), proof of Proposition 5.4.1, p. 59; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), proof of Proposition 5.4.4, p. 60.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.4.1, p. 58. The statement of the node: canonical equivariant trivialization of both Betti systems over (G(Q)h)×G(A_f), with the actions recorded exactly as printed.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), proof of Proposition 5.4.1, p. 59. The CM-motive route of the proof (potential crystallinity, Patrikis, Blasius) that the node’s proof steps follow.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), proof of Proposition 5.4.4, p. 60. Source of the node’s clause that both Hodge filtrations at h are those of µ_h; this is proved inside Proposition 5.4.4, not in Proposition 5.4.1.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="canonical-arithmetic-monodromy"></a>
 
 ### Arithmetic recognition of the general canonical monodromy
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy` · theorem · proposed declaration `TauCeti.LogAdic.canonical_arithmetic_monodromy`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy`. Kind: **theorem**.
 
 Fix a connected component Γ⁺_{K,g₀}\X⁺ of S^an_{K,C} and identify the fibres of W_B,C and p-W_B at the image of the special point h with W_C by special-point-comparison. Then the monodromy representation ρ^{+,(p)}_{K,g₀}(W):Γ^{+,c}_{K,g₀}→GL(W_C) of p-W_B extends to an algebraic representation of G^{der,c} equal to W_C|G^{der,c}; the extension is unique by Borel density. The proof reduces to G^{der,c} Q-simple and simply connected. If G^der_R is of type A or has real rank ≤1, the datum is of abelian type and may be replaced by a Hodge-type datum, where the comparison is induced by the universal abelian scheme and Hodge tensors. Otherwise (real rank ≥2, not of type A) it uses Margulis superrigidity, the congruence subgroup property, Hecke compatibility and Borel density, and the Piatetski-Shapiro pair of embeddings, to identify every simple factor.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.canonical_arithmetic_monodromy`.
+
+Hypotheses and conventions:
 
 - Only the arithmetic-group instances permitted by DLLZ-RH §§5.4–5.6 are requested; generic superrigidity and congruence results are imported from an arithmetic roadmap addition.
 - K neat; W∈Rep(Gᶜ); the comparison is made on one connected component at a time through the special-point identification of Proposition 5.4.1.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Apply Lemmas 5.4.7–5.4.8 for finite-cover and simply connected reduction.
 2. For abelian type, use faithful polarized abelian coefficients and Hodge tensors to reconstruct the coefficient tensor category (Lemmas 5.5.1, 5.5.3, 5.5.6, Corollary 5.5.7, Proposition 5.5.9 with Remark 5.5.10).
 3. For the remaining case, apply superrigidity (Theorem 5.6.1) and the congruence subgroup property to extend monodromy, eliminate the Hecke discrepancy by Schur/Borel density (Lemma 5.6.5), and prove faithfulness on every factor using Lemma 5.6.7.
 
-**Acceptance checks.**
+Acceptance:
 
 - Recognition includes all derived simple factors; checking only the abelian-type subdatum is not the general proof.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison](#special-point-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations](#canonical-pro-kummer-realizations), `ArithmeticLocallySymmetricSpaces:ALS.1`, `ShimuraVarieties:V8.general`, `PadicHodgeTheory:P8/relative-de-rham-comparison`, `AutomorphicBundles:B1/hodge-tensor-realizations`, `AutomorphicBundles:B1/absolute-hodge-propagation`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations`, `ArithmeticLocallySymmetricSpaces:ALS.1`, `ShimuraVarieties:V8.general`, `PadicHodgeTheory:P8/de-rham-pair-derived-pushforward`, `AutomorphicBundles:B1/hodge-tensor-realizations`, `AutomorphicBundles:B1/absolute-hodge-propagation`, `ShimuraVarieties:V8.general/general-tower`, `ShimuraVarieties:V8/disjoint-special-reflex-fields`, `ShimuraVarieties:V7/simple-connected-reduction`, `AutomorphicBundles:B0/central-split-quotient`.
 
-**Sources and relation to this target.**
+Sources: [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.4.5, p. 61; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.5.9, pp. 63–64; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 5.6.7 and its proof, pp. 65–66; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), end of §5.6, p. 66.
 
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.4.5, p. 61. The node’s statement; Remark 5.4.6 on the same page gives uniqueness by Borel density.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.5.9, pp. 63–64. The type A / real rank ≤1 (abelian-type) case of the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 5.6.7 and its proof, pp. 65–66. The Piatetski-Shapiro embedding step identifying every simple factor in the real rank ≥2, non-type-A case.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), end of §5.6, p. 66. Conclusion of the remaining case via Lemmas 5.6.5 (Schur/Borel density) and 5.6.7.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="canonical-log-period-comparison"></a>
 
@@ -3130,26 +3086,24 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 ### The two de Rham lattices of a canonical coefficient
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices` · construction · proposed declaration `TauCeti.LogAdic.TwoDeRhamLattices`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices`. Kind: **construction**.
 
 On the pro-Kummer-étale site of S^tor_{K,Σ}, for W∈Rep(Gᶜ) put M:=Ŵ_p⊗_{Q_p}B_dR⁺ and M⁰:=(W_dR⊗_{O}OB⁺_dR,log)^{∇=0}. Both are B_dR⁺-local systems of rank dim W, and they are lattices in one B_dR-local system: M⊗_{B_dR⁺}B_dR=Ŵ_p⊗B_dR and M⁰⊗_{B_dR⁺}B_dR=(W_dR⊗OB_dR,log)^{∇=0}, identified by the horizontal sections of the canonical comparison isomorphism. Each lattice L∈{M,M⁰} defines the decreasing filtration Fil^iL:=Fil^iB_dR·L (=t^iL wherever t is defined), i∈Z, of this B_dR-local system; Fil⁰M=M, Fil⁰M⁰=M⁰ and M/Fil¹M=Ŵ_p⊗Ô. Horizontal sections are taken before extracting the lattice filtration; the filtration of M⁰ is its own t-adic one, not the Hodge filtration of W_dR (whose horizontal part is Fil^jM).
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.TwoDeRhamLattices`.
+
+Hypotheses and conventions:
 
 - Canonical associated unipotent/de Rham full-group coefficient; sheafwise lattices in the same localized module.
 - S^tor_{K,Σ} log smooth with normal-crossings boundary, so the toric description of OB⁺_dR,log and the log Poincaré lemma apply.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. On a log affinoid perfectoid above a toric chart, write OB⁺_dR,log as the formal power-series ring of the toric structural-period model. Solve the integrable coefficient connection coefficient by coefficient over this Q-algebra, starting from a basis at zero coordinates. Commuting partial equations and the formal recursion give a horizontal frame. Thus M⁰ is a rank-dim W B_dR⁺-local system and its scalar extension to OB⁺_dR,log recovers W_dR⊗OB⁺_dR,log. This uses formal horizontal trivialization, not only exactness of the untwisted Poincaré complex.
 2. Extend this horizontal frame through localization and the additional filtration completion defining OB_dR,log. The completed log Poincaré lemma identifies its horizontal scalar coefficients with B_dR. Hence (W_dR⊗OB_dR,log)^{∇=0}=M⁰[1/t], while the canonical association identifies this horizontal local system with Ŵ_p⊗B_dR. No equality OB_dR,log=OB⁺_dR,log[1/t] is asserted (DLLZ-RH Remark 2.2.11).
 3. Carry both lattice filtrations into the common ambient space and identify M/Fil¹M with Ŵ_p⊗Ô using B_dR⁺/Fil¹=Ô.
 
-**Acceptance checks.**
-
-- The construction needs the relative position of two lattices; a single filtration of W_dR alone is insufficient.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.TwoDeRhamLattices` (constructor): The common localized module with M, M⁰ and their specified filtrations.
 - `TauCeti.LogAdic.TwoDeRhamLattices.common_localization` (compatibility): Inverting t identifies both lattice localizations with the association’s period local system.
@@ -3159,138 +3113,135 @@ On the pro-Kummer-étale site of S^tor_{K,Σ}, for W∈Rep(Gᶜ) put M:=Ŵ_p⊗_
 - `TauCeti.LogAdic.TwoDeRhamLattices.horizontal_frame` (compatibility): M⁰⊗_{B_dR⁺}OB⁺_dR,log≅W_dR⊗_{O}OB⁺_dR,log compatibly with connections.
 - `TauCeti.LogAdic.TwoDeRhamLattices.tensor` (compatibility): M and M⁰ of W⊗W′ and of W^∨ are the tensor products and duals of those of W and W′, compatibly with their filtrations.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.TwoDeRhamLattices.unit` (degenerate): For the trivial representation the two lattices agree with B_dR⁺.
 - `TauCeti.LogAdic.TwoDeRhamLattices.relative_position` (computation): For scalar rank-one lattices M=Ae and M⁰=tᵃAe in A[1/t]e, both localize to A[1/t]e, Fil^iM⁰=t^{a+i}Ae=Fil^{a+i}M for all i∈Z, and M∩Fil^jM⁰=t^{max(0,a+j)}Ae; for a≠0 the lattices differ although their localizations agree.
 - `TauCeti.LogAdic.TwoDeRhamLattices.horizontal_requirement` (non-example): The unrestricted module W_dR⊗OB_dR,log⁺ is not itself M⁰; its horizontal kernel is required.
 - `TauCeti.LogAdic.TwoDeRhamLattices.tate_line` (computation): For a rank-one associated pair with Ŵ_p≅Q_p(1) and W_dR=(O,d) with Gr^{−1}W_dR=W_dR, one has M⁰=Fil^{−1}B_dR·M=t⁻¹M, whereas Fil⁰ of the Hodge-induced filtration on (W_dR⊗OB_dR,log)^{∇=0} is M itself.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model](#toric-structural-period-model), `PadicHodgeTheory:P8:local-rational/formal-poincare-lemma`.
+Uses:
 
-**Sources and relation to this target.**
+- **BPC25 Remark 4.4.39**: Intersection images in the first-lattice quotient define the ascending HT filtration.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79. BP’s definition of the two lattices M and M⁰ in a common B_dR-local system. BP prints M=W_p⊗B⁺_{dR,log}; the sheaf meant is B_dR⁺ (the surrounding text identifies M a B_dR⁺-local system), and the node uses B_dR⁺.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79. The two filtrations Fil^iM and Fil^iM⁰ are the ones determined by the two lattices; the node defines them as Fil^iB_dR·L.
+Acceptance:
 
-**Uses.**
+- The construction needs the relative position of two lattices; a single filtration of W_dR alone is insufficient.
 
-- BP Remark 4.4.39: Intersection images in the first-lattice quotient define the ascending HT filtration.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare`, `HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods`, `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model`, `PadicHodgeTheory:P8:local-rational/plan/poincare-lemma-and-faltings-extension`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="lattice-hodge-tate-filtration"></a>
 
 ### The lattice Hodge–Tate filtration
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration` · construction · proposed declaration `TauCeti.LogAdic.LatticeHTFiltration`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration`. Kind: **construction**.
 
-Atlas planet: **Lattice Hodge–Tate filtration**.
+With M, M⁰ and their lattice filtrations from two-de-rham-lattices, define the ascending filtration F_{−j}(Ŵ_p⊗Ô):=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰), equivalently the image of M∩Fil^jM⁰ in M/Fil¹M=Ŵ_p⊗Ô. Each F_i is a locally direct-summand Ô-submodule, the filtration is of the type of the Hodge cocharacter, and with BPC25’s negative filtration indexing its graded pieces satisfy Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗_{O}Ô. Record the convention by the displayed F_{−j} formula, rather than silently replacing the ascending filtration by the de Rham one.
 
-With M, M⁰ and their lattice filtrations from two-de-rham-lattices, define the ascending filtration F_{−j}(Ŵ_p⊗Ô):=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰), equivalently the image of M∩Fil^jM⁰ in M/Fil¹M=Ŵ_p⊗Ô. Each F_i is a locally direct-summand Ô-submodule, the filtration is of the type of the Hodge cocharacter, and with BP’s negative filtration indexing its graded pieces satisfy Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗_{O}Ô. Record the convention by the displayed F_{−j} formula, rather than silently replacing the ascending filtration by the de Rham one.
+Proposed declaration: `TauCeti.LogAdic.LatticeHTFiltration`.
 
-**Hypotheses and conventions.**
+Hypotheses and conventions:
 
 - Two associated B_dR⁺ lattices from the canonical coefficient comparison; intersections and quotients are sheafwise.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Use intersection submodules in the common B_dR space and project to M/Fil¹M.
-2. Compute locally: the horizontal part of the j-th filtered piece of W_dR⊗OB_dR,log is Fil^jM by the filtered comparison and the filtered log Poincaré lemma, and the relative position of M⁰ with respect to M has elementary divisors given by the jumps of the Hodge filtration; this gives local splitting and the ranks (the argument of Caraiani–Scholze §2.2 for the open case, to which BP Remark 4.4.39 refers, run with OB_dR,log).
+2. Compute locally: the horizontal part of the j-th filtered piece of W_dR⊗OB_dR,log is Fil^jM by the filtered comparison and the filtered log Poincaré lemma, and the relative position of M⁰ with respect to M has elementary divisors given by the jumps of the Hodge filtration; this gives local splitting and the ranks (the argument of Caraiani–Scholze §2.2 for the open case, to which BPC25 Remark 4.4.39 refers, run with OB_dR,log).
 3. Apply the graded comparison and gr^rB_dR≃Ô(r) to identify each graded component with the specified Tate twist.
 
-**Acceptance checks.**
-
-- Increasing the ascending index enlarges F.
-- For scalar t-adic filtration and a rank-one second lattice M⁰=t^aM, the ascending filtration jumps at a; translating this to named Tate weights requires the imported T1 convention.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.LatticeHTFiltration` (constructor): The image filtration with F_{−j}=image(M∩Fil^jM⁰→M/Fil¹M).
 - `TauCeti.LogAdic.LatticeHTFiltration.mem` (characterisation): A quotient class lies in F_{−j} iff it has a lift belonging to M∩Fil^jM⁰.
 - `TauCeti.LogAdic.LatticeHTFiltration.mono` (structure): The image filtration is increasing in the HT index because Fil^jM⁰ is decreasing.
-- `TauCeti.LogAdic.LatticeHTFiltration.grade` (compatibility): With the displayed BP indexing, its graded identification has the Tate twist (j): Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗Ô.
+- `TauCeti.LogAdic.LatticeHTFiltration.grade` (compatibility): With the displayed BPC25 indexing, its graded identification has the Tate twist (j): Gr_j(Ŵ_p⊗Ô)(j)≃Gr^jW_dR⊗Ô.
 - `TauCeti.LogAdic.LatticeHTFiltration.map` (functoriality): Compatible maps of the two filtered lattices induce filtered quotient maps.
 - `TauCeti.LogAdic.LatticeHTFiltration.locally_split` (structure): Each F_i is a locally direct-summand Ô-submodule, F_i=0 for i below the lowest Hodge jump and F_i=Ŵ_p⊗Ô from the highest jump on.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.LatticeHTFiltration.weight_zero` (degenerate): For a weight-zero line, F_i=0 for i<0 and F_i is the full line for i≥0.
 - `TauCeti.LogAdic.LatticeHTFiltration.lattice_shift` (computation): For scalar t-adic filtration and M⁰=t^aM in rank one, F_i is zero for i<a and the full quotient for i≥a.
 - `TauCeti.LogAdic.LatticeHTFiltration.correct_denominator` (characterisation): The quotient kernel at −j is Fil¹M∩Fil^jM⁰, not all of Fil¹M when that is not contained in Fil^jM⁰.
 - `TauCeti.LogAdic.LatticeHTFiltration.tate_line` (computation): For the associated pair Ŵ_p≅Q_p(1), W_dR=(O,d) with Gr^{−1}W_dR=W_dR, F_{−2}=0 and F_{−1}=Ô(1), so Gr_{−1}(−1)≅Ô≅Gr^{−1}W_dR⊗Ô; a convention with F_j in place of F_{−j} would put the jump at +1.
-- `TauCeti.LogAdic.LatticeHTFiltration.siegel_h1` (compatibility): On the open Siegel variety, for the pair (H₁(A,Q_p),H_{1,dR}(A)) of the universal abelian scheme, F_{−2}=0, F_{−1}=Lie(A)⊗Ô(1) and F₀=H₁(A,Q_p)⊗Ô, recovering 0→Lie(A)⊗Ô(1)→H₁(A,Q_p)⊗Ô→ω_{A^t}⊗Ô→0 (BP §4.4.8, p. 67).
+- `TauCeti.LogAdic.LatticeHTFiltration.siegel_h1` (compatibility): On the open Siegel variety, for the pair (H₁(A,Q_p),H_{1,dR}(A)) of the universal abelian scheme, F_{−2}=0, F_{−1}=Lie(A)⊗Ô(1) and F₀=H₁(A,Q_p)⊗Ô, recovering 0→Lie(A)⊗Ô(1)→H₁(A,Q_p)⊗Ô→ω_{A^t}⊗Ô→0 (BPC25 §4.4.8, p. 67).
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices](#two-de-rham-lattices), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), `HodgeTateAndCanonicalSubgroups:T1`, `HodgeTateAndCanonicalSubgroups:T2`.
+Uses:
 
-**Sources and relation to this target.**
+- **PerfectoidShimuraVarieties:S6**: Imports the finite-level flag before trivializing the p-adic torsor on its tower.
+- **BPC25 Remark 4.4.39**: The filtration defines P_HT and the Levi reduction.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79. Introduces the displayed definition Fil_{−j}(W_p⊗Ô)=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰) that the node states.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79. The filtration is defined from the canonical comparison of §4.4.38 on S^tor_{K,Σ}; the relation Gr_j(W_p⊗Ô)(j)=Gr^jW_dR⊗Ô is displayed at the top of p. 80.
+Acceptance:
 
-**Uses.**
+- Increasing the ascending index enlarges F.
+- For scalar t-adic filtration and a rank-one second lattice M⁰=t^aM, the ascending filtration jumps at a; translating this to named Tate weights requires the imported T1 convention.
 
-- PerfectoidShimuraVarieties:S6: Imports the finite-level flag before trivializing the p-adic torsor on its tower.
-- BP Remark 4.4.39: The filtration defines P_HT and the Levi reduction.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare`, `HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison`, `HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor`, `CohomologyComparisons:CP.0/twist-frobenius-filtration-normalization`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+
+Atlas planet: **Lattice Hodge–Tate filtration**.
 
 <a id="canonical-ht-tensor"></a>
 
 ### Tensor and Hecke compatibility of the finite-level HT flag
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor` · theorem · proposed declaration `TauCeti.LogAdic.canonical_ht_tensor`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor`. Kind: **theorem**.
 
 For canonical full-group Gᶜ coefficients the lattice HT filtration is compatible with tensor products, duals, the unit representation and finite-level Hecke pullbacks: F_i(W⊗W′)=∑_{a+b=i}F_a(W)⊗F_b(W′), F_i(W^∨)=(F_{−i−1}(W))^⊥, and for the unit F_{−1}=0, F₀=Ô. The functor W↦(Ŵ_p⊗Ô,F_•) is exact, its graded pieces are exact in W, and it is of type µ. This is the filtered fibre functor from which hodge-tate-parabolic-reduction extracts the prescribed P^c_µ-reduction of the completed p-adic coefficient torsor.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.canonical_ht_tensor`.
+
+Hypotheses and conventions:
 
 - Use canonical unipotent tensor association; this is not a tensor theorem for arbitrary log local systems.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Use the tensor-compatible association to compare the two filtered lattice systems: M and M⁰ are tensor and dual compatible.
 2. Check the lattice image filtration in locally split cocharacter coordinates; exactness of the graded pieces follows from the graded relation with Gr^jW_dR, which is exact in W.
 3. Verify Hecke naturality from the Hecke equivariance of the comparison.
 
-**Acceptance checks.**
+Acceptance:
 
 - Tate lines of weights m,n tensor to the line of weight m+n.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration](#lattice-hodge-tate-filtration), [HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices](#two-de-rham-lattices), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor](#unipotent-log-tensor), `HodgeTateAndCanonicalSubgroups:T2`, `AutomorphicBundles:B2/coefficient-tensor-hecke`, [HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback](#log-rh-pullback).
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration`, `HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor`, `AutomorphicBundles:B2/coefficient-tensor-hecke`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback`, `HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor`, `AutomorphicBundles:B0/hodge-parabolic-convention`.
 
-**Sources and relation to this target.**
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80. BP’s statement that the lattice HT filtration is Hecke functorial and tensor compatible, which the node makes precise (sums over a+b=i, duals, unit, exactness).
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="hodge-tate-parabolic-reduction"></a>
 
 ### The Hodge–Tate P^c_µ-reduction of the canonical p-adic torsor
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction` · construction · proposed declaration `TauCeti.LogAdic.HodgeTateReduction`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction`. Kind: **construction**.
 
-Over S^tor_{K,Σ} (K neat, smooth projective toroidal compactification with normal-crossings boundary, over a finite extension F of Q_p containing the reflex field and splitting G, with a cocharacter µ in the Hodge class defined over F), let G_pet,p be the pro-Kummer-étale Gᶜ(Q_p)-torsor of tensor isomorphisms W⊗_{Q_p}Q̂_p≅Ŵ_p, W∈Rep_{Q_p}(Gᶜ), so that G_pet,p×^{Gᶜ(Q_p)}W=Ŵ_p. Extend G^{c,an} to the pro-Kummer-étale site by U↦Gᶜ(Ô(U)) as in BP §4.4.8. The subsheaf P_HT⊆G_pet,p×^{Gᶜ(Q_p)}G^{c,an} of tensor trivializations W⊗Ô≅Ŵ_p⊗Ô carrying the standard ascending filtration Fil_iW:=⊕_{w≥−i}W[µ-weight w] to the lattice HT filtration F_i(Ŵ_p⊗Ô) for all W is a P^{c,an}_µ-torsor, P^c_µ={g: lim_{t→0}Ad µ(t)g exists}. On the de Rham side the canonical-extension torsor G^an_dR (étale site) has the P^{std,c,an}_µ-reduction P_dR given by the Hodge filtration, P^{std,c}_µ={g: lim_{t→∞}Ad µ(t)g exists}. Both reductions are Hecke-equivariant and compatible with change of level.
+Over S^tor_{K,Σ} (K neat, smooth projective toroidal compactification with normal-crossings boundary, over a finite extension F of Q_p containing the reflex field and splitting G, with a cocharacter µ in the Hodge class defined over F), let G_pet,p be the pro-Kummer-étale Gᶜ(Q_p)-torsor of tensor isomorphisms W⊗_{Q_p}Q̂_p≅Ŵ_p, W∈Rep_{Q_p}(Gᶜ), so that G_pet,p×^{Gᶜ(Q_p)}W=Ŵ_p. Extend G^{c,an} to the pro-Kummer-étale site by U↦Gᶜ(Ô(U)) as in BPC25 §4.4.8. The subsheaf P_HT⊆G_pet,p×^{Gᶜ(Q_p)}G^{c,an} of tensor trivializations W⊗Ô≅Ŵ_p⊗Ô carrying the standard ascending filtration Fil_iW:=⊕_{w≥−i}W[µ-weight w] to the lattice HT filtration F_i(Ŵ_p⊗Ô) for all W is a P^{c,an}_µ-torsor, P^c_µ={g: lim_{t→0}Ad µ(t)g exists}. On the de Rham side the canonical-extension torsor G^an_dR (étale site) has the P^{std,c,an}_µ-reduction P_dR given by the Hodge filtration, P^{std,c}_µ={g: lim_{t→∞}Ad µ(t)g exists}. Both reductions are Hecke-equivariant and compatible with change of level.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.HodgeTateReduction`.
+
+Hypotheses and conventions:
 
 - The HT filtration is the tensor-compatible, exact, locally split filtration of type µ of canonical-ht-tensor; arbitrary filtered local systems are not claimed to give parabolic reductions.
-- G_pet,p is defined from the coefficient functor W↦Ŵ_p, not from the toroidal level tower; its comparison with the tower’s deck group and its triviality over the tower diamond belong to PerfectoidShimuraVarieties:S6 (BP Theorem 4.4.40, §4.6.1).
+- G_pet,p is defined from the coefficient functor W↦Ŵ_p, not from the toroidal level tower; its comparison with the tower’s deck group and its triviality over the tower diamond belong to PerfectoidShimuraVarieties:S6 (BPC25 Theorem 4.4.40, §4.6.1).
 
-**Construction or proof route.**
+Construction and proof:
 
 1. G_pet,p is a torsor: locally on the pro-Kummer-étale site the coefficient functor W↦Ŵ_p is tensor-isomorphic to the constant one, since it comes from Gᶜ(Q_p)-representations through the canonical coefficient construction.
 2. An exact tensor filtration of type µ of a fibre functor is locally splittable, so P_HT is locally nonempty; it is a torsor under the stabilizer of the µ-filtration, which is P^c_µ (Tannakian extraction, imported convention).
 3. For a faithful W the stabilizer of Fil_•W in Gᶜ is P^c_µ, so membership in P_HT may be tested on one faithful representation.
 4. Hecke equivariance and level change follow from those of the comparison, the lattices and the filtration; the de Rham reduction is imported.
 
-**Acceptance checks.**
-
-- P_HT has structure group P^c_µ and P_dR has structure group P^{std,c}_µ; they are opposite parabolics with common Levi M^c_µ.
-- No statement about the toroidal tower, its diamond or v-descent is made here.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.HodgeTateReduction` (constructor): The pair (G_pet,p, P_HT) on the pro-Kummer-étale site of S^tor_{K,Σ}, with the imported de Rham reduction P_dR.
 - `TauCeti.LogAdic.HodgeTateReduction.torsor_assoc` (characterisation): G_pet,p×^{Gᶜ(Q_p)}W≅Ŵ_p naturally and tensor-compatibly in W.
@@ -3300,53 +3251,51 @@ Over S^tor_{K,Σ} (K neat, smooth projective toroidal compactification with norm
 - `TauCeti.LogAdic.HodgeTateReduction.hecke` (functoriality): Hecke pullbacks and change of level carry (G_pet,p,P_HT) and P_dR to the corresponding objects.
 - `TauCeti.LogAdic.HodgeTateReduction.open_restriction` (compatibility): Restricted to the pro-étale site of S_K, P_HT is the reduction defined by the same filtration of the interior local systems.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.HodgeTateReduction.torus` (degenerate): If Gᶜ is a torus (µ central), P^c_µ=Gᶜ and P_HT is the whole pushed-out torsor.
-- `TauCeti.LogAdic.HodgeTateReduction.siegel` (compatibility): On the open Siegel variety P_HT is the torsor of similitude trivializations of H₁(A,Q_p)⊗Ô carrying the µ-weight-one Lagrangian of Q_p^{2g} (which is Fil_{−1}) to Lie(A)⊗Ô(1) (BP §4.4.8, with W the standard representation realized as H₁(A,Q_p)).
+- `TauCeti.LogAdic.HodgeTateReduction.siegel` (compatibility): On the open Siegel variety P_HT is the torsor of similitude trivializations of H₁(A,Q_p)⊗Ô carrying the µ-weight-one Lagrangian of Q_p^{2g} (which is Fil_{−1}) to Lie(A)⊗Ô(1) (BPC25 §4.4.8, with W the standard representation realized as H₁(A,Q_p)).
 - `TauCeti.LogAdic.HodgeTateReduction.stabilizer_faithful` (characterisation): For a faithful W the stabilizer in Gᶜ of the ascending filtration Fil_•W is P^c_µ, not P^{std,c}_µ; the latter stabilizes the Hodge filtration of W_dR.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor](#canonical-ht-tensor), [HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration](#lattice-hodge-tate-filtration), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations](#canonical-pro-kummer-realizations), `HodgeTateAndCanonicalSubgroups:T2`, `AutomorphicBundles:B0/central-split-quotient`, `AutomorphicBundles:B0/hodge-parabolic-convention`, `AutomorphicBundles:B1/filtration-reduction`, `AutomorphicBundles:B3.general/general-canonical-extension`.
+Uses:
 
-**Sources and relation to this target.**
+- **PerfectoidShimuraVarieties:S6/kummer-to-v-bridge**: Evaluates P_HT on perfectoid test objects over the toroidal tower diamond.
+- **BPC25 text after Remark 4.4.39**: M_HT^an:=P_HT×^{P^{c,an}_µ}M^{c,an}_µ.
+- **OverconvergentAutomorphicForms:O8**: Uses the opposite parabolic conventions for the HT and de Rham reductions.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80. BP’s finite-level torsor G_pet,p over S^tor_{K,Σ}, whose P^c_µ-reduction P_HT (“corresponding to the filtration on W_p⊗Ô”) and de Rham P^{std,c}_µ-reduction P_dR are defined in the same paragraph.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80. The defining property of P_HT stated by the node (layout text of the PDF).
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.8, p. 68. In the Siegel case BP define P_HT as the trivializations of H₁(A,Q_p)⊗Ô respecting the HT filtration, which is the node’s membership description for a faithful representation.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.0, p. 49. Conventions P^std_µ (limit t→∞) and P_µ (limit t→0) used for P_dR and P_HT.
+Acceptance:
 
-**Uses.**
+- P_HT has structure group P^c_µ and P_dR has structure group P^{std,c}_µ; they are opposite parabolics with common Levi M^c_µ.
+- No statement about the toroidal tower, its diamond or v-descent is made here.
 
-- PerfectoidShimuraVarieties:S6/kummer-to-v-bridge: Evaluates P_HT on perfectoid test objects over the toroidal tower diamond.
-- BP text after Remark 4.4.39: M_HT^an:=P_HT×^{P^{c,an}_µ}M^{c,an}_µ.
-- OverconvergentAutomorphicForms:O8: Uses the opposite parabolic conventions for the HT and de Rham reductions.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-pro-kummer-realizations`, `AutomorphicBundles:B0/central-split-quotient`, `AutomorphicBundles:B0/hodge-parabolic-convention`, `AutomorphicBundles:B1/filtration-reduction`, `AutomorphicBundles:B3.general/general-canonical-extension`, `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T2/filtered-fibre-functor`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.8, p. 68; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.0, p. 49.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="finite-levi-torsor"></a>
 
 ### Finite-level cyclotomic Levi-torsor comparison
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor` · construction · proposed declaration `TauCeti.LogAdic.FiniteLeviComparison`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`. Kind: **construction**.
 
 Let P_dR⊆G_dR^an be the P^{std,c,an}_µ-reduction of the canonical-extension de Rham torsor given by the Hodge filtration (étale site of S^tor_{K,Σ}) and P_HT the P^{c,an}_µ-reduction of G_pet,p×^{Gᶜ(Q_p)}G^{c,an} given by the lattice HT filtration (pro-Kummer-étale site), where P^{std}_µ={g: lim_{t→∞}Ad µ(t)g exists} and P_µ={g: lim_{t→0}Ad µ(t)g exists} have common Levi M_µ. Put M_dR^an:=P_dR×^{P^{std,c,an}_µ}M^{c,an}_µ and M_HT^an:=P_HT×^{P^{c,an}_µ}M^{c,an}_µ. There is a canonical isomorphism of M^{c,an}_µ-torsors M_HT^an≃M_dR^an×^{µ,Z_p^×}Z_p(1) on the pro-Kummer-étale site of S^tor_{K,Σ}, compatible with the Hecke action, where Z_p(1) is the pro-étale Z_p^×-torsor of generators and µ:Z_p^×→M^{c,an}_µ is central. Hence a cyclotomic twist of M_HT^an is defined on the étale site. An untwisted equality requires an explicit cyclotomic trivialization.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.FiniteLeviComparison`.
+
+Hypotheses and conventions:
 
 - The central cocharacter µ acts on the common Levi; the de Rham and HT parabolic conventions are distinguished (P^{std,c}_µ stabilizes the Hodge filtration, P^c_µ the ascending HT filtration).
-- BP states the identification “on the pro-étale site”; the node states it on the pro-Kummer-étale site of S^tor_{K,Σ}, where P_HT and the graded relation live.
+- BPC25 states the identification “on the pro-étale site”; the node states it on the pro-Kummer-étale site of S^tor_{K,Σ}, where P_HT and the graded relation live.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Import canonical de Rham torsor and flag conventions from AutomorphicBundles (canonical extension, P^{std,c}_µ-reduction by the Hodge filtration).
 2. Take the HT torsor and its P^c_µ-reduction from hodge-tate-parabolic-reduction.
 3. Use the graded comparison Gr_j(Ŵ_p⊗Ô)≃Gr^jW_dR⊗Ô(−j), tensor-compatibly in W, to identify the two Levi fibre functors after twisting the µ-weight w part by Z_p(1)^{⊗w}; this is the central cyclotomic contracted product. Check descent and Hecke coherence.
 
-**Acceptance checks.**
-
-- The result exported to S6 includes the central cyclotomic twist; it does not construct the tower map.
-
-**Planning API.**
+API:
 
 - `TauCeti.LogAdic.FiniteLeviComparison` (constructor): The finite-level comparison of Levi torsors with the µ-contracted cyclotomic torsor.
 - `TauCeti.LogAdic.FiniteLeviComparison.central_twist` (characterisation): The twisting action is through the central cocharacter µ:Z_p×→M_µᶜ.
@@ -3354,69 +3303,65 @@ Let P_dR⊆G_dR^an be the P^{std,c,an}_µ-reduction of the canonical-extension d
 - `TauCeti.LogAdic.FiniteLeviComparison.trivialization` (compatibility): Choosing a compatible generator of Z_p(1) identifies the contracted product with M_dR; changing that generator acts through µ.
 - `TauCeti.LogAdic.FiniteLeviComparison.assoc_bundle` (compatibility): For an M^c_µ-representation V on which µ(z) acts by z^w, M_HT^an×^{M^c_µ}V≅(M_dR^an×^{M^c_µ}V)⊗Ô(w), compatibly with tensor products and duals.
 
-**Discriminating unit tests.**
+Unit tests:
 
 - `TauCeti.LogAdic.FiniteLeviComparison.weight_zero` (degenerate): For central weight zero the cyclotomic twist is trivial.
 - `TauCeti.LogAdic.FiniteLeviComparison.weight_one` (computation): On a central weight-one character the contracted product is the associated Tate line, not an untwisted line with the same Galois action.
 - `TauCeti.LogAdic.FiniteLeviComparison.change_generator` (characterisation): Replacing a cyclotomic generator by u times it changes the trivialized comparison by µ(u); there is no generator-independent untwisted equality.
 - `TauCeti.LogAdic.FiniteLeviComparison.graded_compatibility` (compatibility): For W∈Rep(Gᶜ), the isomorphism induced on associated graded bundles is Gr_j(Ŵ_p⊗Ô)≅Gr^jW_dR⊗Ô(−j), the graded relation of lattice-hodge-tate-filtration; the twist by µ⁻¹ instead of µ would give Ô(j).
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction](#hodge-tate-parabolic-reduction), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor](#canonical-ht-tensor), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), `HodgeTateAndCanonicalSubgroups:T2`, `AutomorphicBundles:B0/hodge-parabolic-convention`, `AutomorphicBundles:B3.general/general-canonical-extension`.
+Uses:
 
-**Sources and relation to this target.**
+- **PerfectoidShimuraVarieties:S6; BPC25 Theorem 4.4.40**: The tower trivialization pulls back this finite-level Levi comparison, including its twist.
+- **OverconvergentAutomorphicForms:O8 toroidal coefficient instance**: Imports M_HT=M_dR×^{µ,Z_p^×}Z_p(1) with its tensor/dual compatibility over the toroidal boundary.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80. Introduces the displayed identification M_HT^an=M_dR^an×^{µ,Z_p^×}Z_p(1), compatible with Hecke, which is the node’s statement.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80. The Hecke compatibility and the étale-site descent of the twisted torsor stated in the node.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.8, p. 68. Definition of the contracted product M_dR×^{µ,Z_p^×}Z_p(1) through the central cocharacter µ, used by the node (Siegel case; §4.4.23, p. 74, repeats it for Hodge type).
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.0, p. 49. BP’s conventions P^std_µ (limit t→∞) and P_µ (limit t→0) with common Levi M_µ, which the node records.
+Acceptance:
 
-**Uses.**
+- The result exported to S6 includes the central cyclotomic twist; it does not construct the tower map.
 
-- PerfectoidShimuraVarieties:S6; BP Theorem 4.4.40: The tower trivialization pulls back this finite-level Levi comparison, including its twist.
-- OverconvergentAutomorphicForms:O8 toroidal coefficient instance: Imports M_HT=M_dR×^{µ,Z_p^×}Z_p(1) with its tensor/dual compatibility over the toroidal boundary.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `AutomorphicBundles:B0/hodge-parabolic-convention`, `AutomorphicBundles:B3.general/general-canonical-extension`, `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T2/de-rham-hodge-tate-levi-comparison`.
 
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 80; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.8, p. 68; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.0, p. 49.
+
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 <a id="hodge-type-comparison-agreement"></a>
 
 ### Hodge-type agreement with the abelian-scheme comparison
 
-`HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement` · theorem · proposed declaration `TauCeti.LogAdic.hodge_type_comparison_agreement`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement`. Kind: **theorem**.
 
-Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BP §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.
+Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BPC25 §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.hodge_type_comparison_agreement`.
 
-- Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BP Remark 4.4.39, p. 79).
+Hypotheses and conventions:
+
+- Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BPC25 Remark 4.4.39, p. 79).
 - The identification of the lattice HT filtration of (H₁(A,Q_p),H_{1,dR}(A)) with the relative Hodge–Tate filtration of A is T2’s (Caraiani–Scholze §2.2), imported, not re-proved.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. DLLZ-RH Lemma 5.5.3: Scholze’s relative comparison gives the analytic morphism. Full faithfulness of p-adic analytification for regular algebraic connections ([AB01, Ch. 4, Cor. 6.8.2], [ABC20, Cor. 34.6.2], explicitly used on p. 63) algebraizes it on the open Shimura variety, giving (5.5.4) for V₀^{⊗m}(−t), equal to the identity at the special point h. Proper rigid GAGA on S_K is not the input.
 2. Lemma 5.5.6 and Corollary 5.5.7: each irreducible W is cut out of V₀^{⊗m}(−t) by a Hodge tensor s_W, giving (5.5.8).
 3. Proposition 5.5.9 with Remark 5.5.10 (Faltings’s and Scholze’s comparisons agree for CM abelian varieties; Blasius for Hodge tensors): (5.5.8) is the identity at h on each component, hence equals the canonical isomorphism of Theorem 5.3.1, and Proposition 5.4.4 transfers this to the de Rham side.
 4. The period isomorphism is µ⁻¹D_dR of the de Rham side tensored up, and for R^if_*Q_p the D_dR-identification is the one induced by Scholze’s comparison; so the lattices M, M⁰, the HT filtration and P_HT on S_K are those of the abelian-scheme comparison; conclude with T2’s description of the HT filtration and the faithful-representation test for P_HT.
 
-**Acceptance checks.**
+Uses:
+
+- **PerfectoidShimuraVarieties:S6/general-toroidal-period-map**: Identifies π^tor_HT on the open subdiamond with the Hodge-type period map of S3.
+- **BPC25 Remark 4.4.39**: The Hodge-type, open-variety case of the identity.
+
+Acceptance:
 
 - The agreement is proved on the open Shimura variety; across the boundary the canonical extension is characterized by nilpotent residues, not by an abelian-scheme comparison.
 - It does not give a new proof of the general comparison; it identifies the general canonical comparison with the abelian one in Hodge type.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy](#canonical-arithmetic-monodromy), [HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison](#special-point-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration](#lattice-hodge-tate-filtration), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction](#hodge-tate-parabolic-reduction), [HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor](#finite-levi-torsor), `PadicHodgeTheory:P8/relative-de-rham-comparison`, `AutomorphicBundles:B1/hodge-tensor-realizations`, `AutomorphicBundles:B1/absolute-hodge-propagation`, `HodgeTateAndCanonicalSubgroups:T2`.
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy`, `HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`, `PadicHodgeTheory:P8/de-rham-pair-derived-pushforward`, `AutomorphicBundles:B1/hodge-tensor-realizations`, `AutomorphicBundles:B1/absolute-hodge-propagation`, `HodgeTateAndCanonicalSubgroups:T2/relative-hodge-tate-sequence`, `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison`.
 
-**Sources and relation to this target.**
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39, p. 79; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 5.5.3, p. 62; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.5.9 and its proof, pp. 63–64; [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 5.5.10, p. 64.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39, p. 79. BP’s statement that in Hodge type, off the boundary, the comparison is the abelian-variety one with Hodge tensors; the node states this agreement and its consequences for the HT filtration and P_HT.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 5.5.3, p. 62. The abelian-scheme comparison for V₀^{⊗m}(−t) via Scholze’s relative comparison, normalized at h; part (i) of the node.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Proposition 5.5.9 and its proof, pp. 63–64. The Hodge-tensor-induced morphism (5.5.8) is the identity at h, hence the canonical comparison of Theorem 5.3.1; part (i) for general W.
-- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Remark 5.5.10, p. 64. Faltings’s and Scholze’s p-adic de Rham comparisons agree for CM abelian varieties, used to match the special-point normalization.
-
-**Uses.**
-
-- PerfectoidShimuraVarieties:S6/general-toroidal-period-map: Identifies π^tor_HT on the open subdiamond with the Hodge-type period map of S3.
-- BP Remark 4.4.39: The Hodge-type, open-variety case of the identity.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 ## Finite-level exported package
 
@@ -3428,106 +3373,93 @@ The aggregate exports only the finite-level canonical package to S6, the early l
 
 ### Finite-level general canonical comparison package
 
-`HodgeTateAndCanonicalSubgroups:T6/finite-level-canonical-package` · application · proposed declaration `TauCeti.LogAdic.finite_level_canonical_package`.
+Identifier: `HodgeTateAndCanonicalSubgroups:T6/finite-level-canonical-package`. Kind: **application**.
 
-For every neat pure Shimura datum and smooth projective toroidal model S^tor_{K,Σ}, the canonical Gᶜ coefficient tensor functors are associated through completed logarithmic periods on the pro-Kummer-étale site. They yield the ascending Hodge–Tate flag, its P^c_µ-reduction P_HT and the cyclotomic Levi comparison M_HT≅M_dR×^{µ,Z_p^×}Z_p(1) at finite level, Hecke-compatibly, and for Hodge-type data they agree on the open Shimura variety with the constructions from the universal abelian scheme and its Hodge tensors. Export the full package to PerfectoidShimuraVarieties:S6, which owns the general toroidal-tower diamond Hodge–Tate map and coefficient pullback (BP Theorem 4.4.40). Export only early log-site geometry to PrismaticCohomology:PR.8 and log primitive comparison separately to completed/coherent cohomology consumers.
+For every neat pure Shimura datum and smooth projective toroidal model S^tor_{K,Σ}, the canonical Gᶜ coefficient tensor functors are associated through completed logarithmic periods on the pro-Kummer-étale site. They yield the ascending Hodge–Tate flag, its P^c_µ-reduction P_HT and the cyclotomic Levi comparison M_HT≅M_dR×^{µ,Z_p^×}Z_p(1) at finite level, Hecke-compatibly, and for Hodge-type data they agree on the open Shimura variety with the constructions from the universal abelian scheme and its Hodge tensors. Export the full package to PerfectoidShimuraVarieties:S6, which owns the general toroidal-tower diamond Hodge–Tate map and coefficient pullback (BPC25 Theorem 4.4.40). Export only early log-site geometry to PrismaticCohomology:PR.8 and log primitive comparison separately to completed/coherent cohomology consumers.
 
-**Hypotheses and conventions.**
+Proposed declaration: `TauCeti.LogAdic.finite_level_canonical_package`.
+
+Hypotheses and conventions:
 
 - This application is the narrowed T6 aggregate; it assumes no general-datum toroidal diamond is a perfectoid space.
 
-**Construction or proof route.**
+Construction and proof:
 
 1. Assemble the canonical association, flag tensor compatibility, the P^c_µ-reduction, the finite Levi comparison and the Hodge-type agreement.
 2. Name the S6 interface with the central twist and the smooth/SNC hypotheses preserved.
 3. Keep the site-only and primitive-comparison exports independent of the late canonical arithmetic argument.
 
-**Acceptance checks.**
+Acceptance:
 
 - S6 imports the finite-level package; there is no reverse prerequisite S6→T6.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor](#finite-levi-torsor), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor](#canonical-ht-tensor), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction](#hodge-tate-parabolic-reduction), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement](#hodge-type-comparison-agreement), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison](#log-primitive-comparison).
+Direct prerequisites: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction`, `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison`.
 
-**Sources and relation to this target.**
+Sources: [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.38, p. 79; [BPC25](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text before Theorem 4.4.40, p. 80.
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), §4.4.38, p. 79. Opens the finite-level general-datum passage (§4.4.38–Remark 4.4.39 and the text before Theorem 4.4.40) that the package assembles.
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text before Theorem 4.4.40, p. 80. Ownership boundary: from this sentence on (diamond limit, Theorem 4.4.40) the material belongs to PerfectoidShimuraVarieties:S6; the package asserts nothing about the tower.
-
-Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
+Proposed library: module `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, namespace `TauCeti.LogAdic`.
 
 ## Supplier requests
 
-### `AdicSpacesPartII:R0`
+### AdicSpacesPartII:R0
 
 Finite normal analytic extension across a normal crossings boundary: for a smooth rigid space X over a characteristic-zero nonarchimedean field, D⊂X a normal crossings divisor and a finite étale cover of X−D, its normalization over X is finite and is the unique normal extension (the input of DLLZ-adic Proposition 4.2.1, through [Han20, Thm. 1.6] after Lütkebohmert). Every other R0 need of this packet is met by exact R0 nodes (fibre products, finite and smooth morphisms, continuous differentials, completed tensor products, noetherian-type and uniformization nodes). R0's stated scope does not name normalization, so the gap 'Analytic normalization, root extraction and rigid resolution' carries this until R0 or a Part II owns it.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/rigid-abhyankar](#rigid-abhyankar).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:log-sites/rigid-abhyankar`.
 
-### `AdicSpacesPartII:R3`
+### AdicSpacesPartII:R3
 
 Étale descent of coherent modules on a locally noetherian adic space X: coherent O_{X_ét}-modules correspond to coherent O_X-modules, with H^i(U_ét, M̃_ét)=0 for affinoid U and i>0 (DLLZ-adic Proposition A.10), beyond the finite projective case stated by the existing R3 nodes; and the same for the coefficient sheaves O_X⊗̂_k(B_dR⁺/t^r) used in DLLZ-RH Lemma 3.1.4(3)–(5).
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/saturated-adic-products](#saturated-adic-products), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent](#log-differential-descent), [HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves](#bdr-coefficient-sheaves).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:log-sites/saturated-adic-products`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-differential-descent`, `HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves`.
 
-### `CrystallineCohomology:CR.5:log-algebra`
+### CrystallineCohomology:CR.5:log-algebra
 
-State log structures, the associated log structure, inverse image of log structures, charts, characteristic monoids and the coherent/fine/fs conditions for an arbitrary ringed site (Kato's definitions use only the ringed topos), so that they apply to the étale ringed site (X_ét, O_{X_ét}) of a locally noetherian adic space. The existing CR.5:log-algebra nodes are stated for the étale site of a scheme; T6 adds the integral-image condition of DLLZ charts and the analytic constructions.
+Four items remain: inverse images of log structures along morphisms of ringed sites, general (not only fine) charts, characteristic monoids, and the coherent, integral, saturated and fs conditions on a ringed site.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space](#log-adic-space), [HodgeTateAndCanonicalSubgroups:T6:log-sites/integral-adic-chart](#integral-adic-chart).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/integral-adic-chart`.
 
-### `ClassicalAdicEtaleCohomology:H0`
+### ClassicalAdicEtaleCohomology:H0
 
 Classical étale inputs with no exact node: étale acyclicity of M̃_ét for finite (not necessarily projective) modules M over noetherian affinoids; Scholze 2013 Corollary 3.17(i) for perfectoid spaces that are not locally noetherian (the existing H0/proetale-etale-comparison assumes locally noetherian; DLLZ-adic Proposition 5.3.13 notes the assumption is not needed); the Cartan–Leray spectral sequence for pro-finite Kummer Galois covers (H0/cartan-leray-spectral-sequence (b) is stated for pro-finite-étale torsors on X_proét); the cohomological-dimension bounds cd(X_an)≤dim X (de Jong–van der Put Proposition 2.5.8) and H^i(U_ét,L)=0 for i>2dim U with torsion coefficients; continuous Galois cohomology of arithmetic invariants. Generic site statements come from DiamondsAndVStacks:D0 nodes instead.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-coherent-acyclicity](#kummer-coherent-acyclicity), [HodgeTateAndCanonicalSubgroups:T6:log-sites/finite-kummer-descent](#finite-kummer-descent), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis](#log-perfectoid-basis), [HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy](#geometric-boundary-monodromy), [HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-higher-direct-images](#kummer-etale-higher-direct-images), [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology](#toric-kummer-cohomology), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-cohomology-finite-vanishing](#log-cohomology-finite-vanishing), [HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems](#kummer-proper-pushforward-local-systems), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-tower-decompletion](#log-tower-decompletion), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward](#log-oc-pushforward), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison](#relative-log-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves](#bdr-coefficient-sheaves).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-coherent-acyclicity`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/finite-kummer-descent`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-basis`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/geometric-boundary-monodromy`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-higher-direct-images`, `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-cohomology-finite-vanishing`, `HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-tower-decompletion`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward`, `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham`, `HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison`, `HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves`.
 
-### `EnhancedDerivedSheaves:E1`
+### EnhancedDerivedSheaves:E1
 
 Projection formula Rµ′_*(L̂⊗OB_dR,log)≅… for the morphism of ringed sites µ′:X_prokét/X_K→X_an with locally free coefficients, and hypercohomology of the log de Rham and B_dR-coefficient complexes. E1/presentability-and-derived-tensor supplies the pullback/pushforward adjunction and the derived tensor product but does not state the projection formula.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#log-riemann-hilbert), [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology](#proper-log-period-cohomology), [HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves](#bdr-coefficient-sheaves).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert`, `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology`, `HodgeTateAndCanonicalSubgroups:T6:comparison/bdr-coefficient-sheaves`.
 
-### `EnhancedDerivedSheaves:E2`
+### EnhancedDerivedSheaves:E2
 
 R lim_n vanishing for inverse systems on X_prokét whose terms are (almost) acyclic on a basis, as in Scholze 2013 Lemma 3.18. The E2 nodes surjective-system-derived-limit and inverse-limit-amplitude assume a replete topos, which is not established for X_prokét, so they are near misses. PAPER-SCHOLZE-13 route 5 sends Scholze's Lemma 3.18 to AInfCohomology:AI.3; if AI.3 states it in this generality, retarget this request there (the edge AI.3→T6:log-sites is acyclic).
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity](#log-perfectoid-almost-acyclicity), [HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems](#completed-kummer-local-systems), [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology](#proper-padic-boundary-cohomology), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#log-riemann-hilbert), [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology](#proper-log-period-cohomology).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:log-sites/log-perfectoid-almost-acyclicity`, `HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-kummer-local-systems`, `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert`, `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-period-cohomology`.
 
-### `PadicHodgeTheory:P8`
+### PadicHodgeTheory:P8
 
-Scholze 2013 §5 inputs: Lemmas 5.3, 5.4, 5.5 and 5.9 and the Artin–Schreier argument of the proof of Theorem 5.1 (DLLZ-adic Lemma 6.1.7, Theorem 6.2.1 and Lemma 6.2.4 cite exactly these), held by P8 through the accepted routes PAPER-SCHOLZE-13 route 1, PAPER-ZAVYALOV-25 route 7 and PAPER-BHATT-MORROW-SCHOLZE-18 route 14. FIX-RT-AREA-padic-1 (finding /24) decided their owner: the new sub-stage PadicHodgeTheory:P8:primitive, placed after P8:local-rational (Scholze's §5 uses the toric charts of his Lemma 5.2, planned at P8:local-rational/toric-charts-for-smooth-spaces) and before P8, CohomologyComparisons CP.3, AInfCohomology AI.4, TorsionCohomologyInfrastructure TC.2, IgusaVarietiesAndTorsionConcentration IG.3 and HodgeTateAndCanonicalSubgroups T6:log-primitive. Replace this stage citation by the P8:primitive nodes once that stage is in the atlas. Citing P8 creates no cycle: P8 is already an ancestor of T6:comparison (P8→T1→T2→T6:comparison).
+The lemmas of Scholze 2013 §5 used inside the logarithmic proofs remain: Lemmas 5.3, 5.4, 5.5 (continuous ℤ_p^d-cohomology of the perfectoid torus with 𝒪⁺/p coefficients) and 5.9, and the Artin–Schreier step of Theorem 5.1, as statements of the proposed stage P8:primitive.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology](#toric-kummer-cohomology), [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness](#proper-log-almost-finiteness), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison](#log-primitive-comparison).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:comparison/toric-kummer-cohomology`, `HodgeTateAndCanonicalSubgroups:T6:comparison/proper-log-almost-finiteness`, `HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison`.
 
-### `ArithmeticLocallySymmetricSpaces:ALS.1`
+### ArithmeticLocallySymmetricSpaces:ALS.1
 
 Part II arithmetic-rigidity addition: Borel density and Margulis superrigidity (DLLZ-RH Theorem 5.6.1: H Q-simple simply connected, rk_R(H_R)≥2, Γ arithmetic) and the congruence subgroup input for groups not of type A, as actually used in DLLZ-RH §5.6 (Lemmas 5.6.5 and 5.6.7). The existing local-system layer is not evidence that these theorems are supplied.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy](#canonical-arithmetic-monodromy).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy`.
 
-### `ShimuraVarieties:V8.general`
+### ShimuraVarieties:V8.general
 
-General pure Shimura data, the central split quotient Gᶜ, reflex-field canonical models, special-point conjugation and descent, simply connected reduction and the Piatetski-Shapiro pair of embeddings used in DLLZ-RH Lemma 5.6.7. The absence of the precise embeddings is recorded as a gap.
+One item remains: the Piatetski-Shapiro pair of embeddings used in DLLZ-RH Lemma 5.6.7.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison](#special-point-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy](#canonical-arithmetic-monodromy).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy`.
 
-### `HodgeTateAndCanonicalSubgroups:T1`
-
-Tate twists, the Hodge–Tate weight convention and the functorial tensor-filtration interface; applied to the finite-level logarithmic lattice construction, not to a universal abelian family.
-
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration](#lattice-hodge-tate-filtration).
-
-### `HodgeTateAndCanonicalSubgroups:T2`
-
-The algebraic Hodge cocharacter/parabolic convention and the Tannakian extraction of a flag of prescribed type from filtered representations; for Hodge-type data, the identification of the lattice Hodge–Tate filtration of (H₁(A,Q_p), H_{1,dR}(A)) with the relative Hodge–Tate filtration of the universal abelian scheme and Caraiani–Scholze's P_µ-reduction P_p (Caraiani–Scholze 2017 §§2.2–2.3). Its period map is only a compatibility example; no T2 construction is duplicated.
-
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration](#lattice-hodge-tate-filtration), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor](#canonical-ht-tensor), [HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor](#finite-levi-torsor), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction](#hodge-tate-parabolic-reduction), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement](#hodge-type-comparison-agreement).
-
-### `PadicHodgeTheory:P8:local-rational`
+### PadicHodgeTheory:P8:local-rational
 
 The two-lattice construction needs a horizontal frame for an integrable finite free connection on B_dR⁺[[y₁,…,y_d]], with ∇=d+A, obtained by multivariable formal recursion and invertibility of the positive integers; its extension must be compatible with the filtration completion after inverting t. P8:local-rational/formal-poincare-lemma supplies only the untwisted de Rham complex. Request the coefficient version there; until that exact interface exists, the frame step is a recorded proof input, not an assumed comparison.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices](#two-de-rham-lattices).
+Consumers: `HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices`.
 
 ## Ownership and proposed restructuring
 

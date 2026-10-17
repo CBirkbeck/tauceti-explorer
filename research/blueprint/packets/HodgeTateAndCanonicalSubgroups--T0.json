@@ -5570,7 +5570,7 @@
     "EndoscopicTransferAndUnitaryTraceComparison"
    ],
    "detail": "RT-AREA-padic-1/25 (confirmed): Caraiani–Scholze items 52, 53, 143 (Scholze–Weinstein Theorem 4.1.4 over O_C/p, Theorem B/5.2.1 over O_C, the modification at ∞) were routed to T2, downstream of the whole global Shimura construction; no T2 target needs them.",
-   "proposal": "Create a FiniteFlatGroupsAndIntegralPadicHodgeTheory stage after R07.2 for the Scholze–Weinstein O_C/O_C-p classification and Fargues–Fontaine modification, importing VectorBundlesAndIsocrystals VB1/VB2. Its downstream realization/modification consumers are IG.3 and ET.6a; no T0/T2 target here imports that classification. T0’s character map is a separate input to any future classification proof, never a backedge from classification to T0. Do not import T0’s Hodge–Tate map back into this foundation: that would reverse its prerequisite direction. The classification and modification are not planned here."
+   "proposal": "Use the shared PrismaticCohomologyPartII design for the local O_C/O_C-p Scholze–Weinstein classification and modification (the current PD.3/scholze-weinstein-theorem-b draft is the candidate for Theorem B). Reconcile CS17 route 6 with SW20 route 1; do not create a second FiniteFlat owner. IG.3 and ET.6a consume the local classification/modification, with structured adapters and source gaps explicit. No T0/T2 target here imports that classification: T0’s character map and T2’s sequence are inputs to classification, never returns from it. The candidate packet has no independent acceptance, and its O_C/p/modification generality still needs checking against the actual consumer."
   },
   {
    "action": "rescope",
