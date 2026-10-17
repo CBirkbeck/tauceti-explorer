@@ -151,6 +151,17 @@ the original exactified kernel is regular. Its prismatic and completed cotangent
 absent at the pins, so the theorem and its checks remain reader targets.
 -/
 
+/-! ## Layer PR.5: complete modules on formal prism charts
+
+The reader's `formal-affine-complete-qcoh` supplies an unbounded effectivity argument when
+`(p) + I` has a finite regular generating sequence: crystalline and transversal prism charts.
+The proof uses perfect Koszul quotients and uniformly zero composites of coefficient-fibre maps,
+before tensoring with an arbitrary compatible system. Its test `twoSidedUnbounded` has nonzero
+cohomology in every integer degree. The bounded nontransversal prism range remains an explicit
+proof gap. Enhanced complete-module categories and their coherent inverse limits have no
+carriers at the pins, so these statements and checks stay in the reader.
+-/
+
 /-! ## Layer PR.6: q-crystalline charts and the AΩ comparison
 
 The finite and sufficiently complete framed q-automorphisms and q-derivatives are planned here.
