@@ -5,9 +5,9 @@ import Mathlib
 
 The roadmap is README.md. This file records light definitions and representative theorem
 signatures statable against the pinned APIs; it is not exhaustive. The choices made explicit
-are inclusive arithmetic cutoffs, analytic pole cancellation, conductor-aware conditional
-hypotheses, actual ideal counts, indexed Beurling primes, principal-branch convergent series,
-and the product normalization of Barnes G. Heavy continuation, arithmetic-geometric and
+are principal-branch convergent series, the product normalization of Barnes G, the twisted
+binary-cubic discriminant, primitive quadratic characters, and positive-spectrum zero-mode
+exclusion. Heavy continuation, arithmetic-geometric and
 operator-algebra constructions remain mathematical targets in README.md.
 -/
 
@@ -46,6 +46,11 @@ def lerchSeries (z s c : ℂ) : ℂ :=
 /-- The `z = 1` series for `0 < re c`, `1 < re s`. -/
 def complexHurwitzSeries (s c : ℂ) : ℂ :=
   ∑' n : ℕ, Complex.exp (-s * Complex.log (n + c))
+
+/-- The divergent series at zero totalizes to zero, whereas continued Hurwitz zeta at
+`(0, 1)` is `-1/2`. The series must not define the continuation. -/
+example : complexHurwitzSeries 0 1 = 0 := by
+  simp [complexHurwitzSeries]
 
 /-- At `s = 0` the series is geometric. -/
 example (z c : ℂ) (hz : ‖z‖ < 1) : lerchSeries z 0 c = 1 / (1 - z) := by
@@ -122,6 +127,23 @@ the first constant-term monomial is four, while the ratio is also four. -/
 example : (2 : ℚ) ^ 2 = 4 ∧ (4 : ℚ) ^ 1 = 4 := by
   norm_num
 
+/-- The two centered dihedral generators preserve the same quadratic invariant. -/
+example (x y : ℚ) :
+    y ^ 2 + y * x + x ^ 2 = x ^ 2 + x * y + y ^ 2 ∧
+      (-x) ^ 2 + (-x) * (x + y) + (x + y) ^ 2 = x ^ 2 + x * y + y ^ 2 := by
+  constructor <;> ring
+
+/-- Every point in the radius-sqrt-five ball has invariant less than thirteen. -/
+example (x y : ℝ) (h : x ^ 2 + y ^ 2 < 5) :
+    (x - 1 / 2) ^ 2 + (x - 1 / 2) * (y - 1 / 2) + (y - 1 / 2) ^ 2 < 13 := by
+  nlinarith [sq_nonneg (x - y), sq_nonneg (x + y + 3)]
+
+/-- This point is outside every dihedral image of that ball. -/
+example :
+    (10 - 1 / 2 : ℚ) ^ 2 + (10 - 1 / 2) * (10 - 1 / 2) + (10 - 1 / 2) ^ 2 =
+      1083 / 4 ∧ (13 : ℚ) < 1083 / 4 := by
+  norm_num
+
 /-- The relative invariant of the twisted binary-cubic action. -/
 def cubicDiscriminant {A : Type*} [CommRing A] (a b c d : A) : A :=
   b ^ 2 * c ^ 2 - 4 * a * c ^ 3 - 4 * b ^ 3 * d - 27 * a ^ 2 * d ^ 2 +
@@ -192,6 +214,11 @@ section AN9
 def spectralZetaSeries (lam : ℕ → ℝ) (s : ℂ) : ℂ :=
   ∑' j : ℕ, Complex.exp (-s * Real.log (lam j))
 
+/-- An infinite positive constant spectrum is divergent for every exponent; its totalized
+sum is zero. Positivity alone supplies no analytic spectral zeta function. -/
+example (s : ℂ) : spectralZetaSeries (fun _ => 1) s = 0 := by
+  simp [spectralZetaSeries]
+
 /-- Scaling the spectrum by `c > 0` multiplies by `c^(-s)`. -/
 theorem spectralZetaSeries_smul (lam : ℕ → ℝ) (hlam : ∀ j, 0 < lam j) {c : ℝ} (hc : 0 < c)
     (s : ℂ) :
@@ -222,5 +249,22 @@ example : -(2 - 1 : ℚ) / 3 - 1 = -4 / 3 := by
 
 end AN9
 
+/-
+Further README definitions and constructions omitted from these representative signatures:
+Layer 4: normalized Lerch continuation on punctured domains and covers, its monodromy and
+solvable-cover descent, continued complex Hurwitz zeta, Barnes logarithmic remainders and
+moment constants (§§4.1–4.17).
+Layer 5: the modulo-eight character family, affine functional system and continuation tubes,
+quadratic double series and reflection matrices, twisted cubic action, cubic algebra/form
+correspondence, local orbital distributions, Shintani and dual series, archimedean matrices,
+pole-cleared continuations and their uniform bounds (§§5.1–5.30).
+Layer 6: positive rational affine and integral subgroups, positive diagonal map,
+finite-adele scaling measures and BC ratio-witness comparison, finite/continued
+spectral data and shifted determinants, Selberg product, trigonometric Eisenstein functions
+and arithmetic polynomials, BC Hecke presentation, representations, dynamics, symmetries,
+universal completion and dilation corner, bounded states and KMS predicates, GNS compression,
+Gibbs states and their weak limits (§§6.1–6.50). Generic operator-algebra and profinite
+constructions are supplied by the boundary contracts in README.md.
+-/
 
 end TauCetiRoadmap.AnalyticNumberTheoryPartII
