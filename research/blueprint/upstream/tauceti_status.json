@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-17T18:10Z",
+ "updated": "2026-10-17T18:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -347,7 +347,7 @@
    "note": "N1 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -528,7 +528,7 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -551,7 +551,7 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
+    "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -610,9 +610,9 @@
    "head": "d0882d1",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); matrix normal forms and descent stated as mathematics, certificate records and executable sweeps removed; draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    },
    "maintainer": "CHANGES NEEDED 2026-10-16 (roed-math) answered at e1b812b (§7.119a tame-inertia descent); ready for re-review"
@@ -829,11 +829,11 @@
   "EndoscopicTransferAndUnitaryTraceComparison": {
    "stage": "pr",
    "pr": 999,
-   "head": "b87d07e",
+   "head": "2030d76",
    "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -881,7 +881,7 @@
    "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro",
    "review": {
     "recommendation": "approve",
-    "current": false,
+    "current": true,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -916,9 +916,9 @@
    "head": "06cbbcf",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -966,7 +966,7 @@
    "review": {
     "recommendation": null,
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1060,8 +1060,8 @@
    "head": "06335c7",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
-    "recommendation": null,
-    "current": false,
+    "recommendation": "changes",
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1117,7 +1117,7 @@
   "EffectiveDiophantineMethods": {
    "stage": "pr",
    "pr": 1046,
-   "head": "fbfabeb",
+   "head": "bc7b635",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
    "review": {
     "recommendation": null,
