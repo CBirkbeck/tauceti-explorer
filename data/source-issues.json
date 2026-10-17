@@ -216360,6 +216360,195 @@
    "reviewReason": "Checked at the locator in the hashed copy: Recomputed the coefficient on p.172: its leading term is r(r−2)N²/2, positive only for r≥3, so the printed \"negative (since r≥2)\" is wrong. The numerical check in the reason was corrected (145, not 125; −Nε, not N(1−ε), at r=2, g=0). Concurs with REV-HeightsRationalPointsAndObstructions."
   },
   {
+   "id": "HigherHidaAndColemanTheory/E1",
+   "kind": "misprint",
+   "locator": "Introduction §1.1, p. 2, author edition",
+   "printed": "The symbol M_µ is described as the unipotent radical.",
+   "correction": "M_µ is the Levi; the unipotent radical has its separate U notation.",
+   "reason": "The representation and character lattices and the explicit setup in §3.1 require a reductive Levi.",
+   "affects": "nothing",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Hida theory for Siegel modular forms, Author PDF read 2026-10-16, 65 printed pages; published Inventiones mathematicae 244 (2026), 45–141, DOI 10.1007/s00222-025-01393-2. Locators below refer to the author PDF, not journal pagination. No public arXiv identifier was located.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E2",
+   "kind": "misprint",
+   "locator": "Proposition 4.3.17, p. 49, author edition",
+   "printed": "The finite-character statement prints a garbled normalized algebraic-weight expression.",
+   "correction": "Use ν=−w⁻¹w0M(κ+ρ)−ρ and retain χ separately.",
+   "reason": "Proposition 4.3.9 and the next normalized-operator display fix the root/trace character.",
+   "affects": "nothing",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Hida theory for Siegel modular forms, Author PDF read 2026-10-16, 65 printed pages; published Inventiones mathematicae 244 (2026), 45–141, DOI 10.1007/s00222-025-01393-2. Locators below refer to the author PDF, not journal pagination. No public arXiv identifier was located.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E3",
+   "kind": "gap",
+   "locator": "Definition 5.11.14, p. 134 and Corollary 6.8.4, p. 168, revised author edition",
+   "printed": "The coefficient strongly-small inequalities include a doubled 2ρ_nc term and inconsistent shifted-weight appearances; the corollary identifies these with BGG exclusion without a calculation.",
+   "correction": "Reconcile the printed condition with Theorems 6.5.5 and 6.8.3. Meanwhile use BGGsafe, explicitly the failure of one necessary bound for each nonidentity BGG term.",
+   "reason": "Substitution of the BGG twist −ν_v into the two analytic lower bounds gives the two expressions in F5/bgg-exclusion; it does not directly give the printed pair.",
+   "affects": "the proof",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Coleman theory, Revised author PDF, 180 pages, read 2026-10-16; file metadata created 2025-03-03, identified by SHA-256 below. This is the normative edition for all Coleman locators.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E4",
+   "kind": "misprint",
+   "locator": "Theorem 6.4.3 proof, p. 157, revised author edition",
+   "printed": "One lemma citation for compactness is unresolved.",
+   "correction": "Supply the root-coordinate contraction from Lemma 3.5.11, the coefficient map of Lemma 6.3.10 and the compact supported-cover argument of Theorem 5.4.3.",
+   "reason": "The proof needs both geometric radius improvement and the coefficient action; the unnamed reference alone supplies neither.",
+   "affects": "the proof",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Coleman theory, Revised author PDF, 180 pages, read 2026-10-16; file metadata created 2025-03-03, identified by SHA-256 below. This is the normative edition for all Coleman locators.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E5",
+   "kind": "misprint",
+   "locator": "Definition 6.4.7, p. 158, revised author edition",
+   "printed": "The first negative-support inclusion uses the coefficient radius n where the geometric second depth l occurs in its positive counterpart.",
+   "correction": "Use B(m+s,l) in that geometric inclusion, retaining B(n,n) as the independent coefficient-domain condition.",
+   "reason": "The algebraic negative definition 5.4.10 and all the remaining bounds use the freely chosen depth l; n already has a different fixed role.",
+   "affects": "nothing",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Coleman theory, Revised author PDF, 180 pages, read 2026-10-16; file metadata created 2025-03-03, identified by SHA-256 below. This is the normative edition for all Coleman locators.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E6",
+   "kind": "misprint",
+   "locator": "Theorem 6.10.2(1), p. 173, revised author edition",
+   "printed": "The theorem header uses the strongly-small subspace, while its proof proves the small subspace.",
+   "correction": "The stronger result with the geometric small condition is justified by Theorem 6.10.1(2) and Corollary 5.8.1.",
+   "reason": "The proof explicitly removes the wrong interior Cousin degrees using the sharp bounds; the introduction also advertises that improvement.",
+   "affects": "nothing",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Coleman theory, Revised author PDF, 180 pages, read 2026-10-16; file metadata created 2025-03-03, identified by SHA-256 below. This is the normative edition for all Coleman locators.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E7",
+   "kind": "gap",
+   "locator": "Proposition 2.7.3, p. 32, revised author edition",
+   "printed": "A displayed supported derived cohomology expression receives an extra shift, and subsequent top-degree duality expressions use Ω^1.",
+   "correction": "Use Ω^d in the degree-d support pairing and reconcile whether the shifted expression denotes the complex or its sole cohomology group.",
+   "reason": "Topological Serre duality pairs H^0 with H_c^d; blindly shifting a complex already concentrated in degree d changes that degree.",
+   "affects": "the proof",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Coleman theory, Revised author PDF, 180 pages, read 2026-10-16; file metadata created 2025-03-03, identified by SHA-256 below. This is the normative edition for all Coleman locators.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E8",
+   "kind": "gap",
+   "locator": "Remark 5.4.3, p. 57 versus Propositions 6.2.13 and Theorem 6.2.15, pp. 63–64, author edition",
+   "printed": "The former labels arithmetic specialization by the inverse character, while the family comparison uses an unlabelled base-change map attached to ν_A.",
+   "correction": "Label the Λ→A map explicitly, inserting inversion on analytic weight space when the I3 regular-action convention is used.",
+   "reason": "Specializing a group element at u^k versus u^(−k) produces different characters; a shared symbol A cannot determine this convention.",
+   "affects": "the proof",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "George Boxer and Vincent Pilloni, Higher Hida theory for Siegel modular forms, Author PDF read 2026-10-16, 65 printed pages; published Inventiones mathematicae 244 (2026), 45–141, DOI 10.1007/s00222-025-01393-2. Locators below refer to the author PDF, not journal pagination. No public arXiv identifier was located.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HigherHidaAndColemanTheory/E9",
+   "kind": "misprint",
+   "locator": "§5.1.5, pp. 21–22, author edition, paragraph before Proposition 5.1.5.2",
+   "printed": "The Klingen paragraph imposes equality of the first adjacent product and the last adjacent product, while retaining the spherical eigenvalue labels.",
+   "correction": "Use αδ=βγ, consistently with the spherical ordering on p. 21 and the stated Weyl-orbit eigenvalues.",
+   "reason": "The diagonal similitude pairing equates the outer-coordinate product with the middle-coordinate product. The printed alternative would also make the four-distinct-product assumption in Lemma 5.1.5.2 impossible. G6 separately records the unproved extension when only nonordinary products coincide.",
+   "affects": "the proof",
+   "known": "No correction identified in the versions and author listings checked; novelty is not asserted.",
+   "searched": [
+    "The exact author PDF identified in sources and its internal cross-references",
+    "For Coleman: arXiv:2110.10251v1 and revised author PDF comparison",
+    "Author publication listings and title-plus-erratum web search, 2026-10-16"
+   ],
+   "owner": "HigherHidaAndColemanTheory",
+   "file": "research/blueprint/packets/HigherHidaAndColemanTheory.json",
+   "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weights, Duke Mathematical Journal 169 (2020), no. 12, 2511–2659; cleared author PDF, 113 pages, file metadata created 2019-06-17. Locators refer to its printed author-page numbers. Read 2026-10-16.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HigherLocalFieldsAndHigherClassFieldTheory/E1",
    "kind": "error",
    "locator": "Zhukov, Part I §1.1, printed p. 6 (physical p. 18), paragraph preceding Classification Theorem; published MSP volume.",
