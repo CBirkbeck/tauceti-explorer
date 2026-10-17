@@ -2479,6 +2479,12 @@ Prove `theta_fourier_transform`: For a>0 and Z∈H₂, θᵃ_ν(−Z⁻¹,Z⁻¹
 
 (BFH90, §2, p.554, (2.12)–(2.13)). *Needs:* 8.18; Layer 2; Layer 6.
 
+**Checks.**
+
+- At Z=iI₂, a=1, W=0, ν=0 the left side is θ(2i)² and the right side is ½θ(i/2)², where θ is Mathlib's `jacobiTheta`; they agree by the one-variable inversion θ(i/2)=√2θ(2i). A factor 1/a in place of 1/(2a) doubles the right side.
+- The Fourier matrix (2a)⁻¹(e(−νᵀμ/(2a))) squared is the permutation ν↦−ν of (ℤ/2aℤ)²; at a=1 it fixes every residue, since −ν≡ν mod 2.
+- With W replaced by Z⁻¹W but without the factor e(aZ⁻¹[W]), the two sides differ already at Z=iI₂, a=1, W=(1,0), where Z⁻¹[W]=−i and that factor is e(−i)=e^{2π}≠1.
+
 ### 8.25 Fourier law for BFH theta components
 
 Prove `theta_component_fourier_law`: For Φ₁=Φ₀|J and a=m/N, E₁(g;ν)=√(−det Z_g)/(2m) Σμ e(−Nνᵀμ/(2m))E₀(Jg;μ), and E₀(g;ν)=√(−det Z_g)/(2m) Σμ e(+Nνᵀμ/(2m))E₁(Jg;μ). Both sums are over (Z/(2a)Z)². The missing N in the prefactor relative to theta S is due to rescaling Z by N⁻¹.

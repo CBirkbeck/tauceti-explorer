@@ -526,6 +526,11 @@ theorem theta_fourier_transform (a : ℕ) (ha : 0 < a) (Z : SiegelSpace) (W : Fi
             genusTwoTheta a (fun i => ((μ i : ℕ) : ℤ)) Z.1 W := by
   sorry
 
+/-- At `Z = iI₂`, `a = 1`, `W = 0`, `ν = 0` the left side of the inversion is `θ(2i)²` for
+Mathlib's `jacobiTheta`, since `−(iI₂)⁻¹ = iI₂` and only even vectors contribute. -/
+example : genusTwoTheta 1 0 (-(SiegelSpace.base.1)⁻¹) 0 = jacobiTheta (2 * Complex.I) ^ 2 := by
+  sorry
+
 /-- **Gaussian orthogonality** (8.21): with ordinary Lebesgue measure on `ℂ²`, written as
 `det Y dλ dρ` in the coordinates `W = Zλ + ρ`, the weighted pairing of `θᵃ_μ` and `θᵃ_ν` is
 `√det Y/(4a)` when `μ ≡ ν (mod 2a)` and zero otherwise. -/
