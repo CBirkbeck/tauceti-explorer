@@ -51064,7 +51064,9 @@
     "PKG-GL2ModularityLifting"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GL2ModularityLifting.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10195",
+   "finishedAt": "2026-10-17T16:07:23Z"
   },
   {
    "id": "PKG-GeneralizedHeegnerCycles",
@@ -53394,8 +53396,9 @@
    ],
    "revisionOf": "PKG-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/PKG-ModularityAndLanglandsExtensions~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9884"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9884",
+   "finishedAt": "2026-10-17T16:07:26Z"
   },
   {
    "id": "REV-PKG-ModularityAndLanglandsExtensions~2",
@@ -54346,8 +54349,9 @@
    ],
    "revisionOf": "PKG-PotentialModularityAndCompatibleSystems",
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10009"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10009",
+   "finishedAt": "2026-10-17T16:07:30Z"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems~3",
@@ -54469,7 +54473,8 @@
     "PKG-PrismaticCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9879"
   },
   {
    "id": "PKG-QuiverRepresentationsPartII",
@@ -132138,8 +132143,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AInfCohomology~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AInfCohomology~adv.md",
+   "note": "deliverables arrived from an external worker on issue #10201",
+   "finishedAt": "2026-10-17T16:07:36Z"
   },
   {
    "id": "FIX-PKG-PerfectoidQuotients~adv2",
@@ -132157,8 +132164,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidQuotients~adv2.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PerfectoidQuotients~adv2.md",
+   "note": "deliverables arrived from an external worker on issue #10202",
+   "finishedAt": "2026-10-17T16:07:39Z"
   },
   {
    "id": "FIX-PKG-PrismaticCohomology~adv",
@@ -132196,8 +132205,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ColemanIntegration~adv2.md",
+   "note": "claimed on GitHub issue #10204"
   }
  ]
 }
