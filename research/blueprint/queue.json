@@ -131264,7 +131264,8 @@
     "BP-GL2ModularityLifting--R22.1",
     "BP-GL2ModularityLifting--R22.1~2"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10112"
   },
   {
    "id": "PKG-EtaleDualityAndPerverseSheaves~codex",
@@ -131383,7 +131384,7 @@
     "research/blueprint/handoff/BP-ShimuraData~5.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~5.md",
    "scope": [
     "ShimuraData:D0",
@@ -131397,7 +131398,8 @@
     "REV-ShimuraData~4"
    ],
    "revisionOf": "BP-ShimuraData",
-   "note": "claimed on GitHub issue #10134"
+   "note": "deliverables arrived from an external worker on issue #10134",
+   "finishedAt": "2026-10-17T12:16:49Z"
   },
   {
    "id": "REV-ShimuraData~5",
@@ -131478,7 +131480,9 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~4",
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~5"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10135",
+   "finishedAt": "2026-10-17T12:16:51Z"
   },
   {
    "id": "PKG-AutomorphicFormsOnReductiveGroups~codex",
@@ -131496,9 +131500,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicFormsOnReductiveGroups~codex.md",
-   "note": "claimed on GitHub issue #10141"
+   "note": "deliverables arrived from an external worker on issue #10141",
+   "finishedAt": "2026-10-17T12:16:54Z"
   },
   {
    "id": "REV-PKG-DirichletPadicLFunctions~adv",
