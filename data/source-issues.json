@@ -169905,6 +169905,109 @@
    "reviewReason": "Multiplying x^s/s by the holomorphic value of −ζ′/ζ at0 gives residue −ζ′(0)/ζ(0); differentiating the denominator is unjustified. Independently checked at the cited public-version locator on 2026-10-14."
   },
   {
+   "id": "AnalyticToricGeometryPartII/E1",
+   "kind": "misprint",
+   "locator": "§8, proof of Proposition 8.7, p. 306 (published); the same in arXiv v1, p. 47",
+   "printed": "In the display that makes g have coefficients in the dense subfield k, the weights u∈M[p^{-1}] are constrained by ⟨u,v_i⟩≥−j a_i, with j not bound there.",
+   "correction": "⟨u,v_i⟩≥−a_i: g is the degree-one element of H⁰(X^perf_{Σ,K♭},O(D)) chosen just before, so j=1.",
+   "reason": "The index j belongs to the graded ring displayed earlier in the proof; in this display g is a section of O(D) and no grading variable occurs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Numdam (no erratum or corrigendum listed)",
+    "arXiv:1111.4914 versions (only v1)",
+    "the PAPER-SCHOLZE-12 extraction findings E1–E11 and data/source-issues.json on main"
+   ],
+   "owner": "AnalyticToricGeometryPartII",
+   "file": "research/blueprint/packets/AnalyticToricGeometryPartII.json",
+   "citation": "Peter Scholze, Perfectoid spaces, Published version, Publ. Math. IHÉS 116 (2012), 245–313",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AnalyticToricGeometryPartII~2",
+   "reviewReason": "Read at p. 306 of the published version and p. 47 of arXiv v1: the subscript of the direct sum for g carries −j a_i, while g was chosen in H⁰(O(D)) one line earlier."
+  },
+  {
+   "id": "AnalyticToricGeometryPartII/E2",
+   "kind": "misprint",
+   "locator": "§8, proof of Proposition 8.7, p. 306 (published); the same in arXiv v1, p. 47",
+   "printed": "Two local trivializations of O(D) on the integral toric model are said to differ by a unit of K°.",
+   "correction": "They differ by a unit of the integral structure sheaf on the overlap (on toric charts the character χ^{m_σ−m_τ}); such a unit and its inverse are integral, so its absolute value is one at every point of the generic fibre and |f(x)| is still well defined.",
+   "reason": "On P¹ with D=D₋ the two chart generators have weights 0 and 1 and differ by t^{±1}, which is not a constant. The conclusion holds because |u(x)|=1 for every unit u of the integral structure sheaf.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Numdam (no erratum or corrigendum listed)",
+    "arXiv:1111.4914 versions (only v1)",
+    "the PAPER-SCHOLZE-12 extraction findings E1–E11 and data/source-issues.json on main"
+   ],
+   "owner": "AnalyticToricGeometryPartII",
+   "file": "research/blueprint/packets/AnalyticToricGeometryPartII.json",
+   "citation": "Peter Scholze, Perfectoid spaces, Published version, Publ. Math. IHÉS 116 (2012), 245–313",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AnalyticToricGeometryPartII~2",
+   "reviewReason": "Read at p. 306 and arXiv v1 p. 47. The packet's NT.0/cartier-integral-model and AdicSpacesPartII:R2/section-valuation-domain use the corrected form."
+  },
+  {
+   "id": "AnalyticToricGeometryPartII/E3",
+   "kind": "misprint",
+   "locator": "§8, Definition 8.1, p. 303, and Definition/Proposition 8.4, p. 304 (published); arXiv v1, pp. 44–45",
+   "printed": "The split torus is written G_m^k, and the chart of a ray is A¹×G_m^{k−1} with D_i the closure of {0}×G_m^{k−1}, while k denotes the base field.",
+   "correction": "The exponents are the rank n of N: T≅G_m^n, U_{τ_i}≅A¹×G_m^{n−1} and D_i is the closure of {0}×G_m^{n−1}.",
+   "reason": "In both statements k is the base field (Spec k[σ^∨∩M], points in X(k)); an exponent must be the integer rank of the character lattice.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publ. Math. IHÉS article page on Numdam (no erratum or corrigendum listed)",
+    "arXiv:1111.4914 versions (only v1)",
+    "the PAPER-SCHOLZE-12 extraction findings E1–E11 and data/source-issues.json on main"
+   ],
+   "owner": "AnalyticToricGeometryPartII",
+   "file": "research/blueprint/packets/AnalyticToricGeometryPartII.json",
+   "citation": "Peter Scholze, Perfectoid spaces, Published version, Publ. Math. IHÉS 116 (2012), 245–313",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AnalyticToricGeometryPartII~2",
+   "reviewReason": "Read at pp. 303–304 of the published version and pp. 44–45 of arXiv v1; the same letter k names the field in Definition 8.1 and in U_σ=Spec k[σ^∨∩M]."
+  },
+  {
+   "id": "AnalyticToricGeometryPartII/E4",
+   "kind": "misprint",
+   "locator": "Theorem 3.2 and the sentence after it, p. 11, in arXiv:alg-geom/9403002v1",
+   "printed": "Genericity of the displacement vector is explained as avoiding a finite union of proper linear subspaces of N_γ⊗R.",
+   "correction": "The displacement lives in the quotient (N/N_γ)⊗R, as in the proof on p. 13, which works in the lattice N/N_γ.",
+   "reason": "N_γ⊗R is the span of γ; for γ={0} it is zero, and no vector avoids the proper subspaces of the zero space. The proof applies the γ={0} case to V(γ), whose lattice is N/N_γ.",
+   "affects": "nothing",
+   "known": "new: checked only against the preprint; the Topology 36 (1997) version was not read",
+   "searched": [
+    "arXiv:alg-geom/9403002 versions (only v1)",
+    "data/source-issues.json on main (no Fulton–Sturmfels finding)"
+   ],
+   "owner": "AnalyticToricGeometryPartII",
+   "file": "research/blueprint/packets/AnalyticToricGeometryPartII.json",
+   "citation": "William Fulton and Bernd Sturmfels, Intersection theory on toric varieties, arXiv:alg-geom/9403002v1, 1 March 1994; preprint pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AnalyticToricGeometryPartII~2",
+   "reviewReason": "Read at p. 11 and the proof at p. 13 of the arXiv v1 preprint. The packet's NT.6/intersection-product already uses the quotient (N/N_γ)_R."
+  },
+  {
+   "id": "AnalyticToricGeometryPartII/E5",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.4, p. 12, in arXiv:alg-geom/9403002v1",
+   "printed": "The proof of the codimension-one case says it suffices to establish an identity of Weil divisors 'to prove Lemma 3.3'.",
+   "correction": "Lemma 3.4: the lemma being proved; the paper has Example 3.3 and no Lemma 3.3.",
+   "reason": "The proof is headed 'Proof of Lemma 3.4' and the numbered items of §3 are Proposition 3.1, Theorem 3.2, Example 3.3 and Lemma 3.4.",
+   "affects": "nothing",
+   "known": "new: checked only against the preprint; the Topology 36 (1997) version was not read",
+   "searched": [
+    "arXiv:alg-geom/9403002 versions (only v1)",
+    "data/source-issues.json on main (no Fulton–Sturmfels finding)"
+   ],
+   "owner": "AnalyticToricGeometryPartII",
+   "file": "research/blueprint/packets/AnalyticToricGeometryPartII.json",
+   "citation": "William Fulton and Bernd Sturmfels, Intersection theory on toric varieties, arXiv:alg-geom/9403002v1, 1 March 1994; preprint pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-AnalyticToricGeometryPartII~2",
+   "reviewReason": "Read at p. 12 of the arXiv v1 preprint."
+  },
+  {
    "id": "ArakelovGeometryAndAbelianHeights/E1",
    "kind": "error",
    "locator": "§2, Bemerkung d), p. 351 and §3, p. 354",
@@ -173607,8 +173710,8 @@
    "id": "ArithmeticKTheory/E1",
    "kind": "error",
    "locator": "VI.8.1 (Classical Data 8.1), printed p. 513 (PDF p. 521); identical in the chapter file Kbook.VI.pdf of 18 September 2012",
-   "printed": "K1(OS) = OS^× ≅ Z^{r2+|S|−1} ⊕ µ(F)",
-   "correction": "K1(OS) = OS^× ≅ Z^{r1+r2+|S|−1} ⊕ µ(F), for S a finite set of finite places (Dirichlet's S-unit theorem).",
+   "printed": "Paraphrase: the displayed S-unit rank counts complex places and the finite set S, but omits the number of real places.",
+   "correction": "Include real places: the free rank is r₁+r₂+|S|−1 for a finite set S of finite primes; the torsion is the roots of unity.",
    "reason": "For F = Q and S = {p}: OS = Z[1/p] has units ±p^n, of rank 1 = r1 + r2 + |S| − 1, while the printed formula gives rank 0. The printed rank is right only when r1 = 0, which is the only case the book uses it in (Theorem 8.4, F totally imaginary).",
    "affects": "a stated result",
    "known": "new",
@@ -204702,8 +204805,8 @@
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "A. N. Parshin, Notes on the Poisson formula, arXiv:1011.3392v1",
    "status": "confirmed",
-   "reviewedBy": "REV-FunctionFieldArithmetic",
-   "reviewReason": "The displayed pairing on preprint p.9 sums U(1)-values. Evaluating at the zero pair produces infinitely many ones; the product or trace-residue character is the well-defined correction."
+   "reviewedBy": "REV-FunctionFieldArithmetic~2",
+   "reviewReason": "Reread §2.2, p.9: the displayed pairing is a sum over all closed points of values in U(1); at the zero pair every summand is 1, so the printed expression diverges. The product of local values (equivalently the character of the finite trace-residue sum) is the intended pairing."
   },
   {
    "id": "FunctionFieldArithmetic/E2",
@@ -204723,8 +204826,8 @@
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "A. N. Parshin, Notes on the Poisson formula, arXiv:1011.3392v1",
    "status": "confirmed",
-   "reviewedBy": "REV-FunctionFieldArithmetic",
-   "reviewReason": "The preprint p.9 specifies injectivity for a general finite field. An additive group of exponent p has complex character image of order at most p, so injectivity fails when [k:Fp]>1; the trace pairing supplies the correct nondegeneracy."
+   "reviewedBy": "REV-FunctionFieldArithmetic~2",
+   "reviewReason": "Reread p.9: Ψ: Fq→C× is called injective and fixed by a q-th root of unity. For q=p^f with f>1 the additive group has exponent p, so every character lands in μ_p and is not injective; the trace-composed nontrivial character gives the nondegenerate pairing."
   },
   {
    "id": "FunctionFieldArithmetic/E3",
@@ -204744,8 +204847,8 @@
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "A. N. Parshin, Notes on the Poisson formula, arXiv:1011.3392v1",
    "status": "confirmed",
-   "reviewedBy": "REV-FunctionFieldArithmetic",
-   "reviewReason": "The p.7 spanning assertion includes only unshifted subgroup indicators. Their scalar invariance excludes moved-coset indicators when |k|>2; translated compact-open indicators give the required spanning family."
+   "reviewedBy": "REV-FunctionFieldArithmetic~2",
+   "reviewReason": "Reread §2.1, p.7 and footnote 4: the space D(A) is said to be generated by the indicators of the A(D). Each such indicator is invariant under k×, so for |k|>2 the indicator of a coset a+A(D′) moved by a scalar is not in their span; translated indicators are needed."
   },
   {
    "id": "FunctionFieldArithmetic/E4",
@@ -204766,8 +204869,8 @@
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "Hongjie Yu, Comptage des systèmes locaux ℓ-adiques sur une courbe, arXiv:1807.04659v5",
    "status": "confirmed",
-   "reviewedBy": "REV-FunctionFieldArithmetic",
-   "reviewReason": "Lemma 5.3.3 on preprint p.36 permits the zero vector, which cannot have a nonzero value. Requiring a nonzero spherical vector agrees with the surrounding application and reconstruction proof."
+   "reviewedBy": "REV-FunctionFieldArithmetic~2",
+   "reviewReason": "Reread Lemma 5.3.3, p.36: the statement takes any φ∈π and concludes φ(x)≠0 for some degree-zero x; it needs φ≠0. In Yu’s setting π is the one-dimensional space of K-invariant vectors, so φ is spherical."
   },
   {
    "id": "FunctionFieldArithmetic/E5",
@@ -204787,8 +204890,8 @@
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "Hongjie Yu, Comptage des systèmes locaux ℓ-adiques sur une courbe, arXiv:1807.04659v5",
    "status": "confirmed",
-   "reviewedBy": "REV-FunctionFieldArithmetic",
-   "reviewReason": "The diagonal in the pp.37–38 proof has weighted valuation degree −n(n−1)(g−1). Negating it gives positive Yu degree; a degree-one Yu scalar must be raised to −(n−1)(g−1) to cancel it."
+   "reviewedBy": "REV-FunctionFieldArithmetic~2",
+   "reviewReason": "Reread §2.2.1, p.8 (deg g = −Σ[κ(x):Fq]x(g_x)) and the proof on p.38: with exponents −(n−1)n_v,…,0 the determinant has deg = +n(n−1)(g−1) in Yu’s own convention, but p.38 prints −n(n−1)(g−1) and multiplies by a^{(n−1)(g−1)}, which doubles instead of cancelling. The scalar power must be −(n−1)(g−1)."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC5-3",
@@ -204801,14 +204904,15 @@
    "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
    "searched": [
     "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+    "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
    ],
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.5.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.5",
+   "reviewReason": "Confirmed against the published proof of Lemma A.8, p. 520: the proof restricts the global character to signs although the lemma allows arbitrary rank-one input. Only branch inertia is forced to have order dividing two; an unramified order-three character separates the two conditions."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC5-4",
@@ -204821,14 +204925,15 @@
    "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
    "searched": [
     "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+    "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
    ],
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.5.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.5",
+   "reviewReason": "Confirmed against the published Proposition A.11 proof, p. 523, including its page image: the isomorphism has a product Picard-stack base, so its checking map is the product of the two Abel–Jacobi maps, rather than the sum-degree map."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC5-6",
@@ -204841,14 +204946,15 @@
    "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
    "searched": [
     "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+    "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
    ],
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.5.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.5",
+   "reviewReason": "Confirmed as a suppressed qualification in the published Lemma A.10 proof, p. 522, including its page image: the later effective-divisor addition map requires an effective away divisor. Such a choice above a lower bound exists by sufficiently large multiples of one away closed point; a divisor of every exact degree is unnecessary."
   },
   {
    "id": "FunctionFieldArithmeticPartII/EGC5-7",
@@ -204861,14 +204967,15 @@
    "known": "Inherited finding, independently confirmed in REV-DESIGN-FunctionFieldArithmeticPartII~2; no claim of a new finding or of exhaustive absence of published corrections.",
    "searched": [
     "Selected author-hosted published pages 520, 522, 523 re-read on 2026-10-14; page images 522 and 523 checked.",
-    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified."
+    "Parent packet sourceIssues and accepted review handoff read; parent records its Annals, author-page, Crossref/arXiv checks. These historical searches are inherited, not newly certified.",
+    "Independent review re-read the published passages on 2026-10-17, with page images of pp. 522–523. This verifies the findings, not an exhaustive search for later corrections."
    ],
    "owner": "FunctionFieldArithmeticPartII",
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII--GC.5.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526; published author-hosted PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmeticPartII--GC.5",
+   "reviewReason": "Confirmed against the published Proposition A.11 proof, p. 523, including its page image: all three expressions immediately preceding (A.8)–(A.9) are translated or multiplied Picard sheaves, so each needs the Picard decoration."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E2",
@@ -248589,44 +248696,104 @@
   {
    "id": "PrismaticCohomologyPartII/E1",
    "kind": "gap",
-   "locator": "§5.2, the paragraph after Remark 5.2.2 and Theorem 5.2.5, pp. 78–79 (arXiv v4; the published §5.2 has the same text)",
+   "locator": "arXiv v4 §5.2 and Theorem 5.2.5, p. 79; published Theorem 5.12 and preceding paragraph, p. 74",
    "printed": "Theorem 5.2.5 is stated for every complete regular local ring R = W(k)⟦u₁, …, u_d⟧/(E) with perfect residue field, but the text fixes d = 1 for simplicity before the proof and expresses the hope that the general case works similarly.",
-   "correction": "As proved, the theorem holds for d ≤ 1 (𝒪_K, k⟦u⟧ and k). For d ≥ 2 the statement needs an argument that the descent datum along the self-coproduct of the Breuil–Kisin prism is automatic (the analogue of Lemma 5.2.8), or a comparison with Lau's Breuil-window classification.",
+   "correction": "The written prismatic descent proof is in one variable. This packet restricts its direct proof to dimension at most one, with a separate characteristic-p connection gap; higher-dimensional compatibility with evaluation remains a gap. This does not assert that the general Breuil-window classification is false.",
    "reason": "The proof of Lemma 5.2.8 and the computation of the self-coproduct B = A ⊗̂ A are written in one variable u; for several variables the ideal J and the topological nilpotence of φ/E on it are not treated.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "the arXiv versions v1–v4 of arXiv:1907.10525",
-    "the erratum Forum Math. Pi 13 (2025) e3, which concerns only Proposition 5.23 (arXiv 5.3.5)",
-    "the authors' pages"
+    "arXiv v4",
+    "open-access published version, p. 74",
+    "AL23 2025 erratum, p. 1"
    ],
    "owner": "PrismaticCohomologyPartII",
    "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
    "citation": "Johannes Anschütz, Arthur-César Le Bras, Prismatic Dieudonné theory, arXiv:1907.10525v4 (11 October 2022); published Forum of Mathematics, Pi 11 (2023), e2. Locators are the arXiv statement numbers and arXiv pages (PDF page = printed page).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PrismaticCohomologyPartII",
+   "reviewReason": "Both the arXiv and published text restrict the ensuing argument to one variable while stating the theorem generally; the erratum addresses a different proposition. The limitation is in the written comparison proof."
   },
   {
    "id": "PrismaticCohomologyPartII/E2",
    "kind": "misprint",
-   "locator": "Remark 4.8.4, p. 70 (arXiv v4)",
+   "locator": "arXiv v4 Remark 4.8.4, p. 70; published Remark 4.85, p. 66",
    "printed": "After applying RHom(T_pG, −) to Bhatt–Lurie's sequence 0 → T_pG_m → N^{≥1}O^pris → O^pris → 0, the source writes the resulting middle and right terms, and the fibre computing RΓ(T_pǦ), with the Dieudonné crystal of the dual group Ǧ.",
-   "correction": "The terms are N^{≥1}ℳ_Δ(G) and ℳ_Δ(G): 0 → T_pǦ → N^{≥1}ℳ_Δ(G) → ℳ_Δ(G) → 0 and RΓ(T_pǦ) ≅ fib(φ/ξ̃ − 1 : N^{≥1}ℳ_Δ(G) → ℳ_Δ(G)).",
+   "correction": "Use N≥1ℳ_Δ(G) and ℳ_Δ(G) in the coefficient terms. After applying global sections, use the derived fibre of their global sections, or the evaluated QRSP modules when acyclicity is invoked. The Tate module is T_pG*.",
    "reason": "By Lemma 4.2.6, ℋom(T_pG, O^pris) = ℳ_Δ(G) and ℋom(T_pG, N^{≥1}O^pris) = N^{≥1}ℳ_Δ(G); Proposition 4.8.2 on the same page states the kernel statement correctly with G.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv:1907.10525 v1–v4",
-    "the 2025 erratum",
-    "the published version is not freely readable here; the remark was compared in arXiv v4 only"
+    "arXiv v4",
+    "open-access published version, p. 66",
+    "AL23 2025 erratum, p. 1"
    ],
    "owner": "PrismaticCohomologyPartII",
    "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
    "citation": "Johannes Anschütz, Arthur-César Le Bras, Prismatic Dieudonné theory, arXiv:1907.10525v4 (11 October 2022); published Forum of Mathematics, Pi 11 (2023), e2. Locators are the arXiv statement numbers and arXiv pages (PDF page = printed page).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PrismaticCohomologyPartII",
+   "reviewReason": "Direct comparison with the preceding Hom identification and Proposition 4.8.2 shows G* in the coefficient terms must be G. The same mismatch is present in published Remark 4.85."
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E3",
+   "kind": "misprint",
+   "locator": "arXiv v4 Definition 4.1.16, p. 32 and Proposition 5.3.3, p. 88; published Definition 4.16, p. 28 and Proposition 5.21, p. 83",
+   "printed": "The frame morphism proposition uses the reciprocal of the scalar prescribed by the earlier u-morphism equations.",
+   "correction": "With φ′₁α=uαφ₁ and α(ϖ)=uϖ′, use u=F₁(fξ) and f(ξ̃)=up. The scalar satisfying p=v f(ξ̃) is u⁻¹.",
+   "reason": "The equation f(ξ̃)=pF₁(fξ) identifies the scalar, so the discrepancy persists in the published version.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the indicated public source version",
+    "AL23 2025 erratum, where relevant"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Johannes Anschütz, Arthur-César Le Bras, Prismatic Dieudonné theory, arXiv:1907.10525v4 (11 October 2022); published Forum of Mathematics, Pi 11 (2023), e2. Locators are the arXiv statement numbers and arXiv pages (PDF page = printed page).",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PrismaticCohomologyPartII",
+   "reviewReason": "The equation f(ξ̃)=pF₁(fξ) identifies the scalar, so the discrepancy persists in the published version."
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E4",
+   "kind": "gap",
+   "locator": "AL23 arXiv v4 Proposition 5.3.5, pp. 89–90; published Proposition 5.23, p. 85; erratum p. 1",
+   "printed": "The original proof relies on topological nilpotence of divided Frobenius on the kernel of A_crys→W.",
+   "correction": "Discard that proof. Senger’s example R=𝔽_p[x^{1/p∞}]/(x) has a nonzero divided-Frobenius-fixed element in the kernel. Use Zink and Lau for the surviving classification and verify the functor comparison separately.",
+   "reason": "The authors’ erratum explicitly withdraws the proof; the kernel topology does not follow from the ambient p-adic topology.",
+   "affects": "the proof",
+   "known": "known",
+   "searched": [
+    "the indicated public source version",
+    "AL23 2025 erratum, where relevant"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Johannes Anschütz, Arthur-César Le Bras, Erratum to Prismatic Dieudonné theory, Forum of Mathematics, Pi 13 (2025), e3; authors' copy",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PrismaticCohomologyPartII",
+   "reviewReason": "The authors’ erratum explicitly withdraws the proof; the kernel topology does not follow from the ambient p-adic topology."
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E5",
+   "kind": "misprint",
+   "locator": "Example 12.1.6, p. 100 of the author copy (PDF p. 110)",
+   "printed": "The height index is set to the projective dimension of the rational hull minus one.",
+   "correction": "If H is the smallest rational projective subspace containing the line, its associated formal height is dim_projective(H)+1, equivalently the dimension of the rational vector-space hull.",
+   "reason": "A rational line gives H a projective point and must give formal height one; the printed subtraction gives a negative height. This also agrees with the full Drinfeld half-space example of height h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the indicated public source version",
+    "AL23 2025 erratum, where relevant"
+   ],
+   "owner": "PrismaticCohomologyPartII",
+   "file": "research/blueprint/packets/PrismaticCohomologyPartII.json",
+   "citation": "Peter Scholze, Jared Weinstein, Berkeley lectures on p-adic geometry, Annals of Mathematics Studies 207, Princeton 2020; authors' free copy of March 2020 (printed page numbers)",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PrismaticCohomologyPartII",
+   "reviewReason": "A rational line gives H a projective point and must give formal height one; the printed subtraction gives a negative height. This also agrees with the full Drinfeld half-space example of height h."
   },
   {
    "id": "ProbabilisticAndMetricNumberTheory/EPM4-1",
