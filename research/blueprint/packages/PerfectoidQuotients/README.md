@@ -36,10 +36,10 @@ The exact contracts below refer to the immutable
 Its P0 supplies almost modules, their adjoints and the full cotangent complex;
 P2 supplies rational localization and approximation; P3 supplies analytic
 tilting; P5 supplies completed colimits of perfectoid pairs.
-`PrismaticCohomology:PR.0`, in the same bundle, supplies the general
-Tor-independence, δ-étale extension and complete algebraization interfaces used
-by the integral algebra. Only its stated additional interfaces are consumed;
-the restricted universal-prism and affine Hodge–Tate theory needed for the
+The early targets in §0.0 own perfectoid Tor-independence, Fontaine
+Tor-independent base change, and complete étale δ-extension with its
+algebraization input. They use only the lower-tier contracts specified below.
+The restricted universal-prism and affine Hodge–Tate theory needed for the
 quotient construction already belongs to PerfectoidSpaces P4.15.2–P4.15.3.
 `CrystallineCohomology:CR.0` supplies characteristic-`p` divided-power envelopes
 and their regular-sequence formulas for the modulo-`p` refinement.
@@ -118,8 +118,8 @@ derived completion and perfectoid analytic spaces is supplied by the contracts b
 complex cannot stand in for the finite length-reducing Frobenius or the full
 cotangent complex used here. The existing truncated Witt carrier, truncation and infinite Frobenius are
 inputs to the finite length-reducing Frobenius and finite Fontaine maps
-constructed in §0.2. `PR.0` supplies its length-two δ-ring interfaces; it does
-not supply these general finite maps.
+constructed in §0.2. The length-two Witt-section argument for δ-extension
+belongs to §0.0; it does not supply these general finite maps.
 
 The compatible-root reduction is already Mathlib’s
 `Perfection.quotientMulEquiv p (Ideal.span {(p : R)})`, with its coordinate
@@ -221,7 +221,7 @@ Scholze ECD Theorem 5.8, p.25). The maps go from ambient rings to quotient
 rings. Both `I=0` and `I=R` fix the direction: they give the original pair
 and the empty spectrum, respectively.
 
-### From PerfectoidSpaces and the bundle: derived and prism interfaces
+### From PerfectoidSpaces: derived and prism interfaces
 
 P4.15.1 supplies derived completion, completed tensor products and complete
 faithfully flat descent on their genuine derived/animated carriers, including
@@ -252,21 +252,26 @@ perfectoid cover on which every positive-degree monic polynomial has a root
 The constant polynomial `1` is excluded. The relative smooth-site statement
 and modulo-`p` ind-syntomic refinement below add conclusions to these inputs.
 
-For §0.3 use `PrismaticCohomology:PR.0/perfectoid-tor-independence`:
-base change of the Fontaine presentation along a map of integral perfectoid
-rings is Tor independent (BMS1 Lemmas 3.13–3.14, p.24). For §0.6 use
-`PR.0/delta-etale-extension` and its complete algebraization: étale algebras
-modulo the prism ideal lift uniquely compatibly with δ and with completion
-(Anschütz–Le Bras Proposition 2.1.8 and Corollary 2.1.10, pp.13–14).
+P4.15.1 is used only for generic derived completion, tensor and descent
+operations. Neither perfectoid Tor-independence nor δ-extension or complete
+étale algebraization is attributed to it: these are the local §0.0 targets.
+For their characteristic-`p` algebra input, use
+[EnhancedDerivedSheaves, Layer E1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/b3ea60e3efc3bd4a0b541fb54469dcbf88772064/TauCetiRoadmap/EnhancedDerivedSheaves/README.md),
+`perfectRing_tor_eq_zero`: for maps
+`B ← A → C` of perfect `𝔽_p`-algebras, all positive `Tor_i^A(B,C)` vanish
+(Bhatt–Scholze [BS17], Lemma 3.16, p.14). This contract concerns perfect
+algebras, not arbitrary modules over a perfect ring.
 For §1.2 use `CrystallineCohomology:CR.0`'s divided-power envelope and
 regular-sequence formulas after characteristic-`p` Frobenius pullback
-(Bhatt–Scholze Remark 7.15 and its proof, p.62). These bundle/lower-tier
+(Bhatt–Scholze Remark 7.15 and its proof, p.62). These lower-tier
 interfaces supply the additional generality used here.
 
 ## How to read the build
 
-Layer 0 proceeds from units and naturality through Fontaine generators and
-Witt torsion to torsion removal, root closure and completed operations.
+Layer 0 first states its Tor and complete étale δ-extension targets, then
+proceeds from units and naturality through Fontaine generators and Witt torsion
+to torsion removal, root closure and completed operations. The Fontaine-square
+proof uses the generator calculation of §0.2 before the cotangent application.
 Layer 1 adds the relative cover and the modulo-`p` refinement, then develops
 the fixed-field almost route. Layer 2 computes characteristic-`p` quotients
 by radicals and their inverse-Frobenius root ideals. Each uses the common
@@ -282,6 +287,179 @@ The closing comment names these targets. Elaboration with `sorry` checks
 types and does not supply mathematical proofs.
 
 ## Layer 0: integral perfectoid algebra
+
+### 0.0 Tor independence and complete étale δ-extension
+
+These are this roadmap's early theorem targets. The integral predicate, basic
+δ-rings and perfect-prism equivalence retain their PerfectoidSpaces owners;
+no second carrier is introduced. Derived tensor and completion use P4.15.1,
+and the characteristic-`p` Tor input is the E1 contract above.
+
+**Perfectoid Tor independence** (`perfectoid_tor_independence`). For any maps
+`S ← R → T` of integral perfectoid rings, the derived `p`-completed pushout
+`(S ⊗^L_R T)^∧_p` is discrete and its degree-zero ring is integral perfectoid.
+This is a statement about the completed derived tensor, with no flatness,
+finite-presentation or torsion-freeness hypothesis on the maps. With its canonical
+maps the degree-zero ring is the pushout in integral perfectoid rings: the
+mapping property follows from derived tensor and completion against derived
+p-complete targets. The ordinary completed tensor comparison is recorded in §0.6. Do not assert that an arbitrary
+uncompleted derived tensor is discrete.
+
+*Proof route.* Transport the diagram through P4.15.2's equivalence to perfect
+prisms `(B,IB) ← (A,I) → (C,IC)`. Form the derived `(p,I)`-completed tensor
+`D = (B ⊗^L_A C)^∧_(p,I)`. Reduction modulo `p`, E1's Tor-independence of
+perfect `𝔽_p`-algebras and the supplied completion comparisons show that D is
+discrete with invertible Frobenius. A distinguished generator of I stays
+distinguished in D, so P4.15.2's regularity criterion makes `ID` Cartier.
+Together with completeness and the inherited prism identity, this makes
+`(D,ID)` a perfect prism. Its derived quotient is the ordinary quotient
+`D/ID`. Associativity
+of derived base change and completion identifies this quotient with
+`(S ⊗^L_R T)^∧_p`. P4.15.2 then gives integral perfectoidness. This proof uses
+neither almost purity nor general animated perfectoidization.
+Source: BS, the general pushout argument in the proof of Lemma 10.3,
+pp.78–79; its input is BS17 Lemma 3.16, p.14, owned by E1.
+
+**Checks.**
+
+- `perfectoidTensorIdentity` — For `S=R`, the comparison is the identity
+  `T^∧_p ≃ T`, including perfectoid rings with `p`-torsion.
+- `perfectoidTensorZero` — If either factor is the zero ring, the completed
+  derived pushout is zero. The theorem must allow this integral perfectoid ring.
+- `perfectoidTensorCharP` — For `R=𝔽_p`,
+  `S=𝔽_p[X^(1/p^∞)]` and `T=𝔽_p[Y^(1/p^∞)]`, the answer is
+  `𝔽_p[X^(1/p^∞),Y^(1/p^∞)]` in degree zero. In characteristic `p`,
+  derived `p`-completion is the identity on these rings.
+- `perfectoidTensorHypothesis` — If the base is instead `𝔽_p[X]` and both
+  factors are `𝔽_p` via `X↦0`, the resolution with differential multiplication
+  by X becomes a zero differential after tensoring. Its `H^(−1)=𝔽_p` survives
+  `p`-completion. Thus even perfect factors do not permit an arbitrary base.
+  The polynomial differential and its specialization are Lean witnesses.
+
+**Fontaine base change** (`fontaine_tor_independence`). For any map `R → S`
+of integral perfectoid rings, the natural map
+`R ⊗^L_(A_inf(R)) A_inf(S) → S` is an equivalence, using the natural Witt
+map and the ordinary quotient maps `θ_R` and `θ_S`. Equivalently, the Fontaine square
+is a derived pushout; all its positive Tor groups vanish. This is a distinct
+statement from the completed tensor theorem.
+
+*Proof route.* Handle zero source or target separately. Otherwise use §0.2's generator ξ of `ker θ_R`. Its image generates
+`ker θ_S` and is a nonzerodivisor there. The two-term free resolution
+`[A_inf(R) →ξ A_inf(R)]` remains a resolution after base change; its cokernel
+is S. Hence no completion or assumed flatness of `A_inf(R) → A_inf(S)` is
+needed. This gives precisely the base-change premise of §0.3's cotangent
+argument. Source: BMS1 Lemma 3.13, p.24, at length one, with the θ variant
+explicitly included in its proof; Lemma 3.14, p.24, is the application.
+
+**Checks.**
+
+- `fontaineSquareIdentity` — For `R=S`, this is tensoring a quotient resolution
+  with its original base, giving R in degree zero.
+- `fontaineSquareCharP` — For a map of perfect `𝔽_p`-algebras `k → l`, the
+  resolution is multiplication by p on `W(k)`; after base change to `W(l)`,
+  p remains a nonzerodivisor and the quotient is l.
+- `fontaineSquareProduct` — For `R=k×l → S=k`, with perfect characteristic-`p`
+  factors, Witt vectors split as a product and ξ=p projects to p. The assertion
+  covers this noninjective map, as well as a zero target.
+
+**Complete étale δ-extension** (`delta_etale_extension`). Let A be a δ-ring
+and `I ⊂ A` a finitely generated ideal containing p. Let B be an ordinary
+A-algebra that is derived I-complete and I-completely étale: the derived
+reduction `B ⊗^L_A A/I` is discrete and étale over `A/I`. There is a unique
+δ-structure on B making `A → B` a δ-map. Uniqueness is for the actual
+p-derivation, including on rings with p-torsion; a lift of Frobenius alone
+does not specify such a structure. The result is natural in complete étale
+maps. Basic δ-identities and the δ-ring carrier come from P4.15.2.
+
+The following supporting statements belong to this target, rather than being
+unspecified completion interfaces.
+
+- `completeEtale_algebraization`: under the displayed hypotheses on B, there
+  is an étale A-algebra B′ with `(B′)^∧_I ≃ B`, using derived completion.
+  Lift the finitely presented étale algebra `B ⊗^L_A A/I` to an étale
+  A-algebra by lifting a standard smooth presentation and inverting its
+  Jacobian determinant (Stacks, Lemma 10.143.10, tag `04D1`). Formal étaleness
+  identifies the compatible lifts on the derived nilpotent reduction tower;
+  derived completeness then identifies the derived completions. Use P4.15.1's
+  derived tower and derived Nakayama, without replacing derived completion by
+  the ordinary inverse limit over `A/I^n` for unbounded torsion. B′ need not be
+  unique, and this is not an algebraization assertion for arbitrary complete
+  smooth or finite algebras.
+- `delta_witt2_etale`: for any étale map `A → B′`, `W₂(A) → W₂(B′)` is étale.
+  The length-two ghost map `(x₀,x₁) ↦ (x₀,x₀^p+p x₁)` has image
+  `A ×_(A/p) A`, with Frobenius on the first map to `A/p`, and kernel
+  `V(A[p])` of square zero. Étale gluing for this fibre product, invariance
+  under square-zero thickenings and the relative Frobenius isomorphism for an
+  étale characteristic-`p` map prove the assertion: after lifting the étale
+  ghost-image algebra across the square-zero kernel, flatness and relative
+  Frobenius identify its kernel with `V(B′[p])`, so the lift is `W₂(B′)`.
+  This is the length-two
+  case of Borger, Proposition 8.1, pp.35–36, Proposition 8.3 and Remark 8.4,
+  pp.37–38, and Theorem 9.2, pp.38–40 (his `W₁` has two coordinates).
+  This argument does not declare the whole Verschiebung ideal square zero.
+
+*Proof route.* Express a δ-structure as a section `w_A : A → W₂(A)` of
+zeroth coordinate, `a ↦ (a,δ(a))`. Choose B′ by `completeEtale_algebraization`
+and apply `delta_witt2_etale`. The exact sequence of A-modules
+`0 → φ_*B′ → W₂(B′) → B′ → 0`, using `w_A` for the A-action, compares
+its derived I-completion with `W₂(B)`. The ideals `I` and `φ(I)` have the
+same radical because `p ∈ I` and `φ(a) ≡ a^p mod p`; thus their derived
+completion functors agree. Zeroth coordinate `W₂(B) → B` is a
+pro-infinitesimal thickening in this complete setting. Formal étaleness gives
+the unique compatible lift `B′ → W₂(B)` of `B′ → B`; completeness extends
+it uniquely to a section `B → W₂(B)`. This proves existence and uniqueness
+without dividing by p. Continuity uses `δ(I^(2^(n+1))) ⊂ I^(2^n)`; include
+the resulting unique extension to classical I-adic completion as well.
+Sources: BS Lemmas 2.17–2.18, pp.17–18, including the derived-completion
+argument and its stated algebraization input.
+
+Include `delta_derivedCompletion`: for every finitely generated ideal I of a
+δ-ring A containing a power of p, the derived I-completion of A inherits the
+unique compatible δ-structure. Here `(I,p)` and I have the same radical, so
+one can use `(I,p)` in the preceding argument for the completed identity map.
+If the completion is not discrete, the statement uses animated δ-rings and
+uniqueness means a contractible space of compatible extensions; the Witt-section
+argument is applied on the animated carrier. No discreteness assertion is
+part of this corollary. This is the consequence following BS Lemma 2.18, p.17;
+the classical completion statement above is separate.
+
+**Perfect-prism application** (`perfectPrism_completeEtale_lift`). For a
+perfect prism `(A,J)` and a derived p-complete, p-completely étale
+`A/J`-algebra S, there is a unique `(p,J)`-complete étale lift B over A,
+up to unique isomorphism with its specified reduction. It has the unique
+compatible δ-structure, is perfect, and `(B,JB)` is a perfect prism with
+`B/JB ≃ S`. In particular S is integral perfectoid. Construct the complete
+étale lift by the preceding algebraization and nilpotent lifting argument,
+apply `delta_etale_extension` at `(p,J)`, and use the relative Frobenius
+isomorphism modulo p and completeness to prove perfectness. The prism ideal
+remains Cartier by complete flatness. Sources: ALB Proposition 2.1.8,
+Remark 2.1.9 and Corollary 2.1.10, pp.13–14; Remark 2.1.9 permits the θ
+convention used here. This application supplies §0.6, without adding a
+complete étale theorem to P4.15.1.
+
+**Checks.**
+
+- `deltaEtaleIdentity` — For `B=A` with A derived I-complete, the only
+  extension is the given δ. On `A=ℤ₂`, `φ=id` forces `δ(2)=−1`.
+  The corresponding Witt arithmetic and Frobenius identity are Lean witnesses.
+- `deltaEtaleProduct` — For derived I-complete A and `B=A×A`, δ is coordinatewise and is preserved by
+  the projections. For a perfect prism the lifted prism is the product prism;
+  this checks naturality and the ideal extension, not just existence.
+- `deltaCompletion` — Completing `ℤ_(p)` along `(p²)` or `(p)` gives
+  `ℤ_p` with `φ=id` and the same δ. This checks the power-of-p hypothesis
+  in the derived-completion corollary, without requiring `p ∈ (p²)`.
+- `deltaEtaleLocalization` — Take `A=ℤ_p[X]`, `φ(X)=X^p`, `I=(p)` and
+  `B=(A[1/X])^∧_p`. Its extension has `φ(X^(-1))=X^(-p)` and
+  `δ(X^(-1))=0`. This checks that B′ is étale but need not be finite.
+- `deltaEtaleHypothesis` — On `ℤ₂⟨X⟩`, the two continuous lifts
+  `φ₀(X)=X²` and `φ₁(X)=X²+2` give different δ-structures over `ℤ₂`,
+  with `δ₀(X)=0` and `δ₁(X)=1`. Their reductions agree modulo 2; this
+  algebra is completely smooth, not completely étale. The polynomial images
+  and their equal reductions are Lean witnesses to the failed uniqueness.
+- `deltaWittKernel` — Over `ℤ`, `V(1)²` has coordinate one p, so the full
+  Verschiebung ideal is not square zero. Over `𝔽₂`, `W₂(𝔽₂)` has a
+  nonzero element 2 with square zero; replacing it by the product of ghost
+  coordinates would give the wrong ring. Both p=2 computations are in Lean.
 
 ### 0.1 Integral rings, units and characteristic p
 
@@ -497,9 +675,8 @@ cotangent vanishing; BMS2 Proposition 4.19(2), pp.22–23, for the absolute
 cotangent calculation. Prerequisites for the Witt lemmas are the baseline
 Teichmüller expansion, Witt coordinate divisibility, injectivity of Frobenius
 and cancellation of `p` in `W(k)`. The perfectoid application uses the kernel
-generator criterion. Cotangent statements additionally import
-`PrismaticCohomology:PR.0/perfectoid-tor-independence`,
-PerfectoidSpaces P0.19 and
+generator criterion. Cotangent statements additionally use the local
+`fontaine_tor_independence` of §0.0, PerfectoidSpaces P0.19 and
 PerfectoidSpaces P4.15.1. The full derived complex and the shift convention are essential to both assertions.
 
 **Checks.**
@@ -711,9 +888,10 @@ PerfectoidSpaces P4.15.1; root-stable quotients use
 the Fontaine criterion and quotient/completion transport. Products use the
 torsion bound, Witt functoriality and perfection of products. Sharp
 completions use the torsion decomposition and the finite-ideal separation
-criterion. The étale route additionally imports
-`PrismaticCohomology:PR.0/delta-etale-extension`, its complete algebraization
-interface and P4.15.1's complete-étale comparisons.
+criterion. The étale route additionally uses §0.0's
+`delta_etale_extension`, `completeEtale_algebraization` and
+`perfectPrism_completeEtale_lift`. P4.15.1 supplies only the generic completion
+operations in that argument.
 
 ### 0.7 The fixed-field integral model
 
@@ -747,7 +925,8 @@ root closure in a fixed ambient ring from ordinary integral closure.
 
 Mathlib’s completion, quotient, localization, inverse-perfection and Witt APIs;
 P0.19 for the full cotangent complex, P4.15.1 for completion transport;
-`PR.0` for the stated additional Tor/étale interfaces, and §0.2 for finite Witt and Fontaine maps. The fixed-field model
+§0.0 for the locally owned Tor/étale theorems and §0.2 for finite Witt and
+Fontaine maps. The fixed-field model
 uses the specified `P0` almost-elements and `P1` powerbounded contracts.
 
 ## Layer 1: relative covers and almost root extensions
@@ -782,7 +961,7 @@ regular-ring applications.
 Sources: Bhatt–Scholze Examples 7.12–7.13, proof and footnote 12, p.61.
 Prerequisites are P4.15.3's smooth and derived Hodge–Tate comparisons,
 P4.15.4's quasisyntomic lifting, Layer 0's relative cotangent theorem,
-`PrismaticCohomology:PR.0/delta-etale-extension`, and P4.15.1's
+§0.0's `delta_etale_extension`, and P4.15.1's
 complete-flatness and completion exchanges.
 
 ### 1.2 The modulo-p ind-syntomic refinement
@@ -1049,7 +1228,10 @@ radical formula is compared. No new perfectoidization carrier is constructed.
 
 ## Downstream consumers
 
-`AInfCohomology`, `PrismaticCohomology` and `PadicHodgeTheory` use the additional
+The bundle order is `PerfectoidQuotients → AInfCohomology →
+PrismaticCohomology → PadicHodgeTheory`. These downstream consumers use §0.0's
+`perfectoid_tor_independence` and `delta_etale_extension` (with their supporting
+Fontaine-square and complete étale lifting targets), as well as the additional
 Fontaine-generator, torsion and completed-operation results. The full cotangent
 and torsion-removal calculations support derived de Rham applications. The
 fixed-field root extensions provide almost faithfully flat monic-root covers
@@ -1070,7 +1252,14 @@ of each locator.
   The prism interfaces are §§2–4, with perfection and initiality milestones
   at pp.31–39; smooth comparison is §§4–6,
   pp.38–54; initial prisms, perfectoidization, covers and André's theorem
-  are §7, pp.55–62.
+  are §7, pp.55–62. The local Tor and δ-extension proofs use Lemmas
+  2.17–2.18, pp.17–18, and the pushout argument in Lemma 10.3, pp.78–79.
+- **BS17**: Bhargav Bhatt and Peter Scholze, *Projectivity of the Witt vector
+  affine Grassmannian*, [arXiv:1507.06490v3](https://arxiv.org/pdf/1507.06490v3),
+  Lemma 3.16, p.14 (the perfect-characteristic-`p` input supplied by E1).
+- **Borger**: James Borger, *The basic geometry of Witt vectors, I: The affine
+  case*, [author PDF](https://maths-people.anu.edu.au/~borger/papers/05/bgwvI.pdf),
+  §§8–9, pp.35–40, especially Theorem 9.2; truncation index one means length two.
 - **BMS1**: Bhargav Bhatt, Matthew Morrow and Peter Scholze, *Integral
   p-adic Hodge theory*, [arXiv:1602.03148v3](https://arxiv.org/pdf/1602.03148v3).
   The relevant algebra is §3, pp.19–27.
@@ -1103,6 +1292,7 @@ of each locator.
   [author version dated 14 April 2026](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf),
   Definitions 5.6–5.7 and Theorem 5.8, pp.24–25.
 - **Stacks Project**: The Stacks Project Authors,
+  [étale lifting, tag 04D1](https://stacks.math.columbia.edu/tag/04D1),
   [Derived completion, tag 091N](https://stacks.math.columbia.edu/tag/091N),
   [criterion 091P](https://stacks.math.columbia.edu/tag/091P),
   [ordinary/derived comparison 091T](https://stacks.math.columbia.edu/tag/091T),
