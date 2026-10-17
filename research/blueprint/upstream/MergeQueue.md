@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-17T21:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-17T21:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #944 DerivedModuleAlgebra — ready
@@ -173,5 +173,5 @@ Generated 2026-10-17T21:00Z from the README supplier graph of every open pull re
 - #1075 PotentialModularityAndCompatibleSystems — draft; waits on #1001, #1005, #1006, #1007, #1013, #1019, #1034, #1037, #1062, #1066, #1071, #785, #792, #848, #849, #850, #852, #853, #856, #858, #879, #920, #923, #928, #931, #933, #970, #999
 
 ## Wave 32
-- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1006, #1007, #1018, #1020, #1034, #1071, #1075, #848, #850, #856, #871, #873, #913, #920, #923, #931, #933
+- #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1004, #1006, #1007, #1018, #1020, #1034, #1071, #1075, #848, #850, #852, #856, #871, #873, #913, #920, #923, #931, #933
 - #1081 PotentialAutomorphyInfrastructure — draft; waits on #1006, #1019, #1034, #1075, #785, #856, #871, #924, #925, #999
