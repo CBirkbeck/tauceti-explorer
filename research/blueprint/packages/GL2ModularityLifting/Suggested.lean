@@ -1,6 +1,8 @@
 import Mathlib
 import TauCeti.NumberTheory.NumberField.Global.Approximation.Weak
 import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.UpperTriangular.Solvable
+import TauCeti.NumberTheory.Multiquadratic.Prime.Discriminant.Basic
+import TauCeti.NumberTheory.Multiquadratic.Cyclotomic.GaussSum
 
 /-!
 # GL₂ modularity lifting: representative target signatures
@@ -19,8 +21,9 @@ Design choices.
   map to a field `k` of characteristic different from two it can be read on the reduction
   (`odd_det_of_odd_reduction`); in characteristic two it cannot, and the examples of Layer 6 pin
   this.
-* `pStar p` is the integer `(-1) ^ ((p - 1) / 2) * p`; for an odd prime it is `1` modulo `4`, and
-  `ℚ(√p*)` is then the quadratic subfield of `ℚ(ζ_p)`.
+* The signed prime `p* = (-1) ^ ((p - 1) / 2) * p` is Tau Ceti's
+  `TauCeti.Multiquadratic.oddPrimeDiscriminant`, used only for odd primes `p`; Tau Ceti already
+  proves `p* ≡ 1 (mod 4)` and that a primitive `p`-th root of unity yields a square root of `p*`.
 * Hodge–Tate weights are normalised by `HT(ε) = 1`; distinct weights `a < b` normalise to
   `{0, k − 1}` with `k = b − a + 1` (`normalizedWeight`).
 * Pan's good components (Layer 10) are stated on concrete data: a family of subsets of a point
@@ -80,29 +83,25 @@ example : Matrix.det !![(1 : ZMod 2), 0; 0, -1] = 1 := by
 example : Matrix.det (-1 : Matrix (Fin 2) (Fin 2) ℤ) = 1 := by
   simp [Matrix.det_fin_two]
 
-/-! ## Layer 7: Statement table and normalisations over ℚ -/
+/-! ## Layer 7: Statement table and normalisations over ℚ
 
-/-- The signed prime `p* = (−1)^((p − 1)/2) · p` (§7.1). -/
-def pStar (p : ℕ) : ℤ := (-1) ^ ((p - 1) / 2) * (p : ℤ)
+The signed prime `p*` of the residual hypothesis over `ℚ(√p*)` is Tau Ceti's
+`oddPrimeDiscriminant`; the examples pin its sign convention. -/
 
-/-- The sign does not change the absolute value. -/
-theorem pStar_natAbs (p : ℕ) : (pStar p).natAbs = p := by
-  sorry
+#check @TauCeti.Multiquadratic.oddPrimeDiscriminant_mod_four_eq_one
+#check @TauCeti.Multiquadratic.exists_mem_sq_eq_oddPrimeDiscriminant
 
-/-- For an odd prime, `p* ≡ 1 (mod 4)`: this is why `ℚ(√p*)` is unramified at `2` and is the
-quadratic subfield of `ℚ(ζ_p)`. -/
-theorem pStar_emod_four {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) : pStar p % 4 = 1 := by
-  sorry
+/-- `3* = −3`, so the residual hypothesis at `p = 3` is over `ℚ(√−3) = ℚ(ζ₃)`. -/
+example : TauCeti.Multiquadratic.oddPrimeDiscriminant 3 = -3 := by decide
 
-example : pStar 3 = -3 := by norm_num [pStar]
-example : pStar 5 = 5 := by norm_num [pStar]
-example : pStar 7 = -7 := by norm_num [pStar]
-/-- The expression is total; the statements about `ℚ(√p*)` assume an odd prime, and at `2` the
-congruence modulo `4` fails. -/
-example : pStar 2 = 2 ∧ pStar 2 % 4 ≠ 1 := by norm_num [pStar]
+/-- `5* = 5`: the sign is not always negative. -/
+example : TauCeti.Multiquadratic.oddPrimeDiscriminant 5 = 5 := by decide
+
+/-- At `p = 2` the definition gives `−2`, not `(−1)^0 · 2 = 2`; it is used only for odd `p`. -/
+example : TauCeti.Multiquadratic.oddPrimeDiscriminant 2 = -2 := by decide
 
 /-- The normalised weight `k = b − a + 1` of a representation with Hodge–Tate weights `a < b`
-(§7.7): twisting by `ε^{−a}` moves the weights to `{0, k − 1}`. -/
+(§7.6): twisting by `ε^{−a}` moves the weights to `{0, k − 1}`. -/
 def normalizedWeight (a b : ℤ) : ℤ := b - a + 1
 
 /-- Twisting by a power of the cyclotomic character shifts both weights and leaves `k` fixed. -/
@@ -119,7 +118,7 @@ example : normalizedWeight 0 1 = 2 := by norm_num [normalizedWeight]
 /-- Equal weights (a weight-one form) give `k = 1`, outside the lifting theorems. -/
 example : normalizedWeight 4 4 = 1 := by norm_num [normalizedWeight]
 
-/-- The oddness bridge of §7.11: over a domain, an involution whose reduction to a field of
+/-- The oddness bridge of §7.10: over a domain, an involution whose reduction to a field of
 characteristic different from two has determinant `−1` has determinant `−1`. -/
 theorem odd_det_of_odd_reduction {R k : Type*} [CommRing R] [IsDomain R] [Field k]
     (φ : R →+* k) (c : Matrix (Fin 2) (Fin 2) R) (hc : c * c = 1)
@@ -180,13 +179,18 @@ example (components : I → Set X) (nice : Set X) (i : I) :
   rintro ⟨j, ⟨x, -, hx, -⟩, -⟩
   exact hx
 
-/-- The intermediate component of a two-edge chain is required: components `{0}`, `{0, 1}`,
-`{1, 2}` with nice points `{0, 1}` and seed `{0}` are all good. -/
+/-- Components `{0}`, `{0, 1}`, `{1, 2}` with nice points `{0, 1}` and seed `{0}` are all good;
+the third is reached from the second through the nice point `1`. -/
 example : ∀ i : Fin 3,
     panGoodComponent
       (fun j : Fin 3 => if j = 0 then ({0} : Set ℕ) else if j = 1 then {0, 1} else {1, 2})
       {0, 1} {0} i := by
-  sorry
+  intro i
+  fin_cases i
+  · exact ⟨0, ⟨0, by simp, by simp, by simp⟩, Relation.ReflTransGen.refl⟩
+  · exact ⟨1, ⟨0, by simp, by simp, by simp⟩, Relation.ReflTransGen.refl⟩
+  · exact ⟨1, ⟨0, by simp, by simp, by simp⟩,
+      Relation.ReflTransGen.single ⟨1, by simp, by simp, by simp⟩⟩
 
 /-- A shared point that is not potentially nice does not propagate goodness: `{0, 1}` and
 `{1, 2}` meet only in `1`, which is not nice, so the second component is not good. -/
@@ -194,7 +198,16 @@ example :
     panGoodComponent (fun b : Bool => if b then ({1, 2} : Set ℕ) else {0, 1}) {0} {0} false ∧
       ¬ panGoodComponent (fun b : Bool => if b then ({1, 2} : Set ℕ) else {0, 1}) {0} {0}
         true := by
-  sorry
+  refine ⟨⟨false, ⟨0, by simp, by simp, by simp⟩, Relation.ReflTransGen.refl⟩, ?_⟩
+  rintro ⟨j, ⟨x, hxn, -, hxj⟩, hrel⟩
+  rcases Relation.ReflTransGen.cases_tail hrel with h | ⟨c, -, y, hyn, -, hyt⟩
+  · subst h
+    simp only [Set.mem_singleton_iff] at hxn
+    subst hxn
+    simp at hxj
+  · simp only [Set.mem_singleton_iff] at hyn
+    subst hyn
+    simp at hyt
 
 end GoodComponents
 
@@ -225,7 +238,9 @@ theorem panExtensionComponents_comp_subset {C : Type*} [CommRing C] (f : A →+*
 
 /-- A zero target detects no component. -/
 example [Subsingleton B] (f : A →+* B) : panExtensionComponents f = ∅ := by
-  sorry
+  refine Set.eq_empty_iff_forall_notMem.2 fun P hP => ?_
+  obtain ⟨Q, -⟩ := hP.2
+  exact Q.isPrime.ne_top (Subsingleton.elim _ _)
 
 /-- A minimal prime not containing the kernel is not detected. -/
 example (f : A →+* B) (P : PrimeSpectrum A) (hker : ¬ RingHom.ker f ≤ P.asIdeal) :
@@ -237,16 +252,29 @@ end ExtensionComponents
 /-!
 ## Targets stated in the README only
 
-Layers 1–6: minimal-level data, the deformation-to-Hecke map and its surjectivity, the framed
-Hecke algebra and module, auxiliary Taylor–Wiles levels and their freeness, the arithmetic
-patching data and the patched ring and module, the support and avoidance theorems, integral and
-generic-fibre R = T, the Khare–Wintenberger lifting theorems at odd primes and at 2, Kisin's
-potentially Barsotti–Tate theorems, the Fontaine–Laffaille, BCDT and crystalline lifting
-theorems, Khare–Wintenberger I Theorem 4.1 and Hypothesis (H). Layers 7–12: the four lifting
-propositions, the classification of geometric twists, Kisin's multiplicity criterion and the
-de Rham lifting theorems at odd primes and at 2, Pan's nice and potentially nice primes and his
-residually reducible theorem, the ordinary 3-adic completion, and the transfer statements along
-congruences.
+Their carriers (Galois representations of number fields with local conditions, Hilbert and
+quaternionic eigenforms, global and local deformation rings, patched modules, completed
+cohomology) are not in the pinned libraries, so the README states them with their intended
+signatures.
+
+* Layer 1: `MinimalLevelData`, `ResidualModularAlpha`, `ResidualModularBeta`, `defToHecke`,
+  `framedHecke`, `framedHeckeModule`, `defToHeckeFramed`; allowable base changes with prescribed
+  completions; surjectivity and faithfulness after framing.
+* Layer 2: `auxLevel`, `auxDelta`, `auxHecke`, `auxMaxIdeal`, `defToAuxHecke`, `twModule`;
+  freeness and control at Taylor–Wiles levels.
+* Layers 3–4: `PatchingDatum` (with `patchingRadius` above), the patched ring and module,
+  their support, finiteness of the minimal deformation ring, `avoidancePair`, integral and
+  generic-fibre `R = T`.
+* Layers 5–6: `StronglyResiduallyModular`, `bcdtHeckeModule`, `DyadicPatchingDatum`,
+  `dyadicPatchedRing`, `dyadicPatchedModule`, `dyadicTorusAction`; the Khare–Wintenberger,
+  Kisin, Fontaine–Laffaille, BCDT and crystalline lifting theorems, KW I Theorem 4.1 and
+  Hypothesis (H).
+* Layers 7–9: `OddPrimeLifting`, `DyadicLifting`, `ResiduallyReducibleLifting`,
+  `OrdinaryThreeLifting`, the classification of geometric twists, `patchedWeightFiltration`,
+  Kisin's multiplicity criterion and the de Rham lifting theorems at odd primes and at `2`.
+* Layers 10–12: `PanNicePrime`, `PanPotentiallyNicePrime` (with `panGoodComponent` and
+  `panExtensionComponents` above), Pan's residually reducible theorem, the ordinary `3`-adic
+  completion and the transfer statements along congruences.
 -/
 
 end TauCetiRoadmap.GL2ModularityLifting
